@@ -1,0 +1,8 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart
+00:00 +0: end score uses completed answers and real elapsed time
+00:00 +1: many mistakes show three before the complete list
+00:00 +2: perfect score omits mistakes and notes but keeps all questions
+00:00 +3: only real batch metadata can show a next ordinal
+00:00 +4: large text preserves reachable actions without overflow
+00:00 +5: elapsed time uses the immutable valid completion endpoint
+00:00 +6: All tests passed!

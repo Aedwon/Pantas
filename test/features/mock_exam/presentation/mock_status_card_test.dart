@@ -26,6 +26,15 @@ void main() {
 
     await tester.pumpApp(
       MockStatusCard(
+        availability: const MockAvailability.cooldown(Duration(days: 1)),
+        onStart: () {},
+        onResume: () {},
+      ),
+    );
+    expect(find.text('Next mock in 1 day'), findsOneWidget);
+
+    await tester.pumpApp(
+      MockStatusCard(
         availability: const MockAvailability.inProgress(null),
         onStart: () {},
         onResume: () {},

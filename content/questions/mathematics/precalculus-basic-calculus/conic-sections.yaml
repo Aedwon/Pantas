@@ -1,383 +1,392 @@
 meta:
-  subject: mathematics
-  topic: precalculus-basic-calculus
-  subtopic: conic-sections
-  exams: [upcat, acet, dlsucet, ustet, pupcet]
+  subject: 'mathematics'
+  topic: 'precalculus-basic-calculus'
+  subtopic: 'conic-sections'
+  exams: ['upcat', 'acet', 'dlsucet', 'ustet', 'pupcet']
 questions:
-  - id: q-precalculus-basic-calculus-conic-sections-0001
-    type: direct-computation
-    difficulty: easy
-    stem: |
-      Find the center and radius of the circle given by the equation $(x - 3)^2 + (y + 4)^2 = 25$.
-    choices:
-      - text: Center $(3, -4)$, radius $r = 5$
-        correct: true
-      - text: Center $(-3, 4)$, radius $r = 25$
-        rationale: |
-          You flipped the signs on both center coordinates and read $r^2 = 25$
-          as $r$. In standard form $(x - h)^2 + (y - k)^2 = r^2$, the center
-          is $(h, k)$. Here $h = 3$ and $k = -4$, and $r = \sqrt{25} = 5$.
-      - text: Center $(3, -4)$, radius $r = 25$
-        rationale: |
-          You found the center correctly but used $r^2$ instead of $r$. The
-          right side of the equation is $r^2 = 25$, so the radius is
-          $r = \sqrt{25} = 5$.
-      - text: Center $(-3, 4)$, radius $r = 5$
-        rationale: |
-          You got the radius right but flipped the signs on both center
-          coordinates. The form $(x - h)^2$ means $h = 3$ (positive), and
-          $(y + 4)^2 = (y - (-4))^2$ means $k = -4$.
-    explanation: |
-      In standard form $(x - h)^2 + (y - k)^2 = r^2$, the center is $(h, k)$ and the radius is $r$.
-      Here $h = 3$, $k = -4$, and $r = \sqrt{25} = 5$, giving center $(3, -4)$ and radius $r = 5$.
-
-  - id: q-precalculus-basic-calculus-conic-sections-0002
-    type: which-is-true
-    difficulty: easy
-    stem: |
-      Which conic section is represented by the general equation $4x^2 + 4y^2 - 8x + 16y - 5 = 0$?
-    choices:
-      - text: Circle
-        correct: true
-      - text: Parabola
-        rationale: |
-          You saw a quadratic equation and guessed parabola. A parabola has
-          only one squared variable. This equation has both $x^2$ and $y^2$,
-          which rules out a parabola.
-      - text: Ellipse
-        rationale: |
-          You saw two squared terms and thought ellipse. An ellipse requires
-          $A \ne C$. Here $A = C = 4$, so both squared terms have the same
-          coefficient. That makes it a circle.
-      - text: Hyperbola
-        rationale: |
-          You may have looked for a minus sign between squared terms. Both
-          $x^2$ and $y^2$ here have the same positive coefficient, so they
-          are added, not subtracted. That is a circle, not a hyperbola.
-    explanation: |
-      In the general form $Ax^2 + Cy^2 + Dx + Ey + F = 0$, both squared terms are present and have equal coefficients ($A = C = 4$), which identifies the conic section as a circle.
-
-  - id: q-precalculus-basic-calculus-conic-sections-0003
-    type: direct-computation
-    difficulty: easy
-    stem: |
-      Find the vertex of the parabola $y = 2(x - 1)^2 + 3$.
-    choices:
-      - text: $(1, 3)$
-        correct: true
-      - text: $(-1, 3)$
-        rationale: |
-          You negated the $h$ value. The form is $y = a(x - h)^2 + k$, so
-          $x - 1 = 0$ gives $h = 1$, not $h = -1$.
-      - text: $(1, -3)$
-        rationale: |
-          You negated the $k$ value. In vertex form $y = a(x - h)^2 + k$,
-          $k$ is the $y$-coordinate exactly as written. The $+3$ means
-          $k = 3$, not $k = -3$.
-      - text: $(2, 3)$
-        rationale: |
-          You used the leading coefficient $a = 2$ as the $x$-coordinate.
-          The coefficient 2 controls how wide the parabola is. The vertex
-          $x$-coordinate comes from $x - h = 0$, which gives $h = 1$.
-    explanation: |
-      In vertex form $y = a(x - h)^2 + k$, the vertex is $(h, k)$. For $y = 2(x - 1)^2 + 3$, the vertex is $(1, 3)$.
-
-  - id: q-precalculus-basic-calculus-conic-sections-0004
-    type: which-is-true
-    difficulty: easy
-    stem: |
-      Which conic section is defined as the locus of all points in a plane such that the difference of their distances from two fixed points (foci) is constant?
-    choices:
-      - text: Hyperbola
-        correct: true
-      - text: Ellipse
-        rationale: |
-          You confused sum with difference. An ellipse is defined by a
-          constant sum of distances from two foci. A hyperbola uses the
-          constant difference instead.
-      - text: Parabola
-        rationale: |
-          You picked a conic with only one focus. A parabola is defined by
-          equal distance from one focus and one directrix. The definition
-          here involves two foci, which means it is a hyperbola or ellipse.
-      - text: Circle
-        rationale: |
-          You picked a shape with one center, not two foci. Every point on
-          a circle is the same distance from that one center. The definition
-          here needs two fixed points and a constant distance difference.
-    explanation: |
-      A hyperbola is defined by a constant distance difference $|d_1 - d_2| = 2a$. For an ellipse, the sum of distances is constant, while for a parabola, the distance to a focus equals the distance to a directrix.
-
-  - id: q-precalculus-basic-calculus-conic-sections-0005
-    type: direct-computation
-    difficulty: easy
-    stem: |
-      Determine the direction in which the parabola $x = -3(y + 2)^2 + 5$ opens.
-    choices:
-      - text: Left
-        correct: true
-      - text: Right
-        rationale: |
-          You saw a negative coefficient and guessed the wrong direction.
-          For a horizontal parabola $x = a(y - k)^2 + h$, a negative $a$
-          means the parabola opens left. Positive $a$ opens right.
-      - text: Down
-        rationale: |
-          You treated this as a vertical parabola. Because $x$ is isolated
-          on the left and $y$ is squared, the parabola is horizontal, not
-          vertical. The negative coefficient means it opens left.
-      - text: Up
-        rationale: |
-          You treated this as a vertical parabola and applied the wrong
-          rule. The equation has $x$ isolated, making the parabola
-          horizontal. A negative coefficient on $(y + 2)^2$ means it
-          opens left.
-    explanation: |
-      Since $x$ is expressed as a quadratic in $y$ ($x = a(y - k)^2 + h$), the parabola opens horizontally. Because $a = -3 < 0$, it opens to the left.
-
-  - id: q-precalculus-basic-calculus-conic-sections-0006
-    type: direct-computation
-    difficulty: medium
-    stem: |
-      Find the lengths of the major axis and minor axis for the ellipse $\frac{x^2}{16} + \frac{y^2}{9} = 1$.
-    choices:
-      - text: Major axis $= 8$, Minor axis $= 6$
-        correct: true
-      - text: Major axis $= 16$, Minor axis $= 9$
-        rationale: |
-          You read $a^2 = 16$ and $b^2 = 9$ directly as the axis lengths.
-          Those are squared values. Take the square roots first: $a = 4$,
-          $b = 3$. Then multiply by 2: major axis $= 8$, minor axis $= 6$.
-      - text: Major axis $= 4$, Minor axis $= 3$
-        rationale: |
-          You got $a = 4$ and $b = 3$ right but forgot to double them. The
-          axes span both sides of the center, so the full length is $2a = 8$
-          and $2b = 6$.
-      - text: Major axis $= 32$, Minor axis $= 18$
-        rationale: |
-          You multiplied $a^2$ and $b^2$ by 2 instead of $a$ and $b$.
-          First take square roots: $a = 4$, $b = 3$. Then double:
-          $2a = 8$, $2b = 6$.
-    explanation: |
-      Here $a^2 = 16 \implies a = 4$ and $b^2 = 9 \implies b = 3$.
-      Length of major axis $= 2a = 2(4) = 8$. Length of minor axis $= 2b = 2(3) = 6$.
-
-  - id: q-precalculus-basic-calculus-conic-sections-0007
-    type: direct-computation
-    difficulty: medium
-    stem: |
-      Find the focal distance $c$ (distance from center to either focus) for the ellipse $\frac{x^2}{25} + \frac{y^2}{9} = 1$.
-    choices:
-      - text: $c = 4$
-        correct: true
-      - text: $c = \sqrt{34}$
-        rationale: |
-          You used the hyperbola formula $c^2 = a^2 + b^2$ instead of the
-          ellipse formula. For an ellipse, the foci are inside the curve,
-          so $c^2 = a^2 - b^2 = 25 - 9 = 16$, giving $c = 4$.
-      - text: $c = 16$
-        rationale: |
-          You computed $c^2 = a^2 - b^2 = 16$ correctly but forgot to take
-          the square root. The focal distance is $c = \sqrt{16} = 4$.
-      - text: $c = 2$
-        rationale: |
-          You subtracted $\sqrt{a^2} - \sqrt{b^2} = 5 - 3 = 2$ instead of
-          using the relation $c^2 = a^2 - b^2$. The correct calculation is
-          $c = \sqrt{25 - 9} = \sqrt{16} = 4$.
-    explanation: |
-      For an ellipse, $a^2 = 25$ and $b^2 = 9$. The focal distance relation is $c^2 = a^2 - b^2$:
-      $c^2 = 25 - 9 = 16 \implies c = \sqrt{16} = 4$.
-
-  - id: q-precalculus-basic-calculus-conic-sections-0008
-    type: direct-computation
-    difficulty: medium
-    stem: |
-      Find the focal distance $c$ (distance from center to either focus) for the hyperbola $\frac{x^2}{16} - \frac{y^2}{9} = 1$.
-    choices:
-      - text: $c = 5$
-        correct: true
-      - text: $c = \sqrt{7}$
-        rationale: |
-          You used the ellipse formula $c^2 = a^2 - b^2$ instead of the
-          hyperbola formula. For a hyperbola, the foci are outside the
-          curve, so $c^2 = a^2 + b^2 = 16 + 9 = 25$, giving $c = 5$.
-      - text: $c = 25$
-        rationale: |
-          You computed $c^2 = a^2 + b^2 = 25$ correctly but forgot to take
-          the square root. The focal distance is $c = \sqrt{25} = 5$.
-      - text: $c = 7$
-        rationale: |
-          You used the ellipse formula $c^2 = a^2 - b^2 = 16 - 9 = 7$ and
-          then skipped the square root. The hyperbola formula is
-          $c^2 = a^2 + b^2 = 25$, so $c = 5$.
-    explanation: |
-      For a hyperbola, $a^2 = 16$ and $b^2 = 9$. The focal distance relation is $c^2 = a^2 + b^2$:
-      $c^2 = 16 + 9 = 25 \implies c = \sqrt{25} = 5$.
-
-  - id: q-precalculus-basic-calculus-conic-sections-0009
-    type: direct-computation
-    difficulty: medium
-    stem: |
-      Find the equations of the asymptotes for the hyperbola $\frac{x^2}{9} - \frac{y^2}{16} = 1$.
-    choices:
-      - text: $y = \pm \frac{4}{3}x$
-        correct: true
-      - text: $y = \pm \frac{3}{4}x$
-        rationale: |
-          You flipped the ratio. For a horizontal hyperbola $\dfrac{x^2}{a^2}
-          - \dfrac{y^2}{b^2} = 1$, the asymptotes are $y = \pm \dfrac{b}{a}x$.
-          Here $a = 3$ and $b = 4$, so the slope is $\dfrac{4}{3}$, not
-          $\dfrac{3}{4}$.
-      - text: $y = \pm \frac{16}{9}x$
-        rationale: |
-          You used $\dfrac{b^2}{a^2}$ instead of $\dfrac{b}{a}$. The asymptote
-          slope is the ratio of $b$ to $a$, not their squares. Take square
-          roots first: $a = 3$, $b = 4$, giving slope $\dfrac{4}{3}$.
-      - text: $y = \pm \frac{9}{16}x$
-        rationale: |
-          You used $\dfrac{a^2}{b^2}$ and inverted it. The asymptote slope
-          for a horizontal hyperbola is $\dfrac{b}{a} = \dfrac{4}{3}$.
-          Here $a^2 = 9$ and $b^2 = 16$, so $a = 3$ and $b = 4$.
-    explanation: |
-      For a horizontal hyperbola centered at $(0,0)$, $a^2 = 9 \implies a = 3$ and $b^2 = 16 \implies b = 4$.
-      The asymptote equations are $y = \pm \frac{b}{a}x = \pm \frac{4}{3}x$.
-
-  - id: q-precalculus-basic-calculus-conic-sections-0010
-    type: which-is-true
-    difficulty: medium
-    stem: |
-      Assume a nondegenerate real conic represented by the general second-degree equation $Ax^2 + Cy^2 + Dx + Ey + F = 0$ with no $xy$ term. Which coefficient condition identifies it as a hyperbola?
-    choices:
-      - text: $A$ and $C$ have opposite signs ($AC < 0$).
-        correct: true
-      - text: $A = C$ and both are non-zero.
-        rationale: |
-          You described the coefficient pattern for a circle. Under the
-          nondegenerate-conic assumption, a hyperbola instead requires the
-          two squared terms to have opposite signs.
-      - text: $A \neq C$ and both have the same sign ($AC > 0$).
-        rationale: |
-          You described the coefficient pattern for an ellipse. Under the
-          stated nondegenerate-conic assumption, a hyperbola requires one
-          positive and one negative squared-term coefficient, so $AC < 0$.
-      - text: Either $A = 0$ or $C = 0$, but not both.
-        rationale: |
-          You described the coefficient pattern for a parabola. Under the
-          nondegenerate-conic assumption, a hyperbola has both squared terms
-          present with opposite signs.
-    explanation: |
-      For a nondegenerate real conic with no $xy$ term, opposite signs on the squared-term coefficients ($AC < 0$) identify a hyperbola. The nondegeneracy condition matters: without it, an equation such as $x^2 - y^2 = 0$ factors into two intersecting lines instead of a hyperbola.
-
-  - id: q-precalculus-basic-calculus-conic-sections-0011
-    type: direct-computation
-    difficulty: hard
-    stem: |
-      Convert the circle equation $x^2 + y^2 - 6x + 4y - 12 = 0$ into standard form by completing the square, and find its radius.
-    choices:
-      - text: $(x - 3)^2 + (y + 2)^2 = 25$ with radius $r = 5$
-        correct: true
-      - text: $(x - 3)^2 + (y + 2)^2 = 12$ with radius $r = \sqrt{12}$
-        rationale: |
-          You moved 12 to the right side but forgot to add the completing-
-          square terms. Completing the square on $x$ adds 9 and on $y$ adds
-          4, so the right side is $12 + 9 + 4 = 25$, not 12.
-      - text: $(x + 3)^2 + (y - 2)^2 = 25$ with radius $r = 5$
-        rationale: |
-          You negated both center coordinates. Completing the square on
-          $x^2 - 6x$ gives $(x - 3)^2$, so $h = 3$. On $y^2 + 4y$ it
-          gives $(y + 2)^2$, so $k = -2$. The center is $(3, -2)$.
-      - text: $(x - 6)^2 + (y + 4)^2 = 25$ with radius $r = 5$
-        rationale: |
-          You used the full coefficients $-6$ and $4$ as the shifts instead
-          of halving them. To complete the square on $x^2 - 6x$, you add
-          $(-6/2)^2 = 9$ and get $(x - 3)^2$, not $(x - 6)^2$.
-    explanation: |
-      Group terms and complete the squares:
-      $(x^2 - 6x + 9) + (y^2 + 4y + 4) = 12 + 9 + 4$
-      $(x - 3)^2 + (y + 2)^2 = 25$.
-      Radius $r = \sqrt{25} = 5$.
-
-  - id: q-precalculus-basic-calculus-conic-sections-0012
-    type: direct-computation
-    difficulty: hard
-    stem: |
-      Find the vertex of the parabola $y = x^2 - 8x + 19$ by completing the square.
-    choices:
-      - text: $(4, 3)$
-        correct: true
-      - text: $(-4, 3)$
-        rationale: |
-          You negated the $h$ value. Completing the square gives
-          $y = (x - 4)^2 + 3$. The vertex form is $(x - h)^2$, so $h = 4$,
-          not $h = -4$.
-      - text: $(4, -3)$
-        rationale: |
-          You got $h = 4$ right but negated $k$. After completing the
-          square: $y = (x - 4)^2 - 16 + 19 = (x - 4)^2 + 3$. The vertex
-          $k$-value is $+3$, not $-3$.
-      - text: $(8, 19)$
-        rationale: |
-          You read the coefficient of $x$ and the constant term directly
-          from the original equation without completing the square. The
-          vertex is at $(h, k) = (4, 3)$ after completing the square:
-          $y = (x - 4)^2 + 3$.
-    explanation: |
-      Complete the square on $x$:
-      $y = (x^2 - 8x + 16) - 16 + 19 = (x - 4)^2 + 3$.
-      The vertex is $(h, k) = (4, 3)$.
-
-  - id: q-precalculus-basic-calculus-conic-sections-0013
-    type: direct-computation
-    difficulty: hard
-    stem: |
-      Find the coordinates of the foci of the ellipse $\frac{(x - 2)^2}{25} + \frac{(y + 1)^2}{16} = 1$.
-    choices:
-      - text: $(5, -1)$ and $(-1, -1)$
-        correct: true
-      - text: $(2, 2)$ and $(2, -4)$
-        rationale: |
-          You applied the vertical-axis formula $(h, k \pm c)$ to a
-          horizontal-axis ellipse. Since $a^2 = 25 > b^2 = 16$, the major
-          axis is horizontal, so the foci are at $(h \pm c, k) = (2 \pm 3,
-          -1)$, giving $(5, -1)$ and $(-1, -1)$.
-      - text: $(7, -1)$ and $(-3, -1)$
-        rationale: |
-          You used $a = 5$ instead of $c = 3$ as the offset from the
-          center. Those are the vertices, not the foci. The focal distance
-          is $c = \sqrt{a^2 - b^2} = \sqrt{25 - 16} = 3$.
-      - text: $(2, 4)$ and $(2, -6)$
-        rationale: |
-          You applied the vertical-axis formula and used $a = 5$ as the
-          offset instead of $c = 3$. The major axis is horizontal here,
-          and the correct focal distance is $c = 3$, not $a = 5$.
-    explanation: |
-      Center is $(h, k) = (2, -1)$. Since $a^2 = 25 > b^2 = 16$, the major axis is horizontal.
-      $c^2 = a^2 - b^2 = 25 - 16 = 9 \implies c = 3$.
-      Foci are located at $(h \pm c, k) = (2 \pm 3, -1)$, which gives $(5, -1)$ and $(-1, -1)$.
-
-  - id: q-precalculus-basic-calculus-conic-sections-0014
-    type: direct-computation
-    difficulty: hard
-    stem: |
-      Find the focus of the parabola $y^2 = 12x$.
-    choices:
-      - text: $(3, 0)$
-        correct: true
-      - text: $(0, 3)$
-        rationale: |
-          You swapped the coordinates. The equation $y^2 = 12x$ is a
-          horizontal parabola. Its focus is on the $x$-axis at $(p, 0)$,
-          not on the $y$-axis. Here $p = 3$, so the focus is $(3, 0)$.
-      - text: $(12, 0)$
-        rationale: |
-          You used 12 directly as $p$. The standard form is $y^2 = 4px$,
-          so $4p = 12$ gives $p = 3$. The focus is at $(p, 0) = (3, 0)$.
-      - text: $(-3, 0)$
-        rationale: |
-          You negated $p$. Because $p = 3 > 0$, the parabola opens to the
-          right and the focus is at $(+3, 0)$. A focus at $(-3, 0)$ would
-          mean the parabola opens left.
-    explanation: |
-      The standard equation for a horizontal parabola centered at the origin is $y^2 = 4px$.
-      Here $4p = 12 \implies p = 3$.
-      Since $p > 0$ and the parabola opens to the right, the focus is at $(p, 0) = (3, 0)$.
+- id: 'q-precalculus-basic-calculus-conic-sections-0001'
+  type: 'direct-computation'
+  difficulty: 'easy'
+  stem: |
+    Find the center and radius of the circle given by the equation $(x - 3)^2 + (y + 4)^2 = 25$.
+  choices:
+  - text: 'Center $(3, -4)$, radius $r = 5$'
+    correct: true
+  - text: 'Center $(-3, 4)$, radius $r = 25$'
+    rationale: |
+      This copies both shift signs and treats radius squared as radius. Both numbers occur in standard form. Read h and k from subtraction form and take the radius square root.
+  - text: 'Center $(3, -4)$, radius $r = 25$'
+    rationale: |
+      This treats radius squared as radius. Twenty-five is on the right side. Take the positive square root of the right side.
+  - text: 'Center $(-3, 4)$, radius $r = 5$'
+    rationale: |
+      This copies the signs inside the squares as center signs. The printed shift signs are easy to copy. Match each bracket to variable minus center coordinate.
+  explanation: |
+    Standard form is $(x-h)^2+(y-k)^2=r^2$. Here $h=3$, $k=-4$, and $r^2=25$. Take the positive square root to get radius $5$.
+- id: 'q-precalculus-basic-calculus-conic-sections-0002'
+  type: 'which-is-true'
+  difficulty: 'easy'
+  stem: |
+    Which most specific conic type is represented by the general equation $4x^2 + 4y^2 - 8x + 16y - 5 = 0$?
+  choices:
+  - text: 'Circle'
+    correct: true
+  - text: 'Parabola'
+    rationale: |
+      This ignores the second squared variable. A squared variable appears. Check whether both variables are squared.
+  - text: 'Ellipse'
+    rationale: |
+      This uses the broader ellipse class instead of the most specific type. Circles do satisfy the broader ellipse definition. Use the equal squared coefficients to identify the special case.
+  - text: 'Hyperbola'
+    rationale: |
+      This mistakes linear signs for squared-term signs. The linear y term is positive while the linear x term is negative. Check only the squared-term signs.
+  explanation: |
+    Divide by $4$ and complete both squares. The equation becomes $(x-1)^2+(y+2)^2=\dfrac{25}{4}$. This is a circle with a positive radius.
+- id: 'q-precalculus-basic-calculus-conic-sections-0003'
+  type: 'direct-computation'
+  difficulty: 'easy'
+  stem: |
+    Find the vertex of the parabola $y = 2(x - 1)^2 + 3$.
+  choices:
+  - text: '$(1, 3)$'
+    correct: true
+  - text: '$(-1, 3)$'
+    rationale: |
+      This copies the minus sign as the horizontal shift. The expression contains x minus one. Match x minus h to the vertex form.
+  - text: '$(1, -3)$'
+    rationale: |
+      This reverses the vertical shift. The shift sign inside the square is reversed in standard form. Read k from outside the square.
+  - text: '$(2, 3)$'
+    rationale: |
+      This treats the multiplier as the horizontal shift. Two is printed beside the square. Keep the coefficient separate from the shifts.
+  explanation: |
+    The vertex form is $y=a(x-h)^2+k$. Reading the two shifts gives $h=1$ and $k=3$. The vertex is $(1,3)$.
+- id: 'q-precalculus-basic-calculus-conic-sections-0004'
+  type: 'which-is-true'
+  difficulty: 'easy'
+  stem: |
+    Which conic section is defined as the locus of all points in a plane such that the difference of their distances from two fixed points (foci) is constant?
+  choices:
+  - text: 'Hyperbola'
+    correct: true
+  - text: 'Ellipse'
+    rationale: |
+      This confuses a fixed difference with a fixed sum. Both definitions use two foci. Check whether distances are added or subtracted.
+  - text: 'Parabola'
+    rationale: |
+      This replaces a second fixed point with a fixed line. Both definitions compare distances. Check whether both fixed objects are points.
+  - text: 'Circle'
+    rationale: |
+      This uses a single-center distance condition. A circle also has a fixed-distance definition. Count the fixed points in the definition.
+  explanation: |
+    A hyperbola is defined by a fixed nonzero absolute difference of distances to two foci, smaller than the distance between them. This distance-difference description identifies a hyperbola.
+- id: 'q-precalculus-basic-calculus-conic-sections-0005'
+  type: 'direct-computation'
+  difficulty: 'easy'
+  stem: |
+    Determine the direction in which the parabola $x = -3(y + 2)^2 + 5$ opens.
+  choices:
+  - text: 'Left'
+    correct: true
+  - text: 'Right'
+    rationale: |
+      This ignores the negative coefficient. The parabola opens horizontally. Track how x changes as the square grows.
+  - text: 'Down'
+    rationale: |
+      This assumes every negative quadratic opens downward. Negative coefficients often appear in downward parabolas. Check which variable is squared.
+  - text: 'Up'
+    rationale: |
+      This assumes the squared variable is always x. Many examples are written as y in terms of x. Check which variable is isolated.
+  explanation: |
+    Here x depends on a squared y term, so the parabola opens horizontally. The coefficient is negative. As $(y+2)^2$ increases, x decreases from $5$, so it opens left.
+- id: 'q-precalculus-basic-calculus-conic-sections-0006'
+  type: 'direct-computation'
+  difficulty: 'medium'
+  stem: |
+    Find the lengths of the major axis and minor axis for the ellipse $\dfrac{x^2}{16} + \dfrac{y^2}{9} = 1$.
+  choices:
+  - text: 'Major axis $= 8$, Minor axis $= 6$'
+    correct: true
+  - text: 'Major axis $= 16$, Minor axis $= 9$'
+    rationale: |
+      This reads squared semi-axis lengths as full lengths. The denominators are visible measurements. Take square roots before finding axis lengths.
+  - text: 'Major axis $= 4$, Minor axis $= 3$'
+    rationale: |
+      This reports semi-axes instead of full axes. The square roots are computed correctly. Double the semi-axis lengths.
+  - text: 'Major axis $= 32$, Minor axis $= 18$'
+    rationale: |
+      This doubles the denominators before taking square roots. Full axes do require doubling. Take square roots before doubling.
+  explanation: |
+    The denominators are squared semi-axis lengths. Their square roots are $4$ and $3$. Double these to get full axis lengths $8$ and $6$.
+- id: 'q-precalculus-basic-calculus-conic-sections-0007'
+  type: 'direct-computation'
+  difficulty: 'medium'
+  stem: |
+    Find the focal distance $c$ (distance from center to either focus) for the ellipse $\dfrac{x^2}{25} + \dfrac{y^2}{9} = 1$.
+  choices:
+  - text: '$c = 4$'
+    correct: true
+  - text: '$c = \sqrt{34}$'
+    rationale: |
+      This adds the squared semi-axis lengths as for a hyperbola. Both conics use a and b. Use subtraction for an ellipse.
+  - text: '$c = 16$'
+    rationale: |
+      This stops at c squared. Sixteen is a correct intermediate result. Take the positive square root.
+  - text: '$c = 2$'
+    rationale: |
+      This halves the focal distance unnecessarily. Axis lengths often require a factor two. Check that c already measures center to focus.
+  explanation: |
+    For an ellipse, $c^2=a^2-b^2$. Here $c^2=25-9=16$. Taking the positive square root gives $c=4$.
+- id: 'q-precalculus-basic-calculus-conic-sections-0008'
+  type: 'direct-computation'
+  difficulty: 'medium'
+  stem: |
+    Find the focal distance $c$ (distance from center to either focus) for the hyperbola $\dfrac{x^2}{16} - \dfrac{y^2}{9} = 1$.
+  choices:
+  - text: '$c = 5$'
+    correct: true
+  - text: '$c = \sqrt{7}$'
+    rationale: |
+      This subtracts as for an ellipse. Both conics have foci. Use addition for a hyperbola.
+  - text: '$c = 25$'
+    rationale: |
+      This stops at c squared. Twenty-five is a correct intermediate result. Take the positive square root.
+  - text: '$c = 7$'
+    rationale: |
+      This subtracts the squared semi-axis lengths and skips a square root. Seven comes from the difference of the denominators. Check both the conic formula and the requested quantity.
+  explanation: |
+    For a hyperbola, $c^2=a^2+b^2$. Thus $c^2=16+9=25$. Taking the positive square root gives $c=5$.
+- id: 'q-precalculus-basic-calculus-conic-sections-0009'
+  type: 'direct-computation'
+  difficulty: 'medium'
+  stem: |
+    Find the equations of the asymptotes for the hyperbola $\dfrac{x^2}{9} - \dfrac{y^2}{16} = 1$.
+  choices:
+  - text: '$y = \pm \dfrac{4}{3}x$'
+    correct: true
+  - text: '$y = \pm \dfrac{3}{4}x$'
+    rationale: |
+      This reverses b over a. Both a and b appear in the formula. Use vertical change over horizontal change.
+  - text: '$y = \pm \dfrac{16}{9}x$'
+    rationale: |
+      This uses squared axis values in the slope. Nine and sixteen are the stated denominators. Take the denominator square roots first.
+  - text: '$y = \pm \dfrac{9}{16}x$'
+    rationale: |
+      This reverses the ratio and uses squared values. Both denominators appear in the equation. Use the square roots in the correct ratio.
+  explanation: |
+    The positive x term makes the transverse axis horizontal. The semi-axis values are $a=3$ and $b=4$. The asymptotes are $y=\pm\dfrac ba x=\pm\dfrac43x$.
+- id: 'q-precalculus-basic-calculus-conic-sections-0010'
+  type: 'which-is-true'
+  difficulty: 'medium'
+  stem: |
+    Assume a nondegenerate real conic represented by the general second-degree equation $Ax^2 + Cy^2 + Dx + Ey + F = 0$ with no $xy$ term. Which coefficient condition identifies it as a hyperbola?
+  choices:
+  - text: '$A$ and $C$ have opposite signs ($AC < 0$).'
+    correct: true
+  - text: '$A = C$ and both are non-zero.'
+    rationale: |
+      This uses the equal-coefficient circle condition. Both variables are squared. Check whether the squared terms add or subtract.
+  - text: '$A \neq C$ and both have the same sign ($AC > 0$).'
+    rationale: |
+      This uses the same-sign ellipse condition. Both coefficients are nonzero and unequal. Check the sign pattern for a hyperbola.
+  - text: 'Either $A = 0$ or $C = 0$, but not both.'
+    rationale: |
+      This uses the one-squared-variable parabola condition. One squared term can identify another conic. Check that a hyperbola has two squared terms.
+  explanation: |
+    For a nondegenerate axis-aligned hyperbola, the squared terms have opposite signs. Thus one of A and C is positive and the other negative, giving $AC<0$.
+- id: 'q-precalculus-basic-calculus-conic-sections-0011'
+  type: 'direct-computation'
+  difficulty: 'hard'
+  stem: |
+    Convert the circle equation $x^2 + y^2 - 6x + 4y - 12 = 0$ into standard form by completing the square, and find its radius.
+  choices:
+  - text: '$(x - 3)^2 + (y + 2)^2 = 25$ with radius $r = 5$'
+    correct: true
+  - text: '$(x - 3)^2 + (y + 2)^2 = 12$ with radius $r = \sqrt{12}$'
+    rationale: |
+      This completes the squares without adding to the right side. The original right side is twelve. Add every completing-square amount on both sides.
+  - text: '$(x + 3)^2 + (y - 2)^2 = 25$ with radius $r = 5$'
+    rationale: |
+      This reverses the center signs. The magnitudes of the shifts are correct. Read signs from subtraction form.
+  - text: '$(x - 6)^2 + (y + 4)^2 = 25$ with radius $r = 5$'
+    rationale: |
+      This uses full linear coefficients as shifts. Six and four are the printed linear coefficients. Halve each linear coefficient before completing the square.
+  explanation: |
+    Group the variable terms: $(x^2-6x)+(y^2+4y)=12$. Add $9$ and $4$ to both sides. This gives $(x-3)^2+(y+2)^2=25$, so the radius is $\sqrt{25}=5$.
+- id: 'q-precalculus-basic-calculus-conic-sections-0012'
+  type: 'direct-computation'
+  difficulty: 'hard'
+  stem: |
+    Find the vertex of the parabola $y = x^2 - 8x + 19$ by completing the square.
+  choices:
+  - text: '$(4, 3)$'
+    correct: true
+  - text: '$(-4, 3)$'
+    rationale: |
+      This copies the negative linear coefficient into the shift sign. The linear term has a minus sign. Complete the square to read the horizontal shift.
+  - text: '$(4, -3)$'
+    rationale: |
+      This reverses the constant left after completing the square. Completing squares involves subtraction. Substitute the proposed x coordinate to verify y.
+  - text: '$(8, 19)$'
+    rationale: |
+      This copies coefficients as vertex coordinates. Eight and nineteen are in the original equation. Complete the square instead of copying coefficients.
+  explanation: |
+    Complete the square: $y=(x-4)^2+3$. The square is zero at $x=4$, giving $y=3$. The vertex is $(4,3)$.
+- id: 'q-precalculus-basic-calculus-conic-sections-0013'
+  type: 'direct-computation'
+  difficulty: 'hard'
+  stem: |
+    Find the coordinates of the foci of the ellipse $\dfrac{(x - 2)^2}{25} + \dfrac{(y + 1)^2}{16} = 1$.
+  choices:
+  - text: '$(5, -1)$ and $(-1, -1)$'
+    correct: true
+  - text: '$(2, 2)$ and $(2, -4)$'
+    rationale: |
+      This places the foci on the vertical axis. The focal distance is correct. Check which variable has the larger denominator.
+  - text: '$(7, -1)$ and $(-3, -1)$'
+    rationale: |
+      This uses the major semi-axis as the focal distance. Five is a visible semi-axis length. Use the focal-distance formula.
+  - text: '$(2, 4)$ and $(2, -6)$'
+    rationale: |
+      This uses the major semi-axis and the wrong axis direction. Five is a visible semi-axis length. Check both focal distance and major-axis direction.
+  explanation: |
+    The center is $(2,-1)$ and the larger denominator is under x. The focal distance satisfies $c^2=25-16=9$, so $c=3$. Move three units horizontally from the center to get $(5,-1)$ and $(-1,-1)$.
+- id: 'q-precalculus-basic-calculus-conic-sections-0014'
+  type: 'direct-computation'
+  difficulty: 'hard'
+  stem: |
+    Find the focus of the parabola $y^2 = 12x$.
+  choices:
+  - text: '$(3, 0)$'
+    correct: true
+  - text: '$(0, 3)$'
+    rationale: |
+      This places the focus on the vertical axis. Both axes can host a parabola focus. Check which variable is squared.
+  - text: '$(12, 0)$'
+    rationale: |
+      This uses the coefficient twelve directly as $p$. Twelve is the visible coefficient. Match the coefficient to $4p$.
+  - text: '$(-3, 0)$'
+    rationale: |
+      This reverses the opening direction. The focus can lie on either side for different parabolas. Check the sign of $p$.
+  explanation: |
+    The horizontal parabola form is $y^2=4px$, with focus $(p,0)$. Here $4p=12$, so $p=3$. The focus is $(3,0)$.
+- id: 'q-precalculus-basic-calculus-conic-sections-0015'
+  type: 'error-spotting'
+  difficulty: 'medium'
+  stem: |
+    A student changes $x^2+y^2+4x=5$ to $(x+2)^2+y^2=5$. Which correction preserves the equation?
+  choices:
+  - text: 'Change the right side to nine.'
+    correct: true
+  - text: 'Change the right side to one.'
+    rationale: |
+      This subtracts the square-completion amount. Moving terms sometimes changes signs. Check that four was added to the left.
+  - text: 'Change the center to $(2,0)$.'
+    rationale: |
+      This reverses the center sign. Two is in the bracket. Match the bracket to x minus h.
+  - text: 'Change the radius to five.'
+    rationale: |
+      This treats the original constant as a radius. Five is printed on the right. Check the completed equation and take a square root.
+  explanation: |
+    Completing $x^2+4x$ adds $4$. Add it to both sides to get $(x+2)^2+y^2=9$.
+  approved: false
+- id: 'q-precalculus-basic-calculus-conic-sections-0016'
+  type: 'word-problem'
+  difficulty: 'hard'
+  stem: |
+    A reflector has cross-section $y=-2(x-3)^2+8$, with coordinates in centimeters. What is its maximum height above the x-axis?
+  choices:
+  - text: '$8$ cm'
+    correct: true
+  - text: '$3$ cm'
+    rationale: |
+      This reports the horizontal vertex coordinate. The vertex uses both shifts. Check that height is the y coordinate.
+  - text: '$-2$ cm'
+    rationale: |
+      This reports the coefficient as the maximum. That coefficient controls opening direction. Check the vertical shift.
+  - text: '$18$ cm'
+    rationale: |
+      This ignores the minus sign when evaluating at zero. The square there is nine. Check that a negative squared term can only lower the height.
+  explanation: |
+    The squared term is nonnegative. Multiplying it by $-2$ makes it nonpositive, so y cannot exceed $8$. At $x=3$, the square is zero and y reaches $8$.
+  approved: false
+- id: 'q-precalculus-basic-calculus-conic-sections-0017'
+  type: 'which-is-true'
+  difficulty: 'hard'
+  stem: |
+    An ellipse has equation $\dfrac{(x+1)^2}{9}+\dfrac{(y-2)^2}{25}=1$. Which point is a major-axis vertex?
+  choices:
+  - text: '$(-1,7)$'
+    correct: true
+  - text: '$(4,2)$'
+    rationale: |
+      This puts the major vertex horizontally. Five is the correct major semi-axis. Check which variable has the larger denominator.
+  - text: '$(-1,5)$'
+    rationale: |
+      This uses the minor semi-axis as the vertical offset. Three is one semi-axis length. Check which length belongs to the major axis.
+  - text: '$(-1,27)$'
+    rationale: |
+      This uses the squared semi-axis as an offset. Twenty-five is the denominator. Take its positive square root first.
+  explanation: |
+    The center is $(-1,2)$. The larger denominator is $25$ under y, so the major axis is vertical with semi-axis $5$. Moving upward gives $(-1,2+5)=(-1,7)$.
+  approved: false
+- id: 'q-precalculus-basic-calculus-conic-sections-0018'
+  type: 'which-is-true'
+  difficulty: 'exam'
+  stem: |
+    Which point lies on the hyperbola $\dfrac{x^2}{9}-\dfrac{y^2}{16}=1$?
+  choices:
+  - text: '$(5,\dfrac{16}{3})$'
+    correct: true
+  - text: '$(3,4)$'
+    rationale: |
+      This uses both semi-axis lengths as one point. They define the reference rectangle. Substitute both coordinates in the hyperbola equation.
+  - text: '$(0,4)$'
+    rationale: |
+      This treats the subtracted y term as the opening term. Four is the y semi-axis. Check that the positive term is the x term.
+  - text: '$(9,0)$'
+    rationale: |
+      This reads the squared x semi-axis as a vertex coordinate. Nine is the denominator. Take its square root before identifying a vertex.
+  explanation: |
+    For this point, $\dfrac{x^2}{9}=\dfrac{25}{9}$ and $\dfrac{y^2}{16}=\dfrac{16}{9}$. Their difference is $\dfrac99=1$, so the point satisfies the equation.
+  approved: false
+- id: 'q-precalculus-basic-calculus-conic-sections-0019'
+  type: 'which-is-true'
+  difficulty: 'medium'
+  stem: |
+    What real graph is described by $x^2+y^2=0$?
+  choices:
+  - text: 'One point at the origin.'
+    correct: true
+  - text: 'A circle of radius one.'
+    rationale: |
+      This assumes equal squared coefficients guarantee a positive radius. Those coefficients do appear in circle form. Check the right side.
+  - text: 'Two perpendicular lines.'
+    rationale: |
+      This treats a sum of squares like a difference of squares. Both involve quadratic expressions. Check that real squares cannot cancel in a sum.
+  - text: 'No real points.'
+    rationale: |
+      This excludes zero when considering nonnegative squares. Positive squares cannot sum to zero. Check whether both coordinates can be zero.
+  explanation: |
+    Both squares are nonnegative. Their sum is zero only when both are zero. Thus the graph is the single point $(0,0)$.
+  approved: false
+- id: 'q-precalculus-basic-calculus-conic-sections-0020'
+  type: 'direct-computation'
+  difficulty: 'easy'
+  stem: |
+    Which equation represents a circle centered at the origin that passes through $(0,6)$?
+  choices:
+  - text: '$x^2+y^2=36$'
+    correct: true
+  - text: '$x^2+y^2=6$'
+    rationale: |
+      This uses the radius instead of its square. The given point is six units from the origin. Check the right side of circle standard form.
+  - text: '$x^2-y^2=36$'
+    rationale: |
+      This uses the hyperbola sign pattern. Both equations have squared coordinates. Check that a circle adds their squares.
+  - text: '$x^2+y^2=12$'
+    rationale: |
+      This doubles the radius instead of squaring it. Doubling gives the diameter. Check which quantity belongs on the right side.
+  explanation: |
+    The distance from the origin to $(0,6)$ is $6$, so the radius is $6$. Circle standard form uses $r^2=36$. Therefore $x^2+y^2=36$.
+  approved: false

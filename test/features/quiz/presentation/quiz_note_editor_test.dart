@@ -1,0 +1,294 @@
+import 'dart:async';
+
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/storage/domain/attempt.dart';
+import 'package:pantas/core/ui/components/floating_bar.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/selection_row.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/web/letter_shortcuts.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/features/quiz/presentation/quiz_note_editor.dart';
+
+import '../../../helpers/pump_app.dart';
+
+void main() {
+  for (final lettersOn in [true, false]) {
+    testWidgets(
+        'wide: 1 picks a reason only while Keyboard Shortcuts is on '
+        '(setting on: $lettersOn)', (tester) async {
+      debugWebPlatformOverride = true;
+      addTearDown(() => debugWebPlatformOverride = null);
+      tester.view
+        ..physicalSize = const Size(1440, 900)
+        ..devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      MistakeTag? saved;
+      await tester.pumpApp(
+        LetterShortcutsScope(
+          enabled: lettersOn,
+          child: QuizNoteEditor(
+            onCancel: () {},
+            onSave: (tag, note) async => saved = tag,
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      await tester.sendKeyEvent(LogicalKeyboardKey.digit1);
+      await tester.pump();
+      await tester.tap(find.text('Add Note'));
+      await tester.pumpAndSettle();
+      expect(saved, lettersOn ? MistakeTag.misread : isNull);
+    });
+  }
+
+  for (final dark in [false, true]) {
+    testWidgets('Remove uses destructive text color in dark mode: $dark',
+        (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: dark ? buildDarkTheme() : buildLightTheme(),
+          home: Scaffold(
+            body: QuizNoteEditor(
+              tag: MistakeTag.misread,
+              onCancel: () {},
+              onSave: (_, __) async {},
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      expect(
+        tester.widget<Text>(find.text('Remove')).style?.color,
+        dark ? const Color(0xFFE0706B) : const Color(0xFFD70015),
+      );
+    });
+  }
+
+  testWidgets('add note requires a reason and saves selected real value',
+      (tester) async {
+    MistakeTag? saved;
+    await tester.pumpApp(
+      QuizNoteEditor(
+        onCancel: () {},
+        onSave: (tag, note) async => saved = tag,
+      ),
+    );
+    expect(find.text('Why did you miss it?'), findsOneWidget);
+    expect(
+      tester
+          .widget<PantasButton>(find.widgetWithText(PantasButton, 'Add Note'))
+          .onPressed,
+      isNull,
+    );
+    await tester.tap(find.text('I misread'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Add Note'));
+    await tester.pumpAndSettle();
+    expect(saved, MistakeTag.misread);
+  });
+  for (final entry in [
+    ('I forgot', MistakeTag.slipped),
+    ("I didn't know", MistakeTag.unknown),
+  ]) {
+    testWidgets('${entry.$1} keeps the existing stored tag', (tester) async {
+      MistakeTag? saved;
+      await tester.pumpApp(
+        QuizNoteEditor(
+          tag: MistakeTag.misread,
+          onCancel: () {},
+          onSave: (tag, note) async => saved = tag,
+        ),
+      );
+      for (final label in [
+        'I misread',
+        'I forgot',
+        "I didn't know",
+        'Type my own',
+      ]) {
+        expect(find.text(label), findsOneWidget);
+      }
+      await tester.tap(find.text(entry.$1));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Update'));
+      await tester.pumpAndSettle();
+      expect(saved, entry.$2);
+    });
+  }
+  testWidgets('own words require text and trim only the saved note',
+      (tester) async {
+    String? saved;
+    MistakeTag? reason;
+    await tester.pumpApp(
+      QuizNoteEditor(
+        onCancel: () {},
+        onSave: (tag, note) async {
+          reason = tag;
+          saved = note;
+        },
+      ),
+    );
+    await tester.tap(find.text('Type my own'));
+    await tester.pumpAndSettle();
+    expect(
+      tester
+          .widget<PantasButton>(find.widgetWithText(PantasButton, 'Add Note'))
+          .onPressed,
+      isNull,
+    );
+    await tester.enterText(find.byType(TextField), '  Check the units.  ');
+    await tester.pump();
+    await tester.ensureVisible(find.text('Add Note'));
+    await tester.tap(find.text('Add Note'));
+    await tester.pumpAndSettle();
+    expect(reason, MistakeTag.other);
+    expect(saved, 'Check the units.');
+  });
+  testWidgets('edit supports explicit removal and retry preserves the draft',
+      (tester) async {
+    final results = <(MistakeTag?, String?)>[];
+    var fail = true;
+    await tester.pumpApp(
+      QuizNoteEditor(
+        tag: MistakeTag.other,
+        note: 'Old note',
+        onCancel: () {},
+        onSave: (tag, note) async {
+          if (fail) throw StateError('private diagnostic');
+          results.add((tag, note));
+        },
+      ),
+    );
+    expect(find.text('Update'), findsOneWidget);
+    await tester.tap(find.text('I misread'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Update'));
+    await tester.pumpAndSettle();
+    expect(find.text('Could not save your progress.'), findsOneWidget);
+    expect(find.textContaining('private diagnostic'), findsNothing);
+    fail = false;
+    await tester.tap(find.text('Try Again'));
+    await tester.pumpAndSettle();
+    expect(results, [(MistakeTag.misread, null)]);
+    await tester.tap(find.text('Remove'));
+    await tester.pumpAndSettle();
+    expect(results.last, (null, null));
+  });
+  testWidgets('pending save cannot submit twice or cancel', (tester) async {
+    var saves = 0;
+    var cancels = 0;
+    final pending = Completer<void>();
+    await tester.pumpApp(
+      QuizNoteEditor(
+        onCancel: () => cancels++,
+        onSave: (tag, note) {
+          saves++;
+          return pending.future;
+        },
+      ),
+    );
+    await tester.tap(find.text('I misread'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Add Note'));
+    await tester.pump();
+    await tester.tap(find.text('Add Note'));
+    await tester.tap(find.text('Cancel'));
+    expect(saves, 1);
+    expect(cancels, 0);
+    pending.complete();
+    await tester.pumpAndSettle();
+  });
+  testWidgets(
+      'unchanged note cannot update and returning to it disables Update',
+      (tester) async {
+    await tester.pumpApp(
+      QuizNoteEditor(
+        tag: MistakeTag.other,
+        note: 'Check the units',
+        onCancel: () {},
+        onSave: (_, __) async {},
+      ),
+    );
+    final update = find.widgetWithText(PantasButton, 'Update');
+    expect(tester.widget<PantasButton>(update).onPressed, isNull);
+    await tester.tap(find.text('I misread'));
+    await tester.pumpAndSettle();
+    expect(tester.widget<PantasButton>(update).onPressed, isNotNull);
+    await tester.tap(find.text('Type my own'));
+    await tester.pumpAndSettle();
+    expect(tester.widget<PantasButton>(update).onPressed, isNull);
+  });
+
+  testWidgets('selected reason uses the shared check animation',
+      (tester) async {
+    await tester
+        .pumpApp(QuizNoteEditor(onCancel: () {}, onSave: (_, __) async {}));
+    await tester.tap(find.text('I misread'));
+    await tester.pump();
+    final mark = find.descendant(
+      of: find.widgetWithText(RadioRow, 'I misread'),
+      matching: find.byKey(const ValueKey('selection-scale')),
+    );
+    double scale() => tester.widget<Transform>(mark).transform.storage[0];
+    // Radio README: the check pops over `dur-medium-3` (420 ms) from scale
+    // .4 (bundle.css `pn-pop` 0%) on `motion-enter`.
+    expect(scale(), closeTo(.4, .001));
+    await tester.pump(const Duration(milliseconds: 210));
+    expect(scale(), closeTo(.4 + .6 * PantasCurves.enter.transform(.5), .001));
+    await tester.pump(const Duration(milliseconds: 210));
+    expect(scale(), closeTo(1, .001));
+  });
+
+  testWidgets('ready action fades from disabled paint after the drawn delay',
+      (tester) async {
+    await tester
+        .pumpApp(QuizNoteEditor(onCancel: () {}, onSave: (_, __) async {}));
+    final colors = tester.element(find.byType(QuizNoteEditor)).colors;
+    await tester.tap(find.text('I misread'));
+    await tester.pump();
+    Color? background() => tester
+        .widget<TextButton>(
+          find.descendant(
+            of: find.widgetWithText(PantasButton, 'Add Note'),
+            matching: find.byType(TextButton),
+          ),
+        )
+        .style!
+        .backgroundColor!
+        .resolve(<WidgetState>{});
+    expectPaint(background()!, colors.fill);
+    await tester.pump(const Duration(milliseconds: 100));
+    expectPaint(background()!, colors.fill);
+    await tester.pump(const Duration(milliseconds: 100));
+    expectPaint(background()!, Color.lerp(colors.fill, colors.accentFill, .5)!);
+    await tester.pump(const Duration(milliseconds: 100));
+    expectPaint(background()!, colors.accentFill);
+  });
+
+  testWidgets('existing reason keeps the drawn frame and full Remove target',
+      (tester) async {
+    await tester.pumpApp(
+      QuizNoteEditor(
+        tag: MistakeTag.misread,
+        onCancel: () {},
+        onSave: (_, __) async {},
+      ),
+    );
+    expect(tester.getSize(find.byType(FloatingBar)).height, closeTo(318, .01));
+    expect(
+      tester.getSize(find.widgetWithText(TextButton, 'Remove')).height,
+      greaterThanOrEqualTo(44),
+    );
+  });
+}
+
+void expectPaint(Color actual, Color expected) {
+  expect(actual.a, closeTo(expected.a, 1e-9));
+  expect(actual.r, closeTo(expected.r, 1e-9));
+  expect(actual.g, closeTo(expected.g, 1e-9));
+  expect(actual.b, closeTo(expected.b, 1e-9));
+}

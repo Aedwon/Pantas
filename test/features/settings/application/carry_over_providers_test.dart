@@ -2,9 +2,13 @@ import 'dart:convert';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/features/home/application/study_remote_providers.dart';
+import 'package:pantas/features/home/data/study_api.dart';
 import 'package:pantas/features/settings/application/carry_over_providers.dart';
 
 import '../../../helpers/in_memory_database.dart';
@@ -97,5 +101,68 @@ void main() {
     final count = await container.read(carryableCountProvider('UPCAT').future);
 
     expect(count, 0);
+  });
+
+  group('on the web, where the server owns the study record', () {
+    ProviderContainer webContainer(StudyCallable call, {String? uid = 'u1'}) {
+      final container = ProviderContainer(
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          contentDatabaseProvider.overrideWithValue(contentDb),
+          studyUsesServerProvider.overrideWithValue(true),
+          studyApiProvider.overrideWithValue(StudyApi(call)),
+          authStateProvider.overrideWith(
+            (_) => Stream.value(
+              uid == null
+                  ? const AuthState.signedOut()
+                  : AuthState.anonymous(uid: uid),
+            ),
+          ),
+        ],
+      );
+      addTearDown(container.dispose);
+      return container;
+    }
+
+    test('the count is the server count, even with no local history', () async {
+      final calls = <Map<String, Object?>>[];
+      final names = <String>[];
+      final served = webContainer((name, data) async {
+        names.add(name);
+        calls.add(data);
+        return {'count': 37};
+      });
+
+      final count =
+          await served.read(carryableCountProvider('exam_cse_sub').future);
+
+      expect(count, 37);
+      expect(names, ['getCarryableCount']);
+      expect(calls.single, {'expectedUid': 'u1', 'examId': 'exam_cse_sub'});
+    });
+
+    test('a server count of zero stays zero', () async {
+      final served = webContainer((_, __) async => {'count': 0});
+
+      expect(
+        await served.read(carryableCountProvider('exam_cse_sub').future),
+        0,
+      );
+    });
+
+    test('a malformed reply or a failed call gives no prompt, no guess',
+        () async {
+      for (final reply in <Future<Object?> Function()>[
+        () async => {'count': 'many'},
+        () async => throw StateError('offline'),
+      ]) {
+        final served = webContainer((_, __) => reply());
+
+        expect(
+          await served.read(carryableCountProvider('exam_cse_sub').future),
+          0,
+        );
+      }
+    });
   });
 }

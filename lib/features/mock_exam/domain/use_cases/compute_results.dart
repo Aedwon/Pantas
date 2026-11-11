@@ -11,6 +11,7 @@ class ComputeMockResults {
     required int totalTimeSeconds,
     required bool wasStrict,
     required ScoreBands? scoreBands,
+    String? examId,
   }) {
     var scoreRaw = 0;
     var scoreTotal = 0;
@@ -21,6 +22,8 @@ class ComputeMockResults {
     for (final section in sample.sections) {
       var sectionCorrect = 0;
       var sectionTotal = 0;
+      var sectionWrong = 0;
+      var sectionBlank = 0;
       var retiredCount = 0;
       var sectionMaxAtSec = previousSectionMax;
 
@@ -46,6 +49,10 @@ class ComputeMockResults {
         if (isCorrect) {
           sectionCorrect += 1;
           scoreRaw += 1;
+        } else if (answer == null || answer.selectedIndex < 0) {
+          sectionBlank += 1;
+        } else {
+          sectionWrong += 1;
         }
         topicStats
             .putIfAbsent(question.topicId, () => _TopicStats(question.topicId))
@@ -58,6 +65,8 @@ class ComputeMockResults {
           name: section.name,
           correct: sectionCorrect,
           total: sectionTotal,
+          wrong: sectionWrong,
+          blank: sectionBlank,
           retiredCount: retiredCount,
           timeSeconds: sectionMaxAtSec - previousSectionMax,
         ),
@@ -65,7 +74,7 @@ class ComputeMockResults {
       previousSectionMax = sectionMaxAtSec;
     }
 
-    final percent = scoreTotal == 0 ? 0.0 : (scoreRaw / scoreTotal) * 100;
+    final percent = mockScorePercent(examId: examId, sections: sections);
     return MockResults(
       scoreRaw: scoreRaw,
       scoreTotal: scoreTotal,
@@ -74,6 +83,7 @@ class ComputeMockResults {
         scoreRaw: scoreRaw,
         scoreTotal: scoreTotal,
         scoreBands: scoreBands,
+        percent: percent,
       ),
       sections: List.unmodifiable(sections),
       topWeak: _topWeak(topicStats),
@@ -90,11 +100,12 @@ class ComputeMockResults {
     required int scoreRaw,
     required int scoreTotal,
     required ScoreBands? scoreBands,
+    double? percent,
   }) {
     if (scoreBands == null || scoreTotal == 0) return null;
-    final percent = (scoreRaw / scoreTotal) * 100;
-    if (percent >= scoreBands.passAtPercent) return ScoreBand.pass;
-    if (percent >= scoreBands.closeAtPercent) return ScoreBand.close;
+    final value = percent ?? (scoreRaw / scoreTotal) * 100;
+    if (value >= scoreBands.passAtPercent) return ScoreBand.pass;
+    if (value >= scoreBands.closeAtPercent) return ScoreBand.close;
     return ScoreBand.fail;
   }
 

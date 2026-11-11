@@ -32,7 +32,7 @@ void main() {
               source.contains('package:timezone/') ||
               source.contains('package:app_settings/');
       final allowed =
-          file.path.endsWith('flutter_local_notifications_gateway.dart');
+          file.path.endsWith('flutter_local_notifications_gateway_native.dart');
       if (importsPlugin && !allowed) offenders.add(file.path);
     }
 

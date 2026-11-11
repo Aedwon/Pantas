@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-geometry-triangles-0001	CORRECTED	SOLVED-MATCH	distractor;explanation;notes;format	HIGH	The old note claimed subtracting 120 from 90 gives positive 30; replaced the choice and note.
+q-geometry-triangles-0002	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-triangles-0003	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-triangles-0004	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-triangles-0005	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-triangles-0006	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-triangles-0007	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-triangles-0008	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-triangles-0009	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-triangles-0010	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-triangles-0011	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-triangles-0012	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-triangles-0013	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson does not teach the right-triangle altitude proportion; stem, choices and key retained.
+q-geometry-triangles-0014	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-triangles-0015	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	HIGH	The lesson does not teach area scaling; the old 9.6 note also claimed an inverted ratio produces it, which is false. Stem, choices and key retained.
+q-geometry-triangles-0016	NEW	NEW	new question	NONE	
+q-geometry-triangles-0017	NEW	NEW	new question	NONE	
+q-geometry-triangles-0018	NEW	NEW	new question	NONE	
+q-geometry-triangles-0019	NEW	NEW	new question	NONE	
+q-geometry-triangles-0020	NEW	NEW	new question	NONE	

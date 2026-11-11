@@ -1,0 +1,27 @@
+{
+  "base": "c140d5f24097c2337f775500a8fba703a5ec19c2",
+  "files_sha256": {
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-selected-tab-commands.json": "c7bcea669f8a964640fe8f0b6539b8341cc78c597a5089df574d8f226e7ef61f",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-selected-tab-final-identity.json": "28fd21d3dfcf6ce1f23d8019ee7b1ceaf98d61dedccfd668b1e35a1da855689d",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-selected-tab-green-0.txt": "e0fb6c286c2e0fd80cc6757de44d296a07b47865af0ec53a5961f7c2bdd9a53f",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-selected-tab-green-1.txt": "b7f8b2d18a631f4940cf23e6347d8f013efc313db1eac56c03e3177fa9397009",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-selected-tab-green-2.txt": "bc20ef291e0ec3ea2c730c39819d54be6e5f63010e6507acb7ba793885a7b6bb",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-selected-tab-green-3.txt": "8f3644fea2c36d5059300f8662cc26861bc595d3b165019b595f2ec5ee7a3341",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-selected-tab-green-4.txt": "1c99bcc7c260f185e67cdb6a9b6935f231f604b1296c12688c21e6e4bf37207d",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-selected-tab-green-5.txt": "b2c850e36db6ade24e26ac135a0093eadfaa1ebb2ecc2b1425c494088206802c",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-selected-tab-green-6.txt": "861589d89d5020422bd14a8850a4c879a8822872dc4de163eaaf54a916046b61",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-selected-tab-green-7.txt": "89baad91ee320cf2b9c0ab85616eba9add37f583408c740e296723a7906bbcdd",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-selected-tab-green-8.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-selected-tab-identity.json": "d86952a49dda8574bcf089fe682aa70f18256f9f00a3acf9e1a8034f742b47df",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-selected-tab-red.txt": "a231456348933ce100586f0b209d449f773fa2ea347f6d11b1f0cf81e7a958d9",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-selected-tab-style-0.txt": "c174e1ffcc56cb54f7c23bc9d7fe345f6686ce95d254e0cc1e1045c753b58e7e",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-selected-tab-style-1.txt": "bf3c0658a142d0d0655dd27c30739de4d4939226304702c4fc3814af65a413aa",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-selected-tab-style-commands.json": "805bdedbc93679ccc5048db86998a1b94709d29535c7b47987a58a8c2447c1bf",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-selected-tab-green-4.txt.gz": "9e0489df3410c1e27b59e9c0fd1ad9141983d64449ca58881a8b77f8d1f4aace",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-selected-tab-red.txt.gz": "2ac4c0444bce4612ca8e071e7e226923b86962c2bf196ca948b6821ad13c7d47",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-selected-tab-style-0.txt.gz": "0aafff0a1cf74922034eb0ac7dbbd039fb417e2b3d3a24cfd6eeb14aacdc2649",
+    "lib/features/quiz/presentation/practice_picker_screen.dart": "cd58dec5e9083a52f2510521bccb73d1f48594cc12ddc87a33341ea0fe60c4e3",
+    "test/features/quiz/presentation/practice_picker_screen_test.dart": "018dbcb42ac78fa45dd381b2c83adc258a083369361177de4e35ea3251633735",
+    "docs/superpowers/plans/new-design/evidence/W4d.md": "3eb372d70d32ac0becfdd97d75c89f39f9d1b693218b0b2c9cd2305b1ef40131"
+  }
+}

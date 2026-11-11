@@ -1,0 +1,91 @@
+
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_controller_test.dart: start() loads questions and transitions to running
+::group::❌ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_controller_test.dart: answer() records and stays, and next() ends the session (failed)
+type 'Null' is not a subtype of type 'Future<AnswerOutcome>'
+test/features/quiz/presentation/quiz_controller_test.dart 22:7         _MockSubmit.call
+package:pantas/features/quiz/presentation/quiz_controller.dart 565:60  QuizController.check
+package:pantas/features/quiz/presentation/quiz_controller.dart 542:11  QuizController.answer
+test/features/quiz/presentation/quiz_controller_test.dart 160:20       main.<fn>
+::endgroup::
+::group::❌ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_pick_check_test.dart: picks remain changeable and write only when checked (failed)
+type 'Null' is not a subtype of type 'Future<AnswerOutcome>'
+test/features/quiz/presentation/quiz_pick_check_test.dart 22:7         _Submit.call
+package:pantas/features/quiz/presentation/quiz_controller.dart 565:60  QuizController.check
+test/features/quiz/presentation/quiz_pick_check_test.dart 126:22       main.<fn>
+::endgroup::
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_pick_check_test.dart: Check without a valid ready pick never writes
+::group::❌ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_pick_check_test.dart: pending Check prevents another submission and changing the pick (failed)
+type 'Null' is not a subtype of type 'Future<AnswerOutcome>'
+test/features/quiz/presentation/quiz_pick_check_test.dart 22:7         _Submit.call
+package:pantas/features/quiz/presentation/quiz_controller.dart 565:60  QuizController.check
+test/features/quiz/presentation/quiz_pick_check_test.dart 161:32       main.<fn>
+===== asynchronous gap ===========================
+dart:async                                                             Future._asyncCompleteError
+test/features/quiz/presentation/quiz_pick_check_test.dart 161:32       main.<fn>
+Expected: true
+  Actual: <false>
+
+package:matcher                                                  expect
+package:flutter_test/src/widget_tester.dart 473:18               expect
+test/features/quiz/presentation/quiz_pick_check_test.dart 162:5  main.<fn>
+::endgroup::
+::group::❌ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_pick_check_test.dart: failed Check keeps the pick and permits retry (failed)
+Expected: throws <Instance of 'StateError'>
+  Actual: <Instance of 'Future<void>'>
+   Which: threw _TypeError:<type 'Null' is not a subtype of type 'Future<AnswerOutcome>'>
+          stack test/features/quiz/presentation/quiz_pick_check_test.dart 22:7         _Submit.call
+                package:pantas/features/quiz/presentation/quiz_controller.dart 565:60  QuizController.check
+                test/features/quiz/presentation/quiz_pick_check_test.dart 199:34       main.<fn>
+                ===== asynchronous gap ===========================
+                package:matcher                                                        expectLater
+                package:flutter_test/src/widget_tester.dart 507:8                      expectLater
+                test/features/quiz/presentation/quiz_pick_check_test.dart 199:11       main.<fn>
+
+          which is not an instance of 'StateError'
+
+package:matcher                                                   expectLater
+package:flutter_test/src/widget_tester.dart 507:8                 expectLater
+test/features/quiz/presentation/quiz_pick_check_test.dart 199:11  main.<fn>
+::endgroup::
+::group::❌ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_pick_check_test.dart: late Check cannot resurrect a reset session (failed)
+type 'Null' is not a subtype of type 'Future<AnswerOutcome>'
+test/features/quiz/presentation/quiz_pick_check_test.dart 22:7         _Submit.call
+package:pantas/features/quiz/presentation/quiz_controller.dart 565:60  QuizController.check
+test/features/quiz/presentation/quiz_pick_check_test.dart 220:32       main.<fn>
+::endgroup::
+::group::❌ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_pick_check_test.dart: disposed pending Check handles late result fails=false (failed)
+type 'Null' is not a subtype of type 'Future<AnswerOutcome>'
+test/features/quiz/presentation/quiz_pick_check_test.dart 22:7         _Submit.call
+package:pantas/features/quiz/presentation/quiz_controller.dart 565:60  QuizController.check
+test/features/quiz/presentation/quiz_pick_check_test.dart 240:34       main.<fn>
+::endgroup::
+::group::❌ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_pick_check_test.dart: disposed pending Check handles late result fails=true (failed)
+Expected: throws same instance as StateError:<Bad state: private submit failure>
+  Actual: <Instance of 'Future<void>'>
+   Which: threw _TypeError:<type 'Null' is not a subtype of type 'Future<AnswerOutcome>'>
+          stack test/features/quiz/presentation/quiz_pick_check_test.dart 22:7         _Submit.call
+                package:pantas/features/quiz/presentation/quiz_controller.dart 565:60  QuizController.check
+                test/features/quiz/presentation/quiz_pick_check_test.dart 240:34       main.<fn>
+                ===== asynchronous gap ===========================
+                package:matcher                                                        expectLater
+                package:flutter_test/src/widget_tester.dart 507:8                      expectLater
+                test/features/quiz/presentation/quiz_pick_check_test.dart 245:29       main.<fn>
+
+package:matcher                                                   expectLater
+package:flutter_test/src/widget_tester.dart 507:8                 expectLater
+test/features/quiz/presentation/quiz_pick_check_test.dart 245:29  main.<fn>
+Bad state: private submit failure
+dart:async                                                        _Completer.completeError
+test/features/quiz/presentation/quiz_pick_check_test.dart 246:17  main.<fn>
+::endgroup::
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: cold practice route resumes its actual persisted session
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: renders the first question once start completes
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: required passage does not expose answer actions while unresolved
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: passes topicId to quick quiz start when provided
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: quit button shows confirmation while a session is running
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: submitting an answer reveals the answer in place
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: prepares the next plain question invisibly before Next
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: prepares Next when Resume restores an answered question
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: Retry preserves Today mode and topic scope
+
+::error::11 tests passed, 7 failed.

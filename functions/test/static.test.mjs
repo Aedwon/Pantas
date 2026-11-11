@@ -12,7 +12,6 @@ test('index exports privacy and audit callables', () => {
   assert.match(source, /export \{ activateSyncGeneration \}/);
   assert.match(source, /export \{ cleanupSyncData \}/);
   assert.match(source, /export \{ revenuecatWebhook \}/);
-  assert.match(source, /export \{ getProContent \}/);
   assert.match(source, /export \{ recordSignInEvent \}/);
   assert.match(source, /export \{ onUserCreated \}/);
 });
@@ -28,8 +27,8 @@ test('sensitive callables enforce App Check and consume replay tokens', () => {
   );
 
   for (const source of [exportData, deleteAccount]) {
-    assert.match(source, /enforceAppCheck: true/);
-    assert.match(source, /consumeAppCheckToken: true/);
+    assert.match(source, /enforceAppCheck: enforceAppCheck/);
+    assert.match(source, /consumeAppCheckToken: enforceAppCheck/);
     assert.match(source, /assertNamedUser\(request\.auth\)/);
   }
 
@@ -94,7 +93,7 @@ test('activateSyncGeneration owns generation activation transaction', () => {
 
   assert.match(source, /onCall/);
   assert.match(source, /region: 'asia-southeast1'/);
-  assert.match(source, /enforceAppCheck:\s*true/);
+  assert.match(source, /enforceAppCheck:\s*enforceAppCheck/);
   assert.match(source, /runTransaction/);
   assert.match(source, /assertNamedPro/);
   assert.match(source, /generation-conflict/);
@@ -167,7 +166,7 @@ test('cleanupSyncData applies retention with a fresh active-pointer recheck', ()
   }
 
   const freshPointerIndex = source.indexOf(
-    'const freshCurrentSnapshot = await currentRef.get()',
+    'const freshCurrentSnapshot = await transaction.get(currentRef)',
   );
   const freshActiveIndex = source.indexOf(
     'const freshActiveGenerationId',
@@ -176,7 +175,7 @@ test('cleanupSyncData applies retention with a fresh active-pointer recheck', ()
     'freshActiveGenerationId === candidateGenerationId',
   );
   const freshGenerationIndex = source.indexOf(
-    'const freshGenerationSnapshot = await candidateRef.get()',
+    'const freshGenerationSnapshot = await transaction.get(candidateRef)',
   );
   const eligibilityIndex = source.lastIndexOf(
     'generationCleanupEligible',
@@ -212,8 +211,8 @@ test('deleteAccount uses asia-southeast1 app check replay protection', () => {
   );
 
   assert.match(source, /region: 'asia-southeast1'/);
-  assert.match(source, /enforceAppCheck: true/);
-  assert.match(source, /consumeAppCheckToken: true/);
+  assert.match(source, /enforceAppCheck: enforceAppCheck/);
+  assert.match(source, /consumeAppCheckToken: enforceAppCheck/);
 });
 
 test('deleteAccount checks recent auth before destructive work', () => {
@@ -277,7 +276,7 @@ test('exportData remains app check enforced if kept', () => {
     'utf8',
   );
 
-  assert.match(source, /enforceAppCheck: true/);
-  assert.match(source, /consumeAppCheckToken: true/);
+  assert.match(source, /enforceAppCheck: enforceAppCheck/);
+  assert.match(source, /consumeAppCheckToken: enforceAppCheck/);
   assert.match(source, /assertNamedUser\(request\.auth\)/);
 });

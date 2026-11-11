@@ -1,0 +1,245 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/storage/domain/subject.dart';
+import 'package:pantas/core/ui/components/pantas_switch.dart';
+import 'package:pantas/core/ui/components/value_wheel.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/features/mock_exam/domain/custom_blueprint.dart';
+import 'package:pantas/features/mock_exam/presentation/pages/custom_mock_setup_page.dart';
+
+void main() {
+  setUp(() => debugWebPlatformOverride = true);
+  tearDown(() => debugWebPlatformOverride = null);
+  const subjects = [
+    Subject(id: 'math', examId: 'custom', name: 'Mathematics', ordering: 0),
+  ];
+  for (final dark in [false, true]) {
+    Future<void> pump(
+      WidgetTester tester, {
+      int available = 240,
+      CustomBlueprint? saved,
+      ValueChanged<CustomBlueprint>? onSave,
+      bool reduced = false,
+    }) async {
+      tester.view
+        ..physicalSize = const Size(1440, 900)
+        ..devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: dark ? buildDarkTheme(web: true) : buildLightTheme(web: true),
+          builder: (context, child) => MediaQuery(
+            data: MediaQuery.of(context).copyWith(disableAnimations: reduced),
+            child: child!,
+          ),
+          home: CustomMockSetupPage(
+            data: CustomMockSetupData(
+              examId: 'custom',
+              subjects: subjects,
+              topicsBySubject: const {},
+              availableQuestions: available,
+              saved: saved,
+            ),
+            onSave: (value) async => onSave?.call(value),
+            onTickMoreSubjects: () {},
+          ),
+        ),
+      );
+    }
+
+    testWidgets(
+        'in the compact sidebar range the page ends 44 px above the bottom '
+        'dark=$dark', (tester) async {
+      await pump(tester);
+      tester.view.physicalSize = const Size(1180, 500);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('I know the section breakdown').first);
+      await tester.pumpAndSettle();
+      await tester.drag(
+        find.byKey(const ValueKey('web-custom-setup')),
+        const Offset(0, -3000),
+      );
+      await tester.pumpAndSettle();
+      final save = find.widgetWithText(WebButton, 'Save');
+      // D136: from 1024 the sidebar is the navigation, so no floating bar
+      // covers the bottom; the page keeps `layout-main-pad-bottom` (44).
+      expect(tester.getBottomLeft(save).dy, lessThanOrEqualTo(500 - 44));
+    });
+    testWidgets(
+        'the breakdown grows in and shrinks away over 300 ms '
+        'dark=$dark', (tester) async {
+      await pump(tester);
+      final save = find.widgetWithText(WebButton, 'Save');
+      final closedY = tester.getTopLeft(save).dy;
+      await tester.tap(find.text('I know the section breakdown').first);
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+      final mid = tester.getTopLeft(save).dy;
+      expect(mid, greaterThan(closedY));
+      await tester.pumpAndSettle();
+      final openY = tester.getTopLeft(save).dy;
+      expect(openY, greaterThan(mid));
+      expect(find.text('SECTION BREAKDOWN'), findsOneWidget);
+      await tester.tap(find.text('I know the section breakdown').first);
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+      final back = tester.getTopLeft(save).dy;
+      expect(back, lessThan(openY));
+      expect(back, greaterThan(closedY));
+      await tester.pumpAndSettle();
+      expect(tester.getTopLeft(save).dy, closedY);
+    });
+    testWidgets('reduced motion shows the breakdown at once dark=$dark',
+        (tester) async {
+      await pump(tester, reduced: true);
+      final save = find.widgetWithText(WebButton, 'Save');
+      final closedY = tester.getTopLeft(save).dy;
+      await tester.tap(find.text('I know the section breakdown').first);
+      await tester.pump();
+      expect(tester.getTopLeft(save).dy, greaterThan(closedY));
+      expect(find.text('SECTION BREAKDOWN'), findsOneWidget);
+      final openY = tester.getTopLeft(save).dy;
+      await tester.pump(const Duration(milliseconds: 100));
+      expect(tester.getTopLeft(save).dy, openY);
+      // The switch track still fades 150 ms under reduced motion (Switch
+      // README, Motion); the breakdown itself does not animate.
+      await tester.pump(const Duration(milliseconds: 150));
+      expect(tester.getTopLeft(save).dy, openY);
+      expect(tester.hasRunningAnimations, isFalse);
+    });
+    testWidgets('CM_Setup and inline CM_Wheel dark=$dark', (tester) async {
+      CustomBlueprint? saved;
+      await pump(tester, onSave: (value) => saved = value);
+      expect(find.byKey(const ValueKey('web-custom-setup')), findsOneWidget);
+      expect(
+        find.text("We'll build it from what you tell us."),
+        findsOneWidget,
+      );
+      expect(
+        tester.getSize(find.byKey(const ValueKey('web-custom-fields'))).width,
+        640,
+      );
+      expect(
+        tester.getSize(find.widgetWithText(WebButton, 'Save')).width,
+        lessThan(200),
+      );
+      await tester.tap(find.text('Questions'));
+      await tester.pumpAndSettle();
+      expect(find.byType(ValueWheel), findsNothing);
+      for (final tooltip in ['Decrease Questions', 'Increase Questions']) {
+        expect(tester.getSize(find.byTooltip(tooltip)), const Size(32, 32));
+      }
+      for (final value in ['110', '115', '125', '130']) {
+        expect(find.text(value), findsOneWidget);
+      }
+      expect(
+        find.text('10 to 240, in fives. Arrow keys work too.'),
+        findsOneWidget,
+      );
+      await tester.tap(find.text('130'));
+      await tester.pump();
+      await tester.sendKeyEvent(LogicalKeyboardKey.arrowRight);
+      await tester.pump();
+      await tester.tap(find.text('Questions'));
+      await tester.pumpAndSettle();
+      await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+      expect(saved?.effectiveQuestions, 135);
+      expect(tester.takeException(), isNull);
+    });
+    testWidgets(
+        'wide switch rows toggle from the label and the switch once '
+        'dark=$dark', (tester) async {
+      CustomBlueprint? saved;
+      await pump(tester, onSave: (value) => saved = value);
+      expect(find.text('SECTION BREAKDOWN'), findsNothing);
+      await tester.tap(find.text('I know the section breakdown'));
+      await tester.pump();
+      expect(find.text('SECTION BREAKDOWN'), findsOneWidget);
+      await tester.tap(find.byType(PantasSwitch).first);
+      await tester.pump();
+      expect(find.text('SECTION BREAKDOWN'), findsNothing);
+      await tester.tap(find.byType(PantasSwitch).first);
+      await tester.pump();
+      expect(find.text('SECTION BREAKDOWN'), findsOneWidget);
+      expect(find.byType(PantasSwitch), findsNWidgets(2));
+      await tester.tap(find.byType(PantasSwitch).last);
+      await tester.pump();
+      await tester.tap(find.text('Time each section separately'));
+      await tester.pump();
+      await tester.tap(find.text('Time each section separately'));
+      await tester.pump();
+      await tester.tap(find.byType(PantasSwitch).last);
+      await tester.pump();
+      var timed =
+          tester.widget<PantasSwitch>(find.byType(PantasSwitch).last).value;
+      // Switch (on), label (off), label (on), switch (off) is four flips.
+      expect(timed, isFalse);
+      await tester.tap(find.text('Time each section separately'));
+      await tester.pump();
+      timed = tester.widget<PantasSwitch>(find.byType(PantasSwitch).last).value;
+      expect(timed, isTrue);
+      expect(saved, isNull);
+    });
+    testWidgets('CM_Ceiling retains requested count and blocks Save dark=$dark',
+        (tester) async {
+      await pump(
+        tester,
+        available: 60,
+        saved: const CustomBlueprint(
+          examId: 'custom',
+          totalQuestions: 150,
+          totalMinutes: 120,
+        ),
+      );
+      expect(
+        find.text(
+          'Your subjects have 60 questions. A 150-question mock needs more.',
+        ),
+        findsOneWidget,
+      );
+      expect(find.text('Tick More Subjects'), findsOneWidget);
+      expect(
+        tester
+            .widget<WebButton>(find.widgetWithText(WebButton, 'Save'))
+            .onPressed,
+        isNull,
+      );
+    });
+    testWidgets('CM_Breakdown uses real sections and summed totals dark=$dark',
+        (tester) async {
+      CustomBlueprint? saved;
+      await pump(
+        tester,
+        onSave: (value) => saved = value,
+        saved: const CustomBlueprint(
+          examId: 'custom',
+          totalQuestions: 120,
+          totalMinutes: 120,
+          sectionsTimedSeparately: true,
+          sections: [
+            CustomBlueprintSectionDraft(
+              subjectId: 'math',
+              name: 'Mathematics',
+              questions: 40,
+              minutes: 50,
+            ),
+          ],
+        ),
+      );
+      expect(find.text('SECTION BREAKDOWN'), findsOneWidget);
+      expect(find.text('Mathematics'), findsOneWidget);
+      expect(find.text('0h 50m'), findsOneWidget);
+      expect(find.byType(PantasSwitch), findsNWidgets(2));
+      expect(find.text('The totals above now add these up.'), findsOneWidget);
+      await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+      expect(saved?.effectiveQuestions, 40);
+      expect(saved?.effectiveMinutes, 50);
+      expect(saved?.sectionsTimedSeparately, isTrue);
+      expect(tester.takeException(), isNull);
+    });
+  }
+}

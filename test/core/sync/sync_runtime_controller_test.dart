@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:cloud_firestore/cloud_firestore.dart' show FirebaseException;
 import 'package:drift/drift.dart' show Value, Variable;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
@@ -19,10 +20,281 @@ import 'package:pantas/core/sync/model/sync_document.dart';
 import 'package:pantas/core/sync/runtime/sync_runtime_controller.dart';
 import 'package:pantas/core/sync/sync_coordinator.dart';
 import 'package:pantas/core/sync/sync_status.dart';
+import 'package:pantas/core/telemetry/client_report.dart';
 
 import '../../helpers/in_memory_database.dart';
 
 void main() {
+  for (final entitlement in SyncEntitlement.values) {
+    test('startup keeps the local owner token when ${entitlement.name} loads',
+        () async {
+      final h = _Harness();
+      addTearDown(h.close);
+      await h.runtime.update(
+        identity: const SyncIdentity(uid: 'user-1'),
+        entitlement: SyncEntitlement.pro,
+      );
+      h.seedGeneration(uid: 'user-1', generationId: 'gen-user-1-1');
+      final token = (await h.activeContext.readSnapshot())!.token;
+      final reloaded = h.reload();
+
+      await reloaded.update(
+        identity: const SyncIdentity(
+          uid: SyncIdentity.signedOutUid,
+          isAnonymous: true,
+        ),
+        entitlement: SyncEntitlement.free,
+      );
+      expect(await h.activeContext.readStable(), isNull);
+      expect((await h.activeContext.readSnapshot())!.token, token);
+
+      await reloaded.update(
+        identity: const SyncIdentity(uid: 'user-1'),
+        entitlement: entitlement,
+      );
+      expect((await h.activeContext.readSnapshot())!.token, token);
+
+      await reloaded.update(
+        identity: const SyncIdentity(uid: 'user-1'),
+        entitlement: SyncEntitlement.pro,
+      );
+      expect((await h.activeContext.readSnapshot())!.token, token);
+      expect(
+        await h.activeContext.readStable(),
+        const SyncActiveContext(
+          uid: 'user-1',
+          generationId: 'gen-user-1-1',
+        ),
+      );
+      expect(h.coordinator.pushCalls, 1);
+    });
+  }
+
+  test('same-owner activation hides context before a slow engine stop',
+      () async {
+    final h = _Harness();
+    addTearDown(h.close);
+    await h.runtime.update(
+      identity: const SyncIdentity(uid: 'user-1'),
+      entitlement: SyncEntitlement.pro,
+    );
+    h.seedGeneration(uid: 'user-1', generationId: 'gen-user-1-1');
+    final token = (await h.activeContext.readSnapshot())!.token;
+    h.engine.blockStops = true;
+
+    final update = h.runtime.update(
+      identity: const SyncIdentity(uid: 'user-1'),
+      entitlement: SyncEntitlement.pro,
+    );
+    await h.engine.stopEntered.future;
+    final suspended = (await h.activeContext.readSnapshot())!;
+    expect(suspended.context, isNull);
+    expect(suspended.token, token);
+    h.engine.releaseStop();
+    await update;
+    expect((await h.activeContext.readSnapshot())!.token, token);
+  });
+
+  for (final identity in [
+    const SyncIdentity(uid: 'user-2'),
+    const SyncIdentity(uid: 'anon-1', isAnonymous: true),
+    const SyncIdentity(uid: 'user-1', isAnonymous: true),
+  ]) {
+    test(
+        'switching to ${identity.uid} anonymous=${identity.isAnonymous} '
+        'forgets the suspended owner', () async {
+      final h = _Harness();
+      addTearDown(h.close);
+      await h.runtime.update(
+        identity: const SyncIdentity(uid: 'user-1'),
+        entitlement: SyncEntitlement.pro,
+      );
+      final token = (await h.activeContext.readSnapshot())!.token;
+      await h.runtime.update(
+        identity: const SyncIdentity(
+          uid: SyncIdentity.signedOutUid,
+          isAnonymous: true,
+        ),
+        entitlement: SyncEntitlement.free,
+      );
+
+      await h.runtime.update(
+        identity: identity,
+        entitlement: SyncEntitlement.free,
+      );
+
+      final cleared = (await h.activeContext.readSnapshot())!;
+      expect(cleared.token, isNot(token));
+      expect(cleared.context, isNull);
+      expect(cleared.rememberedContext, isNull);
+    });
+  }
+
+  for (final choice in SyncReconciliationChoice.values) {
+    test('${choice.name} replaces the token when the generation changes',
+        () async {
+      final h = _Harness();
+      addTearDown(h.close);
+      await h.runtime.update(
+        identity: const SyncIdentity(uid: 'user-1'),
+        entitlement: SyncEntitlement.pro,
+      );
+      final token = (await h.activeContext.readSnapshot())!.token;
+      h.seedGeneration(
+        uid: 'user-1',
+        generationId: 'gen-replaced',
+        meaningful: true,
+      );
+      await h.seedLocalLesson();
+      await h.runtime.update(
+        identity: const SyncIdentity(uid: 'user-1'),
+        entitlement: SyncEntitlement.pro,
+      );
+      expect(h.runtime.status, isA<SyncReconciliationRequired>());
+
+      await h.runtime.chooseReconciliation(choice);
+
+      expect((await h.activeContext.readSnapshot())!.token, isNot(token));
+    });
+  }
+
+  for (final nativeDenial in [false, true]) {
+    test(
+        'bootstrap denial retries after cooldown '
+        'without restart ($nativeDenial)', () async {
+      final h = _Harness();
+      addTearDown(h.close);
+      final clock = _BootstrapClock();
+      h.coordinator.failuresRemaining = 1;
+      h.coordinator.nativeDenial = nativeDenial;
+      await clock.run(
+        () => h.runtime.update(
+          identity: const SyncIdentity(uid: 'user-1'),
+          entitlement: SyncEntitlement.pro,
+        ),
+      );
+      expect(h.runtime.status, isA<SyncError>());
+      expect(clock.timers, hasLength(1));
+      expect(
+        clock.timers.single.delay,
+        greaterThan(const Duration(minutes: 5)),
+      );
+      expect(
+        clock.timers.single.delay,
+        lessThanOrEqualTo(const Duration(minutes: 5, seconds: 10)),
+      );
+      expect(h.engine.starts, isEmpty);
+      clock.timers.single.fire();
+      await _waitFor(() => h.runtime.status is SyncUpToDate);
+      expect(h.coordinator.pushCalls, 2);
+      expect(h.engine.starts, ['user-1:gen-user-1-2']);
+      expect(clock.timers.where((timer) => timer.isActive), isEmpty);
+    });
+  }
+
+  test('a change during Keep this device keeps the choice, not a new prompt',
+      () async {
+    final h = _Harness();
+    addTearDown(h.close);
+    h.seedGeneration(
+      uid: 'user-1',
+      generationId: 'gen-cloud',
+      meaningful: true,
+    );
+    await h.seedLocalLesson();
+    final clock = _BootstrapClock();
+    await clock.run(() async {
+      await h.runtime.update(
+        identity: const SyncIdentity(uid: 'user-1'),
+        entitlement: SyncEntitlement.pro,
+      );
+      h.coordinator.staleRemaining = 1;
+      await h.runtime.chooseReconciliation(
+        SyncReconciliationChoice.keepThisDevice,
+      );
+    });
+
+    expect(h.runtime.status, isNot(isA<SyncReconciliationRequired>()));
+    expect(h.coordinator.pushCalls, 1);
+    expect(clock.timers, hasLength(1));
+
+    clock.timers.single.fire();
+    await _waitFor(() => h.runtime.status is SyncUpToDate);
+    expect(h.coordinator.pushCalls, 2);
+    expect(h.coordinator.operations.last, 'push:user-1:gen-cloud');
+  });
+
+  test('bootstrap retry preserves an explicit keep-device choice', () async {
+    final h = _Harness();
+    addTearDown(h.close);
+    final clock = _BootstrapClock();
+    h.seedGeneration(
+      uid: 'user-1',
+      generationId: 'gen-cloud',
+      meaningful: true,
+    );
+    await h.seedLocalLesson();
+    await h.runtime.update(
+      identity: const SyncIdentity(uid: 'user-1'),
+      entitlement: SyncEntitlement.pro,
+    );
+    h.coordinator.failuresRemaining = 1;
+    await clock.run(
+      () => h.runtime
+          .chooseReconciliation(SyncReconciliationChoice.keepThisDevice),
+    );
+    expect(clock.timers, hasLength(1));
+    clock.timers.single.fire();
+    await _waitFor(() => h.runtime.status is SyncUpToDate);
+    expect(
+      h.coordinator.operations,
+      ['push:user-1:gen-cloud', 'push:user-1:gen-cloud'],
+    );
+  });
+
+  test('account change cancels a pending bootstrap retry', () async {
+    final h = _Harness();
+    addTearDown(h.close);
+    final clock = _BootstrapClock();
+    h.coordinator.failuresRemaining = 1;
+    await clock.run(
+      () => h.runtime.update(
+        identity: const SyncIdentity(uid: 'user-1'),
+        entitlement: SyncEntitlement.pro,
+      ),
+    );
+    expect(clock.timers, hasLength(1));
+    await h.runtime.update(
+      identity: const SyncIdentity(uid: 'user-2'),
+      entitlement: SyncEntitlement.pro,
+    );
+    expect(clock.timers.single.isActive, isFalse);
+    clock.timers.single.fire();
+    await Future<void>.delayed(Duration.zero);
+    expect(h.coordinator.operations, ['push:user-1:null', 'push:user-2:null']);
+    expect(h.engine.starts, ['user-2:gen-user-2-1']);
+  });
+
+  test('sign-out cancels a pending bootstrap retry', () async {
+    final h = _Harness();
+    addTearDown(h.close);
+    final clock = _BootstrapClock();
+    h.coordinator.failuresRemaining = 1;
+    await clock.run(
+      () => h.runtime.update(
+        identity: const SyncIdentity(uid: 'user-1'),
+        entitlement: SyncEntitlement.pro,
+      ),
+    );
+    expect(clock.timers, hasLength(1));
+    await h.runtime.quiesce(flush: false);
+    expect(clock.timers.single.isActive, isFalse);
+    clock.timers.single.fire();
+    await Future<void>.delayed(Duration.zero);
+    expect(h.coordinator.pushCalls, 1);
+    expect(h.runtime.status, isA<SyncOff>());
+  });
+
   test('anonymous Pro is off without claim or progress reads', () async {
     final h = _Harness();
     addTearDown(h.close);
@@ -179,9 +451,356 @@ void main() {
     await off;
   });
 
+  group('device already holding the active generation', () {
+    const identity = SyncIdentity(uid: 'user-1');
+
+    Future<_Harness> promptOnce() async {
+      final h = _Harness();
+      addTearDown(h.close);
+      h.seedGeneration(
+        uid: 'user-1',
+        generationId: 'gen-cloud',
+        meaningful: true,
+      );
+      await h.seedLocalLesson();
+      await h.runtime.update(
+        identity: identity,
+        entitlement: SyncEntitlement.pro,
+      );
+      expect(h.runtime.status, isA<SyncReconciliationRequired>());
+      return h;
+    }
+
+    test('a reload after Keep my account does not ask again', () async {
+      final h = await promptOnce();
+      await h.runtime.chooseReconciliation(
+        SyncReconciliationChoice.keepMyAccount,
+      );
+      final pulls = h.coordinator.operations.length;
+
+      final reloaded = h.reload();
+      await reloaded.update(
+        identity: identity,
+        entitlement: SyncEntitlement.pro,
+      );
+
+      expect(reloaded.status, isNot(isA<SyncReconciliationRequired>()));
+      expect(h.coordinator.operations, hasLength(pulls));
+      expect(h.engine.starts.last, 'user-1:gen-cloud');
+      expect((await h.activeContext.readStable())!.generationId, 'gen-cloud');
+    });
+
+    test('a reload after Keep this device does not ask again', () async {
+      final h = await promptOnce();
+      await h.runtime.chooseReconciliation(
+        SyncReconciliationChoice.keepThisDevice,
+      );
+      expect(h.coordinator.pushCalls, 1);
+      h.seedGeneration(
+        uid: 'user-1',
+        generationId: 'gen-user-1-1',
+        meaningful: true,
+      );
+
+      final reloaded = h.reload();
+      await reloaded.update(
+        identity: identity,
+        entitlement: SyncEntitlement.pro,
+      );
+
+      expect(reloaded.status, isNot(isA<SyncReconciliationRequired>()));
+      expect(h.coordinator.pushCalls, 1);
+      expect(h.engine.starts.last, 'user-1:gen-user-1-1');
+    });
+
+    test('startup reporting Free first still does not ask', () async {
+      final h = await promptOnce();
+      await h.runtime.chooseReconciliation(
+        SyncReconciliationChoice.keepMyAccount,
+      );
+
+      final reloaded = h.reload();
+      await reloaded.update(
+        identity: identity,
+        entitlement: SyncEntitlement.free,
+      );
+      await reloaded.update(
+        identity: identity,
+        entitlement: SyncEntitlement.pro,
+      );
+
+      expect(reloaded.status, isNot(isA<SyncReconciliationRequired>()));
+      expect(h.engine.starts.last, 'user-1:gen-cloud');
+    });
+
+    test('a reload reads no cloud rows to decide', () async {
+      final h = await promptOnce();
+      await h.runtime.chooseReconciliation(
+        SyncReconciliationChoice.keepMyAccount,
+      );
+      h.firestore.reads = 0;
+
+      await h.reload().update(
+            identity: identity,
+            entitlement: SyncEntitlement.pro,
+          );
+
+      expect(h.firestore.reads, 1, reason: 'only the active generation');
+    });
+
+    test('a generation another device replaced still asks', () async {
+      final h = await promptOnce();
+      await h.runtime.chooseReconciliation(
+        SyncReconciliationChoice.keepMyAccount,
+      );
+      h.seedGeneration(
+        uid: 'user-1',
+        generationId: 'gen-other-device',
+        meaningful: true,
+      );
+
+      final reloaded = h.reload();
+      await reloaded.update(
+        identity: identity,
+        entitlement: SyncEntitlement.pro,
+      );
+
+      expect(reloaded.status, isA<SyncReconciliationRequired>());
+    });
+
+    for (final marker in ['pending_full_push', 'pending_full_pull']) {
+      test('an unfinished $marker still asks', () async {
+        final h = await promptOnce();
+        await h.runtime.chooseReconciliation(
+          SyncReconciliationChoice.keepMyAccount,
+        );
+        await h.db.customStatement(
+          'insert into sync_meta (key,value) values (?,?)',
+          [marker, 'gen-unfinished'],
+        );
+
+        final reloaded = h.reload();
+        await reloaded.update(
+          identity: identity,
+          entitlement: SyncEntitlement.pro,
+        );
+
+        expect(reloaded.status, isA<SyncReconciliationRequired>());
+      });
+    }
+
+    test('an empty device with no held generation still downloads', () async {
+      final h = _Harness();
+      addTearDown(h.close);
+      h.seedGeneration(
+        uid: 'user-1',
+        generationId: 'gen-cloud',
+        meaningful: true,
+      );
+
+      await h.runtime.update(
+        identity: identity,
+        entitlement: SyncEntitlement.pro,
+      );
+
+      expect(h.coordinator.operations, ['pull:user-1:gen-cloud']);
+    });
+
+    Future<_Harness> holding() async {
+      final h = await promptOnce();
+      await h.runtime.chooseReconciliation(
+        SyncReconciliationChoice.keepMyAccount,
+      );
+      await h.activeContext.clearStable();
+      return h;
+    }
+
+    Future<SyncRuntimeController> reloadAs(_Harness h, String uid) async {
+      final reloaded = h.reload();
+      await reloaded.update(
+        identity: SyncIdentity(uid: uid),
+        entitlement: SyncEntitlement.pro,
+      );
+      return reloaded;
+    }
+
+    /// A change with no tie: made before this device held anything.
+    Future<void> journalWithNoTie(_Harness h, String rowId) =>
+        h.db.customStatement(
+          'insert into sync_local_mutations '
+          '(collection,row_id,op,revision,mutation_epoch,'
+          'causal_base_state,recorded_at) values (?,?,?,?,?,?,?)',
+          [
+            'lesson_progress',
+            rowId,
+            'upsert',
+            1,
+            1,
+            'unbound',
+            DateTime.utc(2026, 8, 30).millisecondsSinceEpoch,
+          ],
+        );
+
+    test('a change with no tie takes the existing path', () async {
+      final h = await holding();
+      final starts = h.engine.starts.length;
+      await journalWithNoTie(h, 'offline-row');
+
+      final reloaded = await reloadAs(h, 'user-1');
+
+      expect(reloaded.status, isA<SyncReconciliationRequired>());
+      expect(h.engine.starts, hasLength(starts));
+      // It is never rebound and never enters the outbox.
+      final row = await h.db
+          .customSelect(
+            'select causal_base_state s, causal_uid u '
+            'from sync_local_mutations',
+          )
+          .getSingle();
+      expect(row.read<String>('s'), 'unbound');
+      expect(row.data['u'], isNull);
+      expect(await h.db.select(h.db.pendingSync).get(), isEmpty);
+    });
+
+    for (final choice in SyncReconciliationChoice.values) {
+      test('that prompt stays answered after ${choice.name}', () async {
+        final h = await holding();
+        h.coordinator.acknowledgesJournal = true;
+        await journalWithNoTie(h, 'offline-row');
+        final reloaded = await reloadAs(h, 'user-1');
+        await reloaded.chooseReconciliation(choice);
+        if (choice == SyncReconciliationChoice.keepThisDevice) {
+          h.seedGeneration(
+            uid: 'user-1',
+            generationId: 'gen-user-1-1',
+            meaningful: true,
+          );
+        }
+
+        final again = await reloadAs(h, 'user-1');
+
+        expect(again.status, isNot(isA<SyncReconciliationRequired>()));
+      });
+    }
+
+    test('a change already tied to this generation resumes silently', () async {
+      final h = await holding();
+      await SyncActiveContextStore(h.db).publishStable(
+        uid: 'user-1',
+        generationId: 'gen-cloud',
+      );
+      await SyncRowMetaRepository(h.db).acceptKnownVersion(
+        collection: 'lesson_progress',
+        rowId: 'known-row',
+        updatedAt: DateTime.utc(2026, 8, 30, 1),
+      );
+      await LocalSyncMutationRecorder.forDatabase(h.db).runRecorded<void>(
+        collection: 'lesson_progress',
+        rowId: 'known-row',
+        op: SyncLocalMutationOp.upsert,
+        mutate: () {},
+      );
+
+      final reloaded = await reloadAs(h, 'user-1');
+
+      expect(reloaded.status, isNot(isA<SyncReconciliationRequired>()));
+      expect(h.engine.starts.last, 'user-1:gen-cloud');
+    });
+
+    test('a change tied to another generation takes the existing path',
+        () async {
+      final h = await holding();
+      await h.db.customStatement(
+        'insert into sync_local_mutations '
+        '(collection,row_id,op,revision,mutation_epoch,causal_uid,'
+        'causal_generation_id,causal_base_state,recorded_at) '
+        'values (?,?,?,?,?,?,?,?,?)',
+        [
+          'lesson_progress',
+          'older-generation-row',
+          'upsert',
+          1,
+          99,
+          'user-1',
+          'gen-retired',
+          'knownAbsent',
+          DateTime.utc(2026, 8, 30).millisecondsSinceEpoch,
+        ],
+      );
+
+      final reloaded = await reloadAs(h, 'user-1');
+
+      expect(reloaded.status, isA<SyncReconciliationRequired>());
+    });
+
+    test('a marker with another account does not count as held', () async {
+      final h = await holding();
+      await h.db.customStatement(
+        'update sync_meta set value = ? where key = ?',
+        ['someone-else', 'currentLocalGenerationUid'],
+      );
+
+      final reloaded = await reloadAs(h, 'user-1');
+
+      expect(reloaded.status, isA<SyncReconciliationRequired>());
+    });
+
+    test('a marker naming no account does not count as held', () async {
+      final h = await holding();
+      await h.db.customStatement(
+        'delete from sync_meta where key = ?',
+        ['currentLocalGenerationUid'],
+      );
+
+      final reloaded = await reloadAs(h, 'user-1');
+
+      expect(reloaded.status, isA<SyncReconciliationRequired>());
+    });
+
+    for (final other in [SyncEntitlement.free, SyncEntitlement.pro]) {
+      test('switching to a ${other.name} account and back does not resume',
+          () async {
+        final h = await holding();
+        final reloaded = h.reload();
+        h.seedGeneration(uid: 'user-2', generationId: 'gen-two');
+        await reloaded.update(
+          identity: const SyncIdentity(uid: 'user-2'),
+          entitlement: other,
+        );
+        await reloaded.update(
+          identity: identity,
+          entitlement: SyncEntitlement.pro,
+        );
+
+        expect(reloaded.status, isA<SyncReconciliationRequired>());
+      });
+    }
+
+    test('the placeholder identity at startup keeps the marker', () async {
+      final h = await holding();
+      final reloaded = h.reload();
+      await reloaded.update(
+        identity: const SyncIdentity(uid: 'signed-out', isAnonymous: true),
+        entitlement: SyncEntitlement.free,
+      );
+
+      await reloaded.update(
+        identity: identity,
+        entitlement: SyncEntitlement.pro,
+      );
+
+      expect(reloaded.status, isNot(isA<SyncReconciliationRequired>()));
+    });
+  });
+
   test('all local-only runtime states keep mutations unbound and out of outbox',
       () async {
-    Future<void> expectLocalOnlyMutation(_Harness h, String label) async {
+    Future<void> expectLocalOnlyMutation(
+      _Harness h,
+      String label, {
+      String? heldBy,
+      String? heldGeneration,
+    }) async {
       expect(await h.activeContext.readStable(), isNull);
       final recorder = LocalSyncMutationRecorder(
         h.db,
@@ -211,8 +830,10 @@ void main() {
         ],
       ).getSingle();
       expect(row.read<String>('causal_base_state'), 'unbound');
-      expect(row.data['causal_uid'], isNull);
-      expect(row.data['causal_generation_id'], isNull);
+      // Stopped Sync on a device holding a generation records which copy the
+      // change was made against. It still stays out of the outbox.
+      expect(row.data['causal_uid'], heldBy);
+      expect(row.data['causal_generation_id'], heldGeneration);
       expect(row.data['base_updated_at'], isNull);
 
       final queue = PendingQueue(h.db);
@@ -275,7 +896,12 @@ void main() {
     expect(await quiesced.activeContext.readStable(), isNotNull);
     await quiesced.runtime.quiesce(flush: false);
     expect(quiesced.runtime.status, isA<SyncOff>());
-    await expectLocalOnlyMutation(quiesced, 'quiesced');
+    await expectLocalOnlyMutation(
+      quiesced,
+      'quiesced',
+      heldBy: 'user-quiesced',
+      heldGeneration: 'gen-user-quiesced-1',
+    );
     await quiesced.close();
   });
 
@@ -391,6 +1017,161 @@ void main() {
     expect(h.runtime.status, isA<SyncError>());
     expect((h.runtime.status as SyncError).message, 'push failed');
   });
+
+  test('a settle after backing up records the backup time', () async {
+    final h = _Harness();
+    addTearDown(h.close);
+    await h.seedUnsettled('outbox');
+    await h.runtime.update(
+      identity: const SyncIdentity(uid: 'user-1'),
+      entitlement: SyncEntitlement.pro,
+    );
+    expect(h.runtime.status, isA<Syncing>());
+    await h.db.delete(h.db.pendingSync).go();
+    await h.db.customStatement('delete from sync_local_mutations');
+    await h.runtime.update(
+      identity: const SyncIdentity(uid: 'user-1'),
+      entitlement: SyncEntitlement.pro,
+    );
+    final status = h.runtime.status;
+    expect(status, isA<SyncUpToDate>());
+    expect((status as SyncUpToDate).lastSyncedAt, isNotNull);
+  });
+
+  test('failed rows are summarized in the web error report', () async {
+    final sender = _ReportSender();
+    final reporter = ClientReporter(
+      sender: sender,
+      context: () => const ClientReportContext(
+        build: 'b',
+        visit: 'return',
+        browser: 'chrome',
+        mobile: false,
+        viewportWidth: 1200,
+      ),
+      timings: () => const [],
+    );
+    ClientReporter.active = reporter;
+    addTearDown(() {
+      ClientReporter.active = null;
+      reporter.dispose();
+    });
+    final h = _Harness();
+    addTearDown(h.close);
+    await h.db.into(h.db.pendingSync).insert(
+          PendingSyncCompanion.insert(
+            uid: const Value('old-user'),
+            generationId: const Value('old-gen'),
+            tableType: 'lesson_progress',
+            rowId: 'failed-outbox',
+            op: 'upsert',
+            queuedAt: DateTime.utc(2026, 8, 30),
+            lastError: const Value('permission-denied'),
+          ),
+        );
+
+    await h.runtime.update(
+      identity: const SyncIdentity(uid: 'user-1'),
+      entitlement: SyncEntitlement.pro,
+    );
+    reporter
+      ..splashGone()
+      ..firstScreenSettled();
+    await pumpEventQueue();
+
+    final errors = sender.sent.single['errors']! as List<Object?>;
+    expect(
+      errors.map((e) => (e! as Map)['msg']),
+      contains(
+        'Bad state: Backup rows failing: '
+        'other lesson_progress permission-denied x1',
+      ),
+    );
+  });
+  // Nov 8 Backup: "Couldn't back up" that Try Again could not clear and a
+  // reload did. A startup error left Sync stopped, so there was no engine
+  // for Try Again to flush.
+  test('Try Again starts Sync again after a startup error', () async {
+    final claim = _FlakyClaimGateway();
+    final h = _Harness(claimGateway: claim);
+    addTearDown(h.close);
+    await h.runtime.update(
+      identity: const SyncIdentity(uid: 'user-1'),
+      entitlement: SyncEntitlement.pro,
+    );
+    expect(h.runtime.status, isA<SyncError>());
+    expect(h.engine.starts, isEmpty);
+
+    await h.runtime.retry();
+
+    expect(claim.calls, 2);
+    expect(h.engine.starts, hasLength(1));
+    expect(h.runtime.status, isNot(isA<SyncError>()));
+  });
+
+  test('Try Again on a running Sync flushes and does not restart', () async {
+    final h = _Harness();
+    addTearDown(h.close);
+    await h.runtime.update(
+      identity: const SyncIdentity(uid: 'user-1'),
+      entitlement: SyncEntitlement.pro,
+    );
+    final starts = h.engine.starts.length;
+    final claims = h.claim.calls;
+
+    await h.runtime.retry();
+
+    expect(h.engine.flushCalls, 1);
+    expect(h.engine.starts, hasLength(starts));
+    expect(h.claim.calls, claims);
+  });
+
+  test('a startup error goes to the web error report', () async {
+    final sender = _ReportSender();
+    final reporter = ClientReporter(
+      sender: sender,
+      context: () => const ClientReportContext(
+        build: 'b',
+        visit: 'return',
+        browser: 'chrome',
+        mobile: false,
+        viewportWidth: 1200,
+      ),
+      timings: () => const [],
+    );
+    ClientReporter.active = reporter;
+    addTearDown(() {
+      ClientReporter.active = null;
+      reporter.dispose();
+    });
+    final h = _Harness(claimGateway: _FlakyClaimGateway());
+    addTearDown(h.close);
+    await h.runtime.update(
+      identity: const SyncIdentity(uid: 'user-1'),
+      entitlement: SyncEntitlement.pro,
+    );
+    reporter
+      ..splashGone()
+      ..firstScreenSettled();
+    await pumpEventQueue();
+
+    final errors = sender.sent.single['errors']! as List<Object?>;
+    expect(
+      errors.map((e) => (e! as Map)['msg']),
+      contains('Bad state: Backup stopped while starting: Bad state: claim'),
+    );
+  });
+}
+
+class _FlakyClaimGateway implements SyncClaimGateway {
+  int calls = 0;
+
+  @override
+  Future<bool> refreshProClaim({required String uid}) async {
+    calls += 1;
+    if (calls == 1) throw StateError('claim');
+    return true;
+  }
 }
 
 class _Harness {
@@ -406,19 +1187,26 @@ class _Harness {
             : _CountingClaimGateway(hasClaim: hasClaim) {
     final configuredClaim = claimGateway ?? claim;
     activeContext = SyncActiveContextStore(db);
-    runtime = SyncRuntimeController(
-      db: db,
-      claimGateway: configuredClaim,
-      activeContextStore: activeContext,
-      generationRepositoryForUid: (uid) => GenerationRepository(
-        gateway: firestore,
-        functionsGateway: FakeSyncFunctionsGateway(),
-        uid: uid,
-      ),
-      coordinator: coordinator,
-      engine: engine,
-    );
+    coordinator.db = db;
+    runtime = _newRuntime(configuredClaim);
   }
+
+  SyncRuntimeController _newRuntime(SyncClaimGateway claimGateway) =>
+      SyncRuntimeController(
+        db: db,
+        claimGateway: claimGateway,
+        activeContextStore: activeContext,
+        generationRepositoryForUid: (uid) => GenerationRepository(
+          gateway: firestore,
+          functionsGateway: FakeSyncFunctionsGateway(),
+          uid: uid,
+        ),
+        coordinator: coordinator,
+        engine: engine,
+      );
+
+  /// A page reload: a fresh controller over the same stored database.
+  SyncRuntimeController reload() => _newRuntime(claim);
 
   final AppDatabase db;
   final _CountingFirestoreGateway firestore;
@@ -555,8 +1343,17 @@ class _BlockingClaimGateway implements SyncClaimGateway {
 }
 
 class _FakeCoordinator implements SyncCoordinator {
+  /// Set by the harness. The real push and pull record the generation this
+  /// device now holds (full_push_test, full_pull_test), so the fake does too.
+  late AppDatabase db;
+
+  /// The real push and pull remove the journal rows they represent.
+  bool acknowledgesJournal = false;
   final operations = <String>[];
   final _pushPerUid = <String, int>{};
+  int failuresRemaining = 0;
+  int staleRemaining = 0;
+  bool nativeDenial = false;
 
   int get pushCalls => operations.where((op) => op.startsWith('push:')).length;
 
@@ -569,10 +1366,47 @@ class _FakeCoordinator implements SyncCoordinator {
     operations.add('push:$uid:$expectedActiveGenerationId');
     final count = (_pushPerUid[uid] ?? 0) + 1;
     _pushPerUid[uid] = count;
+    if (failuresRemaining > 0) {
+      failuresRemaining -= 1;
+      if (nativeDenial) {
+        throw FirebaseException(
+          plugin: 'cloud_firestore',
+          code: 'permission-denied',
+        );
+      }
+      return FullPushResult(
+        outcome: FullPushOutcome.retryableFailure,
+        generationId: 'gen-$uid-$count',
+      );
+    }
+    if (staleRemaining > 0) {
+      staleRemaining -= 1;
+      return FullPushResult(
+        outcome: FullPushOutcome.staleLocalEpoch,
+        generationId: 'gen-$uid-$count',
+      );
+    }
+    await _hold(uid, 'gen-$uid-$count');
     return FullPushResult(
       outcome: FullPushOutcome.activated,
       generationId: 'gen-$uid-$count',
     );
+  }
+
+  /// What a finished push or pull stores: full_push_test and full_pull_test
+  /// check the real ones.
+  Future<void> _hold(String uid, String generationId) async {
+    for (final entry in {
+      'currentLocalGenerationId': generationId,
+      'currentLocalGenerationUid': uid,
+    }.entries) {
+      await db.into(db.syncMeta).insertOnConflictUpdate(
+            SyncMetaCompanion.insert(key: entry.key, value: entry.value),
+          );
+    }
+    if (acknowledgesJournal) {
+      await db.customStatement('delete from sync_local_mutations');
+    }
   }
 
   @override
@@ -582,6 +1416,7 @@ class _FakeCoordinator implements SyncCoordinator {
     SyncContinuation? shouldContinue,
   }) async {
     operations.add('pull:$uid:$generationId');
+    await _hold(uid, generationId);
     return const FullPullResult(FullPullOutcome.applied);
   }
 }
@@ -618,4 +1453,56 @@ class _FakeRuntimeEngine implements SyncRuntimeEngine {
   void releaseStop() {
     if (!_stopRelease.isCompleted) _stopRelease.complete();
   }
+}
+
+Future<void> _waitFor(bool Function() condition) async {
+  for (var i = 0; i < 100 && !condition(); i++) {
+    await Future<void>.delayed(const Duration(milliseconds: 5));
+  }
+  expect(condition(), isTrue);
+}
+
+class _BootstrapClock {
+  final timers = <_BootstrapTimer>[];
+
+  Future<void> run(Future<void> Function() operation) {
+    return runZoned(
+      operation,
+      zoneSpecification: ZoneSpecification(
+        createTimer: (self, parent, zone, delay, callback) {
+          if (delay >= const Duration(minutes: 5)) {
+            final timer = _BootstrapTimer(delay, callback);
+            timers.add(timer);
+            return timer;
+          }
+          return parent.createTimer(zone, delay, callback);
+        },
+      ),
+    );
+  }
+}
+
+class _BootstrapTimer implements Timer {
+  _BootstrapTimer(this.delay, this.callback);
+  final Duration delay;
+  final void Function() callback;
+  @override
+  bool isActive = true;
+  @override
+  int tick = 0;
+  @override
+  void cancel() => isActive = false;
+  void fire() {
+    if (!isActive) return;
+    isActive = false;
+    tick = 1;
+    callback();
+  }
+}
+
+class _ReportSender implements ClientReportSender {
+  final sent = <Map<String, Object?>>[];
+
+  @override
+  Future<void> send(Map<String, Object?> payload) async => sent.add(payload);
 }

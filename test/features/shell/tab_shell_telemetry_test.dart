@@ -25,12 +25,12 @@ void main() {
       ),
     );
 
-    await tester.tap(find.text('Study'));
+    await tester.tap(find.text('Settings'));
     await tester.pump();
 
     expect(sink.loggedEvents, [TelemetryEvent.tabOpened]);
     expect(sink.loggedProperties, [
-      {'tab': 'study'},
+      {'tab': 'settings'},
     ]);
   });
 }

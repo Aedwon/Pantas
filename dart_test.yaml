@@ -1,0 +1,7 @@
+# The golden sheets render images and only match on the CI image (ubuntu), so
+# a plain `flutter test` skips them. Run them with:
+#   flutter test --tags golden --run-skipped test/goldens
+# Regenerate with --update-goldens (the goldens.yml workflow does this).
+tags:
+  golden:
+    skip: "Golden sheets run on CI. Use: flutter test --tags golden --run-skipped"

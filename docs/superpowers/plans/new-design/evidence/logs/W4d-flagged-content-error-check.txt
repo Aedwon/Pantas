@@ -1,0 +1,127 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart
+00:00 +0: the flagged list groups by subject
+00:00 +1: it has no filter row
+00:00 +2: the button counts what is in the list
+00:00 +3: unflagging updates the count as it happens
+00:00 +4: emptying the list says what to do
+00:00 +5: a flagged row opens the real question viewer route
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Viewer q_1": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.routed (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart:299:7)
+<asynchronous suspension>
+#5      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart:318:5)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart line 299
+The test description was:
+  a flagged row opens the real question viewer route
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:00 +5 -1: a flagged row opens the real question viewer route [E]
+  Test failed. See exception logs above.
+  The test description was: a flagged row opens the real question viewer route
+
+00:00 +5 -1: practice uses scoped flags and the declared run route
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Declared flagged run": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.routed (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart:309:9)
+<asynchronous suspension>
+#5      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart:321:5)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart line 309
+The test description was:
+  practice uses scoped flags and the declared run route
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:00 +5 -2: practice uses scoped flags and the declared run route [E]
+  Test failed. See exception logs above.
+  The test description was: practice uses scoped flags and the declared run route
+
+00:00 +5 -2: failed practice stays on the list with plain retry
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Could not start your quiz.": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.routed (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart:306:9)
+<asynchronous suspension>
+#5      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart:324:5)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart line 306
+The test description was:
+  failed practice stays on the list with plain retry
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:00 +5 -3: failed practice stays on the list with plain retry [E]
+  Test failed. See exception logs above.
+  The test description was: failed practice stays on the list with plain retry
+
+00:00 +5 -3: scoped provider preserves global flags and follows narrowed topics
+00:00 +6 -3: flagged content carries its actual required passage
+00:00 +7 -3: missing flagged question never silently shortens membership
+00:00 +8 -3: missing required flagged passage fails recoverably
+00:00 +9 -3: flagged load error uses plain shared retry
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Could not load your questions.": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart:379:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart line 379
+The test description was:
+  flagged load error uses plain shared retry
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:00 +9 -4: flagged load error uses plain shared retry [E]
+  Test failed. See exception logs above.
+  The test description was: flagged load error uses plain shared retry
+
+00:00 +9 -4: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: a flagged row opens the real question viewer route
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: failed practice stays on the list with plain retry
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: flagged load error uses plain shared retry
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: practice uses scoped flags and the declared run route

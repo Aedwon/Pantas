@@ -1,0 +1,25 @@
+{
+  "projects": {
+    "staging": "pantas-staging",
+    "prod": "pantas-prod"
+  },
+  "targets": {
+    "pantas-staging": {
+      "hosting": {
+        "site": [
+          "pantas-staging"
+        ],
+        "app": [
+          "pantas-staging-app"
+        ]
+      }
+    },
+    "pantas-prod": {
+      "hosting": {
+        "app": [
+          "pantas-prod"
+        ]
+      }
+    }
+  }
+}

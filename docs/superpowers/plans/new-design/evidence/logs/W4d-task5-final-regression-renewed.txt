@@ -1,0 +1,13 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/app/router_paths_preserved_test.dart
+00:00 +0: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/session_start_telemetry_test.dart: StartTodaySession emits sessionStarted telemetry event
+00:00 +1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:00 +2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:00 +3: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+00:01 +4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed mistakes uses actual saved answers and origin
+00:01 +5: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed historical uses actual saved answers and origin
+00:01 +6: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed fresh uses actual saved answers and origin
+00:01 +7: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed customDone uses actual saved answers and origin
+00:01 +8: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed flaggedDone uses actual saved answers and origin
+00:01 +9: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed lessonDone uses actual saved answers and origin
+00:01 +10: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed retakeDone uses actual saved answers and origin
+00:02 +11: All tests passed!

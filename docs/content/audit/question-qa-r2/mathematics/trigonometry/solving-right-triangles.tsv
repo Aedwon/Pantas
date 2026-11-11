@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-trigonometry-solving-right-triangles-0001	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Specified ground-level sight and horizontal distance.
+q-trigonometry-solving-right-triangles-0002	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	HIGH	The 125-degree note claimed supplementary subtraction, but 180-35 is 145; corrected the distractor.
+q-trigonometry-solving-right-triangles-0003	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Replaced duplicate thirty-degree distractors and specified the right-triangle model.
+q-trigonometry-solving-right-triangles-0004	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Reframed repeated height computation to test eye-height adjustment.
+q-trigonometry-solving-right-triangles-0005	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Specified horizontal distance and boat level to remove distance ambiguity.
+q-trigonometry-solving-right-triangles-0006	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	LOW	Specified degrees and balanced the inverse-tangent answer lengths.
+q-trigonometry-solving-right-triangles-0007	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Specified ground-level observations and level-ground geometry.
+q-trigonometry-solving-right-triangles-0008	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-trigonometry-solving-right-triangles-0009	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Reframed repeated depression-distance calculation as a vertical-angle error check.
+q-trigonometry-solving-right-triangles-0010	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Clarified vertical pole geometry and replaced a weak mixed-units distractor.
+q-trigonometry-solving-right-triangles-0011	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson does not teach cotangent. The intended level-ground and ground-level observations are also unstated. Stem, choices and key retained. Correct choice remains longest under the preservation rule.
+q-trigonometry-solving-right-triangles-0012	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-trigonometry-solving-right-triangles-0013	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-trigonometry-solving-right-triangles-0014	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Reframed repeated depression-distance calculation as the matching elevation angle.
+q-trigonometry-solving-right-triangles-0015	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Reframed repeated sine calculation as a final algebra-step error check.
+q-trigonometry-solving-right-triangles-0016	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson does not teach cotangent. The intended level-ground and ground-level observations are also unstated. Stem, choices and key retained. Correct choice remains longest under the preservation rule.
+q-trigonometry-solving-right-triangles-0017	NEW	NEW	new question	NONE	
+q-trigonometry-solving-right-triangles-0018	NEW	NEW	new question	NONE	
+q-trigonometry-solving-right-triangles-0019	NEW	NEW	new question	NONE	
+q-trigonometry-solving-right-triangles-0020	NEW	NEW	new question	NONE	

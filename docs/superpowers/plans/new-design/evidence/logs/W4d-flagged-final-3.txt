@@ -1,0 +1,7 @@
+Computing fixes in flagged_start_missing_test.dart...
+Applying fixes...
+
+flagged_start_missing_test.dart
+  require_trailing_commas - 6 fixes
+
+6 fixes made in 1 file.

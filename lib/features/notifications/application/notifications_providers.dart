@@ -2,13 +2,35 @@ import 'package:drift/drift.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/notifications/application/notification_service.dart';
 import 'package:pantas/features/notifications/data/flutter_local_notifications_gateway.dart';
 import 'package:pantas/features/notifications/data/inert_notifications_gateway.dart';
 import 'package:pantas/features/notifications/data/notifications_gateway.dart';
+import 'package:pantas/features/notifications/domain/notification_body_composer.dart';
+import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
+import 'package:pantas/features/roadmap/domain/roadmap.dart';
 
 const _dailyReminderTimeKey = 'settings.daily_reminder_time';
+const _studyDaysKey = 'settings.study_days';
+
+final notificationStudyDaysReaderProvider =
+    Provider<NotificationStudyDaysReader>((ref) {
+  return () async {
+    final db = ref.read(appDatabaseProvider);
+    final row = await (db.select(db.accountPrefs)
+          ..where((pref) => pref.key.equals(_studyDaysKey)))
+        .getSingleOrNull();
+    return StudyDays.fromStorage(row?.value);
+  };
+});
+
+/// Local wall-clock time for scheduling. A provider so tests can fix the
+/// hour: whether a reminder fires today or on a later day depends on it.
+final notificationClockProvider =
+    Provider<NotificationClock>((ref) => DateTime.now);
 
 /// Inert by default, and overridden in `bootstrap` with the real plugin.
 ///
@@ -27,21 +49,58 @@ final liveNotificationsGatewayProvider = Provider<NotificationsGateway>((ref) {
 final featureNotificationServiceProvider = Provider<NotificationService>((ref) {
   return NotificationServiceImpl(
     gateway: ref.watch(notificationsGatewayProvider),
+    studyDaysReader: () => ref.read(notificationStudyDaysReaderProvider)(),
     settingsReader: () async {
       final db = ref.read(appDatabaseProvider);
-      final row = await (db.select(db.accountPrefs)
-            ..where((pref) => pref.key.equals(_dailyReminderTimeKey)))
-          .getSingleOrNull();
-      final reminder = _notificationTimeFromStorage(row?.value);
-      if (reminder == null) return const NotificationSettingsSnapshot.none();
+      final rows = await (db.select(db.accountPrefs)
+            ..where(
+              (pref) => pref.key.isIn([_dailyReminderTimeKey, _studyDaysKey]),
+            ))
+          .get();
+      final values = {for (final row in rows) row.key: row.value};
+      final reminder =
+          _notificationTimeFromStorage(values[_dailyReminderTimeKey]);
+      final studyDays = StudyDays.fromStorage(values[_studyDaysKey]);
+      if (reminder == null) {
+        return NotificationSettingsSnapshot.none(studyDays: studyDays);
+      }
       return NotificationSettingsSnapshot.daily(
         hour: reminder.hour,
         minute: reminder.minute,
+        studyDays: studyDays,
       );
     },
-    planReader: () async => const NotificationPlanSnapshot.unavailable(),
+    planReader: () async {
+      final focus = await ref.read(activeExamFocusProvider.future);
+      if (focus.needsSelection || focus.exam == null) {
+        return const NotificationPlanSnapshot.unavailable();
+      }
+      // Held open while loading: nothing else watches this auto-disposing
+      // provider here, so a plain read could dispose it before it completes.
+      final subscription = ref.listen(
+        roadmapTodayProvider(focus.exam!.id).future,
+        (_, __) {},
+      );
+      final RoadmapToday today;
+      try {
+        today = await subscription.read();
+      } finally {
+        subscription.close();
+      }
+      if (today.state == RoadmapState.needsAssessment ||
+          today.state == RoadmapState.noContent) {
+        return const NotificationPlanSnapshot.unavailable();
+      }
+      return NotificationPlanSnapshot.ready(
+        reviewCount: today.remaining.reviewQuestionIds.length,
+        route: '/quiz',
+        planState: today.remaining.isMockDay
+            ? DailyReminderPlanState.mock
+            : DailyReminderPlanState.standard,
+      );
+    },
     streakReader: () async => const NotificationStreakSnapshot.empty(),
-    now: DateTime.now,
+    now: () => ref.read(notificationClockProvider)(),
   );
 });
 

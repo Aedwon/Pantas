@@ -1,0 +1,2 @@
+PASS: ciphertext at rest, non-extractable wrapping key, key and database tamper refusal, recovery;
+PASS: schema, write, owner exclusion, close, encrypted reopen

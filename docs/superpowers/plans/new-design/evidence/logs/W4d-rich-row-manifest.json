@@ -1,0 +1,13 @@
+{
+  "base": "38dacd92a7f530fe6e23c24ede0e8d8fa4ca0e30",
+  "source": {
+    "lib/core/ui/components/list_row.dart": "a1864b9341246e2734d256b443755da964283a16a569e6d5443155d057db83c6",
+    "test/core/ui/components/list_row_title_widget_test.dart": "7ead68b08cc30628fbb16a557ea4e2a3586e1ae893432875796b885b9c893b15"
+  },
+  "relay": [
+    11397,
+    11399,
+    11403,
+    11407
+  ]
+}

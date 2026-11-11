@@ -1,10 +1,14 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 
 import '../../helpers/in_memory_database.dart';
+import '../../helpers/pump_app.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -16,6 +20,12 @@ void main() {
     final contentDb = openTestContentDatabase();
     final container = ProviderContainer(
       overrides: [
+        authStateProvider.overrideWith(
+          (_) => Stream.value(const AuthState.anonymous(uid: 'test')),
+        ),
+        activeExamFocusProvider.overrideWith(
+          (_) async => ActiveExamFocus.selected(buildExam(id: 'exam_cse_pro')),
+        ),
         appDatabaseProvider.overrideWithValue(db),
         contentDatabaseProvider.overrideWithValue(contentDb),
       ],
@@ -33,12 +43,19 @@ void main() {
       questionIds: List.generate(10, (i) => 'q$i'),
     );
 
+    await container.read(authStateProvider.future);
+    await container.read(activeExamFocusProvider.future);
     final notifier = container.read(quizControllerProvider.notifier);
     await notifier.start(examId: 'exam_cse_pro', count: 2, randomSeed: 1);
 
     final running1 = container.read(quizControllerProvider);
     expect(running1, isA<QuizRunning>());
-    final firstQuestion = (running1 as QuizRunning).session.currentQuestion;
+    final firstRunning = running1 as QuizRunning;
+    final firstQuestion = firstRunning.session.currentQuestion;
+    notifier.markQuestionReady(
+      sessionId: firstRunning.session.sessionId,
+      questionIndex: firstRunning.session.currentIndex,
+    );
 
     // Answer question 1 with the correct choice, then read the reveal and
     // move on: answering no longer advances by itself.
@@ -48,6 +65,10 @@ void main() {
     // After question 1, we should still be running (count == 2).
     final running2 = container.read(quizControllerProvider);
     if (running2 is QuizRunning) {
+      notifier.markQuestionReady(
+        sessionId: running2.session.sessionId,
+        questionIndex: running2.session.currentIndex,
+      );
       await notifier.answer(
         chosenChoiceId: running2.session.currentQuestion.correctChoice.id,
       );

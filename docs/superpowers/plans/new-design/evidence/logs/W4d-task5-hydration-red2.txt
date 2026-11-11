@@ -1,0 +1,32 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/completed_quiz_hydration_test.dart
+00:00 +0: completed review rejects missing original content
+00:00 +0 -1: completed review rejects missing original content [E]
+  Expected: throws <Instance of 'StateError'>
+    Actual: <Instance of 'Future<SessionDebrief>'>
+     Which: emitted <Instance of 'SessionDebrief'>
+  
+  package:matcher                                                           expectLater
+  package:flutter_test/src/widget_tester.dart 507:8                         expectLater
+  test/features/quiz/presentation/completed_quiz_hydration_test.dart 30:13  main.<fn>
+  ===== asynchronous gap ===========================
+  dart:async                                                                _CustomZone.registerUnaryCallback
+  test/features/quiz/presentation/completed_quiz_hydration_test.dart 20:7   main.<fn>
+  
+00:00 +0 -1: completed review rejects revised original content
+00:00 +0 -2: completed review rejects revised original content [E]
+  Expected: throws <Instance of 'StateError'>
+    Actual: <Instance of 'Future<SessionDebrief>'>
+     Which: emitted <Instance of 'SessionDebrief'>
+  
+  package:matcher                                                           expectLater
+  package:flutter_test/src/widget_tester.dart 507:8                         expectLater
+  test/features/quiz/presentation/completed_quiz_hydration_test.dart 30:13  main.<fn>
+  ===== asynchronous gap ===========================
+  dart:async                                                                _CustomZone.registerUnaryCallback
+  test/features/quiz/presentation/completed_quiz_hydration_test.dart 20:7   main.<fn>
+  
+00:00 +0 -2: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/completed_quiz_hydration_test.dart: completed review rejects missing original content
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/completed_quiz_hydration_test.dart: completed review rejects revised original content

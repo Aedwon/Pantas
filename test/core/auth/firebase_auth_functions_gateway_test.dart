@@ -112,10 +112,15 @@ void main() {
 
 @immutable
 class CallableInvocation {
-  const CallableInvocation({required this.region, required this.name});
+  const CallableInvocation({
+    required this.region,
+    required this.name,
+    this.data,
+  });
 
   final String region;
   final String name;
+  final Object? data;
 
   @override
   bool operator ==(Object other) {
@@ -136,8 +141,12 @@ class RecordingFunctionsClient implements AuthFunctionsCallableClient {
   final calls = <CallableInvocation>[];
 
   @override
-  Future<Object?> call({required String region, required String name}) async {
-    calls.add(CallableInvocation(region: region, name: name));
+  Future<Object?> call({
+    required String region,
+    required String name,
+    Object? data,
+  }) async {
+    calls.add(CallableInvocation(region: region, name: name, data: data));
     if (error case final value?) throw value;
     return responses[name];
   }

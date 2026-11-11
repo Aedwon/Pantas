@@ -1,10 +1,17 @@
 import 'package:flutter/services.dart';
+import 'package:pantas/features/paywall/domain/coverage.dart';
+import 'package:pantas/features/paywall/domain/paywall_package.dart';
+import 'package:pantas/features/paywall/domain/products.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
+
+export 'package:purchases_flutter/purchases_flutter.dart'
+    show VerificationResult;
 
 const _proEntitlementId = 'pro';
 
 enum RevenueCatFailureKind {
   userCancelled,
+  pending,
   network,
   store,
   revenueCat,
@@ -25,8 +32,14 @@ class RevenueCatSdkException implements Exception {
 }
 
 class RevenueCatCustomerInfoSnapshot {
-  const RevenueCatCustomerInfoSnapshot.inactive({this.requestDate})
-      : productId = null,
+  const RevenueCatCustomerInfoSnapshot.inactive({
+    this.requestDate,
+    this.subscriptions = const [],
+    this.promotions = const [],
+    this.nonSubscriptionPurchases = const [],
+    this.billingIssuesDetectedAt,
+    this.verification = VerificationResult.notRequested,
+  })  : productId = null,
         expiresAt = null,
         isTrial = false,
         willRenew = false;
@@ -37,6 +50,11 @@ class RevenueCatCustomerInfoSnapshot {
     this.isTrial = false,
     this.willRenew = true,
     this.requestDate,
+    this.subscriptions = const [],
+    this.promotions = const [],
+    this.nonSubscriptionPurchases = const [],
+    this.billingIssuesDetectedAt,
+    this.verification = VerificationResult.notRequested,
   });
 
   final String? productId;
@@ -44,8 +62,30 @@ class RevenueCatCustomerInfoSnapshot {
   final bool isTrial;
   final bool willRenew;
   final DateTime? requestDate;
+  final List<RevenueCatSubscriptionSnapshot> subscriptions;
+  final List<CoveragePeriod> promotions;
+  final List<String> nonSubscriptionPurchases;
+  final DateTime? billingIssuesDetectedAt;
+  final VerificationResult verification;
 
-  bool get proIsActive => productId != null;
+  bool get proIsActive =>
+      productId != null || subscriptions.isNotEmpty || promotions.isNotEmpty;
+}
+
+class RevenueCatSubscriptionSnapshot {
+  const RevenueCatSubscriptionSnapshot({
+    required this.productId,
+    this.expiresAt,
+    this.isTrial = false,
+    this.willRenew = true,
+    this.billingIssuesDetectedAt,
+  });
+
+  final String productId;
+  final DateTime? expiresAt;
+  final bool isTrial;
+  final bool willRenew;
+  final DateTime? billingIssuesDetectedAt;
 }
 
 class RevenueCatProductSnapshot {
@@ -53,12 +93,26 @@ class RevenueCatProductSnapshot {
     required this.productId,
     required this.priceString,
     required this.priceAmount,
+    this.trialEligible = false,
   });
 
   final String productId;
   final String priceString;
   final double priceAmount;
+  final bool trialEligible;
 }
+
+RevenueCatProductSnapshot revenueCatProductSnapshot(StoreProduct product) =>
+    RevenueCatProductSnapshot(
+      productId: product.identifier,
+      priceString: product.priceString,
+      priceAmount: product.price,
+      trialEligible:
+          productForId(product.identifier)?.period == PaywallSku.monthly &&
+              (product.subscriptionOptions
+                      ?.any((option) => option.freePhase != null) ??
+                  false),
+    );
 
 class RevenueCatOfferingSnapshot {
   const RevenueCatOfferingSnapshot(this.products);
@@ -74,8 +128,38 @@ abstract interface class RevenueCatSdk {
   Future<RevenueCatCustomerInfoSnapshot> getCustomerInfo();
   Future<RevenueCatOfferingSnapshot?> getCurrentOffering();
   Future<RevenueCatCustomerInfoSnapshot> logIn(String uid);
-  Future<RevenueCatCustomerInfoSnapshot> purchase(String productId);
+  Future<void> logOut();
+  Future<RevenueCatCustomerInfoSnapshot> purchase(
+    String productId, {
+    String? oldProductId,
+    bool allowTrial = true,
+  });
   Future<RevenueCatCustomerInfoSnapshot> restorePurchases();
+  Future<void> invalidateCustomerInfoCache();
+}
+
+PurchaseParams purchaseParamsFor(
+  Package package, {
+  String? oldProductId,
+  bool allowTrial = true,
+}) {
+  final options = package.storeProduct.subscriptionOptions ?? const [];
+  final requireBase = oldProductId != null ||
+      (!allowTrial && options.any((option) => option.freePhase != null));
+  if (!requireBase) return PurchaseParams.package(package);
+  final base = options.where((option) => option.isBasePlan).firstOrNull;
+  if (base == null) {
+    throw const RevenueCatSdkException(RevenueCatFailureKind.configuration);
+  }
+  return PurchaseParams.subscriptionOption(
+    base,
+    productChangeInfo: oldProductId == null
+        ? null
+        : StoreProductChangeInfo(
+            oldProductId,
+            replacementMode: StoreReplacementMode.withTimeProration,
+          ),
+  );
 }
 
 RevenueCatFailureKind classifyRevenueCatErrorCode(PurchasesErrorCode code) {
@@ -104,13 +188,13 @@ RevenueCatFailureKind classifyRevenueCatErrorCode(PurchasesErrorCode code) {
     PurchasesErrorCode.featureNotSupportedWithStoreKit1 ||
     PurchasesErrorCode.invalidWebPurchaseToken =>
       RevenueCatFailureKind.developer,
+    PurchasesErrorCode.paymentPendingError => RevenueCatFailureKind.pending,
     PurchasesErrorCode.storeProblemError ||
     PurchasesErrorCode.purchaseNotAllowedError ||
     PurchasesErrorCode.productNotAvailableForPurchaseError ||
     PurchasesErrorCode.productAlreadyPurchasedError ||
     PurchasesErrorCode.ineligibleError ||
     PurchasesErrorCode.insufficientPermissionsError ||
-    PurchasesErrorCode.paymentPendingError ||
     PurchasesErrorCode.beginRefundRequestError ||
     PurchasesErrorCode.testStoreSimulatedPurchaseError =>
       RevenueCatFailureKind.store,
@@ -139,8 +223,48 @@ RevenueCatCustomerInfoSnapshot revenueCatCustomerInfoSnapshot(
 ) {
   final requestDate = DateTime.tryParse(info.requestDate)?.toUtc();
   final active = info.entitlements.active[_proEntitlementId];
+  DateTime? date(String? value) =>
+      value == null ? null : DateTime.tryParse(value)?.toUtc();
+  final subscriptions = [
+    for (final id in info.activeSubscriptions)
+      RevenueCatSubscriptionSnapshot(
+        productId: id,
+        expiresAt: date(
+          info.subscriptionsByProductIdentifier[id]?.expiresDate ??
+              info.allExpirationDates[id],
+        ),
+        isTrial: info.subscriptionsByProductIdentifier[id]?.periodType ==
+            PeriodType.trial,
+        willRenew: info.subscriptionsByProductIdentifier[id]?.willRenew ??
+            (active?.productIdentifier == id ? active?.willRenew : null) ??
+            true,
+        billingIssuesDetectedAt: date(
+          info.subscriptionsByProductIdentifier[id]?.billingIssuesDetectedAt,
+        ),
+      ),
+  ];
+  final promotions = [
+    for (final entry in info.entitlements.active.entries)
+      if ((entry.key.startsWith('promo_') ||
+              entry.value.store == Store.promotional) &&
+          date(entry.value.expirationDate) != null)
+        CoveragePeriod(
+          id: entry.key,
+          endsAt: date(entry.value.expirationDate)!,
+        ),
+  ];
+  final purchases = [
+    for (final transaction in info.nonSubscriptionTransactions)
+      transaction.productIdentifier,
+  ];
   if (active == null) {
-    return RevenueCatCustomerInfoSnapshot.inactive(requestDate: requestDate);
+    return RevenueCatCustomerInfoSnapshot.inactive(
+      requestDate: requestDate,
+      subscriptions: subscriptions,
+      promotions: promotions,
+      nonSubscriptionPurchases: purchases,
+      verification: info.entitlements.verification,
+    );
   }
   return RevenueCatCustomerInfoSnapshot.active(
     productId: active.productIdentifier,
@@ -150,6 +274,11 @@ RevenueCatCustomerInfoSnapshot revenueCatCustomerInfoSnapshot(
     isTrial: active.periodType == PeriodType.trial,
     willRenew: active.willRenew,
     requestDate: requestDate,
+    subscriptions: subscriptions,
+    promotions: promotions,
+    nonSubscriptionPurchases: purchases,
+    billingIssuesDetectedAt: date(active.billingIssueDetectedAt),
+    verification: info.entitlements.verification,
   );
 }
 
@@ -157,9 +286,32 @@ class PurchasesRevenueCatSdk implements RevenueCatSdk {
   @override
   Future<void> configure(String androidApiKey) {
     return _translate(
-      () => Purchases.configure(PurchasesConfiguration(androidApiKey)),
+      () => Purchases.configure(
+        PurchasesConfiguration(androidApiKey)
+          ..entitlementVerificationMode =
+              EntitlementVerificationMode.informational,
+      ),
     );
   }
+
+  @override
+  Future<void> logOut() async {
+    try {
+      await Purchases.logOut();
+    } on PlatformException catch (error) {
+      if (PurchasesErrorHelper.getErrorCode(error) !=
+          PurchasesErrorCode.logOutWithAnonymousUserError) {
+        throw RevenueCatSdkException(
+          classifyRevenueCatErrorCode(PurchasesErrorHelper.getErrorCode(error)),
+          error,
+        );
+      }
+    }
+  }
+
+  @override
+  Future<void> invalidateCustomerInfoCache() =>
+      _translate(Purchases.invalidateCustomerInfoCache);
 
   @override
   void addCustomerInfoUpdateListener(
@@ -187,11 +339,7 @@ class PurchasesRevenueCatSdk implements RevenueCatSdk {
       return RevenueCatOfferingSnapshot(
         current.availablePackages
             .map(
-              (package) => RevenueCatProductSnapshot(
-                productId: package.storeProduct.identifier,
-                priceString: package.storeProduct.priceString,
-                priceAmount: package.storeProduct.price,
-              ),
+              (package) => revenueCatProductSnapshot(package.storeProduct),
             )
             .toList(growable: false),
       );
@@ -207,7 +355,11 @@ class PurchasesRevenueCatSdk implements RevenueCatSdk {
   }
 
   @override
-  Future<RevenueCatCustomerInfoSnapshot> purchase(String productId) {
+  Future<RevenueCatCustomerInfoSnapshot> purchase(
+    String productId, {
+    String? oldProductId,
+    bool allowTrial = true,
+  }) {
     return _translate(() async {
       final current = (await Purchases.getOfferings()).current;
       if (current == null) {
@@ -229,18 +381,23 @@ class PurchasesRevenueCatSdk implements RevenueCatSdk {
         );
       }
 
-      final result = await Purchases.purchase(PurchaseParams.package(target));
+      final result = await Purchases.purchase(
+        purchaseParamsFor(
+          target,
+          oldProductId: oldProductId,
+          allowTrial: allowTrial,
+        ),
+      );
       return revenueCatCustomerInfoSnapshot(result.customerInfo);
     });
   }
 
   @override
   Future<RevenueCatCustomerInfoSnapshot> restorePurchases() {
-    return _translate(
-      () async => revenueCatCustomerInfoSnapshot(
-        await Purchases.restorePurchases(),
-      ),
-    );
+    return _translate(() async {
+      await Purchases.syncPurchases();
+      return revenueCatCustomerInfoSnapshot(await Purchases.getCustomerInfo());
+    });
   }
 
   Future<T> _translate<T>(Future<T> Function() action) async {

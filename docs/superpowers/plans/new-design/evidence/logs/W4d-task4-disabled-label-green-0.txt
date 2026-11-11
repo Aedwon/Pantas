@@ -1,0 +1,5 @@
+Formatted lib/core/ui/theme/pantas_colors.dart
+Formatted lib/features/quiz/presentation/quiz_page.dart
+Formatted test/core/ui/components/disabled_action_label_test.dart
+Formatted test/features/quiz/presentation/quiz_question_screen_test.dart
+Formatted 5 files (4 changed) in 0.01 seconds.

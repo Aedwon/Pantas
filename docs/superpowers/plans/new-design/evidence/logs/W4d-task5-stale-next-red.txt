@@ -1,0 +1,54 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart
+test/features/quiz/data/review_batch_repository_test.dart:1019:8: Error: Expected an identifier, but got ''stale completed screen cannot claim the third session''.
+Try inserting an identifier before ''stale completed screen cannot claim the third session''.
+  test('stale completed screen cannot claim the third session', () async {
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:1019:65: Error: Expected an identifier, but got '('.
+Try inserting an identifier before '('.
+  test('stale completed screen cannot claim the third session', () async {
+                                                                ^
+test/features/quiz/data/review_batch_repository_test.dart:1019:68: Error: Expected ')' before this.
+  test('stale completed screen cannot claim the third session', () async {
+                                                                   ^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:1003:7: Error: The non-abstract class '_DelayedSessions' is missing implementations for these members:
+ - _DelayedSessions.test
+Try to either
+ - provide an implementation,
+ - inherit an implementation from a superclass or mixin,
+ - mark the class as abstract, or
+ - provide a 'noSuchMethod' implementation.
+class _DelayedSessions extends QuizSessionRepository {
+      ^^^^^^^^^^^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:1019:3: Context: '_DelayedSessions.test' is defined here.
+  test('stale completed screen cannot claim the third session', () async {
+  ^^^^
+00:00 +0 -1: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart [E]
+  Failed to load "/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart":
+  Compilation failed for testPath=/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: test/features/quiz/data/review_batch_repository_test.dart:1019:8: Error: Expected an identifier, but got ''stale completed screen cannot claim the third session''.
+  Try inserting an identifier before ''stale completed screen cannot claim the third session''.
+    test('stale completed screen cannot claim the third session', () async {
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:1019:65: Error: Expected an identifier, but got '('.
+  Try inserting an identifier before '('.
+    test('stale completed screen cannot claim the third session', () async {
+                                                                  ^
+  test/features/quiz/data/review_batch_repository_test.dart:1019:68: Error: Expected ')' before this.
+    test('stale completed screen cannot claim the third session', () async {
+                                                                     ^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:1003:7: Error: The non-abstract class '_DelayedSessions' is missing implementations for these members:
+   - _DelayedSessions.test
+  Try to either
+   - provide an implementation,
+   - inherit an implementation from a superclass or mixin,
+   - mark the class as abstract, or
+   - provide a 'noSuchMethod' implementation.
+  class _DelayedSessions extends QuizSessionRepository {
+        ^^^^^^^^^^^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:1019:3: Context: '_DelayedSessions.test' is defined here.
+    test('stale completed screen cannot claim the third session', () async {
+    ^^^^
+  .
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart

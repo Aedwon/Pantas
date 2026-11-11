@@ -14,12 +14,18 @@ service cloud.firestore {
       return isNamedUser() && request.auth.uid == uid;
     }
 
+    function hasLivePro() {
+      return request.auth.token.pro == true
+          && request.auth.token.proUntil is number
+          && request.auth.token.proUntil > request.time.toMillis();
+    }
+
     function isProUser() {
-      return isNamedUser() && request.auth.token.pro == true;
+      return isNamedUser() && hasLivePro();
     }
 
     function isProOwner(uid) {
-      return isOwner(uid) && request.auth.token.pro == true;
+      return isOwner(uid) && hasLivePro();
     }
 
     function activeGenerationId(uid) {
@@ -44,7 +50,36 @@ service cloud.firestore {
           ).data.status == 'staging';
     }
 
-    function isValidSyncRowWrite() {
+    function stageWindowAvailable(uid) {
+      let path = /databases/$(database)/documents/users/$(uid)/limits/syncGeneration;
+      return !exists(path)
+          || get(path).data.lastStagedAt <= request.time - duration.value(5, 'm');
+    }
+
+    function stageAuthorized(uid, generationId) {
+      let path = /databases/$(database)/documents/users/$(uid)/limits/syncGeneration;
+      return getAfter(path).data.lastStagedAt == request.time
+          && getAfter(path).data.generationId == generationId
+          && stageWindowAvailable(uid);
+    }
+
+    function validStageLimit(uid) {
+      let id = request.resource.data.generationId;
+      let path = /databases/$(database)/documents/users/$(uid)/sync_generations/$(id);
+      return request.resource.data.keys().hasAll(['lastStagedAt', 'generationId'])
+          && request.resource.data.keys().hasOnly(['lastStagedAt', 'generationId'])
+          && id is string && id.size() > 0 && id.size() <= 128
+          && !id.matches('.*[/].*')
+          && request.resource.data.lastStagedAt == request.time
+          && !exists(path)
+          && getAfter(path).data.status == 'staging'
+          && getAfter(path).data.createdAt == request.time
+          && stageWindowAvailable(uid);
+    }
+
+    // Update these allowlists in the same change as any synced field change.
+    // Payload fields may be absent on tombstones.
+    function isValidSyncRowWrite(fields) {
       return request.resource.data.keys().hasAll([
             'updatedAt',
             'originDeviceId',
@@ -52,32 +87,62 @@ service cloud.firestore {
             'schemaVersion',
             'deleted'
           ])
+          && request.resource.data.keys().hasOnly(fields)
           && request.resource.data.updatedAt == request.time
           && request.resource.data.originDeviceId is string
           && request.resource.data.originDeviceId.size() > 0
+          && request.resource.data.originDeviceId.size() <= 128
           && request.resource.data.mutationId is string
           && request.resource.data.mutationId.size() > 0
+          && request.resource.data.mutationId.size() <= 128
           && request.resource.data.schemaVersion == 1
           && request.resource.data.deleted is bool;
     }
 
-    function canReadSyncRow(uid) {
-      return isProOwner(uid);
+    function generationNotDeleting(uid, generationId) {
+      let path = /databases/$(database)/documents/users/$(uid)/sync_generations/$(generationId);
+      return !exists(path) || get(path).data.status != 'deleting';
     }
 
-    function canWriteSyncRow(uid, generationId) {
+    function canReadSyncRow(uid, generationId) {
+      return isProOwner(uid) && generationNotDeleting(uid, generationId);
+    }
+
+    function canWriteSyncRow(uid, generationId, fields) {
       return isProOwner(uid)
+          && generationNotDeleting(uid, generationId)
           && (
             isActiveGeneration(uid, generationId)
             || isStagingGeneration(uid, generationId)
           )
-          && isValidSyncRowWrite();
+          && isValidSyncRowWrite(fields);
+    }
+
+    // Optional user-root fields: absent, null, or the stated type and size.
+    function validUserRootFields() {
+      let d = request.resource.data;
+      return (!('displayName' in d) || d.displayName == null
+              || (d.displayName is string && d.displayName.size() <= 128))
+          && (!('photoUrl' in d) || d.photoUrl == null
+              || (d.photoUrl is string && d.photoUrl.size() <= 2048))
+          && (!('lastSeenAt' in d) || d.lastSeenAt == null
+              || d.lastSeenAt is timestamp)
+          && (!('preferences' in d) || d.preferences == null
+              || (d.preferences is map && d.preferences.size() <= 200))
+          && (!('schemaVersion' in d) || d.schemaVersion == null
+              || d.schemaVersion is int);
+    }
+
+    function validGenerationPreferences() {
+      return request.resource.data.preferences is map
+          && request.resource.data.preferences.size() <= 200;
     }
 
     match /users/{uid} {
       allow read: if isOwner(uid);
       allow create: if isOwner(uid)
           && request.resource.data.keys().hasAll(['createdAt'])
+          && request.resource.data.keys().hasOnly(['createdAt'])
           && request.resource.data.createdAt == request.time;
       allow update: if isOwner(uid)
           && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
@@ -86,18 +151,50 @@ service cloud.firestore {
             'lastSeenAt',
             'preferences',
             'schemaVersion'
-          ]);
+          ])
+          && validUserRootFields();
       allow delete: if false;
+
+      match /server/{document=**} {
+        allow read, write: if false;
+      }
+
+      match /passes/{transactionId} {
+        allow read: if isSignedIn() && request.auth.uid == uid;
+        allow write: if false;
+      }
+
+      match /betaFeedback/{feedbackId} {
+        allow read: if isOwner(uid);
+        allow write: if false;
+      }
+
+      match /betaReward/{document} {
+        allow read: if isOwner(uid);
+        allow write: if false;
+      }
+
+      match /grants/{grantId} {
+        allow read: if isSignedIn() && request.auth.uid == uid;
+        allow write: if false;
+      }
 
       match /sync_state/{stateId} {
         allow read: if stateId == 'current' && isProOwner(uid);
         allow write: if false;
       }
 
+      match /limits/{key} {
+        allow create, update: if key == 'syncGeneration'
+            && isProOwner(uid) && validStageLimit(uid);
+        allow read, delete: if false;
+      }
+
       match /sync_generations/{generationId} {
-        allow read: if isProOwner(uid);
+        allow read: if isProOwner(uid) && generationNotDeleting(uid, generationId);
 
         allow create: if isProOwner(uid)
+            && stageAuthorized(uid, generationId)
             && request.resource.data.keys().hasAll([
               'status',
               'schemaVersion',
@@ -116,7 +213,9 @@ service cloud.firestore {
             && request.resource.data.schemaVersion == 1
             && request.resource.data.createdAt == request.time
             && request.resource.data.createdByDeviceId is string
-            && request.resource.data.createdByDeviceId.size() > 0;
+            && request.resource.data.createdByDeviceId.size() > 0
+            && request.resource.data.createdByDeviceId.size() <= 128
+            && validGenerationPreferences();
 
         allow update: if isProOwner(uid)
             && (
@@ -124,83 +223,172 @@ service cloud.firestore {
               || resource.data.status == 'staging'
             )
             && request.resource.data.diff(resource.data)
-                .affectedKeys().hasOnly(['preferences']);
+                .affectedKeys().hasOnly(['preferences'])
+            && validGenerationPreferences();
 
         allow delete: if false;
 
         match /quiz_attempts/{rowId} {
-          allow read: if canReadSyncRow(uid);
-          allow create, update: if canWriteSyncRow(uid, generationId);
+          allow read: if canReadSyncRow(uid, generationId);
+          allow create, update: if canWriteSyncRow(uid, generationId, [
+            'id', 'examId', 'startedAt', 'completedAt',
+            'origin', 'itemsJson', 'updatedAt', 'originDeviceId',
+            'mutationId', 'schemaVersion', 'deleted'
+          ]);
           allow delete: if false;
         }
 
         match /assessments/{rowId} {
-          allow read: if canReadSyncRow(uid);
-          allow create, update: if canWriteSyncRow(uid, generationId);
+          allow read: if canReadSyncRow(uid, generationId);
+          allow create, update: if canWriteSyncRow(uid, generationId, [
+            'examId', 'completedAt', 'topicScoresJson', 'updatedAt',
+            'originDeviceId', 'mutationId', 'schemaVersion', 'deleted'
+          ]);
           allow delete: if false;
         }
 
         match /fsrs_cards/{rowId} {
-          allow read: if canReadSyncRow(uid);
-          allow create, update: if canWriteSyncRow(uid, generationId);
+          allow read: if canReadSyncRow(uid, generationId);
+          allow create, update: if canWriteSyncRow(uid, generationId, [
+            'questionId', 'questionVersion', 'stage', 'stability',
+            'difficulty', 'due', 'lastReview', 'reps',
+            'lapses', 'elapsedDays', 'scheduledDays', 'updatedAt',
+            'originDeviceId', 'mutationId', 'schemaVersion', 'deleted'
+          ]);
           allow delete: if false;
         }
 
         match /lesson_progress/{rowId} {
-          allow read: if canReadSyncRow(uid);
-          allow create, update: if canWriteSyncRow(uid, generationId);
+          allow read: if canReadSyncRow(uid, generationId);
+          allow create, update: if canWriteSyncRow(uid, generationId, [
+            'lessonId', 'readAt', 'updatedAt', 'originDeviceId',
+            'mutationId', 'schemaVersion', 'deleted'
+          ]);
           allow delete: if false;
         }
 
         match /lesson_bookmarks/{rowId} {
-          allow read: if canReadSyncRow(uid);
-          allow create, update: if canWriteSyncRow(uid, generationId);
+          allow read: if canReadSyncRow(uid, generationId);
+          allow create, update: if canWriteSyncRow(uid, generationId, [
+            'lessonId', 'markedAt', 'sortIndex', 'updatedAt',
+            'originDeviceId', 'mutationId', 'schemaVersion', 'deleted'
+          ]);
           allow delete: if false;
         }
 
         match /question_flags/{rowId} {
-          allow read: if canReadSyncRow(uid);
-          allow create, update: if canWriteSyncRow(uid, generationId);
+          allow read: if canReadSyncRow(uid, generationId);
+          allow create, update: if canWriteSyncRow(uid, generationId, [
+            'questionId', 'flaggedAt', 'sortIndex', 'updatedAt',
+            'originDeviceId', 'mutationId', 'schemaVersion', 'deleted'
+          ]);
           allow delete: if false;
         }
 
         match /mock_exam_attempts/{rowId} {
-          allow read: if canReadSyncRow(uid);
-          allow create, update: if canWriteSyncRow(uid, generationId);
+          allow read: if canReadSyncRow(uid, generationId);
+          allow create, update: if canWriteSyncRow(uid, generationId, [
+            'id', 'userId', 'examId', 'blueprintId',
+            'blueprintName', 'durationMinutes', 'status', 'strictMode',
+            'sampledQuestionsJson', 'elapsedSeconds', 'accumulatedPausedSeconds', 'pausedAtLastFlush',
+            'answersJson', 'flagsJson', 'currentIndex', 'scoreRaw',
+            'scoreTotal', 'sectionResultsJson', 'totalTimeSeconds', 'startedAt',
+            'lastFlushedAt', 'submittedAt', 'attemptUpdatedAt', 'updatedAt',
+            'originDeviceId', 'mutationId', 'schemaVersion', 'deleted'
+          ]);
           allow delete: if false;
         }
 
         match /review_logs/{rowId} {
-          allow read: if canReadSyncRow(uid);
-          allow create, update: if canWriteSyncRow(uid, generationId);
+          allow read: if canReadSyncRow(uid, generationId);
+          allow create, update: if canWriteSyncRow(uid, generationId, [
+            'id', 'questionId', 'rating', 'state',
+            'due', 'stability', 'difficulty', 'elapsedDays',
+            'lastElapsedDays', 'scheduledDays', 'review', 'durationMs',
+            'isCorrect', 'heuristicVersion', 'updatedAt', 'originDeviceId',
+            'mutationId', 'schemaVersion', 'deleted'
+          ]);
           allow delete: if false;
         }
 
         match /track_scope/{rowId} {
-          allow read: if canReadSyncRow(uid);
-          allow create, update: if canWriteSyncRow(uid, generationId);
+          allow read: if canReadSyncRow(uid, generationId);
+          allow create, update: if canWriteSyncRow(uid, generationId, [
+            'kind', 'examId', 'name', 'topicId',
+            'updatedAt', 'originDeviceId', 'mutationId', 'schemaVersion',
+            'deleted'
+          ]);
           allow delete: if false;
         }
 
         match /custom_blueprints/{rowId} {
-          allow read: if canReadSyncRow(uid);
-          allow create, update: if canWriteSyncRow(uid, generationId);
+          allow read: if canReadSyncRow(uid, generationId);
+          allow create, update: if canWriteSyncRow(uid, generationId, [
+            'examId', 'totalQuestions', 'totalMinutes', 'sectionsJson',
+            'sectionsTimedSeparately', 'blueprintUpdatedAt', 'updatedAt', 'originDeviceId',
+            'mutationId', 'schemaVersion', 'deleted'
+          ]);
           allow delete: if false;
         }
       }
 
+      // No server code writes this path and no client reads it. Closed
+      // until a feature needs it (L1 review, 30 October 2026).
       match /proDossiers/{dossierId} {
-        allow read: if isOwner(uid) && request.auth.token.pro == true;
-        allow write: if false;
+        allow read, write: if false;
       }
     }
 
     match /examTracks/{trackId}/proContent/{contentId} {
-      allow read: if isProUser();
+      // Tiered server content is not available yet.
+      allow read: if false;
       allow write: if false;
     }
 
+    // Content is served only by the getContent callable (Admin SDK). Pro-only fields
+    // live in contentPro. No client may read or write either, whatever its claims say.
+    match /content/{kind}/items/{itemId} {
+      allow read, write: if false;
+    }
+
+    match /contentPro/{itemId} {
+      allow read, write: if false;
+    }
+
+    // Daily delivered-content counters, written and read by the getContent callable only.
+    match /contentCeiling/{document=**} {
+      allow read, write: if false;
+    }
+
+    // Beta applications are written by the Cloudflare Worker with server
+    // credentials. Client claims, including Pro, never authorize access.
+    match /betaApplications/{document=**} {
+      allow read, write: if false;
+    }
+
+    // Guardian consent link records and send counters: server only, keyed by hash.
+    match /guardianTokens/{hash} {
+      allow read, write: if false;
+    }
+
+    // Minimum guardian response evidence survives deletion of the user tree.
+    match /guardianConsentEvidence/{document=**} {
+      allow read, write: if false;
+    }
+
+    match /guardianLimits/{hash} {
+      allow read, write: if false;
+    }
+
     match /audit_logs/{logId} {
+      allow read, write: if false;
+    }
+
+    match /publicIds/{publicId} {
+      allow read, write: if false;
+    }
+
+    match /retiredPublicIds/{publicId} {
       allow read, write: if false;
     }
 
@@ -213,7 +401,18 @@ service cloud.firestore {
       allow read: if false;
       allow create: if isSignedIn()
           && request.resource.data.ownerUid == request.auth.uid
-          && request.resource.data.revoked == false;
+          && shareId.matches('^[0-9a-f]{32}$')
+          && request.resource.data.storagePath ==
+              'wrapped/' + request.auth.uid + '/' + shareId + '.png'
+          && request.resource.data.revoked == false
+          && request.resource.data.keys().hasOnly([
+            'ownerUid', 'storagePath', 'archetypeId', 'createdAt', 'revoked'
+          ])
+          && (!('archetypeId' in request.resource.data)
+              || (request.resource.data.archetypeId is string
+                  && request.resource.data.archetypeId.size() <= 64))
+          && (!('createdAt' in request.resource.data)
+              || request.resource.data.createdAt is timestamp);
       allow update: if isSignedIn()
           && resource.data.ownerUid == request.auth.uid
           && request.resource.data.diff(resource.data)

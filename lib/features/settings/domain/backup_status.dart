@@ -61,7 +61,8 @@ class BackupViewState {
         ),
       Syncing(:final pendingCount) => BackupViewState(
           headline: 'Backing up your progress...',
-          subtitle: '$pendingCount items left',
+          subtitle:
+              '$pendingCount ${pendingCount == 1 ? 'item' : 'items'} left',
           details: BackupDiagnostics(
             lastSyncIso: 'Pending',
             pendingCount: pendingCount,
@@ -75,7 +76,7 @@ class BackupViewState {
         const BackupViewState(
           headline: "Couldn't back up",
           subtitle: 'Tap to try again.',
-          actionLabel: 'Try again',
+          actionLabel: 'Try Again',
           details: BackupDiagnostics(
             lastSyncIso: 'Unknown',
             pendingCount: 0,
@@ -85,7 +86,7 @@ class BackupViewState {
       SyncUpToDate(:final lastSyncedAt) => BackupViewState(
           headline: 'Your progress is saved',
           subtitle: 'Last backup completed.',
-          actionLabel: 'Sync now',
+          actionLabel: 'Sync Now',
           details: BackupDiagnostics(
             lastSyncIso: lastSyncedAt?.toUtc().toIso8601String() ?? 'Now',
             pendingCount: 0,
@@ -95,7 +96,7 @@ class BackupViewState {
       SyncOk(:final lastSyncedAt, :final pendingCount) => BackupViewState(
           headline: 'Your progress is saved',
           subtitle: 'Last backup completed.',
-          actionLabel: 'Sync now',
+          actionLabel: 'Sync Now',
           details: BackupDiagnostics(
             lastSyncIso: lastSyncedAt.toUtc().toIso8601String(),
             pendingCount: pendingCount,
@@ -105,7 +106,7 @@ class BackupViewState {
       SyncIdle(:final lastSyncedAt) => BackupViewState(
           headline: 'Your progress is saved',
           subtitle: 'Backup is ready.',
-          actionLabel: 'Sync now',
+          actionLabel: 'Sync Now',
           details: BackupDiagnostics(
             lastSyncIso: lastSyncedAt?.toUtc().toIso8601String() ?? 'Never',
             pendingCount: 0,

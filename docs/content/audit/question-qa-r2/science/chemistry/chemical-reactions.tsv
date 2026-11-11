@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-chemistry-chemical-reactions-0001	CORRECTED	SOLVED-MATCH	stem;explanation;notes	LOW	Classification frame clarified because reaction labels can overlap.
+q-chemistry-chemical-reactions-0002	VERIFIED	SOLVED-MATCH	explanation;notes	HIGH	Original note falsely restricted all combustion to hydrocarbons yielding CO2 and water.
+q-chemistry-chemical-reactions-0003	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-chemistry-chemical-reactions-0004	CORRECTED	SOLVED-MATCH	stem;explanation;notes	LOW	Precipitate and solution conditions supplied to make the reaction driving force clear.
+q-chemistry-chemical-reactions-0005	CORRECTED	SOLVED-MATCH	stem;explanation;notes	LOW	Complete-combustion condition made explicit.
+q-chemistry-chemical-reactions-0006	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-chemistry-chemical-reactions-0007	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-chemistry-chemical-reactions-0008	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-chemistry-chemical-reactions-0009	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Longest correct choice shortened and throwaway nonexistent-peroxide option replaced.
+q-chemistry-chemical-reactions-0010	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Longest correct choice shortened; notes made specific.
+q-chemistry-chemical-reactions-0011	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Correct choice was longest and the pattern explanation overgeneralized counts.
+q-chemistry-chemical-reactions-0012	CORRECTED	SOLVED-MATCH	choices;explanation;notes	HIGH	Original explanation treated any symbolic compound swap as a real double replacement.
+q-chemistry-chemical-reactions-0013	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Original distractors were jokes or unrelated claims; correct choice was longest.
+q-chemistry-chemical-reactions-0014	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	MEDIUM	Original repeated the Fe balancing question with only a swapped element.
+q-chemistry-chemical-reactions-0015	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	MEDIUM	Original repeated decomposition classification with a swapped compound.
+q-chemistry-chemical-reactions-0016	NEW	NEW	new question	NONE	
+q-chemistry-chemical-reactions-0017	NEW	NEW	new question	NONE	
+q-chemistry-chemical-reactions-0018	NEW	NEW	new question	NONE	
+q-chemistry-chemical-reactions-0019	NEW	NEW	new question	NONE	
+q-chemistry-chemical-reactions-0020	NEW	NEW	new question	NONE	

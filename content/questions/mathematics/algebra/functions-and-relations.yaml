@@ -10,39 +10,39 @@ questions:
     stem: |
       Which relation is a function?
     choices:
-      - text: $\{(1, 4), (2, 5), (3, 4)\}$
+      - text: '$\{(1,4),(2,5),(3,4)\}$'
         correct: true
-      - text: $\{(1, 4), (1, 5), (2, 6)\}$
+      - text: '$\{(1,4),(1,5),(2,6)\}$'
         rationale: |
-          You picked a relation where input 1 maps to two different outputs, 4 and 5. A function must assign exactly one output per input.
-      - text: $\{(2, 3), (2, 4), (3, 5)\}$
+          This allows input 1 to have two outputs. Reading only the first pair for each input can hide the repeated input. Check every pair with the same first coordinate.
+      - text: '$\{(2,3),(2,4),(3,5)\}$'
         rationale: |
-          You chose a relation where input 2 maps to both 3 and 4. A function cannot map a single input value to multiple outputs.
-      - text: $\{(1, 2), (2, 3), (1, 4)\}$
+          This allows input 2 to have two outputs. The pairs look different when read as whole pairs. Check the first coordinates separately.
+      - text: '$\{(1,2),(2,3),(1,4)\}$'
         rationale: |
-          You selected a relation where input 1 produces two outputs, 2 and 4. Inputs cannot repeat with different output values.
+          This allows input 1 to have two outputs. The repeated input is separated by another pair. Check the whole list for repeated first coordinates.
     explanation: |
-      A function has one input → one output. Check inputs: in the first, inputs are 1, 2, 3 (no repeats). Others have repeated inputs with different outputs, so they are not functions.
+      The inputs are $1$, $2$, and $3$. Each has exactly one output. The output $4$ can be shared by two inputs, so this relation is a function.
 
   - id: q-algebra-functions-and-relations-0002
     type: direct-computation
     difficulty: easy
     stem: |
-      If $f(x) = 3x + 2$, find $f(4)$.
+      For $f(x)=3x+2$, what is $f(x+2)-f(x)$?
     choices:
-      - text: $14$
+      - text: '$6$'
         correct: true
-      - text: $9$
+      - text: '$3$'
         rationale: |
-          You added $3 + 4 + 2 = 9$ or added 3 and 4 first. Make sure to multiply 3 by $x = 4$ to get 12, then add 2 to get 14.
-      - text: $12$
+          This counts an increase of one unit of input. The coefficient 3 is the change for one unit. Check how many units the input increases.
+      - text: '$2$'
         rationale: |
-          You calculated $3(4) = 12$, but forgot to add the $+2$ constant term. Finishing the evaluation gives $12 + 2 = 14$.
-      - text: $5$
+          This returns the fixed term of the rule. That term is visible in both outputs. Check that fixed terms cancel when taking a difference.
+      - text: '$8$'
         rationale: |
-          You calculated $3 + 2 = 5$ and ignored the $x$ input. You must substitute $x = 4$ to evaluate $3(4) + 2 = 14$.
+          This adds the fixed term to the change. It treats the change like a fresh total cost. Check whether the question asks for a total or an increase.
     explanation: |
-      Substitute $x = 4$: $f(4) = 3(4) + 2 = 12 + 2 = 14$.
+      Find both outputs: $f(x+2)=3(x+2)+2=3x+8$ and $f(x)=3x+2$. Their difference is $(3x+8)-(3x+2)=6$.
 
   - id: q-algebra-functions-and-relations-0003
     type: direct-computation
@@ -50,39 +50,39 @@ questions:
     stem: |
       If $f(x) = 2x^2 - 3x + 1$, find $f(-2)$.
     choices:
-      - text: $15$
+      - text: '$15$'
         correct: true
-      - text: $3$
+      - text: '$3$'
         rationale: |
-          You computed $2(-2)^2 = 8$ correctly, but evaluated $-3(-2)$ as $-6$ instead of $+6$, giving $8 - 6 + 1 = 3$.
-      - text: $-1$
+          This treats $-3(-2)$ as $-6$, giving $8-6+1$. The visible minus sign can suggest a negative product. Check the sign of a product of two negatives.
+      - text: '$-1$'
         rationale: |
-          You evaluated $(-2)^2$ as $-4$, getting $2(-4) - 3(-2) + 1 = -8 + 6 + 1 = -1$. Check your signs when squaring negative numbers.
-      - text: $11$
+          This treats $(-2)^2$ as $-4$, giving $-8+6+1$. A negative input can suggest a negative square. Check the two factors used in the square.
+      - text: '$11$'
         rationale: |
-          You forgot to add 1 at the end, or miscalculated $8 + 6 = 14$ instead of $8 + 6 + 1 = 15$. Check each step of your arithmetic.
+          This drops the coefficient 2 from the squared term, giving $4+6+1$. Squaring the input is correctly done. Check that the coefficient still multiplies the square.
     explanation: |
-      Substitute $x = -2$ carefully: $f(-2) = 2(-2)^2 - 3(-2) + 1 = 2(4) + 6 + 1 = 8 + 6 + 1 = 15$.
+      Substitute $-2$ with parentheses: $f(-2)=2(-2)^2-3(-2)+1$. The terms are $8$, $6$, and $1$. Add them to get $15$.
 
   - id: q-algebra-functions-and-relations-0004
     type: direct-computation
     difficulty: medium
     stem: |
-      Find the domain of $f(x) = \dfrac{5}{x - 3}$.
+      The proposed domain of the real-valued function $f(x)=\dfrac{5}{x-3}$ is $\{-1,0,3,5\}$. Which member must be removed?
     choices:
-      - text: All real numbers except $x = 3$
+      - text: '$3$'
         correct: true
-      - text: All real numbers
+      - text: '$-1$'
         rationale: |
-          You ignored the denominator. When $x = 3$, the denominator $x - 3 = 0$, causing division by zero, which is undefined.
-      - text: $x \geq 3$
+          This excludes a negative input even though the denominator is nonzero. Negative inputs sometimes fail under an even root. Check the actual kind of restriction in this rule.
+      - text: '$0$'
         rationale: |
-          You applied a square root rule to a fraction. Rational functions allow negative values as long as the denominator is not zero.
-      - text: $x > 3$
+          This excludes zero just because division appears. Division by zero is invalid only when the denominator itself is zero. Check the value of $x-3$.
+      - text: '$5$'
         rationale: |
-          You restricted $x$ to strictly positive values beyond 3. Values less than 3 are allowed because they do not make $x - 3 = 0$.
+          This excludes the numerator value instead of the zero of the denominator. The 5 is the other visible number in the rule. Check which part could make division undefined.
     explanation: |
-      The denominator cannot be zero. Setting $x - 3 = 0$ gives $x = 3$, which is forbidden. Domain is all reals except 3.
+      The denominator must be nonzero. Solve $x-3=0$ to find the excluded input, $x=3$. That is the member to remove from the proposed domain.
 
   - id: q-algebra-functions-and-relations-0005
     type: direct-computation
@@ -90,19 +90,19 @@ questions:
     stem: |
       Find the domain of $g(x) = \sqrt{x - 2}$.
     choices:
-      - text: $x \geq 2$
+      - text: '$x\ge2$'
         correct: true
-      - text: $x > 2$
+      - text: '$x>2$'
         rationale: |
-          You excluded $x = 2$. Substituting $x = 2$ gives $\sqrt{0} = 0$, which is defined, so $x = 2$ is included in the domain.
-      - text: All real numbers
+          This removes the endpoint 2. The square root is often thought to need a strictly positive input. Check that the square root of zero is defined.
+      - text: '$\text{All real numbers}$'
         rationale: |
-          You included values where $x < 2$. For example, if $x = 0$, $\sqrt{-2}$ is not a real number, so $x \geq 2$ is required.
-      - text: $x \le 2$
+          This allows negative values inside the square root. Polynomial functions have no such restriction. Check the radicand of this function.
+      - text: '$x\le2$'
         rationale: |
-          You reversed the inequality direction. If $x < 2$, $x - 2$ becomes negative, making the square root undefined.
+          This reverses the inequality when solving $x-2\ge0$. The subtraction sign can suggest reversing direction. Check whether a negative multiplier was used.
     explanation: |
-      The inside of a square root must be non-negative: $x - 2 \geq 0$, so $x \geq 2$.
+      A real square root requires $x-2\ge0$. Add $2$ to both sides to get $x\ge2$. The endpoint is included because $\sqrt{0}=0$.
 
   - id: q-algebra-functions-and-relations-0006
     type: which-is-true
@@ -110,19 +110,19 @@ questions:
     stem: |
       If $f$ is invertible, what does $f^{-1}(x)$ mean?
     choices:
-      - text: The inverse function that undoes $f$.
+      - text: 'The function that reverses $f$.'
         correct: true
-      - text: The reciprocal $\dfrac{1}{f(x)}$.
+      - text: 'The reciprocal $\dfrac{1}{f(x)}$.'
         rationale: |
-          You treated the $-1$ superscript as an exponent rather than inverse notation. For an invertible function, $f^{-1}$ denotes the function that undoes $f$.
-      - text: The negative of $f(x)$.
+          This reads the superscript $-1$ as an ordinary negative exponent. That notation does mean reciprocal for a number. Check whether it names a function inverse.
+      - text: 'The function that negates every output.'
         rationale: |
-          You confused inverse functions with negating a function $-f(x)$. An inverse function reverses the input-output mapping.
-      - text: It cannot be determined.
+          This treats the minus sign as changing output signs. Negation can look like a way to undo a value. Check whether the operation restores the original input.
+      - text: 'The function that applies $f$ twice.'
         rationale: |
-          The stem already states that $f$ is invertible. In that setting, $f^{-1}(x)$ is standard notation for the inverse function.
+          This repeats the original function. Repeating a step can sometimes look like undoing it. Check that applying an inverse after $f$ restores the input.
     explanation: |
-      When $f$ is invertible, $f^{-1}(x)$ denotes its inverse function. For example, if $f(2) = 7$, then $f^{-1}(7) = 2$. It is not $\dfrac{1}{f(x)}$.
+      The inverse reverses the input-output pairs of $f$. If $f(a)=b$, then $f^{-1}(b)=a$ on the inverse domain. It takes an output of $f$ back to its original input.
 
   - id: q-algebra-functions-and-relations-0007
     type: direct-computation
@@ -130,79 +130,79 @@ questions:
     stem: |
       If $f(x) = 2x + 1$ and $g(x) = x^2 - 3$, find $(f \circ g)(2)$.
     choices:
-      - text: $3$
+      - text: '$3$'
         correct: true
-      - text: $1$
+      - text: '$1$'
         rationale: |
-          You evaluated $g(2) = 2^2 - 3 = 1$, but forgot to apply $f(1) = 2(1) + 1 = 3$. Complete the outer function call.
-      - text: $5$
+          This stops at $g(2)$. The inner calculation gives a finished number. Check that its output must still go through $f$.
+      - text: '$5$'
         rationale: |
-          You calculated $f(2) = 5$ first, evaluating $(g \circ f)(2) = g(5) = 22$, or got confused between composition orders.
-      - text: $9$
+          This applies $f$ to 2 and stops. Reading the notation left to right can suggest using $f$ first. Check the function closest to the original input.
+      - text: '$22$'
         rationale: |
-          You squared $f(2) = 5$ or miscalculated $(f \circ g)(2)$. First find $g(2) = 1$, then plug 1 into $f(x)$ to get $f(1) = 3$.
+          This computes $g(f(2))$. Both functions are used, so the result can look complete. Check the order named by $f\circ g$.
     explanation: |
-      Work inside out. First $g(2) = 2^2 - 3 = 1$. Then $f(1) = 2(1) + 1 = 3$.
+      Apply $g$ first: $g(2)=2^2-3=1$. Feed that output into $f$: $f(1)=2(1)+1=3$.
 
   - id: q-algebra-functions-and-relations-0008
-    type: direct-computation
+    type: word-problem
     difficulty: medium
     stem: |
-      If $f(x) = 2x + 1$ and $g(x) = x^2 - 3$, find $(g \circ f)(2)$.
+      A number passes through two machines. The first adds $3$. The second squares its input and then doubles the square. What is the final output if the original input is $2$?
     choices:
-      - text: $22$
+      - text: '$50$'
         correct: true
-      - text: $3$
+      - text: '$8$'
         rationale: |
-          You evaluated $(f \circ g)(2)$ instead of $(g \circ f)(2)$. For $(g \circ f)(2)$, evaluate $f(2) = 5$ first, then $g(5) = 22$.
-      - text: $9$
+          This squares and doubles the original input without first adding three. The second rule produces a complete number. Check what enters the second rule.
+      - text: '$5$'
         rationale: |
-          You evaluated $f(2) = 5$ and computed $2(5) - 1 = 9$ instead of $g(5) = 5^2 - 3 = 22$. Check your function formula.
-      - text: $1$
+          This stops after the first machine adds three. That is the correct intermediate output. Check whether another machine still acts on it.
+      - text: '$11$'
         rationale: |
-          You evaluated $g(2) = 1$ instead of $f(2) = 5$. Inside out means compute $f(2) = 5$ first, then $g(5) = 25 - 3 = 22$.
+          This reverses the two machines, giving $2(2)^2+3$. Both stated actions are used. Check their stated order.
     explanation: |
-      Work inside out. First $f(2) = 2(2) + 1 = 5$. Then $g(5) = 5^2 - 3 = 25 - 3 = 22$.
+      The first machine changes $2$ to $2+3=5$. The second squares that output and doubles it: $2(5^2)=2(25)=50$.
 
   - id: q-algebra-functions-and-relations-0009
     type: direct-computation
     difficulty: hard
     stem: |
-      Find the inverse of $f(x) = \dfrac{2x - 3}{5}$.
+      Find $f^{-1}(x)$ for $f(x)=\dfrac{2x-3}{5}$.
     choices:
-      - text: $f^{-1}(x) = \dfrac{5x + 3}{2}$
+      - text: '$\dfrac{5x+3}{2}$'
         correct: true
-      - text: $f^{-1}(x) = \dfrac{5}{2x - 3}$
+      - text: '$\dfrac{5}{2x-3}$'
         rationale: |
-          You took the reciprocal of the fraction. To find an inverse function, swap $x$ and $y$ and solve for $y$: $y = \dfrac{5x+3}{2}$.
-      - text: $f^{-1}(x) = \dfrac{2x + 3}{5}$
+          This takes the reciprocal of the formula. The superscript $-1$ can suggest a reciprocal. Check that an inverse reverses the input-output relationship.
+      - text: '$\dfrac{5x-3}{2}$'
         rationale: |
-          You flipped the negative 3 to positive 3 but forgot to multiply by 5 when solving $5x = 2y - 3$.
-      - text: $f^{-1}(x) = \dfrac{3 - 2x}{5}$
+          This subtracts three when undoing a subtraction. Keeping the original minus sign can seem consistent. Check the opposite operation needed to undo that step.
+      - text: '$\dfrac{5x+3}{-2}$'
         rationale: |
-          You negated the numerator instead of solving $x = \dfrac{2y-3}{5}$ for $y$. Multiplying by 5 gives $5x = 2y - 3$, so $y = \dfrac{5x+3}{2}$.
+          This gives the final division a negative divisor. Moving terms across an equation can lead to changing too many signs. Check the coefficient attached to the unknown after rearranging.
     explanation: |
-      Write $y = \dfrac{2x - 3}{5}$. Swap $x$ and $y$: $x = \dfrac{2y - 3}{5}$. Solve: $5x = 2y - 3$, so $2y = 5x + 3$ and $y = \dfrac{5x + 3}{2}$.
+      Write $y=\dfrac{2x-3}{5}$ and exchange $x$ and $y$: $x=\dfrac{2y-3}{5}$. Multiply by $5$, then add $3$: $5x+3=2y$. Divide by $2$ to get $f^{-1}(x)=\dfrac{5x+3}{2}$.
 
   - id: q-algebra-functions-and-relations-0010
     type: error-spotting
     difficulty: medium
     stem: |
-      A student claims the range of $f(x) = x^2$ is all real numbers. What is the error?
+      A student claims that the range of $f(x)=x^2$, with domain all real numbers, is all real numbers. What is the error?
     choices:
-      - text: Since $x^2 \geq 0$, the range is $y \geq 0$, not all real numbers.
+      - text: 'Negative outputs were included.'
         correct: true
-      - text: There is no error.
+      - text: 'Negative inputs were excluded.'
         rationale: |
-          You claimed there is no error, but squaring any real number never produces a negative result, so $y \geq 0$.
-      - text: The range is negative numbers only.
+          This confuses the domain with the range. Negative inputs are allowed in $x^2$. Check whether the claim concerns inputs or outputs.
+      - text: 'Zero was included in the range.'
         rationale: |
-          You claimed the range is negative numbers, but $x^2$ produces non-negative numbers like $0, 1, 4$.
-      - text: The function has no range.
+          This assumes a square must be strictly positive. Many nonzero inputs do give positive squares. Check the output at zero.
+      - text: 'Positive outputs were excluded.'
         rationale: |
-          You claimed the function has no range, but every function has a valid range of output values.
+          This claims the stated range omits positive numbers. The phrase "all real numbers" can be read too quickly. Check which numbers that phrase includes.
     explanation: |
-      Squaring always gives non-negative values. The range excludes negative numbers.
+      For a real input, $x^2\ge0$. Every nonnegative value $y$ is produced by $x=\sqrt{y}$. Thus the range is $[0,\infty)$, and the claim incorrectly includes negative outputs.
 
   - id: q-algebra-functions-and-relations-0011
     type: which-is-true
@@ -210,19 +210,19 @@ questions:
     stem: |
       Can a function have two different $y$ values for the same $x$ value?
     choices:
-      - text: No, by definition a function has one input → one output.
+      - text: 'No.'
         correct: true
-      - text: Yes, always.
+      - text: 'Yes, if each output has only one input.'
         rationale: |
-          You selected "Yes, always", but a relation with multiple $y$ values for one $x$ value fails the definition of a function.
-      - text: Only for some functions.
+          This uses the test for an inverse instead of the test for a function. A unique input for each output sounds like a uniqueness rule. Check which direction the function definition controls.
+      - text: 'Yes, if both outputs are real.'
         rationale: |
-          You thought some functions allow multiple outputs per input, but by definition no function allows duplicate $x$ values.
-      - text: It depends on the domain.
+          This checks output type instead of output count. Real outputs can satisfy a domain requirement. Check whether one input still has two different outputs.
+      - text: 'Yes, if the rule has a square root.'
         rationale: |
-          You thought it depends on the domain, but the rule that each input maps to one output holds across all domains.
+          This assumes the two signs of a square root may both be outputs. Solving a squared equation can give two roots. Check that a function must assign just one output per input.
     explanation: |
-      The definition of a function requires exactly one output for each input. If an input has two outputs, it is not a function.
+      The definition of a function requires exactly one output for each input in its domain. Two different outputs for the same input break that requirement.
 
   - id: q-algebra-functions-and-relations-0012
     type: direct-computation
@@ -230,19 +230,19 @@ questions:
     stem: |
       If $f(x) = 3x - 2$, find $f^{-1}(7)$.
     choices:
-      - text: $3$
+      - text: '$3$'
         correct: true
-      - text: $19$
+      - text: '$19$'
         rationale: |
-          You evaluated $f(7) = 3(7) - 2 = 19$ instead of the inverse. Finding $f^{-1}(7)$ means solving $3x - 2 = 7$, which gives $x = 3$.
-      - text: $1$
+          This evaluates $f(7)$ instead of the inverse at 7. The given rule is easy to apply directly. Check whether 7 is an input or an output of $f$.
+      - text: '$\dfrac{5}{3}$'
         rationale: |
-          You subtracted 2 from 7 or miscalculated $3x = 9$. Solving $3x - 2 = 7$ gives $3x = 9$, so dividing by 3 yields $x = 3$.
-      - text: $5$
+          This subtracts two when undoing subtraction, giving $(7-2)/3$. The original minus sign can seem to carry over. Check the inverse operation.
+      - text: '$\dfrac{7}{3}+2$'
         rationale: |
-          You added 7 and 3 or miscalculated the linear equation. Solving $3x - 2 = 7$ leads to $3x = 9$, so $x = 3$.
+          This divides by three before undoing the subtraction. It follows the written order of the original rule. Check that undoing steps reverses their order.
     explanation: |
-      Ask: "What input to $f$ gives output 7?" Solve $3x - 2 = 7$: $3x = 9$, so $x = 3$.
+      Find the input whose output is $7$. Solve $3x-2=7$. Add $2$ to get $3x=9$, then divide by $3$ to get $x=3$. Therefore $f^{-1}(7)=3$.
 
   - id: q-algebra-functions-and-relations-0013
     type: direct-computation
@@ -250,39 +250,41 @@ questions:
     stem: |
       Find the domain of $h(x) = \dfrac{\sqrt{x+1}}{x-2}$.
     choices:
-      - text: $x \geq -1$ except $x = 2$
+      - text: '$x\ge-1,\ x\ne2$'
         correct: true
-      - text: $x \geq -1$
+      - text: '$x\ge-1$'
         rationale: |
-          You handled the square root condition $x + 1 \geq 0$, but forgot to exclude $x = 2$ which makes the denominator zero.
-      - text: $x > 2$
+          This checks the square root but ignores the denominator. The radicand gives a clear lower limit. Check every part of the formula for restrictions.
+      - text: '$x>2$'
         rationale: |
-          You excluded all numbers below 2. Values like $x = 0$ are valid because $\sqrt{0+1} = 1$ and $0-2 = -2$, giving $-\dfrac{1}{2}$.
-      - text: All real numbers
+          This requires the denominator to be positive. A denominator only needs to be nonzero. Check which part of the formula requires a sign condition.
+      - text: '$x\le-1,\ x\ne2$'
         rationale: |
-          You ignored both domain restrictions. Square roots require $x+1 \geq 0$ and denominators cannot equal zero.
+          This reverses the square-root condition. Subtracting or adding one does not reverse an inequality. Check that the radicand must be nonnegative.
     explanation: |
-      Two conditions: square root needs $x + 1 \geq 0$ (so $x \geq -1$) and denominator needs $x - 2 \ne 0$ (so $x \ne 2$). Both must hold, so the domain is $x \geq -1$ except $x = 2$.
+      The square root requires $x+1\ge0$, so $x\ge-1$. The denominator requires $x-2
+      e0$, so $x
+      e2$. Both conditions must hold.
 
   - id: q-algebra-functions-and-relations-0014
     type: which-is-true
     difficulty: medium
     stem: |
-      Is the set $\{(2, 1), (3, 1), (4, 1)\}$ a function?
+      Which ordered pair, when added to $\{(2,1),(3,1),(4,1)\}$, makes the relation fail to be a function?
     choices:
-      - text: Yes, multiple inputs can share the same output.
+      - text: '$(3,2)$'
         correct: true
-      - text: No, the output repeats.
+      - text: '$(5,1)$'
         rationale: |
-          You thought repeated outputs make a relation non-functional. Functions allow different inputs to share the same output.
-      - text: No, inputs must be consecutive.
+          This treats a repeated output as a repeated input. The output 1 is already present. Check the first coordinate, which is the input.
+      - text: '$(6,2)$'
         rationale: |
-          You thought inputs must be consecutive. Input values do not need to follow a pattern for a relation to be a function.
-      - text: Cannot be determined.
+          This treats any new pair as breaking the existing rule. This pair adds a new input. Check whether an old input receives a second output.
+      - text: '$(7,1)$'
         rationale: |
-          You selected cannot be determined, but inspecting the inputs $(2, 3, 4)$ shows no input repeats, so it is a function.
+          This rejects an output already shared by several inputs. Repeated outputs can look like duplicates. Check that only conflicting outputs for one input break the function rule.
     explanation: |
-      A function can repeat outputs. Each input (2, 3, 4) has exactly one output (1). This is allowed.
+      Input $3$ already has output $1$. Adding $(3,2)$ gives that same input a second, different output. The enlarged relation is not a function.
 
   - id: q-algebra-functions-and-relations-0015
     type: direct-computation
@@ -290,16 +292,121 @@ questions:
     stem: |
       If $f(x) = x^2 + 2x$, find $f(-3)$.
     choices:
-      - text: $3$
+      - text: '$3$'
         correct: true
-      - text: $15$
+      - text: '$15$'
         rationale: |
-          You evaluated $(-3)^2 = -9$ or added $-9 - 6 = -15$. Squaring gives $(-3)^2 = 9$, and $2(-3) = -6$, so $9 - 6 = 3$.
-      - text: $-3$
+          This changes $2(-3)$ to $+6$, giving $9+6$. The square before it is positive. Check the sign of each term separately.
+      - text: '$-15$'
         rationale: |
-          You evaluated $(-3)^2 = 3$ instead of 9. Squaring $-3$ gives 9, so $9 + 2(-3) = 9 - 6 = 3$.
-      - text: $9$
+          This treats $(-3)^2$ as $-9$, giving $-9-6$. The input is negative. Check that the square multiplies two negative factors.
+      - text: '$9$'
         rationale: |
-          You calculated $(-3)^2 = 9$ but omitted the $+ 2x$ term. Adding $2(-3) = -6$ yields $9 - 6 = 3$.
+          This stops after evaluating the square. That is the first complete calculation. Check the remaining linear term.
     explanation: |
-      $f(-3) = (-3)^2 + 2(-3) = 9 - 6 = 3$.
+      Substitute $-3$: $f(-3)=(-3)^2+2(-3)$. The terms are $9$ and $-6$. Their sum is $3$.
+
+  - id: q-algebra-functions-and-relations-0016
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      A function is defined only by $\{(-2,4),(0,4),(3,9)\}$. What is its range?
+    choices:
+      - text: '$\{4,9\}$'
+        correct: true
+      - text: '$\{-2,0,3\}$'
+        rationale: |
+          This lists the inputs rather than the outputs. Each ordered pair starts with its input. Check the second coordinates for the range.
+      - text: '$\{0,4,9\}$'
+        rationale: |
+          This includes the input zero among the outputs. Zero is one of the listed numbers. Check its position in the ordered pair.
+      - text: '$\{4,9,13\}$'
+        rationale: |
+          This includes the sum of the distinct outputs. Adding values can seem like a way to collect them. Check that a range is a set of produced values, not a total.
+    explanation: |
+      Read the second coordinates: $4$, $4$, and $9$. A set lists each value once. The range is $\{4,9\}$.
+    approved: false
+
+  - id: q-algebra-functions-and-relations-0017
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      Which condition guarantees that a function has an inverse function on its given domain?
+    choices:
+      - text: 'Each output comes from only one input.'
+        correct: true
+      - text: 'Each input has exactly one output.'
+        rationale: |
+          This repeats the basic definition of a function. That guarantees a rule from inputs to outputs. Check that reversing the rule also gives only one output per input.
+      - text: 'The range contains only positive values.'
+        rationale: |
+          This treats output sign as a test for invertibility. Positive ranges occur in many familiar functions. Check whether different inputs can share an output.
+      - text: 'The domain contains no negative values.'
+        rationale: |
+          This treats input sign as a test for invertibility. Restricting a domain can help some functions become one-to-one. Check uniqueness on the actual domain.
+    explanation: |
+      The inverse reverses each input-output pair. If each output comes from only one input, reversing the pairs still assigns exactly one value to each inverse input. That gives an inverse function.
+    approved: false
+
+  - id: q-algebra-functions-and-relations-0018
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      Let $f(u)=\sqrt{u}$ and $g(x)=x-4$, both real-valued. What is the domain of $f(g(x))$?
+    choices:
+      - text: '$x\ge4$'
+        correct: true
+      - text: '$x>4$'
+        rationale: |
+          This excludes an input that makes the radicand zero. Square roots of positive numbers are familiar. Check that a square root of zero is also allowed.
+      - text: '$x\ge0$'
+        rationale: |
+          This applies the square-root condition to $x$ before using $g$. The outer rule requires a nonnegative input. Check that its input is $g(x)$, not $x$.
+      - text: '$\text{All real numbers}$'
+        rationale: |
+          This checks only the inner linear function. That function accepts every real number. Check whether its output is allowed in the outer function.
+    explanation: |
+      The composition is $\sqrt{x-4}$. Its radicand must satisfy $x-4\ge0$. Adding $4$ gives $x\ge4$.
+    approved: false
+
+  - id: q-algebra-functions-and-relations-0019
+    type: error-spotting
+    difficulty: hard
+    stem: |
+      A student proposes $g(x)=x$ as the inverse of $f(x)=x^2$ on $[0,\infty)$ because $f(1)=1$ and $g(1)=1$. What is missing from this argument?
+    choices:
+      - text: 'A check for all allowed inputs.'
+        correct: true
+      - text: 'A check that the base is positive.'
+        rationale: |
+          This uses a condition for logarithms or some powers. The squared formula has a visible base. Check which condition establishes an inverse.
+      - text: 'A check that the outputs are negative.'
+        rationale: |
+          This requires a sign change instead of undoing the function. Inverse notation contains a minus sign. Check that inverses restore inputs, whatever their sign.
+      - text: 'A check that the functions have equal ranges.'
+        rationale: |
+          This demands equal ranges from inverse functions. Reversing a function exchanges its domain and range. Check the two compositions instead.
+    explanation: |
+      One matching pair does not establish an inverse on the whole domain. For instance, $f(2)=4$, but $g(4)=4$, so $g$ does not restore the input $2$. An inverse must undo the function for every allowed input.
+    approved: false
+
+  - id: q-algebra-functions-and-relations-0020
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A store applies a 20% discount to an item, then adds a delivery fee of P30. Let $d(p)=0.8p$ and $c(p)=p+30$, where $p$ is the original price. Which expression gives the total payment?
+    choices:
+      - text: '$c(d(p))$'
+        correct: true
+      - text: '$d(c(p))$'
+        rationale: |
+          This adds delivery before applying the discount. Both required steps are used. Check that the delivery fee is not part of the discounted item price.
+      - text: '$c(p)+d(p)$'
+        rationale: |
+          This adds two totals that each contain the item price. Both named functions appear, making the expression look complete. Check that the price is paid only once.
+      - text: '$c(p)$'
+        rationale: |
+          This adds the fee without applying the discount. The last billing step is correctly represented. Check whether the discount has already been applied.
+    explanation: |
+      Apply the discount first to get $d(p)=0.8p$. Feed that discounted price into $c$, which adds $30$. The total is $c(d(p))=0.8p+30$.
+    approved: false

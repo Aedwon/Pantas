@@ -7,7 +7,6 @@ abstract final class BuildTodayQueue {
     required Map<TopicId, int> dueCounts,
     required Map<TopicId, int> weaknessCounts,
     required Map<TopicId, int> newCounts,
-    bool newCardCapReached = false,
   }) {
     final rows = [
       for (final topic in topics)
@@ -16,7 +15,7 @@ abstract final class BuildTodayQueue {
           topicName: topic.topicName,
           dueCount: dueCounts[topic.topicId] ?? 0,
           weaknessCount: weaknessCounts[topic.topicId] ?? 0,
-          newCount: newCardCapReached ? 0 : newCounts[topic.topicId] ?? 0,
+          newCount: newCounts[topic.topicId] ?? 0,
           isRecommended: false,
         ),
     ]..sort((a, b) {

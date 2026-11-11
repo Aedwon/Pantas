@@ -1,8 +1,10 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:drift/drift.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
+import 'package:pantas/core/storage/domain/attempt_origins.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/question_outcome.dart';
 import 'package:pantas/core/storage/domain/sync_state.dart';
@@ -18,23 +20,39 @@ class AttemptsRepository {
   final AppDatabase _db;
   final LocalSyncMutationRecorder _syncRecorder;
 
-  Future<void> save(Attempt attempt) => _syncRecorder.runRecorded(
+  Future<void> save(Attempt attempt) =>
+      saveAtomically<void>(attempt, () async {});
+
+  /// Writes [attempt] and [afterWrite] inside the same recorded database
+  /// transaction. The quiz terminal owner uses this to close the persisted
+  /// session without leaving a crash window between the two durable writes.
+  Future<T> saveAtomically<T>(
+    Attempt attempt,
+    Future<T> Function() afterWrite,
+  ) =>
+      _syncRecorder.runRecorded(
         collection: 'quiz_attempts',
         rowId: attempt.id,
         op: SyncLocalMutationOp.upsert,
-        mutate: () => _db.into(_db.attemptsLocal).insertOnConflictUpdate(
-              AttemptsLocalCompanion.insert(
-                id: attempt.id,
-                examId: attempt.examId,
-                startedAt: attempt.startedAt,
-                completedAt: Value(attempt.completedAt),
-                origin: Value(attempt.origin),
-                itemsJson: jsonEncode(
-                  attempt.items.map((i) => i.toJson()).toList(),
-                ),
+        mutate: () async {
+          await _write(attempt);
+          return afterWrite();
+        },
+      );
+
+  Future<void> _write(Attempt attempt) =>
+      _db.into(_db.attemptsLocal).insertOnConflictUpdate(
+            AttemptsLocalCompanion.insert(
+              id: attempt.id,
+              examId: attempt.examId,
+              startedAt: attempt.startedAt,
+              completedAt: Value(attempt.completedAt),
+              origin: Value(attempt.origin),
+              itemsJson: jsonEncode(
+                attempt.items.map((i) => i.toJson()).toList(),
               ),
             ),
-      );
+          );
 
   Future<Attempt?> byId(AttemptId id) async {
     final row = await (_db.select(_db.attemptsLocal)
@@ -188,7 +206,10 @@ class AttemptsRepository {
   }) async {
     final rows = await (_db.select(_db.attemptsLocal)
           ..where(
-            (t) => t.examId.equals(examId) & t.completedAt.isNotNull(),
+            (t) =>
+                t.examId.equals(examId) &
+                t.completedAt.isNotNull() &
+                t.origin.isNotIn(AttemptOrigins.untimed.toList()),
           ))
         .get();
     if (rows.length < minimumSessions) return null;
@@ -203,6 +224,45 @@ class AttemptsRepository {
     }
     if (count == 0) return null;
     return (total / count).round();
+  }
+
+  /// Questions answered on each of the student's most recent [days] active
+  /// days for [examId], newest first. A day with no answers is not active and
+  /// is skipped, so the list is never padded with zeros. The study plan sizes
+  /// how many reviews fit in a day from this (roadmap spec 4.6).
+  Future<List<int>> answeredPerActiveDay({
+    required ExamId examId,
+    int days = 7,
+  }) async {
+    final rows = await (_db.select(_db.attemptsLocal)
+          ..where((t) => t.examId.equals(examId)))
+        .get();
+    final perDay = <DateTime, int>{};
+    for (final row in rows) {
+      final answered = _hydrate(row).items.length;
+      if (answered == 0) continue;
+      final started = row.startedAt.toLocal();
+      final day = DateTime(started.year, started.month, started.day);
+      perDay[day] = (perDay[day] ?? 0) + answered;
+    }
+    final newestFirst = perDay.keys.toList()..sort((a, b) => b.compareTo(a));
+    return [for (final day in newestFirst.take(days)) perDay[day]!];
+  }
+
+  /// How many attempts of [origin] exist for [examId].
+  Future<int> countForOrigin({
+    required ExamId examId,
+    required String origin,
+  }) async {
+    final count = _db.attemptsLocal.id.count();
+    final row = await (_db.selectOnly(_db.attemptsLocal)
+          ..addColumns([count])
+          ..where(
+            _db.attemptsLocal.examId.equals(examId) &
+                _db.attemptsLocal.origin.equals(origin),
+          ))
+        .getSingle();
+    return row.read(count) ?? 0;
   }
 
   /// Every question answered since [since], for any reason.
@@ -243,7 +303,8 @@ class AttemptsRepository {
           ..where(
             (t) =>
                 t.examId.equals(examId) &
-                t.startedAt.isBiggerOrEqualValue(cutoff),
+                t.startedAt.isBiggerOrEqualValue(cutoff) &
+                t.origin.isNotIn(AttemptOrigins.untimed.toList()),
           ))
         .get();
 
@@ -292,32 +353,62 @@ class AttemptsRepository {
     return null;
   }
 
-  /// Records what the student said went wrong, from the debrief.
-  ///
-  /// Rewrites the whole items blob because they are stored as JSON on the
-  /// attempt row. One tag a tap is not a hot path.
+  /// Replaces one question note against the latest stored Attempt.
+  /// The existing recorder and ownership guard commit or roll back together.
   Future<void> tagItem({
     required AttemptId attemptId,
     required QuestionId questionId,
     required MistakeTag? tag,
+    String? note,
+    bool replaceNote = false,
+    FutureOr<bool> Function()? canPersist,
   }) async {
-    final attempt = await byId(attemptId);
-    if (attempt == null) return;
-    await save(
-      attempt.copyWith(
-        items: [
-          for (final item in attempt.items)
-            item.questionId == questionId
-                ? item.copyWith(mistakeTag: tag)
-                : item,
-        ],
-      ),
-    );
+    Future<void> guard() async {
+      if (canPersist != null && !await canPersist()) {
+        throw StateError('Attempt ownership changed');
+      }
+    }
+
+    await _db.transaction(() async {
+      await _syncRecorder.runRecorded<void>(
+        collection: 'quiz_attempts',
+        rowId: attemptId,
+        op: SyncLocalMutationOp.upsert,
+        mutate: () async {
+          await guard();
+          final attempt = await byId(attemptId);
+          await guard();
+          if (attempt == null ||
+              !attempt.items.any((item) => item.questionId == questionId)) {
+            throw StateError('Attempt question is unavailable');
+          }
+          await _write(
+            attempt.copyWith(
+              items: [
+                for (final item in attempt.items)
+                  if (item.questionId != questionId)
+                    item
+                  else if (replaceNote)
+                    item.copyWith(mistakeTag: tag, mistakeNote: note)
+                  else
+                    item.copyWith(mistakeTag: tag),
+              ],
+            ),
+          );
+          await guard();
+        },
+      );
+      await guard();
+    });
   }
 
   Future<AttemptLocalRow> rawRowById(AttemptId id) =>
       (_db.select(_db.attemptsLocal)..where((t) => t.id.equals(id)))
           .getSingle();
+
+  /// Builds the attempt from a row the caller already holds, so it need not
+  /// read the same row again.
+  Attempt fromRow(AttemptLocalRow row) => _hydrate(row);
 
   Attempt _hydrate(AttemptLocalRow r) {
     final items = (jsonDecode(r.itemsJson) as List)

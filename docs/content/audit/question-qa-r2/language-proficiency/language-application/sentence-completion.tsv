@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-language-application-sentence-completion-0001	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-language-application-sentence-completion-0002	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-language-application-sentence-completion-0003	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-language-application-sentence-completion-0004	CORRECTED	SOLVED-MATCH	explanation;notes;stem	MEDIUM	Shallowness could also explain difficult negotiation; made the requested relation among views explicit.
+q-language-application-sentence-completion-0005	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-language-application-sentence-completion-0006	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	HIGH	Several offered pairs could fit clear but mutually conflicting statements.
+q-language-application-sentence-completion-0007	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-language-application-sentence-completion-0008	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-language-application-sentence-completion-0009	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	MEDIUM	Broad efficiency inference and three throwaway pairs; stated the goals and used one-blank near misses.
+q-language-application-sentence-completion-0010	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Distractor used an invented word form; replaced with a meaningful opposite adverb.
+q-language-application-sentence-completion-0011	CORRECTED	SOLVED-MATCH	explanation;notes;stem	LOW	Clarified that the target verb means putting the approved plan into practice.
+q-language-application-sentence-completion-0012	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-language-application-sentence-completion-0013	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-language-application-sentence-completion-0014	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-language-application-sentence-completion-0015	CORRECTED	SOLVED-MATCH	explanation;notes;stem	MEDIUM	Statistical precision alone did not justify the strong certainty word; used a self-contained fictional record instead.
+q-language-application-sentence-completion-0016	NEW	NEW	new question	NONE	
+q-language-application-sentence-completion-0017	NEW	NEW	new question	NONE	
+q-language-application-sentence-completion-0018	NEW	NEW	new question	NONE	
+q-language-application-sentence-completion-0019	NEW	NEW	new question	NONE	
+q-language-application-sentence-completion-0020	NEW	NEW	new question	NONE	

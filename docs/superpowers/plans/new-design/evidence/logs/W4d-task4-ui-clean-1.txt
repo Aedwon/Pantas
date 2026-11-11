@@ -1,0 +1,8 @@
+Computing fixes in quiz_question_screen_test.dart...
+Applying fixes...
+
+quiz_question_screen_test.dart
+  directives_ordering - 1 fix
+  require_trailing_commas - 9 fixes
+
+10 fixes made in 1 file.

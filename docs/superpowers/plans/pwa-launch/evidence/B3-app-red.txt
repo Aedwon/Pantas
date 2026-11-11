@@ -1,0 +1,48 @@
+/Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:2850
+      throw error;
+      ^
+
+UnimplementedError: B3 encrypted study database is blocked: the locked sqlite3 3.5.1 wasm rejects encryption on the Dart VFS. See B3-encrypted-web-db.md.
+    at Object.wrapException (/Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:405:47)
+    at /Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:2990:23
+    at _wrapJsFunctionForAsync_closure.$protected (/Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:2457:15)
+    at _wrapJsFunctionForAsync_closure.call$2 (/Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:3418:12)
+    at Object._asyncStartSync (/Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:2402:20)
+    at Object.openEncryptedDatabase (/Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:2995:16)
+    at /Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:3011:38
+    at _wrapJsFunctionForAsync_closure.$protected (/Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:2457:15)
+    at _wrapJsFunctionForAsync_closure.call$2 (/Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:3418:12)
+    at Object._asyncStartSync (/Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:2402:20) {
+  dartException: <ref *1> UnimplementedError {
+    message: 'B3 encrypted study database is blocked: the locked sqlite3 3.5.1 wasm rejects encryption on the Dart VFS. See B3-encrypted-web-db.md.',
+    '$thrownJsError': <ref *2> UnimplementedError: B3 encrypted study database is blocked: the locked sqlite3 3.5.1 wasm rejects encryption on the Dart VFS. See B3-encrypted-web-db.md.
+        at Object.wrapException (/Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:405:47)
+        at /Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:2990:23
+        at _wrapJsFunctionForAsync_closure.$protected (/Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:2457:15)
+        at _wrapJsFunctionForAsync_closure.call$2 (/Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:3418:12)
+        at Object._asyncStartSync (/Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:2402:20)
+        at Object.openEncryptedDatabase (/Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:2995:16)
+        at /Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:3011:38
+        at _wrapJsFunctionForAsync_closure.$protected (/Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:2457:15)
+        at _wrapJsFunctionForAsync_closure.call$2 (/Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:3418:12)
+        at Object._asyncStartSync (/Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:2402:20) {
+      dartException: [Circular *1],
+      '$cachedTrace': _StackTrace {
+        _exception: [Circular *2],
+        _trace: 'UnimplementedError: B3 encrypted study database is blocked: the locked sqlite3 3.5.1 wasm rejects encryption on the Dart VFS. See B3-encrypted-web-db.md.\n' +
+          '    at Object.wrapException (/Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:405:47)\n' +
+          '    at /Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:2990:23\n' +
+          '    at _wrapJsFunctionForAsync_closure.$protected (/Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:2457:15)\n' +
+          '    at _wrapJsFunctionForAsync_closure.call$2 (/Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:3418:12)\n' +
+          '    at Object._asyncStartSync (/Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:2402:20)\n' +
+          '    at Object.openEncryptedDatabase (/Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:2995:16)\n' +
+          '    at /Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:3011:38\n' +
+          '    at _wrapJsFunctionForAsync_closure.$protected (/Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:2457:15)\n' +
+          '    at _wrapJsFunctionForAsync_closure.call$2 (/Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:3418:12)\n' +
+          '    at Object._asyncStartSync (/Users/aedwon/Documents/Projects/Pantas-wt-pwa-foundation-r1/build/verify_web_database.js:2402:20)'
+      }
+    }
+  }
+}
+
+Node.js v26.10.0

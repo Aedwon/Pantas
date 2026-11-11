@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/features/quiz/presentation/practice_row_providers.dart';
 import 'package:pantas/features/quiz/presentation/review_providers.dart';
 
 /// What just happened, so the caller knows which toast to raise.
@@ -21,21 +22,42 @@ class QuestionFlagController extends Notifier<void> {
   /// which is the reason the control is in the bar rather than on a choice.
   Future<FlagToggle> toggle(QuestionId questionId) async {
     final repo = ref.read(questionFlagsRepositoryProvider);
-    final prefs = ref.read(appPreferencesRepositoryProvider);
     final wasFlagged = await repo.isFlagged(questionId);
+    return _set(questionId, flagged: !wasFlagged, wasFlagged: wasFlagged);
+  }
 
-    if (wasFlagged) {
-      await repo.unflag(questionId);
+  /// Retrying a failed save retains the action the student requested.
+  Future<FlagToggle> setFlagged(
+    QuestionId questionId, {
+    required bool flagged,
+  }) async {
+    final wasFlagged =
+        await ref.read(questionFlagsRepositoryProvider).isFlagged(questionId);
+    return _set(questionId, flagged: flagged, wasFlagged: wasFlagged);
+  }
+
+  Future<FlagToggle> _set(
+    QuestionId questionId, {
+    required bool flagged,
+    required bool wasFlagged,
+  }) async {
+    final repo = ref.read(questionFlagsRepositoryProvider);
+    final prefs = ref.read(appPreferencesRepositoryProvider);
+
+    if (!flagged) {
+      if (wasFlagged) await repo.unflag(questionId);
       ref
         ..invalidate(flaggedIdsProvider)
         ..invalidate(flaggedReviewProvider);
+      refreshFlagCounts(ref);
       return FlagToggle.unflagged;
     }
 
-    await repo.flag(questionId);
+    if (!wasFlagged) await repo.flag(questionId);
     ref
       ..invalidate(flaggedIdsProvider)
       ..invalidate(flaggedReviewProvider);
+    refreshFlagCounts(ref);
 
     final announced = await prefs.hasAnnouncedFirstFlag();
     if (announced) return FlagToggle.flagged;

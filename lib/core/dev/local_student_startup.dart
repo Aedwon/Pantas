@@ -1,0 +1,182 @@
+import 'dart:async';
+
+import 'package:dio/dio.dart';
+import 'package:drift/drift.dart' show TableUpdateQuery;
+import 'package:flutter/foundation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/content/remote/content_service_providers.dart';
+import 'package:pantas/core/dev/local_sample_students.dart';
+import 'package:pantas/core/dev/local_student_url.dart';
+import 'package:pantas/core/platform/local_firebase.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/storage.dart';
+
+/// The page address as it was when startup began. Routing rewrites the
+/// address before the student can load, so startup records it first.
+Uri? _startUrl;
+
+/// Records the page address. Call first thing in startup.
+void rememberLocalStudentUrl() {
+  if (!localEmulators || !kIsWeb) return;
+  _startUrl = Uri.base;
+}
+
+/// The sample student named by `?localStudent=<id>` in [url], or null.
+SampleStudent? localStudentFromUrl(Uri url) {
+  final id = url.queryParameters['localStudent'];
+  return id == null ? null : SampleStudent.fromId(id);
+}
+
+/// `?localAgeGroup=minor` in [url], or null. Local checks only: it lets a
+/// sample student see what a 13 to 17 student sees.
+String? localAgeGroupFromUrl(Uri url) =>
+    url.queryParameters['localAgeGroup'] == 'minor' ? 'minor' : null;
+
+/// The Home states the local seed can set up, as `?localState=<id>` names
+/// them. `tools/local/seed_student.mjs` defines what each one does.
+const localHomeStates = {
+  'dayDone',
+  'nothingDue',
+  'dayOff',
+  'resume',
+  'beforeAssessment',
+  'mockDay',
+  'reviewWeek',
+  'lastDay',
+  'examDay',
+  'examPassed',
+  'noDate',
+  'monthOnly',
+  'advanceAgain',
+  'mockMoved',
+  'mockDropped',
+  'nothingDueReview',
+  'trial',
+  'manyLessons',
+};
+
+/// The Home state named by `?localState=<id>` in [url], or null.
+String? localStateFromUrl(Uri url) {
+  final id = url.queryParameters['localState'];
+  return localHomeStates.contains(id) ? id : null;
+}
+
+/// Asks the local server to seed [student] for the account [uid], in the Home
+/// [state] when there is one, and returns the parts the device keeps.
+/// Replaced in tests.
+typedef LocalStudentSeed = Future<SampleStudentProfile> Function(
+  String uid,
+  SampleStudent student,
+  String? state,
+);
+
+/// `POST /local-seed` on the page's own origin (`tools/local/run_web_local.py`).
+/// The server runs its own handlers over the account's study records.
+Future<SampleStudentProfile> seedLocalStudentOnServer(
+  String uid,
+  SampleStudent student,
+  String? state,
+) async {
+  final reply = await Dio().post<Map<String, Object?>>(
+    Uri.base.resolve('/local-seed').toString(),
+    data: {
+      'uid': uid,
+      'profile': student.id,
+      if (state != null) 'state': state,
+    },
+    options: Options(
+      contentType: Headers.jsonContentType,
+      receiveTimeout: const Duration(minutes: 4),
+    ),
+  );
+  return SampleStudentProfile.fromJson(reply.data!);
+}
+
+/// Local runs only. When the page address carries `?localStudent=<id>`, has
+/// the local server write that student's study records for the signed-in
+/// account, then replaces the device's study data with the matching
+/// onboarding answers and streak, and removes the parameter so a reload does
+/// not do it again. `?localState=<id>` alone loads the steady student in that
+/// Home state; with `localStudent` it applies to that student.
+///
+/// Call after sign-in. A failure is logged and the app starts as it was.
+/// Returns true when a student was loaded. Loading drops every provider, so
+/// the caller starts again whatever startup had bound to the old providers.
+Future<bool> loadLocalStudentFromUrl(
+  ProviderContainer container, {
+  Uri? url,
+  LocalStudentSeed? seed,
+  DateTime? today,
+}) async {
+  // Both are compile-time constants: normal builds drop everything below.
+  if (!localEmulators || !kIsWeb) return false;
+  final link = url ?? _startUrl ?? Uri.base;
+  final state = localStateFromUrl(link);
+  final student = localStudentFromUrl(link) ??
+      (state == null ? null : SampleStudent.steady);
+  if (student == null) return false;
+  try {
+    final auth = await container.read(authStateProvider.future);
+    final uid = switch (auth) {
+      SignedInAuthState(:final user) => user.uid,
+      AnonymousAuthState(:final uid) => uid,
+      _ => null,
+    };
+    if (uid == null) throw StateError('Sign in before loading a student.');
+    final profile =
+        await (seed ?? seedLocalStudentOnServer)(uid, student, state);
+    await loadSampleStudentProfile(
+      container.read(appDatabaseProvider),
+      profile,
+      today: today ?? DateTime.now(),
+    );
+    final ageGroup = localAgeGroupFromUrl(link);
+    if (ageGroup != null) {
+      await container
+          .read(appPreferencesRepositoryProvider)
+          .setAgeGroup(ageGroup);
+    }
+    // Clear cached reads so every screen starts from the new records.
+    for (final element in container.getAllProviderElements()) {
+      element.invalidateSelf();
+    }
+    // The content mirror is rebuilt empty by the line above. Start it again, as
+    // startup does, so question text can be fetched for the plan's reviews.
+    await container.read(contentMirrorProvider).start();
+    await _waitForQuietSync(container.read(appDatabaseProvider));
+    return true;
+  } catch (error, stack) {
+    debugPrint('Local sample student did not load: $error\n$stack');
+    return false;
+  } finally {
+    removeLocalStudentFromUrl();
+  }
+}
+
+/// A signed-in account starts syncing the seeded records as soon as they are
+/// written, and each sync step rewrites the sync tables. Home's first plan
+/// read restarts on every such write and fails with "Study owner changed".
+/// Wait until the sync tables have been quiet for [quiet], for at most
+/// [limit], so the first screen starts from a settled database.
+Future<void> _waitForQuietSync(
+  AppDatabase db, {
+  Duration quiet = const Duration(seconds: 2),
+  Duration limit = const Duration(seconds: 20),
+}) async {
+  final stopwatch = Stopwatch()..start();
+  final updates = db.tableUpdates(TableUpdateQuery.onTable(db.syncMeta));
+  final iterator = StreamIterator<Object?>(updates);
+  try {
+    while (stopwatch.elapsed < limit) {
+      final next = await iterator.moveNext().timeout(
+            quiet,
+            onTimeout: () => false,
+          );
+      if (!next) return;
+    }
+  } finally {
+    await iterator.cancel();
+  }
+}

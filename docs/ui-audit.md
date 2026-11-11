@@ -1622,3 +1622,1188 @@ code**, which is why it ran for days unseen.
 Applies to accepted engineering source72629940aa8dccf54bff0c6c568a364e0f10916d on integration/new-design-r1, not older main application screenshots. Study/reader/bookmarks Tasks1–9 are implemented, independently re-audited, corrected and verified. Normal-size title ellipsis/full semantics and truthful Study preview return are covered alongside dark/200%/reduced-motion checks. Complete4225tests and1163integration checks pass; final static gates are clean. Detailed engineering findings and closure: docs/superpowers/plans/new-design/gates/w4c-astra-audit-2.md and existing evidence/W4c.md.
 
 Aedwon's Android/iPhone visual acceptance against ST/RD/BM boards remains pending. No screenshots or autonomous visual acceptance were performed. Accepted built-in neighboring bookmark motion and exact Current fade exceptions remain binding; there is no wider visual waiver. Live PWA/C7/server and release checks remain separate. This note neither restores historical visual rules nor turns older audit entries into current branch facts.
+
+## October 30, 2026: onboarding wide web second pass
+
+The onboarding wide layouts were audited against the web handoff. Corrected birth-year height, consent-row clicking/card radius, subject controls, and calendar cell sizing. Added L_Restore loading presentation using the shared web components. Existing phone paths and tests were retained. New widget tests exercise light/dark at 1440.
+
+OB_Restoring and L_Restore have shared presentations but no live restore-progress route/caller. No operation stages or counts were fabricated. This remains a lead integration decision. CSE scope and the app's existing sign-in behavior remain. Automated verification and the full board inventory are in `docs/superpowers/plans/pwa-launch/evidence/web-layout-onboarding-r2.md`. Visual acceptance is pending Aedwon's review. No screenshots or browser operations were performed.
+
+### October 30, 2026: Plan wide web layout
+
+PL_Plan, PL_Free, PL_Week/WeekCustom, PL_Day/DayRead/DayPast,
+PL_History/HistoryEnd, and PL_Error now have wide web presentations.
+History opens as a page at /plan/history. Native and narrow layouts keep
+their existing branches. Reader completion still uses the existing reading-time
+and end-of-content checks. Done closes the drawer. L_PlanSlow already belongs
+to Home's shared delayed loading presentation. No dedicated DK_Plan board exists.
+Light/dark automated coverage and verification are recorded in
+`docs/superpowers/plans/pwa-launch/evidence/web-layout-plan-r1.md`.
+Lead review and Aedwon's visual acceptance are pending. No screenshots or browser
+operations were performed.
+
+### October 31, 2026: visual check fixes 5–7
+
+Assignment: Aedwon's visual-check brief is the spec and plan. Code base:
+`812402c2b3f098fc1ec7ffd5cb406c36069b5054`, branch
+`web/visual-check-fixes-r1`. Policy read from local `origin/main` at
+`f5b6852fdfb26301377f3d29f0f8dc0cf93ebd1d`, without fetching.
+
+5. The local seed already calls the real trial grant, whose tier is Civil Service.
+The picker does not filter by entitlement. Its availability requires a loaded
+content exam row. Reproduced a real app race: sign-in during an in-flight startup
+catalog request reuses that request, even if it fails before authentication.
+No second request runs, so the catalog stays empty and CSE cannot be selected.
+Catalog refresh now waits for the earlier request and starts a fresh request.
+The regression test first failed with an empty exam table. It now verifies that
+CSE Professional loads after the failed startup request. The running account's
+exact failure is not established by the available emulator log. No seed or server
+change was made. Aedwon's local account retest is pending.
+
+6. Both picker modes, in narrow and wide layouts, now partition each group's
+exams into selectable and coming-soon entries. Groups with selectable entries
+come first. Both partitions keep their previous order. Eight widget regressions
+first failed, then passed, covering both modes, both layouts, and CSE-only scope.
+
+7. Web themes disable ink splashes and pressed highlights, including Material
+button, checkbox, radio, and switch overlays. Hover remains available. The shared
+button's explicit overlay and press shrink follow this policy too. Its primary
+hover uses the existing web token. Native themes keep their feedback. Theme and
+button regression tests first failed, then passed. Visual acceptance remains
+with Aedwon. No screenshots were taken.
+
+Verification is recorded below. No live service calls, emulator writes, commits,
+branch switches, pushes, or deployment were performed. Functions were unchanged.
+Ports 8080, 9099, and 9199 are occupied by the existing local emulators. Emulator
+suites were skipped.
+
+Files touched for this assignment:
+
+- `lib/core/content/remote/content_mirror.dart`
+- `lib/features/onboarding/presentation/exam_picker_screen.dart`
+- `lib/core/ui/theme/app_theme.dart`
+- `lib/core/ui/components/pantas_button.dart`
+- `test/core/content/remote/content_mirror_test.dart`
+- `test/features/onboarding/presentation/exam_picker_screen_test.dart`
+- `test/core/ui/theme/app_theme_test.dart`
+- `test/core/ui/components/web_button_feedback_test.dart`
+- `docs/ui-audit.md`, this required status and verification record.
+
+The first combined verification run was invalidated by source edits during
+compilation. Its two feedback-related failures were corrected and passed in the
+focused rerun. Three content-fetch tests also could not find the native SQLite
+library while the web build ran concurrently. These are recorded as a verification
+environment problem, not accepted failures. Final tests and build run sequentially.
+Independent lead review, integration, and Aedwon's visual acceptance remain pending.
+
+Final automated evidence (unchanged final application and test files):
+
+```text
+flutter analyze
+No issues found! (ran in 19.3s)
+
+dart format --output=none --set-exit-if-changed lib test
+Formatted 1701 files (0 changed) in 2.14 seconds.
+
+dart run tool/check_layering.dart
+check_layering: OK
+
+dart run tool/check_no_ai_attribution.dart
+check_no_ai_attribution: OK
+
+flutter test test/features/onboarding test/features/settings test/core test/app
+02:45 +2218: All tests passed!
+```
+
+All commands above exited 0. Focused final rerun: `+30: All tests passed!`.
+Tracked `lib`/`test` patch SHA-256 from `git diff --binary -- lib test`:
+`702ea9f8c6f8361c0053a8bbc27e41abc75bbe1d67859e31bf55b2e6733f9b57`.
+New untracked feedback test SHA-256:
+`ee420ccdd041d50991d45bbcab564cbe416d7630c2e296478a8f6bc58e2fb2f5`.
+
+```text
+flutter build web --release
+Wasm dry run succeeded.
+Compiling lib/main.dart for the Web...                             30.8s
+✓ Built build/web
+```
+
+Release build exited 0. It warned that the CupertinoIcons font family is not in
+the asset bundle. No font configuration changed in this assignment.
+`git diff --check` is clean. Implementation and automated verification are done.
+Task 5's reported account-specific cause still needs the local retest described
+above. No claim of visual acceptance or lead review is made.
+
+
+## Visual check fixes R1, 2026-10-31
+
+Assignment: Aedwon's three-problem brief. Source: `8a3f0ce378acf5de998908618d7603d6774ef501`,
+branch `web/visual-check-fixes-r1`. Policy read using `git show origin/main` at
+`f5b6852fdfb26301377f3d29f0f8dc0cf93ebd1d`. No fetch, commit, push, branch switch,
+deployment, app screenshots, or live backend calls.
+
+### Problem 1 [blocker], CSE plan and mock errors: DECISION NEEDED
+
+Read-only reproduction against Aedwon's running emulators at `192.168.1.194`
+(project `demo-pantas-local`, region `asia-southeast1`), signed in as the Free
+account through Auth emulator REST. No credentials or ID tokens are recorded here.
+
+- `getRoadmap` with the original account and `exam_cse_pro` returns
+  `FAILED_PRECONDITION: Set your exam first.`
+- `getStudyInsights` with that same account and exam returns
+  `UNAVAILABLE: Duplicate authored question identities.`
+- `getMockAvailability` for that exam succeeds: `status: no-blueprint`,
+  `proCovered: false`, `lastMockId: null`, `nextEligibleAt: null`,
+  `accessRecheckAt: null`. Missing blueprints are a supported response. The
+  reported Quiz error is not reproduced by the direct callable request. Its
+  client-side cause remains unverified.
+
+The CSE catalog contains 65 distinct sets and 49 duplicated question identities.
+`functions/src/_examContent.ts` rejects those duplicates in `loadStudyContent`.
+`saveExamSettings` validates the scope with that reader before storing settings,
+so these invalid sources prevent onboarding from saving its server settings.
+`readStudyRoadmap` then cannot find settings. The insights reader also fails
+against the same invalid catalog.
+
+The local runner imports the CSE corpus from `origin/content/cse-rewrite-r1`
+(`be6ab491e33f2dcaade5d31edf78b8775efc6e21`) when this code branch lacks it.
+The imported YAML files themselves repeat the identities, so this is not a Dart
+decoding failure or an emulator-specific server behavior. For example,
+`q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0018` is a volunteer/SALN
+question in `duties-and-prohibited-acts.yaml` and an employment/conflict question
+in `prohibited-acts-and-gift-rules.yaml`. They have different answers and lesson
+relationships. Silently dropping one or renaming identities can change which
+question a stored answer refers to. The lead must resolve those content identities.
+No server validation was weakened. No running emulator data was edited.
+
+Problem 1 is not fixed. Its fix and regression test remain pending the content
+identity ruling. The running local app was not restarted or stopped.
+
+### Problem 2 [important], duplicate wide Home error: IMPLEMENTED
+
+The week header and the Today board both rendered the plan error. Wide Home now
+leaves the retry state to the board. The header does not show a permanent loading
+placeholder after an error. Phone error behavior stays as before.
+
+The new Home regression test first failed with two plan errors. With the fix,
+it checks one plan error, one retry button, and the board error presentation.
+Automated results are recorded below. Aedwon's visual acceptance is pending.
+
+### Problem 3, shared selection rows: BLOCKED
+
+Not started because the brief requires problems 1 and 2 to pass first.
+Selection inventory count: not collected. Selection screens changed: 0.
+
+### Duplicated identities in the emulator's CSE Professional catalog
+
+- `q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0018`: `qs-general-information__code-of-conduct-ra-6713__duties-and-prohibited-acts`, `qs-general-information__code-of-conduct-ra-6713__prohibited-acts-and-gift-rules`.
+- `q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0019`: `qs-general-information__code-of-conduct-ra-6713__duties-and-prohibited-acts`, `qs-general-information__code-of-conduct-ra-6713__prohibited-acts-and-gift-rules`.
+- `q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0020`: `qs-general-information__code-of-conduct-ra-6713__duties-and-prohibited-acts`, `qs-general-information__code-of-conduct-ra-6713__prohibited-acts-and-gift-rules`.
+- `q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0021`: `qs-general-information__code-of-conduct-ra-6713__duties-and-prohibited-acts`, `qs-general-information__code-of-conduct-ra-6713__prohibited-acts-and-gift-rules`.
+- `q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0022`: `qs-general-information__code-of-conduct-ra-6713__duties-and-prohibited-acts`, `qs-general-information__code-of-conduct-ra-6713__prohibited-acts-and-gift-rules`.
+- `q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0023`: `qs-general-information__code-of-conduct-ra-6713__duties-and-prohibited-acts`, `qs-general-information__code-of-conduct-ra-6713__prohibited-acts-and-gift-rules`.
+- `q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0024`: `qs-general-information__code-of-conduct-ra-6713__duties-and-prohibited-acts`, `qs-general-information__code-of-conduct-ra-6713__prohibited-acts-and-gift-rules`.
+- `q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0025`: `qs-general-information__code-of-conduct-ra-6713__duties-and-prohibited-acts`, `qs-general-information__code-of-conduct-ra-6713__prohibited-acts-and-gift-rules`.
+- `q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0026`: `qs-general-information__code-of-conduct-ra-6713__duties-and-prohibited-acts`, `qs-general-information__code-of-conduct-ra-6713__prohibited-acts-and-gift-rules`.
+- `q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0027`: `qs-general-information__code-of-conduct-ra-6713__duties-and-prohibited-acts`, `qs-general-information__code-of-conduct-ra-6713__prohibited-acts-and-gift-rules`.
+- `q-environment-management-environmental-concepts-0022`: `qs-general-information__environment-management__disaster-risk-reduction-and-management`, `qs-general-information__environment-management__environmental-concepts`.
+- `q-environment-management-environmental-concepts-0023`: `qs-general-information__environment-management__disaster-risk-reduction-and-management`, `qs-general-information__environment-management__environmental-concepts`.
+- `q-environment-management-environmental-concepts-0024`: `qs-general-information__environment-management__disaster-risk-reduction-and-management`, `qs-general-information__environment-management__environmental-concepts`.
+- `q-environment-management-environmental-concepts-0025`: `qs-general-information__environment-management__disaster-risk-reduction-and-management`, `qs-general-information__environment-management__environmental-concepts`.
+- `q-environment-management-environmental-concepts-0026`: `qs-general-information__environment-management__disaster-risk-reduction-and-management`, `qs-general-information__environment-management__environmental-concepts`.
+- `q-environment-management-environmental-concepts-0027`: `qs-general-information__environment-management__disaster-risk-reduction-and-management`, `qs-general-information__environment-management__environmental-concepts`.
+- `q-environment-management-environmental-concepts-0028`: `qs-general-information__environment-management__disaster-risk-reduction-and-management`, `qs-general-information__environment-management__environmental-concepts`.
+- `q-environment-management-environmental-concepts-0029`: `qs-general-information__environment-management__disaster-risk-reduction-and-management`, `qs-general-information__environment-management__environmental-concepts`.
+- `q-environment-management-environmental-concepts-0030`: `qs-general-information__environment-management__disaster-risk-reduction-and-management`, `qs-general-information__environment-management__environmental-concepts`.
+- `q-grammar-and-structure-tenses-and-voice-0012`: `qs-language-proficiency__grammar-and-structure__filipino-verb-aspect-and-focus`, `qs-language-proficiency__grammar-and-structure__tenses-and-voice`.
+- `q-grammar-and-structure-tenses-and-voice-0013`: `qs-language-proficiency__grammar-and-structure__filipino-verb-aspect-and-focus`, `qs-language-proficiency__grammar-and-structure__tenses-and-voice`.
+- `q-grammar-and-structure-tenses-and-voice-0014`: `qs-language-proficiency__grammar-and-structure__filipino-verb-aspect-and-focus`, `qs-language-proficiency__grammar-and-structure__tenses-and-voice`.
+- `q-grammar-and-structure-tenses-and-voice-0015`: `qs-language-proficiency__grammar-and-structure__filipino-verb-aspect-and-focus`, `qs-language-proficiency__grammar-and-structure__tenses-and-voice`.
+- `q-grammar-and-structure-tenses-and-voice-0016`: `qs-language-proficiency__grammar-and-structure__filipino-verb-aspect-and-focus`, `qs-language-proficiency__grammar-and-structure__tenses-and-voice`.
+- `q-grammar-and-structure-tenses-and-voice-0017`: `qs-language-proficiency__grammar-and-structure__filipino-verb-aspect-and-focus`, `qs-language-proficiency__grammar-and-structure__tenses-and-voice`.
+- `q-grammar-and-structure-tenses-and-voice-0018`: `qs-language-proficiency__grammar-and-structure__filipino-verb-aspect-and-focus`, `qs-language-proficiency__grammar-and-structure__tenses-and-voice`.
+- `q-grammar-and-structure-tenses-and-voice-0019`: `qs-language-proficiency__grammar-and-structure__filipino-verb-aspect-and-focus`, `qs-language-proficiency__grammar-and-structure__tenses-and-voice`.
+- `q-grammar-and-structure-tenses-and-voice-0020`: `qs-language-proficiency__grammar-and-structure__filipino-verb-aspect-and-focus`, `qs-language-proficiency__grammar-and-structure__tenses-and-voice`.
+- `q-grammar-and-structure-tenses-and-voice-0021`: `qs-language-proficiency__grammar-and-structure__filipino-verb-aspect-and-focus`, `qs-language-proficiency__grammar-and-structure__tenses-and-voice`.
+- `q-grammar-and-structure-tenses-and-voice-0022`: `qs-language-proficiency__grammar-and-structure__filipino-verb-aspect-and-focus`, `qs-language-proficiency__grammar-and-structure__tenses-and-voice`.
+- `q-grammar-and-structure-tenses-and-voice-0023`: `qs-language-proficiency__grammar-and-structure__filipino-verb-aspect-and-focus`, `qs-language-proficiency__grammar-and-structure__tenses-and-voice`.
+- `q-grammar-and-structure-tenses-and-voice-0024`: `qs-language-proficiency__grammar-and-structure__filipino-verb-aspect-and-focus`, `qs-language-proficiency__grammar-and-structure__tenses-and-voice`.
+- `q-philippine-constitution-bill-of-rights-0018`: `qs-general-information__philippine-constitution__bill-of-rights-property-courts-and-custody`, `qs-general-information__philippine-constitution__bill-of-rights`.
+- `q-philippine-constitution-bill-of-rights-0019`: `qs-general-information__philippine-constitution__bill-of-rights-property-courts-and-custody`, `qs-general-information__philippine-constitution__bill-of-rights-the-accused-and-the-trial`, `qs-general-information__philippine-constitution__bill-of-rights`.
+- `q-philippine-constitution-bill-of-rights-0020`: `qs-general-information__philippine-constitution__bill-of-rights-property-courts-and-custody`, `qs-general-information__philippine-constitution__bill-of-rights-punishment-detention-and-limits-on-laws`, `qs-general-information__philippine-constitution__bill-of-rights-the-accused-and-the-trial`, `qs-general-information__philippine-constitution__bill-of-rights`.
+- `q-philippine-constitution-bill-of-rights-0021`: `qs-general-information__philippine-constitution__bill-of-rights-property-courts-and-custody`, `qs-general-information__philippine-constitution__bill-of-rights-punishment-detention-and-limits-on-laws`, `qs-general-information__philippine-constitution__bill-of-rights-the-accused-and-the-trial`, `qs-general-information__philippine-constitution__bill-of-rights`.
+- `q-philippine-constitution-bill-of-rights-0022`: `qs-general-information__philippine-constitution__bill-of-rights-property-courts-and-custody`, `qs-general-information__philippine-constitution__bill-of-rights-punishment-detention-and-limits-on-laws`, `qs-general-information__philippine-constitution__bill-of-rights-the-accused-and-the-trial`, `qs-general-information__philippine-constitution__bill-of-rights`.
+- `q-philippine-constitution-bill-of-rights-0023`: `qs-general-information__philippine-constitution__bill-of-rights-property-courts-and-custody`, `qs-general-information__philippine-constitution__bill-of-rights-punishment-detention-and-limits-on-laws`, `qs-general-information__philippine-constitution__bill-of-rights-the-accused-and-the-trial`, `qs-general-information__philippine-constitution__bill-of-rights`.
+- `q-philippine-constitution-bill-of-rights-0024`: `qs-general-information__philippine-constitution__bill-of-rights-property-courts-and-custody`, `qs-general-information__philippine-constitution__bill-of-rights-punishment-detention-and-limits-on-laws`, `qs-general-information__philippine-constitution__bill-of-rights-the-accused-and-the-trial`, `qs-general-information__philippine-constitution__bill-of-rights`.
+- `q-philippine-constitution-bill-of-rights-0025`: `qs-general-information__philippine-constitution__bill-of-rights-property-courts-and-custody`, `qs-general-information__philippine-constitution__bill-of-rights-punishment-detention-and-limits-on-laws`, `qs-general-information__philippine-constitution__bill-of-rights-the-accused-and-the-trial`, `qs-general-information__philippine-constitution__bill-of-rights`.
+- `q-philippine-constitution-bill-of-rights-0026`: `qs-general-information__philippine-constitution__bill-of-rights-property-courts-and-custody`, `qs-general-information__philippine-constitution__bill-of-rights-punishment-detention-and-limits-on-laws`, `qs-general-information__philippine-constitution__bill-of-rights-the-accused-and-the-trial`, `qs-general-information__philippine-constitution__bill-of-rights`.
+- `q-philippine-constitution-bill-of-rights-0027`: `qs-general-information__philippine-constitution__bill-of-rights-property-courts-and-custody`, `qs-general-information__philippine-constitution__bill-of-rights-punishment-detention-and-limits-on-laws`, `qs-general-information__philippine-constitution__bill-of-rights-the-accused-and-the-trial`, `qs-general-information__philippine-constitution__bill-of-rights`.
+- `q-philippine-constitution-bill-of-rights-0028`: `qs-general-information__philippine-constitution__bill-of-rights-property-courts-and-custody`, `qs-general-information__philippine-constitution__bill-of-rights-punishment-detention-and-limits-on-laws`, `qs-general-information__philippine-constitution__bill-of-rights-the-accused-and-the-trial`, `qs-general-information__philippine-constitution__bill-of-rights`.
+- `q-philippine-constitution-bill-of-rights-0029`: `qs-general-information__philippine-constitution__bill-of-rights-property-courts-and-custody`, `qs-general-information__philippine-constitution__bill-of-rights-punishment-detention-and-limits-on-laws`, `qs-general-information__philippine-constitution__bill-of-rights-the-accused-and-the-trial`, `qs-general-information__philippine-constitution__bill-of-rights`.
+- `q-philippine-constitution-bill-of-rights-0030`: `qs-general-information__philippine-constitution__bill-of-rights-property-courts-and-custody`, `qs-general-information__philippine-constitution__bill-of-rights-punishment-detention-and-limits-on-laws`, `qs-general-information__philippine-constitution__bill-of-rights-the-accused-and-the-trial`, `qs-general-information__philippine-constitution__bill-of-rights`.
+- `q-philippine-constitution-bill-of-rights-0031`: `qs-general-information__philippine-constitution__bill-of-rights-property-courts-and-custody`, `qs-general-information__philippine-constitution__bill-of-rights-punishment-detention-and-limits-on-laws`, `qs-general-information__philippine-constitution__bill-of-rights-the-accused-and-the-trial`, `qs-general-information__philippine-constitution__bill-of-rights`.
+- `q-philippine-constitution-bill-of-rights-0032`: `qs-general-information__philippine-constitution__bill-of-rights-property-courts-and-custody`, `qs-general-information__philippine-constitution__bill-of-rights-punishment-detention-and-limits-on-laws`, `qs-general-information__philippine-constitution__bill-of-rights-the-accused-and-the-trial`, `qs-general-information__philippine-constitution__bill-of-rights`.
+- `q-philippine-constitution-bill-of-rights-0033`: `qs-general-information__philippine-constitution__bill-of-rights-punishment-detention-and-limits-on-laws`, `qs-general-information__philippine-constitution__bill-of-rights-the-accused-and-the-trial`, `qs-general-information__philippine-constitution__bill-of-rights`.
+- `q-philippine-constitution-bill-of-rights-0034`: `qs-general-information__philippine-constitution__bill-of-rights-punishment-detention-and-limits-on-laws`, `qs-general-information__philippine-constitution__bill-of-rights-the-accused-and-the-trial`.
+
+### Automated verification, final code patch
+
+Base: `8a3f0ce378acf5de998908618d7603d6774ef501`. SHA-256 of
+`git diff -- lib test`: `f923bcdf25655c591e60b129c01f45d2016c1d7539412bcf606c37a3664d5a43`.
+
+Commands used `--no-pub` after initial dependency resolution. No emulator
+suite ran against the occupied ports. Functions source did not change, so
+Functions plain tests were not run. No independent review or visual acceptance
+is claimed. The lead owns those steps.
+
+`flutter analyze --no-pub`, exit 0:
+
+```text
+No issues found! (ran in 16.3s)
+```
+
+`dart format --output=none --set-exit-if-changed lib test`, exit 0:
+
+```text
+Formatted 1701 files (0 changed) in 3.47 seconds.
+```
+
+`dart run tool/check_layering.dart`, exit 0:
+
+```text
+Running build hooks...Running build hooks...check_layering: OK
+```
+
+`dart run tool/check_no_ai_attribution.dart`, exit 0:
+
+```text
+Running build hooks...Running build hooks...check_no_ai_attribution: OK
+```
+
+`flutter test --no-pub test/features/home test/app test/core`, exit 0:
+
+```text
+02:26 +2187: All tests passed!
+```
+
+`flutter test --no-pub test/features/home/presentation/home_tab_test.dart test/features/home/presentation/widgets/home_masthead_test.dart test/features/home/presentation/web/home_header_wide_test.dart`, exit 0:
+
+```text
+00:01 +39: All tests passed!
+```
+
+`flutter build web --release --no-pub`, exit 0:
+
+```text
+Font asset "Phosphor.ttf" was tree-shaken, reducing it from 488636 to 13660 bytes (97.2% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
+Compiling lib/main.dart for the Web...                             44.2s
+✓ Built build/web
+```
+
+The release build warned that Cupertino icon fonts were referenced but
+not included in the declared font assets. The build still completed. This
+assignment did not change fonts.
+
+Files changed: `lib/features/home/presentation/home_today_screen.dart`,
+`lib/features/home/presentation/widgets/home_masthead.dart`,
+`test/features/home/presentation/home_tab_test.dart`, and this audit.
+No changes to selection controls, content, seeds, scripts, or Functions.
+
+## October 31, 2026: visual-check fixes, round 1
+
+Automated work only. Aedwon owns visual acceptance. The assignment brief is the
+spec and plan. Policy read from origin/main at
+`703a335c836231c9a843fc9b10f3e970449933e1`.
+
+Selection-control inventory before implementation:
+
+- Shared ListRow: checkbox, check, radio, exam choice. SettingsRow adapts its
+  check and radio variants separately on web.
+- Onboarding: consent choices, custom subjects, exam picker (phone and web).
+- ScopePicker: topic and lesson checkboxes, including partial topic selection.
+  Used by custom practice, exam scope, and custom mock setup.
+- Custom practice: native topic and lesson checkboxes outside ScopePicker.
+- Settings: appearance theme radio choices and practice ordering radio choices.
+- Lesson bookmarks: multi-selection in editing mode, on phone and web.
+- Quiz mistake notes: mutually exclusive reason choices, on phone and web.
+- Mock session: pause-warning checkbox. Mock review: mistake-reason radio choices.
+
+Lettered answer buttons and their correct/wrong outcome indicators, completion
+checks, switches, segments, day buttons, and filter chips are separate controls.
+They do not use checkbox/radio roles. Their answer, completion, toggle, and
+segmented-selection behavior remains as specified for those components.
+
+Changed selection screens: onboarding consent, exam picker, custom-track subjects,
+custom practice, custom mock setup, exam scope (topic and lesson selection),
+appearance, practice order, lesson bookmarks in editing mode, quiz mistake notes,
+mock mistake notes, and the mock pause warning. Shared ListRow and SettingsRow
+selection variants now use the same CheckboxRow or RadioRow on phones and web.
+
+The shared controls use the board's 24 px size, 7 px checkbox radius, circular
+radio, 1.5 px outline, selected green fill and check. Both share the check
+animation, disabled opacity, keyboard focus, web hover without ink, and one phone
+press background. Completion indicators and answer outcomes remain separate.
+
+### Round 1 verification and handoff
+
+Candidate: `web/visual-check-fixes-r1`, based on
+`0ad7883bfd4684bbcabc79a0317d50c3af0d6ce4`. No fetch, commit, push, branch
+switch, deployment, or live application-service calls. The lead owns commits,
+independent review, and acceptance. No visual acceptance is claimed.
+
+All four items are implemented. The resumed work already contained implementation
+and regression tests. This run reviewed those changes, formatted them, corrected
+analyzer findings, and updated tests that still expected replaced selection widgets.
+The original test-first sequence from the interrupted run cannot be established
+from this resumption's evidence.
+
+Regression sensitivity was checked in item order. Temporarily disabling recovery,
+suppressing the ready signal, skipping duplicate validation, and restoring the old
+ListRow each made the corresponding regression tests fail with exit 1. Every
+source file was restored afterward. The original splash script also failed the
+current JS tests in a temporary fixture. These checks demonstrate test sensitivity;
+they do not replace evidence of the original test-first sequence.
+
+The first broad run finished with `+4734 -5: Some tests failed.` All five failures
+were tests looking for replaced controls: two color tests, two mock pause tests,
+and one practice-picker test. Their checks now use the shared controls and retain
+contrast, selected-state, and large-text checks. The three corrected test files
+then finished with `+54: All tests passed!`.
+
+Changed source/test/tool/web content identity, SHA-256 (sorted path, NUL,
+file bytes, NUL; this documentation excluded):
+`9f4ed0d6a26b0ec459387e96389ee3791c9073dfeeb626ae322d0ae67a20c33b`.
+
+Files touched in the complete resumed patch (81):
+
+```text
+docs/ui-audit.md
+lib/app/router.dart
+lib/app/routes/deferred_route.dart
+lib/app/routes/quiz_routes.dart
+lib/app/routes/settings_routes_web.dart
+lib/app/routes/states_routes.dart
+lib/core/platform/first_screen_ready.dart
+lib/core/platform/first_screen_ready_stub.dart
+lib/core/platform/first_screen_ready_web.dart
+lib/core/ui/components/check_mark.dart
+lib/core/ui/components/list_row.dart
+lib/core/ui/components/scope_picker.dart
+lib/core/ui/components/selection_row.dart
+lib/core/ui/web/web_layout.dart
+lib/features/assessment/presentation/assessment_page.dart
+lib/features/assessment/presentation/assessment_results_page.dart
+lib/features/home/application/study_delivery.dart
+lib/features/home/application/study_remote_providers.dart
+lib/features/home/data/study_api.dart
+lib/features/home/presentation/home_tab.dart
+lib/features/home/presentation/home_today_screen.dart
+lib/features/home/presentation/performance_screen.dart
+lib/features/home/presentation/plan_screen.dart
+lib/features/home/presentation/record_screen.dart
+lib/features/home/presentation/tendencies_screen.dart
+lib/features/lesson/presentation/learn_tab_home.dart
+lib/features/lesson/presentation/lesson_page.dart
+lib/features/lesson/presentation/pages/topic_ending_page.dart
+lib/features/lesson/presentation/widgets/bookmarks_sheet.dart
+lib/features/mock_exam/presentation/pages/custom_mock_setup_route.dart
+lib/features/mock_exam/presentation/pages/mock_results_route.dart
+lib/features/mock_exam/presentation/pages/mock_review_page.dart
+lib/features/mock_exam/presentation/pages/mock_session_page.dart
+lib/features/mock_exam/presentation/pages/mock_setup_route.dart
+lib/features/mock_exam/presentation/pages/mock_start_route.dart
+lib/features/onboarding/presentation/exam_picker_screen.dart
+lib/features/onboarding/presentation/onboarding_consent_step.dart
+lib/features/onboarding/presentation/onboarding_page.dart
+lib/features/onboarding/presentation/steps/custom_track_subjects_step.dart
+lib/features/quiz/presentation/pages/flagged_list_page.dart
+lib/features/quiz/presentation/practice_picker_screen.dart
+lib/features/quiz/presentation/quiz_note_editor.dart
+lib/features/quiz/presentation/quiz_page.dart
+lib/features/quiz/presentation/quiz_review_page.dart
+lib/features/quiz/presentation/quiz_session_end_page.dart
+lib/features/quiz/presentation/quiz_tab_screen.dart
+lib/features/settings/presentation/pages/appearance_page.dart
+lib/features/settings/presentation/pages/pro_page.dart
+lib/features/settings/presentation/pages/whats_included_page.dart
+lib/features/settings/presentation/widgets/settings_row.dart
+lib/features/wrapped/presentation/wrapped_reveal_page.dart
+test/app/deferred_route_test.dart
+test/app/router_redirect_test.dart
+test/core/platform/first_screen_ready_test.dart
+test/core/ui/components/audit_color_tokens_test.dart
+test/core/ui/components/audit_scope_board_test.dart
+test/core/ui/components/exam_picker_extensions_test.dart
+test/core/ui/components/inputs_completion_test.dart
+test/core/ui/components/onboarding_extensions_test.dart
+test/core/ui/components/selection_row_states_test.dart
+test/core/ui/components/selection_row_unification_test.dart
+test/features/home/application/study_remote_providers_test.dart
+test/features/home/data/study_api_test.dart
+test/features/home/presentation/deep_link_ready_test.dart
+test/features/home/presentation/home_today_screen_test.dart
+test/features/home/presentation/performance_screen_test.dart
+test/features/home/presentation/plan_screen_test.dart
+test/features/lesson/presentation/bookmarks_sheet_test.dart
+test/features/mock_exam/presentation/approved_details_accessibility_test.dart
+test/features/onboarding/presentation/exam_picker_screen_test.dart
+test/features/onboarding/presentation/onboarding_consent_step_test.dart
+test/features/onboarding/presentation/onboarding_error_reporting_test.dart
+test/features/onboarding/presentation/web_onboarding_second_pass_test.dart
+test/features/onboarding/presentation/web_onboarding_states_test.dart
+test/features/quiz/presentation/practice_picker_screen_test.dart
+test/features/quiz/presentation/quiz_note_editor_test.dart
+test/features/settings/presentation/w4f_lesson_scope_test.dart
+test/tools/build_content_export_links_test.dart
+test/web/pantas_splash.test.mjs
+tools/build_content_export/build_content_export.dart
+web/pantas_splash.js
+```
+
+Final automated verification, October 31, 2026. Flutter 3.44.6, Dart 3.12.2,
+Node v26.10.0. All commands below completed with exit 0.
+
+```text
+flutter analyze
+No issues found! (ran in 16.6s)
+
+dart format --output=none --set-exit-if-changed lib test
+Formatted 1709 files (0 changed) in 2.27 seconds.
+
+dart run tool/check_layering.dart
+check_layering: OK
+
+dart run tool/check_no_ai_attribution.dart
+check_no_ai_attribution: OK
+
+flutter test test/app test/core test/tools test/features/home test/features/assessment test/features/lesson test/features/mock_exam test/features/onboarding test/features/quiz test/features/settings test/features/wrapped
+06:20 +4739: All tests passed!
+
+node --test test/web/
+ℹ tests 21
+ℹ pass 21
+ℹ fail 0
+
+flutter build web --release
+Compiling lib/main.dart for the Web...                             52.9s
+✓ Built build/web
+
+git diff --check
+(no output)
+```
+
+The release build warned that CupertinoIcons was referenced without its font
+asset. It still built successfully. No fonts changed in this patch. The build
+used the same application source as the final tests; subsequent edits affected
+only tests and this audit. Temporary regression mutations were restored byte for
+byte. No generated files were hand-edited. No protected content package was
+rebuilt. No emulator, browser, device, or visual check was performed.
+
+Items 1 to 4: implemented and automated checks passed. Independent lead review,
+visual acceptance, commits, integration, and publication remain pending.
+No unresolved stop conditions were encountered. No additional live defect was
+established. Raw local command logs are in `/tmp/vc-*.log`.
+
+## Visual pass: onboarding
+
+2026-10-31. Assignment: `build/vp-ob-brief.md`. Policy: origin/main
+`401262ce`, supplied in `build/policy-*.md`. Branch:
+`web/visual-check-fixes-r1`. Changes remain uncommitted for lead review.
+
+Implemented from the approved 1440-wide OB board styles:
+
+1. Shared step position and Back: use standard desktop density for the 36 px
+   Back control, preserving the board's 40 px top padding and 28 px heading gap.
+   The compact desktop density could reduce the control's height. Replace the
+   Material chevron with the board's 20 px SVG and 2.2 px rounded stroke.
+2. Terms: use standard density for consent rows with 16 px vertical padding and
+   24 px controls, giving 56 px rows. Keep the board's 28 px subtitle-to-card
+   gap. The brief describes a dark disabled label, but explicitly gives board
+   CSS precedence. `OB_Terms` defines `.cta.off` as background `#EDEDF0` and
+   label `#AEAEB2`, with a 12 px radius. Existing web disabled colors and radius
+   already match. They were preserved without adding opacity.
+3. Exam picker: white outlined 44 px search field, 16 px search text, dark
+   14 px filter labels with 500 weight (600 for the selected filter), and pill
+   filter shapes. Add the board's 22 px outlined plus-in-circle and dark custom
+   exam title. Move Coming soon from a third text line into a right-side gray
+   pill with 11 px, 600-weight text and 2 px by 7 px padding. Reuse the existing
+   radio row's trailing slot. Radio controls and the bottom Continue bar remain
+   unchanged as instructed.
+4. Known date: month label is 13 px, weight 700, secondary gray, with .78 px
+   letter spacing. Add the requested 8 px space between the date action buttons.
+5. Date picker: ordinary day cells are transparent. Selected days retain teal.
+   Preserve month tile fills. Use the board's plain 36 px calendar outline with
+   a 1.5 px stroke, and 15 px help text with 1.45 line height. Home currently
+   uses a separate `HomeWebDatePicker`, whose unselected days already use
+   transparent backgrounds. No Home or phone change was needed.
+6. Name and custom exam name: use a 56 px web field with 19 px text. Remove the
+   web input's in-field label, which rendered smaller than entered text. Keep
+   the external label. Phone field dimensions remain unchanged. Age already
+   uses its own board-matching 240 by 64 px field and 28 px text.
+
+Tests updated in `web_onboarding_second_pass_test.dart` for web name field
+height and text, outlined search, heading position, consent row height, and
+unselected/selected calendar fills, in both light and dark themes.
+
+Verification status: **not accepted**, required Flutter checks are blocked.
+The installed Flutter SDK cannot write its cache under this sandbox, so checks
+used a copy at `/private/tmp/pantas-vp-flutter`. No fetch or commit was run.
+
+- Repository-wide `dart --suppress-analytics analyze`, with
+  `ANALYZER_STATE_LOCATION_OVERRIDE=/private/tmp/pantas-vp-analyzer`:
+  `No issues found!` Exit 0. Output: `build/vp-ob-analysis-final.log`.
+- `flutter analyze --no-pub`: attempted, blocked by the analyzer child process
+  writing `/Users/aedwon/.dart-tool/dart-flutter-telemetry-session.json`.
+  Output: `build/vp-ob-analyze.log`. Direct Dart analysis above completed.
+- Focused Flutter tests: onboarding presentation tests and Home date sheet tests
+  attempted. No test body ran. Test loading failed because binding the required
+  `127.0.0.1` server socket is denied (`Operation not permitted`). Output:
+  `build/vp-ob-tests-final.log`, summary `00:00 +0 -19: Some tests failed.`
+  The initial regression run was blocked for the same reason. Red/green testing
+  has not been established.
+- `dart run tool/check_layering.dart`: `check_layering: OK`.
+- `dart run tool/check_no_ai_attribution.dart`: `check_no_ai_attribution: OK`.
+- Formatting and `git diff --check`: checked on the final patch.
+
+No app screenshots were captured. The lead must run the focused Flutter tests,
+run Flutter analysis, and compare the running 1440-wide app to the boards before
+visual acceptance. In particular, confirm the shared top offset and Terms card
+spacing against the new capture. No claim of visual acceptance is made here.
+
+Files touched:
+
+- `lib/core/ui/components/search_field.dart`
+- `lib/features/onboarding/presentation/exam_picker_screen.dart`
+- `lib/features/onboarding/presentation/onboarding_consent_step.dart`
+- `lib/features/onboarding/presentation/onboarding_exam_date_step.dart`
+- `lib/features/onboarding/presentation/onboarding_name_field.dart`
+- `lib/features/onboarding/presentation/onboarding_web_calendar.dart`
+- `lib/features/onboarding/presentation/onboarding_web_page.dart`
+- `test/features/onboarding/presentation/web_onboarding_second_pass_test.dart`
+- `docs/ui-audit.md`
+
+### Onboarding fix batch 2 (2026-10-31)
+
+Lead compared all 21 reachable onboarding BUILD boards at 1440 light against the running app
+(capture `build/visual-pass/ob_pairs5.mjs` in the staging worktree, date faked to Wed Oct 14 2026
+to match the boards; pixel rows from `measure.mjs` and `rows.mjs`). Unreachable by script:
+OB_PickerLoading, OB_PickerError, OB_PickerEmpty. Brief: `build/vp-ob-brief-2.md`. Implemented by
+a Sonnet subagent; the lead fixed the name field height and subject row density after re-capture.
+
+Fixed and re-measured in the browser:
+
+- Section gap 24 on the date picker and exam picker pages (was 28).
+- Action row gap: study days 28, date known 32 (was 40). Date known buttons now pixel exact.
+- Onboarding buttons 48 px with board padding; white "Different Date" has no border.
+- "Every Day" (and "I don't know") text aligned with the content edge.
+- Name and custom exam name field: 56 px box, 2 px border, label inset 4. Pixel exact.
+  Widget tests check the padding (19), because test fonts render taller lines than Geist.
+- Custom exam subjects: 56 px rows, 10 px gaps, 24 px boxes, ring on hover. Pixel exact.
+  Needed standard visual density locally; desktop compact density removed 8 px.
+- Date picker: day grid gaps 4, no outline on Today, equal panel heights.
+- Too-late card: calendar icon, radius 16, US date order ("Saturday, October 17").
+- Age blocked: standard top bar, block raised 40 px, board padlock, board gaps.
+
+Remaining small offsets (1 to 5 px): date picker weekday row about 4 px low; age blocked block
+about 4 px low; headings 1 px low. Not fixed.
+
+Decision, Aedwon Oct 31: "today can count as study day". The too-late card keeps suggesting
+today (the board's "Thursday or Friday" omits today); no change.
+
+Checks: `flutter analyze` clean; `flutter test test/features/onboarding test/core/ui` 861 passed;
+`check_layering` OK. `check_no_ai_attribution` fails on earlier commits on this branch
+(b14a5515, 9a001215, bcb4b981), not on this batch.
+
+### Home fix batch 1 (2026-10-31)
+
+Boards rendered with `web/shared/pantas.css` (boards load it as `/_blob/9c74f4aa…`). Capture and
+measurement by Sonnet (`build/visual-pass/home-diffs.md`, `shots/home` in the staging worktree);
+lead reviewed HM_DayStart before and after. Sample students via `?localStudent=` (local only).
+
+Fixed: Today rows 71 px with values right-aligned and 24 px rings; footer tinted band and hairline;
+"More about you" flat rows in light (board `.row` rule); Performance bottom row full width with
+chevron; week strip 77 px, day pitch 48, today circle 26; exam tile 42x36 with dark border;
+sidebar 230.4 px wide, search 38 px, nav pitch 44; panel button full width and close icon
+position; Pro welcome notice after "More about you".
+
+Not fixed:
+- Footer time estimate ("About 45 min today" on the board): left out. The app has no measured,
+  published or named-algorithm figure for today's minutes (AGENTS "Never invent a figure"). Needs
+  Aedwon's decision.
+- Pro welcome notice open layout still differs from HM_ProWelcome.
+- 15 Home states not reached by the capture (DayDone, AdvanceAgain, Advanced, NothingDue, DayOff,
+  Resume, Service, Trial, BeforeAssessment, MockDay, MockMoved, MockDropped, NothingDueReview,
+  ReviewWeek, LastDay) and 8 special states (ExamDay, ExamPassed, MonthOnly, MonthOnlyPick, NoDate,
+  NoDateModal, NoticeClosed, NoContent).
+- Open bug, cause unknown: Start Lesson from the Today drawer showed "Lesson not found" for a
+  seeded student while the server returned the lesson. Retest with Pro working.
+
+Local fixes in the same batch: `?localAccount=` is read at the start of startup (routing had
+removed it); after seeding, the app waits for sync to settle and signs the payment gateway in
+again, which fixed "Study owner changed" and the sidebar's "Free" label on the Pro account.
+
+Checks: `flutter analyze` clean; `flutter test test/features/home test/features/shell test/core/ui
+test/core/dev test/core/platform` pass; `check_layering` OK.
+
+### Home fix batch 2 (2026-10-31)
+
+Seed: `?localState=` (local only) reaches DayDone, NothingDue, DayOff, Resume, BeforeAssessment,
+MockDay, ReviewWeek, LastDay, ExamDay, ExamPassed, NoDate, MonthOnly. Captures in the staging
+worktree `build/visual-pass/r2`. Lead spot-checked HM_DayDone (match).
+
+Fixed (wide web): "That's all for today." block below the card (22 px, 19 px title, button right);
+quiet-state cards padding 26/24/22, 40 px icon, 16 px body, "TODAY" label on the assessment card;
+ExamDay title spans both columns (26 px) with a tinted footer band; no arrow on "View full plan".
+
+Copy or behavior differences, not changed (for Aedwon):
+- Notices collapsed; the board shows them open on NoDate and MonthOnly.
+- BeforeAssessment hides the performance card; the board shows a placeholder.
+- Mock-day footer caption text differs from the board.
+- The header sub-line "Unfinished items are added to today." also shows when the day is done.
+- ExamPassed shows "View full plan" and the date as "24 October" (should be US order).
+
+Open bug, fix held for review: "Start Lesson" shows "Lesson not found" for CSE Professional lessons
+under Mathematics. Cause (Sonnet): the study map builds an exam's topics only from subjects the
+exam owns, and Mathematics topics are owned by UPCAT's subject while CSE questions are tagged to
+them. A real CSE student would hit it. A candidate fix in `topicsByExam` (adds topics that the
+exam's questions are tagged to) was held back by the lead: that function also feeds the
+assessment, mock start, quiz debrief and study scope, and the root cause may be content structure.
+The held test is in the fixes worktree `build/held/`.
+
+Checks: `flutter analyze` clean; home, shell, core ui/dev/platform/storage tests pass (1572);
+`test_run_web_local.py` OK; `check_layering` OK.
+
+### Study and reader fix batch 1 (2026-11-01)
+
+Sonnet captured 16 of 22 BUILD boards (staging worktree `build/visual-pass/study/`); lead
+spot-checked RD_Focus (match; lesson text differs as content only). MOTION board skipped. Not
+reached: SD_Loading, SD_Error, SD_NoExam, SD_NoLessons, RD_Error, RD_ImageFail (need blocked
+requests or special accounts).
+
+Fixed (wide web): lesson rows 50 px, map rows 36 px, map column 300 px, content gap under title
+26 px; reader outline item pitch 31 px; reader header back, Esc chip and lesson pill; lesson list
+popover rebuilt (41 px rows, 396 px, board radius and shadow); search rows and no-match panel;
+lesson end quiz button, Read dot and card gap; resume notice as the board's dark toast; day-done gap
+22 px; ending pages without the full progress line; no stadium hover on the next-topic card.
+
+For Aedwon (implemented to match the board, or kept): lesson-row bookmark sits left of the minutes
+and shows on hover only (board); "Still unread" label uppercase (board); lesson list popover kept
+centered (the board draws it at x=720, which looks like a board slip).
+
+Checks: analyze clean; lesson, core/ui and home tests pass (1,684); layering OK.
+
+### Quiz fix batch 1 (2026-11-01)
+
+Sonnet captured 19 of 27 BUILD boards (staging worktree `build/visual-pass/quiz/shots/`); lead
+spot-checked QS_EndPro (match apart from the items below). Not reached: QS_EndLow, QS_EndPerfect,
+QS_Figure, QS_Long, QN_EditNote; skipped G9 report states (limit, offline, sent, again).
+
+Fixed (wide web): answer options 64 px; Quiz tab columns 546/506 and rows 71 px; mock "Take the
+Exam" 458x48; flag toast about 311x55; grid popover aligned to the bottom bar; end screen rebuilt
+to the board; viewer bar prev/next, key chips and counter; reasons panel and report popover 416 px.
+
+Bugs found (to fix next):
+- Mistake and question-list rows show raw maths markup (for example `$8$`, `$50\%$`) instead of
+  rendered maths.
+- A mock whose chosen ids exceed 64 characters makes the Quiz tab show "Could not load your mock."
+  Seen with seeded mocks; check whether real mock ids can reach that length.
+
+For Aedwon (not changed): the end screen's extra "NEXT" debrief card is not on the board; Done keeps
+the primary style when no next session exists; "F to flag" hint shows only with the flag toast;
+the report icon glyph differs from the board.
+
+Checks: analyze clean; quiz, core/ui and mock tests pass (1,991); layering OK.
+
+### Mock fix batch 1 (2026-11-01)
+
+Sonnet captured 15 of 31 BUILD boards (staging worktree `build/visual-pass/mock/shots/`); lead
+spot-checked MK_ReviewWrong (match apart from content). Not reached: all part-by-part boards
+(local content has no UPCAT or DCAT mock): Setup, SetupDCAT, EndEarly, PartEnded, Between,
+Proctor, FiveMin, LastMinute, LastQ, LastQStrict; Forfeit; ResultsFirst, PastPro and other record
+boards; ReviewBlank. MOTION boards skipped. Lead rulings: panel 300 px and header 72 px (boards);
+proctor warning on the clock only (HANDOFF hard rule).
+
+Fixed (wide web): setup title and table; Flag 36 px, Pause 101 px with icons and key chips;
+question grid 6 columns with a scrolling area so Submit stays visible; edge tab and nav bar
+centered; dialogs; results ring 264 px, bar 8 px, rows 71 px, chart 170 px; review list rows 47 px,
+"Left blank" pill, caps headers; review viewer reason tiles 2x2 and bottom nav; segmented control
+34 px.
+
+For Aedwon (not changed): Pause/Flag/Submit stay natural width (hard rule) where the board shows
+full width; board's extra proctor line not added; Free "open until" and flag-offer wording differ;
+no "See full record" link on results; board reason chip "I forgot"; board segment labels teal;
+review viewer top-right icon differs; CSE Paused screen has no part list.
+
+Local runner: copies the app repo's `content/mock/cse-pro.yaml` into the local content root
+(the content branch has no CSE mock blueprint) and shims the content App Check host.
+
+Checks: analyze clean; mock_exam and core/ui tests pass; layering OK.
+
+### Plan and Performance fix batch 1 (2026-11-01)
+
+Sonnet captured 16 of 19 BUILD boards (staging worktree `build/visual-pass/plan/shots/`); lead
+spot-checked PL_Plan (layout match). Not reached: PL_WeekCustom, PL_DayPast, PL_Error, PF_Error.
+
+Fixed (wide web): Performance page double padding removed (now x=295, y=28); back link 40 px;
+plan columns 580 and 472 px; coming-up rows 71 px; performance list 641 px with board bar widths;
+exam calendar glyph; "See more" row in the History card; pane headers; teal "Home" back link;
+week footer, Read and Change actions, filter and sort menus per the boards.
+
+For Aedwon / next batch (not changed):
+- The sidebar does not highlight "Home" on the plan page; the board does (lead, PL_Plan).
+- Week rows show "Nov 1 – 7" as the title with "This week" beside it; the board shows "This week"
+  as the title with the dates beside it.
+- Esc hint kept in week and day panes; week lesson titles wrap (a test requires it; board truncates).
+- PL_Free lock circle skipped (HANDOFF bans icon tiles in cards).
+- "PRO" tag reads "Pro" (shared component); eyebrow 3 px low.
+- Board figures the app does not compute (PL_Plan "7 to 8 a day") not added.
+
+Checks: analyze clean; home and core/ui tests pass (1,229); layering OK.
+
+### Record, bookmarks and custom quiz fix batch 1 (2026-11-01)
+
+Sonnet captured 20 of 33 BUILD boards (staging worktree `build/visual-pass/record/shots/`); lead
+spot-checked BM_Edit (match). Not captured: MY_RecordFirst, MY_TendNew, remaining CZ states,
+MY_RecordRest, MY_TendError, CM_* and the two reference sheets (need seeding).
+
+Fixed (wide web): sidebar highlights Home on /plan and /performance; Record and Tendencies title,
+back link and stat card heights; Tendencies hero left-aligned; bookmarks drawer header, rows 71 px,
+edit rows, footer, scrim and toast; reader "Bookmarked" toast intrinsic width; Customize your own
+rows 62 px, panel, full-width Start, stepper buttons.
+
+For Aedwon (not changed): Wrapped row stays hidden (HANDOFF); accuracy chart axis 0/50/100 vs the
+board's 40/60/80; reader progress bar under the header; Study sidebar bookmark icons teal vs the
+board's gray (not yet matched).
+
+Checks: analyze clean; layering OK; five test folders pass (2,496).
+
+### Settings and Pro fix batch 1 (2026-11-01)
+
+Sonnet captured 29 of 51 BUILD boards (staging worktree `build/visual-pass/settings/shots/`); lead
+spot-checked ST_ExamDate (match). Not captured: exam switch boards (irreversible), backup boards
+(backup hidden on web), ST_Avatars (component sheet), ST_LargeText, ST_ExamCustom,
+ST_IncludedLast, ST_DaysLast (would change data), ST_AccountOffline, and most Pro plan states
+(lapsed, pass, offline). NEW-FEATURE and MOTION boards skipped.
+
+Fixed (wide web): list pane 300 px; profile card 72 px; nav icon colors and gap (Your exam icon
+stays teal: HANDOFF reserves red); Sign Out teal text and Delete Account red text, 42 px; appearance
+tiles 140 px with 20 px radios; exam date picker rebuilt to the board's columns (click and mouse
+wheel instead of drag); Pro hero checks and gap; What's included rows 62 px; exam picker rows 55 px
+without radios; dialog scrims cover the whole window; privacy page in a card; name field, Google
+sign-in button and dialogs per the boards.
+
+For Aedwon (not changed): plan cards show "₱149.00" where the board shows "₱149"; no "7 DAYS FREE"
+tag on web; CTA wording ("No payment needed.", "Subscribe for ₱149.00 a Month") differs from the
+board; Manage Subscription and Reminders rows hidden on web; CSE shows all four plans (matches
+docs/pricing.md; the boards show two and say "SAVE 32%" where the math gives 33%).
+
+Settings tests: 30 failing before and the same 30 after (none new). Checks: analyze clean; settings,
+paywall, core/ui, shell, onboarding match base; layering OK.
+
+### Remaining web boards batch 1 (2026-11-01)
+
+Sonnet captured 30 of 31 BUILD boards; 15 have app pairs (Main, W_Study, W_QuizTab, W_Question,
+W_QRight, W_QMiss, W_Mock, W_MockResults, W_Settings, L_ChangeExam, DK_Quiz, DK_Settings, SY_Error).
+Board only: AS_* (see below), L_Restore/Delete/SignIn/Purchase/RestorePurchase (external or
+destructive), L_PlanSlow/ProgressSlow/DebriefSlow (slow-load states), SY_Update, X_Side, X_Perf,
+X_More. Wrapped (WR_) and SKIP boards out of scope.
+
+Fixed (wide web): SY_Error and SY_Update now use the teal mark, 26 px heading and a centered 50 px
+Try Again button (was a gray circle and a button pinned bottom-left); positions match within 1 px.
+
+Possible bugs (investigating):
+- "Start Assessment" returns to Home instead of opening the placement test (seen with seeded data).
+- On web, "Update required" opens Google Play instead of reloading.
+
+For Aedwon (not changed): no Enter chip on Try Again/Update (Enter not bound); board's Update lead
+line missing; "Pick with A to D" hint missing; note-reason prompt not shown on a Pro miss.
+
+Checks: analyze clean; layering OK; core/ui, shell, core/error tests pass (749).
+
+### Second round: Home and Quiz states (2026-11-01)
+
+Sonnet reached 13 of 14 more states (staging worktree `build/visual-pass/round2/shots/`); lead
+spot-checked HM_NoDateModal (match; app shows no month picked). Reached: HM_Advanced,
+AdvanceAgain, MockMoved, MockDropped, NothingDueReview, ManyLessons, MonthOnlyPick, NoDateModal,
+NoticeClosed, Trial; QS_EndLow, QS_EndPerfect. Not reached: HM_Service (remote flag),
+HM_LongTitle (needs a long content title). Seed adds localState advanceAgain, mockMoved,
+mockDropped, nothingDueReview, trial, manyLessons, and makes Sunday a study day when today is Sunday.
+
+Fixed (wide web): Home exam date dialog rebuilt to the board (2-column month tiles, tinted
+calendar panel, 42x32 day cells, padding 26, title 20, "Scroll for more"); Home notice open
+layout (16/600 title, 22 px icon, 44 px close, left-aligned buttons); quiz end close X gray 22 px;
+Study lesson-row bookmark gray. Sidebar bookmark icons are teal on the boards too (kept).
+
+For Aedwon (not changed): MockMoved/MockDropped do not show "moved to today"; month-only notice
+shows an inline day row the board lacks; trial wording differs.
+
+Checks: analyze clean; home, quiz, lesson, core/ui, core/dev tests pass (2,492); runner tests OK;
+layering OK.
+
+### Visual pass round 3 (2026-11-01, partial)
+
+Run stopped early for budget. Pairs: staging worktree `build/visual-pass/rest/shots/pairs/`.
+
+Reached and compared: X_Side (match within 1 px), X_Perf (match within 1 px), X_More, MY_Profiles and
+MY_Pictures (card 148 px, radius 22, padding 26/28, bar 12 px, tiles radius 12 all match the Tendencies
+board; the sheet's 3-up width is not shown on the app), ST_Avatars, MY_RecordFirst, MK_PastPro (opened
+from Your record on the seeded Pro student).
+
+Fixed (wide web): ST_Avatars plain person (no name, number or symbol first) now shows the board's small
+teal dot (about 5.7 px at 44 px) on gray, not a person icon. Test updated.
+
+Not reached, with reason:
+- OB_PickerLoading, OB_PickerError, OB_PickerEmpty, SD_Loading, SD_Error, PL_Error, PF_Error, MY_TendError:
+  the exam catalog, study map and plan data come from the local database, not from network requests, so
+  `page.route` cannot delay or fail them (checked: aborting the emulator ports leaves the picker populated
+  from the seed).
+- ST_ProPassHave: needs a Season Pass purchase.
+- UPCAT and DCAT mock boards: the picker lists UPCAT as Coming soon and local content is CSE only. Runner
+  not changed.
+- Not attempted for lack of budget: RD_Error, RD_ImageFail, QN_ReportOffline, ST_AccountOffline, settings
+  and plan states, new-account assessment states, quiz content states, exam switch.
+
+For Aedwon (not changed):
+- More about you: the Main board draws white 16 px cards, the X_More board draws flat 18 px rows. The app
+  follows X_More.
+- MY_RecordFirst: board streak card adds "since Oct 12, 2026"; board has five totals tiles and no mocks
+  column, the app shows six tiles (best mock) and a Your mocks list.
+- MK_PastPro: the app opens the normal results screen (X close, Done button, no "Versus past results"
+  chart, no "See full record" row). The board shows a "< Your record" back link, the chart and the link.
+- Sidebar avatar (not changed): does not capitalize the first letter (ST_Avatars says capitalized, accents
+  included) and has no gray plain state.
+
+#### Visual pass round 3, continuation (2026-11-01)
+
+Local run, seeded Pro student unless noted. Pairs: staging worktree `build/visual-pass/rest/shots/pairs/`.
+
+Reached and compared:
+- ST_LargeText (Appearance, slider at max): text-size card was 70 px, board 67 px. Fixed to 67 px (wide only). The active track
+  measures about 5 px against the board's 4 px (not changed).
+- ST_DaysLast: the app put "At least one day stays on." inside the card; the board shows it as the footer below the card in place of
+  the long footer. Fixed on wide web.
+- ST_IncludedLast: the board message is red 13 px at the list's left edge; the app showed gray 14 px. Fixed to red 13 px on wide web.
+- PL_WeekCustom (Mon, Wed, Fri): plan and week panel layout match. The board truncates day titles to one line with an ellipsis; the
+  app wraps them (a test asserts wrapping), so not changed.
+- AS_Question, AS_Picked, AS_Leave: match (content differs: CSE, 26 questions). AS_Results: bar rows were 68.5 px, board 67 px;
+  fixed to 67 px. The whole block still sits about 3 px lower than the board (title and lead area, not traced).
+- QN_ReportAgain: the note box was 82 px, board 92 px; fixed (92 px, wide only). QN_ReportOffline: reached (the local server queues the
+  report: "Saved. It sends when you're back online."); text and position match the board.
+- QS_Long: reached (long question stem in Reviews); wraps over five lines, no layout difference seen.
+
+Not reached, with reason:
+- QN_ReportSent, QN_ReportLimit: the local report always queues as offline, so "Thank you" and the daily limit never show.
+- QN_EditNote: the "Why did you miss it?" note prompt is not shown after a miss on web (already listed below).
+- ST_ExamSwitch: switching CSE Pro to CSE Sub applies at once; the "You're not starting from zero" dialog never appears.
+- PL_DayPast: today is Sunday, the first day of the week strip, so no past day exists. QS_Figure: no figure question was found in Reviews.
+- OB_PickerLoading, OB_PickerError, OB_PickerEmpty, SD_Loading, SD_Error, PL_Error, PF_Error, MY_TendError: local database, not network.
+- Not attempted for lack of budget: RD_Error, RD_ImageFail, ST_AccountOffline, MK_ResultsFirst, MK_ReviewBlank, SD_NoExam, HM_LongTitle,
+  and the UPCAT and DCAT mock boards.
+
+For Aedwon (not changed): report icon on the board turns teal after a report and uses a different bubble glyph than the app's "!";
+plan week panel day titles wrap where the board truncates; the exam switch never offers "Count Them" or "Start My Numbers Fresh".
+
+#### Visual pass round 3, last pass (2026-11-01)
+
+No code changed in this pass. Pairs: staging worktree `build/visual-pass/rest/shots/pairs/`.
+
+Reached:
+- HM_LongTitle: a seeded Today row has a long CSE title; it truncates to one line with an ellipsis and "12 min" stays on the right, as on the board.
+- MK_ReviewBlank (past mock, Wrong tab, "Left blank" row): layout matches the board (panel, "Why did you leave it blank?" tiles, nav pill).
+  The board has a report icon top right; the app shows "Flag F" there.
+- RD_Error: reached by aborting the lesson request, but the app shows "Lesson not found." with a book icon and no Try Again; the
+  board shows "Could not load this lesson." with a warning icon and Try Again.
+- The note prompt "Why did you miss it?" does appear in a Pro mock review (it is not shown after a miss in Reviews).
+
+Not reached:
+- QN_EditNote: choosing a reason and Add Note in the mock review returns to the list, and the question reopens with no saved note.
+  Report states with `localAccount=pro` match the earlier result (the local server queues the report as offline).
+- ST_AccountOffline: the not-signed-in Account pane is reachable (`?localStudent=steady` with no account), but `setOffline`
+  also cuts the local servers and the app shows "Something went wrong."; the in-app offline state never shows.
+- RD_ImageFail: the local lessons have no images to fail. MK_ResultsFirst: needs a full first mock. SD_NoExam: onboarding always sets an exam.
+
+For Aedwon (not changed): a failed lesson request is shown as "Lesson not found." instead of the retry error; the Home footer
+line on the board ("About 45 min today · hover a title to see all of it") is missing on the app; the reader header's back
+glyph rendered as an empty box once ("[]  Study") in one capture.
+
+### Aedwon decisions, Nov 1 (2026-11-01)
+
+Applied on wide web unless noted. The phone is unchanged except item 10's behavior fix.
+
+- 1 Quiz end screen: the "NEXT" debrief card is gone on wide web (the diagnosis card and Free row stay).
+- 2 Plan week rows: kept "Nov 1 – 7" with "This week" beside it.
+- 3 Plan week panel: long lesson titles truncate to one line with an ellipsis (the day panel already did). Test updated.
+- 4 Sidebar: Home was already highlighted on Your plan, Performance, Record and Tendencies. Legal pages now keep Settings highlighted (ST_Privacy).
+- 5 Prices: ".00" is dropped on the Pro page ("₱149"); amounts still come from the price source and are not changed.
+- 6 Your record chart: three or more unlabeled gridlines at board spacing, in steps of 20 and fitted to the data (data 52 to 74 gives 40/60/80; down to 30 gives 20 to 80). Lead ruling: no labels, because the board draws the lines without them.
+- 7 More about you: white 16 px cards as on the Home (Main) board.
+- 9 Report icon: the board's bubble with an exclamation mark (wide web). It already turned teal after a report.
+- 10 Lesson failed to load (all platforms): a lesson the catalog lists but whose text fails to fetch now throws, so the reader shows "Could not load this lesson." with Try Again (warning triangle on wide web). Try Again clears the cached failure. "Lesson not found." stays for an id the catalog does not list. Tests added.
+- 8 Past mock from Your record (wide web): the board's teal "< Your record" back link replaces the X, there is no Done, and a "See full record" row (white card, chevron) sits under the results card and opens Your record. The "Versus past results" chart is left out for now (Aedwon). Results opened right after finishing keep the X and Done. Your record now adds `?origin=record` on wide web; the phone is unchanged.
+- Reader error screen (wide web): the "Study" back link is teal with the chevron, as on RD_Error.
+- 11 Avatar: the sidebar avatar capitalizes the first letter (accents included) and shows the plain gray person for no letter. The main Avatar already capitalized. Enter now presses Try Again and Update, with the Enter chip (SY_Error, SY_Update).
+
+Not changed, with reason:
+- Study sidebar bookmark icons: every board that draws the BOOKMARKS list (W_Study, BM_*, SD_*) shows them teal, so teal kept. Only the lesson-row bookmark is gray (done earlier). Tell me if you still want gray.
+- MockMoved and MockDropped: the app already prints "Your <exam> simulation moved to today." (tested). The local seed cannot store an earlier mock day, so the line does not appear in the local run.
+
+### Mobile fix batch 1 (phone layout only; wide web untouched)
+
+Source: `build/visual-pass/mobile/diffs.md` shared causes. Visual confirm on the running app is pending (port 8080 was busy);
+changes are from the board markup and checked by widget tests.
+
+- Pushed page headers (Plan, Day, Week, Performance, Record, Tendencies, Settings subpages, other pages on the shared page
+  shell): back row is 6 px of padding plus a 44 px row, back icon 24 px with a 2 px gap (text at x 34), title block starts at
+  y 52. Settings subpages put the back icon at x 4 as the Settings boards do. Plan subtitle sits 2 px under the title.
+- Home week strip: seven equal cells across the card with no right alignment; today with no progress is the 28 px disc
+  without the extra ring (the ring stays once there is progress, as on HP_Free).
+- Unselected checkbox and radio ring: board light gray in phone light mode (Aedwon, Nov 2: "Board's light gray"): #C7C7CC for
+  checkbox and radio, #E3E3E8 for study days. Dark mode keeps the 3:1 ring. Light-mode contrast tests now assert the board
+  color. Study day circles are 42 px as on O_Days.
+- Home banners: 52 px total; the outline is painted inside the box instead of adding 2 px.
+- Plan section labels "Coming up" and "History": 13 px gray caps.
+- Onboarding header: back row 56 px (label 1 px lower), progress bar 4 px lower, title 4 px lower, subtitle 3 px lower.
+  Welcome was already pinned to the bottom with the 350 x 52 button (tested); no change.
+- Study title left-aligned (the title centered because the collapse wrapper centered it), 6 px lower, Cancel no longer
+  grows the search row. Quiz tab title starts at y 50 with the Today label 14 px below it (was 48 px higher).
+- Settings Practice, Appearance and Your exam: the board's white icon card (42 px icon, 24 px title, 15 px gray subtitle)
+  replaces the large title and the separate subtitle line. Other subpages have no hero on their boards.
+- Plan timeline (phone): rebuilt to DP_PlanA geometry: 66 px rows, 28 px marker column, 2 px line (3 px dark gray for
+  review-only segments), 12 px week dots (this week filled dark, others ringed gray), 28 px ringed calendar and stopwatch
+  glyphs for "New material stops" and the mock, the colored logo for the exam day.
+
+Not changed (copy or behavior, boards differ): "Unfinished items are added to today." on Home (real-date carry-over, S6); Plan
+Today card counts and subject lines (data); Free plan placeholder card and "Unlock with Pro" button; Practice option rows
+(board: plain rows with a check and a "Recommended" tag; app: radio rows); Appearance preview tiles; onboarding Notify step
+(no reminder step in the app); O_Days title and circle row offsets; tab bar on pushed pages (S9, waits for Aedwon).
+
+### Mobile fix batch 2 (phone layout only; wide web untouched)
+
+Source: `build/visual-pass/mobile/diffs.md` and the phone boards. Checked on the running app at 390 x 844 (shots
+`fix2-*.app.png` in the staging worktree).
+
+- Yellow underlines in the question grid and mock sheet: `PantasSheet` drew its contents with no Material ancestor, so
+  text fell back to Flutter's debug style (phone and web). The sheet surface now carries a transparent Material. Every sheet
+  built on `PantasSheet` is covered.
+- Question session, question viewer and assessment: the bottom bar sits 26 px above the screen bottom (was 18), giving the
+  boards' 758 to 818 position at 60 px. The assessment top row starts 6 px down, as the quiz row already did.
+- Selection controls: phone check rows in the practice picker, What's included and Bookmarks edit mode are circles
+  (QZ_Picker, ST_Included, BM_Edit). Terms, Custom subjects and the pause-warning box stay rounded squares as on their boards.
+  Picker and What's included circles are 22 px. Wide web keeps the squares.
+- Your record phone cards: Since you started has a half-point divider, 40 px numbers, 15 px medium labels, a 26 px orange
+  outline flame left of the streak number, and the streak start date. Your totals is a two-column grid with half-point dividers,
+  24 px numbers and 13 px gray labels. The loading skeleton follows the new card height.
+- Sign Out dialog: Cancel and Sign Out sit side by side, 24 px from the screen edge with a 10 px gap (ST_SignOut).
+
+Not done:
+- S12 note icon and Add Note in the live quiz bar (QN_*). Notes attach to a stored attempt and the app saves the attempt when
+  the session ends, so a live question has nothing to attach to. This needs a new behavior.
+- Backup page: Aedwon's W4f decision hides backup details on web, and the board rows "Backed up since" and "This phone" need
+  data the app does not hold. The page keeps its one line.
+
+Copy and behavior differences left as they are: Sign Out copy for Free ("Your progress stays on this phone...") against the
+account copy; Record "Your Wrapped" row and the accuracy chart state; the date chip on Your exam; miss order and "Next >" chevron
+in the quiz bar; MK_PauseWarn dialog width (board 24 px, app 28 px).
+
+## Phone tab bar on Home pages (Aedwon, Nov 2, "Yes, follow the board")
+
+On the phone (Android app and narrow web), the pages the boards draw with the floating tab bar now open inside the tab
+shell with Home lit: Your plan, Day, Week, plan history, Performance, topic detail, Your record, Tendencies (DP_*, DT_*,
+YR_*, YO_*). They are routes of the Home branch, so the bar stays, paths and deep links are unchanged, and back (the
+page's back link or system back) returns to the page that opened it, ending at Home. Tapping Home on one of them returns
+to the Home root, like any tab re-tap. Wide web is unchanged: no phone bar, same sidebar.
+
+Left full screen, because their boards have no bar: all Settings subpages and legal pages (ST_About, ST_Account,
+ST_Appearance, ST_Exam, ST_Pro*, ST_Privacy and the rest), Wrapped, question sessions, reader, mock, onboarding and modal
+flows. The Settings root keeps the bar. Not yet confirmed on a phone-size run: port 8080 was busy.
+
+### Mobile fix batch 3 (Quiz, Mock, Assessment; phone layout only, wide web untouched)
+
+Source: `build/visual-pass/mobile/remaining.md` and the phone boards. Port 8080 was busy (another run held the emulator), so
+these changes were not captured on a phone-size run; they follow the board values and are covered by tests.
+
+- Report icon (QV_Answer, AS_Question, all sessions): the phone now draws the board's stroked chat square, as wide web did.
+- Question bar (QV_MissPro): "Next" carries a 16 px chevron. `PantasButton` gained an optional `trailing`.
+- Session end (QV_EndPro): X at the top left (closes like Done); title starts 47 px lower; ring gap 27 px.
+- Mock setup (MK_SetupCSE, MK_SetupStrict): green "< Quiz" link header; 30 px title; white table card with a 12 px caps header,
+  16 px rows and 56 px figure columns, no Total row; paper rule as a 13 px note under the card; white strict-mode card with the
+  description inside; Start button and caption pinned to the bottom with the board fade.
+- Mock paper (MK_Paper): thin two-bar pause glyph, 3 x 3 rounded-square grid glyph, flag on a pole.
+- Mock dialogs (MK_SubmitCSE, MK_PauseWarn): 24 px from the screen edge (342 px wide), 10 px between the buttons.
+- Mock review list (MK_Review*): green "< Results" link header, 28 px title, one white card per section, 49 px rows with a
+  42 px number column, ellipsis title and chevron.
+- Assessment results (AS_Results): title 5 px lower, ring 6 px lower.
+
+Checked against the boards and left as they are: the picker title (a test pins it at the board's y 54); the half ring (the board draws a 216 px arc centerline in a 264 px box, which
+the app already matches); the QV_MissPro explanation cards (the board has a top hairline per note, as the app).
+
+Not done: QZ_Picker label and first card offsets (inside the shared `ScopePicker`); QV_Grid sheet height; QV_EndPro mistake rows and
+the pinned Start Session over the list; MK_Results ring and finale X (the finale frames are animated); MK_Review question bar
+pill and Wrong-tab pale button; MK_Paper bottom bar chevrons and counter grouping; MK_SheetCSE sheet height and pinned Submit;
+AS_Question top block, AS_Leave card offset (batch 2 already moved the row, not measured again); AS_Results plan card (board
+frame not captured).
+
+Copy and behavior, not changed: S12 note icon and Add Note in the live bar; QV_MissPro miss order; "Finish the Notes" card in
+QV_EndPro; MK_ReviewBlank "Why did you leave it blank?" card; 170 against 155 items and part label (MK_Paper, MK_SetupCSE).
+
+### Mobile fix batch 3 (Onboarding, Home, Plan, Study, Bookmarks; phone layout only, wide web untouched)
+
+Source: `build/visual-pass/mobile/remaining.md` and the phone boards. Checked on a 390 x 844 run (shots `fix3-*` in the staging
+worktree): Home, Plan (Pro and Free). Onboarding, Performance and Bookmarks changes follow board values and tests only.
+
+- Welcome (O_Launch, web first visit): the HTML screen pins the 350 x 52 button 34 px above the bottom, stack 180 px from the top,
+  34 px title, two-line subtitle. Wide web keeps its centered layout.
+- Under 13 (O_Age): "Try a Different Year" is a green text action; title sits 12 px lower.
+- Terms (O_Consent): 14 px box gap, half-point divider between rows. Study days (O_Days): content starts 24 px under the bar.
+  Name (O_Name): field 52 px tall.
+- Home: assessment card button 16 px under the text; week strip 75.4 px; banner filled with the page color; Today rows keep the
+  value at natural width (titles no longer cut at half width) with a divider inset of 52 px; "Your record" and "Your tendencies"
+  carry the 22 px icons; Free "See all topics and lessons" has the Pro pill after the label and the chevron at the edge.
+- Plan: Today card (34 px dark ring, 17 px semibold title); History rows (74 px date column, one line, down chevron); Free plan
+  (eight gray timeline rows, exam day, three gray history rows, Pro card with sparkle).
+- Performance (DT_Topics*): sort square beside the switch, label row with the order at right and a caret on the subject filter,
+  board rows (12/16 padding, 5 px bar, single-line title and subtitle).
+- Bookmarks (BM_Open): the phone tab bar hides while the sheet is open.
+
+Not done: Study search field offset (not measured on the run); Plan header spacing; HE_* compact "Today's done" card (state);
+DP_PlanA row count (matches); BM_Edit selected-row outline (keyboard focus ring in capture, not styling); O_Days press highlight;
+O_DateChange toast (board annotation). Copy/behavior: reminders step, past-month disabling, "Unfinished items..." line, UPCAT vs CSE.
+
+### Mobile fix batch 4 (Settings, Record, verification mismatches; phone layout only, wide web untouched)
+
+Source: `build/visual-pass/mobile/remaining.md` (Settings, Record) and the mismatches of the last verification. Every change is
+gated so `context.wideWeb` layouts are as before.
+
+- Settings root: the title and the first card sit 12 and 21 px lower (ST_RootPro).
+- Practice (ST_Practice): plain rows, a green "Recommended" tag beside the title, a check at the right (no radio circles).
+- Appearance (ST_Appearance): one white card with the 74 x 140 Light and Dark previews, 22 px radios under them and the
+  Automatic switch; Text size card with a 26 px thumb.
+- Your exam (ST_Exam, ST_ExamDate): gray date chip (green text while the picker is open, no arrow), 38 px study-day circles
+  10 px apart with the gray off-day disc. The hero card was already there.
+- Account (ST_Account): centered 84 px avatar, 24 px name and email; Sign Out (green) and Delete Account (red, with arrow) are
+  separate cards. The empty 34 px heading no longer pushes Account, About and Delete Account 39 px down.
+- Name (ST_Name): 28 px title; 48 px white field with the 1.5 px green edge and a clear button.
+- About (ST_About): white card with the 52 px "P" tile; the external-link glyph on the data-protection and feedback rows. The
+  address line under the officer row stays (tests pin it), so that row is 20 px taller than the board.
+- Delete Account (ST_DeleteAccount): 28 px title, 13 px between the rows, 16 px card padding, alert icon on the billing note,
+  buttons pinned 30 px from the bottom with 8 px between them.
+- What's included (ST_Included) and Privacy policy (ST_Privacy): 28 px title at y 58, 22 px gaps, 16 px body on 26 px lines.
+- Exam picker, Settings mode (ST_ExamPick): 62 px plain rows, check at the right, gray "Coming soon" at the right.
+- Record (YR_Full): totals use 24 px figures (card 237 px); mock rows show the percent in 17 px semibold, no arrow.
+  Tendencies (YO_Free): the "Your tendencies" label over the locked cards.
+- Verification mismatches: no hover fill on a phone button (O_Age "Try a Different Year" stays a green link); consent rows use
+  standard density (73 px) and draw no focus ring on the phone (O_Consent); Performance Free card is centered under a 26 px
+  sparkle, ring 4 px lower, card 7 px higher, Pro Topics switch 6 px lower (DT_Free, DT_TopicsA); mock link row 6 px lower
+  (MK_SetupCSE, title unchanged); mock review link 5 px lower (MK_ReviewAll); question sheet stops 180 px below the top (MK_Sheet); mock bar groups the grid, counter and flag with the
+  previous and next arrows at the edges, 7 px lower (MK_Paper); half-point rule under every subject row (AS_Results).
+
+Checked against the boards and left as they are: the streak flame on YR_Full is an outline in the board; the streak number is
+40 px and the labels 15 px medium (YR_Full dump); the tendencies finding headline is 20 px bold (YO_Pro dump).
+
+Not done: ST_ExamDate picker wheels (board highlight bar and five rows); ST_ExamPick list starts 5 px lower than the board;
+the AS_Results "Weakest first" footer scrolls out of view on the run because the seeded subject names wrap (the line is in the
+page); MK_Paper bar is 58 px against the board's 60. Copy and behavior, not changed: Reminders row and Reminders page on the
+phone, "Shared links" row, "Help improve the app" default, Backup section and details rows (W4f), "Your Wrapped" row, "UPCAT"
+against "CSE Professional", "Version 1.0.0 (142)" against the app build number, exam group order, Free sign-out copy,
+the data-protection address line (kept, the board has none).
+
+### Mobile fix batch 5 (strict re-check of Settings, Record and Home; phone only, wide web untouched)
+
+The lead found misses that earlier "OK" notes had skipped. Fixed: Settings values and dividers (rows with an icon start the
+divider at the text, 56 px; Account, Exam, About inset 16 px; What's included 50 px), Appearance icon (purple ring, dark half)
+and About icon (gray), 53 px switch rows (were 66), Practice session-length card (60 px, bold digits), Exam date chip width,
+What's included rows (47.5 px) and subtitle alignment, Delete Account subtitle alignment, Home Today card 5 px higher with
+66 px rows. The "since" line under the streak is already in the app; it is hidden for the steady sample student because its
+sessions do not prove every day of the streak (data, not layout).
+
+Not re-checked this batch (usage): Plan, Study, Reader, Quiz, Question session, Mock, Assessment, Bookmarks, Onboarding.
+Details and pairs: `build/visual-pass/mobile/final.md`, `shots/final-*.png`.
+
+### Mobile fix batch 6, agent A (Onboarding, Plan and day, Study and Performance, Reader, Bookmarks)
+
+Phone only. Plan day rows 66 px with inset dividers; Plan "See more" chevron; Performance Topics/Lessons label row and card offsets;
+Study: search-to-card gap, taller Last opened card, bookmark and topic rows with inset dividers, lessons indented 18 px;
+Reader eyebrow/title/heading spacing; Bookmarks sheet switch height, grip size and color. Not reached: see `build/visual-pass/mobile/recheck-a.md`.
+
+### Mobile fix batch 6B (Quiz, Question session, Mock, Assessment, Home boards; phone only, wide web untouched)
+
+Captures used a desktop user agent, so Flutter used compact density and minimum heights ran 8 px short; set an Android user agent
+for phone captures. Home: Today's done card, exam day card, assessment and passed card tops, note line spacing. Quiz: board glyphs on
+the practice rows, picker rows 47.5 px, Resume link, assessment button gap. Session: flag on a pole, session end offsets and gray
+subtitle, Leave dialog position. Mock: dialog buttons 46 px and card 30 px high, CSE sheet with Submit pinned, Results header.
+Assessment: X color. Notes: `build/visual-pass/mobile/recheck-b.md`.
+
+## Mobile fix batch 6, agent B (phone density)
+Earlier captures used compact density (the user agent does not change Flutter's platform; `navigator.platform` does). Re-measured at phone density: ST_Exam day circles 38 px; ST_Included expand button 47.5; Home "View full plan" 20 px link; question session top buttons and flag 44 px; QV_All and read-only question back row 44 px; mock Results X and title position; mock review rows 46 and filter row at 113; "How long?" sheet Done and Adjust no longer 48 px. Notes: `build/visual-pass/mobile/recheck-c.md`.
+
+## Mobile fix batch 6, agent D (phone, standard density)
+Rows re-measured at Android density: Plan day, Study, Bookmarks, Onboarding consent and date, note sheets, report, How long sheet, mock review viewer, assessment bar. Notes: build/visual-pass/mobile/recheck-d.md in the staging worktree.
+
+## Local test panel and tappable rows (Nov 2)
+
+Local test panel: open `/local-panel.html` in a second tab of a local run. The Today tab and date patch are left out, because faking the browser clock breaks App Check. Without Today, the "too late" and "exam soon" cards pick days counted from the real date and name those days, so they read as on the board (Sun to Tue, Wed to Fri) only on a Wednesday. Mock start is not listed: it crashes without the blueprint Mock setup passes it, so 53 screens are listed.
+
+Exercised in the running app: Start fresh with and without an app tab, status line, Free, Pro and Real (Settings shows Monthly on Pro, Free on Free, no reload), search, all 19 onboarding cards, all 4 sample students, all 53 screen cards (ID cards with real and bad IDs). A student loaded on Pro uses the local Pro account; Free and Real use the local Free account. Aedwon has not yet compared the panel with the mockup.
+
+Some cards do not stay on their screen, because the app's own redirects apply: for a finished student, Onboarding (3 cards), Assessment and Update required go to Home; Quiz all and Quiz debrief with a bad ID go to Quiz; Wrapped goes to Record; Exam transfer goes to Exam. Open: Mock setup shows "Something went wrong" for Steady on the Free account. The cause is not confirmed. The same student's results page says the next Free mock opens Nov 26, which may be why.
+
+Tappable rows: whole row now toggles on Beta: Pro Features (phone and wide), Strict mode (phone and wide), and the two wide custom mock rows. Left alone by rule: the custom mock phone subject row (two pills, two actions), the reader bar back control and the Performance subject header (toolbar controls), and rows with a second action icon. All other rows checked in code already use the whole row. Checked by widget tests and code reading, not by tapping in the running app.
+
+## Phone exam picker "Coming soon" label (Nov 3)
+
+Open item from HANDOFF 15: on phones the label sat against the card's right edge. Cause: the row placed it after the tappable area, outside the row's padding. Now it follows O_Picker: 8 px after the text, 16 px from the card edge, 13 px medium weight in tertiary gray, not dimmed. At text scale above 1.5x it moves under the subtitle instead (secondary gray), because the padded label overflowed at 2x. Wide web cards and the Settings picker are unchanged. Checked by analyzer and the core UI and onboarding tests (1,035 pass), not yet in the running app.
+
+## Nov 3 change requests (hardened build)
+
+Aedwon's 17 requests: `docs/superpowers/plans/pwa-launch/nov3-requests.md`. Approved previews: `nov3-previews/` on main. Automated checks pass at 9f748984 (CI: format, analyze, layering, attribution, tests, coverage 91.3%, Functions and emulators, release web build, Android debug build). Visual acceptance is Aedwon's and is pending for every item.
+
+- Fixed with a regression test: 3 custom exam stuck (exam list not reloaded), 10, 11 bottom and top fade, 13, 14 start path, 8 lesson shift and zoom keys.
+- Built from approved previews: 1, 4, 5, 6, 7, 9, 12, 15, 17.
+- Item 2: no long wait remains in tests; real web timing unmeasured.
+- Item 8 crop: not reproduced on one figure at 1440 and 390 in headless Chrome. Needs Safari and Brave.
+- Item 14: the Quiz panel error in the screenshot did not reproduce across seven student and plan combinations. Not confirmed fixed.
+- Item 16: repaint causes fixed and pinned by tests. iPhone frame rate unmeasured; use `?localFps=1` on the local run. Item 9 thresholds need real mouse and trackpad tuning.
+- Phone segmented control's unselected label is about 4.3:1 contrast, under AA 4.5, as in the approved preview. Waiting on Aedwon.
+
+## Design system 4.0 visual pass, round 1 (lead, delegated by Aedwon, Nov 9)
+
+Aedwon delegated this pass ("you can go do the visual pass on my behalf"); his own check of staging
+still gates prod. Method: headless Chromium against https://staging.pantas.study at 4519627d9, one
+sheet per screen with 390x844 and 1440x900 in light and dark, 390 at 200% text and 320x568 (48
+screens), plus six mock exam screens rendered offscreen in Flutter tests with sample data (a mock
+needs a signed-in account the capture cannot create). Three fresh Sonnet reviewers judged the sheets
+against `design/system/` READMEs, rendered component previews and the approved boards. Not captured:
+beta feedback, the beta gate, update-required and guardian waiting (they redirect for this account),
+and Pro-only states (no Pro account on staging; Pro Backup states are covered by tests only).
+
+Findings and status (fixed on `ds4/visual-fixes-r1`, merged f1daed494; each fix has a test that failed first):
+- [important] FIXED. Page titles split mid-word at 200% text (Home greeting, Performance, Tendencies, Accessibility, lesson title, exam names). The D180 step-down now applies in the shared title.
+- [important] FIXED. Row titles ended in "..." where ListRow says they wrap (Custom quiz topics, What's Included, Change Exam, Accessibility, About, exam picker, mock setup and pause). Rows wrap by default; one-line board titles that stay cut now show a Tooltip with the full text (R3-O10).
+- [important] FIXED. Study day tiles split labels at 200%; at 320 the row scrolls, as the README allows.
+- [important] FIXED. WeekStrip squashed the date at 200%; cells keep 44px up to 1.3x and grow only beyond it.
+- [important] FIXED. Gauge figure overlapped the arc at 200% (assessment and mock results).
+- [important] FIXED. SegmentedControl cut "Lessons" and "Flagged" at 200%; the chosen segment scrolls into view.
+- [important] FIXED. "Create Free Account" was full width on wide (Quiz hub); natural width now, still the accent primary button.
+- [important] FIXED. Phone Explanation did not match `.xpl-phone` (badge, "Correct answer").
+- [important] FIXED. Paywall: the SAVE tag overlapped the Monthly tile and the pinned bar had no fade.
+- [polish] FIXED. Onboarding date tile and the Settings exam date chip clipped at 200%; phone onboarding name fields had no label; the Custom quiz Start bar at large text.
+- [polish] FIXED. "Recommended" in Session building is an inline Tag after the row title (Tag README placement).
+- [polish] FIXED. "Continue with email" is "Continue with Email". The Text Size label is "Lesson Text Size" (Slider README).
+- [important] FIXED. Phone Performance (Free) and Tendencies were blank or unlabeled where wide was not.
+- Not defects (lead rulings): Backup shows one paragraph for Free and signed-out web (approved note); an unknown URL opens Home (router behavior); Plan history equals Plan on phone (Nov 5 decision); the mock's hollow squares and phone key hint were artifacts of the offscreen render (icon fonts not loaded; no hint provider).
+- DECISION NEEDED (Aedwon): Settings group order. `patterns.md` says Your exam, Account, Appearance, Accessibility, Pro, About; the app puts the Pro group first at every width. Moving it lowers the Pro offer, so it is his call. Left as is.
+- Text Size live preview built as board option A (Aedwon chose "A"). Deviation: the sample stem uses straight quotes, because an existing Settings check (QA 5Q-4) bans curly quotes there.
+
+## Design system 4.0 visual pass, round 2 fixes (lead triage, branch `ds4/visual-fixes-r2`)
+
+Each fix has a test that failed first.
+- FIXED. Performance (Free) at 390 and 100% text: the three segments, two with a Pro mark, fit the row without scrolling; columns share the row by label width when equal columns do not fit. At 320 the 244 px row is too narrow for three labels and two marks, so it scrolls, as the README allows.
+- FIXED. Mock pause at 390 and 200%: a long part name wraps; the row grows and the arrow follows.
+- NOT CHANGED (the approved mobile board CM_Setup draws it). Mock custom setup keeps the chevron "I know the section breakdown" row and the filled Questions and Time wells on the phone.
+- FIXED. Phone Appearance: with Automatic on, the tile of the theme in effect shows selected; with it off, the chosen one.
+- FIXED. "Continue with Google" on the phone Account and Pro pages is the white Google button with the G (one shared button). The wide Pro page uses it too.
+- FIXED (lead ruling: the system wins over board f A). A long organization beside "Coming soon" wraps at 320; the label stays at the row end and stacks under it above 1.5x.
+- FIXED. Custom quiz Start bar at 200%: Start sits 20 px from the right edge, equal to the left inset.
+- FIXED. Settings > What's included on the phone: the exam name shows once.
+- FIXED. Wide email sign-in: "Welcome to Pantas" stays on one line (no board draws this page). The form keeps 420 px.
+- FIXED. Settings Study days circles fit at 390 (padding 12 at the sides): Saturday is no longer cut at rest and the gap is the 4 px README minimum.

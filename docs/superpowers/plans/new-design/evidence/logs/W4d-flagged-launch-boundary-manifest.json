@@ -1,0 +1,22 @@
+{
+  "base": "f488de71d11dac3c1b909e726abdae5f42873a41",
+  "source": {
+    "lib/features/quiz/presentation/quiz_controller.dart": "be2fbdfe2548803162732d891be87822fd4753953c21cd2747d6f9ba409ba9f7",
+    "lib/features/quiz/domain/use_cases/start_practice.dart": "19ec1ffcd5dd76f23e4e110202c6baa929db1b525d9d2a8348d3c14c10bb213b",
+    "lib/features/quiz/data/repos/quiz_session_repository.dart": "d518f8656650c02be0032e1b9ac1b4ed05ae96dfc93cbe5bdc345e1cf1d50ad6",
+    "test/features/quiz/presentation/flagged_launch_boundary_test.dart": "14876dd2872230554bfbd83e6293eb479843507a25dee5ef70846dc8d8ae9b06"
+  },
+  "material": {
+    "pubspec.lock": "13d3e8745af966d0a88570b033f9dc600f47c858d4f0f2127bc6779cfbfc5371",
+    "test/helpers/in_memory_database.dart": "99c856962cec5608a58568a9ebc04b8be8ef71dca074c36559ca4c2a7faa0c46",
+    "lib/core/storage/data/app_database.dart": "6efdd465d1adf05fba3643021e5a14c97a2635ed75f470d5c2b36174824f5cda",
+    "lib/core/storage/data/app_database.g.dart": "49ee9c6718b15d09b5e22996d4c5108ee92bf92a4e9fef90cb04b54be0216871"
+  },
+  "relay": [
+    11429,
+    11430,
+    11432,
+    11433,
+    11435
+  ]
+}

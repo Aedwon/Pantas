@@ -8,273 +8,273 @@ questions:
     type: truth-table-evaluation
     difficulty: easy
     stem: |
-      If $P$ is true and $Q$ is true, what is the truth value of "$P \land Q$" (P and Q)?
+      With $P$ true and $Q$ true, evaluate $P \land  Q$ and inclusive $P \lor  Q$, in that order. T means true and F means false.
     choices:
-      - text: "True"
+      - text: "(T, T)"
         correct: true
-      - text: "False"
+      - text: "(T, F)"
         rationale: |
-          You treated the conjunction as false. Conjunction ( \land Q$) is true whenever both component statements are true.
-      - text: Cannot be determined
+          This treats OR as excluding the case where both inputs are true. Everyday "or" can sometimes suggest only one option. Check the inclusive OR rule used in this question.
+      - text: "(F, T)"
         rationale: |
-          You assumed information was missing. Having true values for both $ and $ fully determines  \land Q$ as true.
-      - text: Both true and false
+          This treats AND as excluding two true inputs. An exclusive-choice idea may be applied to the wrong connective. Check that AND specifically requires both true.
+      - text: "(F, F)"
         rationale: |
-          You assumed a statement can hold two truth values at once. Propositions carry a single definite truth value.
+          This treats two true inputs as a false case for both connectives. Exclusive-choice thinking can make agreement seem disallowed. Check each connective's truth rule separately.
     explanation: |
-      "And" is true only when both statements are true. Since $P$ is true and $Q$ is true, "$P \land Q$" is true.
+      AND is true because both inputs are true. Inclusive OR is also true because at least one input is true. The ordered results are (T, T).
     approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0002
     type: truth-table-evaluation
     difficulty: easy
     stem: |
-      If $P$ is true and $Q$ is false, what is the truth value of "$P \land Q$" (P and Q)?
+      With $P$ true and $Q$ false, evaluate $P \land  Q$ and $P \lor  Q$, in that order.
     choices:
-      - text: "False"
+      - text: "(F, T)"
         correct: true
-      - text: "True"
+      - text: "(T, T)"
         rationale: |
-          You evaluated conjunction as true when only one component is true. Conjunction requires both $ and $ to be true.
-      - text: Cannot be determined
+          This uses the OR rule for AND as well. One true input can seem sufficient for both. Check which connective requires both inputs.
+      - text: "(F, F)"
         rationale: |
-          You assumed  \land Q$ cannot be evaluated. Since $ is false,  \land Q$ is definitely false.
-      - text: Both true and false
+          This uses the AND rule for OR as well. The false input may seem to make every combination false. Check whether OR needs one true input or two.
+      - text: "(T, F)"
         rationale: |
-          You assigned dual truth values. A propositional statement is strictly true or false.
+          This swaps the two connective results. The same input values are used for both. Check which expression is requested first.
     explanation: |
-      "And" requires both statements to be true. Since $Q$ is false, "$P \land Q$" is false, even though $P$ is true.
+      AND is false because Q is false. OR is true because P is true. The ordered results are (F, T).
     approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0003
     type: truth-table-evaluation
     difficulty: easy
     stem: |
-      If $P$ is false, what is the truth value of "$\neg P$" (not P)?
+      If $P$ is false, evaluate $\neg  P$ and $\neg  \neg  P$, in that order.
     choices:
-      - text: "True"
+      - text: "(T, F)"
         correct: true
-      - text: "False"
+      - text: "(F, T)"
         rationale: |
-          You failed to invert the truth value. Negation ($\neg P$) flips false to true.
-      - text: Cannot be determined
+          This copies P for the first result and flips it only for the second. The two NOT signs may be assigned to the wrong stages. Check one negation at a time.
+      - text: "(T, T)"
         rationale: |
-          You assumed negation requires external context. Negating a false statement always yields true.
-      - text: Both true and false
+          This flips P once but does not apply the second NOT. A true first result can be carried into the next step. Check that each NOT changes the value.
+      - text: "(F, F)"
         rationale: |
-          You assigned two values. Negation produces a single inverted truth value.
+          This ignores the first NOT while treating two NOT signs as cancellation in the second. Cancellation is valid only for the double negation. Check the single-negation result separately.
     explanation: |
-      "Not" flips a statement's truth value. Since $P$ is false, "$\neg P$" is true.
+      P is false. Negating it once gives true. Negating that result again gives false, so the results are (T, F).
     approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0004
     type: truth-table-evaluation
     difficulty: medium
     stem: |
-      If $P$ is false and $Q$ is true, what is the truth value of "$P \lor Q$" (P or Q)?
+      $P$ is true and $Q$ is not known. Which evaluation of inclusive $P \lor  Q$ is correct?
     choices:
-      - text: "True"
+      - text: "True for either value of Q"
         correct: true
-      - text: "False"
+      - text: "True only when Q is true"
         rationale: |
-          You required both inputs to be true. Disjunction ( \lor Q$) is true as long as at least one component is true.
-      - text: Cannot be determined
+          This requires both inputs to be true. That is the AND condition. Check the rule for inclusive OR.
+      - text: "True only when Q is false"
         rationale: |
-          You assumed missing information. A true value for $ guarantees that  \lor Q$ is true.
-      - text: Both true and false
+          This treats OR as exclusive. That can sound natural when choosing between alternatives. Check whether this lesson's OR includes two true inputs.
+      - text: "False for either value of Q"
         rationale: |
-          You assumed non-deterministic truth values. Disjunction evaluates to a single truth value.
+          This lets uncertainty about Q make the known true input ineffective. An unknown input may seem to block evaluation. Check whether P alone satisfies OR.
     explanation: |
-      "Or" is true when at least one of the two statements is true. Here, $Q$ is true (even though $P$ is false), so "$P \lor Q$" is true.
+      P is already true. Inclusive OR needs at least one true input, so the whole expression is true whether Q is true or false.
     approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0005
     type: truth-table-evaluation
     difficulty: medium
     stem: |
-      If $P$ is false and $Q$ is false, what is the truth value of "$P \lor Q$" (P or Q)?
+      Which ordered pair of truth values ($P$, $Q$) makes inclusive $P \lor  Q$ false?
     choices:
-      - text: "False"
+      - text: "(F, F)"
         correct: true
-      - text: "True"
+      - text: "(T, T)"
         rationale: |
-          You evaluated disjunction as true when neither component is true.  \lor Q$ is false when both $ and $ are false.
-      - text: Cannot be determined
+          This uses the case where both inputs are true as a false case. Exclusive OR can suggest that idea. Check the inclusive meaning stated here.
+      - text: "(T, F)"
         rationale: |
-          You assumed the result is unknown. False for both inputs makes disjunction strictly false.
-      - text: Both true and false
+          This treats one false input as enough to make OR false. That is the stricter AND pattern. Check whether the true P input already satisfies OR.
+      - text: "(F, T)"
         rationale: |
-          You assigned contradictory truth values to a disjunction.
+          This treats a false first input as deciding the whole result. Reading left to right can make P seem primary. Check the true Q input too.
     explanation: |
-      "Or" is false only when both statements are false. Since both $P$ and $Q$ are false, "$P \lor Q$" is false.
+      OR is false only when neither input is true. Thus P and Q must both be false, giving (F, F).
     approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0006
     type: truth-table-evaluation
     difficulty: medium
     stem: |
-      If $P$ is false and $Q$ is false, what is the truth value of "$P \rightarrow Q$" (if P then Q)?
+      With $P$ false and $Q$ false, evaluate $P \rightarrow  Q$ and $Q \rightarrow  P$, in that order.
     choices:
-      - text: "True"
+      - text: "(T, T)"
         correct: true
-      - text: "False"
+      - text: "(F, F)"
         rationale: |
-          You assumed a false antecedent makes the implication false. A conditional statement is vacuous and true whenever its "if" part is false.
-      - text: Cannot be determined
+          This makes every conditional with false inputs false. It can seem that true results require true parts everywhere. Check the conditional's single false case.
+      - text: "(T, F)"
         rationale: |
-          You assumed a false antecedent leaves the conditional unknown. In formal logic,  \rightarrow Q$ is true when $ is false.
-      - text: Both true and false
+          This applies the false-if rule to only the first direction. The second expression has the same false inputs in reverse order. Check the if-part of each conditional.
+      - text: "(F, T)"
         rationale: |
-          You assigned dual values to a conditional statement.
+          This applies the false-if rule to only the second direction. The reversed labels may draw more attention. Check both conditionals using the same rule.
     explanation: |
-      The conditional "$P \rightarrow Q$" is false only when $P$ is true and $Q$ is false. Since $P$ is false here, this "broken promise" case does not apply, so "$P \rightarrow Q$" is true.
+      Both conditionals have a false if-part. A conditional with a false if-part is true. The ordered results are (T, T).
     approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0007
     type: truth-table-evaluation
     difficulty: medium
     stem: |
-      If $P$ is true and $Q$ is false, what is the truth value of "$P \rightarrow Q$" (if P then Q)?
+      With $P$ true and $Q$ false, evaluate $P \rightarrow  Q$ and $Q \rightarrow  P$, in that order.
     choices:
-      - text: "False"
+      - text: "(F, T)"
         correct: true
-      - text: "True"
+      - text: "(T, F)"
         rationale: |
-          You overlooked the single false case of a conditional. An implication  \rightarrow Q$ is false when $ is true and $ is false.
-      - text: Cannot be determined
+          This reverses the two conditional directions. The same letters appear in both. Check which one is the if-part of each expression.
+      - text: "(T, T)"
         rationale: |
-          You assumed the conditional cannot be evaluated. True antecedent with false consequent yields false.
-      - text: Both true and false
+          This accepts a true if-part with a false result. A true starting statement can make the first conditional seem true. Check the single false conditional case.
+      - text: "(F, F)"
         rationale: |
-          You assigned non-exclusive truth values.
+          This treats a false if-part as making the second conditional false. The false Q value may dominate attention. Check the rule for a false if-part.
     explanation: |
-      The conditional "$P \rightarrow Q$" is false only in this one case: $P$ true, $Q$ false. This is exactly that case, so "$P \rightarrow Q$" is false.
+      P implies Q is false because its if-part is true and its result is false. Q implies P has a false if-part, so it is true. The ordered results are (F, T).
     approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0008
     type: truth-table-evaluation
     difficulty: hard
     stem: |
-      A student reasons, "Since $P$ is false, we can't say anything about whether '$P \rightarrow Q$' is true or false." Is this reasoning correct?
+      $P$ is false and $Q$ is unknown. Which statement about $(P \rightarrow  Q) \land  Q$ is correct?
     choices:
-      - text: 'No: formal propositional logic always assigns a definite truth value to a conditional whose "if" part is false; "$P \rightarrow Q$" is true whenever $P$ is false, no matter what $Q$ is.'
+      - text: "True exactly when Q is true"
         correct: true
-      - text: 'Yes: the truth value of a conditional cannot be determined when its "if" part is false.'
+      - text: "True for every possible value of Q"
         rationale: |
-          You applied everyday intuition instead of formal logic. In formal logic, a false antecedent guarantees the conditional is true.
-      - text: 'No: but only because conditionals are never actually true or false.'
+          This stops after finding the inner conditional true. A false if-part does guarantee that inner result. Check the outer AND with Q.
+      - text: "False for every possible value of Q"
         rationale: |
-          You claimed conditionals lack truth values. Conditionals always evaluate to either true or false in propositional logic.
-      - text: 'Yes: everyday intuition about conditionals always matches formal propositional logic exactly.'
+          This copies the false P value into the compound result. P is the first named input. Check the conditional before applying the outer AND.
+      - text: "True exactly when Q is false"
         rationale: |
-          You assumed intuition matches formal logic. Everyday usage often treats false antecedents as undefined, whereas formal logic defines them as true.
+          This treats the final Q as negated. The false P can make a reversed value seem likely. Check whether any NOT appears before the final Q.
     explanation: |
-      Everyday intuition might suggest that "if $P$ is false, we can't say anything about the conditional," but formal propositional logic always assigns a definite truth value (true, in this case) to a conditional whose "if" part is false.
+      Because P is false, the inner conditional is true. The whole expression is then true AND Q. Its value is therefore true exactly when Q is true.
     approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0009
     type: truth-table-evaluation
     difficulty: hard
     stem: |
-      A student claims "$P \lor Q$" requires both $P$ and $Q$ to be true, the same requirement as "$P \land Q$." Is this correct?
+      Which ordered pair ($P$, $Q$) makes both $\neg  P$ and $P \lor  Q$ true?
     choices:
-      - text: 'No: "and" requires both statements to be true, but "or" requires only at least one to be true; "or" is the more lenient connective, "and" is the stricter one.'
+      - text: "(F, T)"
         correct: true
-      - text: 'Yes: "and" and "or" always require the exact same condition to be true.'
+      - text: "(T, F)"
         rationale: |
-          You equated conjunction and disjunction. "And" requires both components true, while "or" requires only one.
-      - text: 'No: but only because "or" can never be true under any circumstance.'
+          This uses the row where OR is true but NOT P is false. One requirement is satisfied. Check both required expressions.
+      - text: "(T, T)"
         rationale: |
-          You claimed disjunction can never be true. Disjunction is true whenever at least one component is true.
-      - text: 'Yes: both connectives are false whenever either statement is false.'
+          This satisfies OR while ignoring the negation requirement. Two true inputs make OR true. Check whether NOT P can also be true in this row.
+      - text: "(F, F)"
         rationale: |
-          You applied the rule of conjunction to disjunction. Disjunction is only false when both components are false.
+          This satisfies NOT P but leaves OR false. Both inputs being false may seem consistent with the first requirement. Check the second expression as well.
     explanation: |
-      Mixing up and and or is one of the most common truth-table errors. And is the stricter connective (requires both true), while or is more lenient (requires only at least one true).
+      NOT P is true only if P is false. With P false, OR is true only if Q is true. The required pair is (F, T).
     approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0010
     type: truth-table-evaluation
     difficulty: medium
     stem: |
-      If $P$ is true, $Q$ is false, and $R$ is true, evaluate "$(P \land Q) \lor R$."
+      If $P$ is true, $Q$ false, and $R$ true, give the value of the inner parentheses and then the full expression $(P \land  Q) \lor  R$.
     choices:
-      - text: "True"
+      - text: "(F, T)"
         correct: true
-      - text: "False"
+      - text: "(T, T)"
         rationale: |
-          You evaluated the outer disjunction as false. Since $ is true, the disjunction "false $\lor$ true" evaluates to true.
-      - text: Cannot be determined
+          This uses OR for the inner AND. P is true, so a one-true rule can seem enough. Check the connective inside the parentheses.
+      - text: "(T, F)"
         rationale: |
-          You assumed missing data. The individual truth values fully determine the compound expression.
-      - text: Both true and false
+          This swaps both operations' roles or their outputs. P is true and Q is false. Check the inner result before the outer OR.
+      - text: "(F, F)"
         rationale: |
-          You assigned contradictory truth values to the expression.
+          This uses AND for the outer OR. The inner false value may seem to force a false final result. Check whether the true R input satisfies OR.
     explanation: |
-      First evaluate "$P \land Q$": $P$ is true, $Q$ is false, so this is false (and requires both true). Then evaluate "false $\lor$ R": since $R$ is true, and or is true when at least one side is true, the full expression is true.
+      Inside the parentheses, P AND Q is false because Q is false. The full expression is false OR true, which is true. The two results are (F, T).
     approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0011
     type: truth-table-evaluation
     difficulty: medium
     stem: |
-      If $P$ is false, $Q$ is true, and $R$ is false, evaluate "$(P \lor Q) \land R$."
+      If $P$ is false, $Q$ true, and $R$ false, give the value of the inner parentheses and then the full expression $(P \lor  Q) \land  R$.
     choices:
-      - text: "False"
+      - text: "(T, F)"
         correct: true
-      - text: "True"
+      - text: "(F, F)"
         rationale: |
-          You evaluated the conjunction as true without checking $. Since $ is false, "true $\land$ false" evaluates to false.
-      - text: Cannot be determined
+          This uses AND for the inner OR. The false P value makes that wrong inner result look likely. Check whether Q alone satisfies the actual OR.
+      - text: "(T, T)"
         rationale: |
-          You assumed the expression cannot be evaluated. The given inputs fully evaluate to false.
-      - text: Both true and false
+          This uses OR for the outer AND. A true inner result may seem enough. Check the outer connective and R's value.
+      - text: "(F, T)"
         rationale: |
-          You assigned dual truth values to a logic expression.
+          This exchanges the AND and OR rules. Both connectives occur in the expression. Check which one is inside the parentheses.
     explanation: |
-      First evaluate "$P \lor Q$": $P$ is false, $Q$ is true, so this is true (or requires at least one true). Then evaluate "true $\land$ R": since $R$ is false, and requires both sides true, so the full expression is false.
+      The inner P OR Q is true because Q is true. The full expression is true AND false because R is false. Its final value is false, giving (T, F).
     approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0012
     type: truth-table-evaluation
     difficulty: hard
     stem: |
-      A student evaluates "$(P \land Q) \lor R$" (with $P$ true, $Q$ false, $R$ true) by first combining $Q$ and $R$ instead of $P$ and $Q$, ignoring the parentheses grouping. What is wrong with this approach, and what is the correct final truth value?
+      With $P$ false, $Q$ true, and $R$ true, evaluate $(P \land  Q) \lor  R$ and $P \land  (Q \lor  R)$, in that order.
     choices:
-      - text: The student ignored the parentheses grouping $P$ and $Q$ together; just like order of operations in math, the innermost parentheses must be evaluated first. Evaluating correctly, "$P \land Q$" is false, and "false $\lor R$" (with $R$ true) gives the correct answer of true.
+      - text: "(T, F)"
         correct: true
-      - text: 'The approach is correct: parentheses grouping does not affect the order of evaluation in propositional logic.'
+      - text: "(F, F)"
         rationale: |
-          You claimed parentheses do not dictate evaluation order. Parentheses determine which connective evaluates first.
-      - text: The student's approach is correct, and the final answer is false.
+          This groups both expressions like the second one. P is false, which seems to settle the result early. Check whether P is inside an AND group or part of the final AND.
+      - text: "(T, T)"
         rationale: |
-          You accepted an incorrect evaluation order that violates precedence in propositional logic.
-      - text: Neither the student's approach nor the correct approach can determine a final truth value.
+          This groups both expressions like the first one. The true R makes the outer OR true there. Check whether R belongs inside the second expression's parentheses.
+      - text: "(F, T)"
         rationale: |
-          You claimed compound expressions cannot be evaluated under any circumstances.
+          This reverses the two expression results. The same letters and connectives appear in both. Check where the parentheses are before calculating.
     explanation: |
-      Evaluating combined expressions in the wrong order (ignoring parentheses grouping) produces an incorrect final truth value. Just like arithmetic order of operations, evaluate the innermost parentheses first: "$P \land Q$" first, giving false, then "false $\lor R$," giving true.
+      In the first expression, P AND Q is false, then OR with true R gives true. In the second, Q OR R is true, then AND with false P gives false. The ordered results are (T, F).
     approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0013
     type: truth-table-evaluation
     difficulty: medium
     stem: |
-      If $P$ is false and $Q$ is true, what is the truth value of "$\neg P \land Q$" (not P, and Q)?
+      With $P$ false and $Q$ false, evaluate $\neg  (P \land  Q)$ and $(\neg  P) \land  Q$, in that order.
     choices:
-      - text: "True"
+      - text: "(T, F)"
         correct: true
-      - text: "False"
+      - text: "(F, F)"
         rationale: |
-          You forgot to negate $ before evaluating the conjunction. $\neg P$ is true, so "true $\land$ true" is true.
-      - text: Cannot be determined
+          This leaves the whole AND result unnegated in the first expression. The false inputs may look sufficient. Check the scope of the first NOT.
+      - text: "(T, T)"
         rationale: |
-          You assumed the expression is incomplete. Knowing $ and $ fully determines the result as true.
-      - text: Both true and false
+          This negates Q along with P in the second expression. Negating a whole group may seem similar to negating its first part. Check the second NOT's scope.
+      - text: "(F, T)"
         rationale: |
-          You assigned multiple truth values to a single propositional logic expression.
+          This exchanges whole-expression negation with single-input negation. The same symbols appear in both. Check each set of parentheses before applying NOT.
     explanation: |
-      First, "$\neg P$": since $P$ is false, "$\neg P$" is true. Then, "$\neg P \land Q$" becomes "true $\land$ true," and since both sides are true, the result is true.
+      P AND Q is false, so negating that whole result gives true. In the second expression, NOT P is true but Q is false, so their AND is false. The ordered results are (T, F).
     approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0014
@@ -283,19 +283,19 @@ questions:
     stem: |
       Which logical connective is true only when both of its statements are true, and false in every other combination?
     choices:
-      - text: And ($\land$)
+      - text: "AND"
         correct: true
-      - text: Or ($\lor$)
+      - text: "OR"
         rationale: |
-          You picked disjunction. Disjunction is true when at least one statement is true, not only when both are true.
-      - text: Not ($\neg$)
+          This selects the one-or-more-true connective. Two true inputs do also satisfy it. Check the word "only" in the requirement.
+      - text: "NOT"
         rationale: |
-          You picked negation. Negation operates on a single statement, not a pair of statements.
-      - text: If...then ($\rightarrow$)
+          This selects a one-input operation for a two-input rule. NOT can change a truth value. Check how many statements the question combines.
+      - text: "IF-THEN"
         rationale: |
-          You picked implication. Implication is true in three out of four cases, including when the antecedent is false.
+          This selects a conditional whose true rows differ. A true if-part and result can look like AND's true row. Check the other combinations too.
     explanation: |
-      "And" ($\land$) is true only when both statements are true, and false in every other case.
+      AND requires both statements to be true. If either is false, the AND result is false.
     approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0015
@@ -304,38 +304,123 @@ questions:
     stem: |
       Complete the truth table for "$P \rightarrow Q$" across all four combinations of $P$ and $Q$: (T,T), (T,F), (F,T), (F,F).
     choices:
-      - text: (T,T) → true, (T,F) → false, (F,T) → true, (F,F) → true
+      - text: "T, F, T, T"
         correct: true
-      - text: (T,T) → true, (T,F) → true, (F,T) → false, (F,F) → false
+      - text: "T, T, F, F"
         rationale: |
-          You inverted the true and false cases of the conditional, placing false on (F,T) and (F,F).
-      - text: (T,T) → false, (T,F) → false, (F,T) → true, (F,F) → true
+          This copies the P column as the conditional column. The if-part may seem to control the result by itself. Check the result when P is true but Q is false.
+      - text: "F, F, T, T"
         rationale: |
-          You flipped the truth value of (T,T). When $ and $ are both true,  \rightarrow Q$ is true.
-      - text: (T,T) → true, (T,F) → false, (F,T) → false, (F,F) → false
+          This copies NOT P instead of evaluating the conditional. The false-if rule may be overgeneralized. Check the row where both inputs are true.
+      - text: "T, F, F, F"
         rationale: |
-          You treated the conditional like a conjunction. A false antecedent makes a conditional true, not false.
+          This uses the AND table. Both inputs being true is one true conditional case. Check the two rows whose if-part is false.
     explanation: |
-      "$P \rightarrow Q$" is false only in the one case where $P$ is true and $Q$ is false: (T,F) → false. Every other combination (T,T), (F,T) and (F,F) is true.
+      For (T,T), the conditional is true. For (T,F), it is false. In the two rows with a false if-part, it is true. The column is T, F, T, T.
     approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0016
     type: truth-table-evaluation
     difficulty: exam
     stem: |
-      If $P$ is true, $Q$ is false, and $R$ is false, evaluate "$(P \rightarrow Q) \lor (\neg Q \land R)$."
+      If $P$ is true, $Q$ false, and $R$ false, give the values of the first parenthesized group, the second group, and the full expression $(P \rightarrow  Q) \lor  (\neg  Q \land  R)$, in that order.
     choices:
-      - text: "False"
+      - text: "F, F, F"
         correct: true
-      - text: "True"
+      - text: "T, F, T"
         rationale: |
-          You evaluated one of the sub-expressions as true.  \rightarrow Q$ is false (true implies false), and $\neg Q \land R$ is false (true and false), so false $\lor$ false is false.
-      - text: Cannot be determined
+          This makes the conditional true when its if-part is true and result false. The true P can seem decisive. Check the conditional's single false row.
+      - text: "F, T, T"
         rationale: |
-          You assumed information was missing to resolve the nested connectives.
-      - text: Both true and false
+          This ignores R while evaluating the second group. NOT Q is true, which can dominate attention. Check that the AND needs its other input too.
+      - text: "F, F, T"
         rationale: |
-          You assigned conflicting values to the expression.
+          This copies NOT Q's true value into the final result. That negated part stands out. Check the final OR using the completed group values.
     explanation: |
-      First, "$P \rightarrow Q$": $P$ true, $Q$ false is exactly the one false case for a conditional, so this is false. Next, "$\neg Q$": since $Q$ is false, "$\neg Q$" is true; then "$\neg Q \land R$" becomes "true $\land$ false" (since $R$ is false), which is false (and requires both true). Finally, "false $\lor$ false" is false.
+      P implies Q is false because P is true and Q is false. NOT Q is true, but AND with false R gives false. The outer OR therefore combines false with false and gives false. The ordered results are F, F, F.
     approved: true
+
+  - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0017
+    type: truth-table-evaluation
+    difficulty: hard
+    stem: |
+      In row order (T,T), (T,F), (F,T), (F,F) for ($P$,$Q$), which column gives $\neg  (P \lor  Q)$ ?
+    choices:
+      - text: "F, F, F, T"
+        correct: true
+      - text: "T, T, T, F"
+        rationale: |
+          This leaves the OR column unchanged. The inner expression is easy to evaluate first. Check the NOT outside the parentheses.
+      - text: "T, F, F, F"
+        rationale: |
+          This applies AND directly instead of negating OR. Both connectives are familiar table patterns. Check the expression actually requested.
+      - text: "F, T, T, T"
+        rationale: |
+          This negates an AND table instead of an OR table. The final NOT is applied, but to the wrong inner rule. Check the connective inside the group.
+    explanation: |
+      OR is true in the first three rows and false in the last row. NOT reverses those values. The resulting column is F, F, F, T.
+    approved: false
+
+  - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0018
+    type: truth-table-evaluation
+    difficulty: hard
+    stem: |
+      Across all four rows for $P$ and $Q$, how many make $(P \rightarrow Q) \land (Q \rightarrow P)$ true?
+    choices:
+      - text: "2"
+        correct: true
+      - text: "1"
+        rationale: |
+          This counts only the row where both inputs are true. Two true inputs make both directions true. Check the row where both if-parts are false too.
+      - text: "3"
+        rationale: |
+          This counts the three true rows of only the forward conditional. That is a familiar conditional table. Check the reverse conditional in each row as well.
+      - text: "4"
+        rationale: |
+          This assumes forward and reverse conditionals always share a value. They contain the same letters. Check the two rows with different input values.
+    explanation: |
+      With two true inputs, both conditional directions are true. With two false inputs, both have false if-parts and are true. Each mixed-input row makes one direction false. Exactly two rows make the full AND true.
+    approved: false
+
+  - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0019
+    type: truth-table-evaluation
+    difficulty: exam
+    stem: |
+      $P \rightarrow  Q$ is false. Give the forced values of $P$, $Q$, and then $\neg  (P \land  \neg  Q)$, in that order.
+    choices:
+      - text: "T, F, F"
+        correct: true
+      - text: "T, F, T"
+        rationale: |
+          This finds the inputs correctly but omits the outer NOT. The inner group is true. Check the final operation outside the parentheses.
+      - text: "F, T, T"
+        rationale: |
+          This reverses the false-conditional row. The two inputs have different truth values, which may seem enough. Check which one is the if-part.
+      - text: "T, T, T"
+        rationale: |
+          This treats a conditional like a negated AND. That would be false for two true inputs. Check the conditional's specific false case.
+    explanation: |
+      A false conditional forces P true and Q false. NOT Q is therefore true, so P AND NOT Q is true. Negating that group gives false. The requested values are T, F, F.
+    approved: false
+
+  - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0020
+    type: truth-table-evaluation
+    difficulty: exam
+    stem: |
+      Which listed row ($P$,$Q$,$R$) makes $(\neg  (P \lor  Q)) \rightarrow  R$ false?
+    choices:
+      - text: "(F, F, F)"
+        correct: true
+      - text: "(F, F, T)"
+        rationale: |
+          This keeps the if-part true but makes the result R true. That satisfies rather than breaks the conditional. Check that a false conditional needs a false result.
+      - text: "(T, F, F)"
+        rationale: |
+          This makes the OR true, so its NOT is false. A false R can look enough to make the whole conditional false. Check the if-part as well.
+      - text: "(F, T, F)"
+        rationale: |
+          This overlooks Q while requiring the negated OR to be true. P and R are both false, which may look promising. Check both inputs of the inner OR.
+    explanation: |
+      For the outer conditional to be false, its if-part must be true and R false. NOT of P OR Q is true only when P and Q are both false. Thus the required row is (F,F,F).
+    approved: false
+

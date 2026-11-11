@@ -1,0 +1,76 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart
+00:00 +0 -1: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart [E]
+  Failed to load "/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart":
+  Compilation failed for testPath=/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart: test/features/quiz/presentation/quiz_question_screen_test.dart:19:40: Error: Type 'ContentRepository' not found.
+  class _Content extends Mock implements ContentRepository {}
+                                         ^^^^^^^^^^^^^^^^^
+  test/features/quiz/presentation/quiz_question_screen_test.dart:26:1: Error: Type 'Question' not found.
+  Question item(int n) => Question(
+  ^^^^^^^^
+  test/features/quiz/presentation/quiz_question_screen_test.dart:30:5: Error: Method not found: 'Choice'.
+      Choice(id: 'a', label: 'A', text: 'Right answer', isCorrect: true),
+      ^^^^^^
+  test/features/quiz/presentation/quiz_question_screen_test.dart:31:5: Error: Method not found: 'Choice'.
+      Choice(id: 'b', label: 'B', text: 'Wrong answer', isCorrect: false,
+      ^^^^^^
+  test/features/quiz/presentation/quiz_question_screen_test.dart:33:5: Error: Method not found: 'Choice'.
+      Choice(id: 'c', label: 'C', text: 'Other answer', isCorrect: false),
+      ^^^^^^
+  test/features/quiz/presentation/quiz_question_screen_test.dart:26:25: Error: Method not found: 'Question'.
+  Question item(int n) => Question(
+                          ^^^^^^^^
+  test/features/quiz/presentation/quiz_question_screen_test.dart:46:72: Error: Couldn't find constructor 'Topic'.
+      when(() => content.topicById(any())).thenAnswer((_) async => const Topic(
+                                                                         ^^^^^
+  test/features/quiz/presentation/quiz_question_screen_test.dart:52:57: Error: 'Question' isn't a type.
+          questionId: (call.namedArguments[#question]! as Question).id,
+                                                          ^^^^^^^^
+  test/features/quiz/presentation/quiz_question_screen_test.dart:46:24: Error: The method 'topicById' isn't defined for the type '_Content'.
+   - '_Content' is from 'test/features/quiz/presentation/quiz_question_screen_test.dart'.
+  Try correcting the name to the name of an existing method, or defining a method named 'topicById'.
+      when(() => content.topicById(any())).thenAnswer((_) async => const Topic(
+                         ^^^^^^^^^
+  test/features/quiz/presentation/quiz_question_screen_test.dart:75:51: Error: The argument type '_Content' can't be assigned to the parameter type 'ContentRepository'.
+   - '_Content' is from 'test/features/quiz/presentation/quiz_question_screen_test.dart'.
+   - 'ContentRepository' is from 'package:pantas/core/storage/data/repos/content_repository.dart' ('lib/core/storage/data/repos/content_repository.dart').
+        contentRepositoryProvider.overrideWithValue(content),
+                                                    ^
+  .
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart
+test/features/quiz/presentation/quiz_question_screen_test.dart:19:40: Error: Type 'ContentRepository' not found.
+class _Content extends Mock implements ContentRepository {}
+                                       ^^^^^^^^^^^^^^^^^
+test/features/quiz/presentation/quiz_question_screen_test.dart:26:1: Error: Type 'Question' not found.
+Question item(int n) => Question(
+^^^^^^^^
+test/features/quiz/presentation/quiz_question_screen_test.dart:30:5: Error: Method not found: 'Choice'.
+    Choice(id: 'a', label: 'A', text: 'Right answer', isCorrect: true),
+    ^^^^^^
+test/features/quiz/presentation/quiz_question_screen_test.dart:31:5: Error: Method not found: 'Choice'.
+    Choice(id: 'b', label: 'B', text: 'Wrong answer', isCorrect: false,
+    ^^^^^^
+test/features/quiz/presentation/quiz_question_screen_test.dart:33:5: Error: Method not found: 'Choice'.
+    Choice(id: 'c', label: 'C', text: 'Other answer', isCorrect: false),
+    ^^^^^^
+test/features/quiz/presentation/quiz_question_screen_test.dart:26:25: Error: Method not found: 'Question'.
+Question item(int n) => Question(
+                        ^^^^^^^^
+test/features/quiz/presentation/quiz_question_screen_test.dart:46:72: Error: Couldn't find constructor 'Topic'.
+    when(() => content.topicById(any())).thenAnswer((_) async => const Topic(
+                                                                       ^^^^^
+test/features/quiz/presentation/quiz_question_screen_test.dart:52:57: Error: 'Question' isn't a type.
+        questionId: (call.namedArguments[#question]! as Question).id,
+                                                        ^^^^^^^^
+test/features/quiz/presentation/quiz_question_screen_test.dart:46:24: Error: The method 'topicById' isn't defined for the type '_Content'.
+ - '_Content' is from 'test/features/quiz/presentation/quiz_question_screen_test.dart'.
+Try correcting the name to the name of an existing method, or defining a method named 'topicById'.
+    when(() => content.topicById(any())).thenAnswer((_) async => const Topic(
+                       ^^^^^^^^^
+test/features/quiz/presentation/quiz_question_screen_test.dart:75:51: Error: The argument type '_Content' can't be assigned to the parameter type 'ContentRepository'.
+ - '_Content' is from 'test/features/quiz/presentation/quiz_question_screen_test.dart'.
+ - 'ContentRepository' is from 'package:pantas/core/storage/data/repos/content_repository.dart' ('lib/core/storage/data/repos/content_repository.dart').
+      contentRepositoryProvider.overrideWithValue(content),
+                                                  ^

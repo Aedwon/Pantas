@@ -1,0 +1,95 @@
+[
+  {
+    "argv": [
+      "flutter",
+      "test",
+      "--no-pub",
+      "test/core/ui/components/disabled_action_label_test.dart",
+      "test/features/quiz/presentation/quiz_question_screen_test.dart",
+      "test/core/ui/components/containers_completion_test.dart",
+      "test/core/ui/components/gallery_board_polish_test.dart",
+      "test/core/ui/components/shared_board_corrections_test.dart",
+      "test/core/ui/components/structure_completion_test.dart",
+      "test/core/ui/theme/pantas_colors_test.dart",
+      "test/core/ui/theme/pantas_theme_test.dart",
+      "test/core/ui/theme/app_theme_test.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task4-ui-final-0.txt"
+  },
+  {
+    "argv": [
+      "flutter",
+      "analyze",
+      "--no-pub",
+      "lib/core/ui/components/new_design/question_grid_sheet.dart",
+      "lib/core/ui/components/pantas_button.dart",
+      "lib/core/ui/theme/pantas_colors.dart",
+      "lib/features/quiz/presentation/question_flag_providers.dart",
+      "lib/features/quiz/presentation/quiz_page.dart",
+      "test/core/ui/components/disabled_action_label_test.dart",
+      "test/features/quiz/presentation/question_flag_providers_test.dart",
+      "test/features/quiz/presentation/quiz_leave_resume_panel_test.dart",
+      "test/features/quiz/presentation/quiz_page_chrome_test.dart",
+      "test/features/quiz/presentation/quiz_page_test.dart",
+      "test/features/quiz/presentation/quiz_question_screen_test.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task4-ui-final-1.txt"
+  },
+  {
+    "argv": [
+      "flutter",
+      "analyze",
+      "--no-pub",
+      "lib",
+      "test",
+      "tool"
+    ],
+    "exit": 1,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task4-ui-final-2.txt"
+  },
+  {
+    "argv": [
+      "dart",
+      "format",
+      "--output=none",
+      "--set-exit-if-changed",
+      "lib",
+      "test",
+      "tool"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task4-ui-final-3.txt"
+  },
+  {
+    "argv": [
+      "dart",
+      "run",
+      "tool/check_layering.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task4-ui-final-4.txt"
+  },
+  {
+    "argv": [
+      "dart",
+      "run",
+      "tool/check_no_ai_attribution.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task4-ui-final-5.txt"
+  },
+  {
+    "argv": [
+      "git",
+      "diff",
+      "--check",
+      "--",
+      "lib",
+      "test"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task4-ui-final-6.txt"
+  }
+]

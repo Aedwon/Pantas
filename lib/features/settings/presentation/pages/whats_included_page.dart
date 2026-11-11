@@ -1,178 +1,249 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/metrics/overall_accuracy.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/domain/lesson_meta.dart';
 import 'package:pantas/core/storage/domain/topic.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
-import 'package:pantas/core/ui/components/faint_bars.dart';
-import 'package:pantas/core/ui/components/page_scaffold.dart';
-import 'package:pantas/core/ui/components/settings_bar.dart';
-import 'package:pantas/core/ui/components/topic_scope_index.dart';
+import 'package:pantas/core/ui/components/scope_picker.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
+import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/features/home/application/study_delivery.dart';
+import 'package:pantas/features/settings/presentation/widgets/settings_pane_page.dart';
 
 final whatsIncludedDataProvider = FutureProvider.family<
-    ({Exam exam, List<TopicScopeSubjectData> subjects, Set<TopicId> excluded}),
+    ({
+      Exam exam,
+      List<ScopeSubject> subjects,
+      Set<TopicId> excluded,
+      Set<LessonId> excludedLessons
+    }),
     ExamId>((ref, examId) async {
   final content = ref.watch(contentRepositoryProvider);
   final excluded = await ref.watch(trackScopeProvider(examId).future);
-  final exams = await content.listExams();
-  final exam = exams.firstWhere((e) => e.id == examId);
-
-  final subjects = <TopicScopeSubjectData>[];
-
-  if (exam.isCustom) {
-    // For custom track: draw from corpusTopics
-    final topics = await corpusTopics(content);
-    final subjectMap = <String, List<Topic>>{};
-    for (final t in topics) {
-      final sub = await content.subjectById(t.subjectId);
-      final subName = sub?.name ?? t.subjectId;
-      subjectMap.putIfAbsent(subName, () => []).add(t);
+  final exam = (await content.listExams()).firstWhere((e) => e.id == examId);
+  final groups = <String, List<Topic>>{};
+  if (csePartsForExam(examId).isNotEmpty) {
+    final topics = await content.topicsByExam(examId);
+    for (final part in csePartsForExam(examId)) {
+      groups[part.name] = [
+        for (final name in part.topicNames)
+          ...topics.where((t) => t.name == name),
+      ];
     }
-    for (final entry in subjectMap.entries) {
-      subjects.add(
-        TopicScopeSubjectData(
-          id: entry.key,
-          name: entry.key,
-          topics: [
-            for (final t in entry.value)
-              TopicScopeTopicData(
-                id: t.id,
-                name: t.name,
-              ),
-          ],
-        ),
-      );
+  } else if (exam.isCustom) {
+    for (final topic in await corpusTopics(content)) {
+      final subject = await content.subjectById(topic.subjectId);
+      groups.putIfAbsent(subject?.name ?? topic.subjectId, () => []).add(topic);
     }
   } else {
-    // For listed exam: draw from exam.subjects
-    for (final s in exam.subjects) {
-      final topics = await content.topicsBySubject(s.id);
-      subjects.add(
-        TopicScopeSubjectData(
-          id: s.id,
-          name: s.name,
-          topics: [
-            for (final t in topics)
-              TopicScopeTopicData(
-                id: t.id,
-                name: t.name,
-              ),
-          ],
+    // Owned subjects first, then the shared subjects its questions are
+    // tagged to, so a student sees every topic the exam covers.
+    for (final subject in exam.subjects) {
+      groups[subject.name] = [];
+    }
+    for (final topic in await content.topicsByExam(examId)) {
+      final subject = await content.subjectById(topic.subjectId);
+      groups.putIfAbsent(subject?.name ?? topic.subjectId, () => []).add(topic);
+    }
+  }
+  final topics = [for (final group in groups.values) ...group];
+  final lessons = await content.lessonMetaByTopics(
+    [for (final t in topics) t.id],
+    examId: examId,
+  );
+  final excludedLessons = await ref.watch(lessonScopeProvider(examId).future);
+  return (
+    excludedLessons: excludedLessons,
+    exam: exam,
+    excluded: excluded,
+    subjects: [
+      for (final group in groups.entries)
+        if (group.value.any((topic) => lessons[topic.id]!.isNotEmpty))
+          ScopeSubject(
+            title: group.key,
+            topics: [
+              for (final topic in group.value)
+                if (lessons[topic.id]!.isNotEmpty)
+                  ScopeTopic(
+                    id: topic.id,
+                    title: topic.name,
+                    lessons: [
+                      for (final l in lessons[topic.id] ?? const <LessonMeta>[])
+                        ScopeLesson(id: l.id, title: l.title),
+                    ],
+                  ),
+            ],
+          ),
+    ]
+  );
+});
+
+class WhatsIncludedPage extends ConsumerStatefulWidget {
+  const WhatsIncludedPage({super.key});
+  @override
+  ConsumerState<WhatsIncludedPage> createState() => _WhatsIncludedPageState();
+}
+
+class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
+  bool _saving = false;
+  bool _failed = false;
+  late Set<String> _pending;
+  Future<void> _save(
+    String examId,
+    List<ScopeSubject> subjects,
+    Set<String> selected,
+  ) async {
+    if (_saving) return;
+    setState(() {
+      _saving = true;
+      _failed = false;
+      _pending = selected;
+    });
+    final telemetry = ref.read(telemetryProvider);
+    try {
+      final publish =
+          await ref.read(studySettingsCaptureProvider)(examId: examId);
+      await publish.apply(
+        () => ref.read(customTrackRepositoryProvider).setExcluded(
+          examId: examId,
+          topicIds: {
+            for (final subject in subjects)
+              for (final topic in subject.topics)
+                if (topic.lessons.isEmpty
+                    ? !selected.contains(topic.id)
+                    : !topic.lessons.any((l) => selected.contains(l.id)))
+                  topic.id,
+          },
+          lessonIds: {
+            for (final subject in subjects)
+              for (final topic in subject.topics)
+                for (final lesson in topic.lessons)
+                  if (!selected.contains(lesson.id)) lesson.id,
+          },
         ),
       );
+      if (!mounted) return;
+      ref
+        ..invalidate(trackScopeProvider(examId))
+        ..invalidate(lessonScopeProvider(examId))
+        ..invalidate(scopedTopicsProvider(examId))
+        ..invalidate(scopedSubjectsProvider(examId))
+        ..invalidate(whatsIncludedDataProvider(examId));
+    } catch (error, stack) {
+      await telemetry.recordError(error, stack);
+      if (mounted) setState(() => _failed = true);
+    } finally {
+      if (mounted) setState(() => _saving = false);
     }
   }
 
-  return (exam: exam, subjects: subjects, excluded: excluded);
-});
-
-class WhatsIncludedPage extends ConsumerWidget {
-  const WhatsIncludedPage({super.key});
-
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final colors = context.colors;
-    final styles = context.textStyles;
-    final activeFocus = ref.watch(activeExamFocusProvider).valueOrNull;
-    final examId = activeFocus?.exam?.id;
-
-    if (examId == null) {
-      return const PageScaffold(body: FaintBars());
-    }
-
-    final dataAsync = ref.watch(whatsIncludedDataProvider(examId));
-
-    return PageScaffold(
-      body: ListView(
-        padding: EdgeInsets.zero,
-        children: [
-          const SettingsBar(title: "What's included", backLabel: 'Exam'),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(20, 12, 20, 16),
-            child: Text(
-              "Unticking something hides it. Nothing you've done is deleted.",
-              style: styles.bodyMedium.copyWith(color: colors.inkMuted),
+  Widget build(BuildContext context) {
+    final focus = ref.watch(activeExamFocusProvider);
+    final examId = focus.valueOrNull?.exam?.id;
+    final data =
+        examId == null ? null : ref.watch(whatsIncludedDataProvider(examId));
+    firstScreenReady(context, ref, ready: data != null && !data.isLoading);
+    return SettingsPanePage(
+      section: 'Your exam',
+      title: "What's included",
+      description: focus.valueOrNull?.exam?.shortName,
+      compactTitle: true,
+      titleLineHeight: 1.2,
+      titleGap: PantasSpace.s6,
+      backLabel: 'Your exam',
+      onBack: () => leavePage(context, fallback: '/settings/exam'),
+      children: [
+        if (data == null)
+          const WhatsIncludedSkeleton()
+        else
+          data.when(
+            loading: () => const WhatsIncludedSkeleton(),
+            error: (error, _) => errorFor(
+              'topics',
+              () => ref.invalidate(whatsIncludedDataProvider(examId!)),
+              error: error,
             ),
-          ),
-          dataAsync.when(
-            loading: () => const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: FaintBars(),
-            ),
-            error: (e, _) => Center(child: Text('Error: $e')),
-            data: (data) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: TopicScopeIndex(
-                  subjects: data.subjects,
-                  topicState: (topic) {
-                    final isExcluded = data.excluded.contains(topic.id);
-                    return isExcluded
-                        ? TopicScopeCheckState.off
-                        : TopicScopeCheckState.on;
-                  },
-                  subjectState: (subject) {
-                    final topicIds = subject.topics.map((t) => t.id).toList();
-                    if (topicIds.isEmpty) return TopicScopeCheckState.on;
-                    final onCount = topicIds
-                        .where((id) => !data.excluded.contains(id))
-                        .length;
-                    if (onCount == 0) return TopicScopeCheckState.off;
-                    if (onCount == topicIds.length) {
-                      return TopicScopeCheckState.on;
-                    }
-                    return TopicScopeCheckState.partial;
-                  },
-                  onToggleTopic: (topic) async {
-                    final newExclusions = Set<TopicId>.from(data.excluded);
-                    if (newExclusions.contains(topic.id)) {
-                      newExclusions.remove(topic.id);
-                    } else {
-                      newExclusions.add(topic.id);
-                    }
-                    await ref
-                        .read(customTrackRepositoryProvider)
-                        .setExcluded(examId: examId, topicIds: newExclusions);
-                    ref
-                      ..invalidate(trackScopeProvider(examId))
-                      ..invalidate(scopedTopicsProvider(examId))
-                      ..invalidate(scopedSubjectsProvider(examId))
-                      ..invalidate(whatsIncludedDataProvider(examId));
-                  },
-                  onToggleSubject: (subject) async {
-                    final topicIds = subject.topics.map((t) => t.id).toList();
-                    final onCount = topicIds
-                        .where((id) => !data.excluded.contains(id))
-                        .length;
-                    final newExclusions = Set<TopicId>.from(data.excluded);
-
-                    if (onCount > 0) {
-                      // Turn off all topics in subject
-                      newExclusions.addAll(topicIds);
-                    } else {
-                      // Turn on all topics in subject
-                      newExclusions.removeAll(topicIds);
-                    }
-
-                    await ref
-                        .read(customTrackRepositoryProvider)
-                        .setExcluded(examId: examId, topicIds: newExclusions);
-                    ref
-                      ..invalidate(trackScopeProvider(examId))
-                      ..invalidate(scopedTopicsProvider(examId))
-                      ..invalidate(scopedSubjectsProvider(examId))
-                      ..invalidate(whatsIncludedDataProvider(examId));
-                  },
-                ),
+            data: (scope) {
+              final selected = {
+                for (final subject in scope.subjects)
+                  for (final topic in subject.topics)
+                    if (!scope.excluded.contains(topic.id))
+                      if (topic.lessons.isEmpty)
+                        topic.id
+                      else
+                        for (final lesson in topic.lessons)
+                          if (!scope.excludedLessons.contains(lesson.id))
+                            lesson.id,
+              };
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  IgnorePointer(
+                    ignoring: _saving,
+                    child: ScopePicker(
+                      subjects: scope.subjects,
+                      settingsRows: true,
+                      selectedIds: selected,
+                      minimumSelectionMessage:
+                          'At least one topic stays ticked.',
+                      onChanged: (selected) =>
+                          unawaited(_save(examId!, scope.subjects, selected)),
+                    ),
+                  ),
+                  Padding(
+                    padding: context.wideWeb
+                        ? EdgeInsets.zero
+                        : const EdgeInsets.fromLTRB(
+                            PantasSpace.s16,
+                            PantasSpace.s6,
+                            PantasSpace.s16,
+                            PantasSpace.s0,
+                          ),
+                    child: Text(
+                      "Untick what you don't need. "
+                      'It gets removed from your plan, '
+                      "and your answers on it won't be deleted.",
+                      style: context.type.footnote,
+                    ),
+                  ),
+                  if (_failed)
+                    saveFailureLine(
+                      () => _save(examId!, scope.subjects, _pending),
+                    ),
+                ],
               );
             },
           ),
-          const SizedBox(height: 32),
-        ],
-      ),
+      ],
     );
   }
+}
+
+/// The exam name, then each subject's topic group (the scope picker).
+class WhatsIncludedSkeleton extends StatelessWidget {
+  const WhatsIncludedSkeleton({super.key});
+  @override
+  Widget build(BuildContext context) => const SkeletonPulse(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            SkeletonBlock(width: 120, height: 22),
+            SizedBox(height: PantasSpace.s24),
+            SkeletonGroups(rows: 4, rowHeight: 47, headerWidth: 110),
+          ],
+        ),
+      );
 }

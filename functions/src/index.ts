@@ -1,12 +1,53 @@
+import './_options.js';
+import './_admin.js';
+
 export { exportData } from './exportData.js';
 export { deleteAccount } from './deleteAccount.js';
 export { renderWrappedPage } from './renderWrappedPage.js';
 export { activateSyncGeneration } from './activateSyncGeneration.js';
 export { cleanupSyncData } from './cleanupSyncData.js';
 export { revenuecatWebhook } from './revenuecatWebhook.js';
-export { getProContent } from './getProContent.js';
+export { repairEntitlementClaims } from './revenuecatWebhook.js';
+export { checkRecentEntitlementClaims } from './revenuecatWebhook.js';
+export { recomputePassEnds } from './revenuecatPasses.js';
 export { recordSignInEvent } from './recordSignInEvent.js';
 export { onUserCreated } from './onUserCreated.js';
 export { cleanupOrphanAnons } from './cleanupOrphanAnons.js';
-export { purgeOldExports } from './purgeOldExports.js';
 export { purgeOldAuditLogs } from './purgeOldAuditLogs.js';
+export { cleanupWrappedOrphans } from './cleanupWrappedOrphans.js';
+export { createPaymongoCheckout } from './paymongoCheckout.js';
+export { paymongoWebhook } from './paymongoWebhook.js';
+export { startWebTrial } from './webTrial.js';
+export { getContent } from './content.js';
+export { startMock } from './mock.js';
+export { submitMock } from './mock.js';
+export { getMockPaper } from './mock.js';
+export { controlMock } from './mock.js';
+export { ingestSession } from './ingestSession.js';
+export { setExamSettings } from './roadmap.js';
+export { getRoadmap } from './roadmap.js';
+export {getMockAvailability, getMockResults, getMockHistory, updateMockReview} from './mockReader.js';
+
+export {recordLessonRead} from './studyObservations.js';
+
+export {advanceRoadmap,getRoadmapDay,getRoadmapWeek} from './roadmap.js';
+
+export {getStudyInsights} from './studyInsights.js';
+export {getCarryableCount} from './carryableCount.js';
+export { listWebPlans } from './webPlans.js';
+export {getWebEntitlement} from './webEntitlement.js';
+export {reportClientTelemetry} from './clientTelemetry.js';
+export {getSessionDiagnosis} from './sessionDiagnosis.js';
+
+export {setBetaPro} from './betaPro.js';
+
+export {sendGuardianLink, answerGuardianRequest, getGuardianStatus, getGuardianRequest, purgeOldGuardianRecords} from './guardianConsent.js';
+
+export {getBetaAccess} from './betaAccess.js';
+
+export {requestSignInCode, verifySignInCode} from './signInCode.js';
+export {exchangeGoogleSignIn} from './googleSignIn.js';
+
+export {keepCallablesWarm} from './keepWarm.js';
+
+export {activateBetaReward, sendBetaFeedback, recordBetaDay, submitBetaSurvey, getBetaReward} from './betaReward.js';

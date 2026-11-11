@@ -1,0 +1,68 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart
+test/features/quiz/data/review_batch_repository_test.dart:85:51: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+    expect(await start(guard: () => ++calls < 4), isNull);
+                                                  ^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:86:28: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+    expect(await stored(), isNull); expect(await db.select(db.quizSessions).get(), isEmpty);
+                           ^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:114:72: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+    expect(await AttemptsRepository(db).byId(first.session.sessionId), isNull);
+                                                                       ^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:115:68: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+    expect(await sessions.completedAtFor(first.session.sessionId), isNull);
+                                                                   ^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:133:111: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+    expect((await sessions.activeFor(userId: 'local', examId: 'exam'))!.id, 'custom'); expect(await stored(), isNull);
+                                                                                          ^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:139:45: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+    expect(await start(prepared: prepared), isNull);
+                                            ^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:140:28: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+    expect(await stored(), isNull); expect(await db.select(db.quizSessions).get(), isEmpty);
+                           ^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:147:28: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+    expect(await stored(), isNull);
+                           ^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:172:28: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+    expect(await stored(), isNull);
+                           ^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:182:83: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+    expect(third.ordinal, 3); await finish(third.session); expect(await stored(), isNull);
+                                                                                  ^^^^^^
+00:00 +0 -1: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart [E]
+  Failed to load "/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart":
+  Compilation failed for testPath=/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: test/features/quiz/data/review_batch_repository_test.dart:85:51: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+      expect(await start(guard: () => ++calls < 4), isNull);
+                                                    ^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:86:28: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+      expect(await stored(), isNull); expect(await db.select(db.quizSessions).get(), isEmpty);
+                             ^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:114:72: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+      expect(await AttemptsRepository(db).byId(first.session.sessionId), isNull);
+                                                                         ^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:115:68: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+      expect(await sessions.completedAtFor(first.session.sessionId), isNull);
+                                                                     ^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:133:111: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+      expect((await sessions.activeFor(userId: 'local', examId: 'exam'))!.id, 'custom'); expect(await stored(), isNull);
+                                                                                                                ^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:139:45: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+      expect(await start(prepared: prepared), isNull);
+                                              ^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:140:28: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+      expect(await stored(), isNull); expect(await db.select(db.quizSessions).get(), isEmpty);
+                             ^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:147:28: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+      expect(await stored(), isNull);
+                             ^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:172:28: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+      expect(await stored(), isNull);
+                             ^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:182:83: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+      expect(third.ordinal, 3); await finish(third.session); expect(await stored(), isNull);
+                                                                                    ^^^^^^
+  .
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart

@@ -10,21 +10,19 @@ questions:
     stem: |
       Kuya Ben is 4 years older than his sister Maya. If the sum of their ages is 24, how old is Maya?
     choices:
-      - text: $10\text{ years old}$
+      - text: '$10\text{ years old}$'
         correct: true
-      - text: $14\text{ years old}$
+      - text: '$14\text{ years old}$'
         rationale: |
-          You found Ben's age instead of Maya's. Ben is 4 years older, so once Maya is 10, Ben is 14.
-      - text: $12\text{ years old}$
+          This reports Ben's age instead of Maya's. Both ages come from the same equation. Check whose age the question asks for.
+      - text: '$12\text{ years old}$'
         rationale: |
-          You split the total age in half and ignored the 4-year difference. The two ages are not the same.
-      - text: $8\text{ years old}$
+          This divides $24$ by $2$ and ignores the age gap. Equal sharing looks natural for two people. Check whether their ages are equal.
+      - text: '$8\text{ years old}$'
         rationale: |
-          You took too much away for the age gap. If Maya were 8, then Ben would be 12 and their sum would be only 20.
+          This halves the total before subtracting the full $4$-year gap. Both steps use numbers from the stem. Check that the gap is removed before halving.
     explanation: |
-      Let Maya's age be $m$. Then Ben's age is $m + 4$.
-      The sum of their ages is $m + (m + 4) = 24 \implies 2m + 4 = 24 \implies 2m = 20 \implies m = 10$.
-      Maya is 10 years old. Ben is 14 years old.
+      Let $m$ be Maya's age. Ben is $m+4$. Their sum gives $m+(m+4)=24$. Subtract $4$ to get $2m=20$, then divide by $2$. Maya is $10$ years old.
 
   - id: q-algebra-word-problems-0002
     type: word-problem
@@ -32,20 +30,19 @@ questions:
     stem: |
       A tricycle travels from the public market to Barangay San Jose at a constant speed of $30\text{ km/h}$. How many hours will it take to cover a distance of $45\text{ km}$?
     choices:
-      - text: $1.5\text{ hours}$
+      - text: '$1.5\text{ hours}$'
         correct: true
-      - text: $15\text{ hours}$
+      - text: '$15\text{ hours}$'
         rationale: |
-          You divided 45 by 3 and dropped the zero in the speed. The speed is
-          30 km/h, not 3 km/h. Use $45 \div 30 = 1.5$ hours.
-      - text: $2\text{ hours}$
+          This divides by $3$ instead of $30$. Dropping the zero leaves a familiar division. Check the full speed value.
+      - text: '$2\text{ hours}$'
         rationale: |
-          You may have rounded up instead of dividing exactly. At 30 km/h, 45 km takes one and a half hours.
-      - text: $0.67\text{ hours}$
+          This rounds $1.5$ up to a whole hour. Travel times are often described in whole hours. Check whether rounding is requested.
+      - text: '$0.67\text{ hours}$'
         rationale: |
-          You reversed the formula and divided speed by distance. For time, you need distance divided by speed.
+          This divides speed by distance. The two given numbers still appear in a quotient. Check that kilometers cancel to leave hours.
     explanation: |
-      Using the distance formula $d = rt$, we solve for time $t = \frac{d}{r} = \frac{45\text{ km}}{30\text{ km/h}} = 1.5\text{ hours}$.
+      Time equals distance divided by speed. Thus $t=\dfrac{45}{30}=1.5$ hours.
 
   - id: q-algebra-word-problems-0003
     type: word-problem
@@ -53,21 +50,19 @@ questions:
     stem: |
       Mang Juan can paint a barangay wall in 6 hours, while Mang Pedro can paint the same wall in 3 hours. How many hours will it take them to paint the wall if they work together?
     choices:
-      - text: $2\text{ hours}$
+      - text: '$2\text{ hours}$'
         correct: true
-      - text: $4.5\text{ hours}$
+      - text: '$4.5\text{ hours}$'
         rationale: |
-          You averaged the times instead of adding the work rates. Working together makes the job faster than both individual times.
-      - text: $9\text{ hours}$
+          This averages $6$ and $3$ hours. Averaging seems natural when combining two workers. Check that the shared time is shorter than either solo time.
+      - text: '$9\text{ hours}$'
         rationale: |
-          You added the hours as if they worked one after another. Since they paint at the same time, their rates combine.
-      - text: $3\text{ hours}$
+          This adds the two solo times. Adding seems natural when combining work. Check whether the workers act at the same time.
+      - text: '$3\text{ hours}$'
         rationale: |
-          You picked the faster worker's time only. Working together must be faster than 3 hours, not equal to it.
+          This uses only the faster worker's time. That worker does set a useful upper bound. Check that a second worker makes completion faster.
     explanation: |
-      Mang Juan's rate is $\frac{1}{6}$ wall per hour and Mang Pedro's rate is $\frac{1}{3}$ wall per hour.
-      Combined rate $= \frac{1}{6} + \frac{1}{3} = \frac{1}{6} + \frac{2}{6} = \frac{3}{6} = \frac{1}{2}$ wall per hour.
-      Time to complete together $= \frac{1}{1/2} = 2\text{ hours}$.
+      The work rates are $\dfrac{1}{6}$ and $\dfrac{1}{3}$ wall per hour. Together they paint $\dfrac{1}{6}+\dfrac{2}{6}=\dfrac{1}{2}$ wall per hour. One wall takes $1\div\dfrac{1}{2}=2$ hours.
 
   - id: q-algebra-word-problems-0004
     type: word-problem
@@ -75,19 +70,19 @@ questions:
     stem: |
       A sari-sari store owner has 10 liters of a $10\%$ sugar syrup solution. How many liters of pure sugar are in this solution?
     choices:
-      - text: $1\text{ liter}$
+      - text: '$1\text{ liter}$'
         correct: true
-      - text: $0.1\text{ liters}$
+      - text: '$0.1\text{ liters}$'
         rationale: |
-          You turned 10% into 0.1 liter instead of taking 10% of 10 liters. Ten percent of 10 is 1.
-      - text: $9\text{ liters}$
+          This reports the decimal form of $10\%$ as a volume. Converting the percentage is a valid first step. Check that it is multiplied by the total volume.
+      - text: '$9\text{ liters}$'
         rationale: |
-          You found the amount of water, not the amount of sugar. The question asks for the pure sugar part.
-      - text: $2\text{ liters}$
+          This reports the nonsugar portion. Subtracting the sugar leaves another meaningful amount. Check which substance is requested.
+      - text: '$10\text{ liters}$'
         rationale: |
-          You doubled the sugar amount. A 10% solution has 1 liter of sugar in 10 liters, not 2.
+          This reports the entire solution volume. Sugar is part of that solution. Check that only $10\%$ of the volume is sugar.
     explanation: |
-      Amount of pure sugar $= 10\text{ liters} \times 0.10 = 1\text{ liter}$. The remaining 9 liters is water.
+      Ten percent is $0.10$. Multiply the solution volume by this fraction: $10(0.10)=1$ liter of sugar.
 
   - id: q-algebra-word-problems-0005
     type: word-problem
@@ -95,43 +90,39 @@ questions:
     stem: |
       Aling Nena has a coin pouch containing only 1-peso coins and 5-peso coins. She has a total of 15 coins worth P47. How many 5-peso coins does she have?
     choices:
-      - text: $8$
+      - text: '$8$'
         correct: true
-      - text: $7$
+      - text: '$7$'
         rationale: |
-          You used too few 5-peso coins. Seven 5-peso coins leave 8 one-peso coins, and the total would be only P43.
-      - text: $9$
+          This reports the count of one-peso coins. That count is also found during the calculation. Check the denomination requested.
+      - text: '$6.4$'
         rationale: |
-          You used too many 5-peso coins. Nine 5-peso coins and six 1-peso coins add up to P51, not P47.
-      - text: $10$
+          This divides the extra value by $5$ instead of $5-1$. Five pesos is the larger coin value. Check the value gained when one one-peso coin is replaced.
+      - text: '$9.4$'
         rationale: |
-          You treated the higher-value coin count as too large. Ten 5-peso coins already make P50 before adding any 1-peso coins.
+          This divides all $47$ pesos by $5$. That works if every coin has the same value. Check that both denominations are present.
     explanation: |
-      Let $y$ be the number of 5-peso coins. Then the number of 1-peso coins is $15 - y$.
-      Total value: $1(15 - y) + 5y = 47 \implies 15 + 4y = 47 \implies 4y = 32 \implies y = 8$.
-      She has 8 5-peso coins (P40) and 7 1-peso coins (P7).
+      Let $y$ be the number of $5$-peso coins. There are $15-y$ one-peso coins. Their value gives $(15-y)+5y=47$. Combine terms: $15+4y=47$. Subtract $15$ and divide by $4$ to get $y=8$.
 
   - id: q-algebra-word-problems-0006
-    type: word-problem
+    type: error-spotting
     difficulty: easy
     stem: |
-      Lito has 20 coins consisting of 5-peso coins and 10-peso coins. The total value of the coins is P160. How many 10-peso coins does Lito have?
+      Lito has $20$ coins consisting of five-peso and ten-peso coins, worth $160$ pesos. Let $f$ and $t$ be their respective counts. A student writes $f+t=20$ and $f+10t=160$. What should replace the second equation?
     choices:
-      - text: $12$
+      - text: '$5f+10t=160$'
         correct: true
-      - text: $8$
+      - text: '$5f+5t=160$'
         rationale: |
-          You found the number of 5-peso coins instead of the number of 10-peso coins. The question asks for the 10-peso coins.
-      - text: $10$
+          This applies $5$ pesos to both coin counts. Both denominations are coins in the same pouch. Check the value of each kind separately.
+      - text: '$10f+5t=160$'
         rationale: |
-          You may have split the 20 coins too evenly. But ten 10-peso coins and ten 5-peso coins total only P150.
-      - text: $14$
+          This swaps the coin values. Both coefficients belong to the problem. Check that each coefficient matches its named count.
+      - text: '$5f+10t=20$'
         rationale: |
-          You used too many 10-peso coins. Fourteen tens and six fives would give P170, not P160.
+          This uses the total count as the total value. Both totals describe the same pouch. Check whether the equation counts coins or pesos.
     explanation: |
-      Let $t$ be the number of 10-peso coins. The number of 5-peso coins is $20 - t$.
-      Total value: $5(20 - t) + 10t = 160 \implies 100 + 5t = 160 \implies 5t = 60 \implies t = 12$.
-      Lito has 12 10-peso coins (P120) and 8 5-peso coins (P40).
+      Each $5$-peso coin contributes $5$ pesos, and each $10$-peso coin contributes $10$ pesos. Multiplying each count by its coin value gives the value equation $5f+10t=160$.
 
   - id: q-algebra-word-problems-0007
     type: word-problem
@@ -139,22 +130,19 @@ questions:
     stem: |
       A mother is currently 4 times as old as her daughter Ana. In 6 years, the mother will be 3 times as old as Ana. How old is Ana now?
     choices:
-      - text: $12\text{ years old}$
+      - text: '$12\text{ years old}$'
         correct: true
-      - text: $48\text{ years old}$
+      - text: '$48\text{ years old}$'
         rationale: |
-          You found the mother's age instead of Ana's. The question asks for the daughter's current age.
-      - text: $10\text{ years old}$
+          This reports the mother's age. It is another valid age found from the same equation. Check which person is asked about.
+      - text: '$18\text{ years old}$'
         rationale: |
-          You may have forgotten that both ages increase by 6 years in the future condition. That shifts the ratio equation.
-      - text: $16\text{ years old}$
+          This omits the mother's six-year increase, giving $4a=3(a+6)$. The future ratio is still visible. Check that time passes for both people.
+      - text: '$6\text{ years old}$'
         rationale: |
-          You made Ana too old. If Ana were 16 now, her mother would be 64 now, and the future ratio would not be 3 to 1.
+          This halves the solved age again, treating $12$ as the total for two people. Dividing a combined age by $2$ is familiar. Check what the variable represents.
     explanation: |
-      Let Ana's current age be $a$. Her mother's current age is $4a$.
-      In 6 years, Ana will be $a + 6$ and mother will be $4a + 6$.
-      Set up equation: $4a + 6 = 3(a + 6) \implies 4a + 6 = 3a + 18 \implies a = 12$.
-      Ana is 12 years old now (and her mother is 48).
+      Let $a$ be Ana's age now. Her mother is $4a$. In six years, both ages increase by $6$, so $4a+6=3(a+6)$. Expand to get $4a+6=3a+18$. Subtract $3a$ and $6$ to get $a=12$.
 
   - id: q-algebra-word-problems-0008
     type: word-problem
@@ -162,21 +150,19 @@ questions:
     stem: |
       A jeepney leaves Terminal A traveling at $40\text{ km/h}$. One hour later, an express van leaves Terminal A along the exact same route traveling at $60\text{ km/h}$. How many hours after the van starts will it catch up to the jeepney?
     choices:
-      - text: $2\text{ hours}$
+      - text: '$2\text{ hours}$'
         correct: true
-      - text: $3\text{ hours}$
+      - text: '$3\text{ hours}$'
         rationale: |
-          You added the jeepney's 1-hour head start to the catch-up time. The question asks for the time after the van starts.
-      - text: $1\text{ hour}$
+          This includes the jeepney's one-hour head start. The total elapsed time is a meaningful result. Check when the requested clock starts.
+      - text: '$\dfrac{2}{3}\text{ hour}$'
         rationale: |
-          You ignored the 40 km head start. The van gains on the jeepney by only 20 km each hour.
-      - text: $4\text{ hours}$
+          This divides the gap by the van's speed alone. That would work for a stationary target. Check that the jeepney keeps moving.
+      - text: '$0.4\text{ hour}$'
         rationale: |
-          You gave the van too long to catch up. After 4 hours, it would have passed the jeepney by a wide margin.
+          This adds the speeds to find the closing rate. Adding works for vehicles moving toward each other. Check that both vehicles move in the same direction.
     explanation: |
-      In the 1-hour head start, the jeepney covers $40\text{ km}$.
-      The relative closing speed of the van is $60\text{ km/h} - 40\text{ km/h} = 20\text{ km/h}$.
-      Time for van to catch up $= \frac{40\text{ km}}{20\text{ km/h}} = 2\text{ hours}$.
+      The jeepney's head start is $40(1)=40$ km. The van closes the gap at $60-40=20$ km/h. Closing $40$ km takes $\dfrac{40}{20}=2$ hours after the van starts.
 
   - id: q-algebra-word-problems-0009
     type: word-problem
@@ -184,21 +170,19 @@ questions:
     stem: |
       Ana can complete a research report in 8 hours. When Ana and Bea work together, they can complete the report in 3 hours. How many hours would it take Bea to complete the report alone?
     choices:
-      - text: $4.8\text{ hours}$
+      - text: '$4.8\text{ hours}$'
         correct: true
-      - text: $5\text{ hours}$
+      - text: '$5\text{ hours}$'
         rationale: |
-          You rounded the final answer too early. Bea's time comes out to 4.8 hours, not 5 exactly.
-      - text: $5.5\text{ hours}$
+          This subtracts $3$ hours from $8$ hours. The given times are easy to subtract. Check that work rates, not solo times, combine.
+      - text: '$\dfrac{24}{11}\text{ hours}$'
         rationale: |
-          You made an error when subtracting the work rates. After $\dfrac{1}{3} - \dfrac{1}{8}$, Bea's rate is $\dfrac{5}{24}$, not a value that gives 5.5 hours.
-      - text: $2.4\text{ hours}$
+          This adds Ana's rate to the shared rate. Rate addition is used for two separate workers. Check that the shared rate already includes Ana.
+      - text: '$\dfrac{5}{24}\text{ hour}$'
         rationale: |
-          You stopped at half the needed time. Bea alone must be slower than the two of them together, not faster.
+          This reports Bea's rate as her time. The rate is a useful intermediate result. Check the units and take its reciprocal for hours.
     explanation: |
-      Ana's work rate is $\frac{1}{8}$ report per hour. Let Bea's rate be $\frac{1}{B}$.
-      Combined rate: $\frac{1}{8} + \frac{1}{B} = \frac{1}{3} \implies \frac{1}{B} = \frac{1}{3} - \frac{1}{8} = \frac{8 - 3}{24} = \frac{5}{24}$.
-      Time for Bea alone $= \frac{24}{5} = 4.8\text{ hours}$.
+      Together they complete $\dfrac{1}{3}$ report per hour. Ana completes $\dfrac{1}{8}$ report per hour. Bea's rate is $\dfrac{1}{3}-\dfrac{1}{8}=\dfrac{5}{24}$. Her time is the reciprocal, $\dfrac{24}{5}=4.8$ hours.
 
   - id: q-algebra-word-problems-0010
     type: word-problem
@@ -206,21 +190,19 @@ questions:
     stem: |
       A chemistry teacher in Cebu needs 20 liters of a $20\%$ salt solution. She has a $10\%$ salt solution and a $30\%$ salt solution available. How many liters of the $30\%$ salt solution should she mix with the $10\%$ solution to obtain the desired mixture?
     choices:
-      - text: $10\text{ liters}$
+      - text: '$10\text{ liters}$'
         correct: true
-      - text: $5\text{ liters}$
+      - text: '$4\text{ liters}$'
         rationale: |
-          You used too little of the stronger solution. Five liters of 30% mixed with 15 liters of 10% gives only 3 liters of salt.
-      - text: $15\text{ liters}$
+          This reports the liters of salt needed. That amount is part of the mixture equation. Check whether the question asks for salt or solution.
+      - text: '$20\text{ liters}$'
         rationale: |
-          You used too much of the stronger solution. Fifteen liters of 30% would make the mixture saltier than 20%.
-      - text: $8\text{ liters}$
+          This uses the entire final volume as strong solution. The total volume is stated clearly. Check that some weak solution must also be included.
+      - text: '$\dfrac{40}{3}\text{ liters}$'
         rationale: |
-          You solved the mixture equation too low. With 8 liters of 30% solution, the salt total would be 3.6 liters, not 4.
+          This supplies all salt from the strong solution and ignores salt in the weak solution. Dividing $4$ by $0.30$ looks direct. Check the salt contribution from both liquids.
     explanation: |
-      Let $x$ be the liters of $30\%$ solution. Then $20 - x$ is the volume of $10\%$ solution.
-      Equation for salt mass: $0.30x + 0.10(20 - x) = 0.20(20)$
-      $0.30x + 2 - 0.10x = 4 \implies 0.20x = 2 \implies x = 10\text{ liters}$.
+      Let $x$ be the liters of strong solution. The weak solution has volume $20-x$. The salt balance is $0.30x+0.10(20-x)=0.20(20)$. Expand and combine: $0.20x+2=4$. Subtract $2$ and divide by $0.20$ to get $x=10$ liters.
 
   - id: q-algebra-word-problems-0011
     type: word-problem
@@ -228,22 +210,19 @@ questions:
     stem: |
       The sum of the ages of Carlo and his father is 56. Four years ago, the father was 3 times as old as Carlo was then. How old is Carlo now?
     choices:
-      - text: $16\text{ years old}$
+      - text: '$16\text{ years old}$'
         correct: true
-      - text: $40\text{ years old}$
+      - text: '$40\text{ years old}$'
         rationale: |
-          You found the father's age instead of Carlo's. The question asks for Carlo's current age.
-      - text: $14\text{ years old}$
+          This reports the father's age. Both ages are found from the same total. Check which person is requested.
+      - text: '$14\text{ years old}$'
         rationale: |
-          You likely shifted the ages back 4 years incorrectly. Both Carlo and his father must be adjusted in the past condition.
-      - text: $18\text{ years old}$
+          This applies the three-to-one ratio to current ages. That gives a simple division of the total into four parts. Check the time named for the ratio.
+      - text: '$12\text{ years old}$'
         rationale: |
-          You made Carlo too old. If Carlo were 18 now, four years ago his father would not be exactly 3 times his age.
+          This reports Carlo's age four years ago. The past age is needed to build the equation. Check whether the requested age is now or then.
     explanation: |
-      Let Carlo's current age be $c$. His father's current age is $56 - c$.
-      Four years ago: Carlo was $c - 4$, father was $(56 - c) - 4 = 52 - c$.
-      Equation: $52 - c = 3(c - 4) \implies 52 - c = 3c - 12 \implies 4c = 64 \implies c = 16$.
-      Carlo is 16 years old now (father is 40).
+      Let $c$ be Carlo's age now. His father is $56-c$. Four years ago their ages were $c-4$ and $52-c$. Thus $52-c=3(c-4)$. Expand to get $52-c=3c-12$. Add $c$ and $12$: $64=4c$. Hence $c=16$.
 
   - id: q-algebra-word-problems-0012
     type: word-problem
@@ -251,21 +230,19 @@ questions:
     stem: |
       A jeepney driver has P280 in 5-peso coins and 10-peso coins. If the number of 5-peso coins is 8 more than twice the number of 10-peso coins, how many 10-peso coins does he have?
     choices:
-      - text: $12$
+      - text: '$12$'
         correct: true
-      - text: $32$
+      - text: '$32$'
         rationale: |
-          You found the number of 5-peso coins, not the number of 10-peso coins. The question asks for the 10-peso coins.
-      - text: $10$
+          This reports the five-peso coin count. That count is calculated from the ten-peso count. Check the denomination requested.
+      - text: '$14$'
         rationale: |
-          You likely used the coin values but ignored the extra 8 coins in the relationship. That missing 8 changes the equation.
-      - text: $16$
+          This omits the extra $8$ five-peso coins. The twice-as-many relationship still appears. Check every part of the count relationship.
+      - text: '$13.6$'
         rationale: |
-          You used too many 10-peso coins. That would make the pouch worth more than P280 once the matching 5-peso coins are included.
+          This adds $8$ pesos instead of the value of $8$ five-peso coins. The number $8$ is copied directly from the stem. Check that coin counts are multiplied by their values.
     explanation: |
-      Let $t$ be the number of 10-peso coins. The number of 5-peso coins is $2t + 8$.
-      Total value: $10t + 5(2t + 8) = 280 \implies 10t + 10t + 40 = 280 \implies 20t = 240 \implies t = 12$.
-      He has 12 10-peso coins (and $2(12)+8 = 32$ 5-peso coins).
+      Let $t$ be the number of ten-peso coins. The five-peso coin count is $2t+8$. Their value gives $10t+5(2t+8)=280$. Expand: $20t+40=280$. Subtract $40$ and divide by $20$ to get $t=12$.
 
   - id: q-algebra-word-problems-0013
     type: word-problem
@@ -273,22 +250,19 @@ questions:
     stem: |
       Five years ago, Mr. Santos was 5 times as old as his son Mark. In 10 years, Mr. Santos will be twice as old as Mark. How old is Mark today?
     choices:
-      - text: $10\text{ years old}$
+      - text: '$10\text{ years old}$'
         correct: true
-      - text: $30\text{ years old}$
+      - text: '$30\text{ years old}$'
         rationale: |
-          You found Mr. Santos' age instead of Mark's. The question asks for the son's current age.
-      - text: $15\text{ years old}$
+          This reports the father's age. It is also found while solving the two equations. Check whose current age is requested.
+      - text: '$15\text{ years old}$'
         rationale: |
-          You may have used only the future condition and skipped the one from 5 years ago. Both time statements must fit together.
-      - text: $8\text{ years old}$
+          This reports Mark's age five years from now. Adding a time shift can seem like the last step. Check which time the question asks for.
+      - text: '$5\text{ years old}$'
         rationale: |
-          You made Mark too young. If Mark were 8 now, the age relationships from 5 years ago and 10 years from now would not both work.
+          This reports Mark's age five years ago. That age appears in the first condition. Check that the requested age is today.
     explanation: |
-      Let Mark's current age be $m$ and Mr. Santos' current age be $s$.
-      5 years ago: $s - 5 = 5(m - 5) \implies s = 5m - 20$.
-      In 10 years: $s + 10 = 2(m + 10) \implies s = 2m + 10$.
-      Equating $s$: $5m - 20 = 2m + 10 \implies 3m = 30 \implies m = 10$. Mark is 10 years old (Mr. Santos is 30).
+      Let $m$ be Mark's age now and $s$ his father's. Five years ago, $s-5=5(m-5)$, so $s=5m-20$. In ten years, $s+10=2(m+10)$, so $s=2m+10$. Equate these: $5m-20=2m+10$. Thus $3m=30$ and $m=10$.
 
   - id: q-algebra-word-problems-0014
     type: word-problem
@@ -296,20 +270,19 @@ questions:
     stem: |
       Two motorized outrigger boats (bangkas) start from the same port in Batangas at the same time, traveling in opposite directions. One boat travels at an average speed of $25\text{ km/h}$ and the other at $35\text{ km/h}$. After how many hours will they be $180\text{ km}$ apart?
     choices:
-      - text: $3\text{ hours}$
+      - text: '$3\text{ hours}$'
         correct: true
-      - text: $18\text{ hours}$
+      - text: '$18\text{ hours}$'
         rationale: |
-          You used the wrong speed idea. When objects move in opposite directions, you add their speeds instead of subtracting them.
-      - text: $4.5\text{ hours}$
+          This subtracts $25$ from $35$ to find the separation rate. Speed differences work for a chase. Check whether the boats move apart or follow each other.
+      - text: '$\dfrac{36}{7}\text{ hours}$'
         rationale: |
-          You used a speed that was too small. The boats separate at 60 km/h together, so 180 km takes 3 hours.
-      - text: $2\text{ hours}$
+          This uses only the faster boat's $35$ km/h speed. One boat alone does travel away from the port. Check that both boats add to the gap.
+      - text: '$6\text{ hours}$'
         rationale: |
-          You did not allow enough time for the boats to get 180 km apart. In 2 hours, they would be only 120 km apart.
+          This averages the speeds before dividing the distance. An average seems natural for two speeds. Check that separation uses the sum of distances.
     explanation: |
-      Since they move in opposite directions, their speeds add up: combined speed $= 25\text{ km/h} + 35\text{ km/h} = 60\text{ km/h}$.
-      Time $= \frac{\text{Distance}}{\text{Combined Speed}} = \frac{180\text{ km}}{60\text{ km/h}} = 3\text{ hours}$.
+      The boats separate at $25+35=60$ km/h. Divide the required gap by this rate: $t=\dfrac{180}{60}=3$ hours.
 
   - id: q-algebra-word-problems-0015
     type: word-problem
@@ -317,20 +290,19 @@ questions:
     stem: |
       Pipe A can fill a water tank in Davao in 4 hours, while Pipe B can fill the same tank in 6 hours. Drain Pipe C can empty the full tank in 12 hours. If all three pipes are opened at the same time when the tank is empty, how many hours will it take to fill the tank?
     choices:
-      - text: $3\text{ hours}$
+      - text: '$3\text{ hours}$'
         correct: true
-      - text: $2.4\text{ hours}$
+      - text: '$2.4\text{ hours}$'
         rationale: |
-          You treated the fill rate as too large. The drain pipe slows the process, so the tank cannot fill faster than 3 hours.
-      - text: $4\text{ hours}$
+          This ignores the drain. Adding the two fill rates is a correct start. Check for a rate that removes water.
+      - text: '$4\text{ hours}$'
         rationale: |
-          You likely used only Pipe A's rate. The second fill pipe helps, even after the drain is subtracted.
-      - text: $6\text{ hours}$
+          This uses only Pipe A's rate. Pipe A can fill the tank by itself. Check the effect of every open pipe.
+      - text: '$2\text{ hours}$'
         rationale: |
-          You made the job too slow by not combining the rates correctly. The two fill pipes together beat the drain by a lot.
+          This counts the drain as a third filling pipe. All three rates are stated as positive fractions. Check the direction of each flow.
     explanation: |
-      Net rate $= \frac{1}{4} + \frac{1}{6} - \frac{1}{12} = \frac{3}{12} + \frac{2}{12} - \frac{1}{12} = \frac{4}{12} = \frac{1}{3}$ tank per hour.
-      Time required $= \frac{1}{1/3} = 3\text{ hours}$.
+      The fill rates are $\dfrac{1}{4}$ and $\dfrac{1}{6}$ tank per hour. The drain removes $\dfrac{1}{12}$ tank per hour. The net rate is $\dfrac{3+2-1}{12}=\dfrac{1}{3}$ tank per hour. Filling one tank takes $1\div\dfrac{1}{3}=3$ hours.
 
   - id: q-algebra-word-problems-0016
     type: word-problem
@@ -338,21 +310,19 @@ questions:
     stem: |
       How many liters of pure water must be added to 12 liters of a $25\%$ sugar solution to dilute it into a $10\%$ sugar solution?
     choices:
-      - text: $18\text{ liters}$
+      - text: '$18\text{ liters}$'
         correct: true
-      - text: $30\text{ liters}$
+      - text: '$30\text{ liters}$'
         rationale: |
-          You found the final total volume instead of the water added. The tank ends at 30 liters, but it started with 12.
-      - text: $15\text{ liters}$
+          This reports the final volume. That is a needed intermediate result. Check that the question asks only for added water.
+      - text: '$15\text{ liters}$'
         rationale: |
-          You added too little water. With only 15 liters added, the sugar concentration would still be above 10%.
-      - text: $6\text{ liters}$
+          This subtracts $10$ from $25$ and calls the percentage-point drop a volume. The two percentage numbers are easy to subtract. Check that percent and liters have different units.
+      - text: '$6\text{ liters}$'
         rationale: |
-          You treated the percent drop too simply. The sugar amount stays at 3 liters, so the total volume has to grow much more.
+          This treats added water as half the original volume. Dilution does increase the volume. Check that the unchanged sugar volume equals $10\%$ of the final mixture.
     explanation: |
-      Amount of pure sugar in original solution $= 12 \times 0.25 = 3\text{ liters}$.
-      Let $w$ be the liters of pure water added. Total solution volume $= 12 + w$.
-      Set concentration to $10\%$: $\frac{3}{12 + w} = 0.10 \implies 3 = 0.10(12 + w) \implies 30 = 12 + w \implies w = 18\text{ liters}$.
+      The sugar volume stays $12(0.25)=3$ liters. For a $10\%$ solution, the total volume must satisfy $0.10V=3$. Thus $V=30$ liters. Subtract the original volume: $30-12=18$ liters of water.
 
   - id: q-algebra-word-problems-0017
     type: word-problem
@@ -360,21 +330,19 @@ questions:
     stem: |
       A tricycle driver travels $12\text{ km}$ uphill from the town center to a mountain village at a speed of $15\text{ km/h}$. On the return trip downhill along the exact same route, his speed increases to $30\text{ km/h}$. What is the average speed of the tricycle for the entire round trip?
     choices:
-      - text: $20\text{ km/h}$
+      - text: '$20\text{ km/h}$'
         correct: true
-      - text: $22.5\text{ km/h}$
+      - text: '$22.5\text{ km/h}$'
         rationale: |
-          You took the arithmetic mean of 15 and 30. Average speed over equal distances uses total distance divided by total time.
-      - text: $25\text{ km/h}$
+          This averages $15$ and $30$ directly. That works for equal travel times. Check that these trips have equal distances instead.
+      - text: '$10\text{ km/h}$'
         rationale: |
-          You made the average too high. The slower uphill trip lasts longer, so it pulls the round-trip average below the simple midpoint.
-      - text: $18\text{ km/h}$
+          This uses one-way distance over total time. The distance $12$ km is given once in the stem. Check that both legs are included.
+      - text: '$30\text{ km/h}$'
         rationale: |
-          You made the average too low. The total distance is 24 km and the total time is 1.2 hours, which gives 20 km/h.
+          This divides round-trip distance by the uphill time only. That time is the longer part of the trip. Check that the return trip also takes time.
     explanation: |
-      Time uphill $= \frac{12}{15} = 0.8\text{ hours}$. Time downhill $= \frac{12}{30} = 0.4\text{ hours}$.
-      Total distance $= 12 + 12 = 24\text{ km}$. Total time $= 0.8 + 0.4 = 1.2\text{ hours}$.
-      Average speed $= \frac{\text{Total Distance}}{\text{Total Time}} = \frac{24}{1.2} = 20\text{ km/h}$. (Note: taking the arithmetic mean $\frac{15+30}{2} = 22.5$ is a common distractor error).
+      The uphill time is $\dfrac{12}{15}=0.8$ hours. The downhill time is $\dfrac{12}{30}=0.4$ hours. Total distance is $24$ km, and total time is $1.2$ hours. The average speed is $\dfrac{24}{1.2}=20$ km/h.
 
   - id: q-algebra-word-problems-0018
     type: word-problem
@@ -382,19 +350,58 @@ questions:
     stem: |
       A vendor in Divisoria has P430 in a pouch containing 5-peso coins, 10-peso coins, and 20-peso coins. There are equal numbers of 5-peso and 10-peso coins, and the number of 20-peso coins is 3 less than the number of 5-peso coins. How many total coins are in the pouch?
     choices:
-      - text: $39\text{ coins}$
+      - text: '$39\text{ coins}$'
         correct: true
-      - text: $14\text{ coins}$
+      - text: '$14\text{ coins}$'
         rationale: |
-          You found only the number in each of the equal groups. The pouch also has 11 coins worth 20 pesos each.
-      - text: $42\text{ coins}$
+          This reports only the count of each smaller coin. The variable does stand for a coin count. Check that all three groups are added.
+      - text: '$42\text{ coins}$'
         rationale: |
-          You forgot that the 20-peso coin count is 3 less, not the same. That last group should be 11, not 14.
-      - text: $36\text{ coins}$
+          This assumes three equal coin counts. Two of the counts are equal. Check the stated difference for the twenty-peso coins.
+      - text: '$36\text{ coins}$'
         rationale: |
-          You undercounted one group. After finding 14, 14, and 11 coins, you still need to add all three groups together.
+          This also subtracts $3$ from the ten-peso coin count. The smaller count for twenty-peso coins can seem to apply to another group. Check which single group has fewer coins.
     explanation: |
-      Let $x$ be the number of 5-peso coins and 10-peso coins. The number of 20-peso coins is $x - 3$.
-      Total value: $5x + 10x + 20(x - 3) = 430 \implies 35x - 60 = 430 \implies 35x = 490 \implies x = 14$.
-      5-peso coins $= 14$, 10-peso coins $= 14$, 20-peso coins $= 14 - 3 = 11$.
-      Total coins $= 14 + 14 + 11 = 39\text{ coins}$.
+      Let $x$ be the count of each smaller coin. The twenty-peso coin count is $x-3$. The value equation is $5x+10x+20(x-3)=430$. Combine terms: $35x-60=430$. Thus $35x=490$ and $x=14$. The total count is $14+14+(14-3)=39$.
+
+  - id: q-algebra-word-problems-0019
+    type: word-problem
+    difficulty: medium
+    stem: |
+      The tens digit of a two-digit number is twice its units digit. The digits sum to $12$. What is the number?
+    choices:
+      - text: '$84$'
+        correct: true
+      - text: '$48$'
+        rationale: |
+          This reverses the digits. Both digits were found correctly. Check that the larger digit belongs in the tens place.
+      - text: '$12$'
+        rationale: |
+          This reports the digit sum. That is one of the given conditions. Check that a two-digit number has value $10t+u$.
+      - text: '$804$'
+        rationale: |
+          This multiplies the tens digit by $100$ instead of $10$. Place value does require multiplication. Check that a two-digit number has no hundreds place.
+    explanation: |
+      Let $u$ be the units digit. The tens digit is $2u$. Their sum gives $2u+u=12$, so $u=4$ and the tens digit is $8$. The number is $10(8)+4=84$.
+    approved: false
+
+  - id: q-algebra-word-problems-0020
+    type: error-spotting
+    difficulty: exam
+    stem: |
+      A shop has $8$ liters of a $50\%$ solution and adds $x$ liters of a $20\%$ solution to make a $30\%$ solution. A student writes $0.50(8)+0.20x=0.30(8)$. What correction is needed?
+    choices:
+      - text: 'Use $8+x$ as final volume.'
+        correct: true
+      - text: 'Use $0.50(8+x)$ on the left.'
+        rationale: |
+          This applies the original concentration to the entire final volume. The original liquid remains part of the mixture. Check that added liquid has its own concentration.
+      - text: 'Replace $0.20x$ with $x$.'
+        rationale: |
+          This treats the added solution as pure substance. Its volume does enter the mixture. Check that only $20\%$ of that volume is the tracked substance.
+      - text: 'Use $0.30x$ on the right.'
+        rationale: |
+          This omits the original $8$ liters from the final volume. The unknown is easy to treat as the total. Check that the two solution volumes add.
+    explanation: |
+      The final mixture contains the original $8$ liters plus the added $x$ liters. Its total volume is $8+x$. Its pure substance amount is therefore $0.30(8+x)$, which must equal the amount entering the mixture.
+    approved: false

@@ -40,11 +40,11 @@ void main() {
   });
 
   test('the DPO link is mail to the address, with nothing filled in', () async {
-    await openDpoMail('dpo@pantas.app', open: record);
+    await openDpoMail('dpo@pantas.study', open: record);
 
     final url = opened.single;
     expect(url.scheme, 'mailto');
-    expect(url.path, 'dpo@pantas.app');
+    expect(url.path, 'dpo@pantas.study');
     // No subject, no body. We do not put words in a student's mouth about
     // their own data.
     expect(url.queryParameters, isEmpty);

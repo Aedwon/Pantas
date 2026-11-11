@@ -1,0 +1,39 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart
+00:00 +0: packs actual whole groups under cap, excludes oversized sets, All stays one chunk
+00:00 +1: freezes membership, captures versions and persists actual 3 sessions
+00:00 +2: cancel during transaction rolls back metadata and first session together
+00:00 +3: duplicate concurrent starts return the same authoritative active session
+00:00 +4: completion advances atomically and explicit concurrent Continue claims one next row
+00:00 +5: failed metadata terminal write rolls back Attempt and completedAt
+00:00 +6: next create failure rolls back lifecycle and retry claims stored chunk
+00:00 +7: never quits a different custom session to claim Reviews
+00:00 +8: changed lifetime during hydration cancels without writes
+00:00 +9: wrong principal cannot use metadata without changing authoritative progress
+00:00 +10: missing content blocks resume with saved membership and answers unchanged
+00:00 +11: revised content blocks batch resume and retains original versions
+00:00 +12: malformed metadata cannot claim next and keeps active row for explicit discard
+00:00 +13: final completion removes metadata, earlier duplicate completion cannot advance twice
+00:00 +14: ordinary create cannot silently discard an unfinished Reviews batch
+00:00 +15: actual account wipe leaves prefs and next use removes orphan metadata
+00:00 +16: lifetime change while content is awaited rolls back first session
+00:00 +17: different exam cannot claim an existing batch
+00:00 +18: legacy resume rejects missing IDs rather than shrinking saved questions
+00:00 +19: completion account change rolls back Attempt and batch state
+00:00 +20: completion cannot save a different question order under a batch session ID
+00:00 +21: packing closes a shorter chunk before a whole passage exceeds remaining room
+00:00 +22: strict parser rejects malformed lifecycle, types, scope and duplicate membership
+00:00 +23: ordinary resume retains actual batch ordinal and completion keeps that snapshot
+00:00 +24: wrong-principal repeated resume stays blocked until original principal returns
+00:00 +25: metadata schema version requires an integer rather than an equal double
+00:00 +26: stale historical quit cannot delete a newer active Reviews batch
+00:00 +27: ordinary quiz between chunks preserves Reviews and Continue never quits it
+00:00 +28: resume guards lifetime from before its first database await
+00:00 +29: another principal cannot discard an anchored batch or its saved row
+00:00 +30: explicit inter-chunk discard preserves unrelated quiz and frees Reviews key
+00:00 +31: completing ordinary quiz between chunks leaves Reviews lifecycle intact
+00:00 +32: first metadata write failure rolls back its new ordinary session row
+00:00 +33: completion guards lifetime before its first metadata database await
+00:00 +34: explicit malformed batch discard keeps ordinary progress available
+00:00 +35: stale completed screen cannot claim the third session
+00:00 +36: explicit next duplicates retain one row and reject changed answers
+00:00 +37: All tests passed!

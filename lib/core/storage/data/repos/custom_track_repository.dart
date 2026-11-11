@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:drift/drift.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
@@ -133,7 +135,29 @@ class CustomTrackRepository {
   Future<void> setExcluded({
     required ExamId examId,
     required Set<TopicId> topicIds,
+    Set<LessonId>? lessonIds,
+  }) =>
+      _db.transaction(
+        () => _setExcluded(
+          examId: examId,
+          topicIds: topicIds,
+          lessonIds: lessonIds,
+        ),
+      );
+
+  Future<void> _setExcluded({
+    required ExamId examId,
+    required Set<TopicId> topicIds,
+    Set<LessonId>? lessonIds,
   }) async {
+    if (lessonIds != null) {
+      await _db.into(_db.accountPrefs).insertOnConflictUpdate(
+            AccountPrefsCompanion.insert(
+              key: _lessonKey(examId),
+              value: jsonEncode(lessonIds.toList()..sort()),
+            ),
+          );
+    }
     final current = await excludedTopicIds(examId);
     final added = topicIds.difference(current);
     final removed = current.difference(topicIds);
@@ -184,6 +208,9 @@ class CustomTrackRepository {
   }
 
   Future<void> delete(ExamId examId) async {
+    await (_db.delete(_db.accountPrefs)
+          ..where((p) => p.key.equals(_lessonKey(examId))))
+        .go();
     final meta = await _customTrackMeta(examId);
     final scope = await excludedTopicIds(examId);
     if (meta == null && scope.isEmpty) return;
@@ -226,6 +253,18 @@ class CustomTrackRepository {
           ..where((s) => s.examId.equals(examId)))
         .get();
     return {for (final row in rows) row.topicId};
+  }
+
+  // Account-bound preferences need no schema change and are cleared by the
+  // existing account-boundary wipe. Topic rows keep their sync contract.
+  String _lessonKey(ExamId examId) => 'settings.excluded_lessons.$examId';
+
+  Future<Set<LessonId>> excludedLessonIds(ExamId examId) async {
+    final row = await (_db.select(_db.accountPrefs)
+          ..where((p) => p.key.equals(_lessonKey(examId))))
+        .getSingleOrNull();
+    if (row == null) return {};
+    return (jsonDecode(row.value) as List).cast<String>().toSet();
   }
 
   Future<bool> projectionRequired(ExamId examId) async {

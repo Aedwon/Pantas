@@ -12,14 +12,14 @@ void main() {
     );
 
     lifecycle
-      ..paused()
+      ..paused(DateTime.utc(2026))
       ..elapse(const Duration(seconds: 10));
 
     expect(forfeited, isFalse);
   });
 
   test(
-    'strict lifecycle forfeits only after more than five seconds backgrounded',
+    'strict lifecycle forfeits only after more than ten seconds backgrounded',
     () {
       var forfeits = 0;
       final lifecycle = StrictModeLifecycle(
@@ -28,20 +28,20 @@ void main() {
       );
 
       lifecycle
-        ..paused()
-        ..elapse(const Duration(seconds: 5));
+        ..paused(DateTime.utc(2026))
+        ..elapse(const Duration(seconds: 10));
       expect(forfeits, 0);
 
       lifecycle.elapse(const Duration(milliseconds: 1));
       expect(forfeits, 1);
 
-      lifecycle.elapse(const Duration(seconds: 10));
+      lifecycle.elapse(const Duration(seconds: 20));
       expect(forfeits, 1);
     },
   );
 
   test(
-    'strict lifecycle cancels guard when app resumes within five seconds',
+    'strict lifecycle cancels guard when app resumes within ten seconds',
     () {
       var forfeited = false;
       final lifecycle = StrictModeLifecycle(
@@ -50,12 +50,27 @@ void main() {
       );
 
       lifecycle
-        ..paused()
-        ..elapse(const Duration(seconds: 4))
-        ..resumed()
-        ..elapse(const Duration(seconds: 10));
+        ..paused(DateTime.utc(2026))
+        ..elapse(const Duration(seconds: 9))
+        ..resumed(DateTime.utc(2026).add(const Duration(seconds: 9)))
+        ..elapse(const Duration(seconds: 20));
 
       expect(forfeited, isFalse);
     },
   );
+
+  test('strict lifecycle catches a suspended timer from wall time', () {
+    var forfeited = false;
+    final lifecycle = StrictModeLifecycle(
+      strictMode: true,
+      onForfeit: () => forfeited = true,
+    );
+    final backgroundedAt = DateTime.utc(2026);
+
+    lifecycle
+      ..paused(backgroundedAt)
+      ..resumed(backgroundedAt.add(const Duration(seconds: 11)));
+
+    expect(forfeited, isTrue);
+  });
 }

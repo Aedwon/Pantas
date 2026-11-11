@@ -10,28 +10,19 @@ questions:
     stem: |
       What is the prime factorization of $180$?
     choices:
-      - text: "$1 \\times 2^2 \\times 3^2 \\times 5$"
+      - text: '$1 \times 2^2 \times 3^2 \times 5$'
         rationale: |
-          You included 1 as a prime factor, but 1 is not a prime number.
-      - text: "$2^2 \\times 9 \\times 5$"
+          This includes one as a prime factor. One is a divisor of every integer. Check that each prime has exactly two positive factors.
+      - text: '$2^2 \times 9 \times 5$'
         rationale: |
-          You left 9 as a composite factor instead of factoring it into 3^2.
-      - text: "$2^2 \\times 3^2 \\times 5$"
+          This leaves nine as a factor without breaking it into primes. Nine is a valid ordinary factor. Check that every factor is prime.
+      - text: '$2^2 \times 3^2 \times 5$'
         correct: true
-      - text: "$2^3 \\times 3 \\times 5$"
+      - text: '$2^3 \times 3 \times 5$'
         rationale: |
-          You calculated 8 * 3 * 5 = 120 instead of 180.
+          This trades a factor of three for a factor of two. Both products use small primes. Check that the product equals the original number.
     explanation: |
-      Divide $180$ by prime factors in sequence:
-      - $180 \div 2 = 90$
-      - $90 \div 2 = 45$
-      - $45 \div 3 = 15$
-      - $15 \div 3 = 5$
-      - $5$ is prime
-
-      Therefore: $180 = 2^2 \times 3^2 \times 5$
-
-      Distractors: Including 1 (not prime), using incomplete factorization (9 instead of $3^2$), or overcounting factors.
+      Divide by primes: $180=2(90)=2^2(45)=2^2(3)(15)=2^2(3^2)(5)$. All remaining factors are prime, so the factorization is $2^2\times3^2\times5$.
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0002
     type: direct-computation
@@ -39,27 +30,19 @@ questions:
     stem: |
       What is the Greatest Common Factor (GCF) of $72$ and $108$?
     choices:
-      - text: "$12$"
+      - text: '$12$'
         rationale: |
-          You picked a common factor (12) that is smaller than the greatest common factor (36).
-      - text: "$36$"
+          This uses only one factor of three instead of two. Twelve does divide both numbers. Check the smallest exponent of each shared prime.
+      - text: '$36$'
         correct: true
-      - text: "$72$"
+      - text: '$72$'
         rationale: |
-          You reported 72, which is a factor of 72 but not a factor of 108.
-      - text: "$216$"
+          This chooses the smaller original number without checking the other. A GCF cannot exceed the smaller number. Check that the result divides both numbers.
+      - text: '$216$'
         rationale: |
-          You calculated the Least Common Multiple (LCM) of 72 and 108 instead of the GCF.
+          This reports the LCM rather than the GCF. Both results use the same prime factorizations. Check whether a factor or a multiple is requested.
     explanation: |
-      Find prime factorizations:
-      - $72 = 2^3 \times 3^2$
-      - $108 = 2^2 \times 3^3$
-
-      For GCF, take the lowest power of each common prime:
-      - Factor 2: $\min(3, 2) = 2 \implies 2^2$
-      - Factor 3: $\min(2, 3) = 2 \implies 3^2$
-
-      GCF $= 2^2 \times 3^2 = 4 \times 9 = 36$
+      Factor the numbers: $72=2^3\times3^2$ and $108=2^2\times3^3$. The GCF uses each shared prime with its smaller exponent. Thus the GCF is $2^2\times3^2=36$.
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0003
     type: direct-computation
@@ -67,55 +50,39 @@ questions:
     stem: |
       What is the Least Common Multiple (LCM) of $24$ and $36$?
     choices:
-      - text: "$12$"
+      - text: '$12$'
         rationale: |
-          You calculated the Greatest Common Factor (GCF) of 24 and 36 instead of the LCM.
-      - text: "$36$"
+          This reports the GCF instead of the LCM. Both concepts combine factors. Check whether a multiple or a factor is requested.
+      - text: '$36$'
         rationale: |
-          You selected 36, which is divisible by 36 but not divisible by 24.
-      - text: "$72$"
+          This chooses the larger original number without checking the other. Thirty-six is already a multiple of itself. Check that the answer is a multiple of both numbers.
+      - text: '$72$'
         correct: true
-      - text: "$864$"
+      - text: '$864$'
         rationale: |
-          You multiplied 24 by 36 directly without dividing by their GCF (12).
+          This multiplies the numbers without removing their shared factor. The product is a common multiple. Check for a smaller common multiple.
     explanation: |
-      Find prime factorizations:
-      - $24 = 2^3 \times 3^1$
-      - $36 = 2^2 \times 3^2$
-
-      For LCM, take the highest power of each prime:
-      - Factor 2: $\max(3, 2) = 3 \implies 2^3$
-      - Factor 3: $\max(1, 2) = 2 \implies 3^2$
-
-      LCM $= 2^3 \times 3^2 = 8 \times 9 = 72$
+      Factor the numbers: $24=2^3\times3$ and $36=2^2\times3^2$. The LCM needs the larger exponent of each prime. Thus it is $2^3\times3^2=72$.
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0004
-    type: which-is-true
+    type: error-spotting
     difficulty: easy
     stem: |
-      Which of the following represents the prime factorization of $210$?
+      A student writes $210=2\times3\times35$. Which step completes the prime factorization?
     choices:
-      - text: "$2 \\times 3 \\times 5 \\times 7$"
+      - text: 'Factor $35$ into $5\times7$.'
         correct: true
-      - text: "$1 \\times 2 \\times 3 \\times 5 \\times 7$"
+      - text: 'Include $1$ along with $2,3,5,7$.'
         rationale: |
-          You included 1 as a prime factor, but 1 is not a prime number.
-      - text: "$2 \\times 15 \\times 7$"
+          This adds one to the list of primes. Multiplying by one preserves the product. Check that one is not prime.
+      - text: 'Keep $35$ as the final remaining factor.'
         rationale: |
-          You left 15 as a composite factor instead of factoring it into 3 * 5.
-      - text: "$2^2 \\times 3 \\times 5 \\times 7$"
+          This stops with the composite factor thirty-five. Thirty-five is an integer factor of the product. Check that every final factor is prime.
+      - text: 'Replace $35$ with the prime power $5^2$.'
         rationale: |
-          You evaluated 4 * 3 * 5 * 7 = 420 instead of 210.
+          This replaces thirty-five with twenty-five. The prime five is part of the correct factorization. Check that the replacement has the same product.
     explanation: |
-      Divide $210$ by successive primes:
-      - $210 \div 2 = 105$
-      - $105 \div 3 = 35$
-      - $35 \div 5 = 7$
-      - $7$ is prime
-
-      So $210 = 2 \times 3 \times 5 \times 7$
-
-      Common trap: Including 1 as a prime factor.
+      The factor $35$ is composite because $35=5(7)$. Both $5$ and $7$ are prime. Replacing $35$ with their product completes $210=2\times3\times5\times7$.
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0005
     type: word-problem
@@ -123,28 +90,19 @@ questions:
     stem: |
       A volunteer relief team in Manila has 120 canned goods, 180 packs of instant noodles, and 240 bottles of water. They want to pack these items into identical relief packs with the exact same quantities in each pack and no leftover items. What is the maximum number of relief packs they can create?
     choices:
-      - text: "$30$"
+      - text: '$30$'
         rationale: |
-          You picked a common factor (30) that is smaller than the greatest common factor (60).
-      - text: "$60$"
+          This drops one factor of two from the shared factorization. Thirty does divide all three stocks. Check every shared prime with its smallest exponent.
+      - text: '$60$'
         correct: true
-      - text: "$180$"
+      - text: '$180$'
         rationale: |
-          You selected 180, which is not a factor of 120 or 240.
-      - text: "$720$"
+          This chooses the middle inventory count instead of a shared divisor. That count appears directly in the inventory. Check that the pack count divides every stock.
+      - text: '$720$'
         rationale: |
-          You calculated the Least Common Multiple (LCM) of 120, 180, and 240 instead of the GCF.
+          This uses the least common multiple for a grouping problem. LCM is another way to combine all three quantities. Check whether the task forms groups or repeats schedules.
     explanation: |
-      This is a grouping problem, so find GCF(120, 180, 240).
-
-      Prime factorizations:
-      - $120 = 2^3 \times 3 \times 5$
-      - $180 = 2^2 \times 3^2 \times 5$
-      - $240 = 2^4 \times 3 \times 5$
-
-      GCF uses lowest powers: $2^2 \times 3 \times 5 = 4 \times 3 \times 5 = 60$
-
-      The maximum number of relief packs is 60.
+      The number of packs must divide all three quantities. The factorizations are $120=2^3\times3\times5$, $180=2^2\times3^2\times5$, and $240=2^4\times3\times5$. Their greatest shared factor is $2^2\times3\times5=60$. Thus they can make $60$ identical packs.
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0006
     type: word-problem
@@ -152,27 +110,19 @@ questions:
     stem: |
       Two jeepneys leave a terminal at 6:00 AM. Jeepney A completes its round-trip every 15 minutes, and Jeepney B every 20 minutes. At what time will both jeepneys next arrive at the terminal simultaneously?
     choices:
-      - text: "$6:05\\text{ AM}$"
+      - text: '$6:05\text{ AM}$'
         rationale: |
-          You added the difference between 20 and 15 (5 minutes) to 6:00 AM.
-      - text: "$6:35\\text{ AM}$"
+          This uses the difference of the route times. The difference is a small common time comparison. Check that the time is a multiple of both route intervals.
+      - text: '$6:35\text{ AM}$'
         rationale: |
-          You added 15 + 20 = 35 minutes to 6:00 AM instead of finding the LCM.
-      - text: "$7:00\\text{ AM}$"
+          This adds the route times. Both intervals are used. Check that the time is a multiple of both route intervals.
+      - text: '$7:00\text{ AM}$'
         correct: true
-      - text: "$11:00\\text{ AM}$"
+      - text: '$11:00\text{ AM}$'
         rationale: |
-          You added 15 * 20 = 300 minutes (5 hours) to 6:00 AM without dividing by GCF 5.
+          This multiplies the route times without removing their common factor. The product is a common multiple. Check whether a smaller common multiple exists.
     explanation: |
-      This is a scheduling problem, so find LCM(15, 20).
-
-      Prime factorizations:
-      - $15 = 3 \times 5$
-      - $20 = 2^2 \times 5$
-
-      LCM uses highest powers: $2^2 \times 3 \times 5 = 4 \times 3 \times 5 = 60$ minutes
-
-      $6:00\text{ AM} + 60\text{ minutes} = 7:00\text{ AM}$
+      The first shared return time is the LCM of $15$ and $20$ minutes. Since $15=3(5)$ and $20=2^2(5)$, the LCM is $2^2(3)(5)=60$ minutes. One hour after $6{:}00$ AM is $7{:}00$ AM.
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0007
     type: direct-computation
@@ -180,25 +130,19 @@ questions:
     stem: |
       Two numbers are given in prime factored form: $A = 2^3 \times 3^4 \times 5^2$ and $B = 2^5 \times 3^2 \times 7^1$. What is the GCF of $A$ and $B$?
     choices:
-      - text: "$72$"
+      - text: '$72$'
         correct: true
-      - text: "$648$"
+      - text: '$648$'
         rationale: |
-          You included 3^4 instead of taking the lower power 3^2 (8 * 81 = 648).
-      - text: "$2,520$"
+          This takes the larger power of three instead of the smaller. The larger power is present in one number. Check that GCF uses smaller exponents.
+      - text: '$2,520$'
         rationale: |
-          You included 5^1 and 7^1 which are not common to both numbers.
-      - text: "$453,600$"
+          This adds one factor of five and seven even though neither is shared. These prime bases appear somewhere in the two numbers. Check that a GCF includes only shared bases.
+      - text: '$453,600$'
         rationale: |
-          You calculated the Least Common Multiple (LCM) of A and B instead of the GCF.
+          This finds the LCM instead of the GCF. GCF and LCM use the same bases. Check whether a factor or a multiple is requested.
     explanation: |
-      Common prime factors are 2 and 3. (5 and 7 are not in both.)
-
-      For GCF, take lowest exponents:
-      - Factor 2: $\min(3, 5) = 3 \implies 2^3$
-      - Factor 3: $\min(4, 2) = 2 \implies 3^2$
-
-      GCF $= 2^3 \times 3^2 = 8 \times 9 = 72$
+      The shared prime bases are $2$ and $3$. Their smaller exponents are $3$ and $2$. The GCF is $2^3\times3^2=8(9)=72$.
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0008
     type: word-problem
@@ -206,29 +150,19 @@ questions:
     stem: |
       A volunteer group has 144 rice pouches and 96 hygiene kits. They pack these into identical boxes with equal distribution and no leftovers. If they create the maximum possible number of boxes, how many total items are in each box?
     choices:
-      - text: "$5$"
+      - text: '$5$'
         correct: true
-      - text: "$6$"
+      - text: '$3$'
         rationale: |
-          You calculated 144 / 24 = 6 or miscalculated items per box.
-      - text: "$48$"
+          This counts only rice pouches in a box. Rice is one part of the box. Check that every item type is counted.
+      - text: '$48$'
         rationale: |
-          You reported the maximum number of boxes (48) instead of items per box.
-      - text: "$120$"
+          This reports the number of boxes. The number of boxes is needed first. Check whether the question asks for boxes or items per box.
+      - text: '$120$'
         rationale: |
-          You averaged 144 and 96 ((144 + 96) / 2 = 120) instead of finding items per box.
+          This averages the two total quantities. Both quantities are used. Check that total items are divided by the maximum box count.
     explanation: |
-      Find maximum number of boxes: GCF(144, 96).
-
-      $144 = 2^4 \times 3^2$
-      $96 = 2^5 \times 3$
-
-      GCF $= 2^4 \times 3 = 16 \times 3 = 48$ boxes
-
-      Items per box:
-      - Rice pouches per box: $144 \div 48 = 3$
-      - Kits per box: $96 \div 48 = 2$
-      - Total per box: $3 + 2 = 5$
+      The factorizations are $144=2^4\times3^2$ and $96=2^5\times3$. Their GCF is $2^4(3)=48$, so there are $48$ boxes. Each contains $144\div48=3$ rice pouches and $96\div48=2$ kits. The total is $3+2=5$ items per box.
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0009
     type: word-problem
@@ -236,32 +170,19 @@ questions:
     stem: |
       Jeepneys on three routes depart from a terminal every 12, 18, and 30 minutes respectively. If all three depart together at 8:00 AM, how many times will all three depart together between 8:01 AM and 5:00 PM (inclusive)?
     choices:
-      - text: "$3$"
+      - text: '$3$'
         correct: true
-      - text: "$4$"
+      - text: '$4$'
         rationale: |
-          You included the 8:00 AM departure, which was excluded by the window (8:01 AM to 5:00 PM).
-      - text: "$6$"
+          This includes the initial departure outside the window. The initial departure is simultaneous. Check the start of the stated window.
+      - text: '$6$'
         rationale: |
-          You counted departures every 1.5 hours instead of using the LCM 3 hours.
-      - text: "$90$"
+          This uses only one factor of two in the shared interval. The other prime powers are correct. Check the largest exponent of every prime for LCM.
+      - text: '$90$'
         rationale: |
-          You reported the GCF of the three intervals in minutes (90) or miscalculated LCM.
+          This reports an incorrectly computed ninety-minute interval instead of counting departures. An interval is needed before counting. Check that the final answer counts events, not minutes.
     explanation: |
-      Find LCM(12, 18, 30).
-
-      $12 = 2^2 \times 3$
-      $18 = 2 \times 3^2$
-      $30 = 2 \times 3 \times 5$
-
-      LCM $= 2^2 \times 3^2 \times 5 = 4 \times 9 \times 5 = 180$ minutes $= 3$ hours
-
-      Departures after 8:00 AM within the window:
-      - 11:00 AM (8:00 + 3 hrs)
-      - 2:00 PM (11:00 + 3 hrs)
-      - 5:00 PM (2:00 + 3 hrs)
-
-      Total: 3 simultaneous departures
+      The intervals factor as $12=2^2(3)$, $18=2(3^2)$, and $30=2(3)(5)$. Their LCM is $2^2(3^2)(5)=180$ minutes, or $3$ hours. After $8{:}00$ AM, shared departures are at $11{:}00$ AM, $2{:}00$ PM, and $5{:}00$ PM. All three are in the stated window.
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0010
     type: direct-computation
@@ -269,25 +190,19 @@ questions:
     stem: |
       The GCF of two positive integers is 14, and their LCM is 420. If one integer is 70, what is the other?
     choices:
-      - text: "$30$"
+      - text: '$30$'
         rationale: |
-          You divided LCM 420 by 14 instead of using the product relationship GCF * LCM = a * b.
-      - text: "$84$"
+          This divides LCM by GCF rather than using the product relation. Both values are given in the stem. Check the product formula for two positive integers.
+      - text: '$84$'
         correct: true
-      - text: "$210$"
+      - text: '$6$'
         rationale: |
-          You divided LCM 420 by 2 or miscalculated the unknown integer b.
-      - text: "$406$"
+          This divides LCM by the known integer and omits the GCF. Dividing the LCM uses the known number. Check that GCF times LCM equals the two-number product.
+      - text: '$406$'
         rationale: |
-          You subtracted 14 from 420 (420 - 14 = 406) instead of using GCF * LCM = a * b.
+          This subtracts GCF from LCM. Both values are given in the stem. Check that the relationship uses multiplication.
     explanation: |
-      Use the relationship: GCF$(a, b) \times$ LCM$(a, b) = a \times b$
-
-      $14 \times 420 = 70 \times b$
-
-      $b = \frac{14 \times 420}{70} = \frac{5,880}{70} = 84$
-
-      Verify: GCF(70, 84) = 14 and LCM(70, 84) = 420 ✓
+      For two positive integers, GCF times LCM equals their product. Let the missing integer be $b$. Then $14(420)=70b$. Divide by $70$: $b=\dfrac{5880}{70}=84$.
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0011
     type: word-problem
@@ -295,30 +210,19 @@ questions:
     stem: |
       A charity foundation creates relief packages from 315 blankets (costing $\text{₱}150$ each) and 420 lanterns (costing $\text{₱}250$ each). They create the maximum number of identical packages. What is the total cost of one relief package?
     choices:
-      - text: "$\\text{₱}400$"
+      - text: '$\text{₱}400$'
         rationale: |
-          You added unit costs P150 + P250 = P400 without multiplying by items per package.
-      - text: "$\\text{₱}1,350$"
+          This adds one unit price of each item without using the quantities. Both item types are included. Check the count of each item per package.
+      - text: '$\text{₱}1,350$'
         rationale: |
-          You evaluated 4 blankets and 3 lanterns (4 * 150 + 3 * 250 = P1,350) reversing item counts.
-      - text: "$\\text{₱}1,450$"
+          This reverses the blanket and lantern counts. Both counts come from the correct grouping. Check which count belongs to each item.
+      - text: '$\text{₱}1,450$'
         correct: true
-      - text: "$\\text{₱}10,150$"
+      - text: '$\text{₱}10,150$'
         rationale: |
-          You multiplied 105 packages by unit cost sum or miscalculated package value.
+          This uses fifteen packages by omitting the shared factor seven. Fifteen does divide both item totals. Check every shared prime when finding the greatest package count.
     explanation: |
-      Find maximum packages: GCF(315, 420).
-
-      $315 = 3^2 \times 5 \times 7$
-      $420 = 2^2 \times 3 \times 5 \times 7$
-
-      GCF $= 3 \times 5 \times 7 = 105$ packages
-
-      Items per package:
-      - Blankets: $315 \div 105 = 3$
-      - Lanterns: $420 \div 105 = 4$
-
-      Cost per package: $(3 \times \text{₱}150) + (4 \times \text{₱}250) = \text{₱}450 + \text{₱}1,000 = \text{₱}1,450$
+      The factorizations are $315=3^2(5)(7)$ and $420=2^2(3)(5)(7)$. Their GCF is $3(5)(7)=105$ packages. Each contains $315\div105=3$ blankets and $420\div105=4$ lanterns. Its cost is $3(150)+4(250)=450+1000=1450$ pesos.
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0012
     type: word-problem
@@ -326,29 +230,19 @@ questions:
     stem: |
       Jeepneys pass an intersection at intervals of 16, 24, and 40 minutes. If they pass together at 9:00 AM, at what time will they next pass together after 12:00 PM on the same day?
     choices:
-      - text: "$9:08\\text{ AM}$"
+      - text: '$9:08\text{ AM}$'
         rationale: |
-          You added GCF 8 minutes to 9:00 AM instead of finding the LCM.
-      - text: "$11:00\\text{ AM}$"
+          This uses the GCF of the intervals. The GCF is a common factor. Check that schedule times use a common multiple.
+      - text: '$11:00\text{ AM}$'
         rationale: |
-          You assumed interval is 2 hours (120 min) instead of LCM 4 hours.
-      - text: "$1:00\\text{ PM}$"
+          This uses the smaller power of two, making the interval two hours. The smaller exponent is used for GCF. Check the largest exponent for LCM.
+      - text: '$1:00\text{ PM}$'
         correct: true
-      - text: "$5:00\\text{ PM}$"
+      - text: '$5:00\text{ PM}$'
         rationale: |
-          You added two 4-hour cycles (8 hours) to 9:00 AM instead of the first passage after noon.
+          This skips the first qualifying shared passage. The later time is also a shared passage. Check that the first time after noon is requested.
     explanation: |
-      Find LCM(16, 24, 40).
-
-      $16 = 2^4$
-      $24 = 2^3 \times 3$
-      $40 = 2^3 \times 5$
-
-      LCM $= 2^4 \times 3 \times 5 = 16 \times 3 \times 5 = 240$ minutes $= 4$ hours
-
-      Next simultaneous passage: $9:00\text{ AM} + 4\text{ hours} = 1:00\text{ PM}$
-
-      Since $1:00\text{ PM}$ is after noon, this is the answer.
+      The intervals factor as $16=2^4$, $24=2^3(3)$, and $40=2^3(5)$. Their LCM is $2^4(3)(5)=240$ minutes, or $4$ hours. Four hours after $9{:}00$ AM is $1{:}00$ PM, which is the first shared passage after noon.
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0013
     type: direct-computation
@@ -356,97 +250,161 @@ questions:
     stem: |
       What is the smallest positive integer with exactly 12 positive factors, using only prime factors 2 and 3?
     choices:
-      - text: "$60$"
+      - text: '$60$'
         rationale: |
-          You selected 60, but 60 includes prime factor 5 (2^2 * 3 * 5).
-      - text: "$72$"
+          This allows the prime factor five. Sixty does have twelve positive factors. Check that only two and three are permitted primes.
+      - text: '$72$'
         correct: true
-      - text: "$96$"
+      - text: '$96$'
         rationale: |
-          You evaluated 2^5 * 3 = 96, which has 12 factors but is larger than 72.
-      - text: "$108$"
+          This finds a valid twelve-divisor number but not the smallest. Ninety-six uses only the permitted primes. Compare all possible exponent pairs before choosing the least number.
+      - text: '$108$'
         rationale: |
-          You evaluated 2^2 * 3^3 = 108, which has 12 factors but is larger than 72.
+          This assigns the larger exponent to three instead of two. One hundred eight has the required divisor count. Check whether swapping the exponents makes a smaller valid number.
     explanation: |
-      For $N = 2^a \times 3^b$, number of factors $= (a+1)(b+1) = 12$
-
-      Factor pairs of 12 with $a, b \geq 1$:
-      - $(a+1, b+1) = (6, 2)$: $N = 2^5 \times 3 = 96$
-      - $(a+1, b+1) = (2, 6)$: $N = 2 \times 3^5 = 486$
-      - $(a+1, b+1) = (4, 3)$: $N = 2^3 \times 3^2 = 72$
-      - $(a+1, b+1) = (3, 4)$: $N = 2^2 \times 3^3 = 108$
-
-      The smallest is 72.
+      Write the number as $2^a3^b$. Every positive divisor selects a power of $2$ from zero through $a$ and a power of $3$ from zero through $b$. Hence the divisor count is $(a+1)(b+1)=12$. The possible exponent pairs give $2048,486,108,72,96,$ and $177147$. The least is $72=2^3(3^2)$.
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0014
     type: word-problem
-    difficulty: exam-level
+    difficulty: exam
     stem: |
-      A non-profit receives $\text{₱}36,000$ worth of rice ($\text{₱}200$ per bag) and $\text{₱}45,000$ worth of canned goods ($\text{₱}150$ per pack). They pack all into identical relief packages with no leftovers. Jeepney A carries 25 packages per trip; Jeepney B carries 35 per trip. What is the minimum number of trips needed using only one jeepney type?
+      A non-profit receives $\text{₱}36,000$ worth of rice ($\text{₱}200$ per bag) and $\text{₱}45,000$ worth of canned goods ($\text{₱}150$ per pack). They make the greatest possible number of identical relief packages with no leftovers. Jeepney A carries 25 packages per trip; Jeepney B carries 35 per trip. What is the minimum number of trips needed using only one jeepney type?
     choices:
-      - text: "$2$"
+      - text: '$2$'
         correct: true
-      - text: "$3$"
+      - text: '$3$'
         rationale: |
-          You selected Jeepney A (3 trips) instead of Jeepney B which needs only 2 trips.
-      - text: "$5$"
+          This chooses the smaller-capacity jeepney. That jeepney can complete delivery in three trips. Compare the trip counts for both capacities.
+      - text: '$5$'
         rationale: |
-          You added 3 trips from Jeepney A and 2 trips from Jeepney B together.
-      - text: "$60$"
+          This adds the trip counts for both types. Both results describe possible deliveries. Check that only one type is used.
+      - text: '$60$'
         rationale: |
-          You reported the total number of relief packages (60) instead of the minimum trips needed.
+          This reports the number of packages. The package count is a needed intermediate value. Check that packages are divided by vehicle capacity.
     explanation: |
-      Calculate quantities:
-      - Rice bags: $36,000 \div 200 = 180$
-      - Canned packs: $45,000 \div 150 = 300$
-
-      Find maximum packages: GCF(180, 300).
-
-      $180 = 2^2 \times 3^2 \times 5$
-      $300 = 2^2 \times 3 \times 5^2$
-
-      GCF $= 2^2 \times 3 \times 5 = 60$ packages
-
-      Trips needed:
-      - Jeepney A: $\lceil 60 \div 25 \rceil = 3$ trips
-      - Jeepney B: $\lceil 60 \div 35 \rceil = 2$ trips
-
-      Minimum: 2 trips (using Jeepney B)
+      The rice quantity is $36000\div200=180$ bags. The canned-goods quantity is $45000\div150=300$ packs. Their GCF is $60$, so the greatest number of relief packages is $60$. At capacity $35$, one trip is not enough, but two can carry $70$. At capacity $25$, two can carry only $50$. The minimum is two trips using the larger jeepney.
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0015
     type: word-problem
-    difficulty: exam-level
+    difficulty: exam
     stem: |
-      Jeepney X and Y depart at 5:00 AM. Jeepney X has a 45-minute round trip ($\text{₱}15$ fare, 20 passengers), while Jeepney Y has a 75-minute round trip ($\text{₱}25$ fare, 16 passengers). What is the combined fare collected by both jeepneys from 5:00 AM through their first simultaneous return to the terminal?
+      Jeepneys X and Y leave at $5{:}00$ AM and repeat their routes without breaks. X completes a round trip every $45$ minutes and earns exactly $20(15)$ pesos per completed round trip. Y completes a round trip every $75$ minutes and earns exactly $16(25)$ pesos per completed round trip. Counting only round trips completed by their first simultaneous return, what are their combined fares?
     choices:
-      - text: "$\\text{₱}2,100$"
+      - text: '$\text{₱}2,100$'
         rationale: |
-          You calculated 3 trips for Jeepney X and 3 trips for Jeepney Y (3 * 300 + 3 * 400 = P2,100).
-      - text: "$\\text{₱}2,400$"
+          This gives X only three rounds, matching the slower route count. Y does complete three rounds. Check each route interval separately.
+      - text: '$\text{₱}2,400$'
         rationale: |
-          You evaluated 4 trips for X and 3 trips for Y (1200 + 1200 = P2,400).
-      - text: "$\\text{₱}2,700$"
+          This omits the last completed X round. Four X rounds finish before the shared return. Check that the final completed round is included.
+      - text: '$\text{₱}2,700$'
         correct: true
-      - text: "$\\text{₱}3,100$"
+      - text: '$\text{₱}3,100$'
         rationale: |
-          You calculated 5 trips for X and 4 trips for Y (1500 + 1600 = P3,100).
+          This counts one extra Y round. The first shared return is also a possible next departure. Check that only completed rounds by the shared return count.
     explanation: |
-      Find when both return together: LCM(45, 75).
+      The route intervals factor as $45=3^2(5)$ and $75=3(5^2)$. Their LCM is $225$ minutes. By then X has completed $225\div45=5$ rounds, and Y has completed $225\div75=3$. Each X round earns $20(15)=300$ pesos, and each Y round earns $16(25)=400$ pesos. Total fares are $5(300)+3(400)=2700$ pesos.
 
-      $45 = 3^2 \times 5$
-      $75 = 3 \times 5^2$
+  - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0016
+    type: which-is-true
+    difficulty: easy
+    stem: |
+      Which statement about prime numbers is true?
+    choices:
+      - text: '$2$ is the only even prime.'
+        correct: true
+      - text: '$1$ is the smallest prime.'
+        rationale: |
+          This counts one as prime. One is a building block in multiplication. Check that a prime must have exactly two positive factors.
+      - text: 'Every odd integer greater than $1$ is prime.'
+        rationale: |
+          This treats oddness as sufficient for primality. Most small primes are odd. Check for a divisor between one and the number.
+      - text: 'A prime number has only one positive factor.'
+        rationale: |
+          This forgets one as a factor of a prime. The number itself is a factor. Check both one and the number.
+    explanation: |
+      Two has exactly two positive factors, $1$ and $2$, so it is prime. Every even integer greater than $2$ also has $2$ as a factor besides $1$ and itself. Thus $2$ is the only even prime.
+    approved: false
 
-      LCM $= 3^2 \times 5^2 = 9 \times 25 = 225$ minutes
+  - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0017
+    type: error-spotting
+    difficulty: medium
+    stem: |
+      A student says the LCM of $6,10,15$ is $900$ because no prime divides all three and their product is $900$. What is the error?
+    choices:
+      - text: 'Shared factors need to be counted only once.'
+        correct: true
+      - text: 'The largest original number is always the LCM.'
+        rationale: |
+          This uses the largest given number without checking the others. Fifteen is already a multiple of itself. Check that the answer is a multiple of every number.
+      - text: 'A common multiple must divide each original number.'
+        rationale: |
+          This reverses factor and multiple. Both ideas involve exact division. Check the direction of divisibility.
+      - text: 'The three numbers must be added instead of multiplied.'
+        rationale: |
+          This replaces the repeated-factor problem with addition. Using each original number once looks simple. Check that the result must be a common multiple.
+    explanation: |
+      The factorizations are $6=2(3)$, $10=2(5)$, and $15=3(5)$. Each prime is needed once at its largest exponent. The LCM is $2(3)(5)=30$. Multiplying all original numbers repeats those shared primes.
+    approved: false
 
-      Trips by 225 minutes:
-      - Jeepney X: $225 \div 45 = 5$ trips
-      - Jeepney Y: $225 \div 75 = 3$ trips
+  - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0018
+    type: word-problem
+    difficulty: hard
+    stem: |
+      A school arranges an equal number of chairs in rows of $6$, $8$, or $10$, leaving $3$ chairs unused each time. What is the smallest possible chair count greater than $10$?
+    choices:
+      - text: '$123$'
+        correct: true
+      - text: '$120$'
+        rationale: |
+          This omits the unused chairs. The LCM is a needed intermediate value. Check that the stated remainder is added back.
+      - text: '$3$'
+        rationale: |
+          This uses the remainder alone. Three does leave a remainder of three for each divisor. Check the required lower bound.
+      - text: '$483$'
+        rationale: |
+          This uses the product of the row sizes instead of their least common multiple. The product is a common multiple. Check whether a smaller one fits.
+    explanation: |
+      Subtract the common remainder of $3$. The result must be a multiple of $6,8,$ and $10$. Their LCM is $2^3(3)(5)=120$. Add the remainder: $120+3=123$. This is the first such count above $10$.
+    approved: false
 
-      Fares per trip:
-      - X: $20 \times \text{₱}15 = \text{₱}300$
-      - Y: $16 \times \text{₱}25 = \text{₱}400$
+  - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0019
+    type: which-is-true
+    difficulty: hard
+    stem: |
+      For positive integers $a$ and $b$, which expression always equals their LCM?
+    choices:
+      - text: '$\dfrac{ab}{\gcd(a,b)}$'
+        correct: true
+      - text: '$ab\gcd(a,b)$'
+        rationale: |
+          This multiplies by the shared factor instead of dividing. The product relation includes the GCF. Check that isolating LCM requires division.
+      - text: '$\dfrac{a+b}{\gcd(a,b)}$'
+        rationale: |
+          This adds the integers instead of multiplying them. Both formulas combine the inputs. Check the stated product relation.
+      - text: '$\dfrac{ab}{a+b}$'
+        rationale: |
+          This uses a sum in place of the shared factor. This resembles a formula for combined work times. Check which relationship belongs to factors and multiples.
+    explanation: |
+      For two positive integers, $\gcd(a,b)\operatorname{lcm}(a,b)=ab$. Divide both sides by the positive GCF. This gives $\operatorname{lcm}(a,b)=\dfrac{ab}{\gcd(a,b)}$.
+    approved: false
 
-      Total fares:
-      - X: $5 \times \text{₱}300 = \text{₱}1,500$
-      - Y: $3 \times \text{₱}400 = \text{₱}1,200$
-      - Combined: $\text{₱}2,700$
+  - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0020
+    type: error-spotting
+    difficulty: exam
+    stem: |
+      A student factors $48=2^4\times3$ and $180=2^2\times3^2\times5$, then says their GCF is $2^4\times3^2$. What correction is needed?
+    choices:
+      - text: 'Use $2^2\times3$.'
+        correct: true
+      - text: 'Include $5$ in the proposed product.'
+        rationale: |
+          This includes a factor found in only one number. Five appears in one factorization. Check that every GCF factor is shared.
+      - text: 'Use $2^4\times3^2\times5$.'
+        rationale: |
+          This finds the LCM instead of the GCF. The largest powers combine both factorizations. Check which quantity is requested.
+      - text: 'Multiply $48$ by $180$ instead.'
+        rationale: |
+          This uses the product as a common factor. The product contains both numbers' factors. Check that a common factor divides both numbers.
+    explanation: |
+      A shared factor cannot use a higher exponent than either number contains. For $2$, use the smaller exponent $2$. For $3$, use the smaller exponent $1$. The GCF is $2^2(3)=12$.
+    approved: false

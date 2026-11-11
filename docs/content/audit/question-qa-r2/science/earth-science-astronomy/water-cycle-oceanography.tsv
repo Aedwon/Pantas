@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-earth-science-astronomy-water-cycle-oceanography-0001	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-earth-science-astronomy-water-cycle-oceanography-0002	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-earth-science-astronomy-water-cycle-oceanography-0003	CORRECTED	SOLVED-MATCH	explanation;notes;distractor	LOW	Correct term was longest; used a relevant plant-process alternative.
+q-earth-science-astronomy-water-cycle-oceanography-0004	CORRECTED	SOLVED-MATCH	explanation;notes;stem	MEDIUM	Specified plant process to avoid broader evaporation terminology being defensible.
+q-earth-science-astronomy-water-cycle-oceanography-0005	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	MEDIUM	Repeated transpiration definition replaced with combined-source classification.
+q-earth-science-astronomy-water-cycle-oceanography-0006	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-water-cycle-oceanography-0007	CORRECTED	SOLVED-MATCH	explanation;notes;stem	NONE	Definition reframed as groundwater replenishment.
+q-earth-science-astronomy-water-cycle-oceanography-0008	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	MEDIUM	Repeated runoff definition replaced with a surface-cover prediction.
+q-earth-science-astronomy-water-cycle-oceanography-0009	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	MEDIUM	Removed redundant yes/no framing and weak distractors.
+q-earth-science-astronomy-water-cycle-oceanography-0010	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	MEDIUM	Duplicate condensation item replaced with formation-versus-fall timing.
+q-earth-science-astronomy-water-cycle-oceanography-0011	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Weak numerical guesses replaced with quantity and complement confusions.
+q-earth-science-astronomy-water-cycle-oceanography-0012	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	MEDIUM	Duplicate reservoir question replaced with complement calculation.
+q-earth-science-astronomy-water-cycle-oceanography-0013	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-water-cycle-oceanography-0014	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-water-cycle-oceanography-0015	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-earth-science-astronomy-water-cycle-oceanography-0016	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-water-cycle-oceanography-0017	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-water-cycle-oceanography-0018	NEW	NEW	new question	NONE	
+q-earth-science-astronomy-water-cycle-oceanography-0019	NEW	NEW	new question	NONE	
+q-earth-science-astronomy-water-cycle-oceanography-0020	NEW	NEW	new question	NONE	

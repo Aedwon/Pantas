@@ -1,6 +1,8 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flutter/foundation.dart';
+import 'package:pantas/core/platform/local_firebase.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 
 /// The only file in `lib/` permitted to import an analytics or crash package.
@@ -22,7 +24,7 @@ class FirebaseTelemetry implements Telemetry {
   /// what keeps this file the only importer of both.
   FirebaseTelemetry.instances()
       : _analytics = FirebaseAnalytics.instance,
-        _crashlytics = FirebaseCrashlytics.instance;
+        _crashlytics = kIsWeb ? null : FirebaseCrashlytics.instance;
 
   /// The SDK sink when Firebase is running, and the disabled one when it is
   /// not.
@@ -32,12 +34,14 @@ class FirebaseTelemetry implements Telemetry {
   /// this unconditionally killed the app on launch, at the splash, before a
   /// single screen drew.
   static Telemetry instancesIfAvailable() {
-    if (Firebase.apps.isEmpty) return const DisabledTelemetry();
+    if (localEmulators || Firebase.apps.isEmpty) {
+      return const DisabledTelemetry();
+    }
     return FirebaseTelemetry.instances();
   }
 
   final FirebaseAnalytics _analytics;
-  final FirebaseCrashlytics _crashlytics;
+  final FirebaseCrashlytics? _crashlytics;
 
   @override
   Future<void> log(
@@ -51,7 +55,7 @@ class FirebaseTelemetry implements Telemetry {
   @override
   Future<void> recordError(Object error, StackTrace stack) async {
     final sanitized = SanitizedTelemetryException(error.runtimeType.toString());
-    await _crashlytics.recordError(sanitized, stack);
+    await _crashlytics?.recordError(sanitized, stack);
   }
 
   /// Drives runtime consent at the SDK level.
@@ -74,9 +78,9 @@ class FirebaseTelemetry implements Telemetry {
 
     try {
       if (enabled) {
-        await _crashlytics.sendUnsentReports();
+        await _crashlytics?.sendUnsentReports();
       } else {
-        await _crashlytics.deleteUnsentReports();
+        await _crashlytics?.deleteUnsentReports();
       }
     } catch (error, stack) {
       firstError ??= error;
@@ -94,7 +98,7 @@ class FirebaseTelemetry implements Telemetry {
     StackTrace? firstStack;
 
     try {
-      await _crashlytics.setUserIdentifier(identifier);
+      await _crashlytics?.setUserIdentifier(identifier);
     } catch (error, stack) {
       firstError = error;
       firstStack = stack;

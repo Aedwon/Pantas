@@ -10,19 +10,19 @@ questions:
     stem: |
       Pen is to write as scissors is to ______.
     choices:
-      - text: Cut
+      - text: "Cut"
         correct: true
-      - text: Sharp
+      - text: "Sharp"
         rationale: |
-          You picked an adjective describing scissors rather than the primary function action.
-      - text: Paper
+          This gives a property instead of the tool's action. Scissors are usually sharp. Check that the second word answers what the tool does.
+      - text: "Paper"
         rationale: |
-          You picked the object acted upon rather than the action performed by the tool.
-      - text: Blade
+          This gives the material acted on instead of the action. Paper is used with both tools. Check whether the second word is an action verb.
+      - text: "Blade"
         rationale: |
-          You picked a component of scissors rather than the function action.
+          This gives a tool part instead of its action. A blade does the cutting. Check that the first pair names a use, not a component.
     explanation: |
-      A pen is used to write. Applying the same "used to" pattern: scissors are used to cut.
+      A pen is used to write. Scissors are used to cut. Both pairs name a tool and its action.
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0002
@@ -31,19 +31,19 @@ questions:
     stem: |
       Author is to book as director is to ______.
     choices:
-      - text: Movie
+      - text: "Movie"
         correct: true
-      - text: Actor
+      - text: "Actor"
         rationale: |
-          You picked a collaborator who works with the director rather than the product created.
-      - text: Theater
+          This chooses a collaborator instead of the work. Directors work with actors. Check whether the first pair ends with a person or a creative work.
+      - text: "Theater"
         rationale: |
-          You picked the venue where movies are shown rather than the work created by the director.
-      - text: Camera
+          This chooses a venue instead of the work. Movies may be shown in theaters. Check what the author's book corresponds to.
+      - text: "Camera"
         rationale: |
-          You picked a tool used during production rather than the final creative work.
+          This chooses equipment instead of the work. A camera is used in making movies. Check whether the first pair names a tool or the resulting work.
     explanation: |
-      An author creates a book. Applying the same "creates" pattern: a director creates a movie.
+      An author has a central writing role in a book. A director has a central directing role in a movie. Both pairs connect a creative role with its work.
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0003
@@ -52,19 +52,19 @@ questions:
     stem: |
       Hammer is to tool as oak is to ______.
     choices:
-      - text: Tree
+      - text: "Tree"
         correct: true
-      - text: Wood
+      - text: "Wood"
         rationale: |
-          You picked the material oak produces rather than its overarching category.
-      - text: Leaf
+          This chooses material instead of category. Oak can also name a kind of wood. Check which sense mirrors hammer as a type of tool.
+      - text: "Leaf"
         rationale: |
-          You picked a part of an oak tree rather than the general category.
-      - text: Forest
+          This chooses a part instead of a category. Oak trees have leaves. Check whether the first item is a type of the second or contains it.
+      - text: "Forest"
         rationale: |
-          You picked the group environment where oak trees grow rather than the category.
+          This chooses a collection or setting instead of a category. Oaks can grow in forests. Check whether a single oak is itself a forest.
     explanation: |
-      A hammer is a type of tool: this is a category relationship. Applying the same pattern: an oak is a type of tree. "Wood" describes the material, not the category, so it does not match.
+      A hammer is a type of tool. An oak is a type of tree. Both pairs move from a specific kind to its broader category.
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0004
@@ -73,19 +73,19 @@ questions:
     stem: |
       Petal is to flower as branch is to ______.
     choices:
-      - text: Tree
+      - text: "Tree"
         correct: true
-      - text: Leaf
+      - text: "Leaf"
         rationale: |
-          You picked another individual part of a plant rather than the whole structure containing the branch.
-      - text: Root
+          This chooses a neighboring plant part instead of the whole. Branches carry leaves. Check whether the second item contains the first.
+      - text: "Root"
         rationale: |
-          You picked an opposing structural part rather than the parent organism.
-      - text: Forest
+          This chooses another tree part instead of the whole tree. Roots and branches belong to the same plant. Check the part-to-whole direction.
+      - text: "Forest"
         rationale: |
-          You skipped a level of organization. A branch is a part of a single tree, not directly a part of a forest.
+          This skips the immediate whole and uses a larger collection. A forest contains trees that have branches. Check the level of the petal-to-flower relation.
     explanation: |
-      A petal is part of a flower: this is a part-to-whole relationship. Applying the same pattern: a branch is part of a tree.
+      A petal is a part of a flower. A branch is a part of a tree. Both pairs go from a component to its immediate whole.
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0005
@@ -94,19 +94,19 @@ questions:
     stem: |
       Fire is to ash as lightning is to ______.
     choices:
-      - text: Thunder
+      - text: "Thunder"
         correct: true
-      - text: Rain
+      - text: "Downpour"
         rationale: |
-          You picked a weather phenomenon that often accompanies storms rather than the direct effect caused by lightning.
-      - text: Cloud
+          This chooses a nearby storm event instead of lightning's direct effect. Heavy rain often occurs with lightning. Check what the lightning itself produces.
+      - text: "Raincloud"
         rationale: |
-          You picked the origin site of lightning rather than the sensory result produced by it.
-      - text: Wind
+          This chooses the source environment instead of the effect. Lightning forms in storm clouds. Check the direction from cause to result.
+      - text: "Windstorm"
         rationale: |
-          You picked an associated storm element rather than the direct acoustic output of lightning.
+          This chooses an accompanying weather event instead of the direct result. Strong wind and lightning can occur together. Check whether the first item causes the second.
     explanation: |
-      Fire produces ash: a cause-and-effect relationship. Applying the same pattern: lightning produces (causes) thunder.
+      Fire produces ash. Lightning produces thunder through the rapid heating and expansion of air. The matching relation is cause to direct effect.
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0006
@@ -115,19 +115,19 @@ questions:
     stem: |
       Happy is to joyful as angry is to ______.
     choices:
-      - text: Furious
+      - text: "Furious"
         correct: true
-      - text: Calm
+      - text: "Calm"
         rationale: |
-          You picked an antonym of angry instead of a synonym matching the relationship.
-      - text: Sad
+          This chooses an opposite instead of a close meaning. Calmness contrasts with anger. Check the relationship between happy and joyful.
+      - text: "Sad"
         rationale: |
-          You picked a different emotion instead of a word with a similar meaning to angry.
-      - text: Nervous
+          This chooses another unpleasant feeling. Anger and sadness can occur together. Check the specific emotion named by the pair.
+      - text: "Nervous"
         rationale: |
-          You picked an unrelated state of mind rather than a synonym for angry.
+          This chooses anxiety instead of anger. Both can involve agitation. Check whether the target means anger or worry.
     explanation: |
-      Happy and joyful are synonyms (similar meaning). Applying the same pattern: angry and furious are synonyms.
+      Happy and joyful are close in meaning. Furious means very angry, so it is the closest meaning match for angry among these choices.
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0007
@@ -136,40 +136,40 @@ questions:
     stem: |
       Hot is to cold as fast is to ______.
     choices:
-      - text: Slow
+      - text: "Slow"
         correct: true
-      - text: Quick
+      - text: "Quick"
         rationale: |
-          You picked a synonym of fast instead of the antonym required by the first pair.
-      - text: Speedy
+          This chooses a synonym instead of an opposite. Quick describes speed well. Check whether the first pair shares or contrasts meanings.
+      - text: "Sudden"
         rationale: |
-          You picked a word with the same meaning as fast instead of an opposite.
-      - text: Rapid
+          This confuses a quick onset with a high speed. Sudden events happen without much warning. Check whether the contrast concerns speed or onset.
+      - text: "Late"
         rationale: |
-          You picked another synonym for fast rather than its antonym.
+          This confuses lateness with slowness. Moving slowly can cause lateness. Check whether the word describes speed itself or arrival time.
     explanation: |
-      Hot and cold are antonyms (opposite meaning). Applying the same pattern: fast and slow are antonyms.
+      Hot and cold describe opposite temperature states. Fast and slow describe opposite speeds, preserving the contrast relation.
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0008
     type: analogy
     difficulty: medium
     stem: |
-      Warm is to hot as cool is to ______.
+      Match a mild temperature quality to an intense form of that same quality: Warm is to hot as cool is to ______.
     choices:
-      - text: Cold
+      - text: "Cold"
         correct: true
-      - text: Warm
+      - text: "Warm"
         rationale: |
-          You picked an antonym for cool instead of increasing the thermal intensity in the same direction.
-      - text: Mild
+          This moves upward on one temperature scale instead of intensifying coolness. Warm is hotter than cool, so it can fit a different relation. Check the specific degree-of-quality relation stated here.
+      - text: "Mild"
         rationale: |
-          You picked a word representing lower intensity rather than higher cold intensity.
-      - text: Humid
+          This makes the temperature less intense. Mild can sound close to cool. Check whether the second term should strengthen the quality.
+      - text: "Humid"
         rationale: |
-          You switched to a moisture quality instead of following the temperature intensity scale.
+          This changes from temperature to moisture. Humidity affects how weather feels. Check whether both pairs concern the same kind of quality.
     explanation: |
-      Warm and hot describe a difference in degree (intensity) of the same quality. Applying the same pattern: cool and cold are a matching pair, cold being the more intense version of cool.
+      Warm is a mild warmth word and hot a stronger warmth word. Cool is a mild coolness word and cold a stronger coolness word. Cold preserves the degree relation requested.
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0009
@@ -178,124 +178,124 @@ questions:
     stem: |
       Carpenter is to hammer as painter is to ______.
     choices:
-      - text: Brush
+      - text: "Brush"
         correct: true
-      - text: Canvas
+      - text: "Canvas"
         rationale: |
-          You picked the surface being painted on rather than the primary tool held by the worker.
-      - text: Wall
+          This chooses a work surface instead of a tool. The painter works with canvas. Check whether the object is used to act or is acted upon.
+      - text: "Wall"
         rationale: |
-          You picked a surface worked upon rather than the tool used by the painter.
-      - text: Color
+          This chooses a surface instead of a tool. Painters can paint walls. Check the hammer's role in the first pair.
+      - text: "Color"
         rationale: |
-          You picked an attribute of paint rather than the physical tool.
+          This chooses an attribute of the material instead of a tool. Painters work with colors. Check whether the second term names equipment.
     explanation: |
-      A carpenter is a worker who uses a hammer as their tool. Applying the same pattern: a painter is a worker who uses a brush as their tool.
+      A carpenter uses a hammer. A painter uses a brush. Both pairs name a worker and a tool used for the work.
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0010
     type: analogy
     difficulty: hard
     stem: |
-      Farmer is to tractor as chef is to ______.
+      Microscope is to biologist as chisel is to ______.
     choices:
-      - text: Knife
+      - text: "Sculptor"
         correct: true
-      - text: Kitchen
+      - text: "Sculpture"
         rationale: |
-          You picked the workspace location rather than the handheld tool used by the worker.
-      - text: Restaurant
+          This chooses the work instead of the tool's user. A chisel can help create a sculpture. Check whether the first pair ends with a person.
+      - text: "Hammer"
         rationale: |
-          You picked the business establishment rather than the primary tool.
-      - text: Food
+          This chooses another tool instead of a user. Hammers and chisels can be used together. Check the role of biologist in the first pair.
+      - text: "Stone"
         rationale: |
-          You picked the material prepared by the chef rather than the tool used.
+          This chooses material instead of a user. Stone can be shaped with a chisel. Check whether the second term names who uses the tool.
     explanation: |
-      A farmer is a worker who uses a tractor as their tool. Applying the same worker-to-tool pattern: a chef is a worker who uses a knife as their tool. "Kitchen," "restaurant," and "food" are merely related to a chef, but none of them is the chef's tool.
+      A biologist uses a microscope. A sculptor uses a chisel. The pairs go from a tool to its user.
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0011
     type: analogy
     difficulty: hard
     stem: |
-      Pen is to write as ______ is to measure. Which word correctly completes this analogy, and why is "paper" not a correct choice?
+      Match the information an instrument indicates: Compass is to direction as clock is to ______.
     choices:
-      - text: Ruler is correct, since a ruler is used to measure, matching the same function relationship as pen is to write; paper is merely something used alongside a pen, not a matching function word.
+      - text: "Time"
         correct: true
-      - text: Paper is correct, since paper is closely associated with both writing and measuring.
+      - text: "Hands"
         rationale: |
-          You selected an associated material rather than a tool whose primary function matches the target action.
-      - text: Ruler is correct, but so is paper, since both are equally valid answers.
+          This chooses a component instead of the information shown. Clock hands point to the time. Check what the second word names in the first pair.
+      - text: "Clockmaker"
         rationale: |
-          You treated associated objects and primary tools as equivalent in functional analogies.
-      - text: Neither ruler nor paper completes this analogy correctly.
+          This chooses the maker instead of the information. A clockmaker is closely related to the instrument. Check whether the first pair ends with a person or a reading.
+      - text: "Wall"
         rationale: |
-          You rejected ruler despite it matching the tool-to-function pattern established by pen and write.
+          This chooses a location instead of the information. A clock may hang on a wall. Check the role of direction in the first pair.
     explanation: |
-      A vague relationship sentence like "these are related" lets multiple choices seem to fit. The precise sentence "a pen is used to write" requires the second pair to follow "used to measure": matching "ruler," not "paper," which is merely associated with writing, not the function itself.
+      A compass indicates direction. A clock indicates time. Both pairs link an instrument to the information it gives.
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0012
     type: analogy
     difficulty: hard
     stem: |
-      Author is to book as book is to ______. Is "author" the correct answer to complete this second analogy?
+      Preserve the work-to-creator direction: Novel is to author as symphony is to ______.
     choices:
-      - text: 'No: "author is to book" means "author creates book," but "book is to author" reverses the direction, meaning "book was created by author"; the correct completion should reflect this reversed direction, not repeat "author" as if the relationship were symmetric.'
+      - text: "Composer"
         correct: true
-      - text: 'Yes: "author" correctly completes the analogy, since the relationship is the same in both directions.'
+      - text: "Conductor"
         rationale: |
-          You assumed analogy relationships are symmetric regardless of word order.
-      - text: 'Yes: "book is to author" and "author is to book" always mean the exact same thing.'
+          This chooses someone who leads a performance instead of writing the work. A conductor is central to a symphony performance. Check the author's role in creating a novel.
+      - text: "Orchestra"
         rationale: |
-          You ignored directional order in relational pairs.
-      - text: 'No: but only because books cannot have authors.'
+          This chooses the performers instead of the writer. An orchestra plays a symphony. Check whether the first pair names performers or a creator.
+      - text: "Concert"
         rationale: |
-          You disputed the existence of authors rather than analyzing word direction.
+          This chooses the event instead of the writer. A symphony can be heard at a concert. Check the direction from work to person.
     explanation: |
-      "Author is to book" (author creates book) is different from "book is to author" (book was created by author). Checking whether the relationship goes from first word to second word, or the reverse, and applying that same direction consistently is essential for a correct match.
+      A novel is written by an author. A symphony is written by a composer. Both pairs go from a work to its writer.
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0013
     type: analogy
     difficulty: medium
     stem: |
-      Sonnet is to poem as waltz is to ______.
+      Here "waltz" means the ballroom dance. Sonnet is to poem as waltz is to ______.
     choices:
-      - text: Dance
+      - text: "Dance"
         correct: true
-      - text: Music
+      - text: "Music"
         rationale: |
-          You picked the accompanying medium rather than the direct categorical type of a waltz.
-      - text: Ballroom
+          This uses the musical-piece sense of waltz. A waltz can also be music written for dancing. Check the sense specified in the stem.
+      - text: "Ballroom"
         rationale: |
-          You picked the setting where a waltz is performed rather than its category.
-      - text: Composer
+          This chooses a setting instead of a category. Waltzes are often danced in ballrooms. Check whether a waltz is itself that place.
+      - text: "Composer"
         rationale: |
-          You picked the person who writes music rather than the category of waltz.
+          This chooses a creator instead of a category. A composer can write a waltz. Check the type-of relation in the first pair.
     explanation: |
-      A sonnet is a type of poem: a category relationship. Applying the same pattern: a waltz is a type of dance.
+      A sonnet is a type of poem. In the stated dance sense, a waltz is a type of dance. Both pairs go from a specific form to its broader category.
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0014
     type: analogy
     difficulty: medium
     stem: |
-      Wheel is to car as wing is to ______.
+      Preserve the whole-to-component direction: Car is to wheel as airplane is to ______.
     choices:
-      - text: Airplane
+      - text: "Wing"
         correct: true
-      - text: Feather
+      - text: "Hangar"
         rationale: |
-          You picked a smaller sub-component of a bird's wing rather than the whole vehicle.
-      - text: Sky
+          This chooses the place where the vehicle is kept instead of a component. Airplanes are stored in hangars. Check the wheel's role in a car.
+      - text: "Pilot"
         rationale: |
-          You picked the medium in which wings operate rather than the vehicle containing the wing.
-      - text: Flight
+          This chooses an operator instead of a component. A pilot controls an airplane. Check whether the first pair names a user or a physical part.
+      - text: "Flight"
         rationale: |
-          You picked the action enabled by wings rather than the whole object.
+          This chooses an action instead of a component. Wings enable flight. Check whether the first pair ends with an action or an object.
     explanation: |
-      A wheel is part of a car: a part-to-whole relationship. Applying the same pattern: a wing is part of an airplane.
+      A car has a wheel as a component. An airplane has a wing as a component. Both pairs go from a whole vehicle to one of its parts.
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0015
@@ -304,38 +304,123 @@ questions:
     stem: |
       Puppy is to dog as calf is to ______, in the same way that petal is to flower as ______ is to tree. Choose the missing pair, in order.
     choices:
-      - text: Cow, leaf
+      - text: "Cow, leaf"
         correct: true
-      - text: Cow, branch
+      - text: "Cow, forest"
         rationale: |
-          You selected branch, which is a structural part, but the question key expects leaf for the petal counterpart.
-      - text: Cat, leaf
+          This reverses the second relation. A forest contains a tree rather than being its part. Check that both blanks preserve the first pair's direction.
+      - text: "Cat, leaf"
         rationale: |
-          You paired calf with cat instead of cow. A calf is a young cow, not a cat.
-      - text: Horse, root
+          This matches the second relation but gives the wrong adult animal for calf. The young-animal format looks right. Check the animal named in each pair.
+      - text: "Horse, root"
         rationale: |
-          You paired calf with horse instead of cow. A calf is a young cow.
+          This gives a horse as the adult of a calf. Roots do fit the part-to-tree relation. Check the first analogy independently.
     explanation: |
-      First pair: a puppy is a baby dog, so a calf is a baby cow. Second pair: a petal is a part of a flower, so a leaf is a part of a tree. Checking both relationships together, "cow, leaf" satisfies both correctly.
+      A puppy is a young dog, and a calf is a young cow. A petal is part of a flower, and a leaf is part of a tree. The pair cow, leaf fits both relations.
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0016
     type: analogy
     difficulty: exam
     stem: |
-      Kitten is to cat as chick is to ______, in the same way that key is to lock as ______ is to engine. Choose the missing pair, in order.
+      Match work to its maker, and instrument to the quantity it measures: Map is to cartographer as statue is to ______; thermometer is to temperature as barometer is to ______. Choose the missing pair, in order.
     choices:
-      - text: Chicken, ignition
+      - text: "Sculptor, pressure"
         correct: true
-      - text: Chicken, wheel
+      - text: "Sculptor, temperature"
         rationale: |
-          You selected wheel for the engine starter. An ignition starts an engine, just as a key unlocks a lock.
-      - text: Rooster, ignition
+          This matches the creator relation but copies the first instrument's quantity. Both instruments can be used to study weather. Check each instrument's measured quantity separately.
+      - text: "Painter, pressure"
         rationale: |
-          You paired chick with adult male rooster instead of the general species name chicken.
-      - text: Duck, battery
+          This matches the measured quantity but chooses someone who may decorate a statue instead of shaping it. Painters can work on sculptures. Check the creation role in the first pair.
+      - text: "Sculptor, weather"
         rationale: |
-          You paired chick with duck instead of chicken. A chick is a young chicken.
+          This gives a broad forecast topic instead of a measured quantity. Barometers can help forecast weather. Check whether the relation names a reading or a use of that reading.
     explanation: |
-      First pair: a kitten is a baby cat, so a chick is a baby chicken. Second pair: a key is used to start (unlock/activate) a lock, so an ignition is used to start an engine. Checking both relationships together, "chicken, ignition" satisfies both correctly.
+      A map is made by a cartographer, and a statue is shaped by a sculptor. A thermometer measures temperature, and a barometer measures pressure. Both relations fit sculptor, pressure.
     approved: true
+
+  - id: q-logical-verbal-reasoning-word-analogies-0017
+    type: analogy
+    difficulty: easy
+    stem: |
+      Match a low-intensity action to a high-intensity action: Whisper is to shout as stroll is to ______.
+    choices:
+      - text: "Sprint"
+        correct: true
+      - text: "Pause"
+        rationale: |
+          This reduces movement instead of intensifying it. A pause is related to a walk. Check whether the second action becomes stronger or stops.
+      - text: "Wander"
+        rationale: |
+          This changes direction or purpose instead of pace. Wandering is a kind of walking. Check the intensity relation in the first pair.
+      - text: "Tiptoe"
+        rationale: |
+          This changes noisiness rather than greatly increasing pace. Tiptoeing can seem related to whispering because both are quiet. Check the relationship from the first action to the second.
+    explanation: |
+      Whispering has low voice intensity and shouting high voice intensity. A stroll has a slow pace and a sprint a very fast pace. Sprint gives the matching large increase in action intensity.
+    approved: false
+
+  - id: q-logical-verbal-reasoning-word-analogies-0018
+    type: analogy
+    difficulty: medium
+    stem: |
+      For water, match a process to its resulting form: Evaporation is to vapor as freezing is to ______.
+    choices:
+      - text: "Ice"
+        correct: true
+      - text: "Chilling"
+        rationale: |
+          This gives another cooling process instead of the resulting form. Both relate to lowering temperature. Check whether the second word in the first pair is a process or its product.
+      - text: "Liquid"
+        rationale: |
+          This names the starting form instead of the frozen result. Water before freezing is liquid. Check the direction from process to result.
+      - text: "Condensation"
+        rationale: |
+          This gives a different process instead of the resulting form. Condensation also involves a change in water's state. Check the role of vapor in the first pair.
+    explanation: |
+      For water, evaporation produces vapor. Freezing produces ice. The relation is process to its resulting form.
+    approved: false
+
+  - id: q-logical-verbal-reasoning-word-analogies-0019
+    type: analogy
+    difficulty: hard
+    stem: |
+      Baker is to loaf as potter is to ______; orchid is to flower as quartz is to ______. Choose the missing pair, in order.
+    choices:
+      - text: "Vase, mineral"
+        correct: true
+      - text: "Clay, mineral"
+        rationale: |
+          This matches the category relation but substitutes the potter's material for the work. Clay is closely linked to pottery. Check the loaf's role in the first pair.
+      - text: "Vase, jewelry"
+        rationale: |
+          This matches the work relation but places quartz with finished ornaments instead of its direct category. Quartz can be used in jewelry. Check the type-of relation.
+      - text: "Kiln, gemstone"
+        rationale: |
+          This gives equipment instead of the potter's finished work. Some quartz is used as a gemstone, so the second part may look related. Check both relations independently.
+    explanation: |
+      A baker produces a loaf, and a potter produces a vase. An orchid is a type of flower, and quartz is a type of mineral. Vase, mineral fits both ordered relations.
+    approved: false
+
+  - id: q-logical-verbal-reasoning-word-analogies-0020
+    type: analogy
+    difficulty: exam
+    stem: |
+      Which pair best preserves the ordered contains-contents relation in "Library is to books"?
+    choices:
+      - text: "Archive is to records"
+        correct: true
+      - text: "Borrower is to books"
+        rationale: |
+          This chooses a user-to-item relation. Borrowers are associated with library books. Check whether the first term contains the second.
+      - text: "Pages is to novel"
+        rationale: |
+          This reverses the containment direction. Pages belong inside a novel. Check the direction from library to books.
+      - text: "Catalog is to librarian"
+        rationale: |
+          This chooses a resource-to-user relation. A librarian uses a catalog. Check whether the second item is the first item's contents.
+    explanation: |
+      A library contains books. An archive contains records. Both pairs go from a collection or place to its contents.
+    approved: false
+

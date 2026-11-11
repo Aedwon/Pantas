@@ -1,0 +1,381 @@
+import 'dart:convert';
+import 'dart:math';
+
+import 'package:drift/drift.dart' show BooleanExpressionOperators, Constant;
+import 'package:flutter/foundation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/storage/domain/attempt_origins.dart';
+import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/time/local_day.dart';
+import 'package:pantas/core/time/pantas_dates.dart';
+import 'package:pantas/features/home/application/study_remote_providers.dart';
+import 'package:pantas/features/metrics/signals/counted_attempts.dart';
+import 'package:pantas/features/mock_exam/application/mock_results_providers.dart';
+import 'package:pantas/features/mock_exam/application/server_mock_results_providers.dart';
+import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
+import 'package:pantas/features/quiz/application/quiz_providers.dart';
+import 'package:pantas/features/quiz/domain/models/session_origin.dart';
+import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
+import 'package:pantas/features/settings/application/settings_providers.dart';
+
+@immutable
+class StudentRecord {
+  const StudentRecord({
+    required this.weeksIn,
+    required this.dayStreak,
+    required this.streakStartedOn,
+    required this.questionsAnswered,
+    required this.sessionMinutes,
+    required this.lessonsRead,
+    required this.daysActive,
+    required this.longestStreak,
+    required this.bestMockPercent,
+    required this.accuracySeries,
+    required this.mocks,
+  });
+
+  final int weeksIn;
+  final int dayStreak;
+  final DateTime? streakStartedOn;
+  final int questionsAnswered;
+
+  /// Time in sessions, never "time studied". Reading time is not tracked.
+  final int sessionMinutes;
+
+  final int lessonsRead;
+  final int daysActive;
+  final int longestStreak;
+
+  /// Null until a mock has been submitted. Absent, not zero.
+  final int? bestMockPercent;
+
+  /// One point per week of prep. Empty below two points, because a line
+  /// through one point is not a trend and drawing it would be a shape the
+  /// data does not have.
+  final List<({DateTime weekStart, double accuracy})> accuracySeries;
+
+  /// Newest first. Empty until a mock has been submitted.
+  final List<({DateTime takenOn, int percent, String blueprintName})> mocks;
+}
+
+final recordNowProvider = Provider<DateTime?>((ref) => null);
+
+final recordProvider = FutureProvider<StudentRecord>((ref) async {
+  await ref.watch(studyCoreEpochProvider.future);
+  ref
+    ..watch(quizSessionPanelRevisionProvider)
+    ..watch(roadmapRevisionProvider);
+  final db = ref.watch(appDatabaseProvider);
+  final now = ref.watch(recordNowProvider) ?? DateTime.now();
+
+  // The figures count what the student's choice says counts toward the exam
+  // they are preparing for now. With no exam chosen there is nothing to filter
+  // against, so every attempt counts. Today's session and the due dates do not
+  // come through here at all.
+  final examId =
+      await ref.watch(appPreferencesRepositoryProvider).selectedExamId();
+  final carryOver = examId == null ||
+      (await ref.watch(userSettingsProvider.future)).carryOverProgress;
+  final counted = examId == null
+      ? [
+          for (final row in await db.select(db.attemptsLocal).get())
+            CountedAttempt(row),
+        ]
+      : await countedAttempts(
+          db: db,
+          content: ref.watch(contentRepositoryProvider),
+          examId: examId,
+          carryOver: carryOver,
+        );
+  final countedById = {for (final c in counted) c.row.id: c};
+  final allAttemptsRows = [for (final c in counted) c.row];
+  final lessonProgressRows = await db.select(db.lessonProgressLocal).get();
+  final streakRow = await (db.select(db.streakLocal)
+        ..where((s) => s.id.equals(1)))
+      .getSingleOrNull();
+  final mockAccuracy = <String, ({int correct, int total})>{};
+  final List<MockAttempt> mockAttemptsRows;
+  if (ref.watch(mockUsesServerProvider)) {
+    // A mock is one exam's paper: only the current exam's mocks count.
+    final history = [
+      for (final entry in await ref.watch(mockHistoryProvider.future))
+        if (examId == null || entry.attempt.examId == examId) entry,
+    ];
+    mockAttemptsRows = [for (final entry in history) entry.attempt];
+    for (final entry in history) {
+      final sections = entry.results.sections;
+      if (sections.isNotEmpty) {
+        mockAccuracy[entry.attempt.id] = (
+          correct: sections.fold(0, (sum, s) => sum + s.correct),
+          total: sections.fold(0, (sum, s) => sum + s.total)
+        );
+      }
+    }
+  } else {
+    final stored = await (db.select(db.mockAttempts)
+          ..where(
+            (m) =>
+                m.status.equals('completed') &
+                (examId == null
+                    ? const Constant(true)
+                    : m.examId.equals(examId)),
+          ))
+        .get();
+    mockAttemptsRows = stored.map(MockAttempt.fromRow).toList();
+    for (final mock in mockAttemptsRows) {
+      if (mock.sectionResultsJson == null) continue;
+      final data = jsonDecode(mock.sectionResultsJson!);
+      if (data is! Map || data['sections'] is! List) continue;
+      var correct = 0;
+      var total = 0;
+      for (final section in data['sections']! as List) {
+        if (section is! Map ||
+            section['correct'] is! int ||
+            section['total'] is! int) {
+          continue;
+        }
+        correct += section['correct']! as int;
+        total += section['total']! as int;
+      }
+      if (total > 0) mockAccuracy[mock.id] = (correct: correct, total: total);
+    }
+  }
+  // Skip a mirrored answer only when its completed mock is counted below.
+  final countedMockIds = mockAttemptsRows.map((m) => m.id).toSet();
+  final attemptsRows = allAttemptsRows
+      .where(
+        (a) =>
+            !AttemptOrigins.mirrored.contains(a.origin) ||
+            !countedMockIds.contains(a.id),
+      )
+      .toList();
+
+  // 1. First activity date for weeksIn
+  DateTime? earliestDate;
+
+  for (final row in attemptsRows) {
+    final dt = row.startedAt;
+    if (earliestDate == null || dt.isBefore(earliestDate)) {
+      earliestDate = dt;
+    }
+  }
+  for (final row in lessonProgressRows) {
+    final dt = row.readAt;
+    if (earliestDate == null || dt.isBefore(earliestDate)) {
+      earliestDate = dt;
+    }
+  }
+  for (final row in mockAttemptsRows) {
+    final dt = row.startedAt;
+    if (earliestDate == null || dt.isBefore(earliestDate)) {
+      earliestDate = dt;
+    }
+  }
+
+  var weeksIn = 0;
+  if (earliestDate != null) {
+    final days = now.difference(earliestDate).inDays;
+    weeksIn = max(1, (days / 7.0).ceil());
+  }
+
+  // 2. Streaks
+  final dayStreak = streakRow?.current ?? 0;
+  final longestStreak = streakRow?.longest ?? 0;
+  DateTime? streakStartedOn;
+
+  // A start date is sound only when the completed session history proves
+  // every calendar day in the displayed range, including any rest days.
+  if (dayStreak > 0 && streakRow?.lastActiveDate != null) {
+    final lastActive = localDay(streakRow!.lastActiveDate!);
+    final candidate = DateTime(
+      lastActive.year,
+      lastActive.month,
+      lastActive.day - dayStreak + 1,
+    );
+    final creditedDays = {
+      for (final row in allAttemptsRows)
+        if (row.completedAt != null &&
+            SessionOrigin.fromStorage(row.origin).isStreakEligible)
+          localDay(row.completedAt!),
+    };
+    var continuous = true;
+    for (var day = candidate;
+        !day.isAfter(lastActive);
+        day = DateTime(day.year, day.month, day.day + 1)) {
+      if (!creditedDays.contains(day)) {
+        continuous = false;
+        break;
+      }
+    }
+    if (continuous) streakStartedOn = candidate;
+  }
+
+  // Helper for reading the items of an attempt that count toward this exam.
+  List<({bool isCorrect})> parseAttemptItems(
+    String attemptId,
+    String itemsJson,
+  ) {
+    final attempt = countedById[attemptId];
+    try {
+      final decoded = jsonDecode(itemsJson);
+      if (decoded is! List) return const [];
+      final result = <({bool isCorrect})>[];
+      for (final item in decoded) {
+        if (item is Map<String, Object?>) {
+          final questionId = item['questionId'];
+          if (attempt != null &&
+              questionId is String &&
+              !attempt.counts(questionId)) {
+            continue;
+          }
+          final chosen = item['chosenChoiceId'];
+          final correct = item['correctChoiceId'];
+          result.add((isCorrect: chosen != null && chosen == correct));
+        }
+      }
+      return result;
+    } catch (_) {
+      return const [];
+    }
+  }
+
+  // 3. Questions answered & Session minutes
+  var questionsAnswered = 0;
+  var totalSessionSeconds = 0;
+
+  for (final row in attemptsRows) {
+    final items = parseAttemptItems(row.id, row.itemsJson);
+    questionsAnswered += items.length;
+    final comp = row.completedAt;
+    if (comp != null) {
+      totalSessionSeconds += comp.difference(row.startedAt).inSeconds;
+    }
+  }
+
+  for (final row in mockAttemptsRows) {
+    if (row.scoreTotal != null && row.scoreTotal! > 0) {
+      questionsAnswered += row.scoreTotal!;
+    } else if (row.answersJson.isNotEmpty) {
+      try {
+        final decoded = jsonDecode(row.answersJson);
+        if (decoded is Map) {
+          questionsAnswered += decoded.length;
+        }
+      } catch (_) {}
+    }
+    if (row.submittedAt != null) {
+      totalSessionSeconds += row.elapsedSeconds;
+    }
+  }
+
+  final sessionMinutes = (totalSessionSeconds / 60.0).round();
+
+  // 4. Lessons read
+  final lessonsRead = lessonProgressRows.length;
+
+  // 5. Days active (distinct local dates across attempts and lesson progress)
+  final activeDates = <DateTime>{};
+  for (final row in attemptsRows) {
+    final dt = row.startedAt.toLocal();
+    activeDates.add(DateTime(dt.year, dt.month, dt.day));
+  }
+  for (final row in lessonProgressRows) {
+    final dt = row.readAt.toLocal();
+    activeDates.add(DateTime(dt.year, dt.month, dt.day));
+  }
+  for (final row in mockAttemptsRows) {
+    final dt = row.startedAt.toLocal();
+    activeDates.add(DateTime(dt.year, dt.month, dt.day));
+  }
+  final daysActive = activeDates.length;
+
+  // 6. Mocks
+  int? bestMockPercent;
+  final mocksList = <({DateTime takenOn, int percent, String blueprintName})>[];
+
+  if (mockAttemptsRows.isNotEmpty) {
+    for (final row in mockAttemptsRows) {
+      final scoreRaw = row.scoreRaw;
+      final scoreTotal = row.scoreTotal;
+      if (scoreRaw != null &&
+          scoreTotal != null &&
+          scoreTotal > 0 &&
+          row.submittedAt != null) {
+        final pct = (scoreRaw * 100 / scoreTotal).round();
+        if (bestMockPercent == null || pct > bestMockPercent) {
+          bestMockPercent = pct;
+        }
+        mocksList.add(
+          (
+            takenOn: row.submittedAt!,
+            percent: pct,
+            blueprintName: row.blueprintName,
+          ),
+        );
+      }
+    }
+    mocksList.sort((a, b) => b.takenOn.compareTo(a.takenOn));
+  }
+
+  // 7. Accuracy series (one point per week of prep, empty if < 2 points)
+  final weeklyAttempts = <DateTime, ({int correct, int total})>{};
+  for (final row in allAttemptsRows.where(
+    (a) =>
+        !AttemptOrigins.mirrored.contains(a.origin) ||
+        !mockAccuracy.containsKey(a.id),
+  )) {
+    if (row.completedAt == null) continue;
+    final items = parseAttemptItems(row.id, row.itemsJson);
+    if (items.isEmpty) continue;
+    final dt = row.startedAt.toLocal();
+    final localDate = DateTime(dt.year, dt.month, dt.day);
+    final weekStart = PantasDates.weekStart(localDate);
+
+    var correctCount = 0;
+    for (final item in items) {
+      if (item.isCorrect) correctCount++;
+    }
+
+    final prev = weeklyAttempts[weekStart] ?? (correct: 0, total: 0);
+    weeklyAttempts[weekStart] = (
+      correct: prev.correct + correctCount,
+      total: prev.total + items.length,
+    );
+  }
+
+  for (final mock in mockAttemptsRows) {
+    final counts = mockAccuracy[mock.id];
+    if (counts == null || counts.total == 0) continue;
+    final week = PantasDates.weekStart(mock.startedAt.toLocal());
+    final before = weeklyAttempts[week] ?? (correct: 0, total: 0);
+    weeklyAttempts[week] = (
+      correct: before.correct + counts.correct,
+      total: before.total + counts.total
+    );
+  }
+
+  final sortedWeeks = weeklyAttempts.keys.toList()..sort();
+  final accuracySeries = <({DateTime weekStart, double accuracy})>[];
+
+  if (sortedWeeks.length >= 2) {
+    for (final w in sortedWeeks) {
+      final data = weeklyAttempts[w]!;
+      final acc = data.total > 0 ? (data.correct / data.total) * 100.0 : 0.0;
+      accuracySeries.add((weekStart: w, accuracy: acc));
+    }
+  }
+
+  return StudentRecord(
+    weeksIn: weeksIn,
+    dayStreak: dayStreak,
+    streakStartedOn: streakStartedOn,
+    questionsAnswered: questionsAnswered,
+    sessionMinutes: sessionMinutes,
+    lessonsRead: lessonsRead,
+    daysActive: daysActive,
+    longestStreak: longestStreak,
+    bestMockPercent: bestMockPercent,
+    accuracySeries: accuracySeries,
+    mocks: mocksList,
+  );
+});

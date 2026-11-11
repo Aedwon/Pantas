@@ -2,6 +2,7 @@ import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/features/metrics/domain/metric_signal.dart';
 import 'package:pantas/features/metrics/domain/metrics_window.dart';
 import 'package:pantas/features/metrics/domain/signal_outputs.dart';
+import 'package:pantas/features/metrics/signals/metric_calculations.dart';
 
 class RetentionShapeSignal implements Signal<RetentionCurve> {
   const RetentionShapeSignal(this._db);
@@ -24,13 +25,9 @@ class RetentionShapeSignal implements Signal<RetentionCurve> {
   }) async {
     if (!window.hasEnoughData) return null;
     final states = await _db.select(_db.reviewStateLocal).get();
-    if (states.isEmpty) return null;
-    final stability = states.fold<double>(0, (sum, row) => sum + row.stability);
-    final reps = states.fold<int>(0, (sum, row) => sum + row.reps);
-    final lapses = states.fold<int>(0, (sum, row) => sum + row.lapses);
-    return RetentionCurve(
-      averageStability: stability / states.length,
-      lapseRate: reps == 0 ? 0 : lapses / reps,
-    );
+    return MetricCalculations.retention([
+      for (final row in states)
+        (stability: row.stability, reps: row.reps, lapses: row.lapses),
+    ]);
   }
 }

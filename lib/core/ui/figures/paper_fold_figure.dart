@@ -1,6 +1,11 @@
+import 'dart:math' as math;
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+
+/// Height of the drawing. The design system sets no height for diagrams.
+const double _figureHeight = 140;
 
 /// A sheet of paper, folded, with a cut in it.
 ///
@@ -14,9 +19,10 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 ///       showUnfolded: false
 /// ```
 ///
-/// The folded sheet is drawn solid and the parts folded away are drawn in
-/// faint rule. Worked lesson diagrams may opt into the unfolded result;
-/// question specs keep the default and never reveal it.
+/// The whole sheet is outlined, and every crease is a dashed line across it,
+/// so words like "the shown creases" point at something drawn. The folded
+/// sheet is drawn solid on top. Worked lesson diagrams may opt into the
+/// unfolded result; question specs keep the default and never reveal it.
 class PaperFoldFigure extends StatelessWidget {
   const PaperFoldFigure({
     required this.folds,
@@ -83,7 +89,7 @@ class PaperFoldFigure extends StatelessWidget {
           '${folds.length == 1 ? 'time' : 'times'}, with a $cut cut $at'
           '${showUnfolded ? ', then opened flat' : ''}.',
       child: SizedBox(
-        height: 140,
+        height: _figureHeight,
         child: CustomPaint(
           painter: _PaperPainter(
             folds: folds,
@@ -91,14 +97,64 @@ class PaperFoldFigure extends StatelessWidget {
             at: at,
             sheet: sheet,
             showUnfolded: showUnfolded,
-            ink: colors.ink,
-            faint: colors.ruleFaint,
+            ink: colors.label,
+            outline: colors.secondaryLabel,
           ),
           size: Size.infinite,
         ),
       ),
     );
   }
+}
+
+/// Where the creases and the notch go, shared by the painter and its tests.
+@visibleForTesting
+abstract final class PaperFoldGeometry {
+  /// Every crease of the opened sheet [full], as segments, for a sheet
+  /// folded in the order [folds].
+  ///
+  /// Each fold halves what is left of the sheet. Its crease runs across the
+  /// packet as it was when folded, then is carried back through the earlier
+  /// folds, in reverse, as the sheet is opened.
+  static List<(Offset, Offset)> creases(Rect full, List<String> folds) {
+    var folded = full;
+    final done = <(String, double)>[];
+    final result = <(Offset, Offset)>[];
+    for (final fold in folds) {
+      final vertical = fold == 'vertical';
+      final line = vertical ? folded.center.dx : folded.center.dy;
+      var segments = <(Offset, Offset)>[
+        if (vertical)
+          (Offset(line, folded.top), Offset(line, folded.bottom))
+        else
+          (Offset(folded.left, line), Offset(folded.right, line)),
+      ];
+      for (final (earlier, at) in done.reversed) {
+        segments = [
+          ...segments,
+          for (final (a, b) in segments)
+            if (earlier == 'vertical')
+              (Offset(2 * at - a.dx, a.dy), Offset(2 * at - b.dx, b.dy))
+            else
+              (Offset(a.dx, 2 * at - a.dy), Offset(b.dx, 2 * at - b.dy)),
+        ];
+      }
+      result.addAll(segments);
+      done.add((fold, line));
+      folded = vertical
+          ? Rect.fromLTRB(line, folded.top, folded.right, folded.bottom)
+          : Rect.fromLTRB(folded.left, line, folded.right, folded.bottom);
+    }
+    return result;
+  }
+
+  /// A notch cut on the folded edge: its base lies along the edge and its
+  /// tip points into the packet.
+  static List<Offset> notchOnFold(Offset centre) => [
+        Offset(centre.dx, centre.dy - 7),
+        Offset(centre.dx + 10, centre.dy),
+        Offset(centre.dx, centre.dy + 7),
+      ];
 }
 
 class _PaperPainter extends CustomPainter {
@@ -109,7 +165,7 @@ class _PaperPainter extends CustomPainter {
     required this.sheet,
     required this.showUnfolded,
     required this.ink,
-    required this.faint,
+    required this.outline,
   });
 
   final List<String> folds;
@@ -118,7 +174,7 @@ class _PaperPainter extends CustomPainter {
   final String sheet;
   final bool showUnfolded;
   final Color ink;
-  final Color faint;
+  final Color outline;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -129,7 +185,7 @@ class _PaperPainter extends CustomPainter {
     final hidden = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1
-      ..color = faint;
+      ..color = outline;
     final cutPaint = Paint()
       ..style = PaintingStyle.fill
       ..color = ink;
@@ -139,16 +195,15 @@ class _PaperPainter extends CustomPainter {
         : Rect.fromLTWH(8, 8, size.width - 16, size.height - 16);
     final full = _sheetRect(foldedArea);
 
-    // The whole sheet in faint rule, so the folded-away half is visible.
+    // The whole sheet, so the folded-away part is visible.
     canvas.drawRect(full, hidden);
 
     // Each fold halves the sheet. The folded sheet is the part that stays.
     var folded = full;
     final foldLines = <(String, double)>[];
     for (final fold in folds) {
-      foldLines.add(
-        (fold, fold == 'vertical' ? folded.center.dx : folded.center.dy),
-      );
+      final line = fold == 'vertical' ? folded.center.dx : folded.center.dy;
+      foldLines.add((fold, line));
       folded = fold == 'vertical'
           ? Rect.fromLTWH(
               folded.left + folded.width / 2,
@@ -162,6 +217,9 @@ class _PaperPainter extends CustomPainter {
               folded.width,
               folded.height / 2,
             );
+    }
+    for (final (a, b) in PaperFoldGeometry.creases(full, folds)) {
+      _dashedLine(canvas, a, b, hidden);
     }
     canvas.drawRect(folded, solid);
 
@@ -232,9 +290,32 @@ class _PaperPainter extends CustomPainter {
     return points;
   }
 
+  void _dashedLine(Canvas canvas, Offset a, Offset b, Paint paint) {
+    const dash = 5.0;
+    const gap = 4.0;
+    final length = (b - a).distance;
+    final step = (b - a) / length;
+    for (var at = 0.0; at < length; at += dash + gap) {
+      canvas.drawLine(
+        a + step * at,
+        a + step * math.min(at + dash, length),
+        paint,
+      );
+    }
+  }
+
   void _drawCut(Canvas canvas, Offset centre, Paint paint) {
     if (cut == 'hole') {
       canvas.drawCircle(centre, 6, paint);
+      return;
+    }
+    if (at == 'on-fold') {
+      // The base lies along the folded edge and the tip points into the
+      // packet, so opening the sheet joins two halves into one opening.
+      canvas.drawPath(
+        Path()..addPolygon(PaperFoldGeometry.notchOnFold(centre), true),
+        paint,
+      );
       return;
     }
     canvas.drawPath(
@@ -267,5 +348,5 @@ class _PaperPainter extends CustomPainter {
       old.sheet != sheet ||
       old.showUnfolded != showUnfolded ||
       old.ink != ink ||
-      old.faint != faint;
+      old.outline != outline;
 }

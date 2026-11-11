@@ -10,19 +10,19 @@ questions:
     stem: |
       Choose the word most similar in meaning to "ephemeral."
     choices:
-      - text: Fleeting
+      - text: "Fleeting"
         correct: true
-      - text: Eternal
+      - text: "Enduring"
         rationale: |
-          "Eternal" is nearly the opposite: lasting forever.
-      - text: Glowing
+          This chooses lasting for a long time instead of a short time. Both describe duration. Check whether the question asks for a synonym or an opposite.
+      - text: "Recurring"
         rationale: |
-          "Glowing" concerns brightness, not duration.
-      - text: Rigid
+          This confuses a short duration with repeated appearances. A brief event can happen again. Check whether the word describes how long something lasts or how often it returns.
+      - text: "Intermittent"
         rationale: |
-          "Rigid" means stiff or inflexible, not short-lived.
+          This confuses brief existence with stopping and starting. Both can suggest something not continuous. Check whether the meaning concerns total duration or gaps.
     explanation: |
-      "Ephemeral" means lasting for a very short time; "fleeting" is the closest synonym.
+      "Ephemeral" means lasting a very short time. "Fleeting" has the same short-lived meaning.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0002
@@ -31,40 +31,40 @@ questions:
     stem: |
       Select the word most nearly opposite in meaning to "mitigate."
     choices:
-      - text: Aggravate
+      - text: "Aggravate"
         correct: true
-      - text: Alleviate
+      - text: "Alleviate"
         rationale: |
-          "Alleviate" is a close synonym of "mitigate": both can mean lessen severity.
-      - text: Placate
+          This selects a synonym instead of an opposite. Both words describe reducing a problem. Check whether the question asks for lessening or worsening.
+      - text: "Placate"
         rationale: |
-          "Placate" means calm or appease someone and is not the opposite of lessen severity.
-      - text: Isolate
+          This confuses calming a person with worsening a problem. A person can be upset by a problem. Check the action described by the target word.
+      - text: "Eliminate"
         rationale: |
-          "Isolate" means separate, not make a problem worse.
+          This treats complete removal as the opposite of partial reduction. The degree differs, which can seem like a contrast. Check whether both actions still move toward less of the problem.
     explanation: |
-      To mitigate is to make something less severe; to aggravate is to make it worse.
+      "Mitigate" means make less severe. Its opposite, "aggravate," means make more severe.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0003
     type: synonym
     difficulty: medium
     stem: |
-      Piliin ang pinakawastong kasingkahulugan ng salitang may salungguhit: "*Gumuho* ang kanyang mga pangarap dahil sa sakuna."
+      Piliin ang pinakamalapit na kahulugan ng "gumuho" sa pangungusap: "Gumuho ang kanyang mga pangarap dahil sa sakuna."
     choices:
-      - text: Nawasak
+      - text: "Nawasak"
         correct: true
-      - text: Natupad
+      - text: "Natupad"
         rationale: |
-          Ang "natupad" ay kabaligtaran ng pagkawasak ng pangarap.
-      - text: Lumakas
+          This reverses ruin into fulfillment. Both concern the fate of a dream. Check the effect of the disaster in the sentence.
+      - text: "Naantala"
         rationale: |
-          Hindi paglakas ang ipinahihiwatig ng "gumuho" sa konteksto.
-      - text: Lumaki
+          This weakens collapse into a delay. A disaster can postpone a plan. Check whether the target means waiting longer or losing the dream.
+      - text: "Nabago"
         rationale: |
-          Hindi paglaki ang kahulugan ng matalinghagang "gumuho" rito.
+          This weakens ruin into any change. A disaster can change plans. Check the strength of the word "gumuho."
     explanation: |
-      Sa matalinghagang gamit na "gumuho ang mga pangarap," ang pinakamalapit na kahulugan ay "nawasak."
+      Here the dreams "collapsed" because of the disaster. "Nawasak" means ruined and fits that figurative sense.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0004
@@ -73,19 +73,19 @@ questions:
     stem: |
       Alin sa mga sumusunod ang kasalungat ng salitang "maralita"?
     choices:
-      - text: Mayaman
+      - text: "Mayaman"
         correct: true
-      - text: Mahirap
+      - text: "Mahirap"
         rationale: |
-          Ang "mahirap" ay kasingkahulugan ng "maralita," hindi kasalungat.
-      - text: Masipag
+          This chooses the same financial condition instead of its opposite. Both words describe poverty. Check the direction of the requested contrast.
+      - text: "Matipid"
         rationale: |
-          Ang kasipagan ay ibang katangian at hindi kabaligtaran ng katayuang tinutukoy.
-      - text: Tamad
+          This confuses wealth with spending habits. A person with little money may spend carefully. Check whether the target describes resources or behavior.
+      - text: "Mapagbigay"
         rationale: |
-          Ang "tamad" ay kasalungat ng "masipag," hindi ng "maralita."
+          This confuses wealth with giving to others. Giving may suggest having money. Check whether the word states financial condition or generosity.
     explanation: |
-      "Maralita" means poor or impoverished; "mayaman" is the clearest opposite among the choices.
+      "Maralita" means poor in financial resources. "Mayaman" means wealthy, so it gives the opposite financial condition.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0005
@@ -94,124 +94,124 @@ questions:
     stem: |
       The manager's *sycophantic* assistant praised every proposal excessively in hopes of gaining a promotion. Which word best describes "sycophantic" here?
     choices:
-      - text: Fawning
+      - text: "Fawning"
         correct: true
-      - text: Rebellious
+      - text: "Rebellious"
         rationale: |
-          Rebellious behavior resists authority; the assistant is doing the opposite.
-      - text: Impartial
+          This treats an attempt to gain favor as resistance. The assistant has a personal goal, which may suggest acting independently. Check whether the behavior challenges or pleases the manager.
+      - text: "Impartial"
         rationale: |
-          The assistant is trying to gain favor, not showing neutrality.
-      - text: Indifferent
+          This treats agreement as fair judgment. Praising every proposal may sound approving. Check the motive of gaining a promotion.
+      - text: "Indifferent"
         rationale: |
-          The assistant is actively flattering the manager, not showing indifference.
+          This treats flattery as lack of concern. The praise may not be sincere. Check whether the assistant actively seeks an advantage.
     explanation: |
-      "Sycophantic" means excessively flattering or servile toward someone powerful in order to gain advantage; "fawning" is the closest choice.
+      The assistant uses excessive praise to gain favor. "Sycophantic" and "fawning" both describe that behavior.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0006
     type: synonym
     difficulty: medium
     stem: |
-      Choose the word most similar in meaning to "meticulous."
+      An editor was meticulous about checking every date and quotation. Which word is closest in meaning to "meticulous" here?
     choices:
-      - text: Precise
+      - text: "Thorough"
         correct: true
-      - text: Careless
+      - text: "Careless"
         rationale: |
-          "Careless" is nearly the opposite of meticulous.
-      - text: Fast
+          This reverses careful attention into neglect. Both concern how work is handled. Check whether details are checked or ignored.
+      - text: "Hurried"
         rationale: |
-          Meticulous describes careful attention, not speed.
-      - text: Loud
+          This confuses efficient checking with rushing. Skilled work can be quick. Check whether the word describes speed or attention.
+      - text: "Distracted"
         rationale: |
-          Loudness is unrelated to careful attention to detail.
+          This confuses noticing many details with scattered attention. Many details can divide attention. Check whether the editor checks them carefully.
     explanation: |
-      "Meticulous" means extremely careful and attentive to detail; "precise" is the closest choice.
+      The editor checks every detail. "Meticulous" means very careful and thorough about details.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0007
     type: antonym
     difficulty: medium
     stem: |
-      Select the word most nearly opposite in meaning to "benevolent."
+      The report called the error's effect "benign," meaning it caused no harm. Which word is most nearly opposite to "benign" in this sense?
     choices:
-      - text: Malevolent
+      - text: "Harmful"
         correct: true
-      - text: Kind
+      - text: "Harmless"
         rationale: |
-          "Kind" is a synonym of benevolent.
-      - text: Wealthy
+          This gives the same meaning instead of the opposite. Both words describe absence of harm. Check whether the question asks for a synonym or antonym.
+      - text: "Trivial"
         rationale: |
-          Wealth concerns financial status, not goodwill toward others.
-      - text: Shy
+          This confuses small importance with absence of harm. A minor error may also be harmless. Check which quality the sentence assigns to the effect.
+      - text: "Unintended"
         rationale: |
-          Shyness is unrelated to benevolence.
+          This confuses harmless results with lack of intention. An accidental action can have little effect. Check whether the word describes the result or the motive.
     explanation: |
-      Benevolent means well-meaning and kind; malevolent means wishing or causing harm.
+      "Benign" describes an effect that is not harmful here. The opposite is "harmful," meaning capable of causing damage.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0008
     type: synonym
     difficulty: medium
     stem: |
-      Alin sa mga sumusunod ang pinakamalapit na kasingkahulugan ng "magiliw"?
+      "Magiliw ang bagong kapitbahay: ngumiti siya at masayang binati ang mga taong nakasalubong niya." Alin ang pinakamalapit na kasingkahulugan ng "magiliw" dito?
     choices:
-      - text: Palakaibigan
+      - text: "Palakaibigan"
         correct: true
-      - text: Galit
+      - text: "Mapagpakitang-tao"
         rationale: |
-          Ang "galit" ay hindi kasingkahulugan ng magiliw na pakikitungo.
-      - text: Tamad
+          This treats warmth as insincere display. Friendly greetings can be used to impress others. Check whether the sentence gives evidence of pretending.
+      - text: "Mapag-utos"
         rationale: |
-          Ang katamaran ay walang tuwirang kaugnayan sa pagiging magiliw.
-      - text: Mayabang
+          This treats approaching people as directing them. Both involve social interaction. Check whether the neighbor greets or commands.
+      - text: "Mapagmataas"
         rationale: |
-          Ang pagmamayabang ay hindi kahulugan ng "magiliw."
+          This treats confident greeting as superiority. An outgoing person may seem self-assured. Check whether the actions show warmth or arrogance.
     explanation: |
-      "Magiliw" describes warm, affectionate, or friendly behavior; "palakaibigan" is the closest choice in this context.
+      The neighbor smiles and greets people warmly. "Magiliw" means warm and friendly, so "palakaibigan" fits this context.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0009
     type: antonym
     difficulty: medium
     stem: |
-      Alin sa mga sumusunod ang kasalungat ng salitang "matapang"?
+      Alin ang pinakamalapit na kasalungat ng "matapang" sa kahulugang may lakas ng loob sa harap ng panganib?
     choices:
-      - text: Duwag
+      - text: "Duwag"
         correct: true
-      - text: Malakas
+      - text: "Malakas"
         rationale: |
-          Lakas ng katawan is not the opposite of courage.
-      - text: Matalino
+          This confuses courage with physical strength. Strong people may seem able to face danger. Check whether the word describes strength or willingness to face fear.
+      - text: "Maingat"
         rationale: |
-          Intelligence is unrelated to the courage contrast.
-      - text: Mabait
+          This confuses caution with lack of courage. A brave person may act carefully. Check whether the contrast concerns fear or planning.
+      - text: "Padalos-dalos"
         rationale: |
-          Kindness is not the opposite of bravery.
+          This treats bravery as recklessness. Both can involve taking risks. Check whether the question asks for the opposite of courage.
     explanation: |
-      "Matapang" means brave or courageous; "duwag" is the direct opposite among the choices.
+      "Matapang" describes courage in facing danger. "Duwag" describes lack of that courage and is the opposite.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0010
     type: antonym
     difficulty: hard
     stem: |
-      Select the word most nearly opposite in meaning to "candid."
+      Select the word most nearly opposite to "candid" in the sense of honest and open.
     choices:
-      - text: Deceptive
+      - text: "Deceptive"
         correct: true
-      - text: Honest
+      - text: "Forthright"
         rationale: |
-          "Honest" is close to the meaning of "candid," not its opposite.
-      - text: Quiet
+          This chooses a synonym for frank honesty. A less familiar word may seem to offer a contrast. Check the meaning of "forthright."
+      - text: "Diplomatic"
         rationale: |
-          Quietness concerns amount or volume of speech, not honesty.
-      - text: Angry
+          This treats tact as dishonesty. A tactful person may speak gently. Check whether gentle wording necessarily changes the truth.
+      - text: "Blunt"
         rationale: |
-          Anger is unrelated to frankness or deception.
+          This treats a harsh manner as the opposite of honesty. Blunt speech can be unpleasant. Check whether the contrast is about truth or tone.
     explanation: |
-      "Candid" means frank and honest; "deceptive" supplies the clearest opposite.
+      "Candid" means honest and open in this sense. "Deceptive" means misleading others, so it opposes honesty.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0011
@@ -220,19 +220,19 @@ questions:
     stem: |
       Alin sa mga sumusunod ang kasalungat ng salitang "masaya"?
     choices:
-      - text: Malungkot
+      - text: "Malungkot"
         correct: true
-      - text: Natutuwa
+      - text: "Nasisiyahan"
         rationale: |
-          "Natutuwa" is close in meaning to "masaya," not its opposite.
-      - text: Mabait
+          This chooses a similar pleasant feeling instead of its opposite. Both describe satisfaction or joy. Check the requested direction of meaning.
+      - text: "Nasasabik"
         rationale: |
-          Kindness is not the opposite emotional state.
-      - text: Matalino
+          This confuses excitement with an opposite emotion. Excitement can be different from calm happiness. Check whether it actually means sadness.
+      - text: "Nababahala"
         rationale: |
-          Intelligence is unrelated to happiness versus sadness.
+          This treats any unpleasant feeling as the precise opposite of happiness. Worry is unpleasant. Check whether the alternative means sad or concerned about danger.
     explanation: |
-      "Malungkot" is the direct opposite of "masaya" among the choices.
+      "Masaya" means happy. "Malungkot" means sad, which is the opposite emotional state.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0012
@@ -241,19 +241,19 @@ questions:
     stem: |
       After the religious ceremony, the monks decided to *fast* for three days, taking no food during the stated fasting periods. What does "fast" mean here?
     choices:
-      - text: To abstain from food
+      - text: "To avoid eating"
         correct: true
-      - text: Quick
+      - text: "To eat less than usual"
         rationale: |
-          The surrounding sentence concerns food restriction, not speed.
-      - text: To run
+          This weakens abstaining into reducing the amount. A religious practice may involve dietary limits. Check the phrase "taking no food."
+      - text: "To finish a task quickly"
         rationale: |
-          The verb refers to abstaining from food in this context, not moving quickly.
-      - text: To sleep
+          This uses the speed meaning. "Fast" commonly describes quick action. Check the sentence's reference to food.
+      - text: "To hold firmly in place"
         rationale: |
-          Sleep is unrelated to the stated food restriction.
+          This uses the firmly-fixed meaning. "Fast" can appear in the expression "hold fast." Check which meaning fits the monks' action.
     explanation: |
-      "Fast" has several meanings. Here it is a verb meaning to abstain from food for a period, as part of a religious practice.
+      Here "fast" is a verb meaning go without food for the stated periods. "To avoid eating" matches that sense.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0013
@@ -262,19 +262,19 @@ questions:
     stem: |
       Choose the word most similar in meaning to "audacious."
     choices:
-      - text: Daring
+      - text: "Daring"
         correct: true
-      - text: Fearful
+      - text: "Cautious"
         rationale: |
-          Fearful is nearly the opposite of audacious.
-      - text: Quiet
+          This chooses caution instead of bold risk-taking. Both can concern difficult decisions. Check whether the target emphasizes avoiding or facing risk.
+      - text: "Conventional"
         rationale: |
-          Quietness does not express bold willingness to take risks.
-      - text: Generous
+          This chooses adherence to accepted ways instead of a bold departure. Both can describe an approach. Check whether the word emphasizes tradition or boldness.
+      - text: "Ambitious"
         rationale: |
-          Generosity concerns giving, not boldness.
+          This confuses a strong desire to succeed with willingness to take risks. Ambitious people may act boldly. Check whether the meaning is about a goal or an approach.
     explanation: |
-      "Audacious" means boldly daring or willing to take risks.
+      "Audacious" means boldly willing to take risks. "Daring" expresses that boldness.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0014
@@ -283,19 +283,19 @@ questions:
     stem: |
       Select the word most nearly opposite in meaning to "abundant."
     choices:
-      - text: Scarce
+      - text: "Scarce"
         correct: true
-      - text: Plentiful
+      - text: "Plentiful"
         rationale: |
-          "Plentiful" is a synonym of abundant.
-      - text: Heavy
+          This chooses the same quantity meaning instead of the opposite. Both words describe a large supply. Check whether the question asks for an antonym.
+      - text: "Expensive"
         rationale: |
-          Weight is not the relevant contrast in quantity.
-      - text: Fast
+          This treats a possible consequence of scarcity as its meaning. Limited goods can cost more. Check whether the target concerns amount or price.
+      - text: "Concentrated"
         rationale: |
-          Speed is unrelated to abundance.
+          This confuses total amount with density. A concentrated substance can seem like a large amount. Check whether the contrast is about supply or distribution.
     explanation: |
-      Abundant means plentiful; scarce means in short supply.
+      "Abundant" means present in large amounts. "Scarce" means in short supply, so it is the opposite.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0015
@@ -304,19 +304,19 @@ questions:
     stem: |
       Alin sa mga sumusunod ang pinakamalapit na kasingkahulugan ng "matiyaga" sa pangungusap na "Matiyaga siyang nagpraktis araw-araw hanggang matutuhan niya ang piyesa"?
     choices:
-      - text: Masikap
+      - text: "Masikap"
         correct: true
-      - text: Tamad
+      - text: "Tamad"
         rationale: |
-          Ang "tamad" ay kabaligtaran ng patuloy na pagsisikap na inilalarawan.
-      - text: Mayabang
+          This reverses sustained effort into avoiding work. Both describe work habits. Check the daily practice in the sentence.
+      - text: "Mahusay"
         rationale: |
-          Ang pagmamayabang ay walang kaugnayan sa matiyagang pagsasanay.
-      - text: Padalos-dalos
+          This confuses effort with existing skill. Practice can lead to skill. Check whether the word describes trying persistently or already performing well.
+      - text: "Padalos-dalos"
         rationale: |
-          Ang pagiging padalos-dalos ay hindi tumutukoy sa tuloy-tuloy at masikap na paggawa.
+          This confuses repeated effort with rushing. Frequent practice can involve much activity. Check whether the person works steadily or acts without care.
     explanation: |
-      Sa kontekstong paulit-ulit na pagsasanay hanggang matutuhan ang piyesa, "masikap" ang pinakamalapit na kahulugan ng "matiyaga" sa mga pagpipilian.
+      The person practices every day until learning the piece. "Matiyaga" here means persistent in effort, so "masikap" is the closest fit.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0016
@@ -325,40 +325,40 @@ questions:
     stem: |
       Alin sa mga sumusunod ang pinakamalapit na kasalungat ng "matapat" sa kahulugang tapat at hindi mapanlinlang?
     choices:
-      - text: Mapanlinlang
+      - text: "Mapanlinlang"
         correct: true
-      - text: Tapat
+      - text: "Mapagkakatiwalaan"
         rationale: |
-          "Tapat" is a synonym, not an antonym.
-      - text: Masipag
+          This chooses trustworthiness instead of dishonesty. An honest person can be trusted. Check whether the question asks for a similar word or an opposite.
+      - text: "Mapagkimkim"
         rationale: |
-          Diligence is unrelated to honesty versus deceit.
-      - text: Matalino
+          This confuses keeping feelings inside with lying. Someone who says little may seem less open. Check whether the word means withholding feelings or deceiving.
+      - text: "Mapagsalita"
         rationale: |
-          Intelligence is unrelated to honesty versus deceit.
+          This confuses how much someone speaks with whether the speech is true. More speech can reveal more information. Check whether the contrast concerns quantity or honesty.
     explanation: |
-      In the sense of honest or faithful to the truth, "mapanlinlang" is the clearest opposite of "matapat."
+      In the stated sense, "matapat" means honest. "Mapanlinlang" means deceitful, which reverses that meaning.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0017
     type: antonym
     difficulty: hard
     stem: |
-      Select the word most nearly opposite in meaning to "humble."
+      Select the word most nearly opposite to "humble" in the sense of modest about one's importance.
     choices:
-      - text: Arrogant
+      - text: "Arrogant"
         correct: true
-      - text: Modest
+      - text: "Modest"
         rationale: |
-          "Modest" is close in meaning to humble.
-      - text: Unassuming
+          This chooses a similar lack of excessive pride. Modest and humble often overlap. Check whether the word increases or reduces self-importance.
+      - text: "Unassuming"
         rationale: |
-          "Unassuming" is close in meaning to humble.
-      - text: Meek
+          This chooses a similar quiet view of one's importance. "Unassuming" may be less familiar. Check its meaning before treating it as an opposite.
+      - text: "Meek"
         rationale: |
-          "Meek" can overlap with humble and is not the opposite being sought.
+          This chooses a gentle or submissive manner instead of pride. Such a manner can overlap with humility. Check the axis of contrast stated in the stem.
     explanation: |
-      "Arrogant" is the clearest antonym because it describes an inflated sense of one's importance.
+      "Humble" means not overstating one's importance here. "Arrogant" means having an inflated view of one's importance, so it is the opposite.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0018
@@ -367,17 +367,60 @@ questions:
     stem: |
       First identify the antonym of "diligent." Then choose the word among the options that is most similar in meaning to that antonym.
     choices:
-      - text: Indolent
+      - text: "Indolent"
         correct: true
-      - text: Hardworking
+      - text: "Hardworking"
         rationale: |
-          "Hardworking" is a synonym of diligent.
-      - text: Careful
+          This selects the starting word's meaning instead of its opposite. "Diligent" directly suggests hard work. Check both steps requested in the stem.
+      - text: "Careful"
         rationale: |
-          Carefulness is associated with diligent work but is not its opposite.
-      - text: Happy
+          This selects a trait associated with diligence. Careful work can show diligence. Check whether it is actually the opposite of steady effort.
+      - text: "Impatient"
         rationale: |
-          Happiness is unrelated to willingness to work.
+          This confuses unwillingness to wait with unwillingness to work. Both can describe an unhelpful attitude. Check which behavior the target word concerns.
     explanation: |
-      The antonym of diligent is lazy; "indolent" means habitually lazy or avoiding work.
+      "Diligent" means steadily hardworking. Its opposite is lazy. "Indolent" means habitually lazy, so it matches that opposite.
     approved: true
+
+  - id: q-vocabulary-synonyms-and-antonyms-0019
+    type: synonym
+    difficulty: hard
+    stem: |
+      Choose the word that preserves the approving tone: "Her careful spending left enough money for essentials and for helping neighbors." She was ______.
+    choices:
+      - text: "Frugal"
+        correct: true
+      - text: "Stingy"
+        rationale: |
+          This adds a negative idea of refusing to spend or share. Both words concern keeping money. Check the sentence's approving tone and help for neighbors.
+      - text: "Miserly"
+        rationale: |
+          This adds excessive unwillingness to part with money. It can sound like careful saving. Check whether the person gives needed help willingly.
+      - text: "Extravagant"
+        rationale: |
+          This reverses careful spending into excessive spending. The person gives help to others, which may suggest spending freely. Check whether generosity removes the stated care with money.
+    explanation: |
+      "Frugal" describes sensible care with money. It keeps the approving tone of spending wisely while still meeting others' needs.
+    approved: false
+
+  - id: q-vocabulary-synonyms-and-antonyms-0020
+    type: word-analogy
+    difficulty: exam
+    stem: |
+      Complete the relationship, keeping the opposite participant's role in the same transaction: Buy is to sell as borrow is to ______.
+    choices:
+      - text: "Lend"
+        correct: true
+      - text: "Return"
+        rationale: |
+          This changes the participant role into a later action. A borrowed item is usually returned. Check whether the relation concerns the same exchange or what happens afterward.
+      - text: "Repay"
+        rationale: |
+          This changes the participant role into settling an obligation. Borrowed money may be repaid. Check who supplies the item during the original transaction.
+      - text: "Rent"
+        rationale: |
+          This selects another way of receiving temporary use. Renting resembles borrowing. Check whether the second word names the other participant's role.
+    explanation: |
+      Buying and selling describe the two sides of one exchange. In the same way, one person borrows what another person lends. "Lend" names the other side of borrowing.
+    approved: false
+

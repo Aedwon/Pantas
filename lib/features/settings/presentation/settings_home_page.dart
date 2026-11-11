@@ -1,219 +1,379 @@
 import 'dart:async';
+import 'dart:math' as math;
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/auth/providers.dart';
-import 'package:pantas/core/notifications/notification_service.dart';
-import 'package:pantas/core/sync/providers.dart';
-import 'package:pantas/core/ui/components/exam_date_sheet.dart';
-import 'package:pantas/core/ui/components/page_scaffold.dart';
-import 'package:pantas/core/ui/components/settings_bar.dart';
-import 'package:pantas/core/ui/components/settings_group.dart';
-import 'package:pantas/core/ui/components/settings_switch.dart';
-import 'package:pantas/core/ui/components/settings_value_row.dart';
-import 'package:pantas/core/ui/components/theme_control.dart';
-import 'package:pantas/features/settings/presentation/settings_value_formats.dart';
-import 'package:pantas/features/settings/presentation/sheets/name_sheet.dart';
-import 'package:pantas/features/settings/presentation/sheets/ordering_sheet.dart';
-import 'package:pantas/features/settings/presentation/sheets/reminder_sheet.dart';
+import 'package:pantas/core/ui/components/avatar.dart';
+import 'package:pantas/core/ui/components/grouped_section.dart';
+import 'package:pantas/core/ui/components/list_row.dart';
+import 'package:pantas/core/ui/components/pantas_page.dart';
+import 'package:pantas/core/ui/icons/own/own_icons.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/features/beta_feedback/application/beta_feedback_providers.dart';
+import 'package:pantas/features/quiz/application/quiz_providers.dart';
+import 'package:pantas/features/settings/presentation/pages/account_page.dart';
+import 'package:pantas/features/settings/presentation/widgets/beta_pro_row.dart';
 import 'package:pantas/features/settings/settings.dart';
 
-/// Settings, reached by the gear in Home's masthead. There is no Settings tab.
-///
-/// Twelve rows in five groups, all on one scroll. Sub-pages exist only where a
-/// surface has states or a list too long for a row. The four-door version and
-/// the identity-plate version were both drawn and rejected.
-class SettingsHomePage extends ConsumerStatefulWidget {
-  const SettingsHomePage({super.key});
+final settingsSessionLengthProvider = FutureProvider<int>((ref) async {
+  return (await ref.watch(quizPreferencesRepositoryProvider).read())
+      .sessionLength;
+});
+
+/// "{n} of 5 days" for the Feedback row, or null while the days load. The
+/// count stops at 5 even when more days were counted (lead ruling).
+final feedbackRowValueProvider = Provider.autoDispose<String?>((ref) {
+  if (!ref.watch(betaFeedbackVisibleProvider)) return null;
+  final reward = ref.watch(betaRewardProvider).valueOrNull;
+  if (reward == null) return null;
+  return '${math.min(5, reward.days.length)} of 5 days';
+});
+
+/// The raised BETA mark after "Feedback" (FbSettingsB): 9 px, w700, 1 px down
+/// and 4 px after the title.
+class SettingsBetaMark extends StatelessWidget {
+  const SettingsBetaMark({this.top = 1, super.key});
+  final double top;
 
   @override
-  ConsumerState<SettingsHomePage> createState() => _SettingsHomePageState();
+  Widget build(BuildContext context) => ExcludeSemantics(
+        child: Padding(
+          padding: EdgeInsets.only(top: top, left: PantasSpace.s4),
+          child: Text(
+            'BETA',
+            style: PantasType.webPro.copyWith(
+              height: 1,
+              color: context.colors.accent,
+            ),
+          ),
+        ),
+      );
 }
 
-class _SettingsHomePageState extends ConsumerState<SettingsHomePage> {
+/// The chat-bubble glyph of the Feedback row, stroked on a 24 unit grid.
+class SettingsFeedbackGlyph extends StatelessWidget {
+  const SettingsFeedbackGlyph({
+    required this.size,
+    required this.color,
+    super.key,
+  });
+  final double size;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) => ExcludeSemantics(
+        child: CustomPaint(
+          size: Size.square(size),
+          painter: _FeedbackGlyphPainter(color),
+        ),
+      );
+}
+
+class _FeedbackGlyphPainter extends CustomPainter {
+  const _FeedbackGlyphPainter(this.color);
+  final Color color;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final k = size.width / 24;
+    final paint = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.8 * k
+      ..strokeCap = StrokeCap.round
+      ..strokeJoin = StrokeJoin.round
+      ..color = color;
+    canvas
+      ..drawPath(
+        Path()
+          ..moveTo(4 * k, 5.5 * k)
+          ..lineTo(20 * k, 5.5 * k)
+          ..lineTo(20 * k, 16.5 * k)
+          ..lineTo(9 * k, 16.5 * k)
+          ..lineTo(4 * k, 20.5 * k)
+          ..close(),
+        paint,
+      )
+      ..drawPath(
+        Path()
+          ..moveTo(8.5 * k, 10 * k)
+          ..lineTo(15.5 * k, 10 * k)
+          ..moveTo(8.5 * k, 13 * k)
+          ..lineTo(12.5 * k, 13 * k),
+        paint,
+      );
+  }
+
+  @override
+  bool shouldRepaint(_FeedbackGlyphPainter old) => old.color != color;
+}
+
+/// The day count on the Feedback row. Nothing shows while the count loads;
+/// when it arrives it fades in (quick, ease). On wide web the color follows
+/// the row's selection.
+class FeedbackRowValue extends StatelessWidget {
+  const FeedbackRowValue({
+    required this.value,
+    required this.style,
+    this.selectedColor,
+    this.selected = false,
+    super.key,
+  });
+  final String? value;
+  final TextStyle style;
+  final Color? selectedColor;
+  final bool selected;
+
   @override
   Widget build(BuildContext context) {
-    final settings =
-        ref.watch(userSettingsProvider).valueOrNull ?? UserSettings.defaults();
-    final theme = ref.watch(themePreferenceProvider).valueOrNull ??
-        ThemePreference.system;
-    final currentUser = ref.watch(currentUserProvider).valueOrNull;
-    final isAnonymous = ref.watch(isAnonymousProvider).valueOrNull ?? false;
-    final syncStatus = ref.watch(syncStatusProvider).valueOrNull;
-    final notificationsDenied =
-        ref.watch(notificationPermissionStatusProvider).valueOrNull ==
-            NotificationPermission.denied;
-    final actions = ref.read(settingsActionsProvider);
-
-    return PageScaffold(
-      body: ListView(
-        padding: EdgeInsets.zero,
-        children: [
-          const SettingsBar(title: 'Settings', backLabel: 'Home'),
-          SettingsGroup(
-            title: 'You',
-            isFirst: true,
-            children: [
-              SettingsValueRow(
-                title: 'Name',
-                value: SettingsValueFormats.name(settings.name),
-                onTap: () async {
-                  final next = await showNameSheet(
-                    context: context,
-                    current: settings.name,
-                  );
-                  if (!context.mounted) return;
-                  if (next != null) await actions.setName(next);
-                },
-              ),
-              SettingsValueRow(
-                title: 'Exam',
-                value: ref.watch(activeExamShortNameProvider),
-                showChevron: true,
-                onTap: () => _push(context, '/settings/exam'),
-              ),
-              SettingsValueRow(
-                title: 'Exam date',
-                value: SettingsValueFormats.examDate(settings.examDate),
-                onTap: () async {
-                  final result = await showExamDateSheet(
-                    context: context,
-                    current: settings.examDate,
-                    today: DateTime.now(),
-                  );
-                  if (!context.mounted) return;
-                  switch (result) {
-                    case ExamDateChosen(:final date):
-                      await actions.saveExamDate(date, today: DateTime.now());
-                    case ExamDateCleared():
-                      await actions.clearExamDate();
-                    case null:
-                      break;
-                  }
-                },
-              ),
-            ],
-          ),
-          SettingsGroup(
-            title: 'How you practice',
-            children: [
-              SettingsValueRow(
-                title: 'How sessions are built',
-                value: settings.sessionOrdering.label,
-                showChevron: true,
-                onTap: () async {
-                  final next = await showOrderingSheet(
-                    context: context,
-                    current: settings.sessionOrdering,
-                  );
-                  if (!context.mounted) return;
-                  if (next != null) await actions.setSessionOrdering(next);
-                },
-              ),
-              SettingsValueRow(
-                title: 'Strict mock mode',
-                control: SettingsSwitch(value: settings.strictMockMode),
-                onTap: () => unawaited(
-                  actions.setStrictMockMode(enabled: !settings.strictMockMode),
-                ),
-              ),
-              SettingsValueRow(
-                title: 'Daily reminder',
-                value: notificationsDenied
-                    ? 'Notifications are off'
-                    : settings.dailyReminderTime?.storageValue ?? 'Off',
-                onTap: notificationsDenied
-                    ? () => unawaited(
-                          ref
-                              .read(notificationServiceProvider)
-                              .openAppNotificationSettings(),
-                        )
-                    : () async {
-                        final next = await showReminderSheet(
-                          context: context,
-                          current: settings.dailyReminderTime,
-                        );
-                        if (!context.mounted) return;
-                        if (next != null) await actions.saveReminderTime(next);
-                      },
-              ),
-            ],
-          ),
-          SettingsGroup(
-            title: 'What you see',
-            children: [
-              SettingsValueRow(
-                title: 'Remember table order',
-                control: SettingsSwitch(value: settings.retainTableOrder),
-                onTap: () => unawaited(
-                  actions.setRetainTableOrder(
-                    enabled: !settings.retainTableOrder,
-                  ),
-                ),
-              ),
-              SettingsValueRow(
-                title: 'Theme',
-                control: ThemeControl(
-                  value: theme,
-                  onChanged: (next) => unawaited(
-                    ref
-                        .read(themePreferenceControllerProvider.notifier)
-                        .setThemePreference(next),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          SettingsGroup(
-            title: 'Your account',
-            children: [
-              SettingsValueRow(
-                title: 'Pro',
-                value: ref.watch(proRowValueProvider),
-                showChevron: true,
-                onTap: () => _push(context, '/settings/pro'),
-              ),
-              SettingsValueRow(
-                title: 'Account',
-                value: SettingsValueFormats.account(
-                  user: currentUser,
-                  isAnonymous: isAnonymous,
-                ),
-                showChevron: true,
-                onTap: () => _push(context, '/settings/account'),
-              ),
-              SettingsValueRow(
-                title: 'Backup',
-                value: SettingsValueFormats.backup(
-                  isAnonymous: isAnonymous,
-                  status: syncStatus,
-                ),
-                showChevron: true,
-                onTap: () => _push(context, '/settings/backup'),
-              ),
-            ],
-          ),
-          SettingsGroup(
-            title: 'About',
-            children: [
-              SettingsValueRow(
-                title: 'Version, privacy, feedback',
-                showChevron: true,
-                onTap: () => _push(context, '/settings/about'),
-              ),
-            ],
-          ),
-          const SizedBox(height: 32),
-        ],
+    final value = this.value;
+    if (value == null) return const SizedBox.shrink();
+    final still = MediaQuery.disableAnimationsOf(context);
+    final color = selected && selectedColor != null
+        ? selectedColor!
+        : style.color ?? context.colors.secondaryLabel;
+    return TweenAnimationBuilder<double>(
+      tween: Tween(begin: still ? 1 : 0, end: 1),
+      duration: still ? Duration.zero : PantasDurations.short2,
+      curve: PantasCurves.fade,
+      builder: (context, opacity, child) =>
+          Opacity(opacity: opacity, child: child),
+      child: TweenAnimationBuilder<Color?>(
+        tween: ColorTween(end: color),
+        duration: still ? Duration.zero : PantasDurations.short2,
+        curve: PantasCurves.fade,
+        builder: (context, color, _) =>
+            Text(value, style: style.copyWith(color: color)),
       ),
     );
   }
+}
 
-  /// Push, never go. Every destination sits outside the tab shell and relies
-  /// on a back arrow, which only appears when the stack can pop.
-  static void _push(BuildContext context, String location) {
-    final router = GoRouter.maybeOf(context);
-    if (router != null) unawaited(router.push<void>(location));
+/// The phone's Feedback row (FbSettingsB): first in the first card.
+class FeedbackSettingsRow extends ConsumerWidget {
+  const FeedbackSettingsRow({required this.onTap, super.key});
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final c = context.colors;
+    return ListRow(
+      title: 'Feedback',
+      titleWidget: Semantics(
+        label: 'Feedback, beta',
+        excludeSemantics: true,
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('Feedback', style: context.type.body),
+            const SettingsBetaMark(),
+          ],
+        ),
+      ),
+      valueWidget: FeedbackRowValue(
+        value: ref.watch(feedbackRowValueProvider),
+        style: context.type.rowValue,
+      ),
+      leading: SizedBox(
+        width: PantasSpace.s28,
+        height: 30,
+        child: Center(
+          child: SettingsFeedbackGlyph(size: 24, color: c.accent),
+        ),
+      ),
+      contentPadding: const EdgeInsets.fromLTRB(
+        PantasSpace.s14,
+        PantasSpace.s0,
+        PantasSpace.s16,
+        PantasSpace.s0,
+      ),
+      onTap: onTap,
+    );
+  }
+}
+
+class SettingsHomePage extends ConsumerWidget {
+  const SettingsHomePage({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    if (context.wideWeb) return const AccountPage();
+    final settings =
+        ref.watch(userSettingsProvider).valueOrNull ?? UserSettings.defaults();
+    final user = ref.watch(currentUserProvider).valueOrNull;
+    final anonymous = ref.watch(isAnonymousProvider).valueOrNull ?? true;
+    final theme = ref.watch(themePreferenceProvider).valueOrNull ??
+        ThemePreference.system;
+    final length = ref.watch(settingsSessionLengthProvider).valueOrNull ?? 10;
+    final tester = ref.watch(betaFeedbackVisibleProvider);
+    void push(String path) {
+      final router = GoRouter.maybeOf(context);
+      if (router != null) unawaited(router.push<void>(path));
+    }
+
+    // ST_RootPro: a 24 px glyph in a 30 px box, 14 px from the card edge and
+    // 12 px before the text. The row dividers start at the text (56 px).
+    Widget glyph(IconData data, Color color) => SizedBox(
+          width: PantasSpace.s28,
+          height: 30,
+          child: Center(child: Icon(data, size: 24, color: color)),
+        );
+    Widget ownGlyph(Widget icon, Color color) => SizedBox(
+          width: PantasSpace.s28,
+          height: 30,
+          child: Center(
+            child: IconTheme(
+              data: IconThemeData(color: color, size: 24),
+              child: icon,
+            ),
+          ),
+        );
+    const rowPadding = EdgeInsets.fromLTRB(
+      PantasSpace.s14,
+      PantasSpace.s0,
+      PantasSpace.s16,
+      PantasSpace.s0,
+    );
+
+    return PantasPage(
+      title: 'Settings',
+      // ST_RootPro: the title and the first card sit 12 and 21 px lower.
+      titlePadding: const EdgeInsets.fromLTRB(
+        PantasSpace.s4,
+        PantasSpace.s18,
+        PantasSpace.s4,
+        PantasSpace.s24,
+      ),
+      bottomInset: PantasLayout.reserveTabbar,
+      children: [
+        GroupedSection(
+          children: [
+            ListRow(
+              title: settings.name?.trim().isNotEmpty ?? false
+                  ? settings.name!
+                  : 'Add your name',
+              subtitle:
+                  anonymous || user == null ? 'Not signed in' : user.email,
+              leading: Avatar(
+                name: settings.name ?? '',
+                photo: user?.photoUrl == null
+                    ? null
+                    : NetworkImage(user!.photoUrl!),
+              ),
+              titleWidget: Text(
+                settings.name?.trim().isNotEmpty ?? false
+                    ? settings.name!
+                    : 'Add your name',
+                style: PantasType.phoneTitle2
+                    .copyWith(color: context.colors.label),
+              ),
+              verticalPadding: 14,
+              onTap: () => push('/settings/account'),
+            ),
+          ],
+        ),
+        const SizedBox(height: PantasSpace.s24),
+        if (tester) ...[
+          // FbSettingsB: Feedback and the Beta switch share the first card.
+          GroupedSection(
+            children: [
+              FeedbackSettingsRow(
+                onTap: () => push('/settings/beta-feedback'),
+              ),
+              const BetaProRow(),
+            ],
+          ),
+          const BetaProNote(),
+          const SizedBox(height: PantasSpace.s24),
+        ],
+        GroupedSection(
+          children: [
+            ListRow(
+              title: 'Pantas Pro',
+              value: ref.watch(proRowValueProvider),
+              leading: glyph(PantasIcons.proSettings, context.colors.pro),
+              contentPadding: rowPadding,
+              onTap: () => push('/settings/pro'),
+            ),
+            if (!tester) const BetaProRow(),
+          ],
+        ),
+        if (!tester) const BetaProNote(),
+        const SizedBox(height: PantasSpace.s24),
+        GroupedSection(
+          children: [
+            ListRow(
+              title: 'Your exam',
+              value: ref.watch(activeExamShortNameProvider),
+              leading: glyph(PantasIcons.exam, context.colors.accent),
+              contentPadding: rowPadding,
+              divider: true,
+              dividerInset: 56,
+              onTap: () => push('/settings/exam'),
+            ),
+            ListRow(
+              title: 'Practice',
+              value: length < 0 ? 'All questions' : '$length questions',
+              leading: glyph(PantasIcons.practice, context.colors.accent),
+              contentPadding: rowPadding,
+              divider: true,
+              dividerInset: 56,
+              onTap: () => push('/settings/practice'),
+            ),
+            if (!kIsWeb)
+              ListRow(
+                title: 'Reminders',
+                value: settings.dailyReminderTime == null
+                    ? 'Off'
+                    : TimeOfDay(
+                        hour: settings.dailyReminderTime!.hour,
+                        minute: settings.dailyReminderTime!.minute,
+                      ).format(context),
+                leading: glyph(PantasIcons.reminders, context.colors.accent),
+                contentPadding: rowPadding,
+                divider: true,
+                dividerInset: 56,
+                onTap: () => push('/settings/reminders'),
+              ),
+            ListRow(
+              title: 'Appearance',
+              value: switch (theme) {
+                ThemePreference.light => 'Light',
+                ThemePreference.dark => 'Dark',
+                ThemePreference.system => 'Automatic'
+              },
+              leading: ownGlyph(
+                OwnIcon(OwnIconKind.appearance, fill: context.colors.label),
+                context.colors.textSecondary,
+              ),
+              contentPadding: rowPadding,
+              onTap: () => push('/settings/appearance'),
+            ),
+          ],
+        ),
+        const SizedBox(height: PantasSpace.s24),
+        GroupedSection(
+          children: [
+            ListRow(
+              title: 'About',
+              leading:
+                  ownGlyph(PantasIcons.about, context.colors.textSecondary),
+              contentPadding: rowPadding,
+              onTap: () => push('/settings/about'),
+            ),
+          ],
+        ),
+      ],
+    );
   }
 }

@@ -1,0 +1,151 @@
+import 'dart:async';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/features/guardian/application/guardian_providers.dart';
+import 'package:pantas/features/guardian/data/guardian_gateway.dart';
+import 'package:pantas/features/guardian/domain/guardian_consent.dart';
+import 'package:pantas/features/onboarding/presentation/onboarding_name_field.dart';
+import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
+
+/// Asks a student under 18 for a parent or guardian's contact and sends them
+/// the link. Also serves Change Email from the Waiting screen.
+class OnboardingGuardianStep extends ConsumerStatefulWidget {
+  const OnboardingGuardianStep({required this.onSent, this.onBack, super.key});
+  final VoidCallback onSent;
+  final VoidCallback? onBack;
+  @override
+  ConsumerState<OnboardingGuardianStep> createState() =>
+      _OnboardingGuardianStepState();
+}
+
+class _OnboardingGuardianStepState
+    extends ConsumerState<OnboardingGuardianStep> {
+  final _name = TextEditingController();
+  final _email = TextEditingController();
+  final _nameFocus = FocusNode();
+  bool _sending = false;
+  bool _failed = false;
+
+  /// The server refused because too many links went to this address or from
+  /// this student. A retry now fails the same way, so the line says so.
+  bool _rateLimited = false;
+
+  @override
+  void initState() {
+    super.initState();
+    unawaited(_restore());
+  }
+
+  /// Change Email starts from what the student typed before.
+  Future<void> _restore() async {
+    try {
+      final contact =
+          await ref.read(appPreferencesRepositoryProvider).guardianContact();
+      if (contact == null || !mounted) return;
+      if (_name.text.isEmpty && _email.text.isEmpty) {
+        setState(() {
+          _name.text = contact.name;
+          _email.text = contact.email;
+        });
+      }
+    } on Object catch (error, stack) {
+      unawaited(ref.read(telemetryProvider).recordError(error, stack));
+    }
+  }
+
+  @override
+  void dispose() {
+    _nameFocus.dispose();
+    _name.dispose();
+    _email.dispose();
+    super.dispose();
+  }
+
+  bool get _ready =>
+      _name.text.trim().isNotEmpty && looksLikeEmail(_email.text);
+
+  Future<void> _send() async {
+    if (_sending || !_ready) return;
+    final telemetry = ref.read(telemetryProvider);
+    setState(() {
+      _sending = true;
+      _failed = false;
+      _rateLimited = false;
+    });
+    try {
+      await ref.read(guardianControllerProvider).sendLink(
+            guardianName: _name.text,
+            guardianEmail: _email.text,
+          );
+      if (mounted) widget.onSent();
+    } on Object catch (error, stack) {
+      unawaited(telemetry.recordError(error, stack));
+      if (mounted) {
+        setState(() {
+          _failed = true;
+          _rateLimited = error is GuardianRateLimitedException;
+        });
+      }
+    } finally {
+      if (mounted) setState(() => _sending = false);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) => OnboardingWebPage(
+        title: 'A parent or guardian needs to agree first',
+        detail:
+            "You're under 18. We'll email them a link to review and confirm.",
+        progress: 1,
+        // The first field takes the keys, so the guardian's name can be typed
+        // at once, as on the Year and Name steps (5S-8).
+        focusTarget: _nameFocus,
+        onBack: widget.onBack ?? () => Navigator.of(context).maybePop(),
+        bottom: OnboardingActions(
+          children: [
+            if (_failed)
+              saveFailureLine(
+                _send,
+                message: _rateLimited
+                    ? 'Too many tries. Wait a while, then try again.'
+                    : 'Could not save your progress.',
+              ),
+            OnboardingButton(
+              label: 'Send Link',
+              busy: _sending,
+              onPressed: _sending || !_ready ? null : _send,
+            ),
+          ],
+        ),
+        children: [
+          OnboardingNameField(
+            controller: _name,
+            focusNode: _nameFocus,
+            label: "Parent or guardian's name",
+            // The label is drawn above the field at every width, so the
+            // placeholder gives an example instead of repeating it.
+            hint: 'Full name',
+            autofillHints: const [AutofillHints.name],
+            textInputAction: TextInputAction.next,
+            onChanged: (_) => setState(() {}),
+          ),
+          const SizedBox(height: PantasSpace.s16),
+          OnboardingNameField(
+            controller: _email,
+            label: "Parent or guardian's email",
+            hint: 'name@example.com',
+            keyboardType: TextInputType.emailAddress,
+            textCapitalization: TextCapitalization.none,
+            maxLength: 254,
+            autofillHints: const [AutofillHints.email],
+            onChanged: (_) => setState(() {}),
+            onSubmitted: (_) => _send(),
+          ),
+        ],
+      );
+}

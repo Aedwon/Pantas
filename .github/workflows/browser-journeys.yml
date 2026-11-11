@@ -1,0 +1,99 @@
+name: Browser journeys
+
+# The three journeys in tool/journeys against the Firebase emulators, on the
+# same local run Aedwon uses. Test data only; logs are public.
+on:
+  workflow_dispatch:
+  push:
+    branches: ['web/**', '!web/staging-candidate-r1']
+    paths-ignore: ['docs/**', '**.md']
+
+concurrency:
+  group: journeys-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  journeys:
+    # Not blocking yet: browser journeys can be flaky. This becomes required
+    # once the journeys have stayed stable; then remove this line.
+    continue-on-error: true
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch the CSE corpus
+        run: git fetch origin content/cse-rewrite-r1:refs/remotes/origin/content/cse-rewrite-r1
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: functions/package-lock.json
+
+      - uses: ./.github/actions/setup-app
+
+      - name: Start the emulators and the web app
+        run: |
+          nohup python3 tools/local/run_web_local.py > build/run.log 2>&1 &
+          echo $! > build/run.pid
+          for _ in $(seq 1 1500); do
+            grep -q '^Test panel' build/run.log && exit 0
+            kill -0 "$(cat build/run.pid)" 2>/dev/null || { tail -40 build/run.log; exit 1; }
+            sleep 1
+          done
+          tail -40 build/run.log
+          exit 1
+
+      - name: Restore the emulator jars
+        # Saved by the functions job in ci.yml. This workflow only restores.
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: ~/.cache/firebase/emulators
+          key: firebase-emulators-${{ runner.os }}-${{ hashFiles('functions/package-lock.json') }}
+
+      - name: Restore the browser
+        id: browser
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-1.49.1-chromium
+
+      - name: Install the browser
+        working-directory: tool/journeys
+        run: |
+          npm install --no-audit --no-fund --no-save playwright@1.49.1
+          npx playwright install --with-deps chromium
+
+      - name: Save the browser
+        # The one job that saves this cache.
+        if: steps.browser.outputs.cache-hit != 'true'
+        continue-on-error: true
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ steps.browser.outputs.cache-primary-key }}
+
+      - name: Run the journeys
+        run: node tool/journeys/journeys.mjs
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: journeys
+          retention-days: 7
+          if-no-files-found: ignore
+          path: |
+            build/journeys/
+            build/run.log
+            build/local-web/emulators.log

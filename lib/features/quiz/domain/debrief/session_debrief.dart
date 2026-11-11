@@ -124,10 +124,13 @@ abstract class BuildSessionDebrief {
       SessionOrigin.todayTopic ||
       SessionOrigin.todayInterleaved =>
         "Today's session.",
+      SessionOrigin.newQuestions => 'New questions.',
       SessionOrigin.drill => 'Practice.',
+      SessionOrigin.flagged => 'Flagged questions.',
       SessionOrigin.retake => 'Your mistakes.',
       SessionOrigin.inline => 'From the lesson.',
       SessionOrigin.assessment => 'Assessment.',
+      SessionOrigin.mock => 'Mock exam.',
     };
 
     final topicIdsInSession = <TopicId>[];

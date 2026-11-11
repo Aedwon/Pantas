@@ -33,7 +33,17 @@ enum TelemetryEvent {
   mockAbandoned('mock_abandoned'),
 
   // How do questions perform?
-  questionAnswered('question_answered');
+  questionAnswered('question_answered'),
+
+  // Where do students stop in the study loop? Added with the load speed and
+  // telemetry spec (2026-11-07). Parameters are the exam id, the kind of
+  // session or reading origin, and an item count, never anything a student
+  // wrote or scored. Mocks already have their own events above.
+  studySessionStart('study_session_start'),
+  studySessionFinish('study_session_finish'),
+  lessonOpen('lesson_open'),
+  lessonFinish('lesson_finish'),
+  proView('pro_view');
 
   const TelemetryEvent(this.name);
 

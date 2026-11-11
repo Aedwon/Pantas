@@ -3,6 +3,7 @@ import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/features/metrics/domain/metric_signal.dart';
 import 'package:pantas/features/metrics/domain/metrics_window.dart';
 import 'package:pantas/features/metrics/domain/signal_outputs.dart';
+import 'package:pantas/features/metrics/signals/metric_calculations.dart';
 import 'package:pantas/features/metrics/signals/mock_payload_reader.dart';
 
 class FlagRevisitSignal implements Signal<FlagRevisitRatio> {
@@ -24,8 +25,7 @@ class FlagRevisitSignal implements Signal<FlagRevisitRatio> {
     required String examId,
   }) async {
     if (!window.hasEnoughData) return null;
-    var flagged = 0;
-    var revisited = 0;
+    final observed = <({Set<String> flagged, Set<String> answered})>[];
     var query = _db.select(_db.mockAttempts)
       ..where(
         (row) =>
@@ -44,11 +44,13 @@ class FlagRevisitSignal implements Signal<FlagRevisitRatio> {
         flagsJson: row.flagsJson,
         sectionResultsJson: row.sectionResultsJson,
       );
-      flagged += payload.flaggedQuestionIds.length;
-      revisited +=
-          payload.flaggedQuestionIds.where(payload.answers.containsKey).length;
+      observed.add(
+        (
+          flagged: payload.flaggedQuestionIds.toSet(),
+          answered: payload.answers.keys.toSet()
+        ),
+      );
     }
-    if (flagged == 0) return null;
-    return FlagRevisitRatio(flaggedCount: flagged, revisitedCount: revisited);
+    return MetricCalculations.flagRevisit(observed);
   }
 }

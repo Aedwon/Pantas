@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pantas test panel</title>
+<style>
+  body{margin:0;background:#F5F5F7}
+  .paper{background:#F5F5F7;color:#1D1D1F;font-family:'Geist',-apple-system,'Segoe UI',sans-serif;border-radius:14px;width:960px;min-height:600px;padding:18px 22px;box-sizing:border-box;margin:0 auto}
+  .card{background:#fff;border-radius:14px;padding:12px 14px;cursor:pointer}
+  .card:hover{box-shadow:inset 0 0 0 1.5px #D1D1D6}
+  .card.off{opacity:.5;cursor:default}
+  .card.off:hover{box-shadow:none}
+  .card b{font-size:14px;display:block}
+  .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .btn{height:36px;border:0;border-radius:10px;padding:0 14px;font-family:inherit;font-size:14px;font-weight:600;line-height:1;background:#F2F2F5;color:#1D1D1F;cursor:pointer}
+  .btn.p{background:#0B7A68;color:#fff}
+  .btn.d{background:#FBEAEA;color:#B2423E}
+  .seg{display:inline-flex;background:#EDEDF0;border-radius:10px;padding:3px}
+  .seg span{padding:7px 12px;border-radius:8px;font-size:13px;font-weight:600;color:#6E6E73;cursor:pointer}
+  .seg span.on{background:#fff;color:#1D1D1F;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+  .muted{font-size:13px;color:#6E6E73;line-height:1.4}
+  .dot{width:8px;height:8px;border-radius:9px;background:#34A853;display:inline-block;margin-right:4px}
+  .dot.off{background:#8A8A8E}
+  .inp{height:36px;border-radius:10px;border:1.5px solid #D1D1D6;padding:0 10px;font-family:inherit;font-size:15px;background:#fff;color:#1D1D1F;box-sizing:border-box}
+  .tabs{display:flex;gap:4px;border-bottom:1px solid #E5E5EA;margin:10px 0 14px}
+  .tabs span{padding:10px 14px;font-size:14px;font-weight:600;color:#6E6E73;border-bottom:2px solid transparent;cursor:pointer}
+  .tabs span.on{color:#0B7A68;border-color:#0B7A68}
+  .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+  .sec{font-size:12px;font-weight:700;color:#8A8A8E;letter-spacing:.04em;text-transform:uppercase;margin:14px 0 8px}
+  .sec:first-child{margin-top:0}
+  #screens .sec:first-child{margin-top:14px}
+  .rt{font:12px ui-monospace,Menlo,monospace;color:#8A8A8E;margin-top:2px;overflow-wrap:anywhere}
+  .idf{height:28px;width:100%;margin-top:8px;border-radius:8px;border:1.5px solid #D1D1D6;padding:0 8px;font-family:inherit;font-size:13px;box-sizing:border-box}
+  .pane{display:none}.pane.on{display:block}
+</style>
+</head>
+<body>
+<div class="paper">
+  <div class="row" style="justify-content:space-between">
+    <div style="font-size:20px;font-weight:700">Pantas test panel</div>
+    <div class="row">
+      <span class="muted"><span class="dot off" id="dot"></span><span id="status">App tab not open</span></span>
+      <button class="btn d" id="fresh">Start fresh</button>
+      <div class="seg" id="plan"><span data-v="free">Free</span><span data-v="pro">Pro</span><span data-v="real" class="on">Real</span></div>
+    </div>
+  </div>
+  <div class="tabs" id="tabs">
+    <span class="on" data-t="ob">Onboarding</span><span data-t="st">Sample students</span><span data-t="sc">Screens</span>
+  </div>
+
+  <div class="pane on" id="ob">
+    <div class="sec">Steps</div>
+    <div class="grid">
+      <div class="card" data-preset="welcome"><b>Welcome</b><div class="muted">Fresh start</div></div>
+      <div class="card" data-preset="birthYear"><b>Birth year</b><div class="muted">Empty field</div></div>
+      <div class="card" data-preset="terms"><b>Terms</b><div class="muted">Nothing ticked</div></div>
+      <div class="card" data-preset="picker"><b>Exam picker</b><div class="muted">Nothing picked</div></div>
+      <div class="card" data-preset="dateKnown"><b>Exam date: known</b><div class="muted">CSE Professional</div></div>
+      <div class="card" data-preset="days"><b>Study days</b><div class="muted">Six days picked</div></div>
+      <div class="card" data-preset="name"><b>Your name</b><div class="muted">Empty field</div></div>
+    </div>
+    <div class="sec">Other states</div>
+    <div class="grid">
+      <div class="card" data-preset="under13"><b>Under 13</b><div class="muted">Year 2020</div></div>
+      <div class="card" data-preset="customName"><b>Custom exam: name</b><div class="muted">Empty</div></div>
+      <div class="card" data-preset="customSubjects"><b>Custom exam: subjects</b><div class="muted">Named "Nursing Board"</div></div>
+      <div class="card" data-preset="dateNone"><b>Date: nothing picked</b><div class="muted">Different Date</div></div>
+      <div class="card" data-preset="dateMonth"><b>Date: month picked</b><div class="muted">December, no day</div></div>
+      <div class="card" data-preset="dateDay"><b>Date: day picked</b><div class="muted">December 15</div></div>
+      <div class="card" data-preset="dateNextYear"><b>Date: next year</b><div class="muted">February 2027</div></div>
+      <div class="card" data-preset="dateThisMonth"><b>Date: this month</b><div class="muted">Today's month</div></div>
+      <div class="card" data-preset="dateToday"><b>Date: exam today</b><div class="muted">Today picked</div></div>
+      <div class="card" data-preset="daysNone"><b>Study days: none</b><div class="muted">Continue off</div></div>
+      <div class="card" data-preset="daysTooLate"><b>Study days: too late</b><div class="muted" data-days="4,6">Exam in 3 days, Sun to Tue</div></div>
+      <div class="card" data-preset="daysSoon"><b>Study days: exam soon</b><div class="muted" data-days="0,2">Exam in 3 days, Wed to Fri</div></div>
+    </div>
+  </div>
+
+  <div class="pane" id="st">
+    <p class="muted" style="margin:0 0 12px">Starts fresh, loads the student, then opens Home. Uses the plan picked in the header. Local run only.</p>
+    <div class="grid">
+      <div class="card" data-student="new"><b>New</b><div class="muted">Day 2 · 1-day streak · 1 lesson, 12 answers · exam in 120 days</div></div>
+      <div class="card" data-student="steady"><b>Steady</b><div class="muted">3 weeks in · 18-day streak · 30 lessons, 400 answers, 1 mock · on track</div></div>
+      <div class="card" data-student="behind"><b>Behind</b><div class="muted">5 weeks in · streak broken · overdue reviews · many repeated mistakes</div></div>
+      <div class="card" data-student="examWeek"><b>Exam week</b><div class="muted">10 weeks in · 4 mock results · exam in 5 days</div></div>
+    </div>
+  </div>
+
+  <div class="pane" id="sc">
+    <input class="inp" id="search" placeholder="Search screens" style="width:320px">
+    <div id="screens"></div>
+    <p class="muted" style="margin-top:10px" id="screensNote"></p>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var CHANNEL = 'pantas-local-panel';
+  var PLAN_KEY = 'pantas.local.plan';
+  var PRESET_KEY = 'pantas.local.preset';
+  var STUDENT_KEY = 'pantas.local.student';
+  var PING_MS = 2000;
+  var LOST_MS = 3000;
+
+  var channel = new BroadcastChannel(CHANNEL);
+  var lastReply = 0;
+  var route = '';
+  var connected = false;
+
+  function store(key, value) {
+    try {
+      if (value === null) localStorage.removeItem(key);
+      else localStorage.setItem(key, value);
+    } catch (_) {}
+  }
+  function stored(key) {
+    try { return localStorage.getItem(key); } catch (_) { return null; }
+  }
+  function send(message) { channel.postMessage(JSON.stringify(message)); }
+
+  // Plan. Real is the default. The app does not keep it, so the panel sends it
+  // again whenever the app reports a different one.
+  var plan = stored(PLAN_KEY);
+  if (plan !== 'free' && plan !== 'pro' && plan !== 'real') plan = 'real';
+
+  function showPlan() {
+    document.querySelectorAll('#plan span').forEach(function (s) {
+      s.classList.toggle('on', s.dataset.v === plan);
+    });
+  }
+  document.querySelectorAll('#plan span').forEach(function (s) {
+    s.addEventListener('click', function () {
+      plan = s.dataset.v;
+      store(PLAN_KEY, plan);
+      showPlan();
+      send({type: 'plan', value: plan});
+    });
+  });
+  showPlan();
+
+  // Status.
+  function showStatus() {
+    connected = Date.now() - lastReply < LOST_MS;
+    document.getElementById('dot').classList.toggle('off', !connected);
+    document.getElementById('status').textContent =
+      connected ? 'App tab connected · ' + route : 'App tab not open';
+  }
+  channel.onmessage = function (event) {
+    var m = event.data;
+    if (typeof m === 'string') {
+      try { m = JSON.parse(m); } catch (_) { return; }
+    }
+    if (!m || typeof m !== 'object') return;
+    if (m.type === 'status') {
+      lastReply = Date.now();
+      route = typeof m.route === 'string' ? m.route : '';
+      showStatus();
+      if (m.plan !== plan) send({type: 'plan', value: plan});
+    }
+  };
+  function ping() {
+    send({type: 'ping'});
+    showStatus();
+  }
+  setInterval(ping, PING_MS);
+  setInterval(showStatus, 1000);
+  ping();
+
+  // Opening the app tab. The window name lets a later click reuse the tab.
+  function openApp(path) { window.open(path, 'pantas-app'); }
+
+  function startFresh() {
+    if (connected) send({type: 'fresh'});
+    else openApp('/local-reset.html');
+  }
+  document.getElementById('fresh').addEventListener('click', function () {
+    if (confirm('Start fresh? This clears this browser\'s Pantas data.')) startFresh();
+  });
+
+  document.querySelectorAll('[data-preset]').forEach(function (card) {
+    card.addEventListener('click', function () {
+      store(PRESET_KEY, card.dataset.preset);
+      store(STUDENT_KEY, null);
+      startFresh();
+    });
+  });
+  document.querySelectorAll('[data-student]').forEach(function (card) {
+    card.addEventListener('click', function () {
+      store(STUDENT_KEY, card.dataset.student);
+      store(PRESET_KEY, null);
+      startFresh();
+    });
+  });
+
+  // Those two presets pick days counted from the real today, so the state appears on
+  // any weekday. The text reads as on the board on a Wednesday.
+  document.querySelectorAll('[data-days]').forEach(function (el) {
+    var names = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    var today = new Date().getDay();
+    var span = el.dataset.days.split(',').map(function (n) { return names[(today + Number(n)) % 7]; });
+    el.textContent = 'Exam in 3 days, ' + span[0] + ' to ' + span[1];
+  });
+
+  // Tabs.
+  document.querySelectorAll('#tabs span').forEach(function (t) {
+    t.addEventListener('click', function () {
+      document.querySelectorAll('#tabs span').forEach(function (x) { x.classList.toggle('on', x === t); });
+      document.querySelectorAll('.pane').forEach(function (p) { p.classList.toggle('on', p.id === t.dataset.t); });
+    });
+  });
+
+  // Screens, from the routes the runner listed.
+  var cards = [];
+
+  function paramsOf(path) {
+    var found = path.match(/:[A-Za-z]+/g) || [];
+    return found.map(function (p) { return p.slice(1); });
+  }
+  function placeholderFor(name) {
+    var hasId = /Id$/.test(name);
+    var base = hasId ? name.slice(0, -2) : name;
+    base = base.replace(/([A-Z])/g, ' $1').toLowerCase();
+    base = base.charAt(0).toUpperCase() + base.slice(1);
+    return hasId ? base + ' ID' : base;
+  }
+
+  function makeCard(route) {
+    var card = document.createElement('div');
+    card.className = 'card';
+    var title = document.createElement('b');
+    title.textContent = route.label;
+    var rt = document.createElement('div');
+    rt.className = 'rt';
+    rt.textContent = route.path;
+    card.appendChild(title);
+    card.appendChild(rt);
+
+    var params = paramsOf(route.path);
+    var inputs = [];
+    if (params.indexOf('examId') !== -1) {
+      var note = document.createElement('div');
+      note.className = 'muted';
+      note.textContent = 'Uses the current exam';
+      card.appendChild(note);
+    }
+    params.filter(function (p) { return p !== 'examId'; }).forEach(function (name) {
+      var field = document.createElement('input');
+      field.className = 'idf';
+      field.placeholder = placeholderFor(name);
+      field.addEventListener('click', function (e) { e.stopPropagation(); });
+      field.addEventListener('input', refresh);
+      card.appendChild(field);
+      inputs.push({name: name, field: field});
+    });
+
+    function ready() {
+      return inputs.every(function (i) { return i.field.value.trim() !== ''; });
+    }
+    function refresh() { card.classList.toggle('off', !ready()); }
+    card.addEventListener('click', function () {
+      if (!ready()) return;
+      var path = route.path;
+      inputs.forEach(function (i) {
+        path = path.replace(':' + i.name, encodeURIComponent(i.field.value.trim()));
+      });
+      if (connected) send({type: 'go', path: path});
+      // The app fills in the exam, so without the app only the root can open.
+      else openApp(path.indexOf(':examId') === -1 ? path : '/');
+    });
+    refresh();
+    return {el: card, route: route};
+  }
+
+  function drawScreens(routes) {
+    var host = document.getElementById('screens');
+    var groups = [];
+    routes.forEach(function (r) {
+      var g = groups.filter(function (x) { return x.name === r.group; })[0];
+      if (!g) { g = {name: r.group, grid: null, label: null}; groups.push(g); }
+      var c = makeCard(r);
+      c.group = g;
+      cards.push(c);
+    });
+    groups.forEach(function (g) {
+      g.label = document.createElement('div');
+      g.label.className = 'sec';
+      g.label.textContent = g.name;
+      g.grid = document.createElement('div');
+      g.grid.className = 'grid';
+      host.appendChild(g.label);
+      host.appendChild(g.grid);
+    });
+    cards.forEach(function (c) { c.group.grid.appendChild(c.el); });
+    document.getElementById('screensNote').textContent =
+      'All ' + routes.length + ' app screens, grouped like this. ' +
+      'Screens that need an exam use the current one. ' +
+      'Screens that need a lesson or attempt ask for its ID.';
+    filter();
+  }
+
+  function filter() {
+    var q = document.getElementById('search').value.trim().toLowerCase();
+    var seen = [];
+    cards.forEach(function (c) {
+      var hit = q === '' ||
+        c.route.label.toLowerCase().indexOf(q) !== -1 ||
+        c.route.path.toLowerCase().indexOf(q) !== -1;
+      c.el.style.display = hit ? '' : 'none';
+      if (hit && seen.indexOf(c.group) === -1) seen.push(c.group);
+    });
+    var groups = [];
+    cards.forEach(function (c) { if (groups.indexOf(c.group) === -1) groups.push(c.group); });
+    groups.forEach(function (g) {
+      var on = seen.indexOf(g) !== -1;
+      g.label.style.display = on ? '' : 'none';
+      g.grid.style.display = on ? '' : 'none';
+    });
+  }
+  document.getElementById('search').addEventListener('input', filter);
+
+  fetch('local-panel-routes.json', {cache: 'no-store'})
+    .then(function (r) { return r.json(); })
+    .then(drawScreens)
+    .catch(function () {
+      document.getElementById('screensNote').textContent =
+        'The screen list did not load. Start the local run again.';
+    });
+})();
+</script>
+</body>
+</html>

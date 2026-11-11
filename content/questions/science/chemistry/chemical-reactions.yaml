@@ -2,309 +2,424 @@ meta:
   subject: science
   topic: chemistry
   subtopic: chemical-reactions
-  exams:
-    - upcat
-    - dlsucet
-    - ustet
-    - dost-sei
+  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-chemistry-chemical-reactions-0001
-    type: identify
-    difficulty: easy
+    type: 'identify'
+    difficulty: 'easy'
     stem: |
-      Classify this reaction: $2H_2 + O_2 \rightarrow 2H_2O$
+      Using the reactant-and-product pattern, classify $2H_2+O_2\rightarrow2H_2O$.
     choices:
-      - text: Synthesis
+      - text: 'Synthesis'
         correct: true
-      - text: Decomposition
+      - text: 'Decomposition'
         rationale: |
-          You picked the opposite reaction type. Decomposition breaks one complex substance down into simpler ones, but here two substances combine into one.
-      - text: Single replacement
+          This reverses the direction of the pattern. Water could be broken down in a different reaction. Check which side has the single substance.
+      - text: 'Single replacement'
         rationale: |
-          You picked a replacement reaction. Single replacement requires a lone element swapping into a compound, not two elements combining.
-      - text: Double replacement
+          This reads an element reactant as replacing another element. Free elements occur in replacement reactions. Check whether a compound is also a reactant.
+      - text: 'Double replacement'
         rationale: |
-          You picked partner-swapping. Double replacement involves two compounds exchanging ions, whereas this reaction combines simple elements.
+          This reads any two-reactant equation as an ion swap. Double replacement also uses two reactants. Check whether both reactants are compounds.
     explanation: |
-      Two simple substances ($H_2$ and $O_2$) combine into one product ($H_2O$). Multiple substances merging into one is synthesis.
+      Hydrogen and oxygen are two reactant substances. They form one product substance, water. This matches the combination, or synthesis, pattern.
     approved: true
+
   - id: q-chemistry-chemical-reactions-0002
-    type: identify
-    difficulty: easy
+    type: 'identify'
+    difficulty: 'easy'
     stem: |
       Classify this reaction: $2H_2O_2 \rightarrow 2H_2O + O_2$
     choices:
-      - text: Decomposition
+      - text: 'Decomposition'
         correct: true
-      - text: Synthesis
+      - text: 'Synthesis'
         rationale: |
-          You picked the reaction that builds compounds. Synthesis merges simple reactants into a single product, while this reaction breaks one reactant down.
-      - text: Single replacement
+          This reverses the pattern. The equation links related substances. Check whether the single compound is a reactant or product.
+      - text: 'Single replacement'
         rationale: |
-          You looked for an element swap. Single replacement has a free element trade places with an element in a compound, which is not happening here.
-      - text: Combustion
+          This treats the free oxygen product as a free-element reactant. Replacement involves an element. Check which side of the arrow it is on.
+      - text: 'Combustion'
         rationale: |
-          You picked rapid oxygen reaction. Combustion requires a hydrocarbon reacting with oxygen to yield $CO_2$ and $H_2O$.
+          This identifies combustion just because oxygen appears. Combustion commonly consumes oxygen. Check whether oxygen is consumed or produced here.
     explanation: |
-      One compound ($H_2O_2$) breaks down into two simpler substances ($H_2O$ and $O_2$). One substance splitting into many is decomposition.
+      One reactant substance, hydrogen peroxide, forms water and oxygen. One substance forming several products matches decomposition.
     approved: true
+
   - id: q-chemistry-chemical-reactions-0003
-    type: identify
-    difficulty: easy
+    type: 'identify'
+    difficulty: 'easy'
     stem: |
       Classify this reaction: $Zn + 2HCl \rightarrow ZnCl_2 + H_2$
     choices:
-      - text: Single replacement
+      - text: 'Single replacement'
         correct: true
-      - text: Double replacement
+      - text: 'Double replacement'
         rationale: |
-          You assumed both reactants trade partners. Double replacement starts with two compounds, but zinc here is a free lone element.
-      - text: Synthesis
+          This counts two reactants and assumes both are compounds. Two compounds can exchange ions. Check whether zinc is an element or compound.
+      - text: 'Synthesis'
         rationale: |
-          You picked the combining reaction. Synthesis produces a single combined product, but this reaction produces two distinct products.
-      - text: Decomposition
+          This focuses on zinc joining chlorine. A new compound does form. Check whether there is one product or more than one.
+      - text: 'Decomposition'
         rationale: |
-          You picked the breaking-down reaction. Decomposition starts with a single reactant breaking apart, but here two reactants are present.
+          This focuses on hydrogen leaving hydrogen chloride. A compound is broken up in part. Check whether another reactant participates.
     explanation: |
-      Zinc, a single free element, swaps places with hydrogen inside the compound $HCl$. One free element replacing another element in a compound is single replacement.
+      Zinc begins as a free element and displaces hydrogen from hydrogen chloride. Zinc chloride and hydrogen form. This matches single replacement.
     approved: true
+
   - id: q-chemistry-chemical-reactions-0004
-    type: identify
-    difficulty: medium
+    type: 'identify'
+    difficulty: 'medium'
     stem: |
-      Classify this reaction: $AgNO_3 + NaCl \rightarrow AgCl + NaNO_3$
+      Aqueous silver nitrate and sodium chloride form solid $AgCl$: $AgNO_3+NaCl\rightarrow AgCl+NaNO_3$. Which introductory pattern fits?
     choices:
-      - text: Double replacement
+      - text: 'Double replacement'
         correct: true
-      - text: Single replacement
+      - text: 'Single replacement'
         rationale: |
-          You looked for a single element swap. Single replacement requires one lone element, but both $AgNO_3$ and $NaCl$ are compounds.
-      - text: Synthesis
+          This treats an ion as a free-element reactant. Silver appears in the formula. Check whether it begins in a compound.
+      - text: 'Synthesis'
         rationale: |
-          You picked the combining reaction. Synthesis merges reactants into a single product, but two new compounds are formed here.
-      - text: Decomposition
+          This focuses on forming silver chloride alone. That product is important. Check the full equation’s two-product pattern.
+      - text: 'Decomposition'
         rationale: |
-          You picked the breaking-down reaction. Decomposition starts with a single compound reactant, but two compound reactants are present here.
+          This focuses on the nitrate group remaining intact. Products are rearranged. Check whether the equation begins with one reactant or two.
     explanation: |
-      Both reactants are already compounds (no lone free element), and they simply trade partners: silver pairs with chloride, and sodium pairs with nitrate. Two compounds trading parts is double replacement.
+      Silver ions and chloride ions form solid silver chloride. The remaining sodium and nitrate ions stay in solution. The ion exchange and precipitate match double replacement.
     approved: true
+
   - id: q-chemistry-chemical-reactions-0005
-    type: identify
-    difficulty: medium
+    type: 'identify'
+    difficulty: 'medium'
     stem: |
-      Classify this reaction: $CH_4 + 2O_2 \rightarrow CO_2 + 2H_2O$
+      Methane burns completely in sufficient oxygen: $CH_4+2O_2\rightarrow CO_2+2H_2O$. Which reaction label applies?
     choices:
-      - text: Combustion
+      - text: 'Combustion'
         correct: true
-      - text: Synthesis
+      - text: 'Synthesis'
         rationale: |
-          You picked the combining reaction. Synthesis forms a single product, but combustion produces two products ($CO_2$ and $H_2O$).
-      - text: Single replacement
+          This treats any joining with oxygen as a one-product pattern. Reactants do interact. Check the number of product substances.
+      - text: 'Single replacement'
         rationale: |
-          You identified oxygen as a lone element swapping. Oxygen reacts with a hydrocarbon to burn it, which defines combustion.
-      - text: Decomposition
+          This treats the oxygen reactant as displacing one element. Oxygen begins as an element. Check whether an element is released as a product.
+      - text: 'Decomposition'
         rationale: |
-          You focused on methane breaking down. Methane reacts with oxygen gas in a combustion process rather than decomposing spontaneously.
+          This focuses on methane breaking into parts. Its atoms are rearranged. Check whether it reacts with an additional substance.
     explanation: |
-      A carbon-hydrogen compound reacts with oxygen, releasing energy and producing carbon dioxide and water: the signature pattern of combustion.
+      Methane reacts with oxygen and releases energy. With sufficient oxygen, complete combustion converts its carbon to carbon dioxide and its hydrogen to water.
     approved: true
+
   - id: q-chemistry-chemical-reactions-0006
-    type: simple-quantitative
-    difficulty: medium
+    type: 'simple-quantitative'
+    difficulty: 'medium'
     stem: |
       Balance this equation by finding the correct coefficient for $H_2$: $N_2 + \_\_H_2 \rightarrow 2NH_3$
     choices:
-      - text: "3"
+      - text: '3'
         correct: true
-      - text: "2"
+      - text: '2'
         rationale: |
-          You used the subscript from $NH_3$ or $H_2$. To balance 6 total hydrogen atoms ($2 \times 3$), you need a coefficient of 3 since $3 \times 2 = 6$.
-      - text: "6"
+          This copies the coefficient of ammonia instead of counting hydrogen. The visible 2 looks like a matching multiplier. Check atoms per molecule too.
+      - text: '6'
         rationale: |
-          You used the total hydrogen atom count as the coefficient. Since $H_2$ comes in pairs, divide the 6 needed hydrogens by 2 to get 3.
-      - text: "1"
+          This uses the hydrogen atom total as the molecule count. Six atoms are needed. Check how many atoms each $H_2$ already contains.
+      - text: '1'
         rationale: |
-          You assumed no multiplier was needed. A coefficient of 1 gives only 2 hydrogen atoms on the left, failing to match the 6 on the right.
+          This ignores the product coefficient when counting hydrogen. One molecule appears in the formula. Check the entire term, including its coefficient.
     explanation: |
-      With a coefficient of 2 on $NH_3$, the right side has 6 hydrogen atoms ($2 \times 3$). To match 6 hydrogen atoms on the left, $H_2$ needs a coefficient of 3, since $3 \times 2 = 6$.
+      The products contain $2\times3=6$ hydrogen atoms. Each $H_2$ supplies two. The needed coefficient is $6\div2=3$.
     approved: true
+
   - id: q-chemistry-chemical-reactions-0007
-    type: simple-quantitative
-    difficulty: medium
+    type: 'simple-quantitative'
+    difficulty: 'medium'
     stem: |
       Balance this equation by finding the correct coefficient for $O_2$: $CH_4 + \_\_O_2 \rightarrow CO_2 + 2H_2O$
     choices:
-      - text: "2"
+      - text: '2'
         correct: true
-      - text: "1"
+      - text: '1'
         rationale: |
-          You counted oxygen in $CO_2$ only. Product oxygen comes from both $CO_2$ (2) and $2H_2O$ (2), requiring 4 oxygen atoms total.
-      - text: "3"
+          This counts oxygen in carbon dioxide but omits water. Carbon dioxide has an oxygen subscript. Check every product containing oxygen.
+      - text: '3'
         rationale: |
-          You overcounted the required $O_2$ molecules. A coefficient of 3 gives 6 oxygen atoms ($3 \times 2$), exceeding the 4 needed.
-      - text: "4"
+          This treats the 2 before water as two oxygens per molecule, giving six total. The coefficient and subscript can look alike. Check which multiplies whole molecules.
+      - text: '4'
         rationale: |
-          You used the total atom count as the coefficient. You need 4 oxygen atoms total, which requires 2 $O_2$ molecules since $2 \times 2 = 4$.
+          This uses the oxygen atom total as the $O_2$ count. Four atoms are needed. Check that each oxygen molecule supplies a pair.
     explanation: |
-      On the right, $CO_2$ contributes 2 oxygen atoms and $2H_2O$ contributes 2 more, totaling 4. Since each $O_2$ molecule supplies 2 oxygen atoms, a coefficient of 2 gives $2 \times 2 = 4$ oxygen atoms on the left, matching the right side.
+      Carbon dioxide contains two oxygen atoms. The two water molecules contain two more. Four oxygen atoms require $4\div2=2$ molecules of $O_2$.
     approved: true
+
   - id: q-chemistry-chemical-reactions-0008
-    type: simple-quantitative
-    difficulty: hard
+    type: 'simple-quantitative'
+    difficulty: 'hard'
     stem: |
       Balance this equation by finding the correct coefficient for $Fe$: $\_\_Fe + 3O_2 \rightarrow 2Fe_2O_3$
     choices:
-      - text: "4"
+      - text: '4'
         correct: true
-      - text: "2"
+      - text: '2'
         rationale: |
-          You used the subscript of $Fe_2$. The product $2Fe_2O_3$ has 2 formula units, each with 2 iron atoms, giving $2 \times 2 = 4$ iron atoms total.
-      - text: "3"
+          This counts one formula unit instead of two. The subscript gives two irons per unit. Check the coefficient multiplying the formula.
+      - text: '3'
         rationale: |
-          You matched the coefficient of $O_2$. Iron and oxygen are balanced independently; iron needs 4 atoms to balance $2Fe_2O_3$.
-      - text: "6"
+          This copies oxygen’s coefficient for iron. Coefficients are visible before both reactants. Check each element independently.
+      - text: '6'
         rationale: |
-          You used the total oxygen atom count ($3 \times 2 = 6$). Iron atoms total 4 on the right, requiring a coefficient of 4.
+          This uses the total oxygen count for iron. Six oxygen atoms are present. Check which element the missing coefficient multiplies.
     explanation: |
-      The right side has $2 \times 2 = 4$ iron atoms (from $2Fe_2O_3$). To match, $Fe$ needs a coefficient of 4 on the left. (Checking oxygen: $3 \times 2 = 6$ on the left, and $2 \times 3 = 6$ on the right: also balanced.)
+      Two formula units of $Fe_2O_3$ contain $2\times2=4$ iron atoms. Put 4 before Fe. Oxygen also balances: each side contains six oxygen atoms.
     approved: true
+
   - id: q-chemistry-chemical-reactions-0009
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
       A student tries to balance an equation containing $H_2O$ by changing it to $H_2O_2$ instead of adding a coefficient in front of it. Is this a valid way to balance the equation?
     choices:
-      - text: 'No: changing a subscript creates an entirely different substance (hydrogen peroxide), not a balanced version of water.'
+      - text: 'No; it changes the substance.'
         correct: true
-      - text: 'Yes: subscripts and coefficients can be adjusted interchangeably to balance an equation.'
+      - text: 'Yes; subscripts and coefficients do the same job.'
         rationale: |
-          You assumed subscripts can be altered. Subscripts define chemical identity; changing them changes the compound itself.
-      - text: 'Yes: as long as the total atom count comes out even on both sides.'
+          This treats subscripts as interchangeable with coefficients. Both are numbers in equations. Check whether the number changes a formula or its amount.
+      - text: 'Yes; matching atom totals permits new formulas.'
         rationale: |
-          You prioritized atom counts over compound identity. Changing subscripts alters chemical formulas, creating invalid reactions.
-      - text: 'No: but only because $H_2O_2$ does not really exist.'
+          This ignores substance identity once atom totals match. Matching totals is necessary. Check that the original formulas stay unchanged.
+      - text: 'No; coefficients must also remain unchanged.'
         rationale: |
-          You questioned the existence of hydrogen peroxide. $H_2O_2$ is real, but modifying subscripts changes the reaction's actual compounds.
+          This forbids all numerical changes. Formulas must stay fixed. Check whether coefficients can change amounts without changing substances.
     explanation: |
-      Only coefficients (numbers in front of a formula) may be changed to balance an equation. Changing the subscript inside a formula changes the substance's identity entirely: $H_2O_2$ is hydrogen peroxide, a completely different compound from water.
+      Subscripts define the substance. $H_2O$ is water, and $H_2O_2$ is hydrogen peroxide. Balance the given substances by changing their coefficients.
     approved: true
+
   - id: q-chemistry-chemical-reactions-0010
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
       A student adjusts an equation's coefficients until nitrogen atoms match on both sides, then declares the equation balanced without checking hydrogen. Is this equation confirmed to be balanced?
     choices:
-      - text: 'No: every element''s atom count must match on both sides, not just nitrogen; hydrogen still needs to be checked.'
+      - text: 'No; hydrogen must also be checked.'
         correct: true
-      - text: 'Yes: matching just one element is enough to confirm the whole equation is balanced.'
+      - text: 'Yes; one matching element confirms the equation.'
         rationale: |
-          You assumed balancing one element balances all. Every single element in an equation must be verified on both sides.
-      - text: 'Yes: hydrogen automatically balances whenever nitrogen does.'
+          This assumes one balanced element guarantees the rest. All elements share the same coefficients. Check each element’s separate atom count.
+      - text: 'Yes; hydrogen always follows nitrogen’s balance.'
         rationale: |
-          You assumed linked balancing. Nitrogen and hydrogen counts depend on different coefficients and must be checked separately.
-      - text: 'No: but only because nitrogen itself was checked incorrectly.'
+          This assumes hydrogen follows nitrogen automatically. Both appear in the same compound. Check the hydrogen subscripts and coefficients too.
+      - text: 'No; matching nitrogen must itself be incorrect.'
         rationale: |
-          You focused on nitrogen's calculation. Even if nitrogen is correct, an equation remains unbalanced until all elements are checked.
+          This assumes nitrogen was wrong without evidence. The overall equation is unconfirmed. Check unchecked elements before rejecting a completed nitrogen count.
     explanation: |
-      An equation is balanced only when every single element matches on both sides. Stopping after checking just one element (like nitrogen) can miss an imbalance in another element (like hydrogen).
+      Every element must have the same atom total on both sides. Matching nitrogen confirms only nitrogen’s balance. Hydrogen must also be checked.
     approved: true
+
   - id: q-chemistry-chemical-reactions-0011
-    type: compare-contrast
-    difficulty: hard
+    type: 'compare-contrast'
+    difficulty: 'hard'
     stem: |
       Which statement correctly tells apart synthesis and decomposition reactions?
     choices:
-      - text: Synthesis combines multiple substances into one product; decomposition breaks one substance into multiple products.
+      - text: 'Synthesis combines; decomposition splits.'
         correct: true
-      - text: Synthesis breaks one substance into multiple products; decomposition combines multiple substances into one.
+      - text: 'Synthesis splits; decomposition combines.'
         rationale: |
-          You swapped the two definitions. Synthesis builds a single complex product, while decomposition splits a compound.
-      - text: Both reaction types always involve exactly the same number of reactants and products.
+          This reverses the two patterns. Each joins one side with several substances. Check the direction of the arrow.
+      - text: 'Both require equal reactant and product molecule counts.'
         rationale: |
-          You assumed equal reactant and product counts. Synthesis has multiple reactants and one product; decomposition has the reverse.
-      - text: Synthesis only happens with elements; decomposition only happens with compounds.
+          This counts molecules instead of distinct substances. Coefficients can change molecule counts. Check the separate formulas on each side.
+      - text: 'Synthesis always starts only with elemental substances.'
         rationale: |
-          You added overly strict reactant rules. Synthesis can combine compounds (like $CaO + H_2O$), and decomposition can yield compounds.
+          This limits synthesis to elements. Familiar examples combine elements. Check whether compounds can also combine into one product.
     explanation: |
-      These are mirror-image reactions: synthesis is many merging into one, and decomposition is one splitting into many. Checking which side of the arrow has more separate substances tells them apart.
+      In the simple pattern scheme, synthesis has several reactant substances and one product. Decomposition has one reactant substance and several products.
     approved: true
+
   - id: q-chemistry-chemical-reactions-0012
-    type: compare-contrast
-    difficulty: hard
+    type: 'compare-contrast'
+    difficulty: 'hard'
     stem: |
       Which statement correctly tells apart single replacement and double replacement reactions?
     choices:
-      - text: Single replacement has one free element swapping into a compound; double replacement has two compounds trading their parts with each other.
+      - text: 'Single starts with an element; double exchanges ions.'
         correct: true
-      - text: Single replacement always involves two compounds; double replacement always involves one free element.
+      - text: 'Single exchanges ions; double starts with an element.'
         rationale: |
-          You swapped the reactant patterns. Single replacement starts with a lone element and a compound; double replacement starts with two compounds.
-      - text: Both reaction types are identical, just with different names.
+          This reverses the starting materials. Both patterns replace partners. Check whether there is a free-element reactant.
+      - text: 'Single needs a driving force; double always proceeds.'
         rationale: |
-          You treated the two reactions as identical. The presence of a free lone element in single replacement distinguishes the two.
-      - text: Single replacement only happens with metals; double replacement only happens with nonmetals.
+          This assumes any pair of dissolved salts must react. Ion swapping can be written on paper. Check for a precipitate, gas, or weak electrolyte.
+      - text: 'Single applies only to metals; double only to nonmetals.'
         rationale: |
-          You restricted replacement by metal status. Nonmetals like halogens also participate in single replacement reactions.
+          This limits replacement to metals. Metal examples are common. Check the reaction pattern instead of relying only on element class.
     explanation: |
-      If only one reactant is a lone element and the other is a compound, it is single replacement. If both reactants are already compounds and simply trade partners, it is double replacement.
+      Single replacement involves an element displacing another from a compound. Double replacement exchanges ions between compounds when a driving force allows the reaction.
     approved: true
+
   - id: q-chemistry-chemical-reactions-0013
-    type: cause-effect
-    difficulty: medium
+    type: 'cause-effect'
+    difficulty: 'medium'
     stem: |
       Why must a chemical equation be balanced, with the same number of atoms of each element on both sides?
     choices:
-      - text: Because matter cannot be created or destroyed in a chemical reaction (the Law of Conservation of Mass).
+      - text: 'Each element’s atoms are conserved.'
         correct: true
-      - text: Because chemical equations are only a stylistic convention with no physical meaning.
+      - text: 'Reactant and product molecule counts must match.'
         rationale: |
-          You treated balancing as arbitrary style. Balancing reflects the physical conservation of matter in real reactions.
-      - text: Because unbalanced equations are illegal to write on an exam.
+          This confuses molecule counts with atom counts. Coefficients do count molecules or units. Check each element, not only the number of units.
+      - text: 'Every product must have the mass of one reactant.'
         rationale: |
-          You cited test rules instead of physical law. Conservation of mass is the underlying scientific law requiring balance.
-      - text: Because only reactions with equal numbers of reactants and products actually occur.
+          This treats one reactant’s total mass as every product’s mass. Total mass is conserved. Check whether mass can be distributed among several products.
+      - text: 'Only the sum of all atoms must match.'
         rationale: |
-          You confused molecule counts with atom counts. Reactant and product molecule counts can differ as long as atom counts match.
+          This balances only the sum of all atoms. Equal totals can look convincing. Check every element separately.
     explanation: |
-      The Law of Conservation of Mass says atoms are neither created nor destroyed in a reaction: every atom present in the reactants must still be accounted for in the products, which is exactly what a balanced equation shows.
+      An ordinary chemical reaction rearranges atoms. It conserves the number of atoms of each element. A balanced equation records those conserved totals.
     approved: true
+
   - id: q-chemistry-chemical-reactions-0014
-    type: simple-quantitative
-    difficulty: exam
+    type: 'simple-quantitative'
+    difficulty: 'exam'
     stem: |
-      Balance this equation by finding the correct coefficient for $Al$: $\_\_Al + 3O_2 \rightarrow 2Al_2O_3$
+      The equation $8Al+6O_2\rightarrow4Al_2O_3$ is balanced. Which coefficient ratio gives its simplest whole-number form?
     choices:
-      - text: "4"
+      - text: '$4:3:2$'
         correct: true
-      - text: "2"
+      - text: '$8:6:4$'
         rationale: |
-          You used the subscript from $Al_2$. The product $2Al_2O_3$ contains $2 \times 2 = 4$ aluminum atoms total.
-      - text: "3"
+          This keeps an equivalent but unreduced ratio. The equation is already balanced. Check whether all coefficients share a factor.
+      - text: '$4:3:4$'
         rationale: |
-          You copied the coefficient of $O_2$. Aluminum and oxygen must be balanced separately based on their atom counts.
-      - text: "6"
+          This halves only the reactants. The reactant coefficients look reducible. Check that every coefficient changes by the same factor.
+      - text: '$8:6:2$'
         rationale: |
-          You used the total oxygen count ($3 \times 2 = 6$). Aluminum atoms total 4 on the right, so 4 $Al$ atoms are needed.
+          This halves only the product. Reducing the largest product count seems useful. Check the atom totals on both sides.
     explanation: |
-      The right side has $2 \times 2 = 4$ aluminum atoms (from $2Al_2O_3$). To match, $Al$ needs a coefficient of 4. (Checking oxygen: $3 \times 2 = 6$ on the left, and $2 \times 3 = 6$ on the right: also balanced.)
+      The coefficients $8:6:4$ share a factor of 2. Divide all three by 2 to obtain $4:3:2$. This preserves atom balance and gives the smallest whole-number ratio.
     approved: true
+
   - id: q-chemistry-chemical-reactions-0015
-    type: identify
-    difficulty: exam
+    type: 'cause-effect'
+    difficulty: 'exam'
     stem: |
-      Classify this reaction: $2KClO_3 \rightarrow 2KCl + 3O_2$
+      Which observation can provide a driving force for an aqueous double-displacement reaction?
     choices:
-      - text: Decomposition
+      - text: 'Formation of a gas'
         correct: true
-      - text: Synthesis
+      - text: 'Writing different ion partners on paper'
         rationale: |
-          You picked the combining reaction. Synthesis merges multiple reactants into one product, but here one reactant splits.
-      - text: Single replacement
+          This assumes all symbolic swaps are reactions. A balanced equation can be written for many ion pairs. Check for a chemical driving force.
+      - text: 'Keeping all ions unchanged in solution'
         rationale: |
-          You looked for an element swap. Single replacement requires a lone element reactant swapping into a compound.
-      - text: Double replacement
+          This makes unchanged dissolved ions into products of a net reaction. Their arrangement on paper changes. Check whether their chemical form actually changes.
+      - text: 'Only counting the reactants as two salts'
         rationale: |
-          You looked for ion swapping. Double replacement requires two compound reactants trading ionic partners.
+          This treats the number of salts as proof of chemical change. Two salts match the familiar double-replacement setup. Check whether a gas, precipitate, or weak electrolyte actually forms.
     explanation: |
-      One compound ($KClO_3$) breaks apart into two different simpler substances ($KCl$ and $O_2$). Even though it produces two separate products instead of just one, this is still a single substance splitting apart: decomposition.
+      A gas can leave a solution as it forms. Its formation changes which species remain dissolved. Gas formation can therefore drive an ion-exchange reaction.
     approved: true
+
+  - id: q-chemistry-chemical-reactions-0016
+    type: 'identify'
+    difficulty: 'easy'
+    stem: |
+      Which numbers are changed to balance a chemical equation without changing its substances?
+    choices:
+      - text: 'Coefficients before formulas'
+        correct: true
+      - text: 'Subscripts inside each formula'
+        rationale: |
+          This changes substance identity instead of amount. Subscripts also change atom counts. Check whether the formula stays the same.
+      - text: 'Atomic numbers of the elements'
+        rationale: |
+          This changes the elements themselves. Atomic numbers identify atoms. Check whether an ordinary reaction changes nuclei.
+      - text: 'Charges assigned to every ion'
+        rationale: |
+          This changes ion identity instead of quantity. Charge is important in ionic equations. Check whether balancing can be done with coefficients.
+    explanation: |
+      Coefficients multiply the amounts of substances. Changing them changes atom totals without changing the substance formulas.
+    approved: false
+
+  - id: q-chemistry-chemical-reactions-0017
+    type: 'process-ordering'
+    difficulty: 'medium'
+    stem: |
+      For complete hydrocarbon combustion, which balancing order efficiently leaves oxygen until last?
+    choices:
+      - text: 'Carbon, hydrogen, oxygen'
+        correct: true
+      - text: 'Oxygen, carbon, then ignore hydrogen'
+        rationale: |
+          This omits the hydrogen check. Oxygen occurs in several products and can attract attention first. Check every element before finishing.
+      - text: 'Hydrogen, oxygen, then change carbon subscripts'
+        rationale: |
+          This changes a chemical formula. Carbon counts may still need adjustment. Check that only coefficients change.
+      - text: 'Carbon, oxygen, then ignore water’s hydrogen'
+        rationale: |
+          This skips hydrogen in water. Carbon dioxide’s oxygens can dominate the count. Check all atoms in every product.
+    explanation: |
+      Balance carbon first. Balance hydrogen by adjusting water. Then count all product oxygens and balance oxygen gas.
+    approved: false
+
+  - id: q-chemistry-chemical-reactions-0018
+    type: 'predict-outcome'
+    difficulty: 'hard'
+    stem: |
+      A hydrocarbon burns with insufficient oxygen. Which product may appear in addition to water?
+    choices:
+      - text: 'Carbon monoxide'
+        correct: true
+      - text: 'Only carbon dioxide in every case'
+        rationale: |
+          This assumes combustion is always complete. Carbon dioxide is the usual complete-combustion carbon product. Check oxygen supply.
+      - text: 'A mandatory single product with no water'
+        rationale: |
+          This forces combustion into a one-product synthesis pattern. Oxygen and fuel combine. Check the fuel’s carbon and hydrogen products.
+      - text: 'Unchanged fuel as the only possible material'
+        rationale: |
+          This treats limited oxygen as preventing all reaction. Some fuel may remain unburned. Check whether partial combustion can still occur.
+    explanation: |
+      Insufficient oxygen can cause incomplete combustion. Some carbon can form carbon monoxide during this partial reaction.
+    approved: false
+
+  - id: q-chemistry-chemical-reactions-0019
+    type: 'compare-contrast'
+    difficulty: 'hard'
+    stem: |
+      A reaction is called both synthesis and oxidation-reduction. What does this imply?
+    choices:
+      - text: 'The labels describe different aspects.'
+        correct: true
+      - text: 'One label must be discarded as chemically false.'
+        rationale: |
+          This assumes classifications cannot overlap. A single label feels simpler. Check what property each classification describes.
+      - text: 'Every synthesis reaction has the same products.'
+        rationale: |
+          This treats a pattern as a fixed product identity. Synthesis has one product substance. Check whether different reactants can yield different products.
+      - text: 'The five classroom patterns cover all classifications.'
+        rationale: |
+          This treats a useful scheme as exhaustive. The five labels are commonly taught. Check whether other chemical features define additional classes.
+    explanation: |
+      A pattern label describes how reactants and products are arranged. A redox label describes oxidation-state changes. One reaction can fit both descriptions.
+    approved: false
+
+  - id: q-chemistry-chemical-reactions-0020
+    type: 'classify'
+    difficulty: 'exam'
+    stem: |
+      Two soluble salts are mixed. All ions remain unchanged and dissolved. What follows from the complete ionic equation?
+    choices:
+      - text: 'No net ionic reaction'
+        correct: true
+      - text: 'A reaction occurs because partners can be rewritten'
+        rationale: |
+          This treats a symbolic rearrangement as chemical evidence. New formula pairings can be written. Check whether any species actually changes.
+      - text: 'Every dissolved ion must have become a precipitate'
+        rationale: |
+          This assumes an ion swap forces precipitation. Some mixtures do form solids. Check the stated observation that all ions remain dissolved.
+      - text: 'A gas must form whenever two salts are mixed'
+        rationale: |
+          This makes gas formation automatic. Gas can drive some exchanges. Check whether a gas-forming change is observed or specified.
+    explanation: |
+      Unchanged ions appear on both sides of the complete ionic equation. Canceling them leaves no net ionic change. These observations give no net ionic reaction.
+    approved: false

@@ -13,6 +13,54 @@ enum SectionalTiming { sectional, roamable }
 /// Where the blueprint's figures came from.
 enum BlueprintSource { published, reported, unknown }
 
+/// A section figure and its field-level source status. Section JSON keeps
+/// the wrapper intact so callers can show the development placeholder label.
+@immutable
+class BlueprintValue {
+  const BlueprintValue({
+    required this.value,
+    this.isPlaceholder = false,
+    this.placeholderNote,
+  });
+
+  factory BlueprintValue.fromJson(Object? raw) {
+    if (raw is int) return BlueprintValue(value: raw);
+    if (raw is! Map || raw['value'] is! int) {
+      throw const FormatException('blueprint value must be an integer');
+    }
+    final placeholder = raw['placeholder'] ?? false;
+    final note = raw['placeholderNote'];
+    if (placeholder is! bool || (note != null && note is! String)) {
+      throw const FormatException('invalid blueprint placeholder metadata');
+    }
+    if (placeholder && (note == null || (note as String).trim().isEmpty)) {
+      throw const FormatException('blueprint placeholder needs a note');
+    }
+    return BlueprintValue(
+      value: raw['value'] as int,
+      isPlaceholder: placeholder,
+      placeholderNote: note as String?,
+    );
+  }
+
+  final int value;
+  final bool isPlaceholder;
+  final String? placeholderNote;
+
+  static void validateSections(Iterable<Object?> sections) {
+    for (final section in sections) {
+      if (section is! Map) {
+        throw const FormatException('blueprint section must be an object');
+      }
+      for (final field in ['questionCount', 'sectionalMinutes']) {
+        if (section[field] != null) {
+          BlueprintValue.fromJson(section[field]);
+        }
+      }
+    }
+  }
+}
+
 /// The percentage at which this exam calls a score a pass, and the one
 /// above which it is close. Content, per exam. `null` means the exam has
 /// not published them.
@@ -43,6 +91,7 @@ class MockBlueprint {
     this.sectionalTiming,
     this.scoreBands,
     this.totalPublishedItems,
+    this.unscoredItems,
     this.source,
     this.sourceNote,
   });
@@ -64,6 +113,10 @@ class MockBlueprint {
   /// exceeds what the sections cover, the setup screen says what is not
   /// included. Null means the exam publishes no total.
   final int? totalPublishedItems;
+
+  /// Items the real exam has that are not scored, so this mock leaves them
+  /// out (CSE personal-information items). Null means none are stated.
+  final int? unscoredItems;
 
   /// Where the blueprint's numbers came from.
   final BlueprintSource? source;

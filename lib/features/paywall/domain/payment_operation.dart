@@ -14,6 +14,15 @@ enum PaymentOperationStatus {
   unknownFailure,
 }
 
+enum PaymentResult {
+  success,
+  pending,
+  offline,
+  cancelled,
+  storeError,
+  notConfirmedYet
+}
+
 class PaymentOperationResult {
   const PaymentOperationResult.authoritative({
     required this.status,
@@ -25,4 +34,21 @@ class PaymentOperationResult {
 
   final PaymentOperationStatus status;
   final Entitlement? confirmedEntitlement;
+
+  PaymentResult get result => switch (status) {
+        PaymentOperationStatus.success => PaymentResult.success,
+        PaymentOperationStatus.operationAlreadyInProgress =>
+          PaymentResult.pending,
+        PaymentOperationStatus.networkFailure => PaymentResult.offline,
+        PaymentOperationStatus.userCancelled => PaymentResult.cancelled,
+        PaymentOperationStatus.storeFailure ||
+        PaymentOperationStatus.configurationFailure ||
+        PaymentOperationStatus.developerFailure =>
+          PaymentResult.storeError,
+        PaymentOperationStatus.noActiveSubscription ||
+        PaymentOperationStatus.entitlementNotActive ||
+        PaymentOperationStatus.revenueCatFailure ||
+        PaymentOperationStatus.unknownFailure =>
+          PaymentResult.notConfirmedYet,
+      };
 }

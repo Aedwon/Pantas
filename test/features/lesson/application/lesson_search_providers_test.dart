@@ -66,6 +66,13 @@ void main() {
       ]),
       ordering: 1,
     );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'question_l1',
+      topicId: 't1',
+      examId: 'exam_cse_pro',
+      lessonId: 'l1',
+    );
 
     // l2: Body-only match ("swap the plan")
     await seedContentLesson(
@@ -89,6 +96,13 @@ void main() {
       ]),
       ordering: 2,
     );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'question_l2',
+      topicId: 't1',
+      examId: 'exam_cse_pro',
+      lessonId: 'l2',
+    );
 
     container = ProviderContainer(
       overrides: [
@@ -111,6 +125,41 @@ void main() {
     expect(hits.first.lessonId, 'l1');
     expect(hits.first.titleMatch, isNotNull);
     expect(hits.first.bodySnippet, isNull);
+  });
+
+  test('a title match keeps the whole title, however long', () async {
+    const title = 'Sets and Set Notation (Unions, Intersections, Subsets, '
+        'Venn Diagrams)';
+    await seedContentLesson(
+      contentDb,
+      lessonId: 'l3',
+      topicId: 't1',
+      title: title,
+      summary: 'Summary for Sets',
+      bodyJson: jsonEncode([]),
+      ordering: 3,
+    );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'question_l3',
+      topicId: 't1',
+      examId: 'exam_cse_pro',
+      lessonId: 'l3',
+    );
+    container.read(searchQueryProvider.notifier).state = 'venn';
+    final hits = await container.read(searchResultsProvider.future);
+
+    final match = hits.singleWhere((hit) => hit.lessonId == 'l3').titleMatch!;
+    // Not cut to a window around the match, so the lesson's name still opens
+    // the row.
+    expect(match.text, title);
+    expect(
+      match.text.substring(
+        match.matchStart,
+        match.matchStart + match.matchLength,
+      ),
+      'Venn',
+    );
   });
 
   test('a body-only match sets bodySnippet and leaves titleMatch null',
@@ -137,11 +186,84 @@ void main() {
     expect(hits.map((h) => h.lessonId).toList(), ['l1', 'l2']);
   });
 
+  test('a title match comes before an earlier body match', () async {
+    // l2 holds "plan" in its body and is first in the corpus. l4 has it in
+    // its title and is last.
+    await seedContentLesson(
+      contentDb,
+      lessonId: 'l4',
+      topicId: 't1',
+      title: 'Plan your answer',
+      summary: 'Summary for Plan',
+      bodyJson: jsonEncode([]),
+      ordering: 4,
+    );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'question_l4',
+      topicId: 't1',
+      examId: 'exam_cse_pro',
+      lessonId: 'l4',
+    );
+    container.read(searchQueryProvider.notifier).state = 'plan';
+    final hits = await container.read(searchResultsProvider.future);
+
+    expect(hits.map((hit) => hit.lessonId), ['l4', 'l2']);
+  });
+
+  test('a whole-word title match comes before a match inside a word (3K-18)',
+      () async {
+    // "Order of Operations" holds "ratio" inside "Operations" and comes
+    // first in the corpus. "Ratio and Proportion" has the word itself.
+    await seedContentLesson(
+      contentDb,
+      lessonId: 'l5',
+      topicId: 't1',
+      title: 'Order of Operations',
+      bodyJson: jsonEncode([]),
+      ordering: 3,
+    );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'question_l5',
+      topicId: 't1',
+      examId: 'exam_cse_pro',
+      lessonId: 'l5',
+    );
+    await seedContentLesson(
+      contentDb,
+      lessonId: 'l6',
+      topicId: 't1',
+      title: 'Ratio and Proportion',
+      bodyJson: jsonEncode([]),
+      ordering: 4,
+    );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'question_l6',
+      topicId: 't1',
+      examId: 'exam_cse_pro',
+      lessonId: 'l6',
+    );
+    container.read(searchQueryProvider.notifier).state = 'ratio';
+    final hits = await container.read(searchResultsProvider.future);
+
+    expect(hits.map((hit) => hit.lessonId), ['l6', 'l5']);
+  });
+
   test('an empty query gives an empty list', () async {
     container.read(searchQueryProvider.notifier).state = '';
     final hits = await container.read(searchResultsProvider.future);
 
     expect(hits, isEmpty);
+  });
+
+  test('a topic name returns every lesson in that topic in corpus order',
+      () async {
+    container.read(searchQueryProvider.notifier).state = 'VOCAB';
+    final hits = await container.read(searchResultsProvider.future);
+    expect(hits.map((hit) => hit.lessonId), ['l1', 'l2']);
+    expect(hits.every((hit) => hit.topicName == 'Vocabulary'), isTrue);
   });
 
   test('searchCorpusSizeProvider counts the exam lessons', () async {

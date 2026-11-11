@@ -1,3 +1,4 @@
+import 'package:pantas/core/content/exam_subject_groups.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/lesson.dart';
@@ -9,9 +10,9 @@ export 'package:pantas/features/lesson/domain/models/study_map.dart';
 
 /// Turns the exam's tree and the read set into everything the map draws.
 ///
-/// The exam is the authority on which subjects exist and which topics belong
-/// to them: a topic in [lessonsByTopic] that no subject lists is ignored
-/// rather than counted, so a stale row in the database cannot move a figure.
+/// The exam's scoped tree decides which topics exist. CSE groups those topics
+/// into its exam parts. A topic in [lessonsByTopic] that the tree does not list
+/// contributes nothing to the figures.
 StudyMap buildStudyMap({
   required Exam exam,
   required Map<SubjectId, List<Topic>> topicsBySubject,
@@ -20,7 +21,14 @@ StudyMap buildStudyMap({
   required Set<LessonId> bookmarkedLessonIds,
   List<Subject>? subjects,
 }) {
-  final subjectList = subjects ?? exam.subjects;
+  final subjectList = examSubjectGroups(
+    examId: exam.id,
+    subjects: subjects ?? exam.subjects,
+    topics: [
+      for (final subject in subjects ?? exam.subjects)
+        ...topicsBySubject[subject.id] ?? const <Topic>[],
+    ],
+  );
   final studySubjects = <StudySubject>[];
   var readCount = 0;
   var totalCount = 0;
@@ -29,8 +37,9 @@ StudyMap buildStudyMap({
   for (final subject in subjectList) {
     final topics = <StudyTopic>[];
 
-    for (final topic in topicsBySubject[subject.id] ?? const <Topic>[]) {
+    for (final topic in subject.topics) {
       final lessons = lessonsByTopic[topic.id] ?? const <Lesson>[];
+      if (lessons.isEmpty) continue;
       var topicRead = 0;
       var hasBookmark = false;
       final rows = <StudyLesson>[];
@@ -70,6 +79,7 @@ StudyMap buildStudyMap({
       );
     }
 
+    if (topics.isEmpty) continue;
     studySubjects.add(
       StudySubject(id: subject.id, name: subject.name, topics: topics),
     );

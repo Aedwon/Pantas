@@ -3,6 +3,9 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
+/// Height of the drawing. The design system sets no height for diagrams.
+const double _figureHeight = 150;
+
 /// One or two springs hanging from a beam, each with a weight on the end.
 ///
 /// ```yaml
@@ -51,7 +54,7 @@ class SpringScaleFigure extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final styles = context.textStyles;
+    final styles = context.type;
     final described = springs.length == 1
         ? 'A spring hanging from a beam with a weight on the end.'
         : '${springs.length} springs hanging from the same beam, each with a '
@@ -60,12 +63,12 @@ class SpringScaleFigure extends StatelessWidget {
     return Semantics(
       label: described,
       child: SizedBox(
-        height: 150,
+        height: _figureHeight,
         child: CustomPaint(
           painter: _SpringPainter(
             springs: springs,
-            ink: colors.ink,
-            labelStyle: styles.bodySmall.copyWith(color: colors.inkMuted),
+            ink: colors.label,
+            labelStyle: styles.subhead.copyWith(color: colors.secondaryLabel),
           ),
           size: Size.infinite,
         ),

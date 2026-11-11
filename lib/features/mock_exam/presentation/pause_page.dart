@@ -1,169 +1,892 @@
-import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/components/board_button.dart';
-import 'package:pantas/core/ui/components/confirmation_dialog.dart';
-import 'package:pantas/core/ui/components/section_header.dart';
-import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'dart:async';
+import 'dart:math' as math;
+import 'dart:ui' as ui;
 
-class PausePage extends StatelessWidget {
+import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/components/centered_dialog.dart';
+import 'package:pantas/core/ui/components/page_title.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+import 'package:pantas/core/ui/web/letter_shortcuts.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_key_focus.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/mock_exam/presentation/mock_clock.dart';
+import 'package:pantas/features/mock_exam/presentation/mock_hourglass.dart';
+import 'package:pantas/features/mock_exam/presentation/widgets/web_mock_dialog.dart';
+
+/// Board A sets "Paused" in a 60 line box (no system height for it).
+const _pausedLineBox = 60.0;
+
+/// MK_PauseA and the pause half of MK_PauseFlow.
+///
+/// On entry a large hourglass appears mid-screen, grains fall, and it shrinks
+/// into place before the rest of the screen arrives. Resume plays it backwards.
+/// Under reduced motion the screen is simply its last frame and Resume acts
+/// at once. The clock restarts when [onResume] is called, which is after the
+/// closing sequence, so the sequence never costs the student time.
+
+class PausePage extends StatefulWidget {
   const PausePage({
-    required this.partName,
+    required this.partNames,
+    required this.currentPartIndex,
     required this.remaining,
-    required this.answered,
-    required this.total,
-    required this.flagged,
+    required this.partLength,
+    required this.answeredCount,
     required this.onResume,
     required this.onDiscard,
+    this.paper,
     super.key,
   });
 
-  final String partName;
+  /// Every part of the paper, in order. A one-block paper has one unnamed part
+  /// and shows no list.
+  final List<String> partNames;
+  final int currentPartIndex;
   final Duration remaining;
-  final int answered;
-  final int total;
-  final int flagged;
+
+  /// How long the open part is, so the sand shows time left of the whole.
+  final Duration partLength;
+  final int answeredCount;
   final VoidCallback onResume;
   final VoidCallback onDiscard;
 
-  String _formatRemaining(Duration duration) {
-    final minutes = duration.inMinutes;
-    final secs = duration.inSeconds % 60;
-    return '${minutes.toString().padLeft(2, '0')}:'
-        '${secs.toString().padLeft(2, '0')}';
-  }
+  /// The frozen paper beneath the approved entry/Resume crossfade.
+  final Widget? paper;
 
-  void _confirmDiscard(BuildContext context) {
-    showAppConfirmationDialog(
-      context: context,
-      title: 'Discard this mock?',
-      body: 'Your progress in this mock will be discarded. It will be '
-          'deleted and does not use up a mock.',
-      cancelLabel: 'Keep going',
-      confirmLabel: 'Discard',
-      onCancel: () {},
-      onConfirm: onDiscard,
-    );
+  static const entryMilliseconds = 2900;
+  static const exitMilliseconds = 2600;
+  static const wobbleMilliseconds = 6000;
+
+  @override
+  State<PausePage> createState() => _PausePageState();
+}
+
+class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
+  late final AnimationController _entry = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: PausePage.entryMilliseconds),
+  );
+  late final AnimationController _exit = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: PausePage.exitMilliseconds),
+  );
+  late final AnimationController _wobble = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: PausePage.wobbleMilliseconds),
+  );
+  late final _blink = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 1800),
+  );
+  Timer? _blinkDelay;
+  Timer? _tipDelay;
+  bool? _still;
+  var _leaving = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _entry.addStatusListener((status) {
+      if (status == AnimationStatus.completed &&
+          !_leaving &&
+          !(_still ?? false)) {
+        if (context.wideWeb) {
+          _blinkDelay = Timer(const Duration(milliseconds: 500), _blink.repeat);
+          _tipDelay = Timer(const Duration(seconds: 3), _wobble.repeat);
+        } else {
+          _wobble.repeat();
+        }
+      }
+    });
+    _exit.addStatusListener((status) {
+      if (status == AnimationStatus.completed) widget.onResume();
+    });
   }
 
   @override
-  Widget build(BuildContext context) {
-    final colors = context.colors;
-    final textStyles = context.textStyles;
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final still = MediaQuery.disableAnimationsOf(context);
+    _entry.duration = Duration(
+      milliseconds: context.wideWeb ? 3900 : PausePage.entryMilliseconds,
+    );
+    _wobble.duration = const Duration(milliseconds: 6000);
+    _exit.duration = Duration(
+      milliseconds: context.wideWeb ? 2400 : PausePage.exitMilliseconds,
+    );
+    if (still == _still) return;
+    final first = _still == null;
+    _still = still;
+    if (still) {
+      _wobble.stop();
+      _blink.stop();
+      _blinkDelay?.cancel();
+      _tipDelay?.cancel();
+      _entry.value = 1;
+      if (_leaving && context.wideWeb) _exit.value = 1;
+    } else if (first) {
+      _entry.forward();
+    }
+  }
 
-    return PopScope(
-      canPop: false,
-      child: Scaffold(
-        body: SafeArea(
-          child: LayoutBuilder(
-            builder: (context, constraints) => SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
-              child: ConstrainedBox(
-                constraints:
-                    BoxConstraints(minHeight: constraints.maxHeight - 64),
-                child: IntrinsicHeight(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Paused.',
-                        style: textStyles.displayMedium.copyWith(
-                          fontFamily: 'SourceSans3',
-                          fontSize: 24,
-                          fontWeight: FontWeight.w700,
-                          color: colors.ink,
-                        ),
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        partName,
-                        style: textStyles.bodyRegular.copyWith(
-                          color: colors.inkMuted,
-                        ),
-                      ),
-                      const SizedBox(height: 32),
-                      const SectionHeader(title: 'Time left'),
-                      const SizedBox(height: 12),
-                      Wrap(
-                        spacing: 4,
-                        crossAxisAlignment: WrapCrossAlignment.end,
-                        children: [
-                          Text(
-                            _formatRemaining(remaining),
-                            style: textStyles.displayLarge.copyWith(
-                              fontFamily: 'SourceSans3',
-                              fontSize: 30,
-                              fontWeight: FontWeight.w700,
-                              color: colors.ink,
-                              fontFeatures: [
-                                const FontFeature.tabularFigures(),
-                              ],
-                            ),
-                          ),
-                          Text(
-                            'in this part',
-                            style: textStyles.mathBody.copyWith(
-                              fontFamily: 'SourceSans3',
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                              color: colors.inkMuted,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 6),
-                      Text(
-                        '$answered of $total answered · $flagged flagged',
-                        style: textStyles.bodyRegular.copyWith(
-                          color: colors.inkMuted,
-                        ),
-                      ),
-                      const SizedBox(height: 16),
-                      Text(
-                        'The clock is stopped. It starts again when you '
-                        'resume.',
-                        style: textStyles.bodyRegular.copyWith(
-                          color: colors.ink,
-                        ),
-                      ),
-                      const Spacer(),
-                      BoardButton(
-                        label: 'Resume',
-                        onPressed: onResume,
-                      ),
-                      const SizedBox(height: 16),
-                      Center(
-                        child: Semantics(
-                          button: true,
-                          enabled: true,
-                          label: 'Discard this mock',
-                          hint: 'Opens a confirmation',
-                          excludeSemantics: true,
-                          child: InkWell(
-                            onTap: () => _confirmDiscard(context),
-                            child: ConstrainedBox(
-                              constraints: const BoxConstraints(
-                                minWidth: 48,
-                                minHeight: 48,
-                              ),
-                              child: Center(
-                                child: Text(
-                                  'Discard this mock',
-                                  style: textStyles.labelLarge.copyWith(
-                                    color: colors.rust,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+  @override
+  void dispose() {
+    _entry.dispose();
+    _exit.dispose();
+    _blinkDelay?.cancel();
+    _tipDelay?.cancel();
+    _blink.dispose();
+    _wobble.dispose();
+    super.dispose();
+  }
+
+  void _resume() {
+    if (_leaving) return;
+    if (_still ?? false) {
+      widget.onResume();
+      return;
+    }
+    setState(() => _leaving = true);
+    _wobble.stop();
+    _blink.stop();
+    _blinkDelay?.cancel();
+    _tipDelay?.cancel();
+    _entry.value = 1;
+    _exit.forward();
+  }
+
+  void _confirmDiscard() {
+    final n = widget.answeredCount;
+    final answers = n == 1 ? 'answer gets' : 'answers get';
+    unawaited(
+      showDialog<void>(
+        context: context,
+        barrierColor: context.colors.shadow.withValues(alpha: .34),
+        builder: (dialogContext) =>
+            (context.wideWeb ? webMockConfirmation : CenteredDialog.new)(
+          title: 'Discard this mock?',
+          message: n == 0
+              ? "Nothing is answered yet. This attempt won't appear in your "
+                  "record, and it doesn't use up a mock attempt."
+              : "Your $n $answers deleted, and this attempt won't appear "
+                  "in your record. It also doesn't use up a mock attempt.",
+          primaryLabel: 'Discard',
+          secondaryLabel: 'Keep It',
+          destructive: true,
+          onCancel: () => Navigator.pop(dialogContext),
+          onConfirm: () {
+            Navigator.pop(dialogContext);
+            widget.onDiscard();
+          },
+        ),
+      ),
+    );
+  }
+
+  // ---- the board's timelines, in milliseconds since each sequence began ----
+
+  static double _lerp(double t, double from, double to, double a, double b) =>
+      a + (b - a) * ((t - from) / (to - from)).clamp(0.0, 1.0);
+
+  static double _ease(double t, double from, double to) =>
+      PantasCurves.move.transform(((t - from) / (to - from)).clamp(0, 1));
+
+  /// How far the hourglass is from rest: 1 is large and low, 0 is in place.
+  double _bigness(double entry, double exit) =>
+      _leaving ? _ease(exit, 300, 800) : 1 - _ease(entry, 2000, 2600);
+
+  double _hourglassOpacity(double entry, double exit) =>
+      _leaving ? 1 - _ease(exit, 2000, 2400) : _ease(entry, 0, 350);
+
+  double _pageOpacity(double entry, double exit) =>
+      _leaving ? 1 - _lerp(exit, 2200, 2600, 0, 1) : _lerp(entry, 0, 200, 0, 1);
+
+  double _contentOpacity(double entry, double exit) =>
+      _leaving ? 1 - _lerp(exit, 0, 250, 0, 1) : _lerp(entry, 2500, 2900, 0, 1);
+
+  /// The falling grains: dash offset and opacity.
+  (double, double) _stream(double entry, double exit) {
+    if (_leaving) {
+      if (exit < 500) return (0, 0);
+      if (exit < 650) {
+        return (_lerp(exit, 500, 650, 0, -8), _lerp(exit, 500, 650, 0, 1));
+      }
+      if (exit < 1900) return (_lerp(exit, 650, 1900, -8, -56), 1);
+      return (
+        _lerp(exit, 1900, 2100, -56, -64),
+        _lerp(exit, 1900, 2100, 1, 0),
+      );
+    }
+    if (entry < 200) return (0, 0);
+    if (entry < 350) {
+      return (_lerp(entry, 200, 350, 0, -8), _lerp(entry, 200, 350, 0, 1));
+    }
+    if (entry < 1600) return (_lerp(entry, 350, 1600, -8, -56), 1);
+    return (
+      _lerp(entry, 1600, 1800, -56, -64),
+      _lerp(entry, 1600, 1800, 1, 0),
+    );
+  }
+
+  /// The slow tip, once the hourglass is in place.
+  double _tipDegrees(double wobble) {
+    const curve = PantasCurves.liquid;
+    double segment(double from, double to, double a, double b) =>
+        a + (b - a) * curve.transform(_lerp(wobble, from, to, 0, 1));
+    if (wobble < 2400) return 0;
+    if (wobble < 2700) return segment(2400, 2700, 0, -6);
+    if (wobble < 3000) return segment(2700, 3000, -6, 5);
+    if (wobble < 3250) return segment(3000, 3250, 5, 0);
+    return 0;
+  }
+
+  double _wideTip(double t) {
+    if (t < 2400) return 0;
+    if (t < 2700) return _lerp(t, 2400, 2700, 0, -6);
+    if (t < 3000) return _lerp(t, 2700, 3000, -6, 5);
+    if (t < 3240) return _lerp(t, 3000, 3240, 5, 0);
+    return 0;
+  }
+
+  Widget _wide(BuildContext context) {
+    final t = context.webTokens;
+    final currentPart = widget.currentPartIndex;
+    final secondary = t.colors.secondaryLabel;
+    const circle = Icons.circle_outlined;
+    final entry = _entry.value * 3900;
+    final exit = _exit.value * 2400;
+    final drop = PantasCurves.enter.transform((entry / 594).clamp(0, 1));
+    final glide = _leaving
+        ? 1 - _ease(exit, 100, 850)
+        : PantasCurves.liquid.transform(((entry - 2244) / 1056).clamp(0, 1));
+    final drain = Curves.easeIn.transform(((entry - 1050) / 450).clamp(0, 1));
+    final refill =
+        PantasCurves.gauge.transform(((exit - 500) / 400).clamp(0, 1));
+    final thunk = entry < 1677
+        ? PantasCurves.popB.transform(((entry - 1520) / 157).clamp(0, 1))
+        : 1 - PantasCurves.popB.transform(((entry - 1677) / 293).clamp(0, 1));
+    final reveal =
+        _leaving ? 1 - _ease(exit, 0, 250) : _ease(entry, 2800, 3350);
+    final paused = _leaving
+        ? 1 - Curves.ease.transform((exit / 300).clamp(0, 1))
+        : _ease(entry, 1550, 2050);
+    final resting = _wobble.value * 6000;
+    final blinkPhase =
+        _blink.value < .5 ? _blink.value * 2 : 2 - _blink.value * 2;
+    final blink = (_still ?? false) || _leaving
+        ? 1.0
+        : 1 - .7 * PantasBoardCurves.easeInOut.transform(blinkPhase);
+    final paperOpacity = _leaving
+        ? Curves.ease.transform(((exit - 1650) / 500).clamp(0, 1))
+        : 1 - Curves.ease.transform((entry / 550).clamp(0, 1));
+    final paperScale =
+        _leaving ? _ease(exit, 1600, 2400) : 1 - _ease(entry, 0, 800);
+    // One block: the hourglass, its words and the buttons are one centered
+    // group (QA polish pick "d A"). Several parts keep the side-by-side layout.
+    final single = widget.partNames.length <= 1;
+    final pauseOpacity = _leaving
+        ? 1 - Curves.ease.transform(((exit - 1550) / 500).clamp(0, 1))
+        : Curves.ease.transform((entry / 500).clamp(0, 1));
+    final hourglassGroup = Transform.translate(
+      offset: Offset(
+        (single ? 0 : 246) * (1 - glide),
+        (single ? 28 + 41 : 28) * (1 - glide) - 56 * (1 - drop),
+      ),
+      child: Transform(
+        key: const ValueKey('web-pause-drop'),
+        transform: Matrix4.rotationZ(
+          -7 * math.pi / 180 * (1 - drop),
+        )..scaleByDouble(
+            1.4 - .4 * glide,
+            1.4 - .4 * glide,
+            1,
+            1,
+          ),
+        alignment: Alignment.center,
+        child: Opacity(
+          opacity: _leaving ? 1 - _ease(exit, 1550, 2050) : drop.clamp(0, 1),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Transform.rotate(
+                angle:
+                    (_still ?? false ? 0 : _wideTip(resting)) * math.pi / 180,
+                child: Transform(
+                  transform: Matrix4.diagonal3Values(
+                    1 + .035 * thunk,
+                    1 - .035 * thunk,
+                    1,
+                  ),
+                  alignment: Alignment.bottomCenter,
+                  child: MockHourglass(
+                    size: const Size(152, 200),
+                    sandColor: t.colors.accent,
+                    outlineColor: t.colors.label,
+                    remainingFraction: widget.partLength.inMilliseconds <= 0
+                        ? 0
+                        : widget.remaining.inMilliseconds /
+                            widget.partLength.inMilliseconds,
+                    streamCut: _still ?? false
+                        ? 1
+                        : _leaving
+                            ? 1 - refill
+                            : drain,
+                    streamOpacity: _still ?? false
+                        ? 0
+                        : _leaving
+                            ? (refill > 0 ? 1 : 0)
+                            : (drain < 1 ? 1 : 0),
+                    streamOffset: -(_leaving ? exit : entry) / 420 * 11.2,
                   ),
                 ),
               ),
+              const SizedBox(height: PantasSpace.s24),
+              Opacity(
+                opacity: paused,
+                child: SizedBox(
+                  height: _pausedLineBox * paused,
+                  // Board A sets "Paused" in a 60 px line box, so the words sit
+                  // in the middle of it, not at the top.
+                  child: Transform.translate(
+                    offset: Offset(0, 6 * (1 - paused)),
+                    child: Center(child: Text('Paused', style: t.h1)),
+                  ),
+                ),
+              ),
+              const SizedBox(height: PantasSpace.s2),
+              Opacity(
+                opacity: blink,
+                child: Text(
+                  formatMockRemaining(widget.remaining),
+                  // Board A: 30 px in a 38 px line.
+                  style: PantasType.phoneTitle1.copyWith(
+                    color: t.colors.textPrimary,
+                  ),
+                ),
+              ),
+              Text(
+                widget.partNames.length > 1 ? 'left in this part' : 'left',
+                style: t.sub,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+    final content = Opacity(
+      key: const ValueKey('web-pause-content'),
+      opacity: reveal,
+      child: IgnorePointer(
+        ignoring: reveal < 1,
+        child: Transform.translate(
+          offset: Offset(0, 12 * (1 - reveal)),
+          child: SizedBox(
+            width: single ? null : 420,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment:
+                  single ? CrossAxisAlignment.center : CrossAxisAlignment.end,
+              children: [
+                if (widget.partNames.length > 1) ...[
+                  WebCard(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: PantasSpace.s24,
+                      vertical: PantasSpace.s24,
+                    ),
+                    child: Column(
+                      children: [
+                        for (final (i, name) in widget.partNames.indexed) ...[
+                          if (i > 0) const SizedBox(height: PantasSpace.s16),
+                          Row(
+                            children: [
+                              Icon(
+                                i < currentPart ? Icons.check_circle : circle,
+                                size: 26,
+                                color: i == currentPart
+                                    ? t.colors.label
+                                    : t.colors.tertiaryLabel,
+                              ),
+                              const SizedBox(width: PantasSpace.s12),
+                              Expanded(
+                                child: Text(
+                                  'Part ${i + 1} · '
+                                  '$name',
+                                  style: PantasType.webRowTitle.copyWith(
+                                    fontWeight: i == currentPart
+                                        ? FontWeight.w600
+                                        : FontWeight.w400,
+                                    color: i == currentPart
+                                        ? t.colors.textPrimary
+                                        : secondary,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: PantasSpace.s20),
+                ],
+                Wrap(
+                  alignment: single ? WrapAlignment.center : WrapAlignment.end,
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  spacing: 12,
+                  runSpacing: 12,
+                  children: [
+                    WebButton(
+                      label: 'Discard This Mock',
+                      redText: true,
+                      variant: WebButtonVariant.tertiary,
+                      onPressed: _confirmDiscard,
+                    ),
+                    WebButton(
+                      label: 'Resume',
+                      large: true,
+                      keyHint: 'Enter',
+                      onPressed: _resume,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+    return LetterShortcuts(
+      bindings: {'p': _resume},
+      child: Focus(
+        onKeyEvent: enterKeyHandler(_resume),
+        autofocus: true,
+        child: PopScope(
+          canPop: false,
+          child: Scaffold(
+            body: Stack(
+              fit: StackFit.expand,
+              children: [
+                if (widget.paper != null)
+                  IgnorePointer(
+                    child: ExcludeFocus(
+                      child: Opacity(
+                        key: const ValueKey('web-pause-paper'),
+                        opacity: paperOpacity,
+                        child: ImageFiltered(
+                          imageFilter: ui.ImageFilter.blur(
+                            sigmaX: 6 * (1 - paperOpacity),
+                            sigmaY: 6 * (1 - paperOpacity),
+                          ),
+                          child: Transform.scale(
+                            scale: .965 + .035 * paperScale,
+                            child: widget.paper,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                Opacity(
+                  opacity: pauseOpacity,
+                  child: ColoredBox(
+                    color: t.colors.background,
+                    child: Center(
+                      child: SingleChildScrollView(
+                        key: const ValueKey('web-mock-paused'),
+                        padding: const EdgeInsets.all(PantasSpace.s40),
+                        child: single
+                            ? Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  hourglassGroup,
+                                  const SizedBox(height: PantasSpace.s32),
+                                  content,
+                                ],
+                              )
+                            : Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  hourglassGroup,
+                                  const SizedBox(width: PantasSpace.s56),
+                                  content,
+                                ],
+                              ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ),
       ),
     );
   }
+
+  @override
+  Widget build(BuildContext context) {
+    if (context.wideWeb) {
+      return AnimatedBuilder(
+        animation: Listenable.merge([_entry, _exit, _wobble, _blink]),
+        builder: (context, _) => _wide(context),
+      );
+    }
+    final c = context.colors;
+    final fraction = widget.partLength.inMilliseconds <= 0
+        ? 0.0
+        : widget.remaining.inMilliseconds / widget.partLength.inMilliseconds;
+    final showParts = widget.partNames.length > 1;
+
+    final content = Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Column(
+          children: [
+            PantasTitle(
+              'Paused',
+              style: context.type.largeTitle,
+            ),
+            const SizedBox(height: PantasSpace.s4),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.baseline,
+              textBaseline: TextBaseline.alphabetic,
+              children: [
+                Text(
+                  formatMockRemaining(widget.remaining),
+                  style: PantasType.phoneTitle3.copyWith(
+                    color: c.textPrimary,
+                    fontFeatures: const [FontFeature.tabularFigures()],
+                  ),
+                ),
+                const SizedBox(width: PantasSpace.s6),
+                Flexible(
+                  child: Text(
+                    // One block (CSE) has no parts, as on wide.
+                    showParts ? 'left in this part' : 'left',
+                    style: PantasType.phoneCallout.copyWith(
+                      color: c.textSecondary,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+        if (showParts) ...[
+          const SizedBox(height: PantasSpace.s24),
+          _PartList(
+            names: widget.partNames,
+            currentIndex: widget.currentPartIndex,
+          ),
+        ],
+      ],
+    );
+
+    final bottom = Container(
+      padding: const EdgeInsets.fromLTRB(
+        PantasSpace.s16,
+        PantasSpace.s14,
+        PantasSpace.s16,
+        PantasSpace.s32,
+      ),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [c.background.withValues(alpha: 0), c.background],
+          stops: const [0, .26],
+        ),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          PantasButton(label: 'Resume', onPressed: _resume),
+          const SizedBox(height: PantasSpace.s8),
+          Semantics(
+            button: true,
+            label: 'Discard This Mock',
+            hint: 'Opens a confirmation',
+            excludeSemantics: true,
+            onTap: _leaving ? null : _confirmDiscard,
+            child: PantasButton(
+              label: 'Discard This Mock',
+              kind: PantasButtonKind.tertiary,
+              tone: PantasButtonTone.critical,
+              height: PantasSize.btn,
+              onPressed: _leaving ? null : _confirmDiscard,
+            ),
+          ),
+        ],
+      ),
+    );
+
+    return PopScope(
+      canPop: false,
+      child: Scaffold(
+        body: AnimatedBuilder(
+          animation: Listenable.merge([_entry, _exit, _wobble, _blink]),
+          builder: (context, _) {
+            final entry = _entry.value * PausePage.entryMilliseconds;
+            final exit = _exit.value * PausePage.exitMilliseconds;
+            final (offset, grains) = _stream(entry, exit);
+            final big = _bigness(entry, exit);
+            final tip = _leaving || _entry.value < 1
+                ? 0.0
+                : _tipDegrees(_wobble.value * PausePage.wobbleMilliseconds);
+            final hourglass = Opacity(
+              opacity: _hourglassOpacity(entry, exit).clamp(0.0, 1.0),
+              child: Transform.translate(
+                offset: Offset(0, 290 * big),
+                child: Transform.scale(
+                  scale: 1 + 1.4 * big,
+                  child: Transform.rotate(
+                    key: const ValueKey('pause-hourglass-tip'),
+                    angle: tip * math.pi / 180,
+                    child: MockHourglass(
+                      remainingFraction: fraction,
+                      sandColor: c.accentFill,
+                      outlineColor: c.label,
+                      streamOffset: offset,
+                      streamOpacity: grains,
+                    ),
+                  ),
+                ),
+              ),
+            );
+            return Stack(
+              fit: StackFit.expand,
+              children: [
+                if (widget.paper != null)
+                  IgnorePointer(
+                    child: ExcludeSemantics(
+                      child: Opacity(
+                        key: const ValueKey('pause-paper'),
+                        opacity: 1 - _pageOpacity(entry, exit).clamp(0.0, 1.0),
+                        child: widget.paper,
+                      ),
+                    ),
+                  ),
+                Opacity(
+                  opacity: _pageOpacity(entry, exit).clamp(0.0, 1.0),
+                  child: SafeArea(
+                    child: Column(
+                      children: [
+                        Expanded(
+                          child: SingleChildScrollView(
+                            padding: const EdgeInsets.fromLTRB(
+                              PantasSpace.s16,
+                              PantasSpace.s28,
+                              PantasSpace.s16,
+                              PantasSpace.s24,
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                Center(child: hourglass),
+                                const SizedBox(height: PantasSpace.s18),
+                                Opacity(
+                                  key: const ValueKey('pause-content'),
+                                  opacity: _contentOpacity(entry, exit)
+                                      .clamp(0.0, 1.0),
+                                  child: content,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Opacity(
+                          opacity: _contentOpacity(entry, exit).clamp(0.0, 1.0),
+                          child: IgnorePointer(
+                            ignoring: _contentOpacity(entry, exit) < 1,
+                            child: bottom,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class _PartList extends StatelessWidget {
+  const _PartList({required this.names, required this.currentIndex});
+
+  final List<String> names;
+  final int currentIndex;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    final scaler = MediaQuery.textScalerOf(context);
+    final lineHeight = scaler.scale(17) * 1.35;
+    final minRow = math.max(50, lineHeight + 4).toDouble();
+    // Left padding 6 and 4, right 16 and 4, the 24 marker and a 14 gap.
+    const sideSpace = 6.0 + 4 + 16 + 4 + PantasSpace.s24 + PantasSpace.s14;
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        // A part name wraps (README Type, text scaling), so each row is as
+        // tall as its name needs and never shorter than the one-line row.
+        final nameStyle =
+            context.type.body.copyWith(fontWeight: FontWeight.w600);
+        final heights = <double>[
+          for (final name in names)
+            () {
+              final painter = TextPainter(
+                text: TextSpan(text: name, style: nameStyle),
+                textDirection: Directionality.of(context),
+                textScaler: scaler,
+              )..layout(
+                  maxWidth: math.max(0, constraints.maxWidth - sideSpace),
+                );
+              final h = painter.height;
+              painter.dispose();
+              return h <= lineHeight + 1 ? minRow : h + (minRow - lineHeight);
+            }(),
+        ];
+        final before =
+            heights.take(currentIndex).fold<double>(0, (a, h) => a + h);
+        return DecoratedBox(
+          decoration: BoxDecoration(
+            color: c.surface,
+            borderRadius: BorderRadius.circular(PantasRadius.lg),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(
+              PantasSpace.s6,
+              PantasSpace.s14,
+              PantasSpace.s16,
+              PantasSpace.s14,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s4),
+              child: Stack(
+                children: [
+                  Column(
+                    children: [
+                      for (var i = 0; i < names.length; i++)
+                        SizedBox(
+                          height: heights[i],
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                width: PantasSpace.s24,
+                                height: heights[i],
+                                child: Stack(
+                                  clipBehavior: Clip.none,
+                                  alignment: Alignment.center,
+                                  children: [
+                                    if (i < names.length - 1)
+                                      Positioned(
+                                        top: heights[i] / 2 + 12,
+                                        bottom: -12,
+                                        child: Container(
+                                          width: 2,
+                                          color: i < currentIndex
+                                              ? c.accentFill
+                                              : c.separator,
+                                        ),
+                                      ),
+                                    Container(
+                                      width: 24,
+                                      height: 24,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: i < currentIndex
+                                            ? c.accentFill
+                                            : c.surface,
+                                        border: i < currentIndex
+                                            ? null
+                                            : Border.all(
+                                                color: i == currentIndex
+                                                    ? c.accentFill
+                                                    : c.separator,
+                                                width: 2,
+                                              ),
+                                      ),
+                                      child: i < currentIndex
+                                          ? Icon(
+                                              PantasIcons.check,
+                                              size: 13,
+                                              color: c.onAccent,
+                                            )
+                                          : null,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(width: PantasSpace.s14),
+                              Expanded(
+                                child: Text(
+                                  names[i],
+                                  style: context.type.body.copyWith(
+                                    fontWeight: i == currentIndex
+                                        ? FontWeight.w600
+                                        : FontWeight.w400,
+                                    color: i < currentIndex
+                                        ? c.secondaryLabel
+                                        : c.label,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                    ],
+                  ),
+                  Positioned(
+                    left: 4,
+                    top: 0,
+                    child: Transform.translate(
+                      key: const ValueKey('pause-part-arrow'),
+                      offset: Offset(0, before + heights[currentIndex] / 2 - 7),
+                      child: CustomPaint(
+                        size: const Size(12, 14),
+                        painter: _Arrow(c.accentFill),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+class _Arrow extends CustomPainter {
+  const _Arrow(this.color);
+  final Color color;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    canvas.drawPath(
+      Path()
+        ..moveTo(1, 1.5)
+        ..lineTo(1, 12.5)
+        ..lineTo(11, 7)
+        ..close(),
+      Paint()..color = color,
+    );
+  }
+
+  @override
+  bool shouldRepaint(_Arrow old) => old.color != color;
 }

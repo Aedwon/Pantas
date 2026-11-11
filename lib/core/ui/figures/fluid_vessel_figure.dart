@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
+/// Height of the drawing. The design system sets no height for diagrams.
+const double _figureHeight = 140;
+
 /// Water in a vessel, or water flowing through a pipe that changes width.
 ///
 /// Two shapes, because the family asks two questions.
@@ -78,7 +81,7 @@ class FluidVesselFigure extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final styles = context.textStyles;
+    final styles = context.type;
     return Semantics(
       label: switch (vessel) {
         'pipe' => 'A pipe that changes width along its length, with water '
@@ -88,20 +91,81 @@ class FluidVesselFigure extends StatelessWidget {
         _ => 'A container of water with points marked at different depths.',
       },
       child: SizedBox(
-        height: 140,
+        height: _figureHeight,
         child: CustomPaint(
           painter: _FluidPainter(
             vessel: vessel,
             points: points,
             widths: widths,
             columns: columns,
-            ink: colors.ink,
-            faint: colors.ruleFaint,
-            labelStyle: styles.bodySmall.copyWith(color: colors.inkMuted),
+            ink: colors.label,
+            mark: colors.secondaryLabel,
+            labelStyle: styles.subhead.copyWith(color: colors.secondaryLabel),
           ),
           size: Size.infinite,
         ),
       ),
+    );
+  }
+}
+
+/// Where the lines of a set of joined vessels go.
+@visibleForTesting
+abstract final class FluidVesselGeometry {
+  /// The walls, the tube ceilings between neighboring arms, the floor and the
+  /// water level in each arm.
+  ///
+  /// Only the two outer walls reach the floor. Each inner wall stops at the
+  /// tube's ceiling, which is what makes the arms one connected tube and not
+  /// separate boxes. The floor runs from the first outer wall to the last.
+  static ({
+    List<(Offset, Offset)> walls,
+    List<(Offset, Offset)> ceilings,
+    (Offset, Offset) floor,
+    List<(Offset, Offset)> levels,
+  }) connected(Size size, int columns) {
+    const top = 16.0;
+    final bottom = size.height - 22;
+    final tubeTop = bottom - 14;
+    const levelY = top + 18;
+    final slot = size.width / columns;
+    final halves = [
+      for (var i = 0; i < columns; i++) slot * (0.10 + 0.06 * (i % 3)),
+    ];
+    final centres = [for (var i = 0; i < columns; i++) slot * (i + 0.5)];
+
+    final walls = <(Offset, Offset)>[];
+    final ceilings = <(Offset, Offset)>[];
+    final levels = <(Offset, Offset)>[];
+    for (var i = 0; i < columns; i++) {
+      final left = centres[i] - halves[i];
+      final right = centres[i] + halves[i];
+      walls
+        ..add((Offset(left, top), Offset(left, i == 0 ? bottom : tubeTop)))
+        ..add(
+          (
+            Offset(right, top),
+            Offset(right, i == columns - 1 ? bottom : tubeTop),
+          ),
+        );
+      levels.add((Offset(left, levelY), Offset(right, levelY)));
+      if (i < columns - 1) {
+        ceilings.add(
+          (
+            Offset(right, tubeTop),
+            Offset(centres[i + 1] - halves[i + 1], tubeTop),
+          ),
+        );
+      }
+    }
+    return (
+      walls: walls,
+      ceilings: ceilings,
+      floor: (
+        Offset(centres.first - halves.first, bottom),
+        Offset(centres.last + halves.last, bottom),
+      ),
+      levels: levels,
     );
   }
 }
@@ -113,7 +177,7 @@ class _FluidPainter extends CustomPainter {
     required this.widths,
     required this.columns,
     required this.ink,
-    required this.faint,
+    required this.mark,
     required this.labelStyle,
   });
 
@@ -122,7 +186,10 @@ class _FluidPainter extends CustomPainter {
   final List<double> widths;
   final int columns;
   final Color ink;
-  final Color faint;
+
+  /// The water line and the flow arrow: marks the student must read, so
+  /// they are not drawn in the faintest fill.
+  final Color mark;
   final TextStyle labelStyle;
 
   @override
@@ -134,7 +201,7 @@ class _FluidPainter extends CustomPainter {
     final water = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1
-      ..color = faint;
+      ..color = mark;
 
     switch (vessel) {
       case 'pipe':
@@ -177,26 +244,17 @@ class _FluidPainter extends CustomPainter {
   /// Vessels of different widths joined at the bottom. The water finds the
   /// same level in all of them, which is the whole question.
   void _paintConnected(Canvas canvas, Size size, Paint ink, Paint water) {
-    const top = 16.0;
-    final bottom = size.height - 22;
-    final slot = size.width / columns;
-    const levelY = top + 18;
-
-    for (var i = 0; i < columns; i++) {
-      // Deliberately different widths, so "different shapes" is visible.
-      final half = slot * (0.10 + 0.06 * (i % 3));
-      final cx = slot * (i + 0.5);
-      canvas
-        ..drawLine(Offset(cx - half, top), Offset(cx - half, bottom), ink)
-        ..drawLine(Offset(cx + half, top), Offset(cx + half, bottom), ink)
-        ..drawLine(Offset(cx - half, levelY), Offset(cx + half, levelY), water);
+    final layout = FluidVesselGeometry.connected(size, columns);
+    for (final (from, to) in [
+      ...layout.walls,
+      ...layout.ceilings,
+      layout.floor,
+    ]) {
+      canvas.drawLine(from, to, ink);
     }
-    // The tube along the bottom that joins them.
-    canvas.drawLine(
-      Offset(slot * 0.5 - slot * 0.10, bottom),
-      Offset(slot * (columns - 0.5) + slot * 0.10, bottom),
-      ink,
-    );
+    for (final (from, to) in layout.levels) {
+      canvas.drawLine(from, to, water);
+    }
   }
 
   /// A pipe whose sections change width, drawn as its two walls.
@@ -254,5 +312,6 @@ class _FluidPainter extends CustomPainter {
       old.points.length != points.length ||
       old.widths.length != widths.length ||
       old.columns != columns ||
-      old.ink != ink;
+      old.ink != ink ||
+      old.mark != mark;
 }

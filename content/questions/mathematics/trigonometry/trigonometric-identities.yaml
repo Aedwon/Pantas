@@ -8,352 +8,383 @@ questions:
     type: which-is-true
     difficulty: easy
     stem: |
-      Which statement is true about the reciprocal trigonometric functions?
+      Angles are in degrees. Which reciprocal identity holds wherever both sides are defined?
     choices:
-      - text: $\csc \theta = \dfrac{1}{\sin \theta}$
+      - text: '$\csc \theta = \dfrac{1}{\sin \theta}$'
         correct: true
-      - text: $\sec \theta = \dfrac{1}{\tan \theta}$
+      - text: '$\sec \theta = \dfrac{1}{\tan \theta}$'
         rationale: |
-          $1/\tan\theta$ is cotangent, not secant. Secant is $1/\cos\theta$.
-      - text: $\csc \theta = \sin \theta$
+          This pairs secant with tangent. Both names belong to the same set of six functions. Check that secant's reciprocal partner is cosine.
+      - text: '$\csc \theta = \sin \theta$'
         rationale: |
-          Cosecant is the reciprocal of sine, not sine itself.
-      - text: $\cot \theta = \dfrac{1}{\csc \theta}$
+          This treats a function and its reciprocal as equal. The two names are closely linked. Check whether one ratio must be turned over.
+      - text: '$\cot \theta = \dfrac{1}{\csc \theta}$'
         rationale: |
-          $1/\csc\theta=\sin\theta$. Cotangent is $1/\tan\theta$.
+          This pairs cotangent with cosecant. Their names both start with the same sound. Check that cotangent is paired with tangent.
     explanation: |
-      The reciprocal identities include
-      $$\csc\theta=\dfrac1{\sin\theta},\qquad \sec\theta=\dfrac1{\cos\theta},\qquad \cot\theta=\dfrac1{\tan\theta}.$$
+      Cosecant is the reciprocal of sine. Therefore $\csc\theta=\dfrac{1}{\sin\theta}$ whenever $\sin\theta\neq0$.
   - id: q-trigonometry-trigonometric-identities-0002
     type: which-is-true
     difficulty: easy
     stem: |
-      Which statement is the Pythagorean identity?
+      Using degrees for $\theta$, which equation is the fundamental Pythagorean identity?
     choices:
-      - text: $\sin^2 \theta + \cos^2 \theta = 1$
+      - text: '$\sin^2 \theta + \cos^2 \theta = 1$'
         correct: true
-      - text: $\sin \theta + \cos \theta = 1$
+      - text: '$\sin \theta + \cos \theta = 1$'
         rationale: |
-          The identity requires the squares.
-      - text: $\sin^2 \theta - \cos^2 \theta = 1$
+          This omits the squares on sine and cosine. The same function names and total appear. Check that the circle equation uses squared coordinates.
+      - text: '$\sin^2 \theta - \cos^2 \theta = 1$'
         rationale: |
-          The Pythagorean identity adds the squared functions.
-      - text: $\sin \theta + \cos \theta = \tan \theta$
+          This subtracts the squared functions. Moving terms in an equation can suggest subtraction. Check that both coordinate squares add to the radius squared.
+      - text: '$\sin \theta + \cos \theta = \tan \theta$'
         rationale: |
-          Tangent is $\sin\theta/\cos\theta$, not their sum.
+          This treats a sum of sine and cosine as tangent. All three are basic trigonometric functions. Check that tangent uses their quotient.
     explanation: |
-      $$\sin^2\theta+\cos^2\theta=1$$
-      follows from the unit-circle equation $x^2+y^2=1$ with $(x,y)=(\cos\theta,\sin\theta)$.
+      On the unit circle, the coordinates are $x=\cos\theta$ and $y=\sin\theta$. The radius is $1$, so $x^2+y^2=1$. Substituting the coordinates gives $\sin^2\theta+\cos^2\theta=1$.
   - id: q-trigonometry-trigonometric-identities-0003
     type: direct-computation
     difficulty: easy
     stem: |
-      If $\sin \theta = \dfrac{3}{5}$ and $\theta$ is acute, find $\cos \theta$ using the Pythagorean identity.
+      If $\sin\theta=\dfrac{3}{5}$ and $\theta$ is acute and measured in degrees, find $\cos\theta$ using the Pythagorean identity.
     choices:
-      - text: $\dfrac{4}{5}$
+      - text: '$\dfrac{4}{5}$'
         correct: true
-      - text: $\dfrac{2}{5}$
+      - text: '$\dfrac{2}{5}$'
         rationale: |
-          You subtracted the sine value from 1 instead of subtracting its square.
-      - text: $-\dfrac{4}{5}$
+          This subtracts the sine value from $1$, giving $1-3/5=2/5$. The identity does involve subtraction from $1$. Check that the identity uses squared values.
+      - text: '$-\dfrac{4}{5}$'
         rationale: |
-          The magnitude is correct, but cosine is positive for an acute angle.
-      - text: $\dfrac{5}{3}$
+          This chooses the negative square root. Squaring removes the sign, so both roots initially appear possible. Check that an acute angle has positive cosine.
+      - text: '$\dfrac{5}{3}$'
         rationale: |
-          That is cosecant, not cosine.
+          This takes reciprocal sine instead of finding cosine. The given fraction is easy to invert. Check which identity links the requested function to sine.
     explanation: |
-      $$\cos^2\theta=1-\sin^2\theta=1-\dfrac9{25}=\dfrac{16}{25}.$$
-      Since $\theta$ is acute, $\cos\theta=\dfrac45$.
+      Use $\cos^2\theta=1-\sin^2\theta$. Substitute: $\cos^2\theta=1-(\dfrac{3}{5})^2=1-\dfrac{9}{25}=\dfrac{16}{25}$. The square root has magnitude $\dfrac{4}{5}$. Since the angle is acute, cosine is positive, so $\cos\theta=\dfrac{4}{5}$.
   - id: q-trigonometry-trigonometric-identities-0004
     type: which-is-true
     difficulty: easy
     stem: |
-      Which statement is a quotient identity?
+      Angles are in degrees. Which quotient identity holds wherever both sides are defined?
     choices:
-      - text: $\tan \theta = \dfrac{\sin \theta}{\cos \theta}$
+      - text: '$\tan \theta = \dfrac{\sin \theta}{\cos \theta}$'
         correct: true
-      - text: $\sin \theta = \dfrac{\cos \theta}{\tan \theta}$
+      - text: '$\sin \theta = \dfrac{\cos \theta}{\tan \theta}$'
         rationale: |
-          This does not follow from the quotient identity.
-      - text: $\tan \theta + \sin \theta = 1$
+          This divides cosine by tangent instead of multiplying them to recover sine. Rearranging a quotient can suggest another division. Check the result by multiplying the tangent identity by cosine.
+      - text: '$\tan \theta + \sin \theta = 1$'
         rationale: |
-          No such identity holds for all allowed angles.
-      - text: $\cot \theta = \sin \theta \cos \theta$
+          This treats tangent and sine as complementary parts totaling $1$. The Pythagorean identity contains a total of $1$. Check that tangent is formed by division.
+      - text: '$\cot \theta = \sin \theta \cos \theta$'
         rationale: |
-          Cotangent is $\cos\theta/\sin\theta$.
+          This multiplies sine and cosine instead of dividing cosine by sine. Both functions appear in the cotangent identity. Check the fraction bar in that identity.
     explanation: |
-      $$\tan\theta=\dfrac{\sin\theta}{\cos\theta},\qquad \cot\theta=\dfrac{\cos\theta}{\sin\theta}.$$
+      Tangent is the ratio of sine to cosine. Thus $\tan\theta=\dfrac{\sin\theta}{\cos\theta}$ whenever $\cos\theta\neq0$.
   - id: q-trigonometry-trigonometric-identities-0005
     type: error-spotting
     difficulty: medium
     stem: |
-      A student simplifies $\tan \theta \cdot \cos \theta$ like this.
-      
-      Step 1: $\tan \theta \cdot \cos \theta = \dfrac{\sin \theta}{\cos \theta} \cdot \cos \theta$
-      
-      Step 2: $= \sin \theta + \cos \theta$
-      
-      Step 3: Result is $\sin \theta + \cos \theta$.
-      
-      Which step is the first wrong one?
+      Angles are in degrees and $\cos\theta\neq0$. A student simplifies $\tan\theta\cos\theta$. Step 1: $\dfrac{\sin\theta}{\cos\theta}\cos\theta$. Step 2: $\sin\theta+\cos\theta$. Step 3: the result is $\sin\theta+\cos\theta$. Which is the first incorrect step?
     choices:
-      - text: Step 2
+      - text: 'Step 2'
         correct: true
-      - text: Step 1
+      - text: 'Step 1'
         rationale: |
-          Step 1 correctly rewrites tangent as sine over cosine.
-      - text: Step 3
+          This rejects the quotient identity used in Step 1. The replacement makes the expression longer. Check that tangent equals sine divided by cosine.
+      - text: 'Step 3'
         rationale: |
-          Step 3 only repeats the error already introduced in Step 2.
-      - text: No step is wrong.
+          This locates the error only in the repeated final line. The wrong result is most visible there. Check which earlier operation first changed the value.
+      - text: 'No step is wrong.'
         rationale: |
-          Step 2 should cancel the cosine factor and give $\sin\theta$.
+          This accepts addition after a multiplication. The same function names appear in the result. Check whether cancellation removes a factor or adds a term.
     explanation: |
-      $$\dfrac{\sin\theta}{\cos\theta}\cos\theta=\sin\theta$$
-      wherever the original tangent expression is defined, so Step 2 is the first error.
+      Step 2 is the first error. Replacing tangent gives $\dfrac{\sin\theta}{\cos\theta}\cos\theta$. Since $\cos\theta\neq0$, cancel the cosine factor to obtain $\sin\theta$. Cancellation does not introduce an added term.
   - id: q-trigonometry-trigonometric-identities-0006
-    type: which-is-true
+    type: direct-computation
     difficulty: medium
     stem: |
-      Which statement is true about the Pythagorean identity?
+      Let $A=30^\circ$ and $B=60^\circ$. What is $\sin^2 A+\cos^2 B$?
     choices:
-      - text: $\sin^2 A + \cos^2 B = 1$ is true for any angles $A$ and $B$.
-        rationale: |
-          The identity requires the same angle in both terms.
-      - text: $\sin^2 \theta + \cos^2 \theta = 1$ for all angles $\theta$.
+      - text: '$\dfrac{1}{2}$'
         correct: true
-      - text: $1 - \sin^2 \theta = -\cos^2 \theta$
+      - text: '$1$'
         rationale: |
-          The correct rearrangement is $1-\sin^2\theta=\cos^2\theta$.
-      - text: $\sin^2 \theta = 1 - \sin^2 \theta$ implies $\sin^2 \theta = 1$
+          This applies the Pythagorean identity to different angles. Sine squared plus cosine squared looks like the usual identity. Check that both terms use the same angle.
+      - text: '$0$'
         rationale: |
-          It implies $2\sin^2\theta=1$, so $\sin^2\theta=1/2$.
+          This subtracts the two one-quarter values. The terms are equal, so they cancel under subtraction. Check the operation in the question.
+      - text: '$\dfrac{1}{4}$'
+        rationale: |
+          This includes only one squared value. Each separate term is one-quarter. Check that both terms have been added.
     explanation: |
-      The fundamental identity is $\sin^2\theta+\cos^2\theta=1$ for the same angle $\theta$.
+      For $A=30^\circ$, $\sin^2 A=(\dfrac{1}{2})^2=\dfrac{1}{4}$. For $B=60^\circ$, $\cos^2 B=(\dfrac{1}{2})^2=\dfrac{1}{4}$. Their sum is $\dfrac{1}{2}$.
   - id: q-trigonometry-trigonometric-identities-0007
     type: direct-computation
     difficulty: medium
     stem: |
-      Simplify: $\dfrac{1 - \cos^2 \theta}{\cos^2 \theta}$.
+      Angles are in degrees and $\cos\theta\neq0$. Simplify $\dfrac{1-\cos^2\theta}{\cos^2\theta}$.
     choices:
-      - text: $\tan^2 \theta$
+      - text: '$\tan^2 \theta$'
         correct: true
-      - text: $\sec^2 \theta$
+      - text: '$\sec^2 \theta$'
         rationale: |
-          Replace $1-\cos^2\theta$ by $\sin^2\theta$ before simplifying.
-      - text: $\cot^2 \theta$
+          This keeps only $1/\cos^2\theta$ and drops the subtracted term. That part is secant squared. Check the entire numerator before simplifying.
+      - text: '$\cot^2 \theta$'
         rationale: |
-          You inverted the sine-over-cosine ratio.
-      - text: $\csc^2 \theta$
+          This reverses sine over cosine. The same two squared functions appear in cotangent. Check which function is above the fraction bar.
+      - text: '$\csc^2 \theta$'
         rationale: |
-          Cosecant squared is $1/\sin^2\theta$, not this expression.
+          This replaces the denominator with sine squared. Cosecant is another reciprocal function. Check that the original denominator is cosine squared.
     explanation: |
-      $$\dfrac{1-\cos^2\theta}{\cos^2\theta}=\dfrac{\sin^2\theta}{\cos^2\theta}=\tan^2\theta.$$
+      Use $1-\cos^2\theta=\sin^2\theta$. Then the fraction is $\dfrac{\sin^2\theta}{\cos^2\theta}=(\dfrac{\sin\theta}{\cos\theta})^2=\tan^2\theta$. This holds on the original domain, where $\cos\theta\neq0$.
   - id: q-trigonometry-trigonometric-identities-0008
     type: error-spotting
     difficulty: medium
     stem: |
-      A student finds $\cos \theta$ from $\sin \theta = \dfrac{3}{5}$ like this.
-      
-      Step 1: $\sin^2 \theta + \cos^2 \theta = 1$
-      
-      Step 2: $\dfrac{9}{25} + \cos^2 \theta = 1$
-      
-      Step 3: $\cos^2 \theta = \dfrac{16}{25}$
-      
-      Step 4: $\cos \theta = \dfrac{4}{5}$
-      
-      Which step is the first wrong one?
+      Angles are in degrees. Given only $\sin\theta=\dfrac{3}{5}$, a student writes Step 1: $\sin^2\theta+\cos^2\theta=1$. Step 2: $\dfrac{9}{25}+\cos^2\theta=1$. Step 3: $\cos^2\theta=\dfrac{16}{25}$. Step 4: $\cos\theta=\dfrac{4}{5}$. Which is the first unjustified step?
     choices:
-      - text: Step 4
+      - text: 'Step 4'
         correct: true
-      - text: Step 1
+      - text: 'Step 1'
         rationale: |
-          Step 1 is the correct Pythagorean identity.
-      - text: Step 2
+          This rejects the Pythagorean identity in Step 1. The missing angle condition can make the whole calculation seem invalid. Check that the identity itself holds for every real angle.
+      - text: 'Step 2'
         rationale: |
-          Step 2 correctly squares $3/5$.
-      - text: No step is wrong.
+          This rejects the squared fraction in Step 2. Squaring a fraction can be confused with doubling it. Check that both numerator and denominator are squared.
+      - text: 'No step is wrong.'
         rationale: |
-          Without a quadrant restriction, Step 4 incorrectly drops the negative square-root possibility.
+          This assumes positive sine also gives positive cosine. That is true for acute angles. Check whether the stem actually restricts the angle to Quadrant I.
     explanation: |
-      Steps 1–3 are correct. From $\cos^2\theta=16/25$ we get
-      $$\cos\theta=\pm\dfrac45.$$
-      A quadrant condition is needed to select one sign.
+      Step 4 is the first error. From $\cos^2\theta=\dfrac{16}{25}$, cosine may be $\dfrac{4}{5}$ or $-\dfrac{4}{5}$. Positive sine allows both Quadrants I and II, with different cosine signs. No given range selects one of them.
   - id: q-trigonometry-trigonometric-identities-0009
     type: direct-computation
     difficulty: hard
     stem: |
-      Simplify: $\sec \theta - \sec \theta \sin^2 \theta$.
+      Angles are in degrees and $\cos\theta\neq0$. Simplify $\sec\theta-\sec\theta\sin^2\theta$.
     choices:
-      - text: $\cos \theta$
+      - text: '$\cos\theta$'
         correct: true
-      - text: $\sec \theta$
+      - text: '$\sec\theta$'
         rationale: |
-          You stopped after factoring instead of using $1-\sin^2\theta=\cos^2\theta$.
-      - text: $\tan \theta$
+          This drops the factor $1-\sin^2\theta$ after factoring. Secant is the common factor. Check that the remaining factor must still be multiplied.
+      - text: '$\cos^2\theta$'
         rationale: |
-          The factored expression simplifies to cosine, not tangent.
-      - text: $1$
+          This replaces the parentheses with cosine squared but drops the secant factor. The Pythagorean replacement is correct. Check that every original factor is still present.
+      - text: '$1$'
         rationale: |
-          $\sec\theta\cos^2\theta=\cos\theta$, not 1.
+          This treats $\cos^2\theta$ as one factor of cosine and cancels it all. Secant times cosine really equals $1$. Check that one extra cosine factor remains.
     explanation: |
-      $$\sec\theta(1-\sin^2\theta)=\sec\theta\cos^2\theta=\cos\theta$$
-      on the domain of the original expression. Therefore, the simplified expression is $\cos \theta$.
+      Factor out secant: $\sec\theta(1-\sin^2\theta)$. Replace the parentheses with $\cos^2\theta$. Since secant is $1/\cos\theta$, the result is $\dfrac{\cos^2\theta}{\cos\theta}=\cos\theta$. The original expression requires $\cos\theta\neq0$.
   - id: q-trigonometry-trigonometric-identities-0010
     type: which-is-true
     difficulty: hard
     stem: |
-      Which statement about the identity $1 + \tan^2 \theta = \sec^2 \theta$ is true?
+      Angles are in degrees. Which statement about $1+\tan^2\theta=\sec^2\theta$ is true wherever the functions are defined?
     choices:
-      - text: It is derived from the Pythagorean identity by dividing by $\cos^2 \theta$.
+      - text: 'It comes from dividing by $\cos^2\theta$.'
         correct: true
-      - text: It is only true when $\tan \theta = 1$.
+      - text: 'It holds only at angles where $\tan\theta=1$.'
         rationale: |
-          It holds wherever tangent and secant are defined.
-      - text: It is the same as the identity $1 + \cot^2 \theta = \csc^2 \theta$.
+          This restricts the identity to tangent $1$. That value gives a quick example of the equation. Check whether the algebra depended on that particular value.
+      - text: 'It comes from dividing $\sin^2\theta+\cos^2\theta=1$ by $\sin^2\theta$.'
         rationale: |
-          These are related but distinct identities derived by dividing by different squared functions.
-      - text: It shows that $\tan^2 \theta$ and $\sec^2 \theta$ are always equal.
+          This divides by sine squared instead of cosine squared. Both operations produce related Pythagorean identities. Check which denominator creates tangent.
+      - text: 'It says $\tan^2\theta$ and $\sec^2\theta$ always have equal values.'
         rationale: |
-          The identity says $\sec^2\theta=1+\tan^2\theta$, so the two sides differ by exactly 1 and are never equal for a real angle where they are defined.
+          This drops the constant $1$ from the equation. Both squared functions appear together. Check their difference before treating them as equal.
     explanation: |
-      Divide $\sin^2\theta+\cos^2\theta=1$ by $\cos^2\theta$:
-      $$\tan^2\theta+1=\sec^2\theta.$$
+      Divide $\sin^2\theta+\cos^2\theta=1$ by nonzero $\cos^2\theta$. This gives $\dfrac{\sin^2\theta}{\cos^2\theta}+1=\dfrac{1}{\cos^2\theta}$. The quotient and reciprocal identities turn this into $\tan^2\theta+1=\sec^2\theta$.
   - id: q-trigonometry-trigonometric-identities-0011
     type: error-spotting
     difficulty: hard
     stem: |
-      A student simplifies $\dfrac{\sin \theta}{\csc \theta} + \dfrac{\cos \theta}{\sec \theta}$ like this.
-      
-      Step 1: $\csc \theta = \dfrac{1}{\sin \theta}$ and $\sec \theta = \dfrac{1}{\cos \theta}$
-      
-      Step 2: $\dfrac{\sin \theta}{\frac{1}{\sin \theta}} + \dfrac{\cos \theta}{\frac{1}{\cos \theta}}$
-      
-      Step 3: $\sin \theta \cdot \sin \theta + \cos \theta \cdot \cos \theta$
-      
-      Step 4: $\sin^2 \theta + \cos^2 \theta = 1$
-      
-      Which step is the first wrong one?
+      Angles are in degrees, with $\sin\theta\neq0$ and $\cos\theta\neq0$. A student simplifies $\dfrac{\sin\theta}{\csc\theta}+\dfrac{\cos\theta}{\sec\theta}$. Step 1: $\csc\theta=\dfrac{1}{\sin\theta}$ and $\sec\theta=\dfrac{1}{\cos\theta}$. Step 2: substitute those reciprocals in the two denominators. Step 3: the expression becomes $\sin\theta\sin\theta+\cos\theta\cos\theta$. Step 4: the result is $1$. Which is the first incorrect step?
     choices:
-      - text: No step is wrong.
+      - text: 'No error.'
         correct: true
-      - text: Step 1
+      - text: 'Step 1, the reciprocal identities.'
         rationale: |
-          Step 1 states the correct reciprocal identities.
-      - text: Step 2
+          This rejects the reciprocal identities. The names may be confused with each other. Check the sine-cosecant and cosine-secant pairs.
+      - text: 'Step 2, the substitutions.'
         rationale: |
-          Step 2 correctly substitutes those identities.
-      - text: Step 3
+          This rejects substituting reciprocal fractions into a denominator. A fraction inside a fraction can look unusual. Check that the substituted expression has the same value.
+      - text: 'Step 3, the fraction division.'
         rationale: |
-          Dividing by $1/\sin\theta$ or $1/\cos\theta$ multiplies by its reciprocal.
+          This rejects multiplication when dividing by a reciprocal. Division may suggest another division. Check the rule for dividing by a fraction.
     explanation: |
-      Every step is valid on the domain of the original expression, and the result is $1$.
+      All steps are correct on the stated domain. The reciprocal substitutions in Steps 1 and 2 give division by $1/\sin\theta$ and $1/\cos\theta$. Dividing by each reciprocal multiplies by the corresponding function, giving $\sin^2\theta+\cos^2\theta$. The Pythagorean identity makes the sum $1$.
   - id: q-trigonometry-trigonometric-identities-0012
     type: direct-computation
     difficulty: hard
     stem: |
-      If $\tan \theta = 2$ and $\theta$ is acute, find $\sec \theta$.
+      If $\tan\theta=2$ and $\theta$ is acute and measured in degrees, find $\sec\theta$.
     choices:
-      - text: $\sqrt{5}$
+      - text: '$\sqrt{5}$'
         correct: true
-      - text: $2$
+      - text: '$2$'
         rationale: |
-          Secant is not equal to tangent.
-      - text: $\dfrac{1}{2}$
+          This makes secant equal to tangent. Their squares are linked by an identity. Check the added $1$ in that identity.
+      - text: '$\dfrac{1}{2}$'
         rationale: |
-          That is cotangent, the reciprocal of tangent.
-      - text: $-\sqrt{5}$
+          This takes reciprocal tangent, giving one-half. Secant is a reciprocal function too. Check that its partner is cosine.
+      - text: '$-\sqrt{5}$'
         rationale: |
-          Secant is positive for an acute angle.
+          This chooses the negative square root. Both signs solve the squared equation. Check the secant sign for an acute angle.
     explanation: |
-      $$\sec^2\theta=1+\tan^2\theta=5.$$
-      Because $\theta$ is acute, $\sec\theta=\sqrt5$.
+      The identity gives $\sec^2\theta=1+\tan^2\theta=1+2^2=5$. Thus secant has magnitude $\sqrt{5}$. Because the angle is acute, cosine and its reciprocal are positive. Therefore $\sec\theta=\sqrt{5}$.
   - id: q-trigonometry-trigonometric-identities-0013
     type: which-is-true
     difficulty: hard
     stem: |
-      Which statement correctly uses a Pythagorean identity?
+      Using degrees for angles, which statement correctly uses a Pythagorean identity?
     choices:
-      - text: If $\cos \theta = \dfrac{2}{3}$, then $\sin^2 \theta = 1 - \dfrac{4}{9} = \dfrac{5}{9}$.
+      - text: 'If $\cos\theta=\dfrac{2}{3}$, then $\sin^2\theta=\dfrac{5}{9}$.'
         correct: true
-      - text: If $\sin \theta = \dfrac{1}{2}$, then $\cos^2 \theta = \dfrac{1}{4}$.
+      - text: 'If $\sin\theta=\dfrac{1}{2}$, then $\cos^2\theta=\dfrac{1}{4}$.'
         rationale: |
-          The correct value is $1-1/4=3/4$.
-      - text: $\sin^2(30^\circ) + \cos^2(60^\circ) = 1$ (using different angles).
+          This assigns sine squared directly to cosine squared. The given sine does square to one-quarter. Check that the other square is the remainder from $1$.
+      - text: '$\sin^2(30^\circ)+\cos^2(60^\circ)=1$ for these different angles.'
         rationale: |
-          The Pythagorean identity requires the same angle; this sum is $1/2$.
-      - text: $\tan^2 \theta = 1 - \cot^2 \theta$ for all angles.
+          This uses the Pythagorean identity with two different angles. The expression has the expected two function names. Check the angle inside each term.
+      - text: '$\tan^2\theta=1-\cot^2\theta$ wherever the functions are defined.'
         rationale: |
-          This is not a Pythagorean identity.
+          This treats tangent and cotangent as the squared pair in a sum of $1$. They are reciprocal partners. Check the actual three Pythagorean identities.
     explanation: |
-      The first statement correctly rearranges $\sin^2\theta+\cos^2\theta=1$. Also, where both tangent and cotangent are defined,
-      $$\tan^2\theta+\cot^2\theta\ge2,$$
-      with equality when $|\tan\theta|=1$; it is not a constant identity.
+      If $\cos\theta=\dfrac{2}{3}$, then $\cos^2\theta=\dfrac{4}{9}$. Use $\sin^2\theta=1-\cos^2\theta$: $\sin^2\theta=1-\dfrac{4}{9}=\dfrac{5}{9}$.
   - id: q-trigonometry-trigonometric-identities-0014
     type: error-spotting
     difficulty: hard
     stem: |
-      A student simplifies $\dfrac{\sin^2 \theta + \cos^2 \theta}{\sin^2 \theta}$ like this.
-      
-      Step 1: $\sin^2 \theta + \cos^2 \theta = 1$ (Pythagorean identity)
-      
-      Step 2: $\dfrac{1}{\sin^2 \theta}$
-      
-      Step 3: $= \csc^2 \theta$
-      
-      Which step is the first wrong one?
+      Angles are in degrees and $\sin\theta\neq0$. A student simplifies $\dfrac{\sin^2\theta+\cos^2\theta}{\sin^2\theta}$. Step 1: the numerator is $1$. Step 2: the expression becomes $1/\sin^2\theta$. Step 3: the result is $\csc^2\theta$. Which is the first incorrect step?
     choices:
-      - text: No step is wrong.
+      - text: 'No error.'
         correct: true
-      - text: Step 1
+      - text: 'Step 1, the numerator identity.'
         rationale: |
-          Step 1 correctly applies the Pythagorean identity.
-      - text: Step 2
+          This rejects the same-angle Pythagorean identity. The numerator looks more complicated than $1$. Check that it is the sum of sine squared and cosine squared of one angle.
+      - text: 'Step 2, replacing the numerator.'
         rationale: |
-          Step 2 correctly replaces the numerator by 1.
-      - text: Step 3
+          This rejects replacing the numerator while keeping the denominator. The denominator also contains sine squared. Check that the identity applies to the whole numerator.
+      - text: 'Step 3, the reciprocal square.'
         rationale: |
-          Step 3 correctly uses $1/\sin^2\theta=\csc^2\theta$.
+          This confuses reciprocal sine with reciprocal cosine. Both functions have reciprocal partners. Check which denominator appears in Step 2.
     explanation: |
-      All three steps are valid wherever the original expression is defined.
+      All steps are correct where $\sin\theta\neq0$. The numerator equals $1$ by the Pythagorean identity. The expression is then $\dfrac{1}{\sin^2\theta}=(\dfrac{1}{\sin\theta})^2=\csc^2\theta$.
   - id: q-trigonometry-trigonometric-identities-0015
     type: which-is-true
     difficulty: hard
     stem: |
-      Which statement is true about $\sin^2 \theta$?
+      Using degrees for $\theta$, which statement describes $\sin^2\theta$ correctly?
     choices:
-      - text: $\sin^2 \theta = (\sin \theta)^2$, computed by taking the sine first, then squaring.
+      - text: 'It means $(\sin\theta)^2$.'
         correct: true
-      - text: $\sin^2 \theta = \sin(\theta^2)$, the sine of $\theta$ squared.
+      - text: 'It means $\sin(\theta^2)$, with the angle squared first.'
         rationale: |
-          The exponent applies to the sine value, not the angle argument.
-      - text: $\sin^2 \theta = \sin(2\theta)$, the sine of the double angle.
+          This squares the angle before applying sine. The exponent is written near the angle. Check that it belongs to the function value.
+      - text: 'It means $\sin(2\theta)$, with the angle doubled first.'
         rationale: |
-          Squaring the sine value is not the same operation as doubling the angle.
-      - text: $\sin^2 \theta$ is the same as $\sin(2\theta)$ when $\theta = 30$ degrees.
+          This doubles the angle instead of squaring the sine value. Both use a visible $2$. Check whether the $2$ is an exponent or part of the angle.
+      - text: 'It equals $\sin(2\theta)$ whenever $\theta=30^\circ$.'
         rationale: |
-          $\sin^2 30°=1/4$, while $\sin60°=\sqrt3/2$.
+          This assumes squaring and doubling agree at $30^\circ$. That is a familiar special angle. Check the operations separately: square $\sin30^\circ$ and evaluate $\sin60^\circ$.
     explanation: |
-      By notation, $\sin^2\theta$ means $(\sin\theta)^2$.
+      The notation $\sin^2\theta$ means $(\sin\theta)^2$. First take the sine of the angle. Then square that value.
   - id: q-trigonometry-trigonometric-identities-0016
     type: direct-computation
     difficulty: hard
     stem: |
-      Simplify: $\dfrac{\cot^2 \theta}{1 + \cot^2 \theta}$.
+      Angles are in degrees and $\sin\theta\neq0$. Simplify $\dfrac{\cot^2\theta}{1+\cot^2\theta}$.
     choices:
-      - text: $\cos^2 \theta$
+      - text: '$\cos^2 \theta$'
         correct: true
-      - text: $\sin^2 \theta$
+      - text: '$\sin^2 \theta$'
         rationale: |
-          Simplifying the cotangent-to-cosecant ratio gives cosine squared.
-      - text: $\cot^2 \theta$
+          This uses tangent over secant instead of cotangent over cosecant. Both pairs come from Pythagorean identities. Check which function is in the original numerator.
+      - text: '$\cot^2 \theta$'
         rationale: |
-          You did not simplify the denominator using the Pythagorean identity.
-      - text: $1$
+          This leaves the numerator alone and drops the denominator. Replacing the denominator is only part of the work. Check that the denominator still affects the quotient.
+      - text: '$1$'
         rationale: |
-          The numerator and denominator are not equal.
+          This cancels the same cotangent term from a sum. The numerator also appears in the denominator. Check that cancellation removes common factors, not terms within addition.
     explanation: |
-      Since $1+\cot^2\theta=\csc^2\theta$,
-      $$\dfrac{\cot^2\theta}{\csc^2\theta}=\dfrac{\cos^2\theta/\sin^2\theta}{1/\sin^2\theta}=\cos^2\theta.$$
-      Therefore, the simplified expression is $\cos^2 \theta$.
+      Use $1+\cot^2\theta=\csc^2\theta$. The fraction becomes $\dfrac{\cot^2\theta}{\csc^2\theta}$. Since $\cot\theta=\dfrac{\cos\theta}{\sin\theta}$ and $\csc\theta=\dfrac{1}{\sin\theta}$, their squared ratio is $\cos^2\theta$. The original expression requires $\sin\theta\neq0$.
+  - id: q-trigonometry-trigonometric-identities-0017
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      An angle $\theta$ is measured in degrees and $\sin\theta=0.3$. What is $\sin^2\theta$?
+    choices:
+      - text: '$0.09$'
+        correct: true
+      - text: '$0.6$'
+        rationale: |
+          This doubles $0.3$ instead of squaring it. The notation contains a $2$. Check whether the operation is multiplication by $2$ or multiplication by the same value.
+      - text: '$0.3$'
+        rationale: |
+          This leaves the sine value unchanged. The given ratio is already a number. Check that the exponent still needs to be applied.
+      - text: '$0.91$'
+        rationale: |
+          This computes $1-0.3^2$, which is cosine squared. The Pythagorean identity links both squares. Check which squared function the question asks for.
+    explanation: |
+      Square the sine value: $\sin^2\theta=(0.3)^2=0.09$.
+    approved: false
+  - id: q-trigonometry-trigonometric-identities-0018
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      At $\theta=90^\circ$, what is the value of the original expression $\tan\theta\cos\theta$?
+    choices:
+      - text: 'The expression has no value.'
+        correct: true
+      - text: 'The expression has value $0$.'
+        rationale: |
+          This treats an undefined tangent multiplied by zero as zero. The cosine factor really is zero. Check that both factors must be defined before multiplying.
+      - text: 'The expression has value $1$.'
+        rationale: |
+          This substitutes into the simplified sine expression and drops the original restriction. Sine at $90^\circ$ really is $1$. Check whether the starting expression is defined at that angle.
+      - text: 'The expression has value $-1$.'
+        rationale: |
+          This uses sine at $270^\circ$ after canceling the cosine factor. That angle is another axis angle. Check both the stated angle and the original denominator.
+    explanation: |
+      Tangent is $\sin\theta/\cos\theta$. At $90^\circ$, cosine is zero, so tangent is undefined. The original product is therefore undefined.
+    approved: false
+  - id: q-trigonometry-trigonometric-identities-0019
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      Angles are in degrees and $\cos\theta\neq0$. Simplify $\dfrac{1-\sin\theta}{\cos^2\theta}$.
+    choices:
+      - text: '$\dfrac{1}{1+\sin\theta}$'
+        correct: true
+      - text: '$\dfrac{1}{1-\sin\theta}$'
+        rationale: |
+          This cancels the other factor in the denominator. The two factors differ only in a sign. Check that the canceled factor exactly matches the numerator.
+      - text: '$1+\sin\theta$'
+        rationale: |
+          This puts the remaining denominator factor on top. Cancellation makes that factor the only visible one. Check which side of the fraction bar it still occupies.
+      - text: '$1-\sin\theta$'
+        rationale: |
+          This keeps only the numerator and drops the full denominator. The numerator already looks simple. Check that the denominator was factored, not removed.
+    explanation: |
+      Replace $\cos^2\theta$ with $1-\sin^2\theta$. Factor the denominator as $(1-\sin\theta)(1+\sin\theta)$. The stated condition makes both factors nonzero. Cancel $1-\sin\theta$ to get $\dfrac{1}{1+\sin\theta}$.
+    approved: false
+  - id: q-trigonometry-trigonometric-identities-0020
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      If $\sec\theta=-\dfrac{5}{4}$ and $180^\circ<\theta<270^\circ$, what is $\csc\theta$?
+    choices:
+      - text: '$-\dfrac{5}{3}$'
+        correct: true
+      - text: '$\dfrac{5}{3}$'
+        rationale: |
+          This chooses the positive sine root before taking its reciprocal. Squaring hides the sign. Check the sine sign in Quadrant III.
+      - text: '$-\dfrac{4}{5}$'
+        rationale: |
+          This reports reciprocal secant, which is cosine. That is the first needed value. Check which reciprocal function the question asks for.
+      - text: '$-\dfrac{3}{5}$'
+        rationale: |
+          This stops at sine after finding its sign. That is the last intermediate value. Check that cosecant is reciprocal sine.
+    explanation: |
+      Cosine is reciprocal secant, so $\cos\theta=-\dfrac{4}{5}$. The Pythagorean identity gives $\sin^2\theta=1-\dfrac{16}{25}=\dfrac{9}{25}$. Sine is negative in the stated quadrant, so $\sin\theta=-\dfrac{3}{5}$. Taking its reciprocal gives $\csc\theta=-\dfrac{5}{3}$.
+    approved: false

@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-vocabulary-idioms-and-figures-of-speech-0001	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Replaced a board-game literal distractor with a meaningful restart mistake; shortened the answer.
+q-vocabulary-idioms-and-figures-of-speech-0002	CORRECTED	SOLVED-MATCH	distractors;explanation;notes	MEDIUM	Replaced cooking and cleaning throwaways with nearby errors about disclosure.
+q-vocabulary-idioms-and-figures-of-speech-0003	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	LOW	Made the targeted effect explicit and removed the answer-length cue.
+q-vocabulary-idioms-and-figures-of-speech-0004	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-vocabulary-idioms-and-figures-of-speech-0005	CORRECTED	SOLVED-MATCH	stem;explanation;notes	HIGH	Broad classification also allowed a hyperbolic reading; narrowed the stem to the direct comparison.
+q-vocabulary-idioms-and-figures-of-speech-0006	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-vocabulary-idioms-and-figures-of-speech-0007	CORRECTED	SOLVED-MATCH	distractor;explanation;notes	MEDIUM	Replaced the weak direct-comparison alternative with a meaningful unusual-language misconception.
+q-vocabulary-idioms-and-figures-of-speech-0008	CORRECTED	SOLVED-MATCH	distractor;explanation;notes	MEDIUM	Replaced a weak comparison alternative with the lesson's nonhuman-sound trap.
+q-vocabulary-idioms-and-figures-of-speech-0009	CORRECTED	SOLVED-MATCH	stem;explanation;notes	HIGH	Broad wording also allowed hyperbole; narrowed the target to the contradictory word pair.
+q-vocabulary-idioms-and-figures-of-speech-0010	CORRECTED	SOLVED-MATCH	distractors;explanation;notes	MEDIUM	Replaced literal equipment cleaning and victory with plausible reactions to failed attempts.
+q-vocabulary-idioms-and-figures-of-speech-0011	CORRECTED	SOLVED-MATCH	stem;explanation;notes	MEDIUM	Translated the same repeated-room-cleaning scenario as 0006; replaced with a targeted weight overstatement.
+q-vocabulary-idioms-and-figures-of-speech-0012	CORRECTED	SOLVED-MATCH	stem;explanation;notes	LOW	Specified the comparison structure to avoid an overlapping exaggeration reading.
+q-vocabulary-idioms-and-figures-of-speech-0013	CORRECTED	SOLVED-MATCH	stem;explanation;notes	LOW	Specified direct identification as the target.
+q-vocabulary-idioms-and-figures-of-speech-0014	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	LOW	Changed the target to the effect of personification and removed the answer-length cue.
+q-vocabulary-idioms-and-figures-of-speech-0015	CORRECTED	SOLVED-MATCH	distractors;explanation;notes	MEDIUM	Replaced an overly literal bucket action with a plausible misreading of an injury.
+q-vocabulary-idioms-and-figures-of-speech-0016	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-vocabulary-idioms-and-figures-of-speech-0017	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated the light-of metaphor in 0013; replaced with the trap that no trigger word always means metaphor.
+q-vocabulary-idioms-and-figures-of-speech-0018	CORRECTED	SOLVED-MATCH	choice formatting;explanation;notes	LOW	Removed redundant numbering from choices; retained the ordered classification task.
+q-vocabulary-idioms-and-figures-of-speech-0019	NEW	NEW	explanation;notes	NONE	
+q-vocabulary-idioms-and-figures-of-speech-0020	NEW	NEW	explanation;notes	NONE	

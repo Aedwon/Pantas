@@ -1,0 +1,26 @@
+[
+  {
+    "argv": [
+      "flutter",
+      "analyze",
+      "--no-pub",
+      "lib/features/quiz/presentation/practice_picker_screen.dart",
+      "test/features/quiz/presentation/practice_picker_screen_test.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-selected-tab-style-0.txt"
+  },
+  {
+    "argv": [
+      "dart",
+      "format",
+      "--output=none",
+      "--set-exit-if-changed",
+      "lib",
+      "test",
+      "tool"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-selected-tab-style-1.txt"
+  }
+]

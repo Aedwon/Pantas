@@ -43,6 +43,6 @@ void main() {
     );
 
     expect(status.headline, "Couldn't back up");
-    expect(status.actionLabel, 'Try again');
+    expect(status.actionLabel, 'Try Again');
   });
 }

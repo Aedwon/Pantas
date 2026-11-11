@@ -2,20 +2,94 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/features/legal/legal.dart';
 
 void main() {
-  test('privacy fallback includes RA 10173 rights and delete account route',
-      () {
-    final document = legalDocumentFallbacks['privacy'];
-
+  test('teen notice publishes student wording without draft material', () {
+    final document = legalDocumentFallbacks['teens'];
     expect(document, isNotNull);
-    expect(document!.title, 'Privacy Policy');
+    expect(document!.title, 'Notice for teens');
+    expect(document.updatedAt, DateTime.utc(2026, 11, 10));
+    final text =
+        document.sections.map((s) => '${s.heading}\n${s.body}').join('\n');
+    expect(text, contains('This notice is for teens ages 13 to 17'));
     expect(
-      document.sections.map((section) => section.body).join('\n'),
-      allOf([
-        contains('RA 10173'),
-        contains('export'),
-        contains('correction'),
-        contains('/settings/account'),
-      ]),
+      text,
+      contains('I withdraw my permission for my child to use Pantas.'),
+    );
+    expect(
+      text,
+      contains('Account and payment audit records: 730 days after the event.'),
+    );
+    expect(text, contains('dpo@pantas.study'));
+    for (final omitted in [
+      'Owner note',
+      'Changes needed',
+      'App behavior',
+      'Laws and guidance',
+      'RISKS',
+      '](',
+      'lib/features/',
+      'functions/src/',
+      'draft for review',
+      'lawyer',
+      'Monitor the DPO inbox',
+    ]) {
+      expect(text, isNot(contains(omitted)));
+    }
+  });
+
+  test('web terms describe prepaid access and lawful remedies', () {
+    final sections = legalDocumentFallbacks['terms']!.sections;
+    final subscriptions =
+        sections.singleWhere((s) => s.heading == 'Subscriptions').body;
+    expect(
+      subscriptions,
+      contains('Web purchases do not renew automatically.'),
+    );
+    expect(
+      subscriptions,
+      contains('Weekly, Yearly and Season Passes have no trial.'),
+    );
+    expect(
+      subscriptions,
+      contains('do not limit any remedy Philippine law gives you'),
+    );
+    final limits = sections
+        .singleWhere(
+          (s) => s.heading == 'Use of the app and limits of responsibility',
+        )
+        .body;
+    expect(limits, contains('gross negligence'));
+    expect(limits, isNot(contains('](')));
+    expect(
+      legalDocumentFallbacks['privacy']!.sections.first.body,
+      isNot(contains('anonymous')),
+    );
+  });
+
+  test('privacy uses the approved plain summary', () {
+    final document = legalDocumentFallbacks['privacy']!;
+    expect(
+      document.sections.map((s) => s.heading),
+      [
+        'Who this is for',
+        'Who runs Pantas',
+        'Why we ask your age',
+        'What we collect',
+        'How Pantas uses your answers',
+        'Optional usage sharing',
+        'Speed and error reports',
+        'Where your data goes',
+        'Your rights',
+        'Withdrawing permission or deleting data',
+        'How long we keep data',
+        'Why we may use your data',
+        'Keeping data safe',
+        'Changes to this policy',
+      ],
+    );
+    expect(
+      document.sections.last.body,
+      'When we change this policy, we update it here and change the date '
+      'at the top.',
     );
   });
 
@@ -24,7 +98,7 @@ void main() {
 
     expect(document, isNotNull);
     expect(document!.title, 'Terms of Service');
-    expect(document.updatedAt, DateTime.utc(2026, 7, 18));
+    expect(document.updatedAt, DateTime.utc(2026, 11, 10));
   });
 
   test('terms fallback includes intellectual property clause', () {
@@ -55,5 +129,74 @@ void main() {
     }
     expect(defaultLegalContact.dpoEmail, isNot(contains('csecetreviewer')));
     expect(defaultLegalContact.supportEmail, isNot(contains('csecetreviewer')));
+  });
+
+  group('speed and error reports notice', () {
+    final sections = legalDocumentFallbacks['teens']!.sections;
+    final headings = sections.map((s) => s.heading).toList();
+
+    test('sits right after Optional usage sharing, with the approved text', () {
+      final at = headings.indexOf('Optional usage sharing');
+      expect(at, isNonNegative);
+      expect(headings[at + 1], 'Speed and error reports');
+      expect(
+        sections[at + 1].body,
+        'To find slow screens and errors, the web app sends short technical '
+        'reports. They include the app version, whether this is a first '
+        'visit, a return visit or the first visit after an update, your '
+        'browser family, your screen-size group, loading times, and error '
+        'messages, counts and locations in our code. We filter common '
+        'identifiers, such as email addresses, before a report is sent. '
+        'Error text may still contain personal information. We do not '
+        'deliberately include your answers or lesson content.\n\n'
+        'Reports have no dedicated account ID or IP address field. Sending '
+        'a report uses your sign-in session, including a guest session, to '
+        'check the request and to limit how many reports are sent. '
+        "Google's connection logs for these reports also record your IP "
+        'address and full browser details. We do not use them to identify '
+        'you.\n\n'
+        'We keep these report logs for 30 days. These reports are on for '
+        'everyone who uses the web app and are separate from optional usage '
+        'sharing. To object, email dpo@pantas.study.',
+      );
+    });
+
+    test('Where your data goes names Google Cloud for speed and error reports',
+        () {
+      final body =
+          sections.singleWhere((s) => s.heading == 'Where your data goes').body;
+      expect(
+        body,
+        contains(
+          '\u2022 Google (Firebase and Google Cloud): accounts, our servers, '
+          'optional usage reports, and speed and error reports.',
+        ),
+      );
+    });
+
+    test('the legal basis for speed and error reports is the approved line',
+        () {
+      final basis =
+          sections.singleWhere((s) => s.heading == 'Why we may use your data');
+      expect(
+        basis.body,
+        contains(
+          '\u2022 Speed and error reports, security records, guardian '
+          'requests and trial codes: our legitimate interest in keeping '
+          'Pantas working, safe and fair. We keep each to what we need.',
+        ),
+      );
+    });
+
+    test('no notice uses an em dash', () {
+      for (final document in legalDocumentFallbacks.values) {
+        for (final section in document.sections) {
+          expect(
+            '${section.heading}${section.body}',
+            isNot(contains('\u2014')),
+          );
+        }
+      }
+    });
   });
 }

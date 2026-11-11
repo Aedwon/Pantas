@@ -2,21 +2,34 @@ import 'dart:convert';
 
 import 'package:drift/drift.dart';
 import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/content/tables/content_questions.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/choice_order.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/lesson.dart';
+import 'package:pantas/core/storage/domain/lesson_meta.dart';
 import 'package:pantas/core/storage/domain/passage.dart';
 import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/storage/domain/question_selection_row.dart';
 import 'package:pantas/core/storage/domain/subject.dart';
 import 'package:pantas/core/storage/domain/topic.dart';
 
 class ContentRepository {
-  ContentRepository(this._db);
+  /// [fetchHook] is passed on web only; see [ContentFetchHook].
+  ContentRepository(
+    this._db, {
+    void Function()? onQuery,
+    ContentFetchHook? fetchHook,
+  })  : _onQuery = onQuery,
+        _fetchHook = fetchHook;
 
   final ContentDatabase _db;
+  final void Function()? _onQuery;
+  final ContentFetchHook? _fetchHook;
+
+  static const int _hydrationBatchSize = 400;
 
   Future<List<Exam>> listExams() async {
     final examRows = await _db.select(_db.contentExams).get();
@@ -63,7 +76,8 @@ class ContentRepository {
     ]..sort((a, b) => a.ordering.compareTo(b.ordering));
   }
 
-  Future<List<Topic>> topicsByExam(ExamId examId) async {
+  /// Topics under the subjects [examId] owns, in subject order.
+  Future<List<Topic>> ownedTopicsByExam(ExamId examId) async {
     final subjectRows = await (_db.select(_db.contentSubjects)
           ..where((s) => s.examId.equals(examId)))
         .get();
@@ -74,39 +88,396 @@ class ContentRepository {
     return allTopics;
   }
 
-  Future<List<Question>> questionsByTopic(TopicId topicId) async {
-    final rows = await (_db.select(_db.contentQuestions)
-          ..where(
-            // isWithdrawn is isActive inverted
-            (q) => q.topicId.equals(topicId) & q.isActive.equals(true),
-          ))
+  /// The exam's topics: the ones under its own subjects, then the topics of
+  /// other exams' subjects that its questions are tagged to.
+  ///
+  /// Exams share subjects on purpose. The server scopes an exam by question
+  /// tags, so the app does the same or a shared topic's lessons and questions
+  /// are missing. Pools built from these topics must pass [examId] to the
+  /// question reads so they keep only questions tagged for the exam.
+  Future<List<Topic>> topicsByExam(ExamId examId) async {
+    final owned = await ownedTopicsByExam(examId);
+    final ownedIds = {for (final topic in owned) topic.id};
+
+    final memberships = _db.contentQuestionExams;
+    final questions = _db.contentQuestions;
+    final tagged = _db.selectOnly(questions, distinct: true)
+      ..addColumns([questions.topicId])
+      ..where(
+        questions.isActive.equals(true) &
+            questions.id.isInQuery(
+              _db.selectOnly(memberships)
+                ..addColumns([memberships.questionId])
+                ..where(memberships.examId.equals(examId)),
+            ),
+      );
+    final sharedIds = {
+      for (final row in await tagged.get())
+        if (row.read(questions.topicId) case final id?)
+          if (!ownedIds.contains(id)) id,
+    };
+    if (sharedIds.isEmpty) return owned;
+
+    final topicRows = await (_db.select(_db.contentTopics)
+          ..where((t) => t.id.isIn(sharedIds.toList())))
         .get();
+    final subjectRows = await (_db.select(_db.contentSubjects)
+          ..where((s) => s.id.isIn({for (final t in topicRows) t.subjectId})))
+        .get();
+    final subjectOrdering = {for (final s in subjectRows) s.id: s.ordering};
+    topicRows.sort((a, b) {
+      final bySubject = (subjectOrdering[a.subjectId] ?? 0)
+          .compareTo(subjectOrdering[b.subjectId] ?? 0);
+      if (bySubject != 0) return bySubject;
+      final bySubjectId = a.subjectId.compareTo(b.subjectId);
+      if (bySubjectId != 0) return bySubjectId;
+      return a.ordering.compareTo(b.ordering);
+    });
+    return [
+      ...owned,
+      for (final r in topicRows)
+        Topic(
+          id: r.id,
+          subjectId: r.subjectId,
+          name: r.name,
+          ordering: r.ordering,
+        ),
+    ];
+  }
+
+  /// The condition that keeps only questions tagged for [examId].
+  ///
+  /// A custom track owns no question tags, so it keeps everything. So does a
+  /// read that names no exam.
+  Future<Expression<bool>> _taggedForExam(
+    ContentQuestions questions,
+    ExamId? examId,
+  ) async {
+    if (examId == null) return const Constant(true);
+    final exam = await (_db.select(_db.contentExams)
+          ..where((e) => e.id.equals(examId)))
+        .getSingleOrNull();
+    if (exam != null && exam.isCustom) return const Constant(true);
+    final memberships = _db.contentQuestionExams;
+    return questions.id.isInQuery(
+      _db.selectOnly(memberships)
+        ..addColumns([memberships.questionId])
+        ..where(memberships.examId.equals(examId)),
+    );
+  }
+
+  /// A listed lesson needs an active question tagged for the chosen exam.
+  /// Custom tracks use the active question bank across exams.
+  Future<Expression<bool>> _lessonEligibility(ExamId? examId) async {
+    if (examId == null) return const Constant(true);
+    final questions = _db.contentQuestions;
+    final lessons = _db.contentLessons;
+    final tagged = await _taggedForExam(questions, examId);
+    return existsQuery(
+      _db.selectOnly(questions)
+        ..addColumns([questions.id])
+        ..where(
+          questions.lessonId.equalsExp(lessons.id) &
+              questions.topicId.equalsExp(lessons.topicId) &
+              questions.isActive.equals(true) &
+              tagged,
+        ),
+    );
+  }
+
+  Future<List<QuestionSelectionRow>> selectionRowsByTopic(
+    TopicId topicId, {
+    ExamId? examId,
+  }) async {
+    final grouped = await selectionRowsByTopics([topicId], examId: examId);
+    return grouped[topicId] ?? const [];
+  }
+
+  /// Active questions per topic. Pass [examId] to keep only the questions
+  /// tagged for that exam; a shared topic holds other exams' questions too.
+  Future<Map<TopicId, List<QuestionSelectionRow>>> selectionRowsByTopics(
+    Iterable<TopicId> topicIds, {
+    ExamId? examId,
+  }) async {
+    final wanted = topicIds.toSet().toList();
+    final grouped = {
+      for (final topicId in wanted) topicId: <QuestionSelectionRow>[],
+    };
+    if (wanted.isEmpty) return grouped;
+
+    final questions = _db.contentQuestions;
+    final tagged = await _taggedForExam(questions, examId);
+    for (final batch in _batches(wanted)) {
+      final query = _db.selectOnly(questions)
+        ..addColumns([
+          questions.id,
+          questions.version,
+          questions.topicId,
+          questions.lessonId,
+          questions.passageId,
+          questions.figureSpecJson,
+        ])
+        ..where(
+          questions.topicId.isIn(batch) &
+              questions.isActive.equals(true) &
+              tagged,
+        );
+      _onQuery?.call();
+      for (final row in await query.get()) {
+        final selection = _selectionRow(row, questions);
+        grouped[selection.topicId]?.add(selection);
+      }
+    }
+    return grouped;
+  }
+
+  /// Every requested topic's lesson metadata in authored order, without bodies.
+  Future<Map<TopicId, List<LessonMeta>>> lessonMetaByTopics(
+    Iterable<TopicId> topicIds, {
+    ExamId? examId,
+  }) async {
+    final wanted = topicIds.toSet().toList();
+    final grouped = {for (final topicId in wanted) topicId: <LessonMeta>[]};
+    if (wanted.isEmpty) return grouped;
+
+    final lessons = _db.contentLessons;
+    final eligible = await _lessonEligibility(examId);
+    for (final batch in _batches(wanted)) {
+      final query = _db.selectOnly(lessons)
+        ..addColumns([
+          lessons.id,
+          lessons.topicId,
+          lessons.title,
+          lessons.ordering,
+          lessons.estimatedMinutes,
+        ])
+        ..where(lessons.topicId.isIn(batch) & eligible)
+        ..orderBy([
+          OrderingTerm.asc(lessons.ordering),
+          OrderingTerm.asc(lessons.id),
+        ]);
+      _onQuery?.call();
+      for (final row in await query.get()) {
+        final metadata = LessonMeta(
+          id: row.read(lessons.id)!,
+          topicId: row.read(lessons.topicId)!,
+          title: row.read(lessons.title)!,
+          ordering: row.read(lessons.ordering)!,
+          estimatedMinutes: row.read(lessons.estimatedMinutes)!,
+        );
+        grouped[metadata.topicId]?.add(metadata);
+      }
+    }
+    return grouped;
+  }
+
+  Future<Map<TopicId, int>> activeQuestionCountsByTopics(
+    Iterable<TopicId> topicIds, {
+    ExamId? examId,
+  }) async {
+    final wanted = topicIds.toSet().toList();
+    final counts = {for (final topicId in wanted) topicId: 0};
+    if (wanted.isEmpty) return counts;
+
+    final questions = _db.contentQuestions;
+    final total = questions.id.count();
+    final tagged = await _taggedForExam(questions, examId);
+    for (final batch in _batches(wanted)) {
+      final query = _db.selectOnly(questions)
+        ..addColumns([questions.topicId, total])
+        ..where(
+          questions.topicId.isIn(batch) &
+              questions.isActive.equals(true) &
+              tagged,
+        )
+        ..groupBy([questions.topicId]);
+      _onQuery?.call();
+      for (final row in await query.get()) {
+        final topicId = row.read(questions.topicId);
+        if (topicId != null) counts[topicId] = row.read(total) ?? 0;
+      }
+    }
+    return counts;
+  }
+
+  Future<List<QuestionSelectionRow>> selectionRowsByExam(ExamId examId) async {
+    final memberships = _db.contentQuestionExams;
+    _onQuery?.call();
+    final membershipRows = await (_db.select(memberships)
+          ..where((membership) => membership.examId.equals(examId)))
+        .get();
+    return _selectionRowsByIds([
+      for (final membership in membershipRows) membership.questionId,
+    ]);
+  }
+
+  Future<List<QuestionSelectionRow>> _selectionRowsByIds(
+    List<QuestionId> ids,
+  ) async {
+    final wanted = _uniqueIds(ids);
+    if (wanted.isEmpty) return const [];
+
+    final questions = _db.contentQuestions;
+    final byId = <QuestionId, QuestionSelectionRow>{};
+    for (final batch in _batches(wanted)) {
+      final query = _db.selectOnly(questions)
+        ..addColumns([
+          questions.id,
+          questions.version,
+          questions.topicId,
+          questions.lessonId,
+          questions.passageId,
+          questions.figureSpecJson,
+        ])
+        ..where(
+          questions.id.isIn(batch) & questions.isActive.equals(true),
+        );
+      _onQuery?.call();
+      for (final row in await query.get()) {
+        final selection = _selectionRow(row, questions);
+        byId[selection.id] = selection;
+      }
+    }
+
+    final result = <QuestionSelectionRow>[];
+    for (final id in wanted) {
+      final row = byId[id];
+      if (row != null) result.add(row);
+    }
+    return result;
+  }
+
+  QuestionSelectionRow _selectionRow(
+    TypedResult row,
+    ContentQuestions questions,
+  ) {
+    return QuestionSelectionRow(
+      id: row.read(questions.id)!,
+      version: row.read(questions.version)!,
+      topicId: row.read(questions.topicId)!,
+      lessonId: row.read(questions.lessonId),
+      passageId: row.read(questions.passageId),
+      hasFigure: row.read(questions.figureSpecJson) != null,
+    );
+  }
+
+  /// Active questions of a topic. Pass [examId] to keep only the questions
+  /// tagged for that exam.
+  Future<List<Question>> questionsByTopic(
+    TopicId topicId, {
+    ExamId? examId,
+  }) async {
+    final tagged = await _taggedForExam(_db.contentQuestions, examId);
+    final query = _db.select(_db.contentQuestions)
+      ..where(
+        // isWithdrawn is isActive inverted
+        (q) => q.topicId.equals(topicId) & q.isActive.equals(true) & tagged,
+      );
+    var rows = await query.get();
+    final hook = _fetchHook;
+    if (hook != null && rows.isNotEmpty) {
+      final ready = await hook.ensureQuestions([for (final r in rows) r.id]);
+      rows = [
+        for (final row in await query.get())
+          if (ready.contains(row.id)) row,
+      ];
+    }
     return Future.wait(rows.map(_hydrateQuestion));
   }
 
   Future<Question?> questionById(QuestionId id) async {
+    final hook = _fetchHook;
+    if (hook != null && !(await hook.ensureQuestions([id])).contains(id)) {
+      return null;
+    }
     final row = await (_db.select(_db.contentQuestions)
           ..where((q) => q.id.equals(id)))
         .getSingleOrNull();
     return row == null ? null : await _hydrateQuestion(row);
   }
 
-  /// Every question named, in one query, keyed by id.
-  ///
-  /// The debrief was fetching them one at a time: a finished session asked
-  /// the database once per question and then again for its topic, its
-  /// subject and its passage. At 120 questions that is around 480 round
-  /// trips to an encrypted database, in series, before the result appears.
+  /// Every question named, keyed by id.
   Future<Map<QuestionId, Question>> questionsByIds(
     Iterable<QuestionId> ids,
   ) async {
-    final wanted = ids.toSet().toList();
-    if (wanted.isEmpty) return const {};
-    final rows = await (_db.select(_db.contentQuestions)
-          ..where((q) => q.id.isIn(wanted)))
-        .get();
-    final questions = await Future.wait(rows.map(_hydrateQuestion));
+    final questions = await hydrateSelectedQuestions(ids.toList());
     return {for (final q in questions) q.id: q};
+  }
+
+  /// Hydrates selected questions in bounded batches and restores caller order.
+  ///
+  /// Missing ids are omitted, withdrawn rows remain available when explicitly
+  /// named (matching [questionById]), and duplicate ids keep their first
+  /// occurrence only (matching the old set/map semantics of [questionsByIds]).
+  Future<List<Question>> hydrateSelectedQuestions(
+    List<QuestionId> ids,
+  ) async {
+    var wanted = _uniqueIds(ids);
+    if (wanted.isEmpty) return const [];
+    final hook = _fetchHook;
+    if (hook != null) {
+      final ready = await hook.ensureQuestions(wanted);
+      wanted = [
+        for (final id in wanted)
+          if (ready.contains(id)) id,
+      ];
+      if (wanted.isEmpty) return const [];
+    }
+
+    final questionRows = <QuestionId, ContentQuestionRow>{};
+    final choicesByQuestion = <QuestionId, List<ContentChoiceRow>>{};
+    final examsByQuestion = <QuestionId, List<ContentQuestionExamRow>>{};
+
+    for (final batch in _batches(wanted)) {
+      _onQuery?.call();
+      final rows = await (_db.select(_db.contentQuestions)
+            ..where((question) => question.id.isIn(batch)))
+          .get();
+      for (final row in rows) {
+        questionRows[row.id] = row;
+      }
+    }
+
+    for (final batch in _batches(wanted)) {
+      _onQuery?.call();
+      final rows = await (_db.select(_db.contentChoices)
+            ..where(
+              (choice) =>
+                  choice.questionId.isIn(batch) & choice.isActive.equals(true),
+            )
+            ..orderBy([
+              (choice) => OrderingTerm.asc(choice.questionId),
+              (choice) => OrderingTerm.asc(choice.ordering),
+            ]))
+          .get();
+      for (final row in rows) {
+        choicesByQuestion.putIfAbsent(row.questionId, () => []).add(row);
+      }
+    }
+
+    for (final batch in _batches(wanted)) {
+      _onQuery?.call();
+      final rows = await (_db.select(_db.contentQuestionExams)
+            ..where((membership) => membership.questionId.isIn(batch)))
+          .get();
+      for (final row in rows) {
+        examsByQuestion.putIfAbsent(row.questionId, () => []).add(row);
+      }
+    }
+
+    final result = <Question>[];
+    for (final id in wanted) {
+      final row = questionRows[id];
+      if (row == null) continue;
+      result.add(
+        _questionFromParts(
+          row,
+          choicesByQuestion[id] ?? const [],
+          examsByQuestion[id] ?? const [],
+        ),
+      );
+    }
+    return result;
   }
 
   /// How many of [questionIds] are tagged for [examId].
@@ -128,9 +499,31 @@ class ContentRepository {
     return rows.length;
   }
 
-  Future<List<Lesson>> lessonsByTopic(TopicId topicId) async {
+  /// Which of [questionIds] are tagged for [examId].
+  ///
+  /// The filter behind carry-over: an answer made under another exam counts
+  /// toward [examId] only when its question is in this set.
+  Future<Set<QuestionId>> questionIdsTaggedForExam({
+    required Iterable<QuestionId> questionIds,
+    required ExamId examId,
+  }) async {
+    final wanted = questionIds.toSet().toList();
+    final tagged = <QuestionId>{};
+    for (final batch in _batches(wanted)) {
+      final rows = await (_db.select(_db.contentQuestionExams)
+            ..where(
+              (row) => row.questionId.isIn(batch) & row.examId.equals(examId),
+            ))
+          .get();
+      tagged.addAll(rows.map((row) => row.questionId));
+    }
+    return tagged;
+  }
+
+  Future<List<Lesson>> lessonsByTopic(TopicId topicId, {ExamId? examId}) async {
+    final eligible = await _lessonEligibility(examId);
     final rows = await (_db.select(_db.contentLessons)
-          ..where((l) => l.topicId.equals(topicId))
+          ..where((l) => l.topicId.equals(topicId) & eligible)
           ..orderBy([
             (l) => OrderingTerm.asc(l.ordering),
             // Unplaced lessons all share ordering 0. Their ids embed the
@@ -145,13 +538,15 @@ class ContentRepository {
   /// A topic with no lessons still gets a key, so a caller never has to tell
   /// "no lessons" apart from "topic I did not ask about".
   Future<Map<TopicId, List<Lesson>>> lessonsByTopics(
-    List<TopicId> topicIds,
-  ) async {
+    List<TopicId> topicIds, {
+    ExamId? examId,
+  }) async {
     final grouped = {for (final id in topicIds) id: <Lesson>[]};
     if (topicIds.isEmpty) return grouped;
 
+    final eligible = await _lessonEligibility(examId);
     final rows = await (_db.select(_db.contentLessons)
-          ..where((l) => l.topicId.isIn(topicIds))
+          ..where((l) => l.topicId.isIn(topicIds) & eligible)
           ..orderBy([
             (l) => OrderingTerm.asc(l.ordering),
             (l) => OrderingTerm.asc(l.id),
@@ -164,7 +559,23 @@ class ContentRepository {
     return grouped;
   }
 
-  Future<Lesson?> lessonById(LessonId id) async {
+  /// With [throwOnLoadFailure], a lesson that the catalog lists but whose body
+  /// could not be fetched throws [LessonLoadFailure] instead of returning null,
+  /// so a caller can tell "could not load" from "does not exist".
+  Future<Lesson?> lessonById(
+    LessonId id, {
+    bool throwOnLoadFailure = false,
+  }) async {
+    final hook = _fetchHook;
+    if (hook != null && !await hook.ensureLesson(id)) {
+      if (throwOnLoadFailure) {
+        final listed = await (_db.select(_db.contentLessons)
+              ..where((l) => l.id.equals(id)))
+            .getSingleOrNull();
+        if (listed != null) throw LessonLoadFailure(id);
+      }
+      return null;
+    }
     final row = await (_db.select(_db.contentLessons)
           ..where((l) => l.id.equals(id)))
         .getSingleOrNull();
@@ -251,6 +662,8 @@ class ContentRepository {
   }
 
   Future<Passage?> passageById(PassageId id) async {
+    final hook = _fetchHook;
+    if (hook != null && !await hook.ensurePassage(id)) return null;
     final row = await (_db.select(_db.contentPassages)
           ..where((p) => p.id.equals(id)))
         .getSingleOrNull();
@@ -279,6 +692,14 @@ class ContentRepository {
     final examRows = await (_db.select(_db.contentQuestionExams)
           ..where((exam) => exam.questionId.equals(r.id)))
         .get();
+    return _questionFromParts(r, choiceRows, examRows);
+  }
+
+  Question _questionFromParts(
+    ContentQuestionRow r,
+    List<ContentChoiceRow> choiceRows,
+    List<ContentQuestionExamRow> examRows,
+  ) {
     return Question(
       id: r.id,
       version: r.version,
@@ -304,6 +725,22 @@ class ContentRepository {
     );
   }
 
+  List<QuestionId> _uniqueIds(List<QuestionId> ids) {
+    final seen = <QuestionId>{};
+    return [
+      for (final id in ids)
+        if (seen.add(id)) id,
+    ];
+  }
+
+  Iterable<List<T>> _batches<T>(List<T> ids) sync* {
+    for (var start = 0; start < ids.length; start += _hydrationBatchSize) {
+      final candidateEnd = start + _hydrationBatchSize;
+      final end = candidateEnd < ids.length ? candidateEnd : ids.length;
+      yield ids.sublist(start, end);
+    }
+  }
+
   String _plainText(String portableTextJson) {
     final decoded = jsonDecode(portableTextJson);
     if (decoded is! List) return '';
@@ -320,4 +757,13 @@ class ContentRepository {
         .join('\n')
         .trim();
   }
+}
+
+/// The lesson exists in the catalog but its text could not be fetched.
+class LessonLoadFailure implements Exception {
+  const LessonLoadFailure(this.id);
+  final LessonId id;
+
+  @override
+  String toString() => 'LessonLoadFailure($id)';
 }

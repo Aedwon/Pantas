@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-algebra-linear-equations-inequalities-0001	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Replaced an alternative with no clear inverse-operation slip.
+q-algebra-linear-equations-inequalities-0002	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated bare-equation framing; changed to translating a statement.
+q-algebra-linear-equations-inequalities-0003	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Two boundary alternatives had no clear arithmetic derivation.
+q-algebra-linear-equations-inequalities-0004	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	LOW	Specified the first incorrect step.
+q-algebra-linear-equations-inequalities-0005	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	The integer alternative lacked a clear fraction-equation mistake.
+q-algebra-linear-equations-inequalities-0006	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	The final alternative needed multiple unrelated errors.
+q-algebra-linear-equations-inequalities-0007	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-linear-equations-inequalities-0008	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	The numerical correct choice was longest; reframed as a relation between slopes.
+q-algebra-linear-equations-inequalities-0009	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Three nearby counts lacked specific arithmetic slips.
+q-algebra-linear-equations-inequalities-0010	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Replaced an alternative requiring an unexplained arithmetic slip.
+q-algebra-linear-equations-inequalities-0011	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	LOW	Specified the first incorrect step.
+q-algebra-linear-equations-inequalities-0012	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Two slope alternatives lacked a clear single calculation error.
+q-algebra-linear-equations-inequalities-0013	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-linear-equations-inequalities-0014	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Two intercept alternatives lacked a clear derivation.
+q-algebra-linear-equations-inequalities-0015	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated the preceding line and intercept task; replaced with point verification.
+q-algebra-linear-equations-inequalities-0016	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	LOW	Specified the coordinate plane to distinguish a boundary from a number-line endpoint.
+q-algebra-linear-equations-inequalities-0017	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated a direct earnings-per-item task with different numbers; added a fixed fee.
+q-algebra-linear-equations-inequalities-0018	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	The final alternative lacked a clear solving mistake.
+q-algebra-linear-equations-inequalities-0019	NEW	NEW	new question	NONE	
+q-algebra-linear-equations-inequalities-0020	NEW	NEW	new question	NONE	

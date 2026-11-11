@@ -11,23 +11,23 @@ questions:
     figureSpec:
       kind: fluid-vessel
       vessel: column
-      points: [A, B]
+      points: ["A", "B"]
     stem: |
-      Figure shows a container filled with water. Point A is near the surface, and Point B is near the bottom. Which point experiences greater pressure?
+      The shown container holds uniform-density water at rest under ordinary gravity. Which marked point has greater pressure?
     choices:
-      - text: Point B, since it is deeper and has more fluid stacked above it
+      - text: "Point B"
         correct: true
-      - text: Point A, since it is closer to the open air
+      - text: "Point A"
         rationale: |
-          You assumed proximity to open air increases fluid pressure. Fluid pressure depends on the weight of fluid above, so deeper points experience greater pressure.
-      - text: Both points experience exactly the same pressure
+          This treats closeness to open air as giving greater water pressure. Air pressure is applied at the surface. Check the additional depth of water above each point.
+      - text: "Equal at the two points"
         rationale: |
-          You ignored depth differences. Fluid pressure varies with depth ( = \rho g h$), so deeper points have higher pressure.
-      - text: Neither point experiences any pressure, since the water is not moving
+          This assumes a single liquid has the same pressure everywhere. Its density is the same. Check whether the two points are at the same depth.
+      - text: "Zero at the two points"
         rationale: |
-          You confused static fluid pressure with dynamic flow. Static fluids still exert hydrostatic pressure due to gravity.
+          This assumes pressure requires moving water. Still water can look inactive. Check the weight of the water above each point.
     explanation: |
-      Pressure increases with depth, since more fluid is stacked above deeper points. Point B (near the bottom) has more fluid above it than Point A, so it experiences greater pressure.
+      The water is at rest, so pressure increases with depth below its surface. The diagram places B deeper than A. B therefore has greater pressure.
     approved: true
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0002
@@ -39,21 +39,21 @@ questions:
       vessel: connected
       columns: 2
     stem: |
-      Figure shows a wide container and a narrow container connected at the bottom by a tube, forming a U-shape, both open to the air at the top. Water is poured in until it settles. Which container has the higher water level?
+      The connected vessels shown contain the same water at rest. Both surfaces have the same air pressure, and capillary effects are negligible. What explains the displayed equal surface elevations?
     choices:
-      - text: 'Neither: the water levels are the same in both containers'
+      - text: "Hydrostatic balance"
         correct: true
-      - text: The wide container, since it holds more total water
+      - text: "Equal total water volumes"
         rationale: |
-          You assumed total water volume determines surface height. Pressure balances across connected open vessels when fluid levels reach equal height.
-      - text: The narrow container, since narrow containers always fill higher
+          This treats equal height as equal volume. Both vessels have water to the same elevation. Check their different widths.
+      - text: "Equal vessel cross-sections"
         rationale: |
-          You assumed container shape forces fluid higher. Open connected containers equalize to identical heights regardless of width.
-      - text: Whichever container was filled first
+          This treats pressure balance as requiring equal widths. Matching dimensions can seem necessary for balance. Check whether pressure at depth depends on the container width.
+      - text: "The order of pouring water"
         rationale: |
-          You assumed fill sequence creates permanent height differences. Fluids flow through the connecting tube until levels balance.
+          This treats filling history as fixing the final level. Water may begin in one arm. Check that it can move through the connection until pressure balances.
     explanation: |
-      Connected, open containers always settle to the same fluid level, regardless of their width. The water levels are the same in both the wide and narrow containers.
+      The water must have equal pressure at the connection when it rests. With one liquid and equal air pressure above it, that balance requires free surfaces at the same height.
     approved: true
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0003
@@ -65,42 +65,47 @@ questions:
       vessel: pipe
       widths: [3, 1]
     stem: |
-      Figure shows water flowing steadily through a pipe that narrows from a wide section to a narrow section. Compared to the wide section, how does the water's speed change in the narrow section?
+      Water flows steadily through the shown unbranched pipe, without leaks. Treat it as incompressible. Compared with the wide section, what is the mean speed in the narrow section?
     choices:
-      - text: The water speeds up in the narrow section
+      - text: "Higher speed"
         correct: true
-      - text: The water slows down in the narrow section
+      - text: "Lower speed"
         rationale: |
-          You assumed a tighter passage restricts speed. To maintain a constant volume flow rate, fluid must speed up when cross-sectional area decreases.
-      - text: The water's speed stays exactly the same
+          This treats a small opening as automatically slower. A tight passage can look restrictive. Check the equal volume per second passing through both areas.
+      - text: "Unchanged speed"
         rationale: |
-          You assumed flow speed is independent of pipe diameter. Narrowing area forces velocity to increase to satisfy continuity.
-      - text: The water stops flowing entirely in the narrow section
+          This confuses equal volume flow with equal speed. The same water passes both sections. Check whether the cross-sectional areas match.
+      - text: "Zero volume flow"
         rationale: |
-          You assumed narrow pipes block steady fluid movement. Continuous incompressible flow accelerates through narrower sections.
+          This treats a narrowed opening as a complete blockage. The passage looks small. Check that it remains open and the flow is stated to be steady.
     explanation: |
-      The same volume of water must pass through both sections per second. Since the narrow section has less cross-sectional area, the water must move faster to maintain the same volume flow rate.
+      The same volume passes each section per second. A smaller area needs a higher speed to carry that volume. The narrow section therefore has higher speed.
     approved: true
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0004
     type: fluid-pressure
     difficulty: medium
+    figure: fluid-pressure-04
+    figureSpec:
+      kind: fluid-vessel
+      vessel: pipe
+      widths: [3, 1]
     stem: |
-      Using the same narrowing pipe as before, how does the pressure in the narrow section compare to the pressure in the wide section?
+      The shown horizontal pipe carries steady incompressible ideal flow along one path. There are no pumps or energy losses between sections. How does static pressure in the narrow section compare with the wide section?
     choices:
-      - text: The pressure is lower in the narrow section
+      - text: "Lower in the narrow section"
         correct: true
-      - text: The pressure is higher in the narrow section
+      - text: "Higher in the narrow section"
         rationale: |
-          You relied on intuition that tight spaces create high pressure. Faster fluid speed in a narrow section results in lower internal pressure.
-      - text: The pressure is exactly the same in both sections
+          This equates faster motion with higher static pressure. A fast jet can feel forceful. Check the pressure term separately from the motion-energy term.
+      - text: "Equal in both sections"
         rationale: |
-          You assumed pressure is unaffected by flow speed. Changes in fluid speed cause corresponding changes in internal pressure.
-      - text: Pressure cannot be compared without knowing the pipe's material
+          This applies an at-rest equal-height rule to flowing water. Both sections are horizontal. Check whether their flow speeds differ.
+      - text: "Determined only by wall thickness"
         rationale: |
-          You assumed wall material dictates fluid pressure dynamics. Speed and area changes determine internal pressure differences.
+          This treats pipe strength as the source of the fluid-pressure comparison. Thicker walls can withstand pressure. Check the fluid's energy relation under the stated ideal conditions.
     explanation: |
-      The water moves faster in the narrow section. By the relationship between fluid speed and pressure (faster flow means lower pressure), the pressure in the faster-moving narrow section is lower than in the wider section.
+      Continuity makes the water faster in the narrow section. In an ideal horizontal flow with no added energy or losses, Bernoulli's equation balances that higher motion energy with lower static pressure.
     approved: true
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0005
@@ -112,21 +117,21 @@ questions:
       vessel: connected
       columns: 3
     stem: |
-      Figure shows three open containers of different shapes and widths (one wide, one narrow, one medium), all connected at the bottom. Water is poured in until it settles. How do the three water levels compare?
+      The three shown vessels hold the same water in static equilibrium, with equal air pressure and negligible capillary effects. Compare pressure at equal elevations just above the bottom connection. How do the pressures relate?
     choices:
-      - text: All three containers settle at exactly the same water level
+      - text: "Equal at the compared locations"
         correct: true
-      - text: The widest container settles at the lowest level
+      - text: "Greatest in the widest vessel"
         rationale: |
-          You assumed wider containers spread fluid lower. Connected open vessels balance at equal heights regardless of container shape or width.
-      - text: The narrowest container settles at the highest level
+          This uses the total water amount to compare pressure. The widest vessel holds more water. Check depth at the compared locations instead of total volume.
+      - text: "Greatest in the narrowest vessel"
         rationale: |
-          You assumed narrow columns push fluid higher. Fluid levels balance strictly by depth and atmospheric pressure equality.
-      - text: Each container settles at a different level, proportional to its width
+          This assumes narrow walls compress the liquid more. The vessel looks confined. Check the hydrostatic variables: surface pressure, density, gravity, and depth.
+      - text: "Greatest in the middle-width vessel"
         rationale: |
-          You assumed level varies with width. Communicating vessels equalize to a single horizontal level.
+          This assumes a medium shape gives a preferred pressure. The middle-width vessel looks balanced. Check whether width appears in the pressure-at-depth rule.
     explanation: |
-      Connected, open containers always settle at the same fluid level, no matter how many containers are connected or how different their widths and shapes are.
+      The connected water is at rest with equal surface pressure. At the same elevation, the depths below the common surface are equal. The hydrostatic pressures are therefore equal.
     approved: true
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0006
@@ -136,23 +141,23 @@ questions:
     figureSpec:
       kind: fluid-vessel
       vessel: column
-      points: [X, Y, Z]
+      points: ["X", "Y", "Z"]
     stem: |
-      Figure shows a deep container of water with three marked points: Point X near the surface, Point Y at the middle depth, and Point Z at the very bottom. Rank the three points from lowest to highest pressure.
+      The shown container holds uniform-density water at rest. Rank its marked points from lowest to highest pressure.
     choices:
-      - text: Point X (lowest), then Point Y, then Point Z (highest)
+      - text: "X, then Y, then Z"
         correct: true
-      - text: Point Z (lowest), then Point Y, then Point X (highest)
+      - text: "Z, then Y, then X"
         rationale: |
-          You inverted the pressure ranking. Shallow points have less fluid weight above them, so Point X has the lowest pressure and Point Z has the highest.
-      - text: All three points have exactly equal pressure
+          This reverses the depth-pressure order. A point near open air may seem to have greater pressure. Check which point has more water above it.
+      - text: "X, Y, and Z are equal"
         rationale: |
-          You assumed pressure is uniform throughout a fluid volume. Hydrostatic pressure increases linearly with depth.
-      - text: Point Y (lowest), then Point X, then Point Z (highest)
+          This treats one connected body of water as uniform in pressure. The density is uniform. Check whether the marked depths are also equal.
+      - text: "Y, then X, then Z"
         rationale: |
-          You misordered the shallowest point X. Pressure increases continuously from top to bottom.
+          This puts the middle depth below the shallowest depth in pressure. Y can look like the central reference point. Check the vertical order from the free surface.
     explanation: |
-      Pressure increases steadily with depth. Point X (shallowest) has the lowest pressure, Point Z (deepest) has the highest pressure, and Point Y (middle depth) falls in between.
+      The diagram orders the points from shallowest X to middle Y to deepest Z. Pressure in the uniform water at rest increases with depth. The lowest-to-highest order is X, Y, Z.
     approved: true
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0007
@@ -164,105 +169,125 @@ questions:
       vessel: pipe
       widths: [1, 3]
     stem: |
-      Figure shows water flowing steadily through a pipe that widens from a narrow section to a wide section. Compared to the narrow section, how does the water's speed change in the wide section?
+      Water flows steadily from left to right through the shown unbranched pipe without leaks. Treat it as incompressible. How does the mean speed in the wide section compare with the narrow section?
     choices:
-      - text: The water slows down in the wide section
+      - text: "Lower speed"
         correct: true
-      - text: The water speeds up in the wide section
+      - text: "Higher speed"
         rationale: |
-          You assumed wider pipes increase flow velocity. Expanding cross-sectional area allows fluid to move slower while maintaining flow rate.
-      - text: The water's speed stays exactly the same
+          This treats more room as making the water faster. A wider passage can seem easier to move through. Check how equal volume flow is shared across a larger area.
+      - text: "Unchanged speed"
         rationale: |
-          You assumed pipe width does not influence speed. Flow velocity decreases when cross-sectional area increases.
-      - text: The water stops flowing entirely in the wide section
+          This treats equal volume flow as equal speed. The same stream passes both sections. Check the area change.
+      - text: "Zero volume flow"
         rationale: |
-          You assumed widening halts fluid movement. Flow continues steadily at a lower speed.
+          This treats expansion as an end to all flow. Slower motion may look like stopping. Check the stated steady passage through an open pipe.
     explanation: |
-      Since the wide section has more cross-sectional area, the same volume of water can pass through more slowly while still maintaining the same overall flow rate: the water slows down in the wide section.
+      Steady incompressible flow carries the same volume per second through both sections. The wider area needs less speed for that volume. The water therefore slows in the wider section.
     approved: true
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0008
     type: fluid-pressure
     difficulty: medium
+    figure: fluid-pressure-08
+    figureSpec:
+      kind: fluid-vessel
+      vessel: pipe
+      widths: [1, 3]
     stem: |
-      Using the same widening pipe as before, how does the pressure in the wide section compare to the pressure in the narrow section?
+      The shown horizontal expansion carries steady incompressible ideal flow along one path, with no pumps or losses. How does static pressure in the wide section compare with the narrow section?
     choices:
-      - text: The pressure is higher in the wide section
+      - text: "Higher in the wide section"
         correct: true
-      - text: The pressure is lower in the wide section
+      - text: "Lower in the wide section"
         rationale: |
-          You assumed wider sections have lower pressure. Slower-moving fluid in a wider pipe section has higher internal pressure.
-      - text: The pressure is exactly the same in both sections
+          This equates lower speed with lower static pressure. A less forceful-looking stream can suggest lower pressure. Check the ideal pressure-plus-motion-energy balance.
+      - text: "Equal in both sections"
         rationale: |
-          You ignored the relationship between fluid speed and pressure. Velocity changes cause inverse pressure changes.
-      - text: Pressure cannot be compared without knowing the flow rate
+          This applies hydrostatic equality to flowing water. The sections share an elevation. Check whether the motion-energy terms are equal.
+      - text: "Fixed by total water volume alone"
         rationale: |
-          You assumed relative pressure cannot be determined. The cross-sectional ratio establishes that the wider section has lower speed and higher pressure.
+          This compares the amount of water instead of the flow energy. The wider section can hold more water. Check the terms in the horizontal Bernoulli equation.
     explanation: |
-      The water moves slower in the wide section. Since slower-moving fluid exerts higher pressure, the pressure in the wide section is higher than in the narrow section.
+      The wider section carries the same flow at a lower speed. At equal elevation under ideal lossless conditions, that lower motion-energy term is balanced by a higher static-pressure term.
     approved: true
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0009
     type: fluid-pressure
     difficulty: hard
+    figure: fluid-pressure-09
+    figureSpec:
+      kind: fluid-vessel
+      vessel: connected
+      columns: 2
     stem: |
-      A student sees a very wide container connected to a very narrow container, both open at the top, and assumes the wide container must settle at a lower water level, "since it needs to spread its water across more area." Is this assumption correct?
+      The connected-vessel figure represents the standard equal-level equilibrium for one liquid, neglecting capillary effects. Which surface condition is required by that model?
     choices:
-      - text: 'No: connected, open containers always settle at the same fluid level, no matter how different their widths are; the wide container does not settle lower just because it holds more total water.'
+      - text: "Equal pressure above both surfaces"
         correct: true
-      - text: 'Yes: wider containers always settle at a lower level than narrower ones.'
+      - text: "Equal water volume in both arms"
         rationale: |
-          You assumed surface area lowers fluid height. Open connected containers equalize pressure by maintaining matching fluid heights.
-      - text: 'Yes: but only because the narrow container was filled first.'
+          This treats a volume match as the condition for matching levels. Volume and height are linked within one fixed shape. Check the different widths of these arms.
+      - text: "Equal widths of the connected arms"
         rationale: |
-          You assumed filling sequence determines settled height. Fluid flows between vessels until heights balance.
-      - text: 'No: but only because the two containers are not actually connected.'
+          This requires identical geometry for pressure balance. Symmetric vessels would look easier to balance. Check whether hydrostatic pressure at depth depends on width.
+      - text: "The same filling time for both arms"
         rationale: |
-          You disputed the problem premise. The containers are connected at the bottom.
+          This gives filling history control over equilibrium. Simultaneous filling can look fair or balanced. Check whether water can still move between the arms afterward.
     explanation: |
-      A wider container does not settle at a lower level just because it "holds more water" overall: the surface level still equalizes with any connected narrower container, since pressure at the connecting point must balance out equally on both sides.
+      For the same static liquid, equal pressure above the surfaces lets equal surface height balance pressure at the connection. That surface-pressure equality is part of the equal-level model.
     approved: true
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0010
     type: fluid-pressure
     difficulty: hard
+    figure: fluid-pressure-10
+    figureSpec:
+      kind: fluid-vessel
+      vessel: pipe
+      widths: [2, 1]
     stem: |
-      A student assumes that squeezing a hose nozzle to make the opening narrower will slow down the water flow, "since it's a tighter squeeze." Is this assumption correct?
+      The two circular pipe sections shown have areas of 12 and 3 square centimeters. Water flows steadily without leaks, and its mean speed in the wide section is 5 centimeters per second. What is its mean speed in the narrow section?
     choices:
-      - text: 'No: a narrower section of pipe causes the fluid to speed up, not slow down, in order to maintain the same overall flow volume passing through per second.'
+      - text: "20 cm/s"
         correct: true
-      - text: 'Yes: narrower openings always slow down fluid flow.'
+      - text: "10 cm/s"
         rationale: |
-          You applied intuition that tighter spaces slow movement. Decreasing opening area increases exit velocity to maintain flow rate.
-      - text: 'Yes: but only because hose nozzles are a special exception to normal fluid behavior.'
+          This uses the diameter ratio of two instead of the area ratio of four. The drawn pipe width can make that ratio seem right. Check that continuity uses cross-sectional area.
+      - text: "1.25 cm/s"
         rationale: |
-          You treated nozzles as an exception. Fluid acceleration through narrow openings is standard continuity behavior.
-      - text: 'No: but only because water cannot flow through narrow openings at all.'
+          This multiplies 5 by the reversed area ratio, 3/12. The two areas may be put into the equation backward. Check that a smaller area needs a larger speed at the same flow.
+      - text: "60 cm/s"
         rationale: |
-          You assumed narrow openings block flow completely. Water flows through at increased speed.
+          This reports area times speed as a speed. Sixty is the correct volume-flow result. Check its units before choosing the requested velocity.
     explanation: |
-      Confusing this with everyday intuition (like assuming a "tighter squeeze" naturally slows things down) leads to the opposite, incorrect prediction: the fluid actually accelerates through a narrower opening, which is exactly why squeezing a hose nozzle makes the water spray faster.
+      Equal volume flow gives area times speed equal in both sections. The wide section carries $12$ times $5=60$ cubic centimeters per second. Divide by the narrow area $3$ square centimeters: $60/3=20$ centimeters per second.
     approved: true
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0011
     type: fluid-pressure
     difficulty: hard
+    figure: fluid-pressure-11
+    figureSpec:
+      kind: fluid-vessel
+      vessel: pipe
+      widths: [3, 1]
     stem: |
-      A student reasons that the narrow, fast-flowing section of a pipe must have higher pressure than the wide section, "since it feels more forceful and energetic." Is this reasoning correct?
+      In the shown horizontal pipe, water has steady incompressible ideal flow. Which term in Bernoulli's equation increases in the narrow section?
     choices:
-      - text: 'No: sections with faster movement (like narrow pipe sections) have lower pressure, not higher, following the relationship between fluid speed and pressure.'
+      - text: "Kinetic term"
         correct: true
-      - text: 'Yes: faster-flowing sections always have higher pressure than slower sections.'
+      - text: "Static pressure"
         rationale: |
-          You equated flow velocity with internal fluid pressure. Faster-moving fluid exerts lower internal pressure.
-      - text: 'Yes: but only because "forceful" and "high pressure" always mean the same thing.'
+          This confuses fast motion with higher static pressure. A fast spray can feel stronger. Check which energy term directly contains speed squared.
+      - text: "Elevation term"
         rationale: |
-          You confused kinetic impact force of a spray with internal static fluid pressure.
-      - text: 'No: but only because narrow pipe sections never have any measurable pressure.'
+          This treats faster motion as a change in height. Height can change fluid energy in other setups. Check that this pipe is horizontal.
+      - text: "Fluid density"
         rationale: |
-          You claimed narrow pipes lack pressure. Moving fluids maintain measurable pressure that varies inversely with speed.
+          This treats a narrowed passage as squeezing an incompressible liquid into a higher density. Narrowing can look like compression. Check the stated incompressible model.
     explanation: |
-      Assuming a narrow, fast-flowing section must have higher pressure (since it "feels more forceful" intuitively) reverses the correct relationship between fluid speed and pressure: faster flow actually means lower pressure.
+      The narrow section has higher speed under continuity. The kinetic term is one-half density times speed squared, so it increases as speed increases.
     approved: true
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0012
@@ -274,21 +299,21 @@ questions:
       vessel: connected
       columns: 4
     stem: |
-      Figure shows four open containers of completely different shapes (round, square, triangular cross-section, and irregular), all connected at the bottom by tubes. After water settles, one container appears visually taller than the others. Does its water surface actually sit higher than the others?
+      The figure shows the initial equilibrium of four connected open vessels containing the same water. A small amount is added to one vessel, with no overflow or leaks. Once the water settles again under the same air pressure, what happens to the surfaces?
     choices:
-      - text: 'No: despite looking taller overall, its water surface still settles at the exact same level as the other connected containers'
+      - text: "All four surfaces rise to a common higher elevation."
         correct: true
-      - text: 'Yes: the visually taller container always has a higher water surface'
+      - text: "Only the receiving vessel has a higher final surface."
         rationale: |
-          You confused container wall height with fluid level. Open connected containers equalize water surfaces to the same height.
-      - text: 'Yes: but only because its cross-sectional shape is different from the others'
+          This keeps the initial local rise after equilibrium. Water is added to only one vessel first. Check that the vessels remain connected.
+      - text: "The widest vessel has the highest final surface."
         rationale: |
-          You assumed container shape alters fluid height equilibrium. Shape does not affect settled fluid level.
-      - text: It depends on which container was filled with water first
+          This uses storage capacity to choose the highest surface. The widest vessel holds more water. Check whether width changes the equilibrium surface height.
+      - text: "The narrowest vessel has the lowest final surface."
         rationale: |
-          You assumed filling order prevents equilibrium. Fluid flows between connected vessels until levels equalize.
+          This uses narrowness to choose the lowest surface. A small vessel can hold less total water. Check the difference between amount and surface elevation.
     explanation: |
-      Container height or shape does not affect the settled water surface level in a connected, open system: only the fluid level itself equalizes, regardless of how tall, wide, or oddly shaped each individual container looks.
+      The added water increases the total amount. It redistributes through the connections until pressure balances again. With the same liquid and equal surface pressure, the four surfaces share one higher elevation.
     approved: true
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0013
@@ -300,40 +325,202 @@ questions:
       vessel: pipe
       widths: [3, 1, 3]
     stem: |
-      Figure shows a pipe that narrows in the middle section, then widens back to its original width at the far end (wide → narrow → wide). Compare the flow speed and pressure in the middle (narrow) section to the two wide end sections.
+      The shown wide-narrow-wide pipe carries steady incompressible ideal flow at one elevation, with no pumps or energy losses. Relative to the two equal wide ends, how does the middle section compare?
     choices:
-      - text: The middle section has the fastest flow speed and the lowest pressure; both wide end sections have slower flow speed and higher pressure
+      - text: "Fastest flow, lowest static pressure"
         correct: true
-      - text: The middle section has the slowest flow speed and the highest pressure
+      - text: "Slowest flow, highest static pressure"
         rationale: |
-          You inverted both speed and pressure relationships. Narrow sections have faster flow and lower pressure.
-      - text: All three sections have identical flow speed and pressure
+          This reverses both continuity and the ideal pressure comparison. The tight passage may seem to resist motion. Check the equal volume flow and energy balance separately.
+      - text: "Same flow speed and static pressure"
         rationale: |
-          You assumed pipe width variations do not affect flow speed or pressure.
-      - text: The middle section has the fastest flow speed and the highest pressure
+          This treats equal volume flow as equal speed and pressure. The same water passes all three sections. Check their different cross-sectional areas.
+      - text: "Fastest flow, highest static pressure"
         rationale: |
-          You correctly identified faster speed but incorrectly assumed faster flow creates higher internal pressure.
+          This gets the speed increase but equates it with higher static pressure. A fast jet can feel forceful. Check the static-pressure term separately from motion energy.
     explanation: |
-      The narrow middle section forces the water to speed up (to maintain the same flow volume), and faster-moving fluid has lower pressure. The wider end sections allow slower flow and correspondingly higher pressure.
+      Equal volume flow makes the smaller middle area faster than either wide end. At the same elevation with no energy added or lost, the greater kinetic term is balanced by lower static pressure. The middle is fastest and has the lowest static pressure.
     approved: true
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0014
     type: fluid-pressure
     difficulty: exam
+    figure: fluid-pressure-14
+    figureSpec:
+      kind: fluid-vessel
+      vessel: pipe
+      widths: [3, 1, 2]
     stem: |
-      A tall, wide open container is connected at the bottom to a tall, narrow open container, forming a U-shape; water is poured in until it settles. A pipe leads from the bottom of the wide container, narrowing partway along its length before opening into the narrow container. Determine: (a) how the settled water surface levels in the wide and narrow containers compare, and (b) how the flow speed and pressure in the narrowed section of the connecting pipe compare to the wider parts of that same pipe, while water is actively flowing through it.
+      The shown horizontal pipe carries steady ideal incompressible flow along one path, with no pumps or losses. Let P be static pressure, rho the constant density, and v the flow speed. Which expression stays constant between its sections?
     choices:
-      - text: (a) The water surface levels are equal in both containers, regardless of width; (b) the narrowed section of the pipe has faster flow speed and lower pressure than the wider parts of the pipe.
+      - text: "$P+\\dfrac{1}{2}\\rho v^2$"
         correct: true
-      - text: (a) The wide container settles at a lower level than the narrow container; (b) the narrowed section has slower flow speed and higher pressure.
+      - text: "$P-\\dfrac{1}{2}\\rho v^2$"
         rationale: |
-          You incorrectly assumed wider containers settle lower and narrow pipes slow down fluid flow.
-      - text: (a) The narrow container settles at a lower level than the wide container; (b) the narrowed section has faster flow speed and higher pressure.
+          This subtracts the motion-energy term instead of adding it. Pressure falls as speed rises, so subtraction may look tempting. Check how the two energy contributions are combined.
+      - text: "$\\dfrac{1}{2}\\rho v^2$"
         rationale: |
-          You incorrectly assumed narrow containers settle lower and faster flow creates higher pressure.
-      - text: (a) The water surface levels are equal in both containers; (b) the narrowed section has slower flow speed and lower pressure.
+          This keeps only the motion-energy term. Speed is easy to notice in a narrowing pipe. Check whether static pressure can change to balance that term.
+      - text: "$P+\\rho v^2$"
         rationale: |
-          You correctly identified equal levels, but incorrectly claimed fluid slows down in narrow sections.
+          This omits the one-half factor in the kinetic term. Density times speed squared looks like the right ingredients. Check the coefficient in Bernoulli's equation.
     explanation: |
-      Connected, open containers always settle at the same fluid level regardless of width, so (a) the levels are equal. Within the connecting pipe, the narrowed section forces faster flow (to maintain the same flow volume) and correspondingly lower pressure than the wider sections, so (b) faster flow speed and lower pressure in the narrow section.
+      Bernoulli's equation adds static pressure to motion energy per unit volume and the height term. Height is constant here. Thus $P$ plus one-half $\rho v^2$ stays constant along the flow path.
     approved: true
+
+  - id: q-mechanical-technical-reasoning-fluid-pressure-0015
+    type: fluid-pressure
+    difficulty: easy
+    figure: fluid-pressure-15
+    figureSpec:
+      kind: fluid-vessel
+      vessel: column
+      points: ["A", "B", "C"]
+    stem: |
+      The shown uniform liquid is at rest. A, B, and C are equally spaced vertically below its surface. Compare the increase in pressure from A to B with the increase from B to C.
+    choices:
+      - text: "Equal pressure increases"
+        correct: true
+      - text: "A larger increase from A to B"
+        rationale: |
+          This gives the shallow interval a larger pressure change. Proximity to surface air may seem to matter more there. Check that both intervals have the same depth difference.
+      - text: "A larger increase from B to C"
+        rationale: |
+          This makes the lower interval's pressure increase larger just because it is deeper. Its total pressure is greater. Check the difference between a total pressure and an increment.
+      - text: "Zero pressure increases"
+        rationale: |
+          This assumes equilibrium removes depth differences in pressure. The liquid is still. Check that hydrostatic pressure continues to increase with depth.
+    explanation: |
+      The points are equally spaced in depth. In the same uniform liquid at rest, each pressure increase equals density times gravity times the depth increase. Equal depth increases therefore give equal pressure increases.
+    approved: false
+
+  - id: q-mechanical-technical-reasoning-fluid-pressure-0016
+    type: fluid-pressure
+    difficulty: medium
+    figure: fluid-pressure-16
+    figureSpec:
+      kind: fluid-vessel
+      vessel: pipe
+      widths: [3, 1]
+    stem: |
+      The figure shows a pipe while water flows. The flow is then stopped, and the connected water reaches rest under uniform gravity. Compare static pressures at the same center-line elevation in the wide and narrow sections.
+    choices:
+      - text: "Equal static pressures"
+        correct: true
+      - text: "Higher pressure in the narrow section"
+        rationale: |
+          This treats a narrow space as creating higher pressure at rest. Confinement can look like compression. Check the same-elevation hydrostatic condition.
+      - text: "Lower pressure in the narrow section"
+        rationale: |
+          This keeps a flowing-fluid speed-pressure comparison after flow has stopped. The figure shows the earlier flow. Check the new state stated in the question.
+      - text: "Zero pressure in both sections"
+        rationale: |
+          This treats zero speed as zero pressure. Motion has ceased. Check that water at rest still has hydrostatic pressure.
+    explanation: |
+      After the water reaches rest, hydrostatic pressure depends on depth and surface pressure. The compared center-line points share an elevation in one connected liquid. Their static pressures are equal.
+    approved: false
+
+  - id: q-mechanical-technical-reasoning-fluid-pressure-0017
+    type: fluid-pressure
+    difficulty: medium
+    figure: fluid-pressure-17
+    figureSpec:
+      kind: fluid-vessel
+      vessel: column
+      points: ["A", "B"]
+    stem: |
+      The shown water is at rest. A is 0.10 meter and B 0.70 meter below the surface. Use density 1000 kilograms per cubic meter and gravity 10 newtons per kilogram. Surface pressure is 100 kilopascals. By how much does pressure at B exceed pressure at A?
+    choices:
+      - text: "6 kPa"
+        correct: true
+      - text: "7 kPa"
+        rationale: |
+          This gives B's gauge pressure instead of the increase from A. The deeper point is the target of comparison. Check whether A's depth must be subtracted.
+      - text: "106 kPa"
+        rationale: |
+          This adds the 100-kilopascal surface pressure to the difference. Absolute pressure includes that surface term. Check that the same surface pressure cancels in a difference.
+      - text: "0.6 kPa"
+        rationale: |
+          This divides 6000 pascals by 10000 instead of 1000. Unit conversion can shift a decimal place. Check the number of pascals in one kilopascal.
+    explanation: |
+      The depth difference is $0.70-0.10=0.60$ meter. Use the hydrostatic pressure difference: $1000$ times $10$ times $0.60=6000$ pascals. Since $1000$ pascals is $1$ kilopascal, the increase is $6$ kilopascals.
+    approved: false
+
+  - id: q-mechanical-technical-reasoning-fluid-pressure-0018
+    type: fluid-pressure
+    difficulty: hard
+    figure: fluid-pressure-18
+    figureSpec:
+      kind: fluid-vessel
+      vessel: column
+      points: ["A", "B"]
+    stem: |
+      The figure shows the initial liquid at rest. It is replaced by a liquid of twice its density, at the same surface height and positive surface pressure. At marked point B, which quantity doubles?
+    choices:
+      - text: "Gauge pressure"
+        correct: true
+      - text: "Absolute pressure"
+        rationale: |
+          This doubles the unchanged surface-pressure term along with the liquid contribution. Absolute pressure includes both parts. Check which part depends on density.
+      - text: "Surface pressure"
+        rationale: |
+          This makes the air pressure change when the liquid density changes. Both contribute to the total pressure. Check the stated unchanged pressure above the liquid.
+      - text: "Immersion depth"
+        rationale: |
+          This treats a density change as a depth change. Both can increase pressure. Check which quantity the question actually changes.
+    explanation: |
+      Gauge pressure is the fluid-pressure increase above the surface pressure. At fixed depth it equals density times gravity times depth. Doubling density doubles that part of the pressure.
+    approved: false
+
+  - id: q-mechanical-technical-reasoning-fluid-pressure-0019
+    type: fluid-pressure
+    difficulty: hard
+    figure: fluid-pressure-19
+    figureSpec:
+      kind: fluid-vessel
+      vessel: pipe
+      widths: [3, 1]
+    stem: |
+      The shown pipe has steady incompressible flow at one elevation. Which additional assumption permits the ideal Bernoulli pressure-speed comparison to be used directly between sections?
+    choices:
+      - text: "No pumps or energy losses"
+        correct: true
+      - text: "The direction of the flow arrow"
+        rationale: |
+          This uses flow direction as the condition for energy conservation. The arrow helps read the path. Check whether direction itself rules out energy input or losses.
+      - text: "The total volume of water in the pipe"
+        rationale: |
+          This uses total amount of water instead of changes in flow energy. A wide section can contain more water. Check the assumptions behind the local pressure-speed equation.
+      - text: "The thickness of the pipe walls"
+        rationale: |
+          This uses structural thickness as a substitute for fluid-energy conditions. Thick walls can hold pressure safely. Check whether the walls' thickness establishes lossless flow.
+    explanation: |
+      The direct ideal Bernoulli comparison needs no energy added or lost between the sections. With equal height, the pressure and motion-energy terms then balance each other.
+    approved: false
+
+  - id: q-mechanical-technical-reasoning-fluid-pressure-0020
+    type: fluid-pressure
+    difficulty: exam
+    figure: fluid-pressure-20
+    figureSpec:
+      kind: fluid-vessel
+      vessel: column
+      points: ["A", "B"]
+    stem: |
+      The shown uniform water is at rest. B is seven times as deep below the surface as A, and A has positive depth. Surface pressure is positive. Which statement describes the ratio of total absolute pressure at B to that at A?
+    choices:
+      - text: "Greater than 1 but less than 7"
+        correct: true
+      - text: "Exactly 7 for all surface pressures"
+        rationale: |
+          This uses the gauge-pressure ratio as the absolute-pressure ratio. The depths differ by a factor of seven. Check the positive surface-pressure term added to both.
+      - text: "Greater than 7 for positive surface pressure"
+        rationale: |
+          This adds surface pressure as if it increased the larger pressure alone. The deeper pressure is already greater. Check that the same surface term is added to both points.
+      - text: "Exactly 1 despite the depth difference"
+        rationale: |
+          This applies same-liquid pressure equality at different depths. The liquid is one connected body. Check the unequal depths of A and B.
+    explanation: |
+      Write the pressures as $P_A=P_0+k$ and $P_B=P_0+7k$, where k is the positive water contribution at A. B has greater pressure, so the ratio exceeds 1. Adding the same positive surface pressure to both contributions makes the ratio smaller than 7.
+    approved: false
+

@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-earth-science-astronomy-minerals-and-rocks-0001	CORRECTED	SOLVED-MATCH	explanation;notes;stem	LOW	Added inorganic requirement and avoided an overly rigid composition definition.
+q-earth-science-astronomy-minerals-and-rocks-0002	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-earth-science-astronomy-minerals-and-rocks-0003	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	MEDIUM	Mohs scale is not taught; stem, choices, key preserved.
+q-earth-science-astronomy-minerals-and-rocks-0004	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	MEDIUM	Scratch hardness tests are not taught; stem, choices, key preserved.
+q-earth-science-astronomy-minerals-and-rocks-0005	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	MEDIUM	Streak is not taught; stem, choices, key preserved.
+q-earth-science-astronomy-minerals-and-rocks-0006	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	MEDIUM	Pyrite/streak tests are not taught; stem, choices, key preserved, including longest-answer cue.
+q-earth-science-astronomy-minerals-and-rocks-0007	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	MEDIUM	Luster is not taught; stem, choices, key preserved.
+q-earth-science-astronomy-minerals-and-rocks-0008	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	MEDIUM	Cleavage/fracture are not taught; stem, choices, key preserved.
+q-earth-science-astronomy-minerals-and-rocks-0009	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-minerals-and-rocks-0010	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-minerals-and-rocks-0011	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-minerals-and-rocks-0012	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-minerals-and-rocks-0013	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	MEDIUM	Duplicate melting claim replaced with sandstone-to-quartzite application.
+q-earth-science-astronomy-minerals-and-rocks-0014	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	MEDIUM	Duplicate compaction item replaced with chemical sedimentary formation.
+q-earth-science-astronomy-minerals-and-rocks-0015	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	MEDIUM	Process repeated earlier; now tests the limestone-to-marble pairing.
+q-earth-science-astronomy-minerals-and-rocks-0016	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-minerals-and-rocks-0017	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	HIGH	Original incorrectly turned granite-derived sediment into limestone and marble.
+q-earth-science-astronomy-minerals-and-rocks-0018	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	HIGH	Hardness/streak absent from lesson; equal nominal reference hardness makes scratch bounds inconsistent; stem, choices, key preserved.
+q-earth-science-astronomy-minerals-and-rocks-0019	NEW	NEW	new question	NONE	
+q-earth-science-astronomy-minerals-and-rocks-0020	NEW	NEW	new question	NONE	

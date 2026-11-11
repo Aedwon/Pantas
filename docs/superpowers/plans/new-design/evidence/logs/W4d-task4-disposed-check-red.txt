@@ -1,0 +1,40 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_pick_check_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: disposed pending Check handles late result fails=false
+00:00 +0 -1: disposed pending Check handles late result fails=false [E]
+  Bad state: Tried to use QuizController after `dispose` was called.
+
+  Consider checking `mounted`.
+
+  package:state_notifier/state_notifier.dart 175:9                       StateNotifier._debugIsMounted.<fn>
+  package:state_notifier/state_notifier.dart 182:6                       StateNotifier._debugIsMounted
+  package:state_notifier/state_notifier.dart 197:12                      StateNotifier.state
+  package:pantas/features/quiz/presentation/quiz_controller.dart 412:23  QuizController.check
+
+00:00 +0 -1: disposed pending Check handles late result fails=true
+00:00 +0 -2: disposed pending Check handles late result fails=true [E]
+  Expected: throws same instance as StateError:<Bad state: private submit failure>
+    Actual: <Instance of 'Future<void>'>
+     Which: threw StateError:<Bad state: Tried to use QuizController after `dispose` was called.
+
+                  Consider checking `mounted`.
+                  >
+            stack package:state_notifier/state_notifier.dart 175:9                       StateNotifier._debugIsMounted.<fn>
+                  package:state_notifier/state_notifier.dart 182:6                       StateNotifier._debugIsMounted
+                  package:state_notifier/state_notifier.dart 197:12                      StateNotifier.state
+                  package:pantas/features/quiz/presentation/quiz_controller.dart 412:23  QuizController.check
+                  ===== asynchronous gap ===========================
+                  package:matcher                                                        expectLater
+                  package:flutter_test/src/widget_tester.dart 507:8                      expectLater
+                  test/features/quiz/presentation/quiz_pick_check_test.dart 197:29       main.<fn>
+
+  package:matcher                                                   expectLater
+  package:flutter_test/src/widget_tester.dart 507:8                 expectLater
+  test/features/quiz/presentation/quiz_pick_check_test.dart 197:29  main.<fn>
+
+00:00 +0 -2: (tearDownAll)
+00:00 +0 -2: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_pick_check_test.dart: disposed pending Check handles late result fails=false
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_pick_check_test.dart: disposed pending Check handles late result fails=true

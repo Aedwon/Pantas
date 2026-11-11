@@ -10,19 +10,19 @@ questions:
     stem: |
       After failing the exam three times, Maria decided to go back to square one and restart her review from the very first chapter. What does the idiom "back to square one" mean?
     choices:
-      - text: To return to the beginning
+      - text: "To start over"
         correct: true
-      - text: To play a board game
+      - text: "To change the goal"
         rationale: |
-          The context says Maria restarts her review, so a literal board-game reading does not fit.
-      - text: To get angry at a mistake
+          This treats restarting as choosing a different goal. Failure may lead someone to change goals, so it sounds possible. Check whether Maria changes her aim or begins the same work again.
+      - text: "To abandon the attempt"
         rationale: |
-          The idiom refers to restarting, not an emotional reaction.
-      - text: To give up completely
+          This treats lost progress as permanent surrender. Repeated failure can suggest giving up. Check the action Maria takes next.
+      - text: "To repeat only the last step"
         rationale: |
-          Maria starts over instead of quitting.
+          This treats restarting as correcting only the most recent step. A final mistake may seem to be the only problem. Check where Maria begins again.
     explanation: |
-      "Back to square one" means returning to the beginning after earlier progress did not work out.
+      "Back to square one" means start over. Maria returns to the first chapter to begin her review again.
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0002
@@ -31,40 +31,40 @@ questions:
     stem: |
       The reporter promised not to spill the beans about the celebrity's secret wedding until the official announcement. What does the idiom "spill the beans" mean?
     choices:
-      - text: To reveal a secret
+      - text: "To reveal a secret"
         correct: true
-      - text: To cook food
+      - text: "To invent a false story"
         rationale: |
-          The context concerns confidential information, not literal beans.
-      - text: To clean the floor
+          This confuses disclosing hidden facts with making up facts. Both can create a surprising story. Check whether the wedding information is secret or false.
+      - text: "To make a public accusation"
         rationale: |
-          Nothing in the sentence concerns a physical spill.
-      - text: To argue loudly
+          This treats disclosure as an accusation. Revealing private news can seem confrontational. Check whether the sentence says anyone did something wrong.
+      - text: "To announce an unrelated event"
         rationale: |
-          The idiom specifically concerns disclosing hidden information.
+          This treats the idiom as announcing any news. A reporter announces events, so it sounds plausible. Check the link to the secret wedding.
     explanation: |
-      In this context, "spill the beans" means reveal information that was supposed to remain secret.
+      "Spill the beans" means reveal a secret. The reporter promises to keep the wedding information private until its announcement.
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0003
     type: idiom-meaning
     difficulty: medium
     stem: |
-      "The old floorboards groaned under every footstep, as if complaining about the weight." Which figure of speech is most clearly emphasized?
+      "The old floorboards groaned under every footstep, as if complaining about the weight." Which device is most directly shown by giving the boards the ability to complain?
     choices:
-      - text: Personification
+      - text: "Personification"
         correct: true
-      - text: Simile
+      - text: "An explicit comparison"
         rationale: |
-          Although the phrase "as if" introduces an imagined comparison, the central effect is that the floorboards are described as if they could complain like a person.
-      - text: Metaphor
+          This focuses on "as if" and misses the human behavior. That phrase can introduce an imagined comparison. Check what the boards are made to do.
+      - text: "A direct comparison"
         rationale: |
-          The sentence does not directly identify the floorboards as another thing; it gives them person-like behavior.
-      - text: Hyperbole
+          This treats human behavior as identifying the boards with another thing. Both are nonliteral uses of language. Check whether the sentence equates two things or gives an object an action.
+      - text: "An extreme exaggeration"
         rationale: |
-          Exaggeration is not the main device being tested here.
+          This treats the complaint as an overstatement. The image can sound dramatic. Check whether the effect comes from an inflated amount or a human action.
     explanation: |
-      The floorboards are presented as if they could groan and complain about a burden. Giving an inanimate object this person-like behavior is personification.
+      The boards seem to complain about a burden. Complaining is human behavior given to an object, which is personification.
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0004
@@ -73,40 +73,40 @@ questions:
     stem: |
       "Her smile was as bright as the morning sun." Which figure of speech is used in this sentence?
     choices:
-      - text: Simile
+      - text: "Simile"
         correct: true
-      - text: Metaphor
+      - text: "Metaphor"
         rationale: |
-          The explicit comparison uses "as...as," which marks a simile.
-      - text: Personification
+          This treats an explicit comparison as a direct identification. Both link unlike things. Check the words "as bright as."
+      - text: "Personification"
         rationale: |
-          No nonhuman thing is being given person-like qualities.
-      - text: Oxymoron
+          This treats the sun comparison as giving the sun human behavior. A smile is human, so that connection may seem likely. Check which thing is described and whether the sun acts like a person.
+      - text: "Oxymoron"
         rationale: |
-          The sentence does not combine contradictory terms.
+          This treats two unlike things as two contradictory terms. The smile and sun are different. Check whether their meanings conflict or are being compared.
     explanation: |
-      The smile is explicitly compared with the sun using "as...as," making the comparison a simile.
+      "As bright as" explicitly compares the smile with the morning sun. An explicit figurative comparison is a simile.
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0005
     type: idiom-meaning
     difficulty: medium
     stem: |
-      "The classroom was a zoo during the fire drill." Which figure of speech is used in this sentence?
+      "The classroom was a zoo during the fire drill." Which device directly identifies the classroom with a zoo?
     choices:
-      - text: Metaphor
+      - text: "Metaphor"
         correct: true
-      - text: Simile
+      - text: "Simile"
         rationale: |
-          The sentence makes a direct comparison without "like" or "as."
-      - text: Personification
+          This treats a direct identification as an explicit comparison. Both compare the classroom with a zoo. Check whether the wording says "was" or "was like."
+      - text: "Personification"
         rationale: |
-          It does not give human behavior to a nonhuman thing.
-      - text: Hyperbole
+          This treats the zoo image as human behavior given to a nonhuman thing. A classroom is not human, so that may seem relevant. Check whether the sentence gives it a human action.
+      - text: "Hyperbole"
         rationale: |
-          The most direct structural device is the equation of the classroom with a zoo.
+          This focuses on the dramatic effect instead of the comparison structure. Calling a room a zoo can sound exaggerated. Check how the two things are linked in the quoted phrase.
     explanation: |
-      "The classroom was a zoo" directly equates unlike things to convey disorder, making it a metaphor.
+      The sentence calls the classroom a zoo to show disorder. Presenting one thing as another is a metaphor.
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0006
@@ -115,19 +115,19 @@ questions:
     stem: |
       "I've told you a million times to clean your room!" Which figure of speech is used in this sentence?
     choices:
-      - text: Hyperbole
+      - text: "Hyperbole"
         correct: true
-      - text: Simile
+      - text: "Simile"
         rationale: |
-          There is no comparison between unlike things.
-      - text: Alliteration
+          This treats a strong description as a comparison. Both can make language vivid. Check whether two unlike things are compared.
+      - text: "Alliteration"
         rationale: |
-          Repeated initial sounds are not the main feature.
-      - text: Onomatopoeia
+          This treats repetition of a complaint as repetition of initial sounds. The speaker has repeated the instruction often. Check the beginnings of nearby words.
+      - text: "Onomatopoeia"
         rationale: |
-          No word imitates a sound.
+          This treats spoken words as sound imitation. The sentence is something someone says aloud. Check whether any word copies the sound it names.
     explanation: |
-      "A million times" is deliberate extreme exaggeration for emphasis, which is hyperbole.
+      "A million times" greatly overstates the number of reminders. Deliberate overstatement for effect is hyperbole.
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0007
@@ -136,19 +136,19 @@ questions:
     stem: |
       "Peter Piper picked a peck of pickled peppers." Which figure of speech is used in this sentence?
     choices:
-      - text: Alliteration
+      - text: "Alliteration"
         correct: true
-      - text: Onomatopoeia
+      - text: "Onomatopoeia"
         rationale: |
-          The repeated /p/ sound is not an imitation of a real-world noise.
-      - text: Metaphor
+          This confuses repeated sounds with a word that imitates a noise. The line is strongly sound-based. Check whether the sound names a real noise or repeats across words.
+      - text: "Hyperbole"
         rationale: |
-          There is no direct comparison.
-      - text: Oxymoron
+          This treats a tongue twister as an extreme overstatement. Its wording sounds unusual. Check whether any amount is exaggerated.
+      - text: "Oxymoron"
         rationale: |
-          No contradictory terms are paired.
+          This treats unusual word combinations as a contradiction. The phrase is hard to say. Check whether two meanings actually oppose each other.
     explanation: |
-      The repeated initial /p/ sound across nearby words is alliteration.
+      The nearby words repeat the starting /p/ sound. Repeated initial consonant sounds create alliteration.
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0008
@@ -157,40 +157,40 @@ questions:
     stem: |
       "The bacon sizzled loudly in the pan." Which figure of speech is most directly illustrated by the word "sizzled"?
     choices:
-      - text: Onomatopoeia
+      - text: "Onomatopoeia"
         correct: true
-      - text: Alliteration
+      - text: "Alliteration"
         rationale: |
-          The focus is a sound-imitating word, not a sequence of repeated initial consonants.
-      - text: Simile
+          This confuses a sound-imitating word with repeated beginning sounds. Both devices work through sound. Check whether one word imitates a noise or several words repeat a sound.
+      - text: "Personification"
         rationale: |
-          The sentence contains no explicit comparison.
-      - text: Hyperbole
+          This treats any action assigned to food as human behavior. The bacon is the subject of a verb. Check whether that action is specifically human.
+      - text: "Hyperbole"
         rationale: |
-          The sentence does not depend on extreme exaggeration.
+          This treats loudness as an extreme overstatement. The word "loudly" adds force. Check whether the sound is exaggerated beyond a normal description.
     explanation: |
-      "Sizzle" imitates the sound associated with frying, making it an example of onomatopoeia.
+      "Sizzle" sounds like the noise of frying. A word that imitates the sound it names is onomatopoeia.
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0009
     type: idiom-meaning
     difficulty: medium
     stem: |
-      During the exam, a deafening silence filled the room. Which figure of speech is used in the phrase "deafening silence"?
+      During the exam, a deafening silence filled the room. Which device is created specifically by placing the apparently contradictory terms "deafening" and "silence" together?
     choices:
-      - text: Oxymoron
+      - text: "Oxymoron"
         correct: true
-      - text: Hyperbole
+      - text: "Hyperbole"
         rationale: |
-          The defining feature is the close pairing of apparently contradictory ideas.
-      - text: Simile
+          This focuses on intensity instead of the paired contradiction. "Deafening" sounds extreme. Check the relationship between the two words.
+      - text: "Simile"
         rationale: |
-          There is no explicit comparison using "like" or "as."
-      - text: Metaphor
+          This treats the two words as an explicit comparison. Both name effects connected to sound. Check whether a comparison marker links unlike things.
+      - text: "Metaphor"
         rationale: |
-          The phrase is conventionally analyzed as an oxymoron because "deafening" and "silence" create a compact contradiction.
+          This focuses on a figurative description instead of the compact contradiction. "Deafening" is nonliteral here. Check how its meaning conflicts with "silence."
     explanation: |
-      "Deafening silence" combines apparently contradictory terms for effect, which is an oxymoron.
+      "Deafening" suggests an overwhelming sound, while "silence" means no sound. Putting apparently contradictory words together creates an oxymoron.
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0010
@@ -199,103 +199,103 @@ questions:
     stem: |
       Piliin ang kahulugan ng sawikain: Sumuko na siya at "itinapon na ang tuwalya" matapos ang tatlong bigong pagsubok.
     choices:
-      - text: Sumuko
+      - text: "Sumuko"
         correct: true
-      - text: Nanalo sa laban
+      - text: "Nagpahinga muna"
         rationale: |
-          Kabaligtaran ito ng kahulugang ipinapakita ng konteksto.
-      - text: Nagsimula ulit
+          This treats surrender as a temporary break. Someone may rest after several failures. Check whether the wording says the person will continue.
+      - text: "Nagsimula ulit"
         rationale: |
-          Ang sawikain ay tumutukoy sa paghinto, hindi sa panibagong pagsisimula.
-      - text: Naglinis ng kagamitan
+          This treats failure as a restart. Failed attempts can lead to trying again. Check the statement "sumuko na siya."
+      - text: "Nagpalit ng paraan"
         rationale: |
-          Literal na pagbasa ito na hindi akma sa konteksto ng pagsuko.
+          This treats giving up as changing a method. A new method can follow failure. Check whether the person keeps trying or stops.
     explanation: |
-      Ang "itapon ang tuwalya" ay sawikain na nangangahulugang sumuko o tumigil sa pakikipaglaban/pagsisikap.
+      "Itinapon ang tuwalya" means gave up. The repeated failed attempts ended with the person stopping the effort.
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0011
     type: idiom-meaning
     difficulty: medium
     stem: |
-      Anong uri ng tayutay ang ginamit? "Libu-libong beses ko nang sinabi sa iyo na linisin ang iyong silid."
+      "Parang isang bundok ang bigat ng bag ko!" Ang bag ay karaniwan lamang ang bigat. Aling tayutay ang nagpapakita ng sadyang labis na pahayag tungkol sa bigat nito?
     choices:
-      - text: Pagmamalabis
+      - text: "Pagmamalabis"
         correct: true
-      - text: Pagtutulad
+      - text: "Pagtutulad"
         rationale: |
-          Walang tuwirang paghahambing gamit ang panandang tulad ng "parang" o "gaya ng."
-      - text: Pagwawangis
+          This focuses on a comparison while missing the stated target of extreme weight. Mountain-sized weight can look like a comparison. Check which effect the question asks about.
+      - text: "Pagwawangis"
         rationale: |
-          Hindi direktang ipinapantay ang dalawang magkaibang bagay.
-      - text: Pagbibigay-katauhan
+          This treats the phrase as identifying the bag with a mountain. Both can be heavy. Check whether the bag is called a mountain or its weight is overstated.
+      - text: "Pagbibigay-katauhan"
         rationale: |
-          Walang bagay o konseptong binibigyan ng katangiang pantao.
+          This treats a nonhuman object in a vivid sentence as having human traits. The bag is being described strongly. Check whether it speaks, thinks, or acts like a person.
     explanation: |
-      Ang "libu-libong beses" ay sadyang pinalabis upang bigyang-diin ang dalas, kaya ito ay pagmamalabis.
+      Saying the bag weighs as much as a mountain greatly overstates its weight. That deliberate overstatement is "pagmamalabis," or hyperbole.
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0012
     type: idiom-meaning
     difficulty: medium
     stem: |
-      Anong uri ng tayutay ang ginamit? "Ang kanyang mga mata ay kasing-ganda ng mga bituin sa gabi."
+      "Ang kanyang mga mata ay kasing-ganda ng mga bituin sa gabi." Aling tayutay ang ipinapakita ng tahasang paghahambing gamit ang "kasing-ganda"?
     choices:
-      - text: Pagtutulad
+      - text: "Pagtutulad"
         correct: true
-      - text: Pagwawangis
+      - text: "Pagwawangis"
         rationale: |
-          Ang "kasing-" ay tahasang pananda ng paghahambing.
-      - text: Pagmamalabis
+          This treats an explicit comparison as a direct identification. Both connect eyes and stars. Check the comparison marker "kasing-."
+      - text: "Pagmamalabis"
         rationale: |
-          Ang pangunahing estruktura ay paghahambing, hindi eksaherasyon.
-      - text: Pagbibigay-katauhan
+          This focuses on praise as if praise were always exaggeration. The description is strong. Check whether the question targets an inflated amount or a comparison.
+      - text: "Pagbibigay-katauhan"
         rationale: |
-          Walang katangiang pantao na ibinibigay sa di-tao.
+          This treats the mention of eyes as human traits given to stars. Eyes belong to a person. Check whether the stars are acting like people or serving as a comparison.
     explanation: |
-      Ang paggamit ng "kasing-" upang tahasang ihambing ang mga mata at mga bituin ay pagtutulad.
+      The wording "kasing-ganda" explicitly compares the eyes with stars. That explicit comparison is "pagtutulad," or simile.
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0013
     type: idiom-meaning
     difficulty: medium
     stem: |
-      Anong uri ng tayutay ang ginamit? "Ang guro ay ilaw ng silid-aralan."
+      Sa "Ang guro ay ilaw ng silid-aralan," aling tayutay ang direktang ipinapantay ang guro sa ilaw upang ipakita ang paggabay niya?
     choices:
-      - text: Pagwawangis
+      - text: "Pagwawangis"
         correct: true
-      - text: Pagtutulad
+      - text: "Pagtutulad"
         rationale: |
-          Walang panandang paghahambing gaya ng "parang" o "tulad ng."
-      - text: Pagmamalabis
+          This treats direct identification as an explicit comparison. Both compare unlike things. Check whether a word such as "parang" introduces the comparison.
+      - text: "Pagmamalabis"
         rationale: |
-          Direktang paghahambing ang pangunahing estruktura.
-      - text: Pagbibigay-katauhan
+          This focuses on praise instead of the way two things are linked. Calling a teacher a light can sound like strong praise. Check whether the stem targets an inflated quantity or direct identification.
+      - text: "Pagbibigay-katauhan"
         rationale: |
-          Hindi katangiang pantao ang ibinibigay sa isang bagay; ang guro ay direktang inihahambing sa ilaw.
+          This treats a human compared with light as light given human actions. Both involve something human and something nonhuman. Check which one is being described.
     explanation: |
-      Direktang inihahambing ang guro sa ilaw nang walang panandang "parang" o "tulad ng," kaya ito ay pagwawangis.
+      The teacher is presented as a light that guides the classroom. This direct figurative comparison is "pagwawangis," or metaphor.
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0014
     type: idiom-meaning
     difficulty: medium
     stem: |
-      Anong uri ng tayutay ang ginamit? "Ngumiti ang araw habang sumasayaw ang mga dahon sa hangin."
+      "Ngumiti ang araw habang sumasayaw ang mga dahon sa hangin." Ano ang ibinibigay sa araw at mga dahon upang makalikha ng pagbibigay-katauhan?
     choices:
-      - text: Pagbibigay-katauhan
+      - text: "Kilos ng tao"
         correct: true
-      - text: Pagtutulad
+      - text: "Tahasan na paghahambing"
         rationale: |
-          Walang tahasang paghahambing gamit ang panandang tulad ng "parang" o "gaya ng."
-      - text: Pagwawangis
+          This treats human actions as an explicit comparison. The image makes unlike things seem similar. Check whether the words compare them with a stated marker.
+      - text: "Tuwirang paghahambing"
         rationale: |
-          Hindi direktang ipinapantay ang araw o mga dahon sa ibang bagay.
-      - text: Pagmamalabis
+          This treats actions given to objects as identifying them with another object. Both are figurative. Check whether the sentence says one thing is another or makes it act like a person.
+      - text: "Sadyang pagmamalabis"
         rationale: |
-          Ang pangunahing epekto ay pagbibigay ng kilos na pantao, hindi eksaherasyon.
+          This treats impossible human actions as only an extreme overstatement. The scene cannot happen literally. Check which human behaviors are assigned to nonhuman things.
     explanation: |
-      Ang pagngiti at pagsasayaw ay iniuugnay sa araw at mga dahon na para bang kumikilos silang tao. Ito ay pagbibigay-katauhan.
+      The sun smiles and the leaves dance. These human actions are given to nonhuman things, creating personification.
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0015
@@ -304,19 +304,19 @@ questions:
     stem: |
       The old family dog finally "kicked the bucket" after fifteen happy years. What does the phrase mean in this context?
     choices:
-      - text: The dog died.
+      - text: "The dog died."
         correct: true
-      - text: The dog physically kicked a bucket.
+      - text: "The dog injured its leg."
         rationale: |
-          That literal reading does not fit the lifespan and death context supplied by the sentence.
-      - text: The dog became angry.
+          This treats the phrase as an injury from a literal kick. The verb "kicked" may suggest a leg injury. Check the established meaning of the whole phrase.
+      - text: "The dog became aggressive."
         rationale: |
-          The idiom does not describe anger here.
-      - text: The dog ran away.
+          This treats kicking as a sign of anger. Kicking can be aggressive when literal. Check how the phrase fits the reference to the dog's life.
+      - text: "The dog escaped its home."
         rationale: |
-          Nothing in the context suggests departure or escape.
+          This treats the ending as a departure from home. The word "finally" may suggest a final departure. Check the idiom's meaning in the lifespan context.
     explanation: |
-      In this context, "kick the bucket" is the idiom meaning "die." The same words could be literal in a different sentence, so context, not a rule that idioms can never be literal, determines the reading.
+      "Kicked the bucket" means died in this sentence. The reference to the dog's fifteen years supports a statement about the end of its life.
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0016
@@ -325,40 +325,40 @@ questions:
     stem: |
       "On the racetrack, the engine was a hungry beast devouring the distance." Which figure of speech is most clearly used in "the engine was a hungry beast"?
     choices:
-      - text: Metaphor
+      - text: "Metaphor"
         correct: true
-      - text: Simile
+      - text: "Simile"
         rationale: |
-          The comparison is direct and does not use "like" or "as."
-      - text: Personification
+          This treats direct identification as an explicit comparison. Both connect the engine with an animal. Check whether the phrase says "was" or "was like."
+      - text: "Personification"
         rationale: |
-          Although the image gives the engine animate qualities, the quoted phrase directly identifies the engine with another thing, a beast, so metaphor is the clearest classification being tested.
-      - text: Oxymoron
+          This treats any living trait as specifically human. Hunger belongs to animals as well as people. Check whether the quoted phrase identifies the engine with another thing.
+      - text: "Oxymoron"
         rationale: |
-          The phrase does not pair contradictory terms.
+          This treats engine and beast as contradictory terms. They are unlike things. Check whether their meanings conflict or are being compared.
     explanation: |
-      "The engine was a hungry beast" directly equates the engine with a beast to describe its power and appetite for speed. That direct comparison is a metaphor.
+      The engine is directly presented as a hungry beast. This comparison stresses its power and drive for speed, so it is a metaphor.
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0017
     type: idiom-meaning
     difficulty: hard
     stem: |
-      Ang pangungusap na "Ang ina ay ilaw ng tahanan" ay walang panandang tulad ng "parang" o "tulad ng." Anong tayutay ito?
+      "Nagtatrabaho si Elena bilang guro sa paaralan." Kahit walang "parang" o "tulad ng," paano ginagamit ang wika sa pangungusap?
     choices:
-      - text: Pagwawangis
+      - text: "Literal"
         correct: true
-      - text: Pagtutulad
+      - text: "Pagwawangis"
         rationale: |
-          Ang pagtutulad ay karaniwang may tahasang panandang paghahambing; wala nito sa pangungusap.
-      - text: Pagmamalabis
+          This assumes a sentence without a comparison marker must be a metaphor. The words "ay" or "bilang" can also occur in factual statements. Check whether two unlike things are compared.
+      - text: "Pagtutulad"
         rationale: |
-          Ang pangunahing estruktura ay direktang paghahambing.
-      - text: Pagbibigay-katauhan
+          This treats "bilang" as proof of a figurative comparison. A role word can look like a comparison marker. Check whether the sentence names an actual job.
+      - text: "Pagmamalabis"
         rationale: |
-          Hindi di-tao ang binibigyan ng katangiang pantao; ang ina ay inihahambing sa ilaw.
+          This treats describing a job as exaggerating it. A title can sound important. Check whether the sentence overstates any fact.
     explanation: |
-      Direktang ipinapantay ang ina sa ilaw nang walang panandang paghahambing, kaya ito ay pagwawangis.
+      The sentence gives a teacher's actual occupation. It reports a fact without a figurative comparison, so it is literal.
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0018
@@ -367,17 +367,60 @@ questions:
     stem: |
       Identify the figure of speech used in each sentence, in order: (1) "The stars winked at us from above." (2) "Her voice was music to my ears." (3) "The thunder roared like a lion."
     choices:
-      - text: (1) Personification, (2) Metaphor, (3) Simile
+      - text: "Personification, metaphor, simile"
         correct: true
-      - text: (1) Simile, (2) Personification, (3) Metaphor
+      - text: "Simile, personification, metaphor"
         rationale: |
-          "Winked" gives stars person-like behavior; "voice was music" is direct comparison; "like a lion" is an explicit comparison.
-      - text: (1) Metaphor, (2) Simile, (3) Personification
+          This assigns comparison labels to the human-action image and the direct-identification image in the wrong order. All three sentences are vivid, so the categories may blur. Check the wording of each comparison separately.
+      - text: "Metaphor, simile, personification"
         rationale: |
-          These labels do not match the structures of the three sentences.
-      - text: (1) Personification, (2) Simile, (3) Metaphor
+          This shifts the three devices to different sentences. The repeated nonliteral descriptions can make one label seem suitable everywhere. Check which sentence gives a human action and which ones compare things.
+      - text: "Personification, simile, metaphor"
         rationale: |
-          Items (2) and (3) are reversed: direct "was" comparison is metaphor, while "like" marks a simile.
+          This reverses the two kinds of comparison. Both describe one thing through another. Check whether each comparison uses "like".
     explanation: |
-      Stars "winking" is personification; a voice directly equated with music is metaphor; thunder compared with a lion using "like" is simile.
+      First, stars are given the human action of winking: personification. Second, the voice is directly called music: metaphor. Third, "like a lion" makes an explicit comparison: simile.
     approved: true
+
+  - id: q-vocabulary-idioms-and-figures-of-speech-0019
+    type: idiom-meaning
+    difficulty: hard
+    stem: |
+      Bumaba ang kita ng pamilya, kaya **naghigpit sila ng sinturon** at ipinagpaliban ang pagbili ng bagong kagamitan. Ano ang kahulugan ng sawikain?
+    choices:
+      - text: "Nagtipid"
+        correct: true
+      - text: "Naghanda sa paglalakbay"
+        rationale: |
+          This reads the belt image as travel preparation. Tightening clothing may seem useful before a journey. Check the financial problem in the sentence.
+      - text: "Naghiganti sa may utang"
+        rationale: |
+          This treats a financial difficulty as a conflict requiring revenge. Money problems may involve debts. Check whether the family reduces spending or attacks someone.
+      - text: "Nagpautang ng salapi"
+        rationale: |
+          This treats reducing expenses as giving money to others. Both concern household money. Check the effect of the lower income on the family's spending.
+    explanation: |
+      "Naghigpit ng sinturon" means cut spending. The family reduces expenses because its income has fallen.
+    approved: false
+
+  - id: q-vocabulary-idioms-and-figures-of-speech-0020
+    type: idiom-meaning
+    difficulty: exam
+    stem: |
+      Which feature makes "The new chance felt like a door opening" a simile, while "She worked as a teacher" is literal?
+    choices:
+      - text: "An explicit comparison"
+        correct: true
+      - text: "A fact about a job"
+        rationale: |
+          This treats "like" as naming an actual role. Some expressions with "as" or "like" are literal. Check whether a chance and a door are unlike things used in a comparison.
+      - text: "A repeated initial sound"
+        rationale: |
+          This focuses on word sounds instead of the comparison. The wording is easy to remember. Check whether several nearby words repeat a starting consonant.
+      - text: "An extreme exaggeration"
+        rationale: |
+          This treats a hopeful image as an inflated claim. A new chance can sound very promising. Check whether the sentence overstates an amount or compares unlike things.
+    explanation: |
+      "Like a door" compares the new chance with an opening that lets someone move forward. The comparison uses "like," so it is explicit.
+    approved: false
+

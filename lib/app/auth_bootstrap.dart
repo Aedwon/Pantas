@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/firebase_bootstrap.dart';
 import 'package:pantas/core/auth/account_transition_gateway.dart';
 import 'package:pantas/core/auth/auth_repository.dart';
+import 'package:pantas/core/auth/email_code_auth.dart';
+import 'package:pantas/core/auth/email_link_auth.dart';
 import 'package:pantas/core/auth/firebase_auth_functions_gateway.dart';
 import 'package:pantas/core/auth/firebase_auth_gateway.dart';
 import 'package:pantas/core/auth/firebase_google_sign_in_gateway.dart';
@@ -33,8 +35,20 @@ List<Override> authRepositoryOverrides(
         return buildUnavailableAuthRepository();
       }
 
+      final gateway = (authGatewayBuilder ?? FirebaseAuthGateway.new)();
       return AuthRepository(
-        gateway: (authGatewayBuilder ?? FirebaseAuthGateway.new)(),
+        gateway: gateway,
+        emailLinkGateway: kIsWeb && gateway is EmailLinkAuthGateway
+            ? gateway as EmailLinkAuthGateway
+            : null,
+        emailCodeGateway: FirebaseEmailCodeGateway(),
+        googleExchangeGateway: FirebaseGoogleAccountExchangeGateway(),
+        customTokenGateway: gateway is CustomTokenAuthGateway
+            ? gateway as CustomTokenAuthGateway
+            : null,
+        googlePopupGateway: kIsWeb && gateway is GooglePopupAuthGateway
+            ? gateway as GooglePopupAuthGateway
+            : null,
         googleGateway:
             (googleGatewayBuilder ?? FirebaseGoogleSignInGateway.new)(),
         functionsGateway:

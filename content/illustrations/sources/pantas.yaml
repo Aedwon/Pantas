@@ -1,0 +1,13 @@
+version: 1
+# Lesson figures made by Pantas (the founder visual assets). The lesson seed and the
+# content upload need a credit for every figure file and do not default one.
+assets:
+  - key: "reading-comprehension/text-types/visual-media#1"
+    credit: "Pantas"
+    target: "content/illustrations/reading-comprehension/text-types/visual-media/01-editorial-cartoon-example-large.png"
+  - key: "reading-comprehension/text-types/visual-media#2"
+    credit: "Pantas"
+    target: "content/illustrations/reading-comprehension/text-types/visual-media/02-panel-comic-strip-panel.png"
+  - key: "reading-comprehension/text-types/visual-media#3"
+    credit: "Pantas"
+    target: "content/illustrations/reading-comprehension/text-types/visual-media/03-editorial-cartoon-large-boulder.png"

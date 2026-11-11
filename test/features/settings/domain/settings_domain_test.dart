@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/settings/settings.dart';
 
 void main() {
+  test('default user settings study every day', () {
+    expect(UserSettings.defaults().studyDays, StudyDays.all);
+  });
+
   test('theme preference converts to Flutter theme modes', () {
     expect(ThemePreference.system.themeMode, ThemeMode.system);
     expect(ThemePreference.light.themeMode, ThemeMode.light);

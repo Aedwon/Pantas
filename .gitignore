@@ -62,6 +62,9 @@ coverage/
 
 # Generated content seed
 assets/seed/content.db
+assets/seed/lesson_links.json
+assets/seed/content.manifest.json
+assets/seed/content.manifest.sig
 
 # Crash reports and stray logs
 flutter_*.log
@@ -70,3 +73,14 @@ flutter_*.log
 # OS junk
 Thumbs.db
 ehthumbs.db
+
+# Functions build and installed dependencies
+functions/lib/
+functions/node_modules/
+tool/journeys/node_modules/
+# Non-secret Functions config per project (beta end time). Secrets stay in Secret Manager.
+!functions/.env.pantas-prod
+!functions/.env.pantas-staging
+
+# Golden test failure diffs
+test/goldens/**/failures/

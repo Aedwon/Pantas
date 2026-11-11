@@ -266,6 +266,6 @@ SyncIdentity _toSyncIdentity(AuthState state) {
     SignedInAuthState(:final user) => SyncIdentity(uid: user.uid),
     SignedOutAuthState() ||
     UnknownAuthState() =>
-      const SyncIdentity(uid: 'signed-out', isAnonymous: true),
+      const SyncIdentity(uid: SyncIdentity.signedOutUid, isAnonymous: true),
   };
 }

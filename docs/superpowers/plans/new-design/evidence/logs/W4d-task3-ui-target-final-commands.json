@@ -1,0 +1,90 @@
+[
+  {
+    "argv": [
+      "flutter",
+      "test",
+      "--no-pub",
+      "test/features/quiz",
+      "test/features/review_prompt",
+      "test/app",
+      "test/core/ui/components",
+      "--reporter",
+      "expanded"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-ui-target-final-0.txt"
+  },
+  {
+    "argv": [
+      "flutter",
+      "analyze",
+      "--no-pub",
+      "lib/app/routes/quiz_routes.dart",
+      "lib/core/ui/components/pantas_page.dart",
+      "lib/core/ui/components/pantas_button.dart",
+      "lib/core/ui/components/scope_picker.dart",
+      "lib/core/ui/components/segmented_switch.dart",
+      "lib/features/quiz/domain/picker/practice_summary.dart",
+      "lib/features/quiz/presentation/practice_picker_screen.dart",
+      "lib/features/quiz/presentation/practice_picker_providers.dart",
+      "test/core/ui/components/practice_page_extensions_test.dart",
+      "test/features/quiz/domain/picker/practice_design_rules_test.dart",
+      "test/features/quiz/domain/picker/practice_mode_match_test.dart",
+      "test/features/quiz/presentation/practice_picker_screen_test.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-ui-target-final-1.txt"
+  },
+  {
+    "argv": [
+      "flutter",
+      "analyze",
+      "--no-pub",
+      "lib",
+      "test",
+      "tool"
+    ],
+    "exit": 1,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-ui-target-final-2.txt"
+  },
+  {
+    "argv": [
+      "dart",
+      "format",
+      "--output=none",
+      "--set-exit-if-changed",
+      "lib",
+      "test",
+      "tool"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-ui-target-final-3.txt"
+  },
+  {
+    "argv": [
+      "dart",
+      "run",
+      "tool/check_layering.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-ui-target-final-4.txt"
+  },
+  {
+    "argv": [
+      "dart",
+      "run",
+      "tool/check_no_ai_attribution.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-ui-target-final-5.txt"
+  },
+  {
+    "argv": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exit": 2,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task3-ui-target-final-6.txt"
+  }
+]

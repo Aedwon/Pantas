@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-grammar-and-structure-parts-of-speech-0001	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-grammar-and-structure-parts-of-speech-0002	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-grammar-and-structure-parts-of-speech-0003	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-grammar-and-structure-parts-of-speech-0004	CORRECTED	SOLVED-MATCH	explanation;notes;stem	LOW	Stem referred to underlining or italics that were not provided.
+q-grammar-and-structure-parts-of-speech-0005	CORRECTED	SOLVED-MATCH	explanation;notes;stem	MEDIUM	Repeated sentence scenario; changed to an adverb commenting on a whole statement.
+q-grammar-and-structure-parts-of-speech-0006	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-grammar-and-structure-parts-of-speech-0007	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-grammar-and-structure-parts-of-speech-0008	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-grammar-and-structure-parts-of-speech-0009	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-grammar-and-structure-parts-of-speech-0010	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-grammar-and-structure-parts-of-speech-0011	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-grammar-and-structure-parts-of-speech-0012	CORRECTED	SOLVED-MATCH	explanation;notes;stem	LOW	Stem referred to underlining or italics that were not provided.
+q-grammar-and-structure-parts-of-speech-0013	CORRECTED	SOLVED-MATCH	explanation;notes;stem	LOW	Stem referred to underlining or italics that were not provided.
+q-grammar-and-structure-parts-of-speech-0014	CORRECTED	SOLVED-MATCH	explanation;notes;stem	LOW	Stem referred to underlining or italics that were not provided.
+q-grammar-and-structure-parts-of-speech-0015	CORRECTED	SOLVED-MATCH	explanation;notes;stem	LOW	Stem referred to underlining or italics that were not provided.
+q-grammar-and-structure-parts-of-speech-0016	CORRECTED	SOLVED-MATCH	explanation;notes;stem	LOW	Stem referred to underlining or italics that were not provided.
+q-grammar-and-structure-parts-of-speech-0017	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	MEDIUM	Throwaway alternatives and a much longer correct choice.
+q-grammar-and-structure-parts-of-speech-0018	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	MEDIUM	Throwaway alternatives and a much longer correct choice.
+q-grammar-and-structure-parts-of-speech-0019	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	MEDIUM	Classification system was unstated; modern grammars can classify before differently.
+q-grammar-and-structure-parts-of-speech-0020	CORRECTED	SOLVED-MATCH	explanation;notes;stem	MEDIUM	Classification system was unstated; modern grammars can classify before differently.

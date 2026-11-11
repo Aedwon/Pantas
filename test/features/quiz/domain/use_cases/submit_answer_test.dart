@@ -10,6 +10,7 @@ import 'package:pantas/core/storage/domain/review_log.dart';
 import 'package:pantas/core/storage/domain/review_state.dart';
 import 'package:pantas/features/quiz/data/repos/new_card_intro_repository.dart';
 import 'package:pantas/features/quiz/data/repos/quiz_session_repository.dart';
+import 'package:pantas/features/quiz/domain/quiz_session.dart';
 import 'package:pantas/features/quiz/domain/rating_heuristic.dart';
 import 'package:pantas/features/quiz/domain/use_cases/submit_answer.dart';
 
@@ -24,6 +25,15 @@ class _FakeReviewState extends Fake implements ReviewState {}
 void main() {
   setUpAll(() {
     registerFallbackValue(_FakeReviewState());
+    registerFallbackValue(
+      const AnswerOutcome(
+        questionId: 'fallback',
+        questionVersion: 1,
+        chosenChoiceId: 'fallback-a',
+        correctChoiceId: 'fallback-a',
+        responseMs: 1,
+      ),
+    );
   });
 
   late _MockReviewRepo repo;
@@ -49,7 +59,7 @@ void main() {
     when(
       () => sessions.recordAnswer(
         sessionId: any(named: 'sessionId'),
-        isCorrect: any(named: 'isCorrect'),
+        outcome: any(named: 'outcome'),
         answeredAt: any(named: 'answeredAt'),
       ),
     ).thenAnswer((_) async {});
@@ -106,7 +116,7 @@ void main() {
     verify(
       () => sessions.recordAnswer(
         sessionId: 'session',
-        isCorrect: true,
+        outcome: any(named: 'outcome'),
         answeredAt: DateTime.utc(2026, 5, 9),
       ),
     ).called(1);

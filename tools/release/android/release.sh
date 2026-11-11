@@ -14,7 +14,9 @@ EXPECTED_AGP_VERSION="8.11.1"
 EXPECTED_FIREBASE_PROJECT="pantas-prod"
 EXPECTED_ANDROID_PACKAGE="com.aedwon.pantas"
 CONTENT_DB_PATH="$REPO_ROOT/assets/seed/content.db"
-CONTENT_VERSION_SOURCE="$REPO_ROOT/lib/core/content/content_seed_version.dart"
+CONTENT_MANIFEST_PATH="$REPO_ROOT/assets/seed/content.manifest.json"
+CONTENT_SIGNATURE_PATH="$REPO_ROOT/assets/seed/content.manifest.sig"
+CONTENT_VERIFIER="$REPO_ROOT/tools/verify_content_package/verify_content_package.dart"
 FIREBASE_TARGET="$REPO_ROOT/android/app/src/prod/google-services.json"
 LOCAL_SIGNING_PROPERTIES="$REPO_ROOT/android/key.properties"
 AAB_PATH="$REPO_ROOT/build/app/outputs/bundle/prodRelease/app-prod-release.aab"
@@ -63,7 +65,7 @@ require_command python3
 require_env RELEASE_VERSION_NAME
 require_env RELEASE_VERSION_CODE
 require_env REVENUECAT_ANDROID_API_KEY
-require_env APPROVED_CONTENT_DB_SHA256
+require_env PANTAS_CONTENT_BOOTSTRAP_KEY_V1_B64
 require_env PROD_FIREBASE_GOOGLE_SERVICES_JSON
 
 case "$RELEASE_VERSION_NAME" in
@@ -79,37 +81,15 @@ case "$RELEASE_VERSION_CODE" in
 esac
 [ "$RELEASE_VERSION_CODE" -gt 0 ] || fail "RELEASE_VERSION_CODE must be greater than zero"
 
-approved_content_sha="$(printf '%s' "$APPROVED_CONTENT_DB_SHA256" | tr '[:upper:]' '[:lower:]')"
-printf '%s' "$approved_content_sha" | grep -Eq '^[0-9a-f]{64}$' || \
-    fail "APPROVED_CONTENT_DB_SHA256 must be a full SHA-256 digest"
+[ -f "$CONTENT_DB_PATH" ] || fail "protected assets/seed/content.db is missing"
+[ -f "$CONTENT_MANIFEST_PATH" ] || fail "protected assets/seed/content.manifest.json is missing"
+[ -f "$CONTENT_SIGNATURE_PATH" ] || fail "protected assets/seed/content.manifest.sig is missing"
+[ -f "$CONTENT_VERIFIER" ] || fail "protected content package verifier is missing"
 
-[ -f "$CONTENT_DB_PATH" ] || fail "approved assets/seed/content.db is missing"
-[ -f "$CONTENT_VERSION_SOURCE" ] || fail "tracked content seed version source is missing"
-
-actual_content_sha="$(sha256_file "$CONTENT_DB_PATH")"
-[ "$actual_content_sha" = "$approved_content_sha" ] || \
-    fail "assets/seed/content.db does not match the approved SHA-256"
-
-tracked_content_prefix="$(
-    python3 - "$CONTENT_VERSION_SOURCE" <<'PY'
-import pathlib
-import re
-import sys
-
-text = pathlib.Path(sys.argv[1]).read_text(encoding="utf-8")
-match = re.search(r"^const contentSeedVersion = '([0-9a-f]+)';$", text, re.MULTILINE)
-if match is None:
-    raise SystemExit(1)
-print(match.group(1))
-PY
-)" || fail "could not read the tracked content seed version"
-
-printf '%s' "$tracked_content_prefix" | grep -Eq '^[0-9a-f]{8,64}$' || \
-    fail "tracked content seed version is not a valid SHA-256 prefix"
-case "$actual_content_sha" in
-    "$tracked_content_prefix"*) ;;
-    *) fail "approved content DB does not match the tracked content seed version" ;;
-esac
+dart run "$CONTENT_VERIFIER" \
+    "$CONTENT_DB_PATH" \
+    "$CONTENT_MANIFEST_PATH" \
+    "$CONTENT_SIGNATURE_PATH" || fail "protected content package verification failed"
 
 firebase_source="$PROD_FIREBASE_GOOGLE_SERVICES_JSON"
 [ -f "$firebase_source" ] || fail "production Firebase google-services.json source is missing"
@@ -243,6 +223,7 @@ flutter build appbundle \
     --build-name "$RELEASE_VERSION_NAME" \
     --build-number "$RELEASE_VERSION_CODE" \
     --dart-define=BUILD_NUMBER="$RELEASE_VERSION_CODE" \
+    --dart-define=PANTAS_CONTENT_BOOTSTRAP_KEY_V1_B64="$PANTAS_CONTENT_BOOTSTRAP_KEY_V1_B64" \
     --dart-define=REVENUECAT_ANDROID_API_KEY="$REVENUECAT_ANDROID_API_KEY"
 
 [ -f "$AAB_PATH" ] || fail "expected production AAB was not produced"

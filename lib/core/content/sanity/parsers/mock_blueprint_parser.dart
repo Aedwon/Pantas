@@ -25,6 +25,7 @@ ContentMockBlueprintsCompanion parseMockBlueprint(Map<String, Object?> doc) {
       message: 'expected list',
     );
   }
+  BlueprintValue.validateSections(sections.cast<Object?>());
   final rawSource = doc['source'];
   final parsedSource = _source(rawSource);
   final sourceStr = version == 1
@@ -45,6 +46,7 @@ ContentMockBlueprintsCompanion parseMockBlueprint(Map<String, Object?> doc) {
     sectionalTiming: Value(_timing(doc['sectionalTiming'])),
     scoreBandsJson: Value(_scoreBands(doc['scoreBands'])),
     totalPublishedItems: Value(_positiveInt(doc['totalPublishedItems'])),
+    unscoredItems: Value(_positiveInt(doc['unscoredItems'])),
     source: Value(sourceStr),
     sourceNote: Value(sourceNoteStr),
   );

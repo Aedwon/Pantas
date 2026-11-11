@@ -1,0 +1,25 @@
+Analyzing 13 items...
+
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • lib/features/quiz/presentation/quiz_controller.dart:193:81 • lines_longer_than_80_chars
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/flagged_ui_launch_boundary_test.dart:50:29 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/flagged_ui_launch_boundary_test.dart:59:70 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/flagged_ui_launch_boundary_test.dart:61:68 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/flagged_ui_launch_boundary_test.dart:62:5 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/flagged_ui_launch_boundary_test.dart:62:6 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/flagged_ui_launch_boundary_test.dart:71:65 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/flagged_ui_launch_boundary_test.dart:74:71 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/flagged_ui_launch_boundary_test.dart:75:5 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/flagged_ui_launch_boundary_test.dart:75:6 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/flagged_ui_launch_boundary_test.dart:79:59 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/flagged_ui_launch_boundary_test.dart:79:60 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/flagged_ui_launch_boundary_test.dart:79:61 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/flagged_ui_launch_boundary_test.dart:85:70 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/flagged_ui_launch_boundary_test.dart:93:70 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/flagged_ui_launch_boundary_test.dart:101:70 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/flagged_ui_launch_boundary_test.dart:112:70 • require_trailing_commas
+   info • Unnecessary duplication of receiver. Try using a cascade to avoid the duplication • test/features/quiz/presentation/practice_picker_screen_test.dart:277:5 • cascade_invocations
+   info • Use 'const' for final variables initialized to a constant value. Try replacing 'final' with 'const' • test/features/quiz/presentation/quick_launch_boundary_test.dart:170:5 • prefer_const_declarations
+   info • Unnecessary duplication of receiver. Try using a cascade to avoid the duplication • test/features/quiz/presentation/quick_launch_boundary_test.dart:185:5 • cascade_invocations
+   info • Use 'const' for final variables initialized to a constant value. Try replacing 'final' with 'const' • test/features/quiz/presentation/quick_launch_boundary_test.dart:234:5 • prefer_const_declarations
+
+21 issues found. (ran in 1.6s)

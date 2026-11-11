@@ -1,15 +1,29 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/app/app.dart';
+import 'package:pantas/app/beta_gate.dart';
 import 'package:pantas/app/flavor.dart';
 import 'package:pantas/app/router.dart';
+import 'package:pantas/app/start_location.dart';
+import 'package:pantas/core/auth/beta_access.dart';
 import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/pantas_page.dart';
+import 'package:pantas/features/guardian/application/guardian_providers.dart';
+import 'package:pantas/features/guardian/domain/guardian_consent.dart';
+import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_setup_route.dart';
 import 'package:pantas/features/notifications/application/notifications_providers.dart';
+import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
 import 'package:pantas/features/paywall/paywall.dart';
+import 'package:pantas/features/settings/data/settings_repository.dart';
+import 'package:pantas/features/settings/presentation/pages/pro_page.dart';
+import 'package:pantas/features/shell/presentation/app_shell.dart';
 
+import '../features/guardian/fake_guardian_gateway.dart';
 import '../helpers/in_memory_database.dart';
 
 // ignore_for_file: cascade_invocations
@@ -21,6 +35,7 @@ void main() {
   setUp(() async {
     db = inMemoryDatabase();
     contentDb = openTestContentDatabase();
+    await DriftSettingsRepository(db).recordPolicyAcceptance();
     await seedContentExam(
       contentDb,
       examId: 'cse',
@@ -37,14 +52,28 @@ void main() {
     );
   });
 
-  tearDown(() => db.close());
+  tearDown(() async {
+    forgetStartLocation();
+    await db.close();
+  });
 
-  Future<void> pumpApp(WidgetTester tester) async {
+  Future<void> pumpApp(
+    WidgetTester tester, {
+    FakeGuardianGateway? guardian,
+    List<Override> extraOverrides = const [],
+  }) async {
+    final catalog = await tester
+        .runAsync(() => ExamCatalogRepository(contentDb).watchAll().first);
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          ...extraOverrides,
           appDatabaseProvider.overrideWithValue(db),
+          examPickerCatalogProvider
+              .overrideWith((ref) => Stream.value(catalog!)),
           contentDatabaseProvider.overrideWithValue(contentDb),
+          if (guardian != null)
+            guardianGatewayProvider.overrideWithValue(guardian),
           entitlementProvider.overrideWith(
             (_) => Stream.value(const Entitlement.free()),
           ),
@@ -53,12 +82,263 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
+    addTearDown(() async {
+      await tester.pumpWidget(const SizedBox.shrink());
+      await tester.pumpAndSettle();
+    });
   }
+
+  testWidgets('beta gate holds an unselected student before onboarding',
+      (tester) async {
+    await pumpApp(
+      tester,
+      extraOverrides: [
+        betaGateActiveProvider.overrideWithValue(true),
+        betaAccessProvider.overrideWith((ref) async => BetaAccess.denied),
+      ],
+    );
+    expect(find.text('Use Google Instead'), findsOneWidget);
+    expect(find.byType(AppShell), findsNothing);
+    final container =
+        ProviderScope.containerOf(tester.element(find.byType(App)));
+    final router = container.read(routerProvider);
+    expect(router.routeInformationProvider.value.uri.path, '/beta');
+    router.go('/legal/privacy');
+    await tester.pumpAndSettle();
+    expect(router.routeInformationProvider.value.uri.path, '/legal/privacy');
+    router.go('/guardian');
+    await tester.pumpAndSettle();
+    expect(router.routeInformationProvider.value.uri.path, '/guardian');
+  });
+
+  testWidgets('selected beta student continues into normal onboarding',
+      (tester) async {
+    await pumpApp(
+      tester,
+      extraOverrides: [
+        betaGateActiveProvider.overrideWithValue(true),
+        betaAccessProvider.overrideWith((ref) async => BetaAccess.open),
+      ],
+    );
+    final container =
+        ProviderScope.containerOf(tester.element(find.byType(App)));
+    expect(
+      container.read(routerProvider).routeInformationProvider.value.uri.path,
+      '/onboarding',
+    );
+    expect(find.text('Use Google Instead'), findsNothing);
+  });
+
+  testWidgets('disabled beta gate leaves anonymous onboarding unchanged',
+      (tester) async {
+    await pumpApp(
+      tester,
+      extraOverrides: [
+        betaGateActiveProvider.overrideWithValue(false),
+        betaAccessProvider.overrideWith((ref) async => BetaAccess.denied),
+      ],
+    );
+    final container =
+        ProviderScope.containerOf(tester.element(find.byType(App)));
+    expect(
+      container.read(routerProvider).routeInformationProvider.value.uri.path,
+      '/onboarding',
+    );
+    expect(find.text('Use Google Instead'), findsNothing);
+  });
+
+  testWidgets('missing server and local settings opens the exam step',
+      (tester) async {
+    await AppPreferencesRepository(db).setPassedAgeGate(value: true);
+    await AppPreferencesRepository(db).setSelectedExamId('cse');
+    await AppPreferencesRepository(db).setCompletedOnboarding(value: true);
+    await pumpApp(tester);
+    final container =
+        ProviderScope.containerOf(tester.element(find.byType(App)));
+    container.read(studyNeedsExamSettingsProvider.notifier).state = true;
+    await tester.pumpAndSettle();
+    expect(
+      container.read(routerProvider).routeInformationProvider.value.uri.path,
+      '/onboarding',
+    );
+    expect(find.text('Which exam are you taking?'), findsOneWidget);
+  });
+
+  group('an address that matches no page', () {
+    Future<void> finishOnboarding() async {
+      final prefs = AppPreferencesRepository(db);
+      await prefs.setPassedAgeGate(value: true);
+      await prefs.setSelectedExamId('cse');
+      await prefs.setCompletedOnboarding(value: true);
+    }
+
+    String pathOf(WidgetTester tester) => ProviderScope.containerOf(
+          tester.element(find.byType(App)),
+        ).read(routerProvider).routeInformationProvider.value.uri.path;
+
+    testWidgets('opened directly starts at Home, not the default error page',
+        (tester) async {
+      await finishOnboarding();
+      rememberStartLocation(
+        Uri.parse('https://app.example.test/nowhere/at/all'),
+        isWeb: true,
+      );
+      await pumpApp(tester);
+      expect(pathOf(tester), '/home');
+      expect(find.byType(AppShell), findsOneWidget);
+    });
+
+    testWidgets('reached from inside the app goes to Home', (tester) async {
+      await finishOnboarding();
+      await pumpApp(tester);
+      ProviderScope.containerOf(tester.element(find.byType(App)))
+          .read(routerProvider)
+          .go('/settings/not-a-page');
+      await tester.pumpAndSettle();
+      expect(pathOf(tester), '/home');
+      expect(find.byType(AppShell), findsOneWidget);
+    });
+
+    testWidgets('a redirect-based route still redirects', (tester) async {
+      await finishOnboarding();
+      await pumpApp(tester);
+      ProviderScope.containerOf(tester.element(find.byType(App)))
+          .read(routerProvider)
+          .go('/pro?checkout=success&ref=pm_1');
+      await tester.pumpAndSettle();
+      expect(pathOf(tester), '/settings/pro');
+    });
+  });
+
+  group('error recovery rebuilds the router', () {
+    String pathOf(WidgetTester tester) => ProviderScope.containerOf(
+          tester.element(find.byType(App)),
+        ).read(routerProvider).routeInformationProvider.value.uri.path;
+
+    testWidgets('at Home, not at the address the app first opened',
+        (tester) async {
+      final prefs = AppPreferencesRepository(db);
+      await prefs.setPassedAgeGate(value: true);
+      await prefs.setSelectedExamId('cse');
+      await prefs.setCompletedOnboarding(value: true);
+      rememberStartLocation(
+        Uri.parse('https://app.example.test/settings/about'),
+        isWeb: true,
+      );
+      await pumpApp(tester);
+      expect(pathOf(tester), '/settings/about');
+      ProviderScope.containerOf(tester.element(find.byType(App)))
+          .invalidate(routerProvider);
+      await tester.pumpAndSettle();
+      expect(pathOf(tester), '/home');
+    });
+  });
+
+  group('guardian consent', () {
+    String pathOf(WidgetTester tester) => ProviderScope.containerOf(
+          tester.element(find.byType(App)),
+        ).read(routerProvider).routeInformationProvider.value.uri.path;
+
+    testWidgets('a minor with a pending request boots onto Waiting, no tabs',
+        (tester) async {
+      await AppPreferencesRepository(db).setAgeGroup('minor');
+      final guardian = FakeGuardianGateway()
+        ..current = GuardianStatus(
+          status: GuardianConsentStatus.pending,
+          maskedEmail: 'm***@g***.com',
+          expiresAt: DateTime.utc(2026, 11, 9),
+        );
+      await pumpApp(tester, guardian: guardian);
+      expect(pathOf(tester), '/guardian/waiting');
+      expect(find.text('Waiting for your parent or guardian'), findsOneWidget);
+      expect(find.byType(AppShell), findsNothing);
+    });
+
+    testWidgets('a minor who finished everything else is still held',
+        (tester) async {
+      final prefs = AppPreferencesRepository(db);
+      await prefs.setAgeGroup('minor');
+      await prefs.setPassedAgeGate(value: true);
+      await prefs.setSelectedExamId('cse');
+      await prefs.setCompletedOnboarding(value: true);
+      final guardian = FakeGuardianGateway()
+        ..current = const GuardianStatus(
+          status: GuardianConsentStatus.declined,
+          maskedEmail: 'm***@g***.com',
+        );
+      await pumpApp(tester, guardian: guardian);
+      expect(pathOf(tester), '/guardian/waiting');
+    });
+
+    testWidgets('a minor with no request yet resumes at the guardian form',
+        (tester) async {
+      await AppPreferencesRepository(db).setAgeGroup('minor');
+      await pumpApp(tester, guardian: FakeGuardianGateway());
+      expect(pathOf(tester), '/onboarding');
+      expect(
+        find.text('A parent or guardian needs to agree first'),
+        findsOneWidget,
+      );
+    });
+
+    testWidgets('a confirmed minor goes on to Terms', (tester) async {
+      final prefs = AppPreferencesRepository(db);
+      await prefs.setAgeGroup('minor');
+      await prefs.setPassedAgeGate(value: true);
+      final guardian = FakeGuardianGateway()
+        ..current = const GuardianStatus(
+          status: GuardianConsentStatus.confirmed,
+        );
+      await pumpApp(tester, guardian: guardian);
+      expect(pathOf(tester), '/onboarding');
+      expect(find.text('Which exam are you taking?'), findsOneWidget);
+    });
+
+    testWidgets('Waiting is out of reach for a student who is not held',
+        (tester) async {
+      final prefs = AppPreferencesRepository(db);
+      await prefs.setPassedAgeGate(value: true);
+      await prefs.setSelectedExamId('cse');
+      await prefs.setCompletedOnboarding(value: true);
+      await pumpApp(tester);
+      final container =
+          ProviderScope.containerOf(tester.element(find.byType(App)));
+      container.read(routerProvider).go('/guardian/waiting');
+      await tester.pumpAndSettle();
+      expect(pathOf(tester), isNot('/guardian/waiting'));
+    });
+
+    testWidgets('the guardian link opens for a signed-out visitor',
+        (tester) async {
+      final guardian = FakeGuardianGateway()
+        ..link = GuardianLinkOpen(
+          expiresAt: DateTime.utc(2026, 11, 9),
+        );
+      await pumpApp(tester, guardian: guardian);
+      final container =
+          ProviderScope.containerOf(tester.element(find.byType(App)));
+      container.read(routerProvider).go('/guardian?token=abc');
+      await tester.pumpAndSettle();
+      expect(pathOf(tester), '/guardian');
+      expect(find.text("Confirm your child's account"), findsOneWidget);
+      expect(guardian.answers, isEmpty, reason: 'opening never confirms');
+    });
+
+    testWidgets('legal pages open for the guardian before any onboarding',
+        (tester) async {
+      await pumpApp(tester, guardian: FakeGuardianGateway());
+      final container =
+          ProviderScope.containerOf(tester.element(find.byType(App)));
+      container.read(routerProvider).go('/legal/terms');
+      await tester.pumpAndSettle();
+      expect(pathOf(tester), '/legal/terms');
+    });
+  });
 
   testWidgets('age gate not passed → boot lands on onboarding welcome',
       (tester) async {
     await pumpApp(tester);
-    expect(find.text('Build your study plan'), findsOneWidget);
+    expect(find.text('Welcome to Pantas'), findsOneWidget);
   });
 
   testWidgets(
@@ -66,7 +346,7 @@ void main() {
       (tester) async {
     await AppPreferencesRepository(db).setPassedAgeGate(value: true);
     await pumpApp(tester);
-    expect(find.text('Choose your exam'), findsOneWidget);
+    expect(find.text('Which exam are you taking?'), findsOneWidget);
   });
 
   testWidgets('age gate passed, valid selection → boot lands on home',
@@ -76,10 +356,10 @@ void main() {
     await NotificationRationaleRepository(db).markShown();
     await pumpApp(tester);
     expect(find.text('Home'), findsWidgets);
-    expect(find.text('Choose your exam'), findsNothing);
+    expect(find.text('Which exam are you taking?'), findsNothing);
   });
 
-  testWidgets('completed onboarding can continue to notification rationale',
+  testWidgets('completed onboarding goes home without a rationale gate',
       (tester) async {
     await AppPreferencesRepository(db).setPassedAgeGate(value: true);
     await AppPreferencesRepository(db).setSelectedExamId('cse');
@@ -92,10 +372,10 @@ void main() {
     router.go('/onboarding');
     await tester.pumpAndSettle();
 
-    expect(find.text("I'll be your coach."), findsOneWidget);
+    expect(find.text("I'll be your coach."), findsNothing);
     expect(
       router.routerDelegate.currentConfiguration.uri.toString(),
-      '/notifications/rationale',
+      '/home',
     );
   });
 
@@ -117,7 +397,7 @@ void main() {
     expect(find.byType(MockSetupRoute), findsOneWidget);
   });
 
-  testWidgets('/paywall route builds real paywall page', (tester) async {
+  testWidgets('the Settings Pro page remains reachable', (tester) async {
     await AppPreferencesRepository(db).setPassedAgeGate(value: true);
     await AppPreferencesRepository(db).setSelectedExamId('cse');
     await pumpApp(tester);
@@ -126,15 +406,40 @@ void main() {
       tester.element(find.text('Home').first),
     );
     final router = container.read(routerProvider);
-    router.go('/paywall?returnTo=/plan');
+    router.go('/settings/pro');
     await tester.pumpAndSettle();
 
-    expect(find.byType(PaywallPage), findsOneWidget);
-    expect(find.text('Try Pro'), findsOneWidget);
+    expect(find.byType(ProPage), findsOneWidget);
+    expect(
+      router.routerDelegate.currentConfiguration.uri.path,
+      '/settings/pro',
+    );
   });
 
-  testWidgets('/settings renders Settings home; /more redirects there',
+  testWidgets('/pro checkout path redirects with every query parameter',
       (tester) async {
+    await AppPreferencesRepository(db).setPassedAgeGate(value: true);
+    await AppPreferencesRepository(db).setSelectedExamId('cse');
+    await pumpApp(tester);
+
+    final container = ProviderScope.containerOf(
+      tester.element(find.text('Home').first),
+    );
+    final router = container.read(routerProvider);
+    router.go('/pro?checkout=success&ref=x&tag=one&tag=two');
+    await tester.pumpAndSettle();
+
+    expect(find.byType(ProPage), findsOneWidget);
+    final uri = router.routerDelegate.currentConfiguration.uri;
+    expect(uri.path, '/settings/pro');
+    expect(uri.queryParametersAll, {
+      'checkout': ['success'],
+      'ref': ['x'],
+      'tag': ['one', 'two'],
+    });
+  });
+
+  testWidgets('/settings renders Settings home', (tester) async {
     await AppPreferencesRepository(db).setPassedAgeGate(value: true);
     await AppPreferencesRepository(db).setSelectedExamId('cse');
     await pumpApp(tester);
@@ -147,16 +452,24 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Settings'), findsWidgets);
-    expect(find.text('How you practice'), findsOneWidget);
+    expect(find.text('Practice'), findsOneWidget);
+    expect(find.byType(PantasPage), findsOneWidget);
+    expect(
+      find.ancestor(
+        of: find.byType(PantasPage),
+        matching: find.byType(AppShell),
+      ),
+      findsOneWidget,
+    );
 
-    router.go('/more');
+    router.go('/settings');
     await tester.pumpAndSettle();
 
     expect(
       router.routerDelegate.currentConfiguration.uri.toString(),
       '/settings',
     );
-    expect(find.text('How you practice'), findsOneWidget);
+    expect(find.text('Practice'), findsOneWidget);
   });
 
   testWidgets('settings detail routes build', (tester) async {
@@ -171,7 +484,7 @@ void main() {
 
     router.go('/settings/account');
     await tester.pumpAndSettle();
-    expect(find.text('Account'), findsWidgets);
+    expect(find.text('Pantas ID'), findsOneWidget);
 
     router.go('/settings/backup');
     await tester.pumpAndSettle();
@@ -179,13 +492,11 @@ void main() {
 
     router.go('/settings/about');
     await tester.pumpAndSettle();
-    expect(find.text('About'), findsWidgets);
+    expect(find.text('Pantas'), findsOneWidget);
 
-    // The old path is kept as a redirect, so a link from an older build still
-    // lands somewhere real. The page itself is now named Pro.
-    router.go('/settings/subscription');
+    router.go('/settings/pro');
     await tester.pumpAndSettle();
-    expect(find.text('Pro'), findsWidgets);
+    expect(find.text('PANTAS PRO'), findsOneWidget);
   });
 
   testWidgets('/legal/privacy route builds real legal page', (tester) async {
@@ -202,54 +513,8 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Privacy Policy'), findsWidgets);
-    expect(find.textContaining('RA 10173'), findsWidgets);
+    expect(find.text('Your rights'), findsOneWidget);
     expect(find.textContaining('Legal: privacy'), findsNothing);
-  });
-
-  testWidgets('free user opening Pro dossier route redirects to paywall',
-      (tester) async {
-    await AppPreferencesRepository(db).setPassedAgeGate(value: true);
-    await AppPreferencesRepository(db).setSelectedExamId('cse');
-    await pumpApp(tester);
-
-    final container = ProviderScope.containerOf(
-      tester.element(find.text('Home').first),
-    );
-    final router = container.read(routerProvider);
-    router.go('/plan/dossier/mock_1');
-    await tester.pumpAndSettle();
-
-    expect(find.text('Try Pro'), findsOneWidget);
-  });
-
-  testWidgets('pro user opening Pro dossier route reaches placeholder',
-      (tester) async {
-    await AppPreferencesRepository(db).setPassedAgeGate(value: true);
-    await AppPreferencesRepository(db).setSelectedExamId('cse');
-    await tester.pumpWidget(
-      ProviderScope(
-        overrides: [
-          appDatabaseProvider.overrideWithValue(db),
-          contentDatabaseProvider.overrideWithValue(contentDb),
-          entitlementProvider.overrideWith(
-            (_) => Stream.value(
-              const Entitlement(plan: EntitlementPlan.monthly),
-            ),
-          ),
-        ],
-        child: const App(flavor: Flavor.dev),
-      ),
-    );
-    await tester.pumpAndSettle();
-
-    final container = ProviderScope.containerOf(
-      tester.element(find.text('Home').first),
-    );
-    final router = container.read(routerProvider);
-    router.go('/plan/dossier/mock_1');
-    await tester.pumpAndSettle();
-
-    expect(find.text('Pro dossier: mock_1'), findsOneWidget);
   });
 
   testWidgets('age gate passed, invalid persisted exam id → onboarding picker',
@@ -257,6 +522,6 @@ void main() {
     await AppPreferencesRepository(db).setPassedAgeGate(value: true);
     await AppPreferencesRepository(db).setSelectedExamId('removed-exam');
     await pumpApp(tester);
-    expect(find.text('Choose your exam'), findsOneWidget);
+    expect(find.text('Which exam are you taking?'), findsOneWidget);
   });
 }

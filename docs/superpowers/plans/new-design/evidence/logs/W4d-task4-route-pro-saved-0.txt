@@ -1,0 +1,11 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_route_coverage_test.dart
+00:00 +0: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_chrome_test.dart: the bar counts the position, not the score
+00:00 +1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_route_coverage_test.dart: ordinary route applies current pantas_cs_monthly coverage paused=false
+00:00 +2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_route_coverage_test.dart: ordinary route applies current pantas_cs_monthly coverage paused=false
+00:01 +3: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_chrome_test.dart: the counter opens the grid
+00:01 +4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_chrome_test.dart: the counter opens the grid
+00:01 +5: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_chrome_test.dart: the counter opens the grid
+00:01 +6: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_chrome_test.dart: the counter names the current question and is at least 44dp
+00:01 +7: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_chrome_test.dart: the flag action names and exposes its set state
+00:01 +8: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_chrome_test.dart: the counter opens Questions with the actual answered total
+00:01 +9: All tests passed!

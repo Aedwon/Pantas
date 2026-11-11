@@ -1,0 +1,12 @@
+[
+  {"digits":"123456782","valid":true},
+  {"digits":"100000009","valid":true},
+  {"digits":"999999998","valid":true},
+  {"digits":"876543216","valid":true},
+  {"digits":"123456783","valid":false},
+  {"digits":"000000000","valid":false},
+  {"digits":"12345678","valid":false},
+  {"digits":"1234567820","valid":false},
+  {"digits":"123 456 782","valid":false},
+  {"digits":"abcdefghi","valid":false}
+]

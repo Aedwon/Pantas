@@ -1,0 +1,29 @@
+Analyzing 3 items...
+
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/core/ui/components/new_design/question_grid_sheet.dart:136:61 • require_trailing_commas
+   info • 'onReorder' is deprecated and shouldn't be used. Use the onReorderItem callback instead. The onReorderItem callback adjusts the newIndex parameter for a removed item at the oldIndex. This feature was deprecated after v3.41.0-0.0.pre. Try replacing the use of the deprecated member with the replacement • lib/features/lesson/presentation/widgets/bookmarks_sheet.dart:238:21 • deprecated_member_use
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • lib/features/quiz/domain/models/review_batch_position.dart:3:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/application/review_batch_scope_test.dart:15:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/data/review_batch_repository_test.dart:111:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/data/review_batch_repository_test.dart:170:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/data/review_batch_repository_test.dart:179:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/data/review_batch_repository_test.dart:190:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/data/review_batch_repository_test.dart:226:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/data/review_batch_repository_test.dart:241:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/data/review_batch_repository_test.dart:298:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/data/review_batch_repository_test.dart:324:81 • lines_longer_than_80_chars
+warning • The value of the local variable 'first' isn't used. Try removing the variable or using it • test/features/quiz/data/review_batch_repository_test.dart:326:11 • unused_local_variable
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/data/review_batch_repository_test.dart:363:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/data/review_batch_repository_test.dart:386:81 • lines_longer_than_80_chars
+warning • The value of the local variable 'first' isn't used. Try removing the variable or using it • test/features/quiz/data/review_batch_repository_test.dart:417:11 • unused_local_variable
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/data/review_batch_repository_test.dart:567:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/data/review_batch_repository_test.dart:605:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/data/review_batch_repository_test.dart:626:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/data/review_batch_repository_test.dart:674:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/data/review_batch_repository_test.dart:695:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/data/review_batch_repository_test.dart:768:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/data/review_batch_repository_test.dart:850:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/data/review_batch_repository_test.dart:906:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/presentation/quiz_question_screen_test.dart:661:81 • lines_longer_than_80_chars
+
+25 issues found. (ran in 3.6s)

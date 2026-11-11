@@ -71,8 +71,8 @@ class FigureMatrixFigure extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.colors;
-    final styles = context.textStyles;
+    final styles = context.type;
+    final palette = SeriesPalette.of(context, cells);
     return Semantics(
       label: 'A $rows by $cols grid of figures with one cell left empty.',
       child: SizedBox(
@@ -82,9 +82,8 @@ class FigureMatrixFigure extends StatelessWidget {
             rows: rows,
             cols: cols,
             cells: cells,
-            ink: colors.ink,
-            faint: colors.ruleFaint,
-            markStyle: styles.headlineSmall.copyWith(color: colors.inkMuted),
+            palette: palette,
+            markStyle: styles.emphasized.copyWith(color: palette.mark),
           ),
           size: Size.infinite,
         ),
@@ -98,24 +97,23 @@ class _MatrixPainter extends CustomPainter {
     required this.rows,
     required this.cols,
     required this.cells,
-    required this.ink,
-    required this.faint,
+    required this.palette,
     required this.markStyle,
   });
 
   final int rows;
   final int cols;
   final List<SeriesItem?> cells;
-  final Color ink;
-  final Color faint;
+  final SeriesPalette palette;
   final TextStyle markStyle;
 
   @override
   void paint(Canvas canvas, Size size) {
+    palette.paintPanel(canvas, size);
     final rule = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1
-      ..color = faint;
+      ..color = palette.frame;
 
     final cellW = size.width / cols;
     final cellH = size.height / rows;
@@ -151,11 +149,14 @@ class _MatrixPainter extends CustomPainter {
         mark.paint(canvas, centre - Offset(mark.width / 2, mark.height / 2));
         continue;
       }
-      FigureSeriesFigure.paintItem(canvas, cell, centre, radius, ink);
+      FigureSeriesFigure.paintItem(canvas, cell, centre, radius, palette);
     }
   }
 
   @override
   bool shouldRepaint(_MatrixPainter old) =>
-      old.rows != rows || old.cols != cols || old.ink != ink;
+      old.rows != rows ||
+      old.cols != cols ||
+      old.palette != palette ||
+      old.cells != cells;
 }

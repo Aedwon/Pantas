@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:drift/drift.dart' show Variable;
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/sync/bootstrap/full_pull.dart';
 import 'package:pantas/core/sync/bootstrap/full_push.dart';
@@ -7,9 +8,11 @@ import 'package:pantas/core/sync/eligibility/sync_claim_gateway.dart';
 import 'package:pantas/core/sync/eligibility/sync_entitlement.dart';
 import 'package:pantas/core/sync/engine/generation_repository.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
+import 'package:pantas/core/sync/engine/sync_held_generation.dart';
 import 'package:pantas/core/sync/engine/sync_meaningful_progress.dart';
 import 'package:pantas/core/sync/sync_coordinator.dart';
 import 'package:pantas/core/sync/sync_status.dart';
+import 'package:pantas/core/telemetry/client_report.dart';
 
 typedef GenerationRepositoryFactory = GenerationRepository Function(String uid);
 
@@ -59,7 +62,9 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
     required SyncCoordinator coordinator,
     required SyncRuntimeEngine engine,
     Stream<SyncRuntimeEvent>? runtimeEvents,
+    DateTime Function()? now,
   })  : _db = db,
+        _now = now ?? DateTime.now,
         _claimGateway = claimGateway,
         _activeContextStore = activeContextStore,
         _generationRepositoryForUid = generationRepositoryForUid,
@@ -68,7 +73,11 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
     _runtimeEventSubscription = runtimeEvents?.listen(_handleRuntimeEvent);
   }
 
+  /// Prefix of the sync_meta key that holds an account's last backup time.
+  static const lastBackupKeyPrefix = 'last_backup_at:';
+
   final AppDatabase _db;
+  final DateTime Function() _now;
   final SyncClaimGateway _claimGateway;
   final SyncActiveContextStore _activeContextStore;
   final GenerationRepositoryFactory _generationRepositoryForUid;
@@ -79,10 +88,13 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
 
   Future<void> _serialTail = Future<void>.value();
   SyncStatus _status = const SyncOff();
+  SyncIdentity? _identity;
+  SyncEntitlement? _entitlement;
   _PendingReconciliation? _pendingReconciliation;
   int _transitionToken = 0;
   int _runtimeEventToken = 0;
   bool _activeSync = false;
+  Timer? _bootstrapRetry;
 
   SyncStatus get status => _status;
 
@@ -96,13 +108,28 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
     required SyncEntitlement entitlement,
   }) async {
     final token = ++_transitionToken;
+    _identity = identity;
+    _entitlement = entitlement;
+    _cancelBootstrapRetry();
     _pendingReconciliation = null;
+    // At once, so the new account's first changes are not tied to the old one.
+    // Again in the queue, after a push or pull already running has finished.
+    await _forgetOtherAccountsGeneration(identity);
+
+    final snapshot = await _activeContextStore.readSnapshot();
+    if (identity.uid == SyncIdentity.signedOutUid ||
+        (!identity.isAnonymous &&
+            identity.uid == snapshot?.rememberedContext?.uid)) {
+      await _activeContextStore.suspendStable();
+    } else {
+      await _activeContextStore.clearStable();
+    }
 
     if (identity.isAnonymous || entitlement != SyncEntitlement.pro) {
       _emit(const SyncOff());
-      await _activeContextStore.clearStable();
       return _enqueue(() async {
         await _engine.stop();
+        await _forgetOtherAccountsGeneration(identity);
         if (_isCurrent(token)) {
           _activeSync = false;
         }
@@ -110,8 +137,25 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
     }
 
     _emit(const SyncActivating());
-    await _activeContextStore.clearStable();
-    return _enqueue(() => _activate(identity: identity, token: token));
+    return _enqueue(() async {
+      await _forgetOtherAccountsGeneration(identity);
+      await _activate(identity: identity, token: token);
+    });
+  }
+
+  /// Back Up Now and Try Again. A running Sync flushes. A Sync that stopped
+  /// on an error while starting has no engine to flush, so it starts again
+  /// for the same account, as a reload would.
+  Future<void> retry() {
+    final identity = _identity;
+    final entitlement = _entitlement;
+    if (!_activeSync &&
+        _status is SyncError &&
+        identity != null &&
+        entitlement != null) {
+      return update(identity: identity, entitlement: entitlement);
+    }
+    return _engine.forceFlush();
   }
 
   Future<void> chooseReconciliation(SyncReconciliationChoice choice) {
@@ -125,16 +169,10 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
       if (!_isCurrent(pending.token)) return;
       switch (choice) {
         case SyncReconciliationChoice.keepThisDevice:
-          final result = await _coordinator.keepThisDevice(
-            uid: pending.identity.uid,
-            expectedActiveGenerationId: pending.activeGenerationId,
-            shouldContinue: () => _isCurrent(pending.token),
-          );
-          if (!_isCurrent(pending.token)) return;
-          await _handlePushResult(
-            result: result,
+          await _pushThisDevice(
             identity: pending.identity,
             token: pending.token,
+            expectedActiveGenerationId: pending.activeGenerationId,
           );
         case SyncReconciliationChoice.keepMyAccount:
           final result = await _coordinator.keepMyAccount(
@@ -156,6 +194,7 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
   @override
   Future<void> quiesce({required bool flush}) async {
     final token = ++_transitionToken;
+    _cancelBootstrapRetry();
     final shouldFlush = flush && _activeSync;
     _pendingReconciliation = null;
     _emit(const SyncOff());
@@ -173,6 +212,7 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
 
   Future<void> close() async {
     ++_transitionToken;
+    _cancelBootstrapRetry();
     await _activeContextStore.clearStable();
     await _runtimeEventSubscription?.cancel();
     await _enqueue(_engine.stop);
@@ -221,10 +261,6 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
     required int token,
   }) async {
     while (_isCurrent(token)) {
-      final localMeaningful =
-          await SyncMeaningfulProgress(_db).hasMeaningfulData();
-      if (!_isCurrent(token)) return;
-
       final generations = _generationRepositoryForUid(identity.uid);
       String? activeGenerationId;
       try {
@@ -238,22 +274,31 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
       if (!_isCurrent(token)) return;
 
       if (activeGenerationId == null) {
-        final result = await _coordinator.keepThisDevice(
-          uid: identity.uid,
-          expectedActiveGenerationId: null,
-          shouldContinue: () => _isCurrent(token),
-        );
-        if (!_isCurrent(token)) return;
-        if (await _handlePushResult(
-          result: result,
+        if (await _pushThisDevice(
           identity: identity,
           token: token,
+          expectedActiveGenerationId: null,
           retryB3: false,
         )) {
           return;
         }
         continue;
       }
+
+      // Same account, same copy, nothing outside it: a start or a reload is
+      // not a conflict. Anything else takes the rules below, unchanged.
+      if (await _holdsGeneration(identity.uid, activeGenerationId)) {
+        await _finalizeActive(
+          identity: identity,
+          generationId: activeGenerationId,
+          token: token,
+        );
+        return;
+      }
+
+      final localMeaningful =
+          await SyncMeaningfulProgress(_db).hasMeaningfulData();
+      if (!_isCurrent(token)) return;
 
       if (!localMeaningful) {
         final result = await _coordinator.keepMyAccount(
@@ -300,16 +345,10 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
         return;
       }
 
-      final result = await _coordinator.keepThisDevice(
-        uid: identity.uid,
-        expectedActiveGenerationId: activeGenerationId,
-        shouldContinue: () => _isCurrent(token),
-      );
-      if (!_isCurrent(token)) return;
-      if (await _handlePushResult(
-        result: result,
+      if (await _pushThisDevice(
         identity: identity,
         token: token,
+        expectedActiveGenerationId: activeGenerationId,
         retryB3: false,
       )) {
         return;
@@ -317,10 +356,130 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
     }
   }
 
+  /// True when this device holds [generationId] for [uid] and every local
+  /// change is tied to it. A change with no tie, or a tie elsewhere, is never
+  /// rebound, so only the full choice resolves it. So is one the first
+  /// snapshot of its collection could not settle: another device wrote that
+  /// row. One whose first snapshot has yet to come resumes and waits for it.
+  Future<bool> _holdsGeneration(String uid, String generationId) async {
+    final held = SyncHeldGeneration(_db);
+    final context = await held.read();
+    if (context == null ||
+        context.uid != uid ||
+        context.generationId != generationId) {
+      return false;
+    }
+    final outside = await _db.customSelect(
+      'select 1 as outside from sync_local_mutations '
+      'where causal_uid is not ? or causal_generation_id is not ? limit 1',
+      variables: [Variable<String>(uid), Variable<String>(generationId)],
+    ).get();
+    if (outside.isNotEmpty) return false;
+    final waiting = await _db
+        .customSelect(
+          'select distinct collection from sync_local_mutations '
+          "where causal_base_state = 'unbound'",
+        )
+        .get();
+    for (final row in waiting) {
+      if (await held.isSnapshotComplete(
+        generationId: generationId,
+        collection: row.read<String>('collection'),
+      )) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  /// Any real account other than the one holding a generation ends that hold,
+  /// so coming back to the first account never resumes.
+  Future<void> _forgetOtherAccountsGeneration(SyncIdentity identity) async {
+    if (identity.uid == SyncIdentity.signedOutUid) return;
+    await SyncHeldGeneration(_db).forgetUnlessOwnedBy(identity.uid);
+  }
+
+  Future<bool> _pushThisDevice({
+    required SyncIdentity identity,
+    required int token,
+    required String? expectedActiveGenerationId,
+    bool retryB3 = true,
+  }) async {
+    try {
+      final result = await _coordinator.keepThisDevice(
+        uid: identity.uid,
+        expectedActiveGenerationId: expectedActiveGenerationId,
+        shouldContinue: () => _isCurrent(token),
+      );
+      if (!_isCurrent(token)) return true;
+      return await _handlePushResult(
+        result: result,
+        identity: identity,
+        token: token,
+        expectedActiveGenerationId: expectedActiveGenerationId,
+        retryB3: retryB3,
+      );
+    } on Object catch (error) {
+      if (_isCurrent(token)) {
+        _emit(SyncError(message: '$error'));
+        _scheduleBootstrapRetry(identity, token, expectedActiveGenerationId);
+      }
+      return true;
+    }
+  }
+
+  void _cancelBootstrapRetry() {
+    _bootstrapRetry?.cancel();
+    _bootstrapRetry = null;
+  }
+
+  void _scheduleBootstrapRetry(
+    SyncIdentity identity,
+    int token,
+    String? expectedActiveGenerationId,
+  ) {
+    _cancelBootstrapRetry();
+    // The rules allow a new staging generation after five minutes.
+    _bootstrapRetry = Timer(const Duration(minutes: 5, seconds: 1), () {
+      _bootstrapRetry = null;
+      if (!_isCurrent(token)) return;
+      unawaited(
+        _enqueue(() async {
+          if (!_isCurrent(token)) return;
+          try {
+            final hasClaim =
+                await _claimGateway.refreshProClaim(uid: identity.uid);
+            if (!_isCurrent(token)) return;
+            if (!hasClaim) {
+              _emit(const SyncActivating());
+              return;
+            }
+            _emit(const Syncing());
+            await _pushThisDevice(
+              identity: identity,
+              token: token,
+              expectedActiveGenerationId: expectedActiveGenerationId,
+            );
+          } on Object catch (error) {
+            if (_isCurrent(token)) {
+              _emit(SyncError(message: '$error'));
+              _scheduleBootstrapRetry(
+                identity,
+                token,
+                expectedActiveGenerationId,
+              );
+            }
+          }
+        }),
+      );
+    });
+  }
+
   Future<bool> _handlePushResult({
     required FullPushResult result,
     required SyncIdentity identity,
     required int token,
+    required String? expectedActiveGenerationId,
     bool retryB3 = true,
   }) async {
     switch (result.outcome) {
@@ -332,6 +491,13 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
         );
         return true;
       case FullPushOutcome.staleLocalEpoch:
+        // The student kept studying during the upload. That is no reason to
+        // ask again: upload again once the rules allow a new generation.
+        if (retryB3) {
+          _scheduleBootstrapRetry(identity, token, expectedActiveGenerationId);
+          return true;
+        }
+        return false;
       case FullPushOutcome.generationConflict:
         if (retryB3) {
           await _runB3(identity: identity, token: token);
@@ -342,6 +508,7 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
         return true;
       case FullPushOutcome.retryableFailure:
         _emit(const SyncError(message: 'Sync bootstrap upload failed'));
+        _scheduleBootstrapRetry(identity, token, expectedActiveGenerationId);
         return true;
     }
   }
@@ -472,6 +639,7 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
     final pending = await _db.select(_db.pendingSync).get();
     final failed = pending.where((row) => row.lastError != null).toList();
     if (failed.isNotEmpty) {
+      await _reportFailedRows(failed);
       return SyncError(message: failed.first.lastError);
     }
     final journal = await _db
@@ -492,7 +660,27 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
         markers.isNotEmpty) {
       return Syncing(pendingCount: pending.length);
     }
-    return const SyncUpToDate();
+    return SyncUpToDate(lastSyncedAt: await _settledAt());
+  }
+
+  /// When this account's backup last finished. A settle that follows backing
+  /// up records the current time; a settle with nothing new keeps the time
+  /// already stored. Null until a device's first backup records one.
+  Future<DateTime?> _settledAt() async {
+    final context = await _activeContextStore.readStable();
+    if (context == null) return null;
+    final key = '$lastBackupKeyPrefix${context.uid}';
+    if (_status is Syncing || _status is SyncActivating) {
+      final now = _now().toUtc();
+      await _db.into(_db.syncMeta).insertOnConflictUpdate(
+            SyncMetaCompanion.insert(key: key, value: now.toIso8601String()),
+          );
+      return now;
+    }
+    final row = await (_db.select(_db.syncMeta)
+          ..where((meta) => meta.key.equals(key)))
+        .getSingleOrNull();
+    return row == null ? null : DateTime.tryParse(row.value);
   }
 
   Future<void> _enqueue(Future<void> Function() operation) {
@@ -506,7 +694,40 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
 
   bool _isCurrent(int token) => token == _transitionToken;
 
+  /// Sends a short summary of rows that keep failing to the web error
+  /// report, so a stuck backup can be traced. Rows held for another account
+  /// or another backup cannot be pushed by this one, so they are counted
+  /// apart.
+  Future<void> _reportFailedRows(List<PendingSyncRow> failed) async {
+    final reporter = ClientReporter.active;
+    if (reporter == null) return;
+    final active = await _activeContextStore.readStable();
+    final summary = <String, int>{};
+    for (final row in failed) {
+      final own = active != null &&
+          row.uid == active.uid &&
+          row.generationId == active.generationId;
+      final key = '${own ? 'current' : 'other'} ${row.tableType} '
+          '${row.lastError}';
+      summary[key] = (summary[key] ?? 0) + 1;
+    }
+    final text = summary.entries.map((e) => '${e.key} x${e.value}').join('; ');
+    reporter.recordError(
+      StateError('Backup rows failing: $text'),
+      StackTrace.empty,
+    );
+  }
+
   void _emit(SyncStatus status) {
+    // A failure before the engine runs stops Sync until Try Again or a
+    // reload, so it is worth a line in the web error report. Rows that keep
+    // failing are reported on their own, and a running engine retries itself.
+    if (status is SyncError && !_activeSync) {
+      ClientReporter.active?.recordError(
+        StateError('Backup stopped while starting: ${status.message}'),
+        StackTrace.empty,
+      );
+    }
     _status = status;
     if (!_statusController.isClosed) {
       _statusController.add(status);

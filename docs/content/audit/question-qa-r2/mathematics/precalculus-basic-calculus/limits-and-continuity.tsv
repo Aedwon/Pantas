@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-precalculus-basic-calculus-limits-and-continuity-0001	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-precalculus-basic-calculus-limits-and-continuity-0002	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-precalculus-basic-calculus-limits-and-continuity-0003	CORRECTED	SOLVED-MATCH	choice;explanation;notes;format	LOW	Shortened the correct choice so its length does not reveal the answer.
+q-precalculus-basic-calculus-limits-and-continuity-0004	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-precalculus-basic-calculus-limits-and-continuity-0005	CORRECTED	SOLVED-MATCH	choice;explanation;notes;format	LOW	Replaced informal division by infinity with an ordinary finite quotient.
+q-precalculus-basic-calculus-limits-and-continuity-0006	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-precalculus-basic-calculus-limits-and-continuity-0007	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-precalculus-basic-calculus-limits-and-continuity-0008	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-precalculus-basic-calculus-limits-and-continuity-0009	CORRECTED	SOLVED-MATCH	stem;key value;distractor;explanation;notes;format	MEDIUM	Made the two branches have different limits so wrong-branch selection is a meaningful distractor.
+q-precalculus-basic-calculus-limits-and-continuity-0010	CORRECTED	SOLVED-MATCH	choice;explanation;notes;format	LOW	Shortened the correct choice to remove the length cue.
+q-precalculus-basic-calculus-limits-and-continuity-0011	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-precalculus-basic-calculus-limits-and-continuity-0012	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-precalculus-basic-calculus-limits-and-continuity-0013	CORRECTED	SOLVED-MATCH	choice;explanation;notes;format	LOW	Removed the worked explanation from the correct choice.
+q-precalculus-basic-calculus-limits-and-continuity-0014	CORRECTED	SOLVED-MATCH	distractor;explanation;notes;format	MEDIUM	Replaced a weak distractor with an omitted-constant error.
+q-precalculus-basic-calculus-limits-and-continuity-0015	NEW	NEW	new question	NONE	
+q-precalculus-basic-calculus-limits-and-continuity-0016	NEW	NEW	new question	NONE	
+q-precalculus-basic-calculus-limits-and-continuity-0017	NEW	NEW	new question	NONE	
+q-precalculus-basic-calculus-limits-and-continuity-0018	NEW	NEW	new question	NONE	
+q-precalculus-basic-calculus-limits-and-continuity-0019	NEW	NEW	new question	NONE	
+q-precalculus-basic-calculus-limits-and-continuity-0020	NEW	NEW	new question	NONE	

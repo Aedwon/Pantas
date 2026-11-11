@@ -1,13 +1,37 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/flavor.dart';
+import 'package:pantas/app/no_scroll_bars.dart';
 import 'package:pantas/app/router.dart';
 import 'package:pantas/app/theme.dart';
+import 'package:pantas/app/web_address.dart';
+import 'package:pantas/core/error/app_error_recovery.dart';
+import 'package:pantas/core/platform/welcome/welcome_handover_providers.dart';
+import 'package:pantas/core/storage/age_gate.dart';
+import 'package:pantas/core/ui/theme/app_text_scale.dart';
+import 'package:pantas/core/ui/web/letter_shortcuts.dart';
+import 'package:pantas/core/ui/web/web_layout_theme.dart';
+import 'package:pantas/features/beta_feedback/application/beta_day_reporter.dart';
+import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/notifications/application/notifications_providers.dart';
 import 'package:pantas/features/notifications/presentation/notification_tap_router.dart';
 import 'package:pantas/features/settings/presentation/widgets/sync_reconciliation_gate.dart';
 import 'package:pantas/features/settings/settings.dart';
 import 'package:pantas/l10n/app_localizations.dart';
+
+/// The router, with its addresses kept in step with the browser's history.
+final _webRouterConfigProvider = Provider<RouterConfig<Object>>((ref) {
+  final router = ref.watch(routerProvider);
+  final address = WebAddressProvider(router.routeInformationProvider);
+  ref.onDispose(address.dispose);
+  return RouterConfig<Object>(
+    routeInformationProvider: address,
+    routeInformationParser: router.routeInformationParser,
+    routerDelegate: router.routerDelegate,
+    backButtonDispatcher: router.backButtonDispatcher,
+  );
+});
 
 class App extends ConsumerWidget {
   const App({required this.flavor, super.key});
@@ -16,12 +40,23 @@ class App extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    ref
+      ..watch(studyDeliveryLifecycleProvider)
+      ..watch(betaDayReporterProvider);
     final router = ref.watch(routerProvider);
     final themeMode = ref.watch(themePreferenceProvider).maybeWhen(
           data: (preference) => preference.themeMode,
           orElse: () => ThemeMode.system,
         );
+    final letterShortcuts = ref.watch(letterShortcutsProvider);
     final gateway = ref.watch(notificationsGatewayProvider);
+    // A learner who is already set up never needs the HTML Welcome screen.
+    if (ref.watch(onboardingCompleteProvider).valueOrNull ?? false) {
+      final handover = ref.read(welcomeHandoverProvider);
+      WidgetsBinding.instance.addPostFrameCallback(
+        (_) => handover.appReady(holdForTap: false),
+      );
+    }
     return MaterialApp.router(
       title: flavor.displayName,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
@@ -29,13 +64,27 @@ class App extends ConsumerWidget {
       theme: appLightTheme(),
       darkTheme: appDarkTheme(),
       themeMode: themeMode,
-      routerConfig: router,
-      builder: (context, child) => SyncReconciliationGate(
-        child: NotificationTapRouter(
-          gateway: gateway,
-          router: router,
-          now: DateTime.now,
-          child: child ?? const SizedBox.shrink(),
+      // On the web the theme changes in one step. The page background glided
+      // while the cards, which read the brightness, flipped at the midpoint,
+      // so a dark card showed on a light page for a moment (7W-15).
+      themeAnimationDuration: kIsWeb ? Duration.zero : kThemeAnimationDuration,
+      scrollBehavior: const NoScrollBarsBehavior(),
+      routerConfig: kIsWeb ? ref.watch(_webRouterConfigProvider) : router,
+      builder: (context, child) => LetterShortcutsScope(
+        enabled: letterShortcuts,
+        child: AppTextScale(
+          child: WebLayoutTheme(
+            child: AppErrorRecovery(
+              child: SyncReconciliationGate(
+                child: NotificationTapRouter(
+                  gateway: gateway,
+                  router: router,
+                  now: DateTime.now,
+                  child: child ?? const SizedBox.shrink(),
+                ),
+              ),
+            ),
+          ),
         ),
       ),
     );

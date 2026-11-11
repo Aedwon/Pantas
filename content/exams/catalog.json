@@ -1,0 +1,26 @@
+[
+  {"id":"exam_upcat","name":"UP College Admission Test","shortName":"UPCAT","priceTier":"Student","group":"College entrance","comingSoon":false,"publishedSittings":[]},
+  {"id":"exam_acet","name":"Ateneo College Entrance Test","shortName":"ACET","priceTier":"Student","group":"College entrance","comingSoon":false,"publishedSittings":[]},
+  {"id":"exam_dlsucet","name":"De La Salle University College Admission Test","shortName":"DLSU-CET","priceTier":"Student","group":"College entrance","comingSoon":false,"publishedSittings":[]},
+  {"id":"exam_ustet","name":"UST Entrance Test","shortName":"USTET","priceTier":"Student","group":"College entrance","comingSoon":false,"publishedSittings":[]},
+  {"id":"exam_pupcet","name":"PUP College Entrance Test","shortName":"PUPCET","priceTier":"Student","group":"College entrance","comingSoon":false,"publishedSittings":[]},
+  {"id":"exam_dost_sei","name":"DOST-SEI Undergraduate Scholarship","shortName":"DOST","priceTier":"Student","group":"Scholarships","comingSoon":false,"publishedSittings":[]},
+  {"id":"exam_sm_foundation","name":"SM Foundation College Scholarship","shortName":"SM","priceTier":"Student","group":"Scholarships","comingSoon":false,"publishedSittings":[]},
+  {"id":"exam_pshs_nce","name":"PSHS National Competitive Examination","shortName":"PSHS-NCE","priceTier":"PSHS-NCE","group":"High school","comingSoon":true,"publishedSittings":[]},
+  {"id":"exam_cse_pro","name":"Civil Service Examination: Professional","shortName":"CSE Professional","priceTier":"Civil Service","group":"Civil service","comingSoon":false,"publishedSittings":[
+    {"firstDay":"2027-03-14","lastDay":"2027-03-14","sourceUrl":"https://www.csc.gov.ph/examination-advisories/examination-announcement-no-05-s-2026-calendar-of-civil-service-examinations-pen-and-paper-test-for-cy-2027"},
+    {"firstDay":"2027-08-08","lastDay":"2027-08-08","sourceUrl":"https://www.csc.gov.ph/examination-advisories/examination-announcement-no-05-s-2026-calendar-of-civil-service-examinations-pen-and-paper-test-for-cy-2027"}
+  ]},
+  {"id":"exam_cse_sub","name":"Civil Service Examination: Subprofessional","shortName":"CSE Subprofessional","priceTier":"Civil Service","group":"Civil service","comingSoon":false,"publishedSittings":[
+    {"firstDay":"2027-03-14","lastDay":"2027-03-14","sourceUrl":"https://www.csc.gov.ph/examination-advisories/examination-announcement-no-05-s-2026-calendar-of-civil-service-examinations-pen-and-paper-test-for-cy-2027"},
+    {"firstDay":"2027-08-08","lastDay":"2027-08-08","sourceUrl":"https://www.csc.gov.ph/examination-advisories/examination-announcement-no-05-s-2026-calendar-of-civil-service-examinations-pen-and-paper-test-for-cy-2027"}
+  ]},
+  {"id":"exam_napolcom","name":"NAPOLCOM PNP Entrance Examination","shortName":"NAPOLCOM","priceTier":"Civil Service","group":"Civil service","comingSoon":true,"publishedSittings":[]},
+  {"id":"exam_afpsat","name":"Armed Forces of the Philippines Service Aptitude Test","shortName":"AFPSAT","priceTier":"Civil Service","group":"Civil service","comingSoon":true,"publishedSittings":[]},
+  {"id":"exam_pma","name":"Philippine Military Academy","shortName":"PMA","priceTier":"Student","group":"Uniformed services","comingSoon":true,"publishedSittings":[]},
+  {"id":"exam_pnpa","name":"Philippine National Police Academy","shortName":"PNPA","priceTier":"Student","group":"Uniformed services","comingSoon":true,"publishedSittings":[]},
+  {"id":"exam_pmma","name":"Philippine Merchant Marine Academy","shortName":"PMMA","priceTier":"Student","group":"Uniformed services","comingSoon":true,"publishedSittings":[]},
+  {"id":"exam_maap","name":"Maritime Academy of Asia and the Pacific","shortName":"MAAP","priceTier":"Student","group":"Uniformed services","comingSoon":true,"publishedSittings":[]},
+  {"id":"exam_let","name":"Licensure Examination for Teachers","shortName":"LET","priceTier":"Licensure","group":"Licensure","comingSoon":true,"publishedSittings":[]},
+  {"id":"exam_pnle","name":"Nurse Licensure Examination","shortName":"PNLE","priceTier":"Licensure","group":"Licensure","comingSoon":true,"publishedSittings":[]}
+]

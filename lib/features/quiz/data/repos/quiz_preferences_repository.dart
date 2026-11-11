@@ -1,6 +1,8 @@
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/features/quiz/domain/models/quiz_ordering.dart';
 import 'package:pantas/features/quiz/domain/models/quiz_preferences.dart';
+import 'package:pantas/features/settings/data/settings_repository.dart';
+import 'package:pantas/features/settings/domain/session_ordering.dart';
 
 class QuizPreferencesRepository {
   QuizPreferencesRepository(this._db);
@@ -10,7 +12,6 @@ class QuizPreferencesRepository {
   /// Named for the boolean it used to be. The key is synced and already on
   /// devices, so it widened in place rather than being replaced.
   static const interleavedTodayKey = 'quiz_today_interleaved';
-  static const newCardCapKey = 'quiz_new_card_cap';
 
   final AppDatabase _db;
 
@@ -18,13 +19,17 @@ class QuizPreferencesRepository {
     final rows = await _db.select(_db.accountPrefs).get();
     final values = {for (final row in rows) row.key: row.value};
 
+    final ordering = values.containsKey(SettingsPrefKeys.sessionOrdering)
+        ? _quizOrdering(
+            SessionOrdering.fromStorage(
+              values[SettingsPrefKeys.sessionOrdering],
+            ),
+          )
+        : QuizOrdering.fromStorage(values[interleavedTodayKey]);
+
     return QuizPreferences(
       sessionLength: _readSessionLength(values[sessionLengthKey]),
-      ordering: QuizOrdering.fromStorage(values[interleavedTodayKey]),
-      newCardCap: _readNonNegativeInt(
-        values[newCardCapKey],
-        fallback: QuizPreferences.defaults.newCardCap,
-      ),
+      ordering: ordering,
     );
   }
 
@@ -36,12 +41,8 @@ class QuizPreferencesRepository {
           value: preferences.sessionLength.toString(),
         ),
         AccountPrefsCompanion.insert(
-          key: interleavedTodayKey,
-          value: preferences.ordering.storageValue,
-        ),
-        AccountPrefsCompanion.insert(
-          key: newCardCapKey,
-          value: preferences.newCardCap.toString(),
+          key: SettingsPrefKeys.sessionOrdering,
+          value: _sessionOrdering(preferences.ordering).storageValue,
         ),
       ]);
     });
@@ -55,9 +56,19 @@ class QuizPreferencesRepository {
     };
   }
 
-  static int _readNonNegativeInt(String? value, {required int fallback}) {
-    final parsed = int.tryParse(value ?? '');
-    if (parsed == null || parsed < 0) return fallback;
-    return parsed;
+  static QuizOrdering _quizOrdering(SessionOrdering ordering) {
+    return switch (ordering) {
+      SessionOrdering.blocked => QuizOrdering.blocked,
+      SessionOrdering.interleavedTail => QuizOrdering.interleavedTail,
+      SessionOrdering.fullyMixed => QuizOrdering.fullyMixed,
+    };
+  }
+
+  static SessionOrdering _sessionOrdering(QuizOrdering ordering) {
+    return switch (ordering) {
+      QuizOrdering.blocked => SessionOrdering.blocked,
+      QuizOrdering.interleavedTail => SessionOrdering.interleavedTail,
+      QuizOrdering.fullyMixed => SessionOrdering.fullyMixed,
+    };
   }
 }

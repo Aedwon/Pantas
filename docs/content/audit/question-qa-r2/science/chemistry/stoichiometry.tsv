@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-chemistry-stoichiometry-0001	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Longest correct choice shortened and chemical formulas formatted.
+q-chemistry-stoichiometry-0002	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-chemistry-stoichiometry-0003	CORRECTED	SOLVED-MATCH	choices;explanation;notes	LOW	Formulas formatted; unreduced ratio no longer assumed to establish a molecular formula.
+q-chemistry-stoichiometry-0004	CORRECTED	SOLVED-MATCH	choices;explanation;notes	LOW	Formulas formatted and numerical slips explained without invented replacement data.
+q-chemistry-stoichiometry-0005	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Longest correct choice shortened.
+q-chemistry-stoichiometry-0006	CORRECTED	SOLVED-MATCH	choices;explanation;notes	HIGH	Original explanation implied an apparent yield above 100% necessarily rejects a reported result.
+q-chemistry-stoichiometry-0007	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Longest answer shortened and outdated-formula throwaway distractor replaced.
+q-chemistry-stoichiometry-0008	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Longest correct choice shortened and wrong-result discussion removed from explanation.
+q-chemistry-stoichiometry-0009	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	MEDIUM	Original repeated limiting-reactant identification with a swapped reaction.
+q-chemistry-stoichiometry-0010	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	MEDIUM	Original repeated percent-yield division with only new masses.
+q-chemistry-stoichiometry-0011	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	MEDIUM	Original repeated deriving a simplest ratio from mole counts; new frame compares two substances.
+q-chemistry-stoichiometry-0012	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	MEDIUM	Original repeated empirical-to-molecular multiplication with a swapped formula.
+q-chemistry-stoichiometry-0013	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-chemistry-stoichiometry-0014	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Correct choice was longest; nonexistent empirical-yield distractor replaced.
+q-chemistry-stoichiometry-0015	NEW	NEW	new question	NONE	
+q-chemistry-stoichiometry-0016	NEW	NEW	new question	NONE	
+q-chemistry-stoichiometry-0017	NEW	NEW	new question	NONE	
+q-chemistry-stoichiometry-0018	NEW	NEW	new question	NONE	
+q-chemistry-stoichiometry-0019	NEW	NEW	new question	NONE	
+q-chemistry-stoichiometry-0020	NEW	NEW	new question	NONE	

@@ -1,0 +1,16 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_quiz_count_test.dart
+00:00 +0: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_test.dart: gauge 0.0 final frame in Brightness.dark
+00:00 +1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_quiz_count_test.dart: quiz count real score and board arc in Brightness.dark
+00:00 +2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_test.dart: gauge 0.61 final frame in Brightness.dark
+00:00 +3: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_quiz_count_test.dart: quiz count real score and board arc in Brightness.light
+00:00 +4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_quiz_count_test.dart: quiz count real score and board arc in Brightness.light
+00:00 +5: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_test.dart: gauge delay and intermediate count in Brightness.dark
+00:00 +6: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_quiz_count_test.dart: quiz rolling strip and arc share 400 to 1600 millisecond timeline
+00:00 +7: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_test.dart: gauge 0.0 final frame in Brightness.light
+00:00 +8: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_quiz_count_test.dart: changing motion preference preserves the displayed count
+00:00 +9: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_quiz_count_test.dart: changing motion preference preserves the displayed count
+00:00 +10: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_test.dart: gauge 1.0 final frame in Brightness.light
+00:00 +11: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_quiz_count_test.dart: quiz updates count even when fraction stays the same and handles zero
+00:00 +12: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_test.dart: gauge delay and intermediate count in Brightness.light
+00:00 +13: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_test.dart: mock overlay receives final progress with motion off
+00:00 +14: All tests passed!

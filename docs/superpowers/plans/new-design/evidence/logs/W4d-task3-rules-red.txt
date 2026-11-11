@@ -1,0 +1,47 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_design_rules_test.dart
+00:00 +0: selecting a topic contributes one unit for each lesson
+00:00 +0 -1: selecting a topic contributes one unit for each lesson [E]
+  Expected: ['l1', 'l2', 'l3']
+    Actual: MappedListIterable<PracticeUnit, String?>:[null]
+     Which: at location [0] is <null> instead of 'l1'
+  
+  package:matcher                                                        expect
+  package:flutter_test/src/widget_tester.dart 473:18                     expect
+  test/features/quiz/domain/picker/practice_design_rules_test.dart 21:5  main.<fn>
+  
+00:00 +0 -1: questions mode uses the approved initial pace of 50 seconds
+00:00 +0 -2: questions mode uses the approved initial pace of 50 seconds [E]
+  Expected: <10>
+    Actual: <null>
+  
+  package:matcher                                                        expect
+  package:flutter_test/src/widget_tester.dart 473:18                     expect
+  test/features/quiz/domain/picker/practice_design_rules_test.dart 30:5  main.<fn>
+  
+00:00 +0 -2: total time is divided across lessons instead of multiplied
+00:00 +0 -3: total time is divided across lessons instead of multiplied [E]
+  Expected: <12>
+    Actual: <36>
+  
+  package:matcher                                                        expect
+  package:flutter_test/src/widget_tester.dart 473:18                     expect
+  test/features/quiz/domain/picker/practice_design_rules_test.dart 43:5  main.<fn>
+  
+00:00 +0 -3: measured pace replaces the approved initial pace
+00:00 +1 -3: no questions in a lesson never become a selectable unit
+00:00 +1 -4: no questions in a lesson never become a selectable unit [E]
+  Expected: ['l1']
+    Actual: MappedListIterable<PracticeUnit, String?>:[null]
+     Which: at location [0] is <null> instead of 'l1'
+  
+  package:matcher                                                        expect
+  package:flutter_test/src/widget_tester.dart 473:18                     expect
+  test/features/quiz/domain/picker/practice_design_rules_test.dart 69:5  main.<fn>
+  
+00:00 +1 -4: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_design_rules_test.dart: no questions in a lesson never become a selectable unit
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_design_rules_test.dart: questions mode uses the approved initial pace of 50 seconds
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_design_rules_test.dart: selecting a topic contributes one unit for each lesson
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_design_rules_test.dart: total time is divided across lessons instead of multiplied

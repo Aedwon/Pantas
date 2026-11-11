@@ -1,0 +1,7 @@
+Computing fixes in components...
+Applying fixes...
+
+practice_scope_extensions_test.dart
+  require_trailing_commas - 1 fix
+
+1 fix made in 1 file.

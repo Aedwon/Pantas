@@ -10,7 +10,6 @@ import 'package:pantas/core/storage/data/repos/review_state_repository.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/features/quiz/presentation/practice_picker_providers.dart';
-import 'package:pantas/features/quiz/presentation/today_providers.dart';
 
 import '../../../helpers/in_memory_database.dart';
 
@@ -51,11 +50,17 @@ void main() {
         name: entry.value,
         ordering: ordering++,
       );
+      await seedContentLesson(
+        contentDb,
+        lessonId: 'lesson_${entry.key}',
+        topicId: entry.key,
+      );
       for (var i = 1; i <= 5; i++) {
         await seedContentQuestion(
           contentDb,
           questionId: 'q_${entry.key}_$i',
           topicId: entry.key,
+          lessonId: 'lesson_${entry.key}',
           examId: 'exam_cse',
           stem: 'Question $i for ${entry.key}',
         );
@@ -76,20 +81,6 @@ void main() {
       ],
     );
   }
-
-  test("today's queue skips an excluded topic", () async {
-    final container = createContainer();
-    final repo = container.read(customTrackRepositoryProvider);
-    await repo.setExcluded(examId: 'exam_cse', topicIds: {'top_geo'});
-
-    final queue =
-        await container.read(todayTopicQueueProvider('exam_cse').future);
-    final topicIdsInQueue = queue.map((r) => r.topicId).toList();
-
-    expect(topicIdsInQueue, contains('top_alg'));
-    expect(topicIdsInQueue, contains('top_trig'));
-    expect(topicIdsInQueue, isNot(contains('top_geo')));
-  });
 
   test('the practice picker does not list an excluded topic', () async {
     final container = createContainer();

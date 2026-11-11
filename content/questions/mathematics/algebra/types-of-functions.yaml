@@ -10,21 +10,19 @@ questions:
     stem: |
       Evaluate the linear function $f(x) = 3x - 5$ at $x = 4$.
     choices:
-      - text: $7$
+      - text: '$7$'
         correct: true
-      - text: $17$
+      - text: '$17$'
         rationale: |
-          You added the 5 instead of subtracting it. $3(4) = 12$, and the rule takes
-          5 away, so it is $12 - 5$.
-      - text: $2$
+          This adds $5$ instead of subtracting it. The multiplication is correct, so the result can look reasonable. Check the sign of the constant.
+      - text: '$2$'
         rationale: |
-          You worked out $3 + 4$ and then took 5 away. The 3 multiplies the input,
-          it does not add to it.
-      - text: $12$
+          This adds $3$ and $4$ before subtracting $5$. The adjacent numbers can suggest addition. Check that $3x$ means multiplication.
+      - text: '$12$'
         rationale: |
-          You stopped at $3 \times 4$. The rule still has $-5$ left to apply.
+          This stops after multiplying $3$ by $4$. That is a correct first step. Check whether the constant still needs to be applied.
     explanation: |
-      Substitute $x = 4$ into $f(x)$: $f(4) = 3(4) - 5 = 12 - 5 = 7$.
+      Put $4$ in place of $x$: $f(4)=3(4)-5$. Multiply first to get $12-5=7$.
 
   - id: q-algebra-types-of-functions-0002
     type: which-is-true
@@ -32,22 +30,19 @@ questions:
     stem: |
       Which of the following equations represents an exponential function?
     choices:
-      - text: $f(x) = 4^x$
+      - text: '$f(x) = 4^x$'
         correct: true
-      - text: $f(x) = x^4$
+      - text: '$f(x) = x^4$'
         rationale: |
-          You picked the one with the variable in the base. An exponential function
-          has the variable in the exponent, not under it.
-      - text: $f(x) = 4x$
+          This swaps the roles of base and exponent. Both formulas contain a power, so they look related. Check where the variable appears.
+      - text: '$f(x) = 4x$'
         rationale: |
-          You picked a straight line. There is no exponent on the variable at all
-          here.
-      - text: $f(x) = x^2 + 4$
+          This confuses multiplying by $4$ with raising $4$ to a power. Both involve repeated operations. Check whether $x$ is an exponent.
+      - text: '$f(x) = x^2 + 4$'
         rationale: |
-          You picked a quadratic. The exponent is fixed at 2 and the variable is the
-          base.
+          This treats any squared expression as exponential. Powers do appear in exponential functions. Check whether the exponent is variable or fixed.
     explanation: |
-      An exponential function has the variable in the exponent, such as $f(x) = 4^x$. A function like $f(x) = x^4$ has a variable base with a constant exponent, making it a power/polynomial function.
+      In $f(x)=4^x$, the base $4$ is fixed and the exponent $x$ varies. A fixed positive base other than $1$ raised to a variable exponent defines an exponential function.
 
   - id: q-algebra-types-of-functions-0003
     type: direct-computation
@@ -55,45 +50,39 @@ questions:
     stem: |
       Find the vertex of the quadratic function $f(x) = (x - 3)^2 + 4$.
     choices:
-      - text: $(3, 4)$
+      - text: '$(3, 4)$'
         correct: true
-      - text: $(-3, 4)$
+      - text: '$(-3, 4)$'
         rationale: |
-          You read $h$ straight off the bracket. The form is $(x - h)$, so a $-3$
-          inside means $h$ is $+3$.
-      - text: $(3, -4)$
+          This uses the sign inside $x-3$ as the vertex coordinate. The number $-3$ is visible in the bracket. Check which input makes the square zero.
+      - text: '$(3, -4)$'
         rationale: |
-          You flipped the sign of $k$. Only $h$ changes sign coming out of the
-          bracket; $k$ is read as it stands.
-      - text: $(-3, -4)$
+          This reverses the outside constant. The inside shift does involve a sign change, so the same rule can seem to apply outside. Check the output when the square is zero.
+      - text: '$(-3, -4)$'
         rationale: |
-          You flipped both signs. $h$ flips because it sits inside $(x - h)$, and
-          $k$ does not.
+          This reverses both shifts. Applying one sign rule to both constants looks consistent. Check the zero of the square and the remaining constant separately.
     explanation: |
-      In vertex form $f(x) = a(x - h)^2 + k$, the vertex is $(h, k)$. Here, $h = 3$ and $k = 4$, so the vertex is $(3, 4)$. A common error is flipping the sign of $h$ to $-3$.
+      The square $(x-3)^2$ has its least value, $0$, when $x=3$. At that input, $f(3)=0+4=4$. Thus the vertex is $(3,4)$.
 
   - id: q-algebra-types-of-functions-0004
     type: which-is-true
     difficulty: easy
     stem: |
-      What is the domain of the rational function $f(x) = \frac{x + 1}{x - 5}$?
+      What is the domain of the rational function $f(x) = \dfrac{x + 1}{x - 5}$?
     choices:
-      - text: All real numbers except $x = 5$
+      - text: 'All real numbers except $x = 5$'
         correct: true
-      - text: All real numbers except $x = -5$
+      - text: 'All real numbers except $x = -5$'
         rationale: |
-          You flipped the sign. Setting $x - 5 = 0$ gives $x = +5$, so that is the
-          value to exclude.
-      - text: All real numbers except $x = -1$
+          This reverses the sign when solving the denominator equation. The minus before $5$ makes $-5$ look excluded. Check which input makes the denominator zero.
+      - text: 'All real numbers except $x = -1$'
         rationale: |
-          You solved the numerator instead. The top being zero is allowed: it just
-          makes the whole fraction zero.
-      - text: All real numbers
+          This excludes a zero of the numerator. A zero anywhere in a fraction can look forbidden. Check the denominator for division by zero.
+      - text: 'All real numbers'
         rationale: |
-          You excluded nothing. The denominator can hit zero here, and there the
-          function has no value.
+          This ignores the denominator restriction. Polynomial expressions are defined for every real input. Check whether they are being divided.
     explanation: |
-      Division by zero is undefined, so the denominator $x - 5$ cannot be zero. Setting $x - 5 = 0$ gives $x = 5$, so the domain is all real numbers except $x = 5$.
+      The denominator cannot equal zero. Solve $x-5=0$ to get $x=5$. Every other real input is allowed, so the domain excludes only $5$.
 
   - id: q-algebra-types-of-functions-0005
     type: direct-computation
@@ -101,41 +90,39 @@ questions:
     stem: |
       Evaluate the logarithmic expression $\log_3(27)$.
     choices:
-      - text: $3$
+      - text: '$3$'
         correct: true
-      - text: $9$
+      - text: '$9$'
         rationale: |
-          You divided 27 by 3. A logarithm asks for the exponent, not the quotient.
-      - text: $81$
+          This divides $27$ by the base $3$. Division may look like undoing exponentiation. Check that a logarithm asks for an exponent.
+      - text: '$81$'
         rationale: |
-          You multiplied 27 by 3. The question asks what power of 3 gives 27.
-      - text: $1$
+          This multiplies $27$ by $3$. Both numbers occur in the expression, so multiplication seems relevant. Check which power of the base gives the argument.
+      - text: '$1$'
         rationale: |
-          You picked 1, which would mean $3^1 = 27$. It gives 3.
+          This treats the logarithm as having the same base and argument. That familiar case gives $1$. Check whether $3^1$ equals the actual argument.
     explanation: |
-      $\log_3(27) = y$ means $3^y = 27$. Since $3^3 = 27$, $y = 3$. Dividing $27 \div 3 = 9$ is a common distractor error.
+      A logarithm gives the exponent needed on its base. Since $3^3=27$, $\log_3 27=3$.
 
   - id: q-algebra-types-of-functions-0006
     type: direct-computation
     difficulty: medium
     stem: |
-      Find the vertical asymptote of the rational function $f(x) = \frac{2x + 1}{2x - 6}$.
+      Find the vertical asymptote of the rational function $f(x) = \dfrac{2x + 1}{2x - 6}$.
     choices:
-      - text: $x = 3$
+      - text: '$x = 3$'
         correct: true
-      - text: $x = -3$
+      - text: '$x = -3$'
         rationale: |
-          You flipped the sign. Solving $2x - 6 = 0$ gives $2x = 6$ and $x = +3$.
-      - text: $x = 1$
+          This reverses the sign of the denominator zero. The negative constant makes a negative answer look natural. Check which input makes $2x-6$ zero.
+      - text: '$x=6$'
         rationale: |
-          You divided 6 by 6 or read the numerator. The denominator is what has to
-          be zero.
-      - text: $y = 1$
+          This stops at $2x=6$ without dividing. The constant comes directly from the denominator. Check the coefficient of $x$.
+      - text: '$y = 1$'
         rationale: |
-          You gave a horizontal line. A vertical asymptote is a value of $x$, not of
-          $y$.
+          This reports the horizontal asymptote from equal leading coefficients. That is another valid feature of the graph. Check whether the question asks for a vertical line.
     explanation: |
-      Vertical asymptotes occur where the denominator is zero (and the numerator is non-zero). Setting $2x - 6 = 0$ gives $2x = 6$, so $x = 3$.
+      Set the denominator equal to zero: $2x-6=0$. Then $2x=6$, so $x=3$. The numerator there is $2(3)+1=7$, so no factor cancels and the vertical asymptote is $x=3$.
 
   - id: q-algebra-types-of-functions-0007
     type: direct-computation
@@ -143,46 +130,39 @@ questions:
     stem: |
       Find the $x$-coordinate of the vertex of the quadratic function $f(x) = 2x^2 - 8x + 5$.
     choices:
-      - text: $x = 2$
+      - text: '$x = 2$'
         correct: true
-      - text: $x = -2$
+      - text: '$x = -2$'
         rationale: |
-          You dropped a minus sign. The formula is $-b/2a$ and $b$ is already $-8$,
-          so the two minus signs cancel.
-      - text: $x = 4$
+          This leaves out the negative sign in the vertex formula. The coefficient $b$ already carries a minus sign. Check both signs in $-b$.
+      - text: '$x = 4$'
         rationale: |
-          You used $-b/a$ and forgot the 2 underneath. The denominator is $2a$,
-          which is 4 here.
-      - text: $x = -4$
+          This divides by $a$ instead of $2a$. It uses the right coefficients but misses a factor. Check the whole denominator in the vertex formula.
+      - text: '$x = -4$'
         rationale: |
-          You used $b/a$ with the sign left alone. Both the sign and the 2 are
-          missing.
+          This uses $\dfrac{b}{a}$ instead of $-\dfrac{b}{2a}$. The coefficient ratio can look familiar. Check the sign and the factor $2$ separately.
     explanation: |
-      The $x$-coordinate of the vertex is $h = -\frac{b}{2a}$. Here $a = 2$ and $b = -8$, so $h = -\frac{-8}{2(2)} = \frac{8}{4} = 2$. Therefore, the vertex has $x = 2$. Forgetting the negative sign in the formula leads to $x = -2$.
+      Here $a=2$ and $b=-8$. The vertex formula gives $x=-\dfrac{b}{2a}=-\dfrac{-8}{2(2)}=2$.
 
   - id: q-algebra-types-of-functions-0008
     type: direct-computation
     difficulty: medium
     stem: |
-      Given the piecewise function:
-      $$f(x) = \begin{cases} x^2 + 1 & \text{if } x < 3 \ 2x + 5 & \text{if } x \ge 3 \end{cases}$$
-      Evaluate $f(3)$.
+      Let $f(x)=x^2+1$ for $x<3$, and $f(x)=2x+5$ for $x\ge3$. Evaluate $f(3)$.
     choices:
-      - text: $11$
+      - text: '$11$'
         correct: true
-      - text: $10$
+      - text: '$10$'
         rationale: |
-          You used the first piece. The condition there is $x$ below 3, and 3 itself
-          belongs to the second piece.
-      - text: $6$
+          This uses the branch for $x<3$ at $x=3$. The input is close to that interval. Check which inequality includes equality.
+      - text: '$6$'
         rationale: |
-          You stopped at $2 \times 3$. The second piece still has $+5$ to add.
-      - text: $14$
+          This stops at $2(3)$ in the second branch. The multiplication is a correct start. Check the constant in the chosen rule.
+      - text: '$14$'
         rationale: |
-          You used the first piece and then added the 5 from the second. Only one
-          piece applies to any input.
+          This mixes the square from one branch with the constant from the other. Both formulas are visible together. Check that exactly one branch supplies the whole rule.
     explanation: |
-      Since $x = 3$ satisfies the condition $x \ge 3$, use the second piece: $f(3) = 2(3) + 5 = 6 + 5 = 11$. Using the first piece gives $3^2 + 1 = 10$, which is wrong because $x < 3$ does not include $3$.
+      The input $3$ meets the condition $x\ge3$. Use that whole rule: $f(3)=2(3)+5=11$.
 
   - id: q-algebra-types-of-functions-0009
     type: which-is-true
@@ -190,22 +170,19 @@ questions:
     stem: |
       Which statement correctly distinguishes between $f(x) = 5^x$ and $g(x) = x^5$?
     choices:
-      - text: $f(x)$ is an exponential function because the variable is in the exponent, while $g(x)$ is a polynomial function because the variable is the base.
+      - text: '$f$ is exponential; $g$ is polynomial.'
         correct: true
-      - text: $f(x)$ is a polynomial function because the variable is in the exponent, while $g(x)$ is an exponential function.
+      - text: '$f$ is polynomial; $g$ is exponential.'
         rationale: |
-          You have the two labels swapped. A polynomial has the variable in the
-          base, and this one has it in the exponent.
-      - text: Both $f(x)$ and $g(x)$ are exponential functions because both involve powers of 5.
+          This reverses the family names. Both functions involve powers of $5$. Check whether the variable is the exponent or the base.
+      - text: 'Both functions belong to the exponential family.'
         rationale: |
-          You called both exponential. Only one has the variable in the exponent;
-          the other has it in the base.
-      - text: $f(x)$ has a constant rate of change, while $g(x)$ grows at a linear rate.
+          This calls both formulas exponential because both contain powers. That shared notation makes the label tempting. Check whether the exponent changes with $x$.
+      - text: 'Both functions have a constant rate of change.'
         rationale: |
-          You gave the constant rate of change to the wrong one, and a constant rate
-          belongs to a straight line rather than to either of these.
+          This treats fixed coefficients as a constant rate of change. The number $5$ appears fixed in both formulas. Check how the output changes for consecutive inputs.
     explanation: |
-      $f(x) = 5^x$ has a constant base (5) and variable exponent ($x$), defining an exponential function. $g(x) = x^5$ has a variable base ($x$) and constant exponent (5), defining a polynomial function.
+      In $f(x)=5^x$, the exponent varies, so the function is exponential. In $g(x)=x^5$, the exponent is the fixed whole number $5$, so the function is polynomial.
 
   - id: q-algebra-types-of-functions-0010
     type: direct-computation
@@ -213,45 +190,39 @@ questions:
     stem: |
       What is the range of the absolute value function $f(x) = |x - 2| + 3$?
     choices:
-      - text: $y \ge 3$
+      - text: '$y \ge 3$'
         correct: true
-      - text: $y \ge 2$
+      - text: '$y \ge 2$'
         rationale: |
-          You used the 2 from inside the bars. That shifts the graph sideways, and
-          the range is set by what is added outside.
-      - text: $y \ge -3$
+          This treats the inside shift as the output minimum. The $2$ moves the vertex, so it looks relevant. Check which constant is added outside the absolute value.
+      - text: '$y \ge -3$'
         rationale: |
-          You made the 3 negative. The bars can never return a negative, so nothing
-          here goes below 3.
-      - text: All real numbers
+          This reverses the outside shift. A sign reversal is used for the inside expression, so it can seem to apply here. Check the output when the absolute value is zero.
+      - text: 'All real numbers'
         rationale: |
-          You treated it as a straight line. Absolute value never goes below zero,
-          so the output has a floor.
+          This confuses the domain with the range. Every real input is allowed. Check whether every real output is possible too.
     explanation: |
-      Since $|x - 2| \ge 0$ for all real numbers $x$, adding 3 gives $|x - 2| + 3 \ge 3$. Thus, the minimum value of $f(x)$ is 3, and its range is $y \ge 3$.
+      The expression $|x-2|$ can take every value from $0$ upward. Its minimum $0$ occurs at $x=2$. Adding $3$ gives every output from $3$ upward, so the range is $y\ge3$.
 
   - id: q-algebra-types-of-functions-0011
     type: direct-computation
     difficulty: hard
     stem: |
-      Find the horizontal asymptote of the rational function $f(x) = \frac{4x^2 - 3}{2x^2 + 5x + 1}$.
+      Find the horizontal asymptote of the rational function $f(x) = \dfrac{4x^2 - 3}{2x^2 + 5x + 1}$.
     choices:
-      - text: $y = 2$
+      - text: '$y = 2$'
         correct: true
-      - text: $y = 0$
+      - text: '$y = 0$'
         rationale: |
-          You used the rule for when the bottom has the higher degree. Here the
-          degrees match, so the asymptote is the ratio of the leading numbers.
-      - text: No horizontal asymptote
+          This uses the rule for a denominator of higher degree. A large denominator can suggest a value near zero. Check the degree of both polynomials.
+      - text: 'No horizontal asymptote'
         rationale: |
-          You ruled one out. That happens when the top has the higher degree, and
-          here the two are equal.
-      - text: $y = -3$
+          This uses the rule for a numerator of higher degree. The numerator starts with a larger coefficient. Check degrees, not coefficient sizes.
+      - text: '$y = -3$'
         rationale: |
-          You used the constant from the top. The asymptote comes from the leading
-          terms, not the constants.
+          This uses the numerator constant. That constant is a clear number in the formula. Check the terms that dominate for large inputs.
     explanation: |
-      When the degree of the numerator equals the degree of the denominator (both are degree 2), the horizontal asymptote is the ratio of their leading coefficients: $y = \frac{4}{2} = 2$.
+      Both polynomials have degree $2$. For equal degrees, divide the leading coefficients: $\dfrac{4}{2}=2$. The horizontal asymptote is $y=2$.
 
   - id: q-algebra-types-of-functions-0012
     type: direct-computation
@@ -259,45 +230,39 @@ questions:
     stem: |
       Solve for $x$ in the equation $\log_2(x + 3) = 4$.
     choices:
-      - text: $x = 13$
+      - text: '$13$'
         correct: true
-      - text: $x = 5$
+      - text: '$5$'
         rationale: |
-          You worked out $2 \times 4$ and then took 3 away. The 4 is an exponent, so
-          it is $2^4$.
-      - text: $x = 11$
+          This uses $2(4)$ instead of $2^4$. Multiplication looks like an inverse operation. Check the exponent form of the logarithm.
+      - text: '$19$'
         rationale: |
-          You added 3 instead of subtracting it. The 3 is already on the left, so it
-          moves across as a subtraction.
-      - text: $x = 61$
+          This adds $3$ after finding the argument. Moving a term can lead to a sign slip. Check the original expression $x+3$.
+      - text: '$1$'
         rationale: |
-          You used $4^3$ instead of $2^4$. The base and the exponent are the other
-          way round.
+          This treats the logarithm equation as $x+3=4$ and drops the base. The right-side value looks like the argument to solve for. Check the exponential form before isolating $x$.
     explanation: |
-      Rewrite the logarithmic equation in exponential form: $x + 3 = 2^4 = 16$. Subtract 3 from both sides to get $x = 13$.
+      Write the equation in exponent form: $x+3=2^4=16$. Subtract $3$ from both sides to get $x=13$. Its logarithm argument is $16$, which is positive.
 
   - id: q-algebra-types-of-functions-0013
     type: which-is-true
     difficulty: hard
     stem: |
-      Consider the function $f(x) = \frac{x^2 - 9}{x - 3}$. Which statement regarding its domain and continuity is correct?
+      Consider the function $f(x) = \dfrac{x^2 - 9}{x - 3}$. Which statement regarding its domain and continuity is correct?
     choices:
-      - text: The domain is all real numbers except $x = 3$, and the graph has a hole (removable discontinuity) at $x = 3$.
+      - text: 'Excludes $3$; has a hole there.'
         correct: true
-      - text: The function is continuous for all real numbers because $x - 3$ cancels out.
+      - text: 'The function is continuous for all real numbers because $x - 3$ cancels out.'
         rationale: |
-          You called it continuous everywhere. At $x = 3$ the denominator is zero,
-          so the function has no value there at all.
-      - text: The domain is all real numbers except $x = 3$, and the graph has a vertical asymptote at $x = 3$.
+          This cancels a factor and also removes the original restriction. The simpler expression is defined everywhere. Check the denominator before cancellation.
+      - text: 'The domain is all real numbers except $x = 3$, and the graph has a vertical asymptote at $x = 3$.'
         rationale: |
-          You have the kind of break wrong. The factor cancels, so the graph has a
-          single missing point rather than an asymptote.
-      - text: The domain is all real numbers except $x = -3$ and $x = 3$.
+          This assumes every denominator zero creates a vertical asymptote. Division by zero does signal a break. Check whether the factor cancels.
+      - text: 'The domain is all real numbers except $x = -3$ and $x = 3$.'
         rationale: |
-          You excluded $-3$ as well. That value only makes the top zero, which is
-          allowed.
+          This excludes both numerator zeros. Factoring produces two visible factors. Check which factor occurs in the denominator.
     explanation: |
-      Because $x - 3 = 0$ at $x = 3$, the function is undefined at $x = 3$. Since $\frac{x^2 - 9}{x - 3} = \frac{(x-3)(x+3)}{x-3} = x + 3$ for $x \neq 3$, the factor cancels out, creating a hole (removable discontinuity) at $x = 3$ rather than a vertical asymptote.
+      The original denominator is zero at $x=3$, so that input is excluded. Factor the numerator: $x^2-9=(x-3)(x+3)$. For $x\ne3$, the quotient equals $x+3$. Its graph is this line with the point at $x=3$ missing, which is a removable discontinuity.
 
   - id: q-algebra-types-of-functions-0014
     type: direct-computation
@@ -305,40 +270,141 @@ questions:
     stem: |
       If $f(x) = 2^x + 1$, find the value of $x$ for which $f(x) = 33$.
     choices:
-      - text: $x = 5$
+      - text: '$x = 5$'
         correct: true
-      - text: $x = 16$
+      - text: '$x = 16$'
         rationale: |
-          You divided 32 by 2. The question asks which power of 2 gives 32, not what
-          half of it is.
-      - text: $x = 6$
+          This divides $32$ by $2$ instead of finding an exponent. Division can seem to undo a power. Check which exponent gives the required value.
+      - text: '$x=\log_2 33$'
         rationale: |
-          You solved $2^x = 64$. Taking 1 from 33 leaves 32, not 64.
-      - text: $x = 4$
+          This ignores the outside $1$ and solves $2^x=33$. Taking a logarithm is a valid way to solve a power equation. Check that the constant is removed before using it.
+      - text: '$x=4$'
         rationale: |
-          You stopped at $2^4 = 16$. That leaves the equation at 17, not 33.
+          This subtracts the outside $1$ from the exponent after identifying $2^5$. Both steps involve a subtraction. Check that the outside constant is removed from the output, not the exponent.
     explanation: |
-      Set $2^x + 1 = 33 \implies 2^x = 32$. Since $32 = 2^5$, we have $x = 5$. Dividing $32 \div 2 = 16$ is a common distractor error.
+      Subtract the outside $1$ from both sides: $2^x=32$. Since $32=2^5$, the required exponent is $x=5$.
 
   - id: q-algebra-types-of-functions-0015
     type: which-is-true
     difficulty: medium
     stem: |
-      A student claims that the line $y = 3x - 6$ and the line $y = -\frac{1}{3}x + 4$ are perpendicular. Is the student correct, and why?
+      A student claims that the line $y = 3x - 6$ and the line $y = -\dfrac{1}{3}x + 4$ are perpendicular. Is the student correct, and why?
     choices:
       - text: Yes, because the product of their slopes is $-1$.
         correct: true
       - text: No, because their slopes are not equal.
         rationale: |
-          You looked for equal slopes. Equal slopes make lines parallel, not
-          perpendicular.
+          This tests for equal slopes. Equal slopes are a familiar way to compare lines. Check that perpendicular nonvertical lines have slopes whose product is $-1$.
       - text: No, because one slope is positive and the other is negative.
         rationale: |
-          You used the signs alone. Plenty of pairs have one positive and one
-          negative slope without being perpendicular.
+          This treats opposite slope signs as evidence against perpendicularity. Opposite signs do make the lines tilt in different directions. Check the product of their slopes.
       - text: Yes, because their $y$-intercepts sum to zero.
         rationale: |
-          You used the intercepts. Perpendicularity is decided by the slopes, and
-          the intercepts only move the lines around.
+          This uses the intercepts to test perpendicularity. Both constants help place the lines on a graph. Check the slopes, which determine the angle between the lines.
     explanation: |
-      Two non-vertical lines are perpendicular if and only if the product of their slopes is $-1$. Here $m_1 = 3$ and $m_2 = -\frac{1}{3}$, so $m_1 \cdot m_2 = 3 \cdot \left(-\frac{1}{3}\right) = -1$.
+      The slope is the coefficient of $x$ in $y=mx+b$. The slopes are $3$ and $-\dfrac{1}{3}$. Their product is $3\left(-\dfrac{1}{3}\right)=-1$. Nonvertical lines with this slope product are perpendicular.
+
+  - id: q-algebra-types-of-functions-0016
+    type: which-is-true
+    difficulty: easy
+    stem: |
+      Let $f(x)=\left(\dfrac{1}{2}\right)^x$, $g(x)=2^x$, $h(x)=x^2$, and $j(x)=|x|$. Which function decreases as $x$ increases over all real numbers?
+    choices:
+      - text: '$f$'
+        correct: true
+      - text: '$g$'
+        rationale: |
+          This treats every exponential as decreasing. Some exponential graphs do decay. Check whether the base lies below or above $1$.
+      - text: '$h$'
+        rationale: |
+          This extends the decreasing left half of a parabola to its whole domain. Negative inputs do show that behavior. Check values on both sides of its vertex.
+      - text: '$j$'
+        rationale: |
+          This extends the decreasing left arm of an absolute-value graph to all inputs. That arm does slope down. Check its behavior for positive inputs.
+    explanation: |
+      The base $\dfrac{1}{2}$ lies between $0$ and $1$. Raising it to larger exponents multiplies by a factor smaller than $1$. Thus the output decreases as $x$ increases.
+    approved: false
+
+  - id: q-algebra-types-of-functions-0017
+    type: error-spotting
+    difficulty: medium
+    stem: |
+      A student solves $|2x-5|=7$ using only $2x-5=7$, and reports $x=6$. What is missing?
+    choices:
+      - text: 'The case $2x-5=-7$.'
+        correct: true
+      - text: 'A rule requiring $x>0$.'
+        rationale: |
+          This assumes the input of an absolute value must be positive. The output is nonnegative, so its input can seem restricted too. Check the difference between the input and the output.
+      - text: 'A check that $7$ is a perfect square.'
+        rationale: |
+          This confuses absolute value with a square root. Both operations often give nonnegative outputs. Check which operation appears in the equation.
+      - text: 'The case $2x-5=0$ instead.'
+        rationale: |
+          This looks for the zero inside the bars. That does locate the graph vertex. Check whether the requested output is zero.
+    explanation: |
+      An absolute value of $7$ means its input is $7$ or $-7$. The second case is $2x-5=-7$. It gives $2x=-2$, so $x=-1$ is also a solution.
+    approved: false
+
+  - id: q-algebra-types-of-functions-0018
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      For real logarithms, which input is allowed for $f(x)=\log_2(x-4)$?
+    choices:
+      - text: '$x=5$'
+        correct: true
+      - text: '$x=4$'
+        rationale: |
+          This allows an argument of zero. The boundary of the allowed inputs can look included. Check that a real logarithm needs a strictly positive argument.
+      - text: '$x=0$'
+        rationale: |
+          This checks that the base is positive but ignores the argument. The valid base $2$ can make the formula look unrestricted. Check the value inside the logarithm.
+      - text: '$x=-5$'
+        rationale: |
+          This takes the logarithm of the absolute value of the argument. Ignoring a minus sign can make the calculation look possible. Check that the original argument itself is positive.
+    explanation: |
+      A real logarithm needs $x-4>0$. Adding $4$ gives $x>4$. The input $5$ satisfies this condition and makes the argument $1$.
+    approved: false
+
+  - id: q-algebra-types-of-functions-0019
+    type: word-problem
+    difficulty: hard
+    stem: |
+      A delivery service charges $C(d)=40$ pesos for $0<d\le2$ km and $C(d)=40+15(d-2)$ pesos for $d>2$ km. What is the charge for a $5$ km delivery?
+    choices:
+      - text: '$85$'
+        correct: true
+      - text: '$115$'
+        rationale: |
+          This charges the added rate for all $5$ km. Multiplying the entire distance by the rate looks direct. Check which distance is already included in the base charge.
+      - text: '$75$'
+        rationale: |
+          This uses $15d$ and omits the base charge. The per-kilometer rate looks like the whole price. Check every term in the applicable branch.
+      - text: '$55$'
+        rationale: |
+          This charges only one extra kilometer. Seeing one step beyond the first branch can suggest a single increase. Check the distance beyond $2$ km.
+    explanation: |
+      Since $5>2$, use the second rule. The extra distance is $5-2=3$ km. Therefore $C(5)=40+15(3)=85$ pesos.
+    approved: false
+
+  - id: q-algebra-types-of-functions-0020
+    type: which-is-true
+    difficulty: exam
+    stem: |
+      Which statement about a horizontal asymptote of a rational function is true?
+    choices:
+      - text: 'A graph may cross it.'
+        correct: true
+      - text: 'A graph must never touch it.'
+        rationale: |
+          This applies the barrier idea from vertical asymptotes to horizontal ones. Both are called asymptotes. Check that a horizontal asymptote describes behavior far along the graph.
+      - text: 'It excludes one input from the domain.'
+        rationale: |
+          This confuses a horizontal asymptote with a denominator restriction. Both are features of rational graphs. Check whether the line fixes an output or an input.
+      - text: 'It always passes through the origin.'
+        rationale: |
+          This assumes the familiar asymptote $y=0$ is the only possibility. Some simple rational examples use that line. Check the leading coefficients when the degrees match.
+    explanation: |
+      A horizontal asymptote describes the output as the input goes far in either direction. It does not require the graph to stay away from that line at every finite input. A graph may cross it.
+    approved: false

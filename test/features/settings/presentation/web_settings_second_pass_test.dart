@@ -1,0 +1,412 @@
+import 'dart:async';
+
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/auth/auth_user.dart';
+import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/auth/public_id_provider.dart';
+import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/steps_screen.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/features/legal/legal.dart';
+import 'package:pantas/features/settings/presentation/pages/about_page.dart';
+import 'package:pantas/features/settings/presentation/pages/account_page.dart';
+import 'package:pantas/features/settings/presentation/pages/delete_account_page.dart';
+import 'package:pantas/features/settings/presentation/pages/exam_page.dart';
+import 'package:pantas/features/settings/presentation/pages/name_page.dart';
+import 'package:pantas/features/settings/presentation/pages/session_building_page.dart';
+import 'package:pantas/features/settings/presentation/widgets/settings_pane_page.dart';
+import 'package:pantas/features/settings/presentation/widgets/settings_row.dart';
+import 'package:pantas/features/settings/settings.dart';
+
+import '../../../helpers/in_memory_database.dart';
+import '../../../helpers/pump_app.dart';
+
+Future<void> _pump(
+  WidgetTester tester,
+  Widget page, {
+  required bool dark,
+  DateTime? examDay,
+  AuthUser? user,
+  PublicIdState publicId = const PublicIdState.notReady(),
+  double scale = 1,
+  bool still = true,
+}) async {
+  tester.view.physicalSize = const Size(1440, 1000);
+  tester.view.devicePixelRatio = 1;
+  addTearDown(tester.view.resetPhysicalSize);
+  addTearDown(tester.view.resetDevicePixelRatio);
+  final db = inMemoryDatabase();
+  addTearDown(db.close);
+  final repository = DriftSettingsRepository(db);
+  await tester.pumpAppWithProviders(
+    Theme(
+      data: dark ? buildDarkTheme(web: true) : buildLightTheme(web: true),
+      child: MediaQuery(
+        data: MediaQueryData(
+          size: const Size(1440, 1000),
+          textScaler: TextScaler.linear(scale),
+          disableAnimations: still,
+        ),
+        child: page,
+      ),
+    ),
+    overrides: [
+      appDatabaseProvider.overrideWithValue(db),
+      currentUserProvider.overrideWith((ref) async => user),
+      publicIdProvider.overrideWith((ref) => Stream.value(publicId)),
+      userSettingsProvider.overrideWith((ref) async {
+        final settings = await repository.readUserSettings();
+        return UserSettings(
+          name: settings.name,
+          dailyReminderTime: settings.dailyReminderTime,
+          studyDays: settings.studyDays,
+          examDate: examDay == null ? null : ExamDate.onDay(examDay),
+          strictMockMode: settings.strictMockMode,
+          helpImproveApp: settings.helpImproveApp,
+          carryOverProgress: settings.carryOverProgress,
+          sessionOrdering: settings.sessionOrdering,
+          retainTableOrder: settings.retainTableOrder,
+          updatedAt: settings.updatedAt,
+        );
+      }),
+    ],
+  );
+  await tester.pumpAndSettle();
+}
+
+void main() {
+  setUp(() => debugWebPlatformOverride = true);
+  tearDown(() => debugWebPlatformOverride = null);
+
+  testWidgets('picking Exact day with no date set saves no date',
+      (tester) async {
+    await _pump(tester, const ExamPage(), dark: false);
+    final repository = ProviderScope.containerOf(
+      tester.element(find.byType(ExamPage)),
+    ).read(settingsRepositoryProvider);
+    await tester.tap(find.text('Exam date'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Exact day'));
+    await tester.pumpAndSettle();
+    expect(find.byType(WebPickerColumn), findsNWidgets(3));
+    expect((await repository.readUserSettings()).examDate, isNull);
+    expect(find.text('Not set'), findsWidgets);
+    await tester.tap(find.text('Month only'));
+    await tester.pumpAndSettle();
+    expect((await repository.readUserSettings()).examDate, isNull);
+  });
+
+  testWidgets('the Name page saves as the student types', (tester) async {
+    await _pump(tester, const NamePage(), dark: false);
+    final repository = ProviderScope.containerOf(
+      tester.element(find.byType(NamePage)),
+    ).read(settingsRepositoryProvider);
+    await tester.enterText(find.byType(TextField), 'Zed');
+    await tester.pump(const Duration(milliseconds: 100));
+    expect((await repository.readUserSettings()).name, isNull);
+    await tester.pump(const Duration(milliseconds: 600));
+    expect((await repository.readUserSettings()).name, 'Zed');
+    expect(
+      find.textContaining('It saves as you type.'),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets('a name typed just before leaving is still saved',
+      (tester) async {
+    await _pump(tester, const NamePage(), dark: false);
+    final repository = ProviderScope.containerOf(
+      tester.element(find.byType(NamePage)),
+    ).read(settingsRepositoryProvider);
+    await tester.enterText(find.byType(TextField), 'Quinn');
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump(const Duration(seconds: 1));
+    expect((await repository.readUserSettings()).name, 'Quinn');
+  });
+
+  testWidgets('Esc leaves a Settings detail page that has an Esc hint',
+      (tester) async {
+    var left = 0;
+    await _pump(
+      tester,
+      SettingsPanePage(
+        section: 'About',
+        title: 'Privacy Policy',
+        backLabel: 'About',
+        onBack: () => left++,
+        children: const [Text('Body')],
+      ),
+      dark: false,
+    );
+    expect(find.text('Esc'), findsOneWidget);
+    await tester.sendKeyEvent(LogicalKeyboardKey.escape);
+    await tester.pump();
+    expect(left, 1);
+  });
+  for (final dark in [false, true]) {
+    for (final signedIn in [false, true]) {
+      testWidgets('Account identity signedIn=$signedIn dark=$dark',
+          (tester) async {
+        await _pump(
+          tester,
+          const AccountPage(),
+          dark: dark,
+          user: signedIn
+              ? const AuthUser(
+                  uid: 'student',
+                  email: 'student@example.com',
+                  displayName: 'Student',
+                )
+              : null,
+        );
+        expect(
+          find.byKey(const ValueKey('settings-navigation')),
+          findsOneWidget,
+        );
+        expect(find.text('Your name, sign-in and backup.'), findsOneWidget);
+        expect(find.text('Pantas ID'), findsOneWidget);
+        expect(
+          find.text(signedIn ? 'Not ready yet' : 'Sign in to get one'),
+          findsOneWidget,
+        );
+        expect(
+          find.text(signedIn ? 'Google' : 'Continue with Google'),
+          findsOneWidget,
+        );
+        expect(tester.takeException(), isNull);
+      });
+    }
+    testWidgets('Account ID copied state ends after two seconds dark=$dark',
+        (tester) async {
+      String? copied;
+      tester.binding.defaultBinaryMessenger
+          .setMockMethodCallHandler(SystemChannels.platform, (call) async {
+        if (call.method == 'Clipboard.setData') {
+          copied = (call.arguments as Map)['text'] as String;
+        }
+        return null;
+      });
+      addTearDown(
+        () => tester.binding.defaultBinaryMessenger
+            .setMockMethodCallHandler(SystemChannels.platform, null),
+      );
+      await _pump(
+        tester,
+        const AccountPage(),
+        dark: dark,
+        user: const AuthUser(
+          uid: 'student',
+          email: 'student@example.com',
+          displayName: 'Student',
+        ),
+        publicId: const PublicIdState.ready('482139075'),
+      );
+      expect(find.text('Click to copy'), findsOneWidget);
+      await tester.tap(find.text('Pantas ID'));
+      await tester.pump();
+      expect(copied, '482139075');
+      expect(find.text('Copied'), findsOneWidget);
+      await tester.pump(const Duration(seconds: 2));
+      expect(find.text('Copied'), findsNothing);
+      expect(find.text('482 139 075'), findsOneWidget);
+    });
+    testWidgets('date editor has exact, month and unknown states dark=$dark',
+        (tester) async {
+      await _pump(
+        tester,
+        const ExamPage(),
+        dark: dark,
+        examDay: DateTime(DateTime.now().year + 1, 11, 11),
+      );
+      await tester.tap(find.text('Exam date'));
+      await tester.pumpAndSettle();
+      expect(find.byType(WebPickerColumn), findsNWidgets(3));
+      await tester.tap(find.text('Month only'));
+      await tester.pumpAndSettle();
+      expect(find.byType(WebPickerColumn), findsNWidgets(2));
+      await tester.tap(find.text("I don't know"));
+      await tester.pumpAndSettle();
+      expect(find.byType(WebPickerColumn), findsNothing);
+      expect(
+        find.text('Your plan keeps a steady pace until you add a date.'),
+        findsOneWidget,
+      );
+      expect(tester.takeException(), isNull);
+    });
+    testWidgets('the date editor opens and closes over 300 ms dark=$dark',
+        (tester) async {
+      await _pump(
+        tester,
+        const ExamPage(),
+        dark: dark,
+        examDay: DateTime(DateTime.now().year + 1, 11, 11),
+        still: false,
+      );
+      final editor = find.byType(AnimatedSize);
+      expect(find.text('Month only'), findsNothing);
+      await tester.tap(find.text('Exam date'));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+      final opening = tester.getSize(editor.first).height;
+      expect(opening, greaterThan(0));
+      await tester.pumpAndSettle();
+      final open = tester.getSize(editor.first).height;
+      expect(open, greaterThan(opening));
+      await tester.tap(find.text('Exam date'));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+      final closing = tester.getSize(editor.first).height;
+      expect(closing, lessThan(open));
+      await tester.pumpAndSettle();
+      expect(find.byType(WebPickerColumn), findsNothing);
+      expect(tester.takeException(), isNull);
+    });
+    testWidgets('reduced motion opens the date editor at once dark=$dark',
+        (tester) async {
+      await _pump(
+        tester,
+        const ExamPage(),
+        dark: dark,
+        examDay: DateTime(DateTime.now().year + 1, 6, 15),
+      );
+      await tester.tap(find.text('Exam date'));
+      await tester.pump();
+      expect(find.byType(WebPickerColumn), findsNWidgets(3));
+      await tester.tap(find.text('Exam date'));
+      await tester.pump();
+      expect(find.byType(WebPickerColumn), findsNothing);
+      expect(tester.hasRunningAnimations, isFalse);
+    });
+    for (final scale in [1.0, 2.0]) {
+      testWidgets('past exam keeps warning color dark=$dark scale=$scale',
+          (tester) async {
+        await _pump(
+          tester,
+          const ExamPage(),
+          dark: dark,
+          scale: scale,
+          examDay: DateTime(2025),
+        );
+        final date = find.text('Jan 1, 2025');
+        expect(date, findsOneWidget);
+        expect(
+          tester.widget<Text>(date).style?.color,
+          dark ? const Color(0xFFE0706B) : const Color(0xFFD70015),
+        );
+        expect(find.textContaining('This date has passed.'), findsOneWidget);
+        expect(tester.takeException(), isNull);
+      });
+    }
+    testWidgets('About uses version card and hides sharing dark=$dark',
+        (tester) async {
+      await _pump(
+        tester,
+        const AboutPage(
+          version: '2.0.0',
+          buildNumber: '99',
+        ),
+        dark: dark,
+      );
+      final card = find.ancestor(
+        of: find.text('Version 2.0.0 (99)'),
+        matching: find.byType(WebCard),
+      );
+      expect(card, findsOneWidget);
+      expect(
+        find.descendant(of: card, matching: find.text('P')),
+        findsOneWidget,
+      );
+      expect(find.text('Privacy Policy'), findsOneWidget);
+      expect(find.text('Terms of Service'), findsOneWidget);
+      expect(
+        find.text('Help improve Pantas by sharing usage data'),
+        findsOneWidget,
+      );
+      expect(find.text('Facebook group ↗'), findsOneWidget);
+      expect(find.text('Shared links'), findsNothing);
+      expect(tester.takeException(), isNull);
+    });
+    testWidgets('Practice uses newest strict mode copy dark=$dark',
+        (tester) async {
+      await _pump(tester, const SessionBuildingPage(), dark: dark);
+      expect(
+        find.text('For mock exams: no pausing and no ending a section early. '
+            'Leaving the mock instantly ends and submits your answers, '
+            'finished or not finished.'),
+        findsOneWidget,
+      );
+      expect(find.text('One topic only'), findsOneWidget);
+      expect(
+        find.textContaining('Interleaved tail', findRichText: true),
+        findsOneWidget,
+      );
+      expect(find.text('Fully mixed'), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    });
+    testWidgets(
+        'the Practice header glyph is as big as the other headers '
+        'dark=$dark', (tester) async {
+      await _pump(tester, const SessionBuildingPage(), dark: dark);
+      // The list's row and the pane's header both draw the glyph.
+      final sizes = [
+        for (final icon
+            in tester.widgetList<Icon>(find.byIcon(PantasIcons.practice)))
+          icon.size,
+      ];
+      expect(sizes, hasLength(2));
+      expect(sizes, everyElement(22));
+    });
+    testWidgets('delete shows real pending operation then Close dark=$dark',
+        (tester) async {
+      final done = Completer<void>();
+      await _pump(
+        tester,
+        DeleteAccountPage(
+          isAnonymous: false,
+          entitlement: const SettingsEntitlementSnapshot.free(),
+          dpoEmail: defaultLegalContact.dpoEmail,
+          onDelete: () => done.future,
+        ),
+        dark: dark,
+      );
+      expect(find.text('Delete your account?'), findsOneWidget);
+      await tester.tap(
+        find.descendant(
+          of: find.byType(Dialog),
+          matching: find.text('Delete My Data'),
+        ),
+      );
+      await tester.pump();
+      expect(find.byType(StepsScreen), findsOneWidget);
+      expect(find.text('Deleting your account'), findsOneWidget);
+      expect(find.text('Close'), findsNothing);
+      done.complete();
+      await tester.pumpAndSettle();
+      expect(
+        find.text('Your account is deleted.'),
+        findsOneWidget,
+      );
+      expect(find.text('Close'), findsOneWidget);
+      expect(find.byType(CircularProgressIndicator), findsNothing);
+      expect(tester.takeException(), isNull);
+    });
+    testWidgets('wide setting values use board typography dark=$dark',
+        (tester) async {
+      await _pump(
+        tester,
+        const SettingsRow(title: 'Exam', value: 'CSE Professional'),
+        dark: dark,
+      );
+      expect(
+        tester.widget<Text>(find.text('CSE Professional')).style?.fontSize,
+        16,
+      );
+    });
+  }
+}

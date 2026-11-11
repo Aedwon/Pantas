@@ -1,0 +1,82 @@
+[
+  {
+    "argv": [
+      "flutter",
+      "test",
+      "--no-pub",
+      "test/features/quiz/domain/picker/practice_design_rules_test.dart",
+      "test/features/quiz/domain/picker/practice_selection_test.dart",
+      "test/features/quiz/domain/picker/practice_summary_test.dart",
+      "test/features/quiz/domain/picker/practice_adjustment_test.dart",
+      "test/features/quiz/domain/use_cases/start_practice_test.dart",
+      "test/features/quiz/domain/use_cases/practice_recency_test.dart",
+      "test/features/quiz/data/repos/practice_preferences_repository_test.dart",
+      "test/features/quiz/presentation/practice_pace_refresh_test.dart",
+      "test/core/ui/components/practice_scope_extensions_test.dart",
+      "--reporter",
+      "expanded"
+    ],
+    "exit": 0
+  },
+  {
+    "argv": [
+      "flutter",
+      "analyze",
+      "--no-pub",
+      "lib/core/ui/components/scope_picker.dart",
+      "lib/features/quiz/application/quiz_providers.dart",
+      "lib/features/quiz/data/repos/practice_preferences_repository.dart",
+      "lib/features/quiz/domain/picker/practice_selection.dart",
+      "lib/features/quiz/domain/picker/practice_summary.dart",
+      "lib/features/quiz/domain/use_cases/start_practice.dart",
+      "lib/features/quiz/presentation/practice_picker_providers.dart",
+      "lib/features/quiz/presentation/quiz_controller.dart",
+      "test/core/ui/components/practice_scope_extensions_test.dart",
+      "test/features/quiz/data/repos/practice_preferences_repository_test.dart",
+      "test/features/quiz/domain/picker/practice_adjustment_test.dart",
+      "test/features/quiz/domain/picker/practice_design_rules_test.dart",
+      "test/features/quiz/domain/picker/practice_selection_test.dart",
+      "test/features/quiz/domain/picker/practice_summary_test.dart",
+      "test/features/quiz/domain/use_cases/practice_recency_test.dart",
+      "test/features/quiz/domain/use_cases/start_practice_test.dart",
+      "test/features/quiz/presentation/practice_pace_refresh_test.dart"
+    ],
+    "exit": 0
+  },
+  {
+    "argv": [
+      "dart",
+      "format",
+      "--output=none",
+      "--set-exit-if-changed",
+      "lib",
+      "test",
+      "tool"
+    ],
+    "exit": 0
+  },
+  {
+    "argv": [
+      "dart",
+      "run",
+      "tool/check_layering.dart"
+    ],
+    "exit": 0
+  },
+  {
+    "argv": [
+      "dart",
+      "run",
+      "tool/check_no_ai_attribution.dart"
+    ],
+    "exit": 0
+  },
+  {
+    "argv": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exit": 0
+  }
+]

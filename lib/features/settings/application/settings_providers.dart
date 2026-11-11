@@ -3,7 +3,12 @@ import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/time/study_days.dart';
+import 'package:pantas/features/home/application/study_delivery.dart';
+import 'package:pantas/features/paywall/application/beta_pro_provider.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
+import 'package:pantas/features/paywall/domain/entitlement.dart';
+import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/settings/data/settings_repository.dart';
 import 'package:pantas/features/settings/domain/session_ordering.dart';
 import 'package:pantas/features/settings/domain/theme_preference.dart';
@@ -45,7 +50,12 @@ final settingsRepositoryProvider = Provider<DriftSettingsRepository>((ref) {
 });
 
 final userSettingsProvider = FutureProvider<UserSettings>((ref) async {
-  return ref.watch(settingsRepositoryProvider).readUserSettings();
+  final repository = ref.watch(settingsRepositoryProvider);
+  final subscription = repository.watchUserSettingsChanges().listen((_) {
+    ref.invalidateSelf();
+  });
+  ref.onDispose(subscription.cancel);
+  return repository.readUserSettings();
 });
 
 final themePreferenceProvider = FutureProvider<ThemePreference>((ref) async {
@@ -106,17 +116,39 @@ class SettingsActions {
     _ref.invalidate(userSettingsProvider);
   }
 
-  Future<void> setExamDate(ExamDate date, {required DateTime today}) async {
-    await _ref
-        .read(settingsRepositoryProvider)
-        .updateExamDate(date, today: today);
+  Future<void> updateStudyDays(StudyDays days) async {
+    final publish = await _ref.read(studySettingsCaptureProvider)();
+    await publish.apply(
+      () => _ref.read(settingsRepositoryProvider).updateStudyDays(days),
+    );
     _ref.invalidate(userSettingsProvider);
+    _publishPlanChange();
+    await _ref.read(notificationServiceProvider).rescheduleForForeground();
+  }
+
+  /// The Quiz panel does not watch settings; a change that reshapes today's
+  /// plan is published through the revision it already watches.
+  void _publishPlanChange() =>
+      _ref.read(quizSessionPanelRevisionProvider.notifier).publishCompletion();
+
+  Future<void> setExamDate(ExamDate date, {required DateTime today}) async {
+    final publish = await _ref.read(studySettingsCaptureProvider)();
+    await publish.apply(
+      () => _ref
+          .read(settingsRepositoryProvider)
+          .updateExamDate(date, today: today),
+    );
+    _ref.invalidate(userSettingsProvider);
+    _publishPlanChange();
   }
 
   Future<String> saveExamDate(ExamDate date, {required DateTime today}) async {
-    await _ref
-        .read(settingsRepositoryProvider)
-        .updateExamDate(date, today: today);
+    final publish = await _ref.read(studySettingsCaptureProvider)();
+    await publish.apply(
+      () => _ref
+          .read(settingsRepositoryProvider)
+          .updateExamDate(date, today: today),
+    );
     final day = date.day;
     if (day != null) {
       await _ref
@@ -127,20 +159,30 @@ class SettingsActions {
           );
     }
     _ref.invalidate(userSettingsProvider);
+    _publishPlanChange();
     return 'Your study plan is being rebalanced.';
   }
 
   /// "I don't know yet", which is a real answer rather than a refusal, so it
   /// removes both keys instead of leaving a stale precision behind.
   Future<void> clearExamDate() async {
-    await _ref.read(settingsRepositoryProvider).clearExamDate();
+    final publish = await _ref.read(studySettingsCaptureProvider)();
+    await publish
+        .apply(() => _ref.read(settingsRepositoryProvider).clearExamDate());
     _ref.invalidate(userSettingsProvider);
+    _publishPlanChange();
   }
 
+  /// The one write for the carry-over choice, used by the exam prompt and the
+  /// Settings row. The server computes the web figures, so it is told the
+  /// choice the same way it is told the exam date. Scheduling never reads it.
   Future<void> setCarryOverProgress({required bool enabled}) async {
-    await _ref
-        .read(settingsRepositoryProvider)
-        .updateCarryOverProgress(enabled: enabled);
+    final publish = await _ref.read(studySettingsCaptureProvider)();
+    await publish.apply(
+      () => _ref
+          .read(settingsRepositoryProvider)
+          .updateCarryOverProgress(enabled: enabled),
+    );
     _ref.invalidate(userSettingsProvider);
   }
 
@@ -175,6 +217,23 @@ final activeExamShortNameProvider = Provider<String>((ref) {
 /// The Pro row's value. Free students see "Free" and every other row on the
 /// screen is unchanged: no row is hidden, disabled or badged by entitlement.
 final proRowValueProvider = Provider<String>((ref) {
+  if (ref.watch(betaProProvider).valueOrNull?.enabled ?? false) return 'Pro';
   final entitlement = ref.watch(entitlementProvider).valueOrNull;
-  return entitlement != null && entitlement.proIsActive ? 'Pro' : 'Free';
+  if (entitlement == null || !entitlement.proIsActive) return 'Free';
+  if (entitlement.betaPasses.isNotEmpty &&
+      !entitlement.coverage().hasKnownCoverage) {
+    return 'Free';
+  }
+  if (entitlement.isTrial && entitlement.endsAt != null) {
+    final days = entitlement.endsAt!.difference(DateTime.now()).inHours / 24;
+    final remaining = days.ceil().clamp(0, 7);
+    return 'Trial, $remaining ${remaining == 1 ? 'day' : 'days'} left';
+  }
+  return switch (entitlement.plan) {
+    EntitlementPlan.weekly => 'Weekly',
+    EntitlementPlan.monthly => 'Monthly',
+    EntitlementPlan.yearly => 'Yearly',
+    EntitlementPlan.free =>
+      entitlement.passes.isNotEmpty ? 'Season Pass' : 'Pro',
+  };
 });

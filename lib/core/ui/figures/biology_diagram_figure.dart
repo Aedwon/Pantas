@@ -3,6 +3,9 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
+/// Height of the drawing. The design system sets no height for diagrams.
+const double _figureHeight = 210;
+
 /// Original lesson diagrams for the eight biology briefs in original-code-a.
 class BiologyDiagramFigure extends StatelessWidget {
   const BiologyDiagramFigure._({
@@ -43,20 +46,20 @@ class BiologyDiagramFigure extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = context.colors;
     return SizedBox(
-      height: 210,
+      height: _figureHeight,
       child: CustomPaint(
         size: Size.infinite,
         painter: _BiologyDiagramPainter(
           type: type,
           spec: _spec,
-          ink: colors.ink,
-          inkMuted: colors.inkMuted,
-          rule: colors.ruleFaint,
-          board: colors.board,
-          boardTint: colors.boardTint,
-          labelStyle: context.textStyles.bodySmall.copyWith(color: colors.ink),
-          mutedStyle: context.textStyles.bodySmall.copyWith(
-            color: colors.inkMuted,
+          ink: colors.label,
+          inkMuted: colors.secondaryLabel,
+          rule: colors.fill,
+          board: colors.accent,
+          boardTint: colors.accentTint,
+          labelStyle: context.type.subhead.copyWith(color: colors.label),
+          mutedStyle: context.type.subhead.copyWith(
+            color: colors.secondaryLabel,
           ),
         ),
       ),

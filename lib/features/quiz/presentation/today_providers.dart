@@ -2,115 +2,15 @@ import 'dart:convert';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
-import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
-import 'package:pantas/features/quiz/domain/models/topic_queue_row.dart';
+import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
+import 'package:pantas/features/quiz/data/repos/quiz_session_repository.dart';
 import 'package:pantas/features/quiz/domain/use_cases/build_today_plan.dart';
-import 'package:pantas/features/quiz/domain/use_cases/build_today_queue.dart';
-import 'package:pantas/features/quiz/domain/use_cases/count_today_backlog.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 
-/// The user id every local write already uses. Mirrors `quiz_controller.dart`.
-const todayUserId = 'local';
-
-/// How far back the weakness reading looks.
-const weaknessWindow = Duration(days: 30);
-
-/// Everything the panel and the queue read, gathered once so the two never
-/// disagree about the state of the day.
-class TodayInputs {
-  const TodayInputs({
-    required this.topics,
-    required this.questionsByTopic,
-    required this.backlogByTopic,
-    required this.now,
-  });
-
-  final List<TopicQueueInput> topics;
-  final Map<TopicId, List<Question>> questionsByTopic;
-  final Map<TopicId, TopicBacklog> backlogByTopic;
-  final DateTime now;
-
-  List<Question> get allQuestions =>
-      [for (final questions in questionsByTopic.values) ...questions];
-}
-
-final todayInputsProvider =
-    FutureProvider.family<TodayInputs, ExamId>((ref, examId) async {
-  final content = ref.watch(contentRepositoryProvider);
-  final now = ref.watch(nowProvider)();
-
-  final topics = await ref.watch(scopedTopicsProvider(examId).future);
-  final questionsByTopic = <TopicId, List<Question>>{};
-  for (final topic in topics) {
-    questionsByTopic[topic.id] = await content.questionsByTopic(topic.id);
-  }
-  final questionsById = <QuestionId, Question>{
-    for (final questions in questionsByTopic.values)
-      for (final question in questions) question.id: question,
-  };
-
-  final states = await ref.watch(reviewStateRepositoryProvider).allStates();
-  final outcomes = await ref.watch(attemptsRepositoryProvider).questionOutcomes(
-        examId: examId,
-        now: now,
-      );
-
-  final preferences = await ref.watch(quizPreferencesRepositoryProvider).read();
-  final introduced =
-      await ref.watch(newCardIntroRepositoryProvider).countForDay(
-            userId: todayUserId,
-            examId: examId,
-            day: now,
-          );
-  final capRemaining =
-      (preferences.newCardCap - introduced).clamp(0, preferences.newCardCap);
-
-  return TodayInputs(
-    topics: [
-      for (final topic in topics)
-        TopicQueueInput(topicId: topic.id, topicName: topic.name),
-    ],
-    questionsByTopic: questionsByTopic,
-    backlogByTopic: {
-      for (final topic in topics)
-        topic.id: CountTodayBacklog.forTopic(
-          topicId: topic.id,
-          questions: questionsByTopic[topic.id] ?? const [],
-          states: states,
-          questionsById: questionsById,
-          outcomes: outcomes,
-          capRemaining: capRemaining,
-          now: now,
-        ),
-    },
-    now: now,
-  );
-});
-
-/// Every topic in the exam with its backlog, largest first, the largest marked
-/// recommended. The recommended row is the topic today's session is named
-/// after.
-final todayTopicQueueProvider =
-    FutureProvider.family<List<TopicQueueRow>, ExamId>((ref, examId) async {
-  final inputs = await ref.watch(todayInputsProvider(examId).future);
-  return BuildTodayQueue.call(
-    topics: inputs.topics,
-    dueCounts: {
-      for (final entry in inputs.backlogByTopic.entries)
-        entry.key: entry.value.due.length,
-    },
-    weaknessCounts: {
-      for (final entry in inputs.backlogByTopic.entries)
-        entry.key: entry.value.weakness.length,
-    },
-    newCounts: {
-      for (final entry in inputs.backlogByTopic.entries)
-        entry.key: entry.value.fresh.length,
-    },
-  );
-});
+export 'package:pantas/features/quiz/application/quiz_providers.dart'
+    show todayUserId;
 
 /// What the session panel shows today. One per condition of the day, in the
 /// order the panel checks them.
@@ -130,17 +30,20 @@ class SessionPanelNeedsAssessment extends SessionPanelState {
 /// A session was left part way through. It is still open and still counted.
 class SessionPanelInProgress extends SessionPanelState {
   const SessionPanelInProgress({
-    required this.answered,
+    required this.position,
     required this.total,
     this.topicName,
+    this.reviewSession,
   });
 
-  final int answered;
+  /// The one-based question Resume will reopen.
+  final int position;
   final int total;
 
   /// Null for sessions created before the topic was recorded, and for drills
   /// and inline lesson quizzes.
   final String? topicName;
+  final ({int ordinal, int total, int done, int questions})? reviewSession;
 }
 
 /// Everything due, weak and new has been worked through for today.
@@ -156,48 +59,39 @@ class SessionPanelCaughtUp extends SessionPanelState {
 
 /// There is a session to start.
 class SessionPanelAvailable extends SessionPanelState {
-  const SessionPanelAvailable({required this.plan, this.averageMinutes});
+  const SessionPanelAvailable({
+    required this.plan,
+    this.prepared,
+    this.averageMinutes,
+  });
 
   final TodaySessionPlan plan;
+
+  /// The immutable preparation shown by the panel and consumed by Start.
+  /// Null is retained only for isolated presentation tests that construct the
+  /// state directly; production panel state always supplies it.
+  final PreparedTodaySession? prepared;
 
   /// The student's own average completed session, or null until seven have
   /// been finished. Never a projection of how long today will take.
   final int? averageMinutes;
 }
 
-/// The plan the Start button will create, built from the recommended topic.
+/// The same prepared sitting the panel presents and Start consumes.
 final todaySessionPlanProvider =
     FutureProvider.family<TodaySessionPlan, ExamId>((ref, examId) async {
-  final inputs = await ref.watch(todayInputsProvider(examId).future);
-  final queue = await ref.watch(todayTopicQueueProvider(examId).future);
-  if (queue.isEmpty) return TodaySessionPlan.empty;
-
-  final named = queue.first;
-  if (named.totalCount == 0) return TodaySessionPlan.empty;
-
-  final preferences = await ref.watch(quizPreferencesRepositoryProvider).read();
-  final due = <Question>[];
-  final weakness = <Question>[];
-  final fresh = <Question>[];
-  for (final backlog in inputs.backlogByTopic.values) {
-    due.addAll(backlog.due);
-    weakness.addAll(backlog.weakness);
-    fresh.addAll(backlog.fresh);
-  }
-
-  return BuildTodayPlan.call(
-    due: due,
-    weakness: weakness,
-    fresh: fresh,
-    allQuestions: inputs.allQuestions,
-    preferences: preferences,
-    topicId: named.topicId,
-    topicName: named.topicName,
-  );
+  final prepared = await ref.watch(todayQuizPreparerProvider).prepare(
+        QuizPreparationRequest(userId: quizLocalUserId, examId: examId),
+      );
+  return prepared.plan;
 });
 
 final sessionPanelProvider =
     FutureProvider.family<SessionPanelState, ExamId>((ref, examId) async {
+  // Durable completion publishes this lightweight revision from application
+  // wiring. Watching it keeps the panel coherent without making application
+  // code import presentation providers.
+  ref.watch(quizSessionPanelRevisionProvider);
   final sessions = ref.watch(quizSessionRepositoryProvider);
 
   final open = await sessions.activeFor(userId: todayUserId, examId: examId);
@@ -208,10 +102,24 @@ final sessionPanelProvider =
         : await ref.watch(contentRepositoryProvider).topicById(topicId);
     final questionIds =
         (jsonDecode(open.questionIdsJson) as List).cast<String>();
+    final total = questionIds.length;
+    final position = total == 0 ? 0 : (open.currentIndex + 1).clamp(1, total);
+    final batch = await sessions.reviewBatchFor(
+      open,
+      sessions.reviewBatches.capture(todayUserId, examId),
+    );
     return SessionPanelInProgress(
-      answered: open.currentIndex,
-      total: questionIds.length,
+      position: position,
+      total: total,
       topicName: topic?.name,
+      reviewSession: batch == null
+          ? null
+          : (
+              ordinal: batch.current + 1,
+              total: batch.chunks.length,
+              done: open.outcomes.length,
+              questions: total
+            ),
     );
   }
 
@@ -226,7 +134,13 @@ final sessionPanelProvider =
     return SessionPanelNeedsAssessment(questions.length);
   }
 
-  final plan = await ref.watch(todaySessionPlanProvider(examId).future);
+  final prepared = await ref.watch(todayQuizPreparerProvider).prepare(
+        QuizPreparationRequest(
+          userId: quizLocalUserId,
+          examId: examId,
+        ),
+      );
+  final plan = prepared.plan;
   if (plan.isEmpty) {
     final tally = await ref.watch(attemptsRepositoryProvider).tallyForDay(
           examId: examId,
@@ -240,6 +154,7 @@ final sessionPanelProvider =
 
   return SessionPanelAvailable(
     plan: plan,
+    prepared: prepared,
     averageMinutes: await sessions.averageCompletedMinutes(
       userId: todayUserId,
       examId: examId,

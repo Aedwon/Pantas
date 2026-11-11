@@ -1,0 +1,123 @@
+[
+  {
+    "argv": [
+      "dart",
+      "fix",
+      "--apply",
+      "--code=require_trailing_commas,curly_braces_in_flow_control_structures,directives_ordering,prefer_final_fields,use_if_null_to_convert_nulls_to_bools,cascade_invocations",
+      "lib/features/quiz/presentation/quiz_page.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task4-ui-style-0.txt"
+  },
+  {
+    "argv": [
+      "dart",
+      "fix",
+      "--apply",
+      "--code=require_trailing_commas,curly_braces_in_flow_control_structures,directives_ordering,prefer_final_fields,use_if_null_to_convert_nulls_to_bools,cascade_invocations",
+      "lib/features/quiz/presentation/question_flag_providers.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task4-ui-style-1.txt"
+  },
+  {
+    "argv": [
+      "dart",
+      "fix",
+      "--apply",
+      "--code=require_trailing_commas,curly_braces_in_flow_control_structures,directives_ordering,prefer_final_fields,use_if_null_to_convert_nulls_to_bools,cascade_invocations",
+      "lib/core/ui/components/new_design/question_grid_sheet.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task4-ui-style-2.txt"
+  },
+  {
+    "argv": [
+      "dart",
+      "fix",
+      "--apply",
+      "--code=require_trailing_commas,curly_braces_in_flow_control_structures,directives_ordering,prefer_final_fields,use_if_null_to_convert_nulls_to_bools,cascade_invocations",
+      "test/features/quiz/presentation/quiz_question_screen_test.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task4-ui-style-3.txt"
+  },
+  {
+    "argv": [
+      "dart",
+      "fix",
+      "--apply",
+      "--code=require_trailing_commas,curly_braces_in_flow_control_structures,directives_ordering,prefer_final_fields,use_if_null_to_convert_nulls_to_bools,cascade_invocations",
+      "test/features/quiz/presentation/quiz_page_test.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task4-ui-style-4.txt"
+  },
+  {
+    "argv": [
+      "dart",
+      "fix",
+      "--apply",
+      "--code=require_trailing_commas,curly_braces_in_flow_control_structures,directives_ordering,prefer_final_fields,use_if_null_to_convert_nulls_to_bools,cascade_invocations",
+      "test/features/quiz/presentation/quiz_page_chrome_test.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task4-ui-style-5.txt"
+  },
+  {
+    "argv": [
+      "dart",
+      "fix",
+      "--apply",
+      "--code=require_trailing_commas,curly_braces_in_flow_control_structures,directives_ordering,prefer_final_fields,use_if_null_to_convert_nulls_to_bools,cascade_invocations",
+      "test/features/quiz/presentation/quiz_leave_resume_panel_test.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task4-ui-style-6.txt"
+  },
+  {
+    "argv": [
+      "dart",
+      "fix",
+      "--apply",
+      "--code=require_trailing_commas,curly_braces_in_flow_control_structures,directives_ordering,prefer_final_fields,use_if_null_to_convert_nulls_to_bools,cascade_invocations",
+      "test/features/quiz/presentation/question_flag_providers_test.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task4-ui-style-7.txt"
+  },
+  {
+    "argv": [
+      "dart",
+      "format",
+      "lib/features/quiz/presentation/quiz_page.dart",
+      "lib/features/quiz/presentation/question_flag_providers.dart",
+      "lib/core/ui/components/new_design/question_grid_sheet.dart",
+      "test/features/quiz/presentation/quiz_question_screen_test.dart",
+      "test/features/quiz/presentation/quiz_page_test.dart",
+      "test/features/quiz/presentation/quiz_page_chrome_test.dart",
+      "test/features/quiz/presentation/quiz_leave_resume_panel_test.dart",
+      "test/features/quiz/presentation/question_flag_providers_test.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task4-ui-style-8.txt"
+  },
+  {
+    "argv": [
+      "flutter",
+      "analyze",
+      "--no-pub",
+      "lib/features/quiz/presentation/quiz_page.dart",
+      "lib/features/quiz/presentation/question_flag_providers.dart",
+      "lib/core/ui/components/new_design/question_grid_sheet.dart",
+      "test/features/quiz/presentation/quiz_question_screen_test.dart",
+      "test/features/quiz/presentation/quiz_page_test.dart",
+      "test/features/quiz/presentation/quiz_page_chrome_test.dart",
+      "test/features/quiz/presentation/quiz_leave_resume_panel_test.dart",
+      "test/features/quiz/presentation/question_flag_providers_test.dart"
+    ],
+    "exit": 1,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task4-ui-style-9.txt"
+  }
+]

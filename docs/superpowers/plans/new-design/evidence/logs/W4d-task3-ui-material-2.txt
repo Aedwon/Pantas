@@ -1,0 +1,98 @@
+Analyzing 5 items...
+
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/core/ui/components/pantas_page.dart:69:71 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/core/ui/components/pantas_page.dart:72:75 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/core/ui/components/pantas_page.dart:72:76 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/core/ui/components/pantas_page.dart:73:38 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/core/ui/components/pantas_page.dart:78:20 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/core/ui/components/pantas_page.dart:88:62 • require_trailing_commas
+   info • Sort directive sections alphabetically. Try sorting the directives • lib/features/quiz/presentation/practice_picker_providers.dart:8:1 • directives_ordering
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • lib/features/quiz/presentation/practice_picker_providers.dart:69:81 • lines_longer_than_80_chars
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:54:9 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:61:5 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:81:79 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:88:75 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:120:43 • require_trailing_commas
+   info • Unnecessary duplication of receiver. Try using a cascade to avoid the duplication • lib/features/quiz/presentation/practice_picker_screen.dart:127:7 • cascade_invocations
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:147:41 • require_trailing_commas
+   info • Unnecessary duplication of receiver. Try using a cascade to avoid the duplication • lib/features/quiz/presentation/practice_picker_screen.dart:152:19 • cascade_invocations
+   info • Unnecessary duplication of receiver. Try using a cascade to avoid the duplication • lib/features/quiz/presentation/practice_picker_screen.dart:153:19 • cascade_invocations
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:154:18 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:155:12 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:165:12 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:186:34 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:202:61 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:203:15 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:205:9 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:205:10 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:227:64 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:239:21 • require_trailing_commas
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • lib/features/quiz/presentation/practice_picker_screen.dart:273:81 • lines_longer_than_80_chars
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:275:60 • require_trailing_commas
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • lib/features/quiz/presentation/practice_picker_screen.dart:278:81 • lines_longer_than_80_chars
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:281:67 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:281:68 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:282:28 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:282:29 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:286:67 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:288:22 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:290:18 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:303:66 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:304:16 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:305:14 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:307:6 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:313:45 • require_trailing_commas
+  error • Expected to find ')' • lib/features/quiz/presentation/practice_picker_screen.dart:313:46 • expected_token
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:332:10 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:336:79 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:351:61 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:351:62 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:355:68 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:355:69 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:355:70 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:356:14 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:359:59 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:360:12 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:374:63 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:374:64 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:374:65 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:380:68 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:380:69 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:380:70 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:386:55 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:386:56 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:386:57 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:387:14 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:400:23 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:413:23 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:420:45 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:426:61 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:430:63 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:431:14 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:435:75 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:450:55 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:450:56 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:450:57 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:451:14 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:457:60 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:475:71 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:475:72 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:478:32 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:478:33 • require_trailing_commas
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • lib/features/quiz/presentation/practice_picker_screen.dart:483:81 • lines_longer_than_80_chars
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:492:70 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:492:71 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:495:26 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:497:20 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:501:12 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:506:73 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:508:57 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:520:72 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:525:46 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:525:47 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:526:10 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/core/ui/components/practice_page_extensions_test.dart:26:18 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/core/ui/components/practice_page_extensions_test.dart:27:43 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/core/ui/components/practice_page_extensions_test.dart:30:66 • require_trailing_commas
+
+94 issues found. (ran in 1.8s)

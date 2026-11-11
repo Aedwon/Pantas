@@ -24,7 +24,7 @@ class LegalContact {
 }
 
 const defaultLegalContact = LegalContact(
-  dpoEmail: 'dpo@pantas.app',
-  supportEmail: 'contact@pantas.app',
+  dpoEmail: 'dpo@pantas.study',
+  supportEmail: 'contact@pantas.study',
   communityGroupUrl: 'https://www.facebook.com/groups/1760794271928040',
 );

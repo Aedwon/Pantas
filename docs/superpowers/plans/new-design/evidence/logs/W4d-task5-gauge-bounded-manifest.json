@@ -1,0 +1,12 @@
+{
+  "base": "65f05501",
+  "sha256": {
+    "lib/core/ui/components/half_ring_gauge.dart": "7c6792d13c235a5736b7eb7dc1ed85ceb9fb0d90e2a59ca34fa09e20b50a1c60",
+    "test/core/ui/components/half_ring_gauge_quiz_count_test.dart": "547078a2a3c8f68ed89be4d58ace875682baf4db0161ff566e2120bc6075029f",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-gauge-bounded-green.txt": "86b313513869bb97ca1c1daf2778a299578f4374f2bf07c28e030bfa6dd7858b",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-gauge-bounded-analysis.txt.gz": "3ab80aab59affd4d1b100a6c85e4af17801d75982faea0d03d95f82de0f7c1f0",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-gauge-bounded-analysis.txt": "ab02ae316f323114f4ba42b4e6795841905ff6d99a2adf096e61fab1db513698",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-gauge-bounded-red.txt.gz": "9201e64eecf10f427b83e29824359358e725fc29e6fb30cf01db9e2bd7583112",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-gauge-bounded-red.txt": "fa2f02f353aae6272791ff2630155e66234aff058edd3141559881e4bce376b3"
+  }
+}

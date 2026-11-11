@@ -1,391 +1,392 @@
 meta:
-  subject: mathematics
-  topic: precalculus-basic-calculus
-  subtopic: basic-integrals
-  exams: [upcat, acet, dlsucet, ustet, pupcet]
+  subject: 'mathematics'
+  topic: 'precalculus-basic-calculus'
+  subtopic: 'basic-integrals'
+  exams: ['upcat', 'acet', 'dlsucet', 'ustet', 'pupcet']
 questions:
-  - id: q-precalculus-basic-calculus-basic-integrals-0001
-    type: direct-computation
-    difficulty: easy
-    stem: |
-      Find the indefinite integral $\int x^3 \, dx$.
-    choices:
-      - text: $\frac{x^4}{4} + C$
-        correct: true
-      - text: $3x^2 + C$
-        rationale: |
-          You differentiated instead of integrated. $\dfrac{d}{dx}(x^3) = 3x^2$,
-          but the question asks for the antiderivative. Apply the power rule:
-          raise the exponent by 1 and divide by the new exponent.
-      - text: $\frac{x^3}{3} + C$
-        rationale: |
-          You divided by the original exponent instead of the new one.
-          The power rule says: add 1 to the exponent first, then divide
-          by that new value. $n = 3$, so the result is $\dfrac{x^4}{4} + C$.
-      - text: $4x^4 + C$
-        rationale: |
-          You multiplied by $(n + 1) = 4$ instead of dividing by it.
-          The power rule divides: $\int x^3 \, dx = \dfrac{x^{3+1}}{3+1} + C
-          = \dfrac{x^4}{4} + C$.
-    explanation: |
-      Using the power rule for integration $\int x^n \, dx = \frac{x^{n+1}}{n+1} + C$ with $n = 3$:
-      $\int x^3 \, dx = \frac{x^{3+1}}{3+1} + C = \frac{x^4}{4} + C$.
-
-  - id: q-precalculus-basic-calculus-basic-integrals-0002
-    type: direct-computation
-    difficulty: easy
-    stem: |
-      Find the indefinite integral $\int 6x^2 \, dx$.
-    choices:
-      - text: $2x^3 + C$
-        correct: true
-      - text: $12x + C$
-        rationale: |
-          You differentiated instead of integrating. $\dfrac{d}{dx}(6x^2) = 12x$,
-          but the question asks for the antiderivative. Apply the power rule:
-          $6 \cdot \dfrac{x^3}{3} = 2x^3$.
-      - text: $6x^3 + C$
-        rationale: |
-          You raised the exponent correctly to 3 but forgot to divide by 3.
-          The power rule divides by the new exponent: $6 \cdot \dfrac{x^3}{3}
-          = 2x^3 + C$.
-      - text: $3x^3 + C$
-        rationale: |
-          You divided 6 by 2 instead of by 3. The new exponent after
-          integration is 3, so you divide by 3: $6 \div 3 = 2$, giving
-          $2x^3 + C$.
-    explanation: |
-      Apply power rule: $6 \cdot \frac{x^3}{3} + C = 2x^3 + C$. (Note: $12x + C$ is the derivative, not the integral).
-
-  - id: q-precalculus-basic-calculus-basic-integrals-0003
-    type: direct-computation
-    difficulty: easy
-    stem: |
-      Find the indefinite integral $\int 5 \, dx$.
-    choices:
-      - text: $5x + C$
-        correct: true
-      - text: $0$
-        rationale: |
-          You differentiated instead of integrating. $\dfrac{d}{dx}(5) = 0$,
-          but the integral of a constant is the constant times $x$:
-          $\int 5 \, dx = 5x + C$.
-      - text: $5 + C$
-        rationale: |
-          You kept the constant unchanged. The integral adds a variable: the
-          integral of 5 with respect to $x$ is $5$ times $x$, not just 5.
-          The result is $5x + C$.
-      - text: $\frac{5x^2}{2} + C$
-        rationale: |
-          You treated the constant 5 as if it were $5x$ and integrated once
-          more. The integrand is 5, which equals $5x^0$. Integrating gives
-          $5x^1 = 5x + C$, not $5x^2/2 + C$.
-    explanation: |
-      The integral of a constant $k$ with respect to $x$ is $kx + C$, so $\int 5 \, dx = 5x + C$.
-
-  - id: q-precalculus-basic-calculus-basic-integrals-0004
-    type: direct-computation
-    difficulty: easy
-    stem: |
-      Evaluate the definite integral $\int_0^3 2x \, dx$.
-    choices:
-      - text: $9$
-        correct: true
-      - text: $6$
-        rationale: |
-          You substituted $x = 3$ into the integrand instead of the
-          antiderivative. $2(3) = 6$ is the integrand value, not the
-          integral. The antiderivative is $x^2$, so the answer is
-          $3^2 - 0^2 = 9$.
-      - text: $18$
-        rationale: |
-          You forgot to apply the power rule and used $2x^2$ as the
-          antiderivative instead of $x^2$. $\int 2x \, dx = x^2 + C$,
-          not $2x^2 + C$. Evaluating: $3^2 - 0 = 9$.
-      - text: $3$
-        rationale: |
-          You returned the upper limit of integration. The definite integral
-          is not the bound itself. Integrate $2x$ to get $x^2$, then
-          evaluate: $3^2 - 0^2 = 9$.
-    explanation: |
-      The antiderivative of $2x$ is $x^2$.
-      Evaluate from $0$ to $3$: $[x^2]_0^3 = 3^2 - 0^2 = 9 - 0 = 9$.
-
-  - id: q-precalculus-basic-calculus-basic-integrals-0005
-    type: which-is-true
-    difficulty: easy
-    stem: |
-      What is the result for the indefinite integral $\int \frac{1}{x} \, dx$ (where $x \neq 0$)?
-    choices:
-      - text: $\ln|x| + C$
-        correct: true
-      - text: $\frac{x^0}{0} + C$
-        rationale: |
-          You tried to apply the power rule with $n = -1$. That gives
-          $\dfrac{x^{-1+1}}{-1+1} = \dfrac{x^0}{0}$, which is division by
-          zero. The power rule does not work here. The integral of $1/x$
-          is $\ln|x| + C$ by definition.
-      - text: $-\frac{1}{x^2} + C$
-        rationale: |
-          You differentiated $1/x$ instead of integrating it.
-          $\dfrac{d}{dx}(1/x) = -1/x^2$, but the question asks for the
-          antiderivative: $\int 1/x \, dx = \ln|x| + C$.
-      - text: $1 + C$
-        rationale: |
-          You treated $1/x$ as a constant or applied an undefined rule.
-          The antiderivative of $1/x$ is not 1. It is $\ln|x| + C$,
-          which you can verify by differentiating: $\dfrac{d}{dx}(\ln|x|)
-          = 1/x$.
-    explanation: |
-      The power rule cannot be used when $n = -1$ because it leads to division by zero. By definition, $\int \frac{1}{x} \, dx = \ln|x| + C$.
-
-  - id: q-precalculus-basic-calculus-basic-integrals-0006
-    type: direct-computation
-    difficulty: medium
-    stem: |
-      Find the indefinite integral $\int (3x^2 - 4x + 5) \, dx$.
-    choices:
-      - text: $x^3 - 2x^2 + 5x + C$
-        correct: true
-      - text: $6x - 4 + C$
-        rationale: |
-          You differentiated instead of integrating. $\dfrac{d}{dx}(3x^2
-          - 4x + 5) = 6x - 4$. The antiderivative requires raising each
-          exponent by 1 and dividing by the new exponent.
-      - text: $x^3 - 4x^2 + 5x + C$
-        rationale: |
-          You integrated $3x^2$ correctly to $x^3$ but applied the power
-          rule to $-4x$ without dividing by the new exponent. $\int -4x
-          \, dx = -4 \cdot \dfrac{x^2}{2} = -2x^2$, not $-4x^2$.
-      - text: $x^3 - 2x^2 + 5 + C$
-        rationale: |
-          You integrated $3x^2$ and $-4x$ correctly but dropped the $x$
-          from the constant term. $\int 5 \, dx = 5x$, not just 5. The
-          constant 5 becomes $5x$ when integrated.
-    explanation: |
-      Integrate term by term:
-      $\int 3x^2 \, dx = x^3$, $\int -4x \, dx = -2x^2$, and $\int 5 \, dx = 5x$.
-      Combining gives $x^3 - 2x^2 + 5x + C$.
-
-  - id: q-precalculus-basic-calculus-basic-integrals-0007
-    type: direct-computation
-    difficulty: medium
-    stem: |
-      Rewrite $\sqrt{x}$ as $x^{1/2}$ and find the indefinite integral $\int \sqrt{x} \, dx$.
-    choices:
-      - text: $\frac{2}{3}x^{3/2} + C$
-        correct: true
-      - text: $\frac{1}{2\sqrt{x}} + C$
-        rationale: |
-          You differentiated $\sqrt{x}$ instead of integrating it.
-          $\dfrac{d}{dx}(\sqrt{x}) = \dfrac{1}{2\sqrt{x}}$. The integral
-          raises the exponent from $1/2$ to $3/2$ and divides by $3/2$.
-      - text: $\frac{3}{2}x^{3/2} + C$
-        rationale: |
-          You multiplied by the new exponent $3/2$ instead of dividing by
-          it. The power rule says divide: $\dfrac{x^{3/2}}{3/2} = \dfrac{2}{3}
-          x^{3/2}$, not $\dfrac{3}{2}x^{3/2}$.
-      - text: $\frac{2}{3}x^{1/2} + C$
-        rationale: |
-          You computed the coefficient $2/3$ correctly but did not raise
-          the exponent. After integrating $x^{1/2}$, the new exponent is
-          $1/2 + 1 = 3/2$. The answer is $\dfrac{2}{3}x^{3/2} + C$.
-    explanation: |
-      Rewrite $\sqrt{x}$ as $x^{1/2}$. Apply power rule:
-      $\int x^{1/2} \, dx = \frac{x^{(1/2)+1}}{(1/2)+1} + C = \frac{x^{3/2}}{3/2} + C = \frac{2}{3}x^{3/2} + C$.
-
-  - id: q-precalculus-basic-calculus-basic-integrals-0008
-    type: direct-computation
-    difficulty: medium
-    stem: |
-      Rewrite $\frac{1}{x^3}$ as $x^{-3}$ and find the indefinite integral $\int \frac{1}{x^3} \, dx$.
-    choices:
-      - text: $-\frac{1}{2x^2} + C$
-        correct: true
-      - text: $-\frac{3}{x^4} + C$
-        rationale: |
-          You differentiated $x^{-3}$ instead of integrating it.
-          $\dfrac{d}{dx}(x^{-3}) = -3x^{-4} = -3/x^4$. To integrate, add
-          1 to the exponent and divide: $x^{-2}/(-2) = -1/(2x^2) + C$.
-      - text: $\frac{1}{2x^2} + C$
-        rationale: |
-          You applied the power rule correctly in magnitude but dropped
-          the negative sign. $\int x^{-3} \, dx = x^{-2}/(-2) + C =
-          -1/(2x^2) + C$. The result is negative.
-      - text: $-\frac{1}{4x^4} + C$
-        rationale: |
-          You decremented the exponent to $-4$ instead of incrementing it
-          to $-2$. The power rule adds 1: $-3 + 1 = -2$, not $-3 - 1 =
-          -4$. The result is $x^{-2}/(-2) = -1/(2x^2) + C$.
-    explanation: |
-      Rewrite $\frac{1}{x^3}$ as $x^{-3}$. Apply power rule with $n = -3$:
-      $\int x^{-3} \, dx = \frac{x^{-3+1}}{-3+1} + C = \frac{x^{-2}}{-2} + C = -\frac{1}{2x^2} + C$.
-
-  - id: q-precalculus-basic-calculus-basic-integrals-0009
-    type: direct-computation
-    difficulty: medium
-    stem: |
-      Evaluate the definite integral $\int_1^2 (3x^2 + 1) \, dx$.
-    choices:
-      - text: $8$
-        correct: true
-      - text: $10$
-        rationale: |
-          You computed $F(2) = 10$ but forgot to subtract $F(1)$. The
-          definite integral is $F(2) - F(1) = 10 - 2 = 8$, where
-          $F(x) = x^3 + x$ and $F(1) = 1 + 1 = 2$.
-      - text: $12$
-        rationale: |
-          You added $F(2) + F(1)$ instead of subtracting. $F(2) = 10$
-          and $F(1) = 2$, so the definite integral is $10 - 2 = 8$, not
-          $10 + 2 = 12$.
-      - text: $7$
-        rationale: |
-          You left the constant term as 0 instead of $x$. If you used
-          $F(x) = x^3$ (dropping $\int 1 \, dx = x$), you get $F(2) -
-          F(1) = 8 - 1 = 7$. Include all terms: $F(x) = x^3 + x$.
-    explanation: |
-      Antiderivative $F(x) = x^3 + x$.
-      Evaluate at upper limit $x = 2$: $F(2) = 2^3 + 2 = 10$.
-      Evaluate at lower limit $x = 1$: $F(1) = 1^3 + 1 = 2$.
-      Subtract: $F(2) - F(1) = 10 - 2 = 8$.
-
-  - id: q-precalculus-basic-calculus-basic-integrals-0010
-    type: direct-computation
-    difficulty: medium
-    stem: |
-      Evaluate the definite integral $\int_0^4 \sqrt{x} \, dx$.
-    choices:
-      - text: $\frac{16}{3}$
-        correct: true
-      - text: $8$
-        rationale: |
-          You computed $4^{3/2} = 8$ but forgot to multiply by the
-          coefficient $\dfrac{2}{3}$. The antiderivative is $F(x) =
-          \dfrac{2}{3}x^{3/2}$, so $F(4) = \dfrac{2}{3} \times 8 =
-          \dfrac{16}{3}$.
-      - text: $\frac{8}{3}$
-        rationale: |
-          You used $4^1 = 4$ instead of $4^{3/2} = 8$. You forgot to
-          raise 4 to the power $3/2$. $4^{3/2} = (\sqrt{4})^3 = 2^3 = 8$,
-          giving $F(4) = \dfrac{2}{3}(8) = \dfrac{16}{3}$.
-      - text: $4$
-        rationale: |
-          You returned the upper limit of integration without computing
-          the integral. Integrate $\sqrt{x}$ to get $\dfrac{2}{3}x^{3/2}$,
-          then evaluate at $x = 4$: $\dfrac{2}{3}(8) = \dfrac{16}{3}$.
-    explanation: |
-      Antiderivative is $F(x) = \frac{2}{3}x^{3/2}$.
-      Evaluate at $x = 4$: $F(4) = \frac{2}{3}(4^{3/2}) = \frac{2}{3}(8) = \frac{16}{3}$.
-      At $x = 0$: $F(0) = 0$. Difference is $\frac{16}{3}$.
-
-  - id: q-precalculus-basic-calculus-basic-integrals-0011
-    type: direct-computation
-    difficulty: hard
-    stem: |
-      Find the indefinite integral $\int (x + 2)^2 \, dx$ by first expanding the square.
-    choices:
-      - text: $\frac{x^3}{3} + 2x^2 + 4x + C$
-        correct: true
-      - text: $\dfrac{x^3}{3} + 2x^2 + 4 + C$
-        rationale: |
-          You integrated $x^2$ and $4x$ correctly but left the constant 4
-          unchanged. The integral of 4 is $4x$, so the last term must be
-          $4x$, not 4.
-      - text: $\frac{x^3}{3} + 4x^2 + 4x + C$
-        rationale: |
-          You integrated $4x$ as $4x^2$ instead of $2x^2$. After expanding
-          $(x+2)^2 = x^2 + 4x + 4$, the integral of $4x$ is $4 \cdot
-          \dfrac{x^2}{2} = 2x^2$, not $4x^2$.
-      - text: $2x + 4 + C$
-        rationale: |
-          You differentiated $(x + 2)^2$ instead of integrating it.
-          $\dfrac{d}{dx}[(x+2)^2] = 2(x+2) = 2x + 4$. Expand first, then
-          integrate each term.
-    explanation: |
-      Expand $(x + 2)^2 = x^2 + 4x + 4$.
-      Integrate term by term: $\int (x^2 + 4x + 4) \, dx = \frac{x^3}{3} + 2x^2 + 4x + C$.
-
-  - id: q-precalculus-basic-calculus-basic-integrals-0012
-    type: direct-computation
-    difficulty: hard
-    stem: |
-      Evaluate the definite integral $\int_1^3 (x^2 - 2x) \, dx$.
-    choices:
-      - text: $\frac{2}{3}$
-        correct: true
-      - text: $-\frac{2}{3}$
-        rationale: |
-          You evaluated $F(1) - F(3)$ instead of $F(3) - F(1)$. The
-          definite integral is always upper minus lower: $F(3) - F(1) =
-          0 - (-\dfrac{2}{3}) = \dfrac{2}{3}$.
-      - text: $0$
-        rationale: |
-          You computed $F(3) = 0$ and stopped. You still need to subtract
-          $F(1) = \dfrac{1}{3} - 1 = -\dfrac{2}{3}$. The result is
-          $0 - (-\dfrac{2}{3}) = \dfrac{2}{3}$.
-      - text: $2$
-        rationale: |
-          You added the integrand values at the endpoints instead of
-          evaluating the antiderivative. $(3^2 - 2 \cdot 3) + (1^2 -
-          2 \cdot 1) = 3 + (-1) = 2$ is not the definite integral.
-          Integrate first, then subtract $F(3) - F(1)$.
-    explanation: |
-      Antiderivative $F(x) = \frac{x^3}{3} - x^2$.
-      At $x = 3$: $F(3) = \frac{27}{3} - 3^2 = 9 - 9 = 0$.
-      At $x = 1$: $F(1) = \frac{1}{3} - 1^2 = -\frac{2}{3}$.
-      Difference: $F(3) - F(1) = 0 - \left(-\frac{2}{3}\right) = \frac{2}{3}$.
-
-  - id: q-precalculus-basic-calculus-basic-integrals-0013
-    type: direct-computation
-    difficulty: hard
-    stem: |
-      Find the indefinite integral $\int \frac{x^2 + 3}{x^2} \, dx$ by splitting the fraction into two separate terms.
-    choices:
-      - text: $x - \frac{3}{x} + C$
-        correct: true
-      - text: $x + \frac{3}{x} + C$
-        rationale: |
-          You got the right terms but dropped the negative sign on the
-          second one. $\int 3x^{-2} \, dx = 3 \cdot \dfrac{x^{-1}}{-1} =
-          -\dfrac{3}{x}$. The result is negative, not positive.
-      - text: $\frac{x^3/3 + 3x}{x^3/3} + C$
-        rationale: |
-          You integrated the numerator and denominator separately, which
-          is not a valid rule for integrals. Split the fraction first:
-          $\dfrac{x^2 + 3}{x^2} = 1 + 3x^{-2}$, then integrate each term.
-      - text: $x - 3x^2 + C$
-        rationale: |
-          You integrated $3x^{-2}$ and raised the exponent correctly to
-          $-1$, but then wrote $x^2$ instead of $x^{-1}$. The result
-          should be $-\dfrac{3}{x}$, not $-3x^2$.
-    explanation: |
-      Split the fraction: $\frac{x^2 + 3}{x^2} = \frac{x^2}{x^2} + \frac{3}{x^2} = 1 + 3x^{-2}$.
-      Integrate term by term: $\int (1 + 3x^{-2}) \, dx = x + 3\left(\frac{x^{-1}}{-1}\right) + C = x - \frac{3}{x} + C$.
-
-  - id: q-precalculus-basic-calculus-basic-integrals-0014
-    type: direct-computation
-    difficulty: hard
-    stem: |
-      Evaluate the definite integral $\int_0^2 (4x^3 - 6x) \, dx$.
-    choices:
-      - text: $4$
-        correct: true
-      - text: $16$
-        rationale: |
-          You computed $2^4 = 16$ and stopped, ignoring the $-3x^2$ term.
-          The full antiderivative is $F(x) = x^4 - 3x^2$. At $x = 2$:
-          $F(2) = 16 - 3(4) = 16 - 12 = 4$.
-      - text: $28$
-        rationale: |
-          You integrated $-6x$ as $+3x^2$ instead of $-3x^2$, using the
-          wrong sign. The antiderivative is $x^4 - 3x^2$. At $x = 2$:
-          $16 - 12 = 4$, not $16 + 12 = 28$.
-      - text: $-4$
-        rationale: |
-          You computed $F(0) - F(2)$ instead of $F(2) - F(0)$. Definite
-          integrals use upper minus lower: $F(2) - F(0) = 4 - 0 = 4$.
-    explanation: |
-      Antiderivative $F(x) = x^4 - 3x^2$.
-      At $x = 2$: $F(2) = 2^4 - 3(2^2) = 16 - 3(4) = 16 - 12 = 4$.
-      At $x = 0$: $F(0) = 0$. Difference is $4 - 0 = 4$.
+- id: 'q-precalculus-basic-calculus-basic-integrals-0001'
+  type: 'direct-computation'
+  difficulty: 'easy'
+  stem: |
+    Find the indefinite integral $\int x^3 \, dx$.
+  choices:
+  - text: '$\dfrac{x^4}{4} + C$'
+    correct: true
+  - text: '$3x^2 + C$'
+    rationale: |
+      This differentiates the cubic instead of integrating it. Differentiation also has a power rule. Check which operation is requested.
+  - text: '$\dfrac{x^3}{3} + C$'
+    rationale: |
+      This divides by the old exponent and never increases the power. Three is the original exponent. Increase the exponent before dividing.
+  - text: '$4x^4 + C$'
+    rationale: |
+      This multiplies by the new exponent instead of dividing. Four is the new exponent. Differentiate the proposed antiderivative.
+  explanation: |
+    Increase the exponent from $3$ to $4$ and divide by $4$. The integral is $\dfrac{x^4}{4}+C$. The constant includes all antiderivatives.
+- id: 'q-precalculus-basic-calculus-basic-integrals-0002'
+  type: 'direct-computation'
+  difficulty: 'easy'
+  stem: |
+    Find the indefinite integral $\int 6x^2 \, dx$.
+  choices:
+  - text: '$2x^3 + C$'
+    correct: true
+  - text: '$12x + C$'
+    rationale: |
+      This differentiates instead of integrating. Differentiation uses the same terms. Check whether powers should rise or fall.
+  - text: '$6x^3 + C$'
+    rationale: |
+      This raises the power but never divides by three. The new power is correct. Divide by the increased exponent.
+  - text: '$3x^3 + C$'
+    rationale: |
+      This divides the coefficient by the old exponent two. Two is visible in the original power. Use the new exponent as the divisor.
+  explanation: |
+    Increase the exponent to $3$ and divide the coefficient by $3$: $6\div3=2$. The integral is $2x^3+C$.
+- id: 'q-precalculus-basic-calculus-basic-integrals-0003'
+  type: 'direct-computation'
+  difficulty: 'easy'
+  stem: |
+    Find the indefinite integral $\int 5 \, dx$.
+  choices:
+  - text: '$5x + C$'
+    correct: true
+  - text: '$0$'
+    rationale: |
+      This differentiates the constant. A constant has zero derivative. Ask what has derivative five.
+  - text: '$5 + C$'
+    rationale: |
+      This leaves the constant unchanged. Five is the given constant. Differentiate the proposed answer.
+  - text: '$\dfrac{5x^2}{2} + C$'
+    rationale: |
+      This treats the constant as five x before integrating. A power-rule answer often contains a square. Write the constant as a power with exponent zero.
+  explanation: |
+    The antiderivative of a constant is that constant times x. Thus the integral is $5x+C$, whose derivative is $5$.
+- id: 'q-precalculus-basic-calculus-basic-integrals-0004'
+  type: 'direct-computation'
+  difficulty: 'easy'
+  stem: |
+    Evaluate the definite integral $\int_0^3 2x \, dx$.
+  choices:
+  - text: '$9$'
+    correct: true
+  - text: '$6$'
+    rationale: |
+      This evaluates the integrand at the upper limit. Six is the graph height at three. Evaluate an antiderivative at the bounds.
+  - text: '$18$'
+    rationale: |
+      This keeps the coefficient two without dividing by the new exponent. The new power is correct. Differentiate the proposed antiderivative.
+  - text: '$3$'
+    rationale: |
+      This reports the upper limit itself. Three is stated as a boundary. Use the bound as an input, not as the answer.
+  explanation: |
+    An antiderivative of $2x$ is $x^2$. Evaluate upper minus lower: $3^2-0^2=9$.
+- id: 'q-precalculus-basic-calculus-basic-integrals-0005'
+  type: 'which-is-true'
+  difficulty: 'easy'
+  stem: |
+    What is the result for the indefinite integral $\int \dfrac{1}{x} \, dx$ (where $x \neq 0$)?
+  choices:
+  - text: '$\ln|x| + C$'
+    correct: true
+  - text: '$\dfrac{x^0}{0} + C$'
+    rationale: |
+      This applies the power rule at the forbidden exponent negative one. Adding one to the exponent follows the usual first step. Check for division by zero in the power rule.
+  - text: '$-\dfrac{1}{x^2} + C$'
+    rationale: |
+      This differentiates the reciprocal instead of integrating it. The reciprocal derivative is a familiar formula. Check which operation is requested.
+  - text: '$1 + C$'
+    rationale: |
+      This cancels the variable without a valid integration rule. Multiplying a reciprocal by x seems to cancel x. Differentiate the proposed answer.
+  explanation: |
+    The reciprocal power $x^{-1}$ uses the logarithm rule. On an interval excluding zero, its antiderivative family is $\ln|x|+C$. Its derivative is $\dfrac1x$.
+- id: 'q-precalculus-basic-calculus-basic-integrals-0006'
+  type: 'direct-computation'
+  difficulty: 'medium'
+  stem: |
+    Find the indefinite integral $\int (3x^2 - 4x + 5) \, dx$.
+  choices:
+  - text: '$x^3 - 2x^2 + 5x + C$'
+    correct: true
+  - text: '$6x - 4 + C$'
+    rationale: |
+      This differentiates each term. Every term is treated consistently, but with the wrong operation. Check which operation is requested.
+  - text: '$x^3 - 4x^2 + 5x + C$'
+    rationale: |
+      This fails to divide the linear coefficient by two. The other terms are integrated correctly. Divide by the increased exponent.
+  - text: '$x^3 - 2x^2 + 5 + C$'
+    rationale: |
+      This leaves the constant five unchanged. The variable terms are integrated correctly. Check that integrating a constant adds x.
+  explanation: |
+    Integrate each term. The results are $x^3$, $-2x^2$, and $5x$. Together they give $x^3-2x^2+5x+C$.
+- id: 'q-precalculus-basic-calculus-basic-integrals-0007'
+  type: 'direct-computation'
+  difficulty: 'medium'
+  stem: |
+    Rewrite $\sqrt{x}$ as $x^{1/2}$ and find the indefinite integral $\int \sqrt{x} \, dx$.
+  choices:
+  - text: '$\dfrac{2}{3}x^{3/2} + C$'
+    correct: true
+  - text: '$\dfrac{1}{2\sqrt{x}} + C$'
+    rationale: |
+      This differentiates the root. The root derivative is familiar. Check whether the exponent must rise.
+  - text: '$\dfrac{3}{2}x^{3/2} + C$'
+    rationale: |
+      This multiplies by three-halves instead of dividing. The new power is correct. Differentiate the proposed answer.
+  - text: '$\dfrac{2}{3}x^{1/2} + C$'
+    rationale: |
+      This keeps the exponent at one-half. The coefficient is correct. Increase the exponent by one.
+  explanation: |
+    Write $\sqrt{x}=x^{1/2}$. Increase the exponent to three-halves and divide by three-halves. This gives $\dfrac23x^{3/2}+C$.
+- id: 'q-precalculus-basic-calculus-basic-integrals-0008'
+  type: 'direct-computation'
+  difficulty: 'medium'
+  stem: |
+    Rewrite $\dfrac{1}{x^3}$ as $x^{-3}$ and find the indefinite integral $\int \dfrac{1}{x^3} \, dx$.
+  choices:
+  - text: '$-\dfrac{1}{2x^2} + C$'
+    correct: true
+  - text: '$-\dfrac{3}{x^4} + C$'
+    rationale: |
+      This differentiates the negative power. Negative powers use both rules. Check which operation is requested.
+  - text: '$\dfrac{1}{2x^2} + C$'
+    rationale: |
+      This drops the negative sign from division by negative two. The magnitude is correct. Keep the sign of the divisor.
+  - text: '$-\dfrac{1}{4x^4} + C$'
+    rationale: |
+      This decreases the exponent before dividing by it. The denominator follows the wrongly reduced power. Add one even when the exponent is negative.
+  explanation: |
+    For $x\ne0$, write the function as $x^{-3}$. Increase the exponent to $-2$ and divide by $-2$. The result is $-\dfrac1{2x^2}+C$.
+- id: 'q-precalculus-basic-calculus-basic-integrals-0009'
+  type: 'direct-computation'
+  difficulty: 'medium'
+  stem: |
+    Evaluate the definite integral $\int_1^2 (3x^2 + 1) \, dx$.
+  choices:
+  - text: '$8$'
+    correct: true
+  - text: '$10$'
+    rationale: |
+      This keeps only the upper endpoint value. The upper value is evaluated correctly. Subtract the lower endpoint value too.
+  - text: '$12$'
+    rationale: |
+      This adds endpoint values instead of subtracting. Both endpoint values are used. Use upper minus lower.
+  - text: '$7$'
+    rationale: |
+      This drops the integral of the constant one. The polynomial part is integrated correctly. Integrate every term.
+  explanation: |
+    An antiderivative is $F(x)=x^3+x$. Its endpoint values are $F(2)=10$ and $F(1)=2$. Subtract to get $10-2=8$.
+- id: 'q-precalculus-basic-calculus-basic-integrals-0010'
+  type: 'direct-computation'
+  difficulty: 'medium'
+  stem: |
+    Evaluate the definite integral $\int_0^4 \sqrt{x} \, dx$.
+  choices:
+  - text: '$\dfrac{16}{3}$'
+    correct: true
+  - text: '$8$'
+    rationale: |
+      This drops the two-thirds multiplier. Eight is a correct power value. Keep the coefficient in the antiderivative.
+  - text: '$\dfrac{8}{3}$'
+    rationale: |
+      This uses four instead of four to the three-halves power. Four is the stated upper limit. Evaluate the full fractional power.
+  - text: '$4$'
+    rationale: |
+      This reports the upper limit itself. The interval ends at four. Evaluate the antiderivative at both bounds.
+  explanation: |
+    An antiderivative is $\dfrac23x^{3/2}$. At $4$, $4^{3/2}=(\sqrt4)^3=8$; at zero the value is zero. Thus the integral is $\dfrac23(8)=\dfrac{16}{3}$.
+- id: 'q-precalculus-basic-calculus-basic-integrals-0011'
+  type: 'direct-computation'
+  difficulty: 'hard'
+  stem: |
+    Find the indefinite integral $\int (x + 2)^2 \, dx$ by first expanding the square.
+  choices:
+  - text: '$\dfrac{x^3}{3} + 2x^2 + 4x + C$'
+    correct: true
+  - text: '$\dfrac{x^3}{3} + 2x^2 + 4 + C$'
+    rationale: |
+      This leaves the constant four unchanged. The other terms are integrated correctly. Check every term by differentiation.
+  - text: '$\dfrac{x^3}{3} + 4x^2 + 4x + C$'
+    rationale: |
+      This fails to divide the linear coefficient by two. The expansion coefficient is four. Divide by the increased exponent.
+  - text: '$2x + 4 + C$'
+    rationale: |
+      This differentiates the squared expression. The expression is a squared linear term. Check which operation is requested.
+  explanation: |
+    Expand $(x+2)^2=x^2+4x+4$. Integrate term by term to get $\dfrac{x^3}{3}+2x^2+4x+C$.
+- id: 'q-precalculus-basic-calculus-basic-integrals-0012'
+  type: 'direct-computation'
+  difficulty: 'hard'
+  stem: |
+    Evaluate the definite integral $\int_1^3 (x^2 - 2x) \, dx$.
+  choices:
+  - text: '$\dfrac{2}{3}$'
+    correct: true
+  - text: '$-\dfrac{2}{3}$'
+    rationale: |
+      This subtracts upper from lower. Both endpoint values are computed correctly. Keep upper minus lower in that order.
+  - text: '$0$'
+    rationale: |
+      This omits the lower endpoint value. The upper endpoint is zero. Subtract both endpoint values.
+  - text: '$2$'
+    rationale: |
+      This adds values of the integrand at the endpoints. Both endpoints are used. Evaluate an antiderivative, not the integrand.
+  explanation: |
+    An antiderivative is $F(x)=\dfrac{x^3}{3}-x^2$. Then $F(3)=0$ and $F(1)=-\dfrac23$. Subtract: $0-(-\dfrac23)=\dfrac23$.
+- id: 'q-precalculus-basic-calculus-basic-integrals-0013'
+  type: 'direct-computation'
+  difficulty: 'hard'
+  stem: |
+    Find the indefinite integral $\int \dfrac{x^2 + 3}{x^2} \, dx$ by splitting the fraction into two separate terms.
+  choices:
+  - text: '$x - \dfrac{3}{x} + C$'
+    correct: true
+  - text: '$x + \dfrac{3}{x} + C$'
+    rationale: |
+      This loses the negative sign from the reciprocal integral. The other term is integrated correctly. Track division by negative one.
+  - text: '$\dfrac{x^3/3 + 3x}{x^3/3} + C$'
+    rationale: |
+      This integrates the numerator and denominator separately. A fraction has two visible parts. Simplify the fraction before integrating.
+  - text: '$x - 3x^2 + C$'
+    rationale: |
+      This turns the reciprocal term into a positive power. The original denominator contains a square. Check the exponent after increasing it by one.
+  explanation: |
+    For $x\ne0$, split the expression as $1+3x^{-2}$. The integrals are x and $-3x^{-1}$. Thus the result is $x-\dfrac3x+C$.
+- id: 'q-precalculus-basic-calculus-basic-integrals-0014'
+  type: 'direct-computation'
+  difficulty: 'hard'
+  stem: |
+    Evaluate the definite integral $\int_0^2 (4x^3 - 6x) \, dx$.
+  choices:
+  - text: '$4$'
+    correct: true
+  - text: '$16$'
+    rationale: |
+      This drops the negative quadratic term from the antiderivative. Sixteen is a correct part of the endpoint calculation. Keep both terms through evaluation.
+  - text: '$28$'
+    rationale: |
+      This changes the negative term to positive. Both terms are included. Track the original negative sign.
+  - text: '$-4$'
+    rationale: |
+      This reverses the endpoint subtraction. Both endpoint values are used. Use upper minus lower.
+  explanation: |
+    An antiderivative is $F(x)=x^4-3x^2$. The endpoint values are $F(2)=16-12=4$ and $F(0)=0$. Their difference is $4$.
+- id: 'q-precalculus-basic-calculus-basic-integrals-0015'
+  type: 'which-is-true'
+  difficulty: 'easy'
+  stem: |
+    Why does the family of indefinite integrals of $2x$ include an arbitrary constant?
+  choices:
+  - text: 'Constants have zero derivative.'
+    correct: true
+  - text: 'Every function passes through the origin.'
+    rationale: |
+      This imposes a point not given in the problem. Some simple power graphs pass through the origin. Check whether an initial value was specified.
+  - text: 'The constant equals the upper limit.'
+    rationale: |
+      This imports a bound from definite integration. Integrals sometimes have limits. Check whether this integral has any bounds.
+  - text: 'The constant must be positive.'
+    rationale: |
+      This treats the family as only upward shifts. Positive constants do shift a graph up. Check that any real constant has zero derivative.
+  explanation: |
+    Adding any constant to $x^2$ leaves its derivative at $2x$. The arbitrary constant therefore includes all vertical shifts in the antiderivative family.
+  approved: false
+- id: 'q-precalculus-basic-calculus-basic-integrals-0016'
+  type: 'error-spotting'
+  difficulty: 'medium'
+  stem: |
+    A student writes $\int x^4\,dx=\dfrac{x^5}{4}+C$. Which correction makes this the full antiderivative family?
+  choices:
+  - text: 'Divide by five instead of four.'
+    correct: true
+  - text: 'Keep the power at four.'
+    rationale: |
+      This leaves the original exponent unchanged. Four appears in the integrand. Check that integration increases the power.
+  - text: 'Multiply the coefficient by five.'
+    rationale: |
+      This multiplies by the new exponent. Five is needed in the rule. Check that it belongs in the denominator.
+  - text: 'Remove the constant C.'
+    rationale: |
+      This applies the definite-integral convention. Definite answers do not keep C. Check whether this integral has bounds.
+  explanation: |
+    The new exponent is $4+1=5$. Divide by that exponent to obtain $\dfrac{x^5}{5}+C$.
+  approved: false
+- id: 'q-precalculus-basic-calculus-basic-integrals-0017'
+  type: 'word-problem'
+  difficulty: 'hard'
+  stem: |
+    A tank receives water at a modeled rate of $2t+1$ liters per minute for $0\le t\le3$, where t is minutes. How much water enters during these three minutes?
+  choices:
+  - text: '12 liters'
+    correct: true
+  - text: '7 liters'
+    rationale: |
+      This reports the final rate as a volume. Seven is a valid rate at three minutes. Check the units and the accumulated amount.
+  - text: '21 liters'
+    rationale: |
+      This uses the final rate for the whole interval. Multiplying rate by time works for a constant rate. Check that this rate rises over time.
+  - text: '9 liters'
+    rationale: |
+      This ignores the constant one-liter-per-minute part. The changing part contributes nine liters. Include every term in the rate.
+  explanation: |
+    Integrate the rate: $\int_0^3(2t+1)\,dt=[t^2+t]_0^3$. The endpoint difference is $9+3-0=12$ liters.
+  approved: false
+- id: 'q-precalculus-basic-calculus-basic-integrals-0018'
+  type: 'which-is-true'
+  difficulty: 'medium'
+  stem: |
+    For $f(x)=x$ on $[-1,1]$, which description of $\int_{-1}^{1}f(x)\,dx$ is correct?
+  choices:
+  - text: 'It is zero because signed areas cancel.'
+    correct: true
+  - text: 'It is one because both regions count positively.'
+    rationale: |
+      This computes total geometric area instead of signed area. Both regions have the same positive size. Check that the part below the axis contributes negatively.
+  - text: 'It is two because the interval has length two.'
+    rationale: |
+      This treats the function as constant one. The interval does have length two. Check the changing function height.
+  - text: 'It is negative because some values are negative.'
+    rationale: |
+      This counts only the region below the axis. Negative values are present. Check the positive region as well.
+  explanation: |
+    An antiderivative is $\dfrac{x^2}{2}$. Both endpoints give $\dfrac12$, so their difference is zero. Equal positive and negative areas cancel.
+  approved: false
+- id: 'q-precalculus-basic-calculus-basic-integrals-0019'
+  type: 'direct-computation'
+  difficulty: 'hard'
+  stem: |
+    Given $F'(x)=6x$ and $F(1)=8$, what is $F(2)$?
+  choices:
+  - text: '$17$'
+    correct: true
+  - text: '$12$'
+    rationale: |
+      This omits the constant required by the initial value. Integrating gives a term of three x squared. Check the condition at one.
+  - text: '$20$'
+    rationale: |
+      This uses eight as the constant without evaluating the polynomial at one. Eight is the stated initial value. Substitute the initial x to find the constant.
+  - text: '$14$'
+    rationale: |
+      This adds the derivative at one to the initial value. That uses the starting slope. Check that the slope changes between one and two.
+  explanation: |
+    Integrating gives $F(x)=3x^2+C$. The condition $F(1)=8$ gives $3+C=8$, so $C=5$. Thus $F(2)=3(4)+5=17$.
+  approved: false
+- id: 'q-precalculus-basic-calculus-basic-integrals-0020'
+  type: 'error-spotting'
+  difficulty: 'exam'
+  stem: |
+    A student evaluates $\int_2^4 3\,dx$ as $3(4)+C$. Which issue must be fixed?
+  choices:
+  - text: 'Subtract the lower value and cancel C.'
+    correct: true
+  - text: 'Replace three x with three x squared.'
+    rationale: |
+      This treats a constant as a linear integrand. Increasing powers is part of integration. Check that the original power is zero.
+  - text: 'Keep C because every integral needs it.'
+    rationale: |
+      This carries the indefinite-integral family into a definite result. Antiderivatives do contain C. Check what happens when endpoint values are subtracted.
+  - text: 'Use the integrand value at four only.'
+    rationale: |
+      This replaces accumulated area with one height. Three is the height throughout. Check that the interval width also matters.
+  explanation: |
+    Use the antiderivative $3x$. Subtract the endpoint values: $3(4)-3(2)=6$. The same arbitrary constant would appear at both endpoints and cancel.
+  approved: false

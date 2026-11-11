@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-biology-cellular-reproduction-0001	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Original both/neither choices were weak and the explanation implied absolute genetic identity.
+q-biology-cellular-reproduction-0002	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original broad sperm-production stem could include mitosis; explanation restricted all meiosis to gamete production.
+q-biology-cellular-reproduction-0003	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original explanation claimed meiosis always produces four daughter cells, ignoring unequal oogenesis.
+q-biology-cellular-reproduction-0004	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	LOW	Original explanation said mitosis always produces two cells; nuclear division and cytokinesis are distinct.
+q-biology-cellular-reproduction-0005	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-biology-cellular-reproduction-0006	CORRECTED	SOLVED-MATCH	stem;explanation;notes	MEDIUM	Original wording placed nuclear-envelope breakdown wholly in prophase without the prometaphase distinction.
+q-biology-cellular-reproduction-0007	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-biology-cellular-reproduction-0008	CORRECTED	SOLVED-MATCH	stem;explanation;notes	LOW	Original wording implied cytokinesis must wait until telophase ends.
+q-biology-cellular-reproduction-0009	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original question and explanation treated mitosis as identical to division into daughter cells.
+q-biology-cellular-reproduction-0010	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Original choices included a no-daughter-cells distractor and the answer made variation absolute.
+q-biology-cellular-reproduction-0011	CORRECTED	SOLVED-MATCH	stem;choices;type;explanation;notes	MEDIUM	Original question duplicated the fertilization-restoration reasoning and included a zero-chromosome distractor.
+q-biology-cellular-reproduction-0012	CORRECTED	SOLVED-MATCH	stem;choices;type;explanation;notes	HIGH	Original stem confused an abbreviated description with proof of missing biological stages.
+q-biology-cellular-reproduction-0013	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Original speed and coincidence distractors were weak and the correct choice was longest.
+q-biology-cellular-reproduction-0014	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-biology-cellular-reproduction-0015	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Original fractional-chromosome distractor was implausible and offspring wording was too broad.
+q-biology-cellular-reproduction-0016	NEW	NEW	new question	NONE	
+q-biology-cellular-reproduction-0017	NEW	NEW	new question	NONE	
+q-biology-cellular-reproduction-0018	NEW	NEW	new question	NONE	
+q-biology-cellular-reproduction-0019	NEW	NEW	new question	NONE	
+q-biology-cellular-reproduction-0020	NEW	NEW	new question	NONE	

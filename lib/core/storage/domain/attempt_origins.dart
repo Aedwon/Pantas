@@ -11,5 +11,14 @@
 abstract final class AttemptOrigins {
   const AttemptOrigins._();
 
-  static const Set<String> untimed = {'assessment'};
+  static const Set<String> untimed = {'assessment', mock};
+
+  /// A submitted mock recorded as ordinary answers. The mock records the clock
+  /// per section, not per question, so its items are untimed too.
+  static const String mock = 'mock';
+
+  /// Origins whose rows repeat a record kept in another table. A reader that
+  /// already counts that other table must skip these rows, or it counts the
+  /// same answers twice: `mock` rows repeat `mock_attempts`.
+  static const Set<String> mirrored = {mock};
 }

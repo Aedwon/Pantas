@@ -3,305 +3,491 @@ meta:
   topic: philippine-constitution
   subtopic: bill-of-rights
   exams:
-    - cse-pro
-    - cse-sub
+  - cse-pro
+  - cse-sub
 questions:
-  - id: q-philippine-constitution-bill-of-rights-0001
-    type: single_choice
-    difficulty: easy
-    stem: |
-      How many sections comprise Article III (Bill of Rights) of the 1987 Constitution?
-    choices:
-      - text: 22 sections
-        correct: true
-      - text: 15 sections
-        rationale: |
-          You picked 15 sections, which underestimates the scope of Article III. The Bill of Rights contains exactly 22 sections.
-      - text: 20 sections
-        rationale: |
-          You selected 20 sections, which misses the final two sections. Article III (Bill of Rights) consists of 22 sections.
-      - text: 25 sections
-        rationale: |
-          You chose 25 sections, which overcounts the constitutional sections. Article III contains exactly 22 sections.
-    explanation: |
-      Article III (Bill of Rights) of the 1987 Constitution contains exactly 22 sections.
+- id: q-philippine-constitution-bill-of-rights-0001
+  type: single_choice
+  difficulty: easy
+  stem: 'How many sections comprise Article III?
 
-  - id: q-philippine-constitution-bill-of-rights-0002
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Which constitutional right guarantees that no person shall be deprived of life, liberty, or property without due process of law?
-    choices:
-      - text: Due process of law
-        correct: true
-      - text: Right to equal compensation rates
-        rationale: |
-          You selected equal compensation rates, which concerns labor pay. Protecting life, liberty, and property from arbitrary loss is due process.
-      - text: Protection against search warrants
-        rationale: |
-          You picked protection against search warrants, which relates to Section 2 searches. Protecting life, liberty, and property is due process.
-      - text: Right to free state housing grants
-        rationale: |
-          You chose free state housing grants, which is a social welfare program. Guaranteeing legal fairness before taking life or property is due process.
-    explanation: |
-      Section 1 of Article III provides that no person shall be deprived of life, liberty, or property without due process of law.
+    '
+  choices:
+  - text: 22 sections
+    correct: true
+  - text: 15 sections
+    rationale: 'This stops before the final provisions. Section 15 concerns a familiar liberty protection. Check the final numbered section.
 
-  - id: q-philippine-constitution-bill-of-rights-0003
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Freedom of speech, of expression, and of the press are protected under which article of the 1987 Constitution?
-    choices:
-      - text: Article III
-        correct: true
-      - text: Article I
-        rationale: |
-          You selected Article I, which defines the National Territory. Freedom of speech, expression, and press are guaranteed in Article III Section 4.
-      - text: Article II
-        rationale: |
-          You picked Article II, which states Principles and State Policies. Free speech and press freedoms sit in Article III Section 4.
-      - text: Article IV
-        rationale: |
-          You chose Article IV, which defines Citizenship rules. Free expression, speech, and press protections are set out in Article III.
-    explanation: |
-      Section 4 of Article III (Bill of Rights) protects freedom of speech, expression, the press, assembly, and petition.
+      '
+  - text: 20 sections
+    rationale: 'This stops at the debt provision. That section is a memorable protection. Check whether double jeopardy and prohibited laws follow.
 
-  - id: q-philippine-constitution-bill-of-rights-0004
-    type: single_choice
-    difficulty: medium
-    stem: |
-      What constitutional protection guarantees that private property shall not be taken for public use without just compensation?
-    choices:
-      - text: Eminent domain limit
-        correct: true
-      - text: Freedom of association
-        rationale: |
-          You selected freedom of association, which protects joining unions or groups. Requiring just compensation when taking private property is eminent domain.
-      - text: Non-impairment clause
-        rationale: |
-          You picked non-impairment clause, which protects contract obligations. Compensating owners when taking land for public use is eminent domain.
-      - text: Right to information
-        rationale: |
-          You chose right to information, which grants public record access. Paying fair value for private property taken for public use is eminent domain.
-    explanation: |
-      Section 9 of Article III provides that private property shall not be taken for public use without just compensation.
+      '
+  - text: 25 sections
+    rationale: 'This extends the count past Article III. Nearby constitutional provisions have section numbers. Check the article''s actual end.
 
-  - id: q-philippine-constitution-bill-of-rights-0005
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Which clause protects individuals from state laws that alter existing contractual rights and duties?
-    choices:
-      - text: Non-impairment clause
-        correct: true
-      - text: Equal protection clause
-        rationale: |
-          You selected equal protection, which guarantees uniform legal application. Barring laws that alter existing contracts is the non-impairment clause.
-      - text: Due process guarantee
-        rationale: |
-          You picked due process, which requires legal fairness before taking rights. Protecting existing contracts from legislative change is non-impairment.
-      - text: Ex post facto clause
-        rationale: |
-          You chose ex post facto, which bans retroactive penal laws. Protecting valid private contracts from retroactive laws is the non-impairment clause.
-    explanation: |
-      Section 10 of Article III states that no law impairing the obligation of contracts shall be passed.
+      '
+  explanation: 'Article III contains Sections 1 through 22.
 
-  - id: q-philippine-constitution-bill-of-rights-0006
-    type: single_choice
-    difficulty: medium
-    stem: |
-      What is the privilege of the writ of habeas corpus designed to protect?
-    choices:
-      - text: Liberty against unlawful detention
-        correct: true
-      - text: Freedom from all state property assessments
-        rationale: |
-          You selected property assessments, which concerns municipal taxation. Habeas corpus orders custodians to produce a detainee and justify detention.
-      - text: Property rights in municipal land disputes
-        rationale: |
-          You picked municipal land disputes, which concern civil property claims. Habeas corpus protects personal liberty against illegal detention.
-      - text: Equal access to government civil employment
-        rationale: |
-          You chose civil employment, which concerns public service jobs. The writ of habeas corpus secures release from illegal physical detention.
-    explanation: |
-      The writ of habeas corpus is an order commanding the custodian of a detained person to produce the body and justify the detention.
+    '
+- id: q-philippine-constitution-bill-of-rights-0002
+  type: single_choice
+  difficulty: easy
+  stem: 'Which guarantee concerns lawful process before deprivation of life, liberty, or property?
 
-  - id: q-philippine-constitution-bill-of-rights-0007
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Under Article III, which right guarantees that an accused person is considered innocent until proven guilty?
-    choices:
-      - text: Presumption of innocence
-        correct: true
-      - text: Right to immediate executive pardon
-        rationale: |
-          You selected executive pardon, which is an executive clemency act after conviction. Presumption of innocence treats the accused as innocent in trial.
-      - text: Privilege against public prosecution
-        rationale: |
-          You picked privilege against prosecution, which would block criminal trials. Section 14(2) presumes the accused innocent until guilt is proven.
-      - text: Protection from all state questioning
-        rationale: |
-          You chose protection from questioning, which relates to custodial silence. Presumption of innocence requires the state to prove guilt beyond doubt.
-    explanation: |
-      Section 14(2) of Article III provides that in all criminal prosecutions, the accused shall be presumed innocent until the contrary is proved.
+    '
+  choices:
+  - text: Due process
+    correct: true
+  - text: Equal protection of the laws
+    rationale: 'This selects equality rather than the process guarantee. Both are in Section 1. Check whether procedure or classification is asked.
 
-  - id: q-philippine-constitution-bill-of-rights-0008
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Protecting an individual from being prosecuted twice for the same criminal offense is known as what?
-    choices:
-      - text: Protection against double jeopardy
-        correct: true
-      - text: Protection against ex post facto laws
-        rationale: |
-          You selected ex post facto laws, which bars retroactive penal statutes. Protecting an individual from a second trial for the same crime is double jeopardy.
-      - text: Protection against bills of attainder
-        rationale: |
-          You picked bills of attainder, which bans legislative punishment without trial. Preventing multiple trials for one offense is double jeopardy.
-      - text: Privilege against self-incrimination
-        rationale: |
-          You chose self-incrimination, which protects against compelled self-accusation. Barring second prosecution for the same offense is double jeopardy.
-    explanation: |
-      Section 21 of Article III protects individuals against double jeopardy for the same offense.
+      '
+  - text: Freedom from compelled self-incrimination
+    rationale: 'This selects a specific compelled-testimony protection. Criminal procedure may affect liberty. Check the broader process wording.
 
-  - id: q-philippine-constitution-bill-of-rights-0009
-    type: single_choice
-    difficulty: hard
-    stem: |
-      A law that penalizes an act that was not punishable at the time it was committed is prohibited as what?
-    choices:
-      - text: Ex post facto law
-        correct: true
-      - text: Legislative bill of attainder
-        rationale: |
-          You selected bill of attainder, which inflicts punishment without judicial trial. Retroactively criminalizing past legal acts is an ex post facto law.
-      - text: Judicial writ of prohibition
-        rationale: |
-          You picked writ of prohibition, which is a court order stopping excess jurisdiction. Retroactive penal legislation is an ex post facto law.
-      - text: Executive emergency decree
-        rationale: |
-          You chose executive emergency decree, which is an executive issuance. Laws making past lawful acts criminal retroactively are ex post facto laws.
-    explanation: |
-      Section 22 of Article III prohibits ex post facto laws, which retroactively make an act criminal that was legal when committed.
+      '
+  - text: Just compensation for public taking of property
+    rationale: 'This selects a specific property-taking limit. Property appears in the stem. Check the general process requirement.
 
-  - id: q-philippine-constitution-bill-of-rights-0010
-    type: single_choice
-    difficulty: hard
-    stem: |
-      A legislative act that inflicts punishment without a judicial trial is prohibited under Article III as what?
-    choices:
-      - text: Bill of attainder
-        correct: true
-      - text: Ex post facto law
-        rationale: |
-          You selected ex post facto law, which retroactively criminalizes past acts. Legislative acts punishing individuals without trial are bills of attainder.
-      - text: Double jeopardy rule
-        rationale: |
-          You picked double jeopardy rule, which bars twice trying someone for the same crime. Legislative conviction without trial is a bill of attainder.
-      - text: Search warrant decree
-        rationale: |
-          You chose search warrant decree, which governs judicial search orders. Legislative infliction of guilt without court trial is a bill of attainder.
-    explanation: |
-      Section 22 of Article III prohibits bills of attainder, which are legislative acts that declare a person guilty without trial.
+      '
+  explanation: 'Due process is the guarantee that a person will not be deprived of life, liberty, or property without the process required by law.
 
-  - id: q-philippine-constitution-bill-of-rights-0011
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Under Article III, Section 20, no person shall be imprisoned for what specific cause?
-    choices:
-      - text: Debt or non-payment of a poll tax
-        correct: true
-      - text: Failure to hold valid identity passports
-        rationale: |
-          You selected passport validity, which relates to immigration regulations. Section 20 explicitly bans imprisonment for debt or non-payment of poll tax.
-      - text: Failure to register a private business
-        rationale: |
-          You picked business registration, which carries commercial penalties. Section 20 strictly forbids imprisonment for civil debt or poll tax.
-      - text: Violation of local curfew municipal rules
-        rationale: |
-          You chose local curfew rules, which are police power ordinances. Section 20 guarantees that no person shall be imprisoned for financial debt.
-    explanation: |
-      Section 20 of Article III provides that no person shall be imprisoned for debt or non-payment of a poll tax.
+    '
+- id: q-philippine-constitution-bill-of-rights-0003
+  type: single_choice
+  difficulty: easy
+  stem: 'Which article protects speech, expression, and the press?
 
-  - id: q-philippine-constitution-bill-of-rights-0012
-    type: single_choice
-    difficulty: easy
-    stem: |
-      What right guarantees that a person in custodial investigation must be informed of the right to remain silent and to counsel?
-    choices:
-      - text: Miranda rights
-        correct: true
-      - text: Habeas corpus
-        rationale: |
-          You selected habeas corpus, which tests the legal custody of a detainee. Section 12 rights to silence and counsel are commonly called Miranda rights.
-      - text: Right to bail
-        rationale: |
-          You picked right to bail, which allows provisional release. Warnings regarding silence and legal counsel concern custodial-investigation rights.
-      - text: Double jeopardy
-        rationale: |
-          You chose double jeopardy, which prevents retrial for the same offense. The stem asks about rights during custodial investigation.
-    explanation: |
-      Section 12 of Article III guarantees the right to be informed of the right to remain silent and to competent and independent counsel during custodial investigation. These protections are commonly referred to as Miranda rights.
+    '
+  choices:
+  - text: Article III
+    correct: true
+  - text: Article XIII
+    rationale: 'This substitutes Social Justice and Human Rights for the Bill of Rights. Both address protection of people. Check where the speech guarantees are stated.
 
-  - id: q-philippine-constitution-bill-of-rights-0013
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Freedom from cruel, degrading, or inhuman punishment is guaranteed under which article of the Constitution?
-    choices:
-      - text: Article III
-        correct: true
-      - text: Article I
-        rationale: |
-          You selected Article I, which defines National Territory. Prohibition of cruel, degrading, or inhuman punishment is set out in Article III Section 19.
-      - text: Article IV
-        rationale: |
-          You picked Article IV, which covers Citizenship. The prohibition is a Bill of Rights protection under Article III.
-      - text: Article IX
-        rationale: |
-          You chose Article IX, which governs Constitutional Commissions. Protection against cruel, degrading, or inhuman punishment is in Article III Section 19.
-    explanation: |
-      Section 19(1) of Article III prohibits cruel, degrading, or inhuman punishment.
+      '
+  - text: Article II
+    rationale: 'This chooses general principles and policies. Policies include dignity and rights. Check the specific liberty guarantees.
 
-  - id: q-philippine-constitution-bill-of-rights-0014
-    type: single_choice
-    difficulty: hard
-    stem: |
-      Under Article III, Section 2, what constitutional condition must be met before a search warrant may issue?
-    choices:
-      - text: Probable cause personally determined by a judge
-        correct: true
-      - text: Executive approval based only on private suspicion
-        rationale: |
-          Executive approval and bare suspicion do not satisfy the constitutional warrant requirement. Probable cause must be determined personally by a judge.
-      - text: Verbal approval from a local chief officer
-        rationale: |
-          A local officer's verbal approval is not the constitutional basis for issuing a search warrant.
-      - text: Administrative order from a city mayor
-        rationale: |
-          A mayoral administrative order does not replace the judicial probable-cause determination required for a search warrant.
-    explanation: |
-      Article III, Section 2 protects against unreasonable searches and seizures and provides that no search warrant shall issue except upon probable cause personally determined by a judge after examination under oath or affirmation, with particular description of the place to be searched and the persons or things to be seized. This warrant clause does not mean that every constitutionally reasonable search must always be supported by a warrant; recognized warrantless-search exceptions are a separate question.
+      '
+  - text: Article IV
+    rationale: 'This chooses citizenship. Citizens exercise many liberties. Check where speech protection is stated.
 
-  - id: q-philippine-constitution-bill-of-rights-0015
-    type: single_choice
-    difficulty: hard
-    stem: |
-      Protecting a witness or accused from being compelled to testify against himself or herself is known as what?
-    choices:
-      - text: Right against self-incrimination
-        correct: true
-      - text: Freedom from involuntary servitude
-        rationale: |
-          You selected involuntary servitude, which prohibits forced labor. Protecting a person from compelled self-incriminating testimony is the right against self-incrimination.
-      - text: Right to speedy disposition of cases
-        rationale: |
-          You picked speedy disposition, which prevents unreasonable delays. The stem asks about compelled testimony against oneself.
-      - text: Protection against ex post facto laws
-        rationale: |
-          You chose ex post facto laws, which bar certain retroactive penal laws. The stem asks about compelled self-incriminating testimony.
-    explanation: |
-      Section 17 of Article III states that no person shall be compelled to be a witness against himself.
+      '
+  explanation: 'Article III, Section 4 protects speech, expression, and the press.
+
+    '
+- id: q-philippine-constitution-bill-of-rights-0004
+  type: single_choice
+  difficulty: medium
+  stem: 'Which guarantee applies when government takes private property for public use?
+
+    '
+  choices:
+  - text: Just compensation
+    correct: true
+  - text: Freedom to form associations for lawful purposes
+    rationale: 'This selects organizational freedom. Both are civil liberties. Check the public taking of property.
+
+      '
+  - text: Freedom from being a compelled witness against oneself
+    rationale: 'This selects self-incrimination protection. Government can affect both interests. Check the kind of state action.
+
+      '
+  - text: Freedom from punishment for unpaid private debt
+    rationale: 'This selects a debt-related liberty. Both concern financial interests. Check taking for public use.
+
+      '
+  explanation: 'Section 9 requires just compensation when private property is taken for public use.
+
+    '
+- id: q-philippine-constitution-bill-of-rights-0005
+  type: single_choice
+  difficulty: medium
+  stem: 'Which clause states that no law impairing the obligation of contracts shall be passed?
+
+    '
+  choices:
+  - text: Non-impairment
+    correct: true
+  - text: Equal protection of the laws
+    rationale: 'This selects treatment across persons or groups. Both limit state action. Check the specific contract obligation.
+
+      '
+  - text: Security against unreasonable searches and seizures
+    rationale: 'This selects search protection. Government may obtain private papers. Check whether the issue is a contract law.
+
+      '
+  - text: Protection against compelled self-incrimination
+    rationale: 'This selects testimony protection. Both protect individuals. Check the obligation that the law would impair.
+
+      '
+  explanation: 'Section 10 contains the non-impairment rule for obligations of contracts.
+
+    '
+- id: q-philippine-constitution-bill-of-rights-0006
+  type: single_choice
+  difficulty: medium
+  stem: 'What is the privilege of the writ of habeas corpus designed to protect?
+
+    '
+  choices:
+  - text: Liberty against unlawful detention
+    correct: true
+  - text: Freedom from all state property assessments
+    rationale: 'This confuses custody review with property taxation. Both involve state power. Check whether a person is detained.
+
+      '
+  - text: Property rights in municipal land disputes
+    rationale: 'This confuses personal custody with land possession. Both can involve a court order. Check the restraint on the person.
+
+      '
+  - text: Equal access to government civil employment
+    rationale: 'This chooses employment equality. Both concern legal protection. Check whether the issue is detention.
+
+      '
+  explanation: 'Habeas corpus provides a process for examining the legal basis of a person''s detention. Its purpose is to protect liberty against unlawful custody.
+
+    '
+- id: q-philippine-constitution-bill-of-rights-0007
+  type: single_choice
+  difficulty: easy
+  stem: 'Which guarantee treats an accused person as innocent until the contrary is proved?
+
+    '
+  choices:
+  - text: Presumption of innocence
+    correct: true
+  - text: Automatic release from every criminal proceeding
+    rationale: 'This turns a presumption into immunity. The accused begins as innocent. Check whether proceedings can still test guilt.
+
+      '
+  - text: Automatic pardon before any court hears the case
+    rationale: 'This substitutes forgiveness for a starting presumption. Both may benefit an accused person. Check whether guilt has been determined.
+
+      '
+  - text: A ban on every lawful question by state investigators
+    rationale: 'This turns the presumption into a total inquiry ban. Investigation concerns possible guilt. Check the actual guarantee.
+
+      '
+  explanation: 'Section 14 requires that the accused be presumed innocent until the contrary is proved.
+
+    '
+- id: q-philippine-constitution-bill-of-rights-0008
+  type: single_choice
+  difficulty: medium
+  stem: 'Protecting an individual from being prosecuted twice for the same criminal offense is known as what?
+
+    '
+  choices:
+  - text: Protection against double jeopardy
+    correct: true
+  - text: Protection against ex post facto laws
+    rationale: 'This selects retroactive punishment. Both constrain criminal law. Check repeated jeopardy versus a later law.
+
+      '
+  - text: Protection against bills of attainder
+    rationale: 'This selects legislative punishment without trial. Both prevent unfair punishment. Check whether a legislature or a repeated prosecution is involved.
+
+      '
+  - text: Privilege against self-incrimination
+    rationale: 'This selects compelled testimony. Both protect people facing prosecution. Check the particular repeated-offense issue.
+
+      '
+  explanation: 'Double jeopardy protects against a second trial for the same offense after a valid first case has ended in a way covered by the rule. The first court must have authority, the charge must be valid, and the accused must have entered a plea. The legal effect also depends on how that first case ended.
+
+    '
+- id: q-philippine-constitution-bill-of-rights-0009
+  type: single_choice
+  difficulty: hard
+  stem: 'A law that penalizes an act that was not punishable at the time it was committed is prohibited as what?
+
+    '
+  choices:
+  - text: Ex post facto law
+    correct: true
+  - text: Legislative bill of attainder
+    rationale: 'This selects punishment without judicial trial. Both are prohibited laws. Check the backward change in criminal consequences.
+
+      '
+  - text: Judicial writ of prohibition
+    rationale: 'This selects a court remedy. Court orders can stop unlawful action. Check whether the problem is a retroactive statute.
+
+      '
+  - text: Executive emergency decree
+    rationale: 'This selects an instrument by its issuer. Decrees may have legal force. Check the retroactive penal effect.
+
+      '
+  explanation: 'An ex post facto law retroactively makes previously unpunishable conduct criminal. Article III prohibits such penal laws.
+
+    '
+- id: q-philippine-constitution-bill-of-rights-0010
+  type: single_choice
+  difficulty: hard
+  stem: 'A legislative act that inflicts punishment without a judicial trial is prohibited under Article III as what?
+
+    '
+  choices:
+  - text: Bill of attainder
+    correct: true
+  - text: Ex post facto law
+    rationale: 'This selects a backward-looking penal change. Both are forbidden legislative acts. Check whether retroactivity or lack of trial is central.
+
+      '
+  - text: Double jeopardy rule
+    rationale: 'This selects repeated jeopardy. Both prevent improper punishment. Check whether a prior prosecution is described.
+
+      '
+  - text: Search warrant decree
+    rationale: 'This selects authority for a search. Both can be official documents. Check whether the legislature itself imposes punishment.
+
+      '
+  explanation: 'A bill of attainder legislatively imposes punishment without a judicial trial. Section 22 prohibits it.
+
+    '
+- id: q-philippine-constitution-bill-of-rights-0011
+  type: single_choice
+  difficulty: medium
+  stem: 'Section 20 prohibits imprisonment solely for which reason?
+
+    '
+  choices:
+  - text: Debt or unpaid poll tax
+    correct: true
+  - text: Any offense involving a financial transaction even when a separate crime is proven
+    rationale: 'This turns a debt protection into immunity for financial crime. Money is involved in both. Check debt alone versus a distinct offense.
+
+      '
+  - text: Any failure to comply with an otherwise valid penal law
+    rationale: 'This makes the protection a general punishment ban. Imprisonment is restricted in some cases. Check the specifically protected cause.
+
+      '
+  - text: Any conviction that requires the court to examine a written contract
+    rationale: 'This treats a contract''s presence as immunity. Debts can arise from contracts. Check the actual basis of imprisonment.
+
+      '
+  explanation: 'Section 20 bars imprisonment for debt or non-payment of a poll tax. The question concerns that reason alone.
+
+    '
+- id: q-philippine-constitution-bill-of-rights-0012
+  type: single_choice
+  difficulty: easy
+  stem: 'What right guarantees that a person in custodial investigation must be informed of the right to remain silent and to counsel?
+
+    '
+  choices:
+  - text: Miranda rights
+    correct: true
+  - text: Habeas corpus
+    rationale: 'This selects review of detention. Both concern a person in custody. Check the warning about silence and counsel.
+
+      '
+  - text: Right to bail
+    rationale: 'This selects conditional pretrial release. Both can protect an accused person. Check the custodial information requirement.
+
+      '
+  - text: Double jeopardy
+    rationale: 'This selects protection against repeated jeopardy. Both concern criminal proceedings. Check whether a prior case is described.
+
+      '
+  explanation: 'The custodial protections commonly called Miranda rights include information about remaining silent and competent, independent counsel. Article III, Section 12 contains these protections.
+
+    '
+- id: q-philippine-constitution-bill-of-rights-0013
+  type: single_choice
+  difficulty: medium
+  stem: 'Which punishment is prohibited in the lesson''s Article III summary?
+
+    '
+  choices:
+  - text: Cruel or degrading punishment
+    correct: true
+  - text: Any punishment imposed after due conviction regardless of its lawful form
+    rationale: 'This treats the Constitution as prohibiting all punishment. Article III limits punishment. Check the specific forbidden qualities.
+
+      '
+  - text: Only punishment that an official personally dislikes imposing
+    rationale: 'This makes personal preference the legal test. Punishment can involve difficult judgments. Check the constitutional standard.
+
+      '
+  - text: Only punishment imposed by a body outside the executive branch
+    rationale: 'This makes branch identity the sole test. Different bodies have different roles. Check cruelty and degradation.
+
+      '
+  explanation: 'Article III prohibits cruel, degrading, or inhuman punishment. The protection concerns the nature of the punishment.
+
+    '
+- id: q-philippine-constitution-bill-of-rights-0014
+  type: single_choice
+  difficulty: hard
+  stem: 'Under Article III, Section 2, what constitutional condition must be met before a search warrant may issue?
+
+    '
+  choices:
+  - text: Probable cause personally determined by a judge
+    correct: true
+  - text: Executive approval based only on private suspicion
+    rationale: 'This substitutes executive suspicion for judicial determination. Suspicion can prompt investigation. Check who determines probable cause.
+
+      '
+  - text: Verbal approval from a local chief officer
+    rationale: 'This substitutes a local superior''s permission. The chief may direct officers. Check the judicial warrant condition.
+
+      '
+  - text: Administrative order from a city mayor
+    rationale: 'This substitutes administrative authority. Mayors have public duties. Check the judge''s constitutional role.
+
+      '
+  explanation: 'Section 2 requires probable cause personally determined by a judge. It also requires the stated examination and a particular description of the place and persons or things covered.
+
+    '
+- id: q-philippine-constitution-bill-of-rights-0015
+  type: single_choice
+  difficulty: hard
+  stem: 'Which right protects against being compelled to be a witness against oneself?
+
+    '
+  choices:
+  - text: Protection from self-incrimination
+    correct: true
+  - text: Freedom from involuntary servitude
+    rationale: 'This selects forced-work protection. Both concern compulsion. Check work versus testimony.
+
+      '
+  - text: Right to speedy disposition of cases
+    rationale: 'This selects delay protection. Both can matter in proceedings. Check time taken versus compelled evidence.
+
+      '
+  - text: Protection against ex post facto laws
+    rationale: 'This selects retroactive penal-law protection. Both protect a person facing state action. Check the type of legal threat.
+
+      '
+  explanation: 'Section 17 says no person shall be compelled to be a witness against themselves.
+
+    '
+- id: q-philippine-constitution-bill-of-rights-0016
+  type: single_choice
+  difficulty: easy
+  approved: false
+  stem: 'Which situation fits the constitutional bail exception described in the lesson?
+
+    '
+  choices:
+  - text: A reclusion-perpetua charge with strong evidence of guilt
+    correct: true
+  - text: Any accusation at all, even when the law allows bail and evidence is weak
+    rationale: 'This treats every charge as an exception. A charge begins prosecution. Check both the penalty and evidence conditions.
+
+      '
+  - text: A minor charge with weak evidence merely because a prosecutor opposes release
+    rationale: 'This substitutes opposition for the constitutional test. The prosecutor can object. Check the specified exception.
+
+      '
+  - text: Any accused person who remains silent during custodial investigation
+    rationale: 'This treats using a right as loss of another right. Silence may frustrate questioning. Check the actual bail conditions.
+
+      '
+  explanation: 'The lesson names persons charged with an offense punishable by reclusion perpetua when evidence of guilt is strong. Both features form the stated exception.
+
+    '
+- id: q-philippine-constitution-bill-of-rights-0017
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'May poverty alone be used to deny access to courts and adequate legal assistance?
+
+    '
+  choices:
+  - text: No, poverty alone cannot justify denial.
+    correct: true
+  - text: Yes, because constitutional court access is reserved only for people who can pay freely
+    rationale: 'This makes wealth a qualification. Court proceedings can cost money. Check the poverty protection.
+
+      '
+  - text: Yes, unless the person first wins the entire case without any legal assistance
+    rationale: 'This makes success a condition of help. Courts decide claims. Check whether assistance must be available before the result.
+
+      '
+  - text: No, but only when the person is also a government employee entitled to office support
+    rationale: 'This adds public employment as a condition. Employees may receive support. Check the protection for any person.
+
+      '
+  explanation: 'Section 11 protects court and quasi-judicial access and adequate legal assistance from denial by reason of poverty.
+
+    '
+- id: q-philippine-constitution-bill-of-rights-0018
+  type: single_choice
+  difficulty: hard
+  approved: false
+  stem: 'Which association falls within the lesson''s stated protection?
+
+    '
+  choices:
+  - text: An association formed for purposes not contrary to law
+    correct: true
+  - text: An association whose unlawful purpose becomes protected simply by calling itself a union
+    rationale: 'This treats a name as overriding the lawful-purpose limit. Unions are expressly protected. Check the purpose rather than the label.
+
+      '
+  - text: Only an association formed by public employees, with private workers always excluded
+    rationale: 'This narrows coverage to one sector. Government workers are included. Check the broader association protection.
+
+      '
+  - text: Only an association whose members surrender every other constitutional liberty
+    rationale: 'This adds a rights-waiver condition. Groups may have membership rules. Check whether the lesson requires that surrender.
+
+      '
+  explanation: 'Article III protects forming unions, associations, and societies for purposes not contrary to law.
+
+    '
+- id: q-philippine-constitution-bill-of-rights-0019
+  type: single_choice
+  difficulty: hard
+  approved: false
+  stem: 'Which body is included in the right to speedy disposition of cases described in the lesson?
+
+    '
+  choices:
+  - text: An administrative body deciding a case
+    correct: true
+  - text: Only a criminal trial court, with all other adjudicative bodies excluded
+    rationale: 'This confuses speedy disposition with criminal-trial protection. Trials have speed requirements. Check the broader range of bodies.
+
+      '
+  - text: Only a legislative committee discussing a bill before any case is decided
+    rationale: 'This substitutes lawmaking for disposition of a case. Committees have proceedings. Check whether an adjudicative case is involved.
+
+      '
+  - text: Only a private club arranging an event rather than deciding a legal case
+    rationale: 'This treats any schedule as a constitutional case. Delays can occur anywhere. Check the bodies named in the protection.
+
+      '
+  explanation: 'Section 16 covers cases before judicial, quasi-judicial, and administrative bodies.
+
+    '
+- id: q-philippine-constitution-bill-of-rights-0020
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'Which statement correctly combines political-belief and involuntary-servitude protections?
+
+    '
+  choices:
+  - text: Beliefs alone cannot justify detention; servitude has a conviction exception.
+    correct: true
+  - text: Any unpopular belief permits detention, while any official may impose labor without conviction.
+    rationale: 'This removes both safeguards. Authorities may seek order. Check the stated limits on detention and compulsion.
+
+      '
+  - text: Political beliefs are protected only if they match the government, and conviction never matters to labor.
+    rationale: 'This reverses the protections. Beliefs can be politically contested. Check the word solely and the crime exception.
+
+      '
+  - text: All detention is forbidden in every case, and all punishment after conviction is automatically unlawful.
+    rationale: 'This makes limited guarantees absolute bans. Article III protects liberty. Check the specific reasons and exceptions.
+
+      '
+  explanation: 'Section 18 bars detention solely for political beliefs and aspirations. It prohibits involuntary servitude except as punishment after due conviction for a crime.
+
+    '

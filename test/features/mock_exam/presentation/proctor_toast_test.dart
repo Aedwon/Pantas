@@ -20,9 +20,14 @@ void main() {
     await tester.pumpWidget(buildToast(minutes));
   }
 
-  Color amberOf(WidgetTester tester) {
+  Color redOf(WidgetTester tester) {
     final context = tester.element(find.byType(ProctorToast));
-    return context.colors.amber;
+    return context.colors.dangerText;
+  }
+
+  Color warningOf(WidgetTester tester) {
+    final context = tester.element(find.byType(ProctorToast));
+    return context.colors.warningText;
   }
 
   test('the copy says subject, not part, and pluralizes one minute', () {
@@ -40,18 +45,23 @@ void main() {
     expect(find.byType(Icon), findsNothing);
   });
 
-  testWidgets('the final call is amber', (tester) async {
+  testWidgets('the final call keeps the warning color, never red',
+      (tester) async {
     await pumpToast(tester, minutes: 1);
     final text =
         tester.widget<Text>(find.text('1 minute left in this subject.'));
-    expect(text.style!.color, amberOf(tester));
+    expect(text.style!.color, isNot(redOf(tester)));
+    expect(text.style!.color, warningOf(tester));
   });
 
-  testWidgets('every other call is ink', (tester) async {
+  testWidgets('five-minute call uses warning text', (tester) async {
     await pumpToast(tester, minutes: 5);
     final text =
         tester.widget<Text>(find.text('5 minutes left in this subject.'));
-    expect(text.style!.color, isNot(amberOf(tester)));
+    expect(
+      text.style!.color,
+      tester.element(find.byType(ProctorToast)).colors.warningText,
+    );
   });
 
   testWidgets('it fires the haptic once per call', (tester) async {

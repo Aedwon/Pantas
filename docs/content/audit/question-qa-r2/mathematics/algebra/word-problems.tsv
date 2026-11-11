@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-algebra-word-problems-0001	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-word-problems-0002	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-word-problems-0003	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-word-problems-0004	CORRECTED	SOLVED-MATCH	distractors;explanation;notes;format	MEDIUM	Weak distractors lacked a specific error; replaced with traceable mistakes.
+q-algebra-word-problems-0005	CORRECTED	SOLVED-MATCH	distractors;explanation;notes;format	MEDIUM	Weak distractors lacked a specific error; replaced with traceable mistakes.
+q-algebra-word-problems-0006	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Near-duplicate coin setup changed to an equation-error question.
+q-algebra-word-problems-0007	CORRECTED	SOLVED-MATCH	distractors;explanation;notes;format	MEDIUM	Weak distractors lacked a specific error; replaced with traceable mistakes.
+q-algebra-word-problems-0008	CORRECTED	SOLVED-MATCH	distractors;explanation;notes;format	MEDIUM	Weak distractors lacked a specific error; replaced with traceable mistakes.
+q-algebra-word-problems-0009	CORRECTED	SOLVED-MATCH	distractors;explanation;notes;format	MEDIUM	Weak distractors lacked a specific error; replaced with traceable mistakes.
+q-algebra-word-problems-0010	CORRECTED	SOLVED-MATCH	distractors;explanation;notes;format	MEDIUM	Weak distractors lacked a specific error; replaced with traceable mistakes.
+q-algebra-word-problems-0011	CORRECTED	SOLVED-MATCH	distractors;explanation;notes;format	MEDIUM	Weak distractors lacked a specific error; replaced with traceable mistakes.
+q-algebra-word-problems-0012	CORRECTED	SOLVED-MATCH	distractors;explanation;notes;format	MEDIUM	Weak distractors lacked a specific error; replaced with traceable mistakes.
+q-algebra-word-problems-0013	CORRECTED	SOLVED-MATCH	distractors;explanation;notes;format	MEDIUM	Weak distractors lacked a specific error; replaced with traceable mistakes.
+q-algebra-word-problems-0014	CORRECTED	SOLVED-MATCH	distractors;explanation;notes;format	MEDIUM	Weak distractors lacked a specific error; replaced with traceable mistakes.
+q-algebra-word-problems-0015	CORRECTED	SOLVED-MATCH	distractors;explanation;notes;format	MEDIUM	Weak distractors lacked a specific error; replaced with traceable mistakes.
+q-algebra-word-problems-0016	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-word-problems-0017	CORRECTED	SOLVED-MATCH	distractors;explanation;notes;format	MEDIUM	Weak distractors replaced; explanation removed discussion of an incorrect method.
+q-algebra-word-problems-0018	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-word-problems-0019	NEW	NEW	new question	NONE	
+q-algebra-word-problems-0020	NEW	NEW	new question	NONE	

@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:crypto/crypto.dart';
+import 'package:pantas/core/content/domain/mock_blueprint.dart';
 import 'package:yaml/yaml.dart';
 
 import '../content/lesson_asset_map.dart';
@@ -16,6 +17,22 @@ const _keepExamId = 'exam_cse_pro';
 // `isActive: true` so all built-in exams are available in the onboarding
 // picker.
 const _rosterExams = <Map<String, Object?>>[
+  {
+    'id': 'exam_dost_sei',
+    'code': 'DOST_SEI',
+    'name': 'DOST-SEI Undergraduate Scholarship',
+    'shortName': 'DOST',
+    'language': 'en',
+    'isActive': true,
+  },
+  {
+    'id': 'exam_sm_foundation',
+    'code': 'SM_FOUNDATION',
+    'name': 'SM Foundation College Scholarship',
+    'shortName': 'SM',
+    'language': 'en',
+    'isActive': true,
+  },
   {
     'id': 'exam_acet',
     'code': 'ACET',
@@ -59,11 +76,39 @@ const _rosterExams = <Map<String, Object?>>[
 ];
 
 void main(List<String> args) {
+  try {
+    _export(args);
+  } on FormatException catch (error) {
+    stderr.writeln(error is YamlException ? error.toString() : error.message);
+    exitCode = 65;
+  } on FileSystemException catch (error) {
+    stderr.writeln(error);
+    exitCode = 65;
+  }
+}
+
+void _export(List<String> arguments) {
+  final args = List<String>.of(arguments);
+  String? assetsOut;
+  final assetsIndex = args.indexOf('--assets-out');
+  if (assetsIndex >= 0) {
+    if (assetsIndex + 1 >= args.length) {
+      stderr.writeln('--assets-out requires a directory');
+      exitCode = 64;
+      return;
+    }
+    assetsOut = args[assetsIndex + 1];
+    args.removeRange(assetsIndex, assetsIndex + 2);
+  }
   if (args.isEmpty || args.length > 2) {
-    stderr.writeln('Usage: build_content_export.dart <output.json> [root]');
+    stderr.writeln(
+      'Usage: build_content_export.dart <output.json> [root] '
+      '[--assets-out <directory>]',
+    );
     exit(64);
   }
   final root = args.length == 2 ? args[1] : '.';
+  _checkDuplicateIds(root);
 
   final outlineFile = File('$root/tools/lesson_author/outline.json');
   final outlineUpdatedAt = _getFileHashTimestamp(outlineFile);
@@ -118,12 +163,18 @@ void main(List<String> args) {
     }
   }
 
-  final questions = buildQuestions(topicIdBySlug, root);
+  final pendingQuestionIds = <String>{};
+  final questions = buildQuestions(
+    topicIdBySlug,
+    root,
+    pendingQuestionIds: pendingQuestionIds,
+  );
   final lessons = buildLessons(topicIdBySlug, root);
 
-  // Keep the CSE demo exam and its rows; replace everything UPCAT.
+  // Keep historical CSE IDs for saved progress, including inactive sample rows.
   final existing = jsonDecode(
-    File('$root/assets/seed/v1.json').readAsStringSync(),
+    File('$root/tools/build_content_export/historical_v1.json')
+        .readAsStringSync(),
   ) as Map<String, dynamic>;
   final keptExams = [
     for (final exam in existing['exams'] as List)
@@ -156,7 +207,9 @@ void main(List<String> args) {
         lesson,
   ];
 
-  final v1UpdatedAt = _getFileHashTimestamp(File('$root/assets/seed/v1.json'));
+  final v1UpdatedAt = _getFileHashTimestamp(
+    File('$root/tools/build_content_export/historical_v1.json'),
+  );
 
   final examsOutput = <Map<String, Object?>>[];
   for (final exam in keptExams) {
@@ -177,7 +230,7 @@ void main(List<String> args) {
         '_id': subject['id'],
         '_updatedAt': v1UpdatedAt,
         'schemaVersion': 1,
-        'isActive': true,
+        'isActive': subject['isActive'] ?? true,
         'exam': {'_ref': exam['id']},
         'name': subject['name'],
         'ordering': subject['ordering'],
@@ -216,7 +269,7 @@ void main(List<String> args) {
       '_id': topic['id'],
       '_updatedAt': v1UpdatedAt,
       'schemaVersion': 1,
-      'isActive': true,
+      'isActive': topic['isActive'] ?? true,
       'subject': {'_ref': topic['subjectId']},
       'name': topic['name'],
       'ordering': topic['ordering'],
@@ -228,7 +281,7 @@ void main(List<String> args) {
       '_id': q['id'],
       '_updatedAt': v1UpdatedAt,
       'schemaVersion': 1,
-      'isActive': true,
+      'isActive': q['isActive'] ?? true,
       'topic': {'_ref': q['topicId']},
       if (q['lessonId'] != null) 'lesson': {'_ref': q['lessonId']},
       if (q['passageId'] != null) 'passage': {'_ref': q['passageId']},
@@ -260,7 +313,7 @@ void main(List<String> args) {
       '_id': l['id'],
       '_updatedAt': v1UpdatedAt,
       'schemaVersion': 1,
-      'isActive': true,
+      'isActive': l['isActive'] ?? true,
       'topic': {'_ref': l['topicId']},
       'title': l['title'],
       'summary': l['summary'],
@@ -268,6 +321,24 @@ void main(List<String> args) {
       'ordering': l['ordering'] ?? 0,
       'body': l['bodyJson'],
     });
+  }
+
+  final yamlPassages = <String, Map<String, Object?>>{};
+  for (final file in _filesUnder('$root/content/questions', '.yaml')) {
+    final doc =
+        loadYaml(file.readAsStringSync(), sourceUrl: Uri.file(file.path))
+            as YamlMap;
+    final updatedAt = _getFileHashTimestamp(file);
+    for (final raw in doc['passages'] as YamlList? ?? <Object?>[]) {
+      final passage = raw! as YamlMap;
+      final body = passage['body'] as String;
+      yamlPassages[passage['id'] as String] = {
+        '_updatedAt': updatedAt,
+        'title': passage['title'] as String? ?? '',
+        'body': body,
+        'wordCount': body.trim().split(RegExp(r'\s+')).length,
+      };
+    }
   }
 
   final passagesOutput = <Map<String, Object?>>[];
@@ -282,10 +353,21 @@ void main(List<String> args) {
       'body': p['body'],
       'language': p['language'],
       'wordCount': p['wordCount'],
+      ...?yamlPassages[p['id']],
     });
   }
 
   final mockBlueprints = buildMockBlueprints(root);
+
+  if (exitCode != 0) return;
+  final lessonLinks = buildLessonLinks(root, lessons);
+  final gapTags = buildGapTags(
+    root,
+    questions,
+    lessons,
+    lessonLinks,
+    pendingQuestionIds: pendingQuestionIds,
+  );
 
   final seed = {
     'exam': examsOutput,
@@ -295,8 +377,23 @@ void main(List<String> args) {
     'question': questions,
     'lesson': lessons,
     'mockBlueprint': mockBlueprints,
+    'lessonLink': lessonLinks,
+    'gapTag': gapTags,
   };
 
+  if (assetsOut != null) {
+    final slim = <String, List<Map<String, Object?>>>{};
+    for (final link in lessonLinks) {
+      (slim[link['lesson']! as String] ??= []).add({
+        'lesson': link['requires'],
+        'strength': link['strength'],
+      });
+    }
+    final asset = File('$assetsOut/lesson_links.json');
+    asset.parent.createSync(recursive: true);
+    asset.writeAsStringSync('${jsonEncode(slim)}\n');
+  }
+  stdout.writeln('  ${lessonLinks.length} links and ${gapTags.length} tags');
   File(args[0]).writeAsStringSync(
     '${const JsonEncoder.withIndent('  ').convert(seed)}\n',
   );
@@ -336,17 +433,90 @@ Map<String, String> loadTopicIdBySlug(Map<String, dynamic> outline) {
   return topicIdBySlug;
 }
 
+/// Validate identities before filtering pending figures or rendering lessons.
+/// Keep every occurrence, including two occurrences in the same source file.
+void _checkDuplicateIds(String root) {
+  final questions = <String, List<String>>{};
+  final lessons = <String, List<String>>{};
+  void record(Map<String, List<String>> sources, String id, String path) {
+    (sources[id] ??= []).add(path);
+  }
+
+  for (final file in _filesUnder('$root/content/questions', '.yaml')) {
+    final doc =
+        loadYaml(file.readAsStringSync(), sourceUrl: Uri.file(file.path))
+            as YamlMap;
+    for (final row in doc['questions'] as YamlList) {
+      record(questions, (row as YamlMap)['id'] as String, file.path);
+    }
+  }
+  for (final file in _filesUnder('$root/content/lessons', '.md')) {
+    final match = RegExp(r'^---\n(.*?)\n---\n', dotAll: true)
+        .firstMatch(file.readAsStringSync());
+    if (match == null) continue; // The existing frontmatter check names this.
+    final front =
+        loadYaml(match.group(1)!, sourceUrl: Uri.file(file.path)) as YamlMap;
+    record(lessons, front['_id'] as String, file.path);
+  }
+
+  // The retained legacy paper is also part of this export's ID namespace.
+  final historical =
+      File('$root/tools/build_content_export/historical_v1.json');
+  final saved =
+      jsonDecode(historical.readAsStringSync()) as Map<String, dynamic>;
+  final subjects = <String>{
+    for (final raw in saved['exams'] as List)
+      if ((raw as Map<String, dynamic>)['id'] == _keepExamId)
+        for (final subject in raw['subjects'] as List)
+          (subject as Map<String, dynamic>)['id'] as String,
+  };
+  final topics = <String>{
+    for (final raw in saved['topics'] as List)
+      if (subjects.contains((raw as Map<String, dynamic>)['subjectId']))
+        raw['id'] as String,
+  };
+  for (final (key, sources) in [
+    ('questions', questions),
+    ('lessons', lessons),
+  ]) {
+    for (final raw in saved[key] as List) {
+      final row = raw as Map<String, dynamic>;
+      if (topics.contains(row['topicId'])) {
+        record(sources, row['id'] as String, historical.path);
+      }
+    }
+  }
+  final errors = <String>[];
+  for (final (kind, sources) in [
+    ('question', questions),
+    ('lesson', lessons),
+  ]) {
+    for (final id in sources.keys.toList()..sort()) {
+      final files = sources[id]!;
+      if (files.length > 1) {
+        errors.add(
+          'Duplicate $kind ID "$id":\n  ${(files..sort()).join('\n  ')}',
+        );
+      }
+    }
+  }
+  if (errors.isNotEmpty) throw FormatException(errors.join('\n'));
+}
+
 List<Map<String, Object?>> buildQuestions(
   Map<String, String> topicIdBySlug,
-  String root,
-) {
+  String root, {
+  Set<String>? pendingQuestionIds,
+}) {
   const labels = ['A', 'B', 'C', 'D', 'E', 'F'];
   final questions = <Map<String, Object?>>[];
   var skippedFigures = 0;
 
   for (final file in _filesUnder('$root/content/questions', '.yaml')) {
     final updatedAt = _getFileHashTimestamp(file);
-    final doc = loadYaml(file.readAsStringSync()) as YamlMap;
+    final doc =
+        loadYaml(file.readAsStringSync(), sourceUrl: Uri.file(file.path))
+            as YamlMap;
     final meta = doc['meta'] as YamlMap;
     final topicSlug = meta['topic'] as String;
     final subtopicSlug = meta['subtopic'] as String;
@@ -368,6 +538,7 @@ List<Map<String, Object?>> buildQuestions(
       // waiting on a hand-drawn picture are held back.
       final drawnSpec = question['figureSpec'];
       if (figure != null && '$figure'.trim().isNotEmpty && drawnSpec == null) {
+        pendingQuestionIds?.add(question['id'] as String);
         skippedFigures++;
         continue;
       }
@@ -474,6 +645,12 @@ List<Map<String, Object?>> buildLessons(
     });
   }
 
+  // A figure folder with no lesson file (a renamed lesson, say) is never read
+  // by a marker, so name it here instead of dropping it silently.
+  assetMap.assertNoOrphanFigures([
+    for (final file in _filesUnder('$root/content/lessons', '.md'))
+      LessonIdentity.fromPath(file.path),
+  ]);
   return lessons;
 }
 
@@ -506,7 +683,12 @@ List<Map<String, Object?>> buildMockBlueprints(String root) {
 
   for (final file in _filesUnder(mockDir.path, '.yaml')) {
     final updatedAt = _getFileHashTimestamp(file);
-    final doc = loadYaml(file.readAsStringSync()) as YamlMap;
+    final doc =
+        loadYaml(file.readAsStringSync(), sourceUrl: Uri.file(file.path))
+            as YamlMap;
+    BlueprintValue.validateSections(
+      (doc['sections'] as YamlList).cast<Object?>(),
+    );
     mockBlueprints.add({
       '_id': doc['_id'] as String,
       '_updatedAt': updatedAt,
@@ -519,6 +701,8 @@ List<Map<String, Object?>> buildMockBlueprints(String root) {
         'sectionalTiming': doc['sectionalTiming'] as String,
       if (doc['totalPublishedItems'] != null)
         'totalPublishedItems': doc['totalPublishedItems'] as int,
+      if (doc['unscoredItems'] != null)
+        'unscoredItems': doc['unscoredItems'] as int,
       if (doc['source'] != null) 'source': doc['source'] as String,
       if (doc['sourceNote'] != null) 'sourceNote': doc['sourceNote'] as String,
       if (doc['scoreBands'] != null)
@@ -544,4 +728,165 @@ Object? _convertYaml(Object? node) {
     return [for (final item in node) _convertYaml(item)];
   }
   return node;
+}
+
+Map<String, dynamic> _roadmapInput(String path, String key) {
+  // Code branches carry no roadmap inputs until content merges them in.
+  if (!File(path).existsSync()) return const {};
+  final Object? value;
+  try {
+    value = jsonDecode(File(path).readAsStringSync());
+  } on FormatException {
+    throw FormatException('$path: bad shape: invalid JSON');
+  }
+  if (value is! Map<String, dynamic>) {
+    throw FormatException('$path: bad shape: expected object');
+  }
+  if (value['version'] != 1) {
+    throw FormatException('$path: version must be 1');
+  }
+  final rows = value[key];
+  if (rows is! Map<String, dynamic>) {
+    throw FormatException('$path: bad shape: $key must be an object');
+  }
+  return rows;
+}
+
+List<Map<String, Object?>> buildLessonLinks(
+  String root,
+  List<Map<String, Object?>> lessons,
+) {
+  final path = '$root/content/lesson-prerequisites.json';
+  final rows = _roadmapInput(path, 'lessons');
+  final ids = lessons.map((lesson) => lesson['_id']).toSet();
+  final links = <Map<String, Object?>>[];
+  final targets = <String, List<String>>{};
+  for (final id in rows.keys.toList()..sort()) {
+    if (!ids.contains(id)) {
+      throw FormatException('$path: $id: unknown source lesson');
+    }
+    final raw = rows[id];
+    if (raw is! List<dynamic>) {
+      throw FormatException('$path: $id: bad link shape: expected list');
+    }
+    final seen = <String>{};
+    for (final link in raw) {
+      if (link is! Map<String, dynamic> || link['lesson'] is! String) {
+        throw FormatException('$path: $id: bad link shape');
+      }
+      final target = link['lesson'] as String;
+      if (!ids.contains(target)) {
+        throw FormatException('$path: $id -> $target: unknown target lesson');
+      }
+      if (target == id) {
+        throw FormatException('$path: $id: self link');
+      }
+      if (!seen.add(target)) {
+        throw FormatException('$path: $id -> $target: duplicate link');
+      }
+      final strength = link['strength'];
+      if (strength != 'required' && strength != 'helpful') {
+        throw FormatException('$path: $id -> $target: invalid strength');
+      }
+      (targets[id] ??= []).add(target);
+      links.add({'lesson': id, 'requires': target, 'strength': strength});
+    }
+  }
+  final visiting = <String>{};
+  final visited = <String>{};
+  void visit(String id) {
+    if (visited.contains(id)) return;
+    visiting.add(id);
+    for (final target in targets[id] ?? const <String>[]) {
+      if (visiting.contains(target)) {
+        throw FormatException('$path: $id -> $target: cycle');
+      }
+      visit(target);
+    }
+    visiting.remove(id);
+    visited.add(id);
+  }
+
+  for (final id in targets.keys) {
+    visit(id);
+  }
+  links.sort((a, b) {
+    final order = (a['lesson']! as String).compareTo(b['lesson']! as String);
+    return order != 0
+        ? order
+        : (a['requires']! as String).compareTo(b['requires']! as String);
+  });
+  return links;
+}
+
+List<Map<String, Object?>> buildGapTags(
+  String root,
+  List<Map<String, Object?>> questions,
+  List<Map<String, Object?>> lessons,
+  List<Map<String, Object?>> links, {
+  Set<String> pendingQuestionIds = const {},
+}) {
+  final path = '$root/content/question-gap-tags.json';
+  final rows = _roadmapInput(path, 'questions');
+  final byId = {for (final question in questions) question['_id']: question};
+  final ids = lessons.map((lesson) => lesson['_id']).toSet();
+  final tags = <Map<String, Object?>>[];
+  var skipped = 0;
+  for (final id in rows.keys.toList()..sort()) {
+    if (pendingQuestionIds.contains(id)) {
+      skipped++;
+      continue;
+    }
+    final question = byId[id];
+    if (question == null) {
+      throw FormatException('$path: $id: unknown question');
+    }
+    final raw = rows[id];
+    if (raw is! Map<String, dynamic>) {
+      throw FormatException('$path: $id: bad tag shape');
+    }
+    final choices = (question['choices']! as List).cast<Map<String, Object?>>();
+    final seen = <String>{};
+    for (final text in raw.keys.toList()..sort()) {
+      final matches = choices
+          .where((choice) => (choice['text']! as String).trim() == text.trim())
+          .toList();
+      if (matches.isEmpty) {
+        throw FormatException('$path: $id: no matching choice for "$text"');
+      }
+      if (matches.length != 1) {
+        throw FormatException(
+          '$path: $id: multiple matching choices for "$text"',
+        );
+      }
+      final choice = matches.single;
+      if (choice['isCorrect'] == true) {
+        throw FormatException('$path: $id: tag on correct choice "$text"');
+      }
+      final target = raw[text];
+      if (target is! String || !ids.contains(target)) {
+        throw FormatException('$path: $id: unknown lesson $target');
+      }
+      final lesson = (question['lesson'] as Map<String, Object?>?)?['_ref'];
+      if (!links.any(
+        (link) => link['lesson'] == lesson && link['requires'] == target,
+      )) {
+        throw FormatException(
+          '$path: $id -> $target: not a link target of $lesson',
+        );
+      }
+      final choiceId = choice['_key']! as String;
+      if (!seen.add(choiceId)) {
+        throw FormatException(
+          '$path: $id: duplicate normalized choice "$text"',
+        );
+      }
+      tags.add({'question': id, 'choice': choiceId, 'prerequisite': target});
+    }
+  }
+  tags.sort(
+    (a, b) => (a['choice']! as String).compareTo(b['choice']! as String),
+  );
+  stdout.writeln('  skipped $skipped tagged figure-pending questions');
+  return tags;
 }

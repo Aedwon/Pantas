@@ -2,6 +2,10 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+
+/// Height of the drawing. The design system sets no height for diagrams.
+const double _figureHeight = 210;
 
 /// Original lesson diagrams for the ten chemistry briefs in original-code-a.
 class ChemistryDiagramFigure extends StatelessWidget {
@@ -45,21 +49,21 @@ class ChemistryDiagramFigure extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = context.colors;
     return SizedBox(
-      height: 210,
+      height: _figureHeight,
       child: CustomPaint(
         size: Size.infinite,
         painter: _ChemistryDiagramPainter(
           type: type,
           spec: _spec,
-          ink: colors.ink,
-          inkMuted: colors.inkMuted,
-          rule: colors.ruleFaint,
-          board: colors.board,
-          rust: colors.rust,
-          amber: colors.amber,
-          labelStyle: context.textStyles.bodySmall.copyWith(color: colors.ink),
-          mutedStyle: context.textStyles.bodySmall.copyWith(
-            color: colors.inkMuted,
+          ink: colors.label,
+          inkMuted: colors.secondaryLabel,
+          rule: colors.fill,
+          board: colors.accent,
+          rust: colors.destructive,
+          amber: colors.pro,
+          labelStyle: context.type.subhead.copyWith(color: colors.label),
+          mutedStyle: context.type.subhead.copyWith(
+            color: colors.secondaryLabel,
           ),
         ),
       ),
@@ -408,7 +412,7 @@ class _ChemistryDiagramPainter extends CustomPainter {
         bonds[i]['electronAction']! as String,
         Offset(x0 + 6, 145),
         slot - 12,
-        style: mutedStyle.copyWith(fontSize: 11),
+        style: mutedStyle.copyWith(fontSize: PantasType.phoneCaption.fontSize),
         align: TextAlign.center,
         maxLines: 3,
       );
@@ -554,7 +558,9 @@ class _ChemistryDiagramPainter extends CustomPainter {
         laws[i]['scene']! as String,
         Offset(x0 + 3, 176),
         slot - 6,
-        style: mutedStyle.copyWith(fontSize: 10),
+        style: mutedStyle.copyWith(
+          fontSize: PantasType.phoneCaptionSmall.fontSize,
+        ),
         align: TextAlign.center,
         maxLines: 3,
       );
@@ -928,14 +934,19 @@ class _ChemistryDiagramPainter extends CustomPainter {
         measures[i],
         Offset(size.width * 0.59, y),
         size.width * 0.38,
-        style: labelStyle.copyWith(fontSize: 11, fontWeight: FontWeight.w600),
+        style: labelStyle.copyWith(
+          fontSize: PantasType.phoneCaption.fontSize,
+          fontWeight: FontWeight.w600,
+        ),
       );
       _label(
         canvas,
         cue,
         Offset(size.width * 0.59, y + 13),
         size.width * 0.38,
-        style: mutedStyle.copyWith(fontSize: 10),
+        style: mutedStyle.copyWith(
+          fontSize: PantasType.phoneCaptionSmall.fontSize,
+        ),
       );
     }
   }
@@ -992,14 +1003,18 @@ class _ChemistryDiagramPainter extends CustomPainter {
         'Energy',
         Offset(x0 + 1, 22),
         45,
-        style: mutedStyle.copyWith(fontSize: 9),
+        style: mutedStyle.copyWith(
+          fontSize: PantasType.phoneCaptionSmall.fontSize,
+        ),
       );
       _label(
         canvas,
         'Reactants',
         Offset(startX - 5, startY - 17),
         52,
-        style: mutedStyle.copyWith(fontSize: 9),
+        style: mutedStyle.copyWith(
+          fontSize: PantasType.phoneCaptionSmall.fontSize,
+        ),
         align: TextAlign.center,
       );
       _label(
@@ -1007,7 +1022,9 @@ class _ChemistryDiagramPainter extends CustomPainter {
         'Products',
         Offset(endX - 47, endY - 17),
         52,
-        style: mutedStyle.copyWith(fontSize: 9),
+        style: mutedStyle.copyWith(
+          fontSize: PantasType.phoneCaptionSmall.fontSize,
+        ),
         align: TextAlign.center,
       );
       _label(
@@ -1015,7 +1032,9 @@ class _ChemistryDiagramPainter extends CustomPainter {
         'activation',
         Offset(peakX - 27, 22),
         54,
-        style: mutedStyle.copyWith(fontSize: 9),
+        style: mutedStyle.copyWith(
+          fontSize: PantasType.phoneCaptionSmall.fontSize,
+        ),
         align: TextAlign.center,
       );
       _label(
@@ -1031,7 +1050,9 @@ class _ChemistryDiagramPainter extends CustomPainter {
         'Reaction progress',
         Offset(x0 + 41, 191),
         right - x0 - 30,
-        style: mutedStyle.copyWith(fontSize: 9),
+        style: mutedStyle.copyWith(
+          fontSize: PantasType.phoneCaptionSmall.fontSize,
+        ),
         align: TextAlign.center,
       );
     }
@@ -1064,7 +1085,7 @@ class _ChemistryDiagramPainter extends CustomPainter {
       12,
       style: labelStyle.copyWith(
         color: ink,
-        fontSize: 11,
+        fontSize: PantasType.phoneCaption.fontSize,
         fontWeight: FontWeight.w600,
       ),
       align: TextAlign.center,

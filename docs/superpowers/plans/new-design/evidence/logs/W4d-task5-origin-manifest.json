@@ -1,0 +1,29 @@
+{
+  "base": "2861773f",
+  "policy": "f88ae99a",
+  "sha256": {
+    "lib/features/quiz/domain/models/session_origin.dart": "4415ef9473a424b92019e7913c9e7727e2156be2d9ae1bc15f7754e7043048c8",
+    "lib/features/quiz/domain/use_cases/start_practice.dart": "3e9f1d7968e0d085a2d75e6134609ccbb622dc0a1c0a88707fc62cbc3a26720e",
+    "lib/features/quiz/presentation/quiz_controller.dart": "31864ae330166e95d1094a913035ae81f1ca5ed49cd5aa8515f904a609ac4358",
+    "lib/features/quiz/presentation/pages/flagged_list_page.dart": "8d9c7ae518804a028986c659976af6065657076f2ae2c9cbd1ad9c3a37de43f5",
+    "lib/features/quiz/domain/debrief/session_debrief.dart": "8786f70cc0e4beb4796db485c6fddfe67a1eb0077559ec1e8da0e09a987dbd5e",
+    "test/features/quiz/domain/use_cases/flagged_origin_test.dart": "c753c8685e1cf5575802bceac34d7848f14a99225a5d2932fd53735adf996bdf",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-origin-analysis.txt": "ac56ec4e1d898521218bf8e79d413ac6bf02f29fc2d1abb9630472e33d321092",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-origin-green.txt": "ece3b98ed7f76d38e791d67cc39a20157230330f08e49f0e5e2187626fb4b1d0",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-origin-commands.json": "3976e0c91a8db57c82a5e82133e1c8ed78917b0c13a14fd33149290916900041",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-origin-affected.txt": "3654c6a89f8e0736a51f71b289eb792bd182f7d2f875e87b4b186d8417b2d694",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-origin-verified-2.txt": "ec27c9bb5a18e95eaf8a026729ee563d5f4f42124e659308761c49ba06babacd",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-origin-verified-3.txt": "f92dcce2d37c8443e3e66f7db2de74cc05534956e81f71190a790b7d1dca75c9",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-origin-verified-1.txt": "665d982cc7739117f25fcaea63b17655420f98ab1941b7ea9cc064c6252646d2",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-origin-verified-0.txt": "8fc523cb8b6bdceab46ab8b6ba4c3b3d679f5555e92f9ae1f7e083457eefafef",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-origin-red.txt": "99f7e2c026f0d5dc5bf80a336c544b9f4613929138adbe9d14208a9841c68f8c",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-origin-verified-4.txt": "e14986909718bbaac6bd30a9a3c2a75f2850a235c0079b13ded5d949e5015fa5",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-origin-verified-5.txt": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-origin-analysis.txt.gz": "f0f8b929600ded771c41b1d83d10dfe800ba16c67a026124bb0d1f3b9c084a52",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-origin-verified-3.txt.gz": "c1a9a8d4782a213b70fedd5f08ecd39ad5a6c7b4908ed1c70d4ab1527669cdb3",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-origin-verified-1.txt.gz": "779b6af4006281cef296a476809fd4c42c0efb3a2b074da3572c3f043a2f6c67",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-origin-red.txt.gz": "f75843e684d37bbe82525bc81cf0bfcca77eb824e4c27985858eede1bc6acaf3",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-origin-verified-4.txt.gz": "c78805d4c4242d1ebb7fb94e300f54da603bd5fdb36393656ddee284d9a9d569",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-origin-verified-5.txt.gz": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+  }
+}

@@ -1,10 +1,60 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/settings/settings.dart';
 
 import '../../../helpers/in_memory_database.dart';
 
 void main() {
+  test('absent study days read as every day', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    expect(
+      (await DriftSettingsRepository(db).readUserSettings()).studyDays,
+      StudyDays.all,
+    );
+  });
+
+  test('study days round trip under the account key and bump updatedAt',
+      () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final now = DateTime.utc(2026, 10, 1, 12);
+    final repo = DriftSettingsRepository(db, clock: () => now);
+    final days = StudyDays(const [5, 3, 1, 3]);
+
+    await repo.updateStudyDays(days);
+
+    final settings = await DriftSettingsRepository(db).readUserSettings();
+    expect(settings.studyDays, days);
+    expect(settings.updatedAt, now);
+    expect(SettingsPrefKeys.studyDays, 'settings.study_days');
+    expect(
+      await db.select(db.accountPrefs).get(),
+      contains(
+        const AccountPrefRow(key: 'settings.study_days', value: '1,3,5'),
+      ),
+    );
+    expect(await db.select(db.devicePrefs).get(), isEmpty);
+    await repo.updateStudyDays(StudyDays.all);
+    expect((await repo.readUserSettings()).studyDays, StudyDays.all);
+  });
+
+  test('empty or malformed stored study days fall back to every day', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final repo = DriftSettingsRepository(db);
+    for (final raw in ['', '9', '1,x']) {
+      await db.into(db.accountPrefs).insertOnConflictUpdate(
+            AccountPrefsCompanion.insert(
+              key: 'settings.study_days',
+              value: raw,
+            ),
+          );
+      expect((await repo.readUserSettings()).studyDays, StudyDays.all);
+    }
+  });
+
   test('returns default user settings when account prefs are missing',
       () async {
     final db = inMemoryDatabase();
@@ -51,8 +101,7 @@ void main() {
     expect(settings.updatedAt, DateTime.utc(2026, 5, 22, 12));
   });
 
-  test('updates exam date only for tomorrow or later and bumps updatedAt',
-      () async {
+  test('allows an exam today and rejects yesterday', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
     final repo = DriftSettingsRepository(
@@ -61,17 +110,17 @@ void main() {
     );
 
     await repo.updateExamDate(
-      ExamDate.onDay(DateTime(2026, 5, 23)),
+      ExamDate.onDay(DateTime(2026, 5, 22)),
       today: DateTime(2026, 5, 22),
     );
 
     expect(
       (await repo.readUserSettings()).examDate,
-      ExamDate.onDay(DateTime(2026, 5, 23)),
+      ExamDate.onDay(DateTime(2026, 5, 22)),
     );
     await expectLater(
       repo.updateExamDate(
-        ExamDate.onDay(DateTime(2026, 5, 22)),
+        ExamDate.onDay(DateTime(2026, 5, 21)),
         today: DateTime(2026, 5, 22),
       ),
       throwsA(isA<InvalidExamDateException>()),

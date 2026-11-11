@@ -1,0 +1,36 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart
+00:00 +0: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/attempts_repository_notes_test.dart: concurrent notes preserve different question updates
+00:00 +1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/attempts_repository_notes_test.dart: concurrent notes preserve different question updates
+00:00 +2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/attempts_repository_notes_test.dart: concurrent notes preserve different question updates
+00:00 +3: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer account transition rolls back pending note and recorder tail
+00:00 +4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer account transition rolls back pending note and recorder tail
+00:00 +5: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer account transition rolls back pending note and recorder tail
+00:00 +6: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer account transition rolls back pending note and recorder tail
+00:00 +7: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer account transition rolls back pending note and recorder tail
+00:00 +8: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer account transition rolls back pending note and recorder tail
+boundary-test viewer ready: account
+boundary-test save tapped: account
+boundary-test tail entered: account
+boundary-test tail exits: account
+boundary-test save settled: account
+boundary-test repository settled: account
+boundary-test read stored row: account
+boundary-test read sync revision: account
+boundary-test metadata assertion done: account
+boundary-test unmounted viewer: account
+boundary-test disposed providers: account
+boundary-test closed student DB: account
+boundary-test closed content DB: account
+00:00 +9: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer exam transition rolls back pending note and recorder tail
+boundary-test viewer ready: exam
+boundary-test save tapped: exam
+boundary-test tail entered: exam
+boundary-test tail exits: exam
+boundary-test save settled: exam
+boundary-test repository settled: exam
+boundary-test read stored row: exam
+boundary-test read sync revision: exam
+boundary-test metadata assertion done: exam
+boundary-test unmounted viewer: exam
+boundary-test disposed providers: exam
+boundary-test closed student DB: exam

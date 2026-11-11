@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 
-/// A Wrapped card that the user has published to a public `pantas.app` link.
+/// A Wrapped card that the user has published to a public `pantas.study` link.
 class WrappedSharedCard {
   const WrappedSharedCard({
     required this.shareId,

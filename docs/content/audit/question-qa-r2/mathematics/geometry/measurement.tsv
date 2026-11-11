@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-geometry-measurement-0001	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-measurement-0002	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-measurement-0003	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-measurement-0004	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-measurement-0005	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-measurement-0006	VERIFIED	SOLVED-MATCH	explanation;notes;format	MEDIUM	The old note claimed the average of bases was 28; it is 14. The 28 choice is their sum.
+q-geometry-measurement-0007	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-measurement-0008	VERIFIED	SOLVED-MATCH	explanation;notes;format	MEDIUM	The old ten-pi note claimed omitting the radius square; that gives five pi. Corrected the circumference-versus-area mistake.
+q-geometry-measurement-0009	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-measurement-0010	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-measurement-0011	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson gives cone volume and slant height but not cone surface area; stem, choices and key retained.
+q-geometry-measurement-0012	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-measurement-0013	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-measurement-0014	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	The 96 distractor had no specific derivation; replaced with reporting the whole outer square area.
+q-geometry-measurement-0015	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	The correct scaling choice was longest; tightened all choices to parallel factor statements.
+q-geometry-measurement-0016	NEW	NEW	new question	NONE	
+q-geometry-measurement-0017	NEW	NEW	new question	NONE	
+q-geometry-measurement-0018	NEW	NEW	new question	NONE	
+q-geometry-measurement-0019	NEW	NEW	new question	NONE	
+q-geometry-measurement-0020	NEW	NEW	new question	NONE	

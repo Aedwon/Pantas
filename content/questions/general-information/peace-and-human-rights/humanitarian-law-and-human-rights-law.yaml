@@ -3,145 +3,499 @@ meta:
   topic: peace-and-human-rights
   subtopic: humanitarian-law-and-human-rights-law
   exams:
-    - cse-pro
-    - cse-sub
+  - cse-pro
+  - cse-sub
 questions:
-  - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0001
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Under what specific circumstances does International Humanitarian Law (IHL) apply?
-    choices:
-      - text: During armed conflict
-        correct: true
-      - text: During peace negotiations
-        rationale: |
-          Peace negotiations by themselves do not trigger IHL. If an armed conflict continues while negotiations are taking place, IHL continues to apply because of the armed conflict.
-      - text: During economic recessions
-        rationale: |
-          An economic recession does not itself trigger the law of armed conflict.
-      - text: During election campaigns
-        rationale: |
-          An election campaign does not itself trigger IHL.
-    explanation: |
-      International Humanitarian Law applies when the legal conditions for an armed conflict are met. Negotiations or ceasefire discussions do not by themselves end its application if the armed conflict legally continues.
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0001
+  type: single_choice
+  difficulty: easy
+  stem: 'What situation does IHL specifically govern?
 
-  - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0002
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Which entities are bound by International Humanitarian Law during hostilities?
-    choices:
-      - text: All parties to an armed conflict
-        correct: true
-      - text: Sovereign state regular army forces exclusively
-        rationale: |
-          IHL is not limited to state armed forces; applicable rules also bind non-state parties to non-international armed conflicts.
-      - text: Civilian medical non-combatant personnel only
-        rationale: |
-          Medical personnel are protected and also have relevant obligations, but IHL binds the parties to the armed conflict as a whole.
-      - text: Neutral accredited diplomatic observers only
-        rationale: |
-          Neutral observers are not the only entities bound by the law governing hostilities.
-    explanation: |
-      IHL binds all parties to an armed conflict. Depending on the type of conflict, those parties may include state armed forces and organized non-state armed groups.
+    '
+  choices:
+  - text: Armed conflict
+    correct: true
+  - text: Any political dispute, even without armed conflict
+    rationale: 'This treats disagreement as the legal trigger. Political disputes can cause fighting. Check whether armed conflict exists.
 
-  - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0003
-    type: single_choice
-    difficulty: hard
-    stem: |
-      What is the main distinction between Human Rights Law (HRL) and International Humanitarian Law (IHL) regarding when they apply?
-    choices:
-      - text: HRL applies at all times, IHL in armed conflict
-        correct: true
-      - text: HRL applies in armed conflict, IHL during peace time
-        rationale: |
-          This reverses their temporal scope. Human rights law continues in peace and conflict, while IHL is triggered by armed conflict.
-      - text: HRL applies to military forces, IHL to civilian bodies
-        rationale: |
-          This confuses whom the legal frameworks regulate with when they apply.
-      - text: HRL applies to foreign visitors, IHL to local citizens
-        rationale: |
-          Nationality is not the distinction being tested; the key difference is temporal scope.
-    explanation: |
-      International human rights law applies in peacetime and during armed conflict. IHL is the specialized body of law triggered by armed conflict. Some IHL protections and obligations can continue after active hostilities cease until the relevant protected situation has legally ended, such as the release and repatriation of protected persons.
+      '
+  - text: Any economic recession, even without armed conflict
+    rationale: 'This treats hardship as the trigger. Recessions can harm people. Check the law''s conflict-specific scope.
 
-  - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0004
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Which body of law specifically seeks to limit the methods of warfare and protect non-combatants during hostilities?
-    choices:
-      - text: International Humanitarian Law
-        correct: true
-      - text: Commercial Maritime Trade Regulations Code
-        rationale: |
-          Commercial trade rules do not regulate the means and methods of warfare.
-      - text: Administrative Civil Service Conduct Rules
-        rationale: |
-          Civil-service conduct rules do not govern the conduct of hostilities.
-      - text: Municipal Property Zoning Land Regulations
-        rationale: |
-          Municipal zoning rules do not regulate warfare or protect persons affected by hostilities.
-    explanation: |
-      IHL limits the means and methods of warfare and protects persons who are not, or are no longer, taking part in hostilities.
+      '
+  - text: Every election campaign, even without armed conflict
+    rationale: 'This treats a political event as the trigger. Elections can involve tension. Check the armed-conflict requirement.
 
-  - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0005
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Unlike Human Rights Law which primarily binds states, International Humanitarian Law binds which of the following?
-    choices:
-      - text: Both state and non-state combatants
-        correct: true
-      - text: Private non-combatant citizens only
-        rationale: |
-          Civilians are principally protected by IHL; the legal duties governing hostilities bind the parties to the conflict.
-      - text: State diplomatic officers exclusively
-        rationale: |
-          Diplomatic officers are not the exclusive duty-bearers under IHL.
-      - text: International human rights auditors
-        rationale: |
-          Human-rights monitors are not the parties whose conduct of hostilities IHL principally regulates.
-    explanation: |
-      IHL binds parties to an armed conflict, including state forces and, in non-international armed conflicts, organized non-state armed groups. The choice uses "combatants" in the broad exam sense; formal combatant status is itself a technical IHL concept that differs by conflict classification.
+      '
+  explanation: 'IHL governs situations of armed conflict. Some duties, such as preparation and training, must also be implemented during peace.
 
-  - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0006
-    type: single_choice
-    difficulty: easy
-    stem: |
-      What is another common name given to International Humanitarian Law?
-    choices:
-      - text: Law of armed conflict
-        correct: true
-      - text: Law of peaceful assembly
-        rationale: |
-          Peaceful-assembly law concerns civil liberties, not the law governing armed conflict.
-      - text: Law of corporate trade
-        rationale: |
-          Corporate trade law regulates commercial transactions, not hostilities.
-      - text: Law of public taxation
-        rationale: |
-          Tax law is unrelated to the conduct of armed conflict.
-    explanation: |
-      International Humanitarian Law is also commonly called the law of armed conflict or the law of war.
+    '
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0002
+  type: single_choice
+  difficulty: medium
+  stem: 'Whom does IHL bind when they are parties to an armed conflict?
 
-  - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0008
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Protecting prisoners of war and wounded combatants falls under the scope of which body of law?
-    choices:
-      - text: International Humanitarian Law
-        correct: true
-      - text: International Corporate Trade Law
-        rationale: |
-          Commercial law does not establish the Geneva-law protections for prisoners of war or wounded combatants.
-      - text: Domestic Municipal Zoning Code
-        rationale: |
-          Zoning rules concern land use, not treatment of protected persons in armed conflict.
-      - text: National Revenue Tax Regulations
-        rationale: |
-          Tax regulations do not govern the protection of prisoners of war or the wounded.
-    explanation: |
-      Protection of prisoners of war and of wounded and sick members of armed forces is a core subject of International Humanitarian Law.
+    '
+  choices:
+  - text: All parties to the conflict
+    correct: true
+  - text: Only state forces, excluding every non-state armed group
+    rationale: 'This makes state status a condition. States make treaties. Check the rule covering all conflict parties.
+
+      '
+  - text: Only one side chosen because its cause is considered more just
+    rationale: 'This makes obligations depend on moral preference. Sides dispute who is right. Check whether the law binds every party.
+
+      '
+  - text: Only outside observers rather than those actually conducting hostilities
+    rationale: 'This substitutes observers for participants. Observers can monitor compliance. Check who conducts the conflict.
+
+      '
+  explanation: 'IHL binds all parties to an armed conflict, including state forces and non-state armed groups.
+
+    '
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0003
+  type: single_choice
+  difficulty: hard
+  stem: 'Which statement correctly compares their general time scopes?
+
+    '
+  choices:
+  - text: HRL continues in peace and conflict; IHL governs armed conflict.
+    correct: true
+  - text: HRL ends when war begins; IHL ends when fighting begins.
+    rationale: 'This reverses or removes both scopes. Each field has a different focus. Check what event IHL governs.
+
+      '
+  - text: HRL governs conflict only; IHL governs ordinary peaceful administration only.
+    rationale: 'This swaps their main time scopes. Both regulate human conduct. Check the peacetime role of HRL.
+
+      '
+  - text: HRL governs only foreign nationals; IHL governs only a state's own citizens.
+    rationale: 'This substitutes nationality for time scope. International sounds foreign. Check whether the question asks when the rules apply.
+
+      '
+  explanation: 'Human rights law continues during peace and armed conflict. IHL specifically governs armed conflict.
+
+    '
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0004
+  type: single_choice
+  difficulty: easy
+  stem: 'Which body of law specifically restricts means and methods of warfare while protecting people outside active hostilities?
+
+    '
+  choices:
+  - text: IHL
+    correct: true
+  - text: Human rights law alone, with no conflict-specific rules
+    rationale: 'This overlooks the warfare-specific framework. Human rights law also protects people. Check the specific restrictions on warfare.
+
+      '
+  - text: Ordinary military supply contracts alone, without rules protecting persons
+    rationale: 'This confuses war-related administration with humanitarian limits. Supplies support armed forces. Check the protective purpose.
+
+      '
+  - text: Domestic personnel conduct rules alone, excluding conflict obligations
+    rationale: 'This substitutes workplace discipline. Military staff also have conduct rules. Check the law governing armed hostilities.
+
+      '
+  explanation: 'IHL limits how warfare is conducted and protects people who do not, or no longer, take part in hostilities.
+
+    '
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0005
+  type: single_choice
+  difficulty: medium
+  stem: 'A non-state armed group says IHL cannot bind it because it is not a government. How does the lesson assess the claim?
+
+    '
+  choices:
+  - text: It is wrong if the group is a conflict party.
+    correct: true
+  - text: It is right whenever the group lacks an official government title.
+    rationale: 'This makes formal state status decisive. Governments have recognized authority. Check IHL''s coverage of non-state parties.
+
+      '
+  - text: It is right whenever the group refuses to acknowledge the rules.
+    rationale: 'This treats refusal as exemption. The group can reject a claim verbally. Check whether denial removes an obligation.
+
+      '
+  - text: It is wrong only if every member also works in a state office.
+    rationale: 'This adds public employment as a condition. States are bound too. Check whether the group itself is a conflict party.
+
+      '
+  explanation: 'IHL binds all conflict parties. A non-state armed group that is a party is included.
+
+    '
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0006
+  type: single_choice
+  difficulty: easy
+  stem: 'What is another common name given to International Humanitarian Law?
+
+    '
+  choices:
+  - text: Law of armed conflict
+    correct: true
+  - text: Law of peaceful assembly
+    rationale: 'This selects a human-rights-related subject. Both concern protections for people. Check the field''s armed-conflict focus.
+
+      '
+  - text: Law of corporate trade
+    rationale: 'This selects commercial rules. International commerce also has rules. Check what conduct IHL governs.
+
+      '
+  - text: Law of public taxation
+    rationale: 'This selects revenue law. States enforce both fields. Check the humanitarian subject.
+
+      '
+  explanation: 'IHL is also called the law of armed conflict because it governs armed conflict and limits its effects.
+
+    '
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0008
+  type: single_choice
+  difficulty: medium
+  stem: 'Which framework specifically protects wounded fighters and prisoners in armed conflict?
+
+    '
+  choices:
+  - text: IHL
+    correct: true
+  - text: Corporate trade rules governing contracts between companies
+    rationale: 'This chooses commerce rather than protected persons. War can disrupt business. Check the person''s role and condition.
+
+      '
+  - text: Municipal zoning rules governing permitted land uses
+    rationale: 'This chooses local land regulation. Conflict can damage property. Check the humanitarian protection described.
+
+      '
+  - text: Tax rules governing the collection of national revenue
+    rationale: 'This chooses revenue administration. Governments have financial duties in war. Check the law protecting persons outside hostilities.
+
+      '
+  explanation: 'Wounded fighters and prisoners can be persons no longer taking part in hostilities. Protecting such persons is a central purpose of IHL.
+
+    '
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0009
+  type: single_choice
+  difficulty: easy
+  approved: false
+  stem: 'In a qualifying public emergency, what does the lesson say about HRL obligations?
+
+    '
+  choices:
+  - text: Some may permit lawful derogation; some cannot.
+    correct: true
+  - text: Every obligation disappears automatically until the emergency ends.
+    rationale: 'This turns limited derogation into total suspension. Emergencies can alter some duties. Check the non-derogable protections.
+
+      '
+  - text: Any official may suspend any right solely by declaring it inconvenient.
+    rationale: 'This replaces legal conditions with personal preference. Urgent work can be difficult. Check the applicable legal rules.
+
+      '
+  - text: No treaty can ever allow any derogation from any obligation in any situation.
+    rationale: 'This treats continuous application as absence of legal exceptions. The framework continues. Check the lesson''s qualified emergency rule.
+
+      '
+  explanation: 'Some human-rights obligations may allow derogation under applicable emergency rules. Certain fundamental rights remain non-derogable.
+
+    '
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0010
+  type: single_choice
+  difficulty: easy
+  approved: false
+  stem: 'Which person best fits IHL''s category of no longer participating in hostilities?
+
+    '
+  choices:
+  - text: A fighter captured and held as a prisoner
+    correct: true
+  - text: A fighter presently attacking an opposing position with a weapon
+    rationale: 'This selects continuing participation. The person is a conflict participant. Check whether the action has stopped.
+
+      '
+  - text: A fighter currently directing an ongoing attack while remaining uninjured
+    rationale: 'This selects active involvement. Not personally firing can seem inactive. Check whether the person still participates.
+
+      '
+  - text: A fighter presently operating a weapon in an ongoing assault
+    rationale: 'This selects active hostilities. The person may also face danger. Check participation rather than danger alone.
+
+      '
+  explanation: 'A captured prisoner is no longer taking part in hostilities. IHL''s protective purpose includes such persons.
+
+    '
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0011
+  type: single_choice
+  difficulty: easy
+  approved: false
+  stem: 'Which proposal conflicts with IHL''s stated purpose?
+
+    '
+  choices:
+  - text: Allowing every warfare method whenever it might help win
+    correct: true
+  - text: Protecting people who are no longer participating in hostilities
+    rationale: 'This mistakes protection for obstruction. Protection can limit tactical choices. Check the humanitarian aim.
+
+      '
+  - text: Restricting weapons and tactics through applicable conflict rules
+    rationale: 'This treats restrictions as unrelated to IHL. Military tactics have technical purposes. Check the rules on means and methods.
+
+      '
+  - text: Preparing personnel to follow humanitarian obligations before fighting begins
+    rationale: 'This treats preparation as unnecessary. The conflict-specific rules may not yet govern events. Check peacetime implementation duties.
+
+      '
+  explanation: 'IHL restricts means and methods of warfare. A possible advantage does not remove those humanitarian limits.
+
+    '
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0012
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'Why can a state train personnel in IHL during peace?
+
+    '
+  choices:
+  - text: Some implementation duties require advance preparation.
+    correct: true
+  - text: Because every routine peacetime interaction automatically becomes armed conflict
+    rationale: 'This confuses preparation with the conflict trigger. IHL is taught during peace. Check when the substantive conflict framework applies.
+
+      '
+  - text: Because human-rights law stops applying whenever training begins
+    rationale: 'This makes education replace a separate legal framework. Both fields concern protection. Check whether HRL continues.
+
+      '
+  - text: Because no IHL obligations can require any action before hostilities start
+    rationale: 'This denies the lesson''s implementation exception. IHL governs armed conflict. Check the separate preparation duties.
+
+      '
+  explanation: 'The lesson identifies legislation and training as examples of IHL duties that require peacetime implementation. Preparing for compliance can happen before conflict.
+
+    '
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0013
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'Which statement properly distinguishes people protected by IHL from parties bound by it?
+
+    '
+  choices:
+  - text: Protected persons and bound parties are different categories.
+    correct: true
+  - text: Only protected civilians are bound, while conflict parties have no duties.
+    rationale: 'This reverses protection and obligation. Civilians are central beneficiaries. Check who must follow conflict rules.
+
+      '
+  - text: All conflict parties are protected from every legal limit on their conduct.
+    rationale: 'This turns being bound into being exempt. Parties have roles recognized by law. Check the duties placed on them.
+
+      '
+  - text: Every person protected by IHL must be a government official or a state soldier.
+    rationale: 'This makes official status a condition of protection. State forces are one conflict party. Check the wider group outside hostilities.
+
+      '
+  explanation: 'IHL binds parties to the conflict. It protects persons who are not or are no longer participating in hostilities. Those are different legal roles.
+
+    '
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0014
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'During armed conflict, what happens to the human-rights framework in relation to IHL?
+
+    '
+  choices:
+  - text: Both can apply.
+    correct: true
+  - text: IHL automatically replaces all human-rights law for every state action.
+    rationale: 'This makes the frameworks mutually exclusive. IHL is conflict-specific. Check HRL''s continuing application.
+
+      '
+  - text: HRL applies only after every conflict rule has ceased to operate.
+    rationale: 'This postpones rights protection until peace. HRL is important in peacetime. Check its wartime scope.
+
+      '
+  - text: Neither framework applies until all parties agree that their cause is identical.
+    rationale: 'This makes agreement the trigger. Conflict parties often disagree. Check the stated legal scopes.
+
+      '
+  explanation: 'The two fields are distinct but complementary. HRL continues while IHL governs the armed conflict.
+
+    '
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0015
+  type: single_choice
+  difficulty: hard
+  approved: false
+  stem: 'Which statement describes IHL''s purpose without adding a claim about whether a war should begin?
+
+    '
+  choices:
+  - text: It limits the effects of armed conflict.
+    correct: true
+  - text: It declares every war morally justified whenever one party invokes humanitarian goals.
+    rationale: 'This confuses conduct limits with moral approval. Humanitarian language sounds positive. Check the law''s stated purpose.
+
+      '
+  - text: It grants a conflict party unlimited permission to fight once it promises to protect one group.
+    rationale: 'This treats one protective promise as total authorization. Protection is an IHL goal. Check the continuing conduct restrictions.
+
+      '
+  - text: It concerns only deciding which national leader has the best political program.
+    rationale: 'This substitutes political preference for humanitarian rules. Conflict can have political causes. Check the protections and warfare limits.
+
+      '
+  explanation: 'The lesson describes protection of persons and limits on means and methods. These limit conflict''s effects without deciding which political cause should prevail.
+
+    '
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0016
+  type: single_choice
+  difficulty: hard
+  approved: false
+  stem: 'What does non-derogable mean in the emergency distinction taught in the lesson?
+
+    '
+  choices:
+  - text: The obligation cannot be set aside by derogation.
+    correct: true
+  - text: The obligation may be suspended merely because an emergency is declared.
+    rationale: 'This treats all obligations as derogable. Some may have emergency rules. Check the word non-derogable.
+
+      '
+  - text: The obligation applies only during the first stage of a public emergency.
+    rationale: 'This invents a time limit. Emergencies have phases. Check whether any such phase limit is stated.
+
+      '
+  - text: The obligation depends solely on which political party holds the national executive office.
+    rationale: 'This substitutes party choice for legal protection. Governments make policy decisions. Check whether the fundamental rule can be derogated from.
+
+      '
+  explanation: 'A non-derogable obligation remains protected against derogation even in a qualifying emergency.
+
+    '
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0017
+  type: single_choice
+  difficulty: hard
+  approved: false
+  stem: 'Which relationship is central to HRL in the lesson?
+
+    '
+  choices:
+  - text: A state and persons within its jurisdiction
+    correct: true
+  - text: Only rival companies negotiating prices across national borders
+    rationale: 'This confuses international rights with international commerce. Both cross legal systems. Check the state-person relationship.
+
+      '
+  - text: Only regular armies fighting each other, with all ordinary individuals excluded
+    rationale: 'This narrows HRL to the conflict framework. War raises rights concerns. Check persons within state jurisdiction.
+
+      '
+  - text: Only foreign diplomats bargaining over whether civilians have human dignity
+    rationale: 'This confines rights to diplomacy. States discuss rights internationally. Check the continuing obligations toward people.
+
+      '
+  explanation: 'HRL primarily places duties on states toward persons within their jurisdiction.
+
+    '
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0018
+  type: single_choice
+  difficulty: hard
+  approved: false
+  stem: 'Which pair best represents IHL''s complementary protective and regulatory aims?
+
+    '
+  choices:
+  - text: Protect persons outside hostilities and limit warfare methods.
+    correct: true
+  - text: Protect only governments' reputations and allow every tactic that serves them.
+    rationale: 'This makes state interests the entire purpose. States participate in conflict. Check the persons protected and the conduct limits.
+
+      '
+  - text: Protect only weapon suppliers and settle the prices of all military equipment.
+    rationale: 'This substitutes commerce for humanitarian protection. Weapons are relevant to warfare. Check means-and-method rules rather than prices.
+
+      '
+  - text: Protect only current attackers from restrictions and remove duties toward prisoners.
+    rationale: 'This reverses the protective focus. Attackers are visible conflict participants. Check those no longer participating.
+
+      '
+  explanation: 'IHL protects persons not or no longer participating and restricts how hostilities are conducted. These are the two aims described.
+
+    '
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0019
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'An election campaign is tense, but the facts describe no armed conflict. What can be concluded from the lesson?
+
+    '
+  choices:
+  - text: The campaign alone does not establish IHL's conflict trigger.
+    correct: true
+  - text: Every political campaign automatically falls under armed-conflict rules.
+    rationale: 'This treats political tension as armed conflict. Elections can be contentious. Check whether the required situation is present.
+
+      '
+  - text: Human-rights law has no application because only armed conflict creates human rights.
+    rationale: 'This makes rights conflict-dependent. IHL has that special scope. Check the continuing HRL framework.
+
+      '
+  - text: A tense campaign automatically permits suspension of every fundamental right.
+    rationale: 'This turns tension into unlimited derogation. Emergencies may have special rules. Check qualifying conditions and non-derogable rights.
+
+      '
+  explanation: 'IHL governs armed conflict, which the facts do not establish. HRL remains the continuing framework for state treatment of people.
+
+    '
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0020
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'Which statement avoids confusing a party''s non-state status with a civilian''s protected role?
+
+    '
+  choices:
+  - text: A non-state conflict party is bound; a civilian can be protected.
+    correct: true
+  - text: Non-state status makes every armed group a civilian exempt from conflict obligations.
+    rationale: 'This merges institutional status with participation. Neither category is the state army. Check whether the group is a conflict party.
+
+      '
+  - text: Civilian protection requires the person to join a recognized government's armed forces.
+    rationale: 'This makes military membership a condition of civilian protection. States are conflict parties. Check the person''s lack of participation.
+
+      '
+  - text: Every conflict participant outside the government is automatically beyond all international law.
+    rationale: 'This makes state status the only source of duties. States sign treaties. Check IHL''s all-party rule.
+
+      '
+  explanation: 'A non-state armed group can be a party bound by IHL. A civilian not participating in hostilities can be protected. These facts describe different roles.
+
+    '
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0021
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'An official says HRL has no wartime role and IHL has no peacetime implementation duties. Which correction follows from the lesson?
+
+    '
+  choices:
+  - text: HRL continues in conflict; some IHL duties require preparation in peace.
+    correct: true
+  - text: The claim is wholly correct because distinct legal fields can never have overlapping or preparatory obligations.
+    rationale: 'This treats distinct fields as mutually exclusive. Their main focuses differ. Check continuous HRL application and the IHL implementation examples.
+
+      '
+  - text: 'Reverse the claim completely: HRL applies only in war and IHL governs only ordinary peaceful administration.'
+    rationale: 'This swaps the two scopes instead of correcting their limits. Both fields protect people. Check each stated time scope.
+
+      '
+  - text: Accept the claim whenever state authorities have chosen not to provide any training before an armed conflict begins.
+    rationale: 'This treats lack of preparation as removal of a duty. Training may have been omitted in practice. Check the legal obligation rather than actual compliance.
+
+      '
+  explanation: 'HRL applies in peace and armed conflict. IHL governs armed conflict, but some duties such as training require implementation during peace. Distinct focuses do not remove those continuing or preparatory duties.
+
+    '

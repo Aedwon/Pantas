@@ -50,6 +50,25 @@ void main() {
       }
     });
 
+    test('the study-loop events have the names the spec gives', () {
+      expect(
+        {
+          TelemetryEvent.studySessionStart.name,
+          TelemetryEvent.studySessionFinish.name,
+          TelemetryEvent.lessonOpen.name,
+          TelemetryEvent.lessonFinish.name,
+          TelemetryEvent.proView.name,
+        },
+        {
+          'study_session_start',
+          'study_session_finish',
+          'lesson_open',
+          'lesson_finish',
+          'pro_view',
+        },
+      );
+    });
+
     test('no name collides with a reserved analytics event', () {
       // Firebase rejects these silently, which is the worst failure mode:
       // the call succeeds and the event never appears.
@@ -69,7 +88,9 @@ void main() {
 
     test("every event traces to one of the spec's six questions", () {
       // Section 3 of the platform foundations spec and Telemetry 02 plan.
-      expect(TelemetryEvent.values, hasLength(12));
+      // Twelve at launch, plus the five study-loop events of the load speed
+      // and telemetry spec ("Where do students stop in the study loop?").
+      expect(TelemetryEvent.values, hasLength(17));
     });
   });
 

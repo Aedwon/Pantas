@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-earth-science-astronomy-heavenly-bodies-0001	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-earth-science-astronomy-heavenly-bodies-0002	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-heavenly-bodies-0003	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-heavenly-bodies-0004	CORRECTED	SOLVED-MATCH	explanation;notes;answer wording	LOW	Correct answer was the longest choice.
+q-earth-science-astronomy-heavenly-bodies-0005	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	MEDIUM	Repeated belt-location item replaced with orbital classification.
+q-earth-science-astronomy-heavenly-bodies-0006	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-heavenly-bodies-0007	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	HIGH	Original unqualified tail claim ignored ion/dust differences and orbital effects.
+q-earth-science-astronomy-heavenly-bodies-0008	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	HIGH	Unqualified tail claim and contradictory motion distractor corrected.
+q-earth-science-astronomy-heavenly-bodies-0009	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	HIGH	Original falsely ruled out tails on every asteroid; duplicate replaced.
+q-earth-science-astronomy-heavenly-bodies-0010	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-earth-science-astronomy-heavenly-bodies-0011	CORRECTED	SOLVED-MATCH	explanation;notes;stem	LOW	Meteor clarified as the phenomenon rather than the burning object.
+q-earth-science-astronomy-heavenly-bodies-0012	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-earth-science-astronomy-heavenly-bodies-0013	CORRECTED	SOLVED-MATCH	explanation;notes;stem	LOW	Distinguished the incoming object from the meteor phenomenon.
+q-earth-science-astronomy-heavenly-bodies-0014	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	MEDIUM	Repeated landed-rock question replaced with shower reasoning.
+q-earth-science-astronomy-heavenly-bodies-0015	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	MEDIUM	Halley's period is accurate per NASA but absent from the lesson; stem, choices, key preserved.
+q-earth-science-astronomy-heavenly-bodies-0016	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	MEDIUM	Repeated stage-naming scenario replaced with survival outcome.
+q-earth-science-astronomy-heavenly-bodies-0017	NEW	NEW	new question	NONE	
+q-earth-science-astronomy-heavenly-bodies-0018	NEW	NEW	new question	NONE	
+q-earth-science-astronomy-heavenly-bodies-0019	NEW	NEW	new question	NONE	
+q-earth-science-astronomy-heavenly-bodies-0020	NEW	NEW	new question	NONE	

@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-biology-evolution-0001	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original stem and explanation incorrectly dated the first proposal of natural selection to 1859.
+q-biology-evolution-0002	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-biology-evolution-0003	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original imposed a nonrequired causal order and falsely said inheritance follows selection.
+q-biology-evolution-0004	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Correct choice was longest and resistance wording needed heredity.
+q-biology-evolution-0005	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-biology-evolution-0006	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original explanation made isolated populations inevitably form separate species through selection alone.
+q-biology-evolution-0007	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original explanation reduced finch diversification to an absolute one-island geographic-speciation story.
+q-biology-evolution-0008	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original had implausible distractors and claimed selection never changes an individual’s traits during life.
+q-biology-evolution-0009	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Correct choice was much longer than all distractors.
+q-biology-evolution-0010	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Correct choice was longest and no-population-change distractor was filler.
+q-biology-evolution-0011	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original treated resistance as necessarily predating exposure without evidence; item duplicated pesticide scenario.
+q-biology-evolution-0012	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original explanation treated selection as the sole mechanism leading to speciation.
+q-biology-evolution-0013	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Correct answer was longest and an existing note falsely required all variants to predate pressure.
+q-biology-evolution-0014	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original explanation made speciation a guaranteed result of geographic isolation.
+q-biology-evolution-0015	NEW	NEW	new question	NONE	
+q-biology-evolution-0016	NEW	NEW	new question	NONE	
+q-biology-evolution-0017	NEW	NEW	new question	NONE	
+q-biology-evolution-0018	NEW	NEW	new question	NONE	
+q-biology-evolution-0019	NEW	NEW	new question	NONE	
+q-biology-evolution-0020	NEW	NEW	new question	NONE	

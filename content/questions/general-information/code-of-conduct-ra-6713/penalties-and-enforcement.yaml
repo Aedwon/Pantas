@@ -3,305 +3,491 @@ meta:
   topic: code-of-conduct-ra-6713
   subtopic: penalties-and-enforcement
   exams:
-    - cse-pro
-    - cse-sub
+  - cse-pro
+  - cse-sub
 questions:
-  - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0001
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Under Section 11 of RA 6713, what is the maximum fine for general administrative violations of the code?
-    choices:
-      - text: Fine up to 6 months salary
-        correct: true
-      - text: Fine up to 12 months salary
-        rationale: |
-          You picked 12 months salary, which doubles the maximum fine limit. Section 11 caps general administrative fines at 6 months salary.
-      - text: Fine up to 24 months salary
-        rationale: |
-          You selected 24 months salary, which quadruples the legal cap. General administrative fines under Section 11 cannot exceed 6 months salary.
-      - text: Fine up to 36 months salary
-        rationale: |
-          You chose 36 months salary, which is a 3 year salary fine. RA 6713 limits general administrative fines to a maximum of 6 months salary.
-    explanation: |
-      Section 11(a) provides that general violations are punishable by a fine not exceeding six months' salary.
+- id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0001
+  type: single_choice
+  difficulty: easy
+  stem: 'What is Section 11(a)''s maximum salary-based fine for general violations?
 
-  - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0002
-    type: single_choice
-    difficulty: easy
-    stem: |
-      What is the maximum period of suspension for general administrative violations under Section 11 of RA 6713?
-    choices:
-      - text: Up to 1 year
-        correct: true
-      - text: Up to 2 years
-        rationale: |
-          You selected 2 years, which doubles the administrative suspension limit. Section 11 caps general administrative suspensions at up to 1 year.
-      - text: Up to 3 years
-        rationale: |
-          You picked 3 years, which exceeds the statutory suspension period. The maximum administrative suspension under Section 11 is up to 1 year.
-      - text: Up to 5 years
-        rationale: |
-          You chose 5 years, which confuses administrative suspension with the 5 year criminal prison cap. Administrative suspension is capped at 1 year.
-    explanation: |
-      Section 11(a) specifies suspension not exceeding one year as an administrative penalty.
+    '
+  choices:
+  - text: Six months' salary
+    correct: true
+  - text: Twelve months' salary
+    rationale: 'This converts the suspension ceiling into a salary fine. Both penalties appear together. Check the unit attached to each ceiling.
 
-  - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0003
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Violations of Sections 7, 8, or 9 of RA 6713 carry a maximum imprisonment penalty of up to how many years?
-    choices:
-      - text: 5 years
-        correct: true
-      - text: 7 years
-        rationale: |
-          You selected 7 years, which exceeds the statutory prison limit. Section 11 caps imprisonment for violations of Sections 7, 8, or 9 at 5 years.
-      - text: 10 years
-        rationale: |
-          You picked 10 years, which doubles the maximum prison sentence under RA 6713. Violations of Sections 7, 8, or 9 carry up to 5 years imprisonment.
-      - text: 12 years
-        rationale: |
-          You chose 12 years, which is reserved for grave RPC crimes. Section 11 specifies a maximum criminal imprisonment of up to 5 years.
-    explanation: |
-      Section 11(a) provides that violations of Sections 7, 8, or 9 carry imprisonment of up to five years.
+      '
+  - text: Twenty-four months' salary
+    rationale: 'This extends the fine to two years of pay. Longer penalties can sound more protective. Check the stated salary multiplier.
 
-  - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0004
-    type: single_choice
-    difficulty: medium
-    stem: |
-      What is the maximum criminal fine specified under Section 11 for violations of Sections 7, 8, or 9 of RA 6713?
-    choices:
-      - text: Fine up to P5,000
-        correct: true
-      - text: Fine up to P10,000
-        rationale: |
-          You picked P10,000, which doubles the statutory criminal fine. Section 11 caps criminal fines for Sections 7, 8, or 9 violations at P5,000.
-      - text: Fine up to P20,000
-        rationale: |
-          You selected P20,000, which quadruples the allowed criminal fine. Section 11 specifies a maximum fine of P5,000 for these violations.
-      - text: Fine up to P50,000
-        rationale: |
-          You chose P50,000, which is ten times the statutory criminal fine. The maximum criminal fine under Section 11 for Sections 7 to 9 is P5,000.
-    explanation: |
-      Section 11(a) states that violations of Sections 7, 8, or 9 carry a fine of up to P5,000, or imprisonment up to 5 years, or both.
+      '
+  - text: Thirty-six months' salary
+    rationale: 'This substitutes a three-year pay penalty. Serious misconduct can suggest a large sanction. Check the fine expressly listed in Section 11.
 
-  - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0005
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Under Section 11(d), what civil penalty may a court impose on a person who obtains or uses a filed SALN for a purpose prohibited by Section 8(D)?
-    choices:
-      - text: Penalty up to P25,000
-        correct: true
-      - text: Penalty up to P50,000
-        rationale: |
-          You selected P50,000, which doubles the statutory maximum. Section 11(d) authorizes a civil penalty of up to P25,000 for obtaining or using a filed statement for a purpose prohibited by Section 8(D).
-      - text: Penalty up to P75,000
-        rationale: |
-          You picked P75,000, which triples the statutory maximum. The court may assess no more than P25,000 under Section 11(d).
-      - text: Penalty up to P100,000
-        rationale: |
-          You chose P100,000, which is four times the statutory maximum. Section 11(d) caps this civil penalty at P25,000.
-    explanation: |
-      Section 11(d) authorizes a civil action against a person who obtains or uses a filed statement for a purpose prohibited by Section 8(D), with a court-assessed penalty not exceeding P25,000.
+      '
+  explanation: 'Section 11(a) limits this fine to the equivalent of six months'' salary. The appropriate body selects the penalty according to gravity after notice and hearing.
 
-  - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0006
-    type: single_choice
-    difficulty: hard
-    stem: |
-      How are private individuals treated when participating as co-principals or accomplices in RA 6713 violations?
-    choices:
-      - text: Same penalties and tried jointly
-        correct: true
-      - text: Half penalties and tried separately
-        rationale: |
-          You chose half penalties and separate trials, which misreads liability rules. Private co-principals face the same penalties and are tried jointly.
-      - text: Total immunity from state prosecution
-        rationale: |
-          You picked total immunity, which wrongly shields private accomplices. Section 11 subject private co-principals to full joint prosecution.
-      - text: Civil liabilities only without trial
-        rationale: |
-          You selected civil liabilities only, which eliminates criminal accountability. Private accomplices face identical criminal penalties in joint trials.
-    explanation: |
-      Section 11 provides that private individuals participating as co-principals, accomplices, or accessories face the same penalties and are tried jointly.
+    '
+- id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0002
+  type: single_choice
+  difficulty: easy
+  stem: 'What is the maximum suspension under Section 11(a)''s general penalty provision?
 
-  - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0007
-    type: single_choice
-    difficulty: hard
-    stem: |
-      If another existing law provides a heavier penalty for the same offense committed by a public official, which applies?
-    choices:
-      - text: Heavier penalty applies
-        correct: true
-      - text: Lighter penalty applies
-        rationale: |
-          You selected lighter penalty, which weakens anti-graft enforcement. Section 11 explicitly rules that if another law imposes a heavier penalty, it applies.
-      - text: RA 6713 penalty applies
-        rationale: |
-          You picked RA 6713 penalty, assuming it overrides all other statutes. Section 11 specifies that any heavier penalty in another law will govern.
-      - text: Average penalty applies
-        rationale: |
-          You chose average penalty, which has no basis in penal law. When penalties conflict across laws for the same offense, the heavier penalty applies.
-    explanation: |
-      Section 11 explicitly states that where another law imposes a heavier penalty, the heavier penalty shall apply.
+    '
+  choices:
+  - text: One year
+    correct: true
+  - text: Six months
+    rationale: 'This uses the salary-fine number as the suspension period. Both are general penalties. Check whether the limit describes pay or suspension.
 
-  - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0008
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Under RA 6713, is an administrative violation sufficient cause for removal from office even without criminal prosecution?
-    choices:
-      - text: Yes, sufficient cause alone
-        correct: true
-      - text: No, requires prior criminal conviction
-        rationale: |
-          You picked prior criminal conviction, which confuses administrative and criminal cases. Administrative violations are sufficient cause for removal alone.
-      - text: No, requires Supreme Court consent
-        rationale: |
-          You selected Supreme Court consent, which applies to judicial officers. Section 11 allows administrative removal of executive employees directly.
-      - text: No, requires Senate approval vote
-        rationale: |
-          You chose Senate approval, which applies to impeachment trials of constitutional officers. Regular administrative removal requires no Senate vote.
-    explanation: |
-      Section 11 provides that an administrative violation is sufficient cause for removal from office on its own, regardless of criminal prosecution.
+      '
+  - text: Two years
+    rationale: 'This doubles the suspension ceiling. A serious offense can suggest a longer suspension. Check the statutory maximum.
 
-  - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0009
-    type: single_choice
-    difficulty: easy
-    stem: |
-      Which penalty band may be imposed for severe general administrative violations under Section 11 of RA 6713?
-    choices:
-      - text: Removal from office
-        correct: true
-      - text: Permanent exile abroad
-        rationale: |
-          You selected permanent exile, which is a constitutional violation. Severe administrative offenses under Section 11 lead to removal from office.
-      - text: Mandatory military service
-        rationale: |
-          You picked mandatory military service, which is a national defense duty, not a punishment. General administrative penalties include removal from office.
-      - text: Revocation of birth record
-        rationale: |
-          You chose revocation of birth record, which is not a legal administrative sanction. Section 11 lists removal from office as a severe penalty.
-    explanation: |
-      Section 11(a) includes removal from office as a statutory administrative penalty for general violations.
+      '
+  - text: Five years
+    rationale: 'This uses the criminal imprisonment ceiling for suspension. Both restrict the official after a violation. Check whether the sanction is administrative or criminal.
 
-  - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0010
-    type: single_choice
-    difficulty: hard
-    stem: |
-      Aside from imprisonment and fines, what additional penalty may be imposed for violations of Sections 7, 8, or 9?
-    choices:
-      - text: Disqualification from public office
-        correct: true
-      - text: Forfeiture of all personal real estate
-        rationale: |
-          You selected forfeiture of real estate, which requires civil forfeiture suits. Additional penal sanctions under Section 11 include office disqualification.
-      - text: Mandatory military service assignment
-        rationale: |
-          You picked military assignment, which is not a judicial sentence under RA 6713. Violating Sections 7 to 9 carries disqualification from public office.
-      - text: Immediate exile from the country
-        rationale: |
-          You chose exile, which is prohibited under the Constitution. In addition to fines and prison, Section 11 imposes public office disqualification.
-    explanation: |
-      Section 11(a) includes disqualification to hold public office as an additional statutory sanction for violations of Sections 7, 8, or 9.
+      '
+  explanation: 'The general penalty provision allows suspension for no more than one year.
 
-  - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0011
-    type: single_choice
-    difficulty: hard
-    stem: |
-      Under Section 11, which body of rules governs administrative proceedings brought against public employees?
-    choices:
-      - text: Civil Service Commission rules
-        correct: true
-      - text: Private corporate arbitration codes
-        rationale: |
-          You selected private corporate codes, which apply to commercial disputes. Administrative proceedings under RA 6713 follow Civil Service Commission rules.
-      - text: Municipal zoning board ordinances
-        rationale: |
-          You picked municipal zoning ordinances, which govern land use. Government employee administrative discipline is governed by Civil Service Commission rules.
-      - text: International trade commission laws
-        rationale: |
-          You chose international trade laws, which govern foreign commerce. Public sector administrative discipline follows Civil Service Commission rules.
-    explanation: |
-      Administrative sanctions under Section 11 are enforced in accordance with Civil Service laws and administrative rules.
+    '
+- id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0003
+  type: single_choice
+  difficulty: medium
+  stem: 'What maximum imprisonment does RA 6713 specify for violations of Sections 7, 8, or 9?
 
-  - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0012
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Violating which section of RA 6713 regarding prohibited acts and transactions carries up to 5 years imprisonment?
-    choices:
-      - text: Section 7
-        correct: true
-      - text: Section 1
-        rationale: |
-          You picked Section 1, which states the title of the Act. Section 7 covers prohibited acts and transactions that carry up to 5 years imprisonment.
-      - text: Section 3
-        rationale: |
-          You selected Section 3, which defines statutory terms. Prohibited acts and transactions subject to 5 years imprisonment are set out in Section 7.
-      - text: Section 12
-        rationale: |
-          You chose Section 12, which covers rule promulgation. Section 7 defines the prohibited acts and transactions carrying up to 5 years imprisonment.
-    explanation: |
-      Violations of Section 7 (Prohibited Acts and Transactions) carry penalties of up to 5 years imprisonment under Section 11.
+    '
+  choices:
+  - text: 5 years
+    correct: true
+  - text: 1 year
+    rationale: 'This uses the suspension ceiling for imprisonment. Both are periods of punishment. Check the type of penalty.
 
-  - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0013
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Violating which section of RA 6713 regarding Statement of Assets, Liabilities and Net Worth carries up to 5 years imprisonment?
-    choices:
-      - text: Section 8
-        correct: true
-      - text: Section 2
-        rationale: |
-          You picked Section 2, which states public policy declarations. SALN requirements and violations subject to 5 years imprisonment are in Section 8.
-      - text: Section 4
-        rationale: |
-          You selected Section 4, which lists norms of conduct. Section 8 details SALN requirements that carry up to 5 years imprisonment upon violation.
-      - text: Section 10
-        rationale: |
-          You chose Section 10, which handles review of statements. Section 8 defines SALN filing requirements carrying up to 5 years imprisonment.
-    explanation: |
-      Violations of Section 8 (Statements of Assets, Liabilities and Net Worth) carry penalties of up to 5 years imprisonment under Section 11.
+      '
+  - text: 6 years
+    rationale: 'This turns the salary-fine number into years of imprisonment. Six appears in the general penalty provision. Keep salary months separate from prison years.
 
-  - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0014
-    type: single_choice
-    difficulty: medium
-    stem: |
-      Violating which section of RA 6713 regarding divestment rules carries up to 5 years imprisonment?
-    choices:
-      - text: Section 9
-        correct: true
-      - text: Section 2
-        rationale: |
-          You selected Section 2, which states statutory principles. Divestment rules and violations carrying up to 5 years imprisonment are in Section 9.
-      - text: Section 5
-        rationale: |
-          You picked Section 5, which lists duties of public officials. Section 9 sets divestment requirements carrying up to 5 years imprisonment.
-      - text: Section 11
-        rationale: |
-          You chose Section 11, which defines the penalties themselves. Section 9 contains the actual divestment obligation that triggers imprisonment.
-    explanation: |
-      Violations of Section 9 (Divestment) carry penalties of up to 5 years imprisonment under Section 11.
+      '
+  - text: 10 years
+    rationale: 'This doubles the statutory prison ceiling. More serious cases can carry longer terms under other laws. Check the ceiling specifically in RA 6713.
 
-  - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0015
-    type: single_choice
-    difficulty: hard
-    stem: |
-      What is the maximum imprisonment period for a private individual convicted as a co-principal under Section 11 of RA 6713?
-    choices:
-      - text: 5 years
-        correct: true
-      - text: 10 years
-        rationale: |
-          You picked 10 years, which doubles the penal limit. Section 11 subjects private co-principals to the same 5 year maximum prison cap as public officers.
-      - text: 15 years
-        rationale: |
-          You selected 15 years, which exceeds the statutory cap. Private accomplices face equal penalties with public officers, capped at 5 years imprisonment.
-      - text: 20 years
-        rationale: |
-          You chose 20 years, which quadruples the legal maximum. Section 11 limits imprisonment for private co-principals to a maximum of 5 years.
-    explanation: |
-      Private co-principals face the same penalties as public officers under Section 11, which specifies up to 5 years imprisonment.
+      '
+  explanation: 'Section 11(a) allows imprisonment of up to five years for violations of Sections 7, 8, or 9.
+
+    '
+- id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0004
+  type: single_choice
+  difficulty: medium
+  stem: 'What is the maximum fixed-peso criminal fine under RA 6713 for violations of Sections 7, 8, or 9?
+
+    '
+  choices:
+  - text: P5,000
+    correct: true
+  - text: P25,000
+    rationale: 'This uses the separate filed-statement misuse penalty. Both fines appear in Section 11. Check which offense the question describes.
+
+      '
+  - text: Six months' salary
+    rationale: 'This uses the general salary-based fine. It is another RA 6713 sanction. Distinguish a salary measure from a fixed peso ceiling.
+
+      '
+  - text: P50,000
+    rationale: 'This substitutes a higher monetary ceiling. Other offenses can have larger fines. Check the stated ceiling in this particular law.
+
+      '
+  explanation: 'Section 11(a) permits a criminal fine of up to P5,000 for these violations. Imprisonment, the fine, or both may be imposed.
+
+    '
+- id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0005
+  type: single_choice
+  difficulty: medium
+  stem: 'Under Section 11(d), what is the maximum court-assessed penalty for obtaining or using a filed statement for a purpose prohibited by Section 8(D)?
+
+    '
+  choices:
+  - text: P25,000
+    correct: true
+  - text: P5,000
+    rationale: 'This uses the criminal fine for Sections 7, 8, or 9. It appears in the same penalties section. Match the fine to the filed-statement misuse action.
+
+      '
+  - text: Six months' salary
+    rationale: 'This uses the employee''s general salary-based fine. The statement concerns a public employee. Check whether the action targets the person misusing the statement.
+
+      '
+  - text: P50,000
+    rationale: 'This doubles the specific monetary ceiling. Misusing disclosures can seem to warrant more. Check Section 11(d)''s stated maximum.
+
+      '
+  explanation: 'Section 11(d) allows the court to assess a penalty of up to P25,000 in this action.
+
+    '
+- id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0006
+  type: single_choice
+  difficulty: hard
+  stem: 'How does Section 11(c) treat a private person who conspires with an official as an accomplice in an RA 6713 violation?
+
+    '
+  choices:
+  - text: The same penal liabilities apply; they are tried jointly.
+    correct: true
+  - text: Only half the official's penal liabilities apply because the accomplice is private.
+    rationale: 'This assumes private status halves liability. The person holds no public office. Check the statute''s express treatment of conspirators.
+
+      '
+  - text: The same liabilities apply, but the law requires a separate trial in every case.
+    rationale: 'This keeps liability while dropping the trial rule. Separate identities may suggest separate cases. Check both parts of Section 11(c).
+
+      '
+  - text: Only civil liability applies because RA 6713 addresses public employees.
+    rationale: 'This excludes private conspirators from criminal liability. The law chiefly governs officials. Check its specific extension to private participants.
+
+      '
+  explanation: 'Section 11(c) subjects private co-principals, accomplices, and accessories in a conspiracy to the same penal liabilities and a joint trial.
+
+    '
+- id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0007
+  type: single_choice
+  difficulty: hard
+  stem: 'If another statute imposes a heavier penalty for the violation, what does Section 11(a) direct?
+
+    '
+  choices:
+  - text: Prosecute under the heavier-penalty statute.
+    correct: true
+  - text: Use RA 6713 exclusively even if the other statute has a heavier penalty.
+    rationale: 'This treats the code as the sole available law. RA 6713 is the question''s focus. Check its express heavier-penalty clause.
+
+      '
+  - text: Choose the lighter penalty to protect the official from all other charges.
+    rationale: 'This treats leniency as the statutory rule. Fair treatment matters in proceedings. Check what the clause actually directs.
+
+      '
+  - text: Average the two penalties and prosecute under neither statute's full provision.
+    rationale: 'This invents a compromise formula. Combining laws can sound balanced. Check whether averaging is authorized.
+
+      '
+  explanation: 'Section 11(a) says the official shall be prosecuted under the other statute when it imposes a heavier penalty.
+
+    '
+- id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0008
+  type: single_choice
+  difficulty: medium
+  stem: 'Can a violation proven in a proper administrative proceeding support removal even when no criminal prosecution is filed?
+
+    '
+  choices:
+  - text: Yes, a criminal case is not required.
+    correct: true
+  - text: No, removal always requires a prior criminal conviction in court.
+    rationale: 'This makes the administrative case depend on a criminal result. Both can address the same conduct. Check Section 11(b)''s express independence.
+
+      '
+  - text: No, the official must first admit the violation in a criminal proceeding.
+    rationale: 'This adds an admission requirement. An admission can prove facts. Check whether a proper administrative finding is sufficient.
+
+      '
+  - text: Yes, but only if the official voluntarily waives notice and hearing.
+    rationale: 'This adds a waiver condition. Procedure matters for fairness. Check whether the law requires a proper proceeding instead.
+
+      '
+  explanation: 'Section 11(b) makes a violation proven in a proper administrative proceeding sufficient cause for removal or dismissal. No criminal prosecution is required.
+
+    '
+- id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0009
+  type: single_choice
+  difficulty: easy
+  stem: 'Which statement about removal for general violations under Section 11(a) is accurate?
+
+    '
+  choices:
+  - text: It depends on gravity and follows notice and hearing.
+    correct: true
+  - text: It follows automatically after any complaint, without examining the evidence.
+    rationale: 'This treats an allegation as proof. Complaints begin proceedings. Check the required notice, hearing, and assessment.
+
+      '
+  - text: It is forbidden whenever suspension is also listed as an available sanction.
+    rationale: 'This treats alternative sanctions as exclusion of removal. Suspension is in the list. Check whether removal is listed too.
+
+      '
+  - text: It requires a criminal conviction even when the administrative case proves the violation.
+    rationale: 'This makes the administrative sanction depend on criminal proceedings. Courts also impose penalties. Check the separate administrative rule.
+
+      '
+  explanation: 'Section 11(a) includes removal as a penalty depending on the offense''s gravity. The appropriate body must give due notice and a hearing.
+
+    '
+- id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0010
+  type: single_choice
+  difficulty: hard
+  stem: 'What additional sanction may a competent court impose at its discretion for violations of Sections 7, 8, or 9?
+
+    '
+  choices:
+  - text: Disqualification from public office
+    correct: true
+  - text: Automatic disqualification in every case with no judicial discretion
+    rationale: 'This makes a possible sanction mandatory. Disqualification is named in the law. Check the words about court discretion.
+
+      '
+  - text: Confiscation of every family asset regardless of its connection to the offense
+    rationale: 'This adds a sweeping property penalty. Wrongdoing may involve wealth. Check the additional sanction actually stated.
+
+      '
+  - text: Permanent cancellation of Philippine citizenship for every convicted official
+    rationale: 'This substitutes a status penalty for an office restriction. Both affect public participation. Check whether citizenship loss is listed.
+
+      '
+  explanation: 'Section 11(a) allows the court, at its discretion, to disqualify the person from holding public office.
+
+    '
+- id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0011
+  type: single_choice
+  difficulty: hard
+  stem: 'Under Section 11, which body of rules governs administrative proceedings brought against public employees?
+
+    '
+  choices:
+  - text: Civil Service Commission rules
+    correct: true
+  - text: Private corporate arbitration codes
+    rationale: 'This uses rules for private disputes. Employment disagreements can involve arbitration. Check whether the employee serves in government.
+
+      '
+  - text: Municipal zoning board ordinances
+    rationale: 'This uses land-use rules for employee discipline. Both are government regulation. Check the subject of the proceeding.
+
+      '
+  - text: International trade commission laws
+    rationale: 'This uses trade rules for public-service discipline. An agency may handle commercial matters. Check who administers the ethics code.
+
+      '
+  explanation: 'Section 12 gives the Civil Service Commission primary responsibility for administering and enforcing RA 6713. Administrative action must follow applicable law and civil-service procedures.
+
+    '
+- id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0012
+  type: single_choice
+  difficulty: medium
+  stem: 'Violation of which RA 6713 section on prohibited acts can carry up to five years of imprisonment?
+
+    '
+  choices:
+  - text: Section 7
+    correct: true
+  - text: Section 1
+    rationale: 'This picks the title provision. Titles identify a law''s subject. Check the section listing unlawful acts.
+
+      '
+  - text: Section 3
+    rationale: 'This picks definitions instead of prohibitions. Definitions describe important terms. Check where specific acts are declared unlawful.
+
+      '
+  - text: Section 12
+    rationale: 'This picks administration and enforcement. Enforcement is related to punishment. Distinguish the prohibited act from who enforces the law.
+
+      '
+  explanation: 'Section 7 lists prohibited acts and transactions. Section 11(a) includes violations of that section in the up-to-five-year criminal penalty.
+
+    '
+- id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0013
+  type: single_choice
+  difficulty: medium
+  stem: 'Violating which section of RA 6713 regarding Statement of Assets, Liabilities and Net Worth carries up to 5 years imprisonment?
+
+    '
+  choices:
+  - text: Section 8
+    correct: true
+  - text: Section 2
+    rationale: 'This picks the policy statement. Accountability is a broad policy. Check where the financial-statement duty is specified.
+
+      '
+  - text: Section 4
+    rationale: 'This picks conduct norms. Those norms support honest disclosure. Distinguish ethical standards from the filing provision.
+
+      '
+  - text: Section 10
+    rationale: 'This picks review and compliance procedures. Review concerns filed statements. Check the section that imposes the disclosure obligation.
+
+      '
+  explanation: 'Section 8 governs financial statements and disclosures. Section 11(a) allows imprisonment of up to five years for violations of Section 8.
+
+    '
+- id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0014
+  type: single_choice
+  difficulty: medium
+  stem: 'Violating which section of RA 6713 regarding divestment rules carries up to 5 years imprisonment?
+
+    '
+  choices:
+  - text: Section 9
+    correct: true
+  - text: Section 2
+    rationale: 'This picks the general policy statement. Avoiding conflicts supports public trust. Check the section specifically addressing divestment.
+
+      '
+  - text: Section 5
+    rationale: 'This picks routine official duties. Officials must perform those duties ethically. Distinguish service duties from removal of business interests.
+
+      '
+  - text: Section 11
+    rationale: 'This picks the penalty provision instead of the divestment duty. The question mentions imprisonment. Check which section is violated rather than which sets punishment.
+
+      '
+  explanation: 'Section 9 governs divestment. Section 11(a) allows imprisonment of up to five years for violations of that section.
+
+    '
+- id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0015
+  type: single_choice
+  difficulty: hard
+  stem: 'A private co-principal conspires in a Section 7 violation. What imprisonment ceiling applies under RA 6713?
+
+    '
+  choices:
+  - text: Five years
+    correct: true
+  - text: One year
+    rationale: 'This uses the administrative suspension period. Both involve a period of restriction. Check the criminal sanction for Section 7.
+
+      '
+  - text: Ten years
+    rationale: 'This doubles the statutory maximum. Joint liability may sound like combined sentences. Check whether joint trial doubles a ceiling.
+
+      '
+  - text: No imprisonment because the person is not a public official
+    rationale: 'This excludes private conspirators. The code mainly addresses public service. Check Section 11(c)''s extension of penal liability.
+
+      '
+  explanation: 'The private co-principal faces the same penal liability for the Section 7 offense. RA 6713 sets the imprisonment ceiling at five years.
+
+    '
+- id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0016
+  type: single_choice
+  difficulty: easy
+  approved: false
+  stem: 'Which combination may the court impose for a violation of Section 8 under RA 6713?
+
+    '
+  choices:
+  - text: Imprisonment, a fine, or both
+    correct: true
+  - text: Imprisonment only, with a fine excluded in every case
+    rationale: 'This treats one available sanction as exclusive. Imprisonment is expressly listed. Check the words or both.
+
+      '
+  - text: A fine only, with imprisonment excluded for disclosure offenses
+    rationale: 'This assumes filing failures cannot have a prison penalty. Disclosure concerns paperwork. Check Section 8''s inclusion in the criminal provision.
+
+      '
+  - text: A salary deduction only, because criminal proceedings are never available
+    rationale: 'This substitutes the general administrative fine. Both involve money. Check the specific rule for Sections 7, 8, and 9.
+
+      '
+  explanation: 'Section 11(a) permits imprisonment of up to five years, a fine of up to P5,000, or both for Section 8 violations.
+
+    '
+- id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0017
+  type: single_choice
+  difficulty: medium
+  approved: false
+  stem: 'Which private participant is expressly included in Section 11(c)''s conspiracy rule?
+
+    '
+  choices:
+  - text: An accessory to the violation
+    correct: true
+  - text: A customer who merely dealt lawfully with the office
+    rationale: 'This equates ordinary contact with conspiracy. A transaction connects the person to officials. Check whether the person participated in the offense.
+
+      '
+  - text: A relative who knew the official but took no part in the offense
+    rationale: 'This treats a relationship as criminal participation. Relatives may have close contact. Check the person''s role in the conspiracy.
+
+      '
+  - text: A reporter who published a lawful account of the prosecution
+    rationale: 'This equates reporting with aiding the violation. The reporter discusses the case. Check whether publication contributed to the offense.
+
+      '
+  explanation: 'Section 11(c) expressly covers private participants who conspire as co-principals, accomplices, or accessories.
+
+    '
+- id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0018
+  type: single_choice
+  difficulty: hard
+  approved: false
+  stem: 'An office receives an untested complaint of an RA 6713 violation. Can that filing alone support dismissal under the lesson’s Section 11 rule?
+
+    '
+  choices:
+  - text: No, the violation must be proved in a proper proceeding.
+    correct: true
+  - text: Yes, any filed complaint automatically proves a violation of the ethics code.
+    rationale: 'This treats an allegation as proof. A written complaint starts a case. Check whether evidence has been tested in a proper proceeding.
+
+      '
+  - text: Yes, the official must be dismissed before receiving notice of the accusation.
+    rationale: 'This treats quick action as a substitute for fair procedure. Prompt service is an official duty. Check the separate notice and hearing requirements.
+
+      '
+  - text: No, but only because a criminal conviction must occur before any administrative action.
+    rationale: 'This adds a criminal prerequisite. Criminal proceedings may address the same conduct. Check whether the administrative rule operates independently.
+
+      '
+  explanation: 'Section 11 requires proof in a proper administrative proceeding. General penalties also follow due notice and hearing. A complaint alone is only an allegation.
+
+    '
+- id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0019
+  type: single_choice
+  difficulty: hard
+  approved: false
+  stem: 'Who may bring the Section 11(d) action over prohibited use of a filed statement?
+
+    '
+  choices:
+  - text: The official or employee concerned
+    correct: true
+  - text: Only the private person who used the statement commercially
+    rationale: 'This gives the claim to the alleged wrongdoer. That person is involved. Check whose statement was misused.
+
+      '
+  - text: Only a foreign agency because financial disclosures are international records
+    rationale: 'This substitutes outside jurisdiction. Disclosure can concern assets abroad. Check who the statute names as the claimant.
+
+      '
+  - text: Only a business that wishes to purchase all filed statements for resale
+    rationale: 'This treats a prohibited commercial purpose as standing to enforce the rule. Copies may have market value. Check the protected interest.
+
+      '
+  explanation: 'Section 11(d) allows the official or employee concerned to sue the person who obtains or uses a statement for a prohibited purpose.
+
+    '
+- id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0020
+  type: single_choice
+  difficulty: exam
+  approved: false
+  stem: 'Which statement accurately describes the two monetary ceilings in Section 11(a)?
+
+    '
+  choices:
+  - text: The general fine is salary-based; the specified criminal fine is peso-based.
+    correct: true
+  - text: Both fines are fixed at P5,000 regardless of salary or the provision being used.
+    rationale: 'This applies the criminal ceiling to both fines. P5,000 is explicit. Check the separate salary-based general provision.
+
+      '
+  - text: Both fines equal six months' salary regardless of the section that was violated.
+    rationale: 'This applies the administrative measure to the criminal fine. Salary is an explicit measure. Check the fixed-peso provision.
+
+      '
+  - text: The court must add P25,000 to every fine for every violation of Sections 7, 8, and 9.
+    rationale: 'This imports the separate statement-misuse penalty. All appear in Section 11. Match each ceiling to its own provision.
+
+      '
+  explanation: 'The general fine is capped at six months'' salary. The criminal fine specified for Sections 7, 8, or 9 is capped at P5,000. These are distinct statutory measures.
+
+    '

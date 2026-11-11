@@ -1,0 +1,59 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_quiz_count_test.dart
+00:00 +0: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_test.dart: gauge 0.0 final frame in Brightness.dark
+00:00 +1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_quiz_count_test.dart: quiz count real score and board arc in Brightness.dark
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+A SemanticsHandle was active at the end of the test.
+All SemanticsHandle instances must be disposed by calling dispose() on the SemanticsHandle.
+
+When the exception was thrown, this was the stack:
+#0      WidgetTester._verifySemanticsHandlesWereDisposed (package:flutter_test/src/widget_tester.dart:1074:7)
+#1      WidgetTester._endOfTestVerifications (package:flutter_test/src/widget_tester.dart:1063:5)
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1968:22)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  quiz count real score and board arc in Brightness.dark
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:00 +1 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_test.dart: gauge 0.61 final frame in Brightness.dark
+00:00 +1 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_quiz_count_test.dart: quiz count real score and board arc in Brightness.dark [E]
+  Test failed. See exception logs above.
+  The test description was: quiz count real score and board arc in Brightness.dark
+
+00:00 +2 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_quiz_count_test.dart: quiz count real score and board arc in Brightness.light
+00:00 +3 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_quiz_count_test.dart: quiz count real score and board arc in Brightness.light
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+A SemanticsHandle was active at the end of the test.
+All SemanticsHandle instances must be disposed by calling dispose() on the SemanticsHandle.
+
+When the exception was thrown, this was the stack:
+#0      WidgetTester._verifySemanticsHandlesWereDisposed (package:flutter_test/src/widget_tester.dart:1074:7)
+#1      WidgetTester._endOfTestVerifications (package:flutter_test/src/widget_tester.dart:1063:5)
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1968:22)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  quiz count real score and board arc in Brightness.light
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:00 +3 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_test.dart: gauge delay and intermediate count in Brightness.dark
+00:00 +3 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_quiz_count_test.dart: quiz count real score and board arc in Brightness.light [E]
+  Test failed. See exception logs above.
+  The test description was: quiz count real score and board arc in Brightness.light
+
+00:00 +4 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_quiz_count_test.dart: quiz rolling strip and arc share 400 to 1600 millisecond timeline
+00:00 +5 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_test.dart: gauge 0.0 final frame in Brightness.light
+00:00 +6 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_quiz_count_test.dart: quiz updates count even when fraction stays the same and handles zero
+00:00 +7 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_test.dart: gauge 0.61 final frame in Brightness.light
+00:00 +8 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_test.dart: gauge 1.0 final frame in Brightness.light
+00:00 +9 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_test.dart: gauge delay and intermediate count in Brightness.light
+00:00 +10 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_test.dart: mock overlay receives final progress with motion off
+00:00 +11 -2: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_quiz_count_test.dart: quiz count real score and board arc in Brightness.dark
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_quiz_count_test.dart: quiz count real score and board arc in Brightness.light

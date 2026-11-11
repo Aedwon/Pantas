@@ -1,0 +1,27 @@
+
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/flagged_ui_launch_boundary_test.dart: flagged UI cannot bind its pending membership to a post-wipe owner
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/flagged_launch_boundary_test.dart: flagged launch keeps its original stable boundary
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/flagged_launch_boundary_test.dart: flagged launch keeps its original account boundary
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/flagged_launch_boundary_test.dart: flagged launch keeps its original exam boundary
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/flagged_launch_boundary_test.dart: flagged launch keeps its original token boundary
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/flagged_launch_boundary_test.dart: flagged launch keeps its original wipe boundary
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/flagged_launch_boundary_test.dart: flagged launch keeps its original disposed boundary
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: it has no filter row
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the button counts what is in the list
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: unflagging updates the count as it happens
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: emptying the list says what to do
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: a flagged row opens the real question viewer route
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: practice uses scoped flags and the declared run route
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: failed practice stays on the list with plain retry
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: scoped provider preserves global flags and follows narrowed topics
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: flagged content carries its actual required passage
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: missing flagged question never silently shortens membership
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: missing required flagged passage fails recoverably
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: flagged load error uses plain shared retry
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: flagged compact phone dark=false scale=1.0
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: flagged compact phone dark=false scale=2.0
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: flagged compact phone dark=true scale=1.0
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: flagged compact phone dark=true scale=2.0
+
+🎉 24 tests passed.

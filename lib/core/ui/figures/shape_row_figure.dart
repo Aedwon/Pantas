@@ -3,6 +3,9 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
+/// Height of the drawing. The design system sets no height for diagrams.
+const double _figureHeight = 110;
+
 /// A row of shapes, for the odd-one-out questions.
 ///
 /// ```yaml
@@ -86,9 +89,9 @@ class ShapeRowFigure extends StatelessWidget {
       label: 'A row of ${shapes.length} shapes: '
           '${shapes.map((s) => s.form).join(', ')}.',
       child: SizedBox(
-        height: 110,
+        height: _figureHeight,
         child: CustomPaint(
-          painter: _ShapeRowPainter(shapes: shapes, ink: colors.ink),
+          painter: _ShapeRowPainter(shapes: shapes, ink: colors.label),
           size: Size.infinite,
         ),
       ),
@@ -109,6 +112,19 @@ class RowShape {
   final int dots;
   final int lines;
   final bool throughCentre;
+}
+
+/// Corners of the shapes in a row, shared by the painter and its tests.
+@visibleForTesting
+abstract final class ShapeRowGeometry {
+  /// Top, right, bottom, left: four equal sides that are not a square, so a
+  /// rhombus is not mistaken for the square beside it.
+  static List<Offset> rhombus(Offset centre, double r) => [
+        Offset(centre.dx, centre.dy - r),
+        Offset(centre.dx + r * 0.62, centre.dy),
+        Offset(centre.dx, centre.dy + r),
+        Offset(centre.dx - r * 0.62, centre.dy),
+      ];
 }
 
 class _ShapeRowPainter extends CustomPainter {
@@ -158,7 +174,10 @@ class _ShapeRowPainter extends CustomPainter {
           paint,
         );
       case 'rhombus':
-        canvas.drawPath(_polygon(centre, r, 4, math.pi / 4), paint);
+        canvas.drawPath(
+          Path()..addPolygon(ShapeRowGeometry.rhombus(centre, r), true),
+          paint,
+        );
       case 'parallelogram':
         canvas.drawPath(
           Path()
@@ -176,29 +195,68 @@ class _ShapeRowPainter extends CustomPainter {
       case 'hexagon':
         canvas.drawPath(_polygon(centre, r, 6, 0), paint);
       case 'blob':
-        // Deliberately lopsided: this shape exists to have no symmetry.
-        final path = Path()..moveTo(centre.dx - r, centre.dy - r * 0.2);
-        path
-          ..quadraticBezierTo(
-            centre.dx - r * 0.4,
-            centre.dy - r * 1.3,
-            centre.dx + r * 0.5,
-            centre.dy - r * 0.8,
-          )
-          ..quadraticBezierTo(
-            centre.dx + r * 1.3,
-            centre.dy - r * 0.2,
-            centre.dx + r * 0.6,
-            centre.dy + r * 0.7,
-          )
-          ..quadraticBezierTo(
-            centre.dx - r * 0.2,
-            centre.dy + r * 1.2,
-            centre.dx - r,
-            centre.dy - r * 0.2,
-          );
-        canvas.drawPath(path, paint);
+        // Deliberately lopsided: this shape exists to have no symmetry. It
+        // has one bump and one dent, like the lesson figure.
+        canvas.drawPath(_blobPath(centre, r), paint);
     }
+  }
+
+  Path _blobPath(Offset centre, double r) {
+    final k = r / 32;
+    Offset p(double x, double y) =>
+        Offset(centre.dx + (x - 315) * k, centre.dy + (y - 110) * k);
+    final a = p(298, 83);
+    return Path()
+      ..moveTo(a.dx, a.dy)
+      ..cubicTo(
+        p(316, 78).dx,
+        p(316, 78).dy,
+        p(337, 86).dx,
+        p(337, 86).dy,
+        p(342, 104).dx,
+        p(342, 104).dy,
+      )
+      ..cubicTo(
+        p(345, 118).dx,
+        p(345, 118).dy,
+        p(334, 124).dx,
+        p(334, 124).dy,
+        p(330, 131).dx,
+        p(330, 131).dy,
+      )
+      ..cubicTo(
+        p(326, 140).dx,
+        p(326, 140).dy,
+        p(318, 134).dx,
+        p(318, 134).dy,
+        p(311, 139).dx,
+        p(311, 139).dy,
+      )
+      ..cubicTo(
+        p(298, 143).dx,
+        p(298, 143).dy,
+        p(287, 132).dx,
+        p(287, 132).dy,
+        p(286, 118).dx,
+        p(286, 118).dy,
+      )
+      ..cubicTo(
+        p(285, 108).dx,
+        p(285, 108).dy,
+        p(290, 100).dx,
+        p(290, 100).dy,
+        p(291, 94).dx,
+        p(291, 94).dy,
+      )
+      ..cubicTo(
+        p(292, 88).dx,
+        p(292, 88).dy,
+        p(294, 85).dx,
+        p(294, 85).dy,
+        a.dx,
+        a.dy,
+      )
+      ..close();
   }
 
   Path _polygon(Offset centre, double r, int sides, double startAngle) {
@@ -238,6 +296,14 @@ class _ShapeRowPainter extends CustomPainter {
     Paint paint,
   ) {
     if (shape.lines == 0) return;
+    // A line stops at the outline. An off-centre cut would otherwise run
+    // out past the edge of the circle.
+    canvas.save();
+    if (shape.form == 'circle') {
+      canvas.clipPath(
+        Path()..addOval(Rect.fromCircle(center: centre, radius: r)),
+      );
+    }
     for (var i = 0; i < shape.lines; i++) {
       final angle = i * math.pi / shape.lines;
       // An off-centre cut makes uneven regions, which is what those
@@ -249,6 +315,7 @@ class _ShapeRowPainter extends CustomPainter {
           centre + shift - Offset(math.cos(angle) * r, math.sin(angle) * r);
       canvas.drawLine(from, to, paint);
     }
+    canvas.restore();
   }
 
   @override

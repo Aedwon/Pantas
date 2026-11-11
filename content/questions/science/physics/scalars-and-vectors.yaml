@@ -1,290 +1,425 @@
 meta:
-  subject: science
-  topic: physics
-  subtopic: scalars-and-vectors
-  exams:
-    - upcat
-    - dlsucet
-    - ustet
-    - dost-sei
+  subject: "science"
+  topic: "physics"
+  subtopic: "scalars-and-vectors"
+  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-physics-scalars-and-vectors-0001
-    type: classify
-    difficulty: easy
+    type: "classify"
+    difficulty: "easy"
     stem: |
-      "The car traveled 50 km." Is this a scalar or a vector statement?
+      A car’s total path length is $50\,\mathrm{km}$. How is path length classified?
     choices:
-      - text: Scalar, since no direction is given.
+      - text: "Scalar"
         correct: true
-      - text: Vector, since a distance is mentioned.
+      - text: "Vector because the car moved"
         rationale: |
-          You picked vector classification. Distance (50 km) lacks directional specification, making it a scalar quantity.
-      - text: 'Neither: this statement has no magnitude either.'
+          This treats all motion quantities as vectors. Motion has direction. Check whether the named quantity is path length or position change.
+      - text: "Vector because kilometers are used"
         rationale: |
-          You claimed no magnitude exists. The number "50 km" represents numerical magnitude.
-      - text: Both, since it describes motion.
+          This uses the unit to classify the quantity. Displacement also uses kilometers. Check the quantity’s definition.
+      - text: "Neither because only a number and unit are given"
         rationale: |
-          You combined classifications. A quantity cannot be both scalar and vector simultaneously.
+          This assumes a direction is required for every physical measurement. Direction matters for vectors. Check the scalar definition.
     explanation: |
-      A scalar has only magnitude, no direction. Since no direction is mentioned, "50 km" alone is a scalar (distance).
+      Path length is the total distance traveled. It is specified by a size and unit, so it is scalar.
     approved: true
+
   - id: q-physics-scalars-and-vectors-0002
-    type: classify
-    difficulty: easy
+    type: "classify"
+    difficulty: "easy"
     stem: |
-      "The car traveled 50 km north." Is this a scalar or a vector statement?
+      A car’s displacement is $50\,\mathrm{km}$ north. How is displacement classified?
     choices:
-      - text: Vector, since a direction (north) is specified.
+      - text: "Vector"
         correct: true
-      - text: Scalar, since a distance is mentioned.
+      - text: "Scalar because it is measured in kilometers"
         rationale: |
-          You ignored the direction component. Including "north" converts simple distance into displacement, a vector.
-      - text: 'Neither: this statement has no magnitude.'
+          This treats a length unit as proof of a scalar. Distance has the same unit. Check the difference between distance and displacement.
+      - text: "Scalar whenever only its magnitude is requested"
         rationale: |
-          You denied magnitude presence. "50 km" supplies the numerical magnitude.
-      - text: Both, since it also could be considered speed.
+          This uses the requested information to change the quantity’s type. A magnitude alone is a scalar value. Check that displacement itself remains a vector.
+      - text: "A speed because a direction is supplied"
         rationale: |
-          You confused displacement with speed. 50 km north is displacement, not speed.
+          This confuses change in position with a rate. Cars have speed. Check the absence of a time denominator.
     explanation: |
-      A vector has both magnitude and direction. Since "north" specifies a direction, this is a vector statement (displacement).
+      Displacement is change in position. It has magnitude and direction and adds by vector rules.
     approved: true
+
   - id: q-physics-scalars-and-vectors-0003
-    type: classify
-    difficulty: easy
+    type: "classify"
+    difficulty: "easy"
     stem: |
-      "The temperature is 30°C." Is this a scalar or a vector quantity?
+      A temperature reading is $30^\circ\mathrm C$. Which statement classifies the quantity correctly?
     choices:
-      - text: Scalar, since temperature has magnitude only, no direction.
+      - text: "Temperature is scalar."
         correct: true
-      - text: Vector, since temperature can rise or fall.
+      - text: "Temperature is vector because it can rise or fall."
         rationale: |
-          You confused scalar sign changes with spatial direction. Numerical increase/decrease is algebraic sign, not spatial direction.
-      - text: 'Neither: temperature is not a physics quantity.'
+          This treats numerical increase as spatial direction. The words rise and fall suggest directions. Check whether the quantity has a spatial orientation.
+      - text: "Temperature becomes vector below zero Celsius."
         rationale: |
-          You denied physics classification. Temperature is a fundamental thermodynamic scalar quantity.
-      - text: Both, depending on the season.
+          This confuses a negative scalar with a directed vector. Negative values appear in vector components. Check the quantity’s definition.
+      - text: "Temperature becomes vector when measured north of a city."
         rationale: |
-          You claimed seasonal classification shifts. Physical quantities maintain invariant scalar/vector definitions.
+          This uses the location word to change the quantity. North gives measurement context. Check what is measured rather than where.
     explanation: |
-      Temperature has only a magnitude (how hot or cold) with no associated direction, making it a scalar.
+      Temperature has a numerical value and a unit. It has no spatial direction, so it is scalar even when its value is negative.
     approved: true
+
   - id: q-physics-scalars-and-vectors-0004
-    type: classify
-    difficulty: medium
+    type: "compare-contrast"
+    difficulty: "medium"
     stem: |
-      A runner jogs completely around a circular track and ends up exactly back at the starting point. Compare the runner's total distance traveled to their total displacement.
+      A runner completes one nonzero lap of a circular track and returns to the start. Which pair describes distance and displacement?
     choices:
-      - text: The distance is a large positive number (the full circumference), while the displacement is zero, since the runner ended up exactly where they started.
+      - text: "Positive distance; zero displacement"
         correct: true
-      - text: Both the distance and the displacement are zero.
+      - text: "Zero distance; zero displacement"
         rationale: |
-          You set distance to zero. Distance measures total path traveled ($\pi d$), which is non-zero.
-      - text: Both the distance and the displacement equal the full circumference.
+          This treats matching endpoints as no travel. The runner returns home. Check the path actually covered.
+      - text: "Positive distance; equal positive displacement magnitude"
         rationale: |
-          You set displacement equal to distance. Displacement measures initial-to-final position change, which is zero.
-      - text: The displacement is larger than the distance in this situation.
+          This treats path length as net position change. A full lap has length. Check the coincident endpoints.
+      - text: "Zero distance; positive displacement magnitude"
         rationale: |
-          You made displacement exceed distance. Displacement magnitude can never exceed total path distance.
+          This reverses path length and net change. Both quantities describe the trip. Check their definitions.
     explanation: |
-      Distance is the total path length traveled (a scalar), which is large here. Displacement is the straight-line change in position (a vector), which is zero since the start and end points are the same.
+      The full lap has positive path length. Final and initial positions are the same, so displacement is zero.
     approved: true
+
   - id: q-physics-scalars-and-vectors-0005
-    type: simple-quantitative
-    difficulty: medium
+    type: "simple-quantitative"
+    difficulty: "medium"
     stem: |
-      A hiker walks 6 km east, then 8 km north. Find the magnitude of the hiker's total displacement.
+      A hiker walks $6\,\mathrm{km}$ east then $8\,\mathrm{km}$ north. What is the displacement magnitude?
     choices:
-      - text: 10 km
+      - text: "$10\\,\\mathrm{km}$"
         correct: true
-      - text: 14 km
+      - text: "$14\\,\\mathrm{km}$"
         rationale: |
-          You added perpendicular components linearly ($6 + 8$). For perpendicular vectors, use $R = \sqrt{6^2 + 8^2} = 10\text{ km}$.
-      - text: 2 km
+          This adds path lengths. That gives distance traveled. Check the perpendicular displacement components.
+      - text: "$2\\,\\mathrm{km}$"
         rationale: |
-          You subtracted component magnitudes ($8 - 6$). Subtraction applies only to opposing parallel vectors.
-      - text: 48 km
+          This subtracts magnitudes as if directions were opposite. Both displacements have direction. Check the right angle between them.
+      - text: "$48\\,\\mathrm{km}$"
         rationale: |
-          You multiplied component magnitudes ($6 \times 8$). Multiplication calculates area, not vector resultant magnitude.
+          This multiplies the component magnitudes. The product can describe a rectangle’s area. Check the units and vector-length formula.
     explanation: |
-      The two vectors are perpendicular, so use the Pythagorean theorem: $R^2 = 6^2 + 8^2 = 36 + 64 = 100$, so $R = 10$ km.
+      The displacements are perpendicular. Thus $R=\sqrt{6^2+8^2}=\sqrt{100}=10\,\mathrm{km}$.
     approved: true
+
   - id: q-physics-scalars-and-vectors-0006
-    type: simple-quantitative
-    difficulty: medium
+    type: "classify"
+    difficulty: "medium"
     stem: |
-      A hiker walks 5 km east, then 12 km north. Find the magnitude of the hiker's total displacement.
+      A resultant displacement has positive east and positive north components. Which quadrant or direction contains it?
     choices:
-      - text: 13 km
+      - text: "Northeast"
         correct: true
-      - text: 17 km
+      - text: "Northwest"
         rationale: |
-          You added perpendicular components directly ($5 + 12$). Use $R = \sqrt{5^2 + 12^2} = 13\text{ km}$.
-      - text: 7 km
+          This reverses the horizontal component. North is retained. Check the positive east component.
+      - text: "Southeast"
         rationale: |
-          You subtracted component magnitudes ($12 - 5$). Subtraction applies to opposite $180^\circ$ vectors, not perpendicular ones.
-      - text: 60 km
+          This reverses the vertical component. East is retained. Check the positive north component.
+      - text: "Southwest"
         rationale: |
-          You multiplied component magnitudes ($5 \times 12$). Vector magnitude calculation requires the Pythagorean theorem.
+          This reverses both components. Diagonal motion is still recognized. Check the sign of each component separately.
     explanation: |
-      The two vectors are perpendicular, so use the Pythagorean theorem: $R^2 = 5^2 + 12^2 = 25 + 144 = 169$, so $R = 13$ km.
+      The east component points right on a map and the north component points up. Their resultant points northeast.
     approved: true
+
   - id: q-physics-scalars-and-vectors-0007
-    type: simple-quantitative
-    difficulty: medium
+    type: "simple-quantitative"
+    difficulty: "medium"
     stem: |
-      Two tug-of-war teams pull on a rope. Team A pulls with 500 N to the left; Team B pulls with 350 N to the right. Find the net force and its direction.
+      Forces of $500\,\mathrm N$ left and $350\,\mathrm N$ right act on a rope. What is their resultant?
     choices:
-      - text: 150 N to the left
+      - text: "$150\\,\\mathrm N$ left"
         correct: true
-      - text: 850 N to the left
+      - text: "$850\\,\\mathrm N$ left"
         rationale: |
-          You added opposing forces ($500 + 350$). Opposing collinear forces subtract: $500 - 350 = 150\text{ N}$.
-      - text: 150 N to the right
+          This adds opposing magnitudes. Both forces act on the rope. Check opposite signs before addition.
+      - text: "$150\\,\\mathrm N$ right"
         rationale: |
-          You assigned net force direction to the smaller force. Net force takes the direction of the larger force (left).
-      - text: 850 N to the right
+          This finds the magnitude but selects the smaller force’s direction. One team pulls right. Check which force is larger.
+      - text: "$850\\,\\mathrm N$ right"
         rationale: |
-          You added opposing forces and assigned the wrong direction. Opposing forces subtract ($500 - 350 = 150\text{ N}$) toward the larger force.
+          This adds opposing magnitudes and follows the rightward force. Right is often chosen positive. Check both magnitude and sign of the sum.
     explanation: |
-      Since the forces are opposite, subtract the smaller from the larger: $500 - 350 = 150$ N. The net force takes the direction of the larger force, Team A's direction (left).
+      Take right positive. The total is $-500+350=-150\,\mathrm N$. The negative sign means $150\,\mathrm N$ left.
     approved: true
+
   - id: q-physics-scalars-and-vectors-0008
-    type: simple-quantitative
-    difficulty: hard
+    type: "simple-quantitative"
+    difficulty: "hard"
     stem: |
-      A force of 20 N is applied at an angle of 30° above the horizontal. Find its horizontal and vertical components. ($\cos 30° = \dfrac{\sqrt{3}}{2}$, $\sin 30° = \dfrac{1}{2}$)
+      A force of $20\,\mathrm N$ acts $30^\circ$ above the positive horizontal axis. Use $\cos30^\circ=\sqrt3/2$ and $\sin30^\circ=1/2$. What are $(F_x,F_y)$?
     choices:
-      - text: Horizontal ≈ 17.3 N, Vertical = 10 N
+      - text: "$(10\\sqrt3,10)\\,\\mathrm N$"
         correct: true
-      - text: Horizontal = 10 N, Vertical ≈ 17.3 N
+      - text: "$(10,10\\sqrt3)\\,\\mathrm N$"
         rationale: |
-          You swapped sine and cosine components. Adjacent horizontal component uses $\cos 30^\circ$ ($20 \times \dfrac{\sqrt{3}}{2} \approx 17.3\text{ N}$).
-      - text: Horizontal = 20 N, Vertical = 0 N
+          This swaps sine and cosine. Both components use those functions. Check the angle’s horizontal reference.
+      - text: "$(20,0)\\,\\mathrm N$"
         rationale: |
-          You treated the force as purely horizontal. Angled forces split into both horizontal ($F\cos\theta$) and vertical ($F\sin\theta$) components.
-      - text: Horizontal = 0 N, Vertical = 20 N
+          This places the entire force horizontally. The angle is closer to horizontal. Check the nonzero upward component.
+      - text: "$(0,20)\\,\\mathrm N$"
         rationale: |
-          You treated the force as purely vertical. A $30^\circ$ vector retains both non-zero horizontal and vertical components.
+          This places the entire force vertically. The force points partly upward. Check the nonzero horizontal component.
     explanation: |
-      $V_x = 20\cos30° = 20 \times \dfrac{\sqrt{3}}{2} = 10\sqrt{3} \approx 17.3$ N. $V_y = 20\sin30° = 20 \times \dfrac{1}{2} = 10$ N.
+      $F_x=20\cos30^\circ=10\sqrt3\,\mathrm N$. $F_y=20\sin30^\circ=10\,\mathrm N$. Both are positive in this quadrant.
     approved: true
+
   - id: q-physics-scalars-and-vectors-0009
-    type: simple-quantitative
-    difficulty: hard
+    type: "simple-quantitative"
+    difficulty: "hard"
     stem: |
-      A force of 8 N is applied at an angle of 60° above the horizontal. Find its horizontal and vertical components. ($\cos 60° = \dfrac{1}{2}$, $\sin 60° = \dfrac{\sqrt{3}}{2}$)
+      A force of $8\,\mathrm N$ points $60^\circ$ above the negative horizontal axis. Use $\cos60^\circ=1/2$ and $\sin60^\circ=\sqrt3/2$. What are $(F_x,F_y)$?
     choices:
-      - text: Horizontal = 4 N, Vertical ≈ 6.9 N
+      - text: "$(-4,4\\sqrt3)\\,\\mathrm N$"
         correct: true
-      - text: Horizontal ≈ 6.9 N, Vertical = 4 N
+      - text: "$(4,4\\sqrt3)\\,\\mathrm N$"
         rationale: |
-          You swapped horizontal and vertical components. At $60^\circ$, $F_x = 8\cos 60^\circ = 4\text{ N}$ and $F_y = 8\sin 60^\circ \approx 6.9\text{ N}$.
-      - text: Horizontal = 8 N, Vertical = 0 N
+          This treats leftward motion as positive horizontal. The reference angle is acute. Check the quadrant.
+      - text: "$(-4,-4\\sqrt3)\\,\\mathrm N$"
         rationale: |
-          You ignored vertical resolution. At $60^\circ$, vertical component is $8\sin 60^\circ \approx 6.9\text{ N}$.
-      - text: Horizontal = 0 N, Vertical = 8 N
+          This gives the upward component a negative sign. The horizontal component is correctly negative. Check above versus below the axis.
+      - text: "$(-4\\sqrt3,4)\\,\\mathrm N$"
         rationale: |
-          You ignored horizontal resolution. At $60^\circ$, horizontal component is $8\cos 60^\circ = 4\text{ N}$.
+          This swaps the adjacent and opposite components. The signs are right. Check the reference angle’s axis.
     explanation: |
-      $V_x = 8\cos60° = 8 \times \dfrac{1}{2} = 4$ N. $V_y = 8\sin60° = 8 \times \dfrac{\sqrt{3}}{2} = 4\sqrt{3} \approx 6.9$ N.
+      The force points left and up. Hence $F_x=-8\cos60^\circ=-4\,\mathrm N$ and $F_y=8\sin60^\circ=4\sqrt3\,\mathrm N$.
     approved: true
+
   - id: q-physics-scalars-and-vectors-0010
-    type: classify
-    difficulty: hard
+    type: "predict-outcome"
+    difficulty: "hard"
     stem: |
-      A student adds a 3 km eastward displacement and a 4 km northward displacement directly, getting a total of 7 km. Is this correct?
+      Two nonzero vectors have fixed magnitudes. Their directions change from identical to perpendicular. What happens to the magnitude of their sum?
     choices:
-      - text: 'No: since the vectors are perpendicular, not in the same direction, the Pythagorean theorem must be used instead, giving 5 km.'
+      - text: "It decreases."
         correct: true
-      - text: 'Yes: 7 km is the correct combined displacement.'
+      - text: "It increases because a right angle adds an extra dimension."
         rationale: |
-          You added perpendicular vector magnitudes linearly. Use Pythagorean theorem $R = \sqrt{3^2 + 4^2} = 5\text{ km}$.
-      - text: 'No: the correct answer is 1 km, found by subtracting instead.'
+          This treats another direction as extra magnitude. The geometry does change. Check the length of the resulting diagonal versus the sum of side lengths.
+      - text: "It stays the sum of their magnitudes for every angle."
         rationale: |
-          You subtracted perpendicular vector magnitudes. Subtraction applies to opposite parallel vectors.
-      - text: 'Yes: vector magnitudes can always be added directly, regardless of direction.'
+          This ignores direction in addition. The magnitudes are fixed. Check the same-direction condition for simple addition.
+      - text: "It becomes zero whenever they are perpendicular."
         rationale: |
-          You assumed scalar addition applies to vectors. Vector addition requires accounting for direction and geometry.
+          This treats perpendicular vectors as opposite vectors. Both directions differ. Check the difference between 90 and 180 degrees.
     explanation: |
-      Vector magnitudes can only be added directly when the vectors point in the exact same direction. Since 3 km and 4 km here are perpendicular, the Pythagorean theorem gives the correct combined magnitude: $\sqrt{3^2+4^2} = 5$ km, not 7 km.
+      In one direction the magnitude is $A+B$. At a right angle it is $\sqrt{A^2+B^2}$. For two nonzero magnitudes, that is smaller than $A+B$.
     approved: true
+
   - id: q-physics-scalars-and-vectors-0011
-    type: classify
-    difficulty: hard
+    type: "classify"
+    difficulty: "hard"
     stem: |
-      A problem measures a vector's angle from the vertical axis instead of the usual horizontal axis. A student still assumes cosine always gives the horizontal component and sine always gives the vertical component. Is this assumption safe?
+      A first-quadrant vector’s angle is measured from the positive vertical axis. Which component uses cosine of that angle?
     choices:
-      - text: 'No: when the angle is measured from the vertical instead, the sine and cosine roles for the components swap compared to the usual convention.'
+      - text: "The vertical component"
         correct: true
-      - text: 'Yes: cosine always gives the horizontal component no matter how the angle is measured.'
+      - text: "The horizontal component for every angle definition"
         rationale: |
-          You assumed fixed trig functions. Cosine yields the adjacent component; when angle is measured from vertical, vertical is adjacent.
-      - text: 'No: sine and cosine are never used when the angle is measured from the vertical.'
+          This memorizes cosine as horizontal. That holds for an angle from the horizontal. Check which component is adjacent here.
+      - text: "Both components because the vector is positive"
         rationale: |
-          You rejected trig resolution for vertical angles. Trig resolution works for any reference angle by identifying adjacent/opposite sides.
-      - text: 'Yes: the components do not depend on which axis the angle is measured from.'
+          This uses sign to choose a trig function. Both components are positive. Check adjacent versus opposite sides.
+      - text: "Neither component because trigonometry requires a horizontal angle"
         rationale: |
-          You ignored angle reference axis. Changing reference axis from horizontal to vertical swaps sine and cosine assignments.
+          This rejects another valid reference axis. Many examples start from horizontal. Check the right triangle formed by the components.
     explanation: |
-      Which trig function applies to which component depends on which side of the triangle the angle is measured from. Sketching the actual triangle and identifying the adjacent and opposite sides relative to the given angle is necessary before applying sine or cosine.
+      Cosine gives adjacent side divided by hypotenuse. With the angle measured from the vertical, the vertical component is adjacent.
     approved: true
+
   - id: q-physics-scalars-and-vectors-0012
-    type: compare-contrast
-    difficulty: medium
+    type: "compare-contrast"
+    difficulty: "medium"
     stem: |
-      Which statement correctly tells apart a scalar and a vector quantity?
+      Which distinction is correct?
     choices:
-      - text: A scalar has magnitude only; a vector has both magnitude and direction.
+      - text: "Scalars need magnitude; vectors also need direction."
         correct: true
-      - text: A scalar has both magnitude and direction; a vector has magnitude only.
+      - text: "Scalars require spatial direction; vectors never do."
         rationale: |
-          You reversed scalar and vector definitions. Scalars carry magnitude only; vectors carry magnitude and direction.
-      - text: Both scalars and vectors always require a direction to be specified.
+          This reverses the definitions. Both types have values and units. Check whether direction belongs to the quantity.
+      - text: "Both types add by ordinary magnitude addition in every case."
         rationale: |
-          You assigned direction to scalars. Scalar quantities (mass, temperature) have no directional component.
-      - text: Scalars and vectors are just two different names for the same kind of quantity.
+          This ignores vector geometry. Simple addition works in matching directions. Check other orientations.
+      - text: "A quantity changes type whenever its sentence includes north."
         rationale: |
-          You equated scalar and vector definitions. Scalars and vectors differ fundamentally by the presence or absence of direction.
+          This uses sentence wording as the definition. North is a direction word. Check the named physical quantity.
     explanation: |
-      Scalars (like mass, time, distance) carry only size. Vectors (like displacement, velocity, force) carry both size and a specific direction.
+      Scalars are specified by a magnitude and unit. Vectors also have direction and follow vector-addition rules.
     approved: true
+
   - id: q-physics-scalars-and-vectors-0013
-    type: simple-quantitative
-    difficulty: exam
+    type: "simple-quantitative"
+    difficulty: "hard"
     stem: |
-      Two forces act on an object: 800 N pushing right, and 800 N pushing left. Find the net force.
+      Forces of $800\,\mathrm N$ right and $800\,\mathrm N$ left act on the same object. What is their resultant?
     choices:
-      - text: 0 N
+      - text: "$0\\,\\mathrm N$"
         correct: true
-      - text: 1600 N to the right
+      - text: "$1600\\,\\mathrm N$ right"
         rationale: |
-          You added opposing forces without vector cancellation. Equal opposite forces subtract ($800 - 800 = 0\text{ N}$).
-      - text: 1600 N to the left
+          This adds the opposing magnitudes. Both forces are 800 newtons. Check their directions.
+      - text: "$1600\\,\\mathrm N$ left"
         rationale: |
-          You added opposing force magnitudes. Opposing equal vector forces cancel out completely.
-      - text: 800 N in an undetermined direction
+          This adds magnitudes and selects left. The left force is real. Check the equally strong right force.
+      - text: "$800\\,\\mathrm N$ with unknown direction"
         rationale: |
-          You failed to subtract equal opposing forces. Opposite forces of equal magnitude yield zero net force.
+          This retains one force and ignores the other. Each force has that size. Check the vector total.
     explanation: |
-      Since the forces are equal in magnitude but opposite in direction, subtracting gives $800 - 800 = 0$ N: the forces completely cancel out.
+      Taking right positive, $F_{\mathrm{net}}=800-800=0\,\mathrm N$.
     approved: true
+
   - id: q-physics-scalars-and-vectors-0014
-    type: predict-outcome
-    difficulty: exam
+    type: "predict-outcome"
+    difficulty: "exam"
     stem: |
-      A vector has a horizontal component of 6 units and a vertical component of 8 units. Find the magnitude of the original vector.
+      A vector’s Cartesian components are both multiplied by three. How does its magnitude change?
     choices:
-      - text: 10 units
+      - text: "It triples."
         correct: true
-      - text: 14 units
+      - text: "It becomes nine times larger."
         rationale: |
-          You added component values directly ($6 + 8$). For perpendicular components, calculate hypotenuse $\sqrt{6^2 + 8^2} = 10$.
-      - text: 48 units
+          This stops at the change in the sum of squared components. Each square increases ninefold. Check the square root for magnitude.
+      - text: "It becomes six times larger."
         rationale: |
-          You multiplied components ($6 \times 8$). Vector magnitude uses Pythagorean sum of squares, not component product.
-      - text: 2 units
+          This adds the two scale factors. Both components triple. Check the common scale factor in the vector length.
+      - text: "It stays unchanged because its direction is unchanged."
         rationale: |
-          You subtracted component values ($8 - 6$). Subtraction does not yield resultant magnitude for perpendicular components.
+          This confuses direction with magnitude. Scaling preserves direction. Check the increased component lengths.
     explanation: |
-      The horizontal and vertical components form a right triangle with the original vector as the hypotenuse: $\sqrt{6^2 + 8^2} = \sqrt{36+64} = \sqrt{100} = 10$ units.
+      The new magnitude is $\sqrt{(3V_x)^2+(3V_y)^2}=3\sqrt{V_x^2+V_y^2}$. It is three times the original magnitude.
     approved: true
+
+  - id: q-physics-scalars-and-vectors-0015
+    approved: false
+    type: "identify"
+    difficulty: "easy"
+    stem: |
+      Which quantity remains a vector even when a question requests only its magnitude?
+    choices:
+      - text: "Force"
+        correct: true
+      - text: "Speed"
+        rationale: |
+          This treats any motion quantity as a vector. Speed relates to velocity. Check speed’s lack of direction.
+      - text: "Energy"
+        rationale: |
+          This treats the ability to cause motion as a directed quantity. Energy is related to force and motion. Check how energy is added.
+      - text: "Mass"
+        rationale: |
+          This confuses inertia with a directed response. Mass appears in force equations. Check whether mass itself has spatial direction.
+    explanation: |
+      Force is a vector quantity. Asking for its magnitude alone does not change the type of force.
+
+  - id: q-physics-scalars-and-vectors-0016
+    approved: false
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      Two displacement vectors of $7\,\mathrm m$ and $9\,\mathrm m$ point in exactly the same direction. What is their sum’s magnitude?
+    choices:
+      - text: "$16\\,\\mathrm m$"
+        correct: true
+      - text: "$2\\,\\mathrm m$"
+        rationale: |
+          This subtracts magnitudes as though the vectors were opposite. The numbers can be compared. Check the stated same direction.
+      - text: "$\\sqrt{130}\\,\\mathrm m$"
+        rationale: |
+          This uses perpendicular-vector addition. Squaring the sides is a familiar method. Check the angle between vectors.
+      - text: "$63\\,\\mathrm m$"
+        rationale: |
+          This multiplies the magnitudes. Both describe displacements. Check that vector addition is not multiplication.
+    explanation: |
+      For vectors in the same direction, magnitudes add. The sum is $7+9=16\,\mathrm m$ in that direction.
+
+  - id: q-physics-scalars-and-vectors-0017
+    approved: false
+    type: "process-ordering"
+    difficulty: "hard"
+    stem: |
+      Which sequence correctly adds vectors using Cartesian components?
+    choices:
+      - text: "Resolve, sum by axis, reconstruct."
+        correct: true
+      - text: "Add magnitudes first, then ignore the directions."
+        rationale: |
+          This starts with scalar addition. Same-direction vectors permit it. Check whether the vectors share a direction.
+      - text: "Sum horizontal and vertical values together as one number."
+        rationale: |
+          This combines unlike component directions. All components are numerical. Check separate axis sums.
+      - text: "Reconstruct each magnitude, then subtract every pair."
+        rationale: |
+          This assumes all vectors oppose each other. Subtraction is useful in some one-dimensional cases. Check the actual directions.
+    explanation: |
+      Resolve every vector into horizontal and vertical components. Add corresponding components separately. Use the resulting pair to find magnitude and direction.
+
+  - id: q-physics-scalars-and-vectors-0018
+    approved: false
+    type: "simple-quantitative"
+    difficulty: "hard"
+    stem: |
+      Three displacements are $+4\,\mathrm m$ east, $+3\,\mathrm m$ north, and $2\,\mathrm m$ west. What are the resultant east and north components?
+    choices:
+      - text: "$(2,3)\\,\\mathrm m$"
+        correct: true
+      - text: "$(6,3)\\,\\mathrm m$"
+        rationale: |
+          This adds westward distance as eastward. Both horizontal segments have length. Check the westward sign.
+      - text: "$(4,1)\\,\\mathrm m$"
+        rationale: |
+          This subtracts the westward segment from the north component. The subtraction is needed on one axis. Check which axis the segment belongs to.
+      - text: "$(9,0)\\,\\mathrm m$"
+        rationale: |
+          This places the total path length along one axis. Adding all lengths gives nine. Check separate horizontal and vertical components.
+    explanation: |
+      The east component is $4-2=2\,\mathrm m$. The north component remains $3\,\mathrm m$. The component pair is $(2,3)\,\mathrm m$.
+
+  - id: q-physics-scalars-and-vectors-0019
+    approved: false
+    type: "classify"
+    difficulty: "hard"
+    stem: |
+      A vector has $V_x<0$ and $V_y>0$. In which quadrant does it lie?
+    choices:
+      - text: "Quadrant II"
+        correct: true
+      - text: "Quadrant I"
+        rationale: |
+          This ignores the negative horizontal sign. The vertical component is positive. Check both signs.
+      - text: "Quadrant III"
+        rationale: |
+          This ignores the positive vertical sign. The horizontal component is negative. Check both signs.
+      - text: "Quadrant IV"
+        rationale: |
+          This reverses the two signs. One positive and one negative can be confused. Check left versus right and up versus down.
+    explanation: |
+      Negative horizontal means left. Positive vertical means up. Left and up place the vector in quadrant II.
+
+  - id: q-physics-scalars-and-vectors-0020
+    approved: false
+    type: "simple-quantitative"
+    difficulty: "exam"
+    stem: |
+      A displacement has components $-3\,\mathrm m$ and $-3\,\mathrm m$ along the positive east and north axes. What are its magnitude and direction?
+    choices:
+      - text: "$3\\sqrt2\\,\\mathrm m$, southwest"
+        correct: true
+      - text: "$6\\,\\mathrm m$, southwest"
+        rationale: |
+          This adds perpendicular magnitudes directly. Both components are negative. Check the Pythagorean length.
+      - text: "$3\\sqrt2\\,\\mathrm m$, northeast"
+        rationale: |
+          This gets the length but drops both signs. Squares remove signs in magnitude. Check the quadrant separately.
+      - text: "$0\\,\\mathrm m$, no direction"
+        rationale: |
+          This treats equal perpendicular components as opposing. Their sizes match. Check that east-west and north-south are different axes.
+    explanation: |
+      The magnitude is $\sqrt{(-3)^2+(-3)^2}=3\sqrt2\,\mathrm m$. Both components point negatively, so the vector points southwest.

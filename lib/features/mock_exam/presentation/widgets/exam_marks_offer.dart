@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/components/board_button.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 
 class ExamMarksOffer extends StatelessWidget {
   const ExamMarksOffer({
@@ -21,13 +23,13 @@ class ExamMarksOffer extends StatelessWidget {
     }
 
     final colors = context.colors;
-    final styles = context.textStyles;
+    final styles = context.type;
 
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(PantasSpace.s16),
       decoration: BoxDecoration(
-        border: Border.all(color: colors.rule),
-        borderRadius: BorderRadius.circular(4),
+        border: Border.all(color: colors.separator),
+        borderRadius: BorderRadius.circular(PantasRadius.xs),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,23 +37,23 @@ class ExamMarksOffer extends StatelessWidget {
           Text(
             'You marked $count to come back to while the clock was '
             'running. Keep them to practice?',
-            style: styles.bodyMedium,
+            style: styles.subhead,
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: PantasSpace.s12),
           Row(
             children: [
               Expanded(
-                child: BoardButton(
+                child: PantasButton(
                   label: 'Flag all $count',
                   onPressed: onKeepAll,
                 ),
               ),
-              const SizedBox(width: 8),
+              const SizedBox(width: PantasSpace.s8),
               Expanded(
-                child: BoardButton(
+                child: PantasButton(
                   label: 'No thanks',
                   onPressed: onDismiss,
-                  secondary: true,
+                  variant: PantasButtonVariant.tertiary,
                 ),
               ),
             ],

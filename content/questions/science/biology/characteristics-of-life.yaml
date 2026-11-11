@@ -1,253 +1,261 @@
 meta:
-  subject: science
-  topic: biology
-  subtopic: characteristics-of-life
-  exams:
-    - upcat
-    - dlsucet
-    - ustet
-    - dost-sei
+  subject: "science"
+  topic: "biology"
+  subtopic: "characteristics-of-life"
+  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-biology-characteristics-of-life-0001
-    type: identify
-    difficulty: easy
+    type: "identify"
+    difficulty: "easy"
     stem: |
-      Every living thing is made of one or more of what basic unit?
+      What is the basic structural and functional unit of known living organisms?
     choices:
-      - text: Cells
+      - text: "Cells"
         correct: true
-      - text: Organs
+      - text: "Organs"
         rationale: |
-          You picked organs. Unicellular organisms (e.g. bacteria) lack organs entirely while remaining alive.
-      - text: Tissues
+          This confuses a whole body part with the basic living unit. Organs perform important functions, so they seem like the smallest useful parts. Check whether single-celled organisms have organs.
+      - text: "Tissues"
         rationale: |
-          You picked tissues. Tissues are groups of specialized cells; single-celled organisms possess no tissues.
-      - text: Molecules
+          This confuses a group of cells with one basic living unit. Tissues form much of a complex organism, so they seem fundamental. Check whether an organism can live as just one cell.
+      - text: "Molecules"
         rationale: |
-          You picked molecules. Non-living matter also consists of molecules; cells represent the smallest unit of living life.
+          This confuses the components of living matter with a complete living unit. Cells contain molecules, so molecules seem like the smallest possible answer. Check which unit can carry out the basic functions of life.
     explanation: |
-      Cellular organization is a core characteristic of life: every living thing is made of one or more cells, the basic building blocks of life.
+      A cell is the basic structural and functional unit of known living organisms. An organism can consist of one cell or many cells.
     approved: true
+
   - id: q-biology-characteristics-of-life-0002
-    type: identify
-    difficulty: easy
+    type: "identify"
+    difficulty: "easy"
     stem: |
       What characteristic of life describes an organism keeping its internal conditions stable even when the outside environment changes, like sweating to cool down on a hot day?
     choices:
-      - text: Homeostasis
+      - text: "Homeostasis"
         correct: true
-      - text: Metabolism
+      - text: "Metabolism"
         rationale: |
-          You picked metabolism. Metabolism encompasses all energy-transforming chemical reactions within an organism.
-      - text: Adaptation
+          This confuses all chemical reactions with the specific regulation they support. Sweating and heat production depend on metabolism, so the broad term seems to fit. Check whether the question emphasizes internal regulation.
+      - text: "Adaptation"
         rationale: |
-          You picked adaptation. Adaptation refers to evolutionary trait changes across generations, not real-time internal regulation.
-      - text: Growth and development
+          This confuses a short-term temperature response with evolutionary change. Both help an organism cope with conditions. Check whether the change occurs within an individual or across generations.
+      - text: "Growth and development"
         rationale: |
-          You picked growth and development. Growth describes size increase and cellular maturation over time.
+          This confuses regulation with changes in size and form. Both happen during an organism's life, so they can seem similar. Check whether internal temperature or body development is being described.
     explanation: |
-      Homeostasis is the maintenance of stable internal conditions despite changes in the external environment.
+      Homeostasis regulates internal conditions within ranges that allow an organism to live. Sweating can help keep body temperature within such a range.
     approved: true
+
   - id: q-biology-characteristics-of-life-0003
-    type: identify
-    difficulty: easy
+    type: "identify"
+    difficulty: "easy"
     stem: |
       What characteristic of life describes an organism producing new individuals of the same kind?
     choices:
-      - text: Reproduction
+      - text: "Reproduction"
         correct: true
-      - text: Growth and development
+      - text: "Growth and development"
         rationale: |
-          You picked growth and development. Growth increases an existing individual's mass; reproduction generates new offspring.
-      - text: Response to stimuli
+          This confuses making a larger individual with making a new one. Both involve an increase in living material. Check whether there is a new organism or a change to the existing one.
+      - text: "Response to stimuli"
         rationale: |
-          You picked response to stimuli. Response to stimuli is reacting to environmental triggers like light or temperature.
-      - text: Metabolism
+          This confuses an environmental response with the production of offspring. A stimulus can trigger reproduction, so the processes may seem identical. Check whether the question asks about the trigger or the resulting new individuals.
+      - text: "Metabolism"
         rationale: |
-          You picked metabolism. Metabolism converts nutrients into cellular energy and materials.
+          This confuses the reactions supporting reproduction with reproduction itself. Making offspring uses energy and materials, so metabolism is involved. Check which term names the production of new organisms.
     explanation: |
-      Reproduction is the ability to produce new individuals of the same kind, either asexually or sexually.
+      Reproduction produces new organisms. It allows a living lineage to continue through new individuals.
     approved: true
+
   - id: q-biology-characteristics-of-life-0004
-    type: identify
-    difficulty: medium
+    type: "identify"
+    difficulty: "medium"
     stem: |
-      What characteristic of life describes living things gradually changing traits, over many generations, that help them survive and reproduce better in their environment?
+      Which property describes heritable traits becoming more common in a population across generations because they improve survival and reproduction in its environment?
     choices:
-      - text: Adaptation (through evolution)
+      - text: "Adaptation"
         correct: true
-      - text: Homeostasis
+      - text: "Homeostasis"
         rationale: |
-          You picked homeostasis. Homeostasis maintains immediate internal stability within a single organism's lifespan.
-      - text: Growth and development
+          This confuses population change with internal regulation. Both can help living things survive changing conditions. Check whether the change is across generations or inside one organism.
+      - text: "Growth and development"
         rationale: |
-          You picked growth and development. Growth occurs within an individual's lifetime, not across generations.
-      - text: Response to stimuli
+          This confuses development within one life with inherited change over generations. Both change biological traits, so the time scale can be overlooked. Check whether descendants or one growing individual are described.
+      - text: "Response to stimuli"
         rationale: |
-          You picked response to stimuli. Response to stimuli is a immediate physiological or behavioral reaction.
+          This confuses an individual response with a population's inherited changes. Both involve the environment, so they can sound similar. Check whether trait frequencies change across generations.
     explanation: |
-      Adaptation through evolution describes gradual trait changes across generations that improve survival and reproduction in a given environment.
+      Evolutionary adaptation occurs in populations across generations. Heritable traits that help survival and reproduction can become more common in a particular environment.
     approved: true
+
   - id: q-biology-characteristics-of-life-0005
-    type: classify
-    difficulty: medium
+    type: "classify"
+    difficulty: "medium"
     stem: |
       A mushroom absorbs nutrients from decaying wood to fuel its activities. Which characteristic of life does this directly demonstrate?
     choices:
-      - text: Metabolism
+      - text: "Metabolism"
         correct: true
-      - text: Reproduction
+      - text: "Reproduction"
         rationale: |
-          You picked reproduction. Reproduction involves producing new fungal offspring or spores.
-      - text: Response to stimuli
+          This confuses obtaining resources with producing offspring. Nutrients can support reproduction, so they seem to demonstrate it. Check whether any new mushrooms are described.
+      - text: "Response to stimuli"
         rationale: |
-          You picked response to stimuli. Response to stimuli is reacting to external triggers like gravity or light.
-      - text: Adaptation
+          This confuses using nutrients with reacting to a changed condition. Decaying wood is part of the surroundings, so any interaction can seem like a stimulus response. Check whether the observation describes a reaction to change or energy use.
+      - text: "Adaptation"
         rationale: |
-          You picked adaptation. Adaptation describes multi-generational evolutionary trait shifts.
+          This confuses the use of a resource with inherited population change. Feeding helps survival, so it can seem like an adaptation occurring now. Check whether the description compares generations.
     explanation: |
-      Using energy absorbed from the environment (nutrients from decaying wood) is metabolism.
+      Metabolism includes chemical reactions that transform nutrients and release usable energy. The mushroom uses these reactions to support its activities.
     approved: true
+
   - id: q-biology-characteristics-of-life-0006
-    type: classify
-    difficulty: medium
+    type: "classify"
+    difficulty: "medium"
     stem: |
       A mushroom releases spores that grow into new mushrooms. Which characteristic of life does this directly demonstrate?
     choices:
-      - text: Reproduction
+      - text: "Reproduction"
         correct: true
-      - text: Metabolism
+      - text: "Metabolism"
         rationale: |
-          You picked metabolism. Metabolism is chemical energy transformation (e.g. cellular respiration).
-      - text: Homeostasis
+          This confuses the energy needed for spore production with the production of new organisms. Making spores uses chemical reactions, so metabolism seems relevant. Check which property the new mushrooms demonstrate most directly.
+      - text: "Homeostasis"
         rationale: |
-          You picked homeostasis. Homeostasis regulates internal moisture and cellular osmotic balance.
-      - text: Response to stimuli
+          This confuses a living system continuing its lineage with keeping internal conditions regulated. Both maintain life in a broad sense. Check whether the observation reports internal regulation or offspring.
+      - text: "Response to stimuli"
         rationale: |
-          You picked response to stimuli. Response to stimuli is an immediate sensory or physiological reaction.
+          This confuses a possible trigger for spore release with the outcome described. A mushroom can react to its environment, so releasing spores seems like a response. Check whether the stem emphasizes a stimulus or new mushrooms.
     explanation: |
-      Producing new individuals (new mushrooms, via spores) is reproduction.
+      The spores produce new mushrooms. Producing new organisms demonstrates reproduction.
     approved: true
+
   - id: q-biology-characteristics-of-life-0007
-    type: classify
-    difficulty: hard
+    type: "classify"
+    difficulty: "hard"
     stem: |
-      A virus can reproduce, but only after hijacking a host cell's internal machinery: outside of a host cell, it is completely inactive. Does this fact alone make a virus fully alive?
+      A virus contains genetic material enclosed in a protein coat but has no cellular organization. Which property of living organisms is directly absent from this description of the virus?
     choices:
-      - text: 'No: reproduction is only one characteristic; a virus still lacks cells and independent metabolism, which most biologists require for something to be fully alive.'
+      - text: "Cellular organization"
         correct: true
-      - text: 'Yes: the ability to reproduce, on its own, is enough to be classified as fully alive.'
+      - text: "Heritable genetic information"
         rationale: |
-          You assumed reproduction alone grants life status. Defining life requires fulfilling all core biological characteristics.
-      - text: 'No: viruses cannot reproduce under any circumstances.'
+          This assumes genetic material requires a complete cell. DNA is found in cells, so the two features can seem inseparable. Check whether the described virus already contains genetic material.
+      - text: "Evolution across generations"
         rationale: |
-          You claimed viruses never reproduce. Viruses synthesize offspring by co-opting host cellular machinery.
-      - text: 'Yes: since it can reproduce inside a host, it counts the same as any living cell.'
+          This assumes a cell-free entity cannot evolve. Evolution is a property of living populations, so it may seem impossible outside cells. Check whether viral populations can change across generations.
+      - text: "Replication within living host cells"
         rationale: |
-          You equated viral replication with autonomous cellular life. Viruses lack membranes, ribosomes, and independent metabolism.
+          This assumes absence of cells prevents any replication. Cellular machinery is needed, so copying may seem impossible. Check whether a virus can use a host cell's machinery.
     explanation: |
-      A single characteristic is never enough. Viruses fail the "made of cells" and "independent metabolism" requirements, which is why most biologists classify them as borderline, not fully alive.
+      Viruses are acellular, meaning they are not made of cells. Genetic material inside a protein coat does not form the cellular organization of an organism.
     approved: true
+
   - id: q-biology-characteristics-of-life-0008
-    type: classify
-    difficulty: hard
+    type: "classify"
+    difficulty: "hard"
     stem: |
       Most biologists do not classify viruses as fully "living," even though viruses can reproduce and evolve. Why?
     choices:
-      - text: Viruses are not made of cells and cannot carry out metabolism or maintain homeostasis on their own.
+      - text: "They lack cells and independent metabolism."
         correct: true
-      - text: Viruses cannot reproduce or evolve at all.
+      - text: "Replication means their particles contain complete living cells."
         rationale: |
-          You claimed viruses cannot evolve or replicate. Viruses mutate, evolve under selection, and replicate inside host cells.
-      - text: Viruses are too small to be studied by biologists.
+          This treats replication as proof of a complete cell. Viruses make new copies in hosts, so they can seem to have every cellular property. Check whether replication uses their own cellular machinery.
+      - text: "Evolution means they carry out independent cellular metabolism."
         rationale: |
-          You cited microscopic size. Small size does not disqualify organisms (e.g., bacteria) from being living.
-      - text: Viruses only exist in humans, not in other organisms.
+          This treats evolution as proof of independent metabolism. Viral populations change over generations, so they can seem self-sustaining. Check whether genetic change supplies a cell's energy-processing system.
+      - text: "A protein coat provides all the functions of a complete cell."
         rationale: |
-          You restricted viral host range. Viruses infect all domains of life, including bacteria, plants, and animals.
+          This assumes a protein coat replaces all cell structures. A coat encloses genetic material, so it resembles a cell boundary. Check whether the enclosed system is organized as a cell.
     explanation: |
-      Viruses show some characteristics of life (reproduction, evolution) but fail others (no cells, no independent metabolism or homeostasis), placing them at the border between living and non-living.
+      Viruses are not made of cells and lack independent metabolism and cellular homeostasis. They use host-cell machinery to replicate. Introductory biology therefore usually does not classify them as living organisms.
     approved: true
+
   - id: q-biology-characteristics-of-life-0009
-    type: classify
-    difficulty: medium
+    type: "classify"
+    difficulty: "medium"
     stem: |
       A car engine "consumes" gasoline and produces motion, which might resemble metabolism. Is a car engine considered living?
     choices:
-      - text: 'No: it is not made of cells, cannot reproduce itself, and cannot maintain homeostasis, grow, or adapt.'
+      - text: "No; fuel use alone does not establish life."
         correct: true
-      - text: 'Yes: consuming fuel for energy is enough to be classified as living.'
+      - text: "Yes; burning gasoline is the same as cellular metabolism."
         rationale: |
-          You based life classification on fuel usage alone. Non-living machines consume fuel without fulfilling biological requirements.
-      - text: 'No: but only because it does not produce any motion.'
+          This equates fuel combustion with cellular metabolism. Both release energy, so they look similar. Check whether chemical reactions occur within an organized living cell.
+      - text: "Yes; producing motion proves biological growth and development."
         rationale: |
-          You denied engine mechanical motion. Engines convert thermal energy into mechanical movement.
-      - text: 'Yes: any machine that uses fuel is considered alive.'
+          This equates mechanical movement with biological development. Movement is easy to observe, so it can seem like evidence of life. Check whether the machine undergoes cell-based growth and development.
+      - text: "Yes; temperature control makes an engine a cellular organism."
         rationale: |
-          You classified all fuel-consuming machines as living. Fuel consumption is a chemical process present in non-living devices.
+          This treats any regulation as cellular organization. Machines can control temperature, so they can resemble one life property. Check whether a regulated system is actually made of living cells.
     explanation: |
-      Resembling one characteristic (using energy) is not enough. The engine fails every other requirement: no cells, no reproduction, no homeostasis, no growth, no adaptation, so it is non-living.
+      A car engine is a nonliving machine. It transforms fuel energy without cellular organization or a self-sustaining biological system. Fuel use alone does not establish life.
     approved: true
+
   - id: q-biology-characteristics-of-life-0010
-    type: classify
-    difficulty: medium
+    type: "classify"
+    difficulty: "medium"
     stem: |
       A crystal in a mineral solution grows larger over time by adding more material in a repeating pattern. Is the crystal considered living?
     choices:
-      - text: 'No: this growth is just repeated chemical bonding, not cellular growth, and the crystal cannot reproduce, respond to stimuli, or maintain homeostasis.'
+      - text: "No; crystal growth lacks cellular organization."
         correct: true
-      - text: 'Yes: growing larger over time is enough to be classified as living.'
+      - text: "Yes; every increase in size requires living cells."
         rationale: |
-          You equated physical accretion with biological growth. Living growth requires cell division and metabolic activity.
-      - text: 'No: but only because crystals are too small to be alive.'
+          This treats every size increase as biological growth. Crystals and organisms can both become larger, so the visible result looks alike. Check whether the growth belongs to a cellular biological system.
+      - text: "Yes; an ordered mineral lattice is a group of living cells."
         rationale: |
-          You cited size as the disqualifier. Single-celled microbes are far smaller than large crystals yet fully alive.
-      - text: 'Yes: any object that grows is automatically living.'
+          This treats an ordered pattern as cellular organization. Crystals have repeating structure, so that order can look like life. Check whether the repeating units are cells or a mineral lattice.
+      - text: "Yes; repeating a mineral pattern is biological reproduction."
         rationale: |
-          You classified all growing objects as living. Non-living accretion (e.g., icicles, stalactites) is not biological life.
+          This treats adding mineral material as biological reproduction. The pattern repeats while the crystal grows, so it can look like copying. Check whether new organisms with inherited biological information are produced.
     explanation: |
-      Resembling one characteristic (growth) is not enough. The crystal fails every other requirement, so it is non-living, despite appearing to "grow."
+      A crystal grows by adding material to its repeating structure. This is physical growth without cellular organization or a biological system. It is therefore not classified as an organism.
     approved: true
+
   - id: q-biology-characteristics-of-life-0011
-    type: classify
-    difficulty: hard
+    type: "classify"
+    difficulty: "hard"
     stem: |
-      A fire spreads across a field, consuming fuel (plant material and oxygen) for energy and growing larger. A student argues the fire must be alive, since it grows and uses energy. Is this correct?
+      A fire spreads to new fuel but has no cells or inherited biological traits. Which statement correctly evaluates the claim that this spread is evolutionary adaptation?
     choices:
-      - text: 'No: the fire cannot reproduce itself, does not maintain homeostasis, and is not made of cells; resembling growth and energy use alone is not enough.'
+      - text: "It is not an inherited population change."
         correct: true
-      - text: 'Yes: anything that grows and consumes energy is alive.'
+      - text: "It is adaptation because any spread changes an environment."
         rationale: |
-          You treated combustion as biological life. Fire is a non-living exothermic chemical reaction.
-      - text: 'No: but only because fire cannot spread across a field.'
+          This confuses spreading into new places with inherited population change. Both can increase the area occupied, so the result looks similar. Check whether traits change across generations of organisms.
+      - text: "It is adaptation because any object can evolve as it changes."
         rationale: |
-          You denied fire propagation. Fire spreads physically by igniting adjacent fuel, mimicking biological growth.
-      - text: 'Yes: fire reproduces by spreading to new fuel sources.'
+          This confuses physical change over time with evolutionary adaptation. A fire changes size and intensity, so it seems to evolve. Check whether the changes involve inherited biological traits.
+      - text: "It is adaptation because burning more fuel is reproductive success."
         rationale: |
-          You classified fire spread as biological reproduction. Ignition of new fuel is physical heat transfer, not genetic inheritance.
+          This treats successful fuel use as biological reproductive success. More burning produces more fire, so it resembles an expanding lineage. Check whether there are cells and inherited traits passed to offspring.
     explanation: |
-      Fire mimics "growth" (spreading) and "metabolism" (consuming fuel for energy), but it fails the other characteristics of life: it has no cells, cannot reproduce itself, and cannot maintain homeostasis. It is non-living.
+      Evolutionary adaptation changes a population across generations. Fire spreading to new fuel does not show inherited changes in a population of organisms. It is combustion, a nonliving chemical process.
     approved: true
+
   - id: q-biology-characteristics-of-life-0012
-    type: classify
-    difficulty: hard
+    type: "classify"
+    difficulty: "hard"
     stem: |
-      A rock rolls down a hill after being pushed. A student describes this as the rock "responding to a stimulus." Is this a correct use of the term?
+      A rock rolls downhill after being pushed. Does this motion demonstrate the biological response-to-stimuli property of life?
     choices:
-      - text: 'No: response to stimuli means an organism actively reacting in a controlled, biological way, not simply obeying gravity or physical forces.'
+      - text: "No; it is passive motion under physical forces."
         correct: true
-      - text: 'Yes: any movement caused by an outside force counts as response to stimuli.'
+      - text: "Yes; every movement after an outside event is biological response."
         rationale: |
-          You confused mechanical force response with biological response. Passive movement under gravity is Newtonian physics, not sensory response.
-      - text: 'No: but only because rocks are too large to respond to anything.'
+          This treats any physical motion as a regulated biological response. Both follow an outside event, so the sequence looks similar. Check whether a cellular system detects and responds.
+      - text: "Yes; the rock's movement proves it is carrying out metabolism."
         rationale: |
-          You disqualified rocks based on size. Size is irrelevant; lack of cellular receptors and nervous/cellular signaling prevents response.
-      - text: 'Yes: gravity is itself considered a biological stimulus.'
+          This treats movement as proof of energy-processing reactions. Moving objects have energy, so their motion can seem metabolic. Check whether cellular chemical reactions are involved.
+      - text: "Yes; changing position demonstrates biological growth and development."
         rationale: |
-          You called passive gravitational fall a biological response. Organisms actively sense gravity (gravitropism), unlike inanimate rocks.
+          This confuses displacement with growth and development. The rock changes its position over time, so it seems to undergo an ordered change. Check whether the object's biological form or size is developing.
     explanation: |
-      True response to stimuli involves an organism actively reacting, like a plant growing toward light or an animal fleeing danger, not an object simply obeying gravity or another physical force.
+      The rock's motion results from a push and gravity. This does not demonstrate a regulated response by a cellular biological system. Motion alone cannot establish life.
     approved: true
+
   - id: q-biology-characteristics-of-life-0013
     type: compare-contrast
     difficulty: medium
@@ -258,33 +266,163 @@ questions:
         correct: true
       - text: Asexual reproduction always involves two parents; sexual reproduction always involves one parent.
         rationale: |
-          You swapped parent counts. Asexual reproduction requires 1 parent; sexual reproduction requires 2 parents.
+          This reverses the usual parent pattern. Both processes produce offspring, so their labels can be mixed up. Check whether sex cells fuse.
+
       - text: Both types of reproduction always require exactly two parents.
         rationale: |
-          You required 2 parents for asexual reproduction. Asexual reproduction produces genetically identical clones from 1 parent.
+          This requires two parents even for asexual reproduction. Familiar animal reproduction often involves two parents. Check whether one organism can reproduce by division.
+
       - text: Asexual reproduction only happens in plants; sexual reproduction only happens in animals.
         rationale: |
-          You restricted reproduction modes by kingdom. Bacteria, fungi, animals, and plants can reproduce asexually or sexually.
+          This limits the modes by kingdom. Animal mating and plant cuttings are familiar examples. Check whether plants can also reproduce sexually.
+
     explanation: |
-      Asexual reproduction (like a bacterium splitting in two) involves a single parent. Sexual reproduction involves two parents combining their genetic material.
+      Asexual reproduction produces offspring from one parent without fusion of sex cells. Sexual reproduction joins sex cells, often from two parents, to combine genetic material. Some organisms can self-fertilize, so sexual reproduction does not always need two separate individuals.
+
     approved: true
   - id: q-biology-characteristics-of-life-0014
-    type: predict-outcome
-    difficulty: exam
+    type: "predict-outcome"
+    difficulty: "exam"
     stem: |
-      An organism is observed to be made of cells, uses chemical reactions to obtain energy, maintains stable internal conditions, grows over time, produces offspring, reacts to changes in its environment, and shows trait changes across generations. Based on this full description, should it be classified as alive?
+      A cellular lineage uses nutrients, regulates internal conditions, grows, responds to its environment, and produces new organisms. Inherited traits also change in its populations across generations. Which conclusion is supported?
     choices:
-      - text: 'Yes: it demonstrates all seven characteristics of life together, meeting the requirement for being classified as alive.'
+      - text: "The evidence supports a living biological system."
         correct: true
-      - text: 'No: demonstrating all seven characteristics together actually disqualifies something from being alive.'
+      - text: "It is nonliving unless one individual evolves during its own lifetime."
         rationale: |
-          You claimed fulfilling life criteria disqualifies life. Fulfilling all seven characteristics is the standard scientific definition of life.
-      - text: It cannot be determined without knowing the organism's exact species.
+          This requires an individual to show inherited population change during its own lifetime. The observations include evolution, so they can seem to concern one organism. Check whether evolution is measured across generations.
+      - text: "It is nonliving unless every individual personally produces offspring."
         rationale: |
-          You required species identification. Fulfilling universal biological characteristics establishes life regardless of taxonomy.
-      - text: Only the reproduction and growth characteristics matter; the rest are irrelevant.
+          This makes reproduction by each individual necessary for life. Reproduction is a major life property, so it seems like a strict individual test. Check whether sterile members of a living lineage can still be alive.
+      - text: "It cannot be considered living despite the combined cellular evidence."
         rationale: |
-          You dismissed five core life characteristics. Scientific classification requires assessing all core characteristics together.
+          This treats each property as insufficient even when they occur together in cells. Single-trait examples can mislead, so every judgment may seem uncertain. Check whether the evidence describes a complete cellular biological system.
     explanation: |
-      An organism showing all seven characteristics of life together (cellular organization, metabolism, homeostasis, growth, reproduction, response to stimuli, and adaptation) meets the full requirement to be classified as alive.
+      Cellular organization together with metabolism, regulation, growth, response, reproduction in a lineage, and population evolution supports classification as living. These properties are considered together, rather than as one isolated behavior.
     approved: true
+
+  - id: q-biology-characteristics-of-life-0015
+    type: "identify"
+    difficulty: "easy"
+    stem: |
+      Which property is demonstrated when one bacterial cell carries out the functions needed to maintain itself?
+    choices:
+      - text: "Cellular organization"
+        correct: true
+      - text: "Organization into multiple tissues"
+        rationale: |
+          This assumes life requires groups of specialized cells. Tissues are common in familiar plants and animals, so they seem necessary. Check whether the described organism has one cell.
+      - text: "Organization into specialized organs"
+        rationale: |
+          This assumes every living system needs organs. Organs perform important functions in animals, so they seem universal. Check whether one cell can perform the needed functions.
+      - text: "Dependence on a multicellular body"
+        rationale: |
+          This assumes a single cell must belong to a larger organism. Familiar body cells depend on surrounding tissues, so all cells may seem dependent. Check whether the bacterium is itself the organism.
+    explanation: |
+      A bacterium is a single-celled organism. Its one cell is an organized living system that performs the functions needed for life.
+    approved: false
+
+  - id: q-biology-characteristics-of-life-0016
+    type: "structure-function"
+    difficulty: "medium"
+    stem: |
+      A mammal increases sweating when its body temperature rises. Which function of this response is most directly related to homeostasis?
+    choices:
+      - text: "Keeping temperature within a suitable range"
+        correct: true
+      - text: "Making internal temperature perfectly constant at all times"
+        rationale: |
+          This treats regulation as perfect constancy. The body limits temperature changes, so complete stability can seem the goal. Check whether homeostasis allows conditions to vary within a range.
+      - text: "Creating an inherited heat-resistance trait during that day"
+        rationale: |
+          This confuses a short-term physiological response with inherited adaptation. Sweating helps in heat, so it can seem to create an evolutionary trait. Check whether the change happens within an individual or across generations.
+      - text: "Producing offspring with the same body temperature"
+        rationale: |
+          This confuses regulation with reproduction. Both help living systems continue, so the purpose may seem similar. Check whether sweating changes internal conditions or produces new organisms.
+    explanation: |
+      Sweating can increase heat loss from the body. This helps regulate body temperature within a range suitable for life. Homeostasis allows some variation while keeping conditions workable.
+    approved: false
+
+  - id: q-biology-characteristics-of-life-0017
+    type: "classify"
+    difficulty: "medium"
+    stem: |
+      A sterile animal grows, responds to its environment, and maintains itself through cellular metabolism. Which statement about its living status is correct?
+    choices:
+      - text: "It is alive despite being unable to reproduce."
+        correct: true
+      - text: "It is nonliving because every individual must produce offspring."
+        rationale: |
+          This applies a lineage property as a strict test for each individual. Reproduction is central to life, so the requirement seems reasonable. Check whether sterile organisms still perform cellular life functions.
+      - text: "It is alive only until it reaches reproductive age and remains sterile."
+        rationale: |
+          This makes age determine life only through reproductive ability. Young animals do not reproduce yet, so postponing the rule seems to help. Check whether becoming older removes their cells and metabolism.
+      - text: "It is nonliving because sterility proves that it lacks living cells."
+        rationale: |
+          This treats one missing ability as evidence that all cell functions are absent. Reproduction uses living cells, so its failure can seem to imply no cells. Check the cell-based functions already observed.
+    explanation: |
+      Reproduction is a property of living lineages. An individual can remain alive even when it cannot produce offspring. Sterility does not remove its cells or their life functions.
+    approved: false
+
+  - id: q-biology-characteristics-of-life-0018
+    type: "compare-contrast"
+    difficulty: "hard"
+    stem: |
+      Which observation represents evolutionary adaptation rather than a response or development within one individual?
+    choices:
+      - text: "An inherited protective trait becomes common across generations."
+        correct: true
+      - text: "One animal moves into shade when the afternoon temperature rises."
+        rationale: |
+          This confuses immediate behavior with inherited population change. Moving into shade helps survival, so it can seem evolutionary. Check whether the observation spans generations.
+      - text: "One seedling grows taller while supplied with water and nutrients."
+        rationale: |
+          This confuses individual growth with population adaptation. The plant changes while using environmental resources, so it seems to adapt. Check whether a trait becomes more common in descendants.
+      - text: "One person sweats more during a single period of physical exercise."
+        rationale: |
+          This confuses regulation during activity with inherited adaptation. Sweating helps the body tolerate heat, so it sounds like an adaptive change. Check whether the change concerns one person or a population across generations.
+    explanation: |
+      Evolutionary adaptation concerns inherited changes in a population across generations. A useful inherited trait can become more common when its carriers leave more offspring.
+    approved: false
+
+  - id: q-biology-characteristics-of-life-0019
+    type: "predict-outcome"
+    difficulty: "hard"
+    stem: |
+      An experiment observes a dormant seed before and after suitable water and warmth are supplied. It then develops into a seedling. Which interpretation best fits the framework for life?
+    choices:
+      - text: "Life functions can be less visible during dormancy."
+        correct: true
+      - text: "Dormancy makes the seed nonliving matter until water creates life."
+        rationale: |
+          This equates low visible activity with absence of life. A dormant seed can look unchanged, so it seems inert. Check whether suitable conditions allow its existing biological system to resume activity.
+      - text: "A living individual must visibly grow and reproduce at every moment."
+        rationale: |
+          This turns characteristic life properties into nonstop requirements. Growth and reproduction are familiar signs of life, so their pauses seem disqualifying. Check whether the framework requires every activity at every moment.
+      - text: "The seed became alive solely because any size increase proves life."
+        rationale: |
+          This uses growth alone as proof. The seedling is larger than the seed, so size change seems enough. Check the cellular biological system behind the development.
+    explanation: |
+      A living system need not display every property visibly at every moment. A dormant seed can later resume growth under suitable conditions. Its ordered development is part of the life of the existing organism.
+    approved: false
+
+  - id: q-biology-characteristics-of-life-0020
+    type: "classify"
+    difficulty: "exam"
+    stem: |
+      A mushroom absorbs nutrients, increases in size, releases spores that become new mushrooms, and grows differently when its surroundings change. Which observation most directly demonstrates response to stimuli?
+    choices:
+      - text: "Changed growth following a change in surroundings"
+        correct: true
+      - text: "Nutrient absorption that supplies chemical energy for the fungus"
+        rationale: |
+          This confuses energy processing with a response to environmental change. Nutrients come from the surroundings, so uptake can seem to be the response named here. Check which observation links a change in conditions to changed behavior.
+      - text: "Increase in the mushroom's overall size during its development"
+        rationale: |
+          This confuses growth itself with a response that alters growth. Both involve the mushroom becoming larger, so they seem alike. Check whether a stimulus caused a change in the pattern.
+      - text: "Release of spores that establish new mushrooms in nearby soil"
+        rationale: |
+          This confuses reproduction with response to stimuli. Spore release may have environmental triggers, so it seems relevant. Check which observation explicitly reports a changed response to changed surroundings.
+    explanation: |
+      The change in surroundings is the stimulus. The mushroom changes how it grows in response. This directly demonstrates response to stimuli.
+    approved: false

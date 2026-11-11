@@ -33,7 +33,9 @@ class NotificationBodyComposer {
     return switch (input.planState) {
       DailyReminderPlanState.standard => NotificationCopy(
           title: "Today's session is ready",
-          body: "${input.reviewCount} questions to review. You've got this.",
+          body: '${input.reviewCount} '
+              "${input.reviewCount == 1 ? 'question' : 'questions'} to review. "
+              "You've got this.",
         ),
       DailyReminderPlanState.mock => const NotificationCopy(
           title: 'Mock exam day',
@@ -42,7 +44,9 @@ class NotificationBodyComposer {
         ),
       DailyReminderPlanState.behind => NotificationCopy(
           title: 'Welcome back',
-          body: "Let's ease in. ${input.reviewCount} reviews today, no rush.",
+          body: "Let's ease in. ${input.reviewCount} "
+              "${input.reviewCount == 1 ? 'review' : 'reviews'} today, "
+              'no rush.',
         ),
       DailyReminderPlanState.calm => const NotificationCopy(
           title: 'Quick check-in',
@@ -50,7 +54,8 @@ class NotificationBodyComposer {
         ),
       DailyReminderPlanState.firstPostDiagnostic => NotificationCopy(
           title: 'Your plan is set',
-          body: "Let's start with ${input.reviewCount} questions. "
+          body: "Let's start with ${input.reviewCount} "
+              "${input.reviewCount == 1 ? 'question' : 'questions'}. "
               'Easy first session.',
         ),
     };
@@ -116,11 +121,13 @@ class NotificationBodyComposer {
     }
 
     final body = flaggedCount > 0
-        ? "You've got $flaggedCount questions flagged. Want to clear them?"
+        ? "You've got $flaggedCount "
+            "${flaggedCount == 1 ? 'question' : 'questions'} flagged. "
+            'Want to clear ${flaggedCount == 1 ? 'it' : 'them'}?'
         : '';
 
     return NotificationCopy(
-      title: '$daysLeft days to $examName',
+      title: '$daysLeft ${daysLeft == 1 ? 'day' : 'days'} to $examName',
       body: body,
     );
   }

@@ -9,17 +9,41 @@ import 'package:pantas/features/mock_exam/data/blueprint_section.dart';
 import 'package:pantas/features/mock_exam/data/mock_sampler.dart';
 import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
 
+import '../../helpers/prebuilt_content.dart';
+
 void main() {
+  late Directory fixtureDirectory;
   late ContentDatabase db;
   late MockBlueprintRepo repo;
 
-  setUpAll(() {
-    final dbFile = File('assets/seed/content.db');
+  setUpAll(() async {
+    fixtureDirectory =
+        Directory.systemTemp.createTempSync('pantas_upcat_fixture_');
+    final export = File('${fixtureDirectory.path}/export.json');
+    final dbFile = File('${fixtureDirectory.path}/content.db');
+    if (!copyPrebuiltExport(export)) {
+      await _runDartTool([
+        'run',
+        'tools/build_content_export/build_content_export.dart',
+        export.path,
+      ]);
+    }
+    if (!copyPrebuiltSeed(dbFile)) {
+      await _runDartTool([
+        'run',
+        'tools/build_content_seed/seed_writer.dart',
+        export.path,
+        dbFile.path,
+      ]);
+    }
     db = ContentDatabase(NativeDatabase(dbFile));
     repo = MockBlueprintRepo(db);
   });
 
-  tearDownAll(() => db.close());
+  tearDownAll(() async {
+    await db.close();
+    fixtureDirectory.deleteSync(recursive: true);
+  });
 
   test('Sit the UPCAT paper', () async {
     // 1. Get UPCAT Blueprint
@@ -111,8 +135,11 @@ void main() {
     // Let the first part's clock expire (tick to 70 mins)
     controller.tickTo(70 * 60);
 
-    // Confirm the paper moves on (now in part 1)
+    // The next part stays stopped until the student explicitly starts it.
     expect(controller.currentPartIndex, 1);
+    expect(controller.state, isA<MockSessionBetweenParts>());
+    expect(controller.canGoPrevious, isFalse);
+    expect(controller.startNextPart(), isTrue);
 
     // Finished part cannot be re-entered
     controller.goTo(0);
@@ -122,4 +149,13 @@ void main() {
       reason: 'a finished part cannot be re-entered',
     );
   });
+}
+
+Future<void> _runDartTool(List<String> arguments) async {
+  final result = await Process.run('dart', arguments);
+  expect(
+    result.exitCode,
+    0,
+    reason: result.stdout.toString() + result.stderr.toString(),
+  );
 }

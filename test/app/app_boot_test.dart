@@ -5,6 +5,7 @@ import 'package:pantas/app/app.dart';
 import 'package:pantas/app/flavor.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/web/letter_shortcuts.dart';
 import 'package:pantas/features/settings/settings.dart';
 
 import '../helpers/in_memory_database.dart';
@@ -36,7 +37,7 @@ void main() {
     expect(find.text('Home'), findsWidgets);
     expect(find.text('Study'), findsWidgets);
     expect(find.text('Quiz'), findsWidgets);
-    expect(find.text('Progress'), findsWidgets);
+    expect(find.text('Settings'), findsWidgets);
     expect(find.text('Learn'), findsNothing);
   });
 
@@ -57,5 +58,38 @@ void main() {
 
     final app = tester.widget<MaterialApp>(find.byType(MaterialApp));
     expect(app.themeMode, ThemeMode.dark);
+  });
+
+  testWidgets('App passes the Keyboard Shortcuts setting down the tree',
+      (tester) async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final container = ProviderContainer(
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
+    addTearDown(container.dispose);
+
+    await tester.pumpWidget(
+      UncontrolledProviderScope(
+        container: container,
+        child: const App(flavor: Flavor.dev),
+      ),
+    );
+    await tester.pump();
+
+    bool seen() => LetterShortcutsScope.enabledOf(
+          tester.element(find.byType(Navigator).first),
+        );
+    expect(seen(), isTrue);
+    await container
+        .read(letterShortcutsProvider.notifier)
+        .setEnabled(enabled: false);
+    await tester.pump();
+    expect(seen(), isFalse);
+    await container
+        .read(letterShortcutsProvider.notifier)
+        .setEnabled(enabled: true);
+    await tester.pump();
+    expect(seen(), isTrue);
   });
 }

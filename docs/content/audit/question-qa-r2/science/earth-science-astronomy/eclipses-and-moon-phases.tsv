@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-earth-science-astronomy-eclipses-and-moon-phases-0001	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Throwaway 100-day distractor replaced with the sidereal-month confusion; answer-length cue removed.
+q-earth-science-astronomy-eclipses-and-moon-phases-0002	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-earth-science-astronomy-eclipses-and-moon-phases-0003	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-earth-science-astronomy-eclipses-and-moon-phases-0004	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-earth-science-astronomy-eclipses-and-moon-phases-0005	CORRECTED	SOLVED-MATCH	choices;explanation;notes	LOW	Choice labels clarified to avoid a longest-answer cue.
+q-earth-science-astronomy-eclipses-and-moon-phases-0006	CORRECTED	SOLVED-MATCH	stem;explanation;notes	MEDIUM	Original repeated the half-lit observation with only the growth direction changed.
+q-earth-science-astronomy-eclipses-and-moon-phases-0007	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-earth-science-astronomy-eclipses-and-moon-phases-0008	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Subtype-only option and impossible-alignment throwaway replaced with specific misconceptions.
+q-earth-science-astronomy-eclipses-and-moon-phases-0009	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Impossible-alignment throwaway replaced with the phase-versus-shadow misconception.
+q-earth-science-astronomy-eclipses-and-moon-phases-0010	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Longest answer shortened and nonexistent-lunar-eclipse throwaway replaced.
+q-earth-science-astronomy-eclipses-and-moon-phases-0011	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-earth-science-astronomy-eclipses-and-moon-phases-0012	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-earth-science-astronomy-eclipses-and-moon-phases-0013	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	HIGH	Original partly-covered description also allowed annular central viewing, not solely penumbra; context now excludes that ambiguity.
+q-earth-science-astronomy-eclipses-and-moon-phases-0014	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Longest correct choice shortened.
+q-earth-science-astronomy-eclipses-and-moon-phases-0015	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	MEDIUM	Original repeated the Sun-Moon-Earth alignment from 0008; new framing covers the underused annular subtype.
+q-earth-science-astronomy-eclipses-and-moon-phases-0016	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	MEDIUM	Original repeated total-lunar classification and made the correct answer longest.
+q-earth-science-astronomy-eclipses-and-moon-phases-0017	NEW	NEW	new question	NONE	
+q-earth-science-astronomy-eclipses-and-moon-phases-0018	NEW	NEW	new question	NONE	
+q-earth-science-astronomy-eclipses-and-moon-phases-0019	NEW	NEW	new question	NONE	
+q-earth-science-astronomy-eclipses-and-moon-phases-0020	NEW	NEW	new question	NONE	

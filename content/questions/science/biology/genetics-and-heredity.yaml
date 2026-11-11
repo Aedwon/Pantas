@@ -2,278 +2,267 @@ meta:
   subject: science
   topic: biology
   subtopic: genetics-and-heredity
-  exams:
-    - upcat
-    - dlsucet
-    - ustet
-    - dost-sei
+  exams: [upcat, dlsucet, ustet, dost-sei]
 questions:
   - id: q-biology-genetics-and-heredity-0001
-    type: identify
-    difficulty: easy
+    type: 'identify'
+    difficulty: 'easy'
     stem: |
       An organism's actual genetic makeup, such as $Tt$, is called its what?
     choices:
-      - text: Genotype
+      - text: 'Genotype'
         correct: true
-      - text: Phenotype
+      - text: 'Phenotype'
         rationale: |
-          You picked what shows on the outside. The letters describe what the
-          organism carries, not how it looks.
-      - text: Allele
+          This confuses inherited alleles with an observed trait. Alleles influence what is seen, so the terms seem linked. Check whether the answer names gene versions or a characteristic.
+      - text: 'Allele'
         rationale: |
-          You picked one version of a gene. A genotype is the pair, not a single
-          member of it.
-      - text: Pedigree
+          This treats one gene version as the complete genotype. An allele is part of a genotype. Check whether the notation names one version or the pair at a locus.
+      - text: 'Pedigree'
         rationale: |
-          You picked the family chart. A pedigree traces a trait through
-          generations.
+          This confuses an individual’s genotype with a family record. A family chart can track inherited traits. Check whether the term describes the individual or a chart.
     explanation: |
       Genotype refers to the actual genetic makeup of an organism, such as the letters $Tt$.
     approved: true
+
   - id: q-biology-genetics-and-heredity-0002
-    type: identify
-    difficulty: easy
+    type: 'identify'
+    difficulty: 'easy'
     stem: |
       How a genotype is physically expressed, such as "tall," is called its what?
     choices:
-      - text: Phenotype
+      - text: 'Phenotype'
         correct: true
-      - text: Genotype
+      - text: 'Allelic state'
         rationale: |
-          You picked the letters. Those are the genotype; the phenotype is what you
-          can see.
-      - text: Allele
+          This names the alleles instead of the observable characteristic. Alleles affect height, so their state seems relevant. Check whether the question asks for genes or the measured trait.
+      - text: 'Gene variant'
         rationale: |
-          You picked one version of a gene, which is a piece of the genotype.
-      - text: Pedigree
+          This names a version of a gene instead of its observed effect. Gene variants can influence appearance. Check whether the answer describes DNA or a characteristic.
+      - text: 'Pedigree pattern'
         rationale: |
-          You picked the family chart rather than the trait itself.
+          This names a family pattern instead of a trait. Pedigrees show how traits occur in families. Check whether the question describes one individual or generations.
     explanation: |
-      Phenotype refers to the physical expression of a genotype, such as the trait "tall."
+      A phenotype is an observable characteristic, such as height. It develops from the interaction of genetic makeup and environment.
     approved: true
+
   - id: q-biology-genetics-and-heredity-0003
-    type: simple-quantitative
-    difficulty: medium
+    type: 'simple-quantitative'
+    difficulty: 'medium'
     stem: |
-      A pea plant heterozygous for height ($Tt$, tall dominant) is crossed with another heterozygous plant ($Tt$). What fraction of the offspring are expected to be tall?
+      Two heterozygous pea plants are crossed, $Tt \times Tt$. Under complete dominance, $T$ produces tall plants. What is the probability that one offspring is tall?
     choices:
-      - text: 3/4
+      - text: '$\dfrac{3}{4}$'
         correct: true
-      - text: 1/4
+      - text: '$\dfrac{1}{4}$'
         rationale: |
-          You gave the share that is short. Only the one box with two recessive
-          letters is short.
-      - text: 1/2
+          This counts only the recessive combination. There is one of it among four equally likely outcomes. Check whether the requested phenotype is tall or short.
+      - text: '$\dfrac{1}{2}$'
         rationale: |
-          You halved it. Three of the four boxes carry at least one dominant letter.
-      - text: 4/4
+          This counts only heterozygous outcomes as tall. Two boxes contain one copy of each allele. Check whether the dominant homozygote is also tall.
+      - text: '$\dfrac{4}{4}$'
         rationale: |
-          You said all four. One box out of four comes out short.
+          This assumes two tall parents cannot have a short offspring. Each parent does show the dominant trait. Check whether both can pass a recessive allele.
     explanation: |
-      The four possible offspring are $TT$, $Tt$, $Tt$, $tt$. Any genotype with at least one $T$ shows tall: that's 3 out of 4 boxes: $\dfrac{3}{4}$.
+      Each parent passes $T$ or $t$ with equal probability. The four equally likely combinations are $TT$, $Tt$, $Tt$, and $tt$. Three produce the tall phenotype, so the probability is $\dfrac{3}{4}$.
     approved: true
+
   - id: q-biology-genetics-and-heredity-0004
-    type: simple-quantitative
-    difficulty: medium
+    type: 'predict-outcome'
+    difficulty: 'medium'
     stem: |
-      A pea plant heterozygous for height ($Tt$, tall dominant) is crossed with another heterozygous plant ($Tt$). What fraction of the offspring are expected to be short?
+      A cross has a $\dfrac{1}{4}$ probability of a recessive phenotype for each offspring. What can be concluded about the next four offspring?
     choices:
-      - text: 1/4
+      - text: 'Their actual phenotypes can vary.'
         correct: true
-      - text: 3/4
+      - text: 'Exactly one must show the recessive trait.'
         rationale: |
-          You gave the tall share. Three boxes are tall, and the question asks for
-          the other one.
-      - text: 1/2
+          This treats expected probability as a guaranteed family count. One in four sounds like a fixed schedule. Check whether the statement is a probability or an exact requirement.
+      - text: 'None can show the recessive trait together.'
         rationale: |
-          You halved it. Only one box in four has two recessive letters.
-      - text: 0/4
+          This assumes separate offspring cannot share a recessive outcome. The outcome is less common, so repeated cases may seem impossible. Check whether each offspring still has that chance.
+      - text: 'All must show the dominant trait at birth.'
         rationale: |
-          You said none. Two heterozygous parents can each pass the recessive
-          letter.
+          This assumes dominance prevents recessive offspring. A dominant phenotype is more likely in this cross. Check whether the recessive probability is zero.
     explanation: |
-      Only the $tt$ genotype (no dominant allele) shows the recessive short phenotype: 1 out of 4 boxes: $\dfrac{1}{4}$.
+      A Punnett-square probability describes each offspring’s chance. It does not guarantee the exact results in a small group. Four offspring can have different combinations of phenotypes.
     approved: true
+
   - id: q-biology-genetics-and-heredity-0005
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
       A red snapdragon flower is crossed with a white snapdragon flower, and all offspring have pink flowers, a blend of the two parent colors. What pattern of inheritance is this?
     choices:
-      - text: Incomplete dominance
+      - text: 'Incomplete dominance'
         correct: true
-      - text: Codominance
+      - text: 'Codominance'
         rationale: |
-          You picked the pattern where both traits show separately. Here they blend
-          into a third colour.
-      - text: Multiple alleles
+          This confuses an intermediate trait with both allele effects being separately detectable. Both patterns involve two alleles in a heterozygote. Check whether the measured phenotype is intermediate.
+      - text: 'Multiple alleles'
         rationale: |
-          You picked a gene with more than two versions. This is one gene with two.
-      - text: Sex-linked inheritance
+          This confuses the number of allele versions with their expression. A trait can have several alleles in a population. Check whether the evidence counts alleles or describes the heterozygote.
+      - text: 'Sex-linked inheritance'
         rationale: |
-          You picked inheritance tied to sex chromosomes, and nothing here is.
+          This assumes the color gene is on a sex chromosome. Inherited traits can be sex-linked, which makes the label familiar. Check whether chromosome location is stated.
     explanation: |
-      Pink is a genuinely new, blended color between red and white, with neither allele fully dominant: this is incomplete dominance.
+      The heterozygous flowers have an intermediate pink color. A heterozygote with a measured trait between the two homozygotes shows incomplete dominance.
     approved: true
+
   - id: q-biology-genetics-and-heredity-0006
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
       A person with blood type A and a person with blood type B have a child with blood type AB, showing both the A and B traits fully, without blending. What pattern of inheritance is this?
     choices:
-      - text: Codominance
+      - text: 'Codominance'
         correct: true
-      - text: Incomplete dominance
+      - text: 'Incomplete dominance'
         rationale: |
-          You picked blending. Blending would give one in-between type; here both
-          types show at once.
-      - text: Simple dominant-recessive inheritance
+          This confuses both markers being present with an intermediate marker. Both patterns involve heterozygotes. Check whether the two effects remain detectable.
+      - text: 'Simple dominant-recessive inheritance'
         rationale: |
-          You picked plain dominance, where one version hides the other. Neither is
-          hidden here.
-      - text: Sex-linked inheritance
+          This assumes one allele hides the other. That happens under complete dominance. Check whether both A and B markers are expressed.
+      - text: 'Sex-linked inheritance'
         rationale: |
-          You picked inheritance tied to sex chromosomes, and blood type is not.
+          This confuses allele expression with chromosome location. Both describe inheritance patterns. Check whether the evidence concerns both markers or a sex chromosome.
     explanation: |
-      Both the A and B traits are fully expressed side by side, without blending into a new "in-between" type: this is codominance.
+      An AB individual has both A and B markers on red blood cells. Both alleles contribute detectable effects in the heterozygote. This is codominance.
     approved: true
+
   - id: q-biology-genetics-and-heredity-0007
-    type: identify
-    difficulty: medium
+    type: 'identify'
+    difficulty: 'medium'
     stem: |
-      In DNA, adenine (A) always pairs with which base?
+      In ordinary double-stranded DNA, which base pairs with adenine?
     choices:
-      - text: Thymine
+      - text: 'Thymine'
         correct: true
-      - text: Cytosine
+      - text: 'Cytosine'
         rationale: |
-          You paired it with the base that pairs with guanine instead.
-      - text: Guanine
+          This substitutes the partner of guanine. Cytosine is a DNA base, so it seems possible. Check the specific pairing rule for adenine.
+      - text: 'Guanine'
         rationale: |
-          You paired it with guanine, which pairs with cytosine.
-      - text: Uracil
+          This chooses another DNA base without using the pairing rule. Guanine belongs in DNA. Check which base pairs with adenine.
+      - text: 'Adenine'
         rationale: |
-          You used the RNA base. Uracil appears in RNA, and this question is about
-          DNA.
+          This assumes matching letters pair together. Identical names can look like matching partners. Check whether DNA uses identical or complementary base pairs.
     explanation: |
-      In DNA, adenine (A) pairs specifically with thymine (T), while cytosine (C) pairs with guanine (G).
+      Adenine pairs with thymine in ordinary double-stranded DNA. These matching bases join the two strands.
     approved: true
+
   - id: q-biology-genetics-and-heredity-0008
-    type: identify
-    difficulty: medium
+    type: 'identify'
+    difficulty: 'medium'
     stem: |
       When DNA is transcribed into mRNA, which base takes the place of thymine?
     choices:
-      - text: Uracil
+      - text: 'Uracil'
         correct: true
-      - text: Guanine
+      - text: 'Guanine'
         rationale: |
-          You picked a base that appears in both DNA and RNA unchanged.
-      - text: Cytosine
+          This chooses a base already shared by DNA and RNA. Guanine is a familiar base name. Check which standard base differs between the two alphabets.
+
+      - text: 'Cytosine'
         rationale: |
-          You picked a base that appears in both unchanged.
-      - text: Adenine
+          This chooses a base already shared by DNA and RNA. Cytosine occurs in both. Check the T-versus-U distinction.
+
+      - text: 'Adenine'
         rationale: |
-          You picked the base that pairs with thymine rather than the one that
-          replaces it.
+          This confuses thymine’s DNA partner with RNA’s replacement base. Adenine pairs with thymine in DNA. Check whether the question asks for a partner or the RNA-specific base.
+
     explanation: |
-      RNA uses uracil (U) in place of thymine (T); adenine in the DNA template pairs with uracil in the mRNA copy.
+      Standard RNA uses uracil, U, where standard DNA uses thymine, T. During transcription, a DNA-template adenine pairs with uracil in the RNA being made.
+
     approved: true
+
   - id: q-biology-genetics-and-heredity-0009
-    type: process-ordering
-    difficulty: medium
+    type: 'process-ordering'
+    difficulty: 'medium'
     stem: |
-      Put the two main steps of protein synthesis, and their result, in the correct order.
-      1. Translation
-      2. DNA
-      3. Transcription
-      4. Protein
+      For a typical protein-coding gene, order these stages: 1. Translation; 2. DNA template; 3. Transcription; 4. Protein product.
     choices:
-      - text: 2, 3, 1, 4
+      - text: '2, 3, 1, 4'
         correct: true
-      - text: 2, 1, 3, 4
+      - text: '2, 1, 3, 4'
         rationale: |
-          You put translation before transcription. The message has to be written
-          before it can be read.
-      - text: 4, 3, 1, 2
+          This puts RNA reading before RNA production. The names both describe information transfer. Check which step must supply RNA first.
+      - text: '4, 3, 1, 2'
         rationale: |
-          You ran the sequence backwards, ending where it starts.
-      - text: 2, 3, 4, 1
+          This begins with the protein product. Protein can affect cells, so it may seem like a source of instructions. Check which molecule supplies the template here.
+      - text: '2, 3, 4, 1'
         rationale: |
-          You put the protein before the step that builds it.
+          This puts the product before its assembly step. Transcription does make a molecule. Check whether that product is RNA or protein.
     explanation: |
-      The central dogma flows: DNA → (transcription) → mRNA → (translation) → protein.
+      Transcription uses the DNA template to make RNA. Translation reads the RNA to build an amino-acid chain. The chain is processed into the protein product.
     approved: true
+
   - id: q-biology-genetics-and-heredity-0010
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
-      In a family pedigree, two unaffected parents have a child who shows a rare trait. Based on this pattern alone, is the trait more likely dominant or recessive?
+      Two unaffected parents have an affected child. Assume a single autosomal gene, complete penetrance, and no new mutation. Which inheritance model fits?
     choices:
-      - text: 'Recessive: both unaffected parents must be silent carriers, since a dominant trait would require at least one parent to show it themselves.'
+      - text: 'Recessive'
         correct: true
-      - text: 'Dominant: the child inheriting the trait means at least one parent must be a hidden dominant carrier.'
+      - text: 'Completely dominant'
         rationale: |
-          You called it dominant. A dominant trait shows in anyone carrying it, so
-          at least one parent would show it.
-      - text: It could be equally either, with no way to distinguish from this pattern.
+          This assumes an unaffected parent can hide a fully expressed dominant allele. Carriers can hide recessive alleles, so the idea seems transferable. Check the complete-penetrance assumption.
+      - text: 'Both models equally'
         rationale: |
-          You said it cannot be told apart. Two unaffected parents with an affected
-          child is the recessive pattern.
-      - text: Sex-linked, regardless of whether it is dominant or recessive.
+          This ignores the stated inheritance assumptions. Real pedigrees can have exceptions. Check whether the question has excluded new mutations and incomplete expression.
+      - text: 'Neither model fits'
         rationale: |
-          You called it sex-linked. Nothing here points at the sex chromosomes.
+          This overlooks unaffected recessive carriers. The parents do not show the trait. Check whether they can still carry and pass a recessive allele.
     explanation: |
-      If the trait were dominant, it would show in at least one parent, since a dominant allele always shows its effect with just one copy. Since neither parent shows it, both must silently carry one recessive allele, and the child inherited both.
+      Both unaffected parents can carry one recessive allele. Each can pass it to the child. A child with two copies shows the recessive trait under the stated model.
     approved: true
+
   - id: q-biology-genetics-and-heredity-0011
-    type: classify
-    difficulty: hard
+    type: 'cause-effect'
+    difficulty: 'hard'
     stem: |
-      A question asks for the phenotype of a $Tt$ individual (where $T$, tall, is dominant), and a student answers "$Tt$." Is this the correct answer?
+      Two plants have the same genotype at a height-related locus but grow to different heights in different conditions. Which conclusion is supported?
     choices:
-      - text: 'No: "$Tt$" is the genotype; the phenotype is the physical trait, "tall."'
+      - text: 'Environment can affect phenotype.'
         correct: true
-      - text: 'Yes: genotype and phenotype are the same thing.'
+      - text: 'Different heights prove different alleles at that locus.'
         rationale: |
-          You treated the two words as one. The letters are the genotype and the
-          visible trait is the phenotype.
-      - text: 'No: the phenotype should be "$TT$" instead.'
+          This treats a visible difference as proof of an allele difference. Genotype can influence height. Check whether the genotype was already stated to be the same.
+      - text: 'Phenotype is determined only by the named genotype.'
         rationale: |
-          You changed the letters. Neither letter pair is a phenotype.
-      - text: 'Yes: phenotype always refers to the letter combination.'
+          This leaves out environmental effects. Single-gene classroom examples often hold conditions fixed. Check whether the growing conditions differ.
+      - text: 'Environmental change must rewrite that gene.'
         rationale: |
-          You said a phenotype is a letter combination. It is what you can see.
+          This assumes changing a trait must change its DNA. The plant’s height changes, which can look like genetic change. Check whether the evidence shows a DNA change or only a phenotype change.
     explanation: |
-      Genotype is the genetic makeup (the letters, $Tt$). Phenotype is the physical expression (the word "tall"). The question asked for phenotype, so the answer should be "tall," not "$Tt$."
+      An observable trait can depend on both genes and the environment. Different growing conditions can therefore produce different heights even with the same genotype at the named locus.
     approved: true
+
   - id: q-biology-genetics-and-heredity-0012
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
-      A student treats incomplete dominance and codominance as the exact same concept, since both involve heterozygotes showing something other than one single dominant trait. Is this correct?
+      Which observation distinguishes codominance from incomplete dominance?
     choices:
-      - text: 'No: incomplete dominance blends the two traits into something new; codominance shows both traits fully, side by side, without blending.'
+      - text: 'Both allele effects are detectable.'
         correct: true
-      - text: 'Yes: incomplete dominance and codominance always describe the same outcome.'
+      - text: 'The heterozygote has an intermediate trait.'
         rationale: |
-          You said the two are the same. One blends the traits and the other shows
-          both at once.
-      - text: 'No: incomplete dominance only applies to blood type, and codominance only applies to flowers.'
+          This describes incomplete dominance instead. Both patterns differ from complete dominance. Check whether the trait is intermediate or both effects are detectable.
+      - text: 'One allele fully masks the other allele.'
         rationale: |
-          You tied one of them to blood type only. Codominance covers more than
-          that, and blending is a separate pattern.
-      - text: 'Yes: both terms mean one allele is completely masked by the other.'
+          This describes complete dominance. An allele can mask another in some inheritance models. Check whether both effects are visible in the pattern asked about.
+      - text: 'Only one allele is present in the genotype.'
         rationale: |
-          You described plain dominance, where one version hides the other. Neither
-          of these two does that.
+          This confuses allele expression with the number inherited. One visible effect may seem to mean one allele. Check the two alleles present at a diploid locus.
     explanation: |
-      Pink flowers (a genuinely blended new color) show incomplete dominance. Blood type AB (both A and B markers fully present, unblended) shows codominance: a real distinction between blending and full side-by-side expression.
+      In codominance, both alleles contribute detectable effects in the heterozygote. Blood type AB shows this through the presence of both A and B markers.
     approved: true
+
   - id: q-biology-genetics-and-heredity-0013
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
       A student writes an mRNA sequence that includes thymine (T) instead of uracil (U). Is this correct?
     choices:
@@ -281,58 +270,164 @@ questions:
         correct: true
       - text: 'Yes: mRNA and DNA both use thymine identically.'
         rationale: |
-          You said both use thymine. RNA swaps thymine for uracil.
+          This copies DNA’s standard base alphabet into mRNA. Both carry genetic information. Check whether the sequence is labeled DNA or RNA.
+
       - text: 'No: but only because mRNA never contains adenine either.'
         rationale: |
-          You said RNA has no adenine. It does: adenine is in both.
+          This removes adenine along with thymine. The two molecules have one main alphabet difference. Check the shared A, C, and G bases.
+
       - text: 'Yes: uracil and thymine are interchangeable in every context.'
         rationale: |
-          You called them interchangeable. Each belongs to one of the two molecules.
+          This treats the two related bases as interchangeable in sequence notation. Both pair with adenine in their usual molecules. Check the RNA-specific U letter.
+
     explanation: |
-      RNA substitutes uracil (U) wherever DNA would use thymine (T). An mRNA sequence containing thymine is incorrect.
+      Standard mRNA sequence notation uses A, U, C, and G. Its RNA-specific letter is U rather than T. The stated sequence should use uracil in that position.
+
     approved: true
+
   - id: q-biology-genetics-and-heredity-0014
-    type: classify
-    difficulty: hard
+    type: 'cause-effect'
+    difficulty: 'hard'
     stem: |
-      A pedigree shows two unaffected parents producing an affected child, but a proposed answer choice claims the trait shown is dominant. Is this answer choice consistent with the pedigree?
+      Two genes lie close together on the same chromosome. Why may their inheritance depart from independent-assortment expectations?
     choices:
-      - text: 'No: this pattern (unaffected parents, affected child) is only possible for a recessive trait, ruling out a dominant explanation.'
+      - text: 'Their alleles tend to be inherited together.'
         correct: true
-      - text: 'Yes: dominant traits can appear in a child even if neither parent shows them.'
+      - text: 'Their closeness prevents all mutation in either gene.'
         rationale: |
-          You said a dominant trait can skip both parents. It cannot: anyone
-          carrying it shows it.
-      - text: 'No: but only because pedigrees cannot show recessive traits at all.'
+          This confuses linkage with a ban on mutation. Closely linked alleles often stay together. Check whether being linked stops DNA from changing.
+      - text: 'Their chromosome forces every allele to be dominant.'
         rationale: |
-          You said a pedigree cannot show a recessive trait. This is exactly the
-          pattern that does.
-      - text: 'Yes: this pattern is equally consistent with either dominant or recessive traits.'
+          This confuses chromosome position with dominance. Both affect inheritance outcomes. Check whether dominance describes location or expression in a heterozygote.
+      - text: 'Their location removes one allele during fertilization.'
         rationale: |
-          You said the pattern fits either. Unaffected parents with an affected
-          child rules dominance out.
+          This confuses linked transmission with losing an allele. Gametes carry fewer chromosome copies than body cells. Check whether fertilization restores pairs or removes alleles.
     explanation: |
-      A dominant trait always shows in at least one parent carrying it, since one copy is enough to display it. Two unaffected parents producing an affected child is only possible if the trait is recessive.
+      Nearby genes on one chromosome are linked. They tend to pass together because recombination is less likely to separate close loci. Their inheritance can differ from independent assortment.
     approved: true
+
   - id: q-biology-genetics-and-heredity-0015
-    type: simple-quantitative
-    difficulty: exam
+    type: 'simple-quantitative'
+    difficulty: 'exam'
     stem: |
-      A plant with genotype $Aa$ (heterozygous, $A$ dominant) is crossed with a plant with genotype $aa$ (homozygous recessive). What fraction of the offspring are expected to show the dominant phenotype?
+      A plant with genotype $Aa$ is crossed with $aa$. Under complete dominance, $A$ produces the dominant phenotype. What is the probability that one offspring shows it?
     choices:
-      - text: 1/2
+      - text: '$\dfrac{1}{2}$'
         correct: true
-      - text: 3/4
+      - text: '$\dfrac{3}{4}$'
         rationale: |
-          You used the cross between two heterozygous parents. One parent here
-          carries no dominant letter at all.
-      - text: 1/4
+          This uses the dominant probability from crossing two heterozygotes. That familiar cross has two parents carrying the dominant allele. Check the second parent’s genotype.
+      - text: '$\dfrac{1}{4}$'
         rationale: |
-          You quartered it. Half the boxes carry the dominant letter in this cross.
-      - text: "1"
+          This counts one dominant outcome among four while missing its second equal chance. A four-box square can make one cell seem like the whole result. Check repeated genotypes as well as distinct ones.
+      - text: '$\dfrac{4}{4}$'
         rationale: |
-          You said all of them. The recessive parent passes a recessive letter every
-          time.
+          This assumes a dominant parent passes the dominant allele every time. The parent does show the trait. Check whether it also carries a recessive allele.
     explanation: |
-      The offspring genotypes are $Aa$, $Aa$, $aa$, $aa$: 2 out of 4 show the dominant phenotype (having at least one $A$): $\dfrac{2}{4} = \dfrac{1}{2}$.
+      The $Aa$ parent passes $A$ or $a$ with equal probability. The $aa$ parent passes $a$. The equally likely offspring are $Aa$ and $aa$. One of the two shows the dominant phenotype, so the probability is $\dfrac{1}{2}$.
     approved: true
+
+  - id: q-biology-genetics-and-heredity-0016
+    type: 'structure-function'
+    difficulty: 'easy'
+    stem: |
+      What does a ribosome read during translation?
+    choices:
+      - text: 'mRNA codons'
+        correct: true
+      - text: 'A family pedigree'
+        rationale: |
+          This confuses a record of inheritance with instructions for protein assembly. Both contain information about traits. Check whether the information is inside the cell or on a family chart.
+      - text: 'The two parental genotypes'
+        rationale: |
+          This confuses inheritance prediction with protein production. Parental genotypes help predict offspring. Check whether translation reads a cross or an RNA sequence.
+      - text: 'A chromosome-pairing pattern'
+        rationale: |
+          This confuses gamete formation with RNA reading. Both involve genetic material. Check whether the process separates chromosomes or builds an amino-acid chain.
+    explanation: |
+      During translation, a ribosome reads mRNA in three-base units called codons. These units specify amino acids or a translation signal.
+    approved: false
+
+  - id: q-biology-genetics-and-heredity-0017
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      A heterozygous diploid cell has alleles $A$ and $a$. A normal haploid gamete receives one of them. Which law describes this separation?
+    choices:
+      - text: 'Law of segregation'
+        correct: true
+      - text: 'Law of independent assortment'
+        rationale: |
+          This confuses separation of one allele pair with relationships between different genes. Both occur during gamete formation. Check whether one locus or several loci are being considered.
+      - text: 'Complete-dominance model'
+        rationale: |
+          This confuses allele transmission with allele expression. Dominance affects the heterozygote’s phenotype. Check whether the question asks what a gamete receives or what a trait looks like.
+      - text: 'Codominant-expression model'
+        rationale: |
+          This confuses expression of both alleles with their separation. Both alleles are present in the starting cell. Check the number of copies that enters one haploid gamete.
+    explanation: |
+      The law of segregation states that the two alleles at a diploid locus separate during gamete formation. Each haploid gamete receives one of them.
+    approved: false
+
+  - id: q-biology-genetics-and-heredity-0018
+    type: 'classify'
+    difficulty: 'medium'
+    stem: |
+      A gene has several allele versions in a population. How many copies at that ordinary locus does one diploid individual normally carry?
+    choices:
+      - text: 'Two'
+        correct: true
+      - text: 'One'
+        rationale: |
+          This applies the haploid count to a diploid individual. Gametes do carry one copy. Check whether the question describes a gamete or a diploid individual.
+      - text: 'Three'
+        rationale: |
+          This confuses multiple alleles in a population with extra copies in one individual. Several versions exist across the population. Check the individual’s number of chromosome sets.
+      - text: 'As many as occur in the population'
+        rationale: |
+          This confuses the population’s variety with one individual’s genotype. All versions are possible within the population. Check how many chromosome copies one diploid individual has.
+    explanation: |
+      Diploid means there are two chromosome sets. At an ordinary locus, one copy comes from each parent, so the individual carries two copies.
+    approved: false
+
+  - id: q-biology-genetics-and-heredity-0019
+    type: 'compare-contrast'
+    difficulty: 'hard'
+    stem: |
+      Which pair of genes is most likely to assort independently under a simple inheritance model?
+    choices:
+      - text: 'Genes on different chromosomes'
+        correct: true
+      - text: 'Nearby genes on the same chromosome'
+        rationale: |
+          This ignores linkage between nearby loci. Both genes are present in the same individual. Check whether their shared chromosome tends to carry them together.
+      - text: 'Two alleles at the same gene locus'
+        rationale: |
+          This treats the two alleles of one gene as different genes. The letters may differ. Check whether the question concerns separate loci or separation at one locus.
+      - text: 'Genes that code for the same observable trait'
+        rationale: |
+          This uses similarity of function to predict chromosome assortment. Both genes affect a trait, so they seem connected. Check chromosome location instead of the trait they influence.
+    explanation: |
+      Different chromosome pairs generally assort independently during gamete formation. Genes on different chromosomes therefore usually follow independent-assortment expectations.
+    approved: false
+
+  - id: q-biology-genetics-and-heredity-0020
+    type: 'process-ordering'
+    difficulty: 'exam'
+    stem: |
+      A eukaryotic nuclear gene produces a protein. Which sequence follows the lesson’s information-flow model?
+    choices:
+      - text: 'Nuclear transcription, mRNA exit, ribosome translation'
+        correct: true
+      - text: 'Ribosome translation, nuclear transcription, mRNA exit'
+        rationale: |
+          This reads the message before it is made. Translation and transcription have similar names. Check which step first produces RNA.
+      - text: 'mRNA exit, ribosome translation, nuclear transcription'
+        rationale: |
+          This sends a message out before transcription produces it. mRNA does need to reach ribosomes. Check when the RNA becomes available.
+      - text: 'Nuclear transcription, protein completion, ribosome translation'
+        rationale: |
+          This puts the finished protein before its assembly. Transcription produces a new molecule. Check whether that molecule is RNA or protein.
+    explanation: |
+      The nuclear gene is transcribed to RNA in the nucleus. Processed mRNA leaves the nucleus. A ribosome then translates it into an amino-acid chain.
+    approved: false

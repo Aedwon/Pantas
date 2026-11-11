@@ -1,0 +1,7 @@
+Computing fixes in pantas_page.dart...
+Applying fixes...
+
+pantas_page.dart
+  require_trailing_commas - 6 fixes
+
+6 fixes made in 1 file.

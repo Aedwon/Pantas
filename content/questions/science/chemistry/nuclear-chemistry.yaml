@@ -2,289 +2,424 @@ meta:
   subject: science
   topic: chemistry
   subtopic: nuclear-chemistry
-  exams:
-    - upcat
-    - dlsucet
-    - ustet
-    - dost-sei
+  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-chemistry-nuclear-chemistry-0001
-    type: identify
-    difficulty: easy
+    type: 'identify'
+    difficulty: 'easy'
     stem: |
       A nucleus ejects a particle identical to a helium nucleus (2 protons and 2 neutrons). What type of decay is this?
     choices:
-      - text: Alpha decay
+      - text: 'Alpha decay'
         correct: true
-      - text: Beta decay
+      - text: 'Beta-minus'
         rationale: |
-          You picked high-speed electron emission. Beta decay emits an electron ($e^-$) or positron, whereas a helium nucleus emission is alpha decay.
-      - text: Gamma decay
+          This treats a helium nucleus as a beta particle. Both are emitted radiation. Check the emitted particle’s composition.
+      - text: 'Gamma emission'
         rationale: |
-          You picked electromagnetic radiation emission. Gamma decay releases pure photon energy without ejecting protons or neutrons.
-      - text: Fission
+          This treats a massive nuclear particle as a photon. Both carry energy. Check whether the emission contains nucleons.
+      - text: 'Nuclear fission'
         rationale: |
-          You picked heavy nucleus splitting. Fission breaks a nucleus into two large daughter fragments, not just a helium nucleus.
+          This treats a small helium emission as division into major fragments. Both involve a nucleus. Check the size and identity of the emitted material.
     explanation: |
-      A particle identical to a helium nucleus is, by definition, an alpha particle. Emitting it is alpha decay.
+      An alpha particle is a helium-4 nucleus with two protons and two neutrons. Emitting that particle is alpha decay.
     approved: true
+
   - id: q-chemistry-nuclear-chemistry-0002
-    type: identify
-    difficulty: easy
+    type: 'identify'
+    difficulty: 'easy'
     stem: |
-      A neutron inside a nucleus transforms into a proton, ejecting an electron in the process. What type of decay is this?
+      A neutron in a nucleus becomes a proton, emitting an electron and an antineutrino. Which process is this?
     choices:
-      - text: Beta decay
+      - text: 'Beta-minus'
         correct: true
-      - text: Alpha decay
+      - text: 'Alpha decay'
         rationale: |
-          You picked helium nucleus emission. Alpha decay ejects a 2-proton, 2-neutron particle, not a single electron from a converted neutron.
-      - text: Gamma decay
+          This substitutes a helium-nucleus emission for electron emission. Both are nuclear processes. Check which particle is emitted.
+      - text: 'Gamma emission'
         rationale: |
-          You picked high-energy photon emission. Gamma decay emits energy waves without converting neutrons into protons.
-      - text: Fusion
+          This substitutes a photon for the electron. Both emissions carry energy. Check whether a neutron-to-proton conversion occurs.
+      - text: 'Nuclear fusion'
         rationale: |
-          You picked the combining of light nuclei. Fusion merges separate light atoms into a heavier one, which is not radioactive decay.
+          This treats one nucleus’s internal conversion as two nuclei combining. Both can change nuclides. Check the number of starting nuclei.
     explanation: |
-      Beta decay happens when a neutron transforms into a proton, ejecting an electron (the beta particle) in the process.
+      In beta-minus decay, a neutron becomes a proton. An electron and an antineutrino are emitted.
     approved: true
+
   - id: q-chemistry-nuclear-chemistry-0003
-    type: identify
-    difficulty: easy
+    type: 'identify'
+    difficulty: 'easy'
     stem: |
-      A nucleus releases pure energy as a high-energy ray, with no change to its atomic number or mass number. What type of decay is this?
+      An excited nucleus emits a high-energy photon without changing its atomic or mass number. Which process is this?
     choices:
-      - text: Gamma decay
+      - text: 'Gamma decay'
         correct: true
-      - text: Alpha decay
+      - text: 'Alpha decay'
         rationale: |
-          You picked particle decay that alters nuclear mass. Alpha decay ejects 2 protons and 2 neutrons, decreasing mass number by 4.
-      - text: Beta decay
+          This selects a decay that removes a helium nucleus. Alpha radiation carries energy. Check whether nucleon counts change.
+      - text: 'Beta decay'
         rationale: |
-          You picked electron emission decay. Beta decay converts a neutron to a proton, increasing atomic number by 1.
-      - text: Fission
+          This selects a process that converts a neutron to a proton. Beta radiation carries energy. Check whether atomic number changes.
+      - text: 'Fission'
         rationale: |
-          You picked nuclear splitting. Fission splits a heavy nucleus into smaller daughter elements, changing atomic and mass numbers.
+          This selects division into smaller nuclei. Fission releases energy. Check whether the original nucleus remains with unchanged A and Z.
     explanation: |
-      Gamma decay releases pure energy (a gamma ray) with no change to the atomic number or mass number, usually alongside alpha or beta decay.
+      An excited nucleus emits a high-energy photon and moves to a lower nuclear energy state. Its proton and nucleon counts stay unchanged. This is gamma emission.
     approved: true
+
   - id: q-chemistry-nuclear-chemistry-0004
-    type: simple-quantitative
-    difficulty: medium
+    type: 'simple-quantitative'
+    difficulty: 'medium'
     stem: |
       An atom with atomic number 88 and mass number 226 undergoes alpha decay. Find the resulting atomic number and mass number.
     choices:
-      - text: Atomic number 86, mass number 222
+      - text: 'Atomic number 86, mass number 222'
         correct: true
-      - text: Atomic number 89, mass number 222
+      - text: 'Atomic number 89, mass number 222'
         rationale: |
-          You added 1 to atomic number instead of subtracting 2. Alpha decay removes 2 protons and 2 neutrons ($88 - 2 = 86$).
-      - text: Atomic number 86, mass number 226
+          This combines beta-minus’s Z increase with alpha’s A decrease. Both decays change nuclei. Check the emitted particle’s proton count.
+      - text: 'Atomic number 86, mass number 226'
         rationale: |
-          You forgot to decrease the mass number by 4. Alpha particles carry 4 total nucleons ($226 - 4 = 222$).
-      - text: Atomic number 90, mass number 230
+          This subtracts the two protons but ignores their loss from A. Atomic number is tracked correctly. Check all four emitted nucleons.
+      - text: 'Atomic number 90, mass number 230'
         rationale: |
-          You added 2 to atomic number and 4 to mass number. Alpha decay ejects nuclear mass, reducing both numbers.
+          This adds the alpha particle instead of emitting it. Its counts are two and four. Check the direction of transfer.
     explanation: |
-      Alpha decay decreases mass number by 4 and atomic number by 2: mass $226 - 4 = 222$; atomic number $88 - 2 = 86$. (This describes radium-226 decaying into radon-222.)
+      Alpha emission removes two protons and four nucleons. The daughter has $Z=88-2=86$ and $A=226-4=222$.
     approved: true
+
   - id: q-chemistry-nuclear-chemistry-0005
-    type: simple-quantitative
-    difficulty: medium
+    type: 'simple-quantitative'
+    difficulty: 'medium'
     stem: |
-      An atom with atomic number 15 and mass number 32 undergoes beta decay. Find the resulting atomic number and mass number.
+      A nucleus with atomic number 15 and mass number 32 undergoes beta-minus decay. Find its daughter’s atomic and mass numbers.
     choices:
-      - text: Atomic number 16, mass number 32
+      - text: 'Atomic number 16, mass number 32'
         correct: true
-      - text: Atomic number 14, mass number 32
+      - text: 'Atomic number 14, mass number 32'
         rationale: |
-          You subtracted 1 from atomic number. Beta decay converts a neutron to a proton, increasing atomic number ($15 + 1 = 16$).
-      - text: Atomic number 16, mass number 28
+          This uses the Z decrease of positron emission or electron capture. Several beta-related processes exist. Check that the stem specifies beta-minus.
+      - text: 'Atomic number 16, mass number 28'
         rationale: |
-          You subtracted 4 from mass number as if in alpha decay. Beta decay emits an electron, leaving total mass number unchanged.
-      - text: Atomic number 15, mass number 33
+          This applies alpha’s four-nucleon loss to beta-minus. Both are decay modes. Check whether the emitted electron is a nucleon.
+      - text: 'Atomic number 15, mass number 33'
         rationale: |
-          You added 1 to mass number instead of atomic number. Beta decay converts a neutron to a proton, raising atomic number to 16.
+          This adds a nucleon rather than converting one. A new proton appears. Check that one neutron disappears at the same time.
     explanation: |
-      Beta decay increases atomic number by 1, while mass number stays essentially the same: atomic number $15 + 1 = 16$; mass number stays 32. (This describes phosphorus-32 decaying into sulfur-32.)
+      Beta-minus converts one neutron to one proton. Thus $Z=15+1=16$, while the total nucleon count stays $A=32$.
     approved: true
+
   - id: q-chemistry-nuclear-chemistry-0006
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
       Inside a nuclear power plant reactor, a large uranium nucleus splits apart into two smaller nuclei. What nuclear process is this?
     choices:
-      - text: Fission
+      - text: 'Fission'
         correct: true
-      - text: Fusion
+      - text: 'Fusion'
         rationale: |
-          You picked the combining of light nuclei. Fusion joins light nuclei (like hydrogen), whereas fission splits heavy nuclei.
-      - text: Alpha decay
+          This reverses splitting into joining. Both processes release energy. Check whether heavy nuclei split or light nuclei combine.
+      - text: 'Alpha decay'
         rationale: |
-          You picked spontaneous single-particle emission. Fission splits a heavy atom into two roughly equal main fragments.
-      - text: Beta decay
+          This treats major-fragment division as one helium emission. Both can reduce the original nucleus. Check the size of the products.
+      - text: 'Beta decay'
         rationale: |
-          You picked electron ejection decay. Beta decay changes a neutron into a proton within a single nucleus.
+          This treats division of a nucleus as a neutron-to-proton conversion. Both can lead to a different nuclide. Check the reaction pattern.
     explanation: |
-      Fission is a large, heavy nucleus splitting apart into two or more smaller nuclei, releasing a large amount of energy: the process used in nuclear power plants.
+      Fission divides a heavy nucleus into smaller nuclei. The process releases energy and commonly neutrons. It supplies heat in commercial fission power reactors.
     approved: true
+
   - id: q-chemistry-nuclear-chemistry-0007
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
-      Inside the Sun, two small hydrogen nuclei combine to form one larger helium nucleus. What nuclear process is this?
+      The Sun’s proton-proton chain converts four hydrogen nuclei into helium-4 through several steps. Which overall nuclear process powers it?
     choices:
-      - text: Fusion
+      - text: 'Fusion'
         correct: true
-      - text: Fission
+      - text: 'Fission'
         rationale: |
-          You picked heavy nucleus splitting. Fission splits large atoms apart, whereas solar reactions join small nuclei together.
-      - text: Alpha decay
+          This calls combination a splitting process. Both processes release energy. Check whether nuclei combine or a heavy nucleus divides.
+      - text: 'Alpha decay'
         rationale: |
-          You picked radioactive particle emission. Solar power relies on combining hydrogen nuclei into helium (fusion).
-      - text: Beta decay
+          This treats production of helium as emission of a preexisting alpha particle. Helium appears in both descriptions. Check the nuclear reaction sequence.
+      - text: 'Beta decay'
         rationale: |
-          You picked single-nucleus electron emission. The primary solar reaction combines separate nuclei together into a heavier element.
+          This treats the entire chain as one electron-emission decay. Some nuclear conversions occur within the chain. Check the overall joining of light nuclei.
     explanation: |
-      Fusion is two small, light nuclei combining to form one larger nucleus, releasing an even greater amount of energy than fission: the process that powers the Sun.
+      Fusion combines light nuclei. In the Sun’s proton-proton chain, several steps give a net conversion of four hydrogen nuclei into helium-4, other particles, and energy.
     approved: true
+
   - id: q-chemistry-nuclear-chemistry-0008
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
       A student calculates the result of alpha decay by decreasing only the atomic number by 2, leaving the mass number unchanged. Is this correct?
     choices:
-      - text: 'No: alpha decay decreases both the mass number (by 4) and the atomic number (by 2).'
+      - text: 'No; A also decreases by 4.'
         correct: true
-      - text: 'Yes: alpha decay only ever changes atomic number.'
+      - text: 'Yes; only Z changes in alpha emission.'
         rationale: |
-          You ignored neutron loss. Alpha particles contain 2 neutrons in addition to 2 protons, reducing mass number by 4.
-      - text: 'No: alpha decay only changes mass number, not atomic number.'
+          This ignores the mass carried by the emitted protons and neutrons. The Z change is correct. Check the full emitted particle.
+      - text: 'No; only A changes and Z stays fixed.'
         rationale: |
-          You omitted proton loss. Ejecting 2 protons decreases the atomic number by 2 as well.
-      - text: 'Yes: no numbers change during alpha decay.'
+          This ignores the lost protons when updating Z. Four nucleons leave. Check how many are protons.
+      - text: 'Yes; alpha emission leaves both A and Z unchanged.'
         rationale: |
-          You confused alpha decay with gamma decay. Alpha decay ejects a helium-4 nucleus, changing both numbers.
+          This treats particle emission as energy-only emission. All decays carry energy. Check whether a helium nucleus also leaves.
     explanation: |
-      Alpha decay ejects a particle with 2 protons and 2 neutrons, so it reduces mass number by 4 and atomic number by 2: the student's calculation missed the mass number change entirely.
+      An alpha particle contains two protons and two neutrons. Removing it decreases Z by 2 and A by 4.
     approved: true
+
   - id: q-chemistry-nuclear-chemistry-0009
-    type: classify
-    difficulty: hard
+    type: 'cause-effect'
+    difficulty: 'hard'
     stem: |
-      A student describes the Sun's hydrogen-to-helium process as "fission," reasoning that fission and fusion are interchangeable terms. Is this correct?
+      What can sustain a fission chain reaction under suitable conditions?
     choices:
-      - text: 'No: the Sun''s process, joining small nuclei together, is fusion; fission is a large nucleus splitting apart.'
+      - text: 'Released neutrons cause further fissions.'
         correct: true
-      - text: 'Yes: fission and fusion always describe the exact same process.'
+      - text: 'Outer electrons cause every nucleus to split.'
         rationale: |
-          You treated opposite reactions as identical. Fusion combines small nuclei, while fission splits large nuclei.
-      - text: 'No: the Sun''s process is actually gamma decay.'
+          This assigns nuclear triggering to emitted outer electrons. Chemical reactions involve electrons. Check which particles induce the reactor fissions.
+      - text: 'Released heat guarantees every neighboring nucleus splits.'
         rationale: |
-          You classified solar energy as pure decay. Solar energy stems from nuclear fusion of hydrogen into helium.
-      - text: 'Yes: the Sun performs fission, not fusion.'
+          This treats released heat as sufficient to trigger every further fission. Heat is produced. Check the role of neutrons and suitable conditions.
+      - text: 'Every fission always sustains a chain regardless of conditions.'
         rationale: |
-          You assigned fission to the Sun. Solar nucleosynthesis merges hydrogen nuclei together, which is fusion.
+          This treats chain-reaction conditions as irrelevant. Fission releases neutrons. Check whether enough cause further fissions rather than escaping or being absorbed elsewhere.
     explanation: |
-      Fission splits a large nucleus apart; fusion joins small nuclei together. The Sun combines hydrogen nuclei into helium, which is fusion, not fission.
+      Fission often releases neutrons. If enough of those neutrons cause further fissions, the process can sustain a chain reaction.
     approved: true
+
   - id: q-chemistry-nuclear-chemistry-0010
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
       A student assumes that since gamma decay causes no change to atomic number or mass number, the resulting nucleus must have transformed into a different element. Is this correct?
     choices:
-      - text: 'No: gamma decay releases only energy; the element stays exactly the same before and after.'
+      - text: 'No; proton count stays unchanged.'
         correct: true
-      - text: 'Yes: gamma decay always transforms the nucleus into a new element.'
+      - text: 'Yes; every gamma emission creates a new element.'
         rationale: |
-          You claimed elemental transformation. Elemental identity depends on atomic number (protons), which gamma decay does not change.
-      - text: 'No: but only because gamma decay does not actually involve the nucleus at all.'
+          This treats any decay as an element change. Many decays do alter Z. Check whether gamma changes proton number.
+      - text: 'No; gamma emission cannot involve the nucleus.'
         rationale: |
-          You excluded the nucleus. Gamma decay originates within an excited nucleus relaxing to a lower energy state.
-      - text: 'Yes: any radioactive decay always changes the element.'
+          This treats no Z change as proof that the nucleus is uninvolved. Its composition stays fixed. Check whether its energy state can change.
+      - text: 'Yes; every radioactive process removes protons.'
         rationale: |
-          You assumed all decay changes element identity. Gamma decay releases photon energy without altering proton count.
+          This assumes radioactivity requires proton loss. Alpha emission does remove protons. Check the defining gamma process.
     explanation: |
-      Unlike alpha and beta decay, gamma decay does not change the atomic number or mass number: it simply releases excess energy as the nucleus settles into a more stable state, with the element staying the same.
+      Element identity depends on proton count, Z. Gamma emission leaves Z unchanged while lowering the nucleus’s energy. The element therefore remains the same.
     approved: true
+
   - id: q-chemistry-nuclear-chemistry-0011
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
-      A student assumes gamma rays must be the "weakest" and easiest to block, since gamma decay causes no elemental change. Is this correct?
+      Which statement about gamma shielding is accurate?
     choices:
-      - text: 'No: gamma rays are actually the most penetrating type of radiation discussed here, requiring thick lead or concrete to block.'
+      - text: 'Dense shielding reduces intensity.'
         correct: true
-      - text: 'Yes: gamma rays are the weakest and easiest to block, stopped by ordinary paper.'
+      - text: 'An ordinary paper sheet stops every gamma photon.'
         rationale: |
-          You assigned paper shielding to gamma rays. Alpha particles are stopped by paper; gamma rays pass through paper effortlessly.
-      - text: 'No: beta particles are actually the most penetrating.'
+          This applies thin alpha shielding to gamma photons. Paper blocks external alpha particles. Check the radiation type.
+      - text: 'No element change means gamma radiation cannot penetrate.'
         rationale: |
-          You ranked beta particles as most penetrating. Beta particles are stopped by thin aluminum foil, unlike highly penetrating gamma rays.
-      - text: 'Yes: "no elemental change" always means "less penetrating radiation."'
+          This equates no element change with weak penetration. Gamma emission leaves Z unchanged. Check the properties of the emitted radiation separately.
+      - text: 'A lead barrier guarantees every gamma photon is stopped.'
         rationale: |
-          You linked nuclear mass change to radiation penetration. Penetration depends on charge and energy: uncharged gamma rays penetrate deepest.
+          This treats shielding as an all-or-nothing barrier. Dense lead reduces intensity. Check whether attenuation guarantees zero transmitted photons.
     explanation: |
-      "No elemental change" is unrelated to penetrating power. Gamma rays are in fact the hardest of the three to shield against, needing thick lead or concrete, unlike alpha (stopped by paper) or beta (stopped by foil).
+      Gamma photons can penetrate deeply. Dense or thick shielding reduces their intensity by attenuating the radiation. Ordinary shielding does not guarantee that every photon is stopped.
     approved: true
+
   - id: q-chemistry-nuclear-chemistry-0012
-    type: compare-contrast
-    difficulty: medium
+    type: 'compare-contrast'
+    difficulty: 'medium'
     stem: |
-      Rank alpha particles, beta particles, and gamma rays from weakest to strongest penetrating power.
+      In the usual introductory comparison of alpha, beta-minus, and gamma radiation, which order goes from lower to higher penetration?
     choices:
-      - text: Alpha (weakest) < beta < gamma (strongest)
+      - text: 'Alpha (weakest) < beta < gamma (strongest)'
         correct: true
-      - text: Gamma (weakest) < beta < alpha (strongest)
+      - text: 'Gamma (weakest) < beta < alpha (strongest)'
         rationale: |
-          You reversed the penetration ranking completely. Large alpha particles are easiest to stop, while uncharged gamma rays penetrate deepest.
-      - text: Beta (weakest) < alpha < gamma (strongest)
+          This reverses the usual comparison. Gamma has no electric charge. Check the introductory shielding examples.
+      - text: 'Beta (weakest) < alpha < gamma (strongest)'
         rationale: |
-          You swapped alpha and beta particles. Heavy alpha particles have the lowest penetrating power and are stopped by paper.
-      - text: All three have exactly the same penetrating power.
+          This swaps alpha and beta-minus. Both are charged particles. Check which is readily stopped by thin paper.
+      - text: 'All three have exactly the same penetrating power.'
         rationale: |
-          You assumed equal penetration. Penetration varies drastically by particle size and charge (alpha < beta < gamma).
+          This treats all radiation as having equal range. All carry energy. Check the different particle and photon interactions.
     explanation: |
-      Alpha particles are stopped by paper (weakest), beta particles need aluminum foil, and gamma rays need thick lead or concrete (strongest): an increasing order of penetrating power.
+      In the usual introductory comparison, alpha radiation has the shortest range in matter, beta-minus is intermediate, and gamma is more penetrating. Actual penetration also depends on radiation energy and material.
     approved: true
+
   - id: q-chemistry-nuclear-chemistry-0013
-    type: simple-quantitative
-    difficulty: exam
+    type: 'simple-quantitative'
+    difficulty: 'exam'
     stem: |
       An atom with atomic number 90 and mass number 230 undergoes alpha decay twice in a row. Find the final atomic number and mass number.
     choices:
-      - text: Atomic number 86, mass number 222
+      - text: 'Atomic number 86, mass number 222'
         correct: true
-      - text: Atomic number 88, mass number 226
+      - text: 'Atomic number 88, mass number 226'
         rationale: |
-          You calculated for only one alpha decay. Two alpha decays subtract 4 from atomic number ($90 - 4 = 86$) and 8 from mass number ($230 - 8 = 222$).
-      - text: Atomic number 82, mass number 214
+          This applies only one decay. That is a valid intermediate result. Check the number of specified emissions.
+      - text: 'Atomic number 82, mass number 214'
         rationale: |
-          You subtracted 4 alpha decays instead of 2. Two decays reduce atomic number by 4 and mass number by 8.
-      - text: Atomic number 86, mass number 230
+          This applies four alpha emissions. Each decrease uses an alpha count. Check that only two emissions occur.
+      - text: 'Atomic number 86, mass number 230'
         rationale: |
-          You forgot to subtract mass numbers. Each alpha decay removes 4 nucleons, so two decays subtract 8 from mass number.
+          This changes Z but leaves A fixed. The proton count has been updated. Check the total nucleons emitted in both steps.
     explanation: |
-      Each alpha decay decreases atomic number by 2 and mass number by 4. After the first: atomic number $90-2=88$, mass number $230-4=226$. After the second: atomic number $88-2=86$, mass number $226-4=222$.
+      Each alpha emission removes 2 from Z and 4 from A. First: $Z=88$, $A=226$. Second: $Z=86$, $A=222$.
     approved: true
+
   - id: q-chemistry-nuclear-chemistry-0014
-    type: predict-outcome
-    difficulty: exam
+    type: 'compare-contrast'
+    difficulty: 'exam'
     stem: |
-      Comparing a fission reaction (a large uranium nucleus splitting apart) and a fusion reaction (small hydrogen nuclei combining), which process generally releases a greater amount of energy?
+      A claim says fusion releases more energy than fission without naming reactions or a comparison basis. What is needed to assess it?
     choices:
-      - text: Fusion generally releases even more energy than fission.
+      - text: 'Specify reactions and energy per event or mass.'
         correct: true
-      - text: Fission generally releases even more energy than fusion.
+      - text: 'Assume every fusion event exceeds every fission event.'
         rationale: |
-          You selected fission as higher energy yield. Per unit mass, nuclear fusion releases significantly more energy than fission.
-      - text: Both processes always release exactly the same amount of energy.
+          This turns a comparison into an exception-free per-event claim. Fusion is very energy-dense per fuel mass. Check the basis and particular reaction.
+      - text: 'Assume every fission and fusion event releases equal energy.'
         rationale: |
-          You assumed equal energy output. Fusion releases substantially more energy per unit mass than fission.
-      - text: Neither fission nor fusion releases any usable energy.
+          This treats different nuclear processes as equal-energy events. Both release energy. Check their actual reactions and measurement basis.
+      - text: 'Assume equal fuel masses necessarily give equal energies.'
         rationale: |
-          You claimed no usable energy is released. Both fission and fusion release immense amounts of nuclear binding energy.
+          This assumes the same fuel mass produces the same energy automatically. Mass is a possible comparison basis. Check the reaction’s released energy per unit mass.
     explanation: |
-      Nuclear fusion, joining small nuclei together, releases an even greater amount of energy than fission: this is why the Sun (powered by fusion) generates such enormous energy output.
+      An energy comparison needs a stated basis. Energy per event and energy per unit fuel mass compare different quantities. The particular fission and fusion reactions must also be specified.
     approved: true
+
+  - id: q-chemistry-nuclear-chemistry-0015
+    type: 'identify'
+    difficulty: 'easy'
+    stem: |
+      Which nuclear quantity determines element identity?
+    choices:
+      - text: 'Atomic number Z'
+        correct: true
+      - text: 'Mass number A'
+        rationale: |
+          This uses total nucleons to identify the element. A labels nuclides. Check which count is specifically the proton count.
+      - text: 'Nuclear energy level'
+        rationale: |
+          This treats an energy-state change as an element change. Gamma emission changes nuclear energy. Check whether proton number also changes.
+      - text: 'Number of orbital electrons'
+        rationale: |
+          This treats ion charge as element identity. Electrons determine atomic charge balance. Check whether the nucleus has changed its proton count.
+    explanation: |
+      Atomic number Z is the number of protons. It determines which element the nucleus belongs to.
+    approved: false
+
+  - id: q-chemistry-nuclear-chemistry-0016
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      In positron emission, how do A and Z change?
+    choices:
+      - text: 'A unchanged; Z decreases by 1'
+        correct: true
+      - text: 'A unchanged; Z increases by 1'
+        rationale: |
+          This uses beta-minus bookkeeping. Both processes are beta-related. Check which nucleon becomes which.
+      - text: 'A decreases by 4; Z decreases by 2'
+        rationale: |
+          This uses alpha bookkeeping. Both emit particles. Check whether a four-nucleon particle is emitted.
+      - text: 'A increases by 1; Z unchanged'
+        rationale: |
+          This treats nucleon conversion as nucleon addition. A neutron appears. Check that it replaces a proton.
+    explanation: |
+      A proton converts to a neutron. The nucleon total stays the same, and there is one fewer proton. Thus A is unchanged and Z falls by 1.
+    approved: false
+
+  - id: q-chemistry-nuclear-chemistry-0017
+    type: 'compare-contrast'
+    difficulty: 'hard'
+    stem: |
+      Which distinguishes electron capture from positron emission?
+    choices:
+      - text: 'Capture absorbs an electron; positron emission emits a positron.'
+        correct: true
+      - text: 'Capture emits an electron; positron emission captures a positron.'
+        rationale: |
+          This reverses the incoming and outgoing particles. Both names refer to particles. Check the word capture.
+      - text: 'Capture raises Z; positron emission always lowers A by 4.'
+        rationale: |
+          This mixes beta-minus and alpha changes into these processes. Several decay rules are familiar. Check their common proton-to-neutron conversion.
+      - text: 'Capture changes no nuclear particle; positron emission adds protons.'
+        rationale: |
+          This removes the nuclear change from capture and reverses positron bookkeeping. Capture starts with an atomic electron. Check the resulting proton-to-neutron change.
+    explanation: |
+      Electron capture takes an inner atomic electron into the nuclear process. Positron emission releases a positron. Both convert a proton to a neutron and decrease Z by 1.
+    approved: false
+
+  - id: q-chemistry-nuclear-chemistry-0018
+    type: 'predict-outcome'
+    difficulty: 'hard'
+    stem: |
+      Alpha particles have low external penetration. Which conclusion about alpha-emitting material follows?
+    choices:
+      - text: 'Internal contamination can still be hazardous.'
+        correct: true
+      - text: 'Paper shielding makes every exposure route harmless.'
+        rationale: |
+          This extends external shielding to material inside the body. Paper can block an outside source. Check whether that barrier is between the source and exposed tissue.
+      - text: 'Low penetration means alpha particles cannot ionize matter.'
+        rationale: |
+          This confuses low range with no ionization. Alpha particles stop quickly. Check whether stopping can involve strong interaction with matter.
+      - text: 'The material cannot affect living tissue in any circumstance.'
+        rationale: |
+          This turns limited penetration into zero biological effect. External shielding is effective. Check the internal-contamination case.
+    explanation: |
+      Alpha particles can strongly ionize material over short distances. Alpha-emitting material inside the body can therefore be hazardous.
+    approved: false
+
+  - id: q-chemistry-nuclear-chemistry-0019
+    type: 'process-ordering'
+    difficulty: 'exam'
+    stem: |
+      A nucleus undergoes alpha decay followed by beta-minus decay. What are the combined changes?
+    choices:
+      - text: 'A decreases by 4; Z decreases by 1'
+        correct: true
+      - text: 'A decreases by 4; Z decreases by 3'
+        rationale: |
+          This lowers Z for beta-minus instead of raising it. Alpha already lowers Z. Check beta-minus’s neutron-to-proton conversion.
+      - text: 'A unchanged; Z decreases by 1'
+        rationale: |
+          This tracks only net proton change and ignores alpha’s nucleons. The Z change is partly correct. Check the mass number too.
+      - text: 'A decreases by 5; Z decreases by 1'
+        rationale: |
+          This counts the emitted electron as one lost nucleon. An electron leaves. Check what particles contribute to mass number.
+    explanation: |
+      Alpha decay gives $A-4$ and $Z-2$. Beta-minus then leaves A fixed and raises Z by 1. The final values are $A-4$ and $Z-1$.
+    approved: false
+
+  - id: q-chemistry-nuclear-chemistry-0020
+    type: 'compare-contrast'
+    difficulty: 'exam'
+    stem: |
+      Which distinguishes ordinary chemical reactions from nuclear reactions?
+    choices:
+      - text: 'Chemical reactions leave nuclear counts unchanged.'
+        correct: true
+      - text: 'Chemical reactions routinely change an element’s proton count.'
+        rationale: |
+          This treats chemical bonding as a nuclear transformation. Products can be new substances. Check whether element identity changes through proton count.
+      - text: 'Nuclear reactions rearrange only outer electrons.'
+        rationale: |
+          This assigns chemical-electron rearrangement to nuclear reactions. Atoms have electrons and nuclei. Check which region defines a nuclear process.
+      - text: 'Every nuclear reaction must produce a different element.'
+        rationale: |
+          This turns a possible element change into a requirement. Many nuclear reactions alter Z. Check gamma emission’s unchanged Z.
+    explanation: |
+      Ordinary chemical reactions rearrange electrons and preserve nuclear proton and neutron counts. Nuclear processes involve nuclei and can change nuclides.
+    approved: false

@@ -1,0 +1,402 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/debrief/session_debrief_test.dart
+00:00 +0: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/debrief/session_debrief_test.dart: the headline spells the count
+00:00 +1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/debrief/session_debrief_test.dart: the headline handles a length outside the spelled range
+00:00 +2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/debrief/session_debrief_test.dart: the figures are counted and measured
+00:00 +3: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_mode_match_test.dart: ten questions across six lessons match fifty total minutes
+00:00 +4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_mode_match_test.dart: ten questions across six lessons match fifty total minutes
+00:00 +5: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_mode_match_test.dart: ten questions across six lessons match fifty total minutes
+00:00 +6: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_mode_match_test.dart: ten questions across six lessons match fifty total minutes
+00:00 +7: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_mode_match_test.dart: ten questions across six lessons match fifty total minutes
+00:00 +8: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_mode_match_test.dart: ten questions across six lessons match fifty total minutes
+00:00 +9: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_mode_match_test.dart: ten questions across six lessons match fifty total minutes
+00:00 +10: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_mode_match_test.dart: ten questions across six lessons match fifty total minutes
+00:00 +11: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_mode_match_test.dart: ten questions across six lessons match fifty total minutes
+00:00 +12: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_mode_match_test.dart: ten questions across six lessons match fifty total minutes
+00:00 +13: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/debrief/session_debrief_test.dart: a clean session has no misses and no promise
+00:00 +14: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_mode_match_test.dart: matching evaluates actual capped totals in each destination
+00:00 +15: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_mode_match_test.dart: short pools do not divide aggregate totals into a wrong base
+00:00 +16: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_mode_match_test.dart: quantized ties are deterministic and toggles settle
+00:00 +17: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_mode_match_test.dart: invalid short times are excluded and no selection has no conversion
+00:00 +18: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_selection_test.dart: nothing is selected to begin with
+00:00 +19: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_selection_test.dart: selecting a topic selects every lesson beneath it
+00:00 +20: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_selection_test.dart: a fully selected topic is one unit per lesson
+00:00 +21: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_selection_test.dart: deselecting one lesson drops the topic to the dash
+00:00 +22: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_selection_test.dart: a partly selected topic is one unit per kept lesson
+00:00 +23: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_selection_test.dart: deselecting the last lesson turns the topic off
+00:00 +24: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_selection_test.dart: selecting one lesson alone leaves the topic on the dash
+00:00 +25: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_selection_test.dart: a topic that cannot unfold is all or nothing
+00:00 +26: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_selection_test.dart: clearing drops everything
+00:00 +27: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_selection_test.dart: toggling a selected topic turns it off
+00:00 +28: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_selection_test.dart: toggling a partly selected topic fills it
+00:00 +29: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_adjustment_test.dart: Questions adjustment changes count and time without changing base
+00:00 +30: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_adjustment_test.dart: Total time adjustment moves a question and preserves total budget
+00:00 +31: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_adjustment_test.dart: singleton Total time has no alternate allocation
+00:00 +32: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_adjustment_test.dart: manual counts stay within real pool and keep a question per pick
+00:00 +33: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_adjustment_test.dart: uneven time split and real pool shortfall use actual counts
+00:00 +34: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_adjustment_test.dart: stale Total time overrides cannot change the current question budget
+00:00 +35: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_design_rules_test.dart: selecting a topic contributes one unit for each lesson
+00:00 +36: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_design_rules_test.dart: questions mode uses the approved initial pace of 50 seconds
+00:00 +37: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_design_rules_test.dart: total time is divided across lessons instead of multiplied
+00:00 +38: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_design_rules_test.dart: measured pace replaces the approved initial pace
+00:00 +39: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_design_rules_test.dart: positive sub-minute pace remains measured without clamping
+00:00 +40: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_design_rules_test.dart: empty pool keeps a zero estimate regardless of positive pace
+00:00 +41: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_design_rules_test.dart: no questions in a lesson never become a selectable unit
+00:00 +42: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_design_rules_test.dart: nonpositive pace 0 uses approved initial estimate for questions
+00:00 +43: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_design_rules_test.dart: nonpositive pace 0 uses bounded total-time budget
+00:00 +44: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_design_rules_test.dart: nonpositive pace -50000 uses approved initial estimate for questions
+00:00 +45: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_design_rules_test.dart: nonpositive pace -50000 uses bounded total-time budget
+00:00 +46: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/picker_test.dart: TodayTopicPicker uses due weakness new composition with due cards
+00:00 +47: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/picker_test.dart: TodayTopicPicker uses weakness and new composition with no due cards
+00:00 +48: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/picker_test.dart: TodayFullyMixedPicker avoids consecutive same-topic questions
+00:00 +49: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/picker_test.dart: RetakePicker returns recent incorrect question ids in order
+00:00 +50: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/picker_test.dart: InlineLessonPicker returns at most five questions from lesson subtopic
+00:00 +51: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/drill_picker_test.dart: the pool is shuffled, not taken from the top
+00:00 +52: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/drill_picker_test.dart: the same seed picks the same session
+00:00 +53: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/drill_picker_test.dart: recently answered questions are skipped
+00:00 +54: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/drill_picker_test.dart: an exhausted pool still fills the session
+00:00 +55: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/drill_picker_test.dart: a short pool gives what it has
+00:00 +56: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_index_test.dart: a topic with questions can be selected
+00:00 +57: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_index_test.dart: a topic with no questions cannot be selected
+00:00 +58: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_index_test.dart: a topic whose lessons hold no tagged questions cannot unfold
+00:00 +59: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_index_test.dart: a topic with one tagged lesson can unfold
+00:00 +60: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_summary_test.dart: nothing selected says so
+00:00 +61: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_summary_test.dart: three full pools give the wheel value each
+00:00 +62: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_summary_test.dart: a short pool is named in the detail line
+00:00 +63: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_summary_test.dart: one selection reads in the singular
+00:00 +64: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_summary_test.dart: no measured pace uses the approved initial pace
+00:00 +65: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_summary_test.dart: a measured pace adds the duration
+00:00 +66: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_summary_test.dart: minutes mode converts through the pace
+00:00 +67: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_summary_test.dart: total time without a measured pace uses the approved initial pace
+00:01 +68: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/build_today_queue_test.dart: topic queue shows due weakness and new counts per topic
+00:01 +69: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/streak/streak_evaluator_test.dart: Friday to Saturday credits rest-day work
+00:01 +70: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/streak/streak_evaluator_test.dart: Friday to Saturday credits rest-day work
+00:01 +71: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/streak/streak_evaluator_test.dart: Friday to Saturday credits rest-day work
+00:01 +72: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/streak/streak_evaluator_test.dart: Friday to Saturday credits rest-day work
+00:01 +73: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/streak/streak_evaluator_test.dart: Friday to Saturday credits rest-day work
+00:01 +74: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/streak/streak_evaluator_test.dart: Friday to Saturday credits rest-day work
+00:01 +75: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/streak/streak_evaluator_test.dart: Friday to Saturday credits rest-day work
+00:01 +76: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/streak/streak_evaluator_test.dart: Friday to Saturday credits rest-day work
+00:01 +77: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/streak/streak_evaluator_test.dart: Friday to Saturday credits rest-day work
+00:01 +78: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/streak/streak_evaluator_test.dart: Friday to Saturday credits rest-day work
+00:01 +79: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/streak/streak_evaluator_test.dart: Friday to Saturday credits rest-day work
+00:01 +80: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/streak/streak_evaluator_test.dart: Friday to Saturday credits rest-day work
+00:01 +81: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/streak/streak_evaluator_test.dart: Friday to Saturday credits rest-day work
+00:01 +82: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/streak/streak_evaluator_test.dart: Friday to Saturday credits rest-day work
+00:01 +83: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/streak/streak_evaluator_test.dart: Friday to Saturday credits rest-day work
+00:01 +84: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/streak/streak_evaluator_test.dart: Friday to Saturday credits rest-day work
+00:01 +85: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/streak/streak_evaluator_test.dart: Friday to Saturday credits rest-day work
+00:01 +86: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/streak/streak_evaluator_test.dart: Friday to Saturday credits rest-day work
+00:01 +87: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/streak/streak_evaluator_test.dart: Friday to Saturday credits rest-day work
+00:01 +88: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/streak/streak_evaluator_test.dart: Friday to Saturday credits rest-day work
+00:01 +89: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/streak/streak_evaluator_test.dart: Friday to Saturday credits rest-day work
+00:01 +90: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/streak/streak_evaluator_test.dart: Friday to Saturday credits rest-day work
+00:01 +91: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/streak/streak_evaluator_test.dart: Friday to Saturday credits rest-day work
+00:01 +92: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/streak/streak_evaluator_test.dart: Friday to Saturday credits rest-day work
+00:02 +93: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/start_quick_quiz_test.dart: scopes questions by topic id while migration is in progress
+00:02 +94: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/start_quick_quiz_test.dart: scopes questions by topic id while migration is in progress
+00:02 +95: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/start_quick_quiz_test.dart: scopes questions by topic id while migration is in progress
+00:02 +96: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/flagged_origin_test.dart: flagged origin survives stored restart resume and completion as timed non-streak practice
+00:02 +97: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/flagged_origin_test.dart: flagged origin survives stored restart resume and completion as timed non-streak practice
+00:02 +98: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill stores drill origin and subtopicId
+00:02 +99: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill stores drill origin and subtopicId
+00:02 +100: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill stores drill origin and subtopicId
+00:02 +101: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill stores drill origin and subtopicId
+00:02 +102: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill stores drill origin and subtopicId
+00:02 +103: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill stores drill origin and subtopicId
+00:02 +104: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill stores drill origin and subtopicId
+00:02 +105: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill stores drill origin and subtopicId
+00:02 +106: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill stores drill origin and subtopicId
+00:02 +107: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill stores drill origin and subtopicId
+00:02 +108: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill stores drill origin and subtopicId
+00:02 +109: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill supports 5 10 20 and all available lengths
+00:02 +110: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill supports 5 10 20 and all available lengths
+00:02 +111: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill supports 5 10 20 and all available lengths
+00:02 +112: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill supports 5 10 20 and all available lengths
+00:02 +113: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill supports 5 10 20 and all available lengths
+00:02 +114: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill supports 5 10 20 and all available lengths
+00:02 +115: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill supports 5 10 20 and all available lengths
+00:02 +116: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill supports 5 10 20 and all available lengths
+00:02 +117: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill supports 5 10 20 and all available lengths
+00:02 +118: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill supports 5 10 20 and all available lengths
+00:02 +119: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill supports 5 10 20 and all available lengths
+00:02 +120: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill supports 5 10 20 and all available lengths
+00:02 +121: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill falls back to General topic bucket when subtopicId is null
+00:02 +122: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_inline_lesson_quiz_test.dart: lesson quiz uses only its own questions, pool 3
+00:02 +123: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_inline_lesson_quiz_test.dart: lesson quiz uses only its own questions, pool 3
+00:02 +124: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_inline_lesson_quiz_test.dart: lesson quiz uses only its own questions, pool 3
+00:02 +125: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/complete_quiz_test.dart: throws StateError when session is incomplete
+00:02 +126: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_inline_lesson_quiz_test.dart: lesson quiz uses only its own questions, pool 7
+00:02 +127: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_inline_lesson_quiz_test.dart: inline lesson quiz stores inline origin lessonId and subtopicId
+00:02 +128: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_retake_test.dart: start retake stores retake origin and dedupes missed question ids
+00:02 +129: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_retake_test.dart: start retake stores retake origin and dedupes missed question ids
+00:02 +130: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_retake_test.dart: start retake stores retake origin and dedupes missed question ids
+00:02 +131: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/practice_recency_test.dart: selected lessons are mixed and the exact order is saved
+00:02 +132: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/practice_recency_test.dart: selected lessons are mixed and the exact order is saved
+00:02 +133: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/practice_recency_test.dart: selected lessons are mixed and the exact order is saved
+00:02 +134: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/practice_recency_test.dart: selected lessons are mixed and the exact order is saved
+00:02 +135: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_retake_test.dart: start retake caps the pool at 50 questions
+00:02 +136: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_retake_test.dart: start retake caps the pool at 50 questions
+00:02 +137: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_retake_test.dart: start retake caps the pool at 50 questions
+00:02 +138: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_retake_test.dart: start retake caps the pool at 50 questions
+00:02 +139: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/practice_recency_test.dart: passage grouping is identical in the displayed and durable order
+00:02 +140: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_retake_test.dart: empty mistake pool returns an empty-state result
+00:03 +141: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_today_session_test.dart: per-topic start builds context for selected topic and stores today_topic origin
+00:03 +142: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_today_session_test.dart: per-topic start builds context for selected topic and stores today_topic origin
+00:03 +143: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_today_session_test.dart: per-topic start builds context for selected topic and stores today_topic origin
+00:03 +144: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_today_session_test.dart: per-topic start builds context for selected topic and stores today_topic origin
+00:03 +145: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_today_session_test.dart: per-topic start builds context for selected topic and stores today_topic origin
+00:03 +146: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_today_session_test.dart: per-topic start builds context for selected topic and stores today_topic origin
+00:03 +147: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_today_session_test.dart: per-topic start builds context for selected topic and stores today_topic origin
+00:03 +148: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_today_session_test.dart: interleaved start stores today_interleaved origin
+00:03 +149: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_practice_test.dart: each unit contributes its own questions
+00:03 +150: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_practice_test.dart: each unit contributes its own questions
+00:03 +151: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_practice_test.dart: each unit contributes its own questions
+00:03 +152: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_practice_test.dart: each unit contributes its own questions
+00:03 +153: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_practice_test.dart: each unit contributes its own questions
+00:03 +154: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_practice_test.dart: each unit contributes its own questions
+00:03 +155: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/session_lifecycle_test.dart: resume hydrates question N plus saved progress
+00:03 +156: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/session_lifecycle_test.dart: resume hydrates question N plus saved progress
+00:03 +157: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/session_lifecycle_test.dart: resume hydrates question N plus saved progress
+00:03 +158: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/session_lifecycle_test.dart: resume hydrates question N plus saved progress
+00:03 +159: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/session_lifecycle_test.dart: resume hydrates question N plus saved progress
+00:03 +160: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/session_lifecycle_test.dart: resume hydrates question N plus saved progress
+00:03 +161: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/session_lifecycle_test.dart: resume hydrates question N plus saved progress
+00:03 +162: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/session_lifecycle_test.dart: resume hydrates question N plus saved progress
+00:03 +163: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/session_lifecycle_test.dart: resume hydrates question N plus saved progress
+00:03 +164: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/session_lifecycle_test.dart: resume hydrates question N plus saved progress
+00:03 +165: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/session_lifecycle_test.dart: resume hydrates question N plus saved progress
+00:03 +166: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/session_lifecycle_test.dart: quit marks the active session quit and keeps answers
+00:03 +167: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/selectors/new_card_selector_test.dart: excludes questions with review state and respects cap remaining
+00:03 +168: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/session_lifecycle_test.dart: restart requires explicit call and creates a new session
+00:03 +169: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/session_lifecycle_test.dart: restart requires explicit call and creates a new session
+00:03 +170: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/session_lifecycle_test.dart: restart requires explicit call and creates a new session
+00:03 +171: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/session_lifecycle_test.dart: completed sessions are not resumable
+00:03 +172: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/session_lifecycle_test.dart: resume restores persisted answer outcomes in order
+00:04 +173: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/selectors/subtopic_filter_test.dart: filters questions by subtopic id
+00:04 +174: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/selectors/weakness_selector_test.dart: ranks low rolling accuracy subtopics first
+00:04 +175: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/selectors/weakness_selector_test.dart: ranks low rolling accuracy subtopics first
+00:04 +176: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/selectors/weakness_selector_test.dart: candidates sharing a weak topic all qualify
+00:04 +177: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/selectors/recency_filter_test.dart: avoids consecutive same-topic questions when possible
+00:04 +178: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/selectors/recency_filter_test.dart: keeps degenerate all-same-topic lists intact
+00:04 +179: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/quiz_session_test.dart: start() creates a session at index 0 with no outcomes
+00:04 +180: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/quiz_session_test.dart: record() stores the outcome and stays on the question
+00:04 +181: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/quiz_session_test.dart: advance() stops at the last question
+00:04 +182: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/quiz_session_test.dart: isComplete after every question answered
+00:04 +183: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/quiz_session_test.dart: start stores origin topic subtopic lesson and ordered questions
+00:04 +184: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/quiz_session_test.dart: today origins are recognized as streak eligible
+00:04 +185: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/quiz_session_test.dart: drill retake and inline origins are not streak eligible
+00:04 +186: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/quiz_session_test.dart: an answered question keeps its outcome when revisited
+00:04 +187: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/quiz_session_test.dart: start() puts a passage set in one run, whatever order it arrives in
+00:04 +188: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/qlp5_performance_collector_test.dart: collector reports deterministic median p95 max and 30-run readiness
+00:04 +189: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/qlp5_performance_collector_test.dart: frame collector reports build raster and 60 Hz misses
+00:04 +190: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/qlp5_performance_collector_test.dart: collector accepts fixed internal phase samples without payload fields
+00:04 +191: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/roadmap_today_launch_test.dart: real Start consumes successive roadmap sittings past ten new questions
+00:04 +192: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/roadmap_today_launch_test.dart: real Start consumes successive roadmap sittings past ten new questions
+00:04 +193: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/roadmap_today_launch_test.dart: real Start consumes successive roadmap sittings past ten new questions
+00:04 +194: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/roadmap_today_launch_test.dart: roadmap rebuild replaces a prepared sitting
+00:04 +195: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/roadmap_today_launch_test.dart: roadmap rebuild replaces a prepared sitting
+00:04 +196: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/roadmap_today_launch_test.dart: roadmap rebuild replaces a prepared sitting
+00:04 +197: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/quiz_completion_coordinator_test.dart: atomically persists attempt and completedAt for one persisted session
+00:04 +198: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/quiz_completion_coordinator_test.dart: atomically persists attempt and completedAt for one persisted session
+00:05 +199: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/roadmap_today_launch_test.dart: reviews due later today count as reviews in the sitting
+00:05 +200: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/quiz_completion_coordinator_test.dart: failed terminal session update rolls back the attempt write
+00:05 +201: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/roadmap_today_launch_test.dart: lesson metadata holds unread lessons behind available questions
+00:05 +202: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/roadmap_today_launch_test.dart: lesson metadata holds unread lessons behind available questions
+00:05 +203: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/roadmap_today_launch_test.dart: advance invalidates a cached empty sitting without changing history
+00:05 +204: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/roadmap_today_launch_test.dart: topic All ignores legacy zero cap and daily introduction count
+00:05 +205: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/roadmap_today_launch_test.dart: unassessed and empty scope return empty without hydration
+00:05 +206: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/qlp5_evidence_provenance_test.dart: provenance schema is fixed to non-secret release and device descriptors
+00:05 +207: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/review_batch_scope_test.dart: Reviews reuse the existing lifetime guard and stable principal across auth changes
+00:05 +208: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/review_batch_scope_test.dart: Reviews reuse the existing lifetime guard and stable principal across auth changes
+00:05 +209: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/review_batch_scope_test.dart: Reviews reuse the existing lifetime guard and stable principal across auth changes
+00:05 +210: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/review_batch_scope_test.dart: Reviews reuse the existing lifetime guard and stable principal across auth changes
+00:05 +211: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/review_batch_scope_test.dart: Reviews reuse the existing lifetime guard and stable principal across auth changes
+00:05 +212: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/review_batch_scope_test.dart: Reviews reuse the existing lifetime guard and stable principal across auth changes
+00:05 +213: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/quiz_performance_instrumentation_test.dart: Today prepare and launch expose only fixed performance phases
+00:05 +214: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/quiz_provider_semantics_test.dart: daily intro writes do not change cached Today preparation
+00:05 +215: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/quiz_completion_refresh_test.dart: durable quiz completion publishes a session-panel refresh revision
+00:05 +216: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/quiz_completion_refresh_test.dart: durable quiz completion publishes a session-panel refresh revision
+00:05 +217: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/quiz_provider_semantics_test.dart: named-topic interleaved Today keeps the E05 70/30 composition
+00:05 +218: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/quiz_providers_review_log_test.dart: submitAnswerProvider persists review state and review log
+00:05 +219: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/quiz_providers_review_log_test.dart: submitAnswerProvider persists review state and review log
+00:06 +220: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/quiz_providers_review_log_test.dart: submitAnswerProvider persists review state and review log
+00:06 +221: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/quiz_provider_semantics_test.dart: Settings ordering beats conflicting legacy value through one persisted Today launch
+00:06 +222: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/quiz_launch_coordinator_test.dart: rapid Today launches coalesce into one persistence call
+00:06 +223: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/quiz_launch_coordinator_test.dart: launch failure is reported once without a detached cleanup error
+00:06 +224: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/quiz_launch_coordinator_test.dart: a stale supplied preparation is recomputed before persistence
+00:06 +225: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/quiz_launch_coordinator_test.dart: cancellation before persistence prevents a late create
+00:06 +226: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/quiz_launch_coordinator_test.dart: cancellation while persistence waits can prevent the commit
+00:06 +227: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/quiz_launch_coordinator_test.dart: post-commit cancellation keeps one resumable session and later launch reuses it
+00:06 +228: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/quiz_launch_coordinator_test.dart: freshness change after terminal completion launches a new Today session
+00:06 +229: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/quiz_launch_coordinator_test.dart: freshness change never replaces an authoritative active session
+00:06 +230: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_preferences_repository_test.dart: default quiz preferences are length 10 and interleaved tail
+00:06 +231: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_preferences_repository_test.dart: sessionLength accepts 5 10 20 and all-due sentinel
+00:06 +232: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_preferences_repository_test.dart: save writes quiz preferences to account prefs only
+00:06 +233: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_preferences_repository_test.dart: read ignores invalid stored values and falls back per field
+00:06 +234: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_preferences_repository_test.dart: saving leaves the legacy cap key unchanged and never creates it
+00:06 +235: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_preferences_repository_test.dart: explicit Settings ordering wins disagreement with legacy quiz key
+00:06 +236: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_preferences_repository_test.dart: legacy boolean ordering remains fallback only when Settings is absent
+00:06 +237: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/repos/quiz_session_repository_average_test.dart: returns null below the minimum number of sessions
+00:06 +238: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/repos/quiz_session_repository_average_test.dart: averages once the minimum is reached
+00:06 +239: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/repos/quiz_session_repository_average_test.dart: ignores sessions that were never completed
+00:06 +240: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/repos/practice_preferences_repository_test.dart: last picks and length reopen independently for each exam
+00:06 +241: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/report_queue_test.dart: reports survive reopening and the fourth for a question is refused
+00:06 +242: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/report_queue_test.dart: twenty per local day, reset at midnight, blank does not use a slot
+00:06 +243: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_repository_test.dart: create stores active session with currentIndex zero
+00:06 +244: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_repository_test.dart: recordAnswer advances currentIndex correctCount and lastAnsweredAt
+00:06 +245: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_repository_test.dart: resume returns newest uncompleted unquit session for a user
+00:06 +246: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_repository_test.dart: complete sets completedAt and quit sets quitAt
+00:06 +247: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_repository_test.dart: restart discards prior active session only after explicit call
+00:06 +248: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_repository_test.dart: starting a session closes whatever was left open for that exam
+00:06 +249: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_repository_test.dart: a session for another exam is left alone
+00:06 +250: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_repository_test.dart: quitAllOpen closes every open session, not just the newest
+00:06 +251: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_repository_test.dart: guarded create rolls back prior active session when cancelled before insert
+00:06 +252: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_repository_test.dart: guarded create rolls back when cancelled after awaited insert before commit
+00:06 +253: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_repository_test.dart: guarded create commits exactly one replacement when all checkpoints stay valid
+00:06 +254: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: packs actual whole groups under cap, excludes oversized sets, All stays one chunk
+00:06 +255: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: freezes membership, captures versions and persists actual 3 sessions
+00:06 +256: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_migration_test.dart: v23 migration adds outcomes and closes only answered legacy active sessions
+00:06 +257: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_migration_test.dart: v23 migration adds outcomes and closes only answered legacy active sessions
+00:06 +258: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_migration_test.dart: v23 migration adds outcomes and closes only answered legacy active sessions
+00:06 +259: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: completion advances atomically and explicit concurrent Continue claims one next row
+00:07 +260: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: failed metadata terminal write rolls back Attempt and completedAt
+00:07 +261: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: next create failure rolls back lifecycle and retry claims stored chunk
+00:07 +262: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/new_card_intro_repository_test.dart: countForDay returns zero when no new cards were introduced
+00:07 +263: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/new_card_intro_repository_test.dart: countForDay returns zero when no new cards were introduced
+00:07 +264: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/new_card_intro_repository_test.dart: countForDay returns zero when no new cards were introduced
+00:07 +265: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/new_card_intro_repository_test.dart: countForDay returns zero when no new cards were introduced
+00:07 +266: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: missing content blocks resume with saved membership and answers unchanged
+00:07 +267: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/new_card_intro_repository_test.dart: incrementForDay adds to the local midnight bucket
+00:07 +268: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: revised content blocks batch resume and retains original versions
+00:07 +269: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/new_card_intro_repository_test.dart: countForDay is scoped by user exam and day
+00:07 +270: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: malformed metadata cannot claim next and keeps active row for explicit discard
+00:07 +271: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: final completion removes metadata, earlier duplicate completion cannot advance twice
+00:07 +272: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: ordinary create cannot silently discard an unfinished Reviews batch
+00:07 +273: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: actual account wipe leaves prefs and next use removes orphan metadata
+00:07 +274: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: lifetime change while content is awaited rolls back first session
+00:07 +275: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: different exam cannot claim an existing batch
+00:07 +276: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: legacy resume rejects missing IDs rather than shrinking saved questions
+00:07 +277: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: completion account change rolls back Attempt and batch state
+00:07 +278: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: completion cannot save a different question order under a batch session ID
+00:07 +279: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: packing closes a shorter chunk before a whole passage exceeds remaining room
+00:07 +280: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: strict parser rejects malformed lifecycle, types, scope and duplicate membership
+00:07 +281: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: ordinary resume retains actual batch ordinal and completion keeps that snapshot
+00:07 +282: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_controller_test.dart: (setUpAll)
+00:07 +282: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: wrong-principal repeated resume stays blocked until original principal returns
+00:07 +283: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_controller_test.dart: start() loads questions and transitions to running
+00:07 +284: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_controller_test.dart: start() loads questions and transitions to running
+00:07 +285: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: stale historical quit cannot delete a newer active Reviews batch
+00:07 +286: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: stale historical quit cannot delete a newer active Reviews batch
+00:07 +287: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: ordinary quiz between chunks preserves Reviews and Continue never quits it
+00:07 +288: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: resume guards lifetime from before its first database await
+00:07 +289: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: another principal cannot discard an anchored batch or its saved row
+00:07 +290: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: explicit inter-chunk discard preserves unrelated quiz and frees Reviews key
+00:07 +291: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: completing ordinary quiz between chunks leaves Reviews lifecycle intact
+00:07 +292: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: first metadata write failure rolls back its new ordinary session row
+00:07 +293: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: completion guards lifetime before its first metadata database await
+00:07 +294: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: explicit malformed batch discard keeps ordinary progress available
+00:08 +295: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/atoms/atom_rotation_test.dart: returns the same atom for the same user and local date
+00:08 +296: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/atoms/atom_rotation_test.dart: does not repeat yesterday when alternatives are available
+00:08 +297: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/atoms/atom_rotation_test.dart: returns null when no atom has data
+00:08 +298: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/atoms/home_atoms_test.dart: time of day atom reports the sharpest hour
+00:08 +299: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/atoms/home_atoms_test.dart: session shape atom rounds average minutes
+00:08 +300: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/atoms/home_atoms_test.dart: consistency atom reports current streak
+00:08 +301: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/atoms/home_atoms_test.dart: per question speed atom reports average seconds
+00:08 +302: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/atoms/home_atoms_test.dart: subject affinity atom reports fastest subject delta
+00:08 +303: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/atoms/home_atoms_test.dart: coverage breadth atom reports syllabus coverage percent
+00:08 +304: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/atoms/home_atoms_test.dart: retention shape atom reports lapse rate
+00:08 +305: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/atoms/home_atoms_test.dart: atom returns null when its signal is unavailable
+00:08 +306: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/archetypes/archetype_templates_test.dart: game_day_player line states its measured inputs
+00:08 +307: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:08 +308: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:08 +309: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:08 +310: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:08 +311: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:08 +312: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:08 +313: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:08 +314: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:08 +315: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:08 +316: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:08 +317: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:08 +318: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:08 +319: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:08 +320: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:08 +321: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:08 +322: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:08 +323: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:08 +324: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:08 +325: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:08 +326: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:08 +327: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:08 +328: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:08 +329: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:08 +330: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:08 +331: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:08 +332: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:08 +333: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:08 +334: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:08 +335: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:08 +336: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:08 +337: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:08 +338: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:08 +339: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:08 +340: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the flagged list groups by subject
+00:08 +341: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/providers/home_atom_provider_test.dart: selects a fallback atom when the first rotated atom has no data
+00:08 +342: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/providers/home_atom_provider_test.dart: selects a fallback atom when the first rotated atom has no data
+00:08 +343: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: the button counts what is in the list
+00:09 +344: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/providers/current_archetype_provider_test.dart: cached weekday_warrior falls through to fresh resolve
+00:09 +345: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/providers/current_archetype_provider_test.dart: cached weekday_warrior falls through to fresh resolve
+00:09 +346: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/signals/consistency_signal_test.dart: reads current streak and completed-session weekday counts
+00:09 +347: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/signals/subject_affinity_signal_test.dart: an assessment row counts for accuracy
+00:09 +348: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: emptying the list says what to do
+00:09 +349: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: emptying the list says what to do
+00:09 +350: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: emptying the list says what to do
+00:09 +351: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: emptying the list says what to do
+00:09 +352: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/pages/flagged_list_page_test.dart: emptying the list says what to do
+00:09 +353: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/signals/mock_pacing_signal_test.dart: computes average spare seconds and section timing
+00:09 +354: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/signals/study_profile_signals_test.dart: subject affinity groups accuracy and speed by subject
+00:09 +355: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/signals/flag_revisit_signal_test.dart: counts flagged questions that were answered
+00:09 +356: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/signals/per_question_speed_signal_test.dart: computes average response speed by correctness
+00:09 +357: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/signals/per_question_speed_signal_test.dart: computes average response speed by correctness
+00:09 +358: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/signals/per_question_speed_signal_test.dart: computes average response speed by correctness
+00:09 +359: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/signals/per_question_speed_signal_test.dart: computes average response speed by correctness
+00:09 +360: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/signals/per_question_speed_signal_test.dart: computes average response speed by correctness
+00:09 +361: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/signals/study_profile_signals_test.dart: retention shape computes average stability and lapse rate
+00:09 +362: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/signals/study_profile_signals_test.dart: retention shape computes average stability and lapse rate
+00:09 +363: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/signals/mock_stamina_signal_test.dart: compares first-half and second-half mock accuracy
+00:09 +364: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/signals/mock_stamina_signal_test.dart: compares first-half and second-half mock accuracy
+00:09 +365: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/signals/mock_stamina_signal_test.dart: compares first-half and second-half mock accuracy
+00:09 +366: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/signals/mock_stamina_signal_test.dart: compares first-half and second-half mock accuracy
+00:09 +367: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/signals/mock_stamina_signal_test.dart: compares first-half and second-half mock accuracy
+00:10 +368: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/signals/mock_stamina_signal_test.dart: compares first-half and second-half mock accuracy
+00:10 +369: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/signals/mock_stamina_signal_test.dart: compares first-half and second-half mock accuracy
+00:10 +370: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/signals/mock_stamina_signal_test.dart: compares first-half and second-half mock accuracy
+00:10 +371: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/signals/study_profile_signals_test.dart: first answers dilute neither lapse rate nor Wilson uncertainty
+00:10 +372: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/signals/study_profile_signals_test.dart: coverage breadth counts topics with at least one read lesson
+00:10 +373: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/signals/session_shape_signal_test.dart: averages completed quiz and mock durations in minutes
+00:10 +374: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/signals/mock_payload_reader_test.dart: parses mock sample, answers, flags, and section results
+00:10 +375: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/signals/mock_payload_reader_test.dart: returns empty collections for malformed optional mock json
+00:10 +376: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/signals/mock_payload_reader_test.dart: new result counts and review reasons do not change metric inputs
+00:10 +377: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/signals/attempt_item_reader_test.dart: parses attempt items json with response timing and correctness
+00:10 +378: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/signals/time_of_day_signal_test.dart: returns null below the window threshold
+00:10 +379: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/signals/time_of_day_signal_test.dart: returns null below the window threshold
+00:10 +380: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/signals/time_of_day_signal_test.dart: aggregates completed quiz and mock accuracy by hour
+00:10 +381: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/data/user_metrics_archetype_repository_test.dart: returns cached archetype only before validUntil
+00:10 +382: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/domain/metrics_window_resolver_test.dart: rolling30d starts 30 days before now and requires 7 sessions
+00:10 +383: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/domain/metrics_window_resolver_test.dart: rolling30d starts 30 days before now and requires 7 sessions
+00:10 +384: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/domain/metrics_window_resolver_test.dart: rolling30d starts 30 days before now and requires 7 sessions
+00:10 +385: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/domain/metrics_window_resolver_test.dart: rolling30d starts 30 days before now and requires 7 sessions
+00:10 +386: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/domain/metrics_window_resolver_test.dart: rolling30d starts 30 days before now and requires 7 sessions
+00:10 +387: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/domain/metrics_window_resolver_test.dart: rolling30d starts 30 days before now and requires 7 sessions
+00:10 +388: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/domain/metrics_window_resolver_test.dart: rolling30d starts 30 days before now and requires 7 sessions
+00:10 +389: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/domain/metrics_window_resolver_test.dart: rolling30d starts 30 days before now and requires 7 sessions
+00:10 +390: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/domain/metrics_window_resolver_test.dart: rolling30d starts 30 days before now and requires 7 sessions
+00:10 +391: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/domain/metrics_window_resolver_test.dart: rolling30d starts 30 days before now and requires 7 sessions
+00:10 +392: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/domain/metrics_window_resolver_test.dart: rolling30d starts 30 days before now and requires 7 sessions
+00:10 +393: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/domain/metrics_window_resolver_test.dart: rolling30d starts 30 days before now and requires 7 sessions
+00:10 +394: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/domain/metrics_window_resolver_test.dart: rolling30d starts 30 days before now and requires 7 sessions
+00:10 +395: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/domain/metrics_window_resolver_test.dart: rolling30d starts 30 days before now and requires 7 sessions
+00:10 +396: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/domain/metrics_window_resolver_test.dart: prepWindow uses original prep start and requires 14 sessions
+00:10 +397: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/domain/metrics_window_resolver_test.dart: allTime has no start and requires one session
+00:10 +398: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/metrics/domain/metrics_window_resolver_test.dart: counts completed mocks as sessions for threshold checks
+00:10 +399: All tests passed!

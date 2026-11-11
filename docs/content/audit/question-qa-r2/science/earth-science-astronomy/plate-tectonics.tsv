@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-earth-science-astronomy-plate-tectonics-0001	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-plate-tectonics-0002	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-plate-tectonics-0003	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	HIGH	Named/date history untaught; 1959 date is unsupported by checked USGS chronology (model 1960, publication 1962); stem, choices, key preserved.
+q-earth-science-astronomy-plate-tectonics-0004	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	MEDIUM	Original implied swimming was impossible without identifying the reptile's land habitat.
+q-earth-science-astronomy-plate-tectonics-0005	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	HIGH	Original claimed one 1959 discovery supplied the entire force and acceptance mechanism.
+q-earth-science-astronomy-plate-tectonics-0006	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-plate-tectonics-0007	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-plate-tectonics-0008	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-plate-tectonics-0009	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	MEDIUM	Duplicate transform classification replaced with fault-motion classification.
+q-earth-science-astronomy-plate-tectonics-0010	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-plate-tectonics-0011	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-plate-tectonics-0012	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	MEDIUM	Arrival order appears in lesson figure, but solid/liquid transmission is untaught; stem, choices, key preserved.
+q-earth-science-astronomy-plate-tectonics-0013	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	MEDIUM	Solid/liquid transmission is untaught; stem, choices, key preserved.
+q-earth-science-astronomy-plate-tectonics-0014	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	MEDIUM	Wave-transmission properties untaught; stem, choices, key preserved; overlap with 0012/0013 and answer-length cue retained.
+q-earth-science-astronomy-plate-tectonics-0015	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-plate-tectonics-0016	VERIFIED	SOLVED-MATCH	explanation;notes	HIGH	Original explanation falsely described wholesale melting of the subducting plate.
+q-earth-science-astronomy-plate-tectonics-0017	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	MEDIUM	Hotspot volcanism is untaught; stem, choices, key preserved, including longest-answer cue.
+q-earth-science-astronomy-plate-tectonics-0018	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	MEDIUM	Density contrast as a subduction cause is untaught; stem, choices, key preserved, including answer-length cue.
+q-earth-science-astronomy-plate-tectonics-0019	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	MEDIUM	Core-state seismology is untaught; stem, choices, key preserved; duplicates layer lesson and retains answer-length cue.
+q-earth-science-astronomy-plate-tectonics-0020	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	MEDIUM	Hotspots and collision landforms are not fully taught; stem, choices, key preserved, including answer-length cue.

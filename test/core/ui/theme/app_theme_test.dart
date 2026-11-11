@@ -1,47 +1,81 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pantas/core/ui/theme/app_colors.dart';
-import 'package:pantas/core/ui/theme/app_dimensions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 
 void main() {
-  test('new dimension tokens', () {
-    expect(AppDimensions.radiusButton, 5);
-    expect(AppDimensions.radiusSurface, 8);
-    expect(AppDimensions.hairline, 1.0);
-    expect(AppDimensions.progressHeight, 3.0);
-  });
+  for (final dark in [false, true]) {
+    test('web removes pressed ink but keeps hover and phone feedback $dark',
+        () {
+      final theme =
+          dark ? buildDarkTheme(web: true) : buildLightTheme(web: true);
+      expect(theme.splashFactory, NoSplash.splashFactory);
+      expect(theme.highlightColor, Colors.transparent);
+      expect(theme.splashColor, Colors.transparent);
+      for (final overlay in [
+        theme.textButtonTheme.style?.overlayColor,
+        theme.elevatedButtonTheme.style?.overlayColor,
+        theme.outlinedButtonTheme.style?.overlayColor,
+        theme.iconButtonTheme.style?.overlayColor,
+        theme.checkboxTheme.overlayColor,
+        theme.radioTheme.overlayColor,
+        theme.switchTheme.overlayColor,
+      ]) {
+        expect(overlay?.resolve({WidgetState.pressed}), Colors.transparent);
+        expect(
+          overlay?.resolve({WidgetState.hovered}),
+          isNot(Colors.transparent),
+        );
+      }
+      // A filled button hovers by darkening its fill (`accent-fill-hover`),
+      // so it adds no wash.
+      expect(
+        theme.filledButtonTheme.style!.backgroundColor!
+            .resolve({WidgetState.hovered}),
+        isNot(theme.filledButtonTheme.style!.backgroundColor!.resolve({})),
+      );
+      // The system has no ripple (it presses with a scale and washes), so the
+      // phone theme draws none either.
+      final phone =
+          dark ? buildDarkTheme(web: false) : buildLightTheme(web: false);
+      expect(phone.splashFactory, NoSplash.splashFactory);
+      expect(phone.highlightColor, Colors.transparent);
+    });
+  }
 
   test('themes use paper/ink scaffold backgrounds', () {
     expect(
       buildLightTheme().scaffoldBackgroundColor,
-      AppColors.light.background,
+      PantasColors.light.background,
     );
-    expect(buildDarkTheme().scaffoldBackgroundColor, AppColors.dark.background);
+    expect(
+      buildDarkTheme().scaffoldBackgroundColor,
+      PantasColors.dark.background,
+    );
   });
 
   test('light scheme overrides Material-seeded colors with identity tokens',
       () {
     final scheme = buildLightTheme().colorScheme;
-    const c = AppColors.light;
-    expect(scheme.primary, c.board);
-    expect(scheme.onPrimary, c.onBoard);
+    const c = PantasColors.light;
+    expect(scheme.primary, c.accent);
+    expect(scheme.onPrimary, c.surface);
     expect(scheme.surface, c.surface);
-    expect(scheme.onSurface, c.ink);
-    expect(scheme.error, c.rust);
-    expect(scheme.outline, c.rule);
+    expect(scheme.onSurface, c.label);
+    expect(scheme.error, c.destructive);
+    expect(scheme.outline, c.separator);
     expect(scheme.surfaceTint, Colors.transparent);
   });
 
   test('dark scheme overrides Material-seeded colors with identity tokens', () {
     final scheme = buildDarkTheme().colorScheme;
-    const c = AppColors.dark;
-    expect(scheme.primary, c.board);
-    expect(scheme.onPrimary, c.onBoard);
+    const c = PantasColors.dark;
+    expect(scheme.primary, c.accent);
+    expect(scheme.onPrimary, c.surface);
     expect(scheme.surface, c.surface);
-    expect(scheme.onSurface, c.ink);
-    expect(scheme.error, c.rust);
-    expect(scheme.outline, c.rule);
+    expect(scheme.onSurface, c.label);
+    expect(scheme.error, c.destructive);
+    expect(scheme.outline, c.separator);
     expect(scheme.surfaceTint, Colors.transparent);
   });
 
@@ -54,33 +88,35 @@ void main() {
 
   test('app bar is flat paper with ink title', () {
     final theme = buildLightTheme();
-    const c = AppColors.light;
+    const c = PantasColors.light;
     final appBar = theme.appBarTheme;
     expect(appBar.backgroundColor, c.background);
     expect(appBar.surfaceTintColor, Colors.transparent);
     expect(appBar.elevation, 0);
     expect(appBar.scrolledUnderElevation, 0);
     expect(appBar.centerTitle, false);
-    expect(appBar.titleTextStyle?.color, c.ink);
+    expect(appBar.titleTextStyle?.color, c.label);
   });
 
-  test('dividers are 1px rule hairlines', () {
+  test('dividers use the separator width', () {
     final divider = buildLightTheme().dividerTheme;
-    expect(divider.color, AppColors.light.rule);
-    expect(divider.thickness, 1);
+    expect(divider.color, PantasColors.light.separator);
+    expect(divider.thickness, 0.5);
   });
 
   test('dialogs and sheets are flat identity surfaces', () {
     final theme = buildDarkTheme();
-    const c = AppColors.dark;
-    expect(theme.dialogTheme.backgroundColor, c.surface);
+    const c = PantasColors.dark;
+    // Dialog README: `surface-modal` and `radius-2xl` (22). The theme drew
+    // `surface` and 14 before the layer 4 audit.
+    expect(theme.dialogTheme.backgroundColor, c.surfaceModal);
     expect(
       theme.dialogTheme.shape,
       const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(8)),
+        borderRadius: BorderRadius.all(Radius.circular(22)),
       ),
     );
-    expect(theme.bottomSheetTheme.backgroundColor, c.background);
+    expect(theme.bottomSheetTheme.backgroundColor, c.surfaceModal);
     expect(theme.bottomSheetTheme.surfaceTintColor, Colors.transparent);
   });
 }

@@ -1,0 +1,7 @@
+Computing fixes in review_batch_scope_test.dart...
+Applying fixes...
+
+review_batch_scope_test.dart
+  require_trailing_commas - 2 fixes
+
+2 fixes made in 1 file.

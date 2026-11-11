@@ -1,0 +1,23 @@
+{
+  "material_input_sha256": {
+    "pubspec.lock": "13d3e8745af966d0a88570b033f9dc600f47c858d4f0f2127bc6779cfbfc5371",
+    ".dart_tool/package_config.json": "cf206973b14cc670b851dfda1be07f0e151d2f3cbae20f685650b513bb9cdae3",
+    "assets/seed/content.db": "0ef89a64f2d2f63854b3d22048a7d992d5c04fb03df4fec2e7f4e898e6d083dc",
+    "assets/seed/content.manifest.json": "51bc0a766558879e540475ab972f03df7e3077241bab8f688c1b50ece5874f23",
+    "assets/seed/content.manifest.sig": "e0853df259529031344f14d5a5fe6628e1b92c367a96c584894058fe13199f31",
+    "content/exams/catalog.json": "a87d1eeb920817516e2d5c733ea0e9986df96e169fc84e7aaa05daed9a4210b6",
+    "lib/core/storage/data/app_database.g.dart": "49ee9c6718b15d09b5e22996d4c5108ee92bf92a4e9fef90cb04b54be0216871",
+    "lib/core/content/content_database.g.dart": "08e1e52b46d846dd5bd156cbd31fdf13e8dbe802860d70b655dc86ceafdde615",
+    "lib/features/quiz/domain/quiz_session.freezed.dart": "aa66ef646c920af654f2cf378796f1d66c00208898c65e3d909410ac2ca08c99",
+    "assets/fonts/Geist-Regular.ttf": "85a1c6b18a6b0a06dfe9fd4f6d6a5d4979f74ec861eaef4bc7868b5492b8a117",
+    "assets/fonts/SourceSerif4-Semibold.ttf": "36db62940cb5728b12b1802476dc7fcf4c6c519a7bdd476ba23a4e555fc4655f",
+    "assets/fonts/SourceSans3-Regular.ttf": "8925c8765857c0d20210b523e22ae25aa13563cb55b3477ec45700a6ce7f1938",
+    "assets/fonts/Geist-Bold.ttf": "3f21f02b827228c3f0c5fb230d027b5a1a263013618e8052bc1b3c5692812c88",
+    "assets/fonts/SourceSans3-Bold.ttf": "5bbd1f5e8897dbf5e2a0b755ed0d71075ab86e5e2af48e31bd4c70daa0f0459e",
+    "assets/fonts/Geist-Medium.ttf": "3a3b36f0d0b981f4857f7f00eeef4a5ee123605575d362ab31ee7c19e3d11f2f",
+    "assets/fonts/SourceSans3-SemiBold.ttf": "962b358348afd3afdd553b949cfdaae9c9f05a7c2c00446ceff84607bc6ebdce",
+    "assets/fonts/Geist-SemiBold.ttf": "b9f52322d6d20a7ff1e7fe1310ff12ec851aebb83d24f8b4f1d4149298f489b2",
+    "assets/fonts/SourceSerif4-Regular.ttf": "e5a4ee6a3d87bb9024796be390c6771e2a0eb1883dae25effaf57ca01668e24b",
+    "assets/fonts/phosphor/Phosphor.ttf": "06b91e022b7ee899a63efced879392a74f0bacbda54e4467e9f663220d173a10"
+  }
+}

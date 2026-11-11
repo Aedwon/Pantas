@@ -1,0 +1,67 @@
+[
+  {
+    "argv": [
+      "flutter",
+      "test",
+      "--no-pub",
+      "test/core/ui/components",
+      "test/core/ui/theme",
+      "--reporter",
+      "expanded"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-gauge-verified-0.txt"
+  },
+  {
+    "argv": [
+      "flutter",
+      "analyze",
+      "--no-pub",
+      "lib/core/ui/components/half_ring_gauge.dart",
+      "test/core/ui/components/half_ring_gauge_quiz_count_test.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-gauge-verified-1.txt"
+  },
+  {
+    "argv": [
+      "dart",
+      "format",
+      "--output=none",
+      "--set-exit-if-changed",
+      "lib/core/ui/components/half_ring_gauge.dart",
+      "test/core/ui/components/half_ring_gauge_quiz_count_test.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-gauge-verified-2.txt"
+  },
+  {
+    "argv": [
+      "dart",
+      "run",
+      "tool/check_layering.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-gauge-verified-3.txt"
+  },
+  {
+    "argv": [
+      "dart",
+      "run",
+      "tool/check_no_ai_attribution.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-gauge-verified-4.txt"
+  },
+  {
+    "argv": [
+      "git",
+      "diff",
+      "--check",
+      "--",
+      "lib/core/ui/components/half_ring_gauge.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-gauge-verified-5.txt"
+  }
+]

@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-arithmetic-number-sense-divisibility-rules-0001	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Choices had weak errors or answer-length cues; replaced or tightened.
+q-arithmetic-number-sense-divisibility-rules-0002	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Choices had weak errors or answer-length cues; replaced or tightened.
+q-arithmetic-number-sense-divisibility-rules-0003	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Choices had weak errors or answer-length cues; replaced or tightened.
+q-arithmetic-number-sense-divisibility-rules-0004	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-divisibility-rules-0005	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Choices had weak errors or answer-length cues; replaced or tightened.
+q-arithmetic-number-sense-divisibility-rules-0006	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Choices had weak errors or answer-length cues; replaced or tightened.
+q-arithmetic-number-sense-divisibility-rules-0007	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-divisibility-rules-0008	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Choices had weak errors or answer-length cues; replaced or tightened.
+q-arithmetic-number-sense-divisibility-rules-0009	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-divisibility-rules-0010	VERIFIED	SOLVED-MATCH	explanation;notes;format	MEDIUM	The old note said both tests failed for a=7,b=6, but its digit sum passes the nine test.
+q-arithmetic-number-sense-divisibility-rules-0011	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-divisibility-rules-0012	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-divisibility-rules-0013	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Choices had weak errors or answer-length cues; replaced or tightened.
+q-arithmetic-number-sense-divisibility-rules-0014	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Choices had weak errors or answer-length cues; replaced or tightened.
+q-arithmetic-number-sense-divisibility-rules-0015	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-divisibility-rules-0016	NEW	NEW	new question	NONE	
+q-arithmetic-number-sense-divisibility-rules-0017	NEW	NEW	new question	NONE	
+q-arithmetic-number-sense-divisibility-rules-0018	NEW	NEW	new question	NONE	
+q-arithmetic-number-sense-divisibility-rules-0019	NEW	NEW	new question	NONE	
+q-arithmetic-number-sense-divisibility-rules-0020	NEW	NEW	new question	NONE	

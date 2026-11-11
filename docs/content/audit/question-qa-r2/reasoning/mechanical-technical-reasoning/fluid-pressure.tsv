@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-mechanical-technical-reasoning-fluid-pressure-0001	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;math formatting	MEDIUM	Added hydrostatic conditions, removed solution from answer, and repaired broken note math.
+q-mechanical-technical-reasoning-fluid-pressure-0002	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Explanation falsely said open connected vessels always have equal levels; specified the required liquid and surface-pressure conditions.
+q-mechanical-technical-reasoning-fluid-pressure-0003	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Stated continuity conditions and replaced stop-flow wording with a specific volume-flow misconception.
+q-mechanical-technical-reasoning-fluid-pressure-0004	CORRECTED	SOLVED-MATCH	stem;figure;choices;explanation;notes	HIGH	Missing figure and self-contained conditions; faster-always-means-lower-pressure was overbroad.
+q-mechanical-technical-reasoning-fluid-pressure-0005	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated 0002's equal-level question with a different vessel count; changed to bottom-pressure comparison.
+q-mechanical-technical-reasoning-fluid-pressure-0006	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	LOW	Removed redundant depth descriptions and an inaccurate claim that Z is at the floor.
+q-mechanical-technical-reasoning-fluid-pressure-0007	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Added continuity assumptions and replaced padded stop-flow alternatives.
+q-mechanical-technical-reasoning-fluid-pressure-0008	CORRECTED	SOLVED-MATCH	stem;figure;choices;explanation;notes	HIGH	Missing figure and conditions; slower-flow-always-means-higher-pressure was overbroad.
+q-mechanical-technical-reasoning-fluid-pressure-0009	CORRECTED	SOLVED-MATCH	stem;figure;choices;explanation;notes	MEDIUM	Repeated the equal-level outcome and asserted it universally; changed to identifying a required condition.
+q-mechanical-technical-reasoning-fluid-pressure-0010	CORRECTED	SOLVED-MATCH	stem;figure;choices;explanation;notes	HIGH	Squeezing a nozzle does not by itself hold flow rate fixed; replaced that unsupported guarantee with a defined continuity calculation.
+q-mechanical-technical-reasoning-fluid-pressure-0011	CORRECTED	SOLVED-MATCH	stem;figure;choices;explanation;notes	HIGH	Repeated a pressure comparison and overstated faster-always-lower; changed to the kinetic-energy term.
+q-mechanical-technical-reasoning-fluid-pressure-0012	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Stem described round, triangular, irregular, and unequal-height vessels that this renderer does not draw; replaced with an equilibrium change supported by the figure.
+q-mechanical-technical-reasoning-fluid-pressure-0013	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Pressure conclusion lacked the same-height ideal-flow assumptions and answer contained a long solution.
+q-mechanical-technical-reasoning-fluid-pressure-0014	CORRECTED	SOLVED-MATCH	stem;figure;choices;explanation;notes	HIGH	Original combined settled reservoirs with active connecting flow, without a driving condition or drawable combined figure; replaced with a single supported Bernoulli conservation item.
+q-mechanical-technical-reasoning-fluid-pressure-0015	NEW	NEW	explanation;notes	NONE	
+q-mechanical-technical-reasoning-fluid-pressure-0016	NEW	NEW	explanation;notes	NONE	
+q-mechanical-technical-reasoning-fluid-pressure-0017	NEW	NEW	explanation;notes	NONE	
+q-mechanical-technical-reasoning-fluid-pressure-0018	NEW	NEW	explanation;notes	NONE	
+q-mechanical-technical-reasoning-fluid-pressure-0019	NEW	NEW	explanation;notes	NONE	
+q-mechanical-technical-reasoning-fluid-pressure-0020	NEW	NEW	explanation;notes	NONE	

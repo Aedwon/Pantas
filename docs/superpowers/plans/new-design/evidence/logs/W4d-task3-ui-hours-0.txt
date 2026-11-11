@@ -1,0 +1,7 @@
+Computing fixes in practice_picker_screen_test.dart...
+Applying fixes...
+
+practice_picker_screen_test.dart
+  require_trailing_commas - 5 fixes
+
+5 fixes made in 1 file.

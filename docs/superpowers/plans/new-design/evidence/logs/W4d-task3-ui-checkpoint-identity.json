@@ -1,0 +1,19 @@
+{
+  "base": "15325e0465e2581171180fdb5b89325d159d76ab",
+  "policy": "eaa9c924cb415bd508b44afaaccbbca08ea586c4",
+  "later_plan_blob": "db42461d58ad09782bc172f80d559e65075642d0",
+  "source_sha256": {
+    "lib/app/routes/quiz_routes.dart": "8e75936cfe96a96d3b12b1952716eccd100bc9d27fec0ee628d99e9095f75da6",
+    "lib/core/ui/components/pantas_page.dart": "a79ac2554da8f66776a749944b9c61baeedfca1353b64afb2b35ad75435237c1",
+    "lib/core/ui/components/pantas_button.dart": "65d92bf228b604d677fbe09b723ae755747b8596192b7f720cb1ed766bcb77b0",
+    "lib/core/ui/components/scope_picker.dart": "1509541ea3eb127873ed333a71e7d0522074bf5ffe8e48585e4b348c7755776e",
+    "lib/core/ui/components/segmented_switch.dart": "f4cfdceee10cb9b534e6f7227782b10d89992fffdee715fa69e7a612e12a1990",
+    "lib/features/quiz/domain/picker/practice_summary.dart": "17fb262a31ecfc45c4eda7c1afe1380440b3dde80ebbe7bd0838eb4e22bde471",
+    "lib/features/quiz/presentation/practice_picker_screen.dart": "b8a9661092a4bed451e0345b8891545053473c55cebdefd5a00ece0e81b77231",
+    "lib/features/quiz/presentation/practice_picker_providers.dart": "5b2d3a4c096849faea389b3e0eb232c1eb4d07c80720c3f36c9fd40fab01e03f",
+    "test/core/ui/components/practice_page_extensions_test.dart": "f443e5fa1efddac09051c170b8943d2815ed5dc4fe3ff9941db4e665a765bbf7",
+    "test/features/quiz/domain/picker/practice_design_rules_test.dart": "26d18fa5227c69a3635cf093d3e82328f56ea14bf3cc2b7e91d41dc9e329cff1",
+    "test/features/quiz/domain/picker/practice_mode_match_test.dart": "691cd7ba7429df97c12e82bf65305c5fea48ea09a352b8e81acb7f1dd9c5f96a",
+    "test/features/quiz/presentation/practice_picker_screen_test.dart": "0d2ca60e7bf50a15a2479882cdc001a3bfb032f7d458418d5ebc6b86a56201f2"
+  }
+}

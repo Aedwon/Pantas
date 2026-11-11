@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pantas/core/ui/components/board_button.dart';
-import 'package:pantas/core/ui/components/bookmark_ribbon.dart';
 import 'package:pantas/core/ui/components/contents_glyph.dart';
-import 'package:pantas/core/ui/components/ink_table_row.dart';
+import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/features/lesson/domain/models/lesson_ending.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
 import 'package:pantas/features/lesson/domain/use_cases/decide_ending.dart';
 import 'package:pantas/features/lesson/presentation/pages/topic_ending_page.dart';
-import 'package:pantas/features/lesson/presentation/widgets/bookplate.dart';
+import 'package:pantas/features/lesson/presentation/widgets/ending_content.dart';
 import 'package:pantas/features/lesson/presentation/widgets/pull_to_advance.dart';
 
 import '../../../helpers/pump_app.dart';
@@ -77,6 +75,7 @@ void main() {
     WidgetTester tester, {
     required int read,
     required int total,
+    bool terminal = false,
   }) async {
     final topic = topicWith(read: read, total: total);
     final ending = decideEnding(
@@ -85,7 +84,7 @@ void main() {
       examShortName: 'UPCAT',
       studentName: 'Aedwon',
       today: DateTime(2026, 7, 27),
-      nextTopic: geometry,
+      nextTopic: terminal ? null : geometry,
     );
 
     await tester.pumpAppWithProviders(
@@ -107,25 +106,25 @@ void main() {
     await tester.pumpAndSettle();
   }
 
-  testWidgets('a finished topic shows the plate and what is next',
+  testWidgets('a finished topic shows the nameless plate and actual totals',
       (tester) async {
     await pumpEnding(tester, read: 9, total: 9);
 
-    expect(find.byType(Bookplate), findsOneWidget);
-    expect(find.text('Next'), findsOneWidget);
-    expect(find.text('Geometry'), findsOneWidget);
+    expect(find.byKey(const ValueKey('ending-plate')), findsOneWidget);
+    expect(find.text('9 lessons, all read'), findsOneWidget);
+    expect(find.text('Aedwon'), findsNothing);
   });
 
   testWidgets('a topic stopped short lists what is unread', (tester) async {
     await pumpEnding(tester, read: 6, total: 9);
 
-    expect(find.text('Still unread'), findsOneWidget);
-    expect(find.byType(InkTableRow), findsNWidgets(3));
+    expect(find.text('STILL UNREAD'), findsOneWidget);
+    expect(find.byType(ListRow), findsNWidgets(3));
     expect(find.text('Next'), findsNothing);
   });
 
-  testWidgets('the closing page cannot be pulled onward', (tester) async {
-    await pumpEnding(tester, read: 9, total: 9);
+  testWidgets('the terminal topic plate has no onward pull', (tester) async {
+    await pumpEnding(tester, read: 9, total: 9, terminal: true);
 
     expect(find.byType(PullToAdvance), findsNothing);
   });
@@ -134,19 +133,20 @@ void main() {
       (tester) async {
     await pumpEnding(tester, read: 9, total: 9);
 
-    expect(find.byType(BookmarkRibbon), findsNothing);
     expect(find.byType(ContentsGlyph), findsNothing);
   });
 
-  testWidgets('the exit is a ruled row, not a filled button', (tester) async {
+  testWidgets('topic exit uses only the drawn toolbar back control',
+      (tester) async {
     await pumpEnding(tester, read: 9, total: 9);
 
-    expect(find.text('Back to Study'), findsOneWidget);
-    expect(find.byType(BoardButton), findsNothing);
+    expect(find.text('Study'), findsOneWidget);
+    expect(find.text('Back to Study'), findsNothing);
+    expect(find.byKey(const ValueKey('ending-exit')), findsNothing);
   });
 
-  testWidgets('the exit row meets the tap target', (tester) async {
-    await pumpEnding(tester, read: 9, total: 9);
+  testWidgets('the day exit meets the tap target', (tester) async {
+    await pumpDayEnding(tester);
 
     expect(
       tester.getSize(find.byKey(const ValueKey('ending-exit'))).height,
@@ -158,7 +158,7 @@ void main() {
     await pumpDayEnding(tester);
 
     expect(find.text("That's enough for today."), findsOneWidget);
-    expect(find.byType(Bookplate), findsNothing);
+    expect(find.byKey(const ValueKey('ending-plate')), findsNothing);
     expect(find.textContaining('lesson'), findsNothing);
     expect(find.textContaining('min'), findsNothing);
   });
@@ -167,5 +167,48 @@ void main() {
     await pumpDayEnding(tester);
 
     expect(find.text('That is enough for today.'), findsNothing);
+  });
+
+  testWidgets('a held preview of an ending never reveals', (tester) async {
+    await tester.pumpAppWithProviders(
+      EndingContent(
+        ending: const DayFinished(),
+        onLesson: (_) {},
+        onHome: () {},
+        held: true,
+      ),
+    );
+    final line = find.text("That's enough for today.");
+    double seen() => tester
+        .widget<Opacity>(
+          find.ancestor(of: line, matching: find.byType(Opacity)).first,
+        )
+        .opacity;
+    for (var elapsed = 0; elapsed < 1200; elapsed += 100) {
+      expect(seen(), 0);
+      await tester.pump(const Duration(milliseconds: 100));
+    }
+    expect(tester.hasRunningAnimations, isFalse);
+  });
+
+  testWidgets('the same ending, not held, reveals over 800 ms', (tester) async {
+    await tester.pumpAppWithProviders(
+      EndingContent(
+        ending: const DayFinished(),
+        onLesson: (_) {},
+        onHome: () {},
+      ),
+    );
+    final line = find.text("That's enough for today.");
+    double seen() => tester
+        .widget<Opacity>(
+          find.ancestor(of: line, matching: find.byType(Opacity)).first,
+        )
+        .opacity;
+    expect(seen(), 0);
+    await tester.pump(const Duration(milliseconds: 500));
+    expect(seen(), allOf(greaterThan(0), lessThan(1)));
+    await tester.pumpAndSettle();
+    expect(seen(), 1);
   });
 }

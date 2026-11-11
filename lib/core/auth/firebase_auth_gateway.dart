@@ -1,19 +1,31 @@
 import 'package:firebase_auth/firebase_auth.dart' as firebase;
+import 'package:flutter/foundation.dart';
 import 'package:pantas/core/auth/auth_repository.dart';
 import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/email_code_auth.dart';
+import 'package:pantas/core/auth/email_link_auth.dart';
 
-class FirebaseAuthGateway implements AuthGateway {
-  FirebaseAuthGateway({firebase.FirebaseAuth? auth})
-      : _auth = auth ?? firebase.FirebaseAuth.instance;
+class FirebaseAuthGateway
+    implements
+        AuthGateway,
+        EmailLinkAuthGateway,
+        GooglePopupAuthGateway,
+        CustomTokenAuthGateway {
+  FirebaseAuthGateway({firebase.FirebaseAuth? auth, bool web = kIsWeb})
+      : _auth = auth ?? firebase.FirebaseAuth.instance,
+        _web = web;
 
   final firebase.FirebaseAuth _auth;
+  final bool _web;
+  firebase.AuthCredential? _pendingGoogleCredential;
 
   @override
   AuthSession? get currentSession => _sessionFromUser(_auth.currentUser);
 
   @override
   Stream<AuthSession?> get authStateChanges {
-    return _auth.authStateChanges().map(_sessionFromUser);
+    final changes = _web ? _auth.idTokenChanges() : _auth.authStateChanges();
+    return changes.map(_sessionFromUser);
   }
 
   @override
@@ -75,6 +87,100 @@ class FirebaseAuthGateway implements AuthGateway {
     try {
       await _auth.signOut();
     } on firebase.FirebaseAuthException catch (error) {
+      throw AuthGatewayException(error.code);
+    }
+  }
+
+  @override
+  bool isSignInLink(String link) => _auth.isSignInWithEmailLink(link);
+
+  @override
+  Future<void> sendLink(String email, String continueUrl) async {
+    try {
+      await _auth.sendSignInLinkToEmail(
+        email: email,
+        actionCodeSettings: firebase.ActionCodeSettings(
+          url: continueUrl,
+          handleCodeInApp: true,
+        ),
+      );
+    } on firebase.FirebaseAuthException catch (error) {
+      throw AuthGatewayException(error.code);
+    }
+  }
+
+  @override
+  Future<void> link(String email, String link) async {
+    final user = _auth.currentUser;
+    if (user == null) throw const AuthGatewayException('missing-current-user');
+    try {
+      await user.linkWithCredential(
+        firebase.EmailAuthProvider.credentialWithLink(
+          email: email,
+          emailLink: link,
+        ),
+      );
+    } on firebase.FirebaseAuthException catch (error) {
+      throw AuthGatewayException(error.code);
+    }
+  }
+
+  @override
+  Future<void> signIn(String email, String link) async {
+    try {
+      await _auth.signInWithEmailLink(email: email, emailLink: link);
+    } on firebase.FirebaseAuthException catch (error) {
+      throw AuthGatewayException(error.code);
+    }
+  }
+
+  @override
+  Future<void> signInWithCustomToken(String token) async {
+    try {
+      await _auth.signInWithCustomToken(token);
+    } on firebase.FirebaseAuthException catch (error) {
+      throw AuthGatewayException(error.code);
+    }
+  }
+
+  @override
+  Future<void> googlePopup({required bool link}) async {
+    if (link) _pendingGoogleCredential = null;
+    try {
+      final provider = firebase.GoogleAuthProvider()
+        ..setCustomParameters({'prompt': 'select_account'});
+      if (link) {
+        final user = _auth.currentUser;
+        if (user == null) {
+          throw const AuthGatewayException('missing-current-user');
+        }
+        await user.linkWithPopup(provider);
+      } else {
+        final pending = _pendingGoogleCredential;
+        _pendingGoogleCredential = null;
+        if (pending != null) {
+          await _auth.signInWithCredential(pending);
+        } else {
+          await _auth.signInWithPopup(provider);
+        }
+      }
+    } on firebase.FirebaseAuthException catch (error) {
+      if (link && error.code == 'credential-already-in-use') {
+        _pendingGoogleCredential = error.credential;
+      }
+      // The address already has an account with no Google link. Hand the
+      // Google proof to the repository, which trades it at the server.
+      if (error.code == 'email-already-in-use' ||
+          error.code == 'account-exists-with-different-credential') {
+        final credential = error.credential;
+        final idToken = credential is firebase.OAuthCredential &&
+                credential.providerId == 'google.com'
+            ? credential.idToken
+            : null;
+        if (idToken != null && idToken.isNotEmpty) {
+          throw GoogleAccountExistsException(idToken);
+        }
+      }
       throw AuthGatewayException(error.code);
     }
   }

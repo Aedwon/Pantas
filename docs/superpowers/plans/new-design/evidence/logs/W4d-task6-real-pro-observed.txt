@@ -1,0 +1,9 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart
+00:00 +0: actual viewer Pro transition rolls back pending note and recorder tail
+boundary-test viewer ready: Pro
+boundary-test save tapped: Pro
+boundary-test tail entered: Pro
+boundary-test entitlement arrived: AsyncData<Entitlement>(value: Instance of 'Entitlement') / AsyncLoading<bool>(value: true)
+boundary-test tail exits: Pro
+boundary-test save settled: Pro
+boundary-test repository settled: Pro

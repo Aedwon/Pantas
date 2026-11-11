@@ -1,0 +1,5 @@
+Analyzing 3 items...
+
+   info • The value of the argument is redundant because it matches the default value. Try removing the argument • lib/features/quiz/presentation/practice_picker_screen.dart:361:14 • avoid_redundant_argument_values
+
+1 issue found. (ran in 1.0s)

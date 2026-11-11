@@ -1,0 +1,11 @@
+
+✅ Quick launch keeps its original stable boundary
+✅ Quick launch keeps its original account boundary
+✅ Quick launch keeps its original exam boundary
+✅ Quick launch keeps its original token boundary
+✅ Quick launch keeps its original wipe boundary
+✅ Quick launch keeps its original disposed boundary
+✅ Quick checked answer survives reset and ordinary resume
+✅ Quick launch preserves a different paused quiz
+
+🎉 8 tests passed.

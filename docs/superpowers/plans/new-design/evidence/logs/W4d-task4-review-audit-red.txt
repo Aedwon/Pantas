@@ -1,0 +1,50 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart
+00:00 +0: wrong-principal repeated resume stays blocked until original principal returns
+00:00 +1: metadata schema version requires an integer rather than an equal double
+00:00 +1 -1: metadata schema version requires an integer rather than an equal double [E]
+  Expected: throws <Instance of 'StateError'>
+    Actual: <Instance of 'Future<ReviewBatchSession?>'>
+     Which: emitted <Instance of 'ReviewBatchSession'>
+
+  package:matcher                                                   expectLater
+  package:flutter_test/src/widget_tester.dart 507:8                 expectLater
+  test/features/quiz/data/review_batch_repository_test.dart 593:11  main.<fn>
+  ===== asynchronous gap ===========================
+  dart:async                                                        _CustomZone.registerUnaryCallback
+  test/features/quiz/data/review_batch_repository_test.dart 589:5   main.<fn>
+
+00:00 +1 -1: stale historical quit cannot delete a newer active Reviews batch
+00:00 +1 -2: stale historical quit cannot delete a newer active Reviews batch [E]
+  Expected: '{"version":1,"batchId":"4571c929-d344-473f-94fa-25f87a2e7b23","userId":"local","examId":"exam","principal":"anonymous:one","localDay":"2026-10-16T00:00:00.000","sessionLength":5,"ordering":"interleaved_tail","sessionIds":["4571c929-d344-473f-94fa-25f87a2e7b23","b483a834-b39b-4b0a-9f40-020d738183d7","c3157019-9398-4a9c-afa5-6329e6b39cf7"],"chunks":[["q1","q2","q3","q4","q5"],["q6","q7","q8","q9","q10"],["q11","q12"]],"versions":[[1,1,1,1,1],[1,1,1,1,1],[1,1]],"current":0,"nextReady":false}'
+    Actual: <null>
+     Which: not an <Instance of 'String'>
+
+  package:matcher                                                  expect
+  package:flutter_test/src/widget_tester.dart 473:18               expect
+  test/features/quiz/data/review_batch_repository_test.dart 601:5  main.<fn>
+
+00:00 +1 -2: ordinary quiz between chunks preserves Reviews and Continue never quits it
+00:00 +1 -3: ordinary quiz between chunks preserves Reviews and Continue never quits it [E]
+  Bad state: Reviews must be resumed or explicitly discarded
+  package:pantas/features/quiz/data/repos/review_batch_repository.dart 46:7  ReviewBatchRepository.requireNoBatch
+
+00:00 +1 -3: resume guards lifetime from before its first database await
+00:00 +1 -4: resume guards lifetime from before its first database await [E]
+  Expected: throws <Instance of 'StateError'>
+    Actual: <Instance of 'Future<QuizSession?>'>
+     Which: emitted _QuizSession:<QuizSession(sessionId: 9f308d45-e7a1-4b08-b09f-e4b87b8cb9b6, examId: exam, questions: [Question(id: q1, version: 1, examIds: [exam], topicId: t, language: en, stem: stem q1, choices: [Choice(id: q1_a, label: A, text: a, isCorrect: true, rationale: null), Choice(id: q1_b, label: B, text: b, isCorrect: false, rationale: null)], explanation: explanation q1, lessonId: null, passageId: null, shortLabel: null, figureSpecJson: null), Question(id: q2, version: 1, examIds: [exam], topicId: t, language: en, stem: stem q2, choices: [Choice(id: q2_a, label: A, text: a, isCorrect: true, rationale: null), Choice(id: q2_b, label: B, text: b, isCorrect: false, rationale: null)], explanation: explanation q2, lessonId: null, passageId: null, shortLabel: null, figureSpecJson: null), Question(id: q3, version: 1, examIds: [exam], topicId: t, language: en, stem: stem q3, choices: [Choice(id: q3_a, label: A, text: a, isCorrect: true, rationale: null), Choice(id: q3_b, label: B, text: b, isCorrect: false, rationale: null)], explanation: explanation q3, lessonId: null, passageId: null, shortLabel: null, figureSpecJson: null), Question(id: q4, version: 1, examIds: [exam], topicId: t, language: en, stem: stem q4, choices: [Choice(id: q4_b, label: A, text: b, isCorrect: false, rationale: null), Choice(id: q4_a, label: B, text: a, isCorrect: true, rationale: null)], explanation: explanation q4, lessonId: null, passageId: null, shortLabel: null, figureSpecJson: null), Question(id: q5, version: 1, examIds: [exam], topicId: t, language: en, stem: stem q5, choices: [Choice(id: q5_a, label: A, text: a, isCorrect: true, rationale: null), Choice(id: q5_b, label: B, text: b, isCorrect: false, rationale: null)], explanation: explanation q5, lessonId: null, passageId: null, shortLabel: null, figureSpecJson: null)], currentIndex: 0, outcomes: [], startedAt: 2026-10-16 09:00:00.000, origin: SessionOrigin.todayInterleaved, topicId: null, subtopicId: null, lessonId: null, reviewBatch: Instance of 'ReviewBatchPosition')>
+
+  package:matcher                                                   expectLater
+  package:flutter_test/src/widget_tester.dart 507:8                 expectLater
+  test/features/quiz/data/review_batch_repository_test.dart 621:11  main.<fn>
+  ===== asynchronous gap ===========================
+  dart:async                                                        _CustomZone.registerUnaryCallback
+  test/features/quiz/data/review_batch_repository_test.dart 617:5   main.<fn>
+
+00:00 +1 -4: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: metadata schema version requires an integer rather than an equal double
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: ordinary quiz between chunks preserves Reviews and Continue never quits it
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: resume guards lifetime from before its first database await
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: stale historical quit cannot delete a newer active Reviews batch

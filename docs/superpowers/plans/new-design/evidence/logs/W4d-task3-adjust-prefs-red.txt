@@ -1,0 +1,85 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_adjustment_test.dart
+00:00 +0 -1: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_adjustment_test.dart [E]
+  Failed to load "/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_adjustment_test.dart":
+  Compilation failed for testPath=/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_adjustment_test.dart: test/features/quiz/domain/picker/practice_adjustment_test.dart:23:41: Error: Member not found: 'BuildPracticeSummary.adjust'.
+      final counts = BuildPracticeSummary.adjust(base, {'lesson:a'}, 1,
+                                          ^^^^^^
+  test/features/quiz/domain/picker/practice_adjustment_test.dart:37:41: Error: Member not found: 'BuildPracticeSummary.adjust'.
+      final counts = BuildPracticeSummary.adjust(base, {'lesson:a'}, 1,
+                                          ^^^^^^
+  test/features/quiz/domain/picker/practice_adjustment_test.dart:49:33: Error: Member not found: 'BuildPracticeSummary.adjust'.
+      expect(BuildPracticeSummary.adjust(base, {'lesson:a'}, 1,
+                                  ^^^^^^
+  test/features/quiz/domain/picker/practice_adjustment_test.dart:51:33: Error: Member not found: 'BuildPracticeSummary.adjust'.
+      expect(BuildPracticeSummary.adjust(base, {'lesson:a'}, -1,
+                                  ^^^^^^
+  test/features/quiz/domain/picker/practice_adjustment_test.dart:58:33: Error: Member not found: 'BuildPracticeSummary.adjust'.
+      expect(BuildPracticeSummary.adjust(full, {'lesson:a'}, 1,
+                                  ^^^^^^
+  test/features/quiz/domain/picker/practice_adjustment_test.dart:63:33: Error: Member not found: 'BuildPracticeSummary.adjust'.
+      expect(BuildPracticeSummary.adjust(one, {'lesson:a'}, -1,
+                                  ^^^^^^
+  .
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1009:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 733:19                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 726:19                      _CustomZone.run
+  dart:async/zone.dart 625:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 666:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+00:00 +0 -2: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/repos/practice_preferences_repository_test.dart [E]
+  Failed to load "/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/repos/practice_preferences_repository_test.dart":
+  Compilation failed for testPath=/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/repos/practice_preferences_repository_test.dart: test/features/quiz/data/repos/practice_preferences_repository_test.dart:2:8: Error: Error when reading 'lib/features/quiz/data/repos/practice_preferences_repository.dart': No such file or directory
+  import 'package:pantas/features/quiz/data/repos/practice_preferences_repository.dart';
+         ^
+  test/features/quiz/data/repos/practice_preferences_repository_test.dart:11:18: Error: Method not found: 'PracticePreferencesRepository'.
+      final repo = PracticePreferencesRepository(db);
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  test/features/quiz/data/repos/practice_preferences_repository_test.dart:15:28: Error: Method not found: 'PracticePreferencesRepository'.
+      final reopened = await PracticePreferencesRepository(db).read('e');
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  .
+00:00 +0 -2: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/repos/practice_preferences_repository_test.dart: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/repos/practice_preferences_repository_test.dart
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_adjustment_test.dart: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_adjustment_test.dart
+test/features/quiz/domain/picker/practice_adjustment_test.dart:23:41: Error: Member not found: 'BuildPracticeSummary.adjust'.
+    final counts = BuildPracticeSummary.adjust(base, {'lesson:a'}, 1,
+                                        ^^^^^^
+test/features/quiz/domain/picker/practice_adjustment_test.dart:37:41: Error: Member not found: 'BuildPracticeSummary.adjust'.
+    final counts = BuildPracticeSummary.adjust(base, {'lesson:a'}, 1,
+                                        ^^^^^^
+test/features/quiz/domain/picker/practice_adjustment_test.dart:49:33: Error: Member not found: 'BuildPracticeSummary.adjust'.
+    expect(BuildPracticeSummary.adjust(base, {'lesson:a'}, 1,
+                                ^^^^^^
+test/features/quiz/domain/picker/practice_adjustment_test.dart:51:33: Error: Member not found: 'BuildPracticeSummary.adjust'.
+    expect(BuildPracticeSummary.adjust(base, {'lesson:a'}, -1,
+                                ^^^^^^
+test/features/quiz/domain/picker/practice_adjustment_test.dart:58:33: Error: Member not found: 'BuildPracticeSummary.adjust'.
+    expect(BuildPracticeSummary.adjust(full, {'lesson:a'}, 1,
+                                ^^^^^^
+test/features/quiz/domain/picker/practice_adjustment_test.dart:63:33: Error: Member not found: 'BuildPracticeSummary.adjust'.
+    expect(BuildPracticeSummary.adjust(one, {'lesson:a'}, -1,
+                                ^^^^^^
+test/features/quiz/data/repos/practice_preferences_repository_test.dart:2:8: Error: Error when reading 'lib/features/quiz/data/repos/practice_preferences_repository.dart': No such file or directory
+import 'package:pantas/features/quiz/data/repos/practice_preferences_repository.dart';
+       ^
+test/features/quiz/data/repos/practice_preferences_repository_test.dart:11:18: Error: Method not found: 'PracticePreferencesRepository'.
+    final repo = PracticePreferencesRepository(db);
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/features/quiz/data/repos/practice_preferences_repository_test.dart:15:28: Error: Method not found: 'PracticePreferencesRepository'.
+    final reopened = await PracticePreferencesRepository(db).read('e');
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

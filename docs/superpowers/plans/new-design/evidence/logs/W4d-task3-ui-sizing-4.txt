@@ -1,0 +1,9 @@
+Analyzing 6 items...
+
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/practice_picker_screen_test.dart:511:38 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/practice_picker_screen_test.dart:533:12 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/practice_picker_screen_test.dart:538:12 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/practice_picker_screen_test.dart:548:12 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/practice_picker_screen_test.dart:577:75 • require_trailing_commas
+
+5 issues found. (ran in 1.2s)

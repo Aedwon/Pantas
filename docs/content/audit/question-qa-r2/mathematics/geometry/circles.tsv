@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-geometry-circles-0001	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-circles-0002	VERIFIED	SOLVED-MATCH	explanation;notes;format	MEDIUM	The old fourteen-pi note said omitting the radius square, which actually gives seven pi; corrected the specific derivation.
+q-geometry-circles-0003	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-circles-0004	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-circles-0005	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-circles-0006	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-circles-0007	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-geometry-circles-0008	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson does not teach cyclic-quadrilateral opposite angles; stem, choices and key retained.
+q-geometry-circles-0009	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson does not teach the interior intersecting-chord angle theorem; stem, choices and key retained.
+q-geometry-circles-0010	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson does not teach the exterior secant-angle theorem; stem, choices and key retained.
+q-geometry-circles-0011	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson does not teach perpendicular-from-center chord bisection; stem, choices and key retained.
+q-geometry-circles-0012	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson does not teach the tangent-secant power theorem; stem, choices and key retained.
+q-geometry-circles-0013	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson does not teach the area of an inscribed square; stem, choices and key retained.
+q-geometry-circles-0014	CORRECTED	SOLVED-MATCH	distractor;explanation;notes;format	MEDIUM	The 110-degree distractor had no exact derivation; replaced with adding the constant after solving.
+q-geometry-circles-0015	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson does not teach equal tangent triangles and the thirty-degree right-triangle rule; stem, choices and key retained.
+q-geometry-circles-0016	NEW	NEW	new question	NONE	
+q-geometry-circles-0017	NEW	NEW	new question	NONE	
+q-geometry-circles-0018	NEW	NEW	new question	NONE	
+q-geometry-circles-0019	NEW	NEW	new question	NONE	
+q-geometry-circles-0020	NEW	NEW	new question	NONE	

@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/auth/auth.dart';
+import 'package:pantas/core/sync/providers.dart';
+import 'package:pantas/core/sync/sync_status.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/settings/presentation/pages/account_page.dart';
+import 'package:pantas/features/settings/presentation/pages/backup_page.dart';
 
 void main() {
   testWidgets('user == null is local-only even without anonymous state',
@@ -14,15 +19,110 @@ void main() {
       user: null,
     );
 
-    expect(find.text('Sign in with Google'), findsOneWidget);
+    expect(find.text('Continue with Google'), findsOneWidget);
     expect(
-      find.textContaining('does not by itself back up local progress'),
+      find.text(
+        'Your progress stays on this phone. Signing in gives you an '
+        'account you can come back to.',
+      ),
       findsOneWidget,
     );
+  });
+
+  testWidgets('the phone Continue with Google button carries the Google G',
+      (tester) async {
+    tester.view
+      ..physicalSize = const Size(390, 844)
+      ..devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+    await _pumpAccount(
+      tester,
+      repository: SequencedAuthRepository(const []),
+      user: null,
+    );
+    final button = find.ancestor(
+      of: find.text('Continue with Google'),
+      matching: find.byType(TextButton),
+    );
     expect(
-      find.textContaining('Cloud sync is available with Pantas Pro'),
+      find.descendant(of: button.first, matching: find.byType(SvgPicture)),
       findsOneWidget,
     );
+  });
+
+  testWidgets('on the web a phone-size window still says browser, not phone',
+      (tester) async {
+    await _pumpAccount(
+      tester,
+      repository: SequencedAuthRepository(const []),
+      user: null,
+      web: true,
+    );
+    expect(
+      find.text(
+        'Your progress stays in this browser. Signing in gives you an '
+        'account you can come back to.',
+      ),
+      findsOneWidget,
+    );
+    expect(find.textContaining('this phone'), findsNothing);
+    expect(find.text('Continue with Email'), findsOneWidget);
+  });
+
+  testWidgets('email accounts show their email on web', (tester) async {
+    await _pumpAccount(
+      tester,
+      repository: SequencedAuthRepository(const []),
+      user: const AuthUser(
+        uid: 'email-user',
+        email: 'tester@example.com',
+        displayName: '',
+      ),
+      web: true,
+    );
+    // The account header and the Email row both show it.
+    expect(find.text('tester@example.com'), findsWidgets);
+    expect(find.text('Google'), findsNothing);
+  });
+
+  testWidgets('web shows Backup with the browser copy on Free', (tester) async {
+    await _pumpAccount(
+      tester,
+      repository: SequencedAuthRepository(const []),
+      user: const AuthUser(
+        uid: 'user-1',
+        email: 'reader@example.com',
+        displayName: 'Reader',
+      ),
+      web: true,
+    );
+    expect(find.text('This browser only'), findsOneWidget);
+    expect(find.text(webFreeBackupNote), findsOneWidget);
+    expect(find.text('Back Up with Pro'), findsNothing);
+    expect(find.textContaining('this phone'), findsNothing);
+  });
+
+  testWidgets('web shows Backup status and Details for Pro', (tester) async {
+    await _pumpAccount(
+      tester,
+      repository: SequencedAuthRepository(const []),
+      user: const AuthUser(
+        uid: 'user-1',
+        email: 'reader@example.com',
+        displayName: 'Reader',
+      ),
+      web: true,
+      extra: [
+        entitlementProvider.overrideWith(
+          (ref) =>
+              Stream.value(const Entitlement(plan: EntitlementPlan.monthly)),
+        ),
+        syncStatusProvider
+            .overrideWith((ref) => Stream.value(const SyncUpToDate())),
+      ],
+    );
+    expect(find.text('Saved'), findsOneWidget);
+    expect(find.text('Details'), findsOneWidget);
   });
 
   testWidgets('named Free account keeps local-only Pro-aware copy',
@@ -37,11 +137,11 @@ void main() {
       ),
     );
 
-    expect(find.text('Reader'), findsOneWidget);
+    expect(find.text('Add your name'), findsNWidgets(2));
     expect(
       find.text(
-        'Your study progress stays on this device. Cloud sync is available '
-        'with Pantas Pro.',
+        "Your progress stays on this phone only. With Pro, it's "
+        'backed up and syncs across your devices.',
       ),
       findsOneWidget,
     );
@@ -55,11 +155,11 @@ void main() {
     ]);
     await _pumpAccount(tester, repository: repository, user: null);
 
-    await tester.tap(find.text('Sign in with Google'));
+    await tester.tap(find.text('Continue with Google'));
     await tester.pumpAndSettle();
     expect(find.text('You need a connection to sign in.'), findsOneWidget);
 
-    await tester.tap(find.text('Sign in with Google'));
+    await tester.tap(find.text('Continue with Google'));
     await tester.pumpAndSettle();
     expect(find.text('You need a connection to sign in.'), findsNothing);
   });
@@ -71,15 +171,14 @@ void main() {
     );
     await _pumpAccount(tester, repository: repository, user: null);
 
-    await tester.tap(find.text('Sign in with Google'));
+    await tester.tap(find.text('Continue with Google'));
     await tester.pumpAndSettle();
 
     expect(find.text('You need a connection to sign in.'), findsNothing);
     expect(find.textContaining('merge'), findsNothing);
   });
 
-  testWidgets('sign-out dialog does not promise universal restore',
-      (tester) async {
+  testWidgets('sign-out dialog explains account restore', (tester) async {
     await _pumpAccount(
       tester,
       repository: SequencedAuthRepository(const []),
@@ -90,11 +189,15 @@ void main() {
       ),
     );
 
-    await tester.tap(find.text('Sign out'));
+    await tester.ensureVisible(find.text('Sign Out'));
+    await tester.tap(find.text('Sign Out'));
     await tester.pumpAndSettle();
 
     expect(
-      find.textContaining('Only progress already synced through Pantas Pro'),
+      find.text(
+        'Your progress is saved to your account. '
+        'It comes back when you sign in again.',
+      ),
       findsOneWidget,
     );
     expect(find.textContaining('restore it'), findsNothing);
@@ -105,12 +208,16 @@ Future<void> _pumpAccount(
   WidgetTester tester, {
   required AuthRepository repository,
   required AuthUser? user,
+  bool web = false,
+  List<Override> extra = const [],
 }) async {
   await tester.pumpWidget(
     ProviderScope(
       overrides: [
         currentUserProvider.overrideWith((ref) => user),
         authRepositoryProvider.overrideWithValue(repository),
+        if (web) paymentsOnWebProvider.overrideWithValue(true),
+        ...extra,
       ],
       child: MaterialApp(
         theme: buildLightTheme().copyWith(

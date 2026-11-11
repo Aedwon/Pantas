@@ -2,6 +2,11 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+
+/// Height of the drawing. The design system sets no height for diagrams.
+const double _figureHeight = 110;
 
 /// A sequence of figures that change by a rule, with a blank at the end.
 ///
@@ -77,27 +82,14 @@ class FigureSeriesFigure extends StatelessWidget {
     SeriesItem item,
     Offset centre,
     double radius,
-    Color ink,
+    SeriesPalette palette,
   ) {
     _SeriesPainter(
       items: const [],
       blank: false,
-      ink: ink,
-      faint: ink,
+      palette: palette,
       markStyle: const TextStyle(),
-    )._drawItem(
-      canvas,
-      item,
-      centre,
-      radius,
-      Paint()
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = 1
-        ..color = ink,
-      Paint()
-        ..style = PaintingStyle.fill
-        ..color = ink,
-    );
+    )._drawItem(canvas, item, centre, radius);
   }
 
   /// One cell, shared with the matrix figure so both read the same shape.
@@ -113,6 +105,7 @@ class FigureSeriesFigure extends StatelessWidget {
 
       double fill;
       final rawFill = entry['fill'] ?? 'white';
+      final namesFill = rawFill == 'white' || rawFill == 'black';
       if (rawFill == 'white') {
         fill = 0;
       } else if (rawFill == 'black') {
@@ -164,6 +157,7 @@ class FigureSeriesFigure extends StatelessWidget {
         form: form,
         scale: sizes[size]!,
         fill: fill,
+        namesFill: namesFill && entry.containsKey('fill'),
         dotCorner: dot as String?,
         dots: dots,
         edgeLines: edgeLines,
@@ -176,20 +170,19 @@ class FigureSeriesFigure extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.colors;
-    final styles = context.textStyles;
+    final styles = context.type;
+    final palette = SeriesPalette.of(context, items);
     return Semantics(
       label: 'A sequence of ${items.length} figures'
           '${blank ? ', then an empty frame for the next one' : ''}.',
       child: SizedBox(
-        height: 110,
+        height: _figureHeight,
         child: CustomPaint(
           painter: _SeriesPainter(
             items: items,
             blank: blank,
-            ink: colors.ink,
-            faint: colors.ruleFaint,
-            markStyle: styles.headlineSmall.copyWith(color: colors.inkMuted),
+            palette: palette,
+            markStyle: styles.emphasized.copyWith(color: palette.mark),
           ),
           size: Size.infinite,
         ),
@@ -208,6 +201,7 @@ class SeriesItem {
     required this.edgeLines,
     required this.allLineDegrees,
     required this.rotationDegrees,
+    this.namesFill = false,
     this.dotCorner,
     this.arrowDegrees,
   });
@@ -215,6 +209,10 @@ class SeriesItem {
   final String form;
   final double scale;
   final double fill;
+
+  /// True when the spec says `black` or `white` in words. Those figures
+  /// are drawn on a fixed panel so the words stay true in dark mode.
+  final bool namesFill;
   final String? dotCorner;
   final int dots;
   final int edgeLines;
@@ -226,34 +224,246 @@ class SeriesItem {
       allLineDegrees.isEmpty ? null : allLineDegrees.first;
 }
 
+/// The colors a series or a matrix is drawn in.
+///
+/// **Words stay true in dark mode.** A spec that says `black` or `white`
+/// is drawn on a fixed light panel, because theme ink is near white in dark
+/// mode and a "black circle" would turn into a white one.
+class SeriesPalette {
+  const SeriesPalette({
+    required this.ink,
+    required this.paper,
+    required this.frame,
+    required this.mark,
+    this.panel = false,
+  });
+
+  /// The theme palette, or the fixed panel in dark mode when [items] name
+  /// black or white fill.
+  factory SeriesPalette.of(BuildContext context, Iterable<SeriesItem?> items) {
+    final colors = context.colors;
+    final dark = colors.background.computeLuminance() < 0.5;
+    if (dark && items.any((item) => item != null && item.namesFill)) {
+      return fixed;
+    }
+    return SeriesPalette(
+      ink: colors.label,
+      paper: colors.background,
+      frame: colors.fill,
+      mark: colors.secondaryLabel,
+    );
+  }
+
+  /// Outlines, marks and black fill.
+  final Color ink;
+
+  /// The ground. Marks that lie over fill are drawn in this color.
+  final Color paper;
+
+  /// The empty frame and the matrix grid, faint as in light mode.
+  final Color frame;
+
+  /// The question mark.
+  final Color mark;
+
+  /// True when the figure sits on its own fixed panel.
+  final bool panel;
+
+  /// The fixed panel colors.
+  static final fixed = SeriesPalette(
+    ink: PantasColors.light.textPrimary,
+    paper: PantasColors.light.figureBg,
+    frame: PantasColors.light.fill,
+    mark: PantasColors.light.iconMuted,
+    panel: true,
+  );
+
+  /// Paints the panel behind the figure, when it has one.
+  void paintPanel(Canvas canvas, Size size) {
+    if (!panel) return;
+    canvas.drawRRect(
+      RRect.fromRectAndRadius(
+        Offset.zero & size,
+        const Radius.circular(PantasRadius.lg),
+      ),
+      Paint()..color = paper,
+    );
+  }
+}
+
+/// Where the parts of one figure go, measured from its own outline so that
+/// nothing lands on the outline or crosses it.
+@visibleForTesting
+abstract final class SeriesGeometry {
+  /// The corners of a polygon form, or null for a circle.
+  static List<Offset>? corners(String form, Offset centre, double r) {
+    switch (form) {
+      case 'circle':
+        return null;
+      case 'square':
+        return [
+          centre + Offset(-r, -r),
+          centre + Offset(r, -r),
+          centre + Offset(r, r),
+          centre + Offset(-r, r),
+        ];
+      case 'triangle':
+        return _ring(centre, r, 3, -math.pi / 2);
+      case 'pentagon':
+        return _ring(centre, r, 5, -math.pi / 2);
+      default:
+        return [
+          for (var i = 0; i < 10; i++)
+            centre +
+                Offset(
+                      math.cos(-math.pi / 2 + i * math.pi / 5),
+                      math.sin(-math.pi / 2 + i * math.pi / 5),
+                    ) *
+                    (i.isEven ? r : r * 0.42),
+        ];
+    }
+  }
+
+  static List<Offset> _ring(Offset centre, double r, int sides, double start) {
+    return [
+      for (var i = 0; i < sides; i++)
+        centre +
+            Offset(
+                  math.cos(start + i * 2 * math.pi / sides),
+                  math.sin(start + i * 2 * math.pi / sides),
+                ) *
+                r,
+    ];
+  }
+
+  static Path formPath(String form, Offset centre, double r) {
+    final points = corners(form, centre, r);
+    if (points == null) {
+      return Path()..addOval(Rect.fromCircle(center: centre, radius: r));
+    }
+    return Path()..addPolygon(points, true);
+  }
+
+  /// How far the outline is from the centre along [angle] (radians, canvas
+  /// axes: 0 is right and a quarter turn is down).
+  static double boundary(String form, double r, double angle) {
+    final points = corners(form, Offset.zero, r);
+    if (points == null) return r;
+    final dx = math.cos(angle);
+    final dy = math.sin(angle);
+    var best = r * 2;
+    for (var i = 0; i < points.length; i++) {
+      final a = points[i];
+      final b = points[(i + 1) % points.length];
+      final ex = b.dx - a.dx;
+      final ey = b.dy - a.dy;
+      final denom = dx * ey - dy * ex;
+      if (denom.abs() < 1e-9) continue;
+      final t = (a.dx * ey - a.dy * ex) / denom;
+      final u = (a.dx * dy - a.dy * dx) / denom;
+      if (t > 0 && u >= 0 && u <= 1 && t < best) best = t;
+    }
+    return best;
+  }
+
+  /// How wide the outline is either side of the centre line, at [dy] below
+  /// the centre: the nearer of the two edges.
+  static double halfWidthAt(String form, double r, double dy) {
+    final points = corners(form, Offset.zero, r);
+    if (points == null) return math.sqrt(math.max(r * r - dy * dy, 0));
+    var right = r * 2;
+    var left = r * 2;
+    for (var i = 0; i < points.length; i++) {
+      final a = points[i];
+      final b = points[(i + 1) % points.length];
+      if ((a.dy - dy) * (b.dy - dy) > 0 || a.dy == b.dy) continue;
+      final x = a.dx + (b.dx - a.dx) * (dy - a.dy) / (b.dy - a.dy);
+      if (x >= 0) {
+        right = math.min(right, x);
+      } else {
+        left = math.min(left, -x);
+      }
+    }
+    return math.min(left, right);
+  }
+
+  /// Where a row of dots sits: through the middle, but lower in a triangle
+  /// and higher in a star, which are wider there.
+  static double dotRowOffset(String form, double r) => switch (form) {
+        'triangle' => r * 0.2,
+        'star' => -r * 0.1,
+        _ => 0,
+      };
+
+  /// The centres of [count] dots in a row, spread no wider than the outline
+  /// allows, and the radius to draw them at. Dots shrink only when the
+  /// outline is too narrow for full-size ones.
+  static ({List<Offset> centres, double radius}) dotRow(
+    String form,
+    Offset centre,
+    double r,
+    int count,
+  ) {
+    if (count == 0) return (centres: const [], radius: 2.5);
+    final dy = dotRowOffset(form, r);
+    final half = halfWidthAt(form, r, dy);
+    var radius = 2.5;
+    var spread = 0.0;
+    for (final (candidate, margin) in [(2.5, 4.0), (1.9, 3.5), (1.4, 2.5)]) {
+      radius = candidate;
+      final room = math.max(half - radius - margin, 0);
+      spread = count == 1 ? 0.0 : math.min(r * 0.5, 2 * room / (count - 1));
+      if (count == 1 || spread >= radius * 2 + 1.2) break;
+    }
+    final first = centre.dx - spread * (count - 1) / 2;
+    return (
+      centres: [
+        for (var i = 0; i < count; i++)
+          Offset(first + spread * i, centre.dy + dy),
+      ],
+      radius: radius,
+    );
+  }
+
+  /// The centre of a corner dot, a fixed share of the way to the outline.
+  static Offset cornerDot(String form, String corner, Offset centre, double r) {
+    final angle = switch (corner) {
+      'top-left' => -3 * math.pi / 4,
+      'top-right' => -math.pi / 4,
+      'bottom-left' => 3 * math.pi / 4,
+      'bottom-right' => math.pi / 4,
+      _ => -math.pi / 2,
+    };
+    final distance = 0.6 * boundary(form, r, angle);
+    return centre + Offset(math.cos(angle), math.sin(angle)) * distance;
+  }
+
+  /// How long a mark from the centre may run along [angle] and stay inside.
+  static double reach(String form, double r, double angle, double share) {
+    return math.min(share * r, 0.8 * boundary(form, r, angle));
+  }
+}
+
 class _SeriesPainter extends CustomPainter {
   _SeriesPainter({
     required this.items,
     required this.blank,
-    required this.ink,
-    required this.faint,
+    required this.palette,
     required this.markStyle,
   });
 
   final List<SeriesItem> items;
   final bool blank;
-  final Color ink;
-  final Color faint;
+  final SeriesPalette palette;
   final TextStyle markStyle;
 
   @override
   void paint(Canvas canvas, Size size) {
-    final stroke = Paint()
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 1
-      ..color = ink;
-    final solid = Paint()
-      ..style = PaintingStyle.fill
-      ..color = ink;
+    palette.paintPanel(canvas, size);
     final frame = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1
-      ..color = faint;
+      ..color = palette.frame;
 
     final cells = items.length + (blank ? 1 : 0);
     final slot = size.width / cells;
@@ -261,14 +471,7 @@ class _SeriesPainter extends CustomPainter {
     final cy = size.height / 2;
 
     for (var i = 0; i < items.length; i++) {
-      _drawItem(
-        canvas,
-        items[i],
-        Offset(slot * (i + 0.5), cy),
-        radius,
-        stroke,
-        solid,
-      );
+      _drawItem(canvas, items[i], Offset(slot * (i + 0.5), cy), radius);
     }
 
     if (!blank) return;
@@ -294,11 +497,16 @@ class _SeriesPainter extends CustomPainter {
     SeriesItem item,
     Offset centre,
     double baseRadius,
-    Paint stroke,
-    Paint solid,
   ) {
     final r = baseRadius * item.scale;
-    final path = _formPath(item.form, centre, r);
+    final path = SeriesGeometry.formPath(item.form, centre, r);
+    final outline = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1
+      ..color = palette.ink;
+    final solid = Paint()
+      ..style = PaintingStyle.fill
+      ..color = palette.ink;
 
     canvas.save();
     if (item.rotationDegrees != 0) {
@@ -308,6 +516,12 @@ class _SeriesPainter extends CustomPainter {
         ..translate(-centre.dx, -centre.dy);
     }
 
+    // A part-filled figure that also carries marks is filled at mid gray,
+    // so that a dot or a line on the edge of the fill stays readable.
+    final hasMarks = item.allLineDegrees.isNotEmpty ||
+        item.arrowDegrees != null ||
+        item.dotCorner != null ||
+        item.dots > 0;
     if (item.fill >= 1) {
       canvas.drawPath(path, solid);
     } else if (item.fill > 0) {
@@ -323,59 +537,23 @@ class _SeriesPainter extends CustomPainter {
             centre.dx + r,
             centre.dy + r,
           ),
-          solid,
+          hasMarks
+              ? (Paint()..color = Color.lerp(palette.paper, palette.ink, 0.3)!)
+              : solid,
         )
         ..restore();
     }
-    canvas.drawPath(path, stroke);
+    canvas.drawPath(path, outline);
 
-    for (final line in item.allLineDegrees) {
-      final angle = (line - 90) * math.pi / 180;
-      canvas.drawLine(
-        centre,
-        centre + Offset(math.cos(angle) * r * 0.8, math.sin(angle) * r * 0.8),
-        stroke,
-      );
-    }
-
-    final arrow = item.arrowDegrees;
-    if (arrow != null) {
-      final angle = (arrow - 90) * math.pi / 180;
-      final tip =
-          centre + Offset(math.cos(angle) * r * 0.7, math.sin(angle) * r * 0.7);
-      canvas.drawLine(centre, tip, stroke);
-      for (final spread in [2.5, -2.5]) {
-        canvas.drawLine(
-          tip,
-          tip +
-              Offset(
-                math.cos(angle + spread) * r * 0.3,
-                math.sin(angle + spread) * r * 0.3,
-              ),
-          stroke,
-        );
-      }
-    }
-
-    final corner = item.dotCorner;
-    if (corner != null) {
-      final offset = switch (corner) {
-        'top-left' => Offset(-r * 0.6, -r * 0.6),
-        'top-right' => Offset(r * 0.6, -r * 0.6),
-        'bottom-left' => Offset(-r * 0.6, r * 0.6),
-        'bottom-right' => Offset(r * 0.6, r * 0.6),
-        _ => Offset(0, -r * 0.6),
-      };
-      canvas.drawCircle(centre + offset, 3, solid);
-    }
-
-    if (item.dots > 0) {
-      final spread = r * 0.5;
-      final first = centre.dx - spread * (item.dots - 1) / 2;
-      for (var i = 0; i < item.dots; i++) {
-        canvas.drawCircle(Offset(first + spread * i, centre.dy), 2.5, solid);
-      }
-    }
+    // Marks inside the figure. Over a full fill they are drawn in the paper
+    // color, or they would vanish into it.
+    _drawMarks(
+      canvas,
+      item,
+      centre,
+      r,
+      item.fill >= 1 ? palette.paper : palette.ink,
+    );
 
     if (item.edgeLines > 0) {
       final step = (r * 1.4) / (item.edgeLines + 1);
@@ -384,62 +562,78 @@ class _SeriesPainter extends CustomPainter {
         canvas.drawLine(
           Offset(x, centre.dy + r),
           Offset(x, centre.dy + r + 6),
-          stroke,
+          outline,
         );
       }
     }
     canvas.restore();
   }
 
-  Path _formPath(String form, Offset centre, double r) {
-    switch (form) {
-      case 'circle':
-        return Path()..addOval(Rect.fromCircle(center: centre, radius: r));
-      case 'square':
-        return Path()..addRect(Rect.fromCircle(center: centre, radius: r));
-      case 'triangle':
-        return _polygon(centre, r, 3, -math.pi / 2);
-      case 'pentagon':
-        return _polygon(centre, r, 5, -math.pi / 2);
-      default:
-        return _star(centre, r);
-    }
-  }
+  void _drawMarks(
+    Canvas canvas,
+    SeriesItem item,
+    Offset centre,
+    double r,
+    Color color,
+  ) {
+    final stroke = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1
+      ..color = color;
+    final solid = Paint()
+      ..style = PaintingStyle.fill
+      ..color = color;
 
-  Path _polygon(Offset centre, double r, int sides, double start) {
-    final path = Path();
-    for (var i = 0; i < sides; i++) {
-      final angle = start + i * 2 * math.pi / sides;
-      final point = centre + Offset(math.cos(angle) * r, math.sin(angle) * r);
-      if (i == 0) {
-        path.moveTo(point.dx, point.dy);
-      } else {
-        path.lineTo(point.dx, point.dy);
+    for (final line in item.allLineDegrees) {
+      final angle = (line - 90) * math.pi / 180;
+      final length = SeriesGeometry.reach(item.form, r, angle, 0.8);
+      canvas.drawLine(
+        centre,
+        centre + Offset(math.cos(angle) * length, math.sin(angle) * length),
+        stroke,
+      );
+    }
+
+    final arrow = item.arrowDegrees;
+    if (arrow != null) {
+      final angle = (arrow - 90) * math.pi / 180;
+      final length = SeriesGeometry.reach(item.form, r, angle, 0.7);
+      final tip =
+          centre + Offset(math.cos(angle) * length, math.sin(angle) * length);
+      canvas.drawLine(centre, tip, stroke);
+      // The head keeps its size unless the arrow had to be shortened.
+      final head = r * 0.3 * math.min(1, length / (r * 0.7));
+      for (final spread in [2.5, -2.5]) {
+        canvas.drawLine(
+          tip,
+          tip +
+              Offset(
+                math.cos(angle + spread) * head,
+                math.sin(angle + spread) * head,
+              ),
+          stroke,
+        );
       }
     }
-    return path..close();
-  }
 
-  Path _star(Offset centre, double r) {
-    final path = Path();
-    for (var i = 0; i < 10; i++) {
-      final angle = -math.pi / 2 + i * math.pi / 5;
-      final radius = i.isEven ? r : r * 0.42;
-      final point =
-          centre + Offset(math.cos(angle) * radius, math.sin(angle) * radius);
-      if (i == 0) {
-        path.moveTo(point.dx, point.dy);
-      } else {
-        path.lineTo(point.dx, point.dy);
-      }
+    final corner = item.dotCorner;
+    if (corner != null) {
+      canvas.drawCircle(
+        SeriesGeometry.cornerDot(item.form, corner, centre, r),
+        3,
+        solid,
+      );
     }
-    return path..close();
+
+    final row = SeriesGeometry.dotRow(item.form, centre, r, item.dots);
+    for (final dot in row.centres) {
+      canvas.drawCircle(dot, row.radius, solid);
+    }
   }
 
   @override
   bool shouldRepaint(_SeriesPainter old) =>
-      old.ink != ink ||
-      old.faint != faint ||
+      old.palette != palette ||
       old.markStyle != markStyle ||
       old.items != items ||
       old.blank != blank;

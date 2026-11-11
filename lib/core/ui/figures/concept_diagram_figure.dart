@@ -4,6 +4,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
+/// Height of the drawing. The design system sets no height for diagrams.
+const double _figureHeight = 220;
+
 /// A labeled relationship diagram for sequences, flows, hierarchies, and
 /// physics diagrams.
 class ConceptDiagramFigure extends StatelessWidget {
@@ -585,7 +588,7 @@ class ConceptDiagramFigure extends StatelessWidget {
     return Semantics(
       label: 'A $type diagram.',
       child: SizedBox(
-        height: 220,
+        height: _figureHeight,
         child: CustomPaint(
           size: Size.infinite,
           painter: _ConceptDiagramPainter(
@@ -629,16 +632,52 @@ class ConceptDiagramFigure extends StatelessWidget {
             wavelength: wavelength,
             frequency: frequency,
             speed: speed,
-            ink: colors.ink,
-            faint: colors.ruleFaint,
+            ink: colors.label,
+            faint: colors.fill,
             background: colors.background,
-            labelStyle: context.textStyles.bodySmall.copyWith(
-              color: colors.ink,
+            labelStyle: context.type.subhead.copyWith(
+              color: colors.label,
             ),
           ),
         ),
       ),
     );
+  }
+}
+
+/// Where a three-circle Venn diagram puts its circles and its numbers.
+@visibleForTesting
+abstract final class VennLayout {
+  /// The three circles and a number in each of the seven regions.
+  ///
+  /// The circles are A (top left), B (top right) and C (bottom). Each
+  /// number's middle lies inside its own region and outside every circle
+  /// that region does not belong to, so no arc runs through a number.
+  static ({List<Offset> centres, double radius, List<(String, Offset)> numbers})
+      threeCircle(
+    Size size, {
+    String? center,
+    Map<String, String>? overlaps,
+    Map<String, String>? singleRegions,
+  }) {
+    final c = Rect.fromLTWH(16, 12, size.width - 32, size.height - 24).center;
+    const r = 50.0;
+    final a = Offset(c.dx - 32, c.dy - 20);
+    final b = Offset(c.dx + 32, c.dy - 20);
+    final cc = Offset(c.dx, c.dy + 30);
+    final numbers = <(String, Offset)>[
+      (center ?? '5', Offset(c.dx, c.dy)),
+      (overlaps?['ab'] ?? '10', Offset(c.dx, a.dy - 20)),
+      (overlaps?['bc'] ?? '5', Offset(c.dx + 29, c.dy + 12)),
+      (overlaps?['ca'] ?? '7', Offset(c.dx - 29, c.dy + 12)),
+      if (singleRegions?['a'] case final value?)
+        (value, Offset(a.dx - 22, a.dy - 8)),
+      if (singleRegions?['b'] case final value?)
+        (value, Offset(b.dx + 22, b.dy - 8)),
+      if (singleRegions?['c'] case final value?)
+        (value, Offset(cc.dx, cc.dy + 22)),
+    ];
+    return (centres: [a, b, cc], radius: r, numbers: numbers);
   }
 }
 
@@ -837,29 +876,37 @@ class _ConceptDiagramPainter extends CustomPainter {
     canvas.drawRect(outerBox, faintStroke);
 
     if (sets != null && sets!.length == 3) {
+      final layout = VennLayout.threeCircle(
+        size,
+        center: center,
+        overlaps: overlaps,
+        singleRegions: singleRegions,
+      );
+      for (final circle in layout.centres) {
+        canvas.drawCircle(circle, layout.radius, stroke);
+      }
+      for (final (text, at) in layout.numbers) {
+        _drawTextCentered(canvas, text, at);
+      }
+
+      // Set names sit outside the circles, so no arc runs through a word.
+      final [a, b, c] = layout.centres;
+      final r = layout.radius;
+      _drawTextCentered(canvas, sets![0], Offset(a.dx - 24, a.dy - r - 14));
+      _drawTextCentered(canvas, sets![1], Offset(b.dx + 24, b.dy - r - 14));
+      // The third name wraps beside the bottom circle, inside the box.
+      final nameX = c.dx + r * 0.86 + 12;
+      _drawText(
+        canvas,
+        sets![2],
+        Offset(nameX, c.dy + 8),
+        maxWidth: outerBox.right - 6 - nameX,
+      );
       _drawText(
         canvas,
         'Universal Set',
-        Offset(outerBox.left + 6, outerBox.top + 4),
+        Offset(outerBox.left + 6, outerBox.bottom - 26),
       );
-      final c = outerBox.center;
-      const r = 50.0;
-      final cA = Offset(c.dx - 32, c.dy - 20);
-      final cB = Offset(c.dx + 32, c.dy - 20);
-      final cC = Offset(c.dx, c.dy + 30);
-      canvas
-        ..drawCircle(cA, r, stroke)
-        ..drawCircle(cB, r, stroke)
-        ..drawCircle(cC, r, stroke);
-
-      _drawText(canvas, sets![0], Offset(cA.dx - 35, cA.dy - 55));
-      _drawText(canvas, sets![1], Offset(cB.dx - 10, cB.dy - 55));
-      _drawText(canvas, sets![2], Offset(cC.dx - 40, cC.dy + 45));
-
-      _drawText(canvas, center ?? '5', Offset(c.dx - 4, c.dy - 6));
-      _drawText(canvas, overlaps?['ab'] ?? '10', Offset(c.dx - 4, cA.dy - 10));
-      _drawText(canvas, overlaps?['bc'] ?? '5', Offset(c.dx + 16, c.dy + 12));
-      _drawText(canvas, overlaps?['ca'] ?? '7', Offset(c.dx - 24, c.dy + 12));
       return;
     }
 
@@ -867,7 +914,7 @@ class _ConceptDiagramPainter extends CustomPainter {
     _drawText(
       canvas,
       'Total = ${regions?['total'] ?? '40'}',
-      Offset(outerBox.left + 8, outerBox.top + 6),
+      Offset(outerBox.left + 8, outerBox.bottom - 26),
     );
     _drawText(
       canvas,
@@ -883,24 +930,33 @@ class _ConceptDiagramPainter extends CustomPainter {
       ..drawCircle(c1, r, stroke)
       ..drawCircle(c2, r, stroke);
 
-    _drawText(
+    // Set names sit above the circles, off to the outer side of each.
+    _drawTextCentered(
       canvas,
       sets != null && sets!.isNotEmpty ? sets![0] : 'Set A',
-      Offset(c1.dx - 40, c1.dy - 74),
+      Offset(c1.dx - 30, cy - r - 14),
     );
-    _drawText(
+    _drawTextCentered(
       canvas,
       sets != null && sets!.length > 1 ? sets![1] : 'Set B',
-      Offset(c2.dx - 10, c2.dy - 74),
+      Offset(c2.dx + 30, cy - r - 14),
     );
 
-    _drawText(canvas, regions?['left'] ?? '17', Offset(c1.dx - 28, cy - 8));
-    _drawText(
+    _drawTextCentered(
+      canvas,
+      regions?['left'] ?? '17',
+      Offset((c1.dx - r + c2.dx - r) / 2, cy),
+    );
+    _drawTextCentered(
       canvas,
       regions?['overlap'] ?? '8',
-      Offset(outerBox.center.dx - 4, cy - 8),
+      Offset(outerBox.center.dx, cy),
     );
-    _drawText(canvas, regions?['right'] ?? '10', Offset(c2.dx + 16, cy - 8));
+    _drawTextCentered(
+      canvas,
+      regions?['right'] ?? '10',
+      Offset((c1.dx + r + c2.dx + r) / 2, cy),
+    );
   }
 
   void _drawNestedBoxes(Canvas canvas, Size size) {
@@ -917,12 +973,14 @@ class _ConceptDiagramPainter extends CustomPainter {
       Offset(realBox.left + 8, realBox.top + 6),
     );
 
+    // A label that is wider than its box wraps onto a second line.
     final irratBox = Rect.fromLTWH(size.width - 140, 42, 112, size.height - 66);
     canvas.drawRect(irratBox, stroke);
     _drawText(
       canvas,
       'Irrational Numbers',
       Offset(irratBox.left + 6, irratBox.top + 8),
+      maxWidth: irratBox.width - 12,
     );
 
     final ratBox = Rect.fromLTWH(28, 42, size.width - 180, size.height - 66);
@@ -931,11 +989,17 @@ class _ConceptDiagramPainter extends CustomPainter {
       canvas,
       'Rational Numbers',
       Offset(ratBox.left + 6, ratBox.top + 6),
+      maxWidth: ratBox.width - 12,
     );
 
     final intBox = Rect.fromLTWH(38, 70, ratBox.width - 20, ratBox.height - 36);
     canvas.drawRect(intBox, stroke);
-    _drawText(canvas, 'Integers', Offset(intBox.left + 6, intBox.top + 4));
+    _drawText(
+      canvas,
+      'Integers',
+      Offset(intBox.left + 6, intBox.top + 4),
+      maxWidth: intBox.width - 12,
+    );
 
     final wholeBox =
         Rect.fromLTWH(48, 96, intBox.width - 20, intBox.height - 34);
@@ -944,6 +1008,7 @@ class _ConceptDiagramPainter extends CustomPainter {
       canvas,
       'Whole Numbers',
       Offset(wholeBox.left + 6, wholeBox.top + 4),
+      maxWidth: wholeBox.width - 12,
     );
 
     final natBox =
@@ -953,6 +1018,7 @@ class _ConceptDiagramPainter extends CustomPainter {
       canvas,
       'Natural Numbers',
       Offset(natBox.left + 6, natBox.top + 4),
+      maxWidth: natBox.width - 12,
     );
   }
 
@@ -1692,13 +1758,30 @@ class _ConceptDiagramPainter extends CustomPainter {
     }
   }
 
-  void _drawText(Canvas canvas, String text, Offset offset) {
+  void _drawText(
+    Canvas canvas,
+    String text,
+    Offset offset, {
+    double maxWidth = double.infinity,
+  }) {
     TextPainter(
       text: TextSpan(text: text, style: labelStyle),
       textDirection: TextDirection.ltr,
     )
-      ..layout()
+      ..layout(maxWidth: maxWidth)
       ..paint(canvas, offset);
+  }
+
+  /// Text whose middle is at [middle].
+  void _drawTextCentered(Canvas canvas, String text, Offset middle) {
+    final painter = TextPainter(
+      text: TextSpan(text: text, style: labelStyle),
+      textDirection: TextDirection.ltr,
+    )..layout();
+    painter.paint(
+      canvas,
+      middle - Offset(painter.width / 2, painter.height / 2),
+    );
   }
 
   @override

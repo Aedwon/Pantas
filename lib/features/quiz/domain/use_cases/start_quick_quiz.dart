@@ -22,7 +22,9 @@ class StartQuickQuiz {
   }) async {
     final allQuestions = <Question>[];
     if (topicId != null) {
-      allQuestions.addAll(await _content.questionsByTopic(topicId));
+      allQuestions.addAll(
+        await _content.questionsByTopic(topicId, examId: examId),
+      );
     } else {
       final exams = await _content.listExams();
       final exam = exams.firstWhere(
@@ -30,11 +32,10 @@ class StartQuickQuiz {
         orElse: () => throw StateError('Exam not found: $examId'),
       );
 
-      for (final subject in exam.subjects) {
-        final topics = await _content.topicsBySubject(subject.id);
-        for (final topic in topics) {
-          allQuestions.addAll(await _content.questionsByTopic(topic.id));
-        }
+      for (final topic in await _content.topicsByExam(exam.id)) {
+        allQuestions.addAll(
+          await _content.questionsByTopic(topic.id, examId: examId),
+        );
       }
     }
     if (allQuestions.isEmpty) {

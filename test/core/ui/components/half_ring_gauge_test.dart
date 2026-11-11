@@ -1,0 +1,139 @@
+import 'dart:math' as math;
+
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/components/half_ring_gauge.dart';
+
+import '../../../helpers/accessibility.dart';
+
+void main() {
+  testWidgets('UPCAT negative earned score stays visible', (tester) async {
+    await pumpAccessibilitySurface(
+      tester,
+      const HalfRingGauge.mock(
+        fraction: -.25,
+        label: '0 correct, minus 1 wrong',
+      ),
+      disableAnimations: true,
+    );
+    expect(find.text('-25.0'), findsOneWidget);
+  });
+  testWidgets('mock geometry has its own arc and one decimal', (tester) async {
+    await pumpAccessibilitySurface(
+      tester,
+      const HalfRingGauge.mock(fraction: .612, label: '171 correct'),
+      disableAnimations: true,
+    );
+    final paint = find.byKey(const ValueKey('half-ring-paint'));
+    expect(tester.getSize(paint), const Size(264, 128));
+    expect(paint, paints..arc(rect: const Rect.fromLTWH(24, 10, 216, 216)));
+    expect(tester.widget<Text>(find.text('61.2')).style!.fontSize, 56);
+  });
+  for (final brightness in Brightness.values) {
+    for (final fraction in [0.0, .61, 1.0]) {
+      testWidgets('gauge $fraction final frame in $brightness', (tester) async {
+        final widget =
+            HalfRingGauge(fraction: fraction, label: 'Overall accuracy');
+        await pumpAccessibilitySurface(
+          tester,
+          widget,
+          brightness: brightness,
+          disableAnimations: true,
+        );
+        final paint = find.byKey(const ValueKey('half-ring-paint'));
+        expect(tester.getSize(paint), const Size(224, 118));
+        expect(
+          paint,
+          paints
+            ..arc(
+              rect: const Rect.fromLTWH(7, 6, 210, 210),
+              startAngle: math.pi,
+              sweepAngle: math.pi,
+              strokeWidth: 14,
+              style: PaintingStyle.stroke,
+            ),
+        );
+        if (fraction > 0) {
+          expect(
+            paint,
+            paints
+              ..arc(strokeWidth: 14)
+              ..arc(
+                rect: const Rect.fromLTWH(7, 6, 210, 210),
+                startAngle: math.pi,
+                sweepAngle: math.pi * fraction,
+                strokeWidth: 14,
+                color: brightness == Brightness.light
+                    ? const Color(0xFF0B7A68)
+                    : const Color(0xFF4CC3AC),
+              ),
+          );
+        }
+        final number =
+            tester.widget<Text>(find.text('${(fraction * 100).round()}'));
+        expect(number.style!.fontSize, 44);
+        expect(number.style!.height, 1.12);
+        expect(number.style!.fontWeight, FontWeight.w700);
+        expect(number.style!.letterSpacing, -1.32);
+        final percent = tester.widget<Text>(find.text('%'));
+        expect(percent.style!.fontSize, 22);
+        expect(percent.style!.fontWeight, FontWeight.w600);
+        final background = brightness == Brightness.light
+            ? const Color(0xFFFFFFFF)
+            : const Color(0xFF1F1F1F);
+        for (final style in [number.style!, percent.style!]) {
+          final luminances = [
+            style.color!.computeLuminance(),
+            background.computeLuminance(),
+          ]..sort();
+          expect(
+            (luminances.last + .05) / (luminances.first + .05),
+            greaterThanOrEqualTo(4.5),
+          );
+        }
+        await expectSurvivesTextScale(
+          tester,
+          widget,
+          viewportSize: const Size(390, 844),
+          brightness: brightness,
+          disableAnimations: true,
+        );
+      });
+    }
+    testWidgets('gauge delay and intermediate count in $brightness',
+        (tester) async {
+      await pumpAccessibilitySurface(
+        tester,
+        const HalfRingGauge(fraction: .61, label: 'Overall accuracy'),
+        brightness: brightness,
+      );
+      expect(find.text('0'), findsOneWidget);
+      await tester.pump(const Duration(milliseconds: 300));
+      expect(find.text('0'), findsOneWidget);
+      await tester.pump(const Duration(milliseconds: 550));
+      expect(find.text('57'), findsOneWidget);
+      await tester.pump(const Duration(milliseconds: 550));
+      expect(find.text('61'), findsOneWidget);
+      await tester.pumpWidget(const SizedBox());
+      expect(tester.takeException(), isNull);
+    });
+  }
+  testWidgets('mock overlay receives final progress with motion off',
+      (tester) async {
+    double? progress;
+    await pumpAccessibilitySurface(
+      tester,
+      HalfRingGauge(
+        fraction: .61,
+        label: 'Mock score',
+        overlayBuilder: (context, value) {
+          progress = value;
+          return const Text('Mock overlay');
+        },
+      ),
+      disableAnimations: true,
+    );
+    expect(progress, .61);
+    expect(find.text('Mock overlay'), findsOneWidget);
+  });
+}

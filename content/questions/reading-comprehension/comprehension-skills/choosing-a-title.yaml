@@ -1,239 +1,453 @@
 meta:
-  subject: reading-comprehension
-  topic: comprehension-skills
-  subtopic: choosing-a-title
+  subject: "reading-comprehension"
+  topic: "comprehension-skills"
+  subtopic: "choosing-a-title"
   exams:
-    - upcat
-    - acet
-    - dlsucet
-    - ustet
-
+    - "upcat"
+    - "acet"
+    - "dlsucet"
+    - "ustet"
 passages:
-  - id: rc-cs-ct-p1
+  - id: "rc-cs-ct-p1"
     title: "Preserving the Ifugao Rice Terraces"
     body: |
-      The ancient Ifugao Rice Terraces of the Philippine Cordilleras represent a masterpiece of indigenous engineering and communal land stewardship built over two thousand years ago. Carved into the steep contours of the mountains, the terraces rely on hand-built stone retaining walls and intricate gravity-fed irrigation channels that distribute mountain spring water across hundreds of terraced pond-fields.
-
+      The ancient Ifugao Rice Terraces of the Philippine Cordilleras represent a masterpiece of indigenous engineering and communal land stewardship developed across generations of mountain farmers. Carved into the steep contours of the mountains, the terraces rely on hand-built stone retaining walls and intricate gravity-fed irrigation channels that distribute mountain spring water across hundreds of terraced pond-fields.
+      
       Maintaining these agricultural marvels, however, requires constant labor and traditional ecological knowledge passed down through generations. In recent decades, stone walls have collapsed during extreme monsoon rains due to lack of timely maintenance. Furthermore, many younger Ifugao residents are migrating to urban centers for higher-paying jobs, leaving elderly farmers to manage the demanding repair work alone.
-
-      To prevent further deterioration, local cultural agencies and indigenous elders launched collaborative restoration workshops that train young volunteers in traditional stonemasonry while integrating modern soil stabilization techniques. Protecting the terraces requires balancing cultural heritage conservation with sustainable economic opportunities for mountain communities.
-
-  - id: rc-cs-ct-p2
+      
+      To prevent further deterioration, community restoration proposals include collaborative workshops that train young volunteers in traditional stonemasonry while integrating modern soil stabilization techniques. Protecting the terraces requires balancing cultural heritage conservation with sustainable economic opportunities for mountain communities.
+  - id: "rc-cs-ct-p2"
     title: "The Urban Benefits of Public Parks"
     body: |
-      As Metro Manila experiences rapid urban density and rising summer heat, the strategic expansion of public urban parks has become an essential urban planning imperative. Dense concrete roads and tall buildings absorb solar radiation, creating urban heat islands where city temperatures run up to four degrees Celsius higher than surrounding rural areas. Shaded park trees and grassy lawns actively mitigate this heat effect by providing natural cooling.
-
-      Beyond environmental temperature control, urban parks offer measurable public health benefits. Psychological studies demonstrate that spending twenty minutes in a tree-lined green space significantly lowers cortisol levels and reduces urban stress. Parks also provide accessible, cost-free spaces for exercise, recreational sports, and family gatherings, strengthening social cohesion across diverse neighborhood income groups.
-
-      City planners must prioritize green infrastructure investments alongside commercial development. Investing in public parks is not a decorative luxury, but a vital investment in urban public health, climate cooling, and community well-being.
-
+      As Metro Manila grows denser, expanding public parks deserves a place in urban planning. Concrete roads and buildings store heat, while shaded trees and other vegetation can help cool the surrounding environment. A park is therefore more than an attractive patch of green between streets. It can make the neighborhood more comfortable for the people who live and work there.
+      
+      Parks also offer places to rest away from traffic and to take part in exercise, recreational sports, and family gatherings. When such spaces are accessible and free to use, neighbors from different income groups can meet without having to buy a meal or a ticket. These benefits reach beyond the appearance of the city.
+      
+      City planners should consider green spaces alongside commercial development. A park needs regular care and a design that residents can actually use. Investing in public parks supports environmental cooling, opportunities for healthy activity, and community life. Those purposes make parks a public investment deserving serious attention, not an optional decoration.
+  - id: "p-comprehension-skills-choosing-a-title-0003"
+    title: "A Shelf That Keeps Moving"
+    body: |
+      When the youth council opened a reading corner in the barangay hall, the donated books stayed on the shelf. Students could visit after class, but many lived far from the hall or spent their afternoons helping at home. The council had counted the books carefully. It had not asked when people could reach them.
+      
+      Mara suggested taking a small collection to the waiting shed near the market on Saturdays. Volunteers brought a box, a borrowing list, and folding chairs. A vendor read while waiting for customers. A child asked to take a story home. Some books returned with bent corners, but they returned with readers, too.
+      
+      The council kept the hall shelf and added rotating visits to other streets. It learned to ask residents which times and places worked for them. The collection did not become much larger that month. Its use did. A reading project succeeds through access and continuing attention to people, not simply through the number of books it owns.
+  - id: "p-comprehension-skills-choosing-a-title-0004"
+    title: "Making Room for Repairs"
+    body: |
+      A school committee has money for one improvement this term. Some members favor repainting the gate because it is the first thing visitors see. Others want to repair a leaking classroom roof. During rain, students move their desks away from wet spots, and a teacher stores worksheets in a covered box. The paint has faded, but it does not interrupt a lesson.
+      
+      Choosing the roof does not mean that the gate has no value. A welcoming entrance can matter to the school community. The question is which need should come first when the budget cannot cover both. A repair that protects daily learning has a stronger claim on the present funds than a change made mainly for appearance.
+      
+      The committee should explain its decision and keep the painting proposal for a later budget. Residents who supported the gate deserve to know how the choice was made. Setting priorities can protect essential work without dismissing every other concern. In this case, the roof should receive attention first.
 questions:
-  - id: rc-cs-ct-0001
-    passage: rc-cs-ct-p1
-    type: analyze
-    difficulty: easy
+  - id: "rc-cs-ct-0001"
+    passage: "rc-cs-ct-p1"
+    type: "choosing-a-title"
+    difficulty: "easy"
     stem: |
-      Which title best captures the full scope and main focus of the Ifugao passage?
+      Which title best captures the full scope of the Ifugao passage?
     choices:
       - text: "Preserving Ifugao Rice Terraces"
         correct: true
-      - text: Ancient Mountain Stone Walls
+      - text: "Ancient Mountain Stone Walls"
         rationale: |
-          You picked a narrow structural feature from paragraph 1. It ignores the threats to the terraces and ongoing restoration workshops.
-      - text: How Gravity-Fed Water Channels Function in Mountain Rice Fields
+          This names only a structural detail. Stone walls help explain the terraces. Check whether the title also covers the maintenance and preservation focus.
+      - text: "How Gravity-Fed Water Channels Function"
         rationale: |
-          You picked a title focused on one engineering detail. The passage covers heritage value, decay threats, and youth restoration programs.
-      - text: The Complete History of Agriculture in the Cordilleras
+          This names only an irrigation feature. Water channels appear in the opening. Check the later discussion of threats and restoration.
+      - text: "The Complete History of Cordillera Farming"
         rationale: |
-          You picked a title that is far too broad. The passage focuses specifically on the Ifugao Rice Terraces, not all regional agriculture.
+          This expands one terrace system into all farming history. The passage mentions a long tradition. Check the actual limits of its subject.
     explanation: |
-      The passage discusses the terraces' significance, maintenance challenges (wall collapse, youth migration), and restoration initiatives, making this title the complete fit.
-
-  - id: rc-cs-ct-0002
-    passage: rc-cs-ct-p1
-    type: analyze
-    difficulty: medium
+      The text links the terraces' cultural value, maintenance problems, and ways to preserve them. The title brings those parts together.
+  - id: "rc-cs-ct-0002"
+    passage: "rc-cs-ct-p1"
+    type: "choosing-a-title"
+    difficulty: "medium"
     stem: |
-      Why is "How Gravity-Fed Water Channels Function" a poor title for the passage?
+      Why is "How Gravity-Fed Water Channels Function" too narrow for this passage?
     choices:
-      - text: It focuses on a single engineering detail, ignoring restoration.
+      - text: "It leaves out the conservation problem."
         correct: true
-      - text: It is far too broad and could apply to any traditional irrigation project worldwide.
+      - text: "It gives a general overview of all kinds of farming."
         rationale: |
-          You misidentified the flaw. The title is far too narrow, focusing on one specific feature described in paragraph 1.
-      - text: It directly contradicts the historical construction information presented in paragraph 1.
+          This confuses a single feature with a broad overview. Irrigation supports farming. Check how much of the passage the proposed title actually names.
+      - text: "It denies that water moves through mountain channels."
         rationale: |
-          You picked a false premise. Gravity-fed channels are accurately described in paragraph 1, but they are only one minor detail.
-      - text: It fails to mention that young agricultural farmers migrate to urban centers.
+          This treats missing coverage as a contradiction. The title refers to a real feature. Check whether it denies any statement in the text.
+      - text: "It promises a complete history of Ifugao migration."
         rationale: |
-          You picked a specific detail from paragraph 2 that is not the main reason why the proposed title fails as a title.
+          This imports another paragraph's topic into the title. Migration is mentioned later. Check the words the proposed title actually contains.
     explanation: |
-      Gravity-fed channels are mentioned in paragraph 1 as one engineering feature, so using it as the title makes it far too narrow.
-
-  - id: rc-cs-ct-0003
-    passage: rc-cs-ct-p1
-    type: analyze
-    difficulty: medium
+      The channels are one feature in the opening. The passage goes on to discuss maintenance threats and preservation, which the title leaves out.
+  - id: "rc-cs-ct-0003"
+    passage: "rc-cs-ct-p1"
+    type: "choosing-a-title"
+    difficulty: "medium"
     stem: |
-      Why is the single-word title "Terraces" inappropriate for this passage?
+      What main weakness does the title "Terraces" have for this passage?
     choices:
-      - text: It is overly broad, failing to specify context or challenges.
+      - text: "It omits the specific preservation focus."
         correct: true
-      - text: It is far too narrow and mentions only ancient hand-built stone walls.
+      - text: "It restricts the passage to one named repair workshop."
         rationale: |
-          You misidentified the title flaw. Single-word titles like Terraces are overly broad, not overly narrow.
-      - text: It focuses exclusively on modern urban youth migration trends.
+          This mistakes a general label for a specific event. Workshops are part of the passage. Check whether the title names them at all.
+      - text: "It claims that terrace farming has already ended."
         rationale: |
-          You picked a false statement. The word Terraces does not mention youth migration at all.
-      - text: It misstates the exact historical age of the mountain agricultural structures.
+          This supplies an outcome that the title does not state. The text discusses deterioration. Check whether the single word announces an end to farming.
+      - text: "It says that migration is the only cause of damage."
         rationale: |
-          You picked a false premise. The word Terraces does not state any age or numerical historical figure.
+          This supplies a causal claim that is absent from the title. Migration is a threat in the passage. Check the title's actual wording.
     explanation: |
-      A single generic word like "Terraces" is far too broad and fails to specify the Ifugao context or the restoration thesis.
-
-  - id: rc-cs-ct-0004
-    passage: rc-cs-ct-p1
-    type: infer
-    difficulty: hard
+      "Terraces" names a broad subject. Adding the preservation focus would show what this passage says about that subject.
+  - id: "rc-cs-ct-0004"
+    passage: "rc-cs-ct-p1"
+    type: "choosing-a-title"
+    difficulty: "hard"
     stem: |
-      Which alternative title would also be appropriate for the Ifugao passage?
+      Which proposed title makes a claim stronger than the passage supports?
     choices:
-      - text: "Sustaining Ifugao Terraces"
+      - text: "Ifugao Terrace Decline Has Been Reversed"
         correct: true
-      - text: The Rise of Modern Concrete Buildings in Cordillera Mountain Cities
+      - text: "Keeping Terrace Traditions Alive Through Restoration"
         rationale: |
-          You picked a title about urban concrete construction that is not discussed in this passage.
-      - text: Commercial Rice Exporting in Northern Luzon
+          This mistakes a restoration aim for a claim of completed success. The title sounds hopeful. Check whether it says that all problems have ended.
+      - text: "Maintenance Challenges Facing the Ifugao Terraces"
         rationale: |
-          You picked a title about commercial rice exports, whereas the passage discusses indigenous mountain terrace conservation.
-      - text: Monsoon Rainfall Patterns Across Two Thousand Years
+          This mistakes a narrower but accurate focus for an unsupported claim. Challenges occupy part of the text. Check whether they are actually discussed.
+      - text: "Heritage and Community in Terrace Preservation"
         rationale: |
-          You picked a title focused on meteorology rather than the cultural engineering and restoration of the terraces.
+          This mistakes a broad theme for a false claim. Heritage and communities are both central. Check whether the title adds a result the text never states.
     explanation: |
-      This alternative title captures both the heritage conservation aspect and the restoration workshops training young volunteers.
-
-  - id: rc-cs-ct-0005
-    passage: rc-cs-ct-p1
-    type: evaluate
-    difficulty: hard
+      The text describes problems and proposed responses. It does not report that the decline has already been reversed.
+  - id: "rc-cs-ct-0005"
+    passage: "rc-cs-ct-p1"
+    type: "choosing-a-title"
+    difficulty: "hard"
     stem: |
-      What essential element must a strong title for this passage include?
+      Which element should a title retain to represent the passage's main point?
     choices:
-      - text: Reference to terrace values and restoration efforts.
+      - text: "The need to preserve the terraces"
         correct: true
-      - text: Exact mathematical figures regarding stone retaining wall heights.
+      - text: "The exact height of every retaining wall"
         rationale: |
-          You picked a minor technical detail requirement. Strong titles capture main themes rather than specific numbers.
-      - text: A detailed list of all high-paying jobs available in urban centers.
+          This substitutes a technical measurement for the main point. Walls are important to the terraces. Check whether measurements organize the whole text.
+      - text: "The complete list of jobs available in cities"
         rationale: |
-          You picked an off-topic detail about urban employment that is outside the passage focus.
-      - text: An exclusive focus on modern soil stabilization machinery.
+          This substitutes a supporting cause for the main point. Better urban jobs help explain migration. Check what the passage seeks to protect.
+      - text: "The specifications of soil repair equipment"
         rationale: |
-          You picked a narrow technical aspect, ignoring the indigenous heritage and community stonemasonry aspects.
+          This substitutes one repair method for the main point. Soil stabilization is mentioned. Check whether the title covers the reason for restoration.
     explanation: |
-      A comprehensive title must encompass both the cultural engineering value and the active efforts to resolve maintenance threats.
-
-  - id: rc-cs-ct-0006
-    passage: rc-cs-ct-p2
-    type: analyze
-    difficulty: easy
+      The passage centers on keeping a valuable terrace system in use despite maintenance challenges. A title should retain that preservation focus.
+  - id: "rc-cs-ct-0006"
+    passage: "rc-cs-ct-p2"
+    type: "choosing-a-title"
+    difficulty: "easy"
     stem: |
-      Which title best fits the passage on Metro Manila public parks?
+      Which title best fits all three dimensions of the park passage?
     choices:
-      - text: Urban Parks in Metro Manila
+      - text: "Parks for Cooling, Activity, and Community"
         correct: true
-      - text: Measuring Cortisol Levels
+      - text: "Why Trees Reduce Heat on Concrete Streets"
         rationale: |
-          You picked a narrow supporting detail from paragraph 2 about stress reduction, not the overall subject of urban parks.
-      - text: Metro Manila Concrete Buildings
+          This covers only the environmental benefit. Trees appear in the opening. Check the later sections on activity and social life.
+      - text: "Free Exercise Facilities in Metro Manila"
         rationale: |
-          You picked a title focused on urban structures that cause heat, ignoring the main topic of expanding public parks.
-      - text: The Complete Architecture of Urban Heat Islands
+          This covers only exercise. Free access is a useful benefit. Check whether the title also includes cooling and community use.
+      - text: "The Complete Guide to Urban Planning Decisions"
         rationale: |
-          You picked a title focused on urban heat causes, whereas the passage emphasizes green infrastructure solutions.
+          This extends one planning issue to the entire field. City planning frames the appeal. Check how many planning topics the text actually covers.
     explanation: |
-      The passage outlines how parks cool urban temperatures, improve mental health, and foster social cohesion, making this title accurate and complete.
-
-  - id: rc-cs-ct-0007
-    passage: rc-cs-ct-p2
-    type: analyze
-    difficulty: medium
+      The passage discusses cooling, healthy activity, and places for neighbors to meet. The title names all three parts of its focus.
+  - id: "rc-cs-ct-0007"
+    passage: "rc-cs-ct-p2"
+    type: "choosing-a-title"
+    difficulty: "medium"
     stem: |
-      Why would "Measuring Cortisol Levels" be an unsatisfactory title for the park passage?
+      Why is "Places to Exercise" incomplete as a title for the park passage?
     choices:
-      - text: It names only one specific physiological detail from paragraph 2.
+      - text: "It covers only one park benefit."
         correct: true
-      - text: It is far too broad and describes global public healthcare policies.
+      - text: "It promises details on every city service."
         rationale: |
-          You misidentified the flaw. The title is far too narrow, referencing a single health measurement mentioned in paragraph 2.
-      - text: It contradicts the passage's argument about cooling urban heat islands.
+          This treats a narrow benefit as a broad survey. Exercise is a public activity. Check whether the title promises anything about other services.
+      - text: "It contradicts the claim that parks are free."
         rationale: |
-          You picked a false claim. Cortisol measurement supports the health argument and does not contradict urban cooling.
-      - text: It focuses exclusively on private commercial real estate investments.
+          This treats missing coverage as false information. Free spaces can support exercise. Check whether the title actually says access has a cost.
+      - text: "It focuses on the cost of commercial development."
         rationale: |
-          You picked a false premise. Cortisol levels relate to stress measurement, not real estate investments.
+          This supplies a financial focus from the wider planning debate. Development appears near the end. Check whether it appears in the proposed title.
     explanation: |
-      Cortisol measurement is a supporting detail in paragraph 2 used to prove mental health benefits; as a title, it is far too narrow.
-
-  - id: rc-cs-ct-0008
-    passage: rc-cs-ct-p2
-    type: analyze
-    difficulty: medium
+      Exercise is one use of a park. The text also discusses cooling and community gatherings, so the title covers only part of the passage.
+  - id: "rc-cs-ct-0008"
+    passage: "rc-cs-ct-p2"
+    type: "choosing-a-title"
+    difficulty: "medium"
     stem: |
-      Why is "Metro Manila Buildings" a poor choice for the title?
+      Why is "Metro Manila Buildings" a poor title for the park passage?
     choices:
-      - text: It names a cause of heat islands without reflecting park benefits.
+      - text: "It names the background, not the park focus."
         correct: true
-      - text: It is far too narrow and mentions only psychological stress reduction.
+      - text: "It treats the main cooling solution as the cause of heat."
         rationale: |
-          You mischaracterized the title flaw. Concrete buildings relate to heat creation, not psychological stress reduction.
-      - text: It misidentifies Metro Manila as a rural agricultural farming region.
+          This attaches the park argument to the word buildings. Both belong to the city setting. Check which subject the title actually names.
+      - text: "It restricts the discussion to family gatherings in parks."
         rationale: |
-          You picked a false claim. The passage explicitly identifies Metro Manila as a dense urban area.
-      - text: It focuses exclusively on recreational sports rather than architecture.
+          This assigns a social detail to a title about structures. Family gatherings appear in the text. Check the meaning of the title's words.
+      - text: "It incorrectly describes the city as an agricultural region."
         rationale: |
-          You picked a statement that contradicts the title wording. Buildings refer to urban structures, not sports.
+          This invents a geographic claim in a general title. Urban and rural comparisons can be familiar. Check whether the title calls the city agricultural.
     explanation: |
-      Concrete buildings explain why urban heat islands form, but the passage's thesis advocates for expanding public parks to mitigate these problems.
-
-  - id: rc-cs-ct-0009
-    passage: rc-cs-ct-p2
-    type: infer
-    difficulty: hard
+      Buildings help explain the heat problem in the opening. The text's focus is the value of public parks as a response and shared resource.
+  - id: "rc-cs-ct-0009"
+    passage: "rc-cs-ct-p2"
+    type: "choosing-a-title"
+    difficulty: "hard"
     stem: |
-      Which title best reflects the argumentative stance taken in the final paragraph?
+      Which title best represents the final paragraph's argument?
     choices:
-      - text: "Urban Parks: Essential Public Investments"
+      - text: "Public Parks Deserve Investment"
         correct: true
-      - text: Why Commercial Real Estate Development Should Replace All Public Parks
+      - text: "How Concrete Stores Heat Throughout the Day"
         rationale: |
-          You picked a title that directly contradicts the paragraph's argument that public parks must be prioritized.
-      - text: The History of Four-Degree Temperature Increases in Rural Areas
+          This uses the opening explanation as the final argument. Heat helps justify parks. Check the recommendation in the last paragraph.
+      - text: "Choosing Exercise Equipment for Neighborhood Parks"
         rationale: |
-          You misread the text. The passage states urban areas run four degrees warmer than rural areas, not rural increases.
-      - text: Decorative Landscaping in Metro Manila Shopping Malls
+          This turns a broad investment appeal into equipment advice. Recreation is a park benefit. Check whether the paragraph discusses choosing equipment.
+      - text: "Commercial Development Should Replace Public Parks"
         rationale: |
-          You picked a commercial retail title that is not discussed in the passage.
+          This reverses the recommendation. Commercial development is mentioned alongside parks. Check which investment the writer asks planners to support.
     explanation: |
-      The final paragraph argues that parks are not luxuries but vital investments for urban health, cooling, and well-being, which this title captures.
-
-  - id: rc-cs-ct-0010
-    passage: rc-cs-ct-p2
-    type: evaluate
-    difficulty: hard
+      The ending asks planners to treat parks as a serious public investment. That argument is the point the title expresses.
+  - id: "rc-cs-ct-0010"
+    passage: "rc-cs-ct-p2"
+    type: "choosing-a-title"
+    difficulty: "hard"
     stem: |
-      Which test confirms that "Urban Green Spaces: Cooling, Health, and Community" is a well-balanced title?
+      What makes "Parks for Cooling, Activity, and Community" a balanced title?
     choices:
-      - text: It covers environmental, psychological, and social dimensions.
+      - text: "It matches the text's three main benefits."
         correct: true
-      - text: It contains only one short word and is very easy to memorize.
+      - text: "It includes every detail mentioned in each paragraph."
         rationale: |
-          You picked a trivial formatting criteria. Title balance depends on thematic coverage, not word brevity.
-      - text: It mentions only the four-degree temperature measurement figure.
+          This demands a complete inventory from a title. Detailed coverage sounds thorough. Check whether a title can capture the main idea without listing every fact.
+      - text: "It avoids expressing any specific point about parks."
         rationale: |
-          You picked a title criteria focused on a single stat, which would make the title narrow rather than well-balanced.
-      - text: It focuses exclusively on annual financial budget allocations for trees.
+          This treats vagueness as balance. A neutral label can sound safe. Check whether it identifies the passage's particular focus.
+      - text: "It promises a comparison of all Metro Manila services."
         rationale: |
-          You picked a narrow financial focus that ignores the health and social benefits discussed in the text.
+          This expands parks into all city services. The text addresses planners. Check the boundary of the discussion.
     explanation: |
-      A well-balanced title reflects all main dimensions discussed in the text: environmental cooling, health/stress reduction, and community social cohesion.
+      Cooling, healthy activity, and community life are the three benefits developed in the passage. The title matches that scope.
+  - id: "q-comprehension-skills-choosing-a-title-0011"
+    passage: "p-comprehension-skills-choosing-a-title-0003"
+    type: "choosing-a-title"
+    difficulty: "easy"
+    stem: |
+      Which title best captures the whole passage?
+    choices:
+      - text: "Bringing Books Within Reach"
+        correct: true
+      - text: "The First Donated Books in the Barangay Hall"
+        rationale: |
+          This stops at the project's opening. Donations start the reading corner. Check how the project changes later.
+      - text: "A Complete History of Community Education"
+        rationale: |
+          This expands one project into all community education. The setting involves learning. Check whether the passage supplies a complete history.
+      - text: "Rules for Keeping Every Borrowed Book Undamaged"
+        rationale: |
+          This turns a small concern into the point. Some books have bent corners. Check what the ending treats as success.
+    explanation: |
+      The project grows from a fixed shelf into visits that help people reach books. Access is the central focus.
+    approved: false
+  - id: "q-comprehension-skills-choosing-a-title-0012"
+    passage: "p-comprehension-skills-choosing-a-title-0003"
+    type: "choosing-a-title"
+    difficulty: "medium"
+    stem: |
+      Which detail would a suitable title for this passage most need to reflect?
+    choices:
+      - text: "Access matters more than collection size."
+        correct: true
+      - text: "Every vendor reads while waiting for customers."
+        rationale: |
+          This changes one vendor into every vendor. The example shows a new reader. Check the scope of the statement.
+      - text: "The hall shelf is removed after the first visit."
+        rationale: |
+          This turns expansion into replacement. The market visits are added. Check whether the hall shelf stays.
+      - text: "All books return in perfect physical condition."
+        rationale: |
+          This treats a hoped-for condition as a result. Returned books matter to the project. Check the mention of bent corners.
+    explanation: |
+      The ending directly contrasts the number of books with their use. A title should reflect that lesson about access.
+    approved: false
+  - id: "q-comprehension-skills-choosing-a-title-0013"
+    passage: "p-comprehension-skills-choosing-a-title-0003"
+    type: "choosing-a-title"
+    difficulty: "medium"
+    stem: |
+      Why is "Counting the Donated Books" an incomplete title?
+    choices:
+      - text: "It misses the move toward better access."
+        correct: true
+      - text: "It claims the project had no books available."
+        rationale: |
+          This reads absence into a title about quantity. Counting can emphasize resources. Check whether the title denies that books exist.
+      - text: "It promises a survey of all school subjects."
+        rationale: |
+          This expands the title beyond its stated subject. Books can cover many subjects. Check whether any survey is promised.
+      - text: "It describes a competition between two libraries."
+        rationale: |
+          This turns a collection count into a contest. Numbers can be compared. Check whether two libraries appear.
+    explanation: |
+      Counting describes the council's initial attention. The passage then shows why reaching readers matters more, which the title omits.
+    approved: false
+  - id: "q-comprehension-skills-choosing-a-title-0014"
+    passage: "p-comprehension-skills-choosing-a-title-0003"
+    type: "choosing-a-title"
+    difficulty: "hard"
+    stem: |
+      A magazine uses "A Shelf That Keeps Moving" as a figurative title. Which subtitle best clarifies its focus?
+    choices:
+      - text: "Making reading accessible beyond the hall"
+        correct: true
+      - text: "Protecting donated books from all signs of wear"
+        rationale: |
+          This makes book condition the priority. Bent corners appear in the passage. Check what the project values despite that wear.
+      - text: "Replacing every permanent shelf with market stalls"
+        rationale: |
+          This turns rotation into complete replacement. Books travel to other streets. Check whether the original shelf remains.
+      - text: "Selecting the largest possible collection of books"
+        rationale: |
+          This makes collection size the goal. The council counted its books. Check what changed even without a much larger collection.
+    explanation: |
+      The council carries books to places residents can use. The subtitle clarifies the title's image of books reaching people.
+    approved: false
+  - id: "q-comprehension-skills-choosing-a-title-0015"
+    passage: "p-comprehension-skills-choosing-a-title-0003"
+    type: "choosing-a-title"
+    difficulty: "exam"
+    stem: |
+      Which title overstates the result of the project?
+    choices:
+      - text: "Every Resident Now Reads Regularly"
+        correct: true
+      - text: "A Reading Corner Learns to Reach Its Community"
+        rationale: |
+          This mistakes a cautious description for an absolute claim. The project adapts to residents. Check whether the title promises universal participation.
+      - text: "Taking Books to Places Where People Already Gather"
+        rationale: |
+          This mistakes an accurate method for an exaggerated result. Books go to public meeting places. Check whether the title says everyone reads.
+      - text: "A Small Collection Finds New Readers Outside the Hall"
+        rationale: |
+          This mistakes limited success for overstatement. New readers are described. Check the difference between some readers and every resident.
+    explanation: |
+      The text reports greater use and several readers. It never says that every resident now reads regularly.
+    approved: false
+  - id: "q-comprehension-skills-choosing-a-title-0016"
+    passage: "p-comprehension-skills-choosing-a-title-0004"
+    type: "choosing-a-title"
+    difficulty: "easy"
+    stem: |
+      Which title best represents the writer's argument?
+    choices:
+      - text: "Repair the Roof First"
+        correct: true
+      - text: "The Complete Plan for Redesigning a School"
+        rationale: |
+          This expands one budget choice into a complete redesign. Improvements are discussed. Check how many decisions the text actually addresses.
+      - text: "Why School Gates Have No Value to Residents"
+        rationale: |
+          This turns lower priority into lack of value. The gate is postponed. Check the sentence acknowledging its importance.
+      - text: "Comparing Every Classroom's Construction Cost"
+        rationale: |
+          This turns a priority argument into a cost survey. Money is limited. Check whether construction costs are compared.
+    explanation: |
+      The writer argues that protecting lessons from a leak deserves priority under a limited budget. The title states that recommendation.
+    approved: false
+  - id: "q-comprehension-skills-choosing-a-title-0017"
+    passage: "p-comprehension-skills-choosing-a-title-0004"
+    type: "choosing-a-title"
+    difficulty: "medium"
+    stem: |
+      Why would "A Faded Gate" fail to represent the whole passage?
+    choices:
+      - text: "It focuses on the lower-priority proposal."
+        correct: true
+      - text: "It wrongly says the school has an entrance."
+        rationale: |
+          This treats a real setting detail as a factual error. A gate is mentioned. Check whether its existence is disputed.
+      - text: "It claims repairs have already been completed."
+        rationale: |
+          This supplies a completed result from a descriptive title. The gate needs paint. Check whether the title announces any finished work.
+      - text: "It lists too many different school improvements."
+        rationale: |
+          This mistakes one feature for an overloaded list. Many school needs are possible. Count the improvements actually named in the title.
+    explanation: |
+      The gate supplies one side of the debate. The passage's main argument is that the leaking roof should receive attention first.
+    approved: false
+  - id: "q-comprehension-skills-choosing-a-title-0018"
+    passage: "p-comprehension-skills-choosing-a-title-0004"
+    type: "choosing-a-title"
+    difficulty: "medium"
+    stem: |
+      Which proposed title distorts the writer's position?
+    choices:
+      - text: "Appearance Never Matters in Schools"
+        correct: true
+      - text: "Protecting Lessons Before Repainting the Gate"
+        rationale: |
+          This confuses priority with distortion. Lessons take precedence in the argument. Check whether the title rejects all painting forever.
+      - text: "Setting Priorities When Funds Cannot Cover Everything"
+        rationale: |
+          This mistakes the general principle for a false claim. The budget has limits. Check whether the principle matches the comparison.
+      - text: "Choosing Urgent Repairs While Preserving Later Plans"
+        rationale: |
+          This mistakes postponement for distortion. The gate proposal is kept for later. Check the difference between postponing and dismissing.
+    explanation: |
+      The writer says a welcoming entrance can matter. The recommendation concerns which need comes first now, so a claim that appearance never matters distorts it.
+    approved: false
+  - id: "q-comprehension-skills-choosing-a-title-0019"
+    passage: "p-comprehension-skills-choosing-a-title-0004"
+    type: "choosing-a-title"
+    difficulty: "hard"
+    stem: |
+      Which subtitle best completes "A Limited Budget" for this passage?
+    choices:
+      - text: "Putting essential repairs ahead of appearance"
+        correct: true
+      - text: "Removing every decorative feature from the school"
+        rationale: |
+          This turns a current budget choice into total removal. The gate is decorative. Check whether the writer rejects appearance altogether.
+      - text: "Calculating the full cost of a new classroom building"
+        rationale: |
+          This promises figures and a new building. A repair is needed. Check the scale of the actual proposal.
+      - text: "Letting the most popular proposal receive all the funds"
+        rationale: |
+          This replaces the stated reason with popularity. Several residents support the gate. Check how the writer evaluates the options.
+    explanation: |
+      The text uses the roof and gate to argue for protecting daily learning first. The subtitle states that priority.
+    approved: false
+  - id: "q-comprehension-skills-choosing-a-title-0020"
+    passage: "p-comprehension-skills-choosing-a-title-0004"
+    type: "choosing-a-title"
+    difficulty: "exam"
+    stem: |
+      Which title identifies the decision without promising results the passage does not report?
+    choices:
+      - text: "Roof or Gate: Choosing What Comes First"
+        correct: true
+      - text: "A Repaired Roof Ends Every Classroom Problem"
+        rationale: |
+          This turns a recommendation into a completed cure. The roof repair could help learning. Check whether the work or its results have happened.
+      - text: "The Committee Completes Both Improvements on Time"
+        rationale: |
+          This converts a limited budget into completion of both plans. Both proposals have value. Check whether the committee has funds for both.
+      - text: "School Paint Costs Fall After a Successful Fundraiser"
+        rationale: |
+          This invents a funding outcome. Money is central to the decision. Check whether a fundraiser appears in the passage.
+    explanation: |
+      The passage considers two improvements and recommends a priority. The title names the choice while staying within that discussion.
+    approved: false

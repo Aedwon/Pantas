@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_math_fork/flutter_math.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pantas/core/ui/components/inline_math_text.dart';
-import 'package:pantas/core/ui/components/portable_text_renderer.dart';
+import 'package:pantas/core/ui/components/content_renderer.dart';
+import 'package:pantas/core/ui/components/math_support.dart';
+import 'package:pantas/core/ui/components/math_text.dart';
 
 import '../../../helpers/accessibility.dart';
 
@@ -13,6 +14,7 @@ const _compoundInterestSpeech =
     'A equals P open parenthesis 1 plus r close parenthesis to the power of t';
 const _compoundInterestSentence =
     'Use $_compoundInterestSpeech to find the amount after interest.';
+const _inlineEstimateSpeech = '1.02 to the power of 4 approximately 1.0824';
 final _inlineEstimateSentence = RegExp(
   r'^Use\s+1\.02 to the power of 4\s+approximately\s+1\.0824\s+to calculate the result\.$',
 );
@@ -39,7 +41,7 @@ class _Android200RegressionScaler extends TextScaler {
 }
 
 Widget _lessonParagraph(String text, {String style = 'normal'}) {
-  return PortableTextRenderer(
+  return ContentRenderer(
     blocks: [
       {
         '_type': 'block',
@@ -135,9 +137,14 @@ void main() {
 
       expect(
         ratio,
-        inInclusiveRange(0.95, 1.05),
-        reason: 'Default-scale math should start from the same type size as '
-            'its surrounding body text. ratio=$ratio',
+        inInclusiveRange(
+          inlineMathSizeFactor - 0.05,
+          inlineMathSizeFactor + 0.05,
+        ),
+        reason:
+            'Default-scale math should start from its surrounding body size, '
+            'times the optical factor that matches KaTeX to Geist. '
+            'ratio=$ratio',
       );
     });
 
@@ -150,7 +157,10 @@ void main() {
 
       expect(
         ratio,
-        inInclusiveRange(0.95, 1.05),
+        inInclusiveRange(
+          inlineMathSizeFactor - 0.05,
+          inlineMathSizeFactor + 0.05,
+        ),
         reason: 'Inline math in an h2 must inherit the h2 effective type size, '
             'not generic body sizing. ratio=$ratio',
       );
@@ -162,7 +172,7 @@ void main() {
         await expectSurvivesTextScale(
           tester,
           _readerSurface(
-            const InlineMathText(
+            const MathText(
               r'Use $A = P(1 + r)^t$ to find the amount after interest.',
               style: TextStyle(fontSize: 14, height: 1.5),
             ),
@@ -179,7 +189,7 @@ void main() {
         await expectSurvivesTextScale(
           tester,
           _readerSurface(
-            const PortableTextRenderer(
+            const ContentRenderer(
               blocks: [
                 {'_type': 'latex', 'body': _compoundInterestLatex},
               ],
@@ -197,7 +207,7 @@ void main() {
         await expectSurvivesTextScale(
           tester,
           _readerSurface(
-            const InlineMathText(
+            const MathText(
               r'Compare $\frac{1}{2}x^2 + \frac{3}{4}y^3 = z^4$ carefully.',
               style: TextStyle(fontSize: 14, height: 1.5),
             ),
@@ -214,7 +224,7 @@ void main() {
         await expectSurvivesTextScale(
           tester,
           _readerSurface(
-            const PortableTextRenderer(
+            const ContentRenderer(
               blocks: [
                 {
                   '_type': 'latex',
@@ -232,13 +242,13 @@ void main() {
 
   group('math screen-reader semantics', () {
     testWidgets(
-      'InlineMathText includes inline math in the surrounding sentence',
+      'MathText includes inline math in the surrounding sentence',
       (tester) async {
         final semantics = tester.ensureSemantics();
         await pumpAccessibilitySurface(
           tester,
           _readerSurface(
-            const InlineMathText(
+            const MathText(
               r'Use $1.02^4 \approx 1.0824$ to calculate the result.',
               style: TextStyle(fontSize: 14, height: 1.5),
             ),
@@ -253,18 +263,24 @@ void main() {
           reason: 'Continuous reading needs one semantic sentence containing '
               'both the prose and the spoken inline expression.',
         );
+        expect(
+          find.bySemanticsLabel(_inlineEstimateSpeech),
+          findsNothing,
+          reason: 'The formula must not remain as a duplicate focus node '
+              'after it is included in the sentence.',
+        );
         semantics.dispose();
       },
     );
 
     testWidgets(
-      'PortableTextRenderer includes marked inline math in its sentence',
+      'ContentRenderer includes marked inline math in its sentence',
       (tester) async {
         final semantics = tester.ensureSemantics();
         await pumpAccessibilitySurface(
           tester,
           _readerSurface(
-            const PortableTextRenderer(
+            const ContentRenderer(
               blocks: [
                 {
                   '_type': 'block',
@@ -300,9 +316,58 @@ void main() {
           reason: 'Lesson prose must expose its inline formula as part of '
               'the containing accessibility sentence.',
         );
+        expect(
+          find.bySemanticsLabel(_inlineEstimateSpeech),
+          findsNothing,
+          reason: 'Lesson prose must not repeat the formula as a separate '
+              'focus node after reading the complete sentence.',
+        );
         semantics.dispose();
       },
     );
+
+    testWidgets('plain MathText keeps sensible sentence semantics',
+        (tester) async {
+      final semantics = tester.ensureSemantics();
+      try {
+        await pumpAccessibilitySurface(
+          tester,
+          _readerSurface(
+            const MathText(
+              'Read this sentence normally.',
+              style: TextStyle(fontSize: 14, height: 1.5),
+            ),
+          ),
+          textScale: 2,
+          viewportSize: _viewport,
+        );
+        expect(
+          find.bySemanticsLabel('Read this sentence normally.'),
+          findsOneWidget,
+        );
+      } finally {
+        semantics.dispose();
+      }
+    });
+
+    testWidgets('malformed inline math keeps the renderer fallback',
+        (tester) async {
+      const text = r'Use $\badcommand{{{$ carefully.';
+      expect(inlineMathSemantics(text), isNull);
+      await pumpAccessibilitySurface(
+        tester,
+        _readerSurface(
+          const MathText(
+            text,
+            style: TextStyle(fontSize: 14, height: 1.5),
+          ),
+        ),
+        textScale: 2,
+        viewportSize: _viewport,
+      );
+      await tester.pumpAndSettle();
+      expect(find.text(r'\badcommand{{{'), findsOneWidget);
+    });
 
     testWidgets(
         'inline compound-interest math is part of one semantic sentence',
@@ -311,7 +376,7 @@ void main() {
       await pumpAccessibilitySurface(
         tester,
         _readerSurface(
-          const InlineMathText(
+          const MathText(
             r'Use $A = P(1 + r)^t$ to find the amount after interest.',
             style: TextStyle(fontSize: 14, height: 1.5),
           ),
@@ -335,7 +400,7 @@ void main() {
       await pumpAccessibilitySurface(
         tester,
         _readerSurface(
-          const PortableTextRenderer(
+          const ContentRenderer(
             blocks: [
               {'_type': 'latex', 'body': _compoundInterestLatex},
             ],
@@ -360,7 +425,7 @@ void main() {
       await pumpAccessibilitySurface(
         tester,
         _readerSurface(
-          const PortableTextRenderer(
+          const ContentRenderer(
             blocks: [
               {
                 '_type': 'latex',

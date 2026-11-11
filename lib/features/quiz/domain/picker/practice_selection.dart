@@ -13,6 +13,8 @@ class PracticeUnit {
 
   final TopicId topicId;
   final LessonId? lessonId;
+
+  String get key => lessonId == null ? 'topic:$topicId' : 'lesson:$lessonId';
 }
 
 /// What is ticked, and what that buys.
@@ -26,7 +28,23 @@ class PracticeSelection {
 
   const PracticeSelection._(this._wholeTopics, this._lessons);
 
-  /// Topics ticked as a whole. A topic here is one unit on the whole pool.
+  factory PracticeSelection.fromLessonIds(
+    PracticeIndex index,
+    Iterable<LessonId> ids,
+  ) {
+    var picked = const PracticeSelection.empty();
+    final wanted = ids.toSet();
+    for (final topic in index.allTopics) {
+      for (final lesson in topic.lessons) {
+        if (lesson.questionCount > 0 && wanted.contains(lesson.id)) {
+          picked = picked.toggleLesson(topic, lesson);
+        }
+      }
+    }
+    return picked;
+  }
+
+  /// Topics whose available lessons are fully picked.
   final Set<TopicId> _wholeTopics;
 
   /// Lessons ticked individually, keyed by topic so a lesson id colliding
@@ -50,6 +68,11 @@ class PracticeSelection {
 
   /// Tapping the row. Off and partial both fill; on empties.
   PracticeSelection toggleTopic(PracticeTopicEntry topic) {
+    if (!topic.hasQuestions ||
+        (topic.lessons.isNotEmpty &&
+            !topic.lessons.any((lesson) => lesson.questionCount > 0))) {
+      return this;
+    }
     if (topicState(topic) == PracticeCheckState.on) {
       return PracticeSelection._(
         {..._wholeTopics}..remove(topic.id),
@@ -63,7 +86,10 @@ class PracticeSelection {
       // means.
       {
         ..._lessons,
-        topic.id: {for (final lesson in topic.lessons) lesson.id},
+        topic.id: {
+          for (final lesson in topic.lessons)
+            if (lesson.questionCount > 0) lesson.id,
+        },
       },
     );
   }
@@ -72,6 +98,7 @@ class PracticeSelection {
     PracticeTopicEntry topic,
     PracticeLessonEntry lesson,
   ) {
+    if (lesson.questionCount == 0) return this;
     final kept = {...?_lessons[topic.id]};
     if (!kept.remove(lesson.id)) kept.add(lesson.id);
 
@@ -85,8 +112,8 @@ class PracticeSelection {
     // Any lesson-level change drops the topic out of "whole". A topic with
     // every lesson still ticked reads as partial rather than on, which is
     // wrong, so restore "whole" when the set is complete again.
-    final isWhole =
-        topic.lessons.isNotEmpty && kept.length == topic.lessons.length;
+    final isWhole = topic.lessons.isNotEmpty &&
+        kept.length == topic.lessons.where((l) => l.questionCount > 0).length;
     final wholeTopics = {..._wholeTopics};
     if (isWhole) {
       wholeTopics.add(topic.id);
@@ -99,22 +126,27 @@ class PracticeSelection {
 
   /// The units the footer counts and the session draws from.
   ///
-  /// Counting never double-adds: a whole topic contributes itself and none of
-  /// its lessons, and a partly selected topic contributes its kept lessons and
-  /// not itself.
+  /// A full topic contributes each available lesson, just as individual picks
+  /// do. Untagged topic callers retain their existing topic-level fallback.
   List<PracticeUnit> units(PracticeIndex index) {
     final units = <PracticeUnit>[];
     for (final topic in index.allTopics) {
-      if (_wholeTopics.contains(topic.id)) {
+      if (_wholeTopics.contains(topic.id) && topic.lessons.isEmpty) {
         units.add(PracticeUnit(topicId: topic.id));
         continue;
       }
-      for (final lessonId in _lessons[topic.id] ?? const <LessonId>{}) {
-        units.add(PracticeUnit(topicId: topic.id, lessonId: lessonId));
+      for (final lesson in topic.lessons) {
+        if (lesson.questionCount > 0 &&
+            (_lessons[topic.id] ?? const <LessonId>{}).contains(lesson.id)) {
+          units.add(PracticeUnit(topicId: topic.id, lessonId: lesson.id));
+        }
       }
     }
     return units;
   }
+
+  Set<LessonId> get selectedLessonIds =>
+      Set.unmodifiable(_lessons.values.expand((ids) => ids));
 
   Map<TopicId, Set<LessonId>> _withoutTopic(TopicId topicId) {
     return {..._lessons}..remove(topicId);

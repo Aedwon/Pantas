@@ -1,0 +1,16 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart
+00:00 +0: packs actual whole groups under cap, excludes oversized sets, All stays one chunk
+00:00 +1: freezes membership, captures versions and persists actual 3 sessions
+00:00 +2: cancel during transaction rolls back metadata and first session together
+00:00 +3: duplicate concurrent starts return the same authoritative active session
+00:00 +4: completion advances atomically and explicit concurrent Continue claims one next row
+00:00 +5: failed metadata terminal write rolls back Attempt and completedAt
+00:00 +6: next create failure rolls back lifecycle and retry claims stored chunk
+00:00 +7: never quits a different custom session to claim Reviews
+00:00 +8: changed lifetime during hydration cancels without writes
+00:00 +9: wrong principal invalidates metadata without changing authoritative progress
+00:00 +10: missing content blocks resume with saved membership and answers unchanged
+00:00 +11: revised content blocks batch resume and retains original versions
+00:00 +12: malformed metadata cannot claim next and keeps active row for explicit discard
+00:00 +13: final completion removes metadata, earlier duplicate completion cannot advance twice
+00:00 +14: All tests passed!

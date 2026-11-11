@@ -1,0 +1,48 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart
+00:00 +0: actual viewer Pro transition rolls back pending note and recorder tail
+boundary-test viewer ready: Pro
+boundary-test save tapped: Pro
+boundary-test tail entered: Pro
+boundary-test entitlement arrived: AsyncData<Entitlement>(value: Instance of 'Entitlement') / AsyncLoading<bool>(value: true)
+boundary-test tail exits: Pro
+boundary-test save settled: Pro
+boundary-test repository settled: Pro
+boundary-test actual coverage settled: Pro
+boundary-test read stored row: Pro
+boundary-test read sync revision: Pro
+boundary-test metadata assertion done: Pro
+boundary-test unmounted viewer: Pro
+Pending timers:
+Timer (duration: 0:00:00.000000, periodic: false), created:
+#0      new FakeTimer._ (package:fake_async/fake_async.dart:342:62)
+#1      FakeAsync._createTimer (package:fake_async/fake_async.dart:260:29)
+#2      FakeAsync.run.<anonymous closure> (package:fake_async/fake_async.dart:185:15)
+#6      StreamQueryStore.markAsClosed (package:drift/src/runtime/executor/stream_queries.dart:156:11)
+#7      QueryStream._onCancelOrPause (package:drift/src/runtime/executor/stream_queries.dart:305:14)
+#8      QueryStream._stream.<anonymous closure>.<anonymous closure> (package:drift/src/runtime/executor/stream_queries.dart:238:9)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 22 frames from dart:async and package:stack_trace)
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+A Timer is still pending even after the widget tree was disposed.
+'package:flutter_test/src/binding.dart':
+Failed assertion: line 2542 pos 12: '!timersPending'
+
+When the exception was thrown, this was the stack:
+#2      AutomatedTestWidgetsFlutterBinding._verifyInvariants (package:flutter_test/src/binding.dart:2542:12)
+#3      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1973:7)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 3 frames from class _AssertionError and package:stack_trace)
+
+The test description was:
+  actual viewer Pro transition rolls back pending note and recorder tail
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -1: actual viewer Pro transition rolls back pending note and recorder tail [E]
+  Test failed. See exception logs above.
+  The test description was: actual viewer Pro transition rolls back pending note and recorder tail
+
+boundary-test disposed providers: Pro
+boundary-test closed student DB: Pro

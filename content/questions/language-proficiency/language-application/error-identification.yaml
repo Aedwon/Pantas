@@ -1,12 +1,19 @@
 meta:
-  subject: language-proficiency
-  topic: language-application
-  subtopic: error-identification
-  exams: [upcat, acet, dlsucet, ustet, dost-sei, cse-pro, cse-sub]
+  subject: "language-proficiency"
+  topic: "language-application"
+  subtopic: "error-identification"
+  exams:
+    - "upcat"
+    - "acet"
+    - "dlsucet"
+    - "ustet"
+    - "dost-sei"
+    - "cse-pro"
+    - "cse-sub"
 questions:
-  - id: q-language-application-error-identification-0001
-    type: error-identification
-    difficulty: easy
+  - id: "q-language-application-error-identification-0001"
+    type: "error-identification"
+    difficulty: "easy"
     stem: |
       Identify the part of the sentence that contains an error.
 
@@ -14,124 +21,112 @@ questions:
     choices:
       - text: "Every one of the new laptops"
         rationale: |
-          You flagged this section, but "Every one of the new laptops" is grammatically sound as the singular subject phrase.
+          This mistakes the plural noun inside an of-phrase for the head subject. "Laptops" is plural. Check: identify the head "Every one".
       - text: "imported for the engineering team"
         rationale: |
-          You flagged this section, but "imported for the engineering team" is a correct past-participial modifier.
+          This treats a past-participial description as the agreement verb. "Imported" names an action. Check: find the finite verb of the main clause.
       - text: "have arrived"
         correct: true
       - text: "with pre-installed diagnostic software."
         rationale: |
-          You flagged this section, but "with pre-installed diagnostic software" is a valid prepositional modifier.
+          This treats a software description as a clause-boundary error. The phrase is fairly long. Check: separate added details from the main subject and verb.
       - text: "No error"
         rationale: |
-          You assumed there was no error, but "Every one" is singular and requires "has arrived."
+          This misses the singular agreement required by "Every one". The nearby plural "laptops" makes "have" sound familiar. Check: match the main verb to the head subject.
     explanation: |
-      The head of the subject is "Every one," which is singular, so the verb must be "has arrived," not "have arrived."
-
-  - id: q-language-application-error-identification-0002
-    type: error-identification
-    difficulty: easy
+      The head subject "Every one" is singular. The completed-action verb group should therefore be "has arrived."
+  - id: "q-language-application-error-identification-0002"
+    type: "error-identification"
+    difficulty: "easy"
     stem: |
-      Identify the part of the sentence that contains an error.
-
-      "The executive committee requested that all department heads submit their quarterly budget reports, update their inventory logs, and to review their staffing needs."
+      Identify the part that breaks the parallel list of requested actions.
+      "The executive committee requested that department heads submit their reports, update their inventory logs, and to review their staffing needs."
     choices:
-      - text: "The executive committee"
-        rationale: |
-          You flagged this section, but "The executive committee" correctly functions as the subject of the main clause.
-      - text: "requested that all department heads"
-        rationale: |
-          You flagged this section, but it correctly introduces the clause containing the requested actions.
-      - text: "submit their quarterly budget reports,"
-        rationale: |
-          You flagged this section, but "submit" correctly establishes the base-verb pattern in the list.
-      - text: "update their inventory logs, and to review their staffing needs."
+      - text: "to review their staffing needs"
         correct: true
+      - text: "The executive committee requested that department heads"
+        rationale: |
+          This treats the request clause as a list-form error. The construction sounds formal. Check: compare the forms of the requested actions.
+      - text: "submit their reports"
+        rationale: |
+          This rejects the base verb that starts the list. The clause follows "requested" in the past. Check: check the verbs governed by the request.
+      - text: "update their inventory logs"
+        rationale: |
+          This rejects a matching base-verb action. The action appears beside the faulty final item. Check: compare each listed action individually.
       - text: "No error"
         rationale: |
-          You assumed there was no error, but "to review" breaks the parallel base-verb list established by "submit" and "update."
+          This accepts a to-plus-verb phrase among base verbs. All three actions are sensible requests. Check: compare their grammatical forms.
     explanation: |
-      The three requested actions should use parallel forms: "submit," "update," and "review." The infinitive "to review" breaks that pattern.
-
-  - id: q-language-application-error-identification-0003
-    type: error-identification
-    difficulty: medium
+      The requested actions are "submit," "update," and "review." Using three base verbs makes the list parallel.
+  - id: "q-language-application-error-identification-0003"
+    type: "error-identification"
+    difficulty: "medium"
     stem: |
-      Identify the part of the sentence that contains an error.
-
-      "Walking through the newly renovated research facilities, several state-of-the-art spectrometers were noticed by the visiting delegates."
+      Which revision supplies the visitors as the subject of the opening action?
+      "Walking through the newly renovated research facilities, several spectrometers were noticed by the visiting delegates."
     choices:
-      - text: "Walking through the newly renovated research facilities,"
+      - text: "Walking through the facilities, the delegates noticed several spectrometers."
         correct: true
-      - text: "several state-of-the-art spectrometers"
+      - text: "Walking through the facilities, several spectrometers were noticed by the delegates."
         rationale: |
-          You flagged the noun phrase itself, but the problem is the introductory modifier's attachment: the sentence makes the spectrometers its grammatical target.
-      - text: "were noticed by"
+          This leaves the instruments as the subject of walking. The delegates are still named as observers. Check: match the opening action to the main subject.
+      - text: "Several spectrometers, walking through the facilities, were noticed by the delegates."
         rationale: |
-          You flagged the passive verb phrase, but passive voice is not itself the error. The introductory modifier lacks a logical subject immediately after it.
-      - text: "the visiting delegates."
+          This moves the walking phrase beside the instruments. Putting a modifier next to a noun can seem like a repair. Check: ask whether that noun can walk.
+      - text: "Walking through the facilities, the sight of several spectrometers impressed the delegates."
         rationale: |
-          You flagged the agent phrase, but "the visiting delegates" is grammatical where it appears.
-      - text: "No error"
-        rationale: |
-          You assumed there was no error, but the opening phrase dangles because the subject that follows it is "spectrometers," which cannot walk.
+          This attaches walking to a sight rather than to the visitors. The visitors remain in the sentence. Check: identify the main subject after the opening phrase.
     explanation: |
-      The introductory phrase is a dangling modifier. A correction would make the delegates the subject immediately after it, for example: "Walking through the newly renovated research facilities, the visiting delegates noticed several state-of-the-art spectrometers."
-
-  - id: q-language-application-error-identification-0004
-    type: error-identification
-    difficulty: medium
+      The delegates are the people walking through the facilities. Making them the main subject gives the opening action its intended actor.
+  - id: "q-language-application-error-identification-0004"
+    type: "error-identification"
+    difficulty: "medium"
     stem: |
-      Identify the part of the sentence that contains an error.
-
+      The intended comparison is between efficiency ratings. Which segment must be revised to supply the older models' ratings?
       "The efficiency rating of the upgraded solar panel is significantly higher than the older models installed last winter."
     choices:
       - text: "The efficiency rating of the upgraded solar panel"
         rationale: |
-          You flagged the subject phrase, but it is grammatically sound. The comparison becomes faulty only when that rating is compared with a different kind of thing.
+          This rejects the rating subject rather than the comparison target. The subject is long. Check: identify the two things compared.
       - text: "is significantly higher than"
         rationale: |
-          You flagged the comparative phrase, but it can correctly introduce a like-with-like comparison.
+          This rejects a normal comparative connector. The faulty comparison follows it. Check: check what comes after "than".
       - text: "the older models"
         correct: true
       - text: "installed last winter."
         rationale: |
-          You flagged the modifier, but "installed last winter" can correctly describe the older models.
+          This treats a date description as the comparison problem. The phrase follows the older models. Check: compare the rating with a rating, not a time detail.
       - text: "No error"
         rationale: |
-          You assumed there was no error, but the sentence compares an efficiency rating with physical models instead of with the models' efficiency ratings.
+          This accepts a rating-to-object comparison. The models have ratings, so the implied meaning seems clear. Check: state the same kind of quantity on both sides.
     explanation: |
-      This is a faulty comparison. A rating should be compared with another rating: for example, "The efficiency rating of the upgraded solar panel is significantly higher than that of the older models installed last winter."
-
-  - id: q-language-application-error-identification-0005
-    type: error-identification
-    difficulty: easy
+      The upgraded panel's efficiency rating needs another rating as its comparison target. "Those of the older models" supplies the older models' efficiency ratings.
+  - id: "q-language-application-error-identification-0005"
+    type: "error-identification"
+    difficulty: "easy"
     stem: |
-      Identify the part of the sentence that contains an error.
-
+      The intended meaning is that a pressure drop negatively influences existing sensor performance. Identify the incorrect word.
       "The sudden drop in atmospheric pressure will adversely effect the performance of the high-altitude sensors."
     choices:
       - text: "The sudden drop in atmospheric pressure"
         rationale: |
-          You flagged the subject noun phrase, but it is grammatically sound.
+          This treats the pressure-drop subject as a word-form error. The technical wording is complex. Check: identify the verb carrying the intended meaning.
       - text: "will adversely"
         rationale: |
-          You flagged the adverb phrase, but "adversely" can correctly modify the verb that follows.
+          This rejects a normal future helper and adverb. "Adversely" is a formal word. Check: check which word must mean influence.
       - text: "effect"
         correct: true
       - text: "the performance of the high-altitude sensors."
         rationale: |
-          You flagged the object phrase, but it is grammatically sound.
+          This rejects a grammatical object phrase. The noun group is long and technical. Check: focus on the action meant by the sentence.
       - text: "No error"
         rationale: |
-          You assumed there was no error. Although "effect" can function as a verb meaning "bring about," the intended meaning here is "influence," which requires "affect."
+          This confuses bringing about with influencing. "Effect" can be a verb in other contexts. Check: check the meaning explicitly requested in the stem.
     explanation: |
-      The sentence means that the pressure drop will negatively influence sensor performance, so the verb should be "affect." The verb "effect" has a different meaning: to bring about or cause something to happen.
-
-  - id: q-language-application-error-identification-0006
-    type: error-identification
-    difficulty: medium
+      "Affect" means influence. It states the intended change in the sensors' existing performance.
+  - id: "q-language-application-error-identification-0006"
+    type: "error-identification"
+    difficulty: "medium"
     stem: |
       Identify the part of the sentence that contains an error.
 
@@ -139,74 +134,69 @@ questions:
     choices:
       - text: "The lead scientist,"
         rationale: |
-          You flagged the subject noun phrase, but it is grammatically correct.
+          This treats the main subject as a pronoun-case problem. The relative clause sits beside that subject. Check: locate the pronoun performing the relative-clause action.
       - text: "whom"
         correct: true
       - text: "had conducted extensive fieldwork"
         rationale: |
-          You flagged the verb phrase, but its structure is grammatical. The pronoun before it is the problem.
+          This rejects the past-perfect verb group. Its helping verb is separated from the main subject. Check: find the subject of "had conducted" within the relative clause.
       - text: "in South America, presented her findings at the international symposium."
         rationale: |
-          You flagged the remainder of the sentence, but its structure is grammatical.
+          This treats a place-and-main-clause segment as the error. The segment crosses a clause boundary. Check: check the relative pronoun's role before changing other words.
       - text: "No error"
         rationale: |
-          You assumed there was no error, but the relative pronoun is the subject of "had conducted," so the subject form "who" is required.
+          This accepts an object form as a clause subject. "Whom" sounds formal. Check: ask who performs the fieldwork action.
     explanation: |
-      The relative clause needs "who" because the pronoun performs the action in "who had conducted extensive fieldwork." "Whom" is an object form.
-
-  - id: q-language-application-error-identification-0007
-    type: error-identification
-    difficulty: hard
+      The relative pronoun is the subject performing "had conducted." The subject form "who" fits that role.
+  - id: "q-language-application-error-identification-0007"
+    type: "error-identification"
+    difficulty: "hard"
     stem: |
-      Identify the part of the sentence that contains an error.
-
+      The supervisor and project manager are both men. Which segment contains a pronoun whose intended person is unclear?
       "When the supervisor spoke to the project manager after the presentation, he expressed dissatisfaction with the proposed timeline."
     choices:
       - text: "When the supervisor spoke to the project manager"
         rationale: |
-          You flagged the introductory clause, but its structure is grammatical.
+          This treats two possible people as an error in the opening clause itself. Two men are named there. Check: identify the later word whose reference becomes uncertain.
       - text: "after the presentation,"
         rationale: |
-          You flagged the time phrase, but it is correctly placed and punctuated.
+          This treats the time phrase as the source of the uncertainty. The phrase separates the names from the pronoun. Check: ask which word stands in for a person.
       - text: "he expressed"
         correct: true
       - text: "dissatisfaction with the proposed timeline."
         rationale: |
-          You flagged the complement, but it is grammatically sound.
+          This treats a grammatical description of dissatisfaction as the error. The complement follows the uncertain pronoun. Check: check the personal reference rather than its stated feeling.
       - text: "No error"
         rationale: |
-          You assumed there was no error, but "he" has two plausible antecedents: the supervisor and the project manager.
+          This assumes the context identifies one man. The supervisor appears first and may seem prominent. Check: ask whether the manager could also express dissatisfaction.
     explanation: |
-      The pronoun "he" is ambiguous because either man could be its antecedent. The sentence should name the person who expressed dissatisfaction.
-
-  - id: q-language-application-error-identification-0008
-    type: error-identification
-    difficulty: hard
+      Both men are possible references for "he." Naming the supervisor or the manager would identify the intended person.
+  - id: "q-language-application-error-identification-0008"
+    type: "error-identification"
+    difficulty: "hard"
     stem: |
-      In the formal exam convention used here, identify the part of the sentence that needs correction.
-
+      The revision must use past perfect to explicitly mark resolution completed before the later inspection. Which verb segment must change?
       "By the time the audit committee finished inspecting the fiscal records, the accounting department already resolved all major discrepancies."
     choices:
       - text: "By the time the audit committee"
         rationale: |
-          You flagged the time marker, but "by the time" correctly establishes a past reference point.
+          This rejects the marker establishing the later reference point. The requested revision concerns past time. Check: keep the time marker and inspect the earlier-event verb.
       - text: "finished inspecting the fiscal records,"
         rationale: |
-          You flagged the later past event, but simple past is appropriate for that reference event.
+          This changes the later event instead of the earlier one. Past perfect relates two past events. Check: identify which action was already complete.
       - text: "the accounting department"
         rationale: |
-          You flagged the subject of the main clause, but it is grammatically sound.
+          This treats the actor as a verb-form problem. The department is named beside the target verb. Check: locate the verb group requiring the requested form.
       - text: "already resolved"
         correct: true
       - text: "No error"
         rationale: |
-          You chose no error, but in this formal sequence the resolution is presented as completed before the past reference point set by "by the time"; the bank's target form is past perfect, "had already resolved."
+          This ignores the explicit past-perfect revision requirement. Simple past can be grammatical in some clearly ordered sequences. Check: follow the particular form requested in this stem.
     explanation: |
-      "By the time ... finished" establishes a past reference point, while the discrepancies were already resolved before that point. In the formal exam convention tested here, past perfect makes that earlier completion explicit: "had already resolved." This is a narrower rule than saying every earlier past action must use past perfect.
-
-  - id: q-language-application-error-identification-0009
-    type: error-identification
-    difficulty: medium
+      The resolution was complete before the inspection finished. "Had already resolved" uses the requested past perfect to state that earlier completion.
+  - id: "q-language-application-error-identification-0009"
+    type: "error-identification"
+    difficulty: "medium"
     stem: |
       Identify the part of the sentence that contains the punctuation error.
 
@@ -214,24 +204,23 @@ questions:
     choices:
       - text: "The company expanded its operations"
         rationale: |
-          You flagged the first independent clause, but its wording is grammatical.
+          This treats the first main clause's wording as faulty. The clause is long. Check: find the punctuation joining the two complete statements.
       - text: "into three new regions,"
         correct: true
       - text: "however,"
         rationale: |
-          You flagged "however," but the comma after a sentence-initial conjunctive adverb is appropriate. The problem is the comma immediately before "however," which is contained in the preceding segment.
+          This rejects the comma after the transition. Two commas surround "however". Check: check the boundary before "however" separately.
       - text: "initial profits remained"
         rationale: |
-          You flagged the second clause's subject and verb, but both are grammatical.
+          This treats the second subject-and-verb group as the error. It follows a faulty clause boundary. Check: keep the grammatical statement and inspect its connector.
       - text: "No error"
         rationale: |
-          You assumed there was no error, but a comma alone cannot join the first independent clause to a second independent clause introduced by "however."
+          This treats "however" like a coordinating conjunction. The word links the ideas in meaning. Check: test whether a comma alone can join the complete clauses.
     explanation: |
-      The comma after "regions" incorrectly joins two independent clauses through the conjunctive adverb "however." A standard correction is: "The company expanded its operations into three new regions; however, initial profits remained below projected expectations."
-
-  - id: q-language-application-error-identification-0010
-    type: error-identification
-    difficulty: medium
+      Both sides are complete independent clauses. A semicolon after "regions" joins them, and a comma follows the transition "however."
+  - id: "q-language-application-error-identification-0010"
+    type: "error-identification"
+    difficulty: "medium"
     stem: |
       Using standard American English, identify the error, if any.
 
@@ -239,24 +228,23 @@ questions:
     choices:
       - text: "The research panel"
         rationale: |
-          You flagged the singular collective noun, but a panel considered as one unit is correctly treated as singular in standard American English.
+          This rejects a collective noun acting as one unit. A panel contains several members. Check: use the stated American-English unit reading.
       - text: "is presenting"
         rationale: |
-          You flagged the singular verb, but it agrees with the singular collective noun "panel" when the group acts as a unit.
+          This treats the unit's singular verb as a plural-agreement error. Several people take part in the panel. Check: match the intended collective unit.
       - text: "its joint evaluation"
         rationale: |
-          You flagged the singular pronoun, but "its" consistently refers to the panel as one unit and "joint evaluation" reinforces that meaning.
+          This treats the unit possessive as if it must refer to members. Several people helped prepare the evaluation. Check: keep the stated one-unit reference consistent.
       - text: "at the conference today."
         rationale: |
-          You flagged the time/place phrase, but it is grammatically sound.
+          This treats a place-and-time phrase as a sentence error. The phrase adds two kinds of information. Check: identify a specific grammar rule before changing it.
       - text: "No error"
         correct: true
     explanation: |
-      There is no error in standard American English. The sentence treats the panel as one unit, so singular agreement is internally consistent: "panel is ... its joint evaluation." This avoids making a dialect-dependent British-versus-American collective-noun pattern the basis of the answer.
-
-  - id: q-language-application-error-identification-0011
-    type: error-identification
-    difficulty: hard
+      The panel is one unit under the stated American-English reading. "Is presenting" and "its joint evaluation" consistently refer to that unit.
+  - id: "q-language-application-error-identification-0011"
+    type: "error-identification"
+    difficulty: "hard"
     stem: |
       The intended meaning is that the generator, not the wrench, stopped working during the storm. Identify the part of the sentence that is misplaced.
 
@@ -264,49 +252,46 @@ questions:
     choices:
       - text: "The technician repaired"
         rationale: |
-          You flagged the main subject and verb, but they are grammatical and do not cause the attachment error.
+          This treats the main action as the attachment problem. The repair is the sentence's main event. Check: find the clause describing what stopped working.
       - text: "the electrical generator"
         rationale: |
-          You flagged the noun the relative clause is intended to describe, but the noun itself is not the misplaced part.
+          This rejects the intended target noun itself. The generator is the thing that failed. Check: locate the misplaced description rather than its correct target.
       - text: "using a heavy-duty wrench"
         rationale: |
-          You flagged the repair-method phrase, but it can remain where it is once the relative clause is moved next to "generator."
-      - text: "that had stopped working during the storm."
+          This rejects the method phrase instead of the failure description. It lies between the generator and the final clause. Check: ask which group must describe the generator.
+      - text: "that had stopped working"
         correct: true
       - text: "No error"
         rationale: |
-          You chose no error, but the stated intended meaning makes the current attachment wrong: as written, "that had stopped working" sits next to and modifies "wrench."
+          This assumes the nearest noun is the intended failed object. The clause naturally attaches to "wrench" as written. Check: use the intended meaning explicitly given in the stem.
     explanation: |
-      Given the stated intended meaning, the relative clause "that had stopped working during the storm" must sit next to "generator," the noun it describes. For example: "The technician repaired the electrical generator that had stopped working during the storm using a heavy-duty wrench."
-
-  - id: q-language-application-error-identification-0012
-    type: error-identification
-    difficulty: medium
+      Place "that had stopped working during the storm" directly after "generator." It then clearly describes the failed generator, followed by the phrase explaining the tool used.
+  - id: "q-language-application-error-identification-0012"
+    type: "error-identification"
+    difficulty: "medium"
     stem: |
-      Identify the part of the sentence that contains unnecessary redundancy.
-
+      For a concise revision preserving the meaning, which word can be deleted?
       "The chief executive officer emphasized that the two merging firms must revert back to their core operational principles."
     choices:
-      - text: "The chief executive officer emphasized"
-        rationale: |
-          You flagged the main subject and verb, but they contain no redundancy relevant to the sentence.
-      - text: "that the two merging firms"
-        rationale: |
-          You flagged the subordinate-clause introduction, but it contains no repeated meaning.
-      - text: "must revert"
-        rationale: |
-          You flagged the modal and verb, but "revert" itself is the concise verb the sentence needs.
-      - text: "back to their core operational principles."
+      - text: "back"
         correct: true
+      - text: "revert"
+        rationale: |
+          This deletes the main action word instead of its repeated direction. "Back" still suggests returning. Check: retain a verb stating what the firms must do.
+      - text: "core"
+        rationale: |
+          This removes a useful limit on which principles are meant. It makes the sentence shorter. Check: delete repeated meaning rather than needed description.
+      - text: "operational"
+        rationale: |
+          This removes the kind of principles being discussed. The sentence still mentions principles. Check: preserve the specific subject matter.
       - text: "No error"
         rationale: |
-          You chose no error, but in this context "revert" already means to return to a former state or practice, so adding "back" repeats that direction.
+          This keeps an unnecessary direction beside "revert". The phrase is common in speech. Check: check what "revert" already means in this concise context.
     explanation: |
-      In this context, "revert" already means to return to a former state or practice. Removing "back" gives the concise form: "must revert to their core operational principles."
-
-  - id: q-language-application-error-identification-0013
-    type: error-identification
-    difficulty: easy
+      "Revert" already means return to a former state or practice. Deleting "back" keeps "must revert to their core operational principles."
+  - id: "q-language-application-error-identification-0013"
+    type: "error-identification"
+    difficulty: "easy"
     stem: |
       Identify the part of the sentence that contains an error.
 
@@ -314,24 +299,23 @@ questions:
     choices:
       - text: "Between you and"
         rationale: |
-          You flagged the prepositional frame, but "between you and" is grammatical. The error is the case of the pronoun that follows it.
+          This treats the prepositional frame as the pronoun error. The two pronouns follow "between" together. Check: check the form of the pronoun after the preposition.
       - text: "I,"
         correct: true
       - text: "the proposed structural reforms"
         rationale: |
-          You flagged the main clause subject, but it is grammatically sound.
+          This rejects a grammatical main subject. The subject is long and formal. Check: focus on the pronoun in the opening prepositional phrase.
       - text: "will require approval"
         rationale: |
-          You flagged the verb phrase, but it is grammatically correct.
+          This treats a grammatical future verb group as the error. The sentence concerns later approval. Check: identify the pronoun form that "between" requires.
       - text: "No error"
         rationale: |
-          You assumed there was no error, but the preposition "between" requires the objective form "me" here.
+          This accepts a subject form as a preposition's object. The expression is common in speech. Check: test "between" with the object form "me".
     explanation: |
-      The pronoun after "between" is an object of the preposition, so the objective form is required: "Between you and me," not "Between you and I."
-
-  - id: q-language-application-error-identification-0014
-    type: error-identification
-    difficulty: medium
+      The pronoun is an object of "between." "Between you and me" uses the required object form.
+  - id: "q-language-application-error-identification-0014"
+    type: "error-identification"
+    difficulty: "medium"
     stem: |
       Identify the part of the sentence that contains an error.
 
@@ -339,42 +323,136 @@ questions:
     choices:
       - text: "If the analysts"
         rationale: |
-          You flagged the conditional subject, but it is grammatically sound.
+          This flags the subject instead of the conditional verb. The clause begins with "if," so its opening may draw attention. Check the verb pattern for an unreal past condition.
       - text: "would have reviewed"
         correct: true
       - text: "the statistical data earlier,"
         rationale: |
-          You flagged the object and time phrase, but they are grammatical.
+          This flags the object and time phrase. The time word "earlier" may look like the cause of the tense problem. Check which words form the verb in the if-clause.
       - text: "they would have caught"
         rationale: |
-          You flagged the result clause, but "would have caught" is appropriate in the result clause of this unreal past conditional.
+          This applies the if-clause rule to the result clause. Both describe a past event that did not happen, so their verb forms may seem interchangeable. Check which clause states the result.
       - text: "No error"
         rationale: |
-          You assumed there was no error, but this unreal past condition takes past perfect in the if-clause: "If the analysts had reviewed..."
+          This accepts a result-clause verb pattern inside the if-clause. The repeated "would have" may sound balanced. Check that the unreal past condition uses "had" with a past participle.
     explanation: |
-      In this third-conditional pattern, the if-clause uses past perfect and the result clause uses "would have" plus a past participle: "If the analysts had reviewed ..., they would have caught ..."
-
-  - id: q-language-application-error-identification-0015
-    type: error-identification
-    difficulty: medium
+      This sentence imagines a different past. The condition needs "had reviewed," and the result uses "would have caught." The corrected sentence begins, "If the analysts had reviewed the statistical data earlier."
+  - id: "q-language-application-error-identification-0015"
+    type: "error-identification"
+    difficulty: "medium"
     stem: |
-      Identify the part of the sentence that contains the punctuation error.
-
-      "The architectural firm designed a sustainable office building, consequently, it won several regional design accolades."
+      Which sentence is standard modern English without an unnecessary correction?
     choices:
-      - text: "The architectural firm designed"
-        rationale: |
-          You flagged the first clause's subject and verb, but they are grammatical.
-      - text: "a sustainable office building,"
+      - text: "Each applicant has submitted their form."
         correct: true
-      - text: "consequently,"
+      - text: "Each applicant have submitted their form to the office."
         rationale: |
-          You flagged the conjunctive adverb, but the comma after "consequently" is appropriate. The problem is the comma immediately before it, contained in the preceding segment.
-      - text: "it won"
+          This gives singular "each" a plural verb. The applicants are considered as a larger group. Check: match the verb to "each".
+      - text: "Each applicant has submit their completed form to the office."
         rationale: |
-          You flagged the second clause's subject and verb, but they are grammatical.
-      - text: "No error"
+          This uses a base verb after perfect "has". The main subject correctly takes "has". Check: check the participle in the complete verb group.
+      - text: "Each applicant has submitted them completed form to the office."
         rationale: |
-          You assumed there was no error, but a comma alone cannot join the first independent clause to the second independent clause introduced by "consequently."
+          This uses an object pronoun before a possessed noun. "Them" belongs to the same gender-neutral pronoun set. Check: choose the form showing possession before "form".
     explanation: |
-      The comma after "building" creates the faulty join. A standard correction is: "The architectural firm designed a sustainable office building; consequently, it won several regional design accolades."
+      "Each" takes singular "has." "Submitted" forms the completed-action verb group, and singular "their" gives a gender-neutral reference to each applicant.
+  - id: "q-language-application-error-identification-0016"
+    type: "error-identification"
+    difficulty: "easy"
+    stem: |
+      Choose the sentence with correct agreement despite an intervening phrase.
+    choices:
+      - text: "Some of the information in these notes is confidential."
+        correct: true
+      - text: "Some of the information in these notes are confidential for legal reasons."
+        rationale: |
+          This matches the plural "notes" rather than the information. Notes are close to the verb and can attract attention. Check: identify what "some" refers to.
+      - text: "Some of the information in these notes were confidential at the time."
+        rationale: |
+          This gives plural agreement to the mass noun "information." The notes themselves are plural. Check: match the amount of information being described.
+      - text: "Some of the information in these notes have been confidential for months."
+        rationale: |
+          This uses plural "have" with an amount of information. The plural note pages may suggest plural agreement. Check: separate the information from the pages containing it.
+    explanation: |
+      "Some" refers to an amount of information, a mass noun. Singular "is" agrees with that amount; "in these notes" only describes its location.
+    approved: false
+  - id: "q-language-application-error-identification-0017"
+    type: "error-identification"
+    difficulty: "medium"
+    stem: |
+      Only the recipient, Paolo, received Lina's draft. Which sentence places "only" to state that restriction clearly?
+    choices:
+      - text: "Lina sent the draft to Paolo only."
+        correct: true
+      - text: "Only Lina sent the draft to Paolo during the revision period."
+        rationale: |
+          This limits the sender rather than the recipient. The same names and limiting word remain. Check: identify which person the stem restricts.
+      - text: "Lina sent only the draft to Paolo during the revision period."
+        rationale: |
+          This limits the item sent. The draft is a main focus of the sentence. Check: put the limit on the stated recipient.
+      - text: "Lina sent the draft to Paolo only after the revision period."
+        rationale: |
+          This limits the timing of sending. "Only" is placed near Paolo. Check: check the whole phrase following the limiting word.
+    explanation: |
+      "To Paolo only" restricts who received the draft. It identifies Paolo as the sole recipient.
+    approved: false
+  - id: "q-language-application-error-identification-0018"
+    type: "error-identification"
+    difficulty: "hard"
+    stem: |
+      Which sentence correctly connects an opening action to its actor?
+    choices:
+      - text: "After inspecting the roof, the engineer approved repairs."
+        correct: true
+      - text: "After inspecting the roof, repairs were approved by the engineer."
+        rationale: |
+          This gives inspecting to repairs as the main subject. The engineer is named later. Check: match the opening action to the main subject.
+      - text: "After inspecting the roof, the approval of repairs was given by the engineer."
+        rationale: |
+          This makes an approval the subject of inspecting. The actor is still mentioned. Check: name the inspector as the main subject.
+      - text: "The roof, after inspecting the engineer, required several urgent repairs."
+        rationale: |
+          This gives the inspecting action to the roof. The same actor and object remain in the sentence. Check: check who performs the opening action.
+    explanation: |
+      The engineer is the person inspecting the roof. As the main subject, the engineer gives the opening phrase a clear actor.
+    approved: false
+  - id: "q-language-application-error-identification-0019"
+    type: "error-identification"
+    difficulty: "hard"
+    stem: |
+      Preserve the completed past event in "The courier delivered the documents." Which passive verb completes "The documents ___ by the courier"?
+    choices:
+      - text: "were delivered"
+        correct: true
+      - text: "are being delivered"
+        rationale: |
+          This changes the completed past event into ongoing present delivery. It is a grammatical passive form. Check: preserve both time and completion.
+      - text: "have delivered"
+        rationale: |
+          This makes the documents the actors. The form sounds like a completed action. Check: check whether the subject performs or receives delivery.
+      - text: "will be delivered"
+        rationale: |
+          This changes the event to future time. It is a grammatical passive form. Check: keep the original past event.
+    explanation: |
+      The documents receive the delivery action. "Were delivered" forms the plural past passive and preserves the completed event.
+    approved: false
+  - id: "q-language-application-error-identification-0020"
+    type: "error-identification"
+    difficulty: "exam"
+    stem: |
+      The phrase "the cashier on duty" adds extra information about Mika. Which sentence correctly sets off that whole phrase?
+    choices:
+      - text: "Mika, the cashier on duty, counted the receipts."
+        correct: true
+      - text: "Mika, the cashier, on duty counted the receipts."
+        rationale: |
+          This closes the added description before "on duty." Two commas make the sentence look balanced. Check: include every word of the specified extra phrase.
+      - text: "Mika the cashier, on duty, counted the receipts."
+        rationale: |
+          This puts the commas around only "on duty." That part also sounds like extra information. Check: set off the complete phrase named in the stem.
+      - text: "Mika, the cashier on duty counted, the receipts."
+        rationale: |
+          This includes the main verb inside the added description. The comma after the name gives the first boundary correctly. Check: close the extra phrase before the main action verb.
+    explanation: |
+      The entire added noun phrase is "the cashier on duty." One comma comes before it and another comes after it, leaving "Mika counted the receipts" as the main clause.
+    approved: false

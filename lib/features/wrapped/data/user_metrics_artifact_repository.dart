@@ -131,7 +131,7 @@ class UserMetricsArtifactRepository {
     );
   }
 
-  /// Cards the user has published to a `pantas.app` link, newest first.
+  /// Cards the user has published to a `pantas.study` link, newest first.
   Future<List<HostedWrappedCard>> listShared() async {
     final rows = await (_db.select(_db.userMetricsArtifactsLocal)
           ..where((table) => table.sharedAt.isNotNull())

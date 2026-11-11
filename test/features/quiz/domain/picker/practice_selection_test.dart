@@ -49,13 +49,12 @@ void main() {
     expect(selection.lessonSelected('l_3'), isTrue);
   });
 
-  test('a fully selected topic is one unit', () {
+  test('a fully selected topic is one unit per lesson', () {
     final selection = const PracticeSelection.empty().toggleTopic(algebra);
 
     final units = selection.units(index);
-    expect(units, hasLength(1));
-    expect(units.single.topicId, 'topic_algebra');
-    expect(units.single.lessonId, isNull);
+    expect(units, hasLength(3));
+    expect(units.map((u) => u.lessonId), ['l_1', 'l_2', 'l_3']);
   });
 
   test('deselecting one lesson drops the topic to the dash', () {

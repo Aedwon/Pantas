@@ -1,0 +1,723 @@
+import 'dart:async';
+import 'dart:math' as math;
+
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/ui/components/avatar.dart';
+import 'package:pantas/core/ui/components/pantas_page.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
+import 'package:pantas/core/ui/icons/own/own_icons.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/motion/pane_transition.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/beta_feedback/application/beta_feedback_providers.dart';
+import 'package:pantas/features/settings/presentation/settings_home_page.dart';
+import 'package:pantas/features/settings/presentation/widgets/beta_pro_row.dart';
+import 'package:pantas/features/settings/settings.dart';
+
+/// Settings destinations share the list pane. Providers and route state stay
+/// owned by the destination, including when the browser opens a deep link.
+class SettingsPanePage extends StatelessWidget {
+  const SettingsPanePage({
+    required this.title,
+    required this.children,
+    required this.section,
+    this.backLabel,
+    this.onBack,
+    this.bottom,
+    this.bottomInset = PantasSpace.s24,
+    super.key,
+    this.description,
+    this.icon,
+    this.hero = false,
+    this.noHeading = false,
+    this.compactTitle = false,
+    this.titleLineHeight = 1.12,
+    this.titleGap = PantasSpace.s20,
+    this.titleSuffix,
+    this.headingGlyph,
+    this.headingGap = PantasSpace.s24,
+    this.hideHeading = false,
+  });
+  final String title;
+  final List<Widget> children;
+  final String? backLabel;
+  final VoidCallback? onBack;
+  final Widget? bottom;
+  final double bottomInset;
+  final String section;
+  final String? description;
+  final IconData? icon;
+
+  /// Phone only: draws the board's icon card (Practice, Appearance, Your exam)
+  /// in place of the large title.
+  final bool hero;
+
+  /// Phone only: no large title at all. The page draws its own header.
+  final bool noHeading;
+
+  /// Phone only: the 28 px page title of the Settings sub-pages (Name,
+  /// What's included, Privacy Policy).
+  final bool compactTitle;
+  final double titleLineHeight;
+  final double titleGap;
+
+  /// Drawn right after the title (the BETA mark).
+  final Widget? titleSuffix;
+
+  /// Wide web: a 22 px glyph before the title.
+  final Widget? headingGlyph;
+
+  /// Wide web: space between the heading and the first child.
+  final double headingGap;
+
+  /// Wide web: no heading at all, only the back link above the children.
+  final bool hideHeading;
+
+  @override
+  Widget build(BuildContext context) {
+    if (!context.wideWeb) {
+      return PantasPage(
+        title: title,
+        backLabel: backLabel,
+        onBack: onBack,
+        bottom: bottom,
+        bottomInset: bottomInset,
+        // Settings boards put the back row 4 px from the edge.
+        backPadding: const EdgeInsets.fromLTRB(
+          PantasSpace.s4,
+          PantasSpace.s0,
+          PantasSpace.s16,
+          PantasSpace.s0,
+        ),
+        titleStyle: compactTitle
+            ? context.type.pageTitleCompact.copyWith(height: titleLineHeight)
+            : null,
+        titlePadding: compactTitle
+            ? EdgeInsets.fromLTRB(
+                PantasSpace.s4,
+                PantasSpace.s6,
+                PantasSpace.s4,
+                titleGap,
+              )
+            : const EdgeInsets.fromLTRB(
+                PantasSpace.s4,
+                PantasSpace.s0,
+                PantasSpace.s4,
+                PantasSpace.s20,
+              ),
+        hero: noHeading
+            ? const SizedBox.shrink()
+            : titleSuffix != null || (compactTitle && description != null)
+                ? _PhoneHeading(
+                    title: title,
+                    suffix: titleSuffix,
+                    subline: description,
+                    lineHeight: titleLineHeight,
+                    gap: titleGap,
+                  )
+                : hero
+                    ? _SettingsHero(
+                        section: section,
+                        title: title,
+                        subtitle: description ?? '',
+                      )
+                    : null,
+        children: children,
+      );
+    }
+    final t = context.webTokens;
+    final headingIcon = icon == null
+        ? title == 'Name'
+            ? Icon(PantasIcons.profile, size: 22, color: t.colors.accent)
+            : switch (section) {
+                'Account' =>
+                  Icon(PantasIcons.profile, size: 22, color: t.colors.accent),
+                'Pantas Pro' => Icon(
+                    PantasIcons.proSettings,
+                    size: 22,
+                    color: t.colors.accent,
+                  ),
+                'Your exam' =>
+                  Icon(PantasIcons.exam, size: 22, color: t.colors.accent),
+                // The list row's size and blue, like the other headers.
+                'Practice' =>
+                  Icon(PantasIcons.practice, size: 22, color: t.colors.accent),
+                'Appearance' => _grayGlyph(t, PantasIcons.appearance),
+                'Accessibility' => _grayGlyph(t, Icon(PantasIcons.keyboard)),
+                'About' => _grayGlyph(t, PantasIcons.about),
+                _ => null,
+              }
+        : Icon(icon, size: 32, color: t.colors.accent);
+    final nested = backLabel != null && backLabel != 'Settings';
+    // The page paints its own background in pieces rather than on the Material,
+    // because the detail pane must be able to show the pane behind it while it
+    // opens (see [PaneDetailMotion]).
+    final background = t.colors.background;
+    return Material(
+      type: MaterialType.transparency,
+      child: CallbackShortcuts(
+        bindings: {
+          if (nested && onBack != null)
+            const SingleActivator(LogicalKeyboardKey.escape): onBack!,
+        },
+        // A page opened from a row starts with nothing focused, and a key only
+        // reaches the shortcut from a node inside it. Without this, Esc did
+        // nothing on a page the pane's Esc hint is printed on.
+        child: Focus(
+          autofocus: nested && onBack != null,
+          skipTraversal: true,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              ColoredBox(
+                color: background,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: PantasSpace.s4,
+                      ),
+                      child: Text('Settings', style: t.h1),
+                    ),
+                    const SizedBox(height: PantasSpace.s24),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: LayoutBuilder(
+                  builder: (context, constraints) => Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ColoredBox(
+                        color: background,
+                        child: SizedBox(
+                          width: _listWidth(constraints.maxWidth),
+                          height: constraints.maxHeight,
+                          child: _SettingsListScroll(selected: section),
+                        ),
+                      ),
+                      ColoredBox(
+                        color: background,
+                        child: SizedBox(
+                          width: PantasSpace.s28,
+                          height: constraints.maxHeight,
+                        ),
+                      ),
+                      Expanded(
+                        child: PaneDetailMotion(
+                          background: background,
+                          child: SingleChildScrollView(
+                            key: const ValueKey('settings-detail'),
+                            padding: EdgeInsets.only(
+                              bottom:
+                                  PantasSpace.s24 + context.webPageBottomInset,
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                if (nested) ...[
+                                  Row(
+                                    children: [
+                                      WebBackLink(
+                                        label: backLabel!,
+                                        onPressed: onBack ?? () {},
+                                      ),
+                                      const SizedBox(width: PantasSpace.s8),
+                                      const WebKeyHint('Esc'),
+                                    ],
+                                  ),
+                                  const SizedBox(height: PantasSpace.s14),
+                                ],
+                                if (!hideHeading) ...[
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(
+                                      PantasSpace.s4,
+                                      PantasSpace.s4,
+                                      PantasSpace.s4,
+                                      PantasSpace.s0,
+                                    ),
+                                    child: Row(
+                                      children: [
+                                        if (headingGlyph != null) ...[
+                                          headingGlyph!,
+                                          const SizedBox(
+                                            width: PantasSpace.s14,
+                                          ),
+                                        ] else if (headingIcon != null) ...[
+                                          headingIcon,
+                                          const SizedBox(
+                                            width: PantasSpace.s14,
+                                          ),
+                                        ],
+                                        Expanded(
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              if (titleSuffix == null)
+                                                Text(title, style: t.h2)
+                                              else
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(title, style: t.h2),
+                                                    titleSuffix!,
+                                                  ],
+                                                ),
+                                              if (description != null)
+                                                Text(
+                                                  description!,
+                                                  style: t.sub,
+                                                ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  SizedBox(height: headingGap),
+                                ],
+                                ...children,
+                                if (bottom != null) ...[
+                                  const SizedBox(height: PantasSpace.s24),
+                                  bottom!,
+                                ],
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// The board's list pane is `flex: 1 1 300px; max-width: 360px` beside a
+/// detail pane of `flex: 999 1 460px`, 28 px apart: 300 px plus a thousandth
+/// of what is left over. Below that it keeps a third of the width.
+double _listWidth(double available) {
+  final spare = available - 28 - 300 - 460;
+  return spare >= 0 ? math.min(360, 300 + spare / 1000) : available * .33;
+}
+
+/// A 22 px outline glyph in the board's gray (`#6E6E73`).
+Widget _grayGlyph(WebTokens t, Widget glyph) => IconTheme(
+      data: IconThemeData(color: t.colors.secondaryLabel, size: 22),
+      child: SizedBox.square(dimension: 22, child: glyph),
+    );
+
+/// Where the list was last scrolled to. Every Settings row is its own page,
+/// and a new page would start the list back at the top. Opening the next row
+/// would then make the list jump, so the offset is carried across pages.
+final settingsListOffsetProvider = StateProvider<double>((ref) => 0);
+
+/// The row that was selected when another was tapped. The page that opens
+/// rebuilds the list, so it starts from this row and fades to its own (item 17,
+/// demo 4). Read once as the new list is built, then cleared.
+final settingsListFromProvider = StateProvider<String?>((ref) => null);
+
+class _SettingsListScroll extends ConsumerStatefulWidget {
+  const _SettingsListScroll({required this.selected});
+  final String selected;
+
+  @override
+  ConsumerState<_SettingsListScroll> createState() =>
+      _SettingsListScrollState();
+}
+
+class _SettingsListScrollState extends ConsumerState<_SettingsListScroll> {
+  late final ScrollController _controller;
+  late final String? _from = ref.read(settingsListFromProvider);
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = ScrollController(
+      initialScrollOffset: ref.read(settingsListOffsetProvider),
+    )..addListener(_remember);
+    if (_from != null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) ref.read(settingsListFromProvider.notifier).state = null;
+      });
+    }
+  }
+
+  void _remember() {
+    if (_controller.hasClients) {
+      ref.read(settingsListOffsetProvider.notifier).state = _controller.offset;
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => SingleChildScrollView(
+        controller: _controller,
+        padding: EdgeInsets.only(bottom: context.webPageBottomInset),
+        child: SettingsNavigation(selected: widget.selected, from: _from),
+      );
+}
+
+class SettingsNavigation extends ConsumerWidget {
+  const SettingsNavigation({required this.selected, this.from, super.key});
+  final String selected;
+
+  /// The row that was selected before this list was built, if any. Its tint
+  /// starts full and fades out while the new row's fades in.
+  final String? from;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final t = context.webTokens;
+    final settings =
+        ref.watch(userSettingsProvider).valueOrNull ?? UserSettings.defaults();
+    final auth = ref.watch(currentUserProvider);
+    final user = auth.valueOrNull;
+    final theme = ref.watch(themePreferenceProvider).valueOrNull ??
+        ThemePreference.system;
+    final length = ref.watch(settingsSessionLengthProvider).valueOrNull ?? 10;
+    void open(String path) {
+      final router = GoRouter.maybeOf(context);
+      if (router == null) return;
+      ref.read(settingsListFromProvider.notifier).state = selected;
+      unawaited(router.push<void>(path));
+    }
+
+    final tester = ref.watch(betaFeedbackVisibleProvider);
+    Widget row(
+      String label,
+      String path,
+      Widget glyph, {
+      String? value,
+      Widget? titleSuffix,
+      Widget? trailing,
+      bool? divider,
+    }) =>
+        WebRow(
+          title: label,
+          titleSuffix: titleSuffix,
+          trailing: trailing,
+          // The label keeps one weight, so the text does not jump while the
+          // tint fades (item 17, demo 4).
+          titleStyle: PantasType.webRowTitleSettings
+              .copyWith(color: t.colors.textPrimary),
+          horizontalPadding: PantasLayout.rowInsetSettings,
+          leadingGap: 12,
+          selected: selected == label,
+          enterFromSelected: from == null ? null : from == label,
+          value: value,
+          valueStyle: t.sub,
+          selectedValueColor: t.colors.accent,
+          leading: glyph,
+          onPressed: () => open(path),
+          divider: divider ??
+              (label != 'Accessibility' &&
+                  label != 'Pantas Pro' &&
+                  label != 'About'),
+        );
+    return Column(
+      key: const ValueKey('settings-navigation'),
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        WebCard(
+          // Until auth is known the card is a skeleton. Reading no user as
+          // "Not signed in" showed that line for a frame (7W-16).
+          child: !auth.hasValue && !auth.hasError
+              ? const _AccountCardSkeleton()
+              : WebRow(
+                  title: settings.name?.trim().isNotEmpty ?? false
+                      ? settings.name!
+                      : 'Add your name',
+                  subtitle: user?.email ?? 'Not signed in',
+                  titleStyle: PantasType.webRowTitle.copyWith(
+                    fontWeight: FontWeight.w600,
+                    color: t.colors.textPrimary,
+                  ),
+                  horizontalPadding: PantasLayout.rowInsetSettings,
+                  verticalPadding: PantasSpace.s14,
+                  leadingGap: 12,
+                  selected: selected == 'Account',
+                  enterFromSelected: from == null ? null : from == 'Account',
+                  leading: SizedBox.square(
+                    dimension: 44,
+                    child: FittedBox(
+                      child: Avatar(
+                        name: settings.name ?? '',
+                        photo: user?.photoUrl == null
+                            ? null
+                            : NetworkImage(user!.photoUrl!),
+                      ),
+                    ),
+                  ),
+                  trailing:
+                      Icon(PantasIcons.next, size: 16, color: t.colors.chevron),
+                  divider: false,
+                  onPressed: () => open('/settings/account'),
+                ),
+        ),
+        const SizedBox(height: PantasSpace.s18),
+        if (tester) ...[
+          // FbDesk: Feedback and the Beta switch share the first card.
+          WebCard(
+            child: Column(
+              children: [
+                row(
+                  'Feedback',
+                  '/settings/beta-feedback',
+                  SettingsFeedbackGlyph(size: 22, color: t.colors.accent),
+                  titleSuffix: const SettingsBetaMark(),
+                  trailing: FeedbackRowValue(
+                    value: ref.watch(feedbackRowValueProvider),
+                    style: PantasType.webRowValue
+                        .copyWith(color: t.colors.textSecondary),
+                    selectedColor: t.colors.accent,
+                    selected: selected == 'Feedback',
+                  ),
+                  divider: false,
+                ),
+                const BetaProRow(),
+              ],
+            ),
+          ),
+          const BetaProNote(),
+          const SizedBox(height: PantasSpace.s18),
+        ],
+        WebCard(
+          child: Column(
+            children: [
+              row(
+                'Pantas Pro',
+                '/settings/pro',
+                Icon(PantasIcons.proSettings, size: 22, color: t.colors.accent),
+                value: ref.watch(proRowValueProvider),
+              ),
+              if (!tester) const BetaProRow(),
+            ],
+          ),
+        ),
+        if (!tester) const BetaProNote(),
+        const SizedBox(height: PantasSpace.s18),
+        WebCard(
+          child: Column(
+            children: [
+              row(
+                'Your exam',
+                '/settings/exam',
+                Icon(PantasIcons.exam, size: 22, color: t.colors.accent),
+                value: ref.watch(activeExamShortNameProvider),
+              ),
+              row(
+                'Practice',
+                '/settings/practice',
+                Icon(PantasIcons.practice, size: 22, color: t.colors.accent),
+                value: length < 0 ? 'All questions' : '$length questions',
+              ),
+              row(
+                'Appearance',
+                '/settings/appearance',
+                _grayGlyph(t, PantasIcons.appearance),
+                value: switch (theme) {
+                  ThemePreference.light => 'Light',
+                  ThemePreference.dark => 'Dark',
+                  ThemePreference.system => 'Automatic',
+                },
+              ),
+              row(
+                'Accessibility',
+                '/settings/accessibility',
+                _grayGlyph(t, Icon(PantasIcons.keyboard)),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: PantasSpace.s18),
+        WebCard(
+          child:
+              row('About', '/settings/about', _grayGlyph(t, PantasIcons.about)),
+        ),
+      ],
+    );
+  }
+}
+
+/// The phone title with a mark after it and, when given, a grey line under
+/// it (FbPage, FbSurvey): 28 px, 6 px above, then the line 22 px above the
+/// first card.
+class _PhoneHeading extends StatelessWidget {
+  const _PhoneHeading({
+    required this.title,
+    required this.suffix,
+    required this.subline,
+    required this.lineHeight,
+    required this.gap,
+  });
+  final String title;
+  final Widget? suffix;
+  final String? subline;
+  final double lineHeight;
+  final double gap;
+
+  @override
+  Widget build(BuildContext context) {
+    final style = context.type.pageTitleCompact.copyWith(height: lineHeight);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Padding(
+          padding: EdgeInsets.fromLTRB(
+            PantasSpace.s4,
+            PantasSpace.s6,
+            PantasSpace.s4,
+            subline == null ? gap : PantasSpace.s6,
+          ),
+          child: Semantics(
+            header: true,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Flexible(child: Text(title, style: style)),
+                if (suffix != null) suffix!,
+              ],
+            ),
+          ),
+        ),
+        if (subline != null)
+          Padding(
+            padding: const EdgeInsets.fromLTRB(
+              PantasSpace.s4,
+              PantasSpace.s0,
+              PantasSpace.s4,
+              PantasSpace.s20,
+            ),
+            child: Text(
+              subline!,
+              style: PantasType.phoneExplanation.copyWith(
+                color: context.colors.textSecondary,
+              ),
+            ),
+          ),
+      ],
+    );
+  }
+}
+
+/// ST_Practice, ST_Appearance and ST_Exam: a white 18 px card with a 42 px
+/// colored icon, a 24 px bold title and a 15 px gray subtitle.
+class _SettingsHero extends StatelessWidget {
+  const _SettingsHero({
+    required this.section,
+    required this.title,
+    required this.subtitle,
+  });
+  final String section;
+  final String title;
+  final String subtitle;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    final icon = switch (section) {
+      'Practice' => Icon(PantasIcons.practice, size: 42, color: c.accent),
+      'Appearance' => IconTheme(
+          data: IconThemeData(color: c.textSecondary, size: 42),
+          child: context.wideWeb
+              ? PantasIcons.appearance
+              : OwnIcon(OwnIconKind.appearance, fill: c.label),
+        ),
+      _ => Icon(PantasIcons.exam, size: 42, color: c.accent),
+    };
+    return Padding(
+      padding:
+          const EdgeInsets.only(top: PantasSpace.s6, bottom: PantasSpace.s20),
+      child: Container(
+        padding: const EdgeInsets.fromLTRB(
+          PantasSpace.s18,
+          PantasSpace.s18,
+          PantasSpace.s18,
+          PantasSpace.s20,
+        ),
+        decoration: BoxDecoration(
+          color: c.surface,
+          borderRadius: BorderRadius.circular(PantasRadius.xl),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox.square(dimension: 52, child: Center(child: icon)),
+            const SizedBox(height: PantasSpace.s10),
+            Semantics(
+              header: true,
+              child: Text(
+                title,
+                style: PantasType.phoneTitle2.copyWith(color: c.textPrimary),
+              ),
+            ),
+            const SizedBox(height: PantasSpace.s4),
+            Text(
+              subtitle,
+              style: PantasType.phoneExplanation.copyWith(
+                color: c.textSecondary,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// The account card while auth is still loading: the avatar and two lines,
+/// 72 px tall like the loaded row.
+class _AccountCardSkeleton extends StatelessWidget {
+  const _AccountCardSkeleton();
+
+  @override
+  Widget build(BuildContext context) => const SkeletonPulse(
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: PantasSpace.s16,
+            vertical: PantasSpace.s14,
+          ),
+          child: Row(
+            children: [
+              SkeletonBlock(width: 44, height: 44, radius: PantasRadius.r2xl),
+              SizedBox(width: PantasSpace.s12),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SkeletonBlock(width: 120, height: 17),
+                  SizedBox(height: PantasSpace.s6),
+                  SkeletonBlock(width: 170, height: 14),
+                ],
+              ),
+            ],
+          ),
+        ),
+      );
+}

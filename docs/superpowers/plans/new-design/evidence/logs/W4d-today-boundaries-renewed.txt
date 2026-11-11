@@ -1,0 +1,36 @@
+
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/today_question_ui_test.dart: Quiz row actual TodayQuestionKind.reviews exit=start
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/today_question_ui_test.dart: Quiz row actual TodayQuestionKind.reviews exit=dark-large
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/today_question_ui_test.dart: Quiz row actual TodayQuestionKind.reviews exit=dismiss
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/today_question_ui_test.dart: Quiz row actual TodayQuestionKind.reviews exit=page
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/today_question_ui_test.dart: Quiz row actual TodayQuestionKind.reviews exit=wipe
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/today_question_ui_test.dart: Quiz row actual TodayQuestionKind.newQuestions exit=start
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/today_question_ui_test.dart: Quiz row actual TodayQuestionKind.newQuestions exit=dark-large
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/today_question_ui_test.dart: Quiz row actual TodayQuestionKind.newQuestions exit=dismiss
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/today_question_ui_test.dart: Quiz row actual TodayQuestionKind.newQuestions exit=page
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/today_question_ui_test.dart: Quiz row actual TodayQuestionKind.newQuestions exit=wipe
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/today_question_launch_test.dart: actual TodayQuestionKind.reviews launch keeps Reviews and New separate
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/today_question_launch_test.dart: actual TodayQuestionKind.newQuestions launch keeps Reviews and New separate
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/today_question_launch_test.dart: Today launch rejects wipe without replacing progress
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/today_question_launch_test.dart: Today launch rejects page without replacing progress
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/today_question_launch_test.dart: Today launch rejects paused without replacing progress
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/today_question_launch_test.dart: Today launch rejects version without replacing progress
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/today_questions_test.dart: Today question row opens the shared sheet at scale=1.0
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/today_questions_test.dart: Today question row opens the shared sheet at scale=2.0
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: paused tab at dark=false scale=1.0
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: assessment and empty rows at dark=false scale=1.0
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: completed tab at dark=false scale=1.0
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: paused tab at dark=false scale=2.0
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: assessment and empty rows at dark=false scale=2.0
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: completed tab at dark=false scale=2.0
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: paused tab at dark=true scale=1.0
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: assessment and empty rows at dark=true scale=1.0
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: completed tab at dark=true scale=1.0
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: paused tab at dark=true scale=2.0
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: assessment and empty rows at dark=true scale=2.0
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: completed tab at dark=true scale=2.0
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: #23 assessment completion clears the Quiz assessment gate
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: #24 #27 #28 one Resume returns to the saved session and clears
+✅ /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_tab_screen_test.dart: Continue Reviews does not depend on legacy mixed-plan membership
+
+🎉 33 tests passed.

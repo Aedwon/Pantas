@@ -1,0 +1,48 @@
+{
+  "head": "dac15e8d6bf8a0f19f343f46cb4d712d3ff754fb",
+  "state": "Unverified and unwired Task5 end-screen draft; no Task5 acceptance",
+  "policy_duration_ruling": "03242b61",
+  "untracked_source_sha256": {
+    "lib/features/quiz/presentation/session_end_screen.dart": "a3909bb3828ed936399d3794f0a4af06d7117cd28c44697237e0df10e08ba409",
+    "test/features/quiz/presentation/session_end_screen_test.dart": "1f7a521fe394f1071a65557dabfec8e134b648e494420436b91ca7511b3da400"
+  },
+  "artifact_sha256": {
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-screen-red.txt": "9a01b5974ced9113f1cb9623111ff4ba645754f266abf6982da5e28c59b26462",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-screen-behavior-red.txt": "db816ed68c4785c9f54fe971c051c5864e011b999b543f99b0ba1d1fe9e0b1c8",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-screen-green-draft3.txt": "c94f4056fe26af8fa51432bc02120c4fbc7a4cc828209f82dbe3ee6e47b964ef",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-screen-green-draft2.txt": "f85d51bed844118271b3a9983da3c949062d767317522a7ac258f4cf58509103",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-screen-analysis-diagnostic.txt": "ce19b0576a3efb8e2cd4e9adc6f66b5dd734a97ea4e85823c7e3730df9a66afa",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-screen-green-draft.txt": "e8747614efd685d1c70fd7023ca69c1a431d4b767e94241af55e47213cea591a",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-board-QV_EndPerfectB-outline.txt": "4984d19209f601e156753d4c2989dddb0102505ea2b66f36c3fbfc5fca87aef9",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-board-QV_All-timeline.txt": "02c63c5909369e572c06bdf353a0fdf24a603a3d4be2f3c41b0dcbb83bdec90b",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-board-QV_Sources-timeline.txt": "02c63c5909369e572c06bdf353a0fdf24a603a3d4be2f3c41b0dcbb83bdec90b",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-board-QV_EndLowB-outline.txt": "dc852bc221329d388cd136c1895035afe9482916cbccaefbbeb70372012946c8",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-board-QV_EndLastToday-outline.txt": "8f4c59702e37cdf983257320b6fd4240cf8d3cb96af9f4a17410b5d4710bef97",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-board-L_DebriefSlow-timeline.txt": "8bc1efac07bef216ccbe8b2b3fe7de271e57195a474755e5c7fef7f4324ded7c",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-board-QV_EndFree-outline.txt": "f83ec34bc84a4f81bfd90d05e53416848d166cd874ae72d58eab2f1f85d7371d",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-board-QV_EndLastToday-timeline.txt": "07cfc17543697f24cc6543d6625d1730d85779eb03e90d873fd3cb4d4f1ae445",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-board-QV_All-outline.txt": "0286de8088dc9071777f7e8f1dfd390810b408c3d7f3a5b22450444743348602",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-board-QV_EndPerfectB-timeline.txt": "c6616e269323c69f9034f47c9161182ce0825ec45b8dd26283202d5ddb61fef4",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-board-QV_Sources-outline.txt": "bb0b55489c1044a17b8a99b75bf3bd4f527719d620ade4a19be841bbb657ca4f",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-board-QV_EndFree-timeline.txt": "1d0a74c44cb3c16f088e3a86e1063db4cc975f018ca02a856cacfe9055c3361f",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-board-L_DebriefSlow-outline.txt": "4c172b9101e58e4b374060eeb8cf1c12910446040bb97c6d46505b3b2fd2ed7e",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-board-QV_EndLowB-timeline.txt": "e5e4665335b80709f1e5dd0bdb014bc5c9a038ea62ec67a83b6c77e1cd17d4c8",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-end-draft-source.patch.gz": "8b5067b4c3ebab6520640d15a07946ee2e16f02c0117f992717f50bb113a75ac",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-screen-behavior-red.txt.gz": "61ae5e30e56d26cba881e6d5f660dbaac49dc18f38eb402f9a80564d87fbc714",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-screen-analysis-diagnostic.txt.gz": "2ef11b9732ea14f96380b1ea953d66a0685132216642c24e7d165196d0844b2c",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-screen-green-draft.txt.gz": "0490515dc6883eaaa918079cf1b121ddce1b12d82c4fad0d0296aa5ee3defd6b",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-board-QV_EndPerfectB-outline.txt.gz": "9faaa55364340d3423625fedd3f777b1a2caf40cbccb708935c6b268568e0bf8",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-board-QV_EndLowB-outline.txt.gz": "81454c3ffe2d1957fa68935828cde9aa23f2365752475b6e7b8f163f38b2c9b5",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-board-QV_EndLastToday-outline.txt.gz": "24e7ec87810f5ab5bc683563716e9e83ea2623ab3455e58ee85f8e24bc1ec470",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-board-QV_EndFree-outline.txt.gz": "9202a1400891b8ec3fc46667bb08e58899a77df97f98c1993266d4051775ff63",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-board-QV_All-outline.txt.gz": "a13ccc513389a2ec7f8582fa77b3909b27fdfff13bdea46d49191a78c305fe2b",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-board-QV_Sources-outline.txt.gz": "d35244f9b8f087846ef67c7c8295349c7b458bfb79134e6ba8e7c68150b50766",
+    "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-board-L_DebriefSlow-outline.txt.gz": "d9daa85f2e1a3b7e6703f69d8afdeb52fced3efcf7fc809b9c2e137bfccea5d3"
+  },
+  "checks": {
+    "widget_command": "flutter test --no-pub test/features/quiz/presentation/session_end_screen_test.dart --reporter expanded",
+    "widget_result": "00:00 +6: All tests passed!",
+    "widget_log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-screen-green-draft3.txt",
+    "analysis": "Failed; diagnostic only; no completed static-gate claim"
+  }
+}

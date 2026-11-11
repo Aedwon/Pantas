@@ -2,5 +2,6 @@ export 'account_transition_gateway.dart';
 export 'auth_repository.dart';
 export 'auth_state.dart';
 export 'auth_user.dart';
+export 'email_code_auth.dart';
 export 'providers.dart';
 export 'sign_in_result.dart';

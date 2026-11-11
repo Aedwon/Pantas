@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-vocabulary-confusing-words-0001	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-vocabulary-confusing-words-0002	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-vocabulary-confusing-words-0003	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	LOW	Changed marker recall to function identification to remove a length cue.
+q-vocabulary-confusing-words-0004	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-vocabulary-confusing-words-0005	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-vocabulary-confusing-words-0006	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated the modal-plus-affect scenario in 0001; replaced with the taught noun exception.
+q-vocabulary-confusing-words-0007	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated the simple its-plus-owned-noun scenario in 0002; replaced with contrasting roles.
+q-vocabulary-confusing-words-0008	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	LOW	Changed marker recall to function identification to remove a length cue.
+q-vocabulary-confusing-words-0009	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated the name-marker scenario in 0004; changed to a pronoun replacing names.
+q-vocabulary-confusing-words-0010	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	LOW	Original answer was much longer and rehearsed a full rule; replaced with an application of the contraction.
+q-vocabulary-confusing-words-0011	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated the simple sina scenario; replaced with name-marker and pronoun contrast.
+q-vocabulary-confusing-words-0012	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-vocabulary-confusing-words-0013	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated a noun-effect scenario; replaced with the taught verb exception.
+q-vocabulary-confusing-words-0014	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-vocabulary-confusing-words-0015	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated the effect/its pairing; replaced with the less-common it-has expansion.
+q-vocabulary-confusing-words-0016	NEW	NEW	explanation;notes	NONE	
+q-vocabulary-confusing-words-0017	NEW	NEW	explanation;notes	NONE	
+q-vocabulary-confusing-words-0018	NEW	NEW	explanation;notes	NONE	
+q-vocabulary-confusing-words-0019	NEW	NEW	explanation;notes	NONE	
+q-vocabulary-confusing-words-0020	NEW	NEW	explanation;notes	NONE	

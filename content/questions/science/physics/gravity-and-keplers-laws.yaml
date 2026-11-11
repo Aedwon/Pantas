@@ -1,290 +1,425 @@
 meta:
-  subject: science
-  topic: physics
-  subtopic: gravity-and-keplers-laws
-  exams:
-    - upcat
-    - dlsucet
-    - ustet
-    - dost-sei
+  subject: "science"
+  topic: "physics"
+  subtopic: "gravity-and-keplers-laws"
+  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-physics-gravity-and-keplers-laws-0001
-    type: simple-quantitative
-    difficulty: medium
+    type: "simple-quantitative"
+    difficulty: "medium"
     stem: |
-      Two objects are moved to three times their original distance apart. By what factor does the gravitational force between them change?
+      Two fixed spherical masses are moved to three times their original center-to-center separation. What fraction of the original gravitational force remains?
     choices:
-      - text: It becomes 1/9 of the original force.
+      - text: "$\\dfrac19$"
         correct: true
-      - text: It becomes 1/3 of the original force.
+      - text: "$\\dfrac13$"
         rationale: |
-          You divided by 3 instead of $3^2$. Newton's law of gravitation is an inverse-square law ($F \propto \dfrac{1}{r^2} = \dfrac{1}{3^2} = \dfrac{1}{9}$).
-      - text: It becomes 3 times the original force.
+          This omits squaring the separation factor. The distance triples. Check the exponent in the denominator.
+      - text: "$3$"
         rationale: |
-          You multiplied force by distance factor. Increasing distance decreases gravitational attraction.
-      - text: It stays exactly the same.
+          This makes force grow with separation. A larger distance suggests a larger result. Check the inverse relation.
+      - text: "$1$"
         rationale: |
-          You assumed gravity is distance-independent. Gravitational force varies inversely with distance squared.
+          This ignores separation because the masses are fixed. Masses do matter. Check the distance term too.
     explanation: |
-      Gravity follows an inverse-square law: tripling the distance divides the force by $3^2 = 9$.
+      With masses fixed, force varies as $1/r^2$. Tripling $r$ multiplies $r^2$ by $9$. The force becomes $\dfrac19$ of its original size.
     approved: true
+
   - id: q-physics-gravity-and-keplers-laws-0002
-    type: simple-quantitative
-    difficulty: medium
+    type: "predict-outcome"
+    difficulty: "medium"
     stem: |
-      Two objects are moved to twice their original distance apart. By what factor does the gravitational force between them change?
+      At fixed separation, one of two point masses is doubled. The other remains unchanged. What happens to their gravitational force magnitude?
     choices:
-      - text: It becomes 1/4 of the original force.
+      - text: "It doubles."
         correct: true
-      - text: It becomes 1/2 of the original force.
+      - text: "It quadruples because mass is squared."
         rationale: |
-          You divided force by 2 instead of $2^2$. Gravitational force follows $F \propto \dfrac{1}{2^2} = \dfrac{1}{4}$.
-      - text: It becomes 2 times the original force.
+          This transfers the distance exponent to mass. Gravity contains a square. Check which variable is squared.
+      - text: "It halves because the larger mass has more inertia."
         rationale: |
-          You multiplied force by 2. Increasing separation distance weakens gravitational attraction.
-      - text: It stays exactly the same.
+          This confuses force with acceleration response. Larger mass resists acceleration. Check the mass product in the force law.
+      - text: "It stays unchanged because separation is fixed."
         rationale: |
-          You assumed gravity is independent of separation distance. Gravitational force decreases with distance squared.
+          This considers only distance. The distance term is unchanged. Check the changed mass in the numerator.
     explanation: |
-      Gravity follows an inverse-square law: doubling the distance divides the force by $2^2 = 4$.
+      The law gives $F=Gm_1m_2/r^2$. Doubling one mass doubles the mass product. At fixed separation, the force doubles.
     approved: true
+
   - id: q-physics-gravity-and-keplers-laws-0003
-    type: simple-quantitative
-    difficulty: hard
+    type: "identify"
+    difficulty: "hard"
     stem: |
-      Two objects are moved to four times their original distance apart. By what factor does the gravitational force between them change?
+      For two nonoverlapping spherical bodies with spherically symmetric mass distributions, what distance is used in Newton’s gravitational force formula?
     choices:
-      - text: It becomes 1/16 of the original force.
+      - text: "Center-to-center distance"
         correct: true
-      - text: It becomes 1/4 of the original force.
+      - text: "The gap between their nearest surfaces"
         rationale: |
-          You divided by 4 instead of $4^2$. Gravity follows an inverse-square relation: $F \propto \dfrac{1}{4^2} = \dfrac{1}{16}$.
-      - text: It becomes 1/8 of the original force.
+          This uses the most visible gap. Surface separation is easy to measure. Check where each spherical body’s effective mass is located.
+      - text: "The sum of their diameters regardless of spacing"
         rationale: |
-          You multiplied distance by 2 instead of squaring ($4 \times 2$). The inverse-square factor is $4^2 = 16$.
-      - text: It becomes 4 times the original force.
+          This uses object size instead of separation. Both bodies have measurable diameters. Check the distance between centers.
+      - text: "The distance from one center to the other body’s nearest surface"
         rationale: |
-          You multiplied force by distance factor. Increasing separation distance decreases gravitational attraction.
+          This combines two different reference points. One center is correctly identified. Check that both masses use their centers.
     explanation: |
-      Gravity follows an inverse-square law: increasing the distance 4 times divides the force by $4^2 = 16$.
+      For spherically symmetric bodies outside each other, their gravitational effect can be calculated as if their masses were at their centers. The distance is between those centers.
     approved: true
+
   - id: q-physics-gravity-and-keplers-laws-0004
-    type: identify
-    difficulty: easy
+    type: "identify"
+    difficulty: "easy"
     stem: |
       Which of Kepler's laws states that planets orbit the Sun in elliptical paths, with the Sun at one focus?
     choices:
-      - text: Kepler's First Law (Law of Ellipses)
+      - text: "Kepler’s First Law"
         correct: true
-      - text: Kepler's Second Law (Law of Equal Areas)
+      - text: "Kepler's Second Law (Law of Equal Areas)"
         rationale: |
-          You picked Kepler's Second Law. The Second Law describes equal areas swept in equal time intervals.
-      - text: Kepler's Third Law (Law of Harmonies)
+          This selects the equal-area law. It also involves time, so it can sound relevant. Check equal intervals versus a whole-orbit period.
+      - text: "Kepler's Third Law (Law of Harmonies)"
         rationale: |
-          You picked Kepler's Third Law. The Third Law relates orbital period to semi-major axis distance ($T^2 \propto r^3$).
-      - text: Newton's Law of Universal Gravitation
+          This selects the period-size law. It also describes orbits. Check whether the statement concerns an orbital ratio or the feature asked for.
+      - text: "Newton's Law of Universal Gravitation"
         rationale: |
-          You picked Newton's gravitational law. Newton's law defines gravitational force between masses ($F = G\dfrac{m_1m_2}{r^2}$).
+          This selects the gravitational force law. Gravity causes orbital motion. Check which law directly states the observed orbital pattern.
     explanation: |
-      Kepler's First Law states that orbits are ellipses, not perfect circles, with the Sun at one focus rather than the center.
+      The first law describes orbital shape: an ellipse with the Sun at one focus. A circle is its zero-eccentricity special case.
     approved: true
+
   - id: q-physics-gravity-and-keplers-laws-0005
-    type: identify
-    difficulty: easy
+    type: "identify"
+    difficulty: "easy"
     stem: |
       Which of Kepler's laws states that a line connecting a planet to the Sun sweeps out equal areas in equal time intervals?
     choices:
-      - text: Kepler's Second Law (Law of Equal Areas)
+      - text: "Kepler’s Second Law"
         correct: true
-      - text: Kepler's First Law (Law of Ellipses)
+      - text: "Kepler's First Law (Law of Ellipses)"
         rationale: |
-          You picked Kepler's First Law. The First Law states orbits are elliptical with the Sun at one focus.
-      - text: Kepler's Third Law (Law of Harmonies)
+          This selects the shape law. Shape relates to orbit size, so it sounds relevant. Check whether the statement concerns shape or the requested relationship.
+      - text: "Kepler's Third Law (Law of Harmonies)"
         rationale: |
-          You picked Kepler's Third Law. The Third Law states $T^2 \propto r^3$.
-      - text: Newton's Law of Universal Gravitation
+          This selects the period-size law. It also describes orbits. Check whether the statement concerns an orbital ratio or the feature asked for.
+      - text: "Newton's Law of Universal Gravitation"
         rationale: |
-          You picked Newton's gravitational law. Newton's law provides the force mechanism causing orbital motion.
+          This selects the gravitational force law. Gravity causes orbital motion. Check which law directly states the observed orbital pattern.
     explanation: |
-      Kepler's Second Law describes equal areas swept in equal times, which is why planets move faster near the Sun and slower far from it.
+      The second law states that the Sun-planet line sweeps equal areas in equal time intervals.
     approved: true
+
   - id: q-physics-gravity-and-keplers-laws-0006
-    type: identify
-    difficulty: easy
+    type: "identify"
+    difficulty: "easy"
     stem: |
-      Which of Kepler's laws relates the square of a planet's orbital period to the cube of its average distance from the Sun?
+      Which of Kepler’s laws relates orbital period squared to semimajor axis cubed for planets orbiting the same dominant star?
     choices:
-      - text: Kepler's Third Law (Law of Harmonies)
+      - text: "Kepler’s Third Law"
         correct: true
-      - text: Kepler's First Law (Law of Ellipses)
+      - text: "Kepler's First Law (Law of Ellipses)"
         rationale: |
-          You picked Kepler's First Law. The First Law defines elliptical orbit geometry.
-      - text: Kepler's Second Law (Law of Equal Areas)
+          This selects the shape law. Shape relates to orbit size, so it sounds relevant. Check whether the statement concerns shape or the requested relationship.
+      - text: "Kepler's Second Law (Law of Equal Areas)"
         rationale: |
-          You picked Kepler's Second Law. The Second Law describes areal velocity conservation along an orbit.
-      - text: Newton's Law of Universal Gravitation
+          This selects the equal-area law. It also involves time, so it can sound relevant. Check equal intervals versus a whole-orbit period.
+      - text: "Newton's Law of Universal Gravitation"
         rationale: |
-          You picked Newton's gravitational law. Newton's law specifies gravitational force dependence on mass and distance.
+          This selects the gravitational force law. Gravity causes orbital motion. Check which law directly states the observed orbital pattern.
     explanation: |
-      Kepler's Third Law states $T^2 \propto r^3$: period squared is proportional to distance cubed.
+      The third law states $T^2\propto a^3$ for planets around the same dominant central mass. Here $a$ is the semimajor axis.
     approved: true
+
   - id: q-physics-gravity-and-keplers-laws-0007
-    type: classify
-    difficulty: medium
+    type: "classify"
+    difficulty: "medium"
     stem: |
-      A planet is at perihelion (closest to the Sun) at one point in its orbit, and at aphelion (farthest from the Sun) at another. At which point does the planet move faster?
+      In a noncircular elliptical orbit about the Sun, where is the planet’s speed greatest?
     choices:
-      - text: Perihelion, since a planet moves faster when closer to the Sun.
+      - text: "At perihelion"
         correct: true
-      - text: Aphelion, since a planet moves faster when farther from the Sun.
+      - text: "At aphelion because that part of the orbit is farther away"
         rationale: |
-          You picked aphelion. Planets move slowest at aphelion because larger orbital radius requires lower linear speed for equal areal sweep.
-      - text: The planet moves at the same speed at both points.
+          This reverses the near-far speed trend. Greater distance can suggest more travel. Check the equal-area rule.
+      - text: "At every point because orbital speed is constant"
         rationale: |
-          You assumed constant orbital speed. Speed varies along elliptical orbits, reaching maximum at perihelion.
-      - text: Speed cannot be compared between these two points.
+          This imports circular-orbit speed into a noncircular orbit. The motion repeats. Check the changing distance from the Sun.
+      - text: "At aphelion because gravitational attraction is weakest there"
         rationale: |
-          You claimed speed is incomparable. Kepler's Second Law directly compares orbital speeds at perihelion and aphelion.
+          This confuses weaker gravity with greater speed. Weak forces can suggest less slowing. Check the speed pattern within this orbit.
     explanation: |
-      By Kepler's Second Law, to sweep equal areas in equal times, a planet must travel faster when close to the Sun (perihelion) and slower when far away (aphelion).
+      Kepler’s second law requires equal areas in equal times. Near perihelion, the Sun-planet line is shortest. The planet moves fastest there to sweep the required area.
     approved: true
+
   - id: q-physics-gravity-and-keplers-laws-0008
-    type: simple-quantitative
-    difficulty: hard
+    type: "simple-quantitative"
+    difficulty: "hard"
     stem: |
-      Planet A's orbital period is 3 times longer than Planet B's period. Using Kepler's Third Law, by what factor is Planet A's distance cubed greater than Planet B's distance cubed?
+      Two planets orbit the same dominant star. Planet A has three times Planet B’s orbital period. What is the ratio $a_A^3/a_B^3$ of their semimajor axes cubed?
     choices:
-      - text: 9 times greater
+      - text: "$9$"
         correct: true
-      - text: 3 times greater
+      - text: "$3$"
         rationale: |
-          You omitted period squaring. Kepler's Third Law states $r^3 \propto T^2$, so tripling $T$ increases $r^3$ by $3^2 = 9$ times.
-      - text: 27 times greater
+          This uses the period ratio without squaring it. The factor of three is stated directly. Check the exponent on period.
+      - text: "$27$"
         rationale: |
-          You cubed period instead of squaring it ($3^3 = 27$). Period is squared ($T^2 = 3^2 = 9$), which equals $r^3$.
-      - text: The same, since distance is unrelated to period.
+          This cubes the period ratio. The orbital-size term is cubed. Check which exponent belongs to period.
+      - text: "$1$"
         rationale: |
-          You claimed period and distance are independent. Kepler's Third Law explicitly links period and orbital distance.
+          This assumes the shared star makes orbital size equal. The central mass is common. Check the different periods.
     explanation: |
-      Since $T^2 \propto r^3$, if Planet A's period is 3 times Planet B's, then period squared is $3^2=9$ times greater, meaning distance cubed must also be 9 times greater.
+      For the same dominant star, $\dfrac{a_A^3}{a_B^3}=\left(\dfrac{T_A}{T_B}\right)^2$. The ratio is $3^2=9$.
     approved: true
+
   - id: q-physics-gravity-and-keplers-laws-0009
-    type: classify
-    difficulty: hard
+    type: "classify"
+    difficulty: "hard"
     stem: |
-      A student assumes tripling the distance between two masses divides the gravitational force between them by 3. Is this correct?
+      According to Newton’s law, which interaction occurs between two isolated point masses?
     choices:
-      - text: 'No: gravity is an inverse-square law, so tripling the distance divides the force by $3^2=9$, not 3.'
+      - text: "Mutual attraction"
         correct: true
-      - text: 'Yes: force is inversely proportional to distance directly, not distance squared.'
+      - text: "Repulsion if the two masses are equal"
         rationale: |
-          You omitted distance squaring. Universal gravitation is an inverse-square law ($F \propto \dfrac{1}{r^2}$).
-      - text: 'No: tripling the distance actually multiplies the force by 3.'
+          This imports a like-charge rule into gravity. Equal properties can suggest repulsion. Check that mass in this model attracts mass.
+      - text: "Attraction only if at least one mass is a planet"
         rationale: |
-          You made force proportional to distance. Increasing separation distance reduces gravitational force.
-      - text: 'Yes: but only for very large masses.'
+          This limits gravity to astronomical objects. Planetary examples are common. Check that the law applies to every mass.
+      - text: "A force only on the smaller mass"
         rationale: |
-          You limited inverse-square gravity to large masses. The inverse-square law applies universally to all masses.
+          This treats the larger body as an unaffected source. Its motion can be hard to notice. Check that each body attracts the other.
     explanation: |
-      Newton's law of gravitation has distance squared in the denominator. Skipping the squaring step and dividing by the plain distance factor (3 instead of 9) is the most common error with this law.
+      Every mass attracts another mass in Newton’s model. The force on each body points toward the other.
     approved: true
+
   - id: q-physics-gravity-and-keplers-laws-0010
-    type: classify
-    difficulty: hard
+    type: "classify"
+    difficulty: "hard"
     stem: |
-      A student believes planetary orbits are perfect circles with the Sun at the exact center. Is this correct?
+      How does a circular orbit fit Kepler’s first law?
     choices:
-      - text: 'No: Kepler''s First Law states orbits are ellipses, with the Sun at one focus, not the exact center of a circle.'
+      - text: "It is an ellipse with zero eccentricity."
         correct: true
-      - text: 'Yes: all planetary orbits are perfect circles.'
+      - text: "It is excluded because ellipses cannot be circles."
         rationale: |
-          You assumed circular orbits. Kepler's First Law established that planetary orbits are ellipses.
-      - text: 'No: but only because the Sun is not actually involved in planetary orbits.'
+          This treats the two names as disjoint categories. Drawings often show stretched ellipses. Check the zero-eccentricity special case.
+      - text: "It puts the Sun at both ends of a diameter."
         rationale: |
-          You denied Sun gravitational involvement. Solar gravity provides the central force holding planets in orbit.
-      - text: 'Yes: Kepler''s First Law confirms circular orbits.'
+          This confuses foci with endpoints. Ellipses have two foci. Check where the foci meet in a circle.
+      - text: "It proves every elliptical orbit has the Sun at its geometric center."
         rationale: |
-          You misquoted Kepler's First Law. The First Law explicitly replaced circular orbits with elliptical orbits.
+          This generalizes the circular case. A circle’s center coincides with its foci. Check a noncircular ellipse.
     explanation: |
-      While some orbits are nearly circular, the technically correct shape described by Kepler's First Law is an ellipse, with the Sun positioned at one focus rather than the exact center.
+      A circle is the zero-eccentricity case of an ellipse. Its two foci coincide at the center. The Sun at one focus then lies at the center.
     approved: true
+
   - id: q-physics-gravity-and-keplers-laws-0011
-    type: classify
-    difficulty: hard
+    type: "predict-outcome"
+    difficulty: "hard"
     stem: |
-      A student assumes a planet moves at the same constant speed throughout its entire elliptical orbit. Is this correct?
+      A planet sweeps an area $A$ in one month near perihelion. In an equal one-month interval near aphelion, what area does it sweep in the two-body model?
     choices:
-      - text: 'No: Kepler''s Second Law shows orbital speed changes throughout an elliptical orbit, faster near the Sun and slower far away.'
+      - text: "$A$"
         correct: true
-      - text: 'Yes: all planets move at one constant speed throughout their orbit.'
+      - text: "$2A$ because the planet is farther from the Sun"
         rationale: |
-          You assumed constant orbital speed. Orbital speed varies inversely with solar distance along elliptical paths.
-      - text: 'No: but only for orbits that are perfect circles.'
+          This uses distance alone to scale area. A longer Sun-planet line matters geometrically. Check the equal-time condition.
+      - text: "$A/2$ because the planet travels more slowly"
         rationale: |
-          You claimed speed variation applies to circles. Perfect circular orbits have constant speed; elliptical orbits vary in speed.
-      - text: 'Yes: Kepler''s laws do not address orbital speed at all.'
+          This uses speed alone to scale area. Speed is lower at aphelion. Check the compensating greater distance from the Sun.
+      - text: "$0$ because the planet stops at aphelion"
         rationale: |
-          You claimed Kepler's laws ignore speed. Kepler's Second Law specifically addresses changing orbital speed.
+          This confuses slowest speed with a stop. Aphelion is a turning point in radial distance. Check that orbital motion continues.
     explanation: |
-      Only a perfectly circular orbit would have constant speed. Real elliptical orbits have varying speed, as described by Kepler's Second Law.
+      Kepler’s second law states that equal time intervals give equal swept areas. Both intervals last one month. Each therefore sweeps area $A$.
     approved: true
+
   - id: q-physics-gravity-and-keplers-laws-0012
-    type: classify
-    difficulty: hard
+    type: "compare-contrast"
+    difficulty: "hard"
     stem: |
-      A student assumes Kepler's Third Law means a planet's period is directly proportional to its distance (not involving any exponents). Is this correct?
+      For small planets orbiting the same dominant star, which relation is Kepler’s third law?
     choices:
-      - text: 'No: Kepler''s Third Law relates period squared to distance cubed ($T^2 \propto r^3$), not a simple direct proportion.'
+      - text: "$T^2\\propto a^3$"
         correct: true
-      - text: 'Yes: period and distance are directly, simply proportional.'
+      - text: "$T\\propto a$"
         rationale: |
-          You omitted law exponents. Kepler's Third Law relates period squared to semi-major axis cubed ($T^2 \propto r^3$).
-      - text: 'No: Kepler''s Third Law actually relates period cubed to distance squared.'
+          This drops both exponents. Larger orbits do have longer periods. Check the precise powers in the law.
+      - text: "$T^3\\propto a^2$"
         rationale: |
-          You swapped exponents between period and distance. The law states $T^2 \propto r^3$, squaring period and cubing distance.
-      - text: 'Yes: Kepler''s Third Law has no exponents involved.'
+          This swaps the powers. Both a square and a cube belong in the law. Check which quantity receives each.
+      - text: "$T^2\\propto a$"
         rationale: |
-          You denied exponent presence. The mathematical formulation of Kepler's Third Law requires $T^2 \propto r^3$.
+          This keeps the period square but omits the axis cube. Half the relation looks familiar. Check the power on orbital size.
     explanation: |
-      Ignoring the actual exponents (period squared, distance cubed) and treating the relationship as a simple direct proportion leads to significantly wrong comparisons, especially for orbits with very different periods.
+      Kepler’s third law relates orbital period squared to semimajor axis cubed. For the same central mass, $T^2/a^3$ has the same value.
     approved: true
+
   - id: q-physics-gravity-and-keplers-laws-0013
-    type: compare-contrast
-    difficulty: medium
+    type: "compare-contrast"
+    difficulty: "medium"
     stem: |
-      How do Kepler's contribution and Newton's contribution to understanding planetary motion relate to each other?
+      How did Kepler’s and Newton’s contributions to planetary motion differ?
     choices:
-      - text: Kepler discovered the observed pattern of how planets move; Newton later explained the underlying physical cause (gravitation) behind that pattern.
+      - text: "Kepler found orbital patterns; Newton explained their cause."
         correct: true
-      - text: Newton discovered the pattern first, and Kepler later explained the physical cause behind it.
+      - text: "Newton found the orbital patterns before Kepler supplied gravity."
         rationale: |
-          You reversed chronological roles. Kepler published empirical orbital laws before Newton developed universal gravitation theory.
-      - text: Kepler and Newton discovered completely unrelated, separate laws about planetary motion.
+          This reverses the historical roles. Both are associated with planetary laws. Check who used Brahe’s observations.
+      - text: "Kepler described motion while Newton proved gravity was unrelated."
         rationale: |
-          You claimed the discoveries were unrelated. Newton proved Kepler's empirical laws mathematically using universal gravitation.
-      - text: Newton's laws replaced and disproved Kepler's laws entirely.
+          This separates the laws completely. Their equations look different. Check that gravity can produce the orbital patterns.
+      - text: "Newton’s gravity made all of Kepler’s orbital patterns false."
         rationale: |
-          You claimed Newton disproved Kepler. Newton validated and derived Kepler's laws from fundamental principles of motion and gravity.
+          This treats a later explanation as a rejection. Later theories can replace earlier ones. Check the two-body conditions under which the laws agree.
     explanation: |
-      Kepler's three laws were based on careful observation, describing how planets move. Newton later showed that all three laws follow naturally from his law of universal gravitation combined with the laws of motion.
+      Kepler found mathematical patterns in planetary observations. Newton later explained those patterns using gravity and the laws of motion under the two-body approximation.
     approved: true
+
   - id: q-physics-gravity-and-keplers-laws-0014
-    type: predict-outcome
-    difficulty: exam
+    type: "simple-quantitative"
+    difficulty: "exam"
     stem: |
-      The distance between two masses is halved. By what factor does the gravitational force between them change?
+      Two fixed point masses have separation $r$. What new separation would make the gravitational force four times larger?
     choices:
-      - text: It becomes 4 times the original force.
+      - text: "$r/2$"
         correct: true
-      - text: It becomes 2 times the original force.
+      - text: "$2r$"
         rationale: |
-          You doubled force instead of multiplying by $2^2$. Halving distance quadruples force: $\dfrac{1}{(1/2)^2} = 4$.
-      - text: It becomes 1/2 of the original force.
+          This enlarges separation when force must grow. The factors two and four suggest squaring. Check whether force increases or decreases with distance.
+      - text: "$r/4$"
         rationale: |
-          You decreased force when distance decreased. Halving separation distance increases gravitational force.
-      - text: It becomes 1/4 of the original force.
+          This treats force as inversely proportional to plain distance. A factor of four is requested. Check the distance square.
+      - text: "$4r$"
         rationale: |
-          You applied inverse-square reduction to decreased distance. Decreasing distance increases force by factor 4.
+          This treats force as directly proportional to distance. Both are quantities that can change. Check the denominator of the force law.
     explanation: |
-      Halving the distance means the denominator $r^2$ becomes $(1/2)^2 = 1/4$ of its original value, so the force becomes $4$ times larger (dividing by a smaller number gives a bigger result).
+      For a force factor of $4$, the distance-squared denominator must become $\dfrac14$ as large. Its square root is $\dfrac12$. The new separation is $r/2$.
     approved: true
+
+  - id: q-physics-gravity-and-keplers-laws-0015
+    approved: false
+    type: "structure-function"
+    difficulty: "easy"
+    stem: |
+      In Kepler’s first law, what role does the Sun’s position have in a noncircular planetary ellipse?
+    choices:
+      - text: "It occupies one focus."
+        correct: true
+      - text: "It occupies the geometric center of every ellipse."
+        rationale: |
+          This extends a circular picture to a noncircular orbit. The center is a natural reference point. Check the first law’s focus statement.
+      - text: "It occupies the point farthest from both foci."
+        rationale: |
+          This treats the Sun as an endpoint of the ellipse. Endpoints are easy to see. Check the named focus position.
+      - text: "It lies outside the ellipse and pulls the planet along its edge."
+        rationale: |
+          This separates the attraction source from the enclosed orbit. A remote pull may seem possible. Check that the Sun lies at a focus inside the ellipse.
+    explanation: |
+      Kepler’s first law places the Sun at one focus of the orbital ellipse. In a noncircular ellipse that focus is offset from the geometric center.
+
+  - id: q-physics-gravity-and-keplers-laws-0016
+    approved: false
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A planet’s perihelion distance is $2$ units and its aphelion distance is $6$ units. What is its semimajor axis?
+    choices:
+      - text: "$4$ units"
+        correct: true
+      - text: "$8$ units"
+        rationale: |
+          This adds the extreme distances without halving. Their sum gives the major-axis length. Check that the semimajor axis is half of that.
+      - text: "$2$ units"
+        rationale: |
+          This uses the closest distance alone. Perihelion is a key orbit point. Check both extremes in the semimajor-axis relation.
+      - text: "$3$ units"
+        rationale: |
+          This halves only the aphelion distance. The word semi suggests halving. Check which full length should be halved.
+    explanation: |
+      The semimajor axis is half the sum of the two extreme distances. Thus $a=\dfrac{2+6}{2}=4$ units.
+
+  - id: q-physics-gravity-and-keplers-laws-0017
+    approved: false
+    type: "simple-quantitative"
+    difficulty: "hard"
+    stem: |
+      Two small planets orbit the same dominant star. One orbit has four times the semimajor axis of the other. What is the ratio of their orbital periods?
+    choices:
+      - text: "$8$"
+        correct: true
+      - text: "$4$"
+        rationale: |
+          This assumes period grows directly with axis. Both increase together. Check the square and cube in the relation.
+      - text: "$16$"
+        rationale: |
+          This squares the axis ratio. A square appears in the law. Check that axis is cubed and period is squared.
+      - text: "$64$"
+        rationale: |
+          This finds the ratio of period squares but reports it as the period ratio. Cubing the axis ratio is required. Check the final square root.
+    explanation: |
+      Kepler’s third law gives $\left(\dfrac{T_1}{T_2}\right)^2=4^3=64$. Taking the positive square root gives $T_1/T_2=8$.
+
+  - id: q-physics-gravity-and-keplers-laws-0018
+    approved: false
+    type: "predict-outcome"
+    difficulty: "hard"
+    stem: |
+      Two negligible-mass planets have equal orbital semimajor axes about different stars. Star A has four times Star B’s mass. How does the period about A compare with that about B?
+    choices:
+      - text: "It is half as long."
+        correct: true
+      - text: "It is the same because the orbital sizes match."
+        rationale: |
+          This uses a common-star ratio for different stars. Equal axes look sufficient. Check the central mass in the Newtonian law.
+      - text: "It is twice as long because the star is heavier."
+        rationale: |
+          This makes stronger gravity produce a longer period at fixed size. The mass factor matters. Check whether central mass is in the numerator or denominator.
+      - text: "It is one-quarter as long because the star is four times heavier."
+        rationale: |
+          This uses the period-squared ratio as the period ratio. A factor of four is stated. Check the square root.
+    explanation: |
+      At fixed $a$, $T^2=\dfrac{4\pi^2a^3}{GM}$ is inversely proportional to star mass. Four times the mass gives one-quarter of the period squared. The period is therefore halved.
+
+  - id: q-physics-gravity-and-keplers-laws-0019
+    approved: false
+    type: "process-ordering"
+    difficulty: "hard"
+    stem: |
+      A small planet moves from perihelion toward aphelion in a noncircular orbit. Which sequence describes its distance and speed?
+    choices:
+      - text: "Distance increases; speed decreases."
+        correct: true
+      - text: "Distance increases; speed increases."
+        rationale: |
+          This assumes longer radius requires greater speed. More distant travel sounds larger. Check the within-orbit speed pattern.
+      - text: "Distance decreases; speed increases."
+        rationale: |
+          This gives the return trip from aphelion. The two named points are familiar. Check the stated starting point.
+      - text: "Distance remains fixed; speed remains fixed."
+        rationale: |
+          This applies the circular case. Orbits repeat regularly. Check the noncircular condition.
+    explanation: |
+      Perihelion is the closest point and aphelion is the farthest. On that part of the orbit, distance grows while speed falls in accordance with the equal-area rule.
+
+  - id: q-physics-gravity-and-keplers-laws-0020
+    approved: false
+    type: "classify"
+    difficulty: "exam"
+    stem: |
+      Which measurements directly test Kepler’s third law for several small planets around the same dominant star?
+    choices:
+      - text: "Periods and semimajor axes"
+        correct: true
+      - text: "Current distances and current speeds at arbitrary points"
+        rationale: |
+          This uses instantaneous measurements for whole-orbit quantities. Position and speed are observable. Check which quantities appear in the third law.
+      - text: "Planet diameters and surface temperatures"
+        rationale: |
+          This uses physical appearance instead of orbit measurements. Planet properties can correlate with location. Check period and orbital size.
+      - text: "Perihelion distances alone for all orbits"
+        rationale: |
+          This substitutes one extreme distance for the semimajor axis. Perihelion is easy to name. Check the shape of each orbit.
+    explanation: |
+      The third law compares each whole-orbit period squared with its semimajor axis cubed. Measuring those quantities tests whether their ratio is common for planets around the same dominant star.

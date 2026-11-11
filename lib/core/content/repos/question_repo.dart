@@ -2,15 +2,19 @@ import 'dart:convert';
 
 import 'package:drift/drift.dart';
 import 'package:pantas/core/content/content_database.dart';
+import 'package:pantas/core/content/repos/content_fetch_hook.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/choice_order.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 
 class QuestionRepo {
-  QuestionRepo(this._db);
+  /// [fetchHook] is passed on web only; see [ContentFetchHook].
+  QuestionRepo(this._db, {ContentFetchHook? fetchHook})
+      : _fetchHook = fetchHook;
 
   final ContentDatabase _db;
+  final ContentFetchHook? _fetchHook;
   ContentDatabase get database => _db;
 
   Future<List<Question>> byTopic(TopicId topicId, {int? limit}) async {
@@ -20,7 +24,7 @@ class QuestionRepo {
       )
       ..orderBy([(row) => OrderingTerm.asc(row.id)]);
     if (limit != null) query.limit(limit);
-    final rows = await query.get();
+    final rows = await _withText(query);
     return Future.wait(rows.map(_hydrateQuestion));
   }
 
@@ -31,7 +35,7 @@ class QuestionRepo {
       )
       ..orderBy([(row) => OrderingTerm.asc(row.id)]);
     if (limit != null) query.limit(limit);
-    final rows = await query.get();
+    final rows = await _withText(query);
     return Future.wait(rows.map(_hydrateQuestion));
   }
 
@@ -51,10 +55,10 @@ class QuestionRepo {
   }
 
   Future<Question?> findById(QuestionId id) async {
-    final row = await (_db.select(_db.contentQuestions)
-          ..where((table) => table.id.equals(id)))
-        .getSingleOrNull();
-    return row == null ? null : _hydrateQuestion(row);
+    final query = _db.select(_db.contentQuestions)
+      ..where((table) => table.id.equals(id));
+    final rows = await _withText(query);
+    return rows.isEmpty ? null : _hydrateQuestion(rows.single);
   }
 
   Future<List<Question>> byIds(List<QuestionId> ids) async {
@@ -64,6 +68,22 @@ class QuestionRepo {
       if (question != null) questions.add(question);
     }
     return questions;
+  }
+
+  /// Runs [query]. With a fetch hook, first makes sure the text of the rows it
+  /// finds is present, runs it again to read that text, and leaves out the
+  /// questions whose text could not be fetched.
+  Future<List<ContentQuestionRow>> _withText(
+    SimpleSelectStatement<$ContentQuestionsTable, ContentQuestionRow> query,
+  ) async {
+    final rows = await query.get();
+    final hook = _fetchHook;
+    if (hook == null || rows.isEmpty) return rows;
+    final ready = await hook.ensureQuestions([for (final row in rows) row.id]);
+    return [
+      for (final row in await query.get())
+        if (ready.contains(row.id)) row,
+    ];
   }
 
   Future<bool> _isActive(QuestionId id) async {

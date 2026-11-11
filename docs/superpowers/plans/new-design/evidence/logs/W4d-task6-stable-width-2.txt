@@ -1,0 +1,163 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart
+00:00 +0: actual viewer account transition rolls back pending note and recorder tail
+boundary-test viewer ready: account
+boundary-test save tapped: account
+boundary-test tail entered: account
+boundary-test tail exits: account
+boundary-test save settled: account
+boundary-test repository settled: account
+boundary-test read stored row: account
+boundary-test read sync revision: account
+boundary-test metadata assertion done: account
+boundary-test unmounted viewer: account
+boundary-test disposed providers: account
+boundary-test closed student DB: account
+boundary-test closed content DB: account
+00:00 +1: actual viewer exam transition rolls back pending note and recorder tail
+boundary-test viewer ready: exam
+boundary-test save tapped: exam
+boundary-test tail entered: exam
+boundary-test tail exits: exam
+boundary-test save settled: exam
+boundary-test repository settled: exam
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: true
+  Actual: <false>
+Could not load your questions. | Try Again
+
+When the exception was thrown, this was the stack:
+#4      waitForReview (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart:65:3)
+<asynchronous suspension>
+#5      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart:187:9)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart line 65
+The test description was:
+  actual viewer exam transition rolls back pending note and recorder tail
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +1 -1: actual viewer exam transition rolls back pending note and recorder tail [E]
+  Test failed. See exception logs above.
+  The test description was: actual viewer exam transition rolls back pending note and recorder tail
+
+boundary-test disposed providers: exam
+boundary-test closed student DB: exam
+boundary-test closed content DB: exam
+00:01 +1 -1: actual viewer Pro transition rolls back pending note and recorder tail
+boundary-test viewer ready: Pro
+boundary-test save tapped: Pro
+boundary-test tail entered: Pro
+boundary-test entitlement arrived: AsyncData<Entitlement>(value: Instance of 'Entitlement') / AsyncLoading<bool>(value: true)
+boundary-test tail exits: Pro
+boundary-test save settled: Pro
+boundary-test repository settled: Pro
+boundary-test actual coverage settled: Pro
+boundary-test read stored row: Pro
+boundary-test read sync revision: Pro
+boundary-test metadata assertion done: Pro
+boundary-test unmounted viewer: Pro
+boundary-test disposed providers: Pro
+boundary-test closed student DB: Pro
+boundary-test closed content DB: Pro
+00:01 +2 -1: actual viewer pending auth transition rolls back pending note and recorder tail
+boundary-test viewer ready: pending auth
+boundary-test save tapped: pending auth
+boundary-test tail entered: pending auth
+boundary-test tail exits: pending auth
+boundary-test save settled: pending auth
+boundary-test repository settled: pending auth
+boundary-test read stored row: pending auth
+boundary-test read sync revision: pending auth
+boundary-test metadata assertion done: pending auth
+boundary-test unmounted viewer: pending auth
+boundary-test disposed providers: pending auth
+boundary-test closed student DB: pending auth
+boundary-test closed content DB: pending auth
+00:01 +3 -1: actual anonymous wipe during hydration cannot publish or rebind retry
+══╡ EXCEPTION CAUGHT BY GESTURE ╞═══════════════════════════════════════════════════════════════════
+The following assertion was thrown while handling a gesture:
+setState() callback argument returned a Future.
+The setState() method on _QuizReviewPageState#f2705 was called with a closure or method that
+returned a Future. Maybe it is marked as "async".
+Instead of performing asynchronous work inside a call to setState(), first execute the work (without
+updating the widget state), and then synchronously update the state inside a call to setState().
+
+When the exception was thrown, this was the stack:
+#0      State.setState.<anonymous closure> (package:flutter/src/widgets/framework.dart:1202:9)
+#1      State.setState (package:flutter/src/widgets/framework.dart:1218:6)
+#2      _QuizReviewPageState._retry (package:pantas/features/quiz/presentation/quiz_review_page.dart:120:5)
+#3      _InkResponseState.handleTap (package:flutter/src/material/ink_well.dart:1224:21)
+#4      GestureRecognizer.invokeCallback (package:flutter/src/gestures/recognizer.dart:345:24)
+#5      TapGestureRecognizer.handleTapUp (package:flutter/src/gestures/tap.dart:758:11)
+#6      BaseTapGestureRecognizer._checkUp (package:flutter/src/gestures/tap.dart:383:5)
+#7      BaseTapGestureRecognizer.handlePrimaryPointer (package:flutter/src/gestures/tap.dart:314:7)
+#8      PrimaryPointerGestureRecognizer.handleEvent (package:flutter/src/gestures/recognizer.dart:721:9)
+#9      PointerRouter._dispatch (package:flutter/src/gestures/pointer_router.dart:97:12)
+#10     PointerRouter._dispatchEventToRoutes.<anonymous closure> (package:flutter/src/gestures/pointer_router.dart:140:9)
+#11     _LinkedHashMapMixin.forEach (dart:_compact_hash:772:13)
+#12     PointerRouter._dispatchEventToRoutes (package:flutter/src/gestures/pointer_router.dart:138:18)
+#13     PointerRouter.route (package:flutter/src/gestures/pointer_router.dart:128:7)
+#14     GestureBinding.handleEvent (package:flutter/src/gestures/binding.dart:528:19)
+#15     GestureBinding.dispatchEvent (package:flutter/src/gestures/binding.dart:498:22)
+#16     RendererBinding.dispatchEvent (package:flutter/src/rendering/binding.dart:473:11)
+#17     GestureBinding._handlePointerEventImmediately (package:flutter/src/gestures/binding.dart:437:7)
+#18     GestureBinding.handlePointerEvent (package:flutter/src/gestures/binding.dart:394:5)
+#19     TestWidgetsFlutterBinding.handlePointerEventForSource.<anonymous closure> (package:flutter_test/src/binding.dart:1570:42)
+#20     TestWidgetsFlutterBinding.withPointerEventSource (package:flutter_test/src/binding.dart:1580:11)
+#21     TestWidgetsFlutterBinding.handlePointerEventForSource (package:flutter_test/src/binding.dart:1570:5)
+#22     WidgetTester.sendEventToBinding.<anonymous closure> (package:flutter_test/src/widget_tester.dart:869:15)
+#25     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#26     WidgetTester.sendEventToBinding (package:flutter_test/src/widget_tester.dart:868:27)
+#27     TestGesture.up.<anonymous closure> (package:flutter_test/src/test_pointer.dart:587:26)
+#30     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#31     TestGesture.up (package:flutter_test/src/test_pointer.dart:580:27)
+#32     WidgetController.tapAt.<anonymous closure> (package:flutter_test/src/controller.dart:1155:21)
+<asynchronous suspension>
+#33     TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#34     main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart:268:5)
+<asynchronous suspension>
+#35     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#36     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+Handler: "onTap"
+Recognizer:
+  TapGestureRecognizer#bf3d0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: Review ownership changed
+
+When the exception was thrown, this was the stack:
+#0      _QuizReviewPageState._load (package:pantas/features/quiz/presentation/quiz_review_page.dart:91:7)
+<asynchronous suspension>
+
+The test description was:
+  actual anonymous wipe during hydration cannot publish or rebind retry
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following message was thrown:
+Multiple exceptions (2) were detected during the running of the current test, and at least one was
+unexpected.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +3 -2: actual anonymous wipe during hydration cannot publish or rebind retry [E]
+  Test failed. See exception logs above.
+  The test description was: actual anonymous wipe during hydration cannot publish or rebind retry
+
+00:01 +3 -2: viewer rejects a different stored core owner
+00:01 +4 -2: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual anonymous wipe during hydration cannot publish or rebind retry
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_review_boundary_integration_test.dart: actual viewer exam transition rolls back pending note and recorder tail

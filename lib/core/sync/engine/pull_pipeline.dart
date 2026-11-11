@@ -1,7 +1,8 @@
-import 'package:drift/drift.dart' show Variable;
+import 'package:drift/drift.dart' show TableUpdate, Variable;
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/sync/engine/collection_registry.dart';
 import 'package:pantas/core/sync/engine/pending_queue.dart';
+import 'package:pantas/core/sync/engine/sync_held_generation.dart';
 import 'package:pantas/core/sync/engine/sync_row_meta_repository.dart';
 import 'package:pantas/core/sync/model/sync_causal_base.dart';
 import 'package:pantas/core/sync/model/sync_document.dart';
@@ -58,6 +59,30 @@ class PullPipeline {
     );
 
     final ownDocument = document.originDeviceId == _deviceId;
+    if (accepted == null &&
+        pending == null &&
+        await _isWaitingForSnapshot(collection, document.id)) {
+      // Never overwrite a change made before the first snapshot. This device's
+      // own copy is what the change was made against. Any other copy is a real
+      // conflict: the change stays unbound and the full choice settles it.
+      if (ownDocument) {
+        await _db.transaction(() async {
+          await _rowMeta.acceptKnownVersion(
+            collection: collection,
+            rowId: document.id,
+            updatedAt: updatedAt,
+            originDeviceId: document.originDeviceId,
+          );
+          await _bindWaiting(
+            collection,
+            document.id,
+            SyncCausalBase.knownVersion(updatedAt),
+          );
+        });
+      }
+      return PullApplyResult.ignored;
+    }
+
     if (ownDocument &&
         pending != null &&
         document.mutationId == pending.mutationId) {
@@ -146,6 +171,22 @@ class PullPipeline {
     return PullApplyResult.applied;
   }
 
+  /// The sync_meta row that moves when a snapshot applies rows another device
+  /// wrote. Sync writes those rows without any feature repository knowing, so
+  /// local readers (Your record, the plan) refresh on this, and not on this
+  /// device's own echoes or its backup bookkeeping.
+  static const remoteChangeKey = 'remote_rows_applied';
+
+  Future<void> _noteRemoteChange() async {
+    final row = await (_db.select(_db.syncMeta)
+          ..where((meta) => meta.key.equals(remoteChangeKey)))
+        .getSingleOrNull();
+    final next = (int.tryParse(row?.value ?? '') ?? 0) + 1;
+    await _db.into(_db.syncMeta).insertOnConflictUpdate(
+          SyncMetaCompanion.insert(key: remoteChangeKey, value: '$next'),
+        );
+  }
+
   Future<void> applyCompleteSnapshot({
     required String generationId,
     required String collection,
@@ -154,38 +195,143 @@ class PullPipeline {
     if (generationId != _generationId) return;
     final entry = _activeEntry(collection);
     final presentIds = <String>{};
-
-    for (final document in documents) {
-      presentIds.add(document.id);
-      await applyDocument(
-        generationId: generationId,
-        collection: collection,
-        document: document,
-      );
-    }
-
-    final knownRows = await _db.customSelect(
-      'select row_id from sync_row_meta where collection = ?',
-      variables: [Variable<String>(collection)],
-    ).get();
-    for (final row in knownRows) {
-      final rowId = row.read<String>('row_id');
-      if (presentIds.contains(rowId)) continue;
-
-      final pending = await _queue.findGenerationBound(
-        uid: _uid,
-        generationId: _generationId,
-        tableType: collection,
-        rowId: rowId,
-      );
-      if (pending != null &&
-          pending.op == PendingSyncOp.upsert.name &&
-          pending.baseState == SyncCausalBaseState.knownAbsent.storageValue) {
-        continue;
+    var fromElsewhere = 0;
+    // In a finally: rows applied before a later row fails stay applied, and
+    // their next snapshot is ignored, so this is their only notice.
+    try {
+      for (final document in documents) {
+        presentIds.add(document.id);
+        final result = await applyDocument(
+          generationId: generationId,
+          collection: collection,
+          document: document,
+        );
+        if (result == PullApplyResult.applied &&
+            document.originDeviceId != _deviceId) {
+          fromElsewhere++;
+        }
       }
 
-      await entry.adapter.applyKnownAbsent(db: _db, rowId: rowId);
+      final knownRows = await _db.customSelect(
+        'select row_id from sync_row_meta where collection = ?',
+        variables: [Variable<String>(collection)],
+      ).get();
+      for (final row in knownRows) {
+        final rowId = row.read<String>('row_id');
+        if (presentIds.contains(rowId)) continue;
+
+        final pending = await _queue.findGenerationBound(
+          uid: _uid,
+          generationId: _generationId,
+          tableType: collection,
+          rowId: rowId,
+        );
+        if (pending != null &&
+            pending.op == PendingSyncOp.upsert.name &&
+            pending.baseState == SyncCausalBaseState.knownAbsent.storageValue) {
+          continue;
+        }
+        // The same create, still in the journal before the outbox.
+        if (await _isJournaledCreate(collection, rowId)) continue;
+
+        final before = await _rowMeta.readAcceptedBase(
+          collection: collection,
+          rowId: rowId,
+        );
+        await entry.adapter.applyKnownAbsent(db: _db, rowId: rowId);
+        if (before?.state != SyncCausalBaseState.knownAbsent) fromElsewhere++;
+      }
+    } finally {
+      if (fromElsewhere > 0) await _noteRemoteChange();
     }
+
+    await _db.transaction(() async {
+      for (final rowId in await _waitingRowIds(collection)) {
+        if (!presentIds.contains(rowId)) {
+          await _bindWaiting(
+            collection,
+            rowId,
+            const SyncCausalBase.knownAbsent(),
+          );
+        }
+      }
+      await SyncHeldGeneration(_db).markSnapshotComplete(
+        generationId: _generationId,
+        collection: collection,
+      );
+    });
+  }
+
+  /// Rows changed in this generation before its first snapshot, whose base
+  /// could not be known then. Rows from another account or generation are not
+  /// here: they are never rebound.
+  Future<List<String>> _waitingRowIds(String collection) async {
+    final rows = await _db.customSelect(
+      'select row_id from sync_local_mutations '
+      "where collection = ? and causal_base_state = 'unbound' "
+      'and causal_uid = ? and causal_generation_id = ?',
+      variables: [
+        Variable<String>(collection),
+        Variable<String>(_uid),
+        Variable<String>(_generationId),
+      ],
+    ).get();
+    return [for (final row in rows) row.read<String>('row_id')];
+  }
+
+  Future<bool> _isWaitingForSnapshot(String collection, String rowId) async {
+    final rows = await _db.customSelect(
+      'select 1 as waiting from sync_local_mutations '
+      'where collection = ? and row_id = ? '
+      "and causal_base_state = 'unbound' "
+      'and causal_uid = ? and causal_generation_id = ?',
+      variables: [
+        Variable<String>(collection),
+        Variable<String>(rowId),
+        Variable<String>(_uid),
+        Variable<String>(_generationId),
+      ],
+    ).get();
+    return rows.isNotEmpty;
+  }
+
+  Future<bool> _isJournaledCreate(String collection, String rowId) async {
+    final rows = await _db.customSelect(
+      'select 1 as journaled from sync_local_mutations '
+      "where collection = ? and row_id = ? and op = 'upsert' "
+      "and causal_base_state = 'knownAbsent' "
+      'and causal_uid = ? and causal_generation_id = ?',
+      variables: [
+        Variable<String>(collection),
+        Variable<String>(rowId),
+        Variable<String>(_uid),
+        Variable<String>(_generationId),
+      ],
+    ).get();
+    return rows.isNotEmpty;
+  }
+
+  Future<void> _bindWaiting(
+    String collection,
+    String rowId,
+    SyncCausalBase base,
+  ) async {
+    await _db.customStatement(
+      'update sync_local_mutations set causal_base_state = ?, '
+      'base_updated_at = ? where collection = ? and row_id = ? '
+      "and causal_base_state = 'unbound' "
+      'and causal_uid = ? and causal_generation_id = ?',
+      <Object?>[
+        base.state.storageValue,
+        base.updatedAt?.toUtc().millisecondsSinceEpoch,
+        collection,
+        rowId,
+        _uid,
+        _generationId,
+      ],
+    );
+    // A raw statement does not wake the engine's watch on the journal.
+    _db.notifyUpdates({TableUpdate.onTable(_db.syncLocalMutations)});
   }
 
   Future<void> handlePushResult(
@@ -313,6 +459,8 @@ class PullPipeline {
             originDeviceId: current.originDeviceId,
           );
         }
+        // The newer row came from elsewhere; its snapshot will be ignored.
+        if (current?.originDeviceId != _deviceId) await _noteRemoteChange();
     }
   }
 

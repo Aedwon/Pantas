@@ -7,6 +7,7 @@ import 'package:pantas/core/content/sanity/parsers/mock_blueprint_parser.dart';
 Map<String, Object?> blueprintDoc({
   Object? sectionalTiming,
   int? pass,
+  Object? unscoredItems,
   int? close,
   List<Map<String, Object?>>? sections,
 }) {
@@ -18,6 +19,7 @@ Map<String, Object?> blueprintDoc({
     'exam': {'_ref': 'exam_cse'},
     'name': 'CSE Practice',
     'durationMinutes': 90,
+    if (unscoredItems != null) 'unscoredItems': unscoredItems,
     if (sectionalTiming != null) 'sectionalTiming': sectionalTiming,
     if (pass != null && close != null)
       'scoreBands': {'passAtPercent': pass, 'closeAtPercent': close},
@@ -29,6 +31,22 @@ Map<String, Object?> blueprintDoc({
 }
 
 void main() {
+  test('unscoredItems parses when positive and is null otherwise', () {
+    expect(
+      parseMockBlueprint(blueprintDoc(unscoredItems: 15)).unscoredItems.value,
+      15,
+    );
+    expect(parseMockBlueprint(blueprintDoc()).unscoredItems.value, isNull);
+    expect(
+      parseMockBlueprint(blueprintDoc(unscoredItems: 0)).unscoredItems.value,
+      isNull,
+    );
+    expect(
+      parseMockBlueprint(blueprintDoc(unscoredItems: 'x')).unscoredItems.value,
+      isNull,
+    );
+  });
+
   test('a blueprint with no timing parses to null, not a default', () {
     final row = parseMockBlueprint(blueprintDoc());
 

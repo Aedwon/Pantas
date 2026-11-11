@@ -2,6 +2,19 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/features/notifications/notifications.dart';
 
 void main() {
+  test('streak save stays silent on Saturday rest day', () {
+    expect(
+      const StreakSavePolicy().shouldSchedule(
+        streakLength: 5,
+        completedToday: false,
+        now: DateTime(2026, 10, 3, 12),
+        fireAt: DateTime(2026, 10, 3, 18),
+        isStudyDay: false,
+      ),
+      isFalse,
+    );
+  });
+
   test('computes streak save time from reminder time', () {
     const policy = StreakSavePolicy();
 

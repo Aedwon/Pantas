@@ -3,6 +3,7 @@ import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/features/metrics/domain/metric_signal.dart';
 import 'package:pantas/features/metrics/domain/metrics_window.dart';
 import 'package:pantas/features/metrics/domain/signal_outputs.dart';
+import 'package:pantas/features/metrics/signals/metric_calculations.dart';
 
 class TimeOfDaySignal implements Signal<DayHourHistogram> {
   const TimeOfDaySignal(this._db);
@@ -24,7 +25,7 @@ class TimeOfDaySignal implements Signal<DayHourHistogram> {
     required String examId,
   }) async {
     if (!window.hasEnoughData) return null;
-    final buckets = <int, _Bucket>{};
+    final rows = <({int hour, int correct, int total})>[];
 
     var quizQuery = _db.select(_db.quizSessions)
       ..where(
@@ -39,9 +40,13 @@ class TimeOfDaySignal implements Signal<DayHourHistogram> {
     }
     for (final row in await quizQuery.get()) {
       if (row.currentIndex <= 0) continue;
-      buckets
-          .putIfAbsent(row.startedAt.hour, _Bucket.new)
-          .add(correct: row.correctCount, total: row.currentIndex);
+      rows.add(
+        (
+          hour: row.startedAt.hour,
+          correct: row.correctCount,
+          total: row.currentIndex
+        ),
+      );
     }
 
     var mockQuery = _db.select(_db.mockAttempts)
@@ -67,31 +72,9 @@ class TimeOfDaySignal implements Signal<DayHourHistogram> {
           submittedAt == null) {
         continue;
       }
-      buckets
-          .putIfAbsent(submittedAt.hour, _Bucket.new)
-          .add(correct: correct, total: total);
+      rows.add((hour: submittedAt.hour, correct: correct, total: total));
     }
 
-    if (buckets.isEmpty) return null;
-    return DayHourHistogram(
-      buckets: [
-        for (final entry in buckets.entries)
-          DayHourBucket(
-            hour: entry.key,
-            correct: entry.value.correct,
-            total: entry.value.total,
-          ),
-      ]..sort((a, b) => a.hour.compareTo(b.hour)),
-    );
-  }
-}
-
-class _Bucket {
-  int correct = 0;
-  int total = 0;
-
-  void add({required int correct, required int total}) {
-    this.correct += correct;
-    this.total += total;
+    return MetricCalculations.timeOfDay(rows);
   }
 }

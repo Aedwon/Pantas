@@ -1,0 +1,18 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart
+00:00 +0: completion cannot save a different question order under a batch session ID
+00:00 +0 -1: completion cannot save a different question order under a batch session ID [E]
+  Expected: throws <Instance of 'StateError'>
+    Actual: <Instance of 'Future<Attempt>'>
+     Which: emitted _Attempt:<Attempt(id: da470a0a-e0ac-404a-8ec1-5c91a1fe332f, examId: exam, startedAt: 2026-10-16 09:00:00.000, items: [AttemptItem(questionId: q1, questionVersion: 1, chosenChoiceId: q1_a, correctChoiceId: q1_a, responseMs: 1000, mistakeTag: null, mistakeNote: null), AttemptItem(questionId: q2, questionVersion: 1, chosenChoiceId: q2_a, correctChoiceId: q2_a, responseMs: 1000, mistakeTag: null, mistakeNote: null), AttemptItem(questionId: q3, questionVersion: 1, chosenChoiceId: q3_a, correctChoiceId: q3_a, responseMs: 1000, mistakeTag: null, mistakeNote: null), AttemptItem(questionId: q4, questionVersion: 1, chosenChoiceId: q4_a, correctChoiceId: q4_a, responseMs: 1000, mistakeTag: null, mistakeNote: null), AttemptItem(questionId: q5, questionVersion: 1, chosenChoiceId: q5_a, correctChoiceId: q5_a, responseMs: 1000, mistakeTag: null, mistakeNote: null)], origin: today_interleaved, completedAt: 2026-10-16 09:00:00.000)>
+
+  package:matcher                                                   expectLater
+  package:flutter_test/src/widget_tester.dart 507:8                 expectLater
+  test/features/quiz/data/review_batch_repository_test.dart 252:11  main.<fn>
+  ===== asynchronous gap ===========================
+  dart:async                                                        _CustomZone.registerUnaryCallback
+  test/features/quiz/data/review_batch_repository_test.dart 244:20  main.<fn>
+
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: completion cannot save a different question order under a batch session ID

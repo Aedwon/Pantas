@@ -1,0 +1,16 @@
+{
+  "head": "a2a0cb808afa4a5c808648170509949240d0e5df",
+  "source_sha256": {
+    "lib/app/routes/quiz_routes.dart": "5ade450ac1457f7d5845eaa9cbed2c08e58bdfaaab9cb4603665d8d271ddd4af",
+    "lib/core/storage/storage.dart": "7525e82b35a70a1ef914454a294990f415d87d8199a934807ce9541e8f65e1b2",
+    "lib/core/ui/components/list_row.dart": "a5417983aae5b9af2d814e24ab1dc069a3b37b4ca89a1eadbceb4af1f3153922",
+    "lib/core/ui/components/pantas_page.dart": "4b39c7bf6c6475a60c43e2149292ac677c49b9a02b777c0cc4d3456c8d226752",
+    "lib/core/ui/components/progress_ring.dart": "fe4e7a8746a88c694ddedca131b7a1fca49faa2893982769a95bafab00d4000b",
+    "lib/features/quiz/presentation/quiz_tab_home.dart": "8d77fb339c1796eee12d41705bbc350952de026d27c825b3e96691de089581ec",
+    "lib/features/quiz/presentation/quiz_tab_screen.dart": "b8c95aa67b60c95024e80e3367832f2f180fad23ffd0f9128b135eeedf3c74b0",
+    "test/app/router_mock_panel_test.dart": "a7642320b5b15e60cdbf346759089be9488d6880ae93861338cc2f0c8bc9e84f",
+    "test/core/ui/components/quiz_row_extensions_test.dart": "b7520d99bce48576662fb3b9b5e9109f629570e1d7479f38d14c8477c9b51eaa",
+    "test/features/quiz/presentation/quiz_tab_screen_test.dart": "252b54ccd575d20ea74dc3a57804b4bbb97c01b2978c482672567798325bc6e8",
+    "test/features/shell/app_shell_test.dart": "43774bcec25fa9960e7e8f9da852e41eb303e37baed2759b88639b4a5e9b54eb"
+  }
+}

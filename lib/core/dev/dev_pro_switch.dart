@@ -4,6 +4,7 @@ import 'dart:developer' as developer;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/platform/local_firebase.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
 
@@ -20,6 +21,11 @@ import 'package:pantas/core/storage/storage.dart';
 ///
 /// Null means no override: the real entitlement from the store decides.
 const String devProOverrideKey = 'dev.pro_override';
+
+/// Whether the entitlement honors [devProOverride]: a debug build, or a local
+/// run (`LOCAL_EMULATOR_HOST`), which is a profile build the test panel drives.
+/// Both are compile-time constants, so a release build drops the override.
+const bool devProOverrideEnabled = kDebugMode || localEmulators;
 
 /// The live value. Null until [registerDevProSwitch] reads what was stored.
 final ValueNotifier<bool?> devProOverride = ValueNotifier<bool?>(null);

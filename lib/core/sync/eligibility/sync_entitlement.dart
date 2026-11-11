@@ -8,6 +8,10 @@ class SyncIdentity {
     this.isAnonymous = false,
   });
 
+  /// Stands in while there is no session: auth is still starting or signed
+  /// out. It names no account.
+  static const signedOutUid = 'signed-out';
+
   final String uid;
   final bool isAnonymous;
 }

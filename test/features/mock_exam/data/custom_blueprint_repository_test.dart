@@ -1,9 +1,11 @@
 import 'package:drift/drift.dart' hide isNotNull, isNull;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/domain/subject.dart';
 import 'package:pantas/features/mock_exam/data/blueprint_section.dart';
 import 'package:pantas/features/mock_exam/data/custom_blueprint_repository.dart';
 import 'package:pantas/features/mock_exam/domain/custom_blueprint.dart';
+import 'package:pantas/features/mock_exam/presentation/pages/custom_mock_setup_route.dart';
 
 import '../../../helpers/in_memory_database.dart';
 
@@ -113,5 +115,74 @@ void main() {
     );
 
     expect((await repo.read('exam_custom_1'))!.sectionsTimedSeparately, isTrue);
+  });
+
+  test('a saved setup reads back into the form with its breakdown', () async {
+    const subjects = [
+      Subject(
+        id: 'math',
+        examId: 'exam_custom_1',
+        name: 'Mathematics',
+        ordering: 0,
+      ),
+      Subject(
+        id: 'sci',
+        examId: 'exam_custom_1',
+        name: 'Science',
+        ordering: 1,
+      ),
+    ];
+    const original = CustomBlueprint(
+      examId: 'exam_custom_1',
+      totalQuestions: 80,
+      totalMinutes: 90,
+      sectionsTimedSeparately: true,
+      sections: [
+        CustomBlueprintSectionDraft(
+          subjectId: 'math',
+          name: 'Mathematics',
+          questions: 40,
+          minutes: 50,
+        ),
+        CustomBlueprintSectionDraft(
+          subjectId: 'sci',
+          name: 'Science',
+          questions: 40,
+          minutes: 40,
+        ),
+      ],
+    );
+    await repo.save(
+      original,
+      topicsBySubject: topicsBySubject,
+      now: DateTime.utc(2026, 10, 20),
+    );
+
+    final read =
+        savedCustomBlueprint((await repo.read('exam_custom_1'))!, subjects);
+
+    expect(read.sections, original.sections);
+    expect(read.sectionsTimedSeparately, isTrue);
+    expect(read.effectiveQuestions, 80);
+    expect(read.effectiveMinutes, 90);
+  });
+
+  test('a one-block setup reads back without a breakdown', () async {
+    await repo.save(
+      const CustomBlueprint(
+        examId: 'exam_custom_1',
+        totalQuestions: 90,
+        totalMinutes: 135,
+      ),
+      topicsBySubject: topicsBySubject,
+      now: DateTime.utc(2026, 10, 20),
+    );
+
+    final read =
+        savedCustomBlueprint((await repo.read('exam_custom_1'))!, const []);
+
+    expect(read.hasBreakdown, isFalse);
+    expect(read.totalQuestions, 90);
+    expect(read.totalMinutes, 135);
   });
 }

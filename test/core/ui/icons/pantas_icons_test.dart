@@ -1,0 +1,907 @@
+import 'dart:io';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/icons/own/own_icons.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/theme/theme_names.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
+
+void main() {
+  final icons = <String, Object>{
+    'unlimitedMocks': PantasIcons.unlimitedMocks,
+    'answerNotes': PantasIcons.answerNotes,
+    'studyHabits': PantasIcons.studyHabits,
+    'proBackup': PantasIcons.proBackup,
+    'topicResults': PantasIcons.topicResults,
+    'copy': PantasIcons.copy,
+    'cloudSlash': PantasIcons.cloudSlash,
+    'phoneSlash': PantasIcons.phoneSlash,
+    'homeTab': PantasIcons.homeTab,
+    'studyTab': PantasIcons.studyTab,
+    'quizTab': PantasIcons.quizTab,
+    'settingsTab': PantasIcons.settingsTab,
+    'back': PantasIcons.back,
+    'next': PantasIcons.next,
+    'close': PantasIcons.close,
+    'counter': PantasIcons.counter,
+    'toTop': PantasIcons.toTop,
+    'expandFigure': PantasIcons.expandFigure,
+    'sort': PantasIcons.sort,
+    'caretUpDown': PantasIcons.caretUpDown,
+    'contents': PantasIcons.contents,
+    'flag': PantasIcons.flag,
+    'report': PantasIcons.report,
+    'questionsSheet': PantasIcons.questionsSheet,
+    'addNote': PantasIcons.addNote,
+    'noted': PantasIcons.noted,
+    'check': PantasIcons.check,
+    'pause': PantasIcons.pause,
+    'paused': PantasIcons.paused,
+    'timer': PantasIcons.timer,
+    'pendingSend': PantasIcons.pendingSend,
+    'nextMonth': PantasIcons.nextMonth,
+    'streak': PantasIcons.streak,
+    'restDay': PantasIcons.restDay,
+    'addDate': PantasIcons.addDate,
+    'calendarBlank': PantasIcons.calendarBlank,
+    'plus': PantasIcons.plus,
+    'minus': PantasIcons.minus,
+    'pro': PantasIcons.pro,
+    'progressError': PantasIcons.progressError,
+    'appError': PantasIcons.appError,
+    'alert': PantasIcons.alert,
+    'info': PantasIcons.info,
+    'tendencies': PantasIcons.tendencies,
+    'answerStreak': PantasIcons.answerStreak,
+    'search': PantasIcons.search,
+    'bookmark': PantasIcons.bookmark,
+    'reorder': PantasIcons.reorder,
+    'imageFailed': PantasIcons.imageFailed,
+    'edit': PantasIcons.edit,
+    'share': PantasIcons.share,
+    'keyboard': PantasIcons.keyboard,
+    'exam': PantasIcons.exam,
+    'practice': PantasIcons.practice,
+    'reminders': PantasIcons.reminders,
+    'appearance': PantasIcons.appearance,
+    'backup': PantasIcons.backup,
+    'feedback': PantasIcons.feedback,
+    'about': PantasIcons.about,
+    'proSettings': PantasIcons.proSettings,
+    'profile': PantasIcons.profile,
+    'warning': PantasIcons.warning,
+    'bookOpen': PantasIcons.bookOpen,
+    'magnifyingGlassPlus': PantasIcons.magnifyingGlassPlus,
+    'brain': PantasIcons.brain,
+  };
+  testWidgets('custom icons use the charcoal dark foreground', (tester) async {
+    for (final icon in icons.values.whereType<Widget>()) {
+      await tester.pumpWidget(
+        Directionality(
+          textDirection: TextDirection.ltr,
+          child: IconTheme(
+            data: IconThemeData(color: PantasColors.dark.label, size: 24),
+            child: Center(child: icon),
+          ),
+        ),
+      );
+      final paint = tester.widget<CustomPaint>(find.byType(CustomPaint));
+      expect((paint.painter! as OwnIconPainter).color, const Color(0xFFF5F5F5));
+    }
+  });
+  test('approved core and Settings getters resolve without a lock', () {
+    final source =
+        File('lib/core/ui/icons/pantas_icons.dart').readAsStringSync();
+    final names = RegExp(r'static (?:Widget|IconData) get (\w+)')
+        .allMatches(source)
+        .map((match) => match.group(1));
+    expect(icons, hasLength(65));
+    expect(names, unorderedEquals(icons.keys));
+    expect(names, isNot(contains('locked')));
+    expect(names, isNot(contains('lock')));
+  });
+  test('the reader glyphs are the Phosphor Regular codepoints', () {
+    // Read from the bundled Phosphor.ttf (byte for byte the font that ships
+    // in phosphor_flutter 2.1.0, which names each codepoint).
+    final glyphs = {
+      PantasIcons.info: 0xe2ce,
+      PantasIcons.warning: 0xe4e0,
+      PantasIcons.bookOpen: 0xe0e6,
+      PantasIcons.magnifyingGlassPlus: 0xe310,
+      PantasIcons.brain: 0xe74e,
+    };
+    for (final entry in glyphs.entries) {
+      expect(entry.key.codePoint, entry.value);
+      expect(entry.key.fontFamily, 'Phosphor');
+    }
+  });
+  testWidgets('questionsSheet light preserves the approved 24-point shape',
+      (tester) async {
+    await tester.pumpWidget(
+      Directionality(
+        textDirection: TextDirection.ltr,
+        child: Center(
+          child: RepaintBoundary(
+            key: const Key('golden'),
+            child: ColoredBox(
+              color: Colors.white,
+              child: SizedBox(
+                width: 48,
+                height: 48,
+                child: Center(
+                  child: IconTheme(
+                    data: IconThemeData(
+                      size: 24,
+                      color: PantasColors.light.label,
+                    ),
+                    child: icons['questionsSheet']! as Widget,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    final paint = tester.widget<CustomPaint>(find.byType(CustomPaint));
+    final painter = paint.painter! as OwnIconPainter;
+    expect(tester.getSize(find.byType(CustomPaint)), const Size(24, 24));
+    expect(painter.strokeWidth, 1.5);
+    expect(painter.strokeCap, StrokeCap.round);
+    expect(painter.strokeJoin, StrokeJoin.round);
+    await expectLater(
+      find.byKey(const Key('golden')),
+      matchesGoldenFile('goldens/questionsSheet_light.png'),
+    );
+  });
+  testWidgets('questionsSheet dark preserves the approved 24-point shape',
+      (tester) async {
+    await tester.pumpWidget(
+      Directionality(
+        textDirection: TextDirection.ltr,
+        child: Center(
+          child: RepaintBoundary(
+            key: const Key('golden'),
+            child: ColoredBox(
+              color: Colors.black,
+              child: SizedBox(
+                width: 48,
+                height: 48,
+                child: Center(
+                  child: IconTheme(
+                    data: const IconThemeData(
+                      size: 24,
+                      // Pin the foreground for this shape fixture.
+                      color: Color(0xFFF5F5F7),
+                    ),
+                    child: icons['questionsSheet']! as Widget,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    final paint = tester.widget<CustomPaint>(find.byType(CustomPaint));
+    final painter = paint.painter! as OwnIconPainter;
+    expect(tester.getSize(find.byType(CustomPaint)), const Size(24, 24));
+    expect(painter.strokeWidth, 1.5);
+    expect(painter.strokeCap, StrokeCap.round);
+    expect(painter.strokeJoin, StrokeJoin.round);
+    await expectLater(
+      find.byKey(const Key('golden')),
+      matchesGoldenFile('goldens/questionsSheet_dark.png'),
+    );
+  });
+  testWidgets('report light preserves the approved 24-point shape',
+      (tester) async {
+    await tester.pumpWidget(
+      Directionality(
+        textDirection: TextDirection.ltr,
+        child: Center(
+          child: RepaintBoundary(
+            key: const Key('golden'),
+            child: ColoredBox(
+              color: Colors.white,
+              child: SizedBox(
+                width: 48,
+                height: 48,
+                child: Center(
+                  child: IconTheme(
+                    data: IconThemeData(
+                      size: 24,
+                      color: PantasColors.light.label,
+                    ),
+                    child: icons['report']! as Widget,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    final paint = tester.widget<CustomPaint>(find.byType(CustomPaint));
+    final painter = paint.painter! as OwnIconPainter;
+    expect(tester.getSize(find.byType(CustomPaint)), const Size(24, 24));
+    // The phone boards (QV_Answer, AS_Question) draw the stroked chat square.
+    expect(painter.strokeWidth, 1.9);
+    expect(painter.strokeCap, StrokeCap.round);
+    expect(painter.strokeJoin, StrokeJoin.round);
+    await expectLater(
+      find.byKey(const Key('golden')),
+      matchesGoldenFile('goldens/report_light.png'),
+    );
+  });
+  testWidgets('report dark preserves the approved 24-point shape',
+      (tester) async {
+    await tester.pumpWidget(
+      Directionality(
+        textDirection: TextDirection.ltr,
+        child: Center(
+          child: RepaintBoundary(
+            key: const Key('golden'),
+            child: ColoredBox(
+              color: Colors.black,
+              child: SizedBox(
+                width: 48,
+                height: 48,
+                child: Center(
+                  child: IconTheme(
+                    data: const IconThemeData(
+                      size: 24,
+                      // Pin the foreground for this shape fixture.
+                      color: Color(0xFFF5F5F7),
+                    ),
+                    child: icons['report']! as Widget,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    final paint = tester.widget<CustomPaint>(find.byType(CustomPaint));
+    final painter = paint.painter! as OwnIconPainter;
+    expect(tester.getSize(find.byType(CustomPaint)), const Size(24, 24));
+    // The phone boards (QV_Answer, AS_Question) draw the stroked chat square.
+    expect(painter.strokeWidth, 1.9);
+    expect(painter.strokeCap, StrokeCap.round);
+    expect(painter.strokeJoin, StrokeJoin.round);
+    await expectLater(
+      find.byKey(const Key('golden')),
+      matchesGoldenFile('goldens/report_dark.png'),
+    );
+  });
+  testWidgets('paused light preserves the approved 24-point shape',
+      (tester) async {
+    await tester.pumpWidget(
+      Directionality(
+        textDirection: TextDirection.ltr,
+        child: Center(
+          child: RepaintBoundary(
+            key: const Key('golden'),
+            child: ColoredBox(
+              color: Colors.white,
+              child: SizedBox(
+                width: 48,
+                height: 48,
+                child: Center(
+                  child: IconTheme(
+                    data: IconThemeData(
+                      size: 24,
+                      color: PantasColors.light.label,
+                    ),
+                    child: icons['paused']! as Widget,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    final paint = tester.widget<CustomPaint>(find.byType(CustomPaint));
+    final painter = paint.painter! as OwnIconPainter;
+    expect(tester.getSize(find.byType(CustomPaint)), const Size(24, 24));
+    expect(painter.strokeWidth, 1.5);
+    expect(painter.strokeCap, StrokeCap.round);
+    expect(painter.strokeJoin, StrokeJoin.round);
+    await expectLater(
+      find.byKey(const Key('golden')),
+      matchesGoldenFile('goldens/paused_light.png'),
+    );
+  });
+  testWidgets('paused dark preserves the approved 24-point shape',
+      (tester) async {
+    await tester.pumpWidget(
+      Directionality(
+        textDirection: TextDirection.ltr,
+        child: Center(
+          child: RepaintBoundary(
+            key: const Key('golden'),
+            child: ColoredBox(
+              color: Colors.black,
+              child: SizedBox(
+                width: 48,
+                height: 48,
+                child: Center(
+                  child: IconTheme(
+                    data: const IconThemeData(
+                      size: 24,
+                      // Pin the foreground for this shape fixture.
+                      color: Color(0xFFF5F5F7),
+                    ),
+                    child: icons['paused']! as Widget,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    final paint = tester.widget<CustomPaint>(find.byType(CustomPaint));
+    final painter = paint.painter! as OwnIconPainter;
+    expect(tester.getSize(find.byType(CustomPaint)), const Size(24, 24));
+    expect(painter.strokeWidth, 1.5);
+    expect(painter.strokeCap, StrokeCap.round);
+    expect(painter.strokeJoin, StrokeJoin.round);
+    await expectLater(
+      find.byKey(const Key('golden')),
+      matchesGoldenFile('goldens/paused_dark.png'),
+    );
+  });
+  testWidgets('streak light preserves the approved 24-point shape',
+      (tester) async {
+    await tester.pumpWidget(
+      Directionality(
+        textDirection: TextDirection.ltr,
+        child: Center(
+          child: RepaintBoundary(
+            key: const Key('golden'),
+            child: ColoredBox(
+              color: Colors.white,
+              child: SizedBox(
+                width: 48,
+                height: 48,
+                child: Center(
+                  child: IconTheme(
+                    data: IconThemeData(
+                      size: 24,
+                      color: PantasColors.light.label,
+                    ),
+                    child: icons['streak']! as Widget,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    final paint = tester.widget<CustomPaint>(find.byType(CustomPaint));
+    final painter = paint.painter! as OwnIconPainter;
+    expect(tester.getSize(find.byType(CustomPaint)), const Size(24, 24));
+    expect(painter.strokeWidth, 1.5);
+    expect(painter.strokeCap, StrokeCap.round);
+    expect(painter.strokeJoin, StrokeJoin.round);
+    await expectLater(
+      find.byKey(const Key('golden')),
+      matchesGoldenFile('goldens/streak_light.png'),
+    );
+  });
+  testWidgets('streak dark preserves the approved 24-point shape',
+      (tester) async {
+    await tester.pumpWidget(
+      Directionality(
+        textDirection: TextDirection.ltr,
+        child: Center(
+          child: RepaintBoundary(
+            key: const Key('golden'),
+            child: ColoredBox(
+              color: Colors.black,
+              child: SizedBox(
+                width: 48,
+                height: 48,
+                child: Center(
+                  child: IconTheme(
+                    data: const IconThemeData(
+                      size: 24,
+                      // Pin the foreground for this shape fixture.
+                      color: Color(0xFFF5F5F7),
+                    ),
+                    child: icons['streak']! as Widget,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    final paint = tester.widget<CustomPaint>(find.byType(CustomPaint));
+    final painter = paint.painter! as OwnIconPainter;
+    expect(tester.getSize(find.byType(CustomPaint)), const Size(24, 24));
+    expect(painter.strokeWidth, 1.5);
+    expect(painter.strokeCap, StrokeCap.round);
+    expect(painter.strokeJoin, StrokeJoin.round);
+    await expectLater(
+      find.byKey(const Key('golden')),
+      matchesGoldenFile('goldens/streak_dark.png'),
+    );
+  });
+  testWidgets('progressError light preserves the approved 24-point shape',
+      (tester) async {
+    await tester.pumpWidget(
+      Directionality(
+        textDirection: TextDirection.ltr,
+        child: Center(
+          child: RepaintBoundary(
+            key: const Key('golden'),
+            child: ColoredBox(
+              color: Colors.white,
+              child: SizedBox(
+                width: 48,
+                height: 48,
+                child: Center(
+                  child: IconTheme(
+                    data: IconThemeData(
+                      size: 24,
+                      color: PantasColors.light.label,
+                    ),
+                    child: icons['progressError']! as Widget,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    final paint = tester.widget<CustomPaint>(find.byType(CustomPaint));
+    final painter = paint.painter! as OwnIconPainter;
+    expect(tester.getSize(find.byType(CustomPaint)), const Size(24, 24));
+    expect(painter.strokeWidth, 1.5);
+    expect(painter.strokeCap, StrokeCap.round);
+    expect(painter.strokeJoin, StrokeJoin.round);
+    await expectLater(
+      find.byKey(const Key('golden')),
+      matchesGoldenFile('goldens/progressError_light.png'),
+    );
+  });
+  testWidgets('progressError dark preserves the approved 24-point shape',
+      (tester) async {
+    await tester.pumpWidget(
+      Directionality(
+        textDirection: TextDirection.ltr,
+        child: Center(
+          child: RepaintBoundary(
+            key: const Key('golden'),
+            child: ColoredBox(
+              color: Colors.black,
+              child: SizedBox(
+                width: 48,
+                height: 48,
+                child: Center(
+                  child: IconTheme(
+                    data: const IconThemeData(
+                      size: 24,
+                      // Pin the foreground for this shape fixture.
+                      color: Color(0xFFF5F5F7),
+                    ),
+                    child: icons['progressError']! as Widget,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    final paint = tester.widget<CustomPaint>(find.byType(CustomPaint));
+    final painter = paint.painter! as OwnIconPainter;
+    expect(tester.getSize(find.byType(CustomPaint)), const Size(24, 24));
+    expect(painter.strokeWidth, 1.5);
+    expect(painter.strokeCap, StrokeCap.round);
+    expect(painter.strokeJoin, StrokeJoin.round);
+    await expectLater(
+      find.byKey(const Key('golden')),
+      matchesGoldenFile('goldens/progressError_dark.png'),
+    );
+  });
+  testWidgets('reorder light preserves the approved 24-point shape',
+      (tester) async {
+    await tester.pumpWidget(
+      Directionality(
+        textDirection: TextDirection.ltr,
+        child: Center(
+          child: RepaintBoundary(
+            key: const Key('golden'),
+            child: ColoredBox(
+              color: Colors.white,
+              child: SizedBox(
+                width: 48,
+                height: 48,
+                child: Center(
+                  child: IconTheme(
+                    data: IconThemeData(
+                      size: 24,
+                      color: PantasColors.light.label,
+                    ),
+                    child: icons['reorder']! as Widget,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    final paint = tester.widget<CustomPaint>(find.byType(CustomPaint));
+    final painter = paint.painter! as OwnIconPainter;
+    expect(tester.getSize(find.byType(CustomPaint)), const Size(24, 24));
+    expect(painter.strokeWidth, 1.5);
+    expect(painter.strokeCap, StrokeCap.round);
+    expect(painter.strokeJoin, StrokeJoin.round);
+    await expectLater(
+      find.byKey(const Key('golden')),
+      matchesGoldenFile('goldens/reorder_light.png'),
+    );
+  });
+  testWidgets('reorder dark preserves the approved 24-point shape',
+      (tester) async {
+    await tester.pumpWidget(
+      Directionality(
+        textDirection: TextDirection.ltr,
+        child: Center(
+          child: RepaintBoundary(
+            key: const Key('golden'),
+            child: ColoredBox(
+              color: Colors.black,
+              child: SizedBox(
+                width: 48,
+                height: 48,
+                child: Center(
+                  child: IconTheme(
+                    data: const IconThemeData(
+                      size: 24,
+                      // Pin the foreground for this shape fixture.
+                      color: Color(0xFFF5F5F7),
+                    ),
+                    child: icons['reorder']! as Widget,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    final paint = tester.widget<CustomPaint>(find.byType(CustomPaint));
+    final painter = paint.painter! as OwnIconPainter;
+    expect(tester.getSize(find.byType(CustomPaint)), const Size(24, 24));
+    expect(painter.strokeWidth, 1.5);
+    expect(painter.strokeCap, StrokeCap.round);
+    expect(painter.strokeJoin, StrokeJoin.round);
+    await expectLater(
+      find.byKey(const Key('golden')),
+      matchesGoldenFile('goldens/reorder_dark.png'),
+    );
+  });
+  testWidgets('appearance light preserves the approved 24-point shape',
+      (tester) async {
+    await tester.pumpWidget(
+      Directionality(
+        textDirection: TextDirection.ltr,
+        child: Center(
+          child: RepaintBoundary(
+            key: const Key('golden'),
+            child: ColoredBox(
+              color: Colors.white,
+              child: SizedBox(
+                width: 48,
+                height: 48,
+                child: Center(
+                  child: IconTheme(
+                    data: IconThemeData(
+                      size: 24,
+                      color: PantasColors.light.label,
+                    ),
+                    child: icons['appearance']! as Widget,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    final paint = tester.widget<CustomPaint>(find.byType(CustomPaint));
+    final painter = paint.painter! as OwnIconPainter;
+    expect(tester.getSize(find.byType(CustomPaint)), const Size(24, 24));
+    expect(painter.strokeWidth, 1.5);
+    expect(painter.strokeCap, StrokeCap.round);
+    expect(painter.strokeJoin, StrokeJoin.round);
+    await expectLater(
+      find.byKey(const Key('golden')),
+      matchesGoldenFile('goldens/appearance_light.png'),
+    );
+  });
+  testWidgets('appearance dark preserves the approved 24-point shape',
+      (tester) async {
+    await tester.pumpWidget(
+      Directionality(
+        textDirection: TextDirection.ltr,
+        child: Center(
+          child: RepaintBoundary(
+            key: const Key('golden'),
+            child: ColoredBox(
+              color: Colors.black,
+              child: SizedBox(
+                width: 48,
+                height: 48,
+                child: Center(
+                  child: IconTheme(
+                    data: const IconThemeData(
+                      size: 24,
+                      // Pin the foreground for this shape fixture.
+                      color: Color(0xFFF5F5F7),
+                    ),
+                    child: icons['appearance']! as Widget,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    final paint = tester.widget<CustomPaint>(find.byType(CustomPaint));
+    final painter = paint.painter! as OwnIconPainter;
+    expect(tester.getSize(find.byType(CustomPaint)), const Size(24, 24));
+    expect(painter.strokeWidth, 1.5);
+    expect(painter.strokeCap, StrokeCap.round);
+    expect(painter.strokeJoin, StrokeJoin.round);
+    await expectLater(
+      find.byKey(const Key('golden')),
+      matchesGoldenFile('goldens/appearance_dark.png'),
+    );
+  });
+  testWidgets('backup light preserves the approved 24-point shape',
+      (tester) async {
+    await tester.pumpWidget(
+      Directionality(
+        textDirection: TextDirection.ltr,
+        child: Center(
+          child: RepaintBoundary(
+            key: const Key('golden'),
+            child: ColoredBox(
+              color: Colors.white,
+              child: SizedBox(
+                width: 48,
+                height: 48,
+                child: Center(
+                  child: IconTheme(
+                    data: IconThemeData(
+                      size: 24,
+                      color: PantasColors.light.label,
+                    ),
+                    child: icons['backup']! as Widget,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    final paint = tester.widget<CustomPaint>(find.byType(CustomPaint));
+    final painter = paint.painter! as OwnIconPainter;
+    expect(tester.getSize(find.byType(CustomPaint)), const Size(24, 24));
+    expect(painter.strokeWidth, 1.5);
+    expect(painter.strokeCap, StrokeCap.round);
+    expect(painter.strokeJoin, StrokeJoin.round);
+    await expectLater(
+      find.byKey(const Key('golden')),
+      matchesGoldenFile('goldens/backup_light.png'),
+    );
+  });
+  testWidgets('backup dark preserves the approved 24-point shape',
+      (tester) async {
+    await tester.pumpWidget(
+      Directionality(
+        textDirection: TextDirection.ltr,
+        child: Center(
+          child: RepaintBoundary(
+            key: const Key('golden'),
+            child: ColoredBox(
+              color: Colors.black,
+              child: SizedBox(
+                width: 48,
+                height: 48,
+                child: Center(
+                  child: IconTheme(
+                    data: const IconThemeData(
+                      size: 24,
+                      // Pin the foreground for this shape fixture.
+                      color: Color(0xFFF5F5F7),
+                    ),
+                    child: icons['backup']! as Widget,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    final paint = tester.widget<CustomPaint>(find.byType(CustomPaint));
+    final painter = paint.painter! as OwnIconPainter;
+    expect(tester.getSize(find.byType(CustomPaint)), const Size(24, 24));
+    expect(painter.strokeWidth, 1.5);
+    expect(painter.strokeCap, StrokeCap.round);
+    expect(painter.strokeJoin, StrokeJoin.round);
+    await expectLater(
+      find.byKey(const Key('golden')),
+      matchesGoldenFile('goldens/backup_dark.png'),
+    );
+  });
+  testWidgets('about light preserves the approved 24-point shape',
+      (tester) async {
+    await tester.pumpWidget(
+      Directionality(
+        textDirection: TextDirection.ltr,
+        child: Center(
+          child: RepaintBoundary(
+            key: const Key('golden'),
+            child: ColoredBox(
+              color: Colors.white,
+              child: SizedBox(
+                width: 48,
+                height: 48,
+                child: Center(
+                  child: IconTheme(
+                    data: IconThemeData(
+                      size: 24,
+                      color: PantasColors.light.label,
+                    ),
+                    child: icons['about']! as Widget,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    final paint = tester.widget<CustomPaint>(find.byType(CustomPaint));
+    final painter = paint.painter! as OwnIconPainter;
+    expect(tester.getSize(find.byType(CustomPaint)), const Size(24, 24));
+    expect(painter.strokeWidth, 1.5);
+    expect(painter.strokeCap, StrokeCap.round);
+    expect(painter.strokeJoin, StrokeJoin.round);
+    await expectLater(
+      find.byKey(const Key('golden')),
+      matchesGoldenFile('goldens/about_light.png'),
+    );
+  });
+  testWidgets('about dark preserves the approved 24-point shape',
+      (tester) async {
+    await tester.pumpWidget(
+      Directionality(
+        textDirection: TextDirection.ltr,
+        child: Center(
+          child: RepaintBoundary(
+            key: const Key('golden'),
+            child: ColoredBox(
+              color: Colors.black,
+              child: SizedBox(
+                width: 48,
+                height: 48,
+                child: Center(
+                  child: IconTheme(
+                    data: const IconThemeData(
+                      size: 24,
+                      // Pin the foreground for this shape fixture.
+                      color: Color(0xFFF5F5F7),
+                    ),
+                    child: icons['about']! as Widget,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    final paint = tester.widget<CustomPaint>(find.byType(CustomPaint));
+    final painter = paint.painter! as OwnIconPainter;
+    expect(tester.getSize(find.byType(CustomPaint)), const Size(24, 24));
+    expect(painter.strokeWidth, 1.5);
+    expect(painter.strokeCap, StrokeCap.round);
+    expect(painter.strokeJoin, StrokeJoin.round);
+    await expectLater(
+      find.byKey(const Key('golden')),
+      matchesGoldenFile('goldens/about_dark.png'),
+    );
+  });
+  test('regular glyphs keep their pinned 2.1.0 codepoints', () {
+    const codepoints = <String, int>{
+      'unlimitedMocks': 0xe634,
+      'answerNotes': 0xe34c,
+      'studyHabits': 0xe156,
+      'proBackup': 0xe1ae,
+      'topicResults': 0xeadc,
+      'copy': 0xe1ca,
+      'cloudSlash': 0xe1b6,
+      'phoneSlash': 0xee46,
+      'appError': 0xe4e2,
+      'alert': 0xe4e0,
+      'info': 0xe2ce,
+      'homeTab': 0xe2c2,
+      'studyTab': 0xe0e6,
+      'quizTab': 0xe184,
+      'settingsTab': 0xe272,
+      'back': 0xe138,
+      'next': 0xe13a,
+      'close': 0xe4f6,
+      'counter': 0xe136,
+      'toTop': 0xe08e,
+      'expandFigure': 0xe0a6,
+      'sort': 0xe140,
+      'caretUpDown': 0xe140,
+      'contents': 0xe2f0,
+      'flag': 0xe244,
+      'addNote': 0xe34a,
+      'noted': 0xe348,
+      'check': 0xe182,
+      'pause': 0xe39e,
+      'timer': 0xe492,
+      'pendingSend': 0xe19a,
+      'nextMonth': 0xe13a,
+      'restDay': 0xe330,
+      'addDate': 0xe10a,
+      'pro': 0xe6a2,
+      'tendencies': 0xe2dc,
+      'answerStreak': 0xe2de,
+      'search': 0xe30c,
+      'bookmark': 0xe0ea,
+      'imageFailed': 0xe2ca,
+      'edit': 0xe3b4,
+      'share': 0xeaf0,
+      'keyboard': 0xe2d8,
+      'exam': 0xe47c,
+      'practice': 0xe74e,
+      'reminders': 0xe0ce,
+      'feedback': 0xe218,
+      'proSettings': 0xe6a2,
+      'profile': 0xe4c2,
+      'plus': 0xe3d4,
+      'minus': 0xe32a,
+    };
+    expect(codepoints, hasLength(51));
+    for (final entry in codepoints.entries) {
+      final icon = icons[entry.key]! as IconData;
+      expect(icon.codePoint, entry.value, reason: entry.key);
+      expect(icon.fontFamily, 'Phosphor');
+      expect(icon.fontPackage, isNull);
+    }
+  });
+
+  test('Fill and Bold weights keep the Regular codepoint', () {
+    expect(
+      PantasIcons.fill(PantasIcons.flag),
+      same(PantasIcons.flagFill),
+    );
+    expect(PantasIcons.flagFill.codePoint, PantasIcons.flag.codePoint);
+    expect(PantasIcons.flagFill.fontFamily, 'PhosphorFill');
+    expect(PantasIcons.bold(PantasIcons.back).codePoint, 0xe138);
+    expect(PantasIcons.bold(PantasIcons.next).fontFamily, 'PhosphorBold');
+    expect(PantasIcons.backBold.fontPackage, isNull);
+    expect(PantasIcons.fill(PantasIcons.check), PantasIcons.check);
+  });
+}

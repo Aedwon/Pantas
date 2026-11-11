@@ -10,44 +10,39 @@ questions:
     stem: |
       Find the roots of $x^2 - 8x + 15 = 0$.
     choices:
-      - text: $x = 3$ or $x = 5$
+      - text: '$x=3\text{ or }x=5$'
         correct: true
-      - text: $x = 3$ or $x = 6$
+      - text: '$x=-3\text{ or }x=-5$'
         rationale: |
-          You found a pair that adds to 8 but not one that multiplies to 15. $3
-          \times 6 = 18$, so 6 is not a root here.
-      - text: $x = 1$ or $x = 15$
+          This returns the negative constants in the factors as the roots. The constants do add to negative eight. Check which inputs make each factor zero.
+      - text: '$x=1\text{ or }x=15$'
         rationale: |
-          You picked the factor pair 1 and 15. They multiply to 15, but they add to
-          16, not 8.
-      - text: $x = 5$ or $x = 8$
+          This checks the product fifteen but not the sum eight. Both numbers divide fifteen. Check both coefficient conditions.
+      - text: '$x=0\text{ or }x=8$'
         rationale: |
-          You kept 5 and took 8 from the middle term. The middle number is the sum
-          of the roots, not one of them.
+          This uses the root sum without preserving the root product. Zero and eight add to eight. Check that the product must also be fifteen.
     explanation: |
-      Find two numbers that multiply to 15 and add to -8. These are -3 and -5. So $(x-3)(x-5) = 0$, giving $x = 3$ or $x = 5$.
+      The equation factors as $(x-3)(x-5)=0$. A product is zero when at least one factor is zero. Thus $x=3$ or $x=5$.
 
   - id: q-algebra-quadratic-equations-0002
     type: direct-computation
     difficulty: easy
     stem: |
-      Solve $x^2 + 5x + 6 = 0$.
+      One root of $x^2+5x+6=0$ is $-2$. What is the other root?
     choices:
-      - text: $x = -2$ or $x = -3$
+      - text: '$-3$'
         correct: true
-      - text: $x = 2$ or $x = 3$
+      - text: '$3$'
         rationale: |
-          You found the right pair but kept them positive. The factors are
-          $(x+2)(x+3)$, so the roots are the negatives.
-      - text: $x = -1$ or $x = -6$
+          This returns the positive constant from the factor $x+3$. Factoring does produce that number. Check which input makes the factor zero.
+      - text: '$-7$'
         rationale: |
-          You picked 1 and 6. They multiply to 6, but they add to 7, not 5.
-      - text: $x = 1$ or $x = 6$
+          This adds the known root to the sum instead of subtracting it, giving $-5+(-2)$. The correct sum is used. Check how to remove one root from the total.
+      - text: '$-\dfrac{5}{2}$'
         rationale: |
-          You picked 1 and 6 and left them positive. Both parts of that are wrong:
-          check the sum, then flip the signs.
+          This finds $-b/(2a)$, the axis of symmetry, instead of the other root. Halving $b$ appears in quadratic methods. Check whether the question asks for a root or a midpoint.
     explanation: |
-      Find two numbers that multiply to 6 and add to 5. These are 2 and 3. So $(x+2)(x+3) = 0$, giving $x = -2$ or $x = -3$.
+      The roots have sum $-5$. If one is $-2$, the other is $-5-(-2)=-3$.
 
   - id: q-algebra-quadratic-equations-0003
     type: direct-computation
@@ -55,21 +50,19 @@ questions:
     stem: |
       Solve $2x^2 + 7x + 3 = 0$.
     choices:
-      - text: $x = -\dfrac{1}{2}$ or $x = -3$
+      - text: '$x=-\dfrac{1}{2}\text{ or }x=-3$'
         correct: true
-      - text: $x = \dfrac{1}{2}$ or $x = 3$
+      - text: '$x=\dfrac{1}{2}\text{ or }x=3$'
         rationale: |
-          You have both signs backwards. Every term in this equation is positive, so
-          both roots have to be negative.
-      - text: $x = -2$ or $x = -3$
+          This keeps the constants’ signs instead of solving each factor for zero. The magnitudes match the factorization. Check the opposite operation in each linear factor.
+      - text: '$x=-2\text{ or }x=-3$'
         rationale: |
-          You factored as if the leading number were 1. With $2x^2$ you have to
-          split the middle term first.
-      - text: $x = 1$ or $x = 3$
+          This reverses the fractional root from $2x+1=0$. The coefficient and constant both appear. Check which number divides the other.
+      - text: '$x=-\dfrac{1}{2}\text{ or }x=-\dfrac{3}{2}$'
         rationale: |
-          You ignored the leading 2 and got the signs wrong as well.
+          This divides both factor constants by two, even though the second factor has coefficient one on $x$. The leading coefficient can seem to apply to both factors. Check each factor’s own coefficient.
     explanation: |
-      Multiply $a$ and $c$: $2 \times 3 = 6$. Find two numbers that multiply to 6 and add to 7: 6 and 1. Split: $2x^2 + 6x + x + 3 = 0$, then factor: $(2x+1)(x+3) = 0$. Roots are $x = -\dfrac{1}{2}$ and $x = -3$.
+      Split the middle term: $2x^2+6x+x+3=0$. Group to get $(2x+1)(x+3)=0$. Solving each factor gives $x=-\dfrac{1}{2}$ or $x=-3$.
 
   - id: q-algebra-quadratic-equations-0004
     type: direct-computation
@@ -77,19 +70,19 @@ questions:
     stem: |
       Solve $x^2 - 10x + 25 = 0$.
     choices:
-      - text: $x = 5$
+      - text: '$x=5$'
         correct: true
-      - text: $x = -5$
+      - text: '$x=-5$'
         rationale: |
-          You flipped the sign. The bracket is $(x - 5)$, so the root is $+5$.
-      - text: $x = 0$ or $x = 10$
+          This keeps the factor constant’s sign. The square is $(x-5)^2$. Check which input makes $x-5$ zero.
+      - text: '$x=0\text{ or }x=10$'
         rationale: |
-          You solved $x^2 - 10x = 0$ and left the 25 out.
-      - text: $x = 2$ or $x = 5$
+          This uses only the sum of roots and drops their product. Zero and ten do add to ten. Check that their product must be twenty-five.
+      - text: '$x=\pm5$'
         rationale: |
-          You found a pair that multiplies to 10 instead of 25.
+          This solves $x^2=25$ instead of the whole equation. The constant twenty-five looks like a square. Check the linear term before taking square roots.
     explanation: |
-      This is a perfect square: $(x-5)^2 = 0$, so $x = 5$ is the only solution.
+      The left side is a perfect square: $(x-5)^2=0$. Therefore $x-5=0$, giving the repeated root $x=5$.
 
   - id: q-algebra-quadratic-equations-0005
     type: direct-computation
@@ -97,22 +90,19 @@ questions:
     stem: |
       Solve $x^2 = 4x$.
     choices:
-      - text: $x = 0$ or $x = 4$
+      - text: '$x=0\text{ or }x=4$'
         correct: true
-      - text: $x = 4$
+      - text: '$x=4$'
         rationale: |
-          You divided both sides by $x$. That throws away the solution $x = 0$,
-          because you cannot divide by something that might be zero.
-      - text: $x = 0$ or $x = -4$
+          This divides by $x$ and loses the zero solution. Canceling a common factor is familiar. Check whether that factor could itself be zero.
+      - text: '$x=0\text{ or }x=-4$'
         rationale: |
-          You have the sign backwards. Factoring gives $x(x - 4)$, so the second
-          root is $+4$.
-      - text: $x = 2$
+          This changes $x^2-4x$ into $x(x+4)$. Both factors still look linear. Check the sign after moving the right side left.
+      - text: '$x=\pm2$'
         rationale: |
-          You halved the 4. That is what you do to complete a square, not to solve
-          this one.
+          This treats the equation as $x^2=4$. The coefficient four is visible on the right. Check that the right side also contains $x$.
     explanation: |
-      Move everything to one side: $x^2 - 4x = 0$. Factor: $x(x-4) = 0$. So $x = 0$ or $x = 4$.
+      Move all terms left: $x^2-4x=0$. Factor to get $x(x-4)=0$. Thus $x=0$ or $x=4$.
 
   - id: q-algebra-quadratic-equations-0006
     type: error-spotting
@@ -120,21 +110,19 @@ questions:
     stem: |
       A student solves $x^2 = 4x$ by dividing both sides by $x$, getting $x = 4$. What is the error?
     choices:
-      - text: Dividing by $x$ loses the solution $x = 0$.
+      - text: 'A zero root was discarded.'
         correct: true
-      - text: There is no error.
+      - text: 'The exponent should have been halved.'
         rationale: |
-          Dividing by $x$ looks harmless but silently removes the possible case $x=0$.
-      - text: The student should have gotten $x = 2$.
+          This treats division by $x$ like taking a square root. The original left side is a square. Check that the same division acts on both sides.
+      - text: 'The coefficient should have been squared.'
         rationale: |
-          You looked for an arithmetic slip. The method is what fails: dividing by
-          $x$ throws a solution away.
-      - text: The correct answer is only $x = 4$.
+          This confuses solving the equation with squaring both sides. The coefficient four is part of the right side. Check whether such a step is needed.
+      - text: 'The factors should have been added.'
         rationale: |
-          You accepted the single answer. There are two, and losing one is the
-          whole point of the mistake.
+          This treats the zero-product property as a sum rule. Factoring does produce two expressions. Check that the original equation is their product equal to zero.
     explanation: |
-      Dividing by $x$ assumes $x\ne0$, so it can discard a valid solution. Move all terms to one side instead: $x^2 - 4x = 0$, then factor as $x(x-4)=0$, giving $x=0$ or $x=4$.
+      The value $x=0$ satisfies the original equation. Dividing by $x$ excludes that value. Keep both possibilities by factoring $x(x-4)=0$, which gives $x=0$ or $x=4$.
 
   - id: q-algebra-quadratic-equations-0007
     type: direct-computation
@@ -142,20 +130,19 @@ questions:
     stem: |
       What is the discriminant of the equation $x^2 + 3x + 1 = 0$?
     choices:
-      - text: $5$
+      - text: '$5$'
         correct: true
-      - text: $1$
+      - text: '$1$'
         rationale: |
-          You used $c$ on its own. The discriminant is $b^2 - 4ac$, so it needs all
-          three.
-      - text: $3$
+          This reports the constant coefficient instead of the discriminant. The constant appears in the discriminant formula. Check all three coefficients in $b^2-4ac$.
+      - text: '$3$'
         rationale: |
-          You used $b$ on its own without squaring it or subtracting anything.
-      - text: $13$
+          This reports the linear coefficient instead of the discriminant. The coefficient three appears in the formula. Check that it must be squared first.
+      - text: '$13$'
         rationale: |
-          You added $4ac$ instead of subtracting it: $9 + 4$ gives 13.
+          This adds $4ac$ instead of subtracting it, giving $9+4$. The square of three is correctly found. Check the minus sign in the formula.
     explanation: |
-      Using $b^2 - 4ac$ with $a = 1$, $b = 3$, $c = 1$: discriminant $= 3^2 - 4(1)(1) = 9 - 4 = 5$.
+      Here $a=1$, $b=3$, and $c=1$. Calculate $D=b^2-4ac=3^2-4(1)(1)=9-4=5$.
 
   - id: q-algebra-quadratic-equations-0008
     type: which-is-true
@@ -163,22 +150,19 @@ questions:
     stem: |
       The equation $x^2 + 6x + 9 = 0$ has which type of roots?
     choices:
-      - text: One repeated real root
+      - text: 'One repeated negative root.'
         correct: true
-      - text: Two distinct real roots
+      - text: 'Two distinct real roots.'
         rationale: |
-          You went for two roots. Two distinct roots need a discriminant above
-          zero, and this one is exactly zero.
-      - text: Two complex roots
+          This treats a zero discriminant as positive. Both cases produce real roots. Check whether the two roots are distinct or repeated.
+      - text: 'Two distinct non-real roots.'
         rationale: |
-          You went for complex roots. Those need a discriminant below zero, and
-          this one sits exactly on the boundary at zero.
-      - text: No real roots
+          This treats a zero discriminant as negative. A square root appears in the formula. Check the exact sign of the discriminant.
+      - text: 'One repeated positive root.'
         rationale: |
-          You ruled out real roots. There is one, because a zero discriminant
-          still touches the axis.
+          This uses the positive coefficient six to infer a positive root. The equation contains a positive linear term. Check the input that makes the squared factor zero.
     explanation: |
-      Discriminant $= 6^2 - 4(1)(9) = 36 - 36 = 0$. When the discriminant is 0, there is exactly one repeated real root.
+      The discriminant is $6^2-4(1)(9)=0$, so there is a repeated real root. The factorization is $(x+3)^2=0$, giving $x=-3$.
 
   - id: q-algebra-quadratic-equations-0009
     type: direct-computation
@@ -186,20 +170,19 @@ questions:
     stem: |
       For the equation $3x^2 - 12x + 7 = 0$, what is the sum of the roots?
     choices:
-      - text: $4$
+      - text: '$4$'
         correct: true
-      - text: $-4$
+      - text: '$-4$'
         rationale: |
-          You dropped a minus sign. The formula is $-b/a$ and $b$ is already
-          negative, so the two cancel.
-      - text: $12$
+          This uses $b/a$ instead of $-b/a$. The coefficient $b$ is already negative. Check the extra minus sign in the root-sum formula.
+      - text: '$12$'
         rationale: |
-          You used $b$ on its own and skipped the division by $a$. Here $a$ is 3.
-      - text: $\dfrac{7}{3}$
+          This uses $-b$ but leaves out division by $a$. The linear coefficient is the source of the sum. Check the leading coefficient too.
+      - text: '$\dfrac{7}{3}$'
         rationale: |
-          You used $c/a$, which is the product of the roots, not the sum.
+          This finds the product $c/a$ rather than the sum. Both quantities use Vieta’s formulas. Check which one is requested.
     explanation: |
-      Using Vieta's formula, sum of roots $= -\dfrac{b}{a} = -\dfrac{-12}{3} = 4$.
+      The sum of the roots is $-b/a$. Here $b=-12$ and $a=3$, so the sum is $-(-12)/3=4$.
 
   - id: q-algebra-quadratic-equations-0010
     type: direct-computation
@@ -207,20 +190,19 @@ questions:
     stem: |
       For the equation $3x^2 - 12x + 7 = 0$, what is the product of the roots?
     choices:
-      - text: $\dfrac{7}{3}$
+      - text: '$\dfrac{7}{3}$'
         correct: true
-      - text: $3$
+      - text: '$\dfrac{3}{7}$'
         rationale: |
-          You used $a$ on its own. The product is $c/a$, so it needs both.
-      - text: $7$
+          This reverses the coefficient ratio. Both the leading and constant coefficients appear. Check that the product is $c/a$.
+      - text: '$7$'
         rationale: |
-          You used $c$ on its own and skipped the division by $a$. Here $a$ is 3.
-      - text: $-\dfrac{7}{3}$
+          This uses only the constant term. For a monic quadratic that would give the product. Check whether the leading coefficient is one.
+      - text: '$-\dfrac{7}{3}$'
         rationale: |
-          You added a minus sign. The product is $c/a$ with no sign change; only the
-          sum flips.
+          This adds a minus sign to the product formula. The sum formula does contain a minus sign. Check which Vieta formula is needed.
     explanation: |
-      Using Vieta's formula, product of roots $= \dfrac{c}{a} = \dfrac{7}{3}$.
+      The product of the roots is $c/a$. With $c=7$ and $a=3$, the product is $\dfrac{7}{3}$.
 
   - id: q-algebra-quadratic-equations-0011
     type: error-spotting
@@ -228,19 +210,19 @@ questions:
     stem: |
       A student starts with $x^2 - 5x = 6$, factors the left side as $x(x-5)$, and then writes $x(x-5)=0$ so that $x=0$ or $x=5$. What is the error?
     choices:
-      - text: The student changed the right side from $6$ to $0$ without subtracting $6$ from both sides first.
+      - text: 'Six was removed from only one side.'
         correct: true
-      - text: Factoring $x^2-5x$ as $x(x-5)$ is invalid.
+      - text: 'Factoring the left side was invalid.'
         rationale: |
-          The factorization $x(x-5)=x^2-5x$ is correct. The error is changing the equation from $x(x-5)=6$ to $x(x-5)=0$.
-      - text: The zero-product property can never be used on a quadratic equation.
+          This blames the factorization $x(x-5)$. Expanding that factorization gives the original left side. Check whether the right side was preserved.
+      - text: 'The variable needed a square root first.'
         rationale: |
-          The zero-product property is valid when a product equals zero. The equation must first be rewritten with zero on one side.
-      - text: There is no error.
+          This assumes every quadratic must be solved by taking a square root. A square appears in the equation. Check whether factoring after moving all terms works.
+      - text: 'The zero-product rule was used correctly.'
         rationale: |
-          The two equations $x(x-5)=6$ and $x(x-5)=0$ are not equivalent. The right side cannot be changed without performing the same operation on both sides.
+          This applies a rule for a product equal to zero to a product equal to six. The factors are written correctly. Check the right side before setting factors to zero.
     explanation: |
-      Factoring the left side is allowed: $x^2-5x=6$ becomes $x(x-5)=6$. The invalid step is replacing 6 with 0. To use the zero-product property, first subtract 6 from both sides: $x^2-5x-6=0$, then factor.
+      Equality must be preserved on both sides. Subtract $6$ to get $x^2-5x-6=0$. Factor: $(x-6)(x+1)=0$. The roots are $6$ and $-1$.
 
   - id: q-algebra-quadratic-equations-0012
     type: error-spotting
@@ -248,44 +230,39 @@ questions:
     stem: |
       A student solves $x^2 = 25$ and gets $x = 5$. What is missing?
     choices:
-      - text: The negative solution $x = -5$.
+      - text: '$x=-5$'
         correct: true
-      - text: Nothing, the answer is correct.
+      - text: '$x=0$'
         rationale: |
-          You accepted only the principal square root. But the equation $x^2=25$ has two real solutions because both $5^2$ and $(-5)^2$ equal 25.
-      - text: The answer should be $x = 0$.
+          This chooses zero as an extra root simply because it often appears in quadratic factoring. Zero would need to satisfy the equation. Check by squaring it.
+      - text: '$x=25$'
         rationale: |
-          You picked zero. It is not a solution here, because $0^2$ is 0 and the
-          equation needs 25.
-      - text: The answer should be $x = 25$.
+          This keeps twenty-five as a root rather than taking its square root. The right side is a ready number. Check whether that number’s square equals twenty-five.
+      - text: '$\text{No other root}$'
         rationale: |
-          You gave the number that was squared. The question asks for $x$, and 25
-          is $x^2$.
+          This keeps only the principal square root. The symbol $\sqrt{25}$ does give one positive value. Check that an equation $x^2=25$ allows both signs.
     explanation: |
-      The radical symbol $\sqrt{25}$ denotes the principal root $5$, but the equation $x^2=25$ asks for every value whose square is 25. Both $x=5$ and $x=-5$ satisfy the equation.
+      Both $5^2=25$ and $(-5)^2=25$. Therefore the equation has roots $5$ and $-5$. The missing root is $x=-5$.
 
   - id: q-algebra-quadratic-equations-0013
-    type: direct-computation
+    type: which-is-true
     difficulty: easy
     stem: |
-      Solve $x^2 - 16 = 0$.
+      Which monic quadratic equation has roots $4$ and $-4$?
     choices:
-      - text: $x = 4$ or $x = -4$
+      - text: '$x^2-16=0$'
         correct: true
-      - text: $x = 4$
+      - text: '$x^2-4=0$'
         rationale: |
-          You stopped at the first bracket. The difference of squares gives two
-          roots, not one.
-      - text: $x = 16$
+          This uses the root magnitude as the constant without squaring. Four is the given magnitude. Check the product of the two roots.
+      - text: '$x^2+16=0$'
         rationale: |
-          You gave the number that was squared. Taking the square root of 16 gives
-          4, and that is only one of the two roots.
-      - text: $x = 0$ or $x = 4$
+          This makes the constant positive even though the roots have opposite signs. Squaring four gives sixteen. Check the sign of the root product.
+      - text: '$x^2-8x+16=0$'
         rationale: |
-          You brought a zero root along. There is no lone $x$ in this equation to
-          produce one.
+          This gives a repeated positive root instead of opposite roots. It is the expansion of $(x-4)^2$. Check that the other root must be negative four.
     explanation: |
-      Factor as difference of squares: $(x-4)(x+4) = 0$. Therefore, $x = 4$ or $x = -4$.
+      The factors for roots $4$ and $-4$ are $x-4$ and $x+4$. Their product is $x^2-16$. Setting it to zero gives $x^2-16=0$.
 
   - id: q-algebra-quadratic-equations-0014
     type: direct-computation
@@ -293,21 +270,19 @@ questions:
     stem: |
       Use the quadratic formula to solve $x^2 + 2x - 8 = 0$.
     choices:
-      - text: $x = 2$ or $x = -4$
+      - text: '$x=2\text{ or }x=-4$'
         correct: true
-      - text: $x = 2$ or $x = 4$
+      - text: '$x=2\text{ or }x=4$'
         rationale: |
-          You have the sign of the second root backwards. The formula gives $(-2 -
-          6)/2$, which is $-4$.
-      - text: $x = -1$ or $x = 8$
+          This changes the negative root to positive. The magnitudes from the formula are right. Check both numerator signs separately.
+      - text: '$x=-2\text{ or }x=4$'
         rationale: |
-          You read the factors off the constant without checking the middle term. 1
-          and 8 add to 9, not 2.
-      - text: $x = 1$ or $x = -8$
+          This uses $b$ instead of $-b$ in the formula. The discriminant is correctly found. Check the sign in front of the linear coefficient.
+      - text: '$x=4\text{ or }x=-8$'
         rationale: |
-          You found the right pair of numbers and gave both the wrong sign.
+          This leaves out the denominator $2a$. The two numerator values are correctly calculated. Check that both are divided by the same denominator.
     explanation: |
-      Using $x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a}$: $x = \dfrac{-2 \pm \sqrt{4 + 32}}{2} = \dfrac{-2 \pm 6}{2}$. So $x = 2$ or $x = -4$.
+      Here $a=1$, $b=2$, and $c=-8$. The discriminant is $2^2-4(1)(-8)=36$. The formula gives $x=\dfrac{-2\pm6}{2}$, so the roots are $2$ and $-4$.
 
   - id: q-algebra-quadratic-equations-0015
     type: which-is-true
@@ -315,22 +290,19 @@ questions:
     stem: |
       Which equation has no real roots?
     choices:
-      - text: $x^2 + x + 1 = 0$
+      - text: '$x^2+x+1=0$'
         correct: true
-      - text: $x^2 - 4 = 0$
+      - text: '$x^2-4=0$'
         rationale: |
-          You picked the difference of squares. It factors cleanly, so it has two
-          real roots.
-      - text: $x^2 - 5x + 6 = 0$
+          This mistakes the missing linear term for a lack of real roots. The coefficient $b$ is zero. Check that the discriminant is still $0-4(1)(-4)>0$.
+      - text: '$x^2-5x+6=0$'
         rationale: |
-          You picked one that factors into two whole-number brackets, so its roots
-          are real.
-      - text: $x^2 + 3x = 0$
+          This treats a positive constant as enough to exclude real roots. The sign of the constant alone is not the test. Check the full discriminant.
+      - text: '$x^2+3x=0$'
         rationale: |
-          You picked the one with a common factor of $x$. That makes one root 0
-          and the other real.
+          This ignores the factor $x$ and its real zero. The constant term is zero. Check that factoring can immediately exhibit a real root.
     explanation: |
-      For $x^2 + x + 1 = 0$, discriminant $= 1 - 4 = -3 < 0$, so no real roots. The others all have positive discriminants.
+      For $x^2+x+1=0$, the discriminant is $1^2-4(1)(1)=-3$. A negative discriminant gives no real roots.
 
   - id: q-algebra-quadratic-equations-0016
     type: which-is-true
@@ -338,22 +310,19 @@ questions:
     stem: |
       In the equation $x^2 + 5x + 6 = 0$, what can we say about the signs of the roots?
     choices:
-      - text: Both roots have the same sign.
+      - text: 'Both roots are negative.'
         correct: true
-      - text: One root is positive and one is negative.
+      - text: 'One root is positive and one is negative.'
         rationale: |
-          You went for opposite signs. Those need a negative product, and here the
-          product is $+6$.
-      - text: Both roots are positive.
+          This uses a negative product rule even though the product is positive. Opposite signs occur in many quadratic equations. Check the sign of $c/a$.
+      - text: 'Both roots are positive.'
         rationale: |
-          You made both positive. Two positives cannot add to a negative sum, and
-          the sum here is $-5$.
-      - text: We cannot determine the signs.
+          This sees the positive product but ignores the negative sum. A positive product does imply matching signs. Check the root sum to choose which shared sign.
+      - text: 'Both roots are zero.'
         rationale: |
-          You gave up too early. You can tell without solving, because the signs of
-          the sum and product determine the root signs here.
+          This treats a quadratic as having a double zero root. Zero is possible for some quadratics. Check that the constant term is nonzero.
     explanation: |
-      By Vieta's formulas, the product of the roots is $6>0$, so the two real roots have the same sign. Their sum is $-5<0$, so both roots are negative.
+      The roots are $-2$ and $-3$, from $(x+2)(x+3)=0$. Both are negative. Their sum is $-5$ and product is $6$.
 
   - id: q-algebra-quadratic-equations-0017
     type: word-problem
@@ -361,22 +330,19 @@ questions:
     stem: |
       A rectangle's length is 3 cm more than its width. The area is 10 square cm. What is the width?
     choices:
-      - text: $2$ cm
+      - text: '$2\text{ cm}$'
         correct: true
-      - text: $3$ cm
+      - text: '$5\text{ cm}$'
         rationale: |
-          You used the 3 from the length. That is the difference between the sides,
-          not the width.
-      - text: $5$ cm
+          This returns the rectangle’s length instead of its width. The two dimensions differ by three. Check which dimension the question asks for.
+      - text: '$-5\text{ cm}$'
         rationale: |
-          You picked the root the factoring throws away. $(w + 5)$ gives $w = -5$,
-          and a width cannot be negative.
-      - text: $10$ cm
+          This keeps the negative algebraic root as a length. It satisfies the quadratic equation. Check the physical requirement that a width be positive.
+      - text: '$\dfrac{10}{3}\text{ cm}$'
         rationale: |
-          You used the area as the width. The area is the two sides multiplied
-          together.
+          This divides the area by the difference between dimensions. Three is a stated length. Check that area equals width times the full length.
     explanation: |
-      Let $w$ be width. Then $w(w+3) = 10$, giving $w^2 + 3w - 10 = 0$. Factoring: $(w+5)(w-2) = 0$. Since width must be positive, $w = 2$ cm.
+      Let the width be $w$, so the length is $w+3$. Then $w(w+3)=10$, or $w^2+3w-10=0$. Factor: $(w+5)(w-2)=0$. The positive width is $2$ cm.
 
   - id: q-algebra-quadratic-equations-0018
     type: direct-computation
@@ -384,18 +350,58 @@ questions:
     stem: |
       For the equation $x^2 + kx + 9 = 0$ to have exactly one real root, what must be the value of $k$?
     choices:
-      - text: $k = 6$ or $k = -6$
+      - text: '$k=\pm6$'
         correct: true
-      - text: $k = 9$
+      - text: '$k=\pm9$'
         rationale: |
-          You used $c$ itself. The discriminant needs $k^2 = 4ac$, so $k^2$ is 36
-          and $k$ is 6.
-      - text: $k = 3$
+          This uses the constant term directly as the parameter magnitude. Nine is part of the discriminant. Check the equation formed by setting the full discriminant to zero.
+      - text: '$k=\pm3$'
         rationale: |
-          You took the square root of 9. The discriminant needs $4ac$, which is 36,
-          so the root you want is 6.
-      - text: $k = 18$
+          This omits the factor four in the discriminant, giving $k^2=9$. Taking both square-root signs is correct. Check all factors in $4ac$.
+      - text: '$k=\pm18$'
         rationale: |
-          You doubled 9. The step is a square root of $4 \times 9$, not a doubling.
+          This halves thirty-six rather than taking its square root. Dividing by two appears elsewhere in quadratic formulas. Check the operation needed to solve $k^2=36$.
     explanation: |
-      For exactly one real root, the discriminant must be 0: $k^2 - 4(1)(9) = 0$. This gives $k^2 = 36$, so $k = 6$ or $k = -6$.
+      Exactly one real root requires a zero discriminant. Here $D=k^2-4(1)(9)=k^2-36$. Set it to zero: $k^2=36$. Thus $k=6$ or $k=-6$.
+
+  - id: q-algebra-quadratic-equations-0019
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      Complete the square in $2x^2+8x=10$. Which equivalent equation results?
+    choices:
+      - text: '$(x+2)^2=9$'
+        correct: true
+      - text: '$(x+2)^2=5$'
+        rationale: |
+          This adds four to the left side but not the right. The squared expression on the left is correctly formed. Check that both sides receive the same change.
+      - text: '$(x+2)^2=7$'
+        rationale: |
+          This adds two rather than its square to the right side. Half of the normalized linear coefficient is correctly found. Check the amount needed to complete a square.
+      - text: '$(x+4)^2=21$'
+        rationale: |
+          This halves the original coefficient eight before normalizing the leading coefficient. That gives a familiar square pattern. Check that the coefficient of $x^2$ is one first.
+    explanation: |
+      Divide by $2$ to get $x^2+4x=5$. Half of $4$ is $2$, and its square is $4$. Add $4$ to both sides to get $(x+2)^2=9$.
+    approved: false
+
+  - id: q-algebra-quadratic-equations-0020
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      If $r$ and $s$ are the roots of $2x^2-6x+1=0$, what is $\dfrac{1}{r}+\dfrac{1}{s}$?
+    choices:
+      - text: '$6$'
+        correct: true
+      - text: '$3$'
+        rationale: |
+          This gives the sum of the roots without dividing by their product. Vieta’s sum is a useful first step. Check how adding reciprocals changes the denominator.
+      - text: '$\dfrac{1}{2}$'
+        rationale: |
+          This gives only the product of the roots. That product is needed in the calculation. Check the numerator when combining the two reciprocals.
+      - text: '$\dfrac{1}{6}$'
+        rationale: |
+          This reverses the quotient of root sum and product. Both required quantities are used. Check the numerator in $\dfrac{r+s}{rs}$.
+    explanation: |
+      Vieta’s formulas give $r+s=3$ and $rs=\dfrac{1}{2}$. Since the product is nonzero, add the reciprocals as $\dfrac{r+s}{rs}$. This is $3\div\dfrac{1}{2}=6$.
+    approved: false

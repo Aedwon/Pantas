@@ -1,310 +1,425 @@
 meta:
-  subject: science
-  topic: physics
-  subtopic: waves-and-sound
-  exams:
-    - upcat
-    - dlsucet
-    - ustet
-    - dost-sei
+  subject: "science"
+  topic: "physics"
+  subtopic: "waves-and-sound"
+  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-physics-waves-and-sound-0001
-    type: simple-quantitative
-    difficulty: easy
+    type: "simple-quantitative"
+    difficulty: "easy"
     stem: |
-      A wave has a frequency of 5 Hz and a wavelength of 2 m. Find its speed. (Use $v = f\lambda$.)
+      A wave has frequency $5\,\mathrm{Hz}$ and wavelength $2\,\mathrm m$. Find its speed.
     choices:
-      - text: 10 m/s
+      - text: "$10\\,\\mathrm{m/s}$"
         correct: true
-      - text: 7 m/s
+      - text: "$7\\,\\mathrm{m/s}$"
         rationale: |
-          You added frequency and wavelength ($5 + 2$). Wave speed is the product of frequency and wavelength ($v = f\lambda = 5 \times 2 = 10\text{ m/s}$).
-      - text: 2.5 m/s
+          This adds frequency and wavelength. Both numbers are given. Check the product in the wave relation.
+      - text: "$2.5\\,\\mathrm{m/s}$"
         rationale: |
-          You divided frequency by wavelength ($\dfrac{5}{2}$). Wave speed requires multiplying frequency by wavelength.
-      - text: 0.4 m/s
+          This divides frequency by wavelength. Division finds other wave quantities. Check which quantity is requested.
+      - text: "$0.4\\,\\mathrm{m/s}$"
         rationale: |
-          You divided wavelength by frequency ($\dfrac{2}{5}$). Calculate wave speed using $v = f\lambda = 10\text{ m/s}$.
+          This divides wavelength by frequency. The ratio has familiar inputs. Check the multiplication needed for speed.
     explanation: |
-      $v = f\lambda = (5)(2) = 10$ m/s.
+      Wave speed is $v=f\lambda$. Thus $v=(5)(2)=10\,\mathrm{m/s}$.
     approved: true
+
   - id: q-physics-waves-and-sound-0002
-    type: simple-quantitative
-    difficulty: medium
+    type: "simple-quantitative"
+    difficulty: "medium"
     stem: |
-      A sound wave travels at 340 m/s with a frequency of 170 Hz. Find its wavelength.
+      A sound wave travels at $340\,\mathrm{m/s}$ with frequency $170\,\mathrm{Hz}$. What is its wavelength?
     choices:
-      - text: 2 m
+      - text: "$2\\,\\mathrm m$"
         correct: true
-      - text: 0.5 m
+      - text: "$0.5\\,\\mathrm m$"
         rationale: |
-          You divided frequency by velocity ($\dfrac{170}{340}$). Wavelength is speed divided by frequency ($\lambda = \dfrac{v}{f} = \dfrac{340}{170} = 2\text{ m}$).
-      - text: 510 m
+          This reverses speed and frequency in the division. Both belong in the calculation. Check the units needed for length.
+      - text: "$510\\,\\mathrm m$"
         rationale: |
-          You added velocity and frequency ($340 + 170$). Rearrange $v = f\lambda$ to get $\lambda = \dfrac{v}{f} = 2\text{ m}$.
-      - text: 170 m
+          This adds speed and frequency. Adding given values can seem useful. Check the ratio obtained from $v=f\lambda$.
+      - text: "$170\\,\\mathrm m$"
         rationale: |
-          You reported frequency magnitude in meters. Calculate wavelength using $\lambda = \dfrac{v}{f} = 2\text{ m}$.
+          This relabels frequency as a length. The frequency is explicitly given. Check cycles per second versus meters.
     explanation: |
-      $\lambda = \dfrac{v}{f} = \dfrac{340}{170} = 2$ m.
+      Rearrange $v=f\lambda$: $\lambda=v/f=340/170=2\,\mathrm m$.
     approved: true
+
   - id: q-physics-waves-and-sound-0003
-    type: simple-quantitative
-    difficulty: medium
+    type: "simple-quantitative"
+    difficulty: "medium"
     stem: |
-      A wave travels at 300 m/s with a wavelength of 5 m. Find its frequency.
+      A wave travels at $300\,\mathrm{m/s}$ with wavelength $5\,\mathrm m$. What is its frequency?
     choices:
-      - text: 60 Hz
+      - text: "$60\\,\\mathrm{Hz}$"
         correct: true
-      - text: 1500 Hz
+      - text: "$1500\\,\\mathrm{Hz}$"
         rationale: |
-          You multiplied speed by wavelength ($300 \times 5$). Frequency is speed divided by wavelength ($f = \dfrac{v}{\lambda} = \dfrac{300}{5} = 60\text{ Hz}$).
-      - text: 295 Hz
+          This multiplies speed by wavelength. Multiplication appears in the wave equation. Check how to isolate frequency.
+      - text: "$295\\,\\mathrm{Hz}$"
         rationale: |
-          You subtracted wavelength from speed ($300 - 5$). Frequency calculation requires division: $f = \dfrac{v}{\lambda} = 60\text{ Hz}$.
-      - text: 6 Hz
+          This subtracts wavelength from speed. Both numbers are given. Check that their units cannot be subtracted.
+      - text: "$6\\,\\mathrm{Hz}$"
         rationale: |
-          You misplaced a decimal factor of 10 ($\dfrac{30}{5}$). $\dfrac{300}{5} = 60\text{ Hz}$.
+          This uses 30 instead of 300 for speed. A zero can be lost in division. Check the original value.
     explanation: |
-      $f = \dfrac{v}{\lambda} = \dfrac{300}{5} = 60$ Hz.
+      Frequency is $f=v/\lambda=300/5=60\,\mathrm{Hz}$.
     approved: true
+
   - id: q-physics-waves-and-sound-0004
-    type: classify
-    difficulty: easy
+    type: "classify"
+    difficulty: "easy"
     stem: |
-      Sound travels through air to reach your ears. Is sound a mechanical wave or an electromagnetic wave?
+      A sound pressure disturbance propagates through air. Which wave category describes it?
     choices:
-      - text: Mechanical, since it requires a medium (like air) to travel through.
+      - text: "Mechanical"
         correct: true
-      - text: Electromagnetic, since it can travel through a vacuum.
+      - text: "Electromagnetic because air has charged particles"
         rationale: |
-          You classified sound as electromagnetic. Sound cannot propagate through vacuum because it requires particle collisions in a physical medium.
-      - text: 'Neither: sound is not a wave at all.'
+          This uses microscopic charge to classify the wave. Matter contains charges. Check that the disturbance is pressure in a medium.
+      - text: "Nonmechanical because sound carries no visible object"
         rationale: |
-          You denied wave nature of sound. Sound is a longitudinal pressure wave transmitting energy through matter.
-      - text: Both, depending on the loudness.
+          This assumes mechanical waves must visibly carry matter along. Sound is invisible. Check oscillating air pressure.
+      - text: "Electromagnetic whenever sound is loud"
         rationale: |
-          You claimed wave category varies with volume. Sound remains a mechanical wave regardless of amplitude or loudness.
+          This makes classification depend on amplitude. Loudness changes perception. Check whether a medium is still required.
     explanation: |
-      Sound requires a physical medium like air to travel: it cannot travel through a vacuum, making it a mechanical wave.
+      The pressure disturbance propagates through matter. Air is its medium. That makes sound a mechanical wave.
     approved: true
+
   - id: q-physics-waves-and-sound-0005
-    type: classify
-    difficulty: easy
+    type: "classify"
+    difficulty: "easy"
     stem: |
-      Light travels from the Sun through the vacuum of space to reach Earth. Is light a mechanical wave or an electromagnetic wave?
+      Sunlight propagates across interplanetary vacuum. Which wave category permits that?
     choices:
-      - text: Electromagnetic, since it requires no medium and can travel through a vacuum.
+      - text: "Electromagnetic"
         correct: true
-      - text: Mechanical, since it requires a medium like air.
+      - text: "Mechanical because the Sun contains matter"
         rationale: |
-          You classified light as mechanical. Light travels across outer space vacuum without requiring any physical medium.
-      - text: 'Neither: light is not a wave at all.'
+          This classifies the traveling wave by its source material. The source is physical. Check the medium needed along the path.
+      - text: "Mechanical because sunlight has energy"
         rationale: |
-          You denied wave nature of light. Light exhibits wave properties (diffraction, interference) as an electromagnetic wave.
-      - text: Both, depending on the distance traveled.
+          This treats energy transport as exclusive to mechanical waves. Both wave categories transfer energy. Check the vacuum condition.
+      - text: "Mechanical whenever the source is very hot"
         rationale: |
-          You made wave classification depend on distance. Light is intrinsically an electromagnetic wave regardless of path length.
+          This makes propagation type depend on source temperature. The Sun is hot. Check whether material particles are needed along the path.
     explanation: |
-      Light travels through empty space with no medium needed, making it an electromagnetic wave.
+      Electromagnetic waves are disturbances of electric and magnetic fields. They can propagate through vacuum. Sunlight belongs to this category.
     approved: true
+
   - id: q-physics-waves-and-sound-0006
-    type: identify
-    difficulty: medium
+    type: "identify"
+    difficulty: "medium"
     stem: |
-      What is the term for the distance between two consecutive identical points on a wave, such as crest to crest?
+      What is the distance between adjacent wave points in the same phase, such as crest to crest?
     choices:
-      - text: Wavelength
+      - text: "Wavelength"
         correct: true
-      - text: Frequency
+      - text: "Frequency"
         rationale: |
-          You picked frequency. Frequency measures the number of wave cycles passing a fixed point per unit time.
-      - text: Amplitude
+          This confuses spatial repetition with cycles per second. Both describe repetition. Check distance versus rate.
+      - text: "Amplitude"
         rationale: |
-          You picked amplitude. Amplitude measures maximum displacement from equilibrium, not spatial repeat distance.
-      - text: Wave speed
+          This uses the maximum disturbance from equilibrium. Both are measured in length for a string wave. Check height versus spacing.
+      - text: "Wave speed"
         rationale: |
-          You picked wave speed. Wave speed measures spatial distance traveled by wave crests per unit time ($v = f\lambda$).
+          This uses distance traveled per time. A wave crest moves. Check whether the question includes a time interval.
     explanation: |
-      Wavelength is the distance between two consecutive identical points on a wave, like from one crest to the next.
+      Wavelength is the distance over which a periodic wave repeats its phase. Adjacent crests are one wavelength apart.
     approved: true
+
   - id: q-physics-waves-and-sound-0007
-    type: identify
-    difficulty: medium
+    type: "classify"
+    difficulty: "medium"
     stem: |
-      In a wave where particles move perpendicular to the wave's direction of travel, what type of wave is this?
+      In a string wave, the string’s disturbance is perpendicular to propagation. How is the disturbance orientation classified?
     choices:
-      - text: Transverse wave
+      - text: "Transverse"
         correct: true
-      - text: Longitudinal wave
+      - text: "Longitudinal"
         rationale: |
-          You picked longitudinal wave. Longitudinal waves feature particle motion parallel to wave propagation direction.
-      - text: Mechanical wave
+          This selects a parallel disturbance. Both are mechanical-wave orientations. Check perpendicular versus parallel.
+      - text: "Neither because mechanical waves have no orientation"
         rationale: |
-          You picked broader category of mechanical wave. Transverse describes the specific orientation of particle oscillation relative to motion.
-      - text: Electromagnetic wave
+          This confuses wave category with disturbance direction. The wave is mechanical. Check the string’s actual oscillation direction.
+      - text: "Longitudinal because particles return to equilibrium"
         rationale: |
-          You picked electromagnetic wave. Mechanical waves like rope waves can also be transverse without being electromagnetic.
+          This uses oscillation alone to infer parallel motion. Both types oscillate locally. Check the relation to propagation direction.
     explanation: |
-      A transverse wave has particles moving perpendicular to the direction the wave travels, like light or a shaken rope.
+      Transverse means the disturbance is perpendicular to the direction the wave travels. The string motion meets that definition.
     approved: true
+
   - id: q-physics-waves-and-sound-0008
-    type: identify
-    difficulty: medium
+    type: "classify"
+    difficulty: "medium"
     stem: |
-      In a wave where particles move back and forth parallel to the wave's direction of travel, creating compressions and stretches, what type of wave is this?
+      In a spring wave, coils oscillate parallel to propagation and form compressions. Which orientation classification applies?
     choices:
-      - text: Longitudinal wave
+      - text: "Longitudinal"
         correct: true
-      - text: Transverse wave
+      - text: "Transverse"
         rationale: |
-          You picked transverse wave. Transverse waves have particle oscillations perpendicular to direction of travel.
-      - text: Electromagnetic wave
+          This selects perpendicular motion. Both types can use springs. Check the stated parallel oscillation.
+      - text: "Neither because compressions are not disturbances"
         rationale: |
-          You picked electromagnetic wave. Electromagnetic waves are transverse oscillating electric and magnetic fields.
-      - text: Standing wave
+          This rejects pressure or spacing changes as waves. Crests are easier to picture. Check the repeating compression pattern.
+      - text: "Transverse whenever the compression amplitude is small"
         rationale: |
-          You picked standing wave. Standing waves are interference patterns formed by oppositely traveling waves.
+          This makes orientation depend on size. Amplitude does describe the disturbance. Check direction independently of amplitude.
     explanation: |
-      A longitudinal wave has particles moving parallel to the wave's direction, creating compressions and stretches: this is how sound travels.
+      The spring coils move parallel to propagation. That is a longitudinal disturbance, producing compressions and expansions.
     approved: true
+
   - id: q-physics-waves-and-sound-0009
-    type: cause-effect
-    difficulty: medium
+    type: "cause-effect"
+    difficulty: "medium"
     stem: |
-      A sound source moves toward a stationary observer. What happens to the observed frequency (pitch)?
+      A steady siren moves toward a stationary listener at subsonic speed in still air. How does observed frequency compare with emitted frequency?
     choices:
-      - text: It increases (higher pitch), since the source moving toward the observer compresses the wave crests closer together.
+      - text: "It is higher."
         correct: true
-      - text: It decreases (lower pitch), since the source is getting closer.
+      - text: "It is lower because wavefronts are farther apart ahead"
         rationale: |
-          You inverted Doppler effect direction. Approaching sources compress wave crests, increasing observed frequency and pitch.
-      - text: It stays exactly the same, since the source's actual frequency has not changed.
+          This reverses the wavefront spacing. Source motion changes spacing. Check successive emissions toward the listener.
+      - text: "It is equal because the siren’s emitted frequency is fixed"
         rationale: |
-          You ignored relative motion. Relative approach decreases wave arrival interval, increasing observed frequency.
-      - text: It becomes impossible to hear.
+          This equates emitted and observed frequencies despite motion. The siren does emit steadily. Check the arrival intervals.
+      - text: "It is higher because sound itself travels faster in the air"
         rationale: |
-          You claimed approach silences sound. Approaching sources remain audible and sound higher in pitch due to Doppler shift.
+          This assigns the Doppler shift to propagation speed. Higher frequency is the observed result. Check the unchanged air conditions.
     explanation: |
-      This is the Doppler effect: a source moving toward an observer compresses the wave crests reaching them, increasing the observed frequency and pitch.
+      Successive wavefronts are emitted from positions closer to the listener. They arrive more frequently than for a stationary source. Observed frequency is higher.
     approved: true
+
   - id: q-physics-waves-and-sound-0010
-    type: cause-effect
-    difficulty: medium
+    type: "cause-effect"
+    difficulty: "medium"
     stem: |
-      A sound source moves away from a stationary observer. What happens to the observed frequency (pitch)?
+      A steady siren recedes from a stationary listener in still air. How does observed frequency compare with emitted frequency?
     choices:
-      - text: It decreases (lower pitch), since the source moving away stretches out the wave crests reaching the observer.
+      - text: "It is lower."
         correct: true
-      - text: It increases (higher pitch), since the source is getting farther.
+      - text: "It is higher because separation increases"
         rationale: |
-          You inverted Doppler shift direction. Receding sources stretch wave crests apart, reducing observed frequency and pitch.
-      - text: It stays exactly the same, since the source's actual frequency has not changed.
+          This reverses the arrival-rate trend. Distance is changing. Check the increasing spacing of successive wavefronts toward the listener.
+      - text: "It is equal because the source frequency is constant"
         rationale: |
-          You ignored relative motion. Receding motion increases wave crest arrival intervals, dropping observed pitch.
-      - text: It becomes impossible to hear.
+          This ignores source motion during emission. The source frequency is fixed. Check the listener’s arrival intervals.
+      - text: "It becomes zero immediately because the source moves away"
         rationale: |
-          You claimed receding motion causes instant silence. Receding sources remain audible with a shifted lower pitch until out of range.
+          This turns a lower frequency into no sound. The source is farther away. Check ongoing arrival of wavefronts.
     explanation: |
-      This is the Doppler effect: a source moving away from an observer stretches out the wave crests reaching them, decreasing the observed frequency and pitch.
+      Successive wavefronts reaching the listener are spaced farther apart by the receding source. They arrive less frequently. Observed frequency is lower.
     approved: true
+
   - id: q-physics-waves-and-sound-0011
-    type: classify
-    difficulty: hard
+    type: "classify"
+    difficulty: "hard"
     stem: |
-      A movie shows an explosion producing a loud sound in the vacuum of outer space. Is this physically realistic?
+      An astronaut sees an explosion across a vacuum gap with no solid connection to its source. Can ordinary sound from it travel directly across the gap?
     choices:
-      - text: 'No: sound is a mechanical wave and requires a medium like air; with no matter to vibrate in a vacuum, there would be no sound at all.'
+      - text: "No, sound needs a material medium."
         correct: true
-      - text: 'Yes: sound can travel through a vacuum just like light.'
+      - text: "Yes, because light and sound are both waves"
         rationale: |
-          You treated sound like electromagnetic radiation. Sound requires atomic/molecular medium to transmit vibration.
-      - text: 'No: but only because explosions cannot happen in space at all.'
+          This gives all waves the same medium requirement. Both transfer energy. Check mechanical versus electromagnetic propagation.
+      - text: "Yes, if the sound source is loud enough"
         rationale: |
-          You denied space chemical explosions. Explosions occur in space (e.g. rocket engines), but produce no external acoustic sound waves.
-      - text: 'Yes: loud sounds are always audible regardless of the medium.'
+          This lets amplitude replace the missing medium. Loud sounds are easier to hear in air. Check whether any matter spans the gap.
+      - text: "No, because no energetic event can occur in space"
         rationale: |
-          You assumed loudness bypasses vacuum medium requirement. Mechanical waves cannot propagate across empty space regardless of source energy.
+          This rejects the event rather than the sound path. Space lacks air. Check energy release separately from sound transmission.
     explanation: |
-      Sound requires a physical medium to travel through, unlike electromagnetic waves such as light. With no air (or any matter) in a vacuum, there is nothing to vibrate, so no sound could actually be heard.
+      Sound is a mechanical disturbance transmitted through matter. The vacuum gap supplies no medium. It prevents direct ordinary sound transmission across that gap.
     approved: true
+
   - id: q-physics-waves-and-sound-0012
-    type: classify
-    difficulty: hard
+    type: "compare-contrast"
+    difficulty: "hard"
     stem: |
-      A student describes sound waves as transverse waves, since sound is a familiar kind of wave. Is this correct?
+      How does sound in air differ from the transverse disturbance on a string?
     choices:
-      - text: 'No: sound waves are longitudinal, with air particles compressing and stretching along the same direction the sound travels, not moving side to side.'
+      - text: "Air motion is parallel; string motion is perpendicular."
         correct: true
-      - text: 'Yes: sound waves are transverse, like light waves.'
+      - text: "Both are transverse because all mechanical waves are transverse."
         rationale: |
-          You classified sound as transverse. Fluid sound waves consist of longitudinal compression and rarefaction density oscillations.
-      - text: 'No: sound waves are electromagnetic, not transverse or longitudinal.'
+          This generalizes string behavior to every medium. Both are mechanical waves. Check the air pressure disturbance.
+      - text: "Both are electromagnetic because energy travels without bulk matter transport."
         rationale: |
-          You classified sound as electromagnetic. Sound is a mechanical pressure wave, not electromagnetic radiation.
-      - text: 'Yes: all mechanical waves are transverse.'
+          This confuses no bulk transport with no required medium. Particles mainly oscillate locally. Check whether matter is required for propagation.
+      - text: "Air motion is perpendicular; string motion is parallel."
         rationale: |
-          You claimed mechanical waves are exclusively transverse. Mechanical waves can be longitudinal (sound, P-waves) or transverse (S-waves, rope waves).
+          This reverses the two orientations. Both involve oscillation. Check compressions in air and sideways motion of the string.
     explanation: |
-      Sound is a longitudinal wave: air particles move back and forth parallel to the direction of travel, creating compressions and stretches, unlike a transverse wave's side-to-side particle motion.
+      Sound in air is longitudinal, with disturbance parallel to propagation. The stated transverse string wave has disturbance perpendicular to propagation.
     approved: true
+
   - id: q-physics-waves-and-sound-0013
-    type: classify
-    difficulty: hard
+    type: "classify"
+    difficulty: "hard"
     stem: |
-      A student assumes an approaching sound source makes the sound waves travel faster through the air, causing the higher pitch heard. Is this correct?
+      A siren approaches a listener in air whose properties remain fixed. Does the higher observed pitch mean sound’s propagation speed relative to that air increased?
     choices:
-      - text: 'No: the wave''s actual speed through the medium stays constant; only the observed frequency changes, due to the wave crests bunching together.'
+      - text: "No, source motion changes wavefront spacing."
         correct: true
-      - text: 'Yes: the Doppler effect works by physically speeding up the sound waves.'
+      - text: "Yes, the moving source adds its speed to sound’s air-relative speed"
         rationale: |
-          You assumed Doppler shift alters wave speed through air. Wave speed is set by medium properties ($\text{speed of sound in air}$), not source motion.
-      - text: 'No: the wave''s speed actually decreases as the source approaches.'
+          This treats sound like an object carried by the source. The source is moving. Check that propagation is set by the medium.
+      - text: "No, because the propagation speed actually falls during approach"
         rationale: |
-          You claimed wave speed drops on approach. Wave propagation speed remains constant through uniform medium.
-      - text: 'Yes: pitch and wave speed are always the same thing.'
+          This substitutes a speed decrease for the spacing change. Wave quantities are related. Check the unchanged medium conditions.
+      - text: "Yes, pitch is another name for propagation speed"
         rationale: |
-          You equated pitch and wave speed. Pitch is determined by frequency ($f$), whereas wave speed is $v = f\lambda$.
+          This confuses cycles per second with distance per second. Both can increase numerically. Check frequency versus speed units.
     explanation: |
-      The Doppler effect changes the observed frequency and pitch, not the actual wave speed through the medium. The wave crests simply bunch together (from the source's motion), which is perceived as a higher frequency.
+      The air’s properties set the propagation speed relative to it. The moving source changes the spacing of wavefronts. The listener receives them at a higher frequency.
     approved: true
+
   - id: q-physics-waves-and-sound-0014
-    type: classify
-    difficulty: hard
+    type: "predict-outcome"
+    difficulty: "hard"
     stem: |
-      A student assumes a sound source moving toward an observer results in a lower pitch, reasoning that "closer sounds are usually softer and lower." Is this correct?
+      A listener moves toward a stationary siren through still air. The siren emits at fixed frequency. What changes for the listener?
     choices:
-      - text: 'No: a source moving toward an observer results in a higher observed pitch, not lower, which is why an approaching ambulance siren sounds higher, not lower.'
+      - text: "Wavefronts are encountered more often."
         correct: true
-      - text: 'Yes: approaching sources always sound lower in pitch.'
+      - text: "Wavefront spacing in the air decreases because the listener moves"
         rationale: |
-          You assigned lower pitch to approaching motion. Approaching sources bunch wave crests together, increasing frequency and pitch.
-      - text: 'No: pitch does not change based on relative motion at all.'
+          This uses moving-source spacing changes for a moving observer. Both produce Doppler shifts. Check which object moves during emission.
+      - text: "Wavefronts are encountered less often during approach"
         rationale: |
-          You denied motion Doppler shift. Relative velocity between source and listener shifts perceived frequency.
-      - text: 'Yes: but only for very quiet sounds.'
+          This reverses the encounter-rate change. Motion affects arrival intervals. Check movement toward incoming wavefronts.
+      - text: "No frequency change can occur unless the source moves"
         rationale: |
-          You made Doppler shift depend on volume. Frequency shift depends on relative velocity, independent of sound amplitude.
+          This excludes observer motion from Doppler shifts. A moving siren is the familiar example. Check the relative encounter rate.
     explanation: |
-      Reversing the Doppler direction (assuming approaching means lower pitch) contradicts everyday experience: an ambulance siren clearly rises in pitch as it approaches, not falls.
+      The stationary source sets a fixed wavefront spacing in the air. A listener moving toward it encounters those wavefronts more often. Observed frequency increases.
     approved: true
+
   - id: q-physics-waves-and-sound-0015
-    type: predict-outcome
-    difficulty: exam
+    type: "process-ordering"
+    difficulty: "exam"
     stem: |
-      An ambulance drives past a stationary listener, siren blaring the whole time. Describe the sequence of pitch changes the listener hears, from before the ambulance arrives to after it passes.
+      A steady siren approaches and then recedes from a stationary listener in still air. What is the observed pitch sequence relative to the emitted pitch?
     choices:
-      - text: The pitch sounds higher than the siren's true pitch while approaching, then drops to lower than the true pitch once it has passed and is moving away.
+      - text: "Higher during approach, lower during recession"
         correct: true
-      - text: The pitch sounds lower while approaching, then rises higher once it has passed.
+      - text: "Lower during approach, higher during recession"
         rationale: |
-          You inverted approaching and receding pitch shifts. Approaching generates higher pitch; receding generates lower pitch.
-      - text: The pitch stays exactly the same throughout, since the siren's true frequency never changes.
+          This reverses both shifts. Source motion matters. Check compressed spacing ahead and expanded spacing behind.
+      - text: "Unchanged throughout because emission is steady"
         rationale: |
-          You ignored relative velocity effect. Relative motion shifts observed frequency despite constant emitted frequency.
-      - text: The pitch becomes silent right as the ambulance passes, then returns to normal.
+          This ignores motion between source and listener. The emitted pitch is fixed. Check observed arrival rate.
+      - text: "Higher throughout because the siren remains in motion"
         rationale: |
-          You predicted silence at passage point. Passing point transitions smoothly from higher pitch to lower pitch without silence.
+          This uses motion alone without its direction. The source moves throughout. Check approach versus separation.
     explanation: |
-      While approaching, the source's motion compresses the sound waves, raising the observed pitch above the siren's true pitch. Once it passes and moves away, the waves stretch out, lowering the observed pitch below the true pitch: the classic Doppler shift pattern.
+      Approach brings wavefronts more frequently, raising observed pitch. Recession spaces their arrival farther apart, lowering it.
     approved: true
+
+  - id: q-physics-waves-and-sound-0016
+    approved: false
+    type: "identify"
+    difficulty: "easy"
+    stem: |
+      Which wave property is measured in hertz?
+    choices:
+      - text: "Frequency"
+        correct: true
+      - text: "Wavelength"
+        rationale: |
+          This substitutes spatial repeat length. Both describe wave cycles. Check cycles per second.
+      - text: "Amplitude"
+        rationale: |
+          This substitutes maximum disturbance size. Bigger waves are noticeable. Check the time-based unit.
+      - text: "Propagation speed"
+        rationale: |
+          This substitutes distance per second. Both involve seconds. Check cycles versus distance.
+    explanation: |
+      Hertz means cycles per second. Frequency counts those cycles.
+
+  - id: q-physics-waves-and-sound-0017
+    approved: false
+    type: "predict-outcome"
+    difficulty: "medium"
+    stem: |
+      For a linear wave whose transported power is proportional to amplitude squared, what happens when amplitude doubles?
+    choices:
+      - text: "Power quadruples."
+        correct: true
+      - text: "Power doubles because amplitude doubles"
+        rationale: |
+          This assumes a direct linear relation. Both increase together. Check the stated square dependence.
+      - text: "Power stays unchanged because frequency is unchanged"
+        rationale: |
+          This considers only frequency. Wave power can depend on several properties. Check the explicitly stated amplitude relation.
+      - text: "Power halves because oscillations become farther from equilibrium"
+        rationale: |
+          This reverses the amplitude effect. The disturbance becomes larger. Check the positive square dependence.
+    explanation: |
+      With $P\propto A^2$, changing amplitude to $2A$ makes power proportional to $4A^2$. It quadruples.
+
+  - id: q-physics-waves-and-sound-0018
+    approved: false
+    type: "classify"
+    difficulty: "hard"
+    stem: |
+      Which statement about sound speed is supported by the lesson?
+    choices:
+      - text: "It depends on the medium and its state."
+        correct: true
+      - text: "It is exactly $340\\,\\mathrm{m/s}$ in every material"
+        rationale: |
+          This treats a common air approximation as universal. The number appears in many problems. Check the specified medium.
+      - text: "It changes solely with the sound’s loudness"
+        rationale: |
+          This uses perception to set propagation speed. Loudness is noticeable. Check material properties and conditions.
+      - text: "It must equal light speed because both carry energy"
+        rationale: |
+          This gives all energy-carrying waves one speed. Both are waves. Check their different propagation mechanisms.
+    explanation: |
+      Sound speed depends on the medium and conditions such as temperature. Room-temperature air values are approximations for that situation.
+
+  - id: q-physics-waves-and-sound-0019
+    approved: false
+    type: "predict-outcome"
+    difficulty: "hard"
+    stem: |
+      A periodic wave enters another medium. Its frequency stays fixed and its speed halves. What happens to wavelength?
+    choices:
+      - text: "It halves."
+        correct: true
+      - text: "It doubles because a slower wave stretches out"
+        rationale: |
+          This reverses the speed-wavelength relation. The speed decreases. Check the fixed frequency in $v=f\lambda$.
+      - text: "It stays unchanged because the source is unchanged"
+        rationale: |
+          This extends fixed frequency to fixed wavelength. The source sets frequency. Check the changed speed.
+      - text: "It becomes one-quarter because speed is squared"
+        rationale: |
+          This adds an exponent absent from the relation. Some wave-energy rules use squares. Check the speed equation.
+    explanation: |
+      Wavelength is $\lambda=v/f$. At fixed frequency, halving speed halves wavelength.
+
+  - id: q-physics-waves-and-sound-0020
+    approved: false
+    type: "compare-contrast"
+    difficulty: "exam"
+    stem: |
+      Why can electromagnetic waves be transverse in vacuum while a transverse string wave needs a string?
+    choices:
+      - text: "Fields oscillate in light; matter oscillates in the string."
+        correct: true
+      - text: "Vacuum contains a hidden string that vibrates for every light wave"
+        rationale: |
+          This adds a material medium where none is required. The string example is concrete. Check the electromagnetic field description.
+      - text: "Electromagnetic waves are never transverse without air"
+        rationale: |
+          This makes transverse light require matter. Mechanical transverse waves do use matter. Check field oscillations in vacuum.
+      - text: "String particles travel permanently alongside each passing crest"
+        rationale: |
+          This confuses local oscillation with bulk transport. The disturbance travels. Check the particles’ motion around equilibrium.
+    explanation: |
+      In light, electric and magnetic fields oscillate perpendicular to propagation. They do not need material particles. In a string wave, the material itself oscillates.

@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pantas/core/ui/components/board_button.dart';
-import 'package:pantas/core/ui/components/faint_bars.dart';
-import 'package:pantas/core/ui/components/ink_table_row.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
+import 'package:pantas/core/ui/components/list_row.dart';
+import 'package:pantas/core/ui/components/loading_shapes.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_icon_button.dart';
+import 'package:pantas/core/ui/components/toast.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/features/wrapped/application/wrapped_providers.dart';
 import 'package:pantas/features/wrapped/application/wrapped_share_flow.dart';
 import 'package:pantas/features/wrapped/data/user_metrics_artifact_repository.dart';
@@ -29,14 +33,15 @@ class _WrappedRevealPageState extends ConsumerState<WrappedRevealPage> {
 
   @override
   Widget build(BuildContext context) {
-    final styles = context.textStyles;
+    final styles = context.type;
     final colors = context.colors;
     final asyncEntry = ref.watch(wrappedArtifactProvider(widget.artifactId));
+    firstScreenReady(context, ref, ready: !asyncEntry.isLoading);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Wrapped'),
         actions: [
-          IconButton(
+          PantasIconButton(
             icon: const Icon(Icons.collections_bookmark_outlined),
             tooltip: 'My shared cards',
             onPressed: () => Navigator.of(context).push(
@@ -49,16 +54,21 @@ class _WrappedRevealPageState extends ConsumerState<WrappedRevealPage> {
       ),
       body: asyncEntry.when(
         loading: () => ListView(
-          padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
-          children: const [FaintBars()],
+          padding: const EdgeInsets.fromLTRB(
+            PantasSpace.s20,
+            PantasSpace.s24,
+            PantasSpace.s20,
+            PantasSpace.s24,
+          ),
+          children: const [LoadingShapes()],
         ),
         error: (_, __) => Center(
           child: Padding(
-            padding: const EdgeInsets.all(24),
+            padding: const EdgeInsets.all(PantasSpace.s24),
             child: Text(
               "Your Wrapped needs a connection. It'll be here when you're "
               'back.',
-              style: styles.bodyMedium.copyWith(color: colors.inkMuted),
+              style: styles.subhead.copyWith(color: colors.secondaryLabel),
               textAlign: TextAlign.center,
             ),
           ),
@@ -67,45 +77,55 @@ class _WrappedRevealPageState extends ConsumerState<WrappedRevealPage> {
           if (entry == null) {
             return Center(
               child: Padding(
-                padding: const EdgeInsets.all(24),
+                padding: const EdgeInsets.all(PantasSpace.s24),
                 child: Text(
                   "Your Wrapped needs a connection. It'll be here when you're "
                   'back.',
-                  style: styles.bodyMedium.copyWith(color: colors.inkMuted),
+                  style: styles.subhead.copyWith(color: colors.secondaryLabel),
                   textAlign: TextAlign.center,
                 ),
               ),
             );
           }
           return ListView(
-            padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
+            padding: const EdgeInsets.fromLTRB(
+              PantasSpace.s20,
+              PantasSpace.s24,
+              PantasSpace.s20,
+              PantasSpace.s24,
+            ),
             children: [
-              Text(entry.payload.title, style: styles.headlineMedium),
-              const SizedBox(height: 12),
+              Text(entry.payload.title, style: styles.sectionHero),
+              const SizedBox(height: PantasSpace.s12),
               for (final slide in entry.payload.slides)
-                InkTableRow(title: slide.title, subtitle: slide.body),
-              const SizedBox(height: 18),
+                ListRow(
+                  title: slide.title,
+                  subtitle: slide.body,
+                  variant: ListRowVariant.value,
+                  divider: true,
+                ),
+              const SizedBox(height: PantasSpace.s18),
               SharePrivacySheet(
                 selection: _selection,
                 onChanged: (selection) =>
                     setState(() => _selection = selection),
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: PantasSpace.s12),
               if (_errorMessage != null) ...[
                 Text(
                   _errorMessage!,
-                  style: styles.bodySmall.copyWith(color: colors.rust),
+                  style: styles.subhead.copyWith(color: colors.destructive),
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: PantasSpace.s8),
               ],
-              BoardButton(
+              PantasButton(
                 label: _sharing ? 'Rendering...' : 'Share PNG',
                 onPressed: _sharing ? null : () => _share(entry),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: PantasSpace.s8),
               Text(
-                'pantas.app/wrapped',
-                style: styles.labelSmall.copyWith(color: colors.inkMuted),
+                'pantas.study/wrapped',
+                style: styles.footnote.copyWith(color: colors.secondaryLabel),
               ),
             ],
           );
@@ -130,9 +150,7 @@ class _WrappedRevealPageState extends ConsumerState<WrappedRevealPage> {
       );
       ref.invalidate(wrappedArtifactProvider(widget.artifactId));
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('PNG rendered for sharing.')),
-        );
+        showPantasToast(context, 'PNG rendered for sharing.');
       }
     } catch (_) {
       if (mounted) {

@@ -1,0 +1,114 @@
+
+■ Clear
+  QZPicker_n31  13000ms  linear  (loops)
+          0ms  opacity:0;[then linear]
+       1500ms  (holds) [then linear]
+       1700ms  opacity:1;[then linear]
+      12700ms  (holds) [then linear]
+      12701ms  opacity:0;[then linear]
+      13000ms  (holds) [then linear]
+
+■ <div> background: #0B7A68  (in: Algebra)
+  QZPicker_n24  13000ms  linear  (loops)
+          0ms  opacity:0;transform:scale(.5);[then cubic-bezier(.3,1.5,.5,1)]
+       1300ms  (holds) [then cubic-bezier(.3,1.5,.5,1)]
+       1520ms  opacity:1;transform:none;[then cubic-bezier(.3,1.5,.5,1)]
+      12700ms  (holds) [then cubic-bezier(.3,1.5,.5,1)]
+      12701ms  opacity:0;transform:scale(.5);[then cubic-bezier(.3,1.5,.5,1)]
+      13000ms  (holds) [then cubic-bezier(.3,1.5,.5,1)]
+
+■ <div> background: #0B7A68  (in: Geometry)
+  QZPicker_n25  13000ms  linear  (loops)
+          0ms  opacity:0;transform:scale(.5);[then cubic-bezier(.3,1.5,.5,1)]
+       5000ms  (holds) [then cubic-bezier(.3,1.5,.5,1)]
+       5220ms  opacity:1;transform:none;[then cubic-bezier(.3,1.5,.5,1)]
+      12700ms  (holds) [then cubic-bezier(.3,1.5,.5,1)]
+      12701ms  opacity:0;transform:scale(.5);[then cubic-bezier(.3,1.5,.5,1)]
+      13000ms  (holds) [then cubic-bezier(.3,1.5,.5,1)]
+
+■ <div>   (in: Geometry)
+  QZPicker_n21  13000ms  linear  (loops)
+          0ms  transform:none;[then cubic-bezier(.3,.9,.3,1)]
+       3100ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+       3400ms  transform:rotate(180deg);[then cubic-bezier(.3,.9,.3,1)]
+      12700ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+      12701ms  transform:none;[then cubic-bezier(.3,.9,.3,1)]
+      13000ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+
+■ Basic Geometric Concepts Measurement Circles Unread Coordina…
+  QZPicker_n22  13000ms  linear  (loops)
+          0ms  max-height:0px;[then cubic-bezier(.3,.9,.3,1)]
+       3100ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+       3700ms  max-height:400px;[then cubic-bezier(.3,.9,.3,1)]
+      12700ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+      12701ms  max-height:0px;[then cubic-bezier(.3,.9,.3,1)]
+      13000ms  (holds) [then cubic-bezier(.3,.9,.3,1)]
+
+■ <div> background: #0B7A68  (in: Circles Unread)
+  QZPicker_n23  13000ms  linear  (loops)
+          0ms  opacity:0;transform:scale(.5);[then cubic-bezier(.3,1.5,.5,1)]
+       5000ms  (holds) [then cubic-bezier(.3,1.5,.5,1)]
+       5220ms  opacity:1;transform:none;[then cubic-bezier(.3,1.5,.5,1)]
+      12700ms  (holds) [then cubic-bezier(.3,1.5,.5,1)]
+      12701ms  opacity:0;transform:scale(.5);[then cubic-bezier(.3,1.5,.5,1)]
+      13000ms  (holds) [then cubic-bezier(.3,1.5,.5,1)]
+
+■ Nothing picked yet Pick a topic or a lesson
+  QZPicker_n33  13000ms  linear  (loops)
+          0ms  opacity:1;[then steps(1,end)]
+       1500ms  (holds) [then steps(1,end)]
+       1501ms  opacity:0;[then steps(1,end)]
+      12700ms  (holds) [then steps(1,end)]
+      12701ms  opacity:1;[then steps(1,end)]
+      13000ms  (holds) [then steps(1,end)]
+
+■ 5 lessons picked 50 questions · ~45 min
+  QZPicker_n34  13000ms  linear  (loops)
+          0ms  opacity:0;[then steps(1,end)]
+       1500ms  (holds) [then steps(1,end)]
+       1501ms  opacity:1;[then steps(1,end)]
+       5200ms  (holds) [then steps(1,end)]
+       5201ms  opacity:0;[then steps(1,end)]
+      13000ms  (holds) [then steps(1,end)]
+
+■ 6 lessons picked 60 questions · ~54 min
+  QZPicker_n35  13000ms  linear  (loops)
+          0ms  opacity:0;[then steps(1,end)]
+       5200ms  (holds) [then steps(1,end)]
+       5201ms  opacity:1;[then steps(1,end)]
+      12700ms  (holds) [then steps(1,end)]
+      12701ms  opacity:0;[then steps(1,end)]
+      13000ms  (holds) [then steps(1,end)]
+
+■ Start
+  QZPicker_n32  13000ms  linear  (loops)
+          0ms  opacity:.35;[then steps(1,end)]
+       1500ms  (holds) [then steps(1,end)]
+       1501ms  opacity:1;[then steps(1,end)]
+      12700ms  (holds) [then steps(1,end)]
+      12701ms  opacity:.35;[then steps(1,end)]
+      13000ms  (holds) [then steps(1,end)]
+
+■ <div> width: 46px height: 46px background: #1D1D1F  (in: Quiz Clear Customize your own MATHEMATIC…)
+  QZPicker_n36  13000ms  linear  (loops)
+          0ms  opacity:0;transform:scale(.5);[then ease]
+        900ms  (holds) [then ease]
+       1080ms  opacity:.28;transform:scale(1);[then ease]
+       1420ms  opacity:0;transform:scale(1.5);[then ease]
+      13000ms  (holds) [then ease]
+
+■ <div> width: 46px height: 46px background: #1D1D1F  (in: Quiz Clear Customize your own MATHEMATIC…)
+  QZPicker_n37  13000ms  linear  (loops)
+          0ms  opacity:0;transform:scale(.5);[then ease]
+       2700ms  (holds) [then ease]
+       2880ms  opacity:.28;transform:scale(1);[then ease]
+       3220ms  opacity:0;transform:scale(1.5);[then ease]
+      13000ms  (holds) [then ease]
+
+■ <div> width: 46px height: 46px background: #1D1D1F  (in: Quiz Clear Customize your own MATHEMATIC…)
+  QZPicker_n38  13000ms  linear  (loops)
+          0ms  opacity:0;transform:scale(.5);[then ease]
+       4600ms  (holds) [then ease]
+       4780ms  opacity:.28;transform:scale(1);[then ease]
+       5120ms  opacity:0;transform:scale(1.5);[then ease]
+      13000ms  (holds) [then ease]

@@ -1,0 +1,10 @@
+Analyzing 14 items...
+
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/quiz_tab_screen.dart:320:74 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/application/today_question_launch_test.dart:121:55 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/application/today_question_launch_test.dart:127:59 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/application/today_question_launch_test.dart:129:77 • require_trailing_commas
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • test/features/quiz/application/today_question_launch_test.dart:138:81 • lines_longer_than_80_chars
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/application/today_question_launch_test.dart:138:86 • require_trailing_commas
+
+6 issues found. (ran in 1.2s)

@@ -1,0 +1,437 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/track_scope_test.dart
+00:00 +0: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/selected_exam_focus_test.dart: uses persisted selected exam when valid
+00:00 +1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/selected_exam_focus_test.dart: uses persisted selected exam when valid
+00:00 +2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/selected_exam_focus_test.dart: uses persisted selected exam when valid
+00:00 +3: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/selected_exam_focus_test.dart: uses persisted selected exam when valid
+00:00 +4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/selected_exam_focus_test.dart: uses persisted selected exam when valid
+00:00 +5: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/selected_exam_focus_test.dart: uses persisted selected exam when valid
+00:00 +6: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/selected_exam_focus_test.dart: uses persisted selected exam when valid
+00:00 +7: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/selected_exam_focus_test.dart: uses persisted selected exam when valid
+00:00 +8: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/selected_exam_focus_test.dart: uses persisted selected exam when valid
+00:00 +9: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/selected_exam_focus_test.dart: uses persisted selected exam when valid
+00:00 +10: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/track_scope_test.dart: a listed exam with no exclusions scopes to its own topics
+00:00 +11: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/track_scope_test.dart: a listed exam with no exclusions scopes to its own topics
+00:00 +12: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/track_scope_test.dart: a listed exam with no exclusions scopes to its own topics
+00:00 +13: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/track_scope_test.dart: a listed exam with no exclusions scopes to its own topics
+00:00 +14: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/track_scope_test.dart: a listed exam with no exclusions scopes to its own topics
+00:00 +15: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/attempts_repository_history_test.dart: the current attempt cannot count as its own history
+00:00 +16: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/selected_exam_focus_test.dart: needs selection when persisted exam is invalid
+00:00 +17: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/track_scope_test.dart: an exclusion hides a topic
+00:00 +18: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/track_scope_test.dart: a custom track scopes to the whole corpus minus its exclusions
+00:00 +19: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/track_scope_test.dart: a shared subject appears once for a custom track
+00:00 +20: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/track_scope_test.dart: corpus topic counting never hydrates full questions
+00:00 +21: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/track_scope_test.dart: the winning id is the one with more questions
+00:00 +22: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/track_scope_test.dart: scoped subjects drop a subject whose topics are all hidden
+00:00 +23: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/content_repository_selection_test.dart: topic selection returns only lightweight active metadata
+00:00 +24: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/question_flags_repository_test.dart: flagging a question makes it flagged
+00:00 +25: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/question_flags_repository_test.dart: flagging a question makes it flagged
+00:00 +26: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/content_repository_selection_test.dart: selected hydration preserves caller order and existing missing semantics
+00:00 +27: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/question_flags_repository_test.dart: flagging twice keeps one row and refreshes the timestamp
+00:00 +28: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/question_flags_repository_test.dart: flagging twice keeps one row and refreshes the timestamp
+00:00 +29: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/content_repository_selection_test.dart: selected hydration query count grows by bounded chunks
+00:00 +30: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/content_repository_selection_test.dart: selected hydration query count grows by bounded chunks
+00:00 +31: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/content_repository_selection_test.dart: selected hydration query count grows by bounded chunks
+00:00 +32: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/content_repository_selection_test.dart: selected hydration query count grows by bounded chunks
+00:00 +33: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/content_repository_selection_test.dart: selected hydration query count grows by bounded chunks
+00:00 +34: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/content_repository_test.dart: listExams returns exams with their nested subjects
+00:01 +35: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/content_repository_test.dart: questionsByTopic returns hydrated Question models
+00:01 +36: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/content_repository_test.dart: questionById returns null when not found
+00:01 +37: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/content_repository_test.dart: lessonById returns Lesson when found
+00:01 +38: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/custom_track_repository_test.dart: creating a track stores its name and hides nothing it includes
+00:01 +39: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/custom_track_repository_test.dart: creating a track stores its name and hides nothing it includes
+00:01 +40: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/custom_track_repository_test.dart: creating a track stores its name and hides nothing it includes
+00:01 +41: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/custom_track_repository_test.dart: creating a track stores its name and hides nothing it includes
+00:01 +42: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/custom_track_repository_test.dart: creating a track stores its name and hides nothing it includes
+00:01 +43: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/custom_track_repository_test.dart: creating a track stores its name and hides nothing it includes
+00:01 +44: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/custom_track_repository_test.dart: creating a track stores its name and hides nothing it includes
+00:01 +45: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/custom_track_repository_test.dart: creating a track stores its name and hides nothing it includes
+00:01 +46: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/custom_track_repository_test.dart: creating a track stores its name and hides nothing it includes
+00:01 +47: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/custom_track_repository_test.dart: creating a track stores its name and hides nothing it includes
+00:01 +48: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/custom_track_repository_test.dart: creating a track excludes every topic it did not include
+00:01 +49: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/custom_track_repository_test.dart: the created track is custom and is not listed
+00:01 +50: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/custom_track_repository_test.dart: re-including a topic deletes its exclusion
+00:01 +51: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/custom_track_repository_test.dart: setting exclusions never touches attempts or review state
+00:01 +52: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/streak_repository_test.dart: read on empty DB returns the zero-state default
+00:01 +53: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/streak_repository_test.dart: read on empty DB returns the zero-state default
+00:01 +54: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/streak_repository_test.dart: writeCurrent persists current and bumps longest when exceeded
+00:01 +55: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/lesson_bookmarks_repository_test.dart: marking a lesson bookmarks it
+00:01 +56: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/attempts_repository_active_days_test.dart: answers are summed per local day, newest first, active days only
+00:01 +57: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/attempts_repository_test.dart: save persists an attempt with sync_state="pending"
+00:01 +58: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/attempts_repository_test.dart: save persists an attempt with sync_state="pending"
+00:01 +59: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/attempts_repository_test.dart: save persists an attempt with sync_state="pending"
+00:01 +60: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/attempts_repository_test.dart: save persists an attempt with sync_state="pending"
+00:01 +61: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/attempts_repository_test.dart: save persists an attempt with sync_state="pending"
+00:01 +62: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/lesson_bookmarks_repository_test.dart: unmarkAll removes multiple bookmarks
+00:01 +63: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/attempts_repository_test.dart: byId round-trips a saved attempt
+00:01 +64: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/lesson_bookmarks_repository_test.dart: unmarkAll on an empty list does nothing
+00:01 +65: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/app_preferences_repository_test.dart: selectedExamId returns null when unset
+00:01 +66: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/app_preferences_repository_test.dart: selectedExamId returns null when unset
+00:01 +67: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/app_preferences_repository_test.dart: selectedExamId returns null when unset
+00:01 +68: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/app_preferences_repository_test.dart: selectedExamId returns null when unset
+00:01 +69: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/app_preferences_repository_test.dart: selectedExamId returns null when unset
+00:01 +70: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/app_preferences_repository_test.dart: selectedExamId returns null when unset
+00:01 +71: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/app_preferences_repository_test.dart: selectedExamId returns null when unset
+00:01 +72: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/lesson_bookmarks_repository_test.dart: custom order falls back to recency for unplaced rows
+00:01 +73: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/app_preferences_repository_test.dart: setSelectedExamId persists the selected exam id
+00:01 +74: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/app_preferences_repository_test.dart: setSelectedExamId persists the selected exam id
+00:01 +75: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/lesson_bookmarks_repository_test.dart: a new bookmark is pending sync
+00:01 +76: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/app_preferences_repository_test.dart: setSelectedExamId overwrites previous value
+00:01 +77: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/app_preferences_repository_test.dart: hasPassedAgeGate returns false when unset
+00:01 +78: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/app_preferences_repository_test.dart: setPassedAgeGate persists true
+00:01 +79: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/app_preferences_repository_test.dart: setPassedAgeGate overwrites previous value
+00:01 +80: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/app_preferences_repository_test.dart: account preferences stay empty when only onboarding prefs exist
+00:01 +81: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/app_preferences_repository_test.dart: selected exam id falls back from legacy local preferences
+00:01 +82: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/app_preferences_repository_test.dart: the installed content seed version round-trips
+00:01 +83: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/app_preferences_repository_test.dart: the last opened lesson round-trips per exam
+00:01 +84: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/lesson_progress_repository_test.dart: isRead returns false before markRead
+00:01 +85: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/lesson_progress_repository_test.dart: isRead returns false before markRead
+00:01 +86: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/lesson_progress_repository_test.dart: isRead returns false before markRead
+00:01 +87: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/lesson_progress_repository_test.dart: isRead returns false before markRead
+00:01 +88: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/lesson_progress_repository_test.dart: isRead returns false before markRead
+00:01 +89: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/lesson_progress_repository_test.dart: isRead returns false before markRead
+00:01 +90: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/lesson_progress_repository_test.dart: isRead returns false before markRead
+00:01 +91: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/lesson_progress_repository_test.dart: isRead returns false before markRead
+00:01 +92: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/lesson_progress_repository_test.dart: isRead returns false before markRead
+00:01 +93: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/lesson_progress_repository_test.dart: isRead returns true after markRead
+00:01 +94: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/lesson_progress_repository_test.dart: markRead is idempotent
+00:01 +95: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/lesson_progress_repository_test.dart: readLessonIds returns empty set before any reads
+00:01 +96: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/lesson_progress_repository_test.dart: readLessonIds returns all read lesson IDs
+00:01 +97: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/lesson_progress_repository_test.dart: readCountForTopic returns 0 when none read
+00:01 +98: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/lesson_progress_repository_test.dart: readCountForTopic returns correct count when some read
+00:01 +99: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/lesson_progress_repository_test.dart: hasAnyRead returns false on empty DB
+00:01 +100: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/lesson_progress_repository_test.dart: hasAnyRead returns true after any markRead
+00:02 +101: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/review_state_repository_test.dart: upsert + byQuestionId round-trip preserves all FSRS fields
+00:02 +102: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/attempts_repository_count_test.dart: countForExam returns 0 when no attempts exist
+00:02 +103: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/attempts_repository_count_test.dart: countForExam returns 0 when no attempts exist
+00:02 +104: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/attempts_repository_count_test.dart: countForExam returns 0 when no attempts exist
+00:02 +105: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/review_state_repository_test.dart: allStates is empty on a fresh database
+00:02 +106: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/attempts_repository_count_test.dart: countForExam counts only attempts for the given exam
+00:02 +107: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/quiz_nudge_repository_test.dart: hasDismissed returns false before any dismissal
+00:02 +108: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/quiz_nudge_repository_test.dart: hasDismissed returns true after markDismissed
+00:02 +109: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/quiz_nudge_repository_test.dart: markDismissed is idempotent
+00:02 +110: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/assessment_repository_test.dart: resultForExam returns null when no result exists
+00:02 +111: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/attempts_repository_notes_test.dart: concurrent notes preserve different question updates
+00:02 +112: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/attempts_repository_notes_test.dart: concurrent notes preserve different question updates
+00:02 +113: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/attempts_repository_notes_test.dart: concurrent notes preserve different question updates
+00:02 +114: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/attempts_repository_notes_test.dart: concurrent notes preserve different question updates
+00:02 +115: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/attempts_repository_notes_test.dart: concurrent notes preserve different question updates
+00:02 +116: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/attempts_repository_notes_test.dart: note replacement and removal preserve omitted legacy notes
+00:02 +117: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/attempts_repository_notes_test.dart: expired guard after write rolls back note and sync revision
+00:02 +118: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/attempts_repository_notes_test.dart: missing attempt or foreign question never creates progress
+00:02 +119: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/attempts_repository_notes_test.dart: ownership invalidation in recorder tail rolls back completed mutation
+00:02 +120: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/attempts_repository_pace_test.dart: untimed rows neither lower the pace nor count toward seven
+00:02 +121: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/attempts_repository_outcomes_test.dart: questionOutcomes counts attempts and corrects per question
+00:02 +122: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/attempts_repository_outcomes_test.dart: questionOutcomes counts attempts and corrects per question
+00:02 +123: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/tables/question_flags_migration_test.dart: new installs create the question flags table
+00:02 +124: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/tables/question_flags_migration_test.dart: new installs create the question flags table
+00:02 +125: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/tables/question_flags_migration_test.dart: new installs create the question flags table
+00:02 +126: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/tables/question_flags_migration_test.dart: new installs create the question flags table
+00:02 +127: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/tables/question_flags_migration_test.dart: new installs create the question flags table
+00:02 +128: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/tables/question_flags_migration_test.dart: new installs create the question flags table
+00:02 +129: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/tables/question_flags_migration_test.dart: new installs create the question flags table
+00:02 +130: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/attempts_repository_pace_test.dart: questions answered inside the window come back
+00:02 +131: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/repos/attempts_repository_outcomes_test.dart: tallyForDay is empty when nothing was answered
+00:02 +132: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/tables/question_flags_migration_test.dart: a flag row round-trips with a null sort index
+00:02 +133: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/tables/question_flags_migration_test.dart: a flag row round-trips with a null sort index
+00:02 +134: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/tables/lesson_bookmarks_migration_test.dart: new installs create the lesson bookmarks table
+00:03 +135: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/tables/lesson_bookmarks_migration_test.dart: a bookmark row round-trips with a null sort index
+00:03 +136: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/mock_attempt_schema_test.dart: app database creates mock_attempts at schema version 14
+00:03 +137: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/passages_schema_test.dart: schema version is 25 and passages table exists
+00:03 +138: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/sync_schema_test.dart: app database creates structured sync state at current schema version
+00:03 +139: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/sync_schema_test.dart: app database creates structured sync state at current schema version
+00:03 +140: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/sync_schema_test.dart: app database creates structured sync state at current schema version
+00:03 +141: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/sync_schema_test.dart: app database creates structured sync state at current schema version
+00:03 +142: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/sync_schema_test.dart: app database creates structured sync state at current schema version
+00:03 +143: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/sync_schema_test.dart: app database creates structured sync state at current schema version
+00:03 +144: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/passages_schema_test.dart: a question referencing a missing passage fails foreign key
+00:03 +145: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/sync_schema_test.dart: pending_sync scopes row identity by uid and generation
+00:03 +146: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/passages_schema_test.dart: attempts_local preserved across migration to v18
+00:03 +147: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/sync_schema_test.dart: sync_meta stores one value per key
+00:03 +148: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/user_metrics_archetype_schema_test.dart: app database creates local archetype cache table at schema version 14
+00:03 +149: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/user_metrics_archetype_schema_test.dart: app database creates local archetype cache table at schema version 14
+00:03 +150: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/user_metrics_archetype_schema_test.dart: archetype cache stores one row per user exam window and archetype
+00:03 +151: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/user_metrics_archetype_schema_test.dart: archetype cache table is not registered for sync
+00:03 +152: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/seeder_withdrawal_test.dart: withdrawn question is excluded from pickers but accessible by id for history
+00:04 +153: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/preference_migration_test.dart: new installs create device and account preference tables
+00:04 +154: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/preference_migration_test.dart: new installs create device and account preference tables
+00:04 +155: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/app_database_test.dart: inserts and reads an exam row
+00:04 +156: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/app_database_test.dart: inserts and reads an exam row
+00:04 +157: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/custom_track_migration_test.dart: an existing exam reads as not custom
+00:04 +158: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/custom_track_migration_test.dart: the exclusion table exists and takes a row
+00:04 +159: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/quiz_session_schema_test.dart: app database creates quiz session tables at current schema version
+00:04 +160: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/quiz_session_schema_test.dart: app database creates quiz session tables at current schema version
+00:04 +161: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/quiz_session_schema_test.dart: app database creates quiz session tables at current schema version
+00:04 +162: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/quiz_session_schema_test.dart: app database creates quiz session tables at current schema version
+00:04 +163: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/quiz_session_schema_test.dart: quiz_sessions stores ordered questionIdsJson and currentIndex
+00:04 +164: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/quiz_session_schema_test.dart: daily_new_card_intro primary key is user exam day
+00:04 +165: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/quiz_session_schema_test.dart: content database schema does not include quiz session tables
+00:04 +166: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/user_metrics_artifact_schema_test.dart: app database creates local artifact cache table at schema version 14
+00:04 +167: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/user_metrics_artifact_schema_test.dart: artifact cache stores one row per user exam and artifact
+00:04 +168: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/data/user_metrics_artifact_schema_test.dart: artifact cache table is not registered for sync
+00:04 +169: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/exam_date_test.dart: a day-precision date exposes its day
+00:04 +170: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/exam_date_test.dart: a month-precision date refuses to hand over a day
+00:04 +171: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/exam_date_test.dart: monthStart returns the first of the month for day/month precision
+00:04 +172: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/exam_date_test.dart: a day-precision date counts whole days
+00:04 +173: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/exam_date_test.dart: a month-precision date never counts days
+00:04 +174: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/exam_date_test.dart: the time of day never affects the count
+00:04 +175: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/exam_date_test.dart: a day-precision date round-trips through storage
+00:04 +176: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/exam_date_test.dart: a month-precision date stores the first of the month
+00:04 +177: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/exam_date_test.dart: a missing or unreadable value is no date at all
+00:04 +178: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/exam_date_test.dart: equality covers the value and the precision together
+00:04 +179: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/subject_test.dart: Subject round-trips JSON
+00:04 +180: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/attempt_test.dart: an attempt item has no mistake tag until one is noted
+00:04 +181: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/attempt_test.dart: a mistake tag round-trips through json
+00:04 +182: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/attempt_test.dart: items written before tagging existed still parse
+00:04 +183: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/attempt_json_test.dart: other mistake and note survive a JSON round trip
+00:04 +184: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/attempt_json_test.dart: unknown mistake tags decode to null
+00:04 +185: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/attempt_json_test.dart: old JSON has no mistake tag or note
+00:04 +186: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/question_test.dart: a choice carries an optional rationale through json
+00:04 +187: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/question_test.dart: choices authored before rationales still parse
+00:04 +188: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/question_test.dart: a question carries an optional short label through json
+00:04 +189: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/passage_grouping_test.dart: questions sharing a passage are answered in one run
+00:04 +190: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/passage_grouping_test.dart: a set sits where its first question was, not at the front
+00:04 +191: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/passage_grouping_test.dart: questions with no passage keep their order
+00:04 +192: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/passage_grouping_test.dart: an empty passage id counts as free standing
+00:05 +193: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/model_json_roundtrip_test.dart: Exam, Question, Choice and Attempt serialize identically
+00:05 +194: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/lesson_test.dart: Lesson preserves bodyJson opaque list through serialization
+00:05 +195: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/review_state_test.dart: ReviewState round-trips JSON
+00:05 +196: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/review_state_test.dart: seed() creates a "new"-stage state with sensible defaults
+00:05 +197: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/choice_test.dart: Choice round-trips through JSON
+00:05 +198: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/choice_test.dart: Choice equality is value-based
+00:05 +199: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/attempt_origins_test.dart: the assessment and recorded mocks are the untimed origins
+00:05 +200: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/attempt_origins_test.dart: recorded mocks are the only mirrored origin
+00:05 +201: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/exam_test.dart: Exam round-trips JSON including nested subjects
+00:05 +202: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/choice_order_test.dart: the same question always gets the same order
+00:05 +203: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/choice_order_test.dart: no choice is lost, duplicated or altered
+00:05 +204: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/choice_order_test.dart: exactly one choice stays correct
+00:05 +205: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/choice_order_test.dart: labels are re-lettered to match the new positions
+00:05 +206: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/choice_order_test.dart: a two-choice question re-letters to A and B
+00:06 +207: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/choice_order_test.dart: an empty choice list is returned unchanged
+00:06 +208: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/choice_order_test.dart: a corpus of always-first answers spreads across every position
+00:06 +209: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/choice_order_test.dart: different questions do not all get the same permutation
+00:06 +210: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/domain/topic_test.dart: Topic round-trips JSON
+00:06 +211: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/age_gate_test.dart: returns false when preference is unset
+00:06 +212: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/age_gate_test.dart: returns false when preference is unset
+00:06 +213: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/age_gate_test.dart: returns false when preference is unset
+00:06 +214: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/age_gate_test.dart: returns false when preference is unset
+00:06 +215: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/storage/age_gate_test.dart: returns true after setPassedAgeGate(true)
+00:06 +216: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/mapping/track_scope_mapper_test.dart: metadata document round-trips typed custom-track payload
+00:06 +217: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/mapping/track_scope_mapper_test.dart: scope document round-trips typed exclusion payload
+00:06 +218: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/mapping/track_scope_mapper_test.dart: document IDs remain collision-safe for punctuation-heavy identifiers
+00:06 +219: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/mapping/track_scope_mapper_test.dart: payload identity must match encoded document identity
+00:06 +220: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/mapping/custom_blueprint_mapper_test.dart: custom blueprint mapper round-trips deterministic exam identity
+00:06 +221: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/mapping/mock_attempt_mapper_test.dart: mock attempt mapper preserves terminal attempt fields and json snapshots
+00:06 +222: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/mapping/lesson_progress_mapper_test.dart: lesson progress mapper uses lessonId as document id
+00:06 +223: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/mapping/lesson_progress_mapper_test.dart: lesson progress mapper omits local sync state
+00:06 +224: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/mapping/lesson_bookmark_mapper_test.dart: a bookmark row becomes a firestore document
+00:06 +225: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/mapping/lesson_bookmark_mapper_test.dart: a firestore document becomes a synced bookmark row
+00:06 +226: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/mapping/lesson_bookmark_mapper_test.dart: the document id is the lesson id
+00:06 +227: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/mapping/lesson_bookmark_mapper_test.dart: lesson bookmarks are an active sync collection
+00:06 +228: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/mapping/fsrs_card_mapper_test.dart: fsrs mapper preserves scheduling fields and omits dirty
+00:07 +229: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/mapping/question_flag_mapper_test.dart: a flag row becomes a firestore document
+00:07 +230: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/mapping/question_flag_mapper_test.dart: a firestore document becomes a synced flag row
+00:07 +231: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/mapping/question_flag_mapper_test.dart: the document id is the question id
+00:07 +232: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/mapping/question_flag_mapper_test.dart: question flags are an active sync collection
+00:07 +233: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/mapping/review_log_mapper_test.dart: review log mapper round-trips append-only identity and payload
+00:07 +234: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/mapping/design_fields_roundtrip_test.dart: sync preserves quiz mistake tags and notes
+00:07 +235: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/mapping/design_fields_roundtrip_test.dart: sync preserves mock reasons and section wrong and blank counts
+00:07 +236: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/mapping/assessment_mapper_test.dart: assessment mapper uses examId as stable document id
+00:07 +237: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/mapping/assessment_mapper_test.dart: assessment mapper preserves topicScoresJson
+00:07 +238: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/mapping/attempt_mapper_test.dart: attempt mapper includes row fields and sync metadata
+00:07 +239: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/mapping/attempt_mapper_test.dart: attempt mapper round trips nullable completedAt
+00:07 +240: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/mapping/attempt_mapper_test.dart: attempt mapper preserves backward-compatible default origin
+00:07 +241: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/mapping/preferences_mapper_test.dart: preferences mapper converts account prefs to root preferences object
+00:07 +242: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/mapping/preferences_mapper_test.dart: preferences mapper converts root preferences object to account prefs
+00:07 +243: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/mapping/preferences_mapper_test.dart: study days round-trip through the preferences sync mapper
+00:07 +244: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/mapping/preferences_mapper_test.dart: preferences mapper does not include device prefs keys
+00:07 +245: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/mapping/preferences_mapper_test.dart: preferences mapper includes quiz preference keys from account_prefs
+00:07 +246: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_account_transition_gateway_test.dart: ordinary sign-out quiesces and requires flush
+00:07 +247: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_account_transition_gateway_test.dart: sign-out preparation propagates flush failure
+00:07 +248: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_account_transition_gateway_test.dart: account switch quiesces without flushing old identity work
+00:07 +249: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_account_transition_gateway_test.dart: delete account quiesces without flushing data being deleted
+00:07 +250: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/pull_pipeline_test.dart: matching mutation echo adopts server timestamp and clears exact outbox
+00:08 +251: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/pull_pipeline_test.dart: older same-device echo advances a newer pending revision without clobbering it
+00:08 +252: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/pull_pipeline_test.dart: newer remote live row applies and never records a local journal mutation
+00:08 +253: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/pull_pipeline_test.dart: older or equal non-echo remote row is ignored
+00:08 +254: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/pull_pipeline_test.dart: remote tombstone deletes local domain row and retains tombstone version meta
+00:08 +255: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/pull_pipeline_test.dart: complete snapshot reconciles missing known cloud row to known absence
+00:08 +256: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/pull_pipeline_test.dart: complete snapshot preserves legitimate pending knownAbsent create
+00:08 +257: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/pull_pipeline_test.dart: old-generation listener event is quarantined without local mutation
+00:08 +258: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/firestore_gateway_contract_test.dart: known-absent create commits only while cloud remains absent
+00:08 +259: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/firestore_gateway_contract_test.dart: known-version matching update commits and returns authoritative state
+00:08 +260: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/firestore_gateway_contract_test.dart: stale update/delete returns current cloud state without overwriting it
+00:08 +261: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/firestore_gateway_contract_test.dart: known-version against physically missing current row is stale
+00:08 +262: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/firestore_gateway_contract_test.dart: unbound causal state is rejected by conditional commit
+00:08 +263: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/firestore_gateway_contract_test.dart: fake functions gateway records certified activation request
+00:08 +264: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_engine_test.dart: named sync starts exactly ten listeners under active generation
+00:08 +265: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_engine_test.dart: generation switch stops old listeners before local replacement
+00:08 +266: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_engine_test.dart: failed generation replacement leaves old generation quiesced
+00:08 +267: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_engine_test.dart: ordinary local mutations share one debounce timer
+00:08 +268: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_engine_test.dart: default local mutation debounce remains exactly five seconds
+00:08 +269: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_engine_test.dart: reconnect cancels pending debounce and requests immediate flush
+00:08 +270: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/producers/core_local_producers_test.dart: attempt save journals once; maintenance writes do not journal
+00:08 +271: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/producers/core_local_producers_test.dart: attempt save journals once; maintenance writes do not journal
+00:08 +272: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/producers/core_local_producers_test.dart: attempt tagItem causes exactly one resulting mutation through save
+00:08 +273: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/producers/core_local_producers_test.dart: assessment result journals assessments atomically
+00:08 +274: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/producers/core_local_producers_test.dart: review upsert journals fsrs card; markClean does not
+00:08 +275: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/producers/core_local_producers_test.dart: lesson markRead journals lesson progress
+00:08 +276: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/producers/core_local_producers_test.dart: bookmark mark and unmark journal upsert then delete
+00:08 +277: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/producers/core_local_producers_test.dart: bookmark multi-row operations journal every affected logical row
+00:08 +278: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/producers/core_local_producers_test.dart: question flag and unflag journal upsert then delete
+00:08 +279: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/producers/remaining_local_producers_test.dart: review log insert journals one append-only logical row atomically
+00:08 +280: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/producers/remaining_local_producers_test.dart: mock insertStart and flushProgress remain local-only
+00:08 +281: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/producers/remaining_local_producers_test.dart: mock discard journals the final terminal row
+00:08 +282: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/producers/remaining_local_producers_test.dart: mock submit journals terminal statuses but not in-progress state
+00:08 +283: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/producers/remaining_local_producers_test.dart: custom blueprint save journals the authoritative upsert
+00:08 +284: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/local_sync_mutation_recorder_test.dart: no stable active context records unbound provenance
+00:08 +285: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/local_sync_mutation_recorder_test.dart: no stable active context records unbound provenance
+00:08 +286: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/local_sync_mutation_recorder_test.dart: stable context plus accepted absence captures knownAbsent
+00:08 +287: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/local_sync_mutation_recorder_test.dart: stable context plus accepted V1 captures knownVersion V1
+00:08 +288: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/local_sync_mutation_recorder_test.dart: context becoming unstable during transaction records unbound
+00:08 +289: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/local_sync_mutation_recorder_test.dart: repeated edit advances revision and epoch
+00:08 +290: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/local_sync_mutation_recorder_test.dart: newer edit captures V2 while older observed revision retains V1
+00:08 +291: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/local_sync_mutation_recorder_test.dart: transaction rollback rolls back domain journal and epoch
+00:08 +292: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/local_sync_mutation_recorder_test.dart: remote row-meta apply never records a local mutation
+00:08 +293: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/meaningful_progress_test.dart: device-local state and in-progress mocks are not sync-meaningful
+00:08 +294: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/meaningful_progress_test.dart: terminal mock status completed is sync-meaningful
+00:08 +295: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/meaningful_progress_test.dart: terminal mock status discarded is sync-meaningful
+00:08 +296: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/meaningful_progress_test.dart: terminal mock status forfeited is sync-meaningful
+00:08 +297: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/meaningful_progress_test.dart: custom-track metadata alone is sync-meaningful
+00:08 +298: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/bootstrap/full_pull_test.dart: keep-account downloads and validates before destructive replacement
+00:08 +299: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/bootstrap/full_pull_test.dart: keep-account downloads and validates before destructive replacement
+00:08 +300: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/bootstrap/full_pull_test.dart: keep-account downloads and validates before destructive replacement
+00:08 +301: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/bootstrap/full_pull_test.dart: epoch advance after download aborts replacement and preserves concurrent local action
+00:08 +302: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/bootstrap/full_pull_test.dart: successful keep-account replaces Sync state but preserves in-progress mock
+00:08 +303: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/bootstrap/full_pull_test.dart: successful replacement clears represented queue and journal state
+00:08 +304: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/bootstrap/full_pull_test.dart: typed custom-track authority is committed then projected after transaction
+00:08 +305: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/bootstrap/full_pull_test.dart: projection failure leaves authority committed and recoverable marker pending
+00:08 +306: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/bootstrap/full_pull_test.dart: invalid typed custom-track document aborts before local replacement
+00:08 +307: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/bootstrap/full_pull_test.dart: eligibility loss during download stops before next read and local replacement
+00:08 +308: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/bootstrap/full_push_test.dart: keep-device stages exact generation snapshot before activation
+00:09 +309: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/bootstrap/full_push_test.dart: in-progress mock attempt is excluded from keep-device snapshot
+00:09 +310: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/bootstrap/full_push_test.dart: denied staging retains its retry marker and never activates
+00:09 +311: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/bootstrap/full_push_test.dart: epoch advance after snapshot prevents stale generation activation
+00:09 +312: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/bootstrap/full_push_test.dart: epoch advance during activation is not treated as current and is not acknowledged
+00:09 +313: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/bootstrap/full_push_test.dart: successful activation acknowledges only represented journal snapshot
+00:09 +314: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_schema_test.dart: schema 25 keeps the complete structured Sync state
+00:09 +315: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_schema_test.dart: schema 25 keeps the complete structured Sync state
+00:09 +316: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_schema_test.dart: causal base states round-trip without null ambiguity
+00:09 +317: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_schema_test.dart: domain tables do not gain Sync transport identity columns
+00:09 +318: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_schema_test.dart: version 22 migration preserves legacy user change facts as unbound
+00:09 +319: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/providers_test.dart: production default is disabled local-only, never FakeSyncEngine
+00:09 +320: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/providers_test.dart: app bridge can publish feature-neutral entitlement state
+00:09 +321: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/providers_test.dart: manual retry delegates to installed runtime surface
+00:09 +322: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/local_state_wiper_test.dart: wipeAll cancels notifications before deleting synced state
+00:09 +323: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/local_state_wiper_test.dart: wipeAll cancels notifications before deleting synced state
+00:09 +324: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/local_state_wiper_test.dart: wipeAll cancels notifications before deleting synced state
+00:09 +325: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/local_state_wiper_test.dart: AC-5 wipe removes payment cache but preserves trusted device time
+00:09 +326: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/local_state_wiper_test.dart: wipeAll removes the study-days preference
+00:09 +327: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/local_state_wiper_test.dart: wipeAll deletes all account-owned local state
+00:09 +328: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/local_state_wiper_test.dart: wipeAll preserves device and reference state and only deviceId sync meta
+00:09 +329: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/collection_registry_test.dart: active registry is exactly the ten approved mutation sources
+00:09 +330: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/collection_registry_test.dart: preferences and study plan are not active row collections
+00:09 +331: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/collection_registry_test.dart: registry excludes content database tables
+00:09 +332: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/collection_registry_test.dart: mock exam collection accepts only terminal states
+00:09 +333: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/collection_registry_test.dart: every active collection has its mapper and remote adapter
+00:10 +334: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/claim_expiry_test.dart: AC-10 a named Pro claim needs a future numeric expiry
+00:10 +335: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/claim_expiry_test.dart: AC-3 permission-denied refreshes once and retries sync once
+00:10 +336: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/claim_expiry_test.dart: AC-3 claim changes refresh once and stop on another account
+00:10 +337: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/backoff_policy_test.dart: backoff emits 1s through 1024s then caps at 30 minutes
+00:10 +338: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/backoff_policy_test.dart: reconnect reset restarts backoff at 1s
+00:10 +339: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/custom_track_projection_test.dart: projection failure preserves authority and marker for retry
+00:10 +340: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/custom_track_projection_test.dart: projection failure preserves authority and marker for retry
+00:10 +341: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/custom_track_projection_test.dart: projection failure preserves authority and marker for retry
+00:10 +342: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/custom_track_projection_test.dart: projection failure preserves authority and marker for retry
+00:10 +343: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/custom_track_projection_test.dart: projection failure preserves authority and marker for retry
+00:10 +344: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/custom_track_projection_test.dart: projection rebuild is idempotent and reconstructs from AppDatabase
+00:10 +345: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_collection_adapter_test.dart: remote review-log apply and tombstone never journal locally
+00:10 +346: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_collection_adapter_test.dart: remote review-log apply and tombstone never journal locally
+00:10 +347: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_collection_adapter_test.dart: remote typed track_scope applies metadata and scope without feedback
+00:10 +348: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_collection_adapter_test.dart: remote custom blueprint apply and tombstone bypass the recorder
+00:10 +349: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_eligibility_test.dart: anonymous Pro remains off even with server claim
+00:10 +350: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_eligibility_test.dart: named Free remains off even with stale true server claim
+00:10 +351: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_eligibility_test.dart: named RevenueCat Pro without refreshed claim is activating
+00:10 +352: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_eligibility_test.dart: named Pro with refreshed claim is eligible
+00:10 +353: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/production_sync_runtime_engine_test.dart: production engine subscribes to exactly ten active generation paths
+00:10 +354: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/production_sync_runtime_engine_test.dart: ordinary flush publishes activity then settled event
+00:10 +355: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/production_sync_runtime_engine_test.dart: projection recovery failure publishes runtime failure
+00:10 +356: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_active_context_store_test.dart: publishes and clears one stable uid/generation context atomically
+00:10 +357: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_active_context_store_test.dart: malformed stored context is never treated as stable
+00:10 +358: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_outbox_promoter_test.dart: stable bound knownAbsent promotes to matching generation
+00:11 +359: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_outbox_promoter_test.dart: knownVersion V1 is never replaced by later accepted V2
+00:11 +360: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_outbox_promoter_test.dart: unbound event never incrementally promotes after later accepted V2
+00:11 +361: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_outbox_promoter_test.dart: old uid or generation work is never retargeted
+00:11 +362: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_outbox_promoter_test.dart: journal revision N+1 survives acknowledgement of observed N
+00:11 +363: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_engine_listener_test.dart: start opens one listener per active generation subcollection
+00:11 +364: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_engine_listener_test.dart: start opens one listener per active generation subcollection
+00:11 +365: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_engine_listener_test.dart: start is a no-op for anonymous users
+00:11 +366: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_engine_listener_test.dart: stop cancels every listener and clears generation
+00:11 +367: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_engine_listener_test.dart: manual refresh restarts active generation and force flushes queue
+00:11 +368: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/firebase_sync_functions_gateway_test.dart: calls certified activateSyncGeneration callable in asia-southeast1
+00:11 +369: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/firebase_sync_functions_gateway_test.dart: passes null expected generation exactly for first activation
+00:11 +370: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/firebase_sync_functions_gateway_test.dart: normalizes backend generation-conflict details to stable client code
+00:11 +371: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/pending_queue_test.dart: enqueue inserts a new upsert operation
+00:11 +372: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/pending_queue_test.dart: enqueue coalesces duplicate table and row preserving oldest queuedAt
+00:11 +373: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/pending_queue_test.dart: delete followed by upsert leaves an upsert operation
+00:11 +374: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/pending_queue_test.dart: drain returns rows in FIFO order with a configurable limit
+00:11 +375: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/pending_queue_test.dart: markFailure increments attempts and records last error
+00:11 +376: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/pending_queue_test.dart: markSuccess deletes flushed rows
+00:11 +377: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/pending_queue_test.dart: outbox identity is scoped by uid and generation
+00:11 +378: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/pending_queue_test.dart: stale success identity cannot clear a newer outbox revision
+00:11 +379: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/pending_queue_test.dart: stale failure identity cannot mutate a newer outbox revision
+00:11 +380: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/custom_track_authority_test.dart: create commits metadata scope journal and projection before returning
+00:11 +381: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/custom_track_authority_test.dart: rename updates authoritative metadata and its typed journal row
+00:11 +382: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/custom_track_authority_test.dart: setExcluded journals only added and removed typed scope rows
+00:11 +383: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/push_pipeline_test.dart: knownAbsent create commits only while cloud remains absent
+00:11 +384: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/push_pipeline_test.dart: knownAbsent create commits only while cloud remains absent
+00:11 +385: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/push_pipeline_test.dart: knownAbsent create commits only while cloud remains absent
+00:11 +386: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/push_pipeline_test.dart: knownVersion update loses to newer cloud state and reconciles it locally
+00:11 +387: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/push_pipeline_test.dart: knownVersion delete loses to newer cloud state instead of deleting it
+00:11 +388: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/push_pipeline_test.dart: successful delete writes a tombstone and never physically deletes cloud row
+00:11 +389: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/push_pipeline_test.dart: newer local revision survives old successful in-flight acknowledgement
+00:11 +390: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/push_pipeline_test.dart: newer local revision is not marked failed by old in-flight failure
+00:11 +391: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/push_pipeline_test.dart: serialized overlapping flush preserves a re-enqueued newer mutation
+00:11 +392: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/push_pipeline_test.dart: flush is serialized so overlapping calls share one active drain
+00:11 +393: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/generation_repository_test.dart: missing current pointer reports no active generation
+00:11 +394: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/generation_repository_test.dart: missing current pointer reports no active generation
+00:11 +395: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/push_pipeline_test.dart: V1 local base survives V2 remote before promotion and stale local loses
+00:11 +396: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/push_pipeline_test.dart: V1 local base survives V2 remote before promotion and stale local loses
+00:11 +397: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/push_pipeline_test.dart: V1 local base survives V2 remote before promotion and stale local loses
+00:11 +398: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/push_pipeline_test.dart: V1 local base survives V2 remote before promotion and stale local loses
+00:11 +399: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/push_pipeline_test.dart: V1 local base survives V2 remote before promotion and stale local loses
+00:11 +400: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/push_pipeline_test.dart: V1 local base survives V2 remote before promotion and stale local loses
+00:11 +401: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_runtime_controller_test.dart: bootstrap denial retries after cooldown without restart (false)
+00:11 +402: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_runtime_controller_test.dart: bootstrap denial retries after cooldown without restart (true)
+00:11 +403: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/cloud_progress_gateway_test.dart: no active generation means no meaningful cloud progress
+00:11 +404: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_runtime_controller_test.dart: bootstrap retry preserves an explicit keep-device choice
+00:11 +405: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_runtime_controller_test.dart: bootstrap retry preserves an explicit keep-device choice
+00:12 +406: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_runtime_controller_test.dart: bootstrap retry preserves an explicit keep-device choice
+00:12 +407: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_runtime_controller_test.dart: account change cancels a pending bootstrap retry
+00:12 +408: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_runtime_controller_test.dart: sign-out cancels a pending bootstrap retry
+00:12 +409: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_runtime_controller_test.dart: anonymous Pro is off without claim or progress reads
+00:12 +410: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_runtime_controller_test.dart: named Free is off without claim or progress reads
+00:12 +411: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_runtime_controller_test.dart: named RevenueCat Pro without refreshed claim activates with zero Firestore reads
+00:12 +412: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_runtime_controller_test.dart: no generation automatically keeps this device before publishing context
+00:12 +413: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_runtime_controller_test.dart: existing generation plus empty local automatically keeps account
+00:12 +414: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_runtime_controller_test.dart: local meaningful plus empty cloud generation automatically keeps device
+00:12 +415: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_runtime_controller_test.dart: both meaningful blocks engine and context until explicit choice
+00:12 +416: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_runtime_controller_test.dart: eligibility loss clears stable context before a slow engine stop finishes
+00:12 +417: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_runtime_controller_test.dart: all local-only runtime states keep mutations unbound and out of outbox
+00:12 +418: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_runtime_controller_test.dart: entitlement restoration reruns B3 instead of blindly resuming old generation
+00:12 +419: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_runtime_controller_test.dart: UID switch never retargets prior generation-bound outbox work
+00:12 +420: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_runtime_controller_test.dart: auth and entitlement events serialize instead of running concurrent B3 flows
+00:12 +421: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_runtime_controller_test.dart: status cannot be upToDate while journal is unsettled
+00:12 +422: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_runtime_controller_test.dart: status cannot be upToDate while outbox is unsettled
+00:12 +423: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_runtime_controller_test.dart: status cannot be upToDate while projection is unsettled
+00:12 +424: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/sync_runtime_controller_test.dart: failed outbox publishes error instead of generic syncing
+00:12 +425: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/silent_sync_test.dart: Silent sync invariants SettingsHomePage backup subtitle never exposes queue counter or failure
+00:12 +426: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/silent_sync_test.dart: Silent sync invariants SettingsHomePage backup subtitle never exposes queue counter or failure
+00:12 +427: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/silent_sync_test.dart: Silent sync invariants SettingsHomePage backup subtitle never exposes queue counter or failure
+00:12 +428: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/silent_sync_test.dart: Silent sync invariants SettingsHomePage backup subtitle never exposes queue counter or failure
+00:12 +429: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/silent_sync_test.dart: Silent sync invariants SettingsHomePage backup subtitle never exposes queue counter or failure
+00:12 +430: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/silent_sync_test.dart: Silent sync invariants SettingsHomePage backup subtitle never exposes queue counter or failure
+00:13 +431: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/silent_sync_test.dart: Silent sync invariants SettingsHomePage backup subtitle never exposes queue counter or failure
+00:13 +432: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/silent_sync_test.dart: Silent sync invariants SettingsHomePage backup subtitle never exposes queue counter or failure
+00:13 +433: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/silent_sync_test.dart: Silent sync invariants AccountPage sign out never exposes pending queue count
+00:13 +434: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/sync/silent_sync_test.dart: Silent sync invariants BackupPage never displays pending queue counter or network details
+00:13 +435: All tests passed!

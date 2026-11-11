@@ -1,0 +1,8 @@
+Computing fixes in review_batch_repository_test.dart...
+Applying fixes...
+
+review_batch_repository_test.dart
+  prefer_single_quotes - 3 fixes
+  require_trailing_commas - 7 fixes
+
+10 fixes made in 1 file.

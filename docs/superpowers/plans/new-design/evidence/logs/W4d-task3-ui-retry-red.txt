@@ -1,0 +1,43 @@
+
+✅ picker and length states at Brightness.dark scale=1.0
+✅ picker and length states at Brightness.dark scale=2.0
+✅ picker and length states at Brightness.light scale=1.0
+✅ picker and length states at Brightness.light scale=2.0
+✅ singleton Questions overrides, Reset and wheel change
+✅ saved picks discard removed and questionless lesson ids
+✅ many lessons scroll and too-short times cannot be selected
+✅ Total time caption and singleton adjustments stay bounded
+✅ rapid selections and overrides survive leaving and reopening
+✅ Start forwards actual override and keeps picker below run route
+✅ Start failure retains picks without opening a run route
+✅ Total time redistributes counts and keeps its selected budget
+✅ large request displays actual pool caps and derived hours
+✅ counts stay at real capacity when the base requests more
+✅ measured pace replaces the starting estimate on the picker
+::group::❌ failed Start retry retries the launch (failed)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: <2>
+  Actual: <1>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart:634:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart line 634
+The test description was:
+  failed Start retry retries the launch
+════════════════════════════════════════════════════════════════════════════════════════════════════
+Test failed. See exception logs above.
+The test description was: failed Start retry retries the launch
+
+::endgroup::
+
+::error::15 tests passed, 1 failed.

@@ -1,341 +1,413 @@
 meta:
-  subject: language-proficiency
-  topic: grammar-and-structure
-  subtopic: sentence-structure
-  exams: [ upcat, acet, dlsucet, ustet, dost-sei , cse-pro, cse-sub]
+  subject: "language-proficiency"
+  topic: "grammar-and-structure"
+  subtopic: "sentence-structure"
+  exams:
+    - "upcat"
+    - "acet"
+    - "dlsucet"
+    - "ustet"
+    - "dost-sei"
+    - "cse-pro"
+    - "cse-sub"
 questions:
-  - id: q-grammar-and-structure-sentence-structure-0001
-    type: sentence-structure-classification
-    difficulty: easy
+  - id: "q-grammar-and-structure-sentence-structure-0001"
+    type: "sentence-structure-classification"
+    difficulty: "easy"
     stem: |
       Classify this sentence: "The teacher and her students prepared and rehearsed the play."
     choices:
-      - text: Simple
+      - text: "Simple"
         correct: true
-      - text: Compound
+      - text: "Compound"
         rationale: |
-          A compound subject and compound predicate can still belong to one independent clause.
-      - text: Complex
+          This counts the joined subjects or actions as separate clauses. The sentence contains several uses of "and". Check: find a separate subject-and-verb clause for each main statement.
+      - text: "Complex"
         rationale: |
-          There is no dependent clause.
-      - text: Compound-complex
+          This treats a detail about the play as a dependent clause. The sentence includes several grammatical groups. Check: look for a subordinate subject-and-verb group.
+      - text: "Compound-complex"
         rationale: |
-          The sentence has neither multiple independent clauses nor a dependent clause.
+          This invents both extra main clauses and a subordinate clause. The sentence has two subjects and two action words. Check: count clauses rather than individual nouns or verbs.
     explanation: |
-      The sentence has one independent clause, despite its compound subject and predicate, so it is simple.
+      The teacher and students share the actions "prepared and rehearsed." There is one independent clause and no dependent clause, so the sentence is simple.
     approved: true
-
-  - id: q-grammar-and-structure-sentence-structure-0002
-    type: sentence-structure-classification
-    difficulty: medium
+  - id: "q-grammar-and-structure-sentence-structure-0002"
+    type: "sentence-structure-classification"
+    difficulty: "medium"
     stem: |
-      Classify this sentence: "She wanted to travel abroad, but she could not afford the airfare."
+      Using the school clause-counting convention in this lesson, classify this sentence: "She wanted to travel abroad, but she could not afford the airfare."
     choices:
-      - text: Compound
+      - text: "Compound"
         correct: true
-      - text: Simple
+      - text: "Simple"
         rationale: |
-          Two independent clauses are joined by "but."
-      - text: Complex
+          This counts only one statement about the same person. Both main clauses refer to "she". Check: test each side of "but" as its own sentence.
+      - text: "Complex"
         rationale: |
-          Neither clause is dependent.
-      - text: Compound-complex
+          This treats "but" as a subordinating word. The two statements contrast. Check: check whether both clauses can stand alone.
+      - text: "Compound-complex"
         rationale: |
-          There is no dependent clause.
+          This treats "to travel abroad" as an added finite dependent clause. The phrase names another action. Check: use the school clause-counting convention requested here.
     explanation: |
-      "She wanted to travel abroad" and "she could not afford the airfare" can each stand alone; joined together, they form a compound sentence.
+      "She wanted to travel abroad" and "she could not afford the airfare" are independent clauses joined by "but." In the school convention used here, the sentence is compound.
     approved: true
-
-  - id: q-grammar-and-structure-sentence-structure-0003
-    type: sentence-structure-classification
-    difficulty: medium
+  - id: "q-grammar-and-structure-sentence-structure-0003"
+    type: "sentence-structure-classification"
+    difficulty: "medium"
     stem: |
       Classify this sentence: "Although the storm was severe, the town suffered minimal damage."
     choices:
-      - text: Complex
+      - text: "Complex"
         correct: true
-      - text: Simple
+      - text: "Simple"
         rationale: |
-          "Although the storm was severe" is a dependent clause.
-      - text: Compound
+          This leaves out "Although the storm was severe". The main statement about the town is complete. Check: count the opening subordinate clause too.
+      - text: "Compound"
         rationale: |
-          The clause beginning with "although" cannot stand independently in this construction.
-      - text: Compound-complex
+          This treats the although-clause as independent. It has a subject and a verb. Check: include the effect of the opening "although".
+      - text: "Compound-complex"
         rationale: |
-          There is only one independent clause.
+          This counts the storm clause as another main clause. Two subject-and-verb groups are visible. Check: separate main clauses from subordinate clauses.
     explanation: |
-      One dependent clause plus one independent clause makes this a complex sentence.
+      "Although the storm was severe" is dependent. "The town suffered minimal damage" is independent. One of each makes a complex sentence.
     approved: true
-
-  - id: q-grammar-and-structure-sentence-structure-0004
-    type: sentence-structure-classification
-    difficulty: medium
+  - id: "q-grammar-and-structure-sentence-structure-0004"
+    type: "sentence-structure-classification"
+    difficulty: "medium"
     stem: |
       Classify this sentence: "When the bell rang, the students grabbed their bags, and they rushed out the door."
     choices:
-      - text: Compound-complex
+      - text: "Compound-complex"
         correct: true
-      - text: Simple
+      - text: "Simple"
         rationale: |
-          The sentence contains one dependent and two independent clauses.
-      - text: Compound
+          This counts only the bag-grabbing action. All actions concern one event at school. Check: find each subject-and-verb group.
+      - text: "Compound"
         rationale: |
-          This misses the dependent introductory clause.
-      - text: Complex
+          This leaves out the dependent "when" clause. The last two clauses are joined with "and". Check: check for subordination before the main statements.
+      - text: "Complex"
         rationale: |
-          This misses the second independent clause joined by "and."
+          This merges "they rushed out the door" into the first main clause. Both main clauses describe the students. Check: check for the separate subject "they".
     explanation: |
-      "When the bell rang" is dependent; the two following clauses are independent. That combination is compound-complex.
+      "When the bell rang" is dependent. "The students grabbed their bags" and "they rushed out the door" are independent. That combination makes a compound-complex sentence.
     approved: true
-
-  - id: q-grammar-and-structure-sentence-structure-0005
-    type: sentence-structure-classification
-    difficulty: medium
+  - id: "q-grammar-and-structure-sentence-structure-0005"
+    type: "sentence-structure-classification"
+    difficulty: "medium"
     stem: |
-      Classify this sentence: "The children laughed and played in the yard."
+      Classify this sentence: "Near the harbor, the old warehouse behind the fish market remained empty for several months."
     choices:
-      - text: Simple
+      - text: "Simple"
         correct: true
-      - text: Compound
+      - text: "Compound"
         rationale: |
-          "Laughed and played" is a compound predicate within one clause.
-      - text: Complex
+          This treats extra descriptive groups as additional main clauses. The sentence is long. Check: find a separate subject and finite verb for each main clause.
+      - text: "Complex"
         rationale: |
-          There is no dependent clause.
-      - text: Compound-complex
+          This treats the place phrases as dependent clauses. They add details to the action. Check: look for a subject-and-verb group inside each phrase.
+      - text: "Compound-complex"
         rationale: |
-          There is only one independent clause and no dependent clause.
+          This treats length as proof of several clause types. The sentence contains several place details. Check: count main and subordinate clauses separately.
     explanation: |
-      A compound predicate does not create a second clause; this is a simple sentence.
+      The main subject is "the old warehouse," and its verb is "remained." The other groups add place and time details, so there is one independent clause and the sentence is simple.
     approved: true
-
-  - id: q-grammar-and-structure-sentence-structure-0006
-    type: sentence-structure-classification
-    difficulty: medium
+  - id: "q-grammar-and-structure-sentence-structure-0006"
+    type: "sentence-structure-classification"
+    difficulty: "medium"
     stem: |
-      Classify this sentence: "The rain stopped, so we went outside to play."
+      Using the school clause-counting convention in this lesson, classify this sentence: "The rain stopped, so we went outside to play."
     choices:
-      - text: Compound
+      - text: "Compound"
         correct: true
-      - text: Simple
+      - text: "Simple"
         rationale: |
-          The sentence contains two independent clauses.
-      - text: Complex
+          This merges the two statements about the weather and the group. They describe one sequence of events. Check: test each side of "so" as a complete sentence.
+      - text: "Complex"
         rationale: |
-          Neither clause is dependent.
-      - text: Compound-complex
+          This treats "so" as a subordinating connector. It links the second event to a reason. Check: check whether each main statement can stand alone.
+      - text: "Compound-complex"
         rationale: |
-          There is no dependent clause.
+          This counts "to play" as a separate finite subordinate clause. It names an extra activity. Check: apply the stated school clause-counting convention.
     explanation: |
-      Two independent clauses joined by the coordinating conjunction "so" make this compound.
+      "The rain stopped" and "we went outside to play" are independent clauses joined by "so." In the stated school convention, the sentence is compound.
     approved: true
-
-  - id: q-grammar-and-structure-sentence-structure-0007
-    type: sentence-structure-classification
-    difficulty: medium
+  - id: "q-grammar-and-structure-sentence-structure-0007"
+    type: "sentence-structure-classification"
+    difficulty: "medium"
     stem: |
       Classify this sentence: "Since the exam was postponed, the students relaxed for the weekend."
     choices:
-      - text: Complex
+      - text: "Complex"
         correct: true
-      - text: Simple
+      - text: "Simple"
         rationale: |
-          The sentence contains the dependent clause "Since the exam was postponed."
-      - text: Compound
+          This ignores the subordinate exam clause. The students' relaxation is the main point. Check: count the opening "Since" clause too.
+      - text: "Compound"
         rationale: |
-          Only one clause is independent.
-      - text: Compound-complex
+          This treats the exam clause as an independent statement. "The exam was postponed" can stand without "since". Check: include the opening connector.
+      - text: "Compound-complex"
         rationale: |
-          A compound-complex sentence needs at least two independent clauses.
+          This counts the two clauses as two independent clauses. Each has a subject and a verb. Check: test independence rather than just verb presence.
     explanation: |
-      One dependent clause plus one independent clause makes a complex sentence.
+      "Since the exam was postponed" is dependent. "The students relaxed for the weekend" is independent. One of each makes a complex sentence.
     approved: true
-
-  - id: q-grammar-and-structure-sentence-structure-0008
-    type: sentence-structure-classification
-    difficulty: medium
+  - id: "q-grammar-and-structure-sentence-structure-0008"
+    type: "sentence-structure-classification"
+    difficulty: "medium"
     stem: |
-      Classify this sentence: "Because the power went out, the students lit candles, and they continued studying by candlelight."
+      Classify this sentence: "The students lit candles, and they continued studying because the power went out."
     choices:
-      - text: Compound-complex
+      - text: "Compound-complex"
         correct: true
-      - text: Simple
+      - text: "Simple"
         rationale: |
-          The sentence contains three clauses.
-      - text: Compound
+          This treats the whole studying event as one clause. All statements concern the same students. Check: find the separate subjects and verbs.
+      - text: "Compound"
         rationale: |
-          This misses the dependent "because" clause.
-      - text: Complex
+          This ignores the reason clause introduced by "because". The first two main statements are joined by "and". Check: look for a subordinate clause at the end.
+      - text: "Complex"
         rationale: |
-          This misses the second independent clause.
+          This merges the two main statements into one. They refer to the same students. Check: check whether each has its own stated subject.
     explanation: |
-      There is one dependent clause and two independent clauses, so the sentence is compound-complex.
+      "The students lit candles" and "they continued studying" are independent clauses. "Because the power went out" is dependent. Two independent clauses plus a dependent clause make the sentence compound-complex.
     approved: true
-
-  - id: q-grammar-and-structure-sentence-structure-0009
-    type: sentence-structure-classification
-    difficulty: medium
+  - id: "q-grammar-and-structure-sentence-structure-0009"
+    type: "sentence-structure-classification"
+    difficulty: "medium"
     stem: |
       Tukuyin ang uri ng pangungusap: "Umuwi ang bata."
     choices:
-      - text: Payak
+      - text: "Payak"
         correct: true
-      - text: Tambalan
+      - text: "Tambalan"
         rationale: |
-          Iisa lamang ang malayang sugnay.
-      - text: Hugnayan
+          This assumes a short action statement contains joined main clauses. A complete event can involve several ideas. Check: count the actual subject-and-verb statements.
+      - text: "Hugnayan"
         rationale: |
-          Walang di-malayang sugnay.
-      - text: Langkapan
+          This imagines a dependent reason or time clause. A reason for going home could be supplied. Check: use only clauses actually written.
+      - text: "Langkapan"
         rationale: |
-          Walang kombinasyon ng dalawa o higit pang malayang sugnay at di-malayang sugnay.
+          This assumes any complete thought combines several clause types. The statement is a full sentence. Check: look for both multiple main clauses and a dependent clause.
     explanation: |
-      Iisang malayang sugnay lamang ang pangungusap, kaya ito ay payak.
+      "Umuwi ang bata" gives one complete independent statement. It is payak, or simple.
     approved: true
-
-  - id: q-grammar-and-structure-sentence-structure-0010
-    type: sentence-structure-classification
-    difficulty: medium
+  - id: "q-grammar-and-structure-sentence-structure-0010"
+    type: "sentence-structure-classification"
+    difficulty: "medium"
     stem: |
       Tukuyin ang uri ng pangungusap: "Umuwi ang bata ngunit naiwan ang bag niya."
     choices:
-      - text: Tambalan
+      - text: "Tambalan"
         correct: true
-      - text: Payak
+      - text: "Payak"
         rationale: |
-          May dalawang malayang sugnay na pinag-ugnay ng "ngunit."
-      - text: Hugnayan
+          This merges the going-home and left-bag statements. Both concern the child's trip. Check: test each side of "ngunit" on its own.
+      - text: "Hugnayan"
         rationale: |
-          Parehong malaya ang dalawang pangunahing sugnay.
-      - text: Langkapan
+          This treats "ngunit" as a subordinating connector. It marks a contrast. Check: check that both clauses are independent.
+      - text: "Langkapan"
         rationale: |
-          Walang di-malayang sugnay sa pangungusap.
+          This adds a dependent clause that is not stated. The lost bag may suggest a reason or problem. Check: count only the written clauses.
     explanation: |
-      "Umuwi ang bata" at "naiwan ang bag niya" ay dalawang malayang sugnay, kaya tambalan ang pangungusap.
+      "Umuwi ang bata" and "naiwan ang bag niya" are independent statements joined by "ngunit." The sentence is tambalan, or compound.
     approved: true
-
-  - id: q-grammar-and-structure-sentence-structure-0011
-    type: sentence-structure-classification
-    difficulty: medium
+  - id: "q-grammar-and-structure-sentence-structure-0011"
+    type: "sentence-structure-classification"
+    difficulty: "medium"
     stem: |
       Tukuyin ang uri ng pangungusap: "Umuwi ang bata dahil umuulan na."
     choices:
-      - text: Hugnayan
+      - text: "Hugnayan"
         correct: true
-      - text: Payak
+      - text: "Payak"
         rationale: |
-          May di-malayang sugnay na "dahil umuulan na."
-      - text: Tambalan
+          This leaves out the reason clause. The going-home statement is complete. Check: include "dahil umuulan na" in the count.
+      - text: "Tambalan"
         rationale: |
-          Hindi malaya ang sugnay na nagsisimula sa "dahil."
-      - text: Langkapan
+          This treats the reason clause as independent. It contains the action "umuulan". Check: include the effect of "dahil".
+      - text: "Langkapan"
         rationale: |
-          Iisa lamang ang malayang sugnay.
+          This counts the reason clause as another main clause. Two clause groups are visible. Check: count independent and dependent groups separately.
     explanation: |
-      May isang malayang sugnay at isang di-malayang sugnay, kaya hugnayan ang pangungusap.
+      "Umuwi ang bata" is independent, and "dahil umuulan na" is dependent. One of each makes the sentence hugnayan, or complex.
     approved: true
-
-  - id: q-grammar-and-structure-sentence-structure-0012
-    type: sentence-structure-classification
-    difficulty: medium
+  - id: "q-grammar-and-structure-sentence-structure-0012"
+    type: "sentence-structure-classification"
+    difficulty: "medium"
     stem: |
       Tukuyin ang uri ng pangungusap: "Umuwi ang bata at nagsara ang tindahan dahil malakas na ang ulan."
     choices:
-      - text: Langkapan
+      - text: "Langkapan"
         correct: true
-      - text: Payak
+      - text: "Payak"
         rationale: |
-          Higit sa isang sugnay ang pangungusap.
-      - text: Tambalan
+          This counts only one overall event. All the clauses concern the same rainy situation. Check: identify each clause's own subject and action.
+      - text: "Tambalan"
         rationale: |
-          Bukod sa dalawang malayang sugnay, mayroon ding di-malayang sugnay na "dahil malakas na ang ulan."
-      - text: Hugnayan
+          This ignores "dahil malakas na ang ulan". The first two main statements are joined by "at". Check: check for the final reason clause.
+      - text: "Hugnayan"
         rationale: |
-          May dalawang malinaw na malayang sugnay: "Umuwi ang bata" at "nagsara ang tindahan."
+          This merges "Umuwi ang bata" and "nagsara ang tindahan". They are joined within one sentence. Check: test each of those statements independently.
     explanation: |
-      Pinag-ugnay ang dalawang malayang sugnay na "Umuwi ang bata" at "nagsara ang tindahan," at idinagdag ang di-malayang sugnay na "dahil malakas na ang ulan." Sa karaniwang klasipikasyong pampaaralan, ito ay langkapan.
+      "Umuwi ang bata" and "nagsara ang tindahan" are independent. "Dahil malakas na ang ulan" is dependent. The combination is langkapan, or compound-complex.
     approved: true
-
-  - id: q-grammar-and-structure-sentence-structure-0013
-    type: sentence-structure-classification
-    difficulty: hard
+  - id: "q-grammar-and-structure-sentence-structure-0013"
+    type: "sentence-structure-classification"
+    difficulty: "hard"
     stem: |
-      A student sees "The dog and cat played" and classifies it as compound because it has two nouns joined by "and." Is this correct?
+      Which revision of "The dog and cat played" creates a compound sentence with two independent clauses?
     choices:
-      - text: 'No: "dog and cat" is a compound subject within one independent clause, so the sentence remains simple.'
+      - text: "The dog played, and the cat slept."
         correct: true
-      - text: 'Yes: any two nouns joined by "and" create a compound sentence.'
+      - text: "The dog and cat played together in the yard."
         rationale: |
-          Compound sentence classification depends on clauses, not simply the number of nouns.
-      - text: 'Yes: because the nouns name different animals.'
+          This keeps a compound subject inside one clause. Two animals are joined with "and". Check: find a separate complete statement for each main clause.
+      - text: "The dog played while the cat slept in the yard."
         rationale: |
-          The semantic categories of the nouns do not determine sentence structure.
-      - text: 'No: because "played" is in the wrong tense.'
+          This subordinates the cat clause with "while". Both animals have an action. Check: check whether both clauses are independent.
+      - text: "When the dog played, the cat slept in the yard."
         rationale: |
-          The verb tense is grammatically possible and not the reason for the classification.
+          This subordinates the dog clause with "when". The sentence has two subjects and actions. Check: include each connector in the independence test.
     explanation: |
-      A compound subject does not create two clauses; the sentence has one independent clause and is simple.
+      "The dog played" and "the cat slept" are independent clauses. Joining them with "and" makes a compound sentence.
     approved: true
-
-  - id: q-grammar-and-structure-sentence-structure-0014
-    type: sentence-structure-classification
-    difficulty: hard
+  - id: "q-grammar-and-structure-sentence-structure-0014"
+    type: "sentence-structure-classification"
+    difficulty: "hard"
     stem: |
-      A student classifies "Because the meeting ran late, the team missed lunch" as compound because it has two clauses. Is this correct?
+      Which clause inventory explains why "Because the meeting ran late, the team missed lunch" is complex?
     choices:
-      - text: 'No: the first clause is dependent and the second is independent, so the sentence is complex.'
+      - text: "One independent clause and one dependent clause"
         correct: true
-      - text: 'Yes: any sentence with two clauses is compound.'
+      - text: "Two independent clauses with no dependent clause at all"
         rationale: |
-          A compound sentence requires independent clauses.
-      - text: 'Yes: because both clauses contain verbs.'
+          This treats the because-clause as independent. It contains its own subject and verb. Check: include "because" in the stand-alone test.
+      - text: "One independent clause with no dependent clause at all"
         rationale: |
-          Having a verb does not make a clause independent.
-      - text: 'No: because the sentence has only one clause.'
+          This counts only the main statement about missing lunch. That statement can stand alone. Check: count the opening reason clause too.
+      - text: "Two independent clauses and one dependent clause combined"
         rationale: |
-          It has two clauses, one dependent and one independent.
+          This imagines another main statement. The sentence has several nouns and verbs. Check: identify an actual second independent clause.
     explanation: |
-      One dependent clause plus one independent clause makes this complex, not compound.
+      "Because the meeting ran late" is dependent. "The team missed lunch" is independent. This inventory makes the sentence complex.
     approved: true
-
-  - id: q-grammar-and-structure-sentence-structure-0015
-    type: sentence-structure-classification
-    difficulty: hard
+  - id: "q-grammar-and-structure-sentence-structure-0015"
+    type: "sentence-structure-classification"
+    difficulty: "hard"
     stem: |
-      A student classifies "Although she was nervous, she gave an excellent speech" as compound-complex. Is this correct?
+      Classify "If the rain stops when the guests arrive, we will open the hall."
     choices:
-      - text: 'No: it has one dependent clause and one independent clause, so it is complex.'
+      - text: "Complex"
         correct: true
-      - text: 'Yes: its length makes it compound-complex.'
+      - text: "Simple"
         rationale: |
-          Sentence length does not determine clause classification.
-      - text: 'Yes: any dependent clause makes a sentence compound-complex.'
+          This ignores the two conditional clauses. There is only one main action. Check: count the clauses introduced by "if" and "when".
+      - text: "Compound"
         rationale: |
-          Compound-complex structure also requires at least two independent clauses.
-      - text: 'No: it contains no dependent clause.'
+          This treats every clause as independent. Several clauses appear in the sentence. Check: check the subordinate connectors.
+      - text: "Compound-complex"
         rationale: |
-          "Although she was nervous" is a dependent clause.
+          This counts multiple dependent clauses as multiple main clauses. The sentence contains more than two clauses. Check: count independent clauses separately.
     explanation: |
-      A compound-complex sentence needs at least two independent clauses plus a dependent clause. This sentence has only one independent clause.
+      "We will open the hall" is the only independent clause. "If the rain stops" and "when the guests arrive" are dependent, so the sentence is complex.
     approved: true
-
-  - id: q-grammar-and-structure-sentence-structure-0016
-    type: sentence-structure-classification
-    difficulty: exam
+  - id: "q-grammar-and-structure-sentence-structure-0016"
+    type: "sentence-structure-classification"
+    difficulty: "exam"
     stem: |
       Classify this sentence: "Since the flight was delayed, the passengers waited in the lounge, and some of them ordered food, but others simply read books."
     choices:
-      - text: 'Compound-complex: one dependent clause plus three independent clauses'
+      - text: "Compound-complex"
         correct: true
-      - text: 'Complex: one dependent clause plus one independent clause'
+      - text: "Complex: one dependent clause plus one independent clause"
         rationale: |
-          There are three independent clauses after the introductory dependent clause.
-      - text: 'Compound: three independent clauses with no dependent clause'
+          This merges three separate main statements into one. All concern the waiting passengers. Check: identify each separate subject-and-verb main clause.
+      - text: "Compound: three independent clauses with no dependent clause"
         rationale: |
-          "Since the flight was delayed" is dependent.
-      - text: 'Simple: one clause overall'
+          This ignores the opening "Since" clause. The main statements are joined by coordinating connectors. Check: count the subordinate opening too.
+      - text: "Simple: one clause overall"
         rationale: |
-          The sentence contains four clauses in total.
+          This treats a long series of statements as one clause. All events occur during the same delay. Check: look for the subjects "passengers," "some," and "others".
     explanation: |
-      The introductory "since" clause is dependent, followed by three independent clauses, so the sentence is compound-complex.
+      "Since the flight was delayed" is dependent. "The passengers waited," "some of them ordered food," and "others simply read books" are three independent statements. That combination makes the sentence compound-complex.
     approved: true
+  - id: "q-grammar-and-structure-sentence-structure-0017"
+    type: "sentence-structure-classification"
+    difficulty: "easy"
+    stem: |
+      Classify "The clinic reopened; appointments resumed."
+    choices:
+      - text: "Compound"
+        correct: true
+      - text: "Simple"
+        rationale: |
+          This counts the single punctuation line as one clause. There is no coordinating word such as "and". Check: test both sides of the semicolon as sentences.
+      - text: "Complex"
+        rationale: |
+          This treats the semicolon as a subordinating connector. It links the two statements. Check: check whether either clause depends on the other.
+      - text: "Compound-complex"
+        rationale: |
+          This adds a dependent clause that is not present. Two clauses are already visible. Check: look for an actual subordinate clause.
+    explanation: |
+      Both "The clinic reopened" and "appointments resumed" are independent clauses. A semicolon joins them, so the sentence is compound.
+    approved: false
+  - id: "q-grammar-and-structure-sentence-structure-0018"
+    type: "sentence-structure-classification"
+    difficulty: "medium"
+    stem: |
+      Which sentence is simple despite beginning with "After"?
+    choices:
+      - text: "After rehearsal, the musicians left."
+        correct: true
+      - text: "After rehearsal ended, the musicians left the hall."
+        rationale: |
+          This treats the whole opening as only a time phrase. The word "after" begins both kinds of groups. Check: check for the opening subject and verb "rehearsal ended".
+      - text: "The musicians left after the rehearsal ended at the hall."
+        rationale: |
+          This misses a dependent clause after the main statement. The main clause comes first. Check: inspect the words following "after".
+      - text: "After the musicians left, the caretaker closed the hall."
+        rationale: |
+          This ignores the subject and verb in the opening clause. A time introduction can look like a phrase. Check: check whether the opening group has its own clause.
+    explanation: |
+      "After rehearsal" is a prepositional phrase giving time. "The musicians left" is the only clause, so the sentence is simple.
+    approved: false
+  - id: "q-grammar-and-structure-sentence-structure-0019"
+    type: "sentence-structure-classification"
+    difficulty: "hard"
+    stem: |
+      Classify "The nurse who checked the records called the patient."
+    choices:
+      - text: "Complex"
+        correct: true
+      - text: "Simple"
+        rationale: |
+          This overlooks the relative clause inside the subject. There is one main action of calling. Check: include "who checked the records" in the count.
+      - text: "Compound"
+        rationale: |
+          This treats the relative clause as an independent statement. Checking and calling are both actions. Check: check how "who" links its clause to "nurse".
+      - text: "Compound-complex"
+        rationale: |
+          This counts the embedded clause as another main clause. The sentence contains two action words. Check: count independent clauses separately from dependent ones.
+    explanation: |
+      "Who checked the records" is a dependent clause describing the nurse. The main clause is "The nurse called the patient." One of each makes the sentence complex.
+    approved: false
+  - id: "q-grammar-and-structure-sentence-structure-0020"
+    type: "sentence-structure-classification"
+    difficulty: "exam"
+    stem: |
+      Delete only "Although the road was flooded" from "Although the road was flooded, the truck arrived, and the driver unloaded the supplies." What structure remains?
+    choices:
+      - text: "Compound"
+        correct: true
+      - text: "Simple"
+        rationale: |
+          This merges two surviving main clauses. Both actions concern the delivery. Check: look for the separate subject "the driver".
+      - text: "Complex"
+        rationale: |
+          This assumes a dependent clause remains after deletion. The original sentence had a subordinate opening. Check: count only the words left after the instructed change.
+      - text: "Compound-complex"
+        rationale: |
+          This retains the original classification after the dependent clause is removed. The two main statements are unchanged. Check: check whether any dependent clause survives.
+    explanation: |
+      The remaining clauses are "The truck arrived" and "the driver unloaded the supplies." Both are independent and joined by "and," so the remaining sentence is compound.
+    approved: false

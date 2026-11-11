@@ -1,0 +1,23 @@
+question_id	status	key_check	changes	severity	note
+q-earth-science-astronomy-weather-and-climate-0001	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-earth-science-astronomy-weather-and-climate-0002	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-earth-science-astronomy-weather-and-climate-0003	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	MEDIUM	Repeated weather-label item replaced with an evidence-selection question.
+q-earth-science-astronomy-weather-and-climate-0004	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	MEDIUM	Repeated climate-label item replaced with climate-change scope.
+q-earth-science-astronomy-weather-and-climate-0005	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-weather-and-climate-0006	CORRECTED	SOLVED-MATCH	explanation;notes;stem	LOW	Removed fixed 10 km ceiling from a boundary that varies.
+q-earth-science-astronomy-weather-and-climate-0007	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	LOW	Removed overly fixed lower boundary and clarified most ozone.
+q-earth-science-astronomy-weather-and-climate-0008	CORRECTED	SOLVED-MATCH	explanation;notes;stem	LOW	Used lesson's ablation framing and avoided untaught coldest-layer label.
+q-earth-science-astronomy-weather-and-climate-0009	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	LOW	Removed a rigid 600 km upper limit and matched variable boundaries.
+q-earth-science-astronomy-weather-and-climate-0010	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-earth-science-astronomy-weather-and-climate-0011	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-earth-science-astronomy-weather-and-climate-0012	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	MEDIUM	Repeated ozone-location item replaced with boundary variability.
+q-earth-science-astronomy-weather-and-climate-0013	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	MEDIUM	Original gave absolute warmth claims without separating gas contact from radiation.
+q-earth-science-astronomy-weather-and-climate-0014	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-weather-and-climate-0015	CORRECTED	SOLVED-MATCH	explanation;notes;stem	HIGH	Original treated frequent typhoons as defining Habagat and implied rigid dates.
+q-earth-science-astronomy-weather-and-climate-0016	CORRECTED	SOLVED-MATCH	explanation;notes;stem	HIGH	Original wrongly presented Amihan as generally dry without the eastern rainfall distinction.
+q-earth-science-astronomy-weather-and-climate-0017	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	HIGH	Original used typhoon conditions as a monsoon definition; duplicate identification replaced.
+q-earth-science-astronomy-weather-and-climate-0018	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	HIGH	Original reinforced universally dry Amihan; now tests regional rainfall.
+q-earth-science-astronomy-weather-and-climate-0019	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	MEDIUM	Original ambiguous intensity description and unrelated distractors replaced.
+q-earth-science-astronomy-weather-and-climate-0020	CORRECTED	SOLVED-MATCH	explanation;notes;choices	HIGH	Original key incorrectly described greenhouse action as trapping incoming solar heat.
+q-earth-science-astronomy-weather-and-climate-0021	CORRECTED	SOLVED-MATCH	explanation;notes;choices	MEDIUM	Weak distractors or answer wording revised.
+q-earth-science-astronomy-weather-and-climate-0022	CORRECTED	SOLVED-MATCH	explanation;notes;stem;choices	HIGH	Original assigned a typhoon to a monsoon; replaced with year-round cyclone interpretation.

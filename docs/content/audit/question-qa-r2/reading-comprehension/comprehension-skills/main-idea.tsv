@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+rc-cs-mi-0001	CORRECTED	SOLVED-MATCH	explanation;notes;passage;choices;type	MEDIUM	Weak choices replaced or explanation reshaped to keep the central point clear.
+rc-cs-mi-0002	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;passage	MEDIUM	Direct retrieval of a percentage is not the main-idea skill; allocation also combines beds and compost.
+rc-cs-mi-0003	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;passage	MEDIUM	Inferring a leader's general preference is outside the main-idea skill.
+rc-cs-mi-0004	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;passage	MEDIUM	Retrieving the youth petition motive is a detail question.
+rc-cs-mi-0005	CORRECTED	SOLVED-MATCH	explanation;notes;passage;choices;type	MEDIUM	Weak choices replaced or explanation reshaped to keep the central point clear.
+rc-cs-mi-0006	CORRECTED	SOLVED-MATCH	explanation;notes;passage;choices;type	MEDIUM	Weak choices replaced or explanation reshaped to keep the central point clear.
+rc-cs-mi-0007	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;passage	MEDIUM	Retrieving a ledger's function is a detail question.
+rc-cs-mi-0008	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;passage	MEDIUM	Explaining customer motives is an inference question.
+rc-cs-mi-0009	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;passage	MEDIUM	Retrieving a credit rule is a detail question.
+rc-cs-mi-0010	CORRECTED	SOLVED-MATCH	explanation;notes;passage;choices;type	MEDIUM	Weak choices replaced or explanation reshaped to keep the central point clear.
+rc-cs-mi-0011	CORRECTED	SOLVED-MATCH	explanation;notes;passage;choices;type	HIGH	Weak choices replaced or explanation reshaped to keep the central point clear. Original source made unverified claims about a real project; relabeled as a fictional account.
+rc-cs-mi-0012	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;passage	HIGH	Retrieving the purpose of dike openings is a detail question. Original source made unverified claims about a real project; relabeled as a fictional account.
+rc-cs-mi-0013	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;passage	HIGH	Inferring scientific methods from site selection is an inference question. Original source made unverified claims about a real project; relabeled as a fictional account.
+rc-cs-mi-0014	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;passage	HIGH	Retrieving two outcomes is a detail question. Original source made unverified claims about a real project; relabeled as a fictional account.
+rc-cs-mi-0015	CORRECTED	SOLVED-MATCH	explanation;notes;passage;choices;type	HIGH	Weak choices replaced or explanation reshaped to keep the central point clear. Original source made unverified claims about a real project; relabeled as a fictional account.
+q-comprehension-skills-main-idea-0016	NEW	NEW	new	NONE	
+q-comprehension-skills-main-idea-0017	NEW	NEW	new	NONE	
+q-comprehension-skills-main-idea-0018	NEW	NEW	new	NONE	
+q-comprehension-skills-main-idea-0019	NEW	NEW	new	NONE	
+q-comprehension-skills-main-idea-0020	NEW	NEW	new	NONE	

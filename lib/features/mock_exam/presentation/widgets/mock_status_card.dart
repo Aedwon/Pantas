@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/components/board_button.dart';
-import 'package:pantas/core/ui/components/ruled_section.dart';
+import 'package:pantas/core/ui/components/grouped_section.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/features/mock_exam/domain/mock_availability.dart';
 
 class MockStatusCard extends StatelessWidget {
@@ -18,12 +19,13 @@ class MockStatusCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textStyles = context.textStyles;
+    final textStyles = context.type;
     final colors = context.colors;
     final (title, action, callback) = switch (availability.state) {
       MockAvailabilityState.available => ('Mock ready', 'Start mock', onStart),
       MockAvailabilityState.cooldown => (
-          'Next mock in ${availability.cooldownRemaining!.inDays} days',
+          'Next mock in ${availability.cooldownRemaining!.inDays} '
+              "${availability.cooldownRemaining!.inDays == 1 ? 'day' : 'days'}",
           'Review results',
           onStart
         ),
@@ -35,22 +37,24 @@ class MockStatusCard extends StatelessWidget {
         ),
     };
 
-    return RuledSection(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(title, style: textStyles.headlineSmall),
-          const SizedBox(height: 4),
-          Text(
-            'A timed exam-style practice run.',
-            style: textStyles.bodySmall.copyWith(color: colors.inkMuted),
-          ),
-          if (action != null) ...[
-            const SizedBox(height: 12),
-            BoardButton(label: action, onPressed: callback),
+    return GroupedSection(
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(title, style: textStyles.emphasized),
+            const SizedBox(height: PantasSpace.s4),
+            Text(
+              'A timed exam-style practice run.',
+              style: textStyles.subhead.copyWith(color: colors.secondaryLabel),
+            ),
+            if (action != null) ...[
+              const SizedBox(height: PantasSpace.s12),
+              PantasButton(label: action, onPressed: callback),
+            ],
           ],
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

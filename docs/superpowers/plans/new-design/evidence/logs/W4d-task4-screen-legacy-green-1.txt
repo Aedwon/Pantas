@@ -1,0 +1,58 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart
+00:00 +0: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: (setUpAll)
+00:00 +0: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_chrome_test.dart: the bar counts the position, not the score
+00:00 +1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_chrome_test.dart: the bar counts the position, not the score
+00:00 +2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_leave_resume_panel_test.dart: Leave refreshes the Quiz panel so an active session shows Resume
+00:00 +3: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_leave_resume_panel_test.dart: Leave refreshes the Quiz panel so an active session shows Resume
+00:00 +4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart: pick then Check and reveal Brightness.dark scale=1.0
+00:00 +5: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart: pick then Check and reveal Brightness.dark scale=1.0
+00:00 +6: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: passes topicId to quick quiz start when provided
+00:01 +7: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_chrome_test.dart: the counter opens the grid
+00:01 +8: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_chrome_test.dart: the counter opens the grid
+00:01 +9: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: quit button shows confirmation while a session is running
+00:01 +10: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart: pick then Check and reveal Brightness.light scale=1.0
+00:01 +11: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_chrome_test.dart: the counter names the current question and is at least 44dp
+00:01 +12: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: submitting an answer reveals the answer in place
+00:01 +13: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart: pick then Check and reveal Brightness.light scale=2.0
+00:01 +14: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_chrome_test.dart: the flag action names and exposes its set state
+00:01 +15: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: prepares the next plain question invisibly before Next
+00:01 +16: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: prepares the next plain question invisibly before Next
+00:01 +17: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: prepares the next plain question invisibly before Next
+00:01 +18: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: prepares the next plain question invisibly before Next
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _KeyWidgetFinder:<Found 0 widgets with key [<'quiz-question-prepaint-cover'>]: []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart:416:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart line 416
+The test description was:
+  prepares the next plain question invisibly before Next
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +18 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart: grid revisits are read-only and return to the live question
+00:01 +18 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: prepares the next plain question invisibly before Next [E]
+  Test failed. See exception logs above.
+  The test description was: prepares the next plain question invisibly before Next
+
+00:01 +19 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart: grid revisits are read-only and return to the live question
+00:01 +20 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: Retry preserves Today mode and topic scope
+00:01 +21 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart: leave asks once for X and system back
+00:01 +22 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart: flag Undo keeps the question and writes no answer
+00:01 +23 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart: long question grid opens at the current place and back only closes it
+00:02 +24 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart: flag uses the drawn two-part pop and toast delay
+00:02 +25 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart: (tearDownAll)
+00:02 +25 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: prepares the next plain question invisibly before Next

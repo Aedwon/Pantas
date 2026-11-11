@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/features/mock_exam/domain/mock_results.dart';
 
 class ScoreHeadline extends StatefulWidget {
@@ -26,7 +28,6 @@ class _ScoreHeadlineState extends State<ScoreHeadline> {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final styles = context.textStyles;
 
     final targetPercent = widget.scoreTotal > 0
         ? (widget.scoreRaw / widget.scoreTotal * 100).round()
@@ -64,10 +65,8 @@ class _ScoreHeadlineState extends State<ScoreHeadline> {
               builder: (context, value, child) {
                 return Text(
                   '${value.round()}',
-                  style: styles.headlineLarge.copyWith(
-                    fontSize: 54,
-                    fontWeight: FontWeight.w700,
-                    letterSpacing: -1.4,
+                  style: PantasType.phoneDisplayM.copyWith(
+                    color: colors.textPrimary,
                     fontFeatures: const [FontFeature.tabularFigures()],
                   ),
                 );
@@ -75,30 +74,21 @@ class _ScoreHeadlineState extends State<ScoreHeadline> {
             ),
             Text(
               '%',
-              style: styles.bodyMedium.copyWith(
-                fontSize: 19,
-                color: colors.inkMuted,
-              ),
+              style: PantasType.phoneBody.copyWith(color: colors.textSecondary),
             ),
           ],
         ),
         if (bandText != null) ...[
-          const SizedBox(height: 7),
+          const SizedBox(height: PantasSpace.s8),
           Text(
             bandText,
-            style: styles.headlineSmall.copyWith(
-              fontSize: 15,
-              fontWeight: FontWeight.w700,
-            ),
+            style: PantasType.webLink.copyWith(color: colors.textPrimary),
           ),
         ],
-        const SizedBox(height: 4),
+        const SizedBox(height: PantasSpace.s4),
         Text(
           '${widget.scoreRaw} of ${widget.scoreTotal}',
-          style: styles.bodySmall.copyWith(
-            fontSize: 12,
-            color: colors.inkMuted,
-          ),
+          style: PantasType.phoneCaption.copyWith(color: colors.textSecondary),
         ),
       ],
     );

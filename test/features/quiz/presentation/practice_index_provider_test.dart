@@ -41,6 +41,8 @@ void main() {
       topicId: 'topic_algebra',
       topicName: 'Algebra',
       questionIds: ['q_1', 'q_2'],
+      lessonIds: ['l_1'],
+      questionLessonMap: {'q_1': 'l_1', 'q_2': 'l_1'},
     );
 
     final index =
@@ -56,8 +58,9 @@ void main() {
       examId: 'exam_cse_pro',
       topicId: 'topic_algebra',
       topicName: 'Algebra',
-      questionIds: ['q_1'],
+      questionIds: ['q_1', 'q_2'],
       lessonIds: ['l_1', 'l_2'],
+      questionLessonMap: {'q_1': 'l_1', 'q_2': 'l_2'},
     );
     await LessonProgressRepository(db, contentDb).markRead('l_1');
 

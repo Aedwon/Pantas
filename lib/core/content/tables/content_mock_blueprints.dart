@@ -24,6 +24,10 @@ class ContentMockBlueprints extends Table {
   /// this practice run leaves out. Null when the exam publishes no total.
   IntColumn get totalPublishedItems => integer().nullable()();
 
+  /// Items the real exam contains that this mock leaves out because they are
+  /// not scored (CSE personal-information items). Null when none are stated.
+  IntColumn get unscoredItems => integer().nullable()();
+
   /// Where the blueprint's numbers came from: `published`, `reported`,
   /// or `unknown`.
   TextColumn get source => text().nullable()();

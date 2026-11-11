@@ -1,492 +1,405 @@
 meta:
-  subject: mathematics
-  topic: statistics-and-probability
-  subtopic: measures-of-central-tendency
-  exams: [upcat, acet, dlsucet, ustet, pupcet]
+  subject: 'mathematics'
+  topic: 'statistics-and-probability'
+  subtopic: 'measures-of-central-tendency'
+  exams: ['upcat', 'acet', 'dlsucet', 'ustet', 'pupcet']
 questions:
-  - id: q-statistics-and-probability-measures-of-central-tendency-0001
-    type: word-problem
-    difficulty: easy
-    stem: |
-      A Grade 11 student in Manila scored $85$, $88$, $90$, $92$, and $95$ on five Mathematics quizzes. What is the mean quiz score?
-    choices:
-      - text: $90$
-        correct: true
-      - text: $88$
-        rationale: |
-          You picked the second lowest score or second value in the list instead of dividing the total sum by 5.
-      - text: $92$
-        rationale: |
-          You picked the second highest score instead of calculating the mean.
-      - text: $450$
-        rationale: |
-          You calculated the sum of all scores but forgot to divide by the total number of quizzes (5).
-    explanation: |
-      To find the mean, sum all the quiz scores and divide by the total number of quizzes ($N = 5$):
-
-      $$\text{Mean} = \frac{85 + 88 + 90 + 92 + 95}{5} = \frac{450}{5} = 90$$
-
-      The student's mean quiz score is $90$.
-
-  - id: q-statistics-and-probability-measures-of-central-tendency-0002
-    type: word-problem
-    difficulty: easy
-    stem: |
-      A sari-sari store owner recorded the number of tray eggs sold each day over one week: $14$, $22$, $9$, $18$, $11$, $25$, and $15$. What is the median number of egg trays sold daily?
-    choices:
-      - text: $15$
-        correct: true
-      - text: $18$
-        rationale: |
-          You picked the middle number from the unsorted list without arranging the data in ascending order first.
-      - text: $16$
-        rationale: |
-          You calculated the mean of the dataset instead of finding the median.
-      - text: $14$
-        rationale: |
-          You picked the first number in the dataset or sorted incorrectly.
-    explanation: |
-      To find the median, first arrange the dataset in ascending order:
-
-      $$9, 11, 14, 15, 18, 22, 25$$
-
-      Since there are $N = 7$ values (an odd number), the median is the middle value at position $\frac{7 + 1}{2} = 4$.
-
-      The $4\text{th}$ value in the ordered list is $15$.
-
-      Note: A common error is taking the middle number ($18$) from the unsorted list without ordering the data first.
-
-  - id: q-statistics-and-probability-measures-of-central-tendency-0003
-    type: word-problem
-    difficulty: easy
-    stem: |
-      A store vendor in Divisoria recorded the t-shirt sizes sold in one morning: Small, Medium, Large, Medium, Extra Large, Medium, and Large. What is the mode of the t-shirt sizes sold?
-    choices:
-      - text: Medium
-        correct: true
-      - text: Large
-        rationale: |
-          You picked the size with the second highest frequency (2) instead of the highest frequency (3).
-      - text: $3$
-        rationale: |
-          You wrote the frequency of the mode instead of naming the modal size itself.
-      - text: No mode
-        rationale: |
-          You assumed a dataset of word categories cannot have a mode.
-    explanation: |
-      The mode is the value or category that appears most frequently in a dataset:
-
-      - Small: $1$
-      - Medium: $3$
-      - Large: $2$
-      - Extra Large: $1$
-
-      Since Medium appears most frequently ($3$ times), the mode is Medium.
-
-  - id: q-statistics-and-probability-measures-of-central-tendency-0004
-    type: which-is-true
-    difficulty: easy
-    stem: |
-      Which of the following statements about measures of central tendency is true?
-    choices:
-      - text: The mean is calculated by taking the sum of all observations and dividing by the total number of observations.
-        correct: true
-      - text: The median must always be one of the exact numbers present in the original dataset.
-        rationale: |
-          You confused datasets of odd length with even-length datasets, where the median is the average of two middle values.
-      - text: A dataset can never have more than one mode.
-        rationale: |
-          You forgot that a dataset with multiple tied highest frequencies is bimodal or multimodal.
-      - text: The mode is equal to $0$ whenever no value repeats in the dataset.
-        rationale: |
-          You confused having no mode with a mode value of 0.
-    explanation: |
-      By definition, the arithmetic mean is the sum of all data values divided by the total number of observations ($N$).
-
-      Why the other options are false:
-      - If a dataset has an even number of observations, the median is the average of the two middle values, which may not be in the original dataset.
-      - A dataset can be bimodal or multimodal if multiple values tie for highest frequency.
-      - If no values repeat, the dataset has "no mode", which is distinct from a mode of $0$.
-
-  - id: q-statistics-and-probability-measures-of-central-tendency-0005
-    type: which-is-true
-    difficulty: easy
-    stem: |
-      Which of the following statements correctly describes the median of a numerical dataset?
-    choices:
-      - text: The dataset must be arranged in numerical order before identifying the middle value.
-        correct: true
-      - text: The median is heavily altered by extremely high or extremely low outlier values.
-        rationale: |
-          You confused the median with the mean, which is sensitive to outliers.
-      - text: The median can only be calculated for nominal qualitative data.
-        rationale: |
-          You chose a data type with no inherent order. A median requires data that can be meaningfully ordered, such as ordinal or quantitative data.
-      - text: If a dataset has an even number of values, the median is the difference between the two middle values.
-        rationale: |
-          You subtracted the two middle values instead of taking their average.
-    explanation: |
-      Finding the median requires arranging the data in ascending or descending order before identifying the middle observation.
-
-      Why the other options are false:
-      - The median is resistant to outliers (the mean is affected by outliers).
-      - A median requires data with a meaningful order, so ordinal data and quantitative data can support a median; nominal data cannot.
-      - For an even number of numerical values, the median is the mean (average) of the two middle values, not their difference.
-
-  - id: q-statistics-and-probability-measures-of-central-tendency-0006
-    type: word-problem
-    difficulty: medium
-    stem: |
-      A barangay health clinic recorded the body weights (in kg) of $6$ toddlers: $11$, $15$, $9$, $20$, $13$, and $10$. What is the median weight of the toddlers?
-    choices:
-      - text: $12$
-        correct: true
-      - text: $13$
-        rationale: |
-          You picked the 4th value of the sorted dataset without averaging it with the 3rd value.
-      - text: $14.5$
-        rationale: |
-          You calculated the mean of the unsorted middle values or averaged the wrong pair of numbers.
-      - text: $11$
-        rationale: |
-          You picked the 3rd value of the sorted dataset without averaging it with the 4th value.
-    explanation: |
-      First, arrange the $6$ weights in ascending order:
-
-      $$9, 10, 11, 13, 15, 20$$
-
-      Since $N = 6$ is even, the median is the average of the two middle values ($3\text{rd}$ and $4\text{th}$ terms):
-
-      $$\text{Median} = \frac{11 + 13}{2} = \frac{24}{2} = 12$$
-
-      The median weight is $12\text{ kg}$.
-
-  - id: q-statistics-and-probability-measures-of-central-tendency-0007
-    type: word-problem
-    difficulty: medium
-    stem: |
-      A college student in Quezon City earned the following grades and corresponding course units in one semester:
-
-      - Mathematics ($3$ units): $1.50$
-      - English ($3$ units): $1.75$
-      - Science ($4$ units): $2.00$
-      - Physical Education ($2$ units): $1.00$
-
-      What is the student's Grade Weighted Average (GWA)?
-    choices:
-      - text: $1.65$
-        correct: true
-      - text: $1.56$
-        rationale: |
-          You calculated an unweighted average of the four grades without accounting for unit weights.
-      - text: $1.75$
-        rationale: |
-          You picked the English grade or assumed an unweighted average of the extreme grades.
-      - text: $1.98$
-        rationale: |
-          You divided the weighted sum 19.75 by 10 units instead of the total 12 units.
-    explanation: |
-      To calculate the Grade Weighted Average (GWA), multiply each grade ($x_i$) by its course units ($w_i$), sum the products, and divide by the total number of units:
-
-      $$\text{Total Units} = 3 + 3 + 4 + 2 = 12$$
-
-      $$\text{Weighted Sum} = (3 \times 1.50) + (3 \times 1.75) + (4 \times 2.00) + (2 \times 1.00)$$
-
-      $$\text{Weighted Sum} = 4.50 + 5.25 + 8.00 + 2.00 = 19.75$$
-
-      $$\text{GWA} = \frac{19.75}{12} \approx 1.6458 \approx 1.65$$
-
-      Note: Taking an unweighted average ($\frac{1.50 + 1.75 + 2.00 + 1.00}{4} = 1.56$) is incorrect because courses have different unit weights.
-
-  - id: q-statistics-and-probability-measures-of-central-tendency-0008
-    type: word-problem
-    difficulty: medium
-    stem: |
-      Maria wants to achieve an overall mean score of $88$ across $5$ examinations. Her scores on the first $4$ examinations are $82$, $86$, $90$, and $87$. What score must she obtain on her $5\text{th}$ examination?
-    choices:
-      - text: $95$
-        correct: true
-      - text: $88$
-        rationale: |
-          You assumed the 5th score must equal the target mean.
-      - text: $86$
-        rationale: |
-          You calculated the mean of the first 4 exams instead of solving for the required 5th exam score.
-      - text: $93$
-        rationale: |
-          You miscalculated the difference between 440 and 345.
-    explanation: |
-      To achieve a mean score of $88$ across $5$ exams, the total sum of all $5$ exam scores must be:
-
-      $$\text{Target Sum} = 5 \times 88 = 440$$
-
-      Calculate the sum of her first $4$ exam scores:
-
-      $$\text{Current Sum} = 82 + 86 + 90 + 87 = 345$$
-
-      Subtract the current sum from the target sum to find the required $5\text{th}$ score:
-
-      $$\text{Score needed} = 440 - 345 = 95$$
-
-      Maria must score $95$ on her $5\text{th}$ examination.
-
-  - id: q-statistics-and-probability-measures-of-central-tendency-0009
-    type: word-problem
-    difficulty: medium
-    stem: |
-      A high school grade level in Pasig has two sections. Section A has $20$ students with a mean score of $80$ on a statistics quiz. Section B has $30$ students with a mean score of $90$ on the same quiz. What is the combined mean score of all $50$ students?
-    choices:
-      - text: $86$
-        correct: true
-      - text: $85$
-        rationale: |
-          You took an unweighted average of 80 and 90 without weighting by the section sizes.
-      - text: $84$
-        rationale: |
-          You subtracted points or weighted Section A higher than Section B.
-      - text: $88$
-        rationale: |
-          You miscalculated the weighted sum numerator as 4400 instead of 4300.
-    explanation: |
-      Find the total points earned by each section:
-
-      $$\text{Section A Total} = 20 \times 80 = 1600$$
-
-      $$\text{Section B Total} = 30 \times 90 = 2700$$
-
-      Sum the total points and divide by the total number of students ($20 + 30 = 50$):
-
-      $$\text{Combined Total} = 1600 + 2700 = 4300$$
-
-      $$\text{Combined Mean} = \frac{4300}{50} = 86$$
-
-      Note: Taking a simple unweighted mean of the two section averages ($\frac{80 + 90}{2} = 85$) is a common error because Section B has more students than Section A.
-
-  - id: q-statistics-and-probability-measures-of-central-tendency-0010
-    type: which-is-true
-    difficulty: medium
-    stem: |
-      A small business in Cebu employs $5$ workers with monthly salaries of ₱$15{,}000$, ₱$16{,}000$, ₱$15{,}500$, ₱$16{,}500$, and an executive owner with a salary of ₱$150{,}000$. Which statement best evaluates the central tendency of these salaries?
-    choices:
-      - text: The median (₱$16{,}000$) is a better measure of central tendency than the mean (₱$42{,}600$) because the mean is heavily skewed by the extreme outlier.
-        correct: true
-      - text: The mean (₱$42{,}600$) is the best measure because it incorporates all values including the owner's salary.
-        rationale: |
-          You ignored how the single high outlier distorts the mean far above typical employee pay.
-      - text: The mode is the best measure because salary values are unique.
-        rationale: |
-          You assumed mode works best on datasets where every value appears once.
-      - text: The mean and median are equally representative of employee income because outliers affect both measures identically.
-        rationale: |
-          You assumed outliers affect the median just as much as the mean.
-    explanation: |
-      Calculate the mean and median:
-
-      $$\text{Mean} = \frac{15000 + 16000 + 15500 + 16500 + 150000}{5} = \frac{213000}{5} = ₱42{,}600$$
-
-      $$\text{Sorted Salaries: } ₱15{,}000, ₱15{,}500, ₱16{,}000, ₱16{,}500, ₱150{,}000$$
-
-      $$\text{Median} = ₱16{,}000$$
-
-      The owner's salary (₱$150{,}000$) is an extreme outlier that inflates the mean to ₱$42{,}600$, which is higher than the salaries of $4$ out of $5$ employees. The median (₱$16{,}000$) far more accurately describes a typical employee's salary.
-
-  - id: q-statistics-and-probability-measures-of-central-tendency-0011
-    type: which-is-true
-    difficulty: medium
-    stem: |
-      Consider the dataset: $4$, $7$, $7$, $9$, $12$, $12$, $15$. Which statement regarding the mode of this dataset is true?
-    choices:
-      - text: The dataset is bimodal with modes $7$ and $12$.
-        correct: true
-      - text: The dataset has no mode because no single number occurs with a strictly higher frequency than all others.
-        rationale: |
-          You assumed a dataset cannot have a mode if two values tie for highest frequency.
-      - text: The mode of the dataset is $0$ because there are two modal values.
-        rationale: |
-          You confused having multiple modal values with a mode of zero.
-      - text: The mode is $9$ because it is located in the middle of the sorted dataset.
-        rationale: |
-          You identified the median instead of the mode.
-    explanation: |
-      Count the frequency of each distinct value in the dataset:
-
-      - $4$: frequency $1$
-      - $7$: frequency $2$
-      - $9$: frequency $1$
-      - $12$: frequency $2$
-      - $15$: frequency $1$
-
-      Both $7$ and $12$ share the highest frequency ($2$). Therefore, the dataset is bimodal with modes $7$ and $12$.
-
-  - id: q-statistics-and-probability-measures-of-central-tendency-0012
-    type: word-problem
-    difficulty: hard
-    stem: |
-      A sari-sari store recorded daily sales (in pesos) for $6$ days: ₱$1{,}000$, ₱$1{,}200$, ₱$1{,}400$, ₱$1{,}600$, ₱$1{,}800$, and ₱$2{,}000$. On the $7\text{th}$ day, a large event order generated ₱$12{,}000$ in sales. What is the difference between the new mean daily sales and the new median daily sales across all $7$ days?
-    choices:
-      - text: ₱$1{,}400$
-        correct: true
-      - text: ₱$0$
-        rationale: |
-          You assumed the mean and median would be equal in this dataset.
-      - text: ₱$1{,}500$
-        rationale: |
-          You miscalculated the mean or median of the 7-day dataset.
-      - text: ₱$1{,}000$
-        rationale: |
-          You subtracted the 6-day median from the 6-day mean instead of using all 7 days.
-    explanation: |
-      Sort the complete $7$-day sales dataset:
-
-      $$₱1{,}000, ₱1{,}200, ₱1{,}400, ₱1{,}600, ₱1{,}800, ₱2{,}000, ₱12{,}000$$
-
-      Calculate the new mean daily sales:
-
-      $$\text{Sum} = 1000 + 1200 + 1400 + 1600 + 1800 + 2000 + 12000 = ₱21{,}000$$
-
-      $$\text{New Mean} = \frac{21000}{7} = ₱3{,}000$$
-
-      Find the new median daily sales ($4\text{th}$ value of $7$ sorted items):
-
-      $$\text{New Median} = ₱1{,}600$$
-
-      Calculate the difference between the new mean and new median:
-
-      $$\text{Difference} = 3000 - 1600 = ₱1{,}400$$
-
-  - id: q-statistics-and-probability-measures-of-central-tendency-0013
-    type: word-problem
-    difficulty: hard
-    stem: |
-      A university student needs to achieve a target Grade Weighted Average (GWA) of $1.75$ across $4$ courses total. The courses and their current grades are:
-
-      - General Education ($3$ units): $2.00$
-      - Mathematics ($4$ units): $1.50$
-      - History ($3$ units): $2.00$
-      - Chemistry ($5$ units): $x$
-
-      What grade $x$ must the student earn in Chemistry to reach an overall GWA of exactly $1.75$?
-    choices:
-      - text: $1.65$
-        correct: true
-      - text: $1.50$
-        rationale: |
-          You assumed the grade must match the Math course grade.
-      - text: $1.75$
-        rationale: |
-          You assumed the Chem grade must equal the overall target GWA.
-      - text: $1.83$
-        rationale: |
-          You calculated an unweighted average of the three current grades.
-    explanation: |
-      Calculate total units:
-
-      $$\text{Total Units} = 3 + 4 + 3 + 5 = 15$$
-
-      Set up the weighted average equation for target GWA $= 1.75$:
-
-      $$\frac{(3 \times 2.00) + (4 \times 1.50) + (3 \times 2.00) + (5 \times x)}{15} = 1.75$$
-
-      Simplify the numerator and solve for $x$:
-
-      $$6.00 + 6.00 + 6.00 + 5x = 15 \times 1.75$$
-
-      $$18.00 + 5x = 26.25$$
-
-      $$5x = 26.25 - 18.00 = 8.25$$
-
-      $$x = \frac{8.25}{5} = 1.65$$
-
-      The student must earn a grade of $1.65$ in Chemistry.
-
-  - id: q-statistics-and-probability-measures-of-central-tendency-0014
-    type: word-problem
-    difficulty: hard
-    stem: |
-      A dataset of $5$ positive integers has a mean of $12$ and a unique mode of $15$. If the median of the dataset is $12$, what is the smallest possible integer that can be present in this dataset?
-    choices:
-      - text: $7$
-        correct: true
-      - text: $6$
-        rationale: |
-          You set b = 12, creating two modes (12 and 15) and violating the unique mode rule.
-      - text: $9$
-        rationale: |
-          You set b = 9 and a = 9, creating two modes (9 and 15) and violating the unique mode rule.
-      - text: $3$
-        rationale: |
-          You assumed b could be 15, violating the ascending order enforced by median 12.
-    explanation: |
-      Let the $5$ sorted positive integers be $a \le b \le c \le d \le e$.
-
-      1. Since $N = 5$, the median is the $3\text{rd}$ term, so $c = 12$.
-      2. The unique mode is $15$. Thus, at least two numbers must be $15$. Since $c = 12$, the two largest numbers must be $d = 15$ and $e = 15$.
-      3. The mean is $12$, so the total sum is $5 \times 12 = 60$:
-
-      $$a + b + 12 + 15 + 15 = 60 \implies a + b + 42 = 60 \implies a + b = 18$$
-
-      4. To minimize $a$, we must maximize $b$. Since $b \le c = 12$, we test $b$:
-         - If $b = 12$, the dataset becomes $6, 12, 12, 15, 15$, which has TWO modes ($12$ and $15$). This violates the requirement of a *unique* mode of $15$.
-         - Thus, $b$ can be at most $11$.
-      5. Setting $b = 11$ gives:
-
-      $$a = 18 - 11 = 7$$
-
-      The dataset $7, 11, 12, 15, 15$ has mean $12$, median $12$, unique mode $15$, and smallest integer $7$.
-
-  - id: q-statistics-and-probability-measures-of-central-tendency-0015
-    type: which-is-true
-    difficulty: hard
-    stem: |
-      Which of the following statements regarding measures of central tendency across different data types and distribution shapes is correct?
-    choices:
-      - text: In a positively (right) skewed distribution, the mean is generally greater than the median, which is greater than the mode ($\text{Mean} > \text{Median} > \text{Mode}$).
-        correct: true
-      - text: For ordinal qualitative data (such as satisfaction ranks), the arithmetic mean is always preferred over the median.
-        rationale: |
-          You selected the mean for ordinal data when the median is actually preferred.
-      - text: The mode is the only measure of central tendency that can be calculated for quantitative ratio-scale data.
-        rationale: |
-          You assumed mean and median cannot be calculated for ratio scale data.
-      - text: Adding a constant $k$ to every observation in a dataset increases the mean by $k$ but leaves the median unchanged.
-        rationale: |
-          You forgot that adding a constant shifts all measures of location by that constant.
-    explanation: |
-      In a positively (right-skewed) distribution, extreme values on the high end tend to pull the arithmetic mean upward more than the median, while the mode often remains near the peak. For a typical unimodal right-skewed distribution, this is summarized heuristically as $\text{Mean} > \text{Median} > \text{Mode}$; it is a common pattern, not a universal identity for every possible distribution.
-
-      Why the other options are false:
-      - For ordinal data, the median is generally more appropriate than an arithmetic mean because spacing between ranks need not be uniform.
-      - Ratio-scale quantitative data allows for mean, median, and mode calculation.
-      - Adding a constant $k$ to all values shifts all measures of location (mean, median, and any mode values) upward by $k$.
-
-  - id: q-statistics-and-probability-measures-of-central-tendency-0016
-    type: which-is-true
-    difficulty: hard
-    stem: |
-      A teacher adds $5$ bonus points to every student's score on a statistics test, and then increases the revised scores by $10\%$. If the original score dataset had mean $\bar{x}$, median $M$, and mode $m$, which statement correctly describes the transformed measures of central tendency?
-    choices:
-      - text: The new mean, median, and mode are $1.10\bar{x} + 5.50$, $1.10M + 5.50$, and $1.10m + 5.50$, respectively.
-        correct: true
-      - text: Only the mean is transformed to $1.10\bar{x} + 5.50$, while the median and mode only increase by $5$.
-        rationale: |
-          You assumed linear transformations do not apply to the median and mode.
-      - text: The mean increases by $10\%$, but the median and mode remain completely unchanged.
-        rationale: |
-          You assumed percentage scaling only affects the mean.
-      - text: The new mean is $1.10\bar{x} + 5.00$ because percentage scaling does not apply to added constant values.
-        rationale: |
-          You forgot to scale the 5-point addition by the 10 percent increase.
-    explanation: |
-      Let $x$ represent an original score. The two operations transform each score $x$ to $y$:
-
-      $$\text{Step 1 (Add 5): } x + 5$$
-
-      $$\text{Step 2 (Increase by 10%): } y = 1.10(x + 5) = 1.10x + 5.50$$
-
-      Because this transformation is strictly increasing, it preserves order and frequency relationships while shifting/scaling the values:
-
-      $$\text{New Mean} = 1.10\bar{x} + 5.50$$
-
-      $$\text{New Median} = 1.10M + 5.50$$
-
-      $$\text{New Mode} = 1.10m + 5.50$$
+- id: 'q-statistics-and-probability-measures-of-central-tendency-0001'
+  type: 'word-problem'
+  difficulty: 'easy'
+  stem: |
+    A Grade 11 student in Manila scored $85$, $88$, $90$, $92$, and $95$ on five Mathematics quizzes. What is the mean quiz score?
+  choices:
+  - text: '$90$'
+    correct: true
+  - text: '$88$'
+    rationale: |
+      This reports one score as the mean. Eighty-eight is near the center. Add all values and divide by five.
+  - text: '$92$'
+    rationale: |
+      This chooses the fourth score. Ninety-two is a high central-looking value. Use the full sum and count.
+  - text: '$450$'
+    rationale: |
+      This reports the total. Four hundred fifty is calculated correctly. Finish dividing by the count.
+  explanation: |
+    The total is $85+88+90+92+95=450$. Divide by five quizzes to get mean $90$.
+- id: 'q-statistics-and-probability-measures-of-central-tendency-0002'
+  type: 'word-problem'
+  difficulty: 'easy'
+  stem: |
+    A sari-sari store owner recorded the number of tray eggs sold each day over one week: $14$, $22$, $9$, $18$, $11$, $25$, and $15$. What is the median number of egg trays sold daily?
+  choices:
+  - text: '$15$'
+    correct: true
+  - text: '$18$'
+    rationale: |
+      This selects the middle entry before sorting. Eighteen is fourth in the written order. Sort first.
+  - text: '$16$'
+    rationale: |
+      This uses a rounded arithmetic mean. The mean is about 16.29. Check whether median or mean is requested.
+  - text: '$14$'
+    rationale: |
+      This chooses the third sorted value. Fourteen lies near the middle. Count the fourth position in seven values.
+  explanation: |
+    Sort the counts: $9,11,14,15,18,22,25$. The fourth of seven values is the middle, so the median is $15$.
+- id: 'q-statistics-and-probability-measures-of-central-tendency-0003'
+  type: 'word-problem'
+  difficulty: 'easy'
+  stem: |
+    A store vendor in Divisoria recorded the t-shirt sizes sold in one morning: Small, Medium, Large, Medium, Extra Large, Medium, and Large. What is the mode of the t-shirt sizes sold?
+  choices:
+  - text: 'Medium'
+    correct: true
+  - text: 'Large'
+    rationale: |
+      This picks the second-most-frequent size. Large appears twice. Compare all frequencies.
+  - text: '$3$'
+    rationale: |
+      This reports the frequency instead of the size. Medium occurs three times. A mode names the value.
+  - text: 'No mode'
+    rationale: |
+      This requires all observations to match. Several sizes appear. Check which value occurs most often.
+  explanation: |
+    Medium appears three times, more than any other size. A mode is the most frequent value, so the mode is Medium.
+- id: 'q-statistics-and-probability-measures-of-central-tendency-0004'
+  type: 'which-is-true'
+  difficulty: 'easy'
+  stem: |
+    Which of the following statements about measures of central tendency is true?
+  choices:
+  - text: 'The mean is the total divided by the count.'
+    correct: true
+  - text: 'The median must always be one of the exact numbers present in the original dataset.'
+    rationale: |
+      This requires an even-set median to be an observed value. Odd sets do have an observed middle. Average the middle pair for an even count.
+  - text: 'A dataset can never have more than one mode.'
+    rationale: |
+      This excludes tied highest frequencies. A single winner may seem necessary. Allow every highest-frequency value as a mode.
+  - text: 'The mode is equal to $0$ whenever no value repeats in the dataset.'
+    rationale: |
+      This invents zero when no value repeats. Zero can sound like no mode. Use the lesson convention of no mode.
+  explanation: |
+    Add all observations to get their total. Divide by the number of observations. This is the definition of the arithmetic mean.
+- id: 'q-statistics-and-probability-measures-of-central-tendency-0005'
+  type: 'which-is-true'
+  difficulty: 'easy'
+  stem: |
+    Which of the following statements correctly describes the median of a numerical dataset?
+  choices:
+  - text: 'Sort values before finding the middle.'
+    correct: true
+  - text: 'The median is heavily altered by extremely high or extremely low outlier values.'
+    rationale: |
+      This treats median like mean. Extreme values can pull the mean. Check that median depends on ordered positions.
+  - text: 'The median can only be calculated for nominal qualitative data.'
+    rationale: |
+      This uses unordered labels as numerical ranks. Qualitative categories can have modes. Check whether meaningful ordering exists.
+  - text: 'If a dataset has an even number of values, the median is the difference between the two middle values.'
+    rationale: |
+      This subtracts the middle pair. Both values are needed. Average them instead.
+  explanation: |
+    Sorting puts the values in numerical order. The median is then the middle value, or the average of the two middle values for an even-sized set.
+- id: 'q-statistics-and-probability-measures-of-central-tendency-0006'
+  type: 'word-problem'
+  difficulty: 'medium'
+  stem: |
+    A barangay health clinic recorded the body weights (in kg) of $6$ toddlers: $11$, $15$, $9$, $20$, $13$, and $10$. What is the median weight of the toddlers?
+  choices:
+  - text: '$12$'
+    correct: true
+  - text: '$13$'
+    rationale: |
+      This takes only the upper middle value. Thirteen is one middle value. Average both.
+  - text: '$14.5$'
+    rationale: |
+      This averages the middle entries before sorting. Nine and twenty are third and fourth as written. Sort first.
+  - text: '$11$'
+    rationale: |
+      This takes only the lower middle value. Eleven is one middle value. Average both.
+  explanation: |
+    Sort the weights: $9,10,11,13,15,20$. The middle pair is $11$ and $13$. Their mean is $\dfrac{11+13}{2}=12$ kg.
+- id: 'q-statistics-and-probability-measures-of-central-tendency-0007'
+  type: 'word-problem'
+  difficulty: 'medium'
+  stem: |
+    A college student in Quezon City earned the following grades and corresponding course units in one semester:
+    
+    - Mathematics ($3$ units): $1.50$
+    - English ($3$ units): $1.75$
+    - Science ($4$ units): $2.00$
+    - Physical Education ($2$ units): $1.00$
+    
+    What is the student's Grade Weighted Average (GWA)?
+    Round to the nearest hundredth.
+  choices:
+  - text: '$1.65$'
+    correct: true
+  - text: '$1.56$'
+    rationale: |
+      This gives every course equal weight. The plain grade mean is 1.5625. Use course units.
+  - text: '$1.75$'
+    rationale: |
+      This copies the English grade. It is one of the listed values. Include every weighted course.
+  - text: '$1.98$'
+    rationale: |
+      This divides the weighted total by ten instead of twelve. Ten is a familiar total weight. Sum these course units.
+  explanation: |
+    The weighted total is $1.50(3)+1.75(3)+2.00(4)+1.00(2)=19.75$. The total weight is $12$. Divide: $\dfrac{19.75}{12}\approx1.6458$, which rounds to $1.65$.
+- id: 'q-statistics-and-probability-measures-of-central-tendency-0008'
+  type: 'word-problem'
+  difficulty: 'medium'
+  stem: |
+    Maria wants to achieve an overall mean score of $88$ across $5$ examinations. Her scores on the first $4$ examinations are $82$, $86$, $90$, and $87$. What score must she obtain on her $5\text{th}$ examination?
+  choices:
+  - text: '$95$'
+    correct: true
+  - text: '$88$'
+    rationale: |
+      This gives the target mean as the missing score. Eighty-eight is the goal. Recover the required total first.
+  - text: '$86$'
+    rationale: |
+      This rounds the current mean. The four scores average 86.25. Check that the fifth score must raise it.
+  - text: '$93$'
+    rationale: |
+      This uses 347 as the known total. It is close to the score sum. Recheck all four additions.
+  explanation: |
+    The required total is $5(88)=440$. The four known scores total $82+86+90+87=345$. The fifth score must be $440-345=95$.
+- id: 'q-statistics-and-probability-measures-of-central-tendency-0009'
+  type: 'word-problem'
+  difficulty: 'medium'
+  stem: |
+    A high school grade level in Pasig has two sections. Section A has $20$ students with a mean score of $80$ on a statistics quiz. Section B has $30$ students with a mean score of $90$ on the same quiz. What is the combined mean score of all $50$ students?
+  choices:
+  - text: '$86$'
+    correct: true
+  - text: '$85$'
+    rationale: |
+      This averages section means equally. There are two sections. Weight by student counts.
+  - text: '$84$'
+    rationale: |
+      This reverses the section weights. Both sizes are stated. Match each mean to its own count.
+  - text: '$4300$'
+    rationale: |
+      This reports the combined total. The two section totals do sum to 4300. Divide by all fifty students.
+  explanation: |
+    The sections have totals $20(80)=1600$ and $30(90)=2700$. The combined mean is $\dfrac{1600+2700}{50}=86$.
+- id: 'q-statistics-and-probability-measures-of-central-tendency-0010'
+  type: 'which-is-true'
+  difficulty: 'medium'
+  stem: |
+    A small business in Cebu has four workers with monthly salaries of ₱$15{,}000$, ₱$16{,}000$, ₱$15{,}500$, ₱$16{,}500$, plus an executive owner with a salary of ₱$150{,}000$. Which statement best evaluates the central tendency of these salaries?
+  choices:
+  - text: 'The median better represents a typical salary.'
+    correct: true
+  - text: 'The mean (₱$42{,}600$) is the best measure because it incorporates all values including the owner''s salary.'
+    rationale: |
+      This assumes using all values guarantees a typical center. The mean does include every salary. Check the effect of the extreme owner salary.
+  - text: 'The mode is the best measure because salary values are unique.'
+    rationale: |
+      This expects unique salaries to yield a mode. Modes describe frequency. Check whether any salary repeats.
+  - text: 'The mean and median are equally representative of employee income because outliers affect both measures identically.'
+    rationale: |
+      This assumes outliers affect mean and median identically. Both measure center. Compare their actual values.
+  explanation: |
+    The sorted salaries have middle value P16000. Their mean is $\dfrac{213000}{5}=\text{P}42600$. The owner salary pulls the mean far above the four ordinary salaries. The median describes their typical center better.
+- id: 'q-statistics-and-probability-measures-of-central-tendency-0011'
+  type: 'which-is-true'
+  difficulty: 'medium'
+  stem: |
+    Consider the dataset: $4$, $7$, $7$, $9$, $12$, $12$, $15$. Which statement regarding the mode of this dataset is true?
+  choices:
+  - text: 'There are two modes: $7$ and $12$.'
+    correct: true
+  - text: 'The dataset has no mode because no single number occurs with a strictly higher frequency than all others.'
+    rationale: |
+      This rejects tied modes. No single value beats the other tied value. Allow every value tied for highest frequency.
+  - text: 'The mode of the dataset is $0$ because there are two modal values.'
+    rationale: |
+      This reports zero because there are two modes. Zero can suggest absence. Name the tied values instead.
+  - text: 'The mode is $9$ because it is located in the middle of the sorted dataset.'
+    rationale: |
+      This reports the median. Nine is the middle value. Compare frequencies for mode.
+  explanation: |
+    Seven and twelve each occur twice. All other values occur once. Both tied most-frequent values are modes.
+- id: 'q-statistics-and-probability-measures-of-central-tendency-0012'
+  type: 'word-problem'
+  difficulty: 'hard'
+  stem: |
+    A sari-sari store recorded daily sales (in pesos) for $6$ days: ₱$1{,}000$, ₱$1{,}200$, ₱$1{,}400$, ₱$1{,}600$, ₱$1{,}800$, and ₱$2{,}000$. On the $7\text{th}$ day, a large event order generated ₱$12{,}000$ in sales. What is the difference between the new mean daily sales and the new median daily sales across all $7$ days?
+  choices:
+  - text: '₱$1{,}400$'
+    correct: true
+  - text: '₱$0$'
+    rationale: |
+      This assumes mean and median must match. Both describe center. Calculate each after adding the outlier.
+  - text: '₱$1{,}500$'
+    rationale: |
+      This keeps the original median 1500. That was the six-day middle-pair average. Recount the middle position with seven days.
+  - text: '₱$1{,}000$'
+    rationale: |
+      This subtracts the maximum ordinary sale 2000 from the new mean. Two thousand is the prior largest sale. Use the median instead.
+  explanation: |
+    The first six sales total P9000. Adding P12000 gives P21000 over seven days, so the new mean is P3000. The sorted middle is P1600. Their difference is P1400.
+- id: 'q-statistics-and-probability-measures-of-central-tendency-0013'
+  type: 'word-problem'
+  difficulty: 'hard'
+  stem: |
+    A university student needs to achieve a target Grade Weighted Average (GWA) of $1.75$ across $4$ courses total. The courses and their current grades are:
+    
+    - General Education ($3$ units): $2.00$
+    - Mathematics ($4$ units): $1.50$
+    - History ($3$ units): $2.00$
+    - Chemistry ($5$ units): $x$
+    
+    What grade $x$ must the student earn in Chemistry to reach an overall GWA of exactly $1.75$?
+  choices:
+  - text: '$1.65$'
+    correct: true
+  - text: '$1.50$'
+    rationale: |
+      This copies the Mathematics grade. It is the lowest known grade. Solve for the missing weighted contribution.
+  - text: '$1.75$'
+    rationale: |
+      This treats the target GWA as the missing grade. The target is given directly. Account for the other course grades.
+  - text: '$1.83$'
+    rationale: |
+      This weights every course equally. A plain target average gives about 1.83. Use all course units.
+  explanation: |
+    The total units are $15$, so the target weighted total is $15(1.75)=26.25$. Known courses contribute $3(2)+4(1.5)+3(2)=18$. Thus $5x=26.25-18=8.25$, giving $x=1.65$.
+- id: 'q-statistics-and-probability-measures-of-central-tendency-0014'
+  type: 'word-problem'
+  difficulty: 'hard'
+  stem: |
+    A dataset of $5$ positive integers has a mean of $12$ and a unique mode of $15$. If the median of the dataset is $12$, what is the smallest possible integer that can be present in this dataset?
+  choices:
+  - text: '$7$'
+    correct: true
+  - text: '$6$'
+    rationale: |
+      This allows twelve as the second value. Six plus twelve gives the required eighteen. Check that repeated twelve would tie fifteen as mode.
+  - text: '$9$'
+    rationale: |
+      This makes the first two values both nine. They total eighteen. Check that nine would tie the highest frequency.
+  - text: '$3$'
+    rationale: |
+      This allows fifteen among the first two values. Three plus fifteen gives eighteen. Check their ordered positions below the median.
+  explanation: |
+    The total is $5(12)=60$. The sorted last two values must be $15,15$, and the middle value is $12$. The first two must total $18$. The second cannot be $12$, which would tie the mode, so it is at most $11$. The smallest possible first value is therefore $18-11=7$. The set $7,11,12,15,15$ meets all conditions.
+- id: 'q-statistics-and-probability-measures-of-central-tendency-0015'
+  type: 'which-is-true'
+  difficulty: 'hard'
+  stem: |
+    Which of the following statements regarding measures of central tendency across different data types and distribution shapes is correct?
+  choices:
+  - text: 'In a positively (right) skewed distribution, the mean is generally greater than the median, which is greater than the mode ($\text{Mean} > \text{Median} > \text{Mode}$).'
+    correct: true
+  - text: 'For ordinal qualitative data (such as satisfaction ranks), the arithmetic mean is always preferred over the median.'
+    rationale: |
+      This treats ranks as equal numerical gaps. Ranking categories have an order. Check whether arithmetic differences are meaningful.
+  - text: 'The mode is the only measure of central tendency that can be calculated for quantitative ratio-scale data.'
+    rationale: |
+      This excludes mean and median from numerical data. A mode can use such data. Check that numerical values also support sums and ordering.
+  - text: 'Adding a constant $k$ to every observation in a dataset increases the mean by $k$ but leaves the median unchanged.'
+    rationale: |
+      This shifts only the mean. The mean formula visibly uses every value. Check that all sorted values shift too.
+  explanation: |
+    For a common single-peaked right-skewed pattern, large values pull the mean toward the long right tail. The median lies between that pulled mean and the peak, where the mode lies. This gives the stated usual ordering. It is a pattern, not a guaranteed rule for every right-skewed data set.
+- id: 'q-statistics-and-probability-measures-of-central-tendency-0016'
+  type: 'which-is-true'
+  difficulty: 'hard'
+  stem: |
+    A teacher adds $5$ bonus points to every student's score on a statistics test, and then increases the revised scores by $10\%$. If the original score dataset had mean $\bar{x}$, median $M$, and mode $m$, which statement correctly describes the transformed measures of central tendency?
+  choices:
+  - text: 'Each measure becomes $1.10$ times itself plus $5.50$.'
+    correct: true
+  - text: 'Only the mean is transformed to $1.10\bar{x} + 5.50$, while the median and mode only increase by $5$.'
+    rationale: |
+      This scales only the mean. Averages often have visible algebra. Check that every individual score is scaled.
+  - text: 'The mean increases by $10\%$, but the median and mode remain completely unchanged.'
+    rationale: |
+      This ignores the added points and changes only the mean. The percent step is prominent. Apply both steps to each central value.
+  - text: 'The new mean is $1.10\bar{x} + 5.00$ because percentage scaling does not apply to added constant values.'
+    rationale: |
+      This scales before adding five. Both steps are stated. Keep the stated order.
+  explanation: |
+    Each score becomes $1.10(x+5)=1.10x+5.50$. Adding a constant shifts every central value, and positive scaling preserves order and frequencies. The mean, median, and each mode all receive this same change.
+- id: 'q-statistics-and-probability-measures-of-central-tendency-0017'
+  type: 'word-problem'
+  difficulty: 'medium'
+  stem: |
+    A data set of four values has mean $18$. A fifth value is added and the mean stays $18$. What is the added value?
+  choices:
+  - text: '$18$'
+    correct: true
+  - text: '$72$'
+    rationale: |
+      This reports the old total. Four times eighteen gives seventy-two. Subtract old total from new total.
+  - text: '$90$'
+    rationale: |
+      This reports the new total. Five times eighteen gives ninety. Check that only the added value is requested.
+  - text: '$4.5$'
+    rationale: |
+      This divides the old mean by the old count. Both numbers are stated. Recover totals before comparing.
+  explanation: |
+    The old total is $4(18)=72$, and the new total is $5(18)=90$. The added value is $90-72=18$.
+  approved: false
+- id: 'q-statistics-and-probability-measures-of-central-tendency-0018'
+  type: 'which-is-true'
+  difficulty: 'easy'
+  stem: |
+    Under the lesson convention, what is the mode of the data set $2,5,8,11$?
+  choices:
+  - text: 'No mode.'
+    correct: true
+  - text: '$0$'
+    rationale: |
+      This turns no repeated value into the number zero. Zero can mean none in other contexts. Do not invent a value absent from the data.
+  - text: '$6.5$'
+    rationale: |
+      This gives the mean or median. Both are 6.5 here. Check frequency for mode.
+  - text: '$11$'
+    rationale: |
+      This chooses the largest value. Eleven stands out by size. Check repetition instead.
+  explanation: |
+    Every value occurs once. Under the stated introductory convention, a set with no repeated values has no mode.
+  approved: false
+- id: 'q-statistics-and-probability-measures-of-central-tendency-0019'
+  type: 'error-spotting'
+  difficulty: 'hard'
+  stem: |
+    A student averages $10$ points earned twice and $20$ points earned six times by writing $(10+20)/2=15$. What is the actual mean?
+  choices:
+  - text: '$17.5$'
+    correct: true
+  - text: '$15$'
+    rationale: |
+      This weights the two distinct scores equally. Both score values are listed once in the description. Weight by their frequencies.
+  - text: '$140$'
+    rationale: |
+      This gives the score total. The weighted products sum to 140. Divide by eight observations.
+  - text: '$20$'
+    rationale: |
+      This gives the mode. Twenty occurs most often. Check that the question asks for mean.
+  explanation: |
+    The total is $10(2)+20(6)=140$ over $2+6=8$ scores. The mean is $140\div8=17.5$.
+  approved: false
+- id: 'q-statistics-and-probability-measures-of-central-tendency-0020'
+  type: 'which-is-true'
+  difficulty: 'exam'
+  stem: |
+    A survey records favorite colors as blue, red, or green. Which central measure can summarize the most common response?
+  choices:
+  - text: 'Mode.'
+    correct: true
+  - text: 'Arithmetic mean.'
+    rationale: |
+      This assigns arithmetic to category names. Means summarize numerical values. Check that colors have no numerical scale.
+  - text: 'Numerical median.'
+    rationale: |
+      This imposes a numerical order on colors. Medians summarize ordered values. Check whether a color order is meaningful.
+  - text: 'The average of mean and median.'
+    rationale: |
+      This combines two unavailable numerical summaries. Combining averages can sound comprehensive. Check the data type first.
+  explanation: |
+    The mode is the category with the highest frequency. It can identify the most common color without assigning numbers to the colors.
+  approved: false

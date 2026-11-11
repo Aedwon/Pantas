@@ -1,5 +1,6 @@
 import 'package:meta/meta.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
+import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/settings/domain/session_ordering.dart';
 
 @immutable
@@ -44,6 +45,7 @@ class UserSettings {
   const UserSettings({
     required this.name,
     required this.dailyReminderTime,
+    required this.studyDays,
     required this.examDate,
     required this.strictMockMode,
     required this.helpImproveApp,
@@ -58,6 +60,7 @@ class UserSettings {
     return const UserSettings(
       name: null,
       dailyReminderTime: null,
+      studyDays: StudyDays.all,
       examDate: null,
       strictMockMode: false,
       helpImproveApp: false,
@@ -72,6 +75,7 @@ class UserSettings {
   final String? name;
 
   final SettingsTime? dailyReminderTime;
+  final StudyDays studyDays;
   final ExamDate? examDate;
   final bool strictMockMode;
   final bool helpImproveApp;

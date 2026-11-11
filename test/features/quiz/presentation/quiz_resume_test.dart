@@ -35,7 +35,7 @@ void main() {
         .read(quizControllerProvider.notifier)
         .resumeToday(examId: 'exam_cse_pro');
 
-    expect(container.read(quizControllerProvider), isA<QuizFailure>());
+    expect(container.read(quizControllerProvider), isA<QuizNothingToResume>());
   });
 
   test('resuming returns the questions already saved', () async {

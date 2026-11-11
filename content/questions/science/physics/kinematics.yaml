@@ -1,290 +1,426 @@
 meta:
-  subject: science
-  topic: physics
-  subtopic: kinematics
-  exams:
-    - upcat
-    - dlsucet
-    - ustet
-    - dost-sei
+  subject: "science"
+  topic: "physics"
+  subtopic: "kinematics"
+  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-physics-kinematics-0001
-    type: identify
-    difficulty: easy
+    type: "identify"
+    difficulty: "easy"
     stem: |
       What quantity describes the rate of change of velocity?
     choices:
-      - text: Acceleration
+      - text: "Acceleration"
         correct: true
-      - text: Displacement
+      - text: "Displacement"
         rationale: |
-          You picked position change. Displacement is net position change ($\Delta x$), not rate of velocity change.
-      - text: Distance
+          This confuses change in position with change in velocity. Both describe motion. Check which quantity changes per second.
+      - text: "Distance"
         rationale: |
-          You picked scalar path length. Distance is total scalar ground covered, unrelated to velocity change rate.
-      - text: Time
+          This confuses path length with a change in velocity. A moving object covers distance. Check whether the question asks for a length or a rate.
+      - text: "Time"
         rationale: |
-          You picked temporal duration. Time ($t$) is the independent variable, not the rate of change itself.
+          This names the interval rather than the rate. Time is part of any rate. Check what is divided by elapsed time.
     explanation: |
-      Acceleration is defined as the rate at which velocity itself changes over time.
+      Acceleration is the rate at which velocity changes with time.
     approved: true
+
   - id: q-physics-kinematics-0002
-    type: identify
-    difficulty: easy
+    type: "identify"
+    difficulty: "easy"
     stem: |
       What quantity describes the rate of change of displacement?
     choices:
-      - text: Velocity
+      - text: "Velocity"
         correct: true
-      - text: Acceleration
+      - text: "Acceleration"
         rationale: |
-          You picked velocity change rate. Acceleration ($a$) is the rate of change of velocity, not displacement.
-      - text: Mass
+          This names velocity’s rate of change. Both quantities measure rates. Check whether position or velocity is changing.
+      - text: "Elapsed time"
         rationale: |
-          You picked inertial quantity. Mass ($m$) is a measure of inertia, independent of kinematic motion rate.
-      - text: Time
+          This confuses a motion rate with elapsed time. The word rate implies time. Check the quantity divided by time.
+      - text: "Speed without direction"
         rationale: |
-          You picked temporal duration. Time ($t$) is the independent variable measuring elapsed duration.
+          This drops direction and gives speed instead of velocity. Both describe how fast position changes. Check that position change is signed.
     explanation: |
-      Velocity is defined as the rate at which displacement (position) changes over time.
+      Velocity is the rate of change of position. It includes the direction of that change.
     approved: true
+
   - id: q-physics-kinematics-0003
-    type: simple-quantitative
-    difficulty: easy
+    type: "simple-quantitative"
+    difficulty: "easy"
     stem: |
-      A car starts from rest and accelerates at 5 m/s² for 4 seconds. Find its final velocity. (Use $v = v_0 + at$.)
+      A car starts from rest with constant acceleration $+5\,\mathrm{m/s^2}$ for $4\,\mathrm s$. Find its final velocity.
     choices:
-      - text: 20 m/s
+      - text: "20 m/s"
         correct: true
-      - text: 9 m/s
+      - text: "9 m/s"
         rationale: |
-          You added acceleration to time ($5 + 4$). Use multiplication $v = v_0 + at = 0 + 5(4) = 20\text{ m/s}$.
-      - text: 1.25 m/s
+          This adds acceleration and time. Both numbers are given. Check the product of rate and duration.
+      - text: "1.25 m/s"
         rationale: |
-          You divided acceleration by time ($\dfrac{5}{4}$). Velocity change requires multiplying acceleration by time ($a \cdot t$).
-      - text: 5 m/s
+          This divides acceleration by time. Division is used to find acceleration. Check that velocity change accumulates over time.
+      - text: "5 m/s"
         rationale: |
-          You took acceleration magnitude as velocity. $5\text{ m/s}^2$ is the rate per second; after $4\text{ s}$, velocity reaches $20\text{ m/s}$.
+          This labels the acceleration value as velocity. The number is a per-second increase. Check how many seconds pass.
     explanation: |
-      $v = v_0 + at = 0 + (5)(4) = 20$ m/s.
+      From rest, $v_0=0$. With constant acceleration, $v=v_0+at=0+(5)(4)=20\,\mathrm{m/s}$ in the positive direction.
     approved: true
+
   - id: q-physics-kinematics-0004
-    type: simple-quantitative
-    difficulty: medium
+    type: "simple-quantitative"
+    difficulty: "medium"
     stem: |
-      A ball rolls with an initial velocity of 3 m/s and accelerates at 2 m/s² for 5 seconds. Find how far it travels. (Use $d = v_0t + \dfrac{1}{2}at^2$.)
+      A ball has initial velocity $+3\,\mathrm{m/s}$ and constant acceleration $+2\,\mathrm{m/s^2}$ for $5\,\mathrm s$. What distance does it travel?
     choices:
-      - text: 40 m
+      - text: "40 m"
         correct: true
-      - text: 15 m
+      - text: "15 m"
         rationale: |
-          You calculated initial distance term ($3 \times 5$) only. You forgot the acceleration term $\dfrac{1}{2}at^2 = \dfrac{1}{2}(2)(5^2) = 25\text{ m}$.
-      - text: 25 m
+          This includes only the initial-velocity term. That term does describe part of the travel. Check the added travel from acceleration.
+      - text: "25 m"
         rationale: |
-          You calculated acceleration distance term ($\dfrac{1}{2}at^2$) only. You omitted initial velocity displacement $v_0t = 15\text{ m}$.
-      - text: 65 m
+          This includes only the acceleration term. Starting from rest would permit that. Check the nonzero initial velocity.
+      - text: "65 m"
         rationale: |
-          You squared the sum ($v_0t + at$) or omitted $\dfrac{1}{2}$. Sum $v_0t + \dfrac{1}{2}at^2 = 15 + 25 = 40\text{ m}$.
+          This omits the one-half factor in the acceleration term. The squared-time term is otherwise familiar. Check its coefficient.
     explanation: |
-      $d = v_0t + \dfrac{1}{2}at^2 = (3)(5) + \dfrac{1}{2}(2)(5)^2 = 15 + 25 = 40$ m.
+      Constant acceleration gives $\Delta x=v_0t+\dfrac12at^2$. Substitute: $(3)(5)+\dfrac12(2)(5^2)=15+25=40\,\mathrm m$. Motion stays positive, so distance is also $40\,\mathrm m$.
     approved: true
+
   - id: q-physics-kinematics-0005
-    type: simple-quantitative
-    difficulty: hard
+    type: "simple-quantitative"
+    difficulty: "hard"
     stem: |
-      A rock is dropped from a cliff (initial velocity = 0) and falls for 4 seconds before hitting the ground. Find how far it fell. (Use $g = 9.8 \text{ m/s}^2$ and $d = v_0t + \dfrac{1}{2}at^2$.)
+      A rock is released from rest near Earth and falls for $4\,\mathrm s$ before impact. Neglect air resistance and use constant $g=9.8\,\mathrm{m/s^2}$. What distance does it fall?
     choices:
-      - text: 78.4 m
+      - text: "78.4 m"
         correct: true
-      - text: 39.2 m
+      - text: "39.2 m"
         rationale: |
-          You forgot to square time ($t = 4$). $\dfrac{1}{2}(9.8)(4) = 19.6$; squaring $t$ yields $\dfrac{1}{2}(9.8)(16) = 78.4\text{ m}$.
-      - text: 19.6 m
+          This uses final speed as the distance. Multiplying gravity by time gives a familiar result. Check meters versus meters per second.
+      - text: "19.6 m"
         rationale: |
-          You calculated $\dfrac{1}{2}g t$ instead of $\dfrac{1}{2}g t^2$. Distance requires $t^2 = 16\text{ s}^2$.
-      - text: 156.8 m
+          This uses time rather than time squared. The given duration is four seconds. Check the exponent in the distance formula.
+      - text: "156.8 m"
         rationale: |
-          You omitted the $\dfrac{1}{2}$ factor ($9.8 \times 16$). Distance from rest is $d = \dfrac{1}{2}gt^2 = 78.4\text{ m}$.
+          This omits the one-half factor. Gravity times squared time looks nearly complete. Check the coefficient for motion from rest.
     explanation: |
-      $d = 0 + \dfrac{1}{2}(9.8)(4)^2 = \dfrac{1}{2}(9.8)(16) = 78.4$ m.
+      From rest, the downward distance is $\dfrac12gt^2$. Substitute: $\dfrac12(9.8)(4^2)=78.4\,\mathrm m$.
     approved: true
+
   - id: q-physics-kinematics-0006
-    type: simple-quantitative
-    difficulty: hard
+    type: "predict-outcome"
+    difficulty: "hard"
     stem: |
-      A rock is dropped from a cliff (initial velocity = 0) and falls for 4 seconds. Find its velocity just before impact. (Use $g = 9.8 \text{ m/s}^2$ and $v = v_0 + at$.)
+      A ball moves straight upward in ideal free fall. At its highest point, which pair describes its instantaneous velocity and acceleration?
     choices:
-      - text: 39.2 m/s
+      - text: "Zero velocity; downward acceleration"
         correct: true
-      - text: 78.4 m/s
+      - text: "Zero velocity; zero acceleration"
         rationale: |
-          You calculated fall distance in meters ($78.4\text{ m}$) instead of final velocity ($v = gt = 9.8 \times 4 = 39.2\text{ m/s}$).
-      - text: 9.8 m/s
+          This assumes an instant of rest means no acceleration. The ball pauses at the top. Check whether gravity still acts.
+      - text: "Upward velocity; downward acceleration"
         rationale: |
-          You picked gravitational acceleration $g$. Velocity increases by $9.8\text{ m/s}$ every second, reaching $39.2\text{ m/s}$ after $4\text{ s}$.
-      - text: 4.9 m/s
+          This uses the velocity just before the top. The ball approached upward. Check the exact turning instant.
+      - text: "Zero velocity; upward acceleration"
         rationale: |
-          You calculated $\dfrac{1}{2}g$. Final velocity is $v = gt = 9.8 \times 4 = 39.2\text{ m/s}$.
+          This makes acceleration follow the earlier direction of motion. The launch was upward. Check the direction of gravity.
     explanation: |
-      $v = v_0 + at = 0 + (9.8)(4) = 39.2$ m/s.
+      At the turning point, the ball’s velocity is momentarily zero. Gravity still acts downward. Its acceleration is downward.
     approved: true
+
   - id: q-physics-kinematics-0007
-    type: simple-quantitative
-    difficulty: hard
+    type: "simple-quantitative"
+    difficulty: "hard"
     stem: |
-      A car traveling at 5 m/s accelerates at 3 m/s² over a distance of 40 m. Find its final velocity, without using time. (Use $v^2 = v_0^2 + 2ad$.)
+      A car moving forward at $5\,\mathrm{m/s}$ accelerates forward at constant $3\,\mathrm{m/s^2}$ over $40\,\mathrm m$. What is its final velocity?
     choices:
-      - text: About 16.3 m/s
+      - text: "About 16.3 m/s"
         correct: true
-      - text: 125 m/s
+      - text: "$265\\,\\mathrm{m/s}$"
         rationale: |
-          You calculated $v_0^2 + 2ad = 265$ without taking the square root. Taking $\sqrt{265}$ yields $\approx 16.3\text{ m/s}$.
-      - text: About 11.2 m/s
+          This leaves the squared-velocity result without taking a square root. The equation calculates that value directly. Check whether the unknown is velocity or velocity squared.
+      - text: "About $15.5\\,\\mathrm{m/s}$"
         rationale: |
-          You calculated $\sqrt{2ad} = \sqrt{240} \approx 15.5$ or omitted $v_0^2$. Including $v_0^2 = 25$ gives $v = \sqrt{265} \approx 16.3\text{ m/s}$.
-      - text: 245 m/s
+          This omits the initial-velocity square. The acceleration term is large. Check the nonzero starting speed.
+      - text: "About $15.7\\,\\mathrm{m/s}$"
         rationale: |
-          You multiplied $v_0 \times a \times d$. Use the kinematic square relation $v^2 = v_0^2 + 2ad$.
+          This uses initial velocity without squaring it. The starting value is five. Check every exponent in the formula.
     explanation: |
-      $v^2 = v_0^2 + 2ad = 5^2 + 2(3)(40) = 25 + 240 = 265$, so $v = \sqrt{265} \approx 16.3$ m/s.
+      With constant acceleration, $v^2=v_0^2+2a\Delta x=5^2+2(3)(40)=265\,\mathrm{m^2/s^2}$. The car moves forward, so take the positive root: $v=\sqrt{265}\approx16.3\,\mathrm{m/s}$.
     approved: true
+
   - id: q-physics-kinematics-0008
-    type: classify
-    difficulty: hard
+    type: "classify"
+    difficulty: "hard"
     stem: |
-      A problem gives initial velocity, acceleration, and distance, but does not mention time at all, and does not ask for it. A student tries to use $v = v_0 + at$ anyway. Is this the right equation to use?
+      With initial velocity, constant acceleration, and displacement known, which equation directly gives final velocity without first finding time?
     choices:
-      - text: 'No: since time is neither given nor needed, $v^2 = v_0^2 + 2ad$ should be used instead, since it excludes time entirely.'
+      - text: "$v^2=v_0^2+2a\\Delta x$"
         correct: true
-      - text: 'Yes: $v = v_0 + at$ can always be used regardless of which variables are given.'
+      - text: "$v=v_0+at$"
         rationale: |
-          You chose an equation with two unknowns ($v$ and $t$). Without time $t$, $v = v_0 + at$ cannot be solved directly.
-      - text: 'No: $d = v_0t + \dfrac{1}{2}at^2$ should be used instead.'
+          This selects an equation containing unknown time. It directly relates velocity and acceleration. Check which variables are already known.
+      - text: "$\\Delta x=v_0t+\\dfrac12at^2$"
         rationale: |
-          You chose another equation requiring time $t$. $d = v_0t + \dfrac{1}{2}at^2$ still requires knowing $t$.
-      - text: 'Yes: time can simply be assumed to equal 1 second in this case.'
+          This selects an equation without the requested final velocity. It can help find time. Check for a direct equation with no extra unknown.
+      - text: "$\\Delta x=\\dfrac{v_0+v}{2}t$"
         rationale: |
-          You assumed a dummy time value. Assuming $t = 1\text{ s}$ violates the problem's physical constraints.
+          This introduces time along with final velocity. Average velocity seems useful. Check the two unknowns in this equation.
     explanation: |
-      Each kinematic equation excludes exactly one of the five variables. Since time is absent here, the equation that excludes time ($v^2 = v_0^2 + 2ad$) is the correct choice, avoiding the need to solve for an unknown that isn't needed.
+      The equation $v^2=v_0^2+2a\Delta x$ contains the three known quantities and final velocity. It does not contain time.
     approved: true
+
   - id: q-physics-kinematics-0009
-    type: classify
-    difficulty: medium
+    type: "classify"
+    difficulty: "medium"
     stem: |
-      A problem says a ball is "dropped" from a height. A student leaves the ball's initial velocity as an unknown variable to solve for. Is this correct?
+      A ball is released from rest above the ground. What is its initial velocity relative to the ground?
     choices:
-      - text: 'No: "dropped" means the initial velocity is already known to be 0, not an unknown to solve for.'
+      - text: "Zero"
         correct: true
-      - text: 'Yes: "dropped" gives no information about initial velocity.'
+      - text: "Yes: \"dropped\" gives no information about initial velocity."
         rationale: |
-          You ignored the term "dropped". In physics, "dropped" explicitly implies starting from rest ($v_0 = 0$).
-      - text: 'No: "dropped" means the final velocity is 0, not the initial velocity.'
+          This ignores the stated release from rest. Dropping can be described loosely in everyday speech. Check the specified starting condition.
+      - text: "No: \"dropped\" means the final velocity is 0, not the initial velocity."
         rationale: |
-          You assigned zero to final velocity. Final velocity just before impact is maximum, not zero.
-      - text: 'Yes: initial velocity must always be solved for separately.'
+          This assigns zero to the final velocity. The word rest is prominent. Check whether it describes release or later impact.
+      - text: "Yes: initial velocity must always be solved for separately."
         rationale: |
-          You assumed initial velocity is always unknown. Verbal cues like "dropped" provide explicit numerical values ($v_0 = 0$).
+          This treats initial velocity as always unknown. Some problems do ask for it. Check what information the stem already gives.
     explanation: |
-      Descriptive phrases like "dropped," "starts from rest," or "initially at rest" all directly tell you that $v_0 = 0$: this is given information, not an unknown.
+      Released from rest means the initial velocity is zero in the stated reference frame. That value is already given.
     approved: true
+
   - id: q-physics-kinematics-0010
-    type: classify
-    difficulty: hard
+    type: "classify"
+    difficulty: "hard"
     stem: |
       A ball is thrown straight upward, with "up" chosen as the positive direction. A student uses a positive value for gravity's acceleration in the equations, since it is being treated as a general given value. Is this correct?
     choices:
-      - text: 'No: if up is positive, gravity (which always pulls down) must be entered as a negative acceleration to keep the signs consistent.'
+      - text: "No, downward acceleration is negative here."
         correct: true
-      - text: 'Yes: gravity should always be entered as a positive number, regardless of the chosen direction.'
+      - text: "Yes: gravity should always be entered as a positive number, regardless of the chosen direction."
         rationale: |
-          You ignored vector sign conventions. If upward direction is positive, downward gravitational acceleration must be negative.
-      - text: 'No: but only because the ball was thrown, not dropped.'
+          This treats the magnitude of gravity as its signed acceleration. The magnitude is positive. Check whether the chosen positive axis points with gravity.
+      - text: "No: but only because the ball was thrown, not dropped."
         rationale: |
-          You tied acceleration sign to launch method. Acceleration direction depends on vector direction, not launch technique.
-      - text: 'Yes: sign conventions do not matter as long as the magnitude is correct.'
+          This ties acceleration sign to throwing versus dropping. The initial motion differs. Check gravity’s direction rather than the launch method.
+      - text: "Yes: sign conventions do not matter as long as the magnitude is correct."
         rationale: |
-          You dismissed sign conventions. Inconsistent vector signs produce incorrect algebraic sums and wrong numerical answers.
+          This ignores direction in a vector equation. The same magnitude appears either way. Check that every signed quantity uses one convention.
     explanation: |
-      Once "up" is chosen as positive, every quantity must follow that convention consistently. Since gravity always pulls downward, it must be negative in this setup: mixing a positive initial velocity with a positive gravity would create contradictory signs.
+      Gravity points downward. With upward positive, the acceleration is $a=-g$. This sign stays the same during the ascent and descent.
     approved: true
+
   - id: q-physics-kinematics-0011
-    type: classify
-    difficulty: hard
+    type: "classify"
+    difficulty: "hard"
     stem: |
-      A student assumes a bowling ball will hit the ground before a tennis ball if both are dropped together from the same height, since the bowling ball is heavier. Is this correct (ignoring air resistance)?
+      A bowling ball and a tennis ball are released from rest together at the same modest height near Earth. Neglect drag and buoyancy. Does the heavier ball arrive first?
     choices:
-      - text: 'No: in free fall, all objects accelerate at the same rate g, regardless of mass, so both would hit the ground at the same time.'
+      - text: "No, their fall times are equal."
         correct: true
-      - text: 'Yes: heavier objects always fall faster in free fall.'
+      - text: "Yes: heavier objects always fall faster in free fall."
         rationale: |
-          You assumed mass-dependent fall acceleration. Gravitational acceleration $g$ is independent of falling body mass.
-      - text: 'No: the tennis ball would actually hit the ground first instead.'
+          This assumes greater mass gives greater free-fall acceleration. Heavier objects have more weight. Check acceleration in the stated gravity-only model.
+      - text: "No: the tennis ball would actually hit the ground first instead."
         rationale: |
-          You claimed lighter objects fall faster. Light and heavy objects fall at identical rates in vacuum.
-      - text: 'Yes: but only if the objects are dropped from very high altitudes.'
+          This assumes the lighter ball accelerates faster. Less inertia may seem decisive. Check the common acceleration at the same location.
+      - text: "Yes: but only if the objects are dropped from very high altitudes."
         rationale: |
-          You added height conditions to mass acceleration. In free fall, acceleration remains constant $g$ at all drop heights.
+          This makes gravity’s mass independence depend on a high drop. Height can change the value of gravity. Check whether mass changes the shared acceleration.
     explanation: |
-      Mass does not appear anywhere in the free fall kinematic equations. Ignoring air resistance, a heavy bowling ball and a light tennis ball dropped together from the same height hit the ground at exactly the same time.
+      In the ideal model at the same location, both test bodies have the same gravitational acceleration. They start at rest at the same height and time. Their fall times are equal.
     approved: true
+
   - id: q-physics-kinematics-0012
-    type: simple-quantitative
-    difficulty: medium
+    type: "simple-quantitative"
+    difficulty: "medium"
     stem: |
-      A car traveling at 30 m/s decelerates at 5 m/s² for 4 seconds. Find its velocity after those 4 seconds. (Use $v = v_0 + at$, with deceleration as a negative acceleration.)
+      A car moving at $+30\,\mathrm{m/s}$ has constant acceleration $-5\,\mathrm{m/s^2}$ for $4\,\mathrm s$. Find its final velocity.
     choices:
-      - text: 10 m/s
+      - text: "10 m/s"
         correct: true
-      - text: 50 m/s
+      - text: "50 m/s"
         rationale: |
-          You added deceleration instead of subtracting ($30 + 20$). Deceleration reduces velocity: $30 + (-5)(4) = 10\text{ m/s}$.
-      - text: 20 m/s
+          This adds the acceleration magnitude instead of using its opposite direction. The five is printed as a positive magnitude. Check the direction relative to initial motion.
+      - text: "20 m/s"
         rationale: |
-          You calculated velocity change $at = 20\text{ m/s}$ rather than remaining velocity ($30 - 20 = 10\text{ m/s}$).
-      - text: 5 m/s
+          This reports the size of the velocity change as the final velocity. The product of rate and time is relevant. Check the initial velocity too.
+      - text: "25 m/s"
         rationale: |
-          You subtracted deceleration rate ($30 - 5 = 25$) or divided wrong. Remaining velocity is $30 - 20 = 10\text{ m/s}$.
+          This subtracts the acceleration magnitude just once. One second would give that reduction. Check the four-second duration.
     explanation: |
-      $v = v_0 + at = 30 + (-5)(4) = 30 - 20 = 10$ m/s.
+      Take the original direction as positive. The constant acceleration is $-5\,\mathrm{m/s^2}$. Thus $v=30+(-5)(4)=10\,\mathrm{m/s}$.
     approved: true
+
   - id: q-physics-kinematics-0013
-    type: simple-quantitative
-    difficulty: exam
+    type: "simple-quantitative"
+    difficulty: "exam"
     stem: |
       A ball is thrown straight upward with an initial velocity of 15 m/s. Taking "up" as positive (so gravity is $-9.8 \text{ m/s}^2$), find its velocity after 1 second.
+      Neglect air resistance and assume constant gravity.
     choices:
-      - text: 5.2 m/s
+      - text: "5.2 m/s"
         correct: true
-      - text: 24.8 m/s
+      - text: "24.8 m/s"
         rationale: |
-          You added gravitational acceleration ($15 + 9.8$). Upward motion under gravity decelerates: $15 - 9.8 = 5.2\text{ m/s}$.
-      - text: 15 m/s
+          This makes gravity act upward. The initial velocity is upward. Check the downward acceleration sign.
+      - text: "15 m/s"
         rationale: |
-          You assumed constant velocity. Gravity constantly decelerates the upward motion at $9.8\text{ m/s}^2$.
-      - text: -5.2 m/s
+          This keeps the initial velocity unchanged. Only one second passes. Check whether acceleration acts during that time.
+      - text: "-5.2 m/s"
         rationale: |
-          You inverted the velocity sign. At $t = 1\text{ s}$, velocity is positive ($+5.2\text{ m/s}$), meaning the ball is still ascending.
+          This makes the remaining upward velocity negative. Gravity points downward. Check whether the ball has reached its turning point.
     explanation: |
-      $v = v_0 + at = 15 + (-9.8)(1) = 15 - 9.8 = 5.2$ m/s. The ball is still moving upward, but has slowed down due to gravity.
+      With up positive, $a=-9.8\,\mathrm{m/s^2}$. Then $v=15+(-9.8)(1)=5.2\,\mathrm{m/s}$. The positive sign means the ball is still moving upward.
     approved: true
+
   - id: q-physics-kinematics-0014
-    type: predict-outcome
-    difficulty: exam
+    type: "classify"
+    difficulty: "exam"
     stem: |
-      A bowling ball and a tennis ball are dropped together, at the same instant, from the same height, with air resistance considered negligible. Which one reaches the ground first?
+      A vehicle’s acceleration changes continuously during an interval. Can its total displacement generally be found by substituting its initial acceleration into $\Delta x=v_0t+\dfrac12at^2$?
     choices:
-      - text: 'Neither: both reach the ground at exactly the same time.'
+      - text: "No, that equation requires constant acceleration."
         correct: true
-      - text: The bowling ball, since it is heavier.
+      - text: "Yes, the initial acceleration describes the entire interval."
         rationale: |
-          You assumed mass speeds up free fall. Gravitational acceleration $g$ is independent of mass.
-      - text: The tennis ball, since it is lighter.
+          This extends one instant’s value through all times. Initial conditions are important. Check whether acceleration actually stays fixed.
+      - text: "Yes, acceleration changes never affect displacement."
         rationale: |
-          You assumed lower mass speeds up free fall. Mass cancels out in free fall equations.
-      - text: It depends on the exact height of the drop.
+          This disconnects acceleration from velocity and position. Displacement is a position change. Check how changing velocity changes travel.
+      - text: "No, displacement cannot be found by any method."
         rationale: |
-          You claimed height alters relative fall time. Drop height changes total time, but both objects fall simultaneously at every height.
+          This treats failure of one formula as impossibility. The familiar formula does not apply. Check graphs or interval methods for variable acceleration.
     explanation: |
-      In free fall, mass does not affect acceleration: every object accelerates downward at the same rate $g$, so both balls hit the ground simultaneously when dropped together from the same height.
+      This equation assumes one constant acceleration during the interval. Changing acceleration requires another method, such as a graph, calculus, or suitable interval-by-interval analysis.
     approved: true
+
+  - id: q-physics-kinematics-0015
+    approved: false
+    type: "simple-quantitative"
+    difficulty: "easy"
+    stem: |
+      A walker moves from position $x_i=+7\,\mathrm m$ to $x_f=-2\,\mathrm m$. What is the displacement?
+    choices:
+      - text: "$-9\\,\\mathrm m$"
+        correct: true
+      - text: "$+9\\,\\mathrm m$"
+        rationale: |
+          This keeps only the size of the change. Distance is nonnegative. Check the requested signed displacement.
+      - text: "$+5\\,\\mathrm m$"
+        rationale: |
+          This adds final and initial position. Both are signed values. Check final minus initial.
+      - text: "$-2\\,\\mathrm m$"
+        rationale: |
+          This reports final position as displacement. The endpoint is stated directly. Check the starting position too.
+    explanation: |
+      Displacement is final position minus initial position: $\Delta x=-2-7=-9\,\mathrm m$.
+
+  - id: q-physics-kinematics-0016
+    approved: false
+    type: "compare-contrast"
+    difficulty: "medium"
+    stem: |
+      A runner goes $60\,\mathrm m$ east and then $20\,\mathrm m$ west. Which pair gives distance and displacement?
+    choices:
+      - text: "Distance $80\\,\\mathrm m$; displacement $40\\,\\mathrm m$ east"
+        correct: true
+      - text: "Distance $40\\,\\mathrm m$; displacement $80\\,\\mathrm m$ east"
+        rationale: |
+          This swaps path length and net change. Both use the two segments. Check total travel versus final position.
+      - text: "Distance $80\\,\\mathrm m$; displacement $80\\,\\mathrm m$ east"
+        rationale: |
+          This adds opposing segments for displacement. Addition is right for distance. Check the westward segment’s direction.
+      - text: "Distance $40\\,\\mathrm m$; displacement $40\\,\\mathrm m$ west"
+        rationale: |
+          This subtracts for distance and reverses the net direction. The return segment is westward. Check the longer outward segment.
+    explanation: |
+      Distance adds both path lengths: $60+20=80\,\mathrm m$. Taking east positive, displacement is $60-20=40\,\mathrm m$ east.
+
+  - id: q-physics-kinematics-0017
+    approved: false
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A cyclist returns to the starting point after a $200\,\mathrm m$ trip lasting $50\,\mathrm s$. What is the average velocity?
+    choices:
+      - text: "$0\\,\\mathrm{m/s}$"
+        correct: true
+      - text: "$4\\,\\mathrm{m/s}$"
+        rationale: |
+          This divides distance by time and gives average speed. The total path length is given. Check that velocity uses displacement.
+      - text: "$200\\,\\mathrm{m/s}$"
+        rationale: |
+          This reports the trip distance as velocity. The distance is prominent. Check the required time division and net change.
+      - text: "$-4\\,\\mathrm{m/s}$"
+        rationale: |
+          This assigns the whole path to the return direction. The final leg returns home. Check the total displacement from start to finish.
+    explanation: |
+      Returning to the start gives $\Delta x=0$. Average velocity is $\Delta x/\Delta t=0/50=0\,\mathrm{m/s}$.
+
+  - id: q-physics-kinematics-0018
+    approved: false
+    type: "structure-function"
+    difficulty: "hard"
+    stem: |
+      What does a negative slope on a position-time graph represent?
+    choices:
+      - text: "Negative velocity"
+        correct: true
+      - text: "Negative position at every instant"
+        rationale: |
+          This confuses graph height with slope. Both can be negative. Check change in position per unit time.
+      - text: "Negative acceleration at every instant"
+        rationale: |
+          This uses the velocity-time slope rule on another graph. Both graphs have time axes. Check the vertical-axis quantity.
+      - text: "A negative distance traveled"
+        rationale: |
+          This treats direction as a negative path length. The slope has a sign. Check distance versus signed velocity.
+    explanation: |
+      The slope of a position-time graph is velocity. A negative slope means position decreases as time increases. Velocity is negative.
+
+  - id: q-physics-kinematics-0019
+    approved: false
+    type: "simple-quantitative"
+    difficulty: "hard"
+    stem: |
+      A particle’s velocity is $+4\,\mathrm{m/s}$ for $3\,\mathrm s$, then $-2\,\mathrm{m/s}$ for $2\,\mathrm s$. What is its net displacement?
+    choices:
+      - text: "$+8\\,\\mathrm m$"
+        correct: true
+      - text: "$+16\\,\\mathrm m$"
+        rationale: |
+          This adds both travel magnitudes. That gives total distance. Check the sign of the second velocity.
+      - text: "$+2\\,\\mathrm m$"
+        rationale: |
+          This subtracts velocities without multiplying by their durations. The two rates are given. Check the area of each velocity-time interval.
+      - text: "$-8\\,\\mathrm m$"
+        rationale: |
+          This reverses the final net direction. The particle ends moving negatively. Check the whole interval’s displacement.
+    explanation: |
+      Each constant-velocity interval gives velocity times duration. The net displacement is $(4)(3)+(-2)(2)=12-4=+8\,\mathrm m$.
+
+  - id: q-physics-kinematics-0020
+    approved: false
+    type: "simple-quantitative"
+    difficulty: "exam"
+    stem: |
+      A cart starts with velocity $+6\,\mathrm{m/s}$ and constant acceleration $-2\,\mathrm{m/s^2}$ for $4\,\mathrm s$. What distance does it travel?
+    choices:
+      - text: "$10\\,\\mathrm m$"
+        correct: true
+      - text: "$8\\,\\mathrm m$"
+        rationale: |
+          This reports displacement as distance despite a reversal. The constant-acceleration formula gives net position change. Check when velocity reaches zero.
+      - text: "$24\\,\\mathrm m$"
+        rationale: |
+          This uses initial velocity for the entire duration. The initial rate is given. Check the acceleration and reversal.
+      - text: "$16\\,\\mathrm m$"
+        rationale: |
+          This uses final speed magnitude for the full interval and adds it to the net displacement. The last speed is available. Check the separate paths before and after stopping.
+    explanation: |
+      The cart stops after $t=6/2=3\,\mathrm s$. It travels $6(3)-\dfrac12(2)(3^2)=9\,\mathrm m$ before turning. In the last second it travels $\dfrac12(2)(1^2)=1\,\mathrm m$ back. Total distance is $9+1=10\,\mathrm m$.

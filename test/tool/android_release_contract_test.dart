@@ -48,16 +48,26 @@ void main() {
         'RELEASE_VERSION_NAME',
         'RELEASE_VERSION_CODE',
         'REVENUECAT_ANDROID_API_KEY',
-        'APPROVED_CONTENT_DB_SHA256',
+        'PANTAS_CONTENT_BOOTSTRAP_KEY_V1_B64',
         'PROD_FIREBASE_GOOGLE_SERVICES_JSON',
       ]) {
         expect(release, contains('require_env $variable'));
       }
       expect(release, isNot(contains('REVENUECAT_ANDROID_KEY')));
-      expect(release, contains('assets/seed/content.db'));
       expect(
         release,
-        contains('lib/core/content/content_seed_version.dart'),
+        isNot(contains('require_env APPROVED_CONTENT_DB_SHA256')),
+      );
+      expect(release, contains('assets/seed/content.db'));
+      expect(release, contains('assets/seed/content.manifest.json'));
+      expect(release, contains('assets/seed/content.manifest.sig'));
+      expect(
+        release,
+        contains('tools/verify_content_package/verify_content_package.dart'),
+      );
+      expect(
+        release,
+        isNot(contains('lib/core/content/content_seed_version.dart')),
       );
     });
 

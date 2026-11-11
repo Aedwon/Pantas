@@ -14,13 +14,16 @@ void main() {
       accountTransitionGateway:
           RecordingAccountTransitionGateway(gateway.operations),
       localStateWiper: wiper,
-    );
+    )..beforeIdentityChange = () async {
+        gateway.operations.add('clearPayment');
+      };
 
     final result = await repo.signInWithGoogle();
 
     expect(gateway.operations, [
       'link',
       'prepareForAccountSwitch',
+      'clearPayment',
       'signOut',
       'signInWithCredential',
       'recordSignInEvent',

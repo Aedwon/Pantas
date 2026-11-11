@@ -1,0 +1,347 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: pick then Check and reveal Brightness.dark scale=1.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TypeWidgetFinder:<Found 0 widgets with type "FloatingBar": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart:94:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart line 94
+The test description was:
+  pick then Check and reveal Brightness.dark scale=1.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -1: pick then Check and reveal Brightness.dark scale=1.0 [E]
+  Test failed. See exception logs above.
+  The test description was: pick then Check and reveal Brightness.dark scale=1.0
+
+00:01 +0 -1: pick then Check and reveal Brightness.dark scale=2.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TypeWidgetFinder:<Found 0 widgets with type "FloatingBar": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart:94:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart line 94
+The test description was:
+  pick then Check and reveal Brightness.dark scale=2.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -2: pick then Check and reveal Brightness.dark scale=2.0 [E]
+  Test failed. See exception logs above.
+  The test description was: pick then Check and reveal Brightness.dark scale=2.0
+
+00:01 +0 -2: pick then Check and reveal Brightness.light scale=1.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TypeWidgetFinder:<Found 0 widgets with type "FloatingBar": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart:94:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart line 94
+The test description was:
+  pick then Check and reveal Brightness.light scale=1.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -3: pick then Check and reveal Brightness.light scale=1.0 [E]
+  Test failed. See exception logs above.
+  The test description was: pick then Check and reveal Brightness.light scale=1.0
+
+00:01 +0 -3: pick then Check and reveal Brightness.light scale=2.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TypeWidgetFinder:<Found 0 widgets with type "FloatingBar": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart:94:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart line 94
+The test description was:
+  pick then Check and reveal Brightness.light scale=2.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -4: pick then Check and reveal Brightness.light scale=2.0 [E]
+  Test failed. See exception logs above.
+  The test description was: pick then Check and reveal Brightness.light scale=2.0
+
+00:01 +0 -4: miss reveal respects notes access pro=false
+
+Warning: A call to tap() with finder "Found 1 widget with text "Wrong answer" (ignoring all but first): [
+  Text(null,
+  ╞═╦══ textSpan ═══
+    ║ TextSpan:
+    ║   TextSpan:
+    ║     inherit: true
+    ║     color: Color(alpha: 1.0000, red: 0.1137, green: 0.1137, blue:
+    ║       0.1216, colorSpace: ColorSpace.sRGB)
+    ║     family: Geist
+    ║     size: 15.0
+    ║     weight: 400
+    ║     letterSpacing: 0.0
+    ║     height: 1.4x
+    ║     "Wrong answer"
+  , inherit: true, color: Color(alpha: 1.0000, red: 0.1137, green: 0.1137, blue: 0.1216, colorSpace: ColorSpace.sRGB), family: Geist, size: 15.0, weight: 400, letterSpacing: 0.0, height: 1.4x, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(211.0, 206.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderParagraph#5415a relayoutBoundary=up29
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#df207(TextSpan(inherit: true, color: Color(alpha: 1.0000, red: 0.1137, green: 0.1137, blue: 0.1216, colorSpace: ColorSpace.sRGB), family: Geist, size: 15.0, weight: 400, letterSpacing: 0.0, height: 1.4x, "Wrong answer")), RenderParagraph#3db26@Offset(153.0, 10.0), RenderFlex#8e25e@Offset(185.0, 10.0), RenderPadding#aeafa@Offset(195.0, 22.0), RenderDecoratedBox#716c8@Offset(195.0, 22.0), RenderConstrainedBox#d160e@Offset(195.0, 22.0), RenderPointerListener#547c8@Offset(195.0, 22.0), RenderSemanticsAnnotations#f6b2d@Offset(195.0, 22.0), RenderMouseRegion#b3b6d@Offset(195.0, 22.0), RenderSemanticsAnnotations#0ef88@Offset(195.0, 22.0), RenderSemanticsAnnotations#ac1ef@Offset(195.0, 22.0), RenderOpacity#a9953@Offset(195.0, 22.0), RenderFlex#510b8@Offset(195.0, 115.0), RenderIgnorePointer#3e2fb@Offset(195.0, 115.0), RenderExcludeSemantics#d57a3@Offset(195.0, 115.0), RenderOpacity#7ef07@Offset(195.0, 115.0), RenderStack#6e87c@Offset(195.0, 115.0), RenderPadding#c4e26@Offset(195.0, 115.0), _RenderSingleChildViewport#face6@Offset(195.0, 115.0), RenderIgnorePointer#62192@Offset(195.0, 115.0), RenderSemanticsAnnotations#8c578@Offset(195.0, 115.0), RenderPointerListener#1d469@Offset(195.0, 115.0), RenderSemanticsGestureHandler#95657@Offset(195.0, 115.0), RenderPointerListener#91f4e@Offset(195.0, 115.0), _RenderScrollSemantics#b8f9f@Offset(195.0, 115.0), RenderClipRect#a763e@Offset(195.0, 115.0), RenderFlex#20ff8@Offset(195.0, 134.0), RenderPadding#1c4c7@Offset(211.0, 150.0), RenderCustomMultiChildLayoutBox#2acbe@Offset(211.0, 206.0), _RenderInkFeatures#7a69e@Offset(211.0, 206.0), RenderPhysicalModel#7d6d5@Offset(211.0, 206.0), RenderSemanticsAnnotations#be343@Offset(211.0, 206.0), RenderRepaintBoundary#463f8@Offset(211.0, 206.0), RenderIgnorePointer#62af0@Offset(211.0, 206.0), RenderAnimatedOpacity#bc416@Offset(211.0, 206.0), RenderAnimatedOpacity#02966@Offset(211.0, 206.0), _RenderColoredBox#c75ad@Offset(211.0, 206.0), RenderAnimatedOpacity#7a8f4@Offset(211.0, 206.0), RenderIgnorePointer#382c8@Offset(211.0, 206.0), RenderAnimatedOpacity#3b387@Offset(211.0, 206.0), RenderRepaintBoundary#12f1b@Offset(211.0, 206.0), RenderSemanticsAnnotations#54438@Offset(211.0, 206.0), RenderOffstage#06ccf@Offset(211.0, 206.0), RenderSemanticsAnnotations#b6328@Offset(211.0, 206.0), _RenderTheater#de547@Offset(211.0, 206.0), RenderAbsorbPointer#8e236@Offset(211.0, 206.0), RenderPointerListener#c6b59@Offset(211.0, 206.0), RenderCustomPaint#60756@Offset(211.0, 206.0), RenderSemanticsAnnotations#cc6cd@Offset(211.0, 206.0), RenderSemanticsAnnotations#26439@Offset(211.0, 206.0), RenderSemanticsAnnotations#c4fd7@Offset(211.0, 206.0), RenderTapRegionSurface#2b27b@Offset(211.0, 206.0), RenderSemanticsAnnotations#14353@Offset(211.0, 206.0), RenderSemanticsAnnotations#94f4a@Offset(211.0, 206.0), HitTestEntry<HitTestTarget>#32c9d(_ReusableRenderView#f748f), HitTestEntry<HitTestTarget>#288a6(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2165:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart:114:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+The finder "Found 0 widgets with text "Check": []" (used in a call to "tap()") could not find any
+matching widgets.
+
+When the exception was thrown, this was the stack:
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2095:7)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart:115:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  miss reveal respects notes access pro=false
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -5: miss reveal respects notes access pro=false [E]
+  Test failed. See exception logs above.
+  The test description was: miss reveal respects notes access pro=false
+
+00:01 +0 -5: miss reveal respects notes access pro=true
+
+Warning: A call to tap() with finder "Found 1 widget with text "Wrong answer" (ignoring all but first): [
+  Text(null,
+  ╞═╦══ textSpan ═══
+    ║ TextSpan:
+    ║   TextSpan:
+    ║     inherit: true
+    ║     color: Color(alpha: 1.0000, red: 0.1137, green: 0.1137, blue:
+    ║       0.1216, colorSpace: ColorSpace.sRGB)
+    ║     family: Geist
+    ║     size: 15.0
+    ║     weight: 400
+    ║     letterSpacing: 0.0
+    ║     height: 1.4x
+    ║     "Wrong answer"
+  , inherit: true, color: Color(alpha: 1.0000, red: 0.1137, green: 0.1137, blue: 0.1216, colorSpace: ColorSpace.sRGB), family: Geist, size: 15.0, weight: 400, letterSpacing: 0.0, height: 1.4x, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(211.0, 206.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderParagraph#7b304 relayoutBoundary=up29
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#85ab8(TextSpan(inherit: true, color: Color(alpha: 1.0000, red: 0.1137, green: 0.1137, blue: 0.1216, colorSpace: ColorSpace.sRGB), family: Geist, size: 15.0, weight: 400, letterSpacing: 0.0, height: 1.4x, "Wrong answer")), RenderParagraph#5d7bd@Offset(153.0, 10.0), RenderFlex#48e77@Offset(185.0, 10.0), RenderPadding#e16d5@Offset(195.0, 22.0), RenderDecoratedBox#196f9@Offset(195.0, 22.0), RenderConstrainedBox#cdd7f@Offset(195.0, 22.0), RenderPointerListener#f2f65@Offset(195.0, 22.0), RenderSemanticsAnnotations#aca33@Offset(195.0, 22.0), RenderMouseRegion#0ffa8@Offset(195.0, 22.0), RenderSemanticsAnnotations#e1a02@Offset(195.0, 22.0), RenderSemanticsAnnotations#2d091@Offset(195.0, 22.0), RenderOpacity#ffcdd@Offset(195.0, 22.0), RenderFlex#0f1d7@Offset(195.0, 115.0), RenderIgnorePointer#461d6@Offset(195.0, 115.0), RenderExcludeSemantics#dbcf7@Offset(195.0, 115.0), RenderOpacity#c8288@Offset(195.0, 115.0), RenderStack#0791d@Offset(195.0, 115.0), RenderPadding#90a66@Offset(195.0, 115.0), _RenderSingleChildViewport#e2ae6@Offset(195.0, 115.0), RenderIgnorePointer#2e7c2@Offset(195.0, 115.0), RenderSemanticsAnnotations#b400f@Offset(195.0, 115.0), RenderPointerListener#725a5@Offset(195.0, 115.0), RenderSemanticsGestureHandler#34517@Offset(195.0, 115.0), RenderPointerListener#b6a40@Offset(195.0, 115.0), _RenderScrollSemantics#92208@Offset(195.0, 115.0), RenderClipRect#21de6@Offset(195.0, 115.0), RenderFlex#f3569@Offset(195.0, 134.0), RenderPadding#e3972@Offset(211.0, 150.0), RenderCustomMultiChildLayoutBox#c332c@Offset(211.0, 206.0), _RenderInkFeatures#982b7@Offset(211.0, 206.0), RenderPhysicalModel#076c1@Offset(211.0, 206.0), RenderSemanticsAnnotations#8a7d5@Offset(211.0, 206.0), RenderRepaintBoundary#9ed1f@Offset(211.0, 206.0), RenderIgnorePointer#885c3@Offset(211.0, 206.0), RenderAnimatedOpacity#15015@Offset(211.0, 206.0), RenderAnimatedOpacity#0f753@Offset(211.0, 206.0), _RenderColoredBox#1bccd@Offset(211.0, 206.0), RenderAnimatedOpacity#3dbfb@Offset(211.0, 206.0), RenderIgnorePointer#634fe@Offset(211.0, 206.0), RenderAnimatedOpacity#87620@Offset(211.0, 206.0), RenderRepaintBoundary#54299@Offset(211.0, 206.0), RenderSemanticsAnnotations#cf263@Offset(211.0, 206.0), RenderOffstage#bfda8@Offset(211.0, 206.0), RenderSemanticsAnnotations#cdca4@Offset(211.0, 206.0), _RenderTheater#fea02@Offset(211.0, 206.0), RenderAbsorbPointer#48b51@Offset(211.0, 206.0), RenderPointerListener#d4d95@Offset(211.0, 206.0), RenderCustomPaint#78f4d@Offset(211.0, 206.0), RenderSemanticsAnnotations#fd7b8@Offset(211.0, 206.0), RenderSemanticsAnnotations#b3c51@Offset(211.0, 206.0), RenderSemanticsAnnotations#6298f@Offset(211.0, 206.0), RenderTapRegionSurface#15a21@Offset(211.0, 206.0), RenderSemanticsAnnotations#a5742@Offset(211.0, 206.0), RenderSemanticsAnnotations#f05b3@Offset(211.0, 206.0), HitTestEntry<HitTestTarget>#f80e4(_ReusableRenderView#f748f), HitTestEntry<HitTestTarget>#648b4(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2165:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart:114:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+The finder "Found 0 widgets with text "Check": []" (used in a call to "tap()") could not find any
+matching widgets.
+
+When the exception was thrown, this was the stack:
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2095:7)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart:115:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  miss reveal respects notes access pro=true
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -6: miss reveal respects notes access pro=true [E]
+  Test failed. See exception logs above.
+  The test description was: miss reveal respects notes access pro=true
+
+00:01 +0 -6: grid revisits are read-only and return to the live question
+
+Warning: A call to tap() with finder "Found 1 widget with text "Right answer" (ignoring all but first): [
+  Text(null,
+  ╞═╦══ textSpan ═══
+    ║ TextSpan:
+    ║   TextSpan:
+    ║     inherit: true
+    ║     color: Color(alpha: 1.0000, red: 0.1137, green: 0.1137, blue:
+    ║       0.1216, colorSpace: ColorSpace.sRGB)
+    ║     family: Geist
+    ║     size: 15.0
+    ║     weight: 400
+    ║     letterSpacing: 0.0
+    ║     height: 1.4x
+    ║     "Right answer"
+  , inherit: true, color: Color(alpha: 1.0000, red: 0.1137, green: 0.1137, blue: 0.1216, colorSpace: ColorSpace.sRGB), family: Geist, size: 15.0, weight: 400, letterSpacing: 0.0, height: 1.4x, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(211.0, 158.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderParagraph#65407 relayoutBoundary=up29
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#5830d(TextSpan(inherit: true, color: Color(alpha: 1.0000, red: 0.1137, green: 0.1137, blue: 0.1216, colorSpace: ColorSpace.sRGB), family: Geist, size: 15.0, weight: 400, letterSpacing: 0.0, height: 1.4x, "Right answer")), RenderParagraph#ad42c@Offset(153.0, 10.0), RenderFlex#b15d3@Offset(185.0, 10.0), RenderPadding#aaafb@Offset(195.0, 22.0), RenderDecoratedBox#1a9df@Offset(195.0, 22.0), RenderConstrainedBox#07d77@Offset(195.0, 22.0), RenderPointerListener#87294@Offset(195.0, 22.0), RenderSemanticsAnnotations#06fad@Offset(195.0, 22.0), RenderMouseRegion#6ddaa@Offset(195.0, 22.0), RenderSemanticsAnnotations#496d2@Offset(195.0, 22.0), RenderSemanticsAnnotations#55cd1@Offset(195.0, 22.0), RenderOpacity#1def0@Offset(195.0, 22.0), RenderFlex#c9008@Offset(195.0, 67.0), RenderIgnorePointer#41c44@Offset(195.0, 67.0), RenderExcludeSemantics#ff9dc@Offset(195.0, 67.0), RenderOpacity#d2d57@Offset(195.0, 67.0), RenderStack#cd2a4@Offset(195.0, 67.0), RenderPadding#5d0a4@Offset(195.0, 67.0), _RenderSingleChildViewport#5a2e6@Offset(195.0, 67.0), RenderIgnorePointer#9fa58@Offset(195.0, 67.0), RenderSemanticsAnnotations#6fba3@Offset(195.0, 67.0), RenderPointerListener#bb173@Offset(195.0, 67.0), RenderSemanticsGestureHandler#7cb96@Offset(195.0, 67.0), RenderPointerListener#fdd28@Offset(195.0, 67.0), _RenderScrollSemantics#0b995@Offset(195.0, 67.0), RenderClipRect#7a7fd@Offset(195.0, 67.0), RenderFlex#baa0a@Offset(195.0, 86.0), RenderPadding#e3d80@Offset(211.0, 102.0), RenderCustomMultiChildLayoutBox#27f9b@Offset(211.0, 158.0), _RenderInkFeatures#efc1a@Offset(211.0, 158.0), RenderPhysicalModel#2e1b7@Offset(211.0, 158.0), RenderSemanticsAnnotations#f36f1@Offset(211.0, 158.0), RenderRepaintBoundary#f48da@Offset(211.0, 158.0), RenderIgnorePointer#f69ca@Offset(211.0, 158.0), RenderAnimatedOpacity#16b19@Offset(211.0, 158.0), RenderAnimatedOpacity#21d8c@Offset(211.0, 158.0), _RenderColoredBox#12215@Offset(211.0, 158.0), RenderAnimatedOpacity#4a4e0@Offset(211.0, 158.0), RenderIgnorePointer#2121e@Offset(211.0, 158.0), RenderAnimatedOpacity#f0366@Offset(211.0, 158.0), RenderRepaintBoundary#835fd@Offset(211.0, 158.0), RenderSemanticsAnnotations#2e77e@Offset(211.0, 158.0), RenderOffstage#dcec5@Offset(211.0, 158.0), RenderSemanticsAnnotations#b4772@Offset(211.0, 158.0), _RenderTheater#1653a@Offset(211.0, 158.0), RenderAbsorbPointer#7d041@Offset(211.0, 158.0), RenderPointerListener#36ab3@Offset(211.0, 158.0), RenderCustomPaint#4ff03@Offset(211.0, 158.0), RenderSemanticsAnnotations#8efb8@Offset(211.0, 158.0), RenderSemanticsAnnotations#55226@Offset(211.0, 158.0), RenderSemanticsAnnotations#c0e66@Offset(211.0, 158.0), RenderTapRegionSurface#4652f@Offset(211.0, 158.0), RenderSemanticsAnnotations#12d8b@Offset(211.0, 158.0), RenderSemanticsAnnotations#ad47f@Offset(211.0, 158.0), HitTestEntry<HitTestTarget>#1d0d1(_ReusableRenderView#f748f), HitTestEntry<HitTestTarget>#6878b(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2165:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart:124:18)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+The finder "Found 0 widgets with text "Check": []" (used in a call to "tap()") could not find any
+matching widgets.
+
+When the exception was thrown, this was the stack:
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2095:7)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart:125:18)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  grid revisits are read-only and return to the live question
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -7: grid revisits are read-only and return to the live question [E]
+  Test failed. See exception logs above.
+  The test description was: grid revisits are read-only and return to the live question
+
+00:01 +0 -7: leave asks once for X and system back
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+The finder "Found 0 widgets with widget matching predicate: []" (used in a call to "tap()") could
+not find any matching widgets.
+
+When the exception was thrown, this was the stack:
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2095:7)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart:145:18)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  leave asks once for X and system back
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -8: leave asks once for X and system back [E]
+  Test failed. See exception logs above.
+  The test description was: leave asks once for X and system back
+
+00:02 +0 -8: flag Undo keeps the question and writes no answer
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+The finder "Found 0 widgets with widget matching predicate: []" (used in a call to "tap()") could
+not find any matching widgets.
+
+When the exception was thrown, this was the stack:
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2095:7)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart:156:18)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  flag Undo keeps the question and writes no answer
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +0 -9: flag Undo keeps the question and writes no answer [E]
+  Test failed. See exception logs above.
+  The test description was: flag Undo keeps the question and writes no answer
+
+00:02 +0 -9: (tearDownAll)
+00:02 +0 -9: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart: flag Undo keeps the question and writes no answer
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart: grid revisits are read-only and return to the live question
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart: leave asks once for X and system back
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart: miss reveal respects notes access pro=false
+  ... and 5 more

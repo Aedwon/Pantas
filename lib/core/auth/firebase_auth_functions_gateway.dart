@@ -1,19 +1,30 @@
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:pantas/core/auth/auth_repository.dart';
+import 'package:pantas/core/platform/callable_options.dart';
 
 // Single-method interface is intentional for callable-client test DI.
 // ignore: one_member_abstracts
 abstract interface class AuthFunctionsCallableClient {
-  Future<Object?> call({required String region, required String name});
+  Future<Object?> call({
+    required String region,
+    required String name,
+    Object? data,
+  });
 }
 
 class FirebaseFunctionsCallableClient implements AuthFunctionsCallableClient {
   const FirebaseFunctionsCallableClient();
 
   @override
-  Future<Object?> call({required String region, required String name}) async {
+  Future<Object?> call({
+    required String region,
+    required String name,
+    Object? data,
+  }) async {
     final functions = FirebaseFunctions.instanceFor(region: region);
-    final result = await functions.httpsCallable(name).call<Object?>();
+    final result = await functions
+        .httpsCallable(name, options: callableOptionsFor(name))
+        .call<Object?>(data);
     return result.data;
   }
 }
@@ -66,5 +77,34 @@ class FirebaseAuthFunctionsGateway implements AuthFunctionsGateway {
       }
       throw AuthGatewayException(error.code);
     }
+  }
+}
+
+/// Calls `exchangeGoogleSignIn`: Google's ID token in, a custom token for the
+/// existing account out. Every refusal becomes the callable's error code.
+class FirebaseGoogleAccountExchangeGateway
+    implements GoogleAccountExchangeGateway {
+  FirebaseGoogleAccountExchangeGateway({AuthFunctionsCallableClient? client})
+      : _client = client ?? const FirebaseFunctionsCallableClient();
+
+  final AuthFunctionsCallableClient _client;
+
+  @override
+  Future<String> exchange(String idToken) async {
+    final Object? data;
+    try {
+      data = await _client.call(
+        region: FirebaseAuthFunctionsGateway.region,
+        name: 'exchangeGoogleSignIn',
+        data: {'idToken': idToken},
+      );
+    } on FirebaseFunctionsException catch (error) {
+      throw AuthGatewayException(error.code);
+    }
+    final token = data is Map ? data['token'] : null;
+    if (token is! String || token.isEmpty) {
+      throw const AuthGatewayException('malformed-exchange-response');
+    }
+    return token;
   }
 }

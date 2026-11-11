@@ -9,7 +9,6 @@ import 'package:pantas/core/storage/data/repos/content_repository.dart';
 import 'package:pantas/core/storage/data/repos/lesson_bookmarks_repository.dart';
 import 'package:pantas/core/storage/data/repos/lesson_progress_repository.dart';
 import 'package:pantas/core/storage/data/repos/question_flags_repository.dart';
-import 'package:pantas/core/storage/data/repos/quiz_nudge_repository.dart';
 import 'package:pantas/core/storage/data/repos/review_state_repository.dart';
 import 'package:pantas/core/storage/data/repos/streak_repository.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
@@ -17,6 +16,7 @@ import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/lesson.dart';
 import 'package:pantas/core/storage/domain/passage.dart';
 import 'package:pantas/core/storage/domain/topic.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
 
 export 'package:pantas/core/storage/data/repos/app_preferences_repository.dart';
 export 'package:pantas/core/storage/data/repos/lesson_bookmarks_repository.dart';
@@ -33,7 +33,10 @@ final appDatabaseProvider = Provider<AppDatabase>(
 );
 
 final contentRepositoryProvider = Provider<ContentRepository>(
-  (ref) => ContentRepository(ref.watch(contentDatabaseProvider)),
+  (ref) => ContentRepository(
+    ref.watch(contentDatabaseProvider),
+    fetchHook: ref.watch(contentFetchHookProvider),
+  ),
 );
 
 final attemptsRepositoryProvider = Provider<AttemptsRepository>(
@@ -56,7 +59,8 @@ final appPreferencesRepositoryProvider = Provider<AppPreferencesRepository>(
   (ref) => AppPreferencesRepository(ref.watch(appDatabaseProvider)),
 );
 
-/// Opens the encrypted DB and returns a ProviderContainer override list.
+/// Opens the study database (SQLCipher on native, the standard browser
+/// database on web) and returns a ProviderContainer override list.
 /// Call from main bootstrap.
 Future<List<Override>> bootstrapStorageOverrides() async {
   final db = await openEncryptedDatabase();
@@ -84,7 +88,11 @@ final topicsByExamProvider =
 
 final lessonByIdProvider =
     FutureProvider.family<Lesson?, LessonId>((ref, id) async {
-  return ref.watch(contentRepositoryProvider).lessonById(id);
+  // Throws when the catalog lists the lesson but its text did not load, so the
+  // reader can offer a retry instead of "Lesson not found".
+  return ref
+      .watch(contentRepositoryProvider)
+      .lessonById(id, throwOnLoadFailure: true);
 });
 
 final passageByIdProvider =
@@ -94,13 +102,21 @@ final passageByIdProvider =
 
 final topicLessonsProvider =
     FutureProvider.family<List<Lesson>, TopicId>((ref, topicId) async {
-  return ref.watch(contentRepositoryProvider).lessonsByTopic(topicId);
+  final exam = (await ref.watch(activeExamFocusProvider.future)).exam;
+  if (exam == null) return const [];
+  return ref
+      .watch(contentRepositoryProvider)
+      .lessonsByTopic(topicId, examId: exam.id);
 });
 
 final lessonsByTopicsProvider =
     FutureProvider.family<Map<TopicId, List<Lesson>>, List<TopicId>>(
         (ref, topicIds) async {
-  return ref.watch(contentRepositoryProvider).lessonsByTopics(topicIds);
+  final exam = (await ref.watch(activeExamFocusProvider.future)).exam;
+  if (exam == null) return const {};
+  return ref
+      .watch(contentRepositoryProvider)
+      .lessonsByTopics(topicIds, examId: exam.id);
 });
 
 final lessonProgressRepositoryProvider = Provider<LessonProgressRepository>(
@@ -112,10 +128,6 @@ final lessonProgressRepositoryProvider = Provider<LessonProgressRepository>(
 
 final lessonBookmarksRepositoryProvider = Provider<LessonBookmarksRepository>(
   (ref) => LessonBookmarksRepository(ref.watch(appDatabaseProvider)),
-);
-
-final quizNudgeRepositoryProvider = Provider<QuizNudgeRepository>(
-  (ref) => QuizNudgeRepository(ref.watch(appDatabaseProvider)),
 );
 
 final isLessonReadProvider =
@@ -130,10 +142,6 @@ final readCountForTopicProvider =
 
 final anyLessonReadProvider = FutureProvider<bool>((ref) async {
   return ref.watch(lessonProgressRepositoryProvider).hasAnyRead();
-});
-
-final quizNudgeDismissedProvider = FutureProvider<bool>((ref) async {
-  return ref.watch(quizNudgeRepositoryProvider).hasDismissed();
 });
 
 final assessmentRepositoryProvider = Provider<AssessmentRepository>(

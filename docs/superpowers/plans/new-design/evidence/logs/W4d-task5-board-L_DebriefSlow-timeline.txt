@@ -1,0 +1,20 @@
+
+■ <div>   (in: 8 of 10 11 minutes)
+  fx-fadeout  200ms after 1100ms  ease
+       1100ms  opacity:1
+       1300ms  opacity:0
+
+■ 8 of 10 11 minutes
+  fx-fadein  300ms after 1160ms  ease
+       1160ms  opacity:0
+       1460ms  opacity:1
+
+■ <div>   (in: Word problems 2 of 3 Factoring 0 of 1)
+  fx-fadeout  200ms after 1300ms  ease
+       1300ms  opacity:1
+       1500ms  opacity:0
+
+■ Word problems 2 of 3 Factoring 0 of 1
+  fx-fadein  300ms after 1360ms  ease
+       1360ms  opacity:0
+       1660ms  opacity:1

@@ -1,0 +1,57 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/custom_launch_boundary_test.dart
+00:00 +0: custom launch keeps its original stable boundary
+00:00 +1: custom launch keeps its original account boundary
+00:00 +1 -1: custom launch keeps its original account boundary [E]
+  Expected: not <Instance of 'QuizRunning'>
+    Actual: <Instance of 'QuizRunning'>
+
+  package:matcher                                                         expect
+  package:flutter_test/src/widget_tester.dart 473:18                      expect
+  test/features/quiz/presentation/custom_launch_boundary_test.dart 137:9  main.<fn>
+
+00:00 +1 -1: custom launch keeps its original exam boundary
+00:00 +1 -2: custom launch keeps its original exam boundary [E]
+  Expected: not <Instance of 'QuizRunning'>
+    Actual: <Instance of 'QuizRunning'>
+
+  package:matcher                                                         expect
+  package:flutter_test/src/widget_tester.dart 473:18                      expect
+  test/features/quiz/presentation/custom_launch_boundary_test.dart 137:9  main.<fn>
+
+00:00 +1 -2: custom launch keeps its original token boundary
+00:00 +1 -3: custom launch keeps its original token boundary [E]
+  Expected: not <Instance of 'QuizRunning'>
+    Actual: <Instance of 'QuizRunning'>
+
+  package:matcher                                                         expect
+  package:flutter_test/src/widget_tester.dart 473:18                      expect
+  test/features/quiz/presentation/custom_launch_boundary_test.dart 137:9  main.<fn>
+
+00:00 +1 -3: custom launch keeps its original wipe boundary
+00:00 +1 -4: custom launch keeps its original wipe boundary [E]
+  Expected: not <Instance of 'QuizRunning'>
+    Actual: <Instance of 'QuizRunning'>
+
+  package:matcher                                                         expect
+  package:flutter_test/src/widget_tester.dart 473:18                      expect
+  test/features/quiz/presentation/custom_launch_boundary_test.dart 137:9  main.<fn>
+
+00:00 +1 -4: custom launch keeps its original disposed boundary
+00:00 +1 -5: custom launch keeps its original disposed boundary [E]
+  Bad state: Tried to use QuizController after `dispose` was called.
+
+  Consider checking `mounted`.
+
+  package:state_notifier/state_notifier.dart 175:9                      StateNotifier._debugIsMounted.<fn>
+  package:state_notifier/state_notifier.dart 182:6                      StateNotifier._debugIsMounted
+  package:state_notifier/state_notifier.dart 212:12                     StateNotifier.state=
+  package:pantas/features/quiz/presentation/quiz_controller.dart 198:7  QuizController.startPractice
+
+00:00 +1 -5: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/custom_launch_boundary_test.dart: custom launch keeps its original account boundary
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/custom_launch_boundary_test.dart: custom launch keeps its original disposed boundary
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/custom_launch_boundary_test.dart: custom launch keeps its original exam boundary
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/custom_launch_boundary_test.dart: custom launch keeps its original token boundary
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/custom_launch_boundary_test.dart: custom launch keeps its original wipe boundary

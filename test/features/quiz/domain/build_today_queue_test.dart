@@ -47,7 +47,7 @@ void main() {
     expect(rows.first.isRecommended, isTrue);
   });
 
-  test('new-card cap reached reports zero new cards', () {
+  test('queue keeps the supplied new-question count', () {
     final rows = BuildTodayQueue.call(
       topics: const [
         TopicQueueInput(topicId: 'vocab', topicName: 'Vocabulary'),
@@ -55,10 +55,9 @@ void main() {
       dueCounts: const {},
       weaknessCounts: const {'vocab': 2},
       newCounts: const {'vocab': 5},
-      newCardCapReached: true,
     );
 
-    expect(rows.single.newCount, equals(0));
-    expect(rows.single.totalCount, equals(2));
+    expect(rows.single.newCount, equals(5));
+    expect(rows.single.totalCount, equals(7));
   });
 }

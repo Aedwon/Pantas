@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-biology-characteristics-of-life-0001	CORRECTED	SOLVED-MATCH	stem;explanation;notes	HIGH	Original made-of wording also allowed molecules as a defensible answer.
+q-biology-characteristics-of-life-0002	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-biology-characteristics-of-life-0003	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-biology-characteristics-of-life-0004	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Original wording did not specify the population level and the correct choice was longest.
+q-biology-characteristics-of-life-0005	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-biology-characteristics-of-life-0006	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-biology-characteristics-of-life-0007	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original note falsely said viruses lack membranes; many viruses have envelopes.
+q-biology-characteristics-of-life-0008	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Original size and human-only distractors were unrelated to the defining biological distinction.
+q-biology-characteristics-of-life-0009	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Original choices repeated fuel-use claims and one falsely denied motion.
+q-biology-characteristics-of-life-0010	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Original growth distractors duplicated each other and the size distractor was weak.
+q-biology-characteristics-of-life-0011	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Original item repeated single-trait classification and included a distractor denying fire spread.
+q-biology-characteristics-of-life-0012	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original gravity distractor implied gravity cannot be a biological stimulus; plant gravitropism shows otherwise.
+q-biology-characteristics-of-life-0013	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	HIGH	Lesson does not teach this distinction; preserved keyed choice incorrectly requires two parents and remains longest. Explanation now qualifies self-fertilization; false sexual-bacterial claim removed from notes.
+q-biology-characteristics-of-life-0014	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original item treated every property as mandatory in each individual and assigned evolution to one organism.
+q-biology-characteristics-of-life-0015	NEW	NEW	new question	NONE	
+q-biology-characteristics-of-life-0016	NEW	NEW	new question	NONE	
+q-biology-characteristics-of-life-0017	NEW	NEW	new question	NONE	
+q-biology-characteristics-of-life-0018	NEW	NEW	new question	NONE	
+q-biology-characteristics-of-life-0019	NEW	NEW	new question	NONE	
+q-biology-characteristics-of-life-0020	NEW	NEW	new question	NONE	

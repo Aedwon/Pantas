@@ -1,0 +1,11 @@
+Analyzing 17 items...                                           
+
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/features/quiz/domain/picker/practice_selection.dart:58:7 • curly_braces_in_flow_control_structures
+   info • Constructor declarations should be before non-constructor declarations. Try moving the constructor declaration before all other members • lib/features/quiz/domain/picker/practice_selection.dart:134:11 • sort_constructors_first
+   info • 'bool' parameters should be named parameters. Try converting the parameter to a named parameter • lib/features/quiz/domain/picker/practice_summary.dart:127:25 • avoid_positional_boolean_parameters
+   info • Missing a required trailing comma. Try adding a trailing comma • test/core/ui/components/practice_scope_extensions_test.dart:27:72 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/domain/picker/practice_adjustment_test.dart:18:69 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/domain/picker/practice_adjustment_test.dart:20:69 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/domain/use_cases/practice_recency_test.dart:116:78 • require_trailing_commas
+
+7 issues found. (ran in 1.5s)

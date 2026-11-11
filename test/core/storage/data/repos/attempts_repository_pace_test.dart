@@ -28,6 +28,7 @@ void main() {
     required List<AttemptItem> items,
     DateTime? startedAt,
     bool completed = true,
+    String origin = 'today_topic',
   }) {
     final began = startedAt ?? DateTime.utc(2026, 8);
     return repo.save(
@@ -36,10 +37,42 @@ void main() {
         examId: 'exam_cse_pro',
         startedAt: began,
         completedAt: completed ? began : null,
+        origin: origin,
         items: items,
       ),
     );
   }
+
+  test('untimed rows neither lower the pace nor count toward seven', () async {
+    for (var i = 0; i < 6; i++) {
+      await save('a_$i', items: [item('q_$i', responseMs: 40000)]);
+    }
+    await save(
+      'assessment',
+      origin: 'assessment',
+      items: [item('q_x', responseMs: 0), item('q_y', responseMs: 0)],
+    );
+    await save('mock', origin: 'mock', items: [item('q_z', responseMs: 0)]);
+
+    expect(await repo.averageResponseMs(examId: 'exam_cse_pro'), isNull);
+
+    await save('a_6', items: [item('q_6', responseMs: 40000)]);
+
+    expect(await repo.averageResponseMs(examId: 'exam_cse_pro'), 40000);
+  });
+
+  test('untimed rows are skipped in the per-topic averages', () async {
+    await save('timed', items: [item('q_1')]);
+    await save('mock', origin: 'mock', items: [item('q_2', responseMs: 0)]);
+
+    final averages = await repo.averageResponseMsByTopic(
+      examId: 'exam_cse_pro',
+      topicOf: const {'q_1': 'topic_algebra', 'q_2': 'topic_algebra'},
+      now: DateTime.utc(2026, 8, 2),
+    );
+
+    expect(averages['topic_algebra'], 30000);
+  });
 
   test('the pace is withheld below seven completed attempts', () async {
     for (var i = 0; i < 6; i++) {

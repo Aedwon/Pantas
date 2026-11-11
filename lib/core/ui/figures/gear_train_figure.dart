@@ -4,6 +4,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
+/// Height of the drawing. The design system sets no height for diagrams.
+const double _figureHeight = 96;
+
 /// A row of meshed gears, with an arrow on the first one.
 ///
 /// The spec:
@@ -25,6 +28,9 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 /// ```yaml
 ///       teeth: [10, 30]
 /// ```
+///
+/// Each gear is drawn with that many teeth, all the same size, so a 10-tooth
+/// gear meshes with a 30-tooth gear and a student can count them.
 ///
 /// **The tooth counts are drawn as sizes, never printed.** The stem states
 /// them, and a number on a drawing this project did not measure is a figure
@@ -107,19 +113,47 @@ class GearTrainFigure extends StatelessWidget {
     return Semantics(
       label: '$arrangement$direction',
       child: SizedBox(
-        height: 96,
+        height: _figureHeight,
         child: CustomPaint(
           painter: _GearTrainPainter(
             gears: gears,
             firstTurnsClockwise: firstTurnsClockwise,
             layout: layout,
             teeth: teeth,
-            ink: colors.ink,
+            ink: colors.label,
           ),
           size: Size.infinite,
         ),
       ),
     );
+  }
+}
+
+/// The outline of a gear, shared by the painter and its tests.
+@visibleForTesting
+abstract final class GearGeometry {
+  /// The tooth count of a gear that has no count of its own.
+  static const defaultTeeth = 12;
+
+  /// A closed outline with exactly [teeth] square-topped teeth. Two points
+  /// per tooth top and two per root give the printed-diagram look.
+  static List<Offset> outline(
+    Offset centre,
+    double radius,
+    double toothDepth,
+    int teeth,
+  ) {
+    final inner = radius - toothDepth;
+    final steps = teeth * 4;
+    return [
+      for (var i = 0; i < steps; i++)
+        centre +
+            Offset(
+                  math.cos(i * 2 * math.pi / steps),
+                  math.sin(i * 2 * math.pi / steps),
+                ) *
+                ((i ~/ 2).isEven ? radius : inner),
+    ];
   }
 }
 
@@ -137,8 +171,6 @@ class _GearTrainPainter extends CustomPainter {
   final String layout;
   final List<int>? teeth;
   final Color ink;
-
-  static const _teeth = 12;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -166,9 +198,15 @@ class _GearTrainPainter extends CustomPainter {
     if (unit <= 4) return;
 
     final radii = [for (final s in scales) math.max<double>(unit * s, 8)];
+
+    // With real tooth counts every gear has the same tooth size, which is
+    // what lets them mesh: a tooth is a share of the same pitch.
+    final sized = teeth != null;
+    final pitch = 2 * math.pi * unit / largest;
+    final meshDepth = sized ? pitch * 0.4 : unit * 0.16;
     var totalWidth = radii.first + radii.last;
     for (var i = 0; i < gears - 1; i++) {
-      totalWidth += radii[i] + radii[i + 1] - unit * 0.16;
+      totalWidth += radii[i] + radii[i + 1] - meshDepth;
     }
 
     var cx = (size.width - totalWidth) / 2 + radii.first;
@@ -181,14 +219,21 @@ class _GearTrainPainter extends CustomPainter {
 
     for (var i = 0; i < gears; i++) {
       final radius = radii[i];
-      _drawGear(canvas, Offset(cx, cy), radius, radius * 0.16, hairline);
+      _drawGear(
+        canvas,
+        Offset(cx, cy),
+        radius,
+        sized ? meshDepth : radius * 0.16,
+        hairline,
+        teethCount: sized ? counts[i] : GearGeometry.defaultTeeth,
+      );
       if (i == 0 && firstTurnsClockwise != null) {
         _drawTurnArrow(canvas, Offset(cx, cy), radius * 0.52, hairline);
       }
       if (i < gears - 1) {
         // Meshed, so the centres sit one tooth's depth closer than the two
         // radii would put them.
-        cx += radius + radii[i + 1] - unit * 0.16;
+        cx += radius + radii[i + 1] - meshDepth;
       }
     }
   }
@@ -220,25 +265,14 @@ class _GearTrainPainter extends CustomPainter {
     Offset centre,
     double radius,
     double toothDepth,
-    Paint paint,
-  ) {
-    final path = Path();
-    final inner = radius - toothDepth;
-    // Alternate between the tooth radius and the root radius. Two points per
-    // tooth gives the square-topped look a printed diagram has.
-    const steps = _teeth * 4;
-    for (var i = 0; i <= steps; i++) {
-      final angle = i * 2 * math.pi / steps;
-      final onTooth = (i ~/ 2).isEven;
-      final r = onTooth ? radius : inner;
-      final point = centre + Offset(math.cos(angle) * r, math.sin(angle) * r);
-      if (i == 0) {
-        path.moveTo(point.dx, point.dy);
-      } else {
-        path.lineTo(point.dx, point.dy);
-      }
-    }
-    path.close();
+    Paint paint, {
+    int teethCount = GearGeometry.defaultTeeth,
+  }) {
+    final path = Path()
+      ..addPolygon(
+        GearGeometry.outline(centre, radius, toothDepth, teethCount),
+        true,
+      );
     // The hub, so a gear reads as a wheel rather than as a star.
     canvas
       ..drawPath(path, paint)

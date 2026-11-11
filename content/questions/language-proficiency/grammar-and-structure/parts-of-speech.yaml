@@ -1,425 +1,413 @@
 meta:
-  subject: language-proficiency
-  topic: grammar-and-structure
-  subtopic: parts-of-speech
-  exams: [ upcat, acet, dlsucet, ustet, dost-sei , cse-pro, cse-sub]
+  subject: "language-proficiency"
+  topic: "grammar-and-structure"
+  subtopic: "parts-of-speech"
+  exams:
+    - "upcat"
+    - "acet"
+    - "dlsucet"
+    - "ustet"
+    - "dost-sei"
+    - "cse-pro"
+    - "cse-sub"
 questions:
-  - id: q-grammar-and-structure-parts-of-speech-0001
-    type: parts-of-speech-identification
-    difficulty: easy
+  - id: "q-grammar-and-structure-parts-of-speech-0001"
+    type: "parts-of-speech-identification"
+    difficulty: "easy"
     stem: |
       Maria bought a new book from the store yesterday. What part of speech is the word "book" in this sentence?
     choices:
-      - text: Noun
+      - text: "Noun"
         correct: true
-      - text: Verb
+      - text: "Verb"
         rationale: |
-          You picked verb, but "book" does not state an action here. It names a physical object that Maria bought.
-      - text: Adjective
+          This treats an object name as an action. "Book" can be a verb in a sentence about reserving seats. Check: identify its job in this sentence.
+      - text: "Adjective"
         rationale: |
-          You picked adjective, but "book" does not describe another noun in this sentence. It is the direct object.
-      - text: Adverb
+          This treats the item bought as a description. The nearby word "new" describes the book. Check: find which word names the item.
+      - text: "Adverb"
         rationale: |
-          You picked adverb, but "book" does not modify a verb, adjective, or other adverb. It names an item.
+          This treats the object of an action as a word describing the action. The book is connected to what Maria did. Check: ask whether it names a thing or tells how she acted.
     explanation: |
       "Book" names a thing, making it a noun.
     approved: true
-
-  - id: q-grammar-and-structure-parts-of-speech-0002
-    type: parts-of-speech-identification
-    difficulty: easy
+  - id: "q-grammar-and-structure-parts-of-speech-0002"
+    type: "parts-of-speech-identification"
+    difficulty: "easy"
     stem: |
       Although Carlos was late, he still finished his part; she thanked him afterward. What part of speech is the word "he" in this sentence?
     choices:
-      - text: Pronoun
+      - text: "Pronoun"
         correct: true
-      - text: Noun
+      - text: "Noun"
         rationale: |
-          You picked noun, but "he" is a pronoun standing in for the specific person Carlos.
-      - text: Adjective
+          This groups a replacement word with names. "He" refers to a person. Check: ask whether the word names Carlos or stands in for his name.
+      - text: "Adjective"
         rationale: |
-          You picked adjective, but "he" is not modifying a noun. It is acting as the subject of the clause.
-      - text: Conjunction
+          This treats a reference to a person as a description. "He" tells which person finished. Check: check whether it modifies a noun or replaces a name.
+      - text: "Conjunction"
         rationale: |
-          You picked conjunction, but "he" does not join words or clauses. It replaces the noun Carlos.
+          This treats a clause subject as a linking word. "He" appears after the first clause. Check: check whether it joins clauses or supplies their subject.
     explanation: |
       "He" replaces the noun "Carlos" so it does not need to be repeated, making it a pronoun.
     approved: true
-
-  - id: q-grammar-and-structure-parts-of-speech-0003
-    type: parts-of-speech-identification
-    difficulty: medium
+  - id: "q-grammar-and-structure-parts-of-speech-0003"
+    type: "parts-of-speech-identification"
+    difficulty: "medium"
     stem: |
       The children laughed loudly at the clown's silly jokes. What part of speech is the word "laughed" in this sentence?
     choices:
-      - text: Verb
+      - text: "Verb"
         correct: true
-      - text: Noun
+      - text: "Noun"
         rationale: |
-          You picked noun, but "laughed" is not the name of a person, place, or thing here. It expresses an action.
-      - text: Adjective
+          This treats the action as an activity name. A laugh can be named as a thing. Check: check the past-tense ending and the word's role.
+      - text: "Adjective"
         rationale: |
-          You picked adjective, but "laughed" describes an action performed by the subject, not a quality of a noun.
-      - text: Adverb
+          This treats the action as a quality of the children. Laughing can describe someone's mood. Check: ask whether the word states what happened.
+      - text: "Adverb"
         rationale: |
-          You picked adverb, but "laughed" is the main action of the sentence, not a modifier.
+          This treats the action word as a description of the action. The nearby word "loudly" describes the laughing. Check: separate the action from how it happened.
     explanation: |
       "Laughed" shows an action the children performed, making it a verb.
     approved: true
-
-  - id: q-grammar-and-structure-parts-of-speech-0004
-    type: parts-of-speech-identification
-    difficulty: medium
+  - id: "q-grammar-and-structure-parts-of-speech-0004"
+    type: "parts-of-speech-identification"
+    difficulty: "medium"
     stem: |
-      The diligent student finished her project quickly. What part of speech is the italicized word "diligent"?
+      The diligent student finished her project quickly. What part of speech is the word "diligent"?
     choices:
-      - text: Adjective
+      - text: "Adjective"
         correct: true
-      - text: Adverb
+      - text: "Adverb"
         rationale: |
-          You picked adverb, but "diligent" describes the student rather than how the action was performed.
-      - text: Noun
+          This treats a quality of the student as a description of finishing. Being diligent affects how work gets done. Check: find the noun the word describes.
+      - text: "Noun"
         rationale: |
-          You picked noun, but "diligent" is a modifier describing "student," not a person, place, or thing itself.
-      - text: Verb
+          This treats a quality as the name of a person. Diligence is a quality that can have a noun name. Check: check whether this word names or describes the student.
+      - text: "Verb"
         rationale: |
-          You picked verb, but "diligent" does not show an action or state of being. It describes a noun.
+          This treats a quality as an action. Diligence suggests effort. Check: find the word that actually states the action.
     explanation: |
       "Diligent" describes the noun "student," telling us what kind of student she is: this is an adjective.
     approved: true
-
-  - id: q-grammar-and-structure-parts-of-speech-0005
-    type: parts-of-speech-identification
-    difficulty: medium
+  - id: "q-grammar-and-structure-parts-of-speech-0005"
+    type: "parts-of-speech-identification"
+    difficulty: "medium"
     stem: |
-      The diligent student finished her project quickly. What part of speech is the italicized word "quickly"?
+      "Remarkably, the library reopened the next morning." In traditional school grammar, what part of speech is "remarkably"?
     choices:
-      - text: Adverb
+      - text: "Adverb"
         correct: true
-      - text: Adjective
+      - text: "Adjective"
         rationale: |
-          You picked adjective, but "quickly" tells how she finished the project, modifying the verb "finished."
-      - text: Verb
+          This treats a description of an entire statement as a description of a noun. Remarkable events can be described with adjectives. Check: ask what the opening word comments on.
+      - text: "Verb"
         rationale: |
-          You picked verb, but "quickly" modifies the verb "finished" rather than expressing the action itself.
-      - text: Noun
+          This treats a comment on the event as the event's action. The library's reopening is surprising. Check: find the word stating what the library did.
+      - text: "Noun"
         rationale: |
-          You picked noun, but "quickly" is a modifier telling how an action occurred, not a person or thing.
+          This treats a comment on a statement as an object name. The reopening itself could be named as an event. Check: check whether the word names the event or comments on it.
     explanation: |
-      "Quickly" describes the verb "finished," telling us how she finished: this is an adverb.
+      "Remarkably" comments on the whole statement. It tells that the reopening is surprising, so it functions as an adverb.
     approved: true
-
-  - id: q-grammar-and-structure-parts-of-speech-0006
-    type: parts-of-speech-identification
-    difficulty: medium
+  - id: "q-grammar-and-structure-parts-of-speech-0006"
+    type: "parts-of-speech-identification"
+    difficulty: "medium"
     stem: |
       The cat hid under the table during the thunderstorm. What part of speech is the word "under" in this sentence?
     choices:
-      - text: Preposition
+      - text: "Preposition"
         correct: true
-      - text: Adverb
+      - text: "Adverb"
         rationale: |
-          You picked adverb, but "under" links the noun "table" to the rest of the sentence to show position.
-      - text: Conjunction
+          This classifies a phrase's location meaning as the class of its first word. "Under the table" tells where the cat hid. Check: check whether "under" takes the noun phrase "the table".
+      - text: "Conjunction"
         rationale: |
-          You picked conjunction, but "under" introduces a prepositional phrase rather than connecting two clauses.
-      - text: Adjective
+          This treats a relation to a noun phrase as a link between clauses. "Under" connects the hiding place to the sentence. Check: check whether a full clause follows it.
+      - text: "Adjective"
         rationale: |
-          You picked adjective, but "under" is not describing the qualities of a noun.
+          This treats a location relation as a quality of an object. The table helps describe the hiding place. Check: ask whether "under" describes the table or introduces it.
     explanation: |
       "Under" shows the relationship (location) between the cat and the table, making it a preposition.
     approved: true
-
-  - id: q-grammar-and-structure-parts-of-speech-0007
-    type: parts-of-speech-identification
-    difficulty: medium
+  - id: "q-grammar-and-structure-parts-of-speech-0007"
+    type: "parts-of-speech-identification"
+    difficulty: "medium"
     stem: |
       She wanted to attend the party, but she had too much homework. What part of speech is the word "but" in this sentence?
     choices:
-      - text: Conjunction
+      - text: "Conjunction"
         correct: true
-      - text: Preposition
+      - text: "Preposition"
         rationale: |
-          You picked preposition, but "but" is connecting two independent clauses rather than introducing a phrase.
-      - text: Adverb
+          This ignores the complete clauses joined by "but". "But" can have other uses in other sentences. Check: look at the two groups it joins here.
+      - text: "Adverb"
         rationale: |
-          You picked adverb, but "but" acts as a coordinating conjunction joining two complete thoughts.
-      - text: Interjection
+          This treats a linking word as a comment on the action. "But" shows a contrast in the situation. Check: check whether it modifies a word or connects clauses.
+      - text: "Interjection"
         rationale: |
-          You picked interjection, but "but" is not an isolated outburst of emotion. It joins two clauses.
+          This treats contrast as an isolated emotional reaction. The sentence suggests disappointment. Check: check whether "but" has a linking role in the grammar.
     explanation: |
       "But" connects two clauses (wanting to attend, and having homework), making it a conjunction.
     approved: true
-
-  - id: q-grammar-and-structure-parts-of-speech-0008
-    type: parts-of-speech-identification
-    difficulty: medium
+  - id: "q-grammar-and-structure-parts-of-speech-0008"
+    type: "parts-of-speech-identification"
+    difficulty: "medium"
     stem: |
       "Ouch! That really hurt when I stubbed my toe." What part of speech is the word "Ouch"?
     choices:
-      - text: Interjection
+      - text: "Interjection"
         correct: true
-      - text: Noun
+      - text: "Noun"
         rationale: |
-          You picked noun, but "Ouch" is an exclamation of pain rather than a named entity.
-      - text: Adverb
+          This treats an expression of pain as the name of pain. Both concern the same feeling. Check: ask whether the word names something or expresses a reaction.
+      - text: "Adverb"
         rationale: |
-          You picked adverb, but "Ouch" does not modify a verb, adjective, or other adverb.
-      - text: Verb
+          This treats a reaction as a description of hurting. "Ouch" tells how the speaker feels. Check: check whether it stands independently of the following clause.
+      - text: "Verb"
         rationale: |
-          You picked verb, but "Ouch" is a sudden emotion word rather than an action verb.
+          This treats an exclamation as an action word. The passage describes a painful event. Check: look for a verb that states the action in the following sentence.
     explanation: |
       "Ouch" expresses a sudden feeling (pain), making it an interjection.
     approved: true
-
-  - id: q-grammar-and-structure-parts-of-speech-0009
-    type: parts-of-speech-identification
-    difficulty: medium
+  - id: "q-grammar-and-structure-parts-of-speech-0009"
+    type: "parts-of-speech-identification"
+    difficulty: "medium"
     stem: |
       "Turn on the light so we can see the room better." What part of speech is the word "light" in this sentence?
     choices:
-      - text: Noun
+      - text: "Noun"
         correct: true
-      - text: Verb
+      - text: "Verb"
         rationale: |
-          You picked verb, but "light" follows the article "the" here and functions as a physical object.
-      - text: Adjective
+          This classifies "light" from its use in commands such as "light a candle". The same spelling can name an action. Check: check the phrase "the light" in this sentence.
+      - text: "Adjective"
         rationale: |
-          You picked adjective, but "light" is the direct object receiving the action, not a modifier.
-      - text: Adverb
+          This treats "light" as a description of weight. "Light" often describes a bag or object. Check: ask what noun it would describe here.
+      - text: "Adverb"
         rationale: |
-          You picked adverb, but "light" is a noun naming the object being turned on.
+          This treats the object being turned on as a description of the action. Light changes how well people can see. Check: check whether this word names the thing being used.
     explanation: |
       Here, "light" names a thing (a lamp or its glow), making it a noun.
     approved: true
-
-  - id: q-grammar-and-structure-parts-of-speech-0010
-    type: parts-of-speech-identification
-    difficulty: medium
+  - id: "q-grammar-and-structure-parts-of-speech-0010"
+    type: "parts-of-speech-identification"
+    difficulty: "medium"
     stem: |
       "Please light the candle before the guests arrive." What part of speech is the word "light" in this sentence?
     choices:
-      - text: Verb
+      - text: "Verb"
         correct: true
-      - text: Noun
+      - text: "Noun"
         rationale: |
-          You picked noun, but "light" expresses the action being requested here, not a physical item.
-      - text: Adjective
+          This classifies "light" from its use as a lamp name. Candles produce light. Check: ask what action the command requests.
+      - text: "Adjective"
         rationale: |
-          You picked adjective, but "light" is acting as the main verb of the command.
-      - text: Preposition
+          This treats "light" as a weight description. The word can describe something that is not heavy. Check: check whether it describes a noun or directs an action.
+      - text: "Preposition"
         rationale: |
-          You picked preposition, but "light" is an action verb, not a positional word.
+          This treats a verb followed by an object as a relation word. "Light" is followed by "the candle". Check: ask whether it states an action or a relation.
     explanation: |
       Here, "light" shows an action (to ignite the candle), making it a verb.
     approved: true
-
-  - id: q-grammar-and-structure-parts-of-speech-0011
-    type: parts-of-speech-identification
-    difficulty: medium
+  - id: "q-grammar-and-structure-parts-of-speech-0011"
+    type: "parts-of-speech-identification"
+    difficulty: "medium"
     stem: |
       "The bag felt surprisingly light after we removed the books." What part of speech is the word "light" in this sentence?
     choices:
-      - text: Adjective
+      - text: "Adjective"
         correct: true
-      - text: Noun
+      - text: "Noun"
         rationale: |
-          You picked noun, but "light" describes the bag's weight after removing books.
-      - text: Verb
+          This classifies "light" from its use as a lamp name. A familiar meaning of light is illumination. Check: ask what the word tells about the bag.
+      - text: "Verb"
         rationale: |
-          You picked verb, but "light" is a predicate adjective following the linking verb "felt."
-      - text: Adverb
+          This classifies "light" from its use in "light a candle". The word follows a verb in the sentence. Check: identify the main verb and the description after it.
+      - text: "Adverb"
         rationale: |
-          You picked adverb, but "light" describes the noun "bag," not the verb "felt."
+          This treats a word after a verb as necessarily describing the action. Many adverbs appear after verbs. Check: ask whether "light" describes feeling or the bag.
     explanation: |
       Here, "light" describes the bag, telling us its weight, making it an adjective.
     approved: true
-
-  - id: q-grammar-and-structure-parts-of-speech-0012
-    type: parts-of-speech-identification
-    difficulty: medium
+  - id: "q-grammar-and-structure-parts-of-speech-0012"
+    type: "parts-of-speech-identification"
+    difficulty: "medium"
     stem: |
-      Tukuyin ang bahagi ng pananalita ng salitang may salungguhit: Ang *matapang* na sundalo ay nagtanggol sa kanyang bayan.
+      Tukuyin ang bahagi ng pananalita ng salitang nasa panipi: Ang "matapang" na sundalo ay nagtanggol sa kanyang bayan.
     choices:
-      - text: Pang-uri
+      - text: "Pang-uri"
         correct: true
-      - text: Pangngalan
+      - text: "Pangngalan"
         rationale: |
-          Pinili mo ang pangngalan, ngunit ang "matapang" ay naglalarawan sa katangian ng sundalo, hindi pangalan ng tao o bagay.
-      - text: Pandiwa
+          This treats a quality as a person's name. "Matapang" refers to a quality the soldier has. Check: ask whether it names or describes "sundalo".
+      - text: "Pandiwa"
         rationale: |
-          Pinili mo ang pandiwa, ngunit ang "matapang" ay walang ipinapakitang kilos.
-      - text: Pang-abay
+          This treats courage as an action word. Being brave often leads to action. Check: find the word that tells what the soldier did.
+      - text: "Pang-abay"
         rationale: |
-          Pinili mo ang pang-abay, ngunit ang "matapang" ay naglalarawan sa pangngalan ("sundalo") at hindi sa pandiwa.
+          This treats a description of the soldier as a description of the defending. Courage can affect an action. Check: check whether the target is "sundalo" or the action.
     explanation: |
       Ang "matapang" ay naglalarawan sa pangngalang "sundalo," kaya ito ay pang-uri (adjective).
     approved: true
-
-  - id: q-grammar-and-structure-parts-of-speech-0013
-    type: parts-of-speech-identification
-    difficulty: medium
+  - id: "q-grammar-and-structure-parts-of-speech-0013"
+    type: "parts-of-speech-identification"
+    difficulty: "medium"
     stem: |
-      Tukuyin ang bahagi ng pananalita ng salitang may salungguhit: Ang *bata* ay naglaro sa parke kahapon.
+      Tukuyin ang bahagi ng pananalita ng salitang nasa panipi: Ang "bata" ay naglaro sa parke kahapon.
     choices:
-      - text: Pangngalan
+      - text: "Pangngalan"
         correct: true
-      - text: Panghalip
+      - text: "Panghalip"
         rationale: |
-          Pinili mo ang panghalip, ngunit ang "bata" ay mismong pangalan ng tao, hindi pamalit sa pangalan.
-      - text: Pandiwa
+          This treats a person's name as a replacement word. "Bata" refers to the person being discussed. Check: ask whether it names a child or stands in for another name.
+      - text: "Pandiwa"
         rationale: |
-          Pinili mo ang pandiwa, ngunit ang "bata" ay hindi nagpapakita ng kilos.
-      - text: Pang-uri
+          This treats the actor as the action. The child performs the playing. Check: separate who acted from what happened.
+      - text: "Pang-uri"
         rationale: |
-          Pinili mo ang pang-uri, ngunit ang "bata" ay tinutukoy na paksa o tao at hindi naglalarawan ng ibang salita.
+          This classifies "bata" from its possible use describing someone as young. The word can have different jobs in other sentences. Check: identify its job after "Ang" here.
     explanation: |
-      Ang "bata" ay pangalan ng isang tao (bagay), kaya ito ay pangngalan (noun).
+      "Bata" names the child who played. It functions as a pangngalan, or noun.
     approved: true
-
-  - id: q-grammar-and-structure-parts-of-speech-0014
-    type: parts-of-speech-identification
-    difficulty: medium
+  - id: "q-grammar-and-structure-parts-of-speech-0014"
+    type: "parts-of-speech-identification"
+    difficulty: "medium"
     stem: |
-      Tukuyin ang bahagi ng pananalita ng salitang may salungguhit: *Siya* ay pumunta sa palengke upang bumili ng gulay.
+      Tukuyin ang bahagi ng pananalita ng salitang nasa panipi: "Siya" ay pumunta sa palengke upang bumili ng gulay.
     choices:
-      - text: Panghalip
+      - text: "Panghalip"
         correct: true
-      - text: Pangngalan
+      - text: "Pangngalan"
         rationale: |
-          Pinili mo ang pangngalan, ngunit ang "Siya" ay ginagamit na pamalit sa pangalan ng tao.
-      - text: Pang-uri
+          This treats a replacement word as a name. "Siya" refers to a person. Check: ask whether that person is named.
+      - text: "Pang-uri"
         rationale: |
-          Pinili mo ang pang-uri, ngunit ang "Siya" ay hindi naglalarawan ng katangian.
-      - text: Pandiwa
+          This treats a reference to a person as a quality. The word identifies who went. Check: ask whether it replaces a name or describes a noun.
+      - text: "Pandiwa"
         rationale: |
-          Pinili mo ang pandiwa, ngunit ang "Siya" ay humahalili sa tao at walang kilos.
+          This treats the actor as the action. "Siya" is followed by a word telling what happened. Check: separate the subject from the action.
     explanation: |
       Ang "Siya" ay humahalili sa isang pangngalan (pangalan ng tao) upang hindi ito ulit-ulitin, kaya ito ay panghalip (pronoun).
     approved: true
-
-  - id: q-grammar-and-structure-parts-of-speech-0015
-    type: parts-of-speech-identification
-    difficulty: medium
+  - id: "q-grammar-and-structure-parts-of-speech-0015"
+    type: "parts-of-speech-identification"
+    difficulty: "medium"
     stem: |
-      Tukuyin ang bahagi ng pananalita ng salitang may salungguhit: *Kumain* ang mga bata ng masarap na hapunan.
+      Tukuyin ang bahagi ng pananalita ng salitang nasa panipi: "Kumain" ang mga bata ng masarap na hapunan.
     choices:
-      - text: Pandiwa
+      - text: "Pandiwa"
         correct: true
-      - text: Pangngalan
+      - text: "Pangngalan"
         rationale: |
-          Pinili mo ang pangngalan, ngunit ang "Kumain" ay nagpapakita ng kilos at hindi pangalan ng bagay.
-      - text: Pang-uri
+          This treats the eating action as an activity name. Eating can be discussed as a thing. Check: check the word's role in this sentence.
+      - text: "Pang-uri"
         rationale: |
-          Pinili mo ang pang-uri, ngunit ang "Kumain" ay isang aksyon at hindi naglalarawan sa bata.
-      - text: Pang-abay
+          This treats what the children did as their quality. Eating describes their behavior. Check: identify the word stating the action.
+      - text: "Pang-abay"
         rationale: |
-          Pinili mo ang pang-abay, ngunit ang "Kumain" ang mismong pangunahing kilos sa pangungusap.
+          This treats an action word as a description of that action. The sentence gives information about a meal. Check: ask whether this word tells what happened or how it happened.
     explanation: |
       Ang "Kumain" ay nagpapahiwatig ng kilos na ginawa ng mga bata, kaya ito ay pandiwa (verb).
     approved: true
-
-  - id: q-grammar-and-structure-parts-of-speech-0016
-    type: parts-of-speech-identification
-    difficulty: medium
+  - id: "q-grammar-and-structure-parts-of-speech-0016"
+    type: "parts-of-speech-identification"
+    difficulty: "medium"
     stem: |
-      Tukuyin ang bahagi ng pananalita ng salitang may salungguhit: *Mabilis* na tumakbo ang atleta patungo sa linya ng tapusan.
+      Tukuyin ang bahagi ng pananalita ng salitang nasa panipi: "Mabilis" na tumakbo ang atleta patungo sa linya ng tapusan.
     choices:
-      - text: Pang-abay
+      - text: "Pang-abay"
         correct: true
-      - text: Pang-uri
+      - text: "Pang-uri"
         rationale: |
-          Pinili mo ang pang-uri, ngunit ang "Mabilis" ay naglalarawan sa kilos na "tumakbo" at hindi sa atleta.
-      - text: Pandiwa
+          This classifies "mabilis" from its use describing a fast person. The athlete could be called fast. Check: check whether it describes "tumakbo" here.
+      - text: "Pandiwa"
         rationale: |
-          Pinili mo ang pandiwa, ngunit ang "Mabilis" ay naglalarawan sa paraan ng pagtakbo.
-      - text: Pangngalan
+          This treats the way of running as the action itself. "Mabilis" is connected to an action. Check: find the word that states running.
+      - text: "Pangngalan"
         rationale: |
-          Pinili mo ang pangngalan, ngunit ang "Mabilis" ay isang salitang naglalarawan ng kilos.
+          This treats a description of speed as a thing's name. Speed can be named as a noun. Check: check whether this word describes the running here.
     explanation: |
-      Ang "Mabilis" dito ay naglalarawan kung paano tumakbo ang atleta (isang pandiwa), kaya ito ay pang-abay (adverb), hindi pang-uri.
+      "Mabilis" tells how the athlete ran. It describes the action "tumakbo," so it functions as a pang-abay, or adverb.
     approved: true
-
-  - id: q-grammar-and-structure-parts-of-speech-0017
-    type: parts-of-speech-identification
-    difficulty: hard
+  - id: "q-grammar-and-structure-parts-of-speech-0017"
+    type: "parts-of-speech-identification"
+    difficulty: "hard"
     stem: |
-      A student assumes the word "run" is always a verb, since that is its most common job. In the sentence "She went for a run every morning," is "run" functioning as a verb here?
+      In "She went for a run every morning," what part of speech is "run"?
     choices:
-      - text: 'No: here "run" is a noun (referring to the activity or exercise session), not a verb; the same word can have different jobs in different sentences.'
+      - text: "Noun"
         correct: true
-      - text: 'Yes: "run" is always a verb regardless of context.'
+      - text: "Verb"
         rationale: |
-          You assumed a word's part of speech is fixed, but "a run" functions as a noun naming an activity here.
-      - text: 'Yes: but only because "morning" is also functioning as a verb here.'
+          This classifies the word by its common action use. Running is an action. Check: check the phrase "a run" in this sentence.
+      - text: "Adjective"
         rationale: |
-          You misidentified "morning" as a verb. "Morning" is a noun acting as part of a time phrase.
-      - text: 'No: "run" can never function as a verb in any sentence.'
+          This treats an activity name as a quality. The phrase helps describe a morning routine. Check: ask whether it describes another noun.
+      - text: "Adverb"
         rationale: |
-          You claimed "run" can never be a verb, but it acts as a verb in sentences like "they run fast."
+          This treats the activity name as a description of going. The run is connected to the verb "went". Check: check whether it names the activity after "a".
     explanation: |
-      Words like "run" can be nouns or verbs depending on how they are used. Here, "a run" names an activity (a noun), not an action being performed directly.
+      "A run" names an exercise session. The word "run" therefore functions as a noun here.
     approved: true
-
-  - id: q-grammar-and-structure-parts-of-speech-0018
-    type: parts-of-speech-identification
-    difficulty: hard
+  - id: "q-grammar-and-structure-parts-of-speech-0018"
+    type: "parts-of-speech-identification"
+    difficulty: "hard"
     stem: |
-      A student assumes "friendly" must be an adverb since it ends in "-ly." In the sentence "The friendly neighbor waved at us," is this assumption correct?
+      In "The friendly neighbor waved at us," what part of speech is "friendly"?
     choices:
-      - text: 'No: "friendly" is actually an adjective here, describing the noun "neighbor"; not every word ending in "-ly" is an adverb.'
+      - text: "Adjective"
         correct: true
-      - text: 'Yes: any word ending in "-ly" is always an adverb.'
+      - text: "Adverb"
         rationale: |
-          You assumed ending in "-ly" strictly makes a word an adverb, but "friendly" describes the noun "neighbor."
-      - text: 'Yes: but only because "neighbor" is also functioning as an adverb here.'
+          This applies the -ly ending rule without checking function. Many adverbs end in -ly. Check: identify the word that "friendly" describes.
+      - text: "Noun"
         rationale: |
-          You assumed "neighbor" changed function, but "neighbor" remains a standard noun acting as the subject.
-      - text: 'No: "friendly" is a noun, not an adverb or adjective.'
+          This treats a quality as the name of a person. The word refers to the neighbor's character. Check: check whether "neighbor" or "friendly" names the person.
+      - text: "Verb"
         rationale: |
-          You labeled "friendly" a noun, but it acts as a modifier describing what kind of neighbor waved.
+          This treats a description of behavior as an action. Friendliness can be shown through waving. Check: find the actual action verb.
     explanation: |
-      "Friendly," "lovely," and "lonely" all end in "-ly" but are adjectives, since they describe nouns. Always check the word's job in the sentence, not just its ending.
+      "Friendly" describes the noun "neighbor." A word that describes a noun this way is an adjective.
     approved: true
-
-  - id: q-grammar-and-structure-parts-of-speech-0019
-    type: parts-of-speech-identification
-    difficulty: hard
+  - id: "q-grammar-and-structure-parts-of-speech-0019"
+    type: "parts-of-speech-identification"
+    difficulty: "hard"
     stem: |
-      In "We left before dinner," the word "before" functions as a preposition. In "We left before we finished dinner," does "before" still function the same way?
+      In traditional school grammar, what is "before" in "We left before we finished dinner"?
     choices:
-      - text: 'No: in the second sentence, "before" is followed by a full clause with its own subject and verb ("we finished dinner"), making it a conjunction instead of a preposition.'
+      - text: "Subordinating conjunction"
         correct: true
-      - text: 'Yes: "before" is always a preposition regardless of what follows it.'
+      - text: "Preposition"
         rationale: |
-          You assumed "before" cannot shift functions, but following it with a clause turns it into a conjunction.
-      - text: 'Yes: but only because "dinner" changes its part of speech instead.'
+          This uses the classification from "before dinner". The same word can introduce a noun phrase. Check: check whether a full subject-and-verb clause follows.
+      - text: "Adverb"
         rationale: |
-          You thought "dinner" shifted roles, but "dinner" remains a noun inside the dependent clause.
-      - text: 'No: "before" functions as an adverb in both sentences.'
+          This treats a time relation as a standalone time word. The clause tells when the leaving happened. Check: check the word's role in joining the clauses.
+      - text: "Coordinating conjunction"
         rationale: |
-          You misidentified "before" as an adverb in both cases, ignoring the prepositional phrase and clause.
+          This treats all clause links as coordinating. Two clauses are joined. Check: ask whether one clause depends on the other.
     explanation: |
-      Words like "before," "after," and "since" can function as either a preposition (followed by just a noun phrase) or a conjunction (followed by a full clause with its own subject and verb).
+      "Before" introduces the clause "we finished dinner." In traditional school grammar, it links this dependent clause to "We left" as a subordinating conjunction.
     approved: true
-
-  - id: q-grammar-and-structure-parts-of-speech-0020
-    type: parts-of-speech-identification
-    difficulty: exam
+  - id: "q-grammar-and-structure-parts-of-speech-0020"
+    type: "parts-of-speech-identification"
+    difficulty: "exam"
     stem: |
-      In the sentence "The extremely diligent students quietly finished their difficult exam before the bell rang," identify the part of speech of: (1) "extremely," (2) "diligent," (3) "quietly," (4) "before" (as used here).
+      Using traditional school grammar, in the sentence "The extremely diligent students quietly finished their difficult exam before the bell rang," identify the part of speech of: (1) "extremely," (2) "diligent," (3) "quietly," (4) "before" (as used here).
     choices:
-      - text: (1) Adverb, (2) Adjective, (3) Adverb, (4) Conjunction
+      - text: "(1) Adverb, (2) Adjective, (3) Adverb, (4) Conjunction"
         correct: true
-      - text: (1) Adjective, (2) Adverb, (3) Adjective, (4) Preposition
+      - text: "(1) Adjective, (2) Adverb, (3) Adjective, (4) Preposition"
         rationale: |
-          You swapped adverbs and adjectives: "extremely" modifies an adjective and "before" introduces a full clause.
-      - text: (1) Adverb, (2) Adjective, (3) Adverb, (4) Preposition
+          This mixes up the jobs of descriptions and clause links. Descriptions and time words can have several uses. Check: identify each word's target and what follows "before".
+      - text: "(1) Adverb, (2) Adjective, (3) Adverb, (4) Preposition"
         rationale: |
-          You correctly identified the first three parts of speech but misidentified "before" as a preposition.
-      - text: (1) Adjective, (2) Noun, (3) Verb, (4) Conjunction
+          This labels "before" as if it introduced only a noun phrase. "Before the bell" resembles a familiar prepositional phrase. Check: include "rang" when identifying the following group.
+      - text: "(1) Adjective, (2) Noun, (3) Verb, (4) Conjunction"
         rationale: |
-          You misclassified "diligent" as a noun and "quietly" as a verb, confusing modifiers with core elements.
+          This mistakes modifiers for the words they describe. The words all concern students completing an action. Check: separate the descriptions from the student noun and action verb.
     explanation: |
-      "Extremely" describes the adjective "diligent" (adverb). "Diligent" describes the noun "students" (adjective). "Quietly" describes the verb "finished" (adverb). "Before" is followed by a full clause ("the bell rang"), making it a conjunction, not a preposition.
+      "Extremely" tells how diligent the students were, so it is an adverb. "Diligent" describes the students, so it is an adjective. "Quietly" describes how they finished, so it is an adverb. "Before" joins the dependent clause "the bell rang" to the main clause, so it is a conjunction in traditional school grammar.
     approved: true

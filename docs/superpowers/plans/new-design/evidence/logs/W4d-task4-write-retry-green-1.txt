@@ -1,0 +1,57 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/question_flag_providers_test.dart
+00:00 +0 -1: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart [E]
+  Failed to load "/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart":
+  Compilation failed for testPath=/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart: lib/features/quiz/presentation/quiz_page.dart:549:25: Error: The getter '_writeFailed' isn't defined for the type '_QuizPageState'.
+   - '_QuizPageState' is from 'package:pantas/features/quiz/presentation/quiz_page.dart' ('lib/features/quiz/presentation/quiz_page.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named '_writeFailed'.
+                      if (_writeFailed)
+                          ^^^^^^^^^^^^
+  .
+00:00 +0 -2: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/question_flag_providers_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1009:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 733:19                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 726:19                      _CustomZone.run
+  dart:async/zone.dart 625:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 666:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+
+00:00 +0 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/question_flag_providers_test.dart: flagging a question stores it
+00:00 +1 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/question_flag_providers_test.dart: flagging twice removes it
+00:00 +2 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/question_flag_providers_test.dart: the first flag is announced once
+00:00 +3 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/question_flag_providers_test.dart: retry keeps flag intent after a partial announcement write failure
+00:00 +4 -3: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart [E]
+  Failed to load "/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart":
+  Compilation failed for testPath=/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: lib/features/quiz/presentation/quiz_page.dart:549:25: Error: The getter '_writeFailed' isn't defined for the type '_QuizPageState'.
+   - '_QuizPageState' is from 'package:pantas/features/quiz/presentation/quiz_page.dart' ('lib/features/quiz/presentation/quiz_page.dart').
+  Try correcting the name to the name of an existing getter, or defining a getter or field named '_writeFailed'.
+                      if (_writeFailed)
+                          ^^^^^^^^^^^^
+  .
+00:00 +4 -3: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/question_flag_providers_test.dart: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/question_flag_providers_test.dart
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_page_test.dart
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart
+lib/features/quiz/presentation/quiz_page.dart:549:25: Error: The getter '_writeFailed' isn't defined for the type '_QuizPageState'.
+ - '_QuizPageState' is from 'package:pantas/features/quiz/presentation/quiz_page.dart' ('lib/features/quiz/presentation/quiz_page.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named '_writeFailed'.
+                    if (_writeFailed)
+                        ^^^^^^^^^^^^
+lib/features/quiz/presentation/quiz_page.dart:549:25: Error: The getter '_writeFailed' isn't defined for the type '_QuizPageState'.
+ - '_QuizPageState' is from 'package:pantas/features/quiz/presentation/quiz_page.dart' ('lib/features/quiz/presentation/quiz_page.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named '_writeFailed'.
+                    if (_writeFailed)
+                        ^^^^^^^^^^^^

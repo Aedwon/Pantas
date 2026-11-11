@@ -1,4 +1,6 @@
 import 'package:cloud_functions/cloud_functions.dart';
+import 'package:pantas/core/platform/callable_options.dart';
+import 'package:pantas/core/sync/eligibility/sync_claim_gateway.dart';
 import 'package:pantas/core/sync/firestore/firestore_gateway.dart';
 import 'package:pantas/core/sync/firestore/functions_gateway.dart';
 
@@ -33,7 +35,11 @@ class FirebaseSyncFunctionsCallableClient
   }) async {
     try {
       final functions = FirebaseFunctions.instanceFor(region: region);
-      final result = await functions.httpsCallable(name).call<Object?>(data);
+      final result = await refreshOnceAfterPermissionDenied(
+        () => functions
+            .httpsCallable(name, options: callableOptionsFor(name))
+            .call<Object?>(data),
+      );
       return result.data;
     } on FirebaseFunctionsException catch (error) {
       throw SyncFunctionsClientException(

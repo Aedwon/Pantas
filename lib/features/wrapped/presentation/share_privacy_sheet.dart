@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 
 class SharePrivacySelection {
   const SharePrivacySelection({
@@ -34,11 +35,11 @@ class SharePrivacySheet extends StatelessWidget {
   /// Disclosure shown before publishing a card to a public link
   /// (landing-page spec §3.1, decision #2).
   static const String hostingDisclosure =
-      'Sharing publishes this card to a pantas.app link anyone can view.';
+      'Sharing publishes this card to a pantas.study link anyone can view.';
 
   @override
   Widget build(BuildContext context) {
-    final styles = context.textStyles;
+    final styles = context.type;
     final colors = context.colors;
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -58,16 +59,21 @@ class SharePrivacySheet extends StatelessWidget {
               onChanged(selection.copyWith(includeScore: value)),
         ),
         Padding(
-          padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+          padding: const EdgeInsets.fromLTRB(
+            PantasSpace.s16,
+            PantasSpace.s8,
+            PantasSpace.s16,
+            PantasSpace.s0,
+          ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Icon(Icons.public, size: 16, color: colors.inkMuted),
-              const SizedBox(width: 8),
+              Icon(Icons.public, size: 16, color: colors.secondaryLabel),
+              const SizedBox(width: PantasSpace.s8),
               Expanded(
                 child: Text(
                   hostingDisclosure,
-                  style: styles.bodySmall.copyWith(color: colors.inkMuted),
+                  style: styles.subhead.copyWith(color: colors.secondaryLabel),
                 ),
               ),
             ],

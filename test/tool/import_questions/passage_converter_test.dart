@@ -22,7 +22,11 @@ void main() {
       'stem': 'What is the main idea?',
       'choices': [
         {'text': 'Option A', 'correct': true},
-        {'text': 'Option B', 'correct': false},
+        {
+          'text': 'Option B',
+          'correct': false,
+          'rationale': 'This detail does not state the main idea.',
+        },
       ],
       'explanation': 'Explanation here.',
     };

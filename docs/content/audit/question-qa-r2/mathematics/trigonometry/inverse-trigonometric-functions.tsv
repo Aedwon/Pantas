@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-trigonometry-inverse-trigonometric-functions-0001	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-trigonometry-inverse-trigonometric-functions-0002	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	LOW	Shortened the answer cue and clarified inverse-function context.
+q-trigonometry-inverse-trigonometric-functions-0003	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Replaced an empty-interval distractor and inaccurate quadrant-only wording.
+q-trigonometry-inverse-trigonometric-functions-0004	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	LOW	Specified real-valued evaluation.
+q-trigonometry-inverse-trigonometric-functions-0005	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Reframed repeated evaluation as a principal-range error check.
+q-trigonometry-inverse-trigonometric-functions-0006	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-trigonometry-inverse-trigonometric-functions-0007	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-trigonometry-inverse-trigonometric-functions-0008	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-trigonometry-inverse-trigonometric-functions-0009	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-trigonometry-inverse-trigonometric-functions-0010	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	LOW	Removed the longest-answer cue and positional explanation.
+q-trigonometry-inverse-trigonometric-functions-0011	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	LOW	Removed the unique longest-answer cue with mistake-based alternatives.
+q-trigonometry-inverse-trigonometric-functions-0012	CORRECTED	SOLVED-MATCH	choice;explanation;notes;format	LOW	Removed the unique longest-answer cue.
+q-trigonometry-inverse-trigonometric-functions-0013	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Reframed repeated exact evaluation as a worked-step check.
+q-trigonometry-inverse-trigonometric-functions-0014	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson does not teach secant; stem, choices and key retained.
+q-trigonometry-inverse-trigonometric-functions-0015	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Replaced a repeated range question with quadrant reasoning.
+q-trigonometry-inverse-trigonometric-functions-0016	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson does not teach cotangent; stem, choices and key retained. Correct choice remains longest under the preservation rule.
+q-trigonometry-inverse-trigonometric-functions-0017	NEW	NEW	new question	NONE	
+q-trigonometry-inverse-trigonometric-functions-0018	NEW	NEW	new question	NONE	
+q-trigonometry-inverse-trigonometric-functions-0019	NEW	NEW	new question	NONE	
+q-trigonometry-inverse-trigonometric-functions-0020	NEW	NEW	new question	NONE	

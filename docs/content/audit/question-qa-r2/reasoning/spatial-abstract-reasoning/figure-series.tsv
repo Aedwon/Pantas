@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-spatial-abstract-reasoning-figure-series-0001	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	LOW	Removed prose description that supplied the visual rule; tightened choices.
+q-spatial-abstract-reasoning-figure-series-0002	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	LOW	Removed prose stand-in for the drawn side-count pattern.
+q-spatial-abstract-reasoning-figure-series-0003	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	MEDIUM	Replaced unsupported gray-color distractor with a fill-state mistake.
+q-spatial-abstract-reasoning-figure-series-0004	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Undefined extra-large state was unsupported; made the three-size cycle explicit in the figure.
+q-spatial-abstract-reasoning-figure-series-0005	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	LOW	Removed the rule from the stem and tightened corner choices.
+q-spatial-abstract-reasoning-figure-series-0006	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	MEDIUM	Changed repeated next-rotation framing to a two-step look-ahead.
+q-spatial-abstract-reasoning-figure-series-0007	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	LOW	Removed prose counts that replaced visual counting.
+q-spatial-abstract-reasoning-figure-series-0008	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Undefined extra-small continuation replaced with a shown reversing size cycle.
+q-spatial-abstract-reasoning-figure-series-0009	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Original repeated 0004 and required an undefined size; replaced with independent dot and size tracks.
+q-spatial-abstract-reasoning-figure-series-0010	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	MEDIUM	Replaced repeated corner-route misconception with an alternation-versus-rotation test.
+q-spatial-abstract-reasoning-figure-series-0011	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Original circle fill fields described height fractions as area percentages and supplied an unshown cycle; used square fills and displayed repetition.
+q-spatial-abstract-reasoning-figure-series-0012	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Triangle dot route was described in the wrong rotation direction; replaced repeated corner motion with outline cycling.
+q-spatial-abstract-reasoning-figure-series-0013	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Original stem claimed absent rotation fields and undefined extra-large size; rebuilt with supported independent tracks.
+q-spatial-abstract-reasoning-figure-series-0014	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	LOW	Removed prose rule disclosure and tightened multifeature choices.
+q-spatial-abstract-reasoning-figure-series-0015	NEW	NEW	stem;choices;explanation;notes;figure	NONE	
+q-spatial-abstract-reasoning-figure-series-0016	NEW	NEW	stem;choices;explanation;notes;figure	NONE	
+q-spatial-abstract-reasoning-figure-series-0017	NEW	NEW	stem;choices;explanation;notes;figure	NONE	
+q-spatial-abstract-reasoning-figure-series-0018	NEW	NEW	stem;choices;explanation;notes;figure	NONE	
+q-spatial-abstract-reasoning-figure-series-0019	NEW	NEW	stem;choices;explanation;notes;figure	NONE	
+q-spatial-abstract-reasoning-figure-series-0020	NEW	NEW	stem;choices;explanation;notes;figure	NONE	

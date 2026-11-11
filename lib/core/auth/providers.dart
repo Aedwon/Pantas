@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/auth/auth_repository.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/auth_user.dart';
+import 'package:pantas/core/auth/email_code_auth.dart';
 
 AuthRepository buildUnavailableAuthRepository() {
   return AuthRepository(
@@ -13,6 +14,11 @@ AuthRepository buildUnavailableAuthRepository() {
 
 final authRepositoryProvider = Provider<AuthRepository>(
   (ref) => buildUnavailableAuthRepository(),
+);
+
+/// The email code sign-in the beta screen uses. Tests replace it with a fake.
+final emailCodeAuthProvider = Provider<EmailCodeAuth>(
+  (ref) => ref.watch(authRepositoryProvider),
 );
 
 final authStateProvider = StreamProvider<AuthState>((ref) {

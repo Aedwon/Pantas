@@ -1,8 +1,8 @@
 meta:
-  subject: science
-  topic: earth-science-astronomy
-  subtopic: heavenly-bodies
-  exams: [ upcat, dlsucet, ustet, dost-sei ]
+  subject: 'science'
+  topic: 'earth-science-astronomy'
+  subtopic: 'heavenly-bodies'
+  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-earth-science-astronomy-heavenly-bodies-0001
     type: identify
@@ -10,19 +10,19 @@ questions:
     stem: |
       What is a giant, glowing ball of hot gas that makes its own light and heat through nuclear reactions in its core, such as the Sun?
     choices:
-      - text: A star
+      - text: 'A star'
         correct: true
-      - text: A galaxy
+      - text: 'A galaxy'
         rationale: |
-          You picked a large group of stars. A galaxy is a collection of billions of stars, gas, and dust held together by gravity.
-      - text: An asteroid
+          This treats a galaxy as one star. Galaxies contain shining stars. Check one body versus a whole system.
+      - text: 'An asteroid'
         rationale: |
-          You picked a non-luminous rocky body. Asteroids are small rocky or metallic objects that orbit stars without nuclear fusion.
-      - text: A comet
+          This confuses reflected sunlight with light made inside a body. An asteroid can look bright. Check for nuclear fusion.
+      - text: 'A comet'
         rationale: |
-          You picked an icy body. Comets consist of ice and dust, producing tails near stars rather than fusing nuclear fuel.
+          This treats a bright comet as a star. Comets brighten near the Sun. Check the source of their energy.
     explanation: |
-      A star is a giant, glowing ball of hot gas that makes its own light and heat through nuclear reactions in its core. The Sun is a star.
+      A star is a ball of hot gas held together by gravity. Nuclear fusion in its core releases light and heat.
     approved: true
 
   - id: q-earth-science-astronomy-heavenly-bodies-0002
@@ -31,40 +31,40 @@ questions:
     stem: |
       What is the name for a huge collection of billions of stars, gas, dust, and dark matter, all held together by gravity, such as our own Milky Way?
     choices:
-      - text: A galaxy
+      - text: 'A galaxy'
         correct: true
-      - text: A star
+      - text: 'A star cluster'
         rationale: |
-          You picked a single stellar body. A star is an individual glowing sphere of gas, whereas a galaxy holds billions of stars.
-      - text: An asteroid belt
+          This treats a group within a galaxy as the whole galaxy. Clusters also contain many stars. Check the system's scale and contents.
+      - text: 'A solar system'
         rationale: |
-          You picked a planetary ring of rocks. An asteroid belt is a localized region of small rocky bodies within a star system.
-      - text: A meteoroid
+          This confuses a planetary system with a galaxy. Both are held together by gravity. Check one star versus a vast stellar system.
+      - text: 'A nebula'
         rationale: |
-          You picked a small space rock fragment. A meteoroid is a tiny rock in space, not a massive collection of stars.
+          This treats a gas cloud as an entire galaxy. Nebulae can contain forming stars. Check the full bound system.
     explanation: |
-      A galaxy is a huge collection of billions of stars, held together by gravity, along with gas, dust, and dark matter. Our own galaxy is the Milky Way.
+      A galaxy is a large system held together by gravity. It contains stars, gas, dust, and dark matter. The Milky Way contains our Solar System.
     approved: true
 
   - id: q-earth-science-astronomy-heavenly-bodies-0003
     type: identify
     difficulty: medium
     stem: |
-      What is a rocky, metallic chunk of rock, smaller than a planet, that orbits the Sun?
+      A several-kilometer-wide object made mainly of rock and metal orbits the Sun without a coma. Which classification best fits it?
     choices:
-      - text: An asteroid
+      - text: 'An asteroid'
         correct: true
-      - text: A comet
+      - text: 'A comet'
         rationale: |
-          You picked an icy body. Comets are made of ice and dust, whereas asteroids are composed primarily of rock and metal.
-      - text: A meteor
+          This uses orbit alone to choose an icy body. Comets also orbit the Sun. Check composition and activity.
+      - text: 'A meteoroid'
         rationale: |
-          You picked atmospheric light streak. A meteor is the streak of light produced when a space rock burns in an atmosphere.
-      - text: A galaxy
+          This uses the small-particle term for a kilometer-scale body. Both are rocky space objects. Check the stated size.
+      - text: 'A natural satellite'
         rationale: |
-          You picked a star system structure. A galaxy is a cosmic collection of billions of stars, not an individual solar system rock.
+          This treats orbiting the Sun as orbiting a planet. Satellites also follow orbits. Check which body is being circled.
     explanation: |
-      An asteroid is a rocky, metallic chunk of rock, smaller than a planet, that orbits the Sun.
+      An asteroid is a relatively small rocky or metallic body orbiting the Sun. Its composition and orbit fit the description.
     approved: true
 
   - id: q-earth-science-astronomy-heavenly-bodies-0004
@@ -73,40 +73,40 @@ questions:
     stem: |
       Most of the asteroids in our solar system are found in the asteroid belt. Where is this belt located?
     choices:
-      - text: Between the orbits of Mars and Jupiter
+      - text: 'Between Mars and Jupiter'
         correct: true
-      - text: Between the orbits of Earth and Mars
+      - text: 'Between the orbits of Earth and Mars'
         rationale: |
-          You placed the belt too close to Earth. The main asteroid belt orbits between Mars and Jupiter.
-      - text: Beyond the orbit of Neptune
+          This moves the belt one planet interval inward. Earth and Mars are neighbors. Check the Mars-to-Jupiter interval.
+      - text: 'Beyond the orbit of Neptune'
         rationale: |
-          You picked the Kuiper Belt location. The region beyond Neptune is the Kuiper Belt, home to icy bodies and dwarf planets.
-      - text: Between the Sun and Mercury
+          This mixes up the main belt with an outer small-body region. The Kuiper Belt is beyond Neptune. Check which belt is named.
+      - text: 'Between the Sun and Mercury'
         rationale: |
-          You placed the belt too close to the Sun. The innermost solar system contains Mercury's orbit, not the main asteroid belt.
+          This puts the belt inside the innermost planetary orbit. Small objects can pass near the Sun. Check where the main belt lies.
     explanation: |
-      The asteroid belt lies between the orbits of Mars and Jupiter, not between Earth and Mars, and not beyond Neptune.
+      The main asteroid belt lies between the orbits of Mars and Jupiter. Many asteroids orbit in that region.
     approved: true
 
   - id: q-earth-science-astronomy-heavenly-bodies-0005
     type: classify
     difficulty: hard
     stem: |
-      A choice places the asteroid belt between the orbits of Earth and Mars. Is this the correct location?
+      A survey finds a rocky, inactive asteroid on an orbit that crosses Earth's orbit. Which conclusion is supported?
     choices:
-      - text: 'No: the asteroid belt is located between the orbits of Mars and Jupiter, not between Earth and Mars.'
+      - text: 'Asteroids can orbit outside the main belt.'
         correct: true
-      - text: 'Yes: the asteroid belt is exactly where Earth and Mars orbit.'
+      - text: 'Its rocky composition must be incorrect.'
         rationale: |
-          You accepted the wrong location. The main asteroid belt lies between the orbits of Mars and Jupiter.
-      - text: 'No: but only because there is no such thing as an asteroid belt.'
+          This treats belt membership as necessary for rocky composition. The belt is a familiar location. Check whether location changes composition.
+      - text: 'Every asteroid follows an orbit beyond Jupiter.'
         rationale: |
-          You denied the asteroid belt's existence. The main asteroid belt contains millions of rocky bodies between Mars and Jupiter.
-      - text: 'Yes: the asteroid belt and the region beyond Neptune (the Kuiper Belt) are the same location.'
+          This places all asteroids beyond Jupiter. The belt sounds far from Earth. Check its Mars-to-Jupiter location.
+      - text: 'An Earth-crossing orbit makes it a meteorite.'
         rationale: |
-          You confused the Asteroid Belt with the Kuiper Belt. The Asteroid Belt lies between Mars and Jupiter, while Kuiper Belt lies past Neptune.
+          This applies the landed-material name before impact. The orbit approaches Earth. Check whether material reached the ground.
     explanation: |
-      The asteroid belt is anchored firmly between Mars and Jupiter. Some choices incorrectly place it between Earth and Mars, or beyond Neptune: the region beyond Neptune is actually a different region called the Kuiper Belt, home to many comets.
+      The main belt contains many asteroids. Asteroids also follow other orbits, including near-Earth orbits. The surveyed object is an example.
     approved: true
 
   - id: q-earth-science-astronomy-heavenly-bodies-0006
@@ -115,82 +115,82 @@ questions:
     stem: |
       Which object, sometimes nicknamed a "dirty snowball," is made mostly of ice, frozen gases, and dust, and develops a glowing tail when it nears the Sun?
     choices:
-      - text: A comet
+      - text: 'A comet'
         correct: true
-      - text: An asteroid
+      - text: 'An asteroid'
         rationale: |
-          You picked a rocky object. Asteroids consist of rock and metal without volatile ice, so they do not form glowing tails near the Sun.
-      - text: A meteor
+          This chooses the rocky-body category for an icy active body. Both orbit the Sun. Check composition and activity.
+      - text: 'A meteoroid'
         rationale: |
-          You picked an atmospheric streak. A meteor is a streak of light caused by atmospheric friction, not an icy deep-space body.
-      - text: A star
+          This names a small space particle instead of an active icy body. Both can be small. Check the coma and tails.
+      - text: 'A natural satellite'
         rationale: |
-          You picked a luminous gas sphere. Stars generate heat via fusion, while comets are small icy bodies heated by external solar radiation.
+          This classifies by a planetary orbit that was not stated. Some moons have ice. Check orbit and comet activity.
     explanation: |
-      A comet is made mostly of ice, frozen gases, and dust, nicknamed a "dirty snowball." Its ice vaporizes near the Sun, forming a glowing tail.
+      A comet contains ices and dust. Solar heating releases gas and dust near the Sun. This material can form a coma and tails.
     approved: true
 
   - id: q-earth-science-astronomy-heavenly-bodies-0007
     type: cause-effect
     difficulty: medium
     stem: |
-      Why does a comet's tail always point away from the Sun, no matter which direction the comet itself is traveling?
+      Why does an active comet's ion tail generally extend away from the Sun?
     choices:
-      - text: Heat and pressure from the Sun turn some of the comet's ice into gas and blow this gas and dust away from the Sun, so the tail's direction depends on the Sun's position, not the comet's motion.
+      - text: 'Solar wind carries charged gas outward.'
         correct: true
-      - text: The tail is simply the trail of dust left behind the comet's path, like exhaust from a moving vehicle.
+      - text: 'Gravity pulls the tail toward the Sun.'
         rationale: |
-          You assumed the tail follows trajectory motion. Solar wind and radiation pressure push gas and dust away from the Sun, regardless of travel direction.
-      - text: Gravity from the Sun pulls the tail directly toward the Sun at all times.
+          This uses an inward pull to explain an outward tail. Gravity attracts matter. Check the solar wind's direction.
+      - text: 'The comet leaves gas behind along its orbit.'
         rationale: |
-          You reversed solar wind interaction. Solar radiation pressure pushes vaporized gases away from the Sun, pointing the tail outward.
-      - text: The tail forms randomly and has no consistent relationship to the Sun's position.
+          This treats the tail as a simple trail. Motion can leave material behind. Check how solar wind acts on charged gas.
+      - text: 'Earth''s atmosphere pushes the tail outward.'
         rationale: |
-          You claimed tail orientation is random. Solar wind consistently pushes comet dust and ion tails directly away from the Sun.
+          This uses Earth's air to explain a tail in space. Meteors interact with air. Check the object's location.
     explanation: |
-      The tail forms because heat and pressure from the Sun push gas and dust off the comet, away from the Sun. This means the tail's direction depends on the Sun's position, never on the direction the comet is traveling.
+      Solar heating releases gas from the comet. Some gas becomes electrically charged. The solar wind carries this charged gas away from the Sun.
     approved: true
 
   - id: q-earth-science-astronomy-heavenly-bodies-0008
     type: classify
     difficulty: hard
     stem: |
-      A comet is moving away from the Sun, back out toward deep space. In which direction does its tail point?
+      A comet moves directly outward from the Sun while its ion tail is visible. Which direction does the ion tail generally extend?
     choices:
-      - text: Away from the Sun, meaning, in this case, the tail actually points ahead of the comet, leading the way outward, since the tail's direction depends only on the Sun's position.
+      - text: 'Outward, ahead of the comet''s motion.'
         correct: true
-      - text: Toward the Sun, since the tail always trails behind wherever the comet came from.
+      - text: 'Inward, behind the comet''s motion.'
         rationale: |
-          You pointed the tail toward the Sun. Solar wind pushes dust and gas away from the Sun, so the tail points away from the Sun.
-      - text: In the same direction the comet is traveling, trailing directly behind it.
+          This assumes tails always trail behind. Familiar moving objects leave trails. Check the direction away from the Sun.
+      - text: 'Sideways, perpendicular to its motion.'
         rationale: |
-          You assumed the tail trails behind the moving body. Solar wind forces the tail away from the Sun, pushing it ahead of an outward-bound comet.
-      - text: The comet has no tail at all once it starts moving away from the Sun.
+          This assumes an outward force acts sideways. A curved dust tail may suggest this. Check that the question specifies an ion tail.
+      - text: 'Inward, toward the source of solar wind.'
         rationale: |
-          You assumed the tail vanishes instantly upon turning away. While receding, remaining solar heat and wind continue pushing a tail away from the Sun.
+          This reverses solar wind flow. The Sun supplies the wind. Check that it travels outward.
     explanation: |
-      The tail's direction depends on the Sun's position, never on the comet's direction of travel. Since the comet is moving away from the Sun, its tail (still pointing away from the Sun) ends up leading in front of the comet as it travels outward.
+      Solar wind carries the charged gas outward from the Sun. The comet also moves outward in this setup. Its ion tail therefore extends ahead of it.
     approved: true
 
   - id: q-earth-science-astronomy-heavenly-bodies-0009
     type: classify
     difficulty: hard
     stem: |
-      A description mentions an object with a visible glowing tail as it passes near the Sun. A student classifies this object as an asteroid. Is this correct?
+      A comet approaches the Sun and develops a coma. Which change directly supplies the gas in that coma?
     choices:
-      - text: 'No: asteroids are rocky and do not develop tails, since they lack the ice that vaporizes near the Sun; an object with a visible tail is a comet.'
+      - text: 'Surface ice changes into gas.'
         correct: true
-      - text: 'Yes: all objects orbiting the Sun develop tails when they pass close by.'
+      - text: 'Rock fragments melt into liquid water.'
         rationale: |
-          You assumed all solar system bodies form tails. Only bodies containing volatile ice (comets) sublimate to form glowing tails.
-      - text: 'No: but only because asteroids never pass close to the Sun.'
+          This treats rock as a source of water. Melting sounds like a heating effect. Check which material supplies vapor.
+      - text: 'Nuclear fusion converts dust into gas.'
         rationale: |
-          You assumed asteroids never orbit near the Sun. Some near-Earth asteroids pass close to the Sun without developing tails due to lack of ice.
-      - text: 'Yes: asteroids and comets are simply two different names for the same object.'
+          This gives a comet a star's energy process. Both appear bright. Check whether sunlight heats existing ice.
+      - text: 'Atmospheric air sticks to the icy surface.'
         rationale: |
-          You treated asteroids and comets as identical. Asteroids are rocky/metallic bodies, whereas comets are icy bodies.
+          This supplies air to a body in space. Gas does surround the nucleus. Check where the gas comes from.
     explanation: |
-      A description mentioning a "dirty snowball" or a visible tail describes a comet, not an asteroid. Asteroids are rocky and metallic, and do not develop tails, since they lack the ice that vaporizes near the Sun.
+      Sunlight heats the comet's surface. Some surface ice changes directly into gas. The released gas forms part of the coma.
     approved: true
 
   - id: q-earth-science-astronomy-heavenly-bodies-0010
@@ -199,40 +199,40 @@ questions:
     stem: |
       What is the name for a small chunk of rock or metal traveling through space, too small to be called an asteroid, before it enters Earth's atmosphere?
     choices:
-      - text: A meteoroid
+      - text: 'A meteoroid'
         correct: true
-      - text: A meteor
+      - text: 'A meteor'
         rationale: |
-          You picked the atmospheric streak term. A meteor is the visible light streak while burning in air; in space, it is a meteoroid.
-      - text: A meteorite
+          This names the light phenomenon before entry. The rock may later produce a streak. Check its present location.
+      - text: 'A meteorite'
         rationale: |
-          You picked the landed rock term. A meteorite is a surviving rock fragment that hits the ground.
-      - text: A comet
+          This names landed material while it is still in space. It may eventually land. Check whether it reached the ground.
+      - text: 'A comet'
         rationale: |
-          You picked an icy deep-space body. Small rocky fragments traveling in space are meteoroids, not icy comets.
+          This names an icy active body from a rocky particle description. Both travel in space. Check composition and activity.
     explanation: |
-      A meteoroid is a small chunk of rock or metal traveling through space, too small to be called an asteroid.
+      A meteoroid is a small natural rock or particle traveling through space. This fragment has not entered Earth's atmosphere.
     approved: true
 
   - id: q-earth-science-astronomy-heavenly-bodies-0011
     type: identify
     difficulty: medium
     stem: |
-      What do we call a small space rock once it enters Earth's atmosphere and burns up, creating a streak of light known as a "shooting star"?
+      What is the visible streak of light produced when a meteoroid enters Earth's atmosphere at high speed called?
     choices:
-      - text: A meteor
+      - text: 'A meteor'
         correct: true
-      - text: A meteoroid
+      - text: 'A meteoroid'
         rationale: |
-          You picked the space-stage term. The rock is a meteoroid while floating in space, becoming a meteor once burning in atmosphere.
-      - text: A meteorite
+          This names the solid particle instead of the visible event. The particle causes the light. Check body versus phenomenon.
+      - text: 'A meteorite'
         rationale: |
-          You picked the ground-stage term. A meteorite is the rock fragment after it survives atmospheric entry and hits the earth.
-      - text: An asteroid
+          This names material after it reaches the ground. Some particles survive. Check sky event versus landed material.
+      - text: 'An asteroid'
         rationale: |
-          You picked a large space body. Asteroids are much larger orbiting bodies, whereas glowing atmospheric streaks are meteors.
+          This names an orbiting rocky body instead of a light event. Asteroids can supply fragments. Check what the streak itself is called.
     explanation: |
-      A meteor is the name given to the same chunk of rock once it enters Earth's atmosphere and burns up, creating the streak of light known as a "shooting star."
+      A meteor is the light and related effects produced during high-speed atmospheric entry. The question asks for this visible phenomenon.
     approved: true
 
   - id: q-earth-science-astronomy-heavenly-bodies-0012
@@ -241,61 +241,61 @@ questions:
     stem: |
       What do we call a piece of space rock if it survives its trip through Earth's atmosphere and lands on the ground?
     choices:
-      - text: A meteorite
+      - text: 'A meteorite'
         correct: true
-      - text: A meteor
+      - text: 'A meteor'
         rationale: |
-          You picked the atmospheric light streak term. The atmospheric streak is a meteor, while the grounded rock is a meteorite.
-      - text: A meteoroid
+          This names the light seen during entry. Both terms concern one incoming object. Check light versus surviving material.
+      - text: 'A meteoroid'
         rationale: |
-          You picked the outer space stage term. Small rocks in space are meteoroids; once on the ground, they are meteorites.
-      - text: An asteroid
+          This names the particle before entry. It began in space. Check its location after landing.
+      - text: 'An asteroid'
         rationale: |
-          You picked a minor planet term. Large rocky bodies orbiting the Sun are asteroids, whereas landed fragments are meteorites.
+          This names the source body instead of landed material. Asteroids can supply fragments. Check present classification versus origin.
     explanation: |
-      A meteorite is what we call a piece of space rock that survives the trip through the atmosphere and lands on the ground.
+      A meteorite is material that survives atmospheric entry and reaches the ground. The described fragment has reached that stage.
     approved: true
 
   - id: q-earth-science-astronomy-heavenly-bodies-0013
     type: process-ordering
     difficulty: medium
     stem: |
-      A small rock breaks off from an asteroid and drifts through space, then enters Earth's atmosphere and burns brightly, and finally a fragment lands in a field. Name what this object is called at each of the three stages, in order.
+      A small rock drifts through space, produces a bright streak during atmospheric entry, and leaves a fragment on the ground. Which sequence names the space particle, light phenomenon, and landed material?
     choices:
-      - text: Meteoroid, then meteor, then meteorite
+      - text: 'Meteoroid, then meteor, then meteorite'
         correct: true
-      - text: Meteor, then meteoroid, then meteorite
+      - text: 'Meteor, then meteoroid, then meteorite'
         rationale: |
-          You swapped space and atmospheric names. It is a meteoroid in space, becoming a meteor when burning in the atmosphere.
-      - text: Meteorite, then meteor, then meteoroid
+          This swaps the space particle and its light event. The terms look similar. Check location and whether each is a body or light.
+      - text: 'Meteorite, then meteor, then meteoroid'
         rationale: |
-          You reversed the entire sequence. The sequence begins as a meteoroid in space and ends as a meteorite on the ground.
-      - text: Meteor, then meteorite, then meteoroid
+          This reverses the first and final stages. All names share a root. Check the ground stage last.
+      - text: 'Meteor, then meteorite, then meteoroid'
         rationale: |
-          You jumbled the three stages. Floating in space is meteoroid, burning in air is meteor, and landing on ground is meteorite.
+          This puts the landed stage before arrival. The similar terms can be mixed up. Check the sequence of locations.
     explanation: |
-      While drifting through space, it is a meteoroid. While burning and streaking light across the sky, it is a meteor. Once the surviving fragment lands on the ground, it is a meteorite: three names for one object, based on where it is at the time.
+      The particle in space is a meteoroid. Its bright atmospheric streak is a meteor. Material surviving to the ground is a meteorite.
     approved: true
 
   - id: q-earth-science-astronomy-heavenly-bodies-0014
     type: classify
     difficulty: hard
     stem: |
-      A question describes a rock fragment found sitting inside a museum display case, having landed in a crater years earlier. A student calls this object a "meteor." Is this the correct term?
+      During a meteor shower, Earth passes through debris left along a comet's orbit. Why are many bright streaks seen in a short period?
     choices:
-      - text: 'No: an object found lying on the ground or in a museum, after landing, is a meteorite; "meteor" refers only to the bright streak of light seen while it is still burning in the sky.'
+      - text: 'Many particles enter the atmosphere.'
         correct: true
-      - text: 'Yes: "meteor" and "meteorite" both describe the same landed object.'
+      - text: 'Many stars fall toward Earth''s surface.'
         rationale: |
-          You treated meteor and meteorite as synonyms. "Meteor" is the flash of light in the sky, whereas "meteorite" is the landed rock.
-      - text: 'No: but only because objects that land on Earth are called asteroids instead.'
+          This takes shooting star literally. Meteors look like moving lights. Check whether stars are small debris particles.
+      - text: 'The comet''s nucleus splits above the clouds.'
         rationale: |
-          You misnamed landed space rocks as asteroids. Small landed space fragments are meteorites.
-      - text: 'Yes: any space rock is called a meteor regardless of its location.'
+          This puts the comet above the clouds. Comets are the debris source. Check whether Earth enters an old stream in space.
+      - text: 'The comet''s tail shines through Earth''s air.'
         rationale: |
-          You ignored location-based terminology. Location dictates naming: meteoroid (space), meteor (atmosphere), meteorite (ground).
+          This treats tail light as individual streaks. Comet tails can glow. Check what produces each atmospheric flash.
     explanation: |
-      These two words differ by only two letters, and test-makers exploit that. If the question describes something found lying in a crater or a museum, it is a meteorite; if it describes a bright streak seen at night, it is a meteor.
+      Earth meets many small particles in the debris stream. Each can produce a meteor during atmospheric entry. Many entries close together make a meteor shower.
     approved: true
 
   - id: q-earth-science-astronomy-heavenly-bodies-0015
@@ -304,38 +304,122 @@ questions:
     stem: |
       Roughly how often does the most famous comet, Halley's Comet, swing by Earth?
     choices:
-      - text: Roughly every 76 years
+      - text: 'Roughly every 76 years'
         correct: true
-      - text: Roughly every 10 years
+      - text: 'Roughly every 10 years'
         rationale: |
-          You picked too short an orbital period. Halley's Comet takes approximately 75–76 years to complete one orbit.
-      - text: Roughly every 200 years
+          This uses a shorter comet interval. Some comets return much faster. Check the measured period of this named comet.
+      - text: 'Roughly every 200 years'
         rationale: |
-          You picked a long-period comet timeframe. Short-period Halley's Comet returns about every 76 years.
-      - text: Roughly every 1,000 years
+          This uses a longer comet interval. Comet periods vary widely. Check Halley's own observed returns.
+      - text: 'Roughly every 1,000 years'
         rationale: |
-          You picked a millennium timeframe. Halley's Comet has a famous 76-year orbital period.
+          This uses a very long comet interval. Some orbits take centuries. Check the record for Halley specifically.
     explanation: |
-      Halley's Comet, the most famous comet, swings by Earth roughly every 76 years.
+      Halley's Comet returns to the inner Solar System about every 76 years on average. These repeat visits follow its orbit around the Sun.
     approved: true
 
   - id: q-earth-science-astronomy-heavenly-bodies-0016
     type: predict-outcome
     difficulty: exam
     stem: |
-      A small rocky fragment breaks off from an object in the asteroid belt and eventually collides with Earth's atmosphere, burning up as a bright streak in the night sky. A large surviving piece is later discovered in the desert. At the exact moment it was burning up and visible in the sky, what was this object correctly called, and what would it be called if a stargazer saw it moments before it entered the atmosphere?
+      A rocky particle enters the atmosphere, produces a meteor, and is completely destroyed before reaching the ground. Which description fits the outcome?
     choices:
-      - text: While burning and visible in the sky, it was a meteor; moments before entering the atmosphere, while still traveling through space, it would have been called a meteoroid.
+      - text: 'A meteor occurred without a meteorite.'
         correct: true
-      - text: While burning and visible in the sky, it was a meteorite; moments before entering the atmosphere, it would have been called a meteor.
+      - text: 'A meteorite formed without a meteor.'
         rationale: |
-          You swapped meteor and meteorite. Burning in air is a meteor; in space before entry, it is a meteoroid.
-      - text: It was called a meteorite at every stage, from space to sky to ground.
+          This reverses the event and landed-material terms. They share a root. Check whether anything reached the ground.
+      - text: 'The particle was a meteorite before entry.'
         rationale: |
-          You used meteorite for all stages. The suffix changes with stage: meteoroid (space) $\rightarrow$ meteor (sky) $\rightarrow$ meteorite (ground).
-      - text: While burning and visible in the sky, it was a meteoroid; moments before entering the atmosphere, it would have been called a meteorite.
+          This uses the landed-material name before entry. The incoming object is already solid. Check whether atmospheric passage has ended.
+      - text: 'The light was a meteoroid after entry.'
         rationale: |
-          You inverted meteoroid and meteorite. In space it is a meteoroid; burning in sky is a meteor; landed on ground is a meteorite.
+          This names the light as the solid particle. The particle causes the event. Check body versus phenomenon.
     explanation: |
-      The naming follows location: floating in space, it is a meteoroid; burning and streaking light in Earth's sky, it is a meteor; once the surviving fragment lands on the ground, it becomes a meteorite. The same object earns each name only once it reaches that stage.
+      The bright atmospheric event is a meteor. All incoming material was destroyed. No material reached the ground to become a meteorite.
     approved: true
+
+  - id: q-earth-science-astronomy-heavenly-bodies-0017
+    type: structure-function
+    difficulty: easy
+    stem: |
+      Which process supplies the Sun's energy during the main part of its life?
+    choices:
+      - text: 'Nuclear fusion in its core'
+        correct: true
+      - text: 'Burning fuel with atmospheric oxygen'
+        rationale: |
+          This treats a star as a chemical fire. Fires also release heat. Check the process in the core.
+      - text: 'Reflecting light from nearby stars'
+        rationale: |
+          This treats the Sun as a reflector. Planets are visible by reflected light. Check whether a star makes its own energy.
+      - text: 'Friction caused by orbiting planets'
+        rationale: |
+          This gives planetary motion a role in core heating. Contact can produce friction. Check the Sun's internal energy source.
+    explanation: |
+      Nuclear fusion joins light atomic nuclei in the Sun's core. This releases energy. The energy reaches space as light and heat.
+    approved: false
+
+  - id: q-earth-science-astronomy-heavenly-bodies-0018
+    type: compare-contrast
+    difficulty: medium
+    stem: |
+      Which comparison between a comet's dust tail and ion tail is accurate?
+    choices:
+      - text: 'Dust can curve; charged gas responds strongly to solar wind.'
+        correct: true
+      - text: 'Both are solid streams that follow exactly the same path.'
+        rationale: |
+          This treats two types of material as one solid stream. Both form visible tails. Check dust versus charged gas.
+      - text: 'Dust is driven by Earth''s air; charged gas is driven by gravity.'
+        rationale: |
+          This uses air and gravity to explain comet tail behavior in space. Both forces are familiar. Check sunlight and solar wind.
+      - text: 'Both remain attached rigidly along the nucleus''s direction of motion.'
+        rationale: |
+          This treats loose material as rigid parts of the nucleus. Tails appear connected. Check whether released material can respond separately.
+    explanation: |
+      Dust responds to sunlight and keeps some orbital motion. Its tail can curve. Charged gas responds strongly to solar wind, which carries it away from the Sun.
+    approved: false
+
+  - id: q-earth-science-astronomy-heavenly-bodies-0019
+    type: predict-outcome
+    difficulty: hard
+    stem: |
+      An icy comet moves far from the Sun after an active close approach. With other factors unchanged, what is expected as solar heating weakens?
+    choices:
+      - text: 'Less gas and dust are released.'
+        correct: true
+      - text: 'Its ion tail points directly toward the Sun.'
+        rationale: |
+          This reverses the solar wind's direction. Outward motion may suggest a trailing tail. Check the wind's outward flow.
+      - text: 'Its nucleus begins making energy by fusion.'
+        rationale: |
+          This turns solar heating into a star's energy process. The comet previously glowed. Check whether an icy nucleus supports stellar fusion.
+      - text: 'Its gas release rises because sunlight weakens.'
+        rationale: |
+          This reverses the heating-release link. A receding comet can remain active. Check how less heat affects gas release.
+    explanation: |
+      Solar heating helps release gas and dust from a comet. Farther from the Sun, less heating reaches the surface. Usually, less material is released.
+    approved: false
+
+  - id: q-earth-science-astronomy-heavenly-bodies-0020
+    type: classify
+    difficulty: exam
+    stem: |
+      A telescope resolves an object into a vast gravitationally bound system of stars, gas, and dust. Which observation most directly distinguishes it from a single star?
+    choices:
+      - text: 'It contains many separate stars.'
+        correct: true
+      - text: 'It emits detectable visible light.'
+        rationale: |
+          This uses brightness to identify a whole system. Single stars also shine. Check whether separate stars are resolved.
+      - text: 'Its material is affected by gravity.'
+        rationale: |
+          This treats gravity as unique to a galaxy. Stars also hold together by gravity. Check the contents of the system.
+      - text: 'It contains very hot gaseous matter.'
+        rationale: |
+          This treats hot gas as unique to galaxies. Stars contain hot gas or plasma. Check for many separate stars.
+    explanation: |
+      A galaxy contains many stars in one large bound system. Seeing separate stars shows that the object is a system rather than one stellar body.
+    approved: false

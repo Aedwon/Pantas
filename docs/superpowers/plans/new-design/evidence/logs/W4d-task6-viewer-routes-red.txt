@@ -1,0 +1,28 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_viewer_route_registration_test.dart
+00:00 +0: completed and never-answered flag viewers have real distinct routes
+00:00 +0 -1: completed and never-answered flag viewers have real distinct routes [E]
+  Expected: contains '/quiz/viewer/:attemptId'
+    Actual: MappedIterable<GoRoute, String>:[
+              '/quiz',
+              '/quiz/today/:examId',
+              '/quiz/resume/:examId',
+              '/quiz/quick/:examId',
+              '/quiz/practice/:examId',
+              '/quiz/practice/:examId/run',
+              '/quiz/retake/:examId',
+              '/quiz/inline/:examId/:lessonId',
+              '/quiz/debrief/:attemptId',
+              '/quiz/flagged/:examId',
+              '/quiz/results/:attemptId',
+              '/review'
+            ]
+     Which: does not contain '/quiz/viewer/:attemptId'
+
+  package:matcher                                                                expect
+  package:flutter_test/src/widget_tester.dart 473:18                             expect
+  test/features/quiz/presentation/quiz_viewer_route_registration_test.dart 11:5  main.<fn>
+
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_viewer_route_registration_test.dart: completed and never-answered flag viewers have real distinct routes

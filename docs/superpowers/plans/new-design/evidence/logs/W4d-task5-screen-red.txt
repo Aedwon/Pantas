@@ -1,0 +1,20 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart
+test/features/quiz/presentation/session_end_screen_test.dart:9:8: Error: Error when reading 'lib/features/quiz/presentation/session_end_screen.dart': No such file or directory
+import 'package:pantas/features/quiz/presentation/session_end_screen.dart';
+       ^
+test/features/quiz/presentation/session_end_screen_test.dart:32:129: Error: Method not found: 'SessionEndBody'.
+    await tester.pumpApp(MediaQuery(data: MediaQueryData(textScaler: TextScaler.linear(scale), disableAnimations: true), child: SessionEndBody(
+                                                                                          ^^^^^^^^^^^^^^
+00:00 +0 -1: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart [E]
+  Failed to load "/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart":
+  Compilation failed for testPath=/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart: test/features/quiz/presentation/session_end_screen_test.dart:9:8: Error: Error when reading 'lib/features/quiz/presentation/session_end_screen.dart': No such file or directory
+  import 'package:pantas/features/quiz/presentation/session_end_screen.dart';
+         ^
+  test/features/quiz/presentation/session_end_screen_test.dart:32:129: Error: Method not found: 'SessionEndBody'.
+      await tester.pumpApp(MediaQuery(data: MediaQueryData(textScaler: TextScaler.linear(scale), disableAnimations: true), child: SessionEndBody(
+                                                                                                                                  ^^^^^^^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/session_end_screen_test.dart

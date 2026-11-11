@@ -4,7 +4,7 @@ import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/features/quiz/domain/picker/inline_lesson_picker.dart';
 import 'package:pantas/features/quiz/domain/picker/pick_context.dart';
 import 'package:pantas/features/quiz/domain/picker/retake_picker.dart';
-import 'package:pantas/features/quiz/domain/picker/today_interleaved_picker.dart';
+import 'package:pantas/features/quiz/domain/picker/today_fully_mixed_picker.dart';
 import 'package:pantas/features/quiz/domain/picker/today_topic_picker.dart';
 import 'package:pantas/features/quiz/domain/selectors/subtopic_filter.dart';
 
@@ -42,8 +42,8 @@ void main() {
     expect(picked.map((question) => question.id), equals(['w1', 'w2', 'n1']));
   });
 
-  test('TodayInterleavedPicker avoids consecutive same-topic questions', () {
-    final picked = TodayInterleavedPicker().pick(
+  test('TodayFullyMixedPicker avoids consecutive same-topic questions', () {
+    final picked = TodayFullyMixedPicker().pick(
       PickContext(
         allQuestions: [
           _q('a1', topicId: 'a'),

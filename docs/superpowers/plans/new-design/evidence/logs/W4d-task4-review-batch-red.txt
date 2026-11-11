@@ -1,0 +1,182 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart
+test/features/quiz/data/review_batch_repository_test.dart:13:8: Error: Error when reading 'lib/features/quiz/data/repos/review_batch_repository.dart': No such file or directory
+import 'package:pantas/features/quiz/data/repos/review_batch_repository.dart';
+       ^
+test/features/quiz/data/review_batch_repository_test.dart:16:8: Error: Error when reading 'lib/features/quiz/domain/models/review_batch.dart': No such file or directory
+import 'package:pantas/features/quiz/domain/models/review_batch.dart';
+       ^
+test/features/quiz/data/review_batch_repository_test.dart:27:8: Error: 'ReviewBatchScope' isn't a type.
+  late ReviewBatchScope scope;
+       ^^^^^^^^^^^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:28:8: Error: 'ReviewBatchRepository' isn't a type.
+  late ReviewBatchRepository batches;
+       ^^^^^^^^^^^^^^^^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:37:19: Error: Couldn't find constructor 'ReviewBatchScope'.
+    scope = const ReviewBatchScope(userId: 'local', examId: 'exam', principal: 'anonymous:one', accountLifetimeToken: 'anonymous:one:0');
+                  ^^^^^^^^^^^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:38:15: Error: Method not found: 'ReviewBatchRepository'.
+    batches = ReviewBatchRepository(db, currentScope: (_, __) => scope);
+              ^^^^^^^^^^^^^^^^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:39:42: Error: No named parameter with the name 'reviewBatches'.
+    sessions = QuizSessionRepository(db, reviewBatches: batches);
+                                         ^^^^^^^^^^^^^
+lib/features/quiz/data/repos/quiz_session_repository.dart:11:3: Context: Found this candidate, but the arguments don't match.
+  QuizSessionRepository(this._db);
+  ^^^^^^^^^^^^^^^^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:44:10: Error: 'PreparedReviewBatch' isn't a type.
+  Future<PreparedReviewBatch> prepare({int length = 5}) async => PreparedReviewBatch.fromReviews(
+         ^^^^^^^^^^^^^^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:44:66: Error: Undefined name 'PreparedReviewBatch'.
+  Future<PreparedReviewBatch> prepare({int length = 5}) async => PreparedReviewBatch.fromReviews(
+                                                                 ^^^^^^^^^^^^^^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:48:10: Error: 'ReviewBatchSession' isn't a type.
+  Future<ReviewBatchSession?> start({PreparedReviewBatch? prepared, bool Function()? guard}) async => batches.start(
+         ^^^^^^^^^^^^^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:48:38: Error: 'PreparedReviewBatch' isn't a type.
+  Future<ReviewBatchSession?> start({PreparedReviewBatch? prepared, bool Function()? guard}) async => batches.start(
+                                     ^^^^^^^^^^^^^^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:65:22: Error: Undefined name 'PreparedReviewBatch'.
+    final prepared = PreparedReviewBatch.fromReviews(scope: scope, preferences: QuizPreferences(sessionLength: 5, ordering: QuizOrdering.blocked), localDay: now, orderedDueReviews: reviews);
+                     ^^^^^^^^^^^^^^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:68:17: Error: Undefined name 'PreparedReviewBatch'.
+    final all = PreparedReviewBatch.fromReviews(scope: scope, preferences: QuizPreferences(sessionLength: -1, ordering: QuizOrdering.blocked), localDay: now, orderedDueReviews: reviews);
+                ^^^^^^^^^^^^^^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:85:51: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+    expect(await start(guard: () => ++calls < 4), isNull);
+                                                  ^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:86:28: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+    expect(await stored(), isNull); expect(await db.select(db.quizSessions).get(), isEmpty);
+                           ^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:101:21: Error: Method not found: 'ReviewBatchRepository'.
+    final resumed = ReviewBatchRepository(db, currentScope: (_, __) => scope);
+                    ^^^^^^^^^^^^^^^^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:114:72: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+    expect(await AttemptsRepository(db).byId(first.session.sessionId), isNull);
+                                                                       ^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:115:68: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+    expect(await sessions.completedAtFor(first.session.sessionId), isNull);
+                                                                   ^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:133:111: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+    expect((await sessions.activeFor(userId: 'local', examId: 'exam'))!.id, 'custom'); expect(await stored(), isNull);
+                                                                                          ^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:138:19: Error: Couldn't find constructor 'ReviewBatchScope'.
+    scope = const ReviewBatchScope(userId: 'local', examId: 'exam', principal: 'anonymous:one', accountLifetimeToken: 'anonymous:one:1');
+                  ^^^^^^^^^^^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:139:45: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+    expect(await start(prepared: prepared), isNull);
+                                            ^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:140:28: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+    expect(await stored(), isNull); expect(await db.select(db.quizSessions).get(), isEmpty);
+                           ^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:145:19: Error: Couldn't find constructor 'ReviewBatchScope'.
+    scope = const ReviewBatchScope(userId: 'local', examId: 'exam', principal: 'signed-in:two', accountLifetimeToken: 'signed-in:two:1');
+                  ^^^^^^^^^^^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:147:28: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+    expect(await stored(), isNull);
+                           ^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:172:28: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+    expect(await stored(), isNull);
+                           ^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:182:83: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+    expect(third.ordinal, 3); await finish(third.session); expect(await stored(), isNull);
+                                                                                  ^^^^^^
+test/features/quiz/data/review_batch_repository_test.dart:102:39: Error: The argument type 'List<dynamic>' can't be assigned to the parameter type 'Iterable<Future<dynamic>>'.
+ - 'List' is from 'dart:core'.
+ - 'Iterable' is from 'dart:core'.
+ - 'Future' is from 'dart:async'.
+    final results = await Future.wait([resumed.continueBatch(scope: scope, content: content, now: now.add(const Duration(days: 1)), canPersist: () => true), resumed.continueBatch(scope: scope, content: content, now: now, canPersist: () => true)]);
+                                      ^
+00:00 +0 -1: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart [E]
+  Failed to load "/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart":
+  Compilation failed for testPath=/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: test/features/quiz/data/review_batch_repository_test.dart:13:8: Error: Error when reading 'lib/features/quiz/data/repos/review_batch_repository.dart': No such file or directory
+  import 'package:pantas/features/quiz/data/repos/review_batch_repository.dart';
+         ^
+  test/features/quiz/data/review_batch_repository_test.dart:16:8: Error: Error when reading 'lib/features/quiz/domain/models/review_batch.dart': No such file or directory
+  import 'package:pantas/features/quiz/domain/models/review_batch.dart';
+         ^
+  test/features/quiz/data/review_batch_repository_test.dart:27:8: Error: 'ReviewBatchScope' isn't a type.
+    late ReviewBatchScope scope;
+         ^^^^^^^^^^^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:28:8: Error: 'ReviewBatchRepository' isn't a type.
+    late ReviewBatchRepository batches;
+         ^^^^^^^^^^^^^^^^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:37:19: Error: Couldn't find constructor 'ReviewBatchScope'.
+      scope = const ReviewBatchScope(userId: 'local', examId: 'exam', principal: 'anonymous:one', accountLifetimeToken: 'anonymous:one:0');
+                    ^^^^^^^^^^^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:38:15: Error: Method not found: 'ReviewBatchRepository'.
+      batches = ReviewBatchRepository(db, currentScope: (_, __) => scope);
+                ^^^^^^^^^^^^^^^^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:39:42: Error: No named parameter with the name 'reviewBatches'.
+      sessions = QuizSessionRepository(db, reviewBatches: batches);
+                                           ^^^^^^^^^^^^^
+  lib/features/quiz/data/repos/quiz_session_repository.dart:11:3: Context: Found this candidate, but the arguments don't match.
+    QuizSessionRepository(this._db);
+    ^^^^^^^^^^^^^^^^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:44:10: Error: 'PreparedReviewBatch' isn't a type.
+    Future<PreparedReviewBatch> prepare({int length = 5}) async => PreparedReviewBatch.fromReviews(
+           ^^^^^^^^^^^^^^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:44:66: Error: Undefined name 'PreparedReviewBatch'.
+    Future<PreparedReviewBatch> prepare({int length = 5}) async => PreparedReviewBatch.fromReviews(
+                                                                   ^^^^^^^^^^^^^^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:48:10: Error: 'ReviewBatchSession' isn't a type.
+    Future<ReviewBatchSession?> start({PreparedReviewBatch? prepared, bool Function()? guard}) async => batches.start(
+           ^^^^^^^^^^^^^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:48:38: Error: 'PreparedReviewBatch' isn't a type.
+    Future<ReviewBatchSession?> start({PreparedReviewBatch? prepared, bool Function()? guard}) async => batches.start(
+                                       ^^^^^^^^^^^^^^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:65:22: Error: Undefined name 'PreparedReviewBatch'.
+      final prepared = PreparedReviewBatch.fromReviews(scope: scope, preferences: QuizPreferences(sessionLength: 5, ordering: QuizOrdering.blocked), localDay: now, orderedDueReviews: reviews);
+                       ^^^^^^^^^^^^^^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:68:17: Error: Undefined name 'PreparedReviewBatch'.
+      final all = PreparedReviewBatch.fromReviews(scope: scope, preferences: QuizPreferences(sessionLength: -1, ordering: QuizOrdering.blocked), localDay: now, orderedDueReviews: reviews);
+                  ^^^^^^^^^^^^^^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:85:51: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+      expect(await start(guard: () => ++calls < 4), isNull);
+                                                    ^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:86:28: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+      expect(await stored(), isNull); expect(await db.select(db.quizSessions).get(), isEmpty);
+                             ^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:101:21: Error: Method not found: 'ReviewBatchRepository'.
+      final resumed = ReviewBatchRepository(db, currentScope: (_, __) => scope);
+                      ^^^^^^^^^^^^^^^^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:114:72: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+      expect(await AttemptsRepository(db).byId(first.session.sessionId), isNull);
+                                                                         ^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:115:68: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+      expect(await sessions.completedAtFor(first.session.sessionId), isNull);
+                                                                     ^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:133:111: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+      expect((await sessions.activeFor(userId: 'local', examId: 'exam'))!.id, 'custom'); expect(await stored(), isNull);
+                                                                                                                ^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:138:19: Error: Couldn't find constructor 'ReviewBatchScope'.
+      scope = const ReviewBatchScope(userId: 'local', examId: 'exam', principal: 'anonymous:one', accountLifetimeToken: 'anonymous:one:1');
+                    ^^^^^^^^^^^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:139:45: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+      expect(await start(prepared: prepared), isNull);
+                                              ^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:140:28: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+      expect(await stored(), isNull); expect(await db.select(db.quizSessions).get(), isEmpty);
+                             ^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:145:19: Error: Couldn't find constructor 'ReviewBatchScope'.
+      scope = const ReviewBatchScope(userId: 'local', examId: 'exam', principal: 'signed-in:two', accountLifetimeToken: 'signed-in:two:1');
+                    ^^^^^^^^^^^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:147:28: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+      expect(await stored(), isNull);
+                             ^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:172:28: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+      expect(await stored(), isNull);
+                             ^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:182:83: Error: 'isNull' is imported from both 'package:drift/src/runtime/query_builder/query_builder.dart' and 'package:matcher/src/core_matchers.dart'.
+      expect(third.ordinal, 3); await finish(third.session); expect(await stored(), isNull);
+                                                                                    ^^^^^^
+  test/features/quiz/data/review_batch_repository_test.dart:102:39: Error: The argument type 'List<dynamic>' can't be assigned to the parameter type 'Iterable<Future<dynamic>>'.
+   - 'List' is from 'dart:core'.
+   - 'Iterable' is from 'dart:core'.
+   - 'Future' is from 'dart:async'.
+      final results = await Future.wait([resumed.continueBatch(scope: scope, content: content, now: now.add(const Duration(days: 1)), canPersist: () => true), resumed.continueBatch(scope: scope, content: content, now: now, canPersist: () => true)]);
+                                        ^
+  .
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/review_batch_repository_test.dart

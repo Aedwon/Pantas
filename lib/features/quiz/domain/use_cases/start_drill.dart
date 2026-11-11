@@ -50,7 +50,8 @@ class StartDrill {
     required DateTime now,
     SubtopicId? subtopicId,
   }) async {
-    final allQuestions = await _content.questionsByTopic(topicId);
+    final allQuestions =
+        await _content.questionsByTopic(topicId, examId: examId);
     final length = requestedLength == QuizPreferences.allDueSessionLength
         ? allQuestions.length
         : requestedLength;

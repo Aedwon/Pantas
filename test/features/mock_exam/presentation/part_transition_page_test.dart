@@ -4,99 +4,105 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/presentation/part_transition_page.dart';
 
 void main() {
-  Widget buildTransition({
-    VoidCallback? onStartNext,
-    TextScaler textScaler = TextScaler.noScaling,
-  }) {
-    return MaterialApp(
-      theme: buildLightTheme(),
-      builder: (context, child) => MediaQuery(
-        data: MediaQuery.of(context).copyWith(textScaler: textScaler),
-        child: child!,
-      ),
-      home: PartTransitionPage(
-        closedPartName: 'Numerical Ability',
-        closedPartMinutes: 30,
-        answered: 28,
-        total: 30,
-        blank: 2,
-        flagged: 3,
-        nextPartName: 'Analytical Ability',
-        nextPartQuestions: 30,
-        nextPartMinutes: 35,
-        closedPartNumber: 1,
-        nextPartNumber: 2,
-        onStartNext: onStartNext ?? () {},
-      ),
-    );
-  }
-
-  Future<void> pumpTransition(
-    WidgetTester tester, {
-    VoidCallback? onStartNext,
-  }) async {
-    await tester.pumpWidget(buildTransition(onStartNext: onStartNext));
-  }
-
-  testWidgets('the figure and its label share one line', (tester) async {
-    await pumpTransition(tester);
-    expect(find.text('28'), findsOneWidget);
-    expect(find.text('of 30 answered'), findsOneWidget);
-  });
-
-  testWidgets('blank and flagged are one quiet line, not two rows',
-      (tester) async {
-    await pumpTransition(tester);
-    expect(find.textContaining('2 left blank'), findsOneWidget);
-    expect(find.textContaining('3 you flagged'), findsOneWidget);
-  });
-
-  testWidgets('it states the closure plainly', (tester) async {
-    await pumpTransition(tester);
-    expect(
-      find.text('Part 1 is closed. You cannot go back to it.'),
-      findsOneWidget,
-    );
-  });
-
-  testWidgets('there is no clock, no bar, no back arrow', (tester) async {
-    await pumpTransition(tester);
-    expect(find.byType(AppBar), findsNothing);
-    expect(find.byType(BackButton), findsNothing);
-  });
-
-  testWidgets('nothing on it is a score', (tester) async {
-    await pumpTransition(tester);
-    for (final word in ['correct', 'wrong', 'score', '%']) {
-      expect(find.textContaining(word), findsNothing, reason: word);
-    }
-  });
-
-  testWidgets('the button starts the next part', (tester) async {
-    var started = 0;
-    await pumpTransition(tester, onStartNext: () => started++);
-    await tester.tap(find.text('Start Part 2'));
-    await tester.pump();
-    expect(started, 1);
-  });
-
-  testWidgets('content fits short 320 and 360dp screens at 200 percent text',
-      (tester) async {
-    tester.view.devicePixelRatio = 2;
-    addTearDown(tester.view.resetPhysicalSize);
-    addTearDown(tester.view.resetDevicePixelRatio);
-
-    for (final width in [320.0, 360.0]) {
-      await tester.pumpWidget(const SizedBox.shrink());
-      await tester.pump();
-      tester.view.physicalSize = Size(width * 2, 1136);
-      await tester.pumpWidget(
-        buildTransition(textScaler: const TextScaler.linear(2)),
+  Widget transition({
+    bool dark = false,
+    bool early = false,
+    bool still = true,
+    double scale = 1,
+    VoidCallback? onStart,
+  }) =>
+      MaterialApp(
+        theme: dark ? buildDarkTheme() : buildLightTheme(),
+        home: MediaQuery(
+          data: MediaQueryData(
+            textScaler: TextScaler.linear(scale),
+            disableAnimations: still,
+          ),
+          child: PartTransitionPage(
+            partNames: const [
+              'Language Proficiency',
+              'Reading Comprehension',
+              'Mathematics',
+              'Science',
+            ],
+            nextPartIndex: 3,
+            endedEarly: early,
+            answeredQuestions: [
+              for (var i = 0; i < 60; i++) i != 22 && i != 47,
+            ],
+            onStartNext: onStart ?? () {},
+          ),
+        ),
       );
-      await tester.pump();
-
-      expect(tester.takeException(), isNull, reason: '$width dp');
-      expect(find.text('Start Part 2'), findsOneWidget);
-    }
+  for (final dark in [false, true]) {
+    testWidgets('transition uses actual dots and no flags, dark=$dark',
+        (tester) async {
+      await tester.pumpWidget(transition(dark: dark));
+      expect(find.text('Time is up.'), findsOneWidget);
+      expect(find.text('Part 3 · Mathematics'), findsOneWidget);
+      expect(find.text('58 answered'), findsOneWidget);
+      expect(find.text('2 blank'), findsOneWidget);
+      expect(find.byKey(const ValueKey('part-dot-22')), findsOneWidget);
+      expect(find.textContaining('flagged'), findsNothing);
+      expect(find.byType(AppBar), findsNothing);
+      expect(find.text('The clock starts when you tap.'), findsOneWidget);
+      final arrow =
+          tester.widget<Transform>(find.byKey(const ValueKey('part-arrow')));
+      expect(arrow.transform.getTranslation().y, 168);
+      var started = false;
+      await tester.pumpWidget(
+        transition(dark: dark, early: true, onStart: () => started = true),
+      );
+      expect(find.text('Part 3 ended.'), findsOneWidget);
+      await tester.tap(find.text('Start Part 4'));
+      expect(started, isTrue);
+    });
+    testWidgets('transition fits phone with 200 percent text, dark=$dark',
+        (tester) async {
+      tester.view.devicePixelRatio = 1;
+      tester.view.physicalSize = const Size(320, 640);
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await tester.pumpWidget(transition(dark: dark, scale: 2));
+      expect(tester.takeException(), isNull);
+      final button = tester.getRect(find.text('Start Part 4'));
+      expect(button.bottom, lessThanOrEqualTo(640));
+      await tester.scrollUntilVisible(find.text('Science'), 100);
+      expect(tester.takeException(), isNull);
+    });
+  }
+  testWidgets('dots, completion and arrow retain their ordered overlap',
+      (tester) async {
+    await tester.pumpWidget(transition(still: false));
+    final initial = tester
+        .widget<Opacity>(find.byKey(const ValueKey('part-dot-opacity-0')));
+    expect(initial.opacity, 0);
+    await tester.pump(const Duration(milliseconds: 400));
+    expect(
+      tester
+          .widget<Opacity>(find.byKey(const ValueKey('part-dot-opacity-0')))
+          .opacity,
+      1,
+    );
+    expect(
+      tester
+          .widget<Opacity>(find.byKey(const ValueKey('part-dot-opacity-59')))
+          .opacity,
+      0,
+    );
+    await tester.pump(const Duration(milliseconds: 1200));
+    final middle =
+        tester.widget<Transform>(find.byKey(const ValueKey('part-arrow')));
+    expect(middle.transform.getTranslation().y, 118);
+    await tester.pump(const Duration(milliseconds: 450));
+    final finalArrow =
+        tester.widget<Transform>(find.byKey(const ValueKey('part-arrow')));
+    expect(finalArrow.transform.getTranslation().y, 168);
+    expect(
+      tester
+          .widget<Opacity>(find.byKey(const ValueKey('part-dot-opacity-59')))
+          .opacity,
+      1,
+    );
   });
 }

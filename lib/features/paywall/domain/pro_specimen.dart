@@ -30,13 +30,10 @@ class ProSpecimen {
 
 const proSpecimen = ProSpecimen(
   panelName: 'Under pressure',
-  // British spelling, and deliberately so: this is the label the tendency
-  // deck ships. The sample must match the surface it illustrates. Fixing
-  // the label is a separate job on the deck, not on the paywall.
-  leftLabel: 'practising',
+  leftLabel: 'practicing',
   rightLabel: 'under time',
   leftFigure: 68,
   rightFigure: 54,
-  sentence: 'You score 14 lower under time than practising. '
+  sentence: 'You score 14 lower under time than when practicing. '
       'That is the biggest gap in your work.',
 );

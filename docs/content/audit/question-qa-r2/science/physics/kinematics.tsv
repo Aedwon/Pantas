@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-physics-kinematics-0001	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-physics-kinematics-0002	CORRECTED	SOLVED-MATCH	assumptions;choices;explanation;notes	MEDIUM	Clarified motion conditions, removed length cues, or corrected distractor arithmetic.
+q-physics-kinematics-0003	CORRECTED	SOLVED-MATCH	assumptions;choices;explanation;notes	MEDIUM	Clarified motion conditions, removed length cues, or corrected distractor arithmetic.
+q-physics-kinematics-0004	CORRECTED	SOLVED-MATCH	assumptions;choices;explanation;notes	MEDIUM	Clarified motion conditions, removed length cues, or corrected distractor arithmetic.
+q-physics-kinematics-0005	CORRECTED	SOLVED-MATCH	assumptions;choices;explanation;notes	HIGH	Original wrong-choice note named arithmetic that did not produce its stated value; corrected choice or note.
+q-physics-kinematics-0006	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Replaced duplicate or clarified direct equation selection.
+q-physics-kinematics-0007	CORRECTED	SOLVED-MATCH	assumptions;choices;explanation;notes	HIGH	Original wrong-choice note named arithmetic that did not produce its stated value; corrected choice or note.
+q-physics-kinematics-0008	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Replaced duplicate or clarified direct equation selection.
+q-physics-kinematics-0009	CORRECTED	SOLVED-MATCH	assumptions;choices;explanation;notes	MEDIUM	Clarified motion conditions, removed length cues, or corrected distractor arithmetic.
+q-physics-kinematics-0010	CORRECTED	SOLVED-MATCH	assumptions;choices;explanation;notes	MEDIUM	Clarified motion conditions, removed length cues, or corrected distractor arithmetic.
+q-physics-kinematics-0011	CORRECTED	SOLVED-MATCH	assumptions;choices;explanation;notes	MEDIUM	Clarified motion conditions, removed length cues, or corrected distractor arithmetic.
+q-physics-kinematics-0012	CORRECTED	SOLVED-MATCH	assumptions;choices;explanation;notes	HIGH	Original wrong-choice note named arithmetic that did not produce its stated value; corrected choice or note.
+q-physics-kinematics-0013	CORRECTED	SOLVED-MATCH	assumptions;choices;explanation;notes	MEDIUM	Clarified motion conditions, removed length cues, or corrected distractor arithmetic.
+q-physics-kinematics-0014	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Replaced duplicate or clarified direct equation selection.
+q-physics-kinematics-0015	NEW	NEW	new question	NONE	
+q-physics-kinematics-0016	NEW	NEW	new question	NONE	
+q-physics-kinematics-0017	NEW	NEW	new question	NONE	
+q-physics-kinematics-0018	NEW	NEW	new question	NONE	
+q-physics-kinematics-0019	NEW	NEW	new question	NONE	
+q-physics-kinematics-0020	NEW	NEW	new question	NONE	

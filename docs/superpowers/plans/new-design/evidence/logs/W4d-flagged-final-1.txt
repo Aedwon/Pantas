@@ -1,0 +1,9 @@
+Computing fixes in flagged_list_page_test.dart...
+Applying fixes...
+
+flagged_list_page_test.dart
+  directives_ordering - 1 fix
+  require_trailing_commas - 27 fixes
+  use_super_parameters - 1 fix
+
+29 fixes made in 1 file.

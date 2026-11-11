@@ -52,6 +52,39 @@ void main() {
     );
   });
 
+  test('preserves approved placeholder metadata on section figures', () {
+    final sections = BlueprintSection.parseList(
+      jsonEncode([
+        {
+          'id': 'verbal',
+          'name': 'Verbal Ability',
+          'questionCount': {
+            'value': 30,
+            'placeholder': true,
+            'placeholderNote': 'Published per-subject count is unresolved.',
+          },
+          'suggestedMinutes': 35,
+          'sectionalMinutes': {
+            'value': 35,
+            'placeholder': true,
+            'placeholderNote': 'Published section time is unresolved.',
+          },
+          'topicIds': ['synonyms'],
+        },
+      ]),
+    );
+
+    final section = sections.single;
+    expect(section.questionCount, 30);
+    expect(section.questionCountFigure.isPlaceholder, isTrue);
+    expect(
+      section.questionCountFigure.placeholderNote,
+      'Published per-subject count is unresolved.',
+    );
+    expect(section.sectionalMinutes, 35);
+    expect(section.sectionalMinutesFigure?.isPlaceholder, isTrue);
+  });
+
   test('throws BlueprintParseException for malformed json', () {
     expect(
       () => BlueprintSection.parseList('{not-json'),

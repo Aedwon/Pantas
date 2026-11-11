@@ -1,0 +1,14 @@
+
+test/features/quiz/application/today_question_ui_test.dart:77:61: Error: Undefined name 'today'.
+        roadmapTodayProvider('e').overrideWith((_) async => today),
+                                                            ^^^^^
+::group::❌ loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/today_question_ui_test.dart (failed)
+Failed to load "/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/today_question_ui_test.dart":
+Compilation failed for testPath=/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/today_question_ui_test.dart: test/features/quiz/application/today_question_ui_test.dart:77:61: Error: Undefined name 'today'.
+        roadmapTodayProvider('e').overrideWith((_) async => today),
+                                                            ^^^^^
+.
+
+::endgroup::
+
+::error::0 tests passed, 1 failed.

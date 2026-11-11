@@ -2,6 +2,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 
 /// Original mechanics diagrams for the seven physics briefs in original-code-a.
 class PhysicsMechanicsDiagramFigure extends StatelessWidget {
@@ -48,15 +49,15 @@ class PhysicsMechanicsDiagramFigure extends StatelessWidget {
         painter: _PhysicsMechanicsPainter(
           type: type,
           spec: _spec,
-          ink: colors.ink,
-          inkMuted: colors.inkMuted,
-          rule: colors.ruleFaint,
-          board: colors.board,
-          boardTint: colors.boardTint,
-          rust: colors.rust,
-          labelStyle: context.textStyles.bodySmall.copyWith(color: colors.ink),
-          mutedStyle: context.textStyles.bodySmall.copyWith(
-            color: colors.inkMuted,
+          ink: colors.label,
+          inkMuted: colors.secondaryLabel,
+          rule: colors.fill,
+          board: colors.accent,
+          boardTint: colors.accentTint,
+          rust: colors.destructive,
+          labelStyle: context.type.subhead.copyWith(color: colors.label),
+          mutedStyle: context.type.subhead.copyWith(
+            color: colors.secondaryLabel,
           ),
         ),
       ),
@@ -203,7 +204,7 @@ class _PhysicsMechanicsPainter extends CustomPainter {
           ..drawRRect(
             RRect.fromRectAndRadius(
               handPalm,
-              const Radius.circular(7),
+              const Radius.circular(7), // ds-geometry: figure corner
             ),
             handPaint,
           );
@@ -256,7 +257,10 @@ class _PhysicsMechanicsPainter extends CustomPainter {
           'acceleration',
           Offset(x0 + slot * 0.53, 72),
           slot * 0.45,
-          style: labelStyle.copyWith(color: board, fontSize: 11),
+          style: labelStyle.copyWith(
+            color: board,
+            fontSize: PantasType.phoneCaption.fontSize,
+          ),
           maxLines: 1,
         );
       } else {
@@ -885,7 +889,10 @@ class _PhysicsMechanicsPainter extends CustomPainter {
         _stroke,
       )
       ..drawRRect(
-        RRect.fromRectAndRadius(palm, const Radius.circular(5)),
+        RRect.fromRectAndRadius(
+          palm,
+          const Radius.circular(5), // ds-geometry: figure corner
+        ),
         _stroke,
       );
     for (var finger = 0; finger < 4; finger++) {

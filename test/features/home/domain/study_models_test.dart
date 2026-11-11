@@ -1,0 +1,146 @@
+import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/features/home/application/server_today.dart';
+import 'package:pantas/features/home/domain/study_models.dart';
+import 'package:pantas/features/roadmap/domain/roadmap.dart';
+
+void main() {
+  Map<String, Object?> reply({bool pro = false}) => {
+        'examId': 'cse',
+        'serverNow': 123,
+        'accessRecheckAt': null,
+        'proCovered': pro,
+        'revision': 'v1',
+        'profile': {'id': 'nightOwl'},
+        'performance': {
+          'overall': <String, Object?>{'correct': 2, 'answered': 3},
+          'subjects': [
+            {
+              'id': 's',
+              'title': 'Math',
+              'correct': 2,
+              'answered': 3,
+              'topicCount': 1,
+            }
+          ],
+          'lessonLevelAvailable': true,
+        },
+      };
+  test('legacy CSE summaries wait for weighted server accuracy', () {
+    final r = reply()..['examId'] = 'exam_cse_pro';
+    expect(
+      StudyInsights.decode(r, examId: 'exam_cse_pro').overallAccuracy.value,
+      isNull,
+    );
+    expect(
+      StudyInsights.decode(reply(), examId: 'cse').overallAccuracy.value,
+      2 / 3,
+    );
+  });
+  test('no rated area stays absent instead of using the raw ratio', () {
+    final r = reply();
+    final performance = r['performance']! as Map<String, Object?>;
+    (performance['overall']! as Map<String, Object?>)['accuracy'] = null;
+    expect(
+      StudyInsights.decode(r, examId: 'cse').overallAccuracy.value,
+      isNull,
+    );
+  });
+  test('invalid weighted accuracy is rejected', () {
+    for (final value in [-.1, 1.1, double.nan, '60']) {
+      final r = reply();
+      final performance = r['performance']! as Map<String, Object?>;
+      (performance['overall']! as Map<String, Object?>)['accuracy'] = value;
+      expect(
+        () => StudyInsights.decode(r, examId: 'cse'),
+        throwsFormatException,
+      );
+    }
+  });
+  test('Free retains measured subject summary and allowed profile only', () {
+    final r = reply();
+    r['tendencies'] = {
+      'pressure': {'value': 42},
+    };
+    r['performance'] = (r['performance']! as Map<String, Object?>)
+      ..['topics'] = [
+        {'id': 'secret'},
+      ];
+    final model = StudyInsights.decode(r, examId: 'cse');
+    expect(model.correct, 2);
+    expect(model.answered, 3);
+    expect(model.profileId, 'nightOwl');
+    expect(model.topics, isEmpty);
+    expect(model.tendencies, isNull);
+  });
+  test('invalid or other-exam summary fails rather than showing invented zero',
+      () {
+    expect(
+      () => StudyInsights.decode(reply(), examId: 'other'),
+      throwsFormatException,
+    );
+    final r = reply();
+    (r['performance']! as Map<String, Object?>)['overall'] = {
+      'correct': 4,
+      'answered': 3,
+    };
+    expect(() => StudyInsights.decode(r, examId: 'cse'), throwsFormatException);
+  });
+  test('roadmap reads exact stored membership and unknown days stay unknown',
+      () {
+    final plan = {
+      'day': '2026-10-24',
+      'lessonIds': ['l1'],
+      'reviewQuestionIds': ['q1'],
+      'newQuestionIds': <String>[],
+      'isMockDay': false,
+      'isRestDay': false,
+      'advancedIds': <String>[],
+    };
+    final r = <String, Object?>{
+      'examId': 'cse',
+      'serverNow': 123,
+      'accessRecheckAt': null,
+      'proCovered': false,
+      'revision': 'v1',
+      'state': 'planning',
+      'today': plan,
+      'remaining': plan,
+      'originalDone': false,
+      'canAdvance': false,
+      'todayTopicOrder': ['t'],
+      'weekDays': [
+        {'day': '2026-10-23', 'state': 'unknown'},
+      ],
+    };
+    final model = StudyRoadmap.decode(r, examId: 'cse');
+    expect(model.today.reasons, isEmpty);
+    plan['reasons'] = {
+      for (final kind in PlanReasonKind.values)
+        kind.name: {
+          'kind': kind.name,
+          if (kind == PlanReasonKind.prerequisite) 'forLesson': 'l2',
+        },
+    };
+    final decoded = StudyRoadmap.decode(r, examId: 'cse');
+    final today = serverToday(decoded, examDate: '');
+    final expected = {
+      for (final kind in PlanReasonKind.values)
+        kind.name: PlanReason(
+          kind: kind,
+          forLessonId: kind == PlanReasonKind.prerequisite ? 'l2' : null,
+        ),
+    };
+    expect(today.snapshot.plan.reasons, expected);
+    expect(today.remaining.reasons, expected);
+    (plan['reasons']! as Map<String, Object?>)['q9'] = {'kind': 'futureKind'};
+    expect(
+      StudyRoadmap.decode(r, examId: 'cse').today.reasons,
+      expected,
+      reason: 'a kind this build does not know is skipped',
+    );
+    expect(model.today.lessonIds, ['l1']);
+    expect(model.remaining.reviewQuestionIds, ['q1']);
+    expect(model.weekDays.single['state'], 'unknown');
+    expect(model.comingUp, isNull);
+  });
+}

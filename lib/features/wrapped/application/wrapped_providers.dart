@@ -20,7 +20,7 @@ final wrappedArtifactProvider =
       .latestByArtifactId(artifactId);
 });
 
-/// Cards the user has published to a `pantas.app` link, for the
+/// Cards the user has published to a `pantas.study` link, for the
 /// "My shared cards" revoke surface.
 final sharedWrappedCardsProvider =
     FutureProvider<List<HostedWrappedCard>>((ref) {

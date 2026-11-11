@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/content/remote/content_catalog.dart';
 import 'package:pantas/core/content/sanity/parsers/exam_parser.dart';
 import 'package:pantas/core/content/sanity/parsers/lesson_parser.dart';
 import 'package:pantas/core/content/sanity/parsers/question_parser.dart';
@@ -9,14 +10,178 @@ import 'package:pantas/core/content/sanity/parsers/subject_parser.dart';
 import 'package:pantas/core/content/sanity/parsers/topic_parser.dart';
 
 void main() {
+  test('YAML passage overrides historical text and keeps historical fallback',
+      () async {
+    final temp = Directory.systemTemp.createTempSync('passage_export');
+    addTearDown(() => temp.deleteSync(recursive: true));
+    void write(String path, String text) {
+      final file = File('${temp.path}/$path');
+      file.parent.createSync(recursive: true);
+      file.writeAsStringSync(text);
+    }
+
+    write(
+      'tools/build_content_export/historical_v1.json',
+      jsonEncode({
+        'exams': <Object?>[],
+        'topics': <Object?>[],
+        'questions': <Object?>[],
+        'lessons': <Object?>[],
+        'passages': [
+          for (final id in ['shared-passage', 'historical-only'])
+            {
+              'id': id,
+              'topicId': 'topic_upcat_algebra',
+              'title': 'Old title',
+              'body': 'Old body',
+              'language': 'en',
+              'wordCount': 2,
+            },
+        ],
+      }),
+    );
+    write(
+      'tools/lesson_author/outline.json',
+      jsonEncode({
+        'subjects': [
+          {
+            'slug': 'mathematics',
+            'name': 'Mathematics',
+            'topics': [
+              {'slug': 'algebra', 'name': 'Algebra'},
+            ],
+          },
+        ],
+      }),
+    );
+    write('content/illustrations/assets.json', '{}');
+    Directory('${temp.path}/content/lessons').createSync();
+    write('content/questions/mathematics/algebra/test.yaml', '''
+meta:
+  topic: algebra
+  subtopic: intro
+  exams: [upcat]
+passages:
+  - id: shared-passage
+    title: Updated heading
+    body: |
+      Updated passage with
+      four more words.
+questions: []
+''');
+    final path = '${temp.path}/export.json';
+    final result = await Process.run('dart', [
+      'run',
+      'tools/build_content_export/build_content_export.dart',
+      path,
+      temp.path,
+    ]);
+    expect(result.exitCode, 0, reason: result.stderr.toString());
+    final output =
+        jsonDecode(File(path).readAsStringSync()) as Map<String, dynamic>;
+    final passages = (output['passage'] as List).cast<Map<String, Object?>>();
+    expect(
+      passages.map((p) => p['_id']),
+      ['shared-passage', 'historical-only'],
+    );
+    final updated = passages.first;
+    expect(updated['title'], 'Updated heading');
+    expect(updated['body'], 'Updated passage with\nfour more words.\n');
+    expect(updated['wordCount'], 6);
+    expect(updated['_updatedAt'], isNot(passages.last['_updatedAt']));
+    expect(updated['topic'], {'_ref': 'topic_upcat_algebra'});
+    expect(updated['language'], 'en');
+    expect(passages.last['title'], 'Old title');
+    expect(passages.last['body'], 'Old body');
+    expect(passages.last['wordCount'], 2);
+  });
+
+  test('historical CSE samples stay inactive through export parsing', () async {
+    final temp = Directory.systemTemp.createTempSync('retired_cse');
+    addTearDown(() => temp.deleteSync(recursive: true));
+    final path = '${temp.path}/export.json';
+    final result = await Process.run('dart', [
+      'run',
+      'tools/build_content_export/build_content_export.dart',
+      path,
+    ]);
+    expect(result.exitCode, 0, reason: result.stderr.toString());
+    final output =
+        jsonDecode(File(path).readAsStringSync()) as Map<String, dynamic>;
+    Map<String, Object?> row(String kind, String id) =>
+        (output[kind] as List).cast<Map<String, Object?>>().singleWhere(
+              (doc) => doc['_id'] == id,
+            );
+
+    expect(
+      parseSubject(row('subject', 'subj_cse_verbal')).isActive.value,
+      isFalse,
+    );
+    expect(
+      parseTopic(row('topic', 'topic_cse_vocab')).isActive.value,
+      isFalse,
+    );
+    for (final id in [
+      'les_vocab_intro',
+      'les_vocab_synonyms',
+      'les_vocab_context',
+    ]) {
+      expect(parseLesson(row('lesson', id)).isActive.value, isFalse);
+    }
+    for (final id in ['q_001', 'q_002']) {
+      expect(
+        parseQuestion(row('question', id)).question.isActive.value,
+        isFalse,
+      );
+    }
+    final index = parseCatalogIndex({
+      'subjects': output['subject'],
+      'topics': output['topic'],
+    });
+    expect(
+      index.subjects
+          .singleWhere((s) => s.id.value == 'subj_cse_verbal')
+          .isActive
+          .value,
+      isFalse,
+    );
+    expect(
+      index.topics
+          .singleWhere((t) => t.id.value == 'topic_cse_vocab')
+          .isActive
+          .value,
+      isFalse,
+    );
+    expect(row('topic', 'topic_upcat_vocabulary')['isActive'], isTrue);
+    expect(row('exam', 'exam_cse_pro')['isActive'], isTrue);
+    final vocabularyLessons =
+        (output['lesson'] as List).cast<Map<String, Object?>>().where(
+              (doc) =>
+                  (doc['topic']! as Map<String, Object?>)['_ref'] ==
+                  'topic_upcat_vocabulary',
+            );
+    expect(vocabularyLessons, isNotEmpty);
+    expect(vocabularyLessons.every((doc) => doc['isActive'] == true), isTrue);
+    final blueprints =
+        (output['mockBlueprint'] as List).cast<Map<String, Object?>>();
+    expect(
+      blueprints.where(
+        (doc) =>
+            (doc['exam']! as Map<String, Object?>)['_ref'] == 'exam_cse_pro',
+      ),
+      isNotEmpty,
+    );
+  });
+
   test('build_content_export builds parseable Sanity documents', () async {
     final tempDir = Directory.systemTemp.createTempSync('content_export_test');
     addTearDown(() => tempDir.deleteSync(recursive: true));
 
-    // Setup assets/seed/v1.json
-    final seedDir = Directory('${tempDir.path}/assets/seed')
-      ..createSync(recursive: true);
-    File('${seedDir.path}/v1.json').writeAsStringSync(
+    // Setup the tool-owned historical source. It must never be a Flutter asset.
+    final historicalDir = Directory(
+      '${tempDir.path}/tools/build_content_export',
+    )..createSync(recursive: true);
+    File('${historicalDir.path}/historical_v1.json').writeAsStringSync(
       jsonEncode(<String, List<Object?>>{
         'exams': <Object?>[],
         'topics': <Object?>[],
@@ -53,8 +218,14 @@ void main() {
         'mathematics/algebra/01-intro#1': {
           'url': 'https://cdn.sanity.io/images/demo.png',
           'alt': 'Coordinate axis diagram',
+          'creditKey': 'coordinate-source',
         },
       }),
+    );
+
+    final sources = Directory('${illusDir.path}/sources')..createSync();
+    File('${sources.path}/test.yaml').writeAsStringSync(
+      'version: 1\nassets:\n  - key: coordinate-source\n    credit: Test artist / Public domain\n',
     );
 
     // Setup content/lessons

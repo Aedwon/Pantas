@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/repos/attempts_repository.dart';
 import 'package:pantas/core/storage/data/repos/content_repository.dart';
+import 'package:pantas/core/storage/data/repos/review_state_repository.dart';
 import 'package:pantas/features/quiz/data/repos/quiz_session_repository.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 import 'package:pantas/features/quiz/domain/picker/practice_selection.dart';
@@ -35,6 +36,7 @@ void main() {
       content: ContentRepository(contentDb),
       sessions: QuizSessionRepository(db),
       attempts: AttemptsRepository(db),
+      reviews: ReviewStateRepository(db),
     );
 
     final result = await startPractice(
@@ -78,6 +80,7 @@ void main() {
       content: ContentRepository(contentDb),
       sessions: QuizSessionRepository(db),
       attempts: AttemptsRepository(db),
+      reviews: ReviewStateRepository(db),
     );
 
     final result = await startPractice(
@@ -103,6 +106,7 @@ void main() {
       content: ContentRepository(contentDb),
       sessions: QuizSessionRepository(db),
       attempts: AttemptsRepository(db),
+      reviews: ReviewStateRepository(db),
     );
 
     final result = await startPractice(
@@ -133,6 +137,7 @@ void main() {
       content: ContentRepository(contentDb),
       sessions: QuizSessionRepository(db),
       attempts: AttemptsRepository(db),
+      reviews: ReviewStateRepository(db),
     );
 
     final result = await startPractice(
@@ -173,6 +178,7 @@ void main() {
       content: ContentRepository(contentDb),
       sessions: QuizSessionRepository(db),
       attempts: AttemptsRepository(db),
+      reviews: ReviewStateRepository(db),
     );
 
     final result = await startPractice(
@@ -205,6 +211,7 @@ void main() {
       content: ContentRepository(contentDb),
       sessions: QuizSessionRepository(db),
       attempts: AttemptsRepository(db),
+      reviews: ReviewStateRepository(db),
     );
 
     final result = await startPractice.fromQuestionIds(

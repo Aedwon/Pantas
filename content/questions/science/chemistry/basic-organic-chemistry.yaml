@@ -2,289 +2,424 @@ meta:
   subject: science
   topic: chemistry
   subtopic: basic-organic-chemistry
-  exams:
-    - upcat
-    - dlsucet
-    - ustet
-    - dost-sei
+  exams: [upcat, dlsucet, ustet, dost-sei]
 questions:
   - id: q-chemistry-basic-organic-chemistry-0001
-    type: classify
-    difficulty: easy
+    type: 'classify'
+    difficulty: 'easy'
     stem: |
-      A hydrocarbon has only single bonds between all of its carbon atoms. Which family does it belong to?
+      An acyclic hydrocarbon has only carbon-carbon single bonds. Which family does it belong to?
     choices:
-      - text: Alkane
+      - text: 'Alkane'
         correct: true
-      - text: Alkene
+      - text: 'Alkene'
         rationale: |
-          You picked the family with double bonds. Alkenes contain at least one carbon-carbon double bond, while alkanes have only single bonds.
-      - text: Alkyne
+          This confuses single bonds with double bonds. Both are carbon-carbon bonds. Check the number of shared bonds between the carbons.
+      - text: 'Alkyne'
         rationale: |
-          You picked the family with triple bonds. Alkynes contain at least one carbon-carbon triple bond, while alkanes have only single bonds.
-      - text: Carboxylic acid
+          This confuses single bonds with triple bonds. Both names describe hydrocarbons. Check whether a triple carbon-carbon bond is present.
+      - text: 'Carboxylic acid'
         rationale: |
-          You picked a functional group containing oxygen. Carboxylic acids have a -COOH group, while hydrocarbons contain only carbon and hydrogen.
+          This confuses a hydrocarbon with an oxygen-containing acid. Both have carbon frameworks. Check whether the formula contains only carbon and hydrogen.
     explanation: |
-      Alkanes contain only single carbon-carbon bonds and are named with the ending "-ane."
+      An alkane is a saturated hydrocarbon with only carbon-carbon single bonds. An acyclic alkane has no ring.
     approved: true
+
   - id: q-chemistry-basic-organic-chemistry-0002
-    type: classify
-    difficulty: easy
+    type: 'classify'
+    difficulty: 'easy'
     stem: |
-      A hydrocarbon contains one carbon-carbon double bond. Which family does it belong to?
+      An acyclic hydrocarbon has one carbon-carbon double bond and otherwise only single bonds. Which family does it belong to?
     choices:
-      - text: Alkene
+      - text: 'Alkene'
         correct: true
-      - text: Alkane
+      - text: 'Alkane'
         rationale: |
-          You picked the family with only single bonds. Alkanes contain no double or triple bonds.
-      - text: Alkyne
+          This applies the single-bond family despite the stated double bond. Much of the chain may still have single bonds. Check whether any carbon-carbon multiple bond is present.
+      - text: 'Alkyne'
         rationale: |
-          You picked the family with a triple bond. Alkynes have triple bonds, whereas alkenes have double bonds.
-      - text: Alcohol
+          This confuses double and triple bonds. Both make a hydrocarbon unsaturated. Check which multiple bond is specified.
+      - text: 'Alcohol'
         rationale: |
-          You picked an oxygen-containing compound. Alcohols have an -OH group, not just carbon and hydrogen.
+          This assumes the carbon framework also contains a hydroxyl group. Alcohols have carbon chains too. Check whether an oxygen-containing group is given.
     explanation: |
-      Alkenes contain at least one carbon-carbon double bond and are named with the ending "-ene."
+      A carbon-carbon double bond identifies an alkene. The stated hydrocarbon therefore belongs to the alkene family.
     approved: true
+
   - id: q-chemistry-basic-organic-chemistry-0003
-    type: classify
-    difficulty: easy
+    type: 'classify'
+    difficulty: 'easy'
     stem: |
-      A hydrocarbon contains one carbon-carbon triple bond. Which family does it belong to?
+      An acyclic hydrocarbon has one carbon-carbon triple bond and otherwise only single bonds. Which family does it belong to?
     choices:
-      - text: Alkyne
+      - text: 'Alkyne'
         correct: true
-      - text: Alkane
+      - text: 'Alkane'
         rationale: |
-          You picked the family with only single bonds. Alkanes have no triple bonds.
-      - text: Alkene
+          This ignores the triple bond and uses the single-bond family. The molecule can still contain other single bonds. Check every stated carbon-carbon bond.
+      - text: 'Alkene'
         rationale: |
-          You picked the family with a double bond. Alkenes contain double bonds, while alkynes contain triple bonds.
-      - text: Amine
+          This confuses triple and double bonds. Both are multiple bonds. Check the number of bonds joining the carbons.
+      - text: 'Amine'
         rationale: |
-          You picked a nitrogen-containing compound. Amines contain nitrogen, while hydrocarbons have only carbon and hydrogen.
+          This assumes a nitrogen-containing group is present. Amines can contain carbon chains. Check whether the substance is restricted to carbon and hydrogen.
     explanation: |
-      Alkynes contain at least one carbon-carbon triple bond and are named with the ending "-yne."
+      A carbon-carbon triple bond identifies an alkyne. The stated hydrocarbon therefore belongs to the alkyne family.
     approved: true
+
   - id: q-chemistry-basic-organic-chemistry-0004
-    type: identify
-    difficulty: medium
+    type: 'identify'
+    difficulty: 'medium'
     stem: |
       Name a straight-chain alkane with 4 carbon atoms, all connected by single bonds.
     choices:
-      - text: Butane
+      - text: 'Butane'
         correct: true
-      - text: Butene
+      - text: 'Butene'
         rationale: |
-          You picked the 4-carbon alkene. The ending "-ene" indicates a double bond, but all bonds here are single bonds.
-      - text: Butyne
+          This uses the double-bond suffix with the correct carbon root. The four-carbon part is right. Check whether a double bond is stated.
+      - text: 'Butyne'
         rationale: |
-          You picked the 4-carbon alkyne. The ending "-yne" indicates a triple bond, but all bonds here are single bonds.
-      - text: Propane
+          This uses the triple-bond suffix with the correct root. The carbon count fits. Check whether a triple bond is stated.
+      - text: 'Propane'
         rationale: |
-          You picked the 3-carbon alkane. The prefix "prop-" means 3 carbons, while "but-" means 4 carbons.
+          This uses the three-carbon root with the correct single-bond suffix. The family fits. Check the four-carbon count.
     explanation: |
-      A chain of 4 carbons uses the base "but-." Since all bonds are single (alkane), the ending is "-ane": butane.
+      Four carbons give the root but-. An acyclic saturated hydrocarbon takes the ending -ane. Combining them gives butane.
     approved: true
+
   - id: q-chemistry-basic-organic-chemistry-0005
-    type: identify
-    difficulty: medium
+    type: 'identify'
+    difficulty: 'medium'
     stem: |
-      Name a 3-carbon chain containing one carbon-carbon double bond.
+      What is the name of an acyclic hydrocarbon with three carbons and one carbon-carbon double bond?
     choices:
-      - text: Propene
+      - text: 'Propene'
         correct: true
-      - text: Propane
+      - text: 'Propane'
         rationale: |
-          You picked the 3-carbon alkane. The ending "-ane" means all single bonds, but this molecule has a double bond.
-      - text: Propyne
+          This uses the single-bond suffix. The three-carbon root fits. Check the stated double bond.
+      - text: 'Propyne'
         rationale: |
-          You picked the 3-carbon alkyne. The ending "-yne" means a triple bond, not a double bond.
-      - text: Butene
+          This uses the triple-bond suffix. The carbon count still fits. Check whether the multiple bond is double or triple.
+      - text: 'Butene'
         rationale: |
-          You picked the 4-carbon alkene. The prefix "but-" means 4 carbons, while a 3-carbon chain uses "prop-".
+          This uses the four-carbon root. The double-bond suffix fits. Check the number of carbons.
     explanation: |
-      A chain of 3 carbons uses the base "prop-." Since it contains a double bond (alkene), the ending is "-ene": propene.
+      Three carbons give prop-. A carbon-carbon double bond gives -ene. The name is propene.
     approved: true
+
   - id: q-chemistry-basic-organic-chemistry-0006
-    type: identify
-    difficulty: medium
+    type: 'identify'
+    difficulty: 'medium'
     stem: |
-      Name a 2-carbon chain containing one carbon-carbon triple bond.
+      What is the name of an acyclic hydrocarbon with two carbons joined by a triple bond?
     choices:
-      - text: Ethyne
+      - text: 'Ethyne'
         correct: true
-      - text: Ethane
+      - text: 'Ethane'
         rationale: |
-          You picked the 2-carbon alkane. The ending "-ane" means only single bonds, but this molecule has a triple bond.
-      - text: Ethene
+          This uses the single-bond suffix. The two-carbon root fits. Check the stated triple bond.
+      - text: 'Ethene'
         rationale: |
-          You picked the 2-carbon alkene. The ending "-ene" means a double bond, not a triple bond.
-      - text: Propyne
+          This uses the double-bond suffix. The two-carbon root fits. Check how many bonds join the carbons.
+      - text: 'Propyne'
         rationale: |
-          You picked the 3-carbon alkyne. The prefix "prop-" means 3 carbons, while a 2-carbon chain uses "eth-".
+          This uses the three-carbon root. The triple-bond suffix fits. Check the carbon count.
     explanation: |
-      A chain of 2 carbons uses the base "eth-." Since it contains a triple bond (alkyne), the ending is "-yne": ethyne.
+      Two carbons give eth-. A carbon-carbon triple bond gives -yne. The name is ethyne.
     approved: true
+
   - id: q-chemistry-basic-organic-chemistry-0007
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
-      A hydrocarbon has every possible bonding position filled with hydrogen atoms, with no double or triple bonds anywhere in its carbon chain. Is it saturated or unsaturated, and which family does it belong to?
+      Cyclohexane has only carbon-carbon single bonds but has fewer hydrogens than acyclic hexane. How is cyclohexane classified?
     choices:
-      - text: Saturated; it belongs to the alkane family.
+      - text: 'Saturated cycloalkane'
         correct: true
-      - text: Unsaturated; it belongs to the alkane family.
+      - text: 'Unsaturated alkene'
         rationale: |
-          You confused the saturation terms. Saturated means all single bonds, so alkanes are saturated, not unsaturated.
-      - text: Saturated; it belongs to the alkene family.
+          This infers a double bond from reduced hydrogen count. A ring also reduces hydrogen count. Check the actual carbon-carbon bonds.
+      - text: 'Unsaturated alkyne'
         rationale: |
-          You paired saturated with alkenes. Alkenes contain double bonds, which makes them unsaturated.
-      - text: Unsaturated; it belongs to the alkyne family.
+          This infers a triple bond from reduced hydrogen count. Multiple bonds can reduce hydrogen count. Check whether a triple bond is present.
+      - text: 'Unsaturated hydrocarbon solely because of its ring'
         rationale: |
-          You picked the family with triple bonds. Alkynes are unsaturated, but a molecule with no double or triple bonds is an alkane.
+          This confuses a ring’s contribution to degrees of unsaturation with the saturated hydrocarbon label. Rings lower hydrogen count. Check that this label depends on carbon-carbon multiple bonds.
     explanation: |
-      Having every position filled with hydrogen (no double or triple bonds using up bonding spots) describes a saturated hydrocarbon, which means only single carbon-carbon bonds: the alkane family.
+      Cyclohexane has no carbon-carbon double or triple bonds. It is therefore a saturated cycloalkane. Its ring gives it fewer hydrogens than an acyclic alkane.
     approved: true
+
   - id: q-chemistry-basic-organic-chemistry-0008
-    type: identify
-    difficulty: medium
+    type: 'identify'
+    difficulty: 'medium'
     stem: |
-      A carbon chain has a $-OH$ group attached to it. What class of organic compound is this?
+      A molecule has a hydroxyl group bonded to a saturated carbon and no other functional group. Which class is indicated?
     choices:
-      - text: Alcohol
+      - text: 'Alcohol'
         correct: true
-      - text: Carboxylic acid
+      - text: 'Carboxylic acid'
         rationale: |
-          You confused the functional groups. A carboxylic acid has a -COOH group, while an alcohol has only an -OH group.
-      - text: Amine
+          This treats every hydroxyl-containing structure as a carboxyl group. A carboxylic acid also includes oxygen and hydrogen. Check whether a carbonyl is joined to that hydroxyl.
+      - text: 'Amine'
         rationale: |
-          You picked the nitrogen group. Amines contain a nitrogen atom, while an -OH group forms an alcohol.
-      - text: Alkyne
+          This substitutes a nitrogen-containing group for hydroxyl. Both are common functional groups. Check the atom named in the group.
+      - text: 'Alkyne'
         rationale: |
-          You picked a hydrocarbon family with a triple bond. An -OH group is an oxygen functional group, not a triple bond.
+          This confuses a hydroxyl group with a carbon-carbon triple bond. Both change a carbon framework’s chemistry. Check whether the defining feature is oxygen or a C-C multiple bond.
     explanation: |
-      A carbon chain with an $-OH$ group attached is classified as an alcohol.
+      A hydroxyl group bonded to a saturated carbon identifies an alcohol. It is commonly represented as $R-OH$.
     approved: true
+
   - id: q-chemistry-basic-organic-chemistry-0009
-    type: identify
-    difficulty: medium
+    type: 'identify'
+    difficulty: 'medium'
     stem: |
       A carbon chain has a $-COOH$ group attached to it. What class of organic compound is this?
     choices:
-      - text: Carboxylic acid
+      - text: 'Carboxylic acid'
         correct: true
-      - text: Alcohol
+      - text: 'Hydroxyl alcohol'
         rationale: |
-          You confused the functional groups. An alcohol has an -OH group, while a carboxyl group (-COOH) defines a carboxylic acid.
-      - text: Amine
+          This focuses only on the hydroxyl part of the carboxyl group. The group does contain OH. Check the complete attached group, including the carbonyl.
+      - text: 'Primary amine group'
         rationale: |
-          You picked the nitrogen functional group. Amines contain nitrogen, whereas -COOH contains carbon, oxygen, and hydrogen.
-      - text: Alkene
+          This substitutes a nitrogen group for the carboxyl group. Both are common functional groups. Check the atoms in the stated formula.
+      - text: 'Carbonyl ketone group'
         rationale: |
-          You picked a hydrocarbon with a double bond. A -COOH group is a carboxyl functional group, not a carbon-carbon double bond.
+          This uses only the carbonyl part to name a ketone. A carboxyl group does contain C=O. Check the complete structure around that carbonyl.
     explanation: |
-      A carbon chain with a $-COOH$ group attached is classified as a carboxylic acid.
+      The $-COOH$ group is a carboxyl group. Its presence identifies the carboxylic-acid class.
     approved: true
+
   - id: q-chemistry-basic-organic-chemistry-0010
-    type: compare-contrast
-    difficulty: hard
+    type: 'compare-contrast'
+    difficulty: 'hard'
     stem: |
       Two molecules have the exact same length of carbon chain, but one has an $-OH$ group attached (an alcohol) and the other has a $-COOH$ group attached (a carboxylic acid). Why do these two molecules behave very differently chemically, despite having similar chain lengths?
     choices:
-      - text: The functional group, not the chain length, is what determines a molecule's characteristic chemical behavior.
+      - text: 'Their different functional groups affect reactivity.'
         correct: true
-      - text: They actually behave identically, since their chain lengths match.
+      - text: 'Matching carbon counts guarantee identical reactions.'
         rationale: |
-          You assumed chain length overrides functional groups. Attached functional groups govern how a molecule reacts chemically.
-      - text: Only the number of carbon atoms determines chemical behavior, never the attached group.
+          This treats carbon count as a complete description. The molecules do have matching chain lengths. Check whether their attached functional groups also match.
+      - text: 'Carbon skeletons are the only influence on reactivity.'
         rationale: |
-          You focused only on the carbon backbone. The functional group attached to the chain determines the chemical reactions.
-      - text: Carboxylic acids and alcohols are actually the same functional group with different names.
+          This leaves out the groups attached to the skeleton. Carbon frameworks do affect properties. Check whether functional groups are another major influence.
+      - text: 'The two groups are structurally identical in all respects.'
         rationale: |
-          You treated two distinct groups as identical. Alcohols (-OH) and carboxylic acids (-COOH) have different structures and reactivity.
+          This treats the OH within COOH as the whole group. Both formulas contain oxygen and hydrogen. Check whether the carboxyl group also has a carbonyl.
     explanation: |
-      Even with an identical carbon chain length, the specific functional group attached determines most of the molecule's chemical behavior: carboxylic acids are acidic and can donate a proton, while simple alcohols are not acidic in the same way.
+      Hydroxyl and carboxyl groups have different structures. They produce different patterns of acidity and reactions. Those effects can differ even with similar carbon-chain lengths.
     approved: true
+
   - id: q-chemistry-basic-organic-chemistry-0011
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
-      A student thinks "saturated" means a hydrocarbon is "full of" double bonds. Is this correct?
+      Why is the statement "every carbon compound is organic" too broad?
     choices:
-      - text: 'No: "saturated" means every bonding position is already filled with hydrogen, leaving no room for any double or triple bonds.'
+      - text: 'Some simple carbon compounds are treated as inorganic.'
         correct: true
-      - text: 'Yes: "saturated" specifically describes having many double bonds.'
+      - text: 'Organic compounds cannot contain carbon-carbon bonds.'
         rationale: |
-          You accepted the misconception. Saturated means maximum single hydrogen bonds, while double bonds make a molecule unsaturated.
-      - text: 'No: "saturated" describes having many triple bonds instead.'
+          This excludes the framework central to organic chemistry. The word organic can suggest something separate from ordinary elements. Check whether carbon-carbon bonds are common in organic compounds.
+      - text: 'All carbon-containing gases are defined as hydrocarbons.'
         rationale: |
-          You substituted triple bonds for double bonds. Any multiple bond makes a hydrocarbon unsaturated.
-      - text: 'Yes: the more double and triple bonds present, the more "saturated" a molecule is.'
+          This confuses carbon presence with a carbon-and-hydrogen-only composition. Carbon dioxide is a gas containing carbon. Check whether hydrogen is also required for a hydrocarbon.
+      - text: 'Only compounds from living organisms can be organic.'
         rationale: |
-          You picked the opposite definition. Extra double or triple bonds decrease the amount of hydrogen, making it more unsaturated.
+          This uses biological origin as the sole definition. Many familiar organic substances come from living things. Check whether classification depends only on where a substance was made.
     explanation: |
-      "Saturated" means the opposite of what the student assumed: every possible bonding spot already holds a hydrogen atom, so there is no room left for a double or triple bond.
+      Organic chemistry focuses on a large range of carbon chemistry. Some simple compounds, including carbon dioxide and many carbonates, are conventionally treated as inorganic.
     approved: true
+
   - id: q-chemistry-basic-organic-chemistry-0012
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
       A student mixes up the endings "-ene" and "-yne," using "-yne" for a molecule with a double bond. Is this correct?
     choices:
-      - text: 'No: "-ene" means a double bond (alkene); "-yne" means a triple bond (alkyne).'
+      - text: '-ene marks a double bond; -yne marks a triple bond.'
         correct: true
-      - text: 'Yes: "-ene" and "-yne" both refer to double bonds interchangeably.'
+      - text: '-ene and -yne both mark carbon-carbon double bonds.'
         rationale: |
-          You thought the endings were interchangeable. "-ene" always means a double bond, and "-yne" always means a triple bond.
-      - text: 'No: "-ene" means a triple bond, and "-yne" means a double bond.'
+          This treats two similar endings as interchangeable. Both name unsaturated hydrocarbons. Check whether the multiple bond is double or triple.
+      - text: '-ene marks a triple bond; -yne marks a double bond.'
         rationale: |
-          You swapped the two definitions. "-ene" belongs to double bonds (alkenes) and "-yne" belongs to triple bonds (alkynes).
-      - text: 'Yes: the endings only depend on chain length, not bond type.'
+          This reverses the two suffix meanings. The names sound similar. Check the bond associated with each ending.
+      - text: '-ene and -yne depend only on the total carbon count.'
         rationale: |
-          You confused chain length prefixes with bond type suffixes. Prefixes like eth- or prop- give length; suffixes give bond type.
+          This confuses the carbon-count root with the bond-type suffix. Both contribute to a name. Check which part gives length and which gives bond type.
     explanation: |
-      "-ene" specifically indicates a double bond (alkene), and "-yne" specifically indicates a triple bond (alkyne): reversing them names the wrong compound entirely.
+      The ending -ene indicates a carbon-carbon double bond. The ending -yne indicates a carbon-carbon triple bond. The distinction identifies different hydrocarbon families.
     approved: true
+
   - id: q-chemistry-basic-organic-chemistry-0013
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
-      A branched molecule has several possible carbon chains a student could choose as the "parent chain" when naming it. The student picks a shorter chain because it was drawn first, instead of checking for a longer one. Is this correct?
+      For a simple branched acyclic alkane, a student chooses the first chain drawn without checking other continuous paths. What should be checked first?
     choices:
-      - text: 'No: IUPAC naming always requires finding the longest continuous carbon chain as the parent chain, regardless of how it was drawn.'
+      - text: 'The longest continuous carbon chain'
         correct: true
-      - text: 'Yes: any chain can be chosen as the parent chain, as long as it is named consistently.'
+      - text: 'The chain with the most crowded printed labels'
         rationale: |
-          You assumed parent chain choice is flexible. IUPAC rules strictly mandate choosing the longest continuous carbon chain.
-      - text: 'No: the parent chain must always be exactly 4 carbons long.'
+          This uses drawing density as the selection rule. A crowded portion may look like the main structure. Check actual connected carbon paths.
+      - text: 'The shortest continuous chain through any branch'
         rationale: |
-          You set a fixed number for chain length. The parent chain length depends on the specific molecule being named.
-      - text: 'Yes: the first chain drawn is always the correct parent chain.'
+          This chooses a short path instead of the parent required for a simple alkane. A short path is easier to label. Check every possible continuous path for length.
+      - text: 'The first path read from the left edge of the page'
         rationale: |
-          You relied on visual layout. Drawing orientation does not determine the parent chain; length does.
+          This treats reading order as chemical priority. Diagrams are usually scanned left to right. Check bonds and connectivity instead of page position.
     explanation: |
-      IUPAC naming rules require identifying the longest continuous carbon chain as the parent chain; shorter branches are instead named as attached side groups. Picking a shorter chain leads to an incorrect name.
+      For a simple branched alkane, first find the longest appropriate continuous carbon chain. That chain is the parent. The remaining branches are named as substituents.
     approved: true
+
   - id: q-chemistry-basic-organic-chemistry-0014
-    type: predict-outcome
-    difficulty: exam
+    type: 'predict-outcome'
+    difficulty: 'exam'
     stem: |
-      A molecule has a 5-carbon main chain with a 2-carbon branch attached, but a student initially considers only a 4-carbon path through the molecule while ignoring the full 5-carbon chain. What is the correct first step to properly name this molecule?
+      A longer candidate chain excludes the principal functional group required for the suffix. A shorter allowed parent includes it. Which approach follows the lesson?
     choices:
-      - text: Identify the full 5-carbon chain as the parent chain, since it is the longest continuous chain, and name the 2-carbon piece as an attached branch.
+      - text: 'Use the parent required by the principal group.'
         correct: true
-      - text: Use the 4-carbon path as the parent chain, since it was considered first.
+      - text: 'Always choose the longer chain regardless of the group.'
         rationale: |
-          You chose the shorter path because of reading order. IUPAC naming requires using the longest continuous carbon chain, which has 5 carbons.
-      - text: Name the molecule using only the 2-carbon branch as the parent chain.
+          This applies the simple-alkane shortcut universally. Longest-chain selection is useful for simple alkanes. Check whether a principal functional group adds requirements.
+      - text: 'Always choose whichever chain was drawn first.'
         rationale: |
-          You picked the side branch as the parent chain. Side branches are named as substituents on the longer main chain.
-      - text: Average the chain lengths to decide on a single combined parent chain.
+          This makes drawing order determine the parent. A prominent chain can look intended as the parent. Check the naming rules for the compound class.
+      - text: 'Ignore all functional groups when choosing a parent.'
         rationale: |
-          You tried to average chain lengths. IUPAC naming never averages numbers; it identifies the single longest continuous chain.
+          This removes a required functional group from naming decisions. The carbon skeleton is easy to notice first. Check which group must appear through the suffix.
     explanation: |
-      IUPAC naming always starts by finding the longest continuous carbon chain. Here, that is the 5-carbon chain, not the shorter 4-carbon path: the 2-carbon piece becomes a named side branch instead.
+      For compounds with a principal functional group, parent choice must follow the rules for that group. A longer chain can be wrong if it excludes the group required for the suffix.
     approved: true
+
+  - id: q-chemistry-basic-organic-chemistry-0015
+    type: 'structure-function'
+    difficulty: 'easy'
+    stem: |
+      Which carbon property supports the many chains, rings, and branches found in organic compounds?
+    choices:
+      - text: 'Four covalent bonds'
+        correct: true
+      - text: 'Only one bond in every carbon compound'
+        rationale: |
+          This treats carbon like an atom limited to one bond. Simple bonds are easy to visualize. Check how many covalent bonds carbon can form.
+      - text: 'No stable bonds with another carbon atom'
+        rationale: |
+          This removes the bonds that make carbon frameworks possible. Carbon does bond to other elements. Check whether it can also form stable C-C bonds.
+      - text: 'A rule forbidding carbon-carbon multiple bonds'
+        rationale: |
+          This limits carbon chemistry to single bonds. Alkanes are familiar examples. Check the double and triple bonds present in other hydrocarbon families.
+    explanation: |
+      Carbon can form four covalent bonds and stable bonds with other carbon atoms. These properties allow many different frameworks.
+    approved: false
+
+  - id: q-chemistry-basic-organic-chemistry-0016
+    type: 'classify'
+    difficulty: 'medium'
+    stem: |
+      Which composition makes a substance a hydrocarbon?
+    choices:
+      - text: 'Only carbon and hydrogen'
+        correct: true
+      - text: 'Carbon and any other elements'
+        rationale: |
+          This confuses all carbon compounds with hydrocarbons. Many organic compounds contain carbon plus other elements. Check whether the formula contains only C and H.
+      - text: 'Hydrogen and oxygen with no carbon'
+        rationale: |
+          This recognizes hydrogen but leaves out carbon. Hydrogen appears in the name. Check both parts of hydrocarbon.
+      - text: 'Carbon and oxygen with no hydrogen'
+        rationale: |
+          This recognizes carbon but leaves out hydrogen. Carbon-containing oxides are familiar compounds. Check whether both C and H are present.
+    explanation: |
+      A hydrocarbon contains only carbon and hydrogen. Both the required elements and the restriction to those two matter.
+    approved: false
+
+  - id: q-chemistry-basic-organic-chemistry-0017
+    type: 'classify'
+    difficulty: 'medium'
+    stem: |
+      A nitrogen-containing organic group has the pattern $-NHR$ rather than $-NH_2$. Must it be excluded from the amine family?
+    choices:
+      - text: 'No, secondary amines can have this pattern.'
+        correct: true
+      - text: 'Yes, every amine must have exactly two N-H bonds.'
+        rationale: |
+          This restricts all amines to the primary pattern. $-NH_2$ is a common introductory example. Check whether secondary and tertiary amines also exist.
+      - text: 'Yes, carbon attached to nitrogen prevents amine chemistry.'
+        rationale: |
+          This treats an organic group on nitrogen as disqualifying. Replacing hydrogen changes the pattern. Check whether substituted amine nitrogen still belongs to the family.
+      - text: 'No, because every nitrogen compound is a primary amine.'
+        rationale: |
+          This treats all nitrogen-containing groups as the same amine type. Nitrogen is central to amines. Check the number of attached organic groups rather than using one label for all cases.
+    explanation: |
+      Primary amines may have $-NH_2$, while secondary amines may have $-NHR$. The amine family includes more than the primary-amino pattern.
+    approved: false
+
+  - id: q-chemistry-basic-organic-chemistry-0018
+    type: 'compare-contrast'
+    difficulty: 'hard'
+    stem: |
+      Which group is shared by aldehydes and ketones?
+    choices:
+      - text: 'Carbonyl'
+        correct: true
+      - text: 'Carboxyl'
+        rationale: |
+          This confuses carbonyl with the larger carboxyl group. Both contain C=O. Check whether the extra OH of a carboxyl group is required.
+      - text: 'Hydroxyl'
+        rationale: |
+          This confuses an oxygen group with a carbonyl. Both can affect polarity. Check whether oxygen is double-bonded to carbon.
+      - text: 'Primary amino'
+        rationale: |
+          This substitutes a nitrogen group for an oxygen group. Both influence reactivity. Check which atom appears in C=O.
+    explanation: |
+      Aldehydes and ketones both contain a carbonyl group, $C=O$. Their carbonyl groups occur in different structural environments.
+    approved: false
+
+  - id: q-chemistry-basic-organic-chemistry-0019
+    type: 'process-ordering'
+    difficulty: 'hard'
+    stem: |
+      For a simple branched alkane after selecting the parent chain, which next step follows the introductory procedure?
+    choices:
+      - text: 'Number for the required lowest substituent locants.'
+        correct: true
+      - text: 'Give the first branch the largest possible locant.'
+        rationale: |
+          This reverses the locant goal. A branch still receives a number. Check whether the rule seeks lower or higher allowed locants.
+      - text: 'Choose numbering from the printed left side every time.'
+        rationale: |
+          This makes page orientation determine numbering. Reading usually starts at the left. Check the locants obtained from both chemical directions.
+      - text: 'Average the locants from both numbering directions.'
+        rationale: |
+          This turns alternative numbering schemes into an average. Two sets of numbers are available. Check that one valid numbering direction must be chosen.
+    explanation: |
+      After choosing the parent chain, number its carbon atoms so branches receive the lowest allowed position numbers. Then name the branches and state their positions.
+    approved: false
+
+  - id: q-chemistry-basic-organic-chemistry-0020
+    type: 'predict-outcome'
+    difficulty: 'exam'
+    stem: |
+      Two molecules share a functional group but have very different carbon skeleton sizes. Is matching behavior guaranteed?
+    choices:
+      - text: 'No, skeleton size can also affect properties.'
+        correct: true
+      - text: 'Yes, a functional group fixes every physical property.'
+        rationale: |
+          This treats a major predictor as the only one. Functional groups strongly influence behavior. Check whether skeleton size is another stated factor.
+      - text: 'Yes, chain length never affects any organic property.'
+        rationale: |
+          This ignores a second influence on properties. Matching groups make the molecules chemically related. Check whether different sizes can affect physical behavior.
+      - text: 'No, the larger molecule must lose its functional group.'
+        rationale: |
+          This assumes a size difference changes which group exists. Larger molecules have more framework atoms. Check whether the stated functional group actually changes.
+    explanation: |
+      Functional groups are major predictors of behavior. Carbon skeleton and size also influence properties such as boiling point and water solubility. Matching groups do not specify every property.
+    approved: false

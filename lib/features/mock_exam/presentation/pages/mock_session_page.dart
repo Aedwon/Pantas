@@ -1,16 +1,76 @@
 import 'dart:async';
+import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pantas/core/ui/components/confirmation_dialog.dart';
-import 'package:pantas/core/ui/components/question_card.dart';
+import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
+import 'package:pantas/core/ui/components/centered_dialog.dart';
+import 'package:pantas/core/ui/components/choice_row.dart';
+import 'package:pantas/core/ui/components/floating_bar.dart';
+import 'package:pantas/core/ui/components/new_design/passage_card.dart';
+import 'package:pantas/core/ui/components/new_design/question_card.dart';
+import 'package:pantas/core/ui/components/new_design/question_grid_sheet.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
+import 'package:pantas/core/ui/components/pantas_icon_button.dart';
+import 'package:pantas/core/ui/components/pantas_timer.dart';
+import 'package:pantas/core/ui/components/question_count.dart';
+import 'package:pantas/core/ui/components/question_navigator_grid.dart';
+import 'package:pantas/core/ui/components/selection_row.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
+import 'package:pantas/core/ui/components/toast.dart';
+import 'package:pantas/core/ui/figures/question_figure.dart';
+import 'package:pantas/core/ui/icons/own/mock_panel_glyph.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_opacity.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+import 'package:pantas/core/ui/web/letter_shortcuts.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_key_focus.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_question.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
 import 'package:pantas/features/mock_exam/domain/part_clock.dart';
-import 'package:pantas/features/mock_exam/presentation/clock_rule.dart';
+import 'package:pantas/features/mock_exam/presentation/mock_clock.dart';
 import 'package:pantas/features/mock_exam/presentation/proctor_toast.dart';
-import 'package:pantas/features/mock_exam/presentation/widgets/mock_floating_bar.dart';
+import 'package:pantas/features/mock_exam/presentation/widgets/mock_proctor_sound.dart';
+import 'package:pantas/features/mock_exam/presentation/widgets/web_mock_dialog.dart';
+import 'package:pantas/features/mock_exam/presentation/widgets/web_mock_panel_tab.dart';
+
+/// A part that has not opened yet, as the question grid lists it.
+@immutable
+class MockUpcomingPart {
+  const MockUpcomingPart({
+    required this.number,
+    required this.name,
+    required this.count,
+  });
+
+  /// Counting from one.
+  final int number;
+  final String name;
+  final int count;
+}
+
+/// The question list's bottom reserve (MK_NavMotion): the system sets no
+/// token for it.
+const _panelBottomReserve = 120.0;
+
+/// The tallest the question list grows before it scrolls (board height).
+const _gridMaxHeight = 560.0;
 
 class MockSessionPage extends StatefulWidget {
   const MockSessionPage({
@@ -25,12 +85,19 @@ class MockSessionPage extends StatefulWidget {
     required this.onAnswer,
     required this.onToggleFlag,
     required this.onPause,
-    required this.onShowNavigator,
+    this.closedPartCount = 0,
+    this.upcomingParts = const [],
+    this.onGoTo,
+    this.questionSubjects = const {},
     this.pauseWarningSeen = false,
     this.onPauseWarningSeenChanged,
     this.onEndPartEarly,
     this.currentPartNumber = 1,
+    this.partName = '',
+    this.oneBlock = false,
+    this.onSubmitExam,
     this.partLength,
+    this.examTitle = 'Mock exam',
     super.key,
   });
 
@@ -38,6 +105,7 @@ class MockSessionPage extends StatefulWidget {
 
   /// What is left of the open part. The exam's own clock is not shown:
   /// what governs the student is the part they are in.
+  final String examTitle;
   final Duration remainingInPart;
   final Duration? partLength;
 
@@ -52,11 +120,26 @@ class MockSessionPage extends StatefulWidget {
   final ValueChanged<int> onAnswer;
   final VoidCallback onToggleFlag;
   final VoidCallback onPause;
-  final VoidCallback onShowNavigator;
+
+  /// Parts the student can no longer reach. The grid says how many.
+  final int closedPartCount;
+
+  /// Parts after this one. The grid lists them dimmed.
+  final List<MockUpcomingPart> upcomingParts;
+
+  /// Reports a question's index in the whole exam, counting from zero.
+  final ValueChanged<int>? onGoTo;
+
+  /// The subject line above each question of a one-block paper, by question
+  /// id. A sectional paper names its part instead.
+  final Map<String, String> questionSubjects;
   final bool pauseWarningSeen;
   final ValueChanged<bool>? onPauseWarningSeenChanged;
   final VoidCallback? onEndPartEarly;
   final int currentPartNumber;
+  final String partName;
+  final bool oneBlock;
+  final VoidCallback? onSubmitExam;
 
   Duration get effectivePartLength =>
       partLength ?? Duration(seconds: state.durationSeconds);
@@ -66,9 +149,13 @@ class MockSessionPage extends StatefulWidget {
 }
 
 class _MockSessionPageState extends State<MockSessionPage> {
+  final _proctorSound = MockProctorSound();
   late Duration _previousRemaining;
   int? _proctorToastMinutes;
   Timer? _toastTimer;
+  var _gridOpen = false;
+  var _widePanelOpen = true;
+  var _gridJump = 0;
 
   @override
   void initState() {
@@ -85,11 +172,15 @@ class _MockSessionPageState extends State<MockSessionPage> {
         after: widget.remainingInPart,
       );
       if (threshold != null) {
+        if (context.wideWeb) _proctorSound.play();
         _toastTimer?.cancel();
         setState(() {
           _proctorToastMinutes = threshold;
         });
-        _toastTimer = Timer(proctorToastDisplayDuration, () {
+        _toastTimer = Timer(
+            context.wideWeb
+                ? const Duration(milliseconds: 2500)
+                : proctorToastDisplayDuration, () {
           if (mounted) {
             setState(() {
               _proctorToastMinutes = null;
@@ -104,229 +195,1242 @@ class _MockSessionPageState extends State<MockSessionPage> {
   @override
   void dispose() {
     _toastTimer?.cancel();
+    _proctorSound.dispose();
     super.dispose();
   }
 
   void _onPausePressed() {
-    if (!widget.pauseWarningSeen) {
-      showAppConfirmationDialog(
-        context: context,
-        title: 'Real exams do not pause.',
-        body: 'Use this only when you have to. The clock stops, but you '
-            'will not get this in the real room.',
-        cancelLabel: 'Keep going',
-        confirmLabel: 'Pause',
-        isDestructive: false,
-        onCancel: () {},
-        onConfirm: () {
-          widget.onPauseWarningSeenChanged?.call(true);
-          widget.onPause();
-        },
-      );
-    } else {
+    if (widget.pauseWarningSeen) {
       widget.onPause();
+      return;
     }
+    var skipWarning = false;
+    final dialog = context.wideWeb ? webMockConfirmation : CenteredDialog.new;
+    unawaited(
+      showDialog<void>(
+        context: context,
+        barrierColor: context.colors.scrim,
+        builder: (dialogContext) => StatefulBuilder(
+          builder: (context, update) => dialog(
+            title: "Real exams don't pause.",
+            message: 'Use this only when you really have to. The clock stops, '
+                "but you won't get this during the real exam.",
+            content: CheckboxRow(
+              title: "Don't show this again",
+              selected: skipWarning,
+              padding: EdgeInsets.zero,
+              onTap: () => update(() => skipWarning = !skipWarning),
+            ),
+            inlineActions: true,
+            primaryLabel: 'Pause',
+            secondaryLabel: 'Keep Going',
+            onCancel: () => Navigator.pop(dialogContext),
+            onConfirm: () {
+              Navigator.pop(dialogContext);
+              if (skipWarning) widget.onPauseWarningSeenChanged?.call(true);
+              widget.onPause();
+            },
+          ),
+        ),
+      ),
+    );
+  }
+
+  /// System back acts like pause. Strict mode explains why Back is blocked.
+  void _onSystemBack() {
+    if (_gridOpen) return;
+    if (widget.state.strictMode) {
+      showPantasToast(
+        context,
+        'Strict mode is on. Back is off until you submit.',
+      );
+      return;
+    }
+    _onPausePressed();
   }
 
   void _confirmEndPartEarly(BuildContext context) {
-    showAppConfirmationDialog(
-      context: context,
-      title: 'End Part ${widget.currentPartNumber} now?',
-      body: 'You have ${widget.remainingInPart.inMinutes} minutes left in '
-          'this part. If you end it early, this time does not carry over.',
-      cancelLabel: 'Keep going',
-      confirmLabel: 'End part',
-      onCancel: () {},
-      onConfirm: widget.onEndPartEarly ?? () {},
+    final first = widget.state.currentIndex - widget.partPosition + 1;
+    final ids = widget.state.questionIds.skip(first).take(widget.partTotal);
+    final blank = ids
+        .where((id) => (widget.state.answers[id]?.selectedIndex ?? -1) < 0)
+        .length;
+    final minutes = widget.remainingInPart.inMinutes;
+    final hours = minutes ~/ 60;
+    final left = hours > 0
+        ? '$hours hr ${minutes % 60} min'
+        : '$minutes ${minutes == 1 ? 'minute' : 'minutes'}';
+    final blankWords = '$blank ${blank == 1 ? 'question' : 'questions'}';
+    final part = widget.currentPartNumber;
+    unawaited(
+      showDialog<void>(
+        context: context,
+        barrierColor: context.colors.scrim,
+        builder: (dialogContext) =>
+            (context.wideWeb ? webMockConfirmation : CenteredDialog.new)(
+          title: widget.oneBlock ? 'Submit the exam?' : 'End Part $part now?',
+          message: widget.oneBlock
+              ? 'You have $left left and $blankWords blank. Once you '
+                  "submit, your answers can't be changed."
+              : 'You have $left left and $blankWords blank. Ending now '
+                  'closes Part $part for good, and the time left '
+                  "doesn't carry over.",
+          primaryLabel: widget.oneBlock ? 'Submit' : 'End Part $part',
+          secondaryLabel: 'Keep Working',
+          destructive: !context.wideWeb && !widget.oneBlock,
+          inlineActions: true,
+          onCancel: () => Navigator.pop(dialogContext),
+          onConfirm: () {
+            Navigator.pop(dialogContext);
+            (widget.oneBlock ? widget.onSubmitExam : widget.onEndPartEarly)
+                ?.call();
+          },
+        ),
+      ),
+    );
+  }
+
+  /// The clock, in the system Timer. Under five minutes it takes the warning
+  /// look (time and bar in `warning-text`, a visible tag); red stays for wrong
+  /// answers. [inline] puts the time and a short bar on one line (the wide
+  /// header, D151).
+  Widget _timer({required bool inline}) {
+    final warning = urgencyFor(widget.remainingInPart) != ClockUrgency.ample;
+    // A node of its own, so the clock keeps its name beside the title.
+    return Semantics(
+      container: true,
+      child: PantasTimer(
+        inline: inline,
+        // The proctor call (status role) already speaks the five-minute
+        // warning, as before the redesign.
+        announceWarning: false,
+        timeText: formatMockRemaining(widget.remainingInPart),
+        fractionLeft: remainingFraction(
+          partLength: widget.effectivePartLength,
+          remaining: widget.remainingInPart,
+        ),
+        state: warning ? PantasTimerState.warning : PantasTimerState.running,
+      ),
+    );
+  }
+
+  /// The question's Flag control. One header button at every width (D138):
+  /// 36 high, tertiary, with the F key hint where a keyboard shows hints.
+  Widget _flagControl({required Key key}) {
+    final flagged = widget.state.flags.contains(widget.state.currentQuestionId);
+    return Semantics(
+      container: true,
+      button: true,
+      toggled: flagged,
+      label: 'Flag question',
+      excludeSemantics: true,
+      onTap: widget.onToggleFlag,
+      child: WebButton(
+        key: key,
+        label: flagged ? 'Flagged' : 'Flag',
+        size: PantasButtonSize.xs,
+        kind: PantasButtonKind.tertiary,
+        tone: flagged ? PantasButtonTone.accent : null,
+        icon: Icon(
+          flagged ? PantasIcons.flagFill : PantasIcons.flag,
+          size: PantasSize.icon,
+        ),
+        keyHint: 'F',
+        onPressed: widget.onToggleFlag,
+      ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    final textStyles = context.textStyles;
-    final colors = context.colors;
-    final urgency = urgencyFor(widget.remainingInPart);
-    final isLastItemOfPart = widget.partPosition == widget.partTotal;
-
-    final VoidCallback? effectiveOnNext;
-    if (isLastItemOfPart) {
-      if (widget.state.strictMode) {
-        effectiveOnNext = null;
-      } else {
-        effectiveOnNext = () => _confirmEndPartEarly(context);
-      }
-    } else {
-      effectiveOnNext = widget.canGoNext ? widget.onNext : null;
+    final last = widget.partPosition == widget.partTotal;
+    final next = last
+        ? widget.state.strictMode
+            ? null
+            : () => _confirmEndPartEarly(context)
+        : widget.canGoNext
+            ? widget.onNext
+            : null;
+    if (context.wideWeb) {
+      return _wide(
+        context,
+        next,
+        strictLine: widget.state.strictMode && last && !widget.oneBlock,
+      );
     }
+    return _phone(context, next, last: last);
+  }
 
+  /// Below 1024 wide (D170): the phone layout, built from the quiz's phone
+  /// parts. A header with the clock and Pause, the question with its Flag in
+  /// the question header, and the sticky floating bar with Previous, the
+  /// question list, the counter and Next. The same controls and effects as
+  /// the wide layout.
+  Widget _phone(
+    BuildContext context,
+    VoidCallback? next, {
+    required bool last,
+  }) {
+    final c = context.colors;
+    final counter = '${widget.partPosition} of ${widget.partTotal}';
+    final strictMessage = 'Part ${widget.currentPartNumber} runs to the end of '
+        'its time. Strict mode is on.';
+    // MK_LastQStrict draws the line for a timed part only. A one-block paper
+    // has no part to name, and no board draws its line.
+    final strictLine = widget.state.strictMode && last && !widget.oneBlock;
+    final prev = PantasIconButton(
+      key: const ValueKey('mock-prev'),
+      tooltip: 'Previous question',
+      glyph: PantasIcons.back,
+      onPressed: widget.canGoPrevious ? widget.onPrevious : null,
+    );
+    final nextButton = PantasIconButton(
+      key: const ValueKey('mock-next'),
+      tooltip: last
+          ? widget.oneBlock
+              ? 'Submit the exam'
+              : 'End part'
+          : 'Next question',
+      glyph: PantasIcons.next,
+      onPressed: next,
+    );
+    final subject = widget.oneBlock
+        ? widget.questionSubjects[widget.state.currentQuestionId] ??
+            widget.partName
+        : 'Part ${widget.currentPartNumber} · ${widget.partName}';
+    final counterStyle = PantasType.webLink.copyWith(
+      color: c.textPrimary,
+      fontFeatures: const [FontFeature.tabularFigures()],
+    );
+    // NF_Text idea 3: the count opens the question navigator, and an up-down
+    // caret after it says so. It replaces the old grid button.
+    final countButton = QuestionCountButton(
+      key: const ValueKey('mock-grid'),
+      text: counter,
+      style: counterStyle,
+      semanticLabel: 'Question ${widget.partPosition} of ${widget.partTotal}. '
+          'Open question navigator',
+      onPressed: () => setState(() => _gridOpen = true),
+    );
+    final header = ConstrainedBox(
+      key: const ValueKey('mock-header'),
+      constraints: const BoxConstraints(minHeight: PantasLayout.focusHeadPhone),
+      child: Padding(
+        // Phone header sides are 4 and 8 (FocusHeader, R4R-O01).
+        padding: const EdgeInsets.fromLTRB(
+          PantasSpace.s4,
+          PantasSpace.s4,
+          PantasSpace.s8,
+          PantasSpace.s4,
+        ),
+        child: Row(
+          children: [
+            const SizedBox(width: PantasSize.iconBtn),
+            Expanded(child: Center(child: _timer(inline: false))),
+            if (!widget.state.strictMode)
+              PantasIconButton(
+                key: const Key('mock-pause'),
+                tooltip: 'Pause',
+                glyph: PantasIcons.pause,
+                onPressed: _onPausePressed,
+              )
+            else
+              const SizedBox(width: PantasSize.iconBtn),
+          ],
+        ),
+      ),
+    );
+    final status = _proctorToastMinutes != null
+        ? ProctorToast(minutes: _proctorToastMinutes!)
+        : strictLine
+            ? Text(
+                strictMessage,
+                textAlign: TextAlign.center,
+                style: PantasType.webSmall.copyWith(color: c.textSecondary),
+              )
+            : null;
     return PopScope(
       canPop: false,
-      onPopInvokedWithResult: (_, __) => _confirmLeave(context),
-      child: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: Text(
-            _formatRemaining(widget.remainingInPart),
-            style: textStyles.headlineSmall.copyWith(
-              fontFamily: 'SourceSans3',
-              fontSize: 16,
-              fontWeight: FontWeight.w700,
-              color: urgency == ClockUrgency.last ? colors.amber : colors.ink,
-              fontFeatures: [const FontFeature.tabularFigures()],
-            ),
-          ),
-          actions: [
-            if (!widget.state.strictMode)
-              IconButton(
-                key: const Key('mock-pause'),
-                icon: const Icon(Icons.pause_outlined),
-                onPressed: _onPausePressed,
-              ),
-          ],
-          bottom: ClockRule(
-            remaining: widget.remainingInPart,
-            partLength: widget.effectivePartLength,
-          ),
-        ),
-        body: Stack(
-          children: [
-            ListView(
-              padding: const EdgeInsets.fromLTRB(20, 24, 20, 96),
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) _onSystemBack();
+      },
+      child: QuestionGridSheet(
+        open: _gridOpen,
+        onDismiss: () => setState(() => _gridOpen = false),
+        mock: true,
+        helpText: 'Tap any question in this part to go to it.',
+        summary: _gridSummary(),
+        parts: _gridParts(),
+        onSelected: _goToPartQuestion,
+        footer: widget.oneBlock && !widget.state.strictMode
+            ? PantasButton(
+                label: 'Submit the Exam',
+                onPressed: () {
+                  setState(() => _gridOpen = false);
+                  _confirmEndPartEarly(context);
+                },
+              )
+            : null,
+        page: Scaffold(
+          body: SafeArea(
+            bottom: false,
+            child: Column(
               children: [
-                _QuestionBody(
-                  questionId: widget.state.currentQuestionId,
-                  selectedIndex: widget.state
-                      .answers[widget.state.currentQuestionId]?.selectedIndex,
-                  onAnswer: widget.onAnswer,
+                header,
+                // The question header (subject and Flag, D138) is pinned, so
+                // a long passage never scrolls the Flag off screen.
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(
+                    PantasLayout.gutterPhone,
+                    PantasSpace.s8,
+                    PantasLayout.gutterPhone,
+                    PantasSpace.s0,
+                  ),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          subject.toUpperCase(),
+                          style: PantasType.phoneSectionHeader
+                              .copyWith(color: c.textSecondary),
+                        ),
+                      ),
+                      _flagControl(key: const ValueKey('mock-flag')),
+                    ],
+                  ),
+                ),
+                // The bar is sticky at the end of the screen, so a stacked bar
+                // at large text takes its own height and never covers the
+                // last option (FloatingBar, phone).
+                Expanded(
+                  child: ListView(
+                    padding: const EdgeInsets.fromLTRB(
+                      PantasLayout.gutterPhone,
+                      PantasSpace.s20,
+                      PantasLayout.gutterPhone,
+                      PantasSpace.s24,
+                    ),
+                    children: [
+                      _PaperSwap(
+                        position: widget.state.currentIndex,
+                        gridJump: _gridJump,
+                        child: _QuestionBody(
+                          key: ValueKey(widget.state.currentQuestionId),
+                          questionId: widget.state.currentQuestionId,
+                          subject: subject,
+                          selectedIndex: widget
+                              .state
+                              .answers[widget.state.currentQuestionId]
+                              ?.selectedIndex,
+                          onAnswer: widget.onAnswer,
+                          pinnedHeader: true,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                if (status != null)
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(
+                      PantasLayout.gutterPhone,
+                      PantasSpace.s0,
+                      PantasLayout.gutterPhone,
+                      PantasSpace.s8,
+                    ),
+                    child: status,
+                  ),
+                LayoutBuilder(
+                  builder: (context, constraints) {
+                    // The counter stacks above the buttons when it does not
+                    // fit beside them (large text).
+                    final counterMetrics = TextPainter(
+                      text: TextSpan(text: counter, style: counterStyle),
+                      textScaler: MediaQuery.textScalerOf(context),
+                      textDirection: Directionality.of(context),
+                    )..layout();
+                    final needed = counterMetrics.width +
+                        // Caret, its gap and the button's side padding.
+                        QuestionCount.caretSize +
+                        PantasSpace.s8 +
+                        QuestionCount.padding.horizontal +
+                        2 * PantasSize.iconBtn +
+                        2 * PantasSpace.s12;
+                    final available = constraints.maxWidth -
+                        2 * PantasLayout.gutterPhone -
+                        2 * PantasSpace.s8;
+                    counterMetrics.dispose();
+                    final bar = needed > available
+                        ? FloatingBar.content(
+                            radius: PantasRadius.xl,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                countButton,
+                                const SizedBox(height: PantasSpace.s8),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    prev,
+                                    nextButton,
+                                  ],
+                                ),
+                              ],
+                            ),
+                          )
+                        // MK_Paper: previous and the question list at the left,
+                        // the counter in the middle, next at the right.
+                        : FloatingBar(
+                            left: prev,
+                            counter: counter,
+                            counterWidget: countButton,
+                            right: nextButton,
+                          );
+                    return Padding(
+                      padding: EdgeInsets.fromLTRB(
+                        PantasLayout.gutterPhone,
+                        PantasSpace.s0,
+                        PantasLayout.gutterPhone,
+                        math.max(
+                          PantasLayout.barBottomPhone,
+                          MediaQuery.viewPaddingOf(context).bottom +
+                              PantasSpace.s8,
+                        ),
+                      ),
+                      child: bar,
+                    );
+                  },
                 ),
               ],
             ),
-            if (_proctorToastMinutes != null)
-              Positioned(
-                bottom: 74,
-                left: 20,
-                right: 20,
-                child: Center(
-                  child: ProctorToast(minutes: _proctorToastMinutes!),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _wide(
+    BuildContext context,
+    VoidCallback? next, {
+    required bool strictLine,
+  }) {
+    final t = context.webTokens;
+    final part = widget.currentPartNumber;
+    final c = t.colors;
+    final ids = _idsInPart.toList();
+    final count = ids.where(_isAnswered).length;
+    // QuestionNavigator chip: blank is a `border-control` ring on the card;
+    // answered is the `divider` fill with no ring; the current one has the
+    // heavy `text-primary` ring; a flag is an `accent` dot on any state.
+    Widget grid(List<String> questionIds, {bool enabled = true}) =>
+        QuestionNavigatorGrid(
+          scrollCurrentIntoView: false,
+          questions: [
+            for (final (i, id) in questionIds.indexed)
+              NavigatorQuestion(
+                number: i + 1,
+                enabled: enabled,
+                answered: enabled && _isAnswered(id),
+                current: id == widget.state.currentQuestionId,
+                flagged: widget.state.flags.contains(id),
+              ),
+          ],
+          onSelected: _goToPartQuestion,
+        );
+    final panel = Container(
+      key: const ValueKey('web-mock-panel'),
+      width: PantasLayout.qpanel,
+      decoration: BoxDecoration(color: c.bgPage),
+      child: WebMockPanelContents(
+        open: _widePanelOpen,
+        child: ListView(
+          padding: const EdgeInsets.fromLTRB(
+            PantasSpace.s24,
+            PantasSpace.s24,
+            PantasSpace.s24,
+            _panelBottomReserve,
+          ),
+          children: [
+            Row(
+              children: [
+                Expanded(child: Text('Questions', style: t.h3)),
+                PantasIconButton(
+                  tooltip: 'Hide the question list',
+                  size: PantasIconButtonSize.md,
+                  icon: const MockPanelGlyph(),
+                  onPressed: () => setState(() => _widePanelOpen = false),
                 ),
-              )
-            else if (widget.state.strictMode && isLastItemOfPart)
-              Positioned(
-                bottom: 74,
-                left: 20,
-                right: 20,
-                child: Text(
-                  'Part ${widget.currentPartNumber} runs to the end of its '
-                  'time. Strict mock mode is on.',
-                  textAlign: TextAlign.center,
-                  style: textStyles.captionSmall.copyWith(
-                    color: colors.inkMuted,
+              ],
+            ),
+            if (!widget.oneBlock && _gridSummary() != null) ...[
+              const SizedBox(height: PantasSpace.s8),
+              Text(_gridSummary()!, style: t.sm),
+            ],
+            const SizedBox(height: PantasSpace.s16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Flexible(
+                  child: Text(
+                    widget.oneBlock
+                        ? 'WHOLE PAPER'
+                        : 'PART $part · '
+                            '${widget.partName.toUpperCase()}',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: t.eb,
+                  ),
+                ),
+                const SizedBox(width: PantasSpace.s8),
+                Text(
+                  widget.oneBlock
+                      ? '$count of ${widget.partTotal} answered'
+                      : '$count of ${widget.partTotal}',
+                  style: t.sm.copyWith(
+                    fontFeatures: [const FontFeature.tabularFigures()],
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: PantasSpace.s8),
+            ConstrainedBox(
+              constraints: const BoxConstraints(maxHeight: _gridMaxHeight),
+              // MK_SubmitCSE: cells fade out where more of the list is
+              // hidden past the top or the bottom edge.
+              child: _ScrollEdgeFade(
+                builder: (controller) => SingleChildScrollView(
+                  controller: controller,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: PantasSpace.s2),
+                    child: grid(ids),
                   ),
                 ),
               ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Padding(
-                padding: const EdgeInsets.all(14),
-                child: MockFloatingBar(
-                  position: widget.partPosition,
-                  total: widget.partTotal,
-                  isFlagged: widget.state.flags
-                      .contains(widget.state.currentQuestionId),
-                  onPrevious: widget.canGoPrevious ? widget.onPrevious : null,
-                  onNext: effectiveOnNext,
-                  onGrid: widget.onShowNavigator,
-                  onFlag: widget.onToggleFlag,
+            ),
+            for (final part in widget.upcomingParts) ...[
+              const SizedBox(height: PantasSpace.s28),
+              Text(
+                'PART ${part.number} · ${part.name.toUpperCase()}',
+                style: t.eb,
+              ),
+              const SizedBox(height: PantasSpace.s6),
+              Text('Opens when this part starts.', style: t.sm),
+              const SizedBox(height: PantasSpace.s14),
+              Opacity(
+                opacity: PantasOpacity.disabled,
+                child: grid(
+                  [
+                    for (var i = 0; i < part.count; i++)
+                      'upcoming-${part.number}-$i',
+                  ],
+                  enabled: false,
                 ),
+              ),
+            ],
+            if (widget.oneBlock && !widget.state.strictMode) ...[
+              const SizedBox(height: PantasSpace.s28),
+              // MK_SubmitCSE: the button fills the panel's width.
+              SizedBox(
+                width: double.infinity,
+                child: WebButton(
+                  label: 'Submit the Exam',
+                  expand: true,
+                  onPressed: () => _confirmEndPartEarly(context),
+                ),
+              ),
+            ],
+            const SizedBox(height: PantasSpace.s20),
+            Padding(
+              padding: const EdgeInsets.only(top: PantasSpace.s4),
+              child: Wrap(
+                spacing: PantasSpace.s14,
+                runSpacing: PantasSpace.s4,
+                children: [
+                  _LegendDot('Answered', fill: c.divider),
+                  _LegendDot('Blank', ring: c.borderControl),
+                  _LegendDot('Flagged', fill: c.accent),
+                ],
               ),
             ),
           ],
         ),
       ),
     );
-  }
-
-  Future<void> _confirmLeave(BuildContext context) {
-    return showDialog<void>(
-      context: context,
-      builder: (dialogContext) => AlertDialog(
-        title: const Text('Leave mock?'),
-        content: const Text('The clock keeps running.'),
-        actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.of(dialogContext).pop();
-              Navigator.of(context).pop();
+    final question = _PaperSwap(
+      position: widget.state.currentIndex,
+      gridJump: _gridJump,
+      child: _QuestionBody(
+        key: ValueKey(widget.state.currentQuestionId),
+        questionId: widget.state.currentQuestionId,
+        subject: widget.oneBlock
+            ? widget.questionSubjects[widget.state.currentQuestionId] ??
+                widget.partName
+            : 'Part $part · ${widget.partName}',
+        selectedIndex:
+            widget.state.answers[widget.state.currentQuestionId]?.selectedIndex,
+        onAnswer: widget.onAnswer,
+      ),
+    );
+    // FocusHeader (wide): a 64 high bar. The exam name at the left, the
+    // clock (Timer, inline) with what it counts, and Pause at the right.
+    final proctor = _proctorToastMinutes != null;
+    final header = ConstrainedBox(
+      constraints: const BoxConstraints(minHeight: PantasLayout.focusHead),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: PantasSpace.s20,
+          vertical: PantasSpace.s8,
+        ),
+        child: Row(
+          children: [
+            Expanded(
+              child: Text(
+                widget.examTitle,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: PantasType.webRowSub.copyWith(color: c.textSecondary),
+              ),
+            ),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                _timer(inline: true),
+                Text(
+                  proctor
+                      ? proctorCopyFor(_proctorToastMinutes!)
+                      : widget.oneBlock
+                          ? 'left'
+                          : 'left in Part $part',
+                  style: PantasType.webCaption.copyWith(
+                    color: proctor ? c.warningText : c.textSecondary,
+                  ),
+                ),
+              ],
+            ),
+            Expanded(
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: widget.state.strictMode
+                    ? const SizedBox.shrink()
+                    : WebButton(
+                        label: 'Pause',
+                        icon: Icon(PantasIcons.pause, size: PantasSize.icon),
+                        variant: WebButtonVariant.tertiary,
+                        onPressed: _onPausePressed,
+                      ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+    return LetterShortcuts(
+      bindings: {
+        'f': widget.onToggleFlag,
+        if (!widget.state.strictMode) 'p': _onPausePressed,
+      },
+      // A to E pick a choice, as on the assessment. The count comes from
+      // the question the page shows.
+      once: answerKeyBindings(
+        choiceCount: () =>
+            ProviderScope.containerOf(context, listen: false)
+                .read(
+                  hydratedMockQuestionProvider(
+                    widget.state.currentQuestionId,
+                  ),
+                )
+                .valueOrNull
+                ?.question
+                .choices
+                .length ??
+            0,
+        onPick: widget.onAnswer,
+      ),
+      also: {
+        if (widget.canGoPrevious)
+          const SingleActivator(LogicalKeyboardKey.arrowLeft):
+              widget.onPrevious,
+        if (next != null)
+          const SingleActivator(LogicalKeyboardKey.arrowRight): next,
+      },
+      child: Listener(
+        onPointerDown: (_) => _proctorSound.prime(),
+        child: KeyFocusKeeper(
+          onKeyEvent: (_, event) {
+            if (event is KeyDownEvent) _proctorSound.prime();
+            return KeyEventResult.ignored;
+          },
+          child: PopScope(
+            canPop: false,
+            // Browser Back reaches here through the route's `onExit`. It acts
+            // as the phone's Back does: ask to pause, or explain strict mode.
+            onPopInvokedWithResult: (didPop, _) {
+              if (!didPop) _onSystemBack();
             },
-            child: Text(
-              'Leave',
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.onSurfaceVariant,
+            child: Scaffold(
+              body: Column(
+                children: [
+                  header,
+                  Expanded(
+                    child: Stack(
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            TweenAnimationBuilder<double>(
+                              tween: Tween(end: _widePanelOpen ? 1 : 0),
+                              duration: _panelMotion,
+                              curve: PantasCurves.move,
+                              builder: (context, value, _) => SizedBox(
+                                width: PantasLayout.qpanel * value,
+                                child: ClipRect(
+                                  child: OverflowBox(
+                                    alignment: Alignment.centerLeft,
+                                    minWidth: PantasLayout.qpanel,
+                                    maxWidth: PantasLayout.qpanel,
+                                    child: Transform.translate(
+                                      offset: Offset(
+                                        -PantasLayout.qpanel * (1 - value),
+                                        0,
+                                      ),
+                                      child: Offstage(
+                                        offstage: value == 0,
+                                        child: panel,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              child: Stack(
+                                children: [
+                                  ListView(
+                                    padding: const EdgeInsets.fromLTRB(
+                                      PantasSpace.s40,
+                                      PantasSpace.s56,
+                                      PantasSpace.s40,
+                                      PantasLayout.reserveBar,
+                                    ),
+                                    children: [
+                                      Align(
+                                        alignment: Alignment.topCenter,
+                                        child: ConstrainedBox(
+                                          constraints: const BoxConstraints(
+                                            maxWidth: PantasLayout.qcol,
+                                          ),
+                                          child: Stack(
+                                            clipBehavior: Clip.none,
+                                            children: [
+                                              question,
+                                              Positioned(
+                                                top: -PantasSpace.s8,
+                                                right: 0,
+                                                child: _flagControl(
+                                                  key: const ValueKey(
+                                                    'web-mock-flag',
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Positioned(
+                                    left: 0,
+                                    right: 0,
+                                    bottom: PantasLayout.barBottom,
+                                    // While the list is open the bar is
+                                    // narrower (MK_NavMotion) by this much on
+                                    // each side, so it stays centered under
+                                    // the question column. The inset moves
+                                    // with the list, not before it.
+                                    child: TweenAnimationBuilder<double>(
+                                      tween: Tween(
+                                        end: _widePanelOpen
+                                            ? PantasSpace.s24
+                                            : PantasSpace.s0,
+                                      ),
+                                      duration: _panelMotion,
+                                      curve: PantasCurves.move,
+                                      builder: (context, inset, child) =>
+                                          Padding(
+                                        padding: EdgeInsets.symmetric(
+                                          horizontal: inset,
+                                        ),
+                                        child: child,
+                                      ),
+                                      child: Column(
+                                        children: [
+                                          if (strictLine)
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                bottom: PantasSpace.s12,
+                                              ),
+                                              child: Text(
+                                                'Part $part runs '
+                                                'to the end of its time. '
+                                                'Strict mode is on.',
+                                                style: t.sm,
+                                              ),
+                                            ),
+                                          WebBottomBar(
+                                            compact: true,
+                                            // After an answer is picked a mock
+                                            // has no reveal: the hint says it
+                                            // is saved (FloatingBar README).
+                                            hint: _isAnswered(
+                                              widget.state.currentQuestionId,
+                                            )
+                                                ? 'Saved on this device'
+                                                : null,
+                                            gap: PantasSpace.s6,
+                                            counterPadding:
+                                                const EdgeInsets.symmetric(
+                                              horizontal: PantasSpace.s14,
+                                            ),
+                                            counter: '${widget.partPosition} '
+                                                'of ${widget.partTotal}',
+                                            leading: Row(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                WebBarArrow(
+                                                  tooltip: 'Previous question',
+                                                  onPressed:
+                                                      widget.canGoPrevious
+                                                          ? widget.onPrevious
+                                                          : null,
+                                                  icon: Icons.chevron_left,
+                                                ),
+                                                const SizedBox(
+                                                  width: PantasSpace.s6,
+                                                ),
+                                                const WebKeyHint('←'),
+                                              ],
+                                            ),
+                                            action: Row(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                const WebKeyHint('→'),
+                                                const SizedBox(
+                                                  width: PantasSpace.s6,
+                                                ),
+                                                WebBarArrow(
+                                                  tooltip: widget
+                                                              .partPosition ==
+                                                          widget.partTotal
+                                                      ? widget.oneBlock
+                                                          ? 'Submit the exam'
+                                                          : 'End part'
+                                                      : 'Next question',
+                                                  onPressed: next,
+                                                  icon: Icons.chevron_right,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        WebMockPanelTab(
+                          hidden: !_widePanelOpen,
+                          onPressed: () =>
+                              setState(() => _widePanelOpen = true),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
-          TextButton(
-            onPressed: () => Navigator.of(dialogContext).pop(),
-            child: const Text('Stay'),
-          ),
-        ],
+        ),
       ),
     );
   }
 
-  String _formatRemaining(Duration remaining) {
-    final minutes = remaining.inMinutes;
-    final secs = remaining.inSeconds % 60;
-    return '${minutes.toString().padLeft(2, '0')}:'
-        '${secs.toString().padLeft(2, '0')}';
+  /// How long the question list takes to open or close, and the bar's inset
+  /// with it.
+  Duration get _panelMotion => MediaQuery.disableAnimationsOf(context)
+      ? Duration.zero
+      : PantasDurations.navPanel;
+
+  int get _firstIndexInPart =>
+      widget.state.currentIndex - widget.partPosition + 1;
+
+  Iterable<String> get _idsInPart =>
+      widget.state.questionIds.skip(_firstIndexInPart).take(widget.partTotal);
+
+  bool _isAnswered(String id) =>
+      (widget.state.answers[id]?.selectedIndex ?? -1) >= 0;
+
+  String? _gridSummary() {
+    if (widget.oneBlock) {
+      final answered = _idsInPart.where(_isAnswered).length;
+      return '$answered of ${widget.partTotal} answered';
+    }
+    final closed = widget.closedPartCount;
+    if (closed == 0) return null;
+    if (closed == 1) return 'Part 1 is closed';
+    final numbers = [for (var i = 1; i <= closed; i++) '$i'];
+    return 'Parts ${numbers.take(closed - 1).join(', ')} and '
+        '${numbers.last} are closed';
+  }
+
+  List<QuestionGridPart> _gridParts() {
+    final first = _firstIndexInPart;
+    final ids = _idsInPart.toList();
+    final open = QuestionGridPart(
+      title: widget.oneBlock
+          ? ''
+          : 'PART ${widget.currentPartNumber} · '
+              '${widget.partName.toUpperCase()}',
+      count: widget.oneBlock
+          ? null
+          : '${ids.where(_isAnswered).length} of ${widget.partTotal}',
+      questions: [
+        for (var i = 0; i < ids.length; i++)
+          GridQuestion(
+            number: i + 1,
+            state: _isAnswered(ids[i])
+                ? GridQuestionState.answered
+                : GridQuestionState.unreached,
+            current: first + i == widget.state.currentIndex,
+            flagged: widget.state.flags.contains(ids[i]),
+          ),
+      ],
+    );
+    return [
+      open,
+      for (final part in widget.upcomingParts)
+        QuestionGridPart(
+          title: 'PART ${part.number} · ${part.name.toUpperCase()}',
+          enabled: false,
+          lockedNote: 'Opens when this part starts.',
+          questions: [
+            for (var i = 1; i <= part.count; i++)
+              GridQuestion(number: i, state: GridQuestionState.unreached),
+          ],
+        ),
+    ];
+  }
+
+  void _goToPartQuestion(int number) {
+    final target = _firstIndexInPart + number - 1;
+    if (target != widget.state.currentIndex) setState(() => _gridJump++);
+    widget.onGoTo?.call(target);
+  }
+}
+
+/// The approved paper slide is mirrored for Previous. Grid selection always
+/// crossfades, including when its target happens to be the adjacent question.
+class _PaperSwap extends StatefulWidget {
+  const _PaperSwap({
+    required this.position,
+    required this.gridJump,
+    required this.child,
+  });
+  final int position;
+  final int gridJump;
+  final Widget child;
+  @override
+  State<_PaperSwap> createState() => _PaperSwapState();
+}
+
+class _PaperSwapState extends State<_PaperSwap>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _lastGridJump = widget.gridJump;
+    _controller = AnimationController(vsync: this)
+      ..addStatusListener((status) {
+        if (status == AnimationStatus.completed && mounted) {
+          setState(() => _outgoing = null);
+        }
+      });
+  }
+
+  Widget? _outgoing;
+  var _lastGridJump = 0;
+  var _fade = false;
+  var _direction = 1.0;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (MediaQuery.disableAnimationsOf(context) && _outgoing != null) {
+      _controller.stop();
+      _outgoing = null;
+    }
+  }
+
+  @override
+  void didUpdateWidget(_PaperSwap oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.position == oldWidget.position) return;
+    _fade = widget.gridJump != _lastGridJump ||
+        (widget.position - oldWidget.position).abs() != 1;
+    _lastGridJump = widget.gridJump;
+    _direction = widget.position > oldWidget.position ? 1 : -1;
+    if (MediaQuery.disableAnimationsOf(context)) {
+      _controller.stop();
+      _outgoing = null;
+      return;
+    }
+    _outgoing = oldWidget.child;
+    _controller.duration =
+        _fade ? PantasDurations.nudge : PantasDurations.slide;
+    _controller.forward(from: 0);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final outgoing = _outgoing;
+    if (outgoing == null) return widget.child;
+    return AnimatedBuilder(
+      animation: _controller,
+      builder: (context, _) {
+        final progress = _fade
+            ? _controller.value
+            : PantasCurves.enter.transform(_controller.value);
+        final distance = _fade ? 0.0 : PantasSpace.s40 * _direction;
+        return Stack(
+          clipBehavior: Clip.none,
+          children: [
+            Opacity(
+              key: const ValueKey('paper-swap-in'),
+              opacity: progress,
+              child: Transform.translate(
+                offset: Offset(distance * (1 - progress), 0),
+                child: widget.child,
+              ),
+            ),
+            Positioned(
+              left: 0,
+              right: 0,
+              top: 0,
+              child: IgnorePointer(
+                child: ExcludeSemantics(
+                  child: Opacity(
+                    key: const ValueKey('paper-swap-out'),
+                    opacity: 1 - progress,
+                    child: Transform.translate(
+                      offset: Offset(-distance * progress, 0),
+                      child: outgoing,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
   }
 }
 
 class _QuestionBody extends ConsumerWidget {
   const _QuestionBody({
     required this.questionId,
+    required this.subject,
     required this.selectedIndex,
     required this.onAnswer,
+    this.pinnedHeader = false,
+    super.key,
   });
 
   final String questionId;
+  final String subject;
   final int? selectedIndex;
   final ValueChanged<int> onAnswer;
+
+  /// The phone page pins the subject and Flag row (D138) above its scroll
+  /// view, so the card leaves that row out.
+  final bool pinnedHeader;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final hydratedAsync = ref.watch(hydratedMockQuestionProvider(questionId));
 
+    firstScreenReady(context, ref, ready: !hydratedAsync.isLoading);
     return hydratedAsync.when(
       data: (hydrated) {
         if (hydrated == null) {
-          return const Center(child: Text('Question not found'));
+          return errorFor(
+            'question',
+            () => ref.invalidate(hydratedMockQuestionProvider(questionId)),
+          );
         }
 
-        final choiceId = selectedIndex != null &&
-                selectedIndex! < hydrated.question.choices.length
-            ? hydrated.question.choices[selectedIndex!].id
-            : null;
-
+        if (context.wideWeb) {
+          final choices = hydrated.question.choices;
+          return WebQuizQuestion(
+            question: hydrated.question,
+            subject: subject,
+            passage: hydrated.passage,
+            chosenId: selectedIndex != null &&
+                    selectedIndex! >= 0 &&
+                    selectedIndex! < choices.length
+                ? choices[selectedIndex!].id
+                : null,
+            onPick: (id) =>
+                onAnswer(choices.indexWhere((choice) => choice.id == id)),
+          );
+        }
         return QuestionCard(
           key: ValueKey(hydrated.question.id),
-          question: hydrated.question,
-          passage: hydrated.passage,
-          chosenChoiceId: choiceId,
-          onAnswer: (cid) {
-            final index =
-                hydrated.question.choices.indexWhere((c) => c.id == cid);
-            if (index >= 0) onAnswer(index);
-          },
+          subject: subject,
+          showHeader: !pinnedHeader,
+          stem: hydrated.question.stem,
+          passage: hydrated.passage == null
+              ? null
+              : PassageCard(
+                  text: hydrated.passage!.body,
+                  title: hydrated.passage!.title.isEmpty
+                      ? null
+                      : hydrated.passage!.title,
+                ),
+          figure: hydrated.question.figureSpecJson == null
+              ? null
+              : QuestionFigure(specJson: hydrated.question.figureSpecJson),
+          choices: [
+            for (var i = 0; i < hydrated.question.choices.length; i++)
+              ChoiceRow(
+                letter: hydrated.question.choices[i].label,
+                text: hydrated.question.choices[i].text,
+                state: selectedIndex == i
+                    ? ChoiceRowState.picked
+                    : ChoiceRowState.plain,
+                onTap: () => onAnswer(i),
+              ),
+          ],
         );
       },
-      loading: () => const Center(
-        child: Padding(
-          padding: EdgeInsets.all(40),
-          child: CircularProgressIndicator(),
-        ),
+      loading: () => const SkeletonQuestionPage(),
+      error: (e, st) => errorFor(
+        'question',
+        () => ref.invalidate(hydratedMockQuestionProvider(questionId)),
+        error: e,
       ),
-      error: (e, st) => Center(child: Text('Error: $e')),
     );
   }
+}
+
+/// A legend entry: a 10 px dot and its word (board `.hrow`, 12 px).
+class _LegendDot extends StatelessWidget {
+  const _LegendDot(this.label, {this.fill, this.ring});
+  final String label;
+  final Color? fill;
+  final Color? ring;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Container(
+          width: PantasSize.flagDot,
+          height: PantasSize.flagDot,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: fill,
+            border: ring == null
+                ? null
+                : Border.all(color: ring!, width: PantasBorder.ringStrong),
+          ),
+        ),
+        const SizedBox(width: PantasSpace.s6),
+        Text(
+          label,
+          style: PantasType.webCaption.copyWith(color: t.colors.textSecondary),
+        ),
+      ],
+    );
+  }
+}
+
+/// Fades the edge of a scrolling list that has more behind it, as the board
+/// draws the question list. An edge with nothing behind it stays solid.
+class _ScrollEdgeFade extends StatefulWidget {
+  const _ScrollEdgeFade({required this.builder});
+
+  final Widget Function(ScrollController controller) builder;
+
+  @override
+  State<_ScrollEdgeFade> createState() => _ScrollEdgeFadeState();
+}
+
+class _ScrollEdgeFadeState extends State<_ScrollEdgeFade> {
+  static const _fade = PantasSpace.s18;
+  final _controller = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    // The list's size is known after its first layout.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => AnimatedBuilder(
+        animation: _controller,
+        builder: (context, _) {
+          final position = _controller.hasClients &&
+                  _controller.position.hasContentDimensions
+              ? _controller.position
+              : null;
+          final hiddenAbove = position != null && position.pixels > 1;
+          final hiddenBelow = position != null &&
+              position.maxScrollExtent - position.pixels > 1;
+          // The mask stays in the tree whatever the scroll, so the list
+          // keeps its place.
+          return ShaderMask(
+            blendMode: BlendMode.dstIn,
+            shaderCallback: (rect) {
+              final edge = (_fade / rect.height).clamp(0.0, .5);
+              // Only the alpha of the mask matters (dstIn).
+              const solid = PantasColors.gray0;
+              final clear = PantasColors.gray0.withValues(alpha: 0);
+              return LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  if (hiddenAbove) clear else solid,
+                  solid,
+                  solid,
+                  if (hiddenBelow) clear else solid,
+                ],
+                stops: [0, edge, 1 - edge, 1],
+              ).createShader(rect);
+            },
+            child: widget.builder(_controller),
+          );
+        },
+      );
 }

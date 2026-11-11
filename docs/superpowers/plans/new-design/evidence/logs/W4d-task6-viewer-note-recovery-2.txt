@@ -1,0 +1,11 @@
+Analyzing 5 items...
+
+   info • Use an if-null operator to convert a 'null' to a 'bool'. Try using an if-null operator • lib/features/quiz/presentation/quiz_question_viewer.dart:79:20 • use_if_null_to_convert_nulls_to_bools
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • lib/features/quiz/presentation/quiz_question_viewer.dart:221:81 • lines_longer_than_80_chars
+   info • Missing a required trailing comma. Try adding a trailing comma • test/core/storage/data/repos/attempts_repository_notes_test.dart:142:16 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/core/storage/data/repos/attempts_repository_notes_test.dart:170:17 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/core/storage/data/repos/attempts_repository_notes_test.dart:174:10 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_note_editor_test.dart:124:33 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/quiz_note_editor_test.dart:124:34 • require_trailing_commas
+
+7 issues found. (ran in 0.9s)

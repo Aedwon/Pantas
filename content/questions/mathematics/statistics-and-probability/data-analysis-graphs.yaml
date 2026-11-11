@@ -1,589 +1,541 @@
 meta:
-  subject: mathematics
-  topic: statistics-and-probability
-  subtopic: data-analysis-graphs
-  exams: [upcat, acet, dlsucet, ustet, pupcet]
+  subject: 'mathematics'
+  topic: 'statistics-and-probability'
+  subtopic: 'data-analysis-graphs'
+  exams: ['upcat', 'acet', 'dlsucet', 'ustet', 'pupcet']
 questions:
-  - id: q-statistics-and-probability-data-analysis-graphs-0001
-    type: word-problem
-    difficulty: easy
-    stem: |
-      A jeepney driver in Pasig City recorded the total number of passengers served each day over five consecutive weekdays:
-      
-      | Day | Passengers |
-      | :--- | :--- |
-      | Monday | 140 |
-      | Tuesday | 165 |
-      | Wednesday | 150 |
-      | Thursday | 180 |
-      | Friday | 215 |
-      
-      What is the total number of passengers served from Monday through Wednesday?
-    choices:
-      - text: "$455$"
-        correct: true
-      - text: "$495$"
-        rationale: |
-          You added Tuesday, Wednesday, and Thursday passenger counts (165+150+180=495) instead of Monday through Wednesday.
-      - text: "$850$"
-        rationale: |
-          You added all five weekdays together instead of restricting to Monday through Wednesday.
-      - text: "$315$"
-        rationale: |
-          You added only Tuesday and Wednesday passenger counts instead of starting from Monday.
-    explanation: |
-      To find the total number of passengers served from Monday through Wednesday, sum the passenger counts for those three days:
-      
-      $$\text{Total} = 140 + 165 + 150 = 455$$
-      
-      The driver served $455$ passengers from Monday through Wednesday.
-  - id: q-statistics-and-probability-data-analysis-graphs-0002
-    type: word-problem
-    difficulty: easy
-    stem: |
-      A Senior High School in Quezon City recorded student enrollment across four academic strands:
-      
-      | Strand | Male Students | Female Students |
-      | :--- | :--- | :--- |
-      | STEM | 120 | 130 |
-      | ABM | 90 | 110 |
-      | HUMSS | 80 | 100 |
-      | TVL | 110 | 60 |
-      
-      Which strand has the highest total student enrollment?
-    choices:
-      - text: "STEM"
-        correct: true
-      - text: "ABM"
-        rationale: |
-          You picked the strand with the second highest enrollment (200) instead of the highest (250).
-      - text: "HUMSS"
-        rationale: |
-          You picked the strand with 180 total students instead of calculating STEM's 250 total.
-      - text: "TVL"
-        rationale: |
-          You picked the strand with the highest male count but lowest overall total (170).
-    explanation: |
-      Calculate the total enrollment for each strand by adding male and female students:
-      
-      $$\text{STEM} = 120 + 130 = 250$$
-      $$\text{ABM} = 90 + 110 = 200$$
-      $$\text{HUMSS} = 80 + 100 = 180$$
-      $$\text{TVL} = 110 + 60 = 170$$
-      
-      The STEM strand has the highest total enrollment of $250$ students.
-  - id: q-statistics-and-probability-data-analysis-graphs-0003
-    type: word-problem
-    difficulty: easy
-    stem: |
-      A sari-sari store owner tracked the number of beverage units sold in one day:
-      
-      | Beverage | Units Sold |
-      | :--- | :--- |
-      | Bottled Water | 45 |
-      | Soft Drinks | 30 |
-      | Iced Tea | 25 |
-      | Fruit Juice | 20 |
-      
-      What percentage of the total beverages sold were bottled water?
-    choices:
-      - text: "$37.5\\%$"
-        correct: true
-      - text: "$45.0\\%$"
-        rationale: |
-          You wrote the raw unit count of bottled water (45) directly as a percentage without dividing by 120.
-      - text: "$33.3\\%$"
-        rationale: |
-          You divided 45 by 135 or assumed water was 1/3 of the sales.
-      - text: "$25.0\\%$"
-        rationale: |
-          You calculated the fraction of total sales from iced tea instead of bottled water.
-    explanation: |
-      First, calculate the total number of beverage units sold:
-      
-      $$\text{Total} = 45 + 30 + 25 + 20 = 120$$
-      
-      Next, calculate the percentage of bottled water sold:
-      
-      $$\text{Percentage} = \frac{45}{120} \times 100\% = 0.375 \times 100\% = 37.5\%$$
-      
-      Bottled water accounted for $37.5\%$ of total beverage sales.
-  - id: q-statistics-and-probability-data-analysis-graphs-0004
-    type: word-problem
-    difficulty: easy
-    stem: |
-      A farmer in Nueva Ecija recorded palay harvest data (in metric tons) over four months:
-      
-      | Month | Harvest (Metric Tons) |
-      | :--- | :--- |
-      | January | 450 |
-      | February | 520 |
-      | March | 480 |
-      | April | 600 |
-      
-      By how many metric tons did the palay harvest increase from March to April?
-    choices:
-      - text: "$120\\text{ metric tons}$"
-        correct: true
-      - text: "$80\\text{ metric tons}$"
-        rationale: |
-          You compared February with April ($600 - 520 = 80$) instead of March with April.
-      - text: "$150\\text{ metric tons}$"
-        rationale: |
-          You calculated the increase from January to April (600 - 450 = 150) instead of March to April.
-      - text: "$480\\text{ metric tons}$"
-        rationale: |
-          You reported March's absolute harvest total instead of the change from March to April.
-    explanation: |
-      Subtract the March harvest from the April harvest to find the increase:
-      
-      $$\text{Increase} = 600 - 480 = 120\text{ metric tons}$$
-      
-      The palay harvest increased by $120\text{ metric tons}$ from March to April.
-  - id: q-statistics-and-probability-data-analysis-graphs-0005
-    type: word-problem
-    difficulty: easy
-    stem: |
-      A local census recorded the age distribution of residents in Barangay San Jose:
-      
-      | Age Group (Years) | Population |
-      | :--- | :--- |
-      | $0-14$ | 850 |
-      | $15-29$ | 1,200 |
-      | $30-44$ | 950 |
-      | $45-59$ | 600 |
-      | $60+$ | 400 |
-      
-      How many residents in Barangay San Jose are at least $30$ years old?
-    choices:
-      - text: "$1,950$"
-        correct: true
-      - text: "$950$"
-        rationale: |
-          You included only the 30-44 age group population and omitted residents aged 45 and older.
-      - text: "$2,050$"
-        rationale: |
-          You summed the two groups under age 30 ($850 + 1,200 = 2,050$), which is the complement of the requested at-least-30 population.
-      - text: "$4,000$"
-        rationale: |
-          You summed the total population of all age groups across the entire barangay.
-    explanation: |
-      Residents who are at least $30$ years old belong to the age groups $30-44$, $45-59$, and $60+$. Sum the populations of these three groups:
-      
-      $$\text{Total} = 950 + 600 + 400 = 1,950$$
-      
-      There are $1,950$ residents in Barangay San Jose who are at least $30$ years old.
-  - id: q-statistics-and-probability-data-analysis-graphs-0006
-    type: word-problem
-    difficulty: medium
-    stem: |
-      A household in Manila tracked its monthly electricity consumption (in kWh) for the second half of the year:
-      
-      | Month | Consumption (kWh) |
-      | :--- | :--- |
-      | July | 210 |
-      | August | 240 |
-      | September | 225 |
-      | October | 195 |
-      | November | 180 |
-      | December | 270 |
-      
-      What was the average monthly electricity consumption (in kWh) from July to December?
-    choices:
-      - text: "$220\\text{ kWh}$"
-        correct: true
-      - text: "$215\\text{ kWh}$"
-        rationale: |
-          You miscalculated the sum of the 6 months as 1,290 instead of 1,320.
-      - text: "$225\\text{ kWh}$"
-        rationale: |
-          You identified September's value or the median instead of calculating the mean.
-      - text: "$264\\text{ kWh}$"
-        rationale: |
-          You divided the total sum by 5 months instead of 6 months.
-    explanation: |
-      To find the mean monthly consumption, sum the consumption values for all $6$ months and divide by $6$:
-      
-      $$\text{Sum} = 210 + 240 + 225 + 195 + 180 + 270 = 1,320\text{ kWh}$$
-      $$\text{Mean} = \frac{1,320}{6} = 220\text{ kWh}$$
-      
-      The average monthly electricity consumption was $220\text{ kWh}$.
-  - id: q-statistics-and-probability-data-analysis-graphs-0007
-    type: word-problem
-    difficulty: medium
-    stem: |
-      A review center recorded the practice exam scores of $40$ students:
-      
-      | Score Range | Frequency ($f$) |
-      | :--- | :--- |
-      | $51-60$ | 4 |
-      | $61-70$ | 10 |
-      | $71-80$ | 16 |
-      | $81-90$ | 7 |
-      | $91-100$ | 3 |
-      
-      What percentage of the students scored greater than $70$?
-    choices:
-      - text: "$65\\%$"
-        correct: true
-      - text: "$40\\%$"
-        rationale: |
-          You counted only the $16$ students in the $71-80$ interval: $16/40 = 40\%$, omitting those who scored above 80.
-      - text: "$60\\%$"
-        rationale: |
-          You omitted part of the greater-than-70 group; all three intervals $71-80$, $81-90$, and $91-100$ must be included.
-      - text: "$75\\%$"
-        rationale: |
-          You included too many students in the favorable count, such as part of the $61-70$ interval, even though those scores are not greater than 70.
-    explanation: |
-      Students who scored greater than $70$ fall into the score ranges $71-80$, $81-90$, and $91-100$:
-      
-      $$\text{Frequency} = 16 + 7 + 3 = 26$$
-      
-      Divide by the total number of students ($40$) to find the percentage:
-      
-      $$\text{Percentage} = \frac{26}{40} \times 100\% = 65\%$$
-      
-      Thus, $65\%$ of the students scored greater than $70$.
-  - id: q-statistics-and-probability-data-analysis-graphs-0008
-    type: word-problem
-    difficulty: medium
-    stem: |
-      A survey gathered preferred commuting modes among workers in Makati City:
-      
-      | Transport Mode | Male Workers | Female Workers |
-      | :--- | :--- | :--- |
-      | MRT / LRT | 180 | 220 |
-      | Bus / Jeepney | 150 | 150 |
-      | Private Vehicle | 120 | 80 |
-      | Walking / Bicycle | 50 | 50 |
-      
-      Among the female workers surveyed, what fraction prefers taking the MRT / LRT? Express in simplest fraction form.
-    choices:
-      - text: "$\\frac{11}{25}$"
-        correct: true
-      - text: "$\\frac{9}{25}$"
-        rationale: |
-          You calculated the fraction of male MRT/LRT commuters (180/500 = 9/25) instead of female.
-      - text: "$\\frac{11}{50}$"
-        rationale: |
-          You divided female MRT/LRT commuters by the grand total of 1000 male and female workers.
-      - text: "$\\frac{22}{40}$"
-        rationale: |
-          You divided female MRT/LRT commuters (220) by total MRT/LRT commuters (400), getting 220/400 = 11/20.
-    explanation: |
-      First, calculate the total number of female workers surveyed:
-      
-      $$\text{Total Females} = 220 + 150 + 80 + 50 = 500$$
-      
-      The number of female workers who prefer MRT / LRT is $220$. Express as a fraction:
-      
-      $$\text{Fraction} = \frac{220}{500} = \frac{11}{25}$$
-      
-      The fraction of female workers who prefer MRT / LRT is $\frac{11}{25}$.
-  - id: q-statistics-and-probability-data-analysis-graphs-0009
-    type: word-problem
-    difficulty: medium
-    stem: |
-      Two agricultural exporters in Davao recorded coconut oil shipments (in thousand barrels) per quarter:
-      
-      | Quarter | Company A | Company B |
-      | :--- | :--- | :--- |
-      | Q1 | 40 | 60 |
-      | Q2 | 55 | 50 |
-      | Q3 | 65 | 45 |
-      | Q4 | 80 | 65 |
-      
-      What is the ratio of Company A's total annual export to Company B's total annual export? Express as a simplified ratio $a : b$.
-    choices:
-      - text: "$12 : 11$"
-        correct: true
-      - text: "$11 : 12$"
-        rationale: |
-          You inverted the ratio, calculating Company B to Company A instead of A to B.
-      - text: "$6 : 5$"
-        rationale: |
-          The annual totals are $240$ for Company A and $220$ for Company B. The ratio $6:5$ would require a different Company B total and does not match the table; $240:220$ simplifies to $12:11$.
-      - text: "$4 : 3$"
-        rationale: |
-          The annual totals must use all four quarters. Summing the table gives $240:220$, not $4:3$; reducing $240:220$ by their common factor 20 gives $12:11$.
-    explanation: |
-      Sum the exports for each company across all four quarters:
-      
-      $$\text{Company A Total} = 40 + 55 + 65 + 80 = 240$$
-      $$\text{Company B Total} = 60 + 50 + 45 + 65 = 220$$
-      
-      Form the ratio of Company A to Company B and simplify:
-      
-      $$\text{Ratio} = \frac{240}{220} = \frac{12}{11}$$
-      
-      The ratio is $12 : 11$.
-  - id: q-statistics-and-probability-data-analysis-graphs-0010
-    type: word-problem
-    difficulty: medium
-    stem: |
-      A fast-food chain in Cebu tracked daily sales of rice meal options:
-      
-      | Day | Chicken Rice | Pork Rice | Beef Rice |
-      | :--- | :--- | :--- | :--- |
-      | Monday | 80 | 50 | 30 |
-      | Tuesday | 90 | 54 | 36 |
-      | Wednesday | 85 | 55 | 40 |
-      | Thursday | 100 | 70 | 50 |
-      | Friday | 120 | 80 | 60 |
-      
-      On which day did Pork Rice sales account for exactly $30\%$ of the total rice meals sold that day?
-    choices:
-      - text: "Tuesday"
-        correct: true
-      - text: "Monday"
-        rationale: |
-          You calculated Monday's Pork Rice percentage as 50/160 = 31.25%.
-      - text: "Wednesday"
-        rationale: |
-          You calculated Wednesday's Pork Rice percentage as 55/180 = 30.56%.
-      - text: "Friday"
-        rationale: |
-          You calculated Friday's Pork Rice percentage as 80/260 = 30.77%.
-    explanation: |
-      Calculate the total meals sold and the percentage of Pork Rice for each day:
-      
-      - Monday: Total $= 80 + 50 + 30 = 160$. Pork $% = \frac{50}{160} = 31.25\%$
-      - Tuesday: Total $= 90 + 54 + 36 = 180$. Pork $% = \frac{54}{180} = 0.30 = 30\%$
-      - Wednesday: Total $= 85 + 55 + 40 = 180$. Pork $% = \frac{55}{180} \approx 30.56\%$
-      - Thursday: Total $= 100 + 70 + 50 = 220$. Pork $% = \frac{70}{220} \approx 31.82\%$
-      - Friday: Total $= 120 + 80 + 60 = 260$. Pork $% = \frac{80}{260} \approx 30.77\%$
-      
-      Pork Rice accounted for exactly $30\%$ of sales on Tuesday.
-  - id: q-statistics-and-probability-data-analysis-graphs-0011
-    type: word-problem
-    difficulty: medium
-    stem: |
-      Three evacuation centers in Albay recorded evacuee counts during a typhoon:
-      
-      | Evacuation Center | Day 1 | Day 2 | Day 3 | Day 4 |
-      | :--- | :--- | :--- | :--- | :--- |
-      | Center A | 150 | 200 | 250 | 180 |
-      | Center B | 100 | 130 | 150 | 120 |
-      | Center C | 100 | 110 | 125 | 90 |
-      
-      By what percentage did the total number of evacuees across all three centers increase from Day 1 to Day 3?
-    choices:
-      - text: "$50\\%$"
-        correct: true
-      - text: "$33.3\\%$"
-        rationale: |
-          You divided the increase (175) by Day 3 total (525) instead of Day 1 base (350).
-      - text: "$66.7\\%$"
-        rationale: |
-          You calculated the percentage increase for Center A alone (100/150 = 66.7%).
-      - text: "$75\\%$"
-        rationale: |
-          You calculated the absolute difference 175 and divided by 233 or miscalculated the base.
-    explanation: |
-      First, find total evacuees on Day 1 and Day 3:
-      
-      $$\text{Day 1 Total} = 150 + 100 + 100 = 350$$
-      $$\text{Day 3 Total} = 250 + 150 + 125 = 525$$
-      
-      Calculate the absolute increase and percentage change:
-      
-      $$\text{Increase} = 525 - 350 = 175$$
-      $$\text{Percentage Increase} = \frac{175}{350} \times 100\% = 50\%$$
-      
-      The total evacuee count increased by $50\%$.
-  - id: q-statistics-and-probability-data-analysis-graphs-0012
-    type: word-problem
-    difficulty: hard
-    stem: |
-      A survey categorized the monthly household expenditures (in pesos) of $60$ families in a barangay:
-      
-      | Expenditure Range ($\text{₱}$) | Midpoint ($x$) | Number of Families ($f$) |
-      | :--- | :--- | :--- |
-      | $10,000 - 14,999$ | $\text{₱}12,500$ | 8 |
-      | $15,000 - 19,999$ | $\text{₱}17,500$ | 15 |
-      | $20,000 - 24,999$ | $\text{₱}22,500$ | 20 |
-      | $25,000 - 29,999$ | $\text{₱}27,500$ | 12 |
-      | $30,000 - 34,999$ | $\text{₱}32,500$ | 5 |
-      
-      Calculate the estimated mean monthly expenditure ($\bar{x}$) of the $60$ families using the class midpoints.
-    choices:
-      - text: "$\\text{₱}21,750$"
-        correct: true
-      - text: "$\\text{₱}22,500$"
-        rationale: |
-          You picked the midpoint of the modal class interval (20,000-24,999) instead of calculating the weighted mean.
-      - text: "$\\text{₱}20,500$"
-        rationale: |
-          You miscalculated the sum of fx or made an arithmetic error in division.
-      - text: "$\\text{₱}26,100$"
-        rationale: |
-          You divided the total sum fx by 50 instead of 60 families.
-    explanation: |
-      Compute the sum of products $\sum fx$ for all intervals:
-      
-      $$\sum fx = (8 \times 12,500) + (15 \times 17,500) + (20 \times 22,500) + (12 \times 27,500) + (5 \times 32,500)$$
-      $$\sum fx = 100,000 + 262,500 + 450,000 + 330,000 + 162,500 = 1,305,000$$
-      
-      Divide by total families $N = 60$:
-      
-      $$\bar{x} = \frac{1,305,000}{60} = \text{₱}21,750$$
-      
-      The estimated mean monthly expenditure is $\text{₱}21,750$.
-  - id: q-statistics-and-probability-data-analysis-graphs-0013
-    type: word-problem
-    difficulty: hard
-    stem: |
-      A mathematics instructor recorded student quiz results in a frequency table:
-      
-      | Quiz Score ($x$) | Frequency ($f$) |
-      | :--- | :--- |
-      | 10 | 3 |
-      | 15 | $k$ |
-      | 20 | 8 |
-      | 25 | 4 |
-      
-      If the weighted mean score of the class is $18.25$, what is the value of the unknown frequency $k$?
-    choices:
-      - text: "$5$"
-        correct: true
-      - text: "$4$"
-        rationale: |
-          You set k equal to the frequency of score 25.
-      - text: "$6$"
-        rationale: |
-          You miscalculated 16.25 divided by 3.25 as 6.
-      - text: "$7$"
-        rationale: |
-          You miscalculated the numerator sum as 300 + 15k.
-    explanation: |
-      Write the formula for the weighted mean score $\bar{x}$:
-      
-      $$\bar{x} = \frac{\sum fx}{\sum f}$$
-      
-      Express total frequency $N$ and total score sum in terms of $k$:
-      
-      $$\sum f = 3 + k + 8 + 4 = 15 + k$$
-      $$\sum fx = (10 \times 3) + (15 \times k) + (20 \times 8) + (25 \times 4) = 30 + 15k + 160 + 100 = 290 + 15k$$
-      
-      Set up the equation with mean $18.25$:
-      
-      $$\frac{290 + 15k}{15 + k} = 18.25$$
-      $$290 + 15k = 18.25(15 + k) = 273.75 + 18.25k$$
-      $$290 - 273.75 = 18.25k - 15k$$
-      $$16.25 = 3.25k$$
-      $$k = \frac{16.25}{3.25} = 5$$
-      
-      The unknown frequency $k$ is $5$.
-  - id: q-statistics-and-probability-data-analysis-graphs-0014
-    type: word-problem
-    difficulty: hard
-    stem: |
-      Palay production figures (in metric tons) for three regions in Luzon over three consecutive years are shown below:
-      
-      | Region | Year 1 | Year 2 | Year 3 |
-      | :--- | :--- | :--- | :--- |
-      | Region I (Ilocos) | 300,000 | 330,000 | 363,000 |
-      | Region II (Cagayan Valley) | 500,000 | 550,000 | 577,500 |
-      | Region III (Central Luzon) | 800,000 | 840,000 | 882,000 |
-      
-      Which region had the highest total percentage growth in palay production from Year 1 to Year 3?
-    choices:
-      - text: "Region I"
-        correct: true
-      - text: "Region III"
-        rationale: |
-          You picked Region III because it had the largest absolute increase (82,000 MT) rather than relative percentage growth.
-      - text: "Region II"
-        rationale: |
-          You miscalculated Region II's percentage growth as higher than Region I's 21%.
-      - text: "All three regions had equal percentage growth"
-        rationale: |
-          You assumed equal growth because production increased annually in all three regions.
-    explanation: |
-      Calculate the total percentage growth from Year 1 to Year 3 for each region:
-      
-      - Region I: $\frac{363,000 - 300,000}{300,000} \times 100\% = \frac{63,000}{300,000} \times 100\% = 21\%$
-      - Region II: $\frac{577,500 - 500,000}{500,000} \times 100\% = \frac{77,500}{500,000} \times 100\% = 15.5\%$
-      - Region III: $\frac{882,000 - 800,000}{800,000} \times 100\% = \frac{82,000}{800,000} \times 100\% = 10.25\%$
-      
-      Region I achieved the highest total percentage growth at $21\%$.
-      
-      Note: A common error is choosing Region III because it had the largest absolute increase ($82,000\text{ MT}$), but percentage growth measures relative increase.
-  - id: q-statistics-and-probability-data-analysis-graphs-0015
-    type: word-problem
-    difficulty: hard
-    stem: |
-      Two CET review centers recorded the score distribution of $100$ mock exam takers each:
-      
-      | Score Range | Center X ($N=100$) | Center Y ($N=100$) |
-      | :--- | :--- | :--- |
-      | $50-59$ | 10 | 5 |
-      | $60-69$ | 25 | 20 |
-      | $70-79$ | 35 | 45 |
-      | $80-89$ | 20 | 22 |
-      | $90-99$ | 10 | 8 |
-      
-      If a score of $70$ or higher is considered passing, by how many students does Center Y exceed Center X in total passing students?
-    choices:
-      - text: "$10\\text{ students}$"
-        correct: true
-      - text: "$5\\text{ students}$"
-        rationale: |
-          You compared only the 70-79 score range (45 - 35 = 10) and halved it or miscounted ranges.
-      - text: "$15\\text{ students}$"
-        rationale: |
-          You added the differences across multiple score ranges incorrectly.
-      - text: "$20\\text{ students}$"
-        rationale: |
-          You compared only the 70-79 score range (45 - 35 = 10) and doubled it.
-    explanation: |
-      Sum the frequencies for ranges $70-79$, $80-89$, and $90-99$ for each center:
-      
-      $$\text{Center X Passing} = 35 + 20 + 10 = 65\text{ students}$$
-      $$\text{Center Y Passing} = 45 + 22 + 8 = 75\text{ students}$$
-      
-      Calculate the difference between Center Y and Center X:
-      
-      $$\text{Difference} = 75 - 65 = 10\text{ students}$$
-      
-      Center Y exceeds Center X by $10$ passing students.
-  - id: q-statistics-and-probability-data-analysis-graphs-0016
-    type: word-problem
-    difficulty: hard
-    stem: |
-      A transportation survey categorized $500$ commuters in Metro Manila by age group and preferred public transit option:
-      
-      | Age Group | Traditional Jeepney | Modern Jeepney | Bus | Total |
-      | :--- | :--- | :--- | :--- | :--- |
-      | $18-30$ | 40 | 90 | 70 | 200 |
-      | $31-50$ | 60 | 80 | 60 | 200 |
-      | $51+$ | 70 | 20 | 10 | 100 |
-      | Total | 170 | 190 | 140 | 500 |
-      
-      What percentage of commuters who prefer Modern Jeepneys belong to the $18-30$ age group?
-    choices:
-      - text: "$47.4\\%$"
-        correct: true
-      - text: "$45.0\\%$"
-        rationale: |
-          You divided 90 Modern Jeepney commuters by the 18-30 age group total (200) instead of the Modern Jeepney total (190).
-      - text: "$18.0\\%$"
-        rationale: |
-          You divided 90 Modern Jeepney commuters by the grand total of 500 commuters across all groups.
-      - text: "$52.6\\%$"
-        rationale: |
-          You calculated the percentage of Modern Jeepney commuters aged 31 and older (100/190 = 52.6%).
-    explanation: |
-      The question asks for a conditional percentage among commuters who prefer Modern Jeepneys (the column total of $190$):
-      
-      $$\text{Modern Jeepney Total} = 190$$
-      $$\text{Modern Jeepney Commuters aged } 18-30 = 90$$
-      
-      Calculate the percentage:
-      
-      $$\text{Percentage} = \frac{90}{190} \times 100\% = \frac{9}{19} \times 100\% \approx 47.37\% \approx 47.4\%$$
-      
-      Thus, $47.4\%$ of Modern Jeepney commuters belong to the $18-30$ age group.
-      
-      Note: Misreading the base as total $18-30$ commuters ($200$) yields $45.0\%$, while dividing by the grand total ($500$) yields $18.0\%$.
+- id: 'q-statistics-and-probability-data-analysis-graphs-0001'
+  type: 'word-problem'
+  difficulty: 'easy'
+  stem: |
+    A jeepney driver in Pasig City recorded the total number of passengers served each day over five consecutive weekdays:
+    
+    | Day | Passengers |
+    | :--- | :--- |
+    | Monday | 140 |
+    | Tuesday | 165 |
+    | Wednesday | 150 |
+    | Thursday | 180 |
+    | Friday | 215 |
+    
+    What is the total number of passengers served from Monday through Wednesday?
+  choices:
+  - text: '$455$'
+    correct: true
+  - text: '$495$'
+    rationale: |
+      This substitutes Thursday for Wednesday. Both are weekday rows. Check the named date range.
+  - text: '$850$'
+    rationale: |
+      This adds all five days. The full table is visible. Stop at Wednesday.
+  - text: '$315$'
+    rationale: |
+      This adds Tuesday and Wednesday only. Those are within the range. Include Monday too.
+  explanation: |
+    Add the first three days: $140+165+150=455$ passengers.
+- id: 'q-statistics-and-probability-data-analysis-graphs-0002'
+  type: 'word-problem'
+  difficulty: 'easy'
+  stem: |
+    A Senior High School in Quezon City recorded student enrollment across four academic strands:
+    
+    | Strand | Male Students | Female Students |
+    | :--- | :--- | :--- |
+    | STEM | 120 | 130 |
+    | ABM | 90 | 110 |
+    | HUMSS | 80 | 100 |
+    | TVL | 110 | 60 |
+    
+    Which strand has the highest total student enrollment?
+  choices:
+  - text: 'STEM'
+    correct: true
+  - text: 'ABM'
+    rationale: |
+      This chooses the second-largest total. Its enrollment is substantial. Compare every combined total.
+  - text: 'HUMSS'
+    rationale: |
+      This chooses the strand with one hundred females. That count is prominent. Add both columns before comparing.
+  - text: 'TVL'
+    rationale: |
+      This follows a large male count alone. TVL has more males than two other strands. Compare total enrollment.
+  explanation: |
+    Add male and female counts for each strand. The totals are STEM $250$, ABM $200$, HUMSS $180$, and TVL $170$. STEM has the largest total.
+- id: 'q-statistics-and-probability-data-analysis-graphs-0003'
+  type: 'word-problem'
+  difficulty: 'easy'
+  stem: |
+    A sari-sari store owner tracked the number of beverage units sold in one day:
+    
+    | Beverage | Units Sold |
+    | :--- | :--- |
+    | Bottled Water | 45 |
+    | Soft Drinks | 30 |
+    | Iced Tea | 25 |
+    | Fruit Juice | 20 |
+    
+    What percentage of the total beverages sold were bottled water?
+  choices:
+  - text: '$37.5\%$'
+    correct: true
+  - text: '$45.0\%$'
+    rationale: |
+      This assumes a total of one hundred. Forty-five is the water count. Add the actual category counts.
+  - text: '$33.3\%$'
+    rationale: |
+      This assigns an equal one-third share. Several categories are listed. Use their measured sales counts.
+  - text: '$25.0\%$'
+    rationale: |
+      This uses the soft-drink count. Thirty is a valid row value. Match the requested beverage.
+  explanation: |
+    Total sales are $45+30+25+20=120$. Water accounts for $\dfrac{45}{120}(100\%)=37.5\%$.
+- id: 'q-statistics-and-probability-data-analysis-graphs-0004'
+  type: 'word-problem'
+  difficulty: 'easy'
+  stem: |
+    A farmer in Nueva Ecija recorded palay harvest data (in metric tons) over four months:
+    
+    | Month | Harvest (Metric Tons) |
+    | :--- | :--- |
+    | January | 450 |
+    | February | 520 |
+    | March | 480 |
+    | April | 600 |
+    
+    By how many metric tons did the palay harvest increase from March to April?
+  choices:
+  - text: '$120\text{ metric tons}$'
+    correct: true
+  - text: '$80\text{ metric tons}$'
+    rationale: |
+      This subtracts February from April. Eighty is that difference. Use March as the starting month.
+  - text: '$150\text{ metric tons}$'
+    rationale: |
+      This subtracts January from April. Both are visible rows. Match the requested starting month.
+  - text: '$480\text{ metric tons}$'
+    rationale: |
+      This reports the starting harvest. Four hundred eighty is March production. Subtract it from the ending value.
+  explanation: |
+    Subtract March from April: $600-480=120$ metric tons.
+- id: 'q-statistics-and-probability-data-analysis-graphs-0005'
+  type: 'word-problem'
+  difficulty: 'easy'
+  stem: |
+    A local census recorded the age distribution of residents in Barangay San Jose:
+    
+    | Age Group (Years) | Population |
+    | :--- | :--- |
+    | $0-14$ | 850 |
+    | $15-29$ | 1,200 |
+    | $30-44$ | 950 |
+    | $45-59$ | 600 |
+    | $60+$ | 400 |
+    
+    How many residents in Barangay San Jose are at least $30$ years old?
+  choices:
+  - text: '$1,950$'
+    correct: true
+  - text: '$950$'
+    rationale: |
+      This counts only the thirty-to-forty-four group. It starts at the cutoff. Include all older groups.
+  - text: '$2,050$'
+    rationale: |
+      This totals the under-thirty groups. The two youngest rows total 2050. Check the words at least thirty.
+  - text: '$4,000$'
+    rationale: |
+      This reports the whole population. All rows total four thousand. Apply the age cutoff.
+  explanation: |
+    At least thirty includes the last three groups. Add $950+600+400=1950$ residents.
+- id: 'q-statistics-and-probability-data-analysis-graphs-0006'
+  type: 'word-problem'
+  difficulty: 'medium'
+  stem: |
+    A household in Manila tracked its monthly electricity consumption (in kWh) for the second half of the year:
+    
+    | Month | Consumption (kWh) |
+    | :--- | :--- |
+    | July | 210 |
+    | August | 240 |
+    | September | 225 |
+    | October | 195 |
+    | November | 180 |
+    | December | 270 |
+    
+    What was the average monthly electricity consumption (in kWh) from July to December?
+  choices:
+  - text: '$220\text{ kWh}$'
+    correct: true
+  - text: '$217.5\text{ kWh}$'
+    rationale: |
+      This uses the median. The sorted middle values are 210 and 225. Check that average here asks for the arithmetic mean.
+  - text: '$225\text{ kWh}$'
+    rationale: |
+      This copies September consumption. It lies near the center of the data. Average all six months.
+  - text: '$264\text{ kWh}$'
+    rationale: |
+      This divides the full total by five. Five weekdays are common in other tables. Count these six months.
+  explanation: |
+    The six-month total is $210+240+225+195+180+270=1320$ kWh. Divide by six: $1320\div6=220$ kWh.
+- id: 'q-statistics-and-probability-data-analysis-graphs-0007'
+  type: 'word-problem'
+  difficulty: 'medium'
+  stem: |
+    A review center recorded the practice exam scores of $40$ students:
+    
+    | Score Range | Frequency ($f$) |
+    | :--- | :--- |
+    | $51-60$ | 4 |
+    | $61-70$ | 10 |
+    | $71-80$ | 16 |
+    | $81-90$ | 7 |
+    | $91-100$ | 3 |
+    
+    What percentage of the students scored greater than $70$?
+  choices:
+  - text: '$65\%$'
+    correct: true
+  - text: '$40\%$'
+    rationale: |
+      This counts only the seventy-one-to-eighty band. Sixteen of forty gives forty percent. Include higher bands.
+  - text: '$57.5\%$'
+    rationale: |
+      This omits the highest band. The next two bands contribute twenty-three. Include all scores above seventy.
+  - text: '$90\%$'
+    rationale: |
+      This includes scores above sixty. Thirty-six students meet that cutoff. Match the stated cutoff.
+  explanation: |
+    Above seventy includes $16+7+3=26$ students. Divide by forty and convert to percent: $\dfrac{26}{40}(100\%)=65\%$.
+- id: 'q-statistics-and-probability-data-analysis-graphs-0008'
+  type: 'word-problem'
+  difficulty: 'medium'
+  stem: |
+    A survey gathered preferred commuting modes among workers in Makati City:
+    
+    | Transport Mode | Male Workers | Female Workers |
+    | :--- | :--- | :--- |
+    | MRT / LRT | 180 | 220 |
+    | Bus / Jeepney | 150 | 150 |
+    | Private Vehicle | 120 | 80 |
+    | Walking / Bicycle | 50 | 50 |
+    
+    Among the female workers surveyed, what fraction prefers taking the MRT / LRT? Express in simplest fraction form.
+  choices:
+  - text: '$\dfrac{11}{25}$'
+    correct: true
+  - text: '$\dfrac{9}{25}$'
+    rationale: |
+      This uses the male MRT count with the female total. Both counts appear in that row. Keep the requested sex consistent.
+  - text: '$\dfrac{11}{50}$'
+    rationale: |
+      This uses the total of both sexes. One thousand is the full sample. Restrict to female workers.
+  - text: '$\dfrac{22}{40}$'
+    rationale: |
+      This conditions on MRT riders. Four hundred people prefer rail. Use all female workers as the denominator.
+  explanation: |
+    The female total is $220+150+80+50=500$. Of these, $220$ prefer MRT or LRT. The fraction is $\dfrac{220}{500}=\dfrac{11}{25}$.
+- id: 'q-statistics-and-probability-data-analysis-graphs-0009'
+  type: 'word-problem'
+  difficulty: 'medium'
+  stem: |
+    Two agricultural exporters in Davao recorded coconut oil shipments (in thousand barrels) per quarter:
+    
+    | Quarter | Company A | Company B |
+    | :--- | :--- | :--- |
+    | Q1 | 40 | 60 |
+    | Q2 | 55 | 50 |
+    | Q3 | 65 | 45 |
+    | Q4 | 80 | 65 |
+    
+    What is the ratio of Company A's total annual export to Company B's total annual export? Express as a simplified ratio $a : b$.
+  choices:
+  - text: '$12 : 11$'
+    correct: true
+  - text: '$11 : 12$'
+    rationale: |
+      This reverses the company order. Both annual totals are correct. Keep A before B.
+  - text: '$13:9$'
+    rationale: |
+      This compares Q3 only. That quarter has a ratio thirteen to nine. Add all quarters.
+  - text: '$10:11$'
+    rationale: |
+      This leaves out A first-quarter exports. Two hundred is A remaining total. Include every quarter for both companies.
+  explanation: |
+    The annual totals are $240$ for A and $220$ for B. Their ratio is $240:220$. Divide both terms by twenty to get $12:11$.
+- id: 'q-statistics-and-probability-data-analysis-graphs-0010'
+  type: 'word-problem'
+  difficulty: 'medium'
+  stem: |
+    A fast-food chain in Cebu tracked daily sales of rice meal options:
+    
+    | Day | Chicken Rice | Pork Rice | Beef Rice |
+    | :--- | :--- | :--- | :--- |
+    | Monday | 80 | 50 | 30 |
+    | Tuesday | 90 | 54 | 36 |
+    | Wednesday | 85 | 55 | 40 |
+    | Thursday | 100 | 70 | 50 |
+    | Friday | 120 | 80 | 60 |
+    
+    On which day did Pork Rice sales account for exactly $30\%$ of the total rice meals sold that day?
+  choices:
+  - text: 'Tuesday'
+    correct: true
+  - text: 'Monday'
+    rationale: |
+      This rounds 31.25 percent to thirty. Monday is close to the target. Check the word exactly.
+  - text: 'Wednesday'
+    rationale: |
+      This rounds about 30.56 percent to thirty. Wednesday is close. Use the exact daily fraction.
+  - text: 'Friday'
+    rationale: |
+      This rounds about 30.77 percent to thirty. Friday is close. Check exact equality.
+  explanation: |
+    Tuesday has $90+54+36=180$ meals, of which $54$ are pork. Thus $\dfrac{54}{180}(100\%)=30\%$, exactly the requested share.
+- id: 'q-statistics-and-probability-data-analysis-graphs-0011'
+  type: 'word-problem'
+  difficulty: 'medium'
+  stem: |
+    Three evacuation centers in Albay recorded evacuee counts during a typhoon:
+    
+    | Evacuation Center | Day 1 | Day 2 | Day 3 | Day 4 |
+    | :--- | :--- | :--- | :--- | :--- |
+    | Center A | 150 | 200 | 250 | 180 |
+    | Center B | 100 | 130 | 150 | 120 |
+    | Center C | 100 | 110 | 125 | 90 |
+    
+    By what percentage did the total number of evacuees across all three centers increase from Day 1 to Day 3?
+  choices:
+  - text: '$50\%$'
+    correct: true
+  - text: '$33.3\%$'
+    rationale: |
+      This divides the increase by the final total. Both totals are relevant. Use the starting total.
+  - text: '$66.7\%$'
+    rationale: |
+      This compares Center A alone. Its increase is two-thirds. Combine all centers.
+  - text: '$75\%$'
+    rationale: |
+      This compares Centers A and B but omits C. The larger centers are prominent. Include every center.
+  explanation: |
+    Day one total is $150+100+100=350$. Day three total is $250+150+125=525$. The increase is $175$, so $\dfrac{175}{350}(100\%)=50\%$.
+- id: 'q-statistics-and-probability-data-analysis-graphs-0012'
+  type: 'word-problem'
+  difficulty: 'hard'
+  stem: |
+    A survey categorized the monthly household expenditures (in pesos) of $60$ families in a barangay:
+    
+    | Expenditure Range ($\text{₱}$) | Midpoint ($x$) | Number of Families ($f$) |
+    | :--- | :--- | :--- |
+    | $10,000 - 14,999$ | $\text{₱}12,500$ | 8 |
+    | $15,000 - 19,999$ | $\text{₱}17,500$ | 15 |
+    | $20,000 - 24,999$ | $\text{₱}22,500$ | 20 |
+    | $25,000 - 29,999$ | $\text{₱}27,500$ | 12 |
+    | $30,000 - 34,999$ | $\text{₱}32,500$ | 5 |
+    
+    Calculate the estimated mean monthly expenditure ($\bar{x}$) of the $60$ families using the class midpoints.
+  choices:
+  - text: '$\text{₱}21,750$'
+    correct: true
+  - text: '$\text{₱}22,500$'
+    rationale: |
+      This averages the midpoints without their frequencies. The midpoint list is symmetric. Weight each class by its family count.
+  - text: '$\text{₱}20,500$'
+    rationale: |
+      This uses $2$ instead of $8$ in the first class product but still divides by $60$. Copying a frequency table can mix up an entry. Check each frequency against its own row.
+  - text: '$\text{₱}26,100$'
+    rationale: |
+      This divides the weighted total by fifty instead of sixty. Fifty is a common sample size. Count all families.
+  explanation: |
+    Multiply each midpoint by its frequency: $100000+262500+450000+330000+162500=1305000$. Divide by the sixty families to get an estimated mean of $\text{₱}21,750$.
+- id: 'q-statistics-and-probability-data-analysis-graphs-0013'
+  type: 'word-problem'
+  difficulty: 'hard'
+  stem: |
+    A mathematics instructor recorded student quiz results in a frequency table:
+    
+    | Quiz Score ($x$) | Frequency ($f$) |
+    | :--- | :--- |
+    | 10 | 3 |
+    | 15 | $k$ |
+    | 20 | 8 |
+    | 25 | 4 |
+    
+    If the weighted mean score of the class is $18.25$, what is the value of the unknown frequency $k$?
+  choices:
+  - text: '$5$'
+    correct: true
+  - text: '$4$'
+    rationale: |
+      This copies the frequency $4$ from the score-$25$ row as the unknown count. That number is already printed in the table. Check which score the missing frequency belongs to.
+  - text: '$6$'
+    rationale: |
+      This rounds $3.25$ down to $3$ in the final equation, then rounds $16.25/3$ up to $6$. A count must be a whole number, which makes rounding look useful. Check the exact equation before rounding any quantity.
+  - text: '$7$'
+    rationale: |
+      This rounds the mean to $18$, then rounds the resulting count $20/3$ to $7$. Whole-number scores can make a rounded mean look suitable. Check that the calculation uses the stated mean $18.25$.
+  explanation: |
+    The score total is $10(3)+15k+20(8)+25(4)=290+15k$. The student count is $15+k$. Thus $290+15k=18.25(15+k)$. Rearranging gives $16.25=3.25k$, so $k=5$.
+- id: 'q-statistics-and-probability-data-analysis-graphs-0014'
+  type: 'word-problem'
+  difficulty: 'hard'
+  stem: |
+    Palay production figures (in metric tons) for three regions in Luzon over three consecutive years are shown below:
+    
+    | Region | Year 1 | Year 2 | Year 3 |
+    | :--- | :--- | :--- | :--- |
+    | Region I (Ilocos) | 300,000 | 330,000 | 363,000 |
+    | Region II (Cagayan Valley) | 500,000 | 550,000 | 577,500 |
+    | Region III (Central Luzon) | 800,000 | 840,000 | 882,000 |
+    
+    Which region had the highest total percentage growth in palay production from Year 1 to Year 3?
+  choices:
+  - text: 'Region I'
+    correct: true
+  - text: 'Region III'
+    rationale: |
+      This uses the largest absolute increase. Region III rises by eighty-two thousand. Divide each change by its own starting value.
+  - text: 'Region II'
+    rationale: |
+      This uses the larger starting production to judge growth. Region II starts above Region I. Compare percentages.
+  - text: 'All three regions had equal percentage growth'
+    rationale: |
+      This assumes similar yearly patterns give equal growth. All regions rise each year. Compute each full-period rate.
+  explanation: |
+    The three growth rates are $\dfrac{63000}{300000}=21\%$, $\dfrac{77500}{500000}=15.5\%$, and $\dfrac{82000}{800000}=10.25\%$. Region I has the largest percentage growth.
+- id: 'q-statistics-and-probability-data-analysis-graphs-0015'
+  type: 'word-problem'
+  difficulty: 'hard'
+  stem: |
+    Two CET review centers recorded the score distribution of $100$ mock exam takers each:
+    
+    | Score Range | Center X ($N=100$) | Center Y ($N=100$) |
+    | :--- | :--- | :--- |
+    | $50-59$ | 10 | 5 |
+    | $60-69$ | 25 | 20 |
+    | $70-79$ | 35 | 45 |
+    | $80-89$ | 20 | 22 |
+    | $90-99$ | 10 | 8 |
+    
+    If a score of $70$ or higher is considered passing, by how many students does Center Y exceed Center X in total passing students?
+  choices:
+  - text: '$10\text{ students}$'
+    correct: true
+  - text: '$5\text{ students}$'
+    rationale: |
+      This counts the nonpassing difference in only the lowest band. That band differs by five. Add all passing bands.
+  - text: '$12\text{ students}$'
+    rationale: |
+      This leaves out the highest-score band. The two lower passing bands differ by twelve. Include every passing band.
+  - text: '$2\text{ students}$'
+    rationale: |
+      This uses only the highest-score band difference and drops its sign. Eight and ten differ by two. Sum all passing bands before comparing.
+  explanation: |
+    Center X has $35+20+10=65$ passing students. Center Y has $45+22+8=75$. The difference is $75-65=10$ students.
+- id: 'q-statistics-and-probability-data-analysis-graphs-0016'
+  type: 'word-problem'
+  difficulty: 'hard'
+  stem: |
+    A transportation survey categorized $500$ commuters in Metro Manila by age group and preferred public transit option:
+    
+    | Age Group | Traditional Jeepney | Modern Jeepney | Bus | Total |
+    | :--- | :--- | :--- | :--- | :--- |
+    | $18-30$ | 40 | 90 | 70 | 200 |
+    | $31-50$ | 60 | 80 | 60 | 200 |
+    | $51+$ | 70 | 20 | 10 | 100 |
+    | Total | 170 | 190 | 140 | 500 |
+    
+    What percentage of commuters who prefer Modern Jeepneys belong to the $18-30$ age group?
+    Round to the nearest tenth of a percent.
+  choices:
+  - text: '$47.4\%$'
+    correct: true
+  - text: '$45.0\%$'
+    rationale: |
+      This divides by all two hundred younger commuters. They include other vehicles. Restrict to modern-jeepney users.
+  - text: '$18.0\%$'
+    rationale: |
+      This divides by all five hundred commuters. That is the table total. Use the condition in the question.
+  - text: '$52.6\%$'
+    rationale: |
+      This counts modern-jeepney users from the other age groups. Those groups total one hundred. Match the requested age group.
+  explanation: |
+    Among the $190$ modern-jeepney users, $90$ are in the stated age group. Compute $\dfrac{90}{190}(100\%)\approx47.368\%$. Rounded to one decimal place, this is $47.4\%$.
+- id: 'q-statistics-and-probability-data-analysis-graphs-0017'
+  type: 'word-problem'
+  difficulty: 'medium'
+  stem: |
+    A school budget pie chart assigns $72^\circ$ to transport. The total budget is P25000. What amount is allocated to transport?
+  choices:
+  - text: 'P5000'
+    correct: true
+  - text: 'P18000'
+    rationale: |
+      This treats seventy-two degrees as seventy-two percent. Both describe a sector. Divide its angle by 360 first.
+  - text: 'P20000'
+    rationale: |
+      This reports the amount outside transport. The complement is eighty percent. Match the requested sector.
+  - text: 'P250'
+    rationale: |
+      This treats the whole budget as a one-percent amount. Percent calculations involve one hundred. Use the sector fraction of the whole.
+  explanation: |
+    The sector fraction is $\dfrac{72}{360}=\dfrac15$. Multiply by P25000 to get P5000.
+  approved: false
+- id: 'q-statistics-and-probability-data-analysis-graphs-0018'
+  type: 'which-is-true'
+  difficulty: 'hard'
+  stem: |
+    A scatter plot of time and temperature forms a clear U-shaped curve. Which conclusion is justified?
+  choices:
+  - text: 'A nonlinear association is visible.'
+    correct: true
+  - text: 'The variables have no relationship.'
+    rationale: |
+      This equates lack of a straight trend with no relationship. The plot is not a straight line. Inspect the curved pattern.
+  - text: 'Time has been proved to cause temperature changes.'
+    rationale: |
+      This turns association into causation. The pattern is clear. Check whether the study design establishes a cause.
+  - text: 'The association is a straight upward trend.'
+    rationale: |
+      This focuses only on the right side of the U. That part rises. Inspect the entire pattern.
+  explanation: |
+    A U-shaped pattern changes direction. It shows a structured relationship that is curved rather than a single straight trend. Thus a nonlinear association is visible.
+  approved: false
+- id: 'q-statistics-and-probability-data-analysis-graphs-0019'
+  type: 'error-spotting'
+  difficulty: 'hard'
+  stem: |
+    A bar graph has baseline $90$ and bars ending at $100$ and $110$. A student says the second value is twice the first because the visible bar heights are $20$ and $10$. What is the actual ratio?
+  choices:
+  - text: '$1.1$'
+    correct: true
+  - text: '$2$'
+    rationale: |
+      This divides only the visible heights above ninety. Twenty is twice ten. Read the actual axis values.
+  - text: '$10$'
+    rationale: |
+      This reports the value difference as the ratio. The endpoints differ by ten. Divide instead of subtracting.
+  - text: '$0.5$'
+    rationale: |
+      This reverses the visible-height ratio. The drawn lengths suggest a factor two. Use actual endpoints in the requested order.
+  explanation: |
+    The actual values are $110$ and $100$. Their ratio is $\dfrac{110}{100}=1.1$. The nonzero baseline changes the visible lengths.
+  approved: false
+- id: 'q-statistics-and-probability-data-analysis-graphs-0020'
+  type: 'which-is-true'
+  difficulty: 'exam'
+  stem: |
+    A budget sector rises from $20\%$ to $30\%$ of the whole. Which statement describes the change?
+  choices:
+  - text: 'Up 10 percentage points and 50 percent.'
+    correct: true
+  - text: 'Up 10 percentage points and 10 percent.'
+    rationale: |
+      This treats percentage-point change as relative percent change. The shares differ by ten. Divide the difference by the original share.
+  - text: 'Up 50 percentage points and 10 percent.'
+    rationale: |
+      This swaps the two kinds of comparison. Fifty is the relative increase. Keep their definitions separate.
+  - text: 'Up 30 percentage points and 150 percent.'
+    rationale: |
+      This reports the final share and final-to-initial ratio as increases. Both are useful values. Subtract the starting amount first.
+  explanation: |
+    The difference is $30-20=10$ percentage points. Relative to the original share, the increase is $\dfrac{10}{20}(100\%)=50\%$.
+  approved: false

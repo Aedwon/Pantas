@@ -10,6 +10,7 @@ class QuizSessions extends Table {
   TextColumn get subtopicId => text().nullable()();
   TextColumn get lessonId => text().nullable()();
   TextColumn get questionIdsJson => text()();
+  TextColumn get outcomesJson => text().withDefault(const Constant('[]'))();
   IntColumn get currentIndex => integer().withDefault(const Constant(0))();
   IntColumn get correctCount => integer().withDefault(const Constant(0))();
   DateTimeColumn get startedAt => dateTime()();

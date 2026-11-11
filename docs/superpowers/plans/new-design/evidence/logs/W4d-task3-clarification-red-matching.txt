@@ -1,0 +1,56 @@
+
+test/features/quiz/domain/picker/practice_mode_match_test.dart:24:40: Error: Member not found: 'BuildPracticeSummary.closestValue'.
+    final value = BuildPracticeSummary.closestValue(units: data.units,
+                                       ^^^^^^^^^^^^
+test/features/quiz/domain/picker/practice_mode_match_test.dart:32:33: Error: Member not found: 'BuildPracticeSummary.closestValue'.
+    expect(BuildPracticeSummary.closestValue(units: data.units,
+                                ^^^^^^^^^^^^
+test/features/quiz/domain/picker/practice_mode_match_test.dart:35:33: Error: Member not found: 'BuildPracticeSummary.closestValue'.
+    expect(BuildPracticeSummary.closestValue(units: data.units,
+                                ^^^^^^^^^^^^
+test/features/quiz/domain/picker/practice_mode_match_test.dart:42:33: Error: Member not found: 'BuildPracticeSummary.closestValue'.
+    expect(BuildPracticeSummary.closestValue(units: data.units,
+                                ^^^^^^^^^^^^
+test/features/quiz/domain/picker/practice_mode_match_test.dart:51:44: Error: Member not found: 'BuildPracticeSummary.closestValue'.
+      final minutes = BuildPracticeSummary.closestValue(units: data.units,
+                                           ^^^^^^^^^^^^
+test/features/quiz/domain/picker/practice_mode_match_test.dart:57:46: Error: Member not found: 'BuildPracticeSummary.closestValue'.
+      final perLesson = BuildPracticeSummary.closestValue(units: data.units,
+                                             ^^^^^^^^^^^^
+test/features/quiz/domain/picker/practice_mode_match_test.dart:69:33: Error: Member not found: 'BuildPracticeSummary.closestValue'.
+    expect(BuildPracticeSummary.closestValue(units: data.units,
+                                ^^^^^^^^^^^^
+test/features/quiz/domain/picker/practice_mode_match_test.dart:72:33: Error: Member not found: 'BuildPracticeSummary.closestValue'.
+    expect(BuildPracticeSummary.closestValue(units: const [],
+                                ^^^^^^^^^^^^
+::group::❌ loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_mode_match_test.dart (failed)
+Failed to load "/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_mode_match_test.dart":
+Compilation failed for testPath=/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/picker/practice_mode_match_test.dart: test/features/quiz/domain/picker/practice_mode_match_test.dart:24:40: Error: Member not found: 'BuildPracticeSummary.closestValue'.
+    final value = BuildPracticeSummary.closestValue(units: data.units,
+                                       ^^^^^^^^^^^^
+test/features/quiz/domain/picker/practice_mode_match_test.dart:32:33: Error: Member not found: 'BuildPracticeSummary.closestValue'.
+    expect(BuildPracticeSummary.closestValue(units: data.units,
+                                ^^^^^^^^^^^^
+test/features/quiz/domain/picker/practice_mode_match_test.dart:35:33: Error: Member not found: 'BuildPracticeSummary.closestValue'.
+    expect(BuildPracticeSummary.closestValue(units: data.units,
+                                ^^^^^^^^^^^^
+test/features/quiz/domain/picker/practice_mode_match_test.dart:42:33: Error: Member not found: 'BuildPracticeSummary.closestValue'.
+    expect(BuildPracticeSummary.closestValue(units: data.units,
+                                ^^^^^^^^^^^^
+test/features/quiz/domain/picker/practice_mode_match_test.dart:51:44: Error: Member not found: 'BuildPracticeSummary.closestValue'.
+      final minutes = BuildPracticeSummary.closestValue(units: data.units,
+                                           ^^^^^^^^^^^^
+test/features/quiz/domain/picker/practice_mode_match_test.dart:57:46: Error: Member not found: 'BuildPracticeSummary.closestValue'.
+      final perLesson = BuildPracticeSummary.closestValue(units: data.units,
+                                             ^^^^^^^^^^^^
+test/features/quiz/domain/picker/practice_mode_match_test.dart:69:33: Error: Member not found: 'BuildPracticeSummary.closestValue'.
+    expect(BuildPracticeSummary.closestValue(units: data.units,
+                                ^^^^^^^^^^^^
+test/features/quiz/domain/picker/practice_mode_match_test.dart:72:33: Error: Member not found: 'BuildPracticeSummary.closestValue'.
+    expect(BuildPracticeSummary.closestValue(units: const [],
+                                ^^^^^^^^^^^^
+.
+
+::endgroup::
+
+::error::0 tests passed, 1 failed.

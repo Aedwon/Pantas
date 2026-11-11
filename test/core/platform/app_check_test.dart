@@ -19,6 +19,7 @@ void main() {
   setUpAll(() {
     registerFallbackValue(const AndroidDebugProvider());
     registerFallbackValue(const AppleDebugProvider());
+    registerFallbackValue(ReCaptchaEnterpriseProvider('fallback'));
   });
 
   late MockFirebaseAppCheck mockAppCheck;
@@ -29,6 +30,7 @@ void main() {
       () => mockAppCheck.activate(
         providerAndroid: any(named: 'providerAndroid'),
         providerApple: any(named: 'providerApple'),
+        providerWeb: any(named: 'providerWeb'),
       ),
     ).thenAnswer((_) async {});
   });
@@ -39,6 +41,7 @@ void main() {
       () => mockAppCheck.activate(
         providerAndroid: captureAny(named: 'providerAndroid'),
         providerApple: captureAny(named: 'providerApple'),
+        providerWeb: any(named: 'providerWeb'),
       ),
     ).captured;
     return (
@@ -67,6 +70,7 @@ void main() {
       () => mockAppCheck.activate(
         providerAndroid: any(named: 'providerAndroid'),
         providerApple: any(named: 'providerApple'),
+        providerWeb: any(named: 'providerWeb'),
       ),
     ).thenThrow(Exception('App check failure'));
 
@@ -74,5 +78,97 @@ void main() {
       activateAppCheck(Flavor.dev, appCheck: mockAppCheck),
       completes,
     );
+  });
+
+  Future<WebProvider?> webProviderFor({
+    required bool isWeb,
+    required bool releaseMode,
+    String key = '',
+    Flavor flavor = Flavor.staging,
+  }) async {
+    await activateAppCheck(
+      flavor,
+      appCheck: mockAppCheck,
+      webSiteKey: key,
+      isWeb: isWeb,
+      releaseMode: releaseMode,
+    );
+    return verify(
+      () => mockAppCheck.activate(
+        providerAndroid: any(named: 'providerAndroid'),
+        providerApple: any(named: 'providerApple'),
+        providerWeb: captureAny(named: 'providerWeb'),
+      ),
+    ).captured.single as WebProvider?;
+  }
+
+  test('web attests with reCAPTCHA Enterprise when a site key is built in',
+      () async {
+    final web = await webProviderFor(
+      isWeb: true,
+      releaseMode: true,
+      key: 'site-key-1',
+    );
+    expect(web, isA<ReCaptchaEnterpriseProvider>());
+    expect(web!.siteKey, 'site-key-1');
+  });
+
+  test('a debug web build with a site key still uses reCAPTCHA', () async {
+    final web = await webProviderFor(
+      isWeb: true,
+      releaseMode: false,
+      key: 'site-key-1',
+    );
+    expect(web, isA<ReCaptchaEnterpriseProvider>());
+  });
+
+  test('a debug web build without a site key uses the web debug provider',
+      () async {
+    final web = await webProviderFor(
+      isWeb: true,
+      releaseMode: false,
+      flavor: Flavor.dev,
+    );
+    expect(web, isA<WebDebugProvider>());
+  });
+
+  test('a release web build never uses the debug provider', () async {
+    final web = await webProviderFor(
+      isWeb: true,
+      releaseMode: true,
+      key: 'site-key-1',
+      flavor: Flavor.prod,
+    );
+    expect(web, isNot(isA<WebDebugProvider>()));
+  });
+
+  test('a release web build without a site key fails closed', () async {
+    await expectLater(
+      activateAppCheck(
+        Flavor.prod,
+        appCheck: mockAppCheck,
+        isWeb: true,
+        releaseMode: true,
+      ),
+      throwsA(
+        isA<AppCheckConfigurationException>().having(
+          (e) => e.toString(),
+          'message',
+          contains('APP_CHECK_WEB_SITE_KEY'),
+        ),
+      ),
+    );
+    verifyNever(
+      () => mockAppCheck.activate(
+        providerAndroid: any(named: 'providerAndroid'),
+        providerApple: any(named: 'providerApple'),
+        providerWeb: any(named: 'providerWeb'),
+      ),
+    );
+  });
+
+  test('native builds pass no web provider, even in release', () async {
+    final web = await webProviderFor(isWeb: false, releaseMode: true);
+    expect(web, isNull);
   });
 }

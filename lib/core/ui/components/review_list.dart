@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/passage.dart';
 import 'package:pantas/core/storage/domain/question.dart';
-import 'package:pantas/core/ui/components/answer_reveal.dart';
-import 'package:pantas/core/ui/components/passage_card.dart';
-import 'package:pantas/core/ui/components/pennant_mark.dart';
-import 'package:pantas/core/ui/components/portable_text_renderer.dart';
-import 'package:pantas/core/ui/theme/app_dimensions.dart';
+import 'package:pantas/core/ui/components/content_renderer.dart';
+import 'package:pantas/core/ui/components/new_design/answer_reveal.dart';
+import 'package:pantas/core/ui/components/new_design/passage_card.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 
 enum ReviewFilter { all, wrong, flagged }
 
@@ -22,6 +24,7 @@ class ReviewEntry {
     required this.labelIsStem,
     this.chosenChoiceId,
     this.passage,
+    this.topicName = '',
   });
 
   final int number;
@@ -33,6 +36,10 @@ class ReviewEntry {
 
   final bool isFlagged;
   final String subjectName;
+
+  /// The topic the question sits under, the line a live question shows above
+  /// its stem. Empty where the caller did not read it.
+  final String topicName;
 
   /// The authored short label, or the stem when the content pass has not
   /// reached this question.
@@ -151,7 +158,7 @@ class _ReviewListState extends State<ReviewList> {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final styles = context.textStyles;
+    final styles = context.type;
 
     final counts = FilterReviewEntries.count(widget.entries);
     final filteredEntries = FilterReviewEntries.call(widget.entries, _filter);
@@ -162,27 +169,31 @@ class _ReviewListState extends State<ReviewList> {
         children: [
           if (widget.grouped && subjectName != null) ...[
             Padding(
-              padding: const EdgeInsets.only(top: 16, bottom: 8),
+              padding: const EdgeInsets.only(
+                top: PantasSpace.s16,
+                bottom: PantasSpace.s8,
+              ),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.baseline,
                 textBaseline: TextBaseline.alphabetic,
                 children: [
                   Text(
                     subjectName,
-                    style: styles.headlineSmall.copyWith(fontSize: 14),
+                    style: PantasType.phoneSectionHeader
+                        .copyWith(color: colors.label),
                   ),
-                  const SizedBox(width: 8),
+                  const SizedBox(width: PantasSpace.s8),
                   Text(
                     '${entriesInGroup.length}',
-                    style: styles.bodySmall.copyWith(
-                      color: colors.inkMuted,
+                    style: styles.subhead.copyWith(
+                      color: colors.secondaryLabel,
                       fontFeatures: const [FontFeature.tabularFigures()],
                     ),
                   ),
                 ],
               ),
             ),
-            Container(height: AppDimensions.hairline, color: colors.rule),
+            Container(height: PantasBorder.hairline, color: colors.separator),
           ],
           for (var i = 0; i < entriesInGroup.length; i++) ...[
             // A passage prints once above the run of questions that share it.
@@ -193,7 +204,10 @@ class _ReviewListState extends State<ReviewList> {
                 (i == 0 ||
                     entriesInGroup[i - 1].passage?.id !=
                         entriesInGroup[i].passage!.id))
-              PassageCard(passage: entriesInGroup[i].passage!),
+              PassageCard(
+                title: entriesInGroup[i].passage!.title,
+                text: entriesInGroup[i].passage!.body,
+              ),
             ReviewRow(
               entry: entriesInGroup[i],
               isExpanded: _expandedNumbers.contains(entriesInGroup[i].number),
@@ -201,7 +215,7 @@ class _ReviewListState extends State<ReviewList> {
               onToggleExpanded: () => _toggleExpanded(entriesInGroup[i].number),
               onToggleFlag: widget.onToggleFlag,
             ),
-            Container(height: AppDimensions.hairline, color: colors.ruleFaint),
+            Container(height: PantasBorder.hairline, color: colors.fill),
           ],
         ],
       );
@@ -217,7 +231,7 @@ class _ReviewListState extends State<ReviewList> {
         children: [
           if (widget.header != null) ...[
             widget.header!,
-            const SizedBox(height: 16),
+            const SizedBox(height: PantasSpace.s16),
           ],
           if (widget.showFilters) ...[
             _FilterRow(
@@ -229,7 +243,7 @@ class _ReviewListState extends State<ReviewList> {
                 });
               },
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: PantasSpace.s12),
           ],
           if (widget.grouped && groupedMap != null) ...[
             for (final entry in groupedMap.entries)
@@ -238,7 +252,7 @@ class _ReviewListState extends State<ReviewList> {
             buildGroup(null, filteredEntries),
           ],
           if (widget.footer != null) ...[
-            const SizedBox(height: 24),
+            const SizedBox(height: PantasSpace.s24),
             widget.footer!,
           ],
         ],
@@ -269,7 +283,7 @@ class _FilterRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final styles = context.textStyles;
+    final styles = context.type;
 
     // Plain labels with rule ticks between them. No pills: a pill is a
     // filled shape, and the only filled shapes in this identity are the
@@ -279,10 +293,10 @@ class _FilterRow extends StatelessWidget {
         for (var i = 0; i < ReviewFilter.values.length; i++) ...[
           if (i > 0)
             Container(
-              width: AppDimensions.hairline,
-              height: 12,
-              margin: const EdgeInsets.symmetric(horizontal: 9),
-              color: colors.rule,
+              width: PantasBorder.hairline,
+              height: PantasSpace.s12,
+              margin: const EdgeInsets.symmetric(horizontal: PantasSpace.s8),
+              color: colors.separator,
             ),
           InkWell(
             excludeFromSemantics: true,
@@ -294,14 +308,15 @@ class _FilterRow extends StatelessWidget {
               onTap: () => onChanged(ReviewFilter.values[i]),
               excludeSemantics: true,
               child: ConstrainedBox(
+                // ds-board: ListRow README: 48 px row (D179)
                 constraints: const BoxConstraints(minHeight: 48),
                 child: Center(
                   child: Text(
                     _label(ReviewFilter.values[i], counts),
-                    style: styles.bodySmall.copyWith(
+                    style: styles.subhead.copyWith(
                       color: active == ReviewFilter.values[i]
-                          ? colors.ink
-                          : colors.inkMuted,
+                          ? colors.label
+                          : colors.secondaryLabel,
                       fontWeight: active == ReviewFilter.values[i]
                           ? FontWeight.w700
                           : FontWeight.w400,
@@ -336,10 +351,9 @@ class ReviewRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final styles = context.textStyles;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
+      padding: const EdgeInsets.symmetric(vertical: PantasSpace.s8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -364,17 +378,17 @@ class ReviewRow extends StatelessWidget {
                     // student's position.
                     onTap: onToggleExpanded,
                     child: ConstrainedBox(
+                      // ds-board: ListRow README: 48 px row (D179)
                       constraints: const BoxConstraints(minHeight: 48),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(
-                            width: 28,
+                            width: PantasSpace.s28,
                             child: Text(
                               '${entry.number}',
-                              style: styles.headlineSmall.copyWith(
-                                fontSize: 14,
-                                color: colors.inkMuted,
+                              style: PantasType.phoneSectionHeader.copyWith(
+                                color: colors.secondaryLabel,
                                 fontFeatures: const [
                                   FontFeature.tabularFigures(),
                                 ],
@@ -382,8 +396,9 @@ class ReviewRow extends StatelessWidget {
                             ),
                           ),
                           Expanded(
-                            child: PortableTextRenderer(
+                            child: ContentRenderer(
                               text: entry.label,
+                              questionStem: entry.labelIsStem,
                               maxLines: entry.labelIsStem ? 2 : null,
                             ),
                           ),
@@ -394,7 +409,7 @@ class ReviewRow extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(width: 8),
+              const SizedBox(width: PantasSpace.s8),
               Semantics(
                 label: '${entry.isFlagged ? 'Unflag' : 'Flag'} '
                     'question ${entry.number}',
@@ -406,9 +421,17 @@ class ReviewRow extends StatelessWidget {
                   excludeFromSemantics: true,
                   onTap: () => onToggleFlag(entry.question.id),
                   child: SizedBox.square(
+                    // ds-board: ListRow README: 48 px row (D179)
                     dimension: 48,
                     child: Center(
-                      child: PennantMark(isSet: entry.isFlagged),
+                      child: Icon(
+                        PantasIcons.flag,
+                        // ds-board: no README for this glyph
+                        size: 21,
+                        color: entry.isFlagged
+                            ? colors.label
+                            : colors.secondaryLabel,
+                      ),
                     ),
                   ),
                 ),
@@ -417,11 +440,20 @@ class ReviewRow extends StatelessWidget {
           ),
           if (isExpanded)
             Padding(
-              padding: const EdgeInsets.only(top: 12),
+              padding: const EdgeInsets.only(top: PantasSpace.s12),
               child: AnswerReveal(
-                question: entry.question,
-                chosenChoiceId: entry.chosenChoiceId ?? '',
-                proIsActive: proIsActive,
+                correctLetter: entry.question.correctChoice.label,
+                explanation: entry.question.explanation,
+                pickedLetter: entry.question.choices
+                    .where((c) => c.id == entry.chosenChoiceId)
+                    .firstOrNull
+                    ?.label,
+                wrongPick: proIsActive && !entry.isCorrect
+                    ? entry.question.choices
+                        .where((c) => c.id == entry.chosenChoiceId)
+                        .firstOrNull
+                        ?.rationale
+                    : null,
               ),
             ),
         ],
@@ -438,35 +470,35 @@ class _OutcomeMark extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final styles = context.textStyles;
+    final styles = context.type;
 
     if (!entry.isAnswered) {
       return SizedBox(
-        width: 16,
+        width: PantasSpace.s16,
         child: Text(
           '–',
-          style: styles.bodyMedium.copyWith(color: colors.inkMuted),
+          style: styles.subhead.copyWith(color: colors.secondaryLabel),
         ),
       );
     }
     if (entry.isCorrect) {
       return SizedBox(
-        width: 16,
+        width: PantasSpace.s16,
         child: Text(
           '✓',
-          style: styles.bodyMedium.copyWith(
-            color: colors.board,
+          style: styles.subhead.copyWith(
+            color: colors.accent,
             fontWeight: FontWeight.bold,
           ),
         ),
       );
     }
     return SizedBox(
-      width: 16,
+      width: PantasSpace.s16,
       child: Text(
         '✕',
-        style: styles.bodyMedium.copyWith(
-          color: colors.rust,
+        style: styles.subhead.copyWith(
+          color: colors.destructive,
           fontWeight: FontWeight.bold,
         ),
       ),

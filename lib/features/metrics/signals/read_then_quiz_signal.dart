@@ -5,14 +5,18 @@ import 'package:pantas/features/metrics/domain/metric_signal.dart';
 import 'package:pantas/features/metrics/domain/metrics_window.dart';
 import 'package:pantas/features/metrics/domain/signal_outputs.dart';
 import 'package:pantas/features/metrics/signals/attempt_item_reader.dart';
+import 'package:pantas/features/metrics/signals/counted_attempts.dart';
+import 'package:pantas/features/metrics/signals/metric_calculations.dart';
 import 'package:pantas/features/metrics/signals/signal_content_helpers.dart';
 
 class ReadThenQuizSignal implements Signal<WorkflowRatio> {
-  ReadThenQuizSignal(this._db, this._contentDb)
-      : _reader = const AttemptItemReader(),
+  ReadThenQuizSignal(this._db, this._contentDb, {AttemptScope? scope})
+      : _scope = scope,
+        _reader = const AttemptItemReader(),
         _content = SignalContentHelpers(_contentDb);
 
   final AppDatabase _db;
+  final AttemptScope? _scope;
   final ContentDatabase _contentDb;
   final AttemptItemReader _reader;
   final SignalContentHelpers _content;
@@ -29,43 +33,51 @@ class ReadThenQuizSignal implements Signal<WorkflowRatio> {
     required String examId,
   }) async {
     if (!window.hasEnoughData) return null;
-    final firstAttemptByTopic = <String, DateTime>{};
-    final attempts = await (_db.select(_db.attemptsLocal)
-          ..where(
-            (row) => row.examId.equals(examId) & row.completedAt.isNotNull(),
-          ))
-        .get();
-    for (final attempt in attempts) {
+    final observedAttempts = <({String topicId, DateTime startedAt})>[];
+    final scope = _scope;
+    final attempts = scope != null
+        ? await scope.attempts(_db, examId)
+        : [
+            for (final row in await (_db.select(_db.attemptsLocal)
+                  ..where(
+                    (row) =>
+                        row.examId.equals(examId) & row.completedAt.isNotNull(),
+                  ))
+                .get())
+              CountedAttempt(row),
+          ];
+    for (final counted in attempts) {
+      final attempt = counted.row;
       for (final item in _reader.read(attempt.itemsJson)) {
+        if (!counted.counts(item.questionId)) continue;
         final topicId = await _content.topicIdForQuestion(item.questionId);
         if (topicId == null) continue;
-        final existing = firstAttemptByTopic[topicId];
-        if (existing == null || attempt.startedAt.isBefore(existing)) {
-          firstAttemptByTopic[topicId] = attempt.startedAt;
-        }
+        observedAttempts.add((topicId: topicId, startedAt: attempt.startedAt));
       }
     }
 
-    var readThenQuiz = 0;
-    var quizFirst = 0;
+    final reads = <({String topicId, DateTime readAt, bool inExam})>[];
     final progress = await _db.select(_db.lessonProgressLocal).get();
     for (final row in progress) {
       final lesson = await (_contentDb.select(_contentDb.contentLessons)
             ..where((lesson) => lesson.id.equals(row.lessonId)))
           .getSingleOrNull();
       if (lesson == null) continue;
-      final firstAttempt = firstAttemptByTopic[lesson.topicId];
-      if (firstAttempt == null) continue;
-      if (row.readAt.isBefore(firstAttempt) || row.readAt == firstAttempt) {
-        readThenQuiz += 1;
-      } else {
-        quizFirst += 1;
-      }
+      final topic = await _content.topic(lesson.topicId);
+      final subject =
+          topic == null ? null : await _content.subject(topic.subjectId);
+      reads.add(
+        (
+          topicId: lesson.topicId,
+          readAt: row.readAt,
+          inExam: subject?.examId == examId
+        ),
+      );
     }
-    if (readThenQuiz + quizFirst == 0) return null;
-    return WorkflowRatio(
-      readThenQuizCount: readThenQuiz,
-      quizFirstCount: quizFirst,
+    return MetricCalculations.workflow(
+      attempts: observedAttempts,
+      lessons: reads,
+      allowEmpty: window.minSessionCount == 0,
     );
   }
 }

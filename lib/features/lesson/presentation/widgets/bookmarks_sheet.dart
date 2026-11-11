@@ -1,485 +1,1438 @@
+import 'dart:async';
+
+import 'package:drift/drift.dart' show TableUpdateQuery;
 import 'package:flutter/material.dart';
+import 'package:flutter/semantics.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/error_banner.dart';
-import 'package:pantas/core/ui/components/ink_checkbox.dart';
-import 'package:pantas/core/ui/components/ink_chevron.dart';
-import 'package:pantas/core/ui/components/pennant_mark.dart';
+import 'package:pantas/core/ui/components/list_row.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
+import 'package:pantas/core/ui/components/pantas_icon_button.dart';
+import 'package:pantas/core/ui/components/pantas_tooltip.dart';
+import 'package:pantas/core/ui/components/segmented_switch.dart';
+import 'package:pantas/core/ui/components/selection_row.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
+import 'package:pantas/core/ui/components/state_view.dart';
+import 'package:pantas/core/ui/components/toast.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/lesson/application/bookmark_providers.dart';
+import 'package:pantas/features/lesson/application/study_map_providers.dart';
+import 'package:pantas/features/lesson/data/repos/bookmark_prefs_repository.dart';
+import 'package:pantas/features/lesson/data/repos/reader_position_repository.dart';
 
-Future<void> showBookmarksSheet(BuildContext context) {
-  return showModalBottomSheet<void>(
-    context: context,
-    isScrollControlled: true,
-    barrierColor: context.colors.ink.withValues(alpha: 0.34),
-    constraints: BoxConstraints(
-      maxHeight: MediaQuery.sizeOf(context).height * 0.74,
-    ),
-    builder: (_) => const _BookmarksSheet(),
-  );
+/// Contents of the shared 74% sheet. The Study page owns its open state.
+class BookmarksSheet extends ConsumerStatefulWidget {
+  const BookmarksSheet({required this.onClose, this.wide = false, super.key});
+  final bool wide;
+  final VoidCallback onClose;
+  @override
+  ConsumerState<BookmarksSheet> createState() => _BookmarksSheetState();
 }
 
-class _BookmarksSheet extends ConsumerStatefulWidget {
-  const _BookmarksSheet();
+class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
+  bool _editing = false;
+  bool _busy = false;
+  final _selected = <String>{};
+  List<BookmarkRow> _shown = const [];
+  BookmarkOrder _shownOrder = BookmarkOrder.recent;
+  Set<String> _folding = {};
+  Set<String> _restoring = {};
+  Timer? _foldTimer;
+  BookmarkRemoval? _removed;
+  bool _undoVisible = false;
+  Future<void> Function(ReaderBoundary, bool Function())? _failedSave;
+  late final Future<ReaderBoundary?> _initialBoundary;
+  ReaderBoundary? _boundary;
+  bool _alive = true;
+  int _epoch = 0;
+  bool _actorKnown = false;
+  String? _lastActor;
+  bool _examKnown = false;
+  String? _lastExam;
+  StreamSubscription<Object?>? _boundaryChanges;
+  final _subscriptions = <ProviderSubscription<Object?>>[];
 
   @override
-  ConsumerState<_BookmarksSheet> createState() => _BookmarksSheetState();
-}
-
-class _BookmarksSheetState extends ConsumerState<_BookmarksSheet> {
-  bool _editing = false;
-  final Set<LessonId> _selectedIds = {};
-  String? _undoMessage;
-  Set<LessonId>? _removedForUndo;
-
-  void _toggleSelect(LessonId id) {
-    setState(() {
-      if (_selectedIds.contains(id)) {
-        _selectedIds.remove(id);
+  void initState() {
+    super.initState();
+    _subscriptions
+      ..add(
+        ref.listenManual<AsyncValue<AuthState>>(
+          authStateProvider,
+          (_, next) {
+            if (!next.hasValue) return;
+            final actor = _authIdentity(next.valueOrNull);
+            if (_actorKnown && actor != _lastActor) _expireUndo();
+            _actorKnown = true;
+            _lastActor = actor;
+          },
+          fireImmediately: true,
+        ),
+      )
+      ..add(
+        ref.listenManual<AsyncValue<ActiveExamFocus>>(
+          activeExamFocusProvider,
+          (_, next) {
+            if (!next.hasValue) return;
+            final exam = next.requireValue.exam?.id;
+            if (_examKnown && exam != _lastExam) _expireUndo();
+            _examKnown = true;
+            _lastExam = exam;
+          },
+          fireImmediately: true,
+        ),
+      );
+    final db = ref.read(appDatabaseProvider);
+    _boundaryChanges = db
+        .tableUpdates(TableUpdateQuery.onTable(db.syncMeta))
+        .listen((updates) {
+      if (_boundary == null) {
+        _expireUndo();
       } else {
-        _selectedIds.add(id);
+        unawaited(_validateUndo());
+      }
+    });
+    _initialBoundary = _captureInitial();
+  }
+
+  Future<ReaderBoundary?> _captureInitial() async {
+    final prefs = ref.read(bookmarkPrefsRepositoryProvider);
+    final tokenFuture = prefs.captureToken(isCurrent: () => mounted && _alive);
+    final actor = ref.read(authStateProvider.future);
+    final focus = ref.read(activeExamFocusProvider.future);
+    try {
+      final token = await tokenFuture;
+      await actor;
+      if (!mounted || !_alive || token == null) return null;
+      final exam = (await focus).exam?.id;
+      if (!mounted || !_alive || exam == null) return null;
+      final boundary = ReaderBoundary(examId: exam, token: token);
+      final valid = await prefs.isBoundaryCurrent(
+        boundary,
+        isCurrent: () => mounted && _alive,
+      );
+      if (!mounted || !_alive) return null;
+      if (!valid) {
+        _expireUndo();
+        return null;
+      }
+      _boundary = boundary;
+      ref
+        ..invalidate(bookmarkOrderProvider)
+        ..invalidate(bookmarkRowsProvider);
+      return boundary;
+    } on Exception {
+      _expireUndo();
+      return null;
+    }
+  }
+
+  @override
+  void dispose() {
+    _alive = false;
+    _epoch++;
+    _foldTimer?.cancel();
+    unawaited(_boundaryChanges?.cancel());
+    for (final subscription in _subscriptions) {
+      subscription.close();
+    }
+    super.dispose();
+  }
+
+  Future<void> _save(
+    Future<void> Function(ReaderBoundary, bool Function()) operation,
+  ) async {
+    if (_busy || !_alive) return;
+    final epoch = _epoch;
+    bool current() => mounted && _alive && epoch == _epoch;
+    setState(() => _busy = true);
+    try {
+      final boundary = await _initialBoundary;
+      if (!current() || boundary == null) return;
+      await operation(boundary, current);
+      if (current()) setState(() => _failedSave = null);
+    } on BookmarkActionExpired {
+      if (current()) _expireUndo();
+    } on Exception {
+      if (current()) setState(() => _failedSave = operation);
+    } finally {
+      if (mounted) setState(() => _busy = false);
+    }
+  }
+
+  String? _authIdentity(AuthState? state) => switch (state) {
+        AnonymousAuthState(:final uid) => 'anonymous:$uid',
+        SignedInAuthState(:final user) => 'signed:${user.uid}',
+        _ => null,
+      };
+
+  void _expireUndo() {
+    if (!mounted || !_alive) return;
+    _alive = false;
+    _epoch++;
+    _foldTimer?.cancel();
+    setState(() {
+      _removed = null;
+      _undoVisible = false;
+      _failedSave = null;
+      _folding.clear();
+      _restoring.clear();
+      _selected.clear();
+    });
+  }
+
+  Future<void> _validateUndo() async {
+    final boundary = _boundary;
+    if (boundary == null || !_alive) return;
+    final prefs = ref.read(bookmarkPrefsRepositoryProvider);
+    try {
+      final valid = await prefs.isBoundaryCurrent(
+        boundary,
+        isCurrent: () => mounted && _alive,
+      );
+      if (!valid && mounted) _expireUndo();
+    } on Exception {
+      if (mounted) _expireUndo();
+    }
+  }
+
+  void _select(String id) => setState(() {
+        if (!_selected.add(id)) _selected.remove(id);
+      });
+
+  Future<void> _remove() {
+    final ids = Set<String>.of(_selected);
+    final before = List<BookmarkRow>.of(_shown);
+    BookmarkRemoval? committed;
+    return _save((boundary, current) async {
+      if (ids.isEmpty) return;
+      final exam = boundary.examId;
+      final prefs = ref.read(bookmarkPrefsRepositoryProvider);
+      final removal = committed ??= await prefs.remove(
+        exam,
+        ids,
+        boundary: boundary,
+        isCurrent: current,
+      );
+      if (!current()) return;
+      if (!await prefs.isRemovalCurrent(removal)) {
+        if (current()) _expireUndo();
+        return;
+      }
+      if (!mounted || !current()) return;
+      _foldTimer?.cancel();
+      setState(() {
+        _removed = removal;
+        _shown = before;
+        _folding = ids;
+        _selected.clear();
+        _undoVisible = true;
+      });
+      ref
+        ..invalidate(bookmarkRowsProvider)
+        ..invalidate(studyMapProvider);
+      _foldTimer = Timer(
+          MediaQuery.disableAnimationsOf(context)
+              ? Duration.zero
+              : const Duration(milliseconds: 350), () {
+        if (mounted) {
+          setState(() {
+            _shown = _shown
+                .where((row) => !_folding.contains(row.lessonId))
+                .toList();
+            _folding.clear();
+          });
+        }
+      });
+    });
+  }
+
+  Future<void> _undo() => _save((boundary, current) async {
+        final removal = _removed;
+        if (removal == null) return;
+        final prefs = ref.read(bookmarkPrefsRepositoryProvider);
+        bool restored;
+        try {
+          restored = await prefs.restore(
+            removal,
+            boundary: boundary,
+            isCurrent: current,
+          );
+        } on Exception {
+          if (!mounted || !identical(_removed, removal)) return;
+          if (!await prefs.isRemovalCurrent(removal)) {
+            _expireUndo();
+            return;
+          }
+          if (!mounted || !identical(_removed, removal)) return;
+          rethrow;
+        }
+        if (!mounted || !identical(_removed, removal)) return;
+        if (!restored) {
+          _expireUndo();
+          return;
+        }
+        _foldTimer?.cancel();
+        setState(() {
+          _folding.clear();
+          _restoring = {for (final row in removal.rows) row.lessonId};
+          _undoVisible = false;
+        });
+        ref
+          ..invalidate(bookmarkRowsProvider)
+          ..invalidate(studyMapProvider);
+        _foldTimer = Timer(
+            MediaQuery.disableAnimationsOf(context)
+                ? Duration.zero
+                : const Duration(milliseconds: 350), () {
+          if (mounted) setState(_restoring.clear);
+        });
+      });
+
+  Future<void> _move(int oldIndex, int newIndex) {
+    if (oldIndex < 0 ||
+        oldIndex >= _shown.length ||
+        newIndex < 0 ||
+        newIndex >= _shown.length) {
+      return Future.value();
+    }
+    final relative = newIndex < oldIndex ? 'above' : 'below';
+    final destination = '$relative ${_shown[newIndex].title}';
+    final ids = [for (final row in _shown) row.lessonId];
+    final moved = ids.removeAt(oldIndex);
+    ids.insert(newIndex, moved);
+    return _save((boundary, current) async {
+      final exam = boundary.examId;
+      final prefs = ref.read(bookmarkPrefsRepositoryProvider);
+      final order = ref.read(bookmarkOrderProvider.notifier);
+      await prefs.saveCustomOrder(
+        exam,
+        ids,
+        boundary: boundary,
+        isCurrent: current,
+      );
+      await order.choose(
+        BookmarkOrder.custom,
+        boundary: boundary,
+        isCurrent: current,
+      );
+      if (!current()) return;
+      ref.invalidate(bookmarkRowsProvider);
+      if (mounted) {
+        await SemanticsService.sendAnnouncement(
+          View.of(context),
+          'Moved $destination.',
+          Directionality.of(context),
+        );
       }
     });
   }
 
-  Future<void> _removeSelected(List<BookmarkRow> rows) async {
-    if (_selectedIds.isEmpty) return;
+  Widget _action(
+    String text,
+    VoidCallback? onPressed, {
+    String? label,
+    bool strong = false,
+    double size = 15,
+    bool wide = false,
+    bool compact = false,
+  }) =>
+      Semantics(
+        label: label ?? text,
+        button: true,
+        enabled: onPressed != null,
+        onTap: onPressed,
+        excludeSemantics: true,
+        child: compact || wide
+            // Board BM_Custom: a small button beside the control.
+            ? WebButton(
+                label: text,
+                onPressed: onPressed,
+                kind: PantasButtonKind.tertiary,
+                tone: PantasButtonTone.accent,
+                size: PantasButtonSize.xs,
+              )
+            : PantasButton(
+                label: text,
+                onPressed: onPressed,
+                kind: PantasButtonKind.tertiary,
+                tone: PantasButtonTone.accent,
+                fullWidth: false,
+                height: PantasSize.btn,
+              ),
+      );
 
-    final repo = ref.read(lessonBookmarksRepositoryProvider);
-    final toRemove = Set<LessonId>.from(_selectedIds);
-    final count = toRemove.length;
+  /// Puts the bookmarks back in the order they were added.
+  Widget _resetOrder({bool compact = false}) => _action(
+        'Reset order',
+        () => _save((boundary, current) async {
+          final exam = boundary.examId;
+          final prefs = ref.read(bookmarkPrefsRepositoryProvider);
+          final order = ref.read(bookmarkOrderProvider.notifier);
+          final bookmarks = ref.read(lessonBookmarksRepositoryProvider);
+          final recent = await bookmarks.recentFirst();
+          await prefs.saveCustomOrder(
+            exam,
+            recent.map((r) => r.lessonId).toList(),
+            boundary: boundary,
+            isCurrent: current,
+          );
+          await order.choose(
+            BookmarkOrder.recent,
+            boundary: boundary,
+            isCurrent: current,
+          );
+          if (!current()) return;
+          ref.invalidate(bookmarkRowsProvider);
+        }),
+        label: 'Reset bookmark order',
+        size: compact ? 14 : 15,
+        compact: compact,
+      );
 
-    await repo.unmarkAll(toRemove);
-    ref.invalidate(bookmarkRowsProvider);
+  /// The end padding of a row: tighter while the drag grip is showing.
+  double get _rowEndPad =>
+      _editing && _shown.length > 1 ? PantasSpace.s10 : PantasSpace.s16;
 
-    setState(() {
-      _undoMessage = '$count bookmark${count == 1 ? '' : 's'} removed';
-      _removedForUndo = toRemove;
-      _selectedIds.clear();
-    });
-  }
-
-  Future<void> _undoRemove() async {
-    final toRestore = _removedForUndo;
-    if (toRestore == null || toRestore.isEmpty) return;
-
-    final repo = ref.read(lessonBookmarksRepositoryProvider);
-    for (final id in toRestore) {
-      await repo.mark(id);
+  Widget _header(bool valid) {
+    if (widget.wide) {
+      return SizedBox(
+        height: PantasLayout.focusHead,
+        child: Padding(
+          padding: const EdgeInsets.only(left: PantasSpace.s20),
+          child: Row(
+            children: [
+              Expanded(
+                child: Text(
+                  'Bookmarks',
+                  style: context.webTokens
+                      .style(22, weight: FontWeight.w700, height: 1.3),
+                ),
+              ),
+              if (_shown.isNotEmpty)
+                _action(
+                  _editing ? 'Done' : 'Edit',
+                  valid
+                      ? () => setState(() {
+                            _editing = !_editing;
+                            _selected.clear();
+                          })
+                      : null,
+                  label: _editing ? 'Done editing bookmarks' : 'Edit bookmarks',
+                  strong: true,
+                  size: 16,
+                  wide: true,
+                ),
+            ],
+          ),
+        ),
+      );
     }
-    ref.invalidate(bookmarkRowsProvider);
-
-    setState(() {
-      _undoMessage = null;
-      _removedForUndo = null;
-    });
+    final title = Text(
+      'Bookmarks',
+      style: PantasType.phoneTitle3.copyWith(color: context.colors.label),
+    );
+    final action = _action(
+      _editing ? 'Done' : 'Edit',
+      valid
+          ? () => setState(() {
+                _editing = !_editing;
+                _selected.clear();
+              })
+          : null,
+      label: _editing ? 'Done editing bookmarks' : 'Edit bookmarks',
+      strong: _editing,
+      size: 17,
+    );
+    if (MediaQuery.textScalerOf(context).scale(17) > 25.5) {
+      return Padding(
+        padding: const EdgeInsets.fromLTRB(
+          PantasSpace.s20,
+          PantasSpace.s14,
+          PantasSpace.s20,
+          PantasSpace.s12,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            title,
+            Align(alignment: Alignment.centerRight, child: action),
+          ],
+        ),
+      );
+    }
+    return Stack(
+      children: [
+        Padding(
+          padding: const EdgeInsets.fromLTRB(
+            PantasSpace.s20,
+            PantasSpace.s14,
+            PantasSpace.s20,
+            PantasSpace.s12,
+          ),
+          child: title,
+        ),
+        Positioned(
+          top: widget.wide ? 0 : 3,
+          bottom: 0,
+          right: 20,
+          child: action,
+        ),
+      ],
+    );
   }
 
-  Widget _tapTarget({
-    required String label,
-    required VoidCallback onTap,
-    required Widget child,
-    bool? selected,
-  }) {
-    return Semantics(
-      button: true,
-      label: label,
-      selected: selected,
-      onTap: onTap,
-      child: ExcludeSemantics(
-        child: GestureDetector(
-          onTap: onTap,
-          behavior: HitTestBehavior.opaque,
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(minWidth: 48, minHeight: 50),
-            child: Center(child: child),
+  Widget _row(BookmarkRow row, int index, {required bool divider}) {
+    final visible = !_folding.contains(row.lessonId);
+    final large = MediaQuery.textScalerOf(context).scale(17) > 25.5;
+    final checked = _selected.contains(row.lessonId);
+    void activate() {
+      if (_editing) {
+        _select(row.lessonId);
+        return;
+      }
+      final router = GoRouter.of(context);
+      unawaited(router.push<void>('/lesson/${row.lessonId}?from=bookmarks'));
+    }
+
+    return _FoldRow(
+      key: ValueKey(row.lessonId),
+      visible: visible,
+      beginVisible: !_restoring.contains(row.lessonId),
+      child: CallbackShortcuts(
+        bindings: {
+          if (widget.wide && index > 0)
+            const SingleActivator(LogicalKeyboardKey.arrowUp, alt: true): () =>
+                _move(index, index - 1),
+          if (widget.wide && index + 1 < _shown.length)
+            const SingleActivator(LogicalKeyboardKey.arrowDown, alt: true):
+                () => _move(index, index + 1),
+          if (_editing && index > 0)
+            const SingleActivator(LogicalKeyboardKey.arrowUp, control: true):
+                () => _move(index, index - 1),
+          if (_editing && index + 1 < _shown.length)
+            const SingleActivator(
+              LogicalKeyboardKey.arrowDown,
+              control: true,
+            ): () => _move(index, index + 1),
+        },
+        child: Semantics(
+          label: _editing
+              ? 'Select bookmark: ${row.title}'
+              : 'Open bookmark: ${row.title}',
+          button: !_editing,
+          customSemanticsActions: {
+            if (_editing && index > 0)
+              const CustomSemanticsAction(label: 'Move up'): () =>
+                  _move(index, index - 1),
+            if (_editing && index + 1 < _shown.length)
+              const CustomSemanticsAction(label: 'Move down'): () =>
+                  _move(index, index + 1),
+          },
+          child: TweenAnimationBuilder<double>(
+            tween: Tween(begin: 0, end: _editing ? 1 : 0),
+            duration: MediaQuery.disableAnimationsOf(context)
+                ? Duration.zero
+                : const Duration(milliseconds: 250),
+            curve: PantasCurves.house,
+            builder: (context, value, _) => _editing && widget.wide
+                ? _wideEditRow(row, index, checked, activate, divider)
+                : _editing
+                    ? Container(
+                        constraints: const BoxConstraints(minHeight: 62),
+                        decoration: BoxDecoration(
+                          border: divider
+                              ? Border(
+                                  bottom: BorderSide(
+                                    color: context.colors.separator,
+                                    width: .5,
+                                  ),
+                                )
+                              : null,
+                        ),
+                        child: CheckboxRow(
+                          round: true,
+                          padding: const EdgeInsets.fromLTRB(
+                            PantasSpace.s20,
+                            PantasSpace.s8,
+                            PantasSpace.s10,
+                            PantasSpace.s8,
+                          ),
+                          title: row.title,
+                          selected: checked,
+                          onTap: activate,
+                          content: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(row.title, style: context.type.body),
+                              Text(row.topicName, style: context.type.footnote),
+                            ],
+                          ),
+                          trailing: _shown.length > 1
+                              ? ReorderableDragStartListener(
+                                  index: index,
+                                  child: SizedBox.square(
+                                    dimension: 44,
+                                    child: Center(
+                                      child: IconTheme(
+                                        key: const ValueKey('bookmark-grip'),
+                                        data: IconThemeData(
+                                          size: 22,
+                                          color: context.colors.tertiaryLabel,
+                                        ),
+                                        child: PantasIcons.reorder,
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              : null,
+                        ),
+                      )
+                    : widget.wide
+                        ? WebRow(
+                            title: row.title,
+                            subtitle: row.topicName,
+                            selected: _editing && checked,
+                            boardMetrics: true,
+                            trailing: (_editing ||
+                                        _shownOrder == BookmarkOrder.custom) &&
+                                    _shown.length > 1
+                                ? ReorderableDragStartListener(
+                                    index: index,
+                                    // A click on the grip focuses the row for
+                                    // Alt and arrow keys. It does not open it.
+                                    child: _GripFocus(
+                                      child: PantasTooltip(
+                                        anchorHeight: PantasSize.iconBtnSm,
+                                        message:
+                                            'Move bookmark: Alt ↑ or Alt ↓',
+                                        // Board BM_Custom: the six-dot grip,
+                                        // 16 px, as in Edit.
+                                        child: SizedBox.square(
+                                          dimension: 32,
+                                          child: Center(
+                                            child: SizedBox.square(
+                                              dimension: 16,
+                                              child: CustomPaint(
+                                                key: const ValueKey(
+                                                  'bookmark-grip',
+                                                ),
+                                                painter: _GripDots(
+                                                  context.colors.tertiaryLabel,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  )
+                                : _editing
+                                    ? null
+                                    : Icon(
+                                        Icons.chevron_right,
+                                        size: 16,
+                                        color: context.colors.chevron,
+                                      ),
+                            onPressed: activate,
+                            divider: divider,
+                          )
+                        : ListRow(
+                            title: row.title,
+                            subtitle: row.topicName,
+                            wrapTitle: large,
+                            subtitleGap: widget.wide ? 0 : 1,
+                            minimumHeight: 62,
+                            divider: divider,
+                            contentPadding: EdgeInsets.fromLTRB(
+                              PantasSpace.s20,
+                              PantasSpace.s8,
+                              _rowEndPad,
+                              PantasSpace.s8,
+                            ),
+                            leadingGap: 12 * value,
+                            trailingWidget: (_editing || widget.wide)
+                                ? _shown.length > 1
+                                    ? ReorderableDragStartListener(
+                                        index: index,
+                                        child: SizedBox.square(
+                                          dimension: 44,
+                                          child: Center(
+                                            child: IconTheme(
+                                              key: const ValueKey(
+                                                'bookmark-grip',
+                                              ),
+                                              data: IconThemeData(
+                                                size: 22,
+                                                color: context
+                                                    .colors.tertiaryLabel,
+                                              ),
+                                              child: PantasIcons.reorder,
+                                            ),
+                                          ),
+                                        ),
+                                      )
+                                    : const SizedBox.shrink()
+                                : Icon(
+                                    PantasIcons.next,
+                                    size: 14,
+                                    color: context.colors.chevron,
+                                  ),
+                            onTap: activate,
+                          ),
           ),
         ),
       ),
     );
   }
+
+  /// BM_Edit: board checkbox row, tint when picked, small grip at the end.
+  Widget _wideEditRow(
+    BookmarkRow row,
+    int index,
+    bool checked,
+    VoidCallback activate,
+    bool divider,
+  ) {
+    final t = context.webTokens;
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: checked ? t.colors.accentTint : null,
+        border: divider
+            ? Border(bottom: BorderSide(color: t.colors.separator))
+            : null,
+      ),
+      // The grip sits outside the row's button, so the row's own hover fill
+      // would stop short of the edge. This one covers the whole row.
+      child: _RowHover(
+        child: CheckboxRow(
+          hoverFill: false,
+          padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s20),
+          gap: 16,
+          minHeight: 70,
+          standardDensity: true,
+          title: row.title,
+          selected: checked,
+          onTap: activate,
+          content: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                row.title,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: t.style(17, height: 22 / 17),
+              ),
+              Text(
+                row.topicName,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: t.style(
+                  14,
+                  height: 18 / 14,
+                  color: t.colors.secondaryLabel,
+                ),
+              ),
+            ],
+          ),
+          trailing: _shown.length > 1
+              ? ReorderableDragStartListener(
+                  index: index,
+                  child: PantasTooltip(
+                    anchorHeight: PantasSpace.s16,
+                    message: 'Move bookmark: Alt ↑ or Alt ↓',
+                    child: SizedBox.square(
+                      dimension: 16,
+                      child: CustomPaint(
+                        key: const ValueKey('bookmark-grip'),
+                        painter: _GripDots(t.colors.tertiaryLabel),
+                      ),
+                    ),
+                  ),
+                )
+              : null,
+        ),
+      ),
+    );
+  }
+
+  Widget _footer() {
+    final count = Text(
+      '${_selected.length} selected',
+      style:
+          context.type.subhead.copyWith(color: context.colors.secondaryLabel),
+    );
+    final all = _action(
+      'Select All',
+      _busy
+          ? null
+          : () => setState(() {
+                if (_selected.length == _shown.length) {
+                  _selected.clear();
+                } else {
+                  _selected.addAll(_shown.map((row) => row.lessonId));
+                }
+              }),
+      label: 'Select all bookmarks',
+      strong: true,
+    );
+    final remove = Semantics(
+      label: 'Remove selected bookmarks',
+      enabled: !_busy && _selected.isNotEmpty,
+      button: true,
+      excludeSemantics: true,
+      onTap: !_busy && _selected.isNotEmpty ? _remove : null,
+      child: PantasButton(
+        key: const ValueKey('bookmark-remove-outline'),
+        label: 'Remove',
+        kind: PantasButtonKind.secondary,
+        tone: PantasButtonTone.critical,
+        fullWidth: false,
+        height: PantasSize.btn,
+        onPressed: !_busy && _selected.isNotEmpty ? _remove : null,
+      ),
+    );
+    final actions = Wrap(
+      spacing: 18,
+      alignment: WrapAlignment.end,
+      crossAxisAlignment: WrapCrossAlignment.center,
+      children: [all, remove],
+    );
+    if (widget.wide) {
+      final t = context.webTokens;
+      return Container(
+        padding: const EdgeInsets.fromLTRB(
+          PantasSpace.s20,
+          PantasSpace.s16,
+          PantasSpace.s20,
+          PantasSpace.s18,
+        ),
+        decoration: BoxDecoration(
+          color: context.colors.surface,
+          border: Border(top: BorderSide(color: t.colors.separator)),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            _action(
+              'Select All',
+              _busy
+                  ? null
+                  : () => setState(() {
+                        if (_selected.length == _shown.length) {
+                          _selected.clear();
+                        } else {
+                          _selected.addAll(_shown.map((row) => row.lessonId));
+                        }
+                      }),
+              label: 'Select all bookmarks',
+              strong: true,
+              size: 16,
+              wide: true,
+            ),
+            Text(
+              '${_selected.length} selected',
+              style: t.sm,
+            ),
+            WebButton(
+              label: 'Remove',
+              variant: WebButtonVariant.danger,
+              onPressed: !_busy && _selected.isNotEmpty
+                  ? () => unawaited(_remove())
+                  : null,
+            ),
+          ],
+        ),
+      );
+    }
+    return Container(
+      constraints: const BoxConstraints(minHeight: 74),
+      padding: const EdgeInsets.fromLTRB(
+        PantasSpace.s20,
+        PantasSpace.s0,
+        PantasSpace.s20,
+        PantasSpace.s16,
+      ),
+      child: MediaQuery.textScalerOf(context).scale(15) > 22.5
+          ? Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [count, actions],
+            )
+          : Row(children: [count, const Spacer(), actions]),
+    );
+  }
+
+  Widget _list(BookmarkOrder order) {
+    final items = List<BookmarkRow>.of(_shown);
+    bool hasDivider(int index) {
+      if (_editing || order == BookmarkOrder.custom) {
+        return index + 1 < items.length;
+      }
+      if (order == BookmarkOrder.bySubject) {
+        return index + 1 < items.length &&
+            items[index].subjectName == items[index + 1].subjectName;
+      }
+      return true;
+    }
+
+    if ((_editing || (widget.wide && order == BookmarkOrder.custom)) &&
+        items.length > 1) {
+      return ReorderableListView.builder(
+        shrinkWrap: widget.wide,
+        buildDefaultDragHandles: false,
+        proxyDecorator: (child, index, animation) => _BookmarkDragProxy(
+          animation: animation,
+          child: child,
+        ),
+        onReorderItem: _move,
+        itemCount: items.length,
+        itemBuilder: (_, index) =>
+            _row(items[index], index, divider: hasDivider(index)),
+      );
+    }
+    return ListView.builder(
+      shrinkWrap: widget.wide,
+      itemCount: items.length,
+      itemBuilder: (_, index) {
+        final item = items[index];
+        final row = _row(item, index, divider: hasDivider(index));
+        if (order != BookmarkOrder.bySubject ||
+            _editing ||
+            item.subjectName.isEmpty ||
+            (index > 0 && items[index - 1].subjectName == item.subjectName)) {
+          return row;
+        }
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(
+                PantasSpace.s20,
+                PantasSpace.s14,
+                PantasSpace.s20,
+                PantasSpace.s4,
+              ),
+              child: Text(
+                item.subjectName.toUpperCase(),
+                style: context.type.sectionHeader,
+              ),
+            ),
+            row,
+          ],
+        );
+      },
+    );
+  }
+
+  Widget _orderTransition(Widget child, Animation<double> animation) =>
+      AnimatedBuilder(
+        animation: animation,
+        child: child,
+        builder: (_, content) => ExcludeFocus(
+          excluding: animation.status != AnimationStatus.completed,
+          child: ExcludeSemantics(
+            excluding: animation.status != AnimationStatus.completed,
+            child: IgnorePointer(
+              ignoring: animation.status != AnimationStatus.completed,
+              child: FadeTransition(
+                key: ValueKey('bookmark-order-fade-'
+                    '${(child.key! as ValueKey<String>).value}'),
+                opacity: animation,
+                child: content,
+              ),
+            ),
+          ),
+        ),
+      );
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.colors;
-    final styles = context.textStyles;
-
-    final rowsAsync = ref.watch(bookmarkRowsProvider);
-    final orderAsync = ref.watch(bookmarkOrderProvider);
-
-    final rows = rowsAsync.valueOrNull ?? const [];
-    final currentOrder = orderAsync.valueOrNull ?? BookmarkOrder.recent;
-    final isCustom = currentOrder == BookmarkOrder.custom;
-    final compactLayout = MediaQuery.textScalerOf(context).scale(1) >= 1.5;
-
-    final editAction = _tapTarget(
-      label: _editing ? 'Done editing bookmarks' : 'Edit bookmarks',
-      onTap: () {
-        setState(() {
-          _editing = !_editing;
-          _selectedIds.clear();
-        });
-      },
-      child: Text(
-        _editing ? 'Done' : 'Edit',
-        style: styles.bodySmall.copyWith(
-          color: colors.board,
-          fontWeight: FontWeight.w600,
-          fontSize: 13,
-        ),
-      ),
-    );
-
-    Widget orderAction(BookmarkOrder order) => _tapTarget(
-          label: 'Order bookmarks by ${order.label}',
-          selected: currentOrder == order,
-          onTap: () {
-            ref.read(bookmarkOrderProvider.notifier).choose(order);
-          },
-          child: Text(
-            order.label,
-            style: styles.bodySmall.copyWith(
-              fontSize: 12.5,
-              color: currentOrder == order ? colors.ink : colors.inkMuted,
-              fontWeight:
-                  currentOrder == order ? FontWeight.w700 : FontWeight.w400,
-            ),
-          ),
-        );
-
-    return Container(
-      decoration: BoxDecoration(
-        color: colors.background,
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(8)),
-        border: Border(top: BorderSide(color: colors.rule)),
-      ),
+    ref.listen(bookmarkPreferenceChangesProvider, (_, next) {
+      if (next.hasValue) unawaited(_validateUndo());
+    });
+    final value = ref.watch(bookmarkRowsProvider);
+    final orderValue = ref.watch(bookmarkOrderProvider);
+    final rows = value.valueOrNull;
+    final removalCount = _removed?.rows.length;
+    if (rows != null && _folding.isEmpty) _shown = rows;
+    final current = orderValue.valueOrNull ?? BookmarkOrder.recent;
+    if (rows != null && !value.isLoading && _folding.isEmpty) {
+      _shownOrder = current;
+    }
+    return Material(
+      color: widget.wide ? context.colors.background : context.colors.surface,
       child: Column(
-        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          // Grab handle
-          Container(
-            width: 34,
-            height: 3,
-            margin: const EdgeInsets.only(top: 9, bottom: 2),
-            decoration: BoxDecoration(
-              color: colors.rule,
-              borderRadius: BorderRadius.circular(2),
-            ),
-          ),
-
-          // Header
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: compactLayout
-                ? Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Text('Bookmarks', style: styles.headlineMedium),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: editAction,
-                      ),
-                    ],
-                  )
-                : Row(
-                    children: [
-                      Text('Bookmarks', style: styles.headlineMedium),
-                      const Spacer(),
-                      editAction,
-                    ],
-                  ),
-          ),
-
-          // Order Selector
-          Container(
-            height: compactLayout ? 100 : 50,
-            decoration: BoxDecoration(
-              border: Border(
-                bottom: BorderSide(color: colors.ruleFaint),
+          if (!widget.wide) ...[
+            const SizedBox(height: PantasSpace.s8),
+            Center(
+              child: Container(
+                width: 36,
+                height: 5,
+                decoration: BoxDecoration(
+                  color: context.colors.pendingMark,
+                  borderRadius: BorderRadius.circular(PantasRadius.sm),
+                ),
               ),
             ),
-            child: compactLayout
-                ? Center(
-                    child: Wrap(
-                      alignment: WrapAlignment.center,
-                      spacing: 8,
-                      children: [
-                        for (final order in BookmarkOrder.values)
-                          orderAction(order),
-                      ],
-                    ),
-                  )
-                : Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      for (var i = 0; i < BookmarkOrder.values.length; i++) ...[
-                        if (i > 0)
-                          Container(
-                            width: 1,
-                            height: 12,
-                            margin: const EdgeInsets.symmetric(horizontal: 10),
-                            color: colors.rule,
-                          ),
-                        orderAction(BookmarkOrder.values[i]),
-                      ],
-                    ],
-                  ),
-          ),
-
-          // Main bookmark list
-          Expanded(
-            child: isCustom && !_editing
-                ? ReorderableListView.builder(
-                    itemCount: rows.length,
-                    buildDefaultDragHandles: false,
-                    onReorder: (oldIndex, newIndex) async {
-                      final ids = [for (final r in rows) r.lessonId];
-                      final moved = ids.removeAt(oldIndex);
-                      final targetIndex =
-                          oldIndex < newIndex ? newIndex - 1 : newIndex;
-                      ids.insert(targetIndex, moved);
-
-                      await ref
-                          .read(lessonBookmarksRepositoryProvider)
-                          .reorder(ids);
-                      ref.invalidate(bookmarkRowsProvider);
-                    },
-                    itemBuilder: (context, index) {
-                      final row = rows[index];
-                      return _buildRow(
-                        key: ValueKey(row.lessonId),
-                        row: row,
-                        index: index,
-                        isCustom: true,
-                        isEditing: false,
-                      );
-                    },
-                  )
-                : ListView.builder(
-                    itemCount: rows.length,
-                    itemBuilder: (context, index) {
-                      final row = rows[index];
-                      return _buildRow(
-                        key: ValueKey(row.lessonId),
-                        row: row,
-                        index: index,
-                        isCustom: isCustom,
-                        isEditing: _editing,
-                      );
-                    },
-                  ),
-          ),
-
-          // Undo Banner
-          if (_undoMessage != null)
-            ErrorBanner(
-              variant: ErrorBannerVariant.success,
-              message: _undoMessage!,
-              actionLabel: 'Undo',
-              onAction: _undoRemove,
-            ),
-
-          // Reset order button (only in custom mode)
-          if (isCustom && !_editing)
+          ],
+          if (widget.wide)
+            Row(
+              children: [
+                Expanded(child: _header(!value.hasError && rows != null)),
+                PantasIconButton(
+                  tooltip: 'Close bookmarks',
+                  glyph: PantasIcons.close,
+                  onPressed: widget.onClose,
+                ),
+                const SizedBox(width: PantasSpace.s12),
+              ],
+            )
+          else
+            _header(!value.hasError && rows != null),
+          if (_shown.length > 1)
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8),
-              child: _tapTarget(
-                label: 'Reset bookmark order',
-                onTap: () async {
-                  await ref
-                      .read(lessonBookmarksRepositoryProvider)
-                      .clearCustomOrder();
-                  ref.invalidate(bookmarkRowsProvider);
-                },
-                child: Text(
-                  'Reset order',
-                  style: styles.bodySmall.copyWith(
-                    color: colors.inkMuted,
-                  ),
-                ),
+              padding: EdgeInsets.fromLTRB(
+                PantasSpace.s20,
+                PantasSpace.s0,
+                PantasSpace.s20,
+                widget.wide ? PantasSpace.s14 : PantasSpace.s2,
               ),
-            ),
-
-          // Edit mode footer
-          if (_editing)
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-              decoration: BoxDecoration(
-                border: Border(
-                  top: BorderSide(color: colors.ruleFaint),
-                ),
-              ),
-              child: Builder(
-                builder: (context) {
-                  final selectedCount = Text(
-                    '${_selectedIds.length} selected',
-                    style: styles.bodySmall.copyWith(color: colors.inkMuted),
-                  );
-                  final selectAll = _tapTarget(
-                    label: 'Select all bookmarks',
-                    onTap: () {
-                      setState(() {
-                        if (_selectedIds.length == rows.length) {
-                          _selectedIds.clear();
-                        } else {
-                          _selectedIds.addAll(rows.map((r) => r.lessonId));
-                        }
-                      });
-                    },
-                    child: Text(
-                      'Select all',
-                      style: styles.bodySmall.copyWith(color: colors.inkMuted),
-                    ),
-                  );
-                  final remove = _tapTarget(
-                    label: 'Remove selected bookmarks',
-                    onTap: () => _removeSelected(rows),
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 12,
-                        vertical: 6,
-                      ),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(4),
-                        border: Border.all(color: colors.rust),
-                      ),
-                      child: Text(
-                        'Remove',
-                        style: styles.bodySmall.copyWith(
-                          color: colors.rust,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                  );
-                  if (compactLayout) {
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  if (widget.wide)
+                    // Board BM_Custom: the button sits on the control's row.
+                    Row(
                       children: [
-                        selectedCount,
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: Wrap(
-                            spacing: 16,
-                            children: [selectAll, remove],
+                        Expanded(
+                          child: IgnorePointer(
+                            ignoring: _editing || _busy,
+                            child: Opacity(
+                              opacity: _editing ? .45 : 1,
+                              child: WebSegmentedControl(
+                                labels: [
+                                  for (final order in BookmarkOrder.values)
+                                    order.label,
+                                ],
+                                selected: BookmarkOrder.values.indexOf(current),
+                                onChanged: (index) => _save(
+                                  (boundary, current) => ref
+                                      .read(bookmarkOrderProvider.notifier)
+                                      .choose(
+                                        BookmarkOrder.values[index],
+                                        boundary: boundary,
+                                        isCurrent: current,
+                                      ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        _EditReveal(
+                          open: current == BookmarkOrder.custom,
+                          horizontal: true,
+                          child: Padding(
+                            padding:
+                                const EdgeInsets.only(left: PantasSpace.s8),
+                            child: _resetOrder(compact: true),
                           ),
                         ),
                       ],
-                    );
-                  }
-                  return Row(
-                    children: [
-                      selectedCount,
-                      const Spacer(),
-                      selectAll,
-                      const SizedBox(width: 16),
-                      remove,
-                    ],
-                  );
-                },
+                    )
+                  else ...[
+                    SegmentedSwitch.bookmarks(
+                      labels: [
+                        for (final order in BookmarkOrder.values) order.label,
+                      ],
+                      selected: BookmarkOrder.values.indexOf(current),
+                      enabled: !_editing && !_busy,
+                      onChanged: (index) => _save(
+                        (boundary, current) =>
+                            ref.read(bookmarkOrderProvider.notifier).choose(
+                                  BookmarkOrder.values[index],
+                                  boundary: boundary,
+                                  isCurrent: current,
+                                ),
+                      ),
+                    ),
+                    _EditReveal(
+                      open: _editing && current == BookmarkOrder.custom,
+                      child: Align(
+                        alignment: Alignment.centerRight,
+                        child: _resetOrder(),
+                      ),
+                    ),
+                  ],
+                ],
               ),
             ),
+          if (_failedSave case final failed?)
+            saveFailureLine(() {
+              if (_alive && identical(_failedSave, failed)) {
+                unawaited(_save(failed));
+              }
+            }),
+          Expanded(
+            child: value.hasError
+                ? SingleChildScrollView(
+                    child: errorFor(
+                      'bookmarks',
+                      () => ref.invalidate(bookmarkRowsProvider),
+                    ),
+                  )
+                : rows == null
+                    ? const SingleChildScrollView(
+                        child: SkeletonGroups(
+                          groups: 1,
+                          rows: 5,
+                          rowHeight: 63,
+                          header: false,
+                        ),
+                      )
+                    : _shown.isEmpty
+                        ? LayoutBuilder(
+                            // Board BM_Empty: the block is centered in the
+                            // panel on wide web. The phone keeps it near the
+                            // top (3K-7).
+                            builder: (context, constraints) =>
+                                SingleChildScrollView(
+                              padding:
+                                  const EdgeInsets.only(top: PantasSpace.s4),
+                              child: ConstrainedBox(
+                                constraints: BoxConstraints(
+                                  minHeight: widget.wide
+                                      ? constraints.maxHeight - 4
+                                      : 0,
+                                ),
+                                child: Center(
+                                  child: StateView(
+                                    message: 'No bookmarks yet',
+                                    detail:
+                                        'Bookmark a lesson to keep it here.',
+                                    icon: Icon(PantasIcons.bookmark),
+                                    bookmarkLayout: true,
+                                    bookmarkTop: widget.wide ? 0 : 70,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          )
+                        : AnimatedSwitcher(
+                            duration: MediaQuery.disableAnimationsOf(context)
+                                ? Duration.zero
+                                : const Duration(milliseconds: 200),
+                            transitionBuilder: _orderTransition,
+                            child: Padding(
+                              key: ValueKey(_shownOrder.storageValue),
+                              padding: widget.wide
+                                  ? const EdgeInsets.symmetric(
+                                      horizontal: PantasSpace.s16,
+                                    )
+                                  : EdgeInsets.zero,
+                              child: widget.wide
+                                  ? Align(
+                                      alignment: Alignment.topCenter,
+                                      child: WebCard(child: _list(_shownOrder)),
+                                    )
+                                  : _list(_shownOrder),
+                            ),
+                          ),
+          ),
+          if (_removed != null)
+            Padding(
+              padding: widget.wide
+                  ? const EdgeInsets.only(bottom: PantasSpace.s16)
+                  : const EdgeInsets.fromLTRB(
+                      PantasSpace.s12,
+                      PantasSpace.s0,
+                      PantasSpace.s12,
+                      PantasSpace.s12,
+                    ),
+              child: Center(
+                child: Toast(
+                  message: '$removalCount '
+                      'bookmark${removalCount == 1 ? '' : 's'} removed',
+                  onUndo: _undo,
+                  visible: _undoVisible,
+                  web: widget.wide,
+                ),
+              ),
+            ),
+          _EditReveal(open: _editing && _shown.isNotEmpty, child: _footer()),
         ],
       ),
     );
   }
+}
 
-  Widget _buildRow({
-    required Key key,
-    required BookmarkRow row,
-    required int index,
-    required bool isCustom,
-    required bool isEditing,
-  }) {
-    final colors = context.colors;
-    final styles = context.textStyles;
+/// Decoration timing is independent of Flutter's position/gap animation.
+class _BookmarkDragProxy extends StatefulWidget {
+  const _BookmarkDragProxy({required this.animation, required this.child});
+  final Animation<double> animation;
+  final Widget child;
 
-    void onRowTap() {
-      if (isEditing) {
-        _toggleSelect(row.lessonId);
-      } else {
-        context.push('/lesson/${row.lessonId}');
-      }
+  @override
+  State<_BookmarkDragProxy> createState() => _BookmarkDragProxyState();
+}
+
+class _BookmarkDragProxyState extends State<_BookmarkDragProxy>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _decoration;
+  bool? _reducedMotion;
+
+  @override
+  void initState() {
+    super.initState();
+    _decoration = AnimationController(vsync: this);
+    widget.animation.addStatusListener(_phaseChanged);
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final reduced = MediaQuery.disableAnimationsOf(context);
+    if (_reducedMotion != reduced) {
+      _reducedMotion = reduced;
+      _phaseChanged(widget.animation.status);
     }
+  }
 
-    return Semantics(
-      key: key,
-      button: !isEditing,
-      checked: isEditing ? _selectedIds.contains(row.lessonId) : null,
-      label: isEditing
-          ? 'Select bookmark: ${row.title}'
-          : 'Open bookmark: ${row.title}',
-      onTap: onRowTap,
-      child: ExcludeSemantics(
-        child: GestureDetector(
-          onTap: onRowTap,
-          behavior: HitTestBehavior.opaque,
-          child: Container(
-            constraints: const BoxConstraints(minHeight: 48),
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            decoration: BoxDecoration(
-              border: Border(
-                bottom: BorderSide(color: colors.ruleFaint),
+  @override
+  void didUpdateWidget(_BookmarkDragProxy oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.animation != widget.animation) {
+      oldWidget.animation.removeStatusListener(_phaseChanged);
+      widget.animation.addStatusListener(_phaseChanged);
+      _phaseChanged(widget.animation.status);
+    }
+  }
+
+  void _phaseChanged(AnimationStatus status) {
+    if ((_reducedMotion ?? false) || status == AnimationStatus.dismissed) {
+      _decoration
+        ..stop()
+        ..value = 0;
+      return;
+    }
+    switch (status) {
+      case AnimationStatus.forward:
+        _decoration.animateTo(
+          1,
+          duration: PantasDurations.short2,
+          curve: PantasCurves.house,
+        );
+      case AnimationStatus.reverse:
+        _decoration.animateTo(
+          0,
+          duration: const Duration(milliseconds: 200),
+          curve: PantasCurves.house,
+        );
+      case AnimationStatus.completed:
+        _decoration.value = 1;
+      case AnimationStatus.dismissed:
+        break;
+    }
+  }
+
+  @override
+  void dispose() {
+    widget.animation.removeStatusListener(_phaseChanged);
+    _decoration.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => AnimatedBuilder(
+        animation: _decoration,
+        child: widget.child,
+        builder: (context, child) {
+          final value = _decoration.value;
+          return Transform.scale(
+            key: const ValueKey('bookmark-drag-proxy'),
+            scale: 1 + .03 * value,
+            child: DecoratedBox(
+              key: const ValueKey('bookmark-drag-shadow'),
+              decoration: BoxDecoration(
+                color: context.colors.surface,
+                boxShadow: value == 0
+                    ? const []
+                    : [
+                        BoxShadow(
+                          color: context.colors.shadow
+                              .withValues(alpha: .14 * value),
+                          offset: Offset(0, 8 * value),
+                          blurRadius: 24 * value,
+                        ),
+                      ],
               ),
+              child: child,
             ),
-            child: Row(
-              children: [
-                if (isEditing) ...[
-                  InkCheckbox(
-                    state: _selectedIds.contains(row.lessonId)
-                        ? InkCheckState.on
-                        : InkCheckState.off,
-                    onTap: () => _toggleSelect(row.lessonId),
+          );
+        },
+      );
+}
+
+class _EditReveal extends StatelessWidget {
+  const _EditReveal({
+    required this.open,
+    required this.child,
+    this.horizontal = false,
+  });
+  final bool open;
+  final Widget child;
+
+  /// Opens along the row instead of down the column.
+  final bool horizontal;
+  @override
+  Widget build(BuildContext context) => TweenAnimationBuilder<double>(
+        tween: Tween(begin: 0, end: open ? 1 : 0),
+        duration: MediaQuery.disableAnimationsOf(context)
+            ? Duration.zero
+            : const Duration(milliseconds: 250),
+        curve: PantasCurves.house,
+        child: child,
+        builder: (_, value, child) => Offstage(
+          offstage: value == 0,
+          child: ExcludeFocus(
+            excluding: !open,
+            child: ExcludeSemantics(
+              excluding: !open,
+              child: ClipRect(
+                child: Opacity(
+                  opacity: value,
+                  child: Align(
+                    heightFactor: horizontal ? null : value,
+                    widthFactor: horizontal ? value : null,
+                    alignment:
+                        horizontal ? Alignment.centerLeft : Alignment.topCenter,
+                    child: child,
                   ),
-                  const SizedBox(width: 12),
-                ],
-                PennantMark(
-                  isSet: true,
-                  color: colors.inkMuted,
-                  size: 14,
                 ),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(row.title, style: styles.bodyMedium),
-                      Text(
-                        '${row.topicName}, ${row.estimatedMinutes} min',
-                        style:
-                            styles.bodySmall.copyWith(color: colors.inkMuted),
-                      ),
-                    ],
-                  ),
-                ),
-                if (!isEditing) ...[
-                  const SizedBox(width: 10),
-                  const InkChevron(),
-                ],
-                if (isCustom) ...[
-                  const SizedBox(width: 2),
-                  ReorderableDragStartListener(
-                    index: index,
-                    child: SizedBox.square(
-                      dimension: 48,
-                      child: Icon(
-                        Icons.drag_handle,
-                        key: const ValueKey('bookmark-grip'),
-                        color: colors.inkMuted,
-                        size: 18,
-                      ),
-                    ),
-                  ),
-                ],
-              ],
+              ),
             ),
           ),
         ),
-      ),
-    );
+      );
+}
+
+class _FoldRow extends StatelessWidget {
+  const _FoldRow({
+    required this.visible,
+    required this.child,
+    required this.beginVisible,
+    super.key,
+  });
+  final bool visible;
+  final bool beginVisible;
+  final Widget child;
+  @override
+  Widget build(BuildContext context) => TweenAnimationBuilder<double>(
+        tween: Tween(begin: beginVisible ? 1 : 0, end: visible ? 1 : 0),
+        duration: MediaQuery.disableAnimationsOf(context)
+            ? Duration.zero
+            : const Duration(milliseconds: 350),
+        curve: PantasCurves.house,
+        child: child,
+        builder: (_, value, child) => ExcludeFocus(
+          excluding: !visible || value < 1,
+          child: ExcludeSemantics(
+            excluding: !visible || value < 1,
+            child: IgnorePointer(
+              ignoring: !visible || value < 1,
+              child: ClipRect(
+                child: Opacity(
+                  opacity: value,
+                  child: Align(heightFactor: value, child: child),
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+}
+
+/// Fills the whole row with the hover tint while the pointer is over it.
+class _RowHover extends StatefulWidget {
+  const _RowHover({required this.child});
+  final Widget child;
+  @override
+  State<_RowHover> createState() => _RowHoverState();
+}
+
+class _RowHoverState extends State<_RowHover> {
+  bool _hover = false;
+  @override
+  Widget build(BuildContext context) => MouseRegion(
+        onEnter: (_) => setState(() => _hover = true),
+        onExit: (_) => setState(() => _hover = false),
+        child: ColoredBox(
+          color: _hover ? context.webTokens.rowHover : Colors.transparent,
+          child: widget.child,
+        ),
+      );
+}
+
+/// Takes a click on a row's grip so it focuses the row, without Tab stopping
+/// on every grip, and keeps the click from reaching the row's button.
+class _GripFocus extends StatefulWidget {
+  const _GripFocus({required this.child});
+  final Widget child;
+  @override
+  State<_GripFocus> createState() => _GripFocusState();
+}
+
+class _GripFocusState extends State<_GripFocus> {
+  final _node = FocusNode(debugLabel: 'bookmark grip', skipTraversal: true);
+  @override
+  void dispose() {
+    _node.dispose();
+    super.dispose();
   }
+
+  @override
+  Widget build(BuildContext context) => Focus(
+        focusNode: _node,
+        child: GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTap: _node.requestFocus,
+          child: widget.child,
+        ),
+      );
+}
+
+/// Six dots in two columns, as drawn on the BM_Edit board.
+class _GripDots extends CustomPainter {
+  const _GripDots(this.color);
+  final Color color;
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()..color = color;
+    for (final x in [5.95, 9.95]) {
+      for (final y in [2.95, 6.95, 10.95]) {
+        canvas.drawCircle(Offset(x, y), 1.05, paint);
+      }
+    }
+  }
+
+  @override
+  bool shouldRepaint(_GripDots oldDelegate) => oldDelegate.color != color;
 }

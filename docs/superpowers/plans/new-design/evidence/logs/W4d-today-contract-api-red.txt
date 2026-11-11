@@ -1,0 +1,92 @@
+
+test/features/quiz/application/today_question_launch_test.dart:10:8: Error: Error when reading 'lib/features/home/application/today_questions.dart': No such file or directory
+import 'package:pantas/features/home/application/today_questions.dart';
+       ^
+test/features/quiz/application/today_question_launch_test.dart:21:22: Error: Undefined name 'TodayQuestionKind'.
+  for (final kind in TodayQuestionKind.values) {
+                     ^^^^^^^^^^^^^^^^^
+test/features/quiz/application/today_question_launch_test.dart:37:11: Error: Undefined name 'AccountPrefsCompanion'.
+          AccountPrefsCompanion.insert(key: 'quiz_session_length', value: '5'));
+          ^^^^^^^^^^^^^^^^^^^^^
+test/features/quiz/application/today_question_launch_test.dart:56:15: Error: No named parameter with the name 'topicOrder'.
+              topicOrder: ['t'],
+              ^^^^^^^^^^
+lib/features/roadmap/domain/day_snapshot.dart:89:3: Context: Found this candidate, but the arguments don't match.
+  DaySnapshot({
+  ^^^^^^^^^^^
+test/features/quiz/application/today_question_launch_test.dart:72:39: Error: Undefined name 'todayQuestionLauncherProvider'.
+      final launcher = container.read(todayQuestionLauncherProvider);
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/features/quiz/application/today_question_launch_test.dart:79:19: Error: Undefined name 'TodayQuestionKind'.
+          kind == TodayQuestionKind.reviews
+                  ^^^^^^^^^^^^^^^^^
+test/features/quiz/application/today_question_launch_test.dart:83:19: Error: Undefined name 'TodayQuestionKind'.
+          kind == TodayQuestionKind.reviews ? 2 : null);
+                  ^^^^^^^^^^^^^^^^^
+test/features/quiz/application/today_question_launch_test.dart:86:19: Error: Undefined name 'TodayQuestionKind'.
+          kind == TodayQuestionKind.newQuestions
+                  ^^^^^^^^^^^^^^^^^
+test/features/quiz/application/today_question_launch_test.dart:87:31: Error: Member not found: 'newQuestions'.
+              ? SessionOrigin.newQuestions
+                              ^^^^^^^^^^^^
+test/features/quiz/application/today_question_launch_test.dart:122:15: Error: No named parameter with the name 'topicOrder'.
+              topicOrder: ['t'],
+              ^^^^^^^^^^
+lib/features/roadmap/domain/day_snapshot.dart:89:3: Context: Found this candidate, but the arguments don't match.
+  DaySnapshot({
+  ^^^^^^^^^^^
+test/features/quiz/application/today_question_launch_test.dart:138:29: Error: Undefined name 'todayQuestionLauncherProvider'.
+      final launch = c.read(todayQuestionLauncherProvider);
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/features/quiz/application/today_question_launch_test.dart:151:21: Error: Undefined name 'TodayQuestionKind'.
+              kind: TodayQuestionKind.newQuestions,
+                    ^^^^^^^^^^^^^^^^^
+::group::❌ loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/today_question_launch_test.dart (failed)
+Failed to load "/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/today_question_launch_test.dart":
+Compilation failed for testPath=/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/application/today_question_launch_test.dart: test/features/quiz/application/today_question_launch_test.dart:10:8: Error: Error when reading 'lib/features/home/application/today_questions.dart': No such file or directory
+import 'package:pantas/features/home/application/today_questions.dart';
+       ^
+test/features/quiz/application/today_question_launch_test.dart:21:22: Error: Undefined name 'TodayQuestionKind'.
+  for (final kind in TodayQuestionKind.values) {
+                     ^^^^^^^^^^^^^^^^^
+test/features/quiz/application/today_question_launch_test.dart:37:11: Error: Undefined name 'AccountPrefsCompanion'.
+          AccountPrefsCompanion.insert(key: 'quiz_session_length', value: '5'));
+          ^^^^^^^^^^^^^^^^^^^^^
+test/features/quiz/application/today_question_launch_test.dart:56:15: Error: No named parameter with the name 'topicOrder'.
+              topicOrder: ['t'],
+              ^^^^^^^^^^
+lib/features/roadmap/domain/day_snapshot.dart:89:3: Context: Found this candidate, but the arguments don't match.
+  DaySnapshot({
+  ^^^^^^^^^^^
+test/features/quiz/application/today_question_launch_test.dart:72:39: Error: Undefined name 'todayQuestionLauncherProvider'.
+      final launcher = container.read(todayQuestionLauncherProvider);
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/features/quiz/application/today_question_launch_test.dart:79:19: Error: Undefined name 'TodayQuestionKind'.
+          kind == TodayQuestionKind.reviews
+                  ^^^^^^^^^^^^^^^^^
+test/features/quiz/application/today_question_launch_test.dart:83:19: Error: Undefined name 'TodayQuestionKind'.
+          kind == TodayQuestionKind.reviews ? 2 : null);
+                  ^^^^^^^^^^^^^^^^^
+test/features/quiz/application/today_question_launch_test.dart:86:19: Error: Undefined name 'TodayQuestionKind'.
+          kind == TodayQuestionKind.newQuestions
+                  ^^^^^^^^^^^^^^^^^
+test/features/quiz/application/today_question_launch_test.dart:87:31: Error: Member not found: 'newQuestions'.
+              ? SessionOrigin.newQuestions
+                              ^^^^^^^^^^^^
+test/features/quiz/application/today_question_launch_test.dart:122:15: Error: No named parameter with the name 'topicOrder'.
+              topicOrder: ['t'],
+              ^^^^^^^^^^
+lib/features/roadmap/domain/day_snapshot.dart:89:3: Context: Found this candidate, but the arguments don't match.
+  DaySnapshot({
+  ^^^^^^^^^^^
+test/features/quiz/application/today_question_launch_test.dart:138:29: Error: Undefined name 'todayQuestionLauncherProvider'.
+      final launch = c.read(todayQuestionLauncherProvider);
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/features/quiz/application/today_question_launch_test.dart:151:21: Error: Undefined name 'TodayQuestionKind'.
+              kind: TodayQuestionKind.newQuestions,
+                    ^^^^^^^^^^^^^^^^^
+.
+
+::endgroup::
+
+::error::0 tests passed, 1 failed.

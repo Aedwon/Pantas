@@ -1,0 +1,22 @@
+{
+  "base": "7ef44776dcff8ea6181b0f2418d78438e8a05566",
+  "ruling": "current-main c3719ea2 L3-W4d Task6 shared frame motion contract",
+  "sources": {
+    "lib/core/ui/components/floating_bar.dart": "3a7a2963ae4cfafe1e1e962ae6bffb34153b1fb5877158964c36bff4196864cf",
+    "test/core/ui/components/floating_bar_motion_override_test.dart": "adad8d427cd039bb5729c159311a2a549e2f3975b37ed0d127c82ef6638adbc9"
+  },
+  "behavior": "optional content-constructor transitionDuration/transitionCurve; normal constructor and omitted defaults stay250/300ms linear; reduced motion duration0",
+  "red": {
+    "relay": 11421,
+    "behavioral_failures": 2,
+    "passing_defaults": 2
+  },
+  "green": {
+    "relay": 11424,
+    "passing_tests": 34,
+    "analysis": "No issues found! (ran in 0.7s)",
+    "format": "Formatted 2 files (0 changed) in 0.01 seconds."
+  },
+  "consumer": "not wired in this standalone commit; feature transition and Task6 remain unfinished",
+  "master_evidence": "root records this checkpoint in STATUS; W4d.md Task6 final subsection will include its SHA, avoiding concurrent master-evidence edits"
+}

@@ -236,3 +236,34 @@ refund event then reaches the webhook by itself.
 - [ ] Engagement window: 2026-06-11 to 2026-06-17
 - [ ] Findings report delivered
 - [ ] Critical / High remediations done
+
+## Cost controls
+
+Added 2 November 2026. Aedwon approved the design; the numbers may be tuned.
+Code: `functions/src/content.ts`, `_contentCeiling.ts`, `_options.ts`.
+
+| Control | Value | Where |
+|---|---|---|
+| Delivered lessons and question sets, per account, rolling 24 hours | 300 | `DAILY_CONTENT_IDS` |
+| Delivered catalog documents, per account, rolling 24 hours | 200 | `DAILY_CATALOG_IDS` |
+| Ids asked about (delivered or not), per account, content | 1000 | `DAILY_CONTENT_REQUESTS` |
+| Ids asked about (delivered or not), per account, catalog | 1000 | `DAILY_CATALOG_REQUESTS` |
+| Delivered lessons and question sets, all accounts, per Philippine day | 200,000 | `DAILY_DELIVERED_CEILING` |
+| Instances per function | 10 | `DEFAULT_MAX_INSTANCES` |
+| Instances, payment webhooks | 30 | `WEBHOOK_MAX_INSTANCES` |
+| Instances, account deletion | 20 | `ACCOUNT_DELETION_MAX_INSTANCES` |
+
+- Only content that is sent costs against the delivered limits. A version check
+  that returns "unchanged" or "missing" does not.
+- Accounts with paid access to the requested exam skip the shared ceiling. Their
+  deliveries still count in its total, and their own limits still apply.
+- The ceiling can be changed without a code change: set `DAILY_CONTENT_CEILING`
+  in `functions/.env` and deploy.
+- All content limits return the same error: "Daily content limit reached. Try
+  again tomorrow."
+- The app asks the server about an item once per local day and again at once
+  when the account or what it has paid for changes.
+- Alert lines to match in Cloud Logging: `Daily content ceiling reached 80%`
+  and `Daily content ceiling reached.`
+- Console steps that code cannot do: `build/cost-controls.md` in the
+  staging-candidate worktree.

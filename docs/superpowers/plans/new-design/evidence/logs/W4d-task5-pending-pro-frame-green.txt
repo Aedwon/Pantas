@@ -1,0 +1,2 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_route_coverage_test.dart
+00:00 +0: ordinary route applies current pantas_cs_monthly coverage paused=false

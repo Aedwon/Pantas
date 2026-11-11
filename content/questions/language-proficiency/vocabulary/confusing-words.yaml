@@ -10,19 +10,19 @@ questions:
     stem: |
       The prolonged drought will severely ______ the crop yield for this quarter.
     choices:
-      - text: Affect
+      - text: "Affect"
         correct: true
-      - text: Effect
+      - text: "Effect"
         rationale: |
-          Although "effect" can be a verb in other constructions, here the intended meaning is "influence," for which the ordinary verb is "affect."
-      - text: Affects
+          This confuses influencing something with bringing it about. "Effect" looks familiar because it is linked to results. Check whether the sentence means influence or create.
+      - text: "Affects"
         rationale: |
-          The modal auxiliary "will" requires the base form of the following verb.
-      - text: Effects
+          This adds an -s ending after "will." The singular drought may make that ending look right. Check that a verb after "will" stays in its base form.
+      - text: "Effects"
         rationale: |
-          "Effects" does not supply the required base-form verb with the intended meaning.
+          This combines the result word with an -s ending. Both the singular subject and the idea of a result may make it seem right. Check the verb's meaning and its form after "will."
     explanation: |
-      In this sentence, "affect" is the base-form verb meaning "influence": "will severely affect the crop yield." "Effect" is most commonly a noun meaning a result, though it can also be a verb with a different meaning, such as "effect change."
+      The drought will influence the crop yield. "Affect" means influence, and "will" needs the base form of the verb.
     approved: true
 
   - id: q-vocabulary-confusing-words-0002
@@ -31,40 +31,40 @@ questions:
     stem: |
       The device revised ______ settings after the software update.
     choices:
-      - text: Its
+      - text: "Its"
         correct: true
-      - text: It's
+      - text: "It's"
         rationale: |
-          "It's" contracts "it is" or "it has"; neither reading fits before "settings."
-      - text: Its'
+          This uses a contraction to show ownership. Apostrophes often mark possession, so it may look right. Expand the contraction before putting it before a noun.
+      - text: "Its'"
         rationale: |
-          Standard English has no possessive form "its'."
-      - text: Their
+          This adds an apostrophe after the possessive pronoun. The final -s looks like a plural noun ending. Check whether the word is a pronoun or a plural noun.
+      - text: "Their"
         rationale: |
-          The antecedent is the singular nonhuman noun "device," so "its" is the unambiguous possessive form here.
+          This uses a plural owner for one device. The plural word "settings" may suggest a plural pronoun. Check the number of the owner, not the things owned.
     explanation: |
-      The settings belong to the device, so the possessive determiner is "its" without an apostrophe.
+      The settings belong to one device. "Its" is the possessive form for "it," so "its settings" fits.
     approved: true
 
   - id: q-vocabulary-confusing-words-0003
     type: confusing-words
     difficulty: medium
     stem: |
-      Kumanta ______ maganda ang mag-ina sa entablado.
+      Sa "Kumanta nang maganda ang mag-ina sa entablado," ano ang ipinapakita ng "nang maganda"?
     choices:
-      - text: Nang
+      - text: "Manner of singing"
         correct: true
-      - text: Ng
+      - text: "Ownership of a song"
         rationale: |
-          Dito, inilalarawan ng "maganda" ang paraan ng pagkanta, kaya "nang" ang ginagamit.
-      - text: Na
+          This treats an action description as ownership. "Nang" sounds like the ownership marker "ng." Check whether the phrase names an owner or describes an action.
+      - text: "Time of the performance"
         rationale: |
-          Hindi pang-angkop na "na" ang kailangan sa puwang na nag-uugnay sa pandiwa at sa paglalarawan ng paraan.
-      - text: May
+          This treats "nang" as a time connector in every use. It can mean "when" in other sentences, so this meaning may seem possible. Check whether the following words describe a time or a manner.
+      - text: "Names of the performers"
         rationale: |
-          Hindi ipinakikilala ng puwang ang pagkakaroon o pag-iral, kaya hindi angkop ang "may."
+          This treats a description of the action as a marker for the performers. The pair is mentioned nearby, so their identity may seem central. Check which words actually name the people.
     explanation: |
-      Sumasagot ang "maganda" sa tanong na "paano kumanta?" Kaya "nang" ang wastong gamit: "Kumanta nang maganda."
+      "Nang maganda" describes how the pair sang. It gives the manner of the action.
     approved: true
 
   - id: q-vocabulary-confusing-words-0004
@@ -73,19 +73,19 @@ questions:
     stem: |
       ______ Pedro, Ana, at Miguel ang mga kasapi ng grupong ito.
     choices:
-      - text: Sina
+      - text: "Sina"
         correct: true
-      - text: Sila
+      - text: "Sila"
         rationale: |
-          Ang "sila" ay panghalip; dahil tahasang sumusunod ang mga pangalan, ang panandang maramihan para sa mga pangalang pantangi ay "sina."
-      - text: Kina
+          This puts a plural pronoun directly before the names. Both forms refer to several people, so they can seem alike. Check whether the sentence names the people or replaces their names.
+      - text: "Kina"
         rationale: |
-          Ang "kina" ay hindi ang panandang paksa para sa maramihang pangalang pantangi sa pangungusap na ito.
-      - text: Ang
+          This uses a destination or recipient marker for the topic. "Kina" can also appear before several names. Check the role of those people in the sentence.
+      - text: "Ang"
         rationale: |
-          Maaaring gamitin ang "ang" sa mga karaniwang pangngalan, ngunit para sa maramihang pangalang pantangi na Pedro, Ana, at Miguel, "sina" ang kailangan.
+          This uses a general noun marker before a group of personal names. "Ang" also marks topics, so it may seem suitable. Check whether the words are personal names.
     explanation: |
-      Kapag maramihang pangalang pantangi ng tao ang minamarkahan bilang paksa, ginagamit ang "sina": "Sina Pedro, Ana, at Miguel..."
+      The sentence directly names several people as its topic. Standard Filipino uses "sina" before that group of personal names.
     approved: true
 
   - id: q-vocabulary-confusing-words-0005
@@ -94,145 +94,145 @@ questions:
     stem: |
       The typhoon had a devastating ______ on the coastal town; ______ obvious that recovery will take years.
     choices:
-      - text: Effect, it's
+      - text: "Effect, it's"
         correct: true
-      - text: Affect, its
+      - text: "Affect, its"
         rationale: |
-          The first blank follows "a devastating" and needs a noun meaning result; the second expands naturally to "it is obvious."
-      - text: Effect, its
+          This uses the influence verb as a result noun and uses possession for "it is." Both pairs look similar in writing. Check the first word's role, then expand the contraction.
+      - text: "Effect, its"
         rationale: |
-          The first word is correct, but the second clause needs the contraction "it's" = "it is," not the possessive "its."
-      - text: Affect, it's
+          This uses a possessive form before "obvious." Possessive forms are common after a reference to a town, so it may seem natural. Check whether "it is" fits the second gap.
+      - text: "Affect, it's"
         rationale: |
-          The second word is correct, but the first blank needs the noun "effect" in this construction.
+          This uses the usual influence verb where a result noun is needed. The typhoon influences the town, so the meaning can look close. Check what follows the article and adjective.
     explanation: |
-      "A devastating effect" uses the noun meaning result. "It's obvious" contracts "it is obvious."
+      "A devastating effect" names a result of the typhoon. "It's obvious" expands to "it is obvious," which makes the second clause complete.
     approved: true
 
   - id: q-vocabulary-confusing-words-0006
     type: confusing-words
     difficulty: medium
     stem: |
-      Loud noises can negatively ______ a person's concentration.
+      In a psychology report, the observable expression of emotion is called ______.
     choices:
-      - text: Affect
+      - text: "Affect"
         correct: true
-      - text: Effect
+      - text: "Effect"
         rationale: |
-          In this context the meaning is "influence," so "affect" is the appropriate base-form verb.
-      - text: Affecting
+          This treats the emotional expression as a result. "Effect" is usually a noun, so it may seem to fit. Check the technical meaning named in the stem.
+      - text: "Affective"
         rationale: |
-          The modal "can" requires the base form "affect," not the participle "affecting."
-      - text: Effected
+          This uses an adjective instead of the name of the expression. "Affective" relates to emotion, so its meaning looks close. Check whether the gap needs a noun or a description.
+      - text: "Effective"
         rationale: |
-          "Effected" is not the base form required after "can" and carries a different verb sense.
+          This uses a word for being successful or producing a result. Its spelling resembles the emotion word. Check the meaning before choosing by spelling.
     explanation: |
-      "Can negatively affect" means "can negatively influence." The modal "can" also requires the base form of the verb.
+      In psychology, "affect" is a noun for the outward expression of emotion. That is the meaning requested in the report.
     approved: true
 
   - id: q-vocabulary-confusing-words-0007
     type: confusing-words
     difficulty: medium
     stem: |
-      The cat cleaned ______ paws after playing outside.
+      The museum's archive has not reopened. Complete the report: '______ still closed, and ______ doors need repair.'
     choices:
-      - text: Its
+      - text: "It's, its"
         correct: true
-      - text: It's
+      - text: "Its, it's"
         rationale: |
-          "It's" means "it is" or "it has," neither of which fits before "paws."
-      - text: Its'
+          This reverses contraction and possession. Each form looks almost the same, so swapping them may be easy. Expand the form in each gap separately.
+      - text: "It's, it's"
         rationale: |
-          Standard English has no possessive form "its'."
-      - text: Their
+          This uses a contraction before an owned noun. The first gap correctly needs a contraction, which may encourage repeating it. Check whether "it is doors" makes sense.
+      - text: "Its, its"
         rationale: |
-          The singular nonhuman antecedent "cat" is unambiguously referred to here with "its."
+          This uses possession where the first clause needs a verb. The second gap correctly uses possession, so repeating it may seem consistent. Check whether the first clause has a form of "be."
     explanation: |
-      The possessive form for "it" is "its" without an apostrophe: "The cat cleaned its paws."
+      The first clause means "it is still closed," so it uses "it's." The doors belong to the archive, so the second gap uses "its."
     approved: true
 
   - id: q-vocabulary-confusing-words-0008
     type: confusing-words
     difficulty: medium
     stem: |
-      Umiyak ______ umiyak ang sanggol hanggang sa makatulog.
+      Sa "Umiyak nang umiyak ang sanggol hanggang sa makatulog," ano ang ipinapakita ng pag-uulit na may "nang"?
     choices:
-      - text: Nang
+      - text: "Continuous crying"
         correct: true
-      - text: Ng
+      - text: "Ownership of the crying"
         rationale: |
-          Sa pag-uulit ng pandiwa upang ipakita ang tuloy-tuloy o paulit-ulit na kilos, "nang" ang ginagamit.
-      - text: Na
+          This treats the connector as the ownership marker "ng." The two words sound alike, so the roles may seem interchangeable. Check whether the phrase repeats a verb.
+      - text: "Time when crying began"
         rationale: |
-          Hindi pang-angkop na "na" ang ginagamit sa ganitong pag-uulit ng pandiwa.
-      - text: May
+          This reads "nang" only as a word for "when." That is one of its uses elsewhere. Check whether the construction gives a starting event or repeats an action.
+      - text: "Names of those crying"
         rationale: |
-          Hindi ipinakikilala ng puwang ang pagkakaroon o pag-iral.
+          This treats "nang" as a personal-name marker. The sentence names a person doing the action, so the role may seem related. Check whether the word sits before names or between verbs.
     explanation: |
-      Isa sa gamit ng "nang" ang pag-uugnay sa inuulit na pandiwa: "umiyak nang umiyak."
+      Repeating "umiyak" with "nang" shows an action that kept happening. The baby cried repeatedly until falling asleep.
     approved: true
 
   - id: q-vocabulary-confusing-words-0009
     type: confusing-words
     difficulty: medium
     stem: |
-      ______ Elena at Ricardo ay nagtungo sa palengke upang bumili ng gulay.
+      Nagtapos sina Elena at Ricardo kahapon. ______ ay naghahanap na ng trabaho.
     choices:
-      - text: Sina
+      - text: "Sila"
         correct: true
-      - text: Sila
+      - text: "Sina"
         rationale: |
-          Dahil tahasang sumusunod ang mga pangalan, "sina" ang panandang kailangan sa halip na panghalip na "sila."
-      - text: Kina
+          This uses a personal-name marker without names after it. Both words refer to several people, so the form may seem right. Check whether names follow the gap.
+      - text: "Kina"
         rationale: |
-          Hindi "kina" ang panandang paksa para sa maramihang pangalang pantangi sa pangungusap na ito.
-      - text: Ang
+          This uses a recipient or destination marker as the subject pronoun. It is familiar before groups of names. Check whether the gap stands alone for the people.
+      - text: "Nina"
         rationale: |
-          Para sa maramihang pangalang pantangi ng tao na Elena at Ricardo, "sina" ang wastong pananda.
+          This uses a marker for a relationship or nonfocus role as the subject pronoun. It also refers to several named people. Check the role of the gap in the new sentence.
     explanation: |
-      Ginagamit ang "sina" bago ang dalawa o higit pang pangalang pantangi ng tao na nagsisilbing paksa.
+      The second sentence refers back to Elena and Ricardo without repeating their names. "Sila" is the plural pronoun that does this.
     approved: true
 
   - id: q-vocabulary-confusing-words-0010
     type: confusing-words
     difficulty: medium
     stem: |
-      Which statement about the forms "its," "it's," and "its'" is correct in standard English?
+      In which sentence does "it's" mean "it has"?
     choices:
-      - text: '"Its" is possessive, "it''s" means "it is" or "it has," and "its''" is not a standard form.'
+      - text: "It's been checked."
         correct: true
-      - text: '"Its''" is the plural possessive form of "it."'
+      - text: "It's ready for use."
         rationale: |
-          The pronoun "it" has no plural possessive form "its'."
-      - text: '"It''s" is the possessive form of "it."'
+          This reads "it is" as "it has." The contraction has the same spelling for both meanings. Check the full verb phrase after the contraction.
+      - text: "It's missing a seal."
         rationale: |
-          "It's" is a contraction, not the possessive determiner.
-      - text: 'All three forms are interchangeable.'
+          This reads an ongoing state as a perfect verb phrase. The -ing form looks like part of a longer verb. Check whether the expansion needs "is" or "has."
+      - text: "It's difficult to read."
         rationale: |
-          They are not interchangeable; only "its" and "it's" are standard forms, with different functions.
+          This uses "has" before an adjective. The same contraction can mean "has" elsewhere, so it may look possible. Expand the sentence and check its grammar.
     explanation: |
-      Standard English uses "its" for possession and "it's" for "it is" or "it has." The form "its'" is not standard.
+      "It's been checked" expands to "it has been checked." The word "been" belongs to the verb phrase "has been."
     approved: true
 
   - id: q-vocabulary-confusing-words-0011
     type: confusing-words
     difficulty: hard
     stem: |
-      Sa pormal na Filipino, alin ang wastong anyo kapag sina Maria at Ana ang tahasang binabanggit na paksa?
+      Sa pormal na Filipino, aling pangungusap ang wastong tumutukoy muna sa mga pangalan at pagkatapos ay gumagamit ng panghalip?
     choices:
-      - text: Sina Maria at Ana ang pupunta sa palengke.
+      - text: "Dumating sina Liza at Ben. Sila ang mga tagapagsalita."
         correct: true
-      - text: Sila Maria at Ana ang pupunta sa palengke.
+      - text: "Dumating sila Liza at Ben. Sina ang mga tagapagsalita."
         rationale: |
-          Ang "sila" ay panghalip; kapag tahasang sumusunod ang maramihang pangalan, "sina" ang panandang ginagamit sa pormal na anyo.
-      - text: Kina Maria at Ana ang pupunta sa palengke.
+          This swaps the name marker and the pronoun. Both refer to the same people, so they may seem interchangeable. Check whether personal names follow each form.
+      - text: "Dumating kina Liza at Ben. Sila ang mga tagapagsalita."
         rationale: |
-          Hindi "kina" ang panandang paksa sa konstruksiyong ito.
-      - text: Ang Maria at Ana ang pupunta sa palengke.
+          This makes the named people a destination instead of the ones arriving. "Kina" is a familiar marker before names. Check whether the named people perform the action.
+      - text: "Dumating sina Liza at Ben. Kina ang mga tagapagsalita."
         rationale: |
-          Para sa maramihang pangalang pantangi ng tao, "sina" ang wastong personal-name marker.
+          This uses a destination marker where a pronoun must stand alone. "Kina" refers to several people when names follow it. Check whether the second sentence supplies those names.
     explanation: |
-      Sa pormal na Filipino, "sina" ang ginagamit bago ang dalawa o higit pang pangalang pantangi ng tao na nagsisilbing paksa: "Sina Maria at Ana..."
+      "Sina" marks the names Liza and Ben. "Sila" replaces those names in the next sentence. Each form fits its own role.
     approved: true
 
   - id: q-vocabulary-confusing-words-0012
@@ -241,40 +241,40 @@ questions:
     stem: |
       Umalis siya ______ alas-singko ng hapon. Alin ang wastong pananda bago ang tiyak na oras?
     choices:
-      - text: Ng
+      - text: "Ng"
         correct: true
-      - text: Nang
+      - text: "Nang"
         rationale: |
-          Hindi kabilang sa mga gamit ng "nang" ang simpleng pagmamarka ng tiyak na oras sa orasan sa konstruksiyong ito.
-      - text: Na
+          This treats a clock-time phrase like a clause introduced by "when." Both describe time, so the choice may look right. Check whether a full event clause or just a clock time follows.
+      - text: "Na"
         rationale: |
-          Hindi pang-angkop na "na" ang kailangan bago ang tiyak na oras.
-      - text: May
+          This uses a linker before a time expression. "Na" is common between related words. Check whether the gap links a description or marks the time of the action.
+      - text: "May"
         rationale: |
-          Hindi ipinakikilala ng puwang ang pagkakaroon o pag-iral.
+          This expresses having something before a clock time. The time may seem like information added to the sentence. Check whether the gap means possession or tells when the person left.
     explanation: |
-      Sa konstruksiyong ito, ginagamit ang "ng" bago ang tiyak na oras: "Umalis siya ng alas-singko ng hapon."
+      "Ng" marks this clock-time expression. The completed phrase is "umalis siya ng alas-singko ng hapon."
     approved: true
 
   - id: q-vocabulary-confusing-words-0013
     type: confusing-words
     difficulty: medium
     stem: |
-      The therapy had a lasting ______ on her overall well-being.
+      To say that the mediator brought a new agreement into existence, complete the sentence: "The mediator ______ an agreement yesterday."
     choices:
-      - text: Effect
+      - text: "Effected"
         correct: true
-      - text: Affect
+      - text: "Affected"
         rationale: |
-          In this construction, "a lasting" requires a singular noun, and "effect" supplies the intended meaning of result or consequence.
-      - text: Effects
+          This means influenced an agreement instead of bringing it about. "Affect" is the more common action word in the pair. Check the exact meaning requested.
+      - text: "Effecting"
         rationale: |
-          The article "a" requires a singular noun here.
-      - text: Affecting
+          This uses an -ing form without a helping verb. The word expresses the right kind of action, so it may seem close. Check whether the sentence has a complete past-tense verb.
+      - text: "Affecting"
         rationale: |
-          "Affecting" does not function as the required singular noun in this phrase.
+          This uses the influence word and an unfinished verb form. Both the spelling and the ongoing-action ending may seem familiar. Check the requested meaning and the time clue.
     explanation: |
-      The fixed phrase here is "a lasting effect," where "effect" is the noun meaning a result or consequence.
+      As a verb, "effect" means bring about. The event happened yesterday, so its past form "effected" fits.
     approved: true
 
   - id: q-vocabulary-confusing-words-0014
@@ -283,38 +283,144 @@ questions:
     stem: |
       Ang bahay ______ aking lola ay malapit sa simbahan.
     choices:
-      - text: Ng
+      - text: "Ng"
         correct: true
-      - text: Nang
+      - text: "Nang"
         rationale: |
-          Pagmamay-ari o ugnayan ng mga pangngalan ang ipinapakita rito, hindi paraan o pag-uulit ng kilos.
-      - text: Na
+          This uses an action-description connector to show ownership. It sounds like "ng," so the spelling can seem interchangeable. Check whether the phrase names an owner.
+      - text: "Na"
         rationale: |
-          Hindi pang-angkop ang kailangan upang ipakita ang ugnayang "bahay ng aking lola."
-      - text: May
+          This uses a word linker for an ownership relationship. A noun is followed by more words, so linking may seem needed. Check whether the next phrase describes the house or names its owner.
+      - text: "May"
         rationale: |
-          Hindi ipinakikilala ng puwang ang pagkakaroon; kailangan ang panandang "ng."
+          This turns ownership into having someone. "May" expresses having, so it can sound related to possession. Check which noun belongs to which person.
     explanation: |
-      Ipinapakita ng "ng" ang ugnayan o pagmamay-ari: "ang bahay ng aking lola."
+      The house belongs to the grandmother. "Ng" marks that relationship in "bahay ng aking lola."
     approved: true
 
   - id: q-vocabulary-confusing-words-0015
     type: confusing-words
     difficulty: exam
     stem: |
-      The company's ______ on public trust was severe; its executives admitted that ______ handling of the crisis had been poor from the start.
+      Complete the report with the standard forms: "______ been confirmed that the company lost ______ license."
     choices:
-      - text: Effect, its
+      - text: "It's, its"
         correct: true
-      - text: Affect, it's
+      - text: "Its, it's"
         rationale: |
-          The first blank needs the noun "effect" in this construction, while the second needs the possessive "its."
-      - text: Effect, it's
+          This reverses contraction and possession. The similar spellings may make the pair look interchangeable. Expand the first gap and identify the owner in the second.
+      - text: "Its, its"
         rationale: |
-          The first word is correct, but "it's handling" expands to "it is handling," which does not fit.
-      - text: Affect, its
+          This treats both gaps as possession. A company and its license suggest ownership, so that form may seem suitable throughout. Check whether "been" needs a helping verb.
+      - text: "It's, it's"
         rationale: |
-          The second word is correct, but the first blank needs a noun meaning consequence.
+          This treats both gaps as contractions. The first gap correctly has "it has," so repeating the form may seem natural. Check whether the second gap comes before an owned noun.
     explanation: |
-      "The company's effect" uses the noun meaning consequence or influence in this construction. "Its handling" uses the possessive determiner referring back to the company.
+      "It's been confirmed" means "it has been confirmed." The license belongs to the company, so "its license" expresses possession.
     approved: true
+
+  - id: q-vocabulary-confusing-words-0016
+    type: confusing-words
+    difficulty: easy
+    stem: |
+      Bumili siya ______ tatlong mangga sa palengke.
+    choices:
+      - text: "Ng"
+        correct: true
+      - text: "Nang"
+        rationale: |
+          This treats the quantity as a manner description. Buying is an action, so an action connector may seem likely. Check whether the next words name the objects bought.
+      - text: "Na"
+        rationale: |
+          This uses a linker where the object needs a marker. The next phrase contains a number and noun, which may look like linked words. Check the role of the whole phrase after the verb.
+      - text: "Ang"
+        rationale: |
+          This marks the fruit as the focus of an actor-focus verb. The fruit is central to the purchase, so it may seem to deserve that marker. Check the verb form and the role of the noun phrase.
+    explanation: |
+      "Ng" marks the noun phrase "tatlong mangga," the quantity of fruit bought.
+    approved: false
+
+  - id: q-vocabulary-confusing-words-0017
+    type: confusing-words
+    difficulty: medium
+    stem: |
+      Sa pangungusap na "Nang dumating ang guro, tumahimik ang klase," alin ang pinakamalapit na kahulugan ng "nang"?
+    choices:
+      - text: "When"
+        correct: true
+      - text: "Because"
+        rationale: |
+          This changes the time link into a cause. A teacher arriving may cause a class to quiet down, so the idea sounds likely. Check what the connector states, not a possible reason outside it.
+      - text: "Although"
+        rationale: |
+          This changes a time link into a contrast. Both clauses describe separate events, which may suggest a contrast. Check whether the wording sets the events against each other.
+      - text: "So that"
+        rationale: |
+          This changes a time link into a purpose. Quieting a class can be a teacher's aim, so that may seem reasonable. Check whether the first clause gives a goal or a time.
+    explanation: |
+      "Nang" introduces the time when the class became quiet. It means "when" in this sentence.
+    approved: false
+
+  - id: q-vocabulary-confusing-words-0018
+    type: confusing-words
+    difficulty: hard
+    stem: |
+      Alin ang wastong gamit ng "ng" at "nang" sa pormal na Filipino?
+    choices:
+      - text: "Sumulat nang maingat ng liham ang bata."
+        correct: true
+      - text: "Sumulat ng maingat ng liham ang bata."
+        rationale: |
+          This uses a noun marker before the manner description. The two markers sound alike, so one spelling may seem enough. Check what "maingat" describes.
+      - text: "Sumulat nang maingat nang liham ang bata."
+        rationale: |
+          This uses a manner connector before the letter. Writing is an action, which may suggest using "nang" throughout. Check whether "liham" names an object or a way of acting.
+      - text: "Sumulat ng maingat nang liham ang bata."
+        rationale: |
+          This reverses the markers for manner and object. Both appear beside words linked to writing, so they may seem interchangeable. Check the role of each following word.
+    explanation: |
+      "Maingat" describes how the child wrote, so it follows "nang." "Liham" names what was written, so it follows "ng."
+    approved: false
+
+  - id: q-vocabulary-confusing-words-0019
+    type: confusing-words
+    difficulty: exam
+    stem: |
+      Choose the revision that means the reform brought about changes and those changes influenced enrollment.
+    choices:
+      - text: "The reform effected changes that affected enrollment."
+        correct: true
+      - text: "The reform affected changes that effected enrollment."
+        rationale: |
+          This reverses creating and influencing. Both verbs can relate to change, so the swap may sound reasonable. Replace each verb with the meaning requested in the stem.
+      - text: "The reform effected changes that effected enrollment."
+        rationale: |
+          This says the changes brought enrollment into existence. The first verb correctly means brought about, which may encourage repeating it. Check whether enrollment was created or influenced.
+      - text: "The reform affected changes that affected enrollment."
+        rationale: |
+          This says the reform influenced changes instead of creating them. The second verb correctly means influenced, which may encourage using it twice. Check the first action separately.
+    explanation: |
+      "Effected changes" means brought changes about. "Affected enrollment" means influenced enrollment. Each verb matches the requested meaning.
+    approved: false
+
+  - id: q-vocabulary-confusing-words-0020
+    type: confusing-words
+    difficulty: exam
+    stem: |
+      Which sentence uses both possessive "its" and a contraction of "it is" correctly?
+    choices:
+      - text: "The school revised its rules; it's now open."
+        correct: true
+      - text: "The school revised it's rules; its now open."
+        rationale: |
+          This swaps possession and contraction. An apostrophe often suggests ownership, so the swap may seem right. Expand the contraction and identify the owned noun.
+      - text: "The school revised its' rules; it's now open."
+        rationale: |
+          This adds an apostrophe after the possessive pronoun. The word ends in -s, so it may be treated like a plural noun. Check whether a pronoun needs that apostrophe.
+      - text: "The school revised its rules; its' now open."
+        rationale: |
+          This uses a possessive-looking form where a clause needs "it is." The final -s may seem to mark a shortened form. Expand the clause before choosing its spelling.
+    explanation: |
+      "Its rules" shows that the rules belong to the school. "It's now open" expands to "it is now open," so the second clause has a verb.
+    approved: false
+

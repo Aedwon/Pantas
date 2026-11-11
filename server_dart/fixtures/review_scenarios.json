@@ -1,0 +1,92 @@
+{
+  "new_good_again": {
+    "now": 1795132800000,
+    "reviews": [
+      {
+        "questionId": "a",
+        "questionVersion": 1,
+        "correct": true,
+        "previous": null
+      },
+      {
+        "questionId": "b",
+        "questionVersion": 1,
+        "correct": false,
+        "previous": null
+      }
+    ]
+  },
+  "review_success": {
+    "now": 1795132800000,
+    "reviews": [
+      {
+        "questionId": "a",
+        "questionVersion": 1,
+        "correct": true,
+        "previous": {
+          "questionId": "a",
+          "questionVersion": 1,
+          "stage": "review",
+          "stability": 3.5,
+          "difficulty": 5.0,
+          "due": "2026-11-19T00:00:00.000Z",
+          "lastReview": "2026-11-10T00:00:00.000Z",
+          "reps": 2,
+          "lapses": 0,
+          "elapsedDays": 0.0,
+          "scheduledDays": 3.5
+        }
+      }
+    ]
+  },
+  "review_lapse": {
+    "now": 1795132800000,
+    "reviews": [
+      {
+        "questionId": "a",
+        "questionVersion": 1,
+        "correct": false,
+        "previous": {
+          "questionId": "a",
+          "questionVersion": 1,
+          "stage": "review",
+          "stability": 3.5,
+          "difficulty": 5.0,
+          "due": "2026-11-19T00:00:00.000Z",
+          "lastReview": "2026-11-10T00:00:00.000Z",
+          "reps": 2,
+          "lapses": 0,
+          "elapsedDays": 0.0,
+          "scheduledDays": 3.5
+        }
+      }
+    ]
+  },
+  "older_history": {
+    "now": 1792540800000,
+    "reviews": [
+      {
+        "questionId": "a",
+        "questionVersion": 1,
+        "correct": false,
+        "previous": {
+          "questionId": "a",
+          "questionVersion": 1,
+          "stage": "review",
+          "stability": 3.5,
+          "difficulty": 5.0,
+          "due": "2026-11-19T00:00:00.000Z",
+          "lastReview": "2026-11-10T00:00:00.000Z",
+          "reps": 2,
+          "lapses": 0,
+          "elapsedDays": 0.0,
+          "scheduledDays": 3.5
+        }
+      }
+    ]
+  },
+  "empty": {
+    "now": 1795132800000,
+    "reviews": []
+  }
+}

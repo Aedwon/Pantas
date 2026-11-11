@@ -1,0 +1,7 @@
+Computing fixes in disabled_action_label_test.dart...
+Applying fixes...
+
+disabled_action_label_test.dart
+  require_trailing_commas - 15 fixes
+
+15 fixes made in 1 file.

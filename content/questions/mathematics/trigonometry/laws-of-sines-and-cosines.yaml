@@ -10,332 +10,381 @@ questions:
     stem: |
       In triangle $ABC$, angle $A = 30$ degrees, angle $B = 45$ degrees, and side $a = 10$. Find side $b$.
     choices:
-      - text: $10\sqrt{2}$
+      - text: '$10\sqrt{2}$'
         correct: true
-      - text: $10$
+      - text: '$10$'
         rationale: |
-          You treated sides opposite unequal angles as equal.
-      - text: $5\sqrt{2}$
+          This treats the two sides as equal. Both are sides of the same triangle. Check that unequal opposite angles need unequal sides.
+      - text: '$20\sqrt{2}$'
         rationale: |
-          You divided by 2 instead of correctly simplifying the Law of Sines proportion.
-      - text: $20$
+          This uses $\sin45^\circ=\sqrt{2}$ and omits its denominator $2$. The radical is familiar from the special-angle value. Check the complete sine fraction before substituting.
+      - text: '$20$'
         rationale: |
-          You found $10/\sin30°$ but forgot to multiply by $\sin45°$.
+          This stops at $10\div\sin30^\circ$. That is the common side-to-sine ratio. Check that the target side still needs multiplication by its own sine.
     explanation: |
-      Use the Law of Sines:
-      $$\dfrac{10}{\sin30^\circ}=\dfrac{b}{\sin45^\circ}$$
-      $$b=10\dfrac{\sin45^\circ}{\sin30^\circ}=10\sqrt2.$$
+      Side $a$ is opposite $A$ and side $b$ is opposite $B$. The Law of Sines gives $\dfrac{10}{\sin30^\circ}=\dfrac{b}{\sin45^\circ}$. Multiply by $\sin45^\circ$: $b=10\times\dfrac{\sqrt{2}}{2}\div\dfrac{1}{2}=10\sqrt{2}$.
   - id: q-trigonometry-laws-of-sines-and-cosines-0002
     type: direct-computation
     difficulty: easy
     stem: |
       In triangle $ABC$, angle $A = 30$ degrees and angle $B = 45$ degrees. What is angle $C$?
     choices:
-      - text: $105$ degrees
+      - text: '$105$ degrees'
         correct: true
-      - text: $75$ degrees
+      - text: '$75$ degrees'
         rationale: |
-          You added the two given angles instead of subtracting their sum from 180 degrees.
-      - text: $15$ degrees
+          This reports the sum $30^\circ+45^\circ$. That sum is a needed intermediate value. Check that the third angle is what remains of $180^\circ$.
+      - text: '$15$ degrees'
         rationale: |
-          You treated the triangle as though the two acute angles had to total 90 degrees.
-      - text: $135$ degrees
+          This uses $90^\circ-30^\circ-45^\circ$. Two acute angles in a right triangle total $90^\circ$, which can suggest this step. Check whether the triangle is stated to be right.
+      - text: '$135$ degrees'
         rationale: |
-          You miscalculated the triangle angle sum.
+          This subtracts only $45^\circ$ from $180^\circ$. That removes one given angle. Check that both known angles are subtracted.
     explanation: |
-      The angles of a triangle sum to $180°$:
-      $$C=180-30-45=105^\circ.$$
+      The three angles total $180^\circ$. The given angles total $30^\circ+45^\circ=75^\circ$. Therefore $C=180^\circ-75^\circ=105^\circ$.
   - id: q-trigonometry-laws-of-sines-and-cosines-0003
     type: direct-computation
     difficulty: easy
     stem: |
       A triangle has two sides of length $5$ and $8$, with an included angle of $60$ degrees. Find the third side.
     choices:
-      - text: $7$
+      - text: '$7$'
         correct: true
-      - text: $13$
+      - text: '$13$'
         rationale: |
-          You added the side lengths instead of using the Law of Cosines.
-      - text: $\sqrt{129}$
+          This adds the two known side lengths, $5+8$. That would be the distance along both sides. Check that the question asks for the straight third side.
+      - text: '$\sqrt{129}$'
         rationale: |
-          You added the cosine correction term instead of subtracting it.
-      - text: $49$
+          This adds the correction term: $25+64+40=129$. The cosine term may look like another positive quantity. Check the minus sign in the Law of Cosines.
+      - text: '$49$'
         rationale: |
-          You reported the square of the side instead of the side length.
+          This reports $c^2=49$ as the side length. That is the last value before the final step. Check that a side length needs the positive square root.
     explanation: |
-      $$c^2=5^2+8^2-2(5)(8)\cos60^\circ=25+64-40=49,$$
-      so $c=7$.
+      The sides meet at the given angle, so use the Law of Cosines. It gives $c^2=5^2+8^2-2(5)(8)\cos60^\circ$. Since $\cos60^\circ=\dfrac{1}{2}$, $c^2=25+64-40=49$. Taking the positive square root gives $c=7$.
   - id: q-trigonometry-laws-of-sines-and-cosines-0004
     type: direct-computation
     difficulty: medium
     stem: |
       A triangle has sides $3$, $5$, and $7$. Find the cosine of the angle opposite the side of length $7$.
     choices:
-      - text: $-\dfrac{1}{2}$
+      - text: '$-\dfrac{1}{2}$'
         correct: true
-      - text: $\dfrac{1}{2}$
+      - text: '$\dfrac{1}{2}$'
         rationale: |
-          You missed the negative sign while isolating cosine.
-      - text: $-\dfrac{1}{3}$
+          This divides $15$ by $30$ instead of $-30$. The denominator's size is correct, so the fraction looks familiar. Check the sign of the coefficient of cosine.
+      - text: '$-1$'
         rationale: |
-          You made an arithmetic error in the Law of Cosines calculation.
-      - text: $\dfrac{1}{3}$
+          This omits the factor $2$ in the denominator, giving $-15/15=-1$. The two adjacent sides still appear in the product. Check the full term $2ab\cos C$.
+      - text: '$-\dfrac{15}{49}$'
         rationale: |
-          You made an arithmetic and sign error.
+          This divides by $c^2=49$ instead of $2ab=30$. The opposite side's square appears prominently in the formula. Check which factor multiplies cosine.
     explanation: |
-      Let $c=7$ be opposite angle $C$.
-      $$49=9+25-30\cos C$$
-      $$15=-30\cos C$$
-      $$\cos C=-\dfrac12.$$
+      Let $C$ be the angle opposite side $7$. The Law of Cosines gives $7^2=3^2+5^2-2(3)(5)\cos C$. Thus $49=34-30\cos C$. Subtract $34$: $15=-30\cos C$. Divide by $-30$: $\cos C=-\dfrac{1}{2}$.
   - id: q-trigonometry-laws-of-sines-and-cosines-0005
-    type: direct-computation
+    type: error-spotting
     difficulty: medium
     stem: |
-      In triangle $ABC$, angle $A = 60$ degrees, angle $C = 80$ degrees, and side $a = 12$. Find side $c$.
+      In triangle $ABC$, side $a=12$ is opposite $A=60^\circ$, and side $c$ is opposite $C=80^\circ$. A student writes Step 1: $\dfrac{12}{\sin80^\circ}=\dfrac{c}{\sin60^\circ}$. Step 2: $c=\dfrac{12\sin60^\circ}{\sin80^\circ}$. Step 3: side $c$ is shorter than side $a$. Which is the first incorrect step?
     choices:
-      - text: $\dfrac{12 \sin 80^\circ}{\sin 60^\circ}$
+      - text: 'Step 1'
         correct: true
-      - text: $12 \sin 80^\circ$
+      - text: 'Step 2'
         rationale: |
-          You omitted the division by $\sin60°$.
-      - text: $12 \sin 60^\circ$
+          This locates the error at the algebra in Step 2. The resulting side formula is wrong. Check the proportion before checking its rearrangement.
+      - text: 'Step 3'
         rationale: |
-          You used the sine of the known angle as a multiplier without forming the matched proportion.
-      - text: $\dfrac{12}{\sin 80^\circ}$
+          This locates the error only in the final size claim. The stated side is too short. Check which earlier line first paired a side with the wrong angle.
+      - text: 'No step is incorrect.'
         rationale: |
-          You inverted the Law of Sines relationship.
+          This accepts sides paired with nearby rather than opposite angles. Both given angles appear in the proportion. Check each side against the angle across from it.
     explanation: |
-      $$\dfrac{12}{\sin60^\circ}=\dfrac{c}{\sin80^\circ}$$
-      so
-      $$c=\dfrac{12\sin80^\circ}{\sin60^\circ}.$$
+      Step 1 first breaks the side-angle matching rule. Side $a=12$ is opposite $60^\circ$, and side $c$ is opposite $80^\circ$. The correct proportion is $\dfrac{12}{\sin60^\circ}=\dfrac{c}{\sin80^\circ}$. Multiplying by $\sin80^\circ$ gives $c=\dfrac{12\sin80^\circ}{\sin60^\circ}$.
   - id: q-trigonometry-laws-of-sines-and-cosines-0006
-    type: direct-computation
+    type: word-problem
     difficulty: medium
     stem: |
       Two ships leave a port. Ship $X$ sails $3$ km and ship $Y$ sails $8$ km. The angle between their paths is $60$ degrees. How far apart are the ships?
     choices:
-      - text: $7$ km
+      - text: '$7$ km'
         correct: true
-      - text: $11$ km
+      - text: '$11$ km'
         rationale: |
-          You added the two distances without accounting for the included angle.
-      - text: $\sqrt{73}$ km
+          This adds the path lengths, $3+8$. That measures travel along both paths. Check that separation is the straight segment between the ships.
+      - text: '$\sqrt{73}$ km'
         rationale: |
-          You omitted the cosine correction term.
-      - text: $5$ km
+          This uses $3^2+8^2$ without a correction term. That would fit a right angle. Check the stated angle before using the Pythagorean theorem.
+      - text: '$5$ km'
         rationale: |
-          You subtracted the path lengths instead of using the Law of Cosines.
+          This subtracts the path lengths, $8-3$. That would fit ships traveling along the same straight path. Check that their paths spread apart.
     explanation: |
-      $$d^2=3^2+8^2-2(3)(8)\cos60^\circ=9+64-24=49,$$
-      so $d=7$ km.
+      The port and ships form a triangle with sides $3$ km and $8$ km meeting at $60^\circ$. Their separation $d$ satisfies $d^2=3^2+8^2-2(3)(8)\cos60^\circ$. Substitute $\cos60^\circ=\dfrac{1}{2}$: $d^2=9+64-24=49$. Therefore $d=7$ km.
   - id: q-trigonometry-laws-of-sines-and-cosines-0007
     type: direct-computation
     difficulty: hard
     stem: |
       In triangle $ABC$, angle $A = 50$ degrees, side $a = 20$, and side $b = 15$. Find $\sin B$ using the Law of Sines.
     choices:
-      - text: $\dfrac{15 \sin 50^\circ}{20}$
+      - text: '$\dfrac{15 \sin 50^\circ}{20}$'
         correct: true
-      - text: $\dfrac{20 \sin 50^\circ}{15}$
+      - text: '$\dfrac{20 \sin 50^\circ}{15}$'
         rationale: |
-          You inverted the side ratio; this expression is greater than 1 and cannot be a sine value.
-      - text: $\sin 50^\circ$
+          This reverses the side ratio to $20/15$. That uses the same two sides. Check that multiplying the smaller side's sine ratio should reduce the given sine.
+      - text: '$\sin 50^\circ$'
         rationale: |
-          You ignored the ratio of the opposite sides.
-      - text: $\dfrac{50}{20}$
+          This omits the side ratio and makes the angles have equal sines. Both angles belong to one triangle. Check whether their opposite sides are equal.
+      - text: '$\dfrac{50}{20}$'
         rationale: |
-          You divided the angle measure by a side length instead of using the sine function.
+          This divides the degree measure $50$ by side $20$. The angle and side form a known pair. Check that the Law of Sines uses sine of the angle, not its measure.
     explanation: |
-      The Law of Sines gives
-      $$\dfrac{20}{\sin50^\circ}=\dfrac{15}{\sin B}.$$
-      Therefore
-      $$\sin B=\dfrac{15\sin50^\circ}{20},$$
-      which is a valid sine value less than $1$.
+      The matched pairs give $\dfrac{20}{\sin50^\circ}=\dfrac{15}{\sin B}$. Cross-multiply: $20\sin B=15\sin50^\circ$. Divide by $20$: $\sin B=\dfrac{15\sin50^\circ}{20}$.
   - id: q-trigonometry-laws-of-sines-and-cosines-0008
-    type: direct-computation
+    type: error-spotting
     difficulty: hard
     stem: |
-      A triangle has sides $6$ and $10$, with an included angle of $120$ degrees. Find the third side.
+      A triangle has sides $6$ and $10$ meeting at $120^\circ$. A student writes Step 1: $c^2=136-120\cos120^\circ$. Step 2: $c^2=136-120(\dfrac{1}{2})=76$. Step 3: $c=\sqrt{76}$. Which is the first incorrect step?
     choices:
-      - text: $14$
+      - text: 'Step 2'
         correct: true
-      - text: $4$
+      - text: 'Step 1'
         rationale: |
-          You simply subtracted the two known sides.
-      - text: $8$
+          This rejects the correctly formed cosine equation in Step 1. The obtuse angle may make a subtraction seem unsuitable. Check the formula before inserting the signed cosine value.
+      - text: 'Step 3'
         rationale: |
-          You treated the triangle as though it were right or made an arithmetic error.
-      - text: $2\sqrt{19}$
+          This locates the error at taking the square root of $76$. That root follows from the earlier wrong substitution. Check each step in order.
+      - text: 'No step is incorrect.'
         rationale: |
-          You treated $\cos120°$ as $+1/2$ instead of $-1/2$.
+          This treats the reference-angle cosine as positive. The magnitude really is one-half. Check the cosine sign for an obtuse angle.
     explanation: |
-      $$c^2=6^2+10^2-2(6)(10)\cos120^\circ$$
-      $$=136-120\left(-\dfrac12\right)=196,$$
-      so $c=14$.
+      Step 2 is the first error. The correct value is $\cos120^\circ=-\dfrac{1}{2}$. Then $c^2=136-120(-\dfrac{1}{2})=196$, so $c=14$.
   - id: q-trigonometry-laws-of-sines-and-cosines-0009
-    type: direct-computation
+    type: which-is-true
     difficulty: hard
     stem: |
       In triangle $ABC$, side $a = 7$, side $b = 10$, and angle $A = 40$ degrees. Which law would you use first to find angle $B$?
     choices:
-      - text: Law of Sines
+      - text: 'Law of Sines'
         correct: true
-      - text: Law of Cosines
+      - text: 'Law of Cosines'
         rationale: |
-          This SSA setup has a known opposite side-angle pair, so Law of Sines applies directly.
-      - text: Basic trigonometric ratios (SOH-CAH-TOA)
+          This starts with a law that needs an included angle or all three sides for a direct calculation. Two sides may suggest cosine. Check whether an opposite side-angle pair is already known.
+      - text: 'Basic trigonometric ratios (SOH-CAH-TOA)'
         rationale: |
-          The triangle is not stated to be right.
-      - text: Either law works equally well
+          This assumes a right triangle. Two known sides can make SOH-CAH-TOA look useful. Check whether any angle is stated to be $90^\circ$.
+      - text: 'Either law works equally well'
         rationale: |
-          Law of Cosines is not directly determined from the given SSA information.
+          This treats SSA like SAS. Both setups give two sides and an angle. Check whether the angle lies between the known sides or opposite one of them.
     explanation: |
-      With $a$ opposite $A$, there is a complete side-angle pair. Use the Law of Sines first:
-      $$\frac{a}{\sin A}=\frac{b}{\sin B}.$$
-      This is an SSA case, so a complete solution would also check whether zero, one, or two triangles are possible.
+      Side $a=7$ and its opposite angle $A=40^\circ$ form a known pair. The Law of Sines directly gives $\dfrac{7}{\sin40^\circ}=\dfrac{10}{\sin B}$. This lets us find $\sin B$ before checking the possible angles.
   - id: q-trigonometry-laws-of-sines-and-cosines-0010
-    type: direct-computation
+    type: which-is-true
     difficulty: hard
     stem: |
       A triangle has sides $4$, $6$, and $7$. Which angle is the largest?
     choices:
-      - text: The angle opposite the side of length $7$
+      - text: 'The angle opposite the side of length $7$'
         correct: true
-      - text: The angle opposite the side of length $6$
+      - text: 'The angle opposite the side of length $6$'
         rationale: |
-          A larger side is opposite a larger angle; side 7 is longest.
-      - text: The angle opposite the side of length $4$
+          This uses the middle side to locate the largest angle. A length of $6$ is close to $7$. Check all three side lengths before choosing the opposite angle.
+      - text: 'The angle opposite the side of length $4$'
         rationale: |
-          The shortest side is opposite the smallest angle.
-      - text: All angles are equal
+          This reverses the side-angle size rule. The shortest side can seem linked to the widest opening in a sketch. Check that larger angles face larger sides.
+      - text: 'All angles are equal'
         rationale: |
-          The three side lengths are not equal.
+          This assumes that every triangle has equal angles. An equilateral triangle has that property. Check whether all three side lengths are equal.
     explanation: |
-      In any triangle, the largest angle is opposite the longest side. Since $7$ is the longest side, its opposite angle is largest.
+      A larger side is opposite a larger angle in a triangle. The longest side is $7$. Therefore the angle opposite side $7$ is the largest.
   - id: q-trigonometry-laws-of-sines-and-cosines-0011
-    type: direct-computation
+    type: error-spotting
     difficulty: hard
     stem: |
-      In triangle $ABC$, sides $a = 5$, $b = 8$, $c = 10$. Use the Law of Cosines to find $\cos C$.
+      For triangle $ABC$ with $a=5$, $b=8$, and $c=10$, all angles are in degrees. A student writes Step 1: $10^2=5^2+8^2-2(5)(8)\cos C$. Step 2: $100=89-80\cos C$. Step 3: $\cos C=\dfrac{11}{80}$. Which is the first incorrect step?
     choices:
-      - text: $-\dfrac{11}{80}$
+      - text: 'Step 3'
         correct: true
-      - text: $\dfrac{11}{80}$
+      - text: 'Step 1'
         rationale: |
-          You lost the negative sign when isolating $\cos C$.
-      - text: $-\dfrac{1}{2}$
+          This rejects the initial cosine equation. Its subtraction term can look wrong for an obtuse angle. Check the full formula before solving for the cosine.
+      - text: 'Step 2'
         rationale: |
-          You assumed angle $C$ was $120°$ instead of calculating from the side lengths.
-      - text: $\dfrac{1}{2}$
+          This rejects the correctly simplified equation. The three squares have different values. Check that $5^2+8^2=89$ and $10^2=100$.
+      - text: 'No step is incorrect.'
         rationale: |
-          You assumed angle $C$ was $60°$ instead of calculating from the side lengths.
+          This drops the coefficient's negative sign. The numerator $11$ looks like a positive difference of squares. Check the sign when dividing both sides.
     explanation: |
-      Use $c=10$ opposite angle $C$:
-      $$10^2=5^2+8^2-2(5)(8)\cos C.$$
-      Thus
-      $$100=89-80\cos C,$$
-      $$11=-80\cos C,$$
-      and
-      $$\cos C=-\dfrac{11}{80}.$$
+      Step 3 is the first error. Subtracting $89$ in Step 2 gives $11=-80\cos C$. Divide both sides by $-80$, keeping the negative sign. This gives $\cos C=-\dfrac{11}{80}$.
   - id: q-trigonometry-laws-of-sines-and-cosines-0012
-    type: direct-computation
+    type: word-problem
     difficulty: hard
     stem: |
-      In triangle $ABC$, angle $B = 70$ degrees, side $a = 9$, and side $c = 11$. Find side $b$ using the Law of Cosines.
+      A hiker walks $9$ km straight, turns $110^\circ$ from the forward direction, and walks another $11$ km straight. What is the straight-line distance back to the starting point?
     choices:
-      - text: $\sqrt{202 - 198\cos 70^\circ}$
+      - text: '$\sqrt{202 - 198\cos 70^\circ}$'
         correct: true
-      - text: $\sqrt{81 + 121 - 198\sin 70^\circ}$
+      - text: '$\sqrt{81 + 121 - 198\sin 70^\circ}$'
         rationale: |
-          You used sine of the included angle instead of cosine in the Law of Cosines.
-      - text: $\sqrt{202 + 198\cos 70^\circ}$
+          This replaces cosine with sine in the side formula. Both functions use the same angle. Check that the Law of Cosines uses cosine of the included angle.
+      - text: '$\sqrt{202 + 198\cos 70^\circ}$'
         rationale: |
-          You added the cosine correction term instead of subtracting it.
-      - text: $\sqrt{202 - 99\cos 70^\circ}$
+          This uses the $110^\circ$ turn as the interior angle. The turn is the angle given in the travel description. Check that the triangle uses the angle between the returning first leg and the second leg.
+      - text: '$\sqrt{202 - 99\cos 70^\circ}$'
         rationale: |
-          You omitted the factor of $2$ from $2ac\cos B$.
+          This drops the factor $2$, leaving $9\times11=99$. The side product is correct. Check the full correction term before simplifying.
     explanation: |
-      $$b^2=9^2+11^2-2(9)(11)\cos70^\circ=202-198\cos70^\circ,$$
-      so
-      $$b=\sqrt{202-198\cos70^\circ}.$$
+      The turn is $110^\circ$ from the forward direction, so the interior triangle angle is $180^\circ-110^\circ=70^\circ$. The two path lengths are $9$ km and $11$ km. The Law of Cosines gives $d^2=9^2+11^2-2(9)(11)\cos70^\circ=202-198\cos70^\circ$. Thus $d=\sqrt{202-198\cos70^\circ}$ km.
   - id: q-trigonometry-laws-of-sines-and-cosines-0013
-    type: direct-computation
+    type: which-is-true
     difficulty: hard
     stem: |
       A triangle has sides $8$, $15$, and $17$. Is this a right triangle?
     choices:
-      - text: Yes, because $8^2 + 15^2 = 64 + 225 = 289 = 17^2$
+      - text: 'Yes, because $8^2+15^2=17^2$.'
         correct: true
-      - text: No, because it does not satisfy the Pythagorean theorem
+      - text: 'No, because the side squares fail the right-triangle test.'
         rationale: |
-          In fact, $8^2+15^2=17^2$.
-      - text: Yes, because the sides are consecutive
+          This rejects the side-square equality. Checking only the unsquared lengths can suggest a mismatch. Check whether the two smaller squares total the largest square.
+      - text: 'Yes, because its side lengths are consecutive.'
         rationale: |
-          The side lengths are not consecutive, and that is not a right-triangle criterion.
-      - text: Cannot be determined without angle measures
+          This treats consecutive lengths as a right-triangle test. Familiar triples may suggest a number pattern. Check the squares rather than the spacing of the lengths.
+      - text: 'The angles cannot be found from the side lengths.'
         rationale: |
-          Side lengths alone can establish a right triangle through the converse of the Pythagorean theorem.
+          This assumes only a measured angle can establish a right triangle. The stem gives only sides. Check whether the Law of Cosines can find an angle from three sides.
     explanation: |
-      $$8^2+15^2=64+225=289=17^2,$$
-      so the triangle is right.
+      For the angle $C$ opposite side $17$, $\cos C=\dfrac{8^2+15^2-17^2}{2(8)(15)}$. The numerator is $64+225-289=0$. Thus $\cos C=0$, so $C=90^\circ$ and the triangle is right.
   - id: q-trigonometry-laws-of-sines-and-cosines-0014
     type: direct-computation
     difficulty: hard
     stem: |
       In triangle $ABC$, angle $A = 55$ degrees, angle $B = 50$ degrees, and side $a = 20$. Which side is longest?
     choices:
-      - text: Side $c$ (opposite angle $C$)
+      - text: 'Side $c$ (opposite angle $C$)'
         correct: true
-      - text: Side $b$ (opposite angle $B$)
+      - text: 'Side $b$ (opposite angle $B$)'
         rationale: |
-          $B=50°$ is the smallest angle, so $b$ is the shortest side.
-      - text: Side $a$ (opposite angle $A$)
+          This chooses the side opposite the smallest angle. Side labels do not encode size. Check which angle is largest before choosing its opposite side.
+      - text: 'Side $a$ (opposite angle $A$)'
         rationale: |
-          $A=55°$ is smaller than $C=75°$.
-      - text: Two sides are equal in length
+          This considers only the two given angles. Of those, $55^\circ$ is larger. Check the missing angle too.
+      - text: 'Two sides are equal in length'
         rationale: |
-          The three angles are all different.
+          This assumes two sides are equal without equal opposite angles. Both stated angles are close in size. Check whether any two angles actually have the same measure.
     explanation: |
-      $$C=180-55-50=75^\circ.$$
-      Since $C$ is the largest angle, side $c$ is the longest.
+      The missing angle is $C=180^\circ-55^\circ-50^\circ=75^\circ$. This is the largest angle. The longest side lies opposite it, so side $c$ is longest.
   - id: q-trigonometry-laws-of-sines-and-cosines-0015
-    type: direct-computation
+    type: which-is-true
     difficulty: hard
     stem: |
-      In triangle $ABC$, sides $a = 12$, $b = 16$, $c = 21$. Verify whether the largest angle is acute or obtuse.
+      In triangle $ABC$, sides $a=12$, $b=16$, and $c=21$. All angles are in degrees. How is the largest angle classified?
     choices:
-      - text: The largest angle (opposite the longest side) is obtuse because $21^2 > 12^2 + 16^2$
+      - text: 'Obtuse'
         correct: true
-      - text: The largest angle is acute because $21^2 < 12^2 + 16^2$
+      - text: 'Acute'
         rationale: |
-          $441$ is greater than $400$, not less.
-      - text: The triangle is a right triangle
+          This reverses the side-square comparison. The shorter-side squares may look like the larger total. Check whether $144+256$ is greater or less than $441$.
+      - text: 'Right'
         rationale: |
-          $12^2+16^2=400$, not $441$.
-      - text: The largest angle is $45$ degrees
+          This extends the $12,16,20$ right-triangle triple to a side of $21$. The first two sides match that triple. Check the actual third side's square.
+      - text: 'No triangle is possible.'
         rationale: |
-          The side-square comparison shows the largest angle is obtuse.
+          This rejects the triangle because it is not right. Familiar triples can make other side lengths seem invalid. Check the triangle inequality, not the right-triangle equation.
     explanation: |
-      The longest side is $21$. Since
-      $$21^2=441>12^2+16^2=400,$$
-      the angle opposite side $21$ is obtuse.
+      Angle $C$ is opposite the longest side, $21$, so it is largest. The Law of Cosines gives $\cos C=\dfrac{12^2+16^2-21^2}{2(12)(16)}=\dfrac{-41}{384}$. Its cosine is negative. Therefore $C$ is obtuse.
   - id: q-trigonometry-laws-of-sines-and-cosines-0016
-    type: direct-computation
+    type: which-is-true
     difficulty: hard
     stem: |
-      In triangle $ABC$, $\dfrac{a}{\sin A} = \dfrac{b}{\sin B}$ is a statement of which law?
+      Angles are in degrees. In triangle $ABC$, side $a$ is opposite $A$ and side $b$ is opposite $B$. The equality $\dfrac{a}{\sin A}=\dfrac{b}{\sin B}$ states which law?
     choices:
-      - text: The Law of Sines
+      - text: 'The Law of Sines'
         correct: true
-      - text: The Law of Cosines
+      - text: 'The Law of Cosines'
         rationale: |
-          The Law of Cosines uses squared side lengths and a cosine correction term.
-      - text: The Pythagorean Theorem
+          This confuses two laws for oblique triangles. Both use sides and trigonometric functions. Check whether the formula contains sine ratios or a squared-side cosine term.
+      - text: 'The Pythagorean Theorem'
         rationale: |
-          The Pythagorean theorem applies to right triangles and does not use these side-sine ratios.
-      - text: The Law of Tangents
+          This identifies every triangle side relation as Pythagoras. That theorem is familiar from right triangles. Check whether the formula uses squared sides and requires a right angle.
+      - text: 'The Law of Tangents'
         rationale: |
-          The displayed matched side-to-sine ratios are the Law of Sines.
+          This chooses the law named for a different trigonometric function. Tangent is another common ratio. Check the function written in each denominator.
     explanation: |
-      The Law of Sines states
-      $$\dfrac{a}{\sin A}=\dfrac{b}{\sin B}=\dfrac{c}{\sin C}.$$
+      The Law of Sines says that each side divided by the sine of its opposite angle gives the same ratio. Therefore $\dfrac{a}{\sin A}=\dfrac{b}{\sin B}$ is part of that law.
+  - id: q-trigonometry-laws-of-sines-and-cosines-0017
+    type: which-is-true
+    difficulty: easy
+    stem: |
+      Two sides of a triangle meet at $90^\circ$. What happens to the correction term in the Law of Cosines?
+    choices:
+      - text: 'It becomes zero.'
+        correct: true
+      - text: 'It equals the product of the two sides.'
+        rationale: |
+          This uses cosine one-half. That occurs at $60^\circ$ and can seem familiar. Check the cosine of the stated angle.
+      - text: 'It equals twice the product of the sides.'
+        rationale: |
+          This uses cosine $1$. That keeps the full $2ab$ factor. Check that the given angle is $90^\circ$, not zero.
+      - text: 'It equals the sum of the two sides.'
+        rationale: |
+          This replaces a trigonometric product with addition. Both known side lengths appear in the formula. Check how the correction term is formed.
+    explanation: |
+      The correction term contains $\cos90^\circ=0$. Multiplying by zero makes the term zero. The remaining equation is $c^2=a^2+b^2$.
+    approved: false
+  - id: q-trigonometry-laws-of-sines-and-cosines-0018
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      Two triangles have corresponding sides of $5$ cm and $8$ cm. The included angles are $60^\circ$ in one and $120^\circ$ in the other. How do their third sides compare?
+    choices:
+      - text: 'The third side is longer in the second triangle.'
+        correct: true
+      - text: 'The third side is longer in the first triangle.'
+        rationale: |
+          This treats an obtuse cosine as positive in the subtraction term. Both cosine values have magnitude one-half. Check their signs before comparing the squares.
+      - text: 'The third side has the same length in both triangles.'
+        rationale: |
+          This assumes two matching side lengths determine the whole triangle. Both triangles share those lengths. Check whether the included angles also match.
+      - text: 'The two triangles cannot both exist.'
+        rationale: |
+          This treats an obtuse angle as impossible in a triangle. Right triangles are more familiar. Check whether an angle below $180^\circ$ can be a triangle angle.
+    explanation: |
+      For the $60^\circ$ triangle, the third side squared is $25+64-40=49$. For the $120^\circ$ triangle, it is $25+64+40=129$. Since $129>49$, the second triangle has the longer third side.
+    approved: false
+  - id: q-trigonometry-laws-of-sines-and-cosines-0019
+    type: error-spotting
+    difficulty: hard
+    stem: |
+      In triangle $ABC$, $a=4$, $b=10$, and $A=30^\circ$. A student writes Step 1: $\dfrac{4}{\sin30^\circ}=\dfrac{10}{\sin B}$. Step 2: $\sin B=\dfrac{5}{4}$. Step 3: the calculator should return a real angle $B$ in degrees. Which is the first incorrect step?
+    choices:
+      - text: 'Step 3'
+        correct: true
+      - text: 'Step 1'
+        rationale: |
+          This rejects a correctly matched side-angle proportion. The unusual measurements may look like a labeling error. Check that each side is paired with its opposite angle.
+      - text: 'Step 2'
+        rationale: |
+          This rejects a correct result because it is above $1$. That result looks impossible for sine. Check whether the calculation instead shows the measurements are impossible.
+      - text: 'No step is incorrect.'
+        rationale: |
+          This assumes any given sides and angle form a triangle. The problem uses normal triangle labels. Check the allowed range of sine before asking for a real angle.
+    explanation: |
+      The matched proportion gives $\sin B=\dfrac{10\sin30^\circ}{4}=\dfrac{5}{4}$. This is greater than $1$, so no real angle $B$ exists. Step 3 is the first error: the given measurements cannot form a triangle.
+    approved: false
+  - id: q-trigonometry-laws-of-sines-and-cosines-0020
+    type: word-problem
+    difficulty: exam
+    stem: |
+      Two survey points $P$ and $Q$ are $10$ m apart. A stake $R$ must be $7$ m from $Q$, with $\angle QPR=30^\circ$. How many different triangles $PQR$ satisfy the measurements? Count triangles with different third-side lengths, not mirror images. Use $\arcsin(\dfrac{5}{7})\approx45.6^\circ$.
+    choices:
+      - text: 'Two'
+        correct: true
+      - text: 'One'
+        rationale: |
+          This keeps only the principal arcsine angle. A calculator returns just that one. Check the supplementary angle and whether it also leaves a positive third angle.
+      - text: 'Zero'
+        rationale: |
+          This assumes the supplementary angle makes the angle sum too large. That can happen in SSA problems. Check each possible sum against $180^\circ$.
+      - text: 'Three'
+        rationale: |
+          This counts the remaining third angle as another solution. A triangle has three angle labels. Check that a solution needs a whole set of three angles, not a single angle.
+    explanation: |
+      The side opposite angle $P$ is $QR=7$, and the side opposite angle $R$ is $PQ=10$. The Law of Sines gives $\sin R=\dfrac{10\sin30^\circ}{7}=\dfrac{5}{7}$. The two possible angles are about $45.6^\circ$ and $134.4^\circ$. Adding $30^\circ$ leaves the total below $180^\circ$ in either case. The two choices of angle give two triangles with different third sides.
+    approved: false

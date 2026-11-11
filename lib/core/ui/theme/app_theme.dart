@@ -1,68 +1,107 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:pantas/core/ui/theme/app_colors.dart';
-import 'package:pantas/core/ui/theme/app_text_styles.dart';
+import 'package:pantas/core/ui/motion/web_page_transitions.dart';
+import 'package:pantas/core/ui/theme/component_themes.dart';
+import 'package:pantas/core/ui/theme/theme_names.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 
-ThemeData buildLightTheme() => _buildTheme(AppColors.light, Brightness.light);
+// Lets every `context.colors` caller read the screen-facing color names.
+export 'package:pantas/core/ui/theme/theme_names.dart';
 
-ThemeData buildDarkTheme() => _buildTheme(AppColors.dark, Brightness.dark);
+ThemeData buildLightTheme({bool web = kIsWeb}) => _buildTheme(
+      PantasColors.light,
+      Brightness.light,
+      web: web || kIsWeb,
+    );
 
-ThemeData _buildTheme(AppColors colors, Brightness brightness) {
+ThemeData buildDarkTheme({bool web = kIsWeb}) => _buildTheme(
+      PantasColors.dark,
+      Brightness.dark,
+      web: web || kIsWeb,
+    );
+
+ThemeData _buildTheme(
+  PantasColors colors,
+  Brightness brightness, {
+  required bool web,
+}) {
   final scheme = ColorScheme.fromSeed(
-    seedColor: const Color(0xFF1D5C50),
+    seedColor: colors.accent,
     brightness: brightness,
   ).copyWith(
-    primary: colors.board,
-    onPrimary: colors.onBoard,
-    secondary: colors.board,
-    onSecondary: colors.onBoard,
+    primary: colors.accent,
+    onPrimary: colors.surface,
+    secondary: colors.accent,
+    onSecondary: colors.surface,
     surface: colors.surface,
-    onSurface: colors.ink,
-    error: colors.rust,
-    onError: colors.onBoard,
-    outline: colors.rule,
-    outlineVariant: colors.ruleFaint,
+    onSurface: colors.label,
+    error: colors.destructive,
+    onError: colors.surface,
+    outline: colors.separator,
+    outlineVariant: colors.fill,
     surfaceTint: Colors.transparent,
   );
-  final textStyles = AppTextStyles.create();
+  final type = PantasTypeBundle.create(colors: colors);
+  final themes = PantasComponentThemes(colors, brightness);
   return ThemeData(
+    pageTransitionsTheme: web ? webPageTransitionsTheme : null,
+    splashFactory: NoSplash.splashFactory,
+    splashColor: Colors.transparent,
+    highlightColor: Colors.transparent,
+    hoverColor: colors.surfaceHover,
+    textButtonTheme: themes.textButton,
+    filledButtonTheme: themes.filledButton,
+    elevatedButtonTheme: themes.elevatedButton,
+    outlinedButtonTheme: themes.outlinedButton,
+    iconButtonTheme: themes.iconButton,
+    inputDecorationTheme: themes.inputDecoration,
+    tooltipTheme: themes.tooltip,
+    snackBarTheme: themes.snackBar,
+    listTileTheme: themes.listTile,
+    progressIndicatorTheme: themes.progressIndicator,
+    checkboxTheme: themes.checkbox,
+    radioTheme: themes.radio,
+    switchTheme: themes.switchTheme,
+    sliderTheme: themes.slider,
+    chipTheme: themes.chip,
+    popupMenuTheme: themes.popupMenu,
+    floatingActionButtonTheme: themes.floatingActionButton,
+    dropdownMenuTheme: themes.dropdownMenu,
+    menuTheme: themes.menu,
+    menuButtonTheme: themes.menuButton,
+    bottomSheetTheme: themes.bottomSheet,
     useMaterial3: true,
     colorScheme: scheme,
     scaffoldBackgroundColor: colors.background,
     visualDensity: VisualDensity.adaptivePlatformDensity,
     appBarTheme: AppBarTheme(
       backgroundColor: colors.background,
-      foregroundColor: colors.ink,
+      foregroundColor: colors.label,
       surfaceTintColor: Colors.transparent,
       elevation: 0,
       scrolledUnderElevation: 0,
       centerTitle: false,
-      titleTextStyle: textStyles.headlineMedium.copyWith(color: colors.ink),
-      iconTheme: IconThemeData(color: colors.inkMuted, size: 20),
+      titleTextStyle: type.sectionHero.copyWith(color: colors.label),
+      iconTheme: IconThemeData(color: colors.secondaryLabel, size: 20),
     ),
     dividerTheme: DividerThemeData(
-      color: colors.rule,
-      thickness: 1,
+      color: colors.separator,
+      thickness: 0.5,
       space: 1,
     ),
-    dialogTheme: DialogThemeData(
-      backgroundColor: colors.surface,
-      surfaceTintColor: Colors.transparent,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(8)),
-      ),
-    ),
-    bottomSheetTheme: BottomSheetThemeData(
-      backgroundColor: colors.background,
-      surfaceTintColor: Colors.transparent,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(8)),
-      ),
-    ),
-    extensions: [colors, textStyles],
+    dialogTheme: themes.dialog,
+    fontFamily: 'Geist',
+    extensions: [colors, type],
   );
 }
 
 extension AppThemeContext on BuildContext {
-  AppColors get colors => Theme.of(this).extension<AppColors>()!;
-  AppTextStyles get textStyles => Theme.of(this).extension<AppTextStyles>()!;
+  PantasColors get colors {
+    final theme = Theme.of(this);
+    return theme.extension<PantasColors>()!;
+  }
+
+  PantasTypeBundle get type =>
+      Theme.of(this).extension<PantasTypeBundle>() ??
+      PantasTypeBundle.create(colors: colors);
 }

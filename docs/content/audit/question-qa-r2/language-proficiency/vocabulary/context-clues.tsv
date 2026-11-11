@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-vocabulary-context-clues-0001	CORRECTED	SOLVED-MATCH	choices;explanation;notes	LOW	Tightened the answer and removed its length cue.
+q-vocabulary-context-clues-0002	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Correct choice copied a long definition; a scientific-fact distractor lacked a useful mistake.
+q-vocabulary-context-clues-0003	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Replaced the less useful spices distractor and shortened the uniquely longest answer.
+q-vocabulary-context-clues-0004	CORRECTED	SOLVED-MATCH	choice text;explanation;notes	LOW	Removed the answer-length cue without changing the intended meaning.
+q-vocabulary-context-clues-0005	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Replaced a haunted-house guess with mistakes about occupancy and age.
+q-vocabulary-context-clues-0006	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	LOW	Stem referred to underlining although the term was bold; correct choice was uniquely longest.
+q-vocabulary-context-clues-0007	CORRECTED	SOLVED-MATCH	stem;distractor;explanation;notes	MEDIUM	Replaced the broad mabait distractor with the nearby thrift misconception; fixed formatting reference.
+q-vocabulary-context-clues-0008	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Original answer contained the whole solution and alternatives made absolute or unrelated claims.
+q-vocabulary-context-clues-0009	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Removed a belly look-alike throwaway and coaching embedded in the stem.
+q-vocabulary-context-clues-0010	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Correct choice contained a long solution; stem coached the answer instead of testing the context.
+q-vocabulary-context-clues-0011	CORRECTED	SOLVED-MATCH	distractor;explanation;notes	MEDIUM	Replaced quiet, which was weakly connected to the restatement.
+q-vocabulary-context-clues-0012	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Removed the unrelated loudness distractor and shortened the answer.
+q-vocabulary-context-clues-0013	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Replaced living animals and paintings-only alternatives with nearby category mistakes.
+q-vocabulary-context-clues-0014	CORRECTED	SOLVED-MATCH	distractor wording;explanation;notes	LOW	Made the wealth distractor fit the register of the other alternatives.
+q-vocabulary-context-clues-0015	CORRECTED	SOLVED-MATCH	choices;explanation;notes	LOW	Tightened the uniquely longest answer and kept alternatives parallel.
+q-vocabulary-context-clues-0016	NEW	NEW	explanation;notes	NONE	
+q-vocabulary-context-clues-0017	NEW	NEW	explanation;notes	NONE	
+q-vocabulary-context-clues-0018	NEW	NEW	explanation;notes	NONE	
+q-vocabulary-context-clues-0019	NEW	NEW	explanation;notes	NONE	
+q-vocabulary-context-clues-0020	NEW	NEW	explanation;notes	NONE	

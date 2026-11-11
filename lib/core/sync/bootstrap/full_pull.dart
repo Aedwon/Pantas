@@ -1,6 +1,8 @@
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/sync/engine/collection_registry.dart';
+import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/core/sync/engine/sync_collection_adapter.dart';
+import 'package:pantas/core/sync/engine/sync_held_generation.dart';
 import 'package:pantas/core/sync/firestore/firestore_gateway.dart';
 import 'package:pantas/core/sync/mapping/assessment_mapper.dart';
 import 'package:pantas/core/sync/mapping/attempt_mapper.dart';
@@ -99,13 +101,33 @@ class FullPullBootstrap {
         }
         await _db.into(_db.syncMeta).insertOnConflictUpdate(
               SyncMetaCompanion.insert(
-                key: 'currentLocalGenerationId',
+                key: SyncHeldGeneration.generationKey,
                 value: generationId,
               ),
             );
+        // Every collection was just read whole from the server.
+        final held = SyncHeldGeneration(_db);
+        await held.clearSnapshotMarks();
+        for (final entry in activeSyncCollections) {
+          await held.markSnapshotComplete(
+            generationId: generationId,
+            collection: entry.tableType,
+          );
+        }
+        // This choice finished, so any unfinished upload is over too.
         await (_db.delete(_db.syncMeta)
-              ..where((row) => row.key.equals('pending_full_pull')))
+              ..where(
+                (row) => row.key
+                    .isIn(const ['pending_full_pull', 'pending_full_push']),
+              ))
             .go();
+        await _db.into(_db.syncMeta).insertOnConflictUpdate(
+              SyncMetaCompanion.insert(
+                key: SyncHeldGeneration.uidKey,
+                value: _uid,
+              ),
+            );
+        await SyncActiveContextStore(_db).renewToken();
       });
     } on _SyncCancelled {
       return const FullPullResult(FullPullOutcome.cancelled);

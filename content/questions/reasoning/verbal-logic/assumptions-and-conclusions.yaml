@@ -9,127 +9,121 @@ questions:
     type: single_choice
     difficulty: easy
     stem: |
-      Statement: "All employees who complete the training program will receive a performance bonus."
-      Which assumption is necessary for this statement to hold true?
+      A director promises a bonus to every employee who completes a training program. Does the promise by itself establish that the program can be completed?
     choices:
-      - text: Training program completion is achievable
+      - text: "No; the condition may never be met."
         correct: true
-      - text: Bonuses will double for senior employees next year
+      - text: "Yes; the promise proves completion is possible."
         rationale: |
-          You picked a future compensation change not required for the current statement to hold.
-      - text: Non-participating staff members will face penalty
+          This treats a conditional promise as proof that its condition can happen. An offered reward can make the goal seem reachable. Check whether the statement asserts that anyone can complete the program.
+      - text: "Yes; all employees must complete the program."
         rationale: |
-          You assumed non-participants are punished. The statement only addresses rewards for participants.
-      - text: Training programs are conducted outside city limits
+          This turns a reward for completers into a requirement for everyone. The policy mentions all employees who complete it. Check which group the word "all" actually covers.
+      - text: "No; employees who complete it are ineligible."
         rationale: |
-          You introduced an irrelevant geographic requirement.
+          This denies the reward for people who meet the condition. The fact that completion is uncertain may suggest there is no eligibility. Check what the promise says if completion does happen.
     explanation: |
-      The statement assumes that completing the training program is an achievable goal, enabling employees to earn the bonus.
+      The promise applies if an employee completes the program. It can still hold when no one completes it. The promise alone does not prove that completion is achievable.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0002
     type: single_choice
     difficulty: medium
     stem: |
-      Statement: "The city council increased public transit routes to reduce traffic congestion during peak hours."
-      Which assumption underlies the council's decision?
+      The council argues that expanding peak-hour transit routes will ease traffic by shifting car trips to buses. Which assumption is necessary to that stated reason?
     choices:
-      - text: Increased transit reduces private car usage
+      - text: "New routes can replace some peak-hour car trips."
         correct: true
-      - text: Traffic congestion will vanish completely within two days
+      - text: "Every car user will stop driving at peak hours."
         rationale: |
-          You assumed an extreme and instant elimination of traffic rather than a reasonable reduction mechanism.
-      - text: Public transit fare rates will decrease by fifty percent
+          This requires all car users to switch. A large switch would help the proposal. Check whether some replacement trips can support the reason without a universal switch.
+      - text: "Every new route must be full throughout the day."
         rationale: |
-          You introduced an unstated pricing assumption not required for transit expansion to lower car usage.
-      - text: City residents dislike walking to nearby municipal offices
+          This requires full use at all hours. Busy buses may make a project look worthwhile. Check that the stated reason concerns peak-hour car trips, not every hour.
+      - text: "Transit fares must be lower than in every other city."
         rationale: |
-          You introduced an irrelevant pedestrian behavioral preference.
+          This makes a comparison with other cities necessary. Cheap fares can attract riders. Check whether the argument requires that particular comparison or only some replaced trips.
     explanation: |
-      The council's decision assumes that expanding transit routes encourages commuters to use public transit instead of private cars, reducing traffic.
+      The argument depends on some car trips shifting to the expanded transit service. If the new routes could replace no such trips, its stated reason for easing congestion would fail.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0003
     type: single_choice
     difficulty: medium
     stem: |
-      Statement: "Premise 1: Every civil servant must pass an ethics exam. Premise 2: Maria passed the ethics exam."
-      Which conclusion logically follows?
+      In this hiring system, passing an ethics exam is one required condition for civil service. Maria passed that exam. Which conclusion must follow?
     choices:
-      - text: Maria satisfied one requirement for civil service
+      - text: "Maria has met the ethics-exam requirement."
         correct: true
-      - text: Maria is automatically appointed to a senior executive director role
+      - text: "Maria has met every hiring requirement."
         rationale: |
-          You assumed passing one exam guarantees an immediate senior job appointment.
-      - text: Maria scored highest among all examination test takers nationwide
+          This expands one completed requirement into every requirement. Passing a mandatory exam is an important step. Check whether any other hiring conditions are stated.
+      - text: "Maria has failed no examination in her life."
         rationale: |
-          You assumed top rank performance when the premise states only that she passed.
-      - text: Maria is exempt from all future annual official evaluation tests
+          This expands success on one exam into success on all exams. A pass is positive evidence. Check the scope of the stated exam result.
+      - text: "Maria has already been appointed to civil service."
         rationale: |
-          You inferred future testing exemptions not stated in the premises.
+          This treats a required step as sufficient for appointment. Passing may lead toward a job. Check whether the premises say appointment has happened.
     explanation: |
-      Passing the ethics exam fulfills one mandatory requirement, but does not guarantee an immediate senior appointment or top score.
+      Passing the ethics exam is one of the stated requirements. Maria passed it. She has therefore met that particular requirement.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0004
     type: single_choice
     difficulty: easy
     stem: |
-      Statement: "If it rains heavily, the outdoor community assembly will be moved indoors. The assembly was held indoors."
-      Which conclusion is valid?
+      If it rains heavily, the outdoor assembly will move indoors. The assembly was held indoors. What can be concluded about whether heavy rain occurred?
     choices:
-      - text: Rain was a possible reason for moving indoors
+      - text: "Whether it rained heavily is undetermined."
         correct: true
-      - text: It definitely rained heavily during assembly hours
+      - text: "Heavy rain must have occurred during the assembly."
         rationale: |
-          You committed the fallacy of affirming the consequent. Moving indoors could have occurred for other reasons.
-      - text: The outdoor venue was destroyed by severe winds
+          This reverses the one-way conditional. Rain would cause the move indoors. Check whether the rule says rain is the only possible cause.
+      - text: "Heavy rain definitely did not occur that day."
         rationale: |
-          You inferred extreme physical destruction not supported by the premises.
-      - text: Community members refused to attend outdoor events
+          This treats missing proof of rain as proof of no rain. The premises do not state weather directly. Check whether absence of certainty rules an event out.
+      - text: "The assembly remained at its outdoor venue."
         rationale: |
-          You inferred member refusal without premise evidence.
+          This rejects the stated indoor location. The assembly began as an outdoor plan. Check its reported final location.
     explanation: |
-      Holding the assembly indoors could be due to rain, but moving indoors could also happen for other unstated reasons.
+      Heavy rain would require an indoor assembly. The given indoor location does not identify its cause. Both rain and another reason remain possible under the premises.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0005
     type: single_choice
     difficulty: hard
     stem: |
-      Statement: "Company X replaced all paper invoices with digital billing to cut processing costs."
-      What assumption is made by Company X?
+      Company X argues that replacing paper invoices with digital billing will reduce total processing costs. Which assumption is necessary to this cost-saving reason?
     choices:
-      - text: Digital billing costs less than paper processing
+      - text: "Digital processing can cost less overall."
         correct: true
-      - text: All customers prefer receiving digital billing receipts monthly
+      - text: "Every customer prefers a digital invoice."
         rationale: |
-          You assumed customer preference drives cost reduction.
-      - text: Paper invoices will be banned nationwide by government decree
+          This requires a universal customer preference. Preference might help adoption. Check whether the reason is popularity or processing cost.
+      - text: "The new system must use no staff time at all."
         rationale: |
-          You assumed an external legal ban motivated the company's decision.
-      - text: Processing digital receipts requires zero electrical energy consumption
+          This requires zero staff time rather than a lower total cost. Removing work can save money. Check whether any reduction can support the reason without eliminating all work.
+      - text: "A nationwide ban on paper invoices must be imminent."
         rationale: |
-          You assumed digital billing requires zero energy, which is impossible and unnecessary for net savings.
+          This substitutes a possible external reason for the stated cost reason. A ban could motivate a change. Check which reason the argument actually relies on.
     explanation: |
-      Replacing paper with digital billing to cut costs assumes that processing digital bills incurs lower total expenses than paper invoicing.
+      The stated reason is lower processing costs. The company must expect the digital process to cost less overall. Otherwise this cost-saving reason would not support replacing paper invoices.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0006
     type: single_choice
     difficulty: easy
     stem: |
-      Statement: "No unregistered vehicles are allowed inside the government compound. Vehicle A is parked inside."
-      Which conclusion must be true?
+      No unregistered vehicles are allowed inside a compound. Every vehicle inside was admitted in full compliance with that rule. Vehicle A is inside. Which conclusion must follow?
     choices:
-      - text: Vehicle A is a registered vehicle
+      - text: "Vehicle A is registered."
         correct: true
-      - text: Vehicle A belongs to the department head
+      - text: "Vehicle A belongs to a department head."
         rationale: |
-          You inferred specific ownership not indicated by the registration rule.
-      - text: Vehicle A was manufactured recently
+          This adds ownership to a registration rule. Official vehicles may be linked to senior staff. Check whether the premises identify an owner.
+      - text: "Every registered vehicle is inside the compound."
         rationale: |
-          You introduced an irrelevant vehicle age feature.
-      - text: Vehicle A has electric power features
+          This reverses permission into actual presence for the whole group. Registered vehicles are eligible to enter. Check whether eligibility means every one has entered.
+      - text: "Vehicle A is the only registered vehicle."
         rationale: |
-          You introduced an irrelevant engine type attribute.
+          This treats one known registered vehicle as the only one. Vehicle A is the named example. Check whether the premises count or exclude other registered vehicles.
     explanation: |
-      Since unregistered vehicles are barred, any vehicle parked inside must be registered.
+      The rule excludes unregistered vehicles, and every vehicle inside complies with it. Vehicle A is inside, so it is registered.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0007
     type: single_choice
@@ -138,40 +132,39 @@ questions:
       Statement: "All department supervisors must hold a master's degree. Elena is not a department supervisor."
       Which conclusion is valid?
     choices:
-      - text: Elena may or may not hold a master's degree
+      - text: "Elena's degree status is undetermined."
         correct: true
-      - text: Elena definitely does not hold any master's degree credential
+      - text: "Elena definitely lacks a master's degree."
         rationale: |
-          You committed denying the antecedent. Non-supervisors can also possess master's degrees.
-      - text: Elena is disqualified from holding any public office job title
+          This denies the trait after denying group membership. The requirement for supervisors may seem exclusive to them. Check whether the rule covers nonsupervisors.
+      - text: "Elena definitely holds a master's degree."
         rationale: |
-          You inferred general job disqualification beyond the supervisor requirement.
-      - text: Elena will be appointed supervisor next month by executive vote
+          This assigns the required trait to someone outside the stated group. The degree is prominent in the premise. Check whether any fact gives Elena that trait.
+      - text: "Every master's-degree holder is a supervisor."
         rationale: |
-          You assumed a future appointment contrary to her current status.
+          This reverses the group-to-requirement relation. All supervisors need the degree. Check whether the premise also says the degree is sufficient to be a supervisor.
     explanation: |
-      Holding a master's degree is a requirement for supervisors, but non-supervisors may still hold master's degrees.
+      The rule requires a master's degree for supervisors. Elena is outside that group. It places no requirement on her degree status, so either status remains possible.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0008
     type: single_choice
     difficulty: hard
     stem: |
-      Statement: "Strict waste segregation reduced landfill volume in Municipality Y by thirty percent."
-      What is assumed by this statement?
+      After Municipality Y began a waste-sorting program, landfill volume fell. The report concludes that the program caused at least some of the fall. Which unstated assumption is necessary to that reasoning?
     choices:
-      - text: Waste segregation contributed to volume reduction
+      - text: "Other changes are not the whole cause."
         correct: true
-      - text: All residents produce zero non-recyclable waste products daily
+      - text: "The program was the only thing that changed."
         rationale: |
-          You assumed an extreme zero-waste threshold rather than a 30% reduction contribution.
-      - text: Landfills in Municipality Y will close next year permanently
+          This demands that nothing else changed. That would make the causal case stronger. Check whether the conclusion requires the program to be the only cause or just one cause.
+      - text: "Landfill volume fell after the program began."
         rationale: |
-          You inferred complete and permanent landfill closure.
-      - text: Recycling facilities generate huge net financial profits yearly
+          This repeats evidence already stated instead of adding an unstated link. The timing is central to the argument. Check the difference between a premise and an assumption.
+      - text: "Every household took part in the program."
         rationale: |
-          You introduced financial profitability assumptions unrelated to volume reduction.
+          This requires participation by every household. More participation could increase the effect. Check whether some participation could still cause part of the reduction.
     explanation: |
-      Attributing the thirty percent drop to strict waste segregation assumes a causal link between segregation efforts and volume reduction.
+      The conclusion gives the program at least some causal role. That reasoning requires the drop not to be fully explained by unrelated changes. Negating that assumption removes the stated basis for the causal claim.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0009
     type: single_choice
@@ -180,79 +173,245 @@ questions:
       Statement: "All candidates who score above 80% pass the examination. Juan scored 85%."
       Which conclusion is certain?
     choices:
-      - text: Juan passed the examination
+      - text: "Juan passed the examination."
         correct: true
-      - text: Juan scored highest in his class
+      - text: "Everyone scoring exactly 80% passed."
         rationale: |
-          You assumed Juan was top rank when the premise only guarantees he passed.
-      - text: Juan is guaranteed a job offer
+          This extends an above-80 rule to exactly 80. The cutoff wording may seem to include its boundary. Check the word "above."
+      - text: "Juan outscored every other candidate."
         rationale: |
-          You inferred employment guarantees beyond passing the test.
-      - text: Juan will retake the test soon
+          This turns a sufficient passing score into a top ranking. A high score can seem impressive. Check whether any other scores are given.
+      - text: "No candidate scoring 79% passed."
         rationale: |
-          You inferred a retake despite Juan successfully passing.
+          This treats a sufficient condition as the only way to pass. The threshold is the only rule mentioned. Check whether the statement rules out other passing cases.
     explanation: |
-      Since 85% exceeds the 80% passing threshold, Juan necessarily passed the examination.
+      Juan's 85% is above 80%. The stated rule guarantees a pass for that group. Juan therefore passed.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0010
     type: single_choice
     difficulty: medium
     stem: |
-      Statement: "To reduce paper usage, the department instituted electronic recordkeeping."
-      Which assumption underlies this action?
+      The department argues that letting applicants enter forms online will reduce paper use by replacing printed submissions. Which assumption is necessary to this reason?
     choices:
-      - text: Electronic recordkeeping uses less paper
+      - text: "Some online submissions can replace printed forms."
         correct: true
-      - text: All paper records will be destroyed today permanently
+      - text: "Every applicant must prefer using a screen."
         rationale: |
-          You assumed immediate destruction of historical paper records.
-      - text: Computer hardware systems never experience technical errors
+          This makes a universal preference necessary. Preference might encourage use. Check whether some replaced forms can reduce paper without everyone preferring screens.
+      - text: "All old paper files must be destroyed immediately."
         rationale: |
-          You assumed zero technical failure, which is unrequired for reducing paper usage.
-      - text: Employees prefer reading computer screens over printed sheets
+          This requires deleting old files to reduce new paper use. Existing files may look like part of the paper problem. Check whether the argument concerns new submissions or old storage.
+      - text: "Every electronic record must remain free of errors."
         rationale: |
-          You assumed user media preferences drive paper savings.
+          This requires perfect accuracy for paper savings. Errors can create extra work. Check whether some substitution can still reduce paper without a flawless system.
     explanation: |
-      Adopting electronic recordkeeping to reduce paper usage assumes that digital filing consumes less paper overall.
+      The reason depends on online entries taking the place of some printed forms. If they replaced no paper forms, that substitution would not support reduced paper use.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0011
     type: single_choice
     difficulty: medium
     stem: |
-      Statement: "Only licensed engineers may approve building plans. Mark approved the building plans for Project A."
-      Which conclusion is valid?
+      An agency permits only licensed engineers to approve building plans. Mark approved Project A in full compliance with that authorization rule. Which conclusion must follow?
     choices:
-      - text: Mark is a licensed engineer
+      - text: "Mark is a licensed engineer."
         correct: true
-      - text: Mark owns the building project
+      - text: "Every licensed engineer approved Project A."
         rationale: |
-          You inferred project ownership rather than engineering credentials.
-      - text: Project A is located downtown
+          This turns one authorized approval into an action by every eligible person. All licensed engineers may be eligible under the rule. Check whether permission means actual participation.
+      - text: "Mark owns the building described in Project A."
         rationale: |
-          You introduced an unstated geographic location.
-      - text: Project A cost millions of pesos
+          This adds ownership to professional authorization. An owner may be involved in a project. Check which status the rule actually requires.
+      - text: "All of Mark's plans have already been approved."
         rationale: |
-          You introduced an unstated financial cost.
+          This expands one approval to all of Mark's work. A licensed role can suggest continuing authority. Check the single project named in the premise.
     explanation: |
-      Because only licensed engineers can approve building plans, Mark must be a licensed engineer to have approved them.
+      The agency requires a licensed engineer for an authorized approval. Mark's approval fully complied with that requirement. Mark is therefore a licensed engineer.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0012
     type: single_choice
     difficulty: hard
     stem: |
-      Statement: "Solar panel installation decreased monthly electricity bills for School Z."
-      What is the underlying assumption?
+      School Z argues that rooftop solar will lower its electricity bills by supplying power it would otherwise buy from the grid. Which assumption is necessary to this stated replacement reason?
     choices:
-      - text: Solar energy replaced paid grid electricity
+      - text: "Some solar output can replace paid grid power."
         correct: true
-      - text: Electricity rates dropped nationwide this month significantly
+      - text: "All school activity must take place in daylight."
         rationale: |
-          You attributed the savings to external rate drops, which would negate the solar panel's causal role.
-      - text: School Z turned off all air conditioning units completely
+          This requires all activity to occur during generation hours. Daylight is associated with solar power. Check whether some daytime use or stored output could support the reason.
+      - text: "Grid rates must decline nationwide this month."
         rationale: |
-          You assumed air conditioning shutdown rather than solar generation caused the savings.
-      - text: School Z operates only during daytime operating hours
+          This substitutes an unrelated price change for the given replacement reason. Lower rates can reduce bills. Check which mechanism the argument relies on.
+      - text: "Solar panels must meet every school power need."
         rationale: |
-          You assumed daytime-only operation instead of solar substitution.
+          This requires complete replacement rather than some replacement. Full independence could save much money. Check whether partial replacement is enough for the stated reason.
     explanation: |
-      Attributing lower electric bills to solar panels assumes that generated solar power substituted for utility grid electricity.
+      The school's stated reason is replacing electricity it would otherwise buy. It therefore needs at least some usable solar output to replace paid grid power. That link is necessary to this particular reason for lower bills.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0013
+    type: single_choice
+    difficulty: easy
+    stem: |
+      In formal logic, "some" means at least one. Some inspectors are certified auditors. Which conclusion must follow?
+    choices:
+      - text: "Some auditors are inspectors."
+        correct: true
+      - text: "Some inspectors are not auditors."
+        rationale: |
+          This reads "some" as "some but not all." Everyday speech can suggest that limit. Check the formal meaning of at least one.
+      - text: "All auditors are inspectors."
+        rationale: |
+          This expands the known overlap to the whole auditor group. Shared membership can blur group size. Check the quantifier in the premise.
+      - text: "No inspectors are auditors."
+        rationale: |
+          This denies the overlap that the premise establishes. The role names differ. Check the statement that at least one person has both roles.
+    explanation: |
+      The statement says at least one person is both an inspector and an auditor. That same person shows that some auditors are inspectors.
+    approved: false
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0014
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Before a trial of later library closing hours, several workers arrived after closing. During the trial, those workers used the library after their shifts. Which conclusion is best supported?
+    choices:
+      - text: "Later hours help some workers use the library."
+        correct: true
+      - text: "Every library visitor needs the building after dark."
+        rationale: |
+          This expands evidence about a subgroup to everyone. The after-work visitors are noticeable. Check which visitors the observation actually covers.
+      - text: "Longer hours prove that all visitors read more books."
+        rationale: |
+          This treats access as proof of more reading. Extra time can help reading. Check whether book use was measured.
+      - text: "Saturday service can now be abolished without harm."
+        rationale: |
+          This treats an added service as proof another service is unnecessary. Both concern scheduling. Check whether the evidence evaluates Saturday visitors.
+    explanation: |
+      The earlier arrivals after closing showed a schedule conflict. Those visitors can now use the library during the added hours. The evidence supports later hours meeting some visitors' needs.
+    approved: false
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0015
+    type: single_choice
+    difficulty: medium
+    stem: |
+      A report links many processing mistakes to unfamiliarity with current procedures. It recommends a refresher course as a way to reduce those mistakes. Which assumption is necessary to that stated reason?
+    choices:
+      - text: "The course addresses the unfamiliar procedures."
+        correct: true
+      - text: "Every employee will attend every session offered."
+        rationale: |
+          This requires perfect attendance rather than a relevant course. Attendance can help the program work. Check the content link needed by the stated reason.
+      - text: "The course is longer than every previous course."
+        rationale: |
+          This makes relative course length necessary. A longer course may seem more thorough. Check whether duration alone addresses the unfamiliar procedures.
+      - text: "All errors come only from unfamiliar procedures."
+        rationale: |
+          This expands "many" errors into all errors. The cause is important in the report. Check whether the recommendation requires it to be the only cause.
+    explanation: |
+      The stated cause of many errors is unfamiliarity with current procedures. To address that cause, the course must cover the relevant procedures. If it did not, the stated reason for recommending it would fail.
+    approved: false
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0016
+    type: single_choice
+    difficulty: hard
+    stem: |
+      A voluntary staff survey received only responses favoring a proposal. The report provides no information about employees who did not respond. Which conclusion is warranted?
+    choices:
+      - text: "The responding volunteers favored the proposal."
+        correct: true
+      - text: "Every employee favored the proposal."
+        rationale: |
+          This generalizes a volunteer sample to the whole staff. The report may look like a staff opinion summary. Check who actually answered.
+      - text: "Employees who did not respond opposed the proposal."
+        rationale: |
+          This treats silence as opposition. People who disagree may sometimes avoid responding. Check whether any reason for nonresponse is given.
+      - text: "The proposal is guaranteed to succeed if adopted."
+        rationale: |
+          This turns support into proof of success. Popular ideas can seem promising. Check whether the evidence measures opinion or future results.
+    explanation: |
+      The report records support among the volunteers who answered. That supports a conclusion about those respondents. It gives no result for the other employees.
+    approved: false
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0017
+    type: single_choice
+    difficulty: hard
+    stem: |
+      The library should replace its failed reading-room lamps so visitors can read there again. Which assumption's negation would most directly destroy this stated reason?
+    choices:
+      - text: "Replacement lamps will provide usable light."
+        correct: true
+      - text: "Replacement lamps will be more energy-efficient."
+        rationale: |
+          This adds an energy-saving benefit to a lighting argument. Efficiency can make a purchase attractive. Check whether the stated reason requires lower energy use.
+      - text: "Every visitor will approve the lamps' appearance."
+        rationale: |
+          This makes universal approval of appearance necessary. Attractive fittings may please visitors. Check whether usable light depends on everyone liking the design.
+      - text: "The new lamps will last longer than the old ones."
+        rationale: |
+          This makes extra durability necessary for restoring light. Longer-lasting lamps would be helpful. Check whether the stated reason requires usable light or a longer lifespan.
+    explanation: |
+      The reason is restoring readable lighting. It requires the replacement lamps to give usable light. Negating that condition leaves the reading problem unsolved by this proposal.
+    approved: false
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0018
+    type: single_choice
+    difficulty: hard
+    stem: |
+      Across several observed service periods, busier periods had longer waits than quieter periods. No causes were tested. Which conclusion is best supported?
+    choices:
+      - text: "Busy periods are associated with longer waits."
+        correct: true
+      - text: "Every delay is caused only by a busy period."
+        rationale: |
+          This turns a repeated association into the sole cause of every delay. Busy periods can seem to explain the pattern. Check whether other causes were ruled out.
+      - text: "Adding one worker always eliminates all delays."
+        rationale: |
+          This adds a guaranteed staffing solution. More staff may appear helpful. Check whether any staffing intervention was tested.
+      - text: "Quiet periods cannot have any waiting at all."
+        rationale: |
+          This turns shorter waits into zero waits. Quiet periods are the comparison group. Check whether the report says waits disappeared entirely.
+    explanation: |
+      The report observes longer waits during busier periods. It supports an association between busyness and wait length. That is the measured pattern described.
+    approved: false
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0019
+    type: single_choice
+    difficulty: exam
+    stem: |
+      "The library should keep its Sunday hours. Some workers cannot visit on weekdays, and Saturday reading rooms are often full. Closing on Sunday would remove an available study option." What is the main conclusion?
+    choices:
+      - text: "The library should keep its Sunday hours."
+        correct: true
+      - text: "Some workers cannot visit on weekdays."
+        rationale: |
+          This chooses a reason instead of the claim being defended. Workers' schedules help support the recommendation. Check what the writer wants the library to do.
+      - text: "Saturday reading rooms are often full."
+        rationale: |
+          This chooses another premise instead of the recommendation. Full Saturday rooms are important evidence. Check the action the argument tries to justify.
+      - text: "Sunday attendance will exceed all other days."
+        rationale: |
+          This adds a prediction not claimed in the argument. Unmet demand may suggest many Sunday visitors. Check the actual recommendation rather than a possible consequence.
+    explanation: |
+      The argument is trying to justify keeping Sunday hours. The worker schedules and full Saturday rooms serve as its reasons. The main conclusion is that the library should keep Sunday hours.
+    approved: false
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0020
+    type: single_choice
+    difficulty: exam
+    stem: |
+      A station argues that advance online ticket payment will shorten its on-site payment queue by letting passengers finish that step before arrival. Which assumption is necessary to the stated queue-reduction reason?
+    choices:
+      - text: "Advance payment can replace on-site payment."
+        correct: true
+      - text: "Every passenger must always choose advance payment."
+        rationale: |
+          This requires universal use rather than a usable replacement. Widespread use could strengthen the benefit. Check whether some passengers can leave the payment queue without everyone doing so.
+      - text: "Online payment must cost less than every other method."
+        rationale: |
+          This adds a price advantage to a queue-time argument. A cheaper method can encourage use. Check whether the stated reason depends on cost or where payment occurs.
+      - text: "Every part of every journey must become shorter."
+        rationale: |
+          This expands a queue benefit to every stage of travel. A shorter station wait can improve a journey. Check the exact delay the proposal addresses.
+    explanation: |
+      The stated reason moves payment work out of the on-site queue. It requires advance payment to replace the on-site step. If the same payment step still had to be repeated on site, that reason would not support shorter queues.
+    approved: false
+

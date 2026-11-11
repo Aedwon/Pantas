@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:pantas/core/sync/eligibility/sync_claim_gateway.dart';
 import 'package:pantas/core/sync/firestore/firestore_gateway.dart';
 import 'package:pantas/core/sync/model/sync_causal_base.dart';
 import 'package:pantas/core/sync/model/sync_document.dart';
@@ -56,6 +57,10 @@ class FirebaseFirestoreSdkClient implements FirebaseFirestoreClient {
 
   @override
   Future<void> commitBatch(List<FirestoreWrite> writes) async {
+    await refreshOnceAfterPermissionDenied(() => _commitBatch(writes));
+  }
+
+  Future<void> _commitBatch(List<FirestoreWrite> writes) async {
     final batch = _firestore.batch();
     for (final write in writes) {
       final reference = _firestore.doc(write.path);
@@ -74,7 +79,18 @@ class FirebaseFirestoreSdkClient implements FirebaseFirestoreClient {
 
   @override
   Future<List<FirebaseFirestoreRawDocument>> readCollection(String path) async {
-    final snapshot = await _firestore.collection(path).get();
+    // From the server only: a full pull replaces local data with this and then
+    // counts the collection as seen, so a partial cached copy must not pass.
+    final QuerySnapshot<Map<String, dynamic>> snapshot;
+    try {
+      snapshot = await refreshOnceAfterPermissionDenied(
+        () => _firestore
+            .collection(path)
+            .get(const GetOptions(source: Source.server)),
+      );
+    } on FirebaseException catch (error) {
+      throw SyncGatewayException(error.code);
+    }
     return [
       for (final document in snapshot.docs) _raw(document),
     ];
@@ -87,8 +103,10 @@ class FirebaseFirestoreSdkClient implements FirebaseFirestoreClient {
   }) async {
     final reference = _firestore.doc(path);
     final snapshot = serverOnly
-        ? await reference.get(const GetOptions(source: Source.server))
-        : await reference.get();
+        ? await refreshOnceAfterPermissionDenied(
+            () => reference.get(const GetOptions(source: Source.server)),
+          )
+        : await refreshOnceAfterPermissionDenied(reference.get);
     if (!snapshot.exists) {
       return null;
     }
@@ -97,7 +115,15 @@ class FirebaseFirestoreSdkClient implements FirebaseFirestoreClient {
 
   @override
   Stream<List<FirebaseFirestoreRawDocument>> watchCollection(String path) {
-    return _firestore.collection(path).snapshots().map(
+    // Only what the server confirmed. A copy from the device's cache can lack
+    // rows, and the engine reads a missing row as a deleted one. Without
+    // metadata changes the server's confirmation of an unchanged cached copy
+    // would never arrive.
+    return _firestore
+        .collection(path)
+        .snapshots(includeMetadataChanges: true)
+        .where((snapshot) => !snapshot.metadata.isFromCache)
+        .map(
           (snapshot) => [
             for (final document in snapshot.docs) _raw(document),
           ],
@@ -118,9 +144,11 @@ class FirebaseFirestoreSdkClient implements FirebaseFirestoreClient {
   Future<T> runTransaction<T>(
     Future<T> Function(FirebaseFirestoreTransaction transaction) action,
   ) {
-    return _firestore.runTransaction(
-      (transaction) => action(
-        _FirebaseFirestoreSdkTransaction(_firestore, transaction),
+    return refreshOnceAfterPermissionDenied(
+      () => _firestore.runTransaction(
+        (transaction) => action(
+          _FirebaseFirestoreSdkTransaction(_firestore, transaction),
+        ),
       ),
     );
   }
@@ -253,10 +281,22 @@ class FirebaseFirestoreGateway implements FirestoreGateway {
       id: raw.id,
       data: {
         for (final entry in raw.data.entries)
-          entry.key: _normalizeValue(entry.value),
+          entry.key: entry.key == 'updatedAt'
+              ? _rowVersion(_normalizeValue(entry.value))
+              : _normalizeValue(entry.value),
       },
     );
   }
+
+  /// A server time has microseconds; row states, the journal and the outbox
+  /// keep milliseconds. Read at that one precision, an unchanged row compares
+  /// equal to the version stored for it, so an edit is not taken as stale.
+  static Object? _rowVersion(Object? value) => value is DateTime
+      ? DateTime.fromMillisecondsSinceEpoch(
+          value.millisecondsSinceEpoch,
+          isUtc: true,
+        )
+      : value;
 
   static Object? _normalizeValue(Object? value) {
     if (value is Timestamp) {

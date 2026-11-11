@@ -66,13 +66,16 @@ void main() {
       accountTransitionGateway: RecordingAccountTransitionGateway(operations),
       localStateWiper: wiper,
       clock: () => DateTime(2026, 5, 17, 14, 1),
-    );
+    )..beforeIdentityChange = () async {
+        operations.add('clearPayment');
+      };
 
     await repo.deleteAccount();
 
     expect(operations, [
       'prepareForDeleteAccount',
       'deleteAccount',
+      'clearPayment',
       'wipeAll',
       'signOut',
       'googleSignOut',

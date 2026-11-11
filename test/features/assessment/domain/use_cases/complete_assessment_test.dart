@@ -82,6 +82,64 @@ void main() {
     await contentDb.close();
   });
 
+  test('measured timing and retry identity persist without duplicate seeding',
+      () async {
+    final (correctId, _) = await seedQuestion('q1', 't1');
+    final question = (await contentRepo.questionsByTopic('t1')).first;
+    final start = DateTime(2026, 10, 24, 12);
+    final session = AssessmentSession(
+      examId: 'e1',
+      questions: [AssessmentQuestion(question: question, topicId: 't1')],
+      answers: {'q1': correctId},
+      startedAt: start,
+      attemptId: 'assessment-stable',
+      responseMs: {'q1': 1234},
+    );
+    await useCase.call(
+      session: session,
+      now: start.add(const Duration(minutes: 2)),
+    );
+    final before = await reviewRepo.byQuestionId('q1');
+    await useCase.call(
+      session: session,
+      now: start.add(const Duration(minutes: 3)),
+    );
+    final attempt = await attemptsRepo.byId('assessment-stable');
+    expect(attempt!.startedAt, start);
+    expect(attempt.items.single.responseMs, 1234);
+    expect(attempt.completedAt, start.add(const Duration(minutes: 2)));
+    expect((await reviewRepo.byQuestionId('q1'))!.reps, before!.reps);
+  });
+
+  test('another session cannot overwrite a completed assessment', () async {
+    final (correctId, wrongId) = await seedQuestion('q1', 't1');
+    final question = (await contentRepo.questionsByTopic('t1')).first;
+    final questions = [AssessmentQuestion(question: question, topicId: 't1')];
+    await useCase.call(
+      session: AssessmentSession(
+        examId: 'e1',
+        questions: questions,
+        answers: {'q1': correctId},
+        attemptId: 'first',
+      ),
+      now: DateTime(2026),
+    );
+    await expectLater(
+      useCase.call(
+        session: AssessmentSession(
+          examId: 'e1',
+          questions: questions,
+          answers: {'q1': wrongId},
+          attemptId: 'second',
+        ),
+        now: DateTime(2026, 1, 2),
+      ),
+      throwsA(isA<AssessmentAlreadyCompleted>()),
+    );
+    expect(await attemptsRepo.byId('second'), isNull);
+    expect((await reviewRepo.byQuestionId('q1'))!.reps, 1);
+  });
+
   test('saveResult is called once and result is retrievable', () async {
     final (correctId, _) = await seedQuestion('q1', 't1');
     final q1 = (await contentRepo.questionsByTopic('t1')).first;
@@ -94,6 +152,29 @@ void main() {
 
     await useCase.call(session: session, now: DateTime(2026));
     expect(await assessmentRepo.hasCompletedForExam('e1'), isTrue);
+  });
+
+  test('custom-track completion returns topic masteries from answered topics',
+      () async {
+    await seedContentExam(
+      contentDb,
+      examId: 'custom',
+      code: 'custom',
+      name: 'PUP CET',
+      isCustom: true,
+    );
+    final (correctId, _) = await seedQuestion('q_custom', 't1');
+    final question = (await contentRepo.questionsByTopic('t1'))
+        .firstWhere((q) => q.id == 'q_custom');
+    final session = AssessmentSession(
+      examId: 'custom',
+      questions: [AssessmentQuestion(question: question, topicId: 't1')],
+      answers: {'q_custom': correctId},
+    );
+
+    final result = await useCase.call(session: session, now: DateTime(2026));
+
+    expect(result.topicMasteries.map((m) => m.topic.id), contains('t1'));
   });
 
   test('per-topic scores are correct', () async {

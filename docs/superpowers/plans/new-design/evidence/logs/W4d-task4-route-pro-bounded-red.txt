@@ -1,0 +1,59 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_route_coverage_test.dart
+00:00 +0: ordinary route applies current pantas_cs_monthly coverage paused=false
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Paid wrong-choice note": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_route_coverage_test.dart:51:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_route_coverage_test.dart line 51
+The test description was:
+  ordinary route applies current pantas_cs_monthly coverage paused=false
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -1: ordinary route applies current pantas_cs_monthly coverage paused=false [E]
+  Test failed. See exception logs above.
+  The test description was: ordinary route applies current pantas_cs_monthly coverage paused=false
+
+00:01 +0 -1: ordinary route applies current pantas_pro_monthly coverage paused=false
+00:01 +1 -1: ordinary route applies current pantas_cs_monthly coverage paused=true
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TypeWidgetFinder:<Found 0 widgets with type "ProPausedLine": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_route_coverage_test.dart:52:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_route_coverage_test.dart line 52
+The test description was:
+  ordinary route applies current pantas_cs_monthly coverage paused=true
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +1 -2: ordinary route applies current pantas_cs_monthly coverage paused=true [E]
+  Test failed. See exception logs above.
+  The test description was: ordinary route applies current pantas_cs_monthly coverage paused=true
+
+00:01 +1 -2: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_route_coverage_test.dart: ordinary route applies current pantas_cs_monthly coverage paused=false
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_route_coverage_test.dart: ordinary route applies current pantas_cs_monthly coverage paused=true

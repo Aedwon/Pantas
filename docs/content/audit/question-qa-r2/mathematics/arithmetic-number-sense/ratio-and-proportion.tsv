@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-arithmetic-number-sense-ratio-and-proportion-0001	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-ratio-and-proportion-0002	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-ratio-and-proportion-0003	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-ratio-and-proportion-0004	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Weak distractor derivations replaced with specific mistakes.
+q-arithmetic-number-sense-ratio-and-proportion-0005	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-ratio-and-proportion-0006	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-ratio-and-proportion-0007	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson does not teach area or squared map scales; stem, choices and key retained.
+q-arithmetic-number-sense-ratio-and-proportion-0008	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-arithmetic-number-sense-ratio-and-proportion-0009	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Repeated recipe scale-up changed to a mass-to-volume rate question.
+q-arithmetic-number-sense-ratio-and-proportion-0010	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Weak distractor derivations replaced with specific mistakes.
+q-arithmetic-number-sense-ratio-and-proportion-0011	CORRECTED	SOLVED-MATCH	stem;explanation;notes;format	MEDIUM	Requested color order was not stated; specified blue to yellow.
+q-arithmetic-number-sense-ratio-and-proportion-0012	NEEDS AEDWON	SOLVED-MATCH	explanation;notes;format	MEDIUM	The lesson does not teach the distance-speed-time formula; stem, choices and key retained. The old 32 note lacked a specific calculation, now identified as a forty-minute hour.
+q-arithmetic-number-sense-ratio-and-proportion-0013	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Weak distractor derivations replaced with specific mistakes.
+q-arithmetic-number-sense-ratio-and-proportion-0014	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;format	MEDIUM	Named drivers were not explicitly mapped to the ratio variables; defined the mapping and replaced an untraceable distractor.
+q-arithmetic-number-sense-ratio-and-proportion-0015	CORRECTED	SOLVED-MATCH	stem;explanation;notes;format	MEDIUM	Uniform mixing during removal was unstated; added well-mixed condition.
+q-arithmetic-number-sense-ratio-and-proportion-0016	NEW	NEW	new question	NONE	
+q-arithmetic-number-sense-ratio-and-proportion-0017	NEW	NEW	new question	NONE	
+q-arithmetic-number-sense-ratio-and-proportion-0018	NEW	NEW	new question	NONE	
+q-arithmetic-number-sense-ratio-and-proportion-0019	NEW	NEW	new question	NONE	
+q-arithmetic-number-sense-ratio-and-proportion-0020	NEW	NEW	new question	NONE	

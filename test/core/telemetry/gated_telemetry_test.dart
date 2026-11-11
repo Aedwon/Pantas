@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/telemetry/client_report.dart';
 import 'package:pantas/core/telemetry/gated_telemetry.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 
@@ -106,4 +107,65 @@ void main() {
       expect(sink.enabledCalls, [true]);
     });
   });
+
+  group('web speed and error reports are not usage sharing', () {
+    late _ReportSender sender;
+    late ClientReporter reporter;
+
+    setUp(() {
+      sender = _ReportSender();
+      reporter = ClientReporter(
+        sender: sender,
+        context: () => const ClientReportContext(
+          build: 'b',
+          visit: 'return',
+          browser: 'chrome',
+          mobile: false,
+          viewportWidth: 1200,
+        ),
+        timings: () => const [],
+      );
+      ClientReporter.active = reporter;
+    });
+
+    tearDown(() => reporter.dispose());
+
+    for (final consent in <bool?>[null, false, true]) {
+      test('an error reaches the web reporter when consent is $consent',
+          () async {
+        final sink = _RecordingTelemetry();
+        final gated = GatedTelemetry(sink, consent: consent);
+
+        await gated.recordError(StateError('boom'), StackTrace.current);
+        reporter
+          ..splashGone()
+          ..firstScreenSettled();
+        await pumpEventQueue();
+
+        final errors = sender.sent.single['errors']! as List;
+        expect((errors.single as Map)['type'], 'StateError');
+        expect(sink.errors, consent ?? false ? hasLength(1) : isEmpty);
+      });
+    }
+
+    test('events still need consent, and carry nothing to the reporter',
+        () async {
+      final gated = GatedTelemetry(_RecordingTelemetry(), consent: false);
+
+      await gated.log(TelemetryEvent.sessionStarted);
+      reporter
+        ..splashGone()
+        ..firstScreenSettled();
+      await pumpEventQueue();
+
+      expect(sender.sent, isEmpty);
+    });
+  });
+}
+
+class _ReportSender implements ClientReportSender {
+  final sent = <Map<String, Object?>>[];
+
+  @override
+  Future<void> send(Map<String, Object?> payload) async => sent.add(payload);
 }

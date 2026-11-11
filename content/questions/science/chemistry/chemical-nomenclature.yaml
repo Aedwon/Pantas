@@ -2,309 +2,424 @@ meta:
   subject: science
   topic: chemistry
   subtopic: chemical-nomenclature
-  exams:
-    - upcat
-    - dlsucet
-    - ustet
-    - dost-sei
+  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-chemistry-chemical-nomenclature-0001
-    type: identify
-    difficulty: easy
+    type: 'identify'
+    difficulty: 'easy'
     stem: |
       Potassium ($K$) and bromine ($Br$) combine to form an ionic compound. What is its name?
     choices:
-      - text: Potassium bromide
+      - text: 'Potassium bromide'
         correct: true
-      - text: Potassium bromine
+      - text: 'Potassium bromine'
         rationale: |
-          You forgot to change the nonmetal ending. Binary ionic compounds change the nonmetal's suffix to "-ide" (bromide).
-      - text: Bromide potassium
+          This keeps the neutral element name for an anion. Bromine is the familiar element name. Check whether the anion needs the ending -ide.
+      - text: 'Bromide potassium'
         rationale: |
-          You reversed the element order. Ionic naming always puts the metal cation first, followed by the nonmetal anion.
-      - text: Potassium (I) bromide
+          This reverses the cation and anion. Both names identify the ions. Check that the positive ion comes first.
+      - text: 'Potassium monobromide'
         rationale: |
-          You added unnecessary Roman numerals. Potassium is an alkali metal with only one fixed charge (+1), so Roman numerals are omitted.
+          This applies molecular prefixes to an ionic salt. The formula has one of each ion. Check which naming system the compound requires.
     explanation: |
-      An ionic compound's name is the metal's name unchanged, plus the nonmetal's name with its ending changed to "-ide." Potassium stays potassium; bromine becomes bromide.
+      Name the cation first: potassium. Change the monatomic bromine anion to bromide. The name is potassium bromide.
     approved: true
+
   - id: q-chemistry-chemical-nomenclature-0002
-    type: identify
-    difficulty: easy
+    type: 'identify'
+    difficulty: 'easy'
     stem: |
       What is the correct name for $CO$ (one carbon atom, one oxygen atom)?
     choices:
-      - text: Carbon monoxide
+      - text: 'Carbon monoxide'
         correct: true
-      - text: Carbon oxide
+      - text: 'Carbon oxide'
         rationale: |
-          You omitted the prefix "mono-". The second element in covalent binary compounds requires a prefix to distinguish $CO$ from $CO_2$.
-      - text: Monocarbon oxide
+          This omits the second element’s count. The prefix mono- is often dropped on the first element. Check whether the element is first or second.
+      - text: 'Monocarbon oxide'
         rationale: |
-          You added "mono-" to the first element. The first element skips "mono-" when only one atom is present.
-      - text: Carbon dioxide
+          This moves mono- to carbon and leaves oxygen’s count unstated. Each element has one atom. Check which element normally keeps mono-.
+      - text: 'Carbon dioxide'
         rationale: |
-          You used the prefix "di-". Carbon monoxide has 1 oxygen atom ($CO$), whereas carbon dioxide has 2 ($CO_2$).
+          This assigns two oxygen atoms to a one-oxygen formula. Di- is a familiar prefix. Check oxygen’s subscript.
     explanation: |
-      In covalent naming, the second element always gets a prefix, even for one atom. "Mono-" on oxide specifically distinguishes $CO$ from $CO_2$ (carbon dioxide). Therefore, the compound is carbon monoxide.
+      For this binary molecular compound, the first element is carbon. One oxygen atom gives monoxide. The name is carbon monoxide.
     approved: true
+
   - id: q-chemistry-chemical-nomenclature-0003
-    type: identify
-    difficulty: easy
+    type: 'identify'
+    difficulty: 'easy'
     stem: |
-      What is the correct name for $CO_2$ (one carbon atom, two oxygen atoms)?
+      What composition is specified by the name carbon dioxide?
     choices:
-      - text: Carbon dioxide
+      - text: 'One carbon and two oxygen atoms'
         correct: true
-      - text: Carbon monoxide
+      - text: 'Two carbon and one oxygen atom'
         rationale: |
-          You picked the name for 1 oxygen atom. Carbon dioxide has 2 oxygen atoms ($CO_2$), while monoxide has 1 ($CO$).
-      - text: Dicarbon oxide
+          This reads di- as the carbon count. Carbon appears first in the name. Check which element the prefix is attached to.
+      - text: 'One carbon and one oxygen atom'
         rationale: |
-          You put the "di-" prefix on carbon. The subscript 2 belongs to oxygen, not carbon ($CO_2$).
-      - text: Carbon oxide
+          This reads di- as the total number of atoms. The name contains a number prefix. Check each element’s count separately.
+      - text: 'Two carbon and two oxygen atoms'
         rationale: |
-          You omitted the numerical prefix. Binary nonmetal compounds require Greek prefixes to state atom counts.
+          This applies di- to both elements. The name has two element names and one count prefix. Check which element actually carries di-.
     explanation: |
-      The first element (carbon, one atom) skips its prefix; the second element (two oxygen atoms) gets "di-": carbon dioxide.
+      Di- means two, and oxide names oxygen in this binary molecular compound. Carbon dioxide has one carbon atom and two oxygen atoms.
     approved: true
+
   - id: q-chemistry-chemical-nomenclature-0004
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
       Copper can form either $Cu^+$ or $Cu^{2+}$. In the compound $CuO$ (with oxide, $O^{2-}$), what is copper's charge here, and what is the compound's name?
     choices:
-      - text: Copper is 2+ here, so the compound is copper (II) oxide.
+      - text: '$Cu^{2+}$; copper(II) oxide'
         correct: true
-      - text: Copper is 1+ here, so the compound is copper (I) oxide.
+      - text: '$Cu^+$; copper(I) oxide'
         rationale: |
-          You assumed a 1+ copper charge. One $O^{2-}$ ion requires one $Cu^{2+}$ ion for neutral balance, making copper 2+.
-      - text: Copper's charge cannot be determined from this compound.
+          This assigns $1+$ to copper without balancing oxide. Copper can have that charge in other compounds. Check the charge total for this formula.
+      - text: 'Unknown charge; copper oxide'
         rationale: |
-          You assumed the charge is unknown. Charge balance with oxide ($O^{2-}$) directly determines copper's 2+ charge.
-      - text: Copper is 2+ here, so the compound is copper (I) oxide.
+          This treats a variable-charge metal as impossible to identify. Copper has more than one possible charge. Check the known anion charge and the ratio.
+      - text: '$Cu^{2+}$; copper(I) oxide'
         rationale: |
-          You matched 2+ charge with the wrong Roman numeral. Roman numeral (II) represents a 2+ charge, not (I).
+          This uses I for a $2+$ ion. The formula has one copper atom. Check that the Roman numeral records charge, not atom count.
     explanation: |
-      Oxide has a charge of 2-. For the compound to be neutral, copper's charge here must be 2+. Since copper can form more than one charge, the Roman numeral (II) is required: copper (II) oxide.
+      One oxide ion contributes $2-$ charge. One copper ion must contribute $2+$ to give zero total charge. The Stock name is copper(II) oxide.
     approved: true
+
   - id: q-chemistry-chemical-nomenclature-0005
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
       Iron can form either $Fe^{2+}$ or $Fe^{3+}$. What is the correct name for $FeCl_3$?
     choices:
-      - text: Iron (III) chloride
+      - text: 'Iron(III) chloride'
         correct: true
-      - text: Iron (II) chloride
+      - text: 'Iron(II) chloride'
         rationale: |
-          You assigned a 2+ charge. 3 chloride ions ($3 \times 1-$) balance one $Fe^{3+}$ ion, requiring Roman numeral (III).
-      - text: Iron chloride
+          This chooses a possible iron charge without balancing three chlorides. Iron(II) compounds do exist. Check the total negative charge.
+      - text: 'Iron chloride'
         rationale: |
-          You omitted the Roman numeral. Transition metals with multiple charges require a Roman numeral to specify the charge.
-      - text: Triiron chloride
+          This leaves the iron charge unstated. The element names sound complete. Check whether iron can have more than one charge.
+      - text: 'Triiron monochloride'
         rationale: |
-          You used covalent Greek prefixes on an ionic compound. Ionic compounds use Roman numerals for transition metal charges, not Greek prefixes.
+          This moves the chlorine count onto iron and uses a molecular prefix. The subscript 3 is visible. Check which element carries that subscript and which naming system applies.
     explanation: |
-      Each chloride ion has a charge of 1-, and there are 3 of them, so the total negative charge is 3-. Iron's charge here must be 3+, so the Roman numeral (III) is required: iron (III) chloride.
+      Each chloride contributes $1-$ charge. Three chlorides contribute $3-$. Iron must be $3+$, so the name is iron(III) chloride.
     approved: true
+
   - id: q-chemistry-chemical-nomenclature-0006
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
       What is the correct name for $N_2O_5$ (two nitrogen atoms, five oxygen atoms)?
     choices:
-      - text: Dinitrogen pentoxide
+      - text: 'Dinitrogen pentoxide'
         correct: true
-      - text: Nitrogen pentoxide
+      - text: 'Nitrogen pentoxide'
         rationale: |
-          You omitted the prefix "di-" on nitrogen. Nonmetal covalent compounds specify both element counts with prefixes ($N_2$ needs "di-").
-      - text: Dinitrogen pentaoxide
+          This omits nitrogen’s count. Mono- is often omitted on a first element. Check whether there is one nitrogen atom or more.
+      - text: 'Dinitrogen pentaoxide'
         rationale: |
-          You kept the extra vowel "a". When "penta-" combines with "oxide," the vowel "a" is dropped to form "pentoxide."
-      - text: Nitrogen (V) oxide
+          This keeps the extra a before oxide. Penta- does mean five. Check the standard contracted spelling pentoxide.
+      - text: 'Pentanitrogen dioxide'
         rationale: |
-          You used ionic Roman numeral naming on a covalent compound. Compounds of two nonmetals use Greek prefixes, not Roman numerals.
+          This applies the oxygen count to nitrogen and the nitrogen count to oxygen. Both prefixes are present. Check each prefix against its element’s subscript.
     explanation: |
-      Two nitrogen atoms get the prefix "di-"; five oxygen atoms get "penta-," but the "a" is dropped before the vowel in "oxide," giving "pentoxide." Full name: dinitrogen pentoxide.
+      Two nitrogen atoms give dinitrogen. Five oxygen atoms give pentoxide, with the a in penta- dropped before oxide. The name is dinitrogen pentoxide.
     approved: true
+
   - id: q-chemistry-chemical-nomenclature-0007
-    type: simple-quantitative
-    difficulty: medium
+    type: 'simple-quantitative'
+    difficulty: 'medium'
     stem: |
       Write the chemical formula for calcium nitrate, given that calcium forms $Ca^{2+}$ and the nitrate ion is $NO_3^-$.
     choices:
-      - text: Ca(NO3)2
+      - text: '$Ca(NO_3)_2$'
         correct: true
-      - text: Ca2NO3
+      - text: '$Ca_2NO_3$'
         rationale: |
-          You swapped the criss-cross subscripts. Calcium's 2+ charge becomes the subscript for nitrate, yielding $Ca(NO_3)_2$.
-      - text: CaNO3
+          This assigns the 2 to calcium instead of nitrate. The calcium charge is 2+. Check the charge sum for the proposed ratio.
+      - text: '$CaNO_3$'
         rationale: |
-          You assumed a 1:1 ratio. $Ca^{2+}$ requires two $NO_3^-$ ions ($2 \times 1-$) to balance the 2+ charge.
-      - text: Ca2(NO3)2
+          This uses one nitrate per calcium. A one-to-one formula is a common first guess. Check whether the charges cancel.
+      - text: '$Ca_2(NO_3)_2$'
         rationale: |
-          You doubled both subscripts. Ratios in ionic formulas are reduced to simplest whole numbers ($1:2$).
+          This doubles the calcium count without providing enough nitrate. Both subscripts look balanced. Check positive and negative charge totals.
     explanation: |
-      Using the criss-cross method, calcium's charge (2) becomes nitrate's subscript, and nitrate's charge (1) becomes calcium's subscript (omitted since it's 1). Since nitrate is polyatomic, its formula needs parentheses when a subscript is added: $Ca(NO_3)_2$.
+      Calcium contributes $2+$. Each nitrate contributes $1-$, so two nitrates balance one calcium. Keep each nitrate together in parentheses: $Ca(NO_3)_2$.
     approved: true
+
   - id: q-chemistry-chemical-nomenclature-0008
-    type: simple-quantitative
-    difficulty: hard
+    type: 'simple-quantitative'
+    difficulty: 'hard'
     stem: |
       Write the chemical formula for aluminum sulfate, given that aluminum forms $Al^{3+}$ and the sulfate ion is $SO_4^{2-}$.
     choices:
-      - text: Al2(SO4)3
+      - text: '$Al_2(SO_4)_3$'
         correct: true
-      - text: Al3(SO4)2
+      - text: '$Al_3(SO_4)_2$'
         rationale: |
-          You inverted the criss-cross subscripts. Aluminum's 3+ charge goes to sulfate (3), and sulfate's 2- charge goes to aluminum (2).
-      - text: AlSO4
+          This puts each charge on its own ion as a count. The numbers 3 and 2 look familiar. Check the resulting total charges.
+      - text: '$AlSO_4$'
         rationale: |
-          You assumed charges match 1:1. $Al^{3+}$ and $SO_4^{2-}$ require a common multiple of 6, giving $Al_2(SO_4)_3$.
-      - text: Al2SO4
+          This assumes a one-to-one ratio. Both ions carry multiple charges. Check whether their charge sizes are equal.
+      - text: '$Al_2SO_4$'
         rationale: |
-          You omitted parentheses and the subscript 3 on sulfate. Parentheses around $(SO_4)$ are required when adding a subscript of 3.
+          This counts two aluminums but only one sulfate. The aluminum subscript matches part of the answer. Check the number of whole sulfate ions.
     explanation: |
-      Using the criss-cross method, aluminum's charge (3) becomes sulfate's subscript, and sulfate's charge (2) becomes aluminum's subscript: $Al_2(SO_4)_3$. The parentheses are needed since more than one sulfate ion is present.
+      Two aluminum ions give $2\times3=6$ positive charges. Three sulfate ions give $3\times2=6$ negative charges. This smallest balanced ratio gives $Al_2(SO_4)_3$.
     approved: true
+
   - id: q-chemistry-chemical-nomenclature-0009
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
-      A student names $FeCl_3$ simply as "iron chloride," with no Roman numeral. Is this name complete and unambiguous?
+      What does III specify in iron(III) chloride?
     choices:
-      - text: 'No: without the Roman numeral, "iron chloride" could also mean $FeCl_2$, since iron can form more than one charge.'
+      - text: 'The charge of each iron ion'
         correct: true
-      - text: 'Yes: Roman numerals are optional decoration, not required information.'
+      - text: 'The number of iron atoms per unit'
         rationale: |
-          You treated Roman numerals as optional. Transition metals with multiple oxidation states require Roman numerals for clear identification.
-      - text: 'Yes: "iron chloride" always refers only to $FeCl_3$.'
+          This uses the numeral as an atom count. Roman numerals represent numbers. Check whether Stock notation describes charge or composition.
+      - text: 'The charge of each chloride ion'
         rationale: |
-          You assumed "iron chloride" is unique. Both $FeCl_2$ and $FeCl_3$ exist, making Roman numerals essential.
-      - text: 'No: but only because iron is not actually a metal.'
+          This assigns the numeral to the anion charge. Chloride appears in the same name. Check which ion the numeral follows.
+      - text: 'The number of chlorine molecules'
         rationale: |
-          You misclassified iron. Iron is a transition metal, which is why it forms multiple positive cation charges.
+          This reads a charge label as a molecular prefix. Prefixes also give numbers. Check whether the compound is ionic or molecular.
     explanation: |
-      Since iron can form both $Fe^{2+}$ and $Fe^{3+}$, "iron chloride" alone does not say which compound is meant. The Roman numeral (III) is required to specify $FeCl_3$ rather than $FeCl_2$ (iron (II) chloride).
+      In a simple ionic Stock name, the Roman numeral gives the metal ion’s charge. III identifies iron as $Fe^{3+}$.
     approved: true
+
   - id: q-chemistry-chemical-nomenclature-0010
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
-      A student names $CO$ as "carbon oxide," dropping the "mono-" prefix since there is only one oxygen atom. Is this name correct?
+      Which rule explains why carbon monoxide omits mono- on carbon but keeps it in monoxide?
     choices:
-      - text: 'No: the second element in covalent naming always gets a prefix, even for one atom, so it must be "carbon monoxide."'
+      - text: 'Omit mono- only on the first element.'
         correct: true
-      - text: 'Yes: "mono-" is always dropped for a single atom, on both elements.'
+      - text: 'Omit mono- on every one-atom element.'
         rationale: |
-          You applied the "mono-" drop rule to the second element. Only the first element drops "mono-"; the second element always keeps it.
-      - text: 'No: but only because the first element needs the prefix instead.'
+          This drops mono- on both elements. Both may have one atom. Check which position in the name allows the omission.
+      - text: 'Omit every prefix on the first element.'
         rationale: |
-          You put "mono-" on the first element. The first element drops "mono-", while the second element must include it.
-      - text: 'Yes: "carbon oxide" and "carbon monoxide" refer to different compounds.'
+          This drops every numerical prefix on the first element. Mono- is often absent there. Check whether the first element has more than one atom.
+      - text: 'Omit prefixes whenever charge is balanced.'
         rationale: |
-          You assumed "carbon oxide" is a valid distinct compound name. "Carbon oxide" is an incomplete name for carbon monoxide.
+          This applies an ionic rule to molecular names. Ionic names usually omit count prefixes. Check the substance’s naming class.
     explanation: |
-      Only the *first* element skips "mono-" for a single atom. The second element always keeps its prefix, precisely so that "carbon monoxide" ($CO$) is never confused with "carbon dioxide" ($CO_2$).
+      In the binary molecular prefix system, the first element usually omits mono- when its count is one. The second element keeps its count prefix.
     approved: true
+
   - id: q-chemistry-chemical-nomenclature-0011
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
-      A student names $NaOH$ as "sodium hydroxide-ide," trying to apply the usual "-ide" ending rule. Is this correct?
+      Which name correctly retains the polyatomic ion name in $NaOH$?
     choices:
-      - text: 'No: polyatomic ions like hydroxide keep their own special name; the compound is simply "sodium hydroxide."'
+      - text: 'Sodium hydroxide'
         correct: true
-      - text: 'Yes: every anion''s name must end in "-ide," including polyatomic ions.'
+      - text: 'Sodium hydroxide-ide'
         rationale: |
-          You modified a polyatomic ion name. Polyatomic ions like hydroxide ($OH^-$) retain their set names without adding extra suffixes.
-      - text: 'No: but only because sodium is not really a metal.'
+          This adds a second suffix to an established ion name. Monatomic anions do use -ide. Check whether the anion has one atom or several.
+      - text: 'Sodium oxide'
         rationale: |
-          You misclassified sodium. Sodium is an alkali metal, and $NaOH$ is a standard ionic compound.
-      - text: 'Yes: "sodium hydroxide-ide" is the fully correct chemical name.'
+          This changes a polyatomic ion into a single-element anion name. Oxygen is part of hydroxide. Check whether hydrogen must remain part of the ion.
+      - text: 'Sodium monohydroxide'
         rationale: |
-          You accepted the double suffix. The name hydroxide already contains its proper ending; adding "-ide" is incorrect.
+          This applies a molecular count prefix to an ionic compound. One hydroxide group is present. Check the naming class.
     explanation: |
-      The "-ide" ending rule applies only to simple, single-element anions (like chloride or oxide). Polyatomic ions such as hydroxide keep their own name as-is: the compound is named sodium hydroxide.
+      Hydroxide is the established name of $OH^-$. Polyatomic ions keep their names in ionic compounds. $NaOH$ is sodium hydroxide.
     approved: true
+
   - id: q-chemistry-chemical-nomenclature-0012
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
-      Sulfate is $SO_4^{2-}$. Based on the "-ate has more oxygen than -ite" pattern, what is the formula for sulfite?
+      Which formula is the sulfite ion listed in the lesson?
     choices:
-      - text: SO3^2-
+      - text: '$SO_3^{2-}$'
         correct: true
-      - text: SO5^2-
+      - text: '$SO_5^{2-}$'
         rationale: |
-          You added an oxygen atom instead of subtracting one. The suffix "-ite" means one fewer oxygen atom than "-ate" ($SO_3^{2-}$).
-      - text: SO4^2-
+          This adds oxygen in the -ite member of this pair. Both names refer to sulfur oxyanions. Check the listed formulas for the pair.
+      - text: '$SO_4^{2-}$'
         rationale: |
-          You gave the formula for sulfate. Sulfite must have one less oxygen atom ($SO_3^{2-}$).
-      - text: SO4^-
+          This uses the sulfate formula for sulfite. Both ions have the same charge. Check the oxygen count too.
+      - text: '$SO_4^-$'
         rationale: |
-          You altered the ionic charge. Changing between "-ate" and "-ite" alters the oxygen count, not the charge.
+          This changes the charge but retains sulfate’s oxygen count. A suffix change suggests a different ion. Check both composition and charge in the known formula.
     explanation: |
-      The "-ite" ending has one fewer oxygen atom than the matching "-ate" ending, with the same charge. Since sulfate is $SO_4^{2-}$, sulfite is $SO_3^{2-}$.
+      The lesson lists sulfite as $SO_3^{2-}$. It has three oxygens and a $2-$ charge. In this known sulfur oxyanion pair, sulfite has fewer oxygens than sulfate.
     approved: true
+
   - id: q-chemistry-chemical-nomenclature-0013
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
-      Two nonmetals combine to form a compound. Which naming system applies: ionic naming or covalent naming?
+      For a binary molecular compound named by the Greek-prefix system, what do the prefixes specify?
     choices:
-      - text: Covalent naming, using Greek prefixes on both elements.
+      - text: 'Atom counts'
         correct: true
-      - text: Ionic naming, using a cation name plus an "-ide" ending.
+      - text: 'Positive metal-ion charges'
         rationale: |
-          You applied metal and nonmetal bonding rules. When both elements are nonmetals, use prefix naming rather than cation-anion naming.
-      - text: Neither system applies to compounds made of two nonmetals.
+          This applies ionic naming to a molecular compound. Some compound names do use ion names. Check whether the stem specifies molecules or ions.
+      - text: 'The charges of all anions'
         rationale: |
-          You claimed no system applies. Covalent naming with Greek prefixes specifically governs binary nonmetal compounds.
-      - text: Both systems apply equally and give the same name.
+          This treats numerical prefixes as metal charges. Both systems use numbers. Check whether the name reports atom counts or oxidation states.
+      - text: 'Only the identities of its elements'
         rationale: |
-          You treated naming systems as interchangeable. Ionic naming uses charges, while covalent naming uses Greek prefixes.
+          This leaves composition unspecified. Element names identify the ingredients. Check whether different atom counts can produce different compounds.
     explanation: |
-      Ionic naming applies to metal-nonmetal compounds. Two nonmetals combining always use covalent naming, with Greek prefixes showing exactly how many atoms of each element are present.
+      For a binary molecular compound in the prefix system, numerical prefixes state atom counts. The first element usually omits mono- for one atom. The second uses a prefix and an -ide ending.
     approved: true
+
   - id: q-chemistry-chemical-nomenclature-0014
-    type: simple-quantitative
-    difficulty: exam
+    type: 'process-ordering'
+    difficulty: 'exam'
     stem: |
-      Write the chemical formula for magnesium phosphate, given that magnesium forms $Mg^{2+}$ and the phosphate ion is $PO_4^{3-}$.
+      Which procedure correctly writes a simple ionic formula from given ion charges?
     choices:
-      - text: Mg3(PO4)2
+      - text: 'Balance, reduce ratios, group repeated polyatomic ions.'
         correct: true
-      - text: Mg2(PO4)3
+      - text: 'Name first, guess counts, then disregard total charge.'
         rationale: |
-          You placed the cation charge on the cation itself and the anion charge on the anion. The charges must cross over to become the opposite ion's subscript.
-      - text: MgPO4
+          This names the compound before deciding its composition. Names are the final goal. Check the charge-balanced ion ratio before assigning a formula.
+      - text: 'Reduce ion charges, copy them as subscripts, then name.'
         rationale: |
-          You assumed a 1:1 ratio. Balancing $2+$ and $3-$ charges requires 3 $Mg^{2+}$ and 2 $PO_4^{3-}$ to equal 6.
-      - text: Mg3PO4
+          This reduces charge sizes before finding a balanced ion ratio. Simplifying numbers is useful. Check that each ion’s actual charge stays unchanged.
+      - text: 'Parenthesize all anions, assume one-to-one, then name.'
         rationale: |
-          You omitted parentheses around phosphate. Polyatomic ions require parentheses when followed by a subscript greater than 1 ($Mg_3(PO_4)_2$).
+          This adds parentheses to every anion before checking its type and count. Repeated polyatomic ions need them. Check whether the ion is polyatomic and repeated.
     explanation: |
-      Using the criss-cross method, magnesium's charge (2) becomes phosphate's subscript, and phosphate's charge (3) becomes magnesium's subscript: $Mg_3(PO_4)_2$.
+      Balance the ion charges first. Reduce the balanced counts to the smallest whole-number ratio. Then use parentheses if a polyatomic ion occurs more than once.
     approved: true
+
   - id: q-chemistry-chemical-nomenclature-0015
-    type: predict-outcome
-    difficulty: exam
+    type: 'predict-outcome'
+    difficulty: 'exam'
     stem: |
       Iron can form either $Fe^{2+}$ or $Fe^{3+}$. The compound $Fe_2O_3$ contains 2 iron atoms and 3 oxide ions ($O^{2-}$). What is iron's charge in this compound, and what is the compound's correct name?
     choices:
-      - text: Iron is 3+ here, so the compound is iron (III) oxide.
+      - text: '$Fe^{3+}$; iron(III) oxide'
         correct: true
-      - text: Iron is 2+ here, so the compound is iron (II) oxide.
+      - text: '$Fe^{2+}$; iron(II) oxide'
         rationale: |
-          You calculated for iron (II) oxide. $Fe^{2+}$ with $O^{2-}$ gives $FeO$, whereas $Fe_2O_3$ contains $Fe^{3+}$.
-      - text: Iron is 6+ here, so the compound is iron (VI) oxide.
+          This uses a familiar $2+$ iron charge without checking neutrality. Iron(II) is a real ion. Check the total charge of this formula.
+      - text: '$Fe^{6+}$; iron(VI) oxide'
         rationale: |
-          You gave the total charge of both iron atoms combined. Roman numerals specify the charge per single iron ion (+3).
-      - text: Iron's charge cannot be determined without more information.
+          This gives one iron ion the positive charge for both ions. Six positive charges are needed in total. Check how many irons share that total.
+      - text: 'Unknown charge; iron oxide'
         rationale: |
-          You assumed insufficient data. Knowing 3 oxide ions contribute $6-$ total charge determines that 2 iron atoms contribute $3+$ each.
+          This treats a variable-charge metal as unknowable. Iron does have multiple charges. Check whether oxide’s charge and the formula determine this one.
     explanation: |
-      Three oxide ions contribute a total charge of $3 \times 2- = 6-$. To balance this, the 2 iron atoms together must contribute $6+$, so each individual iron atom is $3+$. The compound is iron (III) oxide.
+      Three oxide ions give $3\times2=6$ negative charges. The two iron ions must total $6+$, so each is $3+$. The name is iron(III) oxide.
     approved: true
+
+  - id: q-chemistry-chemical-nomenclature-0016
+    type: 'identify'
+    difficulty: 'easy'
+    stem: |
+      Which name applies to $NH_4Cl$, containing $NH_4^+$ and $Cl^-$?
+    choices:
+      - text: 'Ammonium chloride'
+        correct: true
+      - text: 'Ammonium chlorine'
+        rationale: |
+          This retains the neutral element name. Chlorine is the familiar name. Check whether the negative ion takes -ide.
+      - text: 'Nitrogen hydrogen chloride'
+        rationale: |
+          This splits a named polyatomic ion into element names. Ammonium contains nitrogen and hydrogen. Check whether the ion must remain a named unit.
+      - text: 'Ammonium monochloride'
+        rationale: |
+          This adds a molecular prefix to an ionic salt. One chloride is present. Check whether ionic naming uses that count prefix.
+    explanation: |
+      Name the polyatomic cation ammonium first. Name the monatomic anion chloride second. The result is ammonium chloride.
+    approved: false
+
+  - id: q-chemistry-chemical-nomenclature-0017
+    type: 'compare-contrast'
+    difficulty: 'medium'
+    stem: |
+      How do formulas for simple ionic compounds differ from formulas for binary molecules?
+    choices:
+      - text: 'Ionic ratios are reduced; molecular counts are retained.'
+        correct: true
+      - text: 'Both formulas always use the smallest element ratio.'
+        rationale: |
+          This reduces a molecule’s actual atom counts. Reducing ratios is required for ionic formulas. Check which class the formula represents.
+      - text: 'Both formulas always report the number of molecules.'
+        rationale: |
+          This confuses atom or ion counts with molecule counts. A formula does contain subscripts. Check what the subscripts count.
+      - text: 'Ionic formulas use prefixes; molecular formulas use charges.'
+        rationale: |
+          This reverses how the formulas are obtained. Both systems involve numbers. Check whether neutrality or molecular naming prefixes give the counts.
+    explanation: |
+      An ionic formula states the smallest whole-number ion ratio. A molecular formula states the actual atom counts in one molecule.
+    approved: false
+
+  - id: q-chemistry-chemical-nomenclature-0018
+    type: 'predict-outcome'
+    difficulty: 'medium'
+    stem: |
+      Criss-crossing $Ca^{2+}$ and $O^{2-}$ gives $Ca_2O_2$. Which formula should be reported after applying the simplest-ratio rule?
+    choices:
+      - text: '$CaO$'
+        correct: true
+      - text: '$Ca_2O_2$'
+        rationale: |
+          This leaves the balanced ratio unreduced. Criss-crossing produced those counts. Check for a common factor in the subscripts.
+      - text: '$CaO_2$'
+        rationale: |
+          This reduces only calcium’s count. The original ratio contains two of each. Check that both counts are divided by the same factor.
+      - text: '$Ca_2O$'
+        rationale: |
+          This reduces only oxide’s count. Removing one subscript can seem enough. Check that ratio reduction changes both counts together.
+    explanation: |
+      The charges cancel with one calcium and one oxide. Reduce the $2:2$ counts to $1:1$. The formula is $CaO$.
+    approved: false
+
+  - id: q-chemistry-chemical-nomenclature-0019
+    type: 'cause-effect'
+    difficulty: 'hard'
+    stem: |
+      Why does $Ca(NO_3)_2$ need parentheses around nitrate?
+    choices:
+      - text: 'Two whole nitrate ions are present.'
+        correct: true
+      - text: 'Two oxygen atoms must be counted.'
+        rationale: |
+          This applies the outside subscript to oxygen alone. Oxygen already has a subscript. Check whether the 2 multiplies one atom or the whole group.
+      - text: 'The nitrate ion has a charge of $2-$.'
+        rationale: |
+          This treats a count as the ion’s charge. A 2 appears outside the parentheses. Check the charge notation separately.
+      - text: 'Every ion always needs parentheses.'
+        rationale: |
+          This treats a repeated-ion rule as universal. Many polyatomic formulas use parentheses. Check whether more than one whole ion is present.
+    explanation: |
+      The outside subscript 2 applies to the whole $NO_3$ group. Parentheses keep the nitrate ion together when it is repeated.
+    approved: false
+
+  - id: q-chemistry-chemical-nomenclature-0020
+    type: 'classify'
+    difficulty: 'exam'
+    stem: |
+      Which statement about -ate and -ite is justified by the nomenclature rule?
+    choices:
+      - text: 'Compare known ions in the same oxyanion family.'
+        correct: true
+      - text: 'Any -ate ion has more oxygen than every -ite ion.'
+        rationale: |
+          This compares unrelated families. The -ate member often has more oxygen within a pair. Check that both ions have the same central element.
+      - text: 'The suffix alone gives every ion’s charge and formula.'
+        rationale: |
+          This turns a suffix into a complete formula rule. Familiar names suggest useful patterns. Check a known formula rather than inferring charge from the suffix.
+      - text: 'Every -ate and -ite pair differs by exactly one oxygen.'
+        rationale: |
+          This makes familiar pairs an exception-free count rule. Sulfate and sulfite differ by one oxygen. Check whether the particular pair is known.
+    explanation: |
+      The pattern compares related oxyanions of the same central element. Their established formulas must still be known. The suffix alone does not define all oxyanions.
+    approved: false

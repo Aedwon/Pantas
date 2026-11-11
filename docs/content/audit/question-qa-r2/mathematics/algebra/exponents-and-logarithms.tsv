@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-algebra-exponents-and-logarithms-0001	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	The last alternative repeated subtraction with reversed signs.
+q-algebra-exponents-and-logarithms-0002	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	The last alternative had no clear exponent-rule slip.
+q-algebra-exponents-and-logarithms-0003	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-exponents-and-logarithms-0004	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-exponents-and-logarithms-0005	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-exponents-and-logarithms-0006	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	The correct choice was substantially longer and explained its own answer.
+q-algebra-exponents-and-logarithms-0007	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Replaced an alternative with no specific logarithm mistake.
+q-algebra-exponents-and-logarithms-0008	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	The correct choice explained the whole solution; two alternatives were unrelated.
+q-algebra-exponents-and-logarithms-0009	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	The correct choice explained the whole solution; alternatives were weak.
+q-algebra-exponents-and-logarithms-0010	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Replaced alternatives that lacked clear complete exponent slips.
+q-algebra-exponents-and-logarithms-0011	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-exponents-and-logarithms-0012	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	Replaced an alternative requiring multiple unexplained mistakes.
+q-algebra-exponents-and-logarithms-0013	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	The product-of-logs alternative omitted a factor as well as using the wrong operation.
+q-algebra-exponents-and-logarithms-0014	CORRECTED	SOLVED-MATCH	choices;explanation;notes;format	MEDIUM	The correct choice supplied the full solution and was far longer.
+q-algebra-exponents-and-logarithms-0015	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-exponents-and-logarithms-0016	NEW	NEW	new question	NONE	
+q-algebra-exponents-and-logarithms-0017	NEW	NEW	new question	NONE	
+q-algebra-exponents-and-logarithms-0018	NEW	NEW	new question	NONE	
+q-algebra-exponents-and-logarithms-0019	NEW	NEW	new question	NONE	
+q-algebra-exponents-and-logarithms-0020	NEW	NEW	new question	NONE	

@@ -1,0 +1,11 @@
+Computing fixes in quiz_page.dart...
+Applying fixes...
+
+quiz_page.dart
+  curly_braces_in_flow_control_structures - 4 fixes
+  directives_ordering - 1 fix
+  prefer_final_fields - 1 fix
+  require_trailing_commas - 45 fixes
+  use_if_null_to_convert_nulls_to_bools - 2 fixes
+
+53 fixes made in 1 file.

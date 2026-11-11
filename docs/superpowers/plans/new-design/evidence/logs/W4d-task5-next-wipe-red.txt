@@ -1,0 +1,10 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/review_next_boundary_test.dart
+00:00 +0: explicit next preserves the original wipe boundary
+00:02 +0 -1: explicit next preserves the original wipe boundary [E]
+  TimeoutException after 0:00:02.000000: Future not completed
+  dart:async  _startMicrotaskLoop
+
+00:02 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/review_next_boundary_test.dart: explicit next preserves the original wipe boundary

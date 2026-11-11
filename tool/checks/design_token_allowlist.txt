@@ -1,0 +1,6 @@
+# Folders and files not yet moved onto the design tokens (DesignTokenLiterals).
+# This list is empty and must stay empty: the check fails if it has an entry.
+# Do not add a file here. Move the values onto the tokens instead, or mark a
+# line of pure drawing geometry with `// ds-geometry: <reason>`.
+# lib/core/ui/theme/ and lib/core/ui/motion/ are the token definitions and are
+# never listed.

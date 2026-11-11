@@ -1,0 +1,11 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/practice_picker_screen_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: repeated mode toggles keep the original capped conversion target
+00:00 +1: explicit wheel change starts a new conversion target
+00:01 +2: manual allocation starts a new conversion target
+00:01 +3: Reset starts a new conversion target from the even time split
+00:01 +4: changed selected pool starts a new conversion target
+00:01 +5: changed effective pace starts a new conversion target
+00:01 +6: changed selection starts a new conversion target
+00:01 +7: (tearDownAll)
+00:01 +7: All tests passed!

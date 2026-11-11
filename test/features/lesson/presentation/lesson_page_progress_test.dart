@@ -1,13 +1,17 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/telemetry/telemetry.dart';
+import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/presentation/lesson_page.dart';
 
 import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
+import '../../../helpers/recording_telemetry.dart';
 
 void main() {
   late AppDatabase db;
@@ -49,6 +53,13 @@ void main() {
         },
       ]),
     );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'question_l1',
+      topicId: 't1',
+      examId: 'e1',
+      lessonId: 'l1',
+    );
   }
 
   setUp(() async {
@@ -78,8 +89,7 @@ void main() {
     expect(find.text('Read'), findsNothing);
   });
 
-  testWidgets('a read lesson says so, and says it was automatic',
-      (tester) async {
+  testWidgets('a read lesson shows only the drawn Read line', (tester) async {
     await db.into(db.lessonProgressLocal).insert(
           LessonProgressLocalCompanion.insert(
             lessonId: 'l1',
@@ -97,7 +107,57 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Read'), findsOneWidget);
-    expect(find.text('marked automatically'), findsOneWidget);
+    expect(find.text('marked automatically'), findsNothing);
     expect(find.text('Mark as read'), findsNothing);
+  });
+
+  group('study-loop events', () {
+    Future<RecordingTelemetry> openLesson(
+      WidgetTester tester, {
+      required bool consent,
+    }) async {
+      final sink = RecordingTelemetry();
+      await tester.pumpAppWithProviders(
+        const LessonPage(lessonId: 'l1'),
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          contentDatabaseProvider.overrideWithValue(contentDb),
+          telemetrySinkProvider.overrideWithValue(sink),
+          effectiveTelemetryConsentProvider.overrideWithValue(consent),
+        ],
+      );
+      await tester.pumpAndSettle();
+      return sink;
+    }
+
+    testWidgets('opening a lesson logs lesson_open once, with no lesson id',
+        (tester) async {
+      final sink = await openLesson(tester, consent: true);
+
+      expect(sink.events, [TelemetryEvent.lessonOpen]);
+      expect(sink.logged.single.$2, {'exam_id': 'e1', 'kind': 'study'});
+    });
+
+    testWidgets('reaching the end after the dwell time logs lesson_finish once',
+        (tester) async {
+      final sink = await openLesson(tester, consent: true);
+
+      await tester.pump(readDwellFloor + const Duration(seconds: 1));
+      await tester.pumpAndSettle();
+
+      expect(
+        sink.events,
+        [TelemetryEvent.lessonOpen, TelemetryEvent.lessonFinish],
+      );
+      expect(sink.logged.last.$2, {'exam_id': 'e1', 'kind': 'study'});
+    });
+
+    testWidgets('nothing is sent while usage sharing is off', (tester) async {
+      final sink = await openLesson(tester, consent: false);
+      await tester.pump(readDwellFloor + const Duration(seconds: 1));
+      await tester.pumpAndSettle();
+
+      expect(sink.logged, isEmpty);
+    });
   });
 }

@@ -61,7 +61,7 @@ void main() {
     });
 
     testWidgets(
-        'BackupPage never displays pending queue counter or network details',
+        'native BackupPage shows one status row without network internals',
         (tester) async {
       const syncStatus = Syncing(pendingCount: 12);
 
@@ -77,9 +77,13 @@ void main() {
           ),
         ),
       );
-      await tester.pumpAndSettle();
+      // Backing up has a continuous spinner, so settling is not completion.
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
 
-      expect(find.textContaining('12'), findsNothing);
+      expect(find.text('Backing up'), findsOneWidget);
+      // One row only (Aedwon, Nov 8): no waiting count.
+      expect(find.text('12 changes'), findsNothing);
       expect(find.textContaining('Pending queue'), findsNothing);
       expect(find.textContaining('Network'), findsNothing);
     });

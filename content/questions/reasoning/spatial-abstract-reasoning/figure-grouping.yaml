@@ -1,398 +1,633 @@
 meta:
-  subject: reasoning
-  topic: spatial-abstract-reasoning
-  subtopic: figure-grouping
-  exams: [ acet, ustet, dost-sei , cse-pro]
+  subject: "reasoning"
+  topic: "spatial-abstract-reasoning"
+  subtopic: "figure-grouping"
+  exams:
+    - "acet"
+    - "ustet"
+    - "dost-sei"
+    - "cse-pro"
 questions:
-  - id: q-spatial-abstract-reasoning-figure-grouping-0001
-    type: odd-figure
-    difficulty: easy
-    figure: figure-grouping-01
+  - id: "q-spatial-abstract-reasoning-figure-grouping-0001"
+    type: "odd-figure"
+    difficulty: "easy"
+    figure: "figure-grouping-01"
     figureSpec:
-      kind: shape-row
+      kind: "shape-row"
       shapes:
-        - form: square
-        - form: rectangle
-        - form: rhombus
-        - form: triangle
+        - form: "square"
+        - form: "rectangle"
+        - form: "rhombus"
+        - form: "triangle"
     stem: |
-      Figure shows four shapes: a square, a rectangle, a rhombus, and a triangle. Which one does not belong, and why?
+      Group the figures by number of sides. Which does not belong?
     choices:
-      - text: The triangle, since it has only 3 sides while the other three shapes all have 4 sides
+      - text: "Triangle"
         correct: true
-      - text: The square, since it is the only shape with equal sides
+      - text: "Square"
         rationale: |
-          You focused on equal side lengths instead of total side count. The rhombus also has four equal sides.
-      - text: The rectangle, since it is the only shape that is not a rhombus
+          This groups by equal side lengths instead of side count. The square has four equal sides. Count its boundary segments.
+      - text: "Rectangle"
         rationale: |
-          You focused on named shape sub-types. Square, rectangle, and rhombus are all 4-sided quadrilaterals.
-      - text: The rhombus, since it is the only shape with slanted sides
+          This groups by width and height instead of side count. The rectangle is wider than it is tall. Count its four boundary segments.
+      - text: "Rhombus"
         rationale: |
-          You focused on visual orientation. All three 4-sided shapes share quadrilateral membership.
+          This treats a rotated-looking outline as having a different side count. Its orientation stands out. Count sides without using orientation.
     explanation: |
-      The square, rectangle, and rhombus all have 4 sides (they are all quadrilaterals). The triangle has only 3 sides, so it is the odd-one-out.
+      The square, rectangle, and rhombus each have four sides. The triangle has three sides and breaks that shared count.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-grouping-0002
-    type: odd-figure
-    difficulty: easy
-    figure: figure-grouping-02
+  - id: "q-spatial-abstract-reasoning-figure-grouping-0002"
+    type: "odd-figure"
+    difficulty: "easy"
+    figure: "figure-grouping-02"
     figureSpec:
-      kind: shape-row
+      kind: "shape-row"
       shapes:
-        - form: circle
-        - form: square
-        - form: triangle
-        - form: blob
+        - form: "circle"
+        - form: "square"
+        - form: "triangle"
+        - form: "blob"
     stem: |
-      Figure shows four shapes: a perfect circle, a square, an equilateral triangle, and an irregular, lopsided blob shape with no matching sides. Which one does not belong?
+      Group the figures by whether their outlines have a reflection axis. Which lacks one?
     choices:
-      - text: The irregular blob, since it has no line of symmetry, while the other three shapes can all be folded so both halves match
+      - text: "Irregular blob"
         correct: true
-      - text: The circle, since it is the only shape without straight sides
+      - text: "Circle"
         rationale: |
-          You picked curvature instead of symmetry. The circle, square, and triangle all share reflective symmetry.
-      - text: The square, since it is the only shape with four equal sides
+          This groups by curved versus straight boundary. The circle has no straight sides. Test reflection symmetry rather than boundary type.
+      - text: "Square"
         rationale: |
-          You picked a side count feature that does not group the remaining three shapes.
-      - text: The equilateral triangle, since it is the only shape with three sides
+          This groups by four equal sides. The square has that feature. Check whether its halves can match in reflection.
+      - text: "Triangle"
         rationale: |
-          You selected a side-count rule that leaves circle and square in different categories.
+          This groups by side count. The triangle has three sides. Check its vertical reflection axis.
     explanation: |
-      The circle, square, and equilateral triangle can all be folded along at least one line so both halves match exactly (they are all symmetric). The irregular blob has no such line, so it is the odd-one-out.
+      The circle, square, and equilateral triangle each have an axis along which reflected halves match. The irregular blob has no such axis.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-grouping-0003
-    type: odd-figure
-    difficulty: medium
-    figure: figure-grouping-03
+  - id: "q-spatial-abstract-reasoning-figure-grouping-0003"
+    type: "odd-figure"
+    difficulty: "medium"
+    figure: "figure-grouping-03"
     figureSpec:
-      kind: shape-row
+      kind: "shape-row"
       shapes:
-        - form: circle
+        - form: "circle"
           lines: 1
-        - form: circle
+        - form: "circle"
           lines: 2
-        - form: circle
+        - form: "circle"
           lines: 3
-        - form: circle
+        - form: "circle"
           lines: 2
-          through: off
+          through: "off"
     stem: |
-      Figure shows four circles, each cut by straight lines: one circle has 1 line through the center (creating 2 regions), one has 2 lines through the center (creating 4 regions), one has 3 lines through the center (creating 6 regions), and one has 2 lines that do not pass through the center, creating 3 uneven regions. Which one does not belong?
+      Considering whether the internal lines pass through the circle center, which figure does not belong?
     choices:
-      - text: The circle with 2 off-center lines (3 uneven regions), since the other three all have lines through the center creating an even number of regions
+      - text: "The rightmost circle"
         correct: true
-      - text: The circle with 1 line through the center, since it has the fewest regions
+      - text: "The leftmost circle"
         rationale: |
-          You picked the lowest quantity instead of finding the structural rule. Lines through center always create even region counts.
-      - text: The circle with 3 lines through the center, since it has the most regions
+          This selects the smallest line count. That circle has only one line. Check line position rather than number.
+      - text: "The second circle from the left"
         rationale: |
-          You picked the highest quantity. The three matching circles all have center-intersecting lines.
-      - text: The circle with 2 lines through the center, since it has an even number of lines
+          This selects an even line count. It has two lines. Check whether those lines pass through the center.
+      - text: "The third circle from the left"
         rationale: |
-          You counted line segments instead of region symmetry.
+          This selects the most divided circle. It has three lines. Check the common point where they meet.
     explanation: |
-      The first three figures follow a consistent rule: lines through the center split a circle into an even number of regions (2, 4, 6). The fourth figure's off-center lines create an uneven split (3 regions), breaking that pattern.
+      The first three circles have lines passing through their centers. The rightmost has lines meeting below its center. It breaks the shared center-crossing rule.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-grouping-0004
-    type: odd-figure
-    difficulty: medium
-    figure: figure-grouping-04
+  - id: "q-spatial-abstract-reasoning-figure-grouping-0004"
+    type: "odd-figure"
+    difficulty: "medium"
+    figure: "figure-grouping-04"
     figureSpec:
-      kind: shape-row
+      kind: "shape-row"
       shapes:
-        - form: square
+        - form: "square"
           dots: 1
-        - form: triangle
+        - form: "triangle"
           dots: 1
-        - form: circle
+        - form: "circle"
           dots: 1
-        - form: pentagon
+        - form: "pentagon"
           dots: 1
-        - form: hexagon
+        - form: "hexagon"
           dots: 2
     stem: |
-      Figure shows five different shapes. Four of them each contain exactly one small shaded (black) dot somewhere inside. The fifth shape contains two small shaded dots inside. Which one does not belong?
+      Considering internal dot counts, which figure does not belong?
     choices:
-      - text: The shape with two shaded dots, since the other four all contain exactly one shaded dot, regardless of their outer shape
+      - text: "Hexagon"
         correct: true
-      - text: Whichever shape has the largest outer outline
+      - text: "Circle"
         rationale: |
-          You focused on outer scale rather than internal dot count.
-      - text: Whichever shape has the most sides
+          This selects the curved outline rather than the internal count. The circle looks unlike the polygons. Count its dots.
+      - text: "Triangle"
         rationale: |
-          You focused on outer polygon side counts when the rule governs interior dot count.
-      - text: Whichever shape is positioned in the middle of the row
+          This selects the fewest sides. The triangle has three. Check the internal feature named in the stem.
+      - text: "Pentagon"
         rationale: |
-          You judged by display position instead of geometric features.
+          This selects an uncommon outer shape. The pentagon has five sides. Compare its dot count with the other figures.
     explanation: |
-      Four figures share the specific feature of containing exactly one shaded dot, regardless of their outer shape. The fifth figure contains two shaded dots, breaking that count: the shared rule here is about the dot count, not the outer shape.
+      The square, triangle, circle, and pentagon each contain one dot. The hexagon contains two dots and breaks that shared count.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-grouping-0005
-    type: odd-figure
-    difficulty: medium
-    figure: figure-grouping-05
+  - id: "q-spatial-abstract-reasoning-figure-grouping-0005"
+    type: "odd-figure"
+    difficulty: "medium"
+    figure: "figure-grouping-05"
     figureSpec:
-      kind: shape-row
+      kind: "shape-row"
       shapes:
-        - form: square
-        - form: triangle
-        - form: rectangle
-        - form: circle
+        - form: "square"
+        - form: "triangle"
+        - form: "rectangle"
+        - form: "circle"
     stem: |
-      Figure shows four shapes: a square, a triangle, a rectangle, and a circle. Which one does not belong?
+      Group the outlines by straight-sided versus curved boundaries. Which does not belong?
     choices:
-      - text: The circle, since it is made entirely of a curved line, while the other three are made entirely of straight lines
+      - text: "Circle"
         correct: true
-      - text: The square, since it is the only shape with four equal sides
+      - text: "Square"
         rationale: |
-          You picked equal side lengths instead of straight versus curved lines.
-      - text: The triangle, since it is the only shape with three sides
+          This selects equal sides instead of boundary type. Its sides match in length. Check whether each boundary segment is straight.
+      - text: "Triangle"
         rationale: |
-          You focused on side count, which leaves square and rectangle un-grouped with circle.
-      - text: The rectangle, since it is the only shape with two pairs of equal sides
+          This selects a different side count. It has three sides. Compare straight versus curved edges.
+      - text: "Rectangle"
         rationale: |
-          You picked a sub-property of 4-sided polygons.
+          This selects an elongated outline. The rectangle is wider than tall. Check the type of each boundary segment.
     explanation: |
-      The square, triangle, and rectangle are all made entirely of straight lines. The circle is made entirely of a curved line, breaking the "straight lines only" pattern shared by the other three.
+      The square, triangle, and rectangle have only straight boundary segments. The circle has a curved boundary.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-grouping-0006
-    type: odd-figure
-    difficulty: medium
-    figure: figure-grouping-06
+  - id: "q-spatial-abstract-reasoning-figure-grouping-0006"
+    type: "odd-figure"
+    difficulty: "medium"
+    figure: "figure-grouping-06"
     figureSpec:
-      kind: shape-row
+      kind: "shape-row"
       shapes:
-        - form: pentagon
-        - form: pentagon
-        - form: hexagon
-        - form: pentagon
+        - form: "pentagon"
+        - form: "pentagon"
+        - form: "hexagon"
+        - form: "pentagon"
     stem: |
-      Figure shows four shapes: a pentagon (5 sides), another pentagon (5 sides), a hexagon (6 sides), and a third pentagon (5 sides). Which one does not belong?
+      Three outlines match in side count. Which outline breaks that count?
     choices:
-      - text: The hexagon, since it has 6 sides while the other three shapes all have 5 sides
+      - text: "Third figure from the left"
         correct: true
-      - text: The first pentagon, since it appears first in the row
+      - text: "First figure from the left"
         rationale: |
-          You used row position instead of side count.
-      - text: The second pentagon, since it is positioned in the middle
+          This chooses an endpoint in the row. The first position can look separated from the others. Count sides instead of row position.
+      - text: "Second figure from the left"
         rationale: |
-          You used layout placement instead of counting polygon sides.
-      - text: The third pentagon, since it appears last in the row
+          This chooses a matching pentagon because it is near the center. Its placement stands out. Count its five sides.
+      - text: "Fourth figure from the left"
         rationale: |
-          You judged by array order rather than side count.
+          This chooses the last position as a pattern endpoint. The last figure is visually isolated at the edge. Compare its side count.
     explanation: |
-      Three of the shapes are pentagons, sharing a 5-side count. The hexagon has 6 sides, breaking that shared feature.
+      The first, second, and fourth figures are pentagons with five sides. The third is a hexagon with six sides.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-grouping-0007
-    type: odd-figure
-    difficulty: medium
-    figure: figure-grouping-07
-    stem: |
-      Figure shows four shapes: a five-pointed star, a square, a circle, and an isosceles triangle, plus a fifth shape that is a scalene triangle (a triangle with all three sides and angles different, no matching sides at all). Which one does not belong?
-    choices:
-      - text: The scalene triangle, since it has no line of symmetry, while the star, square, circle, and isosceles triangle can all be folded so both halves match
-        correct: true
-      - text: The star, since it has the most points
-        rationale: |
-          You picked point count rather than symmetry. Star, square, circle, and isosceles triangle all have lines of symmetry.
-      - text: The square, since it is the only quadrilateral
-        rationale: |
-          You focused on 4-sided shapes, which fails to group star, circle, and isosceles triangle together.
-      - text: The circle, since it has no straight sides
-        rationale: |
-          You picked curved outline, which leaves star, square, and isosceles triangle as different polygon types.
-    explanation: |
-      The star, square, circle, and isosceles triangle can all be folded along at least one line so both halves match exactly. The scalene triangle has no matching sides and no line of symmetry, so it is the odd-one-out.
-    approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-grouping-0008
-    type: odd-figure
-    difficulty: hard
-    figure: figure-grouping-08
+  - id: "q-spatial-abstract-reasoning-figure-grouping-0007"
+    type: "odd-figure"
+    difficulty: "medium"
+    figure: "figure-grouping-07"
     figureSpec:
-      kind: shape-row
-      shapes:
-        - form: rhombus
-        - form: square
-        - form: rectangle
-        - form: triangle
+      kind: "figure-series"
+      items:
+        - form: "square"
+          line: 30
+        - form: "square"
+          dot: "top"
+        - form: "square"
+          dot: "top-left"
+        - form: "square"
+          dots: 2
+      blank: false
     stem: |
-      Figure shows four quadrilaterals: a large square rotated 45° so it looks like a diamond, a small square, a rectangle, and a triangle drawn the same size as the others. A student picks the rotated diamond-looking square as the odd-one-out, since it "looks the most different" at a glance. Is this the correct answer?
+      Considering reflection symmetry of the complete figures, including internal marks, which figure does not belong?
     choices:
-      - text: 'No: the rotated square still has 4 sides, matching the small square and rectangle; the triangle, with only 3 sides, is the actual odd-one-out, even though it is not the most visually unusual-looking figure.'
+      - text: "The leftmost square"
         correct: true
-      - text: 'Yes: the most visually different-looking figure is always the correct odd-one-out.'
+      - text: "Second square from the left"
         rationale: |
-          You judged by superficial rotation appearance. Rotating a square does not change its 4-side count.
-      - text: 'Yes: but only because rotated shapes never count as quadrilaterals.'
+          This assumes any off-center dot removes symmetry. Its top dot is off-center. Check the vertical axis through that dot.
+      - text: "Third square from the left"
         rationale: |
-          You claimed rotation alters polygon classification. A square remains a 4-sided quadrilateral when rotated.
-      - text: 'No: but only because the triangle and the rotated square are actually the same shape.'
+          This treats a corner dot as always asymmetric. Its dot is in one corner. Check the diagonal through that corner and the center.
+      - text: "Rightmost square"
         rationale: |
-          You claimed a triangle and square are the same shape.
+          This assumes two dots necessarily break symmetry. Two marks appear inside. Check their matching placement on either side of the vertical axis.
     explanation: |
-      The most visually striking figure is not always the correct odd-one-out. The rotated square still shares the true underlying rule (4 sides) with the small square and rectangle, while the "normal-looking" triangle actually breaks the rule with only 3 sides.
+      The first square has a radial line at 30 degrees, which is not one of the square's reflection axes. The other figures each preserve a vertical or diagonal axis through their marks. The first complete figure therefore lacks reflection symmetry.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-grouping-0009
-    type: odd-figure
-    difficulty: hard
-    figure: figure-grouping-09
-    stem: |
-      Figure shows four different outer shapes (a circle, a square, a triangle, and a star), and a student notices they have completely different outlines, concluding there is no shared rule. Looking more closely, three of the shapes each contain exactly 2 internal lines crossing inside them, while one shape contains only 1 internal line. Which shape does not belong, and what did the student initially miss?
-    choices:
-      - text: The shape with only 1 internal line does not belong; the student initially missed that the shared rule was an internal detail (the number of crossing lines inside each shape), not the outer shape at all.
-        correct: true
-      - text: None of the shapes belong together, since their outer shapes are all different.
-        rationale: |
-          You abandoned searching for a pattern when outer outlines differed, ignoring internal line details.
-      - text: The circle does not belong, simply because it is the only shape without straight sides.
-        rationale: |
-          You relied on outer shape features instead of counting internal crossing lines.
-      - text: All four shapes belong together equally, since outer shape is the only feature that matters.
-        rationale: |
-          You assumed only outer outlines determine grouping.
-    explanation: |
-      Some grouping rules are about details inside the figures (like internal line counts), not the outer shape at all. Missing this internal-detail rule by only comparing outer shapes leads to incorrectly assuming there is no pattern.
-    approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-grouping-0010
-    type: odd-figure
-    difficulty: hard
-    figure: figure-grouping-10
+  - id: "q-spatial-abstract-reasoning-figure-grouping-0008"
+    type: "odd-figure"
+    difficulty: "medium"
+    figure: "figure-grouping-08"
     figureSpec:
-      kind: shape-row
+      kind: "shape-row"
       shapes:
-        - form: triangle
-        - form: triangle
-        - form: triangle
-        - form: rhombus
+        - form: "rhombus"
+        - form: "square"
+        - form: "rectangle"
+        - form: "triangle"
     stem: |
-      Figure shows four shapes: a triangle, another triangle, a third triangle, and a four-sided kite shape. A student proposes the rule "all shapes have straight sides," noting this fits three of the triangles and technically fits the kite too, so they conclude there is no odd-one-out. Is this the correct conclusion, given that the three triangles are meant to share a more specific true rule?
+      A student excludes the first figure because its outline looks rotated. Under grouping by side count, which figure should be excluded?
     choices:
-      - text: 'No: "all shapes have straight sides" fits all four shapes and is too broad to distinguish them; the more specific true rule is "3 sides," which the three triangles share but the four-sided kite breaks, making the kite the actual odd-one-out.'
+      - text: "The rightmost figure"
         correct: true
-      - text: 'Yes: since all four shapes have straight sides, there is genuinely no odd-one-out in this group.'
+      - text: "The leftmost figure"
         rationale: |
-          You accepted an overly broad rule that fails to separate any shape.
-      - text: 'No: but only because triangles never have straight sides.'
+          This treats orientation as a side-count difference. The slanted appearance catches attention. Count its boundary segments.
+      - text: "Second figure from the left"
         rationale: |
-          You claimed triangles do not have straight sides.
-      - text: 'Yes: the broadest rule that fits all figures is always the correct one to use.'
+          This singles out the upright square. It looks more regular than the first. Check the shared four-sided feature.
+      - text: "Third figure from the left"
         rationale: |
-          You assumed broad rules take precedence. Grouping rules must isolate a specific odd-one-out.
+          This singles out the wider rectangle. Its proportions differ. Check that it still has four sides.
     explanation: |
-      A valid shared rule must be specific enough to distinguish the true odd-one-out, not just broadly true of every figure. Settling for an overly broad rule that fits everyone (including the kite) misses the more specific rule (3 sides) that only the three triangles actually share.
+      Rotation does not change side count. The first three outlines each have four sides. The rightmost triangle has three.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-grouping-0011
-    type: odd-figure
-    difficulty: medium
-    figure: figure-grouping-11
-    stem: |
-      Figure shows four shapes, each with exactly one shaded (black) region inside, and a fifth shape with no shaded region at all (completely white/empty). Which one does not belong?
-    choices:
-      - text: The completely unshaded shape, since the other four each contain exactly one shaded region
-        correct: true
-      - text: Whichever shape has the most sides
-        rationale: |
-          You evaluated polygon side count instead of region shading.
-      - text: Whichever shape is largest in the group
-        rationale: |
-          You judged by visual area scale rather than shading count.
-      - text: Whichever shape is positioned first in the row
-        rationale: |
-          You judged by row position instead of internal shading.
-    explanation: |
-      Four figures share the specific feature of containing exactly one shaded region. The fifth figure has zero shaded regions, breaking that shared shading rule.
-    approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-grouping-0012
-    type: odd-figure
-    difficulty: medium
-    figure: figure-grouping-12
+  - id: "q-spatial-abstract-reasoning-figure-grouping-0009"
+    type: "odd-figure"
+    difficulty: "medium"
+    figure: "figure-grouping-09"
     figureSpec:
-      kind: shape-row
+      kind: "shape-row"
       shapes:
-        - form: circle
+        - form: "circle"
           lines: 2
-        - form: square
+        - form: "circle"
           lines: 2
-        - form: hexagon
+        - form: "circle"
           lines: 2
-        - form: pentagon
+        - form: "circle"
+          lines: 1
+    stem: |
+      Group these figures by the number of internal lines. Which does not belong?
+    choices:
+      - text: "The rightmost circle"
+        correct: true
+      - text: "The leftmost circle"
+        rationale: |
+          This picks the start of the row. Its first position makes it noticeable. Count its lines.
+      - text: "Second circle from the left"
+        rationale: |
+          This selects a matching figure because it is central. The two cuts intersect visibly. Count lines rather than regions.
+      - text: "Third circle from the left"
+        rationale: |
+          This mistakes the same pattern for a new count. It repeats the two-line figure. Trace both full cuts.
+    explanation: |
+      The first three circles have two internal lines each. The rightmost has one. It breaks the common line-count rule.
+    approved: true
+  - id: "q-spatial-abstract-reasoning-figure-grouping-0010"
+    type: "odd-figure"
+    difficulty: "medium"
+    figure: "figure-grouping-10"
+    figureSpec:
+      kind: "shape-row"
+      shapes:
+        - form: "triangle"
+        - form: "triangle"
+        - form: "triangle"
+        - form: "rhombus"
+    stem: |
+      The rule "all outlines have straight sides" includes every shown figure. Which more specific rule groups exactly three and excludes one?
+    choices:
+      - text: "Three sides"
+        correct: true
+      - text: "At least three sides"
+        rationale: |
+          This keeps the rule too broad. Every figure has at least three sides. Check that the proposed rule must leave exactly one out.
+      - text: "At least one reflection axis"
+        rationale: |
+          This uses a feature shared by all these regular outlines. Symmetry is visible. Check whether it excludes any figure.
+      - text: "A closed boundary"
+        rationale: |
+          This uses closure, which every figure shares. All outlines enclose space. Check whether the rule splits the group.
+    explanation: |
+      The first three figures are triangles. Each has three sides. That shared count separates them from the four-sided rhombus.
+    approved: true
+  - id: "q-spatial-abstract-reasoning-figure-grouping-0011"
+    type: "odd-figure"
+    difficulty: "medium"
+    figure: "figure-grouping-11"
+    figureSpec:
+      kind: "figure-series"
+      items:
+        - form: "triangle"
+          fill: "black"
+        - form: "circle"
+          fill: "black"
+        - form: "square"
+          fill: "black"
+        - form: "pentagon"
+          fill: "black"
+        - form: "circle"
+          fill: "white"
+      blank: false
+    stem: |
+      Considering fill alone, which displayed figure does not belong?
+    choices:
+      - text: "The rightmost circle"
+        correct: true
+      - text: "The leftmost triangle"
+        rationale: |
+          This uses outer form instead of fill. The triangle looks unlike the circles. Compare its black interior.
+      - text: "The middle square"
+        rationale: |
+          This uses square shape as the distinguishing feature. It has four sides. Check the fill feature named in the stem.
+      - text: "Second circle from the left"
+        rationale: |
+          This selects a circle even though its fill matches the group. The circle has a curved boundary. Compare black versus white fill.
+    explanation: |
+      The first four figures have black fill. The rightmost circle has white fill. It breaks the shared fill state.
+    approved: true
+  - id: "q-spatial-abstract-reasoning-figure-grouping-0012"
+    type: "odd-figure"
+    difficulty: "medium"
+    figure: "figure-grouping-12"
+    figureSpec:
+      kind: "shape-row"
+      shapes:
+        - form: "circle"
+          lines: 1
+        - form: "circle"
+          lines: 2
+        - form: "circle"
           lines: 3
+        - form: "circle"
+          lines: 0
     stem: |
-      Figure shows four shapes, each divided into exactly 3 regions by internal lines, and a fifth shape divided into 4 regions. Which one does not belong?
+      Group the circles by whether they have an even number of enclosed regions. Which does not belong?
     choices:
-      - text: The shape divided into 4 regions, since the other four are all divided into exactly 3 regions
+      - text: "The rightmost circle"
         correct: true
-      - text: Whichever shape has the most internal lines drawn
+      - text: "The leftmost circle"
         rationale: |
-          You focused on line segment count instead of total enclosed regions.
-      - text: Whichever shape has curved internal lines
+          This treats one dividing line as one region. Only one cut is visible. Count both areas on its sides.
+      - text: "Second circle from the left"
         rationale: |
-          You evaluated line curvature instead of region count.
-      - text: Whichever shape is shaded differently from the rest
+          This confuses two lines with an odd region count. Both cross in the center. Count the four separate areas.
+      - text: "Third circle from the left"
         rationale: |
-          You searched for shading differences when region count is the defining rule.
+          This treats three lines as three regions. Three is odd. Count the areas between the six radiating segments.
     explanation: |
-      Four figures share the feature of being divided into exactly 3 regions by their internal lines. The fifth figure is divided into 4 regions, breaking that shared region count.
+      One, two, and three distinct lines through the center create two, four, and six regions. The uncut rightmost circle has one region. One is odd, so it breaks the even-region rule.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-grouping-0013
-    type: odd-figure
-    difficulty: hard
-    figure: figure-grouping-13
+  - id: "q-spatial-abstract-reasoning-figure-grouping-0013"
+    type: "odd-figure"
+    difficulty: "medium"
+    figure: "figure-grouping-13"
     figureSpec:
-      kind: shape-row
+      kind: "shape-row"
       shapes:
-        - form: square
-        - form: rectangle
-        - form: rhombus
-        - form: pentagon
+        - form: "square"
+        - form: "rectangle"
+        - form: "hexagon"
+        - form: "pentagon"
     stem: |
-      Figure shows four shapes that are each both symmetric (foldable into matching halves) and have exactly 4 sides: a square, a rectangle, a rhombus, and a kite. A fifth shape is a symmetric pentagon (foldable into matching halves, but with 5 sides). Which one does not belong, and which specific shared rule does it break?
+      When the outlines are grouped by an even number of sides, which does not belong?
     choices:
-      - text: The symmetric pentagon does not belong; although it shares the symmetry feature with the other four, it breaks the "exactly 4 sides" feature, since it has 5 sides.
+      - text: "Pentagon"
         correct: true
-      - text: The symmetric pentagon does not belong, since it is the only shape that is symmetric.
+      - text: "Square"
         rationale: |
-          You inverted the symmetry property. All five shapes in the group are symmetric.
-      - text: The kite does not belong, since it is the only shape that is not a common household object.
+          This singles out equal sides rather than parity. The square is regular. Count its four sides and test whether four is even.
+      - text: "Rectangle"
         rationale: |
-          You used real-world object associations instead of geometric side count.
-      - text: None of the shapes belong together, since a pentagon can never be symmetric.
+          This uses unequal neighboring sides instead of parity. Its long and short sides differ. Count all four sides.
+      - text: "Hexagon"
         rationale: |
-          You claimed pentagons cannot be symmetric. Regular and isosceles pentagons have lines of symmetry.
+          This assumes the shared rule must be exactly four sides. The first two have four. Check that six also satisfies the stated even-count rule.
     explanation: |
-      This group is defined by two combined features: symmetry AND exactly 4 sides. The pentagon shares the symmetry feature but breaks the 4-sides feature, making it the odd-one-out on that specific dimension, even though it isn't wrong on every dimension.
+      The square, rectangle, and hexagon have four, four, and six sides. These are even counts. The pentagon has five sides, an odd count.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-grouping-0014
-    type: odd-figure
-    difficulty: exam
-    figure: figure-grouping-14
+  - id: "q-spatial-abstract-reasoning-figure-grouping-0014"
+    type: "odd-figure"
+    difficulty: "medium"
+    figure: "figure-grouping-14"
+    figureSpec:
+      kind: "figure-series"
+      items:
+        - form: "square"
+          arrow: "up"
+        - form: "circle"
+          arrow: "up"
+        - form: "pentagon"
+          arrow: "up"
+        - form: "triangle"
+          arrow: "down"
+      blank: false
     stem: |
-      Figure shows five shapes with completely different outer outlines (a circle, a square, a star, a triangle, and a hexagon). At first glance, no shared rule seems to connect them. Looking closer: the circle, square, star, and hexagon are each rotated so that a small marked dot on their edge points toward the top of the figure. The triangle's marked dot points toward the bottom instead. Which shape does not belong, and what type of rule was easy to miss here?
+      Considering the direction of the internal arrow, which figure does not belong?
     choices:
-      - text: 'The triangle does not belong; the shared rule was an internal/marking detail (the direction the marked dot points), not the outer shape, side count, or symmetry: a subtler category easy to miss without checking markings specifically.'
+      - text: "Triangle"
         correct: true
-      - text: The hexagon does not belong, since it has the most sides among the five shapes.
+      - text: "Pentagon"
         rationale: |
-          You evaluated outer side count when the true rule governs dot orientation.
-      - text: The star does not belong, since it is the only shape with points instead of flat sides.
+          This picks the highest side count. The pentagon has five sides. Compare the internal arrow directions.
+      - text: "Circle"
         rationale: |
-          You relied on outer outline type instead of checking marked dot orientation.
-      - text: No shape is the odd-one-out, since all five outer outlines are completely different.
+          This picks the curved outline. The circle has no straight sides. Check the internal mark, not its border.
+      - text: "Square"
         rationale: |
-          You gave up searching when outer outlines differed, missing dot orientation.
+          This picks an outline with four sides. Its form is familiar. Check that its arrow matches the majority.
     explanation: |
-      When outer shape, side count, and symmetry checks all fail to reveal a pattern, check smaller markings or internal details, like the direction of a marked dot. Here, four shapes share a dot pointing toward the top, while the triangle's dot points toward the bottom, making it the true odd-one-out.
+      The square, circle, and pentagon all have upward arrows. The triangle has a downward arrow. Its internal direction breaks the shared rule.
     approved: true
+  - id: "q-spatial-abstract-reasoning-figure-grouping-0015"
+    type: "odd-figure"
+    difficulty: "easy"
+    figure: "figure-grouping-15"
+    figureSpec:
+      kind: "shape-row"
+      shapes:
+        - form: "square"
+          dots: 2
+        - form: "rectangle"
+          dots: 4
+        - form: "circle"
+          dots: 3
+        - form: "hexagon"
+          dots: 2
+    stem: |
+      Considering dot-count parity, which figure does not belong?
+    choices:
+      - text: "The circle"
+        correct: true
+      - text: "Square"
+        rationale: |
+          This selects the fewest dots rather than parity. The square has two. Check whether two is even.
+      - text: "Rectangle"
+        rationale: |
+          This selects the most dots rather than parity. Four dots stand out. Check whether four is even.
+      - text: "Hexagon"
+        rationale: |
+          This groups by sides instead of dot parity. The outline has six sides. Count its two internal dots.
+    explanation: |
+      The square, rectangle, and hexagon contain two, four, and two dots. Each count is even. The circle contains three dots, an odd count.
+    approved: false
+  - id: "q-spatial-abstract-reasoning-figure-grouping-0016"
+    type: "odd-figure"
+    difficulty: "medium"
+    figure: "figure-grouping-16"
+    figureSpec:
+      kind: "figure-series"
+      items:
+        - form: "square"
+          line: 0
+        - form: "square"
+          line: 90
+        - form: "square"
+          line: 45
+        - form: "square"
+          line: 180
+      blank: false
+    stem: |
+      Three internal rays point parallel to a side of their square outlines. Which ray is the exception?
+    choices:
+      - text: "The third square"
+        correct: true
+      - text: "The first square"
+        rationale: |
+          This treats a single vertical ray as an unmatched feature. The up direction stands out. Check whether it is parallel to a vertical side.
+      - text: "The second square"
+        rationale: |
+          This treats a horizontal ray as unlike the vertical rays. It points right. Check that the shared rule allows either horizontal or vertical sides.
+      - text: "The fourth square"
+        rationale: |
+          This confuses a downward ray with a diagonal ray. It appears below the center. Compare its direction with the square's vertical sides.
+    explanation: |
+      The first, second, and fourth rays point up, right, and down. Each direction is parallel to a side of its square. The third ray points diagonally and breaks that rule.
+    approved: false
+  - id: "q-spatial-abstract-reasoning-figure-grouping-0017"
+    type: "odd-figure"
+    difficulty: "hard"
+    figure: "figure-grouping-17"
+    figureSpec:
+      kind: "shape-row"
+      shapes:
+        - form: "square"
+        - form: "triangle"
+        - form: "rectangle"
+        - form: "circle"
+    stem: |
+      The displayed grouping is based on straight versus curved boundaries. Which replacement for the circle would make all four outlines belong?
+    choices:
+      - text: "Hexagon"
+        correct: true
+      - text: "Another circle"
+        rationale: |
+          This keeps the differing boundary type. The replacement matches the removed outline. Check whether it has straight segments.
+      - text: "An irregular curved blob"
+        rationale: |
+          This uses a different curved outline without changing boundary type. Its irregular shape seems unlike a circle. Check straight versus curved edges.
+      - text: "A circle with two dots"
+        rationale: |
+          This changes internal marks instead of the outline. Dots add a visible difference. Check the feature that defines the group.
+    explanation: |
+      The other outlines are polygons made of straight segments. A hexagon also has only straight segments. Replacing the circle with a hexagon therefore makes the boundary rule hold for every outline.
+    approved: false
+  - id: "q-spatial-abstract-reasoning-figure-grouping-0018"
+    type: "odd-figure"
+    difficulty: "hard"
+    figure: "figure-grouping-18"
+    figureSpec:
+      kind: "shape-row"
+      shapes:
+        - form: "square"
+          dots: 2
+        - form: "rectangle"
+          dots: 2
+        - form: "hexagon"
+          dots: 3
+        - form: "triangle"
+          dots: 2
+    stem: |
+      In three figures, the side count is twice the internal dot count. Which breaks this relation?
+    choices:
+      - text: "Triangle"
+        correct: true
+      - text: "Square"
+        rationale: |
+          This selects a matching figure because all its sides are equal. Equal lengths stand out. Compare counts, not lengths.
+      - text: "Rectangle"
+        rationale: |
+          This treats unequal side lengths as different side counts. The rectangle is elongated. Count four sides and two dots.
+      - text: "Hexagon"
+        rationale: |
+          This picks the largest dot count. Three differs from the two-dot figures. Check that six sides is still twice three dots.
+    explanation: |
+      The square, rectangle, and hexagon have four sides with two dots, four with two, and six with three. Each side count is twice the dot count. The triangle has three sides and two dots, so it breaks the relation.
+    approved: false
+  - id: "q-spatial-abstract-reasoning-figure-grouping-0019"
+    type: "odd-figure"
+    difficulty: "exam"
+    figure: "figure-grouping-19"
+    figureSpec:
+      kind: "figure-series"
+      items:
+        - form: "square"
+          dots: 1
+          edgeLines: 1
+        - form: "square"
+          dots: 2
+          edgeLines: 2
+        - form: "square"
+          dots: 2
+          edgeLines: 3
+        - form: "square"
+          dots: 3
+          edgeLines: 3
+      blank: false
+    stem: |
+      In three figures, dots and bottom-edge lines have equal counts. Which breaks that relation?
+    choices:
+      - text: "The third square"
+        correct: true
+      - text: "The first square"
+        rationale: |
+          This selects the fewest marks rather than comparing counts. It has one of each. Check equality within the same figure.
+      - text: "The second square"
+        rationale: |
+          This selects an even count. It has two of each. Check whether both kinds match.
+      - text: "The fourth square"
+        rationale: |
+          This selects the most dots. It has three of each. Compare the two counts within it.
+    explanation: |
+      The first, second, and fourth squares have matching dot and edge-line counts: one and one, two and two, three and three. The third has two dots and three edge lines. Its counts differ.
+    approved: false
+  - id: "q-spatial-abstract-reasoning-figure-grouping-0020"
+    type: "odd-figure"
+    difficulty: "exam"
+    figure: "figure-grouping-20"
+    figureSpec:
+      kind: "figure-series"
+      items:
+        - form: "triangle"
+          dots: 3
+        - form: "square"
+          dots: 4
+        - form: "triangle"
+          dots: 3
+        - form: "square"
+          dots: 2
+      blank: false
+    stem: |
+      Each outline is a regular polygon. In three figures, the number of internal dots equals the number of reflection axes of the outline. Which breaks the relation?
+    choices:
+      - text: "Fourth figure"
+        correct: true
+      - text: "First figure"
+        rationale: |
+          This counts only the vertical reflection axis. That one is easiest to see. Check the two axes through the other vertices.
+      - text: "Second figure"
+        rationale: |
+          This counts only horizontal and vertical axes. Those two are visible. Check the two diagonal axes too.
+      - text: "Third figure"
+        rationale: |
+          This assumes only even-sided shapes have reflection symmetry. The triangle has three sides. Check its three vertex-to-opposite-side reflection axes.
+    explanation: |
+      A regular triangle has three reflection axes, a square four, and a regular pentagon five. The first three figures contain three, four, and five dots. Fourth figure contains two dots despite having three outline axes.
+    approved: false

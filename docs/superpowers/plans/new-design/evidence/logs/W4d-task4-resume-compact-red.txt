@@ -1,0 +1,153 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: compact 200 percent revisit keeps all targets and content clear
+
+Warning: A call to tap() with finder "Found 1 widget with text "14 of 14": [
+  Text("14 of 14", inherit: true, color: Color(alpha: 1.0000, red: 0.1137, green: 0.1137, blue: 0.1216, colorSpace: ColorSpace.sRGB), family: Geist, size: 15.0, weight: 600, letterSpacing: 0.0, height: 1.4x, dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(34.0, 491.0)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderParagraph#6aa51 relayoutBoundary=up19
+The hit test result at that offset is: HitTestResult(RenderPointerListener#dff7f@Offset(10.0, 123.0), RenderSemanticsAnnotations#2bdff@Offset(10.0, 123.0), RenderMouseRegion#bda24@Offset(10.0, 123.0), RenderSemanticsAnnotations#a5c1d@Offset(10.0, 123.0), RenderExcludeSemantics#b0ef2@Offset(10.0, 123.0), RenderSemanticsAnnotations#b1b81@Offset(10.0, 123.0), RenderFlex#3ae08@Offset(10.0, 123.0), RenderPadding#b6fdb@Offset(18.0, 131.0), RenderDecoratedBox#8d4df@Offset(18.0, 131.0), RenderDecoratedBox#bf5d7@Offset(18.0, 131.0), RenderConstrainedBox#abf0e@Offset(18.0, 131.0), RenderStack#c31f3@Offset(34.0, 437.0), _RenderLayoutBuilder#a18ad@Offset(34.0, 437.0), RenderFlex#1bf7f@Offset(34.0, 491.0), RenderPadding#c5ee3@Offset(34.0, 491.0), RenderCustomMultiChildLayoutBox#a5efd@Offset(34.0, 491.0), _RenderInkFeatures#0fdc6@Offset(34.0, 491.0), RenderPhysicalModel#2c5aa@Offset(34.0, 491.0), RenderExcludeSemantics#4662b@Offset(34.0, 491.0), RenderStack#b94b6@Offset(34.0, 491.0), _RenderLayoutBuilder#be34b@Offset(34.0, 491.0), RenderSemanticsAnnotations#650a1@Offset(34.0, 491.0), RenderRepaintBoundary#8d8fd@Offset(34.0, 491.0), RenderIgnorePointer#ce825@Offset(34.0, 491.0), RenderAnimatedOpacity#a26a4@Offset(34.0, 491.0), RenderAnimatedOpacity#f4bce@Offset(34.0, 491.0), _RenderColoredBox#d5ad9@Offset(34.0, 491.0), RenderAnimatedOpacity#1329a@Offset(34.0, 491.0), RenderIgnorePointer#0ae53@Offset(34.0, 491.0), RenderAnimatedOpacity#7bc95@Offset(34.0, 491.0), RenderRepaintBoundary#886eb@Offset(34.0, 491.0), RenderSemanticsAnnotations#7f1c0@Offset(34.0, 491.0), RenderOffstage#f8b11@Offset(34.0, 491.0), RenderSemanticsAnnotations#86f1f@Offset(34.0, 491.0), _RenderTheater#bb68f@Offset(34.0, 491.0), RenderAbsorbPointer#0a666@Offset(34.0, 491.0), RenderPointerListener#4ed66@Offset(34.0, 491.0), RenderCustomPaint#c8602@Offset(34.0, 491.0), RenderSemanticsAnnotations#25ede@Offset(34.0, 491.0), RenderSemanticsAnnotations#01a01@Offset(34.0, 491.0), RenderSemanticsAnnotations#be0bb@Offset(34.0, 491.0), RenderTapRegionSurface#365e5@Offset(34.0, 491.0), RenderSemanticsAnnotations#4e0a8@Offset(34.0, 491.0), RenderSemanticsAnnotations#0d013@Offset(34.0, 491.0), HitTestEntry<HitTestTarget>#becd8(_ReusableRenderView#04f47), HitTestEntry<HitTestTarget>#4d6a1(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2165:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart:603:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 4.0 pixels on the right.
+
+The relevant error-causing widget was:
+  Row
+  Row:file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/lib/features/quiz/presentation/quiz_page.dart:741:22
+
+The overflowing RenderFlex has an orientation of Axis.horizontal.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#316fe relayoutBoundary=up18 OVERFLOWING:
+  creator: Row ← ConstrainedBox ← Padding ← Listener ← RawGestureDetector ← GestureDetector ←
+    Semantics ← DefaultSelectionStyle ← Builder ← MouseRegion ← Semantics ← _FocusInheritedScope ← ⋯
+  parentData: <none> (can use size)
+  constraints: BoxConstraints(w=14.0, 44.0<=h<=Infinity)
+  size: Size(14.0, 246.0)
+  direction: horizontal
+  mainAxisAlignment: start
+  mainAxisSize: min
+  crossAxisAlignment: center
+  textDirection: ltr
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 230 pixels on the right.
+
+The relevant error-causing widget was:
+  Row
+  Row:file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/lib/core/ui/components/new_design/question_grid_sheet.dart:122:13
+
+The overflowing RenderFlex has an orientation of Axis.horizontal.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#feedb relayoutBoundary=up23 OVERFLOWING:
+  creator: Row ← Column ← Padding ← _SingleChildViewport ← IgnorePointer-[GlobalKey#07e56] ← Semantics
+    ← Listener ← _GestureSemantics ←
+    RawGestureDetector-[LabeledGlobalKey<RawGestureDetectorState>#af62b] ← Listener ← _ScrollableScope
+    ← _ScrollSemantics-[GlobalKey#5669e] ← ⋯
+  parentData: offset=Offset(0.0, 21.0); flex=null; fit=null (can use size)
+  constraints: BoxConstraints(w=280.0, 0.0<=h<=Infinity)
+  size: Size(280.0, 486.0)
+  direction: horizontal
+  mainAxisAlignment: start
+  mainAxisSize: max
+  crossAxisAlignment: center
+  textDirection: ltr
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 132 pixels on the right.
+
+The relevant error-causing widget was:
+  Row
+  Row:file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/lib/features/quiz/presentation/quiz_page.dart:600:34
+
+The overflowing RenderFlex has an orientation of Axis.horizontal.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#3ae08 relayoutBoundary=up9 OVERFLOWING:
+  needs compositing
+  creator: Row ← TextButtonTheme ← Padding ← DecoratedBox ← DecoratedBox ← ConstrainedBox ← Container
+    ← AnimatedContainer ← FloatingBar ← Positioned ← Stack ← LayoutBuilder ← ⋯
+  parentData: offset=Offset(8.0, 8.0) (can use size)
+  constraints: BoxConstraints(w=272.0, 44.0<=h<=Infinity)
+  size: Size(272.0, 205.0)
+  direction: horizontal
+  mainAxisAlignment: start
+  mainAxisSize: max
+  crossAxisAlignment: center
+  textDirection: ltr
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: null
+  Actual: 'Multiple exceptions (3) were detected during the running of the current test, and at
+least one was unexpected.'
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart:608:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1952:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart line 608
+The test description was:
+  compact 200 percent revisit keeps all targets and content clear
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:00 +0 -1: compact 200 percent revisit keeps all targets and content clear [E]
+  Test failed. See exception logs above.
+  The test description was: compact 200 percent revisit keeps all targets and content clear
+
+00:00 +0 -1: (tearDownAll)
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart: compact 200 percent revisit keeps all targets and content clear

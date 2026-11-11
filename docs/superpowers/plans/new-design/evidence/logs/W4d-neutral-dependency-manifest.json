@@ -1,0 +1,13 @@
+{
+  "base": "5d3f18acc2d1cb3559b92f39b8079cd4b04e49e6",
+  "source": {
+    "lib/core/ui/components/pantas_button.dart": "dbc906577d8e4cba156f43010bdff8855b1d31904e4050464e78037a638d9e3f",
+    "test/core/ui/components/neutral_button_test.dart": "77242b7504ce5faff81a476e11aa7f9b81c9c541c8278e7b027089a9b7ccc67d",
+    "test/core/ui/components/disabled_action_label_test.dart": "ac51a21d3f668dc547e1c17dd84c548e8eea9223b27dae16953d086f567218f2",
+    "test/core/ui/components/board_button_test.dart": "4466b9343b6541c1adfec17493376da9146b730821cefb5b470109f5b5f6dd46"
+  },
+  "relay": [
+    11378,
+    11380
+  ]
+}

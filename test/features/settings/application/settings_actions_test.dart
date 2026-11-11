@@ -1,12 +1,83 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/time/study_days.dart';
+import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/settings/settings.dart';
 
 import '../../../helpers/in_memory_database.dart';
 
 void main() {
+  test('plan settings capture the owner before persistence and publish after',
+      () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final events = <String>[];
+    final container = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        studySettingsCaptureProvider
+            .overrideWithValue(({String? examId}) async {
+          events.add('captured');
+          expect(
+            (await DriftSettingsRepository(db).readUserSettings()).examDate,
+            isNull,
+          );
+          return StudySettingsPublication(() async {
+            events.add('publish');
+            expect(
+              (await DriftSettingsRepository(db).readUserSettings()).examDate,
+              ExamDate.onDay(DateTime(2026, 11, 15)),
+            );
+          });
+        }),
+      ],
+    );
+    addTearDown(container.dispose);
+    await container.read(settingsActionsProvider).saveExamDate(
+          ExamDate.onDay(DateTime(2026, 11, 15)),
+          today: DateTime(2026, 10, 25),
+        );
+    expect(events, ['captured', 'publish']);
+  });
+
+  test('changing study days refreshes settings before rescheduling', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final notifications = RecordingNotificationService();
+    final container = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        notificationServiceProvider.overrideWithValue(notifications),
+      ],
+    );
+    addTearDown(container.dispose);
+    final subscription = container.listen(userSettingsProvider, (_, __) {});
+    addTearDown(subscription.close);
+    expect(
+      (await container.read(userSettingsProvider.future)).studyDays,
+      StudyDays.all,
+    );
+    final days = StudyDays(const [1, 2, 3, 4, 5]);
+    notifications.onReschedule = () async {
+      expect(
+        (await DriftSettingsRepository(db).readUserSettings()).studyDays,
+        days,
+      );
+      expect(
+        (await container.read(userSettingsProvider.future)).studyDays,
+        days,
+      );
+    };
+
+    await container.read(settingsActionsProvider).updateStudyDays(days);
+
+    expect(notifications.reschedules, 1);
+    expect((await container.read(userSettingsProvider.future)).studyDays, days);
+  });
+
   test('saving exam date writes settings and study plan prefs', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
@@ -32,7 +103,7 @@ void main() {
     expect(rebalanceGateway.dates, [DateTime(2026, 9, 14)]);
   });
 
-  test('saving today exam date rejects without writing', () async {
+  test('saving yesterday exam date rejects without writing', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
     final container = ProviderContainer(
@@ -42,7 +113,7 @@ void main() {
 
     await expectLater(
       container.read(settingsActionsProvider).saveExamDate(
-            ExamDate.onDay(DateTime(2026, 5, 22)),
+            ExamDate.onDay(DateTime(2026, 5, 21)),
             today: DateTime(2026, 5, 22),
           ),
       throwsA(isA<InvalidExamDateException>()),
@@ -114,6 +185,60 @@ void main() {
     expect(settings.examDate!.day, isNull);
   });
 
+  test('the carry-over choice is saved, then sent to the server', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final events = <String>[];
+    final sent = <Object?>[];
+    final container = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        studySettingsCaptureProvider
+            .overrideWithValue(({String? examId}) async {
+          events.add('captured');
+          return StudySettingsPublication(() async {
+            events.add('publish');
+            sent.add(
+              (await DriftSettingsRepository(db).readUserSettings())
+                  .carryOverProgress,
+            );
+          });
+        }),
+      ],
+    );
+    addTearDown(container.dispose);
+
+    await container
+        .read(settingsActionsProvider)
+        .setCarryOverProgress(enabled: false);
+
+    expect(events, ['captured', 'publish']);
+    expect(sent, [false]);
+  });
+
+  test('the settings sent to the server carry the choice, on by default',
+      () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final contentDb = inMemoryContentDatabase();
+    addTearDown(contentDb.close);
+    final container = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ],
+    );
+    addTearDown(container.dispose);
+    final payloadOf = Provider<Future<Map<String, Object?>>>(
+      (ref) => readStudySettingsPayload(ref, 'exam_x'),
+    );
+
+    expect((await container.read(payloadOf))['carryOverProgress'], isTrue);
+    await DriftSettingsRepository(db).updateCarryOverProgress(enabled: false);
+    container.invalidate(payloadOf);
+    expect((await container.read(payloadOf))['carryOverProgress'], isFalse);
+  });
+
   test('carry over, ordering and table order all persist', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
@@ -170,6 +295,8 @@ class RecordingStudyPlanRebalanceGateway implements StudyPlanRebalanceGateway {
 
 class RecordingNotificationService implements NotificationService {
   final scheduled = <NotificationTime>[];
+  int reschedules = 0;
+  Future<void> Function()? onReschedule;
 
   @override
   Future<void> cancelAll() async {}
@@ -186,7 +313,10 @@ class RecordingNotificationService implements NotificationService {
   }
 
   @override
-  Future<void> rescheduleForForeground() async {}
+  Future<void> rescheduleForForeground() async {
+    reschedules++;
+    await onReschedule?.call();
+  }
 
   @override
   Future<void> scheduleDailyReminder(NotificationTime time) async {

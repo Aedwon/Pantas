@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-vocabulary-spelling-rules-0001	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	LOW	Changed to a correction task to remove the answer-length cue.
+q-vocabulary-spelling-rules-0002	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-vocabulary-spelling-rules-0003	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-vocabulary-spelling-rules-0004	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-vocabulary-spelling-rules-0005	CORRECTED	SOLVED-MATCH	distractor;explanation;notes	LOW	Added an over-doubling mistake to remove the uniquely longest correct spelling.
+q-vocabulary-spelling-rules-0006	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-vocabulary-spelling-rules-0007	CORRECTED	SOLVED-MATCH	distractor;explanation;notes	LOW	Added an over-doubling mistake to remove the uniquely longest correct spelling.
+q-vocabulary-spelling-rules-0008	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	LOW	Removed answer wording that already explained the correction.
+q-vocabulary-spelling-rules-0009	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	LOW	Removed solution-length answer wording and specified both errors in definnate.
+q-vocabulary-spelling-rules-0010	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	The old mispsell note falsely claimed an added consonant; it actually transposes s and p.
+q-vocabulary-spelling-rules-0011	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	LOW	Removed the solution from the correct-choice text.
+q-vocabulary-spelling-rules-0012	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated the siya question in 0004; replaced with the lesson's accepted loanword variants.
+q-vocabulary-spelling-rules-0013	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-vocabulary-spelling-rules-0014	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	The writeing item repeated the hopeing silent-e scenario in 0002; replaced with e retention before -able.
+q-vocabulary-spelling-rules-0015	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-vocabulary-spelling-rules-0016	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-vocabulary-spelling-rules-0017	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-vocabulary-spelling-rules-0018	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Reused several earlier answer words; replaced with a distinct mixed-pattern check and solution-only explanation.
+q-vocabulary-spelling-rules-0019	NEW	NEW	explanation;notes	NONE	
+q-vocabulary-spelling-rules-0020	NEW	NEW	explanation;notes	NONE	

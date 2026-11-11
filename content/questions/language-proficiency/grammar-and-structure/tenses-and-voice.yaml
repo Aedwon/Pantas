@@ -1,383 +1,413 @@
 meta:
-  subject: language-proficiency
-  topic: grammar-and-structure
-  subtopic: tenses-and-voice
-  exams: [ upcat, acet, dlsucet, ustet, dost-sei , cse-pro, cse-sub]
+  subject: "language-proficiency"
+  topic: "grammar-and-structure"
+  subtopic: "tenses-and-voice"
+  exams:
+    - "upcat"
+    - "acet"
+    - "dlsucet"
+    - "ustet"
+    - "dost-sei"
+    - "cse-pro"
+    - "cse-sub"
 questions:
-  - id: q-grammar-and-structure-tenses-and-voice-0001
-    type: tense
-    difficulty: easy
+  - id: "q-grammar-and-structure-tenses-and-voice-0001"
+    type: "tense"
+    difficulty: "easy"
     stem: |
-      Identify the error in this sentence: "Yesterday, she walks to the store and bought some bread."
+      Both events happened yesterday. Which edit corrects "Yesterday, she walks to the store and bought some bread"?
     choices:
-      - text: Walks should be walked to match the past tense of bought
+      - text: "Change \"walks\" to \"walked.\""
         correct: true
-      - text: Bought should be buys to match walks
+      - text: "Change \"bought\" to \"buys\" while keeping \"yesterday.\""
         rationale: |
-          You changed "bought" to present tense, but "yesterday" clearly sets the sentence in the past.
-      - text: There is no error; the sentence is correct
+          This changes the second event to present time. It makes the two verb forms look alike. Check: follow the stated past timeline.
+      - text: "Keep both verbs because any shift in tense adds variety."
         rationale: |
-          You assumed the sentence was fine, but switching from past to present ("walks... bought") breaks tense consistency.
-      - text: Both verbs should be in future tense
+          This treats an unexplained shift as a style choice. Some genuine timeline changes allow tense shifts. Check: check whether both events are stated to occur yesterday.
+      - text: "Change both action verbs to future forms with \"will.\""
         rationale: |
-          You suggested future tense, but "yesterday" dictates that the actions took place in the past.
+          This moves the two events into the future. Matching forms can seem like a repair. Check: preserve the time given in the stem.
     explanation: |
-      The sentence describes actions that happened yesterday, so both verbs should be in the past tense. "Bought" is correct, but "walks" should be "walked."
+      "Yesterday" places both events in the past. "Walked" and "bought" express those two completed past actions.
     approved: true
-
-  - id: q-grammar-and-structure-tenses-and-voice-0002
-    type: tense
-    difficulty: easy
+  - id: "q-grammar-and-structure-tenses-and-voice-0002"
+    type: "tense"
+    difficulty: "easy"
     stem: |
       Is this sentence active or passive voice? "The dog chased the ball."
     choices:
-      - text: 'Active: the subject "dog" performs the action'
+      - text: "Active voice"
         correct: true
-      - text: 'Passive: the subject receives the action'
+      - text: "Passive voice with the ball as the agent"
         rationale: |
-          You called it passive, but the subject "dog" actively performs the action of chasing.
-      - text: Neither; this sentence has no voice
+          This reverses the actor and the object. The ball is named in the clause. Check: identify who does the chasing.
+      - text: "Passive voice because the ball receives the action"
         rationale: |
-          You claimed the sentence has no voice, but this transitive clause is in the active voice: the subject performs the action.
-      - text: Both active and passive simultaneously
+          This classifies voice from the object's role alone. The ball does receive the action. Check: identify the grammatical subject first.
+      - text: "No action clause because the subject names an animal"
         rationale: |
-          You claimed it is both active and passive, but this clause is structured in the active voice.
+          This denies voice because the actor is an animal. School examples often use human actors. Check: look for the action verb and its subject.
     explanation: |
-      The subject "dog" performs the action of chasing, making this active voice.
+      The subject "the dog" performs the chasing action. That subject-and-action relationship is active voice.
     approved: true
-
-  - id: q-grammar-and-structure-tenses-and-voice-0003
-    type: tense
-    difficulty: easy
+  - id: "q-grammar-and-structure-tenses-and-voice-0003"
+    type: "tense"
+    difficulty: "easy"
     stem: |
       Is this sentence active or passive voice? "The ball was chased by the dog."
     choices:
-      - text: 'Passive: the subject "ball" receives the action'
+      - text: "Passive voice"
         correct: true
-      - text: 'Active: the subject performs the action'
+      - text: "Active voice because the dog is the actor"
         rationale: |
-          You called it active, but the subject "ball" receives the action rather than performing it.
-      - text: Neither; this sentence has no voice
+          This classifies voice from the actor named after "by". The dog really does the chasing. Check: identify the grammatical subject of the clause.
+      - text: "Active voice because a past event is described"
         rationale: |
-          You claimed the sentence has no voice, but "was chased" clearly establishes a passive construction.
-      - text: Both active and passive simultaneously
+          This treats past time as active voice. "Was chased" describes a past event. Check: separate time from the subject's action role.
+      - text: "No action clause because the subject is an object"
         rationale: |
-          You claimed it is both active and passive, but this clause is structured in the passive voice.
+          This denies voice because the subject is not the actor. A ball cannot chase another thing. Check: check whether the subject receives an action.
     explanation: |
-      The subject "ball" receives the action, and "was chased" uses a form of "to be" plus the past participle: this is passive voice.
+      "The ball" is the subject receiving the chasing action. "Was chased" forms the passive with "was" plus the past participle.
     approved: true
-
-  - id: q-grammar-and-structure-tenses-and-voice-0004
-    type: tense
-    difficulty: medium
+  - id: "q-grammar-and-structure-tenses-and-voice-0004"
+    type: "tense"
+    difficulty: "medium"
     stem: |
-      Rewrite this passive sentence in active voice: "The novel was written by a famous author."
+      Preserve the completed past action while changing to active voice: "The novel was written by a famous author."
     choices:
-      - text: A famous author wrote the novel.
+      - text: "A famous author wrote the novel."
         correct: true
-      - text: The novel wrote a famous author.
+      - text: "The novel wrote a famous author."
         rationale: |
-          You reversed the logical roles, making the novel perform the action of writing an author.
-      - text: A famous author was writing the novel.
+          This makes the novel the actor and the author its object. The same nouns remain in the revision. Check: identify who performed the writing.
+      - text: "A famous author was writing the novel."
         rationale: |
-          You used past continuous ("was writing") instead of simple past ("wrote"), which alters the original simple past tense.
-      - text: The novel is written by a famous author.
+          This changes completed writing to writing in progress. The author is correctly made the subject. Check: preserve aspect as well as voice.
+      - text: "The novel is written by a famous author."
         rationale: |
-          You kept the sentence in passive voice and shifted the verb tense from past to present.
+          This keeps the affected object as subject and changes the time. The author remains named after "by". Check: make the actor the subject while keeping past time.
     explanation: |
-      To convert to active voice, make the doer ("a famous author") the subject and have it directly perform the verb: "A famous author wrote the novel."
+      Make "a famous author" the subject doing the writing. "Wrote" preserves the completed past event: "A famous author wrote the novel."
     approved: true
-
-  - id: q-grammar-and-structure-tenses-and-voice-0005
-    type: tense
-    difficulty: medium
+  - id: "q-grammar-and-structure-tenses-and-voice-0005"
+    type: "tense"
+    difficulty: "medium"
     stem: |
-      Choose the correct verb form: By the time the guests arrived, she ______ the entire meal.
+      Choose the past-perfect form to make earlier completion explicit: "By the time the guests arrived, she ___ the entire meal."
     choices:
-      - text: Had cooked
+      - text: "Had cooked"
         correct: true
-      - text: Cooked
+      - text: "Cooked"
         rationale: |
-          You picked simple past "cooked," but the sentence presents the meal as already completed at the past reference point set by "by the time the guests arrived." Past perfect makes that prior completion explicit.
-      - text: Cooks
+          This uses simple past instead of the requested past perfect. Time wording can sometimes make order clear with simple past. Check: follow the explicit form requested here.
+      - text: "Cooks"
         rationale: |
-          You picked simple present "cooks," but the sentence describes a past timeline ("the guests arrived").
-      - text: Will cook
+          This uses a present form in the past sequence. It names the same cooking action. Check: check the past reference point "arrived".
+      - text: "Will cook"
         rationale: |
-          You picked future tense "will cook," but the reference point is in the past.
+          This uses a future form for an earlier past event. The cooking is related to another event. Check: place it before the past arrival.
     explanation: |
-      "By the time the guests arrived" sets a past reference point and the meal is presented as completed before that point. "Had cooked" is the best form for that earlier completed action.
+      "Had cooked" is past perfect. It explicitly places completed cooking before the later past event, the guests' arrival.
     approved: true
-
-  - id: q-grammar-and-structure-tenses-and-voice-0006
-    type: tense
-    difficulty: medium
+  - id: "q-grammar-and-structure-tenses-and-voice-0006"
+    type: "tense"
+    difficulty: "medium"
     stem: |
-      Identify the error in this sentence: "Last week, the team practiced hard and wins the championship game."
+      Is the tense shift in "I studied yesterday, and I will practice tomorrow" justified?
     choices:
-      - text: Wins should be won to match the past tense of practiced
+      - text: "Yes, the two time clues set different timelines."
         correct: true
-      - text: Practiced should be practices to match wins
+      - text: "No, because every coordinated sentence must use one tense throughout."
         rationale: |
-          You shifted "practiced" to present tense, but "last week" requires the actions in this sentence to be narrated in the past.
-      - text: There is no error; the sentence is correct
+          This turns tense consistency into an absolute same-form rule. The two actions are joined by "and". Check: check whether their actual times differ.
+      - text: "No, because every action after a past verb must also be in the past."
         rationale: |
-          You assumed the sentence was correct, but mixing past ("practiced") with present ("wins") creates an unjustified tense shift.
-      - text: Both verbs should be in present tense
+          This lets the first action control every later timeline. The sentence begins with a past event. Check: read the later time clue "tomorrow".
+      - text: "Yes, because any tense change is acceptable without a time reason."
         rationale: |
-          You suggested present tense for both verbs, but "last week" indicates past actions.
+          This ignores the need for a logical timeline. This particular shift is acceptable. Check: identify the actual time clues that justify it.
     explanation: |
-      The sentence describes actions that happened last week, so both verbs should be in the past tense. "Practiced" is correct, but "wins" should be "won."
+      "Studied" describes yesterday's action. "Will practice" describes tomorrow's action. The change in time justifies the change in verb form.
     approved: true
-
-  - id: q-grammar-and-structure-tenses-and-voice-0007
-    type: tense
-    difficulty: medium
+  - id: "q-grammar-and-structure-tenses-and-voice-0007"
+    type: "tense"
+    difficulty: "medium"
     stem: |
-      Rewrite this active sentence in passive voice: "The committee approved the new budget."
+      Preserve the past event while rewriting in passive voice: "The committee approved the new budget."
     choices:
-      - text: The new budget was approved by the committee.
+      - text: "The new budget was approved by the committee."
         correct: true
-      - text: The committee was approved by the new budget.
+      - text: "The committee was approved by the new budget during the meeting."
         rationale: |
-          You reversed the agent and object, claiming the budget approved the committee.
-      - text: The new budget approves the committee.
+          This reverses the agent and affected object. The sentence uses a passive-looking be-plus-participle form. Check: identify what was approved.
+      - text: "The new budget is approved by the committee during its meetings."
         rationale: |
-          You changed to active voice with reversed roles and shifted past tense to present tense.
-      - text: The committee approves the new budget was.
+          This changes the past event to a present-time statement. The receiver is correctly made the subject. Check: preserve the original time.
+      - text: "The new budget will be approved by the committee at its next meeting."
         rationale: |
-          You created an ungrammatical sentence structure with misplaced auxiliary verbs.
+          This changes a completed past event to a future one. The passive form is grammatically complete. Check: keep the time of the original approval.
     explanation: |
-      To convert to passive voice, make the receiver ("the new budget") the subject and use "was" plus the past participle "approved," with the doer introduced by "by."
+      Make "the new budget" the subject receiving the approval. "Was approved" keeps the past time, and "by the committee" names the actor.
     approved: true
-
-  - id: q-grammar-and-structure-tenses-and-voice-0008
-    type: tense
-    difficulty: medium
+  - id: "q-grammar-and-structure-tenses-and-voice-0008"
+    type: "tense"
+    difficulty: "medium"
     stem: |
       Alin sa mga sumusunod ang perpektibo (tapos na) na aspekto ng pandiwang ugat na "kain"?
     choices:
-      - text: Kumain
+      - text: "Kumain"
         correct: true
-      - text: Kumakain
+      - text: "Kumakain"
         rationale: |
-          Pinili mo ang "kumakain," ngunit ito ay imperpektibo (kasalukuyang ginagawa) at hindi perpektibo.
-      - text: Kakain
+          This selects the ongoing aspect. It shares the root "kain". Check: check whether the form presents completed or ongoing eating.
+      - text: "Kakain"
         rationale: |
-          Pinili mo ang "kakain," ngunit ito ay kontemplatibo (gagawin pa lamang) at hindi perpektibo.
-      - text: Kainin
+          This selects the contemplated aspect. It still names an eating action. Check: match the requested completed aspect.
+      - text: "Kainin"
         rationale: |
-          Pinili mo ang "kainin," ngunit hindi ito ang aspektong perpektibo na hinihingi ng tanong.
+          This selects a different directive form. It contains the familiar eating root. Check: use the lesson's completed example, with event context.
     explanation: |
-      Ang "kumain" ay perpektibo, dahil tapos na ang kilos ng pagkain.
+      In the lesson's example pattern, "kumain" presents the eating as completed. It is the perpektibo form requested.
     approved: true
-
-  - id: q-grammar-and-structure-tenses-and-voice-0009
-    type: tense
-    difficulty: medium
+  - id: "q-grammar-and-structure-tenses-and-voice-0009"
+    type: "tense"
+    difficulty: "medium"
     stem: |
       Alin sa mga sumusunod ang imperpektibo (nagaganap) na aspekto ng pandiwang ugat na "kain"?
     choices:
-      - text: Kumakain
+      - text: "Kumakain"
         correct: true
-      - text: Kumain
+      - text: "Kumain"
         rationale: |
-          Pinili mo ang "kumain," ngunit ito ay perpektibo (nagawa na) at hindi imperpektibo.
-      - text: Kakain
+          This selects the completed aspect. The same root names the eating action. Check: match the ongoing meaning requested.
+      - text: "Kakain"
         rationale: |
-          Pinili mo ang "kakain," ngunit ito ay kontemplatibo (gagawin pa) at hindi imperpektibo.
-      - text: Kainin
+          This selects a contemplated action. The action might happen after the present. Check: keep the requested in-progress meaning.
+      - text: "Kainin"
         rationale: |
-          Pinili mo ang "kainin," ngunit hindi ito ang aspektong imperpektibo na hinihingi ng tanong.
+          This selects a different directive form. It contains the familiar eating root. Check: identify the ongoing example in the lesson.
     explanation: |
-      Ang "kumakain" ay imperpektibo, dahil nagaganap pa ang kilos ng pagkain.
+      "Kumakain" presents eating as ongoing in the lesson's example pattern. It is the imperpektibo form.
     approved: true
-
-  - id: q-grammar-and-structure-tenses-and-voice-0010
-    type: tense
-    difficulty: medium
+  - id: "q-grammar-and-structure-tenses-and-voice-0010"
+    type: "tense"
+    difficulty: "medium"
     stem: |
       Alin sa mga sumusunod ang kontemplatibo (magaganap pa) na aspekto ng pandiwang ugat na "kain"?
     choices:
-      - text: Kakain
+      - text: "Kakain"
         correct: true
-      - text: Kumain
+      - text: "Kumain"
         rationale: |
-          Pinili mo ang "kumain," ngunit ito ay perpektibo (natapos na) at hindi kontemplatibo.
-      - text: Kumakain
+          This selects the completed aspect. The form names the same action. Check: check whether the action is already done.
+      - text: "Kumakain"
         rationale: |
-          Pinili mo ang "kumakain," ngunit ito ay imperpektibo (ginagawa pa) at hindi kontemplatibo.
-      - text: Kainin
+          This selects the ongoing aspect. It refers to eating near the present. Check: choose the form for an action still contemplated.
+      - text: "Kainin"
         rationale: |
-          Pinili mo ang "kainin," ngunit hindi ito ang aspektong kontemplatibo na hinihingi ng tanong.
+          This selects a different directive form. It concerns an action that someone may perform. Check: use the lesson's contemplated example.
     explanation: |
-      Ang "kakain" ay kontemplatibo, dahil hindi pa nagsisimula ang kilos ng pagkain.
+      "Kakain" presents eating as still contemplated in the lesson's example pattern. It is the kontemplatibo form.
     approved: true
-
-  - id: q-grammar-and-structure-tenses-and-voice-0011
-    type: tense
-    difficulty: medium
+  - id: "q-grammar-and-structure-tenses-and-voice-0011"
+    type: "tense"
+    difficulty: "medium"
     stem: |
       Sa pangungusap na "Kinain ng bata ang mangga," ano ang pokus (focus) ng pandiwa?
     choices:
-      - text: Pokus sa bagay (ang mangga)
+      - text: "Pokus sa bagay (ang mangga)"
         correct: true
-      - text: Pokus sa tagaganap (ang bata)
+      - text: "Pokus sa tagaganap (ang bata)"
         rationale: |
-          Pinili mo ang tagaganap, ngunit ang "ang" ay nakaturo sa "mangga" (bagay) at hindi sa bata.
-      - text: Walang pokus
+          This treats the doer as the focus. The child performs the action, so that role can seem like the focus. Check which noun phrase starts with "ang."
+      - text: "Walang pokus"
         rationale: |
-          Inakala mong walang pokus, ngunit sa pangungusap na ito ay malinaw na minarkahan ng "ang" ang bagay na pokus ng pandiwa.
-      - text: Pokus sa oras
+          This overlooks the verb's focus pattern. The sentence names both a doer and an object, which may hide their different roles. Check the verb form together with the "ang" phrase.
+      - text: "Pokus sa oras"
         rationale: |
-          Pinili mo ang oras, ngunit walang pariralang panahong siyang pokus sa istraktura ng pangungusap na ito.
+          This treats a completed action as a focus on time. The verb shows that eating happened, so time may seem relevant. Check whether an actual time phrase is marked as the focus.
     explanation: |
-      Sa pangungusap na ito, "ang mangga" (ang bagay na kinain) ang minarkahan ng "ang," kaya ang pandiwa ay naka-pokus sa bagay, hindi sa tagaganap.
+      "Kinain" puts the object that was eaten in focus. "Ang mangga" names that object, so the verb has object focus.
     approved: true
-
-  - id: q-grammar-and-structure-tenses-and-voice-0012
-    type: tense
-    difficulty: hard
+  - id: "q-grammar-and-structure-tenses-and-voice-0012"
+    type: "tense"
+    difficulty: "hard"
     stem: |
-      A student writes "She walked to the store and buys bread," switching from past to present tense mid-sentence. Is this correct?
+      The speakers arrived last month and still live here. Which sentence gives that timeline clearly?
     choices:
-      - text: 'No: the sentence presents both actions in the same past timeline, so it should read "walked... and bought."'
+      - text: "We arrived last month and have lived here ever since."
         correct: true
-      - text: 'Yes: switching tense mid-sentence is always acceptable for variety.'
+      - text: "We arrive last month and have lived here ever since."
         rationale: |
-          You assumed switching tense adds variety, but an unexplained shift changes the timeline.
-      - text: 'Yes: but only because "store" and "bread" are different nouns.'
+          This uses a present form with a completed last-month arrival. The current residence relates to the present. Check: match each event to its own time clue.
+      - text: "We arrived last month and will live here only after next year."
         rationale: |
-          You linked verb tense consistency to noun differences, which is irrelevant.
-      - text: 'No: but only because "walked" should actually be changed to present tense instead.'
+          This moves the residence into the future. The arrival clause keeps the correct past form. Check: preserve the stated current residence.
+      - text: "We had lived here until last month, and then we left."
         rationale: |
-          You changed the first action instead of following the past timeline already established by "walked."
+          This describes a residence that ended. It uses grammatical past forms. Check: check whether the speakers still live here.
     explanation: |
-      The sentence presents both actions as part of one past sequence. "Walked ... and bought" keeps that timeline consistent; a tense shift would need a real change in time or viewpoint.
+      "Arrived" places the move in the completed past. "Have lived here ever since" connects the continuing residence to the present. The different forms express different time relationships.
     approved: true
-
-  - id: q-grammar-and-structure-tenses-and-voice-0013
-    type: tense
-    difficulty: hard
+  - id: "q-grammar-and-structure-tenses-and-voice-0013"
+    type: "tense"
+    difficulty: "hard"
     stem: |
-      A student sees "She is happy" and assumes it must be passive voice, since it uses the word "is." Is this correct?
+      Why does "She is happy" not form a passive action clause?
     choices:
-      - text: 'No: "happy" is an adjective, not a past participle describing an action done to the subject; passive voice requires an appropriate passive verb construction, typically a form of "be" plus a past participle.'
+      - text: "\"Is\" links the subject to an adjective."
         correct: true
-      - text: 'Yes: any sentence with "is," "was," or "were" is automatically passive voice.'
+      - text: "Every personal pronoun is barred from serving as a passive subject."
         rationale: |
-          You assumed a form of "be" alone creates passive voice, but "be" also functions as a linking verb.
-      - text: 'Yes: but only because "happy" sounds like a participle.'
+          This rejects passive subjects such as "she". The sentence starts with a pronoun. Check: check the verb construction rather than the type of subject.
+      - text: "Every use of \"is\" describes an action performed by the subject."
         rationale: |
-          You mistook the descriptive adjective "happy" for a verb participle.
-      - text: 'No: but only because "she" cannot be a subject in passive voice.'
+          This treats all be-verbs as action verbs. Many verbs do express actions. Check: ask whether the following word names an action or a quality.
+      - text: "\"Happy\" must be a past participle whenever it follows a form of \"be.\""
         rationale: |
-          You claimed "she" cannot be a passive subject, but pronouns can be subjects in passive constructions.
+          This treats any word after "be" as a participle. Passive verbs often use be-plus-participle. Check: check the grammatical role of the following word.
     explanation: |
-      "She is happy" uses "is" as a linking verb followed by the adjective "happy." A form of "be" does not by itself make a clause passive.
+      "Happy" is an adjective describing the subject. "Is" links that description to "she," so this is a linking construction.
     approved: true
-
-  - id: q-grammar-and-structure-tenses-and-voice-0014
-    type: tense
-    difficulty: hard
+  - id: "q-grammar-and-structure-tenses-and-voice-0014"
+    type: "tense"
+    difficulty: "hard"
     stem: |
-      A student writes "She finished the report before her boss asked for it," using simple past for both actions. Is the sentence grammatically acceptable?
+      Why is "She finished the report before her boss asked for it" grammatical in standard English?
     choices:
-      - text: 'Yes: "before" already makes the order of the two past events clear. "She had finished the report before her boss asked for it" is also possible when the writer wants to emphasize the earlier completion.'
+      - text: "\"Before\" clearly orders the two past events."
         correct: true
-      - text: 'No: whenever one past action happens before another, the earlier action must use past perfect.'
+      - text: "Any action that happened first must always use past perfect instead."
         rationale: |
-          You turned a useful tense choice into an absolute rule. Past perfect can mark the earlier event, but an explicit time connector such as "before" can already make the sequence clear.
-      - text: 'Yes: but only because "report" is a singular noun.'
+          This makes earlier events require one form in every context. Past perfect can emphasize earlier completion. Check: check whether a time connector already gives the order.
+      - text: "The later event must always use past perfect instead of simple past."
         rationale: |
-          You linked tense choice to noun number, which does not determine whether simple past or past perfect is appropriate.
-      - text: 'No: the later action "asked" must use past perfect instead.'
+          This assigns the earlier-event form to the later event. Past perfect relates one past event to another. Check: identify which event occurred first.
+      - text: "The number of the noun \"report\" determines which past form is allowed."
         rationale: |
-          You put past perfect on the later event. If past perfect is used here, it would mark the earlier completion: "had finished."
+          This confuses noun agreement with the time relationship. Subjects can affect verb agreement. Check: use event order to judge this tense choice.
     explanation: |
-      The simple-past sentence is grammatical because "before" explicitly orders the events. Past perfect remains available to emphasize that the report was already complete before the later request, but it is not mandatory merely because one past event happened first.
+      "Before" tells that finishing happened earlier than the request. Simple past can describe both events because their order is already clear.
     approved: true
-
-  - id: q-grammar-and-structure-tenses-and-voice-0015
-    type: tense
-    difficulty: medium
+  - id: "q-grammar-and-structure-tenses-and-voice-0015"
+    type: "tense"
+    difficulty: "medium"
     stem: |
-      Identify the tense: "She will write a letter tomorrow."
+      Using the common school label, identify the form expressing future meaning in "She will write a letter tomorrow."
     choices:
-      - text: Simple future
+      - text: "Simple future"
         correct: true
-      - text: Simple past
+      - text: "Simple past"
         rationale: |
-          You picked simple past, but "will write" refers to an action that has not happened yet.
-      - text: Present perfect
+          This reads a future action as a completed past one. The sentence mentions writing as an event. Check: use the clues "will" and "tomorrow".
+      - text: "Present perfect"
         rationale: |
-          You picked present perfect, but "will write" uses the modal "will" indicating future time.
-      - text: Past perfect
+          This mistakes a future modal for a perfect helping verb. Both constructions contain a helping word. Check: look for the actual word before "write".
+      - text: "Past perfect"
         rationale: |
-          You picked past perfect, but "will write" points to the future, not a completed past event.
+          This places the action before a past reference point. Perfect forms also relate two times. Check: check that the stated reference is tomorrow.
     explanation: |
-      "Will write" describes an action that has not happened yet: this is simple future tense.
+      "Will write" expresses an action expected tomorrow. The common school label for this construction is simple future.
     approved: true
-
-  - id: q-grammar-and-structure-tenses-and-voice-0016
-    type: tense
-    difficulty: medium
+  - id: "q-grammar-and-structure-tenses-and-voice-0016"
+    type: "tense"
+    difficulty: "medium"
     stem: |
       Identify the tense: "She has written three letters this week."
     choices:
-      - text: Present perfect
+      - text: "Present perfect"
         correct: true
-      - text: Simple past
+      - text: "Simple past"
         rationale: |
-          You picked simple past, but "has written" uses the present-perfect auxiliary "has" plus the past participle.
-      - text: Simple future
+          This ignores the present helping verb "has". Writing is completed before the current moment. Check: identify the full verb group, not only the participle.
+      - text: "Simple future"
         rationale: |
-          You picked simple future, but "has written" describes completed writing within a time period connected to the present.
-      - text: Past perfect
+          This reads a present-related completed action as a future one. The week is still unfinished. Check: check the helping verb and completed form.
+      - text: "Past perfect"
         rationale: |
-          You picked past perfect, but "has written" uses the present auxiliary "has" rather than "had."
+          This mistakes "has" for "had". Both perfect forms use "written". Check: check the helping verb's time.
     explanation: |
       "Has written" is present perfect: "has" plus the past participle "written." The unfinished time expression "this week" also fits a present-perfect reading.
     approved: true
-
-  - id: q-grammar-and-structure-tenses-and-voice-0017
-    type: tense
-    difficulty: medium
+  - id: "q-grammar-and-structure-tenses-and-voice-0017"
+    type: "tense"
+    difficulty: "medium"
     stem: |
       Identify the tense: "She is writing a letter right now."
     choices:
-      - text: Present progressive
+      - text: "Present progressive"
         correct: true
-      - text: Simple present
+      - text: "Simple present"
         rationale: |
-          You picked simple present, but "is writing" describes an action currently in progress.
-      - text: Simple future
+          This reduces an ongoing verb group to a simple habit. The sentence refers to the present. Check: include "is" and the -ing form.
+      - text: "Simple future"
         rationale: |
-          You picked simple future, but "is writing" refers to what is happening right now.
-      - text: Present perfect
+          This reads the ongoing action as a future plan. Progressive forms can express future arrangements in other contexts. Check: follow the clue "right now".
+      - text: "Present perfect"
         rationale: |
-          You picked present perfect, but "is writing" shows ongoing action, not completed action.
+          This treats current progress as completed action. Both forms connect to the present. Check: check whether the verb group uses be-plus-ing or have-plus-participle.
     explanation: |
       "Is writing" describes an action happening right now: this is present progressive tense.
     approved: true
-
-  - id: q-grammar-and-structure-tenses-and-voice-0018
-    type: tense
-    difficulty: exam
+  - id: "q-grammar-and-structure-tenses-and-voice-0018"
+    type: "tense"
+    difficulty: "exam"
     stem: |
       In the sentence "By the time the manager reviewed it, the report had already been submitted by the intern," identify (1) the tense of "had already been submitted" and (2) whether this clause is active or passive voice.
     choices:
-      - text: '(1) Past perfect, (2) Passive voice: "had" marks past perfect, while the report receives the action in "been submitted"'
+      - text: "Past perfect; passive voice"
         correct: true
-      - text: (1) Simple past, (2) Active voice
+      - text: "(1) Simple past, (2) Active voice"
         rationale: |
-          You misidentified both tense and voice: "had been submitted" is a past-perfect passive construction.
-      - text: (1) Past perfect, (2) Active voice
+          This misses both the perfect helping verb and the receiving subject. The sentence concerns a past action with an actor named. Check: inspect the whole verb group and its subject.
+      - text: "(1) Past perfect, (2) Active voice"
         rationale: |
-          You identified the past perfect tense correctly but missed that the report receives the action.
-      - text: (1) Present perfect, (2) Passive voice
+          This identifies time but treats the report as the actor. The intern who submitted it is named. Check: check whether the grammatical subject does or receives the action.
+      - text: "(1) Present perfect, (2) Passive voice"
         rationale: |
-          You identified the passive voice but misread "had" as present perfect instead of past perfect.
+          This mistakes "had" for the present helping verb "has". Both constructions can contain "been submitted". Check: read the first helping verb carefully.
     explanation: |
-      "Had already been submitted" is past perfect because it uses "had" plus the participial verb phrase, and it is passive because the subject "report" receives the action of submission.
+      "Had been submitted" places the completed submission before the past review, so it is past perfect. The subject "report" receives the submission action, so the clause is passive.
     approved: true
+  - id: "q-grammar-and-structure-tenses-and-voice-0019"
+    type: "tense"
+    difficulty: "easy"
+    stem: |
+      In "The window got broken during the storm," how is the action clause formed?
+    choices:
+      - text: "A get-passive"
+        correct: true
+      - text: "An active clause with the window as the actor causing the break"
+        rationale: |
+          This treats the affected window as the actor. The window is the grammatical subject. Check: ask whether it causes or receives the breaking.
+      - text: "A linking construction with \"got\" meaning ownership of an object"
+        rationale: |
+          This uses a different meaning of "got". The word can express obtaining something. Check: read "got broken" as a whole verb group.
+      - text: "A future construction predicting a break during the next storm"
+        rationale: |
+          This reads a past form as a prediction. Storm damage can also be discussed as a risk. Check: check the actual form "got".
+    explanation: |
+      The window receives the breaking action. "Got" plus "broken" forms a get-passive in this sentence.
+    approved: false
+  - id: "q-grammar-and-structure-tenses-and-voice-0020"
+    type: "tense"
+    difficulty: "exam"
+    stem: |
+      A writer says "I am writing a novel this month," though she is currently having lunch. What can the progressive form convey?
+    choices:
+      - text: "A project ongoing around the present"
+        correct: true
+      - text: "Writing that must be happening at the exact second she speaks"
+        rationale: |
+          This limits every progressive form to the current second. The form often describes an action happening now. Check: include the wider time clue "this month".
+      - text: "A novel fully finished before the month began and no longer in progress"
+        rationale: |
+          This turns an ongoing project into a completed past one. The writing started before the current conversation. Check: check whether the form presents the project as ongoing.
+      - text: "A fixed rule that the writer writes every day without any interruptions"
+        rationale: |
+          This turns current progress into an unbroken daily habit. A month-long project may involve repeated work. Check: do not add a schedule the sentence never states.
+    explanation: |
+      Present progressive can describe a project in progress around the present. "This month" sets that wider period, so the writer need not be writing at the exact moment of speaking.
+    approved: false

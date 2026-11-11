@@ -1,0 +1,7 @@
+Computing fixes in quiz_pick_check_test.dart...
+Applying fixes...
+
+quiz_pick_check_test.dart
+  require_trailing_commas - 21 fixes
+
+21 fixes made in 1 file.

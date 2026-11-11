@@ -1,0 +1,17 @@
+{
+  "base": "ae4947ac7fc7f2340da483d46856d9f65222a72d",
+  "disabled_label_ruling": "025dd259ce118c6c947bc27a0c29ccc8f3214908",
+  "source_sha256": {
+    "lib/core/ui/components/new_design/question_grid_sheet.dart": "0e8f83489031f7d92a652fa872a489e2a53f3a41ab676e143bcf4c879403055e",
+    "lib/core/ui/components/pantas_button.dart": "f6343ab54cfc11bd10a8df21fff4ad32affacc451217c303c9c6b063a069e329",
+    "lib/core/ui/theme/pantas_colors.dart": "fc02948e245a4290c7a253bc92c92a582f3932bf23d3f951f3958ca36d072678",
+    "lib/features/quiz/presentation/question_flag_providers.dart": "976f4a3b83a18da4ccfdf6c582a39f69e3d205e4f9178cb79eab911f0ac686b3",
+    "lib/features/quiz/presentation/quiz_page.dart": "42bf782c2ca56e064a96578482e5c6e273903fa30a128bf5cf18e5f7fe6570c1",
+    "test/core/ui/components/disabled_action_label_test.dart": "ac51a21d3f668dc547e1c17dd84c548e8eea9223b27dae16953d086f567218f2",
+    "test/features/quiz/presentation/question_flag_providers_test.dart": "d0d4a791dd4b1e09acaee036effdc0bdd82a5d796887f31196e5b2c0e3f65a94",
+    "test/features/quiz/presentation/quiz_leave_resume_panel_test.dart": "ca0614099d5091a32929e04ba053a8fa279303bb48ad9e066193bd31b215ecfa",
+    "test/features/quiz/presentation/quiz_page_chrome_test.dart": "b25c4b34507ff335c618e999733c83fffc3c54631edcecfb0f109aa3588d4bed",
+    "test/features/quiz/presentation/quiz_page_test.dart": "6557e3d1f01acd94a25c70ee27812f18be64da4471bfed9231397e9a0984fd58",
+    "test/features/quiz/presentation/quiz_question_screen_test.dart": "853db55415c142a6cd671abdcec3730fed62b21a198b6c42f8d4ab9e31ba0196"
+  }
+}

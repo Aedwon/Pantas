@@ -2,9 +2,33 @@
   "name": "cse-cet-reviewer-functions",
   "private": true,
   "engines": {
-    "node": "20"
+    "node": "22"
   },
   "scripts": {
-    "test": "node --test test/*.test.mjs"
+    "build": "tsc && cp ../content/exams/catalog.json lib/examCatalog.json && cp src/products.json lib/products.json && mkdir -p lib/generated && cp src/generated/pantas_core.js lib/generated/pantas_core.js",
+    "test": "npm run build && node --test test/*.test.mjs && firebase emulators:exec --only auth,firestore,storage --project demo-pantas-test \"node --test --test-concurrency=1 test/*.rules.mjs test/*.emulator.mjs\""
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "14.5.0",
+    "firebase-functions": "7.4.0"
+  },
+  "devDependencies": {
+    "typescript": "7.0.2",
+    "firebase-tools": "15.32.1",
+    "@firebase/rules-unit-testing": "5.0.2",
+    "firebase": "12.19.0",
+    "yaml": "2.9.1"
+  },
+  "overrides": {
+    "@firebase/firestore": {
+      "@grpc/grpc-js": "^1.14.5"
+    },
+    "@google-cloud/pubsub": {
+      "@opentelemetry/core": "^2.8.0"
+    },
+    "basic-ftp": "^6.2.1",
+    "glob": "^14.0.2",
+    "uuid@<11.1.1": "^11.1.1"
   }
 }

@@ -1,0 +1,59 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart
+00:00 +0: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_viewer_route_registration_test.dart: completed and never-answered flag viewers have real distinct routes
+00:00 +1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed all uses actual saved answers and origin
+end-test seeded all
+end-test providers ready all
+end-test before settle all
+end-test unmounted all
+end-test closing DB all
+end-test student DB closed all
+00:01 +2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed mistakes uses actual saved answers and origin
+end-test seeded mistakes
+end-test providers ready mistakes
+end-test before settle mistakes
+end-test unmounted mistakes
+end-test closing DB mistakes
+end-test student DB closed mistakes
+00:01 +3: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed historical uses actual saved answers and origin
+end-test seeded historical
+end-test providers ready historical
+end-test before settle historical
+end-test unmounted historical
+end-test closing DB historical
+end-test student DB closed historical
+00:01 +4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed fresh uses actual saved answers and origin
+end-test seeded fresh
+end-test providers ready fresh
+end-test before settle fresh
+end-test unmounted fresh
+end-test closing DB fresh
+end-test student DB closed fresh
+00:01 +5: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed customDone uses actual saved answers and origin
+end-test seeded customDone
+end-test providers ready customDone
+end-test before settle customDone
+end-test unmounted customDone
+end-test closing DB customDone
+end-test student DB closed customDone
+00:01 +6: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed flaggedDone uses actual saved answers and origin
+end-test seeded flaggedDone
+end-test providers ready flaggedDone
+end-test before settle flaggedDone
+end-test unmounted flaggedDone
+end-test closing DB flaggedDone
+end-test student DB closed flaggedDone
+00:01 +7: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed lessonDone uses actual saved answers and origin
+end-test seeded lessonDone
+end-test providers ready lessonDone
+end-test before settle lessonDone
+end-test unmounted lessonDone
+end-test closing DB lessonDone
+end-test student DB closed lessonDone
+00:01 +8: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_session_end_page_test.dart: completed retakeDone uses actual saved answers and origin
+end-test seeded retakeDone
+end-test providers ready retakeDone
+end-test before settle retakeDone
+end-test unmounted retakeDone
+end-test closing DB retakeDone
+end-test student DB closed retakeDone
+00:02 +9: All tests passed!

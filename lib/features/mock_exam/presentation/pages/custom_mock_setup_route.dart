@@ -1,14 +1,24 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/content/exam_subject_groups.dart';
+import 'package:pantas/core/metrics/overall_accuracy.dart';
+import 'package:pantas/core/platform/first_screen_ready.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/data/repos/content_repository.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/domain/subject.dart';
 import 'package:pantas/core/storage/domain/topic.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
-import 'package:pantas/core/ui/components/faint_bars.dart';
+import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/features/mock_exam/data/custom_blueprint_repository.dart';
+import 'package:pantas/features/mock_exam/domain/custom_blueprint.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/custom_mock_setup_page.dart';
+import 'package:pantas/features/mock_exam/presentation/widgets/mock_skeletons.dart';
 
 final customBlueprintRepositoryProvider = Provider<CustomBlueprintRepository>(
   (ref) => CustomBlueprintRepository(ref.watch(appDatabaseProvider)),
@@ -22,41 +32,130 @@ final customMockSetupDataProvider =
   if (exam == null) return null;
 
   final topics = await ref.watch(scopedTopicsProvider(exam.id).future);
-  final subjects = await ref.watch(scopedSubjectsProvider(exam.id).future);
+  final scopedSubjects =
+      await ref.watch(scopedSubjectsProvider(exam.id).future);
   final content = ref.watch(contentRepositoryProvider);
 
-  final topicsBySubject = <SubjectId, List<Topic>>{};
-  for (final topic in topics) {
-    (topicsBySubject[topic.subjectId] ??= []).add(topic);
-  }
+  final isCse = csePartsForExam(exam.id).isNotEmpty;
+  final eligible = isCse
+      ? await content.lessonMetaByTopics(
+          [for (final topic in topics) topic.id],
+          examId: exam.id,
+        )
+      : null;
+  final groups = examSubjectGroups(
+    examId: exam.id,
+    subjects: scopedSubjects,
+    topics: [
+      for (final topic in topics)
+        if (eligible == null || eligible[topic.id]!.isNotEmpty) topic,
+    ],
+  );
+  final subjects = isCse
+      ? [
+          for (final (index, group) in groups.indexed)
+            Subject(
+              id: group.id,
+              examId: exam.id,
+              name: group.name,
+              ordering: index,
+            ),
+        ]
+      : scopedSubjects;
+  final topicsBySubject = <SubjectId, List<Topic>>{
+    for (final group in groups) group.id: group.topics,
+  };
 
   // Counted from the scoped topics, so it follows the track rather than
   // the whole corpus.
-  var available = 0;
-  for (final topic in topics) {
-    available += (await content.questionsByTopic(topic.id)).length;
-  }
+  final available = await countAvailableQuestions(
+    content,
+    [
+      for (final group in groups)
+        for (final topic in group.topics) topic.id,
+    ],
+    examId: exam.id,
+  );
 
+  final row = await ref.watch(customBlueprintRepositoryProvider).read(exam.id);
   return CustomMockSetupData(
     examId: exam.id,
     subjects: subjects,
     topicsBySubject: topicsBySubject,
     availableQuestions: available,
+    saved: row == null ? null : savedCustomBlueprint(row, subjects),
   );
 });
+
+/// How many questions the topics hold for [examId]. It reads the index rows
+/// only, so on web it does not fetch every question set from the server just
+/// to show a number.
+Future<int> countAvailableQuestions(
+  ContentRepository content,
+  List<TopicId> topicIds, {
+  required ExamId examId,
+}) async {
+  final grouped = await content.selectionRowsByTopics(
+    topicIds,
+    examId: examId,
+  );
+  return grouped.values.fold<int>(0, (sum, rows) => sum + rows.length);
+}
+
+/// Reads a saved setup back into what the form shows. The stored sections
+/// carry the subject's name, so a breakdown maps back to its subjects.
+CustomBlueprint savedCustomBlueprint(
+  CustomBlueprintRow row,
+  List<Subject> subjects,
+) {
+  final sections = <CustomBlueprintSectionDraft>[];
+  final decoded = jsonDecode(row.sectionsJson) as List<dynamic>;
+  final oneBlock = decoded.length == 1 &&
+      (decoded.first as Map<String, dynamic>)['id'] == 'section_all';
+  if (!oneBlock) {
+    for (final value in decoded) {
+      final map = value as Map<String, dynamic>;
+      final name = map['name'] as String;
+      final subject = subjects.where((s) => s.name == name).firstOrNull;
+      sections.add(
+        CustomBlueprintSectionDraft(
+          subjectId: subject?.id,
+          name: name,
+          questions: map['questionCount'] as int,
+          minutes: map['suggestedMinutes'] as int,
+        ),
+      );
+    }
+  }
+  return CustomBlueprint(
+    examId: row.examId,
+    totalQuestions: row.totalQuestions,
+    totalMinutes: row.totalMinutes,
+    sections: sections,
+    sectionsTimedSeparately: row.sectionsTimedSeparately,
+  );
+}
 
 class CustomMockSetupRoute extends ConsumerWidget {
   const CustomMockSetupRoute({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final data = ref.watch(customMockSetupDataProvider).valueOrNull;
+    final state = ref.watch(customMockSetupDataProvider);
+    firstScreenReady(context, ref, ready: !state.isLoading);
+    final data = state.valueOrNull;
     if (data == null) {
-      return const Scaffold(body: Center(child: FaintBars()));
+      return const MockSetupSkeleton();
     }
 
     return CustomMockSetupPage(
       data: data,
+      onBack: () => leavePage(
+        context,
+        fallback: '/quiz',
+        respectPopScope: false,
+      ),
+      onTickMoreSubjects: () => context.push('/settings/exam/included'),
       onSave: (blueprint) async {
         await ref.read(customBlueprintRepositoryProvider).save(
               blueprint,
@@ -66,7 +165,9 @@ class CustomMockSetupRoute extends ConsumerWidget {
               },
               now: DateTime.now(),
             );
-        if (context.mounted) context.pop();
+        if (context.mounted) {
+          leavePage(context, fallback: '/quiz', respectPopScope: false);
+        }
       },
     );
   }

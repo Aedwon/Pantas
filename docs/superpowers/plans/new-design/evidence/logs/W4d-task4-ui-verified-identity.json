@@ -1,0 +1,13 @@
+{
+  "base": "ae4947ac7fc7f2340da483d46856d9f65222a72d",
+  "source_sha256": {
+    "lib/features/quiz/presentation/quiz_page.dart": "3e8a57faae211b39e9c886c289240fdc4e98f1b5fea021ed2093e7c3ec0ed9cd",
+    "lib/features/quiz/presentation/question_flag_providers.dart": "976f4a3b83a18da4ccfdf6c582a39f69e3d205e4f9178cb79eab911f0ac686b3",
+    "lib/core/ui/components/new_design/question_grid_sheet.dart": "0e8f83489031f7d92a652fa872a489e2a53f3a41ab676e143bcf4c879403055e",
+    "test/features/quiz/presentation/quiz_question_screen_test.dart": "381a71721f83b4eb3b725724f5482871b8da9621105b0db1f2736d6e7a199468",
+    "test/features/quiz/presentation/quiz_page_test.dart": "6557e3d1f01acd94a25c70ee27812f18be64da4471bfed9231397e9a0984fd58",
+    "test/features/quiz/presentation/quiz_page_chrome_test.dart": "b25c4b34507ff335c618e999733c83fffc3c54631edcecfb0f109aa3588d4bed",
+    "test/features/quiz/presentation/quiz_leave_resume_panel_test.dart": "ca0614099d5091a32929e04ba053a8fa279303bb48ad9e066193bd31b215ecfa",
+    "test/features/quiz/presentation/question_flag_providers_test.dart": "d0d4a791dd4b1e09acaee036effdc0bdd82a5d796887f31196e5b2c0e3f65a94"
+  }
+}

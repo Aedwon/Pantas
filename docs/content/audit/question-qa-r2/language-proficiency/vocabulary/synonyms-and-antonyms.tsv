@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-vocabulary-synonyms-and-antonyms-0001	CORRECTED	SOLVED-MATCH	distractors;explanation;notes	MEDIUM	Replaced brightness and stiffness throwaways with neighboring time concepts.
+q-vocabulary-synonyms-and-antonyms-0002	CORRECTED	SOLVED-MATCH	distractor;explanation;notes	MEDIUM	Replaced isolate with a meaningful degree-of-reduction mistake.
+q-vocabulary-synonyms-and-antonyms-0003	CORRECTED	SOLVED-MATCH	stem;distractors;explanation;notes	MEDIUM	Fixed the underlining reference and replaced unrelated size and strength alternatives.
+q-vocabulary-synonyms-and-antonyms-0004	CORRECTED	SOLVED-MATCH	distractors;explanation;notes	MEDIUM	Replaced lazy and hardworking with misconceptions about wealth, thrift, and generosity.
+q-vocabulary-synonyms-and-antonyms-0005	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-vocabulary-synonyms-and-antonyms-0006	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Replaced unrelated loudness and speed options with work-quality alternatives.
+q-vocabulary-synonyms-and-antonyms-0007	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	The reverse benevolent/malevolent pair duplicated a root-words item; replaced it with a context-specific antonym.
+q-vocabulary-synonyms-and-antonyms-0008	CORRECTED	SOLVED-MATCH	stem;distractors;explanation;notes	MEDIUM	Replaced lazy and added context distinguishing social warmth from other interpersonal traits.
+q-vocabulary-synonyms-and-antonyms-0009	CORRECTED	SOLVED-MATCH	stem;distractors;explanation;notes	MEDIUM	Specified the courage sense and replaced kindness and intelligence throwaways.
+q-vocabulary-synonyms-and-antonyms-0010	CORRECTED	SOLVED-MATCH	stem;distractors;explanation;notes	MEDIUM	Replaced unrelated anger with a meaningful connotation mistake; clarified the sense.
+q-vocabulary-synonyms-and-antonyms-0011	CORRECTED	SOLVED-MATCH	distractors;explanation;notes	MEDIUM	Replaced intelligence and kindness with nearby emotional states and removed a length cue.
+q-vocabulary-synonyms-and-antonyms-0012	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Replaced running and sleeping throwaways with competing word senses and a near-miss restriction.
+q-vocabulary-synonyms-and-antonyms-0013	CORRECTED	SOLVED-MATCH	distractors;explanation;notes	MEDIUM	Replaced unrelated generosity and quietness with nearby behavioral concepts.
+q-vocabulary-synonyms-and-antonyms-0014	CORRECTED	SOLVED-MATCH	distractors;explanation;notes	MEDIUM	Replaced speed and weight throwaways with quantity-related misconceptions.
+q-vocabulary-synonyms-and-antonyms-0015	CORRECTED	SOLVED-MATCH	distractor;explanation;notes	MEDIUM	Replaced unrelated arrogance with the useful skill-versus-effort distinction.
+q-vocabulary-synonyms-and-antonyms-0016	CORRECTED	SOLVED-MATCH	distractors;explanation;notes	MEDIUM	Replaced intelligence and diligence with nearby trust, secrecy, and speech distinctions.
+q-vocabulary-synonyms-and-antonyms-0017	CORRECTED	SOLVED-MATCH	stem;explanation;notes	LOW	Specified the personality sense instead of social rank or condition.
+q-vocabulary-synonyms-and-antonyms-0018	CORRECTED	SOLVED-MATCH	distractor;explanation;notes	MEDIUM	Replaced the unrelated happy alternative with an attitude-based near miss.
+q-vocabulary-synonyms-and-antonyms-0019	NEW	NEW	explanation;notes	NONE	
+q-vocabulary-synonyms-and-antonyms-0020	NEW	NEW	explanation;notes	NONE	

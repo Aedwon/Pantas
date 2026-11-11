@@ -8,305 +8,403 @@ questions:
     type: direct-computation
     difficulty: easy
     stem: |
-      Find the 15th term of $5, 9, 13, 17, \dots$
+      What is the fifteenth term of the arithmetic sequence $5,9,13,17,\ldots$?
     choices:
-      - text: "$61$"
+      - text: '$61$'
         correct: true
-      - text: "$65$"
+      - text: '$65$'
         rationale: |
-          You evaluated 5 + 15(4) = 65, using n instead of n - 1 for the 15th term.
-      - text: "$57$"
+          This uses fifteen difference steps instead of fourteen. The term position is fifteen. Check that the first term needs no step.
+      - text: '$57$'
         rationale: |
-          You evaluated 5 + 13(4) = 57, using n - 2 instead of n - 1.
-      - text: "$75$"
+          This uses thirteen steps instead of fourteen. The number of steps is easy to miscount. Check that the first term needs no step.
+      - text: '$75$'
         rationale: |
-          You multiplied 5 by 15 directly instead of using the arithmetic sequence formula.
+          This multiplies the first term by the position. The same term number is used. Check whether change is additive or multiplicative.
     explanation: |
-      $a_n = a_1 + (n-1)d = 5 + 14(4) = 61$
+      The common difference is $4$. From the first to the fifteenth term there are $14$ steps. Thus $a_{15}=5+14(4)=61$.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0002
     type: which-is-true
     difficulty: easy
     stem: |
-      Which describes $3, 6, 12, 24, 48, \dots$?
+      Which description fits the sequence $3,6,12,24,48,\ldots$?
     choices:
-      - text: "Geometric, ratio 2"
+      - text: 'Geometric, ratio 2'
         correct: true
-      - text: "Arithmetic, difference 3"
+      - text: 'Arithmetic, difference 3'
         rationale: |
-          You assumed constant difference because 6 - 3 = 3, ignoring that 12 - 6 = 6.
-      - text: "Geometric, ratio 3"
+          This uses only the first difference to classify the sequence. The first increase is three. Check more than one consecutive difference.
+      - text: 'Geometric, ratio 3'
         rationale: |
-          You identified the initial term (3) as the common ratio instead of 6 / 3 = 2.
-      - text: "Harmonic, ratio 2"
+          This treats the first term as the common ratio. The number three starts the sequence. Check the quotient of consecutive terms.
+      - text: 'Harmonic, ratio 2'
         rationale: |
-          You mislabeled the geometric sequence as a harmonic sequence.
+          This labels a constant-ratio sequence as harmonic. Both types describe structured patterns. Check whether the reciprocals form an arithmetic sequence.
     explanation: |
-      $\frac{6}{3} = 2$, $\frac{12}{6} = 2$ consistently.
+      Divide each term by the preceding one: $6\div3=2$, $12\div6=2$, and $24\div12=2$. The constant ratio is $2$, so the sequence is geometric.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0003
     type: direct-computation
     difficulty: easy
     stem: |
-      Sum of first 10 terms of $4, 7, 10, 13, \dots$
+      What is the sum of the first ten terms of the arithmetic sequence $4,7,10,13,\ldots$?
     choices:
-      - text: "$175$"
+      - text: '$175$'
         correct: true
-      - text: "$190$"
+      - text: '$190$'
         rationale: |
-          You calculated 5 * (4 + 34) = 190, miscalculating the 10th term as 34 instead of 31.
-      - text: "$350$"
+          This finds the last term using ten difference steps. The term count is ten. Check that the first row needs no increment.
+      - text: '$350$'
         rationale: |
-          You forgot to divide by 2 when applying the arithmetic series sum formula.
-      - text: "$135$"
+          This omits division by two in the sum formula. The endpoint sum has already been found. Check the one-half factor in the arithmetic sum.
+      - text: '$130$'
         rationale: |
-          You calculated S10 using common difference 2 instead of 3.
+          This uses a common difference of two instead of three. The pattern increases by a small integer. Check the actual consecutive difference.
     explanation: |
-      $S_n = \frac{n}{2}[2a_1 + (n-1)d] = 5[8 + 27] = 175$
+      The tenth term is $4+9(3)=31$. The arithmetic sum is $S_{10}=\dfrac{10}{2}(4+31)=5(35)=175$.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0004
     type: direct-computation
     difficulty: easy
     stem: |
-      6th term of geometric sequence: $a_1 = 3$, $r = 2$
+      A geometric sequence has $a_1=3$ and common ratio $r=2$. What is its sixth term?
     choices:
-      - text: "$96$"
+      - text: '$96$'
         correct: true
-      - text: "$192$"
+      - text: '$192$'
         rationale: |
-          You evaluated 3 * 2^6 = 192, using exponent 6 instead of n - 1 = 5.
-      - text: "$13$"
+          This uses exponent six instead of five. The position is six. Check that the first term uses exponent zero.
+      - text: '$13$'
         rationale: |
-          You used the arithmetic formula a1 + (n - 1)r = 3 + 10 = 13 instead of geometric.
-      - text: "$48$"
+          This uses an arithmetic term formula for a geometric sequence. Both formulas use the first term and a change value. Check whether difference or ratio is constant.
+      - text: '$48$'
         rationale: |
-          You evaluated 3 * 2^4 = 48, using exponent 4 instead of 5.
+          This uses exponent four instead of five. Four is close to the needed step count. Check the number of ratio multiplications.
     explanation: |
-      $a_n = a_1 r^{n-1} = 3(2^5) = 3(32) = 96$
+      From the first to the sixth term there are five ratio multiplications. Thus $a_6=3(2^5)=3(32)=96$.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0005
     type: direct-computation
     difficulty: medium
     stem: |
-      Sum of $12 + 4 + \frac{4}{3} + \frac{4}{9} + \dots$
+      Find the sum of the infinite geometric series $12+4+\dfrac{4}{3}+\dfrac{4}{9}+\ldots$.
     choices:
-      - text: "$18$"
+      - text: '$18$'
         correct: true
-      - text: "$9$"
+      - text: '$9$'
         rationale: |
-          You calculated 12 * (1 - 1/3) = 8 or misdivided 12 by 4/3.
-      - text: "$36$"
+          This adds the ratio to one in the sum denominator. The same ratio appears in the denominator. Check the subtraction in the infinite-sum denominator.
+      - text: '$36$'
         rationale: |
-          You calculated 12 / (1/3) = 36, forgetting to subtract the ratio from 1 in the denominator.
-      - text: "$8$"
+          This divides by the ratio instead of one minus the ratio. The ratio is needed for the formula. Check the full denominator in the infinite-sum formula.
+      - text: '$8$'
         rationale: |
-          You calculated 12 - 4 = 8 or misapplied the infinite geometric series formula.
+          This multiplies by one minus the ratio instead of dividing. The same two factors are used. Check whether the formula multiplies or divides.
     explanation: |
-      $r = \frac{1}{3}$. $S_\infty = \frac{12}{1-\frac{1}{3}} = 18$
+      The first term is $12$ and the ratio is $\dfrac{1}{3}$. Since the ratio magnitude is below $1$, the sum exists. It is $12\div\left(1-\dfrac{1}{3}\right)=12\left(\dfrac{3}{2}\right)=18$.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0006
     type: direct-computation
     difficulty: medium
     stem: |
-      $a_3 = 11$, $a_8 = 31$. Find $a_1$.
+      An arithmetic sequence has $a_3=11$ and $a_8=31$. What is its first term?
     choices:
-      - text: "$3$"
+      - text: '$3$'
         correct: true
-      - text: "$4$"
+      - text: '$4$'
         rationale: |
-          You reported the common difference d = 4 instead of finding the first term a1.
-      - text: "$7$"
+          This reports the common difference. The difference is needed first. Check whether the first term or difference is requested.
+      - text: '$7$'
         rationale: |
-          You calculated a2 = 11 - 4 = 7 instead of working back to the first term a1 = 3.
-      - text: "$-1$"
+          This works back only one step from the third term. The prior term is a useful intermediate result. Check how many steps lead back to term one.
+      - text: '$-1$'
         rationale: |
-          You subtracted 3d (12) from 11, calculating a1 - d instead of a1.
+          This subtracts three differences from the third term. The known term position is three. Check that term three is only two steps after term one.
     explanation: |
-      $(a_1 + 7d) - (a_1 + 2d) = 20 \implies d = 4$
-      Then $a_1 = 11 - 8 = 3$
+      There are five steps from term three to term eight. Their increase is $31-11=20$, so $d=20\div5=4$. Term three is two steps after the first term. Thus $a_1=11-2(4)=3$.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0007
     type: which-is-true
     difficulty: medium
     stem: |
-      Which series converges?
+      Which infinite geometric series converges to a finite sum?
     choices:
       - text: '$16 - 8 + 4 - 2 + \dots$'
         correct: true
       - text: '$2 + 6 + 18 + 54 + \dots$'
         rationale: |
-          You chose a geometric series with common ratio r = 3 >= 1, which diverges.
+          This ignores that the common ratio is greater than one. The series has a clear ratio. Check the absolute value of the ratio.
       - text: '$5 - 5 + 5 - 5 + \dots$'
         rationale: |
-          You chose an alternating series with |r| = 1, which oscillates and diverges.
+          This assumes alternating signs guarantee convergence. The signs alternate regularly. Check that the term magnitudes also shrink.
       - text: '$1 + 1.1 + 1.21 + \dots$'
         rationale: |
-          You chose a geometric series with common ratio r = 1.1 > 1, which diverges.
+          This treats a ratio near one as if it were below one. The growth per term is small. Check whether the ratio is strictly less than one in magnitude.
     explanation: |
-      First has $|r| = 0.5 < 1$. Others have $|r| \geq 1$.
+      The ratio in $16-8+4-2+\ldots$ is $-\dfrac{1}{2}$. Its absolute value is below $1$, so the infinite geometric series converges.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0008
     type: direct-computation
     difficulty: medium
     stem: |
-      Sum of first 5 terms: $a_1 = 5$, $r = 3$
+      A geometric sequence has $a_1=5$ and $r=3$. What is the sum of its first five terms?
     choices:
-      - text: "$605$"
+      - text: '$605$'
         correct: true
-      - text: "$200$"
+      - text: '$405$'
         rationale: |
-          You evaluated 5 * 3^4 = 405 or miscalculated the geometric sum formula.
-      - text: "$1210$"
+          This reports the fifth term instead of the five-term sum. The fifth term is needed in some sum methods. Check whether a term or a sum is requested.
+      - text: '$1210$'
         rationale: |
-          You forgot to divide by r - 1 = 2 in the geometric series formula.
-      - text: "$1025$"
+          This omits the denominator two from the sum formula. The numerator is a correct intermediate amount. Check every part of the finite-sum formula.
+      - text: '$600$'
         rationale: |
-          You evaluated 5 * (3^5 - 1) = 1210 - 185 or made an arithmetic error.
+          This leaves out the first term when adding. The later four terms are all included. Check that the first term belongs to the requested sum.
     explanation: |
-      $S_5 = \frac{5(3^5 - 1)}{2} = \frac{5(242)}{2} = 605$
+      The finite geometric sum is $S_5=5\dfrac{3^5-1}{3-1}$. Since $3^5=243$, this is $\dfrac{5(242)}{2}=605$.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0009
     type: direct-computation
     difficulty: medium
     stem: |
-      Three means between 4 and 28. Second mean?
+      Three arithmetic means are inserted between $4$ and $28$. What is the second inserted mean?
     choices:
-      - text: "$16$"
+      - text: '$16$'
         correct: true
-      - text: "$10$"
+      - text: '$10$'
         rationale: |
-          You selected the first arithmetic mean (10) instead of the second mean.
-      - text: "$20$"
+          This reports the first inserted mean. That is one of the inserted values. Check which inserted position is requested.
+      - text: '$20$'
         rationale: |
-          You assumed common difference is 8 (4, 12, 20, 28) with only 2 means inserted.
-      - text: "$22$"
+          This inserts two means instead of three. Three equal steps can look like three means. Check that three inserted values need four gaps.
+      - text: '$22$'
         rationale: |
-          You selected the third arithmetic mean (22) instead of the second mean.
+          This reports the third inserted mean. That is one of the inserted values. Check which inserted position is requested.
     explanation: |
-      Sequence: 4, 10, 16, 22, 28. Common diff = 6.
+      Three inserted means make five terms, with four equal steps between the endpoints. The common difference is $(28-4)\div4=6$. The terms are $4,10,16,22,28$. The second inserted mean is $16$.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0010
     type: word-problem
     difficulty: hard
     stem: |
-      Theater: row 1 has 15 seats, row 2 has 18, etc. (20 rows). Total?
+      A theater has $20$ rows. Its first row has $15$ seats, and each later row has $3$ more seats than the previous row. How many seats are there in all?
     choices:
-      - text: "$870$"
+      - text: '$870$'
         correct: true
-      - text: "$900$"
+      - text: '$900$'
         rationale: |
-          You calculated 20 * (15 + 75)/2 by miscalculating row 20 as 75 seats.
-      - text: "$72$"
+          This uses twenty steps instead of nineteen for the last row. There are twenty rows. Check the number of increases after row one.
+      - text: '$72$'
         rationale: |
-          You reported the number of seats in row 20 (72) instead of the total sum across all 20 rows.
-      - text: "$1,740$"
+          This reports the final row rather than the total. That row is needed to compute the sum. Check whether one row or all rows is requested.
+      - text: '$1,740$'
         rationale: |
-          You forgot to divide by 2 when computing the arithmetic series sum.
+          This omits the division by two in the arithmetic sum. The formula contains the endpoint sum. Check the one-half factor in the sum formula.
     explanation: |
-      $a_{20} = 15 + 19(3) = 72$
-      $S = 10(15 + 72) = 870$
+      The final row has $15+19(3)=72$ seats. The total is $\dfrac{20}{2}(15+72)=10(87)=870$ seats.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0011
     type: direct-computation
     difficulty: hard
     stem: |
-      $x-1$, $x+5$, $7x-1$ form geometric. Find $x > 0$.
+      The consecutive terms $x-1,x+5,7x-1$ form a geometric sequence. Find $x>0$.
     choices:
-      - text: "$4$"
+      - text: '$4$'
         correct: true
-      - text: "$2$"
+      - text: '$2$'
         rationale: |
-          You miscalculated the quadratic equation expansion as 6x^2 - 12x - 24 = 0.
-      - text: "$-1$"
+          This drops the linear term before solving x squared minus four equals zero. The remaining equation is easy to factor. Check that every term remains when collecting the quadratic.
+      - text: '$-1$'
         rationale: |
-          You reported the negative root x = -1, violating the condition x > 0.
-      - text: "$3$"
+          This reports the negative root. Both roots satisfy the geometric condition. Check the stated positivity condition.
+      - text: '$3$'
         rationale: |
-          You miscalculated the middle linear coefficient when expanding the quadratic.
+          This drops the constant term and solves x squared minus three x equals zero. The remaining equation has a simple nonzero root. Check that the constant term remains in the equation.
     explanation: |
-      $(x+5)^2 = (x-1)(7x-1)$
-      $x^2 - 3x - 4 = 0 \implies x = 4$
+      Equal consecutive ratios give $(x+5)^2=(x-1)(7x-1)$. Expand: $x^2+10x+25=7x^2-8x+1$. Rearrange and divide by $6$ to get $x^2-3x-4=0$. Factor: $(x-4)(x+1)=0$. The positive solution is $x=4$.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0012
     type: direct-computation
     difficulty: hard
     stem: |
-      Sum of 3-digit multiples of 7?
+      What is the sum of all positive three-digit multiples of $7$?
     choices:
-      - text: "$70,336$"
+      - text: '$70336$'
         correct: true
-      - text: "$70,434$"
+      - text: '$69342$'
         rationale: |
-          You miscalculated total number of multiples n as 129 instead of 128.
-      - text: "$69,786$"
+          This leaves out the final multiple nine hundred ninety-four. The terms still form an arithmetic sequence. Check the last allowed endpoint.
+      - text: '$70231$'
         rationale: |
-          You miscalculated total number of multiples n as 127 instead of 128.
-      - text: "$140,672$"
+          This leaves out the first multiple one hundred five. The remaining terms still form an arithmetic sequence. Check the first allowed endpoint.
+      - text: '$140672$'
         rationale: |
-          You forgot to divide by 2 in the sum formula (128 * 1099 = 140,672).
+          This omits division by two in the sum formula. The count and endpoint sum are correct. Check the one-half factor in the arithmetic sum.
     explanation: |
-      First: 105, Last: 994, n = 128
-      $S = 64(1099) = 70,336$
+      The first three-digit multiple is $7(15)=105$. The last is $7(142)=994$. The count is $142-15+1=128$. The arithmetic sum is $\dfrac{128}{2}(105+994)=64(1099)=70336$.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0013
     type: word-problem
     difficulty: hard
     stem: |
-      Ball dropped 16 m, rebounds to 3/4 height each time. Total distance?
+      A ball is dropped from $16$ meters. After each ground contact, it rebounds to $\dfrac{3}{4}$ of the previous maximum height. In an ideal model continuing through infinitely many rebounds, what total vertical distance does the ball travel?
     choices:
-      - text: "$112$ m"
+      - text: '$112$ m'
         correct: true
-      - text: "$64$ m"
+      - text: '$64$ m'
         rationale: |
-          You calculated initial drop 16 m plus one-way rebound distance 48 m, omitting return bounces.
-      - text: "$48$ m"
+          This counts only one direction of each rebound. The rebound heights form the right geometric series. Check that every rebound goes up and down.
+      - text: '$48$ m'
         rationale: |
-          You calculated only the total upward rebound distance without including downward motion or initial drop.
-      - text: "$128$ m"
+          This reports only upward rebound distance. The upward total is a useful intermediate result. Check the initial drop and downward rebounds too.
+      - text: '$128$ m'
         rationale: |
-          You doubled the initial drop 16 m or miscalculated the infinite sum denominator.
+          This doubles the initial drop as well as the rebound distances. Most heights are traveled in both directions. Check that the initial height is fallen only once.
     explanation: |
-      Initial: 16. Rebounds sum: $\frac{12}{1-3/4} = 48$
-      Total: $16 + 2(48) = 112$
+      The first rebound rises $16\left(\dfrac{3}{4}\right)=12$ meters. The total upward rebound distance is $12\div\left(1-\dfrac{3}{4}\right)=48$ meters. Each rebound also falls the same distance. Add both rebound directions to the first drop: $16+2(48)=112$ meters.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0014
     type: direct-computation
-    difficulty: exam-level
+    difficulty: exam
     stem: |
       In a nonconstant arithmetic sequence with $a_1 = 5$, terms 1, 3, and 9 form a geometric sequence. Find the common difference $d$.
     choices:
-      - text: "$5$"
+      - text: '$5$'
         correct: true
-      - text: '$\frac{5}{3}$'
+      - text: '$-5$'
         rationale: |
-          You used terms 1, 2, and 3 instead of terms 1, 3, and 9 of the arithmetic sequence.
-      - text: "$10$"
+          This changes the sign of the linear term when collecting the equation. Moving terms often involves sign changes. Check the sign when moving the linear terms.
+      - text: '$10$'
         rationale: |
-          You miscalculated 4d^2 - 40d = 0 instead of 4d^2 - 20d = 0.
-      - text: "$0$"
+          This doubles the linear coefficient when simplifying. Both sides of the expansion contain a linear term. Check the collected linear coefficient.
+      - text: '$0$'
         rationale: |
-          The stem specifies a nonconstant arithmetic sequence, so $d=0$ is excluded.
+          This uses the constant-sequence solution. Zero satisfies the algebraic equation. Check the nonconstant condition.
     explanation: |
-      The relevant terms are $5$, $5+2d$, and $5+8d$. For them to be geometric,
-      $$(5+2d)^2 = 5(5+8d).$$
-      Thus $4d^2 - 20d = 0$, so $d=0$ or $d=5$. Because the sequence is explicitly nonconstant, $d=0$ is excluded and $d=5$.
+      The selected terms are $5,5+2d,5+8d$. Equal geometric ratios give $(5+2d)^2=5(5+8d)$. Expand and collect: $4d^2-20d=0$, or $4d(d-5)=0$. A nonconstant arithmetic sequence has $d\ne0$, so $d=5$.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0015
     type: direct-computation
-    difficulty: exam-level
+    difficulty: exam
     stem: |
-      $S_n = 2n^2 + 3n$. Find $a_8$.
+      The sum of the first $n$ terms of a sequence is $S_n=2n^2+3n$. What is its eighth term?
     choices:
-      - text: "$33$"
+      - text: '$33$'
         correct: true
-      - text: "$152$"
+      - text: '$152$'
         rationale: |
-          You reported the sum of the first 8 terms S8 (152) instead of the 8th term a8.
-      - text: "$37$"
+          This reports the eighth partial sum. The sum formula is given directly. Check whether the question asks for a term or a sum.
+      - text: '$37$'
         rationale: |
-          You evaluated 4n + 5 = 37 using a derivative shortcut with incorrect constant term.
-      - text: "$131$"
+          This finds the ninth term rather than the eighth. The adjacent partial sums produce nearby terms. Check the adjacent partial-sum indices.
+      - text: '$62$'
         rationale: |
-          You subtracted S6 (105) from S8 (152) or miscalculated S7.
+          This subtracts the sixth partial sum instead of the seventh. Both partial sums are earlier than or equal to the eighth. Check that exactly one term remains after subtraction.
     explanation: |
-      $a_8 = S_8 - S_7 = 152 - 119 = 33$
+      The eighth term is the amount added between the seventh and eighth partial sums. Compute $S_8=2(8^2)+3(8)=152$ and $S_7=2(7^2)+3(7)=119$. Thus $a_8=S_8-S_7=152-119=33$.
+
+  - id: q-arithmetic-number-sense-sequences-and-series-0016
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      Find the fourth term of the harmonic sequence $\dfrac{1}{3},\dfrac{1}{7},\dfrac{1}{11},\ldots$.
+    choices:
+      - text: '$\dfrac{1}{15}$'
+        correct: true
+      - text: '$15$'
+        rationale: |
+          This stops in the reciprocal arithmetic sequence. Fifteen is a needed intermediate value. Check that the question asks for the original harmonic term.
+      - text: '$\dfrac{1}{19}$'
+        rationale: |
+          This uses four increases instead of three. The requested position is four. Check that the first term needs no increase.
+      - text: '$\dfrac{1}{4}$'
+        rationale: |
+          This takes the reciprocal of the common difference. The difference is needed in the reciprocal sequence. Check that the term is found before taking its reciprocal.
+    explanation: |
+      The reciprocals form $3,7,11,\ldots$, with common difference $4$. The fourth reciprocal is $3+3(4)=15$. Take the reciprocal again to get $\dfrac{1}{15}$.
+    approved: false
+
+  - id: q-arithmetic-number-sense-sequences-and-series-0017
+    type: error-spotting
+    difficulty: medium
+    stem: |
+      A student finds a term of a harmonic sequence by taking reciprocals, computing the corresponding arithmetic term as $17$, then reporting $17$ as the answer. What final step is needed?
+    choices:
+      - text: 'Take the reciprocal of $17$.'
+        correct: true
+      - text: 'Add the common difference to $17$.'
+        rationale: |
+          This advances one more position in the reciprocal sequence. The difference does generate later terms. Check that the target position was already reached.
+      - text: 'Multiply $17$ by the term position.'
+        rationale: |
+          This treats a term as a sum or repeated total. Multiplying by a position is familiar. Check that the original sequence is recovered by a reciprocal.
+      - text: 'Subtract the first denominator from $17$.'
+        rationale: |
+          This treats the arithmetic increase as the harmonic term. The first denominator helped form the reciprocal sequence. Check that the full reciprocal term must be inverted.
+    explanation: |
+      The arithmetic sequence contains reciprocals of the harmonic terms. To return to the original sequence, take the reciprocal of its computed term. The harmonic term is $\dfrac{1}{17}$.
+    approved: false
+
+  - id: q-arithmetic-number-sense-sequences-and-series-0018
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      A Fibonacci-type sequence starts $2,5$. Each later term is the sum of the previous two. What is its fifth term?
+    choices:
+      - text: '$19$'
+        correct: true
+      - text: '$12$'
+        rationale: |
+          This stops at the fourth term. Twelve is a needed intermediate term. Check the requested position.
+      - text: '$24$'
+        rationale: |
+          This doubles the fourth term instead of adding the prior two. Doubling is a familiar growth pattern. Check the stated recurrence.
+      - text: '$7$'
+        rationale: |
+          This reports the first newly computed term. Seven follows the two starting terms. Check that two more positions remain.
+    explanation: |
+      The third term is $2+5=7$. The fourth is $5+7=12$. The fifth is $7+12=19$.
+    approved: false
+
+  - id: q-arithmetic-number-sense-sequences-and-series-0019
+    type: which-is-true
+    difficulty: hard
+    stem: |
+      An arithmetic sequence has seven terms and middle term $12$. Which statement must be true?
+    choices:
+      - text: 'The sum is $84$.'
+        correct: true
+      - text: 'The sum is $42$.'
+        rationale: |
+          This applies an extra one-half factor to average times count. Arithmetic sum formulas often contain one-half. Check that the middle term is already the average.
+      - text: 'The last term is $24$.'
+        rationale: |
+          This doubles the middle term to find an endpoint. Endpoints are symmetric about the middle. Check that the difference is still unknown.
+      - text: 'The common difference is $2$.'
+        rationale: |
+          This divides the middle term by six gaps. The sequence has six gaps. Check that a term value alone does not determine the difference.
+    explanation: |
+      For an odd-length arithmetic sequence, the middle term equals the average of all terms. Multiply that average by the seven terms: $12(7)=84$.
+    approved: false
+
+  - id: q-arithmetic-number-sense-sequences-and-series-0020
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A fundraiser deposits $80$ pesos in week one and half the previous week's amount in each later week. What fraction of its total deposits over infinitely many weeks comes from the first two weeks?
+    choices:
+      - text: '$\dfrac{3}{4}$'
+        correct: true
+      - text: '$\dfrac{1}{2}$'
+        rationale: |
+          This counts only the first deposit. That deposit is half the infinite total. Check that two weeks are requested.
+      - text: '$\dfrac{3}{2}$'
+        rationale: |
+          This divides the two-week total by the first deposit instead of all deposits. The first amount is given directly. Check the requested reference total.
+      - text: '$\dfrac{1}{4}$'
+        rationale: |
+          This reports the fraction deposited after the first two weeks. That remaining fraction is also meaningful. Check which part is requested.
+    explanation: |
+      The first two deposits total $80+40=120$ pesos. The infinite geometric total is $80\div\left(1-\dfrac{1}{2}\right)=160$ pesos. Their fraction is $\dfrac{120}{160}=\dfrac{3}{4}$.
+    approved: false

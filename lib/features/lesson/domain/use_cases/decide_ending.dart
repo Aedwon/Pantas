@@ -1,3 +1,4 @@
+import 'package:pantas/core/time/pantas_dates.dart';
 import 'package:pantas/features/lesson/domain/models/lesson_ending.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
 
@@ -17,8 +18,8 @@ LessonEnding decideEnding({
   final total = topic.totalCount;
   final read = topic.readCount;
   final isFinished = topic.isComplete;
-  final examAndSubject = '$examShortName, ${subject.name}';
-  final dateLine = _formatDateLine(today);
+  final examAndSubject = '$examShortName · ${subject.name}';
+  final dateLine = PantasDates.full(today);
 
   if (isFinished) {
     final footing =
@@ -32,7 +33,8 @@ LessonEnding decideEnding({
       next: nextTopic,
     );
   } else {
-    final footing = '$read of $total lessons read';
+    final lessonWord = total == 1 ? 'lesson' : 'lessons';
+    final footing = '$read of $total $lessonWord read';
     final unread = topic.lessons.where((l) => !l.isRead).toList();
     return TopicStoppedShort(
       studentName: studentName,
@@ -43,25 +45,4 @@ LessonEnding decideEnding({
       unread: unread,
     );
   }
-}
-
-String _formatDateLine(DateTime date) {
-  const months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
-  final day = date.day;
-  final monthName = months[date.month - 1];
-  final year = date.year;
-  return '$day $monthName $year';
 }

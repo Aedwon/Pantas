@@ -1,14 +1,70 @@
 import 'package:drift/drift.dart' show Value, Variable;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/data/repos/app_preferences_repository.dart';
+import 'package:pantas/core/storage/data/repos/lesson_bookmarks_repository.dart';
 import 'package:pantas/core/sync/bootstrap/full_push.dart';
+import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/core/sync/firestore/firestore_gateway.dart';
 import 'package:pantas/core/sync/firestore/functions_gateway.dart';
 import 'package:pantas/core/sync/mapping/track_scope_mapper.dart';
+import 'package:pantas/features/lesson/data/repos/reader_position_repository.dart';
 
 import '../../../helpers/in_memory_database.dart';
 
 void main() {
+  for (final oldGeneration in ['gen-old', null]) {
+    test('activation expires the $oldGeneration reader before restart',
+        () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      await _seedTenSources(db);
+      final contexts = SyncActiveContextStore(db);
+      if (oldGeneration != null) {
+        await contexts.publishStable(
+          uid: 'user-1',
+          generationId: oldGeneration,
+        );
+        await contexts.suspendStable();
+      }
+      final positions = ReaderPositionRepository(
+        AppPreferencesRepository(db),
+        database: db,
+      );
+      final boundary =
+          (await positions.captureBoundary('cse', isCurrent: () => true))!;
+
+      final result = await FullPushBootstrap(
+        db: db,
+        gateway: RecordingGateway(),
+        functionsGateway: FakeSyncFunctionsGateway(),
+        uid: 'user-1',
+        deviceId: 'device-1',
+        generationIdFactory: () => 'gen-new',
+      ).run(expectedActiveGenerationId: oldGeneration);
+
+      expect(result.outcome, FullPushOutcome.activated);
+      final bookmarks = LessonBookmarksRepository(db);
+      expect(
+        await positions.runGuarded(
+          boundary,
+          () => bookmarks.unmark('lesson_1'),
+          isCurrent: () => true,
+        ),
+        isFalse,
+      );
+      expect(await bookmarks.isMarked('lesson_1'), isTrue);
+      expect(
+        await db.customSelect('select * from sync_local_mutations').get(),
+        isEmpty,
+      );
+      final replacement = (await contexts.readSnapshot())!;
+      expect(replacement.token, isNot(boundary.token));
+      expect(replacement.context, isNull);
+      expect(replacement.rememberedContext, isNull);
+    });
+  }
+
   test('keep-device stages exact generation snapshot before activation',
       () async {
     final db = inMemoryDatabase();
@@ -136,8 +192,7 @@ void main() {
     );
   });
 
-  test('staging failure leaves old generation untouched and never activates',
-      () async {
+  test('denied staging retains its retry marker and never activates', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
     await _seedLesson(db);
@@ -239,6 +294,13 @@ void main() {
     addTearDown(db.close);
     await _seedLesson(db);
     await _seedJournal(db, revision: 1, mutationEpoch: 1);
+    // A Keep my account that failed earlier must not outlive this choice.
+    await db.into(db.syncMeta).insert(
+          SyncMetaCompanion.insert(
+            key: 'pending_full_pull',
+            value: 'gen-failed',
+          ),
+        );
 
     final result = await FullPushBootstrap(
       db: db,
@@ -257,7 +319,9 @@ void main() {
     );
     expect(await db.select(db.pendingSync).get(), isEmpty);
     expect(await _marker(db, 'pending_full_push'), isNull);
+    expect(await _marker(db, 'pending_full_pull'), isNull);
     expect(await _marker(db, 'currentLocalGenerationId'), 'gen-new');
+    expect(await _marker(db, 'currentLocalGenerationUid'), 'user-1');
   });
   test(
       'eligibility loss during staging stops before next upload batch and '
@@ -323,7 +387,7 @@ class RecordingGateway extends FakeFirestoreGateway {
 class ThrowingGateway extends FakeFirestoreGateway {
   @override
   Future<void> commitBatch(List<FirestoreWrite> writes) async {
-    throw const SyncGatewayException('unavailable');
+    throw const SyncGatewayException('permission-denied');
   }
 }
 

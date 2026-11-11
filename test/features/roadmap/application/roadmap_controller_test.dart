@@ -1,0 +1,921 @@
+import 'dart:async';
+import 'dart:convert';
+
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
+
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/data/repos/assessment_repository.dart';
+import 'package:pantas/core/storage/data/repos/content_repository.dart';
+import 'package:pantas/core/storage/domain/attempt.dart';
+import 'package:pantas/core/storage/domain/exam_date.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/storage/domain/lesson.dart';
+import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/storage/domain/review_state.dart';
+import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/storage/track_scope.dart';
+import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
+import 'package:pantas/core/sync/local_state_wiper.dart';
+import 'package:pantas/core/time/study_days.dart';
+import 'package:pantas/features/quiz/application/quiz_providers.dart';
+import 'package:pantas/features/roadmap/application/lesson_links_loader.dart';
+import 'package:pantas/features/roadmap/application/roadmap_inputs_reader.dart';
+import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
+import 'package:pantas/features/roadmap/domain/build_roadmap.dart';
+import 'package:pantas/features/roadmap/domain/lesson_links.dart';
+import 'package:pantas/features/roadmap/domain/roadmap.dart';
+import 'package:pantas/features/roadmap/domain/roadmap_inputs.dart';
+import 'package:pantas/features/settings/application/settings_providers.dart';
+import 'package:pantas/features/settings/domain/session_ordering.dart';
+import 'package:pantas/features/settings/domain/user_settings.dart';
+
+import '../../../helpers/in_memory_database.dart';
+
+/// Counts the content calls the plan must never make.
+class _SpyContent extends ContentRepository {
+  _SpyContent(super.db, {super.onQuery});
+
+  int hydrations = 0;
+  int fullLessons = 0;
+
+  @override
+  Future<List<Question>> hydrateSelectedQuestions(List<QuestionId> ids) {
+    hydrations++;
+    return super.hydrateSelectedQuestions(ids);
+  }
+
+  @override
+  Future<Map<TopicId, List<Lesson>>> lessonsByTopics(
+    List<TopicId> topicIds, {
+    ExamId? examId,
+  }) {
+    fullLessons++;
+    return super.lessonsByTopics(topicIds, examId: examId);
+  }
+}
+
+class _DelayedInputsReader extends RoadmapInputsReader {
+  _DelayedInputsReader(super.ref);
+  Completer<void>? entered;
+  Completer<void>? release;
+  @override
+  Future<RoadmapInputs> inputs(
+    ExamId examId,
+    DateTime today, {
+    DateTime? anchoredReviewOnlyFrom,
+    bool treatTodayAsStudyDay = false,
+  }) async {
+    final barrier = release;
+    if (barrier != null) {
+      if (!entered!.isCompleted) entered!.complete();
+      await barrier.future;
+    }
+    return super.inputs(
+      examId,
+      today,
+      anchoredReviewOnlyFrom: anchoredReviewOnlyFrom,
+      treatTodayAsStudyDay: treatTodayAsStudyDay,
+    );
+  }
+}
+
+class _LinksBundle extends CachingAssetBundle {
+  _LinksBundle(this.source);
+  final String? source;
+
+  @override
+  Future<ByteData> load(String key) async {
+    expect(key, 'assets/seed/lesson_links.json');
+    if (source == null) throw FlutterError('Missing asset');
+    return ByteData.sublistView(Uint8List.fromList(utf8.encode(source!)));
+  }
+}
+
+void main() {
+  test('lesson links loader reads strengths and accepts absent or empty assets',
+      () async {
+    expect(await loadLessonLinks(_LinksBundle(null)), isEmpty);
+    expect(await loadLessonLinks(_LinksBundle('')), isEmpty);
+    expect(await loadLessonLinks(_LinksBundle('{}')), isEmpty);
+    expect(
+      await loadLessonLinks(
+        _LinksBundle(
+          '{"target":[{"lesson":"base","strength":"required"},'
+          '{"lesson":"other","strength":"helpful"}]}',
+        ),
+      ),
+      {
+        'target': [
+          const LessonLink(lessonId: 'base', strength: LinkStrength.required),
+          const LessonLink(lessonId: 'other', strength: LinkStrength.helpful),
+        ],
+      },
+    );
+  });
+
+  var assetLinks = <String, List<LessonLink>>{};
+  late AppDatabase db;
+  late ContentDatabase contentDb;
+  late _SpyContent content;
+  late ProviderContainer container;
+  late DateTime now;
+  late int builds;
+  late int queries;
+  var examDay = DateTime(2026, 12, 7);
+  var studyDays = StudyDays.all;
+  final builtInputs = <RoadmapInputs>[];
+
+  UserSettings settings() => UserSettings(
+        name: null,
+        dailyReminderTime: null,
+        studyDays: studyDays,
+        examDate: ExamDate.onDay(examDay),
+        strictMockMode: false,
+        helpImproveApp: true,
+        carryOverProgress: true,
+        sessionOrdering: SessionOrdering.interleavedTail,
+        retainTableOrder: true,
+        updatedAt: null,
+      );
+
+  setUp(() async {
+    db = inMemoryDatabase();
+    contentDb = inMemoryContentDatabase();
+    queries = 0;
+    content = _SpyContent(contentDb, onQuery: () => queries++);
+    now = DateTime(2026, 9, 30, 8);
+    builds = 0;
+    assetLinks = {};
+    examDay = DateTime(2026, 12, 7);
+    studyDays = StudyDays.all;
+    builtInputs.clear();
+
+    await seedContentExam(
+      contentDb,
+      examId: 'e1',
+      code: 'UPCAT',
+      name: 'UPCAT',
+    );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 's1',
+      examId: 'e1',
+      name: 'Math',
+    );
+    for (final t in ['t1', 't2']) {
+      await seedContentTopic(contentDb, topicId: t, subjectId: 's1', name: t);
+      for (var l = 0; l < 4; l++) {
+        await seedContentLesson(
+          contentDb,
+          lessonId: '${t}_l$l',
+          topicId: t,
+          ordering: l,
+        );
+        for (var q = 0; q < 5; q++) {
+          await seedContentQuestion(
+            contentDb,
+            questionId: '${t}_l${l}_q$q',
+            topicId: t,
+            examId: 'e1',
+            lessonId: '${t}_l$l',
+          );
+        }
+      }
+    }
+    await AssessmentRepository(db).saveResult('e1', now, const []);
+
+    container = ProviderContainer(
+      overrides: [
+        lessonLinksProvider.overrideWith((ref) => assetLinks),
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+        contentRepositoryProvider.overrideWithValue(content),
+        nowProvider.overrideWithValue(() => now),
+        roadmapInputsReaderProvider.overrideWith(_DelayedInputsReader.new),
+        userSettingsProvider.overrideWith((ref) async => settings()),
+        roadmapBuilderProvider.overrideWithValue((RoadmapInputs inputs) {
+          builds++;
+          builtInputs.add(inputs);
+          return BuildRoadmap.call(inputs);
+        }),
+      ],
+    );
+  });
+
+  tearDown(() async {
+    container.dispose();
+    await db.close();
+    await contentDb.close();
+  });
+
+  RoadmapController controller() => container.read(roadmapControllerProvider);
+
+  Future<List<RoadmapChangeCause>> causes() async => [
+        for (final change in await container
+            .read(roadmapChangeLogRepositoryProvider)
+            .recent('e1'))
+          change.cause,
+      ];
+
+  test('planning omits lessons without active exam questions and empty topics',
+      () async {
+    await seedContentLesson(
+      contentDb,
+      lessonId: 'no_questions',
+      topicId: 't1',
+    );
+    await seedContentTopic(
+      contentDb,
+      topicId: 'empty_topic',
+      subjectId: 's1',
+      name: 'Empty',
+    );
+    await seedContentLesson(
+      contentDb,
+      lessonId: 'inactive',
+      topicId: 'empty_topic',
+    );
+    await seedContentQuestion(
+      contentDb,
+      questionId: 'inactive_q',
+      topicId: 'empty_topic',
+      examId: 'e1',
+      lessonId: 'inactive',
+      isActive: false,
+    );
+    final inputs =
+        await container.read(roadmapInputsReaderProvider).inputs('e1', now);
+    expect(inputs.lessons.map((l) => l.id), isNot(contains('no_questions')));
+    expect(inputs.lessons.map((l) => l.id), isNot(contains('inactive')));
+    expect(inputs.topics.map((t) => t.id), ['t1', 't2']);
+  });
+
+  test('lesson exclusion rebuilds a stored plan and removes linked questions',
+      () async {
+    await controller().today('e1');
+    final before =
+        await container.read(roadmapInputsReaderProvider).digest('e1');
+    await container
+        .read(customTrackRepositoryProvider)
+        .setExcluded(examId: 'e1', topicIds: {}, lessonIds: {'t1_l0'});
+    await controller().today('e1');
+    final after =
+        await container.read(roadmapInputsReaderProvider).digest('e1');
+    expect(after, isNot(before));
+    expect(builtInputs.last.lessons.any((l) => l.id == 't1_l0'), isFalse);
+    expect(
+      builtInputs.last.questions.any((q) => q.lessonId == 't1_l0'),
+      isFalse,
+    );
+    expect(builtInputs.last.lessons.any((l) => l.id == 't1_l1'), isTrue);
+  });
+
+  test('pending Today does not restore data after same-identity wipe',
+      () async {
+    await SyncActiveContextStore(db).clearStable();
+    final reader =
+        (container.read(roadmapInputsReaderProvider) as _DelayedInputsReader)
+          ..entered = Completer<void>()
+          ..release = Completer<void>();
+    final pending = controller().today('e1');
+    final cancelled = expectLater(pending, throwsStateError);
+    await reader.entered!.future;
+    await SyncLocalStateWiper(db).wipeAll();
+    reader.release!.complete();
+    await cancelled;
+    expect(await db.select(db.roadmapDayLocal).get(), isEmpty);
+    expect(await db.select(db.roadmapChangeLogLocal).get(), isEmpty);
+  });
+  test('pending advance does not restore data after same-identity wipe',
+      () async {
+    await SyncActiveContextStore(db).clearStable();
+    final first = await controller().today('e1');
+    for (final lesson in first.remaining.lessonIds) {
+      await container.read(lessonProgressRepositoryProvider).markRead(lesson);
+    }
+    for (final q in first.remaining.newQuestionIds) {
+      await container.read(reviewStateRepositoryProvider).upsert(
+            ReviewState.seed(questionId: q, questionVersion: 1, now: now),
+          );
+    }
+    final reader =
+        (container.read(roadmapInputsReaderProvider) as _DelayedInputsReader)
+          ..entered = Completer<void>()
+          ..release = Completer<void>();
+    final pending = controller().advance('e1');
+    final cancelled = expectLater(pending, throwsStateError);
+    await reader.entered!.future;
+    await SyncLocalStateWiper(db).wipeAll();
+    reader.release!.complete();
+    await cancelled;
+    expect(await db.select(db.roadmapDayLocal).get(), isEmpty);
+    expect(await db.select(db.roadmapChangeLogLocal).get(), isEmpty);
+  });
+  test('original page guard cancels pending Today after page disposal',
+      () async {
+    var alive = true;
+    final reader =
+        (container.read(roadmapInputsReaderProvider) as _DelayedInputsReader)
+          ..entered = Completer<void>()
+          ..release = Completer<void>();
+    final pending = controller()
+        .today('e1', originalGuard: Future.value(() async => alive));
+    final cancelled = expectLater(pending, throwsStateError);
+    await reader.entered!.future;
+    alive = false;
+    reader.release!.complete();
+    await cancelled;
+    expect(await db.select(db.roadmapDayLocal).get(), isEmpty);
+    expect(await db.select(db.roadmapChangeLogLocal).get(), isEmpty);
+  });
+  test('selected exam changes cancel pending Today persistence', () async {
+    final reader =
+        (container.read(roadmapInputsReaderProvider) as _DelayedInputsReader)
+          ..entered = Completer<void>()
+          ..release = Completer<void>();
+    final pending = controller().today('e1');
+    final cancelled = expectLater(pending, throwsStateError);
+    await reader.entered!.future;
+    await container
+        .read(appPreferencesRepositoryProvider)
+        .setSelectedExamId('e2');
+    reader.release!.complete();
+    await cancelled;
+    expect(await db.select(db.roadmapDayLocal).get(), isEmpty);
+    expect(await db.select(db.roadmapChangeLogLocal).get(), isEmpty);
+  });
+  test('shaping scope change cancels a pending derived day', () async {
+    final reader =
+        (container.read(roadmapInputsReaderProvider) as _DelayedInputsReader)
+          ..entered = Completer<void>()
+          ..release = Completer<void>();
+    final pending = controller().today('e1');
+    final cancelled = expectLater(pending, throwsStateError);
+    await reader.entered!.future;
+    await container
+        .read(customTrackRepositoryProvider)
+        .setExcluded(examId: 'e1', topicIds: {'t2'});
+    reader.release!.complete();
+    await cancelled;
+    expect(await db.select(db.roadmapDayLocal).get(), isEmpty);
+    expect(await db.select(db.roadmapChangeLogLocal).get(), isEmpty);
+  });
+  test('exam date change cancels pending advance instead of overwriting it',
+      () async {
+    final first = await controller().today('e1');
+    for (final l in first.remaining.lessonIds) {
+      await container.read(lessonProgressRepositoryProvider).markRead(l);
+    }
+    for (final q in first.remaining.newQuestionIds) {
+      await container.read(reviewStateRepositoryProvider).upsert(
+            ReviewState.seed(questionId: q, questionVersion: 1, now: now),
+          );
+    }
+    final reader =
+        (container.read(roadmapInputsReaderProvider) as _DelayedInputsReader)
+          ..entered = Completer<void>()
+          ..release = Completer<void>();
+    final pending = controller().advance('e1');
+    final cancelled = expectLater(pending, throwsStateError);
+    await reader.entered!.future;
+    examDay = DateTime(2026, 12, 14);
+    container.invalidate(userSettingsProvider);
+    reader.release!.complete();
+    await cancelled;
+    expect(
+      (await container.read(roadmapDayRepositoryProvider).read('e1', now))
+          ?.digest
+          .examDate,
+      '2026-12-07:day',
+    );
+    expect(await causes(), isNot(contains(RoadmapChangeCause.advanced)));
+  });
+  test('the first read builds and stores the day and logs it', () async {
+    final today = await controller().today('e1');
+
+    expect(builds, 1);
+    expect(today.remaining.lessonIds, isNotEmpty);
+    expect(today.remaining.newQuestionIds, isNotEmpty);
+    expect(await causes(), [RoadmapChangeCause.newDay]);
+    expect(
+      await container.read(roadmapDayRepositoryProvider).read('e1', now),
+      isNotNull,
+    );
+  });
+
+  test('a second read the same day does not rebuild', () async {
+    await controller().today('e1');
+    now = DateTime(2026, 9, 30, 20);
+    await controller().today('e1');
+    expect(builds, 1);
+  });
+
+  test('answering and reading remove items without a rebuild', () async {
+    final first = await controller().today('e1');
+    final lesson = first.remaining.lessonIds.first;
+    final question = first.remaining.newQuestionIds.first;
+    await container.read(lessonProgressRepositoryProvider).markRead(lesson);
+    await container.read(reviewStateRepositoryProvider).upsert(
+          ReviewState.seed(questionId: question, questionVersion: 1, now: now),
+        );
+
+    final second = await controller().today('e1');
+
+    expect(builds, 1);
+    expect(second.remaining.lessonIds, isNot(contains(lesson)));
+    expect(second.remaining.newQuestionIds, isNot(contains(question)));
+  });
+
+  test('excluding a topic rebuilds today and names why', () async {
+    await controller().today('e1');
+    await container
+        .read(customTrackRepositoryProvider)
+        .setExcluded(examId: 'e1', topicIds: {'t2'});
+
+    await controller().today('e1');
+
+    expect(builds, 2);
+    expect(await causes(), contains(RoadmapChangeCause.scopeChanged));
+  });
+
+  test('a new day rebuilds and keeps the first review-only date', () async {
+    final first = await controller().today('e1');
+    now = DateTime(2026, 11, 20, 8);
+    final later = await controller().today('e1');
+
+    expect(builds, 2);
+    expect(later.snapshot.reviewOnlyFrom, first.snapshot.reviewOnlyFrom);
+    expect(later.snapshot.reviewOnlyFrom, DateTime(2026, 11, 30));
+    expect(await causes(), contains(RoadmapChangeCause.missedWork));
+  });
+
+  test('advance adds tomorrow only once today is done', () async {
+    final first = await controller().today('e1');
+    expect(
+      (await controller().advance('e1')).snapshot.plan.advancedIds,
+      isEmpty,
+    );
+
+    for (final lesson in first.remaining.lessonIds) {
+      await container.read(lessonProgressRepositoryProvider).markRead(lesson);
+    }
+    for (final q in first.remaining.newQuestionIds) {
+      await container.read(reviewStateRepositoryProvider).upsert(
+            ReviewState.seed(questionId: q, questionVersion: 1, now: now),
+          );
+    }
+
+    final advanced = await controller().advance('e1');
+
+    expect(advanced.snapshot.plan.advancedIds, isNotEmpty);
+    expect(advanced.originalDone, isTrue);
+    expect(await causes(), contains(RoadmapChangeCause.advanced));
+  });
+
+  test('canAdvance says whether advance would add anything, without saving',
+      () async {
+    final first = await controller().today('e1');
+    expect(await controller().canAdvance('e1'), isFalse);
+
+    for (final lesson in first.remaining.lessonIds) {
+      await container.read(lessonProgressRepositoryProvider).markRead(lesson);
+    }
+    for (final q in first.remaining.newQuestionIds) {
+      await container.read(reviewStateRepositoryProvider).upsert(
+            ReviewState.seed(questionId: q, questionVersion: 1, now: now),
+          );
+    }
+    final before =
+        await container.read(roadmapDayRepositoryProvider).read('e1', now);
+
+    expect(await controller().canAdvance('e1'), isTrue);
+    expect(
+      await container.read(roadmapDayRepositoryProvider).read('e1', now),
+      before,
+    );
+    expect(await causes(), isNot(contains(RoadmapChangeCause.advanced)));
+    expect(
+      await container.read(roadmapCanAdvanceProvider('e1').future),
+      isTrue,
+    );
+  });
+
+  test('canAdvance is false when everything is covered and nothing is due',
+      () async {
+    for (final t in ['t1', 't2']) {
+      for (var l = 0; l < 4; l++) {
+        await container
+            .read(lessonProgressRepositoryProvider)
+            .markRead('${t}_l$l');
+        for (var q = 0; q < 5; q++) {
+          await container.read(reviewStateRepositoryProvider).upsert(
+                ReviewState.seed(
+                  questionId: '${t}_l${l}_q$q',
+                  questionVersion: 1,
+                  now: now,
+                ).copyWith(due: DateTime(2026, 10, 20)),
+              );
+        }
+      }
+    }
+
+    final today = await controller().today('e1');
+
+    expect(today.state, RoadmapState.allCovered);
+    expect(today.originalDone, isTrue);
+    expect(await controller().canAdvance('e1'), isFalse);
+  });
+
+  test('the plan never loads question bodies or lesson bodies', () async {
+    await controller().today('e1');
+    expect(content.hydrations, 0);
+    expect(content.fullLessons, 0);
+    expect(queries, lessThan(10));
+  });
+
+  test('the plan waits for the assessment', () async {
+    await db.delete(db.assessmentResultsLocal).go();
+    final today = await controller().today('e1');
+    expect(today.state, RoadmapState.needsAssessment);
+    expect(today.remaining.questionCount, 0);
+  });
+
+  Future<void> answer(
+    String id,
+    DateTime at,
+    Map<String, bool> results,
+  ) =>
+      container.read(attemptsRepositoryProvider).save(
+            Attempt(
+              id: id,
+              examId: 'e1',
+              startedAt: at,
+              completedAt: at,
+              items: [
+                for (final entry in results.entries)
+                  AttemptItem(
+                    questionId: entry.key,
+                    questionVersion: 1,
+                    chosenChoiceId: entry.value ? 'a' : 'b',
+                    correctChoiceId: 'a',
+                    responseMs: 9000,
+                  ),
+              ],
+            ),
+          );
+
+  test('reader passes asset links into the controller inputs', () async {
+    final links = {
+      't1_l1': [
+        const LessonLink(lessonId: 't1_l0', strength: LinkStrength.required),
+      ],
+    };
+    assetLinks = links;
+    await controller().today('e1');
+    expect(builtInputs.single.lessonLinks, links);
+    expect(builtInputs.single.gapTags, isEmpty);
+  });
+
+  test('reader keeps finish-ordered history and only the last three outcomes',
+      () async {
+    const q = 't1_l0_q0';
+    await answer('latest', now, {q: false, 't1_l0_q1': true});
+    await answer('oldest', now.subtract(const Duration(days: 4)), {q: true});
+    await answer('third', now.subtract(const Duration(days: 2)), {q: false});
+    await answer('second', now.subtract(const Duration(days: 3)), {q: true});
+    await answer('fourth', now.subtract(const Duration(days: 1)), {q: true});
+    await answer('outside', now, {'outside': false});
+    final inputs =
+        await container.read(roadmapInputsReaderProvider).inputs('e1', now);
+    final history = inputs.history.singleWhere((row) => row.id == q);
+    expect(history.answered, 5);
+    expect(history.recent, [false, true, false]);
+    expect(history.lastWrongChoiceId, 'b');
+    expect(
+      inputs.history.singleWhere((r) => r.id == 't1_l0_q1').lastWrongChoiceId,
+      isNull,
+    );
+    expect(inputs.history.map((row) => row.id), isNot(contains('outside')));
+    expect(inputs.gapTags, isEmpty);
+    await answer('corrected', now.add(const Duration(minutes: 1)), {q: true});
+    final corrected =
+        await container.read(roadmapInputsReaderProvider).inputs('e1', now);
+    expect(
+      corrected.history.singleWhere((row) => row.id == q).lastWrongChoiceId,
+      isNull,
+    );
+  });
+
+  test('reader includes recall for non-due states without adding due reviews',
+      () async {
+    final state = ReviewState.seed(
+      questionId: 't1_l0_q0',
+      questionVersion: 1,
+      now: now.subtract(const Duration(days: 2)),
+    ).copyWith(due: now.add(const Duration(days: 5)), stability: 10);
+    await container.read(reviewStateRepositoryProvider).upsert(state);
+    await container.read(reviewStateRepositoryProvider).upsert(
+          ReviewState.seed(questionId: 'outside', questionVersion: 1, now: now),
+        );
+    final inputs =
+        await container.read(roadmapInputsReaderProvider).inputs('e1', now);
+    expect(inputs.recall, {
+      state.questionId:
+          container.read(fsrsSchedulerProvider).retrievability(state, now),
+    });
+    expect(inputs.dueReviews, isEmpty);
+    expect(content.hydrations, 0);
+    expect(content.fullLessons, 0);
+  });
+
+  test('topic scores come from answers, fresh on each build', () async {
+    await answer('a1', now, {
+      for (var q = 0; q < 5; q++) 't1_l0_q$q': true,
+      for (var q = 0; q < 5; q++) 't2_l0_q$q': false,
+    });
+    final first = await controller().today('e1');
+    expect(first.snapshot.topicOrder.first, 't2');
+
+    now = DateTime(2026, 10, 1, 8);
+    await answer('a2', now, {
+      for (var q = 0; q < 5; q++) 't1_l1_q$q': false,
+      for (var q = 0; q < 5; q++) 't1_l2_q$q': false,
+      for (var q = 0; q < 5; q++) 't2_l1_q$q': true,
+      for (var q = 0; q < 5; q++) 't2_l2_q$q': true,
+    });
+    final next = await controller().today('e1');
+    expect(next.snapshot.topicOrder.first, 't1');
+  });
+
+  test('a custom track with a custom blueprint gets its mock', () async {
+    await db.into(db.customBlueprintsLocal).insert(
+          CustomBlueprintsLocalCompanion.insert(
+            examId: 'e1',
+            totalQuestions: 20,
+            totalMinutes: 30,
+            sectionsJson: '[]',
+            updatedAt: now,
+          ),
+        );
+    final inputs =
+        await container.read(roadmapInputsReaderProvider).inputs('e1', now);
+    expect(inputs.mock.examHasMock, isTrue);
+  });
+
+  test('a review done yesterday is not logged as missed today', () async {
+    await container.read(reviewStateRepositoryProvider).upsert(
+          ReviewState.seed(
+            questionId: 't1_l0_q0',
+            questionVersion: 1,
+            now: DateTime(2026, 9),
+          ),
+        );
+    final first = await controller().today('e1');
+    expect(first.remaining.reviewQuestionIds, contains('t1_l0_q0'));
+
+    for (final lesson in first.remaining.lessonIds) {
+      await container.read(lessonProgressRepositoryProvider).markRead(lesson);
+    }
+    final done = {
+      for (final q in first.remaining.newQuestionIds) q: true,
+      't1_l0_q0': true,
+    };
+    await answer('day1', now, done);
+    for (final q in done.keys) {
+      await container.read(reviewStateRepositoryProvider).upsert(
+            ReviewState.seed(questionId: q, questionVersion: 1, now: now),
+          );
+    }
+
+    now = DateTime(2026, 10, 1, 8);
+    await controller().today('e1');
+
+    expect(await causes(), isNot(contains(RoadmapChangeCause.missedWork)));
+  });
+
+  test('the watched plan follows an exam date change', () async {
+    final sub = container.listen(roadmapTodayProvider('e1'), (_, __) {});
+    addTearDown(sub.close);
+    final before = await container.read(roadmapTodayProvider('e1').future);
+    expect(before.snapshot.digest.examDate, '2026-12-07:day');
+
+    examDay = DateTime(2026, 12, 14);
+    container.invalidate(userSettingsProvider);
+    final after = await container.read(roadmapTodayProvider('e1').future);
+
+    expect(after.snapshot.digest.examDate, '2026-12-14:day');
+  });
+  test('the inputs reader reads study days for its digest and plan', () async {
+    studyDays = StudyDays(const [1, 2, 3, 4, 5]);
+    final reader = container.read(roadmapInputsReaderProvider);
+    expect((await reader.digest('e1')).studyDays, studyDays);
+    final inputs = await reader.inputs('e1', now);
+    expect(inputs.studyDays, studyDays);
+    expect(inputs.treatTodayAsStudyDay, isFalse);
+    final forced = await reader.inputs('e1', now, treatTodayAsStudyDay: true);
+    expect(forced.treatTodayAsStudyDay, isTrue);
+  });
+
+  test('changing today to rest clears work and logs only study days changed',
+      () async {
+    final before = await controller().today('e1');
+    final lesson = before.remaining.lessonIds.first;
+    final question = before.remaining.newQuestionIds.first;
+    await container.read(lessonProgressRepositoryProvider).markRead(lesson);
+    await container.read(reviewStateRepositoryProvider).upsert(
+          ReviewState.seed(questionId: question, questionVersion: 1, now: now),
+        );
+    studyDays = StudyDays(const [1]);
+    container.invalidate(userSettingsProvider);
+    final rest = await controller().today('e1');
+    expect(rest.snapshot.plan.isRestDay, isTrue);
+    expect(rest.remaining.lessonIds, isEmpty);
+    expect(rest.remaining.questionCount, 0);
+    expect(rest.originalDone, isTrue);
+    expect(await causes(), contains(RoadmapChangeCause.studyDaysChanged));
+    expect(await causes(), isNot(contains(RoadmapChangeCause.missedWork)));
+    expect(
+      (await causes()).where((c) => c == RoadmapChangeCause.newDay),
+      hasLength(1),
+    );
+    studyDays = StudyDays.all;
+    container.invalidate(userSettingsProvider);
+    final restored = await controller().today('e1');
+    expect(restored.remaining.isRestDay, isFalse);
+    expect(restored.remaining.lessonIds, isNotEmpty);
+    expect(restored.remaining.lessonIds, isNot(contains(lesson)));
+    expect(restored.remaining.newQuestionIds, isNot(contains(question)));
+    expect(
+      (await causes()).where((c) => c == RoadmapChangeCause.studyDaysChanged),
+      hasLength(2),
+    );
+  });
+
+  test('reviews due on the weekend wait until Monday under the cap', () async {
+    studyDays = StudyDays(const [1, 2, 3, 4, 5]);
+    final dueDays = [
+      DateTime(2026, 10, 3, 23, 59),
+      DateTime(2026, 10, 4, 23, 59),
+      DateTime(2026, 10, 5, 23, 59),
+      DateTime(2026, 10, 6),
+    ];
+    for (var i = 0; i < dueDays.length; i++) {
+      await container.read(reviewStateRepositoryProvider).upsert(
+            ReviewState.seed(
+              questionId: 't1_l0_q$i',
+              questionVersion: 1,
+              now: DateTime(2026, 10, 2),
+            ).copyWith(due: dueDays[i]),
+          );
+    }
+    await answer(
+      'history',
+      DateTime(2026, 10, 2),
+      {'t1_l0_q0': true, 't1_l0_q1': true},
+    );
+    for (final d in [3, 4]) {
+      now = DateTime(2026, 10, d, 8);
+      final rest = await controller().today('e1');
+      expect(rest.remaining.reviewQuestionIds, isEmpty);
+      expect(rest.remaining.isRestDay, isTrue);
+    }
+    now = DateTime(2026, 10, 5, 8);
+    final monday = await controller().today('e1');
+    expect(monday.remaining.reviewQuestionIds, ['t1_l0_q0', 't1_l0_q1']);
+    expect(await causes(), contains(RoadmapChangeCause.backlogCapped));
+    expect(await causes(), isNot(contains(RoadmapChangeCause.missedWork)));
+  });
+
+  test('advance from Friday builds Monday and adds no future reviews',
+      () async {
+    studyDays = StudyDays(const [1, 2, 3, 4, 5]);
+    now = DateTime(2026, 10, 2, 8);
+    final first = await controller().today('e1');
+    for (final lesson in first.remaining.lessonIds) {
+      await container.read(lessonProgressRepositoryProvider).markRead(lesson);
+    }
+    for (final q in first.remaining.newQuestionIds) {
+      await container.read(reviewStateRepositoryProvider).upsert(
+            ReviewState.seed(questionId: q, questionVersion: 1, now: now)
+                .copyWith(due: DateTime(2026, 10, 5)),
+          );
+    }
+    final advanced = await controller().advance('e1');
+    expect(builtInputs.last.today, DateTime(2026, 10, 5));
+    expect(advanced.remaining.lessonIds, isNotEmpty);
+    expect(advanced.remaining.newQuestionIds, isNotEmpty);
+    expect(advanced.remaining.reviewQuestionIds, isEmpty);
+    expect(advanced.originalDone, isTrue);
+  });
+
+  test('Saturday advance adds Monday material and only reviews due today',
+      () async {
+    studyDays = StudyDays(const [1, 2, 3, 4, 5]);
+    now = DateTime(2026, 10, 3, 8);
+    for (final (id, due) in [
+      ('t1_l0_q0', DateTime(2026, 10, 3, 23, 59)),
+      ('t1_l0_q1', DateTime(2026, 10, 4)),
+    ]) {
+      await container.read(reviewStateRepositoryProvider).upsert(
+            ReviewState.seed(
+              questionId: id,
+              questionVersion: 1,
+              now: DateTime(2026, 10, 2),
+            ).copyWith(due: due),
+          );
+    }
+    await answer('capacity', DateTime(2026, 10, 2), {'t1_l0_q0': true});
+    final rest = await controller().today('e1');
+    expect(rest.originalDone, isTrue);
+    final advanced = await controller().advance('e1');
+    expect(
+      builtInputs.map((i) => i.today),
+      [DateTime(2026, 10, 3), DateTime(2026, 10, 5), DateTime(2026, 10, 3)],
+    );
+    expect(builtInputs.last.treatTodayAsStudyDay, isTrue);
+    expect(advanced.remaining.lessonIds, ['t1_l0']);
+    expect(advanced.remaining.newQuestionIds, ['t1_l0_q2']);
+    expect(advanced.remaining.reviewQuestionIds, ['t1_l0_q0']);
+    expect(
+      advanced.snapshot.plan.advancedIds,
+      {'t1_l0', 't1_l0_q2', 't1_l0_q0'},
+    );
+    expect(advanced.originalDone, isTrue);
+    expect(advanced.remaining.isRestDay, isTrue);
+    final daysBefore = await db.select(db.roadmapDayLocal).get();
+    final logsBefore = await db.select(db.roadmapChangeLogLocal).get();
+    final repeated = await controller().advance('e1');
+    expect(repeated.snapshot, advanced.snapshot);
+    expect(await db.select(db.roadmapDayLocal).get(), daysBefore);
+    expect(await db.select(db.roadmapChangeLogLocal).get(), logsBefore);
+    now = DateTime(2026, 10, 5, 8);
+    await controller().today('e1');
+    expect(await causes(), isNot(contains(RoadmapChangeCause.missedWork)));
+  });
+
+  test('completed rest-day advance reviews still consume the daily cap',
+      () async {
+    studyDays = StudyDays(const [1, 2, 3, 4, 5]);
+    now = DateTime(2026, 10, 3, 8);
+    for (final id in ['t1_l0_q0', 't1_l0_q1']) {
+      await container.read(reviewStateRepositoryProvider).upsert(
+            ReviewState.seed(
+              questionId: id,
+              questionVersion: 1,
+              now: DateTime(2026, 10, 2),
+            ).copyWith(due: DateTime(2026, 10, 3)),
+          );
+    }
+    await answer('capacity', DateTime(2026, 10, 2), {'t1_l0_q0': true});
+
+    final first = await controller().advance('e1');
+    expect(first.remaining.reviewQuestionIds, ['t1_l0_q0']);
+    await answer('review', now, {'t1_l0_q0': true});
+    await container.read(reviewStateRepositoryProvider).upsert(
+          ReviewState.seed(
+            questionId: 't1_l0_q0',
+            questionVersion: 1,
+            now: now,
+          ).copyWith(lastReview: now, due: DateTime(2026, 10, 6)),
+        );
+    expect(
+      (await controller().today('e1')).remaining.reviewQuestionIds,
+      isEmpty,
+    );
+
+    final second = await controller().advance('e1');
+    expect(second.remaining.reviewQuestionIds, isEmpty);
+    expect(second.snapshot.plan.reviewQuestionIds, ['t1_l0_q0']);
+    expect(second.originalDone, isTrue);
+  });
+
+  test(
+      'advance with no study day before the exam brings all remaining material',
+      () async {
+    studyDays = StudyDays(const [1, 2, 3, 4, 5]);
+    now = DateTime(2026, 12, 5, 8);
+    final rest = await controller().today('e1');
+    expect(rest.remaining.lessonIds, isEmpty);
+    expect(rest.remaining.questionCount, 0);
+    final advanced = await controller().advance('e1');
+    expect(builtInputs.every((i) => i.today == DateTime(2026, 12, 5)), isTrue);
+    expect(builtInputs.last.treatTodayAsStudyDay, isTrue);
+    expect(advanced.remaining.lessonIds, hasLength(8));
+    expect(advanced.remaining.newQuestionIds, hasLength(40));
+    expect(advanced.originalDone, isTrue);
+  });
+
+  test('advance before the original work is done writes nothing', () async {
+    await controller().today('e1');
+    final daysBefore = await db.select(db.roadmapDayLocal).get();
+    final logsBefore = await db.select(db.roadmapChangeLogLocal).get();
+    await controller().advance('e1');
+    expect(builds, 1);
+    expect(await db.select(db.roadmapDayLocal).get(), daysBefore);
+    expect(await db.select(db.roadmapChangeLogLocal).get(), logsBefore);
+  });
+}

@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-algebra-polynomials-0001	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	One alternative required several unrelated sign errors.
+q-algebra-polynomials-0002	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Two alternatives mixed correct and unexplained operations.
+q-algebra-polynomials-0003	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	The answer gave the correction; another choice repeated an already correct term.
+q-algebra-polynomials-0004	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Replaced an unrelated linear-expression alternative.
+q-algebra-polynomials-0005	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-polynomials-0006	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Three alternatives did not identify a specific missing term.
+q-algebra-polynomials-0007	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Replaced a linear alternative that ignored the main product.
+q-algebra-polynomials-0008	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-polynomials-0009	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	A positive-five alternative had no clear evaluation slip.
+q-algebra-polynomials-0010	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Two alternatives had no clear factor-theorem derivation.
+q-algebra-polynomials-0011	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Several alternatives required unrelated errors in multiple coefficients.
+q-algebra-polynomials-0012	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-polynomials-0013	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Changed repeated special-product computation into an area framing.
+q-algebra-polynomials-0014	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated the square-expansion pattern from two earlier questions; now tests the definition.
+q-algebra-polynomials-0015	VERIFIED	SOLVED-MATCH	explanation;notes;format	NONE	
+q-algebra-polynomials-0016	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	The correct answer was longest and contained the correction.
+q-algebra-polynomials-0017	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated multiplying two binomials with different numbers; now tests the linear coefficient.
+q-algebra-polynomials-0018	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	A no-answer choice had no mathematical justification; now asks for the relevant factor test.
+q-algebra-polynomials-0019	NEW	NEW	new question	NONE	
+q-algebra-polynomials-0020	NEW	NEW	new question	NONE	

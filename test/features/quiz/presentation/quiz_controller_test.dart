@@ -1,20 +1,32 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
+import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/telemetry/telemetry.dart';
+import 'package:pantas/features/quiz/application/quiz_completion_coordinator.dart';
+import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
-import 'package:pantas/features/quiz/domain/use_cases/complete_quiz.dart';
 import 'package:pantas/features/quiz/domain/use_cases/start_quick_quiz.dart';
 import 'package:pantas/features/quiz/domain/use_cases/submit_answer.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
+
+import '../../../helpers/in_memory_database.dart';
+import '../../../helpers/pump_app.dart';
+import '../../../helpers/recording_telemetry.dart';
 
 class _MockStart extends Mock implements StartQuickQuiz {}
 
 class _MockSubmit extends Mock implements SubmitAnswer {}
 
-class _MockComplete extends Mock implements CompleteQuiz {}
+class _MockCompletionCoordinator extends Mock
+    implements QuizCompletionCoordinator {}
 
 class _FakeQuestion extends Fake implements Question {}
 
@@ -42,25 +54,39 @@ void main() {
 
   late _MockStart start;
   late _MockSubmit submit;
-  late _MockComplete complete;
+  late _MockCompletionCoordinator complete;
 
-  ProviderContainer makeContainer() {
+  Future<ProviderContainer> makeContainer({
+    List<Override> extra = const [],
+  }) async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
     final container = ProviderContainer(
       overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        authStateProvider.overrideWith(
+          (_) => Stream.value(const AuthState.anonymous(uid: 'test')),
+        ),
+        activeExamFocusProvider.overrideWith(
+          (_) async => ActiveExamFocus.selected(buildExam(id: 'e')),
+        ),
         startQuickQuizProvider.overrideWithValue(start),
         submitAnswerProvider.overrideWithValue(submit),
-        completeQuizProvider.overrideWithValue(complete),
+        quizCompletionCoordinatorProvider.overrideWithValue(complete),
         nowProvider.overrideWithValue(() => DateTime.utc(2026, 5, 9, 12)),
+        ...extra,
       ],
     );
     addTearDown(container.dispose);
+    await container.read(authStateProvider.future);
+    await container.read(activeExamFocusProvider.future);
     return container;
   }
 
   setUp(() {
     start = _MockStart();
     submit = _MockSubmit();
-    complete = _MockComplete();
+    complete = _MockCompletionCoordinator();
   });
 
   test('start() loads questions and transitions to running', () async {
@@ -79,7 +105,7 @@ void main() {
       ),
     ).thenAnswer((_) async => session);
 
-    final container = makeContainer();
+    final container = await makeContainer();
     final notifier = container.read(quizControllerProvider.notifier);
     await notifier.start(examId: 'e', count: 1);
 
@@ -110,6 +136,9 @@ void main() {
         responseMs: any(named: 'responseMs'),
         now: any(named: 'now'),
         origin: any(named: 'origin'),
+        sessionId: any(named: 'sessionId'),
+        userId: any(named: 'userId'),
+        examId: any(named: 'examId'),
       ),
     ).thenAnswer(
       (_) async => const AnswerOutcome(
@@ -121,7 +150,11 @@ void main() {
       ),
     );
     when(
-      () => complete(session: any(named: 'session'), now: any(named: 'now')),
+      () => complete.complete(
+        session: any(named: 'session'),
+        now: any(named: 'now'),
+        persisted: any(named: 'persisted'),
+      ),
     ).thenAnswer(
       (_) async => Attempt(
         id: 'sess',
@@ -132,9 +165,10 @@ void main() {
       ),
     );
 
-    final container = makeContainer();
+    final container = await makeContainer();
     final notifier = container.read(quizControllerProvider.notifier);
     await notifier.start(examId: 'e', count: 1);
+    notifier.markQuestionReady(sessionId: 'sess', questionIndex: 0);
     await notifier.answer(chosenChoiceId: 'c1a');
 
     // The answer and the scheduler are written on the tap, and the session
@@ -149,10 +183,132 @@ void main() {
         responseMs: any(named: 'responseMs'),
         now: any(named: 'now'),
         origin: any(named: 'origin'),
+        sessionId: any(named: 'sessionId'),
+        userId: any(named: 'userId'),
+        examId: any(named: 'examId'),
       ),
     ).called(1);
 
     await notifier.next();
     expect(container.read(quizControllerProvider), isA<QuizComplete>());
+  });
+
+  group('study-loop events', () {
+    final session = QuizSession.start(
+      sessionId: 'sess',
+      examId: 'e',
+      questions: const [q1],
+      startedAt: DateTime.utc(2026, 5, 9, 12),
+      origin: SessionOrigin.drill,
+    );
+
+    void stubFullRun() {
+      when(
+        () => start(
+          examId: any(named: 'examId'),
+          count: any(named: 'count'),
+          now: any(named: 'now'),
+          randomSeed: any(named: 'randomSeed'),
+        ),
+      ).thenAnswer((_) async => session);
+      when(
+        () => submit(
+          question: any(named: 'question'),
+          chosenChoiceId: any(named: 'chosenChoiceId'),
+          responseMs: any(named: 'responseMs'),
+          now: any(named: 'now'),
+          origin: any(named: 'origin'),
+          sessionId: any(named: 'sessionId'),
+          userId: any(named: 'userId'),
+          examId: any(named: 'examId'),
+        ),
+      ).thenAnswer(
+        (_) async => const AnswerOutcome(
+          questionId: 'q1',
+          questionVersion: 1,
+          chosenChoiceId: 'c1a',
+          correctChoiceId: 'c1a',
+          responseMs: 1500,
+        ),
+      );
+      when(
+        () => complete.complete(
+          session: any(named: 'session'),
+          now: any(named: 'now'),
+          persisted: any(named: 'persisted'),
+        ),
+      ).thenAnswer(
+        (_) async => Attempt(
+          id: 'sess',
+          examId: 'e',
+          startedAt: DateTime.utc(2026, 5, 9, 12),
+          completedAt: DateTime.utc(2026, 5, 9, 12, 1),
+          items: const [],
+        ),
+      );
+    }
+
+    Future<void> runSession(ProviderContainer container) async {
+      final notifier = container.read(quizControllerProvider.notifier);
+      await notifier.start(examId: 'e', count: 1);
+      notifier.markQuestionReady(sessionId: 'sess', questionIndex: 0);
+      await notifier.answer(chosenChoiceId: 'c1a');
+      await notifier.next();
+    }
+
+    test('a session logs one start and one finish, with exam, kind and count',
+        () async {
+      stubFullRun();
+      final sink = RecordingTelemetry();
+      final container = await makeContainer(
+        extra: [
+          telemetrySinkProvider.overrideWithValue(sink),
+          effectiveTelemetryConsentProvider.overrideWithValue(true),
+        ],
+      );
+
+      await runSession(container);
+      expect(container.read(quizControllerProvider), isA<QuizComplete>());
+
+      expect(
+        sink.events,
+        [TelemetryEvent.studySessionStart, TelemetryEvent.studySessionFinish],
+      );
+      for (final entry in sink.logged) {
+        expect(entry.$2, {'exam_id': 'e', 'kind': 'drill', 'count': 1});
+      }
+    });
+
+    test('answering inside a running session logs nothing more', () async {
+      stubFullRun();
+      final sink = RecordingTelemetry();
+      final container = await makeContainer(
+        extra: [
+          telemetrySinkProvider.overrideWithValue(sink),
+          effectiveTelemetryConsentProvider.overrideWithValue(true),
+        ],
+      );
+      final notifier = container.read(quizControllerProvider.notifier);
+      await notifier.start(examId: 'e', count: 1);
+      notifier.markQuestionReady(sessionId: 'sess', questionIndex: 0);
+      await notifier.answer(chosenChoiceId: 'c1a');
+
+      expect(sink.events, [TelemetryEvent.studySessionStart]);
+    });
+
+    test('nothing is sent while usage sharing is off', () async {
+      stubFullRun();
+      final sink = RecordingTelemetry();
+      final container = await makeContainer(
+        extra: [
+          telemetrySinkProvider.overrideWithValue(sink),
+          effectiveTelemetryConsentProvider.overrideWithValue(false),
+        ],
+      );
+
+      await runSession(container);
+
+      expect(sink.logged, isEmpty);
+    });
   });
 }

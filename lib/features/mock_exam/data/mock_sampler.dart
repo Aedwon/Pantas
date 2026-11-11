@@ -31,7 +31,15 @@ class MockSampler {
       final questionIds = <String>[];
 
       for (final entry in allocations.entries) {
-        final topicPool = poolsByTopic[entry.key] ?? const <String>[];
+        // The server uses exam-specific IDs. Local exam-filtered pools keep
+        // the shared UPCAT IDs for the same topics.
+        final topicId = poolsByTopic.containsKey(entry.key)
+            ? entry.key
+            : entry.key.replaceFirst(
+                RegExp('^topic_cse_(pro|sub)_'),
+                'topic_upcat_',
+              );
+        final topicPool = poolsByTopic[topicId] ?? const <String>[];
         if (topicPool.isEmpty) continue;
 
         final filtered = topicPool
@@ -42,7 +50,7 @@ class MockSampler {
             : topicPool.toList(growable: false);
         final shuffled = candidatePool.toList()..shuffle(random);
 
-        final topicPassageSets = passageSetsByTopic?[entry.key];
+        final topicPassageSets = passageSetsByTopic?[topicId];
         if (topicPassageSets != null && topicPassageSets.isNotEmpty) {
           final freeStanding = <String>[];
           final setsByPassageId = <String, List<String>>{};

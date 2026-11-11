@@ -15,15 +15,15 @@ questions:
         correct: true
       - text: "0105, 0104, 0103, 0102"
         rationale: |
-          You picked descending order instead of ascending order. Ascending order goes from the lowest number to the highest.
+          This uses descending order. The numbers form a smooth sequence, so it may look sorted. Check whether each next number increases.
       - text: "0102, 0104, 0103, 0105"
         rationale: |
-          You flipped 0104 and 0103. Consecutive numerical order requires each number to increase by 1 without skipping or swapping.
+          This swaps the two middle numbers. The first and last numbers are in the expected positions. Check every adjacent pair.
       - text: "0103, 0102, 0105, 0104"
         rationale: |
-          You picked an unsorted sequence. Numbers in ascending consecutive order must increase steadily from lowest to highest.
+          This reverses numbers within small pairs. The same four identifiers are present. Check the entire sequence from left to right.
     explanation: |
-      Consecutive numeric filing arranges numbers in simple counting order from lowest to highest.
+      Ascending consecutive order increases by one each time. The sequence starts at 0102, then continues through 0103, 0104, and 0105.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0002
     type: single_choice
@@ -35,15 +35,15 @@ questions:
         correct: true
       - text: "2024-03-20"
         rationale: |
-          You picked a date two months later in 2024. In oldest-first filing, January 15 comes before March 20.
+          This stops after choosing the earliest year. March is still within 2024. Check the month when the years tie.
       - text: "2025-01-10"
         rationale: |
-          You focused on the month and day while ignoring the year. The year 2024 comes before 2025.
+          This compares day before year. January 10 has an earlier day number. Check the year before month or day.
       - text: "2025-05-04"
         rationale: |
-          You picked the date with the highest year and month values. Oldest-first chronological filing requires the earliest calendar date first.
+          This chooses the latest date instead of the earliest. Its year and month are greatest. Check the filing direction in the stem.
     explanation: |
-      When filing from oldest to newest, January 15, 2024 is the earliest date in the group.
+      Compare the year first, then month and day. The earliest year is 2024, and January 15 is the earlier date in that year. It goes first in oldest-first order.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0003
     type: single_choice
@@ -55,55 +55,55 @@ questions:
         correct: true
       - text: "2026-02-15"
         rationale: |
-          You picked an earlier date in 2026. The question asks for the document filed last, which is the latest date overall.
+          This stops after finding the latest year. February is also in 2026. Check the month before choosing the final entry.
       - text: "2025-12-01"
         rationale: |
-          You picked a date in 2025. Dates in 2026 are later than 2025, so 2025 comes earlier in the file.
+          This lets a late month override an earlier year. December comes near the calendar's end. Check the year first.
       - text: "2024-08-20"
         rationale: |
-          You picked the oldest date in the list instead of the newest. The question asks for the date filed last, not first.
+          This chooses the oldest entry for the last position. Oldest-first filing starts with that entry. Check which end of the order is requested.
     explanation: |
-      November 30, 2026 is the latest date among the options and will be filed last.
+      Oldest-first filing puts the latest date last. The latest year is 2026, and November 30 is later in that year, so it comes last.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0004
     type: single_choice
     difficulty: medium
     stem: |
-      In consecutive numeric filing, where should document number 4589 be placed?
+      In ascending consecutive numeric filing, where should document number 4589 be placed?
     choices:
-      - text: Between 4588 and 4590
+      - text: "Between 4588 and 4590"
         correct: true
-      - text: Before document 4500 numerical filing series
+      - text: "Between 4580 and 4588"
         rationale: |
-          You placed 4589 before 4500. Consecutive filing orders numbers from smallest to largest, so 4589 comes after 4500.
-      - text: After document 4600 numerical archive folder
+          This puts the record below an upper boundary smaller than its number. The shared 458 beginning may look close. Compare 4589 with both boundaries.
+      - text: "Between 4590 and 4598"
         rationale: |
-          You placed 4589 after 4600. Since 4589 is smaller than 4600, it must go before 4600.
-      - text: Between 4590 and 4600 secondary numeric folders
+          This puts the record above a lower boundary greater than its number. The shared 459 range may look nearby. Compare the record with the lower boundary first.
+      - text: "At the start of the 4500s"
         rationale: |
-          You placed 4589 after 4590. 4589 is smaller than 4590, so it must precede 4590.
+          This files by the broad hundreds group only. The record does belong to the 4500s. Check the remaining digits to find its exact position.
     explanation: |
-      Number 4589 falls directly between 4588 and 4590 in consecutive sequence.
+      In ascending consecutive order, 4588 is followed by 4589, then 4590. The document goes between 4588 and 4590.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0005
     type: single_choice
     difficulty: easy
     stem: |
-      Which file number comes immediately AFTER file number 10-099 in a consecutive numeric system?
+      In this system, the prefix stays 10 and the three-digit integer suffix increases by one. Which code comes immediately after 10-099?
     choices:
       - text: "10-100"
         correct: true
       - text: "10-098"
         rationale: |
-          You picked the number that comes immediately before 10-099. The question asks for the number that comes after it.
-      - text: "10-200"
+          This decreases the suffix by one. The result is the preceding code. Check the word "after."
+      - text: "10-010"
         rationale: |
-          You added 101 to the suffix instead of 1. Consecutive numbering increments the final section by 1, turning 099 into 100.
+          This treats 099 as though its tens digit were missing. A leading zero can distract from the other place values. Check the whole integer suffix before adding one.
       - text: "11-000"
         rationale: |
-          You incremented the prefix section instead of the suffix. The suffix 099 reaches 100 before the prefix 10 changes.
+          This carries into the prefix too early. The suffix reaches 100 after 099, so it has not reached its three-digit limit. Check the specified fixed prefix.
     explanation: |
-      Adding 1 to 099 gives 100, so 10-099 is followed immediately by 10-100.
+      The prefix remains 10. Increase the integer suffix 099 by one to get 100. The next code is 10-100.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0006
     type: single_choice
@@ -115,15 +115,15 @@ questions:
         correct: true
       - text: "2025-06-20"
         rationale: |
-          You picked a date five days after June 15. The question asks for a date that precedes (comes before) June 15.
+          This chooses a later day in the same month. The year and month match the reference. Check the day once those units tie.
       - text: "2025-07-01"
         rationale: |
-          You picked a date in July. July comes after June, so it follows June 15 rather than preceding it.
+          This lets a small day number override the month. Day 1 looks early. Check June against July before comparing days.
       - text: "2025-12-15"
         rationale: |
-          You picked a date six months later. Chronological order requires earlier dates to come before later dates.
+          This overlooks a later month because the day matches. Both dates have day 15. Check the month before the day.
     explanation: |
-      June 10, 2025 comes before June 15, 2025.
+      The years and months of June 10 and June 15 match. Day 10 comes before day 15, so June 10 precedes the reference date.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0007
     type: single_choice
@@ -135,15 +135,15 @@ questions:
         correct: true
       - text: "402.20"
         rationale: |
-          You picked a larger decimal value. In decimal ordering, .15 is smaller than .20, so 402.15 comes first.
+          This skips the smaller fractional part. Both values begin with 402. Check the tenths and hundredths after the whole parts tie.
       - text: "402.80"
         rationale: |
-          You picked the largest decimal suffix in the 402 series. Ascending order requires the smallest number first.
+          This chooses the largest fraction instead of the smallest. The common 402 part may draw all the attention. Check the ascending direction.
       - text: "403.05"
         rationale: |
-          You looked past the whole number component. 402 is smaller than 403, so all 402 entries precede 403.05.
+          This uses the small fraction while overlooking the larger whole part. The ending .05 looks early. Compare whole parts first.
     explanation: |
-      402.15 is the smallest value among the decimal numbers listed.
+      The whole-number part 402 is lower than 403. Among the 402 values, 0.15 is lower than 0.20 and 0.80. Thus 402.15 is first in ascending order.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0008
     type: single_choice
@@ -155,15 +155,15 @@ questions:
         correct: true
       - text: "4990"
         rationale: |
-          You subtracted 10 instead of 1. Consecutive numbering counts by single units, so 5000 minus 1 is 4999.
+          This subtracts ten instead of one. The zero ending may suggest moving by tens. Check the size of one consecutive step.
       - text: "5001"
         rationale: |
-          You picked the number that comes immediately after 5000. The question asks for the number that comes before.
+          This adds one instead of subtracting one. It is the next number in counting order. Check whether the task asks before or after.
       - text: "5010"
         rationale: |
-          You added 10 to 5000. The question asks for the number that immediately precedes 5000.
+          This adds ten instead of subtracting one. Both direction and step size are changed. Check that a predecessor is exactly one less.
     explanation: |
-      Subtracting 1 from 5000 yields 4999.
+      An immediate predecessor is one less. $5000 - 1 = 4999$.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0009
     type: single_choice
@@ -171,19 +171,19 @@ questions:
     stem: |
       In terminal digit filing, numbers are indexed starting from which part of the document number?
     choices:
-      - text: Rightmost digits
+      - text: "Rightmost digits"
         correct: true
-      - text: Leftmost primary digits
+      - text: "Leftmost primary digits"
         rationale: |
-          You described standard consecutive filing. Terminal digit filing starts indexing with the last (rightmost) group of digits.
-      - text: Middle section digits
+          This starts from the usual reading direction. Consecutive numeric comparison often begins with the leftmost digits. Check which group this named system makes primary.
+      - text: "Middle section digits"
         rationale: |
-          You picked the middle group. Middle digits are secondary in terminal digit filing, while the rightmost digits are primary.
-      - text: Random sequence digits
+          This starts with a later comparison group. The middle group can be used after the primary group ties. Check which group is checked first.
+      - text: "Random sequence digits"
         rationale: |
-          You assumed indexing is unorganized. Terminal digit filing follows a strict order starting from the rightmost digits.
+          This treats an unfamiliar system as having no rule. Its order differs from ordinary number order. Check the system's primary key rather than assuming randomness.
     explanation: |
-      Terminal digit filing indexes numbers by starting with the last (rightmost) group of digits.
+      Terminal-digit filing uses the final, rightmost group of digits as its first comparison key. The word "terminal" refers to the end.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0010
     type: single_choice
@@ -191,56 +191,225 @@ questions:
     stem: |
       When sorting dates in reverse chronological order, which document is placed at the very top of the folder?
     choices:
-      - text: Most recent date
+      - text: "Most recent date"
         correct: true
-      - text: Earliest historical date
+      - text: "Earliest historical date"
         rationale: |
-          You described standard chronological filing. Reverse chronological filing places the newest date at the front.
-      - text: Middle calendar date
+          This applies oldest-first order instead of reverse order. Both are legitimate chronological systems. Check the stated direction.
+      - text: "Middle calendar date"
         rationale: |
-          You picked a median date. Reverse chronological order places the newest date at the top and oldest at the bottom.
-      - text: Randomly picked date
+          This treats the center date as the starting point. A middle date can seem representative. Check whether the system starts at an end or a midpoint.
+      - text: "Randomly picked date"
         rationale: |
-          You assumed reverse chronological sorting has no set order. It strictly places the most recent date at the top.
+          This treats reverse order as absence of order. The direction differs from oldest-first filing. Check that reverse chronological still follows a fixed date order.
     explanation: |
-      Reverse chronological filing places the most recent document at the front/top of the file folder.
+      Reverse chronological order goes from newest to oldest. The most recent document is therefore at the top.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0011
     type: single_choice
     difficulty: easy
     stem: |
-      Which file number precedes code 88-450 in a consecutive numerical filing drawer?
+      A drawer contains only 88-405, 88-440, 88-460, and 88-502. Compare their integer suffixes in ascending order with prefix 88 fixed. After inserting 88-450, which listed record is immediately before it?
     choices:
-      - text: "88-449"
+      - text: "88-440"
         correct: true
-      - text: "88-451"
+      - text: "88-405"
         rationale: |
-          You picked the number that follows 88-450. The question asks for the file number that precedes it.
+          This chooses the first earlier record instead of the nearest earlier record. Its suffix is below 450. Check whether a larger listed suffix still remains below 450.
       - text: "88-460"
         rationale: |
-          You added 10 to the suffix. Consecutive filing counts by ones, so the preceding number is 88-449.
-      - text: "89-000"
+          This chooses the nearest later record. Its suffix is close to 450. Check which side of the inserted code it belongs on.
+      - text: "88-502"
         rationale: |
-          You incremented the prefix section. Preceding numbers decrease by 1, giving 88-449.
+          This chooses a later record by ignoring the direction. Its suffix follows the same fixed prefix. Check the suffix against 450 before using proximity.
     explanation: |
-      88-449 immediately precedes 88-450 in consecutive numerical sequence.
+      Only listed records count as neighbors in the drawer. The records below 88-450 are 88-405 and 88-440. The larger of those is 88-440, so it is immediately before the inserted record.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0012
     type: single_choice
     difficulty: medium
     stem: |
-      Under standard numeric filing, how are hyphenated document numbers such as 101-A and 101-B sequenced?
+      A registry compares the integer before a hyphen in ascending order, then its letter suffix alphabetically. How should 101-A and 101-B be sequenced?
     choices:
-      - text: 101-A before 101-B
+      - text: "101-A before 101-B"
         correct: true
-      - text: 101-B before 101-A
+      - text: "101-B before 101-A"
         rationale: |
-          You inverted the alphabetical order of the suffixes. "A" comes before "B" when matching numeric prefixes exist.
-      - text: Sequenced by date only
+          This reverses the suffix-letter order. The numeric prefixes tie, so either record may look equally placed. Check the stated alphabetical direction.
+      - text: "Sequenced by date only"
         rationale: |
-          You ignored the letter suffixes. When document numbers carry letter suffixes, the suffixes determine their order.
-      - text: Filed in separate drawers
+          This substitutes a date for the supplied suffix key. Dates are common filing fields. Check what the system uses after matching numbers.
+      - text: "Filed in separate drawers"
         rationale: |
-          You assumed suffix letters separate folders into different locations. Letter suffixes sub-sort files within the same numeric section.
+          This treats a suffix difference as a drawer boundary. Suffixes distinguish records. Check whether the supplied rule calls for separation or ordering within the group.
     explanation: |
-      Identical numeric prefixes are sub-sorted alphabetically by their letter suffixes, so 101-A comes before 101-B.
+      The numeric parts match at 101. The supplied next key is the letter suffix, so A comes before B.
+
+  - id: q-clerical-ability-numeric-and-chronological-filing-0013
+    type: single_choice
+    difficulty: easy
+    stem: |
+      The file identifiers are ordinary whole numbers, not text codes. Which list puts 2, 10, 3, and 11 in ascending numeric order?
+    choices:
+      - text: "2, 3, 10, 11"
+        correct: true
+      - text: "10, 11, 2, 3"
+        rationale: |
+          This sorts the visible characters rather than numeric values. A leading 1 comes before a leading 2 in text order. Check what kind of key the system uses.
+      - text: "11, 10, 3, 2"
+        rationale: |
+          This uses descending values. The sequence is sorted but starts at the largest. Check the requested direction.
+      - text: "2, 10, 3, 11"
+        rationale: |
+          This mixes two sorting methods. The first value is smallest, which may make the start look correct. Check each adjacent pair by numeric value.
+    explanation: |
+      These identifiers are ordinary whole numbers. Compare their values: 2 is below 3, then 10, then 11. That is ascending numeric order.
+    approved: false
+
+  - id: q-clerical-ability-numeric-and-chronological-filing-0014
+    type: single_choice
+    difficulty: medium
+    stem: |
+      For ordinary numeric comparison, how do the values represented by 007, 07, and 7 relate?
+    choices:
+      - text: "Equal values"
+        correct: true
+      - text: "007 is greatest"
+        rationale: |
+          This uses the number of printed digits as the value. The longest identifier looks largest. Check whether leading zeros add any value.
+      - text: "07 is greatest"
+        rationale: |
+          This gives one fixed-width form special priority. Two-character codes can be common in registries. Check whether the question asks about numeric value or display format.
+      - text: "7 is greatest"
+        rationale: |
+          This treats removing zeros as increasing the number. Short forms can look more like ordinary numbers. Check the value represented by each spelling.
+    explanation: |
+      Leading zeros do not change an ordinary numeric value. Each form represents the number seven, so their numeric values are equal.
+    approved: false
+
+  - id: q-clerical-ability-numeric-and-chronological-filing-0015
+    type: single_choice
+    difficulty: hard
+    stem: |
+      These entries are decimal quantities. Which is first in ascending order?
+    choices:
+      - text: "7.008"
+        correct: true
+      - text: "7.020"
+        rationale: |
+          This reads 0.008 as 0.08, making 0.020 look smaller. Several zeros can be easy to skip. Check the place of every digit after the decimal point.
+      - text: "7.09"
+        rationale: |
+          This reads 7.008 as 7.8 and 7.020 as 7.2, dropping place-holding zeros. The remaining digits may look simpler. Check the value of every zero after the decimal point.
+      - text: "7.1"
+        rationale: |
+          This compares the fractional digits as integer codes, making 1 smaller than 8, 9, and 20. The shorter spelling can look like a smaller number. Check that these entries are decimal values.
+    explanation: |
+      Use equal decimal places: 7.008, 7.020, 7.090, and 7.100. The fraction 0.008 is smallest, so 7.008 comes first.
+    approved: false
+
+  - id: q-clerical-ability-numeric-and-chronological-filing-0016
+    type: single_choice
+    difficulty: hard
+    stem: |
+      A registry treats each segment of 31.2 and 31.015 as an integer subcode. Compare the first segment, then the second, in ascending order. Which code comes first?
+    choices:
+      - text: "31.2"
+        correct: true
+      - text: "31.015"
+        rationale: |
+          This treats the period as a decimal point. As decimals, the fractional values would have a different order. Check whether the system defines an integer subcode.
+      - text: "They have the same key"
+        rationale: |
+          This stops after the matching first segment. Both codes begin with 31. Check the next comparison unit specified by the system.
+      - text: "Their dates decide the order"
+        rationale: |
+          This substitutes a date when the code segments already differ. Dates are common tie-break fields. Check whether the stated key has actually tied.
+    explanation: |
+      The registry compares integer subcodes after the point. Those subcodes are 2 and 15. Since 2 is smaller than 15, code 31.2 comes first.
+    approved: false
+
+  - id: q-clerical-ability-numeric-and-chronological-filing-0017
+    type: single_choice
+    difficulty: hard
+    stem: |
+      A folder uses newest-first date order. Which document date belongs at the top?
+    choices:
+      - text: "2025-01-03"
+        correct: true
+      - text: "2024-12-31"
+        rationale: |
+          This lets the end of a month or year seem newer than the next year's beginning. December 31 sounds very late. Check the year first.
+      - text: "2024-01-30"
+        rationale: |
+          This compares day numbers ahead of years. Day 30 is larger than day 3. Check year, then month, then day.
+      - text: "2023-12-31"
+        rationale: |
+          This uses an old December date as though December always came last overall. It is late within its own year. Check years before months.
+    explanation: |
+      Newest-first order starts with the latest year. The 2025 record is newer than every 2024 or 2023 record, so January 3, 2025 goes at the top.
+    approved: false
+
+  - id: q-clerical-ability-numeric-and-chronological-filing-0018
+    type: single_choice
+    difficulty: exam
+    stem: |
+      These dates use DD/MM/YYYY. Which should be first in oldest-to-newest order?
+    choices:
+      - text: "05/02/2024"
+        correct: true
+      - text: "12/01/2025"
+        rationale: |
+          This compares the month or day before the year. January looks early in a calendar. Check the year at the end of each displayed date first.
+      - text: "01/03/2025"
+        rationale: |
+          This follows display order rather than date order. The first number 01 looks smallest. Check that the format is day/month/year.
+      - text: "09/12/2024"
+        rationale: |
+          This chooses the later month within the earliest year. Both dates are in 2024. Check February against December.
+    explanation: |
+      The dates use day/month/year. The 2024 records come before the 2025 records. Between the 2024 dates, February 5 is earlier than December 9, so 05/02/2024 is first.
+    approved: false
+
+  - id: q-clerical-ability-numeric-and-chronological-filing-0019
+    type: single_choice
+    difficulty: exam
+    stem: |
+      Two records show only "May 2025," and the registry requires complete oldest-first dates. What missing information is needed to compare these records within that month?
+    choices:
+      - text: "Their complete day dates"
+        correct: true
+      - text: "The alphabetic month names"
+        rationale: |
+          This changes calendar comparison into word comparison. The month is a written name. Check whether the date keys already have the same month.
+      - text: "The length of each date label"
+        rationale: |
+          This treats display length as a time difference. Date labels can have different formats. Check the actual calendar units.
+      - text: "The most common filing direction"
+        rationale: |
+          This uses a general preference instead of the missing key. Oldest-first is a familiar system. Check whether changing direction can distinguish two incomplete dates in the same month.
+    explanation: |
+      Both records tie on year and month. Their day dates are the next units needed for complete calendar comparison.
+    approved: false
+
+  - id: q-clerical-ability-numeric-and-chronological-filing-0020
+    type: single_choice
+    difficulty: exam
+    stem: |
+      A registry compares integer file number in ascending order, then date in newest-first order when file numbers match. Which record comes first?
+    choices:
+      - text: "File 12, 2025-01-08"
+        correct: true
+      - text: "File 12, 2024-12-20"
+        rationale: |
+          This uses oldest-first order within file 12. The primary file number is correct. Check the direction for the secondary date key.
+      - text: "File 14, 2025-01-10"
+        rationale: |
+          This lets the newest date override the primary file number. It is the newest date overall. Check file number before date.
+      - text: "File 14, 2024-12-15"
+        rationale: |
+          This reverses the primary numeric order and selects an older date. A different filing system might prioritize larger numbers. Check both directions stated in this system.
+    explanation: |
+      The primary key puts file 12 before file 14. Within file 12, newest-first date order puts January 8, 2025 before December 20, 2024. That record is first.
+    approved: false
+

@@ -2,309 +2,424 @@ meta:
   subject: science
   topic: chemistry
   subtopic: atomic-structure
-  exams:
-    - upcat
-    - dlsucet
-    - ustet
-    - dost-sei
+  exams: [upcat, dlsucet, ustet, dost-sei]
 questions:
   - id: q-chemistry-atomic-structure-0001
-    type: simple-quantitative
-    difficulty: easy
+    type: 'simple-quantitative'
+    difficulty: 'easy'
     stem: |
       A neutral atom has an atomic number of 17 and a mass number of 35. How many neutrons does it have?
     choices:
-      - text: "18"
+      - text: '18'
         correct: true
-      - text: "17"
+      - text: '17'
         rationale: |
-          You picked the atomic number. The atomic number gives the number of protons or electrons, not neutrons.
-      - text: "35"
+          This uses atomic number as neutron count. Atomic number does give a particle count. Check that it counts protons.
+      - text: '35'
         rationale: |
-          You picked the mass number. The mass number is the sum of protons and neutrons together.
-      - text: "52"
+          This treats all nuclear particles as neutrons. Mass number does count particles in the nucleus. Check that it also includes protons.
+      - text: '52'
         rationale: |
-          You added the atomic number and mass number. To find neutrons, subtract atomic number from mass number.
+          This adds the two numbers, $35+17=52$. Both numbers describe nuclear particles. Check that the proton count is already included in mass number.
     explanation: |
-      Neutrons equal the mass number minus the atomic number: $35 - 17 = 18$.
+      Mass number counts protons and neutrons. Subtract the 17 protons from the total of 35: $N=35-17=18$. The atom has 18 neutrons.
     approved: true
+
   - id: q-chemistry-atomic-structure-0002
-    type: simple-quantitative
-    difficulty: easy
+    type: 'simple-quantitative'
+    difficulty: 'easy'
     stem: |
-      A neutral sodium atom has an atomic number of 11 and a mass number of 23. How many neutrons does it have?
+      A nuclide contains 11 protons and 12 neutrons. What is its mass number?
     choices:
-      - text: "12"
+      - text: '23'
         correct: true
-      - text: "11"
+      - text: '11'
         rationale: |
-          You picked the proton count. The atomic number 11 tells you protons, while neutrons equal mass number minus atomic number.
-      - text: "23"
+          This reports only the proton count. It is the atomic number and identifies the element. Check that mass number also includes neutrons.
+      - text: '12'
         rationale: |
-          You picked the mass number. Mass number includes both protons and neutrons.
-      - text: "34"
+          This reports only the neutron count. Neutrons contribute to nuclear mass. Check that protons are also counted.
+      - text: '1'
         rationale: |
-          You added 23 and 11. To get neutrons, subtract atomic number from mass number.
+          This subtracts the two counts, $12-11=1$. Subtraction is used when finding neutrons from a given mass number. Check which quantity is requested here.
     explanation: |
-      Neutrons equal the mass number minus the atomic number: $23 - 11 = 12$.
+      Mass number adds the proton and neutron counts. Here, $A=11+12=23$.
     approved: true
+
   - id: q-chemistry-atomic-structure-0003
-    type: classify
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
       One chlorine atom has 17 protons and 18 neutrons. Another chlorine atom has 17 protons and 20 neutrons. Are these two atoms isotopes of each other?
     choices:
-      - text: 'Yes: they have the same atomic number but different neutron counts, so they are isotopes.'
+      - text: 'Isotopes of the same element'
         correct: true
-      - text: 'No: they are different elements, since they have different neutron counts.'
+      - text: 'Atoms of different elements'
         rationale: |
-          You assumed neutron counts define elements. Proton count determines the element, so both are chlorine.
-      - text: 'No: isotopes must have different atomic numbers.'
+          This makes neutron number define element identity. Neutrons change the atom’s mass. Check which particle count defines the element.
+      - text: 'Ions defined by their neutron difference'
         rationale: |
-          You reversed the isotope definition. Isotopes must have the same atomic number but different mass numbers.
-      - text: 'Yes: but only because they have the same mass number.'
+          This confuses a neutron difference with a charge difference. Both change particle counts. Check whether the changed particles are neutral or charged.
+      - text: 'Nuclides with the same mass number'
         rationale: |
-          You misread the mass numbers. Their mass numbers are 35 and 37, which are different, not the same.
+          This assumes the same proton count means the same total nucleon count. Both are chlorine. Check whether their different neutron counts change the sum.
     explanation: |
-      Both atoms have 17 protons, so both are chlorine. Since they differ in neutron count (18 versus 20), they are isotopes of each other: chlorine-35 and chlorine-37.
+      Both atoms have 17 protons, so they are the same element. Their neutron counts differ. This makes them different isotopes of that element.
     approved: true
+
   - id: q-chemistry-atomic-structure-0004
-    type: simple-quantitative
-    difficulty: medium
+    type: 'simple-quantitative'
+    difficulty: 'medium'
     stem: |
-      A nitrogen atom has 7 protons. It gains 3 electrons to become an ion. What is the resulting charge?
+      A neutral nitrogen atom has 7 protons. It gains 3 electrons. What is the resulting ion charge?
     choices:
-      - text: 3-
+      - text: '$3-$'
         correct: true
-      - text: 3+
+      - text: '$3+$'
         rationale: |
-          You assigned a positive sign. Gaining negative electrons adds negative charge, resulting in a 3- ion.
-      - text: 4-
+          This reverses the sign of the added electrons. Gaining particles can sound like a positive change. Check that electrons carry negative charge.
+      - text: '$4-$'
         rationale: |
-          You subtracted 3 gained electrons from 7 protons. The 3 gained electrons directly determine the 3- charge magnitude.
-      - text: 10-
+          This subtracts the gained count from the proton count, then attaches a minus sign. The numbers 7 and 3 are both given. Check that charge uses the final total electron count.
+      - text: '$10-$'
         rationale: |
-          You confused the total electron count with charge. The atom now has 10 electrons, giving a net charge of 3-.
+          This uses the final electron count as the charge magnitude. There are 10 electrons after the gain. Check that positive protons offset part of that negative charge.
     explanation: |
-      Charge equals protons minus electrons. After gaining 3 electrons, the atom has $7 + 3 = 10$ electrons, so its charge is $7 - 10 = -3$.
+      The neutral atom starts with 7 electrons. Gaining 3 gives $7+3=10$. Net charge is protons minus electrons: $7-10=-3$, giving $3-$.
     approved: true
+
   - id: q-chemistry-atomic-structure-0005
-    type: simple-quantitative
-    difficulty: medium
+    type: 'simple-quantitative'
+    difficulty: 'medium'
     stem: |
       A magnesium ion has 12 protons and a charge of 2+. How many electrons does it have?
     choices:
-      - text: "10"
+      - text: '10'
         correct: true
-      - text: "12"
+      - text: '12'
         rationale: |
-          You gave the electron count of a neutral atom. A 2+ charge means the ion lost 2 electrons.
-      - text: "14"
+          This uses the neutral electron count. A magnesium atom has the same proton number as its ion. Check whether the positive charge indicates fewer electrons.
+      - text: '14'
         rationale: |
-          You added 2 electrons instead of subtracting them. A positive charge means losing electrons.
-      - text: "2"
+          This adds the charge magnitude, $12+2=14$. Adding can seem natural for a plus sign. Check whether a positive ion lost or gained electrons.
+      - text: '2'
         rationale: |
-          You picked the net charge magnitude. The charge is 2+, meaning there are 2 fewer electrons than protons.
+          This uses the charge magnitude as the total electron count. The number 2 measures an imbalance. Check the total count using the proton number.
     explanation: |
-      Electrons equal protons minus charge: $12 - 2 = 10$.
+      Use charge = protons minus electrons. A $2+$ ion has two fewer electrons than its 12 protons. The count is $12-2=10$.
     approved: true
+
   - id: q-chemistry-atomic-structure-0006
-    type: simple-quantitative
-    difficulty: medium
+    type: 'simple-quantitative'
+    difficulty: 'medium'
     stem: |
-      A fluorine ion has 9 protons and a charge of 1-. How many electrons does it have?
+      An ion has 9 protons and 10 electrons. What is its charge?
     choices:
-      - text: "10"
+      - text: '$1-$'
         correct: true
-      - text: "8"
+      - text: '$1+$'
         rationale: |
-          You subtracted 1 electron instead of adding it. A 1- charge means the ion gained 1 electron.
-      - text: "9"
+          This subtracts in the reverse order, $10-9=1$. Both orders give a magnitude of one. Check that the rule is protons minus electrons.
+      - text: '$9-$'
         rationale: |
-          You gave the electron count for a neutral fluorine atom. A 1- charge means it has 1 extra electron.
-      - text: "1"
+          This uses the proton count and attaches a negative sign. Protons do contribute charge. Check that electrons also contribute to the net total.
+      - text: '$10-$'
         rationale: |
-          You picked the net charge magnitude. A 1- charge means 1 extra electron beyond the 9 protons.
+          This uses total electrons as the negative charge magnitude. Electrons are negative. Check that the nine protons offset nine of them.
     explanation: |
-      Electrons equal protons minus charge: $9 - (-1) = 10$. Gaining one electron gives the atom one more electron than protons, matching the 1- charge.
+      Subtract electrons from protons: $9-10=-1$. The ion has charge $1-$.
     approved: true
+
   - id: q-chemistry-atomic-structure-0007
-    type: cause-effect
-    difficulty: medium
+    type: 'cause-effect'
+    difficulty: 'medium'
     stem: |
-      An atom loses two electrons. What kind of ion does it become?
+      A neutral atom loses two electrons without a nuclear change. How is the result classified?
     choices:
-      - text: A cation (positively charged), because it now has more protons than electrons.
+      - text: 'Cation'
         correct: true
-      - text: An anion (negatively charged), because losing something should decrease the charge.
+      - text: 'Anion'
         rationale: |
-          You confused charge signs. Losing negative electrons removes negative charge, leaving a positive cation.
-      - text: A neutral atom, since losing electrons does not affect charge.
+          This treats losing particles as a negative charge change. Removal sounds like subtraction. Check the sign of the particles being removed.
+      - text: 'Different isotope'
         rationale: |
-          You assumed electrons do not affect charge. Electrons carry negative charge, so changing their count creates an ion.
-      - text: An isotope, since the neutron count changes.
+          This confuses electron removal with a neutron change. Both alter particle counts. Check which count distinguishes isotopes.
+      - text: 'Different element'
         rationale: |
-          You confused ions with isotopes. Changing electron count creates an ion, while changing neutron count creates an isotope.
+          This confuses an electron change with a proton change. The atom’s charge has changed. Check which particle number defines the element.
     explanation: |
-      Losing electrons leaves more protons than electrons, making the atom positively charged: a cation. Only the electron count changed, not the neutron count, so it is not an isotope.
+      Removing negative electrons leaves more protons than electrons. The atom becomes positively charged. A positive ion is called a cation.
     approved: true
+
   - id: q-chemistry-atomic-structure-0008
-    type: cause-effect
-    difficulty: medium
+    type: 'classify'
+    difficulty: 'medium'
     stem: |
-      An atom gains two electrons. What kind of ion does it become?
+      The bonded group $NH_4^+$ has a net positive charge. Which description is correct?
     choices:
-      - text: An anion (negatively charged), because it now has more electrons than protons.
+      - text: 'A polyatomic cation'
         correct: true
-      - text: A cation (positively charged), because gaining something should increase the charge.
+      - text: 'A neutral molecule only'
         rationale: |
-          You treated gaining particles as gaining positive charge. Electrons are negative, so gaining them makes an anion.
-      - text: A neutral atom, since electrons do not affect charge.
+          This ignores the net charge on a bonded group. A multi-atom group can look like an ordinary molecule. Check the charge shown on the formula.
+      - text: 'A monatomic anion'
         rationale: |
-          You ignored electron charge. Adding negative electrons disrupts the neutral balance, forming an anion.
-      - text: An isotope, since the proton count changes.
+          This misreads both atom count and charge. Nitrogen is one element in the formula. Check the hydrogen atoms and the positive sign.
+      - text: 'An isotope of nitrogen'
         rationale: |
-          You misidentified the particle. Gaining electrons changes charge to form an ion; it does not change protons or make an isotope.
+          This confuses a nitrogen-containing group with a nitrogen isotope. The formula includes nitrogen. Check whether the difference concerns neutron number or bonding and charge.
     explanation: |
-      Gaining electrons leaves more electrons than protons, making the atom negatively charged: an anion. Electrons are negative, so having extra of them makes the overall charge more negative, not more positive.
+      $NH_4^+$ contains a bonded group of atoms, so it is polyatomic. Its positive charge makes it a cation.
     approved: true
+
   - id: q-chemistry-atomic-structure-0009
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
-      A word problem asks for the number of neutrons in a specific carbon-14 atom. Which number from the periodic table should NOT be used directly for this calculation?
+      Which quantity is usually an isotope-weighted value rather than a nucleon count for one nuclide?
     choices:
-      - text: Carbon's listed atomic mass of about 12.01, since that is an average across all natural isotopes, not carbon-14's actual mass number.
+      - text: 'Standard atomic weight'
         correct: true
-      - text: Carbon's atomic number of 6, since that is still needed to find the proton count.
+      - text: 'Mass number of a specified nuclide'
         rationale: |
-          You picked the atomic number. The atomic number of 6 is still needed to subtract from 14 to find neutrons.
-      - text: The number 14 itself, since that is the isotope's actual mass number.
+          This confuses a single-nuclide count with an isotope-weighted value. Both relate to atomic mass. Check whether the value averages isotopes or counts nucleons.
+      - text: 'Proton count in a specified nucleus'
         rationale: |
-          You picked the mass number given in the name. Carbon-14 means the mass number is 14.
-      - text: 'None of these: the periodic table''s atomic mass is always safe to use for any isotope calculation.'
+          This confuses element identity with average atomic mass. Proton count is used for every isotope. Check whether abundance changes that integer count.
+      - text: 'Neutron count in a specified nucleus'
         rationale: |
-          You assumed the average atomic mass applies to a specific isotope. The decimal mass on the table is an average across isotopes.
+          This confuses neutron variation with an average across isotopes. Isotopes do have different neutron counts. Check whether the question names one specified nucleus or a weighted value.
     explanation: |
-      The periodic table's atomic mass (about 12.01 for carbon) is a decimal average across all of carbon's natural isotopes. A specific isotope like carbon-14 has its own whole-number mass number (14), which is what should be used, not the table's average.
+      Standard atomic weight reflects isotope masses and their abundances. It is commonly not a whole number. It differs from the mass number of one specified nuclide.
     approved: true
+
   - id: q-chemistry-atomic-structure-0010
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
       A classmate says an atom "became an isotope" after losing one proton. Is this description correct?
     choices:
-      - text: 'No: losing a proton changes the atomic number, which makes it a different element entirely, not an isotope.'
+      - text: 'Its element changes.'
         correct: true
-      - text: 'Yes: isotopes are created whenever any subatomic particle count changes.'
+      - text: 'Only its charge changes as in electron loss.'
         rationale: |
-          You generalized particle changes. Changing protons changes the element itself, while isotopes differ only in neutrons.
-      - text: 'Yes: as long as the mass number stays the same.'
+          This treats losing a proton like losing an electron. Both particles carry charge. Check which count defines the element.
+      - text: 'Its original element stays fixed if mass is unchanged.'
         rationale: |
-          You ignored element identity. Changing protons changes the atomic number, creating a new element altogether.
-      - text: 'No: but only because isotopes require losing a neutron instead.'
+          This uses mass number to preserve identity. Nucleon totals can match across different nuclides. Check whether the proton count still matches.
+      - text: 'Its original element stays fixed if neutrons remain.'
         rationale: |
-          You restricted isotopes to losing neutrons. Isotopes can have more or fewer neutrons; losing protons is what changes elements.
+          This uses unchanged neutrons to preserve identity. Neutrons help define an isotope’s mass. Check which particle count actually names the element.
     explanation: |
-      Isotopes only ever differ in neutron count: protons always stay the same for a given element. Changing the proton count changes the atomic number, which means the atom becomes a completely different element, not an isotope of the original.
+      Proton count is the atomic number. Changing that count changes the element’s identity.
     approved: true
+
   - id: q-chemistry-atomic-structure-0011
-    type: classify
-    difficulty: hard
+    type: 'classify'
+    difficulty: 'hard'
     stem: |
-      A problem states "an ion has 15 protons" and then asks you to assume it has 15 electrons too. Is this assumption safe?
+      A monatomic ion has 15 protons, but its charge is not stated. What can be concluded about its electron count?
     choices:
-      - text: 'No: an ion by definition has an unequal number of protons and electrons; only a neutral atom has them equal.'
+      - text: 'It differs from 15 but is not fixed.'
         correct: true
-      - text: 'Yes: all atoms and ions always have equal protons and electrons.'
+      - text: 'It is exactly 15 because proton count fixes electrons.'
         rationale: |
-          You assumed neutral balance for ions. Ions exist specifically because proton and electron counts do not match.
-      - text: 'Yes: as long as the atomic number is odd.'
+          This applies the neutral-atom equality to an ion. Atomic number does fix proton count. Check whether the species is neutral.
+      - text: 'It must be exactly 14 for every positive or negative ion.'
         rationale: |
-          You introduced odd/even rules. Odd atomic numbers do not force ions to have equal protons and electrons.
-      - text: 'No: but only because 15 protons is too many for any real ion.'
+          This assumes every ion has lost exactly one electron. Some cations do form that way. Check whether a sign and magnitude of charge are given.
+      - text: 'It must be exactly 16 for every positive or negative ion.'
         rationale: |
-          You questioned the existence of 15 protons. Phosphorus has 15 protons and forms real ions like phosphate.
+          This assumes every ion has gained exactly one electron. Some anions do form that way. Check whether the question gives that particular charge.
     explanation: |
-      The word "ion" already tells you the particle is charged, meaning protons and electrons are NOT equal. Assuming they match without being told a specific charge would be a mistake: always check for a stated charge before assuming equal electrons and protons.
+      A monatomic ion has a nonzero net charge, so its proton and electron counts differ. The exact electron count requires the ion’s charge.
     approved: true
+
   - id: q-chemistry-atomic-structure-0012
-    type: simple-quantitative
-    difficulty: hard
+    type: 'simple-quantitative'
+    difficulty: 'hard'
     stem: |
-      An atom has an atomic number of 8 and a mass number of 18. The more common form of this element has a mass number of 16. How many neutrons does this atom have, and is it an isotope of the more common form?
+      A nuclide has atomic number 8 and mass number 18. Another nuclide of the same element has mass number 16. Which describes the first nuclide?
     choices:
-      - text: 10 neutrons; yes, it is an isotope (oxygen-18), since it has the same atomic number but a different neutron count.
+      - text: '10 neutrons; a different isotope'
         correct: true
-      - text: 18 neutrons; no, it is not an isotope.
+      - text: '18 neutrons; a different element'
         rationale: |
-          You used the mass number as the neutron count. Neutrons equal mass number minus atomic number: $18 - 8 = 10$.
-      - text: 8 neutrons; yes, it is an isotope.
+          This treats mass number as neutron count and mass difference as a new element. Both quantities concern the nucleus. Check proton count for identity and subtract it from mass number for neutrons.
+      - text: '8 neutrons; a different isotope'
         rationale: |
-          You confused neutrons with protons. The atomic number 8 gives protons; subtracting 8 from 18 gives 10 neutrons.
-      - text: 10 neutrons; no, since the mass numbers are different, they must be different elements.
+          This uses atomic number for neutron count. The number 8 appears in both nuclides. Check whether it counts protons or neutrons.
+      - text: '10 neutrons; a different element'
         rationale: |
-          You assumed different mass numbers mean different elements. Atomic number 8 defines the element as oxygen for both.
+          This interprets different mass as a different element. The neutron calculation is correct. Check whether the atomic number changes.
     explanation: |
-      Neutrons equal mass number minus atomic number: $18 - 8 = 10$. Since both atoms share the same atomic number (8, oxygen), but differ in neutron count and mass number, this is oxygen-18, an isotope of the more common oxygen-16.
+      Its neutron count is $18-8=10$. Both nuclides have the same atomic number but different mass numbers. They are different isotopes of the same element.
     approved: true
+
   - id: q-chemistry-atomic-structure-0013
-    type: simple-quantitative
-    difficulty: exam
+    type: 'simple-quantitative'
+    difficulty: 'exam'
     stem: |
       An iron atom has an atomic number of 26. One of its isotopes has 30 neutrons. This isotope then forms an ion with a charge of 3+. How many electrons does this ion have?
     choices:
-      - text: "23"
+      - text: '23'
         correct: true
-      - text: "29"
+      - text: '29'
         rationale: |
-          You added 3 to 26 instead of subtracting. A 3+ positive charge means losing 3 electrons from the 26 protons.
-      - text: "26"
+          This adds three instead of subtracting, $26+3=29$. A plus sign can suggest addition. Check whether positive charge indicates electron gain or loss.
+      - text: '26'
         rationale: |
-          You gave the electron count of a neutral iron atom. A 3+ charge means it has 3 fewer electrons.
-      - text: "33"
+          This uses the neutral count of 26. The atom and its ion share atomic number. Check the electron change indicated by $3+$.
+      - text: '33'
         rationale: |
-          You added 3 to the neutron count of 30. Neutron count does not determine electron count in an ion.
+          This adds three to the neutron count, $30+3=33$. Both counts are in the stem. Check that electrons are found from protons and charge, not neutrons.
     explanation: |
-      The neutron count and mass number do not affect the electron calculation here. Electrons equal protons minus charge: $26 - 3 = 23$. The isotope information (30 neutrons) only affects the mass number, not the electron count.
+      The ion has 26 protons. A $3+$ charge means three fewer electrons than protons. Subtract: $26-3=23$ electrons.
     approved: true
+
   - id: q-chemistry-atomic-structure-0014
-    type: classify
-    difficulty: medium
+    type: 'compare-contrast'
+    difficulty: 'medium'
     stem: |
-      Hydrogen-1 (no neutrons), hydrogen-2 (one neutron, also called deuterium), and hydrogen-3 (two neutrons, also called tritium) all have exactly one proton. How should these three atoms be classified relative to each other?
+      Neutral hydrogen-1, hydrogen-2, and hydrogen-3 each have one proton, but different neutron counts. Which property must they share?
     choices:
-      - text: They are all isotopes of hydrogen, since they share the same atomic number but differ in neutron count.
+      - text: 'Electron count'
         correct: true
-      - text: They are three different elements, since they have different mass numbers.
+      - text: 'Neutron count'
         rationale: |
-          You let mass number dictate element identity. All three have 1 proton, so all three are hydrogen.
-      - text: They are ions of each other, since they differ in particle count.
+          This assumes atoms of the same element have the same neutrons. Their names share hydrogen. Check the stated isotope difference.
+      - text: 'Mass number'
         rationale: |
-          You confused neutrons with electrons. Varying neutron counts creates isotopes, not charged ions.
-      - text: They cannot be related, since hydrogen only has one natural form.
+          This assumes element identity fixes mass number. The proton count is the same. Check whether adding different neutron counts gives the same total.
+      - text: 'Total nucleon count'
         rationale: |
-          You denied the existence of isotopes. Hydrogen naturally exists in these three isotopic forms.
+          This ignores neutrons when counting nucleons. All three nuclei have one proton. Check that nucleons include both protons and neutrons.
     explanation: |
-      All three have the same atomic number (1 proton), which makes them all hydrogen. Since they differ only in neutron count, they are isotopes of each other, not different elements, and not ions (their electron counts are not involved here).
+      Each atom is neutral, so its electron count equals its proton count. All three have one proton. Therefore each has one electron.
     approved: true
+
   - id: q-chemistry-atomic-structure-0015
-    type: predict-outcome
-    difficulty: exam
+    type: 'predict-outcome'
+    difficulty: 'exam'
     stem: |
-      A neutral phosphorus atom has 15 protons and 16 neutrons. It then loses one electron. What is its new charge, and how many electrons does it now have?
+      A neutral phosphorus-31 atom has 15 protons and 16 neutrons. It loses one electron. Which quantities remain unchanged?
     choices:
-      - text: Charge of 1+; 14 electrons.
+      - text: 'Atomic number and mass number'
         correct: true
-      - text: Charge of 1-; 16 electrons.
+      - text: 'Atomic number and net charge'
         rationale: |
-          You treated losing an electron as gaining one. Losing a negative electron leaves 14 electrons and a 1+ charge.
-      - text: Charge of 1+; 16 electrons.
+          This correctly preserves atomic number but also preserves charge. The nuclear identity is unchanged. Check whether electron loss creates a proton-electron imbalance.
+      - text: 'Electron count and mass number'
         rationale: |
-          You added an electron while keeping a positive charge. Losing one electron reduces the count from 15 to 14.
-      - text: Charge of 1-; 14 electrons.
+          This correctly preserves mass number but also preserves electron count. Electrons contribute little mass. Check whether little mass means their count stays unchanged.
+      - text: 'Electron count and net charge'
         rationale: |
-          You paired 14 electrons with a negative charge. Having 15 protons and 14 electrons leaves a net charge of 1+.
+          This preserves both quantities directly affected by electron removal. The nuclear counts do stay unchanged. Check which quantities describe electrons and electrical imbalance.
     explanation: |
-      As a neutral atom, it started with 15 electrons (equal to its 15 protons). Losing one electron leaves $15 - 1 = 14$ electrons. Charge equals protons minus electrons: $15 - 14 = +1$.
+      Only an electron is removed. Proton and neutron counts stay unchanged. Atomic number counts protons, and mass number counts protons plus neutrons, so both remain the same.
     approved: true
+
+  - id: q-chemistry-atomic-structure-0016
+    type: 'identify'
+    difficulty: 'easy'
+    stem: |
+      Which main subatomic particle has zero electric charge?
+    choices:
+      - text: 'Neutron'
+        correct: true
+      - text: 'Proton'
+        rationale: |
+          This confuses the two main nuclear particles. Both have similar masses. Check their charge signs.
+      - text: 'Electron'
+        rationale: |
+          This confuses small mass with no charge. Electrons are much lighter than nuclear particles. Check whether mass and electric charge are the same property.
+      - text: 'Atomic cation'
+        rationale: |
+          This confuses a stable charged species with a neutral particle. A cation can be stable. Check whether its name indicates positive charge.
+    explanation: |
+      A neutron carries no net electric charge. Its charge is zero.
+    approved: false
+
+  - id: q-chemistry-atomic-structure-0017
+    type: 'structure-function'
+    difficulty: 'medium'
+    stem: |
+      Why is nearly all ordinary atomic mass concentrated in the nucleus?
+    choices:
+      - text: 'Protons and neutrons are much heavier than electrons.'
+        correct: true
+      - text: 'Electrons account for nearly all an atom’s mass.'
+        rationale: |
+          This equates the large region occupied by electrons with most of the mass. The electron cloud extends around the nucleus. Check particle masses instead of space occupied.
+      - text: 'Positive charge has mass but negative charge has none.'
+        rationale: |
+          This assigns mass according to charge sign. Nuclear protons are both heavy and positive. Check that neutrons have mass despite zero charge and electrons have mass despite negative charge.
+      - text: 'All particles outside the nucleus must be massless.'
+        rationale: |
+          This treats a very small mass as exactly zero. Electron mass is tiny compared with nuclear mass. Check whether negligible in a rough total means absent.
+    explanation: |
+      Protons and neutrons are in the nucleus and each has a mass close to one atomic mass unit. Electrons have much smaller masses. The nuclear particles therefore account for nearly all the atom’s mass.
+    approved: false
+
+  - id: q-chemistry-atomic-structure-0018
+    type: 'compare-contrast'
+    difficulty: 'hard'
+    stem: |
+      Which statement distinguishes an orbital from a literal planetary orbit?
+    choices:
+      - text: 'An orbital describes an electron’s quantum state.'
+        correct: true
+      - text: 'An orbital specifies one fixed circular electron path.'
+        rationale: |
+          This treats a teaching ring as an actual path. Bohr-style diagrams show simple rings. Check whether the modern model describes a trajectory or a probability distribution.
+      - text: 'An orbital gives a neutron’s route around the nucleus.'
+        rationale: |
+          This assigns electron regions to neutrons. Both are atomic constituents. Check where neutrons and electrons occur in the introductory model.
+      - text: 'An orbital replaces all probability with a known trajectory.'
+        rationale: |
+          This turns a quantum description into certainty about a classical path. A drawn region can look like a known route. Check the role of probability in the orbital model.
+    explanation: |
+      An orbital describes an electron’s quantum state and its associated probability distribution. It is not a fixed classical path.
+    approved: false
+
+  - id: q-chemistry-atomic-structure-0019
+    type: 'process-ordering'
+    difficulty: 'hard'
+    stem: |
+      A question gives a monatomic ion’s atomic number and signed charge. Which sequence finds its electron count?
+    choices:
+      - text: 'Use atomic number for protons, then subtract charge.'
+        correct: true
+      - text: 'Use atomic number for neutrons, then add charge.'
+        rationale: |
+          This assigns atomic number to neutrons and adds charge. Atomic number is a particle count, so the first step looks familiar. Check which particle it actually counts.
+      - text: 'Use charge for protons, then subtract atomic number.'
+        rationale: |
+          This treats charge as a total proton count. Charge is a difference between counts. Check whether it identifies total protons or their imbalance with electrons.
+      - text: 'Use mass number for electrons, then subtract charge.'
+        rationale: |
+          This substitutes mass number for electron count. Both appear in atomic problems. Check whether mass number counts nuclear particles or electrons.
+    explanation: |
+      Atomic number gives the proton count. Since charge equals protons minus electrons, electron count equals protons minus the signed charge.
+    approved: false
+
+  - id: q-chemistry-atomic-structure-0020
+    type: 'predict-outcome'
+    difficulty: 'exam'
+    stem: |
+      A nuclide gains a neutron while its proton and electron counts stay the same. Which result follows?
+    choices:
+      - text: 'Mass number rises; charge stays unchanged.'
+        correct: true
+      - text: 'Atomic number rises; charge becomes more positive.'
+        rationale: |
+          This treats a neutron as an added proton. Both occur in the nucleus. Check which count defines atomic number and which particle is charged.
+      - text: 'Mass number stays unchanged; charge becomes negative.'
+        rationale: |
+          This ignores the neutron’s mass contribution and gives it negative charge. The atom did gain a particle. Check that a neutron adds to nucleon count but carries no charge.
+      - text: 'Atomic number falls; electron count rises.'
+        rationale: |
+          This invents changes in particles that the stem holds fixed. Nuclear changes can sound like several counts must change. Check each count explicitly stated to stay the same.
+    explanation: |
+      Mass number is protons plus neutrons. Adding one neutron raises that total by one. Neutrons have zero charge, and the charged particle counts remain unchanged.
+    approved: false

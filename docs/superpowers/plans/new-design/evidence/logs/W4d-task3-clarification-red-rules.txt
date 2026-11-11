@@ -1,0 +1,40 @@
+
+✅ selecting a topic contributes one unit for each lesson
+✅ questions mode uses the approved initial pace of 50 seconds
+✅ total time is divided across lessons instead of multiplied
+✅ measured pace replaces the approved initial pace
+✅ no questions in a lesson never become a selectable unit
+::group::❌ nonpositive pace 0 uses approved initial estimate for questions (failed)
+Expected: <10>
+  Actual: <0>
+
+package:matcher                                                        expect
+package:flutter_test/src/widget_tester.dart 473:18                     expect
+test/features/quiz/domain/picker/practice_design_rules_test.dart 98:7  main.<fn>
+::endgroup::
+::group::❌ nonpositive pace 0 uses bounded total-time budget (failed)
+Expected: <12>
+  Actual: <0>
+
+package:matcher                                                         expect
+package:flutter_test/src/widget_tester.dart 473:18                      expect
+test/features/quiz/domain/picker/practice_design_rules_test.dart 105:7  main.<fn>
+::endgroup::
+::group::❌ nonpositive pace -50000 uses approved initial estimate for questions (failed)
+Expected: <10>
+  Actual: <-10>
+
+package:matcher                                                        expect
+package:flutter_test/src/widget_tester.dart 473:18                     expect
+test/features/quiz/domain/picker/practice_design_rules_test.dart 98:7  main.<fn>
+::endgroup::
+::group::❌ nonpositive pace -50000 uses bounded total-time budget (failed)
+Expected: <12>
+  Actual: <0>
+
+package:matcher                                                         expect
+package:flutter_test/src/widget_tester.dart 473:18                      expect
+test/features/quiz/domain/picker/practice_design_rules_test.dart 105:7  main.<fn>
+::endgroup::
+
+::error::5 tests passed, 4 failed.

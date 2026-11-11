@@ -1,353 +1,448 @@
 meta:
-  subject: reading-comprehension
-  topic: comprehension-skills
-  subtopic: noting-specific-details
+  subject: "reading-comprehension"
+  topic: "comprehension-skills"
+  subtopic: "noting-specific-details"
   exams:
-    - upcat
-    - acet
-    - dlsucet
-    - ustet
-
+    - "upcat"
+    - "acet"
+    - "dlsucet"
+    - "ustet"
 passages:
-  - id: rc-cs-nsd-p1
-    title: "The Cebu-Cordova Expressway Infrastructure"
+  - id: "rc-cs-nsd-p1"
+    title: "A Fictional Bridge Project"
     body: |
-      The Cebu-Cordova Link Expressway, commonly known as CCLEX, opened for commercial operation in April 2022 after four years of continuous construction. Spanning 8.9 kilometers across the Mactan Channel, it connects Cebu City directly to the municipality of Cordova on Mactan Island. Designed to handle up to fifty thousand vehicles daily, the toll bridge was built to relieve traffic congestion on the older Marcelo Fernan and Mandaue-Mactan bridges.
-
-      Engineer Manuel Santos served as the project's chief structural inspector during the final phase of bridge construction. Under his supervision, workers installed stay cables anchored to two main towers that rise 145 meters above sea level. To increase toll collection efficiency, project operators introduced an all-electronic RFID tag system in July 2022, phasing out cash toll booths completely by December of that same year.
-
-      While initial construction costs were estimated at twenty-six billion pesos, final expenditure reports placed total project investments at thirty-three billion pesos due to material inflation and coastal reinforcement adjustments. Today, CCLEX stands as the longest sea-crossing bridge structure in the Philippines.
-
-  - id: rc-cs-nsd-p2
-    title: "Evolution of the Higantes Festival"
+      In this fictional project account, the Bay Link Bridge opens for commercial operation in April 2022. Construction began in March 2018. The 8.9-kilometer route connects a city with an island municipality and is designed for up to fifty thousand vehicles daily. Its main towers rise 145 meters above sea level, while a separate approach span is 200 meters long.
+      
+      Engineer Elena Cruz designs the approach roads, and Engineer Ramon Vega supervises their construction. Manuel Santos serves as chief structural inspector during the final bridge phase. Rosa Santos prepares the final expenditure report. Their duties differ even though they work on the same project.
+      
+      Operators introduce electronic toll tags in July 2022 and complete the planned phaseout of cash booths in December 2022. The initial cost estimate is twenty-six billion pesos; the final investment is thirty-three billion pesos. A separate maintenance proposal, not part of construction, lists fourteen billion pesos over a much longer period. The account distinguishes the project's dates, dimensions, roles, and costs so readers can locate each detail accurately.
+  - id: "rc-cs-nsd-p2"
+    title: "A Fictional Festival Schedule"
     body: |
-      The Higantes Festival is an annual cultural celebration held in Angono, Rizal, in honor of Saint Clement, the patron saint of fishermen. Historically, the parade took place exclusively on November 23. However, local tourism officials expanded the event in 2010 into a two-week cultural festival spanning mid-November, culminating in the traditional grand procession on November 23.
-
-      Originally created during the late Spanish colonial period as a subtle form of satire against wealthy landlords, the giant figures were crafted entirely from bamboo frames and paper-mache using recycled newspapers. In 1998, local artisan guilds introduced lightweight aluminum frames and fiberglass resin heads to ensure the figures could withstand heavy rains during coastal processions.
-
-      Each barangay in Angono contributes at least two giant figures to the main parade. In 2023, fifty-six giant figures participated in the grand procession, witnessed by an estimated forty thousand tourists along the three-kilometer parade route.
-
-  - id: rc-cs-nsd-p3
-    title: "Benguet Coffee Farmers Cooperative"
+      This fictional town account describes the Harbor Festival, a celebration held in honor of Saint Clement. The old parade took place on November 23. In 2010, organizers expanded it into two weeks of cultural activities beginning in mid-November. The main procession still takes place on November 23, while a separate lantern exhibition opens on October 31 and closes on December 1.
+      
+      Artists originally made giant parade figures using bamboo frames and heads of paper-mache formed from recycled newspapers. In 1998, the guild introduced lightweight aluminum frames and fiberglass resin heads. Carved wooden figures remain in a museum display, but they are not the giant figures used in this account's procession.
+      
+      Each barangay contributes at least two giants. In the fictional 2023 report, fifty-six giants appear in the procession, and forty thousand visitors watch along a three-kilometer route. A separate five-kilometer charity walk takes place the following day. Organizers record these events separately so the parade totals are not confused with other activities.
+  - id: "rc-cs-nsd-p3"
+    title: "A Fictional Coffee Cooperative"
     body: |
-      Founded in 2014 with just fourteen founding members, the Benguet Arabica Coffee Farmers Cooperative has grown to include over two hundred smallholder farmers across the municipality of Atok. The cooperative specializes in growing high-altitude Arabica coffee beans cultivated at elevations between 1,200 and 1,600 meters above sea level, where cool temperatures allow coffee cherries to mature slowly.
-
+      In this fictional account, founded in 2014 with just fourteen founding members, the Mountain Arabica Coffee Cooperative has grown to include over two hundred smallholder farmers in a mountain municipality. The cooperative specializes in growing high-altitude Arabica coffee beans cultivated at elevations between 1,200 and 1,600 meters above sea level, where cool temperatures allow coffee cherries to mature slowly.
+      
       Harvesting takes place exclusively between November and February, when farm workers hand-pick only fully ripened red cherries. In 2021, the cooperative established a centralized wet-milling facility funded by a three-million-peso agricultural grant. Before this facility was built, individual farmers processed cherries at home using manual hand-cranked pulpers, resulting in inconsistent bean quality.
-
+      
       The introduction of centralized moisture testing and raised drying beds boosted the cooperative's specialty coffee rating to eighty-six points on the international coffee scale. Consequently, farmgate prices for green coffee beans rose from two hundred pesos per kilogram in 2019 to five hundred fifty pesos per kilogram by 2023.
-
+  - id: "p-comprehension-skills-noting-specific-details-0004"
+    title: "The Archive Notice"
+    body: |
+      The school archive will move to the east wing on Monday, October 12. Until the move, visitors may use the old reading room beside the library. After the move, the archive entrance will be opposite the science office. The library itself will remain in its current location. Staff ask visitors to check the signs because the two rooms share similar names.
+      
+      Requests for photographs must reach Ms. Dela Cruz by Friday, October 9. Requests for written records go to Mr. Lim, who accepts them until Monday morning. Ms. Dela Cruz prepares the digital photo files; Mr. Lim checks the written records before releasing copies. Neither deadline changes the date of the move.
+      
+      The archive will open at nine in the morning on weekdays and close at four in the afternoon. Its former opening time was eight. A student orientation begins at ten on the first day in the east wing. Students attending it should use the new archive entrance, while regular library users should follow the existing library signs.
 questions:
-  - id: rc-cs-nsd-0001
-    passage: rc-cs-nsd-p1
-    type: identify
-    difficulty: easy
+  - id: "rc-cs-nsd-0001"
+    passage: "rc-cs-nsd-p1"
+    type: "noting-specific-details"
+    difficulty: "easy"
     stem: |
-      In what month and year did the CCLEX open for commercial operation?
+      In what month and year does the Bay Link Bridge open for commercial operation?
     choices:
-      - text: April 2022
+      - text: "April 2022"
         correct: true
-      - text: July 2022
+      - text: "July 2022"
         rationale: |
-          You picked the date when the electronic RFID tag system was introduced, not when the expressway opened for commercial operation.
-      - text: December 2022
+          This selects the toll-tag introduction. Both occur in the same year. Check which date is linked to opening.
+      - text: "December 2022"
         rationale: |
-          You picked the date when cash toll booths were completely phased out, rather than when commercial operations began.
-      - text: March 2018
+          This selects the end of the cash-booth phaseout. It is an operating milestone. Check the first date for commercial operation.
+      - text: "March 2018"
         rationale: |
-          You picked a date when construction was starting. The passage explicitly states commercial operation began in April 2022.
+          This selects the start of construction. It begins the project timeline. Check whether the question asks about building or opening.
     explanation: |
-      The first paragraph explicitly states that CCLEX opened for commercial operation in April 2022.
-
-  - id: rc-cs-nsd-0002
-    passage: rc-cs-nsd-p1
-    type: identify
-    difficulty: easy
+      The opening sentence states that commercial operation begins in April 2022.
+  - id: "rc-cs-nsd-0002"
+    passage: "rc-cs-nsd-p1"
+    type: "noting-specific-details"
+    difficulty: "easy"
     stem: |
-      What were the final total project investments reported for the CCLEX construction?
+      What final construction investment does the bridge account report?
     choices:
-      - text: Thirty-three billion pesos
+      - text: "33 billion pesos"
         correct: true
-      - text: Twenty-six billion pesos
+      - text: "Twenty-six billion pesos"
         rationale: |
-          You picked the initial estimated construction cost before inflation and reinforcement adjustments raised the total to thirty-three billion pesos.
-      - text: Fifty billion pesos
+          This selects the initial estimate. It is also a construction figure. Check the word final.
+      - text: "Fourteen billion pesos"
         rationale: |
-          You picked fifty thousand, which is the daily vehicle capacity of the bridge, not the monetary investment cost.
-      - text: Fourteen billion pesos
+          This selects the separate maintenance proposal. Both are large costs. Check which one belongs to construction.
+      - text: "Seven billion pesos"
         rationale: |
-          You picked a figure not mentioned in the text. The passage lists initial costs at 26 billion and final costs at 33 billion.
+          This gives the difference between estimate and final cost. Subtracting the two figures yields seven. Check that the question asks for the total, not the increase.
     explanation: |
-      The final paragraph states that while initial costs were estimated at twenty-six billion pesos, final reports placed total investments at thirty-three billion pesos.
-
-  - id: rc-cs-nsd-0003
-    passage: rc-cs-nsd-p1
-    type: identify
-    difficulty: medium
+      The final paragraph identifies thirty-three billion pesos as the final investment.
+  - id: "rc-cs-nsd-0003"
+    passage: "rc-cs-nsd-p1"
+    type: "noting-specific-details"
+    difficulty: "medium"
     stem: |
-      When were cash toll booths completely phased out on the expressway?
+      When does the bridge account say the cash-booth phaseout is complete?
     choices:
-      - text: December 2022
+      - text: "December 2022"
         correct: true
-      - text: July 2022
+      - text: "July 2022"
         rationale: |
-          You picked the month when the electronic RFID tag system was introduced, five months before cash booths were fully phased out.
-      - text: April 2022
+          This selects the start of electronic tags. That begins the change in payment. Check when the phaseout is completed.
+      - text: "April 2022"
         rationale: |
-          You picked the month CCLEX opened for operation. Cash booths were phased out later in December 2022.
-      - text: November 2023
+          This selects commercial opening. Operations begin then. Check the later payment-system dates.
+      - text: "March 2018"
         rationale: |
-          You picked a date from a different passage. Cash booths on CCLEX were phased out by December 2022.
+          This selects construction start. It is the first project date. Check which event the question names.
     explanation: |
-      The second paragraph states that operators introduced RFID in July 2022 and phased out cash toll booths completely by December 2022.
-
-  - id: rc-cs-nsd-0004
-    passage: rc-cs-nsd-p1
-    type: identify
-    difficulty: medium
+      The final paragraph states that the planned phaseout is completed in December 2022.
+  - id: "rc-cs-nsd-0004"
+    passage: "rc-cs-nsd-p1"
+    type: "noting-specific-details"
+    difficulty: "medium"
     stem: |
-      How high above sea level do the main towers of the bridge rise?
+      How high do the main bridge towers rise above sea level?
     choices:
-      - text: 145 meters
+      - text: "145 meters"
         correct: true
-      - text: 8.9 meters
+      - text: "200 meters"
         rationale: |
-          You picked the total length of the expressway across the channel, not the height of the main towers above sea level.
-      - text: 50 meters
+          This selects the approach span length. Both are measured in meters. Check whether the number describes height or length.
+      - text: "8.9 meters"
         rationale: |
-          You picked fifty, which refers to the daily vehicle capacity of fifty thousand vehicles, not the height of the main towers.
-      - text: 200 meters
+          This transfers the route length into tower height and changes its unit. The route is 8.9 kilometers. Check the measured feature and unit.
+      - text: "50 meters"
         rationale: |
-          You picked a figure not found in the passage. Paragraph 2 explicitly states the main towers rise 145 meters above sea level.
+          This borrows the leading number from vehicle capacity. Fifty thousand describes traffic. Check that the answer measures height.
     explanation: |
-      The second paragraph specifies that the stay cables are anchored to two main towers rising 145 meters above sea level.
-
-  - id: rc-cs-nsd-0005
-    passage: rc-cs-nsd-p1
-    type: identify
-    difficulty: hard
+      The first paragraph states that the main towers rise 145 meters above sea level.
+  - id: "rc-cs-nsd-0005"
+    passage: "rc-cs-nsd-p1"
+    type: "noting-specific-details"
+    difficulty: "hard"
     stem: |
-      Who served as the project's chief structural inspector during the final construction phase?
+      Who is chief structural inspector during the final bridge phase?
     choices:
-      - text: Manuel Santos
+      - text: "M. Santos"
         correct: true
-      - text: Engineer Elena Cruz
+      - text: "Elena Cruz"
         rationale: |
-          You picked a name not mentioned in the text. The passage explicitly names Engineer Manuel Santos.
-      - text: Engineer Ramon Vega
+          This selects the approach-road designer. Both roles involve engineering. Match the name to chief structural inspector.
+      - text: "Ramon Vega"
         rationale: |
-          You picked a name that does not appear in the passage. Paragraph 2 names Manuel Santos as the chief inspector.
-      - text: Engineer Rosa Santos
+          This selects the construction supervisor for the approach roads. Supervision sounds similar to inspection. Check the exact role and phase.
+      - text: "Rosa Santos"
         rationale: |
-          You picked a different surname variation. The chief structural inspector named in paragraph 2 is Engineer Manuel Santos.
+          This selects the expenditure-report writer. The surname is shared. Check both the first name and assigned task.
     explanation: |
-      The second paragraph explicitly identifies Engineer Manuel Santos as the chief structural inspector during the final phase.
-
-  - id: rc-cs-nsd-0006
-    passage: rc-cs-nsd-p2
-    type: identify
-    difficulty: easy
+      The second paragraph assigns the chief structural inspector role to Manuel Santos.
+  - id: "rc-cs-nsd-0006"
+    passage: "rc-cs-nsd-p2"
+    type: "noting-specific-details"
+    difficulty: "easy"
     stem: |
-      In whose honor is the annual Higantes Festival celebrated in Angono?
+      Whom does the fictional Harbor Festival honor?
     choices:
-      - text: Saint Clement
+      - text: "Saint Clement"
         correct: true
-      - text: Saint Joseph
+      - text: "The local artisan guild"
         rationale: |
-          You picked a saint not mentioned in the text. The passage explicitly names Saint Clement, the patron saint of fishermen.
-      - text: Saint Francis
+          This selects a group making parade figures. The guild contributes to the event. Check who is named as the honoree.
+      - text: "The municipal organizers"
         rationale: |
-          You picked a saint not named in the passage. Paragraph 1 states the festival honors Saint Clement.
-      - text: Saint Lorenzo
+          This selects the people arranging the event. They appear in the schedule discussion. Check the opening statement of purpose.
+      - text: "The participating barangays"
         rationale: |
-          You picked a saint not mentioned in the text. The opening sentence identifies Saint Clement as the honored patron saint.
+          This selects the groups contributing giants. Participation is important to the parade. Check the difference between contributors and the honoree.
     explanation: |
-      The first sentence of the passage states that the festival is held in honor of Saint Clement, patron saint of fishermen.
-
-  - id: rc-cs-nsd-0007
-    passage: rc-cs-nsd-p2
-    type: identify
-    difficulty: easy
+      The first sentence says that the festival is held in honor of Saint Clement.
+  - id: "rc-cs-nsd-0007"
+    passage: "rc-cs-nsd-p2"
+    type: "noting-specific-details"
+    difficulty: "easy"
     stem: |
-      What material was introduced by local artisan guilds in 1998 for crafting the heads of the giant figures?
+      What new head material does the guild introduce in 1998?
     choices:
-      - text: Fiberglass resin
+      - text: "Fiberglass resin"
         correct: true
-      - text: Recycled newspapers
+      - text: "Recycled newspapers"
         rationale: |
-          You picked the original paper-mache head material used during the Spanish colonial period, before fiberglass resin was introduced in 1998.
-      - text: Carved wood
+          This selects the original paper-mache material. It appears in the same paragraph. Check the change introduced in 1998.
+      - text: "Carved wood"
         rationale: |
-          You picked a material not mentioned for the heads. Paragraph 2 describes bamboo frames and paper-mache, later updated with fiberglass.
-      - text: Woven bamboo
+          This selects the museum display material. Both involve figures. Check which figures belong to the procession.
+      - text: "Lightweight aluminum"
         rationale: |
-          You picked the frame material used for the bodies, not the fiberglass resin material introduced for the heads.
+          This selects the new frame material. It changes in the same year. Check that the question asks about heads.
     explanation: |
-      The second paragraph notes that local artisan guilds introduced aluminum frames and fiberglass resin heads in 1998.
-
-  - id: rc-cs-nsd-0008
-    passage: rc-cs-nsd-p2
-    type: identify
-    difficulty: medium
+      The second paragraph pairs the 1998 change with fiberglass resin heads.
+  - id: "rc-cs-nsd-0008"
+    passage: "rc-cs-nsd-p2"
+    type: "noting-specific-details"
+    difficulty: "medium"
     stem: |
-      How many giant figures participated in the grand procession in 2023?
+      How many giants appear in the fictional 2023 procession?
     choices:
-      - text: Fifty-six
+      - text: "Fifty-six"
         correct: true
-      - text: Forty
+      - text: "Forty thousand"
         rationale: |
-          You picked forty, which refers to forty thousand estimated tourists along the route, not the number of giant figures.
-      - text: Ten
+          This selects the visitor estimate. Both counts describe the procession. Check whether the count is people or giants.
+      - text: "Two"
         rationale: |
-          You picked a figure not mentioned in the text. Paragraph 3 states that fifty-six giant figures participated in 2023.
-      - text: Two hundred
+          This selects the minimum contribution per barangay. It is a figure count. Check whether the question asks per barangay or for the whole procession.
+      - text: "Five"
         rationale: |
-          You picked a number not found in this passage. Paragraph 3 states that fifty-six giant figures participated in 2023.
+          This selects the charity-walk distance. The next-day event is nearby in the text. Check the event and quantity.
     explanation: |
-      The third paragraph specifies that in 2023, fifty-six giant figures participated in the grand procession.
-
-  - id: rc-cs-nsd-0009
-    passage: rc-cs-nsd-p2
-    type: identify
-    difficulty: medium
+      The report in the final paragraph gives fifty-six as the procession's giant-figure count.
+  - id: "rc-cs-nsd-0009"
+    passage: "rc-cs-nsd-p2"
+    type: "noting-specific-details"
+    difficulty: "medium"
     stem: |
-      What was the original historical date of the parade before tourism officials expanded the event in 2010?
+      On what date did the old parade take place?
     choices:
-      - text: November 23
+      - text: "November 23"
         correct: true
-      - text: Mid-November
+      - text: "Mid-November"
         rationale: |
-          You picked the timeframe introduced when tourism officials expanded the festival into a two-week event in 2010.
-      - text: October 31
+          This selects the start of the expanded activities. The festival changed in 2010. Check the date of the old parade.
+      - text: "October 31"
         rationale: |
-          You picked a date not mentioned in the text. Historically, the parade took place exclusively on November 23.
-      - text: December 1
+          This selects the lantern exhibition opening. Both are festival activities. Check which event is named.
+      - text: "December 1"
         rationale: |
-          You picked a date outside the festival timeframe. Paragraph 1 states the original historical parade date was November 23.
+          This selects the lantern exhibition closing. It is another schedule detail. Check that the question asks about the parade.
     explanation: |
-      The first paragraph explains that historically the parade took place exclusively on November 23 before expansion in 2010.
-
-  - id: rc-cs-nsd-0010
-    passage: rc-cs-nsd-p2
-    type: identify
-    difficulty: hard
+      The first paragraph identifies November 23 as the old parade date.
+  - id: "rc-cs-nsd-0010"
+    passage: "rc-cs-nsd-p2"
+    type: "noting-specific-details"
+    difficulty: "hard"
     stem: |
-      What was the estimated length of the grand parade route during the festival?
+      What is the length of the grand procession route?
     choices:
-      - text: 3 kilometers
+      - text: "3 kilometers"
         correct: true
-      - text: Five kilometers
+      - text: "Five kilometers"
         rationale: |
-          You picked a distance not mentioned in the passage. Paragraph 3 specifies that the parade route was three kilometers long.
-      - text: Ten kilometers
+          This selects the charity-walk route. Both distances concern public events. Check which route belongs to the procession.
+      - text: "Two kilometers"
         rationale: |
-          You picked a distance not found in the text. The passage states tourists lined a three-kilometer route.
-      - text: Two kilometers
+          This uses the minimum giant contribution as a distance. Two appears nearby. Check the number's unit.
+      - text: "Forty kilometers"
         rationale: |
-          You picked two, which refers to the minimum of two figures contributed by each barangay, not the parade route distance.
+          This borrows the leading number of the visitor estimate. Forty thousand counts people. Check that the question asks for distance.
     explanation: |
-      The final paragraph states that forty thousand tourists witnessed the parade along the three-kilometer parade route.
-
-  - id: rc-cs-nsd-0011
-    passage: rc-cs-nsd-p3
-    type: identify
-    difficulty: easy
+      The final paragraph describes visitors along a three-kilometer procession route.
+  - id: "rc-cs-nsd-0011"
+    passage: "rc-cs-nsd-p3"
+    type: "noting-specific-details"
+    difficulty: "easy"
     stem: |
-      In what year was the Benguet Arabica Coffee Farmers Cooperative founded?
+      In what year was the fictional Mountain Arabica Coffee Cooperative founded?
     choices:
       - text: "2014"
         correct: true
       - text: "2019"
         rationale: |
-          You picked the year green coffee bean prices were two hundred pesos, five years after the cooperative was founded in 2014.
+          This selects the earlier price-report year. Several dates appear in the account. Check which is linked to founding.
       - text: "2021"
         rationale: |
-          You picked the year the cooperative established its wet-milling facility, not the founding year of 2014.
+          This selects the milling-facility year. It is another major milestone. Check the beginning of the cooperative.
       - text: "2023"
         rationale: |
-          You picked the year farmgate bean prices reached five hundred fifty pesos per kilogram.
+          This selects the later price-report year. It marks an outcome. Check the date of establishment.
     explanation: |
-      The first sentence states that the cooperative was founded in 2014 with fourteen founding members.
-
-  - id: rc-cs-nsd-0012
-    passage: rc-cs-nsd-p3
-    type: identify
-    difficulty: easy
+      The opening places the cooperative's founding in 2014.
+  - id: "rc-cs-nsd-0012"
+    passage: "rc-cs-nsd-p3"
+    type: "noting-specific-details"
+    difficulty: "easy"
     stem: |
-      During which months does coffee harvesting take place in Atok?
+      Which months form the cooperative's stated harvest period?
     choices:
-      - text: Nov to Feb
+      - text: "Nov to Feb"
         correct: true
-      - text: March to June
+      - text: "March to June"
         rationale: |
-          You picked months outside the harvest season. Paragraph 2 explicitly states harvesting takes place between November and February.
-      - text: July to October
+          This moves the four-month interval after the stated period. A similar length can look plausible. Match both endpoints to the passage.
+      - text: "July to October"
         rationale: |
-          You picked off-season months. The passage states farm workers hand-pick red cherries exclusively between November and February.
-      - text: January to April
+          This uses the interval before the stated harvest. It may seem seasonally related. Check the start and end given.
+      - text: "January to April"
         rationale: |
-          You picked an overlapping four-month window. The text explicitly limits harvesting to November through February.
+          This overlaps two harvest months but extends beyond the period. January and February are included. Check the full range.
     explanation: |
-      The second paragraph states that harvesting takes place exclusively between November and February.
-
-  - id: rc-cs-nsd-0013
-    passage: rc-cs-nsd-p3
-    type: identify
-    difficulty: medium
+      The second paragraph states that harvesting takes place between November and February.
+  - id: "rc-cs-nsd-0013"
+    passage: "rc-cs-nsd-p3"
+    type: "noting-specific-details"
+    difficulty: "medium"
     stem: |
-      What was the farmgate price per kilogram of green coffee beans in 2023?
+      What is the stated price per kilogram of green coffee beans in 2023?
     choices:
-      - text: Five hundred fifty pesos
+      - text: "550 pesos"
         correct: true
-      - text: Two hundred pesos
+      - text: "200 pesos"
         rationale: |
-          You picked the lower farmgate price from 2019, before processing improvements raised the price to five hundred fifty pesos by 2023.
-      - text: Three hundred pesos
+          This selects the 2019 price. It is the same product and unit. Check the year.
+      - text: "300 pesos"
         rationale: |
-          You picked three, which refers to the three-million-peso agricultural grant received in 2021, not bean price per kilogram.
-      - text: Eight hundred pesos
+          This borrows the leading number of the grant amount. Three million funds a facility. Check the scale and purpose of the amount.
+      - text: "86 pesos"
         rationale: |
-          You picked a figure not found in the passage. The 2023 price was five hundred fifty pesos per kilogram.
+          This uses the specialty rating as a price. Eighty-six is a score in points. Check the unit attached to the number.
     explanation: |
-      The final sentence states that green coffee bean prices rose from two hundred pesos in 2019 to five hundred fifty pesos per kilogram by 2023.
-
-  - id: rc-cs-nsd-0014
-    passage: rc-cs-nsd-p3
-    type: identify
-    difficulty: medium
+      The final sentence gives five hundred fifty pesos per kilogram for 2023.
+  - id: "rc-cs-nsd-0014"
+    passage: "rc-cs-nsd-p3"
+    type: "noting-specific-details"
+    difficulty: "medium"
     stem: |
-      At what elevation range is the cooperative's Arabica coffee cultivated?
+      At what elevation range does the cooperative cultivate its coffee?
     choices:
-      - text: 1,200 to 1,600 meters above sea level
+      - text: "1,200 to 1,600 meters"
         correct: true
-      - text: Between 500 and 800 meters above sea level
+      - text: "500 to 800 meters above sea level"
         rationale: |
-          You picked an elevation lower than what is required for high-altitude Arabica. Paragraph 1 states 1,200 to 1,600 meters.
-      - text: Below 1,000 meters above sea level
+          This substitutes a different elevation range. It has the correct unit. Check both stated endpoints.
+      - text: "Below 1,000 meters above sea level"
         rationale: |
-          You picked an elevation below the cooperative's growing zone. The text explicitly specifies 1,200 to 1,600 meters.
-      - text: Above 2,500 meters above sea level
+          This substitutes a cutoff for the given interval. A round threshold can seem easy to recall. Check the exact lower and upper limits.
+      - text: "Above 2,500 meters above sea level"
         rationale: |
-          You picked an elevation higher than the range specified in paragraph 1 (1,200 to 1,600 meters above sea level).
+          This treats high-altitude as the highest possible range. The phrase suggests mountains. Check the numerical interval actually stated.
     explanation: |
-      The first paragraph specifies that Arabica coffee is cultivated at elevations between 1,200 and 1,600 meters above sea level.
-
-  - id: rc-cs-nsd-0015
-    passage: rc-cs-nsd-p3
-    type: identify
-    difficulty: hard
+      The first paragraph states the growing elevation as 1,200 to 1,600 meters above sea level.
+  - id: "rc-cs-nsd-0015"
+    passage: "rc-cs-nsd-p3"
+    type: "noting-specific-details"
+    difficulty: "hard"
     stem: |
-      What facility was established in 2021 using a three-million-peso agricultural grant?
+      What facility is established in 2021 with the agricultural grant?
     choices:
-      - text: A centralized wet-milling facility
+      - text: "A centralized wet-milling facility"
         correct: true
-      - text: A manual hand-cranked pulper workshop
+      - text: "A manual hand-cranked pulper workshop"
         rationale: |
-          You picked the old individual processing method used by farmers at home before the 2021 wet-milling facility was built.
-      - text: A tourist coffee tasting laboratory
+          This selects the old home-processing method. Pulpers are mentioned nearby. Check what changes when the facility opens.
+      - text: "A specialty-coffee rating office"
         rationale: |
-          You picked a facility not mentioned in the passage. The grant funded a centralized wet-milling facility.
-      - text: A solar-powered bean roasting warehouse
+          This turns the later quality score into a funded facility. Rating follows the improvement. Check what the grant builds.
+      - text: "A raised-drying-bed factory"
         rationale: |
-          You picked a processing facility not named in the text. The passage explicitly states the grant built a wet-milling facility.
+          This turns a processing feature into a factory. Drying beds appear later. Check the named facility established in 2021.
     explanation: |
-      The second paragraph states that in 2021, the cooperative established a centralized wet-milling facility funded by a three-million-peso agricultural grant.
+      The second paragraph states that the grant funds a centralized wet-milling facility in 2021.
+  - id: "q-comprehension-skills-noting-specific-details-0016"
+    passage: "p-comprehension-skills-noting-specific-details-0004"
+    type: "noting-specific-details"
+    difficulty: "easy"
+    stem: |
+      Where will the archive entrance be after the move?
+    choices:
+      - text: "Opposite the science office"
+        correct: true
+      - text: "Beside the library's old reading room"
+        rationale: |
+          This selects the old location. Both rooms are described together. Check the phrase after the move.
+      - text: "At the library's existing entrance"
+        rationale: |
+          This assumes the library and archive share an entrance. Their room names are similar. Check the separate directions.
+      - text: "Inside the room used before October 12"
+        rationale: |
+          This keeps the archive in its former room. Visitors may still use it before moving day. Check the question's time reference.
+    explanation: |
+      The first paragraph places the new archive entrance opposite the science office.
+    approved: false
+  - id: "q-comprehension-skills-noting-specific-details-0017"
+    passage: "p-comprehension-skills-noting-specific-details-0004"
+    type: "noting-specific-details"
+    difficulty: "medium"
+    stem: |
+      What is the deadline for photograph requests?
+    choices:
+      - text: "Friday, October 9"
+        correct: true
+      - text: "Monday, October 12"
+        rationale: |
+          This selects the move date. Both deadlines are near the move. Check the detail tied to photographs.
+      - text: "Monday morning"
+        rationale: |
+          This selects the written-record request deadline. Both are document requests. Check the requested material.
+      - text: "Ten on the first day"
+        rationale: |
+          This selects the orientation time. It belongs to the first day. Check whether the question asks for an event or request deadline.
+    explanation: |
+      The second paragraph says photograph requests must reach Ms. Dela Cruz by Friday, October 9.
+    approved: false
+  - id: "q-comprehension-skills-noting-specific-details-0018"
+    passage: "p-comprehension-skills-noting-specific-details-0004"
+    type: "noting-specific-details"
+    difficulty: "medium"
+    stem: |
+      Who checks written records before releasing copies?
+    choices:
+      - text: "Mr. Lim"
+        correct: true
+      - text: "Ms. Dela Cruz"
+        rationale: |
+          This selects the photo-file preparer. Both staff members handle requests. Check the type of record.
+      - text: "The orientation participants"
+        rationale: |
+          This selects people attending an event. They may use the archive. Check who is assigned to review records.
+      - text: "The regular library users"
+        rationale: |
+          This selects another user group. The notice gives them directions. Check who performs the release task.
+    explanation: |
+      The second paragraph assigns checking written records to Mr. Lim.
+    approved: false
+  - id: "q-comprehension-skills-noting-specific-details-0019"
+    passage: "p-comprehension-skills-noting-specific-details-0004"
+    type: "noting-specific-details"
+    difficulty: "hard"
+    stem: |
+      What is the archive's weekday opening time after the move?
+    choices:
+      - text: "Nine in the morning"
+        correct: true
+      - text: "Eight in the morning"
+        rationale: |
+          This selects the former opening time. Both hours appear in the same paragraph. Check which one applies now.
+      - text: "Ten in the morning"
+        rationale: |
+          This selects the orientation time. The event happens after opening. Check the difference between access and the meeting.
+      - text: "Four in the afternoon"
+        rationale: |
+          This selects the closing time. It is part of the schedule. Check the word opening.
+    explanation: |
+      The final paragraph gives nine in the morning as the weekday opening time.
+    approved: false
+  - id: "q-comprehension-skills-noting-specific-details-0020"
+    passage: "p-comprehension-skills-noting-specific-details-0004"
+    type: "noting-specific-details"
+    difficulty: "exam"
+    stem: |
+      Which event is scheduled for Monday, October 12?
+    choices:
+      - text: "The archive moves to the east wing."
+        correct: true
+      - text: "Photograph requests reach their final deadline."
+        rationale: |
+          This selects the earlier photo deadline. Both dates belong to the same notice. Match the event to its date.
+      - text: "The library moves into the science office."
+        rationale: |
+          This transfers the archive move to the library. The science office is a location clue. Check which institution moves.
+      - text: "Written records stop being available permanently."
+        rationale: |
+          This turns a request deadline into permanent closure. Written-record requests end Monday morning. Check whether service ends forever.
+    explanation: |
+      The opening sentence sets Monday, October 12 as the archive move date.
+    approved: false

@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-biology-human-anatomy-physiology-0001	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-biology-human-anatomy-physiology-0002	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Original had a no-lung-circulation distractor unrelated to the lesson’s realistic alternatives.
+q-biology-human-anatomy-physiology-0003	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-biology-human-anatomy-physiology-0004	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original note wrongly said all skeletal muscle requires conscious signaling.
+q-biology-human-anatomy-physiology-0005	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	LOW	Original nickname needed qualification; correct choice was longest.
+q-biology-human-anatomy-physiology-0006	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Original repeated the pituitary question and used unrelated size and location distractors.
+q-biology-human-anatomy-physiology-0007	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	LOW	Original gave an unnecessary nephron count and described only filtration.
+q-biology-human-anatomy-physiology-0008	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	MEDIUM	Lesson names urea but does not teach its protein-breakdown origin. Stem, choices, and key preserved; explanation and notes corrected.
+q-biology-human-anatomy-physiology-0009	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original denied specificity in innate defenses and used implausible no-response distractor.
+q-biology-human-anatomy-physiology-0010	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Original had a no-memory-cells distractor and a longest correct choice.
+q-biology-human-anatomy-physiology-0011	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Original correct choice was longest and the explanation discussed wrong choices.
+q-biology-human-anatomy-physiology-0012	CORRECTED	SOLVED-MATCH	stem;choices;type;explanation;notes	MEDIUM	Original repeated heart-muscle classification and duplicated voluntary-control distractors.
+q-biology-human-anatomy-physiology-0013	CORRECTED	SOLVED-MATCH	stem;choices;type;explanation;notes	MEDIUM	Original longest correct choice gave away the answer.
+q-biology-human-anatomy-physiology-0014	CORRECTED	SOLVED-MATCH	stem;choices;type;explanation;notes	HIGH	Original claimed only adaptive immunity builds memory without qualifying antigen-specific clonal memory.
+q-biology-human-anatomy-physiology-0015	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	MEDIUM	Lesson names heart chambers but does not teach receiving versus pumping roles. Stem, choices, and key preserved; explanation and notes reshaped.
+q-biology-human-anatomy-physiology-0016	NEW	NEW	new question	NONE	
+q-biology-human-anatomy-physiology-0017	NEW	NEW	new question	NONE	
+q-biology-human-anatomy-physiology-0018	NEW	NEW	new question	NONE	
+q-biology-human-anatomy-physiology-0019	NEW	NEW	new question	NONE	
+q-biology-human-anatomy-physiology-0020	NEW	NEW	new question	NONE	

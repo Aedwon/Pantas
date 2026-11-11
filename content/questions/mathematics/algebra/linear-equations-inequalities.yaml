@@ -10,39 +10,39 @@ questions:
     stem: |
       Solve $2x + 3 = 7$ for $x$.
     choices:
-      - text: $2$
+      - text: '$2$'
         correct: true
-      - text: $5$
+      - text: '$5$'
         rationale: |
-          You added 3 to 7 to get 10, then divided by 2. You must subtract 3 from 7 to get $2x = 4$, so $x = 2$.
-      - text: $7$
+          This adds three instead of subtracting it, giving $(7+3)/2$. The added term is being moved across the equation. Check the operation that undoes addition.
+      - text: '$7$'
         rationale: |
-          You kept the right-side constant 7 as your answer without solving for $x$. Subtract 3 and divide by 2 to get $x = 2$.
-      - text: $1$
+          This uses the right side as the value of $x$. The equation already gives a number. Check whether that number equals $x$ or a whole expression.
+      - text: '$8$'
         rationale: |
-          You subtracted 3 to get 4, but divided 4 by 4 instead of 2. Dividing $2x = 4$ by 2 gives $x = 2$.
+          This multiplies by two after subtracting three. The coefficient 2 suggests multiplication. Check the opposite operation needed to isolate $x$.
     explanation: |
-      Subtract 3 from both sides: $2x = 4$. Divide by 2: $x = 2$.
+      Subtract $3$ from both sides to get $2x=4$. Divide both sides by $2$ to get $x=2$.
 
   - id: q-algebra-linear-equations-inequalities-0002
-    type: direct-computation
+    type: word-problem
     difficulty: easy
     stem: |
-      Solve $3x - 5 = 10$ for $x$.
+      Five is subtracted from three times a number. The result is ten. What is the number?
     choices:
-      - text: $5$
+      - text: '$5$'
         correct: true
-      - text: $15$
+      - text: '$15$'
         rationale: |
-          You added 5 to 10 to get 15, but forgot to divide by 3. Divide $3x = 15$ by 3 to get $x = 5$.
-      - text: $3$
+          This stops after adding five to ten. That correctly undoes the subtraction. Check whether the factor of three still needs to be undone.
+      - text: '$\dfrac{5}{3}$'
         rationale: |
-          You subtracted 5 from 10 to get 5 instead of adding 5. Adding 5 gives $3x = 15$, so $x = 5$.
-      - text: $2$
+          This subtracts five from ten before dividing by three. The original minus sign is kept. Check the opposite operation needed to undo subtraction.
+      - text: '$45$'
         rationale: |
-          You divided 10 by 5 to get 2. You must add 5 to 10 to get $3x = 15$, then divide by 3 to get $x = 5$.
+          This multiplies fifteen by three instead of dividing. The phrase "three times" suggests multiplication. Check that solving reverses the original operation.
     explanation: |
-      Add 5 to both sides: $3x = 15$. Divide by 3: $x = 5$.
+      Let the number be $x$. The statement gives $3x-5=10$. Add $5$ to obtain $3x=15$. Divide by $3$ to get $x=5$.
 
   - id: q-algebra-linear-equations-inequalities-0003
     type: direct-computation
@@ -50,19 +50,19 @@ questions:
     stem: |
       Solve the inequality $x + 4 < 9$.
     choices:
-      - text: $x < 5$
+      - text: '$x<5$'
         correct: true
-      - text: $x > 5$
+      - text: '$x>5$'
         rationale: |
-          You flipped the inequality sign without multiplying or dividing by a negative number. Keep the sign as $<$ to get $x < 5$.
-      - text: $x < 4$
+          This reverses the inequality after subtracting four. Reversal is a real rule for some operations. Check that it happens only when multiplying or dividing by a negative number.
+      - text: '$x<13$'
         rationale: |
-          You subtracted 5 from 9 instead of subtracting 4. Subtracting 4 from 9 gives $x < 5$.
-      - text: $x > 4$
+          This adds four to nine instead of subtracting it. Both sides still contain the given numbers. Check the inverse operation for $+4$.
+      - text: '$x\le5$'
         rationale: |
-          You subtracted 5 from 9 and flipped the sign. Subtracting 4 from both sides yields $x < 5$.
+          This includes the boundary value five. That value is where the two sides are equal. Check whether the original comparison allows equality.
     explanation: |
-      Subtract 4 from both sides: $x < 5$.
+      Subtract $4$ from both sides. This gives $x<9-4$, or $x<5$. Subtraction does not reverse the sign.
 
   - id: q-algebra-linear-equations-inequalities-0004
     type: error-spotting
@@ -73,21 +73,21 @@ questions:
       Step 1: Divide by $-2$.
       Step 2: $x > -5$.
 
-      Which step is wrong?
+      Which step is the first incorrect step?
     choices:
-      - text: Step 1
-        rationale: |
-          You picked Step 1, but dividing both sides by $-2$ is a valid method. The error occurs in Step 2.
-      - text: Step 2
+      - text: 'Step 2'
         correct: true
-      - text: Both steps
+      - text: 'Step 1'
         rationale: |
-          You marked both steps as wrong, but Step 1 is a correct approach. Only Step 2 failed to flip the inequality sign.
-      - text: No step is wrong.
+          This rejects dividing by a negative number. That division is allowed. Check whether the inequality sign changes afterward.
+      - text: 'Both steps'
         rationale: |
-          You assumed the solution was correct, but dividing by $-2$ requires flipping the greater-than sign to less-than: $x < -5$.
+          This treats the valid division as another error. The final inequality is wrong, so the earlier action can look wrong too. Check each step on its own.
+      - text: 'No step is wrong.'
+        rationale: |
+          This keeps the comparison direction after a negative division. The numerical division is correctly done. Check the sign of the divisor.
     explanation: |
-      Step 2 is wrong. When dividing by a negative number, we must flip the inequality sign. It should be $x < -5$.
+      Dividing both sides by $-2$ gives $x<-5$. The comparison reverses because the divisor is negative. Step 2 is the first incorrect step.
 
   - id: q-algebra-linear-equations-inequalities-0005
     type: direct-computation
@@ -95,19 +95,19 @@ questions:
     stem: |
       Solve $\dfrac{3x - 1}{2} = \dfrac{x + 4}{3}$ for $x$.
     choices:
-      - text: $\dfrac{11}{7}$
+      - text: '$\dfrac{11}{7}$'
         correct: true
-      - text: $\dfrac{7}{11}$
+      - text: '$\dfrac{7}{11}$'
         rationale: |
-          You inverted the final fraction. Solving $7x = 11$ by dividing both sides by 7 yields $x = \dfrac{11}{7}$.
-      - text: $-\dfrac{11}{7}$
+          This reverses the final division in $7x=11$. Both numbers are in the fraction. Check which number is the coefficient of $x$.
+      - text: '$-\dfrac{11}{7}$'
         rationale: |
-          You added $-3$ and $-8$ to get $-11$. Cross-multiplying gives $9x - 3 = 2x + 8$, so $7x = 11$ and $x = \dfrac{11}{7}$.
-      - text: $3$
+          This subtracts the $x$ terms in reverse order but keeps the constant difference. Moving terms can make the signs confusing. Check that the same operation is applied to both sides.
+      - text: '$\dfrac{5}{7}$'
         rationale: |
-          You rounded or miscalculated the linear combination. From $9x - 3 = 2x + 8$, subtracting $2x$ and adding 3 gives $7x = 11$, so $x = \dfrac{11}{7}$.
+          This changes $3(3x-1)$ to $9x+3$. The outside factor is distributed, but the minus sign is lost. Check the sign of each product.
     explanation: |
-      Cross-multiply: $3(3x - 1) = 2(x + 4)$, giving $9x - 3 = 2x + 8$. Combine like terms: $7x = 11$, so $x = \dfrac{11}{7}$.
+      Cross-multiply: $3(3x-1)=2(x+4)$. Expand to get $9x-3=2x+8$. Subtract $2x$ and add $3$: $7x=11$. Divide by $7$ to get $x=\dfrac{11}{7}$.
 
   - id: q-algebra-linear-equations-inequalities-0006
     type: direct-computation
@@ -115,19 +115,19 @@ questions:
     stem: |
       Solve the inequality $-2(x - 4) > 3x + 13$.
     choices:
-      - text: $x < -1$
+      - text: '$x<-1$'
         correct: true
-      - text: $x > -1$
+      - text: '$x>-1$'
         rationale: |
-          You forgot to flip the inequality sign when dividing by $-5$. Dividing $-5x > 5$ by $-5$ flips the sign to $x < -1$.
-      - text: $x < 1$
+          This keeps the inequality direction when dividing by $-5$. The resulting boundary number is right. Check the sign of the divisor.
+      - text: '$x<1$'
         rationale: |
-          You distributed $-2(-4)$ as $-8$ instead of $+8$, getting $-5x > 21$ or miscalculating $13 - 8 = 5$.
-      - text: $x > 1$
+          This uses $8-13$ for the constant difference while using $-2x-3x$ on the left. Rearranging both sides can make the subtraction order unclear. Check each move by applying the same operation to both sides.
+      - text: '$x<-\dfrac{21}{5}$'
         rationale: |
-          You made a sign error during distribution and forgot to flip the inequality sign. Distribute to get $-2x + 8 > 3x + 13$, so $x < -1$.
+          This changes $-2(-4)$ to $-8$ when distributing. A negative outside the parentheses can hide the second negative. Check the sign of each product.
     explanation: |
-      Distribute: $-2x + 8 > 3x + 13$. Combine terms: $-2x - 3x > 13 - 8$, giving $-5x > 5$. Divide by $-5$, flipping the sign: $x < -1$.
+      Distribute: $-2x+8>3x+13$. Subtract $3x$ and $8$ to get $-5x>5$. Divide by $-5$ and reverse the sign to obtain $x<-1$.
 
   - id: q-algebra-linear-equations-inequalities-0007
     type: direct-computation
@@ -135,39 +135,40 @@ questions:
     stem: |
       What is the slope of the line $2x + 3y = 6$?
     choices:
-      - text: $-\dfrac{2}{3}$
+      - text: '$-\dfrac{2}{3}$'
         correct: true
-      - text: $\dfrac{2}{3}$
+      - text: '$\dfrac{2}{3}$'
         rationale: |
-          You forgot the negative sign in the slope formula $m = -\dfrac{A}{B}$. For $2x + 3y = 6$, $m = -\dfrac{2}{3}$.
-      - text: $\dfrac{3}{2}$
+          This drops the negative sign when moving $2x$. The coefficient ratio is otherwise right. Check the sign when isolating $y$.
+      - text: '$\dfrac{3}{2}$'
         rationale: |
-          You took $\dfrac{B}{A}$ without a negative sign. The slope of $Ax + By = C$ is $m = -\dfrac{A}{B} = -\dfrac{2}{3}$.
-      - text: $-\dfrac{3}{2}$
+          This reverses the coefficient ratio and drops the sign. It can look like rise over run with the axes reversed. Check which coefficient multiplies $x$ after isolating $y$.
+      - text: '$-\dfrac{3}{2}$'
         rationale: |
-          You took $-\dfrac{B}{A}$ instead of $-\dfrac{A}{B}$. The coefficient of $x$ is 2 and $y$ is 3, so $m = -\dfrac{2}{3}$.
+          This uses $-B/A$ instead of $-A/B$. Both coefficients appear in the ratio. Check that the equation is solved for $y$.
     explanation: |
-      For a line in the form $Ax + By = C$, the slope is $m = -\dfrac{A}{B}$. Here, $m = -\dfrac{2}{3}$.
+      Subtract $2x$ to get $3y=-2x+6$. Divide by $3$: $y=-\dfrac{2}{3}x+2$. The coefficient of $x$ is the slope, $-\dfrac{2}{3}$.
 
   - id: q-algebra-linear-equations-inequalities-0008
     type: which-is-true
     difficulty: medium
     stem: |
-      A line has a slope of $3$. Which statement about a perpendicular line is true?
+      A line has slope $3$. Which statement relates its slope to the slope of a perpendicular line?
     choices:
-      - text: A perpendicular line has slope $-\dfrac{1}{3}$.
+      - text: 'Their slopes have product $-1$.'
         correct: true
-      - text: A perpendicular line has slope $3$.
+      - text: 'Their slopes are equal to each other.'
         rationale: |
-          You gave the slope of a parallel line. Perpendicular lines have negative reciprocal slopes, so 3 becomes $-\dfrac{1}{3}$.
-      - text: A perpendicular line has slope $\dfrac{1}{3}$.
+          This uses the same slope as the original line. Equal slopes describe parallel lines. Check whether the question asks for parallel or perpendicular.
+      - text: 'Their slopes have product $1$.'
         rationale: |
-          You took the reciprocal without changing the sign. Perpendicular slopes are negative reciprocals: $-\dfrac{1}{3}$.
-      - text: A perpendicular line has slope $-3$.
+          This takes the reciprocal but keeps the sign. One part of the perpendicular rule is used. Check that nonzero perpendicular slopes have product $-1$.
+      - text: 'Their slopes are negatives of each other.'
         rationale: |
-          You negated the slope without taking the reciprocal. The perpendicular slope must be both flipped and negated: $-\dfrac{1}{3}$.
+          This changes the sign but keeps the magnitude. That can look like reversing the direction of the line. Check that the reciprocal is also required.
     explanation: |
-      Perpendicular lines have slopes that are negative reciprocals. For slope $3 = \dfrac{3}{1}$, the perpendicular slope is $-\dfrac{1}{3}$.
+      For a nonzero finite slope, the perpendicular slope is its negative reciprocal. Thus the slope is $-\dfrac{1}{3}$, and $3\left(-\dfrac{1}{3}
+      ight)=-1$.
 
   - id: q-algebra-linear-equations-inequalities-0009
     type: word-problem
@@ -175,19 +176,19 @@ questions:
     stem: |
       A sari-sari store owner earns $\text{P}80$ profit on each shirt sold. If she wants to earn a total profit of $\text{P}800$ from these shirts, how many shirts must she sell?
     choices:
-      - text: $10$
+      - text: '$10$'
         correct: true
-      - text: $8$
+      - text: '$100$'
         rationale: |
-          You divided 800 by 100 or miscalculated $800 \div 80$. Dividing $800 \div 80$ gives 10 shirts.
-      - text: $12$
+          This divides by eight instead of eighty. Dropping the zero makes the mental division familiar. Check the full profit per shirt.
+      - text: '$0.1$'
         rationale: |
-          You added extra shirts to the quota. Solve $80s = 800$ by dividing 800 by 80 to get 10.
-      - text: $15$
+          This divides the profit per shirt by the target profit. Both required amounts are used. Check that total profit divided by profit per shirt gives a shirt count.
+      - text: '$720$'
         rationale: |
-          You miscalculated the division $800 \div 80$. Dividing 800 by 80 gives exactly 10 shirts.
+          This subtracts one shirt’s profit from the target. That gives the amount still needed after one sale. Check that the question asks for a count of equal sales.
     explanation: |
-      Let $s$ be the number of shirts. At $\text{P}80$ profit per shirt, the equation is $80s = 800$. Divide by 80: $s = 10$.
+      Let $n$ be the number of shirts. Then $80n=800$. Divide by $80$ to get $n=10$.
 
   - id: q-algebra-linear-equations-inequalities-0010
     type: direct-computation
@@ -195,19 +196,19 @@ questions:
     stem: |
       Solve $2(x + 3) = 10$ for $x$.
     choices:
-      - text: $2$
+      - text: '$2$'
         correct: true
-      - text: $4$
+      - text: '$\dfrac{7}{2}$'
         rationale: |
-          You subtracted 2 from 6 or miscalculated $2x = 4$. Distributing gives $2x + 6 = 10$, so $2x = 4$ and $x = 2$.
-      - text: $5$
+          This distributes two to $x$ but not to three, giving $2x+3=10$. The first product is correct. Check that every term inside the parentheses receives the factor.
+      - text: '$5$'
         rationale: |
-          You divided 10 by 2 to get 5, but forgot to subtract 3 afterwards. Dividing first gives $x + 3 = 5$, so $x = 2$.
-      - text: $7$
+          This divides ten by two and stops. That correctly removes the outside factor. Check the remaining addition inside the parentheses.
+      - text: '$7$'
         rationale: |
-          You added 2 and 5 or miscalculated $2x + 6 = 10$. Subtracting 6 gives $2x = 4$, so $x = 2$.
+          This subtracts three from ten without first undoing the outside factor. The number three is visibly added. Check the order in which the grouped operations are undone.
     explanation: |
-      Distribute: $2x + 6 = 10$. Subtract 6: $2x = 4$. Divide by 2: $x = 2$.
+      Divide both sides by $2$ to get $x+3=5$. Subtract $3$ to get $x=2$.
 
   - id: q-algebra-linear-equations-inequalities-0011
     type: error-spotting
@@ -219,21 +220,21 @@ questions:
       Step 2: $-x > -3$
       Step 3: $x > 3$
 
-      Which step is wrong?
+      Which step is the first incorrect step?
     choices:
-      - text: Step 1
-        rationale: |
-          You selected Step 1, but subtracting 5 from both sides to get $-x > 2 - 5$ is correct.
-      - text: Step 2
-        rationale: |
-          You selected Step 2, but calculating $2 - 5 = -3$ is correct. The error occurs in Step 3.
-      - text: Step 3
+      - text: 'Step 3'
         correct: true
-      - text: No step is wrong.
+      - text: 'Step 1'
         rationale: |
-          You assumed all steps were accurate, but dividing by $-1$ reverses the inequality symbol, making $x < 3$ the true result.
+          This rejects subtracting five from both sides. Moving a term across the comparison can look unsafe. Check that addition and subtraction preserve the direction.
+      - text: 'Step 2'
+        rationale: |
+          This treats $2-5=-3$ as an error. A negative result can seem suspicious. Check the subtraction on a number line.
+      - text: 'No step is wrong.'
+        rationale: |
+          This accepts dropping the minus sign without reversing the comparison. The boundary number is right. Check the effect of dividing by $-1$.
     explanation: |
-      Step 3 is wrong. When dividing by $-1$, we must flip the inequality sign. It should be $x < 3$.
+      The first two steps give $-x>-3$. Divide both sides by $-1$ and reverse the sign: $x<3$. Step 3 is the first incorrect step.
 
   - id: q-algebra-linear-equations-inequalities-0012
     type: direct-computation
@@ -241,19 +242,19 @@ questions:
     stem: |
       What is the slope of the line through the points $(1, 2)$ and $(3, 6)$?
     choices:
-      - text: $2$
+      - text: '$2$'
         correct: true
-      - text: $\dfrac{1}{2}$
+      - text: '$\dfrac{1}{2}$'
         rationale: |
-          You calculated $\dfrac{\Delta x}{\Delta y} = \dfrac{3 - 1}{6 - 2} = \dfrac{2}{4} = \dfrac{1}{2}$. Slope is $\dfrac{\Delta y}{\Delta x} = \dfrac{4}{2} = 2$.
-      - text: $1$
+          This divides horizontal change by vertical change. Both differences are correctly calculated. Check that slope is rise divided by run.
+      - text: '$4$'
         rationale: |
-          You subtracted coordinates from different points ($3 - 2 = 1$). To find slope, apply $\dfrac{y_2 - y_1}{x_2 - x_1} = \dfrac{6 - 2}{3 - 1} = 2$.
-      - text: $3$
+          This uses only the vertical change $6-2$. That is the numerator of the slope. Check the horizontal change too.
+      - text: '$-2$'
         rationale: |
-          You used the x-coordinate of the second point. Calculate slope using $m = \dfrac{6 - 2}{3 - 1} = \dfrac{4}{2} = 2$.
+          This reverses the order in only one coordinate difference. The same two points are used. Check that both differences follow the same point order.
     explanation: |
-      Using the slope formula $m = \dfrac{y_2 - y_1}{x_2 - x_1}$, we get $m = \dfrac{6 - 2}{3 - 1} = \dfrac{4}{2} = 2$.
+      The rise is $6-2=4$ and the run is $3-1=2$. Their ratio is $\dfrac{4}{2}=2$.
 
   - id: q-algebra-linear-equations-inequalities-0013
     type: direct-computation
@@ -261,19 +262,19 @@ questions:
     stem: |
       Find the equation of the line with slope $2$ passing through the point $(1, 3)$.
     choices:
-      - text: $y = 2x + 1$
+      - text: '$y=2x+1$'
         correct: true
-      - text: $y = 2x + 3$
+      - text: '$y=2x+3$'
         rationale: |
-          You used the y-coordinate 3 directly as the y-intercept $b$. Substitute $(1, 3)$ into $y = 2x + b$ to find $3 = 2(1) + b$, so $b = 1$.
-      - text: $y = 2x - 1$
+          This uses the point’s $y$-coordinate as the intercept. A point on the line can look like the starting point. Check whether its $x$-coordinate is zero.
+      - text: '$y=2x-1$'
         rationale: |
-          You subtracted 2 from 1 instead of calculating $b = 3 - 2 = 1$. Substituting $(1, 3)$ yields $y = 2x + 1$.
-      - text: $y = 2x - 3$
+          This reverses $3-2$ when finding the intercept. Subtracting the slope contribution is the right idea. Check the order by substituting the given point.
+      - text: '$y=2x-3$'
         rationale: |
-          You subtracted 3 instead of solving $3 = 2(1) + b$. The y-intercept is $b = 3 - 2 = 1$, giving $y = 2x + 1$.
+          This negates the point’s $y$-coordinate and uses it as the intercept. Point-slope form contains a subtraction of that coordinate. Check the complete rearrangement.
     explanation: |
-      Using point-slope form: $y - 3 = 2(x - 1)$. Expand: $y - 3 = 2x - 2$. Solve for $y$: $y = 2x + 1$.
+      Use $y=2x+b$. Substitute $(1,3)$: $3=2(1)+b$. Thus $b=1$, and the equation is $y=2x+1$.
 
   - id: q-algebra-linear-equations-inequalities-0014
     type: direct-computation
@@ -281,79 +282,79 @@ questions:
     stem: |
       What is the y-intercept of the line $2x + 3y = 12$?
     choices:
-      - text: $4$
+      - text: '$4$'
         correct: true
-      - text: $6$
+      - text: '$6$'
         rationale: |
-          You computed the x-intercept instead. To get the y-intercept, set $x = 0$, leading to $3y = 12$, which gives $y = 4$.
-      - text: $2$
+          This finds the $x$-intercept by setting $y=0$. Both intercepts lie on an axis. Check which coordinate must be zero on the $y$-axis.
+      - text: '$-4$'
         rationale: |
-          You picked the coefficient of $x$. To find the y-intercept, set $x = 0$ and solve $3y = 12$ to get $y = 4$.
-      - text: $3$
+          This moves the constant with the wrong sign. Dividing by three is otherwise right. Check the original equation at $x=0$.
+      - text: '$12$'
         rationale: |
-          You picked the coefficient of $y$. Divide the constant 12 by the coefficient 3 to get the y-intercept $y = 4$.
+          This leaves out division by the coefficient of $y$. The right side is the remaining constant. Check the coefficient still attached to $y$.
     explanation: |
-      Cover the $x$ term with your finger. You see $3y = 12$, so $y = 4$.
+      At the $y$-intercept, $x=0$. The equation becomes $3y=12$. Divide by $3$ to get $y=4$.
 
   - id: q-algebra-linear-equations-inequalities-0015
-    type: direct-computation
+    type: which-is-true
     difficulty: medium
     stem: |
-      What is the x-intercept of the line $2x + 3y = 12$?
+      Which point lies on the line $2x+3y=12$?
     choices:
-      - text: $6$
+      - text: '$(3,2)$'
         correct: true
-      - text: $4$
+      - text: '$(2,3)$'
         rationale: |
-          You calculated the y-intercept instead. For the x-intercept, substitute $y = 0$ into $2x + 3y = 12$ to find $x = 6$.
-      - text: $2$
+          This swaps the coefficients of $x$ and $y$, giving $3(2)+2(3)=12$. The point appears to satisfy a similar equation. Check the coefficient attached to each coordinate.
+      - text: '$(6,4)$'
         rationale: |
-          You picked the coefficient of $x$. Divide 12 by 2 to get the x-intercept $x = 6$.
-      - text: $3$
+          This combines the two separate intercept values into one point. Each value works when the other coordinate is zero. Check the two coordinates together in the equation.
+      - text: '$(12,0)$'
         rationale: |
-          You chose 3, which is the coefficient of $y$. To find the x-intercept, set $y = 0$, giving $2x = 12$, so $x = 6$.
+          This treats the $x$ term as $x$ instead of $2x$. The point would work for a coefficient of one. Check that the coefficient multiplies the input.
     explanation: |
-      Cover the $y$ term with your finger. You see $2x = 12$, so $x = 6$.
+      Substitute $x=3$ and $y=2$: $2(3)+3(2)=6+6=12$. Therefore $(3,2)$ lies on the line.
 
   - id: q-algebra-linear-equations-inequalities-0016
     type: which-is-true
     difficulty: medium
     stem: |
-      Which inequality would be graphed with a dashed boundary line?
+      Which inequality, drawn in the coordinate plane, uses a dashed vertical boundary?
     choices:
-      - text: $x < 5$
+      - text: '$x<5$'
         correct: true
-      - text: $x \le 5$
+      - text: '$x\le5$'
         rationale: |
-          You picked an inequality with $\le$, which includes the boundary and requires a solid line, not dashed.
-      - text: $x \ge 5$
+          This includes the boundary. The same vertical line separates the region. Check that equality requires a solid boundary.
+      - text: '$x\ge5$'
         rationale: |
-          You selected $\ge$, which includes boundary points. A solid line represents $\ge$, whereas dashed lines are for strict inequalities.
-      - text: $x = 5$
+          This includes the boundary and shades the other side. Both are valid features of a different inequality. Check the comparison sign and whether it contains equality.
+      - text: '$x=5$'
         rationale: |
-          You picked an equation. Equations are drawn with solid lines, whereas strict inequalities use dashed boundary lines.
+          This gives the line alone instead of a region. It identifies the right boundary location. Check that an inequality also includes points on one side.
     explanation: |
-      A dashed line is used for strict inequalities: $<$ or $>$. Non-strict inequalities ($\le$ or $\ge$) use solid lines.
+      A strict inequality does not include its boundary. The inequality $x<5$ uses the dashed vertical line $x=5$ and includes points to its left.
 
   - id: q-algebra-linear-equations-inequalities-0017
     type: word-problem
     difficulty: easy
     stem: |
-      A jeepney driver charges $\text{P}150$ per hour. If he earned $\text{P}1200$ in one day, how many hours did he work?
+      A jeepney rental has a fixed booking fee of P300 plus P150 per hour. The total bill is P1200. For how many hours was the jeepney rented?
     choices:
-      - text: $8$
+      - text: '$6$'
         correct: true
-      - text: $6$
+      - text: '$8$'
         rationale: |
-          You calculated $1200 \div 200 = 6$ or made an error dividing 1200 by 150. Dividing $1200 \div 150$ gives 8 hours.
-      - text: $10$
+          This divides the full payment by the hourly rate without removing the booking fee. The hourly rate is correctly used. Check whether the total includes a fixed charge.
+      - text: '$10$'
         rationale: |
-          You evaluated $1200 \div 120 = 10$. Solve $150h = 1200$ by dividing 1200 by 150 to get 8 hours.
-      - text: $1200$
+          This adds the booking fee before dividing by the hourly rate. Both charges appear in the work. Check that the fee is already included in the payment.
+      - text: '$900$'
         rationale: |
-          You picked the overall daily pay in pesos. To solve for hours, divide the total pay of 1200 pesos by the hourly rate of 150 pesos.
+          This subtracts the booking fee but stops at the hourly earnings. That is a correct intermediate amount. Check that a time still needs to be found.
     explanation: |
-      Let $h$ be the hours worked. The equation is $150h = 1200$. Divide by 150: $h = 8$.
+      Let $h$ be the rental hours. The payment gives $300+150h=1200$. Subtract $300$ to get $150h=900$. Divide by $150$ to obtain $h=6$.
 
   - id: q-algebra-linear-equations-inequalities-0018
     type: direct-computation
@@ -361,16 +362,58 @@ questions:
     stem: |
       Solve $\dfrac{x}{2} - 3 = 5$ for $x$.
     choices:
-      - text: $16$
+      - text: '$16$'
         correct: true
-      - text: $4$
+      - text: '$4$'
         rationale: |
-          You subtracted 3 from 5 to get 2, then multiplied by 2. You must add 3 to 5 to get $\dfrac{x}{2} = 8$, so $x = 16$.
-      - text: $8$
+          This divides by two after adding three. The original expression contains division by two. Check the opposite operation needed to isolate $x$.
+      - text: '$8$'
         rationale: |
-          You added 3 to 5 to get $\dfrac{x}{2} = 8$, but forgot to multiply by 2. Multiplying 8 by 2 gives $x = 16$.
-      - text: $20$
+          This adds three but stops at $x/2=8$. That completes one solving step. Check whether $x$ is alone yet.
+      - text: '$13$'
         rationale: |
-          You added 3 to 5 to get 8, then multiplied by something else, or added $5 \times 2 + 10$. Adding 3 gives $\dfrac{x}{2} = 8$, so $x = 16$.
+          This doubles five before adding three, giving $10+3$. It undoes the operations in the wrong order. Check that the subtraction is undone before the division.
     explanation: |
-      Add 3 to both sides: $\dfrac{x}{2} = 8$. Multiply by 2: $x = 16$.
+      Add $3$ to both sides to get $\dfrac{x}{2}=8$. Multiply both sides by $2$ to get $x=16$.
+
+  - id: q-algebra-linear-equations-inequalities-0019
+    type: which-is-true
+    difficulty: hard
+    stem: |
+      Which line is perpendicular to the line $x=4$?
+    choices:
+      - text: '$y=-2$'
+        correct: true
+      - text: '$x=-2$'
+        rationale: |
+          This uses another vertical line. The same form makes the directions match. Check that equal directions give parallel lines.
+      - text: '$y=x+4$'
+        rationale: |
+          This uses slope one as a reciprocal of an undefined slope. A vertical line has no finite slope to invert. Check the horizontal-vertical perpendicular case.
+      - text: '$y=-x+4$'
+        rationale: |
+          This uses a downward diagonal because it points in a different direction. Different directions do not always meet at a right angle. Check that a perpendicular to a vertical line is horizontal.
+    explanation: |
+      The line $x=4$ is vertical. A horizontal line meets it at a right angle. The equation $y=-2$ describes a horizontal line.
+    approved: false
+
+  - id: q-algebra-linear-equations-inequalities-0020
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A region in the coordinate plane has a solid boundary through $(0,4)$ and $(2,0)$. The region includes $(0,0)$. Which inequality describes it?
+    choices:
+      - text: '$2x+y\le4$'
+        correct: true
+      - text: '$2x+y\ge4$'
+        rationale: |
+          This shades the side that excludes the origin. The boundary equation and solid-line sign are right. Check the stated included point.
+      - text: '$2x+y<4$'
+        rationale: |
+          This excludes the boundary even though the line is solid. The side of the line is right. Check whether equality belongs in the comparison.
+      - text: '$x+2y\le4$'
+        rationale: |
+          This swaps the coefficients and changes the boundary. Both intercept numbers appear in the equation. Check each given point by substitution.
+    explanation: |
+      The line through the intercepts is $2x+y=4$. A solid boundary includes equality. At the origin, $2(0)+0=0\le4$. Thus the included side is $2x+y\le4$.
+    approved: false

@@ -1,0 +1,13 @@
+Computing fixes in quiz...
+Applying fixes...
+
+domain/picker/practice_adjustment_test.dart
+  require_trailing_commas - 2 fixes
+
+domain/use_cases/practice_recency_test.dart
+  require_trailing_commas - 1 fix
+
+presentation/practice_picker_screen_test.dart
+  require_trailing_commas - 3 fixes
+
+6 fixes made in 3 files.

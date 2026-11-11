@@ -11,6 +11,12 @@ void main() {
       expect(skuFromProductId('pantas_pro_yearly'), PaywallSku.yearly);
     });
 
+    test('Civil Service subscriptions resolve to their store periods', () {
+      expect(skuFromProductId('pantas_cs_weekly'), PaywallSku.weekly);
+      expect(skuFromProductId('pantas_cs_monthly:monthly'), PaywallSku.monthly);
+      expect(skuFromProductId('pantas_cs_yearly'), PaywallSku.yearly);
+    });
+
     test('an unknown product id maps to null rather than to a guess', () {
       expect(skuFromProductId('pantas_pro_lifetime'), isNull);
       expect(skuFromProductId(''), isNull);

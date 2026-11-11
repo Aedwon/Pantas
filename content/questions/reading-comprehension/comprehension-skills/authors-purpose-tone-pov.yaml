@@ -1,353 +1,448 @@
 meta:
-  subject: reading-comprehension
-  topic: comprehension-skills
-  subtopic: authors-purpose-tone-pov
+  subject: "reading-comprehension"
+  topic: "comprehension-skills"
+  subtopic: "authors-purpose-tone-pov"
   exams:
-    - upcat
-    - acet
-    - dlsucet
-    - ustet
-
+    - "upcat"
+    - "acet"
+    - "dlsucet"
+    - "ustet"
 passages:
-  - id: rc-cs-ap-p1
+  - id: "rc-cs-ap-p1"
     title: "Preserving Vigan's Ancestral Architecture"
     body: |
       The rapid expansion of commercial franchises along the outer perimeter of Vigan's historic district threatens to erode the unique architectural identity that earned the city UNESCO World Heritage status. Investors eager to build modern multi-story convenience stores and fast-food chains are purchasing two-hundred-year-old ancestral houses, often stripping away hand-carved molave beams and capiz window panes to make way for generic concrete structures.
-
+      
       Allowing short-term commercial greed to dismantle centuries of tangible history is a cultural tragedy we cannot afford. Once an ancestral home is razed, no amount of modern replica construction can restore the authentic craftsmanship passed down by generations of Ilocano artisans. Municipal leaders must act immediately to strengthen zoning ordinances, mandate structural preservation standards, and offer tax incentives to property owners who maintain historical facades.
-
-      Our heritage is not a obstacle to economic progress; it is the very foundation of Vigan's cultural pride and long-term tourism vitality. If we allow historical landmarks to be replaced by sterile glass storefronts, we surrender our identity for fleeting financial gain.
-
-  - id: rc-cs-ap-p2
+      
+      Our heritage is not an obstacle to economic progress; it is the very foundation of Vigan's cultural pride and long-term tourism vitality. If we allow historical landmarks to be replaced by sterile glass storefronts, we surrender our identity for fleeting financial gain.
+  - id: "rc-cs-ap-p2"
     title: "Returning to Leyte for the Town Fiesta"
     body: |
-      As the provincial ferry rounded the headland of Ormoc Bay, I stood at the railing watching the familiar outline of Mount Apo emerge through the morning mist. It had been three long years since I left our family home in Leyte to attend university in Manila, three years of noisy traffic, crowded dormitories, and fast-food dinners eaten alone at midnight.
-
+      As the provincial ferry rounded the headland of Ormoc Bay, I stood at the railing watching the familiar outline of the coast emerge through the morning mist. It had been three long years since I left our family home in Leyte to attend university in Manila, three years of noisy traffic, crowded dormitories, and fast-food dinners eaten alone at midnight.
+      
       Stepping onto the pier, the scent of roasting lechon and sweet banana cue immediately swept me back to childhood fiesta mornings. My grandmother waited near the jeepney terminal, her hair noticeably silvered since my last visit, yet her warm embrace felt instantly unchanged. As we walked together down the narrow coastal road, neighbors waved from their verandas, calling out greetings in Waray that made my chest tighten with a mixture of comfort and bittersweet awareness of passing time.
-
-      In Manila, I had learned to move quickly and watch my step. Here, surrounding by the rhythm of my hometown, I finally paused long enough to remember who I was before I left.
-
-  - id: rc-cs-cs-p3
-    title: "Bioluminescence in Sarangani Bay"
+      
+      In Manila, I had learned to move quickly and watch my step. Here, surrounded by the rhythm of my hometown, I finally paused long enough to remember who I was before I left.
+  - id: "rc-cs-cs-p3"
+    title: "Studying Glowing Water"
     body: |
-      Bioluminescence, the emission of light by living organisms through biochemical reactions, occurs seasonally along the sheltered coves of Sarangani Bay in southern Mindanao. The phenomenon is primarily driven by dense blooms of Pyrodinium bahamense, a microscopic dinoflagellate that produces blue-green flashes when agitated by mechanical stress, such as breaking waves or passing boat hulls.
-
-      Researchers from the Bureau of Fisheries and Aquatic Resources monitor these plankton concentrations twice monthly using satellite imagery and water sampling. While bioluminescent blooms draw ecotourists to coastal night tours, high cell densities can signal nutrient enrichment caused by agricultural runoff or fishpond effluents. When cell counts exceed five thousand organisms per milliliter, authorities issue temporary shellfish harvesting bans to prevent paralytic shellfish poisoning.
-
-      Regular water testing ensures that ecotourism activities operate safely without exposing coastal communities to health risks. Through continuous environmental monitoring, marine biologists balance natural conservation with public safety.
-
+      In a fictional coastal town, a school science club studies why the water sometimes glows at night. Tiny living organisms can give off light when waves or moving boats disturb them. This process is called bioluminescence, meaning light made by living things. A bright patch near the shore can draw visitors, but its appearance alone does not tell the club everything about the water.
+      
+      The students collect samples with their teacher and record the weather, the tide, and the places where they notice light. They compare observations over several weeks instead of treating one bright evening as a complete explanation. Their teacher asks them to distinguish what they saw from what they still need to test.
+      
+      The club shares a report with the town council. It describes the glowing water and the limits of the observations. The report recommends continued testing before leaders plan night tours. Careful monitoring can help the community understand an appealing natural event while avoiding claims that the available evidence cannot support.
+  - id: "p-comprehension-skills-authors-purpose-tone-pov-0004"
+    title: "The Unfinished Model"
+    body: |
+      Lina stood beside the classroom display, holding the roof of her model house. The glue had dried unevenly, and a corner lifted whenever she let go. She had pictured this moment many times, usually with a neat model and a confident explanation. Now she wished the judges would start at the other end of the room.
+      
+      Across the aisle, Ben placed his project on a table and smiled. Lina could not tell whether he was pleased with his work or simply relieved to have arrived on time. She looked down at the loose roof again. During the last practice, she had spoken too quickly and forgotten to explain the rainwater tank. Perhaps she could slow down today.
+      
+      When a judge approached, Lina pressed the roof into place once more. Then she set the model down and began with the tank. Her voice shook on the first sentence, but the judge leaned forward to inspect the pipe. Lina reached for her diagram. The roof could wait while she explained the idea she had worked so hard to build.
 questions:
-  - id: rc-cs-ap-0001
-    passage: rc-cs-ap-p1
-    type: identify
-    difficulty: easy
+  - id: "rc-cs-ap-0001"
+    passage: "rc-cs-ap-p1"
+    type: "authors-purpose-tone-pov"
+    difficulty: "easy"
     stem: |
       What is the author's primary purpose in writing the passage about Vigan's architecture?
     choices:
-      - text: To persuade leaders and residents to protect historical ancestral houses.
+      - text: "To urge protection of ancestral houses."
         correct: true
-      - text: To inform readers about the high construction cost of modern fast-food franchises.
+      - text: "To explain how historic building materials are manufactured."
         rationale: |
-          You picked a minor economic detail mentioned in paragraph 1, mistaking it for the main persuasive goal of protecting heritage.
-      - text: To entertain readers with humorous traditional stories about Ilocano artisans.
+          This turns a mentioned material into the purpose. Beams and windows make the description vivid. Check what the writer asks leaders to do.
+      - text: "To describe the commercial plans without evaluating them."
         rationale: |
-          You picked an entertainment purpose not present in the text. The passage is a serious call for heritage protection.
-      - text: To describe the detailed manufacturing process of capiz window panes.
+          This treats the passage as neutral reporting. Commercial plans appear in the opening. Check the judgments attached to those plans.
+      - text: "To compare the costs of tourism and modern construction."
         rationale: |
-          You picked a specific material detail mentioned in passing, missing the author's primary persuasive purpose.
+          This turns the economic contrast into a cost study. Tourism and financial gain both appear. Check whether the text actually compares costs.
     explanation: |
-      The passage uses strong persuasive language ("must act immediately", "cultural tragedy we cannot afford") to convince leaders and readers to enforce preservation laws.
-
-  - id: rc-cs-ap-0002
-    passage: rc-cs-ap-p1
-    type: analyze
-    difficulty: medium
+      The writer calls for leaders to act and names measures to protect the houses. Those calls make persuasion the main purpose.
+  - id: "rc-cs-ap-0002"
+    passage: "rc-cs-ap-p1"
+    type: "authors-purpose-tone-pov"
+    difficulty: "medium"
     stem: |
       Which word best describes the author's tone toward modern commercial developers in Vigan?
     choices:
-      - text: Critical and urgent
+      - text: "Critical and urgent"
         correct: true
-      - text: Indifferent and passive
+      - text: "Indifferent and passive"
         rationale: |
-          You picked an attitude opposite to the text. Words like commercial greed and cultural tragedy convey strong urgency and criticism.
-      - text: Admiring and celebratory
+          This treats description as indifference. The opening describes development plans. Check the strong judgments that follow.
+      - text: "Admiring and celebratory"
         rationale: |
-          You picked an admiring tone that contradicts the author's harsh criticism of developers razing ancestral homes.
-      - text: Sarcastic and playful
+          This transfers praise for the old buildings to developers. The passage values craftsmanship. Check who receives that praise.
+      - text: "Sarcastic and playful"
         rationale: |
-          You misidentified the emotional register. The author's tone is serious and urgent, not sarcastic or playful.
+          This mistakes forceful language for playful sarcasm. Some images are striking. Check whether the appeal is serious or joking.
     explanation: |
-      Phrases like "commercial greed", "cultural tragedy", and "sterile glass storefronts" convey a strongly critical and urgent tone against un-regulated development.
-
-  - id: rc-cs-ap-0003
-    passage: rc-cs-ap-p1
-    type: infer
-    difficulty: medium
+      Calling development "commercial greed" expresses disapproval. Saying leaders "must act immediately" adds urgency.
+  - id: "rc-cs-ap-0003"
+    passage: "rc-cs-ap-p1"
+    type: "authors-purpose-tone-pov"
+    difficulty: "medium"
     stem: |
       Which point of view is used in the Vigan architectural passage?
     choices:
-      - text: First person plural ("we" and "our"), expressing a shared community perspective.
+      - text: "First person plural, speaking as part of the community"
         correct: true
-      - text: First person singular ("I"), recounting a private diary entry.
+      - text: "First person singular, describing one resident's memories"
         rationale: |
-          You picked first person singular. The passage uses plural pronouns like we, our heritage, and our identity.
-      - text: Third person limited, focusing exclusively on one property developer's thoughts.
+          This treats a shared stance as a private account. The voice expresses feelings strongly. Check whether the speaker uses I or we.
+      - text: "Third person limited, following one investor's thoughts"
         rationale: |
-          You picked third person limited, but the author directly addresses readers using inclusive plural pronouns like we and our.
-      - text: Second person ("you"), providing step-by-step instructions.
+          This mistakes discussion of investors for access to one mind. Investors are described in the opening. Check whose perspective the pronouns establish.
+      - text: "Second person, addressing the reader as a participant"
         rationale: |
-          You picked second person instructions. The text uses first-person plural pronouns to rally community action.
+          This confuses an appeal to readers with second-person narration. The text asks for action. Check whether it casts the reader as you.
     explanation: |
-      The author uses "we cannot afford", "our heritage", and "our identity", which is first person plural used to address and represent the community.
-
-  - id: rc-cs-ap-0004
-    passage: rc-cs-ap-p1
-    type: evaluate
-    difficulty: hard
+      The writer includes the speaker in "we" and "our." These words present the concern as shared by the community.
+  - id: "rc-cs-ap-0004"
+    passage: "rc-cs-ap-p1"
+    type: "authors-purpose-tone-pov"
+    difficulty: "hard"
     stem: |
       How does the author characterize the relationship between heritage preservation and economic progress?
     choices:
-      - text: Preservation forms the foundation of long-term tourism vitality.
+      - text: "Preservation forms the foundation of long-term tourism vitality."
         correct: true
-      - text: Preservation permanently destroys all local commercial investment opportunities.
+      - text: "Preservation permanently destroys all local commercial investment opportunities."
         rationale: |
-          You picked a view opposite to the author's argument. The author asserts heritage supports tourism and economy.
-      - text: Economic progress requires tearing down all heritage buildings constructed before 1900.
+          This changes a warning about development into rejection of all investment. The writer criticizes commercial greed. Check the claim about tourism.
+      - text: "Economic progress requires tearing down all heritage buildings constructed before 1900."
         rationale: |
-          You picked the argument made by commercial developers, which the author strongly opposes throughout the text.
-      - text: Heritage preservation is far less important than short-term tax collection.
+          This adopts the development approach that prompts the appeal. Demolition appears in the opening. Check the writer's own judgment of it.
+      - text: "Heritage preservation is far less important than short-term tax collection."
         rationale: |
-          You picked a commercial perspective rejected by the author, who calls short-term financial gain a mistake.
+          This treats short-term gain as the writer's priority. Financial gain appears at the end. Check how that gain is judged.
     explanation: |
-      The author explicitly states that heritage is not an obstacle to economic progress but the foundation of Vigan's long-term tourism vitality.
-
-  - id: rc-cs-ap-0005
-    passage: rc-cs-ap-p1
-    type: analyze
-    difficulty: hard
+      The writer calls heritage the foundation of long-term tourism. Preservation is presented as supporting lasting economic benefits.
+  - id: "rc-cs-ap-0005"
+    passage: "rc-cs-ap-p1"
+    type: "authors-purpose-tone-pov"
+    difficulty: "hard"
     stem: |
       Which stylistic device does the author use when contrasting ancestral craftsmanship with modern developments?
     choices:
-      - text: Emotional words contrasting heritage with sterile structures.
+      - text: "Evaluative descriptions contrasting old and new"
         correct: true
-      - text: Statistical data tables comparing annual municipal tax revenue figures.
+      - text: "Balanced descriptions avoiding judgments of either side"
         rationale: |
-          You picked a statistical device not present in the text. The author uses loaded descriptive words rather than tables.
-      - text: Humorous scripted dialogues between property investors and city officials.
+          This mistakes descriptive detail for neutrality. Both kinds of building are described. Check whether the descriptive words carry praise or blame.
+      - text: "Technical definitions explaining how the materials differ"
         rationale: |
-          You picked a theatrical dialogue device not found in the passage.
-      - text: Rhyming poetic stanzas emphasizing local architectural history.
+          This treats named materials as technical definitions. Molave and capiz sound specialized. Check whether their construction is explained.
+      - text: "Personal memories showing the writer's childhood home"
         rationale: |
-          You picked a poetic form. The passage is written in persuasive argumentative prose.
+          This assumes personal history behind the appeal. The writer speaks of our heritage. Check whether any childhood memory is actually narrated.
     explanation: |
-      The author uses emotionally charged language ("authentic craftsmanship" vs "sterile glass storefronts") to emphasize the contrast in values.
-
-  - id: rc-cs-ap-0006
-    passage: rc-cs-ap-p2
-    type: identify
-    difficulty: easy
+      "Authentic craftsmanship" praises the old buildings. "Sterile glass storefronts" makes the replacements sound lacking in life. The descriptions express the writer's values.
+  - id: "rc-cs-ap-0006"
+    passage: "rc-cs-ap-p2"
+    type: "authors-purpose-tone-pov"
+    difficulty: "easy"
     stem: |
       What is the point of view of the narrative about returning to Leyte?
     choices:
-      - text: First person ("I" and "my")
+      - text: "First person (\"I\" and \"my\")"
         correct: true
-      - text: Second person ("you")
+      - text: "Second person (\"you\")"
         rationale: |
-          You picked second person. The passage is written from the personal first-person stance of the narrator (I stood, my family home).
-      - text: Third person limited narrative
+          This confuses sharing an experience with directly addressing the reader. A return journey can invite identification. Check who the word I names.
+      - text: "Third person limited narrative"
         rationale: |
-          You picked third person limited, ignoring the explicit use of first-person pronouns throughout the narrative.
-      - text: Third person omniscient perspective
+          This recognizes one restricted perspective but overlooks who speaks. Only the returning traveler's feelings appear. Check whether that traveler narrates as I.
+      - text: "Third person omniscient perspective"
         rationale: |
-          You picked third person omniscient, missing the personal first-person memory narrative structure.
+          This assumes the narrator knows everyone's thoughts. Several people appear in the scene. Check whose inner feelings are actually reported.
     explanation: |
-      The passage uses "I stood at the railing", "my family home", "my grandmother", establishing first-person narrative perspective.
-
-  - id: rc-cs-ap-0007
-    passage: rc-cs-ap-p2
-    type: analyze
-    difficulty: medium
+      The speaker takes part in the trip and says "I stood" and "my grandmother." The events are told through that participant's view.
+  - id: "rc-cs-ap-0007"
+    passage: "rc-cs-ap-p2"
+    type: "authors-purpose-tone-pov"
+    difficulty: "medium"
     stem: |
       Which phrase best describes the dominant tone of the Leyte return passage?
     choices:
-      - text: Nostalgic and reflective
+      - text: "Nostalgic and reflective"
         correct: true
-      - text: Bitter and resentful
+      - text: "Bitter and resentful"
         rationale: |
-          You misread the emotion. Reconnecting with family and childhood scents creates a nostalgic, reflective mood, not bitterness.
-      - text: Scientific and objective
+          This treats bittersweet awareness as resentment. The grandmother's aging adds sadness. Check it against the warmth of the reunion.
+      - text: "Scientific and objective"
         rationale: |
-          You picked a clinical tone that contradicts the personal emotional memories described in the story.
-      - text: Fearful and suspicious
+          This treats sensory observations as scientific reporting. The passage describes sights and smells. Check how those details connect to personal feelings.
+      - text: "Fearful and suspicious"
         rationale: |
-          You picked a hostile tone unsupported by the warm greetings and emotional comfort described in the text.
+          This treats strong emotion as fear. The narrator's chest tightens. Check the welcoming gestures around that feeling.
     explanation: |
-      Sensory memories of lechon and greetings, combined with reflecting on passing time and self-identity, create a nostalgic and reflective tone.
-
-  - id: rc-cs-ap-0008
-    passage: rc-cs-ap-p2
-    type: infer
-    difficulty: medium
+      The narrator recalls childhood smells and notices time passing. These memories and reflections create a nostalgic, reflective tone.
+  - id: "rc-cs-ap-0008"
+    passage: "rc-cs-ap-p2"
+    type: "authors-purpose-tone-pov"
+    difficulty: "medium"
     stem: |
       What is the narrator's primary purpose in sharing this personal return journey?
     choices:
-      - text: To reflect on how returning home reconnects with personal roots.
+      - text: "To reflect on reconnecting with home."
         correct: true
-      - text: To persuade tourists and readers to buy residential property near Ormoc Bay.
+      - text: "To recommend returning home permanently after university."
         rationale: |
-          You picked a commercial real estate motivation not present in this reflective personal essay.
-      - text: To inform tourists about passenger ferry ticket prices between Manila and Leyte.
+          This changes a meaningful visit into permanent advice. The homecoming brings comfort. Check whether the narrator recommends moving back.
+      - text: "To contrast the quality of meals in two different cities."
         rationale: |
-          You picked a practical travel detail missing from the passage. The story focuses on personal reconnection.
-      - text: To criticize university higher education systems across Manila.
+          This turns a sensory detail into the main purpose. Food helps recall childhood. Check what the final reflection says about the visit.
+      - text: "To argue that leaving home prevents personal growth."
         rationale: |
-          You picked a critical academic purpose not supported by the narrator's personal reflections.
+          This turns homesickness into rejection of leaving. Manila feels lonely at times. Check whether the narrator says learning away from home has no value.
     explanation: |
-      The narrator concludes that being back home allowed them to pause and remember who they were, showing the reflective purpose of the narrative.
-
-  - id: rc-cs-ap-0009
-    passage: rc-cs-ap-p2
-    type: analyze
-    difficulty: hard
+      The ending connects returning home with remembering an earlier sense of self. That reflection explains why the narrator shares the trip.
+  - id: "rc-cs-ap-0009"
+    passage: "rc-cs-ap-p2"
+    type: "authors-purpose-tone-pov"
+    difficulty: "hard"
     stem: |
       What contrast does the narrator draw between life in Manila and life in Leyte?
     choices:
-      - text: Solitary routine in Manila versus warm communal belonging in Leyte.
+      - text: "Solitary routine in Manila versus warm communal belonging in Leyte."
         correct: true
-      - text: High agricultural income in Manila versus low university tuition fees in Leyte.
+      - text: "High agricultural income in Manila versus low university tuition fees in Leyte."
         rationale: |
-          You introduced tuition and farming income details that are not discussed in the narrative.
-      - text: Quiet coastal atmosphere in Manila versus loud urban traffic in Leyte.
+          This adds an economic contrast. The two places invite comparison. Check whether income or tuition is mentioned.
+      - text: "Quiet coastal atmosphere in Manila versus loud urban traffic in Leyte."
         rationale: |
-          You inverted the locations. Manila has noisy traffic while Leyte provides a coastal hometown atmosphere.
-      - text: Warm family support in Manila versus cold social isolation in Leyte.
+          This exchanges the settings. Both city and coast appear. Check which place the narrator links to traffic.
+      - text: "Warm family support in Manila versus cold social isolation in Leyte."
         rationale: |
-          You reversed the passage contrast. Manila felt isolated (eating alone), while Leyte offered warm family greetings.
+          This exchanges the emotional experiences. Family and loneliness are central details. Match each experience to the correct setting.
     explanation: |
-      The text contrasts "noisy traffic, crowded dormitories, and fast-food dinners eaten alone" in Manila with warm greetings, family embrace, and communal rhythms in Leyte.
-
-  - id: rc-cs-ap-0010
-    passage: rc-cs-ap-p2
-    type: infer
-    difficulty: hard
+      Meals alone and hurried routines show isolation in Manila. The grandmother's embrace and neighbors' greetings show a sense of belonging in Leyte.
+  - id: "rc-cs-ap-0010"
+    passage: "rc-cs-ap-p2"
+    type: "authors-purpose-tone-pov"
+    difficulty: "hard"
     stem: |
       What does the observation that the grandmother's hair was "noticeably silvered" convey?
     choices:
-      - text: Awareness of aging and the passage of time during absence.
+      - text: "Awareness of aging and the passage of time during absence."
         correct: true
-      - text: The grandmother's personal preference for modern hair treatments in Leyte.
+      - text: "The grandmother's personal preference for modern hair treatments in Leyte."
         rationale: |
-          You inferred a cosmetic preference. Noticing silvered hair highlights time passing while studying away.
-      - text: Conclusive proof that the narrator was living away for over twenty years.
+          This turns a sign of aging into a style preference. Silver hair can be dyed. Check the passage's emphasis on time away.
+      - text: "Conclusive proof that the narrator was living away for over twenty years."
         rationale: |
-          You picked a timeframe contradicting the text statement that the narrator was away for three years.
-      - text: Evidence that rural life in Leyte is stressful for elderly relatives.
+          This replaces the stated absence with a much longer one. Hair changes can suggest many years. Check the exact time given in the opening.
+      - text: "Evidence that rural life in Leyte is stressful for elderly relatives."
         rationale: |
-          You inferred stress from aging. Silvered hair naturally marks the passage of three years' time.
+          This assigns a cause the text does not give. Aging might be associated with hardship. Check whether stress is actually mentioned.
     explanation: |
-      Noticing silvered hair highlights the passage of time during three years away at university, adding to the bittersweet reflection.
-
-  - id: rc-cs-ap-0011
-    passage: rc-cs-ap-p3
-    type: identify
-    difficulty: easy
+      The changed hair makes the narrator notice the years spent away. It adds awareness of aging to the homecoming.
+  - id: "rc-cs-ap-0011"
+    passage: "rc-cs-cs-p3"
+    type: "authors-purpose-tone-pov"
+    difficulty: "easy"
     stem: |
-      What is the primary purpose of the passage on bioluminescence in Sarangani Bay?
+      What is the primary purpose of "Studying Glowing Water"?
     choices:
-      - text: To inform readers about scientific causes of bioluminescent plankton.
+      - text: "To explain a natural event and careful observation."
         correct: true
-      - text: To persuade tourists to book commercial guided night dives in Sarangani Bay.
+      - text: "To encourage booking night tours before tests are complete."
         rationale: |
-          You picked a commercial promotional purpose, whereas the passage provides objective scientific explanations.
-      - text: To entertain readers with mythical ancient stories of glowing sea monsters.
+          This treats the mention of tourism as promotion. Glowing water could attract visitors. Check the caution before planning tours.
+      - text: "To argue that observations alone can settle all questions."
         rationale: |
-          You picked a folklore purpose not found in this factual marine biology text.
-      - text: To criticize government marine biologists for banning local shellfish harvesting.
+          This reverses the passage's view of evidence. The students gather observations. Check what the teacher says about further tests.
+      - text: "To describe the science club's competition achievements."
         rationale: |
-          You picked a critical stance that contradicts the text's approval of regular water testing for public safety.
+          This turns a school club into a competition story. Student projects often enter contests. Check whether the passage mentions a contest.
     explanation: |
-      The text provides factual explanations of dinoflagellates, cell thresholds, and water testing, fulfilling an informative scientific purpose.
-
-  - id: rc-cs-ap-0012
-    passage: rc-cs-ap-p3
-    type: analyze
-    difficulty: easy
+      The passage explains bioluminescence and how the club gathers evidence. Its main purpose is to inform readers about the event and careful study.
+  - id: "rc-cs-ap-0012"
+    passage: "rc-cs-cs-p3"
+    type: "authors-purpose-tone-pov"
+    difficulty: "easy"
     stem: |
-      What tone does the author maintain throughout the Sarangani Bay passage?
+      Which tone best describes "Studying Glowing Water"?
     choices:
-      - text: Objective and informative
+      - text: "Measured and informative"
         correct: true
-      - text: Highly emotional and dramatic
+      - text: "Celebratory and promotional"
         rationale: |
-          You picked an emotional tone that contradicts the neutral scientific language used in the passage.
-      - text: Sarcastic and skeptical
+          This mistakes an appealing subject for a sales tone. Glowing water may draw visitors. Check the careful limits on claims.
+      - text: "Dismissive and contemptuous"
         rationale: |
-          You picked a sarcastic tone unsupported by the factual marine biology descriptions.
-      - text: Romantic and poetic
+          This mistakes caution for contempt. The teacher asks for more testing. Check whether the club's work is treated disrespectfully.
+      - text: "Alarmed and accusatory"
         rationale: |
-          You mistook scientific descriptions of glowing plankton for romantic poetry. The tone remains objective throughout.
+          This treats uncertainty as an emergency. Incomplete evidence can raise concern. Check whether the writer warns of an immediate threat.
     explanation: |
-      The author uses clear scientific terminology ("biochemical reactions", "dinoflagellate", "paralytic shellfish poisoning") without emotional bias, keeping an objective tone.
-
-  - id: rc-cs-ap-0013
-    passage: rc-cs-ap-p3
-    type: infer
-    difficulty: medium
+      The writer explains the process and states the limits of the observations. That careful treatment creates a measured, informative tone.
+  - id: "rc-cs-ap-0013"
+    passage: "rc-cs-cs-p3"
+    type: "authors-purpose-tone-pov"
+    difficulty: "medium"
     stem: |
-      What point of view is utilized in the Sarangani Bay scientific passage?
+      Which description best fits the voice in "Studying Glowing Water"?
     choices:
-      - text: Third person objective
+      - text: "An impersonal third-person report"
         correct: true
-      - text: First person singular ("I")
+      - text: "A first-person account by a club member"
         rationale: |
-          You picked first person singular. The passage contains no personal pronouns like I or my.
-      - text: Second person ("you")
+          This treats students' experience as their own narration. The club is the main subject. Check whether a member speaks as I or we.
+      - text: "A second-person account addressing the observer"
         rationale: |
-          You picked second person. The text uses third person objective reporting without addressing the reader directly.
-      - text: First person plural ("we")
+          This mistakes explanation for direct address. The text guides understanding. Check whether it addresses an observer as you.
+      - text: "An omniscient story revealing several students' thoughts"
         rationale: |
-          You picked first person plural. The text uses third-person neutral scientific descriptions throughout.
+          This confuses an outside voice with access to many minds. Several people are mentioned. Check whether their private thoughts are reported.
     explanation: |
-      The narrator remains neutral outside the text, presenting facts about Sarangani Bay without personal pronouns or subjective viewpoints.
-
-  - id: rc-cs-ap-0014
-    passage: rc-cs-ap-p3
-    type: evaluate
-    difficulty: medium
+      The passage describes the students, teacher, and report from outside the group. It presents actions and findings in an impersonal reporting voice.
+  - id: "rc-cs-ap-0014"
+    passage: "rc-cs-cs-p3"
+    type: "authors-purpose-tone-pov"
+    difficulty: "medium"
     stem: |
-      Why does the author mention shellfish harvesting bans alongside ecotourism benefits?
+      Why does the passage mention both visitor interest and the need for further tests?
     choices:
-      - text: To show how environmental monitoring balances benefits with health risks.
+      - text: "To distinguish an appealing event from proven conclusions."
         correct: true
-      - text: To argue that ecotourism activities should be permanently banned in Sarangani Bay.
+      - text: "To show that night tours are the club's only concern."
         rationale: |
-          You picked an extreme policy stance not advocated by the author, who supports balanced monitoring.
-      - text: To prove that bioluminescent dinoflagellate plankton cannot survive near fishponds.
+          This makes one possible use the club's entire purpose. Tours are mentioned near the end. Check the earlier work to understand the water.
+      - text: "To argue that continued testing makes observations useless."
         rationale: |
-          You picked a false biological claim. High plankton blooms occur near agricultural and fishpond runoff.
-      - text: To show that marine biologists prefer local shellfish over ecotourism revenue.
+          This treats more testing as rejection of observations. The teacher separates seeing from proving. Check how the observations guide later study.
+      - text: "To suggest the council should disregard the club's report."
         rationale: |
-          You picked a false conflict. Monitoring ensures ecotourism operates safely without health risks from contaminated shellfish.
+          This turns caution into dismissal. The report has limits. Check why sharing it still helps the council.
     explanation: |
-      Mentioning both ecotourism appeal and health bans illustrates the dual role of environmental monitoring in balancing safety with economic activities.
-
-  - id: rc-cs-ap-0015
-    passage: rc-cs-ap-p3
-    type: analyze
-    difficulty: hard
+      The passage pairs the appeal of glowing water with limits on the evidence. This shows why the club recommends further study before tour plans.
+  - id: "rc-cs-ap-0015"
+    passage: "rc-cs-cs-p3"
+    type: "authors-purpose-tone-pov"
+    difficulty: "hard"
     stem: |
-      Which word choice from the text demonstrates the objective scientific perspective of the passage?
+      Which quoted word or phrase names a specific scientific process?
     choices:
-      - text: "primarily driven by dense blooms of Pyrodinium bahamense"
+      - text: "\"bioluminescence\""
         correct: true
-      - text: "magical glowing waters of enchanted southern Mindanao"
+      - text: "\"an appealing natural event\""
         rationale: |
-          You picked emotional promotional phrasing not found in this objective scientific text.
-      - text: "reckless industrial expansion of dangerous coastal fishponds"
+          This selects a value judgment as the scientific explanation. The event is appealing. Check which phrase defines a process.
+      - text: "\"draw visitors\""
         rationale: |
-          You picked biased sensational phrasing. The passage neutrally mentions fishpond effluents and runoff.
-      - text: "frightening chemical toxicity threatening unaware local swimmers"
+          This selects a likely effect on people. Visitor interest appears in the report. Check whether the phrase explains the light itself.
+      - text: "\"night tours\""
         rationale: |
-          You picked alarmist emotional phrasing that contradicts the objective tone of the text.
+          This selects a possible activity. Tours connect the science to the town. Check whether naming an activity defines the natural process.
     explanation: |
-      The precise botanical name and neutral descriptive language represent the passage's objective scientific perspective.
+      Bioluminescence names light made by living things. This term identifies the process the students study.
+  - id: "q-comprehension-skills-authors-purpose-tone-pov-0016"
+    passage: "p-comprehension-skills-authors-purpose-tone-pov-0004"
+    type: "authors-purpose-tone-pov"
+    difficulty: "easy"
+    stem: |
+      Which narrative point of view is used in "The Unfinished Model"?
+    choices:
+      - text: "Third person limited"
+        correct: true
+      - text: "First person participant"
+        rationale: |
+          This mistakes close access to feelings for a participant's narration. Lina's worries are vivid. Check whether she narrates as I.
+      - text: "Third person omniscient"
+        rationale: |
+          This treats the presence of two characters as access to both minds. Ben smiles. Check whether his reason for smiling is known.
+      - text: "Third person objective"
+        rationale: |
+          This overlooks the reported wishes. Visible actions fill much of the scene. Check the sentences revealing Lina's private worries.
+    explanation: |
+      The narrator calls Lina by name and reports her wishes and worries. Ben's thoughts remain unknown to her. Access is limited to Lina's mind.
+    approved: false
+  - id: "q-comprehension-skills-authors-purpose-tone-pov-0017"
+    passage: "p-comprehension-skills-authors-purpose-tone-pov-0004"
+    type: "authors-purpose-tone-pov"
+    difficulty: "medium"
+    stem: |
+      What is the dominant tone at the end of "The Unfinished Model"?
+    choices:
+      - text: "Cautiously hopeful"
+        correct: true
+      - text: "Triumphant and boastful"
+        rationale: |
+          This treats a small step forward as complete victory. The judge shows interest. Check whether any success has been announced.
+      - text: "Bitterly disappointed"
+        rationale: |
+          This holds onto the opening worry after the scene changes. The roof is still loose. Check how Lina responds at the end.
+      - text: "Detached and clinical"
+        rationale: |
+          This treats descriptions of a model as technical reporting. A pipe and tank appear. Check the attention to Lina's feelings.
+    explanation: |
+      Lina's voice still shakes, but she begins explaining her design and reaches for her diagram. That mix of worry and progress gives a cautiously hopeful tone.
+    approved: false
+  - id: "q-comprehension-skills-authors-purpose-tone-pov-0018"
+    passage: "p-comprehension-skills-authors-purpose-tone-pov-0004"
+    type: "authors-purpose-tone-pov"
+    difficulty: "hard"
+    stem: |
+      Why does the narrator say Lina cannot tell why Ben smiles?
+    choices:
+      - text: "To preserve Lina's restricted perspective"
+        correct: true
+      - text: "To prove that Ben has completed a superior project"
+        rationale: |
+          This treats a smile as proof of quality. Ben appears relaxed. Check whether the passage compares the projects.
+      - text: "To show that the narrator can reveal Ben's thoughts"
+        rationale: |
+          This treats mentioning a mind as entering it. Possible reasons for the smile appear. Check whether any reason is confirmed.
+      - text: "To imply that Ben intends to embarrass Lina"
+        rationale: |
+          This turns Lina's uncertainty into hostile intent. She is nervous near Ben. Check for evidence that Ben wants to hurt her.
+    explanation: |
+      The narrator shares only what Lina can observe or think. Stating her uncertainty keeps Ben's private reasons outside the account.
+    approved: false
+  - id: "q-comprehension-skills-authors-purpose-tone-pov-0019"
+    passage: "p-comprehension-skills-authors-purpose-tone-pov-0004"
+    type: "authors-purpose-tone-pov"
+    difficulty: "hard"
+    stem: |
+      What is the writer's main purpose in "The Unfinished Model"?
+    choices:
+      - text: "To portray a student facing an imperfect presentation"
+        correct: true
+      - text: "To explain the best method for repairing a model roof"
+        rationale: |
+          This turns a problem in the story into a repair guide. The roof needs work. Check whether the passage gives repair steps.
+      - text: "To persuade judges to ignore every construction flaw"
+        rationale: |
+          This makes a character's difficulty a policy argument. The model has a flaw. Check whether the writer addresses judges with a demand.
+      - text: "To compare the costs of two students' science projects"
+        rationale: |
+          This treats the presence of two projects as a cost comparison. Ben also brings a model. Check whether prices are given.
+    explanation: |
+      The scene follows Lina's worries and her decision to explain the design despite the loose roof. It portrays a personal challenge through a story.
+    approved: false
+  - id: "q-comprehension-skills-authors-purpose-tone-pov-0020"
+    passage: "p-comprehension-skills-authors-purpose-tone-pov-0004"
+    type: "authors-purpose-tone-pov"
+    difficulty: "exam"
+    stem: |
+      How does access to Lina's thoughts shape the reader's experience?
+    choices:
+      - text: "It makes her anxiety understandable."
+        correct: true
+      - text: "It confirms the judge's private evaluation of her design."
+        rationale: |
+          This transfers knowledge of Lina's mind to the judge. The judge leans forward. Check whose thoughts the narrator can access.
+      - text: "It reveals why Ben chooses to smile across the aisle."
+        rationale: |
+          This transfers knowledge of Lina's mind to Ben. Lina considers his smile. Check whether she knows its cause.
+      - text: "It establishes that Lina will win the competition."
+        rationale: |
+          This turns access to feelings into certainty about the outcome. Lina begins more steadily. Check whether a result is stated.
+    explanation: |
+      Lina's remembered practice and wishes show why the presentation worries her. Knowing those thoughts helps the reader understand her anxiety.
+    approved: false

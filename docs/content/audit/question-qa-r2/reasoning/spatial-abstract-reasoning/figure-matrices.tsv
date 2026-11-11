@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-spatial-abstract-reasoning-figure-matrices-0001	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Original rotation was absent from the figure and unmarked square rotations made three choices visually equivalent.
+q-spatial-abstract-reasoning-figure-matrices-0002	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	LOW	Removed prose count disclosure; added separate row and column verification.
+q-spatial-abstract-reasoning-figure-matrices-0003	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	MEDIUM	Stem called its three-by-two grid three-by-three; removed unsupported size distractor.
+q-spatial-abstract-reasoning-figure-matrices-0004	CORRECTED	SOLVED-FIXED	stem;choices;explanation;notes;figure	HIGH	Key said black for a blank in the white middle column; solved from the actual grid and fixed.
+q-spatial-abstract-reasoning-figure-matrices-0005	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Original grid omitted union, had the wrong outlines, and radial segments could not form the claimed full X.
+q-spatial-abstract-reasoning-figure-matrices-0006	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Renderer draws fill from the bottom; original two identical lower fills could not show complementary halves.
+q-spatial-abstract-reasoning-figure-matrices-0007	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Original claimed a right-side dot but the supported field drew a top-right corner dot.
+q-spatial-abstract-reasoning-figure-matrices-0008	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	MEDIUM	Repeated size-fill matrix; changed to size and dot tracks with visible marks.
+q-spatial-abstract-reasoning-figure-matrices-0009	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Original duplicated union question while its figure showed an unrelated diagonal; changed to feature overlap.
+q-spatial-abstract-reasoning-figure-matrices-0010	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Original confused adding a line with rotating the shape; changed to a marked reflection across different outlines.
+q-spatial-abstract-reasoning-figure-matrices-0011	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	MEDIUM	Corrected grid size and removed unsupported gray fill.
+q-spatial-abstract-reasoning-figure-matrices-0012	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	MEDIUM	Stem called a three-by-two grid three-by-three; tightened the direction options.
+q-spatial-abstract-reasoning-figure-matrices-0013	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	The original stem and key called a line-angle field a shape rotation; distinguished the drawn feature.
+q-spatial-abstract-reasoning-figure-matrices-0014	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes;figure	HIGH	Original claimed absent fill and union fields; black fill would also hide black rays.
+q-spatial-abstract-reasoning-figure-matrices-0015	NEW	NEW	stem;choices;explanation;notes;figure	NONE	
+q-spatial-abstract-reasoning-figure-matrices-0016	NEW	NEW	stem;choices;explanation;notes;figure	NONE	
+q-spatial-abstract-reasoning-figure-matrices-0017	NEW	NEW	stem;choices;explanation;notes;figure	NONE	
+q-spatial-abstract-reasoning-figure-matrices-0018	NEW	NEW	stem;choices;explanation;notes;figure	NONE	
+q-spatial-abstract-reasoning-figure-matrices-0019	NEW	NEW	stem;choices;explanation;notes;figure	NONE	
+q-spatial-abstract-reasoning-figure-matrices-0020	NEW	NEW	stem;choices;explanation;notes;figure	NONE	

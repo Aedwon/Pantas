@@ -1,79 +1,87 @@
-name: CI (PR)
+name: CI
 
+# Standard hosted runners are free for this public repository, so the full
+# checks run here and focused tests stay local. Logs are public: use test data
+# and no secrets. Decision: docs/superpowers/decisions/2026-10-19-pwa-launch-log.md.
 on:
+  workflow_dispatch:
   pull_request:
     branches: [main]
+    paths-ignore: ['docs/**', '**.md']
+  push:
+    # CI runs on `main` and `web/**`; `ds4/` lanes get CI through their
+    # `web/ds4-` mirror, so a twin push runs once (CI speed plan S4, lead
+    # ruling Nov 11).
+    # Staging only fast-forwards to a commit that already ran here.
+    branches: [main, 'web/**', '!web/staging-candidate-r1']
+    paths-ignore: ['docs/**', '**.md']
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: read
 
 jobs:
-  ci:
+  changes:
+    # Which areas this push touches. Script and rules: tool/ci/changed_areas.sh.
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 5
+    outputs:
+      flutter: ${{ steps.areas.outputs.flutter }}
+      functions: ${{ steps.areas.outputs.functions }}
+      android: ${{ steps.areas.outputs.android }}
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v2
+      - id: areas
+        env:
+          EVENT: ${{ github.event_name }}
+          REF: ${{ github.ref }}
+          REF_TYPE: ${{ github.ref_type }}
+          BEFORE: ${{ github.event.before }}
+          PR_BASE: ${{ github.event.pull_request.base.sha }}
+        run: bash tool/ci/changed_areas.sh
+
+  scans:
+    # No app setup, so a bad commit fails in about a minute.
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
         with:
-          channel: stable
-          flutter-version: '3.41.x'
+          fetch-depth: 0
 
-      - name: pub get
-        run: flutter pub get
-
-      - name: Generate code
-        run: |
-          dart run build_runner build --delete-conflicting-outputs
-          flutter gen-l10n
-
-      - name: Build the content asset
-        # Gitignored and built, never committed. Without it `flutter
-        # analyze` warns that a declared asset is missing and exits 1, and
-        # the bundled-database test has nothing to open. Built from the corpus.
-        run: |
-          mkdir -p build
-          dart run tools/build_content_export/build_content_export.dart build/export.json
-          dart run tools/build_content_seed/seed_writer.dart \
-            build/export.json \
-            assets/seed/content.db
-
-      - name: dart format check
-        # lib and test only, which is what the repo formats. Generated
-        # files now exist by this point and they are not ours to format.
-        run: dart format --output=none --set-exit-if-changed lib test
-
-      - name: dart analyze
-        run: flutter analyze
-
-      - name: Layering check
-        run: dart run tool/check_layering.dart
+      - uses: dart-lang/setup-dart@6afc89df92d6eb3834022f73cd65adc8cdfcb92d # v1.8.1
+        with:
+          sdk: '3.12.2'
 
       - name: AI-attribution check
-        run: dart run tool/check_no_ai_attribution.dart
+        run: dart tool/check_no_ai_attribution.dart
 
-      - name: Unit + widget tests
-        run: flutter test --coverage
-
-      - name: Backend static tests
-        run: npm test
-        working-directory: functions
-
-      - name: Coverage gate (overall >= 70%)
-        run: dart run tool/check_coverage.dart --min 70 --write-filtered coverage/lcov.filtered.info
+      - name: Test shards partition the test files
+        # The test shards must together run every test file outside
+        # test/goldens exactly once. A file in no shard would run nowhere.
+        run: |
+          dart tool/ci/shard_tests.dart --check --shards 8
+          dart tool/ci/bundle_tests.dart --check --shards 8
+          dart tool/ci/bundle_tests.dart --report > bundle-report.txt
+          head -14 bundle-report.txt | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: gitleaks
+        # On a manual run the action scans the whole history, which holds old
+        # findings that the push and pull request scans never see.
+        if: github.event_name != 'workflow_dispatch'
         uses: gitleaks/gitleaks-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           config-path: .gitleaks.toml
 
-  sast:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - uses: actions/checkout@v4
       - uses: returntocorp/semgrep-action@v1
         with:
           config: >-
@@ -83,14 +91,352 @@ jobs:
             p/flutter
             p/secrets
 
-  osv:
+  static:
+    needs: [changes]
+    if: needs.changes.outputs.flutter == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: ./.github/actions/setup-app
+        with:
+          # The one job that saves the build_runner and content caches.
+          save: 'true'
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: setup-fingerprint
+          path: build/setup-fingerprint.txt
+          retention-days: 7
+
+      - name: dart format check
+        # lib and test only, which is what the repo formats. Generated
+        # files now exist by this point and they are not ours to format.
+        run: dart format --output=none --set-exit-if-changed lib test
+
+      - name: Design lint
+        # The ratchet over tool/lints. It runs dart analyze because flutter
+        # analyze stops before the plugin reports. Plan: guardrails layer 2.
+        run: dart run tool/checks/design_lint.dart
+
+      - name: Design lint rule tests
+        working-directory: tool/lints
+        run: dart pub get && dart test
+
+      - name: dart analyze
+        run: flutter analyze
+
+      - name: Layering check
+        run: dart run tool/check_layering.dart
+
+      - name: Verification checks
+        # Each one came from a real failure. docs/workflow/process-improvement.md.
+        run: dart run tool/checks/run_checks.dart
+
+      - name: Design system checks
+        # The vendored system's own checks (design/system/tools), then the Dart
+        # token classes against tokens.json. Spec:
+        # docs/superpowers/specs/2026-11-08-design-system-4-in-app-design.md
+        run: |
+          python3 design/system/tools/build_css.py --check
+          python3 design/system/tools/validate.py
+          python3 design/system/tools/contrast.py
+          python3 design/system/tools/flutter_names.py
+          dart run tool/design_system/generate_tokens.dart --check
+
+  test:
+    needs: [changes]
+    if: needs.changes.outputs.flutter == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        # Keep in step with --shards below and in shard-partition.
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # The release runner tests read an older commit's files.
+          fetch-depth: 0
+
+      - uses: ./.github/actions/setup-app
+
+      - name: Pick this shard's test entry points
+        # Fails on an empty shard. Files are balanced on tool/ci/test_timings.json,
+        # then bundled: a few generated entry files that run many test files,
+        # plus the files that must stay single (tool/ci/bundle_tests.dart).
+        run: dart tool/ci/bundle_tests.dart --shard ${{ matrix.shard }} --shards 8 > shard-files.txt
+
+      - name: Unit + widget tests
+        env:
+          # Built once by setup-app. Tests that need the corpus copy these
+          # instead of running the export tools again.
+          PANTAS_CONTENT_EXPORT: ${{ github.workspace }}/build/export.json
+          PANTAS_CONTENT_SEED: ${{ github.workspace }}/assets/seed/content.db
+        run: |
+          mapfile -t files < shard-files.txt
+          test "${#files[@]}" -gt 0
+          echo "shard ${{ matrix.shard }}: ${#files[@]} files"
+          flutter test --coverage \
+            --file-reporter json:reporter-${{ matrix.shard }}.json \
+            "${files[@]}"
+
+      - name: Timing and test identities
+        if: always()
+        run: |
+          mkdir -p timing
+          dart tool/ci/test_timing.dart reporter-${{ matrix.shard }}.json \
+            --timing timing/test_timings-${{ matrix.shard }}.json \
+            --identities timing/identities-${{ matrix.shard }}.tsv \
+            | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lcov-${{ matrix.shard }}
+          path: coverage/lcov.info
+          retention-days: 1
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: timing-${{ matrix.shard }}
+          path: timing
+          retention-days: 30
+
+  goldens:
+    # The component sheets and key screens (files/ and files/screens/) against the
+    # committed PNGs (guardrails layer 3).
+    # The PNGs are generated on this image by the Update goldens workflow, so
+    # the job skips itself, step by step, until the first ones are committed.
+    needs: [changes]
+    if: needs.changes.outputs.flutter == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Look for committed goldens
+        id: goldens
+        run: |
+          if [ -n "$(find test/goldens/files -name '*.png' 2>/dev/null | head -n 1)" ]; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+            echo "No golden PNG is committed yet, so the goldens job has nothing to compare."
+          fi
+
+      - uses: ./.github/actions/setup-app
+        if: steps.goldens.outputs.present == 'true'
+
+      - name: Golden tests
+        if: steps.goldens.outputs.present == 'true'
+        run: flutter test --tags golden --run-skipped test/goldens
+
+      - name: Upload the failure diffs
+        if: failure() && steps.goldens.outputs.present == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: golden-failures
+          path: test/goldens/**/failures/*.png
+          if-no-files-found: ignore
+          retention-days: 7
+
+  coverage:
+    needs: [changes, test]
+    if: needs.changes.outputs.flutter == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      - uses: google/osv-scanner-action/osv-scanner-action@v1
+
+      - uses: dart-lang/setup-dart@6afc89df92d6eb3834022f73cd65adc8cdfcb92d # v1.8.1
         with:
-          scan-args: |-
-            --recursive
-            --skip-git
-            ./
+          # The Dart bundled with Flutter 3.44.6. The gate imports only dart:io.
+          sdk: '3.12.2'
+
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: lcov-*
+          path: shards
+
+      - name: Merge the shards
+        # A file can appear in several shards. The gate counts every DA line,
+        # so each line must appear once, with its hits summed.
+        run: |
+          mkdir -p coverage
+          cat shards/*/lcov.info | awk -F'[:,]' '
+            /^SF:/ { file = substr($0, 4); files[file] = 1; next }
+            /^DA:/ {
+              if (!((file, $2) in hits)) lines[file] = lines[file] " " $2
+              hits[file, $2] += $3
+            }
+            END {
+              for (file in files) {
+                print "SF:" file
+                count = split(lines[file], numbers, " ")
+                for (i = 1; i <= count; i++) print "DA:" numbers[i] "," hits[file, numbers[i]]
+                print "end_of_record"
+              }
+            }' > coverage/lcov.info
+
+      - name: Coverage gate (overall >= 70%)
+        run: dart tool/check_coverage.dart --min 70 --write-filtered coverage/lcov.filtered.info
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: coverage-merged
+          path: coverage/lcov.info
+          retention-days: 30
+
+  functions:
+    needs: [changes]
+    if: needs.changes.outputs.functions == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: functions/package-lock.json
+
+      - run: npm ci --no-audit --no-fund
+        working-directory: functions
+
+      - name: Restore the emulator jars
+        id: emulators
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: ~/.cache/firebase/emulators
+          key: firebase-emulators-${{ runner.os }}-${{ hashFiles('functions/package-lock.json') }}
+
+      - name: Backend and emulator tests
+        run: npm test
+        working-directory: functions
+
+      - name: Save the emulator jars
+        # The one job that saves this cache. The journeys workflow only restores it.
+        if: steps.emulators.outputs.cache-hit != 'true'
+        continue-on-error: true
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: ~/.cache/firebase/emulators
+          key: ${{ steps.emulators.outputs.cache-primary-key }}
+
+  web:
+    needs: [changes]
+    if: needs.changes.outputs.flutter == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/actions/setup-app
+
+      - name: Release web build
+        run: flutter build web --release --no-web-resources-cdn -t lib/main_dev.dart
+
+  android:
+    needs: [changes]
+    if: needs.changes.outputs.android == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Java 17
+        # The app targets Java 17, and Gradle 8.14 cannot run on Java 25, the
+        # default on the ubuntu-latest image since Nov 11 (Ubuntu 26).
+        uses: actions/setup-java@b843ebf9b913146b38da2eaa7aeddf76074ae1ad # v6.1.0
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - uses: ./.github/actions/setup-app
+
+      - uses: gradle/actions/setup-gradle@8da46b539cd8fe6ab27ca75128919a18d757604c # v6.4.1
+        with:
+          # Branches write the cache too, so a cold build can be compared
+          # with a warm one. CI speed plan S1b.
+          cache-read-only: false
+
+      - name: Write a placeholder Firebase config
+        # The real file is never tracked. This one only lets the debug build compile.
+        run: |
+          cat > android/app/src/dev/google-services.json <<'JSON'
+          {
+            "project_info": {
+              "project_number": "000000000000",
+              "project_id": "ci-placeholder",
+              "storage_bucket": "ci-placeholder.appspot.com"
+            },
+            "client": [{
+              "client_info": {
+                "mobilesdk_app_id": "1:000000000000:android:0000000000000000",
+                "android_client_info": { "package_name": "com.aedwon.pantas.dev" }
+              },
+              "api_key": [{ "current_key": "ci-placeholder" }]
+            }],
+            "configuration_version": "1"
+          }
+          JSON
+
+      - name: Build dev APK (debug, unsigned)
+        run: flutter build apk --debug --flavor dev -t lib/main_dev.dart
+
+
+  ci-ok:
+    # The one name to require if branch protection is added. It passes only
+    # when every job that should have run passed, and every job the path
+    # filter turned off was skipped. A failed, cancelled or unexpectedly
+    # skipped job fails it.
+    if: always()
+    needs: [changes, scans, static, test, coverage, goldens, functions, web, android]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check every job
+        env:
+          NEEDS: ${{ toJSON(needs) }}
+          FLUTTER: ${{ needs.changes.outputs.flutter }}
+          FUNCTIONS: ${{ needs.changes.outputs.functions }}
+          ANDROID: ${{ needs.changes.outputs.android }}
+        run: |
+          fail=0
+          check() {
+            result=$(jq -r --arg job "$1" '.[$job].result' <<<"$NEEDS")
+            if [ "$2" = true ]; then
+              [ "$result" = success ] || { echo "$1: $result, expected success"; fail=1; }
+            else
+              case "$result" in
+                skipped | success) ;;
+                *) echo "$1: $result, expected skipped"; fail=1 ;;
+              esac
+            fi
+            echo "$1: $result"
+          }
+          check changes true
+          check scans true
+          if [ "$(jq -r '.changes.result' <<<"$NEEDS")" != success ]; then
+            echo "The path filter did not run, so no area is known."
+            exit 1
+          fi
+          check static "$FLUTTER"
+          check test "$FLUTTER"
+          check coverage "$FLUTTER"
+          check goldens "$FLUTTER"
+          check web "$FLUTTER"
+          check functions "$FUNCTIONS"
+          check android "$ANDROID"
+          exit "$fail"

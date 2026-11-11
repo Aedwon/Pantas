@@ -8,9 +8,11 @@ import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/error_banner.dart';
+import 'package:pantas/core/ui/components/pantas_page.dart';
+import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/presentation/learn_tab_home.dart';
+import 'package:pantas/features/lesson/presentation/widgets/search_field_bar.dart';
 
 import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
@@ -111,6 +113,13 @@ void main() {
         title: 'Lesson $id',
         bodyJson: jsonEncode([]),
       );
+      await seedContentQuestion(
+        contentDb,
+        questionId: 'question_$id',
+        topicId: topicId,
+        examId: topicId == 't1' ? 'e1' : 'e2',
+        lessonId: id,
+      );
     }
   });
 
@@ -130,10 +139,54 @@ void main() {
 
     // The map heads with the short name. Exam isolation is the point of this
     // test and it still holds: nothing from the unselected exam appears.
-    expect(find.text('CSE'), findsOneWidget);
+    expect(find.text('CSE'), findsNothing);
     expect(find.text('UPCAT'), findsNothing);
-    expect(find.text('Verbal'), findsOneWidget);
+    expect(find.byType(PantasPage), findsOneWidget);
+    expect(find.text('VERBAL'), findsOneWidget);
     expect(find.text('Language Proficiency'), findsNothing);
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump(Duration.zero);
+    await tester.runAsync(db.close);
+  });
+
+  testWidgets('the list fades under the search field instead of cutting',
+      (tester) async {
+    await AppPreferencesRepository(db).setSelectedExamId('e1');
+
+    await tester.pumpAppWithRouter(
+      buildRouter(),
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    final fade = find.byKey(const ValueKey('study-list-fade'));
+    expect(tester.getSize(fade).height, 18);
+    final list = find.byType(ListView).first;
+    expect(tester.getTopLeft(fade).dy, tester.getTopLeft(list).dy);
+    // The list reaches the field, so rows pass under the fade, and the same
+    // 18 px keeps the first row where it was at rest.
+    expect(
+      tester.getTopLeft(list).dy,
+      tester.getBottomLeft(find.byType(SearchFieldBar)).dy,
+    );
+    final box = tester.widget<DecoratedBox>(
+      find.descendant(of: fade, matching: find.byType(DecoratedBox)),
+    );
+    final colors =
+        ((box.decoration as BoxDecoration).gradient! as LinearGradient).colors;
+    expect(colors.first.a, 1);
+    expect(colors.last.a, 0);
+    expect(
+      find.ancestor(of: fade, matching: find.byType(IgnorePointer)),
+      findsWidgets,
+    );
+
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump(Duration.zero);
+    await tester.runAsync(db.close);
   });
 
   testWidgets('shows error banner when provider fails', (tester) async {
@@ -146,7 +199,7 @@ void main() {
       ],
     );
     await tester.pumpAndSettle();
-    expect(find.byType(ErrorBanner), findsOneWidget);
+    expect(find.byType(StateView), findsOneWidget);
   });
 
   testWidgets('missing selected focus shows choose exam fallback',
@@ -164,6 +217,33 @@ void main() {
     expect(find.text('Pick the exam you are reviewing for.'), findsOneWidget);
   });
 
+  // Aedwon, Nov 6 and Nov 8: the pinned topic sat 18 px below the search bar,
+  // and rows showed through the strip above it. It must sit right under the
+  // search bar.
+  testWidgets('the pinned topic sits right under the search bar',
+      (tester) async {
+    await AppPreferencesRepository(db).setSelectedExamId('e1');
+
+    await tester.pumpAppWithRouter(
+      buildRouter(disableAnimations: true),
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+        openTopicProvider.overrideWith(_InitiallyOpenTopic.new),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    final searchBottom = tester.getBottomLeft(find.byType(SearchFieldBar)).dy;
+    final pinnedTop = tester
+        .getTopLeft(find.byKey(const ValueKey('pinned-topic-collapse')))
+        .dy;
+    expect(pinnedTop, searchBottom);
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump(Duration.zero);
+    await tester.runAsync(db.close);
+  });
+
   testWidgets('reduced motion removes the pinned topic transitions',
       (tester) async {
     await AppPreferencesRepository(db).setSelectedExamId('e1');
@@ -178,13 +258,20 @@ void main() {
     );
     await tester.pumpAndSettle();
 
+    expect(find.byType(AnimatedSlide), findsNothing);
     expect(
-      tester.widget<AnimatedSlide>(find.byType(AnimatedSlide)).duration,
+      tester
+          .widget<AnimatedOpacity>(
+            find.ancestor(
+              of: find.byKey(const ValueKey('pinned-topic-collapse')),
+              matching: find.byType(AnimatedOpacity),
+            ),
+          )
+          .duration,
       Duration.zero,
     );
-    expect(
-      tester.widget<AnimatedOpacity>(find.byType(AnimatedOpacity)).duration,
-      Duration.zero,
-    );
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump(Duration.zero);
+    await tester.runAsync(db.close);
   });
 }

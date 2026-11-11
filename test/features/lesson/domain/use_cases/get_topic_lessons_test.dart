@@ -26,17 +26,19 @@ void main() {
 
   test('returns list of lessons for topic', () async {
     final lessons = [makeLesson('l1'), makeLesson('l2')];
-    when(() => content.lessonsByTopic('t1')).thenAnswer((_) async => lessons);
+    when(() => content.lessonsByTopic('t1', examId: 'e1'))
+        .thenAnswer((_) async => lessons);
 
-    final result = await useCase('t1');
+    final result = await useCase('t1', examId: 'e1');
     expect(result, hasLength(2));
     expect(result.first.id, equals('l1'));
   });
 
   test('returns empty list when topic has no lessons', () async {
-    when(() => content.lessonsByTopic('empty')).thenAnswer((_) async => []);
+    when(() => content.lessonsByTopic('empty', examId: 'e1'))
+        .thenAnswer((_) async => []);
 
-    final result = await useCase('empty');
+    final result = await useCase('empty', examId: 'e1');
     expect(result, isEmpty);
   });
 }

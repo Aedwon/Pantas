@@ -1,0 +1,13 @@
+Analyzing 2 items...
+
+   info • Use an if-null operator to convert a 'null' to a 'bool'. Try using an if-null operator • lib/features/quiz/presentation/quiz_question_viewer.dart:79:20 • use_if_null_to_convert_nulls_to_bools
+  error • The property 'mistakeTag' can't be unconditionally accessed because the receiver can be 'null'. Try making the access conditional (using '?.') or adding a null check to the target ('!') • lib/features/quiz/presentation/quiz_question_viewer.dart:212:43 • unchecked_use_of_nullable_value
+  error • The property 'mistakeNote' can't be unconditionally accessed because the receiver can be 'null'. Try making the access conditional (using '?.') or adding a null check to the target ('!') • lib/features/quiz/presentation/quiz_question_viewer.dart:213:44 • unchecked_use_of_nullable_value
+  error • The property 'mistakeTag' can't be unconditionally accessed because the receiver can be 'null'. Try making the access conditional (using '?.') or adding a null check to the target ('!') • lib/features/quiz/presentation/quiz_question_viewer.dart:234:55 • unchecked_use_of_nullable_value
+  error • The property 'mistakeNote' can't be unconditionally accessed because the receiver can be 'null'. Try making the access conditional (using '?.') or adding a null check to the target ('!') • lib/features/quiz/presentation/quiz_question_viewer.dart:235:54 • unchecked_use_of_nullable_value
+  error • The property 'mistakeTag' can't be unconditionally accessed because the receiver can be 'null'. Try making the access conditional (using '?.') or adding a null check to the target ('!') • lib/features/quiz/presentation/quiz_question_viewer.dart:239:48 • unchecked_use_of_nullable_value
+  error • The property 'mistakeNote' can't be unconditionally accessed because the receiver can be 'null'. Try making the access conditional (using '?.') or adding a null check to the target ('!') • lib/features/quiz/presentation/quiz_question_viewer.dart:240:56 • unchecked_use_of_nullable_value
+  error • The property 'mistakeTag' can't be unconditionally accessed because the receiver can be 'null'. Try making the access conditional (using '?.') or adding a null check to the target ('!') • lib/features/quiz/presentation/quiz_question_viewer.dart:243:55 • unchecked_use_of_nullable_value
+  error • The property 'mistakeNote' can't be unconditionally accessed because the receiver can be 'null'. Try making the access conditional (using '?.') or adding a null check to the target ('!') • lib/features/quiz/presentation/quiz_question_viewer.dart:244:56 • unchecked_use_of_nullable_value
+
+9 issues found. (ran in 1.0s)

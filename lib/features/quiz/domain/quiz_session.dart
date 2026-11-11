@@ -4,6 +4,7 @@ import 'package:pantas/core/fsrs/rating.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/passage_set_filler.dart';
 import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/features/quiz/domain/models/review_batch_position.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 
 part 'quiz_session.freezed.dart';
@@ -40,6 +41,7 @@ abstract class QuizSession with _$QuizSession {
     TopicId? topicId,
     SubtopicId? subtopicId,
     LessonId? lessonId,
+    ReviewBatchPosition? reviewBatch,
   }) = _QuizSession;
 
   factory QuizSession.start({

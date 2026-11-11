@@ -1,0 +1,13 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/flagged_start_missing_test.dart
+00:00 +0: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_practice_test.dart: each unit contributes its own questions
+00:00 +1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_practice_test.dart: each unit contributes its own questions
+00:00 +2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_practice_test.dart: each unit contributes its own questions
+00:00 +3: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_practice_test.dart: each unit contributes its own questions
+00:00 +4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_practice_test.dart: each unit contributes its own questions
+00:00 +5: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_practice_test.dart: each unit contributes its own questions
+00:00 +6: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_practice_test.dart: a short pool contributes what it has
+00:00 +7: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_practice_test.dart: no units means no session
+00:00 +8: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_practice_test.dart: the session is recorded as a drill
+00:00 +9: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_practice_test.dart: a lesson unit draws only that lesson
+00:00 +10: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_practice_test.dart: fromQuestionIds creates session with exact question list
+00:00 +11: All tests passed!

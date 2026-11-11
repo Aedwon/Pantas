@@ -1,20 +1,28 @@
 import 'package:drift/drift.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/domain/attempt_origins.dart';
 import 'package:pantas/features/metrics/domain/metric_signal.dart';
 import 'package:pantas/features/metrics/domain/metrics_window.dart';
 import 'package:pantas/features/metrics/domain/signal_outputs.dart';
 import 'package:pantas/features/metrics/signals/attempt_item_reader.dart';
+import 'package:pantas/features/metrics/signals/counted_attempts.dart';
+import 'package:pantas/features/metrics/signals/metric_calculations.dart';
 import 'package:pantas/features/metrics/signals/mock_payload_reader.dart';
 import 'package:pantas/features/metrics/signals/signal_content_helpers.dart';
 
 class TestModeDeltaSignal implements Signal<PressureDelta> {
-  TestModeDeltaSignal(this._db, ContentDatabase contentDb)
-      : _attemptReader = const AttemptItemReader(),
+  TestModeDeltaSignal(
+    this._db,
+    ContentDatabase contentDb, {
+    AttemptScope? scope,
+  })  : _scope = scope,
+        _attemptReader = const AttemptItemReader(),
         _mockReader = const MockPayloadReader(),
         _content = SignalContentHelpers(contentDb);
 
   final AppDatabase _db;
+  final AttemptScope? _scope;
   final AttemptItemReader _attemptReader;
   final MockPayloadReader _mockReader;
   final SignalContentHelpers _content;
@@ -31,17 +39,31 @@ class TestModeDeltaSignal implements Signal<PressureDelta> {
     required String examId,
   }) async {
     if (!window.hasEnoughData) return null;
-    var practiceCorrect = 0;
-    var practiceTotal = 0;
-    var mockCorrect = 0;
-    var mockTotal = 0;
+    final practice = <bool>[];
+    final mock = <bool>[];
 
-    final attempts = _db.select(_db.attemptsLocal)
-      ..where((row) => row.examId.equals(examId) & row.completedAt.isNotNull());
-    for (final row in await attempts.get()) {
-      for (final item in _attemptReader.read(row.itemsJson)) {
-        practiceTotal += 1;
-        if (item.isCorrect) practiceCorrect += 1;
+    final scope = _scope;
+    if (scope != null) {
+      for (final attempt in await scope.attempts(_db, examId)) {
+        // Recorded mock answers are mocks, not practice.
+        if (AttemptOrigins.mirrored.contains(attempt.row.origin)) continue;
+        for (final item in _attemptReader.read(attempt.row.itemsJson)) {
+          if (attempt.counts(item.questionId)) practice.add(item.isCorrect);
+        }
+      }
+    } else {
+      final attempts = _db.select(_db.attemptsLocal)
+        ..where(
+          (row) =>
+              row.examId.equals(examId) &
+              row.completedAt.isNotNull() &
+              // Recorded mock answers are mocks, not practice.
+              row.origin.isNotIn(AttemptOrigins.mirrored.toList()),
+        );
+      for (final row in await attempts.get()) {
+        for (final item in _attemptReader.read(row.itemsJson)) {
+          practice.add(item.isCorrect);
+        }
       }
     }
 
@@ -59,15 +81,14 @@ class TestModeDeltaSignal implements Signal<PressureDelta> {
           final answer = payload.answers[questionId];
           final correctIndex = await _content.correctIndex(questionId);
           if (answer == null || correctIndex == null) continue;
-          mockTotal += 1;
-          if (answer.selectedIndex == correctIndex) mockCorrect += 1;
+          mock.add(answer.selectedIndex == correctIndex);
         }
       }
     }
-    if (practiceTotal == 0 || mockTotal == 0) return null;
-    return PressureDelta(
-      practiceAccuracy: practiceCorrect / practiceTotal,
-      mockAccuracy: mockCorrect / mockTotal,
+    return MetricCalculations.pressure(
+      practice: practice,
+      mock: mock,
+      allowEmpty: window.minSessionCount == 0,
     );
   }
 }

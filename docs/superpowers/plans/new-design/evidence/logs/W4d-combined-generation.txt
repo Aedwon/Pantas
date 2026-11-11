@@ -1,0 +1,19 @@
+W These options have been removed and were ignored: --delete-conflicting-outputs
+  0s freezed on 1510 inputs; integration_test/release/delete_local_data_e2e_test.dart
+  0s freezed on 1510 inputs: 1 skipped; integration_test/release/qlp5_emulator_rehearsal_test.dart
+  3s freezed on 1510 inputs: 223 skipped, 14 no-op; spent 3s analyzing; lib/core/ui/components/answer_row.dart
+  4s freezed on 1510 inputs: 393 skipped, 93 no-op; spent 4s analyzing; lib/features/mock_exam/domain/mock_attempt.dart
+  4s freezed on 1510 inputs: 1218 skipped, 1 same, 291 no-op; spent 4s analyzing
+  0s json_serializable on 3020 inputs; integration_test/release/delete_local_data_e2e_test.dart
+  1s json_serializable on 3020 inputs: 1 no-op; integration_test/release/delete_local_data_e2e_test.freezed.dart
+  2s json_serializable on 3020 inputs: 2093 skipped, 927 no-op; spent 1s analyzing
+  0s drift_dev on 12080 inputs; integration_test/release/delete_local_data_e2e_test.dart
+  0s drift_dev on 12080 inputs: 825 skipped, 62 output, 252 same; lib/features/paywall/data/revenuecat_sdk.freezed.dart
+W drift_dev on integration_test/release/delete_local_data_e2e_test.dart:
+  You enabled the `generate_connect_constructor` build option. This option is no longer necessary in drift 2.5, as a `DatabaseConnection` can now be passed to the default constructor for generated databases. Consider removing this option.
+  1s drift_dev on 12080 inputs: 4186 skipped, 369 output, 1478 same, 8 no-op; integration_test/release/delete_local_data_e2e_test.dart.types.temp.dart
+  2s drift_dev on 12080 inputs: 8826 skipped, 370 output, 1478 same, 863 no-op; spent 1s building; test/features/quiz/presentation/quiz_leave_resume_panel_test.dart.types.temp.dart
+  2s drift_dev on 12080 inputs: 9305 skipped, 370 output, 1478 same, 927 no-op; spent 1s building
+  0s source_gen:combining_builder on 6040 inputs; integration_test/release/delete_local_data_e2e_test.dart
+  0s source_gen:combining_builder on 6040 inputs: 5948 skipped, 1 output, 91 no-op
+  Built with build_runner/aot in 10s; wrote 1850 outputs.

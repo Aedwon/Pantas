@@ -2,13 +2,7 @@ meta:
   subject: mathematics
   topic: geometry
   subtopic: circles
-  exams:
-    - upcat
-    - acet
-    - dlsucet
-    - ustet
-    - pupcet
-
+  exams: [upcat, acet, dlsucet, ustet, pupcet]
 questions:
   - id: q-geometry-circles-0001
     type: direct-computation
@@ -21,22 +15,17 @@ questions:
       - text: '$84^\circ$'
         correct: false
         rationale: |
-          You used the central angle rule. An inscribed angle over the same arc is only half as large.
+          This uses the central-angle rule for an inscribed angle. Both angles intercept the same arc. Check where the angle vertex lies.
       - text: '$168^\circ$'
         correct: false
         rationale: |
-          You doubled the arc measure instead of halving it. Inscribed angles are smaller than the intercepted arc.
+          This doubles the arc instead of halving it. The central-inscribed relationship involves a factor two. Check which measure is twice the other.
       - text: '$96^\circ$'
         correct: false
         rationale: |
-          You moved away from the arc measure without using the inscribed-angle rule. The key step is to take half of 84.
+          This finds a supplement of the arc measure. The arc measure is an angle value. Check the inscribed-angle rule.
     explanation: |
-      An inscribed angle is equal to half the measure of its intercepted arc.
-
-      1. Intercepted arc measure $= 84^\circ$.
-      2. Inscribed angle $= \frac{84^\circ}{2} = 42^\circ$.
-
-      Common Trap: Confusing inscribed angles with central angles (which equal the arc measure, $84^\circ$).
+      An inscribed angle equals half of its intercepted arc. Divide $84^\circ$ by $2$ to get $42^\circ$.
 
   - id: q-geometry-circles-0002
     type: direct-computation
@@ -49,21 +38,17 @@ questions:
       - text: '$196\pi\text{ cm}^2$'
         correct: false
         rationale: |
-          You used the diameter as the radius. For area, you must halve 14 first, then square the radius 7.
+          This uses the diameter as the radius. The given length is fourteen. Halve the diameter before squaring.
       - text: '$14\pi\text{ cm}^2$'
         correct: false
         rationale: |
-          You forgot to square the radius. Area uses $\pi r^2$, not just $\pi r$.
+          This reports the circumference using the true radius but labels it as area. Both formulas contain pi and the radius. Check that area uses a squared radius.
       - text: '$28\pi\text{ cm}^2$'
         correct: false
         rationale: |
-          You mixed the area formula with the circumference formula. The circle's area comes from squaring the radius.
+          This computes circumference with the diameter used as a radius and labels it as area. Both formula and diameter come from the problem. Check both the radius and the requested quantity.
     explanation: |
-      1. Calculate the radius $r$ from diameter $d$: $r = \frac{d}{2} = \frac{14}{2} = 7\text{ cm}$.
-      2. Apply area formula $A = \pi r^2$:
-         $$A = \pi (7^2) = 49\pi\text{ cm}^2$$
-
-      Common Trap: Plugging the diameter directly into the area formula ($\pi \times 14^2 = 196\pi$).
+      The radius is half the diameter: $r=14\div2=7$ cm. Circle area is $\pi r^2$, so the area is $\pi(7^2)=49\pi$ square centimeters.
 
   - id: q-geometry-circles-0003
     type: direct-computation
@@ -76,21 +61,17 @@ questions:
       - text: '$35^\circ$'
         correct: false
         rationale: |
-          You reused the given angle and skipped the right angle from the diameter. The triangle still has to total 180 degrees.
+          This assumes the two acute angles are equal. The triangle is inside a circle whose radii are equal. Check whether the triangle legs are given as equal.
       - text: '$90^\circ$'
         correct: false
         rationale: |
-          You found the angle at $C$, not the angle at $B$. The right angle is opposite the diameter.
+          This reports the angle at C. The diameter does create a right angle. Check the requested vertex.
       - text: '$145^\circ$'
         correct: false
         rationale: |
-          You subtracted only once from 180 without accounting for the right angle correctly. First use $\angle C = 90^\circ$.
+          This subtracts only the given angle from one hundred eighty degrees. Triangle angles do sum to one hundred eighty degrees. Check that the diameter gives a ninety-degree angle.
     explanation: |
-      By Thales's Theorem, an angle inscribed in a semicircle is always a right angle ($90^\circ$).
-
-      1. Since $AB$ is the diameter, $\angle ACB = 90^\circ$.
-      2. Sum of angles in $\triangle ABC$: $\angle BAC + \angle ACB + \angle ABC = 180^\circ$.
-      3. $35^\circ + 90^\circ + \angle ABC = 180^\circ \implies \angle ABC = 180^\circ - 125^\circ = 55^\circ$.
+      The angle opposite the diameter is $90^\circ$. The triangle angles sum to $180^\circ$. Thus $\angle ABC=180^\circ-90^\circ-35^\circ=55^\circ$.
 
   - id: q-geometry-circles-0004
     type: direct-computation
@@ -103,20 +84,17 @@ questions:
       - text: '$36\pi\text{ cm}$'
         correct: false
         rationale: |
-          You repeated the area instead of converting it into a radius first. Circumference needs $2\pi r$, not $\pi r^2$.
+          This reports the area coefficient as the circumference coefficient. Thirty-six is visible in the area. Recover the radius before using the circumference formula.
       - text: '$6\pi\text{ cm}$'
         correct: false
         rationale: |
-          You used the radius once but left out the factor of 2. Circumference is twice $\pi r$.
+          This omits the factor two in circumference. The radius was found correctly. Check the full circumference formula.
       - text: '$24\pi\text{ cm}$'
         correct: false
         rationale: |
-          You doubled too much after finding the radius. With $r = 6$, the circumference is $2\pi(6)$.
+          This uses the diameter as the radius in circumference. The diameter is another natural circle size. Check that the formula uses radius.
     explanation: |
-      1. Find radius $r$ from area $A = \pi r^2$:
-         $$\pi r^2 = 36\pi \implies r^2 = 36 \implies r = 6\text{ cm}$$
-      2. Calculate circumference $C = 2\pi r$:
-         $$C = 2\pi (6) = 12\pi\text{ cm}$$
+      From area $\pi r^2=36\pi$, get $r^2=36$ and the positive radius $r=6$ cm. Circumference is $2\pi r=2\pi(6)=12\pi$ cm.
 
   - id: q-geometry-circles-0005
     type: direct-computation
@@ -129,21 +107,17 @@ questions:
       - text: '$18\text{ cm}$'
         correct: false
         rationale: |
-          You added the side lengths instead of using the right triangle. The tangent, radius, and center-to-point segment follow the Pythagorean theorem.
+          This adds the two given lengths. The same two lengths are used. Check the right-triangle relationship.
       - text: '$8\text{ cm}$'
         correct: false
         rationale: |
-          You subtracted the given lengths instead of solving from squares. The right-triangle relationship is $5^2 + PT^2 = 13^2$.
+          This subtracts the given lengths. The tangent looks like the remaining distance. Check the relationship between squared side lengths.
       - text: '$\sqrt{194}\text{ cm}$'
         correct: false
         rationale: |
-          You added the squares instead of subtracting to isolate the tangent length. First find $PT^2 = 13^2 - 5^2$.
+          This treats the tangent as the hypotenuse and adds the squares. The theorem uses squared lengths. Check which side is opposite the right angle.
     explanation: |
-      A tangent line is perpendicular to the radius at the point of tangency, forming right $\triangle OPT$.
-
-      1. Apply the Pythagorean theorem: $OT^2 + PT^2 = OP^2 \implies 5^2 + PT^2 = 13^2$.
-      2. $25 + PT^2 = 169 \implies PT^2 = 144$.
-      3. Take square root: $PT = \sqrt{144} = 12\text{ cm}$.
+      The tangent and touching radius are perpendicular. Their right triangle has hypotenuse $13$ and radius leg $5$. Thus $PT^2=13^2-5^2=169-25=144$. Take the positive root to get $PT=12$ cm.
 
   - id: q-geometry-circles-0006
     type: direct-computation
@@ -156,20 +130,17 @@ questions:
       - text: '$24\pi\text{ cm}$'
         correct: false
         rationale: |
-          You used the whole circumference and ignored that 60 degrees is only one sixth of the circle.
+          This reports the full circumference. The circumference is a needed intermediate value. Check what fraction of the circle is intercepted.
       - text: '$8\pi\text{ cm}$'
         correct: false
         rationale: |
-          You treated 60 degrees like one third of a full circle. The correct fraction is $\dfrac{60}{360} = \dfrac{1}{6}$.
+          This divides the angle by one hundred eighty instead of three hundred sixty. One hundred eighty degrees is another familiar total. Check the full-circle degree total.
       - text: '$2\pi\text{ cm}$'
         correct: false
         rationale: |
-          You reduced the arc too much. One sixth of the full circumference $24\pi$ is $4\pi$, not $2\pi$.
+          This omits the factor two in the circumference before taking the arc fraction. The arc fraction is still correct. Check the full circumference formula.
     explanation: |
-      1. Arc length formula: $L = \frac{\theta}{360^\circ} \times 2\pi r$.
-      2. Substitute values: $L = \frac{60^\circ}{360^\circ} \times 2\pi (12) = \frac{1}{6} \times 24\pi = 4\pi\text{ cm}$.
-
-      Common Trap: Confusing arc length with sector area ($\frac{1}{6} \times \pi \times 12^2 = 24\pi\text{ cm}^2$).
+      The arc is $\dfrac{60}{360}=\dfrac{1}{6}$ of the circumference. The circumference is $2\pi(12)=24\pi$ cm. Its sixth is $4\pi$ cm.
 
   - id: q-geometry-circles-0007
     type: direct-computation
@@ -182,20 +153,17 @@ questions:
       - text: '$4\pi\text{ cm}^2$'
         correct: false
         rationale: |
-          You found the arc length idea instead of the sector area. Sector area uses part of $\pi r^2$.
+          This uses the arc-length calculation but labels it as area. Both arc and sector use the same angle fraction. Check whether the requested unit is length or area.
       - text: '$64\pi\text{ cm}^2$'
         correct: false
         rationale: |
-          You used the area of the full circle and skipped the 90-degree sector fraction.
+          This reports the full circle area. The full circle area is needed first. Check the angle fraction.
       - text: '$32\pi\text{ cm}^2$'
         correct: false
         rationale: |
-          You took half of the circle instead of one fourth. A 90-degree sector is one quarter of 360 degrees.
+          This uses one half instead of one quarter for the sector. Ninety degrees is half of a straight angle. Check the full-circle degree total.
     explanation: |
-      1. Sector area formula: $A = \frac{\theta}{360^\circ} \times \pi r^2$.
-      2. Substitute values: $A = \frac{90^\circ}{360^\circ} \times \pi (8^2) = \frac{1}{4} \times 64\pi = 16\pi\text{ cm}^2$.
-
-      Common Trap: Calculating arc length ($\frac{1}{4} \times 16\pi = 4\pi$) instead of sector area.
+      The sector is $\dfrac{90}{360}=\dfrac{1}{4}$ of the circle. The full area is $\pi(8^2)=64\pi$ square centimeters. A quarter is $16\pi$ square centimeters.
 
   - id: q-geometry-circles-0008
     type: direct-computation
@@ -208,24 +176,17 @@ questions:
       - text: '$100^\circ$'
         correct: false
         rationale: |
-          You found $\angle A$ instead of $\angle C$. The question asks for the opposite angle after solving the supplementary pair.
+          This reports angle A instead of C. A is found from the same variable. Check the requested vertex.
       - text: '$20^\circ$'
         correct: false
         rationale: |
-          You reported the value of $x$ instead of the measure of $\angle C$. You still have to substitute $x$ back in.
+          This reports the solved variable instead of angle C. The variable is found first. Substitute into the requested angle expression.
       - text: '$10^\circ$'
         correct: false
         rationale: |
-          You likely set the opposite angles equal instead of making them add to 180 degrees. Inscribed quadrilateral opposites are supplementary.
+          This makes opposite angles equal and reports the resulting variable. Equal-angle rules apply to other circle configurations. Check the cyclic-quadrilateral relation and the requested measure.
     explanation: |
-      Opposite angles in an inscribed quadrilateral are supplementary ($180^\circ$).
-
-      1. Set up equation: $(4x + 20) + (2x + 40) = 180$.
-      2. Combine like terms: $6x + 60 = 180 \implies 6x = 120 \implies x = 20$.
-      3. Calculate $\angle C$:
-         $$\angle C = 2(20) + 40 = 40 + 40 = 80^\circ$$
-
-      Common Trap: Reporting opposite angle $\angle A = 100^\circ$ or setting them equal ($4x+20 = 2x+40 \implies x=10$).
+      Opposite angles of an inscribed quadrilateral sum to $180^\circ$. Thus $(4x+20)+(2x+40)=180$, giving $6x=120$ and $x=20$. Substitute: $\angle C=2(20)+40=80^\circ$.
 
   - id: q-geometry-circles-0009
     type: direct-computation
@@ -238,22 +199,17 @@ questions:
       - text: '$10^\circ$'
         correct: false
         rationale: |
-          You used the outside-angle circle rule. For chords intersecting inside the circle, you add the intercepted arcs and then halve.
+          This takes half the arc difference instead of half their sum. Outside-circle angles do use a difference. Check whether the intersection is inside or outside.
       - text: '$120^\circ$'
         correct: false
         rationale: |
-          You added the arcs but forgot to take half. The angle inside the circle is half the arc sum.
+          This adds the arcs without halving. The two arcs are relevant. Check the factor one half.
       - text: '$35^\circ$'
         correct: false
         rationale: |
-          You halved only one intercepted arc. This angle depends on both arcs, 70 degrees and 50 degrees.
+          This uses only the seventy-degree arc. An inscribed angle uses half of one arc. Check both intercepted arcs.
     explanation: |
-      The measure of an angle formed by two chords intersecting inside a circle is half the sum of the intercepted arcs.
-
-      1. Formula: $\angle AEC = \frac{\text{Arc}_{AC} + \text{Arc}_{BD}}{2}$.
-      2. Substitute: $\angle AEC = \frac{70^\circ + 50^\circ}{2} = \frac{120^\circ}{2} = 60^\circ$.
-
-      Common Trap: Subtracting arcs ($\frac{70 - 50}{2} = 10^\circ$), which applies to angles outside the circle.
+      For chords crossing inside a circle, the angle equals half the sum of its intercepted arcs. Add $70^\circ+50^\circ=120^\circ$. Divide by $2$ to get $60^\circ$.
 
   - id: q-geometry-circles-0010
     type: direct-computation
@@ -266,22 +222,17 @@ questions:
       - text: '$75^\circ$'
         correct: false
         rationale: |
-          You used the inside-chords formula and added the arcs. An exterior secant angle uses half the difference.
+          This takes half the arc sum instead of half their difference. Inside-circle angles do use a sum. Check whether the intersection is inside or outside.
       - text: '$70^\circ$'
         correct: false
         rationale: |
-          You subtracted the arcs but forgot to divide by 2. The secant angle outside the circle is half of 70 degrees.
+          This takes the difference without halving. The correct arc difference is found. Check the factor one half.
       - text: '$150^\circ$'
         correct: false
         rationale: |
-          You treated the intercepted arcs like a direct angle total. For two secants outside a circle, you subtract first, then halve.
+          This adds the arc measures directly. Both arcs are relevant. Check the difference rule for external secants.
     explanation: |
-      The measure of an angle formed by two secants intersecting outside a circle is half the difference of the intercepted arcs.
-
-      1. Formula: $\angle P = \frac{\text{Far Arc} - \text{Near Arc}}{2}$.
-      2. Substitute: $\angle P = \frac{110^\circ - 40^\circ}{2} = \frac{70^\circ}{2} = 35^\circ$.
-
-      Common Trap: Adding arcs ($\frac{110 + 40}{2} = 75^\circ$) by using the interior intersection formula.
+      For two secants meeting outside a circle, the angle equals half the difference of the far and near arcs. Subtract $110^\circ-40^\circ=70^\circ$. Divide by $2$ to get $35^\circ$.
 
   - id: q-geometry-circles-0011
     type: direct-computation
@@ -294,22 +245,17 @@ questions:
       - text: '$12\text{ cm}$'
         correct: false
         rationale: |
-          You found half the chord and stopped there. The question asks for the full chord length, so you must double 12.
+          This reports half the chord. The half-chord is needed first. Check whether a half or the whole is requested.
       - text: '$18\text{ cm}$'
         correct: false
         rationale: |
-          You did not use the 5-12-13 right triangle cleanly. The half-chord is 12, so the whole chord is 24.
+          This adds the two radii as if they formed the chord. Both circle sizes are given. Use the right triangle formed by the center and the chord.
       - text: '$8\text{ cm}$'
         correct: false
         rationale: |
-          You subtracted the radii instead of solving for the half-chord with the right triangle. The tangent point creates a perpendicular distance.
+          This subtracts the two radii as if they formed the chord. Both circle sizes are given. Use the squared-length relationship in the right triangle.
     explanation: |
-      1. The radius of the smaller circle ($5\text{ cm}$) is perpendicular to the tangent chord of the larger circle, bisecting the chord.
-      2. A right triangle is formed by the radius of the smaller circle ($5$), half the chord ($x$), and the radius of the larger circle ($13$).
-      3. Use Pythagorean theorem: $5^2 + x^2 = 13^2 \implies 25 + x^2 = 169 \implies x = 12\text{ cm}$.
-      4. Total chord length $= 2x = 2 \times 12 = 24\text{ cm}$.
-
-      Common Trap: Reporting half the chord length ($12\text{ cm}$) instead of the full chord length.
+      The common center is $5$ cm from the tangent chord. Its perpendicular segment bisects that chord. A half-chord forms a right triangle with legs $5$ and $h$ and hypotenuse $13$. Thus $h^2=13^2-5^2=144$, so $h=12$ cm. The full chord is $2(12)=24$ cm.
 
   - id: q-geometry-circles-0012
     type: direct-computation
@@ -322,24 +268,17 @@ questions:
       - text: '$2\sqrt{5}\text{ cm}$'
         correct: false
         rationale: |
-          You multiplied the external part by the inside part only. The tangent-secant rule uses the whole secant length, 4 times 9.
+          This uses only the inside secant part in the product. Both stated pieces are part of the secant. Check that the theorem uses the whole secant.
       - text: '$4.5\text{ cm}$'
         correct: false
         rationale: |
-          You averaged the secant parts instead of using the power theorem. First find the whole secant length, then take the square root.
+          This averages the two secant pieces. Both lengths are given directly. Check that the relationship is a squared-length product.
       - text: '$9\text{ cm}$'
         correct: false
         rationale: |
-          You used the whole secant length as the tangent length. The theorem gives $PT^2$, so you still have to take the square root.
+          This reports the whole secant as the tangent length. The full secant is a needed intermediate value. Check that the tangent has its own squared-length relation.
     explanation: |
-      By the Tangent-Secant Power Theorem:
-      $$PT^2 = PA \times PB$$
-
-      1. Calculate total secant segment length $PB = PA + AB = 4 + 5 = 9\text{ cm}$.
-      2. Apply formula: $PT^2 = 4 \times 9 = 36$.
-      3. Take square root: $PT = \sqrt{36} = 6\text{ cm}$.
-
-      Common Trap: Multiplying $PA \times AB$ ($4 \times 5 = 20 \implies PT = \sqrt{20} = 2\sqrt{5}\text{ cm}$) instead of using the entire secant length $PB$.
+      The whole secant from P to B is $4+5=9$ cm. The tangent-secant theorem gives $PT^2=PA(PB)=4(9)=36$. Taking the positive root gives $PT=6$ cm.
 
   - id: q-geometry-circles-0013
     type: direct-computation
@@ -352,20 +291,17 @@ questions:
       - text: '$36\pi - 36\text{ cm}^2$'
         correct: false
         rationale: |
-          You made the square too small. An inscribed square with diagonal 12 has area 72, not 36.
+          This uses the circle radius as the square side. Both shapes share the same center. Check that the square diagonal is the diameter.
       - text: '$36\pi - 144\text{ cm}^2$'
         correct: false
         rationale: |
-          You used the square's diagonal as if it were a side. The diagonal is 12, but the square's area is half of $12^2$.
+          This uses the square diagonal as its side. The diagonal spans the circle. Check which length is a side and which is a diagonal.
       - text: '$72 - 36\pi\text{ cm}^2$'
         correct: false
         rationale: |
-          You reversed the subtraction. The shaded region is circle area minus square area, so it must stay positive.
+          This reverses circle area minus square area. Both areas are needed. Check which region is being removed.
     explanation: |
-      1. Circle Area $= \pi r^2 = \pi (6^2) = 36\pi\text{ cm}^2$.
-      2. The diagonal $d$ of the inscribed square equals the diameter of the circle: $d = 2r = 12\text{ cm}$.
-      3. Square Area $= \frac{d^2}{2} = \frac{12^2}{2} = \frac{144}{2} = 72\text{ cm}^2$.
-      4. Shaded Area $= \text{Circle Area} - \text{Square Area} = 36\pi - 72\text{ cm}^2$.
+      The circle area is $\pi(6^2)=36\pi$ square centimeters. The square diagonal equals the circle diameter, $12$ cm. If its side is $s$, then $s^2+s^2=12^2$, so its area $s^2$ is $72$ square centimeters. Subtract square area from circle area to get $36\pi-72$ square centimeters.
 
   - id: q-geometry-circles-0014
     type: direct-computation
@@ -378,24 +314,17 @@ questions:
       - text: '$70^\circ$'
         correct: false
         rationale: |
-          You found the inscribed angle and stopped there. The central angle over the same arc is twice as large.
+          This reports the inscribed angle. That angle is found from the same x. Check which vertex is requested.
       - text: '$30^\circ$'
         correct: false
         rationale: |
-          You reported the value of $x$ instead of the central angle. After solving for $x$, you still need $5x - 10$.
-      - text: '$110^\circ$'
+          This reports the variable instead of the angle. The variable is found first. Substitute into the requested angle expression.
+      - text: '$160^\circ$'
         correct: false
         rationale: |
-          You solved the relation partway but substituted back incorrectly. The same arc gives a central angle double the inscribed angle.
+          This adds ten instead of subtracting ten after finding x. The constant ten is visible in the formula. Check the sign in the original expression.
     explanation: |
-      A central angle is twice the measure of an inscribed angle standing on the same arc.
-
-      1. Set up equation: $\angle AOB = 2 \times \angle ACB \implies 5x - 10 = 2(2x + 10)$.
-      2. Expand: $5x - 10 = 4x + 20 \implies x = 30$.
-      3. Calculate central angle $\angle AOB$:
-         $$\angle AOB = 5(30) - 10 = 150 - 10 = 140^\circ$$
-
-      Common Trap: Reporting the inscribed angle measure ($70^\circ$) instead of the central angle measure ($140^\circ$).
+      The central angle is twice the inscribed angle over the same arc. Thus $5x-10=2(2x+10)$. Expand: $5x-10=4x+20$, so $x=30$. The central angle is $5(30)-10=140^\circ$.
 
   - id: q-geometry-circles-0015
     type: direct-computation
@@ -408,19 +337,119 @@ questions:
       - text: '$9\sqrt{3}\text{ cm}$'
         correct: false
         rationale: |
-          You found the tangent length instead of the distance from $P$ to the center. The question asks for $OP$, not $PA$.
+          This reports the tangent length instead of OP. Both lengths belong to the same right triangle. Check which segment is requested.
       - text: '$9\text{ cm}$'
         correct: false
         rationale: |
-          You used the radius only. The segment from the center to the external point is longer than the radius.
+          This reports the radius instead of the external-center distance. The radius is given directly. Check that P lies outside the circle.
       - text: '$36\text{ cm}$'
         correct: false
         rationale: |
-          You doubled too far after using the 30-degree triangle. In this right triangle, the hypotenuse is only twice the radius.
+          This doubles the hypotenuse a second time. The thirty-degree rule requires a doubling. Check that the radius is doubled only once.
     explanation: |
-      1. Segment $OP$ bisects angle $\angle APB$, so $\angle APO = \frac{60^\circ}{2} = 30^\circ$.
-      2. Radius $OA$ is perpendicular to tangent $PA$, forming right $\triangle OAP$ with right angle at $A$.
-      3. In right $\triangle OAP$: $\sin(30^\circ) = \frac{OA}{OP} \implies \frac{1}{2} = \frac{9}{OP}$.
-      4. Solve for $OP$: $OP = 9 \times 2 = 18\text{ cm}$.
+      The two tangent-radius triangles have equal radii and the same hypotenuse OP, so their angles at P are equal. Each is $60^\circ\div2=30^\circ$. In either right triangle, the radius $9$ is opposite $30^\circ$ and is half the hypotenuse. Thus $OP=2(9)=18$ cm.
 
-      Common Trap: Calculating tangent length $PA = 9\sqrt{3}\text{ cm}$ instead of segment $OP$.
+  - id: q-geometry-circles-0016
+    type: which-is-true
+    difficulty: easy
+    stem: |
+      A chord of a circle has length $12$ cm. Which statement about its radius must be true?
+    choices:
+      - text: '$r\ge6$ cm.'
+        correct: true
+      - text: '$r=6$ cm in every case.'
+        rationale: |
+          This assumes the chord is a diameter. A diameter is one kind of chord. Check whether the chord passes through the center.
+      - text: '$r=12$ cm in every case.'
+        rationale: |
+          This treats the chord as a radius. Both are segments inside a circle. Check whether one endpoint is the center.
+      - text: '$r<6$ cm in every case.'
+        rationale: |
+          This reverses the longest-chord inequality. Half of twelve is six. Check that the diameter cannot be shorter than the chord.
+    explanation: |
+      The diameter is the longest chord, so it is at least $12$ cm. Radius is half the diameter, so $r\ge6$ cm.
+    approved: false
+
+  - id: q-geometry-circles-0017
+    type: error-spotting
+    difficulty: medium
+    stem: |
+      A student uses the diameter $10$ cm in $A=\pi r^2$ and reports $100\pi$ square centimeters. What is the correct area?
+    choices:
+      - text: '$25\pi$ square centimeters'
+        correct: true
+      - text: '$100\pi$ square centimeters'
+        rationale: |
+          This repeats the diameter-as-radius substitution. The diameter is the given length. Check that radius is half of it.
+      - text: '$10\pi$ square centimeters'
+        rationale: |
+          This uses the circumference coefficient as the area coefficient. Both formulas contain pi. Check the squared-radius area formula.
+      - text: '$50\pi$ square centimeters'
+        rationale: |
+          This halves the wrong area rather than halving the length first. Radius is half the diameter. Check that area changes with the square of radius.
+    explanation: |
+      The radius is $10\div2=5$ cm. Square the radius: $A=\pi(5^2)=25\pi$ square centimeters.
+    approved: false
+
+  - id: q-geometry-circles-0018
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A circular garden is expanded so its radius is doubled. How many times its original area is the new area?
+    choices:
+      - text: '$4$'
+        correct: true
+      - text: '$2$'
+        rationale: |
+          This scales area directly with radius. Circumference does scale this way. Check the squared radius in area.
+      - text: '$8$'
+        rationale: |
+          This uses the volume-style cube of the length scale. Some size measures use three dimensions. Check that area has two dimensions.
+      - text: '$16$'
+        rationale: |
+          This doubles the radius twice before squaring. The radius changes once. Check the stated scale factor.
+    explanation: |
+      If the original radius is $r$, its area is $\pi r^2$. The new area is $\pi(2r)^2=4\pi r^2$. Thus the new area is four times the original.
+    approved: false
+
+  - id: q-geometry-circles-0019
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      An arc of length $3\pi$ cm lies in a circle of radius $9$ cm. What is its central angle in degrees?
+    choices:
+      - text: '$60^\circ$'
+        correct: true
+      - text: '$120^\circ$'
+        rationale: |
+          This omits the factor two in circumference. That doubles the arc fraction. Check the full circumference formula.
+      - text: '$30^\circ$'
+        rationale: |
+          This uses one hundred eighty degrees as the full circle. A semicircle does have that measure. Check the full-turn total.
+      - text: '$6^\circ$'
+        rationale: |
+          This reports the number of equal arcs in the circumference as an angle. Six follows from the arc fraction. Check that the angle is a fraction of three hundred sixty degrees.
+    explanation: |
+      The full circumference is $2\pi(9)=18\pi$ cm. The arc fraction is $\dfrac{3\pi}{18\pi}=\dfrac{1}{6}$. Multiply the full turn by that fraction: $360^\circ\div6=60^\circ$.
+    approved: false
+
+  - id: q-geometry-circles-0020
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A sector of a circle has radius $10$ cm and central angle $72^\circ$. Its boundary consists of two radii and the intercepted arc. What is the total boundary length?
+    choices:
+      - text: '$(20+4\pi)$ cm'
+        correct: true
+      - text: '$4\pi$ cm'
+        rationale: |
+          This reports only the curved arc. The arc is one part of the boundary. Check the two straight radii too.
+      - text: '$(10+4\pi)$ cm'
+        rationale: |
+          This includes only one radius with the arc. A sector has two straight sides. Check every boundary piece.
+      - text: '$(20+20\pi)$ cm'
+        rationale: |
+          This uses the whole circumference with the two radii. Full circumference is needed to find the arc. Check the sector fraction before adding the straight sides.
+    explanation: |
+      The arc fraction is $\dfrac{72}{360}=\dfrac{1}{5}$. Its arc length is $\dfrac{1}{5}[2\pi(10)]=4\pi$ cm. The two straight radii total $20$ cm. Add them to get $20+4\pi$ cm.
+    approved: false

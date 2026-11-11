@@ -1,0 +1,26 @@
+
+test/core/ui/components/today_questions_test.dart:3:8: Error: Error when reading 'lib/core/ui/components/today_questions.dart': No such file or directory
+import 'package:pantas/core/ui/components/today_questions.dart';
+       ^
+test/core/ui/components/today_questions_test.dart:10:4: Error: Method not found: 'TodayQuestionRow'.
+   TodayQuestionRow(title:'Reviews',subtitle:'Questions due today',done:2,total:6,onTap:()=>opened=true),
+   ^^^^^^^^^^^^^^^^
+test/core/ui/components/today_questions_test.dart:11:4: Error: Method not found: 'TodayQuestionsSheet'.
+   TodayQuestionsSheet(title:'Reviews',done:2,total:6,rows:const [Text('Session 1'),Text('Session 2')],startLabel:'Start Reviews',onStart:()=>started=true),
+   ^^^^^^^^^^^^^^^^^^^
+::group::❌ loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/today_questions_test.dart (failed)
+Failed to load "/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/today_questions_test.dart":
+Compilation failed for testPath=/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/today_questions_test.dart: test/core/ui/components/today_questions_test.dart:3:8: Error: Error when reading 'lib/core/ui/components/today_questions.dart': No such file or directory
+import 'package:pantas/core/ui/components/today_questions.dart';
+       ^
+test/core/ui/components/today_questions_test.dart:10:4: Error: Method not found: 'TodayQuestionRow'.
+   TodayQuestionRow(title:'Reviews',subtitle:'Questions due today',done:2,total:6,onTap:()=>opened=true),
+   ^^^^^^^^^^^^^^^^
+test/core/ui/components/today_questions_test.dart:11:4: Error: Method not found: 'TodayQuestionsSheet'.
+   TodayQuestionsSheet(title:'Reviews',done:2,total:6,rows:const [Text('Session 1'),Text('Session 2')],startLabel:'Start Reviews',onStart:()=>started=true),
+   ^^^^^^^^^^^^^^^^^^^
+.
+
+::endgroup::
+
+::error::0 tests passed, 1 failed.

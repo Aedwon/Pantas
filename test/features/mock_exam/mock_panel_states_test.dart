@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/board_button.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/features/mock_exam/mock_exam.dart';
 
 import '../../helpers/pump_app.dart';
@@ -35,13 +35,11 @@ void main() {
         'says the paper is not ready, with no call to action and no figure',
         (tester) async {
       await tester.pumpApp(
-        MockPanel(
-          availability: const MockAvailability.noBlueprint(),
-          lastAttempt: null,
-          proIsActive: false,
-          onTake: () {},
-          onResume: () {},
-          onViewResults: () {},
+        const MockCard(
+          model: MockCardModel(
+            state: MockCardState.unavailable,
+            name: 'CSE simulation',
+          ),
         ),
       );
 
@@ -54,7 +52,7 @@ void main() {
       // No call to action or dead button to take the exam
       expect(find.text('Take the exam'), findsNothing);
       expect(find.text('Take another'), findsNothing);
-      expect(find.byType(BoardButton), findsNothing);
+      expect(find.byType(PantasButton), findsNothing);
 
       // No invented figure: no duration, item count, date or "coming soon".
       expect(find.textContaining('3 hours'), findsNothing);

@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-philippine-constitution-bill-of-rights-0001	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	LOW	Wording clarified or labels shortened; original answer remains correct.
+q-philippine-constitution-bill-of-rights-0002	CORRECTED	SOLVED-MATCH	explanation;notes;distractors	MEDIUM	Weak distractors replaced with text-based reasoning errors.
+q-philippine-constitution-bill-of-rights-0003	CORRECTED	SOLVED-MATCH	explanation;notes;distractor	MEDIUM	Weak distractor replaced with a related constitutional article.
+q-philippine-constitution-bill-of-rights-0004	CORRECTED	SOLVED-MATCH	explanation;notes;distractors	MEDIUM	Weak distractors replaced with text-based reasoning errors.
+q-philippine-constitution-bill-of-rights-0005	CORRECTED	SOLVED-MATCH	explanation;notes;distractors	HIGH	Original stem broadly implied any state alteration of contractual rights is prohibited.
+q-philippine-constitution-bill-of-rights-0006	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	LOW	Lesson names suspension limits but does not explain the writ's purpose.
+q-philippine-constitution-bill-of-rights-0007	CORRECTED	SOLVED-MATCH	explanation;notes;distractors	MEDIUM	Weak distractors replaced with text-based reasoning errors.
+q-philippine-constitution-bill-of-rights-0008	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	MEDIUM	Lesson names the protection but does not teach its legal conditions; original stem is overbroad.
+q-philippine-constitution-bill-of-rights-0009	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	LOW	Lesson names but does not define ex post facto laws.
+q-philippine-constitution-bill-of-rights-0010	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	LOW	Lesson names but does not define bills of attainder.
+q-philippine-constitution-bill-of-rights-0011	CORRECTED	SOLVED-MATCH	explanation;notes;distractors	MEDIUM	Weak distractors replaced with text-based reasoning errors.
+q-philippine-constitution-bill-of-rights-0012	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	LOW	Lesson teaches the safeguards but not the Miranda label.
+q-philippine-constitution-bill-of-rights-0013	CORRECTED	SOLVED-MATCH	explanation;notes;distractors	MEDIUM	Repeated article-location framing replaced with recognizing the punishment protection.
+q-philippine-constitution-bill-of-rights-0014	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	LOW	Lesson states search protection but does not teach warrant-issuance conditions.
+q-philippine-constitution-bill-of-rights-0015	CORRECTED	SOLVED-MATCH	explanation;notes;distractors	MEDIUM	Weak distractors replaced with text-based reasoning errors.
+q-philippine-constitution-bill-of-rights-0016	NEW	NEW	new	NONE	
+q-philippine-constitution-bill-of-rights-0017	NEW	NEW	new	NONE	
+q-philippine-constitution-bill-of-rights-0018	NEW	NEW	new	NONE	
+q-philippine-constitution-bill-of-rights-0019	NEW	NEW	new	NONE	
+q-philippine-constitution-bill-of-rights-0020	NEW	NEW	new	NONE	

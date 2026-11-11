@@ -17,5 +17,6 @@ export 'domain/use_cases/start_today_session.dart';
 export 'domain/use_cases/submit_answer.dart';
 export 'presentation/quiz_controller.dart';
 export 'presentation/quiz_page.dart';
-export 'presentation/quiz_results_page.dart';
-export 'presentation/quiz_tab_home.dart';
+export 'presentation/quiz_review_page.dart';
+export 'presentation/quiz_session_end_page.dart';
+export 'presentation/quiz_tab_screen.dart';

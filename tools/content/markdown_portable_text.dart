@@ -1,6 +1,13 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'lesson_asset_map.dart';
+
+/// The most bytes a lesson may take once its figures are embedded: the lesson
+/// text with each marker replaced by its `IMAGE` marker. The upload tool
+/// rejects a lesson over this size. Here a figure that would pass it is
+/// dropped.
+const maxResolvedLessonBytes = 900000;
 
 /// Converts a lesson Markdown body into Portable Text blocks.
 ///
@@ -17,6 +24,7 @@ List<Map<String, Object?>> markdownToPortableText(
   String body, {
   required LessonIdentity lesson,
   required LessonAssetMap assets,
+  void Function(String message)? onWarning,
 }) {
   final blocks = <Map<String, Object?>>[];
   final paragraph = <String>[];
@@ -41,7 +49,7 @@ List<Map<String, Object?>> markdownToPortableText(
 
   final heading = RegExp(r'^(#{1,6})\s+(.*)$');
   final bullet = RegExp(r'^(\s*)[-*+]\s+(.*)$');
-  final numbered = RegExp(r'^(\s*)\d+\.\s+(.*)$');
+  final numbered = RegExp(r'^(\s*)(\d+)\.\s+(.*)$');
   final displayMath = RegExp(r'^\$\$(.*)\$\$$');
   final figureRegex = RegExp(r'<!--\s*FIGURE:\s*(.*?)\s*-->', dotAll: true);
   final illustrationRegex =
@@ -49,6 +57,7 @@ List<Map<String, Object?>> markdownToPortableText(
   final delimiterPattern = RegExp(r'^\s*:?-+:?\s*$');
 
   var illustrationSeq = 0;
+  var resolvedBytes = utf8.encode(body).length;
   final lines = body.split('\n');
 
   var i = 0;
@@ -121,13 +130,47 @@ List<Map<String, Object?>> markdownToPortableText(
       }
       final entry = orderedEntries[illustrationSeq].value;
       illustrationSeq++;
+      final credit = assets.creditFor(entry);
+      if (credit == null || credit.trim().isEmpty) {
+        final message =
+            '${lesson.path}:$lineNumber: dropped image without source credit';
+        if (onWarning != null) {
+          onWarning(message);
+        } else {
+          stderr.writeln(message);
+        }
+        i++;
+        continue;
+      }
       final desc = illusMatch.group(1)!.trim();
+      final alt = entry.alt.isNotEmpty ? entry.alt : desc;
+      final resolvedMarker = '<!-- IMAGE: '
+          '${jsonEncode({
+            'asset': {'url': entry.url, 'credit': credit},
+            'alt': alt,
+          })} -->';
+      final grown = resolvedBytes +
+          utf8.encode(resolvedMarker).length -
+          utf8.encode(illusMatch.group(0)!).length;
+      if (grown > maxResolvedLessonBytes) {
+        final message = '${lesson.path}:$lineNumber: dropped image because '
+            'the lesson would pass $maxResolvedLessonBytes bytes';
+        if (onWarning != null) {
+          onWarning(message);
+        } else {
+          stderr.writeln(message);
+        }
+        i++;
+        continue;
+      }
+      resolvedBytes = grown;
       blocks.add({
         '_type': 'image',
         'asset': {
           'url': entry.url,
+          'credit': credit,
         },
-        'alt': entry.alt.isNotEmpty ? entry.alt : desc,
+        'alt': alt,
       });
       i++;
       continue;
@@ -147,6 +190,36 @@ List<Map<String, Object?>> markdownToPortableText(
       blocks.add({'_type': 'latex', 'body': math.group(1)!.trim()});
       i++;
       continue;
+    }
+
+    // Display math written over several lines: `$$`, the formula, `$$`. It
+    // must close before a blank line, or it stays an ordinary paragraph.
+    if (trimmed.startsWith(r'$$') &&
+        (trimmed == r'$$' || !trimmed.endsWith(r'$$'))) {
+      var close = -1;
+      for (var k = i + 1; k < lines.length; k++) {
+        final next = lines[k].trim();
+        if (next.isEmpty) break;
+        if (next.endsWith(r'$$')) {
+          close = k;
+          break;
+        }
+      }
+      if (close > 0) {
+        final last = lines[close].trim();
+        final parts = <String>[
+          if (trimmed != r'$$') trimmed.substring(2),
+          for (var k = i + 1; k < close; k++) lines[k].trim(),
+          last.substring(0, last.length - 2),
+        ].map((part) => part.trim()).where((part) => part.isNotEmpty);
+        final body = parts.join(' ');
+        if (body.isNotEmpty) {
+          flushAll();
+          blocks.add({'_type': 'latex', 'body': body});
+          i = close + 1;
+          continue;
+        }
+      }
     }
 
     // Headings
@@ -186,9 +259,12 @@ List<Map<String, Object?>> markdownToPortableText(
     if (numberedMatch != null) {
       flushAll();
       blocks.add(
-        _textBlock(numberedMatch.group(2)!, 'normal')
+        _textBlock(numberedMatch.group(3)!, 'normal')
           ..['listItem'] = 'number'
-          ..['level'] = _indentLevel(numberedMatch.group(1)!),
+          ..['level'] = _indentLevel(numberedMatch.group(1)!)
+          // The number as written, so a list that a paragraph or a formula
+          // interrupts picks up where its source says, not at 1.
+          ..addAll(_listNumber(numberedMatch.group(2)!)),
       );
       i++;
       continue;
@@ -259,6 +335,14 @@ List<Map<String, Object?>> markdownToPortableText(
   }
 
   flushAll();
+  // A figure file that no marker consumed would otherwise be dropped silently.
+  final unused = assets.localFiguresFor(lesson).skip(illustrationSeq);
+  if (unused.isNotEmpty) {
+    throw FormatException(
+      'Figure file has no ILLUSTRATION marker to use it in ${lesson.path}: '
+      '${unused.join(', ')}',
+    );
+  }
   return blocks;
 }
 
@@ -274,6 +358,13 @@ List<String> _parseTableRow(String line) {
 }
 
 int _indentLevel(String indent) => indent.length ~/ 2 + 1;
+
+/// The number a list item is written with, as a block field. A number too long
+/// to be a list number adds nothing.
+Map<String, Object?> _listNumber(String digits) {
+  final number = digits.length > 6 ? null : int.tryParse(digits);
+  return {if (number != null) 'listNumber': number};
+}
 
 Map<String, Object?> _textBlock(String text, String style) => {
       '_type': 'block',

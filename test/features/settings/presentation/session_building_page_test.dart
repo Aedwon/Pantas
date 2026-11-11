@@ -3,6 +3,7 @@ import 'dart:ui' show CheckedState;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/pantas_tag.dart';
 import 'package:pantas/features/settings/data/settings_repository.dart';
 import 'package:pantas/features/settings/domain/session_ordering.dart';
 import 'package:pantas/features/settings/presentation/pages/session_building_page.dart';
@@ -23,16 +24,19 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('Blocked'), findsOneWidget);
-    expect(find.text('Every question from the chosen topic'), findsOneWidget);
-    expect(find.text('Interleaved tail'), findsOneWidget);
+    expect(find.text('One topic only'), findsOneWidget);
+    expect(find.text('Grouped by topic, one topic at a time.'), findsOneWidget);
     expect(
-      find.text('Seven from the topic, three from elsewhere'),
+      find.textContaining('Interleaved tail', findRichText: true),
+      findsOneWidget,
+    );
+    expect(
+      find.text('Mostly one topic, some others.'),
       findsOneWidget,
     );
     expect(find.text('Fully mixed'), findsOneWidget);
     expect(
-      find.text('No two consecutive questions from the same topic'),
+      find.text('No two in a row from the same topic.'),
       findsOneWidget,
     );
   });
@@ -45,6 +49,20 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Recommended'), findsOneWidget);
+    // A system Tag right after the row title, on the title's line.
+    final title = tester
+        .getRect(find.textContaining('Interleaved tail', findRichText: true));
+    final tag = tester.getRect(find.byType(PantasTag));
+    expect(tag.left, greaterThan(title.left));
+    expect(tag.center.dy, closeTo(title.center.dy, 6));
+    // A system Tag, not plain colored text.
+    expect(
+      find.ancestor(
+        of: find.text('Recommended'),
+        matching: find.byType(PantasTag),
+      ),
+      findsOneWidget,
+    );
   });
 
   testWidgets('choosing an ordering writes it', (tester) async {
@@ -68,7 +86,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    for (final label in ['Blocked', 'Interleaved tail', 'Fully mixed']) {
+    for (final label in ['One topic only', 'Interleaved tail', 'Fully mixed']) {
       final control = find.bySemanticsLabel(RegExp('^$label'));
       expect(control, findsOneWidget);
       final semantics = tester.getSemantics(control);

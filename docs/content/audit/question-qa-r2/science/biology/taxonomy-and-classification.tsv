@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-biology-taxonomy-and-classification-0001	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	LOW	Original called the classroom hierarchy fixed without acknowledging extra ranks.
+q-biology-taxonomy-and-classification-0002	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Correct choice was longest and distractors mixed names with rank labels.
+q-biology-taxonomy-and-classification-0003	CORRECTED	SOLVED-MATCH	stem;choices;type;explanation;notes	HIGH	Original presented Protista as a settled modern kingdom and used rank-name filler.
+q-biology-taxonomy-and-classification-0004	CORRECTED	SOLVED-FIXED	stem;choices;explanation;notes	HIGH	Original key called leo the whole species name while another choice correctly named the binomial.
+q-biology-taxonomy-and-classification-0005	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original falsely credited Linnaeus with simply creating all of binomial nomenclature.
+q-biology-taxonomy-and-classification-0006	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original claimed a scientific name always refers to exactly the same species without revision.
+q-biology-taxonomy-and-classification-0007	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Original repeated domain-before-kingdom reasoning already tested.
+q-biology-taxonomy-and-classification-0008	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original called the specific epithet alone the species name and used British spelling in notes.
+q-biology-taxonomy-and-classification-0009	CORRECTED	SOLVED-MATCH	stem;choices;type;explanation;notes	HIGH	Original explanation claimed every domain contains several kingdoms and treated Protista as settled.
+q-biology-taxonomy-and-classification-0010	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Original repeated genus-formatting rules tested in the whole-name item.
+q-biology-taxonomy-and-classification-0011	CORRECTED	SOLVED-MATCH	stem;choices;type;explanation;notes	HIGH	Original falsely said the whole species name is lowercase.
+q-biology-taxonomy-and-classification-0012	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	LOW	Original did not specify a membrane-enclosed nucleus and explanation discussed wrong choices.
+q-biology-taxonomy-and-classification-0013	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Original treated count of shared ranks as an exact measure of relatedness.
+q-biology-taxonomy-and-classification-0014	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Original repeated the Panthera naming scenario and used weak no-conclusion distractor.
+q-biology-taxonomy-and-classification-0015	NEW	NEW	new question	NONE	
+q-biology-taxonomy-and-classification-0016	NEW	NEW	new question	NONE	
+q-biology-taxonomy-and-classification-0017	NEW	NEW	new question	NONE	
+q-biology-taxonomy-and-classification-0018	NEW	NEW	new question	NONE	
+q-biology-taxonomy-and-classification-0019	NEW	NEW	new question	NONE	
+q-biology-taxonomy-and-classification-0020	NEW	NEW	new question	NONE	

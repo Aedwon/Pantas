@@ -10,23 +10,19 @@ questions:
     stem: |
       Aling Nena bought a wholesale box of canned goods for $\text{₱}800.00$ to sell in her sari-sari store. If she applies a 25% markup based on cost, what is the selling price?
     choices:
-      - text: "$\\text{₱}1,000.00$"
+      - text: '$\text{₱}1,000.00$'
         correct: true
-      - text: "$\\text{₱}1,066.67$"
+      - text: '$\text{₱}1,066.67$'
         rationale: |
-          You calculated selling price assuming a 25 percent margin on selling price (800 / 0.75) instead of markup on cost.
-      - text: "$\\text{₱}200.00$"
+          This divides cost by $0.75$, treating markup as a selling-price margin. Both methods use a percentage gain. Check whether the percentage is based on cost or selling price.
+      - text: '$\text{₱}200.00$'
         rationale: |
-          You reported the markup amount (P200) instead of adding it to the cost price to get the selling price.
-      - text: "$\\text{₱}600.00$"
+          This reports only $25\%$ of the cost. The markup amount is needed first. Check that the selling price includes the cost.
+      - text: '$\text{₱}600.00$'
         rationale: |
-          You subtracted the 25 percent markup from the cost price instead of adding it.
+          This subtracts the markup from cost. Discount problems use subtraction. Check whether the price rises or falls.
     explanation: |
-      Markup: $\text{₱}800 \times 0.25 = \text{₱}200$
-
-      Selling price: $\text{₱}800 + \text{₱}200 = \text{₱}1,000$
-
-      Trap: Confusing markup on cost with margin on selling price.
+      The markup is $800(0.25)=200$ pesos. Add it to the cost: $800+200=1000$ pesos.
 
   - id: q-arithmetic-number-sense-business-math-0002
     type: word-problem
@@ -34,23 +30,19 @@ questions:
     stem: |
       A hypothetical jeepney fare is $\text{₱}13.00$ for the first 4 km and $\text{₱}1.80$ for each additional kilometer **or fraction thereof**. Mang Juan travels 11.5 km. How much is his fare?
     choices:
-      - text: "$\\text{₱}26.50$"
+      - text: '$\text{₱}26.50$'
         rationale: |
-          You charged the 7.5 km excess proportionally instead of applying the stated rule that a fraction of an additional kilometer is charged as a full kilometer.
-      - text: "$\\text{₱}27.40$"
+          This charges $7.5$ extra kilometers without rounding up. Charging exact distance seems fair. Check the stated rule for a partial kilometer.
+      - text: '$\text{₱}27.40$'
         correct: true
-      - text: "$\\text{₱}33.70$"
+      - text: '$\text{₱}33.70$'
         rationale: |
-          You applied the additional-kilometer charge to the full trip instead of only the distance beyond the first 4 km.
-      - text: "$\\text{₱}20.70$"
+          This computes $13+11.5(1.80)$, charging the whole distance without rounding. The trip length and rate are both given. Check which distance the base fare already covers.
+      - text: '$\text{₱}20.70$'
         rationale: |
-          You calculated a distance-based amount without correctly combining the base fare and the excess-distance charge.
+          This computes $11.5(1.80)$ and omits the base fare. Multiplying distance by a rate seems direct. Check that the price has both a base and an extra-distance part.
     explanation: |
-      Excess distance: $11.5 - 4 = 7.5$ km. Under the stated "or fraction thereof" rule, this is charged as 8 additional kilometers.
-
-      Additional fare: $8 \times \text{₱}1.80 = \text{₱}14.40$.
-
-      Total fare: $\text{₱}13 + \text{₱}14.40 = \text{₱}27.40$.
+      The extra distance is $11.5-4=7.5$ km. The rule charges any fraction as a whole kilometer, so charge for $8$ extra kilometers. The fare is $13+8(1.80)=27.40$ pesos.
 
   - id: q-arithmetic-number-sense-business-math-0003
     type: word-problem
@@ -58,23 +50,19 @@ questions:
     stem: |
       Mang Pedro borrowed $\text{₱}15,000$ at 8% simple annual interest. He repaid after 9 months. How much interest?
     choices:
-      - text: "$\\text{₱}900.00$"
+      - text: '$\text{₱}900.00$'
         correct: true
-      - text: "$\\text{₱}1,200.00$"
+      - text: '$\text{₱}1,200.00$'
         rationale: |
-          You calculated simple interest for a full year (12 months) instead of 9 months.
-      - text: "$\\text{₱}10,800.00$"
+          This uses one full year of interest. The annual rate describes a year. Check the actual loan duration.
+      - text: '$\text{₱}10,800.00$'
         rationale: |
-          You multiplied P15,000 by 9 months directly without dividing by 12 months.
-      - text: "$\\text{₱}15,900.00$"
+          This uses $9$ years instead of $9$ months. The given duration is copied straight into the formula. Check that time matches the annual rate.
+      - text: '$\text{₱}15,900.00$'
         rationale: |
-          You calculated total repayment (principal plus interest) instead of interest alone.
+          This adds principal to the interest. That gives a meaningful repayment total. Check whether only interest is requested.
     explanation: |
-      Time: $\frac{9}{12} = 0.75$ years
-
-      Interest: $I = P \times r \times t = \text{₱}15,000 \times 0.08 \times 0.75 = \text{₱}900$
-
-      Trap: Using full year instead of 9 months.
+      Convert $9$ months to $\dfrac{9}{12}=0.75$ year. Simple interest is $I=Prt=15000(0.08)(0.75)=900$ pesos.
 
   - id: q-arithmetic-number-sense-business-math-0004
     type: word-problem
@@ -82,21 +70,19 @@ questions:
     stem: |
       Wholesale offers 5% discount on purchases over $\text{₱}1,000$. Aling Rose buys stock tagged at $\text{₱}2,400$. How much after discount?
     choices:
-      - text: "$\\text{₱}2,330.00$"
+      - text: '$\text{₱}2,330.00$'
         rationale: |
-          You subtracted a 70 pesos discount instead of calculating 5 percent of P2,400.
-      - text: "$\\text{₱}2,280.00$"
+          This discounts only the $1400$ pesos above the threshold. The minimum purchase amount can look like an excluded portion. Check that qualifying purchases receive a discount on their price.
+      - text: '$\text{₱}2,280.00$'
         correct: true
-      - text: "$\\text{₱}120.00$"
+      - text: '$\text{₱}120.00$'
         rationale: |
-          You reported the discount amount (P120) instead of the net price paid after discount.
-      - text: "$\\text{₱}2,520.00$"
+          This reports the discount amount. That is the first amount calculated. Check whether the question asks for the reduction or the final price.
+      - text: '$\text{₱}2,520.00$'
         rationale: |
-          You added the 5 percent discount to the price instead of subtracting it.
+          This adds the discount to the price. Markup problems do add a percentage. Check whether the offer reduces the bill.
     explanation: |
-      Discount: $\text{₱}2,400 \times 0.05 = \text{₱}120$
-
-      Net price: $\text{₱}2,400 - \text{₱}120 = \text{₱}2,280$
+      The purchase exceeds the threshold. Its discount is $2400(0.05)=120$ pesos. The price paid is $2400-120=2280$ pesos.
 
   - id: q-arithmetic-number-sense-business-math-0005
     type: word-problem
@@ -104,25 +90,19 @@ questions:
     stem: |
       Store assistant earns $\text{₱}400$/day basic + 4% commission on weekly net profit. In 6-day week with $\text{₱}35,000$ revenue and $\text{₱}25,000$ cost, what are total earnings?
     choices:
-      - text: "$\\text{₱}3,800.00$"
+      - text: '$\text{₱}3,800.00$'
         rationale: |
-          You calculated commission on total revenue P35,000 (P1,400) instead of net profit P10,000.
-      - text: "$\\text{₱}2,800.00$"
+          This takes $4\%$ of revenue instead of net profit. Revenue is the largest sales total given. Check the stated commission base.
+      - text: '$\text{₱}2,800.00$'
         correct: true
-      - text: "$\\text{₱}800.00$"
+      - text: '$\text{₱}800.00$'
         rationale: |
-          You calculated total earnings for 1 day instead of a 6-day work week.
-      - text: "$\\text{₱}2,400.00$"
+          This adds only one day of basic pay to the weekly commission. The daily wage is given directly. Check how many days belong in the wage calculation.
+      - text: '$\text{₱}2,400.00$'
         rationale: |
-          You reported basic weekly wage (6 days at P400) but omitted the commission earned.
+          This leaves out commission. The weekly basic wage is a valid intermediate amount. Check every part of the earnings agreement.
     explanation: |
-      Base wage: $6 \times \text{₱}400 = \text{₱}2,400$
-
-      Net profit: $\text{₱}35,000 - \text{₱}25,000 = \text{₱}10,000$
-
-      Commission: $\text{₱}10,000 \times 0.04 = \text{₱}400$
-
-      Total: $\text{₱}2,400 + \text{₱}400 = \text{₱}2,800$
+      The weekly basic wage is $6(400)=2400$ pesos. Net profit is $35000-25000=10000$ pesos. The commission is $10000(0.04)=400$ pesos. Total earnings are $2400+400=2800$ pesos.
 
   - id: q-arithmetic-number-sense-business-math-0006
     type: word-problem
@@ -130,23 +110,19 @@ questions:
     stem: |
       Aling Toyang sells instant noodles for $\text{₱}25/pack$, cost $\text{₱}20/pack$. What is profit margin % on selling price?
     choices:
-      - text: "$25\\%$"
+      - text: '$25\%$'
         rationale: |
-          You calculated profit percentage based on cost price (markup) instead of selling price.
-      - text: "$20\\%$"
+          This divides profit by cost instead of selling price. That is a familiar markup calculation. Check which amount is the percentage base.
+      - text: '$20\%$'
         correct: true
-      - text: "$80\\%$"
+      - text: '$80\%$'
         rationale: |
-          You calculated the cost price as a percentage of the selling price (20/25 = 80%).
-      - text: "$5\\%$"
+          This divides cost by selling price. Both amounts belong in a margin calculation. Check that the numerator is profit.
+      - text: '$5\%$'
         rationale: |
-          You reported the absolute profit amount (P5) as a percentage.
+          This labels the five-peso profit as a percent. The profit number is easy to copy. Check that a percentage requires a ratio.
     explanation: |
-      Profit: $\text{₱}25 - \text{₱}20 = \text{₱}5$
-
-      Profit margin: $\frac{\text{₱}5}{\text{₱}25} \times 100\% = 20\%$
-
-      Trap: Confusing with markup ($\frac{\text{₱}5}{\text{₱}20} = 25\%$).
+      The profit per pack is $25-20=5$ pesos. Divide by the selling price: $\dfrac{5}{25}=0.20$. The margin is $20\%$.
 
   - id: q-arithmetic-number-sense-business-math-0007
     type: word-problem
@@ -154,25 +130,19 @@ questions:
     stem: |
       In a hypothetical fare problem, a student receives a 20% discount from the regular fare. The regular route fare is $\text{₱}13$ for the first 4 km, then $\text{₱}1.75$/km. If the student travels exactly 9 km, how much is the discounted fare?
     choices:
-      - text: "$\\text{₱}21.75$"
+      - text: '$\text{₱}21.75$'
         rationale: |
-          You calculated the regular fare without applying the stated 20 percent discount.
-      - text: "$\\text{₱}19.15$"
+          This reports the regular fare. The full fare is needed before the discount. Check that the discount has been applied.
+      - text: '$\text{₱}19.15$'
         rationale: |
-          You applied the discount to only part of the fare or miscalculated it.
-      - text: "$\\text{₱}17.40$"
+          This discounts only the thirteen-peso base fare. The base is a separate fare component. Check that the discount applies to the whole regular fare.
+      - text: '$\text{₱}17.40$'
         correct: true
-      - text: "$\\text{₱}20.00$"
+      - text: '$\text{₱}20.00$'
         rationale: |
-          You rounded or miscalculated the final discounted fare.
+          This subtracts one $1.75$ extra-kilometer charge as the discount. Removing a fare component does lower the price. Check that a percentage discount is based on the full fare.
     explanation: |
-      Regular fare: $\text{₱}13 + (9-4) \times \text{₱}1.75 = \text{₱}21.75$.
-
-      Discount: $\text{₱}21.75 \times 0.20 = \text{₱}4.35$.
-
-      Discounted fare: $\text{₱}21.75 - \text{₱}4.35 = \text{₱}17.40$.
-
-      The 20% discount is an explicit assumption of this math problem, not a claim about a current regulated fare schedule.
+      The trip has $9-4=5$ extra kilometers. The regular fare is $13+5(1.75)=21.75$ pesos. A $20\%$ discount leaves $80\%$ to pay, so the price is $21.75(0.80)=17.40$ pesos.
 
   - id: q-arithmetic-number-sense-business-math-0008
     type: word-problem
@@ -180,23 +150,19 @@ questions:
     stem: |
       Mang Ben borrowed $\text{₱}50,000$ at 6% simple annual interest for 15 months. Total repayment?
     choices:
-      - text: "$\\text{₱}53,750.00$"
+      - text: '$\text{₱}53,750.00$'
         correct: true
-      - text: "$\\text{₱}54,500.00$"
+      - text: '$\text{₱}54,500.00$'
         rationale: |
-          You calculated interest for 1.5 years (18 months) instead of 1.25 years (15 months).
-      - text: "$\\text{₱}3,750.00$"
+          This reads $15$ months as $1.5$ years. Moving the decimal point looks like a quick conversion. Check that a year has twelve months.
+      - text: '$\text{₱}3,750.00$'
         rationale: |
-          You reported the interest earned instead of total repayment (principal plus interest).
-      - text: "$\\text{₱}95,000.00$"
+          This reports interest alone. Interest is needed to find the repayment. Check that the original borrowed amount is also repaid.
+      - text: '$\text{₱}95,000.00$'
         rationale: |
-          You multiplied principal by 1.9 or miscalculated interest formula parameters.
+          This uses $15$ as years, giving $45000$ pesos of interest. The duration is copied directly from the stem. Check the time unit used with the annual rate.
     explanation: |
-      Time: $\frac{15}{12} = 1.25$ years
-
-      Interest: $\text{₱}50,000 \times 0.06 \times 1.25 = \text{₱}3,750$
-
-      Repayment: $\text{₱}50,000 + \text{₱}3,750 = \text{₱}53,750$
+      Convert $15$ months to $\dfrac{15}{12}=1.25$ years. The interest is $50000(0.06)(1.25)=3750$ pesos. Add the principal: $50000+3750=53750$ pesos.
 
   - id: q-arithmetic-number-sense-business-math-0009
     type: word-problem
@@ -204,49 +170,39 @@ questions:
     stem: |
       Sari-sari owner orders inventory ($\text{₱}5,000$ list price). Supplier offers successive 10% then 5% discounts. Net price?
     choices:
-      - text: "$\\text{₱}4,250.00$"
+      - text: '$\text{₱}4,250.00$'
         rationale: |
-          You added the discount percentages together (10% + 5% = 15%) instead of compounding them sequentially.
-      - text: "$\\text{₱}4,275.00$"
+          This adds the two discount rates. Both discounts reduce the same purchase. Check that the second discount uses the reduced price.
+      - text: '$\text{₱}4,275.00$'
         correct: true
-      - text: "$\\text{₱}4,500.00$"
+      - text: '$\text{₱}4,500.00$'
         rationale: |
-          You applied only the first 10 percent discount and omitted the additional 5 percent discount.
-      - text: "$\\text{₱}725.00$"
+          This applies only the first discount. The first reduced price is a useful intermediate amount. Check for a second discount.
+      - text: '$\text{₱}725.00$'
         rationale: |
-          You reported the total discount amount (P725) instead of the final net price paid.
+          This reports the total money saved. Savings come from subtracting the net price. Check whether the question asks for savings or payment.
     explanation: |
-      After 10%: $\text{₱}5,000 \times 0.90 = \text{₱}4,500$
-
-      After 5%: $\text{₱}4,500 \times 0.95 = \text{₱}4,275$
-
-      Trap: Adding discounts ($10\% + 5\% = 15\%$) instead of multiplying sequentially.
+      The first discount leaves $5000(0.90)=4500$ pesos. The second leaves $4500(0.95)=4275$ pesos.
 
   - id: q-arithmetic-number-sense-business-math-0010
     type: word-problem
     difficulty: hard
     stem: |
-      Mang Juan bought 30 dozen eggs at $\text{₱}90/dozen$. During transport, 3 dozen broke. He wants 20% net profit on total investment. Selling price per dozen?
+      Mang Juan buys $30$ dozen eggs at $90$ pesos per dozen. During transport, $3$ dozen break. He sells the remaining eggs and has no other costs. What price per dozen gives a profit equal to $20\%$ of his total purchase cost?
     choices:
-      - text: "$\\text{₱}108.00$"
+      - text: '$\text{₱}108.00$'
         rationale: |
-          You calculated 20 percent profit on original price P90 without adjusting for 3 broken dozen eggs.
-      - text: "$\\text{₱}100.00$"
+          This applies the markup to the original per-dozen cost. That works when every dozen can be sold. Check how the lost stock affects the cost per sellable dozen.
+      - text: '$\text{₱}100.00$'
         rationale: |
-          You divided total cost P2,700 by 27 sellable dozen without adding the 20 percent target profit.
-      - text: "$\\text{₱}120.00$"
+          This divides cost by sellable stock without profit. That gives the break-even price. Check whether the target includes a gain.
+      - text: '$\text{₱}120.00$'
         correct: true
-      - text: "$\\text{₱}114.00$"
+      - text: '$\text{₱}114.00$'
         rationale: |
-          You divided target revenue P3,240 by all 30 original dozen eggs instead of 27 sellable dozen.
+          This adds $20\%$ of the original ninety-peso unit cost to the hundred-peso break-even price. Both are meaningful costs in the problem. Check that the profit target is based on the total investment.
     explanation: |
-      Total cost: $30 \times \text{₱}90 = \text{₱}2,700$
-
-      Target revenue (20% profit): $\text{₱}2,700 \times 1.20 = \text{₱}3,240$
-
-      Sellable: $30 - 3 = 27$ dozen
-
-      Selling price: $\frac{\text{₱}3,240}{27} = \text{₱}120/dozen$
+      The investment is $30(90)=2700$ pesos. The target revenue is $2700(1.20)=3240$ pesos. There are $30-3=27$ sellable dozen. The required price is $\dfrac{3240}{27}=120$ pesos per dozen.
 
   - id: q-arithmetic-number-sense-business-math-0011
     type: word-problem
@@ -254,23 +210,19 @@ questions:
     stem: |
       Aling Marites invested $\text{₱}20,000$ in a micro-finance fund. After 18 months, value is $\text{₱}23,600$. What annual simple interest rate?
     choices:
-      - text: "$12\\%$"
+      - text: '$12\%$'
         correct: true
-      - text: "$18\\%$"
+      - text: '$18\%$'
         rationale: |
-          You calculated simple interest rate over 18 months without converting time to years (1.5 years).
-      - text: "$10\\%$"
+          This divides interest by principal without adjusting for time. That gives the gain over the whole investment period. Check that an annual rate covers one year.
+      - text: '$\dfrac{600}{59}\%$'
         rationale: |
-          You divided P3,600 by P20,000 and ignored the 1.5-year duration.
-      - text: "$1\\%$"
+          This uses the final balance as the principal: $3600\div(23600\times1.5)$. The balance is a stated money amount. Check that simple interest uses the original principal.
+      - text: '$1\%$'
         rationale: |
-          You miscalculated 0.12 as 1 percent instead of 12 percent.
+          This uses months as years, computing $3600\div(20000\times18)$. The number eighteen comes directly from the duration. Check that the annual rate requires years.
     explanation: |
-      Interest: $\text{₱}23,600 - \text{₱}20,000 = \text{₱}3,600$
-
-      Time: $\frac{18}{12} = 1.5$ years
-
-      Rate: $r = \frac{I}{P \times t} = \frac{\text{₱}3,600}{\text{₱}20,000 \times 1.5} = 0.12 = 12\%$
+      The interest is $23600-20000=3600$ pesos. The time is $\dfrac{18}{12}=1.5$ years. From $I=Prt$, the annual rate is $r=\dfrac{3600}{20000(1.5)}=0.12=12\%$.
 
   - id: q-arithmetic-number-sense-business-math-0012
     type: word-problem
@@ -278,25 +230,19 @@ questions:
     stem: |
       Soft drink agent earns: 3% on first $\text{₱}50,000$, 5% on next $\text{₱}50,000$, 8% on sales above $\text{₱}100,000$. Total sales $\text{₱}140,000$. Commission?
     choices:
-      - text: "$\\text{₱}11,200.00$"
+      - text: '$\text{₱}11,200.00$'
         rationale: |
-          You applied 8 percent commission rate to the entire P140,000 sales figure.
-      - text: "$\\text{₱}7,000.00$"
+          This applies $8\%$ to all sales. The largest rate applies to part of the sale. Check where each rate starts and ends.
+      - text: '$\text{₱}7,000.00$'
         rationale: |
-          You applied 5 percent commission rate to the entire P140,000 sales figure.
-      - text: "$\\text{₱}7,200.00$"
+          This applies $5\%$ to all sales. The middle rate can seem like an overall rate. Check that the sales bands have different rates.
+      - text: '$\text{₱}7,200.00$'
         correct: true
-      - text: "$\\text{₱}8,700.00$"
+      - text: '$\text{₱}8,700.00$'
         rationale: |
-          You miscalculated tier 3 sales as P60,000 instead of P40,000.
+          This uses $8\%$ instead of $5\%$ for the second band. The highest rate does apply to sales later in the schedule. Check the rate assigned to each band separately.
     explanation: |
-      Tier 1: $\text{₱}50,000 \times 0.03 = \text{₱}1,500$
-
-      Tier 2: $\text{₱}50,000 \times 0.05 = \text{₱}2,500$
-
-      Tier 3: $(\text{₱}140,000 - \text{₱}100,000) \times 0.08 = \text{₱}40,000 \times 0.08 = \text{₱}3,200$
-
-      Total: $\text{₱}1,500 + \text{₱}2,500 + \text{₱}3,200 = \text{₱}7,200$
+      The first sales band earns $50000(0.03)=1500$ pesos. The next earns $50000(0.05)=2500$ pesos. The remaining $140000-100000=40000$ pesos earns $40000(0.08)=3200$ pesos. Add the amounts: $1500+2500+3200=7200$ pesos.
 
   - id: q-arithmetic-number-sense-business-math-0013
     type: word-problem
@@ -304,74 +250,161 @@ questions:
     stem: |
       Aling Loring wants 20% net profit margin on selling price for canned goods costing $\text{₱}480$. What markup % on cost?
     choices:
-      - text: "$20\\%$"
+      - text: '$20\%$'
         rationale: |
-          You assumed profit margin percentage on selling price is identical to markup percentage on cost.
-      - text: "$25\\%$"
+          This uses the margin percentage as the markup percentage. Both describe the same profit. Check that their percentage bases differ.
+      - text: '$25\%$'
         correct: true
-      - text: "$16.67\\%$"
+      - text: '$16.67\%$'
         rationale: |
-          You calculated 120 divided by 720 or miscalculated the markup percentage.
-      - text: "$24\\%$"
+          This computes $20\div120$ as a percentage, converting markup into margin in the opposite direction. The conversion resembles a common percent formula. Check whether the known rate is margin or markup.
+      - text: '$24\%$'
         rationale: |
-          You multiplied 20 percent by 1.2 or miscalculated the percentage conversion.
+          This multiplies $20\%$ by $1.20$. A twenty-percent increase suggests that multiplier. Check that the price is found from the cost share of selling price.
     explanation: |
-      If margin = 20% of price: Cost = 0.80 × Price
-
-      $\text{₱}480 = 0.80 \times Price \implies Price = \text{₱}600$
-
-      Profit: $\text{₱}600 - \text{₱}480 = \text{₱}120$
-
-      Markup: $\frac{\text{₱}120}{\text{₱}480} \times 100\% = 25\%$
+      A $20\%$ margin leaves cost equal to $80\%$ of selling price. If the price is $S$, then $480=0.80S$, so $S=600$ pesos. The profit is $600-480=120$ pesos. The markup on cost is $\dfrac{120}{480}(100\%)=25\%$.
 
   - id: q-arithmetic-number-sense-business-math-0014
     type: word-problem
-    difficulty: exam-level
+    difficulty: exam
     stem: |
       Mang Cardo's jeepney makes 8 round trips daily. Assume each **one-way leg** carries 15 paying passengers at $\text{₱}13$ each. Daily expenses are $\text{₱}800$ boundary plus $\text{₱}950$ fuel. What is the net daily cash income after these expenses?
     choices:
-      - text: "$\\text{₱}1,370.00$"
+      - text: '$\text{₱}1,370.00$'
         correct: true
-      - text: "$-\\text{₱}190.00$"
+      - text: '$-\text{₱}190.00$'
         rationale: |
-          You counted only 8 one-way legs instead of 16 one-way legs in 8 round trips.
-      - text: "$\\text{₱}2,320.00$"
+          This counts eight one-way legs instead of sixteen. The stem states eight trips. Check that each round trip has two legs.
+      - text: '$\text{₱}2,320.00$'
         rationale: |
-          You subtracted the boundary expense but omitted fuel.
-      - text: "$\\text{₱}3,120.00$"
+          This subtracts the boundary payment but omits fuel. The boundary is one stated expense. Check that every listed expense is deducted.
+      - text: '$\text{₱}3,120.00$'
         rationale: |
-          You reported gross fare revenue without subtracting either stated expense.
+          This reports fare revenue before expenses. That is the full cash collected. Check that net income removes costs.
     explanation: |
-      Eight round trips contain $8\times2=16$ one-way legs.
-
-      Passenger rides: $16\times15=240$.
-
-      Gross fare revenue: $240\times\text{₱}13=\text{₱}3,120$.
-
-      Expenses: $\text{₱}800+\text{₱}950=\text{₱}1,750$.
-
-      Net cash income: $\text{₱}3,120-\text{₱}1,750=\text{₱}1,370$.
+      Eight round trips have $8(2)=16$ one-way legs. There are $16(15)=240$ paid rides. Revenue is $240(13)=3120$ pesos. Expenses total $800+950=1750$ pesos. The net income is $3120-1750=1370$ pesos.
 
   - id: q-arithmetic-number-sense-business-math-0015
     type: word-problem
-    difficulty: exam-level
+    difficulty: exam
     stem: |
       Tatay Mario borrowed $\text{₱}40,000$ at 9% simple annual interest. After 8 months, he paid $\text{₱}15,000$ (interest paid first, remainder to principal). Remaining principal?
     choices:
-      - text: "$\\text{₱}25,000.00$"
+      - text: '$\text{₱}25,000.00$'
         rationale: |
-          You subtracted the full P15,000 payment from principal without deducting accrued interest first.
-      - text: "$\\text{₱}27,400.00$"
+          This subtracts the entire payment from principal. The payment does reduce the debt. Check that interest is paid first.
+      - text: '$\text{₱}27,400.00$'
         correct: true
-      - text: "$\\text{₱}28,600.00$"
+      - text: '$\text{₱}28,600.00$'
         rationale: |
-          You calculated interest for a full year (P3,600) instead of 8 months (P2,400).
-      - text: "$\\text{₱}22,600.00$"
+          This charges a full year of interest. The rate is annual. Check the actual months elapsed.
+      - text: '$\text{₱}22,600.00$'
         rationale: |
-          You subtracted interest P2,400 and payment P15,000 from principal (40,000 - 17,400).
+          This subtracts interest and payment separately from principal. Both amounts relate to settling the debt. Check that interest uses part of the payment, not an extra principal reduction.
     explanation: |
-      Accrued interest: $\text{₱}40,000 \times 0.09 \times \frac{8}{12} = \text{₱}2,400$
+      The interest for $8$ months is $40000(0.09)\left(\dfrac{8}{12}\right)=2400$ pesos. After paying interest, $15000-2400=12600$ pesos reduces the principal. The remaining principal is $40000-12600=27400$ pesos.
 
-      Principal reduction: $\text{₱}15,000 - \text{₱}2,400 = \text{₱}12,600$
+  - id: q-arithmetic-number-sense-business-math-0016
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      A deposit of $1000$ pesos earns $10\%$ interest compounded annually. With no deposits or withdrawals, what is its balance after two years?
+    choices:
+      - text: '$1210$'
+        correct: true
+      - text: '$1200$'
+        rationale: |
+          This uses simple interest for two years. Each year adds the same hundred pesos. Check that compound interest uses the new balance.
+      - text: '$1100$'
+        rationale: |
+          This includes only one year of interest. The first-year balance is a valid intermediate result. Check the number of compounding periods.
+      - text: '$210$'
+        rationale: |
+          This reports interest earned instead of the final balance. Subtracting principal gives a meaningful gain. Check whether principal belongs in the requested amount.
+    explanation: |
+      After one year, the balance is $1000(1.10)=1100$ pesos. The second year earns interest on this new balance: $1100(1.10)=1210$ pesos.
+    approved: false
 
-      Remaining: $\text{₱}40,000 - \text{₱}12,600 = \text{₱}27,400$
+  - id: q-arithmetic-number-sense-business-math-0017
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A bag costs $480$ pesos after a $20\%$ discount. What was its original price?
+    choices:
+      - text: '$600$'
+        correct: true
+      - text: '$576$'
+        rationale: |
+          This adds twenty percent of the sale price. Reversing a discount can seem to mean adding it back. Check that the discount was based on the original price.
+      - text: '$384$'
+        rationale: |
+          This discounts the sale price a second time. Multiplying by eighty percent is familiar. Check that the question asks for the price before the discount.
+      - text: '$2400$'
+        rationale: |
+          This divides by the discount fraction rather than the remaining fraction. Both percentages belong to the sale. Check which fraction equals the amount paid.
+    explanation: |
+      A $20\%$ discount leaves $80\%$ of the original price. Let that price be $P$. Then $0.80P=480$, so $P=480\div0.80=600$ pesos.
+    approved: false
+
+  - id: q-arithmetic-number-sense-business-math-0018
+    type: error-spotting
+    difficulty: hard
+    stem: |
+      A deposit earns a nominal annual rate of $8\%$, compounded quarterly. For one year, a student writes $A=P(1.08)^4$. What should replace $1.08$?
+    choices:
+      - text: '$1.02$'
+        correct: true
+      - text: '$1.04$'
+        rationale: |
+          This divides the annual rate by two. That gives a semiannual rate. Check the number of quarters in a year.
+      - text: '$1.32$'
+        rationale: |
+          This multiplies the annual rate by four. Four is the number of periods. Check that more periods divide the rate per period.
+      - text: '$0.02$'
+        rationale: |
+          This uses the period rate without adding one. The rate itself is needed for the formula. Check that each period keeps the existing principal as well as its interest.
+    explanation: |
+      Quarterly compounding has four periods each year. The rate per quarter is $8\%\div4=2\%$. Each period multiplies the balance by $1+0.02=1.02$.
+    approved: false
+
+  - id: q-arithmetic-number-sense-business-math-0019
+    type: which-is-true
+    difficulty: hard
+    stem: |
+      A store applies successive discounts of $10\%$ and $20\%$ to one item. Which statement is true?
+    choices:
+      - text: 'The equivalent discount is $28\%$.'
+        correct: true
+      - text: 'The equivalent discount is $30\%$.'
+        rationale: |
+          This adds successive discount rates. Both rates reduce the price. Check that the second uses the reduced amount.
+      - text: 'The equivalent discount is $2\%$.'
+        rationale: |
+          This multiplies the two discount fractions. That product is one part of the equivalent-discount calculation. Check that the amount removed includes each discount.
+      - text: 'The equivalent discount is $72\%$.'
+        rationale: |
+          This reports the percentage paid as the percentage saved. The remaining price is a useful result. Check whether the question asks for the discount.
+    explanation: |
+      The first discount leaves $0.90$ of the price. The second leaves $0.80$ of that amount. The fraction paid is $0.90(0.80)=0.72$. The discount is $1-0.72=0.28$, or $28\%$.
+    approved: false
+
+  - id: q-arithmetic-number-sense-business-math-0020
+    type: estimate-first
+    difficulty: exam
+    stem: |
+      An investment grows at about $9\%$ per year with annual compounding. Using the Rule of $72$, about how long does it take to double?
+    choices:
+      - text: '$8\text{ years}$'
+        correct: true
+      - text: '$648\text{ years}$'
+        rationale: |
+          This multiplies seventy-two by nine. Both numbers appear in the rule. Check that the rule divides by the rate.
+      - text: '$\dfrac{1}{8}\text{ year}$'
+        rationale: |
+          This divides the rate by seventy-two. The quotient reverses the same two numbers. Check that a smaller rate should give a longer doubling time.
+      - text: '$\dfrac{100}{9}\text{ years}$'
+        rationale: |
+          This uses simple-interest doubling time. That formula also depends on the rate. Check that the requested rule estimates compound growth.
+    explanation: |
+      The Rule of $72$ estimates doubling time by dividing $72$ by the annual percentage rate. Thus $72\div9=8$ years.
+    approved: false

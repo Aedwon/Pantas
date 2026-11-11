@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:pantas/core/storage/data/repos/content_repository.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/storage/domain/question_selection_row.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/features/quiz/data/repos/quiz_session_repository.dart';
 import 'package:pantas/features/quiz/domain/models/quiz_ordering.dart';
@@ -61,6 +62,50 @@ class StartTodaySession {
     TopicId? topicId,
     TodaySessionPlan? plan,
   }) async {
+    final result = await _start(
+      userId: userId,
+      examId: examId,
+      preferences: preferences,
+      now: now,
+      topicId: topicId,
+      plan: plan,
+      canPersist: () => true,
+    );
+    if (result == null) {
+      throw StateError('Unconditional Today session creation was cancelled');
+    }
+    return result;
+  }
+
+  Future<StartTodaySessionResult?> callGuarded({
+    required String userId,
+    required ExamId examId,
+    required QuizPreferences preferences,
+    required DateTime now,
+    required bool Function() canPersist,
+    TopicId? topicId,
+    TodaySessionPlan? plan,
+  }) {
+    return _start(
+      userId: userId,
+      examId: examId,
+      preferences: preferences,
+      now: now,
+      topicId: topicId,
+      plan: plan,
+      canPersist: canPersist,
+    );
+  }
+
+  Future<StartTodaySessionResult?> _start({
+    required String userId,
+    required ExamId examId,
+    required QuizPreferences preferences,
+    required DateTime now,
+    required bool Function() canPersist,
+    TopicId? topicId,
+    TodaySessionPlan? plan,
+  }) async {
     final resolved = plan ??
         await _planFromContent(
           examId: examId,
@@ -90,7 +135,7 @@ class StartTodaySession {
       origin: origin,
       topicId: namedTopicId,
     );
-    await _sessions.create(
+    final created = await _sessions.createGuarded(
       sessionId: session.sessionId,
       userId: userId,
       examId: examId,
@@ -98,7 +143,10 @@ class StartTodaySession {
       topicId: namedTopicId,
       questionIds: resolved.questions.map((question) => question.id).toList(),
       startedAt: now,
+      canPersist: canPersist,
     );
+    if (!created) return null;
+
     unawaited(
       _telemetry.log(
         TelemetryEvent.sessionStarted,
@@ -117,27 +165,50 @@ class StartTodaySession {
     required QuizPreferences preferences,
     TopicId? topicId,
   }) async {
-    final allQuestions = topicId == null
-        ? await _questionsByExam(examId)
-        : await _content.questionsByTopic(topicId);
-    return BuildTodayPlan.call(
+    final rows = topicId == null
+        ? await _content.selectionRowsByExam(examId)
+        : await _content.selectionRowsByTopic(topicId, examId: examId);
+    final candidates = [
+      for (final row in rows) _selectionQuestion(row, examId),
+    ];
+    final selectionPlan = BuildTodayPlan.call(
       due: const [],
       weakness: const [],
-      fresh: allQuestions,
-      allQuestions: allQuestions,
+      fresh: candidates,
+      allQuestions: candidates,
       preferences: preferences,
       topicId: topicId,
       topicPicker: _topicPicker,
       interleavedPicker: _interleavedPicker,
     );
+    if (selectionPlan.isEmpty) return selectionPlan;
+
+    final hydrated = await _content.hydrateSelectedQuestions(
+      [for (final question in selectionPlan.questions) question.id],
+    );
+    return TodaySessionPlan(
+      questions: hydrated,
+      dueCount: 0,
+      weaknessCount: 0,
+      freshCount: hydrated.length,
+      topicId: selectionPlan.topicId,
+      topicName: selectionPlan.topicName,
+    );
   }
 
-  Future<List<Question>> _questionsByExam(ExamId examId) async {
-    final topics = await _content.topicsByExam(examId);
-    final questions = <Question>[];
-    for (final topic in topics) {
-      questions.addAll(await _content.questionsByTopic(topic.id));
-    }
-    return questions;
+  Question _selectionQuestion(QuestionSelectionRow row, ExamId examId) {
+    return Question(
+      id: row.id,
+      version: row.version,
+      examIds: [examId],
+      topicId: row.topicId,
+      language: '',
+      stem: '',
+      choices: const [],
+      explanation: '',
+      lessonId: row.lessonId,
+      passageId: row.passageId,
+      figureSpecJson: row.hasFigure ? '{}' : null,
+    );
   }
 }

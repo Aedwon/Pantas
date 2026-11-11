@@ -1,465 +1,698 @@
 meta:
-  subject: reasoning
-  topic: spatial-abstract-reasoning
-  subtopic: figure-series
-  exams: [ acet, ustet, dost-sei , cse-pro]
+  subject: "reasoning"
+  topic: "spatial-abstract-reasoning"
+  subtopic: "figure-series"
+  exams:
+    - "acet"
+    - "ustet"
+    - "dost-sei"
+    - "cse-pro"
 questions:
-  - id: q-spatial-abstract-reasoning-figure-series-0001
-    type: figure-series
-    difficulty: easy
-    figure: figure-series-01
+  - id: "q-spatial-abstract-reasoning-figure-series-0001"
+    type: "figure-series"
+    difficulty: "easy"
+    figure: "figure-series-01"
     figureSpec:
-      kind: figure-series
+      kind: "figure-series"
       items:
-        - form: square
+        - form: "square"
           line: 0
-        - form: square
+        - form: "square"
           line: 45
-        - form: square
+        - form: "square"
           line: 90
       blank: true
     stem: |
-      Figure shows a row of three squares, each containing a single line. Square 1's line points straight up. Square 2's line points to the upper-right (a 45° clockwise turn from square 1). Square 3's line points directly right (another 45° clockwise turn from square 2). What direction should the line point in the fourth square?
+      Which figure best continues the simplest consistent pattern shown?
     choices:
-      - text: Lower-right (a further 45° clockwise turn from "right")
+      - text: "Line pointing lower-right"
         correct: true
-      - text: Straight down (a 90° clockwise turn from "right")
+      - text: "Line pointing down"
         rationale: |
-          You turned 90° clockwise instead of 45°. The established pattern turns 45° clockwise per step.
-      - text: Straight up, repeating square 1
+          This doubles the last turn to 90 degrees. Down is the next main compass direction. Check the equal diagonal steps already shown.
+      - text: "Line pointing up"
         rationale: |
-          You reset to the start position instead of advancing 45° clockwise to lower-right.
-      - text: Upper-left (a 45° counterclockwise turn from "right")
+          This restarts after three states instead of continuing the turn. Up is the starting position. Check whether a completed cycle has been shown.
+      - text: "Line pointing upper-right"
         rationale: |
-          You reversed rotation direction to counterclockwise.
+          This reverses the rotation direction. Upper-right was the previous state. Compare the direction of both shown transitions.
     explanation: |
-      The line turns 45° clockwise at each step (up → upper-right → right). Continuing the same rotation from "right," the next position is lower-right.
+      The line moves clockwise by 45 degrees each time: up, upper-right, right. One more equal step points lower-right.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-series-0002
-    type: figure-series
-    difficulty: easy
-    figure: figure-series-02
+  - id: "q-spatial-abstract-reasoning-figure-series-0002"
+    type: "figure-series"
+    difficulty: "easy"
+    figure: "figure-series-02"
     figureSpec:
-      kind: figure-series
+      kind: "figure-series"
       items:
-        - form: triangle
-        - form: square
-        - form: pentagon
+        - form: "triangle"
+        - form: "square"
+        - form: "pentagon"
       blank: true
     stem: |
-      Figure shows a row of three shapes: a triangle (3 sides), a square (4 sides), and a pentagon (5 sides). How many sides should the fourth figure have, and what shape is it?
+      Which figure best continues the simplest consistent pattern shown?
     choices:
-      - text: 6 sides, a hexagon
+      - text: "Hexagon with six sides"
         correct: true
-      - text: 5 sides, another pentagon
+      - text: "Pentagon with five sides"
         rationale: |
-          You repeated 5 sides instead of incrementing by +1 to 6 sides.
-      - text: 7 sides, a heptagon
+          This repeats the final side count. The last shape is familiar. Check the increase between each shown pair.
+      - text: "Heptagon with seven sides"
         rationale: |
-          You added 2 sides instead of continuing the constant +1 side increment.
-      - text: 8 sides, an octagon
+          This skips six and adds two sides. The count is increasing. Check the size of the earlier increases.
+      - text: "Octagon with eight sides"
         rationale: |
-          You jumped three sides ahead. The pattern adds one side each step, so the next one has six.
+          This adds the three initial sides to five. Both counts are visible. Check whether that larger jump occurred in the series.
     explanation: |
-      The number of sides increases by 1 each step ($3, 4, 5, \ldots$). The fourth figure should have $6$ sides: a hexagon.
+      The shapes have three, four, then five sides. Adding one side each time gives six sides next. A six-sided polygon is a hexagon.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-series-0003
-    type: figure-series
-    difficulty: medium
-    figure: figure-series-03
+  - id: "q-spatial-abstract-reasoning-figure-series-0003"
+    type: "figure-series"
+    difficulty: "easy"
+    figure: "figure-series-03"
     figureSpec:
-      kind: figure-series
+      kind: "figure-series"
       items:
-        - form: circle
-          fill: black
-        - form: circle
-          fill: white
-        - form: circle
-          fill: black
+        - form: "circle"
+          fill: "black"
+        - form: "circle"
+          fill: "white"
+        - form: "circle"
+          fill: "black"
       blank: true
     stem: |
-      Figure shows a row of three circles: a fully black circle, then a fully white (empty) circle, then a fully black circle again. What should the fourth circle look like?
+      Which figure best continues the simplest consistent pattern shown?
     choices:
-      - text: Fully white (empty)
+      - text: "White circle"
         correct: true
-      - text: Fully black
+      - text: "Black circle"
         rationale: |
-          You repeated black instead of maintaining the strict black and white alternation.
-      - text: Half black, half white
+          This repeats the last fill. Black appears twice. Check each adjacent transition instead of counting the most common fill.
+      - text: "Half-filled circle"
         rationale: |
-          You introduced partial shading not present in the binary alternating sequence.
-      - text: Gray (a blend of black and white)
+          This averages the two fill states. Black and white are both present. Check whether any partial fill appears in the pattern.
+      - text: "Quarter-filled circle"
         rationale: |
-          You introduced an intermediate shade when the sequence alternates between solid black and white.
+          This invents a gradual fill change. Fill is the changing feature. Check that the shown states are fully black or fully white.
     explanation: |
-      The shading alternates strictly: black, white, black. Since the pattern alternates every step, the figure after "black" should return to "white."
+      The circles alternate black, white, black. Continuing the alternating fill gives a white circle.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-series-0004
-    type: figure-series
-    difficulty: medium
-    figure: figure-series-04
+  - id: "q-spatial-abstract-reasoning-figure-series-0004"
+    type: "figure-series"
+    difficulty: "medium"
+    figure: "figure-series-04"
     figureSpec:
-      kind: figure-series
+      kind: "figure-series"
       items:
-        - form: triangle
-          size: small
-          fill: black
-        - form: triangle
-          size: medium
-          fill: white
-        - form: triangle
-          size: large
-          fill: black
+        - form: "triangle"
+          size: "small"
+          fill: "black"
+        - form: "triangle"
+          size: "medium"
+          fill: "white"
+        - form: "triangle"
+          size: "large"
+          fill: "black"
+        - form: "triangle"
+          size: "small"
+          fill: "white"
+        - form: "triangle"
+          size: "medium"
+          fill: "black"
       blank: true
     stem: |
-      Figure shows a row of three triangles: a small black triangle, a medium white triangle, and a large black triangle. Predict the size and shading of the fourth triangle.
+      Which figure best continues the simplest consistent pattern shown?
     choices:
-      - text: Extra-large, white
+      - text: "Large white triangle"
         correct: true
-      - text: Extra-large, black
+      - text: "Large black triangle"
         rationale: |
-          You correctly identified extra-large size but kept black shading instead of alternating to white.
-      - text: Large, white
+          This follows size but repeats the previous fill. Size has a clear cycle. Check the separate alternating fill track.
+      - text: "Small white triangle"
         rationale: |
-          You correctly identified white shading but failed to advance size from large to extra-large.
-      - text: Small, white
+          This follows fill but restarts size too early. Small starts the cycle. Check the last two size states.
+      - text: "Medium white triangle"
         rationale: |
-          You reset size back to small instead of continuing to extra-large.
+          This follows fill but holds the size unchanged. Medium is the last size. Continue the three-size cycle.
     explanation: |
-      Tracking size separately (small, medium, large, increasing one step each time) gives extra-large next. Tracking shading separately (black, white, black, alternating) gives white next. Combined: extra-large, white.
+      Sizes repeat small, medium, large, small, medium. The next size is large. Fill alternates black and white, so the next fill is white.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-series-0005
-    type: figure-series
-    difficulty: medium
-    figure: figure-series-05
+  - id: "q-spatial-abstract-reasoning-figure-series-0005"
+    type: "figure-series"
+    difficulty: "medium"
+    figure: "figure-series-05"
     figureSpec:
-      kind: figure-series
+      kind: "figure-series"
       items:
-        - form: square
-          dot: top-left
-        - form: square
-          dot: top-right
-        - form: square
-          dot: bottom-right
+        - form: "square"
+          dot: "top-left"
+        - form: "square"
+          dot: "top-right"
+        - form: "square"
+          dot: "bottom-right"
       blank: true
     stem: |
-      Figure shows a row of three squares, each with a black dot in one corner. Square 1's dot is in the top-left corner. Square 2's dot is in the top-right corner (moved clockwise one corner). Square 3's dot is in the bottom-right corner (moved clockwise one more corner). Where should the dot be in the fourth square?
+      Which figure best continues the simplest consistent pattern shown?
     choices:
-      - text: Bottom-left corner
+      - text: "Dot at bottom-left"
         correct: true
-      - text: Top-left corner, repeating square 1
+      - text: "Dot at top-left"
         rationale: |
-          You skipped to the top-left corner instead of continuing clockwise to bottom-left.
-      - text: Top-right corner
+          This restarts before visiting all four corners. Top-left began the series. Check the remaining corner on the same route.
+      - text: "Dot at top-right"
         rationale: |
-          You jumped back to top-right instead of advancing to bottom-left.
-      - text: Center of the square
+          This jumps back to the second state. That corner has appeared before. Continue from the last corner by the same step.
+      - text: "Dot at center"
         rationale: |
-          You moved the dot off the perimeter corners into the center.
+          This changes corner movement into inward movement. The center is another visible location. Check that every shown dot is at a corner.
     explanation: |
-      The dot moves one corner clockwise at each step (top-left → top-right → bottom-right). Continuing clockwise from bottom-right, the next corner is bottom-left.
+      The dot moves clockwise through the square's corners: top-left, top-right, bottom-right. The next corner on that route is bottom-left.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-series-0006
-    type: figure-series
-    difficulty: medium
-    figure: figure-series-06
+  - id: "q-spatial-abstract-reasoning-figure-series-0006"
+    type: "figure-series"
+    difficulty: "medium"
+    figure: "figure-series-06"
     figureSpec:
-      kind: figure-series
+      kind: "figure-series"
       items:
-        - form: circle
-          arrow: up
-        - form: circle
-          arrow: right
-        - form: circle
-          arrow: down
-      blank: true
+        - form: "circle"
+          arrow: "up"
+        - form: "circle"
+          arrow: "right"
+        - form: "circle"
+          arrow: "down"
+      blank: false
     stem: |
-      Figure shows a row of three circles, each with an arrow inside. Circle 1's arrow points up. Circle 2's arrow points right (a 90° clockwise turn). Circle 3's arrow points down (another 90° clockwise turn). What direction should the arrow point in the fourth circle?
+      Continue the shown rotation rule for two further steps. What arrow direction appears on the second of those steps?
     choices:
-      - text: Left (a further 90° clockwise turn from "down")
+      - text: "Arrow pointing up"
         correct: true
-      - text: Up, repeating circle 1
+      - text: "Arrow pointing left"
         rationale: |
-          You reset to up instead of continuing 90° clockwise to left.
-      - text: Right, repeating circle 2
+          This takes only one further step. Left is the immediate continuation. Check that the stem asks for two steps.
+      - text: "Arrow pointing right"
         rationale: |
-          You jumped back to right instead of advancing to left.
-      - text: Down, repeating circle 3
+          This turns backward once from down. Right appeared previously. Keep the established direction and count two transitions.
+      - text: "Arrow pointing down"
         rationale: |
-          You repeated down without applying the next 90° clockwise rotation.
+          This completes no further change. Down is the last shown state. Apply both requested turns.
     explanation: |
-      The arrow turns 90° clockwise at each step (up → right → down). Continuing clockwise from "down," the next direction is left.
+      The arrows turn clockwise by 90 degrees per step. After the shown down arrow, the next is left and the following one up. Two further steps therefore give up.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-series-0007
-    type: figure-series
-    difficulty: medium
-    figure: figure-series-07
+  - id: "q-spatial-abstract-reasoning-figure-series-0007"
+    type: "figure-series"
+    difficulty: "medium"
+    figure: "figure-series-07"
     figureSpec:
-      kind: figure-series
+      kind: "figure-series"
       items:
-        - form: circle
+        - form: "circle"
           dots: 1
-        - form: circle
+        - form: "circle"
           dots: 2
-        - form: circle
+        - form: "circle"
           dots: 3
       blank: true
     stem: |
-      Figure shows a row of three circles, each containing small dots. Circle 1 has 1 dot. Circle 2 has 2 dots. Circle 3 has 3 dots. How many dots should the fourth circle have?
+      Which figure best continues the simplest consistent pattern shown?
     choices:
-      - text: "4 dots"
+      - text: "Circle with four dots"
         correct: true
-      - text: "5 dots"
+      - text: "Circle with five dots"
         rationale: |
-          You added 2 dots instead of continuing the +1 dot increment.
-      - text: "3 dots, the same as circle 3"
+          This skips one count. The number of dots is increasing. Check that each earlier increase is only one.
+      - text: "Circle with three dots"
         rationale: |
-          You repeated 3 dots instead of advancing to 4 dots.
-      - text: "6 dots"
+          This repeats the final count. The last figure is most recent. Compare the earlier counts to find the change.
+      - text: "Circle with six dots"
         rationale: |
-          You doubled the dot count instead of adding 1.
+          This doubles the final count. Three dots are visible at the end. Check whether the earlier changes doubled counts.
     explanation: |
-      The number of dots increases by 1 each step ($1, 2, 3, \ldots$). The fourth circle should have $4$ dots.
+      The circles contain one, two, then three dots. The count increases by one per step. The next circle therefore has four dots.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-series-0008
-    type: figure-series
-    difficulty: medium
-    figure: figure-series-08
+  - id: "q-spatial-abstract-reasoning-figure-series-0008"
+    type: "figure-series"
+    difficulty: "medium"
+    figure: "figure-series-08"
     figureSpec:
-      kind: figure-series
+      kind: "figure-series"
       items:
-        - form: square
-          size: large
-        - form: square
-          size: medium
-        - form: square
-          size: small
+        - form: "square"
+          size: "large"
+        - form: "square"
+          size: "medium"
+        - form: "square"
+          size: "small"
+        - form: "square"
+          size: "medium"
+        - form: "square"
+          size: "large"
       blank: true
     stem: |
-      Figure shows a row of three squares, decreasing in size: a large square, a medium square, and a small square. What size should the fourth square be?
+      Which figure best continues the simplest consistent pattern shown?
     choices:
-      - text: Extra small (smaller than the small square)
+      - text: "Medium square"
         correct: true
-      - text: Extra large (larger than the large square)
+      - text: "Small square"
         rationale: |
-          You inverted the shrinking trend to growing extra large.
-      - text: Medium, repeating square 2
+          This jumps directly from large to small. Both are endpoints of the cycle. Check that the shown transitions pass through medium.
+      - text: "Large square"
         rationale: |
-          You reversed the size trend back to medium.
-      - text: The same size as the small square
+          This holds at the largest state. The last square is large. Check the reversal visible at the earlier smallest state.
+      - text: "A square smaller than the smallest shown"
         rationale: |
-          You stopped shrinking and repeated the small size.
+          This extends shrinking beyond the established sizes. Shrinking occurs at the start. Check the later return to larger sizes.
     explanation: |
-      The size decreases by one step each time (large, medium, small). Continuing this shrinking pattern, the fourth square should be extra small.
+      Sizes decrease large, medium, small, then increase medium, large. This back-and-forth cycle next returns to medium.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-series-0009
-    type: figure-series
-    difficulty: hard
-    figure: figure-series-09
+  - id: "q-spatial-abstract-reasoning-figure-series-0009"
+    type: "figure-series"
+    difficulty: "hard"
+    figure: "figure-series-09"
     figureSpec:
-      kind: figure-series
+      kind: "figure-series"
       items:
-        - form: star
-          size: small
-          fill: black
-        - form: star
-          size: medium
-          fill: white
-        - form: star
-          size: large
-          fill: black
+        - form: "star"
+          dots: 1
+          size: "small"
+        - form: "star"
+          dots: 2
+          size: "large"
+        - form: "star"
+          dots: 3
+          size: "small"
       blank: true
     stem: |
-      Figure shows a row of three stars: a small black star, a medium white star, and a large black star. A student predicts the fourth figure should be "extra-large, black," tracking only the size feature and assuming shading stays the same as figure 3. What is wrong with this prediction, and what should the fourth figure actually be?
+      Which figure best continues the simplest consistent pattern shown?
     choices:
-      - text: The student ignored the shading feature, which alternates (black, white, black); tracking both features separately, the fourth figure should be extra-large and white, not extra-large and black.
+      - text: "Large star with four dots"
         correct: true
-      - text: The student's prediction is correct, since shading always matches the previous figure once size changes.
+      - text: "Small star with four dots"
         rationale: |
-          You assumed shading stops alternating when size changes.
-      - text: The student's prediction is correct, but only because shading is irrelevant in this series.
+          This tracks count but repeats size. Four follows three. Check the separate small-large alternation.
+      - text: "Large star with three dots"
         rationale: |
-          You claimed shading is irrelevant when both size and shading vary systematically.
-      - text: Neither size nor shading can be predicted from this series.
+          This tracks size but freezes count. Large follows small. Check the increasing dot track.
+      - text: "Large star with two dots"
         rationale: |
-          You claimed multi-feature series cannot be predicted.
+          This returns to the second count while changing size correctly. The second figure was also large. Check that matching size does not restart dot count.
     explanation: |
-      A figure series can change several features at once: missing that both size and shading are changing leads to only half-correct predictions. Size continues growing (extra-large), and shading continues alternating (white after black).
+      Dot counts increase one at a time while size alternates small and large. After three dots and small size, both tracks continue to four dots and large size.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-series-0010
-    type: figure-series
-    difficulty: hard
-    figure: figure-series-10
+  - id: "q-spatial-abstract-reasoning-figure-series-0010"
+    type: "figure-series"
+    difficulty: "hard"
+    figure: "figure-series-10"
     figureSpec:
-      kind: figure-series
+      kind: "figure-series"
       items:
-        - form: square
-          dot: top-left
-        - form: square
-          dot: bottom-left
-        - form: square
-          dot: bottom-right
+        - form: "square"
+          arrow: "up"
+        - form: "square"
+          arrow: "right"
+        - form: "square"
+          arrow: "up"
+        - form: "square"
+          arrow: "right"
       blank: true
     stem: |
-      Figure shows a row of three squares, each with a dot in one corner. Square 1's dot is top-left. Square 2's dot is bottom-left (moved counterclockwise one corner). Square 3's dot is bottom-right (moved counterclockwise one more corner). A student assumes the dot must now move clockwise for the fourth square, predicting bottom-left again. Is this assumption correct?
+      Which figure best continues the simplest consistent pattern shown?
     choices:
-      - text: 'No: the established direction is counterclockwise (top-left → bottom-left → bottom-right), so the fourth square''s dot should continue counterclockwise to top-right, not switch direction.'
+      - text: "Arrow pointing up"
         correct: true
-      - text: 'Yes: the dot should always reverse direction after two steps.'
+      - text: "Arrow pointing down"
         rationale: |
-          You assumed rotation direction reverses after two steps without evidence.
-      - text: 'Yes: the dot should return to bottom-left, since patterns commonly repeat every two steps.'
+          This assumes continuous clockwise rotation. The first turn was clockwise. Check the return to up in the third figure.
+      - text: "Arrow pointing right"
         rationale: |
-          You assumed a 2-step oscillation pattern.
-      - text: 'No: but only because the dot cannot move to any corner other than top-left.'
+          This repeats the last arrow. Right appears twice. Check the alternating transitions.
+      - text: "Arrow pointing left"
         rationale: |
-          You claimed dots are restricted from moving to top-right.
+          This extends a four-direction cycle that is not shown. Left is a possible compass direction. Verify a proposed cycle against every displayed state.
     explanation: |
-      Carefully confirm the established rotation direction by comparing at least two consecutive steps rather than assuming a direction switch. Here, the dot consistently moves counterclockwise, so it should continue to top-right next.
+      The arrow alternates up and right. Both up-to-right transitions match, with right-to-up between them. The next arrow returns to up.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-series-0011
-    type: figure-series
-    difficulty: hard
-    figure: figure-series-11
+  - id: "q-spatial-abstract-reasoning-figure-series-0011"
+    type: "figure-series"
+    difficulty: "hard"
+    figure: "figure-series-11"
     figureSpec:
-      kind: figure-series
+      kind: "figure-series"
       items:
-        - form: circle
+        - form: "square"
           fill: 0.25
-        - form: circle
+        - form: "square"
           fill: 0.5
-        - form: circle
+        - form: "square"
           fill: 0.75
+        - form: "square"
+          fill: 0.25
+        - form: "square"
+          fill: 0.5
+      blank: false
+    stem: |
+      Continue the shown fill cycle for two further figures. What fill appears in the second further figure?
+    choices:
+      - text: "Quarter-filled square"
+        correct: true
+      - text: "Fully filled square"
+        rationale: |
+          This keeps increasing after three-quarters. The first three states increase. Check the restart already visible in the fourth state.
+      - text: "Half-filled square"
+        rationale: |
+          This repeats the last displayed fill after two steps. Half is the most recent state. Count both transitions in the three-state cycle.
+      - text: "Three-quarter-filled square"
+        rationale: |
+          This takes one step instead of two. Three-quarters follows half. Check the requested second further state.
+    explanation: |
+      The fill levels repeat quarter, half, three-quarters, quarter, half. After the shown half state, the next is three-quarters; the following one is quarter.
+    approved: true
+  - id: "q-spatial-abstract-reasoning-figure-series-0012"
+    type: "figure-series"
+    difficulty: "hard"
+    figure: "figure-series-12"
+    figureSpec:
+      kind: "figure-series"
+      items:
+        - form: "circle"
+        - form: "triangle"
+        - form: "square"
+        - form: "circle"
+        - form: "triangle"
       blank: true
     stem: |
-      Figure shows a row of three circles with shading: 25% filled, 50% filled, 75% filled. A student assumes this is a cumulative pattern and predicts the fourth circle should be 100% filled. Given that the actual series repeats as 25%, 50%, 75%, 25%, 50%, 75%, ..., is the student's prediction correct?
+      Which figure best continues the simplest consistent pattern shown?
     choices:
-      - text: 'No: this is a repeating cycle, not a steadily cumulative pattern; after 75%, the cycle restarts at 25%, not continuing to 100%.'
+      - text: "Square"
         correct: true
-      - text: 'Yes: the shading always increases steadily without ever restarting.'
+      - text: "Circle"
         rationale: |
-          You assumed steady cumulative growth instead of observing the repeating cycle rule.
-      - text: 'Yes: 100% filled is the correct next step in this specific series.'
+          This restarts the group one step too soon. Circle begins each group. Check which position follows the triangle.
+      - text: "Triangle"
         rationale: |
-          You applied a linear cumulative rule to a cycling sequence.
-      - text: 'No: but only because circles cannot be partially shaded.'
+          This repeats the last outline. Triangle appears twice. Compare the three-shape group already completed.
+      - text: "Pentagon"
         rationale: |
-          You claimed partial shading is impossible.
+          This assumes increasing sides rather than a repeated group. A square can lead to a pentagon in another pattern. Check the return to circle in this series.
     explanation: |
-      Not every changing feature increases steadily forever: some patterns cycle back to an earlier state after reaching a certain point. Here, the series explicitly cycles (25%, 50%, 75%, 25%, ...), so the fourth figure returns to 25%, not 100%.
+      The outlines repeat circle, triangle, square, then circle and triangle again. The next outline completes the repeated group with a square.
     approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-series-0012
-    type: figure-series
-    difficulty: medium
-    figure: figure-series-12
+  - id: "q-spatial-abstract-reasoning-figure-series-0013"
+    type: "figure-series"
+    difficulty: "hard"
+    figure: "figure-series-13"
     figureSpec:
-      kind: figure-series
+      kind: "figure-series"
       items:
-        - form: triangle
-          dot: top
-        - form: triangle
-          dot: bottom-left
-        - form: triangle
-          dot: bottom-right
-      blank: true
-    stem: |
-      Figure shows a row of three triangles, each with a dot near one corner. Triangle 1's dot is near the top corner. Triangle 2's dot is near the bottom-left corner (moved clockwise). Triangle 3's dot is near the bottom-right corner (moved clockwise again). Where should the dot be in the fourth triangle?
-    choices:
-      - text: Near the top corner, completing one full clockwise cycle around the triangle
-        correct: true
-      - text: Near the bottom-left corner, repeating triangle 2
-        rationale: |
-          You repeated the second corner position instead of completing the 3-corner cycle.
-      - text: Near the bottom-right corner, repeating triangle 3
-        rationale: |
-          You repeated the third corner position without advancing clockwise.
-      - text: In the center of the triangle
-        rationale: |
-          You moved the dot away from the corners into the interior center.
-    explanation: |
-      A triangle has three corners. The dot moves clockwise, one corner per step (top → bottom-left → bottom-right). After all three corners, the fourth figure completes the cycle back at the top corner.
-    approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-series-0013
-    type: figure-series
-    difficulty: hard
-    figure: figure-series-13
-    figureSpec:
-      kind: figure-series
-      items:
-        - form: triangle
-          size: small
-          fill: black
-        - form: square
-          size: medium
-          fill: white
-        - form: pentagon
-          size: large
-          fill: black
-      blank: true
-    stem: |
-      Figure shows a row of three figures, each changing in three ways at once: figure 1 is a small black triangle rotated with its point up; figure 2 is a medium white square rotated with its point (top corner) to the right (a 90° clockwise turn from the triangle's orientation, and the shape gained one side); figure 3 is a large black pentagon rotated with its point pointing down (another 90° clockwise turn, and the shape gained one more side). Predict the size, shading, side count, and rotation of the fourth figure.
-    choices:
-      - text: Extra-large, white, 6 sides (hexagon), point rotated to the left (a further 90° clockwise turn)
-        correct: true
-      - text: Extra-large, black, 6 sides (hexagon), point rotated to the left
-        rationale: |
-          You correctly tracked size, sides, and rotation but failed to alternate shading to white.
-      - text: Large, white, 5 sides (pentagon), point pointing down
-        rationale: |
-          You repeated figure 3's size, sides, and rotation, changing only shading.
-      - text: Extra-large, white, 5 sides (pentagon), point rotated up
-        rationale: |
-          You failed to advance side count to 6 and misrotated the point orientation.
-    explanation: |
-      Tracking each feature separately: size grows one step (extra-large); shading alternates (black, white, black, so white next); sides increase by 1 each step (3, 4, 5, so 6 next); rotation turns 90° clockwise each step (up, right, down, so left next).
-    approved: true
-
-  - id: q-spatial-abstract-reasoning-figure-series-0014
-    type: figure-series
-    difficulty: exam
-    figure: figure-series-14
-    figureSpec:
-      kind: figure-series
-      items:
-        - form: square
-          dot: top-left
+        - form: "triangle"
+          size: "small"
           edgeLines: 1
-        - form: square
-          dot: top-right
+          line: 0
+        - form: "square"
+          size: "medium"
           edgeLines: 2
-        - form: square
-          dot: bottom-right
+          line: 90
+        - form: "triangle"
+          size: "small"
+          edgeLines: 1
+          line: 180
+      blank: true
+    stem: |
+      Which figure best continues the simplest consistent pattern shown?
+    choices:
+      - text: "Medium square; line left; four edge lines"
+        correct: true
+      - text: "Medium square; line left; three edge lines"
+        rationale: |
+          This follows outline, size, and direction but freezes edge-line count. Three features are correct. Check the count rising by one each time.
+      - text: "Small square; line left; four edge lines"
+        rationale: |
+          This follows the other tracks but retains the triangle's small size. Small is the latest state. Check the alternating size track.
+      - text: "Medium triangle; line down; four edge lines"
+        rationale: |
+          This changes size and edge count but freezes outline and line. Two changes are correct. Check all four feature tracks.
+    explanation: |
+      The outlines alternate triangle and square, and sizes alternate small and medium. The internal line turns clockwise by 90 degrees while edge-line counts increase by one. Together the next state is a medium square with a left-pointing line and four edge lines.
+    approved: true
+  - id: "q-spatial-abstract-reasoning-figure-series-0014"
+    type: "figure-series"
+    difficulty: "hard"
+    figure: "figure-series-14"
+    figureSpec:
+      kind: "figure-series"
+      items:
+        - form: "square"
+          dot: "top-left"
+          edgeLines: 1
+        - form: "square"
+          dot: "top-right"
+          edgeLines: 2
+        - form: "square"
+          dot: "bottom-right"
           edgeLines: 3
-        - form: square
-          dot: bottom-left
+        - form: "square"
+          dot: "bottom-left"
           edgeLines: 4
       blank: true
     stem: |
-      Figure shows a row of four squares, each with a dot in a corner and a number of small lines along one edge: square 1 has a dot in the top-left corner and 1 line; square 2 has a dot in the top-right corner (moved clockwise) and 2 lines; square 3 has a dot in the bottom-right corner (moved clockwise again) and 3 lines; square 4 has a dot in the bottom-left corner (moved clockwise again) and 4 lines. If the series continues for one more figure (figure 5), where should the dot be, and how many lines should there be?
+      Which figure best continues the simplest consistent pattern shown?
     choices:
-      - text: Top-left corner (completing one full clockwise cycle), with 5 lines
+      - text: "Top-left dot; five edge lines"
         correct: true
-      - text: Bottom-left corner, repeating figure 4, with 5 lines
+      - text: "Bottom-left dot; five edge lines"
         rationale: |
-          You repeated the corner position of figure 4 instead of completing the 4-corner cycle.
-      - text: Top-left corner, with 4 lines, repeating the line count
+          This increments lines but freezes the dot. Bottom-left is its last location. Continue the separate four-corner cycle.
+      - text: "Top-left dot; four edge lines"
         rationale: |
-          You correctly cycled the dot position but failed to advance the line count to 5.
-      - text: Top-right corner, with 5 lines
+          This moves the dot correctly but freezes line count. Four is the last count. Check each count increase.
+      - text: "Top-right dot; five edge lines"
         rationale: |
-          You skipped to top-right instead of returning to top-left after 4 steps.
+          This skips the return to top-left. Top-right is a known corner in the cycle. Take only one corner step from bottom-left.
     explanation: |
-      The dot completes one clockwise corner move per figure; after 4 figures (one full cycle of 4 corners), it returns to the top-left corner for figure 5. Separately, the line count increases by 1 each figure ($1, 2, 3, 4, \ldots$), so figure 5 should have 5 lines.
+      The dot visits the four corners clockwise and returns to top-left. Bottom-edge line counts rise from one to four, so the next has five. Both changes continue together.
     approved: true
+  - id: "q-spatial-abstract-reasoning-figure-series-0015"
+    type: "figure-series"
+    difficulty: "easy"
+    figure: "figure-series-15"
+    figureSpec:
+      kind: "figure-series"
+      items:
+        - form: "pentagon"
+          fill: "black"
+        - form: "pentagon"
+          fill: "black"
+        - form: "pentagon"
+          fill: "white"
+        - form: "pentagon"
+          fill: "black"
+        - form: "pentagon"
+          fill: "black"
+      blank: true
+    stem: |
+      Which figure best continues the simplest consistent pattern shown?
+    choices:
+      - text: "White pentagon"
+        correct: true
+      - text: "Black pentagon"
+        rationale: |
+          This assumes fill remains black after consecutive black figures. The last two are black. Compare them with the first completed group.
+      - text: "Half-filled pentagon"
+        rationale: |
+          This averages the two fill states. Black and white both occur. Check the repeated three-position grouping.
+      - text: "White circle"
+        rationale: |
+          This follows fill but changes the constant outline. White occurs in the cycle. Check which feature never changes.
+    explanation: |
+      The fill repeats two black figures followed by one white figure. The next completes the second group as white. The outline stays a pentagon.
+    approved: false
+  - id: "q-spatial-abstract-reasoning-figure-series-0016"
+    type: "figure-series"
+    difficulty: "medium"
+    figure: "figure-series-16"
+    figureSpec:
+      kind: "figure-series"
+      items:
+        - form: "square"
+          dots: 0
+          edgeLines: 3
+        - form: "square"
+          dots: 1
+          edgeLines: 2
+        - form: "square"
+          dots: 2
+          edgeLines: 1
+      blank: true
+    stem: |
+      Which figure best continues the simplest consistent pattern shown?
+    choices:
+      - text: "Three dots; zero edge lines"
+        correct: true
+      - text: "Three dots; one edge line"
+        rationale: |
+          This adds a dot but holds the edge count. Dot count is rising. Check the matching decrease in edge lines.
+      - text: "Two dots; zero edge lines"
+        rationale: |
+          This decreases edge count but holds dot count. The last dot count is two. Track both counts.
+      - text: "Three dots; three edge lines"
+        rationale: |
+          This restarts the edge count while continuing dots. Three appeared at the start. Check the constant total of the two counts.
+    explanation: |
+      At each step one edge line is removed and one dot added. The shown counts are zero and three, then one and two, then two and one. The next state has three dots and no edge lines.
+    approved: false
+  - id: "q-spatial-abstract-reasoning-figure-series-0017"
+    type: "figure-series"
+    difficulty: "hard"
+    figure: "figure-series-17"
+    figureSpec:
+      kind: "figure-series"
+      items:
+        - form: "circle"
+          dots: 1
+        - form: "square"
+          dots: 4
+        - form: "circle"
+          dots: 2
+        - form: "square"
+          dots: 4
+      blank: true
+    stem: |
+      Which figure best continues the simplest consistent pattern shown?
+    choices:
+      - text: "Circle with three dots"
+        correct: true
+      - text: "Square with four dots"
+        rationale: |
+          This continues the square subsequence immediately. The last figure is a square. Separate odd and even positions.
+      - text: "Circle with five dots"
+        rationale: |
+          This counts all figures as one increasing sequence. Five is the next position number. Compare only the previous circles' dot counts.
+      - text: "Circle with four dots"
+        rationale: |
+          This copies the square's dot count into the circle track. Four appears on both squares. Check the circle-only sequence.
+    explanation: |
+      The outlines alternate circle and square. Within circle positions, dots increase from one to two, so the next circle has three. Square positions keep four dots.
+    approved: false
+  - id: "q-spatial-abstract-reasoning-figure-series-0018"
+    type: "figure-series"
+    difficulty: "hard"
+    figure: "figure-series-18"
+    figureSpec:
+      kind: "figure-series"
+      items:
+        - form: "square"
+          fill: 0.75
+          line: 0
+          dots: 1
+        - form: "square"
+          fill: 0.5
+          line: 90
+          dots: 2
+        - form: "square"
+          fill: 0.75
+          line: 0
+          dots: 3
+        - form: "square"
+          fill: 0.5
+          line: 90
+          dots: 4
+      blank: true
+    stem: |
+      All choices below would have five dots. Which fill and line direction complete the shown pattern?
+    choices:
+      - text: "Three-quarter-filled square; line up"
+        correct: true
+      - text: "Half-filled square; line up"
+        rationale: |
+          This continues the line but holds fill at the last state. Half is the latest fill. Check the alternating half and three-quarter track.
+      - text: "Three-quarter-filled square; line right"
+        rationale: |
+          This follows fill but freezes line direction. Right is the last line. Check the alternating up-right track.
+      - text: "Fully filled square; line up"
+        rationale: |
+          This assumes cumulative fill growth. Partial fill states occur. Compare the repeated fill levels rather than adding them.
+    explanation: |
+      The squares have a constant half fill and then a three-quarter fill in alternating positions. Their lines switch between up and right, while dot count increases. The next state has three-quarter fill, an up line, and five dots.
+    approved: false
+  - id: "q-spatial-abstract-reasoning-figure-series-0019"
+    type: "figure-series"
+    difficulty: "exam"
+    figure: "figure-series-19"
+    figureSpec:
+      kind: "figure-series"
+      items:
+        - form: "triangle"
+          size: "small"
+          line: 0
+        - form: "triangle"
+          size: "medium"
+          line: 45
+        - form: "triangle"
+          size: "large"
+          line: 90
+        - form: "triangle"
+          size: "small"
+          line: 135
+        - form: "triangle"
+          size: "medium"
+          line: 180
+      blank: true
+    stem: |
+      Which figure best continues the simplest consistent pattern shown?
+    choices:
+      - text: "Large triangle; line lower-left"
+        correct: true
+      - text: "Large triangle; line upper-left"
+        rationale: |
+          This turns 90 degrees instead of 45 from the last direction. Upper-left is a later diagonal on the route. Check the unchanged 45-degree step.
+      - text: "Small triangle; line lower-left"
+        rationale: |
+          This gets rotation but resets size to small one step early. Small begins the size cycle. Check the medium size of the last figure.
+      - text: "Large triangle; line down"
+        rationale: |
+          This gets size but freezes line. Down is the latest direction. Apply the next 45-degree turn.
+    explanation: |
+      Triangle size repeats small, medium, large, small, medium, so the next size is large. The line turns 45 degrees clockwise each time, reaching down in the fifth figure. Its next direction is lower-left.
+    approved: false
+  - id: "q-spatial-abstract-reasoning-figure-series-0020"
+    type: "figure-series"
+    difficulty: "exam"
+    figure: "figure-series-20"
+    figureSpec:
+      kind: "figure-series"
+      items:
+        - form: "square"
+          size: "medium"
+          dot: "top-left"
+          line: 90
+        - form: "square"
+          size: "large"
+          dot: "top-right"
+          line: 0
+        - form: "square"
+          size: "medium"
+          dot: "bottom-right"
+          line: 90
+        - form: "square"
+          size: "large"
+          dot: "bottom-left"
+          line: 0
+      blank: true
+    stem: |
+      Which figure best continues the simplest consistent pattern shown?
+    choices:
+      - text: "Medium square; dot top-left; line right"
+        correct: true
+      - text: "Large square; dot top-left; line right"
+        rationale: |
+          This follows dot and line but freezes size. Two correct tracks can distract from the third. Check the alternating medium-large sizes.
+      - text: "Medium square; dot bottom-left; line right"
+        rationale: |
+          This follows size and line but freezes the dot. Bottom-left is its latest position. Continue around one more corner.
+      - text: "Medium square; dot top-left; line up"
+        rationale: |
+          This follows size and dot but freezes line direction. Up is the last direction. Check the right-up alternation.
+    explanation: |
+      Size alternates medium and large, so the next is medium. The dot moves clockwise through corners and returns to top-left. The line alternates right and up, so the next line points right. These tracks combine in one medium square.
+    approved: false

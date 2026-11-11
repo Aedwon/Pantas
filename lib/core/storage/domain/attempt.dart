@@ -8,7 +8,7 @@ part 'attempt.g.dart';
 /// What the student said went wrong, noted from the debrief. Null means they
 /// were not asked or chose not to say, which is the common case: the debrief
 /// states outright that leaving one blank costs nothing.
-enum MistakeTag { misread, slipped, unknown }
+enum MistakeTag { misread, slipped, unknown, other }
 
 @freezed
 abstract class AttemptItem with _$AttemptItem {
@@ -20,7 +20,9 @@ abstract class AttemptItem with _$AttemptItem {
     required ChoiceId chosenChoiceId,
     required ChoiceId correctChoiceId,
     required int responseMs,
+    @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
     MistakeTag? mistakeTag,
+    String? mistakeNote,
   }) = _AttemptItem;
 
   factory AttemptItem.fromJson(Map<String, dynamic> json) =>

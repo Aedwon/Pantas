@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-earth-science-astronomy-earths-motions-0001	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-earth-science-astronomy-earths-motions-0002	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	HIGH	Original note incorrectly measured the 23.5-degree tilt from the orbital plane rather than its perpendicular.
+q-earth-science-astronomy-earths-motions-0003	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-earth-science-astronomy-earths-motions-0004	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	HIGH	Original did not specify tilt reference and falsely claimed zero tilt eliminates every possible seasonal variation.
+q-earth-science-astronomy-earths-motions-0005	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	None-style throwaway choice replaced with a familiar apparent-motion misconception.
+q-earth-science-astronomy-earths-motions-0006	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	None-style throwaway option replaced with the distance misconception.
+q-earth-science-astronomy-earths-motions-0007	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Throwaway option replaced and unsupported lesson-specific star name removed from explanation.
+q-earth-science-astronomy-earths-motions-0008	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Longest correct choice shortened; denial-of-motion distractor replaced.
+q-earth-science-astronomy-earths-motions-0009	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	HIGH	Original wrongly aligned Philippine March-May hot season with Australian winter; longest choice shortened. Source: https://www.pagasa.dost.gov.ph/information/climate-philippines
+q-earth-science-astronomy-earths-motions-0010	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	MEDIUM	Original repeated annual-season identification and included a nonexistent-precession throwaway choice.
+q-earth-science-astronomy-earths-motions-0011	CORRECTED	SOLVED-MATCH	choices;explanation;notes	HIGH	Original called every solar day exactly 24 hours; this is the mean, not every apparent solar day.
+q-earth-science-astronomy-earths-motions-0012	NEEDS AEDWON	SOLVED-MATCH	explanation;notes	MEDIUM	Lesson does not name Polaris. Stem, choices, key, and longest-answer cue preserved; explanation/notes corrected. Source: https://science.nasa.gov/solar-system/what-is-the-north-star-and-how-do-you-find-it/
+q-earth-science-astronomy-earths-motions-0013	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	HIGH	Original stated every-four-years leap days without the Gregorian century exceptions.
+q-earth-science-astronomy-earths-motions-0014	CORRECTED	SOLVED-MATCH	choices;stem;explanation;notes	HIGH	Original duplicated the opposite-hemisphere example and assigned Philippine local weather solely to tilt.
+q-earth-science-astronomy-earths-motions-0015	NEW	NEW	new question	NONE	
+q-earth-science-astronomy-earths-motions-0016	NEW	NEW	new question	NONE	
+q-earth-science-astronomy-earths-motions-0017	NEW	NEW	new question	NONE	
+q-earth-science-astronomy-earths-motions-0018	NEW	NEW	new question	NONE	
+q-earth-science-astronomy-earths-motions-0019	NEW	NEW	new question	NONE	
+q-earth-science-astronomy-earths-motions-0020	NEW	NEW	new question	NONE	

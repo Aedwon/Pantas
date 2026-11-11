@@ -1,0 +1,7 @@
+Computing fixes in quiz_page_chrome_test.dart...
+Applying fixes...
+
+quiz_page_chrome_test.dart
+  require_trailing_commas - 1 fix
+
+1 fix made in 1 file.

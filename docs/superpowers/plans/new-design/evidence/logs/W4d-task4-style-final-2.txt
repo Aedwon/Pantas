@@ -1,0 +1,16 @@
+Computing fixes in quiz...
+Applying fixes...
+
+application/review_batch_scope_test.dart
+  require_trailing_commas - 2 fixes
+
+data/review_batch_repository_test.dart
+  directives_ordering - 1 fix
+  require_trailing_commas - 107 fixes
+  use_super_parameters - 1 fix
+
+presentation/quiz_question_screen_test.dart
+  directives_ordering - 1 fix
+  require_trailing_commas - 3 fixes
+
+115 fixes made in 3 files.

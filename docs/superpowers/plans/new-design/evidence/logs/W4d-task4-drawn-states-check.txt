@@ -1,0 +1,22 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_question_screen_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: pick then Check and reveal Brightness.dark scale=1.0
+00:00 +1: pick then Check and reveal Brightness.dark scale=2.0
+00:00 +2: pick then Check and reveal Brightness.light scale=1.0
+00:00 +3: pick then Check and reveal Brightness.light scale=2.0
+00:01 +4: miss reveal respects notes access pro=false
+00:01 +5: miss reveal respects notes access pro=true
+00:01 +6: grid revisits are read-only and return to the live question
+00:01 +7: leave asks once for X and system back
+00:01 +8: flag Undo keeps the question and writes no answer
+00:01 +9: long question grid opens at the current place and back only closes it
+00:01 +10: flag uses the drawn two-part pop and toast delay
+00:01 +11: Finish failure retries completion instead of checking again
+00:01 +12: wrong answer contrast uses its actual surface Brightness.dark
+00:01 +13: wrong answer contrast uses its actual surface Brightness.light
+00:01 +14: large lesson text scrolls long choices clear of the fixed bar
+00:01 +15: a real figure keeps its white backing in dark mode
+00:01 +16: flag save Retry retains flag intent without checking an answer
+00:02 +17: report opens the existing form and recolors after queued send
+00:02 +18: (tearDownAll)
+00:02 +18: All tests passed!

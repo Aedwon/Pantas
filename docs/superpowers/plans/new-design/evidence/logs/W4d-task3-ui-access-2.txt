@@ -1,0 +1,38 @@
+Analyzing 5 items...
+
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • lib/features/quiz/presentation/practice_picker_providers.dart:69:81 • lines_longer_than_80_chars
+warning • The value of the local variable 'units' isn't used. Try removing the variable or using it • lib/features/quiz/presentation/practice_picker_screen.dart:121:11 • unused_local_variable
+   info • Unnecessary duplication of receiver. Try using a cascade to avoid the duplication • lib/features/quiz/presentation/practice_picker_screen.dart:136:7 • cascade_invocations
+   info • Unnecessary duplication of receiver. Try using a cascade to avoid the duplication • lib/features/quiz/presentation/practice_picker_screen.dart:163:15 • cascade_invocations
+   info • Unnecessary duplication of receiver. Try using a cascade to avoid the duplication • lib/features/quiz/presentation/practice_picker_screen.dart:164:15 • cascade_invocations
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • lib/features/quiz/presentation/practice_picker_screen.dart:297:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • lib/features/quiz/presentation/practice_picker_screen.dart:304:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • lib/features/quiz/presentation/practice_picker_screen.dart:305:81 • lines_longer_than_80_chars
+   info • Missing a required trailing comma. Try adding a trailing comma • lib/features/quiz/presentation/practice_picker_screen.dart:577:69 • require_trailing_commas
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • lib/features/quiz/presentation/practice_picker_screen.dart:585:81 • lines_longer_than_80_chars
+   info • Sort directive sections alphabetically. Try sorting the directives • test/features/quiz/presentation/practice_picker_screen_test.dart:9:1 • directives_ordering
+   info • Sort directive sections alphabetically. Try sorting the directives • test/features/quiz/presentation/practice_picker_screen_test.dart:10:1 • directives_ordering
+   info • Sort directive sections alphabetically. Try sorting the directives • test/features/quiz/presentation/practice_picker_screen_test.dart:12:1 • directives_ordering
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/practice_picker_screen_test.dart:121:57 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/practice_picker_screen_test.dart:122:22 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/practice_picker_screen_test.dart:122:23 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/practice_picker_screen_test.dart:122:24 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/practice_picker_screen_test.dart:125:79 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/practice_picker_screen_test.dart:133:64 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/practice_picker_screen_test.dart:134:22 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/practice_picker_screen_test.dart:134:23 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/practice_picker_screen_test.dart:134:24 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/practice_picker_screen_test.dart:135:12 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/practice_picker_screen_test.dart:140:40 • require_trailing_commas
+   info • The value of the argument is redundant because it matches the default value. Try removing the argument • test/features/quiz/presentation/practice_picker_screen_test.dart:342:77 • avoid_redundant_argument_values
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/practice_picker_screen_test.dart:354:76 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/practice_picker_screen_test.dart:354:77 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/practice_picker_screen_test.dart:356:17 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/practice_picker_screen_test.dart:361:13 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/practice_picker_screen_test.dart:406:10 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/practice_picker_screen_test.dart:427:10 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/practice_picker_screen_test.dart:433:6 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/practice_picker_screen_test.dart:433:7 • require_trailing_commas
+   info • Missing a required trailing comma. Try adding a trailing comma • test/features/quiz/presentation/practice_picker_screen_test.dart:452:10 • require_trailing_commas
+
+34 issues found. (ran in 1.2s)

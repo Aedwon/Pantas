@@ -86,6 +86,8 @@ void main() {
         pausedAtLastFlush: true,
         answersJson: '{"q1":{"idx":1,"atSec":30}}',
         flagsJson: '["q2"]',
+        sampledQuestionsJson:
+            '[{"sectionId":"s1","_session":{"currentPartIndex":1}}]',
         currentIndex: 2,
         flushedAt: flushedAt,
         updateSyncTimestamp: false,
@@ -98,6 +100,7 @@ void main() {
       expect(attempt.pausedAtLastFlush, isTrue);
       expect(attempt.answersJson, contains('"q1"'));
       expect(attempt.flagsJson, '["q2"]');
+      expect(attempt.sampledQuestionsJson, contains('currentPartIndex'));
       expect(attempt.currentIndex, 2);
       expect(attempt.lastFlushedAt, flushedAt);
       expect(attempt.updatedAt, startedAt);

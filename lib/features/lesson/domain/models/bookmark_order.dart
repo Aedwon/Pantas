@@ -3,8 +3,8 @@
 /// finds a feature inside a menu they never open.
 enum BookmarkOrder {
   recent('recent', 'Recent'),
-  bySubject('by_subject', 'By subject'),
   oldest('oldest', 'Oldest'),
+  bySubject('by_subject', 'By subject'),
   custom('custom', 'Custom');
 
   const BookmarkOrder(this.storageValue, this.label);

@@ -1,0 +1,7 @@
+Computing fixes in quiz_page.dart...
+Applying fixes...
+
+quiz_page.dart
+  require_trailing_commas - 5 fixes
+
+5 fixes made in 1 file.

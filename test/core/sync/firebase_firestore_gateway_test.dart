@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
 import 'package:pantas/core/sync/firestore/firebase_firestore_gateway.dart';
 import 'package:pantas/core/sync/firestore/firestore_gateway.dart';
 import 'package:pantas/core/sync/model/sync_causal_base.dart';
@@ -26,6 +27,138 @@ void main() {
     expect(document?.updatedAt, at);
     expect((document!.data['nested']! as Map)['when'], at);
     expect((document.data['list']! as List).single, at);
+  });
+
+  group('the SDK client reads only what the server confirmed', () {
+    late _MockFirestore firestore;
+    late _MockCollection collection;
+
+    setUpAll(() {
+      registerFallbackValue(const GetOptions());
+    });
+
+    setUp(() {
+      firestore = _MockFirestore();
+      collection = _MockCollection();
+      when(() => firestore.collection('c')).thenReturn(collection);
+    });
+
+    _MockQuerySnapshot snapshot({required bool fromCache}) {
+      final metadata = _MockMetadata();
+      when(() => metadata.isFromCache).thenReturn(fromCache);
+      final result = _MockQuerySnapshot();
+      when(() => result.metadata).thenReturn(metadata);
+      when(() => result.docs).thenReturn(const []);
+      return result;
+    }
+
+    test('a cached copy never reaches the engine', () async {
+      when(() => collection.snapshots(includeMetadataChanges: true)).thenAnswer(
+        (_) => Stream.fromIterable([
+          snapshot(fromCache: true),
+          snapshot(fromCache: false),
+          snapshot(fromCache: true),
+        ]),
+      );
+
+      final delivered = await FirebaseFirestoreSdkClient(firestore: firestore)
+          .watchCollection('c')
+          .toList();
+
+      expect(delivered, hasLength(1));
+    });
+
+    test('a collection read asks the server and reports being offline',
+        () async {
+      when(() => collection.get(any())).thenThrow(
+        FirebaseException(plugin: 'cloud_firestore', code: 'unavailable'),
+      );
+
+      await expectLater(
+        FirebaseFirestoreSdkClient(firestore: firestore).readCollection('c'),
+        throwsA(
+          isA<SyncGatewayException>()
+              .having((e) => e.code, 'code', 'unavailable'),
+        ),
+      );
+      final options = verify(() => collection.get(captureAny())).captured.single
+          as GetOptions;
+      expect(options.source, Source.server);
+    });
+  });
+
+  group('native server timestamps carry microseconds', () {
+    // Row metadata and the journal store milliseconds.
+    final stored = DateTime.utc(2026, 11, 5, 1, 2, 3, 123);
+    final micros = Timestamp.fromDate(
+      DateTime.utc(2026, 11, 5, 1, 2, 3, 123, 456),
+    );
+
+    test('a row version is read at the precision it is stored', () async {
+      final client = RecordingFirestoreClient()
+        ..readDocumentResult = FirebaseFirestoreRawDocument(
+          id: 'a',
+          data: {'updatedAt': micros},
+        );
+
+      final document = await FirebaseFirestoreGateway(client: client)
+          .readDocument('users/u/doc/a');
+
+      expect(document?.updatedAt, stored);
+    });
+
+    test('an edit against the unchanged row is not treated as stale', () async {
+      final client = RecordingFirestoreClient()
+        ..transactionDocument = FirebaseFirestoreRawDocument(
+          id: 'a',
+          data: {'updatedAt': micros},
+        )
+        ..serverReadResult = FirebaseFirestoreRawDocument(
+          id: 'a',
+          data: {'updatedAt': micros},
+        );
+
+      final result =
+          await FirebaseFirestoreGateway(client: client).commitRowIfBaseMatches(
+        path: 'users/u/sync_generations/g/lesson_bookmarks/a',
+        base: SyncCausalBase.knownVersion(stored),
+        data: {'updatedAt': FirestoreServerTimestamp.value},
+      );
+
+      expect(result, isA<RowCommitted>());
+    });
+
+    test('a different millisecond is still stale', () async {
+      final client = RecordingFirestoreClient()
+        ..transactionDocument = FirebaseFirestoreRawDocument(
+          id: 'a',
+          data: {'updatedAt': micros},
+        );
+
+      final result =
+          await FirebaseFirestoreGateway(client: client).commitRowIfBaseMatches(
+        path: 'users/u/sync_generations/g/lesson_bookmarks/a',
+        base: SyncCausalBase.knownVersion(
+          stored.subtract(const Duration(milliseconds: 1)),
+        ),
+        data: {'updatedAt': FirestoreServerTimestamp.value},
+      );
+
+      expect(result, isA<RowStale>());
+    });
+
+    test('other timestamps keep their precision', () async {
+      final client = RecordingFirestoreClient()
+        ..readDocumentResult = FirebaseFirestoreRawDocument(
+          id: 'a',
+          data: {'markedAt': micros},
+        );
+
+      final document = await FirebaseFirestoreGateway(client: client)
+          .readDocument('users/u/doc/a');
+
+      expect(document!.data['markedAt'], micros.toDate().toUtc());
+    });
   });
 
   test(
@@ -171,3 +304,14 @@ class _RecordingTransaction implements FirebaseFirestoreTransaction {
     );
   }
 }
+
+// ignore_for_file: subtype_of_sealed_class
+class _MockFirestore extends Mock implements FirebaseFirestore {}
+
+class _MockCollection extends Mock
+    implements CollectionReference<Map<String, dynamic>> {}
+
+class _MockQuerySnapshot extends Mock
+    implements QuerySnapshot<Map<String, dynamic>> {}
+
+class _MockMetadata extends Mock implements SnapshotMetadata {}

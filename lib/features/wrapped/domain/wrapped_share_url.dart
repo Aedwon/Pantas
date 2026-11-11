@@ -6,8 +6,8 @@ class WrappedShareUrl {
   const WrappedShareUrl._();
 
   /// Base of every Wrapped share link.
-  static const String base = 'https://pantas.app/wrapped';
+  static const String base = 'https://pantas.study/wrapped';
 
-  /// Returns `https://pantas.app/wrapped/<shareId>`.
+  /// Returns `https://pantas.study/wrapped/<shareId>`.
   static String forShareId(String shareId) => '$base/$shareId';
 }

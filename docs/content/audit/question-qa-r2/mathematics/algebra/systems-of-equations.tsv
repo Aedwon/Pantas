@@ -1,0 +1,21 @@
+question_id	status	key_check	changes	severity	note
+q-algebra-systems-of-equations-0001	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	Policy 9916696f31656b3a486dd5c7e96638801c6e8a39; resumed HEAD 306547385e50e7733798cd64dff557658d361d82. 
+q-algebra-systems-of-equations-0002	CORRECTED	SOLVED-MATCH	distractors;explanation;notes	MEDIUM	Two distractors had no clear calculation error.
+q-algebra-systems-of-equations-0003	CORRECTED	SOLVED-MATCH	distractors;explanation;notes	MEDIUM	Two distractors relied on arbitrary guesses.
+q-algebra-systems-of-equations-0004	CORRECTED	SOLVED-MATCH	distractors;explanation;notes	MEDIUM	Two alternatives lacked specific arithmetic mistakes.
+q-algebra-systems-of-equations-0005	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-algebra-systems-of-equations-0006	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Two supposedly wrong ordered pairs also solved the system; now asks for the number of solutions.
+q-algebra-systems-of-equations-0007	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-algebra-systems-of-equations-0008	CORRECTED	SOLVED-MATCH	distractors;explanation;notes	MEDIUM	Wrong alloy amounts had no specific derivation.
+q-algebra-systems-of-equations-0009	CORRECTED	SOLVED-MATCH	choices;explanation;notes	MEDIUM	Correct choice was conspicuously longest and one note described an operation that did not produce its number.
+q-algebra-systems-of-equations-0010	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	HIGH	Best method was subjective and graphing was defensible; now tests a substitution step.
+q-algebra-systems-of-equations-0011	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated the ticket-count scenario with swapped objects; now infers a unit price from two receipts.
+q-algebra-systems-of-equations-0012	VERIFIED	SOLVED-MATCH	explanation;notes	NONE	
+q-algebra-systems-of-equations-0013	CORRECTED	SOLVED-MATCH	distractors;explanation;notes	MEDIUM	Two notes did not produce the listed numbers.
+q-algebra-systems-of-equations-0014	CORRECTED	SOLVED-MATCH	distractor;explanation;notes	MEDIUM	One pair lacked a specific mistake.
+q-algebra-systems-of-equations-0015	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated direct pair solving; now asks for a product.
+q-algebra-systems-of-equations-0016	CORRECTED	SOLVED-MATCH	stem;choices;explanation;notes	MEDIUM	Repeated direct substitution with swapped coefficients and inaccurate distractor notes; now asks for a difference.
+q-algebra-systems-of-equations-0017	CORRECTED	SOLVED-MATCH	type;stem;choices;explanation;notes	MEDIUM	Repeated counting line-parabola intersections; now tests loss of a zero root.
+q-algebra-systems-of-equations-0018	CORRECTED	SOLVED-MATCH	distractor;explanation;notes	MEDIUM	The note claimed an average gave 12 although it gave 15.
+q-algebra-systems-of-equations-0019	NEW	NEW	new question	NONE	
+q-algebra-systems-of-equations-0020	NEW	NEW	new question	NONE	

@@ -1,0 +1,84 @@
+[
+  {
+    "argv": [
+      "flutter",
+      "test",
+      "--no-pub",
+      "test/features/quiz/domain",
+      "test/features/quiz/application",
+      "test/features/quiz/data",
+      "test/features/quiz/presentation/quiz_controller_test.dart",
+      "test/features/quiz/presentation/pages/flagged_list_page_test.dart",
+      "test/features/metrics",
+      "--reporter",
+      "expanded"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-origin-verified-0.txt"
+  },
+  {
+    "argv": [
+      "flutter",
+      "analyze",
+      "--no-pub",
+      "lib/features/quiz/domain/models/session_origin.dart",
+      "lib/features/quiz/domain/use_cases/start_practice.dart",
+      "lib/features/quiz/presentation/quiz_controller.dart",
+      "lib/features/quiz/presentation/pages/flagged_list_page.dart",
+      "lib/features/quiz/domain/debrief/session_debrief.dart",
+      "test/features/quiz/domain/use_cases/flagged_origin_test.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-origin-verified-1.txt"
+  },
+  {
+    "argv": [
+      "dart",
+      "format",
+      "--output=none",
+      "--set-exit-if-changed",
+      "lib/features/quiz/domain/models/session_origin.dart",
+      "lib/features/quiz/domain/use_cases/start_practice.dart",
+      "lib/features/quiz/presentation/quiz_controller.dart",
+      "lib/features/quiz/presentation/pages/flagged_list_page.dart",
+      "lib/features/quiz/domain/debrief/session_debrief.dart",
+      "test/features/quiz/domain/use_cases/flagged_origin_test.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-origin-verified-2.txt"
+  },
+  {
+    "argv": [
+      "dart",
+      "run",
+      "tool/check_layering.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-origin-verified-3.txt"
+  },
+  {
+    "argv": [
+      "dart",
+      "run",
+      "tool/check_no_ai_attribution.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-origin-verified-4.txt"
+  },
+  {
+    "argv": [
+      "git",
+      "diff",
+      "--check",
+      "--",
+      "lib/features/quiz/domain/models/session_origin.dart",
+      "lib/features/quiz/domain/use_cases/start_practice.dart",
+      "lib/features/quiz/presentation/quiz_controller.dart",
+      "lib/features/quiz/presentation/pages/flagged_list_page.dart",
+      "lib/features/quiz/domain/debrief/session_debrief.dart",
+      "test/features/quiz/domain/use_cases/flagged_origin_test.dart"
+    ],
+    "exit": 0,
+    "log": "docs/superpowers/plans/new-design/evidence/logs/W4d-task5-origin-verified-5.txt"
+  }
+]

@@ -1,12 +1,20 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:drift/drift.dart';
+import 'package:pantas/core/fsrs/rating.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/features/quiz/data/repos/review_batch_repository.dart';
+import 'package:pantas/features/quiz/domain/models/review_batch.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
+import 'package:pantas/features/quiz/domain/quiz_session.dart';
 
 class QuizSessionRepository {
-  QuizSessionRepository(this._db);
+  QuizSessionRepository(this._db, {ReviewBatchRepository? reviewBatches})
+      : reviewBatches = reviewBatches ?? ReviewBatchRepository(_db);
+
+  final ReviewBatchRepository reviewBatches;
 
   final AppDatabase _db;
 
@@ -28,20 +36,68 @@ class QuizSessionRepository {
     SubtopicId? subtopicId,
     LessonId? lessonId,
   }) async {
-    await quitAllOpen(userId: userId, examId: examId, quitAt: startedAt);
-    await _db.into(_db.quizSessions).insert(
-          QuizSessionsCompanion.insert(
-            id: sessionId,
-            userId: userId,
-            examId: examId,
-            origin: origin.storageValue,
-            topicId: Value(topicId),
-            subtopicId: Value(subtopicId),
-            lessonId: Value(lessonId),
-            questionIdsJson: jsonEncode(questionIds),
-            startedAt: startedAt,
-          ),
+    final created = await createGuarded(
+      sessionId: sessionId,
+      userId: userId,
+      examId: examId,
+      origin: origin,
+      questionIds: questionIds,
+      startedAt: startedAt,
+      topicId: topicId,
+      subtopicId: subtopicId,
+      lessonId: lessonId,
+      canPersist: () => true,
+    );
+    if (!created) {
+      throw StateError('Unconditional quiz session creation was cancelled');
+    }
+  }
+
+  Future<bool> createGuarded({
+    required String sessionId,
+    required String userId,
+    required ExamId examId,
+    required SessionOrigin origin,
+    required List<QuestionId> questionIds,
+    required DateTime startedAt,
+    required FutureOr<bool> Function() canPersist,
+    TopicId? topicId,
+    SubtopicId? subtopicId,
+    LessonId? lessonId,
+  }) async {
+    try {
+      await _db.transaction(() async {
+        if (!await canPersist()) throw const _QuizSessionCreateCancelled();
+
+        await reviewBatches.requireNoBatch(userId, examId);
+        await quitAllOpen(
+          userId: userId,
+          examId: examId,
+          quitAt: startedAt,
         );
+
+        if (!await canPersist()) throw const _QuizSessionCreateCancelled();
+
+        await _db.into(_db.quizSessions).insert(
+              QuizSessionsCompanion.insert(
+                id: sessionId,
+                userId: userId,
+                examId: examId,
+                origin: origin.storageValue,
+                topicId: Value(topicId),
+                subtopicId: Value(subtopicId),
+                lessonId: Value(lessonId),
+                questionIdsJson: jsonEncode(questionIds),
+                startedAt: startedAt,
+              ),
+            );
+
+        if (!await canPersist()) throw const _QuizSessionCreateCancelled();
+      });
+      return true;
+    } on _QuizSessionCreateCancelled {
+      return false;
+    }
   }
 
   Future<QuizSessionLocalRow?> activeFor({
@@ -63,19 +119,34 @@ class QuizSessionRepository {
 
   Future<void> recordAnswer({
     required String sessionId,
-    required bool isCorrect,
+    required AnswerOutcome outcome,
     required DateTime answeredAt,
   }) async {
     await _db.transaction(() async {
       final row = await (_db.select(_db.quizSessions)
             ..where((table) => table.id.equals(sessionId)))
           .getSingle();
+      final questionIds = row.questionIds;
+      final outcomes = row.outcomes;
+      if (row.currentIndex != outcomes.length ||
+          row.currentIndex >= questionIds.length ||
+          questionIds[row.currentIndex] != outcome.questionId) {
+        throw StateError(
+          'Persisted quiz session $sessionId answer order is inconsistent',
+        );
+      }
       await (_db.update(_db.quizSessions)
             ..where((table) => table.id.equals(sessionId)))
           .write(
         QuizSessionsCompanion(
+          outcomesJson: Value(
+            jsonEncode([
+              ...outcomes.map(_encodeOutcome),
+              _encodeOutcome(outcome),
+            ]),
+          ),
           currentIndex: Value(row.currentIndex + 1),
-          correctCount: Value(row.correctCount + (isCorrect ? 1 : 0)),
+          correctCount: Value(row.correctCount + (outcome.isCorrect ? 1 : 0)),
           lastAnsweredAt: Value(answeredAt),
         ),
       );
@@ -91,6 +162,68 @@ class QuizSessionRepository {
         .write(QuizSessionsCompanion(completedAt: Value(completedAt)));
   }
 
+  Future<DateTime?> completedAtFor(String sessionId) async {
+    final row = await (_db.select(_db.quizSessions)
+          ..where((table) => table.id.equals(sessionId)))
+        .getSingleOrNull();
+    return row?.completedAt;
+  }
+
+  /// Completes exactly the expected open row. A missing row is a terminal
+  /// integrity error so callers can roll back the paired Attempt write.
+  Future<void> completeRequired({
+    required String sessionId,
+    required DateTime completedAt,
+    ReviewBatchScope? reviewScope,
+    QuizSession? session,
+  }) async {
+    await _db.transaction(() async {
+      final row = await (_db.select(_db.quizSessions)
+            ..where((table) => table.id.equals(sessionId)))
+          .getSingleOrNull();
+      if (row == null || row.quitAt != null) {
+        throw StateError('Persisted quiz session $sessionId is not open');
+      }
+      if (row.completedAt != null) return;
+      final scope =
+          reviewScope ?? reviewBatches.capture(row.userId, row.examId);
+      await reviewBatches.completeRow(row, scope, session);
+      final changed = await (_db.update(_db.quizSessions)
+            ..where(
+              (table) =>
+                  table.id.equals(sessionId) & table.completedAt.isNull(),
+            ))
+          .write(QuizSessionsCompanion(completedAt: Value(completedAt)));
+      if (changed != 1) {
+        throw StateError('Persisted quiz session $sessionId was not completed');
+      }
+      reviewBatches.checkScope(scope);
+    });
+  }
+
+  Future<ReviewBatchScope?> captureReviewScope(String sessionId) async {
+    final row = await (_db.select(_db.quizSessions)
+          ..where((r) => r.id.equals(sessionId)))
+        .getSingleOrNull();
+    if (row == null) return null;
+    final pref = await (_db.select(_db.devicePrefs)
+          ..where(
+            (p) =>
+                p.key.equals(ReviewBatchRepository.key(row.userId, row.examId)),
+          ))
+        .getSingleOrNull();
+    if (pref == null) return null;
+    final scope = reviewBatches.capture(row.userId, row.examId);
+    if (scope == null) throw StateError('Reviews account changed');
+    return scope;
+  }
+
+  Future<StoredReviewBatch?> reviewBatchFor(
+    QuizSessionLocalRow row,
+    ReviewBatchScope? scope,
+  ) =>
+      _db.transaction(() => reviewBatches.forRow(row, scope));
+
   /// Closes every session still open for this exam, not only the newest.
   ///
   /// Nothing closed a session when the next one started, so an abandoned
@@ -101,23 +234,45 @@ class QuizSessionRepository {
     required String userId,
     required ExamId examId,
     required DateTime quitAt,
-  }) {
-    return (_db.update(_db.quizSessions)
-          ..where(
-            (row) =>
-                row.userId.equals(userId) &
-                row.examId.equals(examId) &
-                row.completedAt.isNull() &
-                row.quitAt.isNull(),
-          ))
-        .write(QuizSessionsCompanion(quitAt: Value(quitAt)));
-  }
+  }) =>
+      _db.transaction(() async {
+        final open = await (_db.select(_db.quizSessions)
+              ..where(
+                (r) =>
+                    r.userId.equals(userId) &
+                    r.examId.equals(examId) &
+                    r.completedAt.isNull() &
+                    r.quitAt.isNull(),
+              ))
+            .get();
+        await reviewBatches.discardForSessions(
+          userId,
+          examId,
+          [for (final row in open) row.id],
+        );
+        return (_db.update(_db.quizSessions)
+              ..where(
+                (row) =>
+                    row.userId.equals(userId) &
+                    row.examId.equals(examId) &
+                    row.completedAt.isNull() &
+                    row.quitAt.isNull(),
+              ))
+            .write(QuizSessionsCompanion(quitAt: Value(quitAt)));
+      });
 
-  Future<void> quit({required String sessionId, required DateTime quitAt}) {
-    return (_db.update(_db.quizSessions)
-          ..where((row) => row.id.equals(sessionId)))
-        .write(QuizSessionsCompanion(quitAt: Value(quitAt)));
-  }
+  Future<void> quit({required String sessionId, required DateTime quitAt}) =>
+      _db.transaction(() async {
+        final row = await (_db.select(_db.quizSessions)
+              ..where((r) => r.id.equals(sessionId)))
+            .getSingleOrNull();
+        if (row == null) return;
+        await reviewBatches
+            .discardForSessions(row.userId, row.examId, [row.id]);
+        await (_db.update(_db.quizSessions)
+              ..where((r) => r.id.equals(sessionId)))
+            .write(QuizSessionsCompanion(quitAt: Value(quitAt)));
+      });
 
   Future<void> restartActive({
     required String userId,
@@ -165,4 +320,41 @@ class QuizSessionRepository {
 extension QuizSessionLocalRowQuestionIds on QuizSessionLocalRow {
   List<QuestionId> get questionIds =>
       (jsonDecode(questionIdsJson) as List).cast<QuestionId>();
+
+  List<AnswerOutcome> get outcomes {
+    final decoded = jsonDecode(outcomesJson);
+    if (decoded is! List) {
+      throw const FormatException(
+        'quiz session outcomes must be a list',
+      );
+    }
+    return [
+      for (final value in decoded)
+        _decodeOutcome((value as Map).cast<String, Object?>()),
+    ];
+  }
+}
+
+Map<String, Object> _encodeOutcome(AnswerOutcome outcome) => {
+      'questionId': outcome.questionId,
+      'questionVersion': outcome.questionVersion,
+      'chosenChoiceId': outcome.chosenChoiceId,
+      'correctChoiceId': outcome.correctChoiceId,
+      'responseMs': outcome.responseMs,
+      'derivedRating': outcome.derivedRating.grade,
+      'nextReviewIntervalDays': outcome.nextReviewIntervalDays,
+    };
+
+AnswerOutcome _decodeOutcome(Map<String, Object?> json) => AnswerOutcome(
+      questionId: json['questionId']! as String,
+      questionVersion: json['questionVersion']! as int,
+      chosenChoiceId: json['chosenChoiceId']! as String,
+      correctChoiceId: json['correctChoiceId']! as String,
+      responseMs: json['responseMs']! as int,
+      derivedRating: Rating.fromGrade(json['derivedRating']! as int),
+      nextReviewIntervalDays: json['nextReviewIntervalDays']! as int,
+    );
+
+class _QuizSessionCreateCancelled implements Exception {
+  const _QuizSessionCreateCancelled();
 }

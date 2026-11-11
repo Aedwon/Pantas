@@ -1,383 +1,491 @@
 meta:
-  subject: reading-comprehension
-  topic: text-types
-  subtopic: poetry
+  subject: "reading-comprehension"
+  topic: "text-types"
+  subtopic: "poetry"
   exams:
-    - upcat
-    - acet
-    - dlsucet
-    - ustet
-
+    - "upcat"
+    - "acet"
+    - "dlsucet"
+    - "ustet"
 passages:
-  - id: rc-tt-po-p1
-    form: poetry
+  - id: "rc-tt-po-p1"
+    form: "poetry"
     title: "The Fisherman's Dawn"
     body: |
       The quiet ocean whispers to the shore,
-      While fading stars drift softly in the grey.
+      While fading stars drift softly in the gray.
       The sturdy boat sets out with wooden oar,
       To greet the golden light of breaking day.
-
+      
       The sea is like a mother fierce and deep,
       Who guards her treasures under rolling waves.
       While restless tides awake from heavy sleep,
       He trusts the ancient water that he braves.
-
+      
       With silver fish that glitter in the hold,
       He turns his boat toward the coastal sand.
       The rising sun transforms the sea to gold,
       And brings its bountiful reward to land.
-
-  - id: rc-tt-po-p2
-    form: poetry
+  - id: "rc-tt-po-p2"
+    form: "poetry"
     title: "The Weaver's Loom"
     body: |
       The wooden shuttle dances through the thread,
       As steady hands guide every passing strand.
       Bright crimson colors mingle with the red,
       Beneath the guidance of a patient hand.
-
+      
       The threads are flowing like a mountain stream,
       Beneath the weaver's calm and steady guide.
       Each woven line fulfills a quiet dream,
       With generations standing by her side.
-
+      
       The ancient loom is breathing in the room,
       Its rhythmic clicking marks the passing hour.
       From simple cotton springs a floral bloom,
       A sudden tapestry of grace and power.
-
-  - id: rc-tt-po-p3
-    form: poetry
+  - id: "rc-tt-po-p3"
+    form: "poetry"
     title: "The City Rain"
     body: |
       The heavy clouds press low above the street,
       And darken all the crowded roofs below.
       The rushing rain begins its steady beat,
       As cooling waters start to surge and flow.
-
+      
       The rain is like a cloak of silver thread,
       While silver rivers run along the stone.
       Where frantic thoughts and worries used to tread,
       The cooling shadows leave the heart alone.
-
+      
       Soon golden sunlight breaks through parting skies,
       And washes clean the avenues of gray.
       A fresh new hope begins to gently rise,
       To greet the brightness of a clearer day.
-
+  - id: "p-text-types-poetry-0004"
+    form: "poetry"
+    title: "Leave Room"
+    body: |
+      Leave room,
+      as dawn returns to the market.
+      A narrow path curls like a ribbon
+      between the stalls.
+      
+      Leave room.
+      The scent of ginger reaches the gate;
+      a child carries a basket,
+      and a cart waits beside the rice.
+      
+      Leave room
+      for the person walking slowly,
+      for the vendor bringing water,
+      for the family heading home.
+      
+      The morning belongs to all of them.
+      Keep the passage open.
 questions:
-  - id: rc-tt-po-0001
-    passage: rc-tt-po-p1
-    type: identify
-    difficulty: easy
+  - id: "rc-tt-po-0001"
+    passage: "rc-tt-po-p1"
+    type: "feature-of-form"
+    difficulty: "easy"
     stem: |
-      What is the rhyme scheme of the first stanza in "The Fisherman's Dawn"?
+      What is the first stanza's end-rhyme scheme in "The Fisherman's Dawn"?
     choices:
-      - text: abab
+      - text: "abab"
         correct: true
-      - text: aabb
+      - text: "aabb"
         rationale: |
-          You picked aabb, which means lines 1 and 2 rhyme, and lines 3 and 4 rhyme. In stanza 1, shore (line 1) rhymes with oar (line 3).
-      - text: abba
+          This pairs adjacent endings. Two pairs of rhyme are present. Compare the sound of line one with line two before grouping them.
+      - text: "abba"
         rationale: |
-          You picked abba, which means lines 1 and 4 rhyme. Here, shore (line 1) rhymes with oar (line 3), forming an abab pattern.
-      - text: abcb
+          This pairs the first and last endings. A four-line stanza can have that shape. Compare shore with day.
+      - text: "abcb"
         rationale: |
-          You picked abcb, where only lines 2 and 4 rhyme. In this stanza, both line pairs rhyme (shore/oar and grey/day).
+          This notices only the second and fourth rhyme. Gray and day make a clear pair. Check whether shore also rhymes with oar.
     explanation: |
-      Line 1 (shore) rhymes with line 3 (oar) [A], and line 2 (grey) rhymes with line 4 (day) [B], creating an abab rhyme scheme pattern.
-
-  - id: rc-tt-po-0002
-    passage: rc-tt-po-p1
-    type: analyze
-    difficulty: easy
+      Shore and oar rhyme in lines one and three. Gray and day rhyme in lines two and four. Assigning the repeated sounds gives abab.
+  - id: "rc-tt-po-0002"
+    passage: "rc-tt-po-p1"
+    type: "purpose-of-device"
+    difficulty: "easy"
     stem: |
-      Which line from the poem contains an example of a simile?
+      Which quoted line makes an explicit figurative comparison?
     choices:
-      - text: "The sea is like a mother fierce and deep"
+      - text: "\"The sea is like a mother fierce and deep\""
         correct: true
-      - text: "The quiet ocean whispers to the shore"
+      - text: "\"The quiet ocean whispers to the shore\""
         rationale: |
-          You picked a line that contains personification (whispers), not a simile using comparison words like or as.
-      - text: "The sturdy boat sets out with wooden oar"
+          This confuses personification with an explicit comparison. Whispering gives the sea a human action. Check whether the line compares two things with a marker.
+      - text: "\"The sturdy boat sets out with wooden oar\""
         rationale: |
-          You picked a literal descriptive line. Similes explicitly compare two different things using like or as.
-      - text: "The rising sun transforms the sea to gold"
+          This treats description as comparison. The boat has a clear visual outline. Check whether two unlike things are compared.
+      - text: "\"The rising sun transforms the sea to gold\""
         rationale: |
-          You picked a metaphorical line. Metaphors make direct comparisons without using like or as.
+          This confuses an implied comparison with an explicit one. Golden water suggests a resemblance. Check whether a comparison marker links two things.
     explanation: |
-      The line "The sea is like a mother fierce and deep" compares the sea to a mother using the comparison word "like", making it a simile.
-
-  - id: rc-tt-po-0003
-    passage: rc-tt-po-p1
-    type: analyze
-    difficulty: medium
+      The line compares the sea to a mother using like. Comparing these unlike things explicitly makes it a simile.
+  - id: "rc-tt-po-0003"
+    passage: "rc-tt-po-p1"
+    type: "purpose-of-device"
+    difficulty: "medium"
     stem: |
-      Which line demonstrates the literary device of personification?
+      Which quoted line gives a nonhuman subject a human action?
     choices:
-      - text: "The quiet ocean whispers to the shore"
+      - text: "\"The quiet ocean whispers to the shore\""
         correct: true
-      - text: "With silver fish that glitter in the hold"
+      - text: "\"With silver fish that glitter in the hold\""
         rationale: |
-          You picked a literal visual description of fish, not personification which assigns human qualities to non-human things.
-      - text: "The sturdy boat sets out with wooden oar"
+          This treats vivid color as a human action. Silver makes the fish easy to picture. Check whether glittering requires a human quality.
+      - text: "\"The sturdy boat sets out with wooden oar\""
         rationale: |
-          You picked a factual description of a boat setting out, which contains no personification.
-      - text: "He turns his boat toward the coastal sand"
+          This treats ordinary boat movement as human behavior. The boat has an active verb. Check whether setting out itself gives it human speech or intention.
+      - text: "\"He turns his boat toward the coastal sand\""
         rationale: |
-          You picked a literal action performed by the human fisherman, not personification of a non-human object.
+          This selects an action by the fisherman. Turning a boat is human work. Check that personification gives a human quality to something nonhuman.
     explanation: |
-      Attributing the human action of "whispering" to the "quiet ocean" gives human qualities to something non-human, which is personification.
-
-  - id: rc-tt-po-0004
-    passage: rc-tt-po-p1
-    type: infer
-    difficulty: medium
+      Whispering is an action associated with human speech. Giving that action to the ocean is personification.
+  - id: "rc-tt-po-0004"
+    passage: "rc-tt-po-p1"
+    type: "purpose-of-device"
+    difficulty: "medium"
     stem: |
-      What tone does the poet convey toward the fisherman's daily labor?
+      Which attitude toward the fisherman's work is best supported?
     choices:
-      - text: Appreciative of traditional endurance
+      - text: "Appreciative"
         correct: true
-      - text: Critical of marine pollution and coastal destruction
+      - text: "Mocking and dismissive"
         rationale: |
-          You inferred environmental criticism. The poem focuses on peaceful daily labor and natural rewards, not pollution.
-      - text: Dismissive and mocking of rural poverty
+          This treats difficult work as ridicule. The sea is fierce and deep. Check the trust and reward described alongside that difficulty.
+      - text: "Angry and accusatory"
         rationale: |
-          You picked a mocking tone that directly contradicts the respectful and reverent depiction of the fisherman's work.
-      - text: Fearful and hopeless regarding ocean storms
+          This treats braving water as criticism. The task requires effort. Check whether the speaker blames anyone.
+      - text: "Hopeless and defeated"
         rationale: |
-          You picked a fearful tone. The poem describes the fisherman trusting the ancient water as golden light breaks.
+          This lets the challenging sea decide the entire tone. The fisherman must brave it. Check the successful return and light in the ending.
     explanation: |
-      Images of "bountiful reward", "honest pride", and trusting the ancient water convey a respectful and appreciative tone.
-
-  - id: rc-tt-po-0005
-    passage: rc-tt-po-p1
-    type: evaluate
-    difficulty: hard
+      The fisherman trusts the water, returns with fish, and receives a bountiful reward. These details present his labor with appreciation.
+  - id: "rc-tt-po-0005"
+    passage: "rc-tt-po-p1"
+    type: "purpose-of-device"
+    difficulty: "hard"
     stem: |
-      What metaphor is implied in the phrase "transforms the sea to gold"?
+      What does "transforms the sea to gold" most directly describe in context?
     choices:
-      - text: Comparing morning sunlight on water to gold.
+      - text: "Sunlight giving the water a golden appearance"
         correct: true
-      - text: Suggesting the fisherman dropped shiny gold coins into the sea.
+      - text: "The fisherman valuing money above every other concern"
         rationale: |
-          You took the metaphor literally as real gold coins rather than a poetic comparison to golden morning sunlight.
-      - text: Claiming the ocean water chemically turned into solid gold.
+          This turns a color image into a motive. Gold can suggest wealth. Check whether the fisherman's priorities are stated.
+      - text: "A change from seawater into a different physical material"
         rationale: |
-          You interpreted the poetic metaphor as a literal chemical transformation of seawater into physical metal.
-      - text: Describing the yellow color of commercial nylon fishing nets.
+          This treats visual transformation as a material process. Transforms is a strong verb. Check the effect of light on the sea's appearance.
+      - text: "A report that the boat carries a cargo of precious metal"
         rationale: |
-          You misidentified the object. The phrase describes sunlight on the ocean surface, not nylon fishing gear.
+          This transfers gold from the water to cargo. The boat holds a catch. Check where the line places the golden image.
     explanation: |
-      The phrase metaphorically compares the golden reflection of sunrise on ocean water to precious gold without using "like" or "as".
-
-  - id: rc-tt-po-0006
-    passage: rc-tt-po-p2
-    type: identify
-    difficulty: easy
+      The rising sun is the subject of the line. Its light makes the water appear golden, adding visual brightness to the return.
+  - id: "rc-tt-po-0006"
+    passage: "rc-tt-po-p2"
+    type: "purpose-of-device"
+    difficulty: "easy"
     stem: |
-      Which line from "The Weaver's Loom" contains a simile?
+      Which quoted words in "The Weaver's Loom" contain a simile?
     choices:
-      - text: "The threads are flowing like a mountain stream"
+      - text: "\"flowing like a mountain stream\""
         correct: true
-      - text: "The wooden shuttle dances swiftly through the thread"
+      - text: "\"The wooden shuttle dances through the thread\""
         rationale: |
-          You picked a line using personification (dances) rather than a simile containing like or as.
-      - text: "Bright crimson colors mingle softly with the red"
+          This confuses a human action assigned to a tool with comparison. Dances makes the movement vivid. Check whether two things are linked by like.
+      - text: "\"Bright crimson colors mingle with the red\""
         rationale: |
-          You picked a literal visual description of yarn colors, not a simile.
-      - text: "The ancient loom is breathing quietly in the room"
+          This treats color description as simile. The colors create visual imagery. Check whether any comparison is made.
+      - text: "\"The ancient loom is breathing in the room\""
         rationale: |
-          You picked a line using personification (breathing loom) rather than a simile.
+          This confuses giving life to a machine with explicit comparison. Breathing makes the loom seem alive. Check whether a second object is compared using a marker.
     explanation: |
-      Comparing the flowing threads to a mountain stream using the word "like" is a simile.
-
-  - id: rc-tt-po-0007
-    passage: rc-tt-po-p2
-    type: analyze
-    difficulty: medium
+      The line compares flowing threads with a mountain stream using like. It is an explicit figurative comparison.
+  - id: "rc-tt-po-0007"
+    passage: "rc-tt-po-p2"
+    type: "purpose-of-device"
+    difficulty: "medium"
     stem: |
-      Which line from the poem uses personification?
+      Which line most clearly personifies a tool through a human action?
     choices:
-      - text: "The ancient loom is breathing in the room"
+      - text: "\"The wooden shuttle dances through the thread\""
         correct: true
-      - text: "Beneath the guidance of a patient hand"
+      - text: "\"As steady hands guide every passing strand\""
         rationale: |
-          You picked a literal description of the human weaver's hand, which is not personification.
-      - text: "Across the frame where silent patterns grow"
+          This selects the weaver's real hands. Human action appears in the line. Check whether the acting subject is nonhuman.
+      - text: "\"Bright crimson colors mingle with the red\""
         rationale: |
-          You picked a description of growing patterns, whereas breathing loom gives human biological traits to a wooden object.
-      - text: "The finished cloth shines bright with honest pride"
+          This treats vivid colors as human behavior. The image is figurative-looking. Check whether mingling colors gives a tool a human action.
+      - text: "\"Its rhythmic clicking marks the passing hour\""
         rationale: |
-          You picked a line describing the finished fabric, not the personification of the loom breathing.
+          This treats a machine's actual sound as personification. Clicking gives the loom a presence. Check whether the action itself is human rather than mechanical.
     explanation: |
-      Describing the wooden loom as "breathing" assigns a living human action to an inanimate object, which is personification.
-
-  - id: rc-tt-po-0008
-    passage: rc-tt-po-p2
-    type: identify
-    difficulty: medium
+      Dancing is presented as the shuttle's action. The tool's movement is described in human terms, which personifies it.
+  - id: "rc-tt-po-0008"
+    passage: "rc-tt-po-p2"
+    type: "feature-of-form"
+    difficulty: "medium"
     stem: |
-      What is the rhyme scheme of the third stanza in "The Weaver's Loom"?
+      What is the end-rhyme scheme of the third stanza in "The Weaver's Loom"?
     choices:
-      - text: abab
+      - text: "abab"
         correct: true
-      - text: aabb
+      - text: "aabb"
         rationale: |
-          You picked aabb, which means adjacent line pairs rhyme. In stanza 3, room (line 1) rhymes with bloom (line 3).
-      - text: abba
+          This groups neighboring lines. Two rhyming pairs are present. Compare room with hour before labeling.
+      - text: "abba"
         rationale: |
-          You picked abba, which puts line 1 rhyming with line 4. Stanza 3 pairs line 1 (room) with line 3 (bloom).
-      - text: abcb
+          This groups the outer lines. Four-line stanzas can rhyme that way. Compare room with power.
+      - text: "abcb"
         rationale: |
-          You picked abcb, but both line pairs rhyme in this stanza (room/bloom and hour/power).
+          This notices only hour and power. Their sound pair is clear. Check the other repeated ending sound.
     explanation: |
-      Line 1 (room) rhymes with line 3 (bloom) [A], and line 2 (hour) rhymes with line 4 (power) [B], forming an abab rhyme scheme.
-
-  - id: rc-tt-po-0009
-    passage: rc-tt-po-p2
-    type: infer
-    difficulty: hard
+      Room rhymes with bloom, and hour rhymes with power. The recurring sounds alternate, giving abab.
+  - id: "rc-tt-po-0009"
+    passage: "rc-tt-po-p2"
+    type: "purpose-of-device"
+    difficulty: "hard"
     stem: |
-      What does the phrase "generations standing by her side" symbolize?
+      In context, what does "generations standing by her side" most strongly suggest?
     choices:
-      - text: The continuity of ancestral craft traditions.
+      - text: "Inherited skills accompany her work."
         correct: true
-      - text: A crowd of curious villagers watching the weaver work.
+      - text: "A complete crowd of past relatives is physically present."
         rationale: |
-          You took the symbolic phrase literally as physical villagers standing in the room.
-      - text: The high monetary cost of buying modern commercial looms.
+          This treats the image as a literal attendance count. Standing by her side sounds physical. Check the broader reference to generations and tradition.
+      - text: "The cost of the loom determines the craft's value."
         rationale: |
-          You introduced a commercial cost theme not expressed by the symbolic mention of past generations.
-      - text: Physical doctors closely inspecting the weaver's hands.
+          This turns craftsmanship into a price argument. Tools can be costly. Check whether the poem gives any cost.
+      - text: "Every young person has stopped learning the craft."
         rationale: |
-          You picked an absurd literal interpretation about medical staff.
+          This turns continuity into abandonment. Generations imply change over time. Check whether the image supports or ends the tradition.
     explanation: |
-      Ancestral generations standing by her side symbolizes the continuity of traditional heritage and skills inherited from past weavers.
-
-  - id: rc-tt-po-0010
-    passage: rc-tt-po-p2
-    type: evaluate
-    difficulty: hard
+      The ancient loom and the mention of generations connect present weaving with skills passed down over time. The image suggests inherited tradition supporting the work.
+  - id: "rc-tt-po-0010"
+    passage: "rc-tt-po-p2"
+    type: "purpose-of-device"
+    difficulty: "hard"
     stem: |
-      How does the imagery in stanza 3 ("From simple cotton springs a floral bloom") contribute to the poem's theme?
+      How does "From simple cotton springs a floral bloom" develop the poem's view of craft?
     choices:
-      - text: It contrasts humble raw materials with crafted artistic beauty.
+      - text: "It shows plain material becoming artistic beauty."
         correct: true
-      - text: It explains how real flowers are planted inside weaving workshops.
+      - text: "It gives instructions for growing flowers inside a loom."
         rationale: |
-          You interpreted the poetic imagery of a floral bloom on cloth as literal horticulture inside a building.
-      - text: It warns weavers against using cotton fiber in traditional foot looms.
+          This takes the design as literal flowers. Bloom can name a real flower. Check the tapestry described in the next line.
+      - text: "It argues that cotton prevents traditional patterns."
         rationale: |
-          You picked a warning that contradicts the poem's celebration of cotton weaving craftsmanship.
-      - text: It describes garden flowers growing along outdoor workshop walls.
+          This reverses the image's effect. Cotton is the raw material. Check whether the finished pattern is celebrated.
+      - text: "It establishes that finished cloth needs no human skill."
         rationale: |
-          You took the floral tapestry metaphor literally as outdoor garden plants.
+          This ignores the hands guiding the process. The design appears to spring from cotton. Check the repeated references to patient work.
     explanation: |
-      Contrasting simple cotton with a blooming tapestry emphasizes how art transforms raw materials through dedicated skill.
-
-  - id: rc-tt-po-0011
-    passage: rc-tt-po-p3
-    type: identify
-    difficulty: easy
+      Simple cotton becomes a floral design in the tapestry. The image shows the beauty created through weaving skill.
+  - id: "rc-tt-po-0011"
+    passage: "rc-tt-po-p3"
+    type: "purpose-of-device"
+    difficulty: "easy"
     stem: |
-      Which line from "The City Rain" contains a simile?
+      Which quoted line from "The City Rain" contains a simile?
     choices:
-      - text: "The rain is like a cloak of silver thread"
+      - text: "\"The rain is like a cloak of silver thread\""
         correct: true
-      - text: "The heavy clouds press low above the street"
+      - text: "\"The heavy clouds press low above the street\""
         rationale: |
-          You picked a literal description of low storm clouds, not a simile using like or as.
-      - text: "The city streets are washed of dust and heat"
+          This treats an atmospheric description as comparison. Press low helps create a mood. Check whether two unlike things are compared.
+      - text: "\"As cooling waters start to surge and flow\""
         rationale: |
-          You picked a literal statement describing rain cleaning the streets, which contains no simile.
-      - text: "And washes clean the avenues of gray"
+          This treats any use of as as a simile. As marks timing here. Check whether it links unlike things in a comparison.
+      - text: "\"And washes clean the avenues of gray\""
         rationale: |
-          You picked a literal description of rain washing urban avenues, not a simile.
+          This treats vivid imagery as necessarily a simile. The line pictures a changed city. Check for an explicit comparison marker.
     explanation: |
-      The phrase "The rain is like a cloak of silver thread" uses "like" to compare rain to a silver cloak, making it a simile.
-
-  - id: rc-tt-po-0012
-    passage: rc-tt-po-p3
-    type: analyze
-    difficulty: medium
+      The line compares rain with a cloak using like. That explicit comparison is a simile.
+  - id: "rc-tt-po-0012"
+    passage: "rc-tt-po-p3"
+    type: "purpose-of-device"
+    difficulty: "medium"
     stem: |
-      Which sensory imagery is primary in the line "The rushing rain begins its steady beat"?
+      Which sense is most directly appealed to by "The rushing rain begins its steady beat"?
     choices:
-      - text: Auditory imagery (appealing to hearing)
+      - text: "Auditory imagery"
         correct: true
-      - text: Olfactory imagery (appealing to the sense of smell)
+      - text: "Visual imagery"
         rationale: |
-          You picked olfactory imagery (smell), but steady beat describes a rhythm heard by the ears.
-      - text: Gustatory imagery (appealing to the sense of taste)
+          This follows the visible movement of rushing water. Rain can be seen. Check the sense suggested most directly by beat.
+      - text: "Tactile imagery"
         rationale: |
-          You picked gustatory imagery (taste), which does not apply to hearing a steady rain beat.
-      - text: Thermal imagery (appealing to temperature)
+          This follows the physical feel of rainfall. Rain can strike the skin. Check whether the line names contact or rhythm.
+      - text: "Olfactory imagery"
         rationale: |
-          You picked thermal imagery (temperature), but rushing rain's steady beat appeals to sound.
+          This follows a familiar smell associated with rain. That association may be vivid. Check whether the line actually describes scent.
     explanation: |
-      Describing a "rushing rain" with a "steady beat" appeals to the sense of hearing (auditory imagery).
-
-  - id: rc-tt-po-0013
-    passage: rc-tt-po-p3
-    type: infer
-    difficulty: medium
+      Beat suggests a repeated sound. The line invites the reader to hear the rhythm of rain.
+  - id: "rc-tt-po-0013"
+    passage: "rc-tt-po-p3"
+    type: "purpose-of-device"
+    difficulty: "medium"
     stem: |
-      How does the emotional tone shift from the first stanza to the final stanza?
+      How does the tone change from the opening stanza to the final stanza?
     choices:
-      - text: From oppressive heaviness to hopeful clarity
+      - text: "From heaviness to hope"
         correct: true
-      - text: From joyful celebration to angry disappointment
+      - text: "From joy to disappointment"
         rationale: |
-          You reversed the emotional arc. The poem begins with dark heavy clouds and ends with golden sunlight and hope.
-      - text: From humorous comedy to frightening terror
+          This reverses the opening and ending. Weather changes across the poem. Check where fresh hope appears.
+      - text: "From certainty to suspicion"
         rationale: |
-          You misidentified the genre. The poem is not a comedy or a horror story.
-      - text: From academic curiosity to commercial greed
+          This substitutes distrust for the ending's clarity. Parting skies can suggest change. Check for suspicious language.
+      - text: "From anger to indifference"
         rationale: |
-          You introduced financial and academic themes not present in this reflective poem about city rain.
+          This invents anger and loss of concern. Frantic thoughts appear in the middle. Check the hopeful ending rather than reading it as indifference.
     explanation: |
-      The poem opens with heavy clouds pressing low and city heat, but ends with parting clouds, golden sunlight, and rising hope.
-
-  - id: rc-tt-po-0014
-    passage: rc-tt-po-p3
-    type: analyze
-    difficulty: hard
+      Heavy, dark clouds shape the opening. The final stanza names fresh hope and a clearer day. Those details support a shift toward hope.
+  - id: "rc-tt-po-0014"
+    passage: "rc-tt-po-p3"
+    type: "purpose-of-device"
+    difficulty: "hard"
     stem: |
-      What is the metaphor expressed in the phrase "silver rivers run along the stone"?
+      In "silver rivers run along the stone," what does the image refer to in this city scene?
     choices:
-      - text: Comparing rainwater streams to silver rivers.
+      - text: "Shining rainwater flowing over pavement"
         correct: true
-      - text: Describing real molten silver metal flowing in city gutters.
+      - text: "Molten metal moving through the streets"
         rationale: |
-          You interpreted the poetic metaphor literally as molten silver liquid in stone gutters.
-      - text: Explaining how mountain rivers carry silver ore to cities.
+          This takes the color image as a change of material. Silver names a metal. Check the rain setting.
+      - text: "An account of ore carried from mountain mines"
         rationale: |
-          You introduced mining geology into a poem about urban rain streams.
-      - text: Claiming that city roads were paved with pure metallic silver.
+          This imports a mining explanation. Rivers can carry minerals. Check whether the poem mentions mines or the city rain.
+      - text: "Roads newly paved with precious silver"
         rationale: |
-          You took the poetic metaphor literally as valuable silver paving materials.
+          This transfers a description of moving water to the road material. Silver makes the surface vivid. Check what the verb run refers to.
     explanation: |
-      Comparing rainwater streams on pavement to silver rivers without using "like" or "as" is a metaphor.
-
-  - id: rc-tt-po-0015
-    passage: rc-tt-po-p3
-    type: evaluate
-    difficulty: hard
+      The surrounding lines describe rain and urban streets. Silver rivers pictures bright streams of rainwater flowing along the stone.
+  - id: "rc-tt-po-0015"
+    passage: "rc-tt-po-p3"
+    type: "purpose-of-device"
+    difficulty: "hard"
     stem: |
-      What central theme is explored in "The City Rain"?
+      Which theme best accounts for the poem's movement from clouds to a clearer day?
     choices:
-      - text: Rain brings cleansing relief and hope to urban weariness.
+      - text: "Rain and clearing skies accompany emotional renewal."
         correct: true
-      - text: City storms permanently destroy urban public transportation systems.
+      - text: "Storms permanently destroy every form of urban life."
         rationale: |
-          You introduced destruction details not present in this poem about peaceful cleansing and rising hope.
-      - text: Travelers should avoid sitting on outdoor porches during heavy rain.
+          This makes the dark opening the final outcome. Heavy clouds create pressure. Check the hopeful closing lines.
+      - text: "City streets are always better than natural rivers."
         rationale: |
-          You picked a practical safety tip rather than the poem's thematic message of emotional cleansing and hope.
-      - text: Paved city streets are superior to natural rural riverways.
+          This turns city imagery into a comparison with rural life. Streets and rivers appear as images. Check whether their value is ranked.
+      - text: "Weather removes every future problem from the city."
         rationale: |
-          You picked an urbanization comparison not explored in the text.
+          This turns hopeful feeling into a guarantee. The ending is positive. Check whether it promises that every problem disappears.
     explanation: |
-      The poem depicts rain washing away dust, heat, and worry, restoring quiet peace and fresh hope to the city.
+      The poem connects cooling rain with relief from worry and ends with fresh hope. Its weather changes accompany a sense of renewal.
+  - id: "q-text-types-poetry-0016"
+    passage: "p-text-types-poetry-0004"
+    type: "purpose-of-device"
+    difficulty: "easy"
+    stem: |
+      What is the main effect of repeating "Leave room"?
+    choices:
+      - text: "It emphasizes shared access to the market."
+        correct: true
+      - text: "It announces that each stanza concerns a different building."
+        rationale: |
+          This treats room only as an enclosed place. The word can name a building space. Check the people using the path.
+      - text: "It requires every later line to use the same end rhyme."
+        rationale: |
+          This confuses repeated words with end-rhyme rules. Repetition creates pattern. Check whether the remaining endings actually rhyme regularly.
+      - text: "It suggests that no person should remain in the market."
+        rationale: |
+          This treats leaving space as leaving the market. The command is short. Check the final instruction to keep the passage open.
+    explanation: |
+      The repeated request is followed by people who need the path. It emphasizes keeping shared space open for them.
+    approved: false
+  - id: "q-text-types-poetry-0017"
+    passage: "p-text-types-poetry-0004"
+    type: "purpose-of-device"
+    difficulty: "medium"
+    stem: |
+      Why is "as dawn returns to the market" not a simile?
+    choices:
+      - text: "As introduces timing, not a comparison."
+        correct: true
+      - text: "Every line beginning with as is literal in all poems."
+        rationale: |
+          This turns one contextual use into a universal rule. This as is temporal. Check its function in each sentence separately.
+      - text: "The line has no rhyme, so it cannot use figurative language."
+        rationale: |
+          This links figurative language to rhyme. Both are poetic features. Check whether comparisons require matching end sounds.
+      - text: "The presence of dawn makes every comparison impossible."
+        rationale: |
+          This treats the subject as deciding the device. Dawn is a familiar image. Check the actual relationship between the words.
+    explanation: |
+      Here as means when: the request is placed at dawn. The line does not compare two unlike things.
+    approved: false
+  - id: "q-text-types-poetry-0018"
+    passage: "p-text-types-poetry-0004"
+    type: "feature-of-form"
+    difficulty: "medium"
+    stem: |
+      Which feature of "Leave Room" differs from the regular rhyme in the other three poems?
+    choices:
+      - text: "Its line endings have no fixed rhyme pattern."
+        correct: true
+      - text: "Its imagery cannot appeal to any physical sense."
+        rationale: |
+          This treats lack of rhyme as lack of imagery. The form is irregular. Check the scent of ginger and the visible path.
+      - text: "Its speaker cannot state an idea directly."
+        rationale: |
+          This assumes poetry must hide its message. The lines are short. Check the direct instruction at the end.
+      - text: "Its lines cannot be grouped into separate stanzas."
+        rationale: |
+          This confuses free form with no stanza grouping. Line lengths vary. Check the blank lines between groups.
+    explanation: |
+      Market, ribbon, stalls, and the other endings do not follow a recurring end-rhyme scheme. The poem uses repetition and line breaks to organize its language.
+    approved: false
+  - id: "q-text-types-poetry-0019"
+    passage: "p-text-types-poetry-0004"
+    type: "purpose-of-device"
+    difficulty: "hard"
+    stem: |
+      What does "the scent of ginger reaches the gate" most directly add?
+    choices:
+      - text: "A sensory detail of the market"
+        correct: true
+      - text: "A hidden prediction that the market will close"
+        rationale: |
+          This turns a scene detail into a future event. A gate can suggest closing. Check whether closure is mentioned.
+      - text: "Proof that every image in the poem is symbolic"
+        rationale: |
+          This treats an image as automatically symbolic. Poetry can use symbols. Check whether the surrounding lines require a hidden meaning.
+      - text: "An argument about the chemical composition of ginger"
+        rationale: |
+          This treats a named plant as scientific explanation. Ginger has a recognizable smell. Check whether any chemical process is explained.
+    explanation: |
+      Scent appeals to smell and locates a familiar market experience near the entrance. It gives the scene a sensory detail.
+    approved: false
+  - id: "q-text-types-poetry-0020"
+    passage: "p-text-types-poetry-0004"
+    type: "purpose-of-device"
+    difficulty: "exam"
+    stem: |
+      How do the final two lines relate to the repeated request?
+    choices:
+      - text: "They state directly who shares the space and what to do."
+        correct: true
+      - text: "They reverse the request and tell everyone to leave."
+        rationale: |
+          This mistakes leave room for an order to depart. Leave has several meanings. Check the final wording about an open passage.
+      - text: "They introduce a new subject unrelated to the market path."
+        rationale: |
+          This treats the direct claim as a new topic. Its style differs from the images. Check how all of them relates to the earlier people.
+      - text: "They prove that the earlier sensory details have no purpose."
+        rationale: |
+          This treats explicit meaning as canceling imagery. The ending states the point. Check how the details make the shared place concrete.
+    explanation: |
+      The ending says the morning belongs to all the people named and asks readers to keep the passage open. It states the shared-access point directly.
+    approved: false

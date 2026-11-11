@@ -1,0 +1,5 @@
+Analyzing 11 items...
+
+   info • The line length exceeds the 80-character limit. Try breaking the line across multiple lines • lib/features/quiz/domain/picker/practice_summary.dart:58:81 • lines_longer_than_80_chars
+
+1 issue found. (ran in 1.3s)

@@ -125,6 +125,13 @@ void main() {
       preferences: const {'reminder_time': '08:00'},
     );
 
+    expect(gateway.committedBatches, hasLength(1));
+    expect(gateway.committedBatches.single, hasLength(2));
+    final limit =
+        await gateway.readDocument('users/user-1/limits/syncGeneration');
+    expect(limit!['generationId'], 'gen-new');
+    expect(limit['lastStagedAt'], DateTime.utc(2026, 8, 30, 1));
+
     final doc = await gateway.readDocument(
       'users/user-1/sync_generations/gen-new',
     );

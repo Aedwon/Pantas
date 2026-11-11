@@ -1,353 +1,448 @@
 meta:
-  subject: reading-comprehension
-  topic: comprehension-skills
-  subtopic: main-idea
+  subject: "reading-comprehension"
+  topic: "comprehension-skills"
+  subtopic: "main-idea"
   exams:
-    - upcat
-    - acet
-    - dlsucet
-    - ustet
-
+    - "upcat"
+    - "acet"
+    - "dlsucet"
+    - "ustet"
 passages:
-  - id: rc-cs-mi-p1
+  - id: "rc-cs-mi-p1"
     title: "The Barangay Vacant Lot Dispute"
     body: |
-      For years, an idle two-hundred-square-meter lot behind the barangay hall of San Jose served as an informal dumping ground for construction debris and broken furniture. In early March, the barangay council proposed converting the space into a community vegetable garden to help low-income families offset rising food prices. However, a local youth association petitioned to build a paved basketball court on the same site, arguing that young residents lacked safe recreational facilities within walking distance.
-
+      In this fictional account, for years, an idle vacant lot behind the barangay hall of San Jose served as an informal dumping ground for construction debris and broken furniture. In early March, the barangay council proposed converting the space into a community vegetable garden to help low-income families offset rising food prices. However, a local youth association petitioned to build a paved basketball court on the same site, arguing that young residents lacked safe recreational facilities within walking distance.
+      
       To resolve the conflict, Barangay Captain Elena Cruz organized a series of public consultations with elders, parents, and youth leaders. Rather than picking one proposal over the other, the council adopted a hybrid layout designed by a local volunteer architect. Under the approved design, sixty percent of the lot was dedicated to raised garden beds and a composting station, while the remaining portion was developed into a half-court basketball area equipped with solar lighting.
-
+      
       By August, the garden was producing harvests of eggplant, okra, and tomatoes for thirty neighborhood families, while the half-court hosted nightly youth games. The collaborative resolution not only settled a community dispute but also established a model for shared public space management across neighboring barangays.
-
-  - id: rc-cs-mi-p2
+  - id: "rc-cs-mi-p2"
     title: "Economics of a Sari-Sari Store"
     body: |
-      Aling Rosa has operated her sari-sari store in Sampaloc for over fifteen years, supplying her neighborhood with daily essentials ranging from cooking oil to mobile phone load. While large supermarkets offer lower prices, small neighborhood stores survive because they provide unmatched physical convenience and flexible credit terms to regular customers. Many residents rely on Aling Rosa's store during emergencies or near the end of the month when cash reserves are low.
-
+      In this fictional account, aling Rosa has operated her sari-sari store in Sampaloc for over fifteen years, supplying her neighborhood with daily essentials ranging from cooking oil to mobile phone load. While large supermarkets offer lower prices, small neighborhood stores survive because they provide unmatched physical convenience and flexible credit terms to regular customers. Many residents rely on Aling Rosa's store during emergencies or near the end of the month when cash reserves are low.
+      
       Managing a micro-retail business, however, requires careful inventory control and strict financial discipline. Aling Rosa buys stock in bulk from wholesale markets every Monday morning to secure wholesale discounts. To manage credit risks, she limits store credit to long-term neighbors and records every transaction in a ledger book called a 'talaan'. She also maintains a rule that credit balances must be settled before new purchases can be charged.
-
+      
       Despite thin profit margins and competition from modern convenience stores, Aling Rosa keeps her store profitable through personal relationships and prudent cash flow management. Her experience demonstrates that small-scale neighborhood commerce endures when owners balance community empathy with sound business habits.
-
-  - id: rc-cs-mi-p3
+  - id: "rc-cs-mi-p3"
     title: "Restoring Mangroves in Coastal Quezon"
     body: |
-      The coastal municipality of Real in Quezon province was historically vulnerable to destructive typhoon storm surges due to decades of illegal mangrove cutting and land conversion into fishponds. In response to increasing storm frequency, local fisherfolk organizations teamed up with marine biologists to launch a systematic mangrove reforestation project along five kilometers of shoreline.
-
-      Reforestation involved more than simply planting seedlings into coastal mud. Volunteers carefully selected indigenous mangrove species tailored to specific tidal elevations and soil salinities, ensuring high survival rates. Older fishpond dikes were breached to restore natural seawater circulation, allowing wild mangrove propagules to take root alongside nursery-grown seedlings. Local youth groups were trained to monitor tree growth and clear plastic debris twice a month.
-
-      Three years after the initial planting, the restored mangrove belt reduced wave energy during seasonal storms, protecting coastal roads and houses from severe flooding. The dense root systems also served as nurseries for mud crabs and juvenile fish, boosting local fishery yields. The project highlights how community-driven ecosystem restoration can simultaneously improve disaster resilience and coastal livelihoods.
-
+      In this fictional coastal project, a community works to restore a mangrove belt after years of cutting and conversion to fishponds. Fisherfolk and marine biologists plan the work together. They want the shoreline to support both protection from waves and habitat for young fish and crabs, rather than treating tree planting as an isolated activity.
+      
+      The project involves more than putting seedlings into mud. Organizers select mangrove species for the site's tidal conditions and salinity. They open older fishpond dikes to restore water circulation and allow wild seedlings to establish alongside nursery-grown plants. Youth groups help monitor growth and remove plastic debris. The work continues after the planting day because the conditions around the trees matter to their survival.
+      
+      The project report after three years describes a wider mangrove belt that reduces wave energy and provides nursery habitat. The account links restoration to both coastal resilience and local livelihoods. Its central lesson is that community work informed by the needs of an ecosystem can serve several connected purposes.
+  - id: "p-comprehension-skills-main-idea-0004"
+    title: "Paghahati ng Gawain sa Hardin"
+    body: |
+      Tuwing Sabado, nagtitipon ang mga mag-aaral sa bakanteng bahagi ng paaralan upang alagaan ang kanilang gulayan. Noong una, iisang lider ang nagdadala ng kagamitan, nagdidilig, at nagtatala ng paglaki ng mga halaman. Kapag hindi siya nakadalo, halos walang nakagagawa ng ibang tungkulin. Napansin ng grupo na hindi sapat ang pagkakaroon ng masipag na lider kung sa kanya lamang umaasa ang lahat.
+      
+      Nag-usap ang mga kasapi at gumawa ng talaan ng magkakaibang gawain. May pangkat na nag-aalaga ng mga punla, may naglilinis ng paligid, at may sumusuri kung kailangan ng tubig ang lupa. Nagpalitan din sila ng tungkulin upang matutuhan ng bawat isa ang mga gawaing dati ay hindi niya kayang gawin. Hindi lahat ng halaman ay tumubo nang maayos, ngunit hindi na humihinto ang pag-aalaga kapag may isang kasaping wala.
+      
+      Sa pagtatapos ng buwan, ipinakita nila ang talaan sa kanilang guro. Mas marami nang kasapi ang nakapagpapaliwanag ng kanilang ginawa. Para sa grupo, ang gulayan ay naging pagsasanay sa pananagutan. Nagpapatuloy ang isang gawaing sama-sama kapag malinaw ang tungkulin at naibabahagi ang kaalaman.
 questions:
-  - id: rc-cs-mi-0001
-    passage: rc-cs-mi-p1
-    type: analyze
-    difficulty: easy
+  - id: "rc-cs-mi-0001"
+    passage: "rc-cs-mi-p1"
+    type: "main-idea"
+    difficulty: "easy"
     stem: |
       What is the main idea of the passage about the barangay vacant lot?
     choices:
-      - text: A community resolved a land-use conflict by creating a shared hybrid space.
+      - text: "A shared design resolved a land-use dispute."
         correct: true
-      - text: Young residents needed a safe basketball court within walking distance.
+      - text: "Safe nearby recreation was a need identified by the youth."
         rationale: |
-          You picked a specific supporting argument made by the youth association, not the main idea of the entire passage.
-      - text: Rising food prices forced low-income families to start farming.
+          This chooses one group's supporting argument as the whole point. Safe recreation motivates the petition. Check the resolution that serves both groups.
+      - text: "Food prices explained why families might value a garden."
         rationale: |
-          You picked a detail explaining the background rationale for the garden proposal, not the main resolution described in the text.
-      - text: Barangay Captain Elena Cruz approved the construction of a full basketball court.
+          This turns the garden's motive into forced farming. Food prices explain one proposal. Check whether the passage says families were forced.
+      - text: "A full basketball court replaced the entire garden proposal."
         rationale: |
-          You picked a statement that contradicts the passage. The council approved a hybrid design with a half-court, not a full court.
+          This turns a compromise into a full court. The youth originally asks for basketball space. Check the actual shared design.
     explanation: |
-      The passage focuses on how a dispute over a vacant lot was resolved through community consultation into a successful hybrid space. The other options represent specific arguments or details mentioned in the text.
-
-  - id: rc-cs-mi-0002
-    passage: rc-cs-mi-p1
-    type: identify
-    difficulty: easy
+      The account moves from conflicting proposals through consultation to a space used by both groups. Its main point is the shared solution to the land-use dispute.
+  - id: "rc-cs-mi-0002"
+    passage: "rc-cs-mi-p1"
+    type: "identify"
+    difficulty: "easy"
     stem: |
       What percentage of the vacant lot was allocated to raised garden beds?
     choices:
-      - text: Sixty percent
+      - text: "Sixty percent"
         correct: true
-      - text: Forty percent
+      - text: "Forty percent"
         rationale: |
-          You picked the remaining percentage allocated to the half-court basketball area, not the garden bed allocation.
-      - text: Fifty percent
+          This selects the remaining portion. Forty percent follows from the stated sixty percent. Check which use the question names.
+      - text: "Fifty percent"
         rationale: |
-          You assumed an equal half-and-half split. Paragraph 2 explicitly states sixty percent was dedicated to garden beds.
-      - text: Thirty percent
+          This assumes compromise means equal shares. Both groups receive space. Check the stated allocation.
+      - text: "Thirty percent"
         rationale: |
-          You picked thirty, which refers to the thirty neighborhood families who received harvests, not the percentage of land.
+          This uses a family count as an area percentage. Thirty appears in the harvest report. Check the quantity and its unit.
     explanation: |
-      The second paragraph explicitly states that under the approved design, sixty percent of the lot was dedicated to raised garden beds.
-
-  - id: rc-cs-mi-0003
-    passage: rc-cs-mi-p1
-    type: infer
-    difficulty: medium
+      The design allocates sixty percent to the garden area, including beds and a composting station. This is the combined garden allocation given in the passage.
+  - id: "rc-cs-mi-0003"
+    passage: "rc-cs-mi-p1"
+    type: "infer"
+    difficulty: "medium"
     stem: |
       What can be inferred about Barangay Captain Elena Cruz's leadership style?
     choices:
-      - text: She prefers collaborative problem-solving over top-down orders.
+      - text: "She prefers collaborative problem-solving over top-down orders."
         correct: true
-      - text: She avoids making decisions until external municipal architects intervene.
+      - text: "She avoids making decisions until external municipal architects intervene."
         rationale: |
-          You picked an inference unsupported by the passage. The volunteer architect helped design the layout after Cruz started consultations.
-      - text: She favors youth athletic activities over local agricultural projects.
+          This makes the architect responsible for the initial decision process. An architect helps with the layout. Check who first organizes consultations.
+      - text: "She favors youth athletic activities over local agricultural projects."
         rationale: |
-          You picked an inference that contradicts the text. Cruz adopted a hybrid layout that accommodated both needs.
-      - text: She rejected the original proposals because of severe budget limitations.
+          This treats inclusion of sports as preference for sports. The court is part of the result. Check that the garden also remains.
+      - text: "She rejected the original proposals because of severe budget limitations."
         rationale: |
-          You inferred a financial restriction not mentioned in the text. The compromise was built to resolve conflicting community demands.
+          This supplies a financial motive. Shared designs can save money. Check whether a budget limit is actually mentioned.
     explanation: |
-      By organizing public consultations with elders, parents, and youth leaders to find a shared solution, Captain Cruz demonstrated a collaborative leadership style rather than imposing a single choice.
-
-  - id: rc-cs-mi-0004
-    passage: rc-cs-mi-p1
-    type: evaluate
-    difficulty: medium
+      Cruz invites elders, parents, and youth leaders to consultations. That action supports a collaborative approach in this decision.
+  - id: "rc-cs-mi-0004"
+    passage: "rc-cs-mi-p1"
+    type: "evaluate"
+    difficulty: "medium"
     stem: |
       Which statement best explains why the youth association originally petitioned the council?
     choices:
-      - text: They believed youth lacked safe nearby sports facilities.
+      - text: "They believed youth lacked safe nearby sports facilities."
         correct: true
-      - text: They wanted to stop low-income families from harvesting vegetables.
+      - text: "They wanted to stop low-income families from harvesting vegetables."
         rationale: |
-          You picked a hostile motive not supported by the passage. The youth simply wanted a sports venue nearby.
-      - text: They hoped to install solar lighting across the whole barangay.
+          This turns competing uses into a hostile motive. The proposals conflict. Check the reason the youth group states.
+      - text: "They hoped to install solar lighting across the whole barangay."
         rationale: |
-          You picked a detail added to the court in the final hybrid design, not their original petition motive.
-      - text: They owned the construction debris left on the vacant lot.
+          This uses a later design feature as the original goal. Solar lighting appears in the result. Check the order of the petition and design.
+      - text: "They owned the construction debris left on the vacant lot."
         rationale: |
-          You picked a false claim. The lot was an informal dumping ground, not property owned by the youth association.
+          This links the youth group to debris without evidence. Dumping is part of the lot's background. Check whether ownership is given.
     explanation: |
-      The first paragraph notes that the youth association petitioned for a basketball court because young residents lacked safe recreational facilities within walking distance.
-
-  - id: rc-cs-mi-0005
-    passage: rc-cs-mi-p1
-    type: analyze
-    difficulty: hard
+      The first paragraph states that the youth association sought a court because safe recreation was not available nearby.
+  - id: "rc-cs-mi-0005"
+    passage: "rc-cs-mi-p1"
+    type: "main-idea"
+    difficulty: "hard"
     stem: |
       How does the final paragraph contribute to the passage as a whole?
     choices:
-      - text: It demonstrates positive outcomes of the hybrid resolution.
+      - text: "It shows both groups using the shared space."
         correct: true
-      - text: It introduces a brand new dispute between neighboring barangays.
+      - text: "It reopens the dispute over which group should control the lot."
         rationale: |
-          You misinterpreted the conclusion. Neighboring barangays saw the project as a model, not as a new dispute.
-      - text: It details the exact financial budget required for solar lighting installation.
+          This turns a model for others into a new conflict. Neighboring barangays appear at the end. Check their relationship to the project.
+      - text: "It compares all construction costs of the two original proposals."
         rationale: |
-          You picked a financial detail not mentioned in the paragraph. The paragraph focuses on harvests and community usage.
-      - text: It argues that vegetable gardens are more valuable than sports courts.
+          This invents a budget explanation. Lighting is a design detail. Check what the final paragraph actually reports.
+      - text: "It concludes that only gardening deserves public support."
         rationale: |
-          You picked a biased claim that contradicts the passage's emphasis on successful shared co-existence.
+          This ranks one use above the other. Both outcomes are described. Check whether the conclusion favors only the garden.
     explanation: |
-      The final paragraph describes the harvest and youth activity by August, showing how the hybrid resolution achieved positive results for both sides and created a useful model.
-
-  - id: rc-cs-mi-0006
-    passage: rc-cs-mi-p2
-    type: analyze
-    difficulty: easy
+      The final paragraph describes vegetable harvests and nightly games. Those outcomes complete the account of a shared solution serving both groups.
+  - id: "rc-cs-mi-0006"
+    passage: "rc-cs-mi-p2"
+    type: "main-idea"
+    difficulty: "easy"
     stem: |
       What is the main idea of the passage about Aling Rosa's sari-sari store?
     choices:
-      - text: Store owners stay viable by balancing trust with discipline.
+      - text: "Trust and discipline help the store endure."
         correct: true
-      - text: Supermarkets will soon replace all neighborhood sari-sari stores.
+      - text: "Supermarkets are certain to replace every neighborhood store."
         rationale: |
-          You picked a prediction that contradicts the passage. The text explains why small sari-sari stores endure despite supermarkets.
-      - text: Micro-retail businesses should avoid giving credit to neighbors.
+          This turns competition into an unsupported prediction. Supermarkets offer lower prices. Check how the passage explains continued survival.
+      - text: "Avoiding all customer credit is the key to continued profit."
         rationale: |
-          You picked the opposite of the passage thesis. Aling Rosa succeeds specifically by managing credit prudently, not by avoiding it.
-      - text: Buying inventory on Monday mornings is the only way to earn a profit.
+          This treats credit risk as a reason to avoid all credit. Debts require care. Check Rosa's actual limited-credit practice.
+      - text: "Weekly wholesale buying is the only requirement for survival."
         rationale: |
-          You picked a specific operational detail from paragraph 2, mistaking it for the main thesis of the whole passage.
+          This turns a purchasing detail into a universal rule. Monday purchases save costs. Check the other practices supporting the store.
     explanation: |
-      The main idea is stated in the concluding paragraph: small neighborhood stores endure when owners combine community empathy with prudent management habits.
-
-  - id: rc-cs-mi-0007
-    passage: rc-cs-mi-p2
-    type: identify
-    difficulty: easy
+      The store helps neighbors through convenience and credit while controlling stock and debts. The closing paragraph brings these together as trust balanced with business discipline.
+  - id: "rc-cs-mi-0007"
+    passage: "rc-cs-mi-p2"
+    type: "identify"
+    difficulty: "easy"
     stem: |
       What is the primary function of the ledger book called a 'talaan' in the store?
     choices:
-      - text: Recording credit transactions for regular customers
+      - text: "Recording credit transactions for regular customers"
         correct: true
-      - text: Listing wholesale market prices in nearby cities
+      - text: "Listing wholesale market prices in nearby cities"
         rationale: |
-          You picked an unmentioned function. Paragraph 2 explicitly states she uses the talaan to record customer credit transactions.
-      - text: Tracking mobile phone load expiration dates across all vendors
+          This transfers the wholesale buying task to the ledger. Both occur in the same paragraph. Check what the passage says is recorded.
+      - text: "Tracking mobile phone load expiration dates across all vendors"
         rationale: |
-          You picked a task not described in the text. The ledger book is used to manage customer credit risk.
-      - text: Calculating monthly tax payments for the municipal barangay
+          This transfers one product detail to the ledger. Phone load is sold in the store. Check whether expiration dates are mentioned.
+      - text: "Calculating monthly tax payments for the municipal barangay"
         rationale: |
-          You picked a municipal administrative function not mentioned in the passage.
+          This adds a tax function from general business knowledge. Stores may keep tax records. Check the described use of this book.
     explanation: |
-      The second paragraph states that Aling Rosa records credit transactions in a ledger book called a 'talaan'.
-
-  - id: rc-cs-mi-0008
-    passage: rc-cs-mi-p2
-    type: infer
-    difficulty: medium
+      The passage says Rosa records transactions in the talaan. In the credit-management paragraph, this record helps her keep track of customers' debts.
+  - id: "rc-cs-mi-0008"
+    passage: "rc-cs-mi-p2"
+    type: "infer"
+    difficulty: "medium"
     stem: |
       Why do neighborhood residents continue buying from Aling Rosa despite higher prices than supermarkets?
     choices:
-      - text: They value physical proximity and flexible credit terms.
+      - text: "They value physical proximity and flexible credit terms."
         correct: true
-      - text: Supermarkets do not carry daily items like cooking oil or phone load.
+      - text: "Supermarkets do not carry daily items like cooking oil or phone load."
         rationale: |
-          You picked a false claim. The passage notes supermarkets offer lower prices on daily essentials, but sari-sari stores offer convenience.
-      - text: Aling Rosa sells wholesale inventory at half price every weekend.
+          This invents missing supermarket products. Daily essentials frame the comparison. Check whether the passage says supermarkets lack them.
+      - text: "Aling Rosa sells wholesale inventory at half price every weekend."
         rationale: |
-          You picked a detail not found in the passage. Aling Rosa buys wholesale, but sells retail to her customers.
-      - text: The barangay mandates that residents purchase goods locally.
+          This confuses wholesale purchasing with discount selling. Rosa buys in bulk. Check whether weekend half-price sales are stated.
+      - text: "The barangay mandates that residents purchase goods locally."
         rationale: |
-          You picked an unsupported municipal rule. Residents choose to buy from her due to proximity and credit.
+          This turns voluntary customer choice into a mandate. The barangay is the setting. Check whether any purchase rule appears.
     explanation: |
-      The first paragraph explains that small neighborhood stores survive because they provide unmatched physical convenience and flexible credit terms during financial bottlenecks.
-
-  - id: rc-cs-mi-0009
-    passage: rc-cs-mi-p2
-    type: evaluate
-    difficulty: medium
+      The opening links neighborhood stores with convenient access and flexible credit. These benefits help explain why residents continue using Rosa's store.
+  - id: "rc-cs-mi-0009"
+    passage: "rc-cs-mi-p2"
+    type: "evaluate"
+    difficulty: "medium"
     stem: |
       Which rule helps Aling Rosa mitigate the financial risks of extending credit?
     choices:
-      - text: Customers must settle credit balances before new charges.
+      - text: "Customers must settle credit balances before new charges."
         correct: true
-      - text: Customers must pay a monthly interest fee on all grocery debts.
+      - text: "Customers must pay a monthly interest fee on all grocery debts."
         rationale: |
-          You picked a financial penalty not mentioned in the text. Aling Rosa controls risk by requiring balances to be paid before new charges.
-      - text: Credit is granted only to customers who purchase wholesale inventory.
+          This adds an interest charge. Interest is a possible credit-control tool. Check the particular rule Rosa uses.
+      - text: "Credit is granted only to customers who purchase wholesale inventory."
         rationale: |
-          You misidentified her customer base. Credit is given to regular retail neighbors, not wholesale buyers.
-      - text: Credit transactions are limited to mobile phone load purchases.
+          This switches neighbors with wholesale buyers. Wholesale markets appear nearby. Check who receives store credit.
+      - text: "Credit transactions are limited to mobile phone load purchases."
         rationale: |
-          You restricted credit to one product type. Paragraph 1 lists items like cooking oil as daily essentials.
+          This restricts credit to one product. Phone load is listed as stock. Check whether the rule names such a limit.
     explanation: |
-      The second paragraph explains that Aling Rosa requires credit balances to be settled before new purchases can be charged.
-
-  - id: rc-cs-mi-0010
-    passage: rc-cs-mi-p2
-    type: analyze
-    difficulty: hard
+      The second paragraph states that existing credit balances must be settled before new charges are allowed. That rule limits the growth of unpaid debts.
+  - id: "rc-cs-mi-0010"
+    passage: "rc-cs-mi-p2"
+    type: "main-idea"
+    difficulty: "hard"
     stem: |
       Which choice represents a supporting detail rather than the main idea of the passage?
     choices:
-      - text: Aling Rosa buys wholesale stock every Monday morning to get discounts.
+      - text: "Rosa buys stock wholesale on Mondays."
         correct: true
-      - text: Personal relationships and financial discipline keep micro-retail stores viable.
+      - text: "Community trust and financial discipline help stores survive."
         rationale: |
-          You picked the main thesis of the passage rather than a specific supporting detail.
-      - text: Sari-sari stores endure by offering convenience and community trust.
+          This selects the broad relationship between trust and discipline. It sounds relevant because it is central. Check whether the question asks for a concrete practice.
+      - text: "Convenience and carefully managed credit support local stores."
         rationale: |
-          You picked a main idea summary statement rather than a supporting detail.
-      - text: Prudent cash flow management allows small stores to withstand modern competition.
+          This selects a general explanation for survival. Convenience and trust matter throughout. Check whether it describes one event or the larger point.
+      - text: "Prudent management helps small stores endure competition."
         rationale: |
-          You picked a broad conclusion summarizing why small stores survive, which is a main idea.
+          This selects a broad management conclusion. Cash flow explains endurance. Check whether it is as specific as a weekly buying routine.
     explanation: |
-      Buying wholesale stock on Mondays is a specific operational detail, whereas the other options summarize the broader thesis of the passage.
-
-  - id: rc-cs-mi-0011
-    passage: rc-cs-mi-p3
-    type: analyze
-    difficulty: easy
+      The Monday wholesale purchase is one specific example of how Rosa manages stock costs. It supports the wider point about careful business habits.
+  - id: "rc-cs-mi-0011"
+    passage: "rc-cs-mi-p3"
+    type: "main-idea"
+    difficulty: "easy"
     stem: |
       What is the main idea of the mangrove restoration passage?
     choices:
-      - text: Mangrove reforestation strengthened coastal defense and marine life.
+      - text: "Restoration supports coastal resilience and livelihoods."
         correct: true
-      - text: Typhoon storm surges destroyed all commercial fishponds in Quezon province.
+      - text: "The project destroyed every commercial fishpond in the province."
         rationale: |
-          You picked an exaggerated detail not stated in the passage. The text focuses on environmental restoration efforts.
-      - text: Planting seedlings in coastal mud requires specialized industrial machinery.
+          This expands local vulnerability into destruction of every fishpond. Fishponds appear in the background. Check the scope of the reported result.
+      - text: "Tree planting succeeds only through industrial machinery."
         rationale: |
-          You picked a claim that contradicts the text. Volunteers hand-planted saplings and breached dikes manually.
-      - text: Local youth groups were paid by marine biologists to clean roads.
+          This invents a machinery requirement. Restoration involves technical planning. Check what equipment the passage actually requires.
+      - text: "Paid road cleaning is the project's primary community benefit."
         rationale: |
-          You picked a minor detail about youth training and distorted it into the main point of the passage.
+          This changes youth monitoring into paid road cleaning. Youth help with maintenance. Check their stated task and whether payment is given.
     explanation: |
-      The passage shows how local fisherfolk and scientists successfully restored mangroves, resulting in reduced storm damage and improved fishery yields.
-
-  - id: rc-cs-mi-0012
-    passage: rc-cs-mi-p3
-    type: identify
-    difficulty: easy
+      The account connects restoring mangroves with wave protection and habitat. These benefits bring environmental work, coastal resilience, and livelihoods into one main point.
+  - id: "rc-cs-mi-0012"
+    passage: "rc-cs-mi-p3"
+    type: "identify"
+    difficulty: "easy"
     stem: |
       Why were older fishpond dikes breached during the reforestation process?
     choices:
-      - text: To restore seawater circulation for wild propagules to take root
+      - text: "To restore seawater circulation for wild propagules to take root"
         correct: true
-      - text: To make space for building new coastal roads and concrete bridges
+      - text: "To make space for building new coastal roads and concrete bridges"
         rationale: |
-          You picked an infrastructure goal not mentioned in the passage. Dikes were breached for ecological water flow.
-      - text: To prevent local fisherfolk from harvesting mud crabs in the bay
+          This invents an infrastructure goal. Roads are affected by coastal protection. Check the paragraph explaining why the dikes are opened.
+      - text: "To prevent local fisherfolk from harvesting mud crabs in the bay"
         rationale: |
-          You picked a negative outcome that contradicts the text. Restoration actually boosted fishery yields and crab populations.
-      - text: To drain seawater away from the fragile mangrove saplings
+          This turns restoration into a ban on harvesting. Fishery livelihoods are part of the topic. Check the project's stated aim.
+      - text: "To drain seawater away from the fragile mangrove saplings"
         rationale: |
-          You picked the opposite of ecological reality. Mangroves need tidal seawater circulation to grow and spread.
+          This reverses the water-management action. Draining can sound helpful for planting. Check the stated goal of restoring circulation.
     explanation: |
-      The second paragraph states that dikes were breached to restore natural seawater circulation, which helped wild mangrove propagules take root.
-
-  - id: rc-cs-mi-0013
-    passage: rc-cs-mi-p3
-    type: infer
-    difficulty: medium
+      The dikes are opened to restore water circulation. The passage links that change with wild seedlings establishing near the planted ones.
+  - id: "rc-cs-mi-0013"
+    passage: "rc-cs-mi-p3"
+    type: "infer"
+    difficulty: "medium"
     stem: |
       What does the selection of specific mangrove species based on salinity suggest about the project?
     choices:
-      - text: Organizers used scientific methods to maximize seedling survival.
+      - text: "Organizers used scientific methods to maximize seedling survival."
         correct: true
-      - text: All mangrove trees grow equally well in any coastal environment.
+      - text: "All mangrove trees grow equally well in any coastal environment."
         rationale: |
-          You picked a false assumption. Selecting species based on tidal elevation and salinity proves different species have specific needs.
-      - text: Nursery-grown seedlings were completely unavailable in Real, Quezon.
+          This treats mangrove species as interchangeable. All are coastal trees. Check why organizers match species to salinity and tide.
+      - text: "Nursery-grown seedlings were completely unavailable in Real, Quezon."
         rationale: |
-          You picked a statement contradicting paragraph 2, which explicitly mentions nursery-grown seedlings.
-      - text: Salinity levels were lowered by dumping fresh water into the sea.
+          This treats wild seedlings as evidence that nursery plants are absent. Both sources appear in the text. Check the word alongside.
+      - text: "Salinity levels were lowered by dumping fresh water into the sea."
         rationale: |
-          You picked an absurd physical intervention not mentioned in the passage.
+          This invents a salinity intervention. Salinity is part of species selection. Check whether the project adds freshwater.
     explanation: |
-      Tailoring mangrove species selection to specific tidal elevations and soil salinities demonstrates a scientifically informed approach designed to ensure high survival rates.
-
-  - id: rc-cs-mi-0014
-    passage: rc-cs-mi-p3
-    type: evaluate
-    difficulty: medium
+      Choosing species for the site's tidal conditions and salinity shows that organizers consider environmental needs. That supports a scientifically informed approach intended to improve survival.
+  - id: "rc-cs-mi-0014"
+    passage: "rc-cs-mi-p3"
+    type: "evaluate"
+    difficulty: "medium"
     stem: |
       According to the text, what double benefit did the restored mangrove belt provide after three years?
     choices:
-      - text: Reduced wave energy and increased marine habitats
+      - text: "Reduced wave energy and increased marine habitats"
         correct: true
-      - text: Higher tourism revenue and lower fishpond construction costs
+      - text: "Higher tourism revenue and lower fishpond construction costs"
         rationale: |
-          You picked commercial benefits not mentioned in the text. The passage lists wave reduction and increased fish yields.
-      - text: Free plastic clearing services and expanded coastal road lanes
+          This supplies benefits from another kind of project. Tourism and construction can affect coastal towns. Check the outcomes named in the report.
+      - text: "Free plastic clearing services and expanded coastal road lanes"
         rationale: |
-          You picked maintenance details rather than the environmental and economic double benefits stated in the conclusion.
-      - text: Elimination of all typhoons and expanded freshwater reservoirs
+          This turns maintenance and roads into the two outcomes. Both connect to the project. Check the closing claims about waves and habitat.
+      - text: "Elimination of all typhoons and expanded freshwater reservoirs"
         rationale: |
-          You picked an impossible weather claim. Mangroves reduce storm surge impact, but cannot eliminate typhoons.
+          This turns reduced impact into removal of storms. Mangroves protect coastlines. Check whether the project changes storm occurrence.
     explanation: |
-      The final paragraph notes that the mangroves reduced wave energy (disaster resilience) and provided nurseries for fish and mud crabs (livelihood benefit).
-
-  - id: rc-cs-mi-0015
-    passage: rc-cs-mi-p3
-    type: analyze
-    difficulty: hard
+      The report describes reduced wave energy and nursery habitat for young fish and crabs. These are the two connected benefits named in its conclusion.
+  - id: "rc-cs-mi-0015"
+    passage: "rc-cs-mi-p3"
+    type: "choosing-a-title"
+    difficulty: "hard"
     stem: |
       Which title best captures the core subject of the mangrove passage?
     choices:
-      - text: Restoring Coastal Protection Through Reforestation
+      - text: "Mangroves for Coastal Protection and Livelihoods"
         correct: true
-      - text: The Complete History of Fishpond Construction in Quezon
+      - text: "The Complete History of Quezon Fishpond Construction"
         rationale: |
-          You picked a title that focuses narrowly on historical fishponds rather than the reforestation theme.
-      - text: How Plastic Debris Destructive Waves Harms Local Youth
+          This expands a restoration account into all fishpond history. Old dikes are discussed. Check whether historical construction is the central point.
+      - text: "Cleaning Plastic: The Project's Only Environmental Goal"
         rationale: |
-          You picked a garbled title that focuses on secondary maintenance details rather than the main project.
-      - text: Commercial Fishing Strategies in Extreme Typhoons
+          This combines a maintenance detail with a claim about youth. Plastic removal is mentioned. Check whether harm to youth is described.
+      - text: "Commercial Fishing Methods for Typhoon Season"
         rationale: |
-          You picked a title about commercial fishing operations, which is not the subject of this restoration passage.
+          This changes restoration into fishing during storms. Both waves and livelihoods appear. Check the project's actual activity.
     explanation: |
-      The title reflects the central theme of environmental restoration bringing both disaster protection and economic benefits to coastal communities.
+      The title connects restoring trees with coastal protection. That relationship is central to the project account.
+  - id: "q-comprehension-skills-main-idea-0016"
+    passage: "p-comprehension-skills-main-idea-0004"
+    type: "main-idea"
+    difficulty: "easy"
+    stem: |
+      Ano ang pangunahing ideya ng talata?
+    choices:
+      - text: "Nagpapatuloy ang gawain kapag naibabahagi ang tungkulin at kaalaman."
+        correct: true
+      - text: "Kailangang masipag ang isang lider upang siya lamang ang gumawa ng lahat."
+        rationale: |
+          This treats reliance on one leader as the solution. The leader initially works hard. Check the problem when that person is absent.
+      - text: "Ang pinakamahalagang layunin ng hardin ay ang pagdami ng talaan."
+        rationale: |
+          This mistakes a tool for the purpose. A task list helps organize work. Check what improves because of the list.
+      - text: "Nagiging maayos ang bawat halaman kapag walang kasaping lumiliban."
+        rationale: |
+          This turns continued care into a guarantee of perfect plants. Participation improves. Check the sentence saying some plants still fail.
+    explanation: |
+      The passage shows that shared duties and skills keep the garden work going. The final sentence brings that main point together.
+    approved: false
+  - id: "q-comprehension-skills-main-idea-0017"
+    passage: "p-comprehension-skills-main-idea-0004"
+    type: "main-idea"
+    difficulty: "medium"
+    stem: |
+      Alin ang paksa, hindi ang buong pangunahing ideya, ng talata?
+    choices:
+      - text: "Paghahati ng gawain sa gulayan"
+        correct: true
+      - text: "Tumutulong ang malinaw na tungkulin sa pagpapatuloy ng gawain."
+        rationale: |
+          This selects a claim about the topic. Clear roles support continuing work. Check whether it only names the subject or says something about it.
+      - text: "Naibabahagi ang kaalaman kapag nagpapalitan ng tungkulin."
+        rationale: |
+          This selects a relationship developed in the passage. Role changes help share knowledge. Check whether the phrase is a subject or a complete point.
+      - text: "Hindi dapat umasa ang grupo sa iisang kasapi lamang."
+        rationale: |
+          This selects a lesson from the opening problem. Dependence on one person is challenged. Check whether the words only name the topic.
+    explanation: |
+      Sharing garden work names the subject. It does not yet state the central claim about how shared responsibility keeps the work going.
+    approved: false
+  - id: "q-comprehension-skills-main-idea-0018"
+    passage: "p-comprehension-skills-main-idea-0004"
+    type: "main-idea"
+    difficulty: "medium"
+    stem: |
+      Aling pangungusap ang pinakamalinaw na nagsasaad ng pangunahing ideya?
+    choices:
+      - text: "\"Nagpapatuloy ang isang gawaing sama-sama kapag malinaw ang tungkulin at naibabahagi ang kaalaman.\""
+        correct: true
+      - text: "\"Kapag hindi siya nakadalo, halos walang nakagagawa ng ibang tungkulin.\""
+        rationale: |
+          This selects the original problem alone. It explains why change is needed. Check for a sentence that also covers the response and its lesson.
+      - text: "\"Hindi lahat ng halaman ay tumubo nang maayos, ngunit hindi na humihinto ang pag-aalaga kapag may isang kasaping wala.\""
+        rationale: |
+          This selects a result that supports the wider point. Continuing care is important evidence. Check which sentence states the general principle most directly.
+      - text: "\"Nag-usap ang mga kasapi at gumawa ng talaan ng magkakaibang gawain.\""
+        rationale: |
+          This selects a step in the response. Making the list begins the change. Check for a sentence connecting roles with continued shared work.
+    explanation: |
+      The quoted final sentence states the general point joining the initial problem and the new shared system. It serves as the clearest topic statement.
+    approved: false
+  - id: "q-comprehension-skills-main-idea-0019"
+    passage: "p-comprehension-skills-main-idea-0004"
+    type: "main-idea"
+    difficulty: "hard"
+    stem: |
+      Paano nakatutulong sa pangunahing ideya ang paglalarawan na hindi lahat ng halaman ay tumubo nang maayos?
+    choices:
+      - text: "Tagumpay sa pananagutan ang diin nito, hindi perpektong ani."
+        correct: true
+      - text: "Pinatutunayan nito na walang kabuluhan ang paghahati ng tungkulin."
+        rationale: |
+          This treats an imperfect outcome as failure of the whole approach. Some plants do not thrive. Check the continuing care described in the same sentence.
+      - text: "Ipinakikita nito na nagpasya ang grupo na tuluyang isara ang hardin."
+        rationale: |
+          This invents a decision to stop. The passage mentions difficulty. Check whether work actually continues.
+      - text: "Tinatanggal nito ang lahat ng ebidensiya ng natutuhan ng mga kasapi."
+        rationale: |
+          This ignores the separate learning evidence. Plant growth is uneven. Check the members' ability to explain their tasks.
+    explanation: |
+      The passage acknowledges imperfect plant growth while showing that care continues and more members learn. This qualifies success as shared responsibility rather than perfect results.
+    approved: false
+  - id: "q-comprehension-skills-main-idea-0020"
+    passage: "p-comprehension-skills-main-idea-0004"
+    type: "main-idea"
+    difficulty: "exam"
+    stem: |
+      Alin ang masyadong malawak bilang buod ng pangunahing ideya?
+    choices:
+      - text: "Lahat ng suliranin sa paaralan ay malulutas sa pagtutulungan."
+        correct: true
+      - text: "Ang malinaw na tungkulin ay nakatutulong sa pagpapatuloy ng gulayan."
+        rationale: |
+          This treats a supported principle as an overgeneralization. It concerns the same garden work. Check whether it extends to every school problem.
+      - text: "Ang pagpapalitan ng gawain ay nakatutulong sa pagbabahagi ng kaalaman."
+        rationale: |
+          This treats a stated learning relationship as too broad. Members exchange roles. Check the limited scope of the claim.
+      - text: "Mas matatag ang gawaing hindi umaasa sa isang tao lamang."
+        rationale: |
+          This treats a lesson from the initial absence as universal certainty. The wording compares shared work with dependence on one person. Check whether it promises to solve everything.
+    explanation: |
+      The passage describes one garden project. Claiming that cooperation solves every school problem reaches beyond that evidence.
+    approved: false

@@ -23,6 +23,10 @@ abstract interface class SyncRuntimeSurface {
 
   Future<void> forceFlush();
 
+  /// Back Up Now and Try Again: flushes, or starts Sync again after it
+  /// stopped on an error while starting.
+  Future<void> retry();
+
   Future<void> quiesce({required bool flush});
 }
 
@@ -49,6 +53,9 @@ class DisabledSyncRuntimeSurface implements SyncRuntimeSurface {
 
   @override
   Future<void> forceFlush() async {}
+
+  @override
+  Future<void> retry() async {}
 
   @override
   Future<void> quiesce({required bool flush}) async {}
@@ -90,6 +97,9 @@ class ConfiguredSyncRuntimeSurface implements SyncRuntimeSurface {
   Future<void> forceFlush() => _engine.forceFlush();
 
   @override
+  Future<void> retry() => _controller.retry();
+
+  @override
   Future<void> quiesce({required bool flush}) {
     return _controller.quiesce(flush: flush);
   }
@@ -122,6 +132,9 @@ class FakeSyncEngine implements SyncRuntimeSurface {
   Future<void> forceFlush() async {
     forceFlushCalls += 1;
   }
+
+  @override
+  Future<void> retry() => forceFlush();
 
   @override
   Future<void> quiesce({required bool flush}) async {}

@@ -18,6 +18,78 @@ Map<String, Object?> _yaml(String src) =>
 final _updatedAt = DateTime.utc(2026, 7, 20);
 
 void main() {
+  final missingNotes = <String, Map<String, Object?>>{
+    'missing': {},
+    'null': {'rationale': null},
+    'empty': {'rationale': ''},
+    'whitespace-only': {'rationale': ' \t\n '},
+  };
+  for (final entry in missingNotes.entries) {
+    test('rejects ${entry.key} wrong-choice rationale', () {
+      expect(
+        () => questionToDoc(
+          {
+            'id': 'q-required-note',
+            'stem': 'Which organelle makes food using light?',
+            'explanation': 'Chloroplasts use light to make food.',
+            'choices': [
+              {'text': 'Chloroplast', 'correct': true},
+              {
+                'text': 'Mitochondrion',
+                'rationale': 'This uses food instead of making it.',
+              },
+              {'text': 'Ribosome', 'correct': false, ...entry.value},
+            ],
+          },
+          _meta,
+          updatedAt: _updatedAt,
+        ),
+        throwsA(
+          isA<FormatException>().having(
+            (e) => e.message,
+            'message',
+            allOf(
+              contains('q-required-note'),
+              contains('choice 3'),
+              contains('rationale'),
+            ),
+          ),
+        ),
+      );
+    });
+  }
+
+  for (final correct in [false, true]) {
+    test('rejects non-string rationale when correct is $correct', () {
+      expect(
+        () => questionToDoc(
+          {
+            'id': 'q-non-string-note',
+            'stem': 'Pick the correct choice.',
+            'explanation': 'Only one choice is correct.',
+            'choices': [
+              {'text': 'First', 'correct': correct, 'rationale': 42},
+              {
+                'text': 'Second',
+                'correct': !correct,
+                'rationale': 'This is the wrong choice.',
+              },
+            ],
+          },
+          _meta,
+          updatedAt: _updatedAt,
+        ),
+        throwsA(
+          isA<FormatException>().having(
+            (e) => e.message,
+            'message',
+            'q-non-string-note: choice 1 rationale must be a string',
+          ),
+        ),
+      );
+    });
+  }
+
   test('converts a valid question to a parseable Sanity doc', () {
     final doc = questionToDoc(
       _yaml('''
@@ -30,8 +102,11 @@ choices:
   - text: Chloroplast
     correct: true
   - text: Mitochondrion
+    rationale: '  This uses food instead of making it.  '
   - text: Ribosome
+    rationale: This makes proteins instead of food.
   - text: Golgi apparatus
+    rationale: This packs materials instead of making food.
 explanation: |
   Chloroplasts hold chlorophyll, which captures light to make food.
 '''),
@@ -47,6 +122,15 @@ explanation: |
     expect(parsed.choices, hasLength(4));
     expect(parsed.choices.map((c) => c.label.value), ['A', 'B', 'C', 'D']);
     expect(parsed.choices.where((c) => c.isCorrect.value), hasLength(1));
+    expect(parsed.choices.first.rationale.value, isNull);
+    expect(
+      parsed.choices.skip(1).map((c) => c.rationale.value),
+      [
+        'This uses food instead of making it.',
+        'This makes proteins instead of food.',
+        'This packs materials instead of making food.',
+      ],
+    );
     expect(
       parsed.examLinks.map((e) => e.examId.value),
       ['exam-upcat', 'exam-dost-sei'],
@@ -68,6 +152,7 @@ choices:
   - text: Nucleus
     correct: true
   - text: Vacuole
+    rationale: This stores materials instead of holding DNA.
 explanation: |
   X sits at the cell centre and holds the DNA.
 '''),
@@ -185,6 +270,7 @@ choices:
   - text: 10-20 nanometres
     correct: true
   - text: 200 nanometres
+    rationale: This is outside the stated range.
 '''),
         _meta,
         updatedAt: _updatedAt,

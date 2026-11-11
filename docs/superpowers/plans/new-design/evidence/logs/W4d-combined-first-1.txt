@@ -1,0 +1,628 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/ruled_section_test.dart
+00:00 +0: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/row_dialog_accessibility_test.dart: check and radio rows expose checked state
+00:00 +1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/row_dialog_accessibility_test.dart: check and radio rows expose checked state
+00:00 +2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/row_dialog_accessibility_test.dart: check and radio rows expose checked state
+00:00 +3: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/row_dialog_accessibility_test.dart: check and radio rows expose checked state
+00:00 +4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/row_dialog_accessibility_test.dart: check and radio rows expose checked state
+00:00 +5: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/nav_glyph_test.dart: renders at the specified size
+00:00 +6: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/nav_glyph_test.dart: renders at the specified size
+00:00 +7: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/nav_glyph_test.dart: renders at the specified size
+00:00 +8: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/nav_glyph_test.dart: renders at the specified size
+00:00 +9: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/nav_glyph_test.dart: renders at the specified size
+00:00 +10: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/nav_glyph_test.dart: renders at the specified size
+00:00 +11: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/row_dialog_accessibility_test.dart: confirmation shadow uses QV_Leave CSS
+00:00 +12: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/nav_glyph_test.dart: every kind paints without throwing
+00:00 +13: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/nav_glyph_test.dart: fill outside 0..1 is clamped rather than throwing
+00:00 +14: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/nav_glyph_test.dart: repaints when fill changes and not when it does not
+00:00 +15: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/nav_glyph_test.dart: every glyph has internal structure the house has a doorway as well as its walls
+00:00 +16: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/nav_glyph_test.dart: every glyph has internal structure the book has two leaves
+00:00 +17: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/nav_glyph_test.dart: every glyph has internal structure the sheet has a fold and a rising line
+00:00 +18: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/nav_glyph_test.dart: every glyph has internal structure the quiz is three options with three rules
+00:00 +19: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/nav_glyph_test.dart: the fill region is not always the whole glyph the quiz shades one option, not all three
+00:00 +20: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/nav_glyph_test.dart: the fill region is not always the whole glyph the sheet does not fill its rising line into a blob
+00:00 +21: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/nav_glyph_test.dart: the fill region is not always the whole glyph the house fills without its doorway punched out
+00:00 +22: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/nav_glyph_test.dart: a filled glyph keeps its detail the doorway is open, not inked over
+00:00 +23: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/nav_glyph_test.dart: a filled glyph keeps its detail the book keeps its spine
+00:00 +24: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/nav_glyph_test.dart: a filled glyph keeps its detail the sheet keeps its turned corner
+00:00 +25: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/mock_shared_contract_test.dart: inline accent dialog actions dark=false scale=1.0
+00:01 +26: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/mock_shared_contract_test.dart: inline accent dialog actions dark=false scale=1.0
+00:01 +27: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/mock_shared_contract_test.dart: inline accent dialog actions dark=false scale=1.0
+00:01 +28: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/mock_shared_contract_test.dart: inline accent dialog actions dark=false scale=1.0
+00:01 +29: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/review_model_test.dart: counts split the paper three ways
+00:01 +30: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/mock_shared_contract_test.dart: mock grid footer acts after help dark=false scale=1.0
+00:01 +31: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/mock_shared_contract_test.dart: mock grid footer acts after help dark=false scale=1.0
+00:01 +32: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/mock_shared_contract_test.dart: mock grid footer acts after help dark=false scale=1.0
+00:01 +33: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/mock_shared_contract_test.dart: mock grid footer acts after help dark=false scale=1.0
+00:01 +34: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/mock_shared_contract_test.dart: mock grid footer acts after help dark=false scale=1.0
+00:01 +35: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/mock_shared_contract_test.dart: mock grid footer acts after help dark=false scale=1.0
+00:01 +36: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/structure_completion_test.dart: all row variants, board metrics, stacking and keyboard Brightness.dark
+00:01 +37: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/structure_completion_test.dart: all row variants, board metrics, stacking and keyboard Brightness.dark
+00:01 +38: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/structure_completion_test.dart: all row variants, board metrics, stacking and keyboard Brightness.dark
+00:01 +39: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/structure_completion_test.dart: all row variants, board metrics, stacking and keyboard Brightness.dark
+00:01 +40: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/structure_completion_test.dart: all row variants, board metrics, stacking and keyboard Brightness.dark
+00:01 +41: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/structure_completion_test.dart: all row variants, board metrics, stacking and keyboard Brightness.dark
+00:01 +42: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/structure_completion_test.dart: all row variants, board metrics, stacking and keyboard Brightness.dark
+00:01 +43: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/structure_completion_test.dart: all row variants, board metrics, stacking and keyboard Brightness.dark
+00:01 +44: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/structure_completion_test.dart: all row variants, board metrics, stacking and keyboard Brightness.dark
+00:01 +45: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/structure_completion_test.dart: all row variants, board metrics, stacking and keyboard Brightness.dark
+00:02 +46: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/structure_completion_test.dart: all row variants, board metrics, stacking and keyboard Brightness.dark
+00:02 +47: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_test.dart: UPCAT negative earned score stays visible
+00:02 +48: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_search_keyboard_test.dart: Cancel survives Tab from the field and clears on Enter
+00:02 +49: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_search_keyboard_test.dart: Cancel survives Tab from the field and clears on Enter
+00:02 +50: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_search_keyboard_test.dart: Cancel survives Tab from the field and clears on Enter
+00:02 +51: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_search_keyboard_test.dart: Cancel survives Tab from the field and clears on Enter
+00:02 +52: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_search_keyboard_test.dart: Cancel survives Tab from the field and clears on Enter
+00:02 +53: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_search_keyboard_test.dart: Cancel survives Tab from the field and clears on Enter
+00:02 +54: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_search_keyboard_test.dart: Cancel survives Tab from the field and clears on Enter
+00:02 +55: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_search_keyboard_test.dart: Cancel survives Tab from the field and clears on Enter
+00:02 +56: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_search_keyboard_test.dart: Cancel survives Tab from the field and clears on Enter
+00:02 +57: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_search_keyboard_test.dart: Cancel survives Tab from the field and clears on Enter
+00:02 +58: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_search_keyboard_test.dart: Cancel survives Tab from the field and clears on Enter
+00:02 +59: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_search_keyboard_test.dart: Cancel survives Tab from the field and clears on Enter
+00:02 +60: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_search_keyboard_test.dart: Cancel survives Tab from the field and clears on Enter
+00:02 +61: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_search_keyboard_test.dart: Cancel survives Tab from the field and clears on Enter
+00:02 +62: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/structure_completion_test.dart: all row variants, board metrics, stacking and keyboard Brightness.light
+00:02 +63: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/tab_header_test.dart: every tab title is the same size and weight
+lib/core/ui/components/segmented_switch.dart:23:9: Error: Final field 'unselectedFontWeight' is not initialized by this constructor.
+Try to initialize the field using an initializing formal or a field initializer.
+  const SegmentedSwitch.bookmarks({
+        ^^^^^^^^^
+lib/core/ui/components/segmented_switch.dart:35:20: Context: 'unselectedFontWeight' is defined here.
+  final FontWeight unselectedFontWeight;
+                   ^^^^^^^^^^^^^^^^^^^^
+00:02 +63 -1: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/segmented_switch_test.dart [E]
+  Failed to load "/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/segmented_switch_test.dart":
+  Compilation failed for testPath=/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/segmented_switch_test.dart: lib/core/ui/components/segmented_switch.dart:23:9: Error: Final field 'unselectedFontWeight' is not initialized by this constructor.
+  Try to initialize the field using an initializing formal or a field initializer.
+    const SegmentedSwitch.bookmarks({
+          ^^^^^^^^^
+  lib/core/ui/components/segmented_switch.dart:35:20: Context: 'unselectedFontWeight' is defined here.
+    final FontWeight unselectedFontWeight;
+                     ^^^^^^^^^^^^^^^^^^^^
+  .
+00:02 +64 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/structure_completion_test.dart: button variants and states, pairs order Brightness.light
+00:02 +65 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_scope_board_test.dart: QZ_Picker layout and real status colors Brightness.dark
+00:02 +66 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_scope_board_test.dart: QZ_Picker layout and real status colors Brightness.dark
+00:02 +67 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_scope_board_test.dart: QZ_Picker layout and real status colors Brightness.dark
+00:02 +68 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_scope_board_test.dart: QZ_Picker layout and real status colors Brightness.dark
+00:03 +69 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_scope_board_test.dart: QZ_Picker layout and real status colors Brightness.dark
+00:03 +70 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_avatar_fallback_test.dart: ST_Avatars uses people for nonletters Brightness.light
+00:03 +71 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_scope_board_test.dart: QZ_Picker separate expansion and caret timelines Brightness.dark
+00:03 +72 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_scope_board_test.dart: QZ_Picker selection mark pops at 110ms Brightness.dark
+00:03 +73 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_scope_board_test.dart: QZ_Picker layout and real status colors Brightness.light
+00:03 +74 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_scope_board_test.dart: QZ_Picker separate expansion and caret timelines Brightness.light
+00:03 +75 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_scope_board_test.dart: QZ_Picker selection mark pops at 110ms Brightness.light
+00:03 +76 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/placeholder_figure_test.dart: placeholder keeps the value and hides developer reason in Brightness.dark
+00:04 +77 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/state_patterns_test.dart: primary state matches ST_NoExam and keeps keyboard access Brightness.dark
+00:04 +78 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/state_patterns_test.dart: primary state matches ST_NoExam and keeps keyboard access Brightness.dark
+00:04 +79 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/state_patterns_test.dart: primary state matches ST_NoExam and keeps keyboard access Brightness.dark
+00:04 +80 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/review_list_test.dart: Wrong is the default filter
+00:04 +81 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/review_list_test.dart: Wrong is the default filter
+00:04 +82 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/answer_reveal_test.dart: a correct answer says so with its interval
+00:04 +83 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/answer_reveal_test.dart: a correct answer says so with its interval
+00:04 +84 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/answer_reveal_test.dart: a correct answer says so with its interval
+00:04 +85 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/answer_reveal_test.dart: a correct answer says so with its interval
+00:04 +86 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/answer_reveal_test.dart: a correct answer says so with its interval
+00:04 +87 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/answer_reveal_test.dart: a correct answer says so with its interval
+00:04 +88 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/answer_reveal_test.dart: a correct answer says so with its interval
+00:04 +89 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/answer_reveal_test.dart: a correct answer says so with its interval
+00:04 +90 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/review_list_test.dart: All is one tap away
+00:04 +91 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/review_list_test.dart: All is one tap away
+00:04 +92 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/review_list_test.dart: All is one tap away
+00:04 +93 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/review_list_test.dart: All is one tap away
+00:04 +94 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/answer_reveal_test.dart: note B renders for Pro on a miss
+00:04 +95 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/review_list_test.dart: grouped mode heads each subject with a count
+00:04 +96 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/answer_reveal_test.dart: note B is absent for Free, with nothing in its place
+00:04 +97 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/review_list_test.dart: flat mode has no headings
+00:04 +98 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/review_list_test.dart: flat mode has no headings
+00:04 +99 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/answer_reveal_test.dart: note B is absent when the content has no rationale
+00:04 +100 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/review_list_test.dart: tapping a row expands it in place
+00:04 +101 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/review_list_test.dart: two rows can be open at once
+00:04 +102 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/review_list_test.dart: Free sees note A and nothing about note B
+00:04 +103 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/review_list_test.dart: Pro sees note B
+00:04 +104 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/review_list_test.dart: the pennant is tappable and reports the question
+00:04 +105 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/theme_control_test.dart: each segment has a 48dp target and a 22dp visual
+00:04 +106 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/theme_control_test.dart: each segment has a 48dp target and a 22dp visual
+00:05 +107 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/settings_group_test.dart: the heading is Geist 17 at weight 600, sentence case
+00:05 +108 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/settings_group_test.dart: the heading is Geist 17 at weight 600, sentence case
+00:05 +109 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/settings_group_test.dart: the heading is Geist 17 at weight 600, sentence case
+00:05 +110 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/settings_group_test.dart: the heading is Geist 17 at weight 600, sentence case
+00:05 +111 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/math_accessibility_test.dart: lesson math at 200% text scale inline exponent consumes the active text scaler exactly once
+00:05 +112 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/math_accessibility_test.dart: lesson math at 200% text scale inline exponent consumes the active text scaler exactly once
+00:05 +113 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/math_accessibility_test.dart: lesson math at 200% text scale inline exponent consumes the active text scaler exactly once
+00:05 +114 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/gallery_board_polish_test.dart: unavailable topics keep their expanded lessons inactive
+00:05 +115 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/gallery_board_polish_test.dart: unavailable topics keep their expanded lessons inactive
+00:05 +116 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/gallery_board_polish_test.dart: unavailable topics keep their expanded lessons inactive
+00:05 +117 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/gallery_board_polish_test.dart: unavailable topics keep their expanded lessons inactive
+00:05 +118 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/gallery_board_polish_test.dart: unavailable topics keep their expanded lessons inactive
+00:05 +119 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/gallery_board_polish_test.dart: unavailable topics keep their expanded lessons inactive
+00:05 +120 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/reader_content_extensions_test.dart: described missing image is silently skipped without gaps
+00:05 +121 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/reader_content_extensions_test.dart: described missing image is silently skipped without gaps
+00:05 +122 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/reader_content_extensions_test.dart: described missing image is silently skipped without gaps
+00:05 +123 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/reader_content_extensions_test.dart: described missing image is silently skipped without gaps
+00:05 +124 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/reader_content_extensions_test.dart: described missing image is silently skipped without gaps
+00:05 +125 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/reader_content_extensions_test.dart: described missing image is silently skipped without gaps
+00:05 +126 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/reader_content_extensions_test.dart: described missing image is silently skipped without gaps
+00:05 +127 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/reader_content_extensions_test.dart: described missing image is silently skipped without gaps
+00:05 +128 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/reader_content_extensions_test.dart: described missing image is silently skipped without gaps
+00:05 +129 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/reader_content_extensions_test.dart: described missing image is silently skipped without gaps
+00:05 +130 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/reader_content_extensions_test.dart: described missing image is silently skipped without gaps
+00:05 +131 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/reader_content_extensions_test.dart: described missing image is silently skipped without gaps
+00:05 +132 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/reader_content_extensions_test.dart: described missing image is silently skipped without gaps
+00:05 +133 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/topic_scope_index_test.dart: renders subject heading and topic rows
+00:05 +134 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/topic_scope_index_test.dart: renders subject heading and topic rows
+00:05 +135 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/topic_scope_index_test.dart: renders subject heading and topic rows
+00:05 +136 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/study_state_extensions_test.dart: Study state board metrics Brightness.dark 1.0
+00:05 +137 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/study_state_extensions_test.dart: Study state board metrics Brightness.dark 1.0
+00:05 +138 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/study_state_extensions_test.dart: Study state board metrics Brightness.dark 1.0
+00:06 +139 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/study_state_extensions_test.dart: Study state board metrics Brightness.dark 1.0
+00:06 +140 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/study_state_extensions_test.dart: Study state board metrics Brightness.dark 1.0
+00:06 +141 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/study_state_extensions_test.dart: Study state board metrics Brightness.dark 1.0
+00:06 +142 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/reader_content_extensions_test.dart: reader frames credits and keyboard viewer Brightness.dark 1.0
+00:06 +143 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/sort_cycle_button_test.dart: sort SortCycleOrder.weakest metrics and keyboard in Brightness.dark
+00:06 +144 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/sort_cycle_button_test.dart: sort SortCycleOrder.weakest metrics and keyboard in Brightness.dark
+00:06 +145 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/sort_cycle_button_test.dart: sort SortCycleOrder.weakest metrics and keyboard in Brightness.dark
+00:06 +146 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/sort_cycle_button_test.dart: sort SortCycleOrder.weakest metrics and keyboard in Brightness.dark
+00:06 +147 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/sort_cycle_button_test.dart: sort SortCycleOrder.weakest metrics and keyboard in Brightness.dark
+00:06 +148 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/sort_cycle_button_test.dart: sort SortCycleOrder.weakest metrics and keyboard in Brightness.dark
+00:06 +149 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/sort_cycle_button_test.dart: sort SortCycleOrder.weakest metrics and keyboard in Brightness.dark
+00:06 +150 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/sort_cycle_button_test.dart: sort SortCycleOrder.weakest metrics and keyboard in Brightness.dark
+00:06 +151 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/sort_cycle_button_test.dart: sort SortCycleOrder.weakest metrics and keyboard in Brightness.dark
+00:06 +152 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/sort_cycle_button_test.dart: sort SortCycleOrder.weakest metrics and keyboard in Brightness.dark
+00:06 +153 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/sort_cycle_button_test.dart: sort SortCycleOrder.weakest metrics and keyboard in Brightness.dark
+00:06 +154 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/sort_cycle_button_test.dart: sort SortCycleOrder.weakest metrics and keyboard in Brightness.dark
+00:06 +155 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/sort_cycle_button_test.dart: sort SortCycleOrder.weakest metrics and keyboard in Brightness.dark
+00:06 +156 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pro_paused_line_test.dart: paused line matches body style with no action in Brightness.dark
+00:06 +157 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pro_paused_line_test.dart: paused line matches body style with no action in Brightness.dark
+00:06 +158 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pro_paused_line_test.dart: paused line matches body style with no action in Brightness.dark
+00:06 +159 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/sort_cycle_button_test.dart: sort SortCycleOrder.strongest metrics and keyboard in Brightness.dark
+00:06 +160 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_question_states_test.dart: choice results draw and announce their states Brightness.dark
+00:06 +161 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_question_states_test.dart: choice results draw and announce their states Brightness.dark
+00:06 +162 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_question_states_test.dart: choice results draw and announce their states Brightness.dark
+00:06 +163 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_question_states_test.dart: choice results draw and announce their states Brightness.dark
+00:06 +164 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_question_states_test.dart: choice results draw and announce their states Brightness.dark
+00:06 +165 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_question_states_test.dart: choice results draw and announce their states Brightness.dark
+00:06 +166 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_question_states_test.dart: choice results draw and announce their states Brightness.dark
+00:06 +167 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_question_states_test.dart: choice results draw and announce their states Brightness.dark
+00:06 +168 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_question_states_test.dart: grid labels include result current and flag states Brightness.dark
+00:07 +169 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_question_states_test.dart: choice results draw and announce their states Brightness.light
+00:07 +170 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_question_states_test.dart: grid labels include result current and flag states Brightness.light
+00:07 +171 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/shared_board_corrections_test.dart: busy button holds its last frame under reduced motion
+00:08 +172 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/study_map_extensions_test.dart: Study Today metrics, contrast and keyboard false 1.0
+00:08 +173 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/study_map_extensions_test.dart: Study Today metrics, contrast and keyboard false 1.0
+00:08 +174 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/shared_board_corrections_test.dart: dark destructive text uses the readable approved red
+00:08 +175 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/study_map_extensions_test.dart: Study Today metrics, contrast and keyboard false 2.0
+00:08 +176 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/data_row_tile_test.dart: a data row is 30 tall plus 4px padding, not 44
+00:08 +177 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/data_row_tile_test.dart: a data row is 30 tall plus 4px padding, not 44
+00:08 +178 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/data_row_tile_test.dart: a data row is 30 tall plus 4px padding, not 44
+00:08 +179 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/data_row_tile_test.dart: a data row is 30 tall plus 4px padding, not 44
+00:08 +180 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/data_row_tile_test.dart: a data row is 30 tall plus 4px padding, not 44
+00:08 +181 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/data_row_tile_test.dart: a data row is 30 tall plus 4px padding, not 44
+00:08 +182 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_switch_test.dart: switch false metrics and keyboard in Brightness.dark
+00:08 +183 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_switch_test.dart: switch false metrics and keyboard in Brightness.dark
+00:08 +184 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_switch_test.dart: switch false metrics and keyboard in Brightness.dark
+00:08 +185 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_switch_test.dart: switch false metrics and keyboard in Brightness.dark
+00:08 +186 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_switch_test.dart: switch false metrics and keyboard in Brightness.dark
+00:08 +187 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_switch_test.dart: switch false metrics and keyboard in Brightness.dark
+00:08 +188 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_switch_test.dart: switch false metrics and keyboard in Brightness.dark
+00:08 +189 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_switch_test.dart: switch false metrics and keyboard in Brightness.dark
+00:08 +190 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_switch_test.dart: switch false metrics and keyboard in Brightness.dark
+00:08 +191 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_switch_test.dart: switch false metrics and keyboard in Brightness.dark
+00:08 +192 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_switch_test.dart: switch false metrics and keyboard in Brightness.dark
+00:08 +193 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_switch_test.dart: switch false metrics and keyboard in Brightness.dark
+00:08 +194 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_switch_test.dart: switch false metrics and keyboard in Brightness.dark
+00:08 +195 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_switch_test.dart: switch false metrics and keyboard in Brightness.dark
+00:08 +196 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_switch_test.dart: switch false metrics and keyboard in Brightness.dark
+00:08 +197 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_switch_test.dart: switch false metrics and keyboard in Brightness.dark
+00:08 +198 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_switch_test.dart: switch false metrics and keyboard in Brightness.dark
+00:08 +199 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_switch_test.dart: switch false metrics and keyboard in Brightness.dark
+00:08 +200 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/ink_sheet_test.dart: the sheet has an ink top rule, square corners and no shadow
+00:08 +201 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/ink_sheet_test.dart: the sheet has an ink top rule, square corners and no shadow
+00:08 +202 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/ink_sheet_test.dart: the sheet has an ink top rule, square corners and no shadow
+00:08 +203 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/ink_sheet_test.dart: the sheet has an ink top rule, square corners and no shadow
+00:09 +204 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/ink_sheet_test.dart: the sheet has an ink top rule, square corners and no shadow
+00:09 +205 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/ink_sheet_test.dart: the sheet has an ink top rule, square corners and no shadow
+00:09 +206 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/ink_sheet_test.dart: the sheet has an ink top rule, square corners and no shadow
+00:09 +207 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/ink_sheet_test.dart: the sheet has an ink top rule, square corners and no shadow
+00:09 +208 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/inline_math_text_test.dart: InlineMathText sets a dollar-wrapped run as maths rather than printing it
+00:09 +209 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/question_grid_sheet_test.dart: a quiz grid is five columns
+00:09 +210 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/question_grid_sheet_test.dart: a quiz grid is five columns
+00:09 +211 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/question_grid_sheet_test.dart: a quiz grid is five columns
+00:09 +212 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/question_grid_sheet_test.dart: a quiz grid is five columns
+00:09 +213 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/question_grid_sheet_test.dart: a quiz grid is five columns
+00:09 +214 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/question_grid_sheet_test.dart: a quiz grid is five columns
+00:09 +215 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/question_grid_sheet_test.dart: a quiz grid is five columns
+00:09 +216 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/question_grid_sheet_test.dart: a quiz grid is five columns
+00:09 +217 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/spaced_repetition_note_test.dart: it names spaced repetition and nothing under it
+00:09 +218 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/spaced_repetition_note_test.dart: it names spaced repetition and nothing under it
+00:09 +219 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/question_grid_sheet_test.dart: every cell reserves the caret slot
+00:09 +220 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/question_grid_sheet_test.dart: a right answer marks board, a wrong one rust
+00:09 +221 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/stats_band_test.dart: renders Geist numerals with labels and dividers
+00:09 +222 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/stats_band_test.dart: renders Geist numerals with labels and dividers
+00:09 +223 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/stats_band_test.dart: renders Geist numerals with labels and dividers
+00:09 +224 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/question_grid_sheet_test.dart: a mock cell never shows an outcome
+00:09 +225 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/stats_band_test.dart: StatsBand asserts on empty figures
+00:09 +226 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/question_grid_sheet_test.dart: tapping a cell reports its number
+00:10 +227 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/question_grid_sheet_test.dart: tapping a cell reports its number
+00:10 +228 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/ink_wheel_test.dart: the wheel shows its values and starts on the selected one
+00:10 +229 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/ink_wheel_test.dart: the wheel shows its values and starts on the selected one
+00:10 +230 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/ink_wheel_test.dart: the wheel shows its values and starts on the selected one
+00:10 +231 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/ink_wheel_test.dart: scrolling reports the new index
+00:10 +232 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/ink_wheel_test.dart: an empty list renders without throwing
+00:10 +233 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/ink_wheel_test.dart: exposes one labeled selected value with adjustment actions
+00:10 +234 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/contents_glyph_reader_test.dart: Contents glyph preserves the default three-path stroke
+00:10 +235 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/contents_glyph_reader_test.dart: reader Contents glyph uses23px and1.8 in SVG coordinates
+00:10 +236 -1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/contents_glyph_reader_test.dart: changing only Contents stroke repaints the existing painter
+lib/core/ui/components/segmented_switch.dart:23:9: Error: Final field 'unselectedFontWeight' is not initialized by this constructor.
+Try to initialize the field using an initializing formal or a field initializer.
+  const SegmentedSwitch.bookmarks({
+        ^^^^^^^^^
+lib/core/ui/components/segmented_switch.dart:35:20: Context: 'unselectedFontWeight' is defined here.
+  final FontWeight unselectedFontWeight;
+                   ^^^^^^^^^^^^^^^^^^^^
+00:10 +237 -2: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/gallery_test.dart [E]
+  Failed to load "/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/gallery_test.dart":
+  Compilation failed for testPath=/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/gallery_test.dart: lib/core/ui/components/segmented_switch.dart:23:9: Error: Final field 'unselectedFontWeight' is not initialized by this constructor.
+  Try to initialize the field using an initializing formal or a field initializer.
+    const SegmentedSwitch.bookmarks({
+          ^^^^^^^^^
+  lib/core/ui/components/segmented_switch.dart:35:20: Context: 'unselectedFontWeight' is defined here.
+    final FontWeight unselectedFontWeight;
+                     ^^^^^^^^^^^^^^^^^^^^
+  .
+00:12 +237 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/ruled_panel_test.dart: a panel shows its heading and its child
+00:12 +238 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/ruled_panel_test.dart: a panel shows its heading and its child
+00:12 +239 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_image_recovery_test.dart: failed image exposes failure and working Retry semantics
+00:12 +240 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_image_recovery_test.dart: failed image exposes failure and working Retry semantics
+00:12 +241 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_image_recovery_test.dart: failed image exposes failure and working Retry semantics
+00:12 +242 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_image_recovery_test.dart: failed image exposes failure and working Retry semantics
+00:12 +243 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_image_recovery_test.dart: failed image exposes failure and working Retry semantics
+00:12 +244 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_image_recovery_test.dart: failed image exposes failure and working Retry semantics
+00:12 +245 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_image_recovery_test.dart: failed image exposes failure and working Retry semantics
+00:12 +246 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_image_recovery_test.dart: failed image exposes failure and working Retry semantics
+00:12 +247 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/states_completion_test.dart: steps check follows the 240ms keyframe Brightness.dark
+00:12 +248 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/states_completion_test.dart: steps check follows the 240ms keyframe Brightness.dark
+00:12 +249 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/states_completion_test.dart: steps check follows the 240ms keyframe Brightness.dark
+00:12 +250 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/states_completion_test.dart: steps check follows the 240ms keyframe Brightness.dark
+00:12 +251 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_math_markdown_test.dart: emphasis may wrap math without consuming TeX operators Brightness.dark
+00:12 +252 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_math_markdown_test.dart: emphasis may wrap math without consuming TeX operators Brightness.dark
+00:12 +253 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/progress_rule_test.dart: ProgressRule fills proportionally in board green
+00:12 +254 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/states_completion_test.dart: steps all states and typography Brightness.dark
+00:12 +255 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_math_markdown_test.dart: Markdown preserves complete subscript expressions Brightness.dark
+00:12 +256 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_math_markdown_test.dart: Markdown preserves complete subscript expressions Brightness.dark
+00:12 +257 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/states_completion_test.dart: inline and full error never expose raw exceptions Brightness.dark
+00:12 +258 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/states_completion_test.dart: inline and full error never expose raw exceptions Brightness.dark
+00:12 +259 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/states_completion_test.dart: inline and full error never expose raw exceptions Brightness.dark
+00:12 +260 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/states_completion_test.dart: inline and full error never expose raw exceptions Brightness.dark
+00:12 +261 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/states_completion_test.dart: inline and full error never expose raw exceptions Brightness.dark
+00:12 +262 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/states_completion_test.dart: inline and full error never expose raw exceptions Brightness.dark
+00:13 +263 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/states_completion_test.dart: Pro tag metrics and actual contrast Brightness.dark
+00:13 +264 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/states_completion_test.dart: steps check follows the 240ms keyframe Brightness.light
+00:13 +265 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/states_completion_test.dart: loading delay and CSS opacity at keyframes Brightness.light
+00:13 +266 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/empty_state_test.dart: EmptyState renders headline, body and CTA
+00:13 +267 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/empty_state_test.dart: EmptyState renders headline, body and CTA
+00:13 +268 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/empty_state_test.dart: EmptyState renders headline, body and CTA
+00:13 +269 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/empty_state_test.dart: EmptyState renders headline, body and CTA
+00:13 +270 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/mock_gauge_reveal_test.dart: the mock reveal does not announce hidden score or caption
+00:13 +271 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/mock_gauge_reveal_test.dart: the mock reveal does not announce hidden score or caption
+00:13 +272 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/floating_bar_content_test.dart: QN_Report form surface uses a 24 radius and keeps child metrics
+00:13 +273 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/quiz_row_extensions_test.dart: QZ_Tab ring waits then fills over 700 milliseconds
+00:13 +274 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_question_spacing_test.dart: question subject has the board eight pixel gap Brightness.dark
+00:13 +275 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_question_spacing_test.dart: question subject has the board eight pixel gap Brightness.dark
+00:13 +276 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/quiz_row_extensions_test.dart: QZ_Tab keeps 104 under content for the tab bar
+00:13 +277 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/portable_text_renderer_test.dart: block type normal block renders its text content
+00:13 +278 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/portable_text_renderer_test.dart: block type normal block renders its text content
+00:13 +279 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/portable_text_renderer_test.dart: block type normal block renders its text content
+00:14 +280 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/disabled_action_label_test.dart: disabled foreground opt-in preserves other states Brightness.dark
+00:14 +281 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/disabled_action_label_test.dart: disabled foreground opt-in preserves other states Brightness.dark
+00:14 +282 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/disabled_action_label_test.dart: disabled foreground opt-in preserves other states Brightness.dark
+00:14 +283 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/disabled_action_label_test.dart: disabled foreground opt-in preserves other states Brightness.dark
+00:14 +284 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/disabled_action_label_test.dart: disabled foreground opt-in preserves other states Brightness.dark
+00:14 +285 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/disabled_action_label_test.dart: disabled foreground opt-in preserves other states Brightness.dark
+00:14 +286 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/neutral_button_test.dart: existing button variants retain their colors in Brightness.dark
+00:14 +287 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_sheet_test.dart: closed sheet keeps the page interactive without a barrier
+00:14 +288 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_sheet_test.dart: closed sheet keeps the page interactive without a barrier
+00:14 +289 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_sheet_test.dart: closed sheet keeps the page interactive without a barrier
+00:14 +290 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_sheet_test.dart: closed sheet keeps the page interactive without a barrier
+00:14 +291 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_sheet_test.dart: closed sheet keeps the page interactive without a barrier
+00:14 +292 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_sheet_test.dart: closed sheet keeps the page interactive without a barrier
+00:14 +293 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_sheet_test.dart: closed sheet keeps the page interactive without a barrier
+00:14 +294 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_sheet_test.dart: closed sheet keeps the page interactive without a barrier
+00:14 +295 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_sheet_test.dart: closed sheet keeps the page interactive without a barrier
+00:14 +296 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_sheet_test.dart: closed sheet keeps the page interactive without a barrier
+00:14 +297 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_sheet_test.dart: closed sheet keeps the page interactive without a barrier
+00:14 +298 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_sheet_test.dart: closed sheet keeps the page interactive without a barrier
+00:14 +299 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_sheet_test.dart: closed sheet keeps the page interactive without a barrier
+00:14 +300 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_sheet_test.dart: closed sheet keeps the page interactive without a barrier
+00:14 +301 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_sheet_test.dart: closed sheet keeps the page interactive without a barrier
+00:14 +302 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_sheet_test.dart: closed sheet keeps the page interactive without a barrier
+00:14 +303 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_sheet_test.dart: closed sheet keeps the page interactive without a barrier
+00:14 +304 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/check_mark_test.dart: check size and real icon contrast in Brightness.dark
+00:14 +305 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/check_mark_test.dart: check size and real icon contrast in Brightness.dark
+00:14 +306 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/check_mark_test.dart: check size and real icon contrast in Brightness.dark
+00:14 +307 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/check_mark_test.dart: check size and real icon contrast in Brightness.dark
+00:14 +308 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/check_mark_test.dart: check size and real icon contrast in Brightness.dark
+00:14 +309 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/check_mark_test.dart: check size and real icon contrast in Brightness.dark
+00:14 +310 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/check_mark_test.dart: check size and real icon contrast in Brightness.dark
+00:14 +311 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/check_mark_test.dart: check size and real icon contrast in Brightness.dark
+00:14 +312 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/check_mark_test.dart: check size and real icon contrast in Brightness.dark
+00:14 +313 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/check_mark_test.dart: check size and real icon contrast in Brightness.dark
+00:14 +314 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/check_mark_test.dart: check size and real icon contrast in Brightness.dark
+00:14 +315 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/check_mark_test.dart: check size and real icon contrast in Brightness.dark
+00:14 +316 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_sheet_test.dart: sheet closes from a downward drag at the top of long contents
+00:14 +317 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_sheet_test.dart: sheet closes from a downward drag at the top of long contents
+00:14 +318 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/check_mark_test.dart: check size and real icon contrast in Brightness.light
+00:14 +319 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_sheet_test.dart: sheet false final metrics and keyboard in Brightness.dark
+00:14 +320 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/check_mark_test.dart: check uses the day board pop at 210ms in Brightness.light
+00:14 +321 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_sheet_test.dart: sheet true final metrics and keyboard in Brightness.dark
+00:15 +322 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_sheet_test.dart: bookmarks sheet and page reach board values at 225ms in Brightness.dark
+00:15 +323 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_sheet_test.dart: sheet false final metrics and keyboard in Brightness.light
+00:15 +324 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pantas_sheet_test.dart: sheet true final metrics and keyboard in Brightness.light
+00:15 +325 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_quiz_count_test.dart: quiz count real score and board arc in Brightness.dark
+00:15 +326 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/half_ring_gauge_quiz_count_test.dart: quiz count real score and board arc in Brightness.dark
+00:16 +327 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/exam_date_sheet_test.dart: the sheet offers all three answers
+00:16 +328 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/exam_date_sheet_test.dart: the sheet offers all three answers
+00:16 +329 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/exam_date_sheet_test.dart: the sheet offers all three answers
+00:16 +330 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/exam_date_sheet_test.dart: the sheet offers all three answers
+00:16 +331 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/exam_date_sheet_test.dart: the sheet offers all three answers
+00:16 +332 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/exam_date_sheet_test.dart: the sheet offers all three answers
+00:16 +333 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/exam_date_sheet_test.dart: the sheet offers all three answers
+00:16 +334 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/exam_date_sheet_test.dart: the sheet offers all three answers
+00:16 +335 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/exam_date_sheet_test.dart: the sheet offers all three answers
+00:16 +336 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/containers_completion_test.dart: confirmation variants and keyboard Brightness.dark
+00:16 +337 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/containers_completion_test.dart: confirmation variants and keyboard Brightness.dark
+00:16 +338 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/containers_completion_test.dart: confirmation variants and keyboard Brightness.dark
+00:16 +339 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/containers_completion_test.dart: confirmation variants and keyboard Brightness.dark
+00:16 +340 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/containers_completion_test.dart: confirmation variants and keyboard Brightness.dark
+00:16 +341 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/study_search_extensions_test.dart: search tells its screen when focus starts and Cancel ends editing
+00:16 +342 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/study_search_extensions_test.dart: search tells its screen when focus starts and Cancel ends editing
+00:16 +343 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/study_search_extensions_test.dart: search tells its screen when focus starts and Cancel ends editing
+00:16 +344 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/study_search_extensions_test.dart: search tells its screen when focus starts and Cancel ends editing
+00:16 +345 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/study_search_extensions_test.dart: search tells its screen when focus starts and Cancel ends editing
+00:16 +346 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/study_search_extensions_test.dart: search tells its screen when focus starts and Cancel ends editing
+00:16 +347 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/board_button_test.dart: primary renders board fill and fires onPressed
+00:16 +348 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/board_button_test.dart: primary renders board fill and fires onPressed
+00:16 +349 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/board_button_test.dart: primary renders board fill and fires onPressed
+00:16 +350 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/board_button_test.dart: primary renders board fill and fires onPressed
+00:16 +351 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/board_button_test.dart: primary renders board fill and fires onPressed
+00:17 +352 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/board_button_test.dart: primary renders board fill and fires onPressed
+00:17 +353 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/containers_completion_test.dart: grid modes columns, all states and keyboard Brightness.dark
+00:17 +354 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/containers_completion_test.dart: grid modes columns, all states and keyboard Brightness.dark
+00:17 +355 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/containers_completion_test.dart: grid modes columns, all states and keyboard Brightness.dark
+00:17 +356 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/containers_completion_test.dart: grid modes columns, all states and keyboard Brightness.dark
+00:17 +357 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/containers_completion_test.dart: grid modes columns, all states and keyboard Brightness.dark
+00:17 +358 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/containers_completion_test.dart: confirmation variants and keyboard Brightness.light
+00:17 +359 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/containers_completion_test.dart: toast metrics, undo keyboard and intermediate rise Brightness.light
+00:17 +360 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_grid_dim_test.dart: future mock parts retain board dimming Brightness.dark
+00:17 +361 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_grid_dim_test.dart: future mock parts retain board dimming Brightness.dark
+00:17 +362 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_grid_dim_test.dart: future mock parts retain board dimming Brightness.dark
+00:17 +363 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_grid_dim_test.dart: future mock parts retain board dimming Brightness.dark
+00:17 +364 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_grid_dim_test.dart: future mock parts retain board dimming Brightness.dark
+00:17 +365 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/settings_switch_test.dart: the switch is 32 by 18 in both states
+00:17 +366 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/settings_switch_test.dart: the switch is 32 by 18 in both states
+00:17 +367 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/settings_switch_test.dart: the switch is 32 by 18 in both states
+00:17 +368 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/settings_switch_test.dart: the switch is 32 by 18 in both states
+00:17 +369 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/settings_switch_test.dart: the switch is 32 by 18 in both states
+00:17 +370 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/content_completion_test.dart: answer reveal uses the 70ms fade midpoint Brightness.dark
+00:17 +371 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/content_completion_test.dart: answer reveal uses the 70ms fade midpoint Brightness.dark
+00:17 +372 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/content_completion_test.dart: answer reveal uses the 70ms fade midpoint Brightness.dark
+00:17 +373 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/content_completion_test.dart: answer reveal uses the 70ms fade midpoint Brightness.dark
+00:17 +374 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/content_completion_test.dart: answer reveal uses the 70ms fade midpoint Brightness.dark
+00:17 +375 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/content_completion_test.dart: answer reveal uses the 70ms fade midpoint Brightness.dark
+00:17 +376 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/content_completion_test.dart: answer reveal uses the 70ms fade midpoint Brightness.dark
+00:18 +377 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/content_completion_test.dart: picked border halfway and math painted scale Brightness.dark
+00:18 +378 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/full_state_board_test.dart: full state matches SY_Error metrics and real backgrounds Brightness.dark
+00:18 +379 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/full_state_board_test.dart: full state matches SY_Error metrics and real backgrounds Brightness.dark
+00:18 +380 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/full_state_board_test.dart: full state matches SY_Error metrics and real backgrounds Brightness.dark
+00:18 +381 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/full_state_board_test.dart: full state matches SY_Error metrics and real backgrounds Brightness.dark
+00:19 +382 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/practice_scope_extensions_test.dart: empty lessons stay dimmed and out of topic picks at 1.0
+00:19 +383 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/practice_scope_extensions_test.dart: empty lessons stay dimmed and out of topic picks at 1.0
+00:19 +384 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/content_completion_test.dart: answer notes and passage real metrics Brightness.dark
+00:19 +385 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/content_completion_test.dart: answer notes and passage real metrics Brightness.dark
+00:19 +386 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/full_state_board_test.dart: full state matches SY_Error metrics and real backgrounds Brightness.light
+00:19 +387 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/practice_scope_extensions_test.dart: empty lessons stay dimmed and out of topic picks at 2.0
+00:19 +388 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/answer_row_test.dart: graded states show glyphs, never emoji
+00:19 +389 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/answer_row_test.dart: graded states show glyphs, never emoji
+00:19 +390 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/content_completion_test.dart: renderer block styles and safe fallback Brightness.dark
+00:19 +391 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/content_completion_test.dart: renderer block styles and safe fallback Brightness.dark
+00:19 +392 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/answer_row_test.dart: selection and graded result are exposed once
+00:19 +393 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/content_completion_test.dart: framed figures expand, zoom, credit and close by keyboard Brightness.dark
+00:19 +394 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/content_completion_test.dart: framed figures expand, zoom, credit and close by keyboard Brightness.dark
+00:19 +395 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/content_completion_test.dart: answer reveal uses the 70ms fade midpoint Brightness.light
+00:19 +396 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/content_completion_test.dart: picked border halfway and math painted scale Brightness.light
+00:19 +397 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/content_completion_test.dart: renderer plain markdown and malformed blocks Brightness.light
+00:19 +398 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/content_completion_test.dart: question stem metrics and white figure backing Brightness.light
+00:19 +399 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/content_completion_test.dart: choice all states, real insets/colors and keyboard Brightness.light
+00:19 +400 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/content_completion_test.dart: answer notes and passage real metrics Brightness.light
+00:20 +401 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/content_completion_test.dart: math promotion, speech, malformed fallback and large fit Brightness.light
+00:20 +402 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_color_tokens_test.dart: board additions are named light/dark tokens
+00:20 +403 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/content_completion_test.dart: renderer block styles and safe fallback Brightness.light
+00:20 +404 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_color_tokens_test.dart: unchecked controls and credit use compliant real pairs Brightness.dark
+00:20 +405 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_color_tokens_test.dart: unchecked controls and credit use compliant real pairs Brightness.dark
+00:20 +406 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_color_tokens_test.dart: unchecked controls and credit use compliant real pairs Brightness.dark
+00:20 +407 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/ink_checkbox_test.dart: on fills and shows a check
+00:20 +408 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_color_tokens_test.dart: unchecked controls and credit use compliant real pairs Brightness.light
+00:20 +409 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/list_row_title_widget_test.dart: default title keeps truncation and the existing tap
+00:20 +410 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/list_row_title_widget_test.dart: default title keeps truncation and the existing tap
+00:20 +411 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/list_row_title_widget_test.dart: default title keeps truncation and the existing tap
+00:20 +412 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/list_row_title_widget_test.dart: default title keeps truncation and the existing tap
+00:20 +413 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/list_row_title_widget_test.dart: default title keeps truncation and the existing tap
+00:20 +414 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/list_row_title_widget_test.dart: default title keeps truncation and the existing tap
+00:20 +415 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/list_row_title_widget_test.dart: default title keeps truncation and the existing tap
+00:20 +416 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/list_row_title_widget_test.dart: default title keeps truncation and the existing tap
+00:20 +417 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/accessibility_test.dart: accessibility harness runs Flutter accessibility guidelines on a shared surface
+00:21 +418 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/accessibility_test.dart: accessibility harness runs Flutter accessibility guidelines on a shared surface
+00:21 +419 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/accessibility_test.dart: accessibility harness runs Flutter accessibility guidelines on a shared surface
+00:21 +420 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/accessibility_test.dart: the harness supports a compact dark 200% case
+00:21 +421 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/accessibility_test.dart: an actionable banner survives 200% at 320dp
+00:21 +422 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/accessibility_test.dart: UI Kit components survival under text scale 2.0 AnswerReveal survives 200% text scale
+00:21 +423 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/accessibility_test.dart: UI Kit components survival under text scale 2.0 AnswerRow survives 200% text scale
+00:21 +424 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/ink_table_row_test.dart: done row shows board check and muted title
+00:21 +425 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/ink_table_row_test.dart: done row shows board check and muted title
+00:21 +426 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/ink_table_row_test.dart: done row shows board check and muted title
+00:21 +427 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/ink_table_row_test.dart: done row shows board check and muted title
+00:21 +428 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/ink_table_row_test.dart: done row shows board check and muted title
+00:21 +429 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/ink_table_row_test.dart: done row shows board check and muted title
+00:21 +430 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/ink_table_row_test.dart: done row shows board check and muted title
+00:21 +431 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/ink_table_row_test.dart: done row shows board check and muted title
+00:21 +432 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/ink_table_row_test.dart: done row shows board check and muted title
+00:21 +433 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/ink_table_row_test.dart: done row shows board check and muted title
+00:21 +434 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/ink_table_row_test.dart: done row shows board check and muted title
+00:21 +435 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/ink_table_row_test.dart: done row shows board check and muted title
+00:21 +436 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/ink_table_row_test.dart: done row shows board check and muted title
+00:21 +437 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/ink_table_row_test.dart: done row shows board check and muted title
+00:21 +438 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/ink_table_row_test.dart: done row shows board check and muted title
+00:21 +439 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_horizontal_wheel_test.dart: horizontal wheel follows QZE_Short metrics and keyboard Brightness.dark
+00:21 +440 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_horizontal_wheel_test.dart: horizontal wheel follows QZE_Short metrics and keyboard Brightness.dark
+00:21 +441 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_horizontal_wheel_test.dart: horizontal wheel follows QZE_Short metrics and keyboard Brightness.dark
+00:21 +442 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_horizontal_wheel_test.dart: horizontal wheel follows QZE_Short metrics and keyboard Brightness.dark
+00:21 +443 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_horizontal_wheel_test.dart: horizontal wheel follows QZE_Short metrics and keyboard Brightness.dark
+00:21 +444 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_horizontal_wheel_test.dart: horizontal wheel follows QZE_Short metrics and keyboard Brightness.dark
+00:21 +445 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_horizontal_wheel_test.dart: horizontal wheel follows QZE_Short metrics and keyboard Brightness.dark
+00:21 +446 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_horizontal_wheel_test.dart: horizontal wheel follows QZE_Short metrics and keyboard Brightness.dark
+00:21 +447 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_horizontal_wheel_test.dart: horizontal wheel follows QZE_Short metrics and keyboard Brightness.dark
+00:21 +448 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_horizontal_wheel_test.dart: horizontal wheel follows QZE_Short metrics and keyboard Brightness.dark
+00:21 +449 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_horizontal_wheel_test.dart: horizontal wheel follows QZE_Short metrics and keyboard Brightness.dark
+00:21 +450 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_horizontal_wheel_test.dart: horizontal wheel follows QZE_Short metrics and keyboard Brightness.dark
+00:21 +451 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_horizontal_wheel_test.dart: horizontal wheel follows QZE_Short metrics and keyboard Brightness.dark
+00:21 +452 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_horizontal_wheel_test.dart: horizontal wheel follows QZE_Short metrics and keyboard Brightness.dark
+00:21 +453 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_horizontal_wheel_test.dart: horizontal wheel follows QZE_Short metrics and keyboard Brightness.dark
+00:21 +454 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_horizontal_wheel_test.dart: horizontal wheel follows QZE_Short metrics and keyboard Brightness.dark
+00:21 +455 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_horizontal_wheel_test.dart: horizontal wheel follows QZE_Short metrics and keyboard Brightness.dark
+00:21 +456 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_horizontal_wheel_test.dart: horizontal wheel follows QZE_Short metrics and keyboard Brightness.dark
+00:21 +457 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_horizontal_wheel_test.dart: horizontal wheel follows QZE_Short metrics and keyboard Brightness.dark
+00:21 +458 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_horizontal_wheel_test.dart: horizontal wheel follows QZE_Short metrics and keyboard Brightness.dark
+00:21 +459 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_horizontal_wheel_test.dart: horizontal wheel follows QZE_Short metrics and keyboard Brightness.dark
+00:21 +460 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_horizontal_wheel_test.dart: horizontal wheel follows QZE_Short metrics and keyboard Brightness.dark
+00:21 +461 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_horizontal_wheel_test.dart: horizontal wheel follows QZE_Short metrics and keyboard Brightness.dark
+00:21 +462 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_horizontal_wheel_test.dart: horizontal wheel follows QZE_Short metrics and keyboard Brightness.dark
+00:21 +463 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_horizontal_wheel_test.dart: horizontal wheel follows QZE_Short metrics and keyboard Brightness.dark
+00:21 +464 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_horizontal_wheel_test.dart: horizontal wheel follows QZE_Short metrics and keyboard Brightness.dark
+00:21 +465 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_horizontal_wheel_test.dart: horizontal wheel follows QZE_Short metrics and keyboard Brightness.dark
+00:22 +466 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/destructive_contrast_test.dart: destructive dialog label is white on red, dark=false
+00:22 +467 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/destructive_contrast_test.dart: destructive dialog label is white on red, dark=false
+00:22 +468 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/destructive_contrast_test.dart: destructive dialog label is white on red, dark=false
+00:22 +469 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/destructive_contrast_test.dart: destructive dialog label is white on red, dark=false
+00:22 +470 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/destructive_contrast_test.dart: destructive dialog label is white on red, dark=false
+00:22 +471 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/destructive_contrast_test.dart: destructive dialog label is white on red, dark=false
+00:22 +472 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/destructive_contrast_test.dart: destructive dialog label is white on red, dark=false
+00:22 +473 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/destructive_contrast_test.dart: destructive dialog label is white on red, dark=false
+00:22 +474 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/destructive_contrast_test.dart: destructive dialog label is white on red, dark=false
+00:22 +475 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/destructive_contrast_test.dart: destructive dialog label is white on red, dark=false
+00:22 +476 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/accessibility_test.dart: UI Kit components survival under text scale 2.0 SettingsValueRow survives 200% text scale
+00:22 +477 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/destructive_contrast_test.dart: delete labels keep contrast before and during deletion, dark=false
+00:22 +478 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/destructive_contrast_test.dart: delete labels keep contrast before and during deletion, dark=false
+00:22 +479 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/destructive_contrast_test.dart: delete labels keep contrast before and during deletion, dark=false
+00:22 +480 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/destructive_contrast_test.dart: delete labels keep contrast before and during deletion, dark=false
+00:22 +481 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/destructive_contrast_test.dart: delete labels keep contrast before and during deletion, dark=false
+00:22 +482 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/exam_selection_row_test.dart: the emblem shows the short name, not the code
+00:22 +483 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/exam_selection_row_test.dart: the emblem shows the short name, not the code
+00:22 +484 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/exam_selection_row_test.dart: the emblem shows the short name, not the code
+00:22 +485 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/exam_selection_row_test.dart: the emblem shows the short name, not the code
+00:22 +486 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/exam_selection_row_test.dart: the emblem shows the short name, not the code
+00:22 +487 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/exam_selection_row_test.dart: the emblem shows the short name, not the code
+00:22 +488 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/question_card_test.dart: an unanswered card offers every choice plainly
+00:22 +489 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/question_card_test.dart: an unanswered card offers every choice plainly
+00:22 +490 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/question_card_test.dart: an unanswered card offers every choice plainly
+00:22 +491 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/question_card_test.dart: an unanswered card offers every choice plainly
+00:23 +492 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/inputs_completion_test.dart: past dates stay inactive and photo renders Brightness.dark
+00:23 +493 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/inputs_completion_test.dart: past dates stay inactive and photo renders Brightness.dark
+00:23 +494 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/inputs_completion_test.dart: past dates stay inactive and photo renders Brightness.dark
+00:23 +495 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/inputs_completion_test.dart: past dates stay inactive and photo renders Brightness.dark
+00:23 +496 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/inputs_completion_test.dart: past dates stay inactive and photo renders Brightness.dark
+00:23 +497 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_dialog_spacing_test.dart: dialog board spacing Brightness.dark destructive=false
+00:23 +498 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_dialog_spacing_test.dart: dialog board spacing Brightness.dark destructive=false
+00:23 +499 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_dialog_spacing_test.dart: dialog board spacing Brightness.dark destructive=false
+00:23 +500 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/audit_dialog_spacing_test.dart: dialog board spacing Brightness.dark destructive=false
+00:23 +501 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/confirmation_dialog_test.dart: ConfirmationDialog shows title, body, cancel and confirm labels
+00:23 +502 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/confirmation_dialog_test.dart: ConfirmationDialog shows title, body, cancel and confirm labels
+00:23 +503 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/confirmation_dialog_test.dart: ConfirmationDialog shows title, body, cancel and confirm labels
+00:23 +504 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/confirmation_dialog_test.dart: ConfirmationDialog shows title, body, cancel and confirm labels
+00:23 +505 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/inputs_completion_test.dart: date today, past, month-only, leap and unlimited year Brightness.dark
+00:23 +506 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/inputs_completion_test.dart: date today, past, month-only, leap and unlimited year Brightness.dark
+00:23 +507 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/inputs_completion_test.dart: date today, past, month-only, leap and unlimited year Brightness.dark
+00:23 +508 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/inputs_completion_test.dart: date today, past, month-only, leap and unlimited year Brightness.dark
+00:23 +509 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/inputs_completion_test.dart: date today, past, month-only, leap and unlimited year Brightness.dark
+00:23 +510 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/inputs_completion_test.dart: date today, past, month-only, leap and unlimited year Brightness.dark
+00:23 +511 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/inputs_completion_test.dart: date today, past, month-only, leap and unlimited year Brightness.dark
+00:23 +512 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/practice_page_extensions_test.dart: picker heading stays fixed while content scrolls
+00:24 +513 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/practice_page_extensions_test.dart: picker heading stays fixed while content scrolls
+00:24 +514 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/practice_page_extensions_test.dart: picker heading stays fixed while content scrolls
+00:24 +515 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/practice_page_extensions_test.dart: picker heading stays fixed while content scrolls
+00:24 +516 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/practice_page_extensions_test.dart: picker heading stays fixed while content scrolls
+00:24 +517 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/floating_bar_motion_override_test.dart: content opts into exact frame duration and curve
+00:24 +518 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/floating_bar_motion_override_test.dart: content opts into exact frame duration and curve
+00:24 +519 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/floating_bar_motion_override_test.dart: content opts into exact frame duration and curve
+00:24 +520 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/floating_bar_motion_override_test.dart: content opts into exact frame duration and curve
+00:24 +521 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/floating_bar_motion_override_test.dart: content opts into exact frame duration and curve
+00:24 +522 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/floating_bar_motion_override_test.dart: content opts into exact frame duration and curve
+00:24 +523 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/content_fallback_contrast_test.dart: unknown content text contrasts with its actual fill Brightness.dark
+00:24 +524 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/inputs_completion_test.dart: avatar photo, name, emoji grapheme, fallback and scaling Brightness.dark
+00:24 +525 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/inputs_completion_test.dart: avatar photo, name, emoji grapheme, fallback and scaling Brightness.dark
+00:24 +526 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/floating_bar_motion_override_test.dart: normal and omitted content defaults stay unchanged
+00:24 +527 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/inputs_completion_test.dart: past dates stay inactive and photo renders Brightness.light
+00:24 +528 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/floating_bar_motion_override_test.dart: frame radius and fill follow the supplied event-relative curve
+00:24 +529 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/floating_bar_motion_override_test.dart: frame radius and fill follow the supplied event-relative curve
+00:24 +530 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/inputs_completion_test.dart: date today, past, month-only, leap and unlimited year Brightness.light
+00:24 +531 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/inputs_completion_test.dart: date today, past, month-only, leap and unlimited year Brightness.light
+00:25 +532 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/exam_name_line_test.dart: the name sits directly under the header, with no gap of its own
+00:25 +533 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/exam_name_line_test.dart: the name sits directly under the header, with no gap of its own
+00:25 +534 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/exam_name_line_test.dart: the name sits directly under the header, with no gap of its own
+00:25 +535 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/exam_name_line_test.dart: the name sits directly under the header, with no gap of its own
+00:25 +536 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pull_ring_test.dart: pull fractions and inherited motion/theme update immediately
+00:25 +537 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pull_ring_test.dart: pull fractions and inherited motion/theme update immediately
+00:25 +538 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/pull_ring_test.dart: pull fractions and inherited motion/theme update immediately
+00:25 +539 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/grouped_section_test.dart: group metrics and external footer in Brightness.dark
+00:25 +540 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/grouped_section_test.dart: group metrics and external footer in Brightness.dark
+00:25 +541 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/grouped_section_test.dart: group metrics and external footer in Brightness.dark
+00:25 +542 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/grouped_section_test.dart: group metrics and external footer in Brightness.dark
+00:25 +543 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/grouped_section_test.dart: group metrics and external footer in Brightness.dark
+00:25 +544 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/grouped_section_test.dart: group metrics and external footer in Brightness.dark
+00:25 +545 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/grouped_section_test.dart: group metrics and external footer in Brightness.dark
+00:25 +546 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/grouped_section_test.dart: group metrics and external footer in Brightness.dark
+00:25 +547 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/grouped_section_test.dart: group metrics and external footer in Brightness.dark
+00:25 +548 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/grouped_section_test.dart: group metrics and external footer in Brightness.dark
+00:25 +549 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/grouped_section_test.dart: group omits optional header and footer in Brightness.dark
+00:25 +550 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/grouped_section_test.dart: group metrics and external footer in Brightness.light
+lib/core/ui/components/segmented_switch.dart:23:9: Error: Final field 'unselectedFontWeight' is not initialized by this constructor.
+Try to initialize the field using an initializing formal or a field initializer.
+  const SegmentedSwitch.bookmarks({
+        ^^^^^^^^^
+lib/core/ui/components/segmented_switch.dart:35:20: Context: 'unselectedFontWeight' is defined here.
+  final FontWeight unselectedFontWeight;
+                   ^^^^^^^^^^^^^^^^^^^^
+00:25 +551 -2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/grouped_section_test.dart: group omits optional header and footer in Brightness.light
+00:26 +552 -3: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/app/router_mock_panel_test.dart [E]
+  Failed to load "/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/app/router_mock_panel_test.dart":
+  Compilation failed for testPath=/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/app/router_mock_panel_test.dart: lib/core/ui/components/segmented_switch.dart:23:9: Error: Final field 'unselectedFontWeight' is not initialized by this constructor.
+  Try to initialize the field using an initializing formal or a field initializer.
+    const SegmentedSwitch.bookmarks({
+          ^^^^^^^^^
+  lib/core/ui/components/segmented_switch.dart:35:20: Context: 'unselectedFontWeight' is defined here.
+    final FontWeight unselectedFontWeight;
+                     ^^^^^^^^^^^^^^^^^^^^
+  .
+lib/core/ui/components/segmented_switch.dart:23:9: Error: Final field 'unselectedFontWeight' is not initialized by this constructor.
+Try to initialize the field using an initializing formal or a field initializer.
+  const SegmentedSwitch.bookmarks({
+        ^^^^^^^^^
+lib/core/ui/components/segmented_switch.dart:35:20: Context: 'unselectedFontWeight' is defined here.
+  final FontWeight unselectedFontWeight;
+                   ^^^^^^^^^^^^^^^^^^^^
+00:26 +552 -4: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_route_coverage_test.dart [E]
+  Failed to load "/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_route_coverage_test.dart":
+  Compilation failed for testPath=/Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_route_coverage_test.dart: lib/core/ui/components/segmented_switch.dart:23:9: Error: Final field 'unselectedFontWeight' is not initialized by this constructor.
+  Try to initialize the field using an initializing formal or a field initializer.
+    const SegmentedSwitch.bookmarks({
+          ^^^^^^^^^
+  lib/core/ui/components/segmented_switch.dart:35:20: Context: 'unselectedFontWeight' is defined here.
+    final FontWeight unselectedFontWeight;
+                     ^^^^^^^^^^^^^^^^^^^^
+  .
+00:26 +552 -4: Some tests failed.
+
+Failing tests:
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/app/router_mock_panel_test.dart: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/app/router_mock_panel_test.dart
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/gallery_test.dart: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/gallery_test.dart
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/segmented_switch_test.dart: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/core/ui/components/segmented_switch_test.dart
+  /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_route_coverage_test.dart: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_route_coverage_test.dart

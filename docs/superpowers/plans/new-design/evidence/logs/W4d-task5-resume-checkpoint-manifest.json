@@ -1,0 +1,51 @@
+{
+  "base": "5e89e4faea44e72aa04cb9174603b4391f89bf20",
+  "policy": "6de899018f0e2056f0b5880292339779ca0e512a",
+  "paths": {
+    "lib/features/quiz/application/completed_quiz.dart": "a192c696f1ed7af52059e2b24bf52f7df7dca0b82aa48b38df05b055b718700f",
+    "lib/features/quiz/presentation/debrief_providers.dart": "21c88a5179212949a8c6c8f17dc2392e1be7aedf3465bb47f6deca0126693903",
+    "lib/features/quiz/presentation/session_end_screen.dart": "84b32b7cf65cc55919e9f93f46481568eaf10d31b5d3f802c67d0df9dfff71d8",
+    "test/features/quiz/presentation/completed_quiz_hydration_test.dart": "62dbc7eafe3f559a7d7003eedd77082e13359a0810d8bd15ff5154bbddcb79c1",
+    "test/features/quiz/presentation/session_end_screen_test.dart": "a51ecd903f886b5351d91a8c23b1c5facac646695813ad8611985b1f88c032b8"
+  },
+  "dirty_patch_sha256": "080c0e12be5e4c86deb9f2b2abedd7ad0ca0d200e414c77b8012096a47c5ae33",
+  "commands": [
+    [
+      "dart",
+      "format",
+      "lib/features/quiz/application/completed_quiz.dart",
+      "lib/features/quiz/presentation/debrief_providers.dart",
+      "lib/features/quiz/presentation/session_end_screen.dart",
+      "test/features/quiz/presentation/completed_quiz_hydration_test.dart",
+      "test/features/quiz/presentation/session_end_screen_test.dart"
+    ],
+    [
+      "flutter",
+      "analyze",
+      "--no-pub",
+      "lib/features/quiz/application/completed_quiz.dart",
+      "lib/features/quiz/presentation/debrief_providers.dart",
+      "lib/features/quiz/presentation/session_end_screen.dart",
+      "test/features/quiz/presentation/completed_quiz_hydration_test.dart",
+      "test/features/quiz/presentation/session_end_screen_test.dart"
+    ],
+    [
+      "flutter",
+      "test",
+      "--no-pub",
+      "test/features/quiz",
+      "test/features/review_prompt",
+      "test/app",
+      "--reporter",
+      "expanded"
+    ]
+  ],
+  "results": [
+    0,
+    0,
+    0
+  ],
+  "passing_tests": 624,
+  "independent_review": false,
+  "route_wiring": false
+}

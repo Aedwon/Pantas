@@ -8,316 +8,383 @@ questions:
     type: direct-computation
     difficulty: easy
     stem: |
-      What is $\sin 45$ degrees?
+      What is $\sin45^\circ$?
     choices:
-      - text: $\dfrac{\sqrt{2}}{2}$
+      - text: '$\dfrac{\sqrt{2}}{2}$'
         correct: true
-      - text: $\dfrac{\sqrt{3}}{2}$
+      - text: '$\dfrac{\sqrt{3}}{2}$'
         rationale: |
-          You used the value for $\sin 60°$. At 45 degrees the sine value is $\dfrac{\sqrt{2}}{2}$.
-      - text: $\dfrac{1}{2}$
+          This uses the sine of $60^\circ$. Both are common special-angle values. Check the radical that belongs to $45^\circ$.
+      - text: '$\dfrac{1}{2}$'
         rationale: |
-          You used the value for $\sin 30°$ instead of $\sin45°$.
-      - text: $\dfrac{\sqrt{2}}{3}$
+          This uses the sine of $30^\circ$. One-half is a familiar sine value. Check the stated angle before choosing the memorized ratio.
+      - text: '$\sqrt{2}$'
         rationale: |
-          You kept the correct numerator but changed the denominator. $\sin45°=\dfrac{\sqrt{2}}{2}$.
+          This takes reciprocal sine. The same radical appears when a fraction is inverted. Check that an acute angle's sine cannot exceed $1$.
     explanation: |
-      $45$ degrees is a standard angle in Quadrant I.
-      $$\sin 45^\circ = \dfrac{\sqrt{2}}{2}$$
+      At $45^\circ$, the unit-circle point has equal positive coordinates. Each coordinate is $\dfrac{\sqrt{2}}{2}$. Sine is the vertical coordinate, so $\sin45^\circ=\dfrac{\sqrt{2}}{2}$.
   - id: q-trigonometry-unit-circle-0002
     type: direct-computation
     difficulty: easy
     stem: |
-      What is $\cos 30$ degrees?
+      What is $\cos30^\circ$?
     choices:
-      - text: $\dfrac{\sqrt{3}}{2}$
+      - text: '$\dfrac{\sqrt{3}}{2}$'
         correct: true
-      - text: $\dfrac{1}{2}$
+      - text: '$\dfrac{1}{2}$'
         rationale: |
-          You used the value for $\cos60°$ instead of $\cos30°$.
-      - text: $\dfrac{\sqrt{2}}{2}$
+          This uses the cosine of $60^\circ$, or the sine of $30^\circ$. Those are the paired special-angle values. Check that the requested value is the horizontal coordinate at $30^\circ$.
+      - text: '$\dfrac{\sqrt{2}}{2}$'
         rationale: |
-          You used the value for $\cos45°$ instead of $\cos30°$.
-      - text: $\dfrac{\sqrt{3}}{3}$
+          This uses the coordinate value at $45^\circ$. That angle has equal horizontal and vertical coordinates. Check whether the stated angle is $45^\circ$.
+      - text: '$\dfrac{\sqrt{3}}{3}$'
         rationale: |
-          You used a tangent-related value instead of $\cos30°$.
+          This uses tangent at $30^\circ$. The radical $\sqrt{3}$ appears in both values. Check that cosine uses the horizontal coordinate, not the ratio of coordinates.
     explanation: |
-      At $30$ degrees in Quadrant I:
-      $$\cos 30^\circ = \dfrac{\sqrt{3}}{2}$$
+      Cosine is the unit-circle point's horizontal coordinate. At $30^\circ$, that coordinate is $\dfrac{\sqrt{3}}{2}$. Therefore $\cos30^\circ=\dfrac{\sqrt{3}}{2}$.
   - id: q-trigonometry-unit-circle-0003
     type: direct-computation
     difficulty: easy
     stem: |
-      What is $\sin 90$ degrees?
+      What is $\sin90^\circ$?
     choices:
-      - text: $1$
+      - text: '$1$'
         correct: true
-      - text: $0$
+      - text: '$0$'
         rationale: |
-          You used the value for $\sin0°$ or $\cos90°$.
-      - text: $\dfrac{1}{2}$
+          This reads the horizontal coordinate instead of the vertical one. The point does contain a zero. Check which coordinate represents sine.
+      - text: '$\dfrac{1}{2}$'
         rationale: |
-          You used the value for $\sin30°$.
-      - text: Undefined
+          This uses the sine of $30^\circ$. One-half is a familiar value for an acute angle. Check the axis point for $90^\circ$.
+      - text: 'Undefined'
         rationale: |
-          You confused sine with $\tan90°$, which is undefined.
+          This gives sine the undefined value of tangent at $90^\circ$. Both functions use the same angle. Check that sine reads a coordinate without dividing.
     explanation: |
-      At $90$ degrees, the unit-circle point is $(0,1)$. Sine is the $y$-coordinate.
-      $$\sin 90^\circ = 1$$
+      At $90^\circ$, the terminal point is $(0,1)$. Sine is the vertical coordinate, so $\sin90^\circ=1$.
   - id: q-trigonometry-unit-circle-0004
     type: direct-computation
     difficulty: easy
     stem: |
-      What is $\cos 180$ degrees?
+      For $0^\circ\leq\theta<360^\circ$, the unit-circle terminal point is $(-1,0)$. What is $\theta$?
     choices:
-      - text: $-1$
+      - text: '$180^\circ$'
         correct: true
-      - text: $1$
+      - text: '$0^\circ$'
         rationale: |
-          You dropped the negative sign from the $x$-coordinate at $180°$.
-      - text: $0$
+          This selects the positive horizontal axis. Both points have vertical coordinate zero. Check the horizontal coordinate's sign.
+      - text: '$90^\circ$'
         rationale: |
-          You used $\cos90°$ or $\sin180°$ instead.
-      - text: Undefined
+          This selects the positive vertical axis. That point has coordinates $(0,1)$. Check which coordinate in the stated point is nonzero.
+      - text: '$270^\circ$'
         rationale: |
-          Cosine is defined at $180°$; the unit-circle point is $(-1,0)$.
+          This selects the negative vertical axis. That point also has one negative coordinate. Check whether the negative coordinate is horizontal or vertical.
     explanation: |
-      At $180$ degrees, the ray points to $(-1,0)$. Cosine is the $x$-coordinate.
-      $$\cos 180^\circ=-1$$
+      The point $(-1,0)$ lies on the negative horizontal axis. A counterclockwise half-turn from the positive horizontal axis reaches it. Thus the angle is $180^\circ$.
   - id: q-trigonometry-unit-circle-0005
     type: direct-computation
     difficulty: medium
     stem: |
-      What is $\cos 120$ degrees?
+      What is $\cos120^\circ$?
     choices:
-      - text: $-\dfrac{1}{2}$
+      - text: '$-\dfrac{1}{2}$'
         correct: true
-      - text: $\dfrac{1}{2}$
+      - text: '$\dfrac{1}{2}$'
         rationale: |
-          You found the correct reference-angle magnitude but missed the Quadrant II sign.
-      - text: $-\dfrac{\sqrt{3}}{2}$
+          This keeps the reference-angle magnitude but makes cosine positive. The reference angle is acute. Check the horizontal coordinate's sign in Quadrant II.
+      - text: '$-\dfrac{\sqrt{3}}{2}$'
         rationale: |
-          You used the sine of the $60°$ reference angle instead of cosine.
-      - text: $\dfrac{\sqrt{3}}{2}$
+          This uses the sine magnitude for the reference angle. It keeps the correct cosine sign. Check that cosine at $60^\circ$ is one-half.
+      - text: '$\dfrac{\sqrt{3}}{2}$'
         rationale: |
-          You used sine and also missed the Quadrant II sign for cosine.
+          This reads sine instead of cosine at $120^\circ$. That sine is positive and has the shown radical. Check which coordinate the question asks for.
     explanation: |
-      $120°$ is in Quadrant II with reference angle $60°$. Cosine is negative there.
-      $$\cos120^\circ=-\dfrac12$$
+      The angle is in Quadrant II. Its reference angle is $180^\circ-120^\circ=60^\circ$. Cosine has magnitude $\cos60^\circ=\dfrac{1}{2}$ and is negative in Quadrant II. Therefore $\cos120^\circ=-\dfrac{1}{2}$.
   - id: q-trigonometry-unit-circle-0006
     type: direct-computation
     difficulty: medium
     stem: |
-      What is $\sin 225$ degrees?
+      What are the coordinates of the unit-circle terminal point at $225^\circ$?
     choices:
-      - text: $-\dfrac{\sqrt{2}}{2}$
+      - text: '$(-\dfrac{\sqrt{2}}{2},-\dfrac{\sqrt{2}}{2})$'
         correct: true
-      - text: $\dfrac{\sqrt{2}}{2}$
+      - text: '$(+\dfrac{\sqrt{2}}{2},+\dfrac{\sqrt{2}}{2})$'
         rationale: |
-          You found the correct magnitude but missed the Quadrant III negative sign for sine.
-      - text: $-\dfrac{\sqrt{3}}{2}$
+          This gives both coordinates positive signs. The reference angle has those positive magnitudes. Check the signs in Quadrant III.
+      - text: '$(+\dfrac{\sqrt{2}}{2},-\dfrac{\sqrt{2}}{2})$'
         rationale: |
-          You used a $60°$ reference-angle value instead of the $45°$ value.
-      - text: $-\dfrac{1}{2}$
+          This makes only the vertical coordinate negative. That is the sign pattern of Quadrant IV. Check where $225^\circ$ lies.
+      - text: '$(-\dfrac{\sqrt{2}}{2},+\dfrac{\sqrt{2}}{2})$'
         rationale: |
-          You used a $30°$ reference-angle value instead of the $45°$ value.
+          This makes only the horizontal coordinate negative. That is the sign pattern of Quadrant II. Check whether $225^\circ$ is above or below the horizontal axis.
     explanation: |
-      The reference angle is $225-180=45°$, and sine is negative in Quadrant III.
-      $$\sin225^\circ=-\dfrac{\sqrt2}{2}$$
+      The reference angle is $225^\circ-180^\circ=45^\circ$. Sine and cosine both have magnitude $\dfrac{\sqrt{2}}{2}$ there. In Quadrant III, both coordinates are negative. The terminal point is $(-\dfrac{\sqrt{2}}{2},-\dfrac{\sqrt{2}}{2})$.
   - id: q-trigonometry-unit-circle-0007
     type: direct-computation
     difficulty: medium
     stem: |
-      What is $\sin(-30)$ degrees?
+      What is $\sin(-30^\circ)$?
     choices:
-      - text: $-\dfrac{1}{2}$
+      - text: '$-\dfrac{1}{2}$'
         correct: true
-      - text: $\dfrac{1}{2}$
+      - text: '$\dfrac{1}{2}$'
         rationale: |
-          You ignored the negative angle and used $\sin30°$.
-      - text: $-\dfrac{\sqrt{3}}{2}$
+          This ignores the clockwise direction and uses the positive $30^\circ$ angle. The reference magnitude is correct. Check whether the terminal point is below the horizontal axis.
+      - text: '$-\dfrac{\sqrt{3}}{2}$'
         rationale: |
-          You used the $60°$ sine magnitude instead of the $30°$ magnitude.
-      - text: $\dfrac{\sqrt{3}}{2}$
+          This uses the cosine magnitude at $30^\circ$ while keeping a negative sign. The two coordinates contain different special-angle values. Check that sine is the vertical coordinate.
+      - text: '$\dfrac{\sqrt{3}}{2}$'
         rationale: |
-          You used the wrong reference-angle value and sign.
+          This reads the positive horizontal coordinate instead of the negative vertical one. Cosine is positive at this angle. Check both the requested function and the quadrant.
     explanation: |
-      Sine is odd: $\sin(-\theta)=-\sin\theta$.
-      $$\sin(-30^\circ)=-\dfrac12$$
+      The angle $-30^\circ$ points clockwise into Quadrant IV. Its reference angle is $30^\circ$. Sine has magnitude one-half and is negative there, so $\sin(-30^\circ)=-\dfrac{1}{2}$.
   - id: q-trigonometry-unit-circle-0008
     type: which-is-true
     difficulty: medium
     stem: |
-      Which statement is true about the unit circle and quadrant signs?
+      Angles are measured in degrees. Considering only sine, cosine, and tangent, which statement about their quadrant signs is true?
     choices:
-      - text: In Quadrant II, both sine and cosine are positive.
+      - text: 'In Quadrant II, both sine and cosine are positive.'
         rationale: |
-          In Quadrant II only sine is positive; cosine is negative.
-      - text: In Quadrant III, only tangent is positive.
+          This uses the positive-coordinate signs of Quadrant I in Quadrant II. An acute reference triangle has positive side lengths. Check the signs of the actual coordinates.
+      - text: 'In Quadrant III, only tangent is positive.'
         correct: true
-      - text: In Quadrant IV, only sine is positive.
+      - text: 'In Quadrant IV, only sine is positive.'
         rationale: |
-          In Quadrant IV only cosine is positive among sine, cosine, and tangent.
-      - text: In Quadrant I, sine is positive but cosine is negative.
+          This assigns the Quadrant II positive-sine pattern to Quadrant IV. Both quadrants have one positive coordinate. Check which coordinate is positive in Quadrant IV.
+      - text: 'In Quadrant I, sine is positive but cosine is negative.'
         rationale: |
-          In Quadrant I both sine and cosine are positive.
+          This makes cosine negative in Quadrant I. The negative cosine sign belongs to the left half of the circle. Check whether Quadrant I lies to the right of the vertical axis.
     explanation: |
-      Quadrant I: all positive. Quadrant II: sine positive. Quadrant III: tangent positive. Quadrant IV: cosine positive.
+      In Quadrant III, both horizontal and vertical coordinates are negative. Thus sine and cosine are negative. Their ratio, tangent, is positive because a negative divided by a negative is positive.
   - id: q-trigonometry-unit-circle-0009
     type: direct-computation
     difficulty: hard
     stem: |
-      What is $\tan 300$ degrees?
+      What is $\tan300^\circ$?
     choices:
-      - text: $-\sqrt{3}$
+      - text: '$-\sqrt{3}$'
         correct: true
-      - text: $\sqrt{3}$
+      - text: '$\sqrt{3}$'
         rationale: |
-          You missed the Quadrant IV negative sign.
-      - text: $-\dfrac{\sqrt{3}}{3}$
+          This omits the quadrant sign. The reference-angle tangent is positive. Check the signs of sine and cosine before dividing.
+      - text: '$-\dfrac{\sqrt{3}}{3}$'
         rationale: |
-          You used $\tan30°$ instead of $\tan60°$ for the reference angle.
-      - text: $\dfrac{\sqrt{3}}{3}$
+          This uses the reciprocal tangent magnitude, which belongs to $30^\circ$. The same radical appears in both values. Check that the reference angle is $60^\circ$.
+      - text: '$\dfrac{\sqrt{3}}{3}$'
         rationale: |
-          You used the wrong reference-angle value and sign.
+          This uses the $30^\circ$ tangent magnitude and makes it positive. Both are familiar first-quadrant values. Check the reference angle and quadrant separately.
     explanation: |
-      $300°$ is in Quadrant IV with reference angle $60°$. Tangent is negative there.
-      $$\tan300^\circ=-\sqrt3$$
+      The angle is in Quadrant IV. Its reference angle is $360^\circ-300^\circ=60^\circ$, with tangent magnitude $\sqrt{3}$. Sine is negative and cosine is positive, so their ratio is negative. Therefore $\tan300^\circ=-\sqrt{3}$.
   - id: q-trigonometry-unit-circle-0010
     type: direct-computation
     difficulty: hard
     stem: |
-      Evaluate $\sin 150$ degrees $+ \cos 300$ degrees.
+      Evaluate $\sin150^\circ+\cos300^\circ$.
     choices:
-      - text: $1$
+      - text: '$1$'
         correct: true
-      - text: $0$
+      - text: '$0$'
         rationale: |
-          You applied a wrong sign to one of the two positive values.
-      - text: $\dfrac{\sqrt{3}}{2}$
+          This gives one of the two one-half values a negative sign. Then the terms cancel. Check each function's quadrant sign before adding.
+      - text: '$\dfrac{1-\sqrt{3}}{2}$'
         rationale: |
-          You used a $60°$ sine magnitude where the correct values are both $1/2$.
-      - text: $\dfrac{1}{2}$
+          This uses sine at $300^\circ$ in place of cosine. That gives $-\dfrac{\sqrt{3}}{2}$ for the second term. Check the function named in each term.
+      - text: '$\dfrac{1}{2}$'
         rationale: |
-          You evaluated only one term.
+          This reports just one term of the sum. Both terms happen to equal one-half. Check that both have been added.
     explanation: |
-      $$\sin150^\circ=\dfrac12,\qquad \cos300^\circ=\dfrac12$$
-      Therefore the sum is $1$.
+      At $150^\circ$, sine is positive with a $30^\circ$ reference angle, so it is $\dfrac{1}{2}$. At $300^\circ$, cosine is positive with a $60^\circ$ reference angle, so it is $\dfrac{1}{2}$. Their sum is $\dfrac{1}{2}+\dfrac{1}{2}=1$.
   - id: q-trigonometry-unit-circle-0011
     type: which-is-true
     difficulty: hard
     stem: |
-      Which statement is true about a point $(\cos \theta, \sin \theta)$ on the unit circle?
+      Angles are measured in degrees. Which statement about the unit-circle point $(\cos\theta,\sin\theta)$ is true?
     choices:
-      - text: Cosine is always the first coordinate and sine is always the second coordinate.
+      - text: 'Cosine is always the first coordinate and sine is always the second coordinate.'
         correct: true
-      - text: Sine is always the first coordinate and cosine is always the second coordinate.
+      - text: 'Sine is always the first coordinate and cosine is always the second coordinate.'
         rationale: |
-          You swapped the coordinates. A unit-circle point is $(\cos\theta,\sin\theta)$.
-      - text: For $\theta=30^\circ$, the unit-circle point is $(\sin30^\circ,\cos30^\circ)=\left(\dfrac12,\dfrac{\sqrt3}{2}\right)$.
+          This reverses the coordinate order. Both functions are needed for the point. Check that the horizontal coordinate comes first.
+      - text: 'For $\theta=30^\circ$, the unit-circle point is $(\sin30^\circ,\cos30^\circ)=\left(\dfrac12,\dfrac{\sqrt3}{2}\right)$.'
         rationale: |
-          The numerical pair shown is $(\sin30^\circ,\cos30^\circ)$, but the unit-circle point for $30^\circ$ must be $(\cos30^\circ,\sin30^\circ)=\left(\dfrac{\sqrt3}{2},\dfrac12\right)$.
-      - text: For a $120$ degree angle, the point is $\left(\dfrac{\sqrt{3}}{2}, \dfrac{1}{2}\right)$.
+          This reverses the two special-angle coordinates at $30^\circ$. Both numerical values are familiar. Check that cosine belongs in the horizontal position.
+      - text: 'For a $120$ degree angle, the point is $\left(\dfrac{\sqrt{3}}{2}, \dfrac{1}{2}\right)$.'
         rationale: |
-          At $120°$, cosine is $-1/2$ and sine is $\sqrt3/2$.
+          This uses positive $30^\circ$ coordinates for a Quadrant II angle. The two magnitudes look familiar. Check the quadrant and reference angle before placing the coordinates.
     explanation: |
-      The unit-circle point for angle $\theta$ is $(\cos\theta,\sin\theta)$: cosine is the $x$-coordinate and sine is the $y$-coordinate. For $30°$ this is $\left(\dfrac{\sqrt3}{2},\dfrac12\right)$; for $120°$ it is $\left(-\dfrac12,\dfrac{\sqrt3}{2}\right)$.
+      Coordinates are ordered horizontally, then vertically. On the unit circle, cosine gives the horizontal coordinate and sine gives the vertical coordinate. Thus the point is $(\cos\theta,\sin\theta)$.
   - id: q-trigonometry-unit-circle-0012
     type: direct-computation
     difficulty: hard
     stem: |
-      What is $\tan 90$ degrees?
+      What is $\tan90^\circ$?
     choices:
-      - text: Undefined
+      - text: 'Tangent is undefined.'
         correct: true
-      - text: $0$
+      - text: 'Tangent equals zero.'
         rationale: |
-          You used $\tan0°$. At $90°$, cosine is zero, so tangent is undefined.
-      - text: $1$
+          This treats a zero denominator as producing zero. The point includes a zero coordinate. Check which coordinate is in tangent's denominator.
+      - text: 'Tangent equals one.'
         rationale: |
-          You used $\tan45°$.
-      - text: $\infty$
+          This uses the tangent value at $45^\circ$. That angle has equal coordinates. Check the terminal point at the stated axis angle.
+      - text: 'Tangent equals positive infinity.'
         rationale: |
-          Infinity is not a real numerical value of tangent at $90°$; the expression is undefined.
+          This treats infinity as a function value after division by zero. Values near the angle can grow very large. Check that dividing by zero does not give a defined value.
     explanation: |
-      $$\tan90^\circ=\frac{\sin90^\circ}{\cos90^\circ}=\frac10,$$
-      which is undefined.
+      At $90^\circ$, the point is $(0,1)$. Tangent divides the vertical coordinate by the horizontal coordinate, giving $1/0$. Division by zero is undefined, so tangent has no value there.
   - id: q-trigonometry-unit-circle-0013
-    type: direct-computation
+    type: which-is-true
     difficulty: hard
     stem: |
-      What is $\sin 210$ degrees?
+      Which pair gives all angles in $0^\circ\leq\theta<360^\circ$ with $\sin\theta=-\dfrac{1}{2}$?
     choices:
-      - text: $-\dfrac{1}{2}$
+      - text: '$210^\circ$ and $330^\circ$'
         correct: true
-      - text: $\dfrac{1}{2}$
+      - text: '$30^\circ$ and $150^\circ$'
         rationale: |
-          You missed the Quadrant III negative sign.
-      - text: $-\dfrac{\sqrt{3}}{2}$
+          This finds the positive one-half sine angles. The reference magnitude is right. Check the required negative sign.
+      - text: '$120^\circ$ and $240^\circ$'
         rationale: |
-          You used a $60°$ reference-angle value instead of $30°$.
-      - text: $\dfrac{\sqrt{3}}{2}$
+          This finds the negative one-half cosine angles. It locates two left-side points. Check that sine is vertical, not horizontal.
+      - text: '$240^\circ$ and $300^\circ$'
         rationale: |
-          You used the wrong magnitude and sign.
+          This uses the negative $60^\circ$ sine magnitude. Both angles lie below the horizontal axis. Check which reference angle has sine one-half.
     explanation: |
-      $210°$ is in Quadrant III with reference angle $30°$, so
-      $$\sin210^\circ=-\dfrac12.$$
+      Sine is the vertical coordinate. A value of $-\dfrac{1}{2}$ lies below the horizontal axis with reference angle $30^\circ$. In Quadrant III the angle is $180^\circ+30^\circ=210^\circ$. In Quadrant IV it is $360^\circ-30^\circ=330^\circ$.
   - id: q-trigonometry-unit-circle-0014
     type: which-is-true
     difficulty: hard
     stem: |
-      Which statement is true about reference angles and signs?
+      Using degrees for angles, which statement about reference angles is true?
     choices:
-      - text: The reference angle for $300$ degrees is $60$ degrees, calculated as $360 - 300$.
+      - text: 'The reference angle for $300$ degrees is $60$ degrees, calculated as $360 - 300$.'
         correct: true
-      - text: The reference angle for $200$ degrees is $160$ degrees, calculated as $360 - 200$.
+      - text: 'The reference angle for $200$ degrees is $160$ degrees, calculated as $360 - 200$.'
         rationale: |
-          $200°$ is in Quadrant III, so its reference angle is $200-180=20°$, not $160°$.
-      - text: All reference angles are found using $180 - \theta$.
+          This applies the Quadrant IV formula to a Quadrant III angle. Subtracting from a full turn looks familiar. Check the angle's quadrant before choosing the reference formula.
+      - text: 'All reference angles are found using $180 - \theta$.'
         rationale: |
-          That formula applies to Quadrant II; other quadrants use different expressions.
-      - text: Reference angles are always positive and always less than $45$ degrees.
+          This uses the Quadrant II formula for every angle. Subtracting from $180^\circ$ is one valid case. Check which horizontal ray is closest to the terminal side.
+      - text: 'Reference angles are always positive and always less than $45$ degrees.'
         rationale: |
-          Reference angles are positive acute angles and can be greater than $45°$, such as the $60°$ reference angle of $120°$.
+          This limits reference angles to less than $45^\circ$. The $45^\circ$ triangle is familiar. Check that any positive angle below $90^\circ$ can be a reference angle.
     explanation: |
-      In Quadrant IV, the reference angle is $360°-\theta$, so the reference angle of $300°$ is $60°$. In Quadrant III, it is $\theta-180°$, so the reference angle of $200°$ is $20°$.
+      The angle $300^\circ$ lies in Quadrant IV. Its reference angle is the acute angle back to the positive horizontal axis: $360^\circ-300^\circ=60^\circ$.
   - id: q-trigonometry-unit-circle-0015
     type: direct-computation
     difficulty: hard
     stem: |
-      What is $\cos(-45)$ degrees?
+      A unit-circle point at $45^\circ$ is reflected across the horizontal axis to the angle $-45^\circ$. What is the reflected point's cosine?
     choices:
-      - text: $\dfrac{\sqrt{2}}{2}$
+      - text: '$\dfrac{\sqrt{2}}{2}$'
         correct: true
-      - text: $-\dfrac{\sqrt{2}}{2}$
+      - text: '$-\dfrac{\sqrt{2}}{2}$'
         rationale: |
-          Cosine is even, so $\cos(-45°)=\cos45°$.
-      - text: $\dfrac{1}{2}$
+          This gives cosine the sign change of sine under reflection. The angle changes sign. Check which coordinate changes across the horizontal axis.
+      - text: '$\dfrac{1}{2}$'
         rationale: |
-          You used the $60°$ magnitude instead of the $45°$ magnitude.
-      - text: $-\dfrac{1}{2}$
+          This uses the cosine magnitude at $60^\circ$. The function's positive sign is correct. Check the $45^\circ$ magnitude.
+      - text: '$-\dfrac{1}{2}$'
         rationale: |
-          You used both the wrong magnitude and sign.
+          This uses the $60^\circ$ magnitude and a negative cosine sign. A negative angle can suggest a negative result. Check the reference angle and horizontal coordinate's sign.
     explanation: |
-      Cosine is even and is positive in Quadrant IV.
-      $$\cos(-45^\circ)=\dfrac{\sqrt2}{2}$$
+      The point at $-45^\circ$ is the reflection of the point at $45^\circ$ across the horizontal axis. The horizontal coordinate stays the same. Its value is $\dfrac{\sqrt{2}}{2}$, so $\cos(-45^\circ)=\dfrac{\sqrt{2}}{2}$.
   - id: q-trigonometry-unit-circle-0016
-    type: direct-computation
+    type: error-spotting
     difficulty: hard
     stem: |
-      What is $\sin 240$ degrees?
+      A student evaluates $\sin240^\circ$. Step 1: $240^\circ$ is in Quadrant III. Step 2: its reference angle is $360^\circ-240^\circ=120^\circ$. Step 3: $\sin240^\circ=-\sin120^\circ=-\dfrac{\sqrt{3}}{2}$. Which is the first incorrect statement?
     choices:
-      - text: $-\dfrac{\sqrt{3}}{2}$
+      - text: 'Step 2'
         correct: true
-      - text: $\dfrac{\sqrt{3}}{2}$
+      - text: 'Step 1'
         rationale: |
-          You missed the Quadrant III negative sign.
-      - text: $-\dfrac{1}{2}$
+          This rejects the quadrant label. The angle may look closer to the bottom axis. Check that Quadrant III runs from $180^\circ$ to $270^\circ$.
+      - text: 'Step 3'
         rationale: |
-          You used the $30°$ sine magnitude instead of the $60°$ magnitude.
-      - text: $\dfrac{1}{2}$
+          This selects the final sine equation as the first error. That final value follows the correct quadrant sign and happens to be right. Check whether the reference-angle statement is valid first.
+      - text: 'No statement is incorrect.'
         rationale: |
-          You used the wrong magnitude and sign.
+          This accepts an obtuse reference angle because the final value is correct. Sine at $120^\circ$ equals sine at $60^\circ$. Check that a reference angle must be acute.
     explanation: |
-      $240°$ is in Quadrant III with reference angle $60°$, so
-      $$\sin240^\circ=-\dfrac{\sqrt3}{2}.$$
+      Step 2 is the first incorrect statement. A Quadrant III reference angle is found by subtracting $180^\circ$, so it is $240^\circ-180^\circ=60^\circ$. Sine is negative there, with magnitude $\sin60^\circ=\dfrac{\sqrt{3}}{2}$. Thus $\sin240^\circ=-\dfrac{\sqrt{3}}{2}$.
+  - id: q-trigonometry-unit-circle-0017
+    type: word-problem
+    difficulty: easy
+    stem: |
+      A tracking display shows a unit-circle point at $(-0.6,0.8)$. Its direction angle $\theta$ is measured in degrees from the positive horizontal axis. What is $\tan\theta$?
+    choices:
+      - text: '$-\dfrac{4}{3}$'
+        correct: true
+      - text: '$-\dfrac{3}{4}$'
+        rationale: |
+          This divides horizontal by vertical, reversing the tangent ratio. Both coordinates are used. Check that tangent is vertical over horizontal.
+      - text: '$\dfrac{4}{3}$'
+        rationale: |
+          This drops the horizontal coordinate's negative sign. The ratio's magnitude is correct. Check the signs before dividing.
+      - text: '$0.8$'
+        rationale: |
+          This reports only the vertical coordinate, which gives sine. That coordinate is already visible. Check that tangent needs both coordinates.
+    explanation: |
+      Tangent is vertical coordinate divided by horizontal coordinate. Thus $\tan\theta=0.8\div(-0.6)=-\dfrac{8}{6}=-\dfrac{4}{3}$.
+    approved: false
+  - id: q-trigonometry-unit-circle-0018
+    type: estimate-first
+    difficulty: medium
+    stem: |
+      Without calculating a decimal value, which interval contains $\cos80^\circ$?
+    choices:
+      - text: '$0<\cos80^\circ<\dfrac{1}{2}$'
+        correct: true
+      - text: '$\dfrac{1}{2}<\cos80^\circ<1$'
+        rationale: |
+          This treats cosine as increasing through Quadrant I. Sine does increase there. Check whether the horizontal coordinate grows or shrinks toward $90^\circ$.
+      - text: '$-\dfrac{1}{2}<\cos80^\circ<0$'
+        rationale: |
+          This assigns a negative sign to a first-quadrant cosine. The angle is close to the vertical axis. Check that the point is still to its right.
+      - text: '$-1<\cos80^\circ<-\dfrac{1}{2}$'
+        rationale: |
+          This uses the left-half cosine range for a first-quadrant angle. Negative values occur on that half. Check where $80^\circ$ lies.
+    explanation: |
+      In Quadrant I, cosine decreases as the angle increases. The angle $80^\circ$ lies between $60^\circ$ and $90^\circ$. Their cosine values are one-half and zero, so $0<\cos80^\circ<\dfrac{1}{2}$.
+    approved: false
+  - id: q-trigonometry-unit-circle-0019
+    type: which-is-true
+    difficulty: hard
+    stem: |
+      For $0^\circ\leq\theta<360^\circ$, $\cos\theta=-\dfrac{1}{2}$ and $\sin\theta<0$. What is $\theta$?
+    choices:
+      - text: '$240^\circ$'
+        correct: true
+      - text: '$120^\circ$'
+        rationale: |
+          This uses the cosine condition but ignores the sine sign. The cosine value matches. Check the vertical coordinate's sign too.
+      - text: '$60^\circ$'
+        rationale: |
+          This returns the reference angle without its quadrant. The cosine magnitude matches. Check both required signs.
+      - text: '$300^\circ$'
+        rationale: |
+          This uses the sine sign but ignores the cosine sign. The angle lies below the horizontal axis. Check that its horizontal coordinate is also negative.
+    explanation: |
+      Cosine one-half in magnitude gives a $60^\circ$ reference angle. Negative cosine places the angle in Quadrant II or III. Negative sine selects Quadrant III. Therefore $\theta=180^\circ+60^\circ=240^\circ$.
+    approved: false
+  - id: q-trigonometry-unit-circle-0020
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      Evaluate $\tan135^\circ\cos240^\circ-\sin(-30^\circ)$.
+    choices:
+      - text: '$1$'
+        correct: true
+      - text: '$0$'
+        rationale: |
+          This treats sine at the negative angle as positive one-half. The product is correctly one-half. Check the clockwise angle's sine sign before subtracting.
+      - text: '$-1$'
+        rationale: |
+          This makes tangent at $135^\circ$ positive and sine at $-30^\circ$ positive. Familiar reference-angle values can hide both signs. Check each quadrant or rotation direction separately.
+      - text: '$\dfrac{1}{2}$'
+        rationale: |
+          This stops after finding the product of tangent and cosine. That product is a needed intermediate value. Check that the final sine term has been subtracted.
+    explanation: |
+      The tangent at $135^\circ$ is $-1$. Cosine at $240^\circ$ is $-\dfrac{1}{2}$, so their product is $\dfrac{1}{2}$. Sine at $-30^\circ$ is $-\dfrac{1}{2}$. Subtracting it gives $\dfrac{1}{2}-(-\dfrac{1}{2})=1$.
+    approved: false

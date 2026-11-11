@@ -56,6 +56,14 @@ class GenerationRepository {
   }) {
     return _gateway.commitBatch([
       FirestoreWrite.set(
+        path: 'users/$_uid/limits/syncGeneration',
+        merge: false,
+        data: {
+          'lastStagedAt': FirestoreServerTimestamp.value,
+          'generationId': generationId,
+        },
+      ),
+      FirestoreWrite.set(
         path: _generationPath(generationId),
         merge: false,
         data: {

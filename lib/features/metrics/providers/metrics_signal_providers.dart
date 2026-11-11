@@ -7,6 +7,7 @@ import 'package:pantas/features/metrics/domain/metric_signal.dart';
 import 'package:pantas/features/metrics/domain/metrics_window.dart';
 import 'package:pantas/features/metrics/domain/signal_key.dart';
 import 'package:pantas/features/metrics/signals/consistency_signal.dart';
+import 'package:pantas/features/metrics/signals/counted_attempts.dart';
 import 'package:pantas/features/metrics/signals/coverage_breadth_signal.dart';
 import 'package:pantas/features/metrics/signals/difficulty_calibration_signal.dart';
 import 'package:pantas/features/metrics/signals/flag_revisit_signal.dart';
@@ -20,6 +21,7 @@ import 'package:pantas/features/metrics/signals/session_shape_signal.dart';
 import 'package:pantas/features/metrics/signals/subject_affinity_signal.dart';
 import 'package:pantas/features/metrics/signals/test_mode_delta_signal.dart';
 import 'package:pantas/features/metrics/signals/time_of_day_signal.dart';
+import 'package:pantas/features/settings/application/settings_providers.dart';
 
 /// Every signal is built from both databases even when it needs only one.
 /// A uniform factory is what lets the registry stay a plain map; the signals
@@ -53,6 +55,7 @@ class MetricsSignalRequest {
     required this.examId,
     required this.now,
     this.prepStartedAt,
+    this.forTendency = false,
   });
 
   final SignalKey signal;
@@ -60,6 +63,7 @@ class MetricsSignalRequest {
   final String examId;
   final DateTime now;
   final DateTime? prepStartedAt;
+  final bool forTendency;
 
   @override
   bool operator ==(Object other) {
@@ -68,11 +72,13 @@ class MetricsSignalRequest {
         other.window == window &&
         other.examId == examId &&
         other.now == now &&
-        other.prepStartedAt == prepStartedAt;
+        other.prepStartedAt == prepStartedAt &&
+        other.forTendency == forTendency;
   }
 
   @override
-  int get hashCode => Object.hash(signal, window, examId, now, prepStartedAt);
+  int get hashCode =>
+      Object.hash(signal, window, examId, now, prepStartedAt, forTendency);
 }
 
 final metricsSignalProvider = FutureProvider.family
@@ -80,13 +86,37 @@ final metricsSignalProvider = FutureProvider.family
         (ref, request) async {
   final db = ref.watch(appDatabaseProvider);
   final contentDb = ref.watch(contentDatabaseProvider);
-  final signal = metricsSignalRegistry[request.signal]!(db, contentDb);
+  // The student's carry-over choice decides whether answers from their other
+  // exams feed the behavior signals. It governs these figures only.
+  final scope = AttemptScope(
+    ref.watch(contentRepositoryProvider),
+    carryOver: (await ref.watch(userSettingsProvider.future)).carryOverProgress,
+  );
+  // ignore: omit_local_variable_types
+  final Signal<Object?> signal = switch (request.signal) {
+    SignalKey.perQuestionSpeed => PerQuestionSpeedSignal(db, scope: scope),
+    SignalKey.testModeDelta => TestModeDeltaSignal(
+        db,
+        contentDb,
+        scope: scope,
+      ),
+    SignalKey.readThenQuiz => ReadThenQuizSignal(db, contentDb, scope: scope),
+    _ => metricsSignalRegistry[request.signal]!(db, contentDb),
+  };
   if (!signal.supportedWindows.contains(request.window)) return null;
   final resolved = await MetricsWindowResolver(db).resolve(
     examId: request.examId,
     window: request.window,
     now: request.now,
     prepStartedAt: request.prepStartedAt,
+    bypassSessionFloor: request.forTendency &&
+        const {
+          SignalKey.testModeDelta,
+          SignalKey.mockStamina,
+          SignalKey.readThenQuiz,
+          SignalKey.perQuestionSpeed,
+          SignalKey.retentionShape,
+        }.contains(request.signal),
   );
   return SignalResult<Object?>(
     window: resolved,

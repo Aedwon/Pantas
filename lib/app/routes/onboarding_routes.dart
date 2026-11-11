@@ -1,0 +1,63 @@
+// ignore_for_file: directives_ordering
+
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/features/assessment/application/assessment_leave_guard.dart';
+import 'package:pantas/features/assessment/assessment.dart';
+import 'package:pantas/features/onboarding/onboarding.dart';
+
+List<RouteBase> onboardingRoutes(Ref ref, {bool web = kIsWeb}) => [
+      GoRoute(
+        path: '/onboarding',
+        builder: (_, __) => const OnboardingPage(),
+      ),
+      GoRoute(
+        path: '/onboarding/custom/name',
+        builder: (_, __) => const CustomTrackNameStep(),
+      ),
+      GoRoute(
+        path: '/onboarding/custom/subjects',
+        builder: (_, state) => CustomTrackSubjectsStep(
+          name: state.uri.queryParameters['name'] ?? '',
+        ),
+      ),
+      GoRoute(
+        path: '/assessment/:examId',
+        builder: (_, state) =>
+            AssessmentPage(examId: state.pathParameters['examId']!),
+        // Browser Back leaves without a pop, so it asks the open assessment
+        // first, and the assessment shows its leave dialog (see
+        // [AssessmentLeaveGuard]).
+        onExit: web
+            ? (context, state) =>
+                ref.read(assessmentLeaveGuardProvider).allowLeave()
+            : null,
+        routes: [
+          GoRoute(
+            path: 'results',
+            // The last question dissolves into the results, which then play
+            // their own entrance. No slide, no blank screen between them.
+            pageBuilder: (_, state) => CustomTransitionPage<void>(
+              key: state.pageKey,
+              transitionDuration: PantasDurations.medium1,
+              reverseTransitionDuration: PantasDurations.medium1,
+              transitionsBuilder: (context, animation, _, child) =>
+                  MediaQuery.disableAnimationsOf(context)
+                      ? child
+                      : FadeTransition(
+                          opacity: animation
+                              .drive(CurveTween(curve: PantasCurves.fade)),
+                          child: child,
+                        ),
+              child: AssessmentResultsPage(
+                examId: state.pathParameters['examId']!,
+              ),
+            ),
+          ),
+        ],
+      ),
+    ];

@@ -2,6 +2,10 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+
+/// Height of the drawing. The design system sets no height for diagrams.
+const double _figureHeight = 270;
 
 /// Original lesson diagrams for Earth Science and Astronomy.
 class EarthScienceDiagramFigure extends StatelessWidget {
@@ -368,20 +372,20 @@ class EarthScienceDiagramFigure extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = context.colors;
     return SizedBox(
-      height: 270,
+      height: _figureHeight,
       child: CustomPaint(
         size: Size.infinite,
         painter: _EarthSciencePainter(
           type: type,
           spec: spec,
-          ink: colors.ink,
-          muted: colors.inkMuted,
-          faint: colors.ruleFaint,
+          ink: colors.label,
+          muted: colors.secondaryLabel,
+          faint: colors.fill,
           background: colors.background,
-          labelStyle: context.textStyles.bodySmall.copyWith(color: colors.ink),
-          smallStyle: context.textStyles.bodySmall.copyWith(
-            color: colors.inkMuted,
-            fontSize: 11,
+          labelStyle: context.type.subhead.copyWith(color: colors.label),
+          smallStyle: context.type.subhead.copyWith(
+            color: colors.secondaryLabel,
+            fontSize: PantasType.phoneCaption.fontSize,
           ),
         ),
       ),

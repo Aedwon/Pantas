@@ -1,290 +1,426 @@
 meta:
-  subject: science
-  topic: physics
-  subtopic: fluid-mechanics
-  exams:
-    - upcat
-    - dlsucet
-    - ustet
-    - dost-sei
+  subject: "science"
+  topic: "physics"
+  subtopic: "fluid-mechanics"
+  exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-physics-fluid-mechanics-0001
-    type: simple-quantitative
-    difficulty: easy
+    type: "simple-quantitative"
+    difficulty: "easy"
     stem: |
       An object has a mass of 300 g and a volume of 150 cm³. Find its density. (Use $\rho = \dfrac{m}{V}$.)
     choices:
-      - text: 2 g/cm^3
+      - text: "2 g/cm^3"
         correct: true
-      - text: 0.5 g/cm^3
+      - text: "0.5 g/cm^3"
         rationale: |
-          You inverted mass and volume ($\dfrac{V}{m} = \dfrac{150}{300}$). Density is $\rho = \dfrac{m}{V} = \dfrac{300}{150} = 2\text{ g/cm}^3$.
-      - text: 450 g/cm^3
+          This computes $150/300$, volume divided by mass. It uses the right values in reverse order. Check the meaning of mass per unit volume.
+      - text: "450 g/cm^3"
         rationale: |
-          You added mass and volume ($300 + 150$). Calculate density using division: $\rho = \dfrac{m}{V}$.
-      - text: 150 g/cm^3
+          This adds $300$ and $150$. Both measurements describe the object. Check whether their units permit addition.
+      - text: "150 g/cm^3"
         rationale: |
-          You subtracted volume from mass ($300 - 150$). Calculate density using division: $\rho = \dfrac{m}{V} = 2\text{ g/cm}^3$.
+          This subtracts $150$ from $300$. Finding a difference can seem useful. Check that density is a ratio, not a difference.
     explanation: |
-      $\rho = \dfrac{m}{V} = \dfrac{300}{150} = 2$ g/cm³.
+      Density is mass divided by volume. Thus $\rho=\dfrac{300}{150}=2\,\mathrm{g/cm^3}$.
     approved: true
+
   - id: q-physics-fluid-mechanics-0002
-    type: classify
-    difficulty: easy
+    type: "classify"
+    difficulty: "easy"
     stem: |
-      An object has a density of 0.8 g/cm³. It is placed in water, which has a density of 1.0 g/cm³. Will the object float or sink?
+      A rigid object of average density $0.8\,\mathrm{g/cm^3}$ is released fully under water of density $1.0\,\mathrm{g/cm^3}$. No other forces act. What is its initial motion?
     choices:
-      - text: Float, since its density is less than water's density.
+      - text: "It rises."
         correct: true
-      - text: Sink, since its density is less than water's density.
+      - text: "It sinks because its density is lower."
         rationale: |
-          You inverted the float/sink criteria. Lower density objects float in denser fluids.
-      - text: Stay perfectly suspended, neither floating nor sinking.
+          This reverses the density comparison. Density is the relevant property. Check whether displaced water weighs more than the object.
+      - text: "It stays suspended because any submerged object is balanced."
         rationale: |
-          You assumed neutral buoyancy. Neutral buoyancy requires exact density matching ($0.8 = 1.0$), which is untrue here.
-      - text: It cannot be determined without knowing the object's shape.
+          This assumes immersion guarantees equilibrium. Buoyancy does act upward. Check whether buoyancy equals weight.
+      - text: "It remains at the same depth because volume is constant."
         rationale: |
-          You claimed shape determines buoyancy. Buoyancy depends directly on average density relative to the fluid.
+          This confuses fixed volume with fixed position. The object is rigid. Check the net vertical force.
     explanation: |
-      An object less dense than the surrounding fluid floats. Since 0.8 g/cm³ is less than water's 1.0 g/cm³, the object floats.
+      When fully submerged, it displaces its full volume of denser water. That water weighs more than the object. Buoyant force exceeds weight, so it rises.
     approved: true
+
   - id: q-physics-fluid-mechanics-0003
-    type: classify
-    difficulty: medium
+    type: "predict-outcome"
+    difficulty: "medium"
     stem: |
-      An object has a density of 1.2 g/cm³. It is placed in water, which has a density of 1.0 g/cm³. Will the object float or sink?
+      A freely floating rigid object is moved from water of density $1.0\,\mathrm{g/cm^3}$ to a liquid of density $0.6\,\mathrm{g/cm^3}$. Its average density is $0.8\,\mathrm{g/cm^3}$. What happens without other forces?
     choices:
-      - text: Sink, since its density is greater than water's density.
+      - text: "It sinks in the new liquid."
         correct: true
-      - text: Float, since its density is greater than water's density.
+      - text: "It floats with less of its volume submerged."
         rationale: |
-          You inverted buoyancy principles. Objects denser than the surrounding fluid sink.
-      - text: Stay perfectly suspended, neither floating nor sinking.
+          This uses the effect of a denser fluid for a less dense one. Changing liquids changes support. Check the direction of the density change.
+      - text: "It stays suspended anywhere in the new liquid."
         rationale: |
-          You assumed neutral buoyancy. Neutral buoyancy requires equal densities ($1.2 = 1.0$), which is false here.
-      - text: It cannot be determined without knowing the object's mass.
+          This assumes the densities match. Both are below water’s density. Check their actual comparison.
+      - text: "It keeps exactly the same submerged volume in both liquids."
         rationale: |
-          You claimed mass knowledge is required. Relative density alone determines floating or sinking.
+          This assumes displacement depends only on the object. Its weight is unchanged. Check the weight of each unit volume of liquid.
     explanation: |
-      An object denser than the surrounding fluid sinks. Since 1.2 g/cm³ is greater than water's 1.0 g/cm³, the object sinks.
+      The object is denser than the new liquid. Even full displacement cannot provide a buoyant force equal to its weight. It sinks.
     approved: true
+
   - id: q-physics-fluid-mechanics-0004
-    type: simple-quantitative
-    difficulty: medium
+    type: "simple-quantitative"
+    difficulty: "medium"
     stem: |
       A solid block, fully submerged in water, displaces 250 cm³ of water. Water has a density of 1 g/cm³. Find the buoyant force on the block. (Use $g = 9.8 \text{ m/s}^2$.)
     choices:
-      - text: 2.45 N
+      - text: "2.45 N"
         correct: true
-      - text: 250 N
+      - text: "250 N"
         rationale: |
-          You used volume in $\text{cm}^3$ directly as force in Newtons. Convert $250\text{ cm}^3$ water to mass ($0.25\text{ kg}$) and multiply by $g = 9.8\text{ m/s}^2$.
-      - text: 24.5 N
+          This treats $250\,\mathrm{cm^3}$ as a force. The displaced volume is prominent. Check that a force requires mass times acceleration.
+      - text: "24.5 N"
         rationale: |
-          You miscalculated unit conversion ($2.5\text{ kg}$ instead of $0.25\text{ kg}$). $0.25 \times 9.8 = 2.45\text{ N}$.
-      - text: 0.25 N
+          This converts $250\,\mathrm g$ to $2.5\,\mathrm{kg}$. A decimal shift is needed, so one place can be missed. Check that grams become kilograms by dividing by $1000$.
+      - text: "0.25 N"
         rationale: |
-          You reported mass of displaced water ($0.25\text{ kg}$) without multiplying by $g = 9.8\text{ m/s}^2$.
+          This reports the mass as a force without multiplying by $g$. The converted mass is part of the calculation. Check the difference between kilograms and newtons.
     explanation: |
-      Mass of displaced water: $(1)(250) = 250$ g $= 0.25$ kg. Weight (buoyant force): $W = mg = (0.25)(9.8) = 2.45$ N.
+      The displaced water has mass $(1)(250)=250\,\mathrm g=0.25\,\mathrm{kg}$. Buoyant force equals its weight: $F_B=(0.25)(9.8)=2.45\,\mathrm N$.
     approved: true
+
   - id: q-physics-fluid-mechanics-0005
-    type: identify
-    difficulty: medium
+    type: "identify"
+    difficulty: "medium"
     stem: |
       What is the formula for pressure?
     choices:
-      - text: P = F/A
+      - text: "$P=F_\\perp/A$"
         correct: true
-      - text: P = F x A
+      - text: "$P=F_\\perp A$"
         rationale: |
-          You multiplied force by area. Pressure is force per unit area: $P = \dfrac{F}{A}$.
-      - text: P = m/V
+          This multiplies force by area. More area can seem to mean more pressure. Check what per unit area means.
+      - text: "$P=m/V$"
         rationale: |
-          You picked density formula ($\rho = \dfrac{m}{V}$). Pressure is force per unit area ($P = \dfrac{F}{A}$).
-      - text: P = mg
+          This uses the density formula. Both density and pressure describe fluids. Check mass per volume versus force per area.
+      - text: "$P=mg$"
         rationale: |
-          You picked weight formula ($W = mg$). Pressure divides force by contact area.
+          This uses the weight formula. Weight can supply a force. Check the area term needed for pressure.
     explanation: |
-      Pressure is force spread over an area: $P = \dfrac{F}{A}$.
+      Pressure is normal force per unit area: $P=\dfrac{F_\perp}{A}$. A given force spread over more area produces less pressure.
     approved: true
+
   - id: q-physics-fluid-mechanics-0006
-    type: cause-effect
-    difficulty: medium
+    type: "cause-effect"
+    difficulty: "medium"
     stem: |
-      According to Bernoulli's Principle, what happens to a fluid's pressure as its speed increases?
+      In steady incompressible flow with negligible viscosity, compare two points on one streamline at the same height. If speed is higher at the second point, how does its static pressure compare?
     choices:
-      - text: The pressure decreases.
+      - text: "It is lower."
         correct: true
-      - text: The pressure increases.
+      - text: "It is higher because the fluid moves faster."
         rationale: |
-          You inverted Bernoulli's relationship. Fluid acceleration creates a localized pressure decrease.
-      - text: The pressure stays exactly the same.
+          This confuses speed with static pressure. Moving fluid can exert a strong force on an obstacle. Check the pressure term in Bernoulli’s equation.
+      - text: "It is unchanged because the height is unchanged."
         rationale: |
-          You assumed pressure is speed-independent. Fluid velocity changes alter internal pressure inverse-proportionally.
-      - text: Pressure and speed are unrelated.
+          This considers only gravitational energy. Equal height removes one term. Check the changing speed term too.
+      - text: "It must be zero wherever speed increases."
         rationale: |
-          You denied fluid dynamics principles. Bernoulli's Principle explicitly relates fluid speed to internal pressure.
+          This extends a pressure reduction to complete removal. Faster flow does lower pressure here. Check that the equation predicts a difference, not necessarily zero pressure.
     explanation: |
-      Bernoulli's Principle describes an inverse relationship: as a fluid's speed increases, its pressure decreases.
+      At equal height, pressure plus kinetic energy per volume stays constant along the stated streamline. Greater speed gives a larger kinetic term. Static pressure is therefore lower.
     approved: true
+
   - id: q-physics-fluid-mechanics-0007
-    type: cause-effect
-    difficulty: hard
+    type: "cause-effect"
+    difficulty: "hard"
     stem: |
-      Air moves faster over the curved top of an airplane wing than beneath its flatter bottom. Using Bernoulli's Principle, explain why this creates lift.
+      Measurements show an airplane wing has higher average pressure below than above. What is the vertical effect of that pressure difference?
     choices:
-      - text: Faster air above the wing has lower pressure; slower air below has higher pressure, and the higher pressure below pushes the wing up more than the lower pressure above pushes it down.
+      - text: "An upward force on the wing"
         correct: true
-      - text: Faster air above the wing has higher pressure, directly pushing the wing upward.
+      - text: "A downward force because upper air pushes harder"
         rationale: |
-          You assigned higher pressure to faster air. Bernoulli's Principle states faster air produces lower pressure.
-      - text: The wing's shape has no effect on air pressure at all.
+          This assigns the larger pressure to the wrong surface. Air presses on both sides. Check the measured pressure difference.
+      - text: "No force because pressure only acts horizontally"
         rationale: |
-          You denied aerodynamic shape effects. Wing curvature forces air over the top to travel faster, creating pressure differences.
-      - text: Lift is caused entirely by the airplane's engines, not by air pressure differences.
+          This limits pressure to one direction. Wind speed is often horizontal. Check pressure acting normal to each wing surface.
+      - text: "An upward force only if split air parcels meet at the trailing edge"
         rationale: |
-          You attributed lift solely to thrust engines. Engines provide forward speed; wing airflow pressure differences generate aerodynamic lift.
+          This adds an equal-transit requirement. The longer-path story sounds orderly. Check the measured pressure forces instead of assumed travel times.
     explanation: |
-      By Bernoulli's Principle, faster-moving air has lower pressure. The pressure difference between the slower (higher-pressure) air below and faster (lower-pressure) air above creates a net upward force: lift.
+      Pressure below pushes upward on the wing. Pressure above pushes downward. With greater average pressure below, the resulting pressure force has an upward component.
     approved: true
+
   - id: q-physics-fluid-mechanics-0008
-    type: classify
-    difficulty: hard
+    type: "classify"
+    difficulty: "hard"
     stem: |
       A student calculates the buoyant force on a submerged brass block by using the brass's own density, instead of the water's density. Is this correct?
     choices:
-      - text: 'No: Archimedes'' Principle uses the density of the displaced fluid (water), not the density of the submerged object itself.'
+      - text: "No, the displaced water’s density is used."
         correct: true
-      - text: 'Yes: buoyant force always depends on the submerged object''s own density.'
+      - text: "Yes: buoyant force always depends on the submerged object's own density."
         rationale: |
-          You used object density. Archimedes' Principle specifies that buoyant force equals the weight of displaced fluid.
-      - text: 'No: buoyant force does not depend on density at all.'
+          This substitutes object density for fluid density. The brass block is the object being studied. Check whose displaced weight defines buoyancy.
+      - text: "No: buoyant force does not depend on density at all."
         rationale: |
-          You claimed density is irrelevant. Displaced fluid weight calculation requires fluid density.
-      - text: 'Yes: as long as the object is denser than the fluid.'
+          This removes density entirely. Volume is prominent in displacement. Check how displaced volume is converted into mass.
+      - text: "Yes: as long as the object is denser than the fluid."
         rationale: |
-          You made fluid principles depend on object sinking. Displaced fluid density determines buoyant force regardless of relative density.
+          This makes the fluid rule depend on whether the object sinks. Density comparisons predict sinking. Check the source of buoyant force for any immersed object.
     explanation: |
-      The buoyant force equals the weight of the displaced fluid, calculated using the fluid's own density and the displaced volume, not any property of the submerged object itself.
+      Buoyant force is the weight of displaced water. Its calculation uses water’s density and the volume displaced: $F_B=\rho_{\mathrm{water}}gV_{\mathrm{displaced}}$.
     approved: true
+
   - id: q-physics-fluid-mechanics-0009
-    type: classify
-    difficulty: hard
+    type: "classify"
+    difficulty: "hard"
     stem: |
-      A student assumes a massive steel ship must sink, since steel is much denser than water, while a small pebble would float since it is "so small." Is this reasoning correct?
+      A student argues that object size alone decides whether it floats. Which property is needed for the simple free-immersion comparison?
     choices:
-      - text: 'No: floating and sinking depend on overall average density compared to the fluid, not size or mass alone; the ship''s hollow shape gives it a low average density, letting it float, while a small solid steel pebble would sink.'
+      - text: "Average density relative to the fluid"
         correct: true
-      - text: 'Yes: larger objects always sink regardless of their shape.'
+      - text: "Total mass with no volume information"
         rationale: |
-          You made floating depend on size. Floating depends on average density ($m/V$), not total size.
-      - text: 'No: but only because ships are not really made of steel.'
+          This uses heaviness alone. Heavy objects often sink in everyday experience. Check how mass is spread over the whole volume.
+      - text: "Surface area with no mass information"
         rationale: |
-          You denied steel construction. Ships are constructed of dense steel, but incorporate large air-filled hollow volumes.
-      - text: 'Yes: smaller objects always float regardless of their material.'
+          This uses visible contact area alone. Wide objects can seem easier to support. Check the weight and displaced-fluid volume.
+      - text: "The object’s longest dimension alone"
         rationale: |
-          You assumed small items always float. A small solid steel pebble sinks because its density exceeds water's density.
+          This turns size into a floating rule. Large objects look heavy. Check a mass-to-volume ratio rather than one length.
     explanation: |
-      A ship's hollow, air-filled shape gives it a low overall average density, even though its material (steel) is much denser than water. Size and mass alone cannot predict floating or sinking: the object's overall average density relative to the fluid is what matters.
+      Average density is total mass divided by total volume. Comparing it with fluid density shows whether displaced fluid can support the object under the simple stated model.
     approved: true
+
   - id: q-physics-fluid-mechanics-0010
-    type: classify
-    difficulty: hard
+    type: "classify"
+    difficulty: "hard"
     stem: |
-      A student assumes that faster-moving fluid has higher pressure than slower-moving fluid. Is this correct?
+      Why is “faster fluid always has lower pressure” an incomplete rule?
     choices:
-      - text: "No: Bernoulli's Principle states the opposite: faster-moving fluid has lower pressure, not higher."
+      - text: "Height and flow conditions also matter."
         correct: true
-      - text: 'Yes: faster-moving fluid always has higher pressure.'
+      - text: "Bernoulli’s equation contains speed alone."
         rationale: |
-          You reversed Bernoulli's Law. High fluid velocity corresponds to low static pressure.
-      - text: 'No: but only for fluids moving through a narrow pipe.'
+          This drops pressure and gravitational terms. The speed shortcut is memorable. Check all terms in the equation.
+      - text: "The rule applies only to water, never air."
         rationale: |
-          You restricted Bernoulli's Principle to pipe geometry. Bernoulli's Principle applies to fluid flow in open and closed systems.
-      - text: 'Yes: this is exactly what causes airplane lift.'
+          This limits a fluid equation to one liquid. Water-pipe examples are common. Check the assumptions rather than the fluid’s name.
+      - text: "All moving fluids have identical static pressure."
         rationale: |
-          You misapplied wing lift theory. Airplane lift requires lower pressure above the wing, created by faster airflow.
+          This treats motion as removing pressure variation. Moving fluids share a general category. Check differences in speed, height, and energy inputs.
     explanation: |
-      Reversing Bernoulli's actual relationship (faster means lower pressure) would incorrectly predict a downward force on an airplane wing instead of the real upward lift force that keeps planes flying.
+      Bernoulli’s equation includes pressure, speed, and height. Its simple form assumes steady incompressible nonviscous flow along a streamline. Height changes and energy inputs such as pumps can change the comparison.
     approved: true
+
   - id: q-physics-fluid-mechanics-0011
-    type: classify
-    difficulty: hard
+    type: "classify"
+    difficulty: "hard"
     stem: |
       A student assumes water pressure is the same at every depth in a swimming pool. Is this correct?
     choices:
-      - text: 'No: pressure increases with depth, since deeper water must support the weight of all the water above it.'
+      - text: "No, pressure increases with depth."
         correct: true
-      - text: 'Yes: fluid pressure never changes with depth.'
+      - text: "Yes: fluid pressure never changes with depth."
         rationale: |
-          You assumed hydrostatic pressure is constant. Hydrostatic pressure increases linearly with depth ($P = \rho g h$).
-      - text: 'No: pressure actually decreases with depth.'
+          This confuses equal directional pressure at a point with equal pressure at all depths. Both involve fluid pressure. Check location separately from direction.
+      - text: "No: pressure actually decreases with depth."
         rationale: |
-          You inverted depth pressure trend. Pressure increases with depth as overlying fluid weight accumulates.
-      - text: 'Yes: pressure only depends on the pool''s total volume, not depth.'
+          This reverses the depth trend. Distance from the surface changes. Check the added weight of the water above.
+      - text: "Yes: pressure only depends on the pool's total volume, not depth."
         rationale: |
-          You substituted total volume for depth. Fluid pressure depends strictly on depth column height ($h$), not total volume.
+          This uses total pool volume instead of local depth. A larger pool holds more water. Check the depth term in the hydrostatic relation.
     explanation: |
-      Pressure in a fluid increases with depth, since fluid deeper down supports the weight of the fluid above it. Treating pressure as constant throughout a container ignores this depth dependence.
+      For water at rest, $P=P_0+\rho gh$. Greater depth means more overlying water and a larger $\rho gh$ term. Pressure therefore increases with depth.
     approved: true
+
   - id: q-physics-fluid-mechanics-0012
-    type: simple-quantitative
-    difficulty: hard
+    type: "simple-quantitative"
+    difficulty: "hard"
     stem: |
       An object has a mass of 450 g and a volume of 500 cm³. Find its density, and determine whether it would float or sink in water (density 1.0 g/cm³).
+      Assume a rigid object placed freely, with no extra forces or trapped bubbles.
     choices:
-      - text: 0.9 g/cm^3; it would float.
+      - text: "0.9 g/cm^3; it would float."
         correct: true
-      - text: 1.1 g/cm^3; it would sink.
+      - text: "1.1 g/cm^3; it would sink."
         rationale: |
-          You inverted mass and volume division ($\dfrac{500}{450} \approx 1.1$). Density is $\dfrac{450}{500} = 0.9\text{ g/cm}^3$.
-      - text: 0.9 g/cm^3; it would sink.
+          This reverses the ratio to $500/450$. Both numbers belong in density. Check which is mass and which is volume.
+      - text: "0.9 g/cm^3; it would sink."
         rationale: |
-          You calculated density correctly ($0.9$) but inverted float status. Since $0.9 < 1.0$, the object floats.
-      - text: 225 g/cm^3; it would float.
+          This gets density but reverses the floating rule. Greater fluid density can sound like stronger sinking. Check whether displaced water can support the object before full immersion.
+      - text: "$0.0009\\,\\mathrm{g/cm^3}$; it would float."
         rationale: |
-          You multiplied or miscalculated mass and volume. Calculate density by division $\dfrac{450}{500} = 0.9\text{ g/cm}^3$.
+          This treats $450\,\mathrm g$ as $0.45\,\mathrm g$ before dividing by $500\,\mathrm{cm^3}$. A conversion may seem needed. Check that both original units already match the requested density.
     explanation: |
-      $\rho = \dfrac{450}{500} = 0.9$ g/cm³. Since 0.9 is less than water's density (1.0), the object would float.
+      The average density is $\rho=\dfrac{450}{500}=0.9\,\mathrm{g/cm^3}$. It is below water’s $1.0\,\mathrm{g/cm^3}$. Under the stated conditions the object floats partly submerged.
     approved: true
+
   - id: q-physics-fluid-mechanics-0013
-    type: simple-quantitative
-    difficulty: exam
+    type: "predict-outcome"
+    difficulty: "exam"
     stem: |
-      A block, fully submerged in water, displaces 400 cm³ of water. Water has a density of 1 g/cm³. Find the buoyant force on the block. (Use $g = 9.8 \text{ m/s}^2$.)
+      A rigid fully submerged block is lowered farther into a constant-density liquid. Gravity is unchanged. How does its buoyant force change?
     choices:
-      - text: 3.92 N
+      - text: "It stays the same."
         correct: true
-      - text: 400 N
+      - text: "It increases because pressure is higher at every point."
         rationale: |
-          You used displaced volume directly as force in Newtons. Convert $400\text{ cm}^3$ to $0.4\text{ kg}$ and multiply by $g = 9.8\text{ m/s}^2$.
-      - text: 39.2 N
+          This uses absolute pressure instead of the pressure difference across the object. Deeper pressure is higher. Check unchanged displaced volume.
+      - text: "It decreases because the surface is farther away."
         rationale: |
-          You made a decimal conversion error ($400\text{ g} = 0.4\text{ kg}$). $F_b = 0.4 \times 9.8 = 3.92\text{ N}$.
-      - text: 0.4 N
+          This makes buoyancy weaken with distance from the surface. Surface position is noticeable. Check the displaced-fluid weight.
+      - text: "It becomes equal to the block’s weight at every depth."
         rationale: |
-          You reported displaced water mass in kilograms ($0.4\text{ kg}$) without multiplying by $g = 9.8\text{ m/s}^2$.
+          This assumes full immersion guarantees equilibrium. Buoyancy opposes weight. Check whether displaced-fluid weight matches object weight.
     explanation: |
-      Mass of displaced water: $(1)(400) = 400$ g $= 0.4$ kg. Weight (buoyant force): $W = mg = (0.4)(9.8) = 3.92$ N.
+      Archimedes’ principle gives $F_B=\rho_{\mathrm{fluid}}gV_{\mathrm{displaced}}$. Density, gravity, and displaced volume are unchanged. The buoyant force stays the same.
     approved: true
+
   - id: q-physics-fluid-mechanics-0014
-    type: predict-outcome
-    difficulty: exam
+    type: "predict-outcome"
+    difficulty: "exam"
     stem: |
-      A block of solid steel sinks in water, but a steel ship of much greater total mass floats. What explains this apparent contradiction?
+      Water enters a hollow steel ship while its outer shape remains unchanged. How does flooding affect its ability to float?
     choices:
-      - text: The ship's hollow, air-filled shape gives it a much lower overall average density than solid steel, making its average density less than water's, unlike the solid block.
+      - text: "It adds mass and can make the ship sink."
         correct: true
-      - text: Ships are not actually made of steel, unlike the solid block.
+      - text: "It lowers average density because water is lighter than steel."
         rationale: |
-          You denied steel ship construction. Modern ships use massive steel hulls engineered with hollow interior spaces.
-      - text: Water becomes less dense around large objects.
+          This uses material density instead of total mass over exterior volume. Water is less dense than steel. Check that entering water still adds mass.
+      - text: "It guarantees more buoyancy without deeper immersion."
         rationale: |
-          You claimed water density changes around large items. Water density remains constant ($1.0\text{ g/cm}^3$).
-      - text: The ship's greater mass alone is what allows it to float.
+          This treats internal water as additional external displacement. Both involve water volume. Check which water the hull actually displaces.
+      - text: "It makes no difference because the hull is still steel."
         rationale: |
-          You attributed floating to mass magnitude. Heavy objects sink unless shaped to encompass sufficient volume to lower average density.
+          This considers only the hull’s material. Its steel remains unchanged. Check the total mass the buoyant force must support.
     explanation: |
-      Floating depends on overall average density, not the density of the raw material alone. The ship's hollow shape spreads its steel mass across a much larger volume, lowering its average density below water's, even though solid steel itself is much denser than water.
+      Flooding increases the ship’s total mass. Its weight rises, so it must displace more water to remain balanced. If the hull cannot provide enough displacement, the ship sinks.
     approved: true
+
+  - id: q-physics-fluid-mechanics-0015
+    approved: false
+    type: "identify"
+    difficulty: "easy"
+    stem: |
+      Which pair consists entirely of fluids?
+    choices:
+      - text: "Water and air"
+        correct: true
+      - text: "Ice and liquid water"
+        rationale: |
+          This groups all forms of water as fluids. Ice and liquid share the same substance. Check whether each flows as a fluid.
+      - text: "Steel and air"
+        rationale: |
+          This includes a rigid solid with a gas. Both can transmit forces. Check whether each flows.
+      - text: "Rock and ice"
+        rationale: |
+          This groups natural materials without checking state. Both occur in Earth systems. Check whether they are rigid solids here.
+    explanation: |
+      Liquids and gases are fluids because they can flow. Water is a liquid and air is a gas.
+
+  - id: q-physics-fluid-mechanics-0016
+    approved: false
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A perpendicular force of $600\,\mathrm N$ acts over $0.20\,\mathrm{m^2}$. What is the pressure?
+    choices:
+      - text: "$3000\\,\\mathrm{Pa}$"
+        correct: true
+      - text: "$120\\,\\mathrm{Pa}$"
+        rationale: |
+          This multiplies $600$ by $0.20$. Both are given quantities. Check that pressure is force per area.
+      - text: "$15000\\,\\mathrm{Pa}$"
+        rationale: |
+          This squares the area value again before dividing. Area is already given in square meters. Check that the pressure formula uses the stated area only once.
+      - text: "$300\\,\\mathrm{Pa}$"
+        rationale: |
+          This divides by $2.0$ instead of $0.20$. A decimal place was lost. Check the area as written.
+    explanation: |
+      Pressure is $P=\dfrac FA=\dfrac{600}{0.20}=3000\,\mathrm{N/m^2}=3000\,\mathrm{Pa}$.
+
+  - id: q-physics-fluid-mechanics-0017
+    approved: false
+    type: "simple-quantitative"
+    difficulty: "hard"
+    stem: |
+      Water of density $1000\,\mathrm{kg/m^3}$ is at rest. Use $g=10\,\mathrm{m/s^2}$. How much greater is pressure at $5\,\mathrm m$ depth than at $2\,\mathrm m$ depth?
+    choices:
+      - text: "$30000\\,\\mathrm{Pa}$"
+        correct: true
+      - text: "$50000\\,\\mathrm{Pa}$"
+        rationale: |
+          This uses the deeper depth alone. The lower point is the main target. Check that the question asks for a difference.
+      - text: "$70000\\,\\mathrm{Pa}$"
+        rationale: |
+          This adds the two depths. Both measurements are present. Check the vertical separation between points.
+      - text: "$3000\\,\\mathrm{Pa}$"
+        rationale: |
+          This omits gravitational acceleration. Density times depth looks almost complete. Check the factors in the hydrostatic pressure term.
+    explanation: |
+      The depth difference is $5-2=3\,\mathrm m$. The pressure difference is $\rho g\Delta h=(1000)(10)(3)=30000\,\mathrm{Pa}$.
+
+  - id: q-physics-fluid-mechanics-0018
+    approved: false
+    type: "compare-contrast"
+    difficulty: "hard"
+    stem: |
+      Two fully submerged objects have equal external volume but different masses. They are in the same constant-density liquid under the same gravity. How do their buoyant forces compare?
+    choices:
+      - text: "They are equal."
+        correct: true
+      - text: "The heavier object receives more buoyant force."
+        rationale: |
+          This uses object weight to set buoyancy. Floating objects do balance their weight. Check displaced fluid for these fully submerged objects.
+      - text: "The lighter object receives more buoyant force."
+        rationale: |
+          This assumes greater upward motion means greater buoyancy. Lighter objects may rise. Check net force separately from buoyant force.
+      - text: "Their buoyant forces equal their respective weights."
+        rationale: |
+          This applies floating equilibrium to every immersed object. Buoyancy points upward. Check whether either object is in equilibrium.
+    explanation: |
+      Equal fully submerged volumes displace equal volumes of the same liquid. The displaced fluid weights are equal. Their buoyant forces are equal.
+
+  - id: q-physics-fluid-mechanics-0019
+    approved: false
+    type: "structure-function"
+    difficulty: "hard"
+    stem: |
+      What feature of fluid pressure produces buoyancy on a submerged object?
+    choices:
+      - text: "Higher pressure on lower surfaces"
+        correct: true
+      - text: "Equal pressure on every surface at all depths"
+        rationale: |
+          This confuses all-direction action at a point with uniform pressure everywhere. Fluids press in all directions. Check pressure at different depths.
+      - text: "A downward pull exerted by the free surface"
+        rationale: |
+          This treats the surface as the source of an upward contact force. The surface is a visible boundary. Check force directions from surrounding pressure.
+      - text: "Gravity acting upward on the submerged object"
+        rationale: |
+          This reverses the direction of weight. Buoyancy acts upward. Check which force comes from gravity and which from the fluid.
+    explanation: |
+      Fluid pressure increases with depth. The lower surfaces receive greater pressure than higher surfaces. The resulting pressure forces combine into an upward buoyant force.
+
+  - id: q-physics-fluid-mechanics-0020
+    approved: false
+    type: "simple-quantitative"
+    difficulty: "exam"
+    stem: |
+      In ideal steady horizontal flow along a streamline, water of density $1000\,\mathrm{kg/m^3}$ speeds up from $2$ to $4\,\mathrm{m/s}$. What is $P_1-P_2$?
+    choices:
+      - text: "$6000\\,\\mathrm{Pa}$"
+        correct: true
+      - text: "$2000\\,\\mathrm{Pa}$"
+        rationale: |
+          This squares the speed difference, $(4-2)^2$, instead of subtracting the squared speeds. The change in speed is easy to notice. Check each kinetic term before subtraction.
+      - text: "$12000\\,\\mathrm{Pa}$"
+        rationale: |
+          This omits the one-half factor. The density and squared-speed difference are correct. Check the kinetic-energy term’s coefficient.
+      - text: "$-6000\\,\\mathrm{Pa}$"
+        rationale: |
+          This reverses the requested pressure difference. Faster flow has lower pressure here. Check the order $P_1-P_2$.
+    explanation: |
+      At equal height, $P_1-P_2=\dfrac12\rho(v_2^2-v_1^2)$. Substitute: $\dfrac12(1000)(16-4)=6000\,\mathrm{Pa}$.

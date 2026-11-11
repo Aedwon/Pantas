@@ -1,11 +1,19 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/dev/dev_pro_switch.dart';
+import 'package:pantas/core/platform/local_firebase.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/data/revenuecat_gateway.dart';
 
 void main() {
   tearDown(() => devProOverride.value = null);
+
+  test('the switch is honored in debug builds and local runs only', () {
+    expect(devProOverrideEnabled, kDebugMode || localEmulators);
+    // A release build with neither must not read the switch.
+    expect(kReleaseMode && !localEmulators && devProOverrideEnabled, isFalse);
+  });
 
   test('no override leaves the store entitlement in charge', () {
     final container = ProviderContainer(

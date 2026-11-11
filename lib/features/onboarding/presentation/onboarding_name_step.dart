@@ -1,126 +1,122 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/board_button.dart';
-import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/features/onboarding/presentation/onboarding_name_field.dart';
+import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
 
 class OnboardingNameStep extends ConsumerStatefulWidget {
   const OnboardingNameStep({
     required this.onCompleted,
+    this.onBack,
+    this.finishing = false,
     super.key,
   });
-
   final VoidCallback onCompleted;
+  final VoidCallback? onBack;
 
+  /// True once the name is saved and onboarding is closing. The page stays as
+  /// it is, with Done busy, until Home takes over, so no empty frame shows.
+  final bool finishing;
   @override
   ConsumerState<OnboardingNameStep> createState() => _OnboardingNameStepState();
 }
 
 class _OnboardingNameStepState extends ConsumerState<OnboardingNameStep> {
-  final TextEditingController _controller = TextEditingController();
+  final _controller = TextEditingController();
+  final _focus = FocusNode();
   bool _saving = false;
+  bool _failed = false;
+  bool _loadFailed = false;
+  int _generation = 0;
+  @override
+  void initState() {
+    super.initState();
+    _restore();
+  }
 
-  String get _trimmedText => _controller.text.trim();
+  Future<void> _restore() async {
+    final telemetry = ref.read(telemetryProvider);
+    if (_loadFailed) setState(() => _loadFailed = false);
+    try {
+      final settings =
+          await ref.read(settingsRepositoryProvider).readUserSettings();
+      if (mounted && _controller.text.isEmpty && settings.name != null) {
+        setState(() => _controller.text = settings.name!);
+      }
+    } catch (error, stack) {
+      unawaited(telemetry.recordError(error, stack));
+      if (mounted) setState(() => _loadFailed = true);
+    }
+  }
 
   @override
   void dispose() {
+    _focus.dispose();
     _controller.dispose();
     super.dispose();
   }
 
-  Future<void> _onDone() async {
-    if (_trimmedText.isEmpty) return;
-    setState(() => _saving = true);
+  Future<void> _save() async {
+    final text = _controller.text.trim();
+    if (text.isEmpty || _saving) return;
+    final generation = _generation;
+    final telemetry = ref.read(telemetryProvider);
+    setState(() {
+      _saving = true;
+      _failed = false;
+    });
     try {
-      await ref.read(settingsRepositoryProvider).updateName(_trimmedText);
-      await ref
-          .read(appPreferencesRepositoryProvider)
-          .setCompletedOnboarding(value: true);
-      ref.invalidate(appPreferencesRepositoryProvider);
-      widget.onCompleted();
-    } finally {
-      if (mounted) setState(() => _saving = false);
-    }
-  }
-
-  Future<void> _onSkip() async {
-    setState(() => _saving = true);
-    try {
-      await ref
-          .read(appPreferencesRepositoryProvider)
-          .setCompletedOnboarding(value: true);
-      ref.invalidate(appPreferencesRepositoryProvider);
-      widget.onCompleted();
+      await ref.read(settingsRepositoryProvider).updateName(text);
+      if (mounted && generation == _generation) widget.onCompleted();
+    } catch (error, stack) {
+      unawaited(telemetry.recordError(error, stack));
+      if (mounted) setState(() => _failed = true);
     } finally {
       if (mounted) setState(() => _saving = false);
     }
   }
 
   @override
-  Widget build(BuildContext context) {
-    final styles = context.textStyles;
-    final colors = context.colors;
-
-    final underlineBorder = UnderlineInputBorder(
-      borderSide: BorderSide(
-        color: colors.rule,
-      ),
-    );
-
-    return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+  Widget build(BuildContext context) => OnboardingWebPage(
+        title: 'What should we call you?',
+        detail:
+            "We'll use this to greet you across the app. A nickname is fine.",
+        progress: 6,
+        focusTarget: _focus,
+        onBack: () {
+          _generation++;
+          widget.onBack?.call();
+        },
+        bottom: OnboardingActions(
           children: [
-            const SizedBox(height: 24),
-            Text('What should we call you?', style: styles.displaySmall),
-            const SizedBox(height: 10),
-            Text(
-              "We'll use this to greet you across the app. A nickname is fine.",
-              style: styles.bodyLarge.copyWith(color: colors.inkMuted),
-            ),
-            const SizedBox(height: 24),
-            TextField(
-              controller: _controller,
-              textCapitalization: TextCapitalization.words,
-              maxLength: 40,
-              style: styles.bodyLarge,
-              decoration: InputDecoration(
-                labelText: 'Name',
-                border: underlineBorder,
-                enabledBorder: underlineBorder,
-                focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(
-                    color: colors.ink,
-                  ),
-                ),
-                counterText: '',
-              ),
-              onChanged: (_) => setState(() {}),
-            ),
-            const Spacer(),
-            BoardButton(
+            if (_failed) saveFailureLine(_save),
+            OnboardingButton(
               label: 'Done',
-              onPressed: (_trimmedText.isEmpty || _saving) ? null : _onDone,
-            ),
-            const SizedBox(height: 14),
-            TextButton(
-              onPressed: _saving ? null : _onSkip,
-              style: TextButton.styleFrom(
-                foregroundColor: colors.board,
-                minimumSize: const Size.fromHeight(48),
-                padding: EdgeInsets.zero,
-                textStyle: styles.bodyMedium,
-              ),
-              child: const Text(
-                'Skip',
-              ),
+              busy: _saving || widget.finishing,
+              onPressed: _saving ||
+                      widget.finishing ||
+                      _loadFailed ||
+                      _controller.text.trim().isEmpty
+                  ? null
+                  : _save,
             ),
           ],
         ),
-      ),
-    );
-  }
+        children: [
+          if (_loadFailed)
+            errorFor('name', _restore)
+          else
+            OnboardingNameField(
+              controller: _controller,
+              focusNode: _focus,
+              label: 'Name',
+              onChanged: (_) => setState(() {}),
+              onSubmitted: (_) => _save(),
+            ),
+        ],
+      );
 }

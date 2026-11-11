@@ -36,7 +36,7 @@ void main() {
 
   test('CI workflows build the content seed from the corpus', () {
     for (final path in [
-      '.github/workflows/ci.yml',
+      '.github/actions/setup-app/inner/action.yml',
       '.github/workflows/main.yml',
     ]) {
       final workflow = File(path).readAsStringSync();

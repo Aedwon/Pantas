@@ -15,6 +15,7 @@ void main() {
     bool bodyHit = false,
     String query = 'venn',
     int recent = 0,
+    String? title,
   }) async {
     final list = <LessonSearchHit>[];
     if (hits > 0) {
@@ -22,7 +23,8 @@ void main() {
         list.add(
           LessonSearchHit(
             lessonId: 'l_$i',
-            title: bodyHit ? 'Algebraic Expressions' : 'Venn diagrams',
+            title:
+                title ?? (bodyHit ? 'Algebraic Expressions' : 'Venn diagrams'),
             topicName: 'Vocabulary',
             estimatedMinutes: 5,
             titleMatch: bodyHit
@@ -72,19 +74,23 @@ void main() {
   testWidgets('the kicker counts the matches', (tester) async {
     await pumpResults(tester, hits: 3);
 
-    expect(find.text('3 lessons'), findsOneWidget);
+    expect(find.text('3 Lessons'), findsOneWidget);
   });
 
-  testWidgets('one match says lesson, not lessons', (tester) async {
+  testWidgets('one match uses the singular label', (tester) async {
     await pumpResults(tester);
 
-    expect(find.text('1 lesson'), findsOneWidget);
+    expect(find.text('1 Lesson'), findsOneWidget);
   });
 
   testWidgets('a title match is weighted, not filled', (tester) async {
     await pumpResults(tester);
 
-    final title = tester.widget<RichText>(find.byType(RichText).at(1));
+    final title = tester.widget<RichText>(
+      find.byWidgetPredicate(
+        (w) => w is RichText && w.text.toPlainText() == 'Venn diagrams',
+      ),
+    );
     final leafSpans = <TextSpan>[];
     void collect(TextSpan span) {
       if (span.text != null) leafSpans.add(span);
@@ -111,13 +117,36 @@ void main() {
   testWidgets('an empty query offers the recently opened', (tester) async {
     await pumpResults(tester, query: '', recent: 2);
 
-    expect(find.text('Recently opened'), findsOneWidget);
+    expect(find.text('Recently Opened'), findsOneWidget);
   });
 
   testWidgets('no matches names what was typed', (tester) async {
     await pumpResults(tester, query: 'swap', hits: 0);
 
-    expect(find.text('Nothing matched "swap"'), findsOneWidget);
+    expect(find.text('Nothing matched “swap”'), findsOneWidget);
     expect(find.text('Try a shorter word, or part of one.'), findsOneWidget);
+  });
+
+  testWidgets('a result title uses the row, not half of it (2G-21)',
+      (tester) async {
+    tester.view.physicalSize = const Size(390, 844);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    const long = 'Algebraic Expressions and Laws of Exponents';
+    await pumpResults(tester, bodyHit: true, title: long);
+
+    final title = find.byWidgetPredicate(
+      (w) => w is RichText && w.text.toPlainText() == long,
+    );
+    final time = find.text('5 min');
+    expect(title, findsOneWidget);
+    // The title runs up to the time. It stays one line (board), so a title
+    // that does not fit ends in dots only once the row is full.
+    expect(
+      tester.getRect(time).left - tester.getRect(title).right,
+      lessThan(24),
+    );
+    expect(tester.getRect(title).width, greaterThan(190));
   });
 }

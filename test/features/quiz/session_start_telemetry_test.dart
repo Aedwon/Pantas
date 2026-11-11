@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/repos/content_repository.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/storage/domain/question_selection_row.dart';
 import 'package:pantas/core/storage/domain/topic.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/features/quiz/data/repos/quiz_session_repository.dart';
@@ -27,7 +30,6 @@ void main() {
       preferences: QuizPreferences(
         ordering: QuizOrdering.blocked,
         sessionLength: 10,
-        newCardCap: 20,
       ),
       now: DateTime(2026, 8, 4),
       topicId: 't1',
@@ -43,7 +45,44 @@ void main() {
 
 class FakeContentRepository implements ContentRepository {
   @override
-  Future<List<Question>> questionsByTopic(TopicId topicId) async {
+  Future<List<QuestionSelectionRow>> selectionRowsByTopic(
+    TopicId topicId, {
+    String? examId,
+  }) async {
+    return [
+      QuestionSelectionRow(
+        id: 'q1',
+        version: 1,
+        topicId: topicId,
+        lessonId: null,
+        passageId: null,
+        hasFigure: false,
+      ),
+    ];
+  }
+
+  @override
+  Future<List<Question>> hydrateSelectedQuestions(List<QuestionId> ids) async {
+    return [
+      for (final id in ids)
+        Question(
+          id: id,
+          topicId: 't1',
+          stem: 'Question stem',
+          choices: const [],
+          examIds: const ['cse_prof'],
+          language: 'en',
+          version: 1,
+          explanation: 'exp',
+        ),
+    ];
+  }
+
+  @override
+  Future<List<Question>> questionsByTopic(
+    TopicId topicId, {
+    String? examId,
+  }) async {
     return [
       Question(
         id: 'q1',
@@ -78,6 +117,21 @@ class FakeQuizSessionRepository implements QuizSessionRepository {
     SubtopicId? subtopicId,
     LessonId? lessonId,
   }) async {}
+
+  @override
+  Future<bool> createGuarded({
+    required String sessionId,
+    required String userId,
+    required ExamId examId,
+    required SessionOrigin origin,
+    required List<QuestionId> questionIds,
+    required DateTime startedAt,
+    required FutureOr<bool> Function() canPersist,
+    TopicId? topicId,
+    SubtopicId? subtopicId,
+    LessonId? lessonId,
+  }) async =>
+      canPersist();
 
   @override
   dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);

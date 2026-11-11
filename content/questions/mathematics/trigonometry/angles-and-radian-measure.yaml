@@ -1,332 +1,390 @@
 meta:
-  subject: mathematics
-  topic: trigonometry
-  subtopic: angles-and-radian-measure
-  exams: [upcat, acet, dlsucet, ustet, pupcet]
+  subject: 'mathematics'
+  topic: 'trigonometry'
+  subtopic: 'angles-and-radian-measure'
+  exams: ['upcat', 'acet', 'dlsucet', 'ustet', 'pupcet']
 questions:
-  - id: q-trigonometry-angles-and-radian-measure-0001
-    type: direct-computation
-    difficulty: easy
-    stem: |
-      Convert $90$ degrees to radians.
-    choices:
-      - text: $\dfrac{\pi}{2}$
-        correct: true
-      - text: $\dfrac{\pi}{3}$
-        rationale: |
-          You converted 60 degrees (60 * pi/180) instead of 90 degrees.
-      - text: $\dfrac{\pi}{4}$
-        rationale: |
-          You converted 45 degrees (45 * pi/180) instead of 90 degrees.
-      - text: $\dfrac{2\pi}{3}$
-        rationale: |
-          You converted 120 degrees (120 * pi/180) instead of 90 degrees.
-    explanation: |
-      To convert degrees to radians, multiply by $\dfrac{\pi}{180}$.
-      $$90 \times \dfrac{\pi}{180} = \dfrac{90\pi}{180} = \dfrac{\pi}{2}$$
-  - id: q-trigonometry-angles-and-radian-measure-0002
-    type: direct-computation
-    difficulty: easy
-    stem: |
-      Convert $\dfrac{\pi}{3}$ radians to degrees.
-    choices:
-      - text: $60$ degrees
-        correct: true
-      - text: $30$ degrees
-        rationale: |
-          You evaluated pi/6 radians (180/6 = 30) instead of pi/3 radians.
-      - text: $45$ degrees
-        rationale: |
-          You evaluated pi/4 radians (180/4 = 45) instead of pi/3 radians.
-      - text: $120$ degrees
-        rationale: |
-          You evaluated 2pi/3 radians (2 * 180/3 = 120) instead of pi/3 radians.
-    explanation: |
-      To convert radians to degrees, multiply by $\dfrac{180}{\pi}$. The $\pi$ cancels.
-      $$\dfrac{\pi}{3} \times \dfrac{180}{\pi} = \dfrac{180}{3} = 60 \text{ degrees}$$
-  - id: q-trigonometry-angles-and-radian-measure-0003
-    type: direct-computation
-    difficulty: easy
-    stem: |
-      Convert $45$ degrees to radians.
-    choices:
-      - text: $\dfrac{\pi}{4}$
-        correct: true
-      - text: $\dfrac{\pi}{6}$
-        rationale: |
-          You converted 30 degrees (30 * pi/180) instead of 45 degrees.
-      - text: $\dfrac{\pi}{3}$
-        rationale: |
-          You converted 60 degrees (60 * pi/180) instead of 45 degrees.
-      - text: $\dfrac{\pi}{2}$
-        rationale: |
-          You converted 90 degrees (90 * pi/180) instead of 45 degrees.
-    explanation: |
-      Multiply degrees by $\dfrac{\pi}{180}$.
-      $$45 \times \dfrac{\pi}{180} = \dfrac{45\pi}{180} = \dfrac{\pi}{4}$$
-  - id: q-trigonometry-angles-and-radian-measure-0004
-    type: direct-computation
-    difficulty: easy
-    stem: |
-      Convert $\dfrac{\pi}{6}$ radians to degrees.
-    choices:
-      - text: $30$ degrees
-        correct: true
-      - text: $60$ degrees
-        rationale: |
-          You evaluated pi/3 radians (180/3 = 60) instead of pi/6 radians.
-      - text: $45$ degrees
-        rationale: |
-          You evaluated pi/4 radians (180/4 = 45) instead of pi/6 radians.
-      - text: $15$ degrees
-        rationale: |
-          You divided 180 by 12 or halved 30 degrees.
-    explanation: |
-      Multiply radians by $\dfrac{180}{\pi}$.
-      $$\dfrac{\pi}{6} \times \dfrac{180}{\pi} = \dfrac{180}{6} = 30 \text{ degrees}$$
-  - id: q-trigonometry-angles-and-radian-measure-0005
-    type: direct-computation
-    difficulty: medium
-    stem: |
-      Convert $150$ degrees to radians.
-    choices:
-      - text: $\dfrac{5\pi}{6}$
-        correct: true
-      - text: $\dfrac{5\pi}{12}$
-        rationale: |
-          You divided 150 by 360 instead of dividing 150 by 180.
-      - text: $\dfrac{7\pi}{12}$
-        rationale: |
-          You used 210 degrees instead of 150 degrees when simplifying.
-      - text: $\dfrac{2\pi}{3}$
-        rationale: |
-          You converted 120 degrees (120 * pi/180) instead of 150 degrees.
-    explanation: |
-      $$150 \times \dfrac{\pi}{180} = \dfrac{150\pi}{180}$$
-      Simplify by dividing both by 30: $\dfrac{150}{180} = \dfrac{5}{6}$.
-      $$150 \text{ degrees} = \dfrac{5\pi}{6}$$
-  - id: q-trigonometry-angles-and-radian-measure-0006
-    type: direct-computation
-    difficulty: medium
-    stem: |
-      Convert $\dfrac{3\pi}{4}$ radians to degrees.
-    choices:
-      - text: $135$ degrees
-        correct: true
-      - text: $120$ degrees
-        rationale: |
-          You evaluated 2pi/3 radians (2 * 60 = 120) instead of 3pi/4 radians.
-      - text: $225$ degrees
-        rationale: |
-          You evaluated 5pi/4 radians (5 * 45 = 225) instead of 3pi/4 radians.
-      - text: $67.5$ degrees
-        rationale: |
-          You halved 135 degrees (135 / 2 = 67.5).
-    explanation: |
-      $$\dfrac{3\pi}{4} \times \dfrac{180}{\pi} = 3 \times 45 = 135 \text{ degrees}$$
-  - id: q-trigonometry-angles-and-radian-measure-0007
-    type: direct-computation
-    difficulty: medium
-    stem: |
-      Find the angle between $0$ degrees and $360$ degrees that is coterminal with $370$ degrees.
-    choices:
-      - text: $10$ degrees
-        correct: true
-      - text: $20$ degrees
-        rationale: |
-          You subtracted 350 degrees from 370 degrees instead of 360 degrees.
-      - text: $100$ degrees
-        rationale: |
-          You subtracted 270 degrees from 370 degrees instead of 360 degrees.
-      - text: $370$ degrees
-        rationale: |
-          You reported the original angle without bringing it within the range 0 to 360 degrees.
-    explanation: |
-      Coterminal angles differ by full rotations of $360$ degrees. Subtract one turn.
-      $$370 - 360 = 10 \text{ degrees}$$
-      So $370$ degrees and $10$ degrees are coterminal.
-  - id: q-trigonometry-angles-and-radian-measure-0008
-    type: which-is-true
-    difficulty: medium
-    stem: |
-      Which statement about radian measure is true?
-    choices:
-      - text: One radian is approximately $57.3$ degrees.
-        correct: true
-      - text: Two radians equals $2$ degrees.
-        rationale: |
-          You assumed numerical values in radians and degrees are equal.
-      - text: $\dfrac{\pi}{2}$ radians equals $180$ degrees.
-        rationale: |
-          You confused pi/2 radians (90 degrees) with pi radians (180 degrees).
-      - text: One radian is much smaller than one degree.
-        rationale: |
-          You claimed a radian is smaller than a degree, but 1 radian is about 57.3 degrees.
-    explanation: |
-      The bridge between radians and degrees is $180$ degrees $= \pi$ radians. Dividing both sides by $\pi$:
-      $$1 \text{ radian} = \dfrac{180}{\pi} \approx 57.3 \text{ degrees}$$
-      This is much larger than one degree. A student who forgets the scale and thinks $2$ radians $\approx 2$ degrees is off by a factor of about $57$, as the trap warns. And $\dfrac{\pi}{2}$ radians $= 90$ degrees, not $180$.
-  - id: q-trigonometry-angles-and-radian-measure-0009
-    type: direct-computation
-    difficulty: medium
-    stem: |
-      A circle has radius $5$ centimeters. Find the arc length cut off by a central angle of $\dfrac{\pi}{3}$ radians.
-    choices:
-      - text: $\dfrac{5\pi}{3}$ cm
-        correct: true
-      - text: $\dfrac{\pi}{3}$ cm
-        rationale: |
-          You reported the central angle in radians without multiplying by the radius 5 cm.
-      - text: $\dfrac{10\pi}{3}$ cm
-        rationale: |
-          You multiplied angle by diameter (10 cm) instead of radius (5 cm).
-      - text: $5\pi$ cm
-        rationale: |
-          You evaluated s = r * pi (5 * pi) instead of multiplying by pi/3.
-    explanation: |
-      The arc length formula is $s = r\theta$, where $\theta$ must be in radians.
-      $$s = 5 \times \dfrac{\pi}{3} = \dfrac{5\pi}{3} \text{ cm}$$
-      A common trap: forgetting to multiply by the radius gives $\dfrac{\pi}{3}$, which is wrong.
-  - id: q-trigonometry-angles-and-radian-measure-0010
-    type: direct-computation
-    difficulty: hard
-    stem: |
-      Convert $-30$ degrees to radians.
-    choices:
-      - text: $-\dfrac{\pi}{6}$
-        correct: true
-      - text: $-\dfrac{\pi}{3}$
-        rationale: |
-          You converted -60 degrees (-60 * pi/180) instead of -30 degrees.
-      - text: $\dfrac{\pi}{6}$
-        rationale: |
-          You omitted the negative sign from the given angle -30 degrees.
-      - text: $\dfrac{\pi}{3}$
-        rationale: |
-          You omitted the negative sign and converted 60 degrees instead of 30 degrees.
-    explanation: |
-      The conversion rule works with negative angles; the sign just rides along.
-      $$-30 \times \dfrac{\pi}{180} = -\dfrac{30\pi}{180} = -\dfrac{\pi}{6}$$
-  - id: q-trigonometry-angles-and-radian-measure-0011
-    type: direct-computation
-    difficulty: hard
-    stem: |
-      Find the angle between $0$ degrees and $360$ degrees that is coterminal with $-150$ degrees.
-    choices:
-      - text: $210$ degrees
-        correct: true
-      - text: $150$ degrees
-        rationale: |
-          You took the absolute value of -150 degrees instead of adding 360 degrees.
-      - text: $270$ degrees
-        rationale: |
-          You added 420 degrees or miscalculated -150 + 360.
-      - text: $-150$ degrees
-        rationale: |
-          You reported the negative angle directly without adding 360 degrees to make it positive.
-    explanation: |
-      For a negative angle, add $360$ degrees until you land in the range $0$ to $360$.
-      $$-150 + 360 = 210 \text{ degrees}$$
-      So $-150$ degrees and $210$ degrees are coterminal, and $210$ degrees lies in Quadrant III.
-  - id: q-trigonometry-angles-and-radian-measure-0012
-    type: which-is-true
-    difficulty: hard
-    stem: |
-      Which statement is true?
-    choices:
-      - text: $430$ degrees is coterminal with $70$ degrees.
-        correct: true
-      - text: Any angle is coterminal with itself plus $180$ degrees.
-        rationale: |
-          You claimed adding 180 degrees yields a coterminal angle, but 360 degrees is required.
-      - text: $-290$ degrees is in Quadrant II.
-        rationale: |
-          You placed -290 degrees in Quadrant II, but -290 degrees equals +70 degrees (Quadrant I).
-      - text: A radian and a degree are equal in size.
-        rationale: |
-          You claimed a radian equals a degree, but 1 radian is about 57.3 degrees.
-    explanation: |
-      Coterminal angles differ by multiples of $360$ degrees. Check: $430 - 360 = 70$, so they are coterminal. Angles are coterminal if they differ by $360$ degrees (or $2\pi$ radians), not $180$ degrees. For $-290$ degrees: this is a $290$ degree clockwise rotation, which is the same as a $70$ degree counterclockwise rotation (since $360 - 290 = 70$), placing it in Quadrant I, not II. A radian is much larger: $1$ radian $\approx 57.3$ degrees.
-  - id: q-trigonometry-angles-and-radian-measure-0013
-    type: direct-computation
-    difficulty: hard
-    stem: |
-      A circle has radius $8$ meters. A central angle measures $60$ degrees. Convert the angle to radians and find the arc length.
-    choices:
-      - text: $\dfrac{8\pi}{3}$ m
-        correct: true
-      - text: $\dfrac{8\pi}{60}$ m
-        rationale: |
-          You placed the degree measure 60 in the denominator instead of converting 60 degrees to pi/3.
-      - text: $\dfrac{4\pi}{3}$ m
-        rationale: |
-          You used a radius of 4 meters instead of 8 meters to calculate arc length.
-      - text: $480$ m
-        rationale: |
-          You multiplied radius 8 m directly by 60 degrees without converting to radians.
-    explanation: |
-      First, convert $60$ degrees to radians.
-      $$60 \times \dfrac{\pi}{180} = \dfrac{\pi}{3} \text{ radians}$$
-      Then use the arc length formula $s = r\theta$.
-      $$s = 8 \times \dfrac{\pi}{3} = \dfrac{8\pi}{3} \text{ m}$$
-      A trap: plugging degrees directly into $s = r\theta$ gives $s = 8 \times 60 = 480$, which makes no sense for a circle of radius $8$ m.
-  - id: q-trigonometry-angles-and-radian-measure-0014
-    type: direct-computation
-    difficulty: hard
-    stem: |
-      Convert $315$ degrees to radians.
-    choices:
-      - text: $\dfrac{7\pi}{4}$
-        correct: true
-      - text: $\dfrac{7\pi}{8}$
-        rationale: |
-          You divided by 360 instead of 180 when converting 315 degrees.
-      - text: $\dfrac{5\pi}{4}$
-        rationale: |
-          You converted 225 degrees (5 * 45 = 225) instead of 315 degrees.
-      - text: $\dfrac{9\pi}{4}$
-        rationale: |
-          You converted 405 degrees (9 * 45 = 405) instead of 315 degrees.
-    explanation: |
-      $$315 \times \dfrac{\pi}{180} = \dfrac{315\pi}{180}$$
-      Divide both numerator and denominator by their GCD, which is $45$.
-      $$\dfrac{315}{180} = \dfrac{7}{4}$$
-      So $315$ degrees $= \dfrac{7\pi}{4}$ radians.
-  - id: q-trigonometry-angles-and-radian-measure-0015
-    type: which-is-true
-    difficulty: hard
-    stem: |
-      Which statement is true?
-    choices:
-      - text: A radian is smaller than a degree.
-        rationale: |
-          You claimed a radian is smaller than a degree, but 1 radian is about 57.3 degrees.
-      - text: Two radians is approximately $114.6$ degrees.
-        correct: true
-      - text: $\pi$ radians is less than $180$ degrees.
-        rationale: |
-          You claimed pi radians is less than 180 degrees, but pi radians equals 180 degrees exactly.
-      - text: An angle measured in radians is always a smaller number than the same angle measured in degrees.
-        rationale: |
-          You claimed the numerical radian measure is always smaller. For zero the two numerical measures are equal, and for negative angles the usual numerical ordering reverses.
-    explanation: |
-      A radian is much larger than a degree: $1$ radian $\approx 57.3$ degrees. Check the second statement: $2 \times \dfrac{180}{\pi} \approx 2 \times 57.3 = 114.6$ degrees. This is true. Also, $\pi$ radians $= 180$ degrees exactly. For a positive nonzero angle, its numerical radian measure is smaller than its numerical degree measure; at zero they are equal, and for negative angles the numerical ordering reverses. Therefore the word "always" makes the fourth statement false.
-  - id: q-trigonometry-angles-and-radian-measure-0016
-    type: which-is-true
-    difficulty: hard
-    stem: |
-      Which statement is true?
-    choices:
-      - text: Angles in radians are always smaller numbers than angles in degrees.
-        rationale: |
-          You claimed radian measure is always a smaller number, but for 0 radians = 0 degrees they are equal.
-      - text: $1$ radian equals $1$ degree.
-        rationale: |
-          You claimed 1 radian equals 1 degree, but 1 radian is about 57.3 degrees.
-      - text: An angle of $2\pi$ radians is greater than $350$ degrees.
-        correct: true
-      - text: The arc length formula $s = r\theta$ uses $\theta$ measured in degrees.
-        rationale: |
-          You claimed s = r theta uses degrees, but theta must be in radians.
-    explanation: |
-      For the first: this is sometimes true but not always, and the statement is imprecise. For the second: $1$ radian $\approx 57.3$ degrees, not $1$ degree. For the third: $2\pi \approx 6.28$ radians, and $2\pi \times \dfrac{180}{\pi} = 360$ degrees, which is greater than $350$ degrees. This is true. For the fourth: the formula requires $\theta$ in radians, not degrees.
+- id: 'q-trigonometry-angles-and-radian-measure-0001'
+  type: 'direct-computation'
+  difficulty: 'easy'
+  stem: |
+    Convert $90$ degrees to radians.
+  choices:
+  - text: '$\dfrac{\pi}{2}$'
+    correct: true
+  - text: '$\dfrac{\pi}{3}$'
+    rationale: |
+      This uses the sixty-degree conversion. Both are common angles. Match the given ninety degrees.
+  - text: '$\dfrac{\pi}{4}$'
+    rationale: |
+      This uses the forty-five-degree conversion. It is another common angle. Check the half-turn relation.
+  - text: '$\dfrac{2\pi}{3}$'
+    rationale: |
+      This uses the one-hundred-twenty-degree conversion. Two-thirds pi is a familiar fraction. Multiply the stated degrees by pi over 180.
+  explanation: |
+    Use $180^\circ=\pi$ radians. Multiply $90$ by $\dfrac\pi{180}$ to get $\dfrac\pi2$ radians.
+- id: 'q-trigonometry-angles-and-radian-measure-0002'
+  type: 'direct-computation'
+  difficulty: 'easy'
+  stem: |
+    Convert $\dfrac{\pi}{3}$ radians to degrees.
+  choices:
+  - text: '$60$ degrees'
+    correct: true
+  - text: '$30$ degrees'
+    rationale: |
+      This uses pi over six. Both fractions are common. Keep the stated denominator three.
+  - text: '$45$ degrees'
+    rationale: |
+      This uses pi over four. Forty-five is a familiar angle. Divide 180 by the stated denominator.
+  - text: '$120$ degrees'
+    rationale: |
+      This doubles the angle. A full turn is 360 degrees. Use 180 degrees per pi radian.
+  explanation: |
+    Multiply by $\dfrac{180^\circ}{\pi}$. The pi factors cancel, leaving $180^\circ\div3=60^\circ$.
+- id: 'q-trigonometry-angles-and-radian-measure-0003'
+  type: 'direct-computation'
+  difficulty: 'easy'
+  stem: |
+    A robot turns $45^\circ$ clockwise, then $90^\circ$ counterclockwise. Taking counterclockwise as positive, what is its net turn in radians?
+  choices:
+  - text: '$\dfrac\pi4$'
+    correct: true
+  - text: '$\dfrac\pi6$'
+    rationale: |
+      This uses thirty degrees instead of the net forty-five. Pi over six is familiar. Combine signed turns first.
+  - text: '$-\dfrac\pi4$'
+    rationale: |
+      This reverses the net direction. One turn is clockwise. Compare the two turn sizes.
+  - text: '$\dfrac{3\pi}{4}$'
+    rationale: |
+      This adds both magnitudes. Both rotations are stated. Give clockwise a negative sign.
+  explanation: |
+    The signed turns sum to $-45^\circ+90^\circ=45^\circ$. Convert: $45\dfrac\pi{180}=\dfrac\pi4$ radians.
+- id: 'q-trigonometry-angles-and-radian-measure-0004'
+  type: 'direct-computation'
+  difficulty: 'easy'
+  stem: |
+    An angle measures $\dfrac\pi6$ radians. What is its supplementary angle in degrees?
+  choices:
+  - text: '$150^\circ$'
+    correct: true
+  - text: '$30^\circ$'
+    rationale: |
+      This reports the given angle. Conversion gives thirty degrees correctly. Subtract from 180 for its supplement.
+  - text: '$60^\circ$'
+    rationale: |
+      This uses the complement. Ninety minus thirty is sixty. Check that supplementary means a 180-degree total.
+  - text: '$330^\circ$'
+    rationale: |
+      This uses a full-turn remainder. Three hundred sixty minus thirty is 330. Use the straight-angle total.
+  explanation: |
+    The given angle is $180^\circ\div6=30^\circ$. Supplementary angles total $180^\circ$, so the partner is $180^\circ-30^\circ=150^\circ$.
+- id: 'q-trigonometry-angles-and-radian-measure-0005'
+  type: 'direct-computation'
+  difficulty: 'medium'
+  stem: |
+    A student converts $150^\circ$ to radians by multiplying by $\dfrac\pi{360}$. What is the correct converted value?
+  choices:
+  - text: '$\dfrac{5\pi}{6}$'
+    correct: true
+  - text: '$\dfrac{5\pi}{12}$'
+    rationale: |
+      This uses pi per 360 degrees. A full circle has 360 degrees. Match it to two pi radians.
+  - text: '$\dfrac{7\pi}{12}$'
+    rationale: |
+      This substitutes 105 degrees. Seven pi over twelve is that angle. Convert the exact given measure.
+  - text: '$\dfrac{2\pi}{3}$'
+    rationale: |
+      This rounds 150 down to 120. Both are obtuse angles. Keep the full stated value.
+  explanation: |
+    Degrees convert using $\dfrac\pi{180}$. Thus $150\dfrac\pi{180}=\dfrac{5\pi}{6}$ radians.
+- id: 'q-trigonometry-angles-and-radian-measure-0006'
+  type: 'direct-computation'
+  difficulty: 'medium'
+  stem: |
+    A student converts $\dfrac{3\pi}{4}$ radians by using $360^\circ$ per $\pi$ radians. What degree value should replace the result?
+  choices:
+  - text: '$135^\circ$'
+    correct: true
+  - text: '$270^\circ$'
+    rationale: |
+      This assigns 360 degrees to pi radians. A full turn has 360 degrees. Check that it corresponds to two pi.
+  - text: '$225^\circ$'
+    rationale: |
+      This uses the full-turn remainder. Three hundred sixty minus 135 is 225. Convert the stated angle itself.
+  - text: '$67.5^\circ$'
+    rationale: |
+      This halves the correct conversion. The denominator is four. Apply the multiplier once.
+  explanation: |
+    Pi radians correspond to $180^\circ$. Thus $\dfrac{3\pi}{4}\dfrac{180^\circ}{\pi}=135^\circ$.
+- id: 'q-trigonometry-angles-and-radian-measure-0007'
+  type: 'direct-computation'
+  difficulty: 'medium'
+  stem: |
+    Find the angle between $0$ degrees and $360$ degrees that is coterminal with $370$ degrees.
+  choices:
+  - text: '$10$ degrees'
+    correct: true
+  - text: '$20$ degrees'
+    rationale: |
+      This uses a full turn of 350 degrees. That leaves twenty. Subtract the standard 360-degree turn.
+  - text: '$100$ degrees'
+    rationale: |
+      This drops 270 degrees instead of 360. A three-quarter turn is 270. Remove a whole turn.
+  - text: '$370$ degrees'
+    rationale: |
+      This keeps the original angle. It is coterminal with itself. Check the required range.
+  explanation: |
+    Subtract one complete turn: $370^\circ-360^\circ=10^\circ$. This lies in the stated range and has the same terminal direction.
+- id: 'q-trigonometry-angles-and-radian-measure-0008'
+  type: 'which-is-true'
+  difficulty: 'medium'
+  stem: |
+    Which statement about radian measure is true?
+  choices:
+  - text: '$1$ radian is about $57.3^\circ$.'
+    correct: true
+  - text: 'Two radians equals $2$ degrees.'
+    rationale: |
+      This treats radians as degrees. The numeral two is shared. Check the unit conversion.
+  - text: '$\dfrac{\pi}{2}$ radians equals $180$ degrees.'
+    rationale: |
+      This uses a half-turn for pi over two. Pi itself is a half-turn. Keep the one-half factor.
+  - text: 'One radian is much smaller than one degree.'
+    rationale: |
+      This reverses the relative size. Radian values often have smaller numerals. Compare the angle represented by one unit.
+  explanation: |
+    Convert one radian using $\dfrac{180^\circ}{\pi}$. This is about $57.3^\circ$.
+- id: 'q-trigonometry-angles-and-radian-measure-0009'
+  type: 'direct-computation'
+  difficulty: 'medium'
+  stem: |
+    A circle has radius $5$ centimeters. Find the arc length cut off by a central angle of $\dfrac{\pi}{3}$ radians.
+  choices:
+  - text: '$\dfrac{5\pi}{3}$ cm'
+    correct: true
+  - text: '$\dfrac{\pi}{3}$ cm'
+    rationale: |
+      This reports the angle as a length. Pi over three is given. Multiply by the radius.
+  - text: '$\dfrac{10\pi}{3}$ cm'
+    rationale: |
+      This uses the diameter as radius. Ten is twice the radius. Use r, not two r.
+  - text: '$5\pi$ cm'
+    rationale: |
+      This drops the angle denominator. Pi is a familiar angle. Keep the factor one-third.
+  explanation: |
+    For a radian angle, arc length is $s=r\theta$. Multiply: $5\dfrac\pi3=\dfrac{5\pi}{3}$ cm.
+- id: 'q-trigonometry-angles-and-radian-measure-0010'
+  type: 'direct-computation'
+  difficulty: 'hard'
+  stem: |
+    A dial turns $30^\circ$ clockwise from its starting direction. With counterclockwise positive, express the signed turn in radians.
+  choices:
+  - text: '$-\dfrac\pi6$'
+    correct: true
+  - text: '$-\dfrac\pi3$'
+    rationale: |
+      This doubles the turn. Pi over three is sixty degrees. Convert thirty exactly.
+  - text: '$\dfrac\pi6$'
+    rationale: |
+      This ignores clockwise direction. The magnitude is correct. Keep the negative sign.
+  - text: '$\dfrac\pi3$'
+    rationale: |
+      This both doubles the angle and reverses direction. Sixty degrees is familiar. Check magnitude and sign separately.
+  explanation: |
+    Clockwise gives a negative turn. Convert $-30^\circ$: $-30\dfrac\pi{180}=-\dfrac\pi6$ radians.
+- id: 'q-trigonometry-angles-and-radian-measure-0011'
+  type: 'direct-computation'
+  difficulty: 'hard'
+  stem: |
+    Find the angle between $0$ degrees and $360$ degrees that is coterminal with $-150$ degrees.
+  choices:
+  - text: '$210$ degrees'
+    correct: true
+  - text: '$150$ degrees'
+    rationale: |
+      This removes the negative sign without adding a turn. The magnitude is 150. Add 360 to preserve direction.
+  - text: '$270$ degrees'
+    rationale: |
+      This uses a ninety-degree clockwise turn. Negative angles can evoke Quadrant IV. Use the stated 150-degree turn.
+  - text: '$-150$ degrees'
+    rationale: |
+      This leaves the angle outside the range. It is the original turn. Add a full rotation.
+  explanation: |
+    Add a full turn: $-150^\circ+360^\circ=210^\circ$. This is in the required range and preserves the terminal direction.
+- id: 'q-trigonometry-angles-and-radian-measure-0012'
+  type: 'which-is-true'
+  difficulty: 'hard'
+  stem: |
+    Which statement is true?
+  choices:
+  - text: '$430^\circ$ and $70^\circ$ are coterminal.'
+    correct: true
+  - text: 'Any angle is coterminal with itself plus $180$ degrees.'
+    rationale: |
+      This uses a half-turn for coterminality. One hundred eighty is a familiar rotation. Use whole turns of 360.
+  - text: '$-290$ degrees is in Quadrant II.'
+    rationale: |
+      This places the negative angle in Quadrant II. Its magnitude exceeds 180. Add a full turn before locating it.
+  - text: 'A radian and a degree are equal in size.'
+    rationale: |
+      This equates the units. Both measure angles. Check 180 degrees against pi radians.
+  explanation: |
+    The difference is $430^\circ-70^\circ=360^\circ$. Angles separated by one full turn are coterminal.
+- id: 'q-trigonometry-angles-and-radian-measure-0013'
+  type: 'direct-computation'
+  difficulty: 'hard'
+  stem: |
+    An arc is $\dfrac{8\pi}{3}$ meters long on a circle of radius $8$ meters. What is its central angle in degrees?
+  choices:
+  - text: '$60^\circ$'
+    correct: true
+  - text: '$120^\circ$'
+    rationale: |
+      This doubles the computed angle. Using diameter instead of radius can change ratios. Divide arc length by the stated radius.
+  - text: '$30^\circ$'
+    rationale: |
+      This halves the computed angle. Half-turn and full-turn conversions are familiar. Use 180 degrees per pi radian.
+  - text: '$\dfrac{64\pi}{3}{}^\circ$'
+    rationale: |
+      This multiplies arc by radius. The formula s equals r theta contains multiplication. Rearrange it to solve for theta.
+  explanation: |
+    Use $\theta=\dfrac sr=\dfrac{8\pi/3}{8}=\dfrac\pi3$ radians. Convert to degrees: $\dfrac\pi3\dfrac{180^\circ}{\pi}=60^\circ$.
+- id: 'q-trigonometry-angles-and-radian-measure-0014'
+  type: 'direct-computation'
+  difficulty: 'hard'
+  stem: |
+    A wheel turns counterclockwise through seven-eighths of a full rotation. What is that turn in radians?
+  choices:
+  - text: '$\dfrac{7\pi}{4}$'
+    correct: true
+  - text: '$\dfrac{7\pi}{8}$'
+    rationale: |
+      This uses pi as a full turn. Seven-eighths is the stated fraction. A full turn is two pi.
+  - text: '$\dfrac{5\pi}{4}$'
+    rationale: |
+      This uses five-eighths instead. Both fractions have an eighth denominator. Keep the stated seven parts.
+  - text: '$\dfrac{9\pi}{4}$'
+    rationale: |
+      This adds an extra quarter-turn. Nine pi over four exceeds one full turn. Check that seven-eighths is below a full turn.
+  explanation: |
+    A full rotation is $2\pi$ radians. Seven-eighths of it is $\dfrac78(2\pi)=\dfrac{7\pi}{4}$ radians.
+- id: 'q-trigonometry-angles-and-radian-measure-0015'
+  type: 'which-is-true'
+  difficulty: 'hard'
+  stem: |
+    A rotating arm turns $2$ radians clockwise. With counterclockwise positive, about how many degrees is this signed turn?
+  choices:
+  - text: '$-2^\circ$'
+    rationale: |
+      This treats radians as degrees. The signed numeral is negative two. Convert the unit.
+  - text: '$-114.6^\circ$'
+    correct: true
+  - text: '$114.6^\circ$'
+    rationale: |
+      This ignores clockwise direction. The converted magnitude is correct. Keep the negative sign.
+  - text: '$-57.3^\circ$'
+    rationale: |
+      This converts only one radian. About 57.3 degrees is one-radian size. Include both radians.
+  explanation: |
+    The signed angle is $-2$ radians. Multiply by $\dfrac{180^\circ}{\pi}$ to get about $-114.6^\circ$.
+- id: 'q-trigonometry-angles-and-radian-measure-0016'
+  type: 'which-is-true'
+  difficulty: 'hard'
+  stem: |
+    Which statement is true?
+  choices:
+  - text: 'Angles in radians are always smaller numbers than angles in degrees.'
+    rationale: |
+      This makes a universal comparison of signed numerals. Positive degree numerals are usually larger. Check zero and negative angles too.
+  - text: '$1$ radian equals $1$ degree.'
+    rationale: |
+      This equates the units. Both describe angles. Use 180 degrees equals pi radians.
+  - text: 'An angle of $2\pi$ radians is greater than $350$ degrees.'
+    correct: true
+  - text: 'The arc length formula $s = r\theta$ uses $\theta$ measured in degrees.'
+    rationale: |
+      This substitutes degrees into the radian arc rule. Degrees are familiar. Convert theta to radians first.
+  explanation: |
+    A full turn is $2\pi$ radians, equal to $360^\circ$. Since $360>350$, that radian angle is greater than $350^\circ$.
+- id: 'q-trigonometry-angles-and-radian-measure-0017'
+  type: 'estimate-first'
+  difficulty: 'easy'
+  stem: |
+    About where does an angle of $0.5$ radians lie when measured counterclockwise from the positive x-axis?
+  choices:
+  - text: 'Quadrant I.'
+    correct: true
+  - text: 'Quadrant II.'
+    rationale: |
+      This treats half a radian as half a turn. Both contain a half. Compare it with pi over two.
+  - text: 'Quadrant III.'
+    rationale: |
+      This assumes the decimal means multiple turns. Small radian numerals can seem unfamiliar. Compare it with pi.
+  - text: 'Quadrant IV.'
+    rationale: |
+      This treats the turn as clockwise. Fourth-quadrant angles can be negative. Check the stated counterclockwise direction.
+  explanation: |
+    The angle is positive and smaller than $\dfrac\pi2\approx1.57$ radians. It therefore lies in Quadrant I.
+  approved: false
+- id: 'q-trigonometry-angles-and-radian-measure-0018'
+  type: 'which-is-true'
+  difficulty: 'medium'
+  stem: |
+    An arc of length $r$ is cut from a circle of radius $r$. What is its central angle in radians?
+  choices:
+  - text: '$1$'
+    correct: true
+  - text: '$r$'
+    rationale: |
+      This copies the radius as the angle. The same letter names the length. Divide arc length by radius.
+  - text: '$180$'
+    rationale: |
+      This treats every arc as a semicircle. Straight angles have 180 degrees. Check the arc-to-radius ratio.
+  - text: '$2\pi$'
+    rationale: |
+      This treats the arc as the entire circumference. A full turn has two pi radians. Compare r with two pi r.
+  explanation: |
+    Use $\theta=s/r$. Here $s=r$, so $\theta=r/r=1$ radian.
+  approved: false
+- id: 'q-trigonometry-angles-and-radian-measure-0019'
+  type: 'word-problem'
+  difficulty: 'hard'
+  stem: |
+    A wheel turns through $5\pi$ radians counterclockwise. How many complete revolutions occur before the remaining half-turn?
+  choices:
+  - text: '$2$'
+    correct: true
+  - text: '$5$'
+    rationale: |
+      This uses pi radians as a full turn. Five pi contains five half-turns. Divide by two pi per revolution.
+  - text: '$2.5$'
+    rationale: |
+      This reports the total fractional revolutions. The division is correct. Count only completed revolutions.
+  - text: '$3$'
+    rationale: |
+      This rounds the fractional revolution upward. The remainder is half a turn. Do not count an incomplete revolution as complete.
+  explanation: |
+    Divide by $2\pi$ radians per full turn: $\dfrac{5\pi}{2\pi}=2.5$. This is two complete revolutions plus a half-turn.
+  approved: false
+- id: 'q-trigonometry-angles-and-radian-measure-0020'
+  type: 'error-spotting'
+  difficulty: 'exam'
+  stem: |
+    A student says $-\dfrac{5\pi}{2}$ radians lies on the negative x-axis after adding $2\pi$. Which axis actually contains its terminal side?
+  choices:
+  - text: 'Negative y-axis.'
+    correct: true
+  - text: 'Negative x-axis.'
+    rationale: |
+      This treats negative pi over two as negative pi. Both are negative angles. Keep the one-half factor.
+  - text: 'Positive x-axis.'
+    rationale: |
+      This treats any full-turn adjustment as zero. Adding two pi preserves direction. Simplify the remaining angle.
+  - text: 'Positive y-axis.'
+    rationale: |
+      This drops the negative sign from pi over two. The magnitude is a quarter-turn. Check its clockwise direction.
+  explanation: |
+    Adding $2\pi$ leaves $-\dfrac\pi2$ radians. That is a clockwise quarter-turn from the positive x-axis, ending on the negative y-axis.
+  approved: false

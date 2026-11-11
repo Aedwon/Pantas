@@ -1,32 +1,42 @@
 import 'dart:io';
-
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  const productionPaths = [
-    'lib/features/paywall/presentation/paywall_page.dart',
-    'lib/features/paywall/presentation/plans_page.dart',
-    'lib/features/paywall/presentation/plan_row.dart',
-    'lib/features/paywall/presentation/trial_timeline_page.dart',
-    'lib/features/paywall/presentation/trial_notice_banner.dart',
-    'lib/features/paywall/presentation/subscription_panel.dart',
-    'lib/features/paywall/presentation/paywall_package_card.dart',
-    'lib/features/settings/presentation/pages/pro_page.dart',
-  ];
-
-  test('payment presentation contains no stale commercial copy', () {
-    for (final path in productionPaths) {
-      final source = File(path).readAsStringSync();
-      expect(source.contains('₱499'), isFalse, reason: path);
-      expect(source.contains('₱42'), isFalse, reason: path);
+  test(
+      'Pro presentation uses gateway prices and the retired '
+      'purchase flow is absent', () {
+    final source =
+        File('lib/features/settings/presentation/pages/pro_page.dart')
+            .readAsStringSync();
+    expect(source.contains('₱'), isFalse);
+    for (final name in [
+      'paywall_page',
+      'what_pro_adds_page',
+      'plans_page',
+      'trial_timeline_page',
+      'pro_specimen_panel',
+      'paywall_package_card',
+      'plan_row',
+      'subscription_panel',
+    ]) {
+      expect(
+        File('lib/features/paywall/presentation/$name.dart').existsSync(),
+        isFalse,
+        reason: name,
+      );
     }
   });
-
-  test('payment network failure cannot use the shared ErrorBanner', () {
-    final source = File(
-      'lib/features/paywall/presentation/paywall_page.dart',
-    ).readAsStringSync();
-
-    expect(source.contains('ErrorBanner'), isFalse);
+  test('all live Pro destinations push Settings Pro', () {
+    for (final file in Directory('lib')
+        .listSync(recursive: true)
+        .whereType<File>()
+        .where((f) => f.path.endsWith('.dart'))) {
+      expect(
+        RegExp(r'''(?:push|go)(?:<[^>]*>)?\(['"]/paywall''')
+            .hasMatch(file.readAsStringSync()),
+        isFalse,
+        reason: file.path,
+      );
+    }
   });
 }

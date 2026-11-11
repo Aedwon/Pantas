@@ -1,0 +1,115 @@
+00:00 +0: loading /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_pick_check_test.dart
+00:00 +0: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_controller_test.dart: (setUpAll)
+00:00 +0: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_pick_check_test.dart: (setUpAll)
+00:00 +0: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_controller_test.dart: start() loads questions and transitions to running
+00:00 +1: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_pick_check_test.dart: picks remain changeable and write only when checked
+00:00 +2: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_controller_test.dart: answer() records and stays, and next() ends the session
+00:00 +3: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_controller_test.dart: answer() records and stays, and next() ends the session
+00:00 +4: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_pick_check_test.dart: pending Check prevents another submission and changing the pick
+00:00 +5: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_pick_check_test.dart: failed Check keeps the pick and permits retry
+00:00 +6: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_pick_check_test.dart: late Check cannot resurrect a reset session
+00:00 +7: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_pick_check_test.dart: disposed pending Check handles late result fails=false
+00:00 +8: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_pick_check_test.dart: disposed pending Check handles late result fails=true
+00:00 +9: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_pick_check_test.dart: (tearDownAll)
+00:00 +9: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_controller_today_launch_test.dart: startToday launches through the single coordinator owner
+00:00 +10: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_controller_today_launch_test.dart: Today does not start response timing before UI readiness
+00:00 +11: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_controller_today_launch_test.dart: readiness is keyed, idempotent, and resets for Next
+00:00 +12: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/presentation/quiz_controller_today_launch_test.dart: prepared Next starts response timing in the same transition
+00:00 +13: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/submit_answer_test.dart: (setUpAll)
+00:00 +13: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/submit_answer_test.dart: correct answer → outcome.isCorrect=true and ReviewState upserted
+00:00 +14: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/submit_answer_test.dart: records session progress and counts first seen cards
+00:00 +15: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/submit_answer_test.dart: does not increment new-card counter for existing review state
+00:00 +16: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/submit_answer_test.dart: seeds a new ReviewState if none exists
+00:00 +17: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/submit_answer_test.dart: the review log one answer appends exactly one row
+00:00 +18: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/submit_answer_test.dart: the review log the stored rating is the rating the scheduler was given
+00:00 +19: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/submit_answer_test.dart: the review log the row carries the state before the review, not after
+00:00 +20: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/submit_answer_test.dart: the review log the row records which heuristic produced the rating
+00:00 +21: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/submit_answer_test.dart: (tearDownAll)
+00:00 +21: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill stores drill origin and subtopicId
+00:00 +22: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill stores drill origin and subtopicId
+00:00 +23: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill stores drill origin and subtopicId
+00:00 +24: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill stores drill origin and subtopicId
+00:00 +25: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill stores drill origin and subtopicId
+00:00 +26: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill stores drill origin and subtopicId
+00:00 +27: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill stores drill origin and subtopicId
+00:00 +28: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill stores drill origin and subtopicId
+00:00 +29: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill stores drill origin and subtopicId
+00:00 +30: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill stores drill origin and subtopicId
+00:00 +31: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill stores drill origin and subtopicId
+00:00 +32: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill stores drill origin and subtopicId
+00:00 +33: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_inline_lesson_quiz_test.dart: lesson quiz uses only its own questions, pool 3
+00:00 +34: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill supports 5 10 20 and all available lengths
+00:00 +35: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_inline_lesson_quiz_test.dart: lesson quiz uses only its own questions, pool 7
+00:00 +36: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_drill_test.dart: start drill falls back to General topic bucket when subtopicId is null
+00:00 +37: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_inline_lesson_quiz_test.dart: inline lesson quiz stores inline origin lessonId and subtopicId
+00:00 +38: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_inline_lesson_quiz_test.dart: inline lesson quiz requests exactly five questions
+00:00 +39: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_inline_lesson_quiz_test.dart: inline lesson quiz uses lesson tags when legacy subtopic is absent
+00:01 +40: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/complete_quiz_test.dart: (setUpAll)
+00:01 +40: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/complete_quiz_test.dart: saves a completed Attempt with all outcomes and a completedAt
+00:01 +41: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/complete_quiz_test.dart: saves the session origin on the completed attempt
+00:01 +42: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/complete_quiz_test.dart: throws StateError when session is incomplete
+00:01 +43: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/complete_quiz_test.dart: (tearDownAll)
+00:01 +43: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_retake_test.dart: start retake stores retake origin and dedupes missed question ids
+00:01 +44: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/practice_recency_test.dart: selected lessons are mixed and the exact order is saved
+00:01 +45: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_retake_test.dart: start retake caps the pool at 50 questions
+00:01 +46: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_retake_test.dart: start retake caps the pool at 50 questions
+00:01 +47: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_retake_test.dart: start retake caps the pool at 50 questions
+00:01 +48: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_retake_test.dart: start retake caps the pool at 50 questions
+00:01 +49: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_retake_test.dart: start retake caps the pool at 50 questions
+00:01 +50: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/practice_recency_test.dart: seven-day boundary is recent but an unreviewed seed is eligible
+00:01 +51: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_retake_test.dart: empty mistake pool returns an empty-state result
+00:01 +52: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/practice_recency_test.dart: a small pool tops up recent questions before shortening the run
+00:01 +53: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/practice_recency_test.dart: passage grouping is identical in the displayed and durable order
+00:01 +54: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_today_session_test.dart: per-topic start builds context for selected topic and stores today_topic origin
+00:01 +55: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_today_session_test.dart: per-topic start builds context for selected topic and stores today_topic origin
+00:01 +56: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_today_session_test.dart: per-topic start builds context for selected topic and stores today_topic origin
+00:01 +57: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_today_session_test.dart: per-topic start builds context for selected topic and stores today_topic origin
+00:01 +58: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_today_session_test.dart: per-topic start builds context for selected topic and stores today_topic origin
+00:01 +59: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_today_session_test.dart: per-topic start builds context for selected topic and stores today_topic origin
+00:01 +60: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_today_session_test.dart: per-topic start builds context for selected topic and stores today_topic origin
+00:01 +61: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_today_session_test.dart: interleaved start stores today_interleaved origin
+00:01 +62: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_today_session_test.dart: empty picker output returns a user-facing no questions failure
+00:01 +63: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_today_session_test.dart: a supplied plan is the session that gets created
+00:01 +64: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_today_session_test.dart: an empty plan reports no questions
+00:01 +65: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_today_session_test.dart: the named topic is recorded under the interleaved tail
+00:01 +66: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_today_session_test.dart: guarded Today start returns no commit when persistence is cancelled
+00:01 +67: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_practice_test.dart: each unit contributes its own questions
+00:02 +68: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/session_lifecycle_test.dart: resume hydrates question N plus saved progress
+00:02 +69: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/session_lifecycle_test.dart: resume hydrates question N plus saved progress
+00:02 +70: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/session_lifecycle_test.dart: resume hydrates question N plus saved progress
+00:02 +71: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/start_practice_test.dart: the session is recorded as a drill
+00:02 +72: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/session_lifecycle_test.dart: quit marks the active session quit and keeps answers
+00:02 +73: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/session_lifecycle_test.dart: quit marks the active session quit and keeps answers
+00:02 +74: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/session_lifecycle_test.dart: quit marks the active session quit and keeps answers
+00:02 +75: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/session_lifecycle_test.dart: restart requires explicit call and creates a new session
+00:02 +76: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/session_lifecycle_test.dart: completed sessions are not resumable
+00:02 +77: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/domain/use_cases/session_lifecycle_test.dart: resume restores persisted answer outcomes in order
+00:02 +78: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/repos/quiz_session_repository_average_test.dart: returns null below the minimum number of sessions
+00:02 +79: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_preferences_repository_test.dart: default quiz preferences are length 10 and interleaved tail
+00:02 +80: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/repos/quiz_session_repository_average_test.dart: averages once the minimum is reached
+00:02 +81: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/repos/quiz_session_repository_average_test.dart: averages once the minimum is reached
+00:02 +82: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_preferences_repository_test.dart: save writes quiz preferences to account prefs only
+00:02 +83: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_preferences_repository_test.dart: save writes quiz preferences to account prefs only
+00:02 +84: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/repos/practice_preferences_repository_test.dart: last picks and length reopen independently for each exam
+00:02 +85: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/repos/practice_preferences_repository_test.dart: last picks and length reopen independently for each exam
+00:02 +86: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/repos/practice_preferences_repository_test.dart: last picks and length reopen independently for each exam
+00:02 +87: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/repos/practice_preferences_repository_test.dart: last picks and length reopen independently for each exam
+00:02 +88: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/repos/practice_preferences_repository_test.dart: last picks and length reopen independently for each exam
+00:02 +89: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/report_queue_test.dart: reports survive reopening and the fourth for a question is refused
+00:02 +90: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/report_queue_test.dart: twenty per local day, reset at midnight, blank does not use a slot
+00:02 +91: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_repository_test.dart: create stores active session with currentIndex zero
+00:02 +92: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_repository_test.dart: recordAnswer advances currentIndex correctCount and lastAnsweredAt
+00:02 +93: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_repository_test.dart: resume returns newest uncompleted unquit session for a user
+00:02 +94: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_repository_test.dart: complete sets completedAt and quit sets quitAt
+00:02 +95: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_repository_test.dart: restart discards prior active session only after explicit call
+00:02 +96: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_repository_test.dart: starting a session closes whatever was left open for that exam
+00:02 +97: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_repository_test.dart: a session for another exam is left alone
+00:02 +98: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_repository_test.dart: quitAllOpen closes every open session, not just the newest
+00:02 +99: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_repository_test.dart: guarded create rolls back prior active session when cancelled before insert
+00:02 +100: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_repository_test.dart: guarded create rolls back when cancelled after awaited insert before commit
+00:02 +101: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_repository_test.dart: guarded create commits exactly one replacement when all checkpoints stay valid
+00:02 +102: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/quiz_session_migration_test.dart: v23 migration adds outcomes and closes only answered legacy active sessions
+00:02 +103: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/new_card_intro_repository_test.dart: countForDay returns zero when no new cards were introduced
+00:02 +104: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/new_card_intro_repository_test.dart: incrementForDay adds to the local midnight bucket
+00:02 +105: /Users/aedwon/Documents/Projects/Pantas-wt-new-design-w4d-r1/test/features/quiz/data/new_card_intro_repository_test.dart: countForDay is scoped by user exam and day
+00:02 +106: All tests passed!

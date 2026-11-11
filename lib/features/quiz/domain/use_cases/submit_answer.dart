@@ -103,10 +103,19 @@ class SubmitAnswer {
         heuristicVersion: kRatingHeuristicVersion,
       ),
     );
+    final outcome = AnswerOutcome(
+      questionId: question.id,
+      questionVersion: question.version,
+      chosenChoiceId: chosenChoiceId,
+      correctChoiceId: correctId,
+      responseMs: responseMs,
+      derivedRating: rating,
+      nextReviewIntervalDays: nextIntervalDays < 1 ? 1 : nextIntervalDays,
+    );
     if (sessionId != null) {
       await _sessions?.recordAnswer(
         sessionId: sessionId,
-        isCorrect: isCorrect,
+        outcome: outcome,
         answeredAt: now,
       );
     }
@@ -118,14 +127,6 @@ class SubmitAnswer {
       );
     }
 
-    return AnswerOutcome(
-      questionId: question.id,
-      questionVersion: question.version,
-      chosenChoiceId: chosenChoiceId,
-      correctChoiceId: correctId,
-      responseMs: responseMs,
-      derivedRating: rating,
-      nextReviewIntervalDays: nextIntervalDays < 1 ? 1 : nextIntervalDays,
-    );
+    return outcome;
   }
 }
