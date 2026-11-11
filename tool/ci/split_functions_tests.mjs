@@ -8,12 +8,12 @@
 //
 // `npm test` runs functions/test/*.test.mjs with no emulator, then
 // *.rules.mjs and *.emulator.mjs together inside the Firebase emulators. The
-// two kinds are split the same way here. Emulator files are balanced on file
-// size, which tracks the number of tests. Job 1 also takes every plain file,
-// so it starts the emulator share lighter.
+// two kinds are split the same way here. Emulator files are balanced on recorded
+// seconds (tool/ci/functions_test_timings.json). Job 1 also takes every plain
+// file, so it starts the emulator share lighter.
 //
 // Only node built-ins are used.
-import { readdirSync, statSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -31,12 +31,21 @@ function list(suffixes) {
 export const plainFiles = () => list(['.test.mjs']);
 export const emulatorFiles = () => list(['.rules.mjs', '.emulator.mjs']);
 
-const sizeOf = (file) => statSync(join(root, 'functions', file)).size;
+// Seconds per emulator file, from tool/ci/functions_test_timings.json. A file
+// with no entry gets the median.
+const recorded = JSON.parse(
+  readFileSync(join(root, 'tool', 'ci', 'functions_test_timings.json'), 'utf8'),
+).seconds;
+const median = (() => {
+  const v = Object.values(recorded).sort((a, b) => a - b);
+  return v.length ? v[Math.floor(v.length / 2)] : 1;
+})();
+const sizeOf = (file) => recorded[file] ?? median;
 
 /** Emulator files per job, longest first onto the lighter job. */
 export function splitEmulator(files, jobs) {
-  const total = files.reduce((sum, f) => sum + sizeOf(f), 0);
-  const loads = Array.from({ length: jobs }, (_, i) => (i === 0 ? total * 0.1 : 0));
+  // Job 1 also runs the plain tests, about 5 s.
+  const loads = Array.from({ length: jobs }, (_, i) => (i === 0 ? 5 : 0));
   const parts = Array.from({ length: jobs }, () => []);
   const ordered = [...files].sort((a, b) => sizeOf(b) - sizeOf(a) || a.localeCompare(b));
   for (const file of ordered) {
