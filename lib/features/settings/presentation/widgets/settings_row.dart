@@ -154,7 +154,7 @@ class SettingsRow extends StatelessWidget {
                           child: PantasSwitch(
                             value: selected,
                             label: title,
-                            onChanged: (_) => onTap?.call(),
+                            onChanged: onTap == null ? null : (_) => onTap!(),
                           ),
                         ),
                       )

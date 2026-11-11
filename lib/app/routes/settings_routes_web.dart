@@ -30,6 +30,7 @@ List<RouteBase> settingsRoutes(Ref ref) => [
         '/settings/exam/transfer',
         '/settings/exam/included',
         '/settings/account',
+        '/settings/account/adult-check',
         '/settings/account/name',
         '/settings/account/delete',
         '/settings/pro',

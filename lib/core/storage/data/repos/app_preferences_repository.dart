@@ -84,6 +84,27 @@ class AppPreferencesRepository {
 
   /// The minimum age in force when a student was blocked, or null if never
   /// blocked. The block lasts until support clears it, so it survives a reload.
+  /// The version of the age step line the student saw when the group was set.
+  Future<String?> ageCheckNoticeVersion() =>
+      _deviceValue('age_check_notice_version');
+
+  Future<void> setAgeCheckNoticeVersion(String version) =>
+      _setDeviceValue('age_check_notice_version', version);
+
+  /// The wording of the setup acceptance the student agreed to.
+  Future<String?> setupAcceptanceVersion() =>
+      _deviceValue('setup_acceptance_version');
+
+  Future<void> setSetupAcceptanceVersion(String version) =>
+      _setDeviceValue('setup_acceptance_version', version);
+
+  /// `uid|version` once the server has the acceptance for that account.
+  Future<String?> setupAcceptanceRecordedFor() =>
+      _deviceValue('setup_acceptance_recorded_for');
+
+  Future<void> setSetupAcceptanceRecordedFor(String marker) =>
+      _setDeviceValue('setup_acceptance_recorded_for', marker);
+
   Future<int?> blockedMinimumAge() async {
     final raw = await _deviceValue('age_blocked_minimum');
     return raw == null ? null : int.tryParse(raw);
@@ -125,6 +146,14 @@ class AppPreferencesRepository {
 
   Future<void> setGuardianStatusCache(String status) =>
       _setDeviceValue('guardian_status', status);
+
+  /// True once a guardian's permission to share usage was applied on this
+  /// device. It lets the student turn sharing off without it coming back.
+  Future<bool> guardianSharingApplied() async =>
+      await _deviceValue('guardian_sharing_applied') == 'true';
+
+  Future<void> setGuardianSharingApplied({required bool value}) =>
+      _setDeviceValue('guardian_sharing_applied', value ? 'true' : 'false');
 
   Future<String?> installedContentSeedVersion() =>
       _deviceValue(_contentSeedVersionKey);

@@ -1,12 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/app/build_info.dart';
+import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/telemetry/client_report.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
+import 'package:pantas/features/guardian/application/guardian_providers.dart';
+import 'package:pantas/features/guardian/application/minor_sharing.dart';
 import 'package:pantas/features/legal/legal.dart';
+import 'package:pantas/features/settings/application/settings_providers.dart';
 import 'package:pantas/features/settings/presentation/pages/about_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
+
+class _NullSender implements ClientReportSender {
+  @override
+  Future<void> send(Map<String, Object?> payload) async {}
+}
 
 void main() {
   testWidgets('About uses the configured build number', (tester) async {
@@ -42,11 +54,102 @@ void main() {
     await tester.pumpAppWithProviders(const AboutPage(), overrides: []);
     await tester.pumpAndSettle();
 
-    expect(find.byType(PantasSwitch), findsOneWidget);
+    expect(find.byType(PantasSwitch), findsNWidgets(2));
     expect(
-      tester.widget<PantasSwitch>(find.byType(PantasSwitch)).value,
+      tester.widget<PantasSwitch>(find.byType(PantasSwitch).first).value,
       isFalse,
     );
+  });
+
+  testWidgets(
+      'the speed and error row sits under usage sharing and toggles '
+      'the setting and the reporter', (tester) async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final reporter = ClientReporter(
+      sender: _NullSender(),
+      context: () => const ClientReportContext(
+        build: 'b',
+        visit: 'first',
+        browser: 'chrome',
+        mobile: false,
+        viewportWidth: 1000,
+      ),
+    );
+    ClientReporter.active = reporter;
+    addTearDown(reporter.dispose);
+    await tester.pumpAppWithProviders(
+      const AboutPage(),
+      overrides: [appDatabaseProvider.overrideWithValue(db)],
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Send speed and error reports'), findsOneWidget);
+    expect(find.text('Helps us find slow screens and errors.'), findsOneWidget);
+    final usageY = tester
+        .getTopLeft(find.text('Help improve Pantas by sharing usage data'))
+        .dy;
+    final speedY =
+        tester.getTopLeft(find.text('Send speed and error reports')).dy;
+    expect(speedY, greaterThan(usageY));
+    final switches = find.byType(PantasSwitch);
+    expect(switches, findsNWidgets(2));
+    expect(tester.widget<PantasSwitch>(switches.last).value, isTrue);
+
+    await tester.tap(find.text('Send speed and error reports'));
+    await tester.pumpAndSettle();
+    final container = ProviderScope.containerOf(
+      tester.element(find.byType(AboutPage)),
+    );
+    final off =
+        await container.read(settingsRepositoryProvider).readUserSettings();
+    expect(off.speedReportsEnabled, isFalse);
+    expect(reporter.enabled, isFalse);
+    expect(tester.widget<PantasSwitch>(switches.last).value, isFalse);
+
+    await tester.tap(find.text('Send speed and error reports'));
+    await tester.pumpAndSettle();
+    expect(reporter.enabled, isTrue);
+  });
+
+  testWidgets(
+      'a minor whose guardian has not allowed sharing sees the switch '
+      'disabled with its caption', (tester) async {
+    await tester.pumpAppWithProviders(
+      const AboutPage(),
+      overrides: [
+        minorSharingProvider.overrideWith((ref) => MinorSharing.locked),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    expect(
+      find.text('Your parent or guardian can turn this on.'),
+      findsOneWidget,
+    );
+    final sharing =
+        tester.widget<PantasSwitch>(find.byType(PantasSwitch).first);
+    expect(sharing.onChanged, isNull);
+    expect(sharing.value, isFalse);
+  });
+
+  testWidgets('an allowed minor and an adult see no caption and a live switch',
+      (tester) async {
+    for (final state in [MinorSharing.allowed, MinorSharing.notMinor]) {
+      await tester.pumpAppWithProviders(
+        const AboutPage(),
+        overrides: [minorSharingProvider.overrideWith((ref) => state)],
+      );
+      await tester.pumpAndSettle();
+      expect(
+        find.text('Your parent or guardian can turn this on.'),
+        findsNothing,
+      );
+      expect(
+        tester.widget<PantasSwitch>(find.byType(PantasSwitch).first).onChanged,
+        isNotNull,
+      );
+    }
   });
 
   testWidgets(

@@ -216,6 +216,12 @@ void main() {
       expect(takeInitialRouterLocation(), '/guardian?token=abc');
     });
 
+    test('the manage link stays too, so recovery stays on the manage page', () {
+      remember('/guardian/manage?token=abc');
+      expect(takeInitialRouterLocation(), '/guardian/manage?token=abc');
+      expect(takeInitialRouterLocation(), '/guardian/manage?token=abc');
+    });
+
     test('looking at the start does not use it', () {
       remember('/settings/about');
       expect(initialRouterLocation, '/settings/about');

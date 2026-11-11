@@ -26,16 +26,33 @@ abstract interface class GuardianGateway {
   Future<GuardianStatus> sendLink({
     required String guardianName,
     required String guardianEmail,
+    String? ageCheckNoticeVersion,
   });
+
+  /// Tells the server the student re-checked their age and is now 18 or older.
+  Future<void> markAdult();
 
   /// Reads the link for the guardian page. Never confirms.
   Future<GuardianLinkView> readLink(String token);
 
-  Future<GuardianAnswer> answer({
+  Future<GuardianAnswerResult> answer({
     required String token,
     required bool confirm,
     required bool agreed,
+    required bool allowSharing,
   });
+
+  /// Reads the manage page for the link. Never changes anything.
+  Future<GuardianManageView> readManage(String token);
+
+  /// Turns optional usage sharing on or off for the student.
+  Future<GuardianManageView> setSharing({
+    required String token,
+    required bool allowed,
+  });
+
+  /// Closes the student's account at the guardian's request.
+  Future<GuardianWithdrawal> withdraw(String token);
 }
 
 // Single-method interface is intentional for callable-client test DI.
@@ -84,14 +101,22 @@ class CallableGuardianGateway implements GuardianGateway {
   Future<GuardianStatus> sendLink({
     required String guardianName,
     required String guardianEmail,
+    String? ageCheckNoticeVersion,
   }) async {
     final reply = _map(
       await _client.call('sendGuardianLink', {
         'guardianName': guardianName,
         'guardianEmail': guardianEmail,
+        if (ageCheckNoticeVersion != null)
+          'ageCheckNoticeVersion': ageCheckNoticeVersion,
       }),
     );
     return GuardianStatus.fromJson({...reply, 'status': 'pending'});
+  }
+
+  @override
+  Future<void> markAdult() async {
+    await _client.call('markGuardianAdult', {});
   }
 
   @override
@@ -114,26 +139,72 @@ class CallableGuardianGateway implements GuardianGateway {
   }
 
   @override
-  Future<GuardianAnswer> answer({
+  Future<GuardianAnswerResult> answer({
     required String token,
     required bool confirm,
     required bool agreed,
+    required bool allowSharing,
   }) async {
     final reply = _map(
       await _client.call('answerGuardianRequest', {
         'token': token,
         'decision': confirm ? 'confirm' : 'decline',
         'agreed': agreed,
+        'allowSharing': allowSharing,
         'documentVersions': guardianDocumentVersions,
         'noticeWordingVersion': guardianNoticeWordingVersion,
       }),
     );
+    final manage = reply['manageToken'];
     return switch (reply['state']) {
-      'confirmed' => GuardianAnswer.confirmed,
-      'declined' => GuardianAnswer.declined,
-      'used' => GuardianAnswer.used,
-      'expired' => GuardianAnswer.expired,
-      _ => GuardianAnswer.unknown,
+      'confirmed' => GuardianAnswerResult(
+          GuardianAnswer.confirmed,
+          manageToken: manage is String ? manage : null,
+        ),
+      'declined' => const GuardianAnswerResult(GuardianAnswer.declined),
+      'used' => const GuardianAnswerResult(GuardianAnswer.used),
+      'expired' => const GuardianAnswerResult(GuardianAnswer.expired),
+      _ => const GuardianAnswerResult(GuardianAnswer.unknown),
+    };
+  }
+
+  GuardianManageView _manageView(Map<Object?, Object?> reply) =>
+      switch (reply['state']) {
+        'active' => GuardianManageActive(
+            sharingAllowed: reply['sharingAllowed'] == true,
+          ),
+        'not_confirmed' => const GuardianManageNotConfirmed(),
+        _ => const GuardianManageClosed(),
+      };
+
+  @override
+  Future<GuardianManageView> readManage(String token) async => _manageView(
+        _map(await _client.call('getGuardianManage', {'token': token})),
+      );
+
+  @override
+  Future<GuardianManageView> setSharing({
+    required String token,
+    required bool allowed,
+  }) async =>
+      _manageView(
+        _map(
+          await _client.call(
+            'setGuardianSharing',
+            {'token': token, 'allowed': allowed},
+          ),
+        ),
+      );
+
+  @override
+  Future<GuardianWithdrawal> withdraw(String token) async {
+    final reply = _map(
+      await _client.call('withdrawGuardianPermission', {'token': token}),
+    );
+    return switch (reply['state']) {
+      'withdrawn' => GuardianWithdrawal.withdrawn,
+      'not_confirmed' => GuardianWithdrawal.notConfirmed,
+      _ => GuardianWithdrawal.closed,
     };
   }
 }

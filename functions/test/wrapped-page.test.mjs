@@ -7,7 +7,7 @@ const render = () =>
 const indexSource = () =>
   readFileSync(new URL('../src/index.ts', import.meta.url), 'utf8');
 const deleteAccount = () =>
-  readFileSync(new URL('../src/deleteAccount.ts', import.meta.url), 'utf8');
+  readFileSync(new URL('../src/deleteUserData.ts', import.meta.url), 'utf8');
 
 test('renderWrappedPage is an asia-southeast1 HTTP function', () => {
   const source = render();

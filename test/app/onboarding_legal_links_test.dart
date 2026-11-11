@@ -111,7 +111,8 @@ void main() {
                 const Offset(28, 20),
           );
           await tester.pumpAndSettle();
-          expect(checks(tester), [false, true]);
+          // Under 18 the usage box is not offered, so only the terms box shows.
+          expect(checks(tester), minor ? [true] : [false, true]);
 
           await tester.tap(find.text(link));
           await tester.pumpAndSettle();
@@ -127,7 +128,8 @@ void main() {
           await tester.pumpAndSettle();
           expect(pathOf(tester), '/onboarding');
           expect(find.text('Terms and Privacy'), findsOneWidget);
-          expect(checks(tester), [false, true]);
+          // Under 18 the usage box is not offered, so only the terms box shows.
+          expect(checks(tester), minor ? [true] : [false, true]);
         });
       }
     }

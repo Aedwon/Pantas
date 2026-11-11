@@ -63,6 +63,19 @@ void main() {
     expect(await repo.hasPassedAgeGate(), isFalse);
   });
 
+  test(
+      'sending a link carries the age check notice version stored with the '
+      'age group', () async {
+    final repo = container.read(appPreferencesRepositoryProvider);
+    await repo.setAgeGroup('minor');
+    await repo.setAgeCheckNoticeVersion('2026-11-09');
+    await container.read(guardianControllerProvider).sendLink(
+          guardianName: 'Maria',
+          guardianEmail: 'maria@gmail.com',
+        );
+    expect(gateway.sent.single.ageCheckNoticeVersion, '2026-11-09');
+  });
+
   test('a failed send keeps the student where they were', () async {
     final repo = container.read(appPreferencesRepositoryProvider);
     await repo.setAgeGroup('minor');

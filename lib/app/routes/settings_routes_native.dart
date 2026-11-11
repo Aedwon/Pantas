@@ -25,6 +25,7 @@ import 'package:pantas/features/beta_feedback/presentation/sent_feedback_page.da
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/legal/legal.dart';
 import 'package:pantas/features/legal/presentation/legal_document_page.dart';
+import 'package:pantas/features/onboarding/presentation/adult_recheck_page.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
 import 'package:pantas/features/paywall/domain/switch_outcome.dart';
 import 'package:pantas/features/paywall/paywall.dart';
@@ -105,6 +106,10 @@ List<RouteBase> settingsRoutes(Ref ref) => [
       GoRoute(
         path: '/settings/account',
         builder: (_, __) => const AccountPage(),
+      ),
+      GoRoute(
+        path: '/settings/account/adult-check',
+        builder: (_, __) => const AdultRecheckPage(),
       ),
       GoRoute(
         path: '/settings/account/name',

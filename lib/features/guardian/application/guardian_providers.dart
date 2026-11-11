@@ -1,11 +1,27 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/features/guardian/application/minor_sharing.dart';
 import 'package:pantas/features/guardian/data/guardian_gateway.dart';
 import 'package:pantas/features/guardian/domain/guardian_consent.dart';
+import 'package:pantas/features/settings/application/settings_providers.dart';
 
 final guardianGatewayProvider = Provider<GuardianGateway>(
   (ref) => const CallableGuardianGateway(),
+);
+
+final minorSharingGateProvider = Provider<MinorSharingGate>(
+  (ref) => MinorSharingGate(
+    prefs: ref.watch(appPreferencesRepositoryProvider),
+    settings: ref.watch(settingsRepositoryProvider),
+    guardian: ref.watch(guardianGatewayProvider),
+  ),
+);
+
+/// Applies the guardian's sharing choice and says whether the student's own
+/// switch is locked. Settings watches it.
+final minorSharingProvider = FutureProvider<MinorSharing>(
+  (ref) => ref.watch(minorSharingGateProvider).sync(),
 );
 
 /// Where a student stands against the guardian requirement.
@@ -58,11 +74,12 @@ class GuardianController {
   }) async {
     final name = guardianName.trim();
     final email = guardianEmail.trim().toLowerCase();
+    final prefs = _ref.read(appPreferencesRepositoryProvider);
     final status = await _ref.read(guardianGatewayProvider).sendLink(
           guardianName: name,
           guardianEmail: email,
+          ageCheckNoticeVersion: await prefs.ageCheckNoticeVersion(),
         );
-    final prefs = _ref.read(appPreferencesRepositoryProvider);
     await prefs.setGuardianContact(name: name, email: email);
     await prefs.setGuardianStatusCache(status.status.wire);
     _ref.invalidate(guardianGateProvider);

@@ -3,6 +3,7 @@ import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/telemetry/client_report.dart';
 import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/paywall/application/beta_pro_provider.dart';
@@ -101,6 +102,14 @@ class SettingsActions {
     await _ref
         .read(settingsRepositoryProvider)
         .updateHelpImproveApp(enabled: enabled);
+    _ref.invalidate(userSettingsProvider);
+  }
+
+  Future<void> setSpeedReportsEnabled({required bool enabled}) async {
+    await _ref
+        .read(settingsRepositoryProvider)
+        .updateSpeedReportsEnabled(enabled: enabled);
+    ClientReporter.active?.enabled = enabled;
     _ref.invalidate(userSettingsProvider);
   }
 

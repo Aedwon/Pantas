@@ -4,12 +4,16 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/auth/auth_user.dart';
+import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_button_parts.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/onboarding/application/setup_acceptance.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_consent_step.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
 import 'package:pantas/features/settings/data/settings_repository.dart';
@@ -17,15 +21,27 @@ import 'package:pantas/features/settings/data/settings_repository.dart';
 import '../../../helpers/accessibility.dart';
 import '../../../helpers/in_memory_database.dart';
 
+class _RecordingGateway implements SetupAcceptanceGateway {
+  _RecordingGateway(this.versions);
+  final List<String> versions;
+  @override
+  Future<void> record(String version) async => versions.add(version);
+}
+
 void main() {
   late AppDatabase db;
   setUp(() {
     db = inMemoryDatabase();
   });
   tearDown(() => db.close());
-  Widget scoped(Widget child, {DriftSettingsRepository? repository}) =>
+  Widget scoped(
+    Widget child, {
+    DriftSettingsRepository? repository,
+    List<Override> overrides = const [],
+  }) =>
       ProviderScope(
         overrides: [
+          ...overrides,
           appDatabaseProvider.overrideWithValue(db),
           if (repository != null)
             settingsRepositoryProvider.overrideWithValue(repository),
@@ -38,18 +54,33 @@ void main() {
     double scale = 1,
     VoidCallback? completed,
     DriftSettingsRepository? repository,
+    List<Override> overrides = const [],
   }) =>
       pumpAccessibilitySurface(
         tester,
         scoped(
           OnboardingConsentStep(onCompleted: completed ?? () {}),
           repository: repository,
+          overrides: overrides,
         ),
         brightness: brightness,
         textScale: scale,
         viewportSize: const Size(390, 844),
         disableAnimations: true,
       );
+
+  testWidgets('under 18 the usage sharing row is not offered', (tester) async {
+    await pump(
+      tester,
+      overrides: [ageGroupProvider.overrideWith((ref) async => 'minor')],
+    );
+    await tester.pumpAndSettle();
+    expect(find.byType(CheckboxRow), findsOneWidget);
+    expect(
+      find.text('Help improve Pantas by sharing usage data'),
+      findsNothing,
+    );
+  });
 
   for (final brightness in Brightness.values) {
     for (final scale in [1.0, 2.0]) {
@@ -125,6 +156,84 @@ void main() {
         .getSingle();
     expect(version.value, '1');
   });
+  testWidgets('the acceptance names study records and keeps both links',
+      (tester) async {
+    await pump(tester);
+    expect(
+      find.text(
+        ', and to Pantas keeping my study records (answers, results and study '
+        'times).',
+      ),
+      findsOneWidget,
+    );
+    final rows =
+        tester.widgetList<CheckboxRow>(find.byType(CheckboxRow)).toList();
+    expect(
+      rows.last.title,
+      'I agree to the Terms of Service and Privacy Policy, and to Pantas '
+      'keeping my study records (answers, results and study times).',
+    );
+    expect(find.text('Terms of Service'), findsOneWidget);
+    expect(find.text('Privacy Policy'), findsOneWidget);
+  });
+
+  testWidgets('continuing stores the acceptance version on the device',
+      (tester) async {
+    await pump(tester);
+    await tester.tap(find.byKey(const ValueKey('selection-mark')).last);
+    await tester.pump();
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+    expect(
+      await AppPreferencesRepository(db).setupAcceptanceVersion(),
+      '2026-11-09',
+    );
+  });
+
+  testWidgets('a named account is recorded on the server at acceptance',
+      (tester) async {
+    final recorded = <String>[];
+    await pump(
+      tester,
+      overrides: [
+        setupAcceptanceGatewayProvider
+            .overrideWithValue(_RecordingGateway(recorded)),
+        currentUserProvider.overrideWith(
+          (ref) async => const AuthUser(
+            uid: 'u1',
+            email: 'a@b.co',
+            displayName: 'A',
+          ),
+        ),
+      ],
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const ValueKey('selection-mark')).last);
+    await tester.pump();
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+    expect(recorded, ['2026-11-09']);
+  });
+
+  testWidgets('an anonymous account is not recorded at acceptance',
+      (tester) async {
+    final recorded = <String>[];
+    await pump(
+      tester,
+      overrides: [
+        setupAcceptanceGatewayProvider
+            .overrideWithValue(_RecordingGateway(recorded)),
+        currentUserProvider.overrideWith((ref) async => null),
+      ],
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const ValueKey('selection-mark')).last);
+    await tester.pump();
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+    expect(recorded, isEmpty);
+  });
+
   testWidgets('Back to Terms shows what was accepted ticked (5S-9)',
       (tester) async {
     await pump(tester, completed: () {});

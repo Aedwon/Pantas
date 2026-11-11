@@ -2,11 +2,13 @@
 // Each one is a failure a student or Aedwon actually hit. Flutter draws to a
 // canvas, so text and tap targets are read through its semantics layer.
 //
-//   node tool/journeys/journeys.mjs [base url]
-import {readFileSync, mkdirSync} from 'node:fs';
+//   node tool/journeys/journeys.mjs [base url] [part of a journey name]
+import {readFileSync, mkdirSync, statSync} from 'node:fs';
 import {chromium} from 'playwright';
 
 const BASE = process.argv[2] ?? 'http://127.0.0.1:7357';
+const ONLY = process.argv[3];
+const EMULATOR_LOG = process.env.EMULATOR_LOG ?? 'build/local-web/emulators.log';
 const OUT = 'build/journeys';
 mkdirSync(OUT, {recursive: true});
 
@@ -89,6 +91,8 @@ async function refuse(page, pattern) {
 
 // Clicks the semantics node for a label, wheeling the page until it is on screen.
 async function clickLabel(page, pattern) {
+  // The welcome splash covers a first visit for a few seconds and takes the click.
+  await page.locator('#pantas-splash').waitFor({state: 'hidden', timeout: 60000}).catch(() => {});
   await page.mouse.move(720, 500);
   for (let i = 0; i < 60; i++) {
     await semanticsOn(page);
@@ -125,6 +129,48 @@ async function openStudent(page, account) {
     {waitUntil: 'domcontentloaded'});
   // The first visit passes through the reset page, then the seed runs.
   await until('Home', () => /\/home/.test(page.url()), 240, page);
+}
+
+// The functions emulator prints the guardian email instead of sending it, so a
+// journey reads the links from its log. Nothing in the app or the functions is
+// there only for tests. `since` is the log size before the email was asked for.
+const logSize = () => { try { return statSync(EMULATOR_LOG).size; } catch { return 0; } };
+const logSince = since => {
+  try { return readFileSync(EMULATOR_LOG).subarray(since).toString('utf8'); } catch { return ''; }
+};
+function guardianLinks(since) {
+  const text = logSince(since);
+  const last = pattern => [...text.matchAll(pattern)].at(-1)?.[1];
+  const confirm = last(/\/guardian\?token=([a-f0-9]{64})/g);
+  const manage = last(/\/guardian\/manage\?token=([a-f0-9]{64})/g);
+  return confirm && manage ? {confirm, manage} : null;
+}
+// A callable that finished without an error since `since`. A change with no
+// message on screen is only saved once the server says so, and a reload before
+// that cancels it.
+const callSucceeded = (since, name) =>
+  new RegExp(`"fn":"${name}"[^}]*"outcome":"ok"`).test(logSince(since));
+
+// 'true' or 'false' for the checkbox or switch whose label matches, or null.
+const controlState = (page, pattern) => page.evaluate(source => {
+  const pattern = new RegExp(source);
+  for (const node of document.querySelectorAll('flt-semantics')) {
+    const text = (node.getAttribute('aria-label') || '').trim();
+    if (pattern.test(text) && node.hasAttribute('aria-checked')) return node.getAttribute('aria-checked');
+  }
+  return null;
+}, pattern.source);
+
+// Clicks a checkbox or switch until it shows the wanted state. A click in the
+// first moments after a page appears can land before the page takes input.
+async function setControl(page, pattern, wanted) {
+  for (let attempt = 0; attempt < 6; attempt++) {
+    await semanticsOn(page);
+    if ((await controlState(page, pattern)) === String(wanted)) return;
+    await clickLabel(page, pattern);
+    await page.waitForTimeout(800);
+  }
+  throw new Error(`${pattern} did not turn ${wanted ? 'on' : 'off'}`);
 }
 
 const journeys = {
@@ -172,6 +218,82 @@ const journeys = {
     await seeLabel(page, /What should we call you/, 90, 'Name after the reload');
   },
 
+  // Nov 10: a guardian can turn sharing off and withdraw from the manage page,
+  // and the student's account ends. The student is 17 on a new
+  // browser; the guardian's links come from the emulator's mail log.
+  async 'A guardian confirms, manages and withdraws, and the student is signed out'(page) {
+    const student = page;
+    await student.goto(`${BASE}/local-panel.html`, {waitUntil: 'load'});
+    await student.evaluate(() => localStorage.setItem('pantas.local.preset', 'birthYear'));
+    await student.goto(`${BASE}/local-reset.html`, {waitUntil: 'domcontentloaded'});
+    // The age step starts at 17, which is the age of this student.
+    await seeLabel(student, /How old are you/, 120, 'the age step');
+    await student.waitForTimeout(700);
+    await clickLabel(student, /^Continue/);
+    await seeLabel(student, /A parent or guardian needs to agree first/, 60, 'the guardian step');
+    // The first field has the keys already, as the page says.
+    await student.waitForTimeout(1000);
+    await student.keyboard.type('Maria Santos', {delay: 30});
+    await student.keyboard.press('Tab');
+    await student.waitForTimeout(700);
+    // A new address each run: the server allows three requests a day to one address.
+    await student.keyboard.type(`maria.${Date.now()}@example.com`, {delay: 30});
+    const before = logSize();
+    await clickLabel(student, /^Send Link/);
+    await seeLabel(student, /Waiting for your parent or guardian/, 60, 'the waiting page');
+    const links = await until('the guardian email in the emulator log',
+      async () => guardianLinks(before), 60, student);
+
+    // The guardian opens the links in another browser, signed out.
+    const guardian = await student.context().browser().newContext({
+      viewport: {width: 1440, height: 900}, locale: 'en-PH',
+    });
+    const g = await guardian.newPage();
+    try {
+      await g.goto(`${BASE}/guardian?token=${links.confirm}`, {waitUntil: 'domcontentloaded'});
+      await seeLabel(g, /Confirm your child's account/, 90, 'the confirm page');
+      await setControl(g, /I'm their parent or guardian, and I agree/, true);
+      await setControl(g, /Allow optional usage sharing/, true);
+      await clickLabel(g, /^Confirm$/);
+      await seeLabel(g, /^Thank you/, 60, 'Thank you');
+      await clickLabel(g, /^Manage Permission/);
+      await until('the manage address', () => /\/guardian\/manage\?token=/.test(g.url()), 30, g);
+      await seeLabel(g, /^Manage permission/, 60, 'the manage page');
+      await until('sharing shown on, as the guardian allowed it',
+        async () => (await controlState(g, /Allow optional usage sharing/)) === 'true', 30, g);
+
+      // Sharing off applies at once and stays after a reload.
+      const beforeOff = logSize();
+      await setControl(g, /Allow optional usage sharing/, false);
+      await until('the server to save sharing off',
+        async () => callSucceeded(beforeOff, 'setGuardianSharing'), 30, g);
+      await refuse(g, /Your change was not saved/);
+      await g.reload({waitUntil: 'domcontentloaded'});
+      await seeLabel(g, /^Manage permission/, 90, 'the manage page after a reload');
+      await until('sharing still off after the reload',
+        async () => (await controlState(g, /Allow optional usage sharing/)) === 'false', 30, g);
+
+      // Withdraw asks once, then the account closes.
+      await clickLabel(g, /^Withdraw Permission/);
+      await seeLabel(g, /^Your child is signed out, and their account/, 30, 'the Withdraw dialog');
+      await clickLabel(g, /^Withdraw$/);
+      await seeLabel(g, /^Permission withdrawn/, 90, 'the withdrawn page');
+    } catch (error) {
+      // The runner shows the student's page; the guardian's is the one that failed.
+      await g.screenshot({path: `${OUT}/guardian_page.png`}).catch(() => {});
+      const seen = JSON.stringify((await labels(g).catch(() => [])).slice(0, 30));
+      throw new Error(`${error.message} (guardian page ${g.url()}, labels ${seen})`);
+    } finally {
+      await guardian.close();
+    }
+
+    // The student's account is gone, so a new session starts over.
+    await student.reload({waitUntil: 'domcontentloaded'});
+    await seeLabel(student, /A parent or guardian needs to agree first/, 120,
+      'the student asked for a guardian again');
+    await refuse(student, /Waiting for your parent or guardian/);
+  },
+
   // Every student starts here.
   async 'A first visit reaches onboarding'(page) {
     await page.goto(BASE, {waitUntil: 'domcontentloaded'});
@@ -191,6 +313,7 @@ const browser = await chromium.launch({
 });
 let failed = 0;
 for (const [name, journey] of Object.entries(journeys)) {
+  if (ONLY && !name.includes(ONLY)) continue;
   const context = await browser.newContext({
     viewport: {width: 1440, height: 900},
     // A runner with no system language gives the app an empty locale, and it stops at startup.

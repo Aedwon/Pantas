@@ -2,6 +2,7 @@ import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/platform/callable_options.dart';
+import 'package:pantas/features/legal/domain/legal_document.dart';
 import 'package:pantas/features/paywall/data/entitlement_snapshot_store.dart';
 import 'package:pantas/features/paywall/data/live_revenuecat_gateway.dart';
 import 'package:pantas/features/paywall/data/payment_entitlement_state.dart';
@@ -434,14 +435,20 @@ class WebPaymentGateway implements RevenueCatPassGateway {
   Future<PaymentOperationResult> purchase(
     PaywallPackage package, {
     Future<void> Function(String sessionId, String reference)? beforeRedirect,
+    bool guardianAttested = false,
   }) =>
-      _checkout(package.productId, beforeRedirect: beforeRedirect);
+      _checkout(
+        package.productId,
+        beforeRedirect: beforeRedirect,
+        guardianAttested: guardianAttested,
+      );
 
   @override
   Future<PaymentOperationResult> purchasePass(
     PaywallPassPackage package, {
     required ExamCatalogEntry exam,
     Future<void> Function(String sessionId, String reference)? beforeRedirect,
+    bool guardianAttested = false,
   }) {
     if (!passAllowedForExam(package.productId, exam, at: _now())) {
       return Future.value(
@@ -450,20 +457,34 @@ class WebPaymentGateway implements RevenueCatPassGateway {
         ),
       );
     }
-    return _checkout(package.productId, beforeRedirect: beforeRedirect);
+    return _checkout(
+      package.productId,
+      beforeRedirect: beforeRedirect,
+      guardianAttested: guardianAttested,
+    );
   }
 
   /// Asks the server for a PayMongo checkout and sends this tab to it.
+  ///
+  /// [guardianAttested] is true when a parent or guardian ticked the box on a
+  /// minor's checkout. The server decides whether an account needs it.
   Future<PaymentOperationResult> _checkout(
     String productId, {
     Future<void> Function(String sessionId, String reference)? beforeRedirect,
+    bool guardianAttested = false,
   }) async {
     final uid = _uid;
     final revision = _identityRevision;
     try {
       final reply = await _callable(
         _checkoutCallable,
-        {'product': productId},
+        {
+          'product': productId,
+          if (guardianAttested)
+            'guardianAttestation': {
+              'termsVersion': guardianDocumentVersions['terms'],
+            },
+        },
       );
       if (_uid != uid || _identityRevision != revision) {
         return const PaymentOperationResult.failure(

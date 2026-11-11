@@ -4,6 +4,7 @@ import {defineSecret} from 'firebase-functions/params';
 import {HttpsError, onCall} from 'firebase-functions/v2/https';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import {assertNamedUser} from './_audit.js';
+import {GUARDIAN_DOCUMENT_VERSIONS} from './guardianConsent.js';
 import {allowAtMost} from './_limits.js';
 import type {Grant} from './grants.js';
 import {httpPaymongoClient, type PaymongoClient} from './paymongoClient.js';
@@ -29,6 +30,23 @@ const NAMES: Record<string, string> = {
 export type CheckoutDeps = {client: PaymongoClient; db: Firestore; origin: string; methods: string[];
   allow?: (uid: string) => Promise<boolean>; catalog?: CatalogExam[]; now?: () => number};
 
+/**
+ * An account the server knows as a minor can only buy with a parent or guardian's confirmation
+ * of the current Terms. The device's age group only drives the screen; this check is the control.
+ * Returns what to record on the checkout (nothing for an adult). Runs before any reservation write.
+ */
+async function guardianAttestation(db: Firestore, uid: string, data: unknown, now: number):
+  Promise<{attestedAt?: number; termsVersion?: string}> {
+  const consent = (await db.doc(`users/${uid}/server/guardianConsent`).get()).data();
+  if (consent?.ageGroup !== 'minor') return {};
+  const given = (data as {guardianAttestation?: {termsVersion?: unknown} | null} | null)?.guardianAttestation?.termsVersion;
+  if (given !== GUARDIAN_DOCUMENT_VERSIONS.terms) {
+    throw new HttpsError('failed-precondition', 'A parent or guardian must confirm this purchase.',
+      {reason: 'guardian-attestation-required'});
+  }
+  return {attestedAt: now, termsVersion: given};
+}
+
 export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0], data: unknown,
   deps: CheckoutDeps): Promise<{checkoutUrl: string; sessionId: string; reference: string}> {
   const uid = assertNamedUser(auth);
@@ -36,6 +54,7 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
   const product = typeof requested === 'string' ? webProduct(requested) : undefined;
   if (!product) throw new HttpsError('invalid-argument', 'This product is not sold on the web.');
   const now = (deps.now ?? Date.now)();
+  const attestation = await guardianAttestation(deps.db, uid, data, now);
   const allowed = await (deps.allow ?? (id => allowAtMost(id, 'paymongoCheckout', CHECKOUTS_PER_WINDOW, WINDOW_MS)))(uid);
   if (!allowed) throw new HttpsError('resource-exhausted', 'Too many checkout attempts. Try again later.');
   let sitting: Sitting | undefined;
@@ -54,7 +73,8 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
   const pending = deps.db.doc(`users/${uid}/pendingCheckouts/${key}`);
   const referenceNumber = randomUUID();
   const order = deps.db.doc(`paymongoOrders/${referenceNumber}`);
-  const binding = {uid, product: product.id, createdAt: now, ...(sitting ? {examId: product.examId, sitting} : {})};
+  const binding = {uid, product: product.id, createdAt: now, ...attestation,
+    ...(sitting ? {examId: product.examId, sitting} : {})};
   const reserved = await deps.db.runTransaction(async transaction => {
     const previous = await transaction.get(pending);
     if (previous.exists) return previous.data()!;
@@ -66,6 +86,13 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
     if (reserved.state !== 'open') throw new HttpsError('aborted', 'Checkout creation is pending. Try again later.');
     const remote = await deps.client.getCheckoutSession(reserved.sessionId as string);
     if (remote.status === 'active' && !remote.payments.some(p => p.status === 'paid')) {
+      // A minor's current confirmation must reach the records this session is paid against.
+      if (attestation.attestedAt !== undefined) {
+        const update = deps.db.batch();
+        update.update(deps.db.doc(`paymongoCheckouts/${reserved.sessionId as string}`), attestation);
+        update.update(deps.db.doc(`paymongoOrders/${reserved.reference as string}`), attestation);
+        await update.commit();
+      }
       return {checkoutUrl: reserved.checkoutUrl as string, sessionId: reserved.sessionId as string, reference: reserved.reference as string};
     }
     if (remote.status !== 'expired' && !remote.payments.some(p => p.status === 'paid')) {
@@ -86,7 +113,7 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
   const result = {checkoutUrl: session.checkoutUrl, sessionId: session.id, reference: referenceNumber};
   const batch = deps.db.batch();
   batch.set(deps.db.doc(`paymongoCheckouts/${session.id}`), {uid, product: product.id, createdAt: now,
-    ...(sitting ? {examId: product.examId, sitting} : {})});
+    reference: referenceNumber, ...attestation, ...(sitting ? {examId: product.examId, sitting} : {})});
   batch.update(order, {sessionId: session.id});
   batch.set(pending, {...result, state: 'open', product: product.id, createdAt: now});
   await batch.commit();

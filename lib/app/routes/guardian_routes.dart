@@ -12,6 +12,13 @@ List<RouteBase> guardianRoutes(Ref ref) => [
         builder: (_, state) =>
             GuardianConfirmPage(token: state.uri.queryParameters['token']),
       ),
+      // The manage link, from the same email and from the Thank you page.
+      // Reachable signed out.
+      GoRoute(
+        path: '/guardian/manage',
+        builder: (_, state) =>
+            GuardianManagePage(token: state.uri.queryParameters['token']),
+      ),
       GoRoute(
         path: '/guardian/waiting',
         builder: (_, __) => const GuardianWaitingPage(),

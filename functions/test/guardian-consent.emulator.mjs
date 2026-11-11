@@ -11,9 +11,9 @@ const T0 = Date.parse('2026-11-02T10:00:00+08:00');
 const DAY = 86400000;
 const anon = uid => ({uid, token: {firebase: {sign_in_provider: 'anonymous'}}});
 const app = {appId: 'app', token: {}, alreadyConsumed: false};
-const documentVersions = {privacy: '2026-11-10', terms: '2026-11-10', teens: '2026-11-10'};
+const documentVersions = {privacy: '2026-11-11', terms: '2026-11-11', teens: '2026-11-11'};
 const req = (uid, data, extra = {}) => ({auth: anon(uid), app, data: data?.decision
-  ? {documentVersions, noticeWordingVersion: '2026-11-09', ...data} : data, ...extra});
+  ? {documentVersions, noticeWordingVersion: '2026-11-11', ...data} : data, ...extra});
 const code = async promise => { try { await promise; return 'ok'; } catch (e) { assert.equal(typeof e.code, 'string', String(e)); return e.code; } };
 
 function harness({now = T0} = {}) {
@@ -71,7 +71,9 @@ test('opening the link does not confirm; confirming needs the agreement box and 
   assert.equal(await code(answerRequest(req(guardian, {token, decision: 'confirm', agreed: false}), h.deps)), 'failed-precondition');
   assert.equal(await code(answerRequest(req(guardian, {token, decision: 'confirm'}), h.deps)), 'failed-precondition');
   assert.equal((await stored(uid)).status, 'pending');
-  assert.deepEqual(await answerRequest(req(guardian, {token, decision: 'confirm', agreed: true}), h.deps), {state: 'confirmed'});
+  const confirmed = await answerRequest(req(guardian, {token, decision: 'confirm', agreed: true}), h.deps);
+  assert.equal(confirmed.state, 'confirmed');
+  assert.match(confirmed.manageToken, /^[a-f0-9]{64}$/);
   assert.equal((await stored(uid)).status, 'confirmed');
   assert.deepEqual(await answerRequest(req(guardian, {token, decision: 'confirm', agreed: true}), h.deps), {state: 'used'});
   assert.deepEqual(await readRequest(req(guardian, {token}), h.deps), {state: 'used'});
@@ -93,7 +95,7 @@ test('declining keeps the student waiting, and a new email replaces the old link
   assert.notEqual(first, second);
   assert.deepEqual(await answerRequest(req('v', {token: first, decision: 'confirm', agreed: true}), h.deps), {state: 'unknown'});
   assert.equal((await stored(uid)).status, 'pending', 'the old link cannot confirm');
-  assert.deepEqual(await answerRequest(req('v', {token: second, decision: 'confirm', agreed: true}), h.deps), {state: 'confirmed'});
+  assert.equal((await answerRequest(req('v', {token: second, decision: 'confirm', agreed: true}), h.deps)).state, 'confirmed');
 });
 
 test('a resend revokes the earlier link', async () => {
@@ -281,12 +283,12 @@ test('cleanup deletes expired contact data and preserves server-only consent evi
   await answerRequest(req('v', {token: tokenOf(h.sent[0]), decision: 'confirm', agreed: true}), h.deps);
   const evidence = db.doc(`guardianConsentEvidence/${uid}/responses/${tokenHash}`);
   assert.deepEqual((await evidence.get()).data(), {documentVersions,
-    noticeWordingVersion: '2026-11-09', action: 'confirm', agreed: true, decidedAt: T0 + DAY});
+    noticeWordingVersion: '2026-11-11', action: 'confirm', agreed: true, decidedAt: T0 + DAY, sharingAllowed: false});
   await purgeGuardianRecords(db, T0 + 8 * DAY - 1);
   assert.equal((await db.doc(`guardianTokens/${tokenHash}`).get()).exists, true);
   await purgeGuardianRecords(db, T0 + 8 * DAY);
   assert.equal((await db.doc(`guardianTokens/${tokenHash}`).get()).exists, false);
-  assert.deepEqual(await stored(uid), {status: 'confirmed', ageGroup: 'minor', decidedAt: T0 + DAY});
+  assert.deepEqual(await stored(uid), {status: 'confirmed', ageGroup: 'minor', decidedAt: T0 + DAY, sharingAllowed: false});
   await db.recursiveDelete(db.doc(`users/${uid}`));
   assert.equal((await evidence.get()).exists, true, 'minimum evidence survives account deletion');
 });

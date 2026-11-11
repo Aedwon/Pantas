@@ -8,10 +8,15 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/value_wheel.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/features/guardian/application/guardian_providers.dart';
+import 'package:pantas/features/guardian/data/guardian_gateway.dart';
+import 'package:pantas/features/onboarding/application/onboarding_flow.dart';
+import 'package:pantas/features/onboarding/domain/age_policy.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_age_gate_step.dart';
 
 import '../../../helpers/accessibility.dart';
 import '../../../helpers/in_memory_database.dart';
+import '../../guardian/fake_guardian_gateway.dart';
 
 void main() {
   late AppDatabase db;
@@ -82,7 +87,7 @@ void main() {
           findsOneWidget,
         );
         expect(
-          find.text('Entered the wrong age? Email contact@pantas.study.'),
+          find.text('Entered the wrong age? Email support@pantas.study.'),
           findsOneWidget,
         );
         expect(find.byType(ValueWheel), findsNothing);
@@ -203,6 +208,115 @@ void main() {
     await tester.pumpAndSettle();
   });
 
+  const ageLine = 'Pantas uses your age once, on this device, to set your '
+      'age group. We do not save your age. '
+      'Choosing Continue means you agree to this check.';
+
+  for (final age in ['30', '15']) {
+    testWidgets(
+        'the age check line shows, and its version is stored with '
+        'the group for $age', (tester) async {
+      await pump(tester);
+      expect(find.text(ageLine), findsOneWidget);
+      expect(
+        find.text('We only ask this once and never keep it.'),
+        findsOneWidget,
+      );
+      // It sits above the number.
+      expect(
+        tester.getTopLeft(find.text(ageLine)).dy,
+        lessThan(tester.getTopLeft(find.byType(TextField)).dy),
+      );
+      await typeAge(tester, age);
+      await tester.tap(find.text('Continue'));
+      await tester.pumpAndSettle();
+      final repo = AppPreferencesRepository(db);
+      expect(
+        await repo.ageCheckNoticeVersion(),
+        AgePolicy.ageCheckNoticeVersion,
+      );
+      expect(await repo.ageGroup(), age == '30' ? 'adult' : 'minor');
+    });
+  }
+
+  group('re-check from Settings ("I\'m 18 now")', () {
+    late FakeGuardianGateway gateway;
+    setUp(() => gateway = FakeGuardianGateway());
+
+    Future<void> pumpRecheck(
+      WidgetTester tester,
+      String age,
+      void Function() onPassed,
+    ) async {
+      await AppPreferencesRepository(db).setAgeGroup('minor');
+      await pumpAccessibilitySurface(
+        tester,
+        ProviderScope(
+          overrides: [
+            appDatabaseProvider.overrideWithValue(db),
+            guardianGatewayProvider.overrideWithValue(gateway),
+          ],
+          child: OnboardingAgeGateStep(
+            recheck: true,
+            onAgeGatePassed: onPassed,
+          ),
+        ),
+        viewportSize: const Size(390, 844),
+        disableAnimations: true,
+      );
+      await typeAge(tester, age);
+      await tester.tap(find.text('Continue'));
+      await tester.pumpAndSettle();
+    }
+
+    testWidgets('18 or more calls the server, then switches to adult',
+        (tester) async {
+      var passed = 0;
+      await pumpRecheck(tester, '18', () => passed++);
+      expect(gateway.adultCalls, 1);
+      final repo = AppPreferencesRepository(db);
+      expect(await repo.ageGroup(), 'adult');
+      expect(await repo.hasPassedAgeGate(), isTrue);
+      expect(
+        await repo.ageCheckNoticeVersion(),
+        AgePolicy.ageCheckNoticeVersion,
+      );
+      expect(passed, 1);
+      // A recheck is not part of onboarding, so it keeps no age in memory.
+      final container = ProviderScope.containerOf(
+        tester.element(find.byType(OnboardingAgeGateStep)),
+      );
+      expect(container.read(onboardingAgeProvider), isNull);
+    });
+
+    testWidgets('under 18 says so and changes nothing', (tester) async {
+      var passed = 0;
+      await pumpRecheck(tester, '17', () => passed++);
+      expect(find.text('You are still under 18.'), findsOneWidget);
+      expect(gateway.adultCalls, 0);
+      expect(await AppPreferencesRepository(db).ageGroup(), 'minor');
+      expect(await AppPreferencesRepository(db).blockedMinimumAge(), isNull);
+      expect(passed, 0);
+    });
+
+    testWidgets('a server error keeps the student a minor and offers a retry',
+        (tester) async {
+      gateway.adultFailure = const GuardianGatewayException('unavailable');
+      var passed = 0;
+      await pumpRecheck(tester, '30', () => passed++);
+      expect(find.text('Could not save your progress.'), findsOneWidget);
+      expect(await AppPreferencesRepository(db).ageGroup(), 'minor');
+      expect(await AppPreferencesRepository(db).hasPassedAgeGate(), isFalse);
+      expect(passed, 0);
+      gateway.adultFailure = null;
+      await tester.ensureVisible(find.text('Try Again'));
+      await tester.tap(find.text('Try Again'));
+      await tester.pumpAndSettle();
+      expect(await AppPreferencesRepository(db).ageGroup(), 'adult');
+      expect(passed, 1);
+    });
+  });
+
   Future<void> pumpFramed(
     WidgetTester tester, {
     required bool wide,
@@ -239,6 +353,15 @@ void main() {
     );
     await tester.pumpAndSettle();
   }
+
+  testWidgets('wide: the age check line sits above the number', (tester) async {
+    await pumpFramed(tester, wide: true);
+    expect(find.text(ageLine), findsOneWidget);
+    expect(
+      tester.getTopLeft(find.text(ageLine)).dy,
+      lessThan(tester.getTopLeft(find.byType(TextField)).dy),
+    );
+  });
 
   testWidgets('phone: the under-age block has no Back, as on wide web',
       (tester) async {

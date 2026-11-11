@@ -54,6 +54,7 @@ class UserSettings {
     required this.retainTableOrder,
     required this.updatedAt,
     this.acceptedTermsAt,
+    this.speedReportsEnabled = true,
   });
 
   factory UserSettings.defaults() {
@@ -90,6 +91,9 @@ class UserSettings {
 
   final DateTime? updatedAt;
   final DateTime? acceptedTermsAt;
+
+  /// "Send speed and error reports". On until the student turns it off.
+  final bool speedReportsEnabled;
 }
 
 class InvalidExamDateException implements Exception {

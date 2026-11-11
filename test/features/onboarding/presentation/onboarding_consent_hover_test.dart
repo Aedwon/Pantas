@@ -94,7 +94,9 @@ void main() {
       expect(first.height, 56);
       // The divider is the only thing between the two rows.
       expect(second.top - first.bottom, closeTo(.5, .01));
-      expect(second.height, 56);
+      // The acceptance sentence names study records, so it can run to a
+      // second line. A row is never shorter than the minimum.
+      expect(second.height, greaterThanOrEqualTo(56));
 
       final button = tester.widget<TextButton>(rowButton(0));
       final shape = button.style!.shape!.resolve({WidgetState.hovered})!

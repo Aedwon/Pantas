@@ -110,7 +110,10 @@ void main() {
       final termsRow = find.byWidgetPredicate(
         (w) =>
             w is CheckboxRow &&
-            w.title == 'I agree to the Terms of Service and Privacy Policy',
+            w.title ==
+                'I agree to the Terms of Service and Privacy Policy, and to '
+                    'Pantas keeping my study records (answers, results and '
+                    'study times).',
       );
       final termsBox = find.descendant(
         of: termsRow,

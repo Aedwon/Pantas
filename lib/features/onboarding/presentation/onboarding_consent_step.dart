@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/storage/age_gate.dart';
+import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -14,8 +17,14 @@ import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/onboarding/application/setup_acceptance.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
+
+const _acceptanceTail = ', and to Pantas keeping my study records (answers, '
+    'results and study times).';
+const _acceptanceLabel = 'I agree to the Terms of Service and Privacy Policy'
+    '$_acceptanceTail';
 
 class OnboardingConsentStep extends ConsumerStatefulWidget {
   const OnboardingConsentStep({
@@ -35,6 +44,10 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
   bool _acceptedUsage = false;
   bool _saving = false;
   bool _failed = false;
+
+  /// Under 18 the student cannot turn sharing on, so the usage row is not
+  /// offered.
+  bool get _minor => ref.watch(ageGroupProvider).valueOrNull == 'minor';
 
   @override
   void initState() {
@@ -71,11 +84,25 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
     try {
       final repo = ref.read(settingsRepositoryProvider);
       // Acceptance is the resume marker. Write it only once both choices save.
-      await repo.updateHelpImproveApp(enabled: _acceptedUsage);
+      // Under 18, sharing stays off until the guardian allows it.
+      final minor = ref.read(ageGroupProvider).valueOrNull == 'minor';
+      await repo.updateHelpImproveApp(enabled: _acceptedUsage && !minor);
+      await ref
+          .read(appPreferencesRepositoryProvider)
+          .setSetupAcceptanceVersion(SetupAcceptance.version);
       await repo.recordPolicyAcceptance();
       ref
         ..invalidate(settingsRepositoryProvider)
         ..invalidate(userSettingsProvider);
+      // A named account is recorded now. An anonymous one is recorded when it
+      // becomes named, or on the next start if this call fails.
+      String? uid;
+      try {
+        uid = (await ref.read(currentUserProvider.future))?.uid;
+      } on Object {
+        // No account yet: the sync below records it once there is one.
+      }
+      unawaited(ref.read(setupAcceptanceRecorderProvider).recordIfNeeded(uid));
       if (mounted) widget.onCompleted();
     } catch (error, stack) {
       unawaited(telemetry.recordError(error, stack));
@@ -147,24 +174,26 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
               color: Colors.transparent,
               child: Column(
                 children: [
-                  _webConsentRow(
-                    value: _acceptedUsage,
-                    wholeRow: true,
-                    label: 'Help improve Pantas by sharing usage data',
-                    onChanged: () =>
-                        setState(() => _acceptedUsage = !_acceptedUsage),
-                    child: plain(
-                      'Help improve Pantas by sharing usage data',
+                  if (!_minor) ...[
+                    _webConsentRow(
+                      value: _acceptedUsage,
+                      wholeRow: true,
+                      label: 'Help improve Pantas by sharing usage data',
+                      onChanged: () =>
+                          setState(() => _acceptedUsage = !_acceptedUsage),
+                      child: plain(
+                        'Help improve Pantas by sharing usage data',
+                      ),
                     ),
-                  ),
-                  Divider(
-                    height: PantasBorder.hairline,
-                    thickness: PantasBorder.hairline,
-                    color: context.webTokens.colors.separator,
-                  ),
+                    Divider(
+                      height: PantasBorder.hairline,
+                      thickness: PantasBorder.hairline,
+                      color: context.webTokens.colors.separator,
+                    ),
+                  ],
                   _webConsentRow(
                     value: _acceptedTerms,
-                    label: 'I agree to the Terms of Service and Privacy Policy',
+                    label: _acceptanceLabel,
                     onChanged: () =>
                         setState(() => _acceptedTerms = !_acceptedTerms),
                     child: Wrap(
@@ -174,7 +203,7 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
                         link('Terms of Service', '/legal/terms'),
                         plain(' and '),
                         link('Privacy Policy', '/legal/privacy'),
-                        plain('.'),
+                        plain(_acceptanceTail),
                       ],
                     ),
                   ),
@@ -187,26 +216,28 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
           // between box and text, a half-point divider between the rows.
           GroupedSection(
             children: [
-              CheckboxRow(
-                title: 'Help improve Pantas by sharing usage data',
-                selected: _acceptedUsage,
-                gap: PantasSpace.s14,
-                standardDensity: true,
-                onTap: _saving
-                    ? null
-                    : () => setState(() => _acceptedUsage = !_acceptedUsage),
-                content: Text(
-                  'Help improve Pantas by sharing usage data',
-                  style: boardText,
+              if (!_minor) ...[
+                CheckboxRow(
+                  title: 'Help improve Pantas by sharing usage data',
+                  selected: _acceptedUsage,
+                  gap: PantasSpace.s14,
+                  standardDensity: true,
+                  onTap: _saving
+                      ? null
+                      : () => setState(() => _acceptedUsage = !_acceptedUsage),
+                  content: Text(
+                    'Help improve Pantas by sharing usage data',
+                    style: boardText,
+                  ),
                 ),
-              ),
-              Divider(
-                height: PantasBorder.hairline,
-                thickness: PantasBorder.hairline,
-                color: context.colors.separator,
-              ),
+                Divider(
+                  height: PantasBorder.hairline,
+                  thickness: PantasBorder.hairline,
+                  color: context.colors.separator,
+                ),
+              ],
               CheckboxRow(
-                title: 'I agree to the Terms of Service and Privacy Policy.',
+                title: _acceptanceLabel,
                 selected: _acceptedTerms,
                 gap: PantasSpace.s14,
                 standardDensity: true,
@@ -221,7 +252,7 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
                     link('Terms of Service', '/legal/terms'),
                     plain(' and '),
                     link('Privacy Policy', '/legal/privacy'),
-                    plain('.'),
+                    plain(_acceptanceTail),
                   ],
                 ),
               ),

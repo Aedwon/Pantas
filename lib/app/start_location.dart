@@ -29,11 +29,12 @@ String get initialRouterLocation => _start ?? '/home';
 /// Where a router being built starts. The address is for the first router
 /// only: error recovery rebuilds the router, and sending the student back to
 /// an old payment return or the page that just failed would repeat the
-/// problem. Later routers start at Home. The guardian link stays, so recovery
-/// on the guardian page stays there.
+/// problem. Later routers start at Home. The guardian links stay, so recovery
+/// on a guardian page stays there.
 String takeInitialRouterLocation() {
   final start = initialRouterLocation;
-  final keeps = Uri.parse(start).path == '/guardian';
+  final path = Uri.parse(start).path;
+  final keeps = path == '/guardian' || path == '/guardian/manage';
   if (_taken && !keeps) return '/home';
   _taken = true;
   return start;
@@ -103,8 +104,9 @@ String? _notHonored(List<String> segments, Uri url) {
         // An upgrade is only meaningful from the picker that starts it.
         case 'exam' when third == 'upgrade':
           return '/settings/exam/change';
-        // A destructive screen is never a place to land cold.
-        case 'account' when third == 'delete':
+        // A destructive screen is never a place to land cold. The age re-check
+        // reports back to the Account page that opened it.
+        case 'account' when third == 'delete' || third == 'adult-check':
           return '/settings/account';
         // Developer tools are not a place to land.
         case '_debug' || '_gallery':

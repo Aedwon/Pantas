@@ -211,6 +211,29 @@ class ClientReporter {
   bool _opened = false;
   bool _inFlight = false;
   bool _failedOnce = false;
+  bool _enabled = true;
+
+  /// The student's "Send speed and error reports" choice. Off, nothing is
+  /// queued or sent. Any change drops what is queued, so turning it back on
+  /// never releases data gathered while it was off.
+  bool get enabled => _enabled;
+  set enabled(bool value) {
+    if (_enabled == value) return;
+    _enabled = value;
+    _dropQueue();
+  }
+
+  void _dropQueue() {
+    try {
+      _errors.clear();
+      for (final entry in _timings()) {
+        final key = _timingKey(entry);
+        _sentTimings[key] = (_sentTimings[key] ?? 0) + 1;
+      }
+    } on Object {
+      // See addError.
+    }
+  }
 
   /// Starts a reporter for this web page and wires it to the splash, the first
   /// screen and the page being hidden. Returns null where there is nothing to
@@ -282,6 +305,7 @@ class ClientReporter {
   /// problem count up; at most 20 different ones are kept for the session.
   void addError(ClientError error) {
     try {
+      if (!_enabled) return;
       final key = error.fingerprint;
       final seen = _errors[key];
       if (seen != null) {
@@ -329,7 +353,7 @@ class ClientReporter {
   }
 
   void _sendIfNew() {
-    if (_inFlight) return;
+    if (_inFlight || !_enabled) return;
     final report = _build();
     if (report == null) return;
     _inFlight = true;
