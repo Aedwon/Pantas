@@ -19,6 +19,7 @@ import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/home/data/study_api.dart';
+import 'package:pantas/features/home/domain/study_models.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 import 'package:pantas/features/settings/data/settings_repository.dart';
@@ -36,7 +37,11 @@ void main() {
     final db = inMemoryDatabase();
     addTearDown(db.close);
     final container = ProviderContainer(
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        studyEpochDebounceProvider
+            .overrideWithValue(const Duration(milliseconds: 20)),
+      ],
     );
     addTearDown(container.dispose);
     final seen = <int>[];
@@ -73,6 +78,7 @@ void main() {
       ],
     );
     await pumpEventQueue();
+    await Future<void>.delayed(const Duration(milliseconds: 100));
     expect(seen.last, greaterThan(0));
   });
 
@@ -219,6 +225,270 @@ void main() {
     final next = await container.read(studySnapshotReaderProvider('e').future);
     expect(identical(next, first), isFalse);
     expect(await next.request.isCurrent(), isTrue);
+  });
+
+  // Beta monitor, prod: a plain Home load on a second device applies the
+  // other device's rows collection by collection. Each one moved the combined
+  // epoch, which rebuilt the reader, failed the read in flight ("Study owner
+  // changed") and fired fresh getRoadmap and getStudyInsights reads, six of
+  // each within a second.
+  Map<String, Object?> roadmapPayload(String revision) {
+    Map<String, Object?> plan(List<String> lessons) => {
+          'day': '2026-10-24',
+          'lessonIds': lessons,
+          'reviewQuestionIds': <String>[],
+          'newQuestionIds': <String>[],
+          'advancedIds': <String>[],
+          'isMockDay': false,
+          'isRestDay': false,
+        };
+    return {
+      'examId': 'e',
+      'serverNow': 100,
+      'accessRecheckAt': null,
+      'proCovered': false,
+      'revision': revision,
+      'state': 'planning',
+      'today': plan(['l1']),
+      'remaining': plan(['l1']),
+      'originalDone': false,
+      'canAdvance': false,
+      'todayTopicOrder': ['t'],
+      'weekDays': [
+        for (var i = 0; i < 7; i++) {'state': i == 6 ? 'today' : 'unknown'},
+      ],
+    };
+  }
+
+  Map<String, Object?> insightsPayload(String revision) => {
+        'examId': 'e',
+        'serverNow': 123,
+        'accessRecheckAt': null,
+        'proCovered': false,
+        'revision': revision,
+        'profile': null,
+        'performance': {
+          'overall': {'correct': 0, 'answered': 0},
+          'subjects': <Object?>[],
+          'lessonLevelAvailable': false,
+        },
+      };
+
+  Future<void> bumpRemote(AppDatabase db, int n) =>
+      db.into(db.syncMeta).insertOnConflictUpdate(
+            SyncMetaCompanion.insert(
+              key: PullPipeline.remoteChangeKey,
+              value: '$n',
+            ),
+          );
+
+  Future<void> until(bool Function() done) async {
+    for (var i = 0; i < 200 && !done(); i++) {
+      await Future<void>.delayed(const Duration(milliseconds: 10));
+    }
+  }
+
+  ({
+    ProviderContainer container,
+    AppDatabase db,
+    Map<String, int> calls,
+    Completer<void> gate,
+    List<Object> errors,
+    List<String> revisions,
+  }) gatedStudy() {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final calls = <String, int>{};
+    final gate = Completer<void>();
+    final errors = <Object>[];
+    final revisions = <String>[];
+    final container = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        studyUsesServerProvider.overrideWithValue(true),
+        studyEpochDebounceProvider.overrideWithValue(
+          const Duration(milliseconds: 50),
+        ),
+        trackScopeProvider('e').overrideWith((_) async => {}),
+        authStateProvider.overrideWith(
+          (_) => Stream.value(const AuthState.anonymous(uid: 'u')),
+        ),
+        activeExamFocusProvider.overrideWith(
+          (_) async => ActiveExamFocus.selected(buildExam(id: 'e')),
+        ),
+        studyApiProvider.overrideWithValue(
+          StudyApi((name, data) async {
+            final n = calls[name] = (calls[name] ?? 0) + 1;
+            // Only the first read of each kind is held open.
+            if (n == 1) await gate.future;
+            final revision = n == 1 ? 'first' : 'later';
+            return name == 'getRoadmap'
+                ? roadmapPayload(revision)
+                : insightsPayload(revision);
+          }),
+        ),
+      ],
+    );
+    addTearDown(container.dispose);
+    return (
+      container: container,
+      db: db,
+      calls: calls,
+      gate: gate,
+      errors: errors,
+      revisions: revisions,
+    );
+  }
+
+  test(
+      'a burst of remote row notices keeps the reader and the read in flight, '
+      'and refreshes once', () async {
+    final t = gatedStudy();
+    await SyncActiveContextStore(t.db).clearStable();
+    final container = t.container;
+    await container.read(authStateProvider.future);
+    await container.read(activeExamFocusProvider.future);
+    final subs = [
+      container.listen<AsyncValue<StudyRoadmap>>(
+        serverStudyRoadmapProvider('e'),
+        (_, next) {
+          if (next.hasError) t.errors.add(next.error!);
+          next.whenData((v) => t.revisions.add(v.revision));
+        },
+        fireImmediately: true,
+      ),
+      container.listen<AsyncValue<StudyInsights>>(
+        serverStudyInsightsProvider('e'),
+        (_, next) {
+          if (next.hasError) t.errors.add(next.error!);
+        },
+        fireImmediately: true,
+      ),
+    ];
+    for (final sub in subs) {
+      addTearDown(sub.close);
+    }
+    await until(
+      () => t.calls['getRoadmap'] == 1 && t.calls['getStudyInsights'] == 1,
+    );
+    final reader =
+        await container.read(studySnapshotReaderProvider('e').future);
+
+    for (var i = 1; i <= 6; i++) {
+      await bumpRemote(t.db, i);
+    }
+    t.gate.complete();
+    await Future<void>.delayed(const Duration(milliseconds: 400));
+
+    expect(t.errors, isEmpty);
+    expect(
+      identical(
+        await container.read(studySnapshotReaderProvider('e').future),
+        reader,
+      ),
+      isTrue,
+    );
+    expect(t.calls['getRoadmap'], lessThanOrEqualTo(2));
+    expect(t.calls['getStudyInsights'], lessThanOrEqualTo(2));
+    expect(t.revisions, isNotEmpty);
+  });
+
+  test('a burst of remote row notices gives one epoch revision', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final container = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        studyEpochDebounceProvider
+            .overrideWithValue(const Duration(milliseconds: 50)),
+      ],
+    );
+    addTearDown(container.dispose);
+    final seen = <int>[];
+    container.listen<AsyncValue<int>>(
+      studyCoreEpochProvider,
+      (_, next) => next.whenData(seen.add),
+      fireImmediately: true,
+    );
+    await pumpEventQueue();
+    for (var i = 1; i <= 6; i++) {
+      await bumpRemote(db, i);
+    }
+    await Future<void>.delayed(const Duration(milliseconds: 10));
+    expect(seen, [0], reason: 'nothing before the burst settles');
+    await Future<void>.delayed(const Duration(milliseconds: 200));
+    expect(seen, [0, 1]);
+  });
+
+  test('an owner change is immediate and replaces a pending remote revision',
+      () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final container = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        studyEpochDebounceProvider
+            .overrideWithValue(const Duration(milliseconds: 50)),
+      ],
+    );
+    addTearDown(container.dispose);
+    final seen = <int>[];
+    container.listen<AsyncValue<int>>(
+      studyCoreEpochProvider,
+      (_, next) => next.whenData(seen.add),
+      fireImmediately: true,
+    );
+    await pumpEventQueue();
+    await bumpRemote(db, 1);
+    await db.into(db.syncMeta).insertOnConflictUpdate(
+          SyncMetaCompanion.insert(
+            key: SyncHeldGeneration.generationKey,
+            value: 'g2',
+          ),
+        );
+    await Future<void>.delayed(const Duration(milliseconds: 10));
+    expect(seen, [0, 1], reason: 'the owner revision lands at once');
+    await Future<void>.delayed(const Duration(milliseconds: 200));
+    expect(seen, [0, 1], reason: 'the pending remote revision is dropped');
+  });
+
+  test(
+      'an owner change during a read rebuilds the reader and the stale read '
+      'delivers nothing', () async {
+    final t = gatedStudy();
+    await SyncActiveContextStore(t.db).clearStable();
+    final container = t.container;
+    await container.read(authStateProvider.future);
+    await container.read(activeExamFocusProvider.future);
+    final sub = container.listen<AsyncValue<StudyRoadmap>>(
+      serverStudyRoadmapProvider('e'),
+      (_, next) => next.whenData((v) => t.revisions.add(v.revision)),
+      fireImmediately: true,
+    );
+    addTearDown(sub.close);
+    await until(() => t.calls['getRoadmap'] == 1);
+    final reader =
+        await container.read(studySnapshotReaderProvider('e').future);
+
+    await t.db.into(t.db.syncMeta).insertOnConflictUpdate(
+          SyncMetaCompanion.insert(
+            key: SyncHeldGeneration.uidKey,
+            value: 'user-2',
+          ),
+        );
+    await until(() => (t.calls['getRoadmap'] ?? 0) >= 2);
+    t.gate.complete();
+    await Future<void>.delayed(const Duration(milliseconds: 200));
+
+    expect(
+      identical(
+        await container.read(studySnapshotReaderProvider('e').future),
+        reader,
+      ),
+      isFalse,
+    );
+    expect(await reader.request.isCurrent(), isFalse);
+    expect(t.revisions, isNot(contains('first')));
   });
 
   for (final local in [true, false]) {
