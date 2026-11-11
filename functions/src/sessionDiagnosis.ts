@@ -6,10 +6,11 @@ import {allowAtMost} from './_limits.js';
 import {fromDoc, totalsRef, viewOf} from './_answerTotals.js';
 import type {Answer} from './_answers.js';
 import {ID_PATTERN} from './content.js';
+import {setCoveredByTags} from './_setCoverage.js';
+import {coversStudyExam, isCustomExamId, isStudyExamId} from './_customTrack.js';
 import {loadStudyContent, loadGapTags} from './_examContent.js';
 import {mockCoverage} from './mockAccess.js';
 import {phDay, phStamp} from './_phDate.js';
-import {examCatalog} from './revenuecatPasses.js';
 import type {ExamSettings} from './roadmap.js';
 import {assertStudyOwner} from './studyObservations.js';
 import {timed} from './_timed.js';
@@ -25,7 +26,7 @@ export async function readSessionDiagnosis(auth: Auth, data: unknown, deps: Deps
   const body = data as Record<string, unknown>;
   assertStudyOwner(auth.uid, body);
   const {examId, sessionId} = body;
-  if (typeof examId !== 'string' || !examCatalog.some(e => e.id === examId)) throw new HttpsError('invalid-argument', 'Unknown exam.');
+  if (!isStudyExamId(examId)) throw new HttpsError('invalid-argument', 'Unknown exam.');
   if (typeof sessionId !== 'string' || sessionId.length > 128 || !ID_PATTERN.test(sessionId)) throw new HttpsError('invalid-argument', 'Bad session id.');
   if (!await (deps.allow ?? ((uid, key) => allowAtMost(uid, key, 600, 3_600_000)))(auth.uid, 'getSessionDiagnosis')) {
     throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
@@ -68,13 +69,24 @@ export async function readSessionDiagnosis(auth: Auth, data: unknown, deps: Deps
     const reviewDocs = reviewIds.length ? await tx.getAll(...reviewIds.map(id => db.doc(`users/${uid}/server/reviews/items/${encodeURIComponent(id)}`))) : [];
     const states = reviewDocs.filter(d => d.exists).map(d => JSON.parse(String(d.get('stateJson'))));
     const recallRows = states.length ? JSON.parse(core().dueReviews(JSON.stringify({now, states}))) as {id: string; retrievability: number}[] : [];
-    const pro = access.coversExam(examId), notes: Record<string, string> = {};
+    const pro = coversStudyExam(access, examId, new Map([[examId, config.excludedTopicIds ?? []]]), {corpusTopicIds: catalog.topics.map(t => t.id)}), notes: Record<string, string> = {};
     if (pro) {
       const misses = answers.filter(a => !a.correct && a.chosen && questionOf.has(a.questionId));
       const setIds = [...new Set(misses.map(a => questionOf.get(a.questionId)!.setId))];
       const documents = setIds.length ? await tx.getAll(...setIds.map(id => db.doc('contentPro/' + id))) : [];
+      // A custom exam draws on the whole corpus, so a note is Pro content only for a set whose own exam tags the
+      // account covers, the rule content delivery uses. A listed exam's sets all carry its own tag.
+      const covered = new Set(setIds);
+      if (isCustomExamId(examId) && setIds.length) {
+        const sets = await tx.getAll(...setIds.map(id => db.doc('content/questions/items/' + id)));
+        for (const set of sets) {
+          const exams = set.exists ? (JSON.parse(String(set.get('payload'))) as {meta?: {exams?: unknown}}).meta?.exams : undefined;
+          if (!setCoveredByTags(exams, id => access.coversExam(id))) covered.delete(set.id);
+        }
+      }
       const bySet = new Map(documents.filter(d => d.exists).map(d => [d.id, JSON.parse(String(d.get('payload'))) as Record<string, (string | null)[]>]));
       for (const answer of misses) {
+        if (!covered.has(questionOf.get(answer.questionId)!.setId)) continue;
         const chosen = answer.chosen!, prefix = answer.questionId + '_';
         const letter = chosen.startsWith(prefix) ? chosen.slice(prefix.length) : '';
         if (!/^[a-f]$/.test(letter)) continue;

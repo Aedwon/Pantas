@@ -89,13 +89,18 @@ class _WebRouteShellState extends ConsumerState<WebRouteShell> {
 
     final person = ref.watch(userSettingsProvider).valueOrNull?.name ?? '';
     final exam = ref.watch(activeExamShortNameProvider);
-    final pro = ref.watch(proForActiveExamProvider).valueOrNull ?? false;
+    // While coverage is unknown the plan is not named: Free would be a guess.
+    final pro = ref.watch(proForActiveExamProvider).valueOrNull;
     return WebShellFrame(
       web: context.webPlatform,
       activeIndex: activeIndex,
       person: person,
       exam: exam,
-      plan: pro ? 'Pro' : 'Free',
+      plan: switch (pro) {
+        null => '',
+        true => 'Pro',
+        false => 'Free',
+      },
       onSearch: () => showWebLessonSearch(context),
       onNavigate: navigate,
       child: child,

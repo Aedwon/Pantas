@@ -140,6 +140,29 @@ void main() {
       expect(server.calls.every((c) => !c.$2.containsKey('answers')), isTrue);
     });
 
+    test('startPart and endPart send only the action, by name', () async {
+      server.reply = _view();
+      for (final action in [
+        ServerMockAction.startPart,
+        ServerMockAction.endPart,
+      ]) {
+        await api.control(mockId: 'abcdefghij1', action: action);
+      }
+      expect(server.calls.map((c) => c.$2['action']), [
+        'startPart',
+        'endPart',
+      ]);
+      expect(server.calls.every((c) => !c.$2.containsKey('answers')), isTrue);
+      await expectLater(
+        api.control(
+          mockId: 'abcdefghij1',
+          action: ServerMockAction.endPart,
+          answers: [_answer('q1')],
+        ),
+        throwsArgumentError,
+      );
+    });
+
     test('save sends the exact answers it was given', () async {
       server.reply = _view();
       final answers = [_answer('q1'), _answer('q2', chosen: null)];

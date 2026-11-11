@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:drift/drift.dart';
+import 'package:meta/meta.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
@@ -43,6 +44,132 @@ class _ContentDatabaseCustomTrackProjection implements CustomTrackProjection {
   }
 }
 
+/// The id `create` gives every custom track. The server accepts a stricter
+/// shape, and this prefix is what tells the two kinds of exam apart here.
+const customExamIdPrefix = 'exam_custom_';
+
+bool isCustomExamId(ExamId examId) => examId.startsWith(customExamIdPrefix);
+
+/// Removes every custom exam row from the content database, for a wipe.
+Future<void> deleteCustomContentExams(ContentDatabase content) =>
+    (content.delete(content.contentExams)
+          ..where((row) => row.isCustom.equals(true)))
+        .go();
+
+/// A custom exam's paper as `getCustomTracks` returns it.
+@immutable
+class CustomTrackBlueprintRow {
+  const CustomTrackBlueprintRow({
+    required this.sectionsJson,
+    required this.totalQuestions,
+    required this.totalMinutes,
+    required this.sectionsTimedSeparately,
+    required this.updatedAt,
+  });
+
+  factory CustomTrackBlueprintRow.fromJson(Object? json) {
+    final map = _jsonMap(json, 'blueprint');
+    return CustomTrackBlueprintRow(
+      sectionsJson: _jsonText(map['sectionsJson'], 'sectionsJson'),
+      totalQuestions: _jsonInt(map['totalQuestions'], 'totalQuestions'),
+      totalMinutes: _jsonInt(map['totalMinutes'], 'totalMinutes'),
+      sectionsTimedSeparately: switch (map['sectionsTimedSeparately']) {
+        final bool flag => flag,
+        _ => throw const FormatException('Bad sectionsTimedSeparately'),
+      },
+      updatedAt: _jsonInt(map['updatedAt'], 'updatedAt'),
+    );
+  }
+
+  final String sectionsJson;
+  final int totalQuestions;
+  final int totalMinutes;
+  final bool sectionsTimedSeparately;
+
+  /// Milliseconds since the epoch.
+  final int updatedAt;
+}
+
+/// One custom exam from `getCustomTracks`. Parsing is strict about types, so a
+/// reply of the wrong shape fails before anything is written locally.
+@immutable
+class CustomTrackRow {
+  const CustomTrackRow({
+    required this.examId,
+    required this.name,
+    required this.excludedTopicIds,
+    required this.excludedLessonIds,
+    required this.blueprint,
+    required this.createdAt,
+    required this.updatedAt,
+    this.priceTier,
+  });
+
+  factory CustomTrackRow.fromJson(Object? json) {
+    final map = _jsonMap(json, 'track');
+    final examId = _jsonText(map['examId'], 'examId');
+    // A listed exam's id here would let a reply shadow a listed exam.
+    if (!isCustomExamId(examId)) throw const FormatException('Bad examId');
+    return CustomTrackRow(
+      examId: examId,
+      name: map['name'] == null ? null : _jsonText(map['name'], 'name'),
+      excludedTopicIds: _jsonTexts(map['excludedTopicIds'], 'excludedTopicIds'),
+      excludedLessonIds:
+          _jsonTexts(map['excludedLessonIds'], 'excludedLessonIds'),
+      blueprint: map['blueprint'] == null
+          ? null
+          : CustomTrackBlueprintRow.fromJson(map['blueprint']),
+      createdAt: _jsonInt(map['createdAt'], 'createdAt'),
+      updatedAt: _jsonInt(map['updatedAt'], 'updatedAt'),
+      priceTier: map['priceTier'] == null
+          ? null
+          : _jsonText(map['priceTier'], 'priceTier'),
+    );
+  }
+
+  final ExamId examId;
+
+  /// The tier the server works out from the subjects the exam keeps, spelled
+  /// as the catalog spells it. Null on a reply from a server that sends none.
+  final String? priceTier;
+
+  /// Null when the server never received a name for this exam.
+  final String? name;
+  final Set<TopicId> excludedTopicIds;
+  final Set<LessonId> excludedLessonIds;
+  final CustomTrackBlueprintRow? blueprint;
+
+  /// Milliseconds since the epoch.
+  final int createdAt;
+  final int updatedAt;
+}
+
+Map<String, Object?> _jsonMap(Object? value, String what) {
+  if (value is Map && value.keys.every((key) => key is String)) {
+    return {for (final e in value.entries) e.key! as String: e.value};
+  }
+  throw FormatException('Bad $what');
+}
+
+String _jsonText(Object? value, String what) =>
+    value is String ? value : throw FormatException('Bad $what');
+
+Set<String> _jsonTexts(Object? value, String what) {
+  if (value is List && value.every((item) => item is String)) {
+    return {for (final item in value) item as String};
+  }
+  throw FormatException('Bad $what');
+}
+
+// A number that crosses the browser boundary may arrive as a double.
+int _jsonInt(Object? value, String what) {
+  if (value is int) return value;
+  if (value is double && value.isFinite && value == value.truncateToDouble()) {
+    return value.toInt();
+  }
+  throw FormatException('Bad $what');
+}
+
 /// Owns custom-track user data in AppDatabase and keeps ContentDatabase as a
 /// recoverable display/content projection.
 class CustomTrackRepository {
@@ -66,11 +193,119 @@ class CustomTrackRepository {
   final LocalSyncMutationRecorder _syncRecorder;
   final CustomTrackProjection _projection;
 
+  /// Puts every stored track back into the in-memory content database. The web
+  /// content database is empty at each start, and the retry markers that
+  /// `create` and `rename` leave do not survive a reload.
+  Future<void> reprojectAll() async {
+    for (final row in await _db.select(_db.customTrackMetaLocal).get()) {
+      await _projection.upsert(examId: row.examId, name: row.name);
+    }
+  }
+
+  /// The student's name for the exam, or null when this browser has no
+  /// such track.
+  Future<String?> name(ExamId examId) async =>
+      (await _customTrackMeta(examId))?.name;
+
+  /// The saved paper in the five fields the server reads, or null when there
+  /// is none or the server would refuse it. A refused paper must not fail the
+  /// whole settings publish, so it is left out and the local row stays.
+  Future<Map<String, Object?>?> blueprintPayload(ExamId examId) async {
+    final row = await (_db.select(_db.customBlueprintsLocal)
+          ..where((b) => b.examId.equals(examId)))
+        .getSingleOrNull();
+    if (row == null || !_serverAcceptsBlueprint(row)) return null;
+    return {
+      'sectionsJson': row.sectionsJson,
+      'totalQuestions': row.totalQuestions,
+      'totalMinutes': row.totalMinutes,
+      'sectionsTimedSeparately': row.sectionsTimedSeparately,
+      'updatedAt': row.updatedAt.millisecondsSinceEpoch,
+    };
+  }
+
+  /// Brings a track made elsewhere onto this browser. Local wins: a track whose
+  /// id is already stored here is left alone, and so is a reply with no name,
+  /// which would leave a nameless exam. Returns whether anything was written.
+  ///
+  /// The meta, scope and blueprint rows go in one recorded batch, so a Pro
+  /// account's sync sees them as ordinary local changes.
+  Future<bool> restoreFromServer(CustomTrackRow row) async {
+    final examId = row.examId;
+    final name = row.name?.trim();
+    if (name == null || name.isEmpty) return false;
+    if (await _customTrackMeta(examId) != null) return false;
+    final blueprint = row.blueprint;
+
+    await _syncRecorder.runRecordedBatch(
+      mutations: [
+        SyncMutationTarget(
+          collection: 'track_scope',
+          rowId: TrackScopeDocumentId.metadata(examId),
+          op: SyncLocalMutationOp.upsert,
+        ),
+        for (final topicId in row.excludedTopicIds)
+          SyncMutationTarget(
+            collection: 'track_scope',
+            rowId: TrackScopeDocumentId.scope(examId, topicId),
+            op: SyncLocalMutationOp.upsert,
+          ),
+        if (blueprint != null)
+          SyncMutationTarget(
+            collection: 'custom_blueprints',
+            rowId: examId,
+            op: SyncLocalMutationOp.upsert,
+          ),
+      ],
+      mutate: () async {
+        await _db.into(_db.customTrackMetaLocal).insertOnConflictUpdate(
+              CustomTrackMetaLocalCompanion.insert(examId: examId, name: name),
+            );
+        for (final topicId in row.excludedTopicIds) {
+          await _db.into(_db.trackScopeLocal).insertOnConflictUpdate(
+                TrackScopeLocalCompanion.insert(
+                  examId: examId,
+                  topicId: topicId,
+                ),
+              );
+        }
+        if (row.excludedLessonIds.isNotEmpty) {
+          await _db.into(_db.accountPrefs).insertOnConflictUpdate(
+                AccountPrefsCompanion.insert(
+                  key: _lessonKey(examId),
+                  value: jsonEncode(row.excludedLessonIds.toList()..sort()),
+                ),
+              );
+        }
+        if (blueprint != null) {
+          await _db.into(_db.customBlueprintsLocal).insertOnConflictUpdate(
+                CustomBlueprintsLocalCompanion.insert(
+                  examId: examId,
+                  totalQuestions: blueprint.totalQuestions,
+                  totalMinutes: blueprint.totalMinutes,
+                  sectionsJson: blueprint.sectionsJson,
+                  sectionsTimedSeparately:
+                      Value(blueprint.sectionsTimedSeparately),
+                  updatedAt: DateTime.fromMillisecondsSinceEpoch(
+                    blueprint.updatedAt,
+                    isUtc: true,
+                  ),
+                ),
+              );
+        }
+        await _setProjectionRequired(examId, required: true);
+      },
+    );
+
+    await _projectWithoutRollingBackAuthority(examId);
+    return true;
+  }
+
   Future<ExamId> create({
     required String name,
     required Set<TopicId> includedTopicIds,
   }) async {
-    final examId = 'exam_custom_${_uuid.v4()}';
+    final examId = '$customExamIdPrefix${_uuid.v4()}';
     final allTopics = await _contentDb.select(_contentDb.contentTopics).get();
     final excludedTopicIds = {
       for (final topic in allTopics)
@@ -349,4 +584,55 @@ class CustomTrackRepository {
 
   String _projectionMarkerKey(ExamId examId) =>
       '$_projectionMarkerPrefix${TrackScopeDocumentId.metadata(examId)}';
+}
+
+// The server's own checks on a custom paper (`checkCustomBlueprint`), so a row
+// it would refuse is left out of the publish instead of failing it. Keep in
+// step with `functions/src/_customTrack.ts`.
+final _serverSectionId = RegExp(r'^section_(all|\d{1,3})$');
+final _serverTopicId = RegExp(r'^[A-Za-z0-9_.-]{1,160}$');
+
+bool _inRange(Object? value, int min, int max) =>
+    value is int && value >= min && value <= max;
+
+bool _serverAcceptsBlueprint(CustomBlueprintRow row) {
+  if (utf8.encode(row.sectionsJson).length > 64000) return false;
+  final Object? parsed;
+  try {
+    parsed = jsonDecode(row.sectionsJson);
+  } on FormatException {
+    return false;
+  }
+  if (parsed is! List || parsed.isEmpty || parsed.length > 20) return false;
+  final ids = <String>{};
+  var questions = 0;
+  var minutes = 0;
+  for (final section in parsed) {
+    if (section is! Map) return false;
+    final id = section['id'];
+    final name = section['name'];
+    final count = section['questionCount'];
+    final suggested = section['suggestedMinutes'];
+    final topics = section['topicIds'];
+    if (id is! String || !_serverSectionId.hasMatch(id) || !ids.add(id)) {
+      return false;
+    }
+    if (name is! String || name.isEmpty || name.length > 80) return false;
+    if (!_inRange(count, 1, 300) || !_inRange(suggested, 1, 720)) return false;
+    if (topics is! List ||
+        topics.isEmpty ||
+        topics.length > 64 ||
+        !topics.every((t) => t is String && _serverTopicId.hasMatch(t))) {
+      return false;
+    }
+    questions += count! as int;
+    minutes += suggested! as int;
+  }
+  if (!_inRange(row.totalQuestions, 1, 300) ||
+      row.totalQuestions != questions) {
+    return false;
+  }
+  if (!_inRange(row.totalMinutes, 1, 720)) return false;
+  return !row.sectionsTimedSeparately ||
+      (parsed.length >= 2 && row.totalMinutes == minutes);
 }

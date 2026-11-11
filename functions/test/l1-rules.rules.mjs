@@ -25,6 +25,7 @@ const SERVER_ONLY_DOCS = [
   `users/${OWNER}/server/answerTotals`,
   `users/${OWNER}/server/answers/items/s1`,
   `users/${OWNER}/server/mocks/items/m1`,
+  `users/${OWNER}/server/customTracks/items/x`,
   `users/${OWNER}/server/reviews/items/q1`,
   `users/${OWNER}/server/lessonReads/items/l1`,
   `users/${OWNER}/server/settings`,

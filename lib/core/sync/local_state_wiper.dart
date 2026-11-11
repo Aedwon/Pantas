@@ -1,15 +1,25 @@
 import 'package:pantas/core/auth/auth_repository.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/data/repos/custom_track_repository.dart'
+    show customExamIdPrefix;
 
 class SyncLocalStateWiper implements LocalStateWiper {
   SyncLocalStateWiper(
     this._db, {
     NotificationService? notifications,
-  }) : _notifications = notifications;
+    Future<void> Function()? clearCustomExams,
+  })  : _notifications = notifications,
+        _clearCustomExams = clearCustomExams;
+
+  static const _selectedExamKey = 'selected_exam_id';
 
   final AppDatabase _db;
   final NotificationService? _notifications;
+
+  /// Removes custom exams from the content database. On web a sign-out does
+  /// not reload, so nothing else clears them. Sync does not import content.
+  final Future<void> Function()? _clearCustomExams;
 
   @override
   Future<bool> hasMeaningfulProgress() async {
@@ -80,6 +90,28 @@ class SyncLocalStateWiper implements LocalStateWiper {
       await _db.delete(_db.reviewLogs).go();
       await _db.delete(_db.trackScopeLocal).go();
       await _db.delete(_db.customBlueprintsLocal).go();
+      // The next account on a shared browser must not see this track's name.
+      await _db.delete(_db.customTrackMetaLocal).go();
+
+      // A custom exam belongs to the account. A listed exam's selection is
+      // device state and stays.
+      final selected = await (_db.select(_db.devicePrefs)
+            ..where((row) => row.key.equals(_selectedExamKey)))
+          .getSingleOrNull();
+      if (selected != null && selected.value.startsWith(customExamIdPrefix)) {
+        await (_db.delete(_db.devicePrefs)
+              ..where((row) => row.key.equals(_selectedExamKey)))
+            .go();
+      }
+      final legacySelected = await (_db.select(_db.appPreferencesLocal)
+            ..where((row) => row.key.equals(_selectedExamKey)))
+          .getSingleOrNull();
+      if (legacySelected != null &&
+          legacySelected.value.startsWith(customExamIdPrefix)) {
+        await (_db.delete(_db.appPreferencesLocal)
+              ..where((row) => row.key.equals(_selectedExamKey)))
+            .go();
+      }
 
       final deviceId = await (_db.select(_db.syncMeta)
             ..where((row) => row.key.equals('deviceId')))
@@ -89,5 +121,7 @@ class SyncLocalStateWiper implements LocalStateWiper {
         await _db.into(_db.syncMeta).insert(deviceId);
       }
     });
+
+    await _clearCustomExams?.call();
   }
 }

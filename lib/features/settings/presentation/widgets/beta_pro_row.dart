@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
 import 'package:pantas/core/ui/components/row_tap_target.dart';
@@ -10,6 +11,13 @@ import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/paywall/application/beta_pro_provider.dart';
+
+/// The server refuses the beta for a custom exam, so the beta is not offered
+/// there. A listed exam is unchanged.
+bool _onCustomExam(WidgetRef ref) => ref.watch(
+      activeExamFocusProvider
+          .select((focus) => focus.valueOrNull?.exam?.isCustom ?? false),
+    );
 
 class BetaProRow extends ConsumerStatefulWidget {
   const BetaProRow({super.key});
@@ -41,7 +49,7 @@ class _BetaProRowState extends ConsumerState<BetaProRow> {
   @override
   Widget build(BuildContext context) {
     final beta = ref.watch(betaProProvider).valueOrNull;
-    if (beta == null) return const SizedBox.shrink();
+    if (beta == null || _onCustomExam(ref)) return const SizedBox.shrink();
     return Stack(
       children: [
         Positioned(
@@ -104,7 +112,8 @@ class BetaProNote extends ConsumerWidget {
   const BetaProNote({super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    if (ref.watch(betaProProvider).valueOrNull?.enabled != true) {
+    if (ref.watch(betaProProvider).valueOrNull?.enabled != true ||
+        _onCustomExam(ref)) {
       return const SizedBox.shrink();
     }
     return Padding(

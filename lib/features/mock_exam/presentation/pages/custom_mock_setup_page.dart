@@ -31,6 +31,7 @@ class CustomMockSetupData {
     required this.subjects,
     required this.topicsBySubject,
     required this.availableQuestions,
+    this.availableBySubject = const {},
     this.saved,
   });
 
@@ -42,6 +43,11 @@ class CustomMockSetupData {
   /// the whole corpus.
   final int availableQuestions;
 
+  /// What each subject's scoped topics hold. A section asks for questions from
+  /// one subject, so it cannot be larger than this. A subject missing here
+  /// holds none.
+  final Map<SubjectId, int> availableBySubject;
+
   /// The setup the student saved before, shown back with its own values.
   final CustomBlueprint? saved;
 }
@@ -50,6 +56,9 @@ class CustomMockSetupData {
 final List<int> customQuestionValues = [
   for (var i = 10; i <= questionWheelCeiling; i += 5) i,
 ];
+
+/// The most questions one mock can hold. The server refuses a longer paper.
+const int customMockQuestionLimit = 300;
 
 /// Fifteen minutes to six hours, in fives.
 final List<int> customMinuteValues = [for (var i = 15; i <= 360; i += 5) i];
@@ -90,6 +99,8 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
   final _sections = <SubjectId, (int? questions, int? minutes)>{};
   _Field? _openField;
   (SubjectId, bool)? _openSection;
+  bool _saving = false;
+  bool _failed = false;
 
   @override
   void initState() {
@@ -129,6 +140,36 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
         requested: _effectiveQuestions,
         available: widget.data.availableQuestions,
       );
+
+  int _heldBy(SubjectId id) => widget.data.availableBySubject[id] ?? 0;
+
+  bool _sectionIsOver(SubjectId id) =>
+      _breakdownOpen && (_sections[id]?.$1 ?? 0) > _heldBy(id);
+
+  /// Sections asking for more than their subject holds, in subject order.
+  List<Subject> get _overSections => [
+        for (final subject in widget.data.subjects)
+          if (_sectionIsOver(subject.id)) subject,
+      ];
+
+  bool get _overLimit => _effectiveQuestions > customMockQuestionLimit;
+
+  /// The total passes what the subjects hold. When a section is over, its own
+  /// line says so and this one stays quiet.
+  bool get _showCeiling => !_fit.fits && _overSections.isEmpty;
+
+  /// Fewer than two parts run as one clock, so the part by part line would
+  /// promise what the server does not do.
+  bool get _runsByPart =>
+      _breakdownOpen && _timedSeparately && widget.data.subjects.length >= 2;
+
+  bool get _canSave =>
+      _fit.fits &&
+      !_hasUnsetRow &&
+      _effectiveQuestions > 0 &&
+      !_overLimit &&
+      _overSections.isEmpty &&
+      !_saving;
 
   Widget _pill(
     BuildContext context,
@@ -261,6 +302,7 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
       context,
       show(part?.$1, (v) => '$v'),
       open: _openSection == (subject.id, false),
+      refused: _sectionIsOver(subject.id),
       key: ValueKey('custom-items-${subject.id}'),
       semanticLabel: '${subject.name} items, ${show(part?.$1, (v) => '$v')}',
       onTap: () => _toggleSection(subject.id, minutes: false),
@@ -338,19 +380,77 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
     );
   }
 
+  /// A line under a card, in the footnote style.
+  Widget _note(BuildContext context, String text, {Color? color}) => Padding(
+        padding: const EdgeInsets.fromLTRB(
+          PantasSpace.s16,
+          PantasSpace.s4,
+          PantasSpace.s16,
+          PantasSpace.s0,
+        ),
+        child: Text(
+          text,
+          style: context.type.footnote.copyWith(
+            color: color ?? context.colors.textSecondary,
+            // ds-board: custom mock setup board, footnote lines at 1.4.
+            height: 1.4,
+          ),
+        ),
+      );
+
+  /// A red line with the way to correct it: tick more subjects.
+  Widget _limitLine(BuildContext context, String text, {double top = 0}) {
+    final c = context.colors;
+    return Padding(
+      padding: EdgeInsets.fromLTRB(
+        PantasSpace.s16,
+        top,
+        PantasSpace.s16,
+        PantasSpace.s0,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            text,
+            style: context.type.footnote.copyWith(
+              color: c.wrongText,
+              // ds-board: custom mock setup board, footnote lines at 1.4.
+              height: 1.4,
+            ),
+          ),
+          const SizedBox(height: PantasSpace.s4),
+          Semantics(
+            button: true,
+            label: 'Tick More Subjects',
+            excludeSemantics: true,
+            child: WebTextLink(
+              label: 'Tick More Subjects',
+              arrow: false,
+              onPressed: widget.onTickMoreSubjects,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
     final fit = _fit;
-    final canSave = fit.fits && !_hasUnsetRow && _effectiveQuestions > 0;
+    final canSave = _canSave;
     final back = widget.onBack;
+    final overSections = _overSections;
 
     if (context.wideWeb) {
       return WebCustomMockSetup(
         questions: _effectiveQuestions,
         minutes: _effectiveMinutes,
         available: widget.data.availableQuestions,
-        fits: fit.fits,
+        fits: !_showCeiling,
+        overLimit: _overLimit,
+        failed: _failed,
         breakdown: _breakdownOpen,
         timedSeparately: _timedSeparately,
         unset: _hasUnsetRow,
@@ -362,7 +462,9 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
               id: subject.id,
               name: subject.name,
               questions: _sections[subject.id]?.$1,
-              minutes: _sections[subject.id]?.$2
+              minutes: _sections[subject.id]?.$2,
+              held: _heldBy(subject.id),
+              over: _sectionIsOver(subject.id),
             ),
         ],
         onQuestions: (value) => setState(() => _questions = value),
@@ -386,7 +488,7 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
           title: 'Questions',
           value: '$_effectiveQuestions',
           field: _Field.questions,
-          refused: !fit.fits,
+          refused: _showCeiling || _overLimit,
           divider: true,
         ),
         _editor(
@@ -453,6 +555,18 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
                 ),
                 const SizedBox(height: PantasSpace.s8),
               ],
+              if (_failed) ...[
+                Semantics(
+                  liveRegion: true,
+                  child: Text(
+                    'Could not save. Please try again.',
+                    // ds-board: custom mock setup board, footnote lines at 1.4.
+                    style: context.type.footnote
+                        .copyWith(color: c.secondaryLabel, height: 1.4),
+                  ),
+                ),
+                const SizedBox(height: PantasSpace.s8),
+              ],
               PantasButton(label: 'Save', onPressed: canSave ? _save : null),
             ],
           ),
@@ -508,7 +622,7 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
                       ),
                     ),
                     const SizedBox(height: PantasSpace.s24),
-                    if (fit.fits)
+                    if (!_showCeiling)
                       totals
                     else
                       Column(
@@ -516,36 +630,12 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
                         children: [
                           totals,
                           const SizedBox(height: PantasSpace.s8),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: PantasSpace.s16,
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Your subjects have '
-                                  '${widget.data.availableQuestions} '
-                                  'questions. A ${fit.requested}-question '
-                                  'mock needs more.',
-                                  style: context.type.footnote.copyWith(
-                                    color: c.wrongText,
-                                    height: 1.4,
-                                  ),
-                                ),
-                                const SizedBox(height: PantasSpace.s4),
-                                Semantics(
-                                  button: true,
-                                  label: 'Tick More Subjects',
-                                  excludeSemantics: true,
-                                  child: WebTextLink(
-                                    label: 'Tick More Subjects',
-                                    arrow: false,
-                                    onPressed: widget.onTickMoreSubjects,
-                                  ),
-                                ),
-                              ],
-                            ),
+                          _limitLine(
+                            context,
+                            'Your subjects have '
+                            '${widget.data.availableQuestions} '
+                            'questions. A ${fit.requested}-question '
+                            'mock needs more.',
                           ),
                         ],
                       ),
@@ -593,6 +683,23 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
                           ),
                         ],
                       ),
+                      if (_runsByPart) _note(context, customPartByPartRule),
+                      if (_overLimit)
+                        _note(
+                          context,
+                          'Mocks go up to $customMockQuestionLimit questions. '
+                          'This one adds up to $_effectiveQuestions.',
+                          color: c.wrongText,
+                        ),
+                      for (final subject in overSections)
+                        _limitLine(
+                          context,
+                          'Your ${subject.name} topics have '
+                          '${_heldBy(subject.id)} questions. '
+                          'A ${_sections[subject.id]!.$1}-question section '
+                          'needs more.',
+                          top: 8,
+                        ),
                     ],
                   ],
                 ),
@@ -604,26 +711,40 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
     );
   }
 
-  Future<void> _save() {
-    return widget.onSave(
-      CustomBlueprint(
-        examId: widget.data.examId,
-        totalQuestions: _questions,
-        totalMinutes: _minutes,
-        sectionsTimedSeparately: _hasBreakdown && _timedSeparately,
-        sections: [
-          if (_breakdownOpen)
-            for (final subject in widget.data.subjects)
-              if (_sections[subject.id]?.$1 != null &&
-                  _sections[subject.id]?.$2 != null)
-                CustomBlueprintSectionDraft(
-                  subjectId: subject.id,
-                  name: subject.name,
-                  questions: _sections[subject.id]!.$1!,
-                  minutes: _sections[subject.id]!.$2!,
-                ),
-        ],
-      ),
+  Future<void> _save() async {
+    if (_saving) return;
+    setState(() {
+      _saving = true;
+      _failed = false;
+    });
+    try {
+      await widget.onSave(_blueprint());
+    } on Object {
+      // The route records the cause. The page stays, with the row kept.
+      if (mounted) setState(() => _failed = true);
+    } finally {
+      if (mounted) setState(() => _saving = false);
+    }
+  }
+
+  CustomBlueprint _blueprint() {
+    return CustomBlueprint(
+      examId: widget.data.examId,
+      totalQuestions: _questions,
+      totalMinutes: _minutes,
+      sectionsTimedSeparately: _hasBreakdown && _timedSeparately,
+      sections: [
+        if (_breakdownOpen)
+          for (final subject in widget.data.subjects)
+            if (_sections[subject.id]?.$1 != null &&
+                _sections[subject.id]?.$2 != null)
+              CustomBlueprintSectionDraft(
+                subjectId: subject.id,
+                name: subject.name,
+                questions: _sections[subject.id]!.$1!,
+                minutes: _sections[subject.id]!.$2!,
+              ),
+      ],
     );
   }
 }

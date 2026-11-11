@@ -131,4 +131,60 @@ void main() {
     );
     await expectLater(request.read('getRoadmap'), throwsStateError);
   });
+  test('an account request carries the original UID and no exam of its own',
+      () async {
+    final calls = <String>[];
+    final sent = <Map<String, Object?>>[];
+    final api = StudyApi((name, data) async {
+      calls.add(name);
+      sent.add(data);
+      return {'tracks': <Object?>[]};
+    });
+
+    final result = await api.requestAccount(
+      'getCustomTracks',
+      expectedUid: 'old',
+    );
+
+    expect(calls, ['getCustomTracks']);
+    expect(sent.single, {'expectedUid': 'old'});
+    expect(result, {'tracks': <Object?>[]});
+    expect(() => sent.single['expectedUid'] = 'new', throwsUnsupportedError);
+  });
+  test('an account request may name the exam it acts on', () async {
+    final sent = <Map<String, Object?>>[];
+    final api = StudyApi((name, data) async {
+      sent.add(data);
+      return <String, Object?>{};
+    });
+
+    await api.requestAccount(
+      'deleteCustomTrack',
+      expectedUid: 'old',
+      payload: {'examId': 'exam_custom_x'},
+    );
+
+    expect(sent.single, {'expectedUid': 'old', 'examId': 'exam_custom_x'});
+  });
+  test('an account request cannot replace the original UID or send none',
+      () async {
+    var calls = 0;
+    final api = StudyApi((name, data) async {
+      calls++;
+      return <String, Object?>{};
+    });
+    await expectLater(
+      api.requestAccount(
+        'getCustomTracks',
+        expectedUid: 'old',
+        payload: {'expectedUid': 'new'},
+      ),
+      throwsArgumentError,
+    );
+    await expectLater(
+      api.requestAccount('getCustomTracks', expectedUid: ''),
+      throwsArgumentError,
+    );
+    expect(calls, 0);
+  });
 }

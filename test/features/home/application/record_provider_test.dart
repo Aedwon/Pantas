@@ -4,6 +4,9 @@ import 'dart:convert';
 import 'package:drift/drift.dart' hide isNull;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/auth_user.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/repos/streak_repository.dart';
@@ -13,6 +16,9 @@ import 'package:pantas/core/sync/local_state_wiper.dart';
 import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/home/application/record_provider.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
+import 'package:pantas/features/mock_exam/application/mock_results_providers.dart';
+import 'package:pantas/features/mock_exam/application/server_mock_results_providers.dart';
+import 'package:pantas/features/mock_exam/domain/server_mock_results.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 import 'package:pantas/features/quiz/domain/streak/streak_evaluator.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
@@ -762,6 +768,127 @@ void main() {
       expect(record.questionsAnswered, 1);
       expect(record.daysActive, 1);
       expect(record.mocks, isEmpty);
+    });
+  });
+
+  group('a custom exam mock on the web', () {
+    const customId = 'exam_custom_6f1d0a52-3c1b-4c0e-8a52-0f6a3d2c9b11';
+
+    Map<String, Object?> body({
+      required String examId,
+      String? examName,
+      String mockId = 'MockResult000001',
+    }) =>
+        {
+          'mockId': mockId,
+          'examId': examId,
+          if (examName != null) 'examName': examName,
+          'serverNow': 2000000,
+          'accessRecheckAt': null,
+          'startedAt': 1000,
+          'submittedAt': 2000,
+          'durationMs': 1000,
+          'limitMs': 3600000,
+          'strict': false,
+          'endedBy': 'student',
+          'score': {
+            'correct': 1,
+            'answered': 1,
+            'wrong': 0,
+            'blank': 1,
+            'total': 2,
+          },
+          'sections': [
+            {
+              'sectionId': 's',
+              'name': 'Paper',
+              'correct': 1,
+              'answered': 1,
+              'wrong': 0,
+              'blank': 1,
+              'total': 2,
+            },
+          ],
+          'canReview': true,
+          'proCovered': false,
+          'reviewUntil': 2592002000,
+        };
+
+    Future<ProviderContainer> web(List<Map<String, Object?>> history) async {
+      container = ProviderContainer(
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          mockUsesServerProvider.overrideWithValue(true),
+          authStateProvider.overrideWith(
+            (_) => Stream.value(
+              const AuthState.signedIn(
+                user: AuthUser(
+                  uid: 'a',
+                  email: 'a@example.com',
+                  displayName: 'A',
+                ),
+              ),
+            ),
+          ),
+          serverMockIdentityProvider.overrideWithValue('a'),
+          serverMockHistoryProvider.overrideWith(
+            (_) async =>
+                [for (final row in history) ServerMockResult.decode(row)],
+          ),
+        ],
+      )..listen(authStateProvider, (_, __) {});
+      await container.read(authStateProvider.future);
+      return container;
+    }
+
+    test('Record names the exam the student gave it', () async {
+      final record =
+          await (await web([body(examId: customId, examName: 'PUP CET')]))
+              .read(recordProvider.future);
+      expect(record.mocks.single.blueprintName, 'PUP CET');
+    });
+
+    test('a result with no name says Mock exam, never the id', () async {
+      final record = await (await web([body(examId: customId)]))
+          .read(recordProvider.future);
+      expect(record.mocks.single.blueprintName, 'Mock exam');
+      expect(record.mocks.single.blueprintName, isNot(contains('exam_custom')));
+    });
+
+    test('every mock in history is named from its own row', () async {
+      // The name is on the mock row, so history needs no track to name it.
+      final entries = await (await web([
+        body(examId: customId, examName: 'PUP CET'),
+        body(examId: customId, examName: 'PUP CET', mockId: 'MockResult000002'),
+      ]))
+          .read(mockHistoryProvider.future);
+      expect(
+        entries.map((e) => e.attempt.blueprintName),
+        ['PUP CET', 'PUP CET'],
+      );
+    });
+
+    test('listed exams keep their names', () {
+      expect(
+        serverMockHistoryEntry(
+          ServerMockResult.decode(body(examId: 'exam_cse_pro')),
+          'a',
+        ).attempt.blueprintName,
+        'CSE Professional',
+      );
+      expect(
+        serverMockHistoryEntry(
+          ServerMockResult.decode(body(examId: 'exam_upcat')),
+          'a',
+        ).attempt.blueprintName,
+        'Mock exam',
+      );
+    });
+
+    test('the name given to a mock is used wherever a mock is named', () {
+      expect(serverMockExamName(customId, examName: 'PUP CET'), 'PUP CET');
+      expect(serverMockExamName(customId), 'Mock exam');
+      expect(serverMockExamName('exam_cse_sub'), 'CSE Subprofessional');
     });
   });
 }

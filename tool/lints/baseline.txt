@@ -81,7 +81,7 @@
 1 lib/features/mock_exam/presentation/widgets/web_mock_finale.dart ds_no_design_literal
 1 lib/features/notifications/presentation/permission_rationale_page.dart ds_no_design_literal
 1 lib/features/onboarding/presentation/exam_picker_screen.dart ds_board_value_reason
-2 lib/features/onboarding/presentation/exam_picker_screen.dart ds_no_design_literal
+1 lib/features/onboarding/presentation/exam_picker_screen.dart ds_no_design_literal
 1 lib/features/onboarding/presentation/onboarding_age_gate_step.dart ds_board_value_reason
 1 lib/features/onboarding/presentation/onboarding_age_gate_step.dart ds_no_design_literal
 2 lib/features/onboarding/presentation/onboarding_exam_date_step.dart ds_board_value_reason

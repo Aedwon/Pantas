@@ -256,10 +256,8 @@ void main() {
       await pump(tester, const CustomTrackSubjectsStep(name: 'My Exam'));
       final tiles = find.byType(SelectableTile);
       expect(tester.getSize(tiles.first).height, greaterThanOrEqualTo(64));
-      expect(
-        tester.getSize(tiles.first).width,
-        285,
-      );
+      // Placement 2: the tiles fill a grid inside the card, 10rem or wider.
+      expect(tester.getSize(tiles.first).width, greaterThanOrEqualTo(160));
       expect(
         tester.widget<Text>(find.text('Mathematics')),
         isA<Text>().having((text) => text.style?.fontSize, 'font size', 16),

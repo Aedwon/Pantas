@@ -101,8 +101,10 @@ String? _notHonored(List<String> segments, Uri url) {
       }
     case 'settings':
       switch (second) {
-        // An upgrade is only meaningful from the picker that starts it.
-        case 'exam' when third == 'upgrade':
+        // An upgrade is only meaningful from the picker that starts it, and
+        // so are the steps of a student's own exam, which carry state from
+        // the step before.
+        case 'exam' when third == 'upgrade' || third == 'custom':
           return '/settings/exam/change';
         // A destructive screen is never a place to land cold. The age re-check
         // reports back to the Account page that opened it.

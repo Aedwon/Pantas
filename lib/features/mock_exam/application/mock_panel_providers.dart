@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
 import 'package:pantas/features/mock_exam/application/mock_results_providers.dart';
 import 'package:pantas/features/mock_exam/application/server_mock_results_providers.dart';
@@ -45,4 +46,23 @@ final customMockSummaryProvider =
     questions: row.totalQuestions,
     minutes: row.totalMinutes,
   );
+});
+
+/// Sends the settings of a custom exam again, once, when the server has no
+/// paper for it but this browser does. That happens when an earlier send was
+/// refused or never left the browser. When the send is done the server's
+/// status is read again.
+///
+/// The provider keeps its result, so a rebuild, a re-read or a failed send
+/// never starts a second send in the same session. A failure leaves the saved
+/// paper on screen: the student can change it, and that save sends again.
+final customMockRepairProvider = FutureProvider.family<void, ExamId>((
+  ref,
+  examId,
+) async {
+  final publication =
+      await ref.read(studySettingsCaptureProvider)(examId: examId);
+  await publication();
+  await publication.settled;
+  ref.invalidate(serverMockAvailabilityProvider(examId));
 });

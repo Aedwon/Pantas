@@ -29,6 +29,8 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
+import 'package:pantas/features/paywall/application/custom_subject_tiers.dart';
+import 'package:pantas/features/paywall/application/custom_track_tier.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/data/web_payment_gateway.dart';
 import 'package:pantas/features/paywall/domain/coverage.dart';
@@ -92,6 +94,7 @@ class ProPage extends ConsumerStatefulWidget {
     this.targetExam,
     this.previousExamName,
     this.onSwitchOnFree,
+    this.freeLabel,
     super.key,
   });
   final SubscriptionManagementLauncher subscriptionLauncher;
@@ -99,6 +102,10 @@ class ProPage extends ConsumerStatefulWidget {
   final ExamCatalogEntry? targetExam;
   final String? previousExamName;
   final Future<void> Function()? onSwitchOnFree;
+
+  /// The label of the keep-Free button on an upgrade screen. Defaults to
+  /// 'Switch on Free'.
+  final String? freeLabel;
   @override
   ConsumerState<ProPage> createState() => _ProPageState();
 }
@@ -620,18 +627,56 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     final entitlement =
         ref.watch(entitlementProvider).valueOrNull ?? const Entitlement.free();
     final upgrade = widget.targetExam != null;
-    final covered =
-        upgrade ? false : ref.watch(proForActiveExamProvider).valueOrNull;
     final web = ref.watch(paymentsOnWebProvider);
     final anonymous =
         ref.watch(isAnonymousProvider).unwrapPrevious().valueOrNull ?? true;
+    final customExam = upgrade
+        ? null
+        : ref.watch(
+            activeExamFocusProvider.select((focus) {
+              final active = focus.valueOrNull?.exam;
+              return active != null && active.isCustom ? active : null;
+            }),
+          );
+    final custom = customExam != null;
+    final customTierAsync = custom
+        ? ref.watch(activeCustomTrackTierProvider).unwrapPrevious()
+        : null;
+    final customTier = customTierAsync?.valueOrNull;
+    // A custom exam's tier decides its paywall. Until it is known there is no
+    // paywall at all, never a guessed one.
+    final customTierUnknown = custom && customTier == null;
+    final trackName = customExam?.name;
     final exam = widget.targetExam ??
-        ref.watch(activeProCatalogEntryProvider).valueOrNull;
+        (customExam != null && customTier != null
+            ? customCatalogEntry(
+                examId: customExam.id,
+                name: customExam.name,
+                tier: customTier.tier,
+              )
+            : custom
+                ? null
+                : ref.watch(activeProCatalogEntryProvider).valueOrNull);
+    final covered = upgrade
+        ? false
+        : custom
+            ? (customTierUnknown
+                ? null
+                : (ref.watch(proForActiveExamProvider).valueOrNull ?? false) ||
+                    entitlement.coversExam(
+                      customExam.id,
+                      examTier: customTier!.tier,
+                    ))
+            : ref.watch(proForActiveExamProvider).valueOrNull;
     final offering = (upgrade
             ? ref.watch(unfilteredPaywallOfferingProvider)
             : ref.watch(paywallOfferingProvider))
         .unwrapPrevious();
-    firstScreenReady(context, ref, ready: !offering.isLoading);
+    firstScreenReady(
+      context,
+      ref,
+      ready: !offering.isLoading && !(customTierAsync?.isLoading ?? false),
+    );
     final paused = entitlement.state == EntitlementState.paused;
     final packages = (offering.valueOrNull?.recognizedPackages
             .where(
@@ -775,6 +820,15 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                             : 'Subscribe for '
                                 '${_money(selectedPackage.priceString)} '
                                 'a ${_period(selectedPackage.sku)}';
+    final whyLine = customTier == null || trackName == null
+        ? null
+        : Text(
+            _tierLine(trackName, customTier),
+            style: context.wideWeb
+                ? context.webTokens.sub
+                : context.type.subhead
+                    .copyWith(color: context.colors.textSecondary),
+          );
     return SettingsPanePage(
       section: 'Pantas Pro',
       title: context.wideWeb ? 'Pantas Pro' : '',
@@ -789,7 +843,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                       offset: const Offset(-PantasSpace.s14, 0),
                       child: WebButton(
                         label: upgrade
-                            ? 'Switch on Free'
+                            ? (widget.freeLabel ?? 'Switch on Free')
                             : _busy && _restoring
                                 ? 'Restoring purchases'
                                 : 'Restore Purchases',
@@ -947,7 +1001,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                         ),
                       if (upgrade)
                         PantasButton(
-                          label: 'Switch on Free',
+                          label: widget.freeLabel ?? 'Switch on Free',
                           variant: PantasButtonVariant.tertiary,
                           onPressed: _busy ? null : _switchOnFree,
                         ),
@@ -1095,6 +1149,10 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
               ),
           const SizedBox(height: PantasSpace.s24),
         ],
+        if (!showOffers && whyLine != null) ...[
+          whyLine,
+          const SizedBox(height: PantasSpace.s20),
+        ],
         if (paused) const ProPausedLine(),
         if (!upgrade &&
             (entitlement.proIsActive || paused) &&
@@ -1207,6 +1265,15 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                     : context.type.sectionHeader,
               ),
             ),
+          if (whyLine != null) ...[
+            Padding(
+              padding: EdgeInsets.only(
+                left: context.wideWeb ? PantasSpace.s4 : PantasSpace.s0,
+                top: PantasSpace.s4,
+              ),
+              child: whyLine,
+            ),
+          ],
           SizedBox(
             height: context.wideWeb ? PantasSpace.s6 : PantasSpace.s12,
           ),
@@ -1262,7 +1329,8 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                   : () => setState(() => _selected = pass.productId),
             ),
           ],
-          if (passes.isEmpty &&
+          if (!custom &&
+              passes.isEmpty &&
               sitting == null &&
               exam?.priceTier == 'Civil Service') ...[
             const SizedBox(height: PantasSpace.s20),
@@ -1292,6 +1360,16 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
               variant: PantasButtonVariant.secondary,
               onPressed: () =>
                   ref.invalidate(unfilteredPaywallOfferingProvider),
+            ),
+        ],
+        if (customTierUnknown) ...[
+          if (customTierAsync?.isLoading ?? false)
+            const Text('Loading subscriptions...')
+          else
+            PantasButton(
+              label: 'Try Again',
+              variant: PantasButtonVariant.secondary,
+              onPressed: () => ref.invalidate(activeCustomTrackTierProvider),
             ),
         ],
         if (!web &&
@@ -1424,6 +1502,16 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
       ),
     );
   }
+}
+
+/// The one line that says why a custom exam sits in its tier.
+String _tierLine(String name, CustomTrackTier tier) {
+  final level = CustomSubjectTiers.levelLabel(tier.tier);
+  final because = tier.becauseOf;
+  if (tier.tier == PriceTier.student || because == null) {
+    return '$name is a $level exam.';
+  }
+  return '$name is a $level exam because it includes $because.';
 }
 
 String _period(PaywallSku sku) => switch (sku) {

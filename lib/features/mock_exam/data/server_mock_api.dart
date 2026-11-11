@@ -21,7 +21,7 @@ class ServerMockException implements Exception {
   String toString() => 'ServerMockException($code): $message';
 }
 
-enum ServerMockAction { save, pause, resume, discard }
+enum ServerMockAction { save, pause, resume, discard, startPart, endPart }
 
 enum ServerMockEndReason {
   student('student'),

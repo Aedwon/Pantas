@@ -44,8 +44,12 @@ class ScopeTopic {
 
 @immutable
 class ScopeSubject {
-  const ScopeSubject({required this.title, required this.topics});
+  const ScopeSubject({required this.title, required this.topics, this.mark});
   final String title;
+
+  /// Plain text after the title, such as "Civil Service-level" on a subject
+  /// above Student. Not a tag.
+  final String? mark;
   final List<ScopeTopic> topics;
 }
 
@@ -340,7 +344,9 @@ class _ScopePickerState extends State<ScopePicker>
                 PantasSpace.s6,
               ),
               child: Text(
-                subject.title.toUpperCase(),
+                subject.mark == null
+                    ? subject.title.toUpperCase()
+                    : '${subject.title.toUpperCase()} · ${subject.mark}',
                 style: context.type.sectionHeader,
               ),
             ),

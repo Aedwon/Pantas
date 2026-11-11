@@ -14,9 +14,13 @@ class QuestionCard extends StatelessWidget {
     this.choices = const [],
     this.headerTrailing,
     this.showHeader = true,
+    this.showSubject = true,
     super.key,
   });
   final String subject;
+
+  /// False draws the card with no eyebrow and none of its space.
+  final bool showSubject;
   final String stem;
   final Widget? figure;
   final Widget? passage;
@@ -37,7 +41,7 @@ class QuestionCard extends StatelessWidget {
             passage!,
             const SizedBox(height: PantasSpace.s20),
           ],
-          if (showHeader) ...[
+          if (showHeader && showSubject) ...[
             Row(
               children: [
                 Expanded(

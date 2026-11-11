@@ -1,11 +1,17 @@
 import '../lib/index.js';
+import {readFileSync} from 'node:fs';
+const GENERAL_INFORMATION=JSON.parse(readFileSync(new URL('../../content/exams/custom_subject_tiers.json',import.meta.url),'utf8')).subjects.find(s=>s.name==='General Information').topicIds;
 import * as callables from '../lib/index.js';
+import {customSubjectTiers} from '../lib/_customTrack.js';
+// The fixture topic is made up. A kept topic the table does not know prices at the top tier, so place it at Student.
+customSubjectTiers.topicTiers['b4-topic']='Student';
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {getFirestore} from 'firebase-admin/firestore';
 import {emptyTotals,addSession,toDoc} from '../lib/_answerTotals.js';
 import {clearExamContentCache} from '../lib/_examContent.js';
 import {core} from '../lib/_core.js';
+import {randomUUID} from 'node:crypto';
 
 const db=getFirestore(),NOW=Date.parse('2026-10-29T10:00:00+08:00'),DAY=86400000,EXAM='exam_cse_pro';
 const auth=uid=>({uid,token:{pro:true,proUntil:NOW+DAY}});
@@ -116,4 +122,73 @@ test('pending does not depend on readable gap content',async()=>{
  await ref.set({payload:'{invalid'});clearExamContentCache();
  try{assert.deepEqual(await read(auth(uid),body(uid),deps()),{status:'pending'});}
  finally{if(previous.exists)await ref.set(previous.data());else await ref.delete();clearExamContentCache();}
+});
+
+// ---- a custom exam: the same catalog read through the index, Free whatever the account holds for a listed exam ----
+const CUSTOM='exam_custom_'+randomUUID();
+const customBody=uid=>({expectedUid:uid,examId:CUSTOM,sessionId:'b4-session'});
+async function seedCustom(uid,{pro=false}={}){
+ const fixture=await seed(uid,{pro});
+ // The listed seed wrote the catalog under the listed exam. A custom exam reads every catalog the index names.
+ await db.doc('content/catalog/items/exam_b4c').set(await db.doc('content/catalog/items/'+EXAM).get().then(d=>d.data()));
+ await db.doc('content/catalog/items/index').set({version:'b4i',payload:JSON.stringify({catalogs:['exam_b4c']})});
+ clearExamContentCache();
+ await db.doc('users/'+uid+'/server/settings').update({examId:CUSTOM});
+ await db.doc('users/'+uid+'/server/answers/items/b4-session').update({examId:CUSTOM});
+ return fixture;
+}
+test('custom Free returns tracedCount only, with no lesson, question, choice or note',async()=>{
+ const uid='b4-custom-free',fixture=await seedCustom(uid);
+ const result=await read(auth(uid),customBody(uid),deps());
+ assert.deepEqual(result,{status:'ok',tier:'free',tracedCount:1});
+ const text=JSON.stringify(result);
+ const secrets=[...fixture.lessons.map(l=>l.id),...fixture.sets.flatMap(s=>s.questions.map(q=>q.id)),...answers.flatMap(a=>a.chosen?[a.chosen]:[]),note];
+ for(const secret of secrets)assert.equal(text.includes(secret),false,secret);
+});
+test('a pass and a live Pro claim for a listed exam do not make a custom exam Pro',async()=>{
+ const uid='b4-custom-claim';await seedCustom(uid);
+ await db.doc('users/'+uid+'/grants/paid').set({source:'paymongo',product:'pantas_pass_cse_pro',tier:'civilService',startsAt:NOW-DAY,endsAt:NOW+DAY,state:'active',createdAt:NOW-DAY});
+ assert.deepEqual(await read(auth(uid),customBody(uid),deps()),{status:'ok',tier:'free',tracedCount:1});
+});
+test('a plan that reaches the custom exam tier makes it Pro, and a Student plan does not reach a Civil Service exam',async()=>{
+ const uid='b4-custom-tier';await seedCustom(uid);
+ await db.doc('users/'+uid+'/grants/paid').set({source:'paymongo',product:'pantas_pro_monthly',tier:'student',startsAt:NOW-DAY,endsAt:NOW+DAY,state:'active',createdAt:NOW-DAY});
+ // Nothing is excluded, so every subject is kept and the exam is Civil Service.
+ assert.deepEqual(await read(auth(uid),customBody(uid),deps()),{status:'ok',tier:'free',tracedCount:1});
+ await db.doc('users/'+uid+'/server/settings').update({excludedTopicIds:GENERAL_INFORMATION});
+ assert.equal((await read(auth(uid),customBody(uid),deps())).tier,'pro');
+ await db.doc('users/'+uid+'/server/settings').update({excludedTopicIds:[]});
+ await db.doc('users/'+uid+'/grants/paid').set({source:'paymongo',product:'pantas_cs_monthly',tier:'civilService',startsAt:NOW-DAY,endsAt:NOW+DAY,state:'active',createdAt:NOW-DAY});
+ assert.equal((await read(auth(uid),customBody(uid),deps())).tier,'pro');
+});
+test('a custom exam gives a wrong-choice note only for a set whose own exam tags the plan covers',async()=>{
+ const uid='b4-custom-notes';await seedCustom(uid);
+ await db.doc('users/'+uid+'/server/settings').update({excludedTopicIds:GENERAL_INFORMATION});
+ // The plan is Student, so with General Information excluded the exam is Student-level and Pro.
+ await db.doc('users/'+uid+'/grants/paid').set({source:'paymongo',product:'pantas_pro_monthly',tier:'student',startsAt:NOW-DAY,endsAt:NOW+DAY,state:'active',createdAt:NOW-DAY});
+ // Every set in the seed carries the listed CSE tag, which a Student plan does not cover. The target set also carries a Student exam.
+ for(const id of ['b4-target-set','b4-within-set','b4-prereq-set','b4-correct-set'])await db.doc('content/questions/items/'+id).set({version:'1',payload:JSON.stringify({meta:{exams:['cse-pro']}})});
+ const uncovered=await read(auth(uid),customBody(uid),deps());
+ assert.equal(uncovered.tier,'pro');
+ assert.equal(JSON.stringify(uncovered).includes(note),false,'a Civil Service-only set leaks no note to a Student plan');
+ await db.doc('content/questions/items/b4-target-set').set({version:'1',payload:JSON.stringify({meta:{exams:['cse-pro','upcat']}})});
+ const covered=await read(auth(uid),customBody(uid),deps());
+ assert.equal(JSON.stringify(covered).includes(note),true,'a set that also carries a covered exam tag still delivers its note');
+ await db.doc('content/questions/items/b4-target-set').delete();
+ assert.equal(JSON.stringify(await read(auth(uid),customBody(uid),deps())).includes(note),false,'a set with no readable tags delivers no note');
+});
+test('a custom session names the exam it was made under, a malformed custom id is Unknown exam, and a wrong exam is refused',async()=>{
+ const uid='b4-custom-errors';await seedCustom(uid);
+ await db.doc('users/'+uid+'/server/answers/items/b4-session').update({examId:'exam_upcat'});
+ assert.equal(await code(read(auth(uid),customBody(uid),deps())),'failed-precondition');
+ await db.doc('users/'+uid+'/server/answers/items/b4-session').update({examId:CUSTOM});
+ await db.doc('users/'+uid+'/server/settings').update({examId:EXAM});
+ assert.equal(await code(read(auth(uid),customBody(uid),deps())),'failed-precondition');
+ for(const examId of ['exam_custom','exam_custom_'+randomUUID().toUpperCase(),'exam_custom_'+randomUUID()+'x']){
+  await assert.rejects(read(auth(uid),{...customBody(uid),examId},deps()),e=>e.code==='invalid-argument'&&e.message==='Unknown exam.');
+ }
+});
+test('custom diagnosis cleanup',async()=>{
+ for(const id of ['index','exam_b4c'])await db.doc('content/catalog/items/'+id).delete();
+ clearExamContentCache();
 });

@@ -25,5 +25,7 @@ export async function mockCoverage(transaction: Transaction, db: Firestore, uid:
     const entry = examCatalog.find(e => e.id === examId) as {priceTier?: string} | undefined;
     const tier = entry?.priceTier ? tiers[entry.priceTier] : undefined;
       return tier !== undefined && access.coversExam(examId, tier);
-    }};
+    },
+    /** A custom exam is covered by tier alone. The id is empty so no pass or beta grant can match. */
+    coversCustom: (tier: PriceTier): boolean => access.coversExam('', tier)};
 }

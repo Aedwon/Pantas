@@ -11,6 +11,7 @@ import 'package:pantas/core/dev/dev_pro_switch.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/sync/eligibility/sync_claim_gateway.dart';
+import 'package:pantas/features/paywall/application/custom_track_tier.dart';
 import 'package:pantas/features/paywall/application/paywall_controller.dart';
 import 'package:pantas/features/paywall/application/trusted_clock.dart';
 import 'package:pantas/features/paywall/data/entitlement_snapshot_store.dart';
@@ -183,6 +184,15 @@ final proForActiveExamProvider = FutureProvider<bool>((ref) async {
   final focus = await ref.watch(activeExamFocusProvider.future);
   final exam = focus.exam;
   if (exam == null) return false;
+  if (exam.isCustom) {
+    // A custom exam is covered by plan tier alone, from the same tier the Pro
+    // page uses. No pass can carry its id. While the tier loads this stays
+    // loading, and if it fails this fails: neither is ever Free or Pro by
+    // guess, like a listed exam whose entitlement is unknown.
+    final tier = await ref.watch(activeCustomTrackTierProvider.future);
+    if (tier == null) throw StateError('A custom exam has no known tier');
+    return entitlement.coversExam(exam.id, examTier: tier.tier);
+  }
   final catalog =
       await ref.watch(examCatalogRepositoryProvider).watchAll().first;
   final entry = catalog.where((entry) => entry.id == exam.id).firstOrNull;

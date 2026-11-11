@@ -9,7 +9,9 @@ import 'package:pantas/core/auth/firebase_auth_functions_gateway.dart';
 import 'package:pantas/core/auth/firebase_auth_gateway.dart';
 import 'package:pantas/core/auth/firebase_google_sign_in_gateway.dart';
 import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
+import 'package:pantas/core/storage/data/repos/custom_track_repository.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/sync/local_state_wiper.dart';
 
@@ -59,6 +61,8 @@ List<Override> authRepositoryOverrides(
             SyncLocalStateWiper(
               ref.watch(appDatabaseProvider),
               notifications: ref.watch(notificationServiceProvider),
+              clearCustomExams: () =>
+                  deleteCustomContentExams(ref.read(contentDatabaseProvider)),
             ),
       );
     }),

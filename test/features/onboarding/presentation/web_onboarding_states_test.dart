@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -53,6 +54,7 @@ void main() {
     required bool dark,
     Stream<List<ExamCatalogEntry>>? catalog,
     ExamDate? date,
+    List<(String, String)> tracks = const [],
   }) async {
     tester.view.physicalSize = const Size(1440, 900);
     tester.view.devicePixelRatio = 1;
@@ -64,6 +66,11 @@ void main() {
     // A picker with a saved pick shows it chosen; these start unpicked.
     if (screen is! ExamPickerScreen) {
       await AppPreferencesRepository(db).setSelectedExamId('exam_cse_pro');
+    }
+    for (final (id, name) in tracks) {
+      await db.into(db.customTrackMetaLocal).insert(
+            CustomTrackMetaLocalCompanion.insert(examId: id, name: name),
+          );
     }
     if (date != null) {
       await DriftSettingsRepository(db)
@@ -246,6 +253,46 @@ void main() {
         expect(tester.takeException(), isNull);
       });
     }
+    testWidgets('picker lists your exams above the listed ones $dark',
+        (tester) async {
+      final picked = <String>[];
+      await pump(
+        tester,
+        ExamPickerScreen(mode: ExamPickerMode.onboarding, onPicked: picked.add),
+        dark: dark,
+        tracks: const [
+          ('exam_custom_a', 'PUP CET'),
+          ('exam_custom_b', 'Bar Exam'),
+        ],
+      );
+      await tester.pumpAndSettle();
+      expect(find.text('YOUR EXAMS'), findsOneWidget);
+      expect(find.text('Your own exam'), findsNWidgets(2));
+      expect(find.text('CIVIL SERVICE'), findsOneWidget);
+      // One column of cards, the add row last in the group, the listed exams
+      // below it, and none of the old row's small line.
+      final yours = tester.getTopLeft(find.text('YOUR EXAMS'));
+      final newest = tester.getTopLeft(find.text('Bar Exam'));
+      final older = tester.getTopLeft(find.text('PUP CET'));
+      final add = tester.getTopLeft(find.text("My exam isn't listed"));
+      final listed = tester.getTopLeft(find.text('CIVIL SERVICE'));
+      expect(yours.dy, lessThan(newest.dy));
+      expect(newest.dy, lessThan(older.dy));
+      expect(older.dy, lessThan(add.dy));
+      expect(add.dy, lessThan(listed.dy));
+      expect(
+        find.text('Set up your own and pick what it covers'),
+        findsNothing,
+      );
+      expect(button(tester, 'Continue').onPressed, isNull);
+      await tester.tap(find.text('PUP CET'));
+      await tester.pump();
+      expect(button(tester, 'Continue').onPressed, isNotNull);
+      await tester.tap(find.text('Continue'));
+      await tester.pumpAndSettle();
+      expect(picked, ['exam_custom_a']);
+      expect(tester.takeException(), isNull);
+    });
     testWidgets('known date can be confirmed or changed $dark', (tester) async {
       final entry = ExamCatalogEntry(
         id: cse.id,
