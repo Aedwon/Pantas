@@ -3099,3 +3099,19 @@ Asked by the manager thread on Aedwon's "for the rest of items, please finish th
 - Fix (lead design, Sonnet builder, `web/study-owner-fix-r1` 9cc06f26e, merged to main 33817a2f7): the reader watches a new owner-only epoch (active context, local generation and its owner), so a data change never rebuilds it or fails a read; an owner change still does, and the guard still keeps a stale owner's data out. The combined epoch (owner keys plus remote rows) refreshes plan, record, how-you-work and now the roadmap and insights reads; remote notices are coalesced (750 ms trailing, injectable), and an owner change yields at once and drops a pending remote revision. A read the provider has already replaced ends quietly; a live read still reports errors.
 - Proof: three new tests failed on the old code (providers reached an error state; six bumps gave four revisions instead of one; an owner change mid-read threw uncaught) and pass now, with the existing ones (17 in the file). Branch CI 43012438258 green; journeys 43012438278 five PASS; main CI 43013462248 green in 4 min 44 s. Prod waits for Aedwon's "ship it".
 - Velocity E-028: estimate 2 h wall, actual 22 min.
+
+## 2026-11-11 22:30 PHT: Operations manager handover state
+
+Aedwon is moving the operations manager role to a new thread (checklist in `docs/workflow/operations-manager.md`). State at handover, for the new manager:
+
+- Running: nothing. All leads are idle. The DS4 release candidate lead is the integrator and acked the timer rule.
+- On main, not on prod: the privacy batch, the guardrails import sweep (b0d00091f), the "Study owner changed" fix (33817a2f7). Prod runs 17c8b5710.
+- Waiting on Aedwon, with the manager's recommendation:
+  1. Visual check of the privacy batch as built: board https://claude.ai/artifact/VhNW1aCxSs5sF48XMQZLAQ, section "As built, for Aedwon's check", including three small design choices (three-sentence withdraw dialog, error lines without an icon, Terms link marked by color only).
+  2. Deploy the two Cloud changes (daily cleanup job, about $0.10 a month; log exclusion of IPs and browser details). Recommend yes to both.
+  3. Legal "last updated" date, now the placeholder 2026-11-11. Recommend the prod deploy day.
+  4. Codex findings: guardian consent before the age check and the under-18 server record (1 to 2 days); a failed sign-out leaves access until the daily job (half a day). Recommend accepting both for the beta and fixing before public launch.
+  5. Screenshot gallery review before the golden-image lock. Recommend building the gallery, then locking after he looks.
+  6. "Ship it" for prod. Recommend one deploy after items 1 to 4, carrying the Study owner fix too.
+- Scheduled: beta monitor every 6 h, SSOT daily, the security and cost-abuse audit Saturday Nov 14 2:00 PM Manila (it brings the budget alert and hard-stop decisions).
+- Parked: CET content (last in the queue); repo-private plan and a CI budget (suggested for the audit, not confirmed); founder app questions stay in its own thread.
