@@ -255,6 +255,8 @@ Independent review requirements remain in `SUBAGENTS.md`.
 When the lead orchestrates a multi-task build through workers, it follows
 `docs/workflow/orchestrator.md` for the family pipeline, limits, resumes, and
 check-ins; this workflow wins where they differ.
+When Aedwon works through an operations manager thread that runs several leads,
+`docs/workflow/operations-manager.md` describes that layer.
 
 The current execution arrangement is documented separately in
 `docs/superpowers/decisions/2026-09-25-chatgpt-web-relay-routing.md`. It is an
