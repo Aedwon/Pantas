@@ -97,7 +97,9 @@ Before we ask for your age, this step tells you what we do with it. When you set
 
 Choosing Continue means you give your specific permission for this age check. You may go back instead. Pantas requires this check before you can use it.
 
-If you are in the under-18 group, we record that label on our servers, with the version of the age check notice, when you ask your guardian for permission. We need the record to send and check the request.
+If you are in the under-18 group, our servers record that group when you send the guardian request. This happens before your guardian answers. We also record the age check notice version when your app sends it. We use the request record to send and check the request. We use your under-18 group to require a parent or guardian's confirmation of the current Terms for web purchases.
+
+If your guardian declines or does not answer, we remove the request's contact details, status and age check notice version during scheduled cleanup. We keep your under-18 group until your account is updated to 18 or older, or your account is deleted. Separate guardian-answer records and guardian page links follow the periods under “How long we keep data.”
 
 When you turn 18, open Settings and choose "I'm 18 now." Enter your current age and choose Continue. If you are 18 or older and the update succeeds, our servers record that you are 18 or older, your guardian's controls end and the guardian page links stop working.
 
@@ -191,7 +193,11 @@ Deleting your account removes its study records. Limited trial-use, guardian-ans
 ### How long we keep data
 
 - Study records and settings: while your account exists. We delete the account if you delete it, if your guardian withdraws permission, or if it has had no sign-in or study activity for 24 months. We identify inactivity from server-observed sign-in and session activity. Open Pantas while connected to keep the account active. We normally send a warning about 30 days beforehand if the account has a verified email address. An account with active paid access does not count as inactive. A guest account without an email address is deleted without a warning.
-- Guardian requests and links: the first link stops working after seven days. Our hourly cleanup then deletes expired requests and links. A used, declined or replaced link is deleted seven days after that event. The guardian page link is deleted with the account.
+- Guardian requests and links: the first link works once and expires after seven days. Our hourly cleanup removes expired response links. It removes used, declined or replaced response links seven days after that event.
+
+For an unanswered request, we remove the request's contact details, status and age check notice version during scheduled cleanup after the request expires. For a declined request, we remove them during scheduled cleanup seven days after the answer. Your under-18 group remains until your account is updated to 18 or older, or your account is deleted.
+
+For a confirmed request, we remove contact details during scheduled cleanup seven days after confirmation. We keep the confirmation status, date and sharing choice while your account exists. We also keep the age check notice version if your app sent it. Guardian page links remain until the account is deleted or the links are revoked. Separate guardian-answer evidence follows the period below.
 - Guardian evidence: we keep minimal guardian-response evidence while the account exists. This is the guardian answer record, the withdrawal record, and the purchase confirmation. When an account is deleted, we copy the purchase confirmation (date, time, Terms version and payment reference) into this evidence. After deletion, we normally remove it ten years after the most recent recorded guardian response. Relevant records may remain longer for a documented legal claim. We chose this period because a contract made by someone under 18 can be challenged until four years after that person turns 18.
 - Free-trial codes: kept for as long as Pantas offers free trials, including after account deletion, so a trial cannot be repeated.
 - Payment and accounting records: five years, counted as tax law requires from the filing deadline of the related tax return. Records may stay longer while a tax matter is unresolved.
@@ -206,11 +212,11 @@ If the law requires it, or we need specific records for a legal claim, we may ke
 ### Why we may use your data
 
 - Age check: your specific permission, given at the age step (Data Privacy Act, Section 13(a)). We use your age only on your device without saving it. The device keeps only your age group and the version of the age check notice, or a block if you are under 13.
-- Age-group record on an under-18 account: your guardian's permission (Section 13(a)). We keep minimal guardian evidence only where needed to establish or defend legal claims (Section 13(f)).
+- Age-group record and guardian evidence: we rely on Section 13(f) for processing necessary to establish, exercise or defend legal claims. These include claims about whether you can legally agree to the Terms or whether your parent or guardian allowed your account or purchase. We rely on this basis before your guardian answers, including if they decline or do not answer. After your guardian confirms, we also rely on their specific permission for continued use of your age group (Section 13(a)). For related ordinary personal information needed for those legal claims, we rely on Section 12(f).
 - Account and payment records: we need them to provide the service you asked for (Section 12(b)).
 - Study records: your guardian's specific permission (Section 13(a)). Answers and results can relate to education.
 - Optional usage sharing: your guardian's separate permission. It can be withdrawn at any time.
-- Speed and error reports, security records, guardian requests and trial codes: our legitimate interest in keeping Pantas working, safe and fair (Section 12(f)). We keep each to what we need.
+- Speed and error reports, security records, trial codes, and a guardian request's contact and request details: our legitimate interest in keeping Pantas working, safe and fair (Section 12(f)). We keep each to what we need.
 - Accounting records: the law requires them.
 
 ### Changes to this notice
