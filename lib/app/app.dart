@@ -1,5 +1,4 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/flavor.dart';
 import 'package:pantas/app/no_scroll_bars.dart';
@@ -9,6 +8,7 @@ import 'package:pantas/app/web_address.dart';
 import 'package:pantas/core/error/app_error_recovery.dart';
 import 'package:pantas/core/platform/welcome/welcome_handover_providers.dart';
 import 'package:pantas/core/storage/age_gate.dart';
+import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/app_text_scale.dart';
 import 'package:pantas/core/ui/web/letter_shortcuts.dart';
 import 'package:pantas/core/ui/web/web_layout_theme.dart';

@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -32,6 +31,7 @@ import 'package:pantas/core/ui/components/report_form.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/toast.dart';
+import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
@@ -1701,7 +1701,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
   Future<void> _confirmLeave() async {
     if (_leaveOpen || _allowPop || !mounted) return;
     _leaveOpen = true;
-    final leave = await showDialog<bool>(
+    final leave = await showPantasDialog<bool>(
       context: context,
       barrierColor: context.colors.shadow.withValues(alpha: .34),
       builder: (dialogContext) {

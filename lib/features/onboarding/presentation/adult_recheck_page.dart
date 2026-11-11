@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_age_gate_step.dart';
 

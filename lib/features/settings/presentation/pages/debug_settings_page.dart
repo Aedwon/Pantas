@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
+import 'package:pantas/core/ui/ds.dart';
 
 class DebugSettingsPage extends StatelessWidget {
   const DebugSettingsPage({super.key});

@@ -1,12 +1,12 @@
 // ignore_for_file: lines_longer_than_80_chars
 
-import 'package:flutter/material.dart';
 import 'package:pantas/core/content/domain/mock_blueprint.dart';
 import 'package:pantas/core/ui/components/data_table.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
 import 'package:pantas/core/ui/components/placeholder_figure.dart';
 import 'package:pantas/core/ui/components/row_tap_target.dart';
+import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';

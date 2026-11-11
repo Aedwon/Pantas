@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/features/settings/domain/theme_preference.dart';
 
 extension ThemePreferenceThemeMode on ThemePreference {

@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
@@ -17,6 +16,7 @@ import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/core/ui/components/scope_picker.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
+import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
@@ -243,7 +243,7 @@ class _WhatsIncludedPageState extends ConsumerState<WhatsIncludedPage> {
     }
     if (!mounted) return false;
     final level = CustomSubjectTiers.levelLabel(after);
-    final answer = await showDialog<bool>(
+    final answer = await showPantasDialog<bool>(
       context: context,
       barrierColor: context.colors.scrim,
       builder: (context) => CenteredDialog(

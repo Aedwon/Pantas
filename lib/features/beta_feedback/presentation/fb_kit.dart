@@ -1,8 +1,10 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/pantas_button_spec.dart';
+import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/motion/press_scale.dart';
+// ds-raw: button takes a widget child, not a label
+import 'package:pantas/core/ui/raw_controls.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';

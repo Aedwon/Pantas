@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 
 /// One part of a lesson ending arriving: a staggered 8 px rise and fade that

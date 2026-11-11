@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
@@ -8,6 +7,7 @@ import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
+import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
@@ -118,7 +118,7 @@ class _GuardianManagePageState extends ConsumerState<GuardianManagePage> {
   Future<void> _askWithdraw() async {
     if (_busy) return;
     setState(() => _failed = null);
-    final confirmed = await showDialog<bool>(
+    final confirmed = await showPantasDialog<bool>(
       context: context,
       barrierDismissible: false,
       barrierColor: context.colors.scrim,

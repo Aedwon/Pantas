@@ -1,6 +1,6 @@
 // ignore_for_file: directives_ordering
 
-import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/ds.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
@@ -483,7 +483,7 @@ Future<bool?> _confirmSwitch(
   required String title,
   required String message,
 }) =>
-    showDialog<bool>(
+    showPantasDialog<bool>(
       context: context,
       builder: (dialogContext) => CenteredDialog(
         title: title,

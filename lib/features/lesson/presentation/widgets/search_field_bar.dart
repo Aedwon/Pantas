@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/ui/components/search_field.dart';
+import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/features/lesson/application/lesson_search_providers.dart';
 
 class SearchFieldBar extends ConsumerWidget {

@@ -1,12 +1,12 @@
 import 'dart:async';
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/sign_in/sign_in_parts.dart';
 import 'package:pantas/core/auth/beta_access.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
+import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/motion/pantas_effects.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';

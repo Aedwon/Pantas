@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
@@ -16,6 +15,7 @@ import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
+import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/core/ui/components/choice_row.dart';
 import 'package:pantas/core/ui/components/floating_bar.dart';
 import 'package:pantas/core/ui/components/new_design/passage_card.dart'
@@ -26,6 +26,7 @@ import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/report_form.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
+import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -319,7 +320,7 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
   Future<void> _leave() async {
     if (_leaveOpen || _completing) return;
     _leaveOpen = true;
-    final leave = await showDialog<bool>(
+    final leave = await showPantasDialog<bool>(
       context: context,
       // An alertdialog does not close on a scrim click.
       barrierDismissible: false,

@@ -1,7 +1,7 @@
 // ignore_for_file: directives_ordering
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/ds.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';

@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_name_field.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
