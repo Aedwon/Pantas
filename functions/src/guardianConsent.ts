@@ -1,7 +1,7 @@
 import {createHmac, randomBytes} from 'node:crypto';
 import {defineInt, defineSecret, defineString} from 'firebase-functions/params';
 import {getAuth, type Auth} from 'firebase-admin/auth';
-import {FieldPath, getFirestore, type DocumentReference, type DocumentSnapshot, type Firestore, type Query, type QueryDocumentSnapshot} from 'firebase-admin/firestore';
+import {FieldPath, FieldValue, getFirestore, type DocumentReference, type DocumentSnapshot, type Firestore, type Query, type QueryDocumentSnapshot} from 'firebase-admin/firestore';
 import {HttpsError, onCall, type CallableRequest} from 'firebase-functions/v2/https';
 import {onSchedule} from 'firebase-functions/v2/scheduler';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
@@ -175,11 +175,19 @@ export async function sendLink(request: AppRequest, deps: ConsentDeps): Promise<
   const globalLimit = deps.db.doc(`guardianLimits/global-${day}`);
 
   await deps.db.runTransaction(async (tx) => {
-    const [current, limit, global, openManage] = await Promise.all([tx.get(consent), tx.get(emailLimit), tx.get(globalLimit),
-      tx.get(deps.db.collection('guardianTokens').where('uid', '==', uid).where('kind', '==', 'manage').where('state', '==', 'open'))]);
+    const [current, limit, global, openManage, deletion] = await Promise.all([tx.get(consent), tx.get(emailLimit), tx.get(globalLimit),
+      tx.get(deps.db.collection('guardianTokens').where('uid', '==', uid).where('kind', '==', 'manage').where('state', '==', 'open')),
+      tx.get(deps.db.doc(`accountDeletions/${uid}`))]);
     const before = current.data();
+    // A pending deletion also closes this door when the consent record is already gone.
+    if (deletion.exists) throw new HttpsError('failed-precondition', 'This account is being deleted.');
     if (before?.status === 'confirmed') {
       throw new HttpsError('failed-precondition', 'Already confirmed.');
+    }
+    // A withdrawn account is being deleted. A new request would turn the record back into a pending one
+    // and revoke the manage link the guardian needs to finish the withdrawal.
+    if (before?.status === 'withdrawn') {
+      throw new HttpsError('failed-precondition', 'This account is being deleted.');
     }
     // An adult has no guardian. A new request would turn the record back into a minor.
     if (before?.ageGroup === 'adult') {
@@ -428,7 +436,14 @@ export async function withdraw(request: AppRequest, deps: ConsentDeps): Promise<
   const view = await deps.db.runTransaction(async (tx): Promise<ManageView> => {
     const found = await manageView(ref => tx.get(ref), deps, token);
     if (found.state === 'active') {
-      tx.set(consentRef(deps.db, found.uid), {status: 'withdrawn', withdrawnAt: now}, {merge: true});
+      // The durable deletion task goes in with the status. If the sign-out or any later step fails,
+      // the daily job still finishes the deletion. Same shape and merge rules as deleteUserData,
+      // except that nothing is counted as an attempt yet and the job may pick it up at once.
+      const task = deps.db.doc(`accountDeletions/${found.uid}`);
+      const earlier = await tx.get(task);
+      tx.set(task, {reason: earlier.get('reason') ?? 'guardian_withdrawal', startedAt: earlier.get('startedAt') ?? now,
+        nextRetryAt: now, reasons: FieldValue.arrayUnion('guardian_withdrawal')}, {merge: true});
+      tx.set(consentRef(deps.db, found.uid), {status: 'withdrawn', withdrawnAt: now, sharingAllowed: false}, {merge: true});
       const entry = evidenceEntry(deps.db, found.uid, 'withdraw', now);
       tx.set(entry.ref, entry.data);
     }
@@ -456,11 +471,14 @@ export async function markAdult(request: AppRequest, deps: ConsentDeps): Promise
   const now = (deps.now ?? Date.now)();
   const consent = consentRef(deps.db, uid);
   return deps.db.runTransaction(async (tx): Promise<{state: 'adult'}> => {
-    const [current, openManage] = await Promise.all([tx.get(consent),
-      tx.get(deps.db.collection('guardianTokens').where('uid', '==', uid).where('kind', '==', 'manage').where('state', '==', 'open'))]);
+    const [current, openManage, deletion] = await Promise.all([tx.get(consent),
+      tx.get(deps.db.collection('guardianTokens').where('uid', '==', uid).where('kind', '==', 'manage').where('state', '==', 'open')),
+      tx.get(deps.db.doc(`accountDeletions/${uid}`))]);
     const data = current.data();
+    if (deletion.exists) throw new HttpsError('failed-precondition', 'This account is being deleted.');
     // The server never knew a minor, so there is nothing to switch and nothing to write.
     if (!data) return {state: 'adult'};
+    if (data.status === 'withdrawn') throw new HttpsError('failed-precondition', 'This account is being deleted.');
     if (data.ageGroup !== 'minor' || data.adultSince !== undefined) {
       throw new HttpsError('failed-precondition', 'Already switched.');
     }

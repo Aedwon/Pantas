@@ -147,10 +147,24 @@ export async function runInactivityPass(deps: InactivityDeps): Promise<Inactivit
             throw error;
           });
           if (current && await proRunning(deps.db, current, now)) {
-            await deps.auth.updateUser(task.id, {disabled: false});
-            await task.ref.delete();
-            continue;
+            // A withdrawal or the user's own request may have joined this task since the query ran.
+            // Read it again, so a deletion that gained a reason is never called off.
+            const fresh = await task.ref.get();
+            const freshReasons = (fresh.get('reasons') as DeletionReason[] | undefined) ?? [reason];
+            if (fresh.exists && freshReasons.every((r) => r === 'inactive_24_months') && fresh.get('destructiveAt') === undefined) {
+              await deps.auth.updateUser(task.id, {disabled: false});
+              await task.ref.delete();
+              continue;
+            }
           }
+        }
+        // A deletion that earlier failed before the sign-out step must not leave the account usable
+        // while its data goes: disable and sign out again. A step that fails here ends this attempt.
+        try {
+          await deps.auth.updateUser(task.id, {disabled: true});
+          await deps.auth.revokeRefreshTokens(task.id);
+        } catch (error) {
+          if (!isMissing(error)) throw error;
         }
         attempts += 1;
         await deleteUserData(deps.db, deps.auth, task.id, reason, {now: () => now});

@@ -345,6 +345,86 @@ test('a withdrawal whose cleanup fails after the links are deleted is finished b
   assert.deepEqual((await db.doc(`guardianConsentEvidence/${uid}`).get()).data(), {accountDeletedAt: T0 + DAY, reason: 'guardian_withdrawal'});
 });
 
+test('a withdrawal records the deletion task in its own transaction, so a failed sign-out still gets deleted', async () => {
+  const uid = 'dm-withdraw-task'; await reset(uid);
+  const down = {getUser: u => auth.getUser(u), deleteUser: u => auth.deleteUser(u), revokeRefreshTokens: u => auth.revokeRefreshTokens(u),
+    updateUser: async () => { throw new Error('auth down'); }};
+  const h = harness({authApi: down});
+  const {pageManage} = await confirmedMinor(uid, h, false);
+  await db.doc(`users/${uid}/data/progress`).set({n: 1});
+  h.advance(DAY);
+  await assert.rejects(guardian.withdraw(req('v', {token: pageManage}), h.deps), /auth down/);
+  assert.equal((await auth.getUser(uid)).disabled, false, 'the sign-out step never ran');
+  assert.deepEqual((await db.doc(`accountDeletions/${uid}`).get()).data(),
+    {reason: 'guardian_withdrawal', startedAt: T0 + DAY, nextRetryAt: T0 + DAY, reasons: ['guardian_withdrawal']});
+  await inactive.runInactivityPass({db, auth, mailer: {send: async () => {}}, linkOrigin: 'https://app.example.test',
+    now: () => T0 + DAY + 3600000});
+  await assert.rejects(auth.getUser(uid), {code: 'auth/user-not-found'});
+  assert.equal((await db.doc(`users/${uid}/data/progress`).get()).exists, false);
+  assert.equal((await db.doc(`accountDeletions/${uid}`).get()).exists, false);
+});
+
+test('a withdrawal keeps an earlier deletion task reason and start time', async () => {
+  const uid = 'dm-withdraw-merge'; await reset(uid);
+  const h = harness();
+  const {pageManage} = await confirmedMinor(uid, h, false);
+  await db.doc(`accountDeletions/${uid}`).set({reason: 'inactive_24_months', startedAt: T0 - DAY, nextRetryAt: T0 + 9 * DAY, attempts: 2,
+    reasons: ['inactive_24_months']});
+  await assert.rejects(guardian.withdraw(req('v', {token: pageManage}), {...h.deps,
+    auth: {...auth, getUser: u => auth.getUser(u), updateUser: async () => { throw new Error('auth down'); }}}), /auth down/);
+  assert.deepEqual((await db.doc(`accountDeletions/${uid}`).get()).data(), {reason: 'inactive_24_months', startedAt: T0 - DAY,
+    nextRetryAt: T0, attempts: 2, reasons: ['inactive_24_months', 'guardian_withdrawal']});
+});
+
+test('after a withdrawal the student cannot send a new request or switch to adult, and nothing changes', async () => {
+  const uid = 'dm-withdraw-closed'; await reset(uid);
+  const down = {getUser: u => auth.getUser(u), deleteUser: u => auth.deleteUser(u), revokeRefreshTokens: u => auth.revokeRefreshTokens(u),
+    updateUser: async () => { throw new Error('auth down'); }};
+  const h = harness({authApi: down});
+  const {pageManage} = await confirmedMinor(uid, h, false);
+  await assert.rejects(guardian.withdraw(req('v', {token: pageManage}), h.deps), /auth down/);
+  const before = await stored(uid);
+  assert.equal(before.status, 'withdrawn');
+  const openManage = async () => (await db.collection('guardianTokens').where('uid', '==', uid).where('kind', '==', 'manage')
+    .where('state', '==', 'open').get()).size;
+  const openBefore = await openManage();
+  assert.ok(openBefore >= 1);
+  h.advance(DAY);
+  assert.equal(await code(guardian.sendLink(req(uid, body({guardianEmail: 'other@gmail.com'})), h.deps)), 'failed-precondition');
+  assert.equal(await code(guardian.markAdult(req(uid, {}), h.deps)), 'failed-precondition');
+  assert.deepEqual(await stored(uid), before, 'the record is untouched');
+  assert.equal(await openManage(), openBefore, 'the manage links stay open for a retry');
+  assert.deepEqual(await guardian.withdraw(req('v', {token: pageManage}), {...h.deps, auth}), {state: 'withdrawn'});
+});
+
+test('a pending deletion closes sendLink and markAdult even when the consent record is gone, and withdrawal turns sharing off', async () => {
+  const uid = 'dm-task-closed'; await reset(uid);
+  const h = harness();
+  await db.doc(`accountDeletions/${uid}`).set({reason: 'guardian_withdrawal', startedAt: T0, nextRetryAt: T0, reasons: ['guardian_withdrawal']});
+  assert.equal(await code(guardian.sendLink(req(uid, body()), h.deps)), 'failed-precondition');
+  assert.equal(await code(guardian.markAdult(req(uid, {}), h.deps)), 'failed-precondition');
+  assert.equal(await stored(uid), undefined);
+  const uid2 = 'dm-withdraw-sharing'; await reset(uid2);
+  const {pageManage} = await confirmedMinor(uid2, h, true);
+  assert.equal((await stored(uid2)).sharingAllowed, true);
+  await guardian.withdraw(req('v', {token: pageManage}), {...h.deps, auth: {getUser: u => auth.getUser(u), deleteUser: u => auth.deleteUser(u),
+    updateUser: async () => { throw new Error('auth down'); }, revokeRefreshTokens: u => auth.revokeRefreshTokens(u)}}).catch(() => {});
+  assert.equal((await stored(uid2)).sharingAllowed, false);
+});
+
+test('the daily run signs the student out again before it finishes a withdrawal that failed at the sign-out', async () => {
+  const uid = 'dm-retry-signout'; await reset(uid);
+  await auth.createUser({uid});
+  await db.doc(`users/${uid}/data/progress`).set({n: 1});
+  await db.doc(`accountDeletions/${uid}`).set({reason: 'guardian_withdrawal', startedAt: T0, nextRetryAt: T0, reasons: ['guardian_withdrawal']});
+  const failing = {listUsers: (...a) => auth.listUsers(...a), getUser: u => auth.getUser(u), updateUser: (u, p) => auth.updateUser(u, p), revokeRefreshTokens: u => auth.revokeRefreshTokens(u),
+    deleteUser: async () => { throw new Error('auth down'); }};
+  await inactive.runInactivityPass({db, auth: failing, mailer: {send: async () => {}}, linkOrigin: 'https://app.example.test', now: () => T0 + 1});
+  assert.equal((await auth.getUser(uid)).disabled, true, 'signed out again');
+  await inactive.runInactivityPass({db, auth, mailer: {send: async () => {}}, linkOrigin: 'https://app.example.test', now: () => T0 + 2 * 3600000});
+  await assert.rejects(auth.getUser(uid), {code: 'auth/user-not-found'});
+});
+
 test('an attested order with no checkout record is copied, and an order with a checkout is copied once', async () => {
   const uid = 'dm-orders'; await reset(uid);
   await auth.createUser({uid});
