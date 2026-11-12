@@ -4,9 +4,9 @@
 /// release as the new texts, and change the matching map in
 /// `functions/src/guardianConsent.ts` to the same value (spec choice 14).
 const guardianDocumentVersions = <String, String>{
-  'privacy': '2026-11-11',
-  'terms': '2026-11-11',
-  'teens': '2026-11-11',
+  'privacy': '2026-11-12',
+  'terms': '2026-11-12',
+  'teens': '2026-11-12',
 };
 
 class LegalDocument {

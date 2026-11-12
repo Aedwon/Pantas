@@ -60,4 +60,4 @@ abstract final class GuardianCopy {
 const teenNoticeReady = true;
 
 /// Version of the confirmation page's explanation and agreement wording.
-const guardianNoticeWordingVersion = '2026-11-11';
+const guardianNoticeWordingVersion = '2026-11-12';
