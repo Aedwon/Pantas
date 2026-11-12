@@ -11,9 +11,9 @@ const T0 = Date.parse('2026-11-02T10:00:00+08:00');
 const DAY = 86400000;
 const anon = uid => ({uid, token: {firebase: {sign_in_provider: 'anonymous'}}});
 const app = {appId: 'app', token: {}, alreadyConsumed: false};
-const documentVersions = {privacy: '2026-11-11', terms: '2026-11-11', teens: '2026-11-11'};
+const documentVersions = {privacy: '2026-11-12', terms: '2026-11-12', teens: '2026-11-12'};
 const req = (uid, data, extra = {}) => ({auth: anon(uid), app, data: data?.decision
-  ? {documentVersions, noticeWordingVersion: '2026-11-11', ...data} : data, ...extra});
+  ? {documentVersions, noticeWordingVersion: '2026-11-12', ...data} : data, ...extra});
 const code = async promise => { try { await promise; return 'ok'; } catch (e) { assert.equal(typeof e.code, 'string', String(e)); return e.code; } };
 
 function harness({now = T0} = {}) {
@@ -283,7 +283,7 @@ test('cleanup deletes expired contact data and preserves server-only consent evi
   await answerRequest(req('v', {token: tokenOf(h.sent[0]), decision: 'confirm', agreed: true}), h.deps);
   const evidence = db.doc(`guardianConsentEvidence/${uid}/responses/${tokenHash}`);
   assert.deepEqual((await evidence.get()).data(), {documentVersions,
-    noticeWordingVersion: '2026-11-11', action: 'confirm', agreed: true, decidedAt: T0 + DAY, sharingAllowed: false});
+    noticeWordingVersion: '2026-11-12', action: 'confirm', agreed: true, decidedAt: T0 + DAY, sharingAllowed: false});
   await purgeGuardianRecords(db, T0 + 8 * DAY - 1);
   assert.equal((await db.doc(`guardianTokens/${tokenHash}`).get()).exists, true);
   await purgeGuardianRecords(db, T0 + 8 * DAY);

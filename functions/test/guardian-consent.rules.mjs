@@ -16,7 +16,7 @@ before(async () => {
     await setDoc(doc(context.firestore(), 'guardianLimits/abc'), {count: 1});
     await setDoc(doc(context.firestore(), 'guardianConsentEvidence/gr-owner/responses/abc'), {
       action: 'confirm', decidedAt: 1, documentVersions: {teens: '2026-11-09'},
-      noticeWordingVersion: '2026-11-11',
+      noticeWordingVersion: '2026-11-12',
     });
   });
 });
