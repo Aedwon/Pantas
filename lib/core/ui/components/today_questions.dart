@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/check_mark.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
-import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
@@ -94,7 +93,7 @@ class TodayQuestionsSheet extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const PantasSheetGrabber(),
+              // The grabber is the PantasSheet's own; this draws none.
               const SizedBox(height: PantasSpace.s10),
               Wrap(
                 alignment: WrapAlignment.spaceBetween,
