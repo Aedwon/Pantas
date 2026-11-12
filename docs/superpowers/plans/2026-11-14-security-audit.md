@@ -1,6 +1,6 @@
 # Security and cost-abuse audit: brief
 
-Status: TODO. Scheduled in T3 as "Security and cost-abuse audit (Fable 5.2 High + GPT 6 Astra High)".
+Status: Auditor 2 (Astra) running early, Nov 12 (Aedwon: "go with the reco"); Auditor 1 (Fable) and the merge are TODO. Scheduled in T3 as "Security and cost-abuse audit (Fable 5.2 High; merge Astra's early findings)".
 Run: Saturday, November 14, 2026, 2:00 PM Manila (06:00 UTC). Read-only. Implements nothing.
 
 ## Why
@@ -15,7 +15,7 @@ The question to answer first: what does a 1,000 requests per second attack cost 
 
 - Lead (the scheduled thread): reads policy, logs the estimate, runs both audits, merges, verifies, ranks, writes the report.
 - Auditor 1: Claude Fable 5.2 at high effort (T3 `delegate_task`, model `claude-fable-5-2`, effort high).
-- Auditor 2: Codex GPT 6 Astra at high effort, only through `codex-pick`, never bare `codex`. Run with no stdin (the first Astra runs on Nov 7 stalled waiting on stdin). If every account is full (exit 75), report the reset time and continue with Fable alone. Do not substitute another tool.
+- Auditor 2: Codex GPT 6 Astra at high effort, only through `codex-pick`, never bare `codex`. It runs early, from Nov 12 (velocity E-038), so it uses Codex's separate reset cycle. Its output is in `~/Documents/Projects/Pantas-private/security/`: `2026-11-12-codex-astra-audit.md` and `2026-11-12-auditor2-findings.md`. On Saturday the lead reruns Astra only for sections without a progress line. Run with no stdin (the first Astra runs on Nov 7 stalled waiting on stdin). If every account is full (exit 75), report the reset time and continue with Fable alone. Do not substitute another tool.
 - The two audits are independent: same scope, neither sees the other's findings.
 - Codex writes as it discovers, never only at the end (Aedwon, Nov 11: "for Astra things, have it write as it discovers, not at the end, so that when its turn reaches its limits, it doesn't just waste that tokens for nothing"). Run Astra in its own worktree; its brief tells it to append each finding to `auditor2-findings.md` in that worktree the moment it is verified (one block per finding, in the deliverable's format), and to append a one-line progress note after each scope section (A to D), so a usage-limit stop keeps everything found so far. The lead copies that file to `~/Documents/Projects/Pantas-private/security/` and never commits it. If the run stops, the next run reads the file and continues from the last finished section instead of starting over. Run Astra alone: `codex-pick` refuses a second concurrent run.
 
