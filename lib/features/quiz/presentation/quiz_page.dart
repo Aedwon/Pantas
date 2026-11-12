@@ -91,6 +91,16 @@ class QuizPage extends ConsumerStatefulWidget {
 
 String _questionStageKey(QuestionId id) => 'quiz-question-$id';
 
+/// What the leave dialog says about saving. The "already saved" line is only
+/// true when the last write succeeded, so a failed save gets its own wording.
+const leaveSessionSavedMessage = "Every answer you've given is already saved. "
+    'You can pick this up from the Quiz tab whenever you like.';
+const leaveSessionUnsavedMessage = 'Your last answer was not saved. '
+    'You can pick this up from the Quiz tab and answer it again.';
+
+String leaveSessionMessage({required bool lastSaveFailed}) =>
+    lastSaveFailed ? leaveSessionUnsavedMessage : leaveSessionSavedMessage;
+
 class _PreparedQuestionStage extends ConsumerStatefulWidget {
   const _PreparedQuestionStage({
     required this.proIsActive,
@@ -1756,10 +1766,11 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                           kind: WebTextKind.h3,
                         ),
                         const SizedBox(height: PantasSpace.s18),
-                        const WebText(
-                            "Every answer you've given is already saved. "
-                            'You can pick this up from the Quiz tab '
-                            'whenever you like.'),
+                        WebText(
+                          leaveSessionMessage(
+                            lastSaveFailed: _retryWrite != null,
+                          ),
+                        ),
                         const SizedBox(height: PantasSpace.s18),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -1788,9 +1799,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
         )
       : CenteredDialog(
           title: 'Leave this session?',
-          message: "Every answer you've given is already saved. "
-              'You can pick this '
-              'up from the Quiz tab whenever you like.',
+          message: leaveSessionMessage(lastSaveFailed: _retryWrite != null),
           primaryLabel: 'Keep Going',
           secondaryLabel: 'Leave',
           // Board (QV_Leave): the card starts at y 300, 9 px under center.

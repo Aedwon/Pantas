@@ -20,7 +20,11 @@ class ReviewBatchRepository {
   ReviewBatchRepository(
     this._db, {
     ReviewBatchScope? Function(String userId, String examId)? currentScope,
+    this.onRepair,
   }) : _currentScope = currentScope ?? ((_, __) => null);
+
+  /// See [QuizSessionRepository.onRepair].
+  final SessionRepairReporter? onRepair;
   final AppDatabase _db;
   final ReviewBatchScope? Function(String, String) _currentScope;
   static String key(String userId, String examId) =>
@@ -62,17 +66,20 @@ class ReviewBatchRepository {
   Future<QuizSessionLocalRow?> _row(String id) =>
       (_db.select(_db.quizSessions)..where((r) => r.id.equals(id)))
           .getSingleOrNull();
-  Future<QuizSessionLocalRow?> _active(ReviewBatchScope scope) =>
-      (_db.select(_db.quizSessions)
-            ..where(
-              (r) =>
-                  r.userId.equals(scope.userId) &
-                  r.examId.equals(scope.examId) &
-                  r.completedAt.isNull() &
-                  r.quitAt.isNull(),
-            )
-            ..limit(1))
-          .getSingleOrNull();
+  Future<QuizSessionLocalRow?> _active(ReviewBatchScope scope) async {
+    final row = await (_db.select(_db.quizSessions)
+          ..where(
+            (r) =>
+                r.userId.equals(scope.userId) &
+                r.examId.equals(scope.examId) &
+                r.completedAt.isNull() &
+                r.quitAt.isNull(),
+          )
+          ..limit(1))
+        .getSingleOrNull();
+    return row == null ? null : repairSessionRow(_db, row, report: onRepair);
+  }
+
   List<String> _ids(QuizSessionLocalRow row) =>
       (jsonDecode(row.questionIdsJson) as List<dynamic>).cast<String>();
   Future<void> _delete(ReviewBatchScope scope) => (_db.delete(_db.devicePrefs)
@@ -382,10 +389,106 @@ class ReviewBatchRepository {
     int index,
     ContentRepository content,
   ) async {
-    final questions =
-        await content.hydrateSelectedQuestions(batch.chunks[index]);
-    validateHydration(batch, index, questions);
-    return questions;
+    var questions = await content.hydrateSelectedQuestions(batch.chunks[index]);
+    if (_consistent(batch, index, questions)) return questions;
+    // One more read, so a transient gap does not drop a question for good.
+    questions = await content.hydrateSelectedQuestions(batch.chunks[index]);
+    if (_consistent(batch, index, questions)) return questions;
+    final usable = [
+      for (final q in questions)
+        if (q.examIds.contains(batch.scope.examId)) q,
+    ];
+    if (usable.isEmpty) {
+      await _dropBroken(batch);
+      throw StateError('Reviews content unavailable');
+    }
+    await _reconcile(batch, index, usable);
+    return usable;
+  }
+
+  bool _consistent(StoredReviewBatch batch, int index, List<Question> q) =>
+      batch.matchesQuestions(index, [for (final x in q) x.id]) &&
+      const ListEquality<int>().equals(
+        batch.versions[index],
+        [for (final x in q) x.version],
+      ) &&
+      !q.any((x) => !x.examIds.contains(batch.scope.examId));
+
+  /// Brings the stored chunk in line with the content as it is now: a
+  /// question that left the content is dropped, and one that changed version
+  /// is kept at its new version. The rest of the batch is untouched.
+  Future<void> _reconcile(
+    StoredReviewBatch batch,
+    int index,
+    List<Question> usable,
+  ) async {
+    final chunks = [...batch.chunks];
+    final versions = [...batch.versions];
+    chunks[index] = [for (final q in usable) q.id];
+    versions[index] = [for (final q in usable) q.version];
+    final updated = StoredReviewBatch(
+      scope: batch.scope,
+      localDay: batch.localDay,
+      sessionLength: batch.sessionLength,
+      ordering: batch.ordering,
+      sessionIds: batch.sessionIds,
+      chunks: chunks,
+      versions: versions,
+      current: batch.current,
+      nextReady: batch.nextReady,
+    );
+    await _db.transaction(() async {
+      await _save(updated);
+      final row = await _row(batch.sessionIds[index]);
+      if (row != null && row.completedAt == null && row.quitAt == null) {
+        await (_db.update(_db.quizSessions)..where((r) => r.id.equals(row.id)))
+            .write(
+          QuizSessionsCompanion(
+            questionIdsJson: Value(jsonEncode(chunks[index])),
+          ),
+        );
+        final changed = (await _row(row.id))!;
+        await repairSessionRow(_db, changed, report: onRepair);
+      }
+    });
+    _report(
+      'reviews chunk $index reconciled: '
+      '${batch.chunks[index].length} -> ${usable.length} questions',
+    );
+  }
+
+  /// Nothing in the current session can be shown any more. Closing it and the
+  /// batch lets Reviews build a fresh batch from what is due.
+  Future<void> _dropBroken(StoredReviewBatch batch) =>
+      _db.transaction(() async {
+        await (_db.update(_db.quizSessions)
+              ..where(
+                (r) =>
+                    r.userId.equals(batch.scope.userId) &
+                    r.examId.equals(batch.scope.examId) &
+                    r.completedAt.isNull() &
+                    r.quitAt.isNull(),
+              ))
+            .write(QuizSessionsCompanion(quitAt: Value(DateTime.now())));
+        await _delete(batch.scope);
+        _report('reviews batch dropped: no usable question left');
+      });
+
+  void _report(String what) {
+    try {
+      onRepair?.call(StateError(what), StackTrace.current);
+    } on Object {
+      // Reporting must never block a repair.
+    }
+  }
+
+  /// For the ordinary resume: makes the current session's stored questions
+  /// match the content, as [continueBatch] does.
+  Future<void> reconcileCurrent(
+    StoredReviewBatch batch,
+    ContentRepository content,
+  ) async {
+    await _hydrate(batch, batch.current, content);
   }
 
   void validateHydration(
@@ -403,11 +506,12 @@ class ReviewBatchRepository {
     }
   }
 
-  ReviewBatchSession _session(
+  Future<ReviewBatchSession> _session(
     StoredReviewBatch batch,
-    QuizSessionLocalRow row,
+    QuizSessionLocalRow stored,
     List<Question> questions,
-  ) {
+  ) async {
+    final row = await repairSessionRow(_db, stored, report: onRepair);
     final outcomes = (jsonDecode(row.outcomesJson) as List<dynamic>)
         .map((v) => v as Map<String, dynamic>)
         .toList();
@@ -416,8 +520,7 @@ class ReviewBatchRepository {
       throw StateError('Invalid Reviews answers');
     }
     for (var i = 0; i < outcomes.length; i++) {
-      if (outcomes[i]['questionId'] != questions[i].id ||
-          outcomes[i]['questionVersion'] != questions[i].version) {
+      if (outcomes[i]['questionId'] != questions[i].id) {
         throw StateError('Invalid Reviews answer order');
       }
     }
@@ -480,8 +583,7 @@ class ReviewBatchRepository {
       throw StateError('Reviews session has unanswered questions');
     }
     for (var i = 0; i < row.outcomes.length; i++) {
-      if (row.outcomes[i].questionId != batch.chunks[batch.current][i] ||
-          row.outcomes[i].questionVersion != batch.versions[batch.current][i]) {
+      if (row.outcomes[i].questionId != batch.chunks[batch.current][i]) {
         throw StateError('Reviews answer order changed');
       }
     }

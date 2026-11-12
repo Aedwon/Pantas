@@ -323,43 +323,34 @@ void main() {
     );
   });
 
-  test(
-      'missing content blocks resume with saved membership '
-      'and answers unchanged', () async {
+  test('missing content is skipped on resume and the rest stays', () async {
     await start();
-    final before = await stored();
     await (contentDb.delete(contentDb.contentQuestions)
           ..where((q) => q.id.equals('q3')))
         .go();
-    await expectLater(
-      ResumeSession(content: content, sessions: sessions)(
-        userId: 'local',
-        examId: 'exam',
-      ),
-      throwsStateError,
+    final resumed = await ResumeSession(content: content, sessions: sessions)(
+      userId: 'local',
+      examId: 'exam',
     );
-    expect(await stored(), before);
+    expect(resumed!.questions.map((q) => q.id), ['q1', 'q2', 'q4', 'q5']);
     expect(
       (await sessions.activeFor(userId: 'local', examId: 'exam'))!.questionIds,
-      ['q1', 'q2', 'q3', 'q4', 'q5'],
+      ['q1', 'q2', 'q4', 'q5'],
     );
+    expect(await stored(), isNot(contains('q3')));
   });
 
-  test('revised content blocks batch resume and retains original versions',
-      () async {
+  test('revised content resumes the batch at the new version', () async {
     await start();
-    final before = await stored();
     await (contentDb.update(contentDb.contentQuestions)
           ..where((q) => q.id.equals('q2')))
         .write(const ContentQuestionsCompanion(version: Value(2)));
-    await expectLater(
-      ResumeSession(content: content, sessions: sessions)(
-        userId: 'local',
-        examId: 'exam',
-      ),
-      throwsStateError,
+    final resumed = await ResumeSession(content: content, sessions: sessions)(
+      userId: 'local',
+      examId: 'exam',
     );
-    expect(await stored(), before);
+    expect(resumed!.questions[1].version, 2);
+    expect(resumed.questions, hasLength(5));
   });
 
   test(
@@ -508,8 +499,7 @@ void main() {
     expect(await stored(), isNotNull);
   });
 
-  test(
-      'legacy resume rejects missing IDs rather than shrinking saved questions',
+  test('legacy resume skips a missing ID and keeps the other questions',
       () async {
     await sessions.create(
       sessionId: 'legacy',
@@ -519,16 +509,14 @@ void main() {
       questionIds: ['q1', 'missing', 'q2'],
       startedAt: now,
     );
-    await expectLater(
-      ResumeSession(content: content, sessions: sessions)(
-        userId: 'local',
-        examId: 'exam',
-      ),
-      throwsStateError,
+    final resumed = await ResumeSession(content: content, sessions: sessions)(
+      userId: 'local',
+      examId: 'exam',
     );
+    expect(resumed!.questions.map((q) => q.id), ['q1', 'q2']);
     expect(
       (await sessions.activeFor(userId: 'local', examId: 'exam'))!.questionIds,
-      ['q1', 'missing', 'q2'],
+      ['q1', 'q2'],
     );
   });
 

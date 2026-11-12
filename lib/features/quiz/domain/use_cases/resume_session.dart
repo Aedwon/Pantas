@@ -22,10 +22,27 @@ class ResumeSession {
     required ExamId examId,
   }) async {
     final scope = _sessions.reviewBatches.capture(userId, examId);
-    final row = await _sessions.activeFor(userId: userId, examId: examId);
+    var row = await _sessions.activeFor(userId: userId, examId: examId);
     if (row == null) return null;
-    final batch = await _sessions.reviewBatchFor(row, scope);
-    final questions = await _hydrateQuestions(row.questionIds);
+    var batch = await _sessions.reviewBatchFor(row, scope);
+    if (batch != null) {
+      // A question that left the content or changed no longer blocks the
+      // session: the stored chunk is brought in line, then read again.
+      await _sessions.reviewBatches.reconcileCurrent(batch, _content);
+      row = await _sessions.activeFor(userId: userId, examId: examId);
+      if (row == null) return null;
+      batch = await _sessions.reviewBatchFor(row, scope);
+    }
+    var questions = await _hydrateQuestions(row.questionIds);
+    if (batch == null &&
+        questions.isNotEmpty &&
+        questions.length < row.questionIds.length) {
+      final kept = [for (final q in questions) q.id];
+      await _sessions.keepQuestions(row.id, kept);
+      row = await _sessions.activeFor(userId: userId, examId: examId);
+      if (row == null) return null;
+      questions = await _hydrateQuestions(row.questionIds);
+    }
     if (questions.isEmpty ||
         !const ListEquality<String>()
             .equals(row.questionIds, [for (final q in questions) q.id]) ||

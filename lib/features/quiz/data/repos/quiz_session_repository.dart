@@ -10,9 +10,19 @@ import 'package:pantas/features/quiz/domain/models/review_batch.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
 
+/// Receives the description of a repair made to stored quiz state.
+typedef SessionRepairReporter = void Function(Object error, StackTrace stack);
+
 class QuizSessionRepository {
-  QuizSessionRepository(this._db, {ReviewBatchRepository? reviewBatches})
-      : reviewBatches = reviewBatches ?? ReviewBatchRepository(_db);
+  QuizSessionRepository(
+    this._db, {
+    ReviewBatchRepository? reviewBatches,
+    this.onRepair,
+  }) : reviewBatches = reviewBatches ?? ReviewBatchRepository(_db);
+
+  /// Told whenever a stored session had to be repaired on read, so the repair
+  /// reaches telemetry. It must never throw.
+  final SessionRepairReporter? onRepair;
 
   final ReviewBatchRepository reviewBatches;
 
@@ -104,7 +114,7 @@ class QuizSessionRepository {
     required String userId,
     required ExamId examId,
   }) async {
-    return (_db.select(_db.quizSessions)
+    final row = await (_db.select(_db.quizSessions)
           ..where(
             (row) =>
                 row.userId.equals(userId) &
@@ -115,6 +125,8 @@ class QuizSessionRepository {
           ..orderBy([(row) => OrderingTerm.desc(row.startedAt)])
           ..limit(1))
         .getSingleOrNull();
+    if (row == null) return null;
+    return repairSessionRow(_db, row, report: onRepair);
   }
 
   Future<void> recordAnswer({
@@ -123,11 +135,31 @@ class QuizSessionRepository {
     required DateTime answeredAt,
   }) async {
     await _db.transaction(() async {
-      final row = await (_db.select(_db.quizSessions)
+      final stored = await (_db.select(_db.quizSessions)
             ..where((table) => table.id.equals(sessionId)))
           .getSingle();
+      // A stored position that disagrees with the stored answers is repaired
+      // here, so one bad row can no longer make every save fail.
+      final row = stored.completedAt == null && stored.quitAt == null
+          ? await repairSessionRow(_db, stored, report: onRepair)
+          : stored;
       final questionIds = row.questionIds;
       final outcomes = row.outcomes;
+      final at = questionIds.indexOf(outcome.questionId);
+      if (at >= 0 && at < outcomes.length) {
+        // Already stored at its own position, for example by another write
+        // that half-succeeded. Saving it again would only duplicate it.
+        return;
+      }
+      if (at < 0) {
+        // The session does not hold this question. The review itself is
+        // already saved, and there is no place in this session for it.
+        onRepair?.call(
+          StateError('quiz session $sessionId does not hold the answered item'),
+          StackTrace.current,
+        );
+        return;
+      }
       if (row.currentIndex != outcomes.length ||
           row.currentIndex >= questionIds.length ||
           questionIds[row.currentIndex] != outcome.questionId) {
@@ -141,8 +173,8 @@ class QuizSessionRepository {
         QuizSessionsCompanion(
           outcomesJson: Value(
             jsonEncode([
-              ...outcomes.map(_encodeOutcome),
-              _encodeOutcome(outcome),
+              ...outcomes.map(encodeOutcome),
+              encodeOutcome(outcome),
             ]),
           ),
           currentIndex: Value(row.currentIndex + 1),
@@ -152,6 +184,52 @@ class QuizSessionRepository {
       );
     });
   }
+
+  /// Keeps only [keptQuestionIds] (in their stored order) in an open session,
+  /// for a question that left the content. Answers to the dropped questions
+  /// go with them; the rest stay in place.
+  Future<void> keepQuestions(
+    String sessionId,
+    List<QuestionId> keptQuestionIds,
+  ) =>
+      _db.transaction(() async {
+        final row = await (_db.select(_db.quizSessions)
+              ..where((r) => r.id.equals(sessionId)))
+            .getSingleOrNull();
+        if (row == null) return;
+        final kept = {...keptQuestionIds};
+        final ids = [
+          for (final id in row.questionIds)
+            if (kept.contains(id)) id,
+        ];
+        final answers = <AnswerOutcome>[];
+        try {
+          answers
+              .addAll(row.outcomes.where((o) => kept.contains(o.questionId)));
+        } on Object {
+          // Unreadable answers are cleared by the repair below.
+        }
+        await (_db.update(_db.quizSessions)
+              ..where((r) => r.id.equals(sessionId)))
+            .write(
+          QuizSessionsCompanion(
+            questionIdsJson: Value(jsonEncode(ids)),
+            outcomesJson:
+                Value(jsonEncode(answers.map(encodeOutcome).toList())),
+          ),
+        );
+        final updated = await (_db.select(_db.quizSessions)
+              ..where((r) => r.id.equals(sessionId)))
+            .getSingle();
+        await repairSessionRow(_db, updated, report: onRepair);
+        onRepair?.call(
+          StateError(
+            'quiz session $sessionId kept ${ids.length} of '
+            '${row.questionIds.length} questions',
+          ),
+          StackTrace.current,
+        );
+      });
 
   Future<void> complete({
     required String sessionId,
@@ -335,7 +413,7 @@ extension QuizSessionLocalRowQuestionIds on QuizSessionLocalRow {
   }
 }
 
-Map<String, Object> _encodeOutcome(AnswerOutcome outcome) => {
+Map<String, Object> encodeOutcome(AnswerOutcome outcome) => {
       'questionId': outcome.questionId,
       'questionVersion': outcome.questionVersion,
       'chosenChoiceId': outcome.chosenChoiceId,
@@ -357,4 +435,63 @@ AnswerOutcome _decodeOutcome(Map<String, Object?> json) => AnswerOutcome(
 
 class _QuizSessionCreateCancelled implements Exception {
   const _QuizSessionCreateCancelled();
+}
+
+/// Brings an open session's stored answers and position back in line.
+///
+/// The answers must be the leading run that matches the session's own
+/// questions, and the position must sit just after them. Anything else, such
+/// as an answer for another question, unreadable answers or a position left
+/// behind by a write that half-succeeded, used to make every save and every
+/// resume of that session fail for good. Now the leading run that is valid is
+/// kept, the rest is dropped, and [report] hears about it.
+Future<QuizSessionLocalRow> repairSessionRow(
+  AppDatabase db,
+  QuizSessionLocalRow row, {
+  SessionRepairReporter? report,
+}) async {
+  if (row.completedAt != null || row.quitAt != null) return row;
+  final List<QuestionId> ids;
+  try {
+    ids = row.questionIds;
+  } on Object {
+    return row;
+  }
+  var unreadable = false;
+  var outcomes = const <AnswerOutcome>[];
+  try {
+    outcomes = row.outcomes;
+  } on Object {
+    unreadable = true;
+  }
+  var valid = 0;
+  while (valid < outcomes.length &&
+      valid < ids.length &&
+      outcomes[valid].questionId == ids[valid]) {
+    valid++;
+  }
+  if (!unreadable && valid == outcomes.length && row.currentIndex == valid) {
+    return row;
+  }
+  final kept = outcomes.take(valid).toList();
+  await (db.update(db.quizSessions)..where((r) => r.id.equals(row.id))).write(
+    QuizSessionsCompanion(
+      outcomesJson: Value(jsonEncode(kept.map(encodeOutcome).toList())),
+      currentIndex: Value(valid),
+      correctCount: Value(kept.where((o) => o.isCorrect).length),
+    ),
+  );
+  try {
+    report?.call(
+      StateError(
+        'quiz session answers repaired: kept $valid of ${outcomes.length}, '
+        'position was ${row.currentIndex}, unreadable $unreadable',
+      ),
+      StackTrace.current,
+    );
+  } on Object {
+    // Reporting must never block a repair.
+  }
+  return (db.select(db.quizSessions)..where((r) => r.id.equals(row.id)))
+      .getSingle();
 }

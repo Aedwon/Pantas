@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -75,6 +76,17 @@ final todayQuestionWorkProvider =
 );
 
 /// Shared Home/Quiz membership. Counts never select questions.
+/// How many answers a stored session holds. An unreadable row counts as none:
+/// it is repaired when the session is opened, and must not hide the sheet.
+int _answered(QuizSessionLocalRow? row) {
+  if (row == null) return 0;
+  try {
+    return row.outcomes.length;
+  } on Object {
+    return 0;
+  }
+}
+
 class TodayQuestionLauncher {
   TodayQuestionLauncher(this.ref, this.alive);
   final Ref ref;
@@ -131,7 +143,7 @@ class TodayQuestionLauncher {
         if (row == null && id != stored.sessionIds[stored.current]) {
           progress.add(0);
         } else {
-          progress.add(row?.outcomes.length ?? 0);
+          progress.add(_answered(row));
         }
       }
     }

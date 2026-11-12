@@ -443,6 +443,27 @@ void main() {
     expect(text, contains('StateError'));
     expect(text, contains('answer order is inconsistent'));
   });
+  testWidgets('the leave dialog says answers are saved when they are',
+      (tester) async {
+    await pump(tester);
+    await tester.tap(find.byTooltip('Leave session'));
+    await tester.pumpAndSettle();
+    expect(find.text(leaveSessionSavedMessage), findsOneWidget);
+    expect(find.text(leaveSessionUnsavedMessage), findsNothing);
+  });
+  testWidgets('the leave dialog does not claim a failed save went through',
+      (tester) async {
+    await pump(tester, submitError: StateError('answer order is inconsistent'));
+    await tester.tap(find.text('Right answer').hitTestable());
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Check'));
+    await tester.pumpAndSettle();
+    expect(find.text('Could not save your progress.'), findsOneWidget);
+    await tester.tap(find.byTooltip('Leave session'));
+    await tester.pumpAndSettle();
+    expect(find.textContaining('already saved'), findsNothing);
+    expect(find.text(leaveSessionUnsavedMessage), findsOneWidget);
+  });
   testWidgets('Finish failure retries completion instead of checking again',
       (tester) async {
     final complete = _Complete();
