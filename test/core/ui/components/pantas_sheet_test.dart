@@ -13,6 +13,24 @@ import '../../../helpers/accessibility.dart';
 import '../../../helpers/ds_matrix.dart';
 
 void main() {
+  testWidgets('an open sheet shows exactly one drag handle', (tester) async {
+    await pumpAccessibilitySurface(
+      tester,
+      PantasSheet(
+        page: const SizedBox.expand(),
+        label: 'Sort by',
+        open: true,
+        onDismiss: () {},
+        closeLabel: 'Close',
+        child: const Text('Sheet contents'),
+      ),
+      viewportSize: const Size(390, 844),
+      disableAnimations: true,
+    );
+    await tester.pumpAndSettle();
+    expect(find.byType(PantasSheetGrabber), findsOneWidget);
+    expect(find.byKey(const ValueKey('pantas-sheet-grabber')), findsOneWidget);
+  });
   testWidgets('closed sheet keeps the page interactive without a barrier',
       (tester) async {
     var presses = 0;

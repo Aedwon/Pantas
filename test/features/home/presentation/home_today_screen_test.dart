@@ -10,6 +10,7 @@ import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/telemetry/perf_timeline.dart';
+import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/today_questions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -128,6 +129,7 @@ void main() {
   });
   quietDayTests();
   auditTests();
+  sheetHandleTests();
   testWidgets('a lesson row starts the real lesson with its day context',
       (tester) async {
     LessonDayContext? context;
@@ -594,6 +596,70 @@ HomeTodayData dataFor(
       examShortName: 'UPCAT',
       extras: extras,
     );
+
+HomeTodayData sheetWorkData() {
+  final questions = [
+    for (var i = 0; i < 11; i++)
+      Question(
+        id: 'r$i',
+        version: 1,
+        examIds: const ['e1'],
+        topicId: 't',
+        language: 'en',
+        stem: 'Review $i',
+        choices: const [],
+        explanation: '',
+      ),
+  ];
+  final batch = PreparedReviewBatch.fromReviews(
+    scope: const ReviewBatchScope(
+      userId: 'u',
+      examId: 'e1',
+      principal: 'u',
+      accountLifetimeToken: 'original',
+    ),
+    preferences: QuizPreferences.defaults,
+    localDay: day,
+    orderedDueReviews: questions,
+  );
+  return HomeTodayData(
+    today: today,
+    lessons: const [],
+    questionWork: TodayQuestionWork(
+      examId: 'e1',
+      today: today,
+      preparedReviews: batch,
+      storedReviews: null,
+      newQuestions: questions.take(2).toList(),
+      reviewProgress: const [0, 0],
+      newRows: const [
+        (title: 'Ratios', done: 0, total: 1),
+        (title: 'Cells', done: 0, total: 1),
+      ],
+      guard: () async => true,
+    ),
+    canAdvance: false,
+  );
+}
+
+/// One drag handle per sheet (Sheet README: grabber 36x5). The sheet draws
+/// it, so the contents the Home sheets put inside must not draw a second.
+void sheetHandleTests() {
+  for (final row in ['Reviews', 'New questions']) {
+    testWidgets('the $row sheet on Home shows exactly one drag handle',
+        (tester) async {
+      tester.view
+        ..physicalSize = const Size(390, 844)
+        ..devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
+      await pumpData(tester, sheetWorkData());
+      await tester.tap(find.text(row).first);
+      await tester.pumpAndSettle();
+      expect(find.byType(TodayQuestionsSheet), findsOneWidget);
+      expect(find.byType(PantasSheetGrabber), findsOneWidget);
+    });
+  }
+}
 
 void quietDayTests() {
   testWidgets('exam-day warm-up keeps the View full plan action',
