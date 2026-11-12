@@ -6,6 +6,12 @@ import 'package:firebase_core/firebase_core.dart';
 
 /// Remembers final account refusals, including ones received during bootstrap.
 class AccountAccess {
+  AccountAccess({this.refreshToken});
+
+  /// Forces a new sign-in token for the account. True when the same
+  /// account is still signed in and its token was renewed.
+  final Future<bool> Function(String uid)? refreshToken;
+
   final _events = StreamController<String>.broadcast(sync: true);
   final _closed = <String>{};
 
@@ -19,12 +25,31 @@ class AccountAccess {
   Future<T> run<T>(String? uid, Future<T> Function() action) async {
     if (uid != null && isClosed(uid)) throw _closedError();
     try {
+      return await _attempt(uid, action);
+    } on FirebaseFunctionsException catch (error) {
+      if (uid == null || error.code != 'unauthenticated') rethrow;
+      // A tab that sat in the background can send a call with an expired
+      // token before the browser's refresh timer runs. Renew it and retry
+      // once. The retry is outside this catch, so a second refusal surfaces.
+      if (!await _renew(uid) || isClosed(uid)) rethrow;
+    }
+    return _attempt(uid, action);
+  }
+
+  Future<T> _attempt<T>(String? uid, Future<T> Function() action) async {
+    try {
       return await action();
     } on FirebaseFunctionsException catch (error) {
-      if (uid != null && isAccountClosedError(error)) {
-        close(uid);
-      }
+      if (uid != null && isAccountClosedError(error)) close(uid);
       rethrow;
+    }
+  }
+
+  Future<bool> _renew(String uid) async {
+    try {
+      return await (refreshToken ?? _forceRefresh)(uid);
+    } on Object {
+      return false;
     }
   }
 
@@ -46,6 +71,14 @@ FirebaseFunctionsException _closedError() => FirebaseFunctionsException(
       code: 'permission-denied',
       details: const {'reason': 'account-closed'},
     );
+
+Future<bool> _forceRefresh(String uid) async {
+  if (Firebase.apps.isEmpty) return false;
+  final user = FirebaseAuth.instance.currentUser;
+  if (user == null || user.uid != uid) return false;
+  await user.getIdToken(true);
+  return FirebaseAuth.instance.currentUser?.uid == uid;
+}
 
 final accountAccess = AccountAccess();
 
