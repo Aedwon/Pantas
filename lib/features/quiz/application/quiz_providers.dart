@@ -13,6 +13,7 @@ import 'package:pantas/core/storage/domain/topic.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
+import 'package:pantas/core/telemetry/report_failure.dart';
 import 'package:pantas/features/quiz/application/quiz_completion_coordinator.dart';
 import 'package:pantas/features/quiz/application/quiz_launch_coordinator.dart';
 import 'package:pantas/features/quiz/application/quiz_performance_probe.dart';
@@ -162,12 +163,18 @@ final quizSessionRepositoryProvider = Provider<QuizSessionRepository>(
   (ref) => QuizSessionRepository(
     ref.watch(appDatabaseProvider),
     reviewBatches: ref.watch(quizReviewBatchRepositoryProvider),
+    onRepair: _reportRepair(ref),
   ),
 );
+
+/// Sends a repair of stored quiz state to client telemetry as `quiz.repair`.
+SessionRepairReporter _reportRepair(Ref ref) => (error, stack) =>
+    reportFailure(ref.read(telemetryProvider), 'quiz.repair', error, stack);
 
 final quizReviewBatchRepositoryProvider = Provider<ReviewBatchRepository>(
   (ref) => ReviewBatchRepository(
     ref.watch(appDatabaseProvider),
+    onRepair: _reportRepair(ref),
     currentScope: (userId, examId) {
       if (userId != quizLocalUserId) return null;
       final auth = ref.read(authStateProvider).valueOrNull;
