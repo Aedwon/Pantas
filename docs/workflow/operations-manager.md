@@ -12,7 +12,7 @@ use since November 9. AGENTS.md, WORKFLOW.md and SUBAGENTS.md still win where th
 | **Aedwon** | Owner. Decides product, design, money, legal sign-off, and every prod ship. | | |
 | **Operations manager** | One T3 Code thread, "Operations Manager". The only thread Aedwon talks to day to day. | Claude Opus 5.5 | The whole project; its memory is compacted into a summary when it gets long |
 | **Leads** (Aedwon calls them orchestrators) | Separate top-level T3 threads, one per lane of work. Each has its own branch, worktree and full working memory. | Claude Opus 5.5 | Until the lane is finished; they stay open between tasks |
-| **Workers** | Subagents a lead starts for one bounded job: build, review, render, read. | Sonnet 5.5 (build), Haiku 5.5 (bulk), Fable 5.2 (advice), Codex Sol or Astra through `codex-pick` (build or audit) | One job, then they report and stop |
+| **Workers** | Subagents a lead starts for one bounded job: build, review, render, read. | Sonnet 5.5 (build), Haiku 5.5 (bulk), Fable 5.2 (advice), Codex Sol or Astra through `codex-pick` (non-UI build or audit; never UI) | One job, then they report and stop |
 
 So the leads handle the other threads, and the leads spawn the workers. The workers are the
 subagents. In the T3 sidebar, a worker shows as a child of its lead.
@@ -132,6 +132,7 @@ These are Aedwon's standing instructions. They apply until he changes them.
 - Screenshots and app captures are headless. No control of his computer.
 - If the laptop overheats, pause the lanes. One build per session.
 - Codex runs only through `codex-pick`, one run at a time across all lanes unless `codex-pick --status` shows room for each (process-improvement entry, Nov 11). Size a long run against one account's 5-hour window and split it.
+- Never route UI work to Codex: building, changing or reviewing screens, components, layout or styling goes to a Claude worker (Aedwon, Nov 12: "if it's UI, never use codex").
 - Before work starts, log the estimate in the velocity log and start the task timer
   (`tool/velocity/timer.py`). Actuals come only from the timer's output. Status reports carry a
   time estimate.

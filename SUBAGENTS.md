@@ -377,6 +377,8 @@ and model tiers do not. Historical worker self-reports were repeatedly inaccurat
 | 2 | Independent reviewer | Verifies implementation with the evidence and checks below. Does not author its own review target. |
 | 3 | Implementor | Implements settled plan steps in its assigned worktree. The lead retains unresolved and high-consequence decisions. |
 
+**UI work never goes to Codex** (Aedwon, Nov 12: "if it's UI, never use codex"). Any task that builds, changes or reviews screens, components, layout, styling or the look goes to a Claude worker. Codex stays for non-UI building and for audits.
+
 ### Why an agent can verify another agent
 
 **Because most of verification is deterministic and none of it is authorship.** The gates
