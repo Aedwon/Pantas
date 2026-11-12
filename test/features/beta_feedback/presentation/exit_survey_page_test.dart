@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/features/beta_feedback/domain/beta_feedback_models.dart';
 import 'package:pantas/features/beta_feedback/presentation/exit_survey_page.dart';
 import 'package:pantas/features/beta_feedback/presentation/fb_kit.dart';
@@ -19,6 +21,14 @@ Map<String, WidgetBuilder> get _routes => {
       '/settings/beta-feedback': (_) =>
           const Scaffold(body: Text('feedback page')),
     };
+
+class _RecordingTelemetry extends DisabledTelemetry {
+  final errors = <Object>[];
+  @override
+  Future<void> recordError(Object error, StackTrace stack) async {
+    errors.add(error);
+  }
+}
 
 FbHarness _harness({
   bool wide = false,
@@ -371,6 +381,32 @@ void main() {
       expect(find.text('The survey is closed.'), findsOneWidget);
       expect(find.text('Survey sent'), findsNothing);
       expect(_sendEnabled(tester), isTrue);
+    });
+
+    testWidgets('a failed send reaches telemetry tagged, toast unchanged',
+        (tester) async {
+      final telemetry = _RecordingTelemetry();
+      final api = FakeBetaFeedbackApi(
+        reward: fakeReward(days: betaDays.take(5).toList()),
+      )..surveyError = const BetaFeedbackException(BetaFeedbackFailure.other);
+      final h = _harness(api: api);
+      await h.pump(
+        tester,
+        _page,
+        routes: _routes,
+        overrides: [telemetryProvider.overrideWithValue(telemetry)],
+      );
+      await _answerAll(tester);
+      await tester.ensureVisible(find.text('Send Survey'));
+      await tester.tap(find.text('Send Survey'));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+      expect(find.text('Could not send. Try again.'), findsOneWidget);
+      expect(telemetry.errors, hasLength(1));
+      expect(
+        telemetry.errors.single.toString(),
+        startsWith('feedback.survey: '),
+      );
     });
 
     testWidgets('another error keeps the answers and asks to try again',

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/content/remote/content_limit.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
@@ -12,6 +13,7 @@ import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/telemetry/perf_timeline.dart';
+import 'package:pantas/core/telemetry/report_failure.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/core/ui/components/choice_row.dart';
 import 'package:pantas/core/ui/components/floating_bar.dart';
@@ -1614,7 +1616,8 @@ class _QuizPageState extends ConsumerState<QuizPage> {
       if (mounted && version == _writeVersion) {
         setState(() => _retryWrite = null);
       }
-    } catch (_) {
+    } catch (error, stack) {
+      reportFailure(ref.read(telemetryProvider), 'quiz.write', error, stack);
       if (mounted && version == _writeVersion) {
         setState(() => _retryWrite = () => _runWrite(operation));
       }

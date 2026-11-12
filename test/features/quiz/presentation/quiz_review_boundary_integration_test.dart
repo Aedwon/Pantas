@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/content/content.dart';
@@ -18,6 +19,7 @@ import 'package:pantas/core/sync/engine/local_sync_mutation_recorder.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/core/sync/engine/sync_row_meta_repository.dart';
 import 'package:pantas/core/sync/local_state_wiper.dart';
+import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/quiz/presentation/quiz_review_page.dart';
@@ -72,6 +74,14 @@ Future<void> waitForReview(WidgetTester tester, bool Function() ready) async {
   );
 }
 
+class _RecordingTelemetry extends DisabledTelemetry {
+  final errors = <Object>[];
+  @override
+  Future<void> recordError(Object error, StackTrace stack) async {
+    errors.add(error);
+  }
+}
+
 void main() {
   for (final change in ['account', 'exam', 'Pro', 'pending auth']) {
     testWidgets(
@@ -105,8 +115,10 @@ void main() {
             await container.read(entitlementProvider.future);
         }
       });
+      final telemetry = _RecordingTelemetry();
       container = ProviderContainer(
         overrides: [
+          telemetryProvider.overrideWithValue(telemetry),
           appDatabaseProvider.overrideWithValue(db),
           contentDatabaseProvider.overrideWithValue(content),
           devProOverrideProvider.overrideWithValue(null),
@@ -196,6 +208,8 @@ void main() {
         );
       });
       expect(find.byTooltip('Edit Note'), findsNothing);
+      expect(telemetry.errors, isNotEmpty);
+      expect(telemetry.errors.first.toString(), startsWith('quiz.note: '));
       await tester.pumpWidget(const SizedBox.shrink());
       await tester.pumpAndSettle();
     });

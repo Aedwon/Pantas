@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/repos/content_repository.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
@@ -11,6 +12,7 @@ import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/domain/topic.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/components/choice_row.dart';
 import 'package:pantas/core/ui/components/floating_bar.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
@@ -30,6 +32,14 @@ import '../../../core/ui/components/w2_test_support.dart';
 import '../../../helpers/in_memory_database.dart';
 
 class _Submit extends Mock implements SubmitAnswer {}
+
+class _RecordingTelemetry extends DisabledTelemetry {
+  final errors = <Object>[];
+  @override
+  Future<void> recordError(Object error, StackTrace stack) async {
+    errors.add(error);
+  }
+}
 
 class _Complete extends Mock implements QuizCompletionCoordinator {}
 
@@ -95,6 +105,8 @@ void main() {
     QuizCompletionCoordinator? completion,
     Future<Passage?> Function()? passageReader,
     AppPreferencesRepository Function(AppDatabase)? preferences,
+    Telemetry? telemetry,
+    Object? submitError,
   }) async {
     final db = inMemoryDatabase();
     final submit = _Submit();
@@ -119,13 +131,16 @@ void main() {
         origin: any(named: 'origin'),
       ),
     ).thenAnswer(
-      (call) async => AnswerOutcome(
-        questionId: (call.namedArguments[#question]! as Question).id,
-        questionVersion: 1,
-        chosenChoiceId: call.namedArguments[#chosenChoiceId]! as String,
-        correctChoiceId: 'a',
-        responseMs: call.namedArguments[#responseMs]! as int,
-      ),
+      (call) async => submitError != null
+          // ignore: only_throw_errors
+          ? throw submitError
+          : AnswerOutcome(
+              questionId: (call.namedArguments[#question]! as Question).id,
+              questionVersion: 1,
+              chosenChoiceId: call.namedArguments[#chosenChoiceId]! as String,
+              correctChoiceId: 'a',
+              responseMs: call.namedArguments[#responseMs]! as int,
+            ),
     );
     final run = session ??
         QuizSession.start(
@@ -169,6 +184,7 @@ void main() {
       ProviderScope(
         overrides: [
           appDatabaseProvider.overrideWithValue(db),
+          if (telemetry != null) telemetryProvider.overrideWithValue(telemetry),
           if (preferences != null)
             appPreferencesRepositoryProvider.overrideWithValue(preferences(db)),
           contentRepositoryProvider.overrideWithValue(content),
@@ -405,6 +421,27 @@ void main() {
     expect(toast.visible, isFalse);
     await tester.pump(const Duration(milliseconds: 300));
     expect(find.byType(Toast), findsNothing);
+  });
+  testWidgets(
+      'a failed Check reaches telemetry tagged and keeps the retry line',
+      (tester) async {
+    final telemetry = _RecordingTelemetry();
+    await pump(
+      tester,
+      telemetry: telemetry,
+      submitError: StateError('answer order is inconsistent'),
+    );
+    await tester.tap(find.text('Right answer').hitTestable());
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Check'));
+    await tester.pumpAndSettle();
+    expect(find.text('Could not save your progress.'), findsOneWidget);
+    expect(find.text('Try Again'), findsOneWidget);
+    expect(telemetry.errors, hasLength(1));
+    final text = telemetry.errors.single.toString();
+    expect(text, startsWith('quiz.write: '));
+    expect(text, contains('StateError'));
+    expect(text, contains('answer order is inconsistent'));
   });
   testWidgets('Finish failure retries completion instead of checking again',
       (tester) async {

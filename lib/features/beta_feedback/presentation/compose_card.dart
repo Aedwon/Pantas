@@ -4,6 +4,8 @@ import 'dart:math' as math;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/telemetry/report_failure.dart';
 import 'package:pantas/core/ui/components/toast.dart';
 import 'package:pantas/core/ui/ds.dart';
 // ds-raw: text well shares one box with the screenshot tiles
@@ -161,7 +163,8 @@ class _FeedbackComposeState extends ConsumerState<FeedbackCompose> {
       sent = await ref
           .read(betaFeedbackApiProvider)
           .send(feedbackId: id, text: text, images: images);
-    } on Exception {
+    } on Exception catch (e, stack) {
+      reportFailure(ref.read(telemetryProvider), 'feedback.send', e, stack);
       if (!mounted) return;
       setState(() => _phase = _Phase.idle);
       showPantasToast(context, 'Could not send. Try again.');
