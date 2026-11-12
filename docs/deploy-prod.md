@@ -227,6 +227,23 @@ custom token for the client to sign in with.
   confirm the tries count down, and confirm a second request within 60 seconds does
   not send another email.
 
+## 11b. Storage rules that read Firestore (once per project)
+
+Since Nov 12, 2026, `storage.rules` checks the account-closure records in Firestore
+(`firestore.exists` and `firestore.get`). Storage's service agent needs the Firestore read role
+for that, or every rule that makes the check refuses the request (beta feedback attachments
+failed on prod this way on Nov 12). The CLI asks to grant it only in an interactive deploy, so
+grant it by hand once per project, before deploying those rules:
+
+```sh
+NUM=$(gcloud projects describe <project> --format='value(projectNumber)')
+gcloud projects add-iam-policy-binding <project> \
+  --member=serviceAccount:service-$NUM@gcp-sa-firebasestorage.iam.gserviceaccount.com \
+  --role=roles/firebaserules.firestoreServiceAgent --condition=None
+```
+
+Granted on pantas-staging on Nov 12, 2026. Check: an owner's feedback attachment upload succeeds.
+
 ## 12. Ship design system 4.0 (only after Aedwon says "ship it")
 
 Aedwon decided the redesign ships during the beta, after his own staging check and his explicit
