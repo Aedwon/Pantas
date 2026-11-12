@@ -232,6 +232,14 @@ List<RouteBase> settingsRoutes(Ref ref) => [
               if (localRef.watch(guardianAccountClosedProvider) != null ||
                   !guardian.hasValue ||
                   guardian.valueOrNull == GuardianGate.withdrawn) {
+                // Wide web: the standalone legal page, a readable column
+                // under the top bar, as in onboarding.
+                if (context.wideWeb) {
+                  return OnboardingLegalPage(
+                    documentId: id,
+                    backFallback: '/guardian/withdrawn',
+                  );
+                }
                 return LegalDocumentPage(
                   documentId: id,
                   contact: ref.watch(legalContactProvider),

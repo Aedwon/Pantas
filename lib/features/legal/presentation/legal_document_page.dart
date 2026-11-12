@@ -175,10 +175,18 @@ List<Widget> _documentChildren(
 }
 
 /// Wide web: a legal page opened during onboarding. It has the onboarding top
-/// bar and column, with Back and no main navigation around it.
+/// bar and column, with Back and no main navigation around it. A closed
+/// account uses it too, with Back returning to its end page.
 class OnboardingLegalPage extends StatelessWidget {
-  const OnboardingLegalPage({required this.documentId, super.key});
+  const OnboardingLegalPage({
+    required this.documentId,
+    this.backFallback = '/onboarding',
+    super.key,
+  });
   final String documentId;
+
+  /// Where Back goes when the page was opened directly.
+  final String backFallback;
 
   @override
   Widget build(BuildContext context) {
@@ -218,7 +226,7 @@ class OnboardingLegalPage extends StatelessWidget {
                         child: WebBackLink(
                           label: 'Back',
                           onPressed: () =>
-                              leavePage(context, fallback: '/onboarding'),
+                              leavePage(context, fallback: backFallback),
                         ),
                       ),
                       const SizedBox(height: PantasSpace.s28),
