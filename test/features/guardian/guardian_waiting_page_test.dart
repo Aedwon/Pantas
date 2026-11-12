@@ -98,7 +98,7 @@ void main() {
       (tester) async {
     gateway.current = GuardianStatus.fromJson({'status': 'withdrawn'});
     await pump(tester);
-    expect(find.text('Permission withdrawn'), findsOneWidget);
+    expect(find.text('Account closed'), findsOneWidget);
     expect(find.text('Check Again'), findsNothing);
     expect(find.text('Resend Email'), findsNothing);
     expect(find.text('Change Email'), findsNothing);
