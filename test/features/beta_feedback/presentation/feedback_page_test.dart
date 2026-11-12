@@ -4,13 +4,23 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/storage/data/repos/app_preferences_repository.dart';
+import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/features/beta_feedback/domain/beta_feedback_models.dart';
 import 'package:pantas/features/beta_feedback/presentation/fb_kit.dart';
 import 'package:pantas/features/beta_feedback/presentation/feedback_page.dart';
 
 import 'beta_feedback_fakes.dart';
 import 'feedback_harness.dart';
+
+class _RecordingTelemetry extends DisabledTelemetry {
+  final errors = <Object>[];
+  @override
+  Future<void> recordError(Object error, StackTrace stack) async {
+    errors.add(error);
+  }
+}
 
 Finder get _sendButton => find.ancestor(
       of: find.text('Send Feedback'),
@@ -355,6 +365,30 @@ void main() {
       expect(find.text('SENT'), findsOneWidget);
       expect(find.text('The timer froze.'), findsOneWidget);
       expect(find.text('Nov 12, 9:41 PM · 1 image'), findsOneWidget);
+    });
+
+    testWidgets('a failed send reaches telemetry tagged', (tester) async {
+      final telemetry = _RecordingTelemetry();
+      final h = FbHarness(
+        api: FakeBetaFeedbackApi()
+          ..sendError = const BetaFeedbackException(BetaFeedbackFailure.other),
+      );
+      await h.pump(
+        tester,
+        _page,
+        overrides: [telemetryProvider.overrideWithValue(telemetry)],
+      );
+      h.images.next = [fakeImage()];
+      await tester.tap(find.byKey(addImageKey));
+      await tester.pumpAndSettle();
+      await tester.enterText(find.byType(TextField), 'Keep me');
+      await tester.pump();
+      await tester.tap(find.text('Send Feedback'));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+      expect(find.text('Could not send. Try again.'), findsOneWidget);
+      expect(telemetry.errors, hasLength(1));
+      expect(telemetry.errors.single.toString(), startsWith('feedback.send: '));
     });
 
     testWidgets('a failed send keeps the draft and says so', (tester) async {

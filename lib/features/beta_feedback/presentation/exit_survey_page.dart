@@ -1,5 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/telemetry/report_failure.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/toast.dart';
 import 'package:pantas/core/ui/ds.dart';
@@ -90,7 +92,15 @@ class _ExitSurveyPageState extends ConsumerState<ExitSurveyPage> {
     );
     try {
       await ref.read(betaFeedbackApiProvider).submitSurvey(answers);
-    } on BetaFeedbackException catch (e) {
+    } on BetaFeedbackException catch (e, stack) {
+      if (e.failure == BetaFeedbackFailure.other) {
+        reportFailure(
+          ref.read(telemetryProvider),
+          'feedback.survey',
+          e,
+          stack,
+        );
+      }
       if (!mounted) return;
       if (e.failure == BetaFeedbackFailure.alreadyDone) {
         _finish();
@@ -104,7 +114,8 @@ class _ExitSurveyPageState extends ConsumerState<ExitSurveyPage> {
             : 'Could not send. Try again.',
       );
       return;
-    } on Exception {
+    } on Exception catch (e, stack) {
+      reportFailure(ref.read(telemetryProvider), 'feedback.survey', e, stack);
       if (!mounted) return;
       setState(() => _phase = _Phase.form);
       showPantasToast(context, 'Could not send. Try again.');

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/app/web_address.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
@@ -11,6 +12,7 @@ import 'package:pantas/core/storage/data/report_queue.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/telemetry/report_failure.dart';
 import 'package:pantas/core/ui/components/report_form.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/ds.dart';
@@ -147,6 +149,17 @@ class _QuizReviewPageState extends ConsumerState<QuizReviewPage> {
   }
 
   Future<void> _save(String questionId, MistakeTag? tag, String? note) async {
+    try {
+      await _write(questionId, tag, note);
+    } catch (error, stack) {
+      // The note editor shows its retry line and nothing else, so the cause
+      // would be lost without this.
+      reportFailure(ref.read(telemetryProvider), 'quiz.note', error, stack);
+      rethrow;
+    }
+  }
+
+  Future<void> _write(String questionId, MistakeTag? tag, String? note) async {
     final boundary = await _boundary;
     if (boundary == null) throw StateError('Review ownership changed');
     Future<bool> canPersist() async {
