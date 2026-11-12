@@ -3169,3 +3169,10 @@ Aedwon is moving the operations manager role to a new thread (checklist in `docs
 
 - Aedwon, verbatim: "address points 2 and 3, then you have my authority to ship everything shippable once ready. for the beta reward, we go with the same ruling".
 - Meaning, per the manager: point 2 is the idle Home bug (beta monitor pass 9: Home reads sent with an expired sign-in after a long background, refused, never retried); point 3 is a Claude review of the three Codex-built withdrawal screens (neutral start screen, end state, legal pages without the side panel), under his new rule "if it's UI, never use codex". "Same ruling": the beta reward rule stays as is (5 of the 7 days Nov 9 to 15). His authority is the explicit ship approval for this release, once both are on main with CI and journeys green; anything not ready stays out and is named.
+
+### Nov 12, idle Home bug fixed (DS4 lead)
+
+- Beta monitor pass 9: on tester 4's reopen after a long background (Android, Nov 12 04:11 PHT), Home's reads went out with an expired sign-in, all were refused, the sign-in renewed 0.2 s later, and nothing re-sent them.
+- Cause (Sonnet builder, lead review): the shared callable path in lib/core/platform/account_access.dart treated an 'unauthenticated' refusal as final. A tab resumed from the background can send calls before the browser's throttled token refresh runs.
+- Fix (`web/idle-token-r1` 414126540, merged to main 51e0904cc): for a signed-in owner, an 'unauthenticated' refusal forces a token refresh for the same uid and re-sends the call once, for every callable. A second refusal surfaces; a closed-account refusal, a signed-out call, or an account change during the refresh never retries. The server refuses before running a handler, so the re-send is safe. Three new tests failed before the fix. Branch CI 43230725211 green, journeys 43230725148 five PASS, main CI 43232064431 green.
+- Velocity E-039: timer 25 min 55 s against a 1 h 30 min wall estimate.
