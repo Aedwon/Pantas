@@ -125,7 +125,10 @@ void main() {
     await tester.pumpAndSettle();
     expect(operations, contains('firebaseSignOut'));
     expect(find.byType(GuardianWithdrawnPage), findsOneWidget);
-    expect(find.text(GuardianCopy.withdrawnTitle), findsOneWidget);
+    expect(find.text(GuardianCopy.accountClosedTitle), findsOneWidget);
+    expect(find.text(GuardianCopy.accountClosedDetail), findsOneWidget);
+    expect(find.textContaining("Your child's"), findsNothing);
+    expect(find.text(GuardianCopy.withdrawnTitle), findsNothing);
     expect(find.text('Check Again'), findsNothing);
     container.read(routerProvider).go('/home');
     await tester.pumpAndSettle();
@@ -349,7 +352,14 @@ void main() {
         await tester.pumpAndSettle();
         expect(find.byType(WebLessonSearch), findsNothing);
         expect(find.text('Recently Opened'), findsNothing);
-        expect(find.byType(LegalDocumentPage), findsOneWidget);
+        // Wide web has the standalone page (a readable column under the top
+        // bar); narrower widths have the phone page.
+        expect(
+          find.byType(
+            width >= 1024 ? OnboardingLegalPage : LegalDocumentPage,
+          ),
+          findsOneWidget,
+        );
       }
     });
   }

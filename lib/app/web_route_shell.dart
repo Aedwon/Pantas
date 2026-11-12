@@ -35,13 +35,14 @@ class _WebRouteShellState extends ConsumerState<WebRouteShell> {
     final path = widget.path;
     final child = KeyedSubtree(key: _pageKey, child: widget.child);
     // Legal content stays public even if closure restoration is unresolved.
+    // Then no private side panel is drawn, but the tablet column still
+    // applies.
+    var legalWithoutPanel = false;
     if (path.startsWith('/legal/')) {
       final guardian = ref.watch(guardianGateProvider);
-      if (ref.watch(guardianAccountClosedProvider) != null ||
+      legalWithoutPanel = ref.watch(guardianAccountClosedProvider) != null ||
           !guardian.hasValue ||
-          guardian.valueOrNull == GuardianGate.withdrawn) {
-        return child;
-      }
+          guardian.valueOrNull == GuardianGate.withdrawn;
     }
     if (context.webTier == WebLayoutTier.tabletPortrait) {
       return ColoredBox(
@@ -61,7 +62,8 @@ class _WebRouteShellState extends ConsumerState<WebRouteShell> {
       return child;
     }
     // A legal page opened during onboarding has no main navigation.
-    if (path.startsWith('/legal/') && ref.watch(legalInOnboardingProvider)) {
+    if (legalWithoutPanel ||
+        path.startsWith('/legal/') && ref.watch(legalInOnboardingProvider)) {
       return child;
     }
     // Pages outside the sidebar families (sessions, results, assessment) take

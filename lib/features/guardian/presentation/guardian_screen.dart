@@ -176,13 +176,14 @@ class BalancedText extends StatelessWidget {
   }
 }
 
-/// Reuses the guardian withdrawal end state and its existing wording.
+/// The end state a closed student sees. The guardian's own page says
+/// "Permission withdrawn" in the manage page instead.
 class GuardianWithdrawnPage extends StatelessWidget {
   const GuardianWithdrawnPage({super.key});
 
   @override
   Widget build(BuildContext context) => const GuardianScreen(
-        title: GuardianCopy.withdrawnTitle,
-        detail: GuardianCopy.withdrawnDetail,
+        title: GuardianCopy.accountClosedTitle,
+        detail: GuardianCopy.accountClosedDetail,
       );
 }

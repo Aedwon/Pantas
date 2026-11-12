@@ -44,6 +44,11 @@ abstract final class GuardianCopy {
   static const withdrawnDetail =
       "Your child's account is closed and is being deleted. You can close "
       'this page.';
+  // What the closed student sees, not the guardian.
+  static const accountClosedTitle = 'Account closed';
+  static const accountClosedDetail =
+      'Your parent or guardian withdrew permission for this account. It is '
+      'closed and is being deleted. Questions? Email support@pantas.study.';
   static const managePermissionLabel = 'Manage Permission';
 
   static const declinedTitle = 'Response sent';
