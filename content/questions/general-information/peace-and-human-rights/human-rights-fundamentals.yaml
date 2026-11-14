@@ -37,9 +37,8 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: easy
-  stem: 'Which statement describes Article XIII in the lesson?
-
-    '
+  stem: |
+    Which statement correctly describes Article XIII of the 1987 Constitution?
   choices:
   - text: It creates the Commission on Human Rights.
     correct: true
@@ -220,9 +219,8 @@ questions:
   type: single_choice
   difficulty: easy
   approved: false
-  stem: 'Which statement follows from the lesson''s nondiscrimination principle?
-
-    '
+  stem: |
+    Which statement reflects the principle of nondiscrimination in human rights?
   choices:
   - text: Human rights do not depend on language or national origin.
     correct: true
@@ -247,9 +245,8 @@ questions:
   type: single_choice
   difficulty: easy
   approved: false
-  stem: 'Which pair correctly matches the two domestic constitutional references in the lesson?
-
-    '
+  stem: |
+    Which pair correctly matches the constitutional articles with their subjects?
   choices:
   - text: 'Article III: liberties; Article XIII: CHR'
     correct: true
@@ -274,9 +271,8 @@ questions:
   type: single_choice
   difficulty: easy
   approved: false
-  stem: 'In the lesson''s domestic framework, what kind of institution is the CHR?
-
-    '
+  stem: |
+    Under the 1987 Constitution, what kind of institution is the CHR?
   choices:
   - text: An independent national institution
     correct: true
@@ -301,9 +297,8 @@ questions:
   type: single_choice
   difficulty: medium
   approved: false
-  stem: 'A rights claim concerns how an official government agency treats an individual. What makes it directly relevant to the lesson''s human-rights framework?
-
-    '
+  stem: |
+    A rights claim concerns how a government agency treats an individual. Why does this fall within the scope of international human rights law?
   choices:
   - text: It concerns state treatment of a person.
     correct: true
@@ -328,9 +323,8 @@ questions:
   type: single_choice
   difficulty: medium
   approved: false
-  stem: 'An editor calls the twenty-two divisions of Article III separate articles. What correction follows from the lesson?
-
-    '
+  stem: |
+    An editor calls the twenty-two divisions of Article III separate articles. Which correction is accurate?
   choices:
   - text: They are sections within one article.
     correct: true
@@ -382,9 +376,8 @@ questions:
   type: single_choice
   difficulty: hard
   approved: false
-  stem: 'The lesson says rights belong to everyone and lists race, sex, religion, language, nationality, and where someone lives. How should that list be read?
-
-    '
+  stem: |
+    Human rights belong to everyone regardless of race, sex, religion, language, nationality, or place of residence. How should these listed grounds be understood?
   choices:
   - text: It gives examples, not an exclusive list.
     correct: true
@@ -409,9 +402,8 @@ questions:
   type: single_choice
   difficulty: hard
   approved: false
-  stem: 'What follows from the lesson''s statement that government human-rights duties continue in peace and during armed conflict?
-
-    '
+  stem: |
+    What follows from the principle that government human-rights duties continue in peace and during armed conflict?
   choices:
   - text: The continuing application of the human-rights framework
     correct: true
@@ -436,9 +428,8 @@ questions:
   type: single_choice
   difficulty: hard
   approved: false
-  stem: 'A reviewer finds a reference to Article IX and assumes it creates CHR because CHR is called a commission. Which correction fits the lesson?
-
-    '
+  stem: |
+    A reviewer assumes Article IX creates CHR because CHR is called a commission. Which statement corrects this reasoning?
   choices:
   - text: Institution names do not replace the specific constitutional source.
     correct: true
@@ -490,9 +481,8 @@ questions:
   type: single_choice
   difficulty: exam
   approved: false
-  stem: 'Which summary most accurately separates the two levels of protection taught in the lesson?
-
-    '
+  stem: |
+    Which statement correctly distinguishes international human-rights obligations from domestic constitutional protections?
   choices:
   - text: International law binds states; the Constitution supplies domestic guarantees.
     correct: true
@@ -517,9 +507,8 @@ questions:
   type: single_choice
   difficulty: exam
   approved: false
-  stem: 'Which conclusion is supported without adding a rule the lesson does not teach?
-
-    '
+  stem: |
+    Which statement correctly describes the constitutional status of the CHR?
   choices:
   - text: CHR's independence and Article XIII basis are established.
     correct: true

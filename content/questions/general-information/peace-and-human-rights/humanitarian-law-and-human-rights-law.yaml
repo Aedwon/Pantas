@@ -63,9 +63,8 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: hard
-  stem: 'Which statement correctly compares their general time scopes?
-
-    '
+  stem: |
+    Which statement correctly compares when human rights law (HRL) and international humanitarian law (IHL) apply?
   choices:
   - text: HRL continues in peace and conflict; IHL governs armed conflict.
     correct: true
@@ -115,9 +114,8 @@ questions:
   keyPoint: 2
   type: single_choice
   difficulty: medium
-  stem: 'A non-state armed group says IHL cannot bind it because it is not a government. How does the lesson assess the claim?
-
-    '
+  stem: |
+    A non-state armed group says IHL cannot bind it because it is not a government. Which assessment is correct?
   choices:
   - text: It is wrong if the group is a conflict party.
     correct: true
@@ -194,9 +192,8 @@ questions:
   type: single_choice
   difficulty: easy
   approved: false
-  stem: 'In a qualifying public emergency, what does the lesson say about HRL obligations?
-
-    '
+  stem: |
+    In a qualifying public emergency, which statement correctly describes HRL obligations?
   choices:
   - text: Some may permit lawful derogation; some cannot.
     correct: true
@@ -383,9 +380,8 @@ questions:
   type: single_choice
   difficulty: hard
   approved: false
-  stem: 'What does non-derogable mean in the emergency distinction taught in the lesson?
-
-    '
+  stem: |
+    Under ICCPR Article 4, what does it mean for an obligation to be non-derogable?
   choices:
   - text: The obligation cannot be set aside by derogation.
     correct: true
@@ -410,9 +406,8 @@ questions:
   type: single_choice
   difficulty: hard
   approved: false
-  stem: 'Which relationship is central to HRL in the lesson?
-
-    '
+  stem: |
+    Which relationship is central to international human rights law?
   choices:
   - text: A state and persons within its jurisdiction
     correct: true
@@ -464,9 +459,8 @@ questions:
   type: single_choice
   difficulty: exam
   approved: false
-  stem: 'An election campaign is tense, but the facts describe no armed conflict. What can be concluded from the lesson?
-
-    '
+  stem: |
+    An election campaign is tense, but the facts describe no armed conflict. Which conclusion follows?
   choices:
   - text: The campaign alone does not establish IHL's conflict trigger.
     correct: true
@@ -518,9 +512,8 @@ questions:
   type: single_choice
   difficulty: exam
   approved: false
-  stem: 'An official says HRL has no wartime role and IHL has no peacetime implementation duties. Which correction follows from the lesson?
-
-    '
+  stem: |
+    An official says HRL has no wartime role and IHL has no peacetime implementation duties. Which statement corrects these claims?
   choices:
   - text: HRL continues in conflict; some IHL duties require preparation in peace.
     correct: true
@@ -839,7 +832,7 @@ questions:
   type: single_choice
   difficulty: exam
   stem: |
-    Community groups have explained their competing needs and discussed lawful options for a shared facility. Which next step best supports a workable peaceful agreement?
+    A community mediation procedure requires groups to identify their needs, discuss lawful options, and adopt terms that specify actions and allow compliance to be checked. Two groups have completed the first two steps for a shared facility. Which action meets the remaining requirement?
   choices:
   - text: Set clear steps and a way to check compliance.
     correct: true
