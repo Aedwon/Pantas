@@ -7,6 +7,7 @@ meta:
   - cse-sub
 questions:
 - id: q-philippine-constitution-the-articles-in-outline-0001
+  approved: true
   lesson: lesson-philippine-constitution-constitution-preamble-and-article-count
   keyPoint: 1
   type: single_choice
@@ -33,6 +34,7 @@ questions:
 
     '
 - id: q-philippine-constitution-the-articles-in-outline-0002
+  approved: true
   lesson: lesson-philippine-constitution-constitution-articles-i-to-v
   keyPoint: 2
   type: single_choice
@@ -59,6 +61,7 @@ questions:
 
     '
 - id: q-philippine-constitution-the-articles-in-outline-0003
+  approved: true
   lesson: lesson-philippine-constitution-constitution-articles-i-to-v
   keyPoint: 2
   type: single_choice
@@ -85,6 +88,7 @@ questions:
 
     '
 - id: q-philippine-constitution-the-articles-in-outline-0004
+  approved: true
   lesson: lesson-philippine-constitution-constitution-articles-i-to-v
   keyPoint: 2
   type: single_choice
@@ -111,6 +115,7 @@ questions:
 
     '
 - id: q-philippine-constitution-the-articles-in-outline-0005
+  approved: true
   lesson: lesson-philippine-constitution-constitution-department-articles
   keyPoint: 1
   type: single_choice
@@ -137,6 +142,7 @@ questions:
 
     '
 - id: q-philippine-constitution-the-articles-in-outline-0006
+  approved: true
   lesson: lesson-philippine-constitution-constitution-commission-articles
   keyPoint: 1
   type: single_choice
@@ -163,6 +169,7 @@ questions:
 
     '
 - id: q-philippine-constitution-the-articles-in-outline-0007
+  approved: true
   lesson: lesson-philippine-constitution-constitution-local-government-and-welfare
   keyPoint: 1
   type: single_choice
@@ -189,6 +196,7 @@ questions:
 
     '
 - id: q-philippine-constitution-the-articles-in-outline-0008
+  approved: true
   lesson: lesson-philippine-constitution-constitution-local-government-and-welfare
   keyPoint: 2
   type: single_choice
@@ -214,6 +222,7 @@ questions:
 
     '
 - id: q-philippine-constitution-the-articles-in-outline-0009
+  approved: true
   lesson: lesson-philippine-constitution-constitution-other-fields-and-change
   keyPoint: 1
   type: single_choice
@@ -240,6 +249,7 @@ questions:
 
     '
 - id: q-philippine-constitution-the-articles-in-outline-0010
+  approved: true
   lesson: lesson-philippine-constitution-constitution-other-fields-and-change
   keyPoint: 3
   type: single_choice
@@ -266,6 +276,7 @@ questions:
 
     '
 - id: q-philippine-constitution-the-articles-in-outline-0011
+  approved: true
   lesson: lesson-philippine-constitution-constitution-department-articles
   keyPoint: 1
   type: single_choice
@@ -292,6 +303,7 @@ questions:
 
     '
 - id: q-philippine-constitution-the-articles-in-outline-0012
+  approved: true
   lesson: lesson-philippine-constitution-constitution-local-government-and-welfare
   keyPoint: 3
   type: single_choice
@@ -318,6 +330,7 @@ questions:
 
     '
 - id: q-philippine-constitution-the-articles-in-outline-0013
+  approved: true
   lesson: lesson-philippine-constitution-constitution-other-fields-and-change
   keyPoint: 1
   type: single_choice
@@ -344,6 +357,7 @@ questions:
 
     '
 - id: q-philippine-constitution-the-articles-in-outline-0014
+  approved: true
   lesson: lesson-philippine-constitution-constitution-articles-i-to-v
   keyPoint: 1
   type: single_choice
@@ -370,6 +384,7 @@ questions:
 
     '
 - id: q-philippine-constitution-the-articles-in-outline-0015
+  approved: true
   lesson: lesson-philippine-constitution-constitution-department-articles
   keyPoint: 1
   type: single_choice
@@ -400,7 +415,7 @@ questions:
   keyPoint: 2
   type: single_choice
   difficulty: easy
-  approved: false
+  approved: true
   stem: 'What does Article IX-A cover in the outline?
 
     '
@@ -427,7 +442,7 @@ questions:
   keyPoint: 2
   type: single_choice
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'What role does the Preamble have in the outline?
 
     '
@@ -454,7 +469,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'Which sequence matches the branch articles VI, VII, and VIII?
 
     '
@@ -481,7 +496,7 @@ questions:
   keyPoint: 3
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'Which article concerns Transitory Provisions?
 
     '
@@ -508,7 +523,7 @@ questions:
   keyPoint: 2
   type: single_choice
   difficulty: exam
-  approved: false
+  approved: true
   stem: |
     An official argues that Article VI's heading, Legislative Department, allows a revenue bill to originate in either House. Which response correctly assesses this use of the article heading?
   choices:
@@ -531,6 +546,7 @@ questions:
     '
 
 - id: q-philippine-constitution-the-articles-in-outline-0021
+  approved: true
   lesson: lesson-philippine-constitution-constitution-articles-i-to-v
   keyPoint: 3
   type: single_choice
@@ -553,6 +569,7 @@ questions:
     Article II, Section 15 states the policy to protect and promote the right to health. That broad policy does not state every step for running a health program. The relevant law or a more specific rule may also be needed.
 
 - id: q-philippine-constitution-the-articles-in-outline-0022
+  approved: true
   lesson: lesson-philippine-constitution-constitution-local-government-and-welfare
   keyPoint: 4
   type: single_choice
@@ -575,6 +592,7 @@ questions:
     Article XIII, Section 18(1) gives the Commission on Human Rights power to investigate human rights violations involving civil and political rights. Article XIII concerns Social Justice and Human Rights.
 
 - id: q-philippine-constitution-the-articles-in-outline-0023
+  approved: true
   lesson: lesson-philippine-constitution-constitution-other-fields-and-change
   keyPoint: 2
   type: single_choice

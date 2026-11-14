@@ -7,6 +7,7 @@ meta:
   - cse-sub
 questions:
 - id: q-philippine-constitution-bill-of-rights-0004
+  approved: true
   lesson: lesson-philippine-constitution-bill-of-rights-property-and-contracts
   keyPoint: 1
   type: single_choice
@@ -33,6 +34,7 @@ questions:
 
     '
 - id: q-philippine-constitution-bill-of-rights-0005
+  approved: true
   lesson: lesson-philippine-constitution-bill-of-rights-property-and-contracts
   keyPoint: 2
   type: single_choice
@@ -59,6 +61,7 @@ questions:
 
     '
 - id: q-philippine-constitution-bill-of-rights-0012
+  approved: true
   lesson: lesson-philippine-constitution-bill-of-rights-custodial-silence-counsel-and-waiver
   keyPoint: 2
   type: single_choice
@@ -89,7 +92,7 @@ questions:
   keyPoint: 2
   type: single_choice
   difficulty: easy
-  approved: false
+  approved: true
   stem: |
     Under Article III, Section 13, when may an accused charged with an offense punishable by reclusion perpetua be denied bail before conviction?
   choices:
@@ -115,7 +118,7 @@ questions:
   keyPoint: 2
   type: single_choice
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'May poverty alone be used to deny access to courts and adequate legal assistance?
 
     '
@@ -159,7 +162,7 @@ questions:
   explanation: |
     Just compensation means the full and fair value of the property taken.
     The benefit of a public project does not remove the duty to pay.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-property-courts-and-custody-0002
   lesson: lesson-philippine-constitution-bill-of-rights-bail-before-conviction
   keyPoint: 1
@@ -182,7 +185,7 @@ questions:
   explanation: |
     Sureties guarantee the accused person's appearance as required.
     Bail allows release from custody. It does not decide the case.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-property-courts-and-custody-0003
   lesson: lesson-philippine-constitution-bill-of-rights-bail-before-conviction
   keyPoint: 1
@@ -204,7 +207,7 @@ questions:
       Just compensation is payment for private property taken for public use. It does not describe release from custody.
   explanation: |
     This is release on recognizance. It uses a lawful undertaking instead of a bail bond and must be allowed by law. It does not decide guilt.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-property-courts-and-custody-0004
   lesson: lesson-philippine-constitution-bill-of-rights-court-access-and-legal-help
   keyPoint: 1
@@ -226,7 +229,7 @@ questions:
       The Constitution protects access to quasi-judicial bodies as well as adequate legal assistance.
   explanation: |
     A government body that hears facts and decides disputes outside the courts is quasi-judicial. Poverty cannot be the reason to deny access.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-property-courts-and-custody-0005
   lesson: lesson-philippine-constitution-bill-of-rights-court-access-and-legal-help
   keyPoint: 2
@@ -249,7 +252,7 @@ questions:
   explanation: |
     Permission to file does not settle whether needed legal help was given.
     Poverty cannot be the reason to deny adequate legal assistance.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-property-courts-and-custody-0006
   lesson: lesson-philippine-constitution-bill-of-rights-custodial-silence-counsel-and-waiver
   keyPoint: 1
@@ -271,7 +274,7 @@ questions:
     correct: true
   explanation: |
     Custodial investigation includes questioning a suspect whose freedom is significantly restricted. A formal arrest label is not required.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-property-courts-and-custody-0007
   lesson: lesson-philippine-constitution-bill-of-rights-custodial-silence-counsel-and-waiver
   keyPoint: 2
@@ -293,7 +296,7 @@ questions:
       The right to counsel applies during custodial investigation. It does not wait for a finding of guilt.
   explanation: |
     Counsel must be competent and independent. A lawyer must protect the suspect's interests and be free from the investigators' control.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-property-courts-and-custody-0008
   lesson: lesson-philippine-constitution-bill-of-rights-custodial-silence-counsel-and-waiver
   keyPoint: 3
@@ -316,7 +319,7 @@ questions:
   explanation: |
     A waiver must be in writing and made in counsel's presence.
     An oral agreement fails the writing requirement even if a lawyer is there.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-property-courts-and-custody-0009
   lesson: lesson-philippine-constitution-bill-of-rights-custodial-force-and-statements
   keyPoint: 1
@@ -339,7 +342,7 @@ questions:
   explanation: |
     The ban covers secret detention and detention that cuts off communication.
     Physical violence is not required for these forms of detention to be prohibited.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-property-courts-and-custody-0010
   lesson: lesson-philippine-constitution-bill-of-rights-property-and-contracts
   keyPoint: 2
@@ -362,7 +365,7 @@ questions:
   explanation: |
     A law affecting a contract is not automatically invalid.
     Its effect on the agreed duties and its public-welfare basis must be checked.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-property-courts-and-custody-0011
   lesson: lesson-philippine-constitution-bill-of-rights-property-and-contracts
   keyPoint: 1
@@ -385,7 +388,7 @@ questions:
   explanation: |
     The rule requires just compensation for private property taken for public use.
     A rule affecting property does not by itself establish such a taking.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-property-courts-and-custody-0012
   lesson: lesson-philippine-constitution-bill-of-rights-custodial-force-and-statements
   keyPoint: 3
@@ -408,7 +411,7 @@ questions:
   explanation: |
     A confession admits guilt. An admission may acknowledge only a helpful fact.
     Neither may be used against the person when obtained through prohibited threats.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-property-courts-and-custody-0013
   lesson: lesson-philippine-constitution-bill-of-rights-custodial-force-and-statements
   keyPoint: 2
@@ -431,7 +434,7 @@ questions:
   explanation: |
     Forced testimony need not admit the whole offense to help prove guilt.
     The protection covers being compelled to give testimony against oneself.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-property-courts-and-custody-0014
   lesson: lesson-philippine-constitution-bill-of-rights-bail-before-conviction
   keyPoint: 2
@@ -454,7 +457,7 @@ questions:
   explanation: |
     Both conditions must be present for the stated exception to apply.
     The penalty alone is not enough. Bail does not decide the accused person's guilt.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-property-courts-and-custody-0015
   lesson: lesson-philippine-constitution-bill-of-rights-bail-before-conviction
   keyPoint: 3
@@ -477,4 +480,4 @@ questions:
   explanation: |
     Suspension of the privilege does not impair the right to bail.
     Excessive bail is still forbidden. The suspension alone supports neither action.
-  approved: false
+  approved: true

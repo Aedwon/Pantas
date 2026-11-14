@@ -7,6 +7,7 @@ meta:
   - cse-sub
 questions:
 - id: q-philippine-constitution-accountability-and-impeachment-0001
+  approved: true
   lesson: lesson-philippine-constitution-public-trust-and-impeachable-officers
   keyPoint: 1
   type: single_choice
@@ -33,6 +34,7 @@ questions:
 
     '
 - id: q-philippine-constitution-accountability-and-impeachment-0002
+  approved: true
   lesson: lesson-philippine-constitution-public-trust-and-impeachable-officers
   keyPoint: 1
   type: single_choice
@@ -59,6 +61,7 @@ questions:
 
     '
 - id: q-philippine-constitution-accountability-and-impeachment-0003
+  approved: true
   lesson: lesson-philippine-constitution-public-trust-and-impeachable-officers
   keyPoint: 2
   type: single_choice
@@ -85,6 +88,7 @@ questions:
 
     '
 - id: q-philippine-constitution-accountability-and-impeachment-0004
+  approved: true
   lesson: lesson-philippine-constitution-public-trust-and-impeachable-officers
   keyPoint: 2
   type: single_choice
@@ -111,6 +115,7 @@ questions:
 
     '
 - id: q-philippine-constitution-accountability-and-impeachment-0005
+  approved: true
   lesson: lesson-philippine-constitution-impeachment-betrayal-and-proof
   keyPoint: 1
   type: single_choice
@@ -137,6 +142,7 @@ questions:
 
     '
 - id: q-philippine-constitution-accountability-and-impeachment-0006
+  approved: true
   lesson: lesson-philippine-constitution-impeachment-constitutional-breach-treason-and-bribery
   keyPoint: 1
   type: single_choice
@@ -163,6 +169,7 @@ questions:
 
     '
 - id: q-philippine-constitution-accountability-and-impeachment-0007
+  approved: true
   lesson: lesson-philippine-constitution-public-trust-and-impeachable-officers
   keyPoint: 2
   type: single_choice
@@ -189,6 +196,7 @@ questions:
 
     '
 - id: q-philippine-constitution-accountability-and-impeachment-0008
+  approved: true
   lesson: lesson-philippine-constitution-public-trust-and-impeachable-officers
   keyPoint: 2
   type: single_choice
@@ -215,6 +223,7 @@ questions:
 
     '
 - id: q-philippine-constitution-accountability-and-impeachment-0009
+  approved: true
   lesson: lesson-philippine-constitution-public-trust-and-impeachable-officers
   keyPoint: 1
   type: single_choice
@@ -241,6 +250,7 @@ questions:
 
     '
 - id: q-philippine-constitution-accountability-and-impeachment-0010
+  approved: true
   lesson: lesson-philippine-constitution-impeachment-constitutional-breach-treason-and-bribery
   keyPoint: 2
   type: single_choice
@@ -267,6 +277,7 @@ questions:
 
     '
 - id: q-philippine-constitution-accountability-and-impeachment-0011
+  approved: true
   lesson: lesson-philippine-constitution-impeachment-constitutional-breach-treason-and-bribery
   keyPoint: 2
   type: single_choice
@@ -293,6 +304,7 @@ questions:
 
     '
 - id: q-philippine-constitution-accountability-and-impeachment-0012
+  approved: true
   lesson: lesson-philippine-constitution-public-trust-and-impeachable-officers
   keyPoint: 2
   type: single_choice
@@ -319,6 +331,7 @@ questions:
 
     '
 - id: q-philippine-constitution-accountability-and-impeachment-0013
+  approved: true
   lesson: lesson-philippine-constitution-impeachment-constitutional-breach-treason-and-bribery
   keyPoint: 1
   type: single_choice
@@ -345,6 +358,7 @@ questions:
 
     '
 - id: q-philippine-constitution-accountability-and-impeachment-0014
+  approved: true
   lesson: lesson-philippine-constitution-public-trust-and-impeachable-officers
   keyPoint: 2
   type: single_choice
@@ -371,6 +385,7 @@ questions:
 
     '
 - id: q-philippine-constitution-accountability-and-impeachment-0015
+  approved: true
   lesson: lesson-philippine-constitution-impeachment-constitutional-breach-treason-and-bribery
   keyPoint: 2
   type: single_choice
@@ -400,7 +415,7 @@ questions:
   keyPoint: 2
   type: single_choice
   difficulty: easy
-  approved: false
+  approved: true
   stem: 'What does being outside the impeachment list imply for a public officer?
 
     '
@@ -427,7 +442,7 @@ questions:
   keyPoint: 2
   type: single_choice
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'Which claim misunderstands the closed list of grounds?
 
     '
@@ -454,7 +469,7 @@ questions:
   keyPoint: 2
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: |
     An impeachment complaint alleges a constitutional ground for removal against a Court of Appeals justice. Which threshold requirement must be checked?
   choices:
@@ -480,7 +495,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'Which conduct reflects Section 1''s standard for officers and employees?
 
     '
@@ -507,7 +522,7 @@ questions:
   keyPoint: 2
   type: single_choice
   difficulty: exam
-  approved: false
+  approved: true
   stem: 'Why must both office and ground be checked when applying Section 2?
 
     '
@@ -531,6 +546,7 @@ questions:
     '
 
 - id: q-philippine-constitution-accountability-and-impeachment-0021
+  approved: true
   lesson: lesson-philippine-constitution-impeachment-betrayal-and-proof
   keyPoint: 2
   type: single_choice
@@ -553,6 +569,7 @@ questions:
     Article XI, Section 2 permits removal on impeachment for, and conviction of, a listed ground. Section 3 gives the House the charging role and the Senate the trial role. Naming a ground does not replace proof and a decision through that process.
 
 - id: q-philippine-constitution-accountability-and-impeachment-0022
+  approved: true
   lesson: lesson-philippine-constitution-impeachment-graft-and-high-crimes
   keyPoint: 1
   type: single_choice
@@ -575,6 +592,7 @@ questions:
     Article XI, Section 2 names graft and corruption as a ground for impeachment. Misusing public office to give an improper contract benefit may raise that ground. The accusation concerns public power used for an unlawful private advantage.
 
 - id: q-philippine-constitution-accountability-and-impeachment-0023
+  approved: true
   lesson: lesson-philippine-constitution-impeachment-house-filing-routes
   keyPoint: 1
   type: single_choice
@@ -597,6 +615,7 @@ questions:
     Article XI, Section 3(4) states that a verified complaint or resolution filed by at least one-third of all House Members constitutes the Articles of Impeachment. Senate trial must proceed forthwith, meaning without delay.
 
 - id: q-philippine-constitution-accountability-and-impeachment-0024
+  approved: true
   lesson: lesson-philippine-constitution-impeachment-house-filing-routes
   keyPoint: 1
   type: single_choice
@@ -619,6 +638,7 @@ questions:
     Article XI, Section 3(2) permits a citizen’s verified complaint with a House Member’s endorsement. This uses the regular route. Committee review and the House action required by Section 3(3) must follow.
 
 - id: q-philippine-constitution-accountability-and-impeachment-0025
+  approved: true
   lesson: lesson-philippine-constitution-impeachment-senate-trial-and-limits
   keyPoint: 1
   type: single_choice
@@ -641,6 +661,7 @@ questions:
     Article XI, Section 3(6) requires the Chief Justice to preside when the President is tried. The Chief Justice does not vote. Conviction requires agreement by at least two-thirds of all Senators.
 
 - id: q-philippine-constitution-accountability-and-impeachment-0026
+  approved: true
   lesson: lesson-philippine-constitution-impeachment-senate-trial-and-limits
   keyPoint: 2
   type: single_choice
@@ -663,6 +684,7 @@ questions:
     Article XI, Section 3(7) limits impeachment judgment to removal and disqualification from public office. It also preserves liability to prosecution, trial, and punishment according to law. A separate criminal case may therefore follow.
 
 - id: q-philippine-constitution-accountability-and-impeachment-0027
+  approved: true
   lesson: lesson-philippine-constitution-ombudsman-investigations-and-remedies
   keyPoint: 1
   type: single_choice
@@ -685,6 +707,7 @@ questions:
     Article XI, Section 13(1) lets the Ombudsman investigate on its own or on complaint. It covers acts or failures to act that appear illegal, unjust, improper, or inefficient. A citizen’s complaint is not required for the office to act on its own.
 
 - id: q-philippine-constitution-accountability-and-impeachment-0028
+  approved: true
   lesson: lesson-philippine-constitution-ombudsman-investigations-and-remedies
   keyPoint: 1
   type: single_choice

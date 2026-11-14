@@ -7,6 +7,7 @@ meta:
   - cse-sub
 questions:
 - id: q-philippine-constitution-the-civil-service-commission-0001
+  approved: true
   lesson: lesson-philippine-constitution-csc-membership-and-citizenship
   keyPoint: 1
   type: single_choice
@@ -33,6 +34,7 @@ questions:
 
     '
 - id: q-philippine-constitution-the-civil-service-commission-0002
+  approved: true
   lesson: lesson-philippine-constitution-csc-membership-and-citizenship
   keyPoint: 2
   type: single_choice
@@ -59,6 +61,7 @@ questions:
 
     '
 - id: q-philippine-constitution-the-civil-service-commission-0003
+  approved: true
   lesson: lesson-philippine-constitution-csc-age-capacity-and-candidacy
   keyPoint: 1
   type: single_choice
@@ -85,6 +88,7 @@ questions:
 
     '
 - id: q-philippine-constitution-the-civil-service-commission-0004
+  approved: true
   lesson: lesson-philippine-constitution-csc-appointments-and-terms
   keyPoint: 1
   type: single_choice
@@ -111,6 +115,7 @@ questions:
 
     '
 - id: q-philippine-constitution-the-civil-service-commission-0005
+  approved: true
   lesson: lesson-philippine-constitution-csc-appointments-and-terms
   keyPoint: 2
   type: single_choice
@@ -137,6 +142,7 @@ questions:
 
     '
 - id: q-philippine-constitution-the-civil-service-commission-0006
+  approved: true
   lesson: lesson-philippine-constitution-csc-age-capacity-and-candidacy
   keyPoint: 3
   type: single_choice
@@ -163,6 +169,7 @@ questions:
 
     '
 - id: q-philippine-constitution-the-civil-service-commission-0007
+  approved: true
   lesson: lesson-philippine-constitution-csc-personnel-and-career-service
   keyPoint: 1
   type: single_choice
@@ -189,6 +196,7 @@ questions:
 
     '
 - id: q-philippine-constitution-the-civil-service-commission-0008
+  approved: true
   lesson: lesson-philippine-constitution-csc-appointments-and-terms
   keyPoint: 2
   type: single_choice
@@ -215,6 +223,7 @@ questions:
 
     '
 - id: q-philippine-constitution-the-civil-service-commission-0009
+  approved: true
   lesson: lesson-philippine-constitution-csc-age-capacity-and-candidacy
   keyPoint: 2
   type: single_choice
@@ -241,6 +250,7 @@ questions:
 
     '
 - id: q-philippine-constitution-the-civil-service-commission-0010
+  approved: true
   lesson: lesson-philippine-constitution-csc-personnel-and-career-service
   keyPoint: 1
   type: single_choice
@@ -267,6 +277,7 @@ questions:
 
     '
 - id: q-philippine-constitution-the-civil-service-commission-0011
+  approved: true
   lesson: lesson-philippine-constitution-csc-appointments-and-terms
   keyPoint: 2
   type: single_choice
@@ -293,6 +304,7 @@ questions:
 
     '
 - id: q-philippine-constitution-the-civil-service-commission-0012
+  approved: true
   lesson: lesson-philippine-constitution-csc-independence-and-conflicts
   keyPoint: 1
   type: single_choice
@@ -319,6 +331,7 @@ questions:
 
     '
 - id: q-philippine-constitution-the-civil-service-commission-0013
+  approved: true
   lesson: lesson-philippine-constitution-csc-appointments-and-terms
   keyPoint: 1
   type: single_choice
@@ -345,6 +358,7 @@ questions:
 
     '
 - id: q-philippine-constitution-the-civil-service-commission-0014
+  approved: true
   lesson: lesson-philippine-constitution-csc-age-capacity-and-candidacy
   keyPoint: 1
   type: single_choice
@@ -371,6 +385,7 @@ questions:
 
     '
 - id: q-philippine-constitution-the-civil-service-commission-0015
+  approved: true
   lesson: lesson-philippine-constitution-csc-independence-and-conflicts
   keyPoint: 1
   type: single_choice
@@ -401,7 +416,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: easy
-  approved: false
+  approved: true
   stem: 'How many CSC members are there in total when the chair is included?
 
     '
@@ -428,7 +443,7 @@ questions:
   keyPoint: 3
   type: single_choice
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'A natural-born, forty-year-old public administrator was a candidate in the immediately preceding local election. Does meeting the age and expertise requirements remove the candidacy restriction?
 
     '
@@ -455,7 +470,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: |
     A CSC nominee is thirty-four at appointment but turns thirty-five a month later. Does the nominee meet the constitutional age requirement?
   choices:
@@ -481,7 +496,7 @@ questions:
   keyPoint: 2
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'Which fact alone satisfies the specialized capacity requirement without proving all appointment qualifications?
 
     '
@@ -508,7 +523,7 @@ questions:
   keyPoint: 2
   type: single_choice
   difficulty: exam
-  approved: false
+  approved: true
   stem: |
     A reviewer claims that the CSC's role as the central personnel agency also gives it legislative, central banking, and criminal judicial powers. Which assessment is correct?
   choices:
@@ -531,6 +546,7 @@ questions:
     '
 
 - id: q-philippine-constitution-the-civil-service-commission-0021
+  approved: true
   lesson: lesson-philippine-constitution-csc-civil-service-coverage
   keyPoint: 1
   type: single_choice
@@ -553,6 +569,7 @@ questions:
     Article IX-B, Section 2(1) includes government-owned or controlled corporations with original charters. An original charter is a special law creating the corporation itself. Its creating law must be checked.
 
 - id: q-philippine-constitution-the-civil-service-commission-0022
+  approved: true
   lesson: lesson-philippine-constitution-csc-civil-service-coverage
   keyPoint: 1
   type: single_choice
@@ -575,6 +592,7 @@ questions:
     Article IX-B, Section 2(1) covers all government branches, subdivisions, instrumentalities, and agencies. It includes government-owned or controlled corporations with original charters. The rule reaches beyond executive agencies.
 
 - id: q-philippine-constitution-the-civil-service-commission-0023
+  approved: true
   lesson: lesson-philippine-constitution-csc-independence-and-conflicts
   keyPoint: 2
   type: single_choice
@@ -597,6 +615,7 @@ questions:
     Article IX-A, Section 2 bars Constitutional Commission members from practicing any profession during tenure. Taking private legal clients is practicing a profession. The proposed arrangement is barred.
 
 - id: q-philippine-constitution-the-civil-service-commission-0024
+  approved: true
   lesson: lesson-philippine-constitution-csc-merit-and-examination-exceptions
   keyPoint: 1
   type: single_choice
@@ -619,6 +638,7 @@ questions:
     Article IX-B, Section 2(2) requires appointments according to merit and fitness. Relevant ability and suitability for the duties still matter. Passing an examination alone does not guarantee appointment.
 
 - id: q-philippine-constitution-the-civil-service-commission-0025
+  approved: true
   lesson: lesson-philippine-constitution-csc-merit-and-examination-exceptions
   keyPoint: 2
   type: single_choice
@@ -641,6 +661,7 @@ questions:
     Article IX-B, Section 2(2) excepts policy-determining positions from the competitive-examination rule. A post mainly concerned with setting government policies fits that description. Merit and fitness still apply.
 
 - id: q-philippine-constitution-the-civil-service-commission-0026
+  approved: true
   lesson: lesson-philippine-constitution-csc-worker-protection-and-politics
   keyPoint: 1
   type: single_choice
@@ -663,6 +684,7 @@ questions:
     Article IX-B, Section 2(3) allows removal or suspension only for a cause provided by law. Security of tenure protects against action without that cause. It does not prevent lawful discipline.
 
 - id: q-philippine-constitution-the-civil-service-commission-0027
+  approved: true
   lesson: lesson-philippine-constitution-csc-worker-protection-and-politics
   keyPoint: 2
   type: single_choice

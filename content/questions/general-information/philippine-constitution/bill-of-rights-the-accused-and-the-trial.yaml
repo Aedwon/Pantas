@@ -7,6 +7,7 @@ meta:
   - cse-sub
 questions:
 - id: q-philippine-constitution-bill-of-rights-0006
+  approved: true
   lesson: lesson-philippine-constitution-habeas-corpus-suspension
   keyPoint: 1
   type: single_choice
@@ -33,6 +34,7 @@ questions:
 
     '
 - id: q-philippine-constitution-bill-of-rights-0007
+  approved: true
   lesson: lesson-philippine-constitution-accused-charge-and-defense
   keyPoint: 1
   type: single_choice
@@ -59,6 +61,7 @@ questions:
 
     '
 - id: q-philippine-constitution-bill-of-rights-0015
+  approved: true
   lesson: lesson-philippine-constitution-forced-self-incrimination
   keyPoint: 1
   type: single_choice
@@ -89,7 +92,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: |
     Which body is covered by the right to speedy disposition of cases under Article III, Section 16?
   choices:
@@ -131,7 +134,7 @@ questions:
       Speedy disposition protects against unreasonable delay. The request concerns knowing what must be answered.
   explanation: |
     The accused must know the crime charged and the acts behind it. This information helps the accused prepare a defense.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0003
   lesson: lesson-philippine-constitution-accused-charge-and-defense
   keyPoint: 2
@@ -153,7 +156,7 @@ questions:
       This protects against delay. A court can deny a chance to answer even when it acts quickly.
   explanation: |
     The accused must have a chance to answer the charge personally and through a lawyer. Hearing only the prosecution denies that chance.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0004
   lesson: lesson-philippine-constitution-accused-witnesses-and-absence
   keyPoint: 1
@@ -175,7 +178,7 @@ questions:
       A public trial allows observation. It does not require a reluctant defense witness to attend.
   explanation: |
     Compulsory process lets the defense use court orders to obtain needed witnesses and evidence. A witness need not be willing to attend.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0005
   lesson: lesson-philippine-constitution-accused-fair-and-speedy-trial
   keyPoint: 1
@@ -197,7 +200,7 @@ questions:
     correct: true
   explanation: |
     Public trials allow people to observe the proceedings. Lawful limits may apply. Closing a hearing without a valid legal reason raises a public-trial issue.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0006
   lesson: lesson-philippine-constitution-accused-fair-and-speedy-trial
   keyPoint: 1
@@ -220,7 +223,7 @@ questions:
       The judge's promise concerns taking sides.
   explanation: |
     An impartial judge does not favor either side. A hearing can be public and prompt while still failing this requirement.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0007
   lesson: lesson-philippine-constitution-accused-witnesses-and-absence
   keyPoint: 1
@@ -243,7 +246,7 @@ questions:
       The facts concern questioning a witness in a criminal trial. They do not concern delay in an administrative case.
   explanation: |
     Meeting witnesses face to face lets the defense question them and test their statements. Merely listening does not provide that chance.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0008
   lesson: lesson-philippine-constitution-accused-witnesses-and-absence
   keyPoint: 2
@@ -265,7 +268,7 @@ questions:
       Trial may proceed after arraignment if the accused was properly notified and has no valid reason for being absent.
   explanation: |
     The rule requires proper notice as well as arraignment and an unjustified absence. Missing notice prevents reliance on this rule.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0009
   lesson: lesson-philippine-constitution-accused-witnesses-and-absence
   keyPoint: 2
@@ -289,7 +292,7 @@ questions:
   explanation: |
     All the conditions for trial in the accused's absence are present.
     The trial may proceed. The prosecution still has to prove guilt.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0010
   lesson: lesson-philippine-constitution-habeas-corpus-suspension
   keyPoint: 1
@@ -311,7 +314,7 @@ questions:
       Administrative convenience is not a substitute for the required public-safety ground.
   explanation: |
     Rebellion alone is not enough. Public safety must also require suspension. Reducing paperwork does not meet that requirement.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0011
   lesson: lesson-philippine-constitution-habeas-corpus-suspension
   keyPoint: 1
@@ -335,7 +338,7 @@ questions:
   explanation: |
     Suspension requires invasion or rebellion and a public-safety need.
     A storm emergency alone does not satisfy this rule.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0012
   lesson: lesson-philippine-constitution-accused-fair-and-speedy-trial
   keyPoint: 2
@@ -358,7 +361,7 @@ questions:
       Its reasons and effects still need examination.
   explanation: |
     A speedy-trial claim depends on the circumstances. Check how long the delay lasted, why it happened, requests to proceed, and harm caused.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0013
   lesson: lesson-philippine-constitution-speedy-disposition-of-cases
   keyPoint: 1
@@ -382,7 +385,7 @@ questions:
   explanation: |
     Speedy trial concerns criminal trials. Speedy disposition is broader.
     It also protects cases before administrative and quasi-judicial bodies.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0014
   lesson: lesson-philippine-constitution-speedy-disposition-of-cases
   keyPoint: 1
@@ -404,7 +407,7 @@ questions:
       Speedy disposition protects parties in covered cases. It is not limited to accused persons in criminal trials.
   explanation: |
     The described body acts as a quasi-judicial body. Speedy disposition applies to its cases. The delay still needs assessment on its facts.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0015
   lesson: lesson-philippine-constitution-forced-self-incrimination
   keyPoint: 1
@@ -426,7 +429,7 @@ questions:
       The protection concerns compelled testimony against oneself. It does not create a blanket right to refuse all evidence.
   explanation: |
     A person need not be on criminal trial to have this protection. The forced answer could show the witness's own guilt, so it is protected.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0016
   lesson: lesson-philippine-constitution-forced-self-incrimination
   keyPoint: 1
@@ -450,7 +453,7 @@ questions:
       Compulsion alone does not make all evidence testimonial. This right is not a blanket protection against producing physical evidence.
   explanation: |
     A forced written admission is testimonial evidence. It reveals the person's knowledge and can show guilt. Being written on paper does not remove that protection.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-0035
   lesson: lesson-philippine-constitution-habeas-corpus-suspension
   keyPoint: 1
@@ -475,4 +478,4 @@ questions:
   explanation: |
     Valid suspension does not give detention officers unlimited power.
     It does not establish that every person is being held lawfully.
-  approved: false
+  approved: true

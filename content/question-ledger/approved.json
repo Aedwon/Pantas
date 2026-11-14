@@ -310,5 +310,1439 @@
     "evidence": "docs/content/verification/data-interpretation.md",
     "hash": "c6ed6e412da338583bf0aebc42702f74ac7d5e5f373ed4c1c579699d6e1860ec",
     "lesson": "lesson-data-interpretation-chart-scales-and-differences"
+  },
+  "q-philippine-constitution-accountability-and-impeachment-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "761342b82db05628724be57185bf78c28547a40751ec5373f0ad0db659cdd236",
+    "lesson": "lesson-philippine-constitution-public-trust-and-impeachable-officers"
+  },
+  "q-philippine-constitution-accountability-and-impeachment-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "fba65a78c5bf92031f9a4d107ba0b11468ab7c64c5ffb736655a8249366fb558",
+    "lesson": "lesson-philippine-constitution-public-trust-and-impeachable-officers"
+  },
+  "q-philippine-constitution-accountability-and-impeachment-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "37064b4cca70afa7152bcbecd4f18caafb141b9ab7583145df23d026731b1978",
+    "lesson": "lesson-philippine-constitution-public-trust-and-impeachable-officers"
+  },
+  "q-philippine-constitution-accountability-and-impeachment-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "33ea82a838247fc09f5a4339aba7f98202c4197f7ba82887d93bbf4e8329c69f",
+    "lesson": "lesson-philippine-constitution-public-trust-and-impeachable-officers"
+  },
+  "q-philippine-constitution-accountability-and-impeachment-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "a0d2d82f87275bb78d8d9ce4550aca1acce878367782329c847994c59654d296",
+    "lesson": "lesson-philippine-constitution-impeachment-betrayal-and-proof"
+  },
+  "q-philippine-constitution-accountability-and-impeachment-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "61d55dbf5ceb3d0495b64b74304ca3dceec34e691047c48bdfa960963c42f904",
+    "lesson": "lesson-philippine-constitution-impeachment-constitutional-breach-treason-and-bribery"
+  },
+  "q-philippine-constitution-accountability-and-impeachment-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "18f17945ecd388cd29f4f4c3a897487ef88470089a36cf5def035a488fcb3318",
+    "lesson": "lesson-philippine-constitution-public-trust-and-impeachable-officers"
+  },
+  "q-philippine-constitution-accountability-and-impeachment-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "332d865a347c0646848b52980cdfa3564b18b3fd3fbdcee7e83a656020f72fa0",
+    "lesson": "lesson-philippine-constitution-public-trust-and-impeachable-officers"
+  },
+  "q-philippine-constitution-accountability-and-impeachment-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "4a17e755f5b1f4e987b69cce13673c1c02fe06ad17bf5b3118326729dcb20727",
+    "lesson": "lesson-philippine-constitution-public-trust-and-impeachable-officers"
+  },
+  "q-philippine-constitution-accountability-and-impeachment-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "e26ae0aa54f5a69265c323c50379ca514448f12bc6d35928c1f16d1c0b4ae109",
+    "lesson": "lesson-philippine-constitution-impeachment-constitutional-breach-treason-and-bribery"
+  },
+  "q-philippine-constitution-accountability-and-impeachment-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "f66ebbafd7ce0e0a9fb52ecac63371877fb436afa2e49f9662c9f2362dcfa7cf",
+    "lesson": "lesson-philippine-constitution-impeachment-constitutional-breach-treason-and-bribery"
+  },
+  "q-philippine-constitution-accountability-and-impeachment-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "f5f4973b1ae91372a270a0e17cbb9cec215c9ee1a283dace4c1e5c0325704bad",
+    "lesson": "lesson-philippine-constitution-public-trust-and-impeachable-officers"
+  },
+  "q-philippine-constitution-accountability-and-impeachment-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "6a5487a506878ba398ae6acb5bb476a8aca55be2e41d7c8b0a8b06d2cb740986",
+    "lesson": "lesson-philippine-constitution-impeachment-constitutional-breach-treason-and-bribery"
+  },
+  "q-philippine-constitution-accountability-and-impeachment-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "8c144de8877a96af20967d826277206fbc3a05165c376a765a4d7e4c10aae6ee",
+    "lesson": "lesson-philippine-constitution-public-trust-and-impeachable-officers"
+  },
+  "q-philippine-constitution-accountability-and-impeachment-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "a74076009c1d651f93851205fd07f0779205f98d0abd73e29bba6832676ea854",
+    "lesson": "lesson-philippine-constitution-impeachment-constitutional-breach-treason-and-bribery"
+  },
+  "q-philippine-constitution-accountability-and-impeachment-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "95a05f9cda7d9d906a773600298f147ffda43976768322037d08cbc632779e02",
+    "lesson": "lesson-philippine-constitution-public-trust-and-impeachable-officers"
+  },
+  "q-philippine-constitution-accountability-and-impeachment-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "2a7ab47f2fb529ab3c0345f6bef4ea3464a424da0028d0dea1108283c2a27146",
+    "lesson": "lesson-philippine-constitution-impeachment-graft-and-high-crimes"
+  },
+  "q-philippine-constitution-accountability-and-impeachment-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "cfe1eb3e56b625cde2f907db12c35c719a294f9b4f23fda752d9afe1f8bf0288",
+    "lesson": "lesson-philippine-constitution-public-trust-and-impeachable-officers"
+  },
+  "q-philippine-constitution-accountability-and-impeachment-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "1a7a9f8e68aa7f6113bbbda527a613d90248dec378b26ec035024bbbbad8c22a",
+    "lesson": "lesson-philippine-constitution-public-trust-and-impeachable-officers"
+  },
+  "q-philippine-constitution-accountability-and-impeachment-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "f75c11013c3f1748270a670f37c987ea86e23b1fc8bd26bcab93539f77f5d9c5",
+    "lesson": "lesson-philippine-constitution-public-trust-and-impeachable-officers"
+  },
+  "q-philippine-constitution-accountability-and-impeachment-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "71b29fce646fa5a15001334b24be564167d2b59c6eacbdfa642911f4156f607c",
+    "lesson": "lesson-philippine-constitution-impeachment-betrayal-and-proof"
+  },
+  "q-philippine-constitution-accountability-and-impeachment-0022": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "e4ad9f329db58ce90edfe6a2140f3c35f47e2c90aca499d507cd6c14fa471422",
+    "lesson": "lesson-philippine-constitution-impeachment-graft-and-high-crimes"
+  },
+  "q-philippine-constitution-accountability-and-impeachment-0023": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "0df6d6070893cbd5299bd0b908581c4619a496702536347dedbf39974fb41122",
+    "lesson": "lesson-philippine-constitution-impeachment-house-filing-routes"
+  },
+  "q-philippine-constitution-accountability-and-impeachment-0024": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "773605ac2e62806405bf9b6a19cabd284e3f347f8963b98ada2ec9dd401f986b",
+    "lesson": "lesson-philippine-constitution-impeachment-house-filing-routes"
+  },
+  "q-philippine-constitution-accountability-and-impeachment-0025": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "7e2e0fb6cd39f9cfd922b4b1bcf23c3e817c54ae091654f090199e2929df3dbf",
+    "lesson": "lesson-philippine-constitution-impeachment-senate-trial-and-limits"
+  },
+  "q-philippine-constitution-accountability-and-impeachment-0026": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "a63173e96e577a72cb18e6635d51398ab0a0873e644203ce9e3f4e03fd0e706d",
+    "lesson": "lesson-philippine-constitution-impeachment-senate-trial-and-limits"
+  },
+  "q-philippine-constitution-accountability-and-impeachment-0027": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "c37a1815379102f0dd1078e7214c732ed08a109b89544399dcd7d6d1020e2a04",
+    "lesson": "lesson-philippine-constitution-ombudsman-investigations-and-remedies"
+  },
+  "q-philippine-constitution-accountability-and-impeachment-0028": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "db35b93439f4d630b526cda600c4334272781f7cb59ed3a78025f6b08ceef43e",
+    "lesson": "lesson-philippine-constitution-ombudsman-investigations-and-remedies"
+  },
+  "q-philippine-constitution-amending-and-revising-the-constitution-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "6a238d20dcb22ff8ff05fbc99a323e7cf85875897073b50f3f9b6b720d437621",
+    "lesson": "lesson-philippine-constitution-congress-and-constitutional-conventions"
+  },
+  "q-philippine-constitution-amending-and-revising-the-constitution-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "5a91ccafb05805c628c81cafaf2954a3b0889a6aa1f8d0e6b949bc8ae787c251",
+    "lesson": "lesson-philippine-constitution-amendment-or-revision"
+  },
+  "q-philippine-constitution-amending-and-revising-the-constitution-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "82d6f45a63b653aa129fed92cd1830d09538276ad0c5de28c14ef07570b7a78d",
+    "lesson": "lesson-philippine-constitution-amendment-or-revision"
+  },
+  "q-philippine-constitution-amending-and-revising-the-constitution-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "11b650b163428db0ea7055e81e2d837a8f48cadf34535f2e00c0f09193a3776b",
+    "lesson": "lesson-philippine-constitution-congress-and-constitutional-conventions"
+  },
+  "q-philippine-constitution-amending-and-revising-the-constitution-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "901f7c99835643d275bdba6bb9d284e92168c89de5883f20d6e321271dcef0d9",
+    "lesson": "lesson-philippine-constitution-congress-and-constitutional-conventions"
+  },
+  "q-philippine-constitution-amending-and-revising-the-constitution-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "52b8613ade08b475a8b253072b9a589da4883b70fc2c9467bb07775eae28e35d",
+    "lesson": "lesson-philippine-constitution-congress-and-constitutional-conventions"
+  },
+  "q-philippine-constitution-amending-and-revising-the-constitution-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "788b3ed79a9bc9ad8e8f5b4dff300f1f173647e52e27529706a6e08f0135d0e9",
+    "lesson": "lesson-philippine-constitution-peoples-initiative"
+  },
+  "q-philippine-constitution-amending-and-revising-the-constitution-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "82248cfab8a0214e68cbf8939a02b2b008765d0e9c918b862ea31c181a850e9e",
+    "lesson": "lesson-philippine-constitution-peoples-initiative"
+  },
+  "q-philippine-constitution-amending-and-revising-the-constitution-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "d655f9589e22dc02f78fc4376b1b4ce35cd7ffdc1acd9429e2ea8eff8e4d9f3e",
+    "lesson": "lesson-philippine-constitution-peoples-initiative"
+  },
+  "q-philippine-constitution-amending-and-revising-the-constitution-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "fd924d3e6bb4430e0339b14a7acbc72a478c311341bc3eb00bca60a305ac2b44",
+    "lesson": "lesson-philippine-constitution-ratification-and-plebiscites"
+  },
+  "q-philippine-constitution-amending-and-revising-the-constitution-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "eb8845f0d02e32cb56a7a523465e59cde9ff130b4b4cfce84478d7554b51e014",
+    "lesson": "lesson-philippine-constitution-peoples-initiative"
+  },
+  "q-philippine-constitution-amending-and-revising-the-constitution-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "f571445adeaea8aae954b9ef602ca44861a34cf97aafb6a6f20fc98999156e34",
+    "lesson": "lesson-philippine-constitution-peoples-initiative"
+  },
+  "q-philippine-constitution-amending-and-revising-the-constitution-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "b766f5bc45e22f939877a966fa7d7998fc9ba85ed5c7438a7ecddf0bff965636",
+    "lesson": "lesson-philippine-constitution-ratification-and-plebiscites"
+  },
+  "q-philippine-constitution-amending-and-revising-the-constitution-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "9191b442c7fbec835c94bcb205ede35a598321f29190906b68b96dcaca36fa90",
+    "lesson": "lesson-philippine-constitution-ratification-and-plebiscites"
+  },
+  "q-philippine-constitution-amending-and-revising-the-constitution-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "71f0f2c500bc9ac2f33961e846b0badb29da71de06ba0b852bce5ac9af607243",
+    "lesson": "lesson-philippine-constitution-ratification-and-plebiscites"
+  },
+  "q-philippine-constitution-amending-and-revising-the-constitution-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "f2d57f3569ebd12712b70bf98231db8e3b4d4757ae01e12ce6b0d6133c8d88da",
+    "lesson": "lesson-philippine-constitution-ratification-and-plebiscites"
+  },
+  "q-philippine-constitution-amending-and-revising-the-constitution-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "b9f33a96187eb22466f1bba36a3f7c9dadcb75d5718346fd610e49792a4349c2",
+    "lesson": "lesson-philippine-constitution-congress-and-constitutional-conventions"
+  },
+  "q-philippine-constitution-amending-and-revising-the-constitution-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "7382e83f663390e0823ec6fd4b3a84a7bb9dc0790ba64209c971e514bc084301",
+    "lesson": "lesson-philippine-constitution-ratification-and-plebiscites"
+  },
+  "q-philippine-constitution-amending-and-revising-the-constitution-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "a672dce14fd35a9fdc6bce3e02c84b5cf02bcf9e96fc6a9dd74e66071afb7aed",
+    "lesson": "lesson-philippine-constitution-ratification-and-plebiscites"
+  },
+  "q-philippine-constitution-amending-and-revising-the-constitution-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "d1be7b538f67d480012497e22f76699d6d155d896c91872029efebde6a735319",
+    "lesson": "lesson-philippine-constitution-ratification-and-plebiscites"
+  },
+  "q-philippine-constitution-bill-of-rights-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "149d86ca2348e5b920ddcdb6df14f126374ecca07ae0323056d2acd1e0f3d7fc",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-due-process-and-equal-protection"
+  },
+  "q-philippine-constitution-bill-of-rights-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "206db2d6688d247aa4309004ac5ca382ee63256331c68ccd4d1258553a63d3e5",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-due-process-and-equal-protection"
+  },
+  "q-philippine-constitution-bill-of-rights-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "bc7bf503f5fc069409e0d89d3218c202cd03b18e128702321a4c29dae49f4f99",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-expression-and-public-action"
+  },
+  "q-philippine-constitution-bill-of-rights-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "c7c4fec7d9f4fbf5e888ed2f4d0ee54ca5c54aace4578e0e3a30dfe5acdc5453",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-property-and-contracts"
+  },
+  "q-philippine-constitution-bill-of-rights-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "4c53cf8d71cafffebe435f96803e5d660f0f5db66d31190762fc5342e530affc",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-property-and-contracts"
+  },
+  "q-philippine-constitution-bill-of-rights-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "ea2db697eb4bb1391d840bc884f91d824352612c430eb6af1c5bf87022774c8d",
+    "lesson": "lesson-philippine-constitution-habeas-corpus-suspension"
+  },
+  "q-philippine-constitution-bill-of-rights-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "420332b52d08ed0338d36b77ea1bc3383a7bf4af66ceba52b6dfd2e7d78b5640",
+    "lesson": "lesson-philippine-constitution-accused-charge-and-defense"
+  },
+  "q-philippine-constitution-bill-of-rights-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "13689954f556d72887be8847537c3e51be0426d1b399a8a9b0f3ab4c12486084",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-double-jeopardy-conditions"
+  },
+  "q-philippine-constitution-bill-of-rights-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "f11fe8087fd3ce7f4fee9da9e4eacd9de2e9e35d47300d5e47a08117bdafbb47",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-backward-penal-laws-and-legislative-punishment"
+  },
+  "q-philippine-constitution-bill-of-rights-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "7521c5c1c63b9a2c85bfba6586b613ab597286d7732eea68a8c903f33b50da95",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-backward-penal-laws-and-legislative-punishment"
+  },
+  "q-philippine-constitution-bill-of-rights-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "805ef587295484468b60c2c78b669f00018cd9ff6043a27177897a195db5f2e1",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-debt-and-poll-tax"
+  },
+  "q-philippine-constitution-bill-of-rights-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "f4d244dfa59e5323b4bb7e6d499cbaf877e93229232b179623de499704f3ad96",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-custodial-silence-counsel-and-waiver"
+  },
+  "q-philippine-constitution-bill-of-rights-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "012a5e6801da5cad510b98edbb032c6c88af5c19f245262e8ac20f497e903c1c",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-fines-and-prison-punishment"
+  },
+  "q-philippine-constitution-bill-of-rights-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "c83a149ec84aab5fcaebfee1b5af045fc314646265afc5ac38fd8593866f1c8e",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-search-and-arrest-warrants"
+  },
+  "q-philippine-constitution-bill-of-rights-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "7b81cc6ff5c67361a7de637a0e0a5e7b25422dcb9525ad8d44a0ec6ed34335f2",
+    "lesson": "lesson-philippine-constitution-forced-self-incrimination"
+  },
+  "q-philippine-constitution-bill-of-rights-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "d86aa0eaccce582175433659103dc18a4d0bb96f5f55315b8f5d0d6f605ac2bb",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-bail-before-conviction"
+  },
+  "q-philippine-constitution-bill-of-rights-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "990102f3a651e51c1a1f803fa05563d77fe2d612cfdcbaf2d4ceb68bf08ad282",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-court-access-and-legal-help"
+  },
+  "q-philippine-constitution-bill-of-rights-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "43ae3308fffb3d1cf9712fd443bd208d24dda7bff1cc36096d8fde4066698282",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-information-and-association"
+  },
+  "q-philippine-constitution-bill-of-rights-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "864c73358c0971f9b3f10fd6982aa952be5f47f5cc2a0c4904c85ade99c6b73f",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-expression-and-public-action"
+  },
+  "q-philippine-constitution-bill-of-rights-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "f718dfeb2c6a2e32e5ab4fdf2b20b5d5ec7d3654b8654f984a81ec7e960f05c2",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-religion-abode-and-travel"
+  },
+  "q-philippine-constitution-bill-of-rights-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "fa2c133f367760916e8ea108cb2245a93c4f0e0be2532ab85366fbdc52fd698e",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-property-courts-and-investigation"
+  },
+  "q-philippine-constitution-bill-of-rights-0022": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "4b452f2b6952d3818f90ba8639a82c7abd524fc4bca9cd5e76adb34ee62840bb",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-information-and-association"
+  },
+  "q-philippine-constitution-bill-of-rights-0023": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "02d3689f56bdc04e633e26879dd97ceb4e6281990a0d8c01adee886f71cadbba",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-due-process-and-equal-protection"
+  },
+  "q-philippine-constitution-bill-of-rights-0024": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "b3092606c758c48b36e23c6bf0e72f5eddeef20a530ae733d4470891fd1f45bb",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-consent-and-private-messages"
+  },
+  "q-philippine-constitution-bill-of-rights-0025": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "303aafda3fee866c7b646e6b40952112461e3963bedddb85d9265d7b32eff5fd",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-consent-and-private-messages"
+  },
+  "q-philippine-constitution-bill-of-rights-0026": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "9dda789daa0e9edf24ec0f499e0b6207eabd29d43de57aad72647802237208db",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-religion-abode-and-travel"
+  },
+  "q-philippine-constitution-bill-of-rights-0027": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "a9745d127a200b314a299318c54af490dfcb3349cefd7371ca5cfab650c2204b",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-search-and-arrest-warrants"
+  },
+  "q-philippine-constitution-bill-of-rights-0028": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "93d593d7e8bdb6d5d7ed44c236da1ca2228b3149a1f89dbf512f51056354bbe8",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-hot-pursuit-arrests"
+  },
+  "q-philippine-constitution-bill-of-rights-0029": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "bf59ebc4ccfd73390b7af9f54cd9e1837385fb29349116702d9511dc6c32a937",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-property-courts-and-investigation"
+  },
+  "q-philippine-constitution-bill-of-rights-0030": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "a51392386d425af75e815ceaaa4521c0e574e83ae41c9920726815420088b6ea",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-bail-trial-and-testimony"
+  },
+  "q-philippine-constitution-bill-of-rights-0031": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "325f34f0e95b91b6667052b611a6ce44772b7aaad7a258cf5b9b162bee7b5135",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-bail-trial-and-testimony"
+  },
+  "q-philippine-constitution-bill-of-rights-0032": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "4b7f425056e25785f35bd6c2b91ec4bc260a7da7a68cbacdd0d2094ba5de9bac",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-double-jeopardy"
+  },
+  "q-philippine-constitution-bill-of-rights-0033": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "2e0eb967a51c06ed0ed6df61730b6bb94b4f371b59a7608a1d82327e18c98a65",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-prohibited-laws"
+  },
+  "q-philippine-constitution-bill-of-rights-0034": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "0554e41f64bd878d55581b0dcdd9e24257cd9f85be764fc4ec207b9bb62a27db",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-arrest-in-an-officers-presence"
+  },
+  "q-philippine-constitution-bill-of-rights-0035": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "503edff1d03c850e36417d99ad812f302f1fb16c47ef8905d2281a0489333d7f",
+    "lesson": "lesson-philippine-constitution-habeas-corpus-suspension"
+  },
+  "q-philippine-constitution-bill-of-rights-0036": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "6dd53f15845bdd2a5947e316b841b443ab9e7e9dbd37057a95a80c132938e48d",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-arrest-in-an-officers-presence"
+  },
+  "q-philippine-constitution-bill-of-rights-0037": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "bec534c9adf0c972ff5dfc2b6fb1180211990c256bce1e80fdd13aa14099b2c5",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-hot-pursuit-arrests"
+  },
+  "q-philippine-constitution-bill-of-rights-0038": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "88e71c67394fbf6e2c7c7798b299811d06cd362d9721d22e6ddc9f39338627e0",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-property-courts-and-investigation"
+  },
+  "q-philippine-constitution-bill-of-rights-0039": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "a2f50b70baff5dc352dc7704a95f63b42e120f7460e86384db39b2c9104a1d8a",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-bail-trial-and-testimony"
+  },
+  "q-philippine-constitution-bill-of-rights-0040": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "6a66ae992131e9cb7fead1e7beb9825a210e84d4b863c0a7f0fcd521ba592338",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-bail-trial-and-testimony"
+  },
+  "q-philippine-constitution-bill-of-rights-0041": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "47c2b457a4f13420360b36ee0164616b7ce01e78108ea312e5c9f371aa0f6480",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-detention-and-punishment"
+  },
+  "q-philippine-constitution-bill-of-rights-0042": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "16868f791c67aded2ba652864f3fa1b717dbc11cc75230653bf68d75d9994033",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-detention-and-punishment"
+  },
+  "q-philippine-constitution-bill-of-rights-0043": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "94007ae4d201b2be40d1dded7352712d11fc806970c9e784d32b2d51f8a0f2c5",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-double-jeopardy"
+  },
+  "q-philippine-constitution-bill-of-rights-0044": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "f3f04496265d5b721eaa125cf486190d11996c7bf6d313fa0990ce6e3cd6bd4d",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-prohibited-laws"
+  },
+  "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "cd3efd57b694b1c4a7fcf3e4b98df7a1342fc8e5def3b5aa40b4ec89c0ddf439",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-property-and-contracts"
+  },
+  "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "476d5d2f2d18cafd93723d59c6b0b7383aeb317ff3cde6f63a2e7f0d162658c9",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-bail-before-conviction"
+  },
+  "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "831e82b4fc8248ad93ee88ac0ff84fa0b62cc378d2df1884dab33a86b0babcc3",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-bail-before-conviction"
+  },
+  "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "24abf8f9ceb2cc9922bb78b68f8a3f5dfff308fac7cbce112181e17aabed01f1",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-court-access-and-legal-help"
+  },
+  "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "6ee6cb570ea5755c1eb3906c52abcf11aa1c5619e2f5155fc321b2032c85c9f0",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-court-access-and-legal-help"
+  },
+  "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "716ee25b0e20a96277c0771ac67165269b1625fc817a5d3f963fc2d577263395",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-custodial-silence-counsel-and-waiver"
+  },
+  "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "146bb3f6164043fcc0645171789d97536e448931a24c0b2611272f5b832c259a",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-custodial-silence-counsel-and-waiver"
+  },
+  "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "72fa2815a21765f27f7183287de4cc9ef2c59db273fd0ae0683011fe540e4eab",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-custodial-silence-counsel-and-waiver"
+  },
+  "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "e9e2022ca43c7fe9cc9a7e2b43772e28e7a8faaa52554696284d3ef4857653e7",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-custodial-force-and-statements"
+  },
+  "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "c93d22a3898cc2fa52e6e5274d33d52afb3bef52ff8ecf64bb8c236009a00355",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-property-and-contracts"
+  },
+  "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "7f76b3435b43daa56b65c6d747201da68800456d51e78f8eb49649eb64c13ab1",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-property-and-contracts"
+  },
+  "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "c85e393f559149b9767ab18b500af62cbdd1a379888a574c6faf691d2c0eda4b",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-custodial-force-and-statements"
+  },
+  "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "a63246f706b2046f04acd4206c3047301cb3ffdf3dc412ce7002efb5663af3e2",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-custodial-force-and-statements"
+  },
+  "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "78ced742ab25d671636a3350a8b37f16cb0da7701efb80390eba9c28b01fda99",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-bail-before-conviction"
+  },
+  "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "290b175a9df1139d7120bc4f8b742f32d58ed533bb2314e12b38e42daecff541",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-bail-before-conviction"
+  },
+  "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "c20020b7c9b43a197e69b27e65cf33530ce65b02f895595ff77c09db46cfde27",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-political-beliefs-and-forced-service"
+  },
+  "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "55f75d6f27e5e945c3f4f38b787f65095fb8c6260e6d1c6fb32c5644ca6936e8",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-court-remedies-and-rights-investigations"
+  },
+  "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "30dd9f4e4bd6dba9fa865c1116a317b6201142c5f5b0362c9b859c596387a455",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-court-remedies-and-rights-investigations"
+  },
+  "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "ed54dd872fb823853b3d746c7d8589db42cf382ec17377939afcdcc85c9ce5c6",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-replacement-penalties-and-parole"
+  },
+  "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "2aed9cf7ca5def984ddb99a0be24f557ad16f0daf2d282956b0a3d2edb9867fd",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-replacement-penalties-and-parole"
+  },
+  "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "ce29569c7b3ac6eedab771bc07ff9ff7159893ea61ca5b0eab347a1fc745de24",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-debt-and-poll-tax"
+  },
+  "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "77ecacdfa5d2d2d983cc44160d3f53f42a289c4035a630e76b419abb7caf4e7f",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-double-jeopardy-conditions"
+  },
+  "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "558b348731afef9c64fe15a80867054fe7f525e3aaec4906b5418bf065c79110",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-double-jeopardy-covered-offenses"
+  },
+  "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "9d5793031c4e825a74e49e24ff19bb1ed0d07ef0c14274108810cbc74cd4738b",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-later-offenses-and-local-ordinances"
+  },
+  "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "2a4d8e1620f2bec3a8c7c0a27a531b624c787a7a3a72e969507edfc872a84938",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-later-offenses-and-local-ordinances"
+  },
+  "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "0899563b146336f37ac91d9f26e93bbe8b6a1e65efecb53d36a8156da4c50c8d",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-backward-penal-laws-and-legislative-punishment"
+  },
+  "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "c2fe88866c303a606b059d91a3fe359c14dfd5f621c45582f49298212a2e5974",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-requested-dismissals-and-acquittals"
+  },
+  "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "19f9a673f40b2aad08ffdff1e27b7d876606678d2669c818b894cb7f2b01019b",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-requested-dismissals-and-acquittals"
+  },
+  "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "7357ba35567af70394fd0ac67dce0f931cb1580c9f95278c032b0882cdcd0c41",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-requested-dismissals-and-acquittals"
+  },
+  "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "593962bb44071985461200c8b6b2f7eb18ada3c08be3a7639ea110e5c5a0d611",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-backward-penal-laws-and-legislative-punishment"
+  },
+  "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "703a386e11e60abec16b10e305db8f0c4b2b41320add19e5e140440f7f358222",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-political-beliefs-and-forced-service"
+  },
+  "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "8e6cfab277bba4ea839bd435da0659790a5274a0a226bef23f37f51def13af18",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-fines-and-prison-punishment"
+  },
+  "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "21d20a7c9fdd6cfa4c4667c819a4222000f289495b86e3559ac7e7b9c5d82383",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-double-jeopardy-covered-offenses"
+  },
+  "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "b37516edfd0853f22be128b8630726b8f9f7c3a27d0a4adeb73aac6889c89567",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-rights-claims-evidence-and-effects"
+  },
+  "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "dffbfb08cb09f15f0ab70c0d78a87d4fbe12e15aa28e56914246784bf004b1aa",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-rights-claims-evidence-and-effects"
+  },
+  "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "3b480ad519cdc848d6583d7292ac34f227355def7290d62439c8dfec1c901f72",
+    "lesson": "lesson-philippine-constitution-speedy-disposition-of-cases"
+  },
+  "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "68f8e493a51334fef6e23b109405ff991c2f59b83073b1f5dcb3113d5198be55",
+    "lesson": "lesson-philippine-constitution-accused-charge-and-defense"
+  },
+  "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "a5d46510434c92a55a5a1a898fe87fc54ca93d48fb0b1e554f5f983661178258",
+    "lesson": "lesson-philippine-constitution-accused-charge-and-defense"
+  },
+  "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "f65e0219b39bcbcfe6b29986e1d1d93aa15b14854eedc61d29bc15336a4589be",
+    "lesson": "lesson-philippine-constitution-accused-witnesses-and-absence"
+  },
+  "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "ec47c20db7502b778fe8bfa547d847fd0e45d01441a2b117739fd4fbe02c5379",
+    "lesson": "lesson-philippine-constitution-accused-fair-and-speedy-trial"
+  },
+  "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "c1f9bd9c25b132af403894096b480c6ad78e3fd137cea3a7e271484855f0a1d3",
+    "lesson": "lesson-philippine-constitution-accused-fair-and-speedy-trial"
+  },
+  "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "2f7df119567e46e41e28acd4c93bcba5aa62a6effee4877434a1998290f120a2",
+    "lesson": "lesson-philippine-constitution-accused-witnesses-and-absence"
+  },
+  "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "5179cbb70dc64301bb80d9786e24bd38ae092e5ef10e1e60b6c2e9cd8578b10c",
+    "lesson": "lesson-philippine-constitution-accused-witnesses-and-absence"
+  },
+  "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "dadac618a839f097540cd5f4c94e16464aab4ee22f0ab262394f2c676eca58ab",
+    "lesson": "lesson-philippine-constitution-accused-witnesses-and-absence"
+  },
+  "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "b8e6eb11027b9bf1b870b8ea0b205e3377d4487ccea9a791e0c7c3e8c5d70460",
+    "lesson": "lesson-philippine-constitution-habeas-corpus-suspension"
+  },
+  "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "238f42f07ec5097a3ac5027ee4ce660565e1c6b52d4c97964980e214fa1aec98",
+    "lesson": "lesson-philippine-constitution-habeas-corpus-suspension"
+  },
+  "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "a65b119cb405b062545b1acaeb14ba846f199e68871673917bf9154e544fc9dc",
+    "lesson": "lesson-philippine-constitution-accused-fair-and-speedy-trial"
+  },
+  "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "53f1056e1031c3357c889ef36e20aad823842d3d393e9393ffb33af94bff262e",
+    "lesson": "lesson-philippine-constitution-speedy-disposition-of-cases"
+  },
+  "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "ffa3f6f93626b0862c24c25f711c08cd366a21df23c3305b5959d9fd8355b12d",
+    "lesson": "lesson-philippine-constitution-speedy-disposition-of-cases"
+  },
+  "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "1b21b045c8e693c7f92e67e08343a1d9795c51a04c4822348d77e000c1225d3c",
+    "lesson": "lesson-philippine-constitution-forced-self-incrimination"
+  },
+  "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "b268fcd66b421154e05b0857622adadffb15b44ce9e519acfff8ec4a304f4b08",
+    "lesson": "lesson-philippine-constitution-forced-self-incrimination"
+  },
+  "q-philippine-constitution-citizenship-and-suffrage-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "6a155502d22533a452afd172eef436a8aebef406c61146a4d0c037b0f2822287",
+    "lesson": "lesson-philippine-constitution-citizenship-by-parentage"
+  },
+  "q-philippine-constitution-citizenship-and-suffrage-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "bd8f10434e1f46e6b1bdd2e4b4a3f1e32b7ab0ef9cc3016f1ca521a157b7e0ec",
+    "lesson": "lesson-philippine-constitution-natural-born-and-naturalized-citizens"
+  },
+  "q-philippine-constitution-citizenship-and-suffrage-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "2b039c26d6b0fe0de06437432e83e89851d9143a75ce522e75be14d7eb276dab",
+    "lesson": "lesson-philippine-constitution-keeping-and-regaining-citizenship"
+  },
+  "q-philippine-constitution-citizenship-and-suffrage-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "3cfef2d7c91a32114b2184184f6cac695e819c80f1deb417d961da8d68312498",
+    "lesson": "lesson-philippine-constitution-domestic-voting-qualifications"
+  },
+  "q-philippine-constitution-citizenship-and-suffrage-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "810767e777a66789e2862bc320829029af57f5eb18785d45d0248c7395f3147d",
+    "lesson": "lesson-philippine-constitution-domestic-voting-qualifications"
+  },
+  "q-philippine-constitution-citizenship-and-suffrage-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "5c5bc7a678b2c8703e802430e7f310314f0b01dd912193d801eb469f436b1775",
+    "lesson": "lesson-philippine-constitution-citizenship-by-parentage"
+  },
+  "q-philippine-constitution-citizenship-and-suffrage-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "cc2436f713a30e06417cb204737c2c0a1b2bbd1a0d6d2ea0cecfa7ba35bb0479",
+    "lesson": "lesson-philippine-constitution-natural-born-and-naturalized-citizens"
+  },
+  "q-philippine-constitution-citizenship-and-suffrage-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "c5af4be8dcf3a73315e9063176b5f454fd9ae1775663ffc5b8e75f646a890d3c",
+    "lesson": "lesson-philippine-constitution-natural-born-and-naturalized-citizens"
+  },
+  "q-philippine-constitution-citizenship-and-suffrage-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "b906787650683ad092cf0576ba60efa01aecfc4c6a6979a18b17855dd261d5a2",
+    "lesson": "lesson-philippine-constitution-keeping-and-regaining-citizenship"
+  },
+  "q-philippine-constitution-citizenship-and-suffrage-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "9fad5fb69e21e29eb3846cda243c6d6e673a2e810d1d14baec2de89c2f39f0bc",
+    "lesson": "lesson-philippine-constitution-keeping-and-regaining-citizenship"
+  },
+  "q-philippine-constitution-citizenship-and-suffrage-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "1f81970012a3eb5ad39ff4a97bbfaed02903fa80f4218a23ed519d832f5a9de5",
+    "lesson": "lesson-philippine-constitution-domestic-voting-qualifications"
+  },
+  "q-philippine-constitution-citizenship-and-suffrage-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "165eb6d196ad53d7619be6eceb422d6fa4ab905f4154a9de950ee06353a9ce9b",
+    "lesson": "lesson-philippine-constitution-domestic-voting-qualifications"
+  },
+  "q-philippine-constitution-citizenship-and-suffrage-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "0a0ea7ee7f5ea173edf10010d45a28e3ca536e6bdcf7d57fd14aa95c37cf1eb2",
+    "lesson": "lesson-philippine-constitution-ballot-protection-and-overseas-voting"
+  },
+  "q-philippine-constitution-citizenship-and-suffrage-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "76252ba01bd4291bcfbedc09fa9dd025ae3b9ee7cacc5ecea5492704a5f82dd7",
+    "lesson": "lesson-philippine-constitution-ballot-protection-and-overseas-voting"
+  },
+  "q-philippine-constitution-citizenship-and-suffrage-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "0ace8aa30f292fbc5c8bfbb38a61ae9e8412ce372b66c04fb81a074a7b572737",
+    "lesson": "lesson-philippine-constitution-keeping-and-regaining-citizenship"
+  },
+  "q-philippine-constitution-citizenship-and-suffrage-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "a9803d948b9aa088d5677c7390d4e940e13953048369d247c707c630daf64433",
+    "lesson": "lesson-philippine-constitution-keeping-and-regaining-citizenship"
+  },
+  "q-philippine-constitution-citizenship-and-suffrage-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "fd9c7cda62843e378c4f8d5310acebc410685cb46d99677c745de456a5096d0f",
+    "lesson": "lesson-philippine-constitution-ballot-protection-and-overseas-voting"
+  },
+  "q-philippine-constitution-citizenship-and-suffrage-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "a2012e3142896228980fccb94ef295bbae52bf17ebef7d1b81518e5705e54c1c",
+    "lesson": "lesson-philippine-constitution-keeping-and-regaining-citizenship"
+  },
+  "q-philippine-constitution-citizenship-and-suffrage-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "d1e425c64e353ba2673a1e98add7ecd881a465ec7c3addb6411ec408fc069793",
+    "lesson": "lesson-philippine-constitution-domestic-voting-qualifications"
+  },
+  "q-philippine-constitution-citizenship-and-suffrage-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "d940255115fc8175bb9fc3ccd6bfa491b32d10d638b80efa0cec2bca736c253a",
+    "lesson": "lesson-philippine-constitution-domestic-voting-qualifications"
+  },
+  "q-philippine-constitution-citizenship-and-suffrage-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "8d1c645346919819719c58aa93caff676ce07048c6972a498c4d735d7875bd68",
+    "lesson": "lesson-philippine-constitution-natural-born-and-naturalized-citizens"
+  },
+  "q-philippine-constitution-the-articles-in-outline-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "757480bbe37a66c36f75b1dd53f80aedcb50eee666b06ce21c2c53916dc99e93",
+    "lesson": "lesson-philippine-constitution-constitution-preamble-and-article-count"
+  },
+  "q-philippine-constitution-the-articles-in-outline-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "b50b0a500cf49a8c6e0d930cf8be43c4dd64257da4bf01423db804e894f7fd14",
+    "lesson": "lesson-philippine-constitution-constitution-articles-i-to-v"
+  },
+  "q-philippine-constitution-the-articles-in-outline-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "5973cc9cec56b2f06e3cb78b59bd321526f31b6ff9849bb4f640de8a279eb9ad",
+    "lesson": "lesson-philippine-constitution-constitution-articles-i-to-v"
+  },
+  "q-philippine-constitution-the-articles-in-outline-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "371d6d9ca4615197ed9c94f8185c0793c702f5076b1205a17b5cd64517682843",
+    "lesson": "lesson-philippine-constitution-constitution-articles-i-to-v"
+  },
+  "q-philippine-constitution-the-articles-in-outline-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "405899d058b94101cb412688b4c1555817d7b3d10b3d3d936ed0afcec19e86e5",
+    "lesson": "lesson-philippine-constitution-constitution-department-articles"
+  },
+  "q-philippine-constitution-the-articles-in-outline-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "8e96af4ea51400c44666cb5ee5122b46aede8958611b9b53d00522cd3f5b6811",
+    "lesson": "lesson-philippine-constitution-constitution-commission-articles"
+  },
+  "q-philippine-constitution-the-articles-in-outline-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "d5d0f2bd80252639121db600deaa6c375363ec0d2e62a6c8eb130ce5a94be076",
+    "lesson": "lesson-philippine-constitution-constitution-local-government-and-welfare"
+  },
+  "q-philippine-constitution-the-articles-in-outline-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "900861310fa581c2c848c814c144d86af10a03edb1ac989024bfe23b0aaf6a12",
+    "lesson": "lesson-philippine-constitution-constitution-local-government-and-welfare"
+  },
+  "q-philippine-constitution-the-articles-in-outline-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "5981f37f61268f9160f7abedea28780f1b5efb9d601e2731c445339a64c010ef",
+    "lesson": "lesson-philippine-constitution-constitution-other-fields-and-change"
+  },
+  "q-philippine-constitution-the-articles-in-outline-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "f24eeb1b1ffa7b1525990863dddd9cd25f8a139457f8728fea6f1ea909d9c47f",
+    "lesson": "lesson-philippine-constitution-constitution-other-fields-and-change"
+  },
+  "q-philippine-constitution-the-articles-in-outline-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "9c400015131ba0fe36a48bca360bc197b4c2a2ee30db7359f6dfb9306c3d96ce",
+    "lesson": "lesson-philippine-constitution-constitution-department-articles"
+  },
+  "q-philippine-constitution-the-articles-in-outline-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "55915826336efdcaaccb50e560702e41b4c516d97f08aec9b521a0c91422329e",
+    "lesson": "lesson-philippine-constitution-constitution-local-government-and-welfare"
+  },
+  "q-philippine-constitution-the-articles-in-outline-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "1fc7cad0d26b1453d4678a4a9997189cdc0ae472f0c6416804fc00a475a9c06f",
+    "lesson": "lesson-philippine-constitution-constitution-other-fields-and-change"
+  },
+  "q-philippine-constitution-the-articles-in-outline-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "9b371d003c31b42715ebfdb100b58f0515b704ac52f01a4e03e710c83029f137",
+    "lesson": "lesson-philippine-constitution-constitution-articles-i-to-v"
+  },
+  "q-philippine-constitution-the-articles-in-outline-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "ace469523c0b886df954a0fd116f0b01dd98ed76aa63a870c9a1ff98c50fb806",
+    "lesson": "lesson-philippine-constitution-constitution-department-articles"
+  },
+  "q-philippine-constitution-the-articles-in-outline-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "6baffbe0d9d4871567e69f94ace5f85381b9d255abb11f82f2a925a26e905135",
+    "lesson": "lesson-philippine-constitution-constitution-commission-articles"
+  },
+  "q-philippine-constitution-the-articles-in-outline-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "c1bc1a6c40ef7cd15e49c91c06fba101cc383abd24523bdafefb7e0dc0df7210",
+    "lesson": "lesson-philippine-constitution-constitution-preamble-and-article-count"
+  },
+  "q-philippine-constitution-the-articles-in-outline-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "7346abd3ba03ae45209cf1a58d2a8e01d6c1e66a4a8a3d804912bb141962d56a",
+    "lesson": "lesson-philippine-constitution-constitution-department-articles"
+  },
+  "q-philippine-constitution-the-articles-in-outline-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "dabc90ddbfc99bb4457e8b257e266376db31298aded6d01397086458a475f4e7",
+    "lesson": "lesson-philippine-constitution-constitution-other-fields-and-change"
+  },
+  "q-philippine-constitution-the-articles-in-outline-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "0d00dcdf9e5d7d34cbe2fcfca3e599f645752432d8e7e3d608aff8ca5e7d6880",
+    "lesson": "lesson-philippine-constitution-constitution-department-articles"
+  },
+  "q-philippine-constitution-the-articles-in-outline-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "76858d4d6e2b3594ff58e7df5fe7c30f6fffba15847da22729d261cf6ac1d678",
+    "lesson": "lesson-philippine-constitution-constitution-articles-i-to-v"
+  },
+  "q-philippine-constitution-the-articles-in-outline-0022": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "17368a95ca11325c6660969e096d6a3780ab2003834c3ee8757c7e7d8e5be8cd",
+    "lesson": "lesson-philippine-constitution-constitution-local-government-and-welfare"
+  },
+  "q-philippine-constitution-the-articles-in-outline-0023": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "e76755d06d66112b40be6fd9b22d42bd3e38e00c7744743e1700f13623cecf97",
+    "lesson": "lesson-philippine-constitution-constitution-other-fields-and-change"
+  },
+  "q-philippine-constitution-the-civil-service-commission-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "4b653a2e4302cad7c68bfbd02e5de76c0a46b716219dea145ea272c4d36ca90d",
+    "lesson": "lesson-philippine-constitution-csc-membership-and-citizenship"
+  },
+  "q-philippine-constitution-the-civil-service-commission-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "850b1cf797ccaed66c28f5db0794742d1113d6f92c48fe71855867bfa60b9553",
+    "lesson": "lesson-philippine-constitution-csc-membership-and-citizenship"
+  },
+  "q-philippine-constitution-the-civil-service-commission-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "8194233f32ba16d41aa34a0fff3a999e9065c61d2c483a90cc542ae71ae8047e",
+    "lesson": "lesson-philippine-constitution-csc-age-capacity-and-candidacy"
+  },
+  "q-philippine-constitution-the-civil-service-commission-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "a9941018c24501bee202467319895d1041b7c545599b5e1e40a15e74ccfd4548",
+    "lesson": "lesson-philippine-constitution-csc-appointments-and-terms"
+  },
+  "q-philippine-constitution-the-civil-service-commission-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "5bd617b7317c1755985176f5157e42bf61a40a6a2b97dc033e88985e6578d637",
+    "lesson": "lesson-philippine-constitution-csc-appointments-and-terms"
+  },
+  "q-philippine-constitution-the-civil-service-commission-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "0e086b2c5ad24f9a6cf17f02aa1a7ecef80c54229239a73608474f0997bf68eb",
+    "lesson": "lesson-philippine-constitution-csc-age-capacity-and-candidacy"
+  },
+  "q-philippine-constitution-the-civil-service-commission-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "1f3d82fa6ff71ae1d58fdb494014dc587463f0a31d57e7c22d5136ba1477da0c",
+    "lesson": "lesson-philippine-constitution-csc-personnel-and-career-service"
+  },
+  "q-philippine-constitution-the-civil-service-commission-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "4bf2ebf90732612fb0ef74205e534b869f08d5e38ce54807078f76581a8352c5",
+    "lesson": "lesson-philippine-constitution-csc-appointments-and-terms"
+  },
+  "q-philippine-constitution-the-civil-service-commission-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "1c38beccbc17736103df5e4a436a4b9515705b9ad8e778c85941fca630dc093b",
+    "lesson": "lesson-philippine-constitution-csc-age-capacity-and-candidacy"
+  },
+  "q-philippine-constitution-the-civil-service-commission-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "4968b0fd69718cb2bbd3ba62b4bc35067c1cf042d6e64ee0a3ff7970fd61e6c5",
+    "lesson": "lesson-philippine-constitution-csc-personnel-and-career-service"
+  },
+  "q-philippine-constitution-the-civil-service-commission-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "60de2801959a52d295e2729eee2e39d298d31f7159eb80cb6bd0adc58a477234",
+    "lesson": "lesson-philippine-constitution-csc-appointments-and-terms"
+  },
+  "q-philippine-constitution-the-civil-service-commission-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "deb75206c132fdd6d99d1179fbadfdd6ded6fbf08c91feafbe4427f1399c9083",
+    "lesson": "lesson-philippine-constitution-csc-independence-and-conflicts"
+  },
+  "q-philippine-constitution-the-civil-service-commission-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "148f039bdf9e02e09aab95465c13f34fe5227c30b6c82350edd4900db6bc2905",
+    "lesson": "lesson-philippine-constitution-csc-appointments-and-terms"
+  },
+  "q-philippine-constitution-the-civil-service-commission-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "54f14363efdb06582a492ba3a0869f4781fd8daabe8cc3301a0321ca800f5185",
+    "lesson": "lesson-philippine-constitution-csc-age-capacity-and-candidacy"
+  },
+  "q-philippine-constitution-the-civil-service-commission-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "5f4272ec3b82dae961bf563c26270c726df09d8f911d2f0bfc6249e260c94a4f",
+    "lesson": "lesson-philippine-constitution-csc-independence-and-conflicts"
+  },
+  "q-philippine-constitution-the-civil-service-commission-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "a76e893559b24d414c62479cd538bb2dda7d721ce1cb39861e349e21c3ee3169",
+    "lesson": "lesson-philippine-constitution-csc-membership-and-citizenship"
+  },
+  "q-philippine-constitution-the-civil-service-commission-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "c228b785f60438f50f4d9793b1534bf4f0eb244cf196f7fb7217a243b583e7e9",
+    "lesson": "lesson-philippine-constitution-csc-age-capacity-and-candidacy"
+  },
+  "q-philippine-constitution-the-civil-service-commission-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "d678e69b65d0a37ad822c4acb35fa9590097bee1718b63a9abfaca3e71f5ad92",
+    "lesson": "lesson-philippine-constitution-csc-age-capacity-and-candidacy"
+  },
+  "q-philippine-constitution-the-civil-service-commission-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "3b26cc1f50b120bc5ab70bdd6bfef955d79034c5714828826a059a6488d7af94",
+    "lesson": "lesson-philippine-constitution-csc-age-capacity-and-candidacy"
+  },
+  "q-philippine-constitution-the-civil-service-commission-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "ff84c3347ec7a84c6ba8aa835f4b292806b6bf32fe7ce49844fe7d8e2d7ac2ed",
+    "lesson": "lesson-philippine-constitution-csc-personnel-and-career-service"
+  },
+  "q-philippine-constitution-the-civil-service-commission-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "d13835f9ed69218158ac38d91f18512d99efd0aa0c74dddd5c34806959269cd5",
+    "lesson": "lesson-philippine-constitution-csc-civil-service-coverage"
+  },
+  "q-philippine-constitution-the-civil-service-commission-0022": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "c3bbd03ba458f1856bf969b3cf40e771a488085cd474fba07affb8358693a4d4",
+    "lesson": "lesson-philippine-constitution-csc-civil-service-coverage"
+  },
+  "q-philippine-constitution-the-civil-service-commission-0023": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "5913ed332c0cfef11633737028049b9f4dd3b9340e6edd00f7e94d795b200ea6",
+    "lesson": "lesson-philippine-constitution-csc-independence-and-conflicts"
+  },
+  "q-philippine-constitution-the-civil-service-commission-0024": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "d572840f8b7ea7cb1c55f2336596a866bde08fcf55ed5464898cab5449807b47",
+    "lesson": "lesson-philippine-constitution-csc-merit-and-examination-exceptions"
+  },
+  "q-philippine-constitution-the-civil-service-commission-0025": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "29b51f917967948497301f2f68804db967feb311cb5d992d89dab2346586b731",
+    "lesson": "lesson-philippine-constitution-csc-merit-and-examination-exceptions"
+  },
+  "q-philippine-constitution-the-civil-service-commission-0026": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "af25c105611059db5ca8e8a255602f03968ff96388ded6405820a190a65b8216",
+    "lesson": "lesson-philippine-constitution-csc-worker-protection-and-politics"
+  },
+  "q-philippine-constitution-the-civil-service-commission-0027": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "6895414b02603a471284658d90f3e40107bf90561e632111963c9bc25e167668",
+    "lesson": "lesson-philippine-constitution-csc-worker-protection-and-politics"
+  },
+  "q-philippine-constitution-the-three-branches-and-their-powers-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "c414f3b9bea8ffa01c948a150c5113d107d9c8436380f66a3b40d1289cf047e2",
+    "lesson": "lesson-philippine-constitution-congress-members-and-terms"
+  },
+  "q-philippine-constitution-the-three-branches-and-their-powers-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "d09cde99adb366c07712cbd68cb6bf6daf3d8206ac07fe92e81dd742bcb93aef",
+    "lesson": "lesson-philippine-constitution-congress-members-and-terms"
+  },
+  "q-philippine-constitution-the-three-branches-and-their-powers-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "ee492d326d3d597319e2979ac484a29c9ab5d7600465431d6f189ca2ed468998",
+    "lesson": "lesson-philippine-constitution-congress-bills-budget-and-inquiries"
+  },
+  "q-philippine-constitution-the-three-branches-and-their-powers-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "783269976e90962db8288b01d316342ce5146e801975947fa596ca73cd93dd0e",
+    "lesson": "lesson-philippine-constitution-president-terms-and-appointments"
+  },
+  "q-philippine-constitution-the-three-branches-and-their-powers-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "9639dfa26e650fb7cfc4c003ac498bdeca880438ebe5b27b5e9eb7e8d200437b",
+    "lesson": "lesson-philippine-constitution-president-clemency-and-treaties"
+  },
+  "q-philippine-constitution-the-three-branches-and-their-powers-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "dffa0692986fef77e1fb2632f1419633b27420f0ea5f7116cd7e943156e9b9b8",
+    "lesson": "lesson-philippine-constitution-elected-office-qualifications"
+  },
+  "q-philippine-constitution-the-three-branches-and-their-powers-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "e325fc6e281aeb135f60173bb6f8aa21151a0e112933aab602cea3eb897a1c9c",
+    "lesson": "lesson-philippine-constitution-elected-office-qualifications"
+  },
+  "q-philippine-constitution-the-three-branches-and-their-powers-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "1860084357262420ddab64878a99455cb8a98ef70d50516a7e45e2577ef46634",
+    "lesson": "lesson-philippine-constitution-elected-office-qualifications"
+  },
+  "q-philippine-constitution-the-three-branches-and-their-powers-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "aa2bae86534774f15f49a2b2bb9dbe153335fb8899c951dbd69a53b3fd2cd631",
+    "lesson": "lesson-philippine-constitution-courts-and-judicial-review"
+  },
+  "q-philippine-constitution-the-three-branches-and-their-powers-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "aee4d46b49a2f480fcdc30f19377ba893ed50711555ca71953c6eee0bbbe7a4d",
+    "lesson": "lesson-philippine-constitution-judicial-office-qualifications"
+  },
+  "q-philippine-constitution-the-three-branches-and-their-powers-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "1b6110317cbfeb367f40af4a36b3b042246114d75674fce3dcc0bcf9608e9a08",
+    "lesson": "lesson-philippine-constitution-commission-and-ombudsman-qualifications"
+  },
+  "q-philippine-constitution-the-three-branches-and-their-powers-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "56140b6754190fa247116acdcfa4136f1cefcdedb226f285f8ea76d148f439cb",
+    "lesson": "lesson-philippine-constitution-commission-and-ombudsman-qualifications"
+  },
+  "q-philippine-constitution-the-three-branches-and-their-powers-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "3a5b8ec12fdd3deb79eb99e4fe7d8f23a79ee51ede9c7d3b9a6d9c7610775c27",
+    "lesson": "lesson-philippine-constitution-commission-and-ombudsman-qualifications"
+  },
+  "q-philippine-constitution-the-three-branches-and-their-powers-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "a378813295b5a064b837b8cc8213942fad80de18f8d63f9ced3db21e70a6487e",
+    "lesson": "lesson-philippine-constitution-courts-and-judicial-review"
+  },
+  "q-philippine-constitution-the-three-branches-and-their-powers-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "971ad53424a7055ef37197ab0a750fe2bd7a4895b4cf9a0bb4b474ee7987340e",
+    "lesson": "lesson-philippine-constitution-president-emergency-powers"
+  },
+  "q-philippine-constitution-the-three-branches-and-their-powers-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "7935d035794d342f5442d5d1d4cc56f12113f9ab51e6b7a4ba6817a082740c06",
+    "lesson": "lesson-philippine-constitution-president-emergency-powers"
+  },
+  "q-philippine-constitution-the-three-branches-and-their-powers-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "e716bd2f63adfa873230a32a45cda971ba1f3697a94fe3dc737af03a1c59c0e0",
+    "lesson": "lesson-philippine-constitution-president-clemency-and-treaties"
+  },
+  "q-philippine-constitution-the-three-branches-and-their-powers-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "3dd92843398799a6d6999db2029aff09833a5bd38f6397effc873dccc1be22f7",
+    "lesson": "lesson-philippine-constitution-congress-war-and-veto-votes"
+  },
+  "q-philippine-constitution-the-three-branches-and-their-powers-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "2837c324f2870561e5d31aa42eaefc1a351fa47920c1f0bfcfbef8a93f504e40",
+    "lesson": "lesson-philippine-constitution-congress-war-and-veto-votes"
+  },
+  "q-philippine-constitution-the-three-branches-and-their-powers-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "c98034962d62a814fc8ea218b56b896238263cf001142a0393c79fd82092fbce",
+    "lesson": "lesson-philippine-constitution-congress-bills-budget-and-inquiries"
+  },
+  "q-philippine-constitution-the-three-branches-and-their-powers-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "79684050123ee92849ed0408649ed31fd9e1ac11677840ac545fb73d08c4f058",
+    "lesson": "lesson-philippine-constitution-branches-and-checks"
+  },
+  "q-philippine-constitution-the-three-branches-and-their-powers-0022": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "b8d762476f370c22d11d8309a40ea0dec418ddea0f9627479974dbbdb8225099",
+    "lesson": "lesson-philippine-constitution-branches-and-checks"
+  },
+  "q-philippine-constitution-the-three-branches-and-their-powers-0023": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "910446c2669c795ebcacbf5d790f5fc78423054bd9067681d140316af73d3283",
+    "lesson": "lesson-philippine-constitution-courts-and-judicial-review"
+  },
+  "q-philippine-constitution-the-three-branches-and-their-powers-0024": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "f19a3dc3d0c8744b15beff69aa00eb5be1786f8d9ebf8ae7d5654bc65950d220",
+    "lesson": "lesson-philippine-constitution-judicial-office-qualifications"
+  },
+  "q-philippine-constitution-the-three-branches-and-their-powers-0025": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/philippine-constitution.md",
+    "hash": "3d7e17337ef66f6b36d357e9df1e99c6fc2ab8ed5ed5d0d65e47a639b3e6f857",
+    "lesson": "lesson-philippine-constitution-president-terms-and-appointments"
   }
 }
