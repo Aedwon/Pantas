@@ -452,3 +452,135 @@ questions:
     explanation: |
       "Could I" makes the permission request polite. The reply uses evidence to reach a strong conclusion. "Must" does not give an order here.
     approved: false
+
+  - id: q-grammar-and-structure-tenses-and-voice-0028
+    lesson: lesson-grammar-and-structure-modals-ability-and-permission
+    keyPoint: 1
+    type: tense
+    difficulty: exam
+    stem: |
+      Select the form that correctly completes the sentence: "The new clerk can ___ routine inquiries without assistance."
+    choices:
+      - text: "answer"
+        correct: true
+      - text: "answers"
+        rationale: |
+          This adds -s after can. The singular clerk may suggest an -s ending. Use the base form after a modal.
+      - text: "answering"
+        rationale: |
+          This uses an -ing form directly after can. An ongoing task may suggest -ing. Check the form required after the modal.
+      - text: "to answer"
+        rationale: |
+          This adds to after can. Some other verbs take an infinitive with to. Can takes the base form directly.
+    explanation: |
+      Can is a modal. A modal takes the base form of the next verb. Answer is the base form: "The new clerk can answer routine inquiries without assistance."
+
+  - id: q-grammar-and-structure-tenses-and-voice-0029
+    lesson: lesson-grammar-and-structure-modals-ability-and-permission
+    keyPoint: 3
+    type: tense
+    difficulty: exam
+    stem: |
+      Which sentence uses "could" to request permission?
+    choices:
+      - text: "Could I use this desk?"
+        correct: true
+      - text: "I could type before I entered college."
+        rationale: |
+          This expresses general past ability. Could can make polite requests too. Check whether the speaker is asking to do something.
+      - text: "The records could arrive later this afternoon."
+        rationale: |
+          This presents an event as possible. Could has several meanings. Look for a request addressed to someone who can allow an action.
+      - text: "She could read those forms without glasses."
+        rationale: |
+          This describes ability. The word could alone does not make a request. Check whether permission is being asked.
+    explanation: |
+      "Could I use this desk?" politely asks someone to allow the speaker to use the desk. Could expresses a request for permission here.
+
+  - id: q-grammar-and-structure-tenses-and-voice-0030
+    lesson: lesson-grammar-and-structure-modals-requirements-and-possibility
+    keyPoint: 1
+    type: tense
+    difficulty: exam
+    stem: |
+      A notice states that bringing a printed reference sheet is optional. Which sentence preserves that meaning?
+    choices:
+      - text: "Applicants do not have to bring a sheet."
+        correct: true
+      - text: "Applicants must not bring a printed sheet."
+        rationale: |
+          This turns an optional action into a ban. Both forms contain a negative. Check whether the action is allowed or forbidden.
+      - text: "Applicants have to bring a printed reference sheet."
+        rationale: |
+          This turns an optional action into a requirement. The notice concerns what to bring. Check whether bringing it is required.
+      - text: "Applicants should bring a printed reference sheet."
+        rationale: |
+          This adds advice to an optional action. Should may sound less strict than must. Check whether the notice recommends the action or only leaves it optional.
+    explanation: |
+      Do not have to means an action is not required. It leaves bringing a sheet optional, as the notice states.
+
+  - id: q-grammar-and-structure-tenses-and-voice-0031
+    lesson: lesson-grammar-and-structure-modals-requirements-and-possibility
+    keyPoint: 2
+    type: tense
+    difficulty: exam
+    stem: |
+      In "The delivery might arrive after the office closes," what does "might" express?
+    choices:
+      - text: "Possibility"
+        correct: true
+      - text: "A strict requirement"
+        rationale: |
+          This treats a possible arrival as an order. Modals can state rules in other sentences. Check whether anyone is required to act here.
+      - text: "Permission to enter"
+        rationale: |
+          This reads the sentence as granting permission. May and might can suggest related ideas in some contexts. Ask whether this sentence allows an action or predicts a possible event.
+      - text: "General past ability"
+        rationale: |
+          This treats the delivery as something able to perform a skill. Could can express ability elsewhere. Check what might says about the arrival.
+    explanation: |
+      Might presents the late arrival as possible. The speaker does not say that the delivery is certain to arrive after closing.
+
+  - id: q-grammar-and-structure-tenses-and-voice-0032
+    lesson: lesson-grammar-and-structure-present-habits-and-ongoing-actions
+    keyPoint: 1
+    type: tense
+    difficulty: exam
+    stem: |
+      Choose the verb form that expresses a regular duty: "On every working day, the records officer ___ the incoming mail before distribution."
+    choices:
+      - text: "sorts"
+        correct: true
+      - text: "sorted"
+        rationale: |
+          This puts the duty in past time. The sentence describes a repeated task without a past time frame. Check the words every working day.
+      - text: "is sort"
+        rationale: |
+          This combines is with a base verb. Is may suggest present time. Use the simple present form for the stated regular duty.
+      - text: "sorting"
+        rationale: |
+          This leaves an -ing form without a finite helper. Repeated activity may suggest an action word. Check whether the sentence has a complete verb.
+    explanation: |
+      Every working day describes a habit. Simple present expresses that regular duty. The singular subject "the records officer" takes sorts.
+
+  - id: q-grammar-and-structure-tenses-and-voice-0033
+    lesson: lesson-grammar-and-structure-present-perfect-links-to-now
+    keyPoint: 3
+    type: tense
+    difficulty: exam
+    stem: |
+      Choose the verb form appropriate for the stated time: "The committee ___ its report yesterday afternoon."
+    choices:
+      - text: "submitted"
+        correct: true
+      - text: "has submitted"
+        rationale: |
+          This uses present perfect with a finished past time. The report may still matter now. Check whether the sentence names a completed past period.
+      - text: "has submit"
+        rationale: |
+          This uses a base form after has. Has may look right for a singular committee. Check both the verb form and yesterday afternoon.
+      - text: "will submit"
+        rationale: |
+          This places the action in the future. The task concerns a report. Use the stated past time to choose the tense.
+    explanation: |
+      Yesterday afternoon is a finished past time. Use simple past: "The committee submitted its report yesterday afternoon."

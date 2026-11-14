@@ -451,3 +451,91 @@ questions:
     explanation: |
       The remaining clauses are "The truck arrived" and "the driver unloaded the supplies." Both are independent and joined by "and," so the remaining sentence is compound.
     approved: false
+
+  - id: q-grammar-and-structure-sentence-structure-0021
+    lesson: lesson-grammar-and-structure-hugnayan-langkapan-at-ayos-ng-salaysay
+    keyPoint: 3
+    type: sentence-structure-classification
+    difficulty: exam
+    stem: |
+      Sa salaysay, unang inihanda ang ulat, kasunod itong sinuri, at pangwakas itong ipinasa. Aling hanay ng pananda ang angkop sa pagkakasunod na ito?
+    choices:
+      - text: "Una, pagkatapos, sa huli"
+        correct: true
+      - text: "Sa huli, pagkatapos nito, una"
+        rationale: |
+          Nabaligtad ang simula at wakas. Maaaring piliin mo ang mga salitang pamilyar nang hindi sinusuri ang ayos. Itugma ang una sa paghahanda.
+      - text: "Pagkatapos, sa huli, una"
+        rationale: |
+          Inilagay sa hulihan ang panandang para sa simula. Maaaring makilala mo ang bawat salita ngunit hindi ang ayos. Hanapin muna ang unang pangyayari.
+      - text: "Una, sa huli, pagkatapos"
+        rationale: |
+          Inilagay ang pangwakas bago ang kasunod na pangyayari. Maaaring mapansin mo lamang na tama ang una. Suriin din ang huling dalawang pananda.
+    explanation: |
+      Una ang paghahanda. Pagkatapos ang pagsusuri. Sa huli ang pagpasa. Tumutugma ang mga pananda sa simula, kasunod, at pangwakas.
+
+  - id: q-grammar-and-structure-sentence-structure-0022
+    lesson: lesson-grammar-and-structure-payak-at-tambalang-pangungusap
+    keyPoint: 1
+    type: sentence-structure-classification
+    difficulty: exam
+    stem: |
+      Alin sa mga sumusunod ang sugnay na makapag-iisa?
+    choices:
+      - text: "Inayos ng kawani ang pila."
+        correct: true
+      - text: "Dahil inayos ng kawani ang pila."
+        rationale: |
+          May simuno at panaguri ngunit naghihintay pa ng bunga. Maaaring isipin mong sapat na ang mga ito. Suriin kung buo na ang diwa.
+      - text: "Kapag inayos ng kawani ang pila."
+        rationale: |
+          Nagbibigay ito ng kondisyon na kailangan pang ituloy. Maaaring magmukhang buo dahil may kilos. Hanapin kung natapos na ang diwa.
+      - text: "Habang inaayos ng kawani ang pila."
+        rationale: |
+          Nagsasaad ito ng panahong may hinihintay pang pangyayari. May simuno at panaguri ito. Suriin kung kaya nitong tumayo nang mag-isa.
+    explanation: |
+      Buo ang diwa ng "Inayos ng kawani ang pila." Ang pila ang simuno at sinasabi ng panaguri kung ano ang ginawa rito. Hindi nito kailangan ng ibang sugnay upang mabuo ang diwa.
+
+  - id: q-grammar-and-structure-sentence-structure-0023
+    lesson: lesson-grammar-and-structure-payak-at-tambalang-pangungusap
+    keyPoint: 3
+    type: sentence-structure-classification
+    difficulty: exam
+    stem: |
+      Aling pangatnig ang angkop upang magbigay ng pagpipilian: "Maaari kang magpasa sa tanggapan, ___ maaari kang magpadala sa koreo"?
+    choices:
+      - text: "o"
+        correct: true
+      - text: "ngunit"
+        rationale: |
+          Pagsalungat ang ipinapakita nito. Maaaring mapansin mong magkaiba ang paraan. Suriin kung salungatan o pagpipilian ang hinihingi.
+      - text: "at"
+        rationale: |
+          Dagdag na diwa ang ipinapakita nito. Parehong maaaring gawin ang mga kilos. Piliin ang salitang malinaw na nagpapakita ng pagpipilian.
+      - text: "dahil"
+        rationale: |
+          Dahilan ang ipinapakilala nito. Magkaugnay ang dalawang paraan ngunit hindi dahilan ng isa ang isa. Suriin ang ugnayang hinihingi.
+    explanation: |
+      Ang o ay ginagamit para sa pagpipilian. Pinag-uugnay nito ang dalawang buong diwa bilang mga paraang mapagpipilian sa pagpapasa.
+
+  - id: q-grammar-and-structure-sentence-structure-0024
+    lesson: lesson-grammar-and-structure-simple-and-compound-sentences
+    keyPoint: 1
+    type: sentence-structure-classification
+    difficulty: exam
+    stem: |
+      Which group can stand alone as a complete sentence?
+    choices:
+      - text: "The supervisor signed the request."
+        correct: true
+      - text: "Although the supervisor signed the request."
+        rationale: |
+          Although makes this group dependent. It has a subject and a verb, which may make it look complete. Check whether it leaves you waiting for the main thought.
+      - text: "Because the supervisor signed the request."
+        rationale: |
+          Because introduces a reason that needs a main clause. The action is clear. Ask what happened because of it.
+      - text: "When the supervisor signed the request."
+        rationale: |
+          When leaves the reader waiting for another event. A subject and verb alone can still form a dependent clause. Check whether the thought is complete.
+    explanation: |
+      "The supervisor signed the request" has the subject "the supervisor" and the verb signed. It gives a complete thought and is an independent clause.

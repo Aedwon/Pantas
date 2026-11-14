@@ -451,3 +451,91 @@ questions:
     explanation: |
       "Extremely" tells how diligent the students were, so it is an adverb. "Diligent" describes the students, so it is an adjective. "Quietly" describes how they finished, so it is an adverb. "Before" joins the dependent clause "the bell rang" to the main clause, so it is a conjunction in traditional school grammar.
     approved: true
+
+  - id: q-grammar-and-structure-parts-of-speech-0021
+    lesson: lesson-grammar-and-structure-pang-ukol-pangatnig-at-pandamdam
+    keyPoint: 1
+    type: parts-of-speech-identification
+    difficulty: exam
+    stem: |
+      Sa "Naghanda ang tanggapan ng mga upuan para sa mga bisita," anong bahagi ng pananalita ang "para sa" batay sa ugnayang ipinapakita nito?
+    choices:
+      - text: "Pang-ukol"
+        correct: true
+      - text: "Pangatnig"
+        rationale: |
+          Itinuring itong pangdugtong ng dalawang kilos o sugnay. May ugnayan itong ipinapakita. Suriin kung ang kasunod ay grupo ng pangngalan.
+      - text: "Pang-abay"
+        rationale: |
+          Itinuring na paglalarawan ng paghahanda ang mismong pang-ugnay. May dagdag itong detalye sa pangungusap. Suriin ang pag-uugnay nito sa mga bisita.
+      - text: "Pangngalan"
+        rationale: |
+          Itinuring na pangalan ng tumanggap ang pananda. May mga bisitang kasunod nito. Ihiwalay ang pang-ugnay sa pangalang ipinapakilala nito.
+    explanation: |
+      Ang para sa ay pang-ukol. Iniuugnay nito ang mga bisita sa mga upuan. Ipinapakita nitong para sa mga bisita ang mga upuan.
+
+  - id: q-grammar-and-structure-parts-of-speech-0022
+    lesson: lesson-grammar-and-structure-pang-ukol-pangatnig-at-pandamdam
+    keyPoint: 2
+    type: parts-of-speech-identification
+    difficulty: exam
+    stem: |
+      Sa "Naku! Naiwan ko sa bahay ang aking pagkakakilanlan," paano gumagana ang "Naku"?
+    choices:
+      - text: "Pandamdam"
+        correct: true
+      - text: "Pangngalan"
+        rationale: |
+          Itinuring na pangalan ng damdamin ang tuwirang reaksiyon. May damdaming ipinapahayag ang salita. Suriin kung pinapangalanan nito ang damdamin o ipinahahayag ito.
+      - text: "Pangatnig"
+        rationale: |
+          Itinuring itong pangdugtong ng mga diwa. Nauuna ito sa ibang pangungusap. Suriin kung may dalawang bahaging pinag-uugnay.
+      - text: "Pandiwa"
+        rationale: |
+          Itinuring na kilos ang reaksiyon. May pangyayaring ikinabahala ang nagsasalita. Hanapin ang salitang nagsasaad ng pagkakaiwan.
+    explanation: |
+      Ang Naku ay maikling pahayag ng reaksiyon o damdamin. Kaya pandamdam ang gamit nito.
+
+  - id: q-grammar-and-structure-parts-of-speech-0023
+    lesson: lesson-grammar-and-structure-pang-uri-at-pang-abay
+    keyPoint: 2
+    type: parts-of-speech-identification
+    difficulty: exam
+    stem: |
+      Sa "Sinuri ng mga kawani ang mga kahon sa bodega," aling pangkat ang nagsasabi ng lugar ng pagsusuri at gumaganap na pang-abay na panlunan?
+    choices:
+      - text: "sa bodega"
+        correct: true
+      - text: "ng mga kawani"
+        rationale: |
+          Tinutukoy nito ang gumawa ng kilos. Nasa tabi ito ng pandiwa kaya maaaring mapagkamalang paglalarawan ng kilos. Itanong kung saan ginawa ang pagsusuri.
+      - text: "ang mga kahon"
+        rationale: |
+          Tinutukoy nito ang mga bagay na sinuri. Nasa pangungusap ang mga kahon ngunit hindi sila ang lugar. Hanapin ang sagot sa saan.
+      - text: "Sinuri ng mga kawani"
+        rationale: |
+          Kilos at gumawa ang kasama rito. Maaaring mapili ang malaking bahagi ng pangungusap. Ihiwalay ang pangkat na nagsasabi lamang ng lugar.
+    explanation: |
+      Ang sagot sa "Saan sinuri ang mga kahon?" ay sa bodega. Ang buong pangkat na ito ang gumaganap na pang-abay na panlunan.
+
+  - id: q-grammar-and-structure-parts-of-speech-0024
+    lesson: lesson-grammar-and-structure-pangalan-kilos-at-pandiwari
+    keyPoint: 3
+    type: parts-of-speech-identification
+    difficulty: exam
+    stem: |
+      Sa tradisyunal na pag-uuring gumagamit ng pandiwari, paano ginagamit ang salitang nasa bold sa "Inihatid ng kawani sa klinika ang **nahimatay**"?
+    choices:
+      - text: "Pandiwaring gamit na pangngalan"
+        correct: true
+      - text: "Pandiwang nagsasaad ng ginawa ng kawani"
+        rationale: |
+          Napagpalit ang ginawa ng kawani at nangyari sa tinulungan. Mula sa pandiwa ang nahimatay. Hanapin kung sino ang tinutukoy nito rito.
+      - text: "Pang-abay na nagsasaad ng lugar ng kilos"
+        rationale: |
+          Napagpalit ang taong inihatid at ang klinika. May lugar na binanggit sa pangungusap. Tingnan kung aling salita ang talagang tumutukoy sa lugar.
+      - text: "Pangatnig na nag-uugnay ng dalawang kilos"
+        rationale: |
+          Itinuring na pangdugtong ang anyong mula sa pandiwa. May dalawang pangyayaring nabanggit. Suriin kung nag-uugnay ang salita o tumutukoy sa tao.
+    explanation: |
+      Ang nahimatay ay mula sa pandiwa. Dito, tumutukoy ito sa taong inihatid sa klinika. Sa itinakdang pag-uuri, pandiwari itong ginagamit na parang pangngalan.

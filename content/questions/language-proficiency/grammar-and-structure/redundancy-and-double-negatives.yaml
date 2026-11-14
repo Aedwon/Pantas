@@ -451,3 +451,47 @@ questions:
     explanation: |
       "Not unreasonable" gives a qualified positive judgment. It calls the proposal fairly reasonable without the stronger claim that it is perfect.
     approved: false
+
+  - id: q-grammar-and-structure-redundancy-and-double-negatives-0021
+    lesson: lesson-grammar-and-structure-keeping-needed-repetition
+    keyPoint: 1
+    type: redundancy-identification
+    difficulty: exam
+    stem: |
+      An officer gave an instruction, then repeated it when asked. A late arrival missed both readings. In "Please repeat the instruction again for the late arrival," what does "again" add?
+    choices:
+      - text: "It requests a further repeat."
+        correct: true
+      - text: "It says the instruction has never been repeated."
+        rationale: |
+          This overlooks the repeat already given. Repeat can suggest doing something another time. Count what has happened before this request.
+      - text: "It changes the request into a warning about delay."
+        rationale: |
+          This confuses another repetition with a warning. The late arrival may suggest delay. Ask what action the speaker requests.
+      - text: "It requires the officer to change the instruction."
+        rationale: |
+          This treats another reading as new wording. A new listener may need help. Check whether the request asks for a change or another repeat.
+    explanation: |
+      The officer has already repeated the instruction. Again points to one more repeat for the late arrival. It adds that further repetition to the request.
+
+  - id: q-grammar-and-structure-redundancy-and-double-negatives-0022
+    lesson: lesson-grammar-and-structure-qualified-negatives-and-near-negatives
+    keyPoint: 3
+    type: redundancy-identification
+    difficulty: exam
+    stem: |
+      Which statement preserves the meaning of "The employee seldom requests an extension"?
+    choices:
+      - text: "The employee rarely requests extra time."
+        correct: true
+      - text: "The employee never requests any extra time."
+        rationale: |
+          This turns a low frequency into none at all. Seldom has a negative meaning. Check whether it still allows an occasional request.
+      - text: "The employee regularly requests extra time."
+        rationale: |
+          This changes rarely to often. Both describe a pattern of requests. Check how frequent seldom says the action is.
+      - text: "The employee always receives extra time when requested."
+        rationale: |
+          This changes a statement about requesting into one about receiving. Both mention extra time. Check which action seldom describes.
+    explanation: |
+      Seldom means not often or rarely. An extension gives extra time. The sentence says the employee rarely requests extra time.

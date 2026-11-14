@@ -451,3 +451,69 @@ questions:
     explanation: |
       "Their homes" refers to separate homes belonging to the members. Under the stated variety of English, plural "their" emphasizes those people within the committee.
     approved: false
+
+  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0021
+    lesson: lesson-grammar-and-structure-mga-anyo-ng-panghalip-panao
+    keyPoint: 3
+    type: pronoun-reference
+    difficulty: exam
+    stem: |
+      Ang mga boluntaryo ang tatanggap ng mga kagamitan. Palitan ng panghalip ang "sa mga boluntaryo" sa "Ibinigay ng tagapangasiwa sa mga boluntaryo ang mga kagamitan."
+    choices:
+      - text: "sa kanila"
+        correct: true
+      - text: "sila"
+        rationale: |
+          Anyong ang ito. Maaaring dami lamang ng tao ang tingnan mo. Para sa tatanggap, piliin ang anyong sa.
+      - text: "nila"
+        rationale: |
+          Anyong ng ito. Maaaring isipin mong lahat ng maramihang panghalip ay puwede. Suriin kung sino ang tumanggap.
+      - text: "para sa kaniya"
+        rationale: |
+          Isang tao ang tinutukoy nito. May panandang sa kaya maaari itong magmukhang tama. Panatilihin ang maramihang tatanggap.
+    explanation: |
+      Ang mga boluntaryo ang tumanggap. Kailangan ang anyong sa para sa maraming taong pinag-uusapan: sa kanila. "Ibinigay ng tagapangasiwa sa kanila ang mga kagamitan."
+
+  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0022
+    lesson: lesson-grammar-and-structure-tinutukoy-at-pagmamay-ari-sa-panghalip
+    keyPoint: 1
+    type: pronoun-reference
+    difficulty: exam
+    stem: |
+      Si Elena ang may-ari ng aklat. Aling panghalip ang angkop sa sasabihin niya: "___ ang aklat na nasa mesa"?
+    choices:
+      - text: "Akin"
+        correct: true
+      - text: "Ako"
+        rationale: |
+          Anyong para sa taong itinatampok ang napili. Si Elena ang nagsasalita. Suriin na pagmamay-ari ng aklat ang ipinahahayag niya.
+      - text: "Ko"
+        rationale: |
+          Anyong ng ang napili. Wasto ito sa aklat ko. Tingnan ang ibang ayos na nauuna ang nagsasabi ng may-ari.
+      - text: "Sa akin"
+        rationale: |
+          Nagdagdag ng sa sa ayos na hindi ito kailangan. Pamilyar ang sa akin bilang tagatanggap. Gamitin ang akin kapag sinasabi kung kanino ang aklat sa ayos na ito.
+    explanation: |
+      Nauuna ang nagsasabi ng may-ari. Si Elena mismo ang nagsasalita, kaya akin ang gamitin: "Akin ang aklat na nasa mesa."
+
+  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0023
+    lesson: lesson-grammar-and-structure-tinutukoy-at-pagmamay-ari-sa-panghalip
+    keyPoint: 2
+    type: pronoun-reference
+    difficulty: exam
+    stem: |
+      Kausap ni Ruben si Mila. Dadalo si Ruben at ang kaniyang mga kasama, ngunit hindi dadalo si Mila. Aling panghalip ang angkop sa sasabihin ni Ruben: "___ ang dadalo sa pagpupulong"?
+    choices:
+      - text: "Kami"
+        correct: true
+      - text: "Tayo"
+        rationale: |
+          Isinama nito ang kausap na si Mila. Maaaring mapili ito dahil may pangkat na dadalo. Suriin kung kasama ang kausap sa pangkat.
+      - text: "Sila"
+        rationale: |
+          Inalis nito ang nagsasalitang si Ruben sa pangkat. Maraming dadalo kaya maaari itong magmukhang tama. Suriin kung kasama ang nagsasalita.
+      - text: "Kayong lahat"
+        rationale: |
+          Ang mga kausap ang tinutukoy nito. May binabanggit na pangkat sa sitwasyon. Tukuyin kung nagsasalita o kausap ang kasama sa dadalo.
+    explanation: |
+      Kasama si Ruben na nagsasalita. Hindi kasama si Mila na kausap. Kami ang tumutukoy sa nagsasalita at mga kasama niya na hindi kasama ang kausap.

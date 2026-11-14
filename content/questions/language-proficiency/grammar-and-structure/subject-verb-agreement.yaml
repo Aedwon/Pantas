@@ -451,3 +451,91 @@ questions:
     explanation: |
       The proximity convention gives plural "were" from nearer "players." For the second clause, the stem explicitly specifies the standard American-English unit reading of "crowd," giving singular "was."
     approved: true
+
+  - id: q-grammar-and-structure-subject-verb-agreement-0021
+    lesson: lesson-grammar-and-structure-aspekto-at-paksa-sa-filipino
+    keyPoint: 1
+    type: subject-verb-agreement
+    difficulty: exam
+    stem: |
+      Kasalukuyang nasa hapag si Nena at hindi pa tapos sa pagkain. Aling anyo ang angkop sa pangungusap: "___ pa si Nena habang hinihintay ang kaniyang kasama"?
+    choices:
+      - text: "Kumakain"
+        correct: true
+      - text: "Kumain"
+        rationale: |
+          Tapos na kilos ang ipinapakita nito. Maaaring mapansin mo lamang na nagsimula na siyang kumain. Suriin kung tapos na o nagpapatuloy pa ang kilos.
+      - text: "Kakain"
+        rationale: |
+          Hindi pa nasisimulang kilos ang ipinapakita nito. Maaaring maisip mo ang paghihintay sa kasama. Tingnan na kumakain na si Nena.
+      - text: "Kakakain lamang"
+        rationale: |
+          Katatapos na kilos ang ipinapakita nito. Maaaring mapagkamalan ang kasalukuyang oras na katatapos na kilos. Suriin kung nagpapatuloy pa ang pagkain.
+    explanation: |
+      Nagaganap pa ang pagkain ni Nena. Kaya kumakain ang angkop na anyo: "Kumakain pa si Nena habang hinihintay ang kaniyang kasama."
+
+  - id: q-grammar-and-structure-subject-verb-agreement-0022
+    lesson: lesson-grammar-and-structure-aspekto-at-paksa-sa-filipino
+    keyPoint: 2
+    type: subject-verb-agreement
+    difficulty: exam
+    stem: |
+      Gawing maramihan ang paksa ng "Kumakain ng tanghalian ang kawani." Panatilihin ang kalagayan ng kilos. Alin ang wastong pagbabago?
+    choices:
+      - text: "Kumakain ng tanghalian ang mga kawani."
+        correct: true
+      - text: "Kumain na ng tanghalian ang mga kawani."
+        rationale: |
+          Ginawang tapos ang nagpapatuloy na kilos. Maaaring isipin mong kailangang baguhin ang pandiwa kapag dumami ang paksa. Bilang lamang ng kawani ang baguhin.
+      - text: "Kakain pa lamang ng tanghalian ang mga kawani."
+        rationale: |
+          Ginawang hindi pa nagsisimula ang kilos. Maaaring maitugma mo ang bagong paksa sa ibang aspekto. Panatilihin ang kumakain.
+      - text: "Katatapos lamang kumain ng tanghalian ang mga kawani."
+        rationale: |
+          Ginawang katatapos ang kilos. Maaaring mauna mong pansinin ang maramihang paksa. Suriing nagaganap pa rin ang pagkain.
+    explanation: |
+      Ang mga kawani ang maramihang paksa. Nananatili ang kumakain dahil nagpapatuloy pa rin ang kilos. Hindi kailangang baguhin ang pandiwa dahil lamang dumami ang paksa.
+
+  - id: q-grammar-and-structure-subject-verb-agreement-0023
+    lesson: lesson-grammar-and-structure-mga-gamit-ng-pananda
+    keyPoint: 2
+    type: subject-verb-agreement
+    difficulty: exam
+    stem: |
+      Sa "Inihatid ng kawani ang katibayan sa aplikante," ano ang papel ng "sa aplikante"?
+    choices:
+      - text: "Tagatanggap ng katibayan"
+        correct: true
+      - text: "Lugar na ginanapan ng paghahatid"
+        rationale: |
+          Ginawang lugar ang taong tumanggap. Madalas magpakilala ng lugar ang sa. Itanong kung kanino inihatid ang katibayan.
+      - text: "Direksiyong walang tinutukoy na tao"
+        rationale: |
+          Binalewala ang aplikanteng tumanggap. Maaaring magpahiwatig ng patutunguhan ang sa. Tingnan kung tao ang binigyan ng bagay.
+      - text: "Gumagawa ng paghahatid ng katibayan"
+        rationale: |
+          Napagpalit ang kawani at aplikante. Pareho silang tao sa pangungusap. Hanapin kung sino ang naghatid at sino ang tumanggap.
+    explanation: |
+      Sinasagot ng "sa aplikante" ang tanong na "Kanino inihatid ang katibayan?" Ang aplikante ang tagatanggap.
+
+  - id: q-grammar-and-structure-subject-verb-agreement-0024
+    lesson: lesson-grammar-and-structure-pokus-at-papel-ng-paksa
+    keyPoint: 2
+    type: subject-verb-agreement
+    difficulty: exam
+    stem: |
+      Sa "Sumulat si Mara ng liham," si Mara ang paksa. Aling pangungusap ang ginagawang paksa ang liham habang pinananatili ang gumawa at tapos na kilos?
+    choices:
+      - text: "Sinulat ni Mara ang liham."
+        correct: true
+      - text: "Sumulat si Mara ng mahalagang liham."
+        rationale: |
+          Si Mara pa rin ang paksa rito. Maaaring mapansin mo lamang ang salitang liham. Hanapin kung alin ang may ang o si.
+      - text: "Sinusulat ni Mara ang mahalagang liham."
+        rationale: |
+          Nagaganap pa ang kilos dito. Naging paksa ang liham kaya maaaring magmukhang tama. Suriin din kung tapos na ang kilos.
+      - text: "Susulatin ni Mara ang mahalagang liham."
+        rationale: |
+          Hindi pa nasisimulan ang kilos dito. Tama ang paksa ngunit nagbago ang kalagayan ng kilos. Panatilihin ang tapos na pagsulat.
+    explanation: |
+      Sa "Sinulat ni Mara ang liham," ang liham ang paksa at bagay na sinulat. Si Mara pa rin ang gumawa. Tapos na rin ang kilos.

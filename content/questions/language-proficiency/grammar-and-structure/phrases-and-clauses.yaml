@@ -451,3 +451,69 @@ questions:
     explanation: |
       "It lost" is an independent clause. It completes the sentence and supplies a result that contrasts with the weeks of practice.
     approved: false
+
+  - id: q-grammar-and-structure-phrases-and-clauses-0021
+    lesson: lesson-grammar-and-structure-finite-verbs-and-ing-groups
+    keyPoint: 1
+    type: phrase-clause-identification
+    difficulty: exam
+    stem: |
+      In "The assistant is preparing the documents to submit before closing," which word supplies the finite verb form?
+    choices:
+      - text: "is"
+        correct: true
+      - text: "preparing"
+        rationale: |
+          This is an -ing form. It may look complete because it names the main action. Find the helper that carries tense.
+      - text: "to submit"
+        rationale: |
+          This is an infinitive group. It names an action but does not carry tense. Look for the tense form in the main verb group.
+      - text: "closing"
+        rationale: |
+          This -ing form names the closing event. Its place after before may draw attention to time. Find the verb that supplies tense for the assistant.
+    explanation: |
+      The main verb group is "is preparing." Is supplies the present tense form. It is the finite verb.
+
+  - id: q-grammar-and-structure-phrases-and-clauses-0022
+    lesson: lesson-grammar-and-structure-infinitive-phrases-and-nonfinite-clauses
+    keyPoint: 1
+    type: phrase-clause-identification
+    difficulty: exam
+    stem: |
+      Using basic school grammar, classify the words in bold: "The applicant hopes **to obtain a certified copy** before the office closes."
+    choices:
+      - text: "Infinitive phrase"
+        correct: true
+      - text: "Independent clause"
+        rationale: |
+          This treats the action group as a complete thought. The group names what the applicant hopes to do. Check whether it has its own finite verb.
+      - text: "Finite dependent clause"
+        rationale: |
+          This treats to obtain as a tense form. The group depends on the main clause. Check whether its verb actually carries tense.
+      - text: "Complete formal sentence"
+        rationale: |
+          This treats an understood doer as enough for a sentence. The applicant is understood to act. Check whether the group can stand alone.
+    explanation: |
+      In basic school grammar, an infinitive and the words that go with it form an infinitive phrase. The group begins with "to obtain" and tells what the applicant hopes to do.
+
+  - id: q-grammar-and-structure-phrases-and-clauses-0023
+    lesson: lesson-grammar-and-structure-infinitive-phrases-and-nonfinite-clauses
+    keyPoint: 2
+    type: phrase-clause-identification
+    difficulty: exam
+    stem: |
+      Which entry is a complete formal sentence rather than an infinitive group that needs a main clause?
+    choices:
+      - text: "The unit plans to revise the policy."
+        correct: true
+      - text: "To revise the policy before the next inspection."
+        rationale: |
+          This group has an infinitive but no finite main verb. Its purpose sounds complete. Find a subject and a verb that carries tense.
+      - text: "To have the policy revised before the inspection."
+        rationale: |
+          This longer infinitive group still has no finite main verb. Extra words can make a fragment look complete. Find the tense form.
+      - text: "To revise the policy and to notify all employees."
+        rationale: |
+          Joining two infinitives does not supply a main clause. The two actions may look like a full sentence. Look for a finite verb.
+    explanation: |
+      The unit is the subject, and plans is the finite verb. The group "to revise the policy" tells what the unit plans to do. Together they give a complete thought.
