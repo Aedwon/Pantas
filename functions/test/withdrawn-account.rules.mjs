@@ -73,7 +73,7 @@ for (const state of Object.keys(fixtures)) {
       const shareId = `${anonymous ? 'c' : 'd'}${Object.keys(fixtures).indexOf(state)}`.padEnd(32, 'e');
       // Anonymous accounts can no longer publish a card, whatever their consent state.
       await (anonymous ? assertFails : check)(setDoc(doc(db, `wrapped_shares/${shareId}`), {ownerUid: uid, storagePath: `wrapped/${uid}/${shareId}.png`, revoked: false,
-        expireAt: new Date(Date.now() + 80 * 86_400_000)}));
+        purgeAt: new Date(Date.now() + 80 * 86_400_000)}));
       await check(updateDoc(doc(db, `wrapped_shares/${state.padEnd(32, 'b').slice(0, 32)}`), {revoked: true}));
     }
   });

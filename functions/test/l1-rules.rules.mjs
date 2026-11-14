@@ -240,7 +240,7 @@ test('generation preferences must be a bounded map; clients cannot create or cha
 test('wrapped_shares: owner creates the exact client shape and may only revoke', async () => {
   const id = 'd'.repeat(32);
   const record = {ownerUid: OWNER, storagePath: `wrapped/${OWNER}/${id}.png`, archetypeId: 'night_owl',
-    createdAt: serverTimestamp(), revoked: false, expireAt: new Date(Date.now() + 80 * 86_400_000)};
+    createdAt: serverTimestamp(), revoked: false, purgeAt: new Date(Date.now() + 80 * 86_400_000)};
   const ref = doc(named(OWNER), 'wrapped_shares', id);
   await assertFails(setDoc(ref, {...record, extra: 'x'}));
   await assertFails(setDoc(ref, {...record, archetypeId: 'a'.repeat(65)}));
@@ -248,13 +248,13 @@ test('wrapped_shares: owner creates the exact client shape and may only revoke',
   await assertFails(setDoc(ref, {...record, createdAt: 'now'}));
   await assertFails(setDoc(ref, {...record, revoked: true}));
   await assertFails(setDoc(doc(anon(OWNER), 'wrapped_shares', id), record));
-  const {expireAt, ...withoutExpiry} = record;
-  await assertFails(setDoc(ref, withoutExpiry));
-  await assertFails(setDoc(ref, {...record, expireAt: 'soon'}));
-  await assertFails(setDoc(ref, {...record, expireAt: new Date(Date.now() - 60_000)}));
-  await assertFails(setDoc(ref, {...record, expireAt: new Date(Date.now() + 91 * 86_400_000)}));
+  const {purgeAt, ...withoutPurge} = record;
+  await assertFails(setDoc(ref, withoutPurge));
+  await assertFails(setDoc(ref, {...record, purgeAt: 'soon'}));
+  await assertFails(setDoc(ref, {...record, purgeAt: new Date(Date.now() - 60_000)}));
+  await assertFails(setDoc(ref, {...record, purgeAt: new Date(Date.now() + 91 * 86_400_000)}));
   await assertSucceeds(setDoc(doc(named(OWNER), 'wrapped_shares', 'e'.repeat(32)), {...record,
-    storagePath: `wrapped/${OWNER}/${'e'.repeat(32)}.png`, expireAt: new Date(Date.now() + 89 * 86_400_000)}));
+    storagePath: `wrapped/${OWNER}/${'e'.repeat(32)}.png`, purgeAt: new Date(Date.now() + 89 * 86_400_000)}));
   await assertFails(setDoc(doc(signedOut(), 'wrapped_shares', id), record));
   await assertFails(setDoc(doc(named(OTHER), 'wrapped_shares', id), record));
   await assertSucceeds(setDoc(ref, record));

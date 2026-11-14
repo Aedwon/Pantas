@@ -10,7 +10,7 @@ test('share paths bind the owner and share id; only revocation can change', asyn
     const db = env.authenticatedContext('share-owner', {firebase: {sign_in_provider: 'google.com'}}).firestore();
     const id = 'a'.repeat(32), ref = doc(db, 'wrapped_shares', id);
     const record = {ownerUid: 'share-owner', revoked: false, storagePath: `wrapped/share-owner/${id}.png`,
-      expireAt: new Date(Date.now() + 80 * 86_400_000)};
+      purgeAt: new Date(Date.now() + 80 * 86_400_000)};
     await assertFails(setDoc(ref, {...record, storagePath: `wrapped/victim/${id}.png`}));
     await assertFails(setDoc(ref, {...record, storagePath: `wrapped/share-owner/${'b'.repeat(32)}.png`}));
     await assertSucceeds(setDoc(ref, record));

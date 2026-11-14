@@ -414,7 +414,7 @@ service cloud.firestore {
     // Hosted Wrapped cards. The landing-page Cloud Function reads these via
     // the Admin SDK (bypassing rules), so client reads stay closed. Only a named
     // (non-anonymous) owner may create their own card, which must carry an
-    // `expireAt` within 90 days (the TTL field). The owner may only flip
+    // `purgeAt` within 90 days (the TTL field). The owner may only flip
     // `revoked` to true.
     match /wrapped_shares/{shareId} {
       allow read: if false;
@@ -426,12 +426,12 @@ service cloud.firestore {
               'wrapped/' + request.auth.uid + '/' + shareId + '.png'
           && request.resource.data.revoked == false
           && request.resource.data.keys().hasOnly([
-            'ownerUid', 'storagePath', 'archetypeId', 'createdAt', 'revoked', 'expireAt'
+            'ownerUid', 'storagePath', 'archetypeId', 'createdAt', 'revoked', 'purgeAt'
           ])
           // The TTL field: between now and 90 days from now.
-          && request.resource.data.expireAt is timestamp
-          && request.resource.data.expireAt > request.time
-          && request.resource.data.expireAt <= request.time + duration.value(90, 'd')
+          && request.resource.data.purgeAt is timestamp
+          && request.resource.data.purgeAt > request.time
+          && request.resource.data.purgeAt <= request.time + duration.value(90, 'd')
           && (!('archetypeId' in request.resource.data)
               || (request.resource.data.archetypeId is string
                   && request.resource.data.archetypeId.size() <= 64))

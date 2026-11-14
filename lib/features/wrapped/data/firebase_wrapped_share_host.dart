@@ -24,7 +24,7 @@ class FirebaseWrappedShareHost implements WrappedShareHost {
   /// from their own clock, so this keeps a margin for a fast device clock.
   static const shareLifetime = Duration(days: 89);
 
-  /// The `wrapped_shares/<shareId>` document. `expireAt` is the field the
+  /// The `wrapped_shares/<shareId>` document. `purgeAt` is the field the
   /// Firestore TTL policy deletes by.
   static Map<String, Object?> shareRecord({
     required String uid,
@@ -38,7 +38,7 @@ class FirebaseWrappedShareHost implements WrappedShareHost {
         'archetypeId': archetypeId,
         'createdAt': FieldValue.serverTimestamp(),
         'revoked': false,
-        'expireAt': Timestamp.fromDate(now.add(shareLifetime)),
+        'purgeAt': Timestamp.fromDate(now.add(shareLifetime)),
       };
 
   @override
