@@ -19,8 +19,12 @@ const SHARE_ID_PATTERN = /^[0-9a-f]{32}$/;
  * per-share Open Graph tags, serves the card image, and falls back to a
  * generic marketing page for unknown / revoked links (landing-page spec §4).
  */
+// Public only where an env value says so (staging). Prod has no Hosting route to this page and no
+// user reaches it, so there it stays private. `WRAPPED_PAGE_PUBLIC=true` in the project's env file.
+const invoker = process.env.WRAPPED_PAGE_PUBLIC === 'true' ? 'public' : 'private';
+
 export const renderWrappedPage = onRequest(
-  { region: 'asia-southeast1' },
+  { region: 'asia-southeast1', invoker },
   async (req, res) => {
     res.set({'Cache-Control': 'no-store'});
     const ctaHref = storeCtaHref(req.header('user-agent') ?? '');

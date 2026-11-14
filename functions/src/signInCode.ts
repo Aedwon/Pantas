@@ -36,6 +36,8 @@ export const signInOpenCap = defineInt('SIGN_IN_DAILY_SEND_CAP', {default: 60});
 export const signInReservedCap = defineInt('SIGN_IN_DAILY_RESERVED_CAP', {default: 40});
 
 export const CODE_TTL_MS = 10 * 60_000;
+/** A challenge is useless once its code has expired. `purgeAt` (the TTL field) leaves a day of margin. */
+const CHALLENGE_PURGE_MS = CODE_TTL_MS + 24 * 3_600_000;
 export const RESEND_COOLDOWN_MS = 60_000;
 export const SENDS_PER_EMAIL_PER_HOUR = 5;
 export const SENDS_PER_CALLER_PER_HOUR = 10;
@@ -246,7 +248,8 @@ export async function sendSignInCode(request: Req, deps: RequestDeps):
     const decoy = (reason: Suppressed, firstFull = false): Slot => {
       const secret = String((deps.standInCode ?? (() => randomInt(0, 1_000_000)))()).padStart(6, '0');
       transaction.set(challengeRef, {emailKey, email, codeHash: hashCode(deps.key, email, secret), standIn: true,
-        requesterUid: uid, attempts: 0, expiresAt: new Date(at + CODE_TTL_MS)});
+        requesterUid: uid, attempts: 0, expiresAt: new Date(at + CODE_TTL_MS),
+        purgeAt: new Date(at + CHALLENGE_PURGE_MS)});
       return {kind: 'suppressed', reason, firstFull};
     };
     const sentAt = millis(snapshot.get('sentAt'));
@@ -261,7 +264,8 @@ export async function sendSignInCode(request: Req, deps: RequestDeps):
     const sentToday = Number(dayDoc.get('count') ?? 0);
     if (!Number.isFinite(cap) || cap < 1 || sentToday + 1 > cap) {
       const firstFull = dayDoc.get('fullLogged') !== true;
-      if (firstFull) transaction.set(dayRef, {fullLogged: true}, {merge: true});
+      // A day document made only by this write still needs its TTL field.
+      if (firstFull) transaction.set(dayRef, {fullLogged: true, purgeAt: new Date(at + 3 * 24 * HOUR_MS)}, {merge: true});
       return decoy('dailyCap', firstFull);
     }
     // The send that reaches the cap is the moment the bucket becomes full, and the one that logs it.
@@ -277,8 +281,9 @@ export async function sendSignInCode(request: Req, deps: RequestDeps):
     }
     transaction.set(challengeRef, {
       emailKey, email, codeHash, requesterUid: uid, attempts: 0,
-      // Also the field for an optional Firestore TTL policy.
       expiresAt: new Date(at + CODE_TTL_MS),
+      // The field for the Firestore TTL policy on this collection.
+      purgeAt: new Date(at + CHALLENGE_PURGE_MS),
     });
     transaction.set(limitRef, {
       sentAt: at,

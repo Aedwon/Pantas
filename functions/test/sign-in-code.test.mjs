@@ -923,3 +923,32 @@ test('S-10 item 6: a cap of zero logs once on the first held-back send', async t
   await r.send('b@example.com');
   assert.equal(read().filter(entry => entry.event === 'mail_cap_full').length, 1);
 });
+
+// ------------------------------------------------------------------ expiry field for a Firestore TTL policy
+
+const TTL_COLLECTIONS = ['signInChallenges', 'signInLimits', 'signInRequests'];
+const ttlRows = r => [...r.db.rows.entries()].filter(([path]) => TTL_COLLECTIONS.includes(path.split('/')[0]));
+function assertAllExpire(r, label) {
+  const rows = ttlRows(r);
+  assert.ok(rows.length > 0, label);
+  for (const [path, row] of rows) {
+    assert.ok(row.purgeAt instanceof Date, `${label}: ${path} has no purgeAt`);
+    assert.ok(row.purgeAt.getTime() > r.clock.now(), `${label}: ${path} purgeAt is not in the future`);
+  }
+}
+
+test('every sign-in challenge, limit and request document carries purgeAt, after the time it is useful', async () => {
+  const real = rig({send: {openCap: 5}});
+  await real.send('a@example.com');
+  assertAllExpire(real, 'real send');
+  assert.ok(challenge(real).purgeAt.getTime() >= challenge(real).expiresAt.getTime() + 86_400_000);
+  // A stand-in challenge and a first "cap full" marker are written without a send.
+  const full = rig({send: {openCap: 0}});
+  await full.send('b@example.com');
+  assertAllExpire(full, 'cap full');
+  // A challenge that runs out of tries adds a mailbox-day counter.
+  const locked = rig();
+  await locked.send();
+  for (let i = 0; i < 5; i += 1) await assert.rejects(() => locked.verify(ID1, '111111'));
+  assertAllExpire(locked, 'locked');
+});
