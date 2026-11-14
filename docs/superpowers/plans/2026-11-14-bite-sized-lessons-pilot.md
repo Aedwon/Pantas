@@ -298,3 +298,27 @@ Append here as tasks finish: revision, command, result, and the frozen legacy ha
   was shown. The renders stay as a reference for current content only; the decision board is the
   Claude Design artifact above.
 - Nov 14: paused after the board (Aedwon: "don't do too many at once, mind my 5-hour limits").
+- Nov 14: T0 done (Codex GPT 6.1 Sol, read-only, policy 2bfd34cb4). Findings:
+  1. Stored roadmap days rebuild only when their digest changes; the digest hashes the seed version,
+     topic scope, exclusions, settings, assessment and mock count, not lesson ids
+     (`roadmap_providers.dart:365`, `roadmap_inputs_reader.dart:33`, `:269`). T8 adds the active lesson
+     set to the digest.
+  2. A missing lesson id shows "Lesson not found." on native and web (`lesson_page.dart:461`, `:590`).
+  3. Quiz notes live in `attempts_local.itemsJson`, keyed by attempt and question id; mock notes by
+     question id. No lesson-keyed notes.
+  4. All six CET exams are enabled in `content/exams/catalog.json`; the content branch has no
+     `content/exams`. Live prod selection was not queried.
+  5. On the content branch, `lesson-prerequisites.json` maps lesson id to prerequisite lesson ids;
+     `question-gap-tags.json` maps question id and wrong-choice text to a lesson id. T5 resolves both.
+  6. Exporter tests: `test/tool/build_content_export_test.dart`,
+     `test/tools/build_content_export_links_test.dart`; uploader contract test
+     `test/core/content/remote/server_catalog_contract_test.dart` (skipped without compiled
+     Functions). No workflow runs the uploader's node tests; T4 adds the gate test to CI.
+  7. The content branch's tools differ from main's and it has no uploader; uploads use main's tools
+     against the content root, as planned.
+  8. The web content mirror never evicts a ready lesson (`content_mirror.dart:157`, `:423`); T8 makes it
+     honor `status`.
+- Lead ruling (gate, within B6): the legacy freeze records every question shipping at freeze time,
+  including those marked `approved: true` in YAML (flagged `yamlApproved`), because no YAML approval
+  was tied to a verified solve. Real approval records come only from `approve.dart` after an
+  independent solve, and the split-subject rule forces them before any subject is split.
