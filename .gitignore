@@ -84,3 +84,6 @@ tool/journeys/node_modules/
 
 # Golden test failure diffs
 test/goldens/**/failures/
+
+# Wrangler (Cloudflare) local cache: holds the account name and id
+.wrangler/

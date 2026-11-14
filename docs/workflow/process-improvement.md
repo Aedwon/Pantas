@@ -313,3 +313,10 @@ the current decision log.
   index, bootstrap, deployment guide and Drift opener against origin/main; require
   an empty diff. Retain Node regressions for no-store detection, worker update,
   failed/slow retry and reload-only apply. No new worker or hosting migration ships.
+
+### Nov 14, 2026: a tool cache file was pushed to a public branch
+
+- Words: not Aedwon's; the manager's instruction: "leave the history alone; no force push", then "check `git status` for tool cache files before pushing".
+- Wrong: the security fixes lead committed `tool/cloudflare-app/.wrangler/cache/wrangler-account.json` (the Cloudflare account name, which contains Aedwon's Gmail address, and the account id) and pushed it to `web/security-cloudflare-r1`. Removed in the next commit; the history stays, by the manager's ruling (the address already appears as the author email on public commits).
+- Why: `git add <folder>` staged a cache that wrangler writes next to its config, and nothing ignored it.
+- Fix: `.wrangler/` is in the root `.gitignore` (any depth). Required step before every push: read `git status` and the staged file list, and unstage any tool cache or local state file (`.wrangler/`, `.firebase/`, `node_modules/`, build output).
