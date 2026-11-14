@@ -6,6 +6,13 @@ subject: "subject-general-information"
 topic: "topic-environment-management"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-environment-management-local-environmental-problems
+  - lesson-environment-management-government-environmental-responses
+  - lesson-environment-management-climate-change-and-its-effects
+  - lesson-environment-management-climate-adaptation-and-mitigation
+  - lesson-environment-management-national-climate-framework
 ---
 ## Core Concept
 

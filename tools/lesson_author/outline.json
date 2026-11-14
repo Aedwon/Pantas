@@ -1698,8 +1698,58 @@
               "sections": []
             },
             {
+              "title": "Identifying Local Environmental Problems",
+              "slug": "local-environmental-problems",
+              "sections": []
+            },
+            {
+              "title": "Government Environmental Responses",
+              "slug": "government-environmental-responses",
+              "sections": []
+            },
+            {
+              "title": "Climate Change and Its Effects",
+              "slug": "climate-change-and-its-effects",
+              "sections": []
+            },
+            {
+              "title": "Climate Adaptation and Mitigation",
+              "slug": "climate-adaptation-and-mitigation",
+              "sections": []
+            },
+            {
+              "title": "National Strategic Framework on Climate Change",
+              "slug": "national-climate-framework",
+              "sections": []
+            },
+            {
               "title": "Protecting Species and Resources, and Choosing Among Options",
               "slug": "species-resources-and-environmental-decisions",
+              "sections": []
+            },
+            {
+              "title": "Species, Habitats, and Ecosystems",
+              "slug": "species-habitats-and-ecosystems",
+              "sections": []
+            },
+            {
+              "title": "Protecting Threatened Species",
+              "slug": "protecting-threatened-species",
+              "sections": []
+            },
+            {
+              "title": "Conserving Natural Resources",
+              "slug": "conserving-natural-resources",
+              "sections": []
+            },
+            {
+              "title": "Managing Protected Areas",
+              "slug": "protected-area-management",
+              "sections": []
+            },
+            {
+              "title": "Choosing Among Environmental Options",
+              "slug": "choosing-environmental-options",
               "sections": []
             },
             {

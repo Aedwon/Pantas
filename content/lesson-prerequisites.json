@@ -151,14 +151,6 @@
     "reason": "Heat-transfer knowledge helps explain winds and warming. Weather and Climate defines the needed processes itself."
    }
   ],
-  "lesson-environment-management-environmental-problems-and-climate-change": [
-   {
-    "lesson": "lesson-environment-management-source-segregation-and-waste-types",
-    "strength": "helpful",
-    "reason": "Knowing how sorting supports material recovery makes evaluating the waste program easier. This lesson defines segregation and explains the collection problem."
-   }
-  ],
-  "lesson-environment-management-species-resources-and-environmental-decisions": [],
   "lesson-geometry-logic-and-reasoning": [],
   "lesson-geometry-measurement": [
    {
@@ -1325,6 +1317,70 @@
   "lesson-environment-management-reduction-composting-and-diversion": [
    {
     "lesson": "lesson-environment-management-reuse-and-recycling",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-environment-management-local-environmental-problems": [
+   {
+    "lesson": "lesson-environment-management-source-segregation-and-waste-types",
+    "strength": "helpful",
+    "reason": "Knowing how sorting supports material recovery makes evaluating the waste program easier. This lesson defines segregation and explains the collection problem."
+   }
+  ],
+  "lesson-environment-management-government-environmental-responses": [
+   {
+    "lesson": "lesson-environment-management-local-environmental-problems",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-environment-management-climate-change-and-its-effects": [
+   {
+    "lesson": "lesson-environment-management-government-environmental-responses",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-environment-management-climate-adaptation-and-mitigation": [
+   {
+    "lesson": "lesson-environment-management-climate-change-and-its-effects",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-environment-management-national-climate-framework": [
+   {
+    "lesson": "lesson-environment-management-climate-adaptation-and-mitigation",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-environment-management-species-habitats-and-ecosystems": [],
+  "lesson-environment-management-protecting-threatened-species": [
+   {
+    "lesson": "lesson-environment-management-species-habitats-and-ecosystems",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-environment-management-conserving-natural-resources": [
+   {
+    "lesson": "lesson-environment-management-protecting-threatened-species",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-environment-management-protected-area-management": [
+   {
+    "lesson": "lesson-environment-management-conserving-natural-resources",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-environment-management-choosing-environmental-options": [
+   {
+    "lesson": "lesson-environment-management-protected-area-management",
     "strength": "required",
     "reason": "Read the previous part first."
    }

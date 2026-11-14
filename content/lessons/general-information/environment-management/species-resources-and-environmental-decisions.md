@@ -6,6 +6,13 @@ subject: "subject-general-information"
 topic: "topic-environment-management"
 estimatedMinutes: 14
 isActive: true
+status: retired
+replacedBy:
+  - lesson-environment-management-species-habitats-and-ecosystems
+  - lesson-environment-management-protecting-threatened-species
+  - lesson-environment-management-conserving-natural-resources
+  - lesson-environment-management-protected-area-management
+  - lesson-environment-management-choosing-environmental-options
 ---
 ## Core Concept
 
