@@ -35,6 +35,7 @@ import 'package:pantas/features/settings/domain/session_ordering.dart';
 import 'package:pantas/features/settings/domain/user_settings.dart';
 
 import '../../../helpers/in_memory_database.dart';
+import '../../../helpers/retired_lessons.dart';
 
 /// Counts the content calls the plan must never make.
 class _SpyContent extends ContentRepository {
@@ -253,6 +254,24 @@ void main() {
     expect(inputs.lessons.map((l) => l.id), isNot(contains('no_questions')));
     expect(inputs.lessons.map((l) => l.id), isNot(contains('inactive')));
     expect(inputs.topics.map((t) => t.id), ['t1', 't2']);
+  });
+
+  test('a split rebuilds a stored plan, and no split leaves it alone',
+      () async {
+    final reader = container.read(roadmapInputsReaderProvider);
+    await controller().today('e1');
+    final before = await reader.digest('e1');
+    expect(await reader.digest('e1'), before);
+
+    await retireTestLesson(contentDb, 't1_l0', ['t1_l1']);
+    final split = await reader.digest('e1');
+    expect(split.contentRevision, isNot(before.contentRevision));
+
+    await retireTestLesson(contentDb, 't1_l1', ['t1_l2']);
+    expect(
+      (await reader.digest('e1')).contentRevision,
+      isNot(split.contentRevision),
+    );
   });
 
   test('lesson exclusion rebuilds a stored plan and removes linked questions',

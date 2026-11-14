@@ -271,7 +271,11 @@ class RoadmapInputsReader {
             .read(appPreferencesRepositoryProvider)
             .installedContentSeedVersion() ??
         contentSeedVersion;
-    return '$revision:exam-lessons-v1';
+    // A split or a rollback changes which lesson ids exist, and a stored day
+    // names lessons by id. No split leaves the value as it always was.
+    final lessonSet =
+        await _ref.read(contentRepositoryProvider).lessonSetRevision();
+    return '$revision:exam-lessons-v1${lessonSet.isEmpty ? '' : ':$lessonSet'}';
   }
 
   Future<

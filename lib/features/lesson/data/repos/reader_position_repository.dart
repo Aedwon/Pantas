@@ -180,6 +180,19 @@ class ReaderPositionRepository {
     return (await _read(examId, lessonId)).offset;
   }
 
+  /// The saved offset, held to [maxOffset]. A position saved on a longer
+  /// version of the lesson (before a split made it shorter) clamps to the end
+  /// of this one.
+  Future<double> readClamped(
+    String examId,
+    String lessonId, {
+    required double maxOffset,
+  }) async {
+    final offset = await read(examId, lessonId);
+    if (!maxOffset.isFinite) return offset;
+    return offset.clamp(0.0, maxOffset < 0 ? 0.0 : maxOffset);
+  }
+
   /// Null means no measured fraction, so the consumer draws an empty ring.
   Future<double?> readFraction(String examId, String lessonId) async {
     await _writes;

@@ -328,6 +328,84 @@ void main() {
     );
   });
 
+  Map<String, Object?> examWithCellsRetired() => {
+        ..._exam,
+        'lessons': [
+          for (final lesson in _exam['lessons']! as List<Object?>)
+            if ((lesson! as Map)['id'] == 'lesson-biology-cells')
+              {
+                ...(lesson as Map<String, Object?>),
+                'status': 'retired',
+                'replacedBy': ['lesson-biology-genes'],
+              }
+            else
+              lesson,
+        ],
+      };
+
+  test('a retired lesson opens through its replacement and is never listed',
+      () async {
+    remote.docs['catalog/exam_upcat'] = examWithCellsRetired();
+    remote.docs['lessons/lesson-biology-genes'] = {
+      ..._lesson(),
+      'id': 'lesson-biology-genes',
+      'title': 'Genes',
+    };
+    await mirror.start();
+    await mirror.idle;
+    remote.calls.clear();
+
+    final repo = ContentRepository(contentDb, fetchHook: mirror);
+    final lesson = (await repo.lessonById('lesson-biology-cells'))!;
+    expect(lesson.id, 'lesson-biology-genes');
+    expect(
+      remote.calls,
+      ['lessons:lesson-biology-genes'],
+      reason: 'the retired text is never fetched',
+    );
+    final listed = await repo.lessonsByTopic('topic_upcat_biology');
+    expect(listed.map((l) => l.id), ['lesson-biology-genes']);
+  });
+
+  test('a lesson retired in a later catalog stops being listed', () async {
+    await mirror.start();
+    await mirror.idle;
+    final repo = ContentRepository(contentDb);
+    expect(
+      (await repo.lessonsByTopic('topic_upcat_biology')).map((l) => l.id),
+      contains('lesson-biology-cells'),
+    );
+
+    remote
+      ..version = 'v2'
+      ..docs['catalog/exam_upcat'] = examWithCellsRetired();
+    await mirror.refreshCatalog(force: true);
+    await mirror.idle;
+
+    expect(
+      (await repo.lessonsByTopic('topic_upcat_biology')).map((l) => l.id),
+      ['lesson-biology-genes'],
+    );
+    expect(
+      await repo.resolveLessonIds(['lesson-biology-cells']),
+      {'lesson-biology-cells': 'lesson-biology-genes'},
+    );
+  });
+
+  test('a lesson returning to active is listed again', () async {
+    remote.docs['catalog/exam_upcat'] = examWithCellsRetired();
+    await mirror.start();
+    await mirror.idle;
+    remote
+      ..version = 'v2'
+      ..docs['catalog/exam_upcat'] = _exam;
+    await mirror.refreshCatalog(force: true);
+    await mirror.idle;
+    final listed = await ContentRepository(contentDb)
+        .lessonsByTopic('topic_upcat_biology');
+    expect(listed.map((l) => l.id), contains('lesson-biology-cells'));
+  });
+
   test('a lesson that cannot be fetched is not present', () async {
     await mirror.start();
     await mirror.idle;
@@ -512,6 +590,22 @@ void main() {
     await mirror.ensureLesson('lesson-biology-genes');
     await mirror.idle;
     expect(remote.calls, contains('lessons:lesson-biology-cells'));
+  });
+
+  test('preloading skips a retired lesson', () async {
+    remote.docs['catalog/exam_upcat'] = examWithCellsRetired();
+    remote.docs['lessons/lesson-biology-genes'] = {
+      ..._lesson(),
+      'id': 'lesson-biology-genes',
+      'title': 'Genes',
+    };
+    await mirror.start();
+    await mirror.idle;
+    remote.calls.clear();
+
+    await mirror.ensureLesson('lesson-biology-genes');
+    await mirror.idle;
+    expect(remote.calls, isNot(contains('lessons:lesson-biology-cells')));
   });
 
   test('unusable catalog documents are skipped, not fatal', () async {

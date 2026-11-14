@@ -569,6 +569,13 @@ class ContentRepository {
     LessonId id, {
     bool throwOnLoadFailure = false,
   }) async {
+    // A retired lesson opens as the lesson that replaced it. The catalog row
+    // already says so, so the retired text is never fetched.
+    final target = await _aliasTarget(id);
+    if (target == null) return null;
+    if (target != id) {
+      return lessonById(target, throwOnLoadFailure: throwOnLoadFailure);
+    }
     final hook = _fetchHook;
     if (hook != null && !await hook.ensureLesson(id)) {
       if (throwOnLoadFailure) {
@@ -582,7 +589,82 @@ class ContentRepository {
     final row = await (_db.select(_db.contentLessons)
           ..where((l) => l.id.equals(id)))
         .getSingleOrNull();
-    return row == null ? null : _hydrateLesson(row);
+    if (row == null) return null;
+    if (row.status == 'retired') {
+      // The fetched copy revealed a retired lesson the catalog did not know.
+      final next = await _aliasTarget(id);
+      return next == null || next == id
+          ? null
+          : lessonById(next, throwOnLoadFailure: throwOnLoadFailure);
+    }
+    return _hydrateLesson(row);
+  }
+
+  /// The active lesson that [id] stands for: [id] itself when it is active or
+  /// unknown, the first replacement (followed through chains) when it is
+  /// retired, null when a retired lesson replaces nothing or the chain loops.
+  Future<LessonId?> _aliasTarget(LessonId id) async {
+    final seen = <LessonId>{};
+    var current = id;
+    while (true) {
+      if (!seen.add(current)) return null;
+      final row = await (_db.select(_db.contentLessons)
+            ..where((l) => l.id.equals(current)))
+          .getSingleOrNull();
+      if (row == null || row.status != 'retired') return current;
+      final raw = row.replacedBy;
+      final list = raw == null ? const <Object?>[] : jsonDecode(raw) as List;
+      if (list.isEmpty) return null;
+      current = list.first as String;
+    }
+  }
+
+  /// For each id in [ids] that is a retired lesson with an active replacement,
+  /// the active lesson it resolves to. Active, unknown and unresolvable ids
+  /// are left out.
+  Future<Map<LessonId, LessonId>> resolveLessonIds(
+    Iterable<LessonId> ids,
+  ) async {
+    final resolved = <LessonId, LessonId>{};
+    for (final id in ids.toSet()) {
+      final target = await _aliasTarget(id);
+      if (target == null || target == id) continue;
+      final row = await (_db.select(_db.contentLessons)
+            ..where((l) => l.id.equals(target)))
+          .getSingleOrNull();
+      if (row != null && row.status == 'active' && row.isActive) {
+        resolved[id] = target;
+      }
+    }
+    return resolved;
+  }
+
+  /// A short fingerprint of which lessons are active, empty while no lesson is
+  /// retired. A split or a rollback changes it, which rebuilds stored plan
+  /// days that name lessons by id. Content with no split is unchanged.
+  Future<String> lessonSetRevision() async {
+    final lessons = _db.contentLessons;
+    final rows = await (_db.selectOnly(lessons)
+          ..addColumns([lessons.id, lessons.status, lessons.replacedBy]))
+        .map(
+          (r) => (
+            r.read(lessons.id)!,
+            r.read(lessons.status)!,
+            r.read(lessons.replacedBy),
+          ),
+        )
+        .get();
+    if (!rows.any((r) => r.$2 == 'retired')) return '';
+    final lines = [
+      for (final (id, status, replacedBy) in rows)
+        status == 'retired' ? 'r:$id>${replacedBy ?? ''}' : 'a:$id',
+    ]..sort();
+    // FNV-1a, 32 bit: stable across platforms and needs no dependency.
+    var hash = 0x811c9dc5;
+    for (final unit in lines.join('\n').codeUnits) {
+      hash = ((hash ^ unit) * 0x01000193) & 0xFFFFFFFF;
+    }
+    return hash.toRadixString(16).padLeft(8, '0');
   }
 
   /// Narrows the corpus to rows whose title, summary or serialised body
@@ -600,6 +682,7 @@ class ContentRepository {
           ..where(
             (l) =>
                 l.topicId.isIn(topicIds) &
+                l.status.equals('active') &
                 (l.title.lower().like(needle) |
                     l.summary.lower().like(needle) |
                     l.bodyJson.lower().like(needle)),

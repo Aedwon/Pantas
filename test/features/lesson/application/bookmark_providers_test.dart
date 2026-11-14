@@ -9,9 +9,11 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/core/sync/local_state_wiper.dart';
 import 'package:pantas/features/lesson/application/bookmark_providers.dart';
+import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/data/repos/bookmark_prefs_repository.dart';
 
 import '../../../helpers/in_memory_database.dart';
+import '../../../helpers/retired_lessons.dart';
 
 void main() {
   late AppDatabase db;
@@ -356,6 +358,36 @@ void main() {
         );
 
     expect(await readRows(), isEmpty);
+  });
+
+  test('a bookmark of a retired lesson shows on its first part', () async {
+    await retireTestLesson(contentDb, 'l1', ['l2', 'l3']);
+    await repo.mark('l1');
+
+    final rows = await readRows();
+
+    expect(rows.map((r) => r.lessonId), ['l2']);
+    expect(rows.single.title, 'Lesson l2');
+  });
+
+  test('a retired bookmark and its part show once', () async {
+    await retireTestLesson(contentDb, 'l1', ['l2', 'l3']);
+    await repo.mark('l1');
+    await repo.mark('l2');
+
+    expect((await readRows()).map((r) => r.lessonId), ['l2']);
+  });
+
+  test('the study map marks the first part of a retired bookmark', () async {
+    await retireTestLesson(contentDb, 'l1', ['l2', 'l3']);
+    await repo.mark('l1');
+
+    final map = (await container.read(studyMapProvider.future))!;
+    final lessons = [
+      for (final subject in map.subjects)
+        for (final topic in subject.topics) ...topic.lessons,
+    ];
+    expect(lessons.firstWhere((l) => l.id == 'l2').isBookmarked, isTrue);
   });
 
   test('the count is the number of rows', () async {
