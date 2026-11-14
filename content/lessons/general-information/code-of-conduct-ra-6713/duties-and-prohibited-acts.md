@@ -6,6 +6,18 @@ subject: "subject-general-information"
 topic: "topic-code-of-conduct-ra-6713"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-code-of-conduct-ra-6713-duties-code-coverage
+  - lesson-code-of-conduct-ra-6713-duties-public-letters
+  - lesson-code-of-conduct-ra-6713-duties-reports-and-counter-service
+  - lesson-code-of-conduct-ra-6713-duties-document-completion
+  - lesson-code-of-conduct-ra-6713-duties-public-record-access
+  - lesson-code-of-conduct-ra-6713-duties-fair-disciplinary-process
+  - lesson-code-of-conduct-ra-6713-duties-private-business-interests
+  - lesson-code-of-conduct-ra-6713-duties-private-practice-and-referrals
+  - lesson-code-of-conduct-ra-6713-duties-after-leaving-office
+  - lesson-code-of-conduct-ra-6713-duties-protected-information-and-gifts
 ---
 <!-- Audit: RW-084; branch content/cse-rewrite-r1 (assigned, not inspected); standards base 59184e4b (supplied); access date 2026-10-26. Goal: Apply Code coverage, service duties, lawful access limits, and prohibited-act rules to CSE cases. No prerequisite is assumed. Source ledger carried from the supplied lesson: RA 6713, Sections 3, 5, 7, 11, Supreme Court E-Library document 6474; Rules Implementing RA 6713, Rules I, IV, VI, X, XI, XII, official NCDA publication and CSC compilation. These sources support the coverage, service, access, discipline, and prohibited-act rules below. Rule XII Section 1(d)-(e) supports volunteer conduct coverage and the separate SALN exemption. No source conflict reported in the supplied audit. Hypothetical examples supply their own case facts. -->
 ## Core Concept

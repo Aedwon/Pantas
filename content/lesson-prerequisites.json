@@ -124,8 +124,6 @@
   ],
   "lesson-clerical-ability-alphabetic-filing-rules": [],
   "lesson-clerical-ability-numeric-and-chronological-filing": [],
-  "lesson-code-of-conduct-ra-6713-corruption-and-its-effects": [],
-  "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts": [],
   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement": [
    {
     "lesson": "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules",
@@ -1039,6 +1037,106 @@
   "lesson-code-of-conduct-ra-6713-norms-simple-living-and-rewards": [
    {
     "lesson": "lesson-code-of-conduct-ra-6713-norms-nationalism-and-democracy",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-duties-code-coverage": [],
+  "lesson-code-of-conduct-ra-6713-duties-public-letters": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-code-coverage",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-duties-reports-and-counter-service": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-public-letters",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-duties-document-completion": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-reports-and-counter-service",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-duties-public-record-access": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-document-completion",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-duties-fair-disciplinary-process": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-public-record-access",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-duties-private-business-interests": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-fair-disciplinary-process",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-duties-private-practice-and-referrals": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-private-business-interests",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-duties-after-leaving-office": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-private-practice-and-referrals",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-duties-protected-information-and-gifts": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-after-leaving-office",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-corruption-public-trust-and-bribery": [],
+  "lesson-code-of-conduct-ra-6713-corruption-graft-and-information": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-corruption-public-trust-and-bribery",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-corruption-plunder-and-kickbacks": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-corruption-graft-and-information",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-corruption-red-tape-and-fixers": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-corruption-plunder-and-kickbacks",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-corruption-social-economic-political-effects": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-corruption-red-tape-and-fixers",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-corruption-state-response": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-corruption-social-economic-political-effects",
     "strength": "required",
     "reason": "Read the previous part before this part."
    }
