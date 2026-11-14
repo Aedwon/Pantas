@@ -260,10 +260,9 @@
     "reason": "Recognizing close meanings, opposites, and differences in strength makes relationship matching easier. The lesson explains these relationships sufficiently itself."
    }
   ],
-  "lesson-peace-and-human-rights-human-rights-fundamentals": [],
   "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law": [
    {
-    "lesson": "lesson-peace-and-human-rights-human-rights-fundamentals",
+    "lesson": "lesson-peace-and-human-rights-commission-on-human-rights",
     "strength": "helpful",
     "reason": "Understanding continuing government duties and emergency limits makes the comparison with humanitarian law easier. This lesson explains those principles again."
    }
@@ -1325,6 +1324,84 @@
   "lesson-environment-management-reduction-composting-and-diversion": [
    {
     "lesson": "lesson-environment-management-reuse-and-recycling",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-peace-and-human-rights-universal-rights-and-history": [],
+  "lesson-peace-and-human-rights-bill-of-rights-fairness-and-freedoms": [
+   {
+    "lesson": "lesson-peace-and-human-rights-universal-rights-and-history",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-peace-and-human-rights-searches-and-private-messages": [
+   {
+    "lesson": "lesson-peace-and-human-rights-bill-of-rights-fairness-and-freedoms",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-peace-and-human-rights-home-travel-and-public-records": [
+   {
+    "lesson": "lesson-peace-and-human-rights-searches-and-private-messages",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-peace-and-human-rights-groups-property-and-contracts": [
+   {
+    "lesson": "lesson-peace-and-human-rights-home-travel-and-public-records",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-peace-and-human-rights-custodial-investigation-and-bail": [
+   {
+    "lesson": "lesson-peace-and-human-rights-groups-property-and-contracts",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-peace-and-human-rights-criminal-trial-protections": [
+   {
+    "lesson": "lesson-peace-and-human-rights-custodial-investigation-and-bail",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-peace-and-human-rights-detention-review-and-compelled-testimony": [
+   {
+    "lesson": "lesson-peace-and-human-rights-criminal-trial-protections",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-peace-and-human-rights-detention-punishment-and-debt": [
+   {
+    "lesson": "lesson-peace-and-human-rights-detention-review-and-compelled-testimony",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-peace-and-human-rights-double-jeopardy-protections": [
+   {
+    "lesson": "lesson-peace-and-human-rights-detention-punishment-and-debt",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-peace-and-human-rights-rights-during-emergencies": [
+   {
+    "lesson": "lesson-peace-and-human-rights-double-jeopardy-protections",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-peace-and-human-rights-commission-on-human-rights": [
+   {
+    "lesson": "lesson-peace-and-human-rights-rights-during-emergencies",
     "strength": "required",
     "reason": "Read the previous part first."
    }

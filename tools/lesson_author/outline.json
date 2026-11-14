@@ -1681,7 +1681,68 @@
         {
           "name": "Peace and Human Rights",
           "slug": "peace-and-human-rights",
-          "lessons": []
+          "lessons": [
+            {
+              "title": "Universal Rights and History",
+              "slug": "universal-rights-and-history",
+              "sections": []
+            },
+            {
+              "title": "Bill of Rights: Fairness and Freedoms",
+              "slug": "bill-of-rights-fairness-and-freedoms",
+              "sections": []
+            },
+            {
+              "title": "Searches and Private Messages",
+              "slug": "searches-and-private-messages",
+              "sections": []
+            },
+            {
+              "title": "Home, Travel, and Public Records",
+              "slug": "home-travel-and-public-records",
+              "sections": []
+            },
+            {
+              "title": "Groups, Property, and Contracts",
+              "slug": "groups-property-and-contracts",
+              "sections": []
+            },
+            {
+              "title": "Custodial Investigation and Bail",
+              "slug": "custodial-investigation-and-bail",
+              "sections": []
+            },
+            {
+              "title": "Criminal Trial Protections",
+              "slug": "criminal-trial-protections",
+              "sections": []
+            },
+            {
+              "title": "Detention Review and Compelled Testimony",
+              "slug": "detention-review-and-compelled-testimony",
+              "sections": []
+            },
+            {
+              "title": "Detention, Punishment, and Debt",
+              "slug": "detention-punishment-and-debt",
+              "sections": []
+            },
+            {
+              "title": "Double Jeopardy Protections",
+              "slug": "double-jeopardy-protections",
+              "sections": []
+            },
+            {
+              "title": "Rights During Emergencies",
+              "slug": "rights-during-emergencies",
+              "sections": []
+            },
+            {
+              "title": "Commission on Human Rights",
+              "slug": "commission-on-human-rights",
+              "sections": []
+            }
+          ]
         },
         {
           "name": "Environment Management",
