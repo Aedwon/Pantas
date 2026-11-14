@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_bar.dart';
 
@@ -49,14 +50,14 @@ void main() {
         'Back hover',
         (_) => _routed(_bar(0)),
         action: GoldenAction.hover,
-        at: const Alignment(-0.9, 0),
+        target: () => find.text('Study'),
         width: 390,
       ),
       GoldenState(
         'Back pressed',
         (_) => _routed(_bar(0)),
         action: GoldenAction.pressed,
-        at: const Alignment(-0.9, 0),
+        target: () => find.text('Study'),
         width: 390,
       ),
       GoldenState(

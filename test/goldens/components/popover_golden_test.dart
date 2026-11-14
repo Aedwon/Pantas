@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/pantas_popover.dart';
+import 'package:pantas/core/ui/components/pantas_select.dart';
 
 import '../golden_harness.dart';
 
-const _window = Size(320, 230);
+const _window = Size(360, 300);
 
 Widget _open(List<Widget> items) => _Opened(items);
 
@@ -82,6 +84,32 @@ void main() {
       GoldenState(
         'Empty',
         (_) => _open(const [PantasPopoverEmpty('No results')]),
+        window: _window,
+      ),
+      // The Select's open list is this same surface (Select README).
+      GoldenState(
+        'Select open',
+        (_) => Align(
+          alignment: Alignment.topLeft,
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: SizedBox(
+              width: 220,
+              child: PantasSelect<int>(
+                label: 'Exam',
+                value: 2,
+                options: const [
+                  PantasSelectOption(1, 'UPCAT'),
+                  PantasSelectOption(2, 'ACET'),
+                  PantasSelectOption(3, 'DCAT'),
+                ],
+                onChanged: (_) {},
+              ),
+            ),
+          ),
+        ),
+        action: GoldenAction.tap,
+        target: () => find.text('ACET'),
         window: _window,
       ),
     ],

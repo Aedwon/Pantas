@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/pantas_timer.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -59,7 +60,7 @@ void main() {
         'Report, hover',
         (_) => _header(),
         action: GoldenAction.hover,
-        at: const Alignment(0.97, 0),
+        target: () => find.byTooltip('Report a question'),
         width: 560,
       ),
       GoldenState(

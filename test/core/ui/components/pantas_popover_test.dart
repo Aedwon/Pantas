@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/pantas_popover.dart';
 import 'package:pantas/core/ui/components/typeahead_buffer.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
@@ -237,6 +238,32 @@ void main() {
     final rect =
         tester.getRect(find.byKey(const ValueKey('pantas-popover-surface')));
     expect(rect.bottom, lessThanOrEqualTo(trigger.top));
+  });
+
+  testWidgets('A short list stays below when above has less room',
+      (tester) async {
+    tester.view
+      ..physicalSize = const Size(400, 400)
+      ..devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+    await tester.pumpWidget(
+      MediaQuery(
+        data: const MediaQueryData(size: Size(400, 400)),
+        child: MaterialApp(
+          theme: buildLightTheme(web: false),
+          home: const Scaffold(body: _Host(top: 100)),
+        ),
+      ),
+    );
+    await tester.tap(find.text('Sort'), warnIfMissed: false);
+    await tester.pump();
+    await tester.pump(PantasDurations.medium1);
+    final trigger = tester.getRect(find.text('Sort'));
+    final rect =
+        tester.getRect(find.byKey(const ValueKey('pantas-popover-surface')));
+    expect(rect.top, greaterThanOrEqualTo(trigger.bottom));
+    expect(rect.bottom, lessThanOrEqualTo(400));
+    expect(rect.top, greaterThanOrEqualTo(0));
   });
 
   testWidgets('Reduced motion fades in place with no rise', (tester) async {

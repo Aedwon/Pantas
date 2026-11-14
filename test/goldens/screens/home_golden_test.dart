@@ -15,6 +15,7 @@ void main() {
       width,
       const HomeTab(),
       shell: true,
+      shellTab: 0,
       overrides: [nowProvider.overrideWithValue(() => screenNow)],
     ),
   );

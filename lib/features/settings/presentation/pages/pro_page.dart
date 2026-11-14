@@ -24,7 +24,6 @@ import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
-import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -45,7 +44,7 @@ import 'package:pantas/features/paywall/domain/products.dart';
 import 'package:pantas/features/review_prompt/application/review_prompt_providers.dart';
 import 'package:pantas/features/settings/application/carry_over_providers.dart';
 import 'package:pantas/features/settings/presentation/carry_over_prompt.dart';
-import 'package:pantas/features/settings/presentation/widgets/pro_perks.dart';
+import 'package:pantas/features/settings/presentation/widgets/phone_pro_hero.dart';
 import 'package:pantas/features/settings/presentation/widgets/pro_plan_tile.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_pane_page.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_row.dart';
@@ -1098,20 +1097,28 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                     : null,
           ),
           const SizedBox(height: PantasSpace.s24),
+        ] else if (!upgrade) ...[
+          // The teal hero (phone, `.card--hero`, D126).
+          PhoneProHero(
+            heading: owned
+                ? "You're on Pro."
+                : lapsed
+                    ? passEnded
+                        ? 'Your Season Pass ended'
+                        : 'Your Pro plan ended'
+                    : "See exactly what's losing you points.",
+            detail: owned
+                ? "Thanks for backing Pantas. Here's everything that's yours."
+                : lapsed
+                    ? passEnded
+                        ? 'It ended after your exam on '
+                            '${DateFormat.yMMMd().format(ended)}.'
+                        : 'It ended on ${DateFormat.yMMMd().format(ended)}.'
+                    : null,
+          ),
+          const SizedBox(height: PantasSpace.s24),
         ] else ...[
-          if (!upgrade) Text('PANTAS PRO', style: context.type.sectionHeader),
           const SizedBox(height: PantasSpace.s12),
-          if (!upgrade)
-            Text(
-              owned
-                  ? "You're on Pro."
-                  : lapsed
-                      ? passEnded
-                          ? 'Your Season Pass ended'
-                          : 'Your Pro plan ended'
-                      : "See exactly what's losing you points.",
-              style: context.type.pageTitle,
-            ),
           if (upgrade)
             Container(
               padding: const EdgeInsets.fromLTRB(
@@ -1167,25 +1174,6 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
               style: context.type.body,
             ),
           const SizedBox(height: PantasSpace.s24),
-          if (!upgrade)
-            for (final feature in proPerks)
-              Padding(
-                padding: const EdgeInsets.only(bottom: PantasSpace.s12),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Icon(
-                      feature.$1,
-                      color: context.colors.accent,
-                      size: PantasSize.icon,
-                    ),
-                    const SizedBox(width: PantasSpace.s12),
-                    Expanded(
-                      child: Text(feature.$2, style: context.type.subhead),
-                    ),
-                  ],
-                ),
-              ),
           const SizedBox(height: PantasSpace.s24),
         ],
         if (!showOffers && whyLine != null) ...[

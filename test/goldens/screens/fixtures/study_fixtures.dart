@@ -91,6 +91,7 @@ Future<Finder> pumpStudyScreen(
   double width,
   Widget page, {
   bool shell = false,
+  int shellTab = 1,
   List<Override> overrides = const [],
 }) async {
   final db = inMemoryDatabase();
@@ -110,7 +111,7 @@ Future<Finder> pumpStudyScreen(
     scaffolded(
       shell && width >= 1024
           ? WebShellFrame(
-              activeIndex: 1,
+              activeIndex: shellTab,
               person: 'Student',
               exam: 'CSE',
               plan: 'Free',
