@@ -7,6 +7,7 @@ meta:
   - cse-sub
 questions:
 - id: q-peace-and-human-rights-human-rights-fundamentals-0001
+  approved: true
   lesson: lesson-peace-and-human-rights-commission-on-human-rights
   keyPoint: 1
   type: single_choice
@@ -33,6 +34,7 @@ questions:
 
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0002
+  approved: true
   lesson: lesson-peace-and-human-rights-commission-on-human-rights
   keyPoint: 1
   type: single_choice
@@ -58,6 +60,7 @@ questions:
 
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0003
+  approved: true
   lesson: lesson-peace-and-human-rights-bill-of-rights-fairness-and-freedoms
   keyPoint: 1
   type: single_choice
@@ -84,6 +87,7 @@ questions:
 
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0004
+  approved: true
   lesson: lesson-peace-and-human-rights-universal-rights-and-history
   keyPoint: 2
   type: single_choice
@@ -110,6 +114,7 @@ questions:
 
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0005
+  approved: true
   lesson: lesson-peace-and-human-rights-universal-rights-and-history
   keyPoint: 1
   type: single_choice
@@ -136,6 +141,7 @@ questions:
 
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0006
+  approved: true
   lesson: lesson-peace-and-human-rights-commission-on-human-rights
   keyPoint: 1
   type: single_choice
@@ -162,6 +168,7 @@ questions:
 
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0007
+  approved: true
   lesson: lesson-peace-and-human-rights-universal-rights-and-history
   keyPoint: 2
   type: single_choice
@@ -188,6 +195,7 @@ questions:
 
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0008
+  approved: true
   lesson: lesson-peace-and-human-rights-universal-rights-and-history
   keyPoint: 1
   type: single_choice
@@ -218,7 +226,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: easy
-  approved: false
+  approved: true
   stem: |
     Which statement reflects the principle of nondiscrimination in human rights?
   choices:
@@ -244,7 +252,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: easy
-  approved: false
+  approved: true
   stem: |
     Which pair correctly matches the constitutional articles with their subjects?
   choices:
@@ -270,7 +278,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: easy
-  approved: false
+  approved: true
   stem: |
     Under the 1987 Constitution, what kind of institution is the CHR?
   choices:
@@ -296,7 +304,7 @@ questions:
   keyPoint: 2
   type: single_choice
   difficulty: medium
-  approved: false
+  approved: true
   stem: |
     A rights claim concerns how a government agency treats an individual. Why does this fall within the scope of international human rights law?
   choices:
@@ -322,7 +330,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: medium
-  approved: false
+  approved: true
   stem: |
     An editor calls the twenty-two divisions of Article III separate articles. Which correction is accurate?
   choices:
@@ -348,7 +356,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'Which feature separates a list of rights guarantees from the office established to promote their protection?
 
     '
@@ -375,7 +383,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: |
     Human rights belong to everyone regardless of race, sex, religion, language, nationality, or place of residence. How should these listed grounds be understood?
   choices:
@@ -401,7 +409,7 @@ questions:
   keyPoint: 2
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: |
     What follows from the principle that government human-rights duties continue in peace and during armed conflict?
   choices:
@@ -427,7 +435,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: |
     A reviewer assumes Article IX creates CHR because CHR is called a commission. Which statement corrects this reasoning?
   choices:
@@ -453,7 +461,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: exam
-  approved: false
+  approved: true
   stem: 'A report describes a state failing to respect a person''s human rights. Does that failure mean the person had no rights in the first place?
 
     '
@@ -480,7 +488,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: exam
-  approved: false
+  approved: true
   stem: |
     Which statement correctly distinguishes international human-rights obligations from domestic constitutional protections?
   choices:
@@ -506,7 +514,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: exam
-  approved: false
+  approved: true
   stem: |
     Which statement correctly describes the constitutional status of the CHR?
   choices:
@@ -528,6 +536,7 @@ questions:
 
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0021
+  approved: true
   lesson: lesson-peace-and-human-rights-universal-rights-and-history
   keyPoint: 3
   type: single_choice
@@ -549,6 +558,7 @@ questions:
   explanation: |
     The UDHR recognizes equal human worth and duties to the community. A person or group cannot use rights to destroy the rights of others. Source: UDHR, Preamble and Articles 1, 29–30.
 - id: q-peace-and-human-rights-human-rights-fundamentals-0022
+  approved: true
   lesson: lesson-peace-and-human-rights-bill-of-rights-fairness-and-freedoms
   keyPoint: 2
   type: single_choice
@@ -570,6 +580,7 @@ questions:
   explanation: |
     Due process requires fair procedures before government takes life, liberty, or property. The missing fair procedures involve this guarantee. Source: 1987 Constitution, Article III, Section 1.
 - id: q-peace-and-human-rights-human-rights-fundamentals-0023
+  approved: true
   lesson: lesson-peace-and-human-rights-bill-of-rights-fairness-and-freedoms
   keyPoint: 3
   type: single_choice
@@ -591,6 +602,7 @@ questions:
   explanation: |
     Section 5 bars religious tests for civil or political rights. The office’s requirement is such a test. Source: 1987 Constitution, Article III, Section 5.
 - id: q-peace-and-human-rights-human-rights-fundamentals-0024
+  approved: true
   lesson: lesson-peace-and-human-rights-searches-and-private-messages
   keyPoint: 1
   type: single_choice
@@ -612,6 +624,7 @@ questions:
   explanation: |
     The judge must personally determine probable cause after examination under oath or affirmation. Specific descriptions do not complete that missing step. Source: 1987 Constitution, Article III, Section 2.
 - id: q-peace-and-human-rights-human-rights-fundamentals-0025
+  approved: true
   lesson: lesson-peace-and-human-rights-searches-and-private-messages
   keyPoint: 2
   type: single_choice
@@ -633,6 +646,7 @@ questions:
   explanation: |
     Evidence obtained in violation of Section 3 cannot be used for any purpose in any proceeding. That includes the proposed administrative use. Source: 1987 Constitution, Article III, Section 3(2).
 - id: q-peace-and-human-rights-human-rights-fundamentals-0026
+  approved: true
   lesson: lesson-peace-and-human-rights-home-travel-and-public-records
   keyPoint: 1
   type: single_choice
@@ -654,6 +668,7 @@ questions:
   explanation: |
     A travel limit must be provided by law and serve national security, public safety, or public health. The stated restriction has no legal basis. Source: 1987 Constitution, Article III, Section 6.
 - id: q-peace-and-human-rights-human-rights-fundamentals-0027
+  approved: true
   lesson: lesson-peace-and-human-rights-home-travel-and-public-records
   keyPoint: 2
   type: single_choice
@@ -675,6 +690,7 @@ questions:
   explanation: |
     Citizens have access to official records on matters of public concern, subject to limits set by law. No such limit applies here. Source: 1987 Constitution, Article III, Section 7.
 - id: q-peace-and-human-rights-human-rights-fundamentals-0028
+  approved: true
   lesson: lesson-peace-and-human-rights-groups-property-and-contracts
   keyPoint: 1
   type: single_choice
@@ -696,6 +712,7 @@ questions:
   explanation: |
     Section 8 protects forming unions, associations, or groups for lawful purposes. The stated association meets that condition. Source: 1987 Constitution, Article III, Section 8.
 - id: q-peace-and-human-rights-human-rights-fundamentals-0029
+  approved: true
   lesson: lesson-peace-and-human-rights-groups-property-and-contracts
   keyPoint: 2
   type: single_choice
@@ -717,6 +734,7 @@ questions:
   explanation: |
     Poverty must not prevent access to courts or adequate legal assistance. The refusal is based solely on poverty. Source: 1987 Constitution, Article III, Section 11.
 - id: q-peace-and-human-rights-human-rights-fundamentals-0030
+  approved: true
   lesson: lesson-peace-and-human-rights-custodial-investigation-and-bail
   keyPoint: 1
   type: single_choice
@@ -738,6 +756,7 @@ questions:
   explanation: |
     A waiver must be in writing and made in the presence of counsel. The suspect’s written signature meets only the first condition. Source: 1987 Constitution, Article III, Section 12(1).
 - id: q-peace-and-human-rights-human-rights-fundamentals-0031
+  approved: true
   lesson: lesson-peace-and-human-rights-custodial-investigation-and-bail
   keyPoint: 2
   type: single_choice
@@ -759,6 +778,7 @@ questions:
   explanation: |
     The exception requires an offense punishable by reclusion perpetua and strong evidence of guilt. Both are stated in the facts. Source: 1987 Constitution, Article III, Section 13.
 - id: q-peace-and-human-rights-human-rights-fundamentals-0032
+  approved: true
   lesson: lesson-peace-and-human-rights-criminal-trial-protections
   keyPoint: 1
   type: single_choice
@@ -780,6 +800,7 @@ questions:
   explanation: |
     An accused person may present evidence and question witnesses. The court’s restrictions deny those trial protections. Source: 1987 Constitution, Article III, Section 14(2).
 - id: q-peace-and-human-rights-human-rights-fundamentals-0033
+  approved: true
   lesson: lesson-peace-and-human-rights-criminal-trial-protections
   keyPoint: 2
   type: single_choice
@@ -801,6 +822,7 @@ questions:
   explanation: |
     Trial may continue after arraignment when the accused has due notice and no valid reason for being absent. Those conditions are present. Source: 1987 Constitution, Article III, Section 14(2).
 - id: q-peace-and-human-rights-human-rights-fundamentals-0034
+  approved: true
   lesson: lesson-peace-and-human-rights-detention-review-and-compelled-testimony
   keyPoint: 1
   type: single_choice
@@ -822,6 +844,7 @@ questions:
   explanation: |
     Suspension requires invasion or rebellion and a public-safety need for suspension. Rebellion alone does not meet both conditions. Source: 1987 Constitution, Article III, Section 15.
 - id: q-peace-and-human-rights-human-rights-fundamentals-0035
+  approved: true
   lesson: lesson-peace-and-human-rights-detention-review-and-compelled-testimony
   keyPoint: 2
   type: single_choice
@@ -843,6 +866,7 @@ questions:
   explanation: |
     A person cannot be forced to testify against herself. The proposed answer could expose the witness to criminal punishment. Source: 1987 Constitution, Article III, Section 17.
 - id: q-peace-and-human-rights-human-rights-fundamentals-0036
+  approved: true
   lesson: lesson-peace-and-human-rights-detention-punishment-and-debt
   keyPoint: 1
   type: single_choice
@@ -864,6 +888,7 @@ questions:
   explanation: |
     Section 19 bars cruel, degrading, or inhuman punishment and protects prisoners from abusive treatment. Lawful detention does not remove these protections. Source: 1987 Constitution, Article III, Section 19.
 - id: q-peace-and-human-rights-human-rights-fundamentals-0037
+  approved: true
   lesson: lesson-peace-and-human-rights-detention-punishment-and-debt
   keyPoint: 2
   type: single_choice
@@ -885,6 +910,7 @@ questions:
   explanation: |
     Section 20 bars imprisonment for debt. It does not excuse a separately proved crime involving money. The facts state a fraud conviction. Source: 1987 Constitution, Article III, Section 20.
 - id: q-peace-and-human-rights-human-rights-fundamentals-0038
+  approved: true
   lesson: lesson-peace-and-human-rights-detention-punishment-and-debt
   keyPoint: 3
   type: single_choice
@@ -906,6 +932,7 @@ questions:
   explanation: |
     A bill of attainder imposes punishment through a law without a court trial. That is the measure described. Source: 1987 Constitution, Article III, Section 22.
 - id: q-peace-and-human-rights-human-rights-fundamentals-0039
+  approved: true
   lesson: lesson-peace-and-human-rights-double-jeopardy-protections
   keyPoint: 1
   type: single_choice
@@ -927,6 +954,7 @@ questions:
   explanation: |
     The valid charge, proper court, and valid plea placed the accused in jeopardy. A valid acquittal bars another prosecution for the same offense. Source: 1987 Constitution, Article III, Section 21; People v. Sandiganbayan, G.R. Nos. 232197–98, December 5, 2018.
 - id: q-peace-and-human-rights-human-rights-fundamentals-0040
+  approved: true
   lesson: lesson-peace-and-human-rights-double-jeopardy-protections
   keyPoint: 2
   type: single_choice
@@ -948,6 +976,7 @@ questions:
   explanation: |
     A dismissal that amounts to acquittal for insufficient evidence is an exception to the usual rule for dismissals requested by the accused. The acquittal bars another prosecution for that offense. Source: 1987 Constitution, Article III, Section 21; People v. Sandiganbayan, G.R. Nos. 232197–98, December 5, 2018.
 - id: q-peace-and-human-rights-human-rights-fundamentals-0041
+  approved: true
   lesson: lesson-peace-and-human-rights-rights-during-emergencies
   keyPoint: 1
   type: single_choice
@@ -969,6 +998,7 @@ questions:
   explanation: |
     An ordinary limit operates under a right’s own rules. A lawful public-health travel limit does not suspend the entire Bill of Rights. Source: 1987 Constitution, Article III, Section 6; ICCPR, Article 4.
 - id: q-peace-and-human-rights-human-rights-fundamentals-0042
+  approved: true
   lesson: lesson-peace-and-human-rights-rights-during-emergencies
   keyPoint: 2
   type: single_choice
@@ -990,6 +1020,7 @@ questions:
   explanation: |
     The state must immediately notify other ICCPR states through the UN Secretary-General. It must identify the affected duties and reasons, then report when the suspension ends. Source: ICCPR, Article 4(3).
 - id: q-peace-and-human-rights-human-rights-fundamentals-0043
+  approved: true
   lesson: lesson-peace-and-human-rights-rights-during-emergencies
   keyPoint: 3
   type: single_choice
@@ -1011,6 +1042,7 @@ questions:
   explanation: |
     Article 4 does not permit suspension of the protection against torture in Article 7. This remains true during a qualifying emergency. Source: ICCPR, Articles 4(2) and 7.
 - id: q-peace-and-human-rights-human-rights-fundamentals-0044
+  approved: true
   lesson: lesson-peace-and-human-rights-commission-on-human-rights
   keyPoint: 2
   type: single_choice
@@ -1032,6 +1064,7 @@ questions:
   explanation: |
     The CHR may investigate and refer a matter needing prosecution to the Department of Justice or another proper office. Courts decide criminal guilt. Source: 1987 Constitution, Article XIII, Section 18; Presidential Human Rights Committee Secretariat, Human Rights: A Primer.
 - id: q-peace-and-human-rights-human-rights-fundamentals-0045
+  approved: true
   lesson: lesson-peace-and-human-rights-commission-on-human-rights
   keyPoint: 3
   type: single_choice

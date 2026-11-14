@@ -310,5 +310,485 @@
     "evidence": "docs/content/verification/data-interpretation.md",
     "hash": "c6ed6e412da338583bf0aebc42702f74ac7d5e5f373ed4c1c579699d6e1860ec",
     "lesson": "lesson-data-interpretation-chart-scales-and-differences"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "93a056d366b372098b4350440de5217c553ea072c387dd4191b7d002ca5f8b4c",
+    "lesson": "lesson-peace-and-human-rights-commission-on-human-rights"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "df71d3395e219c5df7da0f7745d49d6704593b4d429bab9d8b96da076be94b81",
+    "lesson": "lesson-peace-and-human-rights-commission-on-human-rights"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "94d6239696a81dbd9427f917c23ef1c6a5cbcc58e298d2339fdf3006d35a0b42",
+    "lesson": "lesson-peace-and-human-rights-bill-of-rights-fairness-and-freedoms"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "5dad37630dd86c9c50916f83fa91067e39b52b9a4e489b92f1451f263488ef5b",
+    "lesson": "lesson-peace-and-human-rights-universal-rights-and-history"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "bdf90b0236fe09bbc73b61c76f7e8d4a2d38bb46e6d686ec54b05489cd11936b",
+    "lesson": "lesson-peace-and-human-rights-universal-rights-and-history"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "c67c486bd70b641ddd5bc5df92ecb925c57739a31beb60fff6112bf14aaf80e9",
+    "lesson": "lesson-peace-and-human-rights-commission-on-human-rights"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "e47a19a0efb21a30e7a171e33a1a196b85c97e716b7c55328f43387bc3d38362",
+    "lesson": "lesson-peace-and-human-rights-universal-rights-and-history"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "e02b5d689947fb91caccca7cc022b1a2a897149fa0e237673a085d2d8d99629b",
+    "lesson": "lesson-peace-and-human-rights-universal-rights-and-history"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "abc0159ccbac9329fe219a24fe7c75170b85abb4d80c27f33caa9a32bb926600",
+    "lesson": "lesson-peace-and-human-rights-universal-rights-and-history"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "b4a4cdd3c139dab6411654ec045d9d2dd3624691f771d73c60fe64d4ea3929c0",
+    "lesson": "lesson-peace-and-human-rights-commission-on-human-rights"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "d94ada8fe50ad256bcb10235dcb7d78577d1437b51040a60930aed15ff54bd0f",
+    "lesson": "lesson-peace-and-human-rights-commission-on-human-rights"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "36d438dc75982a9f2dd94ce0c7444430dba5410356b81de3ee6237272229dc7d",
+    "lesson": "lesson-peace-and-human-rights-universal-rights-and-history"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "d384d200b264e85427e1c32ed28d230d7de9da5e8b7d45fc41a15c53d384d461",
+    "lesson": "lesson-peace-and-human-rights-bill-of-rights-fairness-and-freedoms"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "41f8f54800bcc3bc5ece23d6209b256023d5053cd4a60447807eba57f85fc4d4",
+    "lesson": "lesson-peace-and-human-rights-commission-on-human-rights"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "2b426d2544987b99bddea14568da569259727d957c6b142c66611e39d073959b",
+    "lesson": "lesson-peace-and-human-rights-universal-rights-and-history"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "99920d1c8562e11b7bc841063d8b0675b51d7acc378ce6a5aed929912f457156",
+    "lesson": "lesson-peace-and-human-rights-universal-rights-and-history"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "0dab29c1a509ca5a38393c19d9533939201a2f6652833525f50895c79b6096f7",
+    "lesson": "lesson-peace-and-human-rights-commission-on-human-rights"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "8af886c9ddb1d6f2be98eb9c12767acd4d738d6329dc8158efe260940a6585fc",
+    "lesson": "lesson-peace-and-human-rights-universal-rights-and-history"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "cd2309c5903d4c2bec35cf0501914caa5dc7c2c3144a4ff090c996df7e39015e",
+    "lesson": "lesson-peace-and-human-rights-bill-of-rights-fairness-and-freedoms"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "c9b3559efbe05bd45dd64a4f450541a62744de0c55fe6b27a42762dd13622dd2",
+    "lesson": "lesson-peace-and-human-rights-commission-on-human-rights"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "56e48eabd660474a8959adb074b6e54aa20b773480d6945ad0325bcbee8a1c53",
+    "lesson": "lesson-peace-and-human-rights-universal-rights-and-history"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0022": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "4867d7705e2df974bc34c4c62b8affc1959fbcf2767261731c35e78753df6367",
+    "lesson": "lesson-peace-and-human-rights-bill-of-rights-fairness-and-freedoms"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0023": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "816cf1136ea6c797628ed57901e2ca270a71176b6d9fa5c59686762dd1fcfbc2",
+    "lesson": "lesson-peace-and-human-rights-bill-of-rights-fairness-and-freedoms"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0024": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "223d28eb804f51a9eef4776a14e94f4ca048bfc47d0ff0a009b63488d88c29fd",
+    "lesson": "lesson-peace-and-human-rights-searches-and-private-messages"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0025": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "5bbf5dce663cffe389557eed7fc8534f9f9a77edf039848697180c1c9d615171",
+    "lesson": "lesson-peace-and-human-rights-searches-and-private-messages"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0026": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "be91f7c95f2ef1b7a8201583bb4113378829e6bdf51b56c0a81aa9883928b792",
+    "lesson": "lesson-peace-and-human-rights-home-travel-and-public-records"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0027": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "0a7f932c778180861c1e963f6ae9ad0867780ba70a7a720ffda067d6faf8f037",
+    "lesson": "lesson-peace-and-human-rights-home-travel-and-public-records"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0028": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "16ad783ecacb5955876cb6c4aae6abc792342c0071dac654b593d82cdedb3a77",
+    "lesson": "lesson-peace-and-human-rights-groups-property-and-contracts"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0029": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "fed47f6b15706140268b10ce787a4246972ebc50643059a691db6b4f7a66267e",
+    "lesson": "lesson-peace-and-human-rights-groups-property-and-contracts"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0030": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "403221a1230a4f979487404db567e48007a86c3ef0c73b46ce0e546ea5725d59",
+    "lesson": "lesson-peace-and-human-rights-custodial-investigation-and-bail"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0031": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "1a61f515a04e125596c546dd2123b773bdf1c6a81258eabf80503c1dac4899b9",
+    "lesson": "lesson-peace-and-human-rights-custodial-investigation-and-bail"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0032": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "8cd40c2ad688febbe3c9c1f4d8cd5e7f98223afad08f5032c9f35211460e1ab6",
+    "lesson": "lesson-peace-and-human-rights-criminal-trial-protections"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0033": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "5164118c47ea48e5f6e6e202a8f4dbd97ea0d58e575045724195c8b7c1b3947f",
+    "lesson": "lesson-peace-and-human-rights-criminal-trial-protections"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0034": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "602931ccf401336a650e5feb992e41de1fdace1617cbcd4022b24a52e33dd573",
+    "lesson": "lesson-peace-and-human-rights-detention-review-and-compelled-testimony"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0035": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "0e97ddef51e52f3f2184c347fa2f6956f18f7faa586cef1efce755690b501652",
+    "lesson": "lesson-peace-and-human-rights-detention-review-and-compelled-testimony"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0036": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "031b3a372354e55bf8ed781c97e46946db6a5d3237d99133ca178a8af88745e3",
+    "lesson": "lesson-peace-and-human-rights-detention-punishment-and-debt"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0037": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "a6a5cf796f825c26262f3691cdaa05432622bcc527d96abee1ccb1dc61b49621",
+    "lesson": "lesson-peace-and-human-rights-detention-punishment-and-debt"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0038": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "781c81b20f826f241fe1f5a08319d6fb7bedde6a9eddc3146b02e4f9da377e77",
+    "lesson": "lesson-peace-and-human-rights-detention-punishment-and-debt"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0039": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "909bf7b12f9cec22dd55d2b08df321267fbdc86b397eeed04d46f594e1d37ea0",
+    "lesson": "lesson-peace-and-human-rights-double-jeopardy-protections"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0040": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "ae400c904b3596d8f0e398ad126e379da4e29489bd53acaf69763e5b3788812c",
+    "lesson": "lesson-peace-and-human-rights-double-jeopardy-protections"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0041": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "ff4d3ae5bbb1739eb1fa8cb60819cb2f9f10c04583a44dcc9a54033817ece1ec",
+    "lesson": "lesson-peace-and-human-rights-rights-during-emergencies"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0042": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "647e6d8ef4f9e98031fdefe29ca2c7cb3016851fe4a1c3973addbaa8fe0a2d3a",
+    "lesson": "lesson-peace-and-human-rights-rights-during-emergencies"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0043": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "5cd1a5e04bbf946525ee4bfce6bd22f4f410668dfd0d779049efb2657064e7a2",
+    "lesson": "lesson-peace-and-human-rights-rights-during-emergencies"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0044": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "9bf195c27426c37cdf88f57cf6d0cdc81c130a320df700af0dea7565b862c026",
+    "lesson": "lesson-peace-and-human-rights-commission-on-human-rights"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0045": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "35d0e8cd19b6082bd217ffdeffff62b9cac260ec62d4f82313ea531f9e89ed92",
+    "lesson": "lesson-peace-and-human-rights-commission-on-human-rights"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "de71b46e589f81d940a6369a96febc0b96b22bf30517f735fef05b3834c5b171",
+    "lesson": "lesson-peace-and-human-rights-hrl-and-ihl-scope"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "dc16e88e861378d48a15924b784c7aa7617f848757892694dcb1c9fdf2180848",
+    "lesson": "lesson-peace-and-human-rights-hrl-and-ihl-scope"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "7ccf2c5d0a4440e56657f16aee9788047bfd4893ca239d31654b551354afdc32",
+    "lesson": "lesson-peace-and-human-rights-hrl-and-ihl-scope"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "c50fd6b0fab562c37e40bf7609a715669418b938ec218c379f93b5a4a9fb42d9",
+    "lesson": "lesson-peace-and-human-rights-hrl-and-ihl-scope"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "5c965c39b046761e33a5422c49b728692578695c608473b11548b063335dad5b",
+    "lesson": "lesson-peace-and-human-rights-hrl-and-ihl-scope"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "609c2df8bbd62e319ee56f1fc69b0956a6a08330ababf86f55605f7c3eec27a5",
+    "lesson": "lesson-peace-and-human-rights-hrl-and-ihl-scope"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "850ea2e8d972e40da35aac960e4592c70c09ac058d780b0ffb080e72375b6da2",
+    "lesson": "lesson-peace-and-human-rights-people-protected-from-attack"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "ef4b995cb91b60b1528b4f4a72bcb56264eed82129ba1d81eb873c9901e9285d",
+    "lesson": "lesson-peace-and-human-rights-iccpr-protected-rights"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "7fc96b29df37ab2905f45792e03f8975e6436686b1196109f3251f5a1c450bd0",
+    "lesson": "lesson-peace-and-human-rights-people-protected-from-attack"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "8d46004dd9ecce2839ce531530a09820656b17342e918f59811ccccb16f45778",
+    "lesson": "lesson-peace-and-human-rights-hrl-and-ihl-scope"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "aafd1c473b3c8ef88eef7f35fcf61e1604e5faa0fda74556fe56da5eb2b4b375",
+    "lesson": "lesson-peace-and-human-rights-ihl-preparation-and-peace"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "95de1c521d8beea3542a3d10479783d026387c29d458e7acd4c68809387a4b48",
+    "lesson": "lesson-peace-and-human-rights-hrl-and-ihl-scope"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "6326880b3599cdcc65b9690a9e4687056edb87fda5a1469b241156c536871e33",
+    "lesson": "lesson-peace-and-human-rights-hrl-and-ihl-together"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "dafd711a5225b5f74fbbbcb14cd94e67ae01472df07b19784728231739002417",
+    "lesson": "lesson-peace-and-human-rights-hrl-and-ihl-scope"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "9bd70df8e1087e24a72fb9cbd891065b6ac00108dd3dfea82baf72c847081f88",
+    "lesson": "lesson-peace-and-human-rights-iccpr-protected-rights"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "3150ed141f37869986d558c0a5e91f8a0e1c178b1cc2995adb4b2f64821e1871",
+    "lesson": "lesson-peace-and-human-rights-hrl-and-ihl-scope"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "853f35d71cffaf16a90d88f32b71fcbe77b3b6a092420ff6d5d3800f35a2ab97",
+    "lesson": "lesson-peace-and-human-rights-hrl-and-ihl-scope"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "d86138fa3d8d078bc8cd1a827e4dd878a07ad18d3dddddbcd31ebab5eb45723e",
+    "lesson": "lesson-peace-and-human-rights-armed-conflict-types"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "14dbde0b95ca00322de7af878f50111742019ed6a6cc3d88408d2b3eb2be82f9",
+    "lesson": "lesson-peace-and-human-rights-hrl-and-ihl-scope"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "38baa4e84a990c1ba81c50cd6dfd276597fe5e3f74ce44c204a7219ac1f1b9e6",
+    "lesson": "lesson-peace-and-human-rights-ihl-preparation-and-peace"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0022": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "0d0c9e57e92afd0a3c62b06245bc7b77d0fca4f149dec92483e6ef2871643935",
+    "lesson": "lesson-peace-and-human-rights-armed-conflict-types"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0023": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "0660c21f5eebf2b38254ccdd1c960e836b79d63bee407f33b39547bc71b1555d",
+    "lesson": "lesson-peace-and-human-rights-hrl-and-ihl-together"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0024": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "8f825a7b9423ca3e6db7d62cd8af84d24fe59efa734c1ee5355a3c4b9e626890",
+    "lesson": "lesson-peace-and-human-rights-iccpr-emergency-conditions"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0025": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "bc29c575ae730c2c68c68ba9830a2f8d3e0c77e92d54dfa3c6296c9f3646d483",
+    "lesson": "lesson-peace-and-human-rights-iccpr-emergency-conditions"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0026": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "07e13bab45a78c59287537a8984616fb1422e54516525097d84ff72f19475cf4",
+    "lesson": "lesson-peace-and-human-rights-iccpr-protected-rights"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0027": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "49adf039a2a93529d1c93f4e9a5e678f5c5d9c199cbb76d02026f2e5bebb398f",
+    "lesson": "lesson-peace-and-human-rights-people-protected-from-attack"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0028": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "7bd91f6f3ae38025c61355ac403b1b7e127ee968c64669f132353e16b233de95",
+    "lesson": "lesson-peace-and-human-rights-people-protected-from-attack"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0029": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "21891138dbbbdc36002c109ce4694ee9641c5cb665876a791265a103c64f7f4c",
+    "lesson": "lesson-peace-and-human-rights-weapons-limits"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0030": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "e193b931b6dccca3c0b1a089aed7c75921abdb109b63bfc0a85b3c50e726dcdf",
+    "lesson": "lesson-peace-and-human-rights-weapons-limits"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0031": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "d259d961869cd2dc48664c3d795960c5e920c8d33f0051d4b0133dcfaa3c3ffb",
+    "lesson": "lesson-peace-and-human-rights-weapons-limits"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0032": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "7198bf4cb1b0509d1a15f2655856fbea922682942fbb4436faf5cb3db21685ee",
+    "lesson": "lesson-peace-and-human-rights-military-targets"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0033": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "0080928b13147c3410c5fb4ac74a3903b2f1133d60339bb1579f32ec34b26d6c",
+    "lesson": "lesson-peace-and-human-rights-military-targets"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0034": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "f068defc52ea1fe792f0c8382e29b049ca3bf9554f9a3ff9a630e7ae20a87974",
+    "lesson": "lesson-peace-and-human-rights-attack-rules"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0035": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "83b2570f733f0434f296ff34d6be1d6d5541bb52f8bc5f74652100a4e8c9029b",
+    "lesson": "lesson-peace-and-human-rights-attack-rules"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0036": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "0ed3922d7e9357b10b939d98634f415e7769490ea18686b0351e67fce128c104",
+    "lesson": "lesson-peace-and-human-rights-ihl-preparation-and-peace"
   }
 }

@@ -7,6 +7,7 @@ meta:
   - cse-sub
 questions:
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0001
+  approved: true
   lesson: lesson-peace-and-human-rights-hrl-and-ihl-scope
   keyPoint: 1
   type: single_choice
@@ -33,6 +34,7 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0002
+  approved: true
   lesson: lesson-peace-and-human-rights-hrl-and-ihl-scope
   keyPoint: 2
   type: single_choice
@@ -59,6 +61,7 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0003
+  approved: true
   lesson: lesson-peace-and-human-rights-hrl-and-ihl-scope
   keyPoint: 1
   type: single_choice
@@ -84,6 +87,7 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0004
+  approved: true
   lesson: lesson-peace-and-human-rights-hrl-and-ihl-scope
   keyPoint: 2
   type: single_choice
@@ -110,6 +114,7 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0005
+  approved: true
   lesson: lesson-peace-and-human-rights-hrl-and-ihl-scope
   keyPoint: 2
   type: single_choice
@@ -135,6 +140,7 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0006
+  approved: true
   lesson: lesson-peace-and-human-rights-hrl-and-ihl-scope
   keyPoint: 1
   type: single_choice
@@ -161,6 +167,7 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0008
+  approved: true
   lesson: lesson-peace-and-human-rights-people-protected-from-attack
   keyPoint: 2
   type: single_choice
@@ -191,7 +198,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: easy
-  approved: false
+  approved: true
   stem: |
     In a qualifying public emergency, which statement correctly describes HRL obligations?
   choices:
@@ -217,7 +224,7 @@ questions:
   keyPoint: 2
   type: single_choice
   difficulty: easy
-  approved: false
+  approved: true
   stem: 'Which person best fits IHL''s category of no longer participating in hostilities?
 
     '
@@ -244,7 +251,7 @@ questions:
   keyPoint: 2
   type: single_choice
   difficulty: easy
-  approved: false
+  approved: true
   stem: 'Which proposal conflicts with IHL''s stated purpose?
 
     '
@@ -271,7 +278,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'Why can a state train personnel in IHL during peace?
 
     '
@@ -298,7 +305,7 @@ questions:
   keyPoint: 2
   type: single_choice
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'Which statement properly distinguishes people protected by IHL from parties bound by it?
 
     '
@@ -325,7 +332,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'During armed conflict, what happens to the human-rights framework in relation to IHL?
 
     '
@@ -352,7 +359,7 @@ questions:
   keyPoint: 2
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'Which statement describes IHL''s purpose without adding a claim about whether a war should begin?
 
     '
@@ -379,7 +386,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: |
     Under ICCPR Article 4, what does it mean for an obligation to be non-derogable?
   choices:
@@ -405,7 +412,7 @@ questions:
   keyPoint: 3
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: |
     Which relationship is central to international human rights law?
   choices:
@@ -431,7 +438,7 @@ questions:
   keyPoint: 2
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'Which pair best represents IHL''s complementary protective and regulatory aims?
 
     '
@@ -458,7 +465,7 @@ questions:
   keyPoint: 2
   type: single_choice
   difficulty: exam
-  approved: false
+  approved: true
   stem: |
     An election campaign is tense, but the facts describe no armed conflict. Which conclusion follows?
   choices:
@@ -484,7 +491,7 @@ questions:
   keyPoint: 2
   type: single_choice
   difficulty: exam
-  approved: false
+  approved: true
   stem: 'Which statement avoids confusing a party''s non-state status with a civilian''s protected role?
 
     '
@@ -511,7 +518,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: exam
-  approved: false
+  approved: true
   stem: |
     An official says HRL has no wartime role and IHL has no peacetime implementation duties. Which statement corrects these claims?
   choices:
@@ -533,6 +540,7 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0022
+  approved: true
   lesson: lesson-peace-and-human-rights-armed-conflict-types
   keyPoint: 1
   type: single_choice
@@ -554,6 +562,7 @@ questions:
   explanation: |
     The Geneva Conventions cover occupation of a state's territory even without armed resistance. A formal declaration of war is not required. Source: Geneva Conventions, common Article 2.
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0023
+  approved: true
   lesson: lesson-peace-and-human-rights-hrl-and-ihl-together
   keyPoint: 2
   type: single_choice
@@ -575,6 +584,7 @@ questions:
   explanation: |
     The right to life bars arbitrary killing. During battlefield fighting, the target's status and IHL attack rules help assess that protection. An active opposing combatant is not automatically protected from every attack. Source: ICCPR, Article 6; Additional Protocol I, Articles 48, 51, and 57.
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0024
+  approved: true
   lesson: lesson-peace-and-human-rights-iccpr-emergency-conditions
   keyPoint: 1
   type: single_choice
@@ -596,6 +606,7 @@ questions:
   explanation: |
     Article 4 requires an emergency threatening the life of the nation and an official proclamation of its existence. The stated facts meet only the first condition. Source: ICCPR, Article 4(1).
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0025
+  approved: true
   lesson: lesson-peace-and-human-rights-iccpr-emergency-conditions
   keyPoint: 2
   type: single_choice
@@ -617,6 +628,7 @@ questions:
   explanation: |
     A derogation measure must not discriminate solely because of religion. Meeting other conditions does not remove this rule. Source: ICCPR, Article 4(1).
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0026
+  approved: true
   lesson: lesson-peace-and-human-rights-iccpr-protected-rights
   keyPoint: 2
   type: single_choice
@@ -638,6 +650,7 @@ questions:
   explanation: |
     Article 4 does not permit suspension of Article 18. Article 18 still allows necessary limits on outward religious practice under its own rules. Freedom of belief cannot be suspended through derogation. Source: ICCPR, Articles 4(2) and 18.
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0027
+  approved: true
   lesson: lesson-peace-and-human-rights-people-protected-from-attack
   keyPoint: 1
   type: single_choice
@@ -659,6 +672,7 @@ questions:
   explanation: |
     A civilian loses protection from direct attack for the time of direct participation in hostilities. The applicable weapons and attack rules still apply. Source: Additional Protocol I, Article 51(3).
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0028
+  approved: true
   lesson: lesson-peace-and-human-rights-people-protected-from-attack
   keyPoint: 3
   type: single_choice
@@ -680,6 +694,7 @@ questions:
   explanation: |
     People in custody must receive humane treatment. Wounded and sick people must receive needed care without unfair discrimination. Belonging to the opposing side does not remove those duties. Source: Geneva Conventions, common Article 3.
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0029
+  approved: true
   lesson: lesson-peace-and-human-rights-weapons-limits
   keyPoint: 1
   type: single_choice
@@ -701,6 +716,7 @@ questions:
   explanation: |
     A weapon is indiscriminate by nature if it cannot be directed at a specific military target or its effects cannot be kept within IHL limits. Its use is prohibited. Source: Additional Protocol I, Article 51(4)(b)-(c); ICRC Customary IHL, Rule 71.
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0030
+  approved: true
   lesson: lesson-peace-and-human-rights-weapons-limits
   keyPoint: 2
   type: single_choice
@@ -722,6 +738,7 @@ questions:
   explanation: |
     Weapons must not cause superfluous injury or unnecessary suffering. This rule protects fighters too. Accurate aiming does not remove that limit. Source: Additional Protocol I, Article 35(2).
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0031
+  approved: true
   lesson: lesson-peace-and-human-rights-weapons-limits
   keyPoint: 3
   type: single_choice
@@ -743,6 +760,7 @@ questions:
   explanation: |
     The Geneva Gas Protocol prohibits using poison gas in war. A claimed military gain does not cancel the prohibition. Source: Geneva Gas Protocol of 1925.
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0032
+  approved: true
   lesson: lesson-peace-and-human-rights-military-targets
   keyPoint: 1
   type: single_choice
@@ -764,6 +782,7 @@ questions:
   explanation: |
     Distinction requires attacks to be directed at military targets. Protected civilians and civilian objects must not be directly attacked. Pressure on the opposing side does not change their protected status. Source: Additional Protocol I, Articles 48, 51(2), and 52(1).
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0033
+  approved: true
   lesson: lesson-peace-and-human-rights-military-targets
   keyPoint: 2
   type: single_choice
@@ -785,6 +804,7 @@ questions:
   explanation: |
     Both conditions must be met. The object must effectively help military action, and its destruction, capture, or neutralization must offer a definite military gain in the circumstances. The second condition is absent. Source: Additional Protocol I, Article 52(2).
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0034
+  approved: true
   lesson: lesson-peace-and-human-rights-attack-rules
   keyPoint: 1
   type: single_choice
@@ -806,6 +826,7 @@ questions:
   explanation: |
     Proportionality bars an attack expected to cause incidental civilian harm excessive compared with its concrete and direct military gain. The facts state that this limit is exceeded. Source: Additional Protocol I, Articles 51(5)(b) and 57(2)(a)(iii).
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0035
+  approved: true
   lesson: lesson-peace-and-human-rights-attack-rules
   keyPoint: 2
   type: single_choice
@@ -827,6 +848,7 @@ questions:
   explanation: |
     An attack must be canceled or stopped when expected civilian harm becomes excessive compared with the expected military gain. A warning does not make the attack lawful. Source: Additional Protocol I, Article 57(2)(b).
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0036
+  approved: true
   lesson: lesson-peace-and-human-rights-ihl-preparation-and-peace
   keyPoint: 2
   type: single_choice
