@@ -7,6 +7,7 @@ meta:
   - cse-sub
 questions:
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0001
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-penalties-administrative-limits
   keyPoint: 1
   type: single_choice
@@ -33,6 +34,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0002
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-penalties-administrative-limits
   keyPoint: 1
   type: single_choice
@@ -59,6 +61,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0003
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal
   keyPoint: 1
   type: single_choice
@@ -85,6 +88,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0004
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal
   keyPoint: 1
   type: single_choice
@@ -111,6 +115,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0005
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-penalties-filed-statement-misuse
   keyPoint: 1
   type: single_choice
@@ -137,6 +142,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0006
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-penalties-accomplices-and-accessories
   keyPoint: 1
   type: single_choice
@@ -163,6 +169,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0007
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal
   keyPoint: 1
   type: single_choice
@@ -189,6 +196,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0008
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal
   keyPoint: 1
   type: single_choice
@@ -215,6 +223,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0009
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-penalties-administrative-limits
   keyPoint: 1
   type: single_choice
@@ -241,6 +250,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0010
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal
   keyPoint: 1
   type: single_choice
@@ -267,6 +277,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0011
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-penalties-notice-and-evidence
   keyPoint: 1
   type: single_choice
@@ -293,6 +304,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0012
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-penalties-confidential-information-proof
   keyPoint: 1
   type: single_choice
@@ -319,6 +331,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0013
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal
   keyPoint: 1
   type: single_choice
@@ -345,6 +358,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0014
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal
   keyPoint: 1
   type: single_choice
@@ -371,6 +385,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0015
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-penalties-conspiracy-and-principals
   keyPoint: 1
   type: single_choice
@@ -401,7 +416,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: easy
-  approved: false
+  approved: true
   stem: 'Which combination may the court impose for a violation of Section 8 under RA 6713?
 
     '
@@ -428,7 +443,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'Which private participant is expressly included in Section 11(c)''s conspiracy rule?
 
     '
@@ -455,7 +470,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'An office receives a complaint alleging a violation of RA 6713. Is filing the complaint alone sufficient to justify dismissal under Section 11?
 
     '
@@ -482,7 +497,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'Who may bring the Section 11(d) action over prohibited use of a filed statement?
 
     '
@@ -509,7 +524,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: exam
-  approved: false
+  approved: true
   stem: 'Which statement accurately describes the two monetary ceilings in Section 11(a)?
 
     '
@@ -533,6 +548,7 @@ questions:
     '
 
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0021
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-penalties-confidential-information-proof
   keyPoint: 1
   type: single_choice
@@ -555,6 +571,7 @@ questions:
     RA 6713, Section 7(c) requires protected office information and a prohibited purpose. Rule 133, Sections 2 and 6 set different proof standards. Criminal guilt needs proof beyond reasonable doubt. Administrative discipline may rest on substantial evidence, so the findings can differ.
 
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0022
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-penalties-conspiracy-and-principals
   keyPoint: 1
   type: single_choice
@@ -577,6 +594,7 @@ questions:
     RA 6713, Section 11(c) covers private people who conspire as co-principals with public workers. Revised Penal Code Articles 8 and 17 describe agreement, decision, and essential help. The stated acts fit those requirements, with the same penal liabilities and joint trial.
 
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0023
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-penalties-enforcement-and-protection
   keyPoint: 1
   type: single_choice
@@ -599,6 +617,7 @@ questions:
     RA 6713, Section 12 gives the CSC primary Code enforcement responsibility and directs referral of cases needing prosecution. RA 6770, Section 15(1) authorizes Ombudsman investigation and prosecution. The Sandiganbayan tries cases within its authority.
 
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0024
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-penalties-enforcement-and-protection
   keyPoint: 1
   type: single_choice
@@ -621,6 +640,7 @@ questions:
     RA 6713, Section 12 directs the Ombudsman to take steps to protect citizens who report Code violations by public officials and employees. The citizen may raise the threats and request that protection.
 
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0025
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-penalties-review-of-decisions
   keyPoint: 1
   type: single_choice
@@ -643,6 +663,7 @@ questions:
     Rule 43, Sections 1 and 5 provide review of CSC decisions by verified petition in the Court of Appeals. The petition is a written request confirmed under oath. The route applies to the stated CSC disciplinary ruling.
 
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0026
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-penalties-review-of-decisions
   keyPoint: 1
   type: single_choice

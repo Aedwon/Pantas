@@ -7,6 +7,7 @@ meta:
   - cse-sub
 questions:
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0004
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-prohibitions-referrals-and-separation
   keyPoint: 1
   type: single_choice
@@ -33,6 +34,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0005
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-prohibitions-nominal-gifts-and-donations
   keyPoint: 1
   type: single_choice
@@ -59,6 +61,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0007
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-prohibitions-referrals-and-separation
   keyPoint: 1
   type: single_choice
@@ -85,6 +88,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0008
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-prohibitions-nominal-gifts-and-donations
   keyPoint: 1
   type: single_choice
@@ -111,6 +115,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0010
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-prohibitions-private-practice
   keyPoint: 1
   type: single_choice
@@ -137,6 +142,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0011
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-prohibitions-foreign-government-benefits
   keyPoint: 1
   type: single_choice
@@ -163,6 +169,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0013
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-prohibitions-information-and-benefits
   keyPoint: 1
   type: single_choice
@@ -189,6 +196,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0014
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-prohibitions-interests-and-business-roles
   keyPoint: 1
   type: single_choice
@@ -219,7 +227,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: easy
-  approved: false
+  approved: true
   stem: 'A regular supplier asks an official to recommend a friend for a company position. What fact brings the request within Section 7(b)(3)?
 
     '
@@ -246,7 +254,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'An employee shares an unpublished bid evaluation with a friend so the friend''s firm can adjust its offer. Which rule applies?
 
     '
@@ -273,7 +281,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'An official offers a former client priority approval because their company will later employ the official. Which prohibition is most directly implicated?
 
     '
@@ -300,7 +308,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: exam
-  approved: false
+  approved: true
   stem: 'An official resigns and opens a professional practice. Which client matter remains barred during the following year?
 
     '
@@ -327,7 +335,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: exam
-  approved: false
+  approved: true
   stem: 'Which statement correctly combines permission and conflict rules for private professional practice during public service?
 
     '
@@ -371,7 +379,7 @@ questions:
       The ban covers valuable benefits, not just cash. Payment for a personal vacation is a valuable benefit.
   explanation: |
     Solicitation means asking for a benefit. The employee asked a licensed company for a personal benefit. The company's refusal does not make that request proper.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0005
   lesson: lesson-code-of-conduct-ra-6713-prohibitions-foreign-government-benefits
   keyPoint: 1
@@ -393,7 +401,7 @@ questions:
       The stated exception expressly includes fellowship grants from foreign governments. It does not require a private donor.
   explanation: |
     A fellowship supports study, training, or research. Foreign-government fellowship grants are listed separately. They do not have to be treated as nominal courtesy souvenirs.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0006
   lesson: lesson-code-of-conduct-ra-6713-prohibitions-family-gifts-and-relatives
   keyPoint: 1
@@ -415,7 +423,7 @@ questions:
       The Code defines family and relatives separately. The donor is a named relative and does not need to meet the definition of a child.
   explanation: |
     The parent of a son-in-law or daughter-in-law is a balae. The Code expressly includes this relative. The family celebration and lack of expected financial benefit meet the stated gift conditions.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0007
   lesson: lesson-code-of-conduct-ra-6713-prohibitions-referrals-and-separation
   keyPoint: 1
@@ -437,7 +445,7 @@ questions:
     correct: true
   explanation: |
     The implementing rules allow referrals required by assigned public duties. This referral meets that condition. A pending transaction alone does not defeat this exception.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0008
   lesson: lesson-code-of-conduct-ra-6713-prohibitions-nominal-gifts-and-donations
   keyPoint: 1
@@ -460,7 +468,7 @@ questions:
   explanation: |
     This exception requires no regular, pending, or expected agency transaction. The planned application is an expected transaction.
     Small value and lack of expected financial benefit do not remove that condition.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0009
   lesson: lesson-code-of-conduct-ra-6713-prohibitions-organization-and-government-donations
   keyPoint: 1
@@ -482,7 +490,7 @@ questions:
       The donor is a government entity, not a private person. The rules list government-to-government donations separately.
   explanation: |
     The donation passes from one government entity to another. That is a listed exception. The equipment belongs to the receiving agency, not to the officer who accepts it.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0010
   lesson: lesson-code-of-conduct-ra-6713-prohibitions-organization-and-government-donations
   keyPoint: 1
@@ -505,9 +513,10 @@ questions:
       A relief donation does not buy favorable official action. The agency must still decide the license application fairly.
   explanation: |
     The supplies help people in need. They are reviewed and accepted for that purpose without a sought private gain. The organization-donation exception does not state the no-transaction condition used for nominal donations from persons. The pending application alone does not defeat it.
-  approved: false
+  approved: true
 
 - id: q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0017
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-prohibitions-family-gifts-and-relatives
   keyPoint: 1
   type: single_choice

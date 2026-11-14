@@ -7,6 +7,7 @@ meta:
   - cse-sub
 questions:
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0001
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-duties-public-letters
   keyPoint: 1
   type: single_choice
@@ -33,6 +34,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0002
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-duties-document-completion
   keyPoint: 2
   type: single_choice
@@ -59,6 +61,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0003
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-duties-reports-and-counter-service
   keyPoint: 1
   type: single_choice
@@ -85,6 +88,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0006
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-duties-fair-disciplinary-process
   keyPoint: 1
   type: single_choice
@@ -111,6 +115,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0009
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-duties-public-record-access
   keyPoint: 1
   type: single_choice
@@ -137,6 +142,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0012
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-duties-public-letters
   keyPoint: 1
   type: single_choice
@@ -167,7 +173,7 @@ questions:
   keyPoint: 2
   type: single_choice
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'When an authorized signatory is absent, whom does Section 5(c) direct to sign on that official''s behalf?
 
     '
@@ -207,7 +213,7 @@ questions:
     rationale: The filing exemption gives no right to choose which duties and bans apply.
   explanation: |
     Free-service volunteers need not file a SALN under Rule XII. They must still follow the Code's duties and bans. The filing exemption is limited.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0019
   lesson: lesson-code-of-conduct-ra-6713-duties-protected-information-and-gifts
   keyPoint: 1
@@ -228,7 +234,7 @@ questions:
   explanation: |
     Protected work information must not be shared to give an unfair advantage.
     The employee need not receive money for the disclosure to be prohibited.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0020
   lesson: lesson-code-of-conduct-ra-6713-duties-protected-information-and-gifts
   keyPoint: 2
@@ -247,7 +253,7 @@ questions:
     rationale: The link to official duties matters. Giving the gift outside office hours does not remove that link.
   explanation: |
     The business offers the gift for favorable official action. The employee must refuse it. A low price does not make that exchange acceptable.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0021
   lesson: lesson-code-of-conduct-ra-6713-duties-public-letters
   keyPoint: 2
@@ -266,7 +272,7 @@ questions:
     rationale: Incomplete papers do not remove the duty to answer and explain what the applicant must provide.
   explanation: |
     The office should explain its action and list the missing papers. It should give a reasonable period to submit them and name the worker in charge. Missing papers can delay completion, but the office still needs to reply.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0022
   lesson: lesson-code-of-conduct-ra-6713-duties-public-letters
   keyPoint: 2
@@ -285,7 +291,7 @@ questions:
     rationale: Prompt service does not give an office authority over a matter assigned to another office.
   explanation: |
     The receiving office should send the request to the office that can act. It should also tell the sender about the referral. A wrong address is not a reason to ignore the request.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0023
   lesson: lesson-code-of-conduct-ra-6713-duties-reports-and-counter-service
   keyPoint: 2
@@ -304,7 +310,7 @@ questions:
     correct: true
   explanation: |
     Workers must promptly attend to people seeking service in person. A routine request that can be settled at once should not face an unjustified delay.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0024
   lesson: lesson-code-of-conduct-ra-6713-duties-document-completion
   keyPoint: 1
@@ -323,7 +329,7 @@ questions:
     rationale: The absence of a legal deadline requires agency rules setting a reasonable period. It does not permit endless delay.
   explanation: |
     The agency head must set a reasonable period when no deadline already applies. The rules must consider the work, its complexity, and relevant conditions. Each worker cannot simply choose a deadline.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0025
   lesson: lesson-code-of-conduct-ra-6713-duties-public-record-access
   keyPoint: 2
@@ -342,7 +348,7 @@ questions:
     rationale: Public access is not generally limited to agency employees. Specific lawful restrictions determine what may be withheld.
   explanation: |
     Public access has lawful limits. The rules protect confidential sources in investigations. The office must rely on that protection, not merely on the fact that the matter is unfinished.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0026
   lesson: lesson-code-of-conduct-ra-6713-duties-private-business-interests
   keyPoint: 1
@@ -361,7 +367,7 @@ questions:
     rationale: A financial interest does not have to produce a profit before the prohibition applies.
   explanation: |
     The Code bars a direct or indirect financial stake in a transaction requiring the worker's office to approve it. Using a nominee does not remove the stake. The worker need not be the person who signs the approval.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0027
   lesson: lesson-code-of-conduct-ra-6713-duties-private-business-interests
   keyPoint: 2
@@ -380,7 +386,7 @@ questions:
     correct: true
   explanation: |
     The ban includes serving as a trustee for a business the office supervises. Express permission in law is needed for the exception. A supervisor's approval alone is not enough.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0028
   lesson: lesson-code-of-conduct-ra-6713-duties-private-practice-and-referrals
   keyPoint: 1
@@ -400,7 +406,7 @@ questions:
     rationale: Authorized private practice can be allowed when it does not conflict or tend to conflict with public duties.
   explanation: |
     Legal authority is only one requirement. The private work must also avoid conflict with public duties. Work that tends to conflict fails this test even before an actual conflict occurs.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0029
   lesson: lesson-code-of-conduct-ra-6713-duties-after-leaving-office
   keyPoint: 2
@@ -419,7 +425,7 @@ questions:
     rationale: The post-employment limit is not confined to dismissal. Leaving through resignation does not avoid it.
   explanation: |
     For one year after leaving, the lawyer cannot practice on a matter before the former office. This specific limit does not ban every private legal job.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0030
   lesson: lesson-code-of-conduct-ra-6713-duties-private-practice-and-referrals
   keyPoint: 2
@@ -438,9 +444,10 @@ questions:
     rationale: The general ban covers both regular and pending official dealings. Pending status is not an exemption.
   explanation: |
     The general rule bars certain job recommendations to businesses dealing with the office. The rules allow referrals required by assigned public duties. The stated referral meets that exception.
-  approved: false
+  approved: true
 
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0031
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-duties-after-leaving-office
   keyPoint: 1
   type: single_choice
@@ -463,6 +470,7 @@ questions:
     RA 6713, Section 7(b) continues the covered recommendation ban for one year after retirement or resignation. Six months is within that period. With a pending transaction and no stated exception, the recommendation remains prohibited.
 
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0032
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-duties-code-coverage
   keyPoint: 1
   type: single_choice
@@ -485,6 +493,7 @@ questions:
     RA 6713, Section 3(a) includes government-owned or controlled corporations and their subsidiaries. Section 3(b) includes permanent and temporary public workers. The appointee falls within that coverage.
 
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0033
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-duties-fair-disciplinary-process
   keyPoint: 2
   type: single_choice

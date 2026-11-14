@@ -1,4 +1,868 @@
 {
+  "q-code-of-conduct-ra-6713-corruption-and-its-effects-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "22f4e38dfbc2815e3710f36e7abd098f2235f0f85d805e5119b5753133dadc88",
+    "lesson": "lesson-code-of-conduct-ra-6713-corruption-public-trust-and-bribery"
+  },
+  "q-code-of-conduct-ra-6713-corruption-and-its-effects-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "88b3217b3b746356352636aea9ce37b4d608c06372db07845ebbfae8c8c1973f",
+    "lesson": "lesson-code-of-conduct-ra-6713-corruption-public-trust-and-bribery"
+  },
+  "q-code-of-conduct-ra-6713-corruption-and-its-effects-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "a6a5cacfa89cc4fa752bba24d95bb7196764b2f4968b838eec52edb6fe9e4177",
+    "lesson": "lesson-code-of-conduct-ra-6713-corruption-social-economic-political-effects"
+  },
+  "q-code-of-conduct-ra-6713-corruption-and-its-effects-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "28342683035ebf225c49c0936189d677cd3e62c598846a6b02982715d647a18e",
+    "lesson": "lesson-code-of-conduct-ra-6713-corruption-social-economic-political-effects"
+  },
+  "q-code-of-conduct-ra-6713-corruption-and-its-effects-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "cddf21c7decb35040c0b6fdf02698a982b1d9d50107b8d6a16c02d81baaa47d4",
+    "lesson": "lesson-code-of-conduct-ra-6713-corruption-social-economic-political-effects"
+  },
+  "q-code-of-conduct-ra-6713-corruption-and-its-effects-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "2c0ebeab6b63c57e3485eb05ff40c9fc2a591825a7c0bbe2461a44a563836fd9",
+    "lesson": "lesson-code-of-conduct-ra-6713-corruption-state-response"
+  },
+  "q-code-of-conduct-ra-6713-corruption-and-its-effects-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "4144b88aeea23aa8df7c4b253132d8bef9c3d0cb002ce1ed0c6eff3e03bb46c1",
+    "lesson": "lesson-code-of-conduct-ra-6713-corruption-state-response"
+  },
+  "q-code-of-conduct-ra-6713-corruption-and-its-effects-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "b71c82754ac7561655e065d7834178ae4b86f45a61795e3df4e77295657b8613",
+    "lesson": "lesson-code-of-conduct-ra-6713-corruption-state-response"
+  },
+  "q-code-of-conduct-ra-6713-corruption-and-its-effects-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "aeaa5817f2a10c2b17d55fee2bdc41b61fe49baaa4c0a56f9dc9fb35cd5f2c78",
+    "lesson": "lesson-code-of-conduct-ra-6713-corruption-public-trust-and-bribery"
+  },
+  "q-code-of-conduct-ra-6713-corruption-and-its-effects-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "8f8af17b1fa31fce8dba2124a96229c01b9deed4b49bde8df4c1a2bbc7882fe3",
+    "lesson": "lesson-code-of-conduct-ra-6713-corruption-graft-and-information"
+  },
+  "q-code-of-conduct-ra-6713-corruption-and-its-effects-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "3e55c41d24b8a1f38924422be0d55ee7b2344a38f14cc76978e2e537a9861255",
+    "lesson": "lesson-code-of-conduct-ra-6713-corruption-red-tape-and-fixers"
+  },
+  "q-code-of-conduct-ra-6713-corruption-and-its-effects-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "632bd07b696c14ea2b0b0d66b2b26365d3dd8d071bdbf4bef5564893e6b413ea",
+    "lesson": "lesson-code-of-conduct-ra-6713-corruption-social-economic-political-effects"
+  },
+  "q-code-of-conduct-ra-6713-corruption-and-its-effects-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "1b41f7154e9247c70e469e85c2f53ee6c54f7d1995d716c63df93cc65a7fac12",
+    "lesson": "lesson-code-of-conduct-ra-6713-corruption-red-tape-and-fixers"
+  },
+  "q-code-of-conduct-ra-6713-corruption-and-its-effects-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "da69c2731f2cb1539829a0ca7b0e8f771f16a7aa9510f7b133cf1a2eb88060cb",
+    "lesson": "lesson-code-of-conduct-ra-6713-corruption-graft-and-information"
+  },
+  "q-code-of-conduct-ra-6713-corruption-and-its-effects-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "b95ebcb0d6c37b0f8b6664910ae48fb6a3e6394ec6ef3920b391c3694f457136",
+    "lesson": "lesson-code-of-conduct-ra-6713-corruption-graft-and-information"
+  },
+  "q-code-of-conduct-ra-6713-corruption-and-its-effects-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "34217c485dec3bc68e1bae2ba2aee8b8475e93f55a9cdd55180a474c0b42c4e3",
+    "lesson": "lesson-code-of-conduct-ra-6713-corruption-graft-and-information"
+  },
+  "q-code-of-conduct-ra-6713-corruption-and-its-effects-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "bcf45e3ceb4a578592868b27a628f505714b0b913e28b38ac7b54d0a0b547f17",
+    "lesson": "lesson-code-of-conduct-ra-6713-corruption-plunder-and-kickbacks"
+  },
+  "q-code-of-conduct-ra-6713-corruption-and-its-effects-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "eff0c02886a1d226b9e58a75dcbe15349d1731fe62c779d3e8c062d10480165e",
+    "lesson": "lesson-code-of-conduct-ra-6713-corruption-state-response"
+  },
+  "q-code-of-conduct-ra-6713-corruption-and-its-effects-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "c3655814c79b97b551955558b71d392fd35ed7c31bdca4bc04485b6bbe31e811",
+    "lesson": "lesson-code-of-conduct-ra-6713-corruption-social-economic-political-effects"
+  },
+  "q-code-of-conduct-ra-6713-corruption-and-its-effects-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "3f0271c7d9d148943aa07295ca737df98cb6d116635301c4cb7cf9d1e1a85681",
+    "lesson": "lesson-code-of-conduct-ra-6713-corruption-social-economic-political-effects"
+  },
+  "q-code-of-conduct-ra-6713-corruption-and-its-effects-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "5dc9ca4e8eee24d7c40709bf9d0099a6d1f72316fdc64434df21b785cc017fb6",
+    "lesson": "lesson-code-of-conduct-ra-6713-corruption-plunder-and-kickbacks"
+  },
+  "q-code-of-conduct-ra-6713-corruption-and-its-effects-0022": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "37964d20f6daf336d5b1417233c4875423d360d50140f3ac04e95e828b3bb5a1",
+    "lesson": "lesson-code-of-conduct-ra-6713-corruption-red-tape-and-fixers"
+  },
+  "q-code-of-conduct-ra-6713-corruption-and-its-effects-0023": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "e6079b0c69fddf0aea97f587ead65cd336d74ad37f3c5a56819fb6d65d6f0020",
+    "lesson": "lesson-code-of-conduct-ra-6713-corruption-state-response"
+  },
+  "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "90e2d5343e61b98df88104d5cca9672f4112889173a2c96c6696c75203c8eccc",
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-public-letters"
+  },
+  "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "f856d825caadb7c9cf045e7ed3363550babe827f25d852bb67c5afc30b5896e6",
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-document-completion"
+  },
+  "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "c8c29fbe421a74c3dcb04b198507e4503dec754c01c569206f5fb38d1b67e5ef",
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-reports-and-counter-service"
+  },
+  "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "582dd0465aeed0fd5a241a94b45c80029a1c6282774c2c5c7c9a8b73937c5cc7",
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-referrals-and-separation"
+  },
+  "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "38c87e5f28b492323cf4bb2cbf2cdf78068f7a086c9a2567312b85923eb9ed98",
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-nominal-gifts-and-donations"
+  },
+  "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "5b46206195b6395c8d738612507815d99cf26a27c1b64264f6d0d11da0c0550f",
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-fair-disciplinary-process"
+  },
+  "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "0457ff64833e2fa263ddfb27cbfcbfa92d213a4dbe9e6c6394ee0215e2199d44",
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-referrals-and-separation"
+  },
+  "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "5421823b2eb9f83779f015add880aa7f41aa00f69fac74373aeb32dd8046aae7",
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-nominal-gifts-and-donations"
+  },
+  "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "cf5d3714469d8acab143e12bd1ef2ad0587d2dc48b67ddca4857b5eab65caddc",
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-public-record-access"
+  },
+  "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "a3ff6ccb6e85c431cf3672d811a2b6945c32baafda63624dca40e4472845ec9e",
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-private-practice"
+  },
+  "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "3c96f37dadc62786f37a1ab70c9cab0b1c52dbf18c86cdaba3412eb71858d0e4",
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-foreign-government-benefits"
+  },
+  "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "9472fafbdc4f0471e0d4b67e134594c02167a7f046ed9e47d117c0cf416cd0c8",
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-public-letters"
+  },
+  "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "ce881f2cd9cd5c34a975287b3b92aeb52d85830093530a0ecd667a6e0d604cd4",
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-information-and-benefits"
+  },
+  "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "fef65e55cdc648e234ab5a370ac0781390f9c993d83722497350389cfef99120",
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-interests-and-business-roles"
+  },
+  "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "7136aff39b133e5cec7ebeec0b80fe28efc29e937c8342482ca3adfc30c001c1",
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-referrals-and-separation"
+  },
+  "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "f01628b23cdf0be52c442fd4d743ffa28f4894c10eaf4160504e4606ad0e88ee",
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-information-and-benefits"
+  },
+  "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "dfadb4e5b0b28093213f8f30b60612b8c4be8d308dc2ca06053b18b0b6f0752c",
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-document-completion"
+  },
+  "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "6539edd4e31a26e29cb6d6ff2786ca68baebb3ef8fddae82bf45cd924fc58d9e",
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-code-coverage"
+  },
+  "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "d591695c9b1213678244be6a2e9943790d782d1b23c019386a13be82e2248741",
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-protected-information-and-gifts"
+  },
+  "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "29ed558eb3138457eedea51de18356e7edf7f316d67b59f784096f1ceb8a0cf2",
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-protected-information-and-gifts"
+  },
+  "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "92204f1d88373e9853c3b2b8cf4b0aa343445a3041fef7d59159ae6acc311bf1",
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-public-letters"
+  },
+  "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0022": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "c6cc3d8a4c39f905bd48e2f9d7c9d38b2a5de72fcd93484f8fe96d5666835777",
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-public-letters"
+  },
+  "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0023": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "972ee21b739a15fd3a12169862c342e4c56fa9e8e44e7a45e435192a36bcc01f",
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-reports-and-counter-service"
+  },
+  "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0024": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "dfafbd6b57e221bd450df4681ab41ff3fc2852c9b5d1d0d6ffd74373f7e06f41",
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-document-completion"
+  },
+  "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0025": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "0d60c1ef2f110adff602d650183243157564717dc84faa60ed46f08510a252bd",
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-public-record-access"
+  },
+  "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0026": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "11860dc6582842c1f5ef8829e8f61a498abc28562b5b55939c61e80f240e6be5",
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-private-business-interests"
+  },
+  "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0027": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "492ef01dd9b9c88dd39969427ab4e3d8af99256c1d976663b8d8a99d8eae59c9",
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-private-business-interests"
+  },
+  "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0028": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "c0d364d6a86f00ede919a09405c24b1f568763c007a5ae818a2d611a4f808eb4",
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-private-practice-and-referrals"
+  },
+  "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0029": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "e9642712a0c71583410ec74c7061d5a2ef2a3e4f56ae0621254b16ae946dd1b0",
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-after-leaving-office"
+  },
+  "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0030": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "da46e63f73c87712fd8665d2cd4f8f2e2c42563bedea0816e2321dc7e3fcf481",
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-private-practice-and-referrals"
+  },
+  "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0031": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "081b5f22a02c41396a38d6d1c1d8920d9772862b6a8bdc40855b364ea12c9342",
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-after-leaving-office"
+  },
+  "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0032": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "625efba1e2c5e06fae0bf7d0369a775eb56c73dbfac7de0d9f6340146feab448",
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-code-coverage"
+  },
+  "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0033": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "d5c8b45e0181c0d673d64a14656113339a96d842ee9327939c7781f1de6c06b8",
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-fair-disciplinary-process"
+  },
+  "q-code-of-conduct-ra-6713-norms-of-conduct-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "7c911662637ca4e9e55f0a0a91333c30bbeaa18fa37d230ec8a119fb8f044907",
+    "lesson": "lesson-code-of-conduct-ra-6713-norms-public-interest-and-professionalism"
+  },
+  "q-code-of-conduct-ra-6713-norms-of-conduct-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "802e439b8189e31f06d90ba9012ccca6071dad961caadf3af1383da66dde7473",
+    "lesson": "lesson-code-of-conduct-ra-6713-norms-public-interest-and-professionalism"
+  },
+  "q-code-of-conduct-ra-6713-norms-of-conduct-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "44e8ce2445284ce4cdab76dc59112cbf73dab7fd072c5b5415d56bcded13fb5f",
+    "lesson": "lesson-code-of-conduct-ra-6713-norms-fair-and-responsive-service"
+  },
+  "q-code-of-conduct-ra-6713-norms-of-conduct-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "321644bee2b6f2d62ea2cab965d999bb325b2a5ecb41684bb2c41bc0d36b6769",
+    "lesson": "lesson-code-of-conduct-ra-6713-norms-public-interest-and-professionalism"
+  },
+  "q-code-of-conduct-ra-6713-norms-of-conduct-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "d2a50dcd49d5ad8e031103373fb63f04dbcad6ac8fd7e3eead06421ca040a6a2",
+    "lesson": "lesson-code-of-conduct-ra-6713-norms-simple-living-and-rewards"
+  },
+  "q-code-of-conduct-ra-6713-norms-of-conduct-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "7539d07849bf3d3a0c598a0ce120bd2f9cd60b0ba311b2ff9291a0fea939436d",
+    "lesson": "lesson-code-of-conduct-ra-6713-norms-public-interest-and-professionalism"
+  },
+  "q-code-of-conduct-ra-6713-norms-of-conduct-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "9143f5217e0c83e75fe2f5f69bbdb1264e551f0feced97e04cb0ac5e3dceb116",
+    "lesson": "lesson-code-of-conduct-ra-6713-norms-nationalism-and-democracy"
+  },
+  "q-code-of-conduct-ra-6713-norms-of-conduct-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "5861474234f99ab79b8fe430f771dab0c1866718e15a277bf46628eb319a89b1",
+    "lesson": "lesson-code-of-conduct-ra-6713-norms-nationalism-and-democracy"
+  },
+  "q-code-of-conduct-ra-6713-norms-of-conduct-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "2a2bae0c88b52f649b455530441e6022d43b50e2f5b03f84cc19a07eef53b914",
+    "lesson": "lesson-code-of-conduct-ra-6713-norms-fair-and-responsive-service"
+  },
+  "q-code-of-conduct-ra-6713-norms-of-conduct-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "a6a22ce17e5d115afa37908a1b45a616f3be9aabc3c28c8e678edbba141146ca",
+    "lesson": "lesson-code-of-conduct-ra-6713-norms-fair-and-responsive-service"
+  },
+  "q-code-of-conduct-ra-6713-norms-of-conduct-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "bc47738b4b99a9ddca4300e5c3b27f2e8c65618bd33aca746a63c0c546ecce0f",
+    "lesson": "lesson-code-of-conduct-ra-6713-norms-public-interest-and-professionalism"
+  },
+  "q-code-of-conduct-ra-6713-norms-of-conduct-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "fd8d765bb3742157291b63c3719322dc85aa058d5cd2e531b4cf301740f7d28b",
+    "lesson": "lesson-code-of-conduct-ra-6713-norms-simple-living-and-rewards"
+  },
+  "q-code-of-conduct-ra-6713-norms-of-conduct-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "72b4428a741111bb609e154b6ed442c0058912eff4e3409d522de2885321ec51",
+    "lesson": "lesson-code-of-conduct-ra-6713-norms-simple-living-and-rewards"
+  },
+  "q-code-of-conduct-ra-6713-norms-of-conduct-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "2e187fd0488a47c7962d8785d3a2da36dca445212dcd3ccb80b97e4a8fb4ae02",
+    "lesson": "lesson-code-of-conduct-ra-6713-norms-public-interest-and-professionalism"
+  },
+  "q-code-of-conduct-ra-6713-norms-of-conduct-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "0adfe8d2a54116e4915ee210e53a311f35a9b82f53aa13c6dc2a77763261ab75",
+    "lesson": "lesson-code-of-conduct-ra-6713-norms-public-interest-and-professionalism"
+  },
+  "q-code-of-conduct-ra-6713-norms-of-conduct-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "a49767258aec3c3cf8f5d7471b4355657e8ac401b848f0f2abc730c466e36fab",
+    "lesson": "lesson-code-of-conduct-ra-6713-norms-fair-and-responsive-service"
+  },
+  "q-code-of-conduct-ra-6713-norms-of-conduct-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "0548e45b2074367af8f075cf45b712c2c08a64905b894cb324b344690b02118f",
+    "lesson": "lesson-code-of-conduct-ra-6713-norms-public-interest-and-professionalism"
+  },
+  "q-code-of-conduct-ra-6713-norms-of-conduct-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "e01aab33c6a92d9e1fbaa22aebcadc469016306a3df069f584939dcdd1de259e",
+    "lesson": "lesson-code-of-conduct-ra-6713-norms-nationalism-and-democracy"
+  },
+  "q-code-of-conduct-ra-6713-norms-of-conduct-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "8cb8e5b8e0d8ed1addc6bb965f1b704fdd00bde00f358ce2a5fad8e1daf9a40f",
+    "lesson": "lesson-code-of-conduct-ra-6713-norms-fair-and-responsive-service"
+  },
+  "q-code-of-conduct-ra-6713-norms-of-conduct-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "96ff196b3983641449711200510bfe6ea551b73e6f917b1684cbb128202d6dd6",
+    "lesson": "lesson-code-of-conduct-ra-6713-norms-nationalism-and-democracy"
+  },
+  "q-code-of-conduct-ra-6713-norms-of-conduct-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "c787d523606c7c45b6d5fd5be4f6daf7e801d6d2d7469051271ad3dfd6b9843d",
+    "lesson": "lesson-code-of-conduct-ra-6713-norms-simple-living-and-rewards"
+  },
+  "q-code-of-conduct-ra-6713-penalties-and-enforcement-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "1f11d31bddbdeba0149c2513b9030234e2e66aa46e19e753fa78fc944e34db81",
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-administrative-limits"
+  },
+  "q-code-of-conduct-ra-6713-penalties-and-enforcement-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "7bb45d6ad2ac4129cabb99e1d49bec5f08aae8daa26ca81760a2fd41ef6651c9",
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-administrative-limits"
+  },
+  "q-code-of-conduct-ra-6713-penalties-and-enforcement-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "dee371ebb1eb9d2a2d7e7b3919f2a12b336cdfccc9958a2cf740430ec87e21a3",
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal"
+  },
+  "q-code-of-conduct-ra-6713-penalties-and-enforcement-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "db30ceb331f59c7c30baa8f4bacffa429e715aca4399b7d7dea0b9fe804417d5",
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal"
+  },
+  "q-code-of-conduct-ra-6713-penalties-and-enforcement-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "643f1d23d75955ffaf7e6bd795fa0dc5636019805c7f91ba41424b0e73564e87",
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-filed-statement-misuse"
+  },
+  "q-code-of-conduct-ra-6713-penalties-and-enforcement-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "f73026811018b626b0c0c69a6a49b26f70b21fd2bfffcc625e6079a3e56d7f2d",
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-accomplices-and-accessories"
+  },
+  "q-code-of-conduct-ra-6713-penalties-and-enforcement-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "130ae03b0294b3d9bd6e59cccbbc12d92b9841071dbe4e5360208a610530ea96",
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal"
+  },
+  "q-code-of-conduct-ra-6713-penalties-and-enforcement-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "cd1d6073f7f5b38ee98d334b620b2c301cffcf5462ed64b552038df49fe5c5fb",
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal"
+  },
+  "q-code-of-conduct-ra-6713-penalties-and-enforcement-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "c242d1a45cb9b8f96c405e63880687a5d7dc128c57de8c3bab1a33a9083380ec",
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-administrative-limits"
+  },
+  "q-code-of-conduct-ra-6713-penalties-and-enforcement-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "7ebe526bda322032a869a0a339906844bfee884246793d2a7e5571d9de957a5d",
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal"
+  },
+  "q-code-of-conduct-ra-6713-penalties-and-enforcement-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "4963e22cc2031e817f640ddacd7e62f8a90c6e5a822b8a0ee2b1017d2f4835e8",
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-notice-and-evidence"
+  },
+  "q-code-of-conduct-ra-6713-penalties-and-enforcement-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "033bf17c571ee377d572b1a4dab1a1267800a40cce54b3d4b4e9d0d749612b53",
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-confidential-information-proof"
+  },
+  "q-code-of-conduct-ra-6713-penalties-and-enforcement-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "3d2c29b0324350e540006a9da49754ee440e0687c29b0fabd06b80a9ca962fdd",
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal"
+  },
+  "q-code-of-conduct-ra-6713-penalties-and-enforcement-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "f474aed5977c6a7af74a92f396559985652e87299eb4d5093e50e599f69718b1",
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal"
+  },
+  "q-code-of-conduct-ra-6713-penalties-and-enforcement-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "591d86217a8597918236005951771c9fc150f01db4b050481b02bf458ae8c7fd",
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-conspiracy-and-principals"
+  },
+  "q-code-of-conduct-ra-6713-penalties-and-enforcement-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "e0832070dc83cfbff55ddc31935f36c2aa88d0b60a3b970be41d6c8c40429078",
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal"
+  },
+  "q-code-of-conduct-ra-6713-penalties-and-enforcement-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "b3a9c65c7af235f62d8e9d6e71536d7db1f339aa04b3e310bcdf9d605cc6d845",
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-accomplices-and-accessories"
+  },
+  "q-code-of-conduct-ra-6713-penalties-and-enforcement-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "c2cdcfc7c6d4cfd3cead58fcfaade1a8b8291976827c5ba533bfa4bee09b8627",
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-notice-and-evidence"
+  },
+  "q-code-of-conduct-ra-6713-penalties-and-enforcement-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "0a168c24965ef33be947cfd2f16d24d3cf3d01cca3d3e56b08ba0523e921b767",
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-filed-statement-misuse"
+  },
+  "q-code-of-conduct-ra-6713-penalties-and-enforcement-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "ebfd0060ce7ab5561fb4a4be9d93053c34b299f9b5bc71b5f00cce31b382ef0d",
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal"
+  },
+  "q-code-of-conduct-ra-6713-penalties-and-enforcement-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "21cd9c8e63c5eab6d516f5431dedbe03241ffdd21a378da0a8b5cb4ed0cdfec3",
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-confidential-information-proof"
+  },
+  "q-code-of-conduct-ra-6713-penalties-and-enforcement-0022": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "513487dddb6b53a27b4be7d2accd9dc02ecf1d9d621c1700c92931aa41b5f639",
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-conspiracy-and-principals"
+  },
+  "q-code-of-conduct-ra-6713-penalties-and-enforcement-0023": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "d9d8d56222d025fb6b0dfe97149fe973db3bb25be062deac2a87982006b8ca5c",
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-enforcement-and-protection"
+  },
+  "q-code-of-conduct-ra-6713-penalties-and-enforcement-0024": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "0bc5a55691560e447ba6c94be674d4ec83e1dda82ec83ad0a7d1678deb3c513f",
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-enforcement-and-protection"
+  },
+  "q-code-of-conduct-ra-6713-penalties-and-enforcement-0025": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "797571713367225243d83e1a6973d48948eac68aa7dfe34fa517aa19895e48f5",
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-review-of-decisions"
+  },
+  "q-code-of-conduct-ra-6713-penalties-and-enforcement-0026": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "bb17208cb8e22a058bec89ee9bc8f3af74189cf475815ff6fa16b9137c75cc43",
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-review-of-decisions"
+  },
+  "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "5d23a3886727ccfaa96a0b39d14e396af9735f9d43692f066a4c1a27a4332739",
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-interests-and-business-roles"
+  },
+  "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "ac0fc2bbf253d41fa6186d05f7d255f7f1d5178b003a545f2579be2ef02dd92f",
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-referrals-and-separation"
+  },
+  "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "099f37060553f35c3383bf6cb9157a6c81e96c19b408fed410f0f4021f531f0d",
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-private-practice"
+  },
+  "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "b0e47786e9a02eab6dee0a59c4d01069a56edaf039e0a541175f87f823a6be5b",
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-information-and-benefits"
+  },
+  "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "437b27c747705aea856c9281ddc03cbcaf3e30f45629a8edecf1d8b3ade657cc",
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-foreign-government-benefits"
+  },
+  "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "92252de2cde18a6c0f0a7cf4aead70fc3b03a2404f7750ffb207f49684a3274f",
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-family-gifts-and-relatives"
+  },
+  "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "cb6e15c7148db8221f80dd8d263111fba84c8c45d2f28aa4c5325ef76943d617",
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-referrals-and-separation"
+  },
+  "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "ba0081d4e66da2966faddfd55d37908655475a3af76aeaf53beed078122af1df",
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-nominal-gifts-and-donations"
+  },
+  "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "9e97667a77c81791c5e5094bc91c40ccc66aaf83ef20f94ed5bf988220fd8aa2",
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-organization-and-government-donations"
+  },
+  "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "42bc24c30d6ab868b883ebea20ba55d3c5a53fbf665aa03882aeaf8c55dc3151",
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-organization-and-government-donations"
+  },
+  "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "d1e4a6a844805550c2154bd4f7eb3c2128a87b63dc3723b362f4c308dbe3d17c",
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-family-gifts-and-relatives"
+  },
+  "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "44b3a657cb0aa9d0d604a286db133ed70a79cc063703786bd00aa300cf8078d6",
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-filing-dates"
+  },
+  "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "cffaca8ecdd237325ff0d5e9172de768084c3c2e18959aa478a8fa90e919d95a",
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-filing-dates"
+  },
+  "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "45cd780a127c0b23e7d6254e16517ec33ef9e89c6e8fe5ecd4b357bd8461bd04",
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-filing-dates"
+  },
+  "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "69ff9cad769ba7b5022f31d45a112d4c3ad724e69b733284cb282b385fe444dc",
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-relatives-in-government"
+  },
+  "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "f7a316c553ff79145d19c3ac7c765244c052cfc387114956dc9cb5a1805291fc",
+    "lesson": "lesson-code-of-conduct-ra-6713-conflict-action-deadlines"
+  },
+  "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "5cdf306565391a7b1dd8652a653ea01c77eeb48280e5a17ee2926c96d30ce914",
+    "lesson": "lesson-code-of-conduct-ra-6713-conflict-action-deadlines"
+  },
+  "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "6b968808fe8e0902477daa531bc1805864064a3053c80215fdb5dff25adaa61a",
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-public-access-and-use"
+  },
+  "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "a9c3d27c0d47e1a15548878d44366e94b498ff9b94e8949862e89114bfd3dca6",
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-public-access-and-use"
+  },
+  "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "5f937e3bc685f194cbc1c5f2f78f6fde01d0aa2806098848a332b8102502e95e",
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-executive-military-and-other-offices"
+  },
+  "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "8dad17cac353b0118ea08add7ab4062d3a2de8f3af62b65b82e05c7be0c72ff1",
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-national-legislative-and-judicial-offices"
+  },
+  "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "bbed26074d899e9e743f8c6e371b52d96a3577286c4aa22141d2d15f3bb71e7e",
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-executive-military-and-other-offices"
+  },
+  "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "19eb41d516d21729fa2627a5ba464abb4fce46bbd567133dfdaf9d45ca75eb33",
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-filers-and-family-coverage"
+  },
+  "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "2eb000c197ef9a9311d8d87e77d1f287c34d10d5014447e1795393d4bc6f8108",
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-executive-military-and-other-offices"
+  },
+  "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "959579f49b22d96fba05fab093558cd77edbc54d2c41ac5830a919f56780aae1",
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-national-legislative-and-judicial-offices"
+  },
+  "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "1ad718b07e8a1e9e97a39fcac3f562d32464ebd0b3b691b6dacc7e8a554508d8",
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-national-legislative-and-judicial-offices"
+  },
+  "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "a04381ee70344148f56186c3e816f8b72b1ea6281acdc9029f38921078365ba8",
+    "lesson": "lesson-code-of-conduct-ra-6713-conflict-action-deadlines"
+  },
+  "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "9d35d683c789605f13847868dbe76df197362a9567d6dbc51b295f39660b5b4e",
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-public-access-and-use"
+  },
+  "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "94d1c06228875e828aa9c0cf441e9ff4b7cd6ee7e95fa355fdbeae447899a514",
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-filers-and-family-coverage"
+  },
+  "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "2febfe93a723fd80472854d11d2cf4bc4aa26e74c47989a61ab4d5d0faae889f",
+    "lesson": "lesson-code-of-conduct-ra-6713-conflict-action-deadlines"
+  },
+  "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "0826807ae4555334655e31c122be48673b70ec8ce71eb26f12896ad76f400696",
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-executive-military-and-other-offices"
+  },
+  "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "b71402a128fcc022b4ad79ac06f14e1692f319fea425022c5e62aba91469ba54",
+    "lesson": "lesson-code-of-conduct-ra-6713-conflict-and-valid-divestment"
+  },
+  "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0022": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "1cd5880c3d29d0e7764c9d412303b72c78bade0b4f0563c33c7fa583fe2c8b43",
+    "lesson": "lesson-code-of-conduct-ra-6713-conflict-and-valid-divestment"
+  },
+  "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0023": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "d0a9c7b3471cad32db0111aa74e614adb1cc2a525919c9b59b2a04b56cf43078",
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-assets-and-business-disclosures"
+  },
+  "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0024": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "07235dbffbe528b40ff297f158ea5542e9cdb240e8150e99a883447d610d104b",
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-assets-and-business-disclosures"
+  },
+  "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0025": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "3f949145a4145c2fb001e71166c68cb3c14ce64083c61cd51fdae2fa947da4ca",
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-filers-and-family-coverage"
+  },
+  "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0026": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "9ba27746595e376265a1a6e0296de29cb0854a2bcea45a521c9e25c66bd41e67",
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-filing-dates"
+  },
+  "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0027": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "3d3dce85b8dfbe45dc631c259b0f1b5cb7239e01d6934e1a2a9e33f5f0dc9e3c",
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-public-access-and-use"
+  },
+  "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0028": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "3ddd5bede0702bc6fb39b57cce2294d6ae53a4ccc6b7714cf04a032f7f836a83",
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-relatives-in-government"
+  },
+  "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0029": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "d5c3c38ca05f57c9ba7e62e338d8b625c22f9dc69d5c2dbe163e71083c02f2aa",
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-review-and-written-opinions"
+  },
+  "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0030": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
+    "hash": "c0d5892921e691a886c8fc94c544831ad299fda427243ce61dd4d650b608584d",
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-review-and-written-opinions"
+  },
   "q-data-interpretation-rates-ratios-and-percentages-in-context-0001": {
     "approvedAt": "2026-11-14",
     "evidence": "docs/content/verification/data-interpretation.md",

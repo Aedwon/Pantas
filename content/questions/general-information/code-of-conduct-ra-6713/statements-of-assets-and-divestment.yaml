@@ -7,6 +7,7 @@ meta:
   - cse-sub
 questions:
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0001
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-saln-filing-dates
   keyPoint: 1
   type: single_choice
@@ -33,6 +34,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0002
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-saln-filing-dates
   keyPoint: 1
   type: single_choice
@@ -59,6 +61,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0003
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-saln-filing-dates
   keyPoint: 1
   type: single_choice
@@ -85,6 +88,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0004
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-saln-relatives-in-government
   keyPoint: 1
   type: single_choice
@@ -111,6 +115,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0005
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-conflict-action-deadlines
   keyPoint: 1
   type: single_choice
@@ -137,6 +142,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0006
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-conflict-action-deadlines
   keyPoint: 1
   type: single_choice
@@ -163,6 +169,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0007
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-saln-public-access-and-use
   keyPoint: 1
   type: single_choice
@@ -189,6 +196,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0008
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-saln-public-access-and-use
   keyPoint: 1
   type: single_choice
@@ -215,6 +223,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0009
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-saln-executive-military-and-other-offices
   keyPoint: 1
   type: single_choice
@@ -241,6 +250,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0010
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-saln-national-legislative-and-judicial-offices
   keyPoint: 1
   type: single_choice
@@ -267,6 +277,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0011
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-saln-executive-military-and-other-offices
   keyPoint: 2
   type: single_choice
@@ -293,6 +304,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0012
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-saln-filers-and-family-coverage
   keyPoint: 2
   type: single_choice
@@ -319,6 +331,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0013
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-saln-executive-military-and-other-offices
   keyPoint: 2
   type: single_choice
@@ -345,6 +358,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0014
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-saln-national-legislative-and-judicial-offices
   keyPoint: 2
   type: single_choice
@@ -371,6 +385,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0015
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-saln-national-legislative-and-judicial-offices
   keyPoint: 2
   type: single_choice
@@ -401,7 +416,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: easy
-  approved: false
+  approved: true
   stem: 'A conflict arises after an employee is already in government service. Under the implementing rules, when do the resignation and divestment periods begin?
 
     '
@@ -428,7 +443,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'A SALN has been held for eleven years and is needed in an ongoing investigation. What does Section 8(C) allow?
 
     '
@@ -455,7 +470,7 @@ questions:
   keyPoint: 2
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'Which child must be included in a public employee’s Statement of Assets, Liabilities, and Net Worth under RA 6713?
 
     '
@@ -482,7 +497,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'Which pair correctly matches the conflict-of-interest deadlines for a newly appointed official?
 
     '
@@ -509,7 +524,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: exam
-  approved: false
+  approved: true
   stem: 'Under the statutory repository list, what fact sends an armed-forces officer''s SALN to the Office of the President?
 
     '
@@ -533,6 +548,7 @@ questions:
     '
 
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0021
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-conflict-and-valid-divestment
   keyPoint: 1
   type: single_choice
@@ -555,6 +571,7 @@ questions:
     RA 6713, Section 3(f) includes indirect shares sufficient to elect a director in substantial stockholding. Section 3(i) covers this stake when faithful public duty may affect the business interest. Both conditions are present.
 
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0022
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-conflict-and-valid-divestment
   keyPoint: 2
   type: single_choice
@@ -577,6 +594,7 @@ questions:
     RA 6713, Section 3(j) defines divestment as voluntarily, completely, and actually disposing of title or interest. The recipient cannot be the spouse or a covered relative. The complete transfer to an unrelated buyer meets these requirements.
 
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0023
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-saln-assets-and-business-disclosures
   keyPoint: 1
   type: single_choice
@@ -599,6 +617,7 @@ questions:
     RA 6713, Section 8(A) requires declarations of assets, liabilities, net worth, business interests, and financial connections. Debts are liabilities. Paid consultancy is a financial connection, so both must be reported.
 
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0024
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-saln-assets-and-business-disclosures
   keyPoint: 2
   type: single_choice
@@ -621,6 +640,7 @@ questions:
     RA 6713, Section 8(A) requires disclosure of assets, liabilities, and net worth. Net worth is assets minus liabilities: ₱800,000 - ₱250,000 = ₱550,000. Subtracting the debts gives the required amount.
 
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0025
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-saln-filers-and-family-coverage
   keyPoint: 1
   type: single_choice
@@ -643,6 +663,7 @@ questions:
     RA 6713, Section 8(A) excludes people serving in an honorary capacity. Under its implementing rules, Rule VII, Section 1, honorary capacity means service without pay and without service credit. Both conditions must be met.
 
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0026
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-saln-filing-dates
   keyPoint: 2
   type: single_choice
@@ -665,6 +686,7 @@ questions:
     RA 6713, Section 8(A) requires covered filers to give the Ombudsman authority to obtain relevant financial records from government agencies. The authority is due within 30 days after assumption of office.
 
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0027
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-saln-public-access-and-use
   keyPoint: 2
   type: single_choice
@@ -687,6 +709,7 @@ questions:
     RA 6713, Section 8(D) bars commercial use except by news and communications media to inform the general public. Selling SALN data for marketing does not fit that exception. Public access does not remove the use limit.
 
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0028
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-saln-relatives-in-government
   keyPoint: 1
   type: single_choice
@@ -709,6 +732,7 @@ questions:
     RA 6713, Sections 3(k) and 8(B) cover disclosure of relatives in government within the stated degrees. A spouse's parent is a first-degree relative by affinity. The known government post falls within the covered relationship.
 
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0029
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-saln-review-and-written-opinions
   keyPoint: 1
   type: single_choice
@@ -731,6 +755,7 @@ questions:
     RA 6713, Section 10 requires review of timeliness, completeness, and proper form. If a statement fails a required check, the filer must be informed and directed to take corrective action.
 
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0030
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-saln-review-and-written-opinions
   keyPoint: 2
   type: single_choice

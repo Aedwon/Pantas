@@ -25,7 +25,7 @@ questions:
     explanation: |
       Corruption means using public office or public trust for private gain.
       A mistake, delay, or unpopular decision alone does not prove corruption.
-    approved: false
+    approved: true
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0002
     lesson: lesson-code-of-conduct-ra-6713-corruption-public-trust-and-bribery
     keyPoint: 1
@@ -44,7 +44,7 @@ questions:
         correct: true
     explanation: |
       Public office is a public trust. Officials must use their powers for the public. They must not use those powers to reward private supporters.
-    approved: false
+    approved: true
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0003
     lesson: lesson-code-of-conduct-ra-6713-corruption-social-economic-political-effects
     keyPoint: 1
@@ -64,7 +64,7 @@ questions:
     explanation: |
       Social effects concern people's lives and fair access to services.
       Here, eligible patients lose access to medicine because of favoritism.
-    approved: false
+    approved: true
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0004
     lesson: lesson-code-of-conduct-ra-6713-corruption-social-economic-political-effects
     keyPoint: 2
@@ -83,7 +83,7 @@ questions:
         rationale: The case does not show increased trust in elections.
     explanation: |
       Bribe demands add costs to doing business. They can discourage honest businesses from investing. This is an economic effect.
-    approved: false
+    approved: true
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0005
     lesson: lesson-code-of-conduct-ra-6713-corruption-social-economic-political-effects
     keyPoint: 3
@@ -102,7 +102,7 @@ questions:
         rationale: The payers are gaining influence over government priorities.
     explanation: |
       Political effects concern public power and accountability. The official serves payers instead of residents. This weakens accountability.
-    approved: false
+    approved: true
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0006
     lesson: lesson-code-of-conduct-ra-6713-corruption-state-response
     keyPoint: 1
@@ -121,7 +121,7 @@ questions:
         correct: true
     explanation: |
       The Ombudsman acts on complaints against government officers and employees. Filing a complaint does not by itself prove guilt.
-    approved: false
+    approved: true
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0007
     lesson: lesson-code-of-conduct-ra-6713-corruption-state-response
     keyPoint: 1
@@ -140,7 +140,7 @@ questions:
         rationale: The Commission on Audit is not the court that this constitutional provision retains.
     explanation: |
       Article XI, Section 4 retains the Sandiganbayan. It is the anti-graft court. It tries cases that fall within its legal authority.
-    approved: false
+    approved: true
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0008
     lesson: lesson-code-of-conduct-ra-6713-corruption-state-response
     keyPoint: 2
@@ -160,7 +160,7 @@ questions:
     explanation: |
       The Constitution names both bribery and graft and corruption as grounds for impeachment. Impeachment applies to specified high officials.
       Other public workers follow the removal procedures set by law.
-    approved: false
+    approved: true
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0009
     lesson: lesson-code-of-conduct-ra-6713-corruption-public-trust-and-bribery
     keyPoint: 2
@@ -180,7 +180,7 @@ questions:
     explanation: |
       The vacation is a benefit offered in exchange for skipping a duty.
       Accepting that bargain shows bribery. A bribe need not be cash.
-    approved: false
+    approved: true
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0010
     lesson: lesson-code-of-conduct-ra-6713-corruption-graft-and-information
     keyPoint: 1
@@ -200,7 +200,7 @@ questions:
     explanation: |
       Section 3(b) covers requesting or receiving a benefit connected with a government transaction the officer must officially handle.
       The request itself matters. The stem does not say the officer owns a business involved in the purchase.
-    approved: false
+    approved: true
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0011
     lesson: lesson-code-of-conduct-ra-6713-corruption-red-tape-and-fixers
     keyPoint: 2
@@ -219,7 +219,7 @@ questions:
         rationale: RA 6770 concerns the Ombudsman, not these general processing limits.
     explanation: |
       RA 11032 sets these general limits. Processing starts when requirements are complete and any applicable fee is paid. If no fee applies, complete requirements start the period. Lawful extensions and special rules may apply, so a delay alone does not prove corruption.
-    approved: false
+    approved: true
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0012
     lesson: lesson-code-of-conduct-ra-6713-corruption-social-economic-political-effects
     keyPoint: 3
@@ -238,7 +238,7 @@ questions:
         rationale: Red tape concerns ineffective government procedures, not benefits offered to influence votes.
     explanation: |
       The groceries are offered to influence the voter's choice. This is vote buying. The election offense is not limited to cash payments.
-    approved: false
+    approved: true
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0013
     lesson: lesson-code-of-conduct-ra-6713-corruption-red-tape-and-fixers
     keyPoint: 3
@@ -257,7 +257,7 @@ questions:
         rationale: Requiring payment to a fixer does not give applicants the information needed to challenge false charges.
     explanation: |
       Clear public rules let applicants check what they must submit and pay. They can then spot hidden charges and invented delays. This addresses the lack of information that the fixer uses.
-    approved: false
+    approved: true
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0014
     lesson: lesson-code-of-conduct-ra-6713-corruption-graft-and-information
     keyPoint: 2
@@ -276,7 +276,7 @@ questions:
         correct: true
     explanation: |
       Section 3(e) covers undue injury or unwarranted private benefits through the wrongful conduct it names. Clear favoritism can meet that condition. The unwarranted-benefit ground does not also require proof of public loss.
-    approved: false
+    approved: true
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0015
     lesson: lesson-code-of-conduct-ra-6713-corruption-graft-and-information
     keyPoint: 3
@@ -295,7 +295,7 @@ questions:
         rationale: Private participation alone does not prove undue injury or the conditions required by Section 3(e).
     explanation: |
       Section 3(h) covers a financial interest in a transaction in which the officer officially intervenes. The officer's shares create that interest here. Not every investment is covered by this rule.
-    approved: false
+    approved: true
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0016
     lesson: lesson-code-of-conduct-ra-6713-corruption-graft-and-information
     keyPoint: 4
@@ -314,7 +314,7 @@ questions:
         rationale: Giving confidential information to an unauthorized person is different from red tape or delay.
     explanation: |
       Section 3(k) covers giving valuable confidential office information to an unauthorized person. It also covers releasing such information too early. A cash payment is not needed for the act described here.
-    approved: false
+    approved: true
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0017
     lesson: lesson-code-of-conduct-ra-6713-corruption-plunder-and-kickbacks
     keyPoint: 1
@@ -333,7 +333,7 @@ questions:
         rationale: The amount alone does not establish that the wealth came from a combination or series of covered criminal acts.
     explanation: |
       Reaching the threshold is not enough. The wealth must be ill-gotten. It must come from a combination or series of criminal acts covered by RA 7080. Lawful wealth alone is not plunder.
-    approved: false
+    approved: true
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0018
     lesson: lesson-code-of-conduct-ra-6713-corruption-state-response
     keyPoint: 4
@@ -352,7 +352,7 @@ questions:
         correct: true
     explanation: |
       The exclusion requires an unsolicited gift of insignificant value with no link to a favor. A small price alone is not enough. A requested gift or a gift meant to secure special treatment does not meet these conditions.
-    approved: false
+    approved: true
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0019
     lesson: lesson-code-of-conduct-ra-6713-corruption-social-economic-political-effects
     keyPoint: 4
@@ -371,7 +371,7 @@ questions:
         rationale: One act can cause social, economic, and political harm at the same time.
     explanation: |
       Households lose a needed service. Repair costs waste public funds. Residents also lose trust in public accountability. These are social, economic, and political harms. The treasury is not the only one harmed.
-    approved: false
+    approved: true
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0020
     lesson: lesson-code-of-conduct-ra-6713-corruption-social-economic-political-effects
     keyPoint: 4
@@ -390,9 +390,10 @@ questions:
         rationale: Residents can lose public facilities and trust even though they did not take part in the corrupt agreement.
     explanation: |
       Overlooking poor work can lead to costly repairs. Those repairs leave less money for other facilities. Residents can lose services and trust in officials. People outside the payoff can also be harmed.
-    approved: false
+    approved: true
 
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0021
+    approved: true
     lesson: lesson-code-of-conduct-ra-6713-corruption-plunder-and-kickbacks
     keyPoint: 2
     type: evaluate-corruption-harm
@@ -415,6 +416,7 @@ questions:
       A private payoff for arranging a deal is a kickback. RA 7080, Section 1(d) includes project kickbacks among covered means of gaining ill-gotten wealth. Such payoffs can leave others without needed services or fair treatment.
 
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0022
+    approved: true
     lesson: lesson-code-of-conduct-ra-6713-corruption-red-tape-and-fixers
     keyPoint: 1
     type: corruption-definition
@@ -437,6 +439,7 @@ questions:
       RA 9485, Section 4, as amended by RA 11032, distinguishes red tape from fixing. Ineffective procedures can cause poor service. Delay alone does not prove that anyone sought or received a payoff.
 
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0023
+    approved: true
     lesson: lesson-code-of-conduct-ra-6713-corruption-state-response
     keyPoint: 3
     type: public-office-public-trust

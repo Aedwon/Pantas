@@ -7,6 +7,7 @@ meta:
   - cse-sub
 questions:
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0001
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-norms-public-interest-and-professionalism
   keyPoint: 1
   type: single_choice
@@ -33,6 +34,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0002
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-norms-public-interest-and-professionalism
   keyPoint: 2
   type: single_choice
@@ -59,6 +61,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0003
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-norms-fair-and-responsive-service
   keyPoint: 2
   type: single_choice
@@ -85,6 +88,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0004
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-norms-public-interest-and-professionalism
   keyPoint: 2
   type: single_choice
@@ -111,6 +115,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0005
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-norms-simple-living-and-rewards
   keyPoint: 1
   type: single_choice
@@ -137,6 +142,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0006
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-norms-public-interest-and-professionalism
   keyPoint: 3
   type: single_choice
@@ -163,6 +169,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0007
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-norms-nationalism-and-democracy
   keyPoint: 1
   type: single_choice
@@ -189,6 +196,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0008
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-norms-nationalism-and-democracy
   keyPoint: 2
   type: single_choice
@@ -215,6 +223,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0009
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-norms-fair-and-responsive-service
   keyPoint: 3
   type: single_choice
@@ -241,6 +250,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0010
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-norms-fair-and-responsive-service
   keyPoint: 1
   type: single_choice
@@ -267,6 +277,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0011
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-norms-public-interest-and-professionalism
   keyPoint: 1
   type: single_choice
@@ -293,6 +304,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0012
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-norms-simple-living-and-rewards
   keyPoint: 1
   type: single_choice
@@ -319,6 +331,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0013
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-norms-simple-living-and-rewards
   keyPoint: 1
   type: single_choice
@@ -345,6 +358,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0014
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-norms-public-interest-and-professionalism
   keyPoint: 3
   type: single_choice
@@ -371,6 +385,7 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0015
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-norms-public-interest-and-professionalism
   keyPoint: 2
   type: single_choice
@@ -401,7 +416,7 @@ questions:
   keyPoint: 3
   type: single_choice
   difficulty: easy
-  approved: false
+  approved: true
   stem: 'Which office practice most directly demonstrates responsiveness to the public?
 
     '
@@ -428,7 +443,7 @@ questions:
   keyPoint: 3
   type: single_choice
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'A qualified officer keeps improving technical skills rather than acting as a source of special favors. Which norm directly addresses this approach?
 
     '
@@ -455,7 +470,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'Which statutory norm expressly calls for promoting locally produced goods, resources, and technology?
 
     '
@@ -482,7 +497,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'An employee denies a poor applicant the respectful service given to wealthier applicants. Which norm most specifically names this discrimination?
 
     '
@@ -509,7 +524,7 @@ questions:
   keyPoint: 2
   type: single_choice
   difficulty: exam
-  approved: false
+  approved: true
   stem: 'Which principle is expressly part of commitment to democracy under Section 4(g)?
 
     '
@@ -533,6 +548,7 @@ questions:
     '
 
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0021
+  approved: true
   lesson: lesson-code-of-conduct-ra-6713-norms-simple-living-and-rewards
   keyPoint: 2
   type: single_choice
