@@ -3416,3 +3416,11 @@ the two-file reproduction passed 32 after. Independent review: no findings.
 Detailed bisection, policy/source identity, checks and limitations are recorded
 in the bundled-isolation section of the existing update-at-once verification.
 Implemented and verified locally; no push, deploy or Firebase. Local saving only.
+
+### Nov 14, "updates take effect at once" shipped to prod (DS4 lead)
+
+- What shipped (web/update-at-once-r1, main fe0c2076b, prod web build 572354112-e3e62e5faa3e at 09:00 UTC; web only, the server and rules unchanged since 8f0799372): the app checks version.json for a new build when it becomes visible and every 5 minutes, and reloads into it only at a safe point (Home, any quiz or mock reaching its finished state, the end of a lesson), after local writes are durable; never mid-quiz, mid-lesson, during onboarding entry, checkout, or with an input dialog open. The service worker, caching and hosting layout are exactly as before.
+- The staging proof found a gap first: an inline "Quiz yourself" quiz shows its results on its own route, which the coordinator did not count as safe; fixed so any quiz reaching its finished state is a safe point. CI then exposed an older test-isolation leak (the price tier test left a cached catalog future that hung the Pro page test when bundled together); fixed in the test's teardown.
+- Staging proof on the fixed build (two deploys, a short-lived staging debug token, since deleted): build A 1265712796-86da7cc728bb with a quiz open mid-way; build C 1719118685-340a38afd501 deployed; check() reported it, the open quiz was not reloaded (30 s, same page, same version); on finishing the quiz the app reloaded into C at the results screen, with the session saved first (ingestSession 200), the past mistakes visible after, no errors.
+- Prod checks: app.pantas.study and pantas-prod.web.app serve 572354112-e3e62e5faa3e; version.json carries pantasBuildVersion; the served main.dart.js equals the build; pantas_pwa.js exposes pantasUpdate. Open apps on the previous build do not have the update check, so they switch on their next reload; from this build on, open apps follow new deploys at the next safe point.
+- Velocity E-043: see the row (timer).
