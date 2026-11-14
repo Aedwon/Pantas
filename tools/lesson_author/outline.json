@@ -45,6 +45,39 @@
               "sections": []
             },
             {
+              "title": "Prime Factors and Powers",
+              "slug": "prime-factors-and-powers",
+              "sections": [
+                "Prime Powers"
+              ]
+            },
+            {
+              "title": "Greatest Common Factor",
+              "slug": "greatest-common-factor",
+              "sections": [
+                "GCF and LCM",
+                "Choosing the Method"
+              ]
+            },
+            {
+              "title": "Least Common Multiple",
+              "slug": "least-common-multiple",
+              "sections": [
+                "GCF and LCM",
+                "Choosing the Method",
+                "Compare Prime Powers",
+                "Use a Known GCF",
+                "List Small Multiples"
+              ]
+            },
+            {
+              "title": "Same-Remainder Numbers",
+              "slug": "same-remainder-numbers",
+              "sections": [
+                "Same-Remainder Problems"
+              ]
+            },
+            {
               "title": "Fractions, Decimals, and Percentages",
               "slug": "fractions-decimals-percentages",
               "sections": []
@@ -88,6 +121,39 @@
               "title": "Divisibility Rules",
               "slug": "divisibility-rules",
               "sections": []
+            },
+            {
+              "title": "Last-Digit Divisibility",
+              "slug": "last-digit-divisibility",
+              "sections": [
+                "Rules for $2$, $4$, and $8$",
+                "Rules for $5$ and $10$"
+              ]
+            },
+            {
+              "title": "Digit Sums and Six",
+              "slug": "digit-sums-and-six",
+              "sections": [
+                "Rules for $3$ and $9$",
+                "Rule for $6$",
+                "Cast Out Nines"
+              ]
+            },
+            {
+              "title": "Divisibility by Seven and Eleven",
+              "slug": "divisibility-by-seven-and-eleven",
+              "sections": [
+                "Rule for $7$",
+                "Rule for $11$"
+              ]
+            },
+            {
+              "title": "Coprime Divisibility Tests",
+              "slug": "coprime-divisibility-tests",
+              "sections": [
+                "Combining Coprime Factors",
+                "Coprime Split"
+              ]
             },
             {
               "title": "Sequences and Series (Arithmetic, Geometric, Fibonacci, Harmonic)",
@@ -145,6 +211,41 @@
               "sections": [
                 "Discounts and Markups",
                 "Simple and Compound Interest"
+              ]
+            },
+            {
+              "title": "Discounted Prices",
+              "slug": "discounted-prices",
+              "sections": [
+                "Discounts and Markups"
+              ]
+            },
+            {
+              "title": "Markup on Cost",
+              "slug": "markup-on-cost",
+              "sections": [
+                "Markups"
+              ]
+            },
+            {
+              "title": "Commission and Sales Tax",
+              "slug": "commission-and-sales-tax",
+              "sections": [
+                "Commission and Sales Tax"
+              ]
+            },
+            {
+              "title": "Simple Interest",
+              "slug": "simple-interest",
+              "sections": [
+                "Simple and Compound Interest"
+              ]
+            },
+            {
+              "title": "Compound Interest",
+              "slug": "compound-interest",
+              "sections": [
+                "Compound Interest"
               ]
             }
           ]

@@ -6,6 +6,13 @@ subject: "subject-mathematics"
 topic: "topic-arithmetic-number-sense"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-arithmetic-number-sense-discounted-prices
+  - lesson-arithmetic-number-sense-markup-on-cost
+  - lesson-arithmetic-number-sense-commission-and-sales-tax
+  - lesson-arithmetic-number-sense-simple-interest
+  - lesson-arithmetic-number-sense-compound-interest
 ---
 ## Core Concept
 

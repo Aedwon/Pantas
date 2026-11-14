@@ -31,7 +31,7 @@
   ],
   "lesson-algebra-polynomials": [
    {
-    "lesson": "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm",
+    "lesson": "lesson-arithmetic-number-sense-prime-factors-and-powers",
     "strength": "helpful",
     "reason": "Finding numerical common factors is easier with prior GCF practice. This lesson defines polynomial GCF and demonstrates extraction."
    }
@@ -58,21 +58,6 @@
     "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
     "strength": "required",
     "reason": "The work example assumes common-denominator addition and division by a fraction without teaching those arithmetic rules."
-   }
-  ],
-  "lesson-arithmetic-number-sense-business-math": [
-   {
-    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
-    "strength": "required",
-    "reason": "Retained from the earlier audit. Business examples assume percentage-to-decimal conversion and decimal multiplication without teaching their methods."
-   }
-  ],
-  "lesson-arithmetic-number-sense-divisibility-rules": [],
-  "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm": [
-   {
-    "lesson": "lesson-arithmetic-number-sense-divisibility-rules",
-    "strength": "helpful",
-    "reason": "Digit tests make finding prime divisors faster. Prime factorization still works through the repeated division taught here."
    }
   ],
   "lesson-arithmetic-number-sense-properties-of-real-numbers": [
@@ -1488,6 +1473,89 @@
     "lesson": "lesson-arithmetic-number-sense-signed-integers-and-substitution",
     "strength": "required",
     "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-same-remainder-numbers": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-last-digit-divisibility",
+    "strength": "helpful",
+    "reason": "Digit tests make finding prime divisors faster. Prime factorization still works through the repeated division taught here."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-least-common-multiple",
+    "strength": "required",
+    "reason": "This part continues the preceding part of the split lesson."
+   }
+  ],
+  "lesson-arithmetic-number-sense-prime-factors-and-powers": [],
+  "lesson-arithmetic-number-sense-greatest-common-factor": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-prime-factors-and-powers",
+    "strength": "required",
+    "reason": "This part continues the preceding part of the split lesson."
+   }
+  ],
+  "lesson-arithmetic-number-sense-least-common-multiple": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-greatest-common-factor",
+    "strength": "required",
+    "reason": "This part continues the preceding part of the split lesson."
+   }
+  ],
+  "lesson-arithmetic-number-sense-coprime-divisibility-tests": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-divisibility-by-seven-and-eleven",
+    "strength": "required",
+    "reason": "This part continues the preceding part of the split lesson."
+   }
+  ],
+  "lesson-arithmetic-number-sense-last-digit-divisibility": [],
+  "lesson-arithmetic-number-sense-digit-sums-and-six": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-last-digit-divisibility",
+    "strength": "required",
+    "reason": "This part continues the preceding part of the split lesson."
+   }
+  ],
+  "lesson-arithmetic-number-sense-divisibility-by-seven-and-eleven": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-digit-sums-and-six",
+    "strength": "required",
+    "reason": "This part continues the preceding part of the split lesson."
+   }
+  ],
+  "lesson-arithmetic-number-sense-compound-interest": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
+    "strength": "required",
+    "reason": "Retained from the earlier audit. Business examples assume percentage-to-decimal conversion and decimal multiplication without teaching their methods."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-simple-interest",
+    "strength": "required",
+    "reason": "This part continues the preceding part of the split lesson."
+   }
+  ],
+  "lesson-arithmetic-number-sense-discounted-prices": [],
+  "lesson-arithmetic-number-sense-markup-on-cost": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-discounted-prices",
+    "strength": "required",
+    "reason": "This part continues the preceding part of the split lesson."
+   }
+  ],
+  "lesson-arithmetic-number-sense-commission-and-sales-tax": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-markup-on-cost",
+    "strength": "required",
+    "reason": "This part continues the preceding part of the split lesson."
+   }
+  ],
+  "lesson-arithmetic-number-sense-simple-interest": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-commission-and-sales-tax",
+    "strength": "required",
+    "reason": "This part continues the preceding part of the split lesson."
    }
   ]
  }
