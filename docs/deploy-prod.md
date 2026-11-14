@@ -306,15 +306,24 @@ Signs: the app stops working for everyone on that project; an alarm email from C
    `DRY_RUN=true` on the function:
    `gcloud run services update billing-cutoff --region asia-southeast1 --project <project> --update-env-vars DRY_RUN=true`
 5. Check the project works again: the app loads, a function answers (an unauthenticated call returns
-   401, not 403 or 5xx), and on staging the journeys pass. Functions can return 503 ("not available
-   yet") or 429 for up to 30 minutes after relinking, flipping between up and down while they recover
-   (Google, Cloud Run known issues). The staging proof on Nov 14 saw this after only 13 seconds without
-   billing. Hosting, Auth, Firestore and Storage came back at once. A new revision does not help.
-   On Nov 14 the functions still flapped 32 minutes after relinking; they all came back within 2
-   minutes of deleting that project's two spend-cap budgets (below), and stayed up after the caps
-   were recreated. It may have been the end of Google's window rather than the caps, but if functions
-   are still down 30 minutes after relinking, delete the project's two "Spend cap $5" budgets, wait
-   5 minutes, then recreate them (bodies in the private file).
+   401, not 403 or 5xx), and on staging the journeys pass. Hosting, Auth, Firestore and Storage come
+   back at once. Cloud Run functions return 503 "not available yet" (or 429), flipping between up and
+   down, until Cloud Run resumes the project. Google documents up to 30 minutes.
+   Measured on staging, Nov 14, with the $5 spend caps in place both times:
+   - Cut 1: billing off 13 seconds, functions back after **34 minutes**. A functions deploy ran 2 to 6
+     minutes after the relink, while Cloud Run was resuming.
+   - Cut 2: billing off 11 seconds, no deploy, functions back after **5 minutes**.
+   Rules while recovering:
+   - **Do not deploy functions or push new revisions until every function answers.** A new revision
+     does not help, and the deploy in cut 1 is the likely reason it took 34 minutes.
+   - Plan for up to about 35 minutes of function outage after a relink.
+   - If functions are still down 40 minutes after relinking, delete the project's two "Spend cap $5"
+     budgets, wait 5 minutes, then recreate them (bodies in the private file). In cut 1 the functions
+     came back 2 minutes after this, but cut 2 showed the caps do not block recovery by themselves, so
+     treat it as a last resort.
+   A quick check of all functions: list them with
+   `gcloud run services list --project <project> --format='value(metadata.name,status.url)'` and POST
+   `{"data":{}}` to each; every one should return 401 (the RevenueCat webhook returns 500 on staging).
 6. If a spend cap paused functions, lift it: edit the budget and choose "Lift spend cap" (console), or
    PATCH the budget's `spendCap.inputState` to `AWAITING_NEXT_PERIOD`. It can take up to an hour.
 7. Record what happened in the launch log.
