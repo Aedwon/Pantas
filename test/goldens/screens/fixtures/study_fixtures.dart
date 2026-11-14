@@ -3,6 +3,7 @@
 import 'dart:convert';
 
 import 'package:flutter/widgets.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
@@ -90,6 +91,7 @@ Future<Finder> pumpStudyScreen(
   double width,
   Widget page, {
   bool shell = false,
+  List<Override> overrides = const [],
 }) async {
   final db = inMemoryDatabase();
   final contentDb = openTestContentDatabase();
@@ -122,6 +124,7 @@ Future<Finder> pumpStudyScreen(
     overrides: [
       appDatabaseProvider.overrideWithValue(db),
       contentDatabaseProvider.overrideWithValue(contentDb),
+      ...overrides,
     ],
     router: true,
     appTextScale: true,

@@ -76,6 +76,7 @@ class GoldenState {
     this.width,
     this.web,
     this.at = Alignment.center,
+    this.window,
   });
 
   final String label;
@@ -92,6 +93,12 @@ class GoldenState {
   /// Where in the cell the pointer lands for hover and pressed. The center by
   /// default; a part of a composite (a bar's counter) names its own spot.
   final Alignment at;
+
+  /// Draws the cell as a whole window of this size, and captures the window.
+  /// For a component that lives in the root overlay (a popover, a sheet, a
+  /// drawer), which a plain cell would not capture. The builder fills the
+  /// window.
+  final Size? window;
 }
 
 /// Rest, hover, pressed and focus cells of one control, plus a disabled cell
@@ -194,6 +201,7 @@ void goldenSheet(
           }
         });
 
+        tester.view.physicalSize = const Size(6000, 6000);
         final sheetKey = GlobalKey();
         await tester.pumpWidget(
           _themed(
@@ -259,38 +267,60 @@ Future<ui.Image> _capture(
   debugWebPlatformOverride = web;
   final boundaryKey = GlobalKey();
   final contentKey = GlobalKey();
+  final window = state.window;
+  tester.view.physicalSize = window ?? const Size(6000, 6000);
   await tester.pumpWidget(
-    _themed(
-      mode,
-      web,
-      Align(
-        alignment: Alignment.topLeft,
-        child: RepaintBoundary(
-          key: boundaryKey,
-          child: Builder(
-            builder: (context) => ColoredBox(
-              color: Theme.of(context).scaffoldBackgroundColor,
-              child: Padding(
-                padding: const EdgeInsets.all(_cellPad),
-                child: ConstrainedBox(
-                  constraints: BoxConstraints(
-                    maxWidth: state.width ?? cellWidth,
-                  ),
-                  // Unbounded height, as in a card or a page column, so a
-                  // component that fills its height does not fill the view.
-                  child: UnconstrainedBox(
+    window != null
+        ? RepaintBoundary(
+            key: boundaryKey,
+            child: _themed(
+              mode,
+              web,
+              Builder(
+                builder: (context) => ColoredBox(
+                  color: Theme.of(context).scaffoldBackgroundColor,
+                  child: SizedBox(
                     key: contentKey,
-                    alignment: Alignment.topLeft,
-                    constrainedAxis: Axis.horizontal,
+                    width: window.width,
+                    height: window.height,
                     child: Builder(builder: state.build),
                   ),
                 ),
               ),
             ),
+          )
+        : _themed(
+            mode,
+            web,
+            Align(
+              alignment: Alignment.topLeft,
+              child: RepaintBoundary(
+                key: boundaryKey,
+                child: Builder(
+                  builder: (context) => ColoredBox(
+                    color: Theme.of(context).scaffoldBackgroundColor,
+                    child: Padding(
+                      padding: const EdgeInsets.all(_cellPad),
+                      child: ConstrainedBox(
+                        constraints: BoxConstraints(
+                          maxWidth: state.width ?? cellWidth,
+                        ),
+                        // Unbounded height, as in a card or a page column, so
+                        // a component that fills its height does not fill the
+                        // view.
+                        child: UnconstrainedBox(
+                          key: contentKey,
+                          alignment: Alignment.topLeft,
+                          constrainedAxis: Axis.horizontal,
+                          child: Builder(builder: state.build),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ),
-        ),
-      ),
-    ),
   );
   await tester.pump(const Duration(milliseconds: 100));
   final contentBox = tester.getRect(find.byKey(contentKey));
