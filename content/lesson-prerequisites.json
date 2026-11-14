@@ -72,8 +72,6 @@
     "reason": "Understanding photosynthesis and respiration makes carbon cycling easier. Ecology explains their relevant roles itself."
    }
   ],
-  "lesson-clerical-ability-alphabetic-filing-rules": [],
-  "lesson-clerical-ability-numeric-and-chronological-filing": [],
   "lesson-comprehension-skills-authors-purpose-tone-pov": [],
   "lesson-comprehension-skills-choosing-a-title": [
    {
@@ -1603,6 +1601,57 @@
   "lesson-arithmetic-number-sense-complex-products-and-quotients": [
    {
     "lesson": "lesson-arithmetic-number-sense-imaginary-unit-and-powers",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-clerical-ability-personal-name-filing-units": [],
+  "lesson-clerical-ability-filing-patterns-and-surname-particles": [
+   {
+    "lesson": "lesson-clerical-ability-personal-name-filing-units",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-clerical-ability-suffixes-titles-and-filing-ties": [
+   {
+    "lesson": "lesson-clerical-ability-filing-patterns-and-surname-particles",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-clerical-ability-whole-number-and-decimal-filing": [],
+  "lesson-clerical-ability-oldest-and-newest-date-order": [
+   {
+    "lesson": "lesson-clerical-ability-whole-number-and-decimal-filing",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-clerical-ability-year-first-and-stated-date-formats": [
+   {
+    "lesson": "lesson-clerical-ability-oldest-and-newest-date-order",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-clerical-ability-integer-subcode-filing": [
+   {
+    "lesson": "lesson-clerical-ability-year-first-and-stated-date-formats",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-clerical-ability-character-string-filing": [
+   {
+    "lesson": "lesson-clerical-ability-integer-subcode-filing",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-clerical-ability-terminal-digit-filing-order": [
+   {
+    "lesson": "lesson-clerical-ability-character-string-filing",
     "strength": "required",
     "reason": "Read the previous part first."
    }

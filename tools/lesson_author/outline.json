@@ -1273,7 +1273,53 @@
         {
           "name": "Clerical Ability",
           "slug": "clerical-ability",
-          "lessons": []
+          "lessons": [
+            {
+              "title": "Personal-Name Filing Units",
+              "slug": "personal-name-filing-units",
+              "sections": []
+            },
+            {
+              "title": "Filing Patterns and Surname Particles",
+              "slug": "filing-patterns-and-surname-particles",
+              "sections": []
+            },
+            {
+              "title": "Suffixes, Titles, and Filing Ties",
+              "slug": "suffixes-titles-and-filing-ties",
+              "sections": []
+            },
+            {
+              "title": "Whole-Number and Decimal Filing",
+              "slug": "whole-number-and-decimal-filing",
+              "sections": []
+            },
+            {
+              "title": "Oldest and Newest Date Order",
+              "slug": "oldest-and-newest-date-order",
+              "sections": []
+            },
+            {
+              "title": "Year-First and Stated Date Formats",
+              "slug": "year-first-and-stated-date-formats",
+              "sections": []
+            },
+            {
+              "title": "Integer Subcode Filing",
+              "slug": "integer-subcode-filing",
+              "sections": []
+            },
+            {
+              "title": "Character-String Filing",
+              "slug": "character-string-filing",
+              "sections": []
+            },
+            {
+              "title": "Terminal-Digit Filing Order",
+              "slug": "terminal-digit-filing-order",
+              "sections": []
+            }
+          ]
         },
         {
           "name": "Verbal Logic",
