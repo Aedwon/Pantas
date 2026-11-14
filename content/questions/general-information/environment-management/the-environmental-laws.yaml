@@ -635,7 +635,7 @@ questions:
     rationale: |
       This makes the tests depend on each other. Both labels appear in project review. Check each basis for coverage on its own.
   explanation: |
-    PD 1586, Section 4 allows environmentally critical areas to be declared for project review. Proclamation 2146, Part II lists watershed reserves. The location must still be checked under the applicable coverage rules.
+    PD 1586, Section 4 allows environmentally critical areas to be declared for project review. Proclamation 2146, Section B(1) lists watershed reserves. The location must still be checked under the applicable coverage rules.
 
 - id: q-environment-management-the-environmental-laws-0022
   lesson: lesson-environment-management-critical-area-review
@@ -657,7 +657,7 @@ questions:
     rationale: |
       This gives all water-related places one label. They may seem alike because they involve water. Check the listed conditions for the particular place.
   explanation: |
-    PD 1586, Section 4 provides for declaring environmentally critical areas. Proclamation 2146, Part II includes recharge areas of aquifers. Screening must consider the site as well as the project type.
+    PD 1586, Section 4 provides for declaring environmentally critical areas. Proclamation 2146, Section B(9) includes recharge areas of aquifers. Screening must consider the site as well as the project type.
 
 - id: q-environment-management-the-environmental-laws-0023
   lesson: lesson-environment-management-solid-waste-law
