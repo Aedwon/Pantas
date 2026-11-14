@@ -34,6 +34,11 @@ test('lesson item carries the free fields, a stable version, and no Pro document
   assert.equal(a.pro, undefined);
 });
 
+test('lesson without estimatedMinutes uploads with null minutes', () => {
+ const item=lessonItem({_id:'lesson-part', title:'Part', part:1}, 'Body');
+ assert.equal(item.data.estimatedMinutes,null);
+});
+
 test('question set strips wrong-choice notes from the free document into the Pro document', () => {
   const {item, pro} = questionSetItems(set, 'science/biology/botany.yaml');
   assert.equal(item.kind, 'questions');
@@ -66,6 +71,7 @@ test('planWrites skips equal versions and reports creates and updates', () => {
 
 test('upload tool dry run reads the sources, writes nothing and refuses a live target without --live', () => {
   const root = mkdtempSync(join(tmpdir(), 'content-'));
+  mkdirSync(join(root, '.git'));
   mkdirSync(join(root, 'lessons/s/t'), {recursive: true});
   mkdirSync(join(root, 'questions/s/t'), {recursive: true});
   mkdirSync(join(root, 'mock'), {recursive: true});

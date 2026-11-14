@@ -169,20 +169,23 @@ class ContentRepository {
   /// A listed lesson needs an active question tagged for the chosen exam.
   /// Custom tracks use the active question bank across exams.
   Future<Expression<bool>> _lessonEligibility(ExamId? examId) async {
-    if (examId == null) return const Constant(true);
-    final questions = _db.contentQuestions;
     final lessons = _db.contentLessons;
+    final active =
+        lessons.isActive.equals(true) & lessons.status.equals('active');
+    if (examId == null) return active;
+    final questions = _db.contentQuestions;
     final tagged = await _taggedForExam(questions, examId);
-    return existsQuery(
-      _db.selectOnly(questions)
-        ..addColumns([questions.id])
-        ..where(
-          questions.lessonId.equalsExp(lessons.id) &
-              questions.topicId.equalsExp(lessons.topicId) &
-              questions.isActive.equals(true) &
-              tagged,
-        ),
-    );
+    return active &
+        existsQuery(
+          _db.selectOnly(questions)
+            ..addColumns([questions.id])
+            ..where(
+              questions.lessonId.equalsExp(lessons.id) &
+                  questions.topicId.equalsExp(lessons.topicId) &
+                  questions.isActive.equals(true) &
+                  tagged,
+            ),
+        );
   }
 
   Future<List<QuestionSelectionRow>> selectionRowsByTopic(

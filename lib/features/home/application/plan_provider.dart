@@ -366,7 +366,8 @@ final planDayViewProvider =
     if (stored != null) {
       plan = stored.plan;
       final db = ref.read(appDatabaseProvider);
-      final reads = await db.select(db.lessonProgressLocal).get();
+      final reads =
+          await ref.read(lessonProgressRepositoryProvider).readTimes();
       final attempts = await db.select(db.attemptsLocal).get();
       final completed = <Attempt>[];
       for (final row in attempts) {
@@ -377,7 +378,7 @@ final planDayViewProvider =
         stored,
         completedPlanFacts(
           date,
-          {for (final r in reads) r.lessonId: r.readAt},
+          reads,
           completed,
         ),
       );
@@ -424,9 +425,9 @@ Future<List<HomeTodayLesson>> _planLessons(
         ),
     };
     if (!ref.read(studyUsesServerProvider)) {
-      final studentDb = ref.read(appDatabaseProvider);
-      final reads = await studentDb.select(studentDb.lessonProgressLocal).get();
-      readLessonIds.addAll(reads.map((r) => r.lessonId));
+      readLessonIds.addAll(
+        await ref.read(lessonProgressRepositoryProvider).readLessonIds(),
+      );
     }
     for (final id in plan.lessonIds) {
       final row = rows.where((l) => l.id == id).firstOrNull;

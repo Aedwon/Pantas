@@ -73,6 +73,16 @@ void main() {
         }
       });
     }
+    test('lesson without estimatedMinutes exports and parses for seed', () {
+      lesson('one');
+      final file = File('${root.path}/content/lessons/s/test/one.md');
+      file.writeAsStringSync(
+        file.readAsStringSync().replaceFirst('estimatedMinutes: 1\n', ''),
+      );
+      final row = build().single;
+      expect(row['estimatedMinutes'], isNull);
+      expect(parseLesson(row).estimatedMinutes.value, 0);
+    });
     test('ordering must be all or none within a topic', () {
       lesson('one', front: 'ordering: 2\n');
       lesson('two');

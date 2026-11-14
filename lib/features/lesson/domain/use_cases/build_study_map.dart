@@ -2,6 +2,7 @@ import 'package:pantas/core/content/exam_subject_groups.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/lesson.dart';
+import 'package:pantas/core/storage/domain/lesson_credit.dart';
 import 'package:pantas/core/storage/domain/subject.dart';
 import 'package:pantas/core/storage/domain/topic.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
@@ -21,6 +22,15 @@ StudyMap buildStudyMap({
   required Set<LessonId> bookmarkedLessonIds,
   List<Subject>? subjects,
 }) {
+  final credit = resolveLessonCredit<bool>(
+    retiredReplacements: {
+      for (final lessons in lessonsByTopic.values)
+        for (final lesson in lessons)
+          if (lesson.status == 'retired') lesson.id: lesson.replacedBy ?? [],
+    },
+    own: {for (final id in readLessonIds) id: true},
+    compare: (a, b) => 0,
+  );
   final subjectList = examSubjectGroups(
     examId: exam.id,
     subjects: subjects ?? exam.subjects,
@@ -44,8 +54,8 @@ StudyMap buildStudyMap({
       var hasBookmark = false;
       final rows = <StudyLesson>[];
 
-      for (final lesson in lessons) {
-        final isRead = readLessonIds.contains(lesson.id);
+      for (final lesson in lessons.where((l) => l.status != 'retired')) {
+        final isRead = credit.containsKey(lesson.id);
         final isBookmarked = bookmarkedLessonIds.contains(lesson.id);
         if (isRead) {
           topicRead++;

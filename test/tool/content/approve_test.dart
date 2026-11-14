@@ -14,6 +14,7 @@ void main() {
   late File evidence;
   setUp(() {
     root = createContentFixture();
+    Directory('${root.path}/.git').createSync();
     yaml = File('${root.path}/questions/math/numbers/addition.yaml');
     ids = File('${root.path}/ids.txt')..writeAsStringSync('q-one\n');
     evidence = File('${root.path}/solve.md')
@@ -72,7 +73,7 @@ void main() {
     )['q-one']!;
     expect(record['hash'], questionHash(q.question, q.meta));
     expect(record['lesson'], 'lesson-numbers-addition');
-    expect(record['evidence'], evidence.path);
+    expect(record['evidence'], 'solve.md');
     expect(
       record['approvedAt'],
       DateTime.now().toUtc().toIso8601String().substring(0, 10),

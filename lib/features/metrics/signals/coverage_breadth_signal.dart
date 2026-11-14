@@ -1,6 +1,7 @@
 import 'package:drift/drift.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/data/repos/lesson_progress_repository.dart';
 import 'package:pantas/features/metrics/domain/metric_signal.dart';
 import 'package:pantas/features/metrics/domain/metrics_window.dart';
 import 'package:pantas/features/metrics/domain/signal_outputs.dart';
@@ -41,17 +42,13 @@ class CoverageBreadthSignal implements Signal<CoveragePct> {
     if (examTopics.isEmpty) return null;
 
     final covered = <String>{};
-    final progress = await _db.select(_db.lessonProgressLocal).get();
-    for (final row in progress) {
-      final lesson = await (_contentDb.select(_contentDb.contentLessons)
-            ..where(
-              (lesson) =>
-                  lesson.id.equals(row.lessonId) & lesson.isActive.equals(true),
-            ))
-          .getSingleOrNull();
-      if (lesson != null && examTopics.contains(lesson.topicId)) {
-        covered.add(lesson.topicId);
-      }
+    final read =
+        await LessonProgressRepository(_db, _contentDb).readLessonIds();
+    final lessons = await (_contentDb.select(_contentDb.contentLessons)
+          ..where((l) => l.id.isIn(read)))
+        .get();
+    for (final lesson in lessons) {
+      if (examTopics.contains(lesson.topicId)) covered.add(lesson.topicId);
     }
     return MetricCalculations.coverage(examTopics, covered);
   }

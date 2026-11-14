@@ -322,12 +322,12 @@ Future<TodaySessionPlan> _buildTodayPlan(
         lessons: await content.lessonMetaByTopics(topicIds),
       ),
     );
-    final db = ref.read(appDatabaseProvider);
     final history = await probe.measureAsync(
       QuizPerformancePhase.historyRead,
       () async => (
         preferences: await ref.read(quizPreferencesRepositoryProvider).read(),
-        lessons: await db.select(db.lessonProgressLocal).get(),
+        lessons:
+            await ref.read(lessonProgressRepositoryProvider).readLessonIds(),
       ),
     );
     final ids = probe.measureSync(
@@ -338,7 +338,7 @@ Future<TodaySessionPlan> _buildTodayPlan(
           for (final lessons in metadata.lessons.values)
             for (final lesson in lessons) lesson.id,
         },
-        readLessonIds: {for (final lesson in history.lessons) lesson.lessonId},
+        readLessonIds: history.lessons,
         questionsById: {
           for (final rows in metadata.questions.values)
             for (final row in rows)
@@ -554,12 +554,9 @@ Future<QuizPreparationStamp> _readPreparationStamp(
                 examId: request.examId,
                 now: now,
               );
-      final db = ref.read(appDatabaseProvider);
       final readLessonIds = (request.topicId == null
-          ? [
-              for (final row in await db.select(db.lessonProgressLocal).get())
-                row.lessonId,
-            ]
+          ? (await ref.read(lessonProgressRepositoryProvider).readLessonIds())
+              .toList()
           : <LessonId>[])
         ..sort();
       return (

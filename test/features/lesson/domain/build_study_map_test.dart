@@ -59,6 +59,24 @@ void main() {
         bookmarkedLessonIds: bookmarked,
       );
 
+  test('split credit counts active parts and never the retired original', () {
+    final map = buildStudyMap(
+      exam: exam,
+      topicsBySubject: topicsBySubject,
+      lessonsByTopic: {
+        't1': [
+          lesson('old').copyWith(status: 'retired', replacedBy: ['a', 'b']),
+          lesson('a'),
+          lesson('b'),
+        ],
+      },
+      readLessonIds: {'old'},
+      bookmarkedLessonIds: {},
+    );
+    expect(map.totalCount, 2);
+    expect(map.readCount, 2);
+  });
+
   for (final (examId, lastPart, lastTopic) in [
     ('exam_cse_pro', 'Analytical Ability', 'Data Interpretation'),
     ('exam_cse_sub', 'Clerical Ability', 'Clerical Ability'),

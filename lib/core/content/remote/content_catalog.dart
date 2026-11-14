@@ -162,7 +162,10 @@ CatalogLesson _lesson(Map<String, Object?> doc) {
     subtopicId: optionalRefField(doc, doctype, 'subtopic'),
     title: stringField(doc, doctype, 'title'),
     summary: stringField(doc, doctype, 'summary'),
-    estimatedMinutes: intField(doc, doctype, 'estimatedMinutes'),
+    // Compatibility column only. No screen may show it; T10 removes every read.
+    estimatedMinutes: doc['estimatedMinutes'] == null
+        ? 0
+        : intField(doc, doctype, 'estimatedMinutes'),
     ordering: doc['ordering'] is int ? doc['ordering']! as int : 0,
     isActive: boolField(doc, doctype, 'isActive'),
   );

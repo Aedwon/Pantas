@@ -6,6 +6,12 @@ String _visible(String value) =>
 
 String _normalize(String value) => value.replaceAll(RegExp(r'\s+'), ' ').trim();
 
+// Parts restart numbering. Only headings lose that number; bodies stay exact.
+String _renumbered(String value) => value.replaceAllMapped(
+      RegExp(r'^(###\s+)#\d+:\s+', multiLine: true),
+      (m) => m.group(1)!,
+    );
+
 List<Violation> runLessonSplitCoverageCheck(String contentRoot) {
   final found = <Violation>[];
   try {
@@ -35,19 +41,31 @@ List<Violation> runLessonSplitCoverageCheck(String contentRoot) {
             .map((m) => m.group(0)!),
       ];
       for (final item in {...exact, ...repeatable, ...figures}) {
-        final normalized = _normalize(item);
-        final count = parts.fold<int>(
-          0,
-          (count, part) =>
-              count +
+        final normalized =
+            _normalize(exact.contains(item) ? _renumbered(item) : item);
+        final count = parts.fold<int>(0, (count, part) {
+          if (exact.contains(item)) {
+            final body = _visible(part.body);
+            return count +
+                [
+                  ...lessonSectionItems(body, 'Examples'),
+                  ...lessonSectionItems(body, 'Traps to Watch For'),
+                ]
+                    .where(
+                      (candidate) =>
+                          _normalize(_renumbered(candidate)) == normalized,
+                    )
+                    .length;
+          }
+          return count +
               RegExp(RegExp.escape(normalized))
                   .allMatches(
                     _normalize(
                       figures.contains(item) ? part.body : _visible(part.body),
                     ),
                   )
-                  .length,
-        );
+                  .length;
+        });
         if (count == 0 ||
             ((exact.contains(item) || figures.contains(item)) && count != 1)) {
           final excerpt =

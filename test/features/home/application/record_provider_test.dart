@@ -28,6 +28,7 @@ import '../../../helpers/in_memory_database.dart';
 
 void main() {
   late AppDatabase db;
+  late ContentDatabase contentDb;
   late ProviderContainer container;
 
   Future<void> seedContinuousHistory(DateTime start, int count) async {
@@ -48,11 +49,13 @@ void main() {
 
   setUp(() {
     db = inMemoryDatabase();
+    contentDb = inMemoryContentDatabase();
   });
 
   tearDown(() {
     container.dispose();
     db.close();
+    contentDb.close();
   });
 
   test('a core reset discards a previously loaded record without a quiz event',
@@ -65,7 +68,10 @@ void main() {
           ),
         );
     container = ProviderContainer(
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ],
     );
     final subscription = container.listen(recordProvider, (_, __) {});
     addTearDown(subscription.close);
@@ -84,7 +90,10 @@ void main() {
   });
   test('record refreshes after a real lesson completion boundary', () async {
     container = ProviderContainer(
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ],
     );
     final subscription = container.listen(recordProvider, (_, __) {});
     addTearDown(subscription.close);
@@ -117,6 +126,7 @@ void main() {
     container = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
         recordNowProvider.overrideWithValue(today),
       ],
     );
@@ -171,6 +181,7 @@ void main() {
     container = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
 
@@ -194,6 +205,7 @@ void main() {
     container = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
 
@@ -216,6 +228,7 @@ void main() {
     container = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
 
@@ -242,7 +255,10 @@ void main() {
             ),
           );
       container = ProviderContainer(
-        overrides: [appDatabaseProvider.overrideWithValue(db)],
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          contentDatabaseProvider.overrideWithValue(contentDb),
+        ],
       );
       final record = await container.read(recordProvider.future);
       expect(record.dayStreak, 5);
@@ -290,7 +306,10 @@ void main() {
     }
     await settings.updateStudyDays(StudyDays.all);
     container = ProviderContainer(
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ],
     );
     final record = await container.read(recordProvider.future);
     expect(record.dayStreak, 2);
@@ -321,7 +340,10 @@ void main() {
         );
       }
       container = ProviderContainer(
-        overrides: [appDatabaseProvider.overrideWithValue(db)],
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          contentDatabaseProvider.overrideWithValue(contentDb),
+        ],
       );
       final record = await container.read(recordProvider.future);
       expect(record.dayStreak, 3);
@@ -361,7 +383,10 @@ void main() {
     );
     expect(evaluation.freezeUsed, isTrue);
     container = ProviderContainer(
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ],
     );
     final record = await container.read(recordProvider.future);
     expect(record.dayStreak, 2);
@@ -379,6 +404,7 @@ void main() {
     container = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
 
@@ -390,6 +416,7 @@ void main() {
     container = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
 
@@ -422,6 +449,7 @@ void main() {
     container = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
 
@@ -471,6 +499,7 @@ void main() {
     container = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
 
@@ -506,6 +535,7 @@ void main() {
     container = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
 
@@ -558,6 +588,7 @@ void main() {
     container = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
 
@@ -614,6 +645,7 @@ void main() {
     container = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
 
@@ -668,6 +700,7 @@ void main() {
     container = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
       ],
     );
 
@@ -742,6 +775,7 @@ void main() {
       container = ProviderContainer(
         overrides: [
           appDatabaseProvider.overrideWithValue(db),
+          contentDatabaseProvider.overrideWithValue(contentDb),
           contentDatabaseProvider.overrideWithValue(contentDb),
         ],
       );
@@ -818,6 +852,7 @@ void main() {
       container = ProviderContainer(
         overrides: [
           appDatabaseProvider.overrideWithValue(db),
+          contentDatabaseProvider.overrideWithValue(contentDb),
           mockUsesServerProvider.overrideWithValue(true),
           authStateProvider.overrideWith(
             (_) => Stream.value(

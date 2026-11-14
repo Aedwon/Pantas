@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:drift/drift.dart' show Value;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
@@ -578,6 +579,43 @@ void main() {
     await controller().today('e1');
     expect(builtInputs.single.lessonLinks, links);
     expect(builtInputs.single.gapTags, isEmpty);
+  });
+
+  test('reader inherits split reads and exclusions from retired originals',
+      () async {
+    await seedContentLesson(contentDb, lessonId: 'old', topicId: 't1');
+    await (contentDb.update(contentDb.contentLessons)
+          ..where((l) => l.id.equals('old')))
+        .write(
+      const ContentLessonsCompanion(
+        status: Value('retired'),
+        replacedBy: Value('["t1_l0","t1_l1"]'),
+      ),
+    );
+    await db.into(db.lessonProgressLocal).insert(
+          LessonProgressLocalCompanion.insert(lessonId: 'old', readAt: now),
+        );
+    final reader = container.read(roadmapInputsReaderProvider);
+    final inputs = await reader.inputs('e1', now);
+    expect(inputs.lessons.singleWhere((l) => l.id == 't1_l0').readAt, now);
+    expect(inputs.lessons.map((l) => l.id), isNot(contains('old')));
+    expect(
+      (await reader.completion(now)).readLessonIds,
+      containsAll(['t1_l0', 't1_l1']),
+    );
+    await db.into(db.accountPrefs).insert(
+          AccountPrefsCompanion.insert(
+            key: 'settings.excluded_lessons.e1',
+            value: '["old"]',
+          ),
+        );
+    final excluded = await reader.inputs('e1', now);
+    expect(excluded.lessons.map((l) => l.id), isNot(contains('t1_l0')));
+    expect(excluded.lessons.map((l) => l.id), isNot(contains('t1_l1')));
+    expect(
+      (await reader.digest('e1')).excludedLessonIds,
+      containsAll(['t1_l0', 't1_l1']),
+    );
   });
 
   test('reader keeps finish-ordered history and only the last three outcomes',

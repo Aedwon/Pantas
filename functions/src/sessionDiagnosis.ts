@@ -1,3 +1,4 @@
+import {lessonCredit} from './_lessonCredit.js';
 import {enforceAppCheck} from './_appCheck.js';
 import {getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {HttpsError} from 'firebase-functions/v2/https';
@@ -46,7 +47,9 @@ export async function readSessionDiagnosis(auth: Auth, data: unknown, deps: Deps
     const config = settings.data() as ExamSettings;
     const topics = catalog.topics.filter(t => !config.excludedTopicIds?.includes(t.id));
     const topicIds = new Set(topics.map(t => t.id));
-    const lessons = catalog.lessons.filter(l => topicIds.has(l.topicId) && !config.excludedLessonIds?.includes(l.id));
+    const excluded = lessonCredit(catalog.retiredReplacements ?? {},
+      new Map((config.excludedLessonIds ?? []).map(id => [id, true])), () => 0);
+    const lessons = catalog.lessons.filter(l => topicIds.has(l.topicId) && !excluded.has(l.id));
     const lessonIds = new Set(lessons.map(l => l.id));
     const questions = catalog.questions.filter(q => topicIds.has(q.topicId) && (q.lessonId === null || lessonIds.has(q.lessonId)));
     const questionOf = new Map(questions.map(q => [q.id, q]));
@@ -97,7 +100,9 @@ export async function readSessionDiagnosis(auth: Auth, data: unknown, deps: Deps
     }
     // Read totals as stored. The ingest/roadmap migration owns the one-time backfill.
     const view = viewOf(fromDoc(totalDoc.data()), new Map(questions.map(q => [q.id, q.topicId])));
-    const readAt = new Map(reads.docs.map(d => [String(d.get('lessonId')), Number(d.get('readAt'))]));
+    const readAt = lessonCredit(catalog.retiredReplacements ?? {},
+      new Map(reads.docs.filter(d => Number.isFinite(Number(d.get('readAt'))))
+        .map(d => [String(d.get('lessonId')), Number(d.get('readAt'))])), (a, b) => a - b);
     const inputs = {
       today: phDay(now), examId, examDate: config.examDate, studyDays: config.studyDays, treatTodayAsStudyDay: false,
       topics: topics.map((t, authoredIndex) => ({...t, authoredIndex})),

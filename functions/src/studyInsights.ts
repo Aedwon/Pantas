@@ -1,3 +1,4 @@
+import {lessonCredit} from './_lessonCredit.js';
 import {enforceAppCheck} from './_appCheck.js';
 import {createHash} from 'node:crypto';
 import {getFirestore, type Firestore, type Transaction} from 'firebase-admin/firestore';
@@ -120,7 +121,8 @@ export async function readStudyInsights(auth:Auth,data:unknown,deps:Deps){
     scoreRaw:r.score.correct,scoreTotal:r.score.total,
     items:ids.map(id=>item(byId.get(id)??{questionId:id,chosen:null,correct:false}))};
   });
-  const lessonRows=reads.docs.flatMap(d=>{const l=content.lessons.find(l=>l.id===d.get('lessonId'));return l?[{examId:examId,topicId:l.topicId,readAt:phStamp(Number(d.get('readAt')))}]:[];});
+  const creditedReads=lessonCredit(corpus.retiredReplacements??{},new Map(reads.docs.filter(d=>Number.isFinite(Number(d.get('readAt')))).map(d=>[String(d.get('lessonId')),Number(d.get('readAt'))])),(a,b)=>a-b);
+  const lessonRows=content.lessons.flatMap(l=>{const at=creditedReads.get(l.id);return at===undefined?[]:[{examId,topicId:l.topicId,readAt:phStamp(at)}];});
   const reviewRows=reviews.docs.map(d=>JSON.parse(String(d.get('stateJson'))));
   const input={examId:examId,now:phStamp(now),sessions,attempts,mocks:mockRows,lessons:lessonRows,reviews:reviewRows,topics:content.topics};
   const revision=createHash('sha256').update(JSON.stringify(input)).digest('hex');
@@ -137,7 +139,7 @@ export async function readStudyInsights(auth:Auth,data:unknown,deps:Deps){
   const topics=ratedTopics.filter(t=>displayParent.has(t.id));
   const lessons=content.lessons.filter(l=>displayParent.has(l.topicId)).map(l=>({id:l.id,title:l.title,parentId:l.topicId,...sum(content.questions.filter(q=>q.lessonId===l.id).map(q=>q.id))})).filter(l=>l.answered>0);
   const subjects=examPerformanceSubjects(examId,content,ratedTopics);
-  const readIds=new Set(reads.docs.filter(d=>Number.isFinite(Number(d.get('readAt')))&&Number(d.get('readAt'))<=now).map(d=>String(d.get('lessonId'))));
+  const readIds=new Set([...creditedReads].filter(([,at])=>at<=now).map(([id])=>id));
   const topicDetails=content.topics.filter(t=>displayParent.has(t.id)).map(t=>({id:t.id,title:t.name,subject:examSubjectName(examId,t,subjectOf.get(t.subjectId)!.name)!,
    ...sum(content.questions.filter(q=>q.topicId===t.id).map(q=>q.id)),
    lessons:content.lessons.filter(l=>l.topicId===t.id).map(l=>({id:l.id,title:l.title,read:readIds.has(l.id)}))}));

@@ -677,7 +677,7 @@ List<Map<String, Object?>> buildLessons(
       'subtopic': {'_ref': 'subtopic_$subtopicSlug'},
       'title': front['title'] as String,
       'summary': front['summary'] as String,
-      'estimatedMinutes': front['estimatedMinutes'] as int,
+      'estimatedMinutes': front['estimatedMinutes'] as int?,
       'ordering': front['ordering'] as int? ?? fallback,
       'quizSize': lessonQuizSize(front, source.substring(match.end)),
       'status': front['status'] as String? ?? 'active',

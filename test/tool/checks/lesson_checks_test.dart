@@ -76,6 +76,47 @@ questions:
     expect(finding.where, 'lesson-topic-original');
     expect(finding.message, contains('Search'));
   });
+  for (final changedBody in [false, true]) {
+    test(
+        'renumbered example '
+        '${changedBody ? "with changed body fails" : "passes"}', () {
+      final original = File('${root.path}/lessons/general/topic/original.md');
+      original.writeAsStringSync(
+        original
+            .readAsStringSync()
+            .replaceFirst('### Search', '### #3: Search'),
+      );
+      part.writeAsStringSync(
+        part
+            .readAsStringSync()
+            .replaceFirst('### Search', '### #1: Search')
+            .replaceFirst(
+              'A warrant names a place.',
+              changedBody ? 'A changed example.' : 'A warrant names a place.',
+            ),
+      );
+      expect(
+        runLessonSplitCoverageCheck(root.path),
+        changedBody ? isNotEmpty : isEmpty,
+      );
+    });
+  }
+  test('renumbered example with appended body fails', () {
+    final original = File('${root.path}/lessons/general/topic/original.md');
+    original.writeAsStringSync(
+      original.readAsStringSync().replaceFirst('### Search', '### #3: Search'),
+    );
+    part.writeAsStringSync(
+      part
+          .readAsStringSync()
+          .replaceFirst('### Search', '### #1: Search')
+          .replaceFirst(
+            'A warrant names a place.',
+            'A warrant names a place. Changed.',
+          ),
+    );
+    expect(runLessonSplitCoverageCheck(root.path), isNotEmpty);
+  });
   test('duplicated trap fails', () {
     part.writeAsStringSync(
       '${part.readAsStringSync()}\n## Traps to Watch For\n'

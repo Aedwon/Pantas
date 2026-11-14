@@ -35,6 +35,7 @@ void main(List<String> args) {
   }
   try {
     final root = options['--root']!;
+    final evidence = _relativeEvidence(root, options['--evidence']!);
     final ids = File(options['--ids']!)
         .readAsLinesSync()
         .map((id) => id.trim())
@@ -80,7 +81,7 @@ void main(List<String> args) {
       approved[id] = {
         'hash': questionHash(q.question, q.meta),
         'lesson': questionLesson(q.question, q.meta),
-        'evidence': options['--evidence'],
+        'evidence': evidence,
         'approvedAt': DateTime.now().toUtc().toIso8601String().substring(0, 10),
       };
       writeLedger(file, approved);
@@ -141,4 +142,22 @@ void _setApproved(ShippingQuestion q) {
       ),
     );
   }
+}
+
+String _relativeEvidence(String contentRoot, String evidencePath) {
+  var repository = Directory(contentRoot).absolute;
+  while (!File(p.join(repository.path, '.git')).existsSync() &&
+      !Directory(p.join(repository.path, '.git')).existsSync()) {
+    final parent = repository.parent;
+    if (parent.path == repository.path) {
+      throw StateError('Content root is not inside a repository.');
+    }
+    repository = parent;
+  }
+  final root = repository.resolveSymbolicLinksSync();
+  final evidence = File(evidencePath).resolveSymbolicLinksSync();
+  if (!p.isWithin(root, evidence)) {
+    throw StateError('Evidence must be inside the content repository.');
+  }
+  return p.relative(evidence, from: root).split(p.separator).join('/');
 }

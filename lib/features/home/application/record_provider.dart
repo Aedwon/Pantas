@@ -271,7 +271,8 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
   final sessionMinutes = (totalSessionSeconds / 60.0).round();
 
   // 4. Lessons read
-  final lessonsRead = lessonProgressRows.length;
+  final lessonsRead =
+      (await ref.read(lessonProgressRepositoryProvider).readLessonIds()).length;
 
   // 5. Days active (distinct local dates across attempts and lesson progress)
   final activeDates = <DateTime>{};

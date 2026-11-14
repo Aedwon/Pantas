@@ -1,3 +1,4 @@
+import {lessonCredit} from './_lessonCredit.js';
 import type {Firestore} from 'firebase-admin/firestore';
 import {HttpsError} from 'firebase-functions/v2/https';
 import {inCustomCorpus, isCustomExamId} from './_customTrack.js';
@@ -5,6 +6,7 @@ import {inCustomCorpus, isCustomExamId} from './_customTrack.js';
 export type QuestionRef = {id: string; setId: string; topicId: string; lessonId: string | null; passageId: string | null};
 export type LessonRef = {id: string; topicId: string; ordering: number};
 export type ExamContent = {
+  retiredReplacements?: Record<string,string[]>;
   topics: {id: string; name: string}[];
   questions: QuestionRef[];
   lessons: LessonRef[];
@@ -91,6 +93,7 @@ export async function loadExamContent(db: Firestore, examId: string, now: number
   const value: ExamContent = {
     topics: [...topicSlugs].sort().map(topic => ({id: topicIdFor(examId, topic), name: titleCase(topic)})),
     questions, lessons,
+    ...(lessonDocs.some(l=>l.status==='retired')?{retiredReplacements: Object.fromEntries(lessonDocs.filter(l=>l.status==='retired').map(l=>[l.id,l.replacedBy??[]]))}:{}),
   };
   cache.set(examId, {at: now, value});
   return value;
@@ -100,6 +103,7 @@ export async function loadExamContent(db: Firestore, examId: string, now: number
 export const clearExamContentCache = (): void => { cache.clear(); gapCache = undefined; corpusCache = undefined; };
 
 export type StudyContent = {
+  retiredReplacements?: Record<string,string[]>;
   revision: string;
   subjects: {id: string; name: string; ordering: number}[];
   topics: {id: string; name: string; subjectId: string; ordering: number}[];
@@ -251,7 +255,8 @@ async function loadStudy(db: Firestore, examId: string, custom: boolean,
   const questions=sets.flatMap(s=>s.questions.filter(q=>q.isActive!==false).map(q=>({id:q.id,setId:s.id,topicId:refId(s.topic),
     lessonId:resolveLesson(q.lesson ?? (s.lesson==null?null:refId(s.lesson)), q.lesson != null),passageId:q.passage==null?null:refId(q.passage)})));
   if(new Set(questions.map(q=>q.id)).size!==questions.length)throw contentUnavailable('Duplicate authored question identities.');
-  return {revision:versions.sort().join('|') + ':exam-lessons-v2',subjects,topics,lessons,questions};
+  return {revision:versions.sort().join('|') + ':exam-lessons-v2',subjects,topics,lessons,questions,
+    ...([...allLessons.values()].some(l=>l.status==='retired')?{retiredReplacements:Object.fromEntries([...allLessons.values()].filter(l=>l.status==='retired').map(l=>[l.id,l.replacedBy??[]]))}:{})};
 }
 
 /** One listing and planning rule: an active exam question must link to the lesson. */
@@ -259,7 +264,9 @@ export function scopeLessonContent<T extends {
   topics: {id: string}[];
   lessons: {id: string; topicId: string}[];
   questions: {topicId: string; lessonId: string | null}[];
+  retiredReplacements?: Record<string,string[]>;
 }>(content: T, excludedTopics: string[] = [], excludedLessons: string[] = []): T {
+  excludedLessons = [...lessonCredit(content.retiredReplacements??{},new Map(excludedLessons.map(id=>[id,true])),()=>0).keys()];
   const questions = content.questions.filter(q => !excludedTopics.includes(q.topicId) &&
     (q.lessonId === null || !excludedLessons.includes(q.lessonId)));
   const linked = new Map<string, Set<string>>();
@@ -294,7 +301,7 @@ export async function loadCorpusCached(db: Firestore, now: number, {fresh = fals
 /** What a student's excluded topics and lessons leave: the questions and lessons they can still be given. */
 export function applyScope(content: StudyContent, excludedTopicIds: Iterable<string> = [],
   excludedLessonIds: Iterable<string> = []): StudyContent {
-  const excluded = new Set(excludedTopicIds), excludedLessons = new Set(excludedLessonIds);
+  const excluded = new Set(excludedTopicIds), excludedLessons = new Set(lessonCredit(content.retiredReplacements??{}, new Map([...excludedLessonIds].map(id=>[id,true])),()=>0).keys());
   const includedTopics = new Set(content.topics.filter(t => !excluded.has(t.id)).map(t => t.id));
   return {...content, topics: content.topics.filter(t => includedTopics.has(t.id)),
     lessons: content.lessons.filter(l => includedTopics.has(l.topicId) && !excludedLessons.has(l.id)),

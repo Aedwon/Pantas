@@ -40,10 +40,7 @@ class RoadmapInputsReader {
           ? ''
           : '${examDate.storageValue}:${examDate.precision.name}',
       scopeTopicIds: [for (final topic in scope.topics) topic.id],
-      excludedLessonIds: (await _ref
-              .read(customTrackRepositoryProvider)
-              .excludedLessonIds(examId))
-          .toList(),
+      excludedLessonIds: (await _excluded(examId)).toList(),
       contentRevision: await _contentRevision(),
       assessmentCompleted: await _ref
           .read(assessmentRepositoryProvider)
@@ -74,12 +71,12 @@ class RoadmapInputsReader {
 
   /// What is done, as of now, for subtracting from a stored day.
   Future<CompletionFacts> completion(DateTime today) async {
-    final db = _ref.read(appDatabaseProvider);
-    final read = await db.select(db.lessonProgressLocal).get();
+    final read =
+        await _ref.read(lessonProgressRepositoryProvider).readLessonIds();
     final states = await _ref.read(reviewStateRepositoryProvider).allStates();
     final day = localDay(today);
     return CompletionFacts(
-      readLessonIds: {for (final row in read) row.lessonId},
+      readLessonIds: read,
       seenQuestionIds: {for (final state in states) state.questionId},
       reviewedTodayIds: {
         for (final state in states)
@@ -101,17 +98,13 @@ class RoadmapInputsReader {
     final scope = await _scope(examId);
     final topicIds = [for (final topic in scope.topics) topic.id];
 
-    final excludedLessons = await _ref
-        .read(customTrackRepositoryProvider)
-        .excludedLessonIds(examId);
+    final excludedLessons = await _excluded(examId);
     final selection =
         await content.selectionRowsByTopics(topicIds, examId: examId);
     final lessonMeta = scope.lessons;
     final db = _ref.read(appDatabaseProvider);
-    final readAt = {
-      for (final row in await db.select(db.lessonProgressLocal).get())
-        row.lessonId: row.readAt,
-    };
+    final readAt =
+        await _ref.read(lessonProgressRepositoryProvider).readTimes();
     final states = await _ref.read(reviewStateRepositoryProvider).allStates();
     final scheduler = _ref.read(fsrsSchedulerProvider);
 
@@ -265,6 +258,13 @@ class RoadmapInputsReader {
     );
   }
 
+  Future<Set<LessonId>> _excluded(ExamId examId) async =>
+      _ref.read(lessonProgressRepositoryProvider).excludedLessonIds(
+            await _ref
+                .read(customTrackRepositoryProvider)
+                .excludedLessonIds(examId),
+          );
+
   // Rebuild stored plans created before exam lesson eligibility was enforced.
   Future<String> _contentRevision() async {
     final revision = await _ref
@@ -287,9 +287,7 @@ class RoadmapInputsReader {
       _ref.read(customTrackRepositoryProvider),
       examId,
     );
-    final excluded = await _ref
-        .read(customTrackRepositoryProvider)
-        .excludedLessonIds(examId);
+    final excluded = await _excluded(examId);
     final lessons =
         await _ref.read(contentRepositoryProvider).lessonMetaByTopics(
               scope.topics.map((topic) => topic.id),

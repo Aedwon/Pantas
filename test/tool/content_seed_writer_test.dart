@@ -46,7 +46,8 @@ void main() {
         'partCount': 2,
         'keyPoints': ['Recall', 'Apply'],
         'ordering': 8,
-      });
+      })
+      ..remove('estimatedMinutes');
     final questions =
         doc['question'] is List ? doc['question'] as List : [doc['question']];
     (questions.first as Map<String, dynamic>)['keyPoint'] = 2;
@@ -63,6 +64,7 @@ void main() {
     addTearDown(db.close);
     final stored =
         await db.customSelect('SELECT * FROM content_lessons').getSingle();
+    expect(stored.data, containsPair('estimated_minutes', 0));
     expect(stored.data, containsPair('quiz_size', 3));
     expect(stored.data, containsPair('status', 'retired'));
     expect(stored.data, containsPair('replaced_by', '["part-one"]'));

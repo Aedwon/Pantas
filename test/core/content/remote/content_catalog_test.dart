@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/remote/content_catalog.dart';
 import 'package:pantas/core/content/sanity/parser_exceptions.dart';
@@ -97,6 +99,25 @@ void main() {
     expect(set.questions.last.hasFigure, isTrue);
     expect(set.questions.first.hasFigure, isFalse);
     expect(catalog.parts, ['exam_upcat.math']);
+  });
+
+  test('catalog JSON round-trip accepts a lesson without minutes', () {
+    final wire = jsonDecode(
+      jsonEncode({
+        'id': 'exam_upcat',
+        'lessons': [
+          {
+            'id': 'lesson-biology-cells',
+            'topic': 'topic_upcat_biology',
+            'title': 'Cells',
+            'summary': 'Parts of a cell.',
+          },
+        ],
+      }),
+    ) as Map<String, Object?>;
+    final lesson = parseExamCatalog(wire).lessons.single;
+    expect(lesson.id, 'lesson-biology-cells');
+    expect(lesson.estimatedMinutes, 0);
   });
 
   test('accepts references in the object form the export uses', () {
