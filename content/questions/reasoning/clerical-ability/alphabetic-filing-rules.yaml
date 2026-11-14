@@ -6,6 +6,7 @@ meta:
     - cse-sub
 questions:
   - id: q-clerical-ability-alphabetic-filing-rules-0001
+    approved: true
     lesson: lesson-clerical-ability-personal-name-filing-units
     keyPoint: 1
     type: single_choice
@@ -28,6 +29,7 @@ questions:
       The surname is Dela Cruz, the given name is Juan, and the middle name is Carlos. The stated order puts Dela Cruz first, then Juan and Carlos. Keep the surname's recorded spelling.
 
   - id: q-clerical-ability-alphabetic-filing-rules-0002
+    approved: true
     lesson: lesson-clerical-ability-personal-name-filing-units
     keyPoint: 2
     type: single_choice
@@ -50,6 +52,7 @@ questions:
       Compare surnames first. Adams comes before Adamson because the shared spelling ends sooner, and before Adan because m comes before n. For the two Adams records, Arthur comes before Benjamin.
 
   - id: q-clerical-ability-alphabetic-filing-rules-0003
+    approved: true
     lesson: lesson-clerical-ability-filing-patterns-and-surname-particles
     keyPoint: 1
     type: single_choice
@@ -72,6 +75,7 @@ questions:
       Under a filing convention that skips small linking words, "and," "of," and "the" do not become filing units. The system must state that convention before it is used.
 
   - id: q-clerical-ability-alphabetic-filing-rules-0004
+    approved: true
     lesson: lesson-clerical-ability-filing-patterns-and-surname-particles
     keyPoint: 2
     type: single_choice
@@ -94,6 +98,7 @@ questions:
       The stated rule treats all of De la Rosa as one surname unit. Spaces are ignored for comparison, but the displayed name keeps its recorded spelling.
 
   - id: q-clerical-ability-alphabetic-filing-rules-0005
+    approved: true
     lesson: lesson-clerical-ability-suffixes-titles-and-filing-ties
     keyPoint: 2
     type: single_choice
@@ -116,6 +121,7 @@ questions:
       The supplied registry rule makes city the next unit after a full-name tie. Compare the city names alphabetically to order the two records.
 
   - id: q-clerical-ability-alphabetic-filing-rules-0006
+    approved: true
     lesson: lesson-clerical-ability-personal-name-filing-units
     keyPoint: 1
     type: single_choice
@@ -138,6 +144,7 @@ questions:
       The supplied system indexes surname first. "Last name" is another term for surname, so it is Key Unit 1.
 
   - id: q-clerical-ability-alphabetic-filing-rules-0007
+    approved: true
     lesson: lesson-clerical-ability-suffixes-titles-and-filing-ties
     keyPoint: 1
     type: single_choice
@@ -160,6 +167,7 @@ questions:
       The stated system puts suffixes after the surname, given name, and middle name. "Jr." therefore forms the final unit.
 
   - id: q-clerical-ability-alphabetic-filing-rules-0008
+    approved: true
     lesson: lesson-clerical-ability-filing-patterns-and-surname-particles
     keyPoint: 1
     type: single_choice
@@ -182,6 +190,7 @@ questions:
       The first two units, Apex and Book, match. Compare the next words. Company begins with C, which comes before D, M, and P, so Apex Book Company comes first.
 
   - id: q-clerical-ability-alphabetic-filing-rules-0009
+    approved: true
     lesson: lesson-clerical-ability-filing-patterns-and-surname-particles
     keyPoint: 1
     type: single_choice
@@ -204,6 +213,7 @@ questions:
       A filing system may expand "St." to "Saint" in its comparison key. Under that convention, the key is "Saint Martin." The system must specify how abbreviations are treated.
 
   - id: q-clerical-ability-alphabetic-filing-rules-0010
+    approved: true
     lesson: lesson-clerical-ability-personal-name-filing-units
     keyPoint: 1
     type: single_choice
@@ -226,6 +236,7 @@ questions:
       The specified order is surname, given name, then middle name. The middle name is the third unit.
 
   - id: q-clerical-ability-alphabetic-filing-rules-0011
+    approved: true
     lesson: lesson-clerical-ability-filing-patterns-and-surname-particles
     keyPoint: 1
     type: single_choice
@@ -248,6 +259,7 @@ questions:
       A jurisdiction-first filing system groups agencies under their country or locality. In that system, the country or location is the first unit. The applicable system must specify this order.
 
   - id: q-clerical-ability-alphabetic-filing-rules-0012
+    approved: true
     lesson: lesson-clerical-ability-personal-name-filing-units
     keyPoint: 2
     type: single_choice
@@ -290,7 +302,7 @@ questions:
           This uses the last part of the surname before the first difference. Cabal and Cabrera share a familiar beginning. Check from the left until the letters differ.
     explanation: |
       Compare the surnames letter by letter. Cabal ends before Caballero, and its fourth letter a comes before the r in Cabral and Cabrera. Cabal, Nora comes first.
-    approved: false
+    approved: true
 
   - id: q-clerical-ability-alphabetic-filing-rules-0014
     lesson: lesson-clerical-ability-personal-name-filing-units
@@ -313,7 +325,7 @@ questions:
           This compares the middle initial too soon. B looks early alphabetically. Check the second unit before using the third.
     explanation: |
       The surnames match. Alina comes before Anita and Arlene. The two Alina records tie on given name, so compare their middle initials: M comes before R.
-    approved: false
+    approved: true
 
   - id: q-clerical-ability-alphabetic-filing-rules-0015
     lesson: lesson-clerical-ability-suffixes-titles-and-filing-ties
@@ -336,7 +348,7 @@ questions:
           This assumes entry time determines alphabetic ties. New records have an arrival order. Check whether that field is part of the stated filing rule.
     explanation: |
       The full names tie. The registry must name the next filing unit before a unique order can be chosen.
-    approved: false
+    approved: true
 
   - id: q-clerical-ability-alphabetic-filing-rules-0016
     lesson: lesson-clerical-ability-filing-patterns-and-surname-particles
@@ -359,7 +371,7 @@ questions:
           This focuses on the last surname word Rio. Some systems may handle particles differently. Check the supplied instruction to include the entire surname.
     explanation: |
       Ignoring spaces for comparison gives DELACRUZ, DELGADO, DELAROSA, and DELRIO. After DEL, A comes before G and R. Between DELACRUZ and DELAROSA, C comes before R. The recorded De la Cruz spelling stays unchanged.
-    approved: false
+    approved: true
 
   - id: q-clerical-ability-alphabetic-filing-rules-0017
     lesson: lesson-clerical-ability-suffixes-titles-and-filing-ties
@@ -382,7 +394,7 @@ questions:
           This gives a capital city priority over letter order. Administrative importance may seem relevant. Check whether the rule asks for importance or alphabetic comparison.
     explanation: |
       The full names match, so the stated city unit decides the order. Cebu starts with C, which precedes D, I, and M.
-    approved: false
+    approved: true
 
   - id: q-clerical-ability-alphabetic-filing-rules-0018
     lesson: lesson-clerical-ability-suffixes-titles-and-filing-ties
@@ -405,7 +417,7 @@ questions:
           This lets age or suffix status override both earlier units. Seniority may look important. Check the surname and given name before the suffix.
     explanation: |
       The surnames match. Leo is a complete shorter unit than Leon, so Leo comes first. For the two Leo entries, the suffixes are compared and Jr. comes before Sr.
-    approved: false
+    approved: true
 
   - id: q-clerical-ability-alphabetic-filing-rules-0019
     lesson: lesson-clerical-ability-filing-patterns-and-surname-particles
@@ -428,7 +440,7 @@ questions:
           This uses surname-first order and then the later Santos given name. That is a familiar convention. Check that this task starts with given names.
     explanation: |
       This registry compares given names first. The order is Alma, Belen, Cora, Zoe, so the record for Zoe comes last.
-    approved: false
+    approved: true
 
   - id: q-clerical-ability-alphabetic-filing-rules-0020
     lesson: lesson-clerical-ability-suffixes-titles-and-filing-ties
@@ -451,5 +463,5 @@ questions:
           This lets the given name Aaron override the surname. Aaron comes before Ana. Check the first differing surname letters before moving to given names.
     explanation: |
       First compare the surname keys: DELAVEGA precedes DELGADO. The Ana entries tie on given name; L comes before M as the middle initial. For the remaining two entries, Cebu comes before Davao.
-    approved: false
+    approved: true
 

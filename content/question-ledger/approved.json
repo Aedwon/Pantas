@@ -1259,6 +1259,270 @@
     "hash": "27f244e4b9ce8c696ecc2b8f9c632c4c12c36196d1065f5f91856f571559927b",
     "lesson": "lesson-arithmetic-number-sense-odd-and-even-position-patterns"
   },
+  "q-clerical-ability-alphabetic-filing-rules-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "aa9c8001898e0f10069708353da8216fd1e17f64b9882b15e5c08b60aaa34ba0",
+    "lesson": "lesson-clerical-ability-personal-name-filing-units"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "cc2a5d9a44f6cd56401346cbe02424480cf7cef5a5110f75d0e56be6944246c8",
+    "lesson": "lesson-clerical-ability-personal-name-filing-units"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "6bc117f42ce79bcabf249c47feeccd15293d14b2c726326ce8cb19e20d2ae5db",
+    "lesson": "lesson-clerical-ability-filing-patterns-and-surname-particles"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "ba013400defc3b79ede440fd3e9cc05855f2cbefeaa4f9a7726daa529a9dacdf",
+    "lesson": "lesson-clerical-ability-filing-patterns-and-surname-particles"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "a21233e4db6e1a92e1592cab779f6b786208dbcd2decc0a305c3b05180ee01e8",
+    "lesson": "lesson-clerical-ability-suffixes-titles-and-filing-ties"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "f88cf459d5d236f350bdf8f9f1e8c6c1f4e17244c1594924a71409cecef0c911",
+    "lesson": "lesson-clerical-ability-personal-name-filing-units"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "4463c086518a273690401af74be781131bc92be4b49ed5459315263f603b1352",
+    "lesson": "lesson-clerical-ability-suffixes-titles-and-filing-ties"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "56565e8393e4a641f11b32cc208869746eb69538c20fcb767d06f578aac5b194",
+    "lesson": "lesson-clerical-ability-filing-patterns-and-surname-particles"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "b587e80a1fb4afb576c511554f0fb0dffaee561d31fa5609715292cfffd85c25",
+    "lesson": "lesson-clerical-ability-filing-patterns-and-surname-particles"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "c47e256497d3a06494615fcca37dd2c4fab31e92da1ce856d903dbff5ba4d261",
+    "lesson": "lesson-clerical-ability-personal-name-filing-units"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "7c3afcf3c413127a1c8bab3fa94f6cbc9a12cf3a200c8a10389f2523df2f86bb",
+    "lesson": "lesson-clerical-ability-filing-patterns-and-surname-particles"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "8d5d69b55eb77ab033c77e1079ea3cfe7f540fed21620406545694b0fece227d",
+    "lesson": "lesson-clerical-ability-personal-name-filing-units"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "23bc9bf2c362412191862f7dcb7bfa3f511bf725c838bfc4212333011d938981",
+    "lesson": "lesson-clerical-ability-personal-name-filing-units"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "4e02379c9baf803db5795a6cf3eaae436758257c9cd318c5d64a2ef8b545ef18",
+    "lesson": "lesson-clerical-ability-personal-name-filing-units"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "2928e9810e498c4b85c58125920bb3abbca65fdccd64dd8e2c24726dbcacf176",
+    "lesson": "lesson-clerical-ability-suffixes-titles-and-filing-ties"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "db574482eb6ce9d7656e14278a2569a81636092f3909a081a5e35ea98e8e6cdd",
+    "lesson": "lesson-clerical-ability-filing-patterns-and-surname-particles"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "d240a15c318de796fa36553323f6e7f3f96f1b9358f05ff2811664b048ed094c",
+    "lesson": "lesson-clerical-ability-suffixes-titles-and-filing-ties"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "f1697cde2fe54cdeeb170ad2cf746ee00dbfd3cceedfbbed12b02e0b74b89515",
+    "lesson": "lesson-clerical-ability-suffixes-titles-and-filing-ties"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "2f07a2013f229646c8e8fae6500e9bcfebaa267989b65c79a76d4b9b9915ada4",
+    "lesson": "lesson-clerical-ability-filing-patterns-and-surname-particles"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "2560413e0caa7ded0a2887c95e53c6708c85619cde8824fd93118fdccef6a93a",
+    "lesson": "lesson-clerical-ability-suffixes-titles-and-filing-ties"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "eb488842b1e45314c5b83420403028b08287453acd51098fd6847a61653877f7",
+    "lesson": "lesson-clerical-ability-whole-number-and-decimal-filing"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "f9d24caefb12680d16f527529a821216d20203955ef320c61829bd9ff7e8c7f9",
+    "lesson": "lesson-clerical-ability-oldest-and-newest-date-order"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "dcf0850ed66c2e4aa08d4f6a6d598bdeb6febb64618f6f70cf9e430096dff497",
+    "lesson": "lesson-clerical-ability-oldest-and-newest-date-order"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "14a772fb59b9752c5bc2d7bc838dc590f6b54d8517e425369d8dee3f268d8df3",
+    "lesson": "lesson-clerical-ability-whole-number-and-decimal-filing"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "6fec96635e4cb5ea95feb24252ee19d012a70743c3e49d8a55e35581768bfed4",
+    "lesson": "lesson-clerical-ability-integer-subcode-filing"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "9692a919b04cf38771fa7d738e06ac54f92956ca9161443998e5e91342e788d1",
+    "lesson": "lesson-clerical-ability-oldest-and-newest-date-order"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "efc90c8b14965135cb9a462a46e8263c987496397977a28e3fb1f3d37b4a1109",
+    "lesson": "lesson-clerical-ability-whole-number-and-decimal-filing"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "6a07f6435924fbcca1cf6fe0252edd091989632700612467aafb0a69f05a8a69",
+    "lesson": "lesson-clerical-ability-whole-number-and-decimal-filing"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "3c0038bea5e7674ce09be5079b201e308088eaaa724ff6bfb78b1ea728b5c5f3",
+    "lesson": "lesson-clerical-ability-terminal-digit-filing-order"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "6b67d9369b8364ba49e547b2ad04f944aa145d5953414fc0542e3b2c791be67e",
+    "lesson": "lesson-clerical-ability-oldest-and-newest-date-order"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "a427e4b4e3e9aca3db16bb29adf9737c11cd442c75aaf15db049b0ac3aacfe1f",
+    "lesson": "lesson-clerical-ability-integer-subcode-filing"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "a601767b989d5083a7338ae91f9d7f9f823f66ca8e31ed6e4df3b00f21130a4b",
+    "lesson": "lesson-clerical-ability-integer-subcode-filing"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "4cd22dcd9cb497e207ad86f65d34d3fbccac2cf731502961d6ebb659680f1e95",
+    "lesson": "lesson-clerical-ability-whole-number-and-decimal-filing"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "2d05bc65af40c0aff22cf7ad415564dbe0c182067a0c7e871eec60fd87533a46",
+    "lesson": "lesson-clerical-ability-whole-number-and-decimal-filing"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "2798db81bc335ca73f6f198c33db430e19bedacd5dad2448c7339a0abde674c5",
+    "lesson": "lesson-clerical-ability-whole-number-and-decimal-filing"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "e0be23d69cac38e5f19befaa34322f814544579f2fe7bf42fadfb5db479e406a",
+    "lesson": "lesson-clerical-ability-integer-subcode-filing"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "a124978d0fdde4170343ac71cf7f6e116e47fd7e9463e6ac771a2f740d4889b1",
+    "lesson": "lesson-clerical-ability-oldest-and-newest-date-order"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "db56cf3f141c6ad7321ebd96c38a3a8f3031936689cd3dcf09a1e3a56b74eee9",
+    "lesson": "lesson-clerical-ability-year-first-and-stated-date-formats"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "b178511309ae0cc768a76281d9222cc89163033be630481067f03a37d70b57d0",
+    "lesson": "lesson-clerical-ability-oldest-and-newest-date-order"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "c3d252da541b61247e044c52b1a7463248efe03088a633ee280a2f26257c526d",
+    "lesson": "lesson-clerical-ability-oldest-and-newest-date-order"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "2afa30666039310e4fd270e2313cb3c242cbe73663851cf08502a55b03a41022",
+    "lesson": "lesson-clerical-ability-character-string-filing"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0022": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "eb4d37030c905806c67920f86f83c4cc878f946ac5ffdd96390c68a18f0a0585",
+    "lesson": "lesson-clerical-ability-character-string-filing"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0023": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "5078f8a4957bd85ca0e4f68044f446371b4a468a35a94f58b3f8c4b376539bc8",
+    "lesson": "lesson-clerical-ability-terminal-digit-filing-order"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0024": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "a1fd1c80dd77af7e8f50557864f817dc256055a9d0e669a0094ad47485ff0a74",
+    "lesson": "lesson-clerical-ability-year-first-and-stated-date-formats"
+  },
   "q-data-interpretation-rates-ratios-and-percentages-in-context-0001": {
     "approvedAt": "2026-11-14",
     "evidence": "docs/content/verification/data-interpretation.md",
@@ -1570,5 +1834,173 @@
     "evidence": "docs/content/verification/data-interpretation.md",
     "hash": "c6ed6e412da338583bf0aebc42702f74ac7d5e5f373ed4c1c579699d6e1860ec",
     "lesson": "lesson-data-interpretation-chart-scales-and-differences"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "6cd9be3bd86190ac9192a40cab9e0f0d61c5db49b6eb54d8c4a98e3e72a971fd",
+    "lesson": "lesson-verbal-logic-must-be-true-conclusions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "7ab39a892836af4e69739defdb721b40aeb1f4c63c438cfcc47a3cb2b3d6ae0d",
+    "lesson": "lesson-verbal-logic-needed-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "368c58390123dd8d1f88a513aaedc744156313146ac124fbd29c169cf7c478be",
+    "lesson": "lesson-verbal-logic-must-be-true-conclusions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "061579bdde9d75b1caf8d587ab03e5eacd305adcf37d651dc542416facdfa9c5",
+    "lesson": "lesson-verbal-logic-must-be-true-conclusions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "f24a70d304ef2f9b8bb8717f599ce803c08fbbc30b30497136e043cb08a92f29",
+    "lesson": "lesson-verbal-logic-needed-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "749bab2b14f9dc0aa719179524db1b91fc1c3a5028d1dcd7da44f285e655d7c9",
+    "lesson": "lesson-verbal-logic-none-and-may"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "15f7792e38afd1e4e96a5120f0edd59f78a90819787969d8f3f402167b33ffb6",
+    "lesson": "lesson-verbal-logic-must-be-true-conclusions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "0ad3d5a0fcf250e6147f7aa72040b6d3657a33649541827ad13131205c85f6d7",
+    "lesson": "lesson-verbal-logic-needed-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "e35ab06ac4e524f6217a2f9a65404e83fb712a0edd895efbaa21471c65f6cc04",
+    "lesson": "lesson-verbal-logic-must-be-true-conclusions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "d5bd3f4218bfd1c5aae196d54cd1253938612a7880942d60836fb0c664e73af9",
+    "lesson": "lesson-verbal-logic-needed-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "e7de7f01d7b1b920c8c23747b5a89cba6f80139977fdbc0f9e7ea7dbe22314e8",
+    "lesson": "lesson-verbal-logic-must-be-true-conclusions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "bf4944da67c76109aa538b3e2e2761f3c4769458c5575aa87eb8949f528ccd89",
+    "lesson": "lesson-verbal-logic-needed-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "02d6217990e0b9432a553901f0a25a2d5a49eeb220738f913fed7cf2ee9eaf53",
+    "lesson": "lesson-verbal-logic-must-be-true-conclusions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "ff444e55cbc69de4d517d41bf73e6509e2f6af6d91b21c715812e2f76271b354",
+    "lesson": "lesson-verbal-logic-best-supported-conclusions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "6e6460ed0458157ceec2459532e31b5281ce39f36daeca8eb517a99923bd3c0b",
+    "lesson": "lesson-verbal-logic-needed-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "d5c382a22a9b75226b1e41ed024cfe383a93ba8631579a8824c3900285fe01e2",
+    "lesson": "lesson-verbal-logic-best-supported-conclusions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "8c731a4df544749a9f7829977cac89d0468ae7a83a85519feddb37cffa8c5da1",
+    "lesson": "lesson-verbal-logic-needed-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "ef3b3a2aaae30e0deeb896d640ec4871e7c5b76fa6f5b78241ca3e96cd599659",
+    "lesson": "lesson-verbal-logic-unsupported-causes-and-motives"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "4e611e9a1548fa4515a658ab4375e58b7735e2cb71c8a2fffaf4ae378b009b48",
+    "lesson": "lesson-verbal-logic-needed-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "03ab27cd5a0aaef6d622e7c8da3d385c8b438ca01d02a025f7bac12e24bdff37",
+    "lesson": "lesson-verbal-logic-needed-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "e3f7c60dcc1730f8526531027096f9183bbd7996a0d976085bb5daaf3bac5b17",
+    "lesson": "lesson-verbal-logic-negating-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0022": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "92f93b9a925bfac80939d94505fb3b4f9aaad6d2c82b41b87721ae8c70d4e41a",
+    "lesson": "lesson-verbal-logic-negating-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0023": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "54d4967aa1195147358e88fa97cf13294e006a6a5bb959958798646779a02267",
+    "lesson": "lesson-verbal-logic-compound-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0024": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "ea6a259703480c837d62a166cc29c9b1d4e6fa0860711f63b6075cfd4b3314f9",
+    "lesson": "lesson-verbal-logic-compound-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0025": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "17390e87adc4981e56a4e1a916ec5208cf5004ff35f662d9eba1ba9f7314229e",
+    "lesson": "lesson-verbal-logic-none-and-may"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0026": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "075f7c2944510e4b35e057dc9b5b29b3d5c5cbe6b98b87b89e7f9de971e7b1e7",
+    "lesson": "lesson-verbal-logic-recognizing-bias"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0027": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "e67416aecdce83c6f35025f4c6ea372926354f2bd065ca8f8a7ada4fae07a2e9",
+    "lesson": "lesson-verbal-logic-recognizing-bias"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0028": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "462affa0ab4e1d11e641f0b7d8ee2dc477b6ba34efed1d801fbac113e7e4e23e",
+    "lesson": "lesson-verbal-logic-unsupported-causes-and-motives"
   }
 }

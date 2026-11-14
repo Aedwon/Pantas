@@ -6,6 +6,7 @@ meta:
     - cse-sub
 questions:
   - id: q-clerical-ability-numeric-and-chronological-filing-0001
+    approved: true
     lesson: lesson-clerical-ability-whole-number-and-decimal-filing
     keyPoint: 1
     type: single_choice
@@ -28,6 +29,7 @@ questions:
       Ascending numeric order goes from smallest to largest. The sequence starts at 0102, then continues through 0103, 0104, and 0105.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0002
+    approved: true
     lesson: lesson-clerical-ability-oldest-and-newest-date-order
     keyPoint: 2
     type: single_choice
@@ -50,6 +52,7 @@ questions:
       Compare the year first, then month and day. The earliest year is 2024, and January 15 is the earlier date in that year. It goes first in oldest-first order.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0003
+    approved: true
     lesson: lesson-clerical-ability-oldest-and-newest-date-order
     keyPoint: 2
     type: single_choice
@@ -72,6 +75,7 @@ questions:
       Oldest-first filing puts the latest date last. The latest year is 2026, and November 30 is later in that year, so it comes last.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0004
+    approved: true
     lesson: lesson-clerical-ability-whole-number-and-decimal-filing
     keyPoint: 1
     type: single_choice
@@ -94,6 +98,7 @@ questions:
       In ascending consecutive order, 4588 is followed by 4589, then 4590. The document goes between 4588 and 4590.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0005
+    approved: true
     lesson: lesson-clerical-ability-integer-subcode-filing
     keyPoint: 1
     type: single_choice
@@ -116,6 +121,7 @@ questions:
       The prefix remains 10. Increase the integer suffix 099 by one to get 100. The next code is 10-100.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0006
+    approved: true
     lesson: lesson-clerical-ability-oldest-and-newest-date-order
     keyPoint: 2
     type: single_choice
@@ -138,6 +144,7 @@ questions:
       The years and months of June 10 and June 15 match. Day 10 comes before day 15, so June 10 precedes the reference date.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0007
+    approved: true
     lesson: lesson-clerical-ability-whole-number-and-decimal-filing
     keyPoint: 2
     type: single_choice
@@ -160,6 +167,7 @@ questions:
       The whole-number part 402 is lower than 403. Among the 402 values, 0.15 is lower than 0.20 and 0.80. Thus 402.15 is first in ascending order.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0008
+    approved: true
     lesson: lesson-clerical-ability-whole-number-and-decimal-filing
     keyPoint: 1
     type: single_choice
@@ -182,6 +190,7 @@ questions:
       An immediate predecessor is one less. $5000 - 1 = 4999$.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0009
+    approved: true
     lesson: lesson-clerical-ability-terminal-digit-filing-order
     keyPoint: 1
     type: single_choice
@@ -204,6 +213,7 @@ questions:
       Terminal-digit filing uses the final, rightmost group of digits as its first comparison key. The word "terminal" refers to the end.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0010
+    approved: true
     lesson: lesson-clerical-ability-oldest-and-newest-date-order
     keyPoint: 1
     type: single_choice
@@ -226,6 +236,7 @@ questions:
       Reverse chronological order goes from newest to oldest. The most recent document is therefore at the top.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0011
+    approved: true
     lesson: lesson-clerical-ability-integer-subcode-filing
     keyPoint: 1
     type: single_choice
@@ -248,6 +259,7 @@ questions:
       Only listed records count as neighbors in the drawer. The records below 88-450 are 88-405 and 88-440. The larger of those is 88-440, so it is immediately before the inserted record.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0012
+    approved: true
     lesson: lesson-clerical-ability-integer-subcode-filing
     keyPoint: 1
     type: single_choice
@@ -290,7 +302,7 @@ questions:
           This mixes two sorting methods. The first value is smallest, which may make the start look correct. Check each adjacent pair by numeric value.
     explanation: |
       These identifiers are ordinary whole numbers. Compare their values: 2 is below 3, then 10, then 11. That is ascending numeric order.
-    approved: false
+    approved: true
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0014
     lesson: lesson-clerical-ability-whole-number-and-decimal-filing
@@ -313,7 +325,7 @@ questions:
           This treats removing zeros as increasing the number. Short forms can look more like ordinary numbers. Check the value represented by each spelling.
     explanation: |
       Leading zeros do not change an ordinary numeric value. Each form represents the number seven, so their numeric values are equal.
-    approved: false
+    approved: true
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0015
     lesson: lesson-clerical-ability-whole-number-and-decimal-filing
@@ -336,7 +348,7 @@ questions:
           This compares the fractional digits as integer codes, making 1 smaller than 8, 9, and 20. The shorter spelling can look like a smaller number. Check that these entries are decimal values.
     explanation: |
       Use equal decimal places: 7.008, 7.020, 7.090, and 7.100. The fraction 0.008 is smallest, so 7.008 comes first.
-    approved: false
+    approved: true
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0016
     lesson: lesson-clerical-ability-integer-subcode-filing
@@ -359,7 +371,7 @@ questions:
           This substitutes a date when the code segments already differ. Dates are common tie-break fields. Check whether the stated key has actually tied.
     explanation: |
       The registry compares integer subcodes after the point. Those subcodes are 2 and 15. Since 2 is smaller than 15, code 31.2 comes first.
-    approved: false
+    approved: true
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0017
     lesson: lesson-clerical-ability-oldest-and-newest-date-order
@@ -382,7 +394,7 @@ questions:
           This uses an old December date as though December always came last overall. It is late within its own year. Check years before months.
     explanation: |
       Newest-first order starts with the latest year. The 2025 record is newer than every 2024 or 2023 record, so January 3, 2025 goes at the top.
-    approved: false
+    approved: true
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0018
     lesson: lesson-clerical-ability-year-first-and-stated-date-formats
@@ -405,7 +417,7 @@ questions:
           This chooses the later month within the earliest year. Both dates are in 2024. Check February against December.
     explanation: |
       The dates use day/month/year. The 2024 records come before the 2025 records. Between the 2024 dates, February 5 is earlier than December 9, so 05/02/2024 is first.
-    approved: false
+    approved: true
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0019
     lesson: lesson-clerical-ability-oldest-and-newest-date-order
@@ -428,7 +440,7 @@ questions:
           This uses a general preference instead of the missing key. Oldest-first is a familiar system. Check whether changing direction can distinguish two incomplete dates in the same month.
     explanation: |
       Both records tie on year and month. Their day dates are the next units needed for complete calendar comparison.
-    approved: false
+    approved: true
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0020
     lesson: lesson-clerical-ability-oldest-and-newest-date-order
@@ -451,10 +463,11 @@ questions:
           This reverses the primary numeric order and selects an older date. A different filing system might prioritize larger numbers. Check both directions stated in this system.
     explanation: |
       The primary key puts file 12 before file 14. Within file 12, newest-first date order puts January 8, 2025 before December 20, 2024. That record is first.
-    approved: false
+    approved: true
 
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0021
+    approved: true
     lesson: lesson-clerical-ability-character-string-filing
     keyPoint: 1
     type: single_choice
@@ -477,6 +490,7 @@ questions:
       PR comes before PS. Among the PR codes, 2 comes before 3. PR-207 and PR-21 match through PR-2, then 0 comes before 1. PR-207 is first.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0022
+    approved: true
     lesson: lesson-clerical-ability-character-string-filing
     keyPoint: 1
     type: single_choice
@@ -499,6 +513,7 @@ questions:
       M-4 is the exact beginning of M-40, so M-4 comes first. Both have 4 where M-5 has 5. The sequence is M-4, M-40, M-5.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0023
+    approved: true
     lesson: lesson-clerical-ability-terminal-digit-filing-order
     keyPoint: 2
     type: single_choice
@@ -521,6 +536,7 @@ questions:
       The files ending in 12 come before the file ending in 13. Among them, leftmost group 04 comes before 09. The two files starting with 04 are then compared by their middle groups. Since 80 is less than 90, 04-80-12 comes first.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0024
+    approved: true
     lesson: lesson-clerical-ability-year-first-and-stated-date-formats
     keyPoint: 1
     type: single_choice
