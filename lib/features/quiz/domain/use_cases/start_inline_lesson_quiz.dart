@@ -63,7 +63,7 @@ class StartInlineLessonQuiz {
           for (final question in allQuestions)
             SubtopicQuestion(question: question, subtopicId: null),
         ],
-        requestedLength: 5,
+        requestedLength: lesson.quizSize,
         topicId: lesson.topicId,
         subtopicId: lesson.subtopicId,
       ),

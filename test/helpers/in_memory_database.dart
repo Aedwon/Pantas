@@ -323,6 +323,9 @@ Future<void> seedContentTopicWithQuestions(
   String subjectId = 'subj_default',
   List<String> lessonIds = const [],
   Map<String, String> questionLessonMap = const {},
+  Map<String, int> questionKeyPointMap = const {},
+  Map<String, int> lessonQuizSizes = const {},
+  Map<String, List<String>> lessonKeyPoints = const {},
 }) async {
   await db.into(db.contentExams).insertOnConflictUpdate(
         ContentExamsCompanion.insert(
@@ -367,6 +370,12 @@ Future<void> seedContentTopicWithQuestions(
             bodyJson: jsonEncode([]),
             estimatedMinutes: 5,
             ordering: const Value(0),
+            quizSize: Value(lessonQuizSizes[lId] ?? 5),
+            keyPointsJson: Value(
+              lessonKeyPoints[lId] == null
+                  ? null
+                  : jsonEncode(lessonKeyPoints[lId]),
+            ),
             updatedAt: DateTime.now(),
             schemaVersion: 1,
           ),
@@ -379,6 +388,7 @@ Future<void> seedContentTopicWithQuestions(
             version: 1,
             topicId: topicId,
             lessonId: Value(questionLessonMap[qId]),
+            keyPoint: Value(questionKeyPointMap[qId]),
             language: 'en',
             stemJson: _portableText('stem $qId'),
             explanationJson: _portableText('explanation $qId'),
