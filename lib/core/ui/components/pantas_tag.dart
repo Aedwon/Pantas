@@ -51,7 +51,7 @@ class PantasTag extends StatelessWidget {
     return Container(
       key: const ValueKey('pantas-tag'),
       padding: const EdgeInsets.symmetric(
-        horizontal: PantasSpace.s10,
+        horizontal: PantasSpace.s8,
         vertical: PantasSpace.s2,
       ),
       decoration: ShapeDecoration(
