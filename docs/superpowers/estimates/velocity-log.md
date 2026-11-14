@@ -119,3 +119,63 @@ Last updated: not yet. Rows finished since the last update: 0.
 | Docs/legal | 0 | |
 | CI/infra | 0 | |
 | Deploy | 0 | |
+
+Update-at-once app coordinator, November 14: bounded feature build on
+web/update-at-once-r1. Approved scope supplied directly by Aedwon. Estimate:
+25 minutes active and wall. Timer: web-update-coordinator. Startup reading
+before timer start is not measured.
+
+E-043 app-side bounded continuation actual, timer web-update-coordinator:
+Nov 14 06:30 to 06:48 UTC, wall and active 18 min 11 s, no paused time.
+Estimate 25 minutes, measured ratio 0.73. Initial policy/source reading before
+06:30 was not measured. This is not a replacement for the full E-043 elapsed
+time or a claim that its integration/deployment scope is complete. Implemented,
+independently reviewed and locally tested; 207 tests passed. No push or deploy.
+
+Versioned web replacement, November 14: approved bounded 25-minute pass.
+Timer web-version-folders. Policy main 05d90fdc4fd7f42af35250a29737a2ad38e03fdd.
+
+Versioned web replacement measured pass, timer web-version-folders:
+Nov 14 07:01 to 07:22 UTC, wall and active 21 min 17 s, no paused time.
+Estimate 25 minutes, measured ratio 0.85. Final local recording/commit follows
+this timer stop. Implemented and independently reviewed; 91 Node and 30 focused
+Dart/browser tests passed. Final web build packaged 73 verified build files.
+No push, deployment or Firebase access. Real rollout/device proof remains.
+
+### Nov 14, update scale-back
+
+- Task: web/update-at-once-r1, final lead ruling after two read-only reviews.
+- Estimate: 25 minutes active/wall; timer web-update-scale-back.
+- Scope: restore production web transport; minimal JS bridge; retain safe points.
+- Actual: timer web-update-scale-back measured 6 min 59 s active/wall,
+  Nov 14 07:38 to 07:45 UTC, before final evidence/commit. Initial context
+  retrieval before the timer was not measured. No push, deploy or Firebase.
+
+### Nov 14, quiz completion update hook
+
+- Branch: web/update-at-once-r1. Estimate: 15 minutes active/wall.
+- Timer: web-update-quiz-ended. Initial policy reading is not measured.
+- Scope: app-side quiz completion safety and regressions, local commit only.
+
+Quiz completion correction actual: primary timer web-update-quiz-ended measured
+14 min 51 s active/wall (Nov 14 08:03 to 08:17 UTC). Final analyzer-comma
+correction, focused verification and evidence timer web-update-quiz-ended-final
+measured 52 s active/wall (08:18 to 08:19 UTC). Combined measured active:
+15 min 43 s; no pauses. Initial policy retrieval, the short gap between timers,
+and final recording/commit are unmeasured. Estimate: 15 minutes.
+Implemented and independently reviewed; 1,941 combined tests plus a final
+37-test focused rerun pass. Local commit only, no push/deploy/Firebase.
+
+### Nov 14, bundled Pro test isolation
+
+- Branch: web/update-at-once-r1. Estimate: 20 minutes active/wall, excluding shared Flutter wait.
+- Timer: bundle-pro-isolation. Policy main: 49d6026bd602f1fd09f1ec04c3447a4c1c17c99e.
+- Scope: reproduce shard 7 bundle 0, bisect neighbors, fix isolation at source, verify bundle and Pro alone, commit locally. No push or Firebase.
+
+Bundled Pro isolation actual: timer bundle-pro-isolation measured 4 min 53 s
+active/wall, Nov 14 08:33 to 08:38 UTC, no pauses. Startup policy/context
+retrieval and final evidence/commit are unmeasured. Estimate: 20 minutes.
+Reproduced 399 pass/1 fail, isolated the catalog asset-cache future to the
+price-tier test, fixed its teardown, independently reviewed with no findings.
+Full original bundle: 400 passed. Pro alone: 30 passed. Minimal pair: 32 passed.
+Analysis and repository checks passed. No push, deployment or Firebase.

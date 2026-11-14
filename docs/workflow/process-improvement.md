@@ -79,8 +79,32 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Inline quiz results missed the update safe point (Nov 14)
+
+- His words: "A "Quiz yourself" quiz started from a lesson runs on /quiz/inline/<id> and shows its results on the same route" and "so the results screen never counted as a safe point and the app did not reload into the new build there."
+- Wrong: coordinator safety inferred completion only from separate results URLs.
+- Why it passed: coordinator tests changed routes instead of completing an inline quiz through the real controller.
+- Fix: the inline controller regression in `test/features/quiz/presentation/quiz_controller_test.dart` drives start, answer and next with a fake update bridge. It failed with expected one apply, actual zero before the hook existed. It also checks unsafe questions/reveals and restarting on the same URL. Coordinator tests cover route reset, pending writes, repeated completion and input overlays.
+
+
 Newest first. When this file passes about 120 lines, move the oldest closed entries to
 the current decision log.
+
+### Flat web update protocol could mix deployments (Nov 14)
+
+- His exact words: "Lead ruling (final): replace the web-layer approach with VERSIONED BUILD FOLDERS, and keep the app-side safe points."
+- Wrong: the reviewed client-version protocol could start old code under a new identity,
+  guess a legacy client's build, fetch new bytes for legacy misses, and consume an
+  update attempt while an installation was incomplete.
+- Why: tests modeled legacy pages with a protocol those shipped pages did not have,
+  assumed ready workers, and asserted permanent suppression after failed apply.
+- Fix: replace that protocol with immutable versioned paths and verified retained
+  hosting inventories. Existing CI runs the Node regressions in tool/web and
+  test/web. The new regression tests failed against the old implementation first
+  (10 of 11 web cases, all 3 retention cases); Dart retry failed first too. Additional
+  review regressions cover incomplete installs, wrong bytes, offline index identity,
+  legacy flat metadata, fonts, retry deadlines and stale output directories. No new
+  human workflow gate. Evidence: docs/superpowers/verification/2026-11-14-versioned-web-builds.md.
 
 ### Parallel Codex runs drained every account and lost an audit (Nov 11)
 
@@ -278,3 +302,14 @@ the current decision log.
 - Wrong: the DS4 lead's staging update proof launched Chromium on the shared Mac without keychain flags, so macOS asked Aedwon to unlock the keychain.
 - Why: no rule covered browser launch flags on the Mac; scripts used Playwright's defaults.
 - Fix: every automated Chromium or Chrome launch passes `--use-mock-keychain` and `--password-store=basic` (journeys, staging proofs, captures, any headless browser). Added to the lead's scratch scripts and the worker's proof scripts.
+
+### Update transport failed two migration reviews (Nov 14)
+
+- His words: "Lead ruling (final), after two read-only reviews" and "SCALE BACK."
+- Wrong: replacement workers and versioned hosting were treated as ready without
+  proving compatibility with the worker already installed on phones.
+- Why: isolated new-worker tests did not exercise the existing worker's rollout.
+- Fix: required completion step for this correction: compare worker, hosting,
+  index, bootstrap, deployment guide and Drift opener against origin/main; require
+  an empty diff. Retain Node regressions for no-store detection, worker update,
+  failed/slow retry and reload-only apply. No new worker or hosting migration ships.

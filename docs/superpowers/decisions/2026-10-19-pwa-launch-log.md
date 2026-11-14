@@ -3284,3 +3284,135 @@ Aedwon is moving the operations manager role to a new thread (checklist in `docs
 - Aedwon set a goal covering the remaining steps through the $15 prod cutoff, so they need no further ask. The lead sends the manager a plan before step 5 (Cloudflare), because it changes how prod serves the app.
 
 - **Bite-sized lessons plan and board (lead, Nov 14):** plan `docs/superpowers/plans/2026-11-14-bite-sized-lessons-pilot.md` (balanced scope through the pilot, about 22 to 30 h wall, about 10 h lead). Label decision board in Claude Design: "Bite-sized Lesson Labels" https://claude.ai/artifact/Ub27VuHxHfeKrsRXgVfLuo (row layouts 1 to 3, ending options A and B), built from the Pantas Web and Pantas Redesign canvases; it waits for a Fable ruling. A first mockup from golden renders (`mockup/bite-sized-label`, not merged) broke written rule 3; the lead's brief caused it, and it was caught before anything was shown. Aedwon, relayed by the manager, verbatim: "don't do too many at once, mind my 5-hour limits". The lane is paused: no new workers until the manager resumes it. Velocity E-051: timer 30 min 32 s.
+
+### Nov 14, E-043 bounded app coordinator continuation
+
+Aedwon authorized the app-side build on `web/update-at-once-r1`: "Do not push,
+do not deploy, no Firebase" and "App-side logic only: no new screen, prompt,
+banner, wording or layout change". Implemented safe-point routing, reader ending,
+inline-modal guards, an awaited local database/outbox durability barrier, native
+no-op, once-per-version apply and `update.apply` telemetry. No visible presentation
+change. 205 focused VM tests and 2 browser tests passed, including 24 new tests;
+format, analysis, design lint, layering and repository checks passed. Independent
+review's findings were fixed; final review has no remaining findings.
+
+Local implementation and review only. This does not complete E-043's deployment
+or real two-version update proof. Full evidence and changed-file list:
+`docs/superpowers/verification/2026-11-14-update-at-once-app.md`.
+
+### Nov 14, E-043 web-layer replacement authorization
+
+Aedwon's exact ruling: "Lead ruling (final): replace the web-layer approach with VERSIONED BUILD FOLDERS, and keep the app-side safe points."
+His bounded permissions: "Do not push, do not deploy, no Firebase. Commit with plain messages, NO Co-Authored-By or any AI trailer. Non-UI only."
+His time boundary: "about 25 minutes per pass; if it does not fit, finish a coherent part, commit it, and report what remains."
+
+The supplied read-only review found mixed startup identity, unidentified legacy
+clients, new bytes on legacy cache misses, and attempts consumed before reload.
+The old approach is superseded, not approved through these findings. The
+replacement plan is `docs/superpowers/plans/2026-11-14-versioned-web-builds.md`.
+It preserves durability and safe points. Versioned paths replace page messages;
+verified live inventories retain predecessors. Flat files remain for exactly one
+transition, including offline use. Offline index replacement waits for complete
+cached build bytes. The root loader follows the index's pinned version.
+
+Current task evidence and remaining integration proof:
+`docs/superpowers/verification/2026-11-14-versioned-web-builds.md`.
+
+E-043 local replacement completed in this bounded pass. Independent review
+passes. 91 Node tests and 30 focused Dart/browser tests pass; analysis, changed
+Dart format, design lint (631 baseline findings), layering and repository checks
+pass. Staging release artifact packages 73 hash-verified files under
+`b/1555920181-1c829df455ae/`. Timer: 21 min 17 s measured active/wall before final
+recording and local commit. No push, deployment, Firebase access or UI change.
+Live legacy-inventory recovery, real consecutive deployments/rollback/offline
+and Android Chrome/iPhone Safari storage survival remain release proof. This
+entry does not complete E-043's live rollout or authorize publication.
+
+### Nov 14, E-043 final scale-back ruling
+
+Aedwon's exact assignment, superseding the versioned-build ruling above:
+
+> Bounded job, about 25 minutes. Worktree branch web/update-at-once-r1 (Pantas Flutter web PWA). Do not push, do not deploy, no Firebase. Commit with plain messages, NO Co-Authored-By or any AI trailer. Non-UI only.
+>
+> Lead ruling (final), after two read-only reviews (/private/tmp/claude-501/-Users-aedwon-Documents-Projects-Pantas-wt-design-system-4/33a4ae62-5c4c-4d3c-844a-35379c6da590/scratchpad/update-review-1.md and /private/tmp/claude-501/-Users-aedwon-Documents-Projects-Pantas-wt-design-system-4/33a4ae62-5c4c-4d3c-844a-35379c6da590/scratchpad/update-review-2.md) found that changing the service worker and the hosting layout cannot be rolled out safely over the worker already on phones: SCALE BACK.
+> 1. Restore the web layer to origin/main exactly: web/pantas_sw.js, web/index.html, web/flutter_bootstrap.js (or its template), firebase.json, firebase.staging.json, tool/web/stamp_worker_version.mjs, and remove tool/web/retain_builds.mjs and the /b/ folder build steps and their tests and CI wiring, so the service worker, the caching, the drift worker URL and the hosting layout are exactly what prod runs today. Keep docs/deploy-prod.md as on main.
+> 2. Keep the app-side coordinator from 46adf8a0f with 054357371's fix (an attempt is consumed only when the reload actually happens; failed or slow checks retry at the next safe point), and the write-durability wait and the safe points (Home first appearance, returns to Home, quiz and mock results, lesson end; never on quiz, mock, lesson, onboarding mid-entry, checkout, or with a dialog or sheet with input open).
+> 3. A minimal JS bridge in web/pantas_pwa.js only (add, do not restructure): window.pantasUpdate = {currentVersion, check(), apply()}. currentVersion = the build version this page started with (the stamped value the page already knows, e.g. from flutter_bootstrap.js or version.json loaded at start; find what main already stamps and reuse it). check() fetches version.json with cache: 'no-store' and compares; returns {available, version}; it also calls registration.update() so the existing worker fetches the new build in the background (the existing worker already handles its own install and takeover). apply() = location.reload(). Also check on visibility return and at most every 5 minutes while visible; never reload by itself. If version.json does not carry a comparable version on main today, make the existing stamping write it (smallest change to stamp_worker_version.mjs: add a field only) and say exactly what changed.
+> 4. The Dart bridge uses window.pantasUpdate if present and is a no-op otherwise (old pages and native).
+> Tests first: node tests for check() (available, not available, network failure) and apply(); Dart coordinator tests stay green (update them for the reload-only apply). Show the new node tests failing first.
+> Checks: node tests, dart format, flutter analyze lib test, the app_update tests, design lint, layering (one Flutter job at a time). Confirm with git diff origin/main -- web/pantas_sw.js firebase.json firebase.staging.json web/index.html that those are unchanged. Commit. Report: what the bridge does, the version source, test evidence, the files that differ from main.
+
+Result: restored the production worker, caching, flat layout, bootstrap, hosting,
+deployment guide, Drift worker URLs and original tests. Deleted folder packaging,
+retention and its CI/deploy wiring. Added only the update API to the main PWA
+helper. Existing registerWorker receives the stamped startup identity. Stamping
+adds pantasBuildVersion to existing version metadata; hashing excludes that own
+field and normalizes metadata serialization to keep repeated stamping stable.
+No file moves, worker edits or loader edits remain against main.
+
+The Dart bridge now calls synchronous reload, with absent-bridge/native no-op.
+The coordinator, guarded safe points and local-write durability barrier remain.
+Removed the duplicate 30-second Dart poll: JS detects on visible five-minute ticks
+and visibility return; the app checks/applies at its existing safe-point and
+lifecycle hooks. Background JS checks never call apply. Idle Home detection alone
+does not reload until an app safe-point/lifecycle check runs.
+
+Independent final review found no remaining must-fixes after restoring the main
+browser database tests, rather than deleting the whole file with the folder test.
+Verification and exact main diff inventory:
+`docs/superpowers/verification/2026-11-14-update-at-once-scale-back.md`.
+This is local implementation only. Real device/consecutive-deployment proof and
+publication remain outside this assignment. No push, deploy or Firebase access.
+
+### Nov 14, E-043 inline quiz completion correction
+
+Aedwon's exact bounded assignment:
+
+> Bounded job, about 15 minutes. Worktree branch web/update-at-once-r1 (Pantas Flutter web app). Do not push, do not deploy, no Firebase. Commit with plain messages, NO Co-Authored-By or any AI trailer. App-side logic only, no visible UI change.
+>
+> Bug found by a live staging proof: lib/core/platform/app_update/update_coordinator.dart treats the end of a quiz as safe only when the route matches ^/(quiz/(debrief|all)|mock/results)/[^/]+$. A "Quiz yourself" quiz started from a lesson runs on /quiz/inline/<id> and shows its results on the same route (QuizController state QuizComplete, lib/features/quiz/presentation/quiz_controller.dart), so the results screen never counted as a safe point and the app did not reload into the new build there.
+>
+> Fix: add a quizEnded() hook like lessonEnded(): set when any quiz session reaches its finished state (QuizComplete, or the equivalent end state of every quiz flow: inline, reviews, new questions, practice, the session debrief, mock results), cleared on the next route change or when a new session starts; include it in _safe; and run a check() right when it is set (the update may already be known from the visibility or timer check). Wire it where the quiz end state is reached (the controller or the page that shows results), not by route patterns. Keep every unsafe rule (an open quiz question is never safe).
+> Tests first (show them failing): an inline quiz reaching QuizComplete with an available update applies it; a quiz mid-question does not; starting a new session clears the flag; the existing coordinator tests stay green.
+> Checks: dart format, flutter analyze lib test, the app_update and quiz tests, design lint, layering (one Flutter job at a time). Commit. Report: where the hook is wired, test evidence, files changed.
+
+Root cause: the route-based tests covered separate result destinations, not the
+real inline controller's transition to results on its existing URL. The regression
+now drives startInline, answer and next through the real controller with a fake
+update bridge. It failed before implementation: expected one apply, actual zero.
+It also asserts no apply during a question or answer reveal and after restarting.
+Independent review added red proofs for duplicate completion while writes wait
+and delayed completion after navigation or session replacement.
+
+Implementation and current verification are recorded in
+`docs/superpowers/verification/2026-11-14-update-at-once-app.md`, quiz correction
+section. No UI, push, deploy or Firebase access is authorized by this follow-up.
+
+Quiz completion correction complete locally: QuizComplete and shared results
+lifecycle hooks now provide explicit safety and immediate checks. Navigation
+and new sessions invalidate completion, including delayed callbacks; repeated
+completion preserves pending durability waits. Independent review: no remaining
+findings. Final combined app-update, quiz and mock suites: 1,941 passed. Final
+37-test focused rerun passed after test formatting/comma corrections. Analysis,
+format, design lint (631 existing baseline findings), layering, nine repository
+checks and attribution check pass. Measured active: 15 min 43 s across two
+timers; details and exact file/source inventory are in the existing verification
+record. Local commit only. Live proof remains separate and was not rerun.
+
+
+### Nov 14, shard 7 bundled test isolation
+
+Aedwon authorized a bounded test-isolation correction on web/update-at-once-r1:
+
+> Tests and test isolation only, unless the leak is in production code (then fix it there, smallest change, no visible change).
+>
+> Do: generate shard 7's bundles locally (dart tool/ci/bundle_tests.dart --shard 7 --shards 8), run bundle 0 to reproduce, then bisect the bundle's members (build a smaller generated entry with the Pro test plus half the neighbors) to find the leaking file and the leaked state. Fix the leak at its source (reset it in that test's tearDown, or in production if a static escapes there). Only if the leak cannot be fixed cleanly, add the leaking file to tool/ci/bundle_excludes.txt with a precise reason. Show: the bundle failing locally before, passing after; the Pro test file passing alone.
+
+Choice: clear only the cached catalog asset in the originating price-tier
+test's teardown. Its cached real-zone Future blocked the later fake-async
+Pro loading state. No product change or exclusion. Original bundle reproduced
+399 pass/1 fail before and passed all 400 afterward; Pro alone passed 30;
+the two-file reproduction passed 32 after. Independent review: no findings.
+Detailed bisection, policy/source identity, checks and limitations are recorded
+in the bundled-isolation section of the existing update-at-once verification.
+Implemented and verified locally; no push, deploy or Firebase. Local saving only.
