@@ -79,3 +79,10 @@ test('no trigger means no billing call at all', async () => {
   assert.equal(await handle(budget(1), env, billing, () => {}), 'no action');
   assert.deepEqual(billing.calls, []);
 });
+
+test('if reading the billing state fails, it still cuts billing rather than doing nothing', async () => {
+  const billing = fakeBilling();
+  billing.getBillingInfo = async () => { throw new Error('Cloud Billing 403: denied'); };
+  assert.equal(await handle(budget(50), env, billing, () => {}), 'billing disabled');
+  assert.deepEqual(billing.calls, ['pantas-staging']);
+});

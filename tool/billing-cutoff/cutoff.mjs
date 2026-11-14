@@ -48,7 +48,11 @@ export async function handle(message, env, billing, log = console.log) {
     log(JSON.stringify({severity: 'WARNING', message: `billing cutoff DRY RUN: would disable billing on ${env.PROJECT_ID}`}));
     return 'dry run: would disable billing';
   }
-  const info = await billing.getBillingInfo(env.PROJECT_ID);
+  // A failed read must never stop the cut: removing billing twice is harmless.
+  const info = await billing.getBillingInfo(env.PROJECT_ID).catch(error => {
+    log(JSON.stringify({severity: 'WARNING', message: `billing cutoff: could not read billing state (${error.message}); cutting anyway`}));
+    return {billingEnabled: true};
+  });
   if (!info.billingEnabled) return 'billing already disabled';
   await billing.disableBilling(env.PROJECT_ID);
   log(JSON.stringify({severity: 'ERROR', message: `billing cutoff: billing DISABLED on ${env.PROJECT_ID}`}));
