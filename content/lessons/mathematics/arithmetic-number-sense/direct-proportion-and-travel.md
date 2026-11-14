@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 1
 partCount: 3
-ordering: 601
+ordering: 21
 keyPoints:
   - "Set up equal ratios in the same order and cross-multiply."
   - "Use distance, rate, and time with matching units."

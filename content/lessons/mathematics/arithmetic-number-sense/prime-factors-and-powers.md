@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 1
 partCount: 4
-ordering: 401
+ordering: 11
 keyPoints:
   - "Identify prime and composite numbers."
   - "Write prime factorizations with exponents."

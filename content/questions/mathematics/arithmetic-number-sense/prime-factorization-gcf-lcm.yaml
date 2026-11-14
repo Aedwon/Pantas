@@ -5,6 +5,8 @@ meta:
   exams: [upcat, acet, dlsucet, ustet, pupcet, cse-pro, cse-sub]
 questions:
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0001
+    lesson: lesson-arithmetic-number-sense-prime-factors-and-powers
+    keyPoint: 2
     type: direct-computation
     difficulty: easy
     stem: |
@@ -25,6 +27,8 @@ questions:
       Divide by primes: $180=2(90)=2^2(45)=2^2(3)(15)=2^2(3^2)(5)$. All remaining factors are prime, so the factorization is $2^2\times3^2\times5$.
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0002
+    lesson: lesson-arithmetic-number-sense-greatest-common-factor
+    keyPoint: 1
     type: direct-computation
     difficulty: easy
     stem: |
@@ -45,6 +49,8 @@ questions:
       Factor the numbers: $72=2^3\times3^2$ and $108=2^2\times3^3$. The GCF uses each shared prime with its smaller exponent. Thus the GCF is $2^2\times3^2=36$.
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0003
+    lesson: lesson-arithmetic-number-sense-least-common-multiple
+    keyPoint: 1
     type: direct-computation
     difficulty: easy
     stem: |
@@ -65,6 +71,8 @@ questions:
       Factor the numbers: $24=2^3\times3$ and $36=2^2\times3^2$. The LCM needs the larger exponent of each prime. Thus it is $2^3\times3^2=72$.
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0004
+    lesson: lesson-arithmetic-number-sense-prime-factors-and-powers
+    keyPoint: 2
     type: error-spotting
     difficulty: easy
     stem: |
@@ -85,6 +93,8 @@ questions:
       The factor $35$ is composite because $35=5(7)$. Both $5$ and $7$ are prime. Replacing $35$ with their product completes $210=2\times3\times5\times7$.
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0005
+    lesson: lesson-arithmetic-number-sense-greatest-common-factor
+    keyPoint: 2
     type: word-problem
     difficulty: medium
     stem: |
@@ -105,6 +115,8 @@ questions:
       The number of packs must divide all three quantities. The factorizations are $120=2^3\times3\times5$, $180=2^2\times3^2\times5$, and $240=2^4\times3\times5$. Their greatest shared factor is $2^2\times3\times5=60$. Thus they can make $60$ identical packs.
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0006
+    lesson: lesson-arithmetic-number-sense-least-common-multiple
+    keyPoint: 2
     type: word-problem
     difficulty: medium
     stem: |
@@ -125,6 +137,8 @@ questions:
       The first shared return time is the LCM of $15$ and $20$ minutes. Since $15=3(5)$ and $20=2^2(5)$, the LCM is $2^2(3)(5)=60$ minutes. One hour after $6{:}00$ AM is $7{:}00$ AM.
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0007
+    lesson: lesson-arithmetic-number-sense-greatest-common-factor
+    keyPoint: 1
     type: direct-computation
     difficulty: medium
     stem: |
@@ -145,6 +159,8 @@ questions:
       The shared prime bases are $2$ and $3$. Their smaller exponents are $3$ and $2$. The GCF is $2^3\times3^2=8(9)=72$.
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0008
+    lesson: lesson-arithmetic-number-sense-greatest-common-factor
+    keyPoint: 2
     type: word-problem
     difficulty: medium
     stem: |
@@ -165,6 +181,8 @@ questions:
       The factorizations are $144=2^4\times3^2$ and $96=2^5\times3$. Their GCF is $2^4(3)=48$, so there are $48$ boxes. Each contains $144\div48=3$ rice pouches and $96\div48=2$ kits. The total is $3+2=5$ items per box.
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0009
+    lesson: lesson-arithmetic-number-sense-least-common-multiple
+    keyPoint: 2
     type: word-problem
     difficulty: medium
     stem: |
@@ -185,6 +203,8 @@ questions:
       The intervals factor as $12=2^2(3)$, $18=2(3^2)$, and $30=2(3)(5)$. Their LCM is $2^2(3^2)(5)=180$ minutes, or $3$ hours. After $8{:}00$ AM, shared departures are at $11{:}00$ AM, $2{:}00$ PM, and $5{:}00$ PM. All three are in the stated window.
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0010
+    lesson: lesson-arithmetic-number-sense-least-common-multiple
+    keyPoint: 3
     type: direct-computation
     difficulty: hard
     stem: |
@@ -205,6 +225,8 @@ questions:
       For two positive integers, GCF times LCM equals their product. Let the missing integer be $b$. Then $14(420)=70b$. Divide by $70$: $b=\dfrac{5880}{70}=84$.
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0011
+    lesson: lesson-arithmetic-number-sense-greatest-common-factor
+    keyPoint: 2
     type: word-problem
     difficulty: hard
     stem: |
@@ -225,6 +247,8 @@ questions:
       The factorizations are $315=3^2(5)(7)$ and $420=2^2(3)(5)(7)$. Their GCF is $3(5)(7)=105$ packages. Each contains $315\div105=3$ blankets and $420\div105=4$ lanterns. Its cost is $3(150)+4(250)=450+1000=1450$ pesos.
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0012
+    lesson: lesson-arithmetic-number-sense-least-common-multiple
+    keyPoint: 2
     type: word-problem
     difficulty: hard
     stem: |
@@ -245,6 +269,8 @@ questions:
       The intervals factor as $16=2^4$, $24=2^3(3)$, and $40=2^3(5)$. Their LCM is $2^4(3)(5)=240$ minutes, or $4$ hours. Four hours after $9{:}00$ AM is $1{:}00$ PM, which is the first shared passage after noon.
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0013
+    lesson: lesson-arithmetic-number-sense-least-common-multiple
+    keyPoint: 3
     type: direct-computation
     difficulty: hard
     stem: |
@@ -265,6 +291,8 @@ questions:
       For two positive integers, GCF times LCM equals their product. Let the missing integer be $n$. Then $108n=36(216)$. Divide by $108$: $n=\dfrac{36(216)}{108}=72$.
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0014
+    lesson: lesson-arithmetic-number-sense-greatest-common-factor
+    keyPoint: 2
     type: word-problem
     difficulty: exam
     stem: |
@@ -285,6 +313,8 @@ questions:
       The rice quantity is $36000\div200=180$ bags. The canned-goods quantity is $45000\div150=300$ packs. Their GCF is $60$, so the greatest number of relief packages is $60$. At capacity $35$, one trip is not enough, but two can carry $70$. At capacity $25$, two can carry only $50$. The minimum is two trips using the larger jeepney.
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0015
+    lesson: lesson-arithmetic-number-sense-least-common-multiple
+    keyPoint: 2
     type: word-problem
     difficulty: exam
     stem: |
@@ -305,6 +335,8 @@ questions:
       The route intervals factor as $45=3^2(5)$ and $75=3(5^2)$. Their LCM is $225$ minutes. By then X has completed $225\div45=5$ rounds, and Y has completed $225\div75=3$. Each X round earns $20(15)=300$ pesos, and each Y round earns $16(25)=400$ pesos. Total fares are $5(300)+3(400)=2700$ pesos.
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0016
+    lesson: lesson-arithmetic-number-sense-prime-factors-and-powers
+    keyPoint: 1
     type: which-is-true
     difficulty: easy
     stem: |
@@ -326,6 +358,8 @@ questions:
     approved: false
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0017
+    lesson: lesson-arithmetic-number-sense-least-common-multiple
+    keyPoint: 1
     type: error-spotting
     difficulty: medium
     stem: |
@@ -347,6 +381,8 @@ questions:
     approved: false
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0018
+    lesson: lesson-arithmetic-number-sense-same-remainder-numbers
+    keyPoint: 2
     type: word-problem
     difficulty: hard
     stem: |
@@ -368,6 +404,8 @@ questions:
     approved: false
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0019
+    lesson: lesson-arithmetic-number-sense-least-common-multiple
+    keyPoint: 3
     type: which-is-true
     difficulty: hard
     stem: |
@@ -389,6 +427,8 @@ questions:
     approved: false
 
   - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0020
+    lesson: lesson-arithmetic-number-sense-greatest-common-factor
+    keyPoint: 1
     type: error-spotting
     difficulty: exam
     stem: |

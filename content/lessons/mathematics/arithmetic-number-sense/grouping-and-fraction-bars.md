@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 3
 partCount: 3
-ordering: 103
+ordering: 3
 keyPoints:
   - 'Evaluate nested groups from the inside out.'
   - 'Treat fraction numerators and denominators as grouped expressions.'

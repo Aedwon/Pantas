@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 3
 partCount: 4
-ordering: 403
+ordering: 13
 keyPoints:
   - "Find the LCM with the largest prime exponents."
   - "Use the LCM for repeating schedules."

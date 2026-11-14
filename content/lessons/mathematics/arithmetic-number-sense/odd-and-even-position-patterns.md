@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 2
 partCount: 9
-ordering: 802
+ordering: 29
 keyPoints:
   - 'Check separate patterns in odd and even positions.'
 ---

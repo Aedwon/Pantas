@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 7
 partCount: 9
-ordering: 807
+ordering: 34
 keyPoints:
   - 'Find the sum of a convergent infinite geometric series.'
   - 'Check whether an infinite geometric series diverges.'

@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 1
 partCount: 4
-ordering: 701
+ordering: 24
 keyPoints:
   - "Use the last one, two, or three digits to test 2, 4, and 8."
   - "Use the last digit to test 5 and 10."

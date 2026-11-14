@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 2
 partCount: 6
-ordering: 502
+ordering: 16
 keyPoints:
   - 'Convert a fraction to a decimal and percentage.'
   - 'Calculate with fractions, decimals, and percentages together.'

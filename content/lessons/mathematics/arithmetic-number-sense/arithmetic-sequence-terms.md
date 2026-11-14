@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 3
 partCount: 9
-ordering: 803
+ordering: 30
 keyPoints:
   - 'Find a term using the common difference.'
   - 'Count terms using the first term, last term, and common difference.'

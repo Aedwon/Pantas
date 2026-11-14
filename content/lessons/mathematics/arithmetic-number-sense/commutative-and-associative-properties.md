@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 1
 partCount: 4
-ordering: 301
+ordering: 7
 keyPoints:
   - "Tell a change of order from a change of grouping."
   - "Explain why these properties do not apply to subtraction or division in general."

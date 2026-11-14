@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 2
 partCount: 5
-ordering: 902
+ordering: 38
 keyPoints:
   - "Find a listed price from a markup on cost."
   - "Check the percentage base and distinguish markup from profit."

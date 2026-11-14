@@ -5,6 +5,8 @@ meta:
   exams: [upcat, acet, dlsucet, ustet, pupcet, cse-pro, cse-sub]
 questions:
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0001
+    lesson: lesson-arithmetic-number-sense-fractions-and-mixed-forms
+    keyPoint: 1
     type: direct-computation
     difficulty: easy
     stem: |
@@ -25,6 +27,8 @@ questions:
       Divide $3$ by $8$ to get $0.375$. Multiply by $100\%$: $0.375(100\%)=37.5\%$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0002
+    lesson: lesson-arithmetic-number-sense-adding-and-multiplying-fractions
+    keyPoint: 1
     type: direct-computation
     difficulty: easy
     stem: |
@@ -45,6 +49,8 @@ questions:
       Add the numerator fractions: $\dfrac{2}{5}+\dfrac{1}{3}=\dfrac{6+5}{15}=\dfrac{11}{15}$. The numerator and denominator now have the same nonzero value. Their quotient is $1$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0003
+    lesson: lesson-arithmetic-number-sense-successive-percentages-and-increases
+    keyPoint: 1
     type: word-problem
     difficulty: easy
     stem: |
@@ -65,6 +71,8 @@ questions:
       A $15\%$ discount leaves $100\%-15\%=85\%$ of the bill to pay. Convert this to a fraction: $\dfrac{85}{100}=\dfrac{17}{20}$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0004
+    lesson: lesson-arithmetic-number-sense-adding-and-multiplying-fractions
+    keyPoint: 1
     type: direct-computation
     difficulty: easy
     stem: |
@@ -85,6 +93,8 @@ questions:
       Use the given value $\dfrac{4}{9}$. Add $\dfrac{2}{9}$: $\dfrac{4}{9}+\dfrac{2}{9}=\dfrac{6}{9}=\dfrac{2}{3}$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0005
+    lesson: lesson-arithmetic-number-sense-successive-percentages-and-increases
+    keyPoint: 1
     type: word-problem
     difficulty: medium
     stem: |
@@ -105,6 +115,8 @@ questions:
       The service charge gives $850(1.10)=935$ pesos. The tip is $935(0.05)=46.75$ pesos. The final amount is $935+46.75=981.75$ pesos.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0006
+    lesson: lesson-arithmetic-number-sense-multiplying-and-dividing-decimals
+    keyPoint: 2
     type: direct-computation
     difficulty: medium
     stem: |
@@ -125,6 +137,8 @@ questions:
       First subtract inside parentheses: $\dfrac{5}{6}-\dfrac{1}{4}=\dfrac{10-3}{12}=\dfrac{7}{12}$. Multiply by $0.6=\dfrac{3}{5}$ to get $\dfrac{7}{20}=0.35$. Then $0.35\div0.35=1$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0007
+    lesson: lesson-arithmetic-number-sense-percentage-base-and-fraction-division
+    keyPoint: 2
     type: word-problem
     difficulty: medium
     stem: |
@@ -145,6 +159,8 @@ questions:
       The gain over cost is $15-12.50=2.50$ pesos. Its fraction of cost is $\dfrac{2.50}{12.50}=0.20$. Multiply by $100\%$ to get $20\%$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0008
+    lesson: lesson-arithmetic-number-sense-successive-percentages-and-increases
+    keyPoint: 1
     type: word-problem
     difficulty: medium
     stem: |
@@ -165,6 +181,8 @@ questions:
       After a $10\%$ decrease, $90\%$ of the original price remains. If the original price is $100$, it falls to $90$ and needs an increase of $10$. The required increase is $\dfrac{10}{90}(100\%)=11\dfrac{1}{9}\%$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0009
+    lesson: lesson-arithmetic-number-sense-multiplying-and-dividing-decimals
+    keyPoint: 2
     type: direct-computation
     difficulty: medium
     stem: |
@@ -185,6 +203,8 @@ questions:
       The first term is $\dfrac{3}{4}\div\dfrac{1}{8}=\dfrac{3}{4}(8)=6$. The second is $2.5\left(\dfrac{2}{5}\right)=1$. Add them: $6+1=7$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0010
+    lesson: lesson-arithmetic-number-sense-percentage-base-and-fraction-division
+    keyPoint: 1
     type: word-problem
     difficulty: hard
     stem: |
@@ -205,6 +225,8 @@ questions:
       The interest for one year is $12000(0.055)=660$ pesos. Since $18$ months is $\dfrac{18}{12}=1.5$ years, the total interest is $660(1.5)=990$ pesos.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0011
+    lesson: lesson-arithmetic-number-sense-adding-and-multiplying-fractions
+    keyPoint: 2
     type: word-problem
     difficulty: hard
     stem: |
@@ -225,6 +247,8 @@ questions:
       The first portion costs $\dfrac{1}{3}(3000)=1000$ pesos and gains $1000(0.20)=200$ pesos. The second costs $\dfrac{1}{2}(3000)=1500$ pesos and gains $1500(0.10)=150$ pesos. The rest earns no profit. The total profit is $200+150=350$ pesos.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0012
+    lesson: lesson-arithmetic-number-sense-percentage-base-and-fraction-division
+    keyPoint: 2
     type: direct-computation
     difficulty: hard
     stem: |
@@ -245,6 +269,8 @@ questions:
       Add the fractions: $\dfrac{3}{8}+\dfrac{1}{12}=\dfrac{9+2}{24}=\dfrac{11}{24}$. Divide by $\dfrac{5}{6}$: $\dfrac{11}{24}\left(\dfrac{6}{5}\right)=\dfrac{11}{20}=0.55$. Convert to get $55\%$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0013
+    lesson: lesson-arithmetic-number-sense-successive-percentages-and-increases
+    keyPoint: 1
     type: word-problem
     difficulty: hard
     stem: |
@@ -265,6 +291,8 @@ questions:
       Let the original price be $P$. The discount leaves $0.80P$. Tax makes the total $0.80P(1.12)=0.896P$. Thus $0.896P=672$, and $P=672\div0.896=750$ pesos.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0014
+    lesson: lesson-arithmetic-number-sense-successive-percentages-and-increases
+    keyPoint: 1
     type: word-problem
     difficulty: exam
     stem: |
@@ -285,6 +313,8 @@ questions:
       Week one leaves $100\%-35\%=65\%$ of the original stock. Week two leaves $1-\dfrac{5}{8}=\dfrac{3}{8}$ of that remainder. The unsold share is $\dfrac{3}{8}(65\%)=24.375\%$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0015
+    lesson: lesson-arithmetic-number-sense-successive-percentages-and-increases
+    keyPoint: 1
     type: word-problem
     difficulty: exam
     stem: |
@@ -305,6 +335,8 @@ questions:
       The final price factor is $1.25(0.80)=1$, so the unit price returns to its original value. The remaining weight is $1-\dfrac{1}{20}=\dfrac{19}{20}=0.95$ of the original. Revenue is therefore $0.95$ of its original value. That is a $5\%$ decrease.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0016
+    lesson: lesson-arithmetic-number-sense-decimal-and-percent-conversions
+    keyPoint: 2
     type: direct-computation
     difficulty: easy
     stem: |
@@ -326,6 +358,8 @@ questions:
     approved: false
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0017
+    lesson: lesson-arithmetic-number-sense-fractions-and-mixed-forms
+    keyPoint: 2
     type: word-problem
     difficulty: medium
     stem: |
@@ -347,6 +381,8 @@ questions:
     approved: false
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0018
+    lesson: lesson-arithmetic-number-sense-decimal-and-percent-conversions
+    keyPoint: 2
     type: error-spotting
     difficulty: medium
     stem: |
@@ -368,6 +404,8 @@ questions:
     approved: false
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0019
+    lesson: lesson-arithmetic-number-sense-successive-percentages-and-increases
+    keyPoint: 2
     type: which-is-true
     difficulty: hard
     stem: |
@@ -389,6 +427,8 @@ questions:
     approved: false
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0020
+    lesson: lesson-arithmetic-number-sense-percentage-base-and-fraction-division
+    keyPoint: 1
     type: word-problem
     difficulty: exam
     stem: |

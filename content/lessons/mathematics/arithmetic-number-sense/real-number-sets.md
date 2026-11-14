@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 1
 partCount: 3
-ordering: 201
+ordering: 4
 keyPoints:
   - "Classify natural, whole, integer, rational, irrational, and real numbers."
   - "Use the natural-number convention given in the question."

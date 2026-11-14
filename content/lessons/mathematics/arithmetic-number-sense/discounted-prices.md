@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 1
 partCount: 5
-ordering: 901
+ordering: 37
 keyPoints:
   - "Find a price after a discount."
   - "Apply successive discounts in order."

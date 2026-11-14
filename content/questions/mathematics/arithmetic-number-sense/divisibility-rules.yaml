@@ -5,6 +5,8 @@ meta:
   exams: [upcat, acet, dlsucet, ustet, pupcet, cse-pro, cse-sub]
 questions:
   - id: q-arithmetic-number-sense-divisibility-rules-0001
+    lesson: lesson-arithmetic-number-sense-divisibility-by-seven-and-eleven
+    keyPoint: 2
     type: which-is-true
     difficulty: easy
     stem: |
@@ -25,6 +27,8 @@ questions:
       For every nonzero integer $b$, $0=b(0)$. The quotient $0\div b=0$ is an integer with no remainder. Therefore every nonzero integer divides zero.
 
   - id: q-arithmetic-number-sense-divisibility-rules-0002
+    lesson: lesson-arithmetic-number-sense-last-digit-divisibility
+    keyPoint: 1
     type: direct-computation
     difficulty: easy
     stem: |
@@ -45,6 +49,8 @@ questions:
       Use the number formed by the last two digits. Here it is $16$, and $16=4(4)$. Therefore $4516$ is divisible by $4$.
 
   - id: q-arithmetic-number-sense-divisibility-rules-0003
+    lesson: lesson-arithmetic-number-sense-digit-sums-and-six
+    keyPoint: 1
     type: direct-computation
     difficulty: easy
     stem: |
@@ -65,6 +71,8 @@ questions:
       The digit sum is $5+7+x+8+1=21+x$. Since $x$ is a digit, this sum ranges from $21$ to $30$. Its only multiple of $9$ is $27$. Thus $21+x=27$, so $x=6$.
 
   - id: q-arithmetic-number-sense-divisibility-rules-0004
+    lesson: lesson-arithmetic-number-sense-digit-sums-and-six
+    keyPoint: 2
     type: which-is-true
     difficulty: easy
     stem: |
@@ -85,6 +93,8 @@ questions:
       The number $24534$ is even, so it is divisible by $2$. Its digit sum is $2+4+5+3+4=18$, a multiple of $3$. Passing both tests means it is divisible by $6$.
 
   - id: q-arithmetic-number-sense-divisibility-rules-0005
+    lesson: lesson-arithmetic-number-sense-coprime-divisibility-tests
+    keyPoint: 1
     type: which-is-true
     difficulty: medium
     stem: |
@@ -105,6 +115,8 @@ questions:
       The number $12$ is divisible by both $4$ and $6$, but it is not divisible by $24$. These factors share a factor of $2$, so their tests overlap. The factors $3$ and $8$ share no factor greater than $1$ and multiply to $24$. Their combined tests are sufficient.
 
   - id: q-arithmetic-number-sense-divisibility-rules-0006
+    lesson: lesson-arithmetic-number-sense-divisibility-by-seven-and-eleven
+    keyPoint: 2
     type: direct-computation
     difficulty: medium
     stem: |
@@ -125,6 +137,8 @@ questions:
       The alternating sums are $7+d+1=8+d$ and $3+5+4=12$. Their difference is $d-4$. For digits $0$ through $9$, this ranges from $-4$ to $5$. Its only multiple of $11$ is $0$. Thus $d=4$.
 
   - id: q-arithmetic-number-sense-divisibility-rules-0007
+    lesson: lesson-arithmetic-number-sense-last-digit-divisibility
+    keyPoint: 1
     type: direct-computation
     difficulty: medium
     stem: |
@@ -145,6 +159,8 @@ questions:
       For $k=6$, the last three digits form $672$. Since $672=8(84)$, the number passes the divisibility test for $8$.
 
   - id: q-arithmetic-number-sense-divisibility-rules-0008
+    lesson: lesson-arithmetic-number-sense-digit-sums-and-six
+    keyPoint: 1
     type: which-is-true
     difficulty: medium
     stem: |
@@ -165,6 +181,8 @@ questions:
       Casting out nines skips groups of digits whose sum is a multiple of $9$. In $84,931$, skip $9$ and $8+1=9$. The remaining digits sum to $4+3=7$. Since $7$ is not divisible by $9$, neither is $84,931$.
 
   - id: q-arithmetic-number-sense-divisibility-rules-0009
+    lesson: lesson-arithmetic-number-sense-coprime-divisibility-tests
+    keyPoint: 1
     type: which-is-true
     difficulty: medium
     stem: |
@@ -185,6 +203,8 @@ questions:
       Apply the rule for $7$: remove the final zero and get $396$. Next compute $39-2(6)=27$, then $2-2(7)=-12$. This is not a multiple of $7$. Therefore $7$ does not divide $3960$.
 
   - id: q-arithmetic-number-sense-divisibility-rules-0010
+    lesson: lesson-arithmetic-number-sense-coprime-divisibility-tests
+    keyPoint: 1
     type: direct-computation
     difficulty: hard
     stem: |
@@ -205,6 +225,8 @@ questions:
       Since $99=9(11)$ and the factors share no factor greater than $1$, use both tests. The alternating difference is $(3+4+b)-(a+5+2)=b-a$. It ranges from $-9$ to $9$, so it must be zero: $a=b$. The digit sum is $14+2a$. Its only even multiple of $9$ from $14$ to $32$ is $18$. Thus $14+2a=18$, giving $a=b=2$.
 
   - id: q-arithmetic-number-sense-divisibility-rules-0011
+    lesson: lesson-arithmetic-number-sense-coprime-divisibility-tests
+    keyPoint: 1
     type: which-is-true
     difficulty: hard
     stem: |
@@ -225,6 +247,8 @@ questions:
       The number $6$ passes both the test for $2$ and the test for $6$. It does not pass the test for $12$. This counterexample proves the stated equivalence is false.
 
   - id: q-arithmetic-number-sense-divisibility-rules-0012
+    lesson: lesson-arithmetic-number-sense-coprime-divisibility-tests
+    keyPoint: 1
     type: direct-computation
     difficulty: hard
     stem: |
@@ -245,6 +269,8 @@ questions:
       Since $45=5(9)$, the final digit $y$ is $0$ or $5$ and the digit sum must be a multiple of $9$. If $y=0$, then $13+x$ gives $x=5$, so the product is zero. If $y=5$, then $18+x$ gives $x=0$ or $9$. The largest product is $9(5)=45$.
 
   - id: q-arithmetic-number-sense-divisibility-rules-0013
+    lesson: lesson-arithmetic-number-sense-coprime-divisibility-tests
+    keyPoint: 1
     type: direct-computation
     difficulty: hard
     stem: |
@@ -265,6 +291,8 @@ questions:
       Since $88=8(11)$, use the last-three-digit and alternating-sum tests. The endings $416,456,496$ are multiples of $8$, so $y$ is $1,5,$ or $9$. The alternating difference is $y-x-2$, which must be zero or a multiple of $11$. The valid pairs are $(x,y)=(3,5)$ and $(7,9)$. Their sums are $8$ and $16$, so the minimum is $8$.
 
   - id: q-arithmetic-number-sense-divisibility-rules-0014
+    lesson: lesson-arithmetic-number-sense-coprime-divisibility-tests
+    keyPoint: 1
     type: direct-computation
     difficulty: exam
     stem: |
@@ -285,6 +313,8 @@ questions:
       Since $72=8(9)$, test divisibility by $8$ and $9$. The ending $32y$ allows $y=0$ or $8$. The full digit sum is $16+x+y$. If $y=0$, its multiple of $9$ gives $x=2$. If $y=8$, it gives $x=3$. The sums are $2$ and $11$, so the maximum is $11$.
 
   - id: q-arithmetic-number-sense-divisibility-rules-0015
+    lesson: lesson-arithmetic-number-sense-coprime-divisibility-tests
+    keyPoint: 1
     type: which-is-true
     difficulty: exam
     stem: |
@@ -312,6 +342,8 @@ questions:
       Statement I holds because $0\div b=0$ for any nonzero integer $b$. Statement IV gives the alternating-sum rule for $11$: a difference of zero or a multiple of $11$ passes the test. These are the true statements.
 
   - id: q-arithmetic-number-sense-divisibility-rules-0016
+    lesson: lesson-arithmetic-number-sense-divisibility-by-seven-and-eleven
+    keyPoint: 1
     type: direct-computation
     difficulty: easy
     stem: |
@@ -333,6 +365,8 @@ questions:
     approved: false
 
   - id: q-arithmetic-number-sense-divisibility-rules-0017
+    lesson: lesson-arithmetic-number-sense-divisibility-by-seven-and-eleven
+    keyPoint: 1
     type: word-problem
     difficulty: medium
     stem: |
@@ -354,6 +388,8 @@ questions:
     approved: false
 
   - id: q-arithmetic-number-sense-divisibility-rules-0018
+    lesson: lesson-arithmetic-number-sense-divisibility-by-seven-and-eleven
+    keyPoint: 2
     type: error-spotting
     difficulty: medium
     stem: |
@@ -375,6 +411,8 @@ questions:
     approved: false
 
   - id: q-arithmetic-number-sense-divisibility-rules-0019
+    lesson: lesson-arithmetic-number-sense-coprime-divisibility-tests
+    keyPoint: 1
     type: which-is-true
     difficulty: hard
     stem: |
@@ -396,6 +434,8 @@ questions:
     approved: false
 
   - id: q-arithmetic-number-sense-divisibility-rules-0020
+    lesson: lesson-arithmetic-number-sense-coprime-divisibility-tests
+    keyPoint: 1
     type: direct-computation
     difficulty: exam
     stem: |

@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 3
 partCount: 3
-ordering: 603
+ordering: 23
 keyPoints:
   - "Split a total into shares using ratio parts."
   - "Use a given difference to find the value of one ratio part."

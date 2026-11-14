@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 4
 partCount: 4
-ordering: 304
+ordering: 10
 keyPoints:
   - "Multiply every term inside parentheses by the outside factor."
   - "Factor out a common factor to simplify a calculation."

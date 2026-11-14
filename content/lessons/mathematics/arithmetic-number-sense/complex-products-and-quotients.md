@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 3
 partCount: 3
-ordering: 203
+ordering: 6
 keyPoints:
   - "Multiply complex numbers and replace the square of i with negative one."
   - "Use a conjugate to divide by a nonzero complex number."

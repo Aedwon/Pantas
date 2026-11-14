@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 2
 partCount: 4
-ordering: 302
+ordering: 8
 keyPoints:
   - "Use zero and one as identity values."
   - "Combine terms with matching variable parts and exponents."

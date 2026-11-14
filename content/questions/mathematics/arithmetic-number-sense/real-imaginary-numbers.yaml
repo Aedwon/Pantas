@@ -5,6 +5,8 @@ meta:
   exams: [upcat, acet, dlsucet, ustet, pupcet, cse-pro, cse-sub]
 questions:
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0001
+    lesson: lesson-arithmetic-number-sense-real-number-sets
+    keyPoint: 2
     type: which-is-true
     difficulty: easy
     stem: |
@@ -25,6 +27,8 @@ questions:
       Under the stated convention, natural numbers start at $1$. Whole numbers start at $0$. Thus $0$ is whole but not natural.
 
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0002
+    lesson: lesson-arithmetic-number-sense-real-number-sets
+    keyPoint: 1
     type: which-is-true
     difficulty: easy
     stem: |
@@ -45,6 +49,8 @@ questions:
       Seven is an integer that is not a perfect square. Its square root cannot be written as a ratio of two integers, so $\sqrt{7}$ is irrational.
 
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0003
+    lesson: lesson-arithmetic-number-sense-imaginary-unit-and-powers
+    keyPoint: 2
     type: direct-computation
     difficulty: easy
     stem: |
@@ -65,6 +71,8 @@ questions:
       The imaginary unit is defined by $i^2=-1$. Therefore the requested value is $-1$.
 
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0004
+    lesson: lesson-arithmetic-number-sense-imaginary-unit-and-powers
+    keyPoint: 1
     type: direct-computation
     difficulty: easy
     stem: |
@@ -85,6 +93,8 @@ questions:
       Add the real parts: $4+3=7$. Add the imaginary coefficients: $5-2=3$. The sum is $7+3i$.
 
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0005
+    lesson: lesson-arithmetic-number-sense-imaginary-unit-and-powers
+    keyPoint: 1
     type: direct-computation
     difficulty: easy
     stem: |
@@ -105,6 +115,8 @@ questions:
       Write the subtraction as $(10+2i)-(6-3i)$. Distribute the minus: $10+2i-6+3i$. Combine like parts to get $4+5i$.
 
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0006
+    lesson: lesson-arithmetic-number-sense-imaginary-unit-and-powers
+    keyPoint: 2
     type: direct-computation
     difficulty: medium
     stem: |
@@ -125,6 +137,8 @@ questions:
       The powers repeat every four steps. Since $57=4(14)+1$, its power matches $i^1=i$.
 
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0007
+    lesson: lesson-arithmetic-number-sense-imaginary-unit-and-powers
+    keyPoint: 3
     type: error-spotting
     difficulty: medium
     stem: |
@@ -148,6 +162,8 @@ questions:
       The rule used in Step 1 does not hold for two negative radicands in the complex number system. Write the roots as $4i$ and $5i$. Their product is $20i^2=-20$. This shows why applying that real-root product rule here changes the value.
 
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0008
+    lesson: lesson-arithmetic-number-sense-complex-products-and-quotients
+    keyPoint: 1
     type: direct-computation
     difficulty: medium
     stem: |
@@ -168,6 +184,8 @@ questions:
       Expand all four products: $(3+2i)(4-5i)=12-15i+8i-10i^2$. Use $i^2=-1$, so the real terms give $12+10=22$. The imaginary terms give $-15i+8i=-7i$. The result is $22-7i$.
 
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0009
+    lesson: lesson-arithmetic-number-sense-complex-products-and-quotients
+    keyPoint: 2
     type: direct-computation
     difficulty: medium
     stem: |
@@ -188,6 +206,8 @@ questions:
       The conjugate is $5+3i$. Multiply: $(5-3i)(5+3i)=25-9i^2$. With $i^2=-1$, this is $25+9=34$.
 
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0010
+    lesson: lesson-arithmetic-number-sense-imaginary-unit-and-powers
+    keyPoint: 1
     type: which-is-true
     difficulty: medium
     stem: |
@@ -208,6 +228,8 @@ questions:
       A complex number has form $a+bi$ with real $a$ and $b$. For any real number $a$, take $b=0$. The form becomes $a+0i=a$, so every real number is complex.
 
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0011
+    lesson: lesson-arithmetic-number-sense-complex-products-and-quotients
+    keyPoint: 2
     type: direct-computation
     difficulty: hard
     stem: |
@@ -228,6 +250,8 @@ questions:
       Multiply both parts of the quotient by $3+i$. The numerator is $(4+2i)(3+i)=12+10i+2i^2=10+10i$. The denominator is $(3-i)(3+i)=9-i^2=10$. Divide each term by $10$ to get $1+i$.
 
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0012
+    lesson: lesson-arithmetic-number-sense-imaginary-unit-and-powers
+    keyPoint: 2
     type: direct-computation
     difficulty: hard
     stem: |
@@ -249,6 +273,8 @@ questions:
       Each block of four consecutive powers sums to $i-1-i+1=0$. The first $96$ terms form $24$ complete blocks. The last three terms are $i^{97}+i^{98}+i^{99}=i-1-i=-1$.
 
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0013
+    lesson: lesson-arithmetic-number-sense-complex-products-and-quotients
+    keyPoint: 1
     type: direct-computation
     difficulty: hard
     stem: |
@@ -269,6 +295,8 @@ questions:
       First $(2-i)^2=4-4i+i^2=3-4i$. Next, $-4(2-i)=-8+4i$. Add the final $5$: $(3-4i)+(-8+4i)+5=0$.
 
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0014
+    lesson: lesson-arithmetic-number-sense-imaginary-unit-and-powers
+    keyPoint: 3
     type: direct-computation
     difficulty: hard
     stem: |
@@ -290,6 +318,8 @@ questions:
       The principal roots are $\sqrt{-36}=6i$, $\sqrt{-4}=2i$, and $\sqrt{-16}=4i$. The numerator is $(6i)(2i)=12i^2=-12$. The quotient is $\dfrac{-12}{4i}=\dfrac{-3}{i}$. Since $\dfrac{1}{i}=-i$, the result is $3i$.
 
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0015
+    lesson: lesson-arithmetic-number-sense-complex-products-and-quotients
+    keyPoint: 2
     type: direct-computation
     difficulty: hard
     stem: |
@@ -310,6 +340,8 @@ questions:
       Divide by the nonzero factor $4+3i$. Multiply numerator and denominator by $4-3i$. The numerator becomes $(23-14i)(4-3i)=92-125i+42i^2=50-125i$. The denominator is $4^2+3^2=25$. Dividing gives $z=2-5i$.
 
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0016
+    lesson: lesson-arithmetic-number-sense-imaginary-unit-and-powers
+    keyPoint: 1
     type: which-is-true
     difficulty: easy
     stem: |
@@ -331,6 +363,8 @@ questions:
     approved: false
 
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0017
+    lesson: lesson-arithmetic-number-sense-imaginary-unit-and-powers
+    keyPoint: 2
     type: which-is-true
     difficulty: medium
     stem: |
@@ -352,6 +386,8 @@ questions:
     approved: false
 
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0018
+    lesson: lesson-arithmetic-number-sense-complex-products-and-quotients
+    keyPoint: 2
     type: direct-computation
     difficulty: medium
     stem: |
@@ -373,6 +409,8 @@ questions:
     approved: false
 
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0019
+    lesson: lesson-arithmetic-number-sense-complex-products-and-quotients
+    keyPoint: 1
     type: error-spotting
     difficulty: hard
     stem: |
@@ -394,6 +432,8 @@ questions:
     approved: false
 
   - id: q-arithmetic-number-sense-real-imaginary-numbers-0020
+    lesson: lesson-arithmetic-number-sense-real-number-sets
+    keyPoint: 1
     type: which-is-true
     difficulty: exam
     stem: |

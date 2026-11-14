@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 6
 partCount: 6
-ordering: 506
+ordering: 20
 keyPoints:
   - 'Apply successive percentage changes using each new base.'
   - 'Tell percent of from percent more than.'

@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 2
 partCount: 4
-ordering: 702
+ordering: 25
 keyPoints:
   - "Use digit sums to test 3 and 9."
   - "Combine the 2 and 3 tests to test 6."

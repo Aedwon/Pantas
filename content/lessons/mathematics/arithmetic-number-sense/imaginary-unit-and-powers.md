@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 2
 partCount: 3
-ordering: 202
+ordering: 5
 keyPoints:
   - "Identify the real and imaginary parts of a complex number."
   - "Use the repeating cycle of powers of i."

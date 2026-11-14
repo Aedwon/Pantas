@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 4
 partCount: 6
-ordering: 504
+ordering: 18
 keyPoints:
   - 'Multiply decimals using the total decimal places.'
   - 'Divide decimals by moving both decimal points equally.'

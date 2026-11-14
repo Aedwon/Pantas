@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 4
 partCount: 4
-ordering: 404
+ordering: 14
 keyPoints:
   - "Write same-remainder numbers using the LCM."
   - "Check the remainder and the stated size condition."

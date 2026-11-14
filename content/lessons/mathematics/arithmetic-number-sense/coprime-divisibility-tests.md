@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 4
 partCount: 4
-ordering: 704
+ordering: 27
 keyPoints:
   - "Combine coprime factors to test a product."
 ---

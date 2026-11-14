@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 3
 partCount: 4
-ordering: 703
+ordering: 26
 keyPoints:
   - "Use the double-and-subtract test for 7."
   - "Use alternating digit sums for 11, including zero differences."

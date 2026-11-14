@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 9
 partCount: 9
-ordering: 809
+ordering: 36
 keyPoints:
   - 'Find Fibonacci-type terms by adding the previous two terms.'
 ---

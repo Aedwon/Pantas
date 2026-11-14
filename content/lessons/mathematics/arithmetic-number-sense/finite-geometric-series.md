@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 6
 partCount: 9
-ordering: 806
+ordering: 33
 keyPoints:
   - 'Find a finite geometric sum when the ratio is not one.'
   - 'Find a finite geometric sum when the ratio is one.'

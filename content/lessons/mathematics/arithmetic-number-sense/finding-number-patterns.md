@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 1
 partCount: 9
-ordering: 801
+ordering: 28
 keyPoints:
   - 'Check differences and alternating operations to find a pattern.'
 ---

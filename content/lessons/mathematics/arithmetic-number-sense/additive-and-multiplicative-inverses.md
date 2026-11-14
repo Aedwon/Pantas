@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 3
 partCount: 4
-ordering: 303
+ordering: 9
 keyPoints:
   - "Find additive and multiplicative inverses."
   - "Explain why zero has no multiplicative inverse."

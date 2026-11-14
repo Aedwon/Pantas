@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 5
 partCount: 9
-ordering: 805
+ordering: 32
 keyPoints:
   - 'Identify a geometric sequence and its common ratio.'
   - 'Find a term using the common ratio.'

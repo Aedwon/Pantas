@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 2
 partCount: 3
-ordering: 102
+ordering: 2
 keyPoints:
   - 'Calculate with signed integers inside expressions.'
   - 'Substitute negative values in parentheses and apply powers correctly.'

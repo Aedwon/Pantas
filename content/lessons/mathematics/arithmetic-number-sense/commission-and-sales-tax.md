@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 3
 partCount: 5
-ordering: 903
+ordering: 39
 keyPoints:
   - "Find commission from the stated base."
   - "Find sales tax and the total price."

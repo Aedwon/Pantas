@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 5
 partCount: 6
-ordering: 505
+ordering: 19
 keyPoints:
   - 'Find a percentage part or its base.'
   - 'Divide fractions to find a percentage rate.'

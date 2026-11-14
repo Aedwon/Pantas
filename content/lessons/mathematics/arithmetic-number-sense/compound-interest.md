@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 5
 partCount: 5
-ordering: 905
+ordering: 41
 keyPoints:
   - "Match the compound rate and number of periods."
   - "Use the Rule of 72 as a rough doubling estimate."

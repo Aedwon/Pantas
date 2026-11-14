@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 8
 partCount: 9
-ordering: 808
+ordering: 35
 keyPoints:
   - 'Find harmonic terms by taking reciprocals twice.'
 ---

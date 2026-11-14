@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 4
 partCount: 9
-ordering: 804
+ordering: 31
 keyPoints:
   - 'Find the sum of an arithmetic series.'
   - 'Use the middle-term average for an odd number of terms.'

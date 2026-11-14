@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 3
 partCount: 6
-ordering: 503
+ordering: 17
 keyPoints:
   - 'Add and subtract fractions using a common denominator.'
   - 'Multiply fractions and simplify the result.'

@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 4
 partCount: 5
-ordering: 904
+ordering: 40
 keyPoints:
   - "Use simple interest with matching rate and time units."
 ---

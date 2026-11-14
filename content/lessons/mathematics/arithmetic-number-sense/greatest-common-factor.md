@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 2
 partCount: 4
-ordering: 402
+ordering: 12
 keyPoints:
   - "Find the GCF with the smallest shared prime exponents."
   - "Use the GCF for identical groups and equal pieces."

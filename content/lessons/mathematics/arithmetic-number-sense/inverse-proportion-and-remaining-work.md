@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 2
 partCount: 3
-ordering: 602
+ordering: 22
 keyPoints:
   - "Use a constant product for inverse proportion."
   - "Find what remains before applying a changed group size or rate."

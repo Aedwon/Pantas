@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 1
 partCount: 6
-ordering: 501
+ordering: 15
 keyPoints:
   - 'Convert a terminating decimal to a fraction.'
   - 'Convert a percentage to a decimal or fraction.'
