@@ -392,3 +392,25 @@ questions:
   explanation: |
     Elena was a citizen from birth through her Filipino mother. She did not need to elect citizenship. She is over eighteen and has met both residence minimums. The periods can overlap. Reading ability and land ownership cannot be required for voting.
   approved: false
+
+- id: q-philippine-constitution-citizenship-and-suffrage-0021
+  lesson: lesson-philippine-constitution-natural-born-and-naturalized-citizens
+  keyPoint: 3
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A reviewer applies Commonwealth Act 473’s general minimum age of 21 at the hearing to every naturalization process. Which correction is accurate?
+  choices:
+  - text: "RA 9139 uses age 18 at filing."
+    correct: true
+  - text: "RA 9139 uses age 21 at filing for all applicants born in the Philippines."
+    rationale: |
+      This carries the other process’s age into RA 9139. Check both the law and the event at which age is measured.
+  - text: "Commonwealth Act 473 uses age 18 at the hearing in every case."
+    rationale: |
+      This swaps the administrative process’s age into Commonwealth Act 473. Check each law’s own age rule.
+  - text: "RA 9139 grants citizenship automatically to every alien born in the Philippines."
+    rationale: |
+      This treats birthplace as enough. The administrative process still requires residence since birth and its other qualifications.
+  explanation: |
+    Article IV, Section 1(4) recognizes citizenship through naturalization under law. RA 9139, Section 3 requires an applicant to be at least 18 at filing, born in the Philippines, and residing there since birth. Other qualifications also apply. Commonwealth Act 473, Section 2 uses age 21 at the hearing.

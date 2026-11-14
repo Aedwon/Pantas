@@ -421,3 +421,113 @@ questions:
     Revenue bills must start in the House. A Senate inquiry does not change this.
     Congress cannot increase the recommended appropriations for government operations specified in the budget.
   approved: false
+
+- id: q-philippine-constitution-the-three-branches-and-their-powers-0021
+  lesson: lesson-philippine-constitution-branches-and-checks
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    An official claims that carrying out laws and settling actual legal disputes are both executive functions. Which allocation is correct?
+  choices:
+  - text: "The President executes laws; courts settle legal disputes."
+    correct: true
+  - text: "Congress executes laws; the President settles legal disputes."
+    rationale: |
+      This swaps lawmaking with execution and gives court work to the President. Check each branch’s assigned power.
+  - text: "Courts execute laws; Congress settles actual disputes over legal rights."
+    rationale: |
+      This confuses deciding cases with carrying out laws. Match disputes over legal rights to the courts.
+  - text: "The President executes laws and alone settles actual legal disputes."
+    rationale: |
+      This puts judicial power in the executive branch. Carrying out a law does not include deciding court cases.
+  explanation: |
+    Article VII, Section 1 places executive power in the President. Article VIII, Section 1 places judicial power in the Supreme Court and lower courts. Carrying out laws is executive work. Settling actual legal disputes is judicial work.
+
+- id: q-philippine-constitution-the-three-branches-and-their-powers-0022
+  lesson: lesson-philippine-constitution-branches-and-checks
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    The President rejects a bill passed by Congress. Congress seeks to pass it despite that rejection. Which pair identifies these checks?
+  choices:
+  - text: "Veto and veto override"
+    correct: true
+  - text: "Judicial review and veto override"
+    rationale: |
+      This calls the President’s rejection a court power. Check which branch uses judicial review.
+  - text: "Veto and Commission on Appointments consent"
+    rationale: |
+      This uses an appointment check to answer a lawmaking question. Check whether the act concerns a bill or an appointment.
+  - text: "Impeachment charge and Senate impeachment trial"
+    rationale: |
+      This confuses checks on a bill with charges against an officer. Identify what is being rejected.
+  explanation: |
+    Article VI, Section 27 provides for the President’s veto and Congress’s veto override. The veto rejects the bill. The override lets Congress pass it despite that rejection.
+
+- id: q-philippine-constitution-the-three-branches-and-their-powers-0023
+  lesson: lesson-philippine-constitution-courts-and-judicial-review
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A proper case alleges that a government body gravely abused its discretion and acted beyond its legal authority. Which statement describes the courts’ constitutional duty?
+  choices:
+  - text: "They may examine that abuse of government power."
+    correct: true
+  - text: "They may review only private disputes, never government actions."
+    rationale: |
+      This leaves out the courts’ duty to check grave abuse by government bodies. Read both parts of judicial power.
+  - text: "They must accept the act whenever the body calls it a policy decision."
+    rationale: |
+      This treats a policy label as protection from court review. Check whether the body acted beyond its authority.
+  - text: "They must replace every policy they dislike with their preferred policy."
+    rationale: |
+      This confuses a legal limit with a policy preference. Check for grave abuse of power, not mere disagreement.
+  explanation: |
+    Article VIII, Section 1 includes checking grave abuse of discretion by any government branch or body. The alleged abuse must amount to acting without legal authority or beyond it. Courts may examine that issue in a proper case.
+
+- id: q-philippine-constitution-the-three-branches-and-their-powers-0024
+  lesson: lesson-philippine-constitution-judicial-office-qualifications
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A reviewer states that citizenship and Philippine Bar membership exhaust the constitutional requirements for every lower-court judge. Which correction is accurate?
+  choices:
+  - text: "Lower collegiate court judges must also be natural-born."
+    correct: true
+  - text: "Every lower-court judge must satisfy the Supreme Court’s age and experience minimums."
+    rationale: |
+      This applies Supreme Court requirements to every lower court. Check which office the rule names.
+  - text: "Lower-court judges need no proven integrity if they are Philippine Bar members."
+    rationale: |
+      This treats Bar membership as a substitute for honesty. Check the qualities required of every judge.
+  - text: "Congress cannot set further qualifications once citizenship and Bar membership are met."
+    rationale: |
+      This treats the minimum requirements as a complete list. The Constitution lets Congress set lower-court qualifications.
+  explanation: |
+    Article VIII, Section 7 requires natural-born citizenship for members of lower collegiate courts. It also lets Congress set qualifications for lower-court judges. All judges must have proven competence, integrity, probity, and independence.
+
+- id: q-philippine-constitution-the-three-branches-and-their-powers-0025
+  lesson: lesson-philippine-constitution-president-terms-and-appointments
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    The President appoints the Vice-President to the Cabinet. An adviser insists that Commission on Appointments consent is required for this appointment. Which rule applies?
+  choices:
+  - text: "This appointment needs no confirmation."
+    correct: true
+  - text: "Consent is required because all Cabinet appointments follow the same rule."
+    rationale: |
+      This overlooks the special rule for the Vice-President. Check the rule for the person appointed.
+  - text: "The Vice-President cannot hold a Cabinet position under the Constitution."
+    rationale: |
+      This mistakes a confirmation exception for a ban on appointment. Article VII allows this Cabinet appointment.
+  - text: "The Judicial and Bar Council must first recommend the Vice-President."
+    rationale: |
+      This applies the judicial appointment process to a Cabinet post. Check whether the appointment is to a court.
+  explanation: |
+    Article VII, Section 3 allows the Vice-President to be appointed to the Cabinet. It expressly states that the appointment requires no confirmation.

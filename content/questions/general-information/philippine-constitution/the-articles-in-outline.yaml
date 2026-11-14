@@ -531,3 +531,69 @@ questions:
   explanation: 'The outline helps locate major topics. A title does not state every rule, power, requirement, or exception. Read or recall the exact rule too.
 
     '
+
+- id: q-philippine-constitution-the-articles-in-outline-0021
+  lesson: lesson-philippine-constitution-constitution-articles-i-to-v
+  keyPoint: 3
+  type: single_choice
+  difficulty: exam
+  stem: |
+    An official argues that the State’s broad duty to protect health supplies every legal step needed to run a health program. Which assessment is correct?
+  choices:
+  - text: "The policy does not supply a complete procedure."
+    correct: true
+  - text: "The health policy removes the need to check any more specific legal rule."
+    rationale: |
+      This turns a broad goal into every step of a program. Check the law and specific rules that apply.
+  - text: "The claim is correct because all State policies contain complete operating rules."
+    rationale: |
+      This treats an article’s goals as detailed instructions. A policy can state an aim without giving every step.
+  - text: "The health policy is part of the citizenship rules rather than State policies."
+    rationale: |
+      This confuses a State policy with rules about who is Filipino. Match the subject to the correct article.
+  explanation: |
+    Article II, Section 15 states the policy to protect and promote the right to health. That broad policy does not state every step for running a health program. The relevant law or a more specific rule may also be needed.
+
+- id: q-philippine-constitution-the-articles-in-outline-0022
+  lesson: lesson-philippine-constitution-constitution-local-government-and-welfare
+  keyPoint: 4
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A researcher needs the constitutional provision giving the Commission on Human Rights power to investigate violations involving civil and political rights. Which article should be consulted?
+  choices:
+  - text: "Article XIII"
+    correct: true
+  - text: "Article X: Local Government"
+    rationale: |
+      This selects Local Government. A complaint may arise locally, but the question asks about the Commission on Human Rights.
+  - text: "Article XI: Accountability of Public Officers"
+    rationale: |
+      This selects public-officer accountability. Check the article that creates the human rights body and states its powers.
+  - text: "Article XII: National Economy and Patrimony"
+    rationale: |
+      This selects the economy and national resources. Check the article on social justice and human rights.
+  explanation: |
+    Article XIII, Section 18(1) gives the Commission on Human Rights power to investigate human rights violations involving civil and political rights. Article XIII concerns Social Justice and Human Rights.
+
+- id: q-philippine-constitution-the-articles-in-outline-0023
+  lesson: lesson-philippine-constitution-constitution-other-fields-and-change
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    An index lists only the titles of the Constitution’s articles. A student needs the provision describing the Philippine flag’s colors, sun, and stars. Which entry should the student open?
+  choices:
+  - text: "Article XVI: General Provisions"
+    correct: true
+  - text: "Article XIV: Education, Science and Technology, Arts, Culture and Sports"
+    rationale: |
+      This chooses culture because a flag is a national symbol. Check the specific subject covered by General Provisions.
+  - text: "Article XV: The Family"
+    rationale: |
+      This connects a national symbol with the nation’s foundation. The family article does not contain the flag provision.
+  - text: "Article XVII: Amendments or Revisions"
+    rationale: |
+      This confuses rules about the flag with rules for changing the Constitution. Check the subject being located.
+  explanation: |
+    Article XVI, Section 1 describes the flag as red, white, and blue, with a sun and three stars. The flag provision is under General Provisions.

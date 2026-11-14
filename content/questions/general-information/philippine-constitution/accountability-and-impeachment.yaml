@@ -531,3 +531,179 @@ questions:
   explanation: 'One list identifies the offices covered. The other lists the grounds. An application must respect both limits.
 
     '
+
+- id: q-philippine-constitution-accountability-and-impeachment-0021
+  lesson: lesson-philippine-constitution-impeachment-betrayal-and-proof
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A complaint against an impeachable officer invokes betrayal of public trust. A commentator says that naming this ground alone establishes guilt. Which response is correct?
+  choices:
+  - text: "The charge still requires proof and a decision."
+    correct: true
+  - text: "The officer is convicted once the complaint names a listed ground."
+    rationale: |
+      This treats an accusation as proof. Check whether the facts have been proved through the proper process.
+  - text: "The officer is removed as soon as the House receives the complaint."
+    rationale: |
+      This confuses receiving a complaint with conviction. The House and Senate have separate roles.
+  - text: "The officer is convicted once the complainant describes the conduct as serious."
+    rationale: |
+      This treats the complainant’s description as a verdict. Serious claims still need evidence and a decision.
+  explanation: |
+    Article XI, Section 2 permits removal on impeachment for, and conviction of, a listed ground. Section 3 gives the House the charging role and the Senate the trial role. Naming a ground does not replace proof and a decision through that process.
+
+- id: q-philippine-constitution-accountability-and-impeachment-0022
+  lesson: lesson-philippine-constitution-impeachment-graft-and-high-crimes
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    An impeachable officer is accused of using public power to give a favored company an unlawful contract advantage. Which named ground most directly concerns the improper benefit?
+  choices:
+  - text: "Graft and corruption"
+    correct: true
+  - text: "Treason through aid to a wartime enemy"
+    rationale: |
+      This confuses an improper contract benefit with wartime enemy aid. Check the conduct alleged.
+  - text: "Other high crimes solely because every unlawful act qualifies"
+    rationale: |
+      This assumes every illegal act automatically fits other high crimes. Use the ground that directly concerns the improper benefit.
+  - text: "Culpable constitutional violation solely because every contract error is deliberate"
+    rationale: |
+      This treats all contract errors as intentional constitutional breaches. The facts focus on an unlawful advantage for a favored company.
+  explanation: |
+    Article XI, Section 2 names graft and corruption as a ground for impeachment. Misusing public office to give an improper contract benefit may raise that ground. The accusation concerns public power used for an unlawful private advantage.
+
+- id: q-philippine-constitution-accountability-and-impeachment-0023
+  lesson: lesson-philippine-constitution-impeachment-house-filing-routes
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A verified impeachment resolution is filed by at least one-third of all House Members. What follows under the Constitution’s direct filing route?
+  choices:
+  - text: "It itself becomes the Articles of Impeachment."
+    correct: true
+  - text: "It must first obtain the same committee review required for a citizen’s endorsed complaint."
+    rationale: |
+      This applies the regular complaint route to a filing that meets the direct-route threshold. Check who filed it.
+  - text: "It remains only a complaint until the Senate votes to approve the charges."
+    rationale: |
+      This gives the Senate the House’s charging role. The Senate tries the case after the articles are formed.
+  - text: "It immediately becomes a conviction without any Senate impeachment trial."
+    rationale: |
+      This confuses formal charges with a finding of guilt. Direct filing produces the articles, not a conviction.
+  explanation: |
+    Article XI, Section 3(4) states that a verified complaint or resolution filed by at least one-third of all House Members constitutes the Articles of Impeachment. Senate trial must proceed forthwith, meaning without delay.
+
+- id: q-philippine-constitution-accountability-and-impeachment-0024
+  lesson: lesson-philippine-constitution-impeachment-house-filing-routes
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A citizen files a verified impeachment complaint endorsed by a House Member. It is not filed by at least one-third of all House Members. Which route applies?
+  choices:
+  - text: "Committee review and House action"
+    correct: true
+  - text: "Direct Senate trial based solely on the citizen’s verified complaint"
+    rationale: |
+      This treats an endorsed citizen complaint as the direct route. Check whether one-third of all House Members filed it.
+  - text: "Immediate conversion into the articles because any endorsement meets the filing threshold"
+    rationale: |
+      This confuses one Member’s endorsement with filing by the required share of all Members. The thresholds differ.
+  - text: "Automatic dismissal because citizens cannot file any impeachment complaint"
+    rationale: |
+      This overlooks the endorsed citizen route. A citizen may file a verified complaint with a House Member’s endorsement.
+  explanation: |
+    Article XI, Section 3(2) permits a citizen’s verified complaint with a House Member’s endorsement. This uses the regular route. Committee review and the House action required by Section 3(3) must follow.
+
+- id: q-philippine-constitution-accountability-and-impeachment-0025
+  lesson: lesson-philippine-constitution-impeachment-senate-trial-and-limits
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    During an impeachment trial of the President, the Chief Justice presides. Which statement correctly describes the Chief Justice’s role?
+  choices:
+  - text: "The Chief Justice presides but does not vote."
+    correct: true
+  - text: "The Chief Justice casts a vote that counts toward the Senate’s conviction threshold."
+    rationale: |
+      This treats presiding as voting. The Constitution expressly keeps the Chief Justice from voting in this trial.
+  - text: "The Chief Justice alone decides whether the President is convicted."
+    rationale: |
+      This gives the presiding officer the Senate’s decision. The Senate alone tries and decides impeachment cases.
+  - text: "The Chief Justice must first approve the House’s Articles of Impeachment."
+    rationale: |
+      This adds an approval step to the House’s charging role. Presiding over trial does not give control over the articles.
+  explanation: |
+    Article XI, Section 3(6) requires the Chief Justice to preside when the President is tried. The Chief Justice does not vote. Conviction requires agreement by at least two-thirds of all Senators.
+
+- id: q-philippine-constitution-accountability-and-impeachment-0026
+  lesson: lesson-philippine-constitution-impeachment-senate-trial-and-limits
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    After an impeachment conviction, an officer claims that no separate criminal prosecution may follow. Which statement follows the Constitution?
+  choices:
+  - text: "Criminal prosecution may still follow."
+    correct: true
+  - text: "Impeachment conviction automatically imposes any required prison sentence."
+    rationale: |
+      This treats impeachment judgment as criminal punishment. Check the limits of impeachment judgment.
+  - text: "Removal and disqualification replace all further liability under criminal law."
+    rationale: |
+      This treats impeachment as the end of criminal liability. The Constitution preserves prosecution and punishment under law.
+  - text: "The Senate must conduct the criminal trial as part of its impeachment judgment."
+    rationale: |
+      This combines separate processes. Impeachment judgment concerns removal and disqualification, not a criminal sentence.
+  explanation: |
+    Article XI, Section 3(7) limits impeachment judgment to removal and disqualification from public office. It also preserves liability to prosecution, trial, and punishment according to law. A separate criminal case may therefore follow.
+
+- id: q-philippine-constitution-accountability-and-impeachment-0027
+  lesson: lesson-philippine-constitution-ombudsman-investigations-and-remedies
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    No citizen has filed a complaint about an apparently improper act by a public employee. May the Ombudsman start an investigation?
+  choices:
+  - text: "Yes, it may act on its own initiative."
+    correct: true
+  - text: "No, a citizen’s complaint is always required before an investigation begins."
+    rationale: |
+      This overlooks investigation on the Ombudsman’s own initiative. Check both ways an investigation may start.
+  - text: "No, only an act already proved criminal can be investigated."
+    rationale: |
+      This confuses grounds for investigation with proof of a crime. Apparently unjust, improper, or inefficient conduct also falls within the rule.
+  - text: "Yes, and starting the investigation automatically removes the employee."
+    rationale: |
+      This treats an investigation as a finding and removal. Starting a case does not prove wrongdoing.
+  explanation: |
+    Article XI, Section 13(1) lets the Ombudsman investigate on its own or on complaint. It covers acts or failures to act that appear illegal, unjust, improper, or inefficient. A citizen’s complaint is not required for the office to act on its own.
+
+- id: q-philippine-constitution-accountability-and-impeachment-0028
+  lesson: lesson-philippine-constitution-ombudsman-investigations-and-remedies
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    An investigation concerns an employee’s unexplained failure to perform a duty required by law. Which constitutional power lets the Ombudsman address the unfinished duty itself?
+  choices:
+  - text: "Directing performance and expediting the duty"
+    correct: true
+  - text: "Automatically removing the employee upon receipt of the complaint"
+    rationale: |
+      This treats a complaint as automatic removal. Check the power that addresses the delayed duty itself.
+  - text: "Waiting for the employee to consent before requesting government records"
+    rationale: |
+      This makes records access depend on the subject’s permission. The Constitution gives the Ombudsman power to request records and assistance.
+  - text: "Treating the delay as beyond review because no completed act exists"
+    rationale: |
+      This overlooks failures to act. Check whether the duty is required by law and needs to be performed.
+  explanation: |
+    Article XI, Section 13(2) allows the Ombudsman to direct an official to perform and expedite a duty required by law. This power addresses the delayed work itself. Expediting means helping the required duty move forward without delay.

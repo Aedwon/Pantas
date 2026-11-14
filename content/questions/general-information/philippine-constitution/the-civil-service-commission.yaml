@@ -531,3 +531,157 @@ questions:
   explanation: 'The lesson identifies CSC as the central personnel agency. It does not assign it the separate functions of lawmaking, monetary policy, or criminal adjudication.
 
     '
+
+- id: q-philippine-constitution-the-civil-service-commission-0021
+  lesson: lesson-philippine-constitution-csc-civil-service-coverage
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A government corporation claims that public ownership alone establishes civil service coverage under Article IX-B’s corporation clause. What fact must be checked?
+  choices:
+  - text: "Whether it has an original charter"
+    correct: true
+  - text: "Whether it performs work that government agencies also perform"
+    rationale: |
+      This treats public work as proof of an original charter. Check how the corporation was created.
+  - text: "Whether it has registered under the general corporation law"
+    rationale: |
+      This confuses general registration with a special creating law. Check for an original charter.
+  - text: "Whether the government owns the corporation’s entire business"
+    rationale: |
+      This treats the extent of ownership as the charter test. Ownership alone does not establish an original charter.
+  explanation: |
+    Article IX-B, Section 2(1) includes government-owned or controlled corporations with original charters. An original charter is a special law creating the corporation itself. Its creating law must be checked.
+
+- id: q-philippine-constitution-the-civil-service-commission-0022
+  lesson: lesson-philippine-constitution-csc-civil-service-coverage
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    Which description correctly states the reach of the civil service under Article IX-B?
+  choices:
+  - text: "It covers all government branches and their agencies."
+    correct: true
+  - text: "It covers executive agencies but excludes offices of the other branches."
+    rationale: |
+      This limits coverage to the executive branch. Check the rule’s reference to all branches.
+  - text: "It covers national agencies but excludes cities and provinces entirely."
+    rationale: |
+      This leaves out government subdivisions. Cities and provinces are included in that category.
+  - text: "It covers corporations formed under general law whenever government owns shares."
+    rationale: |
+      This replaces the original-charter condition with ownership alone. For government corporations, check the creating law.
+  explanation: |
+    Article IX-B, Section 2(1) covers all government branches, subdivisions, instrumentalities, and agencies. It includes government-owned or controlled corporations with original charters. The rule reaches beyond executive agencies.
+
+- id: q-philippine-constitution-the-civil-service-commission-0023
+  lesson: lesson-philippine-constitution-csc-independence-and-conflicts
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A sitting CSC member plans to accept private legal clients while keeping Commission duties separate from the legal work. Which assessment follows Article IX-A?
+  choices:
+  - text: "Private law practice is barred during tenure."
+    correct: true
+  - text: "The work is allowed whenever the clients have no contract with the CSC."
+    rationale: |
+      This treats the government-contract ban as the only restriction. Practicing a profession is separately barred.
+  - text: "The work is allowed if the member does not actively manage a business."
+    rationale: |
+      This confuses the profession ban with the business-management ban. Check each restriction separately.
+  - text: "The work is allowed whenever all legal fees come from private clients."
+    rationale: |
+      This treats private payment as an exception. The ban on practicing a profession applies during tenure.
+  explanation: |
+    Article IX-A, Section 2 bars Constitutional Commission members from practicing any profession during tenure. Taking private legal clients is practicing a profession. The proposed arrangement is barred.
+
+- id: q-philippine-constitution-the-civil-service-commission-0024
+  lesson: lesson-philippine-constitution-csc-merit-and-examination-exceptions
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    An applicant passes a competitive examination. The appointing authority then refuses to consider whether the applicant’s abilities match the position’s duties. Which principle is overlooked?
+  choices:
+  - text: "Merit and fitness"
+    correct: true
+  - text: "Appointment based solely on a passing examination result"
+    rationale: |
+      This treats a passing result as the entire hiring rule. Check whether the applicant is suited to the work.
+  - text: "Appointment based solely on friendship with the appointing official"
+    rationale: |
+      This replaces ability with personal ties. Check the applicant’s qualifications and match to the duties.
+  - text: "Exemption from all qualifications after passing an examination"
+    rationale: |
+      This treats exam success as removal of other requirements. Passing alone does not guarantee appointment.
+  explanation: |
+    Article IX-B, Section 2(2) requires appointments according to merit and fitness. Relevant ability and suitability for the duties still matter. Passing an examination alone does not guarantee appointment.
+
+- id: q-philippine-constitution-the-civil-service-commission-0025
+  lesson: lesson-philippine-constitution-csc-merit-and-examination-exceptions
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A personnel review describes a post whose main work is setting government policies. Which competitive-examination exception matches that description?
+  choices:
+  - text: "Policy-determining"
+    correct: true
+  - text: "Primarily confidential because all policy work involves personal trust"
+    rationale: |
+      This confuses setting policy with work mainly based on close personal trust. Identify the post’s main duties.
+  - text: "Highly technical because every policy decision requires special expertise"
+    rationale: |
+      This assumes policy work always needs a high level of special technical skill. Match the actual duties to the category.
+  - text: "No exception because all positions must use competitive examinations"
+    rationale: |
+      This overlooks the named exceptions. Check whether the main work is setting government policy.
+  explanation: |
+    Article IX-B, Section 2(2) excepts policy-determining positions from the competitive-examination rule. A post mainly concerned with setting government policies fits that description. Merit and fitness still apply.
+
+- id: q-philippine-constitution-the-civil-service-commission-0026
+  lesson: lesson-philippine-constitution-csc-worker-protection-and-politics
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A permanent civil service employee argues that security of tenure prevents suspension even for a cause provided by law. Which statement correctly applies the protection?
+  choices:
+  - text: "Suspension may rest on a cause provided by law."
+    correct: true
+  - text: "Permanent status prevents suspension regardless of the legal cause."
+    rationale: |
+      This treats security of tenure as protection from lawful discipline. Check whether a cause provided by law exists.
+  - text: "A supervisor’s personal dislike is enough cause to suspend an employee."
+    rationale: |
+      This treats dislike as a legal cause. The reason must be one provided by law.
+  - text: "Security of tenure protects only against removal, never suspension."
+    rationale: |
+      This leaves suspension outside the protection. The rule covers both removal and suspension.
+  explanation: |
+    Article IX-B, Section 2(3) allows removal or suspension only for a cause provided by law. Security of tenure protects against action without that cause. It does not prevent lawful discipline.
+
+- id: q-philippine-constitution-the-civil-service-commission-0027
+  lesson: lesson-philippine-constitution-csc-worker-protection-and-politics
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A civil service employee says that the ban on partisan campaigning also prevents the employee from voting. Which distinction is correct?
+  choices:
+  - text: "Voting differs from campaigning for a candidate."
+    correct: true
+  - text: "Voting and working to help a political party win are the same activity."
+    rationale: |
+      This confuses casting a vote with helping a campaign. Identify the activity the employee plans to do.
+  - text: "Civil service employees may campaign if they do so only indirectly."
+    rationale: |
+      This overlooks the ban on indirect participation. Check both direct and indirect campaign work.
+  - text: "The campaigning restriction applies only to employees who refuse to vote."
+    rationale: |
+      This invents a voting condition for the campaign ban. Voting does not give permission to campaign.
+  explanation: |
+    Article IX-B, Section 2(4) bars civil service officers and employees from electioneering or partisan political campaigns. Casting a vote is different from working to help a candidate or party win. The campaigning ban does not itself bar voting.
