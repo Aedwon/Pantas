@@ -15,6 +15,7 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/domain/lesson_day_context.dart';
+import 'package:pantas/features/lesson/application/lesson_bite_label.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
@@ -25,28 +26,24 @@ import '../../../helpers/accessibility.dart';
 const first = StudyLesson(
   id: 'l1',
   title: 'Lesson 1',
-  estimatedMinutes: 10,
   isRead: false,
   isBookmarked: false,
 );
 const readLesson = StudyLesson(
   id: 'l2',
   title: 'Lesson 2',
-  estimatedMinutes: 10,
   isRead: true,
   isBookmarked: false,
 );
 const unread = StudyLesson(
   id: 'l3',
   title: 'Lesson 3',
-  estimatedMinutes: 10,
   isRead: false,
   isBookmarked: false,
 );
 const other = StudyLesson(
   id: 'l4',
   title: 'Lesson 4',
-  estimatedMinutes: 12,
   isRead: false,
   isBookmarked: false,
 );
@@ -73,7 +70,6 @@ const map = StudyMap(
   examShortName: 'CSE',
   readCount: 1,
   totalCount: 4,
-  minutesLeftToRead: 32,
   subjects: [
     StudySubject(
       id: 's1',
@@ -277,7 +273,7 @@ void main() {
         await pumpContents(tester, dark: dark, scale: scale);
         expect(find.text('Chemistry'), findsOneWidget);
         expect(find.text('Reading'), findsOneWidget);
-        expect(find.text('10 min'), findsOneWidget);
+        expect(find.textContaining(' min'), findsNothing);
         final rows = tester.widgetList<ListRow>(find.byType(ListRow)).toList();
         expect(
           rows.map((row) => row.title),
@@ -364,7 +360,6 @@ void main() {
           StudyLesson(
             id: 'l$i',
             title: 'Lesson $i',
-            estimatedMinutes: 10,
             isRead: false,
             isBookmarked: false,
           ),
@@ -413,7 +408,6 @@ void main() {
           StudyLesson(
             id: 'l$i',
             title: 'Lesson $i',
-            estimatedMinutes: 10,
             isRead: false,
             isBookmarked: false,
           ),
@@ -458,10 +452,12 @@ void main() {
       gap: 6,
     );
     expect(
-      rows.map((row) => row.subtitle),
+      tester
+          .widgetList<LessonBiteLabel>(find.byType(LessonBiteLabel))
+          .map((label) => label.topicLine),
       ['Biology', 'Chemistry', 'Chemistry'],
     );
-    expect(find.text('12 min'), findsOneWidget);
+    expect(find.textContaining(' min'), findsNothing);
     expect(find.text('Reading'), findsOneWidget);
     expect(tester.takeException(), isNull);
   });

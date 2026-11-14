@@ -63,7 +63,6 @@ void main() {
       subjects: [],
       readCount: 0,
       totalCount: 0,
-      minutesLeftToRead: 0,
     );
 
     await tester.pumpAppWithProviders(
@@ -90,7 +89,6 @@ void main() {
       subjects: [],
       readCount: 0,
       totalCount: 0,
-      minutesLeftToRead: 0,
     );
     await tester.pumpAppWithProviders(
       const StudyTabHome(),
@@ -132,7 +130,6 @@ void main() {
                 StudyLesson(
                   id: 'l1',
                   title: 'Basics',
-                  estimatedMinutes: 5,
                   isRead: false,
                   isBookmarked: false,
                 ),
@@ -145,7 +142,6 @@ void main() {
       ],
       readCount: 0,
       totalCount: 1,
-      minutesLeftToRead: 5,
     );
 
     await tester.pumpAppWithProviders(

@@ -13,7 +13,6 @@ void main() {
     return StudyLesson(
       id: id,
       title: title,
-      estimatedMinutes: estimatedMinutes,
       isRead: isRead,
       isBookmarked: false,
     );
@@ -163,109 +162,5 @@ void main() {
     ) as TopicFinished;
 
     expect(ending.next, isNull);
-    expect(ending.nextTopicMeta, isNull);
-  });
-
-  group('next topic meta line formatting', () {
-    test('formats next topic meta for multi-lesson topic with hours and mins',
-        () {
-      final topic = topicWith(
-        read: 0,
-        total: 8,
-        name: 'Geometry',
-        lessonMinutes: 12.5.toInt(), // 8 * 12 = 96 min -> 1h 36m
-      );
-      final ending = decideEnding(
-        topic: topicWith(read: 9, total: 9),
-        subject: mathematics,
-        examShortName: 'UPCAT',
-        studentName: 'Aedwon',
-        today: DateTime(2026, 7, 27),
-        nextTopic: topic,
-      ) as TopicFinished;
-
-      expect(ending.nextTopicMeta, contains('of material'));
-      expect(ending.nextTopicMeta, isNot(contains('of your time')));
-    });
-
-    test('formats next topic meta for exactly one hour', () {
-      final topic = topicWith(
-        read: 0,
-        total: 4,
-        name: 'Geometry',
-        lessonMinutes: 15, // 4 * 15 = 60 mins
-      );
-      final ending = decideEnding(
-        topic: topicWith(read: 9, total: 9),
-        subject: mathematics,
-        examShortName: 'UPCAT',
-        studentName: 'Aedwon',
-        today: DateTime(2026, 7, 27),
-        nextTopic: topic,
-      ) as TopicFinished;
-
-      expect(
-        ending.nextTopicMeta,
-        'Four lessons, about an hour of material.',
-      );
-    });
-
-    test('formats next topic meta for under an hour', () {
-      final topic = topicWith(
-        read: 0,
-        total: 3,
-        name: 'Geometry',
-        lessonMinutes: 15, // 3 * 15 = 45 mins
-      );
-      final ending = decideEnding(
-        topic: topicWith(read: 9, total: 9),
-        subject: mathematics,
-        examShortName: 'UPCAT',
-        studentName: 'Aedwon',
-        today: DateTime(2026, 7, 27),
-        nextTopic: topic,
-      ) as TopicFinished;
-
-      expect(
-        ending.nextTopicMeta,
-        'Three lessons, about 45 minutes of material.',
-      );
-    });
-
-    test('formats next topic meta for 100 minutes (hour and forty)', () {
-      // Eight lessons summing to exactly 100 minutes: four of 12 and four of
-      // 13. The point is the hour boundary in the wording, so the total has to
-      // be exact rather than close.
-      final lessons = [
-        ...List.generate(
-          4,
-          (i) => makeLesson(id: 'g$i', title: 'L', estimatedMinutes: 12),
-        ),
-        ...List.generate(
-          4,
-          (i) => makeLesson(id: 'g${i + 4}', title: 'L', estimatedMinutes: 13),
-        ),
-      ];
-      final geomTopic = StudyTopic(
-        id: 'geom',
-        name: 'Geometry',
-        lessons: lessons,
-        readCount: 0,
-        hasBookmark: false,
-      );
-      final ending = decideEnding(
-        topic: topicWith(read: 9, total: 9),
-        subject: mathematics,
-        examShortName: 'UPCAT',
-        studentName: 'Aedwon',
-        today: DateTime(2026, 7, 27),
-        nextTopic: geomTopic,
-      ) as TopicFinished;
-
-      expect(
-        ending.nextTopicMeta,
-        'Eight lessons, about an hour and forty of material.',
-      );
-    });
   });
 }

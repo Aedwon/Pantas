@@ -5,6 +5,7 @@ import 'package:pantas/core/ui/components/check_mark.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/use_cases/build_study_map.dart';
 import 'package:pantas/features/lesson/presentation/widgets/study_topic_section.dart';
+import 'package:pantas/features/quiz/application/quiz_starts.dart';
 
 import '../../../helpers/pump_app.dart';
 import 'fake_open_topic.dart';
@@ -12,7 +13,6 @@ import 'fake_open_topic.dart';
 StudyLesson lessonRow(String id, {bool isRead = false}) => StudyLesson(
       id: id,
       title: 'Lesson $id',
-      estimatedMinutes: 9,
       isRead: isRead,
       isBookmarked: false,
     );
@@ -102,7 +102,6 @@ void main() {
                           StudyLesson(
                             id: 'l1',
                             title: title,
-                            estimatedMinutes: 5,
                             isRead: false,
                             isBookmarked: false,
                           ),
@@ -124,20 +123,22 @@ void main() {
         expect(text.maxLines, isNull);
         expect(text.overflow, isNot(TextOverflow.ellipsis));
         expect(find.semantics.byLabel(RegExp(topic)), findsOne);
-        await tester.pumpApp(
+        await tester.pumpAppWithProviders(
           MediaQuery(
             data: MediaQueryData(textScaler: TextScaler.linear(scale)),
-            child: StudyLessonRow(
-              lesson: const StudyLesson(
-                id: 'l1',
-                title: title,
-                estimatedMinutes: 5,
-                isRead: false,
-                isBookmarked: false,
+            child: Scaffold(
+              body: StudyLessonRow(
+                lesson: const StudyLesson(
+                  id: 'l1',
+                  title: title,
+                  isRead: false,
+                  isBookmarked: false,
+                ),
+                onTap: () {},
               ),
-              onTap: () {},
             ),
           ),
+          overrides: [openTopicProvider.overrideWith(FakeOpenTopic.new)],
         );
         await tester.pumpAndSettle();
         final lessonText = tester.widget<Text>(find.text(title));
@@ -176,7 +177,6 @@ void main() {
                 id: '$i',
                 title: 'A very long lesson title that occupies several lines '
                     'on a narrow phone screen $i',
-                estimatedMinutes: 10,
                 isRead: false,
                 isBookmarked: false,
               ),
@@ -243,7 +243,7 @@ void main() {
 
     expect(find.text('Lesson l1'), findsOneWidget);
     expect(find.text('Lesson l2'), findsOneWidget);
-    expect(find.text('9 min'), findsOneWidget);
+    expect(find.textContaining(' min'), findsNothing);
   });
 
   testWidgets('opening a second topic closes the first', (tester) async {
@@ -294,5 +294,74 @@ void main() {
 
     // Geometry is 1 of 1. Algebra is 1 of 2 and draws no glyph.
     expect(find.byType(CheckMark), findsOneWidget);
+  });
+
+  testWidgets('a lesson row shows its label as a second line, read or not',
+      (tester) async {
+    const split = StudyLesson(
+      id: 'p2',
+      title: 'Bill of Rights: searches',
+      part: 2,
+      partCount: 9,
+      isRead: false,
+      isBookmarked: false,
+    );
+    const readSplit = StudyLesson(
+      id: 'p1',
+      title: 'Bill of Rights: overview',
+      part: 1,
+      partCount: 9,
+      isRead: true,
+      isBookmarked: false,
+    );
+    const whole = StudyLesson(
+      id: 'w',
+      title: 'The 1987 Constitution',
+      isRead: false,
+      isBookmarked: false,
+    );
+    const counts = {'p2': 3, 'p1': 3, 'w': 5};
+    await tester.pumpAppWithProviders(
+      Scaffold(
+        body: SingleChildScrollView(
+          child: Consumer(
+            builder: (context, ref, _) => StudySubjectSection(
+              subject: const StudySubject(
+                id: 's',
+                name: 'General Information',
+                topics: [
+                  StudyTopic(
+                    id: 't1',
+                    name: 'Philippine Constitution',
+                    readCount: 1,
+                    hasBookmark: false,
+                    lessons: [whole, readSplit, split],
+                  ),
+                ],
+              ),
+              onToggleTopic: (id) =>
+                  ref.read(openTopicProvider.notifier).toggle(id),
+            ),
+          ),
+        ),
+      ),
+      overrides: [
+        openTopicProvider.overrideWith(FakeOpenTopic.new),
+        lessonQuizCountProvider.overrideWith((_, id) async => counts[id]!),
+      ],
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Philippine Constitution'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Part 2 of 9 · 3 questions'), findsOneWidget);
+    expect(find.text('Part 1 of 9 · 3 questions'), findsOneWidget);
+    expect(find.text('5 questions'), findsOneWidget);
+    expect(find.textContaining(' min'), findsNothing);
+    // The label sits under its title.
+    expect(
+      tester.getTopLeft(find.text('Part 2 of 9 · 3 questions')).dy,
+      greaterThan(tester.getBottomLeft(find.text(split.title)).dy - 1),
+    );
   });
 }

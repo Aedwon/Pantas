@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
+import 'package:pantas/core/ui/components/lesson_label.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/ds.dart';
@@ -34,6 +35,9 @@ class ReaderGap extends ConsumerWidget {
                 )
                 .valueOrNull ??
             false);
+    final quizLabel = quizButtonLabel(
+      ref.watch(lessonQuizCountProvider(lessonId)).valueOrNull,
+    );
     final still = MediaQuery.disableAnimationsOf(context);
     final colors = context.colors;
     // The Read line pops in once per lesson, on the phone and the wide page.
@@ -108,7 +112,7 @@ class ReaderGap extends ConsumerWidget {
             const Spacer(),
             if (canQuiz)
               PantasButton(
-                label: 'Quiz yourself, 5 questions',
+                label: quizLabel,
                 kind: PantasButtonKind.tertiary,
                 fullWidth: false,
                 onPressed: () =>
@@ -131,7 +135,7 @@ class ReaderGap extends ConsumerWidget {
             Align(
               alignment: Alignment.centerLeft,
               child: WebButton(
-                label: 'Quiz yourself, 5 questions',
+                label: quizLabel,
                 variant: WebButtonVariant.white,
                 onPressed: () =>
                     startLessonQuiz(context, lessonId, examId: examId!),
@@ -139,7 +143,7 @@ class ReaderGap extends ConsumerWidget {
             )
           else
             PantasButton(
-              label: 'Quiz yourself, 5 questions',
+              label: quizLabel,
               variant: PantasButtonVariant.neutral,
               onPressed: () =>
                   startLessonQuiz(context, lessonId, examId: examId!),

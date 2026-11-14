@@ -22,7 +22,6 @@ void main() {
               examShortName: 'UPCAT',
               readCount: 0,
               totalCount: 1,
-              minutesLeftToRead: 10,
               subjects: [
                 StudySubject(
                   id: 's',
@@ -35,7 +34,6 @@ void main() {
                         StudyLesson(
                           id: 'l',
                           title: 'Circles',
-                          estimatedMinutes: 10,
                           isRead: false,
                           isBookmarked: false,
                         ),
@@ -56,7 +54,6 @@ void main() {
               StudyLesson(
                 id: 'recent',
                 title: 'Recent lesson',
-                estimatedMinutes: 5,
                 isRead: false,
                 isBookmarked: false,
               ),

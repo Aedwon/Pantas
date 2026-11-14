@@ -24,6 +24,7 @@ final searchResultsProvider =
   // screen behind is already holding.
   final topicNameByLessonId = <LessonId, String>{};
   final positionByLessonId = <LessonId, int>{};
+  final studyLessonById = <LessonId, StudyLesson>{};
   final topicIds = <TopicId>[];
   var position = 0;
   for (final subject in map.subjects) {
@@ -32,6 +33,7 @@ final searchResultsProvider =
       for (final lesson in topic.lessons) {
         topicNameByLessonId[lesson.id] = topic.name;
         positionByLessonId[lesson.id] = position++;
+        studyLessonById[lesson.id] = lesson;
       }
     }
   }
@@ -72,7 +74,8 @@ final searchResultsProvider =
         lessonId: row.id,
         title: row.title,
         topicName: topicNameByLessonId[row.id] ?? '',
-        estimatedMinutes: row.estimatedMinutes,
+        part: studyLessonById[row.id]?.part,
+        partCount: studyLessonById[row.id]?.partCount,
         titleMatch: titleMatch,
         bodySnippet: bodySnippet,
       ),
@@ -100,7 +103,8 @@ final searchResultsProvider =
             lessonId: lesson.id,
             title: lesson.title,
             topicName: topicNameByLessonId[lesson.id] ?? '',
-            estimatedMinutes: lesson.estimatedMinutes,
+            part: lesson.part,
+            partCount: lesson.partCount,
           ),
         );
       }

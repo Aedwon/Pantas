@@ -42,7 +42,6 @@ StudyMap buildStudyMap({
   final studySubjects = <StudySubject>[];
   var readCount = 0;
   var totalCount = 0;
-  var minutesLeft = 0;
 
   for (final subject in subjectList) {
     final topics = <StudyTopic>[];
@@ -57,18 +56,15 @@ StudyMap buildStudyMap({
       for (final lesson in lessons.where((l) => l.status != 'retired')) {
         final isRead = credit.containsKey(lesson.id);
         final isBookmarked = bookmarkedLessonIds.contains(lesson.id);
-        if (isRead) {
-          topicRead++;
-        } else {
-          minutesLeft += lesson.estimatedMinutes;
-        }
+        if (isRead) topicRead++;
         hasBookmark = hasBookmark || isBookmarked;
 
         rows.add(
           StudyLesson(
             id: lesson.id,
             title: lesson.title,
-            estimatedMinutes: lesson.estimatedMinutes,
+            part: lesson.part,
+            partCount: lesson.partCount,
             isRead: isRead,
             isBookmarked: isBookmarked,
           ),
@@ -100,6 +96,5 @@ StudyMap buildStudyMap({
     subjects: studySubjects,
     readCount: readCount,
     totalCount: totalCount,
-    minutesLeftToRead: minutesLeft,
   );
 }

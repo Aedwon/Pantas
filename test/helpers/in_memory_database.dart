@@ -100,6 +100,9 @@ Future<void> seedContentLesson(
   String? bodyJson,
   int estimatedMinutes = 5,
   int ordering = 0,
+  int? part,
+  int? partCount,
+  int quizSize = 5,
 }) async {
   await db.into(db.contentLessons).insertOnConflictUpdate(
         ContentLessonsCompanion.insert(
@@ -111,6 +114,9 @@ Future<void> seedContentLesson(
               bodyJson ?? jsonEncode(body ?? const <Map<String, Object?>>[]),
           estimatedMinutes: estimatedMinutes,
           ordering: Value(ordering),
+          part: Value(part),
+          partCount: Value(partCount),
+          quizSize: Value(quizSize),
           schemaVersion: 1,
           updatedAt: _seedStamp,
         ),

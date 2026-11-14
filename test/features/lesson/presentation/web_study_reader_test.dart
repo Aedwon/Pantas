@@ -33,14 +33,12 @@ import '../../../helpers/in_memory_database.dart';
 const first = StudyLesson(
   id: 'l1',
   title: 'Layers',
-  estimatedMinutes: 11,
   isRead: true,
   isBookmarked: true,
 );
 const second = StudyLesson(
   id: 'l2',
   title: 'Plate Tectonics',
-  estimatedMinutes: 12,
   isRead: false,
   isBookmarked: false,
 );
@@ -58,7 +56,6 @@ const map = StudyMap(
   ],
   readCount: 1,
   totalCount: 2,
-  minutesLeftToRead: 12,
 );
 
 void main() {
@@ -333,7 +330,7 @@ void main() {
       expect(find.text('LAST OPENED'), findsOneWidget);
       expect(find.text('BOOKMARKS'), findsOneWidget);
       expect(find.text('Today'), findsOneWidget);
-      expect(find.text('12 min'), findsOneWidget);
+      expect(find.textContaining(' min'), findsNothing);
       await tester.tap(find.text('Plate Tectonics'));
       expect(opened, 'l2');
       expect(tester.takeException(), isNull);
@@ -346,7 +343,6 @@ void main() {
         subjects: [],
         readCount: 0,
         totalCount: 0,
-        minutesLeftToRead: 0,
       );
       await pump(
         tester,
@@ -406,7 +402,6 @@ void main() {
               subjects: [],
               readCount: 0,
               totalCount: 0,
-              minutesLeftToRead: 0,
             ),
           ),
           activeExamFocusProvider.overrideWith(
@@ -566,7 +561,7 @@ void main() {
         680,
       );
       expect(find.text('IN THIS LESSON'), findsOneWidget);
-      expect(find.text('Earth Science · 11 min'), findsOneWidget);
+      expect(find.text('Earth Science'), findsOneWidget);
       expect(find.text('1 of 2'), findsOneWidget);
       final control = find
           .ancestor(of: find.text('1 of 2'), matching: find.byType(ReaderTap))
@@ -621,6 +616,7 @@ void main() {
         brightness,
         overrides: [
           lessonQuizAvailableProvider.overrideWith((_, __) async => true),
+          lessonQuizCountProvider.overrideWith((_, __) async => 5),
         ],
       );
       await tester.pumpAndSettle();
@@ -821,13 +817,11 @@ void main() {
                       lessonId: 'l2',
                       title: 'Plate Tectonics',
                       topicName: 'Earth Science',
-                      estimatedMinutes: 12,
                     ),
                     const LessonSearchHit(
                       lessonId: 'l3',
                       title: 'Core',
                       topicName: 'Earth Science',
-                      estimatedMinutes: 10,
                     ),
                   ],
           ),

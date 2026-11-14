@@ -30,14 +30,12 @@ import '../../../helpers/in_memory_database.dart';
 const _first = StudyLesson(
   id: 'l1',
   title: 'Layers',
-  estimatedMinutes: 11,
   isRead: true,
   isBookmarked: false,
 );
 const _second = StudyLesson(
   id: 'l2',
   title: 'Plate Tectonics',
-  estimatedMinutes: 12,
   isRead: false,
   isBookmarked: false,
 );
@@ -279,7 +277,6 @@ void main() {
         lessonId: 'l9',
         title: _longTitle,
         topicName: 'Mathematics',
-        estimatedMinutes: 12,
       ),
     ];
 

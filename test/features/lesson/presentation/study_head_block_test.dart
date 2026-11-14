@@ -16,7 +16,6 @@ StudyMap mapWith({
       subjects: const [],
       readCount: read,
       totalCount: total,
-      minutesLeftToRead: minutesLeft,
     );
 
 void main() {

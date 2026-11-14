@@ -10,6 +10,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/features/home/domain/lesson_day_context.dart';
+import 'package:pantas/features/lesson/application/lesson_bite_label.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
@@ -196,7 +197,12 @@ class LessonContentsSheet extends ConsumerWidget {
               lesson.isRead && !current ? colors.secondaryLabel : colors.label,
         ),
       ),
-      subtitle: item.topicName,
+      footer: LessonBiteLabel(
+        lessonId: lesson.id,
+        part: lesson.part,
+        partCount: lesson.partCount,
+        topicLine: item.topicName,
+      ),
       leading: SizedBox(
         width: PantasSpace.s24,
         child: lesson.isRead
@@ -229,17 +235,7 @@ class LessonContentsSheet extends ConsumerWidget {
                 ),
               ),
             )
-          : lesson.isRead
-              ? null
-              : Text(
-                  '${lesson.estimatedMinutes} min',
-                  style: PantasType.webRowSub
-                      .copyWith(
-                        fontWeight: FontWeight.w500,
-                        color: colors.secondaryLabel,
-                      )
-                      .tabular,
-                ),
+          : null,
       onTap: () => onSelectLesson(lesson.id),
     );
   }

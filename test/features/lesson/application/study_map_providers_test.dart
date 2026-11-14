@@ -118,7 +118,6 @@ void main() {
     expect(map!.totalCount, 2);
     expect(map.readCount, 1);
     expect(map.coveredPercent, 50);
-    expect(map.minutesLeftToRead, 10);
   });
 
   test('the map is null when no exam is chosen', () async {

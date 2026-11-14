@@ -253,6 +253,8 @@ class ContentRepository {
           lessons.title,
           lessons.ordering,
           lessons.estimatedMinutes,
+          lessons.part,
+          lessons.partCount,
         ])
         ..where(lessons.topicId.isIn(batch) & eligible)
         ..orderBy([
@@ -267,6 +269,8 @@ class ContentRepository {
           title: row.read(lessons.title)!,
           ordering: row.read(lessons.ordering)!,
           estimatedMinutes: row.read(lessons.estimatedMinutes)!,
+          part: row.read(lessons.part),
+          partCount: row.read(lessons.partCount),
         );
         grouped[metadata.topicId]?.add(metadata);
       }

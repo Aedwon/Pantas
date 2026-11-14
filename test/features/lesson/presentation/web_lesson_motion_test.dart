@@ -33,21 +33,18 @@ import 'fake_open_topic.dart';
 const _l1 = StudyLesson(
   id: 'l1',
   title: 'Layers',
-  estimatedMinutes: 11,
   isRead: true,
   isBookmarked: true,
 );
 const _l2 = StudyLesson(
   id: 'l2',
   title: 'Plate Tectonics',
-  estimatedMinutes: 12,
   isRead: false,
   isBookmarked: false,
 );
 const _l3 = StudyLesson(
   id: 'l3',
   title: 'Fractions',
-  estimatedMinutes: 9,
   isRead: false,
   isBookmarked: false,
 );
@@ -73,7 +70,6 @@ const _map = StudyMap(
   ],
   readCount: 1,
   totalCount: 3,
-  minutesLeftToRead: 21,
 );
 
 ReaderContext _reader({required bool bookmarked}) => ReaderContext(
@@ -284,13 +280,11 @@ void main() {
             lessonId: 'l2',
             title: 'Plate Tectonics',
             topicName: 'Earth Science',
-            estimatedMinutes: 12,
           ),
           LessonSearchHit(
             lessonId: 'l3',
             title: 'Core',
             topicName: 'Earth Science',
-            estimatedMinutes: 10,
           ),
         ],
       ),

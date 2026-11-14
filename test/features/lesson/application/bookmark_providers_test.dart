@@ -342,7 +342,6 @@ void main() {
 
     expect(row.title, 'Lesson l1');
     expect(row.topicName, 'Chemistry');
-    expect(row.estimatedMinutes, 13);
   });
 
   test('a bookmark whose lesson is gone is dropped, not drawn blank', () async {

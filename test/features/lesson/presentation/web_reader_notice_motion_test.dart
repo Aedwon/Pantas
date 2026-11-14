@@ -21,7 +21,6 @@ import '../../../helpers/in_memory_database.dart';
 const _first = StudyLesson(
   id: 'l1',
   title: 'Layers',
-  estimatedMinutes: 11,
   isRead: true,
   isBookmarked: false,
 );

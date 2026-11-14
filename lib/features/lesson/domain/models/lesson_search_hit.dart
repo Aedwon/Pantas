@@ -7,7 +7,8 @@ class LessonSearchHit {
     required this.lessonId,
     required this.title,
     required this.topicName,
-    required this.estimatedMinutes,
+    this.part,
+    this.partCount,
     this.titleMatch,
     this.bodySnippet,
   });
@@ -15,7 +16,8 @@ class LessonSearchHit {
   final LessonId lessonId;
   final String title;
   final String topicName;
-  final int estimatedMinutes;
+  final int? part;
+  final int? partCount;
   final SearchSnippet? titleMatch;
   final SearchSnippet? bodySnippet;
 }
