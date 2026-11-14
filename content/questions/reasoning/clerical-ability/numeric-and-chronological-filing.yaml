@@ -453,3 +453,91 @@ questions:
       The primary key puts file 12 before file 14. Within file 12, newest-first date order puts January 8, 2025 before December 20, 2024. That record is first.
     approved: false
 
+
+  - id: q-clerical-ability-numeric-and-chronological-filing-0021
+    lesson: lesson-clerical-ability-character-string-filing
+    keyPoint: 1
+    type: single_choice
+    difficulty: exam
+    stem: |
+      An office sorts reference codes character by character from left to right. Letters and digits each follow ascending order. Which code is filed first?
+    choices:
+      - text: "PR-207"
+        correct: true
+      - text: "PR-21"
+        rationale: |
+          This compares 207 and 21 as whole numbers. That makes 21 look smaller. Check one character at a time after PR-2.
+      - text: "PR-30"
+        rationale: |
+          This skips the first differing digit. The shorter code may look earlier. Check the digit just after the hyphen.
+      - text: "PS-105"
+        rationale: |
+          This gives the digits priority over the letters. Its number looks small. Compare the letters before reaching the digits.
+    explanation: |
+      PR comes before PS. Among the PR codes, 2 comes before 3. PR-207 and PR-21 match through PR-2, then 0 comes before 1. PR-207 is first.
+
+  - id: q-clerical-ability-numeric-and-chronological-filing-0022
+    lesson: lesson-clerical-ability-character-string-filing
+    keyPoint: 1
+    type: single_choice
+    difficulty: exam
+    stem: |
+      Reference codes are filed character by character in ascending order. Digits follow 0 through 9. If one code is the exact beginning of another, the shorter code comes first. Which sequence is correct?
+    choices:
+      - text: "M-4, M-40, M-5"
+        correct: true
+      - text: "M-40, M-4, M-5"
+        rationale: |
+          This puts the longer matching code first. Extra digits may look more specific. Check the stated shorter-code rule.
+      - text: "M-4, M-5, M-40"
+        rationale: |
+          This treats 40 as a whole number. It is larger than 5. Check the first differing character instead.
+      - text: "M-5, M-4, M-40"
+        rationale: |
+          This reverses the order of 4 and 5. Check that the rule calls for ascending digit order.
+    explanation: |
+      M-4 is the exact beginning of M-40, so M-4 comes first. Both have 4 where M-5 has 5. The sequence is M-4, M-40, M-5.
+
+  - id: q-clerical-ability-numeric-and-chronological-filing-0023
+    lesson: lesson-clerical-ability-terminal-digit-filing-order
+    keyPoint: 2
+    type: single_choice
+    difficulty: exam
+    stem: |
+      A terminal-digit system compares the rightmost group first, the leftmost group second, and the middle group last. Each group uses ascending numeric order. Which file comes first?
+    choices:
+      - text: "04-80-12"
+        correct: true
+      - text: "09-02-12"
+        rationale: |
+          This compares the middle group before the leftmost group. The small 02 is tempting. Check the stated order after the rightmost tie.
+      - text: "04-90-12"
+        rationale: |
+          This overlooks the final tie-breaker. Both files beginning with 04 also end in 12. Compare their middle groups last.
+      - text: "01-01-13"
+        rationale: |
+          This starts at the leftmost group. Its 01 looks smallest. Check the rightmost group first under this rule.
+    explanation: |
+      The files ending in 12 come before the file ending in 13. Among them, leftmost group 04 comes before 09. The two files starting with 04 are then compared by their middle groups. Since 80 is less than 90, 04-80-12 comes first.
+
+  - id: q-clerical-ability-numeric-and-chronological-filing-0024
+    lesson: lesson-clerical-ability-year-first-and-stated-date-formats
+    keyPoint: 1
+    type: single_choice
+    difficulty: exam
+    stem: |
+      Records use YYYY-MM-DD and are filed from oldest to newest. Which record belongs immediately after 2024-03-05?
+    choices:
+      - text: "2024-03-06"
+        correct: true
+      - text: "2024-05-03"
+        rationale: |
+          This swaps the month and day in the reference date. Both 03 and 05 can look like months. Read the year, month, and day in their stated positions.
+      - text: "2023-12-19"
+        rationale: |
+          This compares the month before the year. December looks later than March. Check the year first.
+      - text: "2024-02-11"
+        rationale: |
+          This treats the larger day as a later date. Check the month before comparing days.
+    explanation: |
+      The year 2023 comes before 2024. Within 2024, February comes before March, and March comes before May. March 6 follows March 5. Thus 2024-03-06 is the next record among the choices.

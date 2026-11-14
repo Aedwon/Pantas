@@ -455,3 +455,179 @@ questions:
       The stated reason moves payment work out of the on-site queue. It requires advance payment to replace the on-site step. If the same payment step still had to be repeated on site, that reason would not support shorter queues.
     approved: false
 
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0021
+    lesson: lesson-verbal-logic-negating-assumptions
+    keyPoint: 1
+    type: single_choice
+    difficulty: exam
+    stem: |
+      A proposal relies on the claim, "Some branch offices can verify applications without contacting headquarters." For a negation test, which statement makes that claim false?
+    choices:
+      - text: "No branch office can do so."
+        correct: true
+      - text: "Not all branch offices can do so."
+        rationale: |
+          This negates all instead of some. It still allows a branch to verify applications on its own. Check whether even one such branch remains possible.
+      - text: "All branch offices can do so."
+        rationale: |
+          This strengthens the original claim. If all can do so, at least one can. Check whether the choice makes the original false.
+      - text: "Some branch offices cannot do so."
+        rationale: |
+          This changes can to cannot for only some offices. Both statements could be true for different branches. Check whether any branch can still verify on its own.
+    explanation: |
+      Some means at least one. To make the claim false, there must be no branch office that can verify applications without contacting headquarters. The correct negation says that no branch office can do so.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0022
+    lesson: lesson-verbal-logic-negating-assumptions
+    keyPoint: 1
+    type: single_choice
+    difficulty: exam
+    stem: |
+      An argument assumes, "No temporary employee has access to the archive." Which statement is the logical negation of this assumption?
+    choices:
+      - text: "At least one temporary employee has access."
+        correct: true
+      - text: "Every temporary employee has access to the archive."
+        rationale: |
+          This requires every employee in the group to have access. That would break the assumption, but it goes too far. One exception is enough.
+      - text: "Not every temporary employee has access to the archive."
+        rationale: |
+          This allows some employees to lack access. It can be true when none have access. Check whether the original assumption must become false.
+      - text: "No permanent employee has access to the archive."
+        rationale: |
+          This changes the group from temporary to permanent employees. The new statement may sound related to access. Keep the same group when negating.
+    explanation: |
+      No excludes every member of the named group. One temporary employee with access is enough to make the assumption false. Its negation is that at least one temporary employee has access.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0023
+    lesson: lesson-verbal-logic-compound-assumptions
+    keyPoint: 1
+    type: single_choice
+    difficulty: exam
+    stem: |
+      A dispatch plan assumes, "The loading gate is open and the delivery vehicle is available." Which statement correctly negates the whole assumption? Here, "or" permits either condition or both.
+    choices:
+      - text: "The gate is closed or the vehicle is unavailable."
+        correct: true
+      - text: "The gate is closed and the vehicle is unavailable."
+        rationale: |
+          This requires both conditions to fail. That may look like reversing both parts. Check that one failed part already makes an and statement false.
+      - text: "The gate is open or the delivery vehicle is unavailable."
+        rationale: |
+          This leaves the first part unchanged. It could be true while both original conditions hold. Negation must make the whole original false.
+      - text: "The gate is closed and the delivery vehicle is available."
+        rationale: |
+          This describes just one way the assumption can fail. It misses failure of the vehicle alone. Allow either part to fail.
+    explanation: |
+      The assumption needs both an open gate and an available vehicle. It is false when the gate is closed, the vehicle is unavailable, or both. The correct statement includes all those cases.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0024
+    lesson: lesson-verbal-logic-compound-assumptions
+    keyPoint: 1
+    type: single_choice
+    difficulty: exam
+    stem: |
+      A notice states, "The request was submitted online or delivered in person." The word "or" includes the possibility of both. Which statement is the exact negation?
+    choices:
+      - text: "It was neither submitted online nor delivered in person."
+        correct: true
+      - text: "It was not submitted online, but it was delivered in person."
+        rationale: |
+          This still satisfies the original statement through delivery in person. One failed option is not enough. Check whether the other option remains true.
+      - text: "It was submitted online, but it was not delivered in person."
+        rationale: |
+          This still satisfies the original statement through online submission. The word or needs only one true part. Check both parts before negating.
+      - text: "It was not submitted online, or it was not delivered in person."
+        rationale: |
+          This allows one original option to remain true. It negates an and statement. To make the stated or false, both options must fail.
+    explanation: |
+      The original is true if either method was used, including when both were used. It is false only if neither method was used. Both online submission and delivery in person must be false.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0025
+    lesson: lesson-verbal-logic-none-and-may
+    keyPoint: 2
+    type: single_choice
+    difficulty: exam
+    stem: |
+      A memorandum states, "The interview may be postponed if the panel lacks a quorum." No further information is provided. Which interpretation is justified?
+    choices:
+      - text: "A lack of quorum allows possible postponement."
+        correct: true
+      - text: "A lack of quorum guarantees that the interview is postponed."
+        rationale: |
+          This turns may into a guarantee. The condition makes postponement possible. Check whether the memo says will or may.
+      - text: "A lack of quorum prevents the interview from being postponed."
+        rationale: |
+          This rules out the event that the memo allows. A condition can sound like a restriction. Check what event may happen under that condition.
+      - text: "A complete quorum guarantees the interview proceeds as scheduled."
+        rationale: |
+          This adds a promise about the opposite condition. The memo says what may happen without a quorum. Check whether it promises anything when a quorum is present.
+    explanation: |
+      May describes a possibility. If the panel lacks a quorum, postponement is possible. The memo does not make that outcome certain.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0026
+    lesson: lesson-verbal-logic-recognizing-bias
+    keyPoint: 1
+    type: single_choice
+    difficulty: exam
+    stem: |
+      A commentary states, "Only lazy employees oppose the new attendance policy. Responsible workers naturally support it." It provides no evidence about the policy or the employees. Which feature most clearly indicates bias?
+    choices:
+      - text: "It labels opponents as lazy without evidence."
+        correct: true
+      - text: "It expresses a position on a workplace policy under discussion."
+        rationale: |
+          This treats having an opinion as proof of bias. Opinions can have fair support. Check the words used to describe people who disagree.
+      - text: "It discusses how employees respond to an attendance policy."
+        rationale: |
+          This treats the subject of the passage as proof of bias. Any side could discuss employee responses. Check whether the description is supported and fair.
+      - text: "It presents its view in a brief statement about the policy."
+        rationale: |
+          This treats short length as proof of bias. A brief passage can still be fair. Check the unfair blame rather than its length.
+    explanation: |
+      The commentary calls opponents lazy without giving evidence. It also praises supporters as responsible without support. Those labels favor one side by judging people in place of examining the policy.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0027
+    lesson: lesson-verbal-logic-recognizing-bias
+    keyPoint: 1
+    type: single_choice
+    difficulty: exam
+    stem: |
+      A report says, "Our favored supplier is clearly the only sensible choice." It lists that supplier's timely deliveries but omits its documented delivery failures. It lists a rival's failures but omits the rival's timely deliveries. What most strongly shows bias?
+    choices:
+      - text: "It selects evidence to favor one supplier."
+        correct: true
+      - text: "It compares the delivery records of competing suppliers."
+        rationale: |
+          This treats comparison itself as unfair. Comparing records can support a fair choice. Check whether the same kinds of facts are shown for both suppliers.
+      - text: "It recommends a supplier instead of leaving the choice open."
+        rationale: |
+          This treats any recommendation as bias. A recommendation can follow balanced evidence. Check how the report chose which facts to include.
+      - text: "It discusses delivery performance instead of supplier prices."
+        rationale: |
+          This assumes every short report must cover every topic. Delivery performance can be a fair focus. Check whether evidence within that focus is presented fairly.
+    explanation: |
+      The report includes good results for the favored supplier and bad results for the rival. It leaves out the opposite results for each. This uneven choice of evidence supports one side unfairly.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0028
+    lesson: lesson-verbal-logic-unsupported-causes-and-motives
+    keyPoint: 1
+    type: single_choice
+    difficulty: exam
+    stem: |
+      After reviewing a request for flexible hours, a supervisor approved it. The record contains neither the supervisor's explanation nor evidence about her reasons. Which conclusion is supported?
+    choices:
+      - text: "She approved the request after reviewing it."
+        correct: true
+      - text: "She approved it because she feared losing experienced staff."
+        rationale: |
+          This adds fear as a motive. Staff loss may sound like a possible concern. Check whether the record gives that reason.
+      - text: "She approved it because she wanted praise from her director."
+        rationale: |
+          This guesses a wish to impress someone. Approval could have many reasons. Check for evidence of the stated motive.
+      - text: "She approved it because reviewing the request forced agreement."
+        rationale: |
+          This turns the order of events into a cause. Reviewing came first. Check whether the record says it caused or required approval.
+    explanation: |
+      The record gives an action and its order: the supervisor reviewed the request, then approved it. That supports the stated sequence. No reason for the approval is recorded.
