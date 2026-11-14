@@ -159,7 +159,6 @@
     "reason": "Substitution and simple equation practice make measurement formulas easier. The examples show their required calculations step by step."
    }
   ],
-  "lesson-grammar-and-structure-filipino-verb-aspect-and-focus": [],
   "lesson-grammar-and-structure-english-word-jobs": [],
   "lesson-grammar-and-structure-joining-words-phrases-and-clauses": [
    {
@@ -211,7 +210,6 @@
     "reason": "The previous part teaches the ideas used in this part."
    }
   ],
-  "lesson-grammar-and-structure-redundancy-and-double-negatives": [],
   "lesson-grammar-and-structure-simple-and-compound-sentences": [],
   "lesson-grammar-and-structure-complex-and-compound-complex-sentences": [
    {
@@ -1476,7 +1474,7 @@
   ],
   "lesson-grammar-and-structure-finding-subjects-and-matching-verbs": [
    {
-    "lesson": "lesson-grammar-and-structure-filipino-verb-aspect-and-focus",
+    "lesson": "lesson-grammar-and-structure-kalagayan-ng-kilos",
     "strength": "helpful",
     "reason": "Prior practice with Filipino aspect and focus eases the shift from English agreement rules. The lesson independently explains its Filipino rules."
    }
@@ -1627,6 +1625,50 @@
     "lesson": "lesson-grammar-and-structure-shared-words-in-parallel-lists",
     "strength": "required",
     "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa": [
+   {
+    "lesson": "lesson-grammar-and-structure-mga-pahiwatig-ng-oras",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-grammar-and-structure-kalagayan-ng-kilos": [],
+  "lesson-grammar-and-structure-pagbuo-ng-anyo-ng-pandiwa": [
+   {
+    "lesson": "lesson-grammar-and-structure-kalagayan-ng-kilos",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-grammar-and-structure-mga-pahiwatig-ng-oras": [
+   {
+    "lesson": "lesson-grammar-and-structure-pagbuo-ng-anyo-ng-pandiwa",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-grammar-and-structure-qualified-negatives-and-near-negatives": [
+   {
+    "lesson": "lesson-grammar-and-structure-editing-negative-concord",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-grammar-and-structure-removing-needless-repeated-meaning": [],
+  "lesson-grammar-and-structure-keeping-needed-repetition": [
+   {
+    "lesson": "lesson-grammar-and-structure-removing-needless-repeated-meaning",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-grammar-and-structure-editing-negative-concord": [
+   {
+    "lesson": "lesson-grammar-and-structure-keeping-needed-repetition",
+    "strength": "required",
+    "reason": "Read the previous part first."
    }
   ]
  }

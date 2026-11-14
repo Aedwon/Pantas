@@ -6,6 +6,12 @@ subject: "subject-language-proficiency"
 topic: "topic-grammar-and-structure"
 estimatedMinutes: 8
 isActive: true
+status: retired
+replacedBy:
+  - lesson-grammar-and-structure-removing-needless-repeated-meaning
+  - lesson-grammar-and-structure-keeping-needed-repetition
+  - lesson-grammar-and-structure-editing-negative-concord
+  - lesson-grammar-and-structure-qualified-negatives-and-near-negatives
 ---
 ## Core Concept
 
