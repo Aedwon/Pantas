@@ -5,6 +5,7 @@ meta:
   exams: [upcat, acet, dlsucet, ustet, pupcet, cse-pro, cse-sub]
 questions:
   - id: q-arithmetic-number-sense-ratio-and-proportion-0001
+    approved: true
     lesson: lesson-arithmetic-number-sense-direct-proportion-and-travel
     keyPoint: 1
     type: word-problem
@@ -27,6 +28,7 @@ questions:
       The flour rate is $3\div12=\dfrac{1}{4}$ cup per pancake. For $20$ pancakes, multiply: $20\left(\dfrac{1}{4}\right)=5$ cups.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0002
+    approved: true
     lesson: lesson-arithmetic-number-sense-direct-proportion-and-travel
     keyPoint: 1
     type: word-problem
@@ -49,6 +51,7 @@ questions:
       Three blue parts equal $12$ liters, so each part is $12\div3=4$ liters. Yellow has two parts, giving $2(4)=8$ liters.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0003
+    approved: true
     lesson: lesson-arithmetic-number-sense-direct-proportion-and-travel
     keyPoint: 1
     type: word-problem
@@ -71,6 +74,7 @@ questions:
       Each map centimeter represents $15$ km. Multiply the map distance by this rate: $4.5(15)=67.5$ km.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0004
+    approved: true
     lesson: lesson-arithmetic-number-sense-partitive-proportion-and-differences
     keyPoint: 1
     type: word-problem
@@ -93,6 +97,7 @@ questions:
       Five female parts equal $15$ passengers, so one part is $3$ passengers. There are $4+5=9$ total parts. Thus the total is $9(3)=27$ passengers.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0005
+    approved: true
     lesson: lesson-arithmetic-number-sense-partitive-proportion-and-differences
     keyPoint: 1
     type: word-problem
@@ -115,6 +120,7 @@ questions:
       The sugar has three parts totaling $450$ grams. One part is $450\div3=150$ grams. All ingredients have $5+3+2=10$ parts, totaling $10(150)=1500$ grams.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0006
+    approved: true
     lesson: lesson-arithmetic-number-sense-partitive-proportion-and-differences
     keyPoint: 1
     type: word-problem
@@ -137,6 +143,7 @@ questions:
       The first group travels $10(12)=120$ person-kilometers. The second travels $6(20)=120$ person-kilometers. The second group pays $\dfrac{120}{120+120}=\dfrac{1}{2}$ of the cost.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0007
+    approved: true
     lesson: lesson-arithmetic-number-sense-direct-proportion-and-travel
     keyPoint: 1
     type: word-problem
@@ -159,6 +166,7 @@ questions:
       The map dimensions scale to $3(2)=6$ km and $4(2)=8$ km. Their product gives area $6(8)=48$ square kilometers.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0008
+    approved: true
     lesson: lesson-arithmetic-number-sense-partitive-proportion-and-differences
     keyPoint: 1
     type: word-problem
@@ -181,6 +189,7 @@ questions:
       The initial $30$ liters have five parts, so one part is $6$ liters. Red is $24$ liters and white is $6$ liters. To get red-to-white ratio $2:1$, white must be $24\div2=12$ liters. Add $12-6=6$ liters.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0009
+    approved: true
     lesson: lesson-arithmetic-number-sense-direct-proportion-and-travel
     keyPoint: 1
     type: word-problem
@@ -203,6 +212,7 @@ questions:
       Divide the flour mass by milk volume: $\dfrac{600}{250}=\dfrac{12}{5}$ grams per milliliter.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0010
+    approved: true
     lesson: lesson-arithmetic-number-sense-direct-proportion-and-travel
     keyPoint: 2
     type: word-problem
@@ -225,6 +235,7 @@ questions:
       The new speed is $40(0.75)=30$ km/h. Convert $45$ minutes to $0.75$ hours to match the speed units. For the same trip distance, speed times time stays constant. Thus $40(0.75)=30t$. Divide by $30$ to get $t=1$ hour, or $60$ minutes.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0011
+    approved: true
     lesson: lesson-arithmetic-number-sense-partitive-proportion-and-differences
     keyPoint: 1
     type: word-problem
@@ -247,6 +258,7 @@ questions:
       Container A has $12\left(\dfrac{1}{4}\right)=3$ liters of blue and $9$ of yellow. Container B has $8\left(\dfrac{3}{4}\right)=6$ liters of blue and $2$ of yellow. The totals are $9$ blue and $11$ yellow, giving $9:11$.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0012
+    approved: true
     lesson: lesson-arithmetic-number-sense-direct-proportion-and-travel
     keyPoint: 2
     type: word-problem
@@ -269,6 +281,7 @@ questions:
       The scale gives $14.4(250000)=3600000$ cm. Since $100000$ cm is $1$ km, the distance is $36$ km. Travel time is $36\div45=0.8$ hours. Multiply by $60$ to get $48$ minutes.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0013
+    approved: true
     lesson: lesson-arithmetic-number-sense-direct-proportion-and-travel
     keyPoint: 1
     type: word-problem
@@ -291,6 +304,7 @@ questions:
       A standard serving needs $2.25\div15=0.15$ kg. Larger portions need $0.15(1.20)=0.18$ kg each. For $40$ guests, the total is $40(0.18)=7.2$ kg.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0014
+    approved: true
     lesson: lesson-arithmetic-number-sense-partitive-proportion-and-differences
     keyPoint: 2
     type: word-problem
@@ -313,6 +327,7 @@ questions:
       Match the middle ratio parts: $a:b=15:20$ and $b:c=20:24$. Thus $a:b:c=15:20:24$. The difference between Carl and Alex is $24-15=9$ parts, worth $720$ pesos. One part is $720\div9=80$ pesos. The total is $(15+20+24)(80)=4720$ pesos.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0015
+    approved: true
     lesson: lesson-arithmetic-number-sense-partitive-proportion-and-differences
     keyPoint: 1
     type: word-problem
@@ -355,7 +370,7 @@ questions:
           This uses a fixed sum instead of a fixed ratio. The quantities change together in the equation. Check the direct-proportion definition.
     explanation: |
       In $y=3x$, the ratio $\dfrac{y}{x}$ stays equal to $3$. A constant ratio is the defining condition for direct proportion.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0017
     lesson: lesson-arithmetic-number-sense-inverse-proportion-and-remaining-work
@@ -378,7 +393,7 @@ questions:
           This reports the total pump-hours as elapsed time. That total is needed first. Check that five pumps share the work.
     explanation: |
       The fixed job needs $6(10)=60$ pump-hours. With five pumps, the time is $60\div5=12$ hours.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0018
     lesson: lesson-arithmetic-number-sense-inverse-proportion-and-remaining-work
@@ -401,7 +416,7 @@ questions:
           This compares equal changes instead of products. The quantities change by the same magnitude. Check whether that alone keeps xy constant.
     explanation: |
       Inverse proportion requires the product xy to stay constant. The first product is $2(8)=16$, and the second is $4(6)=24$. The unequal products disprove the claim.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0019
     lesson: lesson-arithmetic-number-sense-inverse-proportion-and-remaining-work
@@ -424,7 +439,7 @@ questions:
           This scales the ten remaining days by five eighths. That uses the workforce reduction directly. Check that fewer workers require more time.
     explanation: |
       The full job needs $8(15)=120$ worker-days. The first five days complete $8(5)=40$ worker-days. There are $80$ worker-days left and five workers remain. They need $80\div5=16$ more days.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0020
     lesson: lesson-arithmetic-number-sense-partitive-proportion-and-differences
@@ -447,9 +462,10 @@ questions:
           This reports the shorter piece alone. That length is found from four parts. Check that both lengths belong in the total.
     explanation: |
       The difference is $7-4=3$ parts, so one part is $21\div3=7$ meters. The total has $4+7=11$ parts. Its length is $11(7)=77$ meters.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0021
+    approved: true
     lesson: lesson-arithmetic-number-sense-inverse-proportion-and-remaining-work
     keyPoint: 2
     type: word-problem

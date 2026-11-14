@@ -5,6 +5,7 @@ meta:
   exams: [upcat, acet, dlsucet, ustet, pupcet, cse-pro, cse-sub]
 questions:
   - id: q-arithmetic-number-sense-business-math-0001
+    approved: true
     lesson: lesson-arithmetic-number-sense-markup-on-cost
     keyPoint: 1
     type: word-problem
@@ -27,6 +28,7 @@ questions:
       The markup is $800(0.25)=200$ pesos. Add it to the cost: $800+200=1000$ pesos.
 
   - id: q-arithmetic-number-sense-business-math-0002
+    approved: true
     lesson: lesson-arithmetic-number-sense-markup-on-cost
     keyPoint: 2
     type: word-problem
@@ -50,6 +52,7 @@ questions:
 
 
   - id: q-arithmetic-number-sense-business-math-0003
+    approved: true
     lesson: lesson-arithmetic-number-sense-simple-interest
     keyPoint: 1
     type: word-problem
@@ -72,6 +75,7 @@ questions:
       Convert $9$ months to $\dfrac{9}{12}=0.75$ year. Simple interest is $I=Prt=15000(0.08)(0.75)=900$ pesos.
 
   - id: q-arithmetic-number-sense-business-math-0004
+    approved: true
     lesson: lesson-arithmetic-number-sense-discounted-prices
     keyPoint: 1
     type: word-problem
@@ -94,6 +98,7 @@ questions:
       The purchase exceeds the threshold. Its discount is $2400(0.05)=120$ pesos. The price paid is $2400-120=2280$ pesos.
 
   - id: q-arithmetic-number-sense-business-math-0005
+    approved: true
     lesson: lesson-arithmetic-number-sense-commission-and-sales-tax
     keyPoint: 1
     type: word-problem
@@ -116,6 +121,7 @@ questions:
       The weekly basic wage is $6(400)=2400$ pesos. Net profit is $35000-25000=10000$ pesos. The commission is $10000(0.04)=400$ pesos. Total earnings are $2400+400=2800$ pesos.
 
   - id: q-arithmetic-number-sense-business-math-0006
+    approved: true
     lesson: lesson-arithmetic-number-sense-markup-on-cost
     keyPoint: 2
     type: word-problem
@@ -138,6 +144,7 @@ questions:
       The markup per pack is $25-20=5$ pesos. Divide by the selling price: $\dfrac{5}{25}=0.20$. The markup amount is $20\%$ of the selling price.
 
   - id: q-arithmetic-number-sense-business-math-0007
+    approved: true
     lesson: lesson-arithmetic-number-sense-discounted-prices
     keyPoint: 1
     type: word-problem
@@ -160,6 +167,7 @@ questions:
       The trip has $9-4=5$ extra kilometers. The regular fare is $13+5(1.75)=21.75$ pesos. A $20\%$ discount leaves $80\%$ to pay, so the price is $21.75(0.80)=17.40$ pesos.
 
   - id: q-arithmetic-number-sense-business-math-0008
+    approved: true
     lesson: lesson-arithmetic-number-sense-simple-interest
     keyPoint: 1
     type: word-problem
@@ -182,6 +190,7 @@ questions:
       Convert $15$ months to $\dfrac{15}{12}=1.25$ years. The interest is $50000(0.06)(1.25)=3750$ pesos. Add the principal: $50000+3750=53750$ pesos.
 
   - id: q-arithmetic-number-sense-business-math-0009
+    approved: true
     lesson: lesson-arithmetic-number-sense-discounted-prices
     keyPoint: 2
     type: word-problem
@@ -204,6 +213,7 @@ questions:
       The first discount leaves $5000(0.90)=4500$ pesos. The second leaves $4500(0.95)=4275$ pesos.
 
   - id: q-arithmetic-number-sense-business-math-0010
+    approved: true
     lesson: lesson-arithmetic-number-sense-markup-on-cost
     keyPoint: 2
     type: word-problem
@@ -226,6 +236,7 @@ questions:
       The investment is $30(90)=2700$ pesos. The target revenue is $2700(1.20)=3240$ pesos. There are $30-3=27$ sellable dozen. The required price is $\dfrac{3240}{27}=120$ pesos per dozen.
 
   - id: q-arithmetic-number-sense-business-math-0011
+    approved: true
     lesson: lesson-arithmetic-number-sense-simple-interest
     keyPoint: 1
     type: word-problem
@@ -248,6 +259,7 @@ questions:
       The interest is $23600-20000=3600$ pesos. The time is $\dfrac{18}{12}=1.5$ years. From $I=Prt$, the annual rate is $r=\dfrac{3600}{20000(1.5)}=0.12=12\%$.
 
   - id: q-arithmetic-number-sense-business-math-0012
+    approved: true
     lesson: lesson-arithmetic-number-sense-commission-and-sales-tax
     keyPoint: 1
     type: word-problem
@@ -270,6 +282,7 @@ questions:
       The first sales band earns $50000(0.03)=1500$ pesos. The next earns $50000(0.05)=2500$ pesos. The remaining $140000-100000=40000$ pesos earns $40000(0.08)=3200$ pesos. Add the amounts: $1500+2500+3200=7200$ pesos.
 
   - id: q-arithmetic-number-sense-business-math-0013
+    approved: true
     lesson: lesson-arithmetic-number-sense-markup-on-cost
     keyPoint: 2
     type: word-problem
@@ -292,6 +305,7 @@ questions:
       A markup amount equal to $20\%$ of selling price leaves cost equal to $80\%$ of selling price. If the price is $S$, then $480=0.80S$, so $S=600$ pesos. The markup amount is $600-480=120$ pesos. The markup on cost is $\dfrac{120}{480}(100\%)=25\%$.
 
   - id: q-arithmetic-number-sense-business-math-0014
+    approved: true
     lesson: lesson-arithmetic-number-sense-markup-on-cost
     keyPoint: 2
     type: word-problem
@@ -315,6 +329,7 @@ questions:
 
 
   - id: q-arithmetic-number-sense-business-math-0015
+    approved: true
     lesson: lesson-arithmetic-number-sense-simple-interest
     keyPoint: 1
     type: word-problem
@@ -357,7 +372,7 @@ questions:
           This reports interest earned instead of the final balance. Subtracting principal gives a meaningful gain. Check whether principal belongs in the requested amount.
     explanation: |
       After one year, the balance is $1000(1.10)=1100$ pesos. The second year earns interest on this new balance: $1100(1.10)=1210$ pesos.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-business-math-0017
     lesson: lesson-arithmetic-number-sense-discounted-prices
@@ -380,7 +395,7 @@ questions:
           This divides by the discount fraction rather than the remaining fraction. Both percentages belong to the sale. Check which fraction equals the amount paid.
     explanation: |
       A $20\%$ discount leaves $80\%$ of the original price. Let that price be $P$. Then $0.80P=480$, so $P=480\div0.80=600$ pesos.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-business-math-0018
     lesson: lesson-arithmetic-number-sense-compound-interest
@@ -403,7 +418,7 @@ questions:
           This uses the period rate without adding one. The rate itself is needed for the formula. Check that each period keeps the existing principal as well as its interest.
     explanation: |
       Quarterly compounding has four periods each year. The rate per quarter is $8\%\div4=2\%$. Each period multiplies the balance by $1+0.02=1.02$.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-business-math-0019
     lesson: lesson-arithmetic-number-sense-discounted-prices
@@ -426,7 +441,7 @@ questions:
           This reports the percentage paid as the percentage saved. The remaining price is a useful result. Check whether the question asks for the discount.
     explanation: |
       The first discount leaves $0.90$ of the price. The second leaves $0.80$ of that amount. The fraction paid is $0.90(0.80)=0.72$. The discount is $1-0.72=0.28$, or $28\%$.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-business-math-0020
     lesson: lesson-arithmetic-number-sense-compound-interest
@@ -449,9 +464,10 @@ questions:
           This uses simple-interest doubling time. That formula also depends on the rate. Check that the requested rule estimates compound growth.
     explanation: |
       The Rule of $72$ estimates doubling time by dividing $72$ by the annual percentage rate. Thus $72\div9=8$ years.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-business-math-0021
+    approved: true
     lesson: lesson-arithmetic-number-sense-commission-and-sales-tax
     keyPoint: 2
     type: word-problem
@@ -474,6 +490,7 @@ questions:
       The taxable amount is $8(375)=3000$ pesos. Tax is $3000(0.06)=180$ pesos. The bill is $3000+180=3180$ pesos.
 
   - id: q-arithmetic-number-sense-business-math-0022
+    approved: true
     lesson: lesson-arithmetic-number-sense-commission-and-sales-tax
     keyPoint: 2
     type: word-problem

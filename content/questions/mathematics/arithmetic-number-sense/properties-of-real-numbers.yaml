@@ -5,6 +5,7 @@ meta:
   exams: [upcat, acet, dlsucet, ustet, pupcet, cse-pro, cse-sub]
 questions:
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0001
+    approved: true
     lesson: lesson-arithmetic-number-sense-commutative-and-associative-properties
     keyPoint: 1
     type: which-is-true
@@ -27,6 +28,7 @@ questions:
       The addends $7$ and $12$ swap order. Addition keeps the same sum when its addends swap: $a+b=b+a$. This is the commutative property.
 
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0002
+    approved: true
     lesson: lesson-arithmetic-number-sense-additive-and-multiplicative-inverses
     keyPoint: 1
     type: direct-computation
@@ -49,6 +51,7 @@ questions:
       A number and its multiplicative inverse have product $1$. Flip the numerator and denominator of $-\dfrac{4}{7}$ while keeping its sign. The inverse is $-\dfrac{7}{4}$, and their product is $1$.
 
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0003
+    approved: true
     lesson: lesson-arithmetic-number-sense-distribution-and-common-factors
     keyPoint: 1
     type: direct-computation
@@ -71,6 +74,7 @@ questions:
       Multiply every term inside the parentheses by $4$. This gives $4(3x)+4(7)=12x+28$.
 
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0004
+    approved: true
     lesson: lesson-arithmetic-number-sense-commutative-and-associative-properties
     keyPoint: 2
     type: which-is-true
@@ -93,6 +97,7 @@ questions:
       The two orders give $5-3=2$ and $3-5=-2$. Because the results differ, subtraction is not commutative.
 
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0005
+    approved: true
     lesson: lesson-arithmetic-number-sense-commutative-and-associative-properties
     keyPoint: 1
     type: which-is-true
@@ -115,6 +120,7 @@ questions:
       First change the grouping: $1+(2+3)=(1+2)+3$. This uses associativity. Then swap the first two addends: $(1+2)+3=(2+1)+3$. This uses commutativity.
 
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0006
+    approved: true
     lesson: lesson-arithmetic-number-sense-distribution-and-common-factors
     keyPoint: 1
     type: direct-computation
@@ -137,6 +143,7 @@ questions:
       Multiply each term by $-2$: $(-2)x+(-2)(-5)=-2x+10$. The second product is positive because its two factors are negative.
 
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0007
+    approved: true
     lesson: lesson-arithmetic-number-sense-distribution-and-common-factors
     keyPoint: 1
     type: direct-computation
@@ -159,6 +166,7 @@ questions:
       Distribute to get $-6a-12b-5a$. Combine the $a$ terms: $(-6-5)a=-11a$. The result is $-11a-12b$.
 
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0008
+    approved: true
     lesson: lesson-arithmetic-number-sense-distribution-and-common-factors
     keyPoint: 2
     type: direct-computation
@@ -181,6 +189,7 @@ questions:
       Factor out $342$: $342(28)+342(72)=342(28+72)$. The sum is $100$, so the product is $342(100)=34200$.
 
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0009
+    approved: true
     lesson: lesson-arithmetic-number-sense-additive-and-multiplicative-inverses
     keyPoint: 1
     type: which-is-true
@@ -203,6 +212,7 @@ questions:
       The additive inverse of $x$ is $-x$. Their sum is $x+(-x)=0$. Zero is the additive identity because adding it keeps a number unchanged.
 
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0010
+    approved: true
     lesson: lesson-arithmetic-number-sense-commutative-and-associative-properties
     keyPoint: 2
     type: which-is-true
@@ -225,6 +235,7 @@ questions:
       Grouping the first division gives $(12\div4)\div2=3\div2=1.5$. Grouping the second gives $12\div(4\div2)=12\div2=6$. Regrouping changes the result, so division is not associative.
 
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0011
+    approved: true
     lesson: lesson-arithmetic-number-sense-distribution-and-common-factors
     keyPoint: 1
     type: direct-computation
@@ -247,6 +258,7 @@ questions:
       Expand both products: $-4(3x-2y)=-12x+8y$ and $-2(5y-6x)=-10y+12x$. Add them: $-12x+12x+8y-10y=-2y$.
 
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0012
+    approved: true
     lesson: lesson-arithmetic-number-sense-commutative-and-associative-properties
     keyPoint: 2
     type: which-is-true
@@ -269,6 +281,7 @@ questions:
       Subtraction is not associative in general. For example, $8-(4-2)=6$, but $(8-4)-2=2$. Changing the grouping can change the result. The other equalities use valid properties of addition and multiplication.
 
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0013
+    approved: true
     lesson: lesson-arithmetic-number-sense-distribution-and-common-factors
     keyPoint: 2
     type: direct-computation
@@ -291,6 +304,7 @@ questions:
       Factor out $87$: $87[(-14)+114-100]$. The bracket equals $100-100=0$. Thus the product is $87(0)=0$.
 
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0014
+    approved: true
     lesson: lesson-arithmetic-number-sense-commutative-and-associative-properties
     keyPoint: 1
     type: which-is-true
@@ -320,6 +334,7 @@ questions:
       Line 2 groups $5+2x$, and Line 3 groups $2x+5$. The addends swap order while the grouping stays the same. This is the commutative property of addition.
 
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0015
+    approved: true
     lesson: lesson-arithmetic-number-sense-distribution-and-common-factors
     keyPoint: 1
     type: direct-computation
@@ -362,7 +377,7 @@ questions:
           This treats the extra notebook as costing one peso. One is the added count. Check that it also costs seventeen pesos.
     explanation: |
       Both purchases have the same price per notebook. Factor that price from $17(99)+17(1)$ to get $17(99+1)$.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0017
     lesson: lesson-arithmetic-number-sense-distribution-and-common-factors
@@ -385,7 +400,7 @@ questions:
           This changes the sign without a negative outside factor. Distribution can change signs when negatives multiply. Check the sign of the actual factor.
     explanation: |
       The outside factor multiplies every term inside. It gives $5(2x)=10x$ and $5(-3)=-15$. The corrected expression is $10x-15$.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0018
     lesson: lesson-arithmetic-number-sense-commutative-and-associative-properties
@@ -408,7 +423,7 @@ questions:
           This confuses identity with association. Both preserve a value. Check whether the grouping of several factors changes.
     explanation: |
       Associativity changes how the same ordered factors are grouped. The equality moves the parentheses from the first two factors to the last two without changing their order.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0019
     lesson: lesson-arithmetic-number-sense-additive-and-multiplicative-inverses
@@ -431,7 +446,7 @@ questions:
           This makes neither inverse change. The original fraction is already given. Check both requested operations.
     explanation: |
       First take the reciprocal: the multiplicative inverse is $-\dfrac{3}{2}$. Then take its opposite: the additive inverse is $\dfrac{3}{2}$.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0020
     lesson: lesson-arithmetic-number-sense-additive-and-multiplicative-inverses
@@ -454,9 +469,10 @@ questions:
           This treats negative one as changing a zero product into one. Negative one changes signs of nonzero numbers. Check that zero times it is still zero.
     explanation: |
       Multiplying zero by any real number gives zero. The equation $0r=1$ therefore has no real solution. This is why zero has no multiplicative inverse.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0021
+    approved: true
     lesson: lesson-arithmetic-number-sense-identities-and-like-terms
     keyPoint: 1
     type: which-is-true
@@ -479,6 +495,7 @@ questions:
       The additive identity is $0$, so $x+0=x$. The multiplicative identity is $1$, so $(x+0)(1)=x$. Thus $a=0$ and $b=1$.
 
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0022
+    approved: true
     lesson: lesson-arithmetic-number-sense-identities-and-like-terms
     keyPoint: 1
     type: which-is-true
@@ -501,6 +518,7 @@ questions:
       Adding $0$ leaves $-17$ unchanged: $-17+0=-17$. Multiplying by $1$ also leaves it unchanged: $(-17)(1)=-17$.
 
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0023
+    approved: true
     lesson: lesson-arithmetic-number-sense-identities-and-like-terms
     keyPoint: 2
     type: direct-computation
@@ -523,6 +541,7 @@ questions:
       Combine matching terms: $(9-6)a^2+(-4+1)a+(7-12)=3a^2-3a-5$.
 
   - id: q-arithmetic-number-sense-properties-of-real-numbers-0024
+    approved: true
     lesson: lesson-arithmetic-number-sense-identities-and-like-terms
     keyPoint: 2
     type: direct-computation

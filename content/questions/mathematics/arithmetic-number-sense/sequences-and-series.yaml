@@ -5,6 +5,7 @@ meta:
   exams: [upcat, acet, dlsucet, ustet, pupcet, cse-pro, cse-sub]
 questions:
   - id: q-arithmetic-number-sense-sequences-and-series-0001
+    approved: true
     lesson: lesson-arithmetic-number-sense-arithmetic-sequence-terms
     keyPoint: 1
     type: direct-computation
@@ -27,6 +28,7 @@ questions:
       The common difference is $4$. From the first to the fifteenth term there are $14$ steps. Thus $a_{15}=5+14(4)=61$.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0002
+    approved: true
     lesson: lesson-arithmetic-number-sense-geometric-sequence-terms
     keyPoint: 1
     type: which-is-true
@@ -49,6 +51,7 @@ questions:
       Divide each term by the preceding one: $6\div3=2$, $12\div6=2$, and $24\div12=2$. The constant ratio is $2$, so the sequence is geometric.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0003
+    approved: true
     lesson: lesson-arithmetic-number-sense-arithmetic-series-sums
     keyPoint: 1
     type: direct-computation
@@ -71,6 +74,7 @@ questions:
       The tenth term is $4+9(3)=31$. The arithmetic sum is $S_{10}=\dfrac{10}{2}(4+31)=5(35)=175$.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0004
+    approved: true
     lesson: lesson-arithmetic-number-sense-geometric-sequence-terms
     keyPoint: 2
     type: direct-computation
@@ -93,6 +97,7 @@ questions:
       From the first to the sixth term there are five ratio multiplications. Thus $a_6=3(2^5)=3(32)=96$.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0005
+    approved: true
     lesson: lesson-arithmetic-number-sense-infinite-geometric-series
     keyPoint: 1
     type: direct-computation
@@ -115,6 +120,7 @@ questions:
       The first term is $12$ and the ratio is $\dfrac{1}{3}$. Since the ratio magnitude is below $1$, the sum exists. It is $12\div\left(1-\dfrac{1}{3}\right)=12\left(\dfrac{3}{2}\right)=18$.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0006
+    approved: true
     lesson: lesson-arithmetic-number-sense-arithmetic-sequence-terms
     keyPoint: 1
     type: direct-computation
@@ -137,6 +143,7 @@ questions:
       There are five steps from term three to term eight. Their increase is $31-11=20$, so $d=20\div5=4$. Term three is two steps after the first term. Thus $a_1=11-2(4)=3$.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0007
+    approved: true
     lesson: lesson-arithmetic-number-sense-infinite-geometric-series
     keyPoint: 2
     type: which-is-true
@@ -159,6 +166,7 @@ questions:
       The ratio in $16-8+4-2+\ldots$ is $-\dfrac{1}{2}$. Its absolute value is below $1$, so the infinite geometric series converges.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0008
+    approved: true
     lesson: lesson-arithmetic-number-sense-finite-geometric-series
     keyPoint: 1
     type: direct-computation
@@ -181,6 +189,7 @@ questions:
       The finite geometric sum is $S_5=5\dfrac{3^5-1}{3-1}$. Since $3^5=243$, this is $\dfrac{5(242)}{2}=605$.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0009
+    approved: true
     lesson: lesson-arithmetic-number-sense-arithmetic-sequence-terms
     keyPoint: 1
     type: direct-computation
@@ -203,6 +212,7 @@ questions:
       Three inserted means make five terms, with four equal steps between the endpoints. The common difference is $(28-4)\div4=6$. The terms are $4,10,16,22,28$. The second inserted mean is $16$.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0010
+    approved: true
     lesson: lesson-arithmetic-number-sense-arithmetic-series-sums
     keyPoint: 1
     type: word-problem
@@ -225,6 +235,7 @@ questions:
       The final row has $15+19(3)=72$ seats. The total is $\dfrac{20}{2}(15+72)=10(87)=870$ seats.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0011
+    approved: true
     lesson: lesson-arithmetic-number-sense-geometric-sequence-terms
     keyPoint: 1
     type: direct-computation
@@ -247,6 +258,7 @@ questions:
       Equal consecutive ratios give $(x+5)^2=(x-1)(7x-1)$. Expand: $x^2+10x+25=7x^2-8x+1$. Rearrange and divide by $6$ to get $x^2-3x-4=0$. Factor: $(x-4)(x+1)=0$. The positive solution is $x=4$.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0012
+    approved: true
     lesson: lesson-arithmetic-number-sense-arithmetic-series-sums
     keyPoint: 1
     type: direct-computation
@@ -269,6 +281,7 @@ questions:
       The first three-digit multiple is $7(15)=105$. The last is $7(142)=994$. The count is $142-15+1=128$. The arithmetic sum is $\dfrac{128}{2}(105+994)=64(1099)=70336$.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0013
+    approved: true
     lesson: lesson-arithmetic-number-sense-infinite-geometric-series
     keyPoint: 1
     type: word-problem
@@ -291,6 +304,7 @@ questions:
       The first rebound rises $16\left(\dfrac{3}{4}\right)=12$ meters. The total upward rebound distance is $12\div\left(1-\dfrac{3}{4}\right)=48$ meters. Each rebound also falls the same distance. Add both rebound directions to the first drop: $16+2(48)=112$ meters.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0014
+    approved: true
     lesson: lesson-arithmetic-number-sense-arithmetic-sequence-terms
     keyPoint: 1
     type: direct-computation
@@ -313,6 +327,7 @@ questions:
       The selected terms are $5,5+2d,5+8d$. Equal geometric ratios give $(5+2d)^2=5(5+8d)$. Expand and collect: $4d^2-20d=0$, or $4d(d-5)=0$. A nonconstant arithmetic sequence has $d\ne0$, so $d=5$.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0015
+    approved: true
     lesson: lesson-arithmetic-number-sense-arithmetic-series-sums
     keyPoint: 1
     type: direct-computation
@@ -355,7 +370,7 @@ questions:
           This takes the reciprocal of the common difference. The difference is needed in the reciprocal sequence. Check that the term is found before taking its reciprocal.
     explanation: |
       The reciprocals form $3,7,11,\ldots$, with common difference $4$. The fourth reciprocal is $3+3(4)=15$. Take the reciprocal again to get $\dfrac{1}{15}$.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-sequences-and-series-0017
     lesson: lesson-arithmetic-number-sense-harmonic-sequence-terms
@@ -378,7 +393,7 @@ questions:
           This treats the arithmetic increase as the harmonic term. The first denominator helped form the reciprocal sequence. Check that the full reciprocal term must be inverted.
     explanation: |
       The arithmetic sequence contains reciprocals of the harmonic terms. To return to the original sequence, take the reciprocal of its computed term. The harmonic term is $\dfrac{1}{17}$.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-sequences-and-series-0018
     lesson: lesson-arithmetic-number-sense-fibonacci-type-sequence-terms
@@ -401,7 +416,7 @@ questions:
           This reports the first newly computed term. Seven follows the two starting terms. Check that two more positions remain.
     explanation: |
       The third term is $2+5=7$. The fourth is $5+7=12$. The fifth is $7+12=19$.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-sequences-and-series-0019
     lesson: lesson-arithmetic-number-sense-arithmetic-series-sums
@@ -424,7 +439,7 @@ questions:
           This divides the middle term by six gaps. The sequence has six gaps. Check that a term value alone does not determine the difference.
     explanation: |
       For an odd-length arithmetic sequence, the middle term equals the average of all terms. Multiply that average by the seven terms: $12(7)=84$.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-sequences-and-series-0020
     lesson: lesson-arithmetic-number-sense-infinite-geometric-series
@@ -447,9 +462,10 @@ questions:
           This reports the fraction deposited after the first two weeks. That remaining fraction is also meaningful. Check which part is requested.
     explanation: |
       The first two deposits total $80+40=120$ pesos. The infinite geometric total is $80\div\left(1-\dfrac{1}{2}\right)=160$ pesos. Their fraction is $\dfrac{120}{160}=\dfrac{3}{4}$.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-sequences-and-series-0021
+    approved: true
     lesson: lesson-arithmetic-number-sense-arithmetic-sequence-terms
     keyPoint: 2
     type: direct-computation
@@ -472,6 +488,7 @@ questions:
       The common difference is $6$. There are $(246-18)\div6=38$ gaps. Include the first term to get $38+1=39$ file numbers.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0022
+    approved: true
     lesson: lesson-arithmetic-number-sense-fibonacci-type-sequence-terms
     keyPoint: 1
     type: direct-computation
@@ -494,6 +511,7 @@ questions:
       The third term is $47-29=18$. The fourth term is the sum of the second and third, so the second is $29-18=11$.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0023
+    approved: true
     lesson: lesson-arithmetic-number-sense-finding-number-patterns
     keyPoint: 1
     type: direct-computation
@@ -516,6 +534,7 @@ questions:
       The differences are $5,8,11,14$. Each rises by $3$, so the next is $17$. The next term is $44+17=61$.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0024
+    approved: true
     lesson: lesson-arithmetic-number-sense-finding-number-patterns
     keyPoint: 1
     type: direct-computation
@@ -538,6 +557,7 @@ questions:
       The steps alternate between multiplying by $4$ and subtracting $2$: $3(4)=12$, $12-2=10$, $10(4)=40$, $40-2=38$, and $38(4)=152$. Next is $152-2=150$.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0025
+    approved: true
     lesson: lesson-arithmetic-number-sense-finding-number-patterns
     keyPoint: 1
     type: direct-computation
@@ -560,6 +580,7 @@ questions:
       The increases are $1,4,9,16$, which are $1^2,2^2,3^2,4^2$. The next is $5^2=25$, giving $32+25=57$.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0026
+    approved: true
     lesson: lesson-arithmetic-number-sense-finite-geometric-series
     keyPoint: 2
     type: direct-computation
@@ -582,6 +603,7 @@ questions:
       A ratio of $1$ makes every term equal to $18$. The last five therefore sum to $5(18)=90$.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0027
+    approved: true
     lesson: lesson-arithmetic-number-sense-finite-geometric-series
     keyPoint: 1
     type: word-problem
@@ -604,6 +626,7 @@ questions:
       The five deposits are $2000,4000,8000,16000,32000$ pesos. Their sum is $2000+4000+8000+16000+32000=62000$ pesos.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0028
+    approved: true
     lesson: lesson-arithmetic-number-sense-finite-geometric-series
     keyPoint: 1
     type: direct-computation
@@ -626,6 +649,7 @@ questions:
       The terms are $64,32,16,8$. Add them to get $64+32+16+8=120$.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0029
+    approved: true
     lesson: lesson-arithmetic-number-sense-odd-and-even-position-patterns
     keyPoint: 1
     type: direct-computation
@@ -648,6 +672,7 @@ questions:
       Odd-position terms are $4,8,16$, each twice the last, so the next is $32$. Even-position terms are $81,27,9$, each divided by $3$, so the next is $3$.
 
   - id: q-arithmetic-number-sense-sequences-and-series-0030
+    approved: true
     lesson: lesson-arithmetic-number-sense-odd-and-even-position-patterns
     keyPoint: 1
     type: direct-computation

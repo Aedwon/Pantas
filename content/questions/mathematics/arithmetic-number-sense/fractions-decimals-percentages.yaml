@@ -5,6 +5,7 @@ meta:
   exams: [upcat, acet, dlsucet, ustet, pupcet, cse-pro, cse-sub]
 questions:
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0001
+    approved: true
     lesson: lesson-arithmetic-number-sense-fractions-and-mixed-forms
     keyPoint: 1
     type: direct-computation
@@ -27,6 +28,7 @@ questions:
       Divide $3$ by $8$ to get $0.375$. Multiply by $100\%$: $0.375(100\%)=37.5\%$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0002
+    approved: true
     lesson: lesson-arithmetic-number-sense-adding-and-multiplying-fractions
     keyPoint: 1
     type: direct-computation
@@ -49,6 +51,7 @@ questions:
       Add the numerator fractions: $\dfrac{2}{5}+\dfrac{1}{3}=\dfrac{6+5}{15}=\dfrac{11}{15}$. The numerator and denominator now have the same nonzero value. Their quotient is $1$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0003
+    approved: true
     lesson: lesson-arithmetic-number-sense-successive-percentages-and-increases
     keyPoint: 1
     type: word-problem
@@ -71,6 +74,7 @@ questions:
       A $15\%$ discount leaves $100\%-15\%=85\%$ of the bill to pay. Convert this to a fraction: $\dfrac{85}{100}=\dfrac{17}{20}$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0004
+    approved: true
     lesson: lesson-arithmetic-number-sense-adding-and-multiplying-fractions
     keyPoint: 1
     type: direct-computation
@@ -93,6 +97,7 @@ questions:
       Use the given value $\dfrac{4}{9}$. Add $\dfrac{2}{9}$: $\dfrac{4}{9}+\dfrac{2}{9}=\dfrac{6}{9}=\dfrac{2}{3}$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0005
+    approved: true
     lesson: lesson-arithmetic-number-sense-successive-percentages-and-increases
     keyPoint: 1
     type: word-problem
@@ -115,6 +120,7 @@ questions:
       The service charge gives $850(1.10)=935$ pesos. The tip is $935(0.05)=46.75$ pesos. The final amount is $935+46.75=981.75$ pesos.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0006
+    approved: true
     lesson: lesson-arithmetic-number-sense-multiplying-and-dividing-decimals
     keyPoint: 2
     type: direct-computation
@@ -137,6 +143,7 @@ questions:
       First subtract inside parentheses: $\dfrac{5}{6}-\dfrac{1}{4}=\dfrac{10-3}{12}=\dfrac{7}{12}$. Multiply by $0.6=\dfrac{3}{5}$ to get $\dfrac{7}{20}=0.35$. Then $0.35\div0.35=1$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0007
+    approved: true
     lesson: lesson-arithmetic-number-sense-percentage-base-and-fraction-division
     keyPoint: 2
     type: word-problem
@@ -159,6 +166,7 @@ questions:
       The gain over cost is $15-12.50=2.50$ pesos. Its fraction of cost is $\dfrac{2.50}{12.50}=0.20$. Multiply by $100\%$ to get $20\%$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0008
+    approved: true
     lesson: lesson-arithmetic-number-sense-successive-percentages-and-increases
     keyPoint: 1
     type: word-problem
@@ -181,6 +189,7 @@ questions:
       After a $10\%$ decrease, $90\%$ of the original price remains. If the original price is $100$, it falls to $90$ and needs an increase of $10$. The required increase is $\dfrac{10}{90}(100\%)=11\dfrac{1}{9}\%$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0009
+    approved: true
     lesson: lesson-arithmetic-number-sense-multiplying-and-dividing-decimals
     keyPoint: 2
     type: direct-computation
@@ -203,6 +212,7 @@ questions:
       The first term is $\dfrac{3}{4}\div\dfrac{1}{8}=\dfrac{3}{4}(8)=6$. The second is $2.5\left(\dfrac{2}{5}\right)=1$. Add them: $6+1=7$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0010
+    approved: true
     lesson: lesson-arithmetic-number-sense-percentage-base-and-fraction-division
     keyPoint: 1
     type: word-problem
@@ -225,6 +235,7 @@ questions:
       The interest for one year is $12000(0.055)=660$ pesos. Since $18$ months is $\dfrac{18}{12}=1.5$ years, the total interest is $660(1.5)=990$ pesos.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0011
+    approved: true
     lesson: lesson-arithmetic-number-sense-adding-and-multiplying-fractions
     keyPoint: 2
     type: word-problem
@@ -247,6 +258,7 @@ questions:
       The first portion costs $\dfrac{1}{3}(3000)=1000$ pesos and gains $1000(0.20)=200$ pesos. The second costs $\dfrac{1}{2}(3000)=1500$ pesos and gains $1500(0.10)=150$ pesos. The rest earns no profit. The total profit is $200+150=350$ pesos.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0012
+    approved: true
     lesson: lesson-arithmetic-number-sense-percentage-base-and-fraction-division
     keyPoint: 2
     type: direct-computation
@@ -269,6 +281,7 @@ questions:
       Add the fractions: $\dfrac{3}{8}+\dfrac{1}{12}=\dfrac{9+2}{24}=\dfrac{11}{24}$. Divide by $\dfrac{5}{6}$: $\dfrac{11}{24}\left(\dfrac{6}{5}\right)=\dfrac{11}{20}=0.55$. Convert to get $55\%$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0013
+    approved: true
     lesson: lesson-arithmetic-number-sense-successive-percentages-and-increases
     keyPoint: 1
     type: word-problem
@@ -291,6 +304,7 @@ questions:
       Let the original price be $P$. The discount leaves $0.80P$. Tax makes the total $0.80P(1.12)=0.896P$. Thus $0.896P=672$, and $P=672\div0.896=750$ pesos.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0014
+    approved: true
     lesson: lesson-arithmetic-number-sense-successive-percentages-and-increases
     keyPoint: 1
     type: word-problem
@@ -313,6 +327,7 @@ questions:
       Week one leaves $100\%-35\%=65\%$ of the original stock. Week two leaves $1-\dfrac{5}{8}=\dfrac{3}{8}$ of that remainder. The unsold share is $\dfrac{3}{8}(65\%)=24.375\%$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0015
+    approved: true
     lesson: lesson-arithmetic-number-sense-successive-percentages-and-increases
     keyPoint: 1
     type: word-problem
@@ -355,7 +370,7 @@ questions:
           This adds a percent sign without changing the value. The digits look familiar. Check that percent and decimal forms use different units.
     explanation: |
       Multiply the decimal by $100\%$. Thus $0.045(100\%)=4.5\%$.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0017
     lesson: lesson-arithmetic-number-sense-fractions-and-mixed-forms
@@ -378,7 +393,7 @@ questions:
           This subtracts only Monday's reading. Monday is listed first. Check that Tuesday also reduces the unread share.
     explanation: |
       Convert $\dfrac{1}{4}$ to $0.25$. The read share is $0.35+0.25=0.60$. The unread share is $1-0.60=0.40$, or $40\%$.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0018
     lesson: lesson-arithmetic-number-sense-decimal-and-percent-conversions
@@ -401,7 +416,7 @@ questions:
           This removes the symbol without converting the unit. The numeric part is already visible. Check that percent means division by one hundred.
     explanation: |
       Percent means out of one hundred. Therefore $2.5\%=2.5\div100=0.025$.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0019
     lesson: lesson-arithmetic-number-sense-successive-percentages-and-increases
@@ -424,7 +439,7 @@ questions:
           This swaps the roles of the phrases. Both multipliers are relevant. Check that more than includes the original amount.
     explanation: |
       The phrase $120\%$ of means multiply by $1.20$. The phrase $120\%$ more means keep the original salary and add $1.20$ times it. That multiplier is $1+1.20=2.20$.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0020
     lesson: lesson-arithmetic-number-sense-percentage-base-and-fraction-division
@@ -447,9 +462,10 @@ questions:
           This reports all remaining questions. Subtracting completed work gives a useful count. Check that the question asks for fifteen percent of the entire set.
     explanation: |
       Let the full set contain $N$ questions. Since $0.40N=72$, $N=72\div0.40=180$. The requested amount is $0.15(180)=27$ questions.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0021
+    approved: true
     lesson: lesson-arithmetic-number-sense-adding-and-multiplying-fractions
     keyPoint: 2
     type: word-problem
@@ -472,6 +488,7 @@ questions:
       Multiply the two shares: $\dfrac{3}{5}\times\dfrac{7}{12}=\dfrac{21}{60}=\dfrac{7}{20}$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0022
+    approved: true
     lesson: lesson-arithmetic-number-sense-decimal-and-percent-conversions
     keyPoint: 1
     type: direct-computation
@@ -494,6 +511,7 @@ questions:
       There are four decimal places, so $0.0625=\dfrac{625}{10000}$. Dividing both numbers by $625$ gives $\dfrac{1}{16}$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0023
+    approved: true
     lesson: lesson-arithmetic-number-sense-decimal-and-percent-conversions
     keyPoint: 1
     type: direct-computation
@@ -516,6 +534,7 @@ questions:
       Write $1.275=\dfrac{1275}{1000}$. Divide both numbers by $25$ to get $\dfrac{51}{40}$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0024
+    approved: true
     lesson: lesson-arithmetic-number-sense-fractions-and-mixed-forms
     keyPoint: 1
     type: direct-computation
@@ -538,6 +557,7 @@ questions:
       Divide $7$ by $16$ to get $0.4375$. Then $0.4375\times100=43.75$, so the completed share is $43.75\%$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0025
+    approved: true
     lesson: lesson-arithmetic-number-sense-fractions-and-mixed-forms
     keyPoint: 2
     type: direct-computation
@@ -560,6 +580,7 @@ questions:
       Convert $\dfrac{3}{8}=0.375$ and $12.5\%=0.125$. Then $1.25-0.375+0.125=0.875+0.125=1.0$.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0026
+    approved: true
     lesson: lesson-arithmetic-number-sense-multiplying-and-dividing-decimals
     keyPoint: 1
     type: word-problem
@@ -582,6 +603,7 @@ questions:
       Multiply $48\times75=3600$. The factors have $2+3=5$ decimal places. Thus $0.48\times0.075=0.03600=0.036$ square meter.
 
   - id: q-arithmetic-number-sense-fractions-decimals-percentages-0027
+    approved: true
     lesson: lesson-arithmetic-number-sense-multiplying-and-dividing-decimals
     keyPoint: 1
     type: word-problem
