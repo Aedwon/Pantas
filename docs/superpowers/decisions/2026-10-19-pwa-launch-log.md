@@ -3561,3 +3561,14 @@ Fable 5.2 ruled under Aedwon's standing delegation. The manager relayed both rul
 - Projections from catalog prices: Cloud Scheduler bills $0.10 per job a month after 3 free jobs per billing account, and paused jobs still count; 18 jobs make about $1.44 a month. Secret Manager bills $0.06 per active version a month after 6 free; 18 versions make about $0.72 a month (none billed yet). Cloud Monitoring has no alerting SKU in the catalog today, so the 16 alarms cost $0; Google documents a future $0.35 per metric reference a month (about $5.60 for 16) with no start date.
 - Applied (safe, reversible): Firebase Hosting keeps at most 10 versions on pantas-staging-app, pantas-staging and pantas-prod (was unlimited; storage about 1 GiB of the free 10 GiB). Rollback: set `maxVersions` back.
 - Proposed, not applied (code or protection changes; see the report to the manager): staging deploys no scheduled jobs; prod's 9 scheduled jobs merge into at most 3; old secret versions destroyed only once confirmed superseded; a free BigQuery billing export for SKU detail (console, Aedwon).
+
+### Nov 14, Fable 5.2 ruling on the cost proposals (relayed by the manager; security fixes lead)
+
+Fable 5.2 ruled under Aedwon's standing delegation:
+- **1a approved:** staging deploys no scheduled jobs. Condition: the cleanup code still deploys to staging and can be run by hand there, and it must be run there before any prod release that changes cleanup.
+- **1b approved:** prod's scheduled jobs merge into at most 3. Conditions: each cleanup runs isolated, so one failure does not stop the others; tests cover each cleanup's cadence and the isolation; a failed cleanup raises an alert through a free channel; the old jobs are removed only after the combined jobs have run every cleanup successfully on prod.
+- **Warm-up:** kept, without its own slot; the most frequent combined job does the warming. If that is not practical, warm-up is dropped.
+- **Secret Manager:** left as is; no versions destroyed.
+- **Alarm price risk:** the lead checks the Cloud Billing catalog for an alerting SKU monthly.
+- **BigQuery billing export:** optional; the manager mentions it to Aedwon.
+- Order: 1a and 1b as one branch, tests first, after tonight's Cloudflare cutover; handed to the integrator through the manager; one worker at a time.
