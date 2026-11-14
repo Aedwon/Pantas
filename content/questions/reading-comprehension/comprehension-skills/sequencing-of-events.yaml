@@ -42,6 +42,18 @@ passages:
       On Monday afternoon, she borrowed a reference book and sat at a table by the window. When she packed her bag, she accidentally placed another student's notebook beneath her own book. That evening at home, she noticed it and wrote a message to the librarian. The library was closed on Tuesday for repairs, so she could not bring it back the next day.
       
       The owner called the library on Wednesday before Mika arrived. The librarian checked the earlier message and told the owner that the notebook would be returned. After Mika handed it over, the librarian contacted the owner again. The owner collected it that afternoon. Each message belonged to a different stage of the return, even though the account opens near the end.
+  - id: "p-comprehension-skills-event-causes-and-overlap-gap"
+    title: "Event Causes And Overlap"
+    body: |
+      In this fictional office account, Mira compared the delivery slips while Tomas checked the boxes. Neither task had been completed when the other began. Once both checks were finished, the supervisor signed the receipt. The report does not state which check began first.
+  - id: "p-comprehension-skills-filipino-event-time-gap"
+    title: "Filipino Event Time"
+    body: |
+      Sa kathang ulat na ito, ipinadala ang paanyaya noong Huwebes. Nauna rito ang pag-apruba sa teksto noong Miyerkules. Bago ang pag-apruba, sinuri ni Lorna ang mga pangalan noong Martes. Matapos maipadala ang paanyaya, kinumpirma ng mga kalahok ang pagdalo noong Biyernes.
+  - id: "p-comprehension-skills-filipino-event-causes-gap"
+    title: "Filipino Event Causes"
+    body: |
+      Sa kathang ulat na ito, hindi agad naibigay ang mga sertipiko dahil nasira ang printer. Napansin ang sira habang inililimbag ang mga sertipiko. Dahil sa pagkaantala, nagpasya ang tagapamahala na ipagawa ang printer. Matapos itong maayos, ipinagpatuloy ang paglilimbag bago ipinamahagi ang mga sertipiko.
 questions:
   - id: "rc-cs-se-0001"
     lesson: lesson-comprehension-skills-event-verb-forms
@@ -493,3 +505,113 @@ questions:
     explanation: |
       Had already left places the owner's message before the Wednesday return described beside it. It marks an earlier action relative to that return.
     approved: false
+  - id: "q-comprehension-skills-sequencing-of-events-0021"
+    lesson: lesson-comprehension-skills-event-causes-and-overlap
+    keyPoint: 2
+    passage: "p-comprehension-skills-event-causes-and-overlap-gap"
+    type: "sequencing-of-events"
+    difficulty: "exam"
+    stem: |
+      Which sequence is established by the report?
+    choices:
+      - text: "The checks overlap; signing follows both."
+        correct: true
+      - text: "Mira finishes her check before Tomas begins his."
+        rationale: |
+          This treats the order of names as the order of tasks. Mira is named first. Check the statement that neither task was finished when the other began.
+      - text: "Tomas finishes his check before Mira begins hers."
+        rationale: |
+          This forces the checks into separate steps. Checking boxes may seem like the first step. Use the stated overlap instead of a likely work routine.
+      - text: "The supervisor signs while both checks are unfinished."
+        rationale: |
+          This moves signing into the checking period. All three actions concern one receipt. Check the condition that both checks must be finished.
+    explanation: |
+      Neither check was finished when the other started, so they overlap. The supervisor signs only after both checks end.
+  - id: "q-comprehension-skills-sequencing-of-events-0022"
+    lesson: lesson-comprehension-skills-filipino-event-time
+    keyPoint: 1
+    passage: "p-comprehension-skills-filipino-event-time-gap"
+    type: "sequencing-of-events"
+    difficulty: "exam"
+    stem: |
+      Aling gawain ang natapos bago ang pag-apruba sa teksto?
+    choices:
+      - text: "Pagsuri sa mga pangalan."
+        correct: true
+      - text: "Pagpapadala ng paanyaya sa mga kalahok."
+        rationale: |
+          Napalitan ang nauna ng sumunod na gawain. Kaugnay ng pag-apruba ang pagpapadala. Tingnan ang Martes at Huwebes.
+      - text: "Pagkumpirma ng mga kalahok sa pagdalo."
+        rationale: |
+          Napili ang huling gawain sa ulat. Bahagi ito ng paghahanda, pero Biyernes ito. Ihambing sa Miyerkules.
+      - text: "Pag-apruba sa teksto ng paanyaya."
+        rationale: |
+          Napili ang mismong batayang pangyayari. Nasa tanong ang pag-apruba, pero ang hinihingi ay nauna rito. Hanapin ang bago.
+    explanation: |
+      Sinuri ang mga pangalan noong Martes. Naaprubahan ang teksto noong Miyerkules, kaya nauna ang pagsuri.
+  - id: "q-comprehension-skills-sequencing-of-events-0023"
+    lesson: lesson-comprehension-skills-filipino-event-time
+    keyPoint: 1
+    passage: "p-comprehension-skills-filipino-event-time-gap"
+    type: "sequencing-of-events"
+    difficulty: "exam"
+    stem: |
+      Alin ang tamang ayos ng mga gawain mula una hanggang huli?
+    choices:
+      - text: "Pagsuri, pag-apruba, pagpapadala, pagkumpirma."
+        correct: true
+      - text: "Pagpapadala, pag-apruba, pagsuri, pagkumpirma."
+        rationale: |
+          Sinunod ang ayos ng pagkukuwento. Naunang banggitin ang pagpapadala. Gamitin ang mga araw upang ayusin ang tunay na pangyayari.
+      - text: "Pagsuri, pagpapadala, pagkumpirma, pag-apruba."
+        rationale: |
+          Inilagay ang pag-apruba sa hulihan. Maaaring isipin na ito ang huling pahintulot. Tingnan ang Miyerkules bago Huwebes.
+      - text: "Pag-apruba, pagsuri, pagpapadala, pagkumpirma."
+        rationale: |
+          Napagpalit ang pagsuri at pag-apruba. Parehong paghahanda ang mga ito. Basahin kung alin ang ginawa noong Martes.
+    explanation: |
+      Ang mga araw ay Martes, Miyerkules, Huwebes, at Biyernes. Katumbas nito ang pagsuri, pag-apruba, pagpapadala, at pagkumpirma.
+  - id: "q-comprehension-skills-sequencing-of-events-0024"
+    lesson: lesson-comprehension-skills-filipino-event-causes
+    keyPoint: 1
+    passage: "p-comprehension-skills-filipino-event-causes-gap"
+    type: "sequencing-of-events"
+    difficulty: "exam"
+    stem: |
+      Aling pangyayari ang tuwirang nagtulak sa tagapamahala na ipagawa ang printer?
+    choices:
+      - text: "Pagkaantala ng pagbibigay ng sertipiko."
+        correct: true
+      - text: "Pagpapatuloy ng paglilimbag matapos maayos ang printer."
+        rationale: |
+          Ginawang sanhi ng pagkukumpuni ang bunga nito. Magkaugnay ang dalawa. Tingnan kung alin ang nangyari bago ang pasya.
+      - text: "Pamamahagi ng mga sertipiko sa mga kalahok."
+        rationale: |
+          Inuna ang huling gawain. Ito ang layunin ng trabaho, pero nangyari ito matapos ang pagkukumpuni. Hanapin ang dahil sa.
+      - text: "Pagkumpuni ng printer bago simulan ang paglilimbag."
+        rationale: |
+          Binago ang unang pangyayari. Nasira ang printer habang naglilimbag na. Suriin ang habang bago magtakda ng sanhi.
+    explanation: |
+      Sinasabi ng ulat na dahil sa pagkaantala ay nagpasya ang tagapamahala na ipagawa ang printer. Ito ang malinaw na sanhi ng pasya.
+  - id: "q-comprehension-skills-sequencing-of-events-0025"
+    lesson: lesson-comprehension-skills-filipino-event-causes
+    keyPoint: 1
+    passage: "p-comprehension-skills-filipino-event-causes-gap"
+    type: "sequencing-of-events"
+    difficulty: "exam"
+    stem: |
+      Aling pagkakasunod-sunod ang naaayon sa sanhi at bunga sa ulat?
+    choices:
+      - text: "Pagkasira, pagkaantala, pagkukumpuni, pamamahagi."
+        correct: true
+      - text: "Pagkaantala, pamamahagi, pagkasira, pagkukumpuni."
+        rationale: |
+          Sinunod ang unang binanggit na bunga at isinunod agad ang layunin. Hindi pa naayos ang printer sa ayos na ito. Unahin ang dahilan ng pagkaantala.
+      - text: "Pagkukumpuni, pagkasira, pamamahagi, pagkaantala."
+        rationale: |
+          Inuna ang pag-aayos sa sirang aayusin. Maaaring may regular na pagkukumpuni, pero wala iyon sa ulat. Sundan ang tahasang mga sanhi.
+      - text: "Pamamahagi, pagkasira, pagkaantala, pagkukumpuni."
+        rationale: |
+          Inuna ang natapos na gawain sa problemang nagpahinto rito. Nabanggit agad ang pagbibigay, pero naantala ito. Tingnan kung kailan ito natuloy.
+    explanation: |
+      Ang pagkasira ang sanhi ng pagkaantala. Sumunod ang pagkukumpuni. Matapos maayos at maipagpatuloy ang paglilimbag, naipamahagi ang mga sertipiko.

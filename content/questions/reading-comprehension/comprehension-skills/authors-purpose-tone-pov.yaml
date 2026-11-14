@@ -42,6 +42,14 @@ passages:
       Across the aisle, Ben placed his project on a table and smiled. Lina could not tell whether he was pleased with his work or simply relieved to have arrived on time. She looked down at the loose roof again. During the last practice, she had spoken too quickly and forgotten to explain the rainwater tank. Perhaps she could slow down today.
       
       When a judge approached, Lina pressed the roof into place once more. Then she set the model down and began with the tank. Her voice shook on the first sentence, but the judge leaned forward to inspect the pipe. Lina reached for her diagram. The roof could wait while she explained the idea she had worked so hard to build.
+  - id: "p-comprehension-skills-paragraph-links-and-patterns-gap"
+    title: "Paragraph Links And Patterns"
+    body: |
+      In this fictional office report, applicants repeatedly returned because the instructions omitted a required attachment. These repeat visits crowded the reception area. The office revised the instructions and placed a completed sample beside them. After the change, applicants could check their papers before joining the line.
+  - id: "p-comprehension-skills-sentence-cues-and-meaning-gap"
+    title: "Sentence Cues And Meaning"
+    body: |
+      In this fictional delivery report, a parcel was left at the reception desk. The receipt has not been signed. Leo said that the contents might be damaged, but he had not opened the parcel. The clerk must inspect the contents before accepting them. Only the outer wrapping has been checked.
 questions:
   - id: "rc-cs-ap-0001"
     lesson: lesson-comprehension-skills-authors-main-purpose
@@ -488,3 +496,69 @@ questions:
     explanation: |
       Lina's remembered practice and wishes show why the presentation worries her. Knowing those thoughts helps the reader understand her anxiety.
     approved: false
+  - id: "q-comprehension-skills-authors-purpose-tone-pov-0021"
+    lesson: lesson-comprehension-skills-paragraph-links-and-patterns
+    keyPoint: 1
+    passage: "p-comprehension-skills-paragraph-links-and-patterns-gap"
+    type: "authors-purpose-tone-pov"
+    difficulty: "exam"
+    stem: |
+      What does "These repeat visits" refer to, and how is the passage principally organized?
+    choices:
+      - text: "Returns for a missing attachment; problem and solution."
+        correct: true
+      - text: "Visits to collect a completed sample; comparison of two services."
+        rationale: |
+          This links the phrase to a later action. The sample is nearby in the passage. Find what happened before the phrase, then identify the main problem and response.
+      - text: "Staff visits to the reception area; sequence of employee duties."
+        rationale: |
+          This replaces applicants with staff. Reception areas also have workers. Check who returned and why the instructions were changed.
+      - text: "Visits made after revision of the instructions; cause and effect."
+        rationale: |
+          This moves the repeat visits past the change. The passage does include causes. Check that the main movement is from a difficulty to its remedy.
+    explanation: |
+      The applicants returned because an attachment was missing. The passage presents that problem, then gives revised instructions and a sample as the response.
+  - id: "q-comprehension-skills-authors-purpose-tone-pov-0022"
+    lesson: lesson-comprehension-skills-sentence-cues-and-meaning
+    keyPoint: 1
+    passage: "p-comprehension-skills-sentence-cues-and-meaning-gap"
+    type: "authors-purpose-tone-pov"
+    difficulty: "exam"
+    stem: |
+      Which conclusion about the contents is warranted by the report?
+    choices:
+      - text: "Damage remains uncertain."
+        correct: true
+      - text: "The unopened contents have already been proved damaged."
+        rationale: |
+          This turns might into proof. Damage to a parcel may seem likely. Check whether anyone has inspected the contents.
+      - text: "Leo inspected and accepted the contents before speaking."
+        rationale: |
+          This treats a reported concern as a completed inspection. Leo spoke about the contents. Check the statement that he had not opened the parcel.
+      - text: "The contents must be undamaged because they are still unopened."
+        rationale: |
+          This treats lack of inspection as proof of good condition. An unopened parcel may look safe. Check whether the contents themselves have been examined.
+    explanation: |
+      Leo reports possible damage without opening the parcel. Might marks uncertainty. Only the wrapping has been checked, so damage to the contents remains uncertain.
+  - id: "q-comprehension-skills-authors-purpose-tone-pov-0023"
+    lesson: lesson-comprehension-skills-sentence-cues-and-meaning
+    keyPoint: 1
+    passage: "p-comprehension-skills-sentence-cues-and-meaning-gap"
+    type: "authors-purpose-tone-pov"
+    difficulty: "exam"
+    stem: |
+      Which statement correctly interprets "The clerk must inspect the contents before accepting them"?
+    choices:
+      - text: "Inspection is required before acceptance."
+        correct: true
+      - text: "The clerk has already inspected and accepted the contents."
+        rationale: |
+          This turns a duty into a finished action. Must tells what the clerk needs to do. Check for a separate statement that the work was done.
+      - text: "The clerk may accept the contents without any inspection."
+        rationale: |
+          This treats a requirement as optional. May and must give different limits. Read must together with before.
+      - text: "The clerk must accept the contents before checking them."
+        rationale: |
+          This reverses the required order. Both actions appear in the sentence. Check which action comes before the other.
+    explanation: |
+      Must states a requirement. Before places inspection ahead of acceptance. The sentence requires that order.

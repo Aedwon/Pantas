@@ -14,34 +14,50 @@ passages:
     title: "The Shifting Harvest in Isabela"
     body: |
       In this fictional field report, agricultural extension worker Ramon Gomez visited farm plots in Isabela for three consecutive years to document seasonal crop cycles. During his first visit in 2021, local farmers planted traditional wet-season rice varieties in late May, relying on predictable monsoonal rainfall. By 2023, however, Ramon noted that farmers had shifted their planting schedule to early April and substituted traditional seed varieties with short-maturing, drought-tolerant hybrid rice.
-      
+
       Additionally, three farm owners had dug shallow tube wells along the perimeter of their fields and installed solar-powered water pumps. When Ramon reviewed municipal rainfall records, he observed that total annual precipitation had remained constant, but dry spells during the traditional growing months had doubled in duration. Furthermore, local farm cooperatives began purchasing communal crop insurance policies for the first time in their thirty-year history.
-      
+
       Ramon included copies of the rainfall records in his field notes. At the cooperative office, he examined dated planting records, pump invoices, and insurance receipts. The farmers had kept these documents alongside records from his earlier visits.
   - id: "rc-cs-ic-p2"
     title: "Archaeological Finds in Cagayan"
     body: |
       In a fictional excavation report, archaeologists describe a buried settlement layer beside a river. The layer contains earthenware jars, carbonized rice grains, and clay weights used to hold fishing nets in place. The team also recovers stone tools and small metal tokens with designs associated with places beyond the valley. The report does not establish exactly how those tokens arrived.
-      
+
       Testing the rice gives a date range between the tenth and twelfth centuries. Jars lie in orderly rows beside holes left by wooden posts. Most tokens are found near the former riverbank. The team marks each find on a grid map before lifting it from the soil.
-      
+
       No written records are recovered. The team therefore compares the objects and their positions to build a cautious account of life at the site. Food remains and tools offer clues about activities. They do not, by themselves, reveal every occupation, belief, or event in the community's history. Further discoveries could strengthen or change the account.
   - id: "rc-cs-ic-p3"
     title: "Provincial Bus Line Safety Protocol"
     body: |
       In this fictional case study, a bus company changes several policies after reviewing driver work logs. It requires a rest break after four continuous hours of driving. A digital system records driving time and prevents a new departure when the driver has not taken the required break. The system acts before a trip starts; it does not switch off an engine while a bus is moving.
-      
+
       The company also installs speed limiters and replaces payment per completed trip with fixed monthly salaries. Before the changes, drivers sometimes skipped breaks to complete extra trips and earn more. Within six months, passenger complaints about erratic driving decline, and driver turnover becomes more stable.
-      
+
       The report presents these changes together. It does not include a separate test of each policy or a survey of driver satisfaction. Managers believe the reforms address both incentives and working conditions, but the observations do not establish how much each reform contributed. The company continues collecting logs so that it can evaluate the results more carefully over time.
   - id: "p-comprehension-skills-inferencing-and-conclusions-0004"
     title: "The Unopened Envelope"
     body: |
       At the scholarship office, Paolo placed an unopened envelope beside his application. The clerk asked for the original certificate, but he slid forward a photocopy. He said the original was in the envelope and asked whether he could keep it sealed until the final interview. The clerk checked the instructions and explained that she needed to see the original that afternoon.
-      
+
       Paolo looked toward the waiting chairs, then at the clock. He had arrived before the office opened and had asked twice when applications would be accepted. Now he opened the envelope carefully along one edge and took out the certificate. The clerk compared it with the copy and returned it without comment.
-      
+
       As Paolo left, another applicant said she had not brought an original. He pointed to the instruction sheet on the wall and told her where to ask about returning later. The clerk called the next applicant to the desk. Paolo put the certificate back inside the envelope, placed it in his folder, and walked outside.
+  - id: "p-comprehension-skills-necessary-assumptions-gap"
+    title: "Necessary Assumptions"
+    body: |
+      In this fictional proposal, a records officer argues: "The paper slips currently used by our department require staff to type the same information into the register. The proposed online form would place each submitted entry directly into that register. We should replace those slips with the online form to eliminate this repeated typing."
+  - id: "p-comprehension-skills-hinuha-mula-sa-detalye-gap"
+    title: "Hinuha Mula Sa Detalye"
+    body: |
+      Sa kathang ulat na ito, napansin ni Mila na madalas huminto ang mga bisita sa pasilyo upang magtanong ng direksiyon. Naglagay siya ng mga palatandaan sa bawat sangandaan. Inilipat din niya ang talaan ng mga silid sa tabi ng pasukan. Pagkatapos, mas maraming bisita ang nakarating sa tamang silid nang hindi nagtatanong.
+  - id: "p-comprehension-skills-paghatol-at-ebidensya-gap"
+    title: "Paghatol At Ebidensya"
+    body: |
+      Sa kathang ulat na ito, mas maayos ang pagkakabukod ng mga liham sa araw na sinubukan ang mga bagong lalagyan. Gayunman, mga sanay na kawani lamang ang gumamit ng mga ito. Hindi pa nasusubukan ang mga lalagyan ng mga bagong kawani. Sinabi ng pinuno na tiyak na magiging mas maayos ang pagbubukod ng sinumang gagamit nito.
+  - id: "p-comprehension-skills-visual-data-conclusions-gap"
+    title: "Visual Data Conclusions"
+    body: |
+      In this fictional help-desk report, each tally unit represents five visitors. Monday has four tally units, Tuesday has six, and Wednesday has three. The office note states that an extra service window opened the following morning whenever attendance exceeded twenty-five visitors. The report gives no reason for differences in attendance.
 questions:
   - id: "rc-cs-ic-0001"
     lesson: lesson-comprehension-skills-connecting-clues
@@ -488,3 +504,191 @@ questions:
     explanation: |
       Paolo opens the envelope and hands over the certificate. The clerk compares it with the copy, so the original has been presented for inspection.
     approved: false
+  - id: "q-comprehension-skills-inferencing-and-conclusions-0021"
+    lesson: lesson-comprehension-skills-necessary-assumptions
+    keyPoint: 1
+    passage: "p-comprehension-skills-necessary-assumptions-gap"
+    type: "inferencing-and-conclusions"
+    difficulty: "exam"
+    stem: |
+      Which statement is the conclusion that the officer seeks to support?
+    choices:
+      - text: "The department should replace its paper slips."
+        correct: true
+      - text: "Staff currently type information from paper slips into a register."
+        rationale: |
+          This selects a reason for the proposal. It describes the current problem. Look for the action the officer asks the department to take.
+      - text: "The proposed online form would put entries directly into the register."
+        rationale: |
+          This selects a premise about the proposed tool. It explains how the change could help. Find the recommendation supported by that premise.
+      - text: "Every department should remove all paper from every records process."
+        rationale: |
+          This expands the proposal beyond its scope. Replacing slips sounds broad. Check that the officer refers only to those slips and that repeated typing.
+    explanation: |
+      The officer asks the department to replace its paper slips. The statements about repeated typing and direct entry are the reasons for that recommendation.
+  - id: "q-comprehension-skills-inferencing-and-conclusions-0022"
+    lesson: lesson-comprehension-skills-necessary-assumptions
+    keyPoint: 2
+    passage: "p-comprehension-skills-necessary-assumptions-gap"
+    type: "inferencing-and-conclusions"
+    difficulty: "exam"
+    stem: |
+      Which unstated assumption is necessary for the proposed replacement to eliminate the repeated typing described?
+    choices:
+      - text: "Staff will not still need to retype those online entries."
+        correct: true
+      - text: "Every employee prefers entering information online to using paper."
+        rationale: |
+          This makes a preference necessary. Preference could affect support for the plan. Deny the preference and check whether direct entry could still remove the repeated typing.
+      - text: "The online form will also shorten every other task in the department."
+        rationale: |
+          This demands benefits beyond the conclusion. A new tool might help other tasks. Check whether those benefits are needed to remove this typing step.
+      - text: "The department has already destroyed all its unused paper slips."
+        rationale: |
+          This treats an implementation step as a required premise. Old supplies may remain. Check whether their presence alone forces staff to retype online entries.
+    explanation: |
+      If staff must still retype the online entries, direct entry will not remove the repeated typing. The argument needs that extra typing step to be unnecessary.
+  - id: "q-comprehension-skills-inferencing-and-conclusions-0023"
+    lesson: lesson-comprehension-skills-hinuha-mula-sa-detalye
+    keyPoint: 1
+    passage: "p-comprehension-skills-hinuha-mula-sa-detalye-gap"
+    type: "inferencing-and-conclusions"
+    difficulty: "exam"
+    stem: |
+      Ano ang pinakamakatuwirang hinuha tungkol sa layunin ni Mila?
+    choices:
+      - text: "Tulungan ang mga bisitang mahanap ang silid."
+        correct: true
+      - text: "Pigilan ang mga bisitang pumasok sa loob ng gusali."
+        rationale: |
+          Napagkamalang pagbabawal ang paglalagay ng palatandaan. May mga pagbabago sa pasukan. Tingnan kung nakapasok at nakarating ang mga bisita.
+      - text: "Ilipat ang lahat ng tanggapan sa tabi ng pasukan."
+        rationale: |
+          Ginawang paglipat ng silid ang paglipat ng talaan. Magkapareho ang salitang silid sa dalawa. Suriin kung anong bagay ang inilipat.
+      - text: "Palitan ang lahat ng kawani na sumasagot sa mga tanong."
+        rationale: |
+          Nagdagdag ng pasya tungkol sa kawani. Maaaring mabawasan ang pagtatanong. Hindi nito pinatutunayan ang pagpapalit ng tao.
+    explanation: |
+      Ang mga palatandaan at talaan ay tumutulong sa paghanap ng silid. Mas marami ring nakarating nang walang tanong. Sinusuportahan nito ang layuning tulungan ang mga bisita.
+  - id: "q-comprehension-skills-inferencing-and-conclusions-0024"
+    lesson: lesson-comprehension-skills-hinuha-mula-sa-detalye
+    keyPoint: 1
+    passage: "p-comprehension-skills-hinuha-mula-sa-detalye-gap"
+    type: "inferencing-and-conclusions"
+    difficulty: "exam"
+    stem: |
+      Alin ang pinakamahusay na nagpapahayag ng hindi tuwirang pangunahing diwa ng talata?
+    choices:
+      - text: "Mas malinaw na gabay ang tumulong sa mga bisita."
+        correct: true
+      - text: "Ang talaan ng silid ay inilagay sa tabi ng pasukan."
+        rationale: |
+          Tamang detalye ito, pero hindi sakop ang buong talata. Madaling tandaan ang lokasyon. Isama rin sa pangunahing ideya ang mga palatandaan at resulta.
+      - text: "Hindi na kailanman mangangailangan ng tulong ang mga bisita."
+        rationale: |
+          Pinalawak ang resulta hanggang sa lahat ng pagkakataon. Mas marami ang nakarating nang hindi nagtatanong. Suriin kung sinabi ang lahat o kailanman.
+      - text: "Ang paglipat ng lahat ng silid ang nagpabilis sa serbisyo."
+        rationale: |
+          Nagbigay ng pagbabagong hindi ginawa. Inilipat ang talaan, hindi ang mga silid. Ibatay ang diwa sa tunay na mga kilos sa talata.
+    explanation: |
+      Ang mga palatandaan at bagong puwesto ng talaan ay parehong gabay. Ang mas maraming nakarating nang walang tanong ang resultang nag-uugnay sa mga detalyeng ito.
+  - id: "q-comprehension-skills-inferencing-and-conclusions-0025"
+    lesson: lesson-comprehension-skills-paghatol-at-ebidensya
+    keyPoint: 1
+    passage: "p-comprehension-skills-paghatol-at-ebidensya-gap"
+    type: "inferencing-and-conclusions"
+    difficulty: "exam"
+    stem: |
+      Alin ang pinakamakatuwirang pagsusuri sa pahayag ng pinuno?
+    choices:
+      - text: "Kulang ang batayan para sa lahat ng gagamit."
+        correct: true
+      - text: "Napatunayan ang pakinabang para sa bawat bago at sanay na kawani."
+        rationale: |
+          Ginawang sakop ng pagsubok ang hindi sumali. Maganda ang naunang resulta. Tingnan kung sino lamang ang gumamit ng lalagyan.
+      - text: "Napatunayang walang pakinabang ang mga bagong lalagyan."
+        rationale: |
+          Ginawang kawalan ng pakinabang ang limitadong ebidensya. Hindi pa lahat ang nasubukan. Ihiwalay ang kulang na patunay sa patunay na walang bisa.
+      - text: "Tiyak na mas mahusay ang mga bagong kawani kaysa sa mga sanay."
+        rationale: |
+          Naghambing ng mga grupong hindi parehong sinubukan. Parehong nabanggit ang dalawang grupo. Hanapin kung may resulta para sa bawat isa.
+    explanation: |
+      Mga sanay na kawani lamang ang gumamit ng bagong lalagyan. Walang resulta para sa mga bagong kawani. Hindi pa sapat iyon upang sabihing tiyak ang pakinabang para sa sinuman.
+  - id: "q-comprehension-skills-inferencing-and-conclusions-0026"
+    lesson: lesson-comprehension-skills-paghatol-at-ebidensya
+    keyPoint: 1
+    passage: "p-comprehension-skills-paghatol-at-ebidensya-gap"
+    type: "inferencing-and-conclusions"
+    difficulty: "exam"
+    stem: |
+      Aling pasya ang nananatili sa saklaw ng ebidensya?
+    choices:
+      - text: "Mas maayos ang pagbubukod sa isinagawang pagsubok."
+        correct: true
+      - text: "Ang mga lalagyan lamang ang maaaring sanhi ng mas maayos na trabaho."
+        rationale: |
+          Ginawang tiyak na sanhi ang sabay na pagbabago. Maaaring may ambag ang karanasan ng kawani. Tingnan kung naihiwalay ang epekto nito.
+      - text: "Mas maayos ang pagbubukod sa lahat ng araw sa anumang tanggapan."
+        rationale: |
+          Pinalawak ang isang pagsubok sa lahat ng lugar at araw. Maganda ang resulta, pero may hangganan ang saklaw. Hanapin ang panahong may tala.
+      - text: "Mas magulo ang pagbubukod ng lahat ng bagong kawani sa hinaharap."
+        rationale: |
+          Nagbigay ng tiyak na hula para sa grupong hindi sinubukan. Ang kawalan ng tala ay hindi masamang resulta. Suriin kung may batayan sa talata.
+    explanation: |
+      Tuwirang sinabi na mas maayos ang pagbubukod sa araw ng pagsubok. Ang pasyang ito ay tumutukoy lamang sa naobserbahang resulta.
+  - id: "q-comprehension-skills-inferencing-and-conclusions-0027"
+    lesson: lesson-comprehension-skills-visual-data-conclusions
+    keyPoint: 1
+    passage: "p-comprehension-skills-visual-data-conclusions-gap"
+    type: "inferencing-and-conclusions"
+    difficulty: "exam"
+    stem: |
+      The table transcribes the report's tally display. How many more visitors came on Monday and Wednesday combined than on Tuesday?
+
+      | Morning | Tally units |
+      | --- | --- |
+      | Monday | 4 |
+      | Tuesday | 6 |
+      | Wednesday | 3 |
+    choices:
+      - text: "5 visitors"
+        correct: true
+      - text: "2 visitors"
+        rationale: |
+          This subtracts Monday's units from Tuesday's and treats units as visitors. Both days appear in the question, but Wednesday also matters. Combine Monday and Wednesday before comparing visitor totals.
+      - text: "30 visitors"
+        rationale: |
+          This reports Tuesday's total instead of the difference. Six units do equal thirty visitors. Subtract Monday's total before answering.
+      - text: "20 visitors"
+        rationale: |
+          This reports Monday's total instead of the combined difference. Four units do equal twenty visitors. Include Wednesday, then subtract Tuesday's total.
+    explanation: |
+      Monday and Wednesday together have $(4+3)\times5=35$ visitors. Tuesday has $6\times5=30$. The difference is $35-30=5$ visitors.
+  - id: "q-comprehension-skills-inferencing-and-conclusions-0028"
+    lesson: lesson-comprehension-skills-visual-data-conclusions
+    keyPoint: 2
+    passage: "p-comprehension-skills-visual-data-conclusions-gap"
+    type: "inferencing-and-conclusions"
+    difficulty: "exam"
+    stem: |
+      Using the office note and the transcribed data, which listed morning must have had an extra window because of the previous morning's attendance?
+
+      | Morning | Tally units |
+      | --- | --- |
+      | Monday | 4 |
+      | Tuesday | 6 |
+      | Wednesday | 3 |
+    choices:
+      - text: "Wednesday only"
+        correct: true
+      - text: "Monday and Tuesday"
+        rationale: |
+          This opens the window before the qualifying attendance. Monday has twenty visitors, and Tuesday has thirty. Check that the extra window opens the following morning.
+      - text: "Every listed morning"
+        rationale: |
+          This assumes any attendance meets the staffing condition. All three days have visitors. Check the rule requiring more than twenty-five.
+      - text: "None of the mornings"
+        rationale: |
+          This compares unit counts directly with the visitor limit. The counts look smaller than twenty-five. Convert the units, then apply the following-morning rule.
+    explanation: |
+      Monday has $4\times5=20$ visitors, Tuesday has $6\times5=30$, and Wednesday has $3\times5=15$. Only $30>25$. Tuesday's attendance therefore requires the extra window on Wednesday, the following morning.

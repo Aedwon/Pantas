@@ -42,6 +42,10 @@ passages:
       Nag-usap ang mga kasapi at gumawa ng talaan ng magkakaibang gawain. May pangkat na nag-aalaga ng mga punla, may naglilinis ng paligid, at may sumusuri kung kailangan ng tubig ang lupa. Nagpalitan din sila ng tungkulin upang matutuhan ng bawat isa ang mga gawaing dati ay hindi niya kayang gawin. Hindi lahat ng halaman ay tumubo nang maayos, ngunit hindi na humihinto ang pag-aalaga kapag may isang kasaping wala.
       
       Sa pagtatapos ng buwan, ipinakita nila ang talaan sa kanilang guro. Mas marami nang kasapi ang nakapagpapaliwanag ng kanilang ginawa. Para sa grupo, ang gulayan ay naging pagsasanay sa pananagutan. Nagpapatuloy ang isang gawaing sama-sama kapag malinaw ang tungkulin at naibabahagi ang kaalaman.
+  - id: "p-comprehension-skills-balangkas-at-ugnayan-gap"
+    title: "Balangkas At Ugnayan"
+    body: |
+      Sa kathang ulat na ito, binago ng tanggapan ang paraan ng pagtanggap ng mga tanong. Inilagay nito sa pisara ang mga sagot sa karaniwang tanong. Naglaan din ito ng hiwalay na mesa para sa mas masalimuot na usapin. Dahil dito, hindi na kailangang ulitin ng kawani ang parehong paliwanag sa bawat bisita.
 questions:
   - id: "rc-cs-mi-0001"
     lesson: lesson-comprehension-skills-main-idea-across-paragraphs
@@ -488,3 +492,47 @@ questions:
     explanation: |
       The passage describes one garden project. Claiming that cooperation solves every school problem reaches beyond that evidence.
     approved: false
+  - id: "q-comprehension-skills-main-idea-0021"
+    lesson: lesson-comprehension-skills-balangkas-at-ugnayan
+    keyPoint: 1
+    passage: "p-comprehension-skills-balangkas-at-ugnayan-gap"
+    type: "main-idea"
+    difficulty: "exam"
+    stem: |
+      Aling balangkas ang pinakamahusay na nagpapakita ng ugnayan ng pangunahing ideya at mga detalye?
+    choices:
+      - text: "Pagbabago sa pagtanggap ng tanong: pisara at hiwalay na mesa."
+        correct: true
+      - text: "Paglalagay ng pisara: pagbabago ng tanggapan at hiwalay na mesa."
+        rationale: |
+          Ginawang pangunahing ideya ang isang detalye. Mahalaga ang pisara, pero hindi nito sakop ang mesa. Hanapin ang ideyang sakop ang parehong paraan.
+      - text: "Pagtatayo ng tanggapan: pagdating ng bisita at pagkuha ng kawani."
+        rationale: |
+          Nagdagdag ito ng mga gawaing wala sa ulat. Maaaring kailangan ang mga ito sa isang tanggapan. Tingnan kung talagang sinabi ang mga ito.
+      - text: "Pagbawas ng mga bisita: pagtanggal ng pisara at pagsasara ng mesa."
+        rationale: |
+          Napagpalit ang bunga at mga paraan. Walang sinabing pagbawas ng bisita. Basahin kung ano ang inilagay at inilaan.
+    explanation: |
+      Ang pagbabago sa pagtanggap ng tanong ang pangunahing ideya. Ang pisara at hiwalay na mesa ang mga paraang nagpapaliwanag dito.
+  - id: "q-comprehension-skills-main-idea-0022"
+    lesson: lesson-comprehension-skills-balangkas-at-ugnayan
+    keyPoint: 2
+    passage: "p-comprehension-skills-balangkas-at-ugnayan-gap"
+    type: "main-idea"
+    difficulty: "exam"
+    stem: |
+      Sa pag-aayos ng talata, bakit dapat sumunod ang pangungusap na nagsisimula sa "Dahil dito" sa paglalarawan ng pisara at mesa?
+    choices:
+      - text: "Ibinibigay nito ang bunga ng mga pagbabagong iyon."
+        correct: true
+      - text: "Ipinapakilala nito ang sanhi ng unang pagtatayo ng tanggapan."
+        rationale: |
+          Ginawang sanhi ang isang bunga. Maaaring sumagot sa bakit ang parirala, pero dito ay resulta ang kasunod. Tukuyin ang tinutukoy ng dito.
+      - text: "Ipinapakita nito na magkasalungat ang pisara at hiwalay na mesa."
+        rationale: |
+          Napagkamalang pagsalungat ang pag-uugnay. Magkaibang paraan ang dalawa, pero pareho ang layunin. Hanapin ang salitang nagpapakita ng resulta.
+      - text: "Inilalarawan nito ang pangyayaring naganap bago ang lahat ng pagbabago."
+        rationale: |
+          Inuna ang bunga sa mga sanhi nito. Maaaring hindi ayon sa oras ang lahat ng talata. Dito, kailangan munang malaman kung anong pagbabago ang tinutukoy.
+    explanation: |
+      Ang dito ay tumutukoy sa mga paraang kababanggit. Ang hindi na pag-uulit ng paliwanag ang bunga ng mga pagbabagong iyon.
