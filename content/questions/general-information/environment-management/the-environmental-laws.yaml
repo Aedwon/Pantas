@@ -614,3 +614,69 @@ questions:
   explanation: 'An ECC is the decision document resulting from review under the Philippine EIS System for a covered project.
 
     '
+
+- id: q-environment-management-the-environmental-laws-0021
+  lesson: lesson-environment-management-critical-area-review
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A proposed facility is not classified as an Environmentally Critical Project. Its site lies in a watershed reserve. Which conclusion is most appropriate for environmental screening?
+  choices:
+  - text: "The location still requires a coverage check."
+    correct: true
+  - text: "Only the project type matters once the facility is found not to be an ECP."
+    rationale: |
+      This leaves out location-based coverage. The ECP finding may seem to finish the review. Check the site for an ECA classification too.
+  - text: "A watershed reserve becomes an ECP because of the features of its location."
+    rationale: |
+      This mixes up project type and location. Both can lead to review. Check whether the label describes the project or the place.
+  - text: "A site must be both an ECP and an ECA before any coverage check is needed."
+    rationale: |
+      This makes the tests depend on each other. Both labels appear in project review. Check each basis for coverage on its own.
+  explanation: |
+    PD 1586, Section 4 allows environmentally critical areas to be declared for project review. Proclamation 2146, Part II lists watershed reserves. The location must still be checked under the applicable coverage rules.
+
+- id: q-environment-management-the-environmental-laws-0022
+  lesson: lesson-environment-management-critical-area-review
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    An environmental screening report identifies an aquifer recharge area. The proponent argues that only the type of construction can affect EIS coverage. Which response best addresses this claim?
+  choices:
+  - text: "Site features can also affect coverage."
+    correct: true
+  - text: "Recharge areas concern project type rather than the place where work occurs."
+    rationale: |
+      This treats a feature of land as a kind of construction. Both are used in screening. Check whether the feature describes where the project will be built.
+  - text: "Only a project inside a national park can have location-based coverage."
+    rationale: |
+      This treats one listed area as the whole list. National parks are familiar protected places. Check the other ECA categories, including recharge areas.
+  - text: "Every water body has the same classification as an aquifer recharge area."
+    rationale: |
+      This gives all water-related places one label. They may seem alike because they involve water. Check the listed conditions for the particular place.
+  explanation: |
+    PD 1586, Section 4 provides for declaring environmentally critical areas. Proclamation 2146, Part II includes recharge areas of aquifers. Screening must consider the site as well as the project type.
+
+- id: q-environment-management-the-environmental-laws-0023
+  lesson: lesson-environment-management-solid-waste-law
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A local waste report records separate collection of food scraps and paper. It also records that all collected waste went to final disposal without recovery or processing. What does the report establish?
+  choices:
+  - text: "Segregation occurred, but diversion was not shown."
+    correct: true
+  - text: "Separate collection establishes diversion even when all waste reaches final disposal."
+    rationale: |
+      This counts sorting as diversion. Separate collection looks like progress. Check whether any waste was kept away from final disposal.
+  - text: "The food scraps were composted because they were collected in separate containers."
+    rationale: |
+      This assumes a treatment that was not done. Food scraps can be composted. Check for controlled breakdown, not just a separate bin.
+  - text: "The paper was recycled because workers separated it before sending it for disposal."
+    rationale: |
+      This assumes material recovery from sorting alone. Paper can be recycled. Check whether it was recovered for useful use.
+  explanation: |
+    RA 9003, Section 3 defines segregation and waste diversion. Diversion keeps waste away from disposal through actions such as reuse, recycling, or composting. The report shows separation but no waste kept away from disposal.

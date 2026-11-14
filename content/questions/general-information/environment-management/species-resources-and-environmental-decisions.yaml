@@ -446,3 +446,25 @@ questions:
   explanation: |
     The alternative area keeps visitor access available. Limiting access reduces disturbance at the breeding site. Repairing that habitat helps it support wildlife again.
   approved: false
+
+- id: q-environment-management-species-resources-and-environmental-decisions-0021
+  lesson: lesson-environment-management-protected-area-management
+  keyPoint: 3
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A site outside NIPAS contains threatened wildlife. A planning officer says the site cannot receive critical-habitat protection because it is outside a protected area. Which conclusion is correct?
+  choices:
+  - text: "Critical-habitat protection can apply outside NIPAS."
+    correct: true
+  - text: "The site must first become a NIPAS wildlife sanctuary before critical-habitat protection can apply."
+    rationale: |
+      This makes NIPAS status a required first step. Both tools protect habitats. Check the separate provision for critical habitats outside protected areas.
+  - text: "Being outside NIPAS allows harmful wildlife use until the site becomes a protected area."
+    rationale: |
+      This treats one system as the only source of protection. NIPAS is a major system. Check whether wildlife law also protects the site.
+  - text: "A critical habitat and a NIPAS wildlife sanctuary are the same legal designation."
+    rationale: |
+      This gives different tools one label. Both can protect wildlife. Check which law and designation each tool uses.
+  explanation: |
+    RA 9147, Section 25 provides for critical habitats outside existing protected areas where threatened species are found. This is a different tool from NIPAS under RA 7586, as amended by RA 11038.

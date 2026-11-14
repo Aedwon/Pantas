@@ -506,3 +506,25 @@ questions:
   explanation: |
     The supplies help people in need. They are reviewed and accepted for that purpose without a sought private gain. The organization-donation exception does not state the no-transaction condition used for nominal donations from persons. The pending application alone does not defeat it.
   approved: false
+
+- id: q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0017
+  lesson: lesson-code-of-conduct-ra-6713-prohibitions-family-gifts-and-relatives
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    At a family celebration, an employee receives a gift from a first cousin. No financial benefit or official favor is expected. Which assessment follows the stated family-gift exception?
+  choices:
+  - text: "The gift meets the family-celebration conditions."
+    correct: true
+  - text: "The gift is excluded from the exception because a first cousin is outside the fourth civil degree."
+    rationale: |
+      This counts the family steps incorrectly. A cousin can seem distant. Count up to the shared grandparent and down to the cousin.
+  - text: "The exception requires a financial benefit to be expected because the donor is a relative."
+    rationale: |
+      This reverses a condition of the exception. Family members may give valuable gifts. Check that no financial gain or benefit is expected.
+  - text: "The exception covers family friends and relatives on the same basis because the occasion is a celebration."
+    rationale: |
+      This treats friendship as a legal relationship. Friends may join a family event. Check the Code's definition of covered relatives.
+  explanation: |
+    RA 6713, Section 3(k) includes relatives within the fourth civil degree. A first cousin is in that degree. The implementing rules, Rule X, Section 1(f)(2), cover a relative's gift at a family celebration without expected financial gain or benefit.

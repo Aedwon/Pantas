@@ -391,3 +391,69 @@ questions:
     explanation: |
       Overlooking poor work can lead to costly repairs. Those repairs leave less money for other facilities. Residents can lose services and trust in officials. People outside the payoff can also be harmed.
     approved: false
+
+  - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0021
+    lesson: lesson-code-of-conduct-ra-6713-corruption-plunder-and-kickbacks
+    keyPoint: 2
+    type: evaluate-corruption-harm
+    difficulty: exam
+    stem: |
+      A public officer receives a private payoff for arranging a government deal. A colleague argues that the transaction concerns only the payer and the officer. Which consideration best addresses the argument?
+    choices:
+    - text: "The payoff can harm public services and fair treatment."
+      correct: true
+    - text: "Only the officer's personal spending matters when deciding whether the deal harms the public."
+      rationale: |
+        This leaves out effects on other people. A private payment can look like a personal matter. Check who may lose services or fair treatment.
+    - text: "The public cannot be harmed unless every resident directly hands money to the officer."
+      rationale: |
+        This requires direct payment by each person harmed. That can seem like the clearest loss. Check whether the deal can deny people needed help.
+    - text: "A payoff becomes harmless if the officer and the payer both benefit from their arrangement."
+      rationale: |
+        This counts only the people making the deal. Their gain can hide wider harm. Check how the arrangement affects the public.
+    explanation: |
+      A private payoff for arranging a deal is a kickback. RA 7080, Section 1(d) includes project kickbacks among covered means of gaining ill-gotten wealth. Such payoffs can leave others without needed services or fair treatment.
+
+  - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0022
+    lesson: lesson-code-of-conduct-ra-6713-corruption-red-tape-and-fixers
+    keyPoint: 1
+    type: corruption-definition
+    difficulty: exam
+    stem: |
+      A government office has ineffective procedures that repeatedly delay service. The record contains no evidence of a demand for money or another benefit. Which conclusion is best supported?
+    choices:
+    - text: "The delay may be red tape; a payoff is not proved."
+      correct: true
+    - text: "The repeated delay by itself proves that an employee has accepted money from a fixer."
+      rationale: |
+        This treats poor service as proof of a payment. Repeated delay can seem suspicious. Check for evidence of a demand or benefit.
+    - text: "Ineffective procedures count as fixing even without access used to secure a paid advantage."
+      rationale: |
+        This confuses red tape with fixing. Both affect processing. Check whether access is used to speed a transaction for a benefit.
+    - text: "The lack of proof of a payoff establishes that the office's procedures provide effective service."
+      rationale: |
+        This treats no proven corruption as proof of good service. The two issues are different. Check whether the procedures still cause poor service.
+    explanation: |
+      RA 9485, Section 4, as amended by RA 11032, distinguishes red tape from fixing. Ineffective procedures can cause poor service. Delay alone does not prove that anyone sought or received a payoff.
+
+  - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0023
+    lesson: lesson-code-of-conduct-ra-6713-corruption-state-response
+    keyPoint: 3
+    type: public-office-public-trust
+    difficulty: exam
+    stem: |
+      During an anti-corruption review, an official's sworn SALN is examined. What is the main value of this record for public accountability?
+    choices:
+    - text: "It makes reported wealth and debts open to checks."
+      correct: true
+    - text: "It establishes criminal guilt whenever a complaint mentions the official's personal wealth."
+      rationale: |
+        This treats a financial record as a verdict. The record may help a review. Check whether the alleged offense has actually been proved.
+    - text: "It replaces investigation because filing the statement proves that every reported asset is lawful."
+      rationale: |
+        This treats filing as proof of lawful ownership. A sworn statement carries weight. Check the contents and supporting records instead.
+    - text: "It removes the need to report debts because accountability concerns only assets that are owned."
+      rationale: |
+        This leaves out liabilities. Assets may draw more attention. Check both what the official owns and what the official owes.
+    explanation: |
+      Article XI, Section 17 of the Constitution requires sworn financial declarations. A SALN reports assets, liabilities, and net worth. These records make reported wealth and debts available for checking.

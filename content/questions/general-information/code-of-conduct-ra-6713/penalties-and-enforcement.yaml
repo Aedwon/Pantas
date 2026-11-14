@@ -531,3 +531,135 @@ questions:
   explanation: 'The general fine is capped at six months'' salary. The criminal fine specified for Sections 7, 8, or 9 is capped at P5,000. These are distinct statutory measures.
 
     '
+
+- id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0021
+  lesson: lesson-code-of-conduct-ra-6713-penalties-confidential-information-proof
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    An administrative body finds substantial evidence that an officer disclosed confidential office information for private benefit. In a separate criminal case, the court retains reasonable doubt about the officer's purpose. Which conclusion follows the different proof standards?
+  choices:
+  - text: "Criminal acquittal can coexist with administrative discipline."
+    correct: true
+  - text: "The administrative finding requires criminal conviction because both cases involve the same disclosure."
+    rationale: |
+      This gives both cases one proof standard. They concern the same act. Check the level of proof each case requires.
+  - text: "The criminal court must convict once substantial evidence has been accepted by the administrative body."
+    rationale: |
+      This uses the lower standard for criminal punishment. The evidence may support discipline. Check for proof beyond reasonable doubt in the criminal case.
+  - text: "Reasonable doubt in the criminal case automatically cancels the separate administrative finding."
+    rationale: |
+      This treats acquittal as a decision under both standards. Both cases involve the officer. Check that administrative discipline uses substantial evidence.
+  explanation: |
+    RA 6713, Section 7(c) requires protected office information and a prohibited purpose. Rule 133, Sections 2 and 6 set different proof standards. Criminal guilt needs proof beyond reasonable doubt. Administrative discipline may rest on substantial evidence, so the findings can differ.
+
+- id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0022
+  lesson: lesson-code-of-conduct-ra-6713-penalties-conspiracy-and-principals
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A private technician and a public officer agree and decide to carry out a criminal Code violation involving confidential records. The technician knowingly provides help without which the act could not occur. If the violation and participation are proved, which assessment applies?
+  choices:
+  - text: "The technician can be a co-principal."
+    correct: true
+  - text: "The technician cannot have criminal liability under the Code because only public workers may be tried."
+    rationale: |
+      This excludes private participants. The Code mainly addresses public workers. Check Section 11(c) for people who conspire with them.
+  - text: "The technician's conduct shows only knowledge of a plan, even though the technician agreed and supplied essential help."
+    rationale: |
+      This ignores agreement and action. Knowledge alone is not conspiracy. Check the added decision to commit the act and the essential help.
+  - text: "The technician can be tried only apart from the officer because private and public participants cannot be joined."
+    rationale: |
+      This separates people the Code says are tried together. Their employment differs. Check the rule for private participants in the conspiracy.
+  explanation: |
+    RA 6713, Section 11(c) covers private people who conspire as co-principals with public workers. Revised Penal Code Articles 8 and 17 describe agreement, decision, and essential help. The stated acts fit those requirements, with the same penal liabilities and joint trial.
+
+- id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0023
+  lesson: lesson-code-of-conduct-ra-6713-penalties-enforcement-and-protection
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    The CSC receives evidence of a suspected criminal Code violation that falls within the Sandiganbayan's authority. Which division of roles is correct?
+  choices:
+  - text: "The CSC refers; the Ombudsman investigates; the court tries."
+    correct: true
+  - text: "The CSC decides criminal guilt, while the Sandiganbayan only forwards the complaint for administrative review."
+    rationale: |
+      This swaps enforcement and trial. The CSC enforces the Code. Check that courts decide criminal guilt.
+  - text: "The Sandiganbayan acts as the national administrative agency, while the CSC prosecutes every criminal case."
+    rationale: |
+      This treats a court as an administrative agency. Both handle legal cases. Check each body's separate authority.
+  - text: "The Ombudsman's preliminary investigation itself establishes criminal guilt without a court trial."
+    rationale: |
+      This treats a charging review as a verdict. An investigation may support a case. Check that it does not decide guilt.
+  explanation: |
+    RA 6713, Section 12 gives the CSC primary Code enforcement responsibility and directs referral of cases needing prosecution. RA 6770, Section 15(1) authorizes Ombudsman investigation and prosecution. The Sandiganbayan tries cases within its authority.
+
+- id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0024
+  lesson: lesson-code-of-conduct-ra-6713-penalties-enforcement-and-protection
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A citizen who reported a Code violation receives threats and requests protection. Which statement accurately describes the statutory duty?
+  choices:
+  - text: "The Ombudsman must take protective steps."
+    correct: true
+  - text: "The CSC must give the citizen automatic immunity from every legal claim related to the report."
+    rationale: |
+      This turns protection into unlimited immunity and assigns it to the wrong body. The CSC enforces the Code. Check the Ombudsman's specific protection duty.
+  - text: "The Sandiganbayan must treat the report itself as proof of guilt to prevent retaliation."
+    rationale: |
+      This substitutes a verdict for protection. A court may hear the case. Check that a report alone does not establish guilt.
+  - text: "The Ombudsman can investigate the report but has no stated duty concerning protection of its citizen reporter."
+    rationale: |
+      This leaves out the protection duty. Investigation is a familiar Ombudsman role. Check the separate duty to protect citizens who report violations.
+  explanation: |
+    RA 6713, Section 12 directs the Ombudsman to take steps to protect citizens who report Code violations by public officials and employees. The citizen may raise the threats and request that protection.
+
+- id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0025
+  lesson: lesson-code-of-conduct-ra-6713-penalties-review-of-decisions
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    The CSC issues a disciplinary decision. After any required administrative review, the employee seeks court review of that CSC ruling. Which filing matches the route taught in the lesson?
+  choices:
+  - text: "A verified Rule 43 petition in the Court of Appeals."
+    correct: true
+  - text: "A new criminal complaint in the Sandiganbayan seeking reversal of the CSC disciplinary ruling."
+    rationale: |
+      This uses a criminal case to review an administrative ruling. The Sandiganbayan hears certain criminal cases. Check the review route for a CSC disciplinary decision.
+  - text: "An unverified request sent directly to the Court of Appeals without the required petition."
+    rationale: |
+      This leaves out verification and the required filing. The court is the right destination. Check that the petition must be confirmed under oath.
+  - text: "A motion asking the Court of Appeals to reconsider the CSC's decision as if the court had issued it."
+    rationale: |
+      This confuses appeal with reconsideration. Both ask for review. Check whether the deciding body or a higher body is being asked to act.
+  explanation: |
+    Rule 43, Sections 1 and 5 provide review of CSC decisions by verified petition in the Court of Appeals. The petition is a written request confirmed under oath. The route applies to the stated CSC disciplinary ruling.
+
+- id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0026
+  lesson: lesson-code-of-conduct-ra-6713-penalties-review-of-decisions
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    The CSC denies a timely motion for reconsideration in a disciplinary case. The employee has a lawyer. What ordinarily starts the Rule 43 filing period for court review?
+  choices:
+  - text: "Notice to counsel of the denial."
+    correct: true
+  - text: "The date the citizen first complained, even though no disciplinary ruling existed at that time."
+    rationale: |
+      This starts court review before a decision. The complaint begins the dispute. Check the notice tied to the decision being reviewed.
+  - text: "The date the employee first learned of the charge, regardless of notice of the later denial."
+    rationale: |
+      This uses notice of the charge for a later review period. Both are notices in the case. Check which ruling the petition will challenge.
+  - text: "The date the employee personally reads the denial, even if counsel already received notice earlier."
+    rationale: |
+      This ignores notice to the party's lawyer. Personal receipt may seem the clearest notice. Check the effect of representation by counsel.
+  explanation: |
+    Rule 43, Section 4 gives the ordinary 15-day period from notice of the decision or denial of a timely motion for reconsideration. For a represented party, notice to counsel matters. The stated denial starts that ordinary review period upon notice to counsel.

@@ -439,3 +439,69 @@ questions:
   explanation: |
     The general rule bars certain job recommendations to businesses dealing with the office. The rules allow referrals required by assigned public duties. The stated referral meets that exception.
   approved: false
+
+- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0031
+  lesson: lesson-code-of-conduct-ra-6713-duties-after-leaving-office
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A retired officer recommends a friend for employment at a private enterprise with a pending transaction before the former office. The officer retired six months ago. No law, agreement, or assigned duty requires the recommendation. Which conclusion follows the Code?
+  choices:
+  - text: "The recommendation remains prohibited."
+    correct: true
+  - text: "Retirement ended the restriction because the officer no longer receives a government salary."
+    rationale: |
+      This treats departure as the end of the ban. The officer is no longer in service. Check whether the restriction continues after departure.
+  - text: "The restriction covers ownership interests but does not cover job recommendations after retirement."
+    rationale: |
+      This leaves out the recommendation ban. Business ownership may seem the main concern. Check the activity and the rule that continues to apply.
+  - text: "A recommendation is allowed during the restricted period if it concerns a friend rather than the officer."
+    rationale: |
+      This treats a benefit for a friend as exempt. The officer is not seeking the job personally. Check that the rule covers recommendations to such enterprises.
+  explanation: |
+    RA 6713, Section 7(b) continues the covered recommendation ban for one year after retirement or resignation. Six months is within that period. With a pending transaction and no stated exception, the recommendation remains prohibited.
+
+- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0032
+  lesson: lesson-code-of-conduct-ra-6713-duties-code-coverage
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A temporary appointee in a subsidiary of a government-owned corporation argues that RA 6713 covers only permanent employees of national departments. Which assessment is correct?
+  choices:
+  - text: "The Code covers the appointee."
+    correct: true
+  - text: "The Code excludes the appointee because a temporary post is outside both career and non-career coverage."
+    rationale: |
+      This treats temporary service as excluded. Permanent posts may seem the normal case. Check that the Code includes temporary workers too.
+  - text: "The Code excludes the appointee because subsidiaries are outside its definition of government."
+    rationale: |
+      This leaves out government-corporation subsidiaries. The company form may look private. Check the Code's definition of government.
+  - text: "The Code covers the appointee only after the position becomes a permanent national-department post."
+    rationale: |
+      This adds conditions the definition does not require. National departments are familiar offices. Check the wider scope of covered public workers.
+  explanation: |
+    RA 6713, Section 3(a) includes government-owned or controlled corporations and their subsidiaries. Section 3(b) includes permanent and temporary public workers. The appointee falls within that coverage.
+
+- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0033
+  lesson: lesson-code-of-conduct-ra-6713-duties-fair-disciplinary-process
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A citizen alleges that an employee failed to reply to a written request. The employee offers a dated reply showing action taken. What should the disciplinary authority do before imposing a penalty?
+  choices:
+  - text: "Give notice and a fair chance to present evidence."
+    correct: true
+  - text: "Impose a penalty once the complaint is received because an accusation establishes failure to reply."
+    rationale: |
+      This treats a complaint as proof. A citizen's report starts the review. Check the records and hear the employee's answer before deciding.
+  - text: "Reject the employee's reply without review because only the complainant may submit evidence."
+    rationale: |
+      This denies a fair chance to answer. The complaint may seem to control the case. Check evidence from both sides.
+  - text: "Treat unfinished work as conclusive proof that no reply was sent, regardless of the dated record."
+    rationale: |
+      This confuses completing work with sending a reply. The request may remain unfinished. Check the dated reply and what action it reports.
+  explanation: |
+    RA 6713, Section 11(a) requires due notice and hearing by the proper body before a penalty. The employee must have a fair chance to answer and present evidence. The authority must examine the dated reply under the applicable process.

@@ -531,3 +531,25 @@ questions:
   explanation: 'Commitment to democracy includes public accountability. Officials must answer to the people for how they use public power and resources.
 
     '
+
+- id: q-code-of-conduct-ra-6713-norms-of-conduct-0021
+  lesson: lesson-code-of-conduct-ra-6713-norms-simple-living-and-rewards
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    An agency nominates an employee for outstanding ethical service under RA 6713. Which statement accurately describes the statutory recognition system?
+  choices:
+  - text: "An annual awards system recognizes outstanding service."
+    correct: true
+  - text: "The system guarantees automatic promotion to every nominee without checking legal conditions."
+    rationale: |
+      This removes the conditions for promotion. Promotion is a possible reward. Check whether the employee meets the legal conditions.
+  - text: "The system limits recognition to cash bonuses and excludes scholarships and citations."
+    rationale: |
+      This narrows the possible rewards. Bonuses are one familiar benefit. Check the other forms of recognition listed in the law.
+  - text: "The system provides recognition only after a worker has been found guilty in a disciplinary case."
+    rationale: |
+      This confuses rewards with penalties. Both appear in the Code. Check that awards encourage outstanding ethical service.
+  explanation: |
+    RA 6713, Section 6 establishes an annual system of incentives and rewards for outstanding public officials and employees. The Committee on Awards reviews performance and gives recognition using the law's standards.
