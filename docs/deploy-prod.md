@@ -350,3 +350,35 @@ Signs: the app stops working for everyone on that project; an alarm email from C
      minutes (staging: 34 and 5 minutes). The app pages, sign-in, the database and uploads work at once.
   5. Check all functions (list and POST, above). Then post the outage window in the launch log.
 
+
+## 14. Cloudflare serves the web app (since Nov 14, 2026)
+
+`staging.pantas.study` (since 10:34 UTC) and `app.pantas.study` (since 18:40 UTC) are served by
+Cloudflare Workers (`pantas-app-staging`, `pantas-app`) from static assets, free and unlimited, instead
+of Firebase Hosting, which bills every byte (security audit S-01). Code and tools:
+`tool/cloudflare-app/` (branch `web/security-cloudflare-r1` until merged). Plan:
+`docs/superpowers/plans/security-audit/2026-11-14-cloudflare-static-files-plan.md`.
+
+- The Worker script runs only for `/__/*`, Firebase's sign-in pages and config, and forwards them to
+  Firebase (prod: `pantas-prod.firebaseapp.com`; staging: `pantas-staging-app.web.app`). Everything else
+  is a static file, with `index.html` for app routes. Headers match what Firebase sent (`headers.prod`,
+  `headers.staging`).
+- **Every web deploy now has two parts.** Deploy to Firebase Hosting as before, then publish the same
+  files to the Worker:
+  1. `node tool/cloudflare-app/mirror.mjs <site> <project> <dir>` (prod: `pantas-prod pantas-prod`;
+     staging: `pantas-staging-app pantas-staging`), which copies the live Firebase release byte for byte;
+     or use the local `build/web` directly.
+  2. `tool/cloudflare-app/deploy.sh prod|staging <dir>` (wrangler login on Aedwon's Mac).
+  3. Wait a minute: right after a Worker deploy, some files can return 404 for under a minute while
+     Cloudflare's servers update. Then run
+     `node tool/cloudflare-app/compare.mjs <firebase site URL> https://<host> tool/cloudflare-app/dist <web api key>`
+     and require every path to match.
+  A Firebase-only deploy no longer reaches users.
+- **Rollback** (about a minute): detach the Worker's custom domain (Cloudflare Workers, the Worker,
+  Settings, Domains; or the API), then add back the DNS-only CNAME `app.pantas.study` →
+  `pantas-prod.web.app` (staging: `staging.pantas.study` → `pantas-staging-app.web.app`), TTL auto.
+  Firebase still holds the full build until the tiny page below.
+- **The tiny Firebase page** (closes S-01 on `pantas-prod.web.app`): only after 48 clean hours and one
+  confirmed real Google sign-in on prod from the logs (Fable 5.2 ruling A). The integrator deploys it.
+- **Free-plan limit:** requests that run the Worker script (`/__/*` only) count against 100,000 a day;
+  above that, new sign-ins fail with 429 until midnight UTC. Static files are unaffected.
