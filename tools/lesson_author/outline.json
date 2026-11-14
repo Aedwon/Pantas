@@ -1026,6 +1026,71 @@
           "slug": "philippine-constitution",
           "lessons": [
             {
+              "title": "Article III: Due Process and Equal Protection",
+              "slug": "bill-of-rights-due-process-and-equal-protection",
+              "sections": []
+            },
+            {
+              "title": "Article III: Search and Arrest Warrants",
+              "slug": "bill-of-rights-search-and-arrest-warrants",
+              "sections": []
+            },
+            {
+              "title": "Article III: Arrest in an Officer's Presence",
+              "slug": "bill-of-rights-arrest-in-an-officers-presence",
+              "sections": []
+            },
+            {
+              "title": "Article III: Hot-Pursuit Arrests",
+              "slug": "bill-of-rights-hot-pursuit-arrests",
+              "sections": []
+            },
+            {
+              "title": "Article III: Consent and Private Messages",
+              "slug": "bill-of-rights-consent-and-private-messages",
+              "sections": []
+            },
+            {
+              "title": "Article III: Expression and Public Action",
+              "slug": "bill-of-rights-expression-and-public-action",
+              "sections": []
+            },
+            {
+              "title": "Article III: Religion, Abode, and Travel",
+              "slug": "bill-of-rights-religion-abode-and-travel",
+              "sections": []
+            },
+            {
+              "title": "Article III: Information and Association",
+              "slug": "bill-of-rights-information-and-association",
+              "sections": []
+            },
+            {
+              "title": "Article III: Property, Courts, and Investigation",
+              "slug": "bill-of-rights-property-courts-and-investigation",
+              "sections": []
+            },
+            {
+              "title": "Article III: Bail, Trial, and Testimony",
+              "slug": "bill-of-rights-bail-trial-and-testimony",
+              "sections": []
+            },
+            {
+              "title": "Article III: Detention and Punishment",
+              "slug": "bill-of-rights-detention-and-punishment",
+              "sections": []
+            },
+            {
+              "title": "Article III: Double Jeopardy",
+              "slug": "bill-of-rights-double-jeopardy",
+              "sections": []
+            },
+            {
+              "title": "Article III: Prohibited Laws",
+              "slug": "bill-of-rights-prohibited-laws",
+              "sections": []
+            },
+            {
               "title": "Article III, Part 2: Property, Court Access, and Persons in Custody",
               "slug": "bill-of-rights-property-courts-and-custody",
               "sections": []
@@ -1051,8 +1116,23 @@
               "sections": []
             },
             {
-              "title": "Article XVII: Amending and Revising the Constitution",
-              "slug": "amending-and-revising-the-constitution",
+              "title": "Article XVII: Amendment or Revision",
+              "slug": "amendment-or-revision",
+              "sections": []
+            },
+            {
+              "title": "Article XVII: Congress and Constitutional Conventions",
+              "slug": "congress-and-constitutional-conventions",
+              "sections": []
+            },
+            {
+              "title": "Article XVII: People's Initiative",
+              "slug": "peoples-initiative",
+              "sections": []
+            },
+            {
+              "title": "Article XVII: Ratification and Plebiscites",
+              "slug": "ratification-and-plebiscites",
               "sections": []
             }
           ]

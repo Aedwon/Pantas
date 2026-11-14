@@ -300,14 +300,6 @@
    }
   ],
   "lesson-philippine-constitution-accountability-and-impeachment": [],
-  "lesson-philippine-constitution-amending-and-revising-the-constitution": [
-   {
-    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
-    "strength": "helpful",
-    "reason": "The worked examples assume fraction multiplication and percentage-to-decimal conversion. This lesson does not teach those operations. Lead review: downgraded from required; the arithmetic is incidental to this lesson's teaching."
-   }
-  ],
-  "lesson-philippine-constitution-bill-of-rights": [],
   "lesson-philippine-constitution-bill-of-rights-property-courts-and-custody": [],
   "lesson-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws": [
    {
@@ -493,6 +485,119 @@
   "lesson-data-interpretation-inverse-proportion-and-ratio-parts": [
    {
     "lesson": "lesson-data-interpretation-unit-rates-and-direct-proportion",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-due-process-and-equal-protection": [],
+  "lesson-philippine-constitution-bill-of-rights-search-and-arrest-warrants": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-due-process-and-equal-protection",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-arrest-in-an-officers-presence": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-search-and-arrest-warrants",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-hot-pursuit-arrests": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-arrest-in-an-officers-presence",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-consent-and-private-messages": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-hot-pursuit-arrests",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-expression-and-public-action": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-consent-and-private-messages",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-religion-abode-and-travel": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-expression-and-public-action",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-information-and-association": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-religion-abode-and-travel",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-property-courts-and-investigation": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-information-and-association",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-bail-trial-and-testimony": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-property-courts-and-investigation",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-double-jeopardy": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-detention-and-punishment",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-amendment-or-revision": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "strength": "helpful",
+    "reason": "The worked examples assume fraction multiplication and percentage-to-decimal conversion. This lesson does not teach those operations. Lead review: downgraded from required; the arithmetic is incidental to this lesson's teaching."
+   }
+  ],
+  "lesson-philippine-constitution-congress-and-constitutional-conventions": [
+   {
+    "lesson": "lesson-philippine-constitution-amendment-or-revision",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-peoples-initiative": [
+   {
+    "lesson": "lesson-philippine-constitution-congress-and-constitutional-conventions",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-ratification-and-plebiscites": [
+   {
+    "lesson": "lesson-philippine-constitution-peoples-initiative",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-detention-and-punishment": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-bail-trial-and-testimony",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-prohibited-laws": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-double-jeopardy",
     "strength": "required",
     "reason": "Read the previous part before this part."
    }

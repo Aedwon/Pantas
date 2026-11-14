@@ -7,6 +7,21 @@ topic: "topic-philippine-constitution"
 estimatedMinutes: 15
 isActive: true
 ordering: 2
+status: retired
+replacedBy:
+  - lesson-philippine-constitution-bill-of-rights-due-process-and-equal-protection
+  - lesson-philippine-constitution-bill-of-rights-search-and-arrest-warrants
+  - lesson-philippine-constitution-bill-of-rights-arrest-in-an-officers-presence
+  - lesson-philippine-constitution-bill-of-rights-hot-pursuit-arrests
+  - lesson-philippine-constitution-bill-of-rights-consent-and-private-messages
+  - lesson-philippine-constitution-bill-of-rights-expression-and-public-action
+  - lesson-philippine-constitution-bill-of-rights-religion-abode-and-travel
+  - lesson-philippine-constitution-bill-of-rights-information-and-association
+  - lesson-philippine-constitution-bill-of-rights-property-courts-and-investigation
+  - lesson-philippine-constitution-bill-of-rights-bail-trial-and-testimony
+  - lesson-philippine-constitution-bill-of-rights-detention-and-punishment
+  - lesson-philippine-constitution-bill-of-rights-double-jeopardy
+  - lesson-philippine-constitution-bill-of-rights-prohibited-laws
 ---
 
 <!-- SOURCE AUDIT: RW-136; branch content/cse-rewrite-r1; supplied standards base f1062e06; accessed 2026-10-27. Goal: locate Article III protections, apply basic rules for Sections 1-8, and recognize conditions that prevent decisions from section labels alone. Sources: https://lawphil.net/consti/cons1987.html Article III Sections 1-22. Retained supplied source record: https://lawphil.net/statutes/repacts/ra1992/ra_7438_1992.html Section 2, invitations; G.R. 248680, November 2024, https://lawphil.net/judjuris/juri2024/nov2024/pdf/gr_248680_2024.pdf (classification); G.R. 229781, https://lawphil.net/judjuris/juri2017/oct2017/pdf/gr_229781_2017.pdf (arrest warrants); G.R. 226993, https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/23/67731 (search warrants); Rules of Court Rules 113 Section 5, 117 Section 7, and 126 Sections 4-5 and 13, https://lawphil.net/courts/rules/rc_110-127_crim.html; People v. Yanson, G.R. 238453, https://elibrary.judiciary.gov.ph/assets/pdf/philrep/2019/G.R.%20No.%20238453.pdf (consent); Adoma v. People, G.R. 240126, https://lawphil.net/judjuris/juri2023/apr2023/pdf/gr_240126_2023.pdf (hot pursuit). No conflict recorded. Examples are hypothetical. No prerequisite needed; Article III, Part 4 develops detention, punishment, and double jeopardy. -->
