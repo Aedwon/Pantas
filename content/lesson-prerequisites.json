@@ -548,6 +548,11 @@
     "lesson": "lesson-philippine-constitution-congress-and-constitutional-conventions",
     "strength": "required",
     "reason": "Read the previous part before this part."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "strength": "helpful",
+    "reason": "The signature-threshold examples use percentages of registered voters. This part names the calculation but does not teach percentage arithmetic. Lead review: helpful, not required; the arithmetic is incidental."
    }
   ],
   "lesson-philippine-constitution-ratification-and-plebiscites": [
@@ -708,6 +713,11 @@
     "lesson": "lesson-philippine-constitution-congress-bills-budget-and-inquiries",
     "strength": "required",
     "reason": "Continue from the preceding part of the original lesson."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "strength": "helpful",
+    "reason": "The vote-threshold examples multiply a membership by a fraction. This part names the calculation but does not teach fraction arithmetic. Lead review: helpful, not required; the arithmetic is incidental."
    }
   ],
   "lesson-philippine-constitution-president-terms-and-appointments": [
