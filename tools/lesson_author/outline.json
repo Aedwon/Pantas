@@ -1283,8 +1283,38 @@
               "sections": []
             },
             {
+              "title": "Figure Counts and Fills",
+              "slug": "figure-counts-and-fills",
+              "sections": []
+            },
+            {
+              "title": "Figure Turns and Positions",
+              "slug": "figure-turns-and-positions",
+              "sections": []
+            },
+            {
+              "title": "Combined and Mixed Figure Patterns",
+              "slug": "combined-and-mixed-figure-patterns",
+              "sections": []
+            },
+            {
               "title": "Figure Grouping (Identifying the Odd-One-Out)",
               "slug": "figure-grouping",
+              "sections": []
+            },
+            {
+              "title": "Grouping Outlines and Symmetry",
+              "slug": "grouping-outlines-and-symmetry",
+              "sections": []
+            },
+            {
+              "title": "Grouping Regions and Inside Details",
+              "slug": "grouping-regions-and-inside-details",
+              "sections": []
+            },
+            {
+              "title": "Testing a Figure Group Rule",
+              "slug": "testing-a-figure-group-rule",
               "sections": []
             },
             {
@@ -1293,14 +1323,73 @@
               "sections": []
             },
             {
+              "title": "Matrix Turns and Counts",
+              "slug": "matrix-turns-and-counts",
+              "sections": []
+            },
+            {
+              "title": "Matrix Row and Column Rules",
+              "slug": "matrix-row-and-column-rules",
+              "sections": []
+            },
+            {
+              "title": "Matrix Rules: Keeping All Features",
+              "slug": "matrix-keeping-all-features",
+              "sections": []
+            },
+            {
+              "title": "Matrix Rules: Keeping Shared Features",
+              "slug": "matrix-keeping-shared-features",
+              "sections": []
+            },
+            {
               "title": "Paper Folding and Cutting Rules",
               "slug": "paper-folding-and-cutting",
+              "sections": []
+            },
+            {
+              "title": "Unfolding Cuts Across a Fold",
+              "slug": "unfolding-cuts-across-a-fold",
+              "sections": []
+            },
+            {
+              "title": "Cuts at Two Fold Lines",
+              "slug": "cuts-at-two-fold-lines",
+              "sections": []
+            },
+            {
+              "title": "Folded Layers and Separate Holes",
+              "slug": "folded-layers-and-separate-holes",
+              "sections": []
+            },
+            {
+              "title": "Uneven Folds and Cut Layers",
+              "slug": "uneven-folds-and-cut-layers",
               "sections": []
             },
             {
               "title": "Mental Rotation and 3D Visualization (Unfolding Cubes, Shadow Casting)",
               "slug": "mental-rotation-3d-visualization",
               "sections": []
+            },
+            {
+              "title": "Turning Solids Without Mirror Flips",
+              "slug": "turning-solids-without-mirror-flips",
+              "sections": []
+            },
+            {
+              "title": "Folding and Checking Cube Nets",
+              "slug": "folding-and-checking-cube-nets",
+              "sections": [
+                "Cube Nets"
+              ]
+            },
+            {
+              "title": "Parallel Light and Solid Shadows",
+              "slug": "parallel-light-and-solid-shadows",
+              "sections": [
+                "Shadows and Projections"
+              ]
             }
           ]
         },

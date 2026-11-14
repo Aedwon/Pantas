@@ -231,23 +231,6 @@
     "reason": "Understanding continuing government duties and emergency limits makes the comparison with humanitarian law easier. This lesson explains those principles again."
    }
   ],
-  "lesson-spatial-abstract-reasoning-figure-grouping": [],
-  "lesson-spatial-abstract-reasoning-figure-matrices": [
-   {
-    "lesson": "lesson-spatial-abstract-reasoning-figure-series",
-    "strength": "helpful",
-    "reason": "Tracking separate visual changes prepares students to combine row and column rules. Matrices teaches enough to stand alone."
-   }
-  ],
-  "lesson-spatial-abstract-reasoning-figure-series": [
-   {
-    "lesson": "lesson-logical-verbal-reasoning-sequence-moves",
-    "strength": "helpful",
-    "reason": "Separating odd and even positions makes mixed figure patterns easier. Figure Series also explains this method itself."
-   }
-  ],
-  "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization": [],
-  "lesson-spatial-abstract-reasoning-paper-folding-and-cutting": [],
   "lesson-statistics-and-probability-basic-probability": [
    {
     "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
@@ -1765,6 +1748,107 @@
     "lesson": "lesson-logical-verbal-reasoning-analogy-parts-types-and-products",
     "strength": "required",
     "reason": "This part continues the ideas in the previous part."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-matrix-turns-and-counts": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns",
+    "strength": "helpful",
+    "reason": "Tracking separate visual changes prepares students to combine row and column rules. Matrices teaches enough to stand alone."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-turns-and-counts",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-matrix-keeping-all-features": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-matrix-keeping-shared-features": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-keeping-all-features",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-unfolding-cuts-across-a-fold": [],
+  "lesson-spatial-abstract-reasoning-cuts-at-two-fold-lines": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-unfolding-cuts-across-a-fold",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-folded-layers-and-separate-holes": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-cuts-at-two-fold-lines",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-uneven-folds-and-cut-layers": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-folded-layers-and-separate-holes",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-figure-counts-and-fills": [
+   {
+    "lesson": "lesson-logical-verbal-reasoning-sequence-moves",
+    "strength": "helpful",
+    "reason": "Separating odd and even positions makes mixed figure patterns easier. Figure Series also explains this method itself."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-figure-turns-and-positions": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-figure-counts-and-fills",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-figure-turns-and-positions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry": [],
+  "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-testing-a-figure-group-rule": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-turning-solids-without-mirror-flips": [],
+  "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-turning-solids-without-mirror-flips",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-parallel-light-and-solid-shadows": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets",
+    "strength": "required",
+    "reason": "Read the previous part first."
    }
   ]
  }
