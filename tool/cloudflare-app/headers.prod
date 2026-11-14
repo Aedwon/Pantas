@@ -1,0 +1,17 @@
+# Copied to build/web/_headers by deploy.sh. Matches what Firebase Hosting sent on Nov 14, 2026:
+# root files revalidate every time (Cloudflare's default, the same as firebase.json's max-age=0 rules),
+# files in folders and the root images and wasm are cached for an hour (Firebase's default).
+/*
+  Strict-Transport-Security: max-age=31556926
+/assets/*
+  Cache-Control: max-age=3600
+/canvaskit/*
+  Cache-Control: max-age=3600
+/icons/*
+  Cache-Control: max-age=3600
+/favicon.png
+  Cache-Control: max-age=3600
+/og-image.png
+  Cache-Control: max-age=3600
+/sqlite3.wasm
+  Cache-Control: max-age=3600

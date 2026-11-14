@@ -1,0 +1,19 @@
+// Worker that serves the staging web app. Deploy only with tool/cloudflare-app/deploy.sh staging.
+{
+  "name": "pantas-app-staging",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-11-01",
+  "workers_dev": true,
+  // Attached on Nov 14, 2026 (security fixes step 5). Rollback: docs/deploy-prod.md, section 14.
+  "routes": [{"pattern": "staging.pantas.study", "custom_domain": true}],
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    // Serve /index.html as is: a redirect to / would break the service worker's cache.
+    "html_handling": "none",
+    "run_worker_first": ["/__/*"]
+  },
+  // Staging's firebaseapp.com host is the Wrapped site, which has no web app config; the app site is.
+  "vars": {"FIREBASE_ORIGIN": "https://pantas-staging-app.web.app"}
+}
