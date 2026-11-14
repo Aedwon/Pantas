@@ -37,6 +37,7 @@ export {getCarryableCount} from './carryableCount.js';
 export { listWebPlans } from './webPlans.js';
 export {getWebEntitlement} from './webEntitlement.js';
 export {reportClientTelemetry} from './clientTelemetry.js';
+export {reportUsageVisit} from './usageVisit.js';
 export {getSessionDiagnosis} from './sessionDiagnosis.js';
 
 export {getCustomTracks, deleteCustomTrack} from './customTracks.js';

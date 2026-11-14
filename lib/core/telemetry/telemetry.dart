@@ -43,7 +43,13 @@ enum TelemetryEvent {
   studySessionFinish('study_session_finish'),
   lessonOpen('lesson_open'),
   lessonFinish('lesson_finish'),
-  proView('pro_view');
+  proView('pro_view'),
+
+  // Where do students stop, and what do they open first? Added with the usage
+  // telemetry step (2026-11-14). One property, `screen`, a name from the
+  // closed set in `screen_ids.dart`, never an address or anything typed. The
+  // wire name avoids `screen_view`, which the analytics provider reserves.
+  screenViewed('pantas_screen_view');
 
   const TelemetryEvent(this.name);
 

@@ -42,6 +42,7 @@ import 'package:pantas/core/telemetry/client_report.dart';
 import 'package:pantas/core/telemetry/error_boundary.dart';
 import 'package:pantas/core/telemetry/firebase_telemetry.dart';
 import 'package:pantas/core/telemetry/perf_timeline.dart';
+import 'package:pantas/core/telemetry/usage_visit.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/font_licenses.dart';
@@ -321,8 +322,12 @@ Future<void> _bootstrap(
           ),
         // Install the Firebase telemetry sink only when live Firebase instances
         // are available. User consent still gates anything reaching the sink.
+        // On the web it also keeps a readable copy of the screen views, which
+        // stays behind the same consent gate.
         telemetrySinkProvider.overrideWithValue(
-          FirebaseTelemetry.instancesIfAvailable(),
+          UsageVisitTelemetry.wrapForWeb(
+            FirebaseTelemetry.instancesIfAvailable(),
+          ),
         ),
         // The review popup and the record of having asked. Both are inert
         // until this runs, so nothing pops in a test.
