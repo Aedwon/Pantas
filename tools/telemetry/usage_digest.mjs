@@ -10,7 +10,7 @@
 import { execFileSync } from 'node:child_process';
 import { mkdirSync, realpathSync, writeFileSync } from 'node:fs';
 import { homedir } from 'node:os';
-import { dirname, isAbsolute, join, relative, resolve, sep } from 'node:path';
+import { basename, dirname, isAbsolute, join, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
 
@@ -181,9 +181,28 @@ export function privateDir(env = process.env) {
   return join(homedir(), 'Library', 'Application Support', 'Pantas', 'usage-digests');
 }
 
+/**
+ * The real path of `path`. A folder that does not exist yet is resolved through its nearest
+ * existing parent, so a symlink anywhere above it is followed.
+ */
+function realPathOf(path) {
+  let current = resolve(path);
+  const rest = [];
+  for (;;) {
+    try {
+      return join(realpathSync(current), ...rest);
+    } catch (error) {
+      const parent = dirname(current);
+      if (error?.code !== 'ENOENT' || parent === current) throw error;
+      rest.unshift(basename(current));
+      current = parent;
+    }
+  }
+}
+
 /** Throws when `dir` is the repository or inside it. */
 export function assertOutsideRepo(dir, repoRoot) {
-  const rel = relative(resolve(repoRoot), resolve(dir));
+  const rel = relative(realPathOf(repoRoot), realPathOf(dir));
   if (rel === '' || (rel !== '..' && !rel.startsWith(`..${sep}`) && !isAbsolute(rel))) {
     throw new Error(`Refusing to write usage data inside the repository: ${dir}`);
   }

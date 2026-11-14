@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
-import { homedir } from 'node:os';
+import { mkdirSync, mkdtempSync, symlinkSync } from 'node:fs';
+import { homedir, tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import test from 'node:test';
 import {
@@ -125,6 +126,25 @@ test('a folder inside the repository is refused', () => {
   assert.throws(() => assertOutsideRepo('/work/Pantas', repo), /repository/);
   assert.doesNotThrow(() => assertOutsideRepo('/work/Pantas-private', repo));
   assert.doesNotThrow(() => assertOutsideRepo('/Users/x/Library/Application Support/Pantas/usage-digests', repo));
+});
+
+test('a symlink that points into the repository is refused', () => {
+  const base = mkdtempSync(join(tmpdir(), 'pantas-digest-'));
+  const repo = join(base, 'repo');
+  mkdirSync(join(repo, 'docs'), { recursive: true });
+  const link = join(base, 'link');
+  symlinkSync(join(repo, 'docs'), link);
+  assert.throws(() => assertOutsideRepo(link, repo), /repository/);
+  // A folder that does not exist yet, under a symlink into the repository.
+  assert.throws(() => assertOutsideRepo(join(link, 'new', 'deeper'), repo), /repository/);
+  // The repository reached through a symlink.
+  const repoLink = join(base, 'repo-link');
+  symlinkSync(repo, repoLink);
+  assert.throws(() => assertOutsideRepo(join(repoLink, 'docs'), repo), /repository/);
+  // A real folder elsewhere is fine, even if it does not exist yet.
+  const elsewhere = join(base, 'private');
+  mkdirSync(elsewhere);
+  assert.doesNotThrow(() => assertOutsideRepo(join(elsewhere, 'digests'), repo));
 });
 
 test('the file name carries the date and no tester data', () => {

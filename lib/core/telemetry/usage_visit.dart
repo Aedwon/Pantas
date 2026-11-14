@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:collection';
 import 'dart:math';
 
 import 'package:cloud_functions/cloud_functions.dart';
@@ -107,9 +108,13 @@ class UsageVisitTelemetry implements Telemetry {
   late final DateTime _started;
 
   final List<Map<String, Object>> _pending = [];
+
+  // Screens handed to a send that has not finished, and screens whose send
+  // failed once. Compared by identity, so equal-looking screens stay apart.
+  final Set<Map<String, Object>> _handed = HashSet.identity();
+  final Set<Map<String, Object>> _retried = HashSet.identity();
   bool _enabled = false;
-  bool _inFlight = false;
-  bool _failedOnce = false;
+  int _active = 0;
   int _epoch = 0;
 
   @override
@@ -127,15 +132,30 @@ class UsageVisitTelemetry implements Telemetry {
 
   @override
   Future<void> setEnabled({required bool enabled}) async {
+    // Everything before the first await runs at once, so what was gathered
+    // under the old choice is gone before anything else can run.
     _enabled = enabled;
-    _epoch++;
-    _pending.clear();
+    _dropAll();
     await _inner.setEnabled(enabled: enabled);
   }
 
+  /// Opting out clears the identifier before it switches collection off, so
+  /// an empty identifier is the first signal the buffer gets. Drop it now, at
+  /// once, so a page hide in the gap cannot send screens recorded while the
+  /// switch was on. Recording itself stays as it was: a sign-out also clears
+  /// the identifier, and the consent gate already blocks new screens.
   @override
-  Future<void> setUserIdentifier(String identifier) =>
-      _inner.setUserIdentifier(identifier);
+  Future<void> setUserIdentifier(String identifier) {
+    if (identifier.isEmpty) _dropAll();
+    return _inner.setUserIdentifier(identifier);
+  }
+
+  void _dropAll() {
+    _epoch++;
+    _pending.clear();
+    _handed.clear();
+    _retried.clear();
+  }
 
   void _record(Object? screen) {
     try {
@@ -155,16 +175,23 @@ class UsageVisitTelemetry implements Telemetry {
 
   void _pageHidden() {
     try {
-      _send();
+      // The page may close now: send what is waiting even if a send is out.
+      // Screens already handed to a send are not sent again.
+      _send(force: true);
     } on Object {
       // See _record.
     }
   }
 
-  void _send() {
-    if (_inFlight || !_enabled || _pending.isEmpty) return;
-    final batch = _pending.take(_maxScreens).toList();
-    _inFlight = true;
+  void _send({bool force = false}) {
+    if ((_active > 0 && !force) || !_enabled) return;
+    final batch = [
+      for (final item in _pending)
+        if (!_handed.contains(item)) item,
+    ].take(_maxScreens).toList();
+    if (batch.isEmpty) return;
+    _handed.addAll(batch);
+    _active++;
     unawaited(_deliver(batch, _epoch));
   }
 
@@ -180,22 +207,21 @@ class UsageVisitTelemetry implements Telemetry {
         ],
       });
       done = true;
-      _failedOnce = false;
     } on Object {
-      if (_failedOnce) {
-        done = true;
-        _failedOnce = false;
-      } else {
-        _failedOnce = true;
-      }
+      // A batch that already failed once is dropped; others get one retry.
+      done = batch.any(_retried.contains);
     } finally {
-      _inFlight = false;
+      _active--;
     }
-    // A choice change meanwhile already emptied the list.
-    if (done && epoch == _epoch) {
-      final remove = batch.length.clamp(0, _pending.length);
-      _pending.removeRange(0, remove);
+    // A choice change meanwhile already emptied everything.
+    if (epoch != _epoch) return;
+    _handed.removeAll(batch);
+    if (done) {
+      _pending.removeWhere(batch.contains);
+      _retried.removeAll(batch);
       if (_pending.length >= _flushAt) _send();
+    } else {
+      _retried.addAll(batch);
     }
   }
 

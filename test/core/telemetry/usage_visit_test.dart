@@ -223,6 +223,40 @@ void main() {
     ]);
   });
 
+  test('opting out drops the buffer before anything is awaited', () async {
+    final rig = await _enabled();
+    await rig.view('home');
+    // The consent controller closes the gate, then clears the identifier.
+    final cleared = rig.recorder.setUserIdentifier('');
+    rig.pageHidden();
+    await pumpEventQueue();
+    await cleared;
+    expect(rig.sender.sent, isEmpty);
+  });
+
+  test('a page hide while a send is out still sends the newer screens once',
+      () async {
+    final rig = await _enabled();
+    rig.sender.hold = Completer<void>();
+    await rig.view('home');
+    rig.pageHidden();
+    await pumpEventQueue();
+    await rig.view('study', afterMs: 5);
+    rig.pageHidden();
+    await pumpEventQueue();
+    expect(rig.sender.sent, hasLength(2));
+    expect(rig.sender.sent.last['screens'], [
+      {'s': 'study', 't': 5},
+    ]);
+
+    rig.sender.hold!.complete();
+    await pumpEventQueue();
+    rig.sender.hold = null;
+    rig.pageHidden();
+    await pumpEventQueue();
+    expect(rig.sender.sent, hasLength(2), reason: 'nothing is sent twice');
+  });
+
   test('a closed consent gate keeps the record empty', () async {
     final rig = _Rig();
     final gated = GatedTelemetry(rig.recorder, consent: false);
