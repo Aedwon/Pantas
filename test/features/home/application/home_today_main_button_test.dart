@@ -77,6 +77,7 @@ void main() {
       int reviewCount = 6,
       int newCount = 2,
       int lessonCount = 2,
+      double? firstFraction,
     }) async {
       tester.view.physicalSize =
           wide ? const Size(1440, 900) : const Size(390, 844);
@@ -151,6 +152,7 @@ void main() {
                         subject: 'Topic',
                         minutes: 8,
                         read: lessonsRead,
+                        fraction: id == 'a' ? firstFraction : null,
                       ),
                   ],
                   questionWork: await ref
@@ -329,7 +331,7 @@ void main() {
       await pump(tester, lessonsRead: false, lessonCount: 1);
       await tester.tap(find.text('Lesson a'));
       await waitFor(tester, 'Lesson a opened');
-      expect(find.text('Start Lesson'), findsNothing);
+      expect(find.text('Start Lesson'), findsOneWidget);
       expect(lessonOpens, 1);
       await finish(tester);
     });
@@ -350,13 +352,13 @@ void main() {
       expect(lessonOpens, 0);
       await finish(tester);
     });
-    testWidgets('$layout: Continue Lesson opens the lesson with no panel',
+    testWidgets('$layout: the lesson button opens the lesson with no panel',
         (tester) async {
       await pump(tester, lessonsRead: false);
       if (wide) {
         await tester.sendKeyEvent(LogicalKeyboardKey.enter);
       } else {
-        await tester.tap(find.text('Continue Lesson'));
+        await tester.tap(find.text('Start Lesson'));
       }
       await settle(
         tester,
@@ -369,8 +371,8 @@ void main() {
     testWidgets('$layout: a second lesson press is ignored while opening',
         (tester) async {
       await pump(tester, lessonsRead: false);
-      await tester.tap(find.text('Continue Lesson'));
-      await tester.tap(find.text('Continue Lesson'), warnIfMissed: false);
+      await tester.tap(find.text('Start Lesson'));
+      await tester.tap(find.text('Start Lesson'), warnIfMissed: false);
       await settle(
         tester,
         () => find.text('Lesson a opened').evaluate().isNotEmpty,
@@ -399,11 +401,40 @@ void main() {
     testWidgets('$layout: unread lessons keep the lesson button',
         (tester) async {
       await pump(tester, lessonsRead: false);
-      expect(find.text('Continue Lesson'), findsOneWidget);
+      expect(find.text('Start Lesson'), findsOneWidget);
+      expect(find.text('Continue Lesson'), findsNothing);
       expect(find.text('Start Reviews'), findsNothing);
       await tester.pumpWidget(const SizedBox());
       await tester.pumpAndSettle();
     });
+    testWidgets('$layout: a partly read lesson says Resume Lesson',
+        (tester) async {
+      await pump(tester, lessonsRead: false, firstFraction: .4);
+      expect(find.text('Resume Lesson'), findsOneWidget);
+      expect(find.text('Start Lesson'), findsNothing);
+      expect(find.text('Continue Lesson'), findsNothing);
+      await tester.pumpWidget(const SizedBox());
+      await tester.pumpAndSettle();
+    });
+    for (final fraction in <double?>[null, .4]) {
+      final label = fraction == null ? 'Start Lesson' : 'Resume Lesson';
+      testWidgets('$layout: the Lessons panel button agrees with Home ($label)',
+          (tester) async {
+        await pump(
+          tester,
+          lessonsRead: false,
+          lessonCount: 4,
+          firstFraction: fraction,
+        );
+        expect(find.text(label), findsOneWidget);
+        await tester.tap(find.text('Lessons'));
+        await waitFor(tester, 'Lesson d');
+        expect(find.text(label), findsNWidgets(2));
+        expect(find.text('Continue Lesson'), findsNothing);
+        await tester.pumpWidget(const SizedBox());
+        await tester.pumpAndSettle();
+      });
+    }
     testWidgets('$layout: nothing left shows no start button', (tester) async {
       await pump(tester, reviewsDue: false, newDue: false);
       expect(find.text('Start Reviews'), findsNothing);

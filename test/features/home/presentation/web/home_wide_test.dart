@@ -357,6 +357,11 @@ void additionalTests() {
         }
         if (variant == 'HM_Resume') {
           expect(find.text('Resume Lesson'), findsOneWidget);
+          expect(find.text('Start Lesson'), findsNothing);
+        }
+        expect(find.text('Continue Lesson'), findsNothing);
+        if (variant == 'HM_DayStart' || variant == 'HM_LongTitle') {
+          expect(find.text('Start Lesson'), findsOneWidget);
         }
         if (complete) {
           if (!reviewOnly) {
@@ -394,8 +399,7 @@ void additionalTests() {
               done: 0,
               total: 18,
               rows: const [WebRow(title: 'Session 1', value: '10')],
-              startLabel:
-                  title == 'Lessons' ? 'Continue Lesson' : 'Start $title',
+              startLabel: title == 'Lessons' ? 'Start Lesson' : 'Start $title',
               onStart: () => starts++,
             ),
           ),

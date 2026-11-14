@@ -297,7 +297,8 @@ void main() {
         await setUpView(tester);
         await tester.pumpWidget(mount(lessons: [lesson(1)]));
         await tester.pumpAndSettle();
-        expect(find.text('Continue Lesson'), findsOneWidget);
+        expect(find.text('Start Lesson'), findsOneWidget);
+        expect(find.text('Continue Lesson'), findsNothing);
         expect(find.text('Start Reviews'), findsNothing);
       });
       testWidgets('$layout: the rows still open the panel', (tester) async {

@@ -1016,11 +1016,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
                     _lessonRow(data, lesson, last: lesson == shown.last),
                 ],
               ],
-        startLabel: _sheet == 'lesson'
-            ? (next?.fraction ?? 0) > 0
-                ? 'Resume Lesson'
-                : 'Start Lesson'
-            : 'Continue Lesson',
+        startLabel: homeLessonButtonLabel(next),
         onStart: next == null ? null : () => unawaited(_openLesson(data, next)),
         busy: _busy,
         failure: _failed
