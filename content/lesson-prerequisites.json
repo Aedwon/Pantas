@@ -276,18 +276,6 @@
     "reason": "Matching conclusions to evidence helps students interpret cartoons without adding unsupported claims. Visual Media explains this principle itself."
    }
   ],
-  "lesson-verbal-logic-assumptions-and-conclusions": [
-   {
-    "lesson": "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic",
-    "strength": "helpful",
-    "reason": "Practice with forced conclusions makes group-based deductions easier. Assumptions and Conclusions explains the needed group meanings itself."
-   },
-   {
-    "lesson": "lesson-logical-verbal-reasoning-truth-tables-propositional-logic",
-    "strength": "helpful",
-    "reason": "Understanding negation and compound statements makes the compound-assumption test easier. The lesson supplies its own negation rules."
-   }
-  ],
   "lesson-vocabulary-confusing-words": [
    {
     "lesson": "lesson-grammar-and-structure-parts-of-speech",
@@ -1652,6 +1640,67 @@
   "lesson-clerical-ability-terminal-digit-filing-order": [
    {
     "lesson": "lesson-clerical-ability-character-string-filing",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-verbal-logic-needed-assumptions": [
+   {
+    "lesson": "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic",
+    "strength": "helpful",
+    "reason": "Practice with forced conclusions makes group-based deductions easier. Assumptions and Conclusions explains the needed group meanings itself."
+   },
+   {
+    "lesson": "lesson-logical-verbal-reasoning-truth-tables-propositional-logic",
+    "strength": "helpful",
+    "reason": "Understanding negation and compound statements makes the compound-assumption test easier. The lesson supplies its own negation rules."
+   }
+  ],
+  "lesson-verbal-logic-negating-assumptions": [
+   {
+    "lesson": "lesson-verbal-logic-needed-assumptions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-verbal-logic-must-be-true-conclusions": [
+   {
+    "lesson": "lesson-verbal-logic-compound-assumptions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-verbal-logic-none-and-may": [
+   {
+    "lesson": "lesson-verbal-logic-must-be-true-conclusions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-verbal-logic-best-supported-conclusions": [
+   {
+    "lesson": "lesson-verbal-logic-none-and-may",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-verbal-logic-unsupported-causes-and-motives": [
+   {
+    "lesson": "lesson-verbal-logic-best-supported-conclusions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-verbal-logic-recognizing-bias": [
+   {
+    "lesson": "lesson-verbal-logic-unsupported-causes-and-motives",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-verbal-logic-compound-assumptions": [
+   {
+    "lesson": "lesson-verbal-logic-negating-assumptions",
     "strength": "required",
     "reason": "Read the previous part first."
    }

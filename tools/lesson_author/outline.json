@@ -1324,7 +1324,48 @@
         {
           "name": "Verbal Logic",
           "slug": "verbal-logic",
-          "lessons": []
+          "lessons": [
+            {
+              "title": "Needed Assumptions",
+              "slug": "needed-assumptions",
+              "sections": []
+            },
+            {
+              "title": "Negating Assumptions",
+              "slug": "negating-assumptions",
+              "sections": []
+            },
+            {
+              "title": "Compound Assumptions",
+              "slug": "compound-assumptions",
+              "sections": []
+            },
+            {
+              "title": "Must-Be-True Conclusions",
+              "slug": "must-be-true-conclusions",
+              "sections": []
+            },
+            {
+              "title": "None and May",
+              "slug": "none-and-may",
+              "sections": []
+            },
+            {
+              "title": "Best-Supported Conclusions",
+              "slug": "best-supported-conclusions",
+              "sections": []
+            },
+            {
+              "title": "Unsupported Causes and Motives",
+              "slug": "unsupported-causes-and-motives",
+              "sections": []
+            },
+            {
+              "title": "Recognizing Bias",
+              "slug": "recognizing-bias",
+              "sections": []
+            }
+          ]
         }
       ]
     },
