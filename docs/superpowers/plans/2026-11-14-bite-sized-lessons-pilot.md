@@ -28,6 +28,27 @@ pilot's prod release. The other subjects get their own plan after the pilot.
 - No figure is invented. The UI shows only real part numbers and real question counts.
 - The repository is public: no tester data in any file.
 
+## Agent assignments (Nov 14 revision, supersedes the models named in T13 to T18 and in spec B8 rows 2 to 8)
+
+Aedwon, Nov 14: "majority of the CSE subjects split should be done by codex. claude should only be the
+orchestrator making sure things are getting done and getting checked properly by its codex agents".
+
+| Work | Who | Model |
+|---|---|---|
+| Split plans, lesson splitting, rewriting the joins (T13, T14) | Codex writer job | GPT 6.1 Sol, lowest effort |
+| Re-tagging questions, quiz sizing data, outline rows, prerequisite links (T15, parts of T14) | Codex bulk job | GPT 6 Luna |
+| New and moved questions for pool gaps (T16) | Codex writer job | GPT 6.1 Sol, lowest effort |
+| Answer re-solve of every question (T17) | Separate Codex job, never the writer's run | GPT 6.1 Sol |
+| Constitution and RA 6713 items against the law text (T17) | Separate Codex job | GPT 6.1 Sol |
+| Subject audit sample (T18) | Separate Codex job, read-only | GPT 6.1 Sol High or GPT 6 Astra high |
+| Non-UI code (T1 to T9) | Codex build, review and fix jobs | GPT 6.1 Sol, low |
+| UI: the label, the rows, anything visible (T10) | Claude worker, reviewed by a separate Claude worker | Sonnet 5.5 |
+| Orchestration: briefs, diff and summary review, build gates, spot checks, approval after an agreeing independent re-solve, commits, handoff | Lead | Opus 5.5 |
+
+Rules: codex-pick only, one job at a time; each job sized to about 25 minutes of high-effort work (one
+subject or a few lessons). If codex-pick exits 75, the lead reports the reset time to the manager and
+pauses content work; no switch to Claude. The lead writes no content except small review fixes.
+
 ## Branches
 
 | Branch | From | Holds |
