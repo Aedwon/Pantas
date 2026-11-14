@@ -55,7 +55,7 @@ questions:
     type: word-problem
     difficulty: easy
     stem: |
-      Mang Pedro borrowed $\text{₱}15,000$ at 8% simple annual interest. He repaid after 9 months. How much interest?
+      Mang Pedro borrowed $\text{₱}15,000$ at 8% simple annual interest and repaid the loan after 9 months. How much interest did he pay?
     choices:
       - text: '$\text{₱}900.00$'
         correct: true
@@ -77,7 +77,7 @@ questions:
     type: word-problem
     difficulty: easy
     stem: |
-      Wholesale offers 5% discount on purchases over $\text{₱}1,000$. Aling Rose buys stock tagged at $\text{₱}2,400$. How much after discount?
+      A wholesaler offers a 5% discount on purchases over $\text{₱}1,000$. Aling Rose buys stock with a total list price of $\text{₱}2,400$. How much must she pay after the discount?
     choices:
       - text: '$\text{₱}2,330.00$'
         rationale: |
@@ -99,7 +99,7 @@ questions:
     type: word-problem
     difficulty: medium
     stem: |
-      Store assistant earns $\text{₱}400$/day basic + 4% commission on weekly net profit (revenue minus all costs). In 6-day week with $\text{₱}35,000$ revenue and $\text{₱}25,000$ in total costs, what are total earnings?
+      A store assistant earns a basic wage of $\text{₱}400$ per day plus a 4% commission on weekly net profit, defined as revenue minus all costs. In a 6-day week, the store has $\text{₱}35,000$ in revenue and $\text{₱}25,000$ in total costs. What are the assistant's total earnings for the week?
     choices:
       - text: '$\text{₱}3,800.00$'
         rationale: |
@@ -121,7 +121,7 @@ questions:
     type: word-problem
     difficulty: medium
     stem: |
-      Aling Toyang sells instant noodles for $\text{₱}25/pack$, cost $\text{₱}20/pack$. What percent of the selling price is the markup amount?
+      Aling Toyang sells instant noodles for $\text{₱}25$ per pack and pays $\text{₱}20$ per pack. What percent of the selling price is the markup amount?
     choices:
       - text: '$25\%$'
         rationale: |
@@ -165,7 +165,7 @@ questions:
     type: word-problem
     difficulty: medium
     stem: |
-      Mang Ben borrowed $\text{₱}50,000$ at 6% simple annual interest for 15 months. Total repayment?
+      Mang Ben borrowed $\text{₱}50,000$ at 6% simple annual interest for 15 months. What is the total amount he must repay?
     choices:
       - text: '$\text{₱}53,750.00$'
         correct: true
@@ -187,7 +187,7 @@ questions:
     type: word-problem
     difficulty: medium
     stem: |
-      Sari-sari owner orders inventory ($\text{₱}5,000$ list price). Supplier offers successive 10% then 5% discounts. Net price?
+      A sari-sari store owner orders inventory with a list price of $\text{₱}5,000$. The supplier offers successive discounts of 10% and 5%. What is the net price?
     choices:
       - text: '$\text{₱}4,250.00$'
         rationale: |
@@ -231,7 +231,7 @@ questions:
     type: word-problem
     difficulty: hard
     stem: |
-      Aling Marites invested $\text{₱}20,000$ in a micro-finance fund. After 18 months, value is $\text{₱}23,600$. What annual simple interest rate?
+      Aling Marites invested $\text{₱}20,000$ in a microfinance fund. After 18 months, the investment is worth $\text{₱}23,600$. What annual simple interest rate did the investment earn?
     choices:
       - text: '$12\%$'
         correct: true
@@ -253,7 +253,7 @@ questions:
     type: word-problem
     difficulty: hard
     stem: |
-      Soft drink agent earns: 3% on first $\text{₱}50,000$, 5% on next $\text{₱}50,000$, 8% on sales above $\text{₱}100,000$. Total sales $\text{₱}140,000$. Commission?
+      A soft drink sales agent earns a commission of 3% on the first $\text{₱}50,000$ in sales, 5% on the next $\text{₱}50,000$, and 8% on sales above $\text{₱}100,000$. If total sales are $\text{₱}140,000$, how much commission does the agent earn?
     choices:
       - text: '$\text{₱}11,200.00$'
         rationale: |
@@ -275,7 +275,7 @@ questions:
     type: word-problem
     difficulty: hard
     stem: |
-      Aling Loring wants the markup amount to equal 20% of the selling price for canned goods costing $\text{₱}480$. What markup % on cost?
+      Aling Loring wants the markup amount on canned goods costing $\text{₱}480$ to equal 20% of the selling price. What markup percentage should she apply to the cost?
     choices:
       - text: '$20\%$'
         rationale: |
@@ -320,7 +320,7 @@ questions:
     type: word-problem
     difficulty: exam
     stem: |
-      Tatay Mario borrowed $\text{₱}40,000$ at 9% simple annual interest. After 8 months, he paid $\text{₱}15,000$ (interest paid first, remainder to principal). Remaining principal?
+      Tatay Mario borrowed $\text{₱}40,000$ at 9% simple annual interest. After 8 months, he paid $\text{₱}15,000$. The payment covered the interest first, and the remainder reduced the principal. How much principal remains?
     choices:
       - text: '$\text{₱}25,000.00$'
         rationale: |

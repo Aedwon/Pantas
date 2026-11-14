@@ -365,7 +365,7 @@ questions:
     stem: |
       A student says the LCM of $6,10,15$ is $900$ because no prime divides all three and their product is $900$. What is the error?
     choices:
-      - text: 'Use each prime with its largest exponent across the factorizations.'
+      - text: 'Use each prime''s highest exponent.'
         correct: true
       - text: 'The largest original number is always the LCM.'
         rationale: |

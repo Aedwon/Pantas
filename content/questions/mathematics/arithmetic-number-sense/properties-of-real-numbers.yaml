@@ -441,7 +441,7 @@ questions:
     stem: |
       A student asks for a real number $r$ such that $0r=1$. Which statement is correct?
     choices:
-      - text: 'There is no such real number.'
+      - text: 'No real number exists.'
         correct: true
       - text: '$r=0$ is the required number.'
         rationale: |

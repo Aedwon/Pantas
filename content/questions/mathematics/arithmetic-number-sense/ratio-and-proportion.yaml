@@ -32,7 +32,7 @@ questions:
     type: word-problem
     difficulty: easy
     stem: |
-      Blue and yellow paint mix in ratio $3 : 2$. If using 12 liters of blue paint, how many liters of yellow paint?
+      Blue and yellow paint are mixed in a ratio of $3 : 2$. If 12 liters of blue paint are used, how many liters of yellow paint are needed?
     choices:
       - text: '$4.8$ liters'
         rationale: |
@@ -76,7 +76,7 @@ questions:
     type: word-problem
     difficulty: easy
     stem: |
-      A jeepney has male to female passengers in ratio $4 : 5$. If 15 female passengers, what is total?
+      The ratio of male to female passengers in a jeepney is $4 : 5$. If there are 15 female passengers, how many passengers are there in all?
     choices:
       - text: '$12$ passengers'
         rationale: |
@@ -98,7 +98,7 @@ questions:
     type: word-problem
     difficulty: medium
     stem: |
-      A recipe uses flour, sugar, butter in ratio $5 : 3 : 2$. With 450 g sugar, what is total mass?
+      A recipe uses flour, sugar, and butter in a ratio of $5 : 3 : 2$ by mass. If 450 g of sugar is used, what is the total mass of these ingredients?
     choices:
       - text: '$750$ grams'
         rationale: |
@@ -120,7 +120,7 @@ questions:
     type: word-problem
     difficulty: medium
     stem: |
-      Fuel cost shared among 16 commuters by distance traveled. 10 travel 12 km each; 6 travel 20 km each. What fraction of cost for the 6 travelers?
+      The fuel cost for 16 commuters is shared in proportion to the distance each travels. Of these commuters, 10 travel 12 km each and 6 travel 20 km each. What fraction of the total cost should the 6 commuters pay?
     choices:
       - text: '$\dfrac{3}{8}$'
         rationale: |
@@ -142,7 +142,7 @@ questions:
     type: word-problem
     difficulty: medium
     stem: |
-      On a map with scale $1\text{ cm} : 2\text{ km}$, a park measures $3\text{ cm} \times 4\text{ cm}$. What is actual area?
+      On a map with a scale of $1\text{ cm} : 2\text{ km}$, a rectangular park measures $3\text{ cm} \times 4\text{ cm}$. What is the actual area of the park?
     choices:
       - text: '$12$ sq km'
         rationale: |
@@ -164,7 +164,7 @@ questions:
     type: word-problem
     difficulty: medium
     stem: |
-      A 30-liter mixture of red and white paint is in ratio $4 : 1$. How much white paint to add for ratio $2 : 1$?
+      A 30-liter mixture contains red and white paint in a ratio of $4 : 1$. How many liters of white paint must be added to make the ratio of red to white paint $2 : 1$?
     choices:
       - text: '$3$ liters'
         rationale: |
@@ -252,7 +252,7 @@ questions:
     type: word-problem
     difficulty: hard
     stem: |
-      On a map with scale $1 : 250,000$, distance between terminals is $14.4\text{ cm}$. Jeepney travels at 45 km/h. How many minutes?
+      On a map with a scale of $1 : 250,000$, the distance between two terminals is $14.4\text{ cm}$. If a jeepney travels at 45 km/h, how many minutes will it take to travel between the terminals?
     choices:
       - text: '$32$ minutes'
         rationale: |
@@ -274,7 +274,7 @@ questions:
     type: word-problem
     difficulty: hard
     stem: |
-      Recipe for 15 servings needs 2.25 kg rice. Caterer prepares for 40 guests with 20% larger portions. How much rice?
+      A recipe for 15 servings requires 2.25 kg of rice. A caterer is preparing one serving for each of 40 guests, with portions 20% larger than the recipe specifies. How much rice is needed?
     choices:
       - text: '$4.8$ kg'
         rationale: |
@@ -318,7 +318,7 @@ questions:
     type: word-problem
     difficulty: exam
     stem: |
-      A well-mixed 40-liter bucket has 70% yellow, 30% red paint. Remove 10 L mixture, replace with 10 L pure red. What is ratio yellow:red?
+      A bucket contains 40 liters of well-mixed paint that is 70% yellow and 30% red. If 10 L of the mixture is removed and replaced with 10 L of pure red paint, what is the resulting ratio of yellow to red paint?
     choices:
       - text: '$\dfrac{19}{21}$'
         rationale: |

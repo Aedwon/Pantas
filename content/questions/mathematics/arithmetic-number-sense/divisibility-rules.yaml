@@ -166,7 +166,7 @@ questions:
     stem: |
       How does the "casting out nines" technique test divisibility by $9$, and is $84,931$ divisible by $9$?
     choices:
-      - text: 'It skips groups of digits whose sum is a multiple of $9$; here the number is not divisible by $9$.'
+      - text: 'Drop groups summing to multiples of $9$; not divisible.'
         correct: true
       - text: 'It drops even digits for a $9$ test; here it gives $4$.'
         rationale: |
