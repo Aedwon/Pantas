@@ -300,17 +300,9 @@
    }
   ],
   "lesson-philippine-constitution-accountability-and-impeachment": [],
-  "lesson-philippine-constitution-bill-of-rights-property-courts-and-custody": [],
-  "lesson-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws": [
-   {
-    "lesson": "lesson-philippine-constitution-bill-of-rights-the-accused-and-the-trial",
-    "strength": "helpful",
-    "reason": "Understanding speedy-trial violations helps explain why certain requested dismissals bar another prosecution. This lesson states the exception without developing the delay assessment."
-   }
-  ],
   "lesson-philippine-constitution-bill-of-rights-the-accused-and-the-trial": [
    {
-    "lesson": "lesson-philippine-constitution-bill-of-rights-property-courts-and-custody",
+    "lesson": "lesson-philippine-constitution-bill-of-rights-bail-before-conviction",
     "strength": "helpful",
     "reason": "Knowing custodial silence helps distinguish it from protection against compelled testimony. This lesson gives a brief comparison sufficient to stand alone."
    }
@@ -598,6 +590,112 @@
   "lesson-philippine-constitution-bill-of-rights-prohibited-laws": [
    {
     "lesson": "lesson-philippine-constitution-bill-of-rights-double-jeopardy",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-property-and-contracts": [],
+  "lesson-philippine-constitution-bill-of-rights-court-access-and-legal-help": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-property-and-contracts",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-custodial-silence-counsel-and-waiver": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-court-access-and-legal-help",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-custodial-force-and-statements": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-custodial-silence-counsel-and-waiver",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-bail-before-conviction": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-custodial-force-and-statements",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-fines-and-prison-punishment": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-political-beliefs-and-forced-service",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-replacement-penalties-and-parole": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-fines-and-prison-punishment",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-double-jeopardy-conditions": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-debt-and-poll-tax",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-double-jeopardy-covered-offenses": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-double-jeopardy-conditions",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-later-offenses-and-local-ordinances": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-double-jeopardy-covered-offenses",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-requested-dismissals-and-acquittals": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-later-offenses-and-local-ordinances",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-backward-penal-laws-and-legislative-punishment": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-requested-dismissals-and-acquittals",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-rights-claims-evidence-and-effects": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-backward-penal-laws-and-legislative-punishment",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-court-remedies-and-rights-investigations": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-rights-claims-evidence-and-effects",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-political-beliefs-and-forced-service": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-the-accused-and-the-trial",
+    "strength": "helpful",
+    "reason": "Understanding speedy-trial violations helps explain why certain requested dismissals bar another prosecution. This lesson states the exception without developing the delay assessment."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-debt-and-poll-tax": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-replacement-penalties-and-parole",
     "strength": "required",
     "reason": "Read the previous part before this part."
    }

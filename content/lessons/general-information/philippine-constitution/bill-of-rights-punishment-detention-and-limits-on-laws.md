@@ -7,6 +7,19 @@ topic: "topic-philippine-constitution"
 estimatedMinutes: 15
 isActive: true
 ordering: 5
+status: retired
+replacedBy:
+  - lesson-philippine-constitution-bill-of-rights-political-beliefs-and-forced-service
+  - lesson-philippine-constitution-bill-of-rights-fines-and-prison-punishment
+  - lesson-philippine-constitution-bill-of-rights-replacement-penalties-and-parole
+  - lesson-philippine-constitution-bill-of-rights-debt-and-poll-tax
+  - lesson-philippine-constitution-bill-of-rights-double-jeopardy-conditions
+  - lesson-philippine-constitution-bill-of-rights-double-jeopardy-covered-offenses
+  - lesson-philippine-constitution-bill-of-rights-later-offenses-and-local-ordinances
+  - lesson-philippine-constitution-bill-of-rights-requested-dismissals-and-acquittals
+  - lesson-philippine-constitution-bill-of-rights-backward-penal-laws-and-legislative-punishment
+  - lesson-philippine-constitution-bill-of-rights-rights-claims-evidence-and-effects
+  - lesson-philippine-constitution-bill-of-rights-court-remedies-and-rights-investigations
 ---
 
 <!-- SOURCE AUDIT: RW-080; branch content/cse-rewrite-r1; supplied standards base c38ca13c; accessed 2026-10-26. Goal: apply detention, punishment, double-jeopardy, and legislative limits and identify evidence, effects, and protection methods in rights cases. Sources: 1987 Constitution, Article III Sections 18-22 and Article XIII Section 18, https://lawphil.net/consti/cons1987.html (rights and CHR); RA 9346 Sections 1-3, https://lawphil.net/statutes/repacts/ra2006/ra_9346_2006.html (death prohibited; replacement penalties and parole restriction); Rules of Court, Rule 117 Section 7 and Rule 119 Section 23, https://lawphil.net/courts/rules/rc_110-127_crim.html (double-jeopardy conditions, included offenses, later graver offense, demurrer); Revised Penal Code Articles 6, 14(16), 248 and 249, https://pcw.gov.ph/act-no-3815-the-revised-penal-code/ (attempt, frustration, treachery, murder and homicide); Trillanes IV v. Medialdea, G.R. 241494, https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/1/69500 (ex post facto categories); Rules of Court Rule 102 Sections 1-2 (habeas corpus); Aytona v. Paule, G.R. 253649, https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/1/68685 (requested-dismissal exceptions). Constitutional permission for future death-penalty legislation is distinct from RA 9346's statutory prohibition. Examples are hypothetical applications; family effects are supplied facts. No prerequisite relied on. -->

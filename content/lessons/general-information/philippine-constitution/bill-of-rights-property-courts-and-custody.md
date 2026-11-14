@@ -7,6 +7,13 @@ topic: "topic-philippine-constitution"
 estimatedMinutes: 15
 isActive: true
 ordering: 3
+status: retired
+replacedBy:
+  - lesson-philippine-constitution-bill-of-rights-property-and-contracts
+  - lesson-philippine-constitution-bill-of-rights-court-access-and-legal-help
+  - lesson-philippine-constitution-bill-of-rights-custodial-silence-counsel-and-waiver
+  - lesson-philippine-constitution-bill-of-rights-custodial-force-and-statements
+  - lesson-philippine-constitution-bill-of-rights-bail-before-conviction
 ---
 
 ## Core Concept

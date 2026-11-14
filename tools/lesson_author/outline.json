@@ -1096,6 +1096,31 @@
               "sections": []
             },
             {
+              "title": "Article III: Property and Contracts",
+              "slug": "bill-of-rights-property-and-contracts",
+              "sections": []
+            },
+            {
+              "title": "Article III: Court Access and Legal Help",
+              "slug": "bill-of-rights-court-access-and-legal-help",
+              "sections": []
+            },
+            {
+              "title": "Article III: Custodial Silence, Counsel, and Waiver",
+              "slug": "bill-of-rights-custodial-silence-counsel-and-waiver",
+              "sections": []
+            },
+            {
+              "title": "Article III: Custodial Force and Statements",
+              "slug": "bill-of-rights-custodial-force-and-statements",
+              "sections": []
+            },
+            {
+              "title": "Article III: Bail Before Conviction",
+              "slug": "bill-of-rights-bail-before-conviction",
+              "sections": []
+            },
+            {
               "title": "Article III, Part 3: Rights of the Accused",
               "slug": "bill-of-rights-the-accused-and-the-trial",
               "sections": []
@@ -1103,6 +1128,61 @@
             {
               "title": "Article III, Part 4: Detention, Punishment, and Limits on Laws",
               "slug": "bill-of-rights-punishment-detention-and-limits-on-laws",
+              "sections": []
+            },
+            {
+              "title": "Article III: Political Beliefs and Forced Service",
+              "slug": "bill-of-rights-political-beliefs-and-forced-service",
+              "sections": []
+            },
+            {
+              "title": "Article III: Fines and Prison Punishment",
+              "slug": "bill-of-rights-fines-and-prison-punishment",
+              "sections": []
+            },
+            {
+              "title": "Article III: Replacement Penalties and Parole",
+              "slug": "bill-of-rights-replacement-penalties-and-parole",
+              "sections": []
+            },
+            {
+              "title": "Article III: Debt and Poll Tax",
+              "slug": "bill-of-rights-debt-and-poll-tax",
+              "sections": []
+            },
+            {
+              "title": "Article III: Double-Jeopardy Conditions",
+              "slug": "bill-of-rights-double-jeopardy-conditions",
+              "sections": []
+            },
+            {
+              "title": "Article III: Offenses Covered by Double Jeopardy",
+              "slug": "bill-of-rights-double-jeopardy-covered-offenses",
+              "sections": []
+            },
+            {
+              "title": "Article III: Later Offenses and Local Ordinances",
+              "slug": "bill-of-rights-later-offenses-and-local-ordinances",
+              "sections": []
+            },
+            {
+              "title": "Article III: Requested Dismissals and Acquittals",
+              "slug": "bill-of-rights-requested-dismissals-and-acquittals",
+              "sections": []
+            },
+            {
+              "title": "Article III: Backward Penal Laws and Legislative Punishment",
+              "slug": "bill-of-rights-backward-penal-laws-and-legislative-punishment",
+              "sections": []
+            },
+            {
+              "title": "Article III: Rights Claims, Evidence, and Effects",
+              "slug": "bill-of-rights-rights-claims-evidence-and-effects",
+              "sections": []
+            },
+            {
+              "title": "Article III: Court Remedies and Rights Investigations",
+              "slug": "bill-of-rights-court-remedies-and-rights-investigations",
               "sections": []
             },
             {
