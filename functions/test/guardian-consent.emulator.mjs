@@ -2,7 +2,7 @@ import '../lib/index.js';
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {getFirestore} from 'firebase-admin/firestore';
-import {answerRequest, getStatus, readRequest, sendLink, GUARDIAN_WINDOW_MS, SEND_LIMIT, deleteGuardianRecords, purgeGuardianRecords} from '../lib/guardianConsent.js';
+import {answerRequest, getStatus, readRequest, sendLink, ADDRESS_LIMIT, GUARDIAN_WINDOW_MS, SEND_LIMIT, deleteGuardianRecords, purgeGuardianRecords} from '../lib/guardianConsent.js';
 
 assert.equal(process.env.GCLOUD_PROJECT, 'demo-pantas-test');
 const db = getFirestore();
@@ -12,8 +12,10 @@ const DAY = 86400000;
 const anon = uid => ({uid, token: {firebase: {sign_in_provider: 'anonymous'}}});
 const app = {appId: 'app', token: {}, alreadyConsumed: false};
 const documentVersions = {privacy: '2026-11-12', terms: '2026-11-12', teens: '2026-11-12'};
+// Each caller comes from its own address unless a test names one, so the per-address limit stays out of the way.
+const addressOf = uid => { let n = 7; for (const c of uid) n = (n * 31 + c.charCodeAt(0)) % 16_000_000; return `10.${n >> 16}.${(n >> 8) & 255}.${n & 255}`; };
 const req = (uid, data, extra = {}) => ({auth: anon(uid), app, data: data?.decision
-  ? {documentVersions, noticeWordingVersion: '2026-11-12', ...data} : data, ...extra});
+  ? {documentVersions, noticeWordingVersion: '2026-11-12', ...data} : data, rawRequest: {ip: addressOf(uid)}, ...extra});
 const code = async promise => { try { await promise; return 'ok'; } catch (e) { assert.equal(typeof e.code, 'string', String(e)); return e.code; } };
 
 function harness({now = T0} = {}) {
@@ -291,4 +293,97 @@ test('cleanup deletes expired contact data and preserves server-only consent evi
   assert.deepEqual(await stored(uid), {status: 'confirmed', ageGroup: 'minor', decidedAt: T0 + DAY, sharingAllowed: false});
   await db.recursiveDelete(db.doc(`users/${uid}`));
   assert.equal((await evidence.get()).exists, true, 'minimum evidence survives account deletion');
+});
+
+// ------------------------------------------------ S-10 item 5: a limit per client address
+
+const fromAddress = (uid, ip, forwarded, data = body()) => req(uid, data,
+  {rawRequest: {ip, headers: forwarded === undefined ? {} : {'x-forwarded-for': forwarded}}});
+
+test('one client address gets 5 guardian emails an hour whatever accounts or X-Forwarded-For it uses', async () => {
+  await reset('g-addr');
+  const h = harness();
+  // Children reach this step before they name an account, so the callers here are anonymous.
+  for (let i = 0; i < ADDRESS_LIMIT.max; i += 1) {
+    await sendLink(fromAddress(`g-addr-${i}`, '10.0.0.1', `198.51.100.${i}, 203.0.113.9`,
+      body({guardianEmail: `parent${i}@example.com`})), h.deps);
+  }
+  assert.equal(h.sent.length, 5);
+  assert.equal(await code(sendLink(fromAddress('g-addr-x', '10.0.0.1', '192.0.2.77, 203.0.113.9',
+    body({guardianEmail: 'late@example.com'})), h.deps)), 'resource-exhausted', 'a spoofed left side is no new client');
+  assert.equal(h.sent.length, 5);
+  assert.equal(await code(sendLink(fromAddress('g-addr-y', '10.0.0.2', undefined,
+    body({guardianEmail: 'other@example.com'})), h.deps)), 'ok', 'another client address is unaffected');
+  assert.equal(await code(sendLink(fromAddress('g-addr-z', '10.0.0.3', '203.0.113.9',
+    body({guardianEmail: 'third@example.com'})), h.deps)), 'resource-exhausted');
+  const stored = (await db.collection('guardianLimits').get()).docs.map(doc => doc.id);
+  assert.ok(stored.every(id => !id.includes('203.0.113.9')), 'the address is kept only as a hash');
+  h.advance(60 * 60_000 + 1);
+  assert.equal(await code(sendLink(fromAddress('g-addr-z', '10.0.0.3', '203.0.113.9',
+    body({guardianEmail: 'third@example.com'})), h.deps)), 'ok', 'the window is an hour');
+});
+
+test('a call with no address at all shares one unknown bucket instead of skipping the limit', async () => {
+  await reset('g-unk');
+  const h = harness();
+  for (let i = 0; i < ADDRESS_LIMIT.max; i += 1) {
+    await sendLink(req(`g-unk-${i}`, body({guardianEmail: `p${i}@example.com`}), {rawRequest: undefined}), h.deps);
+  }
+  assert.equal(await code(sendLink(req('g-unk-x', body({guardianEmail: 'late@example.com'}), {rawRequest: {}}), h.deps)),
+    'resource-exhausted');
+});
+
+test('a refused address limit sends nothing and stores no consent record', async () => {
+  await reset('g-addr2');
+  const h = harness();
+  const deps = {...h.deps};
+  for (let i = 0; i < ADDRESS_LIMIT.max; i += 1) {
+    await sendLink(fromAddress(`g-addr2-${i}`, '10.0.1.1', undefined, body({guardianEmail: `q${i}@example.com`})), deps);
+  }
+  const before = h.sent.length;
+  await code(sendLink(fromAddress('g-addr2-late', '10.0.1.1', undefined, body({guardianEmail: 'late@example.com'})), deps));
+  assert.equal(h.sent.length, before);
+  assert.equal(await stored('g-addr2-late'), undefined);
+});
+
+// ------------------------------------------------ S-10 item 6: the full-bucket alert
+
+function errorLines(t) {
+  const lines = [];
+  for (const stream of [process.stdout, process.stderr]) {
+    t.mock.method(stream, 'write', chunk => { lines.push(String(chunk)); return true; });
+  }
+  return () => lines.flatMap(line => { try { return [JSON.parse(line)]; } catch { return []; } })
+    .filter(entry => entry.severity === 'ERROR' && entry.event === 'mail_cap_full');
+}
+
+test('the guardian daily bucket logs exactly one ERROR line a day when it is full', async t => {
+  await reset('g-full');
+  const read = errorLines(t);
+  const h = harness();
+  const deps = {...h.deps, dailyCap: 5};
+  // A new address may use 80% of the cap (4). The fifth new address is refused: that is the full day.
+  for (let i = 0; i < 8; i += 1) {
+    await code(sendLink(fromAddress(`g-full-${i}`, `10.1.0.${i}`, undefined, body({guardianEmail: `f${i}@example.com`})), deps));
+  }
+  assert.equal(h.sent.length, 4);
+  const lines = read();
+  assert.equal(lines.length, 1);
+  assert.equal(lines[0].bucket, 'guardian');
+  assert.ok(lines[0].message.includes('Mail cap full: guardian bucket, 2026-11-02.'));
+  // The next Philippine day logs again, once.
+  h.advance(DAY);
+  for (let i = 0; i < 8; i += 1) {
+    await code(sendLink(fromAddress(`g-full-n${i}`, `10.2.0.${i}`, undefined, body({guardianEmail: `n${i}@example.com`})), deps));
+  }
+  assert.equal(read().length, 2);
+});
+
+test('a guardian mail failure gives the place back without clearing the day flag', async t => {
+  await reset('g-fail');
+  const h = harness();
+  const deps = {...h.deps, dailyCap: 2, mailer: {send: async () => { throw new Error('provider down'); }}};
+  await code(sendLink(fromAddress('g-fail', '10.3.0.1', undefined, body({guardianEmail: 'x@example.com'})), deps));
+  const day = (await db.doc('guardianLimits/global-2026-11-02').get());
+  assert.equal(day.get('count'), 0);
 });

@@ -21,7 +21,9 @@ import {timed} from './_timed.js';
  * account with no Google link, so Firebase refuses their Google sign-in. This callable checks
  * Google's proof of the address and signs the person into that existing account, then links
  * Google to it so the next Google sign-in works directly. It never makes an account: an address
- * with no account signs in through Firebase itself.
+ * with no account signs in through Firebase itself. If the address has only an unverified,
+ * password-only account (someone registered it without owning it), that account is replaced once
+ * Google has proved the address, so the address is then new and Firebase signs the owner in directly.
  *
  * The proof is the Google ID token, checked with Google's tokeninfo endpoint. That is as strong
  * as the email code (both prove control of the inbox) and adds no dependency. It is accepted
