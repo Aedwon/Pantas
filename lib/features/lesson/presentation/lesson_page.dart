@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/app/update_coordinator_provider.dart';
 import 'package:pantas/app/web_address.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
@@ -246,6 +247,7 @@ class _LessonPageState extends ConsumerState<LessonPage> {
       _warm = null;
       _warmedId = null;
       _selectionFailure = null;
+      ref.read(updateCoordinatorProvider).lessonStarted();
       _ending = null;
       _initialEndingShown = false;
       _lessonId = widget.lessonId;
@@ -351,6 +353,7 @@ class _LessonPageState extends ConsumerState<LessonPage> {
       _shown = next;
       _selectionFailure = null;
       _lessonId = next.lesson.id;
+      ref.read(updateCoordinatorProvider).lessonStarted();
       _ending = null;
     });
     // A reload stays on the lesson on screen.
@@ -377,6 +380,13 @@ class _LessonPageState extends ConsumerState<LessonPage> {
       return false;
     }
     setState(() => _ending = ending);
+    // The reader body saves its last position during this frame's rebuild.
+    // Register the ending after that lifecycle work has started.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted || _ending == null || epoch != _navigationEpoch) return;
+      final updates = ref.read(updateCoordinatorProvider)..lessonEnded();
+      unawaited(updates.check());
+    });
     return true;
   }
 
@@ -474,6 +484,11 @@ class _LessonPageState extends ConsumerState<LessonPage> {
         if (widget.initialEnding && !_initialEndingShown) {
           _ending = loaded.topicEnding;
           _initialEndingShown = true;
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            if (!mounted || _ending == null) return;
+            final updates = ref.read(updateCoordinatorProvider)..lessonEnded();
+            unawaited(updates.check());
+          });
         }
       }
     }

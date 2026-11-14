@@ -3195,3 +3195,18 @@ Aedwon is moving the operations manager role to a new thread (checklist in `docs
 - Ship 2: 8f0799372 to staging (build 4097268314-f872a9ae6d28; live proof with a short-lived staging debug token, since deleted: onboarding, three quizzes, three session saves 200, no errors) and prod at 16:56 UTC Nov 12 (build 740862137-c0961d57c614; 63 functions active, the served main.dart.js equals the build, a throwaway account's feedback attachment upload 200, file and account removed). Headless browsers cannot pass prod App Check, and prod gets no debug token, so the in-app proof on prod needs a real device.
 - Real use since ship 2, to Nov 14 06:12 UTC, counts only: 0 quiz completions, 0 feedback sends, 0 save-failure or repair reports, 0 failed calls; 8 client reports (6 on the new build), 2 Home and 3 lesson screens. The prod proof is not complete; it needs someone on a real phone to open the stuck Reviews session, finish a quiz, and send feedback with a screenshot.
 - Velocity E-041: the timer ran 40 h 7 min without a pause, so active time is not measured.
+
+### Nov 14, E-043 bounded app coordinator continuation
+
+Aedwon authorized the app-side build on `web/update-at-once-r1`: "Do not push,
+do not deploy, no Firebase" and "App-side logic only: no new screen, prompt,
+banner, wording or layout change". Implemented safe-point routing, reader ending,
+inline-modal guards, an awaited local database/outbox durability barrier, native
+no-op, once-per-version apply and `update.apply` telemetry. No visible presentation
+change. 205 focused VM tests and 2 browser tests passed, including 24 new tests;
+format, analysis, design lint, layering and repository checks passed. Independent
+review's findings were fixed; final review has no remaining findings.
+
+Local implementation and review only. This does not complete E-043's deployment
+or real two-version update proof. Full evidence and changed-file list:
+`docs/superpowers/verification/2026-11-14-update-at-once-app.md`.

@@ -6,7 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/app/update_coordinator_provider.dart';
 import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/platform/app_update/update_bridge.dart';
+import 'package:pantas/core/platform/app_update/update_coordinator.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/loading_shapes.dart';
@@ -81,6 +84,33 @@ void main() {
   });
 
   tearDown(() => db.close());
+
+  testWidgets('reader applies a pending update after its ending frame',
+      (tester) async {
+    final bridge = _LessonUpdateBridge();
+    final updates = UpdateCoordinator(
+      bridge: bridge,
+      waitForWrites: db.waitForDurableWrites,
+      onFailure: (error, _) => fail('$error'),
+    )..routeChanged('/lesson/l1');
+    await tester.pumpAppWithProviders(
+      const LessonPage(lessonId: 'l1'),
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+        updateCoordinatorProvider.overrideWithValue(updates),
+      ],
+    );
+    await tester.pumpAndSettle();
+    await updates.check();
+    expect(bridge.applies, 0);
+    final pull = tester.widget<PullToAdvance>(find.byType(PullToAdvance));
+    expect(pull.onAdvance, isNotNull);
+    pull.onCommit?.call();
+    pull.onAdvance!();
+    await tester.pumpAndSettle();
+    expect(bridge.applies, 1);
+  });
 
   testWidgets('audit guarded open refreshes cached Study consumers',
       (tester) async {
@@ -1064,5 +1094,16 @@ class _HeldPositionCompletion extends _FailReaderPositions {
       await deliver.future;
     }
     return saved;
+  }
+}
+
+class _LessonUpdateBridge implements UpdateBridge {
+  int applies = 0;
+  @override
+  Future<UpdateStatus> check() async =>
+      const UpdateStatus(available: true, version: 'next');
+  @override
+  Future<void> apply() async {
+    applies++;
   }
 }

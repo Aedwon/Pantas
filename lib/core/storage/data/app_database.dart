@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:drift/drift.dart';
 import 'package:pantas/core/storage/data/tables/account_prefs_table.dart';
 import 'package:pantas/core/storage/data/tables/app_preferences_local_table.dart';
@@ -74,6 +76,41 @@ part 'app_database.g.dart';
 )
 class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
+
+  final Set<Future<void>> _localWrites = {};
+
+  /// Tracks the entire local operation, including reads before its enqueue.
+  Future<T> trackLocalWrite<T>(Future<T> Function() action) async {
+    final settled = Completer<void>();
+    _localWrites.add(settled.future);
+    try {
+      return await action();
+    } finally {
+      _localWrites.remove(settled.future);
+      settled.complete();
+    }
+  }
+
+  @override
+  Future<T> transaction<T>(
+    Future<T> Function() action, {
+    bool requireNew = false,
+  }) =>
+      trackLocalWrite(
+        () => super.transaction(action, requireNew: requireNew),
+      );
+
+  /// Waits for local transactions and outbox enqueues, never network sync.
+  /// The exclusive plain statement drains earlier executor writes and forces
+  /// Drift's IndexedDB implementation to persist a committed transaction.
+  Future<void> waitForDurableWrites() async {
+    do {
+      while (_localWrites.isNotEmpty) {
+        await Future.wait(_localWrites.toList());
+      }
+      await exclusively(() => customStatement('SELECT 1'));
+    } while (_localWrites.isNotEmpty);
+  }
 
   @override
   int get schemaVersion => 26;

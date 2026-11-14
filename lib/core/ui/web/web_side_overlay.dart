@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pantas/core/platform/app_update/update_overlay_registry.dart';
 import 'package:pantas/core/ui/components/check_mark.dart';
 import 'package:pantas/core/ui/components/pantas_shadows.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
@@ -55,6 +56,7 @@ class _HomeWebOverlayState extends State<HomeWebOverlay>
   @override
   void initState() {
     super.initState();
+    updateOverlayRegistry.setOpen(this, open: widget.open);
     _motion = AnimationController(vsync: this)
       ..addStatusListener((status) {
         if (status == AnimationStatus.dismissed &&
@@ -71,6 +73,7 @@ class _HomeWebOverlayState extends State<HomeWebOverlay>
 
   @override
   void dispose() {
+    updateOverlayRegistry.setOpen(this, open: false);
     _motion.dispose();
     super.dispose();
   }
@@ -78,6 +81,7 @@ class _HomeWebOverlayState extends State<HomeWebOverlay>
   @override
   void didUpdateWidget(HomeWebOverlay oldWidget) {
     super.didUpdateWidget(oldWidget);
+    updateOverlayRegistry.setOpen(this, open: widget.open);
     if (widget.open) _held = widget;
     if (widget.open != oldWidget.open) {
       // The page behind drops its focus while the overlay is open.

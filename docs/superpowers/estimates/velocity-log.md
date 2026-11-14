@@ -107,3 +107,15 @@ Last updated: not yet. Rows finished since the last update: 0.
 | Docs/legal | 0 | |
 | CI/infra | 0 | |
 | Deploy | 0 | |
+
+Update-at-once app coordinator, November 14: bounded feature build on
+web/update-at-once-r1. Approved scope supplied directly by Aedwon. Estimate:
+25 minutes active and wall. Timer: web-update-coordinator. Startup reading
+before timer start is not measured.
+
+E-043 app-side bounded continuation actual, timer web-update-coordinator:
+Nov 14 06:30 to 06:48 UTC, wall and active 18 min 11 s, no paused time.
+Estimate 25 minutes, measured ratio 0.73. Initial policy/source reading before
+06:30 was not measured. This is not a replacement for the full E-043 elapsed
+time or a claim that its integration/deployment scope is complete. Implemented,
+independently reviewed and locally tested; 207 tests passed. No push or deploy.

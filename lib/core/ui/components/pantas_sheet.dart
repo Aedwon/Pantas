@@ -3,6 +3,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pantas/core/platform/app_update/update_overlay_registry.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_shadows.dart';
 import 'package:pantas/core/ui/components/tab_bar_visibility.dart';
@@ -74,6 +75,7 @@ class _PantasSheetState extends State<PantasSheet>
   @override
   void initState() {
     super.initState();
+    updateOverlayRegistry.setOpen(this, open: widget.open);
     if (widget.open) _hideBar();
   }
 
@@ -96,6 +98,7 @@ class _PantasSheetState extends State<PantasSheet>
   @override
   void didUpdateWidget(PantasSheet oldWidget) {
     super.didUpdateWidget(oldWidget);
+    updateOverlayRegistry.setOpen(this, open: widget.open);
     if (widget.open == oldWidget.open) return;
     if (widget.open) {
       rememberFocus();
@@ -107,6 +110,7 @@ class _PantasSheetState extends State<PantasSheet>
 
   @override
   void dispose() {
+    updateOverlayRegistry.setOpen(this, open: false);
     _showBar();
     super.dispose();
   }
