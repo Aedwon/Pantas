@@ -1437,6 +1437,26 @@
           "slug": "code-of-conduct-ra-6713",
           "lessons": [
             {
+              "title": "Public Interest and Professionalism",
+              "slug": "norms-public-interest-and-professionalism",
+              "sections": []
+            },
+            {
+              "title": "Fair and Responsive Public Service",
+              "slug": "norms-fair-and-responsive-service",
+              "sections": []
+            },
+            {
+              "title": "Nationalism and Commitment to Democracy",
+              "slug": "norms-nationalism-and-democracy",
+              "sections": []
+            },
+            {
+              "title": "Simple Living and Rewards for Ethical Service",
+              "slug": "norms-simple-living-and-rewards",
+              "sections": []
+            },
+            {
               "title": "Prohibited Acts and Gift Rules under RA 6713 (Section 7)",
               "slug": "prohibited-acts-and-gift-rules",
               "sections": []
@@ -1444,6 +1464,56 @@
             {
               "title": "Corruption and Its Effects",
               "slug": "corruption-and-its-effects",
+              "sections": []
+            },
+            {
+              "title": "SALN Assets and Business Disclosures",
+              "slug": "saln-assets-and-business-disclosures",
+              "sections": []
+            },
+            {
+              "title": "SALN Filers and Family Coverage",
+              "slug": "saln-filers-and-family-coverage",
+              "sections": []
+            },
+            {
+              "title": "SALN Relatives in Government",
+              "slug": "saln-relatives-in-government",
+              "sections": []
+            },
+            {
+              "title": "SALN Filing Dates",
+              "slug": "saln-filing-dates",
+              "sections": []
+            },
+            {
+              "title": "SALN National, Legislative, and Judicial Offices",
+              "slug": "saln-national-legislative-and-judicial-offices",
+              "sections": []
+            },
+            {
+              "title": "SALN Executive, Military, and Other Offices",
+              "slug": "saln-executive-military-and-other-offices",
+              "sections": []
+            },
+            {
+              "title": "SALN Public Access and Use Limits",
+              "slug": "saln-public-access-and-use",
+              "sections": []
+            },
+            {
+              "title": "Conflict of Interest and Valid Divestment",
+              "slug": "conflict-and-valid-divestment",
+              "sections": []
+            },
+            {
+              "title": "Conflict of Interest Action Deadlines",
+              "slug": "conflict-action-deadlines",
+              "sections": []
+            },
+            {
+              "title": "SALN Review and Written Opinions",
+              "slug": "saln-review-and-written-opinions",
               "sections": []
             }
           ]

@@ -6,6 +6,18 @@ subject: "subject-general-information"
 topic: "topic-code-of-conduct-ra-6713"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-code-of-conduct-ra-6713-saln-assets-and-business-disclosures
+  - lesson-code-of-conduct-ra-6713-saln-filers-and-family-coverage
+  - lesson-code-of-conduct-ra-6713-saln-relatives-in-government
+  - lesson-code-of-conduct-ra-6713-saln-filing-dates
+  - lesson-code-of-conduct-ra-6713-saln-national-legislative-and-judicial-offices
+  - lesson-code-of-conduct-ra-6713-saln-executive-military-and-other-offices
+  - lesson-code-of-conduct-ra-6713-saln-public-access-and-use
+  - lesson-code-of-conduct-ra-6713-conflict-and-valid-divestment
+  - lesson-code-of-conduct-ra-6713-conflict-action-deadlines
+  - lesson-code-of-conduct-ra-6713-saln-review-and-written-opinions
 ---
 
 ## Core Concept

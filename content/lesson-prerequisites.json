@@ -126,7 +126,6 @@
   "lesson-clerical-ability-numeric-and-chronological-filing": [],
   "lesson-code-of-conduct-ra-6713-corruption-and-its-effects": [],
   "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts": [],
-  "lesson-code-of-conduct-ra-6713-norms-of-conduct": [],
   "lesson-code-of-conduct-ra-6713-penalties-and-enforcement": [
    {
     "lesson": "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules",
@@ -134,13 +133,12 @@
     "reason": "Knowing Section 7 violations makes matching offenses to penalties easier. This lesson restates the disclosure offense used in its examples."
    },
    {
-    "lesson": "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment",
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-review-and-written-opinions",
     "strength": "helpful",
     "reason": "Understanding permitted SALN access and use helps distinguish public disclosure from punishable misuse. This lesson supplies the essential misuse rules."
    }
   ],
   "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules": [],
-  "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment": [],
   "lesson-comprehension-skills-authors-purpose-tone-pov": [],
   "lesson-comprehension-skills-choosing-a-title": [
    {
@@ -955,6 +953,92 @@
   "lesson-philippine-constitution-constitution-other-fields-and-change": [
    {
     "lesson": "lesson-philippine-constitution-constitution-local-government-and-welfare",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-saln-assets-and-business-disclosures": [],
+  "lesson-code-of-conduct-ra-6713-saln-filers-and-family-coverage": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-assets-and-business-disclosures",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-saln-relatives-in-government": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-filers-and-family-coverage",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-saln-filing-dates": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-relatives-in-government",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-saln-national-legislative-and-judicial-offices": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-filing-dates",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-saln-executive-military-and-other-offices": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-national-legislative-and-judicial-offices",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-saln-public-access-and-use": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-executive-military-and-other-offices",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-conflict-and-valid-divestment": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-public-access-and-use",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-conflict-action-deadlines": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-conflict-and-valid-divestment",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-saln-review-and-written-opinions": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-conflict-action-deadlines",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-norms-public-interest-and-professionalism": [],
+  "lesson-code-of-conduct-ra-6713-norms-fair-and-responsive-service": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-norms-public-interest-and-professionalism",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-norms-nationalism-and-democracy": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-norms-fair-and-responsive-service",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-norms-simple-living-and-rewards": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-norms-nationalism-and-democracy",
     "strength": "required",
     "reason": "Read the previous part before this part."
    }
