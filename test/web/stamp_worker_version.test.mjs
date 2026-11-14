@@ -27,11 +27,21 @@ test('the same build always gets the same version, and stamping twice is stable'
   const first = stamp(dir);
   assert.equal(stamp(dir), first);
   assert.equal(stamp(build('same code')), first);
-  assert.match(readFileSync(join(dir, 'b', first, 'flutter_bootstrap.js'), 'utf8'), new RegExp(`registerWorker\\("${first}"`));
+  assert.match(readFileSync(join(dir, 'flutter_bootstrap.js'), 'utf8'), new RegExp(`registerWorker\\("${first}"`));
 });
 
 test('a bootstrap without the version token is refused', () => {
   const dir = build('code');
   writeFileSync(join(dir, 'flutter_bootstrap.js'), 'nothing here');
   assert.throws(() => stamp(dir), /No registerWorker/);
+});
+
+test('version metadata adds only the comparable stamped build identity', () => {
+  const dir = build('code');
+  writeFileSync(join(dir, 'version.json'), '{"version":"1.0.0","build_number":"4"}');
+  const first = stamp(dir);
+  assert.deepEqual(JSON.parse(readFileSync(join(dir, 'version.json'), 'utf8')), {
+    version: '1.0.0', build_number: '4', pantasBuildVersion: first,
+  });
+  assert.equal(stamp(dir), first);
 });

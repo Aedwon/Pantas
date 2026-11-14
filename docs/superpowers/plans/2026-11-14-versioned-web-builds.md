@@ -51,3 +51,10 @@ Implementation review refinements within approved scope:
   without a version attribute. Versioned indices always select their own folder.
 - Verification file scope includes test/core/storage/data/database_opener_web_test.dart:
   exercise the real opener's default URLs with the running build base in Chromium.
+
+## Superseded by final scale-back ruling
+
+November 14: Aedwon withdrew the worker and hosting migration after two read-only
+reviews. This document is historical, not the current build or deployment plan.
+The final ruling is recorded in the PWA launch log; current evidence is
+`docs/superpowers/verification/2026-11-14-update-at-once-scale-back.md`.

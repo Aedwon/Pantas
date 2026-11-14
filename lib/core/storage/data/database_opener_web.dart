@@ -8,9 +8,6 @@ import 'package:pantas/core/storage/data/durable_writes.dart';
 // ignore: depend_on_referenced_packages
 import 'package:web/web.dart' as web;
 
-@JS('pantasBuildBase')
-external String? get _buildBase;
-
 /// The study database name in browser storage.
 ///
 /// The first test builds kept an encrypted database named `pantas-study-v1`
@@ -31,9 +28,8 @@ Future<AppDatabase> openEncryptedDatabase({
   Uri? sqlite3Uri,
   Uri? driftWorkerUri,
 }) async {
-  final base = Uri.base.resolve(_buildBase ?? './');
-  final wasm = sqlite3Uri ?? base.resolve('sqlite3.wasm');
-  final worker = driftWorkerUri ?? base.resolve('drift_worker.js');
+  final wasm = sqlite3Uri ?? Uri.base.resolve('sqlite3.wasm');
+  final worker = driftWorkerUri ?? Uri.base.resolve('drift_worker.js');
   try {
     return await _openOnce(databaseName, wasm, worker);
   } on _UnreadableDatabase catch (unreadable) {

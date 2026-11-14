@@ -37,13 +37,7 @@ final updateCoordinatorProvider = Provider<UpdateCoordinator>((ref) {
     ref.onDispose(() => updateOverlayRegistry.removeListener(overlaysChanged));
     final lifecycle = _UpdateLifecycle(coordinator);
     WidgetsBinding.instance.addObserver(lifecycle);
-    // JS caches checks for five minutes. Polling also picks up its visibility
-    // checks while Home remains open, without a route change.
-    final timer = Timer.periodic(const Duration(seconds: 30), (_) {
-      unawaited(coordinator.check());
-    });
     ref.onDispose(() {
-      timer.cancel();
       WidgetsBinding.instance.removeObserver(lifecycle);
     });
   }

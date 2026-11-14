@@ -49,3 +49,10 @@ Dart regressions for retry and detection; changed-Dart format, analyze lib test,
 app_update tests, design lint and layering. Build staging web with a dummy site
 key, package it and list the resulting folder. Serialize Flutter jobs and inspect
 flutter_tester ownership. Record evidence and limits, then commit locally.
+
+## Superseded by final scale-back ruling
+
+November 14: Aedwon withdrew the worker and hosting migration after two read-only
+reviews. This document is historical, not the current build or deployment plan.
+The final ruling is recorded in the PWA launch log; current evidence is
+`docs/superpowers/verification/2026-11-14-update-at-once-scale-back.md`.

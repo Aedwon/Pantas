@@ -129,3 +129,12 @@ Estimate 25 minutes, measured ratio 0.85. Final local recording/commit follows
 this timer stop. Implemented and independently reviewed; 91 Node and 30 focused
 Dart/browser tests passed. Final web build packaged 73 verified build files.
 No push, deployment or Firebase access. Real rollout/device proof remains.
+
+### Nov 14, update scale-back
+
+- Task: web/update-at-once-r1, final lead ruling after two read-only reviews.
+- Estimate: 25 minutes active/wall; timer web-update-scale-back.
+- Scope: restore production web transport; minimal JS bridge; retain safe points.
+- Actual: timer web-update-scale-back measured 6 min 59 s active/wall,
+  Nov 14 07:38 to 07:45 UTC, before final evidence/commit. Initial context
+  retrieval before the timer was not measured. No push, deploy or Firebase.

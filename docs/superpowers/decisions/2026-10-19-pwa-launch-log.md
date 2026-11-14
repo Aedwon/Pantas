@@ -3238,3 +3238,39 @@ recording and local commit. No push, deployment, Firebase access or UI change.
 Live legacy-inventory recovery, real consecutive deployments/rollback/offline
 and Android Chrome/iPhone Safari storage survival remain release proof. This
 entry does not complete E-043's live rollout or authorize publication.
+
+### Nov 14, E-043 final scale-back ruling
+
+Aedwon's exact assignment, superseding the versioned-build ruling above:
+
+> Bounded job, about 25 minutes. Worktree branch web/update-at-once-r1 (Pantas Flutter web PWA). Do not push, do not deploy, no Firebase. Commit with plain messages, NO Co-Authored-By or any AI trailer. Non-UI only.
+>
+> Lead ruling (final), after two read-only reviews (/private/tmp/claude-501/-Users-aedwon-Documents-Projects-Pantas-wt-design-system-4/33a4ae62-5c4c-4d3c-844a-35379c6da590/scratchpad/update-review-1.md and /private/tmp/claude-501/-Users-aedwon-Documents-Projects-Pantas-wt-design-system-4/33a4ae62-5c4c-4d3c-844a-35379c6da590/scratchpad/update-review-2.md) found that changing the service worker and the hosting layout cannot be rolled out safely over the worker already on phones: SCALE BACK.
+> 1. Restore the web layer to origin/main exactly: web/pantas_sw.js, web/index.html, web/flutter_bootstrap.js (or its template), firebase.json, firebase.staging.json, tool/web/stamp_worker_version.mjs, and remove tool/web/retain_builds.mjs and the /b/ folder build steps and their tests and CI wiring, so the service worker, the caching, the drift worker URL and the hosting layout are exactly what prod runs today. Keep docs/deploy-prod.md as on main.
+> 2. Keep the app-side coordinator from 46adf8a0f with 054357371's fix (an attempt is consumed only when the reload actually happens; failed or slow checks retry at the next safe point), and the write-durability wait and the safe points (Home first appearance, returns to Home, quiz and mock results, lesson end; never on quiz, mock, lesson, onboarding mid-entry, checkout, or with a dialog or sheet with input open).
+> 3. A minimal JS bridge in web/pantas_pwa.js only (add, do not restructure): window.pantasUpdate = {currentVersion, check(), apply()}. currentVersion = the build version this page started with (the stamped value the page already knows, e.g. from flutter_bootstrap.js or version.json loaded at start; find what main already stamps and reuse it). check() fetches version.json with cache: 'no-store' and compares; returns {available, version}; it also calls registration.update() so the existing worker fetches the new build in the background (the existing worker already handles its own install and takeover). apply() = location.reload(). Also check on visibility return and at most every 5 minutes while visible; never reload by itself. If version.json does not carry a comparable version on main today, make the existing stamping write it (smallest change to stamp_worker_version.mjs: add a field only) and say exactly what changed.
+> 4. The Dart bridge uses window.pantasUpdate if present and is a no-op otherwise (old pages and native).
+> Tests first: node tests for check() (available, not available, network failure) and apply(); Dart coordinator tests stay green (update them for the reload-only apply). Show the new node tests failing first.
+> Checks: node tests, dart format, flutter analyze lib test, the app_update tests, design lint, layering (one Flutter job at a time). Confirm with git diff origin/main -- web/pantas_sw.js firebase.json firebase.staging.json web/index.html that those are unchanged. Commit. Report: what the bridge does, the version source, test evidence, the files that differ from main.
+
+Result: restored the production worker, caching, flat layout, bootstrap, hosting,
+deployment guide, Drift worker URLs and original tests. Deleted folder packaging,
+retention and its CI/deploy wiring. Added only the update API to the main PWA
+helper. Existing registerWorker receives the stamped startup identity. Stamping
+adds pantasBuildVersion to existing version metadata; hashing excludes that own
+field and normalizes metadata serialization to keep repeated stamping stable.
+No file moves, worker edits or loader edits remain against main.
+
+The Dart bridge now calls synchronous reload, with absent-bridge/native no-op.
+The coordinator, guarded safe points and local-write durability barrier remain.
+Removed the duplicate 30-second Dart poll: JS detects on visible five-minute ticks
+and visibility return; the app checks/applies at its existing safe-point and
+lifecycle hooks. Background JS checks never call apply. Idle Home detection alone
+does not reload until an app safe-point/lifecycle check runs.
+
+Independent final review found no remaining must-fixes after restoring the main
+browser database tests, rather than deleting the whole file with the folder test.
+Verification and exact main diff inventory:
+`docs/superpowers/verification/2026-11-14-update-at-once-scale-back.md`.
+This is local implementation only. Real device/consecutive-deployment proof and
+publication remain outside this assignment. No push, deploy or Firebase access.

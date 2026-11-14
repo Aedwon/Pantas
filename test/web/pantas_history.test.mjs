@@ -45,8 +45,10 @@ test('a browser that refuses history access does not break the page', () => {
   assert.equal(unwrap(windowWith({ serialCount: 1, state: {} }, { throws: true })), false);
 });
 
-test('the page loads history before PWA setup', () => {
+test('the page loads it first, and the worker keeps it current', () => {
   const html = readFileSync(new URL('../../web/index.html', import.meta.url), 'utf8');
+  const sw = readFileSync(new URL('../../web/pantas_sw.js', import.meta.url), 'utf8');
   assert.ok(html.indexOf('pantas_history.js') > 0);
   assert.ok(html.indexOf('pantas_history.js') < html.indexOf('pantas_pwa.js'));
+  assert.equal(sw.split("'pantas_history.js'").length - 1, 2);
 });

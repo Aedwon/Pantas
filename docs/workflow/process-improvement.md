@@ -287,3 +287,14 @@ the current decision log.
   selections.
 - Why: no step compared wide web motion with the phone. Screens were judged still.
 - Fix: written rule 1. Whether motion is right is a judgment a check cannot make.
+
+### Update transport failed two migration reviews (Nov 14)
+
+- His words: "Lead ruling (final), after two read-only reviews" and "SCALE BACK."
+- Wrong: replacement workers and versioned hosting were treated as ready without
+  proving compatibility with the worker already installed on phones.
+- Why: isolated new-worker tests did not exercise the existing worker's rollout.
+- Fix: required completion step for this correction: compare worker, hosting,
+  index, bootstrap, deployment guide and Drift opener against origin/main; require
+  an empty diff. Retain Node regressions for no-store detection, worker update,
+  failed/slow retry and reload-only apply. No new worker or hosting migration ships.

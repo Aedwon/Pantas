@@ -37,3 +37,20 @@ All five implementation steps completed locally. Independent review findings
 were corrected and reviewed again with no remaining findings. Evidence:
 `docs/superpowers/verification/2026-11-14-update-at-once-app.md`.
 Integration and live deployment proof are outside this assignment.
+
+## Final scale-back ruling, November 14
+
+Supersedes the versioned-build plan. Policy: origin/main
+14bc67a994d95d2fa353c7b04715b56da7f2609f. Bounded estimate: 25 minutes.
+Restore production worker, hosting, index, bootstrap, Drift URLs, deploy scripts,
+CI wiring and their original tests from main. Keep the coordinator, durability
+barrier, safe points and successful-reload-only attempt accounting.
+Write failing Node tests against main's PWA helper before adding a small bridge.
+Reuse registerWorker's stamped identity; add pantasBuildVersion to version.json
+without changing worker behavior or layout. Normalize that field out of the
+build hash so repeated stamping remains stable. Check with no-store plus
+registration.update, background visibility/five-minute checks, no automatic reload.
+Dart apply calls the synchronous reload bridge and no-ops when absent.
+Verify Node suites, changed Dart format, analyze lib test, app_update tests,
+design lint, layering, repository checks and exact restored-file equality.
+Local commit only; no push, deployment, Firebase access or UI change.

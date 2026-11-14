@@ -194,3 +194,10 @@ changed. No browser proof here substitutes for real device/deployment proof.
 
 Task source SHA-256 (sorted changed lib/test/tool/web path, NUL, bytes, NUL):
 `b9774723622d3cb9825f866965b435345a266d0285597d468c7be1773990b94f`.
+
+## Superseded by final scale-back ruling
+
+November 14: Aedwon withdrew the worker and hosting migration after two read-only
+reviews. This document is historical, not the current build or deployment plan.
+The final ruling is recorded in the PWA launch log; current evidence is
+`docs/superpowers/verification/2026-11-14-update-at-once-scale-back.md`.

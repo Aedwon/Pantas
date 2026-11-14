@@ -166,6 +166,12 @@ test('the page loads the splash script after the welcome script', () => {
   assert.match(html, /id="pantas-splash"[^>]*aria-label="Pantas is loading"/);
 });
 
+test('the service worker stores the splash script', () => {
+  const sw = readFileSync(new URL('../../web/pantas_sw.js', import.meta.url), 'utf8');
+  const precache = sw.slice(sw.indexOf('const PRECACHE'), sw.indexOf('];', sw.indexOf('const PRECACHE')));
+  assert.ok(precache.includes("'pantas_splash.js'"));
+});
+
 test('the first frame leaves the splash while data is pending', () => {
   const t = setup();
   t.frameListeners.forEach((fn) => fn());

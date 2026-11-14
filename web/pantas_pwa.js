@@ -55,64 +55,119 @@
     emit();
   });
 
-  // Folder URLs establish the build before any worker can take control.
+  // Registers pantas_sw.js for this build and resolves once that exact build
+  // controls the page, so no file is read through an older cache. Never
+  // rejects and never waits long: without a worker the app loads from the
+  // network as before.
   function registerWorker(version) {
     buildVersion = version;
     window.pantasUpdate.currentVersion = version;
-    scheduleCheck();
-    if (!('serviceWorker' in navigator)) {
+    scheduleUpdateCheck();
+    return registerForBuild(version).then(function (result) {
       mark('page.worker');
-      return Promise.resolve(false);
-    }
-    return navigator.serviceWorker.register('/pantas_sw.js?v=' + encodeURIComponent(version),
-      {updateViaCache: 'none'}).then(function () {
-        mark('page.worker'); return true;
-      }, function () { mark('page.worker'); return false; });
+      return result;
+    });
   }
 
-  var checking = null;
-  var checkTimer = null;
-  var CHECK_INTERVAL = 5 * 60 * 1000;
+  function registerForBuild(version) {
+    if (!('serviceWorker' in navigator)) return Promise.resolve(false);
+    var script = 'pantas_sw.js?v=' + encodeURIComponent(version);
+    // First visit: no worker controls the page, so nothing stale can be
+    // served. Register in the background and start the app at once.
+    if (!navigator.serviceWorker.controller) {
+      navigator.serviceWorker.register(script).catch(function () {});
+      return Promise.resolve(false);
+    }
+    var timeout = new Promise(function (resolve) {
+      setTimeout(function () {
+        resolve(false);
+      }, 4000);
+    });
+    var ready = navigator.serviceWorker
+      .register(script)
+      .then(function (registration) {
+        return new Promise(function (resolve) {
+          function active() {
+            var worker = registration.active;
+            return worker && worker.scriptURL.indexOf('?v=' + encodeURIComponent(version)) !== -1
+              ? worker
+              : null;
+          }
+          function check() {
+            if (active() && navigator.serviceWorker.controller) {
+              if (navigator.serviceWorker.controller.scriptURL === active().scriptURL) {
+                resolve(true);
+                return true;
+              }
+            }
+            return false;
+          }
+          if (check()) return;
+          navigator.serviceWorker.addEventListener('controllerchange', check);
+          var pending = registration.installing || registration.waiting;
+          if (pending) pending.addEventListener('statechange', check);
+          registration.addEventListener('updatefound', function () {
+            if (registration.installing) {
+              registration.installing.addEventListener('statechange', check);
+            }
+          });
+        });
+      })
+      .catch(function () {
+        return false;
+      });
+    return Promise.race([ready, timeout]);
+  }
+
+  // Detection only. The app chooses a safe point and flushes local writes
+  // before calling apply. The production worker keeps its existing lifecycle.
+  var checkingUpdate = null;
+  var updateTimer = null;
   function checkUpdate() {
-    if (checking) return checking;
-    checking = (async function () {
-      var controller = new AbortController();
-      var timer;
-      try {
-        return await Promise.race([
-          (async function () {
-            var response = await fetch('/version.json', {cache: 'no-store', signal: controller.signal});
-            if (!response.ok) throw new Error('Version check failed');
-            var data = await response.json();
-            var version = data.pantasBuildVersion;
-            if (typeof version !== 'string' || !version) throw new Error('Missing build version');
-            return {available: version !== buildVersion, version: version};
-          })(),
-          new Promise(function (_, reject) {
-            timer = setTimeout(function () {
-              reject(new Error('Version check timed out'));
-              controller.abort();
-            }, 4000);
-          })
-        ]);
-      } finally { clearTimeout(timer); }
-    })().finally(function () { checking = null; });
-    return checking;
+    if (checkingUpdate) return checkingUpdate;
+    if (buildVersion === null) return Promise.resolve({available: false, version: null});
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistration().then(function (registration) {
+        if (registration) return registration.update();
+      }).catch(function () {});
+    }
+    var controller = new AbortController();
+    var timeout;
+    checkingUpdate = Promise.race([
+      fetch('version.json', {cache: 'no-store', signal: controller.signal})
+        .then(function (response) {
+          if (!response.ok) throw new Error('Version check failed');
+          return response.json();
+        }).then(function (data) {
+          var version = data.pantasBuildVersion;
+          if (typeof version !== 'string' || !version) throw new Error('Missing build version');
+          return {available: version !== buildVersion, version: version};
+        }),
+      new Promise(function (_, reject) {
+        timeout = setTimeout(function () {
+          reject(new Error('Version check timed out'));
+          controller.abort();
+        }, 4000);
+      }),
+    ]).finally(function () {
+      clearTimeout(timeout);
+      checkingUpdate = null;
+    });
+    return checkingUpdate;
   }
-  function scheduleCheck() {
-    if (!window.document || checkTimer !== null) return;
-    checkTimer = setTimeout(function tick() {
-      checkTimer = null;
-      var job = document.visibilityState === 'visible' ? checkUpdate().catch(function () {}) : Promise.resolve();
-      scheduleCheck();
-      return job;
-    }, CHECK_INTERVAL);
+  function scheduleUpdateCheck() {
+    if (!window.document || updateTimer !== null) return;
+    updateTimer = setTimeout(function () {
+      updateTimer = null;
+      scheduleUpdateCheck();
+      if (document.visibilityState === 'visible') return checkUpdate().catch(function () {});
+    }, 5 * 60 * 1000);
   }
-  function applyUpdate() {
-    window.location.reload();
-    return Promise.resolve(true);
-  }
-  window.pantasUpdate = {currentVersion: null, check: checkUpdate, apply: applyUpdate};
+  window.pantasUpdate = {
+    currentVersion: null,
+    check: checkUpdate,
+    apply: function () { window.location.reload(); },
+  };
   if (window.document) {
     document.addEventListener('visibilitychange', function () {
       if (document.visibilityState === 'visible') return checkUpdate().catch(function () {});
@@ -151,8 +206,45 @@
     buildVersion: function () {
       return buildVersion;
     },
-    // Compatibility for the existing app action. It uses the same safe shell
-    // update and never unregisters workers or clears storage.
-    updateNow: applyUpdate,
+    // Forced update: removes this browser's worker and cached app files, then
+    // reloads so the next load comes from the network. Always reloads.
+    updateNow: function () {
+      var work = [];
+      try {
+        if ('serviceWorker' in navigator) {
+          work.push(
+            navigator.serviceWorker.getRegistrations().then(function (list) {
+              return Promise.all(
+                list.map(function (registration) {
+                  return registration.unregister();
+                })
+              );
+            })
+          );
+        }
+        if (window.caches) {
+          work.push(
+            caches.keys().then(function (names) {
+              return Promise.all(
+                names
+                  .filter(function (name) {
+                    return name.indexOf('pantas-shell-') === 0;
+                  })
+                  .map(function (name) {
+                    return caches.delete(name);
+                  })
+              );
+            })
+          );
+        }
+      } catch (_) {}
+      return Promise.all(
+        work.map(function (job) {
+          return job.catch(function () {});
+        })
+      ).then(function () {
+        window.location.reload();
+      });
+    },
   };
 })();
