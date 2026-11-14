@@ -7,12 +7,11 @@ topic: "topic-environment-management"
 isActive: true
 part: 2
 partCount: 3
-ordering: 0.02
+ordering: 2
 keyPoints:
   - "Identify response and early recovery."
   - "Identify rehabilitation and recovery that reduces future risk."
 ---
-<!-- AUDIT: Learning goal: Classify actions under the four DRRM areas and explain why DRRM extends beyond emergency aid. Branch: content/cse-rewrite-r1. Supplied standards base: f1062e06. Sources checked 2026-10-26: RA 10121, Sections 2, 3 and 5, https://lawphil.net/statutes/repacts/ra2010/ra_10121_2010.html; four-area framework and recovery goals, https://ndrrmc.gov.ph/attachments/article/4145/FOR_UPLOADING_Ready_to_Rebuild_Workbook_Feb24.pdf; updated response and early recovery, https://ndrrmc.gov.ph/attachments/article/4125/National_Disaster_Response_Plan_NDRP_2024.pdf. No prerequisite teaching assumed. -->
 ## Core Concept
 
 ### Disaster Response and Early Recovery

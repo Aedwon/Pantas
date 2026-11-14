@@ -2,9 +2,9 @@
 
 Policy: origin/main bc0d5019750f10b40836e0c6e66a79d9f03cfa50. Scope: the three assigned originals only. All teaching text moves verbatim. Example and trap numbers restart in each part. No questions change.
 
-Cuts follow Core Concept subsections. Project Review splits between project-type and location coverage. Waste Diversion splits at paragraph boundaries to keep each idea within the cap. One general source comment is copied to each derived part. No figures occur in these originals.
+Cuts follow Core Concept subsections. Project Review splits between project-type and location coverage. Waste Diversion splits at paragraph boundaries to keep each idea within the cap. The general source comment moves to the first derived part. No figures occur in these originals.
 
-Ordering uses the original sorted-file positions (DRRM 0, concepts 1, laws 4) plus small ascending fractions. Other lessons keep their ordering. Each part after the first requires its preceding part. In the JSON owner-to-requirement graph, existing references into an original point to part 1. Requirements formerly owned by the original move to its last part. Each later part also requires the preceding part.
+Temporary integer ordering reserves blocks after the original sorted-file positions: DRRM 1 to 3, concepts 101 to 103, and laws 401 to 409. Other lessons keep their ordering. Each part after the first requires its preceding part. In the JSON owner-to-requirement graph, existing references into an original point to part 1. Requirements formerly owned by the original move to its last part. Each later part also requires the preceding part.
 
 ## the-environmental-laws
 
@@ -102,7 +102,7 @@ Other sections: Speed Tricks & Shortcuts: Wildlife and critical habitats point t
 Pool gaps for both exams: key points none; mapped pool 4, required quiz pool 2.
 ### Part 9: Environmental Agencies
 
-Id: `lesson-environment-management-environmental-agencies`. One idea: Name DENR and EMB and describe their duties. Teaching words: 152.
+Id: `lesson-environment-management-environmental-agencies`. One idea: Name DENR and EMB and describe their duties. Teaching words: 154.
 
 Key points:
 1. Name DENR and EMB and describe their duties.

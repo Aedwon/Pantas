@@ -7,7 +7,7 @@ topic: "topic-environment-management"
 isActive: true
 part: 1
 partCount: 3
-ordering: 0.01
+ordering: 1
 keyPoints:
   - "Explain the broad DRRM approach under RA 10121."
   - "Distinguish prevention and mitigation from preparedness."

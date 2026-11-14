@@ -7,7 +7,7 @@ topic: "topic-environment-management"
 isActive: true
 part: 1
 partCount: 3
-ordering: 1.01
+ordering: 101
 keyPoints:
   - "Explain segregation at source."
   - "Sort compostable, recyclable, non-recyclable, and special waste."

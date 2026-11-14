@@ -7,12 +7,11 @@ topic: "topic-environment-management"
 isActive: true
 part: 2
 partCount: 3
-ordering: 1.02
+ordering: 102
 keyPoints:
   - "Explain how sorting supports recovery."
   - "Distinguish reuse and recycling while recognizing their legal overlap."
 ---
-<!-- AUDIT: Learning goal: Sort waste into the four source-segregation categories and distinguish sorting from reduction, reuse, recycling and composting. Branch: content/cse-rewrite-r1. Supplied standards base: f1062e06. Source checked 2026-10-26: RA 9003, Sections 2, 3, 20 to 22, https://lawphil.net/statutes/repacts/ra2001/ra_9003_2001.html. Section 3(bb) expressly includes collection, segregation and reuse of used packaging within recycling. No prerequisite teaching assumed. -->
 ## Core Concept
 
 ### How Sorting Helps Recovery
