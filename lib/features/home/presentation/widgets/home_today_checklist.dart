@@ -20,6 +20,11 @@ import 'package:pantas/features/home/domain/home_today_view.dart';
 
 export 'package:pantas/features/home/domain/home_today_lesson.dart';
 
+/// The label of a lesson button on Home and on its sheet: Resume Lesson for
+/// a partly read lesson, Start Lesson otherwise. One rule, so they agree.
+String homeLessonButtonLabel(HomeTodayLesson? lesson) =>
+    (lesson?.fraction ?? 0) > 0 ? 'Resume Lesson' : 'Start Lesson';
+
 /// Pure presentation. Counts, permission to advance, and membership come from
 /// the stored plan and its completion facts, never from this widget.
 class HomeTodayChecklist extends StatelessWidget {
@@ -92,7 +97,7 @@ class HomeTodayChecklist extends StatelessWidget {
     if (isMockDay) return (label: 'Start Mock Exam', onPressed: onMock);
     if (next != null) {
       return (
-        label: (next.fraction ?? 0) > 0 ? 'Resume Lesson' : 'Continue Lesson',
+        label: homeLessonButtonLabel(next),
         onPressed: () => onLesson(next),
       );
     }
