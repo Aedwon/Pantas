@@ -10,6 +10,33 @@ export type ExamContent = {
   lessons: LessonRef[];
 };
 
+type AliasLesson = {id: string; status?: string; replacedBy?: string[]};
+function lessonResolver(lessons: AliasLesson[]): (id: string | null, explicit?: boolean) => string | null {
+  const byId = new Map(lessons.map(l => [l.id, l]));
+  const visiting = new Set<string>(), visited = new Set<string>();
+  const visit = (id: string): void => {
+    if (visiting.has(id)) throw contentUnavailable(`replacedBy cycle at ${id}`);
+    if (visited.has(id)) return;
+    const lesson = byId.get(id);
+    if (!lesson) throw contentUnavailable(`unknown lesson ${id}`);
+    if (lesson.status === 'retired' && !lesson.replacedBy?.length) throw contentUnavailable(`empty replacedBy at ${id}`);
+    visiting.add(id);
+    for (const next of lesson.replacedBy ?? []) visit(next);
+    visiting.delete(id);
+    visited.add(id);
+  };
+  for (const lesson of lessons) visit(lesson.id);
+  return (id, explicit = false) => {
+    if (id === null) return null;
+    if (!byId.has(id)) {
+      if (explicit) throw contentUnavailable(`unknown lesson ${id}`);
+      return id; // Preserve legacy derived links for catalogs with no matching lesson.
+    }
+    while (byId.get(id)?.status === 'retired') id = byId.get(id)!.replacedBy![0];
+    return id;
+  };
+}
+
 const TTL_MS = 5 * 60_000;
 const cache = new Map<string, {at: number; value: ExamContent}>();
 
@@ -31,10 +58,17 @@ export async function loadExamContent(db: Firestore, examId: string, now: number
   const hit = cache.get(examId);
   if (hit && now - hit.at < TTL_MS && now >= hit.at) return hit.value;
   const slug = examSlug(examId);
+  const lessonDocs = (await db.collection('content/lessons/items')
+    .select('topic', 'status', 'replacedBy', 'ordering', 'isActive').get()).docs.map(doc => ({
+      id: doc.id, topic: String(doc.get('topic') ?? '').replace(/^topic-/, ''),
+      status: doc.get('status') as string | undefined, replacedBy: doc.get('replacedBy') as string[] | undefined,
+      ordering: Number(doc.get('ordering') ?? 0), isActive: doc.get('isActive') as boolean | undefined,
+    }));
+  const resolveLesson = lessonResolver(lessonDocs);
   const questions: QuestionRef[] = [];
   const topicSlugs = new Set<string>();
   for (const doc of (await db.collection('content/questions/items').get()).docs) {
-    let set: {meta?: {topic?: string; subtopic?: string; exams?: string[]}; questions?: {id: string; passage?: unknown; isActive?: boolean; figure?: unknown; figureSpec?: unknown}[]};
+    let set: {meta?: {topic?: string; subtopic?: string; exams?: string[]}; questions?: {id: string; lesson?: string; passage?: unknown; isActive?: boolean; figure?: unknown; figureSpec?: unknown}[]};
     try {
       set = JSON.parse(String(doc.get('payload')));
     } catch {
@@ -46,21 +80,14 @@ export async function loadExamContent(db: Firestore, examId: string, now: number
     for (const question of set.questions ?? []) {
       if (question.isActive === false || question.figure != null && String(question.figure).trim() !== '' && question.figureSpec == null) continue;
       questions.push({id: question.id, setId: doc.id, topicId: topicIdFor(examId, topic),
-        lessonId: typeof set.meta.subtopic === 'string' ? `lesson-${topic}-${set.meta.subtopic}` : null,
+        lessonId: resolveLesson(question.lesson ?? (typeof set.meta.subtopic === 'string' ? `lesson-${topic}-${set.meta.subtopic}` : null), question.lesson != null),
         passageId: typeof question.passage === 'string' ? question.passage : null});
     }
   }
-  const lessons: LessonRef[] = [];
-  const lessonDocs = (await db.collection('content/lessons/items').select('topic').get()).docs
-    .map(doc => ({id: doc.id, topic: String(doc.get('topic') ?? '').replace(/^topic-/, '')}))
-    .filter(lesson => topicSlugs.has(lesson.topic))
-    .sort((a, b) => (a.id < b.id ? -1 : 1));
-  const counts = new Map<string, number>();
-  for (const lesson of lessonDocs) {
-    const ordering = counts.get(lesson.topic) ?? 0;
-    counts.set(lesson.topic, ordering + 1);
-    lessons.push({id: lesson.id, topicId: topicIdFor(examId, lesson.topic), ordering});
-  }
+  const lessons: LessonRef[] = lessonDocs
+    .filter(l => topicSlugs.has(l.topic) && (l.status ?? 'active') === 'active' && l.isActive !== false)
+    .sort((a, b) => a.ordering - b.ordering || a.id.localeCompare(b.id))
+    .map(l => ({id: l.id, topicId: topicIdFor(examId, l.topic), ordering: l.ordering}));
   const value: ExamContent = {
     topics: [...topicSlugs].sort().map(topic => ({id: topicIdFor(examId, topic), name: titleCase(topic)})),
     questions, lessons,
@@ -82,9 +109,9 @@ export type StudyContent = {
 type CatalogReference = string | {_ref: string};
 type CatalogSubject = {_id: string; name: string; ordering?: number; exam?: CatalogReference};
 type CatalogTopic = {_id: string; name: string; subject: CatalogReference; ordering?: number};
-type CatalogLesson = {id: string; topic: CatalogReference; title: string; ordering?: number; prerequisites?: {lesson: string; strength: 'required' | 'helpful'}[]};
+type CatalogLesson = AliasLesson & {isActive?: boolean; topic: CatalogReference; title: string; ordering?: number; prerequisites?: {lesson: string; strength: 'required' | 'helpful'}[]};
 type CatalogSet = {id: string; topic: CatalogReference; lesson?: CatalogReference | null; exams: string[];
-  questions: {id: string; passage?: CatalogReference | null; isActive?: boolean}[]};
+  questions: {id: string; lesson?: string; passage?: CatalogReference | null; isActive?: boolean}[]};
 type CatalogDocument = {subjects?: CatalogSubject[]; topics?: CatalogTopic[]; lessons?: CatalogLesson[];
   sets?: CatalogSet[]; parts?: string[]; catalogs?: string[]};
 /**
@@ -178,7 +205,10 @@ async function loadStudy(db: Firestore, examId: string, custom: boolean,
     return custom ? inCustomCorpus(s) : s.exams.includes(examId);
   });
   const requestedTopics = new Set(sets.map(s => refId(s.topic)));
-  const requestedLessons = new Set(sets.flatMap(s => s.lesson == null ? [] : [refId(s.lesson)]));
+  const setLessons = (s: CatalogSet): string[] => s.questions.length
+    ? s.questions.flatMap(q => q.lesson != null ? [q.lesson] : s.lesson == null ? [] : [refId(s.lesson)])
+    : s.lesson == null ? [] : [refId(s.lesson)];
+  const requestedLessons = new Set(sets.flatMap(setLessons));
   const allSubjects = new Map<string, CatalogSubject>(), allTopics = new Map<string, CatalogTopic>();
   for (const doc of [...(index ? [index] : []), ...selected]) {
     for (const subject of doc.subjects ?? []) allSubjects.set(subject._id,subject);
@@ -207,7 +237,7 @@ async function loadStudy(db: Firestore, examId: string, custom: boolean,
     const lesson=allLessons.get(id);
     if(!lesson || !requestedTopics.has(refId(lesson.topic))) throw contentUnavailable('An authored lesson relationship is not available.');
   }
-  for(const set of sets) if(set.lesson!=null && refId(allLessons.get(refId(set.lesson))?.topic)!==refId(set.topic)) {
+  for(const set of sets) if(setLessons(set).some(id => refId(allLessons.get(id)?.topic)!==refId(set.topic))) {
     throw contentUnavailable('The lesson and question-set topics differ.');
   }
   const subjectIds=new Set([...requestedTopics].map(id=>refId(allTopics.get(id)!.subject)));
@@ -216,9 +246,10 @@ async function loadStudy(db: Firestore, examId: string, custom: boolean,
   const subjectOrder=new Map(subjects.map((s,i)=>[s.id,i]));
   const topics=[...requestedTopics].map(id=>allTopics.get(id)!).map(t=>({id:t._id,name:t.name,subjectId:refId(t.subject),ordering:t.ordering??0}))
     .sort((a,b)=>(subjectOrder.get(a.subjectId)!-subjectOrder.get(b.subjectId)!)||a.ordering-b.ordering||a.id.localeCompare(b.id));
-  const lessons=[...allLessons.values()].map(l=>({id:l.id,topicId:refId(l.topic),title:l.title,ordering:l.ordering??0,prerequisites:l.prerequisites??[]})).sort((a,b)=>a.ordering-b.ordering||a.id.localeCompare(b.id));
+  const resolveLesson = lessonResolver([...allLessons.values()]);
+  const lessons=[...allLessons.values()].filter(l => (l.status ?? 'active') === 'active' && l.isActive !== false).map(l=>({id:l.id,topicId:refId(l.topic),title:l.title,ordering:l.ordering??0,prerequisites:l.prerequisites??[]})).sort((a,b)=>a.ordering-b.ordering||a.id.localeCompare(b.id));
   const questions=sets.flatMap(s=>s.questions.filter(q=>q.isActive!==false).map(q=>({id:q.id,setId:s.id,topicId:refId(s.topic),
-    lessonId:s.lesson==null?null:refId(s.lesson),passageId:q.passage==null?null:refId(q.passage)})));
+    lessonId:resolveLesson(q.lesson ?? (s.lesson==null?null:refId(s.lesson)), q.lesson != null),passageId:q.passage==null?null:refId(q.passage)})));
   if(new Set(questions.map(q=>q.id)).size!==questions.length)throw contentUnavailable('Duplicate authored question identities.');
   return {revision:versions.sort().join('|') + ':exam-lessons-v2',subjects,topics,lessons,questions};
 }

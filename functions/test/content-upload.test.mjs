@@ -73,6 +73,13 @@ test('upload tool dry run reads the sources, writes nothing and refuses a live t
   writeFileSync(join(root, 'lessons/s/t/a.md'), '---\n_id: "lesson-a"\ntitle: "A"\ntopic: "topic-t"\n---\n## Hi\n');
   writeFileSync(join(root, 'questions/s/t/u.yaml'),
     'meta:\n  subject: s\n  topic: t\n  subtopic: u\n  exams: [cse-pro]\nquestions:\n  - id: q1\n    stem: x\n    choices:\n      - text: a\n        correct: true\n      - text: b\n        rationale: no\n');
+  const ids = join(root, 'ids.txt');
+  const evidence = join(root, 'evidence.txt');
+  writeFileSync(ids, 'q1\n');
+  writeFileSync(evidence, 'Synthetic fixture approval.');
+  const approved = spawnSync('dart', ['run', 'tool/content/approve.dart', '--root', root,
+    '--ids', ids, '--evidence', evidence], {cwd: new URL('../../', import.meta.url), encoding: 'utf8'});
+  assert.equal(approved.status, 0, approved.stderr);
   const tool = new URL('../../tools/upload_content/upload_content.mjs', import.meta.url).pathname;
   const env = {...process.env};
   delete env.FIRESTORE_EMULATOR_HOST;
@@ -85,6 +92,7 @@ test('upload tool dry run reads the sources, writes nothing and refuses a live t
   assert.match(dry.stdout, /dry run/i);
   const exported = join(root, 'export.json');
   writeFileSync(exported, JSON.stringify({
+    lesson: [{_id: 'lesson-a', quizSize: 3}],
     exam: [{_id: 'exam_cse_pro'}], subject: [{_id: 'subject', exam: {_ref: 'exam_cse_pro'}}],
     topic: [{_id: 'topic_upcat_t', subject: {_ref: 'subject'}}],
     lessonLink: [{lesson: 'lesson-a', requires: 'lesson-p', strength: 'helpful'}],
@@ -97,6 +105,7 @@ test('upload tool dry run reads the sources, writes nothing and refuses a live t
   const files = spawnSync('node', [tool, '--root', root, '--export', exported, '--out-dir', output], {env, encoding: 'utf8'});
   assert.equal(files.status, 0, files.stderr);
   const catalog = JSON.parse(readFileSync(join(output, 'catalog/exam_cse_pro.json'), 'utf8'));
+  assert.equal(JSON.parse(readFileSync(join(output, 'lessons/lesson-a.json'), 'utf8')).quizSize, 3);
   assert.deepEqual(catalog.lessons[0].prerequisites, [{lesson: 'lesson-p', strength: 'helpful'}]);
   assert.equal(readdirSync(output).includes('gaps'), false);
   const live = spawnSync('node', [tool, '--root', root], {env, encoding: 'utf8'});
@@ -347,4 +356,32 @@ test('Free served payloads of every kind contain no gap tags and gaps is rejecte
     for (const tag of tags) assert.equal(text.includes(tag.choice), false);
     assert.equal(text.includes('NOTE-SECRET'), false);
   }
+});
+
+test('lesson items carry split metadata and compute quiz sizes using the exporter rule', () => {
+  const body = '## Core Concept\n### Ignore\n## Examples\n### One\n### Two\n### Three\n## Traps\n### Ignore';
+  for (const [keys, subject, expected] of [[0, 'subject-mathematics', 5], [1, 'subject-science', 2],
+    [4, 'subject-mathematics', 6], [3, 'subject-science', 3], [1, 'subject-mathematics', 3]]) {
+    const keyPoints = Array.from({length: keys}, (_, i) => `Point ${i}`);
+    const front = {_id: 'old', status: 'retired', replacedBy: ['new'], part: 1, partCount: 2, ordering: 7, keyPoints, subject};
+    const item = lessonItem(front, body);
+    for (const key of ['status', 'replacedBy', 'part', 'partCount', 'ordering', 'keyPoints']) assert.deepEqual(item.data[key], front[key]);
+    assert.equal(item.data.quizSize, expected);
+    assert.equal(lessonItem({...front, quizSize: 4}, body).data.quizSize, 4, 'exported size takes precedence');
+  }
+  assert.equal(lessonItem({_id: 'unsplit'}, '').data.status, 'active');
+  assert.equal(lessonItem({_id: 'unsplit'}, '').data.quizSize, 5);
+});
+
+test('catalog keeps retired aliases and per-question lesson and key point without retaining inactive lessons', () => {
+  const input = {...catalogInput, lessons: [lessonFront('old', 'biology', {status: 'retired', replacedBy: ['lesson-biology-cells'], part: 1, partCount: 2, quizSize: 3, keyPoints: ['Point']}),
+    ...catalogInput.lessons], sets: [{source: {...set, meta: {...set.meta, exams: ['upcat']},
+      questions: [{id: 'q', lesson: 'lesson-biology-cells', keyPoint: 2}]}, relativePath: 'biology.yaml'}]};
+  const exam = parsed(catalogItems(input)).exam_upcat;
+  const retired = exam.lessons.find(l => l.id === 'lesson-biology-old');
+  assert.equal(retired.status, 'retired');
+  for (const [key, value] of Object.entries({part: 1, partCount: 2, quizSize: 3, keyPoints: ['Point']})) assert.deepEqual(retired[key], value);
+  assert.deepEqual(exam.lessons.find(l => l.id === 'lesson-biology-old').replacedBy, ['lesson-biology-cells']);
+  assert.equal(exam.lessons.some(l => l.id === 'lesson-algebra-off'), false);
+  assert.deepEqual(exam.sets[0].questions, [{id: 'q', lesson: 'lesson-biology-cells', keyPoint: 2}]);
 });

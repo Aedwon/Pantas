@@ -20,6 +20,20 @@ function canonical(value: unknown): string {
 
 const digest = (value: unknown): string => createHash('sha256').update(canonical(value)).digest('hex').slice(0, 16);
 
+/** Matches the Dart exporter. Quantitative Science is not in this pilot. */
+export function lessonQuizSize(front: Record<string, unknown>, body: string): number {
+  const keys = Array.isArray(front.keyPoints) ? front.keyPoints.length : 0;
+  if (!keys) return 5;
+  let examples = 0, inExamples = false;
+  if (front.subject === 'subject-mathematics') {
+    for (const line of body.split(/\r?\n/)) {
+      if (line.startsWith('## ')) inExamples = line.trim() === '## Examples';
+      if (inExamples && line.startsWith('### ')) examples++;
+    }
+  }
+  return Math.min(6, Math.max(2, keys + Math.min(2, examples)));
+}
+
 /** One lesson: frontmatter fields plus the Markdown body. Lessons are free, so there is no Pro document. */
 export function lessonItem(front: Record<string, unknown>, body: string): ContentItem & {pro?: undefined} {
   const id = String(front._id ?? '');
@@ -27,6 +41,9 @@ export function lessonItem(front: Record<string, unknown>, body: string): Conten
   const fields = {
     title: front.title ?? null, summary: front.summary ?? null, subject: front.subject ?? null,
     topic: front.topic ?? null, estimatedMinutes: front.estimatedMinutes ?? null, body,
+    status: front.status ?? 'active', replacedBy: front.replacedBy ?? [],
+    part: front.part ?? null, partCount: front.partCount ?? null, ordering: front.ordering ?? 0,
+    keyPoints: front.keyPoints ?? [], quizSize: front.quizSize ?? lessonQuizSize(front, body),
   };
   return {kind: 'lessons', id, data: {kind: 'lessons', id, ...fields, version: digest(fields)}};
 }
@@ -140,6 +157,10 @@ export function catalogItems(input: CatalogInput, options: {splitAbove?: number;
     nextOrdering.set(topic, fallback);
     return {id, topic: `topic_upcat_${underscore(topic)}`, subtopic: `subtopic_${id.replace(`lesson-${topic}-`, '')}`,
       title: front.title, summary: front.summary, estimatedMinutes: front.estimatedMinutes,
+      ...(front.status != null ? {status: front.status} : {}),
+      ...(front.replacedBy != null ? {replacedBy: front.replacedBy} : {}),
+      ...Object.fromEntries(['part', 'partCount', 'keyPoints', 'quizSize']
+        .filter(key => front[key] != null).map(key => [key, front[key]])),
       ordering: typeof front.ordering === 'number' ? front.ordering : fallback,
       ...((input.links ?? []).some(link => link.lesson === id) ? {prerequisites: (input.links ?? [])
         .filter(link => link.lesson === id).map(link => ({lesson: link.requires, strength: link.strength}))
@@ -158,7 +179,9 @@ export function catalogItems(input: CatalogInput, options: {splitAbove?: number;
         // Same rule as the bundled build: a figure that is not drawn yet is held back.
         .filter(q => !(q.figure != null && String(q.figure).trim() !== '' && q.figureSpec == null))
         .map(q => ({id: String(q.id), ...(typeof q.passage === 'string' ? {passage: q.passage} : {}),
-          ...(q.figureSpec != null ? {figure: true} : {})})),
+          ...(q.figureSpec != null ? {figure: true} : {}),
+          ...(typeof q.lesson === 'string' ? {lesson: q.lesson} : {}),
+          ...(q.keyPoint != null ? {keyPoint: q.keyPoint} : {})})),
     };
   });
 

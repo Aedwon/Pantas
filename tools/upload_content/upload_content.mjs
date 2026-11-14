@@ -61,7 +61,7 @@ if (gate.status !== 0) {
   process.exit(1);
 }
 
-const {blueprintItem, catalogItems, gapItem, lessonItem, questionSetItems, writeContent} = await import(pathToFileURL(join(functionsDir, 'lib/contentUpload.js')));
+const {blueprintItem, catalogItems, gapItem, lessonItem, lessonQuizSize, questionSetItems, writeContent} = await import(pathToFileURL(join(functionsDir, 'lib/contentUpload.js')));
 const items = [];
 const pros = [];
 const invalid = [];
@@ -76,6 +76,9 @@ for (const file of existsSync(sourcesRoot) ? walk(sourcesRoot, '.yaml') : []) {
   }
 }
 
+const suppliedExport = option('--export', undefined);
+const exportedLessons = new Map((suppliedExport
+  ? JSON.parse(readFileSync(suppliedExport, 'utf8')).lesson ?? [] : []).map(l => [l._id, l]));
 const lessonKeys = new Set();
 for (const file of walk(join(root, 'lessons'), '.md')) {
   lessonKeys.add(relative(join(root, 'lessons'), file).split('\\').join('/').replace(/\.md$/, ''));
@@ -84,6 +87,9 @@ for (const file of walk(join(root, 'lessons'), '.md')) {
     const match = /^---\n([\s\S]*?)\n---\n?([\s\S]*)$/.exec(text);
     if (!match) throw new Error('no frontmatter');
     const front = parse(match[1]);
+    const exported = exportedLessons.get(front._id);
+    front.quizSize = exported?.quizSize ?? lessonQuizSize(front, match[2]);
+    if (exported?.ordering != null) front.ordering = exported.ordering;
     const body = resolveLessonIllustrations(match[2], relative(join(root, 'lessons'), file).split('\\').join('/'), illustrationRoot, credits);
     assertResolvedLessonSize(body);
     items.push(lessonItem(front, body));

@@ -65,3 +65,37 @@ test('excluding every eligible lesson preserves a separate lessonless topic', as
   assert.deepEqual(scoped.questions.map(q => q.id), ['q2']);
   assert.deepEqual(scopeLessonContent(content, ['filing'], ['kept']).topics, []);
 });
+
+// TypeScript parity tests use the exact fixture consumed by the Dart exporter.
+await import('./lesson-resolution-cases.ts');
+
+test('both content readers list active lessons in ordering then id order and resolve question tags', async () => {
+  const {loadExamContent, clearExamContentCache} = await import('../lib/_examContent.js');
+  clearExamContentCache();
+  const lessons = [
+    {id: 'old', topic: 'algebra', status: 'retired', replacedBy: ['z'], ordering: 0},
+    {id: 'a', topic: 'algebra', ordering: 2},
+    {id: 'z', topic: 'algebra', ordering: 1},
+    {id: 'b', topic: 'algebra', ordering: 2},
+  ];
+  const questions = [{id: 'q1', lesson: 'old'}, {id: 'q2', lesson: 'a'}, {id: 'q3', lesson: 'b'}];
+  const authored = {...catalog, lessons, sets: [{id: 'set', topic: 'algebra', lesson: 'old', exams: [exam], questions}]};
+  const db = {
+    doc: path => ({get: async () => ({exists: path.endsWith('/' + exam), get: key => key === 'payload' ? JSON.stringify(authored) : 'v2'})}),
+    collection: path => ({select() { return this; }, get: async () => ({docs: path.includes('/questions/')
+      ? [{id: 'set', get: () => JSON.stringify({meta: {topic: 'algebra', subtopic: 'old', exams: ['cse-pro']}, questions})}]
+      : lessons.map(l => ({id: l.id, get: key => l[key]}))})}),
+  };
+  for (const content of [await loadExamContent(db, exam, 0), await loadStudyContent(db, exam)]) {
+    assert.deepEqual(content.lessons.map(l => [l.id, l.ordering]), [['z', 1], ['a', 2], ['b', 2]]);
+    assert.deepEqual(content.questions.map(q => q.lessonId), ['z', 'a', 'b']);
+  }
+});
+
+test('per-question lessons replace an absent set-derived lesson in study catalogs', async () => {
+  const authored = {...catalog, lessons: [{id: 'part', title: 'Part', topic: 'algebra'}],
+    sets: [{id: 'set', topic: 'algebra', lesson: 'old-derived', exams: [exam], questions: [{id: 'q', lesson: 'part'}]}]};
+  const db = {doc: path => ({get: async () => ({exists: path.endsWith('/' + exam),
+    get: key => key === 'payload' ? JSON.stringify(authored) : 'tagged-v1'})})};
+  assert.equal((await loadStudyContent(db, exam)).questions[0].lessonId, 'part');
+});
