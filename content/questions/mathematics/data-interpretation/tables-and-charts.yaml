@@ -5,6 +5,7 @@ meta:
   exams: [cse-pro]
 questions:
   - id: q-data-interpretation-tables-and-charts-0001
+    approved: true
     lesson: lesson-data-interpretation-table-values-and-totals
     keyPoint: 2
     type: word-problem
@@ -35,6 +36,7 @@ questions:
       Read the Paper column for all three months. Its total is $12000+15000+11000=38000$ pesos.
 
   - id: q-data-interpretation-tables-and-charts-0002
+    approved: true
     lesson: lesson-data-interpretation-table-values-and-totals
     keyPoint: 2
     type: word-problem
@@ -65,6 +67,7 @@ questions:
       Read the February row across all three categories. Its total is $15000+22000+8000=45000$ pesos.
 
   - id: q-data-interpretation-tables-and-charts-0003
+    approved: true
     lesson: lesson-data-interpretation-table-values-and-totals
     keyPoint: 2
     type: which-is-true
@@ -95,6 +98,7 @@ questions:
       The regional totals are $450+300+600=1350$ for A, $520+280+750=1550$ for B, and $380+410+500=1290$ for C. The largest total is Region B's $1550$ metric tons.
 
   - id: q-data-interpretation-tables-and-charts-0004
+    approved: true
     lesson: lesson-data-interpretation-table-values-and-totals
     keyPoint: 2
     type: word-problem
@@ -125,6 +129,7 @@ questions:
       Rice totals $450+520+380=1350$ metric tons. Corn totals $300+280+410=990$. Subtract: $1350-990=360$ metric tons.
 
   - id: q-data-interpretation-tables-and-charts-0005
+    approved: true
     lesson: lesson-data-interpretation-averages-and-pie-chart-shares
     keyPoint: 1
     type: word-problem
@@ -156,6 +161,7 @@ questions:
       The four Licenses values total $6+8+5+9=28$ million pesos. Divide by four quarters: $28\div4=7$ million pesos per quarter.
 
   - id: q-data-interpretation-tables-and-charts-0006
+    approved: true
     lesson: lesson-data-interpretation-table-values-and-totals
     keyPoint: 2
     type: word-problem
@@ -187,6 +193,7 @@ questions:
       The Tax values are $21$ and $14$ million pesos. The difference is $21-14=7$ million pesos. Convert the unit: $7(1,000,000)=7,000,000$ pesos.
 
   - id: q-data-interpretation-tables-and-charts-0007
+    approved: true
     lesson: lesson-data-interpretation-table-values-and-totals
     keyPoint: 2
     type: word-problem
@@ -217,6 +224,7 @@ questions:
       Female applicants total $1500+950+750=3200$. Male applicants total $1200+800+650=2650$. The difference is $3200-2650=550$.
 
   - id: q-data-interpretation-tables-and-charts-0008
+    approved: true
     lesson: lesson-data-interpretation-table-values-and-totals
     keyPoint: 2
     type: word-problem
@@ -230,7 +238,7 @@ questions:
       | Cebu | 800 | 950 |
       | Davao | 650 | 750 |
 
-      How many more total applicants attended the Manila testing center than the Davao testing center?
+      How many more total applicants did the Manila testing center have than the Davao testing center?
     choices:
       - text: '$1300$'
         correct: true
@@ -247,6 +255,7 @@ questions:
       Manila lists $1200+1500=2700$ applicants. Davao lists $650+750=1400$. Their difference is $2700-1400=1300$.
 
   - id: q-data-interpretation-tables-and-charts-0009
+    approved: true
     lesson: lesson-data-interpretation-table-values-and-totals
     keyPoint: 2
     type: word-problem
@@ -277,6 +286,7 @@ questions:
       Fiction circulation in April and May is $400+480=880$. Non-Fiction circulation is $250+310=560$. The difference is $880-560=320$.
 
   - id: q-data-interpretation-tables-and-charts-0010
+    approved: true
     lesson: lesson-data-interpretation-table-values-and-totals
     keyPoint: 2
     type: word-problem
@@ -307,6 +317,7 @@ questions:
       Outside Reference, June lists Fiction and Non-Fiction. Add those entries: $520+340=860$ circulations.
 
   - id: q-data-interpretation-tables-and-charts-0011
+    approved: true
     lesson: lesson-data-interpretation-table-values-and-totals
     keyPoint: 2
     type: which-is-true
@@ -337,6 +348,7 @@ questions:
       Medical rises by $60-45=15$, Surgical by $40-30=10$, and Pediatric by $35-25=10$. The largest increase is Medical's $15$.
 
   - id: q-data-interpretation-tables-and-charts-0012
+    approved: true
     lesson: lesson-data-interpretation-table-values-and-totals
     keyPoint: 1
     type: which-is-true
@@ -387,7 +399,7 @@ questions:
           This multiplies by ten thousand instead of one thousand. The unit requires a scale conversion. Check the stated unit exactly.
     explanation: |
       Add the entries: $12+8+5=25$ thousands. Multiply by $1000$ to get $25000$ pesos.
-    approved: false
+    approved: true
 
   - id: q-data-interpretation-tables-and-charts-0014
     lesson: lesson-data-interpretation-table-values-and-totals
@@ -410,7 +422,7 @@ questions:
           This compares nonadjacent months. Their overall rise is larger. Check the requested adjacent intervals.
     explanation: |
       The adjacent changes are $55-40=15$, $50-55=-5$, and $70-50=20$. The largest increase is $20$, from March to April.
-    approved: false
+    approved: true
 
   - id: q-data-interpretation-tables-and-charts-0015
     lesson: lesson-data-interpretation-table-values-and-totals
@@ -433,7 +445,7 @@ questions:
           This subtracts only Tuesday from the total. Tuesday is one known day. Check both known counts.
     explanation: |
       The known days total $18+24=42$ parcels. Subtract this from the complete total: $65-42=23$ parcels.
-    approved: false
+    approved: true
 
   - id: q-data-interpretation-tables-and-charts-0016
     lesson: lesson-data-interpretation-averages-and-pie-chart-shares
@@ -456,7 +468,7 @@ questions:
           This divides the March count by three and omits February. March has the largest value. Check all entries before dividing.
     explanation: |
       The three-month total is $0+12+18=30$. All three recorded months count, including the zero month. Divide by $3$ to get $10$ admissions per month.
-    approved: false
+    approved: true
 
   - id: q-data-interpretation-tables-and-charts-0017
     lesson: lesson-data-interpretation-table-values-and-totals
@@ -479,7 +491,7 @@ questions:
           This uses ten million as the scale instead of one million. Large place values are easy to misread. Check that a million has six zeros.
     explanation: |
       The sum is $3.2+4.8=8$. Each unit in the table is a million pesos. The total is $8(1000000)=8000000$ pesos.
-    approved: false
+    approved: true
 
   - id: q-data-interpretation-tables-and-charts-0018
     lesson: lesson-data-interpretation-chart-scales-and-differences
@@ -502,7 +514,7 @@ questions:
           This uses thousands instead of hundreds. Both are possible chart units. Check the actual axis label.
     explanation: |
       The axis unit is one hundred visitors. Multiply $2.4$ by $100$ to get $240$ visitors.
-    approved: false
+    approved: true
 
   - id: q-data-interpretation-tables-and-charts-0019
     lesson: lesson-data-interpretation-table-values-and-totals
@@ -525,7 +537,7 @@ questions:
           This uses output per worker rather than total production. Morning has the highest rate at twenty units per worker. Check which quantity the question asks to compare.
     explanation: |
       Compare only the production column: $120,150,90$. Its largest value is $150$, which belongs to Afternoon.
-    approved: false
+    approved: true
 
   - id: q-data-interpretation-tables-and-charts-0020
     lesson: lesson-data-interpretation-table-values-and-totals
@@ -548,9 +560,10 @@ questions:
           This assumes every increase has the same size. All three teams do improve. Check the numerical differences.
     explanation: |
       The increases are $45-30=15$ for A, $50-40=10$ for B, and $40-25=15$ for C. The largest increase is $15$, shared by A and C.
-    approved: false
+    approved: true
 
   - id: q-data-interpretation-tables-and-charts-0021
+    approved: true
     lesson: lesson-data-interpretation-averages-and-pie-chart-shares
     keyPoint: 2
     type: word-problem
@@ -573,6 +586,7 @@ questions:
       The share difference is $40-25=15$ percentage points. Both shares use the full budget, so the amount difference is $\dfrac{15}{100}\times360,000=54,000$ pesos.
 
   - id: q-data-interpretation-tables-and-charts-0022
+    approved: true
     lesson: lesson-data-interpretation-averages-and-pie-chart-shares
     keyPoint: 2
     type: word-problem
@@ -595,6 +609,7 @@ questions:
       The supplies share is $100-45-30=25\%$. Its amount is $\dfrac{25}{100}\times480,000=120,000$ pesos.
 
   - id: q-data-interpretation-tables-and-charts-0023
+    approved: true
     lesson: lesson-data-interpretation-chart-scales-and-differences
     keyPoint: 2
     type: word-problem
@@ -617,6 +632,7 @@ questions:
       Office A reaches $3+0.5=3.5$ hundreds. Office B reaches $3-0.5=2.5$ hundreds. The difference is $(3.5-2.5)\times100=100$ applications.
 
   - id: q-data-interpretation-tables-and-charts-0024
+    approved: true
     lesson: lesson-data-interpretation-chart-scales-and-differences
     keyPoint: 2
     type: word-problem
