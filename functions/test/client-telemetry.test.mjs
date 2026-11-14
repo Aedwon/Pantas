@@ -3,6 +3,7 @@ import test from 'node:test';
 import {
   RateLimiter, processClientReport, validateClientReport, reportClientTelemetry,
 } from '../lib/clientTelemetry.js';
+import {SCREEN_IDS} from '../lib/usageVisit.js';
 
 const valid = () => ({
   v: 1,
@@ -213,4 +214,86 @@ test('the callable is deployed in asia-southeast1 with the shared App Check poli
   const endpoint = reportClientTelemetry.__endpoint;
   assert.ok(endpoint.callableTrigger);
   assert.deepEqual(endpoint.region, ['asia-southeast1']);
+});
+
+// Screen counts (usage telemetry step 2). Optional; absent stays valid.
+const withScreens = (screens) => (d) => { d.screens = screens; };
+
+test('screens may be absent, and an absent key is not added', () => {
+  const out = validateClientReport(valid());
+  assert.equal('screens' in out, false);
+});
+
+test('screens: a valid list is accepted and returned as a clean copy', () => {
+  const screens = [
+    {s: 'home', first: true, last: false, n: 2},
+    {s: 'study', first: false, last: true, n: 1000},
+  ];
+  const input = valid();
+  input.screens = screens;
+  const out = validateClientReport(input);
+  assert.deepEqual(out.screens, screens);
+  assert.notEqual(out.screens[0], screens[0]);
+  assert.deepEqual(Object.keys(out.screens[0]), ['s', 'first', 'last', 'n']);
+  accepts(withScreens([]));
+});
+
+test('screens: every id of the closed set is accepted, anything else is refused', () => {
+  for (const id of SCREEN_IDS) accepts(withScreens([{s: id, first: false, last: false, n: 1}]));
+  for (const bad of ['Home', 'lesson_42', '/home', '', 'startup', 5, undefined]) {
+    refuses(withScreens([{s: bad, first: false, last: false, n: 1}]));
+  }
+});
+
+test('screens: at most 80 entries', () => {
+  const entry = (i) => ({s: SCREEN_IDS[i % SCREEN_IDS.length], first: false, last: false, n: 1});
+  accepts(withScreens(Array.from({length: 80}, (_, i) => entry(i))));
+  refuses(withScreens(Array.from({length: 81}, (_, i) => entry(i))));
+  refuses(withScreens('home'));
+  refuses(withScreens(null));
+});
+
+test('screens: each entry has exactly s, first, last and n', () => {
+  const ok = {s: 'home', first: false, last: false, n: 1};
+  refuses(withScreens([{s: 'home', first: false, last: false}]));
+  refuses(withScreens([{...ok, t: 5}]));
+  refuses(withScreens([{...ok, uid: 'abc'}]));
+  refuses(withScreens([{...ok, visit_id: '0123456789abcdef'}]));
+  refuses(withScreens(['home']));
+  refuses(withScreens([null]));
+});
+
+test('screens: first and last are booleans', () => {
+  for (const bad of ['true', 1, null, undefined]) {
+    refuses(withScreens([{s: 'home', first: bad, last: false, n: 1}]));
+    refuses(withScreens([{s: 'home', first: false, last: bad, n: 1}]));
+  }
+});
+
+test('screens: n is a whole number from 1 to 1000', () => {
+  for (const good of [1, 1000]) accepts(withScreens([{s: 'home', first: false, last: false, n: good}]));
+  for (const bad of [0, -1, 1001, 1.5, '3', null, undefined, NaN]) {
+    refuses(withScreens([{s: 'home', first: false, last: false, n: bad}]));
+  }
+});
+
+test('screens: at most one first and one last per report', () => {
+  const entry = (s, first, last) => ({s, first, last, n: 1});
+  accepts(withScreens([entry('home', true, false), entry('study', false, true)]));
+  accepts(withScreens([entry('home', true, true)]));
+  refuses(withScreens([entry('home', true, false), entry('study', true, false)]));
+  refuses(withScreens([entry('home', false, true), entry('study', false, true)]));
+});
+
+test('screens: a report with screens is logged with them and without any caller identity', () => {
+  const lines = [];
+  const input = valid();
+  input.screens = [{s: 'home', first: true, last: false, n: 1}];
+  processClientReport({uid: 'user-123'}, input, {
+    limiter: new RateLimiter(),
+    log: (message, fields) => lines.push({message, fields}),
+  });
+  assert.equal(lines.length, 1);
+  assert.deepEqual(lines[0].fields.screens, input.screens);
+  assert.doesNotMatch(JSON.stringify(lines[0]), /user-123/);
 });

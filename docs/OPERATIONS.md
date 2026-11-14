@@ -230,6 +230,7 @@ node tools/telemetry/usage_digest.mjs --days 14 --project pantas-prod
 
 - Needs the `gcloud` CLI signed in with permission to read logs on the project. Logs are kept 30 days, so `--days` is at most 30.
 - Reads the `usage_visit` log lines written by the `reportUsageVisit` callable. A line holds a random visit id, screen names and times. It holds no account id, no email and no free text.
+- If the speed and error reports carry screen counts (built behind a flag that is off until Aedwon signs off the notice), the digest adds a "Screen counts, everyone" section from `client_telemetry` lines that have `screens`. It is a separate group of people from the usage visits and is never merged with them.
 - Writes one Markdown file to `~/Library/Application Support/Pantas/usage-digests/`, or to the folder in `PANTAS_PRIVATE_DIR`. It refuses a folder inside the repository. It prints only the file path and the totals.
 - **Never copy a digest or any usage record into the repository.** Tester data stays out of it. Tests use fake visits only.
 - Needs the `reportUsageVisit` callable deployed. Until then, no records exist and the digest says so.

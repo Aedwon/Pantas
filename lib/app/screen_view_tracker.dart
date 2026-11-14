@@ -9,12 +9,20 @@ import 'package:pantas/core/telemetry/telemetry.dart';
 /// applies: with the switch off, nothing is recorded. The name comes from
 /// [screenIdFor], never from the address. Opening the same screen twice in a
 /// row (two lessons, a reload of the same page) counts once.
+///
+/// [onScreen] gets the same screen name at the same moments, but outside the
+/// consent gate: it is the hook for the screen counts in the speed and error
+/// report, which have their own switch and their own flag. It is told nothing
+/// but the name.
 class ScreenViewTracker {
-  ScreenViewTracker(this._telemetry);
+  ScreenViewTracker(this._telemetry, {this.onScreen});
 
   /// Read at the moment of each event, so a consent change takes effect at
   /// once.
   final Telemetry Function() _telemetry;
+
+  /// Told each new screen name. Null when nothing listens.
+  final void Function(String screen)? onScreen;
   String? _last;
 
   void locationChanged(String location) {
@@ -23,6 +31,11 @@ class ScreenViewTracker {
       final screen = screenIdFor(location);
       if (screen == startupScreenId || screen == _last) return;
       _last = screen;
+      try {
+        onScreen?.call(screen);
+      } on Object {
+        // A failing listener must not stop the usage log below.
+      }
       _telemetry()
           .log(TelemetryEvent.screenViewed, properties: {'screen': screen})
           // Analytics must never cause a problem for the screen.
@@ -37,9 +50,10 @@ class ScreenViewTracker {
 /// stops it. The first screen is logged at once if the router already has one.
 VoidCallback attachScreenViewTracker(
   GoRouter router,
-  Telemetry Function() telemetry,
-) {
-  final tracker = ScreenViewTracker(telemetry);
+  Telemetry Function() telemetry, {
+  void Function(String screen)? onScreen,
+}) {
+  final tracker = ScreenViewTracker(telemetry, onScreen: onScreen);
   void check() {
     try {
       // The top page, pushed ones included. The address bar's location would

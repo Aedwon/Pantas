@@ -11,6 +11,7 @@ import 'package:pantas/core/telemetry/client_report_env_stub.dart'
     if (dart.library.js_interop) 'package:pantas/core/telemetry/client_report_env_web.dart'
     as env;
 import 'package:pantas/core/telemetry/perf_timeline.dart';
+import 'package:pantas/core/telemetry/screen_counts.dart';
 
 /// Where a finished report goes. Tests replace it.
 // ignore: one_member_abstracts
@@ -170,13 +171,19 @@ String viewportClass(int width) => width < 600
 /// Cadence: one report once the splash has gone and the first screen has
 /// settled, then at most one a minute while there is new data, and one as the
 /// page is hidden. A failed report is tried once more and then dropped.
+///
+/// Behind [screenCountsInClientReports] it also adds a count of the screens
+/// opened, each with whether it was the visit's first and last screen. See
+/// `docs/superpowers/plans/usage-telemetry/step2-spec.md`.
 class ClientReporter {
   ClientReporter({
     required ClientReportSender sender,
     required ClientReportContext Function() context,
     DateTime Function()? now,
     List<PerfEntry> Function()? timings,
+    bool screenCounts = screenCountsInClientReports,
   })  : _sender = sender,
+        _screenCountsOn = screenCounts,
         _context = context,
         _now = now ?? DateTime.now,
         _timings = timings ?? PerfTimeline.entries;
@@ -196,11 +203,13 @@ class ClientReporter {
   static const _maxFrames = 8;
   static const _maxFrame = 200;
   static const _maxBuild = 40;
+  static const _maxScreenEntries = 80;
 
   final ClientReportSender _sender;
   final ClientReportContext Function() _context;
   final DateTime Function() _now;
   final List<PerfEntry> Function() _timings;
+  final bool _screenCountsOn;
 
   final Map<String, int> _sentTimings = {};
   final Map<String, _Seen> _errors = {};
@@ -213,6 +222,14 @@ class ClientReporter {
   bool _inFlight = false;
   bool _failedOnce = false;
   bool _enabled = true;
+
+  // Screen counts. Held only while the flag is on and the switch is on.
+  final Map<String, int> _screenViews = {};
+  String? _currentScreen;
+  String? _firstScreen;
+  bool _firstPending = false;
+  bool _visitStarted = false;
+  int _screenGeneration = 0;
 
   /// The student's "Send speed and error reports" choice. Off, nothing is
   /// queued or sent. Any change drops what is queued, so turning it back on
@@ -227,9 +244,43 @@ class ClientReporter {
   void _dropQueue() {
     try {
       _errors.clear();
+      _dropScreens();
       for (final entry in _timings()) {
         final key = _timingKey(entry);
         _sentTimings[key] = (_sentTimings[key] ?? 0) + 1;
+      }
+    } on Object {
+      // See addError.
+    }
+  }
+
+  /// Drops every pending count, so a report in flight cannot take away counts
+  /// gathered after this point.
+  void _dropScreens() {
+    _screenViews.clear();
+    _currentScreen = null;
+    _firstPending = false;
+    _screenGeneration++;
+  }
+
+  /// Counts the student opening [screen], a name from the closed set in
+  /// `screen_ids.dart`. Nothing happens while the flag is off or the speed and
+  /// error switch is off. Opening the screen that is already open counts once.
+  void recordScreen(String screen) {
+    try {
+      if (!_screenCountsOn) return;
+      final startsVisit = !_visitStarted;
+      _visitStarted = true;
+      if (!_enabled || screen == _currentScreen) return;
+      _currentScreen = screen;
+      if (!_screenViews.containsKey(screen) &&
+          _screenViews.length >= _maxScreenEntries) {
+        return;
+      }
+      _screenViews[screen] = (_screenViews[screen] ?? 0) + 1;
+      if (startsVisit) {
+        _firstScreen = screen;
+        _firstPending = true;
       }
     } on Object {
       // See addError.
@@ -336,7 +387,7 @@ class ClientReporter {
   /// once, whatever the one-a-minute gap says.
   void pageHidden() {
     try {
-      _sendIfNew();
+      _sendIfNew(markLast: true);
     } on Object {
       // See addError.
     }
@@ -353,9 +404,9 @@ class ClientReporter {
     }
   }
 
-  void _sendIfNew() {
+  void _sendIfNew({bool markLast = false}) {
     if (_inFlight || !_enabled) return;
-    final report = _build();
+    final report = _build(markLast: markLast);
     if (report == null) return;
     _inFlight = true;
     _lastAttempt = _now();
@@ -388,10 +439,20 @@ class ClientReporter {
     for (final seen in report.errors) {
       seen.sentCount = seen.count;
     }
+    if (report.screenGeneration != _screenGeneration) return;
+    for (final entry in report.screens) {
+      final left = (_screenViews[entry.screen] ?? 0) - entry.n;
+      if (left > 0) {
+        _screenViews[entry.screen] = left;
+      } else {
+        _screenViews.remove(entry.screen);
+      }
+      if (entry.first) _firstPending = false;
+    }
   }
 
   /// The next report, or null when nothing is new.
-  _Report? _build() {
+  _Report? _build({bool markLast = false}) {
     final pending = <PerfEntry>[];
     final occurrence = <String, int>{};
     for (final entry in _timings()) {
@@ -405,12 +466,15 @@ class ClientReporter {
         .where((seen) => seen.count > seen.sentCount)
         .take(_maxErrorsPerReport)
         .toList();
-    if (timings.isEmpty && errors.isEmpty) return null;
+    final screens = _screenEntries(markLast: markLast);
+    if (timings.isEmpty && errors.isEmpty && screens.isEmpty) return null;
 
     final context = _context();
     return _Report(
       timings: timings,
       errors: errors,
+      screens: screens,
+      screenGeneration: _screenGeneration,
       payload: {
         'v': _version,
         'build': _cleanBuild(context.build),
@@ -433,8 +497,39 @@ class ClientReporter {
               'count': (seen.count - seen.sentCount).clamp(1, _maxCount),
             },
         ],
+        if (screens.isNotEmpty)
+          'screens': [
+            for (final entry in screens)
+              {
+                's': entry.screen,
+                'first': entry.first,
+                'last': entry.last,
+                'n': entry.n,
+              },
+          ],
       },
     );
+  }
+
+  /// The screens opened since the last report, sorted by screen id so the
+  /// order says nothing. The current screen is held back until the page is
+  /// hidden, when it goes out marked `last`, so every visit's last screen is
+  /// marked. Once the student moves on, its count goes out as usual.
+  List<_ScreenEntry> _screenEntries({required bool markLast}) {
+    if (!_screenCountsOn || !_enabled || _screenViews.isEmpty) return const [];
+    final names = [
+      for (final name in _screenViews.keys)
+        if (markLast || name != _currentScreen) name,
+    ]..sort();
+    return [
+      for (final name in names)
+        _ScreenEntry(
+          screen: name,
+          n: _screenViews[name]!.clamp(1, _maxCount),
+          first: _firstPending && name == _firstScreen,
+          last: markLast && name == _currentScreen,
+        ),
+    ];
   }
 
   static String _timingKey(PerfEntry entry) => '${entry.name}=${entry.ms}';
@@ -456,12 +551,31 @@ class _Seen {
   int sentCount = 0;
 }
 
+class _ScreenEntry {
+  const _ScreenEntry({
+    required this.screen,
+    required this.n,
+    required this.first,
+    required this.last,
+  });
+
+  final String screen;
+  final int n;
+  final bool first;
+  final bool last;
+}
+
 class _Report {
   const _Report({
     required this.timings,
     required this.errors,
+    required this.screens,
+    required this.screenGeneration,
     required this.payload,
   });
+
+  final List<_ScreenEntry> screens;
+  final int screenGeneration;
 
   final List<PerfEntry> timings;
   final List<_Seen> errors;

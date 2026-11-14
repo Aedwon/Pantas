@@ -7,6 +7,9 @@
 // OUTSIDE the repository (default ~/Library/Application Support/Pantas/usage-digests/, or the
 // folder in PANTAS_PRIVATE_DIR). It prints only the file path and the totals. Tester data never
 // goes in the repository. See docs/OPERATIONS.md.
+//
+// When speed and error reports carry screen counts (usage telemetry step 2, off until signed off),
+// it adds a second section for them: views per screen and how often each is a first and last screen.
 import { execFileSync } from 'node:child_process';
 import { mkdirSync, realpathSync, writeFileSync } from 'node:fs';
 import { homedir } from 'node:os';
@@ -115,6 +118,41 @@ export function aggregate(entries) {
   };
 }
 
+/**
+ * Screen counts from the speed and error reports (log kind `client_telemetry`, key `screens`).
+ * Pure. These come from everyone who did not switch the reports off, so they are a separate
+ * basis from the usage visits above and are never merged with them. A report carries a screen id,
+ * whether it was a visit's first and last screen, and a count, and nothing that ties it to a
+ * person or a visit.
+ */
+export function aggregateScreenCounts(entries) {
+  const rows = new Map();
+  let reports = 0;
+  let views = 0;
+  let firsts = 0;
+  let lasts = 0;
+  for (const entry of entries) {
+    const payload = payloadOf(entry);
+    if (payload?.kind !== 'client_telemetry' || !Array.isArray(payload.screens)) continue;
+    let counted = false;
+    for (const item of payload.screens) {
+      if (typeof item?.s !== 'string' || !Number.isInteger(item.n) || item.n < 1) continue;
+      counted = true;
+      const row = rows.get(item.s) ?? { screen: item.s, views: 0, firsts: 0, lasts: 0 };
+      row.views += item.n;
+      views += item.n;
+      if (item.first === true) { row.firsts += 1; firsts += 1; }
+      if (item.last === true) { row.lasts += 1; lasts += 1; }
+      rows.set(item.s, row);
+    }
+    if (counted) reports += 1;
+  }
+  return {
+    reports, views, firsts, lasts,
+    rows: [...rows.values()].sort((a, b) => b.views - a.views || a.screen.localeCompare(b.screen)),
+  };
+}
+
 const percent = (share) => `${(share * 100).toFixed(1)}%`;
 const seconds = (ms) => (ms === null ? 'n/a' : `${(ms / 1000).toFixed(1)} s`);
 
@@ -125,7 +163,7 @@ const table = (header, rows) => [
 ].join('\n');
 
 /** The Markdown text of the digest. */
-export function renderDigest(summary, { project, days, generated }) {
+export function renderDigest(summary, { project, days, generated, screenCounts }) {
   const head = [
     '# Pantas usage digest',
     '',
@@ -133,8 +171,9 @@ export function renderDigest(summary, { project, days, generated }) {
     'People who chose "Help improve Pantas by sharing usage data" only. No account or person is named.',
     '',
   ];
+  const counts = renderScreenCounts(screenCounts);
   if (!summary.visits) {
-    return [...head, 'No visits were recorded in this period.', ''].join('\n');
+    return [...head, 'No visits were recorded in this period.', '', ...counts].join('\n');
   }
   const span = summary.from ? ` Records from ${summary.from.slice(0, 10)} to ${summary.to.slice(0, 10)}.` : '';
   return [
@@ -166,13 +205,39 @@ export function renderDigest(summary, { project, days, generated }) {
     table(['Screen', 'Views', 'Visits that reached it', 'Median time on it', 'Timed views'],
       summary.screens.map((r) => [r.screen, r.views, r.visits, seconds(r.medianMs), r.timed])),
     '',
+    ...counts,
   ].join('\n');
+}
+
+/** The optional screen counts section, as lines. Empty when there are no counts. */
+function renderScreenCounts(counts) {
+  if (!counts?.reports) return [];
+  const share = (n, total) => percent(total ? n / total : 0);
+  return [
+    '## Screen counts, everyone',
+    '',
+    `${counts.reports} reports, ${counts.views} screen views. These come from the speed and error`,
+    'reports, so they cover everyone who left those reports on, not only the people above.',
+    'First is counted once per visit. Last is counted each time a page is hidden or closed, so a',
+    'visit that was hidden and reopened can be counted more than once.',
+    '',
+    table(['Screen', 'Views', 'First screen', 'Share of firsts', 'Last screen', 'Share of lasts'],
+      counts.rows.map((r) => [r.screen, r.views, r.firsts, share(r.firsts, counts.firsts),
+        r.lasts, share(r.lasts, counts.lasts)])),
+    '',
+  ];
 }
 
 /** The Cloud Logging filter for usage records in the last `days` days. */
 export function buildFilter(days, now = new Date()) {
   const since = new Date(now.getTime() - days * 24 * 60 * 60 * 1000).toISOString();
   return `jsonPayload.kind="usage_visit" AND timestamp>="${since}"`;
+}
+
+/** The Cloud Logging filter for speed and error reports that carry screen counts. */
+export function buildScreenCountsFilter(days, now = new Date()) {
+  const since = new Date(now.getTime() - days * 24 * 60 * 60 * 1000).toISOString();
+  return `jsonPayload.kind="client_telemetry" AND jsonPayload.screens:* AND timestamp>="${since}"`;
 }
 
 /** The folder digests are written to. Never inside the repository. */
@@ -210,9 +275,9 @@ export function assertOutsideRepo(dir, repoRoot) {
 
 export const digestFileName = (date) => `usage-digest-${date.toISOString().slice(0, 10)}.md`;
 
-function readEntries(project, days) {
+function readEntries(project, filter) {
   const raw = execFileSync('gcloud', [
-    'logging', 'read', buildFilter(days), `--project=${project}`, '--format=json', '--limit=100000',
+    'logging', 'read', filter, `--project=${project}`, '--format=json', '--limit=100000',
   ], { encoding: 'utf8', maxBuffer: 512 * 1024 * 1024 });
   return JSON.parse(raw || '[]');
 }
@@ -229,12 +294,16 @@ function main() {
   const dir = privateDir();
   assertOutsideRepo(dir, repoRoot);
   const generated = new Date();
-  const summary = aggregate(readEntries(values.project, days));
+  const summary = aggregate(readEntries(values.project, buildFilter(days)));
+  const screenCounts = aggregateScreenCounts(readEntries(values.project, buildScreenCountsFilter(days)));
   mkdirSync(dir, { recursive: true });
   const file = join(dir, digestFileName(generated));
-  writeFileSync(file, renderDigest(summary, { project: values.project, days, generated }), { mode: 0o600 });
+  writeFileSync(file, renderDigest(summary, { project: values.project, days, generated, screenCounts }), { mode: 0o600 });
   console.log(file);
   console.log(`${summary.visits} visits, ${summary.views} screen views`);
+  if (screenCounts.reports) {
+    console.log(`${screenCounts.reports} reports with screen counts, ${screenCounts.views} screen views`);
+  }
 }
 
 if (process.argv[1] && realpathSync(process.argv[1]) === fileURLToPath(import.meta.url)) {

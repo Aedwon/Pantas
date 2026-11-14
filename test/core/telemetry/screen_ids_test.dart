@@ -72,7 +72,7 @@ void main() {
     });
 
     test('the server accepts exactly the ids the app can send', () {
-      final source = File('functions/src/usageVisit.ts').readAsStringSync();
+      final source = File('functions/src/_screenIds.ts').readAsStringSync();
       final block = RegExp(r'SCREEN_IDS = \[(.*?)\] as const', dotAll: true)
           .firstMatch(source)!
           .group(1)!;

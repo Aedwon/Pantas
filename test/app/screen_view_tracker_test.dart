@@ -102,6 +102,61 @@ void main() {
     });
   });
 
+  group('the screen count hook', () {
+    test('gets each new screen name, once, with the usage gate closed', () {
+      final seen = <String>[];
+      final sink = _Sink();
+      ScreenViewTracker(
+        () => GatedTelemetry(sink, consent: false),
+        onScreen: seen.add,
+      )
+        ..locationChanged('/home')
+        ..locationChanged('/home?x=1')
+        ..locationChanged('/lesson/a')
+        ..locationChanged('/lesson/b')
+        ..locationChanged('')
+        ..locationChanged('/startup')
+        ..locationChanged('/who-knows/9');
+      expect(seen, ['home', 'lesson', 'other']);
+      expect(sink.screens, isEmpty);
+    });
+
+    test('a failing hook never reaches the caller or stops the log', () {
+      final sink = _Sink();
+      ScreenViewTracker(() => sink, onScreen: (_) => throw StateError('x'))
+          .locationChanged('/home');
+      expect(sink.screens, ['home']);
+    });
+
+    test('a failing telemetry still reaches the hook', () {
+      final seen = <String>[];
+      ScreenViewTracker(
+        () => throw StateError('no sink'),
+        onScreen: seen.add,
+      ).locationChanged('/home');
+      expect(seen, ['home']);
+    });
+
+    testWidgets('an attached router feeds the hook', (tester) async {
+      final seen = <String>[];
+      final router = _router();
+      final detach = attachScreenViewTracker(
+        router,
+        _Sink.new,
+        onScreen: seen.add,
+      );
+      addTearDown(() {
+        detach();
+        router.dispose();
+      });
+      await tester.pumpWidget(MaterialApp.router(routerConfig: router));
+      await tester.pumpAndSettle();
+      router.go('/study');
+      await tester.pumpAndSettle();
+      expect(seen, ['home', 'study']);
+    });
+  });
+
   group('attached to a router', () {
     testWidgets('logs the first screen, a go and a push, once each',
         (tester) async {

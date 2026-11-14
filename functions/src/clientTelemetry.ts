@@ -3,6 +3,7 @@ import {logger} from 'firebase-functions';
 import {HttpsError, type CallableRequest} from 'firebase-functions/v2/https';
 import {onAccountCall as onCall} from './_accountAccess.js';
 import {enforceAppCheck} from './_appCheck.js';
+import {SCREEN_IDS} from './_screenIds.js';
 import {timed} from './_timed.js';
 
 /**
@@ -26,9 +27,11 @@ const MAX_MESSAGE = 300;
 const MAX_STACK_FRAMES = 8;
 const MAX_STACK_FRAME = 200;
 const MAX_COUNT = 1000;
+const MAX_SCREEN_ENTRIES = 80;
 
 export interface ClientTiming { n: string; ms: number }
 export interface ClientError { type: string; msg: string; stack: string[]; count: number }
+export interface ClientScreen { s: typeof SCREEN_IDS[number]; first: boolean; last: boolean; n: number }
 export interface ClientReport {
   v: 1;
   build: string;
@@ -38,6 +41,8 @@ export interface ClientReport {
   viewport: typeof VIEWPORTS[number];
   timings: ClientTiming[];
   errors: ClientError[];
+  /** Optional screen counts. Absent when the app sends none. */
+  screens?: ClientScreen[];
 }
 
 const bad = (what: string): never => {
@@ -74,12 +79,14 @@ function list(value: unknown, max: number, what: string): unknown[] {
 
 /** Throws `invalid-argument` unless `data` matches the contract exactly. Returns a clean copy. */
 export function validateClientReport(data: unknown): ClientReport {
-  const d = record(data, ['v', 'build', 'visit', 'browser', 'mobile', 'viewport', 'timings', 'errors'], 'report');
+  const required = ['v', 'build', 'visit', 'browser', 'mobile', 'viewport', 'timings', 'errors'];
+  const hasScreens = typeof data === 'object' && data !== null && !Array.isArray(data) && 'screens' in data;
+  const d = record(data, hasScreens ? [...required, 'screens'] : required, 'report');
   if (d.v !== 1) bad('v must be 1');
   const build = text(d.build, 'build', 1, 40);
   if (!BUILD.test(build)) bad('build');
   if (typeof d.mobile !== 'boolean') bad('mobile');
-  return {
+  const report: ClientReport = {
     v: 1,
     build,
     visit: choice(d.visit, VISITS, 'visit'),
@@ -102,6 +109,25 @@ export function validateClientReport(data: unknown): ClientReport {
       };
     }),
   };
+  if (hasScreens) report.screens = validateScreens(d.screens);
+  return report;
+}
+
+/**
+ * Screen counts: per screen, its id, whether it was the visit's first and last screen, and how
+ * often it was opened. Nothing that orders or identifies: at most one first and one last.
+ */
+function validateScreens(value: unknown): ClientScreen[] {
+  const screens = list(value, MAX_SCREEN_ENTRIES, 'screens').map(raw => {
+    const item = record(raw, ['s', 'first', 'last', 'n'], 'screen');
+    const s = choice(item.s, SCREEN_IDS, 'screen id');
+    if (typeof item.first !== 'boolean') bad('screen first');
+    if (typeof item.last !== 'boolean') bad('screen last');
+    return {s, first: item.first as boolean, last: item.last as boolean, n: integer(item.n, 'screen count', 1, MAX_COUNT)};
+  });
+  if (screens.filter(item => item.first).length > 1) bad('more than one first screen');
+  if (screens.filter(item => item.last).length > 1) bad('more than one last screen');
+  return screens;
 }
 
 /**
