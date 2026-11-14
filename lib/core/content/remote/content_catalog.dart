@@ -91,10 +91,18 @@ class CatalogQuestion {
     required this.id,
     required this.passageId,
     required this.hasFigure,
+    this.lessonId,
+    this.keyPoint,
   });
 
   final String id;
   final String? passageId;
+
+  /// The lesson the question names itself (a split part), else null.
+  final String? lessonId;
+
+  /// The key point of that lesson the question tests.
+  final int? keyPoint;
 
   /// Quiz planning reads this before the question is fetched.
   final bool hasFigure;
@@ -235,6 +243,8 @@ CatalogQuestion _question(Map<String, Object?> doc) {
     id: stringField(doc, doctype, 'id'),
     passageId: optionalRefField(doc, doctype, 'passage'),
     hasFigure: boolField(doc, doctype, 'figure', defaultValue: false),
+    lessonId: optionalRefField(doc, doctype, 'lesson'),
+    keyPoint: doc['keyPoint'] is num ? (doc['keyPoint']! as num).toInt() : null,
   );
 }
 

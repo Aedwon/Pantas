@@ -712,6 +712,81 @@ void main() {
     expect(await direct.readLessonIds(), {'lesson-biology-cells-1'});
   });
 
+  Map<String, Object?> splitCatalogWithOwnLessons() {
+    final exam = examWithCellsSplit();
+    return {
+      ...exam,
+      'sets': [
+        {
+          ...(_exam['sets']! as List<Object?>).first! as Map<String, Object?>,
+          'questions': [
+            {'id': 'bio-1', 'lesson': 'lesson-biology-cells-1', 'keyPoint': 1},
+            {'id': 'bio-2', 'lesson': 'lesson-biology-cells', 'keyPoint': 1},
+          ],
+        },
+      ],
+    };
+  }
+
+  Map<String, Object?> splitSet() {
+    final set = _set();
+    final questions =
+        (set['questions']! as List<Object?>).cast<Map<String, Object?>>();
+    return {
+      ...set,
+      'questions': [
+        {...questions[0], 'lesson': 'lesson-biology-cells-1', 'keyPoint': 1},
+        // Names the retired original: resolves to its first replacement.
+        {...questions[1], 'lesson': 'lesson-biology-cells', 'keyPoint': 1},
+      ],
+    };
+  }
+
+  test('catalog rows carry the own part and key point of each question',
+      () async {
+    remote.docs['catalog/exam_upcat'] = splitCatalogWithOwnLessons();
+    await mirror.start();
+    await mirror.idle;
+    final rows = {for (final r in await questionRows()) r.id: r};
+    expect(rows['bio-1']!.lessonId, 'lesson-biology-cells-1');
+    expect(rows['bio-1']!.keyPoint, 1);
+    expect(rows['bio-2']!.lessonId, 'lesson-biology-cells-1');
+  });
+
+  test('a fetched split set keeps the part and key point of each question',
+      () async {
+    remote.docs['catalog/exam_upcat'] = splitCatalogWithOwnLessons();
+    remote.docs['questions/qs-biology__cells'] = splitSet();
+    await mirror.start();
+    await mirror.idle;
+    await mirror.ensureQuestions(['bio-1', 'bio-2']);
+    final rows = {for (final r in await questionRows()) r.id: r};
+    expect(rows['bio-1']!.lessonId, 'lesson-biology-cells-1');
+    expect(rows['bio-1']!.keyPoint, 1);
+    expect(rows['bio-2']!.lessonId, 'lesson-biology-cells-1');
+    expect(rows['bio-2']!.keyPoint, 1);
+  });
+
+  test('a set without lesson fields keeps the derived lesson id', () async {
+    await mirror.start();
+    await mirror.idle;
+    await mirror.ensureQuestions(['bio-1']);
+    final row = (await questionRows()).firstWhere((r) => r.id == 'bio-1');
+    expect(row.lessonId, 'lesson-biology-cells');
+    expect(row.keyPoint, isNull);
+  });
+
+  test('a question named for a retired lesson resolves to replacedBy first',
+      () async {
+    remote.docs['catalog/exam_upcat'] = examWithCellsSplit();
+    remote.docs['questions/qs-biology__cells'] = splitSet();
+    await mirror.start();
+    await mirror.idle;
+    await mirror.ensureQuestions(['bio-2']);
+    final row = (await questionRows()).firstWhere((r) => r.id == 'bio-2');
+    expect(row.lessonId, 'lesson-biology-cells-1');
+  });
+
   test('unusable catalog documents are skipped, not fatal', () async {
     remote.docs['catalog/exam_upcat'] = {'id': 'exam_upcat', 'sets': 5};
     await mirror.start();
