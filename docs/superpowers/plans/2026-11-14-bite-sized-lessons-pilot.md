@@ -361,3 +361,19 @@ Append here as tasks finish: revision, command, result, and the frozen legacy ha
      matching credit entries; the retired original keeps its folder.
   5. A worker's process-improvement entry that quoted its brief as Aedwon's words was reverted; that
      file records Aedwon's own words only.
+- Nov 15, pilot ready for staging (lead):
+  - Code: `web/bite-sized-r1` 133028a99, hosted CI green (run 43642620418); journeys passed on
+    86a05d535 and were running on 133028a99 at handoff. Includes T1 to T10, the web-path fix
+    (study-map credit and catalog part fields), the CI fix (content schema 11 in the package
+    manifest, native installer and release runner), main merged, and goldens rendered on CI and
+    reviewed by the lead. UI built to the ruled board; an independent Claude review found no must-fix.
+  - Content: `content/bite-sized-pilot` ff8b4f4cd (from `content/cse-rewrite-r1` 1ca8dfd). Data
+    Interpretation 2 lessons to 7 parts (52 questions); Philippine Constitution 10 lessons to 76 parts
+    (239 questions). Every question independently re-solved; Constitution keys checked against the
+    1987 Constitution and, for 51, the Rules of Court, RA 9346 and Supreme Court decisions; Astra audit
+    with no must-fix; approval gate, size, nothing-dropped and pool checks and the export pass; upload
+    dry run: 253 lessons.
+  - Deploy order for the integrator: functions first (they read the new fields), then the content
+    upload from the pilot root with this branch's uploader and exporter, then hosting.
+  - Native note: the protected content package is now schema 11; a native release needs a new
+    package built at 11. Web is unaffected.
