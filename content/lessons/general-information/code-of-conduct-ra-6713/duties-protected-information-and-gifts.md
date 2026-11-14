@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 isActive: true
 part: 10
 partCount: 10
-ordering: 24
+ordering: 22
 keyPoints:
   - "Identify prohibited use or sharing of protected work information."
   - "Recognize prohibited gifts tied to official favors."

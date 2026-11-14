@@ -7,6 +7,8 @@ meta:
   - cse-sub
 questions:
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0001
+  lesson: lesson-code-of-conduct-ra-6713-saln-filing-dates
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'Within how many days after assuming office must a covered official file the initial sworn SALN?
@@ -31,6 +33,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0002
+  lesson: lesson-code-of-conduct-ra-6713-saln-filing-dates
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'What is RA 6713''s annual SALN deadline after the initial filing?
@@ -55,6 +59,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0003
+  lesson: lesson-code-of-conduct-ra-6713-saln-filing-dates
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'Within how many days after separation must a covered official file the final SALN?
@@ -79,6 +85,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0004
+  lesson: lesson-code-of-conduct-ra-6713-saln-relatives-in-government
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'Through what civil degree does RA 6713 define relatives for disclosure of relatives in government?
@@ -103,6 +111,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0005
+  lesson: lesson-code-of-conduct-ra-6713-conflict-action-deadlines
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'For a conflict existing on assumption of office, within how many days must the relevant shareholdings be divested under Section 9?
@@ -127,6 +137,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0006
+  lesson: lesson-code-of-conduct-ra-6713-conflict-action-deadlines
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'For a conflict existing on assumption of office, what is the deadline to resign from the conflicting private business position?
@@ -151,6 +163,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0007
+  lesson: lesson-code-of-conduct-ra-6713-saln-public-access-and-use
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'After how many working days from filing does Section 8(C) make a SALN available for copying?
@@ -175,6 +189,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0008
+  lesson: lesson-code-of-conduct-ra-6713-saln-public-access-and-use
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'For how long after receipt does Section 8(C) require public availability of a filed SALN before possible destruction, unless an investigation still needs it?
@@ -199,6 +215,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0009
+  lesson: lesson-code-of-conduct-ra-6713-saln-executive-military-and-other-offices
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: 'Under Section 8(A)''s statutory list, where do national executive officials file?
@@ -223,6 +241,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0010
+  lesson: lesson-code-of-conduct-ra-6713-saln-national-legislative-and-judicial-offices
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: 'Under RA 6713, where do senators file their SALN?
@@ -247,6 +267,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0011
+  lesson: lesson-code-of-conduct-ra-6713-saln-executive-military-and-other-offices
+  keyPoint: 2
   type: single_choice
   difficulty: hard
   stem: 'Under Section 8(A), which repository receives covered officials in the residual all-other category when no specifically listed category applies?
@@ -271,6 +293,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0012
+  lesson: lesson-code-of-conduct-ra-6713-saln-filers-and-family-coverage
+  keyPoint: 2
   type: single_choice
   difficulty: medium
   stem: 'Besides the official, whose financial information is included under Section 8? Assume the spouses are not under complete separation of property. For children, assume they live in the household and are under eighteen.
@@ -295,6 +319,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0013
+  lesson: lesson-code-of-conduct-ra-6713-saln-executive-military-and-other-offices
+  keyPoint: 2
   type: single_choice
   difficulty: hard
   stem: 'Where do regional and local officials and employees file their SALN under RA 6713?
@@ -319,6 +345,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0014
+  lesson: lesson-code-of-conduct-ra-6713-saln-national-legislative-and-judicial-offices
+  keyPoint: 2
   type: single_choice
   difficulty: hard
   stem: 'Under RA 6713''s statutory filing list, where do Supreme Court justices file their SALN?
@@ -343,6 +371,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0015
+  lesson: lesson-code-of-conduct-ra-6713-saln-national-legislative-and-judicial-offices
+  keyPoint: 2
   type: single_choice
   difficulty: hard
   stem: 'Under RA 6713, where do trial-court judges file their SALN?
@@ -367,6 +397,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0016
+  lesson: lesson-code-of-conduct-ra-6713-conflict-action-deadlines
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   approved: false
@@ -392,6 +424,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0017
+  lesson: lesson-code-of-conduct-ra-6713-saln-public-access-and-use
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   approved: false
@@ -417,6 +451,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0018
+  lesson: lesson-code-of-conduct-ra-6713-saln-filers-and-family-coverage
+  keyPoint: 2
   type: single_choice
   difficulty: hard
   approved: false
@@ -442,6 +478,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0019
+  lesson: lesson-code-of-conduct-ra-6713-conflict-action-deadlines
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   approved: false
@@ -467,6 +505,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0020
+  lesson: lesson-code-of-conduct-ra-6713-saln-executive-military-and-other-offices
+  keyPoint: 1
   type: single_choice
   difficulty: exam
   approved: false

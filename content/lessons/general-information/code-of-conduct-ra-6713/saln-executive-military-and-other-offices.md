@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 isActive: true
 part: 6
 partCount: 10
-ordering: 10
+ordering: 34
 keyPoints:
   - "Match executive and military filers to their offices."
   - "Match local and remaining filers to their offices."

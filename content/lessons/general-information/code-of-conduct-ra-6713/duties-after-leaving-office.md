@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 isActive: true
 part: 9
 partCount: 10
-ordering: 23
+ordering: 21
 keyPoints:
   - "Recall how long the outside business and recommendation bans continue."
   - "Distinguish the former office practice limit from a ban on all private work."

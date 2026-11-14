@@ -7,7 +7,7 @@ topic: "topic-environment-management"
 isActive: true
 part: 2
 partCount: 9
-ordering: 402
+ordering: 15
 keyPoints:
   - "Name the Clean Air Act and apply its burning conditions."
 ---

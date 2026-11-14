@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 isActive: true
 part: 7
 partCount: 10
-ordering: 11
+ordering: 35
 keyPoints:
   - "Recall copying, retention, and investigation rules."
   - "Distinguish permitted access from prohibited use."

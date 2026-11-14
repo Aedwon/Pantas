@@ -7,6 +7,8 @@ meta:
   - cse-sub
 questions:
 - id: q-environment-management-environmental-problems-and-climate-change-0001
+  lesson: lesson-environment-management-climate-change-and-its-effects
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: |
@@ -27,6 +29,8 @@ questions:
     Weather describes conditions on a day or over a short period. Rain this afternoon is weather. Climate concerns long-term patterns.
   approved: false
 - id: q-environment-management-environmental-problems-and-climate-change-0002
+  lesson: lesson-environment-management-climate-change-and-its-effects
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: |
@@ -47,6 +51,8 @@ questions:
     Greenhouse gases trap heat in the atmosphere. Human activities add these gases and contribute to warming.
   approved: false
 - id: q-environment-management-environmental-problems-and-climate-change-0003
+  lesson: lesson-environment-management-local-environmental-problems
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: |
@@ -67,6 +73,8 @@ questions:
     A habitat supplies food, water, shelter, and space. Clearing it can remove what birds need to live there.
   approved: false
 - id: q-environment-management-environmental-problems-and-climate-change-0004
+  lesson: lesson-environment-management-climate-adaptation-and-mitigation
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: |
@@ -87,6 +95,8 @@ questions:
     Adaptation helps people cope with climate effects. Storing water prepares residents for dry periods. Mitigation focuses on greenhouse gas releases or removal.
   approved: false
 - id: q-environment-management-environmental-problems-and-climate-change-0005
+  lesson: lesson-environment-management-government-environmental-responses
+  keyPoint: 2
   type: single_choice
   difficulty: easy
   stem: |
@@ -107,6 +117,8 @@ questions:
     The DENR has major pollution-control duties through its Environmental Management Bureau. Local governments also have duties under environmental laws.
   approved: false
 - id: q-environment-management-environmental-problems-and-climate-change-0006
+  lesson: lesson-environment-management-local-environmental-problems
+  keyPoint: 2
   type: single_choice
   difficulty: medium
   stem: |
@@ -127,6 +139,8 @@ questions:
     A bad smell can prompt an investigation. It does not identify who caused pollution. Inspections and suitable water tests can help establish the source.
   approved: false
 - id: q-environment-management-environmental-problems-and-climate-change-0007
+  lesson: lesson-environment-management-government-environmental-responses
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: |
@@ -147,6 +161,8 @@ questions:
     A materials recovery facility sorts waste and recovers useful materials. Collection should preserve the separation that households already made.
   approved: false
 - id: q-environment-management-environmental-problems-and-climate-change-0008
+  lesson: lesson-environment-management-climate-change-and-its-effects
+  keyPoint: 2
   type: single_choice
   difficulty: medium
   stem: |
@@ -167,6 +183,8 @@ questions:
     Lost earnings are an economic effect. Lost classes and difficulty reaching health services are social effects. The same flood can cause both.
   approved: false
 - id: q-environment-management-environmental-problems-and-climate-change-0009
+  lesson: lesson-environment-management-climate-change-and-its-effects
+  keyPoint: 2
   type: single_choice
   difficulty: medium
   stem: |
@@ -187,6 +205,8 @@ questions:
     Budgets and agency coordination are public decisions. Climate policy includes these choices even when no political party is involved.
   approved: false
 - id: q-environment-management-environmental-problems-and-climate-change-0010
+  lesson: lesson-environment-management-climate-adaptation-and-mitigation
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: |
@@ -207,6 +227,8 @@ questions:
     Mitigation limits greenhouse gas releases or increases their removal. Protecting stored forest carbon supports this goal. Use the stated purpose to classify the action.
   approved: false
 - id: q-environment-management-environmental-problems-and-climate-change-0011
+  lesson: lesson-environment-management-national-climate-framework
+  keyPoint: 2
   type: single_choice
   difficulty: medium
   stem: |
@@ -227,6 +249,8 @@ questions:
     Capability building gives people training, skills, and tools. Staff who can map flood risk are better prepared to support local planning.
   approved: false
 - id: q-environment-management-environmental-problems-and-climate-change-0012
+  lesson: lesson-environment-management-national-climate-framework
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: |
@@ -247,6 +271,8 @@ questions:
     Vulnerability includes likely harm and the ability to cope. Similar flooding can cause different harm when homes and access to safety differ.
   approved: false
 - id: q-environment-management-environmental-problems-and-climate-change-0013
+  lesson: lesson-environment-management-climate-change-and-its-effects
+  keyPoint: 3
   type: single_choice
   difficulty: hard
   stem: |
@@ -267,6 +293,8 @@ questions:
     Flood damage can reflect rainfall, drainage, and land use. A single flood does not settle climate change's role. Officials need more evidence.
   approved: false
 - id: q-environment-management-environmental-problems-and-climate-change-0014
+  lesson: lesson-environment-management-government-environmental-responses
+  keyPoint: 2
   type: single_choice
   difficulty: hard
   stem: |
@@ -287,6 +315,8 @@ questions:
     Evaluation checks services, enforcement, and changes in harm. Comparing conditions helps show whether the response works. A launch alone cannot show success.
   approved: false
 - id: q-environment-management-environmental-problems-and-climate-change-0015
+  lesson: lesson-environment-management-national-climate-framework
+  keyPoint: 3
   type: single_choice
   difficulty: hard
   stem: |
@@ -307,6 +337,8 @@ questions:
     Gender mainstreaming considers women's and men's needs throughout a plan. Both should help shape it. Planners must check whether warnings and shelters actually reach people.
   approved: false
 - id: q-environment-management-environmental-problems-and-climate-change-0016
+  lesson: lesson-environment-management-national-climate-framework
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: |
@@ -327,6 +359,8 @@ questions:
     An impact and vulnerability assessment studies likely harm and who needs protection. Its findings help officials choose actions that fit local risks.
   approved: false
 - id: q-environment-management-environmental-problems-and-climate-change-0017
+  lesson: lesson-environment-management-national-climate-framework
+  keyPoint: 2
   type: single_choice
   difficulty: exam
   stem: |
@@ -347,6 +381,8 @@ questions:
     The framework has several roles. It guides planning, research, public education, and checks on progress. It supports adaptation and ways to reduce emissions.
   approved: false
 - id: q-environment-management-environmental-problems-and-climate-change-0018
+  lesson: lesson-environment-management-national-climate-framework
+  keyPoint: 2
   type: single_choice
   difficulty: exam
   stem: |
@@ -367,6 +403,8 @@ questions:
     A useful plan connects evidence with action and the means to carry it out. Checks on results help officials judge what worked and what needs adjustment.
   approved: false
 - id: q-environment-management-environmental-problems-and-climate-change-0019
+  lesson: lesson-environment-management-climate-adaptation-and-mitigation
+  keyPoint: 1
   type: single_choice
   difficulty: exam
   stem: |
@@ -387,6 +425,8 @@ questions:
     Higher classrooms reduce flood harm. Efficient lighting reduces related emissions. Missed classes affect education, while repair costs concern money. One site can show several kinds of action and effect.
   approved: false
 - id: q-environment-management-environmental-problems-and-climate-change-0020
+  lesson: lesson-environment-management-national-climate-framework
+  keyPoint: 2
   type: single_choice
   difficulty: exam
   stem: |

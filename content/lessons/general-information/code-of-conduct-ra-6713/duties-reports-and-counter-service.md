@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 isActive: true
 part: 3
 partCount: 10
-ordering: 17
+ordering: 15
 keyPoints:
   - "Recall the annual report deadline and inspection duty."
   - "Apply prompt service to visitors at the counter."

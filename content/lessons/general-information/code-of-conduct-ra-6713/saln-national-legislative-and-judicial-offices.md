@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 isActive: true
 part: 5
 partCount: 10
-ordering: 9
+ordering: 33
 keyPoints:
   - "Match constitutional, national elective, and legislative filers to their offices."
   - "Distinguish the filing offices for justices and judges."

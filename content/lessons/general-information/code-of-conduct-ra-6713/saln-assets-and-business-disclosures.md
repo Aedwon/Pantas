@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 isActive: true
 part: 1
 partCount: 10
-ordering: 5
+ordering: 29
 keyPoints:
   - "Identify the required financial declarations and their contents."
   - "Find net worth from assets and liabilities."

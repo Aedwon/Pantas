@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 isActive: true
 part: 8
 partCount: 10
-ordering: 12
+ordering: 36
 keyPoints:
   - "Identify a conflict of interest and a substantial stockholder."
   - "Recognize a complete transfer to an allowed recipient."

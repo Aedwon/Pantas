@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 isActive: true
 part: 3
 partCount: 8
-ordering: 33
+ordering: 7
 keyPoints:
   - "Apply recommendation exceptions and restrictions after leaving office."
 ---

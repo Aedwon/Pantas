@@ -7,7 +7,7 @@ topic: "topic-environment-management"
 isActive: true
 part: 6
 partCount: 9
-ordering: 406
+ordering: 19
 keyPoints:
   - "Identify the EIS System, ECC, and project-type coverage."
   - "Explain why an ECC does not replace other permits."

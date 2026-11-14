@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 isActive: true
 part: 4
 partCount: 6
-ordering: 28
+ordering: 26
 keyPoints:
   - "Distinguish red tape and fixing from proof of a payoff."
   - "Apply processing limits and the stated conditions for extensions and pauses."

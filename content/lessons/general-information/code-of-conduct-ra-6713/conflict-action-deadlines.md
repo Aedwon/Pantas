@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 isActive: true
 part: 9
 partCount: 10
-ordering: 13
+ordering: 37
 keyPoints:
   - "Apply resignation and divestment deadlines on entry or a later conflict."
 ---

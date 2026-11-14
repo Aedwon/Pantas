@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 isActive: true
 part: 1
 partCount: 8
-ordering: 31
+ordering: 5
 keyPoints:
   - "Apply the office-transaction and regulated-business restrictions."
 ---

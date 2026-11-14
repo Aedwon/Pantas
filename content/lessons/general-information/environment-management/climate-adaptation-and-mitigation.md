@@ -7,7 +7,7 @@ topic: "topic-environment-management"
 isActive: true
 part: 4
 partCount: 5
-ordering: 2.04
+ordering: 7
 keyPoints:
   - "Distinguish adaptation from mitigation."
 ---

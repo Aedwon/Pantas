@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 isActive: true
 part: 5
 partCount: 8
-ordering: 35
+ordering: 9
 keyPoints:
   - "Distinguish nominal gifts from nominal donations by their conditions."
 ---

@@ -7,7 +7,7 @@ topic: "topic-environment-management"
 isActive: true
 part: 4
 partCount: 5
-ordering: 3.04
+ordering: 12
 keyPoints:
   - "Identify protected-area categories and purposes."
   - "Explain zoning, buffer zones, and habitat rehabilitation."

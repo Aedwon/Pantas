@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 isActive: true
 part: 5
 partCount: 10
-ordering: 19
+ordering: 17
 keyPoints:
   - "Recall when public documents must be open for inspection."
   - "Recognize lawful grounds for protecting records."

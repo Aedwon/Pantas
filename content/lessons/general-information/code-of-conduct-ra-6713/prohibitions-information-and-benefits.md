@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 isActive: true
 part: 4
 partCount: 8
-ordering: 34
+ordering: 8
 keyPoints:
   - "Recognize prohibited information use and requests for valuable benefits."
 ---

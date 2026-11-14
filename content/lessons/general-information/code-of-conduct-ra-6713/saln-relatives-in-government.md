@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 isActive: true
 part: 3
 partCount: 10
-ordering: 7
+ordering: 31
 keyPoints:
   - "Count relationship degrees and identify covered relatives."
 ---

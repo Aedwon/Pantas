@@ -7,7 +7,7 @@ topic: "topic-environment-management"
 isActive: true
 part: 2
 partCount: 5
-ordering: 2.02
+ordering: 5
 keyPoints:
   - "Explain waste sorting, recovery, and collection."
   - "Identify pollution-control duties and evidence of results."

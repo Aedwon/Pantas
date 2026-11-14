@@ -7,6 +7,8 @@ meta:
   - cse-sub
 questions:
 - id: q-environment-management-species-resources-and-environmental-decisions-0001
+  lesson: lesson-environment-management-species-habitats-and-ecosystems
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: |
@@ -27,6 +29,8 @@ questions:
     A habitat supplies the things a living thing needs. A species is a group of living things of the same kind.
   approved: false
 - id: q-environment-management-species-resources-and-environmental-decisions-0002
+  lesson: lesson-environment-management-species-habitats-and-ecosystems
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: |
@@ -47,6 +51,8 @@ questions:
     An ecosystem includes living things and nonliving parts around them. These parts affect one another.
   approved: false
 - id: q-environment-management-species-resources-and-environmental-decisions-0003
+  lesson: lesson-environment-management-conserving-natural-resources
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: |
@@ -67,6 +73,8 @@ questions:
     Repairing leaks stops avoidable water loss. Adding more water does not fix the waste.
   approved: false
 - id: q-environment-management-species-resources-and-environmental-decisions-0004
+  lesson: lesson-environment-management-conserving-natural-resources
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: |
@@ -87,6 +95,8 @@ questions:
     Minerals do not return on a human time scale. Using materials again helps reduce the need to take more.
   approved: false
 - id: q-environment-management-species-resources-and-environmental-decisions-0005
+  lesson: lesson-environment-management-protected-area-management
+  keyPoint: 2
   type: single_choice
   difficulty: easy
   stem: |
@@ -107,6 +117,8 @@ questions:
     A buffer zone is outside and beside a protected area. Special care there helps prevent harm from reaching the protected area.
   approved: false
 - id: q-environment-management-species-resources-and-environmental-decisions-0006
+  lesson: lesson-environment-management-species-habitats-and-ecosystems
+  keyPoint: 2
   type: single_choice
   difficulty: medium
   stem: |
@@ -127,6 +139,8 @@ questions:
     Wildlife can decline when its habitat is cleared even if hunting stops. Protecting and restoring habitat addresses the loss of food and connected space.
   approved: false
 - id: q-environment-management-species-resources-and-environmental-decisions-0007
+  lesson: lesson-environment-management-protecting-threatened-species
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: |
@@ -147,6 +161,8 @@ questions:
     The catch is greater than the population can replace. Harvest limits can give fish time to reproduce and recover.
   approved: false
 - id: q-environment-management-species-resources-and-environmental-decisions-0008
+  lesson: lesson-environment-management-protecting-threatened-species
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: |
@@ -167,6 +183,8 @@ questions:
     The threat comes from pollution. Controlling the waste helps make the water safer for the animal.
   approved: false
 - id: q-environment-management-species-resources-and-environmental-decisions-0009
+  lesson: lesson-environment-management-protected-area-management
+  keyPoint: 2
   type: single_choice
   difficulty: medium
   stem: |
@@ -187,6 +205,8 @@ questions:
     Zoning divides an area into parts with different activity rules. Visitor access can differ between those parts.
   approved: false
 - id: q-environment-management-species-resources-and-environmental-decisions-0010
+  lesson: lesson-environment-management-protected-area-management
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: |
@@ -207,6 +227,8 @@ questions:
     A natural monument protects a notable natural feature. The rock formation fits that purpose.
   approved: false
 - id: q-environment-management-species-resources-and-environmental-decisions-0011
+  lesson: lesson-environment-management-protected-area-management
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: |
@@ -227,6 +249,8 @@ questions:
     A protected landscape or seascape recognizes how people and land or sea have shaped one another over time.
   approved: false
 - id: q-environment-management-species-resources-and-environmental-decisions-0012
+  lesson: lesson-environment-management-species-habitats-and-ecosystems
+  keyPoint: 2
   type: single_choice
   difficulty: hard
   stem: |
@@ -247,6 +271,8 @@ questions:
     Roots help hold soil in place. After clearing, rain can carry more soil into the river. This sediment can block light and cover feeding or breeding places.
   approved: false
 - id: q-environment-management-species-resources-and-environmental-decisions-0013
+  lesson: lesson-environment-management-protecting-threatened-species
+  keyPoint: 2
   type: single_choice
   difficulty: hard
   stem: |
@@ -267,6 +293,8 @@ questions:
     Critical habitats can protect threatened species outside existing protected areas. Scientific evidence guides their selection. They are different from NIPAS protected areas.
   approved: false
 - id: q-environment-management-species-resources-and-environmental-decisions-0014
+  lesson: lesson-environment-management-protecting-threatened-species
+  keyPoint: 3
   type: single_choice
   difficulty: hard
   stem: |
@@ -287,6 +315,8 @@ questions:
     Released animals need food, shelter, and places to breed. The program must address continuing habitat damage. Breeding alone cannot provide those conditions.
   approved: false
 - id: q-environment-management-species-resources-and-environmental-decisions-0015
+  lesson: lesson-environment-management-conserving-natural-resources
+  keyPoint: 2
   type: single_choice
   difficulty: hard
   stem: |
@@ -307,6 +337,8 @@ questions:
     Conservation means using and caring for resources without waste or damage. Some use can fit that goal. Its amount and kind must suit the resource and follow the law.
   approved: false
 - id: q-environment-management-species-resources-and-environmental-decisions-0016
+  lesson: lesson-environment-management-choosing-environmental-options
+  keyPoint: 2
   type: single_choice
   difficulty: hard
   stem: |
@@ -327,6 +359,8 @@ questions:
     Already cleared ground may reduce new habitat loss. River risks still need checking. A good choice must also be lawful and workable.
   approved: false
 - id: q-environment-management-species-resources-and-environmental-decisions-0017
+  lesson: lesson-environment-management-choosing-environmental-options
+  keyPoint: 1
   type: single_choice
   difficulty: exam
   stem: |
@@ -347,6 +381,8 @@ questions:
     An option that breaks a protection rule is unacceptable. The lawful proposal provides the needed water supply and causes less habitat harm.
   approved: false
 - id: q-environment-management-species-resources-and-environmental-decisions-0018
+  lesson: lesson-environment-management-choosing-environmental-options
+  keyPoint: 1
   type: single_choice
   difficulty: exam
   stem: |
@@ -367,6 +403,8 @@ questions:
     The already cleared site costs more. It also avoids new habitat loss. The tradeoff is the added cost and the avoided harm.
   approved: false
 - id: q-environment-management-species-resources-and-environmental-decisions-0019
+  lesson: lesson-environment-management-choosing-environmental-options
+  keyPoint: 2
   type: single_choice
   difficulty: exam
   stem: |
@@ -387,6 +425,8 @@ questions:
     Labels do not prove that a choice is safe. The town needs evidence about possible harm and must check the law before deciding.
   approved: false
 - id: q-environment-management-species-resources-and-environmental-decisions-0020
+  lesson: lesson-environment-management-protected-area-management
+  keyPoint: 2
   type: single_choice
   difficulty: exam
   stem: |

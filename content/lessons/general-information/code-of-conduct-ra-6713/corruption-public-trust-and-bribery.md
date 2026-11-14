@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 isActive: true
 part: 1
 partCount: 6
-ordering: 25
+ordering: 23
 keyPoints:
   - "Define corruption and the public trust standard."
   - "Recognize direct bribery tied to skipping a required duty."

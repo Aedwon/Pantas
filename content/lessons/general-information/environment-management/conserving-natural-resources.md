@@ -7,7 +7,7 @@ topic: "topic-environment-management"
 isActive: true
 part: 3
 partCount: 5
-ordering: 3.03
+ordering: 11
 keyPoints:
   - "Match conservation actions to natural resources."
   - "Explain recovery limits and lawful resource use."

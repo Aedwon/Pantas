@@ -7,6 +7,8 @@ meta:
   - cse-sub
 questions:
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0001
+  lesson: lesson-code-of-conduct-ra-6713-duties-public-letters
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'Under Section 5(a) of RA 6713, what is the deadline for responding to public letters and requests?
@@ -31,6 +33,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0002
+  lesson: lesson-code-of-conduct-ra-6713-duties-document-completion
+  keyPoint: 2
   type: single_choice
   difficulty: medium
   stem: 'As far as practicable, how many signatories should official papers contain under Section 5(c) of RA 6713?
@@ -55,6 +59,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0003
+  lesson: lesson-code-of-conduct-ra-6713-duties-reports-and-counter-service
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'Within how many working days after year-end must heads or other responsible officers render the office''s annual performance report?
@@ -79,6 +85,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0006
+  lesson: lesson-code-of-conduct-ra-6713-duties-fair-disciplinary-process
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'Under RA 6713''s implementing rules, failing to respond promptly within the public-letter deadline can be grounds for what?
@@ -103,6 +111,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0009
+  lesson: lesson-code-of-conduct-ra-6713-duties-public-record-access
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'Subject to lawful disclosure restrictions, when must public documents be available for inspection under Section 5(e)?
@@ -127,6 +137,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0012
+  lesson: lesson-code-of-conduct-ra-6713-duties-public-letters
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'What must the reply to a public letter or request state under Section 5(a)?
@@ -151,6 +163,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0017
+  lesson: lesson-code-of-conduct-ra-6713-duties-document-completion
+  keyPoint: 2
   type: single_choice
   difficulty: medium
   approved: false
@@ -176,6 +190,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0018
+  lesson: lesson-code-of-conduct-ra-6713-duties-code-coverage
+  keyPoint: 2
   type: single_choice
   difficulty: easy
   stem: |
@@ -193,6 +209,8 @@ questions:
     Free-service volunteers need not file a SALN under Rule XII. They must still follow the Code's duties and bans. The filing exemption is limited.
   approved: false
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0019
+  lesson: lesson-code-of-conduct-ra-6713-duties-protected-information-and-gifts
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: |
@@ -212,6 +230,8 @@ questions:
     The employee need not receive money for the disclosure to be prohibited.
   approved: false
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0020
+  lesson: lesson-code-of-conduct-ra-6713-duties-protected-information-and-gifts
+  keyPoint: 2
   type: single_choice
   difficulty: easy
   stem: |
@@ -229,6 +249,8 @@ questions:
     The business offers the gift for favorable official action. The employee must refuse it. A low price does not make that exchange acceptable.
   approved: false
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0021
+  lesson: lesson-code-of-conduct-ra-6713-duties-public-letters
+  keyPoint: 2
   type: single_choice
   difficulty: medium
   stem: |
@@ -246,6 +268,8 @@ questions:
     The office should explain its action and list the missing papers. It should give a reasonable period to submit them and name the worker in charge. Missing papers can delay completion, but the office still needs to reply.
   approved: false
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0022
+  lesson: lesson-code-of-conduct-ra-6713-duties-public-letters
+  keyPoint: 2
   type: single_choice
   difficulty: medium
   stem: |
@@ -263,6 +287,8 @@ questions:
     The receiving office should send the request to the office that can act. It should also tell the sender about the referral. A wrong address is not a reason to ignore the request.
   approved: false
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0023
+  lesson: lesson-code-of-conduct-ra-6713-duties-reports-and-counter-service
+  keyPoint: 2
   type: single_choice
   difficulty: medium
   stem: |
@@ -280,6 +306,8 @@ questions:
     Workers must promptly attend to people seeking service in person. A routine request that can be settled at once should not face an unjustified delay.
   approved: false
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0024
+  lesson: lesson-code-of-conduct-ra-6713-duties-document-completion
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: |
@@ -297,6 +325,8 @@ questions:
     The agency head must set a reasonable period when no deadline already applies. The rules must consider the work, its complexity, and relevant conditions. Each worker cannot simply choose a deadline.
   approved: false
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0025
+  lesson: lesson-code-of-conduct-ra-6713-duties-public-record-access
+  keyPoint: 2
   type: single_choice
   difficulty: hard
   stem: |
@@ -314,6 +344,8 @@ questions:
     Public access has lawful limits. The rules protect confidential sources in investigations. The office must rely on that protection, not merely on the fact that the matter is unfinished.
   approved: false
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0026
+  lesson: lesson-code-of-conduct-ra-6713-duties-private-business-interests
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: |
@@ -331,6 +363,8 @@ questions:
     The Code bars a direct or indirect financial stake in a transaction requiring the worker's office to approve it. Using a nominee does not remove the stake. The worker need not be the person who signs the approval.
   approved: false
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0027
+  lesson: lesson-code-of-conduct-ra-6713-duties-private-business-interests
+  keyPoint: 2
   type: single_choice
   difficulty: hard
   stem: |
@@ -348,6 +382,8 @@ questions:
     The ban includes serving as a trustee for a business the office supervises. Express permission in law is needed for the exception. A supervisor's approval alone is not enough.
   approved: false
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0028
+  lesson: lesson-code-of-conduct-ra-6713-duties-private-practice-and-referrals
+  keyPoint: 1
   type: single_choice
   difficulty: exam
   stem: |
@@ -366,6 +402,8 @@ questions:
     Legal authority is only one requirement. The private work must also avoid conflict with public duties. Work that tends to conflict fails this test even before an actual conflict occurs.
   approved: false
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0029
+  lesson: lesson-code-of-conduct-ra-6713-duties-after-leaving-office
+  keyPoint: 2
   type: single_choice
   difficulty: exam
   stem: |
@@ -383,6 +421,8 @@ questions:
     For one year after leaving, the lawyer cannot practice on a matter before the former office. This specific limit does not ban every private legal job.
   approved: false
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0030
+  lesson: lesson-code-of-conduct-ra-6713-duties-private-practice-and-referrals
+  keyPoint: 2
   type: single_choice
   difficulty: exam
   stem: |

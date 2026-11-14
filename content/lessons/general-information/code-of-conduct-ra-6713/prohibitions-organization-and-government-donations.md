@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 isActive: true
 part: 7
 partCount: 8
-ordering: 37
+ordering: 11
 keyPoints:
   - "Apply the separate organization and government donation exceptions."
 ---

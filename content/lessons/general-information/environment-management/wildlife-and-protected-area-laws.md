@@ -7,7 +7,7 @@ topic: "topic-environment-management"
 isActive: true
 part: 8
 partCount: 9
-ordering: 408
+ordering: 21
 keyPoints:
   - "Distinguish wildlife and critical-habitat protection from NIPAS."
 ---

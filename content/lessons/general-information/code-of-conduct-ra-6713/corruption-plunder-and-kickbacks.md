@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 isActive: true
 part: 3
 partCount: 6
-ordering: 27
+ordering: 25
 keyPoints:
   - "Identify the covered means and amount required for plunder."
   - "Explain how private payoffs can harm public services and fair treatment."

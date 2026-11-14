@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 isActive: true
 part: 4
 partCount: 10
-ordering: 18
+ordering: 16
 keyPoints:
   - "Explain how a reasonable completion period is set."
   - "Apply the signature guideline and substitute signer rules."

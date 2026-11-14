@@ -7,6 +7,8 @@ meta:
   - cse-sub
 questions:
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0001
+    lesson: lesson-code-of-conduct-ra-6713-corruption-public-trust-and-bribery
+    keyPoint: 1
     type: corruption-definition
     difficulty: easy
     stem: |
@@ -25,6 +27,8 @@ questions:
       A mistake, delay, or unpopular decision alone does not prove corruption.
     approved: false
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0002
+    lesson: lesson-code-of-conduct-ra-6713-corruption-public-trust-and-bribery
+    keyPoint: 1
     type: public-office-public-trust
     difficulty: easy
     stem: |
@@ -42,6 +46,8 @@ questions:
       Public office is a public trust. Officials must use their powers for the public. They must not use those powers to reward private supporters.
     approved: false
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0003
+    lesson: lesson-code-of-conduct-ra-6713-corruption-social-economic-political-effects
+    keyPoint: 1
     type: social-effect-identification
     difficulty: easy
     stem: |
@@ -60,6 +66,8 @@ questions:
       Here, eligible patients lose access to medicine because of favoritism.
     approved: false
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0004
+    lesson: lesson-code-of-conduct-ra-6713-corruption-social-economic-political-effects
+    keyPoint: 2
     type: economic-effect-identification
     difficulty: easy
     stem: |
@@ -77,6 +85,8 @@ questions:
       Bribe demands add costs to doing business. They can discourage honest businesses from investing. This is an economic effect.
     approved: false
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0005
+    lesson: lesson-code-of-conduct-ra-6713-corruption-social-economic-political-effects
+    keyPoint: 3
     type: political-effect-identification
     difficulty: easy
     stem: |
@@ -94,6 +104,8 @@ questions:
       Political effects concern public power and accountability. The official serves payers instead of residents. This weakens accountability.
     approved: false
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0006
+    lesson: lesson-code-of-conduct-ra-6713-corruption-state-response
+    keyPoint: 1
     type: ombudsman-complaint-role
     difficulty: easy
     stem: |
@@ -111,6 +123,8 @@ questions:
       The Ombudsman acts on complaints against government officers and employees. Filing a complaint does not by itself prove guilt.
     approved: false
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0007
+    lesson: lesson-code-of-conduct-ra-6713-corruption-state-response
+    keyPoint: 1
     type: sandiganbayan-court-role
     difficulty: easy
     stem: |
@@ -128,6 +142,8 @@ questions:
       Article XI, Section 4 retains the Sandiganbayan. It is the anti-graft court. It tries cases that fall within its legal authority.
     approved: false
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0008
+    lesson: lesson-code-of-conduct-ra-6713-corruption-state-response
+    keyPoint: 2
     type: impeachment-grounds
     difficulty: medium
     stem: |
@@ -146,6 +162,8 @@ questions:
       Other public workers follow the removal procedures set by law.
     approved: false
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0009
+    lesson: lesson-code-of-conduct-ra-6713-corruption-public-trust-and-bribery
+    keyPoint: 2
     type: bribery-scenario
     difficulty: medium
     stem: |
@@ -164,6 +182,8 @@ questions:
       Accepting that bargain shows bribery. A bribe need not be cash.
     approved: false
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0010
+    lesson: lesson-code-of-conduct-ra-6713-corruption-graft-and-information
+    keyPoint: 1
     type: ra-3019-clause-match
     difficulty: medium
     stem: |
@@ -182,6 +202,8 @@ questions:
       The request itself matters. The stem does not say the officer owns a business involved in the purchase.
     approved: false
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0011
+    lesson: lesson-code-of-conduct-ra-6713-corruption-red-tape-and-fixers
+    keyPoint: 2
     type: red-tape-law-identification
     difficulty: medium
     stem: |
@@ -199,6 +221,8 @@ questions:
       RA 11032 sets these general limits. Processing starts when requirements are complete and any applicable fee is paid. If no fee applies, complete requirements start the period. Lawful extensions and special rules may apply, so a delay alone does not prove corruption.
     approved: false
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0012
+    lesson: lesson-code-of-conduct-ra-6713-corruption-social-economic-political-effects
+    keyPoint: 3
     type: vote-buying-recognition
     difficulty: medium
     stem: |
@@ -216,6 +240,8 @@ questions:
       The groceries are offered to influence the voter's choice. This is vote buying. The election offense is not limited to cash payments.
     approved: false
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0013
+    lesson: lesson-code-of-conduct-ra-6713-corruption-red-tape-and-fixers
+    keyPoint: 3
     type: corruption-prevention-measure
     difficulty: medium
     stem: |
@@ -233,6 +259,8 @@ questions:
       Clear public rules let applicants check what they must submit and pay. They can then spot hidden charges and invented delays. This addresses the lack of information that the fixer uses.
     approved: false
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0014
+    lesson: lesson-code-of-conduct-ra-6713-corruption-graft-and-information
+    keyPoint: 2
     type: ra-3019-undue-injury-or-benefit
     difficulty: hard
     stem: |
@@ -250,6 +278,8 @@ questions:
       Section 3(e) covers undue injury or unwarranted private benefits through the wrongful conduct it names. Clear favoritism can meet that condition. The unwarranted-benefit ground does not also require proof of public loss.
     approved: false
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0015
+    lesson: lesson-code-of-conduct-ra-6713-corruption-graft-and-information
+    keyPoint: 3
     type: ra-3019-financial-interest
     difficulty: hard
     stem: |
@@ -267,6 +297,8 @@ questions:
       Section 3(h) covers a financial interest in a transaction in which the officer officially intervenes. The officer's shares create that interest here. Not every investment is covered by this rule.
     approved: false
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0016
+    lesson: lesson-code-of-conduct-ra-6713-corruption-graft-and-information
+    keyPoint: 4
     type: ra-3019-confidential-information
     difficulty: hard
     stem: |
@@ -284,6 +316,8 @@ questions:
       Section 3(k) covers giving valuable confidential office information to an unauthorized person. It also covers releasing such information too early. A cash payment is not needed for the act described here.
     approved: false
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0017
+    lesson: lesson-code-of-conduct-ra-6713-corruption-plunder-and-kickbacks
+    keyPoint: 1
     type: plunder-elements
     difficulty: hard
     stem: |
@@ -301,6 +335,8 @@ questions:
       Reaching the threshold is not enough. The wealth must be ill-gotten. It must come from a combination or series of criminal acts covered by RA 7080. Lawful wealth alone is not plunder.
     approved: false
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0018
+    lesson: lesson-code-of-conduct-ra-6713-corruption-state-response
+    keyPoint: 4
     type: gift-versus-bribe
     difficulty: hard
     stem: |
@@ -318,6 +354,8 @@ questions:
       The exclusion requires an unsolicited gift of insignificant value with no link to a favor. A small price alone is not enough. A requested gift or a gift meant to secure special treatment does not meet these conditions.
     approved: false
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0019
+    lesson: lesson-code-of-conduct-ra-6713-corruption-social-economic-political-effects
+    keyPoint: 4
     type: evaluate-corruption-harm
     difficulty: exam
     stem: |
@@ -335,6 +373,8 @@ questions:
       Households lose a needed service. Repair costs waste public funds. Residents also lose trust in public accountability. These are social, economic, and political harms. The treasury is not the only one harmed.
     approved: false
   - id: q-code-of-conduct-ra-6713-corruption-and-its-effects-0020
+    lesson: lesson-code-of-conduct-ra-6713-corruption-social-economic-political-effects
+    keyPoint: 4
     type: corruption-cause-and-effect
     difficulty: exam
     stem: |

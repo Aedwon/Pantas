@@ -7,7 +7,7 @@ topic: "topic-environment-management"
 isActive: true
 part: 1
 partCount: 5
-ordering: 2.01
+ordering: 4
 keyPoints:
   - "Identify the harmful practice and its effects."
   - "Use evidence before naming a pollution source."

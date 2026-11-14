@@ -7,7 +7,7 @@ topic: "topic-environment-management"
 isActive: true
 part: 3
 partCount: 9
-ordering: 403
+ordering: 16
 keyPoints:
   - "Match wastewater permits and water-quality management to RA 9275."
 ---

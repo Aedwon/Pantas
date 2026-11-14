@@ -7,7 +7,7 @@ topic: "topic-environment-management"
 isActive: true
 part: 2
 partCount: 3
-ordering: 102
+ordering: 24
 keyPoints:
   - "Explain how sorting supports recovery."
   - "Distinguish reuse and recycling while recognizing their legal overlap."

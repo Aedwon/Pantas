@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 isActive: true
 part: 5
 partCount: 6
-ordering: 29
+ordering: 27
 keyPoints:
   - "Classify social harm to people and fair access."
   - "Trace economic harm to funds and investment."

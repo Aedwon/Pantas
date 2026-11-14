@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 isActive: true
 part: 2
 partCount: 10
-ordering: 6
+ordering: 30
 keyPoints:
   - "Identify excluded worker categories."
   - "Apply the spouse and child coverage conditions."

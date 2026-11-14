@@ -7,7 +7,7 @@ topic: "topic-environment-management"
 isActive: true
 part: 9
 partCount: 9
-ordering: 409
+ordering: 22
 keyPoints:
   - "Name DENR and EMB and describe their duties."
 ---

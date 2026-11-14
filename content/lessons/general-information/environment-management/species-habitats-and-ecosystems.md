@@ -7,7 +7,7 @@ topic: "topic-environment-management"
 isActive: true
 part: 1
 partCount: 5
-ordering: 3.01
+ordering: 9
 keyPoints:
   - "Identify species, habitats, and ecosystems."
   - "Explain how clearing, sediment, and pollution harm living things."

@@ -7,7 +7,7 @@ topic: "topic-environment-management"
 isActive: true
 part: 3
 partCount: 3
-ordering: 103
+ordering: 25
 keyPoints:
   - "Identify reduction and composting."
   - "Check whether waste stays out of final disposal."

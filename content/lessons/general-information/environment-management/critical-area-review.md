@@ -7,7 +7,7 @@ topic: "topic-environment-management"
 isActive: true
 part: 7
 partCount: 9
-ordering: 407
+ordering: 20
 keyPoints:
   - "Distinguish location-based coverage from project-type coverage."
 ---

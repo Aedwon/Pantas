@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 isActive: true
 part: 2
 partCount: 6
-ordering: 26
+ordering: 24
 keyPoints:
   - "Identify benefits tied to official transactions under Section 3(b)."
   - "Distinguish injury and unwarranted benefits under Section 3(e)."

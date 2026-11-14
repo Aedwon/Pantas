@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 isActive: true
 part: 4
 partCount: 10
-ordering: 8
+ordering: 32
 keyPoints:
   - "Recall initial, annual, and separation filing deadlines."
   - "Recall the authority required for Ombudsman access."

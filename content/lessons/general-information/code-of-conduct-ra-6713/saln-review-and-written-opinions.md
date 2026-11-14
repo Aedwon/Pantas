@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 isActive: true
 part: 10
 partCount: 10
-ordering: 14
+ordering: 38
 keyPoints:
   - "Explain review, notice, and correction."
   - "Identify approval and good-faith protection for written opinions."

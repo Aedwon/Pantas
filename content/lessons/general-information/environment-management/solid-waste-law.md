@@ -7,7 +7,7 @@ topic: "topic-environment-management"
 isActive: true
 part: 1
 partCount: 9
-ordering: 401
+ordering: 14
 keyPoints:
   - "Match solid-waste duties to RA 9003."
   - "Distinguish sorting from waste diversion."

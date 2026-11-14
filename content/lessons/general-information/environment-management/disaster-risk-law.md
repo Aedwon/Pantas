@@ -7,7 +7,7 @@ topic: "topic-environment-management"
 isActive: true
 part: 5
 partCount: 9
-ordering: 405
+ordering: 18
 keyPoints:
   - "Match disaster duties and the council to RA 10121."
 ---

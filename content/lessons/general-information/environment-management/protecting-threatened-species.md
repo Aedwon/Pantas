@@ -7,7 +7,7 @@ topic: "topic-environment-management"
 isActive: true
 part: 2
 partCount: 5
-ordering: 3.02
+ordering: 10
 keyPoints:
   - "Match conservation actions to the threat."
   - "Explain critical habitats under RA 9147."

@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 isActive: true
 part: 6
 partCount: 10
-ordering: 20
+ordering: 18
 keyPoints:
   - "Recognize administrative discipline for failure to act promptly."
   - "Explain why a complaint needs evidence and a fair process."

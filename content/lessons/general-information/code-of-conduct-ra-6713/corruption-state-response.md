@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 isActive: true
 part: 6
 partCount: 6
-ordering: 30
+ordering: 28
 keyPoints:
   - "Distinguish the Ombudsman and Sandiganbayan roles."
   - "Recall impeachment grounds and the roles of the House and Senate."

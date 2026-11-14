@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 isActive: true
 part: 6
 partCount: 8
-ordering: 36
+ordering: 10
 keyPoints:
   - "Apply the family-celebration exception and identify covered relatives."
 ---

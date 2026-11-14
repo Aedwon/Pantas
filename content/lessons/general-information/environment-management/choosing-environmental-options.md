@@ -7,7 +7,7 @@ topic: "topic-environment-management"
 isActive: true
 part: 5
 partCount: 5
-ordering: 3.05
+ordering: 13
 keyPoints:
   - "Compare lawful, workable choices and their tradeoffs."
   - "Check evidence of environmental effects before choosing."

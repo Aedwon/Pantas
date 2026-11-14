@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 isActive: true
 part: 8
 partCount: 8
-ordering: 38
+ordering: 12
 keyPoints:
   - "Distinguish foreign souvenirs, study benefits, treatment, and travel conditions."
 ---

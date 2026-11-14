@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 isActive: true
 part: 8
 partCount: 10
-ordering: 22
+ordering: 20
 keyPoints:
   - "Apply both authority and conflict tests to private practice."
   - "Apply the job recommendation ban and its exceptions."

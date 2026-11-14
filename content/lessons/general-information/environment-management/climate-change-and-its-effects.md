@@ -7,7 +7,7 @@ topic: "topic-environment-management"
 isActive: true
 part: 3
 partCount: 5
-ordering: 2.03
+ordering: 6
 keyPoints:
   - "Distinguish weather from climate and explain warming."
   - "Identify economic, social, and policy effects."

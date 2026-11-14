@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 isActive: true
 part: 7
 partCount: 10
-ordering: 21
+ordering: 19
 keyPoints:
   - "Identify a prohibited stake in an office transaction."
   - "Identify covered outside business roles and the legal permission needed."

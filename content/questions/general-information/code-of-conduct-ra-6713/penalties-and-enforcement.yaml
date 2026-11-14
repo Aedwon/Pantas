@@ -7,6 +7,8 @@ meta:
   - cse-sub
 questions:
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0001
+  lesson: lesson-code-of-conduct-ra-6713-penalties-administrative-limits
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'What is Section 11(a)''s maximum salary-based fine for general violations?
@@ -31,6 +33,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0002
+  lesson: lesson-code-of-conduct-ra-6713-penalties-administrative-limits
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'What is the maximum suspension under Section 11(a)''s general penalty provision?
@@ -55,6 +59,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0003
+  lesson: lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'What maximum imprisonment does RA 6713 specify for violations of Sections 7, 8, or 9?
@@ -79,6 +85,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0004
+  lesson: lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'What is the maximum fixed-peso criminal fine under RA 6713 for violations of Sections 7, 8, or 9?
@@ -103,6 +111,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0005
+  lesson: lesson-code-of-conduct-ra-6713-penalties-filed-statement-misuse
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'Under Section 11(d), what is the maximum court-assessed penalty for obtaining or using a filed statement for a purpose prohibited by Section 8(D)?
@@ -127,6 +137,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0006
+  lesson: lesson-code-of-conduct-ra-6713-penalties-accomplices-and-accessories
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: 'How does Section 11(c) treat a private person who conspires with an official as an accomplice in an RA 6713 violation?
@@ -151,6 +163,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0007
+  lesson: lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: 'If another statute imposes a heavier penalty for the violation, what does Section 11(a) direct?
@@ -175,6 +189,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0008
+  lesson: lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'Can a violation proven in a proper administrative proceeding support removal even when no criminal prosecution is filed?
@@ -199,6 +215,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0009
+  lesson: lesson-code-of-conduct-ra-6713-penalties-administrative-limits
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'Which statement about removal for general violations under Section 11(a) is accurate?
@@ -223,6 +241,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0010
+  lesson: lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: 'What additional sanction may a competent court impose at its discretion for violations of Sections 7, 8, or 9?
@@ -247,6 +267,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0011
+  lesson: lesson-code-of-conduct-ra-6713-penalties-notice-and-evidence
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: 'Which rules govern an administrative case under RA 6713?
@@ -271,6 +293,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0012
+  lesson: lesson-code-of-conduct-ra-6713-penalties-confidential-information-proof
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'Violation of which RA 6713 section on prohibited acts can carry up to five years of imprisonment?
@@ -295,6 +319,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0013
+  lesson: lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'Violating which section of RA 6713 regarding Statement of Assets, Liabilities and Net Worth carries up to 5 years imprisonment?
@@ -319,6 +345,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0014
+  lesson: lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'Besides Sections 7 and 8, violating which section of RA 6713 can carry up to 5 years imprisonment?
@@ -343,6 +371,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0015
+  lesson: lesson-code-of-conduct-ra-6713-penalties-conspiracy-and-principals
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: 'A private co-principal conspires in a Section 7 violation. What imprisonment ceiling applies under RA 6713?
@@ -367,6 +397,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0016
+  lesson: lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   approved: false
@@ -392,6 +424,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0017
+  lesson: lesson-code-of-conduct-ra-6713-penalties-accomplices-and-accessories
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   approved: false
@@ -417,6 +451,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0018
+  lesson: lesson-code-of-conduct-ra-6713-penalties-notice-and-evidence
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   approved: false
@@ -442,6 +478,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0019
+  lesson: lesson-code-of-conduct-ra-6713-penalties-filed-statement-misuse
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   approved: false
@@ -467,6 +505,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0020
+  lesson: lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal
+  keyPoint: 1
   type: single_choice
   difficulty: exam
   approved: false

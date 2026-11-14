@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 isActive: true
 part: 2
 partCount: 10
-ordering: 16
+ordering: 14
 keyPoints:
   - "Recall the reply deadline and what a reply must state."
   - "Explain how to handle missing papers and referrals."

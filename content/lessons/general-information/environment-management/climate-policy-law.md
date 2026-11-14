@@ -7,7 +7,7 @@ topic: "topic-environment-management"
 isActive: true
 part: 4
 partCount: 9
-ordering: 404
+ordering: 17
 keyPoints:
   - "Name the climate-policy law, commission, and framework."
 ---

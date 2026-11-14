@@ -7,7 +7,7 @@ topic: "topic-code-of-conduct-ra-6713"
 isActive: true
 part: 1
 partCount: 10
-ordering: 15
+ordering: 13
 keyPoints:
   - "Identify the public workers covered by the Code."
   - "Distinguish volunteer conduct duties from the SALN filing exemption."

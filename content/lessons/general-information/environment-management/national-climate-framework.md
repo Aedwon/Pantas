@@ -7,7 +7,7 @@ topic: "topic-environment-management"
 isActive: true
 part: 5
 partCount: 5
-ordering: 2.05
+ordering: 8
 keyPoints:
   - "Use vulnerability evidence to choose climate actions."
   - "Connect funding, training, and review to local climate plans."
