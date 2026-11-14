@@ -52,6 +52,7 @@ passages:
       In this fictional delivery report, a parcel was left at the reception desk. The receipt has not been signed. Leo said that the contents might be damaged, but he had not opened the parcel. The clerk must inspect the contents before accepting them. Only the outer wrapping has been checked.
 questions:
   - id: "rc-cs-ap-0001"
+    approved: true
     lesson: lesson-comprehension-skills-authors-main-purpose
     keyPoint: 1
     passage: "rc-cs-ap-p1"
@@ -74,6 +75,7 @@ questions:
     explanation: |
       Most details criticize demolition and support protecting the houses. The call for leaders to act reinforces persuasion as the main purpose.
   - id: "rc-cs-ap-0002"
+    approved: true
     lesson: lesson-comprehension-skills-authors-tone
     keyPoint: 1
     passage: "rc-cs-ap-p1"
@@ -96,6 +98,7 @@ questions:
     explanation: |
       Calling development "commercial greed" expresses disapproval. Saying leaders "must act immediately" adds urgency.
   - id: "rc-cs-ap-0003"
+    approved: true
     lesson: lesson-comprehension-skills-first-and-second-person
     keyPoint: 1
     passage: "rc-cs-ap-p1"
@@ -118,6 +121,7 @@ questions:
     explanation: |
       The writer includes the speaker in "we" and "our." These words present the concern as shared by the community.
   - id: "rc-cs-ap-0004"
+    approved: true
     lesson: lesson-comprehension-skills-argument-viewpoint-and-bias
     keyPoint: 1
     passage: "rc-cs-ap-p1"
@@ -140,6 +144,7 @@ questions:
     explanation: |
       The writer calls heritage the foundation of long-term tourism. Preservation is presented as supporting lasting economic benefits.
   - id: "rc-cs-ap-0005"
+    approved: true
     lesson: lesson-comprehension-skills-authors-tone
     keyPoint: 1
     passage: "rc-cs-ap-p1"
@@ -162,6 +167,7 @@ questions:
     explanation: |
       "Authentic craftsmanship" praises the old buildings. "Sterile glass storefronts" makes the replacements sound lacking in life. The descriptions express the writer's values.
   - id: "rc-cs-ap-0006"
+    approved: true
     lesson: lesson-comprehension-skills-first-and-second-person
     keyPoint: 1
     passage: "rc-cs-ap-p2"
@@ -184,6 +190,7 @@ questions:
     explanation: |
       The speaker takes part in the trip and says "I stood" and "my grandmother." The events are told through that participant's view.
   - id: "rc-cs-ap-0007"
+    approved: true
     lesson: lesson-comprehension-skills-authors-tone
     keyPoint: 1
     passage: "rc-cs-ap-p2"
@@ -206,6 +213,7 @@ questions:
     explanation: |
       The narrator recalls childhood smells and notices time passing. These memories and reflections create a nostalgic, reflective tone.
   - id: "rc-cs-ap-0008"
+    approved: true
     lesson: lesson-comprehension-skills-authors-main-purpose
     keyPoint: 1
     passage: "rc-cs-ap-p2"
@@ -228,6 +236,7 @@ questions:
     explanation: |
       The ending connects returning home with remembering an earlier sense of self. That reflection explains why the narrator shares the trip.
   - id: "rc-cs-ap-0009"
+    approved: true
     lesson: lesson-comprehension-skills-paragraph-links-and-patterns
     keyPoint: 1
     passage: "rc-cs-ap-p2"
@@ -250,6 +259,7 @@ questions:
     explanation: |
       Meals alone and hurried routines show isolation in Manila. The grandmother's embrace and neighbors' greetings show a sense of belonging in Leyte.
   - id: "rc-cs-ap-0010"
+    approved: true
     lesson: lesson-comprehension-skills-authors-tone
     keyPoint: 1
     passage: "rc-cs-ap-p2"
@@ -272,6 +282,7 @@ questions:
     explanation: |
       The changed hair makes the narrator notice the years spent away. It adds awareness of aging to the homecoming.
   - id: "rc-cs-ap-0011"
+    approved: true
     lesson: lesson-comprehension-skills-authors-main-purpose
     keyPoint: 1
     passage: "rc-cs-cs-p3"
@@ -294,6 +305,7 @@ questions:
     explanation: |
       The passage explains bioluminescence and how the club gathers evidence. Its main purpose is to inform readers about the event and careful study.
   - id: "rc-cs-ap-0012"
+    approved: true
     lesson: lesson-comprehension-skills-authors-tone
     keyPoint: 1
     passage: "rc-cs-cs-p3"
@@ -316,6 +328,7 @@ questions:
     explanation: |
       The writer explains the process and states the limits of the observations. That careful treatment creates a measured, informative tone.
   - id: "rc-cs-ap-0013"
+    approved: true
     lesson: lesson-comprehension-skills-third-person-thoughts
     keyPoint: 1
     passage: "rc-cs-cs-p3"
@@ -338,6 +351,7 @@ questions:
     explanation: |
       The passage describes the students, teacher, and report from outside the group. It presents actions and findings in an impersonal reporting voice.
   - id: "rc-cs-ap-0014"
+    approved: true
     lesson: lesson-comprehension-skills-argument-viewpoint-and-bias
     keyPoint: 1
     passage: "rc-cs-cs-p3"
@@ -360,6 +374,7 @@ questions:
     explanation: |
       The passage pairs the appeal of glowing water with limits on the evidence. This shows why the club recommends further study before tour plans.
   - id: "rc-cs-ap-0015"
+    approved: true
     lesson: lesson-comprehension-skills-authors-tone
     keyPoint: 1
     passage: "rc-cs-cs-p3"
@@ -403,7 +418,7 @@ questions:
           This overlooks the reported wishes. Visible actions fill much of the scene. Check the sentences revealing Lina's private worries.
     explanation: |
       The narrator calls Lina by name and reports her wishes and worries. Ben's thoughts remain unknown to her. Access is limited to Lina's mind.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-authors-purpose-tone-pov-0017"
     lesson: lesson-comprehension-skills-authors-tone
     keyPoint: 1
@@ -426,7 +441,7 @@ questions:
           This treats descriptions of a model as technical reporting. A pipe and tank appear. Check the attention to Lina's feelings.
     explanation: |
       Lina's voice still shakes, but she begins explaining her design and reaches for her diagram. That mix of worry and progress gives a cautiously hopeful tone.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-authors-purpose-tone-pov-0018"
     lesson: lesson-comprehension-skills-third-person-thoughts
     keyPoint: 1
@@ -449,7 +464,7 @@ questions:
           This turns Lina's uncertainty into hostile intent. She is nervous near Ben. Check for evidence that Ben wants to hurt her.
     explanation: |
       The narrator shares only what Lina can observe or think. Stating her uncertainty keeps Ben's private reasons outside the account.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-authors-purpose-tone-pov-0019"
     lesson: lesson-comprehension-skills-authors-main-purpose
     keyPoint: 1
@@ -472,7 +487,7 @@ questions:
           This treats the presence of two projects as a cost comparison. Ben also brings a model. Check whether prices are given.
     explanation: |
       The scene follows Lina's worries and her decision to explain the design despite the loose roof. It portrays a personal challenge through a story.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-authors-purpose-tone-pov-0020"
     lesson: lesson-comprehension-skills-third-person-thoughts
     keyPoint: 1
@@ -495,8 +510,9 @@ questions:
           This turns access to feelings into certainty about the outcome. Lina begins more steadily. Check whether a result is stated.
     explanation: |
       Lina's remembered practice and wishes show why the presentation worries her. Knowing those thoughts helps the reader understand her anxiety.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-authors-purpose-tone-pov-0021"
+    approved: true
     lesson: lesson-comprehension-skills-paragraph-links-and-patterns
     keyPoint: 1
     passage: "p-comprehension-skills-paragraph-links-and-patterns-gap"
@@ -519,6 +535,7 @@ questions:
     explanation: |
       The applicants returned because an attachment was missing. The passage presents that problem, then gives revised instructions and a sample as the response.
   - id: "q-comprehension-skills-authors-purpose-tone-pov-0022"
+    approved: true
     lesson: lesson-comprehension-skills-sentence-cues-and-meaning
     keyPoint: 1
     passage: "p-comprehension-skills-sentence-cues-and-meaning-gap"
@@ -541,6 +558,7 @@ questions:
     explanation: |
       Leo reports possible damage without opening the parcel. Might marks uncertainty. Only the wrapping has been checked, so damage to the contents remains uncertain.
   - id: "q-comprehension-skills-authors-purpose-tone-pov-0023"
+    approved: true
     lesson: lesson-comprehension-skills-sentence-cues-and-meaning
     keyPoint: 1
     passage: "p-comprehension-skills-sentence-cues-and-meaning-gap"

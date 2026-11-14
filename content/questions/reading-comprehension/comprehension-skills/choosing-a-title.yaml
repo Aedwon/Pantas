@@ -44,6 +44,7 @@ passages:
       The committee should explain its decision and keep the painting proposal for a later budget. Residents who supported the gate deserve to know how the choice was made. Setting priorities can protect essential work without dismissing every other concern. In this case, the roof should receive attention first.
 questions:
   - id: "rc-cs-ct-0001"
+    approved: true
     lesson: lesson-comprehension-skills-title-scope
     keyPoint: 1
     passage: "rc-cs-ct-p1"
@@ -66,6 +67,7 @@ questions:
     explanation: |
       The text links the terraces' cultural value, maintenance problems, and ways to preserve them. The title brings those parts together.
   - id: "rc-cs-ct-0002"
+    approved: true
     lesson: lesson-comprehension-skills-title-scope
     keyPoint: 1
     passage: "rc-cs-ct-p1"
@@ -88,6 +90,7 @@ questions:
     explanation: |
       The channels are one feature in the opening. The passage goes on to discuss maintenance threats and preservation, which the title leaves out.
   - id: "rc-cs-ct-0003"
+    approved: true
     lesson: lesson-comprehension-skills-title-scope
     keyPoint: 1
     passage: "rc-cs-ct-p1"
@@ -110,6 +113,7 @@ questions:
     explanation: |
       "Terraces" names a broad subject. Adding the preservation focus would show what this passage says about that subject.
   - id: "rc-cs-ct-0004"
+    approved: true
     lesson: lesson-comprehension-skills-title-scope
     keyPoint: 1
     passage: "rc-cs-ct-p1"
@@ -132,6 +136,7 @@ questions:
     explanation: |
       The text describes problems and proposed responses. It does not report that the decline has already been reversed.
   - id: "rc-cs-ct-0005"
+    approved: true
     lesson: lesson-comprehension-skills-title-main-idea
     keyPoint: 1
     passage: "rc-cs-ct-p1"
@@ -154,6 +159,7 @@ questions:
     explanation: |
       The passage centers on keeping a valuable terrace system in use despite maintenance challenges. A title should retain that preservation focus.
   - id: "rc-cs-ct-0006"
+    approved: true
     lesson: lesson-comprehension-skills-title-scope
     keyPoint: 1
     passage: "rc-cs-ct-p2"
@@ -176,6 +182,7 @@ questions:
     explanation: |
       The passage discusses cooling, healthy activity, and places for neighbors to meet. The title names all three parts of its focus.
   - id: "rc-cs-ct-0007"
+    approved: true
     lesson: lesson-comprehension-skills-title-scope
     keyPoint: 1
     passage: "rc-cs-ct-p2"
@@ -198,6 +205,7 @@ questions:
     explanation: |
       Exercise is one use of a park. The text also discusses cooling and community gatherings, so the title covers only part of the passage.
   - id: "rc-cs-ct-0008"
+    approved: true
     lesson: lesson-comprehension-skills-title-scope
     keyPoint: 1
     passage: "rc-cs-ct-p2"
@@ -220,6 +228,7 @@ questions:
     explanation: |
       Buildings help explain the heat problem in the opening. The text's focus is the value of public parks as a response and shared resource.
   - id: "rc-cs-ct-0009"
+    approved: true
     lesson: lesson-comprehension-skills-title-authors-stance
     keyPoint: 1
     passage: "rc-cs-ct-p2"
@@ -242,6 +251,7 @@ questions:
     explanation: |
       The ending asks planners to treat parks as a serious public investment. That argument is the point the title expresses.
   - id: "rc-cs-ct-0010"
+    approved: true
     lesson: lesson-comprehension-skills-title-scope
     keyPoint: 1
     passage: "rc-cs-ct-p2"
@@ -285,7 +295,7 @@ questions:
           This turns a small concern into the point. Some books have bent corners. Check what the ending treats as success.
     explanation: |
       The project grows from a fixed shelf into visits that help people reach books. Access is the central focus.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-choosing-a-title-0012"
     lesson: lesson-comprehension-skills-title-main-idea
     keyPoint: 1
@@ -308,7 +318,7 @@ questions:
           This treats a hoped-for condition as a result. Returned books matter to the project. Check the mention of bent corners.
     explanation: |
       The ending directly contrasts the number of books with their use. A title should reflect that lesson about access.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-choosing-a-title-0013"
     lesson: lesson-comprehension-skills-title-scope
     keyPoint: 1
@@ -331,7 +341,7 @@ questions:
           This turns a collection count into a contest. Numbers can be compared. Check whether two libraries appear.
     explanation: |
       Counting describes the council's initial attention. The passage then shows why reaching readers matters more, which the title omits.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-choosing-a-title-0014"
     lesson: lesson-comprehension-skills-title-main-idea
     keyPoint: 1
@@ -354,7 +364,7 @@ questions:
           This makes collection size the goal. The council counted its books. Check what changed even without a much larger collection.
     explanation: |
       The council carries books to places residents can use. The subtitle clarifies the title's image of books reaching people.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-choosing-a-title-0015"
     lesson: lesson-comprehension-skills-title-scope
     keyPoint: 1
@@ -377,7 +387,7 @@ questions:
           This mistakes limited success for overstatement. New readers are described. Check the difference between some readers and every resident.
     explanation: |
       The text reports greater use and several readers. It never says that every resident now reads regularly.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-choosing-a-title-0016"
     lesson: lesson-comprehension-skills-title-authors-stance
     keyPoint: 1
@@ -400,7 +410,7 @@ questions:
           This turns a priority argument into a cost survey. Money is limited. Check whether construction costs are compared.
     explanation: |
       The writer argues that protecting lessons from a leak deserves priority under a limited budget. The title states that recommendation.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-choosing-a-title-0017"
     lesson: lesson-comprehension-skills-title-authors-stance
     keyPoint: 1
@@ -423,7 +433,7 @@ questions:
           This mistakes one feature for an overloaded list. Many school needs are possible. Count the improvements actually named in the title.
     explanation: |
       The gate supplies one side of the debate. The passage's main argument is that the leaking roof should receive attention first.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-choosing-a-title-0018"
     lesson: lesson-comprehension-skills-title-authors-stance
     keyPoint: 1
@@ -446,7 +456,7 @@ questions:
           This mistakes postponement for distortion. The gate proposal is kept for later. Check the difference between postponing and dismissing.
     explanation: |
       The writer says a welcoming entrance can matter. The recommendation concerns which need comes first now, so a claim that appearance never matters distorts it.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-choosing-a-title-0019"
     lesson: lesson-comprehension-skills-title-authors-stance
     keyPoint: 1
@@ -469,7 +479,7 @@ questions:
           This replaces the stated reason with popularity. Several residents support the gate. Check how the writer evaluates the options.
     explanation: |
       The text uses the roof and gate to argue for protecting daily learning first. The subtitle states that priority.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-choosing-a-title-0020"
     lesson: lesson-comprehension-skills-title-authors-stance
     keyPoint: 1
@@ -492,4 +502,4 @@ questions:
           This invents a funding outcome. Money is central to the decision. Check whether a fundraiser appears in the passage.
     explanation: |
       The passage considers two improvements and recommends a priority. The title names the choice while staying within that discussion.
-    approved: false
+    approved: true

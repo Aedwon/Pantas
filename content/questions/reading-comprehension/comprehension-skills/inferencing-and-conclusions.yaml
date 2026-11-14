@@ -60,6 +60,7 @@ passages:
       In this fictional help-desk report, each tally unit represents five visitors. Monday has four tally units, Tuesday has six, and Wednesday has three. The office note states that an extra service window opened the following morning whenever attendance exceeded twenty-five visitors. The report gives no reason for differences in attendance.
 questions:
   - id: "rc-cs-ic-0001"
+    approved: true
     lesson: lesson-comprehension-skills-connecting-clues
     keyPoint: 1
     passage: "rc-cs-ic-p1"
@@ -82,6 +83,7 @@ questions:
     explanation: |
       The report links longer growing-season dry spells with crops that tolerate drought and mature sooner. The change addresses that risk.
   - id: "rc-cs-ic-0002"
+    approved: true
     lesson: lesson-comprehension-skills-connecting-clues
     keyPoint: 1
     passage: "rc-cs-ic-p1"
@@ -104,6 +106,7 @@ questions:
     explanation: |
       The farmers installed pumps as dry spells grew longer. The cooperatives also bought crop insurance. These steps suggest they wanted to limit crop losses. Buying protection does not mean they were certain crops would fail.
   - id: "rc-cs-ic-0003"
+    approved: true
     lesson: lesson-comprehension-skills-connecting-clues
     keyPoint: 1
     passage: "rc-cs-ic-p1"
@@ -126,6 +129,7 @@ questions:
     explanation: |
       The records report the same annual amount but longer dry spells during growing months. Combining those details shows that timing can change even when the yearly total does not.
   - id: "rc-cs-ic-0004"
+    approved: true
     lesson: lesson-comprehension-skills-connecting-clues
     keyPoint: 1
     passage: "rc-cs-ic-p1"
@@ -148,6 +152,7 @@ questions:
     explanation: |
       The farmers install pumps as dry spells grow longer. Their actions show willingness to use tools to address the risk.
   - id: "rc-cs-ic-0005"
+    approved: true
     lesson: lesson-comprehension-skills-connecting-clues
     keyPoint: 1
     passage: "rc-cs-ic-p1"
@@ -170,6 +175,7 @@ questions:
     explanation: |
       The visits show changed seeds, schedules, and equipment alongside longer dry spells. Together they support a change in practice as risk grew.
   - id: "rc-cs-ic-0006"
+    approved: true
     lesson: lesson-comprehension-skills-connecting-clues
     keyPoint: 1
     passage: "rc-cs-ic-p2"
@@ -192,6 +198,7 @@ questions:
     explanation: |
       Rice grains show rice was present at the site. Tools described as fishing-net weights support fishing activity. These clues together support both uses.
   - id: "rc-cs-ic-0007"
+    approved: true
     lesson: lesson-comprehension-skills-connecting-clues
     keyPoint: 1
     passage: "rc-cs-ic-p2"
@@ -214,6 +221,7 @@ questions:
     explanation: |
       The non-local designs suggest a connection with places outside the valley. Their riverbank location makes river-linked contact plausible, while the precise route remains unknown.
   - id: "rc-cs-ic-0008"
+    approved: true
     lesson: lesson-comprehension-skills-connecting-clues
     keyPoint: 1
     passage: "rc-cs-ic-p2"
@@ -236,6 +244,7 @@ questions:
     explanation: |
       Post holes indicate places where wooden posts once stood. Nearby orderly jars support the possibility of built structures in use there.
   - id: "rc-cs-ic-0009"
+    approved: true
     lesson: lesson-comprehension-skills-connecting-clues
     keyPoint: 1
     passage: "rc-cs-ic-p2"
@@ -258,6 +267,7 @@ questions:
     explanation: |
       The test gives a date range between the tenth and twelfth centuries. It helps place the layer in time.
   - id: "rc-cs-ic-0010"
+    approved: true
     lesson: lesson-comprehension-skills-connecting-clues
     keyPoint: 1
     passage: "rc-cs-ic-p2"
@@ -280,6 +290,7 @@ questions:
     explanation: |
       Post holes support structures, rice and net weights support food-related activity, and non-local designs suggest outside contact. The combined account stays close to those clues.
   - id: "rc-cs-ic-0011"
+    approved: true
     lesson: lesson-comprehension-skills-connecting-clues
     keyPoint: 1
     passage: "rc-cs-ic-p3"
@@ -302,6 +313,7 @@ questions:
     explanation: |
       Before the reform, pay depended on completed trips. Extra trips could raise earnings, which helps explain the incentive to skip breaks.
   - id: "rc-cs-ic-0012"
+    approved: true
     lesson: lesson-comprehension-skills-connecting-clues
     keyPoint: 1
     passage: "rc-cs-ic-p3"
@@ -324,6 +336,7 @@ questions:
     explanation: |
       With a fixed monthly salary, completing another trip does not raise that salary. The direct pay incentive for extra trips is removed.
   - id: "rc-cs-ic-0013"
+    approved: true
     lesson: lesson-comprehension-skills-evidence-and-claim-strength
     keyPoint: 1
     passage: "rc-cs-ic-p3"
@@ -346,6 +359,7 @@ questions:
     explanation: |
       A stable departure rate records a pattern of leaving. It does not directly measure feelings about the policies. The report has no satisfaction survey.
   - id: "rc-cs-ic-0014"
+    approved: true
     lesson: lesson-comprehension-skills-connecting-clues
     keyPoint: 1
     passage: "rc-cs-ic-p3"
@@ -368,6 +382,7 @@ questions:
     explanation: |
       The system records driving time and blocks a new departure until the required break is taken. Its design enforces the rest rule.
   - id: "rc-cs-ic-0015"
+    approved: true
     lesson: lesson-comprehension-skills-evidence-and-claim-strength
     keyPoint: 1
     passage: "rc-cs-ic-p3"
@@ -411,7 +426,7 @@ questions:
           This turns concern about timing into knowledge of policy. Documents matter to the process. Check what he actually asks about.
     explanation: |
       His early arrival and repeated timing checks connect his behavior to the application process. They support attentiveness to completing it.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-inferencing-and-conclusions-0017"
     lesson: lesson-comprehension-skills-evidence-and-claim-strength
     keyPoint: 1
@@ -434,7 +449,7 @@ questions:
           This turns his request into an official instruction. The office has document rules. Check what the clerk actually requires.
     explanation: |
       Paolo asks to keep the envelope sealed, but the passage supplies no reason for that request. His motive remains unknown.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-inferencing-and-conclusions-0018"
     lesson: lesson-comprehension-skills-connecting-clues
     keyPoint: 1
@@ -457,7 +472,7 @@ questions:
           This supports helping another applicant. The instructions are relevant to documents. Check which action concerns his own envelope.
     explanation: |
       Opening the envelope meets the clerk's requirement. Doing so carefully along one edge suggests an effort to preserve it while complying.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-inferencing-and-conclusions-0019"
     lesson: lesson-comprehension-skills-connecting-clues
     keyPoint: 1
@@ -480,7 +495,7 @@ questions:
           This turns limited help into taking over the process. He offers information. Check whether he fills in or submits her application.
     explanation: |
       Paolo points out the instructions and where to ask about returning. Those actions show willingness to help her find information.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-inferencing-and-conclusions-0020"
     lesson: lesson-comprehension-skills-evidence-and-claim-strength
     keyPoint: 1
@@ -503,8 +518,9 @@ questions:
           This transfers Paolo's document check to another person's outcome. The other applicant lacks an original. Check whether a disqualification is announced.
     explanation: |
       Paolo opens the envelope and hands over the certificate. The clerk compares it with the copy, so the original has been presented for inspection.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-inferencing-and-conclusions-0021"
+    approved: true
     lesson: lesson-comprehension-skills-necessary-assumptions
     keyPoint: 1
     passage: "p-comprehension-skills-necessary-assumptions-gap"
@@ -527,6 +543,7 @@ questions:
     explanation: |
       The officer asks the department to replace its paper slips. The statements about repeated typing and direct entry are the reasons for that recommendation.
   - id: "q-comprehension-skills-inferencing-and-conclusions-0022"
+    approved: true
     lesson: lesson-comprehension-skills-necessary-assumptions
     keyPoint: 2
     passage: "p-comprehension-skills-necessary-assumptions-gap"
@@ -549,6 +566,7 @@ questions:
     explanation: |
       If staff must still retype the online entries, direct entry will not remove the repeated typing. The argument needs that extra typing step to be unnecessary.
   - id: "q-comprehension-skills-inferencing-and-conclusions-0023"
+    approved: true
     lesson: lesson-comprehension-skills-hinuha-mula-sa-detalye
     keyPoint: 1
     passage: "p-comprehension-skills-hinuha-mula-sa-detalye-gap"
@@ -571,6 +589,7 @@ questions:
     explanation: |
       Ang mga palatandaan at talaan ay tumutulong sa paghanap ng silid. Mas marami ring nakarating nang walang tanong. Sinusuportahan nito ang layuning tulungan ang mga bisita.
   - id: "q-comprehension-skills-inferencing-and-conclusions-0024"
+    approved: true
     lesson: lesson-comprehension-skills-hinuha-mula-sa-detalye
     keyPoint: 1
     passage: "p-comprehension-skills-hinuha-mula-sa-detalye-gap"
@@ -593,6 +612,7 @@ questions:
     explanation: |
       Ang mga palatandaan at bagong puwesto ng talaan ay parehong gabay. Ang mas maraming nakarating nang walang tanong ang resultang nag-uugnay sa mga detalyeng ito.
   - id: "q-comprehension-skills-inferencing-and-conclusions-0025"
+    approved: true
     lesson: lesson-comprehension-skills-paghatol-at-ebidensya
     keyPoint: 1
     passage: "p-comprehension-skills-paghatol-at-ebidensya-gap"
@@ -615,6 +635,7 @@ questions:
     explanation: |
       Mga sanay na kawani lamang ang gumamit ng bagong lalagyan. Walang resulta para sa mga bagong kawani. Hindi pa sapat iyon upang sabihing tiyak ang pakinabang para sa sinuman.
   - id: "q-comprehension-skills-inferencing-and-conclusions-0026"
+    approved: true
     lesson: lesson-comprehension-skills-paghatol-at-ebidensya
     keyPoint: 1
     passage: "p-comprehension-skills-paghatol-at-ebidensya-gap"
@@ -637,6 +658,7 @@ questions:
     explanation: |
       Tuwirang sinabi na mas maayos ang pagbubukod sa araw ng pagsubok. Ang pasyang ito ay tumutukoy lamang sa naobserbahang resulta.
   - id: "q-comprehension-skills-inferencing-and-conclusions-0027"
+    approved: true
     lesson: lesson-comprehension-skills-visual-data-conclusions
     keyPoint: 1
     passage: "p-comprehension-skills-visual-data-conclusions-gap"
@@ -665,6 +687,7 @@ questions:
     explanation: |
       Monday and Wednesday together have $(4+3)\times5=35$ visitors. Tuesday has $6\times5=30$. The difference is $35-30=5$ visitors.
   - id: "q-comprehension-skills-inferencing-and-conclusions-0028"
+    approved: true
     lesson: lesson-comprehension-skills-visual-data-conclusions
     keyPoint: 2
     passage: "p-comprehension-skills-visual-data-conclusions-gap"

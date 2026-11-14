@@ -56,6 +56,7 @@ passages:
       Sa kathang ulat na ito, hindi agad naibigay ang mga sertipiko dahil nasira ang printer. Napansin ang sira habang inililimbag ang mga sertipiko. Dahil sa pagkaantala, nagpasya ang tagapamahala na ipagawa ang printer. Matapos itong maayos, ipinagpatuloy ang paglilimbag bago ipinamahagi ang mga sertipiko.
 questions:
   - id: "rc-cs-se-0001"
+    approved: true
     lesson: lesson-comprehension-skills-event-verb-forms
     keyPoint: 1
     passage: "rc-cs-se-p1"
@@ -78,6 +79,7 @@ questions:
     explanation: |
       The request was made in January. The other listed events are placed in March, June, and July, so the request comes first.
   - id: "rc-cs-se-0002"
+    approved: true
     lesson: lesson-comprehension-skills-event-time-words
     keyPoint: 1
     passage: "rc-cs-se-p1"
@@ -100,6 +102,7 @@ questions:
     explanation: |
       Approval was delayed in March. Flushing followed in May. Machinery failed in June. The sequence is $3, 1, 2$.
   - id: "rc-cs-se-0003"
+    approved: true
     lesson: lesson-comprehension-skills-event-time-words
     keyPoint: 1
     passage: "rc-cs-se-p1"
@@ -122,6 +125,7 @@ questions:
     explanation: |
       The first paragraph states that replacement parts are ordered later on June 15, after the machinery jams.
   - id: "rc-cs-se-0004"
+    approved: true
     lesson: lesson-comprehension-skills-event-verb-forms
     keyPoint: 1
     passage: "rc-cs-se-p1"
@@ -144,6 +148,7 @@ questions:
     explanation: |
       The report opens on June 15, then looks back to January through May. Its writing order starts with the result before the earlier events.
   - id: "rc-cs-se-0005"
+    approved: true
     lesson: lesson-comprehension-skills-event-time-words
     keyPoint: 1
     passage: "rc-cs-se-p1"
@@ -166,6 +171,7 @@ questions:
     explanation: |
       Workers install and test the arriving parts, then restore full operations on July 2. That is the final dated event.
   - id: "rc-cs-se-0006"
+    approved: true
     lesson: lesson-comprehension-skills-event-time-words
     keyPoint: 1
     passage: "rc-cs-se-p2"
@@ -188,6 +194,7 @@ questions:
     explanation: |
       The warning is received on Sunday afternoon. The refuge move, dike burst, and boat rescue all follow.
   - id: "rc-cs-se-0007"
+    approved: true
     lesson: lesson-comprehension-skills-event-time-words
     keyPoint: 1
     passage: "rc-cs-se-p2"
@@ -210,6 +217,7 @@ questions:
     explanation: |
       Elderly residents reach the chapel before Monday evening. The dike bursts later that evening. The boats evacuate residents Tuesday morning, giving $1, 2, 3$.
   - id: "rc-cs-se-0008"
+    approved: true
     lesson: lesson-comprehension-skills-event-time-words
     keyPoint: 1
     passage: "rc-cs-se-p2"
@@ -232,6 +240,7 @@ questions:
     explanation: |
       The dike burst is introduced as happening hours after their move. That phrase directly places the move first.
   - id: "rc-cs-se-0009"
+    approved: true
     lesson: lesson-comprehension-skills-event-time-words
     keyPoint: 1
     passage: "rc-cs-se-p2"
@@ -254,6 +263,7 @@ questions:
     explanation: |
       The dike bursts late Monday evening. The next listed event in time is the gong warning at midnight.
   - id: "rc-cs-se-0010"
+    approved: true
     lesson: lesson-comprehension-skills-event-verb-forms
     keyPoint: 1
     passage: "rc-cs-se-p2"
@@ -297,7 +307,7 @@ questions:
           This selects the performance opening. It is the first event mentioned. Check the flashback to Thursday and Friday afternoon.
     explanation: |
       The backdrop was completed Thursday. The rehearsal and later events occur Friday.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-sequencing-of-events-0012"
     lesson: lesson-comprehension-skills-event-time-words
     keyPoint: 1
@@ -305,7 +315,7 @@ questions:
     type: "sequencing-of-events"
     difficulty: "medium"
     stem: |
-      What happens after the technician is called but before arriving?
+      What happens after the technician is called but before the technician arrives?
     choices:
       - text: "The students test the spare microphone."
         correct: true
@@ -320,7 +330,7 @@ questions:
           This selects the technician's work. It follows the call. Check whether it can occur before arrival.
     explanation: |
       The passage explicitly places the spare-microphone check before the technician arrives. The call has already been made.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-sequencing-of-events-0013"
     lesson: lesson-comprehension-skills-event-time-words
     keyPoint: 1
@@ -343,7 +353,7 @@ questions:
           This reverses fault and repair and puts speech before admission. Each event sounds related to the performance. Match cause and response first.
     explanation: |
       The rehearsal fault prompts the repair. The team admits the audience after the repair, and Lea speaks once everyone is seated. The order is $4, 2, 1, 3$.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-sequencing-of-events-0014"
     lesson: lesson-comprehension-skills-event-causes-and-overlap
     keyPoint: 1
@@ -366,7 +376,7 @@ questions:
           This selects the pre-repair test. It concerns the same microphones. Check when readiness is achieved.
     explanation: |
       The passage says a separate seating delay occurs after the repair. That is why the performance waits despite ready equipment.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-sequencing-of-events-0015"
     lesson: lesson-comprehension-skills-event-time-words
     keyPoint: 1
@@ -389,7 +399,7 @@ questions:
           This places a diagnostic test after the solution. Both involve the microphones. Check who conducts each test and when.
     explanation: |
       The technician repairs and tests the microphones before audience admission. The opening speech follows admission and seating, so repair comes first.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-sequencing-of-events-0016"
     lesson: lesson-comprehension-skills-event-time-words
     keyPoint: 1
@@ -412,7 +422,7 @@ questions:
           This selects the follow-up call. It confirms the return. Check what must happen before it.
     explanation: |
       Borrowing the book occurs Monday afternoon before the packing mistake and later messages.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-sequencing-of-events-0017"
     lesson: lesson-comprehension-skills-event-causes-and-overlap
     keyPoint: 1
@@ -435,7 +445,7 @@ questions:
           This moves discovery past the message. She writes Monday evening. Check what she notices before writing.
     explanation: |
       The passage states that Tuesday's closure for repairs prevents the next-day return.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-sequencing-of-events-0018"
     lesson: lesson-comprehension-skills-event-time-words
     keyPoint: 1
@@ -458,7 +468,7 @@ questions:
           This selects contact after handover. The librarian calls twice. Distinguish the response before arrival from the later follow-up.
     explanation: |
       The owner calls Wednesday morning before Mika arrives. Mika's message had been sent Monday evening.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-sequencing-of-events-0019"
     lesson: lesson-comprehension-skills-event-time-words
     keyPoint: 1
@@ -481,7 +491,7 @@ questions:
           This puts discovery before the packing mistake. Both occur Monday. Check afternoon against evening.
     explanation: |
       Accidental packing occurs Monday afternoon, discovery occurs that evening, return occurs Wednesday morning, and collection occurs that afternoon. The order is $4, 2, 1, 3$.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-sequencing-of-events-0020"
     lesson: lesson-comprehension-skills-event-verb-forms
     keyPoint: 1
@@ -504,8 +514,9 @@ questions:
           This exchanges a request with the eventual collection. Both belong to the owner. Check the morning call and afternoon visit.
     explanation: |
       Had already left places the owner's message before the Wednesday return described beside it. It marks an earlier action relative to that return.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-sequencing-of-events-0021"
+    approved: true
     lesson: lesson-comprehension-skills-event-causes-and-overlap
     keyPoint: 2
     passage: "p-comprehension-skills-event-causes-and-overlap-gap"
@@ -528,6 +539,7 @@ questions:
     explanation: |
       Neither check was finished when the other started, so they overlap. The supervisor signs only after both checks end.
   - id: "q-comprehension-skills-sequencing-of-events-0022"
+    approved: true
     lesson: lesson-comprehension-skills-filipino-event-time
     keyPoint: 1
     passage: "p-comprehension-skills-filipino-event-time-gap"
@@ -550,6 +562,7 @@ questions:
     explanation: |
       Sinuri ang mga pangalan noong Martes. Naaprubahan ang teksto noong Miyerkules, kaya nauna ang pagsuri.
   - id: "q-comprehension-skills-sequencing-of-events-0023"
+    approved: true
     lesson: lesson-comprehension-skills-filipino-event-time
     keyPoint: 1
     passage: "p-comprehension-skills-filipino-event-time-gap"
@@ -572,6 +585,7 @@ questions:
     explanation: |
       Ang mga araw ay Martes, Miyerkules, Huwebes, at Biyernes. Katumbas nito ang pagsuri, pag-apruba, pagpapadala, at pagkumpirma.
   - id: "q-comprehension-skills-sequencing-of-events-0024"
+    approved: true
     lesson: lesson-comprehension-skills-filipino-event-causes
     keyPoint: 1
     passage: "p-comprehension-skills-filipino-event-causes-gap"
@@ -594,6 +608,7 @@ questions:
     explanation: |
       Sinasabi ng ulat na dahil sa pagkaantala ay nagpasya ang tagapamahala na ipagawa ang printer. Ito ang malinaw na sanhi ng pasya.
   - id: "q-comprehension-skills-sequencing-of-events-0025"
+    approved: true
     lesson: lesson-comprehension-skills-filipino-event-causes
     keyPoint: 1
     passage: "p-comprehension-skills-filipino-event-causes-gap"

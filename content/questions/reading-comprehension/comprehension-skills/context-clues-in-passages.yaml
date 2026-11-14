@@ -68,6 +68,7 @@ passages:
       Sa kathang usapan na ito, tinanong ni Belen, "Naipadala na ba ang kahon?" Sumagot si Arman, "Pakisuri ang talaan bago tumawag sa tagatanggap." Pagtingin ni Belen sa talaan, sinabi niya, "Nasa imbakan pa ang kahon. Kay bigat pala nito!"
 questions:
   - id: "rc-cs-cc-0001"
+    approved: true
     lesson: lesson-comprehension-skills-definition-and-example-clues
     keyPoint: 1
     passage: "rc-cs-cc-p1"
@@ -90,6 +91,7 @@ questions:
     explanation: |
       The next sentence says the operators shelter young fish from strong currents. That action explains harbor as providing protection.
   - id: "rc-cs-cc-0002"
+    approved: true
     lesson: lesson-comprehension-skills-definition-and-example-clues
     keyPoint: 1
     passage: "rc-cs-cc-p1"
@@ -112,6 +114,7 @@ questions:
     explanation: |
       The sheltering detail describes what the operators do for the young fish. It directly explains the protective action.
   - id: "rc-cs-cc-0003"
+    approved: true
     lesson: lesson-comprehension-skills-definition-and-example-clues
     keyPoint: 1
     passage: "rc-cs-cc-p1"
@@ -134,6 +137,7 @@ questions:
     explanation: |
       The sentence explains that the investments are postponed until conditions improve. The plans are kept for later consideration.
   - id: "rc-cs-cc-0004"
+    approved: true
     lesson: lesson-comprehension-skills-contrast-and-cause-clues
     keyPoint: 1
     passage: "rc-cs-cc-p1"
@@ -156,6 +160,7 @@ questions:
     explanation: |
       The passage delays purchases and sends available funds to aeration and monitoring. The contrast shows which work waits and which receives attention now.
   - id: "rc-cs-cc-0005"
+    approved: true
     lesson: lesson-comprehension-skills-definition-and-example-clues
     keyPoint: 1
     passage: "rc-cs-cc-p1"
@@ -178,6 +183,7 @@ questions:
     explanation: |
       Returning to the plans means they remain available for later action. That clue supports temporary delay.
   - id: "rc-cs-cc-0006"
+    approved: true
     lesson: lesson-comprehension-skills-definition-and-example-clues
     keyPoint: 1
     passage: "rc-cs-cc-p2"
@@ -200,6 +206,7 @@ questions:
     explanation: |
       The passage follows raw fibers through cleaning and spinning into thread. Render describes that change from one state to another.
   - id: "rc-cs-cc-0007"
+    approved: true
     lesson: lesson-comprehension-skills-definition-and-example-clues
     keyPoint: 1
     passage: "rc-cs-cc-p2"
@@ -222,6 +229,7 @@ questions:
     explanation: |
       Spinning loose fibers into a continuous strand shows the transformation into usable thread. That result explains render.
   - id: "rc-cs-cc-0008"
+    approved: true
     lesson: lesson-comprehension-skills-definition-and-example-clues
     keyPoint: 1
     passage: "rc-cs-cc-p2"
@@ -244,6 +252,7 @@ questions:
     explanation: |
       The passage says the mixture contains living microorganisms and must be kept active. Those details give culture its biological meaning.
   - id: "rc-cs-cc-0009"
+    approved: true
     lesson: lesson-comprehension-skills-definition-and-example-clues
     keyPoint: 1
     passage: "rc-cs-cc-p2"
@@ -266,6 +275,7 @@ questions:
     explanation: |
       The presence of living microorganisms directly identifies a biological culture. Keeping them active explains why it needs care.
   - id: "rc-cs-cc-0010"
+    approved: true
     lesson: lesson-comprehension-skills-definition-and-example-clues
     keyPoint: 1
     passage: "rc-cs-cc-p2"
@@ -309,7 +319,7 @@ questions:
           This uses a banking meaning. Printing can involve payment. Check whether draft names money or writing.
     explanation: |
       Blank interview spaces and editing notes show that the copy is not final. The surrounding details select this meaning of the word.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-context-clues-in-passages-0012"
     lesson: lesson-comprehension-skills-definition-and-example-clues
     keyPoint: 1
@@ -332,7 +342,7 @@ questions:
           This uses the result meaning. One activity follows another. Check the explicit reference to an edition.
     explanation: |
       The team plans the first newsletter edition and chooses its contents. The surrounding details select this meaning of the word.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-context-clues-in-passages-0013"
     lesson: lesson-comprehension-skills-definition-and-example-clues
     keyPoint: 1
@@ -355,7 +365,7 @@ questions:
           This uses the table-layout meaning. Editors arrange information on pages. Check whether the term names recurring prose or data entries.
     explanation: |
       The volunteer writes regularly about gardening, and her piece appears as a section of the paper. The surrounding details select this meaning of the word.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-context-clues-in-passages-0014"
     lesson: lesson-comprehension-skills-definition-and-example-clues
     keyPoint: 1
@@ -378,7 +388,7 @@ questions:
           This uses the location meaning. Local people appear in the newsletter. Check what follows the verb address.
     explanation: |
       The editors discuss each accuracy problem and ask writers to confirm details. Address means dealing with those concerns. The surrounding details select this meaning of the word.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-context-clues-in-passages-0015"
     lesson: lesson-comprehension-skills-definition-and-example-clues
     keyPoint: 1
@@ -401,7 +411,7 @@ questions:
           This uses the urging meaning. Editors need details confirmed. Check the activity described at the press.
     explanation: |
       The pages go to a place where machines produce copies. Press therefore names the printing operation. The surrounding details select this meaning of the word.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-context-clues-in-passages-0016"
     lesson: lesson-comprehension-skills-definition-and-example-clues
     keyPoint: 1
@@ -424,7 +434,7 @@ questions:
           This uses the accusation meaning. A committee can investigate problems. Check whether Neri is assigned work or accused of an offense.
     explanation: |
       Neri supervises the entrance volunteers and handles questions. These duties show that she is responsible for the desk. The surrounding details select this meaning of the word.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-context-clues-in-passages-0017"
     lesson: lesson-comprehension-skills-definition-and-example-clues
     keyPoint: 1
@@ -447,7 +457,7 @@ questions:
           This uses the slope meaning. Fair spaces may include shelters. Check the action of explaining an idea.
     explanation: |
       Clubs explain ideas and try to win committee support. Their pitch is a persuasive presentation of an activity. The surrounding details select this meaning of the word.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-context-clues-in-passages-0018"
     lesson: lesson-comprehension-skills-definition-and-example-clues
     keyPoint: 1
@@ -470,7 +480,7 @@ questions:
           This uses the surface-removal meaning. Gardening involves materials. Check whether the phrase describes size or a physical layer.
     explanation: |
       The club changes several displays into one smaller exhibit. That reduction explains scale back. The surrounding details select this meaning of the word.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-context-clues-in-passages-0019"
     lesson: lesson-comprehension-skills-definition-and-example-clues
     keyPoint: 1
@@ -493,7 +503,7 @@ questions:
           This confuses recent information with popular preferences. Both can change over time. Check what Neri updates.
     explanation: |
       Neri replaces old information whenever assignments change. The list is current because it reflects the latest plans. The surrounding details select this meaning of the word.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-context-clues-in-passages-0020"
     lesson: lesson-comprehension-skills-definition-and-example-clues
     keyPoint: 1
@@ -516,8 +526,9 @@ questions:
           This uses the groove meaning. Organizers may work with display materials. Check whether the passage describes a physical cut or shared messages.
     explanation: |
       The shared message group lets concerns reach the committee. It provides a route for communication. The surrounding details select this meaning of the word.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-context-clues-in-passages-0021"
+    approved: true
     lesson: lesson-comprehension-skills-contrast-and-cause-clues
     keyPoint: 1
     passage: "p-comprehension-skills-contrast-and-cause-clues-gap"
@@ -540,6 +551,7 @@ questions:
     explanation: |
       The first account leaves the source uncertain. The later test settles it. This contrast shows that inconclusive means not settling the issue.
   - id: "q-comprehension-skills-context-clues-in-passages-0022"
+    approved: true
     lesson: lesson-comprehension-skills-word-parts-in-passages
     keyPoint: 1
     passage: "p-comprehension-skills-word-parts-in-passages-gap"
@@ -562,6 +574,7 @@ questions:
     explanation: |
       The prefix gives a negative meaning. The letters have faded so much that the numbers cannot be read. Together, these clues support unable to be read.
   - id: "q-comprehension-skills-context-clues-in-passages-0023"
+    approved: true
     lesson: lesson-comprehension-skills-word-parts-in-passages
     keyPoint: 1
     passage: "p-comprehension-skills-word-parts-in-passages-gap"
@@ -584,6 +597,7 @@ questions:
     explanation: |
       The prefix re- means again here, and label names the action. Removing old labels and writing replacements confirms that staff will label the folders again.
   - id: "q-comprehension-skills-context-clues-in-passages-0024"
+    approved: true
     lesson: lesson-comprehension-skills-filipino-meaning-clues
     keyPoint: 1
     passage: "p-comprehension-skills-filipino-meaning-clues-gap"
@@ -606,6 +620,7 @@ questions:
     explanation: |
       Inayos ni Ruel ang mga resibo ayon sa petsa at itinago sa mga sobre. Ang mga kilos na ito ay nagpapakita ng maingat at maayos na pag-iingat.
   - id: "q-comprehension-skills-context-clues-in-passages-0025"
+    approved: true
     lesson: lesson-comprehension-skills-filipino-meaning-clues
     keyPoint: 1
     passage: "p-comprehension-skills-filipino-meaning-clues-gap"
@@ -628,6 +643,7 @@ questions:
     explanation: |
       Tiningnan ni Ruel ang bawat sobre hanggang makita ang nawawalang resibo. Sa ganitong gamit, ang sinuyod ay masusing hinalughog.
   - id: "q-comprehension-skills-context-clues-in-passages-0026"
+    approved: true
     lesson: lesson-comprehension-skills-filipino-possibility-and-time
     keyPoint: 1
     passage: "p-comprehension-skills-filipino-possibility-and-time-gap"
@@ -650,6 +666,7 @@ questions:
     explanation: |
       Ang natapos na at kahapon ay nagsasaad na tapos ang panayam. Ang isinusulat at ngayon ay nagsasaad na ginagawa pa ang buod.
   - id: "q-comprehension-skills-context-clues-in-passages-0027"
+    approved: true
     lesson: lesson-comprehension-skills-filipino-possibility-and-time
     keyPoint: 1
     passage: "p-comprehension-skills-filipino-possibility-and-time-gap"
@@ -672,6 +689,7 @@ questions:
     explanation: |
       Ang maaaring ay naglilimita sa pagpapabasa bukas. Hinihintay pa ang tugon tungkol sa oras ng patnugot, kaya hindi pa tiyak ang gawaing iyon.
   - id: "q-comprehension-skills-context-clues-in-passages-0028"
+    approved: true
     lesson: lesson-comprehension-skills-filipino-pronouns-modifiers-spelling
     keyPoint: 1
     passage: "p-comprehension-skills-filipino-pronouns-modifiers-spelling-gap"
@@ -694,6 +712,7 @@ questions:
     explanation: |
       Si Tess ang tumingin at nagsalita tungkol sa mapa. Ang kasunod na pagtiklop ay pagpapatuloy ng kanyang kilos, kaya siya ang tinutukoy ng niya.
   - id: "q-comprehension-skills-context-clues-in-passages-0029"
+    approved: true
     lesson: lesson-comprehension-skills-filipino-pronouns-modifiers-spelling
     keyPoint: 1
     passage: "p-comprehension-skills-filipino-pronouns-modifiers-spelling-gap"
@@ -716,6 +735,7 @@ questions:
     explanation: |
       Ang dito lamang sa silangan ay tumutukoy sa lugar na may daan patungo sa tulay. Ang lokasyon ng daan ang nililimitahan.
   - id: "q-comprehension-skills-context-clues-in-passages-0030"
+    approved: true
     lesson: lesson-comprehension-skills-filipino-sentence-types
     keyPoint: 1
     passage: "p-comprehension-skills-filipino-sentence-types-gap"
@@ -738,6 +758,7 @@ questions:
     explanation: |
       Ang unang pangungusap ay nagtatanong kung naipadala na ang kahon. Ang tugon ay pakiusap na suriin ang talaan. Wala pa sa mga ito ang kumpirmasyon ng pagpapadala.
   - id: "q-comprehension-skills-context-clues-in-passages-0031"
+    approved: true
     lesson: lesson-comprehension-skills-filipino-sentence-types
     keyPoint: 1
     passage: "p-comprehension-skills-filipino-sentence-types-gap"

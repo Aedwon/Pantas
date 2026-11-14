@@ -48,6 +48,7 @@ passages:
       Sa kathang ulat na ito, binago ng tanggapan ang paraan ng pagtanggap ng mga tanong. Inilagay nito sa pisara ang mga sagot sa karaniwang tanong. Naglaan din ito ng hiwalay na mesa para sa mas masalimuot na usapin. Dahil dito, hindi na kailangang ulitin ng kawani ang parehong paliwanag sa bawat bisita.
 questions:
   - id: "rc-cs-mi-0001"
+    approved: true
     lesson: lesson-comprehension-skills-main-idea-across-paragraphs
     keyPoint: 1
     passage: "rc-cs-mi-p1"
@@ -70,6 +71,7 @@ questions:
     explanation: |
       The account moves from conflicting proposals through consultation to a space used by both groups. Its main point is the shared solution to the land-use dispute.
   - id: "rc-cs-mi-0002"
+    approved: true
     lesson: lesson-comprehension-skills-main-idea-scope
     keyPoint: 1
     passage: "rc-cs-mi-p1"
@@ -92,6 +94,7 @@ questions:
     explanation: |
       The design allocates sixty percent to the garden area, including beds and a composting station. This is the combined garden allocation given in the passage.
   - id: "rc-cs-mi-0003"
+    approved: true
     lesson: lesson-comprehension-skills-implied-main-point
     keyPoint: 1
     passage: "rc-cs-mi-p1"
@@ -114,6 +117,7 @@ questions:
     explanation: |
       Cruz invites elders, parents, and youth leaders to consultations. That action supports a collaborative approach in this decision.
   - id: "rc-cs-mi-0004"
+    approved: true
     lesson: lesson-comprehension-skills-implied-main-point
     keyPoint: 2
     passage: "rc-cs-mi-p1"
@@ -136,6 +140,7 @@ questions:
     explanation: |
       The first paragraph states that the youth association sought a court because safe recreation was not available nearby.
   - id: "rc-cs-mi-0005"
+    approved: true
     lesson: lesson-comprehension-skills-main-idea-across-paragraphs
     keyPoint: 1
     passage: "rc-cs-mi-p1"
@@ -158,6 +163,7 @@ questions:
     explanation: |
       The final paragraph describes vegetable harvests and nightly games. Those outcomes complete the account of a shared solution serving both groups.
   - id: "rc-cs-mi-0006"
+    approved: true
     lesson: lesson-comprehension-skills-main-idea-across-paragraphs
     keyPoint: 1
     passage: "rc-cs-mi-p2"
@@ -180,6 +186,7 @@ questions:
     explanation: |
       The store helps neighbors through convenience and credit while controlling stock and debts. The closing paragraph brings these together as trust balanced with business discipline.
   - id: "rc-cs-mi-0007"
+    approved: true
     lesson: lesson-comprehension-skills-main-point-and-topic-sentence
     keyPoint: 1
     passage: "rc-cs-mi-p2"
@@ -202,6 +209,7 @@ questions:
     explanation: |
       The passage says Rosa records transactions in the talaan. In the credit-management paragraph, this record helps her keep track of customers' debts.
   - id: "rc-cs-mi-0008"
+    approved: true
     lesson: lesson-comprehension-skills-implied-main-point
     keyPoint: 1
     passage: "rc-cs-mi-p2"
@@ -224,6 +232,7 @@ questions:
     explanation: |
       The opening links neighborhood stores with convenient access and flexible credit. These benefits help explain why residents continue using Rosa's store.
   - id: "rc-cs-mi-0009"
+    approved: true
     lesson: lesson-comprehension-skills-implied-main-point
     keyPoint: 2
     passage: "rc-cs-mi-p2"
@@ -246,6 +255,7 @@ questions:
     explanation: |
       The second paragraph states that existing credit balances must be settled before new charges are allowed. That rule limits the growth of unpaid debts.
   - id: "rc-cs-mi-0010"
+    approved: true
     lesson: lesson-comprehension-skills-main-point-and-topic-sentence
     keyPoint: 1
     passage: "rc-cs-mi-p2"
@@ -268,6 +278,7 @@ questions:
     explanation: |
       The Monday wholesale purchase is one specific example of how Rosa manages stock costs. It supports the wider point about careful business habits.
   - id: "rc-cs-mi-0011"
+    approved: true
     lesson: lesson-comprehension-skills-main-idea-across-paragraphs
     keyPoint: 1
     passage: "rc-cs-mi-p3"
@@ -290,6 +301,7 @@ questions:
     explanation: |
       The account connects restoring mangroves with wave protection and habitat. These benefits bring environmental work, coastal resilience, and livelihoods into one main point.
   - id: "rc-cs-mi-0012"
+    approved: true
     lesson: lesson-comprehension-skills-implied-main-point
     keyPoint: 2
     passage: "rc-cs-mi-p3"
@@ -312,6 +324,7 @@ questions:
     explanation: |
       The dikes are opened to restore water circulation. The passage links that change with wild seedlings establishing near the planted ones.
   - id: "rc-cs-mi-0013"
+    approved: true
     lesson: lesson-comprehension-skills-implied-main-point
     keyPoint: 1
     passage: "rc-cs-mi-p3"
@@ -334,6 +347,7 @@ questions:
     explanation: |
       Choosing species for the site's tidal conditions and salinity shows that organizers consider environmental needs. That supports a scientifically informed approach intended to improve survival.
   - id: "rc-cs-mi-0014"
+    approved: true
     lesson: lesson-comprehension-skills-main-idea-across-paragraphs
     keyPoint: 1
     passage: "rc-cs-mi-p3"
@@ -356,6 +370,7 @@ questions:
     explanation: |
       The report describes reduced wave energy and nursery habitat for young fish and crabs. These are the two connected benefits named in its conclusion.
   - id: "rc-cs-mi-0015"
+    approved: true
     lesson: lesson-comprehension-skills-main-idea-scope
     keyPoint: 1
     passage: "rc-cs-mi-p3"
@@ -399,7 +414,7 @@ questions:
           This turns continued care into a guarantee of perfect plants. Participation improves. Check the sentence saying some plants still fail.
     explanation: |
       The passage shows that shared duties and skills keep the garden work going. The final sentence brings that main point together.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-main-idea-0017"
     lesson: lesson-comprehension-skills-paksa-at-pangunahing-ideya
     keyPoint: 1
@@ -422,7 +437,7 @@ questions:
           This selects a lesson from the opening problem. Dependence on one person is challenged. Check whether the words only name the topic.
     explanation: |
       Sharing garden work names the subject. It does not yet state the central claim about how shared responsibility keeps the work going.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-main-idea-0018"
     lesson: lesson-comprehension-skills-main-point-and-topic-sentence
     keyPoint: 2
@@ -445,7 +460,7 @@ questions:
           This selects a step in the response. Making the list begins the change. Check for a sentence connecting roles with continued shared work.
     explanation: |
       The quoted final sentence states the general point joining the initial problem and the new shared system. It serves as the clearest topic statement.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-main-idea-0019"
     lesson: lesson-comprehension-skills-implied-main-point
     keyPoint: 2
@@ -468,7 +483,7 @@ questions:
           This ignores the separate learning evidence. Plant growth is uneven. Check the members' ability to explain their tasks.
     explanation: |
       The passage acknowledges imperfect plant growth while showing that care continues and more members learn. This qualifies success as shared responsibility rather than perfect results.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-main-idea-0020"
     lesson: lesson-comprehension-skills-main-idea-scope
     keyPoint: 1
@@ -491,8 +506,9 @@ questions:
           This treats a lesson from the initial absence as universal certainty. The wording compares shared work with dependence on one person. Check whether it promises to solve everything.
     explanation: |
       The passage describes one garden project. Claiming that cooperation solves every school problem reaches beyond that evidence.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-main-idea-0021"
+    approved: true
     lesson: lesson-comprehension-skills-balangkas-at-ugnayan
     keyPoint: 1
     passage: "p-comprehension-skills-balangkas-at-ugnayan-gap"
@@ -515,6 +531,7 @@ questions:
     explanation: |
       Ang pagbabago sa pagtanggap ng tanong ang pangunahing ideya. Ang pisara at hiwalay na mesa ang mga paraang nagpapaliwanag dito.
   - id: "q-comprehension-skills-main-idea-0022"
+    approved: true
     lesson: lesson-comprehension-skills-balangkas-at-ugnayan
     keyPoint: 2
     passage: "p-comprehension-skills-balangkas-at-ugnayan-gap"
