@@ -26,6 +26,7 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
+import 'package:pantas/features/lesson/presentation/bite_label.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_bar.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_tap.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_pull_to_advance.dart';
@@ -623,7 +624,9 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                 ),
                 const SizedBox(width: PantasSpace.s12),
                 Text(
-                  current ? 'Reading' : '${lesson.estimatedMinutes} min',
+                  current
+                      ? 'Reading'
+                      : BiteLabels.label(lesson.id, lesson.estimatedMinutes),
                   style: current
                       ? PantasType.webTag.copyWith(color: t.tintText)
                       : PantasType.webSmall.copyWith(
@@ -812,7 +815,7 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
     final fullWidth = ref.watch(readerFullWidthProvider);
     final reader = widget.reader;
     final meta = '${reader.topicName} · '
-        '${reader.lesson.estimatedMinutes} min';
+        '${BiteLabels.label(reader.lesson.id, reader.lesson.estimatedMinutes)}';
     final groups = <List<Map<String, dynamic>>>[];
     final headings = <String?>[];
     for (final block in reader.lesson.bodyJson) {

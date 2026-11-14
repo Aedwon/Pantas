@@ -21,6 +21,7 @@ import 'package:pantas/features/lesson/application/lesson_search_providers.dart'
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/models/lesson_search_hit.dart';
 import 'package:pantas/features/lesson/domain/use_cases/build_search_snippet.dart';
+import 'package:pantas/features/lesson/presentation/bite_label.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_tap.dart';
 import 'package:pantas/features/lesson/presentation/widgets/search_results.dart';
 
@@ -379,7 +380,10 @@ class _WebLessonSearchState extends ConsumerState<WebLessonSearch> {
                             width: PantasSpace.s12,
                           ),
                           Text(
-                            '${results[i].estimatedMinutes} min',
+                            BiteLabels.label(
+                              results[i].lessonId,
+                              results[i].estimatedMinutes,
+                            ),
                             style: PantasType.webRowValue.copyWith(
                               color: t.colors.textSecondary,
                             ),

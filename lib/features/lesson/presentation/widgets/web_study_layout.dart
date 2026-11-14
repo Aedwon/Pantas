@@ -29,6 +29,7 @@ import 'package:pantas/features/lesson/application/bookmark_providers.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
+import 'package:pantas/features/lesson/presentation/bite_label.dart';
 import 'package:pantas/features/lesson/presentation/widgets/bookmarks_sheet.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_bar.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_tap.dart';
@@ -1139,7 +1140,7 @@ class _WideStudyLessonRowState extends State<_WideStudyLessonRow> {
         ? 'Resume'
         : lesson.isRead
             ? null
-            : '${lesson.estimatedMinutes} min';
+            : BiteLabels.label(lesson.id, lesson.estimatedMinutes);
     final valuePainter = TextPainter(
       text: TextSpan(text: value ?? '', style: t.sub),
       textDirection: Directionality.of(context),

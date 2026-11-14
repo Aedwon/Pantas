@@ -9,6 +9,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/lesson/presentation/bite_label.dart';
 import 'package:pantas/features/quiz/application/quiz_starts.dart';
 
 class ReaderGap extends ConsumerWidget {
@@ -108,7 +109,8 @@ class ReaderGap extends ConsumerWidget {
             const Spacer(),
             if (canQuiz)
               PantasButton(
-                label: 'Quiz yourself, 5 questions',
+                label:
+                    'Quiz yourself, ${BiteLabels.questionsFor(lessonId)} questions',
                 kind: PantasButtonKind.tertiary,
                 fullWidth: false,
                 onPressed: () =>
@@ -131,7 +133,8 @@ class ReaderGap extends ConsumerWidget {
             Align(
               alignment: Alignment.centerLeft,
               child: WebButton(
-                label: 'Quiz yourself, 5 questions',
+                label:
+                    'Quiz yourself, ${BiteLabels.questionsFor(lessonId)} questions',
                 variant: WebButtonVariant.white,
                 onPressed: () =>
                     startLessonQuiz(context, lessonId, examId: examId!),
@@ -139,11 +142,22 @@ class ReaderGap extends ConsumerWidget {
             )
           else
             PantasButton(
-              label: 'Quiz yourself, 5 questions',
+              label:
+                  'Quiz yourself, ${BiteLabels.questionsFor(lessonId)} questions',
               variant: PantasButtonVariant.neutral,
               onPressed: () =>
                   startLessonQuiz(context, lessonId, examId: examId!),
             ),
+        ],
+        // PROTOTYPE: the end-of-part action. The pull up below it still works.
+        if (BiteLabels.nextPartAction(lessonId) case final nextPart?) ...[
+          const SizedBox(height: PantasSpace.s8),
+          PantasButton(
+            label: nextPart,
+            kind: PantasButtonKind.tertiary,
+            tone: PantasButtonTone.accent,
+            onPressed: () {},
+          ),
         ],
       ],
     );

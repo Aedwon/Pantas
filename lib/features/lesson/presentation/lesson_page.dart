@@ -42,6 +42,7 @@ import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/data/repos/reader_position_repository.dart';
 import 'package:pantas/features/lesson/domain/models/lesson_ending.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
+import 'package:pantas/features/lesson/presentation/bite_label.dart';
 import 'package:pantas/features/lesson/presentation/widgets/ending_content.dart';
 import 'package:pantas/features/lesson/presentation/widgets/lesson_contents_sheet.dart';
 import 'package:pantas/features/lesson/presentation/widgets/pull_to_advance.dart';
@@ -1405,7 +1406,10 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody>
                       : widget.destinationTitle ?? reader.topicName,
                   detail: next == null
                       ? null
-                      : '${next.lesson.estimatedMinutes} min',
+                      : BiteLabels.label(
+                          next.lesson.id,
+                          next.lesson.estimatedMinutes,
+                        ),
                   pull: pull,
                   onPressed: widget.onPull == null ? null : pull.commit,
                 ),
@@ -1629,7 +1633,7 @@ class _LessonContent extends StatelessWidget {
                     // one line of 15 px, then the title at 30 px.
                     Text(
                       '${reader.topicName} · '
-                      '${reader.lesson.estimatedMinutes} min',
+                      '${BiteLabels.label(reader.lesson.id, reader.lesson.estimatedMinutes)}',
                       style: context.type.subhead.copyWith(
                         color: context.colors.secondaryLabel,
                       ),

@@ -17,6 +17,7 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/domain/home_today_lesson.dart';
 import 'package:pantas/features/home/domain/home_today_view.dart';
+import 'package:pantas/features/lesson/presentation/bite_label.dart';
 
 export 'package:pantas/features/home/domain/home_today_lesson.dart';
 
@@ -337,7 +338,7 @@ class HomeTodayChecklist extends StatelessWidget {
               ? 'Read'
               : (l.fraction ?? 0) > 0
                   ? 'Resume'
-                  : '${l.minutes} min',
+                  : BiteLabels.label(l.id, l.minutes),
           leading: l.read ? check() : ring(l.fraction ?? 0),
           onPressed: () => onLesson(l),
         );
@@ -581,7 +582,7 @@ class HomeTodayChecklist extends StatelessWidget {
             ? 'Read'
             : (lesson.fraction ?? 0) > 0
                 ? 'Resume'
-                : '${lesson.minutes} min',
+                : BiteLabels.label(lesson.id, lesson.minutes),
         valueStyle:
             context.type.subhead.copyWith(color: context.colors.textSecondary),
         titleColor: lesson.read ? context.colors.textSecondary : null,

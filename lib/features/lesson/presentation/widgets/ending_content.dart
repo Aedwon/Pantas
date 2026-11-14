@@ -12,6 +12,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/lesson/domain/models/lesson_ending.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
+import 'package:pantas/features/lesson/presentation/bite_label.dart';
 import 'package:pantas/features/lesson/presentation/widgets/ending_reveal.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_ending_layout.dart';
 
@@ -194,7 +195,8 @@ class EndingContent extends StatelessWidget {
                       title: lesson.title,
                       // Board: a long lesson title is cut to one line.
                       truncateTitle: true,
-                      value: '${lesson.estimatedMinutes} min',
+                      value:
+                          BiteLabels.label(lesson.id, lesson.estimatedMinutes),
                       leading: const SizedBox(width: PantasSpace.s24),
                       contentPadding:
                           const EdgeInsets.only(right: PantasSpace.s16),

@@ -8,6 +8,7 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/lesson/domain/models/lesson_ending.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
+import 'package:pantas/features/lesson/presentation/bite_label.dart';
 import 'package:pantas/features/lesson/presentation/widgets/ending_reveal.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_reader_layout.dart';
 
@@ -210,7 +211,10 @@ class WebEndingLayout extends StatelessWidget {
                                   for (final lesson in unread)
                                     WebRow(
                                       title: lesson.title,
-                                      value: '${lesson.estimatedMinutes} min',
+                                      value: BiteLabels.label(
+                                        lesson.id,
+                                        lesson.estimatedMinutes,
+                                      ),
                                       trailing: Icon(
                                         Icons.chevron_right,
                                         color: t.colors.tertiaryLabel,

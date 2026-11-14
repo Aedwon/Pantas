@@ -17,6 +17,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/use_cases/build_study_map.dart';
+import 'package:pantas/features/lesson/presentation/bite_label.dart';
 
 class StudySubjectSection extends ConsumerWidget {
   const StudySubjectSection({
@@ -245,7 +246,7 @@ class StudyLessonRow extends StatelessWidget {
                     ),
                   if (!lesson.isRead)
                     Text(
-                      '${lesson.estimatedMinutes} min',
+                      BiteLabels.label(lesson.id, lesson.estimatedMinutes),
                       style: context.type.subhead.copyWith(
                         color: context.colors.secondaryLabel,
                         fontFeatures: const [FontFeature.tabularFigures()],

@@ -13,6 +13,7 @@ import 'package:pantas/features/home/domain/lesson_day_context.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
+import 'package:pantas/features/lesson/presentation/bite_label.dart';
 
 class LessonContentsSheet extends ConsumerWidget {
   const LessonContentsSheet({
@@ -232,7 +233,7 @@ class LessonContentsSheet extends ConsumerWidget {
           : lesson.isRead
               ? null
               : Text(
-                  '${lesson.estimatedMinutes} min',
+                  BiteLabels.label(lesson.id, lesson.estimatedMinutes),
                   style: PantasType.webRowSub
                       .copyWith(
                         fontWeight: FontWeight.w500,

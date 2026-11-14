@@ -44,6 +44,7 @@ import 'package:pantas/features/home/presentation/widgets/home_state_card.dart';
 import 'package:pantas/features/home/presentation/widgets/home_today_checklist.dart';
 import 'package:pantas/features/home/presentation/widgets/home_web_layout.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
+import 'package:pantas/features/lesson/presentation/bite_label.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/quiz/domain/paused_quiz_conflict.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
@@ -915,7 +916,9 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
               ),
               boardMetrics: true,
               divider: !last,
-              value: lesson.read ? null : '${lesson.minutes} min',
+              value: lesson.read
+                  ? null
+                  : BiteLabels.label(lesson.id, lesson.minutes),
               leading: HomeDrawerRing(
                 lesson.read ? 1 : lesson.fraction ?? 0,
                 done: lesson.read,
@@ -925,7 +928,9 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
             )
           : ListRow(
               title: lesson.title,
-              value: lesson.read ? null : '${lesson.minutes} min',
+              value: lesson.read
+                  ? null
+                  : BiteLabels.label(lesson.id, lesson.minutes),
               variant: ListRowVariant.value,
               // The time keeps its own width and the title takes the rest
               // of the row (3K-4, as 2G-21 did for search rows).

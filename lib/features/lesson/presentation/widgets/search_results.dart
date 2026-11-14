@@ -15,6 +15,7 @@ import 'package:pantas/features/lesson/application/lesson_search_providers.dart'
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/models/lesson_search_hit.dart';
 import 'package:pantas/features/lesson/domain/use_cases/build_search_snippet.dart';
+import 'package:pantas/features/lesson/presentation/bite_label.dart';
 
 class SearchResults extends ConsumerWidget {
   const SearchResults({super.key});
@@ -64,8 +65,9 @@ class SearchResults extends ConsumerWidget {
                           )
                         : null,
                   ),
-                  value:
-                      lesson.isRead ? null : '${lesson.estimatedMinutes} min',
+                  value: lesson.isRead
+                      ? null
+                      : BiteLabels.label(lesson.id, lesson.estimatedMinutes),
                   // The time keeps its own width and the title takes the rest
                   // of the row, instead of stopping at half of it (2G-21).
                   naturalValue: true,
@@ -235,7 +237,7 @@ class _HitRow extends StatelessWidget {
                     buildSearchSnippet(source: hit.topicName, query: query)!,
                     context.type.footnote,
                   ),
-        value: '${hit.estimatedMinutes} min',
+        value: BiteLabels.label(hit.lessonId, hit.estimatedMinutes),
         valueStyle: context.type.subhead.copyWith(
           color: context.colors.secondaryLabel,
           fontFeatures: const [FontFeature.tabularFigures()],
