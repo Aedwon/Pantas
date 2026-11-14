@@ -7,7 +7,7 @@ topic: "topic-peace-and-human-rights"
 isActive: true
 part: 9
 partCount: 10
-ordering: 1109
+ordering: 21
 keyPoints:
   - "Compare expected civilian harm with the expected military gain."
   - "Apply precautions and cancel or stop an unlawful attack."

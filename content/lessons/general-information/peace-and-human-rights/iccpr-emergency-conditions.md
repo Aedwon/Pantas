@@ -7,7 +7,7 @@ topic: "topic-peace-and-human-rights"
 isActive: true
 part: 4
 partCount: 10
-ordering: 1104
+ordering: 16
 keyPoints:
   - "Check the emergency and official announcement needed for derogation."
   - "Check necessity, duration, nondiscrimination, other duties, and notices."

@@ -7,7 +7,7 @@ topic: "topic-peace-and-human-rights"
 isActive: true
 part: 6
 partCount: 10
-ordering: 1106
+ordering: 18
 keyPoints:
   - "Identify civilian protection and the effect of direct participation."
   - "Check the conditions for protection as hors de combat."

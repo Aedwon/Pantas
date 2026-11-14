@@ -7,7 +7,7 @@ topic: "topic-peace-and-human-rights"
 isActive: true
 part: 1
 partCount: 10
-ordering: 1101
+ordering: 13
 keyPoints:
   - "Compare when HRL and IHL apply."
   - "Identify the parties bound by IHL and the people it protects."

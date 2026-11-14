@@ -7,7 +7,7 @@ topic: "topic-peace-and-human-rights"
 isActive: true
 part: 10
 partCount: 10
-ordering: 1110
+ordering: 22
 keyPoints:
   - "Explain peacetime teaching, training, and grave-breach laws."
   - "Use practical steps to seek a lawful community agreement."

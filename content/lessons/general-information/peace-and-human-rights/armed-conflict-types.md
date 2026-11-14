@@ -7,7 +7,7 @@ topic: "topic-peace-and-human-rights"
 isActive: true
 part: 2
 partCount: 10
-ordering: 1102
+ordering: 14
 keyPoints:
   - "Identify an IAC, including occupation without resistance."
   - "Check intensity and organization when identifying a NIAC."

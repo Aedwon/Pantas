@@ -7,7 +7,7 @@ topic: "topic-peace-and-human-rights"
 isActive: true
 part: 3
 partCount: 10
-ordering: 1103
+ordering: 15
 keyPoints:
   - "Explain how HRL and IHL apply together during armed conflict."
   - "Use IHL attack rules when assessing battlefield right-to-life claims."

@@ -7,7 +7,7 @@ topic: "topic-peace-and-human-rights"
 isActive: true
 part: 8
 partCount: 10
-ordering: 1108
+ordering: 20
 keyPoints:
   - "Use distinction to protect civilians and civilian objects."
   - "Check both conditions for a military objective."

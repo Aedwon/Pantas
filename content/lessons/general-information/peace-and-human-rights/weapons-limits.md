@@ -7,7 +7,7 @@ topic: "topic-peace-and-human-rights"
 isActive: true
 part: 7
 partCount: 10
-ordering: 1107
+ordering: 19
 keyPoints:
   - "Identify weapons that are indiscriminate by nature."
   - "Apply the ban on superfluous injury or unnecessary suffering."

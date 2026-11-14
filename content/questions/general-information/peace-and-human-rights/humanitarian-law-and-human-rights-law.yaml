@@ -7,6 +7,8 @@ meta:
   - cse-sub
 questions:
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0001
+  lesson: lesson-peace-and-human-rights-hrl-and-ihl-scope
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'What situation does IHL specifically govern?
@@ -31,6 +33,8 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0002
+  lesson: lesson-peace-and-human-rights-hrl-and-ihl-scope
+  keyPoint: 2
   type: single_choice
   difficulty: medium
   stem: 'Whom does IHL bind when they are parties to an armed conflict?
@@ -55,6 +59,8 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0003
+  lesson: lesson-peace-and-human-rights-hrl-and-ihl-scope
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: 'Which statement correctly compares their general time scopes?
@@ -79,6 +85,8 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0004
+  lesson: lesson-peace-and-human-rights-hrl-and-ihl-scope
+  keyPoint: 2
   type: single_choice
   difficulty: easy
   stem: 'Which body of law specifically restricts means and methods of warfare while protecting people outside active hostilities?
@@ -103,6 +111,8 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0005
+  lesson: lesson-peace-and-human-rights-hrl-and-ihl-scope
+  keyPoint: 2
   type: single_choice
   difficulty: medium
   stem: 'A non-state armed group says IHL cannot bind it because it is not a government. How does the lesson assess the claim?
@@ -127,6 +137,8 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0006
+  lesson: lesson-peace-and-human-rights-hrl-and-ihl-scope
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'Which description matches International Humanitarian Law''s scope?
@@ -151,6 +163,8 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0008
+  lesson: lesson-peace-and-human-rights-people-protected-from-attack
+  keyPoint: 2
   type: single_choice
   difficulty: medium
   stem: 'Which framework specifically protects wounded fighters and prisoners in armed conflict?
@@ -175,6 +189,8 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0009
+  lesson: lesson-peace-and-human-rights-iccpr-protected-rights
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   approved: false
@@ -200,6 +216,8 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0010
+  lesson: lesson-peace-and-human-rights-people-protected-from-attack
+  keyPoint: 2
   type: single_choice
   difficulty: easy
   approved: false
@@ -225,6 +243,8 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0011
+  lesson: lesson-peace-and-human-rights-hrl-and-ihl-scope
+  keyPoint: 2
   type: single_choice
   difficulty: easy
   approved: false
@@ -250,6 +270,8 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0012
+  lesson: lesson-peace-and-human-rights-ihl-preparation-and-peace
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   approved: false
@@ -275,6 +297,8 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0013
+  lesson: lesson-peace-and-human-rights-hrl-and-ihl-scope
+  keyPoint: 2
   type: single_choice
   difficulty: medium
   approved: false
@@ -300,6 +324,8 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0014
+  lesson: lesson-peace-and-human-rights-hrl-and-ihl-together
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   approved: false
@@ -325,6 +351,8 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0015
+  lesson: lesson-peace-and-human-rights-hrl-and-ihl-scope
+  keyPoint: 2
   type: single_choice
   difficulty: hard
   approved: false
@@ -350,6 +378,8 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0016
+  lesson: lesson-peace-and-human-rights-iccpr-protected-rights
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   approved: false
@@ -375,6 +405,8 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0017
+  lesson: lesson-peace-and-human-rights-hrl-and-ihl-scope
+  keyPoint: 3
   type: single_choice
   difficulty: hard
   approved: false
@@ -400,6 +432,8 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0018
+  lesson: lesson-peace-and-human-rights-hrl-and-ihl-scope
+  keyPoint: 2
   type: single_choice
   difficulty: hard
   approved: false
@@ -425,6 +459,8 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0019
+  lesson: lesson-peace-and-human-rights-armed-conflict-types
+  keyPoint: 2
   type: single_choice
   difficulty: exam
   approved: false
@@ -450,6 +486,8 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0020
+  lesson: lesson-peace-and-human-rights-hrl-and-ihl-scope
+  keyPoint: 2
   type: single_choice
   difficulty: exam
   approved: false
@@ -475,6 +513,8 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0021
+  lesson: lesson-peace-and-human-rights-ihl-preparation-and-peace
+  keyPoint: 1
   type: single_choice
   difficulty: exam
   approved: false

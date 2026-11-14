@@ -7,7 +7,7 @@ topic: "topic-peace-and-human-rights"
 isActive: true
 part: 5
 partCount: 10
-ordering: 1105
+ordering: 17
 keyPoints:
   - "Identify the ICCPR protections that cannot be suspended under Article $4$."
   - "Distinguish non-derogable protection from limits allowed by the treaty."
