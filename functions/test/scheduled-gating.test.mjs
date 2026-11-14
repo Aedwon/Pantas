@@ -80,3 +80,37 @@ test('unknown values keep the schedules on, so a typo cannot silently stop clean
   const {scheduled} = discover({SCHEDULED_JOBS: 'maybe', LEGACY_SCHEDULES: 'yes'});
   assert.equal(scheduled.length, 12);
 });
+
+// Nov 14, 2026: a staging deploy with the global firebase-tools 15.26.0 ran discovery without
+// .env.pantas-staging (that version passes only GCLOUD_PROJECT and FIREBASE_CONFIG to discovery), so it
+// listed schedules that the deployed code, which did get the file, then did not export. The deploy
+// must stop at discovery instead.
+function discoverRaw(extraEnv) {
+  const env = {PATH: process.env.PATH, HOME: process.env.HOME, ...extraEnv};
+  const script = `
+    const loader = require(${JSON.stringify(`${functionsDir}node_modules/firebase-functions/lib/runtime/loader.js`)});
+    loader.loadStack(${JSON.stringify(functionsDir)}).then(() => process.stdout.write('ok'), (e) => { process.stdout.write('error: ' + e.message); });
+  `;
+  try {
+    return execFileSync(process.execPath, ['-e', script], {env, cwd: functionsDir, encoding: 'utf8'});
+  } catch (error) {
+    return 'error: ' + String(error.stdout || '') + String(error.stderr || '');
+  }
+}
+
+test('discovery for a real project without its .env file stops with a clear error', () => {
+  for (const project of ['pantas-prod', 'pantas-staging']) {
+    const out = discoverRaw({GCLOUD_PROJECT: project, FUNCTIONS_CONTROL_API: 'true'});
+    assert.match(out, /pinned firebase-tools/, `${project}: ${out.slice(0, 300)}`);
+  }
+});
+
+test('discovery with the project .env file loads normally', () => {
+  assert.equal(discoverRaw({GCLOUD_PROJECT: 'pantas-staging', FUNCTIONS_CONTROL_API: 'true', ...parseEnvFile('.env.pantas-staging')}), 'ok');
+  assert.equal(discoverRaw({GCLOUD_PROJECT: 'pantas-prod', FUNCTIONS_CONTROL_API: 'true', ...parseEnvFile('.env.pantas-prod')}), 'ok');
+});
+
+test('emulators, tests and runtime (no discovery flag) are never blocked', () => {
+  assert.equal(discoverRaw({GCLOUD_PROJECT: 'demo-pantas-test', FUNCTIONS_CONTROL_API: 'true'}), 'ok');
+  assert.equal(discoverRaw({GCLOUD_PROJECT: 'pantas-prod'}), 'ok');
+});
