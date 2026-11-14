@@ -14,7 +14,11 @@ void main() {
       tester,
       width,
       scaffolded(
-        MockSetupPage(parsedBlueprint: layout.blueprint, onStart: (_) {}),
+        inShell(
+          MockSetupPage(parsedBlueprint: layout.blueprint, onStart: (_) {}),
+          width,
+          ShellTab.quiz,
+        ),
       ),
     ),
   );

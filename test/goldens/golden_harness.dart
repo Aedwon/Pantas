@@ -65,6 +65,10 @@ enum GoldenAction {
 
   /// The keyboard moves focus onto the cell (Tab), so the focus ring shows.
   focus,
+
+  /// A pointer taps the cell, for a control that opens something (a select's
+  /// list).
+  tap,
 }
 
 /// One cell of a sheet: a labeled state of the component.
@@ -76,6 +80,9 @@ class GoldenState {
     this.width,
     this.web,
     this.at = Alignment.center,
+    this.window,
+    this.target,
+    this.tabs = 1,
   });
 
   final String label;
@@ -92,6 +99,19 @@ class GoldenState {
   /// Where in the cell the pointer lands for hover and pressed. The center by
   /// default; a part of a composite (a bar's counter) names its own spot.
   final Alignment at;
+
+  /// Draws the cell as a whole window of this size, and captures the window.
+  /// For a component that lives in the root overlay (a popover, a sheet, a
+  /// drawer), which a plain cell would not capture. The builder fills the
+  /// window.
+  final Size? window;
+
+  /// Finds the part of the cell the pointer lands on, when [at] cannot name it
+  /// (a link that is narrower than its cell). Wins over [at].
+  final Finder Function()? target;
+
+  /// How many times Tab is pressed for a focus cell.
+  final int tabs;
 }
 
 /// Rest, hover, pressed and focus cells of one control, plus a disabled cell
@@ -102,6 +122,8 @@ List<GoldenState> interactionStates(
   WidgetBuilder? disabled,
   double? width,
   bool? web,
+  Alignment at = Alignment.center,
+  Finder Function()? target,
 }) =>
     [
       GoldenState('$prefix rest', build, width: width, web: web),
@@ -111,6 +133,8 @@ List<GoldenState> interactionStates(
         action: GoldenAction.hover,
         width: width,
         web: web,
+        at: at,
+        target: target,
       ),
       GoldenState(
         '$prefix pressed',
@@ -118,6 +142,8 @@ List<GoldenState> interactionStates(
         action: GoldenAction.pressed,
         width: width,
         web: web,
+        at: at,
+        target: target,
       ),
       GoldenState(
         '$prefix focus',
@@ -194,6 +220,7 @@ void goldenSheet(
           }
         });
 
+        tester.view.physicalSize = const Size(6000, 6000);
         final sheetKey = GlobalKey();
         await tester.pumpWidget(
           _themed(
@@ -259,42 +286,66 @@ Future<ui.Image> _capture(
   debugWebPlatformOverride = web;
   final boundaryKey = GlobalKey();
   final contentKey = GlobalKey();
+  final window = state.window;
+  tester.view.physicalSize = window ?? const Size(6000, 6000);
   await tester.pumpWidget(
-    _themed(
-      mode,
-      web,
-      Align(
-        alignment: Alignment.topLeft,
-        child: RepaintBoundary(
-          key: boundaryKey,
-          child: Builder(
-            builder: (context) => ColoredBox(
-              color: Theme.of(context).scaffoldBackgroundColor,
-              child: Padding(
-                padding: const EdgeInsets.all(_cellPad),
-                child: ConstrainedBox(
-                  constraints: BoxConstraints(
-                    maxWidth: state.width ?? cellWidth,
-                  ),
-                  // Unbounded height, as in a card or a page column, so a
-                  // component that fills its height does not fill the view.
-                  child: UnconstrainedBox(
+    window != null
+        ? RepaintBoundary(
+            key: boundaryKey,
+            child: _themed(
+              mode,
+              web,
+              Builder(
+                builder: (context) => ColoredBox(
+                  color: Theme.of(context).scaffoldBackgroundColor,
+                  child: SizedBox(
                     key: contentKey,
-                    alignment: Alignment.topLeft,
-                    constrainedAxis: Axis.horizontal,
+                    width: window.width,
+                    height: window.height,
                     child: Builder(builder: state.build),
                   ),
                 ),
               ),
             ),
+          )
+        : _themed(
+            mode,
+            web,
+            Align(
+              alignment: Alignment.topLeft,
+              child: RepaintBoundary(
+                key: boundaryKey,
+                child: Builder(
+                  builder: (context) => ColoredBox(
+                    color: Theme.of(context).scaffoldBackgroundColor,
+                    child: Padding(
+                      padding: const EdgeInsets.all(_cellPad),
+                      child: ConstrainedBox(
+                        constraints: BoxConstraints(
+                          maxWidth: state.width ?? cellWidth,
+                        ),
+                        // Unbounded height, as in a card or a page column, so
+                        // a component that fills its height does not fill the
+                        // view.
+                        child: UnconstrainedBox(
+                          key: contentKey,
+                          alignment: Alignment.topLeft,
+                          constrainedAxis: Axis.horizontal,
+                          child: Builder(builder: state.build),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ),
-        ),
-      ),
-    ),
   );
   await tester.pump(const Duration(milliseconds: 100));
   final contentBox = tester.getRect(find.byKey(contentKey));
-  final center = state.at.withinRect(contentBox);
+  final center = state.target != null
+      ? tester.getCenter(state.target!())
+      : state.at.withinRect(contentBox);
   TestGesture? gesture;
   switch (state.action) {
     case GoldenAction.rest:
@@ -307,8 +358,12 @@ Future<ui.Image> _capture(
       gesture = await tester.createGesture(kind: PointerDeviceKind.mouse);
       await gesture.addPointer(location: center);
       await gesture.down(center);
+    case GoldenAction.tap:
+      await tester.tapAt(center);
     case GoldenAction.focus:
-      await tester.sendKeyEvent(LogicalKeyboardKey.tab);
+      for (var i = 0; i < state.tabs; i++) {
+        await tester.sendKeyEvent(LogicalKeyboardKey.tab);
+      }
   }
   // Long enough for every press, hover and focus motion to finish, and a
   // fixed number of frames, so an endless spinner cannot stall the sheet.

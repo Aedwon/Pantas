@@ -1,8 +1,11 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/contents_glyph.dart';
 import 'package:pantas/core/ui/theme/theme_names.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_opacity.dart';
 import 'package:pantas/features/home/domain/lesson_day_context.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_bar.dart';
 
@@ -53,6 +56,67 @@ void main() {
     final text = tester.widget<Text>(find.text('Study'));
     expect(text.style!.fontSize, 17);
     expect(text.style!.color, PantasColors.light.accent);
+  });
+
+  testWidgets('phone reader back takes the BackLink hover state',
+      (tester) async {
+    await pumpBar(tester);
+    const colors = PantasColors.light;
+    expect(
+      tester.widget<Text>(find.text('Study')).style!.color,
+      colors.accent,
+    );
+    final mouse = await tester.createGesture(kind: PointerDeviceKind.mouse);
+    await mouse.addPointer(location: Offset.zero);
+    addTearDown(mouse.removePointer);
+    await mouse.moveTo(tester.getCenter(find.text('Study')));
+    await tester.pump(const Duration(milliseconds: 300));
+    expect(
+      tester.widget<Text>(find.text('Study')).style!.color,
+      colors.accentHover,
+    );
+    final wash = tester.widget<DecoratedBox>(
+      find
+          .ancestor(
+            of: find.text('Study'),
+            matching: find.byType(DecoratedBox),
+          )
+          .first,
+    );
+    expect(
+      (wash.decoration as BoxDecoration).color,
+      colors.accent.withValues(alpha: PantasOpacity.hover),
+    );
+  });
+
+  testWidgets('phone reader back is reached by Tab and Enter goes back',
+      (tester) async {
+    var left = 0;
+    await tester.pumpApp(
+      ReaderBar.ending(origin: ReaderOrigin.study, onBack: () => left++),
+    );
+    await tester.sendKeyEvent(LogicalKeyboardKey.tab);
+    await tester.pump();
+    final focus = FocusManager.instance.primaryFocus;
+    expect(focus, isNotNull);
+    expect(
+      find.descendant(
+        of: find.byType(ReaderBar),
+        matching: find.byWidgetPredicate((w) => w is FocusableActionDetector),
+      ),
+      findsOneWidget,
+    );
+    expect(
+      tester.getRect(find.text('Study')).overlaps(
+            tester.getRect(
+              find.byWidgetPredicate((w) => w is FocusableActionDetector),
+            ),
+          ),
+      isTrue,
+    );
+    await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+    await tester.pump();
+    expect(left, 1);
   });
 
   testWidgets('reader bar uses the board50px surface and44px controls',

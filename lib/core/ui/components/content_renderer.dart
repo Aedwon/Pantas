@@ -1444,7 +1444,6 @@ class _FigureFrame extends StatelessWidget {
     this.reader = false,
     this.imageSemantics = true,
     this.expandable = true,
-    this.followTheme = false,
     this.labelViewer = false,
   });
 
@@ -1454,10 +1453,9 @@ class _FigureFrame extends StatelessWidget {
   final bool reader;
   final bool imageSemantics;
   final bool expandable;
-  final bool followTheme;
 
   /// Whether the viewer names the figure itself, as an SVG's own label does
-  /// not reach it. A theme-following figure always does.
+  /// not reach it.
   final bool labelViewer;
   final Widget figure;
   final String label;
@@ -1485,7 +1483,7 @@ class _FigureFrame extends StatelessWidget {
             // ds-board: Figure README names no viewer times; as built
             still ? Duration.zero : const Duration(milliseconds: 280),
         pageBuilder: (context, animation, secondary) => _FigureViewer(
-          figure: followTheme || labelViewer
+          figure: labelViewer
               ? Semantics(
                   container: true,
                   label: label,
@@ -1498,7 +1496,6 @@ class _FigureFrame extends StatelessWidget {
           arrival: animation,
           figureWidth: figureWidth,
           reader: reader,
-          followTheme: followTheme,
         ),
         transitionsBuilder: (context, animation, secondary, child) =>
             AnimatedBuilder(
@@ -1559,26 +1556,20 @@ class _FigureFrame extends StatelessWidget {
                             : null,
                     alignment:
                         reader && context.wideWeb ? Alignment.center : null,
-                    color: followTheme
-                        ? context.colors.surface
-                        : reader
-                            ? context.colors.readerFigureBackground
-                            : context.colors.figureBackground,
+                    color: reader
+                        ? context.colors.readerFigureBackground
+                        : context.colors.figureBackground,
                     child: imageSemantics
                         ? Semantics(
                             label: label,
                             image: true,
                             excludeSemantics: true,
-                            child: (followTheme
-                                ? figure
-                                : Theme(
-                                    data: buildLightTheme(),
-                                    child: figure,
-                                  )),
+                            child: Theme(
+                              data: buildLightTheme(),
+                              child: figure,
+                            ),
                           )
-                        : (followTheme
-                            ? figure
-                            : Theme(data: buildLightTheme(), child: figure)),
+                        : Theme(data: buildLightTheme(), child: figure),
                   ),
                   if (expandable)
                     Positioned(
@@ -1641,14 +1632,12 @@ class _FigureViewer extends StatefulWidget {
     required this.arrival,
     required this.figureWidth,
     this.reader = true,
-    this.followTheme = false,
   });
   final Widget figure;
   final String credit;
   final Animation<double> arrival;
   final double figureWidth;
   final bool reader;
-  final bool followTheme;
   @override
   State<_FigureViewer> createState() => _FigureViewerState();
 }
@@ -1658,7 +1647,6 @@ class _FigureViewerState extends State<_FigureViewer> {
   Widget get figure => widget.figure;
   String get credit => widget.credit;
   Animation<double> get arrival => widget.arrival;
-  bool get followTheme => widget.followTheme;
 
   /// The window the figure is zoomed in. It fills the screen, so a zoomed
   /// figure grows past its card and can be panned across the whole screen.
@@ -1748,14 +1736,11 @@ class _FigureViewerState extends State<_FigureViewer> {
     super.dispose();
   }
 
-  Color _figureBackground(BuildContext context) => followTheme
-      ? context.colors.surface
-      : widget.reader
-          ? context.colors.readerFigureBackground
-          : context.colors.figureBackground;
+  Color _figureBackground(BuildContext context) => widget.reader
+      ? context.colors.readerFigureBackground
+      : context.colors.figureBackground;
 
-  Widget get _themedFigure =>
-      followTheme ? figure : Theme(data: buildLightTheme(), child: figure);
+  Widget get _themedFigure => Theme(data: buildLightTheme(), child: figure);
 
   /// A click beside the figure closes the viewer; a click on it does not.
   Widget _zoomWindow(
@@ -2106,14 +2091,10 @@ class _ContentImageState extends State<_ContentImage> {
       );
     }
     if (isLessonSvg(widget.url)) {
-      // The reader keeps every figure on its pale card in both themes, so a
-      // reader SVG takes the light tokens, as the code-drawn figures take the
-      // light theme. Elsewhere it follows the theme.
-      final themed = !widget.reader;
-      final loader = lessonSvgLoader(
-        widget.url,
-        themed ? context.colors : PantasColors.light,
-      );
+      // A figure keeps its printed look in both themes (Figure README):
+      // the reader's on its pale card, a question's on white. So an SVG takes
+      // the light tokens, as the code-drawn figures take the light theme.
+      final loader = lessonSvgLoader(widget.url, PantasColors.light);
       final failure = _ImageFailure(
         reader: widget.reader,
         onRetry: () => setState(() => _retry++),
@@ -2128,7 +2109,7 @@ class _ContentImageState extends State<_ContentImage> {
           label: widget.label,
           credit: widget.credit,
           imageSemantics: false,
-          followTheme: true,
+          labelViewer: true,
           figure: SvgPicture(
             loader,
             key: ValueKey((widget.url, _retry)),
@@ -2148,7 +2129,6 @@ class _ContentImageState extends State<_ContentImage> {
         excludeFromSemantics: widget.label.isEmpty,
         placeholderBuilder: (context) => _FigureFrame(
           reader: true,
-          followTheme: themed,
           labelViewer: true,
           label: widget.label,
           credit: widget.credit,
@@ -2159,7 +2139,6 @@ class _ContentImageState extends State<_ContentImage> {
         errorBuilder: (context, error, stackTrace) => failure,
         imageBuilder: (context, child) => _FigureFrame(
           reader: true,
-          followTheme: themed,
           labelViewer: true,
           label: widget.label,
           credit: widget.credit,
