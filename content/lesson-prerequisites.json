@@ -139,8 +139,6 @@
     "reason": "Practice recognizing word-level clues helps students combine clues across sentences. This lesson reteaches the needed clue types."
    }
   ],
-  "lesson-comprehension-skills-noting-specific-details": [],
-  "lesson-comprehension-skills-sequencing-of-events": [],
   "lesson-earth-science-astronomy-weather-and-climate": [
    {
     "lesson": "lesson-physics-thermodynamics",
@@ -1649,6 +1647,50 @@
     "lesson": "lesson-comprehension-skills-claim-type-and-evidence",
     "strength": "required",
     "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-event-time-words": [],
+  "lesson-comprehension-skills-event-verb-forms": [
+   {
+    "lesson": "lesson-comprehension-skills-event-time-words",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-comprehension-skills-event-causes-and-overlap": [
+   {
+    "lesson": "lesson-comprehension-skills-event-verb-forms",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-comprehension-skills-filipino-event-time": [
+   {
+    "lesson": "lesson-comprehension-skills-event-causes-and-overlap",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-comprehension-skills-filipino-event-causes": [
+   {
+    "lesson": "lesson-comprehension-skills-filipino-event-time",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-comprehension-skills-scanning-exact-details": [],
+  "lesson-comprehension-skills-skimming-and-meaning-matches": [
+   {
+    "lesson": "lesson-comprehension-skills-scanning-exact-details",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-comprehension-skills-old-and-current-details": [
+   {
+    "lesson": "lesson-comprehension-skills-skimming-and-meaning-matches",
+    "strength": "required",
+    "reason": "Read the previous part first."
    }
   ]
  }

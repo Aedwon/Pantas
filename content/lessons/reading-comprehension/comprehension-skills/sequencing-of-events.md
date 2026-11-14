@@ -6,6 +6,13 @@ subject: "subject-reading-comprehension"
 topic: "topic-comprehension-skills"
 estimatedMinutes: 12
 isActive: true
+status: retired
+replacedBy:
+  - lesson-comprehension-skills-event-time-words
+  - lesson-comprehension-skills-event-verb-forms
+  - lesson-comprehension-skills-event-causes-and-overlap
+  - lesson-comprehension-skills-filipino-event-time
+  - lesson-comprehension-skills-filipino-event-causes
 ---
 ## Core Concept
 

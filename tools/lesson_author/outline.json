@@ -928,6 +928,21 @@
               "sections": []
             },
             {
+              "title": "Scanning for Exact Details",
+              "slug": "scanning-exact-details",
+              "sections": []
+            },
+            {
+              "title": "Skimming and Matching Meaning",
+              "slug": "skimming-and-meaning-matches",
+              "sections": []
+            },
+            {
+              "title": "Checking Old and Current Details",
+              "slug": "old-and-current-details",
+              "sections": []
+            },
+            {
               "title": "Inferencing and Drawing Conclusions",
               "slug": "inferencing-and-conclusions",
               "sections": []
@@ -1065,6 +1080,31 @@
             {
               "title": "Sequencing of Events",
               "slug": "sequencing-of-events",
+              "sections": []
+            },
+            {
+              "title": "Sequencing with Time Words",
+              "slug": "event-time-words",
+              "sections": []
+            },
+            {
+              "title": "Sequencing with Verb Forms",
+              "slug": "event-verb-forms",
+              "sections": []
+            },
+            {
+              "title": "Sequencing Causes and Overlapping Events",
+              "slug": "event-causes-and-overlap",
+              "sections": []
+            },
+            {
+              "title": "Pagkakasunod-sunod ayon sa Oras",
+              "slug": "filipino-event-time",
+              "sections": []
+            },
+            {
+              "title": "Pagkakasunod-sunod ng Sanhi at Bunga",
+              "slug": "filipino-event-causes",
               "sections": []
             }
           ]
