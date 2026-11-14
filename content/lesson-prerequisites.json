@@ -124,19 +124,6 @@
   ],
   "lesson-clerical-ability-alphabetic-filing-rules": [],
   "lesson-clerical-ability-numeric-and-chronological-filing": [],
-  "lesson-code-of-conduct-ra-6713-penalties-and-enforcement": [
-   {
-    "lesson": "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules",
-    "strength": "helpful",
-    "reason": "Knowing Section 7 violations makes matching offenses to penalties easier. This lesson restates the disclosure offense used in its examples."
-   },
-   {
-    "lesson": "lesson-code-of-conduct-ra-6713-saln-review-and-written-opinions",
-    "strength": "helpful",
-    "reason": "Understanding permitted SALN access and use helps distinguish public disclosure from punishable misuse. This lesson supplies the essential misuse rules."
-   }
-  ],
-  "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules": [],
   "lesson-comprehension-skills-authors-purpose-tone-pov": [],
   "lesson-comprehension-skills-choosing-a-title": [
    {
@@ -164,28 +151,14 @@
     "reason": "Heat-transfer knowledge helps explain winds and warming. Weather and Climate defines the needed processes itself."
    }
   ],
-  "lesson-environment-management-disaster-risk-reduction-and-management": [],
-  "lesson-environment-management-environmental-concepts": [],
   "lesson-environment-management-environmental-problems-and-climate-change": [
    {
-    "lesson": "lesson-environment-management-environmental-concepts",
+    "lesson": "lesson-environment-management-source-segregation-and-waste-types",
     "strength": "helpful",
     "reason": "Knowing how sorting supports material recovery makes evaluating the waste program easier. This lesson defines segregation and explains the collection problem."
    }
   ],
   "lesson-environment-management-species-resources-and-environmental-decisions": [],
-  "lesson-environment-management-the-environmental-laws": [
-   {
-    "lesson": "lesson-environment-management-environmental-concepts",
-    "strength": "helpful",
-    "reason": "The detailed distinction between sorting and diversion makes the waste-law cases easier. This lesson gives enough definitions to stand alone."
-   },
-   {
-    "lesson": "lesson-environment-management-disaster-risk-reduction-and-management",
-    "strength": "helpful",
-    "reason": "Knowing the four DRRM areas makes matching disaster actions to the law easier. This lesson briefly explains the areas itself."
-   }
-  ],
   "lesson-geometry-logic-and-reasoning": [],
   "lesson-geometry-measurement": [
    {
@@ -1139,6 +1112,221 @@
     "lesson": "lesson-code-of-conduct-ra-6713-corruption-social-economic-political-effects",
     "strength": "required",
     "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-penalties-administrative-limits": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-foreign-government-benefits",
+    "strength": "helpful",
+    "reason": "Knowing Section 7 violations makes matching offenses to penalties easier. This lesson restates the disclosure offense used in its examples."
+   },
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-review-and-written-opinions",
+    "strength": "helpful",
+    "reason": "Understanding permitted SALN access and use helps distinguish public disclosure from punishable misuse. This lesson supplies the essential misuse rules."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-penalties-notice-and-evidence": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-administrative-limits",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-notice-and-evidence",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-penalties-confidential-information-proof": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-penalties-conspiracy-and-principals": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-confidential-information-proof",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-penalties-accomplices-and-accessories": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-conspiracy-and-principals",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-penalties-filed-statement-misuse": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-accomplices-and-accessories",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-penalties-enforcement-and-protection": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-filed-statement-misuse",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-penalties-review-of-decisions": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-enforcement-and-protection",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-prohibitions-interests-and-business-roles": [],
+  "lesson-code-of-conduct-ra-6713-prohibitions-private-practice": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-interests-and-business-roles",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-prohibitions-referrals-and-separation": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-private-practice",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-prohibitions-information-and-benefits": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-referrals-and-separation",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-prohibitions-nominal-gifts-and-donations": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-information-and-benefits",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-prohibitions-family-gifts-and-relatives": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-nominal-gifts-and-donations",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-prohibitions-organization-and-government-donations": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-family-gifts-and-relatives",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-prohibitions-foreign-government-benefits": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-organization-and-government-donations",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-environment-management-solid-waste-law": [],
+  "lesson-environment-management-clean-air-law": [
+   {
+    "lesson": "lesson-environment-management-solid-waste-law",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-environment-management-clean-water-law": [
+   {
+    "lesson": "lesson-environment-management-clean-air-law",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-environment-management-climate-policy-law": [
+   {
+    "lesson": "lesson-environment-management-clean-water-law",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-environment-management-disaster-risk-law": [
+   {
+    "lesson": "lesson-environment-management-climate-policy-law",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-environment-management-project-review-and-clearance": [
+   {
+    "lesson": "lesson-environment-management-disaster-risk-law",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-environment-management-critical-area-review": [
+   {
+    "lesson": "lesson-environment-management-project-review-and-clearance",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-environment-management-wildlife-and-protected-area-laws": [
+   {
+    "lesson": "lesson-environment-management-critical-area-review",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-environment-management-environmental-agencies": [
+   {
+    "lesson": "lesson-environment-management-wildlife-and-protected-area-laws",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-environment-management-source-segregation-and-waste-types",
+    "strength": "helpful",
+    "reason": "The detailed distinction between sorting and diversion makes the waste-law cases easier. This lesson gives enough definitions to stand alone."
+   },
+   {
+    "lesson": "lesson-environment-management-disaster-risk-and-readiness",
+    "strength": "helpful",
+    "reason": "Knowing the four DRRM areas makes matching disaster actions to the law easier. This lesson briefly explains the areas itself."
+   }
+  ],
+  "lesson-environment-management-disaster-risk-and-readiness": [],
+  "lesson-environment-management-disaster-response-and-recovery": [
+   {
+    "lesson": "lesson-environment-management-disaster-risk-and-readiness",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-environment-management-choosing-a-disaster-management-area": [
+   {
+    "lesson": "lesson-environment-management-disaster-response-and-recovery",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-environment-management-source-segregation-and-waste-types": [],
+  "lesson-environment-management-reuse-and-recycling": [
+   {
+    "lesson": "lesson-environment-management-source-segregation-and-waste-types",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-environment-management-reduction-composting-and-diversion": [
+   {
+    "lesson": "lesson-environment-management-reuse-and-recycling",
+    "strength": "required",
+    "reason": "Read the previous part first."
    }
   ]
  }

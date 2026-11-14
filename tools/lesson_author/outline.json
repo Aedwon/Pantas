@@ -1462,6 +1462,46 @@
               "sections": []
             },
             {
+              "title": "Private Interests and Business Roles under RA 6713",
+              "slug": "prohibitions-interests-and-business-roles",
+              "sections": []
+            },
+            {
+              "title": "Private Professional Practice under RA 6713",
+              "slug": "prohibitions-private-practice",
+              "sections": []
+            },
+            {
+              "title": "Recommendations and Leaving Office under RA 6713",
+              "slug": "prohibitions-referrals-and-separation",
+              "sections": []
+            },
+            {
+              "title": "Protected Information and Valuable Benefits under RA 6713",
+              "slug": "prohibitions-information-and-benefits",
+              "sections": []
+            },
+            {
+              "title": "Nominal Gifts and Personal Donations under RA 6713",
+              "slug": "prohibitions-nominal-gifts-and-donations",
+              "sections": []
+            },
+            {
+              "title": "Family Gifts and Relatives under RA 6713",
+              "slug": "prohibitions-family-gifts-and-relatives",
+              "sections": []
+            },
+            {
+              "title": "Organization and Government Donations under RA 6713",
+              "slug": "prohibitions-organization-and-government-donations",
+              "sections": []
+            },
+            {
+              "title": "Foreign-Government Benefits under RA 6713",
+              "slug": "prohibitions-foreign-government-benefits",
+              "sections": []
+            },
+            {
               "title": "Who the Code Covers",
               "slug": "duties-code-coverage",
               "sections": []
@@ -1590,6 +1630,51 @@
               "title": "SALN Review and Written Opinions",
               "slug": "saln-review-and-written-opinions",
               "sections": []
+            },
+            {
+              "title": "Administrative Penalty Limits under RA 6713",
+              "slug": "penalties-administrative-limits",
+              "sections": []
+            },
+            {
+              "title": "Notice and Evidence under RA 6713",
+              "slug": "penalties-notice-and-evidence",
+              "sections": []
+            },
+            {
+              "title": "Criminal Penalties and Removal under RA 6713",
+              "slug": "penalties-criminal-and-removal",
+              "sections": []
+            },
+            {
+              "title": "Proof in Confidential Information Cases",
+              "slug": "penalties-confidential-information-proof",
+              "sections": []
+            },
+            {
+              "title": "Conspiracy and Principal Roles under RA 6713",
+              "slug": "penalties-conspiracy-and-principals",
+              "sections": []
+            },
+            {
+              "title": "Accomplices and Accessories under RA 6713",
+              "slug": "penalties-accomplices-and-accessories",
+              "sections": []
+            },
+            {
+              "title": "Filed Statement Misuse under RA 6713",
+              "slug": "penalties-filed-statement-misuse",
+              "sections": []
+            },
+            {
+              "title": "Enforcement and Reporter Protection under RA 6713",
+              "slug": "penalties-enforcement-and-protection",
+              "sections": []
+            },
+            {
+              "title": "Review of CSC Decisions",
+              "slug": "penalties-review-of-decisions",
+              "sections": []
             }
           ]
         },
@@ -1615,6 +1700,81 @@
             {
               "title": "Protecting Species and Resources, and Choosing Among Options",
               "slug": "species-resources-and-environmental-decisions",
+              "sections": []
+            },
+            {
+              "title": "Solid Waste Law (RA 9003)",
+              "slug": "solid-waste-law",
+              "sections": []
+            },
+            {
+              "title": "Clean Air Law (RA 8749)",
+              "slug": "clean-air-law",
+              "sections": []
+            },
+            {
+              "title": "Clean Water Law (RA 9275)",
+              "slug": "clean-water-law",
+              "sections": []
+            },
+            {
+              "title": "Climate Policy Law (RA 9729)",
+              "slug": "climate-policy-law",
+              "sections": []
+            },
+            {
+              "title": "Disaster Risk Law (RA 10121)",
+              "slug": "disaster-risk-law",
+              "sections": []
+            },
+            {
+              "title": "Project Review and Clearance (PD 1586)",
+              "slug": "project-review-and-clearance",
+              "sections": []
+            },
+            {
+              "title": "Environmentally Critical Areas",
+              "slug": "critical-area-review",
+              "sections": []
+            },
+            {
+              "title": "Wildlife and Protected-Area Laws",
+              "slug": "wildlife-and-protected-area-laws",
+              "sections": []
+            },
+            {
+              "title": "Environmental Agencies",
+              "slug": "environmental-agencies",
+              "sections": []
+            },
+            {
+              "title": "Disaster Risk and Readiness",
+              "slug": "disaster-risk-and-readiness",
+              "sections": []
+            },
+            {
+              "title": "Disaster Response and Recovery",
+              "slug": "disaster-response-and-recovery",
+              "sections": []
+            },
+            {
+              "title": "Choosing a Disaster Management Area",
+              "slug": "choosing-a-disaster-management-area",
+              "sections": []
+            },
+            {
+              "title": "Source Segregation and Waste Types",
+              "slug": "source-segregation-and-waste-types",
+              "sections": []
+            },
+            {
+              "title": "Reuse and Recycling",
+              "slug": "reuse-and-recycling",
+              "sections": []
+            },
+            {
+              "title": "Reduction, Composting, and Diversion",
+              "slug": "reduction-composting-and-diversion",
               "sections": []
             }
           ]

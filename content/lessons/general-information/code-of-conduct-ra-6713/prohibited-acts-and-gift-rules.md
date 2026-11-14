@@ -6,6 +6,16 @@ subject: "subject-general-information"
 topic: "topic-code-of-conduct-ra-6713"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-code-of-conduct-ra-6713-prohibitions-interests-and-business-roles
+  - lesson-code-of-conduct-ra-6713-prohibitions-private-practice
+  - lesson-code-of-conduct-ra-6713-prohibitions-referrals-and-separation
+  - lesson-code-of-conduct-ra-6713-prohibitions-information-and-benefits
+  - lesson-code-of-conduct-ra-6713-prohibitions-nominal-gifts-and-donations
+  - lesson-code-of-conduct-ra-6713-prohibitions-family-gifts-and-relatives
+  - lesson-code-of-conduct-ra-6713-prohibitions-organization-and-government-donations
+  - lesson-code-of-conduct-ra-6713-prohibitions-foreign-government-benefits
 ---
 <!-- Audit: RW-107; assigned branch content/cse-rewrite-r1, not inspected; supplied standards base 59184e4b; access date 2026-10-26. Goal: Apply Section 7 prohibitions and distinguish gift exceptions by donor, purpose, office dealings, and permission. No prerequisite assumed. Source ledger carried from supplied lesson: RA 6713 Sections 3 and 7, Supreme Court E-Library document 6474, supports interests, covered roles, practice, recommendations, separation, information, gifts, family definitions, and foreign-government benefits. Rules Implementing RA 6713, Rule X Section 1(a)-(f), official NCDA publication, supports distinct gift and donation exceptions and outside-work conditions. DAR MC 06, 2022, SALN guidelines Section 2.1.5 and relationship footnotes, official media.dar.gov.ph publication dated 2022/11/22, supports relationship terms and degrees. No source conflict reported in supplied audit. Case facts are hypothetical. -->
 ## Core Concept
