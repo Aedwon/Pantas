@@ -3602,3 +3602,11 @@ Fable 5.2 ruled under Aedwon's standing delegation:
 - Release order for the integrator: (1) deploy to prod; (2) the lead pauses the 9 old jobs at once so no task runs twice; (3) watch until every combined task has run successfully (the daily ones need one night); (4) set `LEGACY_SCHEDULES=off` in the prod env file and deploy with `--force`, which deletes the old jobs; (5) deploy staging with `--force`, which deletes its 9 scheduled functions; confirm no scheduled functions appear on staging (the env gating relies on firebase-tools loading `.env.<project>` before discovery, not yet proven on a real deploy). End state: 3 jobs on the billing account, the free allowance.
 - Caution: do not run `purgeInactiveAccounts` by hand near 04:00 Singapore (the manual runner is a separate function and could overlap the scheduled run).
 - Scheduler follow-up (security fixes lead): the integrator deployed c27e6453f to prod functions at 20:28:46 UTC (jobsFrequent, jobsDailyEarly, jobsDailyLate, runScheduledTask created; 12 scheduler jobs). The lead paused the 9 legacy jobs at 20:29:10 UTC; only the 3 combined jobs are enabled. Next: every combined task runs once (the daily jobs at 19:00 and 20:00 UTC on Nov 15), then the integrator turns `LEGACY_SCHEDULES` off and redeploys prod and staging with `--force`. Rollback per task: resume its legacy job.
+
+### Nov 14, scheduler merge step 1 on prod (DS4 lead)
+
+- Authority: the manager ("ship web/scheduler-merge-r1 ... Follow the security lead's order exactly"); Fable-approved cost fix. Merged as main c27e6453f; main CI passed.
+- Timing: after 20:20 UTC, per the security lead, so tonight's old daily jobs (19:00 to 20:15 UTC) had finished; all five returned 200 before the deploy.
+- Step 1: prod functions deploy 20:25:56 to 20:28:46 UTC (preflight OK; 68 operations succeeded; jobsFrequent, jobsDailyEarly, jobsDailyLate and runScheduledTask created; one Cloud Run write-quota error during the deploy, retried by firebase-tools, no failed function). The security lead was told at once and paused the nine old jobs at 20:29:10 UTC: prod now has 3 ENABLED and 9 PAUSED jobs.
+- First jobsFrequent run at 20:32 UTC: 200, no "Scheduled task failed:" line. Hourly tasks run first at 21:00 UTC; the daily jobs first run at 19:00 and 20:00 UTC on Nov 15. Steps 3 and 4 wait for those.
+
