@@ -28,6 +28,11 @@ subagents. In the T3 sidebar, a worker shows as a child of its lead.
 - Does no build work itself. Small one-off jobs (consult Fable, log an approval, write a brief) go
   to a short delegated task, which also shows as its child in the sidebar.
 - Never ships to prod, sends an email, or changes billing without Aedwon's explicit word.
+- Routes decisions that would go to Aedwon to a Claude Fable 5.2 agent instead (Aedwon, Nov 14:
+  "for things needing my decision, consult a fable 5.2 agent instead"). Fable's rulings are final
+  and are logged as made under his delegation. Still his: "ship it" for each prod release not
+  already approved, legal sign-off, billing changes, and anything that needs him physically
+  (a phone test, a login).
 
 **Leads**
 - Own their lane end to end: plan, brief workers, review every result, merge, log to main.
