@@ -1741,6 +1741,56 @@
               "title": "Commission on Human Rights",
               "slug": "commission-on-human-rights",
               "sections": []
+            },
+            {
+              "title": "HRL and IHL: Scope",
+              "slug": "hrl-and-ihl-scope",
+              "sections": []
+            },
+            {
+              "title": "Types of Armed Conflict",
+              "slug": "armed-conflict-types",
+              "sections": []
+            },
+            {
+              "title": "How HRL and IHL Work Together",
+              "slug": "hrl-and-ihl-together",
+              "sections": []
+            },
+            {
+              "title": "ICCPR Emergency Conditions",
+              "slug": "iccpr-emergency-conditions",
+              "sections": []
+            },
+            {
+              "title": "ICCPR Rights That Cannot Be Suspended",
+              "slug": "iccpr-protected-rights",
+              "sections": []
+            },
+            {
+              "title": "People Protected from Attack",
+              "slug": "people-protected-from-attack",
+              "sections": []
+            },
+            {
+              "title": "Limits on Weapons",
+              "slug": "weapons-limits",
+              "sections": []
+            },
+            {
+              "title": "Distinction and Military Targets",
+              "slug": "military-targets",
+              "sections": []
+            },
+            {
+              "title": "Civilian Harm and Attack Precautions",
+              "slug": "attack-rules",
+              "sections": []
+            },
+            {
+              "title": "IHL Preparation and Peace",
+              "slug": "ihl-preparation-and-peace",
+              "sections": []
             }
           ]
         },

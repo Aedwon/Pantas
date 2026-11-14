@@ -260,13 +260,6 @@
     "reason": "Recognizing close meanings, opposites, and differences in strength makes relationship matching easier. The lesson explains these relationships sufficiently itself."
    }
   ],
-  "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law": [
-   {
-    "lesson": "lesson-peace-and-human-rights-commission-on-human-rights",
-    "strength": "helpful",
-    "reason": "Understanding continuing government duties and emergency limits makes the comparison with humanitarian law easier. This lesson explains those principles again."
-   }
-  ],
   "lesson-spatial-abstract-reasoning-figure-grouping": [],
   "lesson-spatial-abstract-reasoning-figure-matrices": [
    {
@@ -1404,6 +1397,76 @@
     "lesson": "lesson-peace-and-human-rights-rights-during-emergencies",
     "strength": "required",
     "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-peace-and-human-rights-hrl-and-ihl-scope": [
+   {
+    "lesson": "lesson-peace-and-human-rights-commission-on-human-rights",
+    "strength": "helpful",
+    "reason": "Understanding continuing government duties and emergency limits makes the comparison with humanitarian law easier. This lesson explains those principles again."
+   }
+  ],
+  "lesson-peace-and-human-rights-armed-conflict-types": [
+   {
+    "lesson": "lesson-peace-and-human-rights-hrl-and-ihl-scope",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-peace-and-human-rights-hrl-and-ihl-together": [
+   {
+    "lesson": "lesson-peace-and-human-rights-armed-conflict-types",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-peace-and-human-rights-iccpr-emergency-conditions": [
+   {
+    "lesson": "lesson-peace-and-human-rights-hrl-and-ihl-together",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-peace-and-human-rights-iccpr-protected-rights": [
+   {
+    "lesson": "lesson-peace-and-human-rights-iccpr-emergency-conditions",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-peace-and-human-rights-people-protected-from-attack": [
+   {
+    "lesson": "lesson-peace-and-human-rights-iccpr-protected-rights",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-peace-and-human-rights-weapons-limits": [
+   {
+    "lesson": "lesson-peace-and-human-rights-people-protected-from-attack",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-peace-and-human-rights-military-targets": [
+   {
+    "lesson": "lesson-peace-and-human-rights-weapons-limits",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-peace-and-human-rights-attack-rules": [
+   {
+    "lesson": "lesson-peace-and-human-rights-military-targets",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-peace-and-human-rights-ihl-preparation-and-peace": [
+   {
+    "lesson": "lesson-peace-and-human-rights-attack-rules",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
    }
   ]
  }
