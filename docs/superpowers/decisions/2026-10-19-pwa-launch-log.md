@@ -3224,3 +3224,23 @@ Aedwon is moving the operations manager role to a new thread (checklist in `docs
 - Six Claude Sonnet 5.5 validators, each given only the claims, source IDs and where to look, tried to refute S-01 to S-18 and the cost table (velocity E-046). 10 confirmed, 8 partly confirmed, 0 refuted; no severity changed. Main corrections: one attacker's token-download egress is about $1,105 a day, not $1,207 (tiered pricing); Free users lose new content, not all content, when the ceiling fills; some actions are already SHA-pinned.
 - Budget state, read-only: not readable without enabling the Budget API (a write). Repo records (Oct 31, Nov 9) say a $5 alert exists on each project; none says there is no budget.
 - A 16-step critical path (backstops, free console steps, the protection-setting rollout one product at a time, three backend releases, the static-file move, smaller hardening) is in the private report; the public report carries a pointer. Nothing changed.
+
+### Nov 14, security fixes and billing cap: Aedwon's approvals (security fixes lead, relayed by the manager)
+
+- Context: the audit's two billing decisions (a prod budget alert, recommended about $35 with the Budget API enabled so an agent can set it; a billing hard stop, recommended $20 on staging and about $350 on prod) and the 16-step critical path.
+- Aedwon, verbatim, on the budget: "approved with a slight correction. budgets to max $20 only. alert at $10."
+- Aedwon, verbatim: "is it possible to set a hard cutoff so that it doesn't exceed $20? that's my goal."
+- The manager consulted Claude Fable 5.2 on that question. Its advice (the order below) is that no Google control guarantees a hard ceiling, because billing data lags hours; the closest is a budget with automatic billing removal, backed by an alarm on actual usage that fires within minutes, plus caps on the surfaces that can bill fastest, and the Cloudflare move for Hosting.
+- Aedwon, verbatim, after that advice: "okay let's go with that order then. go with $15. i will raise that limit according to the size of the userbase". $15 is the prod cutoff trigger.
+- Earlier, Aedwon approved the critical path's group 1 (console and billing settings) and group 2 (backend fixes this week).
+- Approved order:
+  1. One $20-a-month budget on the whole billing account (prod and staging combined), email at $10, 100% actual and 100% forecast. Enabling the Budget API on pantas-prod as the quota project is approved. Existing budgets are read first and replaced or aligned.
+  2. Caps: reCAPTCHA assessments about 300 a day per project (free tier), set only after checking real peak use, reported first if it would block real testers; a Firebase Functions spend cap of about $5 per project if the Preview is available; lower maxInstances as the report recommends.
+  3. Automatic billing cutoff on staging (budget, Pub/Sub, disable billing, Google's sample), trigger $5, proved with a dry run and then a real fire, billing relinked and staging confirmed working; relink steps in the deploy guide.
+  4. A usage-metric alarm (Hosting bytes, Storage egress, Firestore reads and writes) that triggers the same cutoff within minutes, tuned so normal tester use never fires it, proved on staging.
+  5. Cloudflare serves the app's static files instead of Firebase Hosting, staging first, then prod.
+  6. App Check enforced one product at a time, staging first; on prod only after a week of clean staging metrics and after the "updates take effect at once" release is on prod. The R1 upload and write limits.
+  7. The prod cutoff at a $15 trigger.
+- Also approved: console hardening (disable the marketing site's database key, Firestore backups and delete protection, lock the storage bucket and auto-delete old uploads, a DMARC record); R2 (sign-in lockout S-06 and mail caps S-10), urgent because the beta list ends Nov 16.
+- Not approved yet, left alone: S-12 checkout, narrower function permissions, protecting main, security headers, Pro sync quotas, replacing the marketing key.
+- Lane: "Security fixes and billing cap" lead, branch `security/fixes-r1`. App and functions code goes to the integrator as a branch with passing CI and journeys; the lead makes the billing, console, DNS and IAM changes itself, staging first, each with a rollback. Velocity rows E-047 to E-050 logged before work.
