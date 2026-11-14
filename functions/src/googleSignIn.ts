@@ -20,10 +20,10 @@ import {timed} from './_timed.js';
  * Firebase allows one account per email. A tester who first signed in with the email code has an
  * account with no Google link, so Firebase refuses their Google sign-in. This callable checks
  * Google's proof of the address and signs the person into that existing account, then links
- * Google to it so the next Google sign-in works directly. It never makes an account: an address
- * with no account signs in through Firebase itself. If the address has only an unverified,
+ * Google to it so the next Google sign-in works directly. An address with no account signs in
+ * through Firebase itself. The one account it makes: if the address has only an unverified,
  * password-only account (someone registered it without owning it), that account is replaced once
- * Google has proved the address, so the address is then new and Firebase signs the owner in directly.
+ * Google has proved the address, by a new verified account with Google linked.
  *
  * The proof is the Google ID token, checked with Google's tokeninfo endpoint. That is as strong
  * as the email code (both prove control of the inbox) and adds no dependency. It is accepted
@@ -57,7 +57,7 @@ const NOT_VERIFIED = 'Google could not confirm this sign-in.';
 export type TokenInfoReply = {status: number; body: unknown};
 
 export type GoogleSignInDeps = {
-  auth: Pick<Auth, 'getUserByEmail' | 'getUserByProviderUid' | 'updateUser' | 'createCustomToken'> & SquatterAuth;
+  auth: Pick<Auth, 'getUserByEmail' | 'getUserByProviderUid' | 'updateUser' | 'createUser' | 'createCustomToken'> & SquatterAuth;
   /** The expected `aud` of the Google ID token. */
   clientId: string;
   /** Asks Google about an ID token. Tests pass a stand-in so they never reach Google. */
@@ -226,11 +226,20 @@ export async function checkGoogleSignIn(request: Req, deps: GoogleSignInDeps): P
   // A new address never needs this path: Firebase signs it in directly.
   let user = await userOrNull(() => deps.auth.getUserByEmail(email));
   // The caller has just proved they own the address, so an unverified password-only account on it is
-  // a squatter's. It is replaced, and the address is then new: the answer is the one for a new
-  // address, and the client's next Google sign-in goes to Firebase directly and makes the account.
+  // a squatter's. It is replaced by a new verified account, which gets the Google link below, so the
+  // owner is signed in on this first try. If the address was registered again in between, the new
+  // registration is refused below rather than taken over.
   if (user && isSquatter(user)) {
-    await replaceSquatter(deps.db, deps.auth, user, deps.purge);
-    user = null;
+    if (await replaceSquatter(deps.db, deps.auth, user, deps.purge)) {
+      try {
+        user = await deps.auth.createUser({email, emailVerified: true});
+      } catch (error) {
+        if (authCode(error) !== 'auth/email-already-exists') throw error;
+        user = await userOrNull(() => deps.auth.getUserByEmail(email));
+      }
+    } else {
+      user = null;
+    }
   }
   if (!user) throw new HttpsError('permission-denied', NOT_VERIFIED);
   await assertSignInTargetActive(deps.db, user.uid, uid);

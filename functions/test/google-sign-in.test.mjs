@@ -65,6 +65,12 @@ function fakeAuth(users = {maria: account()}) {
       users[uid].providerData = [...users[uid].providerData, props.providerToLink];
       return users[uid];
     },
+    createUser: async props => {
+      calls.push(['createUser', props]);
+      if (all().some(x => x.email === props.email)) throw Object.assign(new Error('taken'), {code: 'auth/email-already-exists'});
+      users.created = {uid: 'created', email: props.email, emailVerified: props.emailVerified, disabled: false, providerData: []};
+      return users.created;
+    },
     createCustomToken: async uid => `token-for-${uid}`,
     getUser: async uid => { if (!users[uid]) throw notFound(); return users[uid]; },
     revokeRefreshTokens: async uid => { calls.push(['revoke', uid]); },
@@ -235,17 +241,31 @@ test('a disabled account, or an unverified one with another provider, is refused
   }
 });
 
-test('S-06: an unverified password-only account is replaced once Google proves the address, then the address is new', async () => {
+test('S-06: an unverified password-only account is replaced once Google proves the address, and the owner is signed in at once', async () => {
   for (const providerData of [[{providerId: 'password'}], [], undefined]) {
     const squatter = account({emailVerified: false, providerData});
     if (providerData === undefined) delete squatter.providerData;
     const r = rig({users: {maria: squatter}});
-    // The answer is the one for a new address: Firebase signs a new address in directly on the next try.
-    await refused(r.run(), 'permission-denied');
-    assert.deepEqual(r.auth.calls, [['revoke', 'maria'], ['purge', 'maria']]);
+    // The owner gets a new verified account with Google linked, on the first try.
+    assert.deepEqual(await r.run(), {token: 'token-for-created'});
+    assert.deepEqual(r.auth.calls, [['revoke', 'maria'], ['purge', 'maria'],
+      ['createUser', {email: EMAIL, emailVerified: true}],
+      ['updateUser', 'created', {providerToLink: {providerId: 'google.com', uid: SUB, email: EMAIL}}]]);
     assert.equal(r.auth.users.maria, undefined);
-    await assert.rejects(r.auth.getUserByEmail(EMAIL), {code: 'auth/user-not-found'});
+    assert.equal((await r.auth.getUserByEmail(EMAIL)).uid, 'created');
   }
+});
+
+test('S-06: if the address is registered again between the replacement and the new account, it is refused, not taken over', async () => {
+  const r = rig({users: {maria: account({emailVerified: false, providerData: [{providerId: 'password'}]})}});
+  r.deps.purge = async uid => {
+    r.auth.calls.push(['purge', uid]);
+    delete r.auth.users[uid];
+    r.auth.users.again = account({uid: 'again', emailVerified: false, providerData: [{providerId: 'password'}]});
+  };
+  await refused(r.run(), 'permission-denied');
+  assert.ok(r.auth.users.again);
+  assert.ok(!r.auth.calls.some(call => call[0] === 'updateUser'));
 });
 
 test('S-06: a verified account is signed in as before and never replaced', async () => {
@@ -266,7 +286,8 @@ test('S-06: a squatter already deleted by another sign-in is not an error', asyn
   const getUser = r.auth.getUser;
   r.auth.getUser = async uid => { const user = await getUser(uid); delete r.auth.users[uid]; return user; };
   r.deps.purge = async uid => { throw Object.assign(new Error('gone'), {code: 'auth/user-not-found'}); };
-  await refused(r.run(), 'permission-denied');
+  // The owner has proved the address, so they are signed in to a new account all the same.
+  assert.deepEqual(await r.run(), {token: 'token-for-created'});
 });
 
 test('S-06: an account that stops being a squatter before it is deleted is left alone', async () => {

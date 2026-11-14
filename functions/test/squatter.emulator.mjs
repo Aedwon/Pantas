@@ -79,17 +79,18 @@ test('email code: an unverified account that also has Google, and a disabled one
   assert.ok(await auth.getUser(off.uid));
 });
 
-test('google: the squatter and its data go, and the address is free for the next Google sign-in', async () => {
+test('google: the squatter and its data go, and the owner is signed in to a new verified account at once', async () => {
   const squatter = await squatterWithData('victim-google@gmail.com');
-  await assert.rejects(googleSignIn('sub-victim', 'victim-google@gmail.com'), {code: 'permission-denied'});
+  assert.deepEqual(Object.keys(await googleSignIn('sub-victim', 'victim-google@gmail.com')), ['token']);
   await assert.rejects(auth.getUser(squatter.uid), {code: 'auth/user-not-found'});
-  await assert.rejects(auth.getUserByEmail('victim-google@gmail.com'), {code: 'auth/user-not-found'});
   assert.equal((await db.doc(`users/${squatter.uid}/answers/a1`).get()).exists, false);
-  // With no account on the address, Firebase signs the owner's Google sign-in in directly and makes it.
-  const created = await auth.createUser({email: 'victim-google@gmail.com', emailVerified: true});
-  await auth.updateUser(created.uid, {providerToLink: {providerId: 'google.com', uid: 'sub-victim', email: 'victim-google@gmail.com'}});
-  assert.equal((await auth.getUserByProviderUid('google.com', 'sub-victim')).uid, created.uid);
-  assert.deepEqual(await googleSignIn('sub-victim', 'victim-google@gmail.com').then(r => Object.keys(r)), ['token']);
+  const owner = await auth.getUserByEmail('victim-google@gmail.com');
+  assert.notEqual(owner.uid, squatter.uid);
+  assert.equal(owner.emailVerified, true);
+  assert.equal((await auth.getUserByProviderUid('google.com', 'sub-victim')).uid, owner.uid);
+  // The next Google sign-in finds the link and signs in to the same account.
+  assert.deepEqual(Object.keys(await googleSignIn('sub-victim', 'victim-google@gmail.com')), ['token']);
+  assert.equal((await auth.getUserByEmail('victim-google@gmail.com')).uid, owner.uid);
 });
 
 test('google: a verified account is linked as before, and an unverified Google-linked one is refused untouched', async () => {
