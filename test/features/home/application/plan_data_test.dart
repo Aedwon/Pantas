@@ -77,7 +77,6 @@ void main() {
           id: 'l',
           title: 'Cells',
           subject: 'Science',
-          minutes: 8,
           read: false,
         ),
       ],

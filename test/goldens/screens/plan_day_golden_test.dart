@@ -20,7 +20,6 @@ void main() {
             id: 'l',
             title: 'DNA and genes',
             subject: 'Biology',
-            minutes: 8,
             read: true,
           ),
         ],

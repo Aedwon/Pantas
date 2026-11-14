@@ -92,7 +92,7 @@ void main() {
         expect(find.byType(LessonTextScale), findsOneWidget);
         // The approved reader design (QA 2F-23): the topic and the time in one
         // line of 15 px, then the title at 30 px on the design's numbers.
-        const metaText = 'Earth Science and Astronomy · 10 min';
+        const metaText = 'Earth Science and Astronomy';
         final meta = tester.widget<Text>(find.text(metaText));
         expect(meta.style!.fontSize, 15);
         expect(meta.style!.fontWeight, FontWeight.w400);

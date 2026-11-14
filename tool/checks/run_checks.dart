@@ -15,6 +15,7 @@ import 'custom_subject_tiers.dart';
 import 'design_token_literals.dart';
 import 'legal_text_drafting.dart';
 import 'lesson_list_exam_scope.dart';
+import 'lesson_minutes_on_screen.dart';
 import 'lesson_pool_check.dart';
 import 'lesson_size_check.dart';
 import 'lesson_split_coverage_check.dart';
@@ -33,6 +34,7 @@ const allChecks = <Check>[
   MockBlueprintTopicsCheck(),
   BoldStemCheck(),
   LessonListExamScopeCheck(),
+  LessonMinutesOnScreenCheck(),
   DesignTokenLiteralsCheck(),
   CustomSubjectTiersCheck(),
   LetterShortcutGateCheck(),

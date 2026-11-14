@@ -41,7 +41,6 @@ void main() {
                       lesson: const StudyLesson(
                         id: 'l1',
                         title: 'Circles',
-                        estimatedMinutes: 8,
                         isRead: false,
                         isBookmarked: false,
                       ),
@@ -83,15 +82,8 @@ void main() {
           ),
           greaterThanOrEqualTo(4.5),
         );
-        final minutes = tester.widget<Text>(find.text('8 min'));
-        expect(minutes.style!.fontSize, 15);
-        expect(
-          contrast(
-            minutes.style!.color!,
-            (dark ? PantasColors.dark : PantasColors.light).pickerBackground,
-          ),
-          greaterThanOrEqualTo(4.5),
-        );
+        // The typed-in minutes are gone (bite-sized label ruling).
+        expect(find.textContaining(' min'), findsNothing);
         await tester.sendKeyEvent(LogicalKeyboardKey.tab);
         await tester.sendKeyEvent(LogicalKeyboardKey.enter);
         expect(opened, 1);

@@ -19,7 +19,6 @@ import '../../../helpers/in_memory_database.dart';
 const _first = StudyLesson(
   id: 'l1',
   title: 'Layers',
-  estimatedMinutes: 11,
   isRead: true,
   isBookmarked: false,
 );
@@ -28,7 +27,6 @@ const _longName = 'Order of Operations (PEMDAS/GEMDAS) and Other Ways to '
 const _second = StudyLesson(
   id: 'l2',
   title: _longName,
-  estimatedMinutes: 12,
   isRead: false,
   isBookmarked: false,
 );
@@ -159,7 +157,7 @@ void main() {
       expect(style.fontSize, 38);
       expect(style.height, 1.1);
       expect(style.letterSpacing, PantasType.webH1.letterSpacing);
-      final meta = find.text('Earth Science · 11 min');
+      final meta = find.text('Earth Science');
       expect(
         tester.getTopLeft(title).dy - tester.getBottomLeft(meta).dy,
         closeTo(8, .01),

@@ -27,14 +27,12 @@ class BookmarkRow {
     required this.lessonId,
     required this.title,
     required this.topicName,
-    required this.estimatedMinutes,
     this.subjectName = '',
   });
 
   final LessonId lessonId;
   final String title;
   final String topicName;
-  final int estimatedMinutes;
   final String subjectName;
 }
 
@@ -242,7 +240,6 @@ final bookmarkRowsProvider = FutureProvider<List<BookmarkRow>>((ref) async {
           lessonId: lesson.id,
           title: lesson.title,
           topicName: topic.name,
-          estimatedMinutes: lesson.estimatedMinutes,
           subjectName: subject.name,
         );
       }

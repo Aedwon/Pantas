@@ -10,6 +10,8 @@ class LessonMeta {
     required this.title,
     required this.ordering,
     required this.estimatedMinutes,
+    this.part,
+    this.partCount,
   });
 
   final LessonId id;
@@ -17,4 +19,8 @@ class LessonMeta {
   final String title;
   final int ordering;
   final int estimatedMinutes;
+
+  /// Position in a split lesson; both null when the lesson is not split.
+  final int? part;
+  final int? partCount;
 }

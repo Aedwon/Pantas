@@ -43,7 +43,6 @@ void main() {
                     subjects: [],
                     readCount: 0,
                     totalCount: 0,
-                    minutesLeftToRead: 0,
                   );
                 }),
               ],

@@ -5,14 +5,19 @@ class StudyLesson {
   const StudyLesson({
     required this.id,
     required this.title,
-    required this.estimatedMinutes,
     required this.isRead,
     required this.isBookmarked,
+    this.part,
+    this.partCount,
   });
 
   final LessonId id;
   final String title;
-  final int estimatedMinutes;
+
+  /// Position in a split lesson (`part` of `partCount`); both null when the
+  /// lesson is not split.
+  final int? part;
+  final int? partCount;
   final bool isRead;
   final bool isBookmarked;
 }
@@ -66,18 +71,12 @@ class StudyMap {
     required this.subjects,
     required this.readCount,
     required this.totalCount,
-    required this.minutesLeftToRead,
   });
 
   final String examShortName;
   final List<StudySubject> subjects;
   final int readCount;
   final int totalCount;
-
-  /// The sum of authored `estimatedMinutes` over unread lessons. This is a
-  /// property of the material and never of the student: nothing records how
-  /// long anyone read.
-  final int minutesLeftToRead;
 
   /// Read lessons over total, rounded. Zero when the exam has no lessons,
   /// rather than a division by zero.

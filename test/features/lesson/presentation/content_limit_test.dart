@@ -39,7 +39,6 @@ const _emptyMap = StudyMap(
   subjects: [],
   readCount: 0,
   totalCount: 0,
-  minutesLeftToRead: 0,
 );
 
 void main() {

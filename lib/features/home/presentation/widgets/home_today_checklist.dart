@@ -17,6 +17,7 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/domain/home_today_lesson.dart';
 import 'package:pantas/features/home/domain/home_today_view.dart';
+import 'package:pantas/features/lesson/application/lesson_bite_label.dart';
 
 export 'package:pantas/features/home/domain/home_today_lesson.dart';
 
@@ -320,7 +321,13 @@ class HomeTodayChecklist extends StatelessWidget {
           boardMetrics: true,
           chevron: upNext ? WebRowChevron.none : WebRowChevron.hover,
           title: l.title,
-          subtitle: l.subject,
+          footer: LessonBiteLabel(
+            lessonId: l.id,
+            part: l.part,
+            partCount: l.partCount,
+            topicLine: l.subject,
+            topicMaxLines: 1,
+          ),
           titleColor: l.read ? t.colors.textSecondary : null,
           titleSuffix: !upNext
               ? null
@@ -342,7 +349,7 @@ class HomeTodayChecklist extends StatelessWidget {
               ? 'Read'
               : (l.fraction ?? 0) > 0
                   ? 'Resume'
-                  : '${l.minutes} min',
+                  : null,
           leading: l.read ? check() : ring(l.fraction ?? 0),
           onPressed: () => onLesson(l),
         );
@@ -577,16 +584,21 @@ class HomeTodayChecklist extends StatelessWidget {
   }) =>
       ListRow(
         title: lesson.title,
-        subtitle: upNext ? 'Up next · ${lesson.subject}' : lesson.subject,
+        footer: LessonBiteLabel(
+          lessonId: lesson.id,
+          part: lesson.part,
+          partCount: lesson.partCount,
+          topicLine: upNext ? 'Up next · ${lesson.subject}' : lesson.subject,
+          topicMaxLines: 1,
+        ),
         // Board (HE_LongTitle): a long title and subject are cut, never
         // wrapped.
         truncateTitle: true,
-        subtitleMaxLines: 1,
         value: lesson.read
             ? 'Read'
             : (lesson.fraction ?? 0) > 0
                 ? 'Resume'
-                : '${lesson.minutes} min',
+                : null,
         valueStyle:
             context.type.subhead.copyWith(color: context.colors.textSecondary),
         titleColor: lesson.read ? context.colors.textSecondary : null,

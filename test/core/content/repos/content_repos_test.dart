@@ -135,6 +135,8 @@ void main() {
               lesson.title,
               lesson.ordering,
               lesson.estimatedMinutes,
+              lesson.part,
+              lesson.partCount,
             ),
           ),
           full[topic]!.map(
@@ -144,6 +146,8 @@ void main() {
               lesson.title,
               lesson.ordering,
               lesson.estimatedMinutes,
+              lesson.part,
+              lesson.partCount,
             ),
           ),
         );
@@ -202,6 +206,8 @@ void main() {
         'title',
         'ordering',
         'estimated_minutes',
+        'part',
+        'part_count',
       });
     });
   });

@@ -565,6 +565,7 @@ class WebRow extends StatefulWidget {
   const WebRow({
     required this.title,
     this.subtitle,
+    this.footer,
     this.wrapTitle = false,
     this.mathTitle = false,
     this.titleStyle,
@@ -596,6 +597,9 @@ class WebRow extends StatefulWidget {
   /// The title is a question stem that may hold `\$...\$` maths.
   final bool mathTitle;
   final String? subtitle;
+
+  /// Lines under the title and subtitle (the lesson label, then a topic line).
+  final Widget? footer;
   final TextStyle? titleStyle;
   final double horizontalPadding;
   final Color? titleColor;
@@ -845,6 +849,7 @@ class _WebRowState extends State<WebRow> {
                                     : TextOverflow.ellipsis,
                                 style: subStyle,
                               ),
+                            if (w.footer != null) w.footer!,
                             if (stacked) Text(w.value!, style: valueStyle),
                           ],
                         ),

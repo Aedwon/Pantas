@@ -6,7 +6,14 @@ import 'package:pantas/core/storage/domain/subject.dart';
 import 'package:pantas/core/storage/domain/topic.dart';
 import 'package:pantas/features/lesson/domain/use_cases/build_study_map.dart';
 
-Lesson lesson(String id, {int minutes = 10, int ordering = 0}) => Lesson(
+Lesson lesson(
+  String id, {
+  int minutes = 10,
+  int ordering = 0,
+  int? part,
+  int? partCount,
+}) =>
+    Lesson(
       id: id,
       topicId: 't1',
       title: 'Lesson $id',
@@ -14,6 +21,8 @@ Lesson lesson(String id, {int minutes = 10, int ordering = 0}) => Lesson(
       bodyJson: const [],
       estimatedMinutes: minutes,
       ordering: ordering,
+      part: part,
+      partCount: partCount,
     );
 
 void main() {
@@ -221,18 +230,10 @@ void main() {
     expect(map.coveredPercent, 25);
   });
 
-  test('minutes left counts only what is unread', () {
-    final map = build(read: {'l1', 'l4'});
-
-    // 20 + 30 remain of 75.
-    expect(map.minutesLeftToRead, 50);
-  });
-
   test('a finished exam has nothing left to read', () {
     final map = build(read: {'l1', 'l2', 'l3', 'l4'});
 
     expect(map.coveredPercent, 100);
-    expect(map.minutesLeftToRead, 0);
   });
 
   test('subjects and topics keep their authored order', () {
@@ -296,7 +297,8 @@ void main() {
 
     expect(lessons.first.title, 'Lesson l1');
     expect(lessons.first.isRead, isTrue);
-    expect(lessons.first.estimatedMinutes, 10);
+    expect(lessons.first.part, isNull);
+    expect(lessons.first.partCount, isNull);
     expect(lessons.last.isRead, isFalse);
     expect(lessons.last.isBookmarked, isTrue);
   });
@@ -315,6 +317,29 @@ void main() {
     );
 
     expect(map.totalCount, 4);
-    expect(map.minutesLeftToRead, 75);
+  });
+
+  test('a split lesson carries its part and part count to the row', () {
+    final map = buildStudyMap(
+      exam: exam,
+      retiredReplacements: const {},
+      topicsBySubject: {
+        's1': [algebra],
+      },
+      lessonsByTopic: {
+        't1': [
+          lesson('a', part: 2, partCount: 9),
+          lesson('b'),
+        ],
+      },
+      readLessonIds: const {},
+      bookmarkedLessonIds: const {},
+    );
+    final rows = map.subjects.single.topics.single.lessons;
+
+    expect(rows.first.part, 2);
+    expect(rows.first.partCount, 9);
+    expect(rows.last.part, isNull);
+    expect(rows.last.partCount, isNull);
   });
 }

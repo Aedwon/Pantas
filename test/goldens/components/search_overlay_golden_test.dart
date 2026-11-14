@@ -20,21 +20,18 @@ const _recent = [
   StudyLesson(
     id: 'l1',
     title: 'Adding fractions',
-    estimatedMinutes: 6,
     isRead: true,
     isBookmarked: false,
   ),
   StudyLesson(
     id: 'l2',
     title: 'Comparing halves and thirds',
-    estimatedMinutes: 4,
     isRead: false,
     isBookmarked: false,
   ),
   StudyLesson(
     id: 'l3',
     title: 'Ratios in recipes',
-    estimatedMinutes: 8,
     isRead: false,
     isBookmarked: false,
   ),
