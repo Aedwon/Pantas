@@ -7,6 +7,7 @@ meta:
   - cse-sub
 questions:
 - id: q-environment-management-environmental-concepts-0004
+  approved: true
   lesson: lesson-environment-management-disaster-risk-and-readiness
   keyPoint: 1
   type: single_choice
@@ -33,6 +34,7 @@ questions:
 
     '
 - id: q-environment-management-environmental-concepts-0007
+  approved: true
   lesson: lesson-environment-management-disaster-risk-and-readiness
   keyPoint: 1
   type: single_choice
@@ -63,7 +65,7 @@ questions:
   keyPoint: 2
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'Which activity is disaster preparedness?
 
     '
@@ -90,7 +92,7 @@ questions:
   keyPoint: 2
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'Which action mainly reduces expected flood damage before the flood?
 
     '
@@ -117,7 +119,7 @@ questions:
   keyPoint: 2
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'Which action most clearly belongs to rehabilitation and recovery?
 
     '
@@ -144,7 +146,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: exam
-  approved: false
+  approved: true
   stem: 'A municipality funds rescue and rebuilding but ignores hazard prevention and readiness. Which assessment best follows the disaster-management framework?
 
     '
@@ -191,7 +193,7 @@ questions:
       The stored supplies prepare the barangay to meet emergency needs.
   explanation: |
     Storing supplies before an emergency is preparedness. Giving those supplies to people during the emergency is response.
-  approved: false
+  approved: true
 - id: q-environment-management-disaster-risk-reduction-and-management-0003
   lesson: lesson-environment-management-disaster-response-and-recovery
   keyPoint: 1
@@ -217,7 +219,7 @@ questions:
   explanation: |
     First aid during a disaster meets an urgent medical need. It is response.
     Helping people restart work after the emergency is recovery.
-  approved: false
+  approved: true
 - id: q-environment-management-disaster-risk-reduction-and-management-0004
   lesson: lesson-environment-management-disaster-response-and-recovery
   keyPoint: 2
@@ -243,7 +245,7 @@ questions:
   explanation: |
     Recovery includes helping people earn a living again after a disaster.
     Emergency relief meets their immediate needs during response.
-  approved: false
+  approved: true
 - id: q-environment-management-disaster-risk-reduction-and-management-0005
   lesson: lesson-environment-management-disaster-risk-and-readiness
   keyPoint: 2
@@ -266,7 +268,7 @@ questions:
       Temporary emergency shelter is response. A land-use rule does not provide that shelter.
   explanation: |
     Safer land-use rules can keep new homes away from danger. This reduces exposure. Training residents would build preparedness instead.
-  approved: false
+  approved: true
 - id: q-environment-management-disaster-risk-reduction-and-management-0006
   lesson: lesson-environment-management-disaster-risk-and-readiness
   keyPoint: 2
@@ -289,7 +291,7 @@ questions:
       Supplying food during an emergency is response. Sending a warning is a different action.
   explanation: |
     Warning systems help people prepare to act when danger threatens. They build readiness. They do not remove the flood hazard.
-  approved: false
+  approved: true
 - id: q-environment-management-disaster-risk-reduction-and-management-0007
   lesson: lesson-environment-management-disaster-risk-and-readiness
   keyPoint: 2
@@ -313,7 +315,7 @@ questions:
   explanation: |
     Mitigation lowers the chance or size of harm. A hazard may still occur.
     Preparedness focuses on being ready to act.
-  approved: false
+  approved: true
 - id: q-environment-management-disaster-risk-reduction-and-management-0008
   lesson: lesson-environment-management-disaster-response-and-recovery
   keyPoint: 2
@@ -335,7 +337,7 @@ questions:
     correct: true
   explanation: |
     Recovery restores services and should make rebuilding safer. Emergency water deliveries help now, but do not repair the damaged system.
-  approved: false
+  approved: true
 - id: q-environment-management-disaster-risk-reduction-and-management-0009
   lesson: lesson-environment-management-disaster-risk-and-readiness
   keyPoint: 2
@@ -359,7 +361,7 @@ questions:
   explanation: |
     Flood-control works reduce possible harm. Staff training builds readiness.
     Training for response duties is still preparedness.
-  approved: false
+  approved: true
 - id: q-environment-management-environmental-concepts-0031
   lesson: lesson-environment-management-disaster-response-and-recovery
   keyPoint: 1
@@ -382,7 +384,7 @@ questions:
       Recovery restores lives and services after a disaster. It can begin during response.
   explanation: |
     Moving people out of immediate danger is response. Officials do not need to wait for damage. Practicing that move beforehand would be preparedness.
-  approved: false
+  approved: true
 - id: q-environment-management-environmental-concepts-0032
   lesson: lesson-environment-management-disaster-response-and-recovery
   keyPoint: 2
@@ -406,7 +408,7 @@ questions:
   explanation: |
     Rebuilding damaged roads is recovery. Safer designs also reduce future risk.
     A program can serve more than one DRRM area.
-  approved: false
+  approved: true
 - id: q-environment-management-environmental-concepts-0033
   lesson: lesson-environment-management-choosing-a-disaster-management-area
   keyPoint: 1
@@ -429,7 +431,7 @@ questions:
     correct: true
   explanation: |
     Both actions can happen before a disaster. Stronger standards reduce damage, while emergency plans build readiness. Timing alone cannot separate them.
-  approved: false
+  approved: true
 - id: q-environment-management-environmental-concepts-0034
   lesson: lesson-environment-management-disaster-response-and-recovery
   keyPoint: 1
@@ -455,7 +457,7 @@ questions:
   explanation: |
     Use the main purpose of each action. Urgent deliveries meet emergency needs.
     Repairs after the emergency restore a service. Both can happen after a typhoon.
-  approved: false
+  approved: true
 - id: q-environment-management-environmental-concepts-0035
   lesson: lesson-environment-management-disaster-response-and-recovery
   keyPoint: 1
@@ -480,7 +482,7 @@ questions:
       Warnings do not supply the missing rescue and emergency medical services.
   explanation: |
     Rescue and emergency medical care are response actions. Warnings and trained staff build readiness, but the program still needs arrangements for urgent help.
-  approved: false
+  approved: true
 - id: q-environment-management-environmental-concepts-0036
   lesson: lesson-environment-management-choosing-a-disaster-management-area
   keyPoint: 1
@@ -504,4 +506,4 @@ questions:
       Recovery does not require ongoing rescue operations.
   explanation: |
     DRRM areas are connected. Rebuilding can restore a community and reduce future risk. Classify an action by its main purpose when one area is requested.
-  approved: false
+  approved: true

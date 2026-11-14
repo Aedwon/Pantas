@@ -1174,5 +1174,647 @@
     "evidence": "docs/content/verification/data-interpretation.md",
     "hash": "c6ed6e412da338583bf0aebc42702f74ac7d5e5f373ed4c1c579699d6e1860ec",
     "lesson": "lesson-data-interpretation-chart-scales-and-differences"
+  },
+  "q-environment-management-disaster-risk-reduction-and-management-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "6cbfd6597866146752411d3c5c98c7f192dba59594beeb65ab1b4ae99a20f7bd",
+    "lesson": "lesson-environment-management-choosing-a-disaster-management-area"
+  },
+  "q-environment-management-disaster-risk-reduction-and-management-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "9fd97aef585faa961d382586bc793785fd132b41169407ab1e50d2881b43f282",
+    "lesson": "lesson-environment-management-disaster-risk-and-readiness"
+  },
+  "q-environment-management-disaster-risk-reduction-and-management-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "b4b2ee9d43a337cbbdcfadbd4bfb4320bc5e8ac9e632623e060411088a408a0b",
+    "lesson": "lesson-environment-management-disaster-response-and-recovery"
+  },
+  "q-environment-management-disaster-risk-reduction-and-management-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "eb0cc184a25d7fece7932a968b2d51deb629f7046b4965d256b34c9a3c5faf3e",
+    "lesson": "lesson-environment-management-disaster-response-and-recovery"
+  },
+  "q-environment-management-disaster-risk-reduction-and-management-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "16b2602faf1ae4b1320466e8f639901d9ba300e47edf5cd9ccd607e08cb21724",
+    "lesson": "lesson-environment-management-disaster-risk-and-readiness"
+  },
+  "q-environment-management-disaster-risk-reduction-and-management-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "33294ffc789cff794b551d23bf5686217be5cdb4811f473b4ac24f4b47b9060f",
+    "lesson": "lesson-environment-management-disaster-risk-and-readiness"
+  },
+  "q-environment-management-disaster-risk-reduction-and-management-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "08636012443303c53a96dbcfa32970c7f4260b990f87af3fdf71c4330687abef",
+    "lesson": "lesson-environment-management-disaster-risk-and-readiness"
+  },
+  "q-environment-management-disaster-risk-reduction-and-management-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "9bf4098e52e19ff02857dbb3c2cbca513c6377932fa215b7343a5b799b1b9a0b",
+    "lesson": "lesson-environment-management-disaster-response-and-recovery"
+  },
+  "q-environment-management-disaster-risk-reduction-and-management-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "527b326bb8d67aa956a1897ed6b5cbd96125e3ae9fc0d9a3e582e57e8e15a029",
+    "lesson": "lesson-environment-management-disaster-risk-and-readiness"
+  },
+  "q-environment-management-environmental-concepts-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "fa692587bd9318411109dcd6d9680e0a717b29655552a87cffcc679b3778b30b",
+    "lesson": "lesson-environment-management-source-segregation-and-waste-types"
+  },
+  "q-environment-management-environmental-concepts-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "6f3c3d1f8470a1ccafcc0f56d7637decf20e6e00e3e788f7e2316c767e11a797",
+    "lesson": "lesson-environment-management-reduction-composting-and-diversion"
+  },
+  "q-environment-management-environmental-concepts-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "8112e48d356357d809de09b214d564697205a1ef47ffdba956e82558bb5babb8",
+    "lesson": "lesson-environment-management-project-review-and-clearance"
+  },
+  "q-environment-management-environmental-concepts-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "d2680a22534b751d48784b1622aca71ec275d3232bccb6e667b81809653f229a",
+    "lesson": "lesson-environment-management-disaster-risk-and-readiness"
+  },
+  "q-environment-management-environmental-concepts-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "3d6f25f68997fbe1799ee4593fdf1a3d94bc7d9a2a934a2de3b520591b76f66c",
+    "lesson": "lesson-environment-management-disaster-risk-and-readiness"
+  },
+  "q-environment-management-environmental-concepts-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "1ea38f6b34bd5d50afbc58ee5c6256040ae5cad0dd5bd5b6d75ec0f07ec29e2c",
+    "lesson": "lesson-environment-management-source-segregation-and-waste-types"
+  },
+  "q-environment-management-environmental-concepts-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "61f287ed0555ee9de0aeae42dbb6bd98812f81dc228cff0b03b7e00f6c49d536",
+    "lesson": "lesson-environment-management-reduction-composting-and-diversion"
+  },
+  "q-environment-management-environmental-concepts-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "b20f0e8ae736effa60784067893cab3d6a03e2e97de576a3c2599ab1fcab4cf0",
+    "lesson": "lesson-environment-management-reuse-and-recycling"
+  },
+  "q-environment-management-environmental-concepts-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "4e2ea38a482fb768caaba8234d5a9a900691bc704fbdefb23b129fe67ed9761e",
+    "lesson": "lesson-environment-management-reuse-and-recycling"
+  },
+  "q-environment-management-environmental-concepts-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "d8c6fdc7845b3aba806fdef5372c68edd9f8908648910ef9e5e3cec9c2897619",
+    "lesson": "lesson-environment-management-reduction-composting-and-diversion"
+  },
+  "q-environment-management-environmental-concepts-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "23a89952fbfa8a3b916673ead3e680a7fc645bb15974c48c763c522a2b115604",
+    "lesson": "lesson-environment-management-source-segregation-and-waste-types"
+  },
+  "q-environment-management-environmental-concepts-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "63afd19b99ba0082de0d0a71050adc3adc9c575a242c13e93ad98d5c388bdaee",
+    "lesson": "lesson-environment-management-project-review-and-clearance"
+  },
+  "q-environment-management-environmental-concepts-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "b6a000797e590a24fabdc547a54e3cc9f6e6d0bb421d051c2c325953aaeab354",
+    "lesson": "lesson-environment-management-project-review-and-clearance"
+  },
+  "q-environment-management-environmental-concepts-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "84680ee5cdf81c215b816dc703e508f7469b12af1a97ff517b7fe8ec571337cc",
+    "lesson": "lesson-environment-management-disaster-risk-and-readiness"
+  },
+  "q-environment-management-environmental-concepts-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "62674d4a82944ca3bf53dcf61c7e2c86a33680f3d2a4b6c6a9f1219af7c3250d",
+    "lesson": "lesson-environment-management-disaster-risk-and-readiness"
+  },
+  "q-environment-management-environmental-concepts-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "c2d039fed4b0328ef619f85cb19f506a249250a1302e17227a4e656eb9e39581",
+    "lesson": "lesson-environment-management-disaster-response-and-recovery"
+  },
+  "q-environment-management-environmental-concepts-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "b690922ebfdeea87e839170e2bb3f4177d83a7a708bd66c2c46dced199e3c45f",
+    "lesson": "lesson-environment-management-reduction-composting-and-diversion"
+  },
+  "q-environment-management-environmental-concepts-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "bef1e084c4e253a553a73932f3b1ccebbb0111269d4ee5e0c870192dcdd72e66",
+    "lesson": "lesson-environment-management-reduction-composting-and-diversion"
+  },
+  "q-environment-management-environmental-concepts-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "11d9c5ff67d3d7c7c8b5f1677796cfce9b567c3ba8c7a9d208efa39687c5af89",
+    "lesson": "lesson-environment-management-source-segregation-and-waste-types"
+  },
+  "q-environment-management-environmental-concepts-0022": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "87ad1c365226a66db939833cd8cf6b3274a5b75f336ba2c00a8c3916d8fdfad9",
+    "lesson": "lesson-environment-management-source-segregation-and-waste-types"
+  },
+  "q-environment-management-environmental-concepts-0023": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "d60183614cef207cfb55c81bb94ff83aca839797feb81761de806795b62ee21b",
+    "lesson": "lesson-environment-management-source-segregation-and-waste-types"
+  },
+  "q-environment-management-environmental-concepts-0024": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "25f459ffd2f68c6fcf618cbe0fb6c94e61f4db4bbff835f09b536c12772e23be",
+    "lesson": "lesson-environment-management-reduction-composting-and-diversion"
+  },
+  "q-environment-management-environmental-concepts-0025": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "864786a6c48e24bf5433691eec8a0a9099fe535e4f47165429b3b4298cfa7129",
+    "lesson": "lesson-environment-management-reuse-and-recycling"
+  },
+  "q-environment-management-environmental-concepts-0026": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "b66871ffd5c9ac870129e2db2dba427457112afbd1d8f757ea7ca5c6a0c59fcb",
+    "lesson": "lesson-environment-management-reuse-and-recycling"
+  },
+  "q-environment-management-environmental-concepts-0027": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "37bf29c8cf9c56bb582facce53252b563f182a62663dfd9511c8798a6667ffdb",
+    "lesson": "lesson-environment-management-reduction-composting-and-diversion"
+  },
+  "q-environment-management-environmental-concepts-0028": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "f2d4aa02035ef08b0278d123f280612e30e22bdd7eccb901ab151b880f4b9e44",
+    "lesson": "lesson-environment-management-source-segregation-and-waste-types"
+  },
+  "q-environment-management-environmental-concepts-0029": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "3ea5344d5c3ef61de37ed7b3253f18eb9cafe4dd7c7bb3364a5db9c362a53fa3",
+    "lesson": "lesson-environment-management-source-segregation-and-waste-types"
+  },
+  "q-environment-management-environmental-concepts-0030": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "b8eea871c8908b7032e5528d969cdb74cac8de64c733c564735d902c3821861e",
+    "lesson": "lesson-environment-management-reduction-composting-and-diversion"
+  },
+  "q-environment-management-environmental-concepts-0031": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "0d32669083228e9f53ccf788eb6e39295ac15cbab0481d85c8363e38e684394e",
+    "lesson": "lesson-environment-management-disaster-response-and-recovery"
+  },
+  "q-environment-management-environmental-concepts-0032": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "cc14ba31f1a093cfcd58c552aa3369a811b64ab13342e8d737efd44ec29b23b7",
+    "lesson": "lesson-environment-management-disaster-response-and-recovery"
+  },
+  "q-environment-management-environmental-concepts-0033": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "ea3c2d890cc72159cdd91afec89831d8c59975878e406e0e8a10a2ae6f06a9f2",
+    "lesson": "lesson-environment-management-choosing-a-disaster-management-area"
+  },
+  "q-environment-management-environmental-concepts-0034": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "784fd63a80424ad25bb3bfff1236de4de59455525367e87a92eadcad1c62c6ab",
+    "lesson": "lesson-environment-management-disaster-response-and-recovery"
+  },
+  "q-environment-management-environmental-concepts-0035": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "6e800e63f52482c057652f13a1e0b731ba3313e5cddb7accf9790a3e11f0f98c",
+    "lesson": "lesson-environment-management-disaster-response-and-recovery"
+  },
+  "q-environment-management-environmental-concepts-0036": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "c12dd4d5b1f616380e6e587bc551a7fbc02c01168a402919ae07781198b2f1f0",
+    "lesson": "lesson-environment-management-choosing-a-disaster-management-area"
+  },
+  "q-environment-management-environmental-problems-and-climate-change-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "c403edd57e4ca3b5fbb1ddcb4c92c53309a3c9421d132e84b216f3e68eadf632",
+    "lesson": "lesson-environment-management-climate-change-and-its-effects"
+  },
+  "q-environment-management-environmental-problems-and-climate-change-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "025643b82d9d5a8bc10a1edbf3859dc3bef1d697fb258a91e029ea1eee1ba2c3",
+    "lesson": "lesson-environment-management-climate-change-and-its-effects"
+  },
+  "q-environment-management-environmental-problems-and-climate-change-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "dcf11cc8bb77fe4e39d68121f787d9e6acf8d3ff407bce37f509739664c979c5",
+    "lesson": "lesson-environment-management-local-environmental-problems"
+  },
+  "q-environment-management-environmental-problems-and-climate-change-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "38330bdab6db8c571b23bb41c0e1cb70bfa9d986315f8b4c789ad90e8ebfda54",
+    "lesson": "lesson-environment-management-climate-adaptation-and-mitigation"
+  },
+  "q-environment-management-environmental-problems-and-climate-change-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "a50a51267c5ed922fa057254d71d3de95621563f97f05b31ab211084f85c90a2",
+    "lesson": "lesson-environment-management-government-environmental-responses"
+  },
+  "q-environment-management-environmental-problems-and-climate-change-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "97dbb50e70c9dcc1b76c9f4783cc30a873c223858a5d8df8c6686ab0793f67f6",
+    "lesson": "lesson-environment-management-local-environmental-problems"
+  },
+  "q-environment-management-environmental-problems-and-climate-change-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "74c2d67278f415fc6bd496b07d3fcbc474b1ce53d1e275eb96c2bb03acab4549",
+    "lesson": "lesson-environment-management-government-environmental-responses"
+  },
+  "q-environment-management-environmental-problems-and-climate-change-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "30579ca03572c921e469960112a5678d2a1a4a14f3f3801e0e268ea962a06b5a",
+    "lesson": "lesson-environment-management-climate-change-and-its-effects"
+  },
+  "q-environment-management-environmental-problems-and-climate-change-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "e02265e7597f6eaa6a2b0d83450f7f90450d92150324992d103e6c50012ea1e7",
+    "lesson": "lesson-environment-management-climate-change-and-its-effects"
+  },
+  "q-environment-management-environmental-problems-and-climate-change-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "49d3a7185fec23d5a234bee10f442ebaa0f023592ae63d3d9b5d269ec1cdfc18",
+    "lesson": "lesson-environment-management-climate-adaptation-and-mitigation"
+  },
+  "q-environment-management-environmental-problems-and-climate-change-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "91647b778e381a11a620c7e502a2ef3b9b582d3eea02215bca1388d630a28669",
+    "lesson": "lesson-environment-management-national-climate-framework"
+  },
+  "q-environment-management-environmental-problems-and-climate-change-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "4f02beaf188aff9a25f25e5a9d9397e27a6d3d3706c12a0445214f9f3f594601",
+    "lesson": "lesson-environment-management-national-climate-framework"
+  },
+  "q-environment-management-environmental-problems-and-climate-change-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "a21ea5fca8b456a6050e3ee6b11153f13184c8c915fdfd7b9d67034f3528a0da",
+    "lesson": "lesson-environment-management-climate-change-and-its-effects"
+  },
+  "q-environment-management-environmental-problems-and-climate-change-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "52249d3a483d8b7108f54d2cc965f90e7dc9cbef0170f5f8ec189d9d3e183b23",
+    "lesson": "lesson-environment-management-government-environmental-responses"
+  },
+  "q-environment-management-environmental-problems-and-climate-change-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "82b54d317efa125c9a8bb17188e843f9ea1b4e8aa18bd0bfcd7913fdf25edf5e",
+    "lesson": "lesson-environment-management-national-climate-framework"
+  },
+  "q-environment-management-environmental-problems-and-climate-change-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "f79c0671fd7c39c121373f5954118e6670c206e209fceda5a379c57dc13282a5",
+    "lesson": "lesson-environment-management-national-climate-framework"
+  },
+  "q-environment-management-environmental-problems-and-climate-change-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "d5965f6de57699309b575d0815712d7150695b93bb3950455eb3d48e93d42785",
+    "lesson": "lesson-environment-management-national-climate-framework"
+  },
+  "q-environment-management-environmental-problems-and-climate-change-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "b8642c431feba1372b3d6f5e399320a0c73024f8f4a6e2224db53ca8d51b4c36",
+    "lesson": "lesson-environment-management-national-climate-framework"
+  },
+  "q-environment-management-environmental-problems-and-climate-change-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "856abfbe92fbe3905a434392b4ee78b6d6cc54ac466df165d53d6e54345c535f",
+    "lesson": "lesson-environment-management-climate-adaptation-and-mitigation"
+  },
+  "q-environment-management-environmental-problems-and-climate-change-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "a3ab4d4152d647a0e12be4ad71151a3d730aae17bba8e7b435dde36366e799cc",
+    "lesson": "lesson-environment-management-national-climate-framework"
+  },
+  "q-environment-management-species-resources-and-environmental-decisions-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "2c89adaba98fb7ba2d775281e0f866634764323aab669b531aee6bfde76d5fb1",
+    "lesson": "lesson-environment-management-species-habitats-and-ecosystems"
+  },
+  "q-environment-management-species-resources-and-environmental-decisions-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "c0baf8d37ead292ce52068274e8eb6d812ed5781107f81ced02c2125e4a76283",
+    "lesson": "lesson-environment-management-species-habitats-and-ecosystems"
+  },
+  "q-environment-management-species-resources-and-environmental-decisions-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "bb665019742debbdb2d04d87d6db7704f7d00357800e5904e28853915b3cb2e0",
+    "lesson": "lesson-environment-management-conserving-natural-resources"
+  },
+  "q-environment-management-species-resources-and-environmental-decisions-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "700f8b3d77c9024e3929220fdd00a6106f44afe1e03ead100cf08185f4b00e2c",
+    "lesson": "lesson-environment-management-conserving-natural-resources"
+  },
+  "q-environment-management-species-resources-and-environmental-decisions-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "79bd7b13cd182c4308993de18ecbd45994355864cca4746212c88ddda45157de",
+    "lesson": "lesson-environment-management-protected-area-management"
+  },
+  "q-environment-management-species-resources-and-environmental-decisions-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "64cbbe36f3678a95dc9b07c17617bf599f765136cd18c495aaae78863c02d7f0",
+    "lesson": "lesson-environment-management-species-habitats-and-ecosystems"
+  },
+  "q-environment-management-species-resources-and-environmental-decisions-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "10c9c483091e6827612446850b401279dbb277ce3fcbe6dbd570603d4e913cb8",
+    "lesson": "lesson-environment-management-protecting-threatened-species"
+  },
+  "q-environment-management-species-resources-and-environmental-decisions-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "a4a85dab8b5af809f9ffa3edac7e7dcf5fb5b31da5beac4c84075d79c7728976",
+    "lesson": "lesson-environment-management-protecting-threatened-species"
+  },
+  "q-environment-management-species-resources-and-environmental-decisions-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "67845d88d5d6ecd6bd10cce0a148a53fa5c1ac2c5631d62e933b37369438d90d",
+    "lesson": "lesson-environment-management-protected-area-management"
+  },
+  "q-environment-management-species-resources-and-environmental-decisions-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "e9af3a85b2b6e3aec3bb74c8543130b2914bf1e88ca5a0480b6b982bee904308",
+    "lesson": "lesson-environment-management-protected-area-management"
+  },
+  "q-environment-management-species-resources-and-environmental-decisions-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "63edb198efc6ec27df7254952f9e43332c4172a657784054f983ade874b0ac8a",
+    "lesson": "lesson-environment-management-protected-area-management"
+  },
+  "q-environment-management-species-resources-and-environmental-decisions-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "2c04bb2bebcd5b50c729935e26d774fbd58feaaf2b0ac71c8c3fcb21b019a6b2",
+    "lesson": "lesson-environment-management-species-habitats-and-ecosystems"
+  },
+  "q-environment-management-species-resources-and-environmental-decisions-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "e36bc1a033b0d0e9abc58262dfd3069e9dfdf9ab732cfd15ee766ec546988377",
+    "lesson": "lesson-environment-management-protecting-threatened-species"
+  },
+  "q-environment-management-species-resources-and-environmental-decisions-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "8f4f87a2a298c46a9b0a1de4943b67023a435c7b088acff669e05f88b19712c8",
+    "lesson": "lesson-environment-management-protecting-threatened-species"
+  },
+  "q-environment-management-species-resources-and-environmental-decisions-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "ab2584945c383e579f64f266b604d1c39a38146fb96a5297ec6ee86c3459979e",
+    "lesson": "lesson-environment-management-conserving-natural-resources"
+  },
+  "q-environment-management-species-resources-and-environmental-decisions-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "acc3ec4cdc301497eac3901f6692015afbdfeeb8b1aec20ab1b5fd19300df3ef",
+    "lesson": "lesson-environment-management-choosing-environmental-options"
+  },
+  "q-environment-management-species-resources-and-environmental-decisions-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "797424ba227f708325a6755eceafce4806686ba44bfe844b489fc5044a7f4719",
+    "lesson": "lesson-environment-management-choosing-environmental-options"
+  },
+  "q-environment-management-species-resources-and-environmental-decisions-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "402dd5ca6afee21ede706e874cc18ff1406b801373f064ed4fc07e35c2457474",
+    "lesson": "lesson-environment-management-choosing-environmental-options"
+  },
+  "q-environment-management-species-resources-and-environmental-decisions-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "b63d3722e85810903017644c948b8a152415e706c86422d59333985d82af0aea",
+    "lesson": "lesson-environment-management-choosing-environmental-options"
+  },
+  "q-environment-management-species-resources-and-environmental-decisions-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "ab122a4fbebdca1013dd01949cecd397ced6dfd670690d76b5ad11fabfe659b2",
+    "lesson": "lesson-environment-management-protected-area-management"
+  },
+  "q-environment-management-species-resources-and-environmental-decisions-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "4f6192dceed2e00fefe1d36cd619e36a6e34cdc6be34963c84b109f4118423b6",
+    "lesson": "lesson-environment-management-protected-area-management"
+  },
+  "q-environment-management-the-environmental-laws-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "2e7b779967e32387eb8005a2826db1057cb9b287e049fcb5c79a14b2d4377f91",
+    "lesson": "lesson-environment-management-solid-waste-law"
+  },
+  "q-environment-management-the-environmental-laws-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "c5953f1ddb98641af47e30a449afc8c198427e1009529ac0b8e5b87d4c0f36aa",
+    "lesson": "lesson-environment-management-clean-air-law"
+  },
+  "q-environment-management-the-environmental-laws-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "d725338ad99ac2d40846b2972781fa5045e842f93a76274626f080a3feabfc6d",
+    "lesson": "lesson-environment-management-clean-water-law"
+  },
+  "q-environment-management-the-environmental-laws-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "1dc533885f2672b86cca5986b8cb66b283a0029a3ec40f2c86394c95dc53b91d",
+    "lesson": "lesson-environment-management-climate-policy-law"
+  },
+  "q-environment-management-the-environmental-laws-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "7df7172952228cb1cd75e2effa43ca59a9feb9ee5f93807c05a17cc36b75dafc",
+    "lesson": "lesson-environment-management-disaster-risk-law"
+  },
+  "q-environment-management-the-environmental-laws-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "83c19f564ee17d8102280b2e9aea34f9454dc6b942df3ad08367b0d31d5962a6",
+    "lesson": "lesson-environment-management-project-review-and-clearance"
+  },
+  "q-environment-management-the-environmental-laws-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "ec00ece639f0adf7654355ff0bd0a6d378f15fc649c66d5305ab2dd6eed6cbcb",
+    "lesson": "lesson-environment-management-wildlife-and-protected-area-laws"
+  },
+  "q-environment-management-the-environmental-laws-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "e23a87638559a78b5d169a5df0f52cd6afa16e2e34c892555d45ad2f96519b1b",
+    "lesson": "lesson-environment-management-wildlife-and-protected-area-laws"
+  },
+  "q-environment-management-the-environmental-laws-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "68c407bc188f4e3987916c91cf6893da6f5529ddd1b341fd10f82e9959924290",
+    "lesson": "lesson-environment-management-environmental-agencies"
+  },
+  "q-environment-management-the-environmental-laws-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "0c2f21830ee98a61cac87c13060f7ffe2c1004da0a6701e9fbe9f47a9dd232fc",
+    "lesson": "lesson-environment-management-climate-policy-law"
+  },
+  "q-environment-management-the-environmental-laws-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "f536788564b9372e1566274fdad7398c16e6eea1d6a4d60f057088e56aef956e",
+    "lesson": "lesson-environment-management-clean-air-law"
+  },
+  "q-environment-management-the-environmental-laws-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "2ca1c2cb219af17271ec6f7a41e00e52f179469f7d4d9971514b609b7a466e5b",
+    "lesson": "lesson-environment-management-solid-waste-law"
+  },
+  "q-environment-management-the-environmental-laws-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "9fe1cc91a1773d9d6ca0eba36ee9ac2f8682ec78af64b832615825d0d8f5885d",
+    "lesson": "lesson-environment-management-wildlife-and-protected-area-laws"
+  },
+  "q-environment-management-the-environmental-laws-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "d257e44f4abb4e5446a89ab7cf100bfb0056e7dea18c767e167e554ddcc23376",
+    "lesson": "lesson-environment-management-disaster-risk-law"
+  },
+  "q-environment-management-the-environmental-laws-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "22362e229f34c5c6d3bccfb98613e17d218f9025df3ef057c63ac6e6cc1d4a59",
+    "lesson": "lesson-environment-management-clean-water-law"
+  },
+  "q-environment-management-the-environmental-laws-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "5c3771ba989f8b41ffc4776640cf5893361f024d3402098493a2ff3ed707fe83",
+    "lesson": "lesson-environment-management-clean-air-law"
+  },
+  "q-environment-management-the-environmental-laws-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "5133928a1b297a2dc991fb506e6905bcf080818fe723e71c318677da7d7cb3fd",
+    "lesson": "lesson-environment-management-environmental-agencies"
+  },
+  "q-environment-management-the-environmental-laws-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "5fbd4453e9359a69f9318a8ca645c03be4bba873a70ca72ddc6f5da56445c7b7",
+    "lesson": "lesson-environment-management-climate-policy-law"
+  },
+  "q-environment-management-the-environmental-laws-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "35803e19f4fda1cb701212d24314f1e7c7c5cb126fecf8d32e625edec649dc47",
+    "lesson": "lesson-environment-management-wildlife-and-protected-area-laws"
+  },
+  "q-environment-management-the-environmental-laws-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "871a9a4ac096af82418a8d8384d9e97abc294dfca5cb0f9dca66578e8eb4b251",
+    "lesson": "lesson-environment-management-solid-waste-law"
+  },
+  "q-environment-management-the-environmental-laws-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "116431507d3b31b6128174644edbca0927a92832bf748fd952eef453f63b7721",
+    "lesson": "lesson-environment-management-critical-area-review"
+  },
+  "q-environment-management-the-environmental-laws-0022": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "d7370c1b1b40013c16c61e43cc1467bb12486401faabfb380bed6a4729185afa",
+    "lesson": "lesson-environment-management-critical-area-review"
+  },
+  "q-environment-management-the-environmental-laws-0023": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/environment-management.md",
+    "hash": "31fa1d5445523f2274b4c1cc260a770d387c9f083969f45897d0bf6f15c60fb6",
+    "lesson": "lesson-environment-management-solid-waste-law"
   }
 }

@@ -7,6 +7,7 @@ meta:
   - cse-sub
 questions:
 - id: q-environment-management-the-environmental-laws-0001
+  approved: true
   lesson: lesson-environment-management-solid-waste-law
   keyPoint: 1
   type: single_choice
@@ -33,6 +34,7 @@ questions:
 
     '
 - id: q-environment-management-the-environmental-laws-0002
+  approved: true
   lesson: lesson-environment-management-clean-air-law
   keyPoint: 1
   type: single_choice
@@ -59,6 +61,7 @@ questions:
 
     '
 - id: q-environment-management-the-environmental-laws-0003
+  approved: true
   lesson: lesson-environment-management-clean-water-law
   keyPoint: 1
   type: single_choice
@@ -85,6 +88,7 @@ questions:
 
     '
 - id: q-environment-management-the-environmental-laws-0004
+  approved: true
   lesson: lesson-environment-management-climate-policy-law
   keyPoint: 1
   type: single_choice
@@ -111,6 +115,7 @@ questions:
 
     '
 - id: q-environment-management-the-environmental-laws-0005
+  approved: true
   lesson: lesson-environment-management-disaster-risk-law
   keyPoint: 1
   type: single_choice
@@ -137,6 +142,7 @@ questions:
 
     '
 - id: q-environment-management-the-environmental-laws-0006
+  approved: true
   lesson: lesson-environment-management-project-review-and-clearance
   keyPoint: 1
   type: single_choice
@@ -163,6 +169,7 @@ questions:
 
     '
 - id: q-environment-management-the-environmental-laws-0007
+  approved: true
   lesson: lesson-environment-management-wildlife-and-protected-area-laws
   keyPoint: 1
   type: single_choice
@@ -189,6 +196,7 @@ questions:
 
     '
 - id: q-environment-management-the-environmental-laws-0008
+  approved: true
   lesson: lesson-environment-management-wildlife-and-protected-area-laws
   keyPoint: 1
   type: single_choice
@@ -215,6 +223,7 @@ questions:
 
     '
 - id: q-environment-management-the-environmental-laws-0009
+  approved: true
   lesson: lesson-environment-management-environmental-agencies
   keyPoint: 1
   type: single_choice
@@ -241,6 +250,7 @@ questions:
 
     '
 - id: q-environment-management-the-environmental-laws-0010
+  approved: true
   lesson: lesson-environment-management-climate-policy-law
   keyPoint: 1
   type: single_choice
@@ -267,6 +277,7 @@ questions:
 
     '
 - id: q-environment-management-the-environmental-laws-0011
+  approved: true
   lesson: lesson-environment-management-clean-air-law
   keyPoint: 1
   type: single_choice
@@ -293,6 +304,7 @@ questions:
 
     '
 - id: q-environment-management-the-environmental-laws-0012
+  approved: true
   lesson: lesson-environment-management-solid-waste-law
   keyPoint: 1
   type: single_choice
@@ -323,7 +335,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: easy
-  approved: false
+  approved: true
   stem: 'Which law expanded and amended NIPAS?
 
     '
@@ -350,7 +362,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: easy
-  approved: false
+  approved: true
   stem: 'Which pairing accurately distinguishes the two frameworks?
 
     '
@@ -377,7 +389,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'A policy separately regulates factory air emissions and wastewater discharges. Which laws match those two subjects?
 
     '
@@ -404,7 +416,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'Which statement accurately describes the Clean Air Act provision on incineration?
 
     '
@@ -431,7 +443,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'Which statement best describes EMB''s place in environmental governance?
 
     '
@@ -458,7 +470,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'Which instrument does the Climate Change Act, as amended by RA 10174, require for national policy direction?
 
     '
@@ -485,7 +497,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: exam
-  approved: false
+  approved: true
   stem: 'Which distinction between wildlife and protected-area statutes is correct?
 
     '
@@ -512,7 +524,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: exam
-  approved: false
+  approved: true
   stem: 'Why is the claim ''one environmental law automatically resolves every environmental issue'' unreliable?
 
     '
@@ -535,6 +547,7 @@ questions:
 
     '
 - id: q-environment-management-environmental-concepts-0003
+  approved: true
   lesson: lesson-environment-management-project-review-and-clearance
   keyPoint: 1
   type: single_choice
@@ -565,7 +578,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'Which sequence best fits a project known to be covered by the EIS System?
 
     '
@@ -592,7 +605,7 @@ questions:
   keyPoint: 2
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'Which statement about an Environmental Compliance Certificate (ECC) is correct?
 
     '
@@ -616,6 +629,7 @@ questions:
     '
 
 - id: q-environment-management-the-environmental-laws-0021
+  approved: true
   lesson: lesson-environment-management-critical-area-review
   keyPoint: 1
   type: single_choice
@@ -638,6 +652,7 @@ questions:
     PD 1586, Section 4 allows environmentally critical areas to be declared for project review. Proclamation 2146, Section B(1) lists watershed reserves. The location must still be checked under the applicable coverage rules.
 
 - id: q-environment-management-the-environmental-laws-0022
+  approved: true
   lesson: lesson-environment-management-critical-area-review
   keyPoint: 1
   type: single_choice
@@ -660,6 +675,7 @@ questions:
     PD 1586, Section 4 provides for declaring environmentally critical areas. Proclamation 2146, Section B(9) includes recharge areas of aquifers. Screening must consider the site as well as the project type.
 
 - id: q-environment-management-the-environmental-laws-0023
+  approved: true
   lesson: lesson-environment-management-solid-waste-law
   keyPoint: 2
   type: single_choice
