@@ -878,6 +878,21 @@
               "sections": []
             },
             {
+              "title": "Choosing a Title for the Main Idea",
+              "slug": "title-main-idea",
+              "sections": []
+            },
+            {
+              "title": "Checking a Title's Scope",
+              "slug": "title-scope",
+              "sections": []
+            },
+            {
+              "title": "Matching a Title to the Author's Stance",
+              "slug": "title-authors-stance",
+              "sections": []
+            },
+            {
               "title": "Noting Specific Details (Skimming and Scanning)",
               "slug": "noting-specific-details",
               "sections": []
@@ -898,8 +913,78 @@
               "sections": []
             },
             {
+              "title": "Identifying Author's Purpose",
+              "slug": "authors-main-purpose",
+              "sections": []
+            },
+            {
+              "title": "Identifying Author's Tone",
+              "slug": "authors-tone",
+              "sections": []
+            },
+            {
+              "title": "Identifying First and Second Person",
+              "slug": "first-and-second-person",
+              "sections": []
+            },
+            {
+              "title": "Identifying Third-Person Point of View",
+              "slug": "third-person-thoughts",
+              "sections": []
+            },
+            {
+              "title": "Identifying Argument Viewpoint and Bias",
+              "slug": "argument-viewpoint-and-bias",
+              "sections": []
+            },
+            {
+              "title": "Identifying Paragraph Links and Patterns",
+              "slug": "paragraph-links-and-patterns",
+              "sections": []
+            },
+            {
+              "title": "Reading Sentence Cues for Meaning",
+              "slug": "sentence-cues-and-meaning",
+              "sections": []
+            },
+            {
               "title": "Meaning through Context Clues (within Full Passages)",
               "slug": "context-clues-in-passages",
+              "sections": []
+            },
+            {
+              "title": "Meaning through Definition and Example Clues",
+              "slug": "definition-and-example-clues",
+              "sections": []
+            },
+            {
+              "title": "Meaning through Contrast and Cause Clues",
+              "slug": "contrast-and-cause-clues",
+              "sections": []
+            },
+            {
+              "title": "Meaning through Word Parts",
+              "slug": "word-parts-in-passages",
+              "sections": []
+            },
+            {
+              "title": "Mga Pahiwatig ng Kahulugan sa Filipino",
+              "slug": "filipino-meaning-clues",
+              "sections": []
+            },
+            {
+              "title": "Posibilidad at Oras sa Talata",
+              "slug": "filipino-possibility-and-time",
+              "sections": []
+            },
+            {
+              "title": "Panghalip, Panuring, at Baybay sa Talata",
+              "slug": "filipino-pronouns-modifiers-spelling",
+              "sections": []
+            },
+            {
+              "title": "Uri ng Pangungusap sa Talata",
+              "slug": "filipino-sentence-types",
               "sections": []
             },
             {

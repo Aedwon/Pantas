@@ -124,15 +124,15 @@
   ],
   "lesson-clerical-ability-alphabetic-filing-rules": [],
   "lesson-clerical-ability-numeric-and-chronological-filing": [],
-  "lesson-comprehension-skills-authors-purpose-tone-pov": [],
-  "lesson-comprehension-skills-choosing-a-title": [
+  "lesson-comprehension-skills-authors-main-purpose": [],
+  "lesson-comprehension-skills-title-main-idea": [
    {
     "lesson": "lesson-comprehension-skills-main-idea",
     "strength": "helpful",
     "reason": "Finding the central point and checking its scope makes title selection easier. This lesson also explains both steps."
    }
   ],
-  "lesson-comprehension-skills-context-clues-in-passages": [
+  "lesson-comprehension-skills-definition-and-example-clues": [
    {
     "lesson": "lesson-vocabulary-context-clues",
     "strength": "helpful",
@@ -299,7 +299,7 @@
   "lesson-statistics-and-probability-measures-of-central-tendency": [],
   "lesson-text-types-essays-editorials-articles": [
    {
-    "lesson": "lesson-comprehension-skills-authors-purpose-tone-pov",
+    "lesson": "lesson-comprehension-skills-sentence-cues-and-meaning",
     "strength": "helpful",
     "reason": "Distinguishing the dominant purpose from individual statements makes mixed text types easier to classify. This lesson provides its own method."
    },
@@ -1465,6 +1465,104 @@
   "lesson-peace-and-human-rights-ihl-preparation-and-peace": [
    {
     "lesson": "lesson-peace-and-human-rights-attack-rules",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-authors-tone": [
+   {
+    "lesson": "lesson-comprehension-skills-authors-main-purpose",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-first-and-second-person": [
+   {
+    "lesson": "lesson-comprehension-skills-authors-tone",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-third-person-thoughts": [
+   {
+    "lesson": "lesson-comprehension-skills-first-and-second-person",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-argument-viewpoint-and-bias": [
+   {
+    "lesson": "lesson-comprehension-skills-third-person-thoughts",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-paragraph-links-and-patterns": [
+   {
+    "lesson": "lesson-comprehension-skills-argument-viewpoint-and-bias",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-sentence-cues-and-meaning": [
+   {
+    "lesson": "lesson-comprehension-skills-paragraph-links-and-patterns",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-contrast-and-cause-clues": [
+   {
+    "lesson": "lesson-comprehension-skills-definition-and-example-clues",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-word-parts-in-passages": [
+   {
+    "lesson": "lesson-comprehension-skills-contrast-and-cause-clues",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-filipino-meaning-clues": [
+   {
+    "lesson": "lesson-comprehension-skills-word-parts-in-passages",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-filipino-possibility-and-time": [
+   {
+    "lesson": "lesson-comprehension-skills-filipino-meaning-clues",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-filipino-pronouns-modifiers-spelling": [
+   {
+    "lesson": "lesson-comprehension-skills-filipino-possibility-and-time",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-filipino-sentence-types": [
+   {
+    "lesson": "lesson-comprehension-skills-filipino-pronouns-modifiers-spelling",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-title-scope": [
+   {
+    "lesson": "lesson-comprehension-skills-title-main-idea",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-title-authors-stance": [
+   {
+    "lesson": "lesson-comprehension-skills-title-scope",
     "strength": "required",
     "reason": "Read the previous part before this part."
    }

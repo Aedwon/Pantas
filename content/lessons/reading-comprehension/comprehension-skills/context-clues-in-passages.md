@@ -6,6 +6,15 @@ subject: "subject-reading-comprehension"
 topic: "topic-comprehension-skills"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-comprehension-skills-definition-and-example-clues
+  - lesson-comprehension-skills-contrast-and-cause-clues
+  - lesson-comprehension-skills-word-parts-in-passages
+  - lesson-comprehension-skills-filipino-meaning-clues
+  - lesson-comprehension-skills-filipino-possibility-and-time
+  - lesson-comprehension-skills-filipino-pronouns-modifiers-spelling
+  - lesson-comprehension-skills-filipino-sentence-types
 ---
 ## Core Concept
 
