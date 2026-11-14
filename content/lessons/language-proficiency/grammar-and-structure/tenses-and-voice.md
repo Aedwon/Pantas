@@ -6,6 +6,16 @@ subject: "subject-language-proficiency"
 topic: "topic-grammar-and-structure"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-grammar-and-structure-present-habits-and-ongoing-actions
+  - lesson-grammar-and-structure-past-events-and-future-meaning
+  - lesson-grammar-and-structure-present-perfect-links-to-now
+  - lesson-grammar-and-structure-past-perfect-earlier-completion
+  - lesson-grammar-and-structure-recognizing-active-and-passive-voice
+  - lesson-grammar-and-structure-changing-voice-and-get-passives
+  - lesson-grammar-and-structure-modals-ability-and-permission
+  - lesson-grammar-and-structure-modals-requirements-and-possibility
 ---
 ## Core Concept
 

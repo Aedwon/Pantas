@@ -6,6 +6,14 @@ subject: "subject-language-proficiency"
 topic: "topic-grammar-and-structure"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-grammar-and-structure-finding-subjects-and-matching-verbs
+  - lesson-grammar-and-structure-groups-and-indefinite-pronouns
+  - lesson-grammar-and-structure-agreement-with-joined-subjects
+  - lesson-grammar-and-structure-aspekto-at-paksa-sa-filipino
+  - lesson-grammar-and-structure-pokus-at-papel-ng-paksa
+  - lesson-grammar-and-structure-mga-gamit-ng-pananda
 ---
 ## Core Concept
 

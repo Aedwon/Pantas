@@ -160,13 +160,6 @@
    }
   ],
   "lesson-grammar-and-structure-filipino-verb-aspect-and-focus": [],
-  "lesson-grammar-and-structure-modifiers": [
-   {
-    "lesson": "lesson-grammar-and-structure-phrases-and-clauses",
-    "strength": "helpful",
-    "reason": "Recognizing phrases and their understood doers makes dangling-modifier repairs easier. The lesson explains the repairs sufficiently to stand alone."
-   }
-  ],
   "lesson-grammar-and-structure-parallelism": [
    {
     "lesson": "lesson-grammar-and-structure-phrases-and-clauses",
@@ -192,23 +185,9 @@
     "reason": "Recognizing clause boundaries makes counting clauses and identifying sentence types easier. The lesson teaches the needed clause definitions itself."
    }
   ],
-  "lesson-grammar-and-structure-subject-verb-agreement": [
-   {
-    "lesson": "lesson-grammar-and-structure-filipino-verb-aspect-and-focus",
-    "strength": "helpful",
-    "reason": "Prior practice with Filipino aspect and focus eases the shift from English agreement rules. The lesson independently explains its Filipino rules."
-   }
-  ],
-  "lesson-grammar-and-structure-tenses-and-voice": [
-   {
-    "lesson": "lesson-grammar-and-structure-subject-verb-agreement",
-    "strength": "helpful",
-    "reason": "Subject and number identification makes choosing auxiliary forms easier. The lesson provides the basic agreement patterns needed for its examples."
-   }
-  ],
   "lesson-language-application-error-identification": [
    {
-    "lesson": "lesson-grammar-and-structure-subject-verb-agreement",
+    "lesson": "lesson-grammar-and-structure-mga-gamit-ng-pananda",
     "strength": "helpful",
     "reason": "Focused agreement practice makes the correction checks easier. The lesson restates agreement rules and explains each correction."
    },
@@ -237,7 +216,7 @@
     "reason": "Practice combining contrast, cause, and surrounding details makes predicting missing meanings easier. The lesson explains its own meaning-clue method."
    },
    {
-    "lesson": "lesson-grammar-and-structure-tenses-and-voice",
+    "lesson": "lesson-grammar-and-structure-modals-requirements-and-possibility",
     "strength": "helpful",
     "reason": "Prior practice distinguishing finished actions from earlier completed actions eases tense selection. The lesson explains its tested verb patterns."
    }
@@ -1383,6 +1362,125 @@
     "lesson": "lesson-environment-management-protected-area-management",
     "strength": "required",
     "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-grammar-and-structure-present-habits-and-ongoing-actions": [
+   {
+    "lesson": "lesson-grammar-and-structure-mga-gamit-ng-pananda",
+    "strength": "helpful",
+    "reason": "Subject and number identification makes choosing auxiliary forms easier. The lesson provides the basic agreement patterns needed for its examples."
+   }
+  ],
+  "lesson-grammar-and-structure-past-events-and-future-meaning": [
+   {
+    "lesson": "lesson-grammar-and-structure-present-habits-and-ongoing-actions",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-present-perfect-links-to-now": [
+   {
+    "lesson": "lesson-grammar-and-structure-past-events-and-future-meaning",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-past-perfect-earlier-completion": [
+   {
+    "lesson": "lesson-grammar-and-structure-present-perfect-links-to-now",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-recognizing-active-and-passive-voice": [
+   {
+    "lesson": "lesson-grammar-and-structure-past-perfect-earlier-completion",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-changing-voice-and-get-passives": [
+   {
+    "lesson": "lesson-grammar-and-structure-recognizing-active-and-passive-voice",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-modals-ability-and-permission": [
+   {
+    "lesson": "lesson-grammar-and-structure-changing-voice-and-get-passives",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-modals-requirements-and-possibility": [
+   {
+    "lesson": "lesson-grammar-and-structure-modals-ability-and-permission",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-finding-subjects-and-matching-verbs": [
+   {
+    "lesson": "lesson-grammar-and-structure-filipino-verb-aspect-and-focus",
+    "strength": "helpful",
+    "reason": "Prior practice with Filipino aspect and focus eases the shift from English agreement rules. The lesson independently explains its Filipino rules."
+   }
+  ],
+  "lesson-grammar-and-structure-groups-and-indefinite-pronouns": [
+   {
+    "lesson": "lesson-grammar-and-structure-finding-subjects-and-matching-verbs",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-agreement-with-joined-subjects": [
+   {
+    "lesson": "lesson-grammar-and-structure-groups-and-indefinite-pronouns",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-aspekto-at-paksa-sa-filipino": [
+   {
+    "lesson": "lesson-grammar-and-structure-agreement-with-joined-subjects",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-pokus-at-papel-ng-paksa": [
+   {
+    "lesson": "lesson-grammar-and-structure-aspekto-at-paksa-sa-filipino",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-mga-gamit-ng-pananda": [
+   {
+    "lesson": "lesson-grammar-and-structure-pokus-at-papel-ng-paksa",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-misplaced-modifiers-and-clear-meaning": [
+   {
+    "lesson": "lesson-grammar-and-structure-phrases-and-clauses",
+    "strength": "helpful",
+    "reason": "Recognizing phrases and their understood doers makes dangling-modifier repairs easier. The lesson explains the repairs sufficiently to stand alone."
+   }
+  ],
+  "lesson-grammar-and-structure-dangling-modifiers-and-their-subjects": [
+   {
+    "lesson": "lesson-grammar-and-structure-misplaced-modifiers-and-clear-meaning",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-scope-of-small-modifiers": [
+   {
+    "lesson": "lesson-grammar-and-structure-dangling-modifiers-and-their-subjects",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
    }
   ]
  }
