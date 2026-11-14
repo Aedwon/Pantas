@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 2
 partCount: 6
-ordering: 11
+ordering: 7
 keyPoints:
   - "Match a collective noun to its meaning and variety of English."
   - "Use singular verbs with everybody, everyone, someone, and nothing."

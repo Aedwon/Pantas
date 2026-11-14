@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 8
 partCount: 8
-ordering: 18
+ordering: 23
 keyPoints:
   - "Distinguish a requirement, advice, a ban, and an optional action."
   - "Use may, might, or could for possibility."

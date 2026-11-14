@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 3
 partCount: 6
-ordering: 4.4286
+ordering: 30
 keyPoints:
   - "Find a relative clause and the noun or pronoun it describes."
   - "Distinguish the relative clause from the main thought."

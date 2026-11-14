@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 1
 partCount: 5
-ordering: 6.1667
+ordering: 44
 keyPoints:
   - "Separate list items with commas and follow the stated serial-comma rule."
   - "Use a comma before a joining word between independent clauses."

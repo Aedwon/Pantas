@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 2
 partCount: 3
-ordering: 3
+ordering: 39
 keyPoints:
   - "Find the person or thing described by an opening phrase."
   - "Repair a dangling phrase by naming its subject in the main part or opening clause."

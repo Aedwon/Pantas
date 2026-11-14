@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 5
 partCount: 5
-ordering: 3.8333
+ordering: 5
 keyPoints:
   - "Kilalanin ang pang-ukol at pangatnig ayon sa pinag-uugnay."
   - "Kilalanin ang pandamdam bilang pahayag ng damdamin."

@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 4
 partCount: 4
-ordering: 5.8
+ordering: 15
 keyPoints:
   - "Piliin ang panghalip para sa may-ari ayon sa ayos ng pangungusap."
   - "Ihiwalay ang nagsasalita, kausap, at pinag-uusapan, kasama ang tayo at kami."

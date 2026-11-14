@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 1
 partCount: 6
-ordering: 10
+ordering: 6
 keyPoints:
   - "Match present verbs to the subject's number and person."
   - "Find the head of the subject and set aside added details."

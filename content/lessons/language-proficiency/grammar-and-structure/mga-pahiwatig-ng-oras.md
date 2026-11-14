@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 3
 partCount: 4
-ordering: 28.03
+ordering: 26
 keyPoints: 
   - "Piliin at ilipat ang pahiwatig ng oras."
   - "Tukuyin ang nagpapatuloy o paulit-ulit na kilos kahit nasa nakaraan."

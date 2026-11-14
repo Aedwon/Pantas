@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 2
 partCount: 6
-ordering: 4.2857
+ordering: 29
 keyPoints:
   - "Tell a complete independent clause from a dependent clause."
   - "Check the words after a connector to distinguish phrases from clauses."

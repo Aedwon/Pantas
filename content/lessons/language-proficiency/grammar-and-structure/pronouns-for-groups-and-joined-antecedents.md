@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 2
 partCount: 4
-ordering: 5.4
+ordering: 13
 keyPoints:
   - "Distinguish a group acting as one unit from its individual members."
   - "Use plural reference for antecedents joined by and."

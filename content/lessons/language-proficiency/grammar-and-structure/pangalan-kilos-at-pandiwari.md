@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 3
 partCount: 5
-ordering: 3.5
+ordering: 3
 keyPoints:
   - "Kilalanin ang pantukoy, pangngalan, at panghalip sa pangungusap."
   - "Kilalanin ang pandiwa ayon sa kilos, pangyayari, o kalagayan."

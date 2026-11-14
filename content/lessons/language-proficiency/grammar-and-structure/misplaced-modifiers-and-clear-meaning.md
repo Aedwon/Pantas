@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 1
 partCount: 3
-ordering: 2
+ordering: 38
 keyPoints:
   - "Place a modifier where its intended meaning is clear."
   - "Keep the writer's meaning when moving a modifier."

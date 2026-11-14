@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 4
 partCount: 5
-ordering: 3.6667
+ordering: 4
 keyPoints:
   - "Ihiwalay ang pang-uri sa pang-abay ayon sa inilalarawan."
   - "Kilalanin ang pang-abay na panlunan bilang salita o grupo."

@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 4
 partCount: 5
-ordering: 6.6667
+ordering: 47
 keyPoints:
   - "Form possessives from singular and plural owners using the stated style."
   - "Use apostrophes for missing letters and distinguish its from it's."

@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 2
 partCount: 4
-ordering: 8.4
+ordering: 35
 keyPoints:
   - "Recognize one independent clause with one or more dependent clauses."
   - "Recognize two or more independent clauses with at least one dependent clause."

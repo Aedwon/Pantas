@@ -12,6 +12,8 @@ meta:
     - "cse-sub"
 questions:
   - id: "q-grammar-and-structure-subject-verb-agreement-0001"
+    lesson: lesson-grammar-and-structure-finding-subjects-and-matching-verbs
+    keyPoint: 1
     type: "subject-verb-agreement"
     difficulty: "easy"
     stem: |
@@ -32,6 +34,8 @@ questions:
       The singular subject "dog" takes the singular simple-present form "barks."
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0002"
+    lesson: lesson-grammar-and-structure-finding-subjects-and-matching-verbs
+    keyPoint: 1
     type: "subject-verb-agreement"
     difficulty: "easy"
     stem: |
@@ -52,6 +56,8 @@ questions:
       "Technicians" is plural. In the simple present, its verb takes the base form "test."
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0003"
+    lesson: lesson-grammar-and-structure-finding-subjects-and-matching-verbs
+    keyPoint: 2
     type: "subject-verb-agreement"
     difficulty: "medium"
     stem: |
@@ -72,6 +78,8 @@ questions:
       The head of the subject phrase is "list," not "items," so the verb is singular: "is."
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0004"
+    lesson: lesson-grammar-and-structure-finding-subjects-and-matching-verbs
+    keyPoint: 2
     type: "subject-verb-agreement"
     difficulty: "medium"
     stem: |
@@ -92,6 +100,8 @@ questions:
       The head subject is plural "labels." "On this box" adds a detail but does not change the subject's number, so "are" fits.
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0005"
+    lesson: lesson-grammar-and-structure-groups-and-indefinite-pronouns
+    keyPoint: 1
     type: "subject-verb-agreement"
     difficulty: "medium"
     stem: |
@@ -112,6 +122,8 @@ questions:
       The committee acts as one unit in the stated American-English convention. Singular "has" agrees with that unit and forms "has reached."
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0006"
+    lesson: lesson-grammar-and-structure-groups-and-indefinite-pronouns
+    keyPoint: 1
     type: "subject-verb-agreement"
     difficulty: "medium"
     stem: |
@@ -132,6 +144,8 @@ questions:
       The family is one unit in the stated convention. Singular "is" agrees with that unit and forms "is planning."
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0007"
+    lesson: lesson-grammar-and-structure-groups-and-indefinite-pronouns
+    keyPoint: 2
     type: "subject-verb-agreement"
     difficulty: "medium"
     stem: |
@@ -152,6 +166,8 @@ questions:
       "Everybody" takes singular verb agreement, so "is" is correct.
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0008"
+    lesson: lesson-grammar-and-structure-groups-and-indefinite-pronouns
+    keyPoint: 2
     type: "subject-verb-agreement"
     difficulty: "medium"
     stem: |
@@ -172,6 +188,8 @@ questions:
       The subject "nothing" is singular, so the correct form is "seems."
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0009"
+    lesson: lesson-grammar-and-structure-groups-and-indefinite-pronouns
+    keyPoint: 3
     type: "subject-verb-agreement"
     difficulty: "medium"
     stem: |
@@ -192,6 +210,8 @@ questions:
       "Most of the water" takes singular agreement here, giving "has evaporated."
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0010"
+    lesson: lesson-grammar-and-structure-groups-and-indefinite-pronouns
+    keyPoint: 3
     type: "subject-verb-agreement"
     difficulty: "medium"
     stem: |
@@ -212,6 +232,8 @@ questions:
       Because "cookies" is plural, "some of the cookies" takes plural "are."
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0011"
+    lesson: lesson-grammar-and-structure-agreement-with-joined-subjects
+    keyPoint: 1
     type: "subject-verb-agreement"
     difficulty: "medium"
     stem: |
@@ -232,6 +254,8 @@ questions:
       "Ana and Ben" is plural, so "are" is correct.
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0012"
+    lesson: lesson-grammar-and-structure-agreement-with-joined-subjects
+    keyPoint: 2
     type: "subject-verb-agreement"
     difficulty: "medium"
     stem: |
@@ -252,6 +276,8 @@ questions:
       In the formal proximity convention tested here, the verb agrees with the nearer subject: plural "employees" gives "were."
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0013"
+    lesson: lesson-grammar-and-structure-agreement-with-joined-subjects
+    keyPoint: 2
     type: "subject-verb-agreement"
     difficulty: "medium"
     stem: |
@@ -272,6 +298,8 @@ questions:
       Under the convention stated in the stem, singular "teacher" controls agreement, giving "was."
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0014"
+    lesson: lesson-grammar-and-structure-finding-subjects-and-matching-verbs
+    keyPoint: 2
     type: "subject-verb-agreement"
     difficulty: "hard"
     stem: |
@@ -292,6 +320,8 @@ questions:
       The full subject is "The letter from the tutors." Its head is singular "letter," so it controls the singular verb "is."
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0015"
+    lesson: lesson-grammar-and-structure-groups-and-indefinite-pronouns
+    keyPoint: 1
     type: "subject-verb-agreement"
     difficulty: "hard"
     stem: |
@@ -312,6 +342,8 @@ questions:
       "Among themselves" emphasizes the members acting separately. A variety that permits plural collective agreement can use "are" for that reading.
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0016"
+    lesson: lesson-grammar-and-structure-groups-and-indefinite-pronouns
+    keyPoint: 2
     type: "subject-verb-agreement"
     difficulty: "hard"
     stem: |
@@ -332,6 +364,8 @@ questions:
       "Everybody" takes singular "has." Modern singular "their" can refer back to the indefinite person without assigning gender.
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0017"
+    lesson: lesson-grammar-and-structure-agreement-with-joined-subjects
+    keyPoint: 2
     type: "subject-verb-agreement"
     difficulty: "hard"
     stem: |
@@ -352,6 +386,8 @@ questions:
       Plural "students" takes "were," and singular "teacher" takes "was." The two negative statements preserve that nobody in either group arrived late.
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0018"
+    lesson: lesson-grammar-and-structure-pokus-at-papel-ng-paksa
+    keyPoint: 1
     type: "subject-verb-agreement"
     difficulty: "medium"
     stem: |
@@ -372,6 +408,8 @@ questions:
       "Ang bata" marks the child as the topic. The child does the eating, so "kumain" uses actor focus.
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0019"
+    lesson: lesson-grammar-and-structure-mga-gamit-ng-pananda
+    keyPoint: 1
     type: "subject-verb-agreement"
     difficulty: "medium"
     stem: |
@@ -392,6 +430,8 @@ questions:
       "Ang tinapay" marks the bread as the topic. The bread is the thing eaten, so "kinain" uses object focus. "Ng bata" names the child who did the eating.
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0020"
+    lesson: lesson-grammar-and-structure-agreement-with-joined-subjects
+    keyPoint: 2
     type: "subject-verb-agreement"
     difficulty: "exam"
     stem: |

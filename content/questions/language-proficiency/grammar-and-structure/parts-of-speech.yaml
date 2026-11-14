@@ -12,6 +12,8 @@ meta:
     - "cse-sub"
 questions:
   - id: "q-grammar-and-structure-parts-of-speech-0001"
+    lesson: lesson-grammar-and-structure-english-word-jobs
+    keyPoint: 1
     type: "parts-of-speech-identification"
     difficulty: "easy"
     stem: |
@@ -32,6 +34,8 @@ questions:
       "Book" names a thing, making it a noun.
     approved: true
   - id: "q-grammar-and-structure-parts-of-speech-0002"
+    lesson: lesson-grammar-and-structure-english-word-jobs
+    keyPoint: 1
     type: "parts-of-speech-identification"
     difficulty: "easy"
     stem: |
@@ -52,6 +56,8 @@ questions:
       "He" replaces the noun "Carlos" so it does not need to be repeated, making it a pronoun.
     approved: true
   - id: "q-grammar-and-structure-parts-of-speech-0003"
+    lesson: lesson-grammar-and-structure-english-word-jobs
+    keyPoint: 1
     type: "parts-of-speech-identification"
     difficulty: "medium"
     stem: |
@@ -72,6 +78,8 @@ questions:
       "Laughed" shows an action the children performed, making it a verb.
     approved: true
   - id: "q-grammar-and-structure-parts-of-speech-0004"
+    lesson: lesson-grammar-and-structure-english-word-jobs
+    keyPoint: 1
     type: "parts-of-speech-identification"
     difficulty: "medium"
     stem: |
@@ -92,6 +100,8 @@ questions:
       "Diligent" describes the noun "student," telling us what kind of student she is: this is an adjective.
     approved: true
   - id: "q-grammar-and-structure-parts-of-speech-0005"
+    lesson: lesson-grammar-and-structure-english-word-jobs
+    keyPoint: 1
     type: "parts-of-speech-identification"
     difficulty: "medium"
     stem: |
@@ -112,6 +122,8 @@ questions:
       "Remarkably" comments on the whole statement. It tells that the reopening is surprising, so it functions as an adverb.
     approved: true
   - id: "q-grammar-and-structure-parts-of-speech-0006"
+    lesson: lesson-grammar-and-structure-joining-words-phrases-and-clauses
+    keyPoint: 1
     type: "parts-of-speech-identification"
     difficulty: "medium"
     stem: |
@@ -132,6 +144,8 @@ questions:
       "Under" shows the relationship (location) between the cat and the table, making it a preposition.
     approved: true
   - id: "q-grammar-and-structure-parts-of-speech-0007"
+    lesson: lesson-grammar-and-structure-joining-words-phrases-and-clauses
+    keyPoint: 1
     type: "parts-of-speech-identification"
     difficulty: "medium"
     stem: |
@@ -152,6 +166,8 @@ questions:
       "But" connects two clauses ("She wanted to attend the party" and "she had too much homework"), making it a conjunction.
     approved: true
   - id: "q-grammar-and-structure-parts-of-speech-0008"
+    lesson: lesson-grammar-and-structure-joining-words-phrases-and-clauses
+    keyPoint: 1
     type: "parts-of-speech-identification"
     difficulty: "medium"
     stem: |
@@ -172,6 +188,8 @@ questions:
       "Ouch" expresses a sudden feeling (pain), making it an interjection.
     approved: true
   - id: "q-grammar-and-structure-parts-of-speech-0009"
+    lesson: lesson-grammar-and-structure-english-word-jobs
+    keyPoint: 2
     type: "parts-of-speech-identification"
     difficulty: "medium"
     stem: |
@@ -192,6 +210,8 @@ questions:
       Here, "light" names a thing (a lamp or its glow), making it a noun.
     approved: true
   - id: "q-grammar-and-structure-parts-of-speech-0010"
+    lesson: lesson-grammar-and-structure-english-word-jobs
+    keyPoint: 2
     type: "parts-of-speech-identification"
     difficulty: "medium"
     stem: |
@@ -212,6 +232,8 @@ questions:
       Here, "light" shows an action (to ignite the candle), making it a verb.
     approved: true
   - id: "q-grammar-and-structure-parts-of-speech-0011"
+    lesson: lesson-grammar-and-structure-english-word-jobs
+    keyPoint: 2
     type: "parts-of-speech-identification"
     difficulty: "medium"
     stem: |
@@ -232,6 +254,8 @@ questions:
       Here, "light" describes the bag, telling us its weight, making it an adjective.
     approved: true
   - id: "q-grammar-and-structure-parts-of-speech-0012"
+    lesson: lesson-grammar-and-structure-pang-uri-at-pang-abay
+    keyPoint: 1
     type: "parts-of-speech-identification"
     difficulty: "medium"
     stem: |
@@ -252,6 +276,8 @@ questions:
       Ang "matapang" ay naglalarawan sa pangngalang "sundalo," kaya ito ay pang-uri (adjective).
     approved: true
   - id: "q-grammar-and-structure-parts-of-speech-0013"
+    lesson: lesson-grammar-and-structure-pangalan-kilos-at-pandiwari
+    keyPoint: 1
     type: "parts-of-speech-identification"
     difficulty: "medium"
     stem: |
@@ -272,6 +298,8 @@ questions:
       "Bata" names the child who played. It functions as a pangngalan, or noun.
     approved: true
   - id: "q-grammar-and-structure-parts-of-speech-0014"
+    lesson: lesson-grammar-and-structure-pangalan-kilos-at-pandiwari
+    keyPoint: 1
     type: "parts-of-speech-identification"
     difficulty: "medium"
     stem: |
@@ -292,6 +320,8 @@ questions:
       Ang "Siya" ay humahalili sa isang pangngalan (pangalan ng tao) upang hindi ito ulit-ulitin, kaya ito ay panghalip (pronoun).
     approved: true
   - id: "q-grammar-and-structure-parts-of-speech-0015"
+    lesson: lesson-grammar-and-structure-pangalan-kilos-at-pandiwari
+    keyPoint: 2
     type: "parts-of-speech-identification"
     difficulty: "medium"
     stem: |
@@ -312,6 +342,8 @@ questions:
       Ang "Kumain" ay nagpapahiwatig ng kilos na ginawa ng mga bata, kaya ito ay pandiwa (verb).
     approved: true
   - id: "q-grammar-and-structure-parts-of-speech-0016"
+    lesson: lesson-grammar-and-structure-pang-uri-at-pang-abay
+    keyPoint: 1
     type: "parts-of-speech-identification"
     difficulty: "medium"
     stem: |
@@ -332,6 +364,8 @@ questions:
       "Mabilis" tells how the athlete ran. It describes the action "tumakbo," so it functions as a pang-abay, or adverb.
     approved: true
   - id: "q-grammar-and-structure-parts-of-speech-0017"
+    lesson: lesson-grammar-and-structure-english-word-jobs
+    keyPoint: 2
     type: "parts-of-speech-identification"
     difficulty: "hard"
     stem: |
@@ -352,6 +386,8 @@ questions:
       "A run" names an exercise session. The word "run" therefore functions as a noun here.
     approved: true
   - id: "q-grammar-and-structure-parts-of-speech-0018"
+    lesson: lesson-grammar-and-structure-english-word-jobs
+    keyPoint: 3
     type: "parts-of-speech-identification"
     difficulty: "hard"
     stem: |
@@ -372,6 +408,8 @@ questions:
       "Friendly" describes the noun "neighbor." A word that describes a noun this way is an adjective.
     approved: true
   - id: "q-grammar-and-structure-parts-of-speech-0019"
+    lesson: lesson-grammar-and-structure-joining-words-phrases-and-clauses
+    keyPoint: 2
     type: "parts-of-speech-identification"
     difficulty: "hard"
     stem: |
@@ -392,6 +430,8 @@ questions:
       "Before" introduces the clause "we finished dinner." In traditional school grammar, it links this dependent clause to "We left" as a subordinating conjunction.
     approved: true
   - id: "q-grammar-and-structure-parts-of-speech-0020"
+    lesson: lesson-grammar-and-structure-joining-words-phrases-and-clauses
+    keyPoint: 2
     type: "parts-of-speech-identification"
     difficulty: "exam"
     stem: |

@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 2
 partCount: 5
-ordering: 6.3333
+ordering: 45
 keyPoints:
   - "Use commas after opening dependent clauses and where needed after opening phrases."
   - "Use commas around extra information but not identifying information."

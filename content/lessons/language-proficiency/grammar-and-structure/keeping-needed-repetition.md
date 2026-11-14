@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 2
 partCount: 4
-ordering: 57.02
+ordering: 50
 keyPoints: 
   - "Keep repetition that adds a needed detail or difference."
 ---

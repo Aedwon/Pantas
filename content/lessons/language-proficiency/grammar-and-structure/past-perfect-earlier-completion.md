@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 4
 partCount: 8
-ordering: 14
+ordering: 19
 keyPoints:
   - "Use had and a past participle for completion before a past point."
   - "Use before to show past event order without requiring past perfect."

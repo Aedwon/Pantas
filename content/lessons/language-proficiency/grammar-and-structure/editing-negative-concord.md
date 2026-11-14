@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 3
 partCount: 4
-ordering: 57.03
+ordering: 51
 keyPoints: 
   - "Use one negative pattern for one negative meaning in formal English."
   - "Recognize a dialect’s negative concord without reversing its meaning."

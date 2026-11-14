@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 3
 partCount: 6
-ordering: 12
+ordering: 8
 keyPoints:
   - "Check whether subjects joined by and name separate people or one person or unit."
   - "Use nearer-subject agreement with or and nor, or revise unclear wording."

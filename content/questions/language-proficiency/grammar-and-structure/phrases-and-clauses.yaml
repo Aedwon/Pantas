@@ -12,6 +12,8 @@ meta:
     - "cse-sub"
 questions:
   - id: "q-grammar-and-structure-phrases-and-clauses-0001"
+    lesson: lesson-grammar-and-structure-phrases-and-understood-subjects
+    keyPoint: 1
     type: "phrase-clause-identification"
     difficulty: "easy"
     stem: |
@@ -32,6 +34,8 @@ questions:
       "Under" introduces the noun phrase "the old bridge." Together they form a prepositional phrase giving a location.
     approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0002"
+    lesson: lesson-grammar-and-structure-independent-and-dependent-clauses
+    keyPoint: 1
     type: "phrase-clause-identification"
     difficulty: "easy"
     stem: |
@@ -52,6 +56,8 @@ questions:
       "The cat" is the subject, and "slept" is the finite verb. The group can stand as a complete sentence.
     approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0003"
+    lesson: lesson-grammar-and-structure-independent-and-dependent-clauses
+    keyPoint: 1
     type: "phrase-clause-identification"
     difficulty: "medium"
     stem: |
@@ -72,6 +78,8 @@ questions:
       "She" is the subject, and "finished her homework" says what she did. The group can stand as a complete statement.
     approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0004"
+    lesson: lesson-grammar-and-structure-independent-and-dependent-clauses
+    keyPoint: 1
     type: "phrase-clause-identification"
     difficulty: "medium"
     stem: |
@@ -92,6 +100,8 @@ questions:
       "She" is the subject, and "was" is a finite verb. "Although" makes this clause depend on a main clause to finish the statement.
     approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0005"
+    lesson: lesson-grammar-and-structure-connectors-for-reason-and-contrast
+    keyPoint: 3
     type: "phrase-clause-identification"
     difficulty: "medium"
     stem: |
@@ -112,6 +122,8 @@ questions:
       "We went home" can stand as a complete sentence. Adding it to "Because the store was closed" supplies the main clause that the opening group needs.
     approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0006"
+    lesson: lesson-grammar-and-structure-connectors-for-reason-and-contrast
+    keyPoint: 3
     type: "phrase-clause-identification"
     difficulty: "medium"
     stem: |
@@ -132,6 +144,8 @@ questions:
       "Although" makes "the teacher explained the lesson twice" dependent. Standing alone in ordinary formal prose, the group is a fragment.
     approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0007"
+    lesson: lesson-grammar-and-structure-finite-verbs-and-ing-groups
+    keyPoint: 2
     type: "phrase-clause-identification"
     difficulty: "medium"
     stem: |
@@ -152,6 +166,8 @@ questions:
       "Running" does not show tense by itself. "Running quickly through the park" has no finite verb and cannot stand alone as a complete formal sentence.
     approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0008"
+    lesson: lesson-grammar-and-structure-independent-and-dependent-clauses
+    keyPoint: 1
     type: "phrase-clause-identification"
     difficulty: "medium"
     stem: |
@@ -172,6 +188,8 @@ questions:
       "When" makes the clause "the bell rang" subordinate. In this use, the group needs a main clause describing what happened then.
     approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0009"
+    lesson: lesson-grammar-and-structure-connectors-for-reason-and-contrast
+    keyPoint: 2
     type: "phrase-clause-identification"
     difficulty: "medium"
     stem: |
@@ -192,6 +210,8 @@ questions:
       When a dependent clause comes first, standard punctuation places a comma before the following independent clause: "Because it was raining, we stayed inside."
     approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0010"
+    lesson: lesson-grammar-and-structure-connectors-for-reason-and-contrast
+    keyPoint: 2
     type: "phrase-clause-identification"
     difficulty: "medium"
     stem: |
@@ -212,6 +232,8 @@ questions:
       In "We stayed inside because it was raining," the main clause comes first and the following reason clause is essential to the intended meaning, so no comma is normally used before "because."
     approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0011"
+    lesson: lesson-grammar-and-structure-phrases-and-understood-subjects
+    keyPoint: 2
     type: "phrase-clause-identification"
     difficulty: "medium"
     stem: |
@@ -232,6 +254,8 @@ questions:
       "Close" is the verb in a command. Its understood subject is "you," so "Close the door" can stand as an independent sentence.
     approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0012"
+    lesson: lesson-grammar-and-structure-connectors-for-reason-and-contrast
+    keyPoint: 3
     type: "phrase-clause-identification"
     difficulty: "medium"
     stem: |
@@ -252,6 +276,8 @@ questions:
       "Because" makes "she was late" dependent. In a formal task requiring a full sentence, this group needs a main clause.
     approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0013"
+    lesson: lesson-grammar-and-structure-connectors-for-reason-and-contrast
+    keyPoint: 2
     type: "phrase-clause-identification"
     difficulty: "medium"
     stem: |
@@ -272,6 +298,8 @@ questions:
       An introductory dependent clause is followed by a comma before the main clause: "Because it was raining, we stayed inside."
     approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0014"
+    lesson: lesson-grammar-and-structure-independent-and-dependent-clauses
+    keyPoint: 1
     type: "phrase-clause-identification"
     difficulty: "medium"
     stem: |
@@ -292,6 +320,8 @@ questions:
       "Since" introduces the reason clause "the concert ended late." The opening connector makes that clause dependent on "everyone was tired."
     approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0015"
+    lesson: lesson-grammar-and-structure-connectors-for-reason-and-contrast
+    keyPoint: 3
     type: "phrase-clause-identification"
     difficulty: "exam"
     stem: |
@@ -312,6 +342,8 @@ questions:
       "Although she reviewed it carefully" is dependent. "The manager still had questions" is independent. Joining them forms one complete sentence.
     approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0016"
+    lesson: lesson-grammar-and-structure-relative-clauses-and-main-thoughts
+    keyPoint: 1
     type: "phrase-clause-identification"
     difficulty: "easy"
     stem: |
@@ -332,6 +364,8 @@ questions:
       "Who repaired the bench" describes "the volunteer." The relative word "who" links this dependent clause to that noun.
     approved: false
   - id: "q-grammar-and-structure-phrases-and-clauses-0017"
+    lesson: lesson-grammar-and-structure-independent-and-dependent-clauses
+    keyPoint: 2
     type: "phrase-clause-identification"
     difficulty: "medium"
     stem: |
@@ -352,6 +386,8 @@ questions:
       "The bus" is the subject, and "arrived" is the finite verb. "After" makes their clause dependent.
     approved: false
   - id: "q-grammar-and-structure-phrases-and-clauses-0018"
+    lesson: lesson-grammar-and-structure-connectors-for-reason-and-contrast
+    keyPoint: 3
     type: "phrase-clause-identification"
     difficulty: "hard"
     stem: |
@@ -372,6 +408,8 @@ questions:
       "The totals will match" is a main clause with a subject and a verb. It completes the condition introduced by "If."
     approved: false
   - id: "q-grammar-and-structure-phrases-and-clauses-0019"
+    lesson: lesson-grammar-and-structure-relative-clauses-and-main-thoughts
+    keyPoint: 2
     type: "phrase-clause-identification"
     difficulty: "hard"
     stem: |
@@ -392,6 +430,8 @@ questions:
       The full subject is "The driver who found the road closed." Its main verb is "delayed." The whole sentence is the independent clause. The relative clause "who found the road closed" describes "driver" and is dependent.
     approved: false
   - id: "q-grammar-and-structure-phrases-and-clauses-0020"
+    lesson: lesson-grammar-and-structure-connectors-for-reason-and-contrast
+    keyPoint: 1
     type: "phrase-clause-identification"
     difficulty: "exam"
     stem: |

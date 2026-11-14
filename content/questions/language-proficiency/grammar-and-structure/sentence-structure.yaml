@@ -12,6 +12,8 @@ meta:
     - "cse-sub"
 questions:
   - id: "q-grammar-and-structure-sentence-structure-0001"
+    lesson: lesson-grammar-and-structure-simple-and-compound-sentences
+    keyPoint: 2
     type: "sentence-structure-classification"
     difficulty: "easy"
     stem: |
@@ -32,6 +34,8 @@ questions:
       The teacher and students share the actions "prepared and rehearsed." There is one independent clause and no dependent clause, so the sentence is simple.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0002"
+    lesson: lesson-grammar-and-structure-simple-and-compound-sentences
+    keyPoint: 3
     type: "sentence-structure-classification"
     difficulty: "medium"
     stem: |
@@ -52,6 +56,8 @@ questions:
       "She wanted to travel abroad" and "she could not afford the airfare" are independent clauses joined by "but." There is no dependent clause, so the sentence is compound.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0003"
+    lesson: lesson-grammar-and-structure-complex-and-compound-complex-sentences
+    keyPoint: 1
     type: "sentence-structure-classification"
     difficulty: "medium"
     stem: |
@@ -72,6 +78,8 @@ questions:
       "Although the storm was severe" is dependent. "The town suffered minimal damage" is independent. One of each makes a complex sentence.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0004"
+    lesson: lesson-grammar-and-structure-complex-and-compound-complex-sentences
+    keyPoint: 2
     type: "sentence-structure-classification"
     difficulty: "medium"
     stem: |
@@ -92,6 +100,8 @@ questions:
       "When the bell rang" is dependent. "The students grabbed their bags" and "they rushed out the door" are independent. That combination makes a compound-complex sentence.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0005"
+    lesson: lesson-grammar-and-structure-simple-and-compound-sentences
+    keyPoint: 2
     type: "sentence-structure-classification"
     difficulty: "medium"
     stem: |
@@ -112,6 +122,8 @@ questions:
       The main subject is "the old warehouse," and its verb is "remained." The other groups add place and time details, so there is one independent clause and the sentence is simple.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0006"
+    lesson: lesson-grammar-and-structure-simple-and-compound-sentences
+    keyPoint: 3
     type: "sentence-structure-classification"
     difficulty: "medium"
     stem: |
@@ -132,6 +144,8 @@ questions:
       "The rain stopped" and "we went outside to play" are independent clauses joined by "so." There is no dependent clause, so the sentence is compound.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0007"
+    lesson: lesson-grammar-and-structure-complex-and-compound-complex-sentences
+    keyPoint: 1
     type: "sentence-structure-classification"
     difficulty: "medium"
     stem: |
@@ -152,6 +166,8 @@ questions:
       "Since the exam was postponed" is dependent. "The students relaxed for the weekend" is independent. One of each makes a complex sentence.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0008"
+    lesson: lesson-grammar-and-structure-complex-and-compound-complex-sentences
+    keyPoint: 2
     type: "sentence-structure-classification"
     difficulty: "medium"
     stem: |
@@ -172,6 +188,8 @@ questions:
       "The students lit candles" and "they continued studying" are independent clauses. "Because the power went out" is dependent. Two independent clauses plus a dependent clause make the sentence compound-complex.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0009"
+    lesson: lesson-grammar-and-structure-payak-at-tambalang-pangungusap
+    keyPoint: 2
     type: "sentence-structure-classification"
     difficulty: "medium"
     stem: |
@@ -192,6 +210,8 @@ questions:
       "Umuwi ang bata" gives one complete independent statement. It is payak, or simple.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0010"
+    lesson: lesson-grammar-and-structure-payak-at-tambalang-pangungusap
+    keyPoint: 2
     type: "sentence-structure-classification"
     difficulty: "medium"
     stem: |
@@ -212,6 +232,8 @@ questions:
       "Umuwi ang bata" and "naiwan ang bag niya" are independent statements joined by "ngunit." The sentence is tambalan, or compound.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0011"
+    lesson: lesson-grammar-and-structure-hugnayan-langkapan-at-ayos-ng-salaysay
+    keyPoint: 1
     type: "sentence-structure-classification"
     difficulty: "medium"
     stem: |
@@ -232,6 +254,8 @@ questions:
       "Umuwi ang bata" is independent, and "dahil umuulan na" is dependent. One of each makes the sentence hugnayan, or complex.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0012"
+    lesson: lesson-grammar-and-structure-hugnayan-langkapan-at-ayos-ng-salaysay
+    keyPoint: 2
     type: "sentence-structure-classification"
     difficulty: "medium"
     stem: |
@@ -252,6 +276,8 @@ questions:
       "Umuwi ang bata" and "nagsara ang tindahan" are independent. "Dahil malakas na ang ulan" is dependent. The combination is langkapan, or compound-complex.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0013"
+    lesson: lesson-grammar-and-structure-simple-and-compound-sentences
+    keyPoint: 3
     type: "sentence-structure-classification"
     difficulty: "hard"
     stem: |
@@ -272,6 +298,8 @@ questions:
       "The dog played" and "the cat slept" are independent clauses. Joining them with "and" makes a compound sentence.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0014"
+    lesson: lesson-grammar-and-structure-complex-and-compound-complex-sentences
+    keyPoint: 1
     type: "sentence-structure-classification"
     difficulty: "hard"
     stem: |
@@ -292,6 +320,8 @@ questions:
       "Because the meeting ran late" is dependent. "The team missed lunch" is independent. This inventory makes the sentence complex.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0015"
+    lesson: lesson-grammar-and-structure-complex-and-compound-complex-sentences
+    keyPoint: 1
     type: "sentence-structure-classification"
     difficulty: "hard"
     stem: |
@@ -312,6 +342,8 @@ questions:
       "We will open the hall" is the only independent clause. "If the rain stops" and "when the guests arrive" are dependent, so the sentence is complex.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0016"
+    lesson: lesson-grammar-and-structure-complex-and-compound-complex-sentences
+    keyPoint: 2
     type: "sentence-structure-classification"
     difficulty: "exam"
     stem: |
@@ -332,6 +364,8 @@ questions:
       "Since the flight was delayed" is dependent. "The passengers waited," "some of them ordered food," and "others simply read books" are three independent statements. That combination makes the sentence compound-complex.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0017"
+    lesson: lesson-grammar-and-structure-simple-and-compound-sentences
+    keyPoint: 3
     type: "sentence-structure-classification"
     difficulty: "easy"
     stem: |
@@ -352,6 +386,8 @@ questions:
       Both "The clinic reopened" and "appointments resumed" are independent clauses. A semicolon joins them, so the sentence is compound.
     approved: false
   - id: "q-grammar-and-structure-sentence-structure-0018"
+    lesson: lesson-grammar-and-structure-complex-and-compound-complex-sentences
+    keyPoint: 3
     type: "sentence-structure-classification"
     difficulty: "medium"
     stem: |
@@ -372,6 +408,8 @@ questions:
       "After rehearsal" is a prepositional phrase giving time. "The musicians left" is the only clause, so the sentence is simple.
     approved: false
   - id: "q-grammar-and-structure-sentence-structure-0019"
+    lesson: lesson-grammar-and-structure-complex-and-compound-complex-sentences
+    keyPoint: 1
     type: "sentence-structure-classification"
     difficulty: "hard"
     stem: |
@@ -392,6 +430,8 @@ questions:
       "While she checked the records" is a dependent clause giving time. The main clause is "The nurse called the patient." One of each makes the sentence complex.
     approved: false
   - id: "q-grammar-and-structure-sentence-structure-0020"
+    lesson: lesson-grammar-and-structure-simple-and-compound-sentences
+    keyPoint: 3
     type: "sentence-structure-classification"
     difficulty: "exam"
     stem: |

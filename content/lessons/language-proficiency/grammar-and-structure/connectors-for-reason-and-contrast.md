@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 4
 partCount: 6
-ordering: 4.5714
+ordering: 31
 keyPoints:
   - "Choose a connector that shows reason or contrast."
   - "Place commas correctly when joining dependent and main clauses."

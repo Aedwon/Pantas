@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 1
 partCount: 8
-ordering: 11
+ordering: 16
 keyPoints:
   - "Choose simple present for a habit, truth, or scheduled event."
   - "Choose present progressive for an action going on now or around now."

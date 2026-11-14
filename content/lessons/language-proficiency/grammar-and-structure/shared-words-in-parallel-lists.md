@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 2
 partCount: 3
-ordering: 2.5000
+ordering: 42
 keyPoints:
   - "Check how a shared word applies to each parallel item."
 ---

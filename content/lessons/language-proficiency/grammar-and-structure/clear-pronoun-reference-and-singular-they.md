@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 1
 partCount: 4
-ordering: 5.2
+ordering: 12
 keyPoints:
   - "Match an English pronoun to the person or thing meant."
   - "Use singular they and its forms for one person."

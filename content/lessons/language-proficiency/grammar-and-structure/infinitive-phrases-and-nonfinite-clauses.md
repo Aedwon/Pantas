@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 6
 partCount: 6
-ordering: 4.8571
+ordering: 33
 keyPoints:
   - "Use the grammar system named in the question to label an infinitive group."
   - "Check whether an infinitive group can stand as a formal sentence."

@@ -12,6 +12,8 @@ meta:
     - "cse-sub"
 questions:
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0001"
+    lesson: lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they
+    keyPoint: 1
     type: "pronoun-reference"
     difficulty: "easy"
     stem: |
@@ -32,6 +34,8 @@ questions:
       The girl uses she/her pronouns, and the book is her own. "Her" is the possessive form used before the noun "book."
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0002"
+    lesson: lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they
+    keyPoint: 1
     type: "pronoun-reference"
     difficulty: "easy"
     stem: |
@@ -52,6 +56,8 @@ questions:
       "Girls" is a plural antecedent, so it needs the plural pronoun "their."
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0003"
+    lesson: lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they
+    keyPoint: 2
     type: "pronoun-reference"
     difficulty: "medium"
     stem: |
@@ -72,6 +78,8 @@ questions:
       Although "each" is grammatically singular, singular "they/their" is accepted in modern formal English when a person's gender is unknown or irrelevant. "Each of the students must submit their essay" is therefore the gender-neutral choice.
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0004"
+    lesson: lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they
+    keyPoint: 2
     type: "pronoun-reference"
     difficulty: "medium"
     stem: |
@@ -92,6 +100,8 @@ questions:
       "Somebody" is grammatically singular, but modern formal English accepts singular "their" for a person whose gender is unknown or irrelevant.
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0005"
+    lesson: lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents
+    keyPoint: 1
     type: "pronoun-reference"
     difficulty: "medium"
     stem: |
@@ -112,6 +122,8 @@ questions:
       "Company" refers to one organization acting as a single unit here, so the sentence uses the singular possessive pronoun "its."
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0006"
+    lesson: lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents
+    keyPoint: 1
     type: "pronoun-reference"
     difficulty: "medium"
     stem: |
@@ -132,6 +144,8 @@ questions:
       The sentence treats "class" as one collective unit completing a shared project, so it uses the singular pronoun "its."
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0007"
+    lesson: lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents
+    keyPoint: 2
     type: "pronoun-reference"
     difficulty: "medium"
     stem: |
@@ -152,6 +166,8 @@ questions:
       "Liza and Carlo" is a compound antecedent joined by "and," making it plural, so it takes the pronoun "their."
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0008"
+    lesson: lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents
+    keyPoint: 3
     type: "pronoun-reference"
     difficulty: "medium"
     stem: |
@@ -172,6 +188,8 @@ questions:
       "The required equipment" keeps the intended object and avoids a pronoun with mixed singular and plural antecedents. The revision also assigns no gender.
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0009"
+    lesson: lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they
+    keyPoint: 4
     type: "pronoun-reference"
     difficulty: "medium"
     stem: |
@@ -192,6 +210,8 @@ questions:
       Both Mrs. Santos and Anna can be the person who seemed upset. The sentence does not identify which one "she" refers to.
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0010"
+    lesson: lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents
+    keyPoint: 2
     type: "pronoun-reference"
     difficulty: "medium"
     stem: |
@@ -212,6 +232,8 @@ questions:
       The compound subject names Sofia and her sister. Under the stated ordinary plural reading, "their" refers to both of them.
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0011"
+    lesson: lesson-grammar-and-structure-tinutukoy-at-pagmamay-ari-sa-panghalip
+    keyPoint: 3
     type: "pronoun-reference"
     difficulty: "medium"
     stem: |
@@ -232,6 +254,8 @@ questions:
       "Siya" can refer to a person without stating that person's gender. Filipino uses the same pronoun for these personal references.
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0012"
+    lesson: lesson-grammar-and-structure-mga-anyo-ng-panghalip-panao
+    keyPoint: 2
     type: "pronoun-reference"
     difficulty: "medium"
     stem: |
@@ -252,6 +276,8 @@ questions:
       One student is named as the person who showed the project. "Niya" is the matching singular third-person form in "ipinakita niya ito."
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0013"
+    lesson: lesson-grammar-and-structure-mga-anyo-ng-panghalip-panao
+    keyPoint: 1
     type: "pronoun-reference"
     difficulty: "medium"
     stem: |
@@ -272,6 +298,8 @@ questions:
       "Siya" belongs to the ang set of Filipino personal pronouns. It can fill the topic role in a sentence such as "Siya ay dumating."
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0014"
+    lesson: lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they
+    keyPoint: 2
     type: "pronoun-reference"
     difficulty: "hard"
     stem: |
@@ -292,6 +320,8 @@ questions:
       Modern formal English accepts singular "their" for an unspecified person. "Everybody" can use this personal reference while keeping singular main-verb agreement.
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0015"
+    lesson: lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents
+    keyPoint: 1
     type: "pronoun-reference"
     difficulty: "hard"
     stem: |
@@ -312,6 +342,8 @@ questions:
       The stem treats the team as one unit. "Its" is the possessive form matching that unit.
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0016"
+    lesson: lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they
+    keyPoint: 4
     type: "pronoun-reference"
     difficulty: "hard"
     stem: |
@@ -332,6 +364,8 @@ questions:
       "Her" could refer to Sarah or Michelle. The sentence gives no detail identifying the painting's owner.
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0017"
+    lesson: lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they
+    keyPoint: 3
     type: "pronoun-reference"
     difficulty: "medium"
     stem: |
@@ -352,6 +386,8 @@ questions:
       "Everybody" takes the singular verb "has." Singular "they" still takes its usual verb form, "are."
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0018"
+    lesson: lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents
+    keyPoint: 1
     type: "pronoun-reference"
     difficulty: "exam"
     stem: |
@@ -372,6 +408,8 @@ questions:
       "Each" refers to an unspecified person, so singular "their" provides the requested gender-neutral form. The team is treated as one unit, so "its" fits the second blank.
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0019"
+    lesson: lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they
+    keyPoint: 4
     type: "pronoun-reference"
     difficulty: "easy"
     stem: |
@@ -392,6 +430,8 @@ questions:
       Repeating "Sam" identifies the person who passed. The revision keeps the stated result and gives the pronoun's intended reference directly.
     approved: false
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0020"
+    lesson: lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents
+    keyPoint: 1
     type: "pronoun-reference"
     difficulty: "exam"
     stem: |

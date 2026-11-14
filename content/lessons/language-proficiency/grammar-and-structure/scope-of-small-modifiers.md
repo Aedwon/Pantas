@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 3
 partCount: 3
-ordering: 4
+ordering: 40
 keyPoints:
   - "Identify which word or idea only limits."
   - "Place almost and other small modifiers to keep the intended meaning."

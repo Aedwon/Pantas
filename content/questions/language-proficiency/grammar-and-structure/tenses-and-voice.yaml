@@ -12,6 +12,8 @@ meta:
     - "cse-sub"
 questions:
   - id: "q-grammar-and-structure-tenses-and-voice-0001"
+    lesson: lesson-grammar-and-structure-past-events-and-future-meaning
+    keyPoint: 1
     type: "tense"
     difficulty: "easy"
     stem: |
@@ -32,6 +34,8 @@ questions:
       "Yesterday" places both events in the past. "Walked" and "bought" express those two completed past actions.
     approved: true
   - id: "q-grammar-and-structure-tenses-and-voice-0002"
+    lesson: lesson-grammar-and-structure-recognizing-active-and-passive-voice
+    keyPoint: 1
     type: "tense"
     difficulty: "easy"
     stem: |
@@ -52,6 +56,8 @@ questions:
       The subject "the dog" performs the chasing action. That subject-and-action relationship is active voice.
     approved: true
   - id: "q-grammar-and-structure-tenses-and-voice-0003"
+    lesson: lesson-grammar-and-structure-recognizing-active-and-passive-voice
+    keyPoint: 2
     type: "tense"
     difficulty: "easy"
     stem: |
@@ -72,6 +78,8 @@ questions:
       "The ball" is the subject receiving the chasing action. "Was chased" forms the passive with "was" plus the past participle.
     approved: true
   - id: "q-grammar-and-structure-tenses-and-voice-0004"
+    lesson: lesson-grammar-and-structure-changing-voice-and-get-passives
+    keyPoint: 1
     type: "tense"
     difficulty: "medium"
     stem: |
@@ -92,6 +100,8 @@ questions:
       Make "a famous author" the subject doing the writing. "Wrote" preserves the completed past event: "A famous author wrote the novel."
     approved: true
   - id: "q-grammar-and-structure-tenses-and-voice-0005"
+    lesson: lesson-grammar-and-structure-past-perfect-earlier-completion
+    keyPoint: 1
     type: "tense"
     difficulty: "medium"
     stem: |
@@ -112,6 +122,8 @@ questions:
       "Had cooked" is past perfect. It explicitly places completed cooking before the later past event, the guests' arrival.
     approved: true
   - id: "q-grammar-and-structure-tenses-and-voice-0006"
+    lesson: lesson-grammar-and-structure-past-events-and-future-meaning
+    keyPoint: 3
     type: "tense"
     difficulty: "medium"
     stem: |
@@ -132,6 +144,8 @@ questions:
       "Studied" describes yesterday's action. "Will practice" describes tomorrow's action. The change in time justifies the change in verb form.
     approved: true
   - id: "q-grammar-and-structure-tenses-and-voice-0007"
+    lesson: lesson-grammar-and-structure-changing-voice-and-get-passives
+    keyPoint: 1
     type: "tense"
     difficulty: "medium"
     stem: |
@@ -152,6 +166,8 @@ questions:
       Make "the new budget" the subject receiving the approval. "Was approved" keeps the past time, and "by the committee" names the actor.
     approved: true
   - id: "q-grammar-and-structure-tenses-and-voice-0012"
+    lesson: lesson-grammar-and-structure-present-perfect-links-to-now
+    keyPoint: 2
     type: "tense"
     difficulty: "hard"
     stem: |
@@ -172,6 +188,8 @@ questions:
       "Arrived" places the move in the completed past. "Have lived here ever since" connects the continuing residence to the present. The different forms express different time relationships.
     approved: true
   - id: "q-grammar-and-structure-tenses-and-voice-0013"
+    lesson: lesson-grammar-and-structure-recognizing-active-and-passive-voice
+    keyPoint: 2
     type: "tense"
     difficulty: "hard"
     stem: |
@@ -192,6 +210,8 @@ questions:
       "Happy" is an adjective describing the subject. "Is" links that description to "she," so this is a linking construction.
     approved: true
   - id: "q-grammar-and-structure-tenses-and-voice-0014"
+    lesson: lesson-grammar-and-structure-past-perfect-earlier-completion
+    keyPoint: 2
     type: "tense"
     difficulty: "hard"
     stem: |
@@ -212,6 +232,8 @@ questions:
       "Before" tells that finishing happened earlier than the request. Simple past can describe both events because their order is already clear.
     approved: true
   - id: "q-grammar-and-structure-tenses-and-voice-0015"
+    lesson: lesson-grammar-and-structure-past-events-and-future-meaning
+    keyPoint: 2
     type: "tense"
     difficulty: "medium"
     stem: |
@@ -232,6 +254,8 @@ questions:
       "Will write" expresses an action expected tomorrow. The common school label for this construction is simple future.
     approved: true
   - id: "q-grammar-and-structure-tenses-and-voice-0016"
+    lesson: lesson-grammar-and-structure-present-perfect-links-to-now
+    keyPoint: 1
     type: "tense"
     difficulty: "medium"
     stem: |
@@ -252,6 +276,8 @@ questions:
       "Has written" is present perfect: "has" plus the past participle "written." The unfinished time expression "this week" also fits a present-perfect reading.
     approved: true
   - id: "q-grammar-and-structure-tenses-and-voice-0017"
+    lesson: lesson-grammar-and-structure-present-habits-and-ongoing-actions
+    keyPoint: 2
     type: "tense"
     difficulty: "medium"
     stem: |
@@ -272,6 +298,8 @@ questions:
       "Is writing" describes an action happening right now: this is present progressive tense.
     approved: true
   - id: "q-grammar-and-structure-tenses-and-voice-0018"
+    lesson: lesson-grammar-and-structure-recognizing-active-and-passive-voice
+    keyPoint: 2
     type: "tense"
     difficulty: "exam"
     stem: |
@@ -292,6 +320,8 @@ questions:
       "Had been submitted" places the completed submission before the past review, so it is past perfect. The subject "report" receives the submission action, so the clause is passive.
     approved: true
   - id: "q-grammar-and-structure-tenses-and-voice-0019"
+    lesson: lesson-grammar-and-structure-changing-voice-and-get-passives
+    keyPoint: 2
     type: "tense"
     difficulty: "easy"
     stem: |
@@ -312,6 +342,8 @@ questions:
       The window receives the breaking action. "Got" plus "broken" forms a get-passive in this sentence.
     approved: false
   - id: "q-grammar-and-structure-tenses-and-voice-0020"
+    lesson: lesson-grammar-and-structure-present-habits-and-ongoing-actions
+    keyPoint: 2
     type: "tense"
     difficulty: "exam"
     stem: |
@@ -332,6 +364,8 @@ questions:
       Present progressive can describe a project in progress around the present. "This month" sets that wider period, so the writer need not be writing at the exact moment of speaking.
     approved: false
   - id: "q-grammar-and-structure-tenses-and-voice-0021"
+    lesson: lesson-grammar-and-structure-modals-ability-and-permission
+    keyPoint: 2
     type: "correct-usage"
     difficulty: "easy"
     stem: |
@@ -352,6 +386,8 @@ questions:
       "Can" states present ability and takes the base form "prepare." Do not add -s, -ed, or -ing after this modal.
     approved: false
   - id: "q-grammar-and-structure-tenses-and-voice-0022"
+    lesson: lesson-grammar-and-structure-present-habits-and-ongoing-actions
+    keyPoint: 3
     type: "tense"
     difficulty: "medium"
     stem: |
@@ -372,6 +408,8 @@ questions:
       "Know" describes a state, so the simple present is the usual choice. "Am knowing" does not fit this ordinary use.
     approved: false
   - id: "q-grammar-and-structure-tenses-and-voice-0023"
+    lesson: lesson-grammar-and-structure-recognizing-active-and-passive-voice
+    keyPoint: 3
     type: "correct-usage"
     difficulty: "hard"
     stem: |
@@ -392,6 +430,8 @@ questions:
       "Have been changed" is present perfect passive. It connects the completed change to now. Passive voice lets the writer leave out the unknown doer.
     approved: false
   - id: "q-grammar-and-structure-tenses-and-voice-0024"
+    lesson: lesson-grammar-and-structure-modals-requirements-and-possibility
+    keyPoint: 3
     type: "correct-usage"
     difficulty: "exam"
     stem: |

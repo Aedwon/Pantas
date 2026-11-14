@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 4
 partCount: 4
-ordering: 8.8
+ordering: 37
 keyPoints:
   - "Gamitin ang dahil o sapagkat upang bumuo ng hugnayan."
   - "Bumuo ng langkapan mula sa dalawang buong diwa at isang di-makapag-iisa."

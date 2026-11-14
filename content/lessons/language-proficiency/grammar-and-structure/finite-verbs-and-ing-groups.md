@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 5
 partCount: 6
-ordering: 4.7143
+ordering: 32
 keyPoints:
   - "Find the finite verb that carries tense."
   - "Tell an incomplete -ing group from a complete sentence."

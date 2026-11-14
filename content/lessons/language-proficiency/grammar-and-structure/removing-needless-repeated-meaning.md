@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 1
 partCount: 4
-ordering: 57.01
+ordering: 49
 keyPoints: 
   - "Remove repeated meaning that adds nothing useful."
   - "Keep repetition that adds a needed detail or difference."

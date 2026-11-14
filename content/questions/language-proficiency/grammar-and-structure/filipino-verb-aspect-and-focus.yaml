@@ -12,6 +12,8 @@ meta:
     - "cse-sub"
 questions:
   - id: "q-grammar-and-structure-tenses-and-voice-0008"
+    lesson: lesson-grammar-and-structure-kalagayan-ng-kilos
+    keyPoint: 1
     type: "tense"
     difficulty: "medium"
     stem: |
@@ -32,6 +34,8 @@ questions:
       In the lesson's example pattern, "kumain" presents the eating as completed. It is the perpektibo form requested.
     approved: true
   - id: "q-grammar-and-structure-tenses-and-voice-0009"
+    lesson: lesson-grammar-and-structure-kalagayan-ng-kilos
+    keyPoint: 1
     type: "tense"
     difficulty: "medium"
     stem: |
@@ -52,6 +56,8 @@ questions:
       "Kumakain" presents eating as ongoing in the lesson's example pattern. It is the imperpektibo form.
     approved: true
   - id: "q-grammar-and-structure-tenses-and-voice-0010"
+    lesson: lesson-grammar-and-structure-kalagayan-ng-kilos
+    keyPoint: 1
     type: "tense"
     difficulty: "medium"
     stem: |
@@ -72,6 +78,8 @@ questions:
       "Kakain" presents eating as still contemplated in the lesson's example pattern. It is the kontemplatibo form.
     approved: true
   - id: "q-grammar-and-structure-tenses-and-voice-0011"
+    lesson: lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa
+    keyPoint: 1
     type: "tense"
     difficulty: "medium"
     stem: |
@@ -92,6 +100,8 @@ questions:
       "Kinain" puts the object that was eaten in focus. "Ang mangga" names that object, so the verb has object focus.
     approved: true
   - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0001"
+    lesson: lesson-grammar-and-structure-kalagayan-ng-kilos
+    keyPoint: 1
     type: "tense"
     difficulty: "easy"
     stem: |
@@ -113,6 +123,8 @@ questions:
       "Naglilinis" would show cleaning that continues or happens regularly.
     approved: false
   - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0002"
+    lesson: lesson-grammar-and-structure-kalagayan-ng-kilos
+    keyPoint: 2
     type: "tense"
     difficulty: "easy"
     stem: |
@@ -135,6 +147,8 @@ questions:
       The action is perpektibong katatapos, not still ongoing.
     approved: false
   - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0003"
+    lesson: lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa
+    keyPoint: 1
     type: "tense"
     difficulty: "easy"
     stem: |
@@ -155,6 +169,8 @@ questions:
       "Si Rosa" is the topic. Rosa does the cooking, so the focus is tagaganap. The visitors benefit, but they are not the topic.
     approved: false
   - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0004"
+    lesson: lesson-grammar-and-structure-mga-pahiwatig-ng-oras
+    keyPoint: 2
     type: "tense"
     difficulty: "medium"
     stem: |
@@ -176,6 +192,8 @@ questions:
       Imperpektibo can show a repeated action. "Tuwing Sabado" gives the schedule. It does not mean they must be cleaning as we speak.
     approved: false
   - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0005"
+    lesson: lesson-grammar-and-structure-mga-pahiwatig-ng-oras
+    keyPoint: 1
     type: "correct-usage"
     difficulty: "medium"
     stem: |
@@ -197,6 +215,8 @@ questions:
       keeps the planned action and its time the same.
     approved: false
   - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0006"
+    lesson: lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa
+    keyPoint: 3
     type: "tense"
     difficulty: "medium"
     stem: |
@@ -218,6 +238,8 @@ questions:
       This is focus on tagatanggap. The cook is the doer, but not the topic.
     approved: false
   - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0007"
+    lesson: lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa
+    keyPoint: 3
     type: "tense"
     difficulty: "medium"
     stem: |
@@ -240,6 +262,8 @@ questions:
       The focus is kagamitan because the topic is the tool.
     approved: false
   - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0008"
+    lesson: lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa
+    keyPoint: 3
     type: "tense"
     difficulty: "medium"
     stem: |
@@ -262,6 +286,8 @@ questions:
       This is focus on sanhi. Mentioning an office does not make it ganapan.
     approved: false
   - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0009"
+    lesson: lesson-grammar-and-structure-pagbuo-ng-anyo-ng-pandiwa
+    keyPoint: 1
     type: "correct-usage"
     difficulty: "medium"
     stem: |
@@ -283,6 +309,8 @@ questions:
       In the "kumain" group, repeat "ka" and leave out "-um-" to get "kakain." The "maglinis" group uses a different pattern.
     approved: false
   - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0010"
+    lesson: lesson-grammar-and-structure-mga-pahiwatig-ng-oras
+    keyPoint: 2
     type: "tense"
     difficulty: "hard"
     stem: |
@@ -304,6 +332,8 @@ questions:
       Luis was still writing when the head arrived. "Nagsusulat" is imperpektibo. An action can be ongoing at a moment in the past.
     approved: false
   - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0011"
+    lesson: lesson-grammar-and-structure-kalagayan-ng-kilos
+    keyPoint: 2
     type: "tense"
     difficulty: "hard"
     stem: |
@@ -325,6 +355,8 @@ questions:
       "Naglinis" presents finished work. "Kalilinis lang" adds that the work has just ended. Completion alone does not mean recent completion.
     approved: false
   - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0012"
+    lesson: lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa
+    keyPoint: 2
     type: "tense"
     difficulty: "hard"
     stem: |
@@ -346,6 +378,8 @@ questions:
       In the first sentence, the yard is where planting takes place. In the second, the yard is the destination. A place name alone cannot tell us which focus applies.
     approved: false
   - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0013"
+    lesson: lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa
+    keyPoint: 1
     type: "correct-usage"
     difficulty: "hard"
     stem: |
@@ -366,6 +400,8 @@ questions:
       "Niluto ni Dina ang sopas" makes the soup the topic and the thing cooked. The cooking is still completed. This is focus on layon.
     approved: false
   - id: "q-grammar-and-structure-tenses-and-voice-0025"
+    lesson: lesson-grammar-and-structure-pagbuo-ng-anyo-ng-pandiwa
+    keyPoint: 1
     type: "tense"
     difficulty: "exam"
     stem: |
@@ -388,6 +424,8 @@ questions:
       Read each full form instead of using repetition alone.
     approved: false
   - id: "q-grammar-and-structure-tenses-and-voice-0026"
+    lesson: lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa
+    keyPoint: 3
     type: "tense"
     difficulty: "exam"
     stem: |
@@ -409,6 +447,8 @@ questions:
       The visitors are the topic of the first sentence and receive the benefit. The pencil is the topic of the second and serves as a tool. Mara does both actions, but she is not the topic of either sentence.
     approved: false
   - id: "q-grammar-and-structure-tenses-and-voice-0027"
+    lesson: lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa
+    keyPoint: 1
     type: "tense"
     difficulty: "exam"
     stem: |

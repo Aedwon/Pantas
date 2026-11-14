@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 2
 partCount: 4
-ordering: 28.02
+ordering: 25
 keyPoints: 
   - "Piliin ang anyo sa pangkat na maglinis o kumain."
 ---

@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 1
 partCount: 5
-ordering: 3.1667
+ordering: 1
 keyPoints:
   - "Identify nouns, pronouns, verbs, adjectives, and adverbs by their jobs."
   - "Classify a word again when its job changes."

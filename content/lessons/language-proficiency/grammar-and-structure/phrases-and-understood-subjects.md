@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 1
 partCount: 6
-ordering: 4.1429
+ordering: 28
 keyPoints:
   - "Tell a phrase from a group with a subject and verb."
   - "Recognize the understood subject in a command."

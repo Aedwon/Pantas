@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 6
 partCount: 8
-ordering: 16
+ordering: 21
 keyPoints:
   - "Change active and passive voice while keeping the same time."
   - "Recognize get-passives and use be-passives in formal writing."

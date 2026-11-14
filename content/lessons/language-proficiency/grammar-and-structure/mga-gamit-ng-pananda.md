@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 6
 partCount: 6
-ordering: 15
+ordering: 11
 keyPoints:
   - "Tukuyin ang gamit ng ng ayon sa buong pangungusap."
   - "Tukuyin kung lugar, direksiyon, o tagatanggap ang pariralang may sa."

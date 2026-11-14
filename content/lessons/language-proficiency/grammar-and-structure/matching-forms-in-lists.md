@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 1
 partCount: 3
-ordering: 2.2500
+ordering: 41
 keyPoints:
   - "Match the forms of items doing the same job in a list."
 ---

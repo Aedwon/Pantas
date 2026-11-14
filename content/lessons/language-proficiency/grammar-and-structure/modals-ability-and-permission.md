@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 7
 partCount: 8
-ordering: 17
+ordering: 22
 keyPoints:
   - "Follow a modal with the base form."
   - "Use can and could for ability."

@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 4
 partCount: 4
-ordering: 28.04
+ordering: 27
 keyPoints: 
   - "Tukuyin ang pokus sa tagaganap at layon."
   - "Ihiwalay ang ganapan sa direksiyon."

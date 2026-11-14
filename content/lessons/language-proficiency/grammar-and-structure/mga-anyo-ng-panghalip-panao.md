@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 3
 partCount: 4
-ordering: 5.6
+ordering: 14
 keyPoints:
   - "Piliin ang anyong ang para sa taong itinatampok."
   - "Piliin ang anyong ng para sa may-ari o gumawa."

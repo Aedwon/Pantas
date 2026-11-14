@@ -12,6 +12,8 @@ meta:
     - "cse-sub"
 questions:
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0001"
+    lesson: lesson-grammar-and-structure-removing-needless-repeated-meaning
+    keyPoint: 1
     type: "redundancy-identification"
     difficulty: "easy"
     stem: |
@@ -32,6 +34,8 @@ questions:
       The request asks for an honest opinion. In this context, "truthful" repeats that quality without adding needed meaning, so "honest opinion" preserves the request.
     approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0002"
+    lesson: lesson-grammar-and-structure-editing-negative-concord
+    keyPoint: 1
     type: "redundancy-identification"
     difficulty: "easy"
     stem: |
@@ -52,6 +56,8 @@ questions:
       "Doesn't want any help" uses one standard negative pattern. It expresses the intended present refusal of help.
     approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0003"
+    lesson: lesson-grammar-and-structure-removing-needless-repeated-meaning
+    keyPoint: 1
     type: "redundancy-identification"
     difficulty: "easy"
     stem: |
@@ -72,6 +78,8 @@ questions:
       "Collaborated" means worked together. The revision keeps both participants and their shared mural without repeating the idea of joint work.
     approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0004"
+    lesson: lesson-grammar-and-structure-qualified-negatives-and-near-negatives
+    keyPoint: 2
     type: "redundancy-identification"
     difficulty: "medium"
     stem: |
@@ -92,6 +100,8 @@ questions:
       "Hardly" means almost not. "Can hardly hear" states that the speaker hears very little in standard formal English.
     approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0005"
+    lesson: lesson-grammar-and-structure-removing-needless-repeated-meaning
+    keyPoint: 1
     type: "redundancy-identification"
     difficulty: "easy"
     stem: |
@@ -112,6 +122,8 @@ questions:
       PIN stands for "personal identification number." Saying "PIN number" therefore repeats "number." The concise form is simply "PIN."
     approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0006"
+    lesson: lesson-grammar-and-structure-editing-negative-concord
+    keyPoint: 2
     type: "redundancy-identification"
     difficulty: "easy"
     stem: |
@@ -132,6 +144,8 @@ questions:
       In a negative-concord dialect, "didn't" and "nothing" work together to express one negative. The statement means that no unusual thing was seen.
     approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0007"
+    lesson: lesson-grammar-and-structure-removing-needless-repeated-meaning
+    keyPoint: 1
     type: "redundancy-identification"
     difficulty: "easy"
     stem: |
@@ -152,6 +166,8 @@ questions:
       ATM stands for "automated teller machine." Adding "machine" after ATM repeats the final word of the abbreviation.
     approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0008"
+    lesson: lesson-grammar-and-structure-qualified-negatives-and-near-negatives
+    keyPoint: 2
     type: "redundancy-identification"
     difficulty: "medium"
     stem: |
@@ -172,6 +188,8 @@ questions:
       "Barely started" means only just begun. The sentence says that very little work has been done.
     approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0009"
+    lesson: lesson-grammar-and-structure-removing-needless-repeated-meaning
+    keyPoint: 1
     type: "redundancy-identification"
     difficulty: "easy"
     stem: |
@@ -192,6 +210,8 @@ questions:
       ISBN stands for "International Standard Book Number." "ISBN number" repeats the word "number," so "ISBN" alone is the concise form.
     approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0010"
+    lesson: lesson-grammar-and-structure-qualified-negatives-and-near-negatives
+    keyPoint: 2
     type: "redundancy-identification"
     difficulty: "hard"
     stem: |
@@ -212,6 +232,8 @@ questions:
       "Could scarcely finish" means he only just managed to finish. It expresses great difficulty.
     approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0011"
+    lesson: lesson-grammar-and-structure-editing-negative-concord
+    keyPoint: 2
     type: "redundancy-identification"
     difficulty: "hard"
     stem: |
@@ -232,6 +254,8 @@ questions:
       "Don't" and "no" express one negative together in negative-concord dialects. A standard-formal exam would use "I don't have any time" or "I have no time."
     approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0012"
+    lesson: lesson-grammar-and-structure-removing-needless-repeated-meaning
+    keyPoint: 1
     type: "redundancy-identification"
     difficulty: "medium"
     stem: |
@@ -252,6 +276,8 @@ questions:
       "Return" already means to bring or give something back. The concise revision keeps that action and the Friday deadline.
     approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0013"
+    lesson: lesson-grammar-and-structure-keeping-needed-repetition
+    keyPoint: 1
     type: "redundancy-identification"
     difficulty: "medium"
     stem: |
@@ -272,6 +298,8 @@ questions:
       "Repeat" means say it again. With no separate earlier repeat to contrast, that verb alone expresses the request.
     approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0014"
+    lesson: lesson-grammar-and-structure-editing-negative-concord
+    keyPoint: 1
     type: "redundancy-identification"
     difficulty: "medium"
     stem: |
@@ -292,6 +320,8 @@ questions:
       "Isn't anybody" expresses that no person is there. It uses the standard negative verb with "anybody."
     approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0015"
+    lesson: lesson-grammar-and-structure-editing-negative-concord
+    keyPoint: 1
     type: "redundancy-identification"
     difficulty: "exam"
     stem: |
@@ -312,6 +342,8 @@ questions:
       ATM means "automated teller machine," and PIN means "personal identification number." The abbreviations already include the labels, so use ATM and PIN alone. For the requested formal style, "was never available" gives one clear negative meaning.
     approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0016"
+    lesson: lesson-grammar-and-structure-removing-needless-repeated-meaning
+    keyPoint: 1
     type: "redundancy-identification"
     difficulty: "easy"
     stem: |
@@ -332,6 +364,8 @@ questions:
       "Several days before a road closure" already tells when residents received the warning. "Advance" repeats that early timing, so it can be removed for a shorter version.
     approved: false
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0017"
+    lesson: lesson-grammar-and-structure-qualified-negatives-and-near-negatives
+    keyPoint: 1
     type: "redundancy-identification"
     difficulty: "medium"
     stem: |
@@ -352,6 +386,8 @@ questions:
       "Unexpected" means not expected. "Not unexpected" means the result was not a surprise. It may suggest the result was expected to some degree, but it does not say the result was fully expected.
     approved: false
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0018"
+    lesson: lesson-grammar-and-structure-qualified-negatives-and-near-negatives
+    keyPoint: 2
     type: "redundancy-identification"
     difficulty: "hard"
     stem: |
@@ -372,6 +408,8 @@ questions:
       "Scarcely" means almost not. "Scarcely any" therefore says that almost no supplies remained.
     approved: false
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0019"
+    lesson: lesson-grammar-and-structure-removing-needless-repeated-meaning
+    keyPoint: 2
     type: "redundancy-identification"
     difficulty: "hard"
     stem: |
@@ -392,6 +430,8 @@ questions:
       "Close" may emphasize the degree of nearness. The editor should decide whether that extra meaning is needed in this context.
     approved: false
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0020"
+    lesson: lesson-grammar-and-structure-qualified-negatives-and-near-negatives
+    keyPoint: 1
     type: "redundancy-identification"
     difficulty: "exam"
     stem: |

@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 5
 partCount: 5
-ordering: 6.8333
+ordering: 48
 keyPoints:
   - "Capitalize sentence beginnings and proper names."
   - "Apply the stated style to formal titles and general job labels."

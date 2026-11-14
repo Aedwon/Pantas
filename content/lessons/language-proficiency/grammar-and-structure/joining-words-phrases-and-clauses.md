@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 2
 partCount: 5
-ordering: 3.3333
+ordering: 2
 keyPoints:
   - "Identify prepositions, conjunctions, and interjections by their jobs."
   - "Distinguish a phrase from a subordinate clause after a joining word."

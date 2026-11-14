@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 3
 partCount: 5
-ordering: 6.5000
+ordering: 46
 keyPoints:
   - "Join closely related independent clauses without a comma splice."
   - "Separate complex list items with semicolons."

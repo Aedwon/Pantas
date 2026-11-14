@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 3
 partCount: 3
-ordering: 2.7500
+ordering: 43
 keyPoints:
   - "Match the parts joined by correlative conjunctions."
   - "Use matching forms for the two sides of a comparison."

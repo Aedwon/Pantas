@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 4
 partCount: 6
-ordering: 13
+ordering: 9
 keyPoints:
   - "Piliin ang aspekto ayon sa kalagayan ng kilos."
   - "Panatilihin ang anyo ng pandiwa kung bilang lamang ng paksa ang nagbago."

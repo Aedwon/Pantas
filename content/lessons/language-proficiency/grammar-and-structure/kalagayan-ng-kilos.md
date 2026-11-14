@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 1
 partCount: 4
-ordering: 28.01
+ordering: 24
 keyPoints: 
   - "Kilalanin ang perpektibo, imperpektibo, at kontemplatibo."
   - "Ihiwalay ang perpektibo sa perpektibong katatapos."

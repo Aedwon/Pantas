@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 5
 partCount: 8
-ordering: 15
+ordering: 20
 keyPoints:
   - "Identify whether the subject does or receives an action."
   - "Recognize be and a past participle without confusing states with passive actions."

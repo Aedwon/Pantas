@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 5
 partCount: 6
-ordering: 14
+ordering: 10
 keyPoints:
   - "Hanapin ang paksa na may ang, si, ang mga, o sina."
   - "Itugma ang anyo ng pandiwa sa papel ng paksa sa kilos."

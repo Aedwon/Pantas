@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 1
 partCount: 4
-ordering: 8.2
+ordering: 34
 keyPoints:
   - "Identify independent and dependent clauses from their complete thoughts."
   - "Recognize a simple sentence even with a compound subject or verb."

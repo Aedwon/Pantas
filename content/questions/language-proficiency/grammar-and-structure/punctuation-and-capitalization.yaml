@@ -12,6 +12,8 @@ meta:
     - "cse-sub"
 questions:
   - id: "q-grammar-and-structure-punctuation-and-capitalization-0001"
+    lesson: lesson-grammar-and-structure-semicolons-and-comma-splices
+    keyPoint: 1
     type: "punctuation"
     difficulty: "easy"
     stem: |
@@ -32,6 +34,8 @@ questions:
       "The concert was amazing" and "everyone stayed until the end" are complete clauses. A semicolon can join these closely related statements.
     approved: true
   - id: "q-grammar-and-structure-punctuation-and-capitalization-0002"
+    lesson: lesson-grammar-and-structure-apostrophes-for-ownership-and-contractions
+    keyPoint: 2
     type: "punctuation"
     difficulty: "easy"
     stem: |
@@ -52,6 +56,8 @@ questions:
       The sentence needs a word showing possession (the product line belonging to the company), not a contraction: "its" (no apostrophe) is correct.
     approved: true
   - id: "q-grammar-and-structure-punctuation-and-capitalization-0003"
+    lesson: lesson-grammar-and-structure-semicolons-and-comma-splices
+    keyPoint: 1
     type: "punctuation"
     difficulty: "medium"
     stem: |
@@ -72,6 +78,8 @@ questions:
       Both halves can stand as complete sentences. The semicolon joins the closely related statements about her reading.
     approved: true
   - id: "q-grammar-and-structure-punctuation-and-capitalization-0004"
+    lesson: lesson-grammar-and-structure-capital-letters-in-names-titles-and-quotes
+    keyPoint: 2
     type: "punctuation"
     difficulty: "medium"
     stem: |
@@ -92,6 +100,8 @@ questions:
       Under the stated convention, "President" is capitalized as a formal title directly before "Reyes." The surname is a proper name.
     approved: true
   - id: "q-grammar-and-structure-punctuation-and-capitalization-0005"
+    lesson: lesson-grammar-and-structure-commas-in-lists-and-joined-clauses
+    keyPoint: 1
     type: "punctuation"
     difficulty: "medium"
     stem: |
@@ -112,6 +122,8 @@ questions:
       Commas separate "apples," "bananas," and "oranges." This version also uses a serial comma before "and," which is accepted in edited English.
     approved: true
   - id: "q-grammar-and-structure-punctuation-and-capitalization-0006"
+    lesson: lesson-grammar-and-structure-commas-in-lists-and-joined-clauses
+    keyPoint: 2
     type: "punctuation"
     difficulty: "medium"
     stem: |
@@ -132,6 +144,8 @@ questions:
       A comma correctly comes before the coordinating conjunction "and" when it joins two independent clauses.
     approved: true
   - id: "q-grammar-and-structure-punctuation-and-capitalization-0007"
+    lesson: lesson-grammar-and-structure-commas-with-openings-and-extra-information
+    keyPoint: 1
     type: "punctuation"
     difficulty: "medium"
     stem: |
@@ -152,6 +166,8 @@ questions:
       "After the meeting" is the introductory phrase. The comma follows that whole group before the main clause "we went home."
     approved: true
   - id: "q-grammar-and-structure-punctuation-and-capitalization-0008"
+    lesson: lesson-grammar-and-structure-commas-with-openings-and-extra-information
+    keyPoint: 2
     type: "punctuation"
     difficulty: "medium"
     stem: |
@@ -172,6 +188,8 @@ questions:
       Because the context establishes that the writer has only one brother, "who lives in Cebu" is nonrestrictive information. A nonrestrictive relative clause is set off with commas.
     approved: true
   - id: "q-grammar-and-structure-punctuation-and-capitalization-0009"
+    lesson: lesson-grammar-and-structure-semicolons-and-comma-splices
+    keyPoint: 2
     type: "punctuation"
     difficulty: "medium"
     stem: |
@@ -192,6 +210,8 @@ questions:
       Semicolons correctly separate the list items here, since each item ("Manila, Philippines," "Tokyo, Japan," "Seoul, Korea") already contains a comma.
     approved: true
   - id: "q-grammar-and-structure-punctuation-and-capitalization-0010"
+    lesson: lesson-grammar-and-structure-apostrophes-for-ownership-and-contractions
+    keyPoint: 1
     type: "punctuation"
     difficulty: "medium"
     stem: |
@@ -212,6 +232,8 @@ questions:
       An apostrophe followed by "s" ("Maria's") correctly shows that the book belongs to Maria.
     approved: true
   - id: "q-grammar-and-structure-punctuation-and-capitalization-0011"
+    lesson: lesson-grammar-and-structure-apostrophes-for-ownership-and-contractions
+    keyPoint: 2
     type: "punctuation"
     difficulty: "medium"
     stem: |
@@ -232,6 +254,8 @@ questions:
       The apostrophe in "don't" correctly marks the omitted letter from "do not."
     approved: true
   - id: "q-grammar-and-structure-punctuation-and-capitalization-0012"
+    lesson: lesson-grammar-and-structure-capital-letters-in-names-titles-and-quotes
+    keyPoint: 1
     type: "punctuation"
     difficulty: "medium"
     stem: |
@@ -252,6 +276,8 @@ questions:
       "Manila" is a proper noun (a specific place name) and must be capitalized; the sentence's first word must also be capitalized.
     approved: true
   - id: "q-grammar-and-structure-punctuation-and-capitalization-0013"
+    lesson: lesson-grammar-and-structure-capital-letters-in-names-titles-and-quotes
+    keyPoint: 3
     type: "punctuation"
     difficulty: "medium"
     stem: |
@@ -272,6 +298,8 @@ questions:
       "She" begins the outer sentence. The quoted words form a complete sentence, so "Please" begins with a capital letter too.
     approved: true
   - id: "q-grammar-and-structure-punctuation-and-capitalization-0014"
+    lesson: lesson-grammar-and-structure-commas-with-openings-and-extra-information
+    keyPoint: 2
     type: "punctuation"
     difficulty: "hard"
     stem: |
@@ -292,6 +320,8 @@ questions:
       "Who missed the test" identifies the students who must report. This restrictive clause stays with the noun without paired commas.
     approved: true
   - id: "q-grammar-and-structure-punctuation-and-capitalization-0015"
+    lesson: lesson-grammar-and-structure-apostrophes-for-ownership-and-contractions
+    keyPoint: 2
     type: "punctuation"
     difficulty: "hard"
     stem: |
@@ -312,6 +342,8 @@ questions:
       In "It's been raining," the contraction expands to "It has been raining." "Has" supplies the helping verb before "been."
     approved: true
   - id: "q-grammar-and-structure-punctuation-and-capitalization-0016"
+    lesson: lesson-grammar-and-structure-semicolons-and-comma-splices
+    keyPoint: 1
     type: "punctuation"
     difficulty: "hard"
     stem: |
@@ -332,6 +364,8 @@ questions:
       "After regular servicing" is a phrase. A semicolon in this joining use needs an independent clause on each side.
     approved: true
   - id: "q-grammar-and-structure-punctuation-and-capitalization-0017"
+    lesson: lesson-grammar-and-structure-capital-letters-in-names-titles-and-quotes
+    keyPoint: 2
     type: "punctuation"
     difficulty: "hard"
     stem: |
@@ -352,6 +386,8 @@ questions:
       The stated style uses lowercase for a generic job description. "We" starts the sentence, so it begins with a capital letter.
     approved: true
   - id: "q-grammar-and-structure-punctuation-and-capitalization-0018"
+    lesson: lesson-grammar-and-structure-capital-letters-in-names-titles-and-quotes
+    keyPoint: 3
     type: "punctuation"
     difficulty: "medium"
     stem: |
@@ -372,6 +408,8 @@ questions:
       The quoted word "meeting" is an embedded fragment, so it stays lowercase. "The" begins the surrounding sentence and is capitalized.
     approved: true
   - id: "q-grammar-and-structure-punctuation-and-capitalization-0019"
+    lesson: lesson-grammar-and-structure-semicolons-and-comma-splices
+    keyPoint: 1
     type: "punctuation"
     difficulty: "medium"
     stem: |
@@ -392,6 +430,8 @@ questions:
       Both statements are independent clauses. A semicolon can join these closely related statements without a joining word.
     approved: true
   - id: "q-grammar-and-structure-punctuation-and-capitalization-0020"
+    lesson: lesson-grammar-and-structure-capital-letters-in-names-titles-and-quotes
+    keyPoint: 2
     type: "punctuation"
     difficulty: "exam"
     stem: |

@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 4
 partCount: 4
-ordering: 57.04
+ordering: 52
 keyPoints: 
   - "Keep the qualified meaning of not unexpected and similar phrases."
   - "Use hardly and scarcely without adding not for the same meaning."

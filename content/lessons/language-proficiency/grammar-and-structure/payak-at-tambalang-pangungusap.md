@@ -7,7 +7,7 @@ topic: "topic-grammar-and-structure"
 isActive: true
 part: 3
 partCount: 4
-ordering: 8.6
+ordering: 36
 keyPoints:
   - "Kilalanin ang simuno, panaguri, at dalawang uri ng sugnay."
   - "Kilalanin ang payak at tambalan ayon sa bilang ng sugnay."
