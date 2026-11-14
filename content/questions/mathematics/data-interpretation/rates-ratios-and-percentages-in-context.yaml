@@ -5,6 +5,7 @@ meta:
   exams: [cse-pro]
 questions:
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0001
+    approved: true
     lesson: lesson-data-interpretation-percentage-change
     keyPoint: 1
     type: word-problem
@@ -34,6 +35,7 @@ questions:
       Product A rises by $50-40=10$ million pesos. Divide by the original $40$: $\dfrac{10}{40}=0.25$. The increase is $25\%$.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0002
+    approved: true
     lesson: lesson-data-interpretation-percentages-and-ratios-of-groups
     keyPoint: 2
     type: word-problem
@@ -63,6 +65,7 @@ questions:
       The requested values are $50$ and $75$. Divide both by their GCF, $25$, to get $50:75=2:3$.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0003
+    approved: true
     lesson: lesson-data-interpretation-percentages-and-ratios-of-groups
     keyPoint: 1
     type: word-problem
@@ -93,6 +96,7 @@ questions:
       The senior population is $1200$ out of $8000$. Its fraction is $\dfrac{1200}{8000}=0.15$. Multiply by $100\%$ to get $15\%$.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0004
+    approved: true
     lesson: lesson-data-interpretation-percentages-and-ratios-of-groups
     keyPoint: 2
     type: word-problem
@@ -123,6 +127,7 @@ questions:
       The combined senior count is $1500+2100=3600$. The combined population is $10000+12000=22000$. Thus nonseniors total $22000-3600=18400$. Divide $3600:18400$ by $400$ to get $9:46$.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0005
+    approved: true
     lesson: lesson-data-interpretation-percentage-change
     keyPoint: 1
     type: word-problem
@@ -152,6 +157,7 @@ questions:
       Facility X grows by $\dfrac{150-120}{120}(100\%)=25\%$. Facility Y grows by $\dfrac{210-180}{180}(100\%)=16\dfrac{2}{3}\%$. Subtract these percentages: $25-16\dfrac{2}{3}=8\dfrac{1}{3}$ percentage points.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0006
+    approved: true
     lesson: lesson-data-interpretation-percentages-and-ratios-of-groups
     keyPoint: 1
     type: word-problem
@@ -181,6 +187,7 @@ questions:
       The combined Q1 consumption is $120+180=300$ megawatt-hours. Facility Y uses $180$ of that total. Its fraction is $\dfrac{180}{300}=0.60$, or $60\%$.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0007
+    approved: true
     lesson: lesson-data-interpretation-percentage-change
     keyPoint: 1
     type: word-problem
@@ -210,6 +217,7 @@ questions:
       The original combined total is $20+30=50$ million pesos. The new total is $28+36=64$ million pesos. The increase is $14$. Its fraction of the original total is $\dfrac{14}{50}=0.28$, or $28\%$.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0008
+    approved: true
     lesson: lesson-data-interpretation-percentages-and-ratios-of-groups
     keyPoint: 2
     type: word-problem
@@ -239,6 +247,7 @@ questions:
       Business Tax increases by $28-20=8$ million pesos. Q2 Real Property Tax is $36$ million pesos. Their fraction is $\dfrac{8}{36}=\dfrac{2}{9}$.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0009
+    approved: true
     lesson: lesson-data-interpretation-percentages-and-ratios-of-groups
     keyPoint: 1
     type: word-problem
@@ -268,6 +277,7 @@ questions:
       The male total is $300+150=450$. Engineering contributes $300$. Its fraction is $\dfrac{300}{450}=\dfrac{2}{3}$.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0010
+    approved: true
     lesson: lesson-data-interpretation-percentages-and-ratios-of-groups
     keyPoint: 1
     type: word-problem
@@ -297,6 +307,7 @@ questions:
       The female Education share is $\dfrac{450}{150+450}=75\%$. The female Engineering share is $\dfrac{200}{300+200}=40\%$. Their difference is $75-40=35$ percentage points.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0011
+    approved: true
     lesson: lesson-data-interpretation-percentage-change
     keyPoint: 1
     type: which-is-true
@@ -326,6 +337,7 @@ questions:
       Motorcycles increase by $5000-4000=1000$. Automobiles increase by $2200-2000=200$. Since $1000\div200=5$, the motorcycle increase is five times the automobile increase.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0012
+    approved: true
     lesson: lesson-data-interpretation-percentages-and-ratios-of-groups
     keyPoint: 1
     type: word-problem
@@ -375,7 +387,7 @@ questions:
           This treats an undefined division as zero. Zero is the original count. Check that an undefined ratio is not a numerical growth rate.
     explanation: |
       The ordinary growth formula divides the change by the original count. Here that would divide $12-0$ by $0$. Division by zero is undefined, so an ordinary percent increase cannot be reported.
-    approved: false
+    approved: true
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0014
     lesson: lesson-data-interpretation-percentage-change
@@ -398,7 +410,7 @@ questions:
           This replaces a comparison ratio with multiplication. The original base is relevant. Check that the change must be divided by that base.
     explanation: |
       Growth is measured against the original value, $80$. The change is $20$. Thus the percentage growth is $\dfrac{20}{80}(100\%)=25\%$.
-    approved: false
+    approved: true
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0015
     lesson: lesson-data-interpretation-percentages-and-ratios-of-groups
@@ -421,7 +433,7 @@ questions:
           This reports only Branch B percentage. Its rate is one valid part of the survey. Check that both branches are included.
     explanation: |
       Excellent ratings total $30+10=40$. Surveyed customers total $50+50=100$. Their fraction is $\dfrac{40}{100}=0.40$, or $40\%$.
-    approved: false
+    approved: true
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0016
     lesson: lesson-data-interpretation-percentage-change
@@ -444,7 +456,7 @@ questions:
           This uses the new count as the percentage base. It is another meaningful count. Check that an increase is measured from the old count.
     explanation: |
       A twenty-percent increase adds $0.20$ times the original count. The new count is therefore $1+0.20=1.20$ times the original.
-    approved: false
+    approved: true
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0017
     lesson: lesson-data-interpretation-percentage-change
@@ -467,7 +479,7 @@ questions:
           This reports the new level relative to the old level. The new count is about one hundred twenty percent of the old count. Check that growth excludes the original one hundred percent.
     explanation: |
       The increase is $601-498=103$. Estimate it as $100$ and the starting value as $500$. The ratio is about $\dfrac{100}{500}=0.20$, so the increase is about $20\%$.
-    approved: false
+    approved: true
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0018
     lesson: lesson-data-interpretation-percentages-and-ratios-of-groups
@@ -490,7 +502,7 @@ questions:
           This compares the combined budget with Drainage alone. The total is three drainage-sized parts. Check that the numerator is Road Works, not the total.
     explanation: |
       Write both amounts in thousands: Road Works is $1500$, and Drainage is $750$. The ratio is $1500:750=2:1$.
-    approved: false
+    approved: true
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0019
     lesson: lesson-data-interpretation-percentage-change
@@ -513,7 +525,7 @@ questions:
           This reports the final count as a percentage of the second starting count. That ratio is one hundred twenty-five percent. Check that an increase removes the starting one hundred percent.
     explanation: |
       The second change starts from $80$ and adds $20$. Its rate is $\dfrac{20}{80}(100\%)=25\%$, an increase.
-    approved: false
+    approved: true
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0020
     lesson: lesson-data-interpretation-percentage-change
@@ -536,9 +548,10 @@ questions:
           This divides the gain eighteen by the new total one hundred eighteen and rounds. The new total is a meaningful value. Check that ordinary growth divides by the old total.
     explanation: |
       Supplies adds $80(0.10)=8$ thousand pesos. Training adds $20(0.50)=10$ thousand. The combined gain is $18$ on an original total of $100$. Thus the increase is $18\%$.
-    approved: false
+    approved: true
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0021
+    approved: true
     lesson: lesson-data-interpretation-unit-rates-and-direct-proportion
     keyPoint: 1
     type: word-problem
@@ -561,6 +574,7 @@ questions:
       The scanner processes $315\div45=7$ pages per minute. One hour is $60$ minutes, so its hourly rate is $7\times60=420$ pages.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0022
+    approved: true
     lesson: lesson-data-interpretation-unit-rates-and-direct-proportion
     keyPoint: 1
     type: word-problem
@@ -583,6 +597,7 @@ questions:
       The order contains $8\times25=200$ envelopes. The cost per envelope is $\dfrac{1,260}{200}=6.30$ pesos.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0023
+    approved: true
     lesson: lesson-data-interpretation-unit-rates-and-direct-proportion
     keyPoint: 2
     type: word-problem
@@ -605,6 +620,7 @@ questions:
       Each page costs $840\div120=7$ pesos. The new order has $180+30=210$ pages. Its cost is $210\times7=1,470$ pesos.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0024
+    approved: true
     lesson: lesson-data-interpretation-unit-rates-and-direct-proportion
     keyPoint: 2
     type: word-problem
@@ -627,6 +643,7 @@ questions:
       The pump delivers $450\div12=37.5$ liters per minute. The two runs last $2\times9=18$ minutes. The amount delivered is $37.5\times18=675$ liters.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0025
+    approved: true
     lesson: lesson-data-interpretation-inverse-proportion-and-ratio-parts
     keyPoint: 1
     type: word-problem
@@ -649,6 +666,7 @@ questions:
       The batch needs $8\times15=120$ clerk-hours. The first shift completes $8\times5=40$ clerk-hours, leaving $120-40=80$. There are $8-2=6$ clerks left. They need $\dfrac{80}{6}=13\dfrac{1}{3}$ additional hours.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0026
+    approved: true
     lesson: lesson-data-interpretation-inverse-proportion-and-ratio-parts
     keyPoint: 1
     type: word-problem
@@ -671,6 +689,7 @@ questions:
       The job needs $9\times8=72$ machine-hours. To finish in $6$ hours requires $72\div6=12$ machines. The additional number is $12-9=3$ machines.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0027
+    approved: true
     lesson: lesson-data-interpretation-inverse-proportion-and-ratio-parts
     keyPoint: 2
     type: word-problem
@@ -693,6 +712,7 @@ questions:
       The money to divide is $96,000-12,000=84,000$ pesos. The ratio has $3+4=7$ parts. Each part is $84,000\div7=12,000$ pesos. Travel receives $4\times12,000=48,000$ pesos.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0028
+    approved: true
     lesson: lesson-data-interpretation-inverse-proportion-and-ratio-parts
     keyPoint: 2
     type: word-problem
