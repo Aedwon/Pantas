@@ -6,6 +6,13 @@ subject: "subject-language-proficiency"
 topic: "topic-grammar-and-structure"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-grammar-and-structure-english-word-jobs
+  - lesson-grammar-and-structure-joining-words-phrases-and-clauses
+  - lesson-grammar-and-structure-pangalan-kilos-at-pandiwari
+  - lesson-grammar-and-structure-pang-uri-at-pang-abay
+  - lesson-grammar-and-structure-pang-ukol-pangatnig-at-pandamdam
 ---
 ## Core Concept
 

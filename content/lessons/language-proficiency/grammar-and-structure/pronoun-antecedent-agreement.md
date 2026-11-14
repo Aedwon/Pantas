@@ -6,6 +6,12 @@ subject: "subject-language-proficiency"
 topic: "topic-grammar-and-structure"
 estimatedMinutes: 13
 isActive: true
+status: retired
+replacedBy:
+  - lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they
+  - lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents
+  - lesson-grammar-and-structure-mga-anyo-ng-panghalip-panao
+  - lesson-grammar-and-structure-tinutukoy-at-pagmamay-ari-sa-panghalip
 ---
 ## Core Concept
 

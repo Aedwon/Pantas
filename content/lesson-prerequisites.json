@@ -160,10 +160,79 @@
    }
   ],
   "lesson-grammar-and-structure-filipino-verb-aspect-and-focus": [],
-  "lesson-grammar-and-structure-parts-of-speech": [],
-  "lesson-grammar-and-structure-pronoun-antecedent-agreement": [],
+  "lesson-grammar-and-structure-english-word-jobs": [],
+  "lesson-grammar-and-structure-joining-words-phrases-and-clauses": [
+   {
+    "lesson": "lesson-grammar-and-structure-english-word-jobs",
+    "strength": "required",
+    "reason": "The previous part teaches the ideas used in this part."
+   }
+  ],
+  "lesson-grammar-and-structure-pangalan-kilos-at-pandiwari": [
+   {
+    "lesson": "lesson-grammar-and-structure-joining-words-phrases-and-clauses",
+    "strength": "required",
+    "reason": "The previous part teaches the ideas used in this part."
+   }
+  ],
+  "lesson-grammar-and-structure-pang-uri-at-pang-abay": [
+   {
+    "lesson": "lesson-grammar-and-structure-pangalan-kilos-at-pandiwari",
+    "strength": "required",
+    "reason": "The previous part teaches the ideas used in this part."
+   }
+  ],
+  "lesson-grammar-and-structure-pang-ukol-pangatnig-at-pandamdam": [
+   {
+    "lesson": "lesson-grammar-and-structure-pang-uri-at-pang-abay",
+    "strength": "required",
+    "reason": "The previous part teaches the ideas used in this part."
+   }
+  ],
+  "lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they": [],
+  "lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents": [
+   {
+    "lesson": "lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they",
+    "strength": "required",
+    "reason": "The previous part teaches the ideas used in this part."
+   }
+  ],
+  "lesson-grammar-and-structure-mga-anyo-ng-panghalip-panao": [
+   {
+    "lesson": "lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents",
+    "strength": "required",
+    "reason": "The previous part teaches the ideas used in this part."
+   }
+  ],
+  "lesson-grammar-and-structure-tinutukoy-at-pagmamay-ari-sa-panghalip": [
+   {
+    "lesson": "lesson-grammar-and-structure-mga-anyo-ng-panghalip-panao",
+    "strength": "required",
+    "reason": "The previous part teaches the ideas used in this part."
+   }
+  ],
   "lesson-grammar-and-structure-redundancy-and-double-negatives": [],
-  "lesson-grammar-and-structure-sentence-structure": [
+  "lesson-grammar-and-structure-simple-and-compound-sentences": [],
+  "lesson-grammar-and-structure-complex-and-compound-complex-sentences": [
+   {
+    "lesson": "lesson-grammar-and-structure-simple-and-compound-sentences",
+    "strength": "required",
+    "reason": "The previous part teaches the ideas used in this part."
+   }
+  ],
+  "lesson-grammar-and-structure-payak-at-tambalang-pangungusap": [
+   {
+    "lesson": "lesson-grammar-and-structure-complex-and-compound-complex-sentences",
+    "strength": "required",
+    "reason": "The previous part teaches the ideas used in this part."
+   }
+  ],
+  "lesson-grammar-and-structure-hugnayan-langkapan-at-ayos-ng-salaysay": [
+   {
+    "lesson": "lesson-grammar-and-structure-payak-at-tambalang-pangungusap",
+    "strength": "required",
+    "reason": "The previous part teaches the ideas used in this part."
+   },
    {
     "lesson": "lesson-grammar-and-structure-infinitive-phrases-and-nonfinite-clauses",
     "strength": "helpful",
@@ -177,7 +246,7 @@
     "reason": "Focused agreement practice makes the correction checks easier. The lesson restates agreement rules and explains each correction."
    },
    {
-    "lesson": "lesson-grammar-and-structure-sentence-structure",
+    "lesson": "lesson-grammar-and-structure-simple-and-compound-sentences",
     "strength": "helpful",
     "reason": "Practice counting clauses supports the English and Filipino sentence-classification tasks. The lesson supplies its own sentence-type definitions."
    }
@@ -189,7 +258,7 @@
     "reason": "Distinguishing a main point from supporting details helps organize general statements, examples, and outlines. The lesson explains these ideas sufficiently itself."
    },
    {
-    "lesson": "lesson-grammar-and-structure-pronoun-antecedent-agreement",
+    "lesson": "lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they",
     "strength": "helpful",
     "reason": "Practice identifying pronoun references makes reference chains easier to follow. The lesson teaches how references guide ordering."
    }
@@ -306,7 +375,7 @@
   ],
   "lesson-vocabulary-confusing-words": [
    {
-    "lesson": "lesson-grammar-and-structure-parts-of-speech",
+    "lesson": "lesson-grammar-and-structure-english-word-jobs",
     "strength": "helpful",
     "reason": "Recognizing word jobs helps distinguish affect/effect and sila/sina. The lesson defines the relevant jobs and usage rules itself."
    }
@@ -321,7 +390,7 @@
   ],
   "lesson-vocabulary-root-words-prefixes-suffixes": [
    {
-    "lesson": "lesson-grammar-and-structure-parts-of-speech",
+    "lesson": "lesson-grammar-and-structure-english-word-jobs",
     "strength": "helpful",
     "reason": "Recognizing word jobs makes suffix-driven changes easier to understand. The lesson defines the word classes needed for its examples."
    }
