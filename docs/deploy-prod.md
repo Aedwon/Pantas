@@ -283,6 +283,12 @@ What is in place:
   - a usage alarm named `billing-cutoff: ...` opens (Hosting bytes, Storage egress, Firestore reads,
     Firestore writes, each per hour and per day). Alarms react within minutes; budget data lags hours.
   - `DRY_RUN=true` on the function means log only. Anything else but exactly `false` is also a dry run.
+- **Prod alarms are notify-only until Nov 21, 2026.** On prod the eight alarms are named `usage-watch: ...`
+  and only email Aedwon, so untuned thresholds cannot cut prod while baselines are collected (Fable 5.2
+  ruling, Nov 14). On Nov 21, compare them with a week of prod peaks, then wire each one: rename it to
+  `billing-cutoff: ...` and add a Pub/Sub notification channel for the `billing-cutoff` topic (first
+  grant the project's Monitoring notification agent `roles/pubsub.publisher` on the topic; the agent
+  exists once a Pub/Sub channel is created). Prod's budget cutoff ($15) is live now.
 - **Spend caps:** each project pauses Cloud Run and Cloud Run functions at $5 a month (Google's spend
   cap feature). New function requests pause until the next month or a lift.
 - **Bot-check cap:** reCAPTCHA assessments are limited to 300 a day per project (resets at Pacific midnight).
@@ -327,3 +333,20 @@ Signs: the app stops working for everyone on that project; an alarm email from C
 6. If a spend cap paused functions, lift it: edit the budget and choose "Lift spend cap" (console), or
    PATCH the budget's `spendCap.inputState` to `AWAITING_NEXT_PERIOD`. It can take up to an hour.
 7. Record what happened in the launch log.
+
+### Prod: who relinks, and in what order
+
+- Any agent session on Aedwon's Mac can relink: the owner login there has Billing Account Administrator
+  on the billing account and Owner on pantas-prod (checked Nov 14 with `testIamPermissions`). If no agent
+  is running, the 100% budget email or the alarm email reaches Aedwon; he can relink from the console.
+- Prod order, fastest safe recovery:
+  1. If it was the budget (the email says the $15 budget was passed, or the cutoff log says `cost ... over
+     budget 15`): set `DRY_RUN=true` on prod's `billing-cutoff` first, or every budget message will cut
+     again; then decide with Aedwon whether to raise the $15 amount before turning it back to `false`.
+  2. If it was an alarm: find the cause in the incident. If an attack is still running, relinking
+     restarts the bill.
+  3. Relink: `gcloud billing projects link pantas-prod --billing-account <billing account id>`.
+  4. Tell the integrator and the manager: no deploys until every function answers. Expect up to about 35
+     minutes (staging: 34 and 5 minutes). The app pages, sign-in, the database and uploads work at once.
+  5. Check all functions (list and POST, above). Then post the outage window in the launch log.
+
