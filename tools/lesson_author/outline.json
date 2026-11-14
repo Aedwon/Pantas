@@ -848,6 +848,36 @@
               "sections": []
             },
             {
+              "title": "Phrases and Understood Subjects",
+              "slug": "phrases-and-understood-subjects",
+              "sections": []
+            },
+            {
+              "title": "Independent and Dependent Clauses",
+              "slug": "independent-and-dependent-clauses",
+              "sections": []
+            },
+            {
+              "title": "Relative Clauses and Main Thoughts",
+              "slug": "relative-clauses-and-main-thoughts",
+              "sections": []
+            },
+            {
+              "title": "Connectors for Reason and Contrast",
+              "slug": "connectors-for-reason-and-contrast",
+              "sections": []
+            },
+            {
+              "title": "Finite Verbs and -ing Groups",
+              "slug": "finite-verbs-and-ing-groups",
+              "sections": []
+            },
+            {
+              "title": "Infinitive Phrases and Nonfinite Clauses",
+              "slug": "infinitive-phrases-and-nonfinite-clauses",
+              "sections": []
+            },
+            {
               "title": "Sentence Structure (Simple, Compound, Complex, Compound-Complex)",
               "slug": "sentence-structure",
               "sections": []
@@ -878,8 +908,48 @@
               "sections": []
             },
             {
+              "title": "Matching Forms in Lists",
+              "slug": "matching-forms-in-lists",
+              "sections": []
+            },
+            {
+              "title": "Shared Words in Parallel Lists",
+              "slug": "shared-words-in-parallel-lists",
+              "sections": []
+            },
+            {
+              "title": "Parallel Pairs and Comparisons",
+              "slug": "parallel-pairs-and-comparisons",
+              "sections": []
+            },
+            {
               "title": "Punctuation and Capitalization Rules",
               "slug": "punctuation-and-capitalization",
+              "sections": []
+            },
+            {
+              "title": "Commas in Lists and Joined Clauses",
+              "slug": "commas-in-lists-and-joined-clauses",
+              "sections": []
+            },
+            {
+              "title": "Commas with Openings and Extra Information",
+              "slug": "commas-with-openings-and-extra-information",
+              "sections": []
+            },
+            {
+              "title": "Semicolons and Comma Splices",
+              "slug": "semicolons-and-comma-splices",
+              "sections": []
+            },
+            {
+              "title": "Apostrophes for Ownership and Contractions",
+              "slug": "apostrophes-for-ownership-and-contractions",
+              "sections": []
+            },
+            {
+              "title": "Capital Letters in Names, Titles, and Quotes",
+              "slug": "capital-letters-in-names-titles-and-quotes",
               "sections": []
             },
             {

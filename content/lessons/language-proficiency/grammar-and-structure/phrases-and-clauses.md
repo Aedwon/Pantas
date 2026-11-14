@@ -6,6 +6,14 @@ subject: "subject-language-proficiency"
 topic: "topic-grammar-and-structure"
 estimatedMinutes: 12
 isActive: true
+status: retired
+replacedBy:
+  - lesson-grammar-and-structure-phrases-and-understood-subjects
+  - lesson-grammar-and-structure-independent-and-dependent-clauses
+  - lesson-grammar-and-structure-relative-clauses-and-main-thoughts
+  - lesson-grammar-and-structure-connectors-for-reason-and-contrast
+  - lesson-grammar-and-structure-finite-verbs-and-ing-groups
+  - lesson-grammar-and-structure-infinitive-phrases-and-nonfinite-clauses
 ---
 ## Core Concept
 

@@ -160,27 +160,12 @@
    }
   ],
   "lesson-grammar-and-structure-filipino-verb-aspect-and-focus": [],
-  "lesson-grammar-and-structure-parallelism": [
-   {
-    "lesson": "lesson-grammar-and-structure-phrases-and-clauses",
-    "strength": "helpful",
-    "reason": "Understanding infinitive and -ing groups makes comparisons between grammatical forms easier. The lesson supplies its own matching-form rules."
-   }
-  ],
   "lesson-grammar-and-structure-parts-of-speech": [],
-  "lesson-grammar-and-structure-phrases-and-clauses": [],
   "lesson-grammar-and-structure-pronoun-antecedent-agreement": [],
-  "lesson-grammar-and-structure-punctuation-and-capitalization": [
-   {
-    "lesson": "lesson-grammar-and-structure-phrases-and-clauses",
-    "strength": "helpful",
-    "reason": "Practice distinguishing independent and dependent clauses makes comma and semicolon choices easier. The lesson repeats the necessary definitions."
-   }
-  ],
   "lesson-grammar-and-structure-redundancy-and-double-negatives": [],
   "lesson-grammar-and-structure-sentence-structure": [
    {
-    "lesson": "lesson-grammar-and-structure-phrases-and-clauses",
+    "lesson": "lesson-grammar-and-structure-infinitive-phrases-and-nonfinite-clauses",
     "strength": "helpful",
     "reason": "Recognizing clause boundaries makes counting clauses and identifying sentence types easier. The lesson teaches the needed clause definitions itself."
    }
@@ -1464,7 +1449,7 @@
   ],
   "lesson-grammar-and-structure-misplaced-modifiers-and-clear-meaning": [
    {
-    "lesson": "lesson-grammar-and-structure-phrases-and-clauses",
+    "lesson": "lesson-grammar-and-structure-infinitive-phrases-and-nonfinite-clauses",
     "strength": "helpful",
     "reason": "Recognizing phrases and their understood doers makes dangling-modifier repairs easier. The lesson explains the repairs sufficiently to stand alone."
    }
@@ -1479,6 +1464,98 @@
   "lesson-grammar-and-structure-scope-of-small-modifiers": [
    {
     "lesson": "lesson-grammar-and-structure-dangling-modifiers-and-their-subjects",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-commas-in-lists-and-joined-clauses": [
+   {
+    "lesson": "lesson-grammar-and-structure-infinitive-phrases-and-nonfinite-clauses",
+    "strength": "helpful",
+    "reason": "Practice distinguishing independent and dependent clauses makes comma and semicolon choices easier. The lesson repeats the necessary definitions."
+   }
+  ],
+  "lesson-grammar-and-structure-commas-with-openings-and-extra-information": [
+   {
+    "lesson": "lesson-grammar-and-structure-commas-in-lists-and-joined-clauses",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-semicolons-and-comma-splices": [
+   {
+    "lesson": "lesson-grammar-and-structure-commas-with-openings-and-extra-information",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-apostrophes-for-ownership-and-contractions": [
+   {
+    "lesson": "lesson-grammar-and-structure-semicolons-and-comma-splices",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-capital-letters-in-names-titles-and-quotes": [
+   {
+    "lesson": "lesson-grammar-and-structure-apostrophes-for-ownership-and-contractions",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-phrases-and-understood-subjects": [],
+  "lesson-grammar-and-structure-independent-and-dependent-clauses": [
+   {
+    "lesson": "lesson-grammar-and-structure-phrases-and-understood-subjects",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-relative-clauses-and-main-thoughts": [
+   {
+    "lesson": "lesson-grammar-and-structure-independent-and-dependent-clauses",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-connectors-for-reason-and-contrast": [
+   {
+    "lesson": "lesson-grammar-and-structure-relative-clauses-and-main-thoughts",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-finite-verbs-and-ing-groups": [
+   {
+    "lesson": "lesson-grammar-and-structure-connectors-for-reason-and-contrast",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-infinitive-phrases-and-nonfinite-clauses": [
+   {
+    "lesson": "lesson-grammar-and-structure-finite-verbs-and-ing-groups",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-matching-forms-in-lists": [
+   {
+    "lesson": "lesson-grammar-and-structure-infinitive-phrases-and-nonfinite-clauses",
+    "strength": "helpful",
+    "reason": "Understanding infinitive and -ing groups makes comparisons between grammatical forms easier. The lesson supplies its own matching-form rules."
+   }
+  ],
+  "lesson-grammar-and-structure-shared-words-in-parallel-lists": [
+   {
+    "lesson": "lesson-grammar-and-structure-matching-forms-in-lists",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-parallel-pairs-and-comparisons": [
+   {
+    "lesson": "lesson-grammar-and-structure-shared-words-in-parallel-lists",
     "strength": "required",
     "reason": "Read the previous part before this part."
    }
