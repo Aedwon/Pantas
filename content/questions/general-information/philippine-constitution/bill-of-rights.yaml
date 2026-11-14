@@ -133,8 +133,8 @@ questions:
     rationale: 'This narrows coverage to one sector. Government workers are included. Check the broader association protection.
 
       '
-  - text: Only an association whose members surrender every other constitutional liberty
-    rationale: 'This adds a rights-waiver condition. Groups may have membership rules. Check whether the lesson requires that surrender.
+  - text: Only an association formed to bargain over wages and working conditions
+    rationale: 'This limits association to labor bargaining. Unions are protected, but other lawful groups are too. Check the purpose without requiring a labor dispute.
 
       '
   explanation: 'Article III protects forming unions, associations, and societies for purposes not contrary to law.

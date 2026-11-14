@@ -324,7 +324,7 @@ questions:
   stem: |
     An election planner argues that voters who cannot read should be excluded until a fully independent voting method is available. Which response best follows Article V, Section 2?
   choices:
-  - text: Congress must design a way for them to vote without assistance, while existing laws and COMELEC rules apply in the meantime.
+  - text: Congress must enable unassisted voting; existing laws and COMELEC rules apply until then.
     correct: true
   - text: Exclusion is allowed because reading ability is a constitutional voting qualification.
     rationale: Article V, Section 1 forbids a literacy requirement for suffrage.
@@ -343,13 +343,13 @@ questions:
   stem: |
     A natural-born Filipino lost citizenship through foreign naturalization and later reacquired it by taking the prescribed oath under Republic Act 9225. The person now seeks elective public office. Which further requirement does Section 5(2) impose, along with meeting the office's qualifications?
   choices:
-  - text: Merely attach proof of the citizenship oath, with no separate renunciation.
+  - text: Personally submit proof of the citizenship oath before an authorized officer when filing candidacy, without separately renouncing foreign citizenship.
     rationale: The reacquisition oath alone does not satisfy the separate rule for elective public office.
   - text: Personally make a sworn renunciation of all foreign citizenship before an authorized officer when filing the certificate of candidacy.
     correct: true
-  - text: Promise privately to renounce foreign citizenship after winning the election.
-    rationale: The law requires a personal sworn renunciation at the time of filing, not a private promise after election.
-  - text: Ask a representative to make the sworn renunciation on the candidate's behalf.
+  - text: Personally make a sworn renunciation of all foreign citizenship before an authorized officer after winning, before taking the oath of office.
+    rationale: The law requires the sworn renunciation when filing the certificate of candidacy. Making it after winning misses that required time.
+  - text: Have an authorized representative make a sworn renunciation of all foreign citizenship before an authorized officer when filing the certificate of candidacy.
     rationale: Section 5(2) requires the candidate to make the sworn renunciation personally.
   explanation: |
     Reacquiring citizenship and qualifying to run for office have separate requirements. Section 5(2) requires a personal sworn renunciation of all foreign citizenship before an authorized officer when the certificate of candidacy is filed. The candidate must also meet the qualifications for the office.

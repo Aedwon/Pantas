@@ -356,7 +356,7 @@ questions:
         correct: true
       - text: '$25.00\%$'
         rationale: |
-          This doubles the motorcycle count but keeps the automobile count. The new denominator uses numbers from the table. Check that each vehicle count is included once.
+          This counts automobiles twice in the total: $2000 \div (4000+2000+2000)=25\%$. Adding the automobile count again may seem needed to include both types. Check that each vehicle count is included once.
       - text: '$50.00\%$'
         rationale: |
           This compares automobiles with motorcycles instead of all registrations. The motorcycle count is another available denominator. Check that the denominator contains both types.

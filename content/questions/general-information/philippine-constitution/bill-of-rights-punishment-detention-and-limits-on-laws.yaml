@@ -129,8 +129,8 @@ questions:
     rationale: 'This treats the Constitution as prohibiting all punishment. Article III limits punishment. Check the specific forbidden qualities.
 
       '
-  - text: Only punishment that an official personally dislikes imposing
-    rationale: 'This makes personal preference the legal test. Punishment can involve difficult judgments. Check the constitutional standard.
+  - text: Only punishment that causes lasting physical injury to the prisoner
+    rationale: 'This limits the protection to lasting physical injury. Such injury can show abuse, but degrading punishment can also violate dignity. Check for cruelty, degradation, or inhuman treatment.
 
       '
   - text: Only punishment imposed by a body outside the executive branch
@@ -250,7 +250,7 @@ questions:
   - text: The parole restriction applies only while the sentence still prescribes death.
     rationale: |
       The restriction expressly covers sentences reduced to reclusion perpetua by reason of the Act.
-  - text: The Act bars parole for a prisoner whose sentence is reduced in this way.
+  - text: The Act bars parole after this sentence reduction.
     correct: true
   explanation: |
     The Act bars parole when a death sentence is reduced to reclusion perpetua by reason of the Act. The sentence reduction does not create parole eligibility.
@@ -432,7 +432,7 @@ questions:
   - text: Another trial is required because a demurrer prevents the court from assessing evidence.
     rationale: |
       A demurrer asks the court to assess whether the prosecution's evidence can support conviction. The court found it insufficient.
-  - text: Another trial is barred because the granted demurrer is an acquittal under these facts.
+  - text: Another trial is barred because this demurrer ruling is an acquittal.
     correct: true
   explanation: |
     The court found the prosecution's evidence insufficient and granted the demurrer. That ruling is an acquittal. The accused's request does not permit a second prosecution for the same offense under these facts.

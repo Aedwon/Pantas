@@ -182,7 +182,7 @@ questions:
     rationale: Judges serve during good behavior until age 70 or incapacity, not for a fixed seven-year term.
   - text: The Judicial and Bar Council appoints judges directly from its own list.
     rationale: The Council recommends nominees. The President makes the appointment.
-  - text: An ambassador needs Commission on Appointments consent; a judge is appointed by the President from at least three JBC nominees.
+  - text: Ambassadors need confirmation; Presidents appoint judges from at least three JBC nominees.
     correct: true
   explanation: |
     Article VII, Section 16 covers consent for ambassadors.
@@ -412,7 +412,7 @@ questions:
     rationale: An inquiry in aid of legislation must still respect the rights of people who appear or are affected.
   - text: A revenue bill may originate in the Senate if a Senate committee conducted the inquiry.
     rationale: A Senate inquiry does not remove the requirement that revenue bills originate in the House.
-  - text: The inquiry must follow duly published rules and respect rights; Congress cannot increase the recommended appropriations for government operations.
+  - text: Inquiries require published rules and respect for rights; Congress cannot increase those appropriations.
     correct: true
   - text: Congress may increase those recommended appropriations whenever each House approves by a simple majority.
     rationale: Article VI, Section 25 bars that increase. A simple majority does not remove the restriction.
