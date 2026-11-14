@@ -300,28 +300,9 @@
    }
   ],
   "lesson-philippine-constitution-accountability-and-impeachment": [],
-  "lesson-philippine-constitution-bill-of-rights-the-accused-and-the-trial": [
-   {
-    "lesson": "lesson-philippine-constitution-bill-of-rights-bail-before-conviction",
-    "strength": "helpful",
-    "reason": "Knowing custodial silence helps distinguish it from protection against compelled testimony. This lesson gives a brief comparison sufficient to stand alone."
-   }
-  ],
   "lesson-philippine-constitution-citizenship-and-suffrage": [],
   "lesson-philippine-constitution-the-articles-in-outline": [],
   "lesson-philippine-constitution-the-civil-service-commission": [],
-  "lesson-philippine-constitution-the-three-branches-and-their-powers": [
-   {
-    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
-    "strength": "helpful",
-    "reason": "The voting-threshold examples assume students can multiply a whole number by a fraction. This lesson identifies the calculation but does not teach fraction arithmetic. Lead review: downgraded from required; the arithmetic is incidental to this lesson's teaching."
-   },
-   {
-    "lesson": "lesson-philippine-constitution-citizenship-and-suffrage",
-    "strength": "helpful",
-    "reason": "Knowing the special election-of-citizenship rule clarifies natural-born qualifications across offices. This lesson defines natural-born status but refers elsewhere for that exception."
-   }
-  ],
   "lesson-spatial-abstract-reasoning-figure-grouping": [],
   "lesson-spatial-abstract-reasoning-figure-matrices": [
    {
@@ -688,7 +669,7 @@
   ],
   "lesson-philippine-constitution-bill-of-rights-political-beliefs-and-forced-service": [
    {
-    "lesson": "lesson-philippine-constitution-bill-of-rights-the-accused-and-the-trial",
+    "lesson": "lesson-philippine-constitution-forced-self-incrimination",
     "strength": "helpful",
     "reason": "Understanding speedy-trial violations helps explain why certain requested dismissals bar another prosecution. This lesson states the exception without developing the delay assessment."
    }
@@ -698,6 +679,130 @@
     "lesson": "lesson-philippine-constitution-bill-of-rights-replacement-penalties-and-parole",
     "strength": "required",
     "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-branches-and-checks": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "strength": "helpful",
+    "reason": "The voting-threshold examples assume students can multiply a whole number by a fraction. This lesson identifies the calculation but does not teach fraction arithmetic. Lead review: downgraded from required; the arithmetic is incidental to this lesson's teaching."
+   },
+   {
+    "lesson": "lesson-philippine-constitution-citizenship-and-suffrage",
+    "strength": "helpful",
+    "reason": "Knowing the special election-of-citizenship rule clarifies natural-born qualifications across offices. This lesson defines natural-born status but refers elsewhere for that exception."
+   }
+  ],
+  "lesson-philippine-constitution-congress-members-and-terms": [
+   {
+    "lesson": "lesson-philippine-constitution-branches-and-checks",
+    "strength": "required",
+    "reason": "Continue from the preceding part of the original lesson."
+   }
+  ],
+  "lesson-philippine-constitution-congress-bills-budget-and-inquiries": [
+   {
+    "lesson": "lesson-philippine-constitution-congress-members-and-terms",
+    "strength": "required",
+    "reason": "Continue from the preceding part of the original lesson."
+   }
+  ],
+  "lesson-philippine-constitution-congress-war-and-veto-votes": [
+   {
+    "lesson": "lesson-philippine-constitution-congress-bills-budget-and-inquiries",
+    "strength": "required",
+    "reason": "Continue from the preceding part of the original lesson."
+   }
+  ],
+  "lesson-philippine-constitution-president-terms-and-appointments": [
+   {
+    "lesson": "lesson-philippine-constitution-congress-war-and-veto-votes",
+    "strength": "required",
+    "reason": "Continue from the preceding part of the original lesson."
+   }
+  ],
+  "lesson-philippine-constitution-president-emergency-powers": [
+   {
+    "lesson": "lesson-philippine-constitution-president-terms-and-appointments",
+    "strength": "required",
+    "reason": "Continue from the preceding part of the original lesson."
+   }
+  ],
+  "lesson-philippine-constitution-president-clemency-and-treaties": [
+   {
+    "lesson": "lesson-philippine-constitution-president-emergency-powers",
+    "strength": "required",
+    "reason": "Continue from the preceding part of the original lesson."
+   }
+  ],
+  "lesson-philippine-constitution-courts-and-judicial-review": [
+   {
+    "lesson": "lesson-philippine-constitution-president-clemency-and-treaties",
+    "strength": "required",
+    "reason": "Continue from the preceding part of the original lesson."
+   }
+  ],
+  "lesson-philippine-constitution-elected-office-qualifications": [
+   {
+    "lesson": "lesson-philippine-constitution-courts-and-judicial-review",
+    "strength": "required",
+    "reason": "Continue from the preceding part of the original lesson."
+   }
+  ],
+  "lesson-philippine-constitution-judicial-office-qualifications": [
+   {
+    "lesson": "lesson-philippine-constitution-elected-office-qualifications",
+    "strength": "required",
+    "reason": "Continue from the preceding part of the original lesson."
+   }
+  ],
+  "lesson-philippine-constitution-commission-and-ombudsman-qualifications": [
+   {
+    "lesson": "lesson-philippine-constitution-judicial-office-qualifications",
+    "strength": "required",
+    "reason": "Continue from the preceding part of the original lesson."
+   }
+  ],
+  "lesson-philippine-constitution-accused-charge-and-defense": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-bail-before-conviction",
+    "strength": "helpful",
+    "reason": "Knowing custodial silence helps distinguish it from protection against compelled testimony. This lesson gives a brief comparison sufficient to stand alone."
+   }
+  ],
+  "lesson-philippine-constitution-accused-fair-and-speedy-trial": [
+   {
+    "lesson": "lesson-philippine-constitution-accused-charge-and-defense",
+    "strength": "required",
+    "reason": "Continue from the preceding part of the original lesson."
+   }
+  ],
+  "lesson-philippine-constitution-accused-witnesses-and-absence": [
+   {
+    "lesson": "lesson-philippine-constitution-accused-fair-and-speedy-trial",
+    "strength": "required",
+    "reason": "Continue from the preceding part of the original lesson."
+   }
+  ],
+  "lesson-philippine-constitution-habeas-corpus-suspension": [
+   {
+    "lesson": "lesson-philippine-constitution-accused-witnesses-and-absence",
+    "strength": "required",
+    "reason": "Continue from the preceding part of the original lesson."
+   }
+  ],
+  "lesson-philippine-constitution-speedy-disposition-of-cases": [
+   {
+    "lesson": "lesson-philippine-constitution-habeas-corpus-suspension",
+    "strength": "required",
+    "reason": "Continue from the preceding part of the original lesson."
+   }
+  ],
+  "lesson-philippine-constitution-forced-self-incrimination": [
+   {
+    "lesson": "lesson-philippine-constitution-speedy-disposition-of-cases",
+    "strength": "required",
+    "reason": "Continue from the preceding part of the original lesson."
    }
   ]
  }

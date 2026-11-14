@@ -7,6 +7,19 @@ topic: "topic-philippine-constitution"
 estimatedMinutes: 15
 isActive: true
 ordering: 7
+status: retired
+replacedBy:
+  - lesson-philippine-constitution-branches-and-checks
+  - lesson-philippine-constitution-congress-members-and-terms
+  - lesson-philippine-constitution-congress-bills-budget-and-inquiries
+  - lesson-philippine-constitution-congress-war-and-veto-votes
+  - lesson-philippine-constitution-president-terms-and-appointments
+  - lesson-philippine-constitution-president-emergency-powers
+  - lesson-philippine-constitution-president-clemency-and-treaties
+  - lesson-philippine-constitution-courts-and-judicial-review
+  - lesson-philippine-constitution-elected-office-qualifications
+  - lesson-philippine-constitution-judicial-office-qualifications
+  - lesson-philippine-constitution-commission-and-ombudsman-qualifications
 ---
 ## Core Concept
 

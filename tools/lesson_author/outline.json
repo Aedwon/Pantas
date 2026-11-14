@@ -1126,6 +1126,36 @@
               "sections": []
             },
             {
+              "title": "Article III: The Charge and the Defense",
+              "slug": "accused-charge-and-defense",
+              "sections": []
+            },
+            {
+              "title": "Article III: A Fair and Speedy Trial",
+              "slug": "accused-fair-and-speedy-trial",
+              "sections": []
+            },
+            {
+              "title": "Article III: Witnesses and Trial Absence",
+              "slug": "accused-witnesses-and-absence",
+              "sections": []
+            },
+            {
+              "title": "Article III: Habeas Corpus and Suspension",
+              "slug": "habeas-corpus-suspension",
+              "sections": []
+            },
+            {
+              "title": "Article III: Speedy Disposition of Cases",
+              "slug": "speedy-disposition-of-cases",
+              "sections": []
+            },
+            {
+              "title": "Article III: Forced Self-Incrimination",
+              "slug": "forced-self-incrimination",
+              "sections": []
+            },
+            {
               "title": "Article III, Part 4: Detention, Punishment, and Limits on Laws",
               "slug": "bill-of-rights-punishment-detention-and-limits-on-laws",
               "sections": []
@@ -1188,6 +1218,61 @@
             {
               "title": "The Three Branches of Government and Their Powers",
               "slug": "the-three-branches-and-their-powers",
+              "sections": []
+            },
+            {
+              "title": "The Three Branches and Their Checks",
+              "slug": "branches-and-checks",
+              "sections": []
+            },
+            {
+              "title": "Congress: Members and Terms",
+              "slug": "congress-members-and-terms",
+              "sections": []
+            },
+            {
+              "title": "Congress: Bills, Budget, and Inquiries",
+              "slug": "congress-bills-budget-and-inquiries",
+              "sections": []
+            },
+            {
+              "title": "Congress: War and Veto Votes",
+              "slug": "congress-war-and-veto-votes",
+              "sections": []
+            },
+            {
+              "title": "The President: Terms and Appointments",
+              "slug": "president-terms-and-appointments",
+              "sections": []
+            },
+            {
+              "title": "The President: Emergency Powers",
+              "slug": "president-emergency-powers",
+              "sections": []
+            },
+            {
+              "title": "The President: Clemency and Treaties",
+              "slug": "president-clemency-and-treaties",
+              "sections": []
+            },
+            {
+              "title": "The Courts and Judicial Review",
+              "slug": "courts-and-judicial-review",
+              "sections": []
+            },
+            {
+              "title": "Qualifications for Elected Office",
+              "slug": "elected-office-qualifications",
+              "sections": []
+            },
+            {
+              "title": "Qualifications for Judicial Office",
+              "slug": "judicial-office-qualifications",
+              "sections": []
+            },
+            {
+              "title": "Qualifications for Commissions and the Ombudsman",
+              "slug": "commission-and-ombudsman-qualifications",
               "sections": []
             },
             {
