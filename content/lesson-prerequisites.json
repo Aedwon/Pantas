@@ -161,14 +161,6 @@
   "lesson-comprehension-skills-main-idea": [],
   "lesson-comprehension-skills-noting-specific-details": [],
   "lesson-comprehension-skills-sequencing-of-events": [],
-  "lesson-data-interpretation-rates-ratios-and-percentages-in-context": [
-   {
-    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
-    "strength": "helpful",
-    "reason": "Conversion and percentage-base practice make the calculations easier. This lesson explains its comparison formulas and demonstrates conversion."
-   }
-  ],
-  "lesson-data-interpretation-tables-and-charts": [],
   "lesson-earth-science-astronomy-weather-and-climate": [
    {
     "lesson": "lesson-physics-thermodynamics",
@@ -377,7 +369,7 @@
     "reason": "Percentage conversion and fraction multiplication practice make pie-chart calculations easier. This lesson gives the share formulas and demonstrates their use."
    },
    {
-    "lesson": "lesson-data-interpretation-tables-and-charts",
+    "lesson": "lesson-data-interpretation-averages-and-pie-chart-shares",
     "strength": "helpful",
     "reason": "Basic scale-reading practice helps before comparing graph scales. This lesson repeats the needed reading rules and adds more demanding comparisons."
    }
@@ -460,6 +452,49 @@
     "lesson": "lesson-vocabulary-context-clues",
     "strength": "helpful",
     "reason": "Practice inferring meaning and checking replacement words makes contextual synonym selection easier. The lesson teaches its own context and nuance checks."
+   }
+  ],
+  "lesson-data-interpretation-table-values-and-totals": [],
+  "lesson-data-interpretation-chart-scales-and-differences": [
+   {
+    "lesson": "lesson-data-interpretation-table-values-and-totals",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-data-interpretation-averages-and-pie-chart-shares": [
+   {
+    "lesson": "lesson-data-interpretation-chart-scales-and-differences",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-data-interpretation-percentage-change": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "strength": "helpful",
+    "reason": "Conversion and percentage-base practice make the calculations easier. This lesson explains its comparison formulas and demonstrates conversion."
+   }
+  ],
+  "lesson-data-interpretation-percentages-and-ratios-of-groups": [
+   {
+    "lesson": "lesson-data-interpretation-percentage-change",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-data-interpretation-unit-rates-and-direct-proportion": [
+   {
+    "lesson": "lesson-data-interpretation-percentages-and-ratios-of-groups",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-data-interpretation-inverse-proportion-and-ratio-parts": [
+   {
+    "lesson": "lesson-data-interpretation-unit-rates-and-direct-proportion",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
    }
   ]
  }

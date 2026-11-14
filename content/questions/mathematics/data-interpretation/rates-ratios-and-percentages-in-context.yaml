@@ -5,6 +5,8 @@ meta:
   exams: [cse-pro]
 questions:
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0001
+    lesson: lesson-data-interpretation-percentage-change
+    keyPoint: 1
     type: word-problem
     difficulty: easy
     stem: |
@@ -32,6 +34,8 @@ questions:
       Product A rises by $50-40=10$ million pesos. Divide by the original $40$: $\dfrac{10}{40}=0.25$. The increase is $25\%$.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0002
+    lesson: lesson-data-interpretation-percentages-and-ratios-of-groups
+    keyPoint: 2
     type: word-problem
     difficulty: easy
     stem: |
@@ -59,6 +63,8 @@ questions:
       The requested values are $50$ and $75$. Divide both by their GCF, $25$, to get $50:75=2:3$.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0003
+    lesson: lesson-data-interpretation-percentages-and-ratios-of-groups
+    keyPoint: 1
     type: word-problem
     difficulty: medium
     stem: |
@@ -87,6 +93,8 @@ questions:
       The senior population is $1200$ out of $8000$. Its fraction is $\dfrac{1200}{8000}=0.15$. Multiply by $100\%$ to get $15\%$.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0004
+    lesson: lesson-data-interpretation-percentages-and-ratios-of-groups
+    keyPoint: 2
     type: word-problem
     difficulty: medium
     stem: |
@@ -115,6 +123,8 @@ questions:
       The combined senior count is $1500+2100=3600$. The combined population is $10000+12000=22000$. Thus nonseniors total $22000-3600=18400$. Divide $3600:18400$ by $400$ to get $9:46$.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0005
+    lesson: lesson-data-interpretation-percentage-change
+    keyPoint: 1
     type: word-problem
     difficulty: easy
     stem: |
@@ -142,6 +152,8 @@ questions:
       Facility X grows by $\dfrac{150-120}{120}(100\%)=25\%$. Facility Y grows by $\dfrac{210-180}{180}(100\%)=16\dfrac{2}{3}\%$. Subtract these percentages: $25-16\dfrac{2}{3}=8\dfrac{1}{3}$ percentage points.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0006
+    lesson: lesson-data-interpretation-percentages-and-ratios-of-groups
+    keyPoint: 1
     type: word-problem
     difficulty: medium
     stem: |
@@ -169,6 +181,8 @@ questions:
       The combined Q1 consumption is $120+180=300$ megawatt-hours. Facility Y uses $180$ of that total. Its fraction is $\dfrac{180}{300}=0.60$, or $60\%$.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0007
+    lesson: lesson-data-interpretation-percentage-change
+    keyPoint: 1
     type: word-problem
     difficulty: medium
     stem: |
@@ -196,6 +210,8 @@ questions:
       The original combined total is $20+30=50$ million pesos. The new total is $28+36=64$ million pesos. The increase is $14$. Its fraction of the original total is $\dfrac{14}{50}=0.28$, or $28\%$.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0008
+    lesson: lesson-data-interpretation-percentages-and-ratios-of-groups
+    keyPoint: 2
     type: word-problem
     difficulty: easy
     stem: |
@@ -223,6 +239,8 @@ questions:
       Business Tax increases by $28-20=8$ million pesos. Q2 Real Property Tax is $36$ million pesos. Their fraction is $\dfrac{8}{36}=\dfrac{2}{9}$.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0009
+    lesson: lesson-data-interpretation-percentages-and-ratios-of-groups
+    keyPoint: 1
     type: word-problem
     difficulty: easy
     stem: |
@@ -250,6 +268,8 @@ questions:
       The male total is $300+150=450$. Engineering contributes $300$. Its fraction is $\dfrac{300}{450}=\dfrac{2}{3}$.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0010
+    lesson: lesson-data-interpretation-percentages-and-ratios-of-groups
+    keyPoint: 1
     type: word-problem
     difficulty: medium
     stem: |
@@ -277,6 +297,8 @@ questions:
       The female Education share is $\dfrac{450}{150+450}=75\%$. The female Engineering share is $\dfrac{200}{300+200}=40\%$. Their difference is $75-40=35$ percentage points.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0011
+    lesson: lesson-data-interpretation-percentage-change
+    keyPoint: 1
     type: which-is-true
     difficulty: easy
     stem: |
@@ -304,6 +326,8 @@ questions:
       Motorcycles increase by $5000-4000=1000$. Automobiles increase by $2200-2000=200$. Since $1000\div200=5$, the motorcycle increase is five times the automobile increase.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0012
+    lesson: lesson-data-interpretation-percentages-and-ratios-of-groups
+    keyPoint: 1
     type: word-problem
     difficulty: medium
     stem: |
@@ -331,6 +355,8 @@ questions:
       The Year 1 total is $4000+2000=6000$. Automobiles are $\dfrac{2000}{6000}=\dfrac{1}{3}$ of that total. Multiply by $100\%$ and round to two decimal places: $33.33\%$.
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0013
+    lesson: lesson-data-interpretation-percentage-change
+    keyPoint: 2
     type: which-is-true
     difficulty: easy
     stem: |
@@ -352,6 +378,8 @@ questions:
     approved: false
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0014
+    lesson: lesson-data-interpretation-percentage-change
+    keyPoint: 1
     type: error-spotting
     difficulty: medium
     stem: |
@@ -373,6 +401,8 @@ questions:
     approved: false
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0015
+    lesson: lesson-data-interpretation-percentages-and-ratios-of-groups
+    keyPoint: 1
     type: word-problem
     difficulty: medium
     stem: |
@@ -394,6 +424,8 @@ questions:
     approved: false
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0016
+    lesson: lesson-data-interpretation-percentage-change
+    keyPoint: 1
     type: which-is-true
     difficulty: hard
     stem: |
@@ -415,6 +447,8 @@ questions:
     approved: false
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0017
+    lesson: lesson-data-interpretation-percentage-change
+    keyPoint: 1
     type: estimate-first
     difficulty: hard
     stem: |
@@ -436,6 +470,8 @@ questions:
     approved: false
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0018
+    lesson: lesson-data-interpretation-percentages-and-ratios-of-groups
+    keyPoint: 2
     type: word-problem
     difficulty: hard
     stem: |
@@ -457,6 +493,8 @@ questions:
     approved: false
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0019
+    lesson: lesson-data-interpretation-percentage-change
+    keyPoint: 1
     type: error-spotting
     difficulty: exam
     stem: |
@@ -478,6 +516,8 @@ questions:
     approved: false
 
   - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0020
+    lesson: lesson-data-interpretation-percentage-change
+    keyPoint: 1
     type: word-problem
     difficulty: exam
     stem: |
@@ -497,3 +537,179 @@ questions:
     explanation: |
       Supplies adds $80(0.10)=8$ thousand pesos. Training adds $20(0.50)=10$ thousand. The combined gain is $18$ on an original total of $100$. Thus the increase is $18\%$.
     approved: false
+
+  - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0021
+    lesson: lesson-data-interpretation-unit-rates-and-direct-proportion
+    keyPoint: 1
+    type: word-problem
+    difficulty: exam
+    stem: |
+      In a hypothetical trial, a scanner processes $315$ pages in $45$ minutes without stopping. At this constant rate, how many pages can it process per hour?
+    choices:
+      - text: '$420$ pages'
+        correct: true
+      - text: '$7$ pages'
+        rationale: |
+          This gives pages per minute. Dividing by $45$ finds that rate. Multiply by $60$ to get pages per hour.
+      - text: '$315$ pages'
+        rationale: |
+          This keeps the trial's page count. That count covers only $45$ minutes. Match the time to one full hour.
+      - text: '$18,900$ pages'
+        rationale: |
+          This multiplies the entire trial count by $60$. An hour does have $60$ minutes. Find the count for one minute before multiplying.
+    explanation: |
+      The scanner processes $315\div45=7$ pages per minute. One hour is $60$ minutes, so its hourly rate is $7\times60=420$ pages.
+
+  - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0022
+    lesson: lesson-data-interpretation-unit-rates-and-direct-proportion
+    keyPoint: 1
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A hypothetical procurement record lists $8$ boxes of envelopes, with $25$ envelopes per box, for a total of $1,260$ pesos. What is the cost per envelope?
+    choices:
+      - text: '$6.30$ pesos'
+        correct: true
+      - text: '$157.50$ pesos'
+        rationale: |
+          This divides the cost by the box count. It gives the cost per box. Divide by the total envelope count for cost per envelope.
+      - text: '$50.40$ pesos'
+        rationale: |
+          This divides the cost by the envelopes in one box. There are $8$ boxes. Count all envelopes before dividing.
+      - text: '$0.16$ pesos'
+        rationale: |
+          This divides envelopes by pesos and rounds. Both totals are used. Put pesos on top to find pesos per envelope.
+    explanation: |
+      The order contains $8\times25=200$ envelopes. The cost per envelope is $\dfrac{1,260}{200}=6.30$ pesos.
+
+  - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0023
+    lesson: lesson-data-interpretation-unit-rates-and-direct-proportion
+    keyPoint: 2
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A hypothetical printing service charges $840$ pesos for $120$ pages. The charge per page is constant, with no fixed fee. How much will it charge for $180$ pages plus $30$ additional copies of a one-page form?
+    choices:
+      - text: '$1,470$ pesos'
+        correct: true
+      - text: '$1,260$ pesos'
+        rationale: |
+          This prices only the $180$ pages. The page rate is correct. Include the $30$ extra form pages.
+      - text: '$1,050$ pesos'
+        rationale: |
+          This adds only the form cost to the original $840$ pesos. The original order had $120$ pages. Price the new $180$-page order first.
+      - text: '$930$ pesos'
+        rationale: |
+          This adds the $90$ extra pages as $90$ pesos. The page increase is correct. Multiply extra pages by the price per page.
+    explanation: |
+      Each page costs $840\div120=7$ pesos. The new order has $180+30=210$ pages. Its cost is $210\times7=1,470$ pesos.
+
+  - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0024
+    lesson: lesson-data-interpretation-unit-rates-and-direct-proportion
+    keyPoint: 2
+    type: word-problem
+    difficulty: exam
+    stem: |
+      In a hypothetical test, a pump delivers $450$ liters in $12$ minutes at a constant rate. How many liters will it deliver during two separate $9$-minute runs at the same rate? Exclude the time between runs.
+    choices:
+      - text: '$675$ liters'
+        correct: true
+      - text: '$337.5$ liters'
+        rationale: |
+          This counts only one run. Each run lasts $9$ minutes. Include both runs in the pumping time.
+      - text: '$300$ liters'
+        rationale: |
+          This scales the amount down when the pumping time increases. It uses the time ratio backward. At a constant rate, more pumping time gives more water.
+      - text: '$900$ liters'
+        rationale: |
+          This doubles the test amount because there are two runs. Each new run is shorter than the test. Use the actual total pumping time.
+    explanation: |
+      The pump delivers $450\div12=37.5$ liters per minute. The two runs last $2\times9=18$ minutes. The amount delivered is $37.5\times18=675$ liters.
+
+  - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0025
+    lesson: lesson-data-interpretation-inverse-proportion-and-ratio-parts
+    keyPoint: 1
+    type: word-problem
+    difficulty: exam
+    stem: |
+      In a hypothetical office, $8$ clerks can index a fixed batch of records in $15$ hours. All clerks work at the same constant rate. After all $8$ clerks work for $5$ hours, $2$ leave. How many additional hours will the remaining clerks need to finish the batch?
+    choices:
+      - text: '$13\dfrac{1}{3}$ hours'
+        correct: true
+      - text: '$20$ hours'
+        rationale: |
+          This assigns the entire batch to the remaining clerks. Six clerks would need that long for the whole job. Subtract the work already finished.
+      - text: '$18\dfrac{1}{3}$ hours'
+        rationale: |
+          This includes the first $5$ hours in the answer. It gives the time from the start. Check that only additional hours are requested.
+      - text: '$7\dfrac{1}{2}$ hours'
+        rationale: |
+          This reduces the remaining time when the team gets smaller. It scales $10$ hours by $6\div8$. Fewer equal clerks need more time for the same remaining work.
+    explanation: |
+      The batch needs $8\times15=120$ clerk-hours. The first shift completes $8\times5=40$ clerk-hours, leaving $120-40=80$. There are $8-2=6$ clerks left. They need $\dfrac{80}{6}=13\dfrac{1}{3}$ additional hours.
+
+  - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0026
+    lesson: lesson-data-interpretation-inverse-proportion-and-ratio-parts
+    keyPoint: 1
+    type: word-problem
+    difficulty: exam
+    stem: |
+      In a hypothetical records unit, $9$ identical machines can finish one fixed scanning job in $8$ hours. Each machine works at the same constant rate. How many additional machines are needed to finish the same job in $6$ hours?
+    choices:
+      - text: '$3$ machines'
+        correct: true
+      - text: '$12$ machines'
+        rationale: |
+          This reports the total machines needed. That total is part of the solution. Subtract the $9$ machines already available.
+      - text: '$2$ machines'
+        rationale: |
+          This treats the $2$-hour reduction as a machine count. The time difference is correct. Keep total machine-hours fixed to find the team size.
+      - text: '$27$ machines'
+        rationale: |
+          This adds the shortfall of $72-54=18$ machine-hours to the original $9$ machines. Machine-hours and machines are different units. Divide the shortfall by $6$ to find the additional machines.
+    explanation: |
+      The job needs $9\times8=72$ machine-hours. To finish in $6$ hours requires $72\div6=12$ machines. The additional number is $12-9=3$ machines.
+
+  - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0027
+    lesson: lesson-data-interpretation-inverse-proportion-and-ratio-parts
+    keyPoint: 2
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A hypothetical office reserves $12,000$ pesos from a $96,000$-peso fund for equipment. It divides the remaining money between training and travel in the ratio $3:4$. How much is allocated to travel?
+    choices:
+      - text: '$48,000$ pesos'
+        correct: true
+      - text: '$36,000$ pesos'
+        rationale: |
+          This gives the training share. Training has $3$ parts. Use the $4$ parts assigned to travel.
+      - text: '$84,000$ pesos'
+        rationale: |
+          This gives all the money left after the reserve to travel. The reserve was removed correctly. Divide the remainder between both groups using the ratio.
+      - text: '$63,000$ pesos'
+        rationale: |
+          This treats $3:4$ as the fraction of the remainder given to travel. The ratio terms compare two separate shares. Use their sum for the total number of parts.
+    explanation: |
+      The money to divide is $96,000-12,000=84,000$ pesos. The ratio has $3+4=7$ parts. Each part is $84,000\div7=12,000$ pesos. Travel receives $4\times12,000=48,000$ pesos.
+
+  - id: q-data-interpretation-rates-ratios-and-percentages-in-context-0028
+    lesson: lesson-data-interpretation-inverse-proportion-and-ratio-parts
+    keyPoint: 2
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A hypothetical supply office divides $360$ folders among Units A, B, and C in the ratio $2:3:4$. How many more folders does Unit C receive than Unit A?
+    choices:
+      - text: '$80$ folders'
+        correct: true
+      - text: '$160$ folders'
+        rationale: |
+          This gives Unit C's share alone. Unit C receives $4$ parts. Subtract Unit A's share to find how many more.
+      - text: '$240$ folders'
+        rationale: |
+          This adds the shares of Units A and C. Both shares are needed. Find their difference instead.
+      - text: '$120$ folders'
+        rationale: |
+          This divides the total equally among the three units. There are three units, but their shares differ. Add the ratio terms to find the number of parts.
+    explanation: |
+      There are $2+3+4=9$ parts. Each part is $360\div9=40$ folders. Unit C has $4-2=2$ more parts than Unit A, so the difference is $2\times40=80$ folders.

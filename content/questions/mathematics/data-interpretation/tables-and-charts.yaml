@@ -5,6 +5,8 @@ meta:
   exams: [cse-pro]
 questions:
   - id: q-data-interpretation-tables-and-charts-0001
+    lesson: lesson-data-interpretation-table-values-and-totals
+    keyPoint: 2
     type: word-problem
     difficulty: easy
     stem: |
@@ -33,6 +35,8 @@ questions:
       Read the Paper column for all three months. Its total is $12000+15000+11000=38000$ pesos.
 
   - id: q-data-interpretation-tables-and-charts-0002
+    lesson: lesson-data-interpretation-table-values-and-totals
+    keyPoint: 2
     type: word-problem
     difficulty: easy
     stem: |
@@ -61,6 +65,8 @@ questions:
       Read the February row across all three categories. Its total is $15000+22000+8000=45000$ pesos.
 
   - id: q-data-interpretation-tables-and-charts-0003
+    lesson: lesson-data-interpretation-table-values-and-totals
+    keyPoint: 2
     type: which-is-true
     difficulty: medium
     stem: |
@@ -89,6 +95,8 @@ questions:
       The regional totals are $450+300+600=1350$ for A, $520+280+750=1550$ for B, and $380+410+500=1290$ for C. The largest total is Region B's $1550$ metric tons.
 
   - id: q-data-interpretation-tables-and-charts-0004
+    lesson: lesson-data-interpretation-table-values-and-totals
+    keyPoint: 2
     type: word-problem
     difficulty: easy
     stem: |
@@ -117,6 +125,8 @@ questions:
       Rice totals $450+520+380=1350$ metric tons. Corn totals $300+280+410=990$. Subtract: $1350-990=360$ metric tons.
 
   - id: q-data-interpretation-tables-and-charts-0005
+    lesson: lesson-data-interpretation-averages-and-pie-chart-shares
+    keyPoint: 1
     type: word-problem
     difficulty: medium
     stem: |
@@ -146,6 +156,8 @@ questions:
       The four Licenses values total $6+8+5+9=28$ million pesos. Divide by four quarters: $28\div4=7$ million pesos per quarter.
 
   - id: q-data-interpretation-tables-and-charts-0006
+    lesson: lesson-data-interpretation-table-values-and-totals
+    keyPoint: 2
     type: word-problem
     difficulty: medium
     stem: |
@@ -175,6 +187,8 @@ questions:
       The Tax values are $21$ and $14$ million pesos. The difference is $21-14=7$ million pesos. Convert the unit: $7(1,000,000)=7,000,000$ pesos.
 
   - id: q-data-interpretation-tables-and-charts-0007
+    lesson: lesson-data-interpretation-table-values-and-totals
+    keyPoint: 2
     type: word-problem
     difficulty: easy
     stem: |
@@ -203,6 +217,8 @@ questions:
       Female applicants total $1500+950+750=3200$. Male applicants total $1200+800+650=2650$. The difference is $3200-2650=550$.
 
   - id: q-data-interpretation-tables-and-charts-0008
+    lesson: lesson-data-interpretation-table-values-and-totals
+    keyPoint: 2
     type: word-problem
     difficulty: medium
     stem: |
@@ -231,6 +247,8 @@ questions:
       Manila lists $1200+1500=2700$ applicants. Davao lists $650+750=1400$. Their difference is $2700-1400=1300$.
 
   - id: q-data-interpretation-tables-and-charts-0009
+    lesson: lesson-data-interpretation-table-values-and-totals
+    keyPoint: 2
     type: word-problem
     difficulty: easy
     stem: |
@@ -259,6 +277,8 @@ questions:
       Fiction circulation in April and May is $400+480=880$. Non-Fiction circulation is $250+310=560$. The difference is $880-560=320$.
 
   - id: q-data-interpretation-tables-and-charts-0010
+    lesson: lesson-data-interpretation-table-values-and-totals
+    keyPoint: 2
     type: word-problem
     difficulty: medium
     stem: |
@@ -287,6 +307,8 @@ questions:
       Outside Reference, June lists Fiction and Non-Fiction. Add those entries: $520+340=860$ circulations.
 
   - id: q-data-interpretation-tables-and-charts-0011
+    lesson: lesson-data-interpretation-table-values-and-totals
+    keyPoint: 2
     type: which-is-true
     difficulty: easy
     stem: |
@@ -315,6 +337,8 @@ questions:
       Medical rises by $60-45=15$, Surgical by $40-30=10$, and Pediatric by $35-25=10$. The largest increase is Medical's $15$.
 
   - id: q-data-interpretation-tables-and-charts-0012
+    lesson: lesson-data-interpretation-table-values-and-totals
+    keyPoint: 1
     type: which-is-true
     difficulty: medium
     stem: |
@@ -343,6 +367,8 @@ questions:
       The Surgical counts are $30$ in Morning, $40$ in Afternoon, and $20$ at Night. The largest is the Afternoon count of $40$.
 
   - id: q-data-interpretation-tables-and-charts-0013
+    lesson: lesson-data-interpretation-table-values-and-totals
+    keyPoint: 2
     type: direct-computation
     difficulty: easy
     stem: |
@@ -364,6 +390,8 @@ questions:
     approved: false
 
   - id: q-data-interpretation-tables-and-charts-0014
+    lesson: lesson-data-interpretation-table-values-and-totals
+    keyPoint: 2
     type: word-problem
     difficulty: medium
     stem: |
@@ -385,6 +413,8 @@ questions:
     approved: false
 
   - id: q-data-interpretation-tables-and-charts-0015
+    lesson: lesson-data-interpretation-table-values-and-totals
+    keyPoint: 2
     type: word-problem
     difficulty: medium
     stem: |
@@ -406,6 +436,8 @@ questions:
     approved: false
 
   - id: q-data-interpretation-tables-and-charts-0016
+    lesson: lesson-data-interpretation-averages-and-pie-chart-shares
+    keyPoint: 1
     type: error-spotting
     difficulty: hard
     stem: |
@@ -427,6 +459,8 @@ questions:
     approved: false
 
   - id: q-data-interpretation-tables-and-charts-0017
+    lesson: lesson-data-interpretation-table-values-and-totals
+    keyPoint: 2
     type: error-spotting
     difficulty: hard
     stem: |
@@ -448,6 +482,8 @@ questions:
     approved: false
 
   - id: q-data-interpretation-tables-and-charts-0018
+    lesson: lesson-data-interpretation-chart-scales-and-differences
+    keyPoint: 1
     type: which-is-true
     difficulty: hard
     stem: |
@@ -469,6 +505,8 @@ questions:
     approved: false
 
   - id: q-data-interpretation-tables-and-charts-0019
+    lesson: lesson-data-interpretation-table-values-and-totals
+    keyPoint: 1
     type: which-is-true
     difficulty: exam
     stem: |
@@ -490,6 +528,8 @@ questions:
     approved: false
 
   - id: q-data-interpretation-tables-and-charts-0020
+    lesson: lesson-data-interpretation-table-values-and-totals
+    keyPoint: 2
     type: word-problem
     difficulty: exam
     stem: |
@@ -509,3 +549,91 @@ questions:
     explanation: |
       The increases are $45-30=15$ for A, $50-40=10$ for B, and $40-25=15$ for C. The largest increase is $15$, shared by A and C.
     approved: false
+
+  - id: q-data-interpretation-tables-and-charts-0021
+    lesson: lesson-data-interpretation-averages-and-pie-chart-shares
+    keyPoint: 2
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A hypothetical pie chart divides a $360,000$-peso project budget into equipment ($40\%$), training ($25\%$), transport ($20\%$), and supplies ($15\%$). How much more is allocated to equipment than to training?
+    choices:
+      - text: '$54,000$ pesos'
+        correct: true
+      - text: '$144,000$ pesos'
+        rationale: |
+          This gives the equipment amount alone. Equipment has the larger share. Subtract the training amount to find how much more.
+      - text: '$90,000$ pesos'
+        rationale: |
+          This gives the training amount alone. Training is one of the two shares. Find the difference between the shares.
+      - text: '$234,000$ pesos'
+        rationale: |
+          This adds the two amounts. Both shares use the same budget. Check that how much more calls for subtraction.
+    explanation: |
+      The share difference is $40-25=15$ percentage points. Both shares use the full budget, so the amount difference is $\dfrac{15}{100}\times360,000=54,000$ pesos.
+
+  - id: q-data-interpretation-tables-and-charts-0022
+    lesson: lesson-data-interpretation-averages-and-pie-chart-shares
+    keyPoint: 2
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A hypothetical pie chart shows how an office uses its annual operating fund. Personnel receives $45\%$, maintenance receives $30\%$, and supplies receives the remaining share. If the full fund is $480,000$ pesos, how much is allocated to supplies?
+    choices:
+      - text: '$120,000$ pesos'
+        correct: true
+      - text: '$360,000$ pesos'
+        rationale: |
+          This uses the combined personnel and maintenance share. Those shares total $75\%$. Subtract that share from $100\%$ to find supplies.
+      - text: '$144,000$ pesos'
+        rationale: |
+          This uses the maintenance share of $30\%$. That share is stated directly. Check which category the question asks for.
+      - text: '$216,000$ pesos'
+        rationale: |
+          This uses the personnel share of $45\%$. It is the largest share. Find the remaining share for supplies.
+    explanation: |
+      The supplies share is $100-45-30=25\%$. Its amount is $\dfrac{25}{100}\times480,000=120,000$ pesos.
+
+  - id: q-data-interpretation-tables-and-charts-0023
+    lesson: lesson-data-interpretation-chart-scales-and-differences
+    keyPoint: 2
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A hypothetical bar chart reports applications processed, in hundreds. Its vertical axis has equal tick intervals of $0.5$. Office A's bar reaches the first tick above $3$, while Office B's bar reaches the first tick below $3$. How many more applications did Office A process than Office B?
+    choices:
+      - text: '$100$ applications'
+        correct: true
+      - text: '$1$ application'
+        rationale: |
+          This subtracts the bar readings but ignores the hundreds unit. The readings differ by $1$. Multiply by the axis unit before reporting applications.
+      - text: '$50$ applications'
+        rationale: |
+          This counts only one tick interval. Each bar is one interval from $3$. Count both intervals between the bars.
+      - text: '$600$ applications'
+        rationale: |
+          This adds the bar values. Both readings are needed. Subtract them to find how many more.
+    explanation: |
+      Office A reaches $3+0.5=3.5$ hundreds. Office B reaches $3-0.5=2.5$ hundreds. The difference is $(3.5-2.5)\times100=100$ applications.
+
+  - id: q-data-interpretation-tables-and-charts-0024
+    lesson: lesson-data-interpretation-chart-scales-and-differences
+    keyPoint: 2
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A hypothetical line chart shows a reservoir's volume, in thousands of liters. The vertical axis has equal tick intervals of $5$. Monday's point is two intervals above $40$, and Friday's point is one interval below $40$. By how many liters did the volume decrease from Monday to Friday?
+    choices:
+      - text: '$15,000$ liters'
+        correct: true
+      - text: '$15$ liters'
+        rationale: |
+          This finds the difference in chart units only. The difference is $15$ thousands. Convert thousands to liters.
+      - text: '$5,000$ liters'
+        rationale: |
+          This subtracts one interval from two intervals. The points lie on opposite sides of $40$. Count all intervals between them.
+      - text: '$85,000$ liters'
+        rationale: |
+          This adds the two volumes. Both readings belong to the requested days. Subtract Friday's volume from Monday's to find the decrease.
+    explanation: |
+      Monday's volume is $40+2\times5=50$ thousands of liters. Friday's volume is $40-5=35$ thousands. The decrease is $(50-35)\times1,000=15,000$ liters.

@@ -1,0 +1,12 @@
+version: 1
+assets:
+  - key: "mathematics/data-interpretation/table-values-and-totals#1"
+    credit: "Pantas"
+  - key: "mathematics/data-interpretation/table-values-and-totals#2"
+    credit: "Pantas"
+  - key: "mathematics/data-interpretation/chart-scales-and-differences#1"
+    credit: "Pantas"
+  - key: "mathematics/data-interpretation/averages-and-pie-chart-shares#1"
+    credit: "Pantas"
+  - key: "mathematics/data-interpretation/averages-and-pie-chart-shares#2"
+    credit: "Pantas"

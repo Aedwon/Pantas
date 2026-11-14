@@ -298,7 +298,62 @@
         {
           "name": "Data Interpretation",
           "slug": "data-interpretation",
-          "lessons": []
+          "lessons": [
+            {
+              "title": "Reading Table Values and Totals",
+              "slug": "table-values-and-totals",
+              "sections": [
+                "Reading a Table",
+                "Totals and Differences"
+              ]
+            },
+            {
+              "title": "Reading Chart Scales and Differences",
+              "slug": "chart-scales-and-differences",
+              "sections": [
+                "Reading a Bar or Line Chart"
+              ]
+            },
+            {
+              "title": "Finding Averages and Pie Chart Shares",
+              "slug": "averages-and-pie-chart-shares",
+              "sections": [
+                "Average across Time Periods",
+                "Reading a Pie Chart"
+              ]
+            },
+            {
+              "title": "Finding Percentage Change",
+              "slug": "percentage-change",
+              "sections": [
+                "Percentage Change"
+              ]
+            },
+            {
+              "title": "Comparing Groups with Percentages and Ratios",
+              "slug": "percentages-and-ratios-of-groups",
+              "sections": [
+                "Percentage of a Total",
+                "Ratios and Lowest Terms"
+              ]
+            },
+            {
+              "title": "Using Unit Rates and Direct Proportion",
+              "slug": "unit-rates-and-direct-proportion",
+              "sections": [
+                "Rates and Unit Rates",
+                "Direct Proportion"
+              ]
+            },
+            {
+              "title": "Sharing a Fixed Total",
+              "slug": "inverse-proportion-and-ratio-parts",
+              "sections": [
+                "Inverse Proportion",
+                "Dividing a Total by a Ratio"
+              ]
+            }
+          ]
         }
       ]
     },

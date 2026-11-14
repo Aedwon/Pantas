@@ -6,6 +6,12 @@ subject: "subject-mathematics"
 topic: "topic-data-interpretation"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-data-interpretation-percentage-change
+  - lesson-data-interpretation-percentages-and-ratios-of-groups
+  - lesson-data-interpretation-unit-rates-and-direct-proportion
+  - lesson-data-interpretation-inverse-proportion-and-ratio-parts
 ---
 
 ## Core Concept
