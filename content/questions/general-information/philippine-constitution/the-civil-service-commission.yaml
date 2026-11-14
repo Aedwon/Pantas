@@ -301,7 +301,7 @@ questions:
 
     '
   choices:
-  - text: Yes, approved annual funding must be released automatically and regularly.
+  - text: "Yes, approved annual funding is released automatically and regularly."
     correct: true
   - text: No, funding may be delayed until the CSC changes its decision.
     rationale: 'This allows funding delays to control a decision. Check the requirement for automatic and regular release.
@@ -456,9 +456,8 @@ questions:
   type: single_choice
   difficulty: hard
   approved: false
-  stem: 'A nominee is thirty-four at appointment but turns thirty-five a month later. What follows from the lesson?
-
-    '
+  stem: |
+    A CSC nominee is thirty-four at appointment but turns thirty-five a month later. Does the nominee meet the constitutional age requirement?
   choices:
   - text: The age qualification is not met at appointment.
     correct: true
@@ -510,11 +509,10 @@ questions:
   type: single_choice
   difficulty: exam
   approved: false
-  stem: 'A reviewer claims CSC''s personnel role makes it the national legislature, central bank, and criminal court at once. Which assessment fits the lesson?
-
-    '
+  stem: |
+    A reviewer claims that the CSC's role as the central personnel agency also gives it legislative, central banking, and criminal judicial powers. Which assessment is correct?
   choices:
-  - text: The claim extends the stated role beyond what is taught.
+  - text: "The claim exceeds the CSC's constitutional personnel role."
     correct: true
   - text: The claim is correct because central means all other government functions are included.
     rationale: 'This treats central as unlimited power. The word suggests national scope. Check the specific personnel subject.

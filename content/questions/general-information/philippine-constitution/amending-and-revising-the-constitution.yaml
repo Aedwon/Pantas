@@ -17,7 +17,7 @@ questions:
       - text: "Two"
         rationale: |
           This leaves out one route. People's initiative is also a proposal route, although it is limited to amendments.
-      - text: "Three"
+      - text: "3"
         correct: true
       - text: "Four"
         rationale: |
@@ -35,7 +35,7 @@ questions:
     type: amendment-or-revision
     difficulty: easy
     stem: |
-      Which description best defines a constitutional amendment as taught in the lesson?
+      Which description best defines a constitutional amendment under Article XVII?
     choices:
       - text: A replacement of the basic plan of government
         rationale: |
@@ -46,7 +46,7 @@ questions:
       - text: A change that voters alone may propose
         rationale: |
           Congress and a constitutional convention may also propose amendments.
-      - text: A specific change that leaves basic principles intact
+      - text: "A specific change preserving basic principles"
         correct: true
     explanation: |
       An amendment changes specific provisions without changing a basic principle. A revision changes the basic structure or a large part.
@@ -185,7 +185,7 @@ questions:
       - text: At least twelve percent in every district
         rationale: |
           Twelve percent is the nationwide minimum. Each district has a separate three percent minimum.
-      - text: At least three percent of registered voters in every district
+      - text: "At least 3% of registered voters in every district"
         correct: true
       - text: No district minimum once the nationwide requirement is met
         rationale: |
@@ -210,7 +210,7 @@ questions:
       - text: A convention may propose revisions but may not propose amendments
         rationale: |
           Section 1 allows a convention to propose either kind of change.
-      - text: Congress and a convention may propose either kind, but initiative permits only amendments
+      - text: "Congress or convention: either; initiative: amendments only"
         correct: true
     explanation: |
       Congress and a convention may propose amendments or revisions.
@@ -256,7 +256,7 @@ questions:
         rationale: |
           The first five-year bar did not remove later spacing limits.
           The route is allowed no more than once every five years afterward.
-      - text: They were barred for five years after ratification in 1987 and are allowed no more than once every five years afterward
+      - text: "Barred for five years after 1987 ratification; then at most once every five years"
         correct: true
       - text: They were barred for three years after ratification in 1987 and are allowed once every three years afterward
         rationale: |
@@ -390,7 +390,7 @@ questions:
     type: congressional-threshold-calculation
     difficulty: hard
     stem: |
-      For a threshold exercise only, assume the relevant membership is 240, with 200 Members present. Without deciding whether the Houses vote jointly or separately, how many affirmative votes meet the Section 1 requirement for Congress to propose a constitutional change?
+      For this calculation, assume Congress has 240 Members, of whom 200 are present. Set aside whether the Houses vote jointly or separately. How many affirmative votes constitute the three-fourths vote of all Members required by Article XVII, Section 1?
     choices:
       - text: "150"
         rationale: |
@@ -450,7 +450,7 @@ questions:
         rationale: |
           A specific amendment still requires the Article XVII process.
           A small change does not qualify for an ordinary-law shortcut.
-      - text: The claim is incorrect because Article XVII requires a proper proposal and ratification by voters
+      - text: "Article XVII requires a valid proposal and voter ratification"
         correct: true
       - text: The claim is incorrect only because a convention must propose every constitutional change
         rationale: |

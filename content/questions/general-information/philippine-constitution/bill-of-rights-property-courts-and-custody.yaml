@@ -90,9 +90,8 @@ questions:
   type: single_choice
   difficulty: easy
   approved: false
-  stem: 'Which situation fits the constitutional bail exception described in the lesson?
-
-    '
+  stem: |
+    Under Article III, Section 13, when may an accused charged with an offense punishable by reclusion perpetua be denied bail before conviction?
   choices:
   - text: A reclusion-perpetua charge with strong evidence of guilt
     correct: true
@@ -178,7 +177,7 @@ questions:
   - text: That the case will end without a trial
     rationale: |
       Release on bail does not end the case or remove the need for further proceedings.
-  - text: That the accused will appear as required
+  - text: "The accused's appearance as required"
     correct: true
   explanation: |
     Sureties guarantee the accused person's appearance as required.
@@ -268,7 +267,7 @@ questions:
   - text: The suspect has not yet been convicted.
     rationale: |
       Lack of a conviction does not by itself make every conversation a custodial investigation.
-  - text: The suspect's freedom is significantly restricted while he is questioned about an offense.
+  - text: "His liberty is significantly restricted while questioned."
     correct: true
   explanation: |
     Custodial investigation includes questioning a suspect whose freedom is significantly restricted. A formal arrest label is not required.
@@ -372,7 +371,7 @@ questions:
   stem: |
     A property owner argues that every government rule affecting private property requires just compensation, even without a taking for public use. Which statement best identifies the error?
   choices:
-  - text: The compensation rule concerns a taking for public use, not every rule affecting property.
+  - text: "The rule requires a taking for public use, not merely regulation."
     correct: true
   - text: Just compensation is required only when the public project makes a profit.
     rationale: |
@@ -421,7 +420,7 @@ questions:
   - text: It applies only after the person has been convicted.
     rationale: |
       The protection is not limited to testimony given after conviction.
-  - text: It also protects against being forced to give testimony that could help prove one's own guilt.
+  - text: "It protects compelled testimony that could help prove one's own guilt."
     correct: true
   - text: It prevents investigators from asking any question, even if answering is voluntary.
     rationale: |
@@ -450,7 +449,7 @@ questions:
   - text: Release on bail would establish that the accused is innocent.
     rationale: |
       Bail concerns release and required appearance. It does not decide innocence or guilt.
-  - text: The stated exception is not met because strong evidence of guilt is absent.
+  - text: "The exception fails because strong evidence of guilt is absent."
     correct: true
   explanation: |
     Both conditions must be present for the stated exception to apply.

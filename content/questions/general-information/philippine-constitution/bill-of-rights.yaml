@@ -116,9 +116,8 @@ questions:
   type: single_choice
   difficulty: hard
   approved: false
-  stem: 'Which association falls within the lesson''s stated protection?
-
-    '
+  stem: |
+    Which association is protected under Article III, Section 8?
   choices:
   - text: An association formed for purposes not contrary to law
     correct: true
@@ -148,7 +147,7 @@ questions:
   - text: The right to information on matters of public concern
     rationale: |
       This right covers access to public records. The residents are asking for action, not requesting records.
-  - text: The right to petition the government for redress of grievances
+  - text: "The right to petition for redress of grievances"
     correct: true
   - text: The right to just compensation
     rationale: |
@@ -176,7 +175,7 @@ questions:
   - text: The prohibition against involuntary servitude
     rationale: |
       Involuntary servitude means forced work. The proposed rule requires religious membership, not labor.
-  - text: The prohibition against religious tests for political rights
+  - text: "No religious tests for political rights"
     correct: true
   - text: The prohibition against imprisonment for debt
     rationale: |
@@ -229,7 +228,7 @@ questions:
     rationale: |
       Section 7 includes government research data used to develop policy.
       The file is not excluded simply because it contains research.
-  - text: Check whether the claimed law actually limits access to the requested material
+  - text: "Check whether the law limits access to the requested material"
     correct: true
   explanation: |
     Section 7 covers government policy research data. Access can have legal limits. The office must have an applicable legal basis for its claim.
@@ -245,7 +244,7 @@ questions:
   - text: The law does not require a court hearing for every application
     rationale: |
       Hearing requirements concern due process. They do not explain whether the grouping fits the purpose of the benefit.
-  - text: The distinction between the groups does not serve the law's purpose
+  - text: "The distinction is unrelated to the law's purpose"
     correct: true
   - text: The law treats all members of each group alike
     rationale: |
@@ -288,7 +287,7 @@ questions:
   stem: |
     Armed officers surround a commuter and order the commuter to open a bag. The commuter remains silent and follows the order. The officers claim that this alone proves consent. Which assessment is correct?
   choices:
-  - text: Silence and obedience under these conditions do not by themselves establish free consent
+  - text: "Silence and obedience here do not alone establish free consent"
     correct: true
   - text: Following an officer's order always establishes informed consent
     rationale: |
@@ -321,7 +320,7 @@ questions:
   - text: Liberty of abode permits no restrictions even with a lawful court order
     rationale: |
       Section 6 allows restrictions on abode within limits set by law upon a lawful court order.
-  - text: The order concerns liberty of abode, whose restriction requires a lawful court order within limits set by law
+  - text: "Restricting abode requires a lawful court order within legal limits"
     correct: true
   explanation: |
     Choosing where to live concerns liberty of abode. Section 6 requires a lawful court order within legal limits. Travel has a separate rule.
@@ -332,12 +331,12 @@ questions:
   type: single_choice
   difficulty: hard
   stem: |
-    A judge independently reviews a prosecutor's report and sufficient supporting evidence before finding probable cause for an arrest warrant. An objection claims that the judge also had to question the complainant and witnesses personally. Which response follows the lesson?
+    A judge independently reviews a prosecutor's report and sufficient supporting evidence before finding probable cause for an arrest warrant. An objection claims that the judge also had to question the complainant and witnesses personally. Which response is correct?
   choices:
   - text: The objection is correct because every arrest warrant requires that personal questioning
     rationale: |
       This transfers the search-warrant examination requirement to every arrest warrant. Sufficient records may support the arrest decision.
-  - text: The objection is incorrect because personal review of sufficient supporting evidence can meet the judge's duty
+  - text: "Personal review of sufficient evidence can satisfy the judge's duty"
     correct: true
   - text: The objection is incorrect because the prosecutor alone determines probable cause for the warrant
     rationale: |
@@ -363,7 +362,7 @@ questions:
     rationale: |
       Hot pursuit does not require witnessing the offense itself.
       It requires a just-committed offense and personal knowledge of supporting facts.
-  - text: The exception fails because the offense did not just occur and the officer lacks the required personal knowledge
+  - text: "The offense did not just occur, and the officer lacks personal knowledge"
     correct: true
   - text: The exception applies because officers may pursue any unsolved offense without a warrant
     rationale: |
@@ -379,7 +378,7 @@ questions:
   stem: |
     Police hold a person in custody and question them as a suspect in an offense. The person cannot afford a lawyer. Investigators obtain a written waiver of the rights to silence and counsel while no lawyer is present. Which statement is correct?
   choices:
-  - text: The waiver does not meet the requirement that it be made in the presence of counsel
+  - text: "The waiver is invalid because counsel was absent"
     correct: true
   - text: The waiver is sufficient because a written signature replaces the need for counsel
     rationale: |
@@ -412,7 +411,7 @@ questions:
   - text: The exception applies because bail is available only after conviction
     rationale: |
       Section 13 protects bail before conviction, subject to its stated exception. This reverses the timing of that protection.
-  - text: The stated exception does not apply because strong evidence of guilt is also required
+  - text: "The exception also requires strong evidence of guilt"
     correct: true
   explanation: |
     Both conditions matter. The charge must carry reclusion perpetua, and the evidence of guilt must be strong. The charged penalty alone does not meet this exception.
@@ -428,7 +427,7 @@ questions:
   - text: Rebellion alone permits suspension, and bail is suspended with it
     rationale: |
       Suspension also requires a public-safety need. The right to bail remains protected even during suspension.
-  - text: The stated conditions support suspension of the privilege, but the right to bail remains protected
+  - text: "Suspension is justified, but bail remains protected"
     correct: true
   - text: Suspension is forbidden during rebellion even when public safety requires it
     rationale: |
@@ -454,7 +453,7 @@ questions:
   - text: Only a prior conviction can bar the second prosecution
     rationale: |
       Section 21 includes both conviction and acquittal under either law as a bar to another prosecution for the same act under the other.
-  - text: The acquittal under the ordinance bars prosecution under the national law for the same act
+  - text: "The ordinance acquittal bars prosecution for the same act under national law"
     correct: true
   - text: Double jeopardy begins with any complaint even before arraignment and plea
     rationale: |
@@ -514,7 +513,7 @@ questions:
   type: single_choice
   difficulty: exam
   stem: |
-    Following a lawful arrest for an offense committed in an officer's presence, the officer claims authority to search any place desired without a warrant. Which statement best identifies the limit of the exception taught in the lesson?
+    Following a lawful arrest for an offense committed in an officer's presence, the officer claims authority to search any place desired without a warrant. Which statement best identifies the limit of a search incident to lawful arrest?
   choices:
   - text: It permits a search of the arrested person for weapons or evidence.
     correct: true

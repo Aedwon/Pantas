@@ -90,9 +90,8 @@ questions:
   type: single_choice
   difficulty: hard
   approved: false
-  stem: 'Which body is included in the right to speedy disposition of cases described in the lesson?
-
-    '
+  stem: |
+    Which body is covered by the right to speedy disposition of cases under Article III, Section 16?
   choices:
   - text: An administrative body deciding a case
     correct: true
@@ -122,7 +121,7 @@ questions:
   - text: The right to a public trial
     rationale: |
       A public trial allows public observation. It does not describe the information the accused must receive about the charge.
-  - text: The right to know the nature and cause of the accusation
+  - text: "Notice of accusation's nature and cause"
     correct: true
   - text: The right to meet witnesses face to face
     rationale: |
@@ -183,7 +182,7 @@ questions:
   type: single_choice
   difficulty: medium
   stem: |
-    A clerk says that the right to a public criminal trial forbids every restriction on public attendance. Which response best follows the lesson?
+    A clerk claims that the right to a public criminal trial forbids every restriction on public attendance. Which statement correctly describes this right?
   choices:
   - text: Public attendance depends entirely on the prosecution's preference
     rationale: |
@@ -230,7 +229,7 @@ questions:
   stem: |
     A prosecution witness testifies in court. The defense is allowed to listen but is barred from questioning the witness without a valid reason. Which safeguard is most directly affected?
   choices:
-  - text: The right to meet witnesses face to face and test their testimony
+  - text: "The right to confront and question witnesses"
     correct: true
   - text: The right to compel a defense witness to attend
     rationale: |
@@ -285,7 +284,7 @@ questions:
   - text: It requires the court to wait until the accused chooses to return
     rationale: |
       The rule allows trial to continue after arraignment when proper notice was given and the absence is unjustified.
-  - text: It allows trial to proceed without making the absence proof of guilt
+  - text: "Trial may proceed, but absence does not prove guilt"
     correct: true
   explanation: |
     All the conditions for trial in the accused's absence are present.
@@ -297,12 +296,12 @@ questions:
   type: single_choice
   difficulty: hard
   stem: |
-    An armed rebellion is occurring. Officials propose suspending the privilege of the writ of habeas corpus solely to reduce paperwork. They do not claim that public safety requires suspension. Which assessment follows the constitutional rule taught in the lesson?
+    An armed rebellion is occurring. Officials propose suspending the privilege of the writ of habeas corpus solely to reduce paperwork. They do not claim that public safety requires suspension. Which assessment follows the constitutional rule?
   choices:
   - text: Rebellion alone makes the proposed ground sufficient
     rationale: |
       Rebellion satisfies only part of the rule. Public safety must also require suspension.
-  - text: The proposed ground is insufficient because public safety must require suspension
+  - text: "Suspension requires public safety to demand it"
     correct: true
   - text: Suspension is allowed only if invasion and rebellion occur together
     rationale: |
@@ -320,7 +319,7 @@ questions:
   difficulty: hard
   stem: |
     A severe storm leads officials to declare an emergency. There is no invasion or rebellion. Officials argue that the emergency label alone permits suspension of the privilege of the writ of habeas corpus.
-    What is the strongest response under the lesson?
+    What is the strongest response under the Constitution?
   choices:
   - text: Public safety concerns eliminate the need for invasion or rebellion
     rationale: |
@@ -343,9 +342,9 @@ questions:
   type: single_choice
   difficulty: hard
   stem: |
-    An accused person claims that a trial postponement violated the right to a speedy trial. Which approach best follows the lesson?
+    An accused person claims that a trial postponement violated the right to a speedy trial. Which factors should the court consider?
   choices:
-  - text: Examine the delay's length, reasons, requests for a timely trial, and harm to the accused
+  - text: "Delay length, reasons, assertion of the right, and resulting harm"
     correct: true
   - text: Treat any postponement as a violation without examining its reason
     rationale: |
@@ -366,7 +365,7 @@ questions:
   type: single_choice
   difficulty: hard
   stem: |
-    An oversight office is reviewing delays in a criminal trial and in an employee disciplinary case before a government agency. Which statement correctly matches the protections emphasized in the lesson?
+    An oversight office is reviewing delays in a criminal trial and in an employee disciplinary case before a government agency. Which statement correctly matches the constitutional protections?
   choices:
   - text: Speedy trial governs both because every government case is a criminal trial
     rationale: |
@@ -378,7 +377,7 @@ questions:
   - text: Speedy disposition reaches the agency only after a criminal charge is filed
     rationale: |
       The protection covers administrative cases themselves. It does not depend on the filing of a separate criminal charge.
-  - text: Speedy trial concerns the criminal trial, while speedy disposition also reaches the agency case
+  - text: "Speedy trial covers the criminal trial; speedy disposition covers both"
     correct: true
   explanation: |
     Speedy trial concerns criminal trials. Speedy disposition is broader.
@@ -395,7 +394,7 @@ questions:
   - text: The reply is correct because only judges can be bound by this right
     rationale: |
       Speedy disposition also covers quasi-judicial and administrative bodies. The protection is not limited to judges.
-  - text: The reply is wrong, and the reasons and circumstances of the delay must be examined
+  - text: "The reply is wrong; the delay's reasons and circumstances need review"
     correct: true
   - text: The reply is wrong, so every postponed hearing automatically violates the right
     rationale: |
@@ -420,7 +419,7 @@ questions:
   - text: It is unavailable because the questioning is outside police investigation
     rationale: |
       The protection against forced testimony against oneself is not limited to police questioning.
-  - text: It applies because the witness is compelled to give an answer that could show personal guilt
+  - text: "It protects the witness from a compelled answer showing personal guilt"
     correct: true
   - text: It allows the witness to refuse every kind of evidence regardless of its nature
     rationale: |
@@ -437,7 +436,7 @@ questions:
     An official forces a person to write an account admitting a crime. The official argues that any written document is physical evidence, so the protection against compelled self-incrimination cannot apply.
     Which response best identifies the error?
   choices:
-  - text: The account reveals what the person knows and is a compelled statement against that person
+  - text: "The account is compelled testimony revealing the person's own guilt"
     correct: true
   - text: Every written document is protected even if it contains no statement against its author
     rationale: |
@@ -459,7 +458,7 @@ questions:
   difficulty: exam
   stem: |
     Assume that the privilege of the writ of habeas corpus has been validly suspended during an invasion because public safety requires it. A detention officer concludes that every detention is therefore lawful.
-    Which assessment best follows the lesson?
+    Which assessment correctly states the constitutional limits on suspension?
   choices:
   - text: The conclusion is correct because suspension supplies a legal basis for every detention
     rationale: |

@@ -115,9 +115,8 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: medium
-  stem: 'Which punishment is prohibited in the lesson''s Article III summary?
-
-    '
+  stem: |
+    Which punishment does Article III, Section 19(1) prohibit?
   choices:
   - text: Cruel or degrading punishment
     correct: true
@@ -288,7 +287,7 @@ questions:
     rationale: |
       A withdrawal before arraignment is not an acquittal after trial.
       The facts do not show the required plea.
-  - text: Filing alone is insufficient because arraignment and a valid plea are required.
+  - text: "Filing alone is insufficient; arraignment and a valid plea are required."
     correct: true
   - text: Double jeopardy arises only after an accused has served a prison sentence.
     rationale: |
@@ -351,7 +350,7 @@ questions:
   - text: Any conviction permanently bars prosecution for every later result of the act.
     rationale: |
       This ignores the exception for a graver offense that develops after the first conviction.
-  - text: A later prosecution may proceed under the exception for a graver offense developing after conviction.
+  - text: "The graver offense developing after conviction permits later prosecution."
     correct: true
   - text: The first conviction automatically establishes guilt of the graver offense.
     rationale: |
@@ -378,7 +377,7 @@ questions:
   - text: The law is allowed because a court will still conduct a trial.
     rationale: |
       Holding a trial does not cure a harmful backward change in the proof required to convict.
-  - text: The backward reduction in required proof falls within the ex post facto prohibition.
+  - text: "Retroactively lowering required proof violates the ex post facto ban."
     correct: true
   - text: The change is a bill of attainder solely because it concerns earlier offenses.
     rationale: |
@@ -395,7 +394,7 @@ questions:
     After a valid charge, arraignment, and plea in a proper court, an accused requests dismissal for a procedural defect. The court grants the request without deciding guilt or finding a speedy-trial violation.
     What is the effect of that dismissal under the general double-jeopardy rule?
   choices:
-  - text: The requested procedural dismissal does not by itself bar another prosecution.
+  - text: "The requested procedural dismissal does not itself bar reprosecution."
     correct: true
   - text: Every dismissal after a plea is an acquittal that bars another prosecution.
     rationale: |
@@ -470,7 +469,7 @@ questions:
   - text: It is a bill of attainder because Congress defined a punishable offense.
     rationale: |
       Defining a general offense does not itself impose punishment without trial. This law requires proof of guilt in court.
-  - text: Neither label is established because the law is prospective and requires a judicial trial.
+  - text: "Neither applies: the law is prospective and requires a judicial trial."
     correct: true
   - text: Both labels apply because a judicial trial cannot authorize punishment under a new law.
     rationale: |

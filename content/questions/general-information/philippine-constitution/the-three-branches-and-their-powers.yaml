@@ -40,7 +40,7 @@ questions:
     rationale: The 20 percent share uses total House membership, including party-list seats.
   - text: Representatives serve six-year terms with two consecutive terms allowed.
     rationale: These are the Senate's term rules. Representatives serve three-year terms.
-  - text: Representatives serve three-year terms with at most three consecutive terms.
+  - text: "Representatives have three-year terms, at most three consecutively."
     correct: true
   explanation: |
     Article VI, Section 7 sets three-year terms and a three-consecutive-term limit.
@@ -79,7 +79,7 @@ questions:
     rationale: The Vice-President succeeds when the President dies and the Vice-Presidency is occupied.
   - text: The successor may later be elected President because the five years were only an inherited term.
     rationale: A successor who serves more than four years as President cannot later be elected President.
-  - text: The Vice-President becomes President and cannot later be elected President after serving those five years.
+  - text: "The Vice-President succeeds and is barred from later election as President."
     correct: true
   - text: The Vice-President only acts as President until Congress selects a permanent President.
     rationale: Upon the President's death, the Vice-President becomes President for the unexpired term.
@@ -98,7 +98,7 @@ questions:
   choices:
   - text: A pardon may remove the result of impeachment if the Senate agrees.
     rationale: The President's pardon power excludes impeachment cases.
-  - text: A pardon follows conviction by final judgment, while amnesty needs concurrence of a majority of all Members of Congress.
+  - text: "Pardon requires final conviction; amnesty, concurrence of a majority of all Members of Congress."
     correct: true
   - text: A pardon may be granted before conviction by final judgment, while amnesty needs no congressional concurrence.
     rationale: This removes both the final-judgment requirement for pardon and the congressional requirement for amnesty.
@@ -136,7 +136,7 @@ questions:
   stem: |
     Mario is a naturalized Philippine citizen seeking a Senate seat. On election day, he is 40, can read and write, is a registered voter, and has lived in the Philippines continuously for ten years. Which requirement does he fail?
   choices:
-  - text: Natural-born citizenship
+  - text: "Being natural-born"
     correct: true
   - text: Minimum age
     rationale: A Senator must be at least 35 on election day. Mario is 40.
@@ -329,7 +329,7 @@ questions:
     rationale: Any citizen may bring the factual basis before the Supreme Court for review.
   - text: Congress may revoke only through separate two-thirds votes in each House.
     rationale: Revocation uses a majority of all Members of Congress voting jointly, not separate two-thirds votes.
-  - text: The Supreme Court may review the factual basis, and Congress may revoke by a majority of all its Members voting jointly.
+  - text: "Supreme Court review; revocation by a majority of all Congress Members voting jointly"
     correct: true
   - text: Martial law replaces functioning civil courts.
     rationale: Martial law does not replace functioning civil courts.
@@ -389,7 +389,7 @@ questions:
   choices:
   - text: The President commands the armed forces and alone declares the existence of a state of war.
     rationale: Commander-in-Chief authority does not include Congress's exclusive power to declare a state of war.
-  - text: The President commands the armed forces; Congress declares a state of war by two-thirds votes in joint session, voting separately.
+  - text: "The President commands; Congress declares war by two-thirds votes in joint session, voting separately."
     correct: true
   - text: Congress commands the armed forces; the President declares a state of war after Senate concurrence.
     rationale: This reverses military command and the war-declaration power. Senate treaty concurrence is a different rule.

@@ -375,9 +375,8 @@ questions:
   keyPoint: 2
   type: single_choice
   difficulty: hard
-  stem: 'Under the lesson''s explanation, culpable violation of the Constitution involves what kind of act?
-
-    '
+  stem: |
+    Which act constitutes a culpable violation of the Constitution as a ground for impeachment?
   choices:
   - text: Intentional violation of constitutional mandate
     correct: true
@@ -456,21 +455,20 @@ questions:
   type: single_choice
   difficulty: hard
   approved: false
-  stem: 'A complaint uses a named impeachment ground against a Court of Appeals justice. What must first be checked under the lesson?
-
-    '
+  stem: |
+    An impeachment complaint alleges a constitutional ground for removal against a Court of Appeals justice. Which threshold requirement must be checked?
   choices:
-  - text: Whether the office is in the closed list
+  - text: Whether the office is listed in Article XI, Section 2
     correct: true
-  - text: Whether the accusation is dramatic enough to add a new court to the list
-    rationale: 'This lets publicity change the offices covered. A serious case attracts attention. Check the constitutional office categories.
+  - text: Whether alleging an impeachment ground makes any judicial officer impeachable
+    rationale: 'This lets an alleged ground expand the offices covered. A serious charge does not add an office. Check the constitutional office categories.
 
       '
-  - text: Whether the complainant calls every appellate judge a Supreme Court member
+  - text: Whether Court of Appeals membership is equivalent to Supreme Court membership
     rationale: 'This lets a label replace the actual office. Both courts hear appeals. Check the official''s actual position.
 
       '
-  - text: Whether every judicial officer has agreed to share the same removal process
+  - text: Whether judicial officers can agree to share the impeachment process
     rationale: 'This treats consent as power to expand the list. Courts are in one branch. Check the constitutionally specified category.
 
       '

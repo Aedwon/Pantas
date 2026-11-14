@@ -39,7 +39,7 @@ questions:
     rationale: Naturalization grants citizenship but does not make the person natural-born.
   - text: A person who has been a Philippine citizen for at least ten years
     rationale: The length of citizenship does not determine natural-born status.
-  - text: A citizen from birth who needs no act to acquire or complete Philippine citizenship
+  - text: "Citizenship from birth, with no act to acquire or complete it"
     correct: true
   explanation: |
     Article IV, Section 2 defines natural-born citizens as citizens from birth who need no act to gain or complete citizenship. It also makes a special rule for those who properly elect citizenship under Section 1(3).
@@ -187,7 +187,7 @@ questions:
   stem: |
     A natural-born Filipino lost Philippine citizenship through naturalization in another country. Under Republic Act 9225, Section 3, which act is required to reacquire Philippine citizenship?
   choices:
-  - text: Taking the prescribed oath of allegiance to the Republic of the Philippines
+  - text: "Taking the prescribed oath of allegiance to the Philippines"
     correct: true
   - text: Purchasing land in the Philippines
     rationale: Property ownership does not replace the prescribed oath for reacquisition under this law.
@@ -265,7 +265,7 @@ questions:
   stem: |
     Which statement correctly describes voting by Filipinos abroad under Article V and the overseas voting laws cited in the lesson?
   choices:
-  - text: Qualified Filipinos abroad must use the overseas voting system and meet its eligibility and registration rules.
+  - text: "They must meet overseas voting eligibility and registration rules."
     correct: true
   - text: Every Filipino abroad may vote without registration because citizenship is enough.
     rationale: Overseas voters must meet the system's registration and eligibility rules. Citizenship alone is not enough.
@@ -379,7 +379,7 @@ questions:
   type: mixed-citizenship-and-voting
   difficulty: exam
   stem: |
-    Elena was born abroad in 2000 to a mother who was Filipino at Elena's birth and an alien father. Elena has retained her Philippine citizenship. On election day, she will have lived continuously in the Philippines for fourteen months, all in her proposed voting place. She is registered, cannot read, owns no land, and is not disqualified by law. Which assessment is correct for domestic voting?
+    Elena was born abroad in 2000 to a mother who was Filipino at Elena's birth and an alien father. Elena has retained her Philippine citizenship. She will be at least eighteen on election day and will have lived continuously in the Philippines for fourteen months, all in her proposed voting place. She is registered, cannot read, owns no land, and is not disqualified by law. Which assessment is correct for domestic voting?
   choices:
   - text: She must first elect Philippine citizenship because her father was an alien.
     rationale: Her birth in 2000 falls under the current Filipino-parent rule, not the special pre-1973 election rule.

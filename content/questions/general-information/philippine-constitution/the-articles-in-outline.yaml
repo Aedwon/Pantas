@@ -193,9 +193,8 @@ questions:
   keyPoint: 2
   type: single_choice
   difficulty: medium
-  stem: 'An index sends public-officer accountability questions to Article XVI because its heading says General Provisions. What is the correct correction?
-
-    '
+  stem: |
+    An index assigns public-officer accountability to Article XVI, General Provisions. Which revision places the topic under the correct article?
   choices:
   - text: Use Article XI for accountability.
     correct: true
@@ -510,22 +509,21 @@ questions:
   type: single_choice
   difficulty: exam
   approved: false
-  stem: 'What does knowing the article outline establish about the rules inside each article?
-
-    '
+  stem: |
+    An official argues that Article VI's heading, Legislative Department, allows a revenue bill to originate in either House. Which response correctly assesses this use of the article heading?
   choices:
-  - text: It helps locate topics, but the exact rules must still be read or recalled.
+  - text: "The heading locates legislative powers; Section 24 sets the rule."
     correct: true
-  - text: It proves each department can use its power without constitutional limits.
+  - text: "The heading permits either House to originate any bill without restriction."
     rationale: 'This treats a department title as unlimited power. The departments have constitutional limits. Check the exact rule.
 
       '
-  - text: It guarantees every article contains the same number of rules.
-    rationale: 'This assumes that major divisions contain equal numbers of rules. The outline lists topics. It does not give a rule count.
+  - text: "The heading gives the Senate sole authority to originate revenue bills."
+    rationale: 'This gives the Senate a power the heading does not state. Check the specific section on where revenue bills must start.
 
       '
-  - text: It guarantees a student can omit all understanding because titles alone answer every item.
-    rationale: 'This treats an index as complete teaching. Titles help recall. Check locating material versus understanding it.
+  - text: "The heading lets Congress disregard the section governing revenue bills."
+    rationale: 'This treats a heading as permission to ignore a specific rule. Check the section on revenue bills, not just the article title.
 
       '
   explanation: 'The outline helps locate major topics. A title does not state every rule, power, requirement, or exception. Read or recall the exact rule too.
