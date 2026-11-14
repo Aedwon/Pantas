@@ -54,3 +54,40 @@ Dart apply calls the synchronous reload bridge and no-ops when absent.
 Verify Node suites, changed Dart format, analyze lib test, app_update tests,
 design lint, layering, repository checks and exact restored-file equality.
 Local commit only; no push, deployment, Firebase access or UI change.
+
+## Quiz completion correction, November 14
+
+Approved bounded follow-up: Aedwon's inline quiz staging defect and requested
+quizEnded hook. Estimate: 15 minutes, timer web-update-quiz-ended. App logic only,
+no UI, push, deploy or Firebase. Policy main
+3966e4774d051876ac14664baeaae9a7ddd018e5.
+
+1. Reproduce real inline start/answer/next with the controller and a fake bridge.
+   Assert no apply mid-question or reveal, apply immediately at QuizComplete,
+   and clearing when another session starts on the same route.
+2. Add coordinator quizStarted/quizEnded lifecycle hooks, clear on navigation,
+   include completion in safety, and check immediately. Preserve write/overlay
+   guards, retry behavior and existing safe routes. Wire the shared quiz state
+   setter, quiz session end page, mock results page, and both mock start routes.
+3. Independently review, cover duplicate signals during durability waits and
+   old completion after route/session changes, then run requested checks serially.
+4. Update this plan, launch/velocity logs and existing verification record;
+   commit locally with a plain message.
+
+Assigned implementation/test files:
+- lib/core/platform/app_update/update_coordinator.dart
+- lib/features/quiz/presentation/quiz_controller.dart
+- lib/features/quiz/presentation/quiz_session_end_page.dart
+- lib/features/mock_exam/presentation/pages/mock_results_route.dart
+- lib/features/mock_exam/presentation/pages/mock_start_route.dart
+- lib/features/mock_exam/presentation/pages/server_mock_route.dart
+- test/core/platform/app_update/update_coordinator_test.dart
+- test/core/platform/app_update/update_quiz_results_test.dart
+- test/features/quiz/presentation/quiz_controller_test.dart
+
+Independent review found duplicate completion could invalidate a pending write
+barrier and delayed controller completion could mark another route/session safe.
+Both received failing regression proofs before correction. Repeated completion
+is now idempotent; next() checks route revision and running-state ownership
+after saving before publishing QuizComplete. Results callbacks capture the same
+quiz revision, which also invalidates on a same-URL session start.

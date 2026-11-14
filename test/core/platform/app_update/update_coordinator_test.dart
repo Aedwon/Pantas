@@ -203,6 +203,66 @@ void main() {
     expect(bridge.applies, 0);
   });
 
+  test('quiz completion clears on route change', () async {
+    bridge.available = false;
+    coordinator
+      ..routeChanged('/quiz/inline/one')
+      ..quizEnded();
+    await coordinator.check();
+    coordinator.routeChanged('/quiz/inline/two');
+    bridge.available = true;
+    await coordinator.check();
+    expect(bridge.applies, 0);
+  });
+
+  test('new quiz cancels completion while writes are pending', () async {
+    final write = Completer<void>();
+    coordinator = UpdateCoordinator(
+      bridge: bridge,
+      waitForWrites: () => write.future,
+      onFailure: (_, __) {},
+    )
+      ..routeChanged('/quiz/inline/one')
+      ..quizEnded();
+    final checking = coordinator.check();
+    await Future<void>.delayed(Duration.zero);
+    coordinator.quizStarted();
+    write.complete();
+    await checking;
+    await coordinator.check();
+    expect(bridge.applies, 0);
+  });
+
+  test('repeated quiz completion preserves a pending durability check',
+      () async {
+    final write = Completer<void>();
+    coordinator = UpdateCoordinator(
+      bridge: bridge,
+      waitForWrites: () => write.future,
+      onFailure: (_, __) {},
+    )
+      ..routeChanged('/quiz/inline/one')
+      ..quizEnded();
+    final checking = coordinator.check();
+    await Future<void>.delayed(Duration.zero);
+    coordinator.quizEnded();
+    write.complete();
+    await checking;
+    expect(bridge.applies, 1);
+  });
+
+  test('quiz completion does not bypass an input overlay', () async {
+    coordinator
+      ..routeChanged('/quiz/inline/one')
+      ..setOverlay('notes', visible: true)
+      ..quizEnded();
+    await coordinator.check();
+    expect(bridge.applies, 0);
+    coordinator.setOverlay('notes', visible: false);
+    await coordinator.check();
+    expect(bridge.applies, 1);
+  });
+
   test('native bridge is a no-op', () async {
     final native = createUpdateBridge();
     expect((await native.check()).available, isFalse);

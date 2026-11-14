@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:pantas/core/platform/app_update/update_bridge.dart';
 import 'package:pantas/core/platform/app_update/update_overlay_registry.dart';
 
@@ -17,12 +19,17 @@ class UpdateCoordinator {
   final Set<String> _attempted = {};
   final Set<Object> _overlays = {};
   String _path = '';
+  int _quizRevision = 0;
   bool _lessonEnded = false;
+  bool _quizEnded = false;
   bool _disposed = false;
   bool _applying = false;
 
   bool get isApplying => _applying;
   String get currentPath => _path;
+
+  /// Invalidates completion work after navigation or a session start.
+  int get quizRevision => _quizRevision;
   int _epoch = 0;
   Future<void>? _checking;
 
@@ -30,6 +37,7 @@ class UpdateCoordinator {
     if (path == _path) return;
     _path = path;
     lessonStarted();
+    quizStarted();
   }
 
   void setOverlay(Object owner, {required bool visible}) {
@@ -53,6 +61,20 @@ class UpdateCoordinator {
     }
   }
 
+  void quizStarted() {
+    _quizRevision++;
+    _quizEnded = false;
+    _epoch++;
+  }
+
+  void quizEnded() {
+    if (!_quizEnded) {
+      _quizEnded = true;
+      _epoch++;
+    }
+    unawaited(check());
+  }
+
   bool get _safe =>
       !_disposed &&
       _overlays.isEmpty &&
@@ -60,7 +82,8 @@ class UpdateCoordinator {
       (_path == '/home' ||
           RegExp(r'^/(quiz/(debrief|all)|mock/results)/[^/]+$')
               .hasMatch(_path) ||
-          _lessonEnded);
+          _lessonEnded ||
+          _quizEnded);
 
   Future<void> check() => _checking ??= _check().whenComplete(() {
         _checking = null;

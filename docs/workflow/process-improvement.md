@@ -79,6 +79,14 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Inline quiz results missed the update safe point (Nov 14)
+
+- His words: "A "Quiz yourself" quiz started from a lesson runs on /quiz/inline/<id> and shows its results on the same route" and "so the results screen never counted as a safe point and the app did not reload into the new build there."
+- Wrong: coordinator safety inferred completion only from separate results URLs.
+- Why it passed: coordinator tests changed routes instead of completing an inline quiz through the real controller.
+- Fix: the inline controller regression in `test/features/quiz/presentation/quiz_controller_test.dart` drives start, answer and next with a fake update bridge. It failed with expected one apply, actual zero before the hook existed. It also checks unsafe questions/reveals and restarting on the same URL. Coordinator tests cover route reset, pending writes, repeated completion and input overlays.
+
+
 Newest first. When this file passes about 120 lines, move the oldest closed entries to
 the current decision log.
 

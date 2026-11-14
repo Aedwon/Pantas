@@ -138,3 +138,18 @@ No push, deployment or Firebase access. Real rollout/device proof remains.
 - Actual: timer web-update-scale-back measured 6 min 59 s active/wall,
   Nov 14 07:38 to 07:45 UTC, before final evidence/commit. Initial context
   retrieval before the timer was not measured. No push, deploy or Firebase.
+
+### Nov 14, quiz completion update hook
+
+- Branch: web/update-at-once-r1. Estimate: 15 minutes active/wall.
+- Timer: web-update-quiz-ended. Initial policy reading is not measured.
+- Scope: app-side quiz completion safety and regressions, local commit only.
+
+Quiz completion correction actual: primary timer web-update-quiz-ended measured
+14 min 51 s active/wall (Nov 14 08:03 to 08:17 UTC). Final analyzer-comma
+correction, focused verification and evidence timer web-update-quiz-ended-final
+measured 52 s active/wall (08:18 to 08:19 UTC). Combined measured active:
+15 min 43 s; no pauses. Initial policy retrieval, the short gap between timers,
+and final recording/commit are unmeasured. Estimate: 15 minutes.
+Implemented and independently reviewed; 1,941 combined tests plus a final
+37-test focused rerun pass. Local commit only, no push/deploy/Firebase.

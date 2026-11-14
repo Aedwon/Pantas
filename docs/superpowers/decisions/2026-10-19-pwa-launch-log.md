@@ -3274,3 +3274,38 @@ Verification and exact main diff inventory:
 `docs/superpowers/verification/2026-11-14-update-at-once-scale-back.md`.
 This is local implementation only. Real device/consecutive-deployment proof and
 publication remain outside this assignment. No push, deploy or Firebase access.
+
+### Nov 14, E-043 inline quiz completion correction
+
+Aedwon's exact bounded assignment:
+
+> Bounded job, about 15 minutes. Worktree branch web/update-at-once-r1 (Pantas Flutter web app). Do not push, do not deploy, no Firebase. Commit with plain messages, NO Co-Authored-By or any AI trailer. App-side logic only, no visible UI change.
+>
+> Bug found by a live staging proof: lib/core/platform/app_update/update_coordinator.dart treats the end of a quiz as safe only when the route matches ^/(quiz/(debrief|all)|mock/results)/[^/]+$. A "Quiz yourself" quiz started from a lesson runs on /quiz/inline/<id> and shows its results on the same route (QuizController state QuizComplete, lib/features/quiz/presentation/quiz_controller.dart), so the results screen never counted as a safe point and the app did not reload into the new build there.
+>
+> Fix: add a quizEnded() hook like lessonEnded(): set when any quiz session reaches its finished state (QuizComplete, or the equivalent end state of every quiz flow: inline, reviews, new questions, practice, the session debrief, mock results), cleared on the next route change or when a new session starts; include it in _safe; and run a check() right when it is set (the update may already be known from the visibility or timer check). Wire it where the quiz end state is reached (the controller or the page that shows results), not by route patterns. Keep every unsafe rule (an open quiz question is never safe).
+> Tests first (show them failing): an inline quiz reaching QuizComplete with an available update applies it; a quiz mid-question does not; starting a new session clears the flag; the existing coordinator tests stay green.
+> Checks: dart format, flutter analyze lib test, the app_update and quiz tests, design lint, layering (one Flutter job at a time). Commit. Report: where the hook is wired, test evidence, files changed.
+
+Root cause: the route-based tests covered separate result destinations, not the
+real inline controller's transition to results on its existing URL. The regression
+now drives startInline, answer and next through the real controller with a fake
+update bridge. It failed before implementation: expected one apply, actual zero.
+It also asserts no apply during a question or answer reveal and after restarting.
+Independent review added red proofs for duplicate completion while writes wait
+and delayed completion after navigation or session replacement.
+
+Implementation and current verification are recorded in
+`docs/superpowers/verification/2026-11-14-update-at-once-app.md`, quiz correction
+section. No UI, push, deploy or Firebase access is authorized by this follow-up.
+
+Quiz completion correction complete locally: QuizComplete and shared results
+lifecycle hooks now provide explicit safety and immediate checks. Navigation
+and new sessions invalidate completion, including delayed callbacks; repeated
+completion preserves pending durability waits. Independent review: no remaining
+findings. Final combined app-update, quiz and mock suites: 1,941 passed. Final
+37-test focused rerun passed after test formatting/comma corrections. Analysis,
+format, design lint (631 existing baseline findings), layering, nine repository
+checks and attribution check pass. Measured active: 15 min 43 s across two
+timers; details and exact file/source inventory are in the existing verification
+record. Local commit only. Live proof remains separate and was not rerun.
