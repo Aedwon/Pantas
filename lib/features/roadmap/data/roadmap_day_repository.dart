@@ -22,6 +22,12 @@ class RoadmapDayRepository {
     return row == null ? null : _decode(row);
   }
 
+  /// Drops one stored day, so the next read of Today builds it again.
+  Future<void> delete(ExamId examId, DateTime day) =>
+      (_db.delete(_db.roadmapDayLocal)
+            ..where((r) => r.examId.equals(examId) & r.day.equals(dayKey(day))))
+          .go();
+
   /// The most recent stored day strictly before [day].
   Future<DaySnapshot?> latestBefore(ExamId examId, DateTime day) async {
     final row = await (_db.select(_db.roadmapDayLocal)

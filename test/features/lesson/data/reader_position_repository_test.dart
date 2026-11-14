@@ -88,6 +88,13 @@ void main() {
     expect(await positions.read('e', 'l'), 360);
     expect(await positions.readFraction('e', 'l'), .5);
   });
+  test('a saved offset past the end of a shorter lesson clamps to the end',
+      () async {
+    await positions.write('e', 'l', 900);
+    expect(await positions.readClamped('e', 'l', maxOffset: 400), 400);
+    expect(await positions.readClamped('e', 'l', maxOffset: 1200), 900);
+    expect(await positions.read('e', 'l'), 900);
+  });
   test('zero and one fractions round-trip', () async {
     for (final fraction in [0.0, 1.0]) {
       await positions.writeFraction('e', 'l', fraction);

@@ -53,6 +53,8 @@ class CatalogLesson {
     required this.estimatedMinutes,
     required this.ordering,
     required this.isActive,
+    this.status = 'active',
+    this.replacedBy = const [],
   });
 
   final String id;
@@ -63,6 +65,11 @@ class CatalogLesson {
   final int estimatedMinutes;
   final int ordering;
   final bool isActive;
+
+  /// `active` or `retired`. A retired lesson is served only through the
+  /// first id in [replacedBy], never listed.
+  final String status;
+  final List<String> replacedBy;
 }
 
 /// A question without its text.
@@ -168,6 +175,12 @@ CatalogLesson _lesson(Map<String, Object?> doc) {
         : intField(doc, doctype, 'estimatedMinutes'),
     ordering: doc['ordering'] is int ? doc['ordering']! as int : 0,
     isActive: boolField(doc, doctype, 'isActive'),
+    status: doc['status'] == 'retired' ? 'retired' : 'active',
+    replacedBy: [
+      if (doc['replacedBy'] case final List<Object?> ids)
+        for (final id in ids)
+          if (id is String) id,
+    ],
   );
 }
 
