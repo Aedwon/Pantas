@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/app/update_coordinator_provider.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
@@ -96,8 +97,14 @@ class QuizController extends StateNotifier<QuizControllerState> {
   /// one entry point or doubled by another.
   @override
   set state(QuizControllerState value) {
+    if (value is QuizLoading || value is QuizRunning) {
+      _ref.read(updateCoordinatorProvider).quizStarted();
+    }
     _logStudyLoop(value);
     super.state = value;
+    if (value is QuizComplete) {
+      _ref.read(updateCoordinatorProvider).quizEnded();
+    }
   }
 
   void _logStudyLoop(QuizControllerState next) {
@@ -630,12 +637,20 @@ class QuizController extends StateNotifier<QuizControllerState> {
 
     if (s.session.isComplete) {
       clearQuestionPreparation();
+      final updates = _ref.read(updateCoordinatorProvider);
+      final quizRevision = updates.quizRevision;
       final attempt =
           await _ref.read(quizCompletionCoordinatorProvider).complete(
                 session: s.session,
                 now: _ref.read(nowProvider)(),
                 persisted: s.persisted,
               );
+      // Saving may finish after navigation or a replacement session starts.
+      if (!mounted ||
+          !identical(state, s) ||
+          updates.quizRevision != quizRevision) {
+        return;
+      }
       state = QuizComplete(attempt: attempt, session: s.session);
       return;
     }

@@ -309,7 +309,10 @@ const journeys = {
 };
 
 const browser = await chromium.launch({
-  args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'],
+  // The mock keychain flags stop macOS asking for the login keychain on a
+  // local run (Nov 14 process improvement).
+  args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist',
+    '--use-mock-keychain', '--password-store=basic'],
 });
 let failed = 0;
 for (const [name, journey] of Object.entries(journeys)) {

@@ -63,6 +63,8 @@ const bundleCss = readFileSync(join(componentsDir, 'bundle.css'), 'utf8');
 
 const browser = await chromium.launch({
   executablePath: process.env.PW_CHROME || undefined,
+  // No macOS login-keychain prompt on a local run (Nov 14 process improvement).
+  args: ['--use-mock-keychain', '--password-store=basic'],
 });
 const ok = [];
 const failed = [];

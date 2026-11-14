@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/app/update_coordinator_provider.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
@@ -46,6 +47,16 @@ class MockResultsRoute extends ConsumerStatefulWidget {
 class _MockResultsRouteState extends ConsumerState<MockResultsRoute> {
   var _finaleStarted = false;
   var _finaleInterrupted = false;
+
+  @override
+  void initState() {
+    super.initState();
+    final updates = ref.read(updateCoordinatorProvider);
+    final quizRevision = updates.quizRevision;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted && updates.quizRevision == quizRevision) updates.quizEnded();
+    });
+  }
 
   @override
   void didUpdateWidget(MockResultsRoute oldWidget) {

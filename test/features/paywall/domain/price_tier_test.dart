@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:drift/native.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/content_database.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
@@ -11,6 +12,9 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   test('every bundled catalog entry resolves to its declared tier', () async {
+    // The shared cache retains a Future from this real async zone. A later
+    // widget test cannot drain its callbacks in fake async while settling.
+    addTearDown(() => rootBundle.evict('content/exams/catalog.json'));
     final database = ContentDatabase(NativeDatabase.memory());
     addTearDown(database.close);
     final catalog = ExamCatalogRepository(database);

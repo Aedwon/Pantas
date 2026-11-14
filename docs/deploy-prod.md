@@ -265,3 +265,65 @@ Aedwon decided the redesign ships during the beta, after his own staging check a
   Keyboard Shortcuts turns letter keys off on wide screens.
 - **Staging only, not prod:** the App Check debug token the lead registered on pantas-staging for
   the visual pass is deleted when the pass ends; prod never gets one.
+
+## 13. Billing cutoff, spend caps and relinking billing
+
+Approved by Aedwon on Nov 14, 2026 (launch log, "security fixes and billing cap"). Goal: spend never
+passes about $20 a month across both projects. Private detail (ids, exact rollback commands) is in
+`~/Documents/Projects/Pantas-private/security/fixes-r1/changes-and-rollbacks.md`.
+
+What is in place:
+
+- **Budget email:** one $20-a-month budget on the whole billing account (prod and staging). Email at
+  $10, at 100% actual and at 100% forecast.
+- **Automatic cutoff:** a `billing-cutoff` Cloud Run function in each project, on the `billing-cutoff`
+  Pub/Sub topic. It removes the billing account from its own project when either:
+  - that project's cutoff budget passes its amount (staging $5; prod $15, which Aedwon raises as the
+    user base grows), or
+  - a usage alarm named `billing-cutoff: ...` opens (Hosting bytes, Storage egress, Firestore reads,
+    Firestore writes, each per hour and per day). Alarms react within minutes; budget data lags hours.
+  - `DRY_RUN=true` on the function means log only. Anything else but exactly `false` is also a dry run.
+- **Spend caps:** each project pauses Cloud Run and Cloud Run functions at $5 a month (Google's spend
+  cap feature). New function requests pause until the next month or a lift.
+- **Bot-check cap:** reCAPTCHA assessments are limited to 300 a day per project (resets at Pacific midnight).
+- **Instance caps:** 3 per function, 10 for the payment webhooks, 5 for account deletion (in code).
+
+### When the cutoff fires
+
+Signs: the app stops working for everyone on that project; an alarm email from Cloud Monitoring or the
+100% budget email; the function log line `billing cutoff: billing DISABLED on <project>`.
+
+1. Find out why before relinking. Check the alarm that opened (Monitoring, Alerting, Incidents) and the
+   billing report. If an attack is still running, relinking restarts the bill: fix or block first.
+2. Relink billing (owner account):
+   `gcloud billing projects link <project> --billing-account <billing account id>` (the id is in the private file above, and in `gcloud billing accounts list`)
+   Or in the console: Billing, Account management, My projects, the project's Actions menu, Change billing.
+3. If a usage alarm fired, it stays open until its window passes. While it is open, nothing re-fires
+   (an alarm notifies once per incident), so relinking is safe. If the cause is normal growth, raise
+   the alarm threshold first, or it fires again on the next incident.
+4. If the budget fired, its cost stays above the amount for the rest of the month, and every budget
+   message (several a day) would cut billing again. Before relinking, raise that budget's amount, or set
+   `DRY_RUN=true` on the function:
+   `gcloud run services update billing-cutoff --region asia-southeast1 --project <project> --update-env-vars DRY_RUN=true`
+5. Check the project works again: the app loads, a function answers (an unauthenticated call returns
+   401, not 403 or 5xx), and on staging the journeys pass. Hosting, Auth, Firestore and Storage come
+   back at once. Cloud Run functions return 503 "not available yet" (or 429), flipping between up and
+   down, until Cloud Run resumes the project. Google documents up to 30 minutes.
+   Measured on staging, Nov 14, with the $5 spend caps in place both times:
+   - Cut 1: billing off 13 seconds, functions back after **34 minutes**. A functions deploy ran 2 to 6
+     minutes after the relink, while Cloud Run was resuming.
+   - Cut 2: billing off 11 seconds, no deploy, functions back after **5 minutes**.
+   Rules while recovering:
+   - **Do not deploy functions or push new revisions until every function answers.** A new revision
+     does not help, and the deploy in cut 1 is the likely reason it took 34 minutes.
+   - Plan for up to about 35 minutes of function outage after a relink.
+   - If functions are still down 40 minutes after relinking, delete the project's two "Spend cap $5"
+     budgets, wait 5 minutes, then recreate them (bodies in the private file). In cut 1 the functions
+     came back 2 minutes after this, but cut 2 showed the caps do not block recovery by themselves, so
+     treat it as a last resort.
+   A quick check of all functions: list them with
+   `gcloud run services list --project <project> --format='value(metadata.name,status.url)'` and POST
+   `{"data":{}}` to each; every one should return 401 (the RevenueCat webhook returns 500 on staging).
+6. If a spend cap paused functions, lift it: edit the budget and choose "Lift spend cap" (console), or
+   PATCH the budget's `spendCap.inputState` to `AWAITING_NEXT_PERIOD`. It can take up to an hour.
+7. Record what happened in the launch log.

@@ -61,6 +61,8 @@
   // network as before.
   function registerWorker(version) {
     buildVersion = version;
+    window.pantasUpdate.currentVersion = version;
+    scheduleUpdateCheck();
     return registerForBuild(version).then(function (result) {
       mark('page.worker');
       return result;
@@ -115,6 +117,61 @@
         return false;
       });
     return Promise.race([ready, timeout]);
+  }
+
+  // Detection only. The app chooses a safe point and flushes local writes
+  // before calling apply. The production worker keeps its existing lifecycle.
+  var checkingUpdate = null;
+  var updateTimer = null;
+  function checkUpdate() {
+    if (checkingUpdate) return checkingUpdate;
+    if (buildVersion === null) return Promise.resolve({available: false, version: null});
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistration().then(function (registration) {
+        if (registration) return registration.update();
+      }).catch(function () {});
+    }
+    var controller = new AbortController();
+    var timeout;
+    checkingUpdate = Promise.race([
+      fetch('version.json', {cache: 'no-store', signal: controller.signal})
+        .then(function (response) {
+          if (!response.ok) throw new Error('Version check failed');
+          return response.json();
+        }).then(function (data) {
+          var version = data.pantasBuildVersion;
+          if (typeof version !== 'string' || !version) throw new Error('Missing build version');
+          return {available: version !== buildVersion, version: version};
+        }),
+      new Promise(function (_, reject) {
+        timeout = setTimeout(function () {
+          reject(new Error('Version check timed out'));
+          controller.abort();
+        }, 4000);
+      }),
+    ]).finally(function () {
+      clearTimeout(timeout);
+      checkingUpdate = null;
+    });
+    return checkingUpdate;
+  }
+  function scheduleUpdateCheck() {
+    if (!window.document || updateTimer !== null) return;
+    updateTimer = setTimeout(function () {
+      updateTimer = null;
+      scheduleUpdateCheck();
+      if (document.visibilityState === 'visible') return checkUpdate().catch(function () {});
+    }, 5 * 60 * 1000);
+  }
+  window.pantasUpdate = {
+    currentVersion: null,
+    check: checkUpdate,
+    apply: function () { window.location.reload(); },
+  };
+  if (window.document) {
+    document.addEventListener('visibilitychange', function () {
+      if (document.visibilityState === 'visible') return checkUpdate().catch(function () {});
+    });
   }
 
   window.pantasPwa = {
