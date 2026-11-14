@@ -22,15 +22,19 @@ void main() {
       tester,
       width,
       scaffolded(
-        const QuizTabScreen(
-          mockPanel: MockCard(
-            model: MockCardModel(
-              state: MockCardState.waiting,
-              name: 'CSE simulation',
-              durationMinutes: 190,
-              lastPercent: 69,
+        inShell(
+          const QuizTabScreen(
+            mockPanel: MockCard(
+              model: MockCardModel(
+                state: MockCardState.waiting,
+                name: 'CSE simulation',
+                durationMinutes: 190,
+                lastPercent: 69,
+              ),
             ),
           ),
+          width,
+          ShellTab.quiz,
         ),
       ),
       overrides: [

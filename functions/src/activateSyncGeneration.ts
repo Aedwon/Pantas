@@ -3,6 +3,7 @@ import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import { logger } from 'firebase-functions';
 import {HttpsError} from 'firebase-functions/v2/https';
 import {onAccountCall as onCall} from './_accountAccess.js';
+import {allowAtMost} from './_limits.js';
 import {timed} from './_timed.js';
 import {
   assertNamedPro,
@@ -50,6 +51,12 @@ export const activateSyncGeneration = onCall(
         'permission-denied',
         'A named Pro account is required for Sync.',
       );
+    }
+
+    // The app activates a new generation once per Sync setup or repair, so 30 an hour leaves
+    // room for retries and still stops a loop from writing generation records without end.
+    if (!await allowAtMost(uid, 'activateSyncGeneration', 30, 3_600_000)) {
+      throw new HttpsError('resource-exhausted', 'Too many requests. Try again later.');
     }
 
     const data = request.data as

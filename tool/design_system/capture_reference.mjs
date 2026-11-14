@@ -74,9 +74,11 @@ try {
     deviceScaleFactor: 1,
     reducedMotion: 'reduce',
   });
+  // Playwright runs the last route registered first, so abort everything
+  // else before the font route, or the abort would win.
+  await context.route(/^(?!file:)/, (r) => r.abort());
   await context.route(/fonts\.googleapis\.com/, (r) =>
     r.fulfill({contentType: 'text/css', body: fontCss}));
-  await context.route(/^(?!file:)/, (r) => r.abort());
   for (const name of names) {
     const page = await context.newPage();
     try {

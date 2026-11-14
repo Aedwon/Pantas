@@ -3,7 +3,8 @@ import {setCoveredByTags} from './_setCoverage.js';
 import {getFirestore, type DocumentSnapshot, type Firestore} from 'firebase-admin/firestore';
 import {HttpsError} from 'firebase-functions/v2/https';
 import {onAccountCall as onCall} from './_accountAccess.js';
-import {sharedCeiling, type Ceiling} from './_contentCeiling.js';
+import {getAuth} from 'firebase-admin/auth';
+import {contentPool, sharedCeiling, type Ceiling} from './_contentCeiling.js';
 import {allowAtMost, takeAtMost} from './_limits.js';
 import {mockCoverage} from './mockAccess.js';
 import {examCatalog} from './revenuecatPasses.js';
@@ -61,7 +62,25 @@ export type ContentDeps = {
   allow?: (uid: string, cost: number) => Promise<boolean>;
   /** The cross-account ceiling. `null` turns it off. */
   ceiling?: Ceiling | null;
+  /** When the account was created, in milliseconds, or null if unknown. Decides the ceiling pool. */
+  accountCreatedAt?: (uid: string) => Promise<number | null>;
 };
+
+// Account creation times do not change, so an instance remembers them. Bounded so it cannot grow forever.
+const createdAtCache = new Map<string, number>();
+async function authCreatedAt(uid: string): Promise<number | null> {
+  const known = createdAtCache.get(uid);
+  if (known !== undefined) return known;
+  try {
+    const created = Date.parse((await getAuth().getUser(uid)).metadata.creationTime);
+    if (!Number.isFinite(created)) return null;
+    if (createdAtCache.size >= 5000) createdAtCache.clear();
+    createdAtCache.set(uid, created);
+    return created;
+  } catch {
+    return null;
+  }
+}
 type Auth = {uid: string; token: object} | undefined;
 type Candidate = {id: string; version: string; paid: boolean; snapshot: DocumentSnapshot};
 
@@ -101,7 +120,12 @@ export async function serveContent(auth: Auth, data: unknown, deps: ContentDeps)
   // Accounts with paid access are exempt from the ceiling, so throwaway accounts cannot lock
   // paying students out. Their own limits still apply and their deliveries still count in the
   // total. The error is the same for everyone and does not say why.
-  const ceilingOpen = ceiling ? await ceiling.isOpen() : true;
+  // Anonymous accounts and accounts under a day old draw on their own pool, so a full pool of
+  // throwaway accounts cannot lock named older accounts out. Only a named caller needs its age looked up.
+  const anonymous = (auth.token as {firebase?: {sign_in_provider?: unknown}}).firebase?.sign_in_provider === 'anonymous';
+  const pool = !ceiling ? 'main' : contentPool({anonymous, now,
+    createdAt: anonymous ? null : await (deps.accountCreatedAt ?? authCreatedAt)(uid)});
+  const ceilingOpen = ceiling ? await ceiling.isOpen(pool) : true;
   if (!ceilingOpen && !pro) throw exhausted(scope, 'ceiling');
   const items: Record<string, Entry> = {};
   const candidates: Candidate[] = [];
@@ -142,7 +166,7 @@ export async function serveContent(auth: Auth, data: unknown, deps: ContentDeps)
     if (index >= granted) { items[candidate.id] = {status: 'limited'}; return; }
     items[candidate.id] = await build(deps.db, kind, candidate);
   }));
-  if (ceiling) await ceiling.record(granted);
+  if (ceiling) await ceiling.record(granted, pool);
   return {tier: pro ? 'pro' : 'free', items};
 }
 

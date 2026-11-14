@@ -37,6 +37,8 @@ import 'package:pantas/features/home/presentation/widgets/home_performance_secti
 import 'package:pantas/features/home/presentation/widgets/home_skeletons.dart';
 import 'package:pantas/features/home/presentation/widgets/home_state_card.dart';
 import 'package:pantas/features/home/presentation/widgets/home_web_layout.dart';
+import 'package:pantas/features/quiz/application/quiz_providers.dart'
+    show nowProvider;
 import 'package:pantas/features/settings/application/settings_providers.dart';
 
 class HomeTab extends ConsumerWidget {
@@ -123,7 +125,7 @@ class _SelectedExamHomeState extends ConsumerState<_SelectedExamHome> {
     final settings = ref.watch(userSettingsProvider).valueOrNull;
     final examName =
         ref.watch(activeExamFocusProvider).valueOrNull?.exam?.shortName;
-    final now = DateTime.now();
+    final now = ref.watch(nowProvider)().toLocal();
     Widget todayScreen() => HomeTodayScreen(
           key: ValueKey('today-$examId-${settings?.examDate?.storageValue}'),
           examId: examId,

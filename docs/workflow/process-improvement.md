@@ -320,3 +320,11 @@ the current decision log.
 - Wrong: the security fixes lead committed `tool/cloudflare-app/.wrangler/cache/wrangler-account.json` (the Cloudflare account name, which contains Aedwon's Gmail address, and the account id) and pushed it to `web/security-cloudflare-r1`. Removed in the next commit; the history stays, by the manager's ruling (the address already appears as the author email on public commits).
 - Why: `git add <folder>` staged a cache that wrangler writes next to its config, and nothing ignored it.
 - Fix: `.wrangler/` is in the root `.gitignore` (any depth). Required step before every push: read `git status` and the staged file list, and unstage any tool cache or local state file (`.wrangler/`, `.firebase/`, `node_modules/`, build output).
+
+### Nov 14, 2026: a failed staging build was deployed to staging
+
+- Words: none; found by the DS4 lead.
+- Wrong: the goldens-lock staging deploy ran in a fresh worktree without generated code, so `flutter build web` failed, but the same shell line went on to deploy the partial `build/web` (23 files, no `version.json`) to Firebase Hosting and the Cloudflare Worker. staging.pantas.study was broken from 15:07 to 15:09 UTC, until the lead re-released the previous Hosting version and mirrored it to the Worker.
+- Why: the deploy steps were joined with `;`, not stopped on failure, and a fresh worktree needs `dart run build_runner build --delete-conflicting-outputs` before any Flutter build.
+- Fix: every build-and-deploy line uses `set -e` or `&&`, and checks that `build/web/version.json` and `build/web/main.dart.js` exist before any `firebase deploy` or Worker upload. A fresh worktree runs codegen first.
+

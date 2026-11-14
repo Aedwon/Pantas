@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/core/ui/theme/app_text_scale.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/features/shell/presentation/web_shell.dart';
 
 import '../golden_harness.dart';
 
@@ -169,3 +170,24 @@ Future<void> settleFrames(WidgetTester tester, [int frames = 6]) async {
 
 /// A page the matrix tests pump inside a [Scaffold] body.
 Widget scaffolded(Widget child) => Scaffold(body: child);
+
+/// The sidebar items, in order, for [inShell].
+enum ShellTab { home, study, quiz, settings }
+
+/// Puts [page] in the wide app frame with [tab] selected when [width] is the
+/// wide layout, as the app shows it. At phone width the page is returned
+/// bare. A wide page needs no extra Scaffold: the frame sits in one.
+Widget inShell(Widget page, double width, ShellTab tab) => width >= 1024
+    ? Scaffold(
+        body: WebShellFrame(
+          activeIndex: tab.index,
+          person: 'Student',
+          exam: 'CSE',
+          plan: 'Free',
+          web: true,
+          onNavigate: (_) {},
+          onSearch: () {},
+          child: page,
+        ),
+      )
+    : page;

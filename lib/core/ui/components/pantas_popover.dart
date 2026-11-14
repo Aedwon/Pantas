@@ -153,18 +153,11 @@ class _PantasPopoverState extends State<PantasPopover>
     }
   }
 
+  /// Opens below the trigger. Once the surface has a size, [_fit] flips it
+  /// above when it would leave the window below and there is more room above.
   void _show() {
     if (_portal.isShowing) return;
-    // Open below, unless the trigger sits in the lower part of the window and
-    // the surface would leave it.
-    final box = context.findRenderObject() as RenderBox?;
-    if (box != null && box.hasSize) {
-      final bottom = box.localToGlobal(Offset(0, box.size.height)).dy;
-      final room = MediaQuery.sizeOf(context).height - bottom;
-      _side = room < PantasPopover.maxHeight + PantasPopover.gap
-          ? PantasPopoverSide.above
-          : PantasPopoverSide.below;
-    }
+    _side = PantasPopoverSide.below;
     final focus = FocusManager.instance.primaryFocus;
     _returnTo = focus != null && focus != _scope ? focus : null;
     _typed.reset();
@@ -181,7 +174,29 @@ class _PantasPopoverState extends State<PantasPopover>
     } else {
       unawaited(_motion.forward(from: 0));
     }
-    WidgetsBinding.instance.addPostFrameCallback((_) => _focusFirst());
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _fit();
+      _focusFirst();
+    });
+  }
+
+  /// README: flip above, or shift, instead of clipping. The popover is
+  /// already open (and still transparent), so the real height is known. It
+  /// flips only when below is too short for it and above has more room.
+  void _fit() {
+    if (!mounted || !widget.controller.isOpen) return;
+    final trigger = context.findRenderObject();
+    final surface = _scope.context?.findRenderObject();
+    if (trigger is! RenderBox || !trigger.hasSize) return;
+    if (surface is! RenderBox || !surface.hasSize) return;
+    final top = trigger.localToGlobal(Offset.zero).dy;
+    final bottom = top + trigger.size.height;
+    final below = MediaQuery.sizeOf(context).height - bottom;
+    final need = surface.size.height + PantasPopover.gap;
+    final side = below < need && top > below
+        ? PantasPopoverSide.above
+        : PantasPopoverSide.below;
+    if (side != _side) setState(() => _side = side);
   }
 
   /// Puts focus on the selected item, or the first enabled one.

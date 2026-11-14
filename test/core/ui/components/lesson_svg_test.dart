@@ -195,7 +195,8 @@ void main() {
       );
     });
   }
-  testWidgets('a non-reader SVG still follows the dark theme', (tester) async {
+  testWidgets('a question SVG keeps its white backing in dark (Figure README)',
+      (tester) async {
     await tester.pumpWidget(
       MaterialApp(
         theme: buildDarkTheme(),
@@ -205,9 +206,17 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
+    final backing = find
+        .ancestor(of: find.byType(SvgPicture), matching: find.byType(Container))
+        .evaluate()
+        .map((e) => (e.widget as Container).color)
+        .whereType<Color>();
+    expect(backing, contains(PantasColors.dark.figureBg));
+    expect(PantasColors.dark.figureBg, const Color(0xFFFFFFFF));
+    // The drawing takes the light tokens, so it reads on the white.
     expect(
       tester.widget<SvgPicture>(find.byType(SvgPicture)).bytesLoader,
-      lessonSvgLoader(svgUrl(drawing), PantasColors.dark),
+      lessonSvgLoader(svgUrl(drawing), PantasColors.light),
     );
   });
   testWidgets('legacy content expansion retains SVG alt text', (tester) async {

@@ -47,7 +47,7 @@ void main() {
     return pumpScreen(
       tester,
       width,
-      const ProPage(),
+      inShell(const ProPage(), width, ShellTab.settings),
       frames: 12,
       overrides: [
         contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),

@@ -6,7 +6,7 @@ ReaderTopBar is the pinned top bar of the lesson reader: back, "n of N" with the
 
 ## Anatomy
 - `.reader-bar`: sticky at the top, `z-nav`, `bg-page`, three columns (the back link, flexible, 44), 64px high (`layout-focus-head`) with 20px sides; `.reader-bar--phone` 44px high (`size-target-touch`) with the phone nav padding.
-- Back: a BackLink with the parent's name ("< Study"), reaching into the bar's side padding as on a page, followed on wide screens by the Esc KeyHint; `back--phone` on phones (D192). Contents: an IconButton that opens the lesson outline (Popover menu).
+- Back: a BackLink with the parent's name ("< Study"), reaching into the bar's side padding as on a page, followed on wide screens by the Esc KeyHint; `back--phone` on phones (D192). Contents: an IconButton that opens the lesson outline (Popover menu). Phone only, after contents: a bookmark IconButton (`reader-bookmark-control`, 44 by 44) that toggles the lesson bookmark. Off, it draws the outlined bookmark in `icon-muted`; on, the filled bookmark in `accent` over its outline, with the 520 ms pop when it turns on (D196). Its name is "Bookmark lesson" or "Remove lesson bookmark".
 - Title `.reader-bar__title`: `.reader-bar__count` "3 of 12" in `web-small` (13/400) `text-secondary`, tabular; `.reader-bar__lesson` in `web-label` (14/600) `text-primary`, one line with an ellipsis (board `.n` 13 and `.lt` 14/600; usage gap 2).
 - Thread `.reader-bar__thread`: 3px (`size-thread`) under the bar across its width, `fill` track and `accent` progress from `--value` (0 to 100). It stays at the top edge of the window while the bar is hidden.
 
@@ -37,10 +37,10 @@ Minimal markup, from the preview without its documentation scaffolding.
 ```
 
 ## States
-- At the top: count only. Titled: the title faded in. Hidden: the bar above the window, thread visible. Back has the BackLink hover, pressed and focus states; contents has the IconButton states.
+- At the top: count only. Titled: the title faded in. Hidden: the bar above the window, thread visible. Back has the BackLink hover, pressed and focus states; contents and the phone bookmark have the IconButton states (hover wash at `opacity-hover`, pressed scale, focus ring, rounded rectangle).
 
 ## Keyboard
-- Tab: back, contents. Focus inside the bar clears `.is-hidden` (the app shows the bar while it holds focus).
+- Tab: back, contents, bookmark (phone). Enter or Space activates the focused control. Focus inside the bar clears `.is-hidden` (the app shows the bar while it holds focus).
 
 ## Accessibility
 - The bar is a `header`; the lesson `h1` stays in the article. The title in the bar repeats it, so it is `aria-hidden`; the count is read.

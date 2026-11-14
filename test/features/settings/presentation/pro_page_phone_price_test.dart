@@ -72,6 +72,25 @@ Future<void> _pump(
 }
 
 void main() {
+  testWidgets('phone Pro: the headline and perks sit in the teal hero (D126)',
+      (tester) async {
+    await _pump(tester, weekly: '₱49', monthly: '₱149', yearly: '₱1,199');
+    final hero = find.byKey(const ValueKey('pro-hero-phone'));
+    expect(hero, findsOneWidget);
+    for (final text in [
+      "See exactly what's losing you points.",
+      'Unlimited mock exams',
+      'Results by topic and lesson',
+    ]) {
+      expect(
+        find.descendant(of: hero, matching: find.text(text)),
+        findsOneWidget,
+      );
+    }
+    final box = tester.widget<Container>(hero).decoration! as BoxDecoration;
+    expect(box.gradient, isA<LinearGradient>());
+  });
+
   testWidgets('phone Pro: Continue with Google carries the Google G',
       (tester) async {
     await _pump(

@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:math' as math;
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
@@ -39,11 +38,12 @@ class HomeMasthead extends ConsumerWidget {
     this.notice,
     this.greeting,
     this.dayNote,
-    this.web = kIsWeb,
+    this.web,
     super.key,
   });
 
-  final bool web;
+  /// Null reads the platform, as the rest of the page does.
+  final bool? web;
   final ExamId examId;
 
   /// The notice strip, drawn between the week and the greeting. It supplies
@@ -75,7 +75,10 @@ class HomeMasthead extends ConsumerWidget {
     final masthead = headState.valueOrNull;
     final week = weekState.valueOrNull;
     if (masthead == null || week == null) {
-      if (isWideWebLayout(width: MediaQuery.sizeOf(context).width, web: web)) {
+      if (isWideWebLayout(
+        width: MediaQuery.sizeOf(context).width,
+        web: web ?? context.webPlatform,
+      )) {
         return Wrap(
           alignment: WrapAlignment.spaceBetween,
           spacing: 20,
@@ -106,7 +109,10 @@ class HomeMasthead extends ConsumerWidget {
       return const HomeMastheadSkeleton();
     }
 
-    if (isWideWebLayout(width: MediaQuery.sizeOf(context).width, web: web)) {
+    if (isWideWebLayout(
+      width: MediaQuery.sizeOf(context).width,
+      web: web ?? context.webPlatform,
+    )) {
       final start = PantasDates.weekStart(now);
       final t = context.webTokens;
       return Wrap(

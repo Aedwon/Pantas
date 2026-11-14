@@ -28,6 +28,27 @@ pilot's prod release. The other subjects get their own plan after the pilot.
 - No figure is invented. The UI shows only real part numbers and real question counts.
 - The repository is public: no tester data in any file.
 
+## Agent assignments (Nov 14 revision, supersedes the models named in T13 to T18 and in spec B8 rows 2 to 8)
+
+Aedwon, Nov 14: "majority of the CSE subjects split should be done by codex. claude should only be the
+orchestrator making sure things are getting done and getting checked properly by its codex agents".
+
+| Work | Who | Model |
+|---|---|---|
+| Split plans, lesson splitting, rewriting the joins (T13, T14) | Codex writer job | GPT 6.1 Sol, lowest effort |
+| Re-tagging questions, quiz sizing data, outline rows, prerequisite links (T15, parts of T14) | Codex bulk job | GPT 6 Luna |
+| New and moved questions for pool gaps (T16) | Codex writer job | GPT 6.1 Sol, lowest effort |
+| Answer re-solve of every question (T17) | Separate Codex job, never the writer's run | GPT 6.1 Sol |
+| Constitution and RA 6713 items against the law text (T17) | Separate Codex job | GPT 6.1 Sol |
+| Subject audit sample (T18) | Separate Codex job, read-only | GPT 6.1 Sol High or GPT 6 Astra high |
+| Non-UI code (T1 to T9) | Codex build, review and fix jobs | GPT 6.1 Sol, low |
+| UI: the label, the rows, anything visible (T10) | Claude worker, reviewed by a separate Claude worker | Sonnet 5.5 |
+| Orchestration: briefs, diff and summary review, build gates, spot checks, approval after an agreeing independent re-solve, commits, handoff | Lead | Opus 5.5 |
+
+Rules: codex-pick only, one job at a time; each job sized to about 25 minutes of high-effort work (one
+subject or a few lessons). If codex-pick exits 75, the lead reports the reset time to the manager and
+pauses content work; no switch to Claude. The lead writes no content except small review fixes.
+
 ## Branches
 
 | Branch | From | Holds |
@@ -322,3 +343,21 @@ Append here as tasks finish: revision, command, result, and the frozen legacy ha
   including those marked `approved: true` in YAML (flagged `yamlApproved`), because no YAML approval
   was tied to a verified solve. Real approval records come only from `approve.dart` after an
   independent solve, and the split-subject rule forces them before any subject is split.
+- Nov 14, code on `web/bite-sized-r1` (Codex Sol build, review and fix; lead verified each):
+  T1 to T3 410d13795 (gate, ledger, approve and freeze; legacy lists frozen: main `content/` 3,163
+  questions, sha256 d2b4b39a...; `content/cse-rewrite-r1` 1ca8dfd 3,406 questions, sha256 b28eb7bc...,
+  committed on `content/bite-sized-pilot` d67389bd5); T4 8e7b07d54 (export and upload run the gate);
+  T5a 3d84193f6 (export, seed, content DB 10 to 11); T5b 5d9f61ef5 (server docs, catalog, exam content);
+  T6 be79387bc (size, nothing-dropped and pool checks, also run by export and upload); topic unit
+  630f8270c.
+- Lead rulings, Nov 14 (within spec B3 and B6):
+  1. The approval gate checks every question in a file, not only shipping ones, because the uploader
+     publishes the whole file (a security review finding on 8e7b07d54).
+  2. The split unit is the topic (`content/lessons/<subject>/<topic>/`), not the subject: the pilot
+     splits one topic of Mathematics, and subject-wide rules failed every other Math lesson and legacy
+     question. Retired lessons need no `ordering`.
+  3. Parts renumber examples and traps from #1; the coverage check ignores the leading number.
+  4. Figures: a part gets its own illustration folder with copies of its figures, renumbered, with
+     matching credit entries; the retired original keeps its folder.
+  5. A worker's process-improvement entry that quoted its brief as Aedwon's words was reverted; that
+     file records Aedwon's own words only.
