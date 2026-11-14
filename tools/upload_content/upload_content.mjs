@@ -7,6 +7,8 @@
 //                                [--export FILE] [--out-dir DIR]
 // The catalog needs the exam, subject, topic and blueprint rows the bundled build produces. Pass
 // --export FILE (the output of tools/build_content_export) or the tool runs that build itself with `dart`.
+// The approval gate runs before document construction in every mode, including --dry-run,
+// --live, --out-dir and emulator runs. --skip-invalid does not bypass it.
 // --out-dir DIR writes every document to files and touches no database.
 // Without FIRESTORE_EMULATOR_HOST the tool refuses to write unless --live is given.
 // Build the functions first (npm --prefix functions run build): this reads functions/lib.
@@ -46,6 +48,17 @@ function walk(dir, ext) {
 if (!process.env.FIRESTORE_EMULATOR_HOST && !live && !dryRun && !outDir) {
   console.error('No emulator is set (FIRESTORE_EMULATOR_HOST). Pass --live to write to a real project.');
   process.exit(2);
+}
+
+const gate = spawnSync('dart', ['run', resolve(here, '../../tool/content/content_gate.dart'), '--root', root], {
+  cwd: resolve(here, '../..'), encoding: 'utf8',
+});
+if (gate.status !== 0) {
+  if (gate.stdout) process.stdout.write(gate.stdout);
+  if (gate.stderr) process.stderr.write(gate.stderr);
+  if (gate.error) console.error(gate.error.message);
+  console.error('Nothing written: the approval gate failed.');
+  process.exit(1);
 }
 
 const {blueprintItem, catalogItems, gapItem, lessonItem, questionSetItems, writeContent} = await import(pathToFileURL(join(functionsDir, 'lib/contentUpload.js')));

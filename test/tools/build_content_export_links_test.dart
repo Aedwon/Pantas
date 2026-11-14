@@ -3,6 +3,8 @@ import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 
+import '../../tool/content/question_hash.dart';
+
 void main() {
   late Directory root;
   late Map<String, Object?> links;
@@ -115,6 +117,18 @@ void main() {
         ],
       });
     }
+    final source = jsonDecode(
+      File('${root.path}/content/questions/one.yaml').readAsStringSync(),
+    ) as Map<String, dynamic>;
+    write('content/question-ledger/approved.json', {
+      for (final question
+          in (source['questions'] as List).cast<Map<String, dynamic>>())
+        question['id'] as String: {
+          'hash':
+              questionHash(question, source['meta'] as Map<String, dynamic>),
+          'evidence': 'test fixture',
+        },
+    });
     for (final file in ['one', if (duplicateLessons) 'two']) {
       final lesson = File('${root.path}/content/lessons/s/$file.md');
       lesson.parent.createSync(recursive: true);

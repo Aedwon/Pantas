@@ -5,6 +5,7 @@ import 'package:crypto/crypto.dart';
 import 'package:pantas/core/content/domain/mock_blueprint.dart';
 import 'package:yaml/yaml.dart';
 
+import '../../tool/content/content_gate.dart';
 import '../content/lesson_asset_map.dart';
 import '../content/markdown_portable_text.dart';
 
@@ -109,6 +110,15 @@ void _export(List<String> arguments) {
   }
   final root = args.length == 2 ? args[1] : '.';
   _checkDuplicateIds(root);
+
+  final findings = runContentGate('$root/content');
+  if (findings.isNotEmpty) {
+    for (final finding in findings) {
+      stderr.writeln(finding);
+    }
+    exitCode = 1;
+    return;
+  }
 
   final outlineFile = File('$root/tools/lesson_author/outline.json');
   final outlineUpdatedAt = _getFileHashTimestamp(outlineFile);

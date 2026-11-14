@@ -294,11 +294,14 @@ jobs:
 
   functions:
     needs: [changes]
-    if: needs.changes.outputs.functions == 'true'
+    if: needs.changes.outputs.functions == 'true' || needs.changes.outputs.flutter == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+
+      # The uploader tests invoke the real Dart approval gate.
+      - uses: ./.github/actions/setup-app
 
       - uses: actions/setup-java@v4
         with:
@@ -321,8 +324,10 @@ jobs:
           path: ~/.cache/firebase/emulators
           key: firebase-emulators-${{ runner.os }}-${{ hashFiles('functions/package-lock.json') }}
 
-      - name: Backend and emulator tests
-        run: npm test
+      - name: Backend, uploader and emulator tests
+        run: |
+          node --test ../tools/upload_content/*.test.mjs
+          npm test
         working-directory: functions
 
       - name: Save the emulator jars

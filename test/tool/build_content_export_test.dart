@@ -8,8 +8,80 @@ import 'package:pantas/core/content/sanity/parsers/lesson_parser.dart';
 import 'package:pantas/core/content/sanity/parsers/question_parser.dart';
 import 'package:pantas/core/content/sanity/parsers/subject_parser.dart';
 import 'package:pantas/core/content/sanity/parsers/topic_parser.dart';
+import 'package:yaml/yaml.dart';
+
+import '../../tool/content/ledger.dart';
+import '../../tool/content/question_hash.dart';
 
 void main() {
+  test('export refuses unapproved questions before writing output', () async {
+    final root = Directory.systemTemp.createTempSync('export_gate');
+    addTearDown(() => root.deleteSync(recursive: true));
+    final questions = Directory('${root.path}/content/questions/math/algebra')
+      ..createSync(recursive: true);
+    File('${questions.path}/intro.yaml').writeAsStringSync('''
+meta:
+  subject: math
+  topic: algebra
+  subtopic: intro
+  exams: [upcat]
+questions:
+  - id: q-unapproved
+    stem: What is one plus one?
+    explanation: One plus one is two.
+    choices:
+      - text: Two
+        correct: true
+      - text: Three
+        correct: false
+''');
+    Directory('${root.path}/content/lessons').createSync();
+    final illustrations = Directory('${root.path}/content/illustrations')
+      ..createSync();
+    File('${illustrations.path}/assets.json').writeAsStringSync('{}');
+    final outline = File('${root.path}/tools/lesson_author/outline.json');
+    outline.parent.createSync(recursive: true);
+    outline.writeAsStringSync(
+      jsonEncode({
+        'subjects': [
+          {
+            'slug': 'math',
+            'name': 'Math',
+            'topics': [
+              {'slug': 'algebra', 'name': 'Algebra'},
+            ],
+          },
+        ],
+      }),
+    );
+    final historical = File(
+      '${root.path}/tools/build_content_export/historical_v1.json',
+    );
+    historical.parent.createSync(recursive: true);
+    historical.writeAsStringSync(
+      jsonEncode({
+        'exams': <Object?>[],
+        'topics': <Object?>[],
+        'questions': <Object?>[],
+        'lessons': <Object?>[],
+      }),
+    );
+    final output = File('${root.path}/export.json');
+    final assets = Directory('${root.path}/assets');
+    final result = await Process.run('dart', [
+      'run',
+      'tools/build_content_export/build_content_export.dart',
+      output.path,
+      root.path,
+      '--assets-out',
+      assets.path,
+    ]);
+    expect(result.exitCode, isNot(0));
+    expect(result.stderr, contains('q-unapproved: not approved'));
+    expect(output.existsSync(), isFalse);
+    expect(assets.existsSync(), isFalse);
+  });
+
   test('YAML passage overrides historical text and keeps historical fallback',
       () async {
     final temp = Directory.systemTemp.createTempSync('passage_export');
@@ -284,6 +356,19 @@ questions:
         correct: false
 ''');
 
+    final doc = loadYaml(
+      File('${questionsDir.path}/01-intro.yaml').readAsStringSync(),
+    ) as YamlMap;
+    writeLedger(
+      File('${tempDir.path}/content/question-ledger/approved.json'),
+      {
+        for (final question in (doc['questions'] as YamlList).cast<YamlMap>())
+          question['id'] as String: {
+            'hash': questionHash(question, doc['meta'] as YamlMap),
+            'evidence': 'test fixture',
+          },
+      },
+    );
     final exportPath = '${tempDir.path}/export.json';
 
     // Run the export script
