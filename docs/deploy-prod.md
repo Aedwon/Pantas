@@ -382,3 +382,10 @@ of Firebase Hosting, which bills every byte (security audit S-01). Code and tool
   confirmed real Google sign-in on prod from the logs (Fable 5.2 ruling A). The integrator deploys it.
 - **Free-plan limit:** requests that run the Worker script (`/__/*` only) count against 100,000 a day;
   above that, new sign-ins fail with 429 until midnight UTC. Static files are unaffected.
+
+## 15. Always deploy functions with the pinned firebase-tools (Nov 14, 2026)
+
+Use `npx --prefix functions firebase deploy --only functions --project <project>`, never the global
+`firebase`. The global 15.26.0 on Aedwon's Mac reads the functions without `functions/.env.<project>`,
+so env-gated exports (staging's `SCHEDULED_JOBS=off`, `WRAPPED_PAGE_PUBLIC`) come out wrong. The code
+now stops such a deploy at discovery with an error naming the pinned CLI.

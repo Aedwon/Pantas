@@ -328,3 +328,10 @@ the current decision log.
 - Why: the deploy steps were joined with `;`, not stopped on failure, and a fresh worktree needs `dart run build_runner build --delete-conflicting-outputs` before any Flutter build.
 - Fix: every build-and-deploy line uses `set -e` or `&&`, and checks that `build/web/version.json` and `build/web/main.dart.js` exist before any `firebase deploy` or Worker upload. A fresh worktree runs codegen first.
 
+
+### Nov 14, 2026: a functions deploy ran with the wrong firebase-tools
+
+- Words: not Aedwon's; found by the integrator on a staging deploy and diagnosed by the security fixes lead.
+- Wrong: a staging deploy used the global firebase-tools 15.26.0, which does not pass `functions/.env.<project>` to discovery, so the deploy planned functions the deployed code then did not export; every scheduled function failed its health check.
+- Why: deploy steps said `firebase deploy` without naming the CLI, and the repository's pinned version differs from the global one on this Mac.
+- Fix: a check. `functions/src/scheduleGate.ts` throws during discovery for pantas-prod or pantas-staging when the project's `.env` file is missing, naming the pinned CLI; tests in `functions/test/scheduled-gating.test.mjs` (failing first). Required step: functions deploys use `npx --prefix functions firebase deploy`.
