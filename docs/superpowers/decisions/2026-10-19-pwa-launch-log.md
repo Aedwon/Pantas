@@ -3309,3 +3309,21 @@ format, design lint (631 existing baseline findings), layering, nine repository
 checks and attribution check pass. Measured active: 15 min 43 s across two
 timers; details and exact file/source inventory are in the existing verification
 record. Local commit only. Live proof remains separate and was not rerun.
+
+
+### Nov 14, shard 7 bundled test isolation
+
+Aedwon authorized a bounded test-isolation correction on web/update-at-once-r1:
+
+> Tests and test isolation only, unless the leak is in production code (then fix it there, smallest change, no visible change).
+>
+> Do: generate shard 7's bundles locally (dart tool/ci/bundle_tests.dart --shard 7 --shards 8), run bundle 0 to reproduce, then bisect the bundle's members (build a smaller generated entry with the Pro test plus half the neighbors) to find the leaking file and the leaked state. Fix the leak at its source (reset it in that test's tearDown, or in production if a static escapes there). Only if the leak cannot be fixed cleanly, add the leaking file to tool/ci/bundle_excludes.txt with a precise reason. Show: the bundle failing locally before, passing after; the Pro test file passing alone.
+
+Choice: clear only the cached catalog asset in the originating price-tier
+test's teardown. Its cached real-zone Future blocked the later fake-async
+Pro loading state. No product change or exclusion. Original bundle reproduced
+399 pass/1 fail before and passed all 400 afterward; Pro alone passed 30;
+the two-file reproduction passed 32 after. Independent review: no findings.
+Detailed bisection, policy/source identity, checks and limitations are recorded
+in the bundled-isolation section of the existing update-at-once verification.
+Implemented and verified locally; no push, deploy or Firebase. Local saving only.

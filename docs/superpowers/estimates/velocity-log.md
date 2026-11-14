@@ -153,3 +153,17 @@ measured 52 s active/wall (08:18 to 08:19 UTC). Combined measured active:
 and final recording/commit are unmeasured. Estimate: 15 minutes.
 Implemented and independently reviewed; 1,941 combined tests plus a final
 37-test focused rerun pass. Local commit only, no push/deploy/Firebase.
+
+### Nov 14, bundled Pro test isolation
+
+- Branch: web/update-at-once-r1. Estimate: 20 minutes active/wall, excluding shared Flutter wait.
+- Timer: bundle-pro-isolation. Policy main: 49d6026bd602f1fd09f1ec04c3447a4c1c17c99e.
+- Scope: reproduce shard 7 bundle 0, bisect neighbors, fix isolation at source, verify bundle and Pro alone, commit locally. No push or Firebase.
+
+Bundled Pro isolation actual: timer bundle-pro-isolation measured 4 min 53 s
+active/wall, Nov 14 08:33 to 08:38 UTC, no pauses. Startup policy/context
+retrieval and final evidence/commit are unmeasured. Estimate: 20 minutes.
+Reproduced 399 pass/1 fail, isolated the catalog asset-cache future to the
+price-tier test, fixed its teardown, independently reviewed with no findings.
+Full original bundle: 400 passed. Pro alone: 30 passed. Minimal pair: 32 passed.
+Analysis and repository checks passed. No push, deployment or Firebase.

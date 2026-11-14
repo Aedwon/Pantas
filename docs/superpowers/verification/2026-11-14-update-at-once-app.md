@@ -349,3 +349,128 @@ Timers measured 14 min 51 s plus 52 s, total measured active 15 min 43 s.
 Policy reading, timer gap and final recording/commit are unmeasured.
 Saved only on the assigned local branch. No push, merge, deployment, Firebase
 access, visible UI change or live staging acceptance is claimed.
+
+
+## Bundled Pro test isolation, November 14
+
+Status: implemented, independently reviewed (no findings), verified locally.
+Scope: test isolation only, no product source, visible behavior, exclusions,
+push, deployment or Firebase access. Starting HEAD: 0b9b35943.
+Policy retrieved from main 49d6026bd602f1fd09f1ec04c3447a4c1c17c99e.
+The shared origin/main later advanced to 03e65c5b33761c9fe6e6e30fb82d5eb43f014203;
+AGENTS.md, WORKFLOW.md, SUBAGENTS.md and process-improvement.md are identical.
+No separate spec or plan: this is the explicitly authorized, low-impact
+isolation correction with an unambiguous outcome.
+
+Leaking file: test/features/paywall/domain/price_tier_test.dart.
+Its plain async catalog test leaves rootBundle's CachingAssetBundle string
+cache holding Future<String> for content/exams/catalog.json. That future
+belongs to the real async zone. The later Pro widget test reuses it inside
+fake async, where pumpAndSettle cannot drain its callbacks. The owned-pass
+catalog remains loading and its progress animation keeps requesting frames.
+Flutter SDK asset_bundle.dart confirms loadString caches futures and evict
+removes that key. The future is complete in its originating zone, not an
+unfinished database read or a leaked provider override.
+
+Fix: register addTearDown to evict only content/exams/catalog.json in the test
+that populates it. The database's existing teardown and every assertion stay
+unchanged. No production change or bundle exclusion is necessary.
+Test patch SHA-256 (`git diff -- test/features/paywall/domain/price_tier_test.dart`):
+3590b2ffb42416c70ab6c47f72fa5b2f05b4d40170eb10d990ea895310613699.
+
+### Reproduction and ordered bisection
+
+Generated with `dart tool/ci/bundle_tests.dart --shard 7 --shards 8`.
+Bundle 0 matches the supplied failing t7b.files, 42 files in the same order.
+Every run used `flutter test --no-pub --concurrency=1 <entry> -r expanded`.
+The temporary entries in build/test_bundles import the named test mains and
+call each inside a group named by its path, exactly like the CI generator.
+Indices below are zero-based in the original bundle. The Pro file is index 40.
+
+- Original bundle before: exit 1, 399 passed, 1 failed.
+- Neighbors 0..19 plus Pro: exit 0, 286 passed.
+- Neighbors 20..39 plus Pro: exit 1, 140 passed, same failure.
+- Neighbors 20..29 plus Pro: exit 0, 89 passed.
+- Neighbors 30..39 plus Pro: exit 1, 81 passed, same failure.
+- Neighbors 30..34 plus Pro: exit 1, 58 passed, same failure.
+- Neighbors 35..39 plus Pro: exit 0, 53 passed.
+- Neighbors 30..31 plus Pro: exit 0, 43 passed.
+- Neighbors 32..34 plus Pro: exit 1, 45 passed, same failure.
+- Neighbor 33 (paywall_providers_test.dart) plus Pro: exit 0, 37 passed.
+- Neighbor 34 (price_tier_test.dart) plus Pro: exit 1, 31 passed, same failure.
+
+Minimal generated entry, before and after the fix:
+
+```dart
+import 'package:flutter_test/flutter_test.dart';
+import '../../test/features/paywall/domain/price_tier_test.dart' as tier;
+import '../../test/features/settings/presentation/w4f_pro_states_test.dart' as pro;
+void main() {
+  group('test/features/paywall/domain/price_tier_test.dart', tier.main);
+  group('test/features/settings/presentation/w4f_pro_states_test.dart', pro.main);
+}
+```
+
+Actual red output, original bundle and minimal pair:
+
+```
+each owned pass shows its own exam and end date
+pumpAndSettle timed out
+#2 _pump (.../w4f_pro_states_test.dart:179:15)
+#3 main.<anonymous closure> (.../w4f_pro_states_test.dart:512:5)
+```
+
+### Final checks
+
+```
+flutter test --no-pub --concurrency=1 build/test_bundles/price-tier_test.dart -r expanded
+00:03 +32: All tests passed!
+
+flutter test --no-pub --concurrency=1 build/test_bundles/shard7_bundle0_test.dart -r expanded
+00:14 +400: All tests passed!
+
+flutter test --no-pub --concurrency=1 test/features/settings/presentation/w4f_pro_states_test.dart -r expanded
+00:03 +30: All tests passed!
+
+flutter analyze --no-pub lib test
+No issues found! (ran in 5.0s)
+
+dart format --output=none --set-exit-if-changed test/features/paywall/domain/price_tier_test.dart
+Formatted 1 file (0 changed) in 0.00 seconds.
+
+dart tool/ci/bundle_tests.dart --check
+1159 files: 1108 bundled, 51 single
+bundle partition ok
+
+dart run tool/checks/run_checks.dart
+OK    shell-route-push
+OK    sync-mutations-typed-read
+OK    mock-blueprint-topics
+OK    bold-stem
+OK    lesson-list-exam-scope
+OK    design-token-literals
+OK    custom-subject-tiers
+OK    letter-shortcut-gate
+OK    legal-text-drafting
+
+dart tool/check_layering.dart
+check_layering: OK
+
+dart tool/check_no_ai_attribution.dart
+check_no_ai_attribution: OK
+```
+
+An initial `dart run tool/check_layering.dart` failed in Dart's macOS native
+asset build hook (`parseOtoolArchitectureSections`, null check). Direct Dart
+execution of the same check passed; attribution then passed too. No source
+or dependency changes were made for this tool issue. Existing accepted
+repository-check exceptions remain unchanged.
+
+Flutter jobs were serial. pgrep identified other active worktrees initially;
+this task waited until those jobs ended. Two testers idle for over three days
+(PIDs 61320, 78424) remained, and were left untouched. No other active tester
+was present before this task's runs. Raw logs remain in /tmp/pantas-*.log;
+the relevant outputs and full bisection are preserved here.
+Full suite, hosted CI rerun, device tests and release checks were not run in
+this bounded local task. Timer bundle-pro-isolation: 4 min 53 s active/wall;
+startup reading and final evidence/commit are unmeasured.
