@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bite-sized lesson label, before and after</title>
+<style>
+  :root {
+    --page: #101113;
+    --panel: #181a1d;
+    --line: #2a2d32;
+    --ink: #f1f2f4;
+    --dim: #a3a8b0;
+    --accent: #3ccf9f;
+    --warn: #f0b24a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--page);
+    color: var(--ink);
+    font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: var(--page);
+    border-bottom: 1px solid var(--line);
+    padding: 14px 24px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  header h1 { font-size: 17px; margin: 0; font-weight: 600; flex: 1 1 320px; }
+  .toggle { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+  .toggle button {
+    background: transparent;
+    color: var(--dim);
+    border: 0;
+    padding: 7px 16px;
+    font: inherit;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--page); font-weight: 600; }
+  .toggle-label { color: var(--dim); font-size: 13px; }
+  main { max-width: 1500px; margin: 0 auto; padding: 8px 24px 80px; }
+  .intro { color: var(--dim); max-width: 78ch; }
+  .intro strong { color: var(--ink); }
+  section { margin-top: 56px; }
+  section h2 { font-size: 20px; margin: 0 0 4px; }
+  section .src { color: var(--dim); font-size: 13px; margin: 0 0 14px; }
+  .note {
+    border-left: 3px solid var(--warn);
+    background: var(--panel);
+    padding: 10px 14px;
+    margin: 0 0 18px;
+    max-width: 90ch;
+    color: var(--ink);
+  }
+  .note b { color: var(--warn); }
+  .row { display: grid; gap: 16px; margin-bottom: 24px; align-items: start; }
+  .row.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .row.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .row.phone { grid-template-columns: repeat(2, minmax(0, 390px)); }
+  .row.phone.three { grid-template-columns: repeat(3, minmax(0, 390px)); }
+  .row .size { grid-column: 1 / -1; color: var(--dim); font-size: 13px; text-transform: uppercase; letter-spacing: .06em; }
+  figure { margin: 0; }
+  figcaption { font-weight: 600; margin-bottom: 6px; }
+  figcaption small { display: block; font-weight: 400; color: var(--dim); }
+  .tag-before { color: var(--dim); }
+  .tag-after { color: var(--accent); }
+  .tag-a { color: var(--accent); }
+  .tag-b { color: #8fb4ff; }
+  /* The preview starts on paper. Only the preview follows the toggle. */
+  .device {
+    background: #f4f4f6;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  body[data-preview="dark"] .device { background: #141414; }
+  .device img { display: block; width: 100%; height: auto; }
+  @media (max-width: 900px) {
+    .row.two, .row.three, .row.phone, .row.phone.three { grid-template-columns: 1fr; }
+    .row.phone .device, .row.phone.three .device { max-width: 390px; }
+  }
+</style>
+</head>
+<body data-preview="light">
+<header>
+  <h1>Bite-sized lessons: the new lesson label, before and after</h1>
+  <span class="toggle-label">Preview theme</span>
+  <span class="toggle" role="group" aria-label="Preview theme">
+    <button type="button" data-theme="light" aria-pressed="true">Light</button>
+    <button type="button" data-theme="dark" aria-pressed="false">Dark</button>
+  </span>
+</header>
+<main>
+  <p class="intro">
+    <strong>What changes.</strong> Every lesson row and header that shows typed-in minutes ("10 min")
+    shows <strong>"Part 2 of 9 &middot; 3 questions"</strong> instead. A lesson that is not split yet
+    has no part, so it shows only <strong>"5 questions"</strong>. The end of a part gets a next-part
+    action. The quiz button shows the real question count.
+  </p>
+  <p class="intro">
+    <strong>How these were made.</strong> Every image is a render of the real Pantas screen with the
+    app's own components, at 390 px (phone) and 1440 px (web), in light and dark. The prototype only
+    changes the label text and adds one button. Sample content is the pilot topic Philippine
+    Constitution: the Bill of Rights as nine parts (2 to 6 questions each) plus one lesson that is
+    not split. "Before" shows "10 min" on every row because 10 is the authored value for the pilot
+    lessons today. Part titles and question counts are sample values. The theme toggle changes only
+    the previews.
+  </p>
+
+  <section id="study">
+    <h2>1. Study topic list</h2>
+    <p class="src">Rows in the open topic. Phone: study_topic_section. Web: web_study_layout.</p>
+    <div class="note"><b>Look at this on the phone.</b> The label is much longer than "10 min", so titles
+      wrap onto four lines and one breaks mid-word ("co mmunication"). The label itself also wraps to two
+      lines. This is the existing row component with no change other than the text.</div>
+    <div class="row phone"><div class="size">Phone, 390 px</div>
+      <figure><figcaption><span class="tag-before">Before</span><small>Typed-in minutes</small></figcaption>
+        <div class="device"><img data-img="bite_before_study_{t}_390.png" alt="Study list on phone, before"></div></figure>
+      <figure><figcaption><span class="tag-after">After</span><small>Part and real question count</small></figcaption>
+        <div class="device"><img data-img="bite_after_study_{t}_390.png" alt="Study list on phone, after"></div></figure>
+    </div>
+    <div class="row two"><div class="size">Web, 1440 px</div>
+      <figure><figcaption><span class="tag-before">Before</span></figcaption>
+        <div class="device"><img data-img="bite_before_study_{t}_1440.png" alt="Study list on web, before"></div></figure>
+      <figure><figcaption><span class="tag-after">After</span></figcaption>
+        <div class="device"><img data-img="bite_after_study_{t}_1440.png" alt="Study list on web, after"></div></figure>
+    </div>
+  </section>
+
+  <section id="reader">
+    <h2>2. Lesson header and reader</h2>
+    <p class="src">Header line (lesson_page, web_reader_layout), quiz button (reader_gap), next-lesson card (web_reader_layout).</p>
+    <div class="note"><b>Fits.</b> The header line, the quiz button and the web next card all hold the longer label.
+      The web next card shows the next part and its question count.</div>
+    <div class="row phone"><div class="size">Phone, 390 px</div>
+      <figure><figcaption><span class="tag-before">Before</span></figcaption>
+        <div class="device"><img data-img="bite_before_reader_{t}_390.png" alt="Reader on phone, before"></div></figure>
+      <figure><figcaption><span class="tag-after">After</span></figcaption>
+        <div class="device"><img data-img="bite_after_reader_{t}_390.png" alt="Reader on phone, after"></div></figure>
+    </div>
+    <div class="row two"><div class="size">Web, 1440 px</div>
+      <figure><figcaption><span class="tag-before">Before</span></figcaption>
+        <div class="device"><img data-img="bite_before_reader_{t}_1440.png" alt="Reader on web, before"></div></figure>
+      <figure><figcaption><span class="tag-after">After</span></figcaption>
+        <div class="device"><img data-img="bite_after_reader_{t}_1440.png" alt="Reader on web, after"></div></figure>
+    </div>
+  </section>
+
+  <section id="end">
+    <h2>3. End of a part: next-part action</h2>
+    <p class="src">Phone only, scrolled to the bottom (reader_gap). On web the next-part action is the existing "Next in" card shown in section 2.</p>
+    <div class="note"><b>New.</b> The phone gets a "Next: Part 4 of 9" text button (existing tertiary button) under the quiz
+      button. The existing pull-up gesture stays. Before has no such button.</div>
+    <div class="row phone"><div class="size">Phone, 390 px</div>
+      <figure><figcaption><span class="tag-before">Before</span></figcaption>
+        <div class="device"><img data-img="bite_before_readerEnd_{t}_390.png" alt="End of lesson on phone, before"></div></figure>
+      <figure><figcaption><span class="tag-after">After</span></figcaption>
+        <div class="device"><img data-img="bite_after_readerEnd_{t}_390.png" alt="End of part on phone, after"></div></figure>
+    </div>
+  </section>
+
+  <section id="contents">
+    <h2>4. Contents (lesson list while reading)</h2>
+    <p class="src">Phone: lesson_contents_sheet. Web: contents popover in web_reader_layout.</p>
+    <div class="note"><b>Look at this on web.</b> The popover rows stay one line for short titles but long titles wrap to three lines
+      because the label takes the room. The current lesson still shows "Reading".</div>
+    <div class="row phone"><div class="size">Phone, 390 px</div>
+      <figure><figcaption><span class="tag-before">Before</span></figcaption>
+        <div class="device"><img data-img="bite_before_contents_{t}_390.png" alt="Contents on phone, before"></div></figure>
+      <figure><figcaption><span class="tag-after">After</span></figcaption>
+        <div class="device"><img data-img="bite_after_contents_{t}_390.png" alt="Contents on phone, after"></div></figure>
+    </div>
+    <div class="row two"><div class="size">Web, 1440 px</div>
+      <figure><figcaption><span class="tag-before">Before</span></figcaption>
+        <div class="device"><img data-img="bite_before_contents_{t}_1440.png" alt="Contents on web, before"></div></figure>
+      <figure><figcaption><span class="tag-after">After</span></figcaption>
+        <div class="device"><img data-img="bite_after_contents_{t}_1440.png" alt="Contents on web, after"></div></figure>
+    </div>
+  </section>
+
+  <section id="search">
+    <h2>5. Search results</h2>
+    <p class="src">Phone: search_results. Web: web_lesson_search overlay (Ctrl K). Query "rights".</p>
+    <div class="note"><b>Look at this on the phone.</b> The label wraps to two lines and cuts the titles with dots
+      ("Bill of Rights: due proc...").</div>
+    <div class="row phone"><div class="size">Phone, 390 px</div>
+      <figure><figcaption><span class="tag-before">Before</span></figcaption>
+        <div class="device"><img data-img="bite_before_search_{t}_390.png" alt="Search on phone, before"></div></figure>
+      <figure><figcaption><span class="tag-after">After</span></figcaption>
+        <div class="device"><img data-img="bite_after_search_{t}_390.png" alt="Search on phone, after"></div></figure>
+    </div>
+    <div class="row two"><div class="size">Web, 1440 px</div>
+      <figure><figcaption><span class="tag-before">Before</span></figcaption>
+        <div class="device"><img data-img="bite_before_search_{t}_1440.png" alt="Search on web, before"></div></figure>
+      <figure><figcaption><span class="tag-after">After</span></figcaption>
+        <div class="device"><img data-img="bite_after_search_{t}_1440.png" alt="Search on web, after"></div></figure>
+    </div>
+  </section>
+
+  <section id="ending">
+    <h2>6. Topic ending, and the summed "minutes of material" line (Option A or B)</h2>
+    <p class="src">Still-unread rows (ending_content, web_ending_layout) and the next-topic card.</p>
+    <div class="note"><b>Finding on the summed minutes.</b> No screen draws a summed minutes line today. The totals
+      "minutes left to read" and "about N minutes of material" exist in code but nothing displays them, so there
+      is nothing to replace on screen. The only place a line like that could sit is the detail line of the
+      next-topic card on the web ending (empty here, as today). <b>Option A</b> adds a count line there
+      ("Four lessons left"; the count is a sample). <b>Option B</b> removes the line, which looks the same as today.
+      The phone ending has no next-topic card, so A and B are identical there. On the phone the unread rows stack the label
+      under the title, and the rows sit tight together.</div>
+    <div class="row phone three"><div class="size">Phone, 390 px</div>
+      <figure><figcaption><span class="tag-before">Before</span></figcaption>
+        <div class="device"><img data-img="bite_before_ending_{t}_390.png" alt="Ending on phone, before"></div></figure>
+      <figure><figcaption><span class="tag-a">After, Option A</span><small>Count of what is left</small></figcaption>
+        <div class="device"><img data-img="bite_after_endingA_{t}_390.png" alt="Ending on phone, option A"></div></figure>
+      <figure><figcaption><span class="tag-b">After, Option B</span><small>Line removed</small></figcaption>
+        <div class="device"><img data-img="bite_after_endingB_{t}_390.png" alt="Ending on phone, option B"></div></figure>
+    </div>
+    <div class="row three"><div class="size">Web, 1440 px</div>
+      <figure><figcaption><span class="tag-before">Before</span></figcaption>
+        <div class="device"><img data-img="bite_before_ending_{t}_1440.png" alt="Ending on web, before"></div></figure>
+      <figure><figcaption><span class="tag-a">After, Option A</span><small>"Four lessons left" under the next topic</small></figcaption>
+        <div class="device"><img data-img="bite_after_endingA_{t}_1440.png" alt="Ending on web, option A"></div></figure>
+      <figure><figcaption><span class="tag-b">After, Option B</span><small>No line</small></figcaption>
+        <div class="device"><img data-img="bite_after_endingB_{t}_1440.png" alt="Ending on web, option B"></div></figure>
+    </div>
+  </section>
+
+  <section id="home">
+    <h2>7. Home Today</h2>
+    <p class="src">Today checklist (home_today_checklist): the up-next lesson row. No summed minutes appear on Home Today.</p>
+    <div class="note"><b>Look at this on the phone.</b> The label takes two lines and the title shrinks to "Bill of Rights: ..."
+      with the subject also cut. On web the title is cut to make room. Rows inside the opened "Lessons" panel use the same label but are not rendered here (see the note below).</div>
+    <div class="row phone"><div class="size">Phone, 390 px</div>
+      <figure><figcaption><span class="tag-before">Before</span></figcaption>
+        <div class="device"><img data-img="bite_before_home_{t}_390.png" alt="Home Today on phone, before"></div></figure>
+      <figure><figcaption><span class="tag-after">After</span></figcaption>
+        <div class="device"><img data-img="bite_after_home_{t}_390.png" alt="Home Today on phone, after"></div></figure>
+    </div>
+    <div class="row two"><div class="size">Web, 1440 px</div>
+      <figure><figcaption><span class="tag-before">Before</span></figcaption>
+        <div class="device"><img data-img="bite_before_home_{t}_1440.png" alt="Home Today on web, before"></div></figure>
+      <figure><figcaption><span class="tag-after">After</span></figcaption>
+        <div class="device"><img data-img="bite_after_home_{t}_1440.png" alt="Home Today on web, after"></div></figure>
+    </div>
+  </section>
+
+  <section id="gaps">
+    <h2>Not rendered</h2>
+    <div class="note">
+      <b>Home Today "Lessons" panel rows</b> (home_today_screen): the page needs the full Home data stack and the
+      golden harness has no Home screen render. Those rows use the same label text as the checklist row above.<br>
+      <b>Quiz intro:</b> the app has no separate quiz intro. The only count shown before a lesson quiz is the
+      "Quiz yourself, N questions" button, shown in sections 2 and 3 with the real count.
+    </div>
+  </section>
+</main>
+<script>
+  (function () {
+    var body = document.body;
+    var buttons = document.querySelectorAll('.toggle button');
+    function apply(theme) {
+      body.setAttribute('data-preview', theme);
+      buttons.forEach(function (b) {
+        b.setAttribute('aria-pressed', b.getAttribute('data-theme') === theme ? 'true' : 'false');
+      });
+      document.querySelectorAll('img[data-img]').forEach(function (img) {
+        img.src = img.getAttribute('data-img').replace('{t}', theme);
+      });
+    }
+    buttons.forEach(function (b) {
+      b.addEventListener('click', function () { apply(b.getAttribute('data-theme')); });
+    });
+    apply('light');
+  })();
+</script>
+</body>
+</html>
