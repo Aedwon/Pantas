@@ -1299,6 +1299,81 @@
               "title": "Article XVII: Ratification and Plebiscites",
               "slug": "ratification-and-plebiscites",
               "sections": []
+            },
+            {
+              "title": "Article IX-B: Personnel and Career Service",
+              "slug": "csc-personnel-and-career-service",
+              "sections": []
+            },
+            {
+              "title": "Article IX-B: Membership and Citizenship",
+              "slug": "csc-membership-and-citizenship",
+              "sections": []
+            },
+            {
+              "title": "Article IX-B: Age, Capacity, and Candidacy",
+              "slug": "csc-age-capacity-and-candidacy",
+              "sections": []
+            },
+            {
+              "title": "Article IX-B: Appointments and Terms",
+              "slug": "csc-appointments-and-terms",
+              "sections": []
+            },
+            {
+              "title": "Article IX-B: Civil Service Coverage",
+              "slug": "csc-civil-service-coverage",
+              "sections": []
+            },
+            {
+              "title": "Article IX-B: Merit and Examination Exceptions",
+              "slug": "csc-merit-and-examination-exceptions",
+              "sections": []
+            },
+            {
+              "title": "Article IX-B: Worker Protection and Politics",
+              "slug": "csc-worker-protection-and-politics",
+              "sections": []
+            },
+            {
+              "title": "Article IX-A: CSC Independence and Conflicts",
+              "slug": "csc-independence-and-conflicts",
+              "sections": []
+            },
+            {
+              "title": "Article XI: Public Trust and Impeachable Officers",
+              "slug": "public-trust-and-impeachable-officers",
+              "sections": []
+            },
+            {
+              "title": "Article XI: Constitutional Breach, Treason, and Bribery",
+              "slug": "impeachment-constitutional-breach-treason-and-bribery",
+              "sections": []
+            },
+            {
+              "title": "Article XI: Graft and High Crimes",
+              "slug": "impeachment-graft-and-high-crimes",
+              "sections": []
+            },
+            {
+              "title": "Article XI: Betrayal of Public Trust and Proof",
+              "slug": "impeachment-betrayal-and-proof",
+              "sections": []
+            },
+            {
+              "title": "Article XI: House Filing Routes",
+              "slug": "impeachment-house-filing-routes",
+              "sections": []
+            },
+            {
+              "title": "Article XI: Senate Trial and Limits",
+              "slug": "impeachment-senate-trial-and-limits",
+              "sections": []
+            },
+            {
+              "title": "Article XI: Ombudsman Investigations and Remedies",
+              "slug": "ombudsman-investigations-and-remedies",
+              "sections": []
             }
           ]
         },

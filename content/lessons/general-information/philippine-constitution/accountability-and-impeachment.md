@@ -7,6 +7,15 @@ topic: "topic-philippine-constitution"
 estimatedMinutes: 15
 isActive: true
 ordering: 9
+status: retired
+replacedBy:
+  - lesson-philippine-constitution-public-trust-and-impeachable-officers
+  - lesson-philippine-constitution-impeachment-constitutional-breach-treason-and-bribery
+  - lesson-philippine-constitution-impeachment-graft-and-high-crimes
+  - lesson-philippine-constitution-impeachment-betrayal-and-proof
+  - lesson-philippine-constitution-impeachment-house-filing-routes
+  - lesson-philippine-constitution-impeachment-senate-trial-and-limits
+  - lesson-philippine-constitution-ombudsman-investigations-and-remedies
 ---
 
 <!-- SOURCE AUDIT: RW-080; branch content/cse-rewrite-r1; supplied standards base c38ca13c; source records supplied in prompt, 2026-10-26. Goal: distinguish impeachable officers and grounds, apply basic conduct descriptions, and separate charges from proof, trial, and accountability remedies. Sources: 1987 Constitution, Article XI Sections 1-3 and 12-13, and Article IX-A Section 1, https://officialgazette.gov.ph/constitutions/1987-constitution/ (officers, commissions, procedure, Ombudsman); Revised Penal Code Articles 114 and 210, https://pcw.gov.ph/act-no-3815-the-revised-penal-code/ (treason and bribery); RA 3019 Section 3(e), quoted in https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/23/63490 (unwarranted advantage); Gonzales III v. Office of the President, G.R. 196231, September 4, 2012, https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/1/55179 (bad faith and gravity for betrayal); Carpio separate opinion in Republic v. Sereno, May 11, 2018, https://lawphil.net/judjuris/juri2018/may2018/gr_237428_so_2018.html (willful constitutional breach, identified as an opinion); UP College of Law, Impeachment Primer, February 2025, page 2, https://law.upd.edu.ph/wp-content/uploads/2025/02/ENGLISH-UP-Law-Impeachment-Primer_v2.pdf (interpretive caution and high crimes). Constitutional text controls procedure; statutory illustrations do not conclusively define impeachment grounds. Examples are hypothetical applications, not rulings on actual cases. No prerequisite relied on. -->

@@ -299,10 +299,8 @@
     "reason": "Understanding continuing government duties and emergency limits makes the comparison with humanitarian law easier. This lesson explains those principles again."
    }
   ],
-  "lesson-philippine-constitution-accountability-and-impeachment": [],
   "lesson-philippine-constitution-citizenship-and-suffrage": [],
   "lesson-philippine-constitution-the-articles-in-outline": [],
-  "lesson-philippine-constitution-the-civil-service-commission": [],
   "lesson-spatial-abstract-reasoning-figure-grouping": [],
   "lesson-spatial-abstract-reasoning-figure-matrices": [
    {
@@ -803,6 +801,99 @@
     "lesson": "lesson-philippine-constitution-speedy-disposition-of-cases",
     "strength": "required",
     "reason": "Continue from the preceding part of the original lesson."
+   }
+  ],
+  "lesson-philippine-constitution-csc-personnel-and-career-service": [],
+  "lesson-philippine-constitution-csc-membership-and-citizenship": [
+   {
+    "lesson": "lesson-philippine-constitution-csc-personnel-and-career-service",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-csc-age-capacity-and-candidacy": [
+   {
+    "lesson": "lesson-philippine-constitution-csc-membership-and-citizenship",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-csc-appointments-and-terms": [
+   {
+    "lesson": "lesson-philippine-constitution-csc-age-capacity-and-candidacy",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-csc-civil-service-coverage": [
+   {
+    "lesson": "lesson-philippine-constitution-csc-appointments-and-terms",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-csc-merit-and-examination-exceptions": [
+   {
+    "lesson": "lesson-philippine-constitution-csc-civil-service-coverage",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-csc-worker-protection-and-politics": [
+   {
+    "lesson": "lesson-philippine-constitution-csc-merit-and-examination-exceptions",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-csc-independence-and-conflicts": [
+   {
+    "lesson": "lesson-philippine-constitution-csc-worker-protection-and-politics",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-public-trust-and-impeachable-officers": [],
+  "lesson-philippine-constitution-impeachment-constitutional-breach-treason-and-bribery": [
+   {
+    "lesson": "lesson-philippine-constitution-public-trust-and-impeachable-officers",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-impeachment-graft-and-high-crimes": [
+   {
+    "lesson": "lesson-philippine-constitution-impeachment-constitutional-breach-treason-and-bribery",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-impeachment-betrayal-and-proof": [
+   {
+    "lesson": "lesson-philippine-constitution-impeachment-graft-and-high-crimes",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-impeachment-house-filing-routes": [
+   {
+    "lesson": "lesson-philippine-constitution-impeachment-betrayal-and-proof",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-impeachment-senate-trial-and-limits": [
+   {
+    "lesson": "lesson-philippine-constitution-impeachment-house-filing-routes",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-ombudsman-investigations-and-remedies": [
+   {
+    "lesson": "lesson-philippine-constitution-impeachment-senate-trial-and-limits",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
    }
   ]
  }

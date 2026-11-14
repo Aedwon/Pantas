@@ -7,6 +7,16 @@ topic: "topic-philippine-constitution"
 estimatedMinutes: 15
 isActive: true
 ordering: 8
+status: retired
+replacedBy:
+  - lesson-philippine-constitution-csc-personnel-and-career-service
+  - lesson-philippine-constitution-csc-membership-and-citizenship
+  - lesson-philippine-constitution-csc-age-capacity-and-candidacy
+  - lesson-philippine-constitution-csc-appointments-and-terms
+  - lesson-philippine-constitution-csc-civil-service-coverage
+  - lesson-philippine-constitution-csc-merit-and-examination-exceptions
+  - lesson-philippine-constitution-csc-worker-protection-and-politics
+  - lesson-philippine-constitution-csc-independence-and-conflicts
 ---
 ## Core Concept
 
