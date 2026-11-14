@@ -3503,3 +3503,16 @@ Fable 5.2 ruled under Aedwon's standing delegation. The manager relayed both rul
   - Auth at 12:31 UTC, effective by 12:35: anonymous sign-up with a token 200, without 401.
 - The integrator was told first; its staging proofs use its registered debug token. Rollback per product: set the service back to unenforced (takes effect within about 15 minutes).
 - **Prod enforcement: earliest Nov 21, 2026**, one product at a time (Storage, then Firestore, then Auth, about 48 hours apart, per the critical path), only if the staging App Check results stay clean for the week and prod shows at least 99% valid requests per product. The "updates take effect at once" release is already on prod.
+
+### Nov 14, backend release R1 (upload and write limits): code ready for the integrator (security fixes lead)
+
+- Built test-first by one Sonnet 5.5 worker on `web/security-r1-limits`; CI and browser journeys pass; reviewed by the lead. Not deployed.
+- Lead rulings and what changed:
+  1. Feedback screenshots stay open to anonymous owners (the app lets a not-yet-signed-in user attach them, and breaking that caused the Nov 12 rollback); creates with custom metadata are refused. App Check on Storage (enforced on staging today, prod from Nov 21) is the main gate.
+  2. Wrapped images and shares need a named account (Wrapped is not shipped on prod web); shares carry `purgeAt` within 90 days (the client writes 89 days). Field `purgeAt`, not `expireAt`, because an existing guard test blocks new `expireAt` writes.
+  3. Per-account rate limits: `getWebEntitlement` 120 an hour, `activateSyncGeneration` 30, `recordSetupAcceptance` 30; the acceptance write is skipped when nothing changed.
+  4. Content ceiling: anonymous accounts and accounts under 24 hours old use a separate 50,000-a-day pool; named older accounts keep the 200,000 pool, so throwaway accounts cannot lock them out. ERROR lines at 80% of each pool.
+  5. TTL fields (`purgeAt`) on sign-in challenges, limits and requests; ceiling shards keep `purgeAfter`. The lead adds the TTL policies after the integrator deploys, staging first.
+  6. The two cleanup jobs keep a cursor in `jobState` and run up to 540 s.
+  7. `renderWrappedPage` is private unless `WRAPPED_PAGE_PUBLIC=true` (staging only).
+- Known limits: old staging builds can no longer create Wrapped shares; the Storage emulator cannot show a refused download-token upload (the backend strips that field before rules run), so the metadata rule does not by itself stop download tokens; App Check is the control for that.
