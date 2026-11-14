@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 5
 partCount: 5
-ordering: 9.05
+ordering: 40
 keyPoints:
   - "Gamitin ang sanhi at bunga upang ayusin ang mga pangyayari."
 ---

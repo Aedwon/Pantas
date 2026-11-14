@@ -44,6 +44,8 @@ passages:
       Neri kept a current list of assignments, replacing old information whenever a plan changed. She also created a channel for volunteers to report problems: a shared message group where concerns could reach the committee quickly. The fair depended on people knowing both what to do and how to seek help. Clear roles and communication made the modest event easier to organize.
 questions:
   - id: "rc-cs-cc-0001"
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "rc-cs-cc-p1"
     type: "context-clues-in-passages"
     difficulty: "easy"
@@ -64,6 +66,8 @@ questions:
     explanation: |
       The next sentence says the operators shelter young fish from strong currents. That action explains harbor as providing protection.
   - id: "rc-cs-cc-0002"
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "rc-cs-cc-p1"
     type: "context-clues-in-passages"
     difficulty: "medium"
@@ -84,6 +88,8 @@ questions:
     explanation: |
       The sheltering detail describes what the operators do for the young fish. It directly explains the protective action.
   - id: "rc-cs-cc-0003"
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "rc-cs-cc-p1"
     type: "context-clues-in-passages"
     difficulty: "medium"
@@ -104,6 +110,8 @@ questions:
     explanation: |
       The sentence explains that the investments are postponed until conditions improve. The plans are kept for later consideration.
   - id: "rc-cs-cc-0004"
+    lesson: lesson-comprehension-skills-contrast-and-cause-clues
+    keyPoint: 1
     passage: "rc-cs-cc-p1"
     type: "context-clues-in-passages"
     difficulty: "hard"
@@ -124,6 +132,8 @@ questions:
     explanation: |
       The passage delays purchases and sends available funds to aeration and monitoring. The contrast shows which work waits and which receives attention now.
   - id: "rc-cs-cc-0005"
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "rc-cs-cc-p1"
     type: "context-clues-in-passages"
     difficulty: "hard"
@@ -144,6 +154,8 @@ questions:
     explanation: |
       Returning to the plans means they remain available for later action. That clue supports temporary delay.
   - id: "rc-cs-cc-0006"
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "rc-cs-cc-p2"
     type: "context-clues-in-passages"
     difficulty: "easy"
@@ -164,6 +176,8 @@ questions:
     explanation: |
       The passage follows raw fibers through cleaning and spinning into thread. Render describes that change from one state to another.
   - id: "rc-cs-cc-0007"
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "rc-cs-cc-p2"
     type: "context-clues-in-passages"
     difficulty: "medium"
@@ -184,6 +198,8 @@ questions:
     explanation: |
       Spinning loose fibers into a continuous strand shows the transformation into usable thread. That result explains render.
   - id: "rc-cs-cc-0008"
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "rc-cs-cc-p2"
     type: "context-clues-in-passages"
     difficulty: "medium"
@@ -204,6 +220,8 @@ questions:
     explanation: |
       The passage says the mixture contains living microorganisms and must be kept active. Those details give culture its biological meaning.
   - id: "rc-cs-cc-0009"
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "rc-cs-cc-p2"
     type: "context-clues-in-passages"
     difficulty: "hard"
@@ -224,6 +242,8 @@ questions:
     explanation: |
       The presence of living microorganisms directly identifies a biological culture. Keeping them active explains why it needs care.
   - id: "rc-cs-cc-0010"
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "rc-cs-cc-p2"
     type: "context-clues-in-passages"
     difficulty: "hard"
@@ -244,6 +264,8 @@ questions:
     explanation: |
       Descriptions of microorganisms show the biological meaning. Descriptions of shared skills and traditions show the social meaning. The surrounding words select each sense.
   - id: "q-comprehension-skills-context-clues-in-passages-0011"
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "p-comprehension-skills-context-clues-in-passages-0003"
     type: "context-clues-in-passages"
     difficulty: "easy"
@@ -265,6 +287,8 @@ questions:
       Blank interview spaces and editing notes show that the copy is not final. The surrounding details select this meaning of the word.
     approved: false
   - id: "q-comprehension-skills-context-clues-in-passages-0012"
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "p-comprehension-skills-context-clues-in-passages-0003"
     type: "context-clues-in-passages"
     difficulty: "medium"
@@ -286,6 +310,8 @@ questions:
       The team plans the first newsletter edition and chooses its contents. The surrounding details select this meaning of the word.
     approved: false
   - id: "q-comprehension-skills-context-clues-in-passages-0013"
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "p-comprehension-skills-context-clues-in-passages-0003"
     type: "context-clues-in-passages"
     difficulty: "medium"
@@ -307,6 +333,8 @@ questions:
       The volunteer writes regularly about gardening, and her piece appears as a section of the paper. The surrounding details select this meaning of the word.
     approved: false
   - id: "q-comprehension-skills-context-clues-in-passages-0014"
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "p-comprehension-skills-context-clues-in-passages-0003"
     type: "context-clues-in-passages"
     difficulty: "hard"
@@ -328,6 +356,8 @@ questions:
       The editors discuss each accuracy problem and ask writers to confirm details. Address means dealing with those concerns. The surrounding details select this meaning of the word.
     approved: false
   - id: "q-comprehension-skills-context-clues-in-passages-0015"
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "p-comprehension-skills-context-clues-in-passages-0003"
     type: "context-clues-in-passages"
     difficulty: "exam"
@@ -349,6 +379,8 @@ questions:
       The pages go to a place where machines produce copies. Press therefore names the printing operation. The surrounding details select this meaning of the word.
     approved: false
   - id: "q-comprehension-skills-context-clues-in-passages-0016"
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "p-comprehension-skills-context-clues-in-passages-0004"
     type: "context-clues-in-passages"
     difficulty: "easy"
@@ -370,6 +402,8 @@ questions:
       Neri supervises the entrance volunteers and handles questions. These duties show that she is responsible for the desk. The surrounding details select this meaning of the word.
     approved: false
   - id: "q-comprehension-skills-context-clues-in-passages-0017"
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "p-comprehension-skills-context-clues-in-passages-0004"
     type: "context-clues-in-passages"
     difficulty: "medium"
@@ -391,6 +425,8 @@ questions:
       Clubs explain ideas and try to win committee support. Their pitch is a persuasive presentation of an activity. The surrounding details select this meaning of the word.
     approved: false
   - id: "q-comprehension-skills-context-clues-in-passages-0018"
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "p-comprehension-skills-context-clues-in-passages-0004"
     type: "context-clues-in-passages"
     difficulty: "medium"
@@ -412,6 +448,8 @@ questions:
       The club changes several displays into one smaller exhibit. That reduction explains scale back. The surrounding details select this meaning of the word.
     approved: false
   - id: "q-comprehension-skills-context-clues-in-passages-0019"
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "p-comprehension-skills-context-clues-in-passages-0004"
     type: "context-clues-in-passages"
     difficulty: "hard"
@@ -433,6 +471,8 @@ questions:
       Neri replaces old information whenever assignments change. The list is current because it reflects the latest plans. The surrounding details select this meaning of the word.
     approved: false
   - id: "q-comprehension-skills-context-clues-in-passages-0020"
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "p-comprehension-skills-context-clues-in-passages-0004"
     type: "context-clues-in-passages"
     difficulty: "exam"

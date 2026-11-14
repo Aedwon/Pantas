@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 1
 partCount: 7
-ordering: 7.01
+ordering: 29
 keyPoints:
   - "Use definitions, explanations, and examples to find a word's meaning."
 ---

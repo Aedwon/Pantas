@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 3
 partCount: 7
-ordering: 7.03
+ordering: 31
 keyPoints:
   - "Check the meaning suggested by word parts against the passage."
 ---

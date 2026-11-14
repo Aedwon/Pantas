@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 6
 partCount: 6
-ordering: 7.857143
+ordering: 18
 keyPoints:
   - "Iayon ang paghatol sa saklaw ng ebidensya."
 ---

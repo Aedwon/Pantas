@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 3
 partCount: 7
-ordering: 6.03
+ordering: 24
 keyPoints:
   - "Identify first-person and second-person narration."
 ---

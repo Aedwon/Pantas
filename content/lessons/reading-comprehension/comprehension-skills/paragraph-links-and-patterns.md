@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 6
 partCount: 7
-ordering: 6.06
+ordering: 27
 keyPoints:
   - "Follow references and identify the pattern organizing the passage."
 ---

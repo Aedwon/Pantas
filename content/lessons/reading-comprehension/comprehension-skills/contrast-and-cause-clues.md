@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 2
 partCount: 7
-ordering: 7.02
+ordering: 30
 keyPoints:
   - "Use contrasts and results to find a word's meaning."
 ---

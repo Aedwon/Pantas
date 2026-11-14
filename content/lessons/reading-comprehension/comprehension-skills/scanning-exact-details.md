@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 1
 partCount: 3
-ordering: 3.01
+ordering: 10
 keyPoints:
   - "Match the detail to the exact role, quantity, or reason asked about."
 ---

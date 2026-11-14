@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 2
 partCount: 6
-ordering: 7.285714
+ordering: 14
 keyPoints:
   - "Match the strength of a claim to its evidence."
 ---

@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 3
 partCount: 6
-ordering: 7.428571
+ordering: 15
 keyPoints:
   - "Identify premises and conclusions."
   - "Test a necessary assumption by imagining its opposite."

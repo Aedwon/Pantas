@@ -44,6 +44,8 @@ passages:
       As Paolo left, another applicant said she had not brought an original. He pointed to the instruction sheet on the wall and told her where to ask about returning later. The clerk called the next applicant to the desk. Paolo put the certificate back inside the envelope, placed it in his folder, and walked outside.
 questions:
   - id: "rc-cs-ic-0001"
+    lesson: lesson-comprehension-skills-connecting-clues
+    keyPoint: 1
     passage: "rc-cs-ic-p1"
     type: "inferencing-and-conclusions"
     difficulty: "easy"
@@ -64,6 +66,8 @@ questions:
     explanation: |
       The report links longer growing-season dry spells with crops that tolerate drought and mature sooner. The change addresses that risk.
   - id: "rc-cs-ic-0002"
+    lesson: lesson-comprehension-skills-connecting-clues
+    keyPoint: 1
     passage: "rc-cs-ic-p1"
     type: "inferencing-and-conclusions"
     difficulty: "medium"
@@ -84,6 +88,8 @@ questions:
     explanation: |
       The farmers installed pumps as dry spells grew longer. The cooperatives also bought crop insurance. These steps suggest they wanted to limit crop losses. Buying protection does not mean they were certain crops would fail.
   - id: "rc-cs-ic-0003"
+    lesson: lesson-comprehension-skills-connecting-clues
+    keyPoint: 1
     passage: "rc-cs-ic-p1"
     type: "inferencing-and-conclusions"
     difficulty: "medium"
@@ -104,6 +110,8 @@ questions:
     explanation: |
       The records report the same annual amount but longer dry spells during growing months. Combining those details shows that timing can change even when the yearly total does not.
   - id: "rc-cs-ic-0004"
+    lesson: lesson-comprehension-skills-connecting-clues
+    keyPoint: 1
     passage: "rc-cs-ic-p1"
     type: "inferencing-and-conclusions"
     difficulty: "hard"
@@ -124,6 +132,8 @@ questions:
     explanation: |
       The farmers install pumps as dry spells grow longer. Their actions show willingness to use tools to address the risk.
   - id: "rc-cs-ic-0005"
+    lesson: lesson-comprehension-skills-connecting-clues
+    keyPoint: 1
     passage: "rc-cs-ic-p1"
     type: "inferencing-and-conclusions"
     difficulty: "hard"
@@ -144,6 +154,8 @@ questions:
     explanation: |
       The visits show changed seeds, schedules, and equipment alongside longer dry spells. Together they support a change in practice as risk grew.
   - id: "rc-cs-ic-0006"
+    lesson: lesson-comprehension-skills-connecting-clues
+    keyPoint: 1
     passage: "rc-cs-ic-p2"
     type: "inferencing-and-conclusions"
     difficulty: "easy"
@@ -164,6 +176,8 @@ questions:
     explanation: |
       Rice grains show rice was present at the site. Tools described as fishing-net weights support fishing activity. These clues together support both uses.
   - id: "rc-cs-ic-0007"
+    lesson: lesson-comprehension-skills-connecting-clues
+    keyPoint: 1
     passage: "rc-cs-ic-p2"
     type: "inferencing-and-conclusions"
     difficulty: "medium"
@@ -184,6 +198,8 @@ questions:
     explanation: |
       The non-local designs suggest a connection with places outside the valley. Their riverbank location makes river-linked contact plausible, while the precise route remains unknown.
   - id: "rc-cs-ic-0008"
+    lesson: lesson-comprehension-skills-connecting-clues
+    keyPoint: 1
     passage: "rc-cs-ic-p2"
     type: "inferencing-and-conclusions"
     difficulty: "medium"
@@ -204,6 +220,8 @@ questions:
     explanation: |
       Post holes indicate places where wooden posts once stood. Nearby orderly jars support the possibility of built structures in use there.
   - id: "rc-cs-ic-0009"
+    lesson: lesson-comprehension-skills-connecting-clues
+    keyPoint: 1
     passage: "rc-cs-ic-p2"
     type: "inferencing-and-conclusions"
     difficulty: "hard"
@@ -224,6 +242,8 @@ questions:
     explanation: |
       The test gives a date range between the tenth and twelfth centuries. It helps place the layer in time.
   - id: "rc-cs-ic-0010"
+    lesson: lesson-comprehension-skills-connecting-clues
+    keyPoint: 1
     passage: "rc-cs-ic-p2"
     type: "inferencing-and-conclusions"
     difficulty: "hard"
@@ -244,6 +264,8 @@ questions:
     explanation: |
       Post holes support structures, rice and net weights support food-related activity, and non-local designs suggest outside contact. The combined account stays close to those clues.
   - id: "rc-cs-ic-0011"
+    lesson: lesson-comprehension-skills-connecting-clues
+    keyPoint: 1
     passage: "rc-cs-ic-p3"
     type: "inferencing-and-conclusions"
     difficulty: "easy"
@@ -264,6 +286,8 @@ questions:
     explanation: |
       Before the reform, pay depended on completed trips. Extra trips could raise earnings, which helps explain the incentive to skip breaks.
   - id: "rc-cs-ic-0012"
+    lesson: lesson-comprehension-skills-connecting-clues
+    keyPoint: 1
     passage: "rc-cs-ic-p3"
     type: "inferencing-and-conclusions"
     difficulty: "medium"
@@ -284,6 +308,8 @@ questions:
     explanation: |
       With a fixed monthly salary, completing another trip does not raise that salary. The direct pay incentive for extra trips is removed.
   - id: "rc-cs-ic-0013"
+    lesson: lesson-comprehension-skills-evidence-and-claim-strength
+    keyPoint: 1
     passage: "rc-cs-ic-p3"
     type: "inferencing-and-conclusions"
     difficulty: "medium"
@@ -304,6 +330,8 @@ questions:
     explanation: |
       A stable departure rate records a pattern of leaving. It does not directly measure feelings about the policies. The report has no satisfaction survey.
   - id: "rc-cs-ic-0014"
+    lesson: lesson-comprehension-skills-connecting-clues
+    keyPoint: 1
     passage: "rc-cs-ic-p3"
     type: "inferencing-and-conclusions"
     difficulty: "hard"
@@ -324,6 +352,8 @@ questions:
     explanation: |
       The system records driving time and blocks a new departure until the required break is taken. Its design enforces the rest rule.
   - id: "rc-cs-ic-0015"
+    lesson: lesson-comprehension-skills-evidence-and-claim-strength
+    keyPoint: 1
     passage: "rc-cs-ic-p3"
     type: "inferencing-and-conclusions"
     difficulty: "hard"
@@ -344,6 +374,8 @@ questions:
     explanation: |
       Complaints declined after the pay, rest, and speed policies changed together. The observations support that association with the combined reforms.
   - id: "q-comprehension-skills-inferencing-and-conclusions-0016"
+    lesson: lesson-comprehension-skills-connecting-clues
+    keyPoint: 1
     passage: "p-comprehension-skills-inferencing-and-conclusions-0004"
     type: "inferencing-and-conclusions"
     difficulty: "easy"
@@ -365,6 +397,8 @@ questions:
       His early arrival and repeated timing checks connect his behavior to the application process. They support attentiveness to completing it.
     approved: false
   - id: "q-comprehension-skills-inferencing-and-conclusions-0017"
+    lesson: lesson-comprehension-skills-evidence-and-claim-strength
+    keyPoint: 1
     passage: "p-comprehension-skills-inferencing-and-conclusions-0004"
     type: "inferencing-and-conclusions"
     difficulty: "medium"
@@ -386,6 +420,8 @@ questions:
       Paolo asks to keep the envelope sealed, but the passage supplies no reason for that request. His motive remains unknown.
     approved: false
   - id: "q-comprehension-skills-inferencing-and-conclusions-0018"
+    lesson: lesson-comprehension-skills-connecting-clues
+    keyPoint: 1
     passage: "p-comprehension-skills-inferencing-and-conclusions-0004"
     type: "inferencing-and-conclusions"
     difficulty: "hard"
@@ -407,6 +443,8 @@ questions:
       Opening the envelope meets the clerk's requirement. Doing so carefully along one edge suggests an effort to preserve it while complying.
     approved: false
   - id: "q-comprehension-skills-inferencing-and-conclusions-0019"
+    lesson: lesson-comprehension-skills-connecting-clues
+    keyPoint: 1
     passage: "p-comprehension-skills-inferencing-and-conclusions-0004"
     type: "inferencing-and-conclusions"
     difficulty: "hard"
@@ -428,6 +466,8 @@ questions:
       Paolo points out the instructions and where to ask about returning. Those actions show willingness to help her find information.
     approved: false
   - id: "q-comprehension-skills-inferencing-and-conclusions-0020"
+    lesson: lesson-comprehension-skills-evidence-and-claim-strength
+    keyPoint: 1
     passage: "p-comprehension-skills-inferencing-and-conclusions-0004"
     type: "inferencing-and-conclusions"
     difficulty: "exam"

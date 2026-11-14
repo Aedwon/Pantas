@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 6
 partCount: 6
-ordering: 1.857143
+ordering: 6
 keyPoints:
   - "Bumuo ng balangkas ng pangunahing ideya at detalye."
   - "Gamitin ang mga ugnayan upang ayusin ang talata."

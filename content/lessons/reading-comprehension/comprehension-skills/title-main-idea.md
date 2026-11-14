@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 1
 partCount: 3
-ordering: 2.01
+ordering: 7
 keyPoints:
   - "Choose a title that states the whole passage's main idea."
 ---

@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 4
 partCount: 7
-ordering: 6.04
+ordering: 25
 keyPoints:
   - "Distinguish limited, omniscient, and objective narration by access to thoughts."
 ---

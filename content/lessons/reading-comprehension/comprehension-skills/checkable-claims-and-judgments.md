@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 1
 partCount: 3
-ordering: 8.250000
+ordering: 19
 keyPoints:
   - "Distinguish factual claims from opinions."
   - "Separate fact and opinion in a mixed sentence."

@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 3
 partCount: 3
-ordering: 2.03
+ordering: 9
 keyPoints:
   - "Choose a title that matches the position argued in the passage."
 ---

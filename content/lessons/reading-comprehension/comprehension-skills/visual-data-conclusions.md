@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 4
 partCount: 6
-ordering: 7.571429
+ordering: 16
 keyPoints:
   - "Read a chart using its labels and scale."
   - "Combine a written limit with visual data."

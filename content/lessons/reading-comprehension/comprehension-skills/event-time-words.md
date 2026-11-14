@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 1
 partCount: 5
-ordering: 9.01
+ordering: 36
 keyPoints:
   - "Use time words to find the event order."
 ---

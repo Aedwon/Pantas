@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 2
 partCount: 3
-ordering: 3.02
+ordering: 11
 keyPoints:
   - "Use paragraph topics and matching meanings to find a detail."
 ---

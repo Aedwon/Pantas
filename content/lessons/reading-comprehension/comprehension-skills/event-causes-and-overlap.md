@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 3
 partCount: 5
-ordering: 9.03
+ordering: 38
 keyPoints:
   - "Place the start of a cause before its effect."
   - "Keep overlapping events together when no first event is stated."

@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 2
 partCount: 6
-ordering: 1.285714
+ordering: 2
 keyPoints:
   - "Find an implied main idea."
   - "Explain how sentences support paragraph unity."

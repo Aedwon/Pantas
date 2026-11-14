@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 5
 partCount: 6
-ordering: 7.714286
+ordering: 17
 keyPoints:
   - "Bumuo ng hinuha at pangunahing diwa mula sa mga detalye."
 ---

@@ -44,6 +44,8 @@ passages:
       The archive will open at nine in the morning on weekdays and close at four in the afternoon. Its former opening time was eight. A student orientation begins at ten on the first day in the east wing. Students attending it should use the new archive entrance, while regular library users should follow the existing library signs.
 questions:
   - id: "rc-cs-nsd-0001"
+    lesson: lesson-comprehension-skills-scanning-exact-details
+    keyPoint: 1
     passage: "rc-cs-nsd-p1"
     type: "noting-specific-details"
     difficulty: "easy"
@@ -64,6 +66,8 @@ questions:
     explanation: |
       The opening sentence states that commercial operation begins in April 2022.
   - id: "rc-cs-nsd-0002"
+    lesson: lesson-comprehension-skills-old-and-current-details
+    keyPoint: 1
     passage: "rc-cs-nsd-p1"
     type: "noting-specific-details"
     difficulty: "easy"
@@ -84,6 +88,8 @@ questions:
     explanation: |
       The final paragraph identifies thirty-three billion pesos as the final investment.
   - id: "rc-cs-nsd-0003"
+    lesson: lesson-comprehension-skills-scanning-exact-details
+    keyPoint: 1
     passage: "rc-cs-nsd-p1"
     type: "noting-specific-details"
     difficulty: "medium"
@@ -104,6 +110,8 @@ questions:
     explanation: |
       The final paragraph states that the planned phaseout is completed in December 2022.
   - id: "rc-cs-nsd-0004"
+    lesson: lesson-comprehension-skills-scanning-exact-details
+    keyPoint: 1
     passage: "rc-cs-nsd-p1"
     type: "noting-specific-details"
     difficulty: "medium"
@@ -124,6 +132,8 @@ questions:
     explanation: |
       The first paragraph states that the main towers rise 145 meters above sea level.
   - id: "rc-cs-nsd-0005"
+    lesson: lesson-comprehension-skills-skimming-and-meaning-matches
+    keyPoint: 1
     passage: "rc-cs-nsd-p1"
     type: "noting-specific-details"
     difficulty: "hard"
@@ -144,6 +154,8 @@ questions:
     explanation: |
       The second paragraph assigns the chief structural inspector role to Manuel Santos.
   - id: "rc-cs-nsd-0006"
+    lesson: lesson-comprehension-skills-skimming-and-meaning-matches
+    keyPoint: 1
     passage: "rc-cs-nsd-p2"
     type: "noting-specific-details"
     difficulty: "easy"
@@ -164,6 +176,8 @@ questions:
     explanation: |
       The first sentence says that the festival is held in honor of Saint Clement.
   - id: "rc-cs-nsd-0007"
+    lesson: lesson-comprehension-skills-old-and-current-details
+    keyPoint: 1
     passage: "rc-cs-nsd-p2"
     type: "noting-specific-details"
     difficulty: "easy"
@@ -184,6 +198,8 @@ questions:
     explanation: |
       The second paragraph pairs the 1998 change with fiberglass resin heads.
   - id: "rc-cs-nsd-0008"
+    lesson: lesson-comprehension-skills-scanning-exact-details
+    keyPoint: 1
     passage: "rc-cs-nsd-p2"
     type: "noting-specific-details"
     difficulty: "medium"
@@ -204,6 +220,8 @@ questions:
     explanation: |
       The report in the final paragraph gives fifty-six as the procession's giant-figure count.
   - id: "rc-cs-nsd-0009"
+    lesson: lesson-comprehension-skills-old-and-current-details
+    keyPoint: 1
     passage: "rc-cs-nsd-p2"
     type: "noting-specific-details"
     difficulty: "medium"
@@ -224,6 +242,8 @@ questions:
     explanation: |
       The first paragraph identifies November 23 as the old parade date.
   - id: "rc-cs-nsd-0010"
+    lesson: lesson-comprehension-skills-scanning-exact-details
+    keyPoint: 1
     passage: "rc-cs-nsd-p2"
     type: "noting-specific-details"
     difficulty: "hard"
@@ -244,6 +264,8 @@ questions:
     explanation: |
       The final paragraph describes visitors along a three-kilometer procession route.
   - id: "rc-cs-nsd-0011"
+    lesson: lesson-comprehension-skills-scanning-exact-details
+    keyPoint: 1
     passage: "rc-cs-nsd-p3"
     type: "noting-specific-details"
     difficulty: "easy"
@@ -264,6 +286,8 @@ questions:
     explanation: |
       The opening places the cooperative's founding in 2014.
   - id: "rc-cs-nsd-0012"
+    lesson: lesson-comprehension-skills-skimming-and-meaning-matches
+    keyPoint: 1
     passage: "rc-cs-nsd-p3"
     type: "noting-specific-details"
     difficulty: "easy"
@@ -284,6 +308,8 @@ questions:
     explanation: |
       The second paragraph states that harvesting takes place between November and February.
   - id: "rc-cs-nsd-0013"
+    lesson: lesson-comprehension-skills-old-and-current-details
+    keyPoint: 1
     passage: "rc-cs-nsd-p3"
     type: "noting-specific-details"
     difficulty: "medium"
@@ -304,6 +330,8 @@ questions:
     explanation: |
       The final sentence gives five hundred fifty pesos per kilogram for 2023.
   - id: "rc-cs-nsd-0014"
+    lesson: lesson-comprehension-skills-scanning-exact-details
+    keyPoint: 1
     passage: "rc-cs-nsd-p3"
     type: "noting-specific-details"
     difficulty: "medium"
@@ -324,6 +352,8 @@ questions:
     explanation: |
       The first paragraph states the growing elevation as 1,200 to 1,600 meters above sea level.
   - id: "rc-cs-nsd-0015"
+    lesson: lesson-comprehension-skills-scanning-exact-details
+    keyPoint: 1
     passage: "rc-cs-nsd-p3"
     type: "noting-specific-details"
     difficulty: "hard"
@@ -344,6 +374,8 @@ questions:
     explanation: |
       The second paragraph states that the grant funds a centralized wet-milling facility in 2021.
   - id: "q-comprehension-skills-noting-specific-details-0016"
+    lesson: lesson-comprehension-skills-old-and-current-details
+    keyPoint: 1
     passage: "p-comprehension-skills-noting-specific-details-0004"
     type: "noting-specific-details"
     difficulty: "easy"
@@ -365,6 +397,8 @@ questions:
       The first paragraph places the new archive entrance opposite the science office.
     approved: false
   - id: "q-comprehension-skills-noting-specific-details-0017"
+    lesson: lesson-comprehension-skills-scanning-exact-details
+    keyPoint: 1
     passage: "p-comprehension-skills-noting-specific-details-0004"
     type: "noting-specific-details"
     difficulty: "medium"
@@ -386,6 +420,8 @@ questions:
       The second paragraph says photograph requests must reach Ms. Dela Cruz by Friday, October 9.
     approved: false
   - id: "q-comprehension-skills-noting-specific-details-0018"
+    lesson: lesson-comprehension-skills-scanning-exact-details
+    keyPoint: 1
     passage: "p-comprehension-skills-noting-specific-details-0004"
     type: "noting-specific-details"
     difficulty: "medium"
@@ -407,6 +443,8 @@ questions:
       The second paragraph assigns checking written records to Mr. Lim.
     approved: false
   - id: "q-comprehension-skills-noting-specific-details-0019"
+    lesson: lesson-comprehension-skills-old-and-current-details
+    keyPoint: 1
     passage: "p-comprehension-skills-noting-specific-details-0004"
     type: "noting-specific-details"
     difficulty: "hard"
@@ -428,6 +466,8 @@ questions:
       The final paragraph gives nine in the morning as the weekday opening time.
     approved: false
   - id: "q-comprehension-skills-noting-specific-details-0020"
+    lesson: lesson-comprehension-skills-scanning-exact-details
+    keyPoint: 1
     passage: "p-comprehension-skills-noting-specific-details-0004"
     type: "noting-specific-details"
     difficulty: "exam"

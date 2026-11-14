@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 4
 partCount: 7
-ordering: 7.04
+ordering: 32
 keyPoints:
   - "Use synonyms, opposites, and the whole paragraph to read Filipino expressions."
 ---

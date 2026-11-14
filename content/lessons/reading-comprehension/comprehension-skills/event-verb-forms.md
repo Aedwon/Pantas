@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 2
 partCount: 5
-ordering: 9.02
+ordering: 37
 keyPoints:
   - "Use past-perfect verbs and surrounding text to find earlier events."
 ---

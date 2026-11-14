@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 1
 partCount: 7
-ordering: 6.01
+ordering: 22
 keyPoints:
   - "Identify the main purpose from what most details help the writer do."
 ---

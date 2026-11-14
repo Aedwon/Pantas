@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 7
 partCount: 7
-ordering: 6.07
+ordering: 28
 keyPoints:
   - "Use sentence clues to check what a passage establishes."
 ---

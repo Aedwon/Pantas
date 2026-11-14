@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 3
 partCount: 3
-ordering: 8.750000
+ordering: 21
 keyPoints:
   - "Identify a forecast and its assumptions."
   - "Distinguish a forecast from a fact about that forecast."

@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 2
 partCount: 7
-ordering: 6.02
+ordering: 23
 keyPoints:
   - "Identify tone from several clues across the passage."
 ---

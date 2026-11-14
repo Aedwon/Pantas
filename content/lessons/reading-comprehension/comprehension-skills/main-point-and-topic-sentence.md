@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 1
 partCount: 6
-ordering: 1.142857
+ordering: 1
 keyPoints:
   - "Tell the topic and main idea apart."
   - "Find a topic sentence at different positions."

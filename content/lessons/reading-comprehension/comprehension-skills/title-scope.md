@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 2
 partCount: 3
-ordering: 2.02
+ordering: 8
 keyPoints:
   - "Choose a title that covers the main focus without listing every detail."
 ---

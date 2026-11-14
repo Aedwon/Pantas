@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 4
 partCount: 6
-ordering: 1.571429
+ordering: 4
 keyPoints:
   - "Connect paragraph points into a passage main idea."
 ---

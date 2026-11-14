@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 7
 partCount: 7
-ordering: 7.07
+ordering: 35
 keyPoints:
   - "Distinguish a question, command, statement, and exclamation."
 ---

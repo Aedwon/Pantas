@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 2
 partCount: 3
-ordering: 8.500000
+ordering: 20
 keyPoints:
   - "Keep claim type separate from truth and supporting evidence."
 ---

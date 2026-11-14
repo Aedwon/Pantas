@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 4
 partCount: 5
-ordering: 9.04
+ordering: 39
 keyPoints:
   - "Ayusin ang mga pangyayari gamit ang mga araw at hudyat ng oras."
 ---

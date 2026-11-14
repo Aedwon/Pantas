@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 3
 partCount: 3
-ordering: 3.03
+ordering: 12
 keyPoints:
   - "Use time and change words to choose between old and current details."
 ---

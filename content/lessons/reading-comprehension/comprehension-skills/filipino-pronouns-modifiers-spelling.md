@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 6
 partCount: 7
-ordering: 7.06
+ordering: 34
 keyPoints:
   - "Check pronoun references, modifier placement, and spelling in context."
 ---

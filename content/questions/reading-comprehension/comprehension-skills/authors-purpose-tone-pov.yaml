@@ -44,6 +44,8 @@ passages:
       When a judge approached, Lina pressed the roof into place once more. Then she set the model down and began with the tank. Her voice shook on the first sentence, but the judge leaned forward to inspect the pipe. Lina reached for her diagram. The roof could wait while she explained the idea she had worked so hard to build.
 questions:
   - id: "rc-cs-ap-0001"
+    lesson: lesson-comprehension-skills-authors-main-purpose
+    keyPoint: 1
     passage: "rc-cs-ap-p1"
     type: "authors-purpose-tone-pov"
     difficulty: "easy"
@@ -64,6 +66,8 @@ questions:
     explanation: |
       Most details criticize demolition and support protecting the houses. The call for leaders to act reinforces persuasion as the main purpose.
   - id: "rc-cs-ap-0002"
+    lesson: lesson-comprehension-skills-authors-tone
+    keyPoint: 1
     passage: "rc-cs-ap-p1"
     type: "authors-purpose-tone-pov"
     difficulty: "medium"
@@ -84,6 +88,8 @@ questions:
     explanation: |
       Calling development "commercial greed" expresses disapproval. Saying leaders "must act immediately" adds urgency.
   - id: "rc-cs-ap-0003"
+    lesson: lesson-comprehension-skills-first-and-second-person
+    keyPoint: 1
     passage: "rc-cs-ap-p1"
     type: "authors-purpose-tone-pov"
     difficulty: "medium"
@@ -104,6 +110,8 @@ questions:
     explanation: |
       The writer includes the speaker in "we" and "our." These words present the concern as shared by the community.
   - id: "rc-cs-ap-0004"
+    lesson: lesson-comprehension-skills-argument-viewpoint-and-bias
+    keyPoint: 1
     passage: "rc-cs-ap-p1"
     type: "authors-purpose-tone-pov"
     difficulty: "hard"
@@ -124,6 +132,8 @@ questions:
     explanation: |
       The writer calls heritage the foundation of long-term tourism. Preservation is presented as supporting lasting economic benefits.
   - id: "rc-cs-ap-0005"
+    lesson: lesson-comprehension-skills-authors-tone
+    keyPoint: 1
     passage: "rc-cs-ap-p1"
     type: "authors-purpose-tone-pov"
     difficulty: "hard"
@@ -144,6 +154,8 @@ questions:
     explanation: |
       "Authentic craftsmanship" praises the old buildings. "Sterile glass storefronts" makes the replacements sound lacking in life. The descriptions express the writer's values.
   - id: "rc-cs-ap-0006"
+    lesson: lesson-comprehension-skills-first-and-second-person
+    keyPoint: 1
     passage: "rc-cs-ap-p2"
     type: "authors-purpose-tone-pov"
     difficulty: "easy"
@@ -164,6 +176,8 @@ questions:
     explanation: |
       The speaker takes part in the trip and says "I stood" and "my grandmother." The events are told through that participant's view.
   - id: "rc-cs-ap-0007"
+    lesson: lesson-comprehension-skills-authors-tone
+    keyPoint: 1
     passage: "rc-cs-ap-p2"
     type: "authors-purpose-tone-pov"
     difficulty: "medium"
@@ -184,6 +198,8 @@ questions:
     explanation: |
       The narrator recalls childhood smells and notices time passing. These memories and reflections create a nostalgic, reflective tone.
   - id: "rc-cs-ap-0008"
+    lesson: lesson-comprehension-skills-authors-main-purpose
+    keyPoint: 1
     passage: "rc-cs-ap-p2"
     type: "authors-purpose-tone-pov"
     difficulty: "medium"
@@ -204,6 +220,8 @@ questions:
     explanation: |
       The ending connects returning home with remembering an earlier sense of self. That reflection explains why the narrator shares the trip.
   - id: "rc-cs-ap-0009"
+    lesson: lesson-comprehension-skills-paragraph-links-and-patterns
+    keyPoint: 1
     passage: "rc-cs-ap-p2"
     type: "authors-purpose-tone-pov"
     difficulty: "hard"
@@ -224,6 +242,8 @@ questions:
     explanation: |
       Meals alone and hurried routines show isolation in Manila. The grandmother's embrace and neighbors' greetings show a sense of belonging in Leyte.
   - id: "rc-cs-ap-0010"
+    lesson: lesson-comprehension-skills-authors-tone
+    keyPoint: 1
     passage: "rc-cs-ap-p2"
     type: "authors-purpose-tone-pov"
     difficulty: "hard"
@@ -244,6 +264,8 @@ questions:
     explanation: |
       The changed hair makes the narrator notice the years spent away. It adds awareness of aging to the homecoming.
   - id: "rc-cs-ap-0011"
+    lesson: lesson-comprehension-skills-authors-main-purpose
+    keyPoint: 1
     passage: "rc-cs-cs-p3"
     type: "authors-purpose-tone-pov"
     difficulty: "easy"
@@ -264,6 +286,8 @@ questions:
     explanation: |
       The passage explains bioluminescence and how the club gathers evidence. Its main purpose is to inform readers about the event and careful study.
   - id: "rc-cs-ap-0012"
+    lesson: lesson-comprehension-skills-authors-tone
+    keyPoint: 1
     passage: "rc-cs-cs-p3"
     type: "authors-purpose-tone-pov"
     difficulty: "easy"
@@ -284,6 +308,8 @@ questions:
     explanation: |
       The writer explains the process and states the limits of the observations. That careful treatment creates a measured, informative tone.
   - id: "rc-cs-ap-0013"
+    lesson: lesson-comprehension-skills-third-person-thoughts
+    keyPoint: 1
     passage: "rc-cs-cs-p3"
     type: "authors-purpose-tone-pov"
     difficulty: "medium"
@@ -304,6 +330,8 @@ questions:
     explanation: |
       The passage describes the students, teacher, and report from outside the group. It presents actions and findings in an impersonal reporting voice.
   - id: "rc-cs-ap-0014"
+    lesson: lesson-comprehension-skills-argument-viewpoint-and-bias
+    keyPoint: 1
     passage: "rc-cs-cs-p3"
     type: "authors-purpose-tone-pov"
     difficulty: "medium"
@@ -324,6 +352,8 @@ questions:
     explanation: |
       The passage pairs the appeal of glowing water with limits on the evidence. This shows why the club recommends further study before tour plans.
   - id: "rc-cs-ap-0015"
+    lesson: lesson-comprehension-skills-authors-tone
+    keyPoint: 1
     passage: "rc-cs-cs-p3"
     type: "authors-purpose-tone-pov"
     difficulty: "hard"
@@ -344,6 +374,8 @@ questions:
     explanation: |
       Bioluminescence names light made by living things. This term identifies the process the students study.
   - id: "q-comprehension-skills-authors-purpose-tone-pov-0016"
+    lesson: lesson-comprehension-skills-third-person-thoughts
+    keyPoint: 1
     passage: "p-comprehension-skills-authors-purpose-tone-pov-0004"
     type: "authors-purpose-tone-pov"
     difficulty: "easy"
@@ -365,6 +397,8 @@ questions:
       The narrator calls Lina by name and reports her wishes and worries. Ben's thoughts remain unknown to her. Access is limited to Lina's mind.
     approved: false
   - id: "q-comprehension-skills-authors-purpose-tone-pov-0017"
+    lesson: lesson-comprehension-skills-authors-tone
+    keyPoint: 1
     passage: "p-comprehension-skills-authors-purpose-tone-pov-0004"
     type: "authors-purpose-tone-pov"
     difficulty: "medium"
@@ -386,6 +420,8 @@ questions:
       Lina's voice still shakes, but she begins explaining her design and reaches for her diagram. That mix of worry and progress gives a cautiously hopeful tone.
     approved: false
   - id: "q-comprehension-skills-authors-purpose-tone-pov-0018"
+    lesson: lesson-comprehension-skills-third-person-thoughts
+    keyPoint: 1
     passage: "p-comprehension-skills-authors-purpose-tone-pov-0004"
     type: "authors-purpose-tone-pov"
     difficulty: "hard"
@@ -407,6 +443,8 @@ questions:
       The narrator shares only what Lina can observe or think. Stating her uncertainty keeps Ben's private reasons outside the account.
     approved: false
   - id: "q-comprehension-skills-authors-purpose-tone-pov-0019"
+    lesson: lesson-comprehension-skills-authors-main-purpose
+    keyPoint: 1
     passage: "p-comprehension-skills-authors-purpose-tone-pov-0004"
     type: "authors-purpose-tone-pov"
     difficulty: "hard"
@@ -428,6 +466,8 @@ questions:
       The scene follows Lina's worries and her decision to explain the design despite the loose roof. It portrays a personal challenge through a story.
     approved: false
   - id: "q-comprehension-skills-authors-purpose-tone-pov-0020"
+    lesson: lesson-comprehension-skills-third-person-thoughts
+    keyPoint: 1
     passage: "p-comprehension-skills-authors-purpose-tone-pov-0004"
     type: "authors-purpose-tone-pov"
     difficulty: "exam"

@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 5
 partCount: 7
-ordering: 6.05
+ordering: 26
 keyPoints:
   - "Identify the writer's position and check whether evidence is treated fairly."
 ---

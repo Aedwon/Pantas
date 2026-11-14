@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 5
 partCount: 7
-ordering: 7.05
+ordering: 33
 keyPoints:
   - "Read possibility words, verb aspect, and time words together."
 ---

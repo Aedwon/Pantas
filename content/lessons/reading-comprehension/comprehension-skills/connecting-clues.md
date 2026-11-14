@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 1
 partCount: 6
-ordering: 7.142857
+ordering: 13
 keyPoints:
   - "Connect details to draw an inference."
 ---

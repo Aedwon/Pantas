@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 3
 partCount: 6
-ordering: 1.428571
+ordering: 3
 keyPoints:
   - "Choose a main idea with the right scope."
 ---

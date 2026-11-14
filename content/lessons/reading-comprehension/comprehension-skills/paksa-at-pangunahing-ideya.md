@@ -7,7 +7,7 @@ topic: "topic-comprehension-skills"
 isActive: true
 part: 5
 partCount: 6
-ordering: 1.714286
+ordering: 5
 keyPoints:
   - "Tukuyin ang paksa at pangunahing ideya."
 ---
