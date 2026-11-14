@@ -455,3 +455,91 @@ questions:
     explanation: |
       Multiplying zero by any real number gives zero. The equation $0r=1$ therefore has no real solution. This is why zero has no multiplicative inverse.
     approved: false
+
+  - id: q-arithmetic-number-sense-properties-of-real-numbers-0021
+    lesson: lesson-arithmetic-number-sense-identities-and-like-terms
+    keyPoint: 1
+    type: which-is-true
+    difficulty: exam
+    stem: |
+      For every real number $x$, the equality $(x+a)b=x$ must hold. Which pair gives the additive identity for $a$ and the multiplicative identity for $b$?
+    choices:
+      - text: '$a=0,\ b=1$'
+        correct: true
+      - text: '$a=1,\ b=0$'
+        rationale: |
+          This swaps the two identity values. Multiplying by zero removes the original value. Check which number leaves each operation unchanged.
+      - text: '$a=0,\ b=0$'
+        rationale: |
+          This uses zero for both identities. Adding zero preserves a value, but multiplying by it does not. Check the product with a nonzero value.
+      - text: '$a=1,\ b=1$'
+        rationale: |
+          This uses one for both identities. Multiplying by one works, but adding one changes the value. Check the addition first.
+    explanation: |
+      The additive identity is $0$, so $x+0=x$. The multiplicative identity is $1$, so $(x+0)(1)=x$. Thus $a=0$ and $b=1$.
+
+  - id: q-arithmetic-number-sense-properties-of-real-numbers-0022
+    lesson: lesson-arithmetic-number-sense-identities-and-like-terms
+    keyPoint: 1
+    type: which-is-true
+    difficulty: exam
+    stem: |
+      Which pair of equalities correctly uses the additive identity and the multiplicative identity, respectively, for $-17$?
+    choices:
+      - text: '$-17+0=-17;\ (-17)(1)=-17$'
+        correct: true
+      - text: '$-17+17=0;\ (-17)(1)=-17$'
+        rationale: |
+          This uses an additive inverse in the first equality. The sum is zero, not the original value. Check that an identity keeps negative seventeen unchanged.
+      - text: '$-17+0=-17;\ (-17)(0)=0$'
+        rationale: |
+          This uses multiplication by zero as an identity. The product changes the value. Check that the multiplicative identity gives the original number.
+      - text: '$-17+1=-16;\ (-17)(1)=-17$'
+        rationale: |
+          This adds one in the first equality. One is the identity for multiplication. Check the identity for addition separately.
+    explanation: |
+      Adding $0$ leaves $-17$ unchanged: $-17+0=-17$. Multiplying by $1$ also leaves it unchanged: $(-17)(1)=-17$.
+
+  - id: q-arithmetic-number-sense-properties-of-real-numbers-0023
+    lesson: lesson-arithmetic-number-sense-identities-and-like-terms
+    keyPoint: 2
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      Simplify $9a^2-4a+7-6a^2+a-12$.
+    choices:
+      - text: '$3a^2-3a-5$'
+        correct: true
+      - text: '$3a^2-5a-5$'
+        rationale: |
+          This treats the lone positive a as negative a. A lone a has coefficient one. Keep its positive sign when combining.
+      - text: '$3a^2-3a+19$'
+        rationale: |
+          This adds the magnitudes of the constants. The final constant is negative. Keep the sign attached to each term.
+      - text: '$-5$'
+        rationale: |
+          This combines a squared terms with a terms and cancels them. Different exponents make unlike terms. Keep those groups separate.
+    explanation: |
+      Combine matching terms: $(9-6)a^2+(-4+1)a+(7-12)=3a^2-3a-5$.
+
+  - id: q-arithmetic-number-sense-properties-of-real-numbers-0024
+    lesson: lesson-arithmetic-number-sense-identities-and-like-terms
+    keyPoint: 2
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      Simplify $6xy-2x^2+5yx+7x^2-3xy$.
+    choices:
+      - text: '$8xy+5x^2$'
+        correct: true
+      - text: '$14xy+5x^2$'
+        rationale: |
+          This changes the last negative coefficient to positive. Keep the minus sign with three xy before adding coefficients.
+      - text: '$3xy+5yx+5x^2$'
+        rationale: |
+          This leaves xy and yx separate. Their variable parts are equal because multiplication can change order. Combine their coefficients too.
+      - text: '$8xy+9x^2$'
+        rationale: |
+          This adds the magnitudes of the squared-term coefficients. The first is negative. Add the signed coefficients.
+    explanation: |
+      The terms $xy$ and $yx$ have the same variable part. Combine them: $(6+5-3)xy=8xy$. The squared terms give $(-2+7)x^2=5x^2$. The result is $8xy+5x^2$.

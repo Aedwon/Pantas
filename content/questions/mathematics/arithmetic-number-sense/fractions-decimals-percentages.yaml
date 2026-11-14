@@ -448,3 +448,157 @@ questions:
     explanation: |
       Let the full set contain $N$ questions. Since $0.40N=72$, $N=72\div0.40=180$. The requested amount is $0.15(180)=27$ questions.
     approved: false
+
+  - id: q-arithmetic-number-sense-fractions-decimals-percentages-0021
+    lesson: lesson-arithmetic-number-sense-adding-and-multiplying-fractions
+    keyPoint: 2
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A records room uses $\dfrac{3}{5}$ of its floor for shelves. Of that space, $\dfrac{7}{12}$ holds archived files. What fraction of the entire floor holds archived files?
+    choices:
+      - text: '$\dfrac{7}{20}$'
+        correct: true
+      - text: '$\dfrac{71}{60}$'
+        rationale: |
+          This adds the two fractions instead of finding part of a part. The space is counted in two stages. Multiply the shares.
+      - text: '$\dfrac{21}{17}$'
+        rationale: |
+          This multiplies the numerators but adds the denominators. Both parts of a fraction must follow multiplication. Multiply the denominators too.
+      - text: '$\dfrac{3}{5}$'
+        rationale: |
+          This counts all shelf space. Only part of it holds archived files. Apply the second fraction too.
+    explanation: |
+      Multiply the two shares: $\dfrac{3}{5}\times\dfrac{7}{12}=\dfrac{21}{60}=\dfrac{7}{20}$.
+
+  - id: q-arithmetic-number-sense-fractions-decimals-percentages-0022
+    lesson: lesson-arithmetic-number-sense-decimal-and-percent-conversions
+    keyPoint: 1
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      A scale displays $0.0625$ kilogram. Which fraction of a kilogram is this in simplest form?
+    choices:
+      - text: '$\dfrac{1}{16}$'
+        correct: true
+      - text: '$\dfrac{5}{8}$'
+        rationale: |
+          This uses a denominator of one thousand instead of ten thousand. The digits can hide the leading zero. Count all four decimal places.
+      - text: '$\dfrac{1}{160}$'
+        rationale: |
+          This uses a denominator ten times too large. There are four decimal places. Use ten thousand before simplifying.
+      - text: '$\dfrac{625}{10000}$'
+        rationale: |
+          This has the right value but is not in simplest form. Both numbers have a common factor. Divide both by six hundred twenty-five.
+    explanation: |
+      There are four decimal places, so $0.0625=\dfrac{625}{10000}$. Dividing both numbers by $625$ gives $\dfrac{1}{16}$.
+
+  - id: q-arithmetic-number-sense-fractions-decimals-percentages-0023
+    lesson: lesson-arithmetic-number-sense-decimal-and-percent-conversions
+    keyPoint: 1
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      An instrument records $1.275$ liters. Express this quantity as a single fraction in simplest form.
+    choices:
+      - text: '$\dfrac{51}{40}$'
+        correct: true
+      - text: '$\dfrac{11}{40}$'
+        rationale: |
+          This converts only the decimal part. The whole liter is part of the reading too. Include the digit before the point.
+      - text: '$\dfrac{51}{4}$'
+        rationale: |
+          This uses hundredths for a three-place decimal. The resulting quantity is ten times too large. Count the places before simplifying.
+      - text: '$\dfrac{1275}{1000}$'
+        rationale: |
+          This has the right value but is not simplified. Both numbers divide by twenty-five. Reduce the fraction fully.
+    explanation: |
+      Write $1.275=\dfrac{1275}{1000}$. Divide both numbers by $25$ to get $\dfrac{51}{40}$.
+
+  - id: q-arithmetic-number-sense-fractions-decimals-percentages-0024
+    lesson: lesson-arithmetic-number-sense-fractions-and-mixed-forms
+    keyPoint: 1
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      An office completed $\dfrac{7}{16}$ of a project. Which decimal and percentage represent the completed share?
+    choices:
+      - text: '$0.4375$ and $43.75\%$'
+        correct: true
+      - text: '$0.4375$ and $4.375\%$'
+        rationale: |
+          This shifts only one place when converting the decimal to percent. Percent uses a base of one hundred. Move two places.
+      - text: '$0.04375$ and $4.375\%$'
+        rationale: |
+          This puts the quotient one decimal place too far left. Both forms match each other but not the fraction. Check the division of seven by sixteen.
+      - text: '$0.5625$ and $56.25\%$'
+        rationale: |
+          This converts the unfinished share. That is nine sixteenths. Check that the question asks for the completed share.
+    explanation: |
+      Divide $7$ by $16$ to get $0.4375$. Then $0.4375\times100=43.75$, so the completed share is $43.75\%$.
+
+  - id: q-arithmetic-number-sense-fractions-decimals-percentages-0025
+    lesson: lesson-arithmetic-number-sense-fractions-and-mixed-forms
+    keyPoint: 2
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      Evaluate $1.25-\dfrac{3}{8}+12.5\%$ and express the result as a decimal.
+    choices:
+      - text: '$1.0$'
+        correct: true
+      - text: '$0.75$'
+        rationale: |
+          This subtracts the percentage instead of adding it. All conversions may be correct. Check the final operation sign.
+      - text: '$1.875$'
+        rationale: |
+          This reads twelve and a half percent as one rather than one eighth. Percent means divide by one hundred. Convert the rate before adding.
+      - text: '$13.375$'
+        rationale: |
+          This adds twelve and a half without dividing by one hundred. A percentage is not a plain number of the same size. Convert it first.
+    explanation: |
+      Convert $\dfrac{3}{8}=0.375$ and $12.5\%=0.125$. Then $1.25-0.375+0.125=0.875+0.125=1.0$.
+
+  - id: q-arithmetic-number-sense-fractions-decimals-percentages-0026
+    lesson: lesson-arithmetic-number-sense-multiplying-and-dividing-decimals
+    keyPoint: 1
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A rectangular label measures $0.48$ meter by $0.075$ meter. What is its area in square meters?
+    choices:
+      - text: '$0.036$'
+        correct: true
+      - text: '$0.36$'
+        rationale: |
+          This places the point one place too far right. Both factors are less than one. Count their five decimal places in all.
+      - text: '$0.0036$'
+        rationale: |
+          This places the point one place too far left. Leading zeros can cause an extra shift. Count the decimal places in the factors.
+      - text: '$3.6$'
+        rationale: |
+          This keeps only two decimal places in the product. That ignores the three places in the second factor. Add both counts.
+    explanation: |
+      Multiply $48\times75=3600$. The factors have $2+3=5$ decimal places. Thus $0.48\times0.075=0.03600=0.036$ square meter.
+
+  - id: q-arithmetic-number-sense-fractions-decimals-percentages-0027
+    lesson: lesson-arithmetic-number-sense-multiplying-and-dividing-decimals
+    keyPoint: 1
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A machine dispenses $2.35$ liters per cycle. How many liters does it dispense during $1.2$ cycles at the same rate?
+    choices:
+      - text: '$2.82$'
+        correct: true
+      - text: '$28.2$'
+        rationale: |
+          This puts only two decimal places in the whole-number product. The factors have three places in all. Count both factors.
+      - text: '$0.282$'
+        rationale: |
+          This uses four decimal places instead of three. The product becomes too small. A factor above one should increase the amount.
+      - text: '$2.397$'
+        rationale: |
+          This treats the second factor as one plus two hundredths. The digit two is in the tenths place. Check the value of the second factor.
+    explanation: |
+      Multiply $235\times12=2820$. The factors have $2+1=3$ decimal places. The amount is $2.820=2.82$ liters.

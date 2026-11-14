@@ -461,3 +461,25 @@ questions:
     explanation: |
       The notebooks cost $4(35)=140$ pesos, and the pens cost $2(20)=40$ pesos. The coupon leaves $140+40-30=150$ pesos. Each of three students pays $150\div3=50$ pesos.
     approved: false
+
+  - id: q-arithmetic-number-sense-order-of-operations-0021
+    lesson: lesson-arithmetic-number-sense-signed-integers-and-substitution
+    keyPoint: 1
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      Evaluate $-28\div7-3(-5)+(-6)$.
+    choices:
+      - text: '$5$'
+        correct: true
+      - text: '$-25$'
+        rationale: |
+          This subtracts fifteen instead of subtracting negative fifteen. The product has one negative factor. Check its sign before subtracting.
+      - text: '$17$'
+        rationale: |
+          This changes the final negative six to positive six. Adding a negative means subtracting its magnitude. Keep the sign of the final term.
+      - text: '$13$'
+        rationale: |
+          This makes negative twenty-eight divided by seven positive. Different signs give a negative quotient. Check the first operation.
+    explanation: |
+      Divide and multiply first: $-28\div7=-4$ and $3(-5)=-15$. Then $-4-(-15)+(-6)=-4+15-6=5$.

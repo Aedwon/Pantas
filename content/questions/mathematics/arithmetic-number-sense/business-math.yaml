@@ -30,23 +30,24 @@ questions:
     lesson: lesson-arithmetic-number-sense-markup-on-cost
     keyPoint: 2
     type: word-problem
-    difficulty: easy
+    difficulty: exam
     stem: |
-      A hypothetical jeepney fare is $\text{₱}13.00$ for the first 4 km and $\text{₱}1.80$ for each additional kilometer **or fraction thereof**. Mang Juan travels 11.5 km. How much is his fare?
+      A supplier charges Php $640$ for an item. A retailer adds $25\%$ of cost to set its listed price. The retailer also pays Php $45$ in selling expenses for that item. If it sells at the listed price, what is its profit after all stated costs?
     choices:
-      - text: '$\text{₱}26.50$'
-        rationale: |
-          This charges $7.5$ extra kilometers without rounding up. Charging exact distance seems fair. Check the stated rule for a partial kilometer.
-      - text: '$\text{₱}27.40$'
+      - text: 'Php $115$'
         correct: true
-      - text: '$\text{₱}33.70$'
+      - text: 'Php $160$'
         rationale: |
-          This computes $13+11.5(1.80)$, charging the whole distance without rounding. The trip length and rate are both given. Check which distance the base fare already covers.
-      - text: '$\text{₱}20.70$'
+          This reports the markup alone. It looks like the gain before other costs. Subtract the selling expenses too.
+      - text: 'Php $205$'
         rationale: |
-          This computes $11.5(1.80)$ and omits the base fare. Multiplying distance by a rate seems direct. Check that the price has both a base and an extra-distance part.
+          This adds the selling expenses to the markup. Expenses use up money. Check that they reduce profit.
+      - text: 'Php $800$'
+        rationale: |
+          This reports the listed price. That includes money used to buy the item. Subtract both stated costs.
     explanation: |
-      The extra distance is $11.5-4=7.5$ km. The rule charges any fraction as a whole kilometer, so charge for $8$ extra kilometers. The fare is $13+8(1.80)=27.40$ pesos.
+      The markup is $640(0.25)=160$ pesos. The listed price is $640+160=800$ pesos. Profit is $800-640-45=115$ pesos.
+
 
   - id: q-arithmetic-number-sense-business-math-0003
     lesson: lesson-arithmetic-number-sense-simple-interest
@@ -296,21 +297,22 @@ questions:
     type: word-problem
     difficulty: exam
     stem: |
-      Mang Cardo's jeepney makes 8 round trips daily. Assume each **one-way leg** carries 15 paying passengers at $\text{₱}13$ each. Daily expenses are $\text{₱}800$ boundary plus $\text{₱}950$ fuel. What is the net daily cash income after these expenses?
+      A shop lists an item at Php $1,500$ after adding a markup of $25\%$ based on its cost. The item sells at that price with no other expenses. What percentage of the selling price is the markup?
     choices:
-      - text: '$\text{₱}1,370.00$'
+      - text: '$20\%$'
         correct: true
-      - text: '$-\text{₱}190.00$'
+      - text: '$25\%$'
         rationale: |
-          This counts eight one-way legs instead of sixteen. The stem states eight trips. Check that each round trip has two legs.
-      - text: '$\text{₱}2,320.00$'
+          This repeats the rate based on cost. The question changes the base to selling price. Divide the markup by that price.
+      - text: '$80\%$'
         rationale: |
-          This subtracts the boundary payment but omits fuel. The boundary is one stated expense. Check that every listed expense is deducted.
-      - text: '$\text{₱}3,120.00$'
+          This reports cost as a share of selling price. The markup is the amount added to cost. Use that difference as the numerator.
+      - text: '$125\%$'
         rationale: |
-          This reports fare revenue before expenses. That is the full cash collected. Check that net income removes costs.
+          This gives selling price as a percentage of cost. Both the numerator and base have changed. Check which amount is compared with selling price.
     explanation: |
-      Eight round trips have $8(2)=16$ one-way legs. There are $16(15)=240$ paid rides. Revenue is $240(13)=3120$ pesos. Expenses total $800+950=1750$ pesos. The net income is $3120-1750=1370$ pesos.
+      The listed price is $1.25$ times cost, so cost is $1500\div1.25=1200$ pesos. The markup is $1500-1200=300$ pesos. Its share of selling price is $300\div1500=0.20=20\%$.
+
 
   - id: q-arithmetic-number-sense-business-math-0015
     lesson: lesson-arithmetic-number-sense-simple-interest
@@ -448,3 +450,47 @@ questions:
     explanation: |
       The Rule of $72$ estimates doubling time by dividing $72$ by the annual percentage rate. Thus $72\div9=8$ years.
     approved: false
+
+  - id: q-arithmetic-number-sense-business-math-0021
+    lesson: lesson-arithmetic-number-sense-commission-and-sales-tax
+    keyPoint: 2
+    type: word-problem
+    difficulty: exam
+    stem: |
+      An office purchases $8$ identical supplies at a taxable price of Php $375$ each. A hypothetical sales tax of $6\%$ is added to the full taxable amount. What is the total bill?
+    choices:
+      - text: 'Php $3,180$'
+        correct: true
+      - text: 'Php $3,000$'
+        rationale: |
+          This reports the taxable amount before tax. The tax is added to that amount. Include it in the bill.
+      - text: 'Php $3,022.50$'
+        rationale: |
+          This taxes just one supply. All eight are taxable. Find the full taxable amount first.
+      - text: 'Php $2,820$'
+        rationale: |
+          This subtracts the tax. A tax added to a price increases the bill. Check the direction of the change.
+    explanation: |
+      The taxable amount is $8(375)=3000$ pesos. Tax is $3000(0.06)=180$ pesos. The bill is $3000+180=3180$ pesos.
+
+  - id: q-arithmetic-number-sense-business-math-0022
+    lesson: lesson-arithmetic-number-sense-commission-and-sales-tax
+    keyPoint: 2
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A quoted taxable price is Php $7,500$. A hypothetical sales tax of $4\%$ is added. The buyer pays with Php $8,000$. How much change is due?
+    choices:
+      - text: 'Php $200$'
+        correct: true
+      - text: 'Php $300$'
+        rationale: |
+          This reports the tax instead of the change. The tax is a needed step. Subtract the total bill from the payment.
+      - text: 'Php $500$'
+        rationale: |
+          This ignores the tax. It subtracts only the quoted price from payment. Include tax before finding change.
+      - text: 'Php $800$'
+        rationale: |
+          This subtracts the tax from the quoted price. The tax is added to the price. Check the full amount due.
+    explanation: |
+      Tax is $7500(0.04)=300$ pesos. The total bill is $7500+300=7800$ pesos. Change is $8000-7800=200$ pesos.

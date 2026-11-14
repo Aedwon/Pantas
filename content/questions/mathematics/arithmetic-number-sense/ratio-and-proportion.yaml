@@ -448,3 +448,25 @@ questions:
     explanation: |
       The difference is $7-4=3$ parts, so one part is $21\div3=7$ meters. The total has $4+7=11$ parts. Its length is $11(7)=77$ meters.
     approved: false
+
+  - id: q-arithmetic-number-sense-ratio-and-proportion-0021
+    lesson: lesson-arithmetic-number-sense-inverse-proportion-and-remaining-work
+    keyPoint: 2
+    type: word-problem
+    difficulty: exam
+    stem: |
+      Twelve workers can complete a project in $18$ days. After all $12$ work for $6$ days, $4$ workers leave. If every worker has the same constant rate, how many more days will the remaining workers need?
+    choices:
+      - text: '$18$ days'
+        correct: true
+      - text: '$27$ days'
+        rationale: |
+          This gives the smaller group the entire project. Some work is already complete. Find the remaining worker-days first.
+      - text: '$12$ days'
+        rationale: |
+          This keeps the original remaining time. Fewer workers now share the work. Divide the remaining worker-days by the new group size.
+      - text: '$8$ days'
+        rationale: |
+          This makes time decrease with the worker count. For fixed remaining work, fewer workers need more time. Use a constant product.
+    explanation: |
+      Total work is $12(18)=216$ worker-days. Completed work is $12(6)=72$, leaving $216-72=144$ worker-days. There are $12-4=8$ workers left. They need $144\div8=18$ more days.

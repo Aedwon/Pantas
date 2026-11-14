@@ -448,3 +448,47 @@ questions:
     explanation: |
       A shared factor cannot use a higher exponent than either number contains. For $2$, use the smaller exponent $2$. For $3$, use the smaller exponent $1$. The GCF is $2^2(3)=12$.
     approved: false
+
+  - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0021
+    lesson: lesson-arithmetic-number-sense-same-remainder-numbers
+    keyPoint: 1
+    type: which-is-true
+    difficulty: exam
+    stem: |
+      Which expression lists every nonnegative integer $N$ that leaves remainder $2$ when divided by $4$, $6$, or $9$, with $k=0,1,2,\ldots$?
+    choices:
+      - text: '$N=36k+2$'
+        correct: true
+      - text: '$N=216k+2$'
+        rationale: |
+          This uses the product of the divisors. It gives some valid numbers but skips others. Use their least common multiple to list every answer.
+      - text: '$N=18k+2$'
+        rationale: |
+          This omits the needed factor of four. Eighteen is a multiple of six and nine only. Check all divisors.
+      - text: '$N=36k-2$'
+        rationale: |
+          This subtracts the remainder. Subtracting two from N must leave a common multiple. Add two back to that multiple.
+    explanation: |
+      The prime factorizations are $4=2^2$, $6=2(3)$, and $9=3^2$. Their LCM is $2^2(3^2)=36$. Since $N-2$ is a multiple of all three, $N=36k+2$.
+
+  - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-0022
+    lesson: lesson-arithmetic-number-sense-same-remainder-numbers
+    keyPoint: 1
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      Two consecutive numbers in the increasing list of nonnegative integers that leave remainder $4$ upon division by $6$, $8$, and $12$ are selected. What is their difference?
+    choices:
+      - text: '$24$'
+        correct: true
+      - text: '$4$'
+        rationale: |
+          This reports the common remainder. The remainder shifts every number by the same amount. Find the spacing from the common multiples.
+      - text: '$2$'
+        rationale: |
+          This uses the greatest common factor. The spacing must be divisible by every divisor. Use the least common multiple.
+      - text: '$576$'
+        rationale: |
+          This multiplies the divisors. That gives a common multiple but not the smallest spacing. Remove repeated prime factors.
+    explanation: |
+      The LCM of $6=2(3)$, $8=2^3$, and $12=2^2(3)$ is $2^3(3)=24$. The list has the form $N=24k+4$. Increasing $k$ by $1$ increases $N$ by $24$.

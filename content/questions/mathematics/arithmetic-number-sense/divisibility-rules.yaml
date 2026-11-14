@@ -455,3 +455,69 @@ questions:
     explanation: |
       Use the tests for $3$ and $4$, whose product is $12$. The ending $d0$ divides by $4$ when $d$ is even. The digit sum $5+d$ divides by $3$ when $d=1,4,7$. Only $4$ is even among these, so exactly one digit works.
     approved: false
+
+  - id: q-arithmetic-number-sense-divisibility-rules-0021
+    lesson: lesson-arithmetic-number-sense-digit-sums-and-six
+    keyPoint: 2
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      The five-digit number $42d18$ is divisible by $6$. What is the greatest possible value of the digit $d$?
+    choices:
+      - text: '$9$'
+        correct: true
+      - text: '$8$'
+        rationale: |
+          This requires the missing digit to be even. Only the final digit controls evenness. Check the digit sum for three.
+      - text: '$6$'
+        rationale: |
+          This is a valid digit but is not the greatest. Check all digit values that make the sum a multiple of three.
+      - text: '$3$'
+        rationale: |
+          This takes the first positive digit that works. The question asks for the greatest. Test the larger valid digits too.
+    explanation: |
+      The final digit is $8$, so the number is even. Its digit sum is $4+2+d+1+8=15+d$. This is divisible by $3$ for $d=0,3,6,9$. The greatest is $9$.
+
+  - id: q-arithmetic-number-sense-divisibility-rules-0022
+    lesson: lesson-arithmetic-number-sense-last-digit-divisibility
+    keyPoint: 2
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      An inventory count $N$ is a multiple of $5$ but not a multiple of $10$. If $N=638d$ for a digit $d$, what is $d$?
+    choices:
+      - text: '$5$'
+        correct: true
+      - text: '$0$'
+        rationale: |
+          This passes the five test but also passes the ten test. Both conditions must hold. Reject endings of zero.
+      - text: '$2$'
+        rationale: |
+          This uses the last-digit test for two. Evenness does not guarantee divisibility by five. Check for a final zero or five.
+      - text: '$8$'
+        rationale: |
+          This repeats the preceding digit. That does not test divisibility by five. Check the final digit alone.
+    explanation: |
+      A multiple of $5$ ends in $0$ or $5$. An ending of $0$ would also make it a multiple of $10$. Therefore $d=5$.
+
+  - id: q-arithmetic-number-sense-divisibility-rules-0023
+    lesson: lesson-arithmetic-number-sense-last-digit-divisibility
+    keyPoint: 2
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      A clerk can increase a count of $7,843$ by a whole number from $1$ through $9$. How much must be added so that the resulting count is divisible by both $5$ and $10$?
+    choices:
+      - text: '$7$'
+        correct: true
+      - text: '$2$'
+        rationale: |
+          This reaches an ending of five. That passes the five test only. Both tests require an ending of zero.
+      - text: '$5$'
+        rationale: |
+          This adds the divisor instead of finding the next final zero. Adding five does not make every number a multiple of five. Check the resulting last digit.
+      - text: '$3$'
+        rationale: |
+          This repeats the current last digit as the increase. The new ending would be six. Find the amount needed to reach zero.
+    explanation: |
+      Both tests pass when the last digit is $0$. The next such count is $7850$, since $7843+7=7850$. Only an increase of $7$ in the allowed range gives a final zero.

@@ -448,3 +448,223 @@ questions:
     explanation: |
       The first two deposits total $80+40=120$ pesos. The infinite geometric total is $80\div\left(1-\dfrac{1}{2}\right)=160$ pesos. Their fraction is $\dfrac{120}{160}=\dfrac{3}{4}$.
     approved: false
+
+  - id: q-arithmetic-number-sense-sequences-and-series-0021
+    lesson: lesson-arithmetic-number-sense-arithmetic-sequence-terms
+    keyPoint: 2
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      A clerk processes files numbered $18,24,30,\ldots,246$. How many file numbers appear in this arithmetic sequence?
+    choices:
+      - text: '$39$'
+        correct: true
+      - text: '$38$'
+        rationale: |
+          This counts the gaps between terms. The first term also counts as a file number. Add one to the gap count.
+      - text: '$41$'
+        rationale: |
+          This divides the last term by the difference. That assumes the sequence starts at six. Use the stated first term.
+      - text: '$40$'
+        rationale: |
+          This adds two to the gap count. Only the first term needs adding after counting gaps. Add one instead.
+    explanation: |
+      The common difference is $6$. There are $(246-18)\div6=38$ gaps. Include the first term to get $38+1=39$ file numbers.
+
+  - id: q-arithmetic-number-sense-sequences-and-series-0022
+    lesson: lesson-arithmetic-number-sense-fibonacci-type-sequence-terms
+    keyPoint: 1
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      Each term after the first two in a sequence equals the sum of the preceding two terms. If the fourth term is $29$ and the fifth is $47$, what is the second term?
+    choices:
+      - text: '$11$'
+        correct: true
+      - text: '$18$'
+        rationale: |
+          This finds the third term and stops. One more backward step is needed. Subtract the third term from the fourth.
+      - text: '$76$'
+        rationale: |
+          This adds the given terms to find the sixth. The requested term comes earlier. Work backward by subtraction.
+      - text: '$7$'
+        rationale: |
+          This goes back to the first term, which is eighteen minus eleven. The question asks for the second term. Stop at the requested position.
+    explanation: |
+      The third term is $47-29=18$. The fourth term is the sum of the second and third, so the second is $29-18=11$.
+
+  - id: q-arithmetic-number-sense-sequences-and-series-0023
+    lesson: lesson-arithmetic-number-sense-finding-number-patterns
+    keyPoint: 1
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      What number most reasonably follows $6,11,19,30,44$?
+    choices:
+      - text: '$61$'
+        correct: true
+      - text: '$58$'
+        rationale: |
+          This repeats the last increase of fourteen. The increases themselves grow. Check the differences between increases.
+      - text: '$64$'
+        rationale: |
+          This skips the next increase of seventeen and uses twenty. Each increase rises by three. Continue one step only.
+      - text: '$55$'
+        rationale: |
+          This repeats the earlier increase of eleven. Check the most recent differences before extending the pattern.
+    explanation: |
+      The differences are $5,8,11,14$. Each rises by $3$, so the next is $17$. The next term is $44+17=61$.
+
+  - id: q-arithmetic-number-sense-sequences-and-series-0024
+    lesson: lesson-arithmetic-number-sense-finding-number-patterns
+    keyPoint: 1
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      What number most reasonably completes $3,12,10,40,38,152,\ldots$?
+    choices:
+      - text: '$150$'
+        correct: true
+      - text: '$608$'
+        rationale: |
+          This multiplies by four again. The rule alternates two operations. Subtraction follows the last multiplication.
+      - text: '$154$'
+        rationale: |
+          This adds two after multiplying. The earlier small changes decrease the terms. Check their signs.
+      - text: '$144$'
+        rationale: |
+          This subtracts eight instead of two. The subtraction stays fixed even though the terms grow. Check both earlier subtraction steps.
+    explanation: |
+      The steps alternate between multiplying by $4$ and subtracting $2$: $3(4)=12$, $12-2=10$, $10(4)=40$, $40-2=38$, and $38(4)=152$. Next is $152-2=150$.
+
+  - id: q-arithmetic-number-sense-sequences-and-series-0025
+    lesson: lesson-arithmetic-number-sense-finding-number-patterns
+    keyPoint: 1
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      The increases between successive terms follow consecutive positive square numbers. What number follows $2,3,7,16,32$?
+    choices:
+      - text: '$57$'
+        correct: true
+      - text: '$48$'
+        rationale: |
+          This repeats the last increase of sixteen. The increases are consecutive squares. Use the next square.
+      - text: '$52$'
+        rationale: |
+          This increases the last difference by four. Consecutive squares do not have a fixed difference of four. List the next square.
+      - text: '$68$'
+        rationale: |
+          This skips the square of five and adds the square of six. Check which square comes after sixteen.
+    explanation: |
+      The increases are $1,4,9,16$, which are $1^2,2^2,3^2,4^2$. The next is $5^2=25$, giving $32+25=57$.
+
+  - id: q-arithmetic-number-sense-sequences-and-series-0026
+    lesson: lesson-arithmetic-number-sense-finite-geometric-series
+    keyPoint: 2
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      A geometric sequence has $12$ terms, a first term of $18$, and a common ratio of $1$. What is the sum of its last $5$ terms?
+    choices:
+      - text: '$90$'
+        correct: true
+      - text: '$216$'
+        rationale: |
+          This adds all twelve terms. The question asks for only the last five. Count the requested terms.
+      - text: '$18$'
+        rationale: |
+          This reports a single term. A ratio of one keeps each term unchanged. Add all five requested terms.
+      - text: '$23$'
+        rationale: |
+          This adds the term count to the term value. The same amount occurs five times. Multiply instead.
+    explanation: |
+      A ratio of $1$ makes every term equal to $18$. The last five therefore sum to $5(18)=90$.
+
+  - id: q-arithmetic-number-sense-sequences-and-series-0027
+    lesson: lesson-arithmetic-number-sense-finite-geometric-series
+    keyPoint: 1
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A fund receives Php $2,000$ in the first month. Each of the next four monthly deposits is twice the previous deposit. What is the total deposited over the five months?
+    choices:
+      - text: 'Php $62,000$'
+        correct: true
+      - text: 'Php $32,000$'
+        rationale: |
+          This reports the fifth deposit alone. That is the last term, not the total. Add all five deposits.
+      - text: 'Php $60,000$'
+        rationale: |
+          This leaves out the first deposit. It is part of the five-month period. Include it in the sum.
+      - text: 'Php $126,000$'
+        rationale: |
+          This includes a sixth deposit. Four later deposits follow the first. Count five terms in all.
+    explanation: |
+      The five deposits are $2000,4000,8000,16000,32000$ pesos. Their sum is $2000+4000+8000+16000+32000=62000$ pesos.
+
+  - id: q-arithmetic-number-sense-sequences-and-series-0028
+    lesson: lesson-arithmetic-number-sense-finite-geometric-series
+    keyPoint: 1
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      Find the sum of the first four terms of a geometric sequence with first term $64$ and common ratio $\dfrac{1}{2}$.
+    choices:
+      - text: '$120$'
+        correct: true
+      - text: '$128$'
+        rationale: |
+          This uses the infinite sum. Only four terms are requested. Stop after the fourth term.
+      - text: '$8$'
+        rationale: |
+          This reports the fourth term. The question asks for a sum. Add the earlier terms too.
+      - text: '$112$'
+        rationale: |
+          This stops after three terms. Four terms are requested. Include the fourth term as well.
+    explanation: |
+      The terms are $64,32,16,8$. Add them to get $64+32+16+8=120$.
+
+  - id: q-arithmetic-number-sense-sequences-and-series-0029
+    lesson: lesson-arithmetic-number-sense-odd-and-even-position-patterns
+    keyPoint: 1
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      What two numbers most reasonably follow $4,81,8,27,16,9$ in that order?
+    choices:
+      - text: '$32,3$'
+        correct: true
+      - text: '$32,6$'
+        rationale: |
+          This subtracts three in the even positions. Those terms divide by three. Check both earlier even-position changes.
+      - text: '$24,3$'
+        rationale: |
+          This adds eight in the odd positions. Those terms double. Check all odd-position terms.
+      - text: '$3,32$'
+        rationale: |
+          This reverses the two next positions. The seventh position is odd. Continue the odd-position group first.
+    explanation: |
+      Odd-position terms are $4,8,16$, each twice the last, so the next is $32$. Even-position terms are $81,27,9$, each divided by $3$, so the next is $3$.
+
+  - id: q-arithmetic-number-sense-sequences-and-series-0030
+    lesson: lesson-arithmetic-number-sense-odd-and-even-position-patterns
+    keyPoint: 1
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      Each of the odd-position and even-position terms forms its own arithmetic sequence. Find the missing term in $7,50,12,43,17,\square,22,29$.
+    choices:
+      - text: '$36$'
+        correct: true
+      - text: '$22$'
+        rationale: |
+          This continues the odd-position group. The blank is in the sixth position, which is even. Use the even-position terms.
+      - text: '$38$'
+        rationale: |
+          This subtracts five from the preceding even-position term. Five is the odd-position increase. Find the even-position difference.
+      - text: '$29$'
+        rationale: |
+          This copies the next even-position term into the blank. The blank is one step before it. Add seven to work back one step.
+    explanation: |
+      The even-position terms are $50,43,\square,29$. Their common difference is $43-50=-7$. The missing term is $43-7=36$, and $36-7=29$ checks the last step.
