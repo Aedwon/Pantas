@@ -3531,3 +3531,7 @@ Fable 5.2 ruled under Aedwon's standing delegation. The manager relayed both rul
 - Next: the security lead adds the TTL policies for the new purgeAt fields.
 - Velocity E-068: see the row (timer).
 
+
+### Nov 14, TTL policies for R1's expiry fields (security fixes lead)
+
+- After the integrator put R1 on prod (13:11 UTC, build 2795918529-d876405d94f9), Firestore TTL policies were added on staging (active 13:19 UTC) and then prod (active 13:23 UTC): `purgeAt` on signInChallenges, signInLimits, signInRequests and wrapped_shares; `purgeAfter` on the ceiling `shards` collection group. Firestore deletes a document within about a day after its time passes. Rollback: `gcloud firestore fields ttls update <field> --collection-group=<group> --disable-ttl`.
