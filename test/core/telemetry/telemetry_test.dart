@@ -90,7 +90,17 @@ void main() {
       // Section 3 of the platform foundations spec and Telemetry 02 plan.
       // Twelve at launch, plus the five study-loop events of the load speed
       // and telemetry spec ("Where do students stop in the study loop?").
-      expect(TelemetryEvent.values, hasLength(17));
+      // The screen view event of the usage telemetry step (2026-11-14)
+      // answers "where do students stop and what do they open first".
+      expect(TelemetryEvent.values, hasLength(18));
+    });
+
+    test('the screen view event avoids the reserved screen_view name', () {
+      expect(TelemetryEvent.screenViewed.name, 'pantas_screen_view');
+      expect(
+        () => assertPropertiesAllowed({'screen': 'home'}),
+        returnsNormally,
+      );
     });
   });
 

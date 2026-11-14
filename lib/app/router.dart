@@ -8,6 +8,8 @@ import 'package:pantas/core/auth/beta_access.dart';
 import 'package:pantas/app/sign_in/email_sign_in_page.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/app/web_route_shell.dart';
+import 'package:pantas/app/screen_view_tracker.dart';
+import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 
 import 'package:pantas/app/build_info.dart';
@@ -169,10 +171,19 @@ final routerProvider = Provider<GoRouter>((ref) {
       updateObserver: updates == null ? null : observer,
     ),
   );
+  // Records each screen the student opens, through the consent gate. The
+  // gate is read at each event, so a change of choice applies at once.
+  final detachScreenViews = attachScreenViewTracker(
+    router,
+    () => ref.read(telemetryProvider),
+  );
   if (updates != null) {
     ref.onDispose(observeUpdateRoutes(router, updates));
   }
-  ref.onDispose(router.dispose);
+  ref.onDispose(() {
+    detachScreenViews();
+    router.dispose();
+  });
   return router;
 });
 
