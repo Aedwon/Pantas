@@ -93,7 +93,7 @@ questions:
 
     '
   choices:
-  - text: Its value, the relationship, and any expected favor
+  - text: Salary, how often gifts are given, and expected benefits
     correct: true
   - text: Its low price alone, regardless of an expected official favor
     rationale: 'This treats nominal value as a complete exemption. Low-value tokens can be allowed. Check the giver''s purpose too.
@@ -107,7 +107,7 @@ questions:
     rationale: 'This treats courteous presentation as legality. Gifts often arrive with thanks. Check the actual value and transaction.
 
       '
-  explanation: 'The rules distinguish gifts by value, relationship, and purpose. A gift linked to an expected official favor is not made acceptable merely by its label.
+  explanation: 'Rule X, Section 1(f)(1) of the Rules Implementing RA 6713 says nominal value depends on the circumstances of each case, taking into account the salary of the official or employee, how often such gifts are given, the expectation of benefits, and similar factors.
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0010
