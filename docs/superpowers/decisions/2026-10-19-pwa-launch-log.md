@@ -3492,3 +3492,14 @@ Fable 5.2 ruled under Aedwon's standing delegation. The manager relayed both rul
   2. Next-topic card: Option B, the card is not touched. The approved card's third line is the next lesson's summary; "34 lessons left" style counts after the split read badly and "left" is wrong for an unstarted topic.
   3. Departures: (a) chevrons on every row are a static-board limit, not a change; this build does not touch chevrons (approved Study: hover only, always on the Resume row). (b) Undrawn surfaces get label changes only: web contents dropdown uses the phone contents rows under Option 1 ("Reading" stays at the row end, the "4 of 8" count unchanged); phone ending "Still unread" rows get the label as a second line and lose minutes; phone quiz screen unchanged, any count equals the session's real length. (c) Pull-up accepted (written rule 2 protects approved motion); the pull-up line gains the next lesson's label under its title; on the web Next card the label replaces minutes.
   Also: the phone reader header line wraps between words at 390 and is never cut. Velocity E-064.
+
+### Nov 14, App Check enforced on staging; the prod clock starts (security fixes lead)
+
+- Manager, relaying the order: start the one-week staging clock now, one product at a time, and log the date.
+- Before: 7 days of App Check results showed only valid tokens (staging: 359 sign-in requests; prod: 133 sign-in and 7 upload requests), with none missing or invalid, so the sign-in SDK does attach App Check tokens. No Firestore App Check results were recorded on either project.
+- Enforced on pantas-staging, each checked before the next with a throwaway account and a short-lived debug token (both deleted after each check):
+  - Storage at 12:21 UTC, effective by 12:28: upload with a token 200, without 401.
+  - Firestore at 12:28 UTC, effective by 12:30: read with a token allowed, without 403.
+  - Auth at 12:31 UTC, effective by 12:35: anonymous sign-up with a token 200, without 401.
+- The integrator was told first; its staging proofs use its registered debug token. Rollback per product: set the service back to unenforced (takes effect within about 15 minutes).
+- **Prod enforcement: earliest Nov 21, 2026**, one product at a time (Storage, then Firestore, then Auth, about 48 hours apart, per the critical path), only if the staging App Check results stay clean for the week and prod shows at least 99% valid requests per product. The "updates take effect at once" release is already on prod.
