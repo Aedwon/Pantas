@@ -1281,6 +1281,31 @@
               "sections": []
             },
             {
+              "title": "Article IV: Citizenship by Parentage",
+              "slug": "citizenship-by-parentage",
+              "sections": []
+            },
+            {
+              "title": "Article IV: Natural-Born and Naturalized Citizens",
+              "slug": "natural-born-and-naturalized-citizens",
+              "sections": []
+            },
+            {
+              "title": "Article IV: Keeping and Regaining Citizenship",
+              "slug": "keeping-and-regaining-citizenship",
+              "sections": []
+            },
+            {
+              "title": "Article V: Domestic Voting Qualifications",
+              "slug": "domestic-voting-qualifications",
+              "sections": []
+            },
+            {
+              "title": "Article V: Ballot Protection and Overseas Voting",
+              "slug": "ballot-protection-and-overseas-voting",
+              "sections": []
+            },
+            {
               "title": "Article XVII: Amendment or Revision",
               "slug": "amendment-or-revision",
               "sections": []
@@ -1373,6 +1398,36 @@
             {
               "title": "Article XI: Ombudsman Investigations and Remedies",
               "slug": "ombudsman-investigations-and-remedies",
+              "sections": []
+            },
+            {
+              "title": "The 1987 Constitution: Preamble and Article Count",
+              "slug": "constitution-preamble-and-article-count",
+              "sections": []
+            },
+            {
+              "title": "The 1987 Constitution: Articles I to V",
+              "slug": "constitution-articles-i-to-v",
+              "sections": []
+            },
+            {
+              "title": "The 1987 Constitution: Department Articles",
+              "slug": "constitution-department-articles",
+              "sections": []
+            },
+            {
+              "title": "The 1987 Constitution: Commission Articles",
+              "slug": "constitution-commission-articles",
+              "sections": []
+            },
+            {
+              "title": "The 1987 Constitution: Local Government and Welfare",
+              "slug": "constitution-local-government-and-welfare",
+              "sections": []
+            },
+            {
+              "title": "The 1987 Constitution: Other Fields and Change",
+              "slug": "constitution-other-fields-and-change",
               "sections": []
             }
           ]

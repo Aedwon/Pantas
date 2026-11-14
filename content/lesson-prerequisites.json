@@ -299,8 +299,6 @@
     "reason": "Understanding continuing government duties and emergency limits makes the comparison with humanitarian law easier. This lesson explains those principles again."
    }
   ],
-  "lesson-philippine-constitution-citizenship-and-suffrage": [],
-  "lesson-philippine-constitution-the-articles-in-outline": [],
   "lesson-spatial-abstract-reasoning-figure-grouping": [],
   "lesson-spatial-abstract-reasoning-figure-matrices": [
    {
@@ -686,7 +684,7 @@
     "reason": "The voting-threshold examples assume students can multiply a whole number by a fraction. This lesson identifies the calculation but does not teach fraction arithmetic. Lead review: downgraded from required; the arithmetic is incidental to this lesson's teaching."
    },
    {
-    "lesson": "lesson-philippine-constitution-citizenship-and-suffrage",
+    "lesson": "lesson-philippine-constitution-ballot-protection-and-overseas-voting",
     "strength": "helpful",
     "reason": "Knowing the special election-of-citizenship rule clarifies natural-born qualifications across offices. This lesson defines natural-born status but refers elsewhere for that exception."
    }
@@ -892,6 +890,71 @@
   "lesson-philippine-constitution-ombudsman-investigations-and-remedies": [
    {
     "lesson": "lesson-philippine-constitution-impeachment-senate-trial-and-limits",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-citizenship-by-parentage": [],
+  "lesson-philippine-constitution-natural-born-and-naturalized-citizens": [
+   {
+    "lesson": "lesson-philippine-constitution-citizenship-by-parentage",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-keeping-and-regaining-citizenship": [
+   {
+    "lesson": "lesson-philippine-constitution-natural-born-and-naturalized-citizens",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-domestic-voting-qualifications": [
+   {
+    "lesson": "lesson-philippine-constitution-keeping-and-regaining-citizenship",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-ballot-protection-and-overseas-voting": [
+   {
+    "lesson": "lesson-philippine-constitution-domestic-voting-qualifications",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-constitution-preamble-and-article-count": [],
+  "lesson-philippine-constitution-constitution-articles-i-to-v": [
+   {
+    "lesson": "lesson-philippine-constitution-constitution-preamble-and-article-count",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-constitution-department-articles": [
+   {
+    "lesson": "lesson-philippine-constitution-constitution-articles-i-to-v",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-constitution-commission-articles": [
+   {
+    "lesson": "lesson-philippine-constitution-constitution-department-articles",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-constitution-local-government-and-welfare": [
+   {
+    "lesson": "lesson-philippine-constitution-constitution-commission-articles",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-constitution-other-fields-and-change": [
+   {
+    "lesson": "lesson-philippine-constitution-constitution-local-government-and-welfare",
     "strength": "required",
     "reason": "Read the previous part before this part."
    }

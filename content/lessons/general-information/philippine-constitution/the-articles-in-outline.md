@@ -7,6 +7,14 @@ topic: "topic-philippine-constitution"
 estimatedMinutes: 15
 isActive: true
 ordering: 1
+status: retired
+replacedBy:
+  - lesson-philippine-constitution-constitution-preamble-and-article-count
+  - lesson-philippine-constitution-constitution-articles-i-to-v
+  - lesson-philippine-constitution-constitution-department-articles
+  - lesson-philippine-constitution-constitution-commission-articles
+  - lesson-philippine-constitution-constitution-local-government-and-welfare
+  - lesson-philippine-constitution-constitution-other-fields-and-change
 ---
 
 ## Core Concept
