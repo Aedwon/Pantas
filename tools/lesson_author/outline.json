@@ -1192,8 +1192,38 @@
               "sections": []
             },
             {
+              "title": "Deductive Group Arguments",
+              "slug": "deductive-group-arguments",
+              "sections": []
+            },
+            {
+              "title": "Valid Conditional Forms",
+              "slug": "valid-conditional-forms",
+              "sections": []
+            },
+            {
+              "title": "Invalid Conditional Forms",
+              "slug": "invalid-conditional-forms",
+              "sections": []
+            },
+            {
               "title": "Word Analogies (Single and Double Analogies)",
               "slug": "word-analogies",
+              "sections": []
+            },
+            {
+              "title": "Parts, Types, and Products",
+              "slug": "analogy-parts-types-and-products",
+              "sections": []
+            },
+            {
+              "title": "Functions, Users, and Work",
+              "slug": "analogy-functions-users-and-work",
+              "sections": []
+            },
+            {
+              "title": "Meanings and Double Analogies",
+              "slug": "analogy-meanings-and-double-pairs",
               "sections": []
             },
             {
@@ -1202,8 +1232,43 @@
               "sections": []
             },
             {
+              "title": "Repeated and Changing Moves",
+              "slug": "sequence-moves",
+              "sections": []
+            },
+            {
+              "title": "Separate Positions and Alternating Operations",
+              "slug": "sequence-positions-and-operations",
+              "sections": []
+            },
+            {
+              "title": "Rules Using Earlier Terms",
+              "slug": "sequence-earlier-terms",
+              "sections": []
+            },
+            {
+              "title": "Letter Patterns",
+              "slug": "sequence-letter-patterns",
+              "sections": []
+            },
+            {
               "title": "Truth Tables and Propositional Logic",
               "slug": "truth-tables-propositional-logic",
+              "sections": []
+            },
+            {
+              "title": "Truth Tables, And, and Or",
+              "slug": "truth-tables-and-connectives",
+              "sections": []
+            },
+            {
+              "title": "Conditional Truth Values",
+              "slug": "conditional-truth-values",
+              "sections": []
+            },
+            {
+              "title": "Combined Truth Values",
+              "slug": "combined-truth-values",
               "sections": []
             }
           ]

@@ -6,6 +6,11 @@ subject: "subject-reasoning"
 topic: "topic-logical-verbal-reasoning"
 estimatedMinutes: 12
 isActive: true
+status: retired
+replacedBy:
+  - lesson-logical-verbal-reasoning-analogy-parts-types-and-products
+  - lesson-logical-verbal-reasoning-analogy-functions-users-and-work
+  - lesson-logical-verbal-reasoning-analogy-meanings-and-double-pairs
 ---
 ## Core Concept
 

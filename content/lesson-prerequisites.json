@@ -190,14 +190,37 @@
     "reason": "Prior practice distinguishing finished actions from earlier completed actions eases tense selection. The lesson explains its tested verb patterns."
    }
   ],
-  "lesson-logical-verbal-reasoning-number-and-letter-sequences": [],
-  "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic": [],
-  "lesson-logical-verbal-reasoning-truth-tables-propositional-logic": [],
-  "lesson-logical-verbal-reasoning-word-analogies": [
+  "lesson-logical-verbal-reasoning-sequence-letter-patterns": [
+   {
+    "lesson": "lesson-logical-verbal-reasoning-sequence-earlier-terms",
+    "strength": "required",
+    "reason": "This part continues the ideas in the previous part."
+   }
+  ],
+  "lesson-logical-verbal-reasoning-invalid-conditional-forms": [
+   {
+    "lesson": "lesson-logical-verbal-reasoning-valid-conditional-forms",
+    "strength": "required",
+    "reason": "This part continues the ideas in the previous part."
+   }
+  ],
+  "lesson-logical-verbal-reasoning-combined-truth-values": [
+   {
+    "lesson": "lesson-logical-verbal-reasoning-conditional-truth-values",
+    "strength": "required",
+    "reason": "This part continues the ideas in the previous part."
+   }
+  ],
+  "lesson-logical-verbal-reasoning-analogy-meanings-and-double-pairs": [
    {
     "lesson": "lesson-vocabulary-synonyms-and-antonyms",
     "strength": "helpful",
     "reason": "Recognizing close meanings, opposites, and differences in strength makes relationship matching easier. The lesson explains these relationships sufficiently itself."
+   },
+   {
+    "lesson": "lesson-logical-verbal-reasoning-analogy-functions-users-and-work",
+    "strength": "required",
+    "reason": "This part continues the ideas in the previous part."
    }
   ],
   "lesson-peace-and-human-rights-human-rights-fundamentals": [],
@@ -218,7 +241,7 @@
   ],
   "lesson-spatial-abstract-reasoning-figure-series": [
    {
-    "lesson": "lesson-logical-verbal-reasoning-number-and-letter-sequences",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-moves",
     "strength": "helpful",
     "reason": "Separating odd and even positions makes mixed figure patterns easier. Figure Series also explains this method itself."
    }
@@ -1646,12 +1669,12 @@
   ],
   "lesson-verbal-logic-needed-assumptions": [
    {
-    "lesson": "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic",
+    "lesson": "lesson-logical-verbal-reasoning-deductive-group-arguments",
     "strength": "helpful",
     "reason": "Practice with forced conclusions makes group-based deductions easier. Assumptions and Conclusions explains the needed group meanings itself."
    },
    {
-    "lesson": "lesson-logical-verbal-reasoning-truth-tables-propositional-logic",
+    "lesson": "lesson-logical-verbal-reasoning-truth-tables-and-connectives",
     "strength": "helpful",
     "reason": "Understanding negation and compound statements makes the compound-assumption test easier. The lesson supplies its own negation rules."
    }
@@ -1703,6 +1726,45 @@
     "lesson": "lesson-verbal-logic-negating-assumptions",
     "strength": "required",
     "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-logical-verbal-reasoning-sequence-moves": [],
+  "lesson-logical-verbal-reasoning-sequence-positions-and-operations": [
+   {
+    "lesson": "lesson-logical-verbal-reasoning-sequence-moves",
+    "strength": "required",
+    "reason": "This part continues the ideas in the previous part."
+   }
+  ],
+  "lesson-logical-verbal-reasoning-sequence-earlier-terms": [
+   {
+    "lesson": "lesson-logical-verbal-reasoning-sequence-positions-and-operations",
+    "strength": "required",
+    "reason": "This part continues the ideas in the previous part."
+   }
+  ],
+  "lesson-logical-verbal-reasoning-deductive-group-arguments": [],
+  "lesson-logical-verbal-reasoning-valid-conditional-forms": [
+   {
+    "lesson": "lesson-logical-verbal-reasoning-deductive-group-arguments",
+    "strength": "required",
+    "reason": "This part continues the ideas in the previous part."
+   }
+  ],
+  "lesson-logical-verbal-reasoning-truth-tables-and-connectives": [],
+  "lesson-logical-verbal-reasoning-conditional-truth-values": [
+   {
+    "lesson": "lesson-logical-verbal-reasoning-truth-tables-and-connectives",
+    "strength": "required",
+    "reason": "This part continues the ideas in the previous part."
+   }
+  ],
+  "lesson-logical-verbal-reasoning-analogy-parts-types-and-products": [],
+  "lesson-logical-verbal-reasoning-analogy-functions-users-and-work": [
+   {
+    "lesson": "lesson-logical-verbal-reasoning-analogy-parts-types-and-products",
+    "strength": "required",
+    "reason": "This part continues the ideas in the previous part."
    }
   ]
  }
