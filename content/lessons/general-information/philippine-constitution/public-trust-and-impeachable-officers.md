@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 1
 partCount: 7
-ordering: 58
+ordering: 64
 keyPoints:
   - "Recall the public-trust duties in Article XI, Section 1."
   - "Identify the officers covered by impeachment and those outside the list."

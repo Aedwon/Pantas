@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 1
 partCount: 6
-ordering: 21
+ordering: 19
 keyPoints:
   - "Apply the presumption of innocence and due process."
   - "Identify the rights to know and answer the charge with counsel."

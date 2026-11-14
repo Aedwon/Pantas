@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 6
 partCount: 11
-ordering: 25
+ordering: 30
 keyPoints:
   - "Recognize attempt and frustrated forms of an offense."
   - "Compare included offenses using the required parts of each charge."

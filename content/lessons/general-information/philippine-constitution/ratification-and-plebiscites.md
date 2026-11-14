@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 4
 partCount: 4
-ordering: 25
+ordering: 55
 keyPoints:
   - "Require ratification by a majority of votes cast."
   - "Apply the plebiscite window and its correct starting event."

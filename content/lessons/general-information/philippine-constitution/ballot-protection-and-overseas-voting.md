@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 5
 partCount: 5
-ordering: 11
+ordering: 51
 keyPoints:
   - "Explain ballot secrecy and sanctity."
   - "Check the system and conditions for overseas voting."

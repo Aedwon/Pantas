@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 2
 partCount: 7
-ordering: 59
+ordering: 65
 keyPoints:
   - "Recall that Section 2 names six grounds."
   - "Match deliberate constitutional breach, wartime aid, and official favors to possible grounds."

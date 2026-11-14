@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 6
 partCount: 13
-ordering: 7
+ordering: 6
 keyPoints:
   - "Identify speech, expression, and press protections."
   - "Identify peaceful assembly and petition for redress."

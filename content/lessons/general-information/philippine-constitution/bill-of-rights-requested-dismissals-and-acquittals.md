@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 8
 partCount: 11
-ordering: 27
+ordering: 32
 keyPoints:
   - "Distinguish an ordinary requested dismissal from the stated exceptions."
   - "Recognize a granted demurrer to evidence as an acquittal."

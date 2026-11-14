@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 5
 partCount: 6
-ordering: 6
+ordering: 75
 keyPoints:
   - "Locate Local Government in Article X."
   - "Locate public accountability in Article XI."

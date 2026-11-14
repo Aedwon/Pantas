@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 2
 partCount: 6
-ordering: 3
+ordering: 72
 keyPoints:
   - "Locate National Territory and State principles in Articles I and II."
   - "Locate rights, citizenship, and suffrage in Articles III to V."

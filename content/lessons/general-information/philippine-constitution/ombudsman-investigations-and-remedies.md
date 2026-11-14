@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 7
 partCount: 7
-ordering: 64
+ordering: 70
 keyPoints:
   - "Explain the Ombudsman's investigation, corrective, and recommendation powers."
 ---

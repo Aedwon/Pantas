@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 5
 partCount: 5
-ordering: 19
+ordering: 18
 keyPoints:
   - "Distinguish sureties and recognizance as forms of release."
   - "Check both conditions for the constitutional bail exception."

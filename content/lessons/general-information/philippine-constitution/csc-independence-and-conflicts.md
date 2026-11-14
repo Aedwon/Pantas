@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 8
 partCount: 8
-ordering: 57
+ordering: 63
 keyPoints:
   - "Recognize independence, salary protection, and fiscal autonomy."
   - "Apply outside-work and financial-interest restrictions."

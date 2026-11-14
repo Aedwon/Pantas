@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 4
 partCount: 5
-ordering: 18
+ordering: 17
 keyPoints:
   - "Identify forbidden force and detention practices."
   - "Apply the protection against compelled self-incrimination."

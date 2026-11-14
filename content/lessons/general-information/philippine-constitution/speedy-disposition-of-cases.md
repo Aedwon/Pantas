@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 5
 partCount: 6
-ordering: 25
+ordering: 23
 keyPoints:
   - "Distinguish speedy disposition from speedy criminal trial."
 ---

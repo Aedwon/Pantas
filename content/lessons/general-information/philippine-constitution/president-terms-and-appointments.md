@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 5
 partCount: 11
-ordering: 43
+ordering: 40
 keyPoints:
   - "Apply presidential succession and term limits."
   - "Distinguish appointments requiring consent from those that do not."

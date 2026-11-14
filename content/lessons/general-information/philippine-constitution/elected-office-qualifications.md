@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 9
 partCount: 11
-ordering: 47
+ordering: 44
 keyPoints:
   - "Check citizenship, age, and residence for Representative and Senator."
   - "Check qualifications for President and Vice-President."

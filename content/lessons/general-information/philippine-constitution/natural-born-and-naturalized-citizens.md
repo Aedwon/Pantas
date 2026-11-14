@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 2
 partCount: 5
-ordering: 8
+ordering: 48
 keyPoints:
   - "Distinguish natural-born citizenship, including proper election, from naturalization."
   - "Identify offices requiring natural-born citizenship."

@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 1
 partCount: 5
-ordering: 7
+ordering: 47
 keyPoints:
   - "Identify the citizen groups in Article IV, Section 1."
   - "Check parent citizenship at birth and the historical election route."

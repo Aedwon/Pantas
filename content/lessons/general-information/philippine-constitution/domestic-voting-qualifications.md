@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 4
 partCount: 5
-ordering: 10
+ordering: 50
 keyPoints:
   - "Check citizenship, age, and both residence minimums for domestic voting."
   - "Check registration and legal disqualifications."

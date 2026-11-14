@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 4
 partCount: 8
-ordering: 53
+ordering: 59
 keyPoints:
   - "Name the appointing and consenting authorities."
   - "Apply regular, staggered, and unexpired terms and the acting-membership ban."

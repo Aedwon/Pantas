@@ -7,6 +7,8 @@ meta:
   - cse-sub
 questions:
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0001
+    lesson: lesson-philippine-constitution-congress-and-constitutional-conventions
+    keyPoint: 1
     type: proposal-routes
     difficulty: easy
     stem: |
@@ -28,6 +30,8 @@ questions:
       The three routes are Congress, a constitutional convention, and people's initiative. Initiative can propose amendments only.
     approved: false
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0002
+    lesson: lesson-philippine-constitution-amendment-or-revision
+    keyPoint: 1
     type: amendment-or-revision
     difficulty: easy
     stem: |
@@ -48,6 +52,8 @@ questions:
       An amendment changes specific provisions without changing a basic principle. A revision changes the basic structure or a large part.
     approved: false
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0003
+    lesson: lesson-philippine-constitution-amendment-or-revision
+    keyPoint: 1
     type: amendment-or-revision
     difficulty: easy
     stem: |
@@ -69,6 +75,8 @@ questions:
       Even a short proposal is a revision if it changes the plan of government.
     approved: false
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0004
+    lesson: lesson-philippine-constitution-congress-and-constitutional-conventions
+    keyPoint: 2
     type: congressional-threshold
     difficulty: easy
     stem: |
@@ -91,6 +99,8 @@ questions:
       Two-thirds is the separate rule for calling a convention.
     approved: false
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0005
+    lesson: lesson-philippine-constitution-congress-and-constitutional-conventions
+    keyPoint: 2
     type: congressional-threshold
     difficulty: easy
     stem: |
@@ -112,6 +122,8 @@ questions:
       A direct call needs two-thirds of all Members. A majority of all Members can instead ask voters whether to call a convention.
     approved: false
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0006
+    lesson: lesson-philippine-constitution-congress-and-constitutional-conventions
+    keyPoint: 2
     type: congressional-threshold
     difficulty: easy
     stem: |
@@ -133,6 +145,8 @@ questions:
       This asks voters whether to call a convention. It does not call one itself.
     approved: false
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0007
+    lesson: lesson-philippine-constitution-peoples-initiative
+    keyPoint: 2
     type: initiative-signatures
     difficulty: easy
     stem: |
@@ -157,6 +171,8 @@ questions:
       Every district must also meet its own signature minimum.
     approved: false
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0008
+    lesson: lesson-philippine-constitution-peoples-initiative
+    keyPoint: 2
     type: initiative-signatures
     difficulty: easy
     stem: |
@@ -178,6 +194,8 @@ questions:
       Each legislative district must supply signatures from at least three percent of its registered voters. The national total alone is not enough.
     approved: false
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0009
+    lesson: lesson-philippine-constitution-peoples-initiative
+    keyPoint: 1
     type: initiative-scope
     difficulty: easy
     stem: |
@@ -199,6 +217,8 @@ questions:
       People's initiative may propose amendments only, regardless of signature totals.
     approved: false
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0010
+    lesson: lesson-philippine-constitution-ratification-and-plebiscites
+    keyPoint: 1
     type: ratification
     difficulty: easy
     stem: |
@@ -222,6 +242,8 @@ questions:
       A convention's approval is only the proposal step.
     approved: false
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0011
+    lesson: lesson-philippine-constitution-peoples-initiative
+    keyPoint: 3
     type: initiative-spacing
     difficulty: medium
     stem: |
@@ -245,6 +267,8 @@ questions:
       These are time limits, not a ruling that the route is usable today.
     approved: false
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0012
+    lesson: lesson-philippine-constitution-peoples-initiative
+    keyPoint: 2
     type: initiative-signature-calculation
     difficulty: medium
     stem: |
@@ -267,6 +291,8 @@ questions:
       Three percent of 40,000 is 1,200. The twelve percent rule applies to the nationwide total, not to each district's minimum.
     approved: false
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0013
+    lesson: lesson-philippine-constitution-ratification-and-plebiscites
+    keyPoint: 1
     type: ratification
     difficulty: medium
     stem: |
@@ -288,6 +314,8 @@ questions:
       Ratification uses votes cast on the proposal, not all registered voters.
     approved: false
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0014
+    lesson: lesson-philippine-constitution-ratification-and-plebiscites
+    keyPoint: 2
     type: plebiscite-timing
     difficulty: medium
     stem: |
@@ -309,6 +337,8 @@ questions:
       It must also be no later than ninety days after approval.
     approved: false
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0015
+    lesson: lesson-philippine-constitution-ratification-and-plebiscites
+    keyPoint: 2
     type: plebiscite-timing
     difficulty: medium
     stem: |
@@ -331,6 +361,8 @@ questions:
       The sixty-to-ninety-day period has both a start and an end.
     approved: false
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0016
+    lesson: lesson-philippine-constitution-ratification-and-plebiscites
+    keyPoint: 2
     type: plebiscite-timing
     difficulty: medium
     stem: |
@@ -353,6 +385,8 @@ questions:
       For initiative, count from COMELEC's certification that the petition is sufficient. Gathering signatures does not start the period.
     approved: false
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0017
+    lesson: lesson-philippine-constitution-congress-and-constitutional-conventions
+    keyPoint: 2
     type: congressional-threshold-calculation
     difficulty: hard
     stem: |
@@ -374,6 +408,8 @@ questions:
       Using only the 200 present would give the wrong minimum.
     approved: false
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0018
+    lesson: lesson-philippine-constitution-ratification-and-plebiscites
+    keyPoint: 3
     type: section-matching
     difficulty: hard
     stem: |
@@ -400,6 +436,8 @@ questions:
       Section 4 covers ratification and plebiscite timing.
     approved: false
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0019
+    lesson: lesson-philippine-constitution-ratification-and-plebiscites
+    keyPoint: 1
     type: invalid-step
     difficulty: exam
     stem: |
@@ -423,6 +461,8 @@ questions:
       Calling the change an amendment does not remove those steps.
     approved: false
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0020
+    lesson: lesson-philippine-constitution-ratification-and-plebiscites
+    keyPoint: 1
     type: valid-change-requirements
     difficulty: exam
     stem: |

@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 3
 partCount: 13
-ordering: 4
+ordering: 3
 keyPoints:
   - "Recognize an arrest for an offense in an officer's presence and a search after lawful arrest."
 ---

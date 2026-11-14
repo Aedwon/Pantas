@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 5
 partCount: 7
-ordering: 62
+ordering: 68
 keyPoints:
   - "Distinguish the regular complaint route from direct filing by one-third of all House Members."
 ---

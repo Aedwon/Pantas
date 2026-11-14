@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 4
 partCount: 11
-ordering: 23
+ordering: 28
 keyPoints:
   - "Distinguish freedom from jail for debt or poll tax from cancellation of a debt."
 ---

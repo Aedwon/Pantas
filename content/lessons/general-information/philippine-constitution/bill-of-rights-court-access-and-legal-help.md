@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 2
 partCount: 5
-ordering: 16
+ordering: 15
 keyPoints:
   - "Apply access protections to courts and quasi-judicial bodies."
   - "Distinguish adequate legal assistance from permission to file a case."

@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 3
 partCount: 4
-ordering: 24
+ordering: 54
 keyPoints:
   - "Identify initiative as a route for amendments only."
   - "Check national and district signature minimums."

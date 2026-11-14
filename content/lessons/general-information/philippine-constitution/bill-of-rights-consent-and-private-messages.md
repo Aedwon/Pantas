@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 5
 partCount: 13
-ordering: 6
+ordering: 5
 keyPoints:
   - "Check whether consent to a search was freely given."
   - "Apply privacy limits and the exclusionary rule to private messages."

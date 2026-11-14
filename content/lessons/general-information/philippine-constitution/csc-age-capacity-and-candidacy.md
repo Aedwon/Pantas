@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 3
 partCount: 8
-ordering: 52
+ordering: 58
 keyPoints:
   - "Check age at appointment."
   - "Recognize proven capacity for public administration."

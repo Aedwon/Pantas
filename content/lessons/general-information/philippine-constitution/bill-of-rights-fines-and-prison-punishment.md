@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 2
 partCount: 11
-ordering: 21
+ordering: 26
 keyPoints:
   - "Identify the protections against excessive fines and abusive punishment."
   - "Distinguish constitutional death-penalty wording from the statutory prohibition."

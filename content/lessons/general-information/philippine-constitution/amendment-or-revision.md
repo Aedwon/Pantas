@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 1
 partCount: 4
-ordering: 22
+ordering: 52
 keyPoints:
   - "Distinguish amendment from revision using the quantitative and qualitative tests."
 ---

@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 3
 partCount: 11
-ordering: 41
+ordering: 38
 keyPoints:
   - "Identify bills that must start in the House and the budget limit."
   - "Identify safeguards for inquiries in aid of legislation."

@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 3
 partCount: 6
-ordering: 4
+ordering: 73
 keyPoints:
   - "Locate the legislative, executive, and judicial departments in order."
   - "Use article titles to locate rules and check their actual limits and requirements."

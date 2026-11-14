@@ -7,6 +7,8 @@ meta:
   - cse-sub
 questions:
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0001
+  lesson: lesson-philippine-constitution-congress-members-and-terms
+  keyPoint: 1
   type: senate-composition-and-terms
   difficulty: easy
   stem: |
@@ -25,6 +27,8 @@ questions:
     Each term lasts six years. A senator may serve two consecutive terms.
   approved: false
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0002
+  lesson: lesson-philippine-constitution-congress-members-and-terms
+  keyPoint: 2
   type: house-composition-and-terms
   difficulty: easy
   stem: |
@@ -44,6 +48,8 @@ questions:
     The 20 percent share of total House seats, including party-list seats, sets the maximum seats available to party-list groups. Some may remain unfilled.
   approved: false
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0003
+  lesson: lesson-philippine-constitution-congress-bills-budget-and-inquiries
+  keyPoint: 1
   type: bill-origination
   difficulty: easy
   stem: |
@@ -62,6 +68,8 @@ questions:
     The Senate may propose or agree to amendments.
   approved: false
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0004
+  lesson: lesson-philippine-constitution-president-terms-and-appointments
+  keyPoint: 1
   type: presidential-succession-and-term-limits
   difficulty: easy
   stem: |
@@ -81,6 +89,8 @@ questions:
     The Vice-President's two-successive-term rule does not change this limit.
   approved: false
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0005
+  lesson: lesson-philippine-constitution-president-clemency-and-treaties
+  keyPoint: 1
   type: pardon-versus-amnesty
   difficulty: easy
   stem: |
@@ -99,6 +109,8 @@ questions:
     Pardon cannot cover impeachment. Amnesty requires congressional concurrence.
   approved: false
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0006
+  lesson: lesson-philippine-constitution-elected-office-qualifications
+  keyPoint: 1
   type: elected-office-qualification
   difficulty: medium
   stem: |
@@ -117,6 +129,8 @@ questions:
     Eight months is too short. Lea meets the stated age requirement.
   approved: false
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0007
+  lesson: lesson-philippine-constitution-elected-office-qualifications
+  keyPoint: 1
   type: elected-office-qualification
   difficulty: medium
   stem: |
@@ -135,6 +149,8 @@ questions:
     Naturalization does not meet that requirement. Age and long residence cannot replace it.
   approved: false
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0008
+  lesson: lesson-philippine-constitution-elected-office-qualifications
+  keyPoint: 2
   type: elected-office-qualification
   difficulty: medium
   stem: |
@@ -153,6 +169,8 @@ questions:
     The period must immediately precede election day. Nine years falls short.
   approved: false
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0009
+  lesson: lesson-philippine-constitution-courts-and-judicial-review
+  keyPoint: 2
   type: appointment-and-judicial-tenure
   difficulty: medium
   stem: |
@@ -172,6 +190,8 @@ questions:
     Judges need no confirmation. Section 11 sets tenure during good behavior until 70 or incapacity.
   approved: false
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0010
+  lesson: lesson-philippine-constitution-judicial-office-qualifications
+  keyPoint: 1
   type: supreme-court-qualification
   difficulty: medium
   stem: |
@@ -191,6 +211,8 @@ questions:
     Only the 42-year-old candidate meets all three stated requirements.
   approved: false
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0011
+  lesson: lesson-philippine-constitution-commission-and-ombudsman-qualifications
+  keyPoint: 1
   type: comelec-qualification
   difficulty: hard
   stem: |
@@ -210,6 +232,8 @@ questions:
     That majority must include the Chair. Four lawyers alone do not satisfy the Chair requirement.
   approved: false
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0012
+  lesson: lesson-philippine-constitution-commission-and-ombudsman-qualifications
+  keyPoint: 2
   type: coa-qualification
   difficulty: hard
   stem: |
@@ -229,6 +253,8 @@ questions:
     The lawyer with eleven years meets both professional rules in this case.
   approved: false
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0013
+  lesson: lesson-philippine-constitution-commission-and-ombudsman-qualifications
+  keyPoint: 3
   type: ombudsman-qualification-and-term
   difficulty: hard
   stem: |
@@ -248,6 +274,8 @@ questions:
     Section 11 sets a seven-year term without reappointment for the Ombudsman.
   approved: false
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0014
+  lesson: lesson-philippine-constitution-courts-and-judicial-review
+  keyPoint: 2
   type: supreme-court-composition-and-review
   difficulty: hard
   stem: |
@@ -268,6 +296,8 @@ questions:
     Divisions may have three, five, or seven Members for other cases.
   approved: false
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0015
+  lesson: lesson-philippine-constitution-president-emergency-powers
+  keyPoint: 1
   type: martial-law-limits
   difficulty: hard
   stem: |
@@ -287,6 +317,8 @@ questions:
     These limits also apply to suspension of the writ's privilege.
   approved: false
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0016
+  lesson: lesson-philippine-constitution-president-emergency-powers
+  keyPoint: 2
   type: martial-law-checks
   difficulty: hard
   stem: |
@@ -307,6 +339,8 @@ questions:
     Martial law does not suspend the Constitution or automatically suspend the writ's privilege.
   approved: false
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0017
+  lesson: lesson-philippine-constitution-president-clemency-and-treaties
+  keyPoint: 2
   type: treaty-concurrence
   difficulty: exam
   stem: |
@@ -325,6 +359,8 @@ questions:
     Two-thirds of 24 is 16. Fifteen votes fall short even when fewer Senators attend.
   approved: false
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0018
+  lesson: lesson-philippine-constitution-congress-war-and-veto-votes
+  keyPoint: 2
   type: veto-and-override
   difficulty: exam
   stem: |
@@ -344,6 +380,8 @@ questions:
     Without a veto communicated within 30 days, the bill becomes law as if signed.
   approved: false
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0019
+  lesson: lesson-philippine-constitution-congress-war-and-veto-votes
+  keyPoint: 1
   type: state-of-war-vote
   difficulty: exam
   stem: |
@@ -363,6 +401,8 @@ questions:
     The Houses meet jointly but vote separately under the two-thirds rule.
   approved: false
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0020
+  lesson: lesson-philippine-constitution-congress-bills-budget-and-inquiries
+  keyPoint: 2
   type: legislative-inquiry-and-budget-rules
   difficulty: exam
   stem: |

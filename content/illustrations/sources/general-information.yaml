@@ -1,0 +1,18 @@
+version: 1
+assets:
+  - key: "general-information/philippine-constitution/ratification-and-plebiscites#1"
+    credit: "Pantas"
+  - key: "general-information/philippine-constitution/ratification-and-plebiscites#2"
+    credit: "Pantas"
+  - key: "general-information/philippine-constitution/natural-born-and-naturalized-citizens#1"
+    credit: "Pantas"
+  - key: "general-information/philippine-constitution/domestic-voting-qualifications#1"
+    credit: "Pantas"
+  - key: "general-information/philippine-constitution/branches-and-checks#1"
+    credit: "Pantas"
+  - key: "general-information/philippine-constitution/branches-and-checks#2"
+    credit: "Pantas"
+  - key: "general-information/philippine-constitution/president-emergency-powers#1"
+    credit: "Pantas"
+  - key: "general-information/philippine-constitution/elected-office-qualifications#1"
+    credit: "Pantas"

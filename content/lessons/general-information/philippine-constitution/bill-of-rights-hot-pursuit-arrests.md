@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 4
 partCount: 13
-ordering: 5
+ordering: 4
 keyPoints:
   - "Check immediacy and personal knowledge for a hot-pursuit arrest."
 ---

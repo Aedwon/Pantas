@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 7
 partCount: 8
-ordering: 56
+ordering: 62
 keyPoints:
   - "Apply security of tenure."
   - "Distinguish voting, partisan campaigning, and the political-office exception."

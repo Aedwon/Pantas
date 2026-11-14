@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 1
 partCount: 8
-ordering: 50
+ordering: 56
 keyPoints:
   - "Name the CSC as the central personnel agency under Article IX-B."
   - "Explain career development and merit-based personnel work."

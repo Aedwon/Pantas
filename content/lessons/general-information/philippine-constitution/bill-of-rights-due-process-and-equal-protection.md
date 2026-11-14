@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 1
 partCount: 13
-ordering: 2
+ordering: 1
 keyPoints:
   - "Recall the article and section count of the Bill of Rights."
   - "Check due process before government takes life, liberty, or property."

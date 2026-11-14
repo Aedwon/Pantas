@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 5
 partCount: 8
-ordering: 54
+ordering: 60
 keyPoints:
   - "Identify civil service coverage and the original-charter condition."
 ---

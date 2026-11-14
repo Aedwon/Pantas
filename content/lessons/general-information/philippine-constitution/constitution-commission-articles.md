@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 4
 partCount: 6
-ordering: 5
+ordering: 74
 keyPoints:
   - "Locate Constitutional Commissions in Article IX."
   - "Identify the common provisions and commission parts IX-A through IX-D."

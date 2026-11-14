@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 1
 partCount: 6
-ordering: 2
+ordering: 71
 keyPoints:
   - "Recall the article count and distinguish the Preamble from Article I."
   - "Explain the broad aims stated in the Preamble."

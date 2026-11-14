@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 1
 partCount: 5
-ordering: 15
+ordering: 14
 keyPoints:
   - "Apply just compensation to a taking for public use."
   - "Distinguish contract protection from valid public-welfare regulation."

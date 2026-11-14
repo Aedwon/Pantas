@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 13
 partCount: 13
-ordering: 14
+ordering: 13
 keyPoints:
   - "Distinguish ex post facto laws from bills of attainder."
 ---

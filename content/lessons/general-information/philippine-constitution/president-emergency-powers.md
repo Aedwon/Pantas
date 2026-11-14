@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 6
 partCount: 11
-ordering: 44
+ordering: 41
 keyPoints:
   - "Apply the grounds and initial time limits for emergency powers."
   - "Identify congressional and court checks and detention safeguards."

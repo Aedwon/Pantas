@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 11
 partCount: 13
-ordering: 12
+ordering: 11
 keyPoints:
   - "Identify limits on detention, forced work, punishment, and imprisonment for debt."
 ---

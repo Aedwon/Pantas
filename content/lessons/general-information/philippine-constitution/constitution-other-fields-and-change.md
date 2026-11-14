@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 6
 partCount: 6
-ordering: 7
+ordering: 76
 keyPoints:
   - "Locate education and the family in Articles XIV and XV."
   - "Locate the specific subjects covered by General Provisions in Article XVI."

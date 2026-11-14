@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 2
 partCount: 11
-ordering: 40
+ordering: 37
 keyPoints:
   - "Recall Senate membership and term limits."
   - "Recall House membership and term limits."

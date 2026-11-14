@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 3
 partCount: 7
-ordering: 60
+ordering: 66
 keyPoints:
   - "Recognize misuse of office for an improper benefit."
   - "Explain the seriousness and limits of other high crimes."

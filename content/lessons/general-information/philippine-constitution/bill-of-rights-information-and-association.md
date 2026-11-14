@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 8
 partCount: 13
-ordering: 9
+ordering: 8
 keyPoints:
   - "Check public-record access and lawful limits."
   - "Identify lawful associations protected by Section 8."

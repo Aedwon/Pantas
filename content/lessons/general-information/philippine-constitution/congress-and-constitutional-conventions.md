@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 2
 partCount: 4
-ordering: 23
+ordering: 53
 keyPoints:
   - "Identify the three proposal routes."
   - "Apply the congressional votes for proposing changes and calling a convention."

@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 7
 partCount: 11
-ordering: 26
+ordering: 31
 keyPoints:
   - "Recognize the stated exception for a graver offense that develops later."
   - "Apply the same-act rule for a national law and a local ordinance."

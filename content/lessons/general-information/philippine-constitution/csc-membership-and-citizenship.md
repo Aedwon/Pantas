@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 2
 partCount: 8
-ordering: 51
+ordering: 57
 keyPoints:
   - "Name the Chairman and two Commissioners."
   - "Recognize natural-born citizenship and its stated exception."

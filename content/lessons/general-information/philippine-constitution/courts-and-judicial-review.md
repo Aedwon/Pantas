@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 8
 partCount: 11
-ordering: 46
+ordering: 43
 keyPoints:
   - "Explain judicial power and judicial review in a proper case."
   - "Recall Supreme Court composition, appointment, and tenure."

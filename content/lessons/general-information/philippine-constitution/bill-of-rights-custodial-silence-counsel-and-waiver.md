@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 3
 partCount: 5
-ordering: 17
+ordering: 16
 keyPoints:
   - "Recognize when custodial safeguards apply."
   - "Identify the rights to silence and competent and independent counsel."

@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 1
 partCount: 11
-ordering: 39
+ordering: 36
 keyPoints:
   - "Match legislative, executive, and judicial power to each branch."
   - "Identify checks that limit another branch."

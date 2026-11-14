@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 7
 partCount: 13
-ordering: 8
+ordering: 7
 keyPoints:
   - "Identify non-establishment, free exercise, and the ban on religious tests."
   - "Distinguish the restriction rules for abode and travel."

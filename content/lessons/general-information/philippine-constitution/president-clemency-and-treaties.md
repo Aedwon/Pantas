@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 7
 partCount: 11
-ordering: 45
+ordering: 42
 keyPoints:
   - "Distinguish impeachment, pardon, and amnesty limits."
   - "Apply the treaty concurrence rule."

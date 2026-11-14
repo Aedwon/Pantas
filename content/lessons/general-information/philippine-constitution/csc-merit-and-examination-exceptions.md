@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 6
 partCount: 8
-ordering: 55
+ordering: 61
 keyPoints:
   - "Apply merit and fitness to appointments."
   - "Distinguish the three competitive-examination exceptions."

@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 2
 partCount: 6
-ordering: 22
+ordering: 20
 keyPoints:
   - "Identify impartial and public trial safeguards."
   - "Assess trial delay from its reasons and effects."

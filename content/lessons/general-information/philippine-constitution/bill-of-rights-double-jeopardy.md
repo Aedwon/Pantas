@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 12
 partCount: 13
-ordering: 13
+ordering: 12
 keyPoints:
   - "Check the first charge, court, arraignment, plea, and protected end of the case."
   - "Apply double jeopardy to included offenses and the same act under a law and ordinance."

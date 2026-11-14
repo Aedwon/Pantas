@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 3
 partCount: 11
-ordering: 22
+ordering: 27
 keyPoints:
   - "Select the replacement penalty from the violated law's penalty names."
   - "Apply the parole restriction in Republic Act No. $9346$."

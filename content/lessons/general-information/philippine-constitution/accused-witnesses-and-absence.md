@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 3
 partCount: 6
-ordering: 23
+ordering: 21
 keyPoints:
   - "Identify confrontation and compulsory process rights."
   - "Check the conditions for trial after arraignment without the accused."

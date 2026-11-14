@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 9
 partCount: 11
-ordering: 28
+ordering: 33
 keyPoints:
   - "Identify harmful backward criminal-law changes."
   - "Distinguish legislative punishment without trial from a general offense tried in court."

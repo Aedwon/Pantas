@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 10
 partCount: 11
-ordering: 48
+ordering: 45
 keyPoints:
   - "Check Supreme Court age and experience requirements."
   - "Distinguish lower-court requirements and judicial qualities."

@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 1
 partCount: 11
-ordering: 20
+ordering: 25
 keyPoints:
   - "Apply the political-belief and forced-service protections and their limits."
 ---

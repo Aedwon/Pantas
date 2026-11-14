@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 6
 partCount: 7
-ordering: 63
+ordering: 69
 keyPoints:
   - "Recall the Senate conviction vote and the Chief Justice's role."
   - "Distinguish impeachment judgment, criminal punishment, and the one-year bar."

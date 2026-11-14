@@ -7,6 +7,8 @@ meta:
   - cse-sub
 questions:
 - id: q-philippine-constitution-bill-of-rights-0006
+  lesson: lesson-philippine-constitution-habeas-corpus-suspension
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'What is the privilege of the writ of habeas corpus designed to protect?
@@ -31,6 +33,8 @@ questions:
 
     '
 - id: q-philippine-constitution-bill-of-rights-0007
+  lesson: lesson-philippine-constitution-accused-charge-and-defense
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'Which guarantee treats an accused person as innocent until the contrary is proved?
@@ -55,6 +59,8 @@ questions:
 
     '
 - id: q-philippine-constitution-bill-of-rights-0015
+  lesson: lesson-philippine-constitution-forced-self-incrimination
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: 'Which right protects against being compelled to be a witness against oneself?
@@ -79,6 +85,8 @@ questions:
 
     '
 - id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0001
+  lesson: lesson-philippine-constitution-speedy-disposition-of-cases
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   approved: false
@@ -104,6 +112,8 @@ questions:
 
     '
 - id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0002
+  lesson: lesson-philippine-constitution-accused-charge-and-defense
+  keyPoint: 2
   type: single_choice
   difficulty: easy
   stem: |
@@ -124,6 +134,8 @@ questions:
     The accused must know the crime charged and the acts behind it. This information helps the accused prepare a defense.
   approved: false
 - id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0003
+  lesson: lesson-philippine-constitution-accused-charge-and-defense
+  keyPoint: 2
   type: single_choice
   difficulty: easy
   stem: |
@@ -144,6 +156,8 @@ questions:
     The accused must have a chance to answer the charge personally and through a lawyer. Hearing only the prosecution denies that chance.
   approved: false
 - id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0004
+  lesson: lesson-philippine-constitution-accused-witnesses-and-absence
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: |
@@ -164,6 +178,8 @@ questions:
     Compulsory process lets the defense use court orders to obtain needed witnesses and evidence. A witness need not be willing to attend.
   approved: false
 - id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0005
+  lesson: lesson-philippine-constitution-accused-fair-and-speedy-trial
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: |
@@ -184,6 +200,8 @@ questions:
     Public trials allow people to observe the proceedings. Lawful limits may apply. Closing a hearing without a valid legal reason raises a public-trial issue.
   approved: false
 - id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0006
+  lesson: lesson-philippine-constitution-accused-fair-and-speedy-trial
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: |
@@ -205,6 +223,8 @@ questions:
     An impartial judge does not favor either side. A hearing can be public and prompt while still failing this requirement.
   approved: false
 - id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0007
+  lesson: lesson-philippine-constitution-accused-witnesses-and-absence
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: |
@@ -226,6 +246,8 @@ questions:
     Meeting witnesses face to face lets the defense question them and test their statements. Merely listening does not provide that chance.
   approved: false
 - id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0008
+  lesson: lesson-philippine-constitution-accused-witnesses-and-absence
+  keyPoint: 2
   type: single_choice
   difficulty: medium
   stem: |
@@ -246,6 +268,8 @@ questions:
     The rule requires proper notice as well as arraignment and an unjustified absence. Missing notice prevents reliance on this rule.
   approved: false
 - id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0009
+  lesson: lesson-philippine-constitution-accused-witnesses-and-absence
+  keyPoint: 2
   type: single_choice
   difficulty: medium
   stem: |
@@ -268,6 +292,8 @@ questions:
     The trial may proceed. The prosecution still has to prove guilt.
   approved: false
 - id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0010
+  lesson: lesson-philippine-constitution-habeas-corpus-suspension
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: |
@@ -288,6 +314,8 @@ questions:
     Rebellion alone is not enough. Public safety must also require suspension. Reducing paperwork does not meet that requirement.
   approved: false
 - id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0011
+  lesson: lesson-philippine-constitution-habeas-corpus-suspension
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: |
@@ -310,6 +338,8 @@ questions:
     A storm emergency alone does not satisfy this rule.
   approved: false
 - id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0012
+  lesson: lesson-philippine-constitution-accused-fair-and-speedy-trial
+  keyPoint: 2
   type: single_choice
   difficulty: hard
   stem: |
@@ -331,6 +361,8 @@ questions:
     A speedy-trial claim depends on the circumstances. Check how long the delay lasted, why it happened, requests to proceed, and harm caused.
   approved: false
 - id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0013
+  lesson: lesson-philippine-constitution-speedy-disposition-of-cases
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: |
@@ -353,6 +385,8 @@ questions:
     It also protects cases before administrative and quasi-judicial bodies.
   approved: false
 - id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0014
+  lesson: lesson-philippine-constitution-speedy-disposition-of-cases
+  keyPoint: 1
   type: single_choice
   difficulty: exam
   stem: |
@@ -373,6 +407,8 @@ questions:
     The described body acts as a quasi-judicial body. Speedy disposition applies to its cases. The delay still needs assessment on its facts.
   approved: false
 - id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0015
+  lesson: lesson-philippine-constitution-forced-self-incrimination
+  keyPoint: 1
   type: single_choice
   difficulty: exam
   stem: |
@@ -393,6 +429,8 @@ questions:
     A person need not be on criminal trial to have this protection. The forced answer could show the witness's own guilt, so it is protected.
   approved: false
 - id: q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0016
+  lesson: lesson-philippine-constitution-forced-self-incrimination
+  keyPoint: 1
   type: single_choice
   difficulty: exam
   stem: |
@@ -415,6 +453,8 @@ questions:
     A forced written admission is testimonial evidence. It reveals the person's knowledge and can show guilt. Being written on paper does not remove that protection.
   approved: false
 - id: q-philippine-constitution-bill-of-rights-0035
+  lesson: lesson-philippine-constitution-habeas-corpus-suspension
+  keyPoint: 1
   type: single_choice
   difficulty: exam
   stem: |

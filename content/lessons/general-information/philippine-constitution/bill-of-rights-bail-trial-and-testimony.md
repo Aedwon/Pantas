@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 10
 partCount: 13
-ordering: 11
+ordering: 10
 keyPoints:
   - "Check both conditions for the stated bail exception."
   - "Distinguish suspension of the habeas corpus privilege from the right to bail."

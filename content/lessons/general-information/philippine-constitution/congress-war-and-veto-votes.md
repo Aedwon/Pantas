@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 4
 partCount: 11
-ordering: 42
+ordering: 39
 keyPoints:
   - "Apply the separate voting rule for declaring a state of war."
   - "Apply the veto deadline and override vote."

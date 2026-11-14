@@ -7,6 +7,8 @@ meta:
   - cse-sub
 questions:
 - id: q-philippine-constitution-citizenship-and-suffrage-0001
+  lesson: lesson-philippine-constitution-citizenship-by-parentage
+  keyPoint: 1
   type: citizen-groups
   difficulty: easy
   stem: |
@@ -24,6 +26,8 @@ questions:
     Article IV, Section 1 includes persons naturalized according to law. Residence or birthplace alone does not grant citizenship. Marriage does not grant citizenship to every alien. Section 15 of Commonwealth Act 473 covers an alien wife with no Section 4 disqualification.
   approved: false
 - id: q-philippine-constitution-citizenship-and-suffrage-0002
+  lesson: lesson-philippine-constitution-natural-born-and-naturalized-citizens
+  keyPoint: 1
   type: natural-born-definition
   difficulty: easy
   stem: |
@@ -41,6 +45,8 @@ questions:
     Article IV, Section 2 defines natural-born citizens as citizens from birth who need no act to gain or complete citizenship. It also makes a special rule for those who properly elect citizenship under Section 1(3).
   approved: false
 - id: q-philippine-constitution-citizenship-and-suffrage-0003
+  lesson: lesson-philippine-constitution-keeping-and-regaining-citizenship
+  keyPoint: 1
   type: marriage-to-alien
   difficulty: easy
   stem: |
@@ -58,6 +64,8 @@ questions:
     Article IV, Section 4 protects citizenship after marriage to an alien. Citizenship is kept unless an act or failure to act counts as renunciation under law.
   approved: false
 - id: q-philippine-constitution-citizenship-and-suffrage-0004
+  lesson: lesson-philippine-constitution-domestic-voting-qualifications
+  keyPoint: 1
   type: voter-age
   difficulty: easy
   stem: |
@@ -75,6 +83,8 @@ questions:
     A voter must be at least eighteen on election day. Age is only one requirement. Citizenship, residence, registration, and legal disqualifications must also be checked.
   approved: false
 - id: q-philippine-constitution-citizenship-and-suffrage-0005
+  lesson: lesson-philippine-constitution-domestic-voting-qualifications
+  keyPoint: 3
   type: forbidden-voter-requirements
   difficulty: easy
   stem: |
@@ -93,6 +103,8 @@ questions:
     A qualified voter does not need to own land or pass a reading test.
   approved: false
 - id: q-philippine-constitution-citizenship-and-suffrage-0006
+  lesson: lesson-philippine-constitution-citizenship-by-parentage
+  keyPoint: 2
   type: filipino-parent-abroad
   difficulty: medium
   stem: |
@@ -110,6 +122,8 @@ questions:
     Paolo's father was Filipino when Paolo was born. That makes Paolo a citizen from birth under Article IV, Section 1(2). Birth abroad does not remove this right. He needs no act to complete his Philippine citizenship.
   approved: false
 - id: q-philippine-constitution-citizenship-and-suffrage-0007
+  lesson: lesson-philippine-constitution-natural-born-and-naturalized-citizens
+  keyPoint: 1
   type: pre-1973-election
   difficulty: medium
   stem: |
@@ -128,6 +142,8 @@ questions:
     Election under this rule is not naturalization.
   approved: false
 - id: q-philippine-constitution-citizenship-and-suffrage-0008
+  lesson: lesson-philippine-constitution-natural-born-and-naturalized-citizens
+  keyPoint: 2
   type: natural-born-office
   difficulty: medium
   stem: |
@@ -145,6 +161,8 @@ questions:
     A Civil Service Commission Member must be natural-born. Naturalization makes someone a Philippine citizen. It does not make the person natural-born.
   approved: false
 - id: q-philippine-constitution-citizenship-and-suffrage-0009
+  lesson: lesson-philippine-constitution-keeping-and-regaining-citizenship
+  keyPoint: 1
   type: loss-and-reacquisition
   difficulty: medium
   stem: |
@@ -162,6 +180,8 @@ questions:
     Section 3 says citizenship may be lost or regained as provided by law. A former citizen must use an applicable legal process. Returning to the country alone is not enough.
   approved: false
 - id: q-philippine-constitution-citizenship-and-suffrage-0010
+  lesson: lesson-philippine-constitution-keeping-and-regaining-citizenship
+  keyPoint: 2
   type: ra-9225-oath
   difficulty: medium
   stem: |
@@ -179,6 +199,8 @@ questions:
     Republic Act 9225, Section 3 requires the prescribed oath of allegiance. This route applies to natural-born Filipinos who lost citizenship through foreign naturalization. Running for elective office has further rules.
   approved: false
 - id: q-philippine-constitution-citizenship-and-suffrage-0011
+  lesson: lesson-philippine-constitution-domestic-voting-qualifications
+  keyPoint: 1
   type: domestic-residence
   difficulty: medium
   stem: |
@@ -196,6 +218,8 @@ questions:
     The citizen is over eighteen. One year in the Philippines and six months in the place of voting meet both residence minimums. Time in the voting place can also count toward Philippine residence.
   approved: false
 - id: q-philippine-constitution-citizenship-and-suffrage-0012
+  lesson: lesson-philippine-constitution-domestic-voting-qualifications
+  keyPoint: 1
   type: local-residence
   difficulty: medium
   stem: |
@@ -213,6 +237,8 @@ questions:
     Four months in the voting place is less than the required six months. The citizen meets the one-year Philippine residence rule. That does not cure the short local residence.
   approved: false
 - id: q-philippine-constitution-citizenship-and-suffrage-0013
+  lesson: lesson-philippine-constitution-ballot-protection-and-overseas-voting
+  keyPoint: 1
   type: ballot-secrecy
   difficulty: medium
   stem: |
@@ -232,6 +258,8 @@ questions:
     The vote must be protected from interference.
   approved: false
 - id: q-philippine-constitution-citizenship-and-suffrage-0014
+  lesson: lesson-philippine-constitution-ballot-protection-and-overseas-voting
+  keyPoint: 2
   type: overseas-voting
   difficulty: medium
   stem: |
@@ -251,6 +279,8 @@ questions:
     Being abroad alone does not prove that a person is eligible.
   approved: false
 - id: q-philippine-constitution-citizenship-and-suffrage-0015
+  lesson: lesson-philippine-constitution-keeping-and-regaining-citizenship
+  keyPoint: 3
   type: repatriation-eligibility
   difficulty: hard
   stem: |
@@ -268,6 +298,8 @@ questions:
     Republic Act 8171 includes Filipino women who lost citizenship by marriage to aliens. It also covers certain natural-born former citizens under its political or economic necessity rule. The process includes an oath and registration, subject to exclusions.
   approved: false
 - id: q-philippine-constitution-citizenship-and-suffrage-0016
+  lesson: lesson-philippine-constitution-keeping-and-regaining-citizenship
+  keyPoint: 4
   type: dual-citizenship-and-allegiance
   difficulty: hard
   stem: |
@@ -285,6 +317,8 @@ questions:
     Different citizenship laws can give a child two citizenships. That fact alone does not prove dual allegiance. Dual allegiance involves voluntarily owing loyalty to two states. Article IV, Section 5 addresses dual allegiance.
   approved: false
 - id: q-philippine-constitution-citizenship-and-suffrage-0017
+  lesson: lesson-philippine-constitution-ballot-protection-and-overseas-voting
+  keyPoint: 3
   type: accessible-independent-voting
   difficulty: hard
   stem: |
@@ -302,6 +336,8 @@ questions:
     Congress must design a way for voters with disabilities and those who cannot read to vote without help. Existing laws and COMELEC rules apply until then. These voters cannot simply be excluded.
   approved: false
 - id: q-philippine-constitution-citizenship-and-suffrage-0018
+  lesson: lesson-philippine-constitution-keeping-and-regaining-citizenship
+  keyPoint: 2
   type: reacquisition-and-candidacy
   difficulty: hard
   stem: |
@@ -319,6 +355,8 @@ questions:
     Reacquiring citizenship and qualifying to run for office have separate requirements. Section 5(2) requires a personal sworn renunciation of all foreign citizenship before an authorized officer when the certificate of candidacy is filed. The candidate must also meet the qualifications for the office.
   approved: false
 - id: q-philippine-constitution-citizenship-and-suffrage-0019
+  lesson: lesson-philippine-constitution-domestic-voting-qualifications
+  keyPoint: 2
   type: election-day-qualification
   difficulty: exam
   stem: |
@@ -336,6 +374,8 @@ questions:
     Section 9 measures age and residence by election day. The citizen will be eighteen and will exceed both residence minimums by then. Registration is still required under Section 10.
   approved: false
 - id: q-philippine-constitution-citizenship-and-suffrage-0020
+  lesson: lesson-philippine-constitution-domestic-voting-qualifications
+  keyPoint: 3
   type: mixed-citizenship-and-voting
   difficulty: exam
   stem: |

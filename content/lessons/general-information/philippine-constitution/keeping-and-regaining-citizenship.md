@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 3
 partCount: 5
-ordering: 9
+ordering: 49
 keyPoints:
   - "Explain citizenship after marriage and legal loss or reacquisition."
   - "Identify the oath and candidacy requirements under RA 9225."

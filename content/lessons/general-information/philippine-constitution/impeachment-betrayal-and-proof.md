@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 4
 partCount: 7
-ordering: 61
+ordering: 67
 keyPoints:
   - "Recognize serious abuse or favoritism involving bad faith."
   - "Distinguish a possible ground from proof and conviction."

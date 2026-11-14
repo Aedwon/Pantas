@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 4
 partCount: 6
-ordering: 24
+ordering: 22
 keyPoints:
   - "Identify the purpose and limits of habeas corpus."
 ---

@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 10
 partCount: 11
-ordering: 29
+ordering: 34
 keyPoints:
   - "Check a claimed violation against facts, evidence, and the relevant right."
   - "Explain only personal and family effects supported by the facts."

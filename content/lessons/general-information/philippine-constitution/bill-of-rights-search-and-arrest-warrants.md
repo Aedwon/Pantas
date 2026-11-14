@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 2
 partCount: 13
-ordering: 3
+ordering: 2
 keyPoints:
   - "Check probable cause, judicial review, and specific descriptions for warrants."
 ---

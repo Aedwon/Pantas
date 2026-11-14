@@ -7,6 +7,8 @@ meta:
   - cse-sub
 questions:
 - id: q-philippine-constitution-bill-of-rights-0001
+  lesson: lesson-philippine-constitution-bill-of-rights-due-process-and-equal-protection
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'How many sections comprise Article III?
@@ -31,6 +33,8 @@ questions:
 
     '
 - id: q-philippine-constitution-bill-of-rights-0002
+  lesson: lesson-philippine-constitution-bill-of-rights-due-process-and-equal-protection
+  keyPoint: 2
   type: single_choice
   difficulty: easy
   stem: 'Which guarantee concerns lawful process before deprivation of life, liberty, or property?
@@ -55,6 +59,8 @@ questions:
 
     '
 - id: q-philippine-constitution-bill-of-rights-0003
+  lesson: lesson-philippine-constitution-bill-of-rights-expression-and-public-action
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'Which article protects speech, expression, and the press?
@@ -79,6 +85,8 @@ questions:
 
     '
 - id: q-philippine-constitution-bill-of-rights-0014
+  lesson: lesson-philippine-constitution-bill-of-rights-search-and-arrest-warrants
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: 'Under Article III, Section 2, what constitutional condition must be met before a search warrant may issue?
@@ -103,6 +111,8 @@ questions:
 
     '
 - id: q-philippine-constitution-bill-of-rights-0018
+  lesson: lesson-philippine-constitution-bill-of-rights-information-and-association
+  keyPoint: 2
   type: single_choice
   difficulty: hard
   approved: false
@@ -128,6 +138,8 @@ questions:
 
     '
 - id: q-philippine-constitution-bill-of-rights-0019
+  lesson: lesson-philippine-constitution-bill-of-rights-expression-and-public-action
+  keyPoint: 2
   type: single_choice
   difficulty: easy
   stem: |
@@ -150,6 +162,8 @@ questions:
     A petition asks the government to fix a wrong. Section 4 protects this request. It does not guarantee that officials will grant it.
   approved: false
 - id: q-philippine-constitution-bill-of-rights-0020
+  lesson: lesson-philippine-constitution-bill-of-rights-religion-abode-and-travel
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: |
@@ -172,6 +186,8 @@ questions:
     Voting is a political right. Section 5 forbids requiring a particular religion to exercise that right.
   approved: false
 - id: q-philippine-constitution-bill-of-rights-0021
+  lesson: lesson-philippine-constitution-bill-of-rights-property-courts-and-investigation
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: |
@@ -194,6 +210,8 @@ questions:
     Section 9 requires fair payment when private property is taken for public use. A public road does not excuse the government from paying.
   approved: false
 - id: q-philippine-constitution-bill-of-rights-0022
+  lesson: lesson-philippine-constitution-bill-of-rights-information-and-association
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: |
@@ -217,6 +235,8 @@ questions:
     Section 7 covers government policy research data. Access can have legal limits. The office must have an applicable legal basis for its claim.
   approved: false
 - id: q-philippine-constitution-bill-of-rights-0023
+  lesson: lesson-philippine-constitution-bill-of-rights-due-process-and-equal-protection
+  keyPoint: 3
   type: single_choice
   difficulty: medium
   stem: |
@@ -238,6 +258,8 @@ questions:
     Treating each group consistently does not make an unrelated grouping fair.
   approved: false
 - id: q-philippine-constitution-bill-of-rights-0024
+  lesson: lesson-philippine-constitution-bill-of-rights-consent-and-private-messages
+  keyPoint: 2
   type: single_choice
   difficulty: medium
   stem: |
@@ -259,6 +281,8 @@ questions:
     Evidence obtained in violation of Section 2 or Section 3 is excluded for any purpose in any proceeding. Administrative cases are included.
   approved: false
 - id: q-philippine-constitution-bill-of-rights-0025
+  lesson: lesson-philippine-constitution-bill-of-rights-consent-and-private-messages
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: |
@@ -281,6 +305,8 @@ questions:
     Silence and submission to armed officers do not by themselves prove it.
   approved: false
 - id: q-philippine-constitution-bill-of-rights-0026
+  lesson: lesson-philippine-constitution-bill-of-rights-religion-abode-and-travel
+  keyPoint: 2
   type: single_choice
   difficulty: medium
   stem: |
@@ -301,6 +327,8 @@ questions:
     Choosing where to live concerns liberty of abode. Section 6 requires a lawful court order within legal limits. Travel has a separate rule.
   approved: false
 - id: q-philippine-constitution-bill-of-rights-0027
+  lesson: lesson-philippine-constitution-bill-of-rights-search-and-arrest-warrants
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: |
@@ -321,6 +349,8 @@ questions:
     For an arrest warrant, the judge may personally review sufficient records. The judge must make an independent decision. Personal questioning is not always required.
   approved: false
 - id: q-philippine-constitution-bill-of-rights-0028
+  lesson: lesson-philippine-constitution-bill-of-rights-hot-pursuit-arrests
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: |
@@ -342,6 +372,8 @@ questions:
     Hot pursuit requires an offense that has just occurred. The officer must personally know facts supporting the arrest and act with the required immediacy. These facts meet neither requirement.
   approved: false
 - id: q-philippine-constitution-bill-of-rights-0029
+  lesson: lesson-philippine-constitution-bill-of-rights-property-courts-and-investigation
+  keyPoint: 3
   type: single_choice
   difficulty: hard
   stem: |
@@ -363,6 +395,8 @@ questions:
     Section 12 requires a written waiver made in the presence of counsel. A signature alone is not enough. A person who cannot afford a lawyer must be provided one.
   approved: false
 - id: q-philippine-constitution-bill-of-rights-0030
+  lesson: lesson-philippine-constitution-bill-of-rights-bail-trial-and-testimony
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: |
@@ -384,6 +418,8 @@ questions:
     Both conditions matter. The charge must carry reclusion perpetua, and the evidence of guilt must be strong. The charged penalty alone does not meet this exception.
   approved: false
 - id: q-philippine-constitution-bill-of-rights-0031
+  lesson: lesson-philippine-constitution-bill-of-rights-bail-trial-and-testimony
+  keyPoint: 2
   type: single_choice
   difficulty: exam
   stem: |
@@ -404,6 +440,8 @@ questions:
     Rebellion and the stated public-safety need meet Section 15's conditions. Section 13 separately protects bail during suspension. Its own rules still determine whether bail is available.
   approved: false
 - id: q-philippine-constitution-bill-of-rights-0032
+  lesson: lesson-philippine-constitution-bill-of-rights-double-jeopardy
+  keyPoint: 2
   type: single_choice
   difficulty: exam
   stem: |
@@ -425,6 +463,8 @@ questions:
     Section 21 covers the same act punished by a national law and an ordinance. Conviction or acquittal under either bars another prosecution under the other. The stated first case meets the required steps.
   approved: false
 - id: q-philippine-constitution-bill-of-rights-0033
+  lesson: lesson-philippine-constitution-bill-of-rights-prohibited-laws
+  keyPoint: 1
   type: single_choice
   difficulty: exam
   stem: |

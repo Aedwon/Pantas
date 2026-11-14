@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 6
 partCount: 6
-ordering: 26
+ordering: 24
 keyPoints:
   - "Identify compelled testimonial self-incrimination and distinguish custodial safeguards."
 ---

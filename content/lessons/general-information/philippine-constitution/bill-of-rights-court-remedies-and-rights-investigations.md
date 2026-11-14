@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 11
 partCount: 11
-ordering: 30
+ordering: 35
 keyPoints:
   - "Identify the purpose of a writ of habeas corpus."
   - "Distinguish CHR investigation from court powers and other complaint processes."

@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 5
 partCount: 11
-ordering: 24
+ordering: 29
 keyPoints:
   - "Check the first case's charge, court, arraignment, plea, and ending."
 ---

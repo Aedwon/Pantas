@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 11
 partCount: 11
-ordering: 49
+ordering: 46
 keyPoints:
   - "Check COMELEC membership and professional requirements."
   - "Check COA membership and professional requirements."

@@ -7,7 +7,7 @@ topic: "topic-philippine-constitution"
 isActive: true
 part: 9
 partCount: 13
-ordering: 10
+ordering: 9
 keyPoints:
   - "Identify just compensation and protection for contract duties."
   - "Identify access to courts and legal help regardless of poverty."
