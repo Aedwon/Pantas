@@ -4,6 +4,8 @@
   "main": "worker.mjs",
   "compatibility_date": "2026-11-01",
   "workers_dev": true,
+  // Attached on Nov 14, 2026 (security fixes step 5). Rollback: docs/deploy-prod.md, section 14.
+  "routes": [{"pattern": "app.pantas.study", "custom_domain": true}],
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",
