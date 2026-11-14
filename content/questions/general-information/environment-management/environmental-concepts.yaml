@@ -306,7 +306,7 @@ questions:
   type: single_choice
   difficulty: easy
   approved: false
-  stem: 'Which group consists entirely of special waste as described in the lesson?
+  stem: 'Which group consists entirely of special waste under RA 9003?
 
     '
   choices:
@@ -457,7 +457,7 @@ questions:
     rationale: 'Recycling processes waste that already exists. Choosing less packaging reduces waste generation and does not use an item again.
 
       '
-  - text: Choosing less packaging is source reduction, while recycling recovers material after use.
+  - text: Less packaging prevents waste; recycling recovers used material.
     correct: true
   explanation: 'Source reduction creates less waste in the first place. Recycling processes material after use. Both can support diversion, but they act at different stages.
 
@@ -495,7 +495,7 @@ questions:
   type: single_choice
   difficulty: exam
   approved: false
-  stem: 'An employee argues that a discarded consumer electronic device should go in the ordinary recyclable bin because it contains useful metal. Which response best follows the lesson?
+  stem: 'An employee argues that a discarded consumer electronic device should go in the ordinary recyclable bin because it contains useful metal. Which response correctly applies RA 9003?
 
     '
   choices:

@@ -271,7 +271,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: medium
-  stem: 'Which law regulates air emissions and prohibits the incineration described in the lesson when it emits poisonous and toxic fumes?
+  stem: 'Which law regulates air emissions and prohibits incineration of municipal, biomedical, and hazardous waste when it emits poisonous and toxic fumes?
 
     '
   choices:
@@ -405,7 +405,7 @@ questions:
   type: single_choice
   difficulty: medium
   approved: false
-  stem: 'Which statement accurately reads the Clean Air Act provision taught in the lesson?
+  stem: 'Which statement accurately describes the Clean Air Act provision on incineration?
 
     '
   choices:
@@ -486,7 +486,7 @@ questions:
   type: single_choice
   difficulty: exam
   approved: false
-  stem: 'Which distinction best follows the lesson''s wildlife and protected-area statutes?
+  stem: 'Which distinction between wildlife and protected-area statutes is correct?
 
     '
   choices:
@@ -593,7 +593,7 @@ questions:
   type: single_choice
   difficulty: hard
   approved: false
-  stem: 'Which claim about an ECC follows from the lesson?
+  stem: 'Which statement about an Environmental Compliance Certificate (ECC) is correct?
 
     '
   choices:

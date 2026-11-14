@@ -100,7 +100,7 @@ questions:
   type: single_choice
   difficulty: easy
   stem: |
-    Which national body has major pollution-control duties identified in the lesson?
+    Which national body has major pollution-control duties?
   choices:
   - text: The Climate Change Commission acting as a materials recovery facility
     rationale: |
@@ -133,7 +133,7 @@ questions:
   - text: The absence of test results proves that the stream is safe.
     rationale: |
       Missing test results do not prove safety. They show that more evidence is needed.
-  - text: The report warrants investigation but does not identify the source.
+  - text: Investigation is needed; the source remains unproven.
     correct: true
   explanation: |
     A bad smell can prompt an investigation. It does not identify who caused pollution. Inspections and suitable water tests can help establish the source.
@@ -174,7 +174,7 @@ questions:
   - text: Families must leave their homes for temporary shelter.
     rationale: |
       Displacement concerns people's homes and living conditions. It is a social effect in this classification.
-  - text: Vendors lose earnings while their stalls remain closed.
+  - text: Vendors lose earnings while stalls are closed.
     correct: true
   - text: Residents have difficulty reaching health services.
     rationale: |
@@ -193,7 +193,7 @@ questions:
   - text: A drought reduces the harvest sold by farmers.
     rationale: |
       This describes reduced production and income. It does not describe a public decision.
-  - text: A council assigns funds and coordinates agencies for climate projects.
+  - text: A council funds and coordinates climate projects.
     correct: true
   - text: Floodwater forces families to leave their homes.
     rationale: |
@@ -262,7 +262,7 @@ questions:
   - text: Shelter access matters only after recovery, so it cannot affect vulnerability.
     rationale: |
       Access to safe places helps people cope with flooding. It is relevant to vulnerability.
-  - text: Housing strength and the ability to reach safety affect how well residents can cope.
+  - text: Housing strength and access to safety affect coping.
     correct: true
   - text: Vulnerability depends only on whether a community has a written plan.
     rationale: |
@@ -281,7 +281,7 @@ questions:
   - text: The flood alone establishes climate change as its only cause.
     rationale: |
       A single event does not establish sole responsibility. The evidence also identifies local conditions that can affect damage.
-  - text: Local conditions must be considered, and climate change's role needs more evidence.
+  - text: Assess local causes and seek evidence of climate change's role.
     correct: true
   - text: Blocked drains prove that climate change could not have played any role.
     rationale: |
@@ -309,7 +309,7 @@ questions:
   - text: Officials removed waste once without checking what happened afterward.
     rationale: |
       A cleanup records an activity. Without follow-up, it does not show that repeated dumping has stopped.
-  - text: Before-and-after checks show less dumping, working collection, and enforcement against violations.
+  - text: 'Before-and-after checks: less dumping, collection works, rules enforced.'
     correct: true
   explanation: |
     Evaluation checks services, enforcement, and changes in harm. Comparing conditions helps show whether the response works. A launch alone cannot show success.
@@ -322,7 +322,7 @@ questions:
   stem: |
     A shelter plan invites women and men to meetings. Later checks show that warnings fail to reach residents with certain work and care duties. What should planners do to apply gender mainstreaming?
   choices:
-  - text: Consult affected residents and adjust warnings and shelter access to address their different needs.
+  - text: Consult residents and adapt warnings and shelter access to differing needs.
     correct: true
   - text: Treat the meeting invitations as proof that everyone's needs are already met.
     rationale: |
@@ -350,7 +350,7 @@ questions:
   - text: Select projects solely because another municipality uses them.
     rationale: |
       Another municipality may face different conditions. Local evidence should guide the choices.
-  - text: Conduct an impact and vulnerability assessment, then use the findings to set priorities.
+  - text: Use an impact and vulnerability assessment to set priorities.
     correct: true
   - text: Delay gathering risk evidence until all project funds have been spent.
     rationale: |
@@ -364,12 +364,12 @@ questions:
   type: single_choice
   difficulty: exam
   stem: |
-    A municipal proposal claims that national climate planning concerns emission reduction alone. Which statement best corrects that claim under the National Strategic Framework on Climate Change described in the lesson?
+    A municipal proposal claims that national climate planning concerns emission reduction alone. Which statement best corrects that claim under the National Strategic Framework on Climate Change?
   choices:
   - text: The framework covers adaptation alone and excludes research on emissions.
     rationale: |
       This substitutes another narrow purpose. The framework supports adaptation and ways to reduce emissions, using research and evidence.
-  - text: The framework connects climate planning with research, public education, and checks on progress.
+  - text: It links climate planning, research, public education, and monitoring.
     correct: true
   - text: The framework replaces local climate plans with public information campaigns alone.
     rationale: |
@@ -430,7 +430,7 @@ questions:
   type: single_choice
   difficulty: exam
   stem: |
-    A city's climate plan used an earlier risk assessment. New housing, changing livelihoods, and altered environmental conditions now affect residents' ability to cope. Which response best follows the lesson's planning principles?
+    A city's climate plan used an earlier risk assessment. New housing, changing livelihoods, and altered environmental conditions now affect residents' ability to cope. Which response best supports effective climate planning?
   choices:
   - text: Retain the original priorities because having an approved plan proves that current risks are covered.
     rationale: |
@@ -438,7 +438,7 @@ questions:
   - text: Replace the risk assessment with a publicity campaign and leave the projects unchanged.
     rationale: |
       Public information helps people act, but it cannot replace evidence used to choose suitable projects.
-  - text: Update the risk evidence, review priorities with affected residents, and adjust actions and resources while tracking results.
+  - text: Update risks, consult residents, revise priorities, actions, and resources, and monitor results.
     correct: true
   - text: Keep funding the original projects and postpone reviewing results until local conditions stop changing.
     rationale: |

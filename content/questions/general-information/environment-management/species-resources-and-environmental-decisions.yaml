@@ -17,7 +17,7 @@ questions:
   - text: A group of living things of the same kind
     rationale: |
       This describes a species. A habitat is the place that meets a living thing's needs.
-  - text: A place where a living thing gets food, water, shelter, and space
+  - text: A place providing food, water, shelter, and space
     correct: true
   - text: The production of more animals or plants with human help
     rationale: |
@@ -89,7 +89,7 @@ questions:
   - text: Reused materials no longer come from natural resources.
     rationale: |
       Reuse does not change where the materials originally came from.
-  - text: Reuse reduces the need for new materials from resources that do not return on a human time scale.
+  - text: Reuse reduces extraction of nonrenewable minerals.
     correct: true
   explanation: |
     Minerals do not return on a human time scale. Using materials again helps reduce the need to take more.
@@ -105,7 +105,7 @@ questions:
   - text: To serve as an unrestricted area for activities banned inside
     rationale: |
       A buffer zone needs special care. It is not an unrestricted place for harmful activities.
-  - text: To help prevent harm to the protected area through special care of nearby land or water
+  - text: To protect the area by special care of nearby land or water
     correct: true
   - text: To replace all activity zones inside the protected area
     rationale: |
@@ -276,12 +276,12 @@ questions:
   type: single_choice
   difficulty: hard
   stem: |
-    Scientific studies identify an important habitat for a threatened species outside an existing NIPAS protected area. Damaging activities threaten the species there. Which conclusion follows from the lesson?
+    Scientific studies identify an important habitat for a threatened species outside an existing NIPAS protected area. Damaging activities threaten the species there. Which conclusion is legally sound?
   choices:
   - text: Habitat protection must wait until the site is included in NIPAS.
     rationale: |
       The lesson provides another tool for sites outside existing protected areas. NIPAS inclusion is not the only path described.
-  - text: Critical-habitat protection under the Wildlife Resources Conservation and Protection Act can address this case.
+  - text: Critical-habitat protection under RA 9147 can apply.
     correct: true
   - text: The studies automatically make the site a NIPAS wildlife sanctuary.
     rationale: |
@@ -306,7 +306,7 @@ questions:
   - text: Treat approval for breeding as permission for anyone to collect and release wildlife.
     rationale: |
       Breeding approval does not remove legal approval and scientific checks for wildlife activities.
-  - text: Protect or repair the release habitat as part of the program and follow the required approvals and scientific checks.
+  - text: Protect or restore release habitat, with required approvals and scientific checks.
     correct: true
   - text: Keep breeding as the only conservation action because producing young replaces the need for habitat protection.
     rationale: |
@@ -322,7 +322,7 @@ questions:
   stem: |
     A proposal for resource conservation permits some forest harvesting within lawful limits that allow recovery. A critic says any use of a natural resource is incompatible with conservation. Which response is best?
   choices:
-  - text: Conservation can allow use when its amount and kind fit the resource and the law.
+  - text: Conservation allows lawful use suited to the resource.
     correct: true
   - text: Conservation requires the same complete ban for all resources and places.
     rationale: |
@@ -364,12 +364,12 @@ questions:
   type: single_choice
   difficulty: exam
   stem: |
-    A town must provide a working water supply. The cheapest proposal would break an applicable habitat-protection rule. A more costly proposal is lawful, meets the supply goal, and causes less habitat harm. Which decision best follows the lesson?
+    A town must provide a working water supply. The cheapest proposal would break an applicable habitat-protection rule. A more costly proposal is lawful, meets the supply goal, and causes less habitat harm. Which decision best meets the stated requirements?
   choices:
   - text: Choose the cheapest proposal because public benefit removes protection rules.
     rationale: |
       A useful goal does not remove legal limits. The cheaper proposal still breaks a protection rule.
-  - text: Choose the lawful proposal because it meets the goal with less harm while respecting the protection rule.
+  - text: Choose the lawful proposal that meets the goal with less habitat harm.
     correct: true
   - text: Average the prices and authorize either proposal without considering legality.
     rationale: |
@@ -394,7 +394,7 @@ questions:
   - text: The cheaper site avoids habitat damage because lower cost means fewer environmental effects.
     rationale: |
       Cost does not measure habitat loss. The cheaper site requires clearing intact habitat.
-  - text: The already cleared site has an added cost but avoids the new habitat clearing required at the cheaper site.
+  - text: The cleared site costs more but avoids new habitat clearing.
     correct: true
   - text: There is no tradeoff because both sites meet the facility's purpose.
     rationale: |
@@ -410,7 +410,7 @@ questions:
   stem: |
     A supplier promotes a treatment as natural and green. A town plans to use it beside a wildlife habitat, but no evidence about its effects on water or species has been provided. Which step should guide the town's decision?
   choices:
-  - text: Obtain evidence about likely effects on water, species, and habitat and check legal requirements.
+  - text: Assess effects on water, species, and habitat; check legal requirements.
     correct: true
   - text: Accept the treatment because the word natural establishes that it is safe for wildlife.
     rationale: |
@@ -441,7 +441,7 @@ questions:
   - text: Breed animals elsewhere while continuing visits and habitat damage at the breeding site.
     rationale: |
       Breeding does not remove the disturbance or repair the habitat wildlife needs.
-  - text: Use the alternative visitor area, limit access near the breeding site, and rehabilitate its habitat under the plan.
+  - text: Move visits, limit breeding-site access, and restore its habitat under the plan.
     correct: true
   explanation: |
     The alternative area keeps visitor access available. Limiting access reduces disturbance at the breeding site. Repairing that habitat helps it support wildlife again.

@@ -122,7 +122,7 @@ questions:
 
     '
   choices:
-  - text: Rebuilding damaged community services through a long-term project
+  - text: Rebuilding damaged community services over the long term
     correct: true
   - text: Giving the first rescue assistance during the active emergency
     rationale: 'This selects response. Both help affected communities. First rescue assistance meets urgent needs. The long-term project rebuilds damaged services.
@@ -212,7 +212,7 @@ questions:
     rationale: |
       Preparedness builds readiness before an emergency.
       These workers are treating people during the current emergency.
-  - text: To protect life and meet urgent medical needs
+  - text: To protect life and provide urgent care
     correct: true
   explanation: |
     First aid during a disaster meets an urgent medical need. It is response.
@@ -226,7 +226,7 @@ questions:
   stem: |
     After emergency relief ends, a municipality helps affected vendors restart their businesses. Which DRRM area best describes this work?
   choices:
-  - text: Disaster rehabilitation and recovery
+  - text: Rehabilitation and recovery
     correct: true
   - text: Disaster preparedness
     rationale: |
@@ -279,7 +279,7 @@ questions:
   - text: It prevents floodwater from reaching every home.
     rationale: |
       A warning system sends information. It does not physically block floodwater.
-  - text: It helps residents get ready to act when danger approaches.
+  - text: It readies residents to act when danger approaches.
     correct: true
   - text: It repairs public services after a flood.
     rationale: |
@@ -297,7 +297,7 @@ questions:
   difficulty: medium
   stem: |
     A flood-control project reduces expected damage, but flooding remains possible.
-    Which conclusion follows from the lesson?
+    Which conclusion is most accurate?
   choices:
   - text: Mitigation can reduce harm even when the hazard remains.
     correct: true
@@ -320,7 +320,7 @@ questions:
   type: single_choice
   difficulty: medium
   stem: |
-    After a storm, a town plans to rebuild its damaged water system. Which goal best follows the lesson's approach to rehabilitation and recovery?
+    After a storm, a town plans to rebuild its damaged water system. Which goal best supports disaster rehabilitation and recovery?
   choices:
   - text: Restore water service while leaving known weaknesses unchanged.
     rationale: |
@@ -331,7 +331,7 @@ questions:
   - text: Limit the project to teaching residents how to store water.
     rationale: |
       Public information can build readiness. It does not restore the damaged service.
-  - text: Restore water service and make the rebuilt system safer from future hazards.
+  - text: Restore water service with a system safer from future hazards.
     correct: true
   explanation: |
     Recovery restores services and should make rebuilding safer. Emergency water deliveries help now, but do not repair the damaged system.
@@ -366,7 +366,7 @@ questions:
   type: single_choice
   difficulty: hard
   stem: |
-    While floodwaters are rising, officials move residents out of threatened homes. An employee calls this preparedness because the homes are not yet damaged. Which assessment best follows the lesson?
+    While floodwaters are rising, officials move residents out of threatened homes. An employee calls this preparedness because the homes are not yet damaged. Which assessment is most accurate?
   choices:
   - text: The employee is correct because response begins only after homes are destroyed.
     rationale: |
@@ -425,7 +425,7 @@ questions:
   - text: Practicing evacuation routes and training emergency staff
     rationale: |
       Both build readiness before an emergency. This pair fits preparedness and does not expose the rule's mistake.
-  - text: Strengthening building standards and preparing emergency plans
+  - text: Stronger building standards and emergency plans
     correct: true
   explanation: |
     Both actions can happen before a disaster. Stronger standards reduce damage, while emergency plans build readiness. Timing alone cannot separate them.
@@ -436,7 +436,7 @@ questions:
   type: single_choice
   difficulty: exam
   stem: |
-    A municipal report places emergency water deliveries and permanent repair of damaged water pipes in the same DRRM area because both occur after a typhoon. Which revision best applies the lesson?
+    A municipal report places emergency water deliveries and permanent repair of damaged water pipes in the same DRRM area because both occur after a typhoon. Which revision correctly classifies these actions?
   choices:
   - text: Classify both as preparedness because clean water helps people face future hazards.
     rationale: |
@@ -487,7 +487,7 @@ questions:
   type: single_choice
   difficulty: exam
   stem: |
-    A proposed DRRM reporting rule requires each program to serve only one area. Its sponsor argues that rebuilding cannot count as recovery if it also reduces future risk. Which judgment best follows the lesson?
+    A proposed DRRM reporting rule requires each program to serve only one area. Its sponsor argues that rebuilding cannot count as recovery if it also reduces future risk. Which judgment is most accurate?
   choices:
   - text: Reject the rule because a program can support several areas, including safer recovery.
     correct: true
