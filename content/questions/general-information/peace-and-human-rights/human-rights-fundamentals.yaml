@@ -1021,3 +1021,45 @@ questions:
       This treats notice as permission. Check whether the affected right can be suspended at all.
   explanation: |
     Article 4 does not permit suspension of the protection against torture in Article 7. This remains true during a qualifying emergency. Source: ICCPR, Articles 4(2) and 7.
+- id: q-peace-and-human-rights-human-rights-fundamentals-0044
+  lesson: lesson-peace-and-human-rights-commission-on-human-rights
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    After investigating a civil-rights complaint, the CHR finds that the matter may require criminal prosecution. Which action is consistent with its role?
+  choices:
+  - text: Refer the matter to the proper prosecuting office.
+    correct: true
+  - text: Impose a prison sentence based on its investigation alone.
+    rationale: |
+      This gives the CHR a court's power. Its findings may support further action. Check who decides criminal guilt.
+  - text: Treat its findings as a final criminal conviction of the respondent.
+    rationale: |
+      This turns an investigation into a judgment. Check the difference between CHR findings and a court decision.
+  - text: Refuse all protective help because only courts may assist victims.
+    rationale: |
+      This confuses sentencing with protection. Check the CHR's powers to protect rights and give legal aid.
+  explanation: |
+    The CHR may investigate and refer a matter needing prosecution to the Department of Justice or another proper office. Courts decide criminal guilt. Source: 1987 Constitution, Article XIII, Section 18; Presidential Human Rights Committee Secretariat, Human Rights: A Primer.
+- id: q-peace-and-human-rights-human-rights-fundamentals-0045
+  lesson: lesson-peace-and-human-rights-commission-on-human-rights
+  keyPoint: 3
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A relative wants to report possible abuse in detention to the CHR. She has messages about the incident but does not know every detail. What is the most appropriate next step?
+  choices:
+  - text: Report known facts and preserve the messages.
+    correct: true
+  - text: Fill the gaps with likely details so the report appears complete.
+    rationale: |
+      This treats guesses as evidence. A full account may seem stronger. Check which facts are actually known.
+  - text: Wait until every possible record is collected before asking for help.
+    rationale: |
+      This makes complete evidence a condition for seeking help. Check that available facts can be reported now.
+  - text: Avoid reporting because only the detained person may complain to the CHR.
+    rationale: |
+      This limits complaints to victims. Check that a relative or another party may report a possible violation.
+  explanation: |
+    A relative may report known facts and available evidence, then ask CHR staff what else they need. Missing details must not be invented. The CHR may investigate a complaint by any party. Source: 1987 Constitution, Article XIII, Section 18(1); CHR reporting guidance in this lesson.
