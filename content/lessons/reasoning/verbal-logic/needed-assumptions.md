@@ -7,7 +7,7 @@ topic: "topic-verbal-logic"
 isActive: true
 part: 1
 partCount: 8
-ordering: 2
+ordering: 1
 keyPoints:
   - "Identify premises and the conclusion."
   - "Test whether an assumption is needed by negating it."

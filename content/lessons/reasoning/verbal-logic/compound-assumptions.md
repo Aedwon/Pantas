@@ -7,7 +7,7 @@ topic: "topic-verbal-logic"
 isActive: true
 part: 3
 partCount: 8
-ordering: 4
+ordering: 3
 keyPoints:
   - "Negate compound statements by testing their parts."
 ---

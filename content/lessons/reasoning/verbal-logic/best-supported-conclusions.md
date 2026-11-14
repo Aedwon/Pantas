@@ -7,7 +7,7 @@ topic: "topic-verbal-logic"
 isActive: true
 part: 6
 partCount: 8
-ordering: 7
+ordering: 6
 keyPoints:
   - "Compare each conclusion with the given evidence."
 ---

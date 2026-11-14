@@ -7,7 +7,7 @@ topic: "topic-verbal-logic"
 isActive: true
 part: 7
 partCount: 8
-ordering: 8
+ordering: 7
 keyPoints:
   - "Avoid adding an unsupported cause or motive."
 ---

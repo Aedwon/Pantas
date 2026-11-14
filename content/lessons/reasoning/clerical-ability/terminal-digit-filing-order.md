@@ -7,7 +7,7 @@ topic: "topic-clerical-ability"
 isActive: true
 part: 6
 partCount: 6
-ordering: 10
+ordering: 9
 keyPoints:
   - "Start with the rightmost group only under a terminal-digit rule."
   - "Compare the remaining groups in the order stated by the task."

@@ -7,7 +7,7 @@ topic: "topic-clerical-ability"
 isActive: true
 part: 4
 partCount: 6
-ordering: 8
+ordering: 7
 keyPoints:
   - "Compare integer subcodes as whole numbers in the stated order."
 ---

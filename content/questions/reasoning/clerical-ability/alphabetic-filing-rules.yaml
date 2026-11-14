@@ -6,6 +6,8 @@ meta:
     - cse-sub
 questions:
   - id: q-clerical-ability-alphabetic-filing-rules-0001
+    lesson: lesson-clerical-ability-personal-name-filing-units
+    keyPoint: 1
     type: single_choice
     difficulty: easy
     stem: |
@@ -26,6 +28,8 @@ questions:
       The surname is Dela Cruz, the given name is Juan, and the middle name is Carlos. The stated order puts Dela Cruz first, then Juan and Carlos. Keep the surname's recorded spelling.
 
   - id: q-clerical-ability-alphabetic-filing-rules-0002
+    lesson: lesson-clerical-ability-personal-name-filing-units
+    keyPoint: 2
     type: single_choice
     difficulty: easy
     stem: |
@@ -46,6 +50,8 @@ questions:
       Compare surnames first. Adams comes before Adamson because the shared spelling ends sooner, and before Adan because m comes before n. For the two Adams records, Arthur comes before Benjamin.
 
   - id: q-clerical-ability-alphabetic-filing-rules-0003
+    lesson: lesson-clerical-ability-filing-patterns-and-surname-particles
+    keyPoint: 1
     type: single_choice
     difficulty: medium
     stem: |
@@ -66,6 +72,8 @@ questions:
       Under a filing convention that skips small linking words, "and," "of," and "the" do not become filing units. The system must state that convention before it is used.
 
   - id: q-clerical-ability-alphabetic-filing-rules-0004
+    lesson: lesson-clerical-ability-filing-patterns-and-surname-particles
+    keyPoint: 2
     type: single_choice
     difficulty: medium
     stem: |
@@ -86,6 +94,8 @@ questions:
       The stated rule treats all of De la Rosa as one surname unit. Spaces are ignored for comparison, but the displayed name keeps its recorded spelling.
 
   - id: q-clerical-ability-alphabetic-filing-rules-0005
+    lesson: lesson-clerical-ability-suffixes-titles-and-filing-ties
+    keyPoint: 2
     type: single_choice
     difficulty: hard
     stem: |
@@ -106,6 +116,8 @@ questions:
       The supplied registry rule makes city the next unit after a full-name tie. Compare the city names alphabetically to order the two records.
 
   - id: q-clerical-ability-alphabetic-filing-rules-0006
+    lesson: lesson-clerical-ability-personal-name-filing-units
+    keyPoint: 1
     type: single_choice
     difficulty: easy
     stem: |
@@ -126,6 +138,8 @@ questions:
       The supplied system indexes surname first. "Last name" is another term for surname, so it is Key Unit 1.
 
   - id: q-clerical-ability-alphabetic-filing-rules-0007
+    lesson: lesson-clerical-ability-suffixes-titles-and-filing-ties
+    keyPoint: 1
     type: single_choice
     difficulty: medium
     stem: |
@@ -146,6 +160,8 @@ questions:
       The stated system puts suffixes after the surname, given name, and middle name. "Jr." therefore forms the final unit.
 
   - id: q-clerical-ability-alphabetic-filing-rules-0008
+    lesson: lesson-clerical-ability-filing-patterns-and-surname-particles
+    keyPoint: 1
     type: single_choice
     difficulty: hard
     stem: |
@@ -166,6 +182,8 @@ questions:
       The first two units, Apex and Book, match. Compare the next words. Company begins with C, which comes before D, M, and P, so Apex Book Company comes first.
 
   - id: q-clerical-ability-alphabetic-filing-rules-0009
+    lesson: lesson-clerical-ability-filing-patterns-and-surname-particles
+    keyPoint: 1
     type: single_choice
     difficulty: medium
     stem: |
@@ -186,6 +204,8 @@ questions:
       A filing system may expand "St." to "Saint" in its comparison key. Under that convention, the key is "Saint Martin." The system must specify how abbreviations are treated.
 
   - id: q-clerical-ability-alphabetic-filing-rules-0010
+    lesson: lesson-clerical-ability-personal-name-filing-units
+    keyPoint: 1
     type: single_choice
     difficulty: easy
     stem: |
@@ -206,6 +226,8 @@ questions:
       The specified order is surname, given name, then middle name. The middle name is the third unit.
 
   - id: q-clerical-ability-alphabetic-filing-rules-0011
+    lesson: lesson-clerical-ability-filing-patterns-and-surname-particles
+    keyPoint: 1
     type: single_choice
     difficulty: hard
     stem: |
@@ -226,6 +248,8 @@ questions:
       A jurisdiction-first filing system groups agencies under their country or locality. In that system, the country or location is the first unit. The applicable system must specify this order.
 
   - id: q-clerical-ability-alphabetic-filing-rules-0012
+    lesson: lesson-clerical-ability-personal-name-filing-units
+    keyPoint: 2
     type: single_choice
     difficulty: medium
     stem: |
@@ -246,6 +270,8 @@ questions:
       All surnames are Santos, so compare given names. Their order is Ana, Juan, Maria, Victor. Victor comes last.
 
   - id: q-clerical-ability-alphabetic-filing-rules-0013
+    lesson: lesson-clerical-ability-personal-name-filing-units
+    keyPoint: 2
     type: single_choice
     difficulty: easy
     stem: |
@@ -267,6 +293,8 @@ questions:
     approved: false
 
   - id: q-clerical-ability-alphabetic-filing-rules-0014
+    lesson: lesson-clerical-ability-personal-name-filing-units
+    keyPoint: 2
     type: single_choice
     difficulty: medium
     stem: |
@@ -288,6 +316,8 @@ questions:
     approved: false
 
   - id: q-clerical-ability-alphabetic-filing-rules-0015
+    lesson: lesson-clerical-ability-suffixes-titles-and-filing-ties
+    keyPoint: 2
     type: single_choice
     difficulty: medium
     stem: |
@@ -309,6 +339,8 @@ questions:
     approved: false
 
   - id: q-clerical-ability-alphabetic-filing-rules-0016
+    lesson: lesson-clerical-ability-filing-patterns-and-surname-particles
+    keyPoint: 2
     type: single_choice
     difficulty: hard
     stem: |
@@ -330,6 +362,8 @@ questions:
     approved: false
 
   - id: q-clerical-ability-alphabetic-filing-rules-0017
+    lesson: lesson-clerical-ability-suffixes-titles-and-filing-ties
+    keyPoint: 2
     type: single_choice
     difficulty: hard
     stem: |
@@ -351,6 +385,8 @@ questions:
     approved: false
 
   - id: q-clerical-ability-alphabetic-filing-rules-0018
+    lesson: lesson-clerical-ability-suffixes-titles-and-filing-ties
+    keyPoint: 1
     type: single_choice
     difficulty: hard
     stem: |
@@ -372,6 +408,8 @@ questions:
     approved: false
 
   - id: q-clerical-ability-alphabetic-filing-rules-0019
+    lesson: lesson-clerical-ability-filing-patterns-and-surname-particles
+    keyPoint: 1
     type: single_choice
     difficulty: exam
     stem: |
@@ -393,6 +431,8 @@ questions:
     approved: false
 
   - id: q-clerical-ability-alphabetic-filing-rules-0020
+    lesson: lesson-clerical-ability-suffixes-titles-and-filing-ties
+    keyPoint: 2
     type: single_choice
     difficulty: exam
     stem: |

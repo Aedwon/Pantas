@@ -7,7 +7,7 @@ topic: "topic-clerical-ability"
 isActive: true
 part: 1
 partCount: 3
-ordering: 2
+ordering: 1
 keyPoints:
   - "Build the filing key from the name units stated in the task."
   - "Compare surname, given name, and middle name in the stated order."

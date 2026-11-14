@@ -7,7 +7,7 @@ topic: "topic-clerical-ability"
 isActive: true
 part: 5
 partCount: 6
-ordering: 9
+ordering: 8
 keyPoints:
   - "Compare character strings one character at a time under the stated rule."
 ---

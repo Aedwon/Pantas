@@ -7,7 +7,7 @@ topic: "topic-verbal-logic"
 isActive: true
 part: 8
 partCount: 8
-ordering: 9
+ordering: 8
 keyPoints:
   - "Recognize bias from words and evidence."
 ---

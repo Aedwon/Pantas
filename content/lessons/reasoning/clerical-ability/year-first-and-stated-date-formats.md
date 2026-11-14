@@ -7,7 +7,7 @@ topic: "topic-clerical-ability"
 isActive: true
 part: 3
 partCount: 6
-ordering: 7
+ordering: 6
 keyPoints:
   - "Read YYYY-MM-DD dates from year to month to day."
   - "Use the stated date format and filing direction."

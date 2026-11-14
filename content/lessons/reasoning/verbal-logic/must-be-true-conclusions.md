@@ -7,7 +7,7 @@ topic: "topic-verbal-logic"
 isActive: true
 part: 4
 partCount: 8
-ordering: 5
+ordering: 4
 keyPoints:
   - "Draw only conclusions that must follow from the premises."
   - "Read all and some without adding facts."

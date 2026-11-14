@@ -6,6 +6,8 @@ meta:
     - cse-sub
 questions:
   - id: q-clerical-ability-numeric-and-chronological-filing-0001
+    lesson: lesson-clerical-ability-whole-number-and-decimal-filing
+    keyPoint: 1
     type: single_choice
     difficulty: easy
     stem: |
@@ -26,6 +28,8 @@ questions:
       Ascending numeric order goes from smallest to largest. The sequence starts at 0102, then continues through 0103, 0104, and 0105.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0002
+    lesson: lesson-clerical-ability-oldest-and-newest-date-order
+    keyPoint: 2
     type: single_choice
     difficulty: easy
     stem: |
@@ -46,6 +50,8 @@ questions:
       Compare the year first, then month and day. The earliest year is 2024, and January 15 is the earlier date in that year. It goes first in oldest-first order.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0003
+    lesson: lesson-clerical-ability-oldest-and-newest-date-order
+    keyPoint: 2
     type: single_choice
     difficulty: easy
     stem: |
@@ -66,6 +72,8 @@ questions:
       Oldest-first filing puts the latest date last. The latest year is 2026, and November 30 is later in that year, so it comes last.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0004
+    lesson: lesson-clerical-ability-whole-number-and-decimal-filing
+    keyPoint: 1
     type: single_choice
     difficulty: medium
     stem: |
@@ -86,6 +94,8 @@ questions:
       In ascending consecutive order, 4588 is followed by 4589, then 4590. The document goes between 4588 and 4590.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0005
+    lesson: lesson-clerical-ability-integer-subcode-filing
+    keyPoint: 1
     type: single_choice
     difficulty: easy
     stem: |
@@ -106,6 +116,8 @@ questions:
       The prefix remains 10. Increase the integer suffix 099 by one to get 100. The next code is 10-100.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0006
+    lesson: lesson-clerical-ability-oldest-and-newest-date-order
+    keyPoint: 2
     type: single_choice
     difficulty: medium
     stem: |
@@ -126,6 +138,8 @@ questions:
       The years and months of June 10 and June 15 match. Day 10 comes before day 15, so June 10 precedes the reference date.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0007
+    lesson: lesson-clerical-ability-whole-number-and-decimal-filing
+    keyPoint: 2
     type: single_choice
     difficulty: medium
     stem: |
@@ -146,6 +160,8 @@ questions:
       The whole-number part 402 is lower than 403. Among the 402 values, 0.15 is lower than 0.20 and 0.80. Thus 402.15 is first in ascending order.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0008
+    lesson: lesson-clerical-ability-whole-number-and-decimal-filing
+    keyPoint: 1
     type: single_choice
     difficulty: easy
     stem: |
@@ -166,6 +182,8 @@ questions:
       An immediate predecessor is one less. $5000 - 1 = 4999$.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0009
+    lesson: lesson-clerical-ability-terminal-digit-filing-order
+    keyPoint: 1
     type: single_choice
     difficulty: hard
     stem: |
@@ -186,6 +204,8 @@ questions:
       Terminal-digit filing uses the final, rightmost group of digits as its first comparison key. The word "terminal" refers to the end.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0010
+    lesson: lesson-clerical-ability-oldest-and-newest-date-order
+    keyPoint: 1
     type: single_choice
     difficulty: medium
     stem: |
@@ -206,6 +226,8 @@ questions:
       Reverse chronological order goes from newest to oldest. The most recent document is therefore at the top.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0011
+    lesson: lesson-clerical-ability-integer-subcode-filing
+    keyPoint: 1
     type: single_choice
     difficulty: easy
     stem: |
@@ -226,6 +248,8 @@ questions:
       Only listed records count as neighbors in the drawer. The records below 88-450 are 88-405 and 88-440. The larger of those is 88-440, so it is immediately before the inserted record.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0012
+    lesson: lesson-clerical-ability-integer-subcode-filing
+    keyPoint: 1
     type: single_choice
     difficulty: medium
     stem: |
@@ -246,6 +270,8 @@ questions:
       The numeric parts match at 101. The supplied next key is the letter suffix, so A comes before B.
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0013
+    lesson: lesson-clerical-ability-whole-number-and-decimal-filing
+    keyPoint: 1
     type: single_choice
     difficulty: easy
     stem: |
@@ -267,6 +293,8 @@ questions:
     approved: false
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0014
+    lesson: lesson-clerical-ability-whole-number-and-decimal-filing
+    keyPoint: 1
     type: single_choice
     difficulty: medium
     stem: |
@@ -288,6 +316,8 @@ questions:
     approved: false
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0015
+    lesson: lesson-clerical-ability-whole-number-and-decimal-filing
+    keyPoint: 2
     type: single_choice
     difficulty: hard
     stem: |
@@ -309,6 +339,8 @@ questions:
     approved: false
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0016
+    lesson: lesson-clerical-ability-integer-subcode-filing
+    keyPoint: 1
     type: single_choice
     difficulty: hard
     stem: |
@@ -330,6 +362,8 @@ questions:
     approved: false
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0017
+    lesson: lesson-clerical-ability-oldest-and-newest-date-order
+    keyPoint: 1
     type: single_choice
     difficulty: hard
     stem: |
@@ -351,6 +385,8 @@ questions:
     approved: false
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0018
+    lesson: lesson-clerical-ability-year-first-and-stated-date-formats
+    keyPoint: 2
     type: single_choice
     difficulty: exam
     stem: |
@@ -372,6 +408,8 @@ questions:
     approved: false
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0019
+    lesson: lesson-clerical-ability-oldest-and-newest-date-order
+    keyPoint: 2
     type: single_choice
     difficulty: exam
     stem: |
@@ -393,6 +431,8 @@ questions:
     approved: false
 
   - id: q-clerical-ability-numeric-and-chronological-filing-0020
+    lesson: lesson-clerical-ability-oldest-and-newest-date-order
+    keyPoint: 2
     type: single_choice
     difficulty: exam
     stem: |

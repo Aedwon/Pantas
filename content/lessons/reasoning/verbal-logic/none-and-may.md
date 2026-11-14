@@ -7,7 +7,7 @@ topic: "topic-verbal-logic"
 isActive: true
 part: 5
 partCount: 8
-ordering: 6
+ordering: 5
 keyPoints:
   - "Apply none to every member of the named group."
   - "Keep may as a possibility."

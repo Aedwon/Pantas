@@ -7,7 +7,7 @@ topic: "topic-clerical-ability"
 isActive: true
 part: 2
 partCount: 3
-ordering: 3
+ordering: 2
 keyPoints:
   - "Use the filing rule stated or shown in the task."
   - "Compare a surname with extra words without changing its written spelling."

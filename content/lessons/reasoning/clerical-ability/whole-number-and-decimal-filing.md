@@ -7,7 +7,7 @@ topic: "topic-clerical-ability"
 isActive: true
 part: 1
 partCount: 6
-ordering: 5
+ordering: 4
 keyPoints:
   - "Compare ordinary file numbers by their full number values."
   - "Compare decimal numbers from left to right."

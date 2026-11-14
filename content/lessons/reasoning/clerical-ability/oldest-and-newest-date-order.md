@@ -7,7 +7,7 @@ topic: "topic-clerical-ability"
 isActive: true
 part: 2
 partCount: 6
-ordering: 6
+ordering: 5
 keyPoints:
   - "Follow the stated oldest-first or newest-first direction."
   - "Compare the year, then the month, then the day."

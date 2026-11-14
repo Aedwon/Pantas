@@ -7,7 +7,7 @@ topic: "topic-verbal-logic"
 isActive: true
 part: 2
 partCount: 8
-ordering: 3
+ordering: 2
 keyPoints:
   - "Negate all, some, and no statements."
 ---

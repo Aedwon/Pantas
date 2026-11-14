@@ -7,7 +7,7 @@ topic: "topic-clerical-ability"
 isActive: true
 part: 3
 partCount: 3
-ordering: 4
+ordering: 3
 keyPoints:
   - "Compare a suffix or title only where the stated filing rule places it."
   - "Use location only when the filing system says it is the next unit."
