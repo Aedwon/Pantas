@@ -100,6 +100,9 @@ Future<void> seedContentLesson(
   String? bodyJson,
   int estimatedMinutes = 5,
   int ordering = 0,
+  int? part,
+  int? partCount,
+  int quizSize = 5,
 }) async {
   await db.into(db.contentLessons).insertOnConflictUpdate(
         ContentLessonsCompanion.insert(
@@ -111,6 +114,9 @@ Future<void> seedContentLesson(
               bodyJson ?? jsonEncode(body ?? const <Map<String, Object?>>[]),
           estimatedMinutes: estimatedMinutes,
           ordering: Value(ordering),
+          part: Value(part),
+          partCount: Value(partCount),
+          quizSize: Value(quizSize),
           schemaVersion: 1,
           updatedAt: _seedStamp,
         ),
@@ -323,6 +329,9 @@ Future<void> seedContentTopicWithQuestions(
   String subjectId = 'subj_default',
   List<String> lessonIds = const [],
   Map<String, String> questionLessonMap = const {},
+  Map<String, int> questionKeyPointMap = const {},
+  Map<String, int> lessonQuizSizes = const {},
+  Map<String, List<String>> lessonKeyPoints = const {},
 }) async {
   await db.into(db.contentExams).insertOnConflictUpdate(
         ContentExamsCompanion.insert(
@@ -367,6 +376,12 @@ Future<void> seedContentTopicWithQuestions(
             bodyJson: jsonEncode([]),
             estimatedMinutes: 5,
             ordering: const Value(0),
+            quizSize: Value(lessonQuizSizes[lId] ?? 5),
+            keyPointsJson: Value(
+              lessonKeyPoints[lId] == null
+                  ? null
+                  : jsonEncode(lessonKeyPoints[lId]),
+            ),
             updatedAt: DateTime.now(),
             schemaVersion: 1,
           ),
@@ -379,6 +394,7 @@ Future<void> seedContentTopicWithQuestions(
             version: 1,
             topicId: topicId,
             lessonId: Value(questionLessonMap[qId]),
+            keyPoint: Value(questionKeyPointMap[qId]),
             language: 'en',
             stemJson: _portableText('stem $qId'),
             explanationJson: _portableText('explanation $qId'),

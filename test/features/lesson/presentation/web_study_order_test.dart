@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -19,7 +20,6 @@ StudyTopic _topic(String id, String name, {bool bookmarked = false}) =>
         StudyLesson(
           id: '$id-l1',
           title: 'Lesson of $name',
-          estimatedMinutes: 10,
           isRead: false,
           isBookmarked: bookmarked,
         ),
@@ -66,7 +66,6 @@ StudyMap _map({Set<String> bookmarked = const {}}) => StudyMap(
       ],
       readCount: 0,
       totalCount: 11,
-      minutesLeftToRead: 110,
     );
 
 void main() {
@@ -85,21 +84,23 @@ void main() {
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
     await tester.pumpWidget(
-      MaterialApp(
-        theme: buildLightTheme(web: true),
-        home: Scaffold(
-          body: Align(
-            alignment: Alignment.topLeft,
-            child: SizedBox(
-              width: 1080,
-              height: 900,
-              child: WebStudyMap(
-                map: map,
-                openTopicId: openTopicId,
-                bookmarkOrder: bookmarkOrder,
-                onTopic: (_) {},
-                onLesson: (_, {required resume}) {},
-                onBookmarks: () {},
+      ProviderScope(
+        child: MaterialApp(
+          theme: buildLightTheme(web: true),
+          home: Scaffold(
+            body: Align(
+              alignment: Alignment.topLeft,
+              child: SizedBox(
+                width: 1080,
+                height: 900,
+                child: WebStudyMap(
+                  map: map,
+                  openTopicId: openTopicId,
+                  bookmarkOrder: bookmarkOrder,
+                  onTopic: (_) {},
+                  onLesson: (_, {required resume}) {},
+                  onBookmarks: () {},
+                ),
               ),
             ),
           ),

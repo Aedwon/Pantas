@@ -1,0 +1,11 @@
+[
+ {"name":"read original credits every split part","retired":{"original":["a","b"]},"reads":{"original":10},"excluded":[],"active":["a","b"],"expectedReads":{"a":10,"b":10},"expectedExcluded":[]},
+ {"name":"one part credits only itself","retired":{"original":["a","b"]},"reads":{"a":20},"excluded":[],"active":["a","b"],"expectedReads":{"a":20},"expectedExcluded":[]},
+ {"name":"all parts read","retired":{"original":["a","b"]},"reads":{"a":10,"b":20},"excluded":[],"active":["a","b"],"expectedReads":{"a":10,"b":20},"expectedExcluded":[]},
+ {"name":"rollback with all parts","retired":{"a":["original"],"b":["original"]},"reads":{"a":10,"b":20},"excluded":["a","b"],"active":["original"],"expectedReads":{"original":20},"expectedExcluded":["original"]},
+ {"name":"rollback with some parts","retired":{"a":["original"],"b":["original"]},"reads":{"a":10},"excluded":["a"],"active":["original"],"expectedReads":{},"expectedExcluded":[]},
+ {"name":"excluded original excludes every part","retired":{"original":["a","b"]},"reads":{},"excluded":["original"],"active":["a","b"],"expectedReads":{},"expectedExcluded":["a","b"]},
+ {"name":"nested split","retired":{"original":["a","b"],"a":["c","d"]},"reads":{"original":10},"excluded":["original"],"active":["b","c","d"],"expectedReads":{"b":10,"c":10,"d":10},"expectedExcluded":["b","c","d"]},
+ {"name":"own read wins","retired":{"original":["a","b"]},"reads":{"original":10,"a":30},"excluded":[],"active":["a","b"],"expectedReads":{"a":30,"b":10},"expectedExcluded":[]},
+ {"name":"cycle gives no invented credit","retired":{"a":["b"],"b":["a"]},"reads":{},"excluded":[],"active":["a","b"],"expectedReads":{},"expectedExcluded":[]}
+]

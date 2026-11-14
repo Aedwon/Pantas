@@ -9,16 +9,20 @@ import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 
 extension PumpApp on WidgetTester {
   Future<void> pumpApp(Widget widget) async {
+    // A ProviderScope sits above the app, as in the real one, so a widget
+    // that watches a provider (the lesson label) can be pumped here.
     await pumpWidget(
-      MaterialApp(
-        theme: ThemeData(
-          useMaterial3: true,
-          extensions: [
-            PantasColors.light,
-            PantasTypeBundle.create(),
-          ],
+      ProviderScope(
+        child: MaterialApp(
+          theme: ThemeData(
+            useMaterial3: true,
+            extensions: [
+              PantasColors.light,
+              PantasTypeBundle.create(),
+            ],
+          ),
+          home: Scaffold(body: widget),
         ),
-        home: Scaffold(body: widget),
       ),
     );
     await pump();

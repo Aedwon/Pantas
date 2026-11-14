@@ -15,6 +15,12 @@ abstract class Lesson with _$Lesson {
     required int estimatedMinutes,
     SubtopicId? subtopicId,
     @Default(0) int ordering,
+    @Default(5) int quizSize,
+    @Default('active') String status,
+    List<String>? replacedBy,
+    int? part,
+    int? partCount,
+    List<String>? keyPoints,
   }) = _Lesson;
 
   factory Lesson.fromJson(Map<String, dynamic> json) => _$LessonFromJson(json);

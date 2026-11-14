@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
+import 'package:pantas/core/ui/components/lesson_label.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/ds.dart';
@@ -11,6 +12,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+import 'package:pantas/features/lesson/application/lesson_bite_label.dart';
 import 'package:pantas/features/lesson/application/lesson_search_providers.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/models/lesson_search_hit.dart';
@@ -53,7 +55,12 @@ class SearchResults extends ConsumerWidget {
                   title: lesson.title,
                   titleColor:
                       lesson.isRead ? context.colors.secondaryLabel : null,
-                  subtitle: topicByLesson[lesson.id],
+                  footer: LessonBiteLabel(
+                    lessonId: lesson.id,
+                    part: lesson.part,
+                    partCount: lesson.partCount,
+                    topicLine: topicByLesson[lesson.id],
+                  ),
                   leading: SizedBox.square(
                     dimension: 24,
                     child: lesson.isRead
@@ -64,11 +71,6 @@ class SearchResults extends ConsumerWidget {
                           )
                         : null,
                   ),
-                  value:
-                      lesson.isRead ? null : '${lesson.estimatedMinutes} min',
-                  // The time keeps its own width and the title takes the rest
-                  // of the row, instead of stopping at half of it (2G-21).
-                  naturalValue: true,
                   verticalPadding: 12,
                   onTap: () => context.push('/lesson/${lesson.id}?from=search'),
                 ),
@@ -227,23 +229,30 @@ class _HitRow extends StatelessWidget {
         richTitle: hit.titleMatch == null
             ? null
             : _spans(hit.titleMatch!, context.type.body),
-        subtitle: hit.topicName,
-        richSubtitle:
-            buildSearchSnippet(source: hit.topicName, query: query) == null
-                ? null
-                : _spans(
-                    buildSearchSnippet(source: hit.topicName, query: query)!,
-                    context.type.footnote,
-                  ),
-        value: '${hit.estimatedMinutes} min',
-        valueStyle: context.type.subhead.copyWith(
-          color: context.colors.secondaryLabel,
-          fontFeatures: const [FontFeature.tabularFigures()],
-        ),
-        naturalValue: true,
         verticalPadding: 12,
-        footer: hit.titleMatch == null && hit.bodySnippet != null
-            ? Text.rich(
+        // Line order: title, label, topic line, then the snippet.
+        footer: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            LessonBiteLabel(
+              lessonId: hit.lessonId,
+              part: hit.part,
+              partCount: hit.partCount,
+            ),
+            Builder(
+              builder: (context) {
+                final topicMatch =
+                    buildSearchSnippet(source: hit.topicName, query: query);
+                final sub = lessonRowSubStyle(context);
+                return Text.rich(
+                  topicMatch == null
+                      ? TextSpan(text: hit.topicName, style: sub)
+                      : _spans(topicMatch, sub),
+                );
+              },
+            ),
+            if (hit.titleMatch == null && hit.bodySnippet != null)
+              Text.rich(
                 _spans(
                   hit.bodySnippet!,
                   context.type.footnote,
@@ -251,8 +260,9 @@ class _HitRow extends StatelessWidget {
                 ),
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
-              )
-            : null,
+              ),
+          ],
+        ),
         onTap: () => context.push('/lesson/${hit.lessonId}?from=search'),
       );
 

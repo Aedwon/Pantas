@@ -27,14 +27,12 @@ class BookmarkRow {
     required this.lessonId,
     required this.title,
     required this.topicName,
-    required this.estimatedMinutes,
     this.subjectName = '',
   });
 
   final LessonId lessonId;
   final String title;
   final String topicName;
-  final int estimatedMinutes;
   final String subjectName;
 }
 
@@ -242,17 +240,33 @@ final bookmarkRowsProvider = FutureProvider<List<BookmarkRow>>((ref) async {
           lessonId: lesson.id,
           title: lesson.title,
           topicName: topic.name,
-          estimatedMinutes: lesson.estimatedMinutes,
           subjectName: subject.name,
         );
       }
     }
   }
 
-  final recent = await repo.recentFirst();
-  final legacy = await repo.customOrder();
+  // A bookmark of a retired lesson stands for the lesson that replaced it.
+  final content = ref.watch(contentRepositoryProvider);
+  final storedRecent = await repo.recentFirst();
+  final storedLegacy = await repo.customOrder();
+  final aliases = await content.resolveLessonIds([
+    for (final row in [...storedRecent, ...storedLegacy])
+      if (!byLessonId.containsKey(row.lessonId)) row.lessonId,
+  ]);
+  List<LessonBookmarkLocalRow> aliased(List<LessonBookmarkLocalRow> rows) {
+    final seen = <LessonId>{};
+    return [
+      for (final row in rows)
+        if (seen.add(aliases[row.lessonId] ?? row.lessonId))
+          row.copyWith(lessonId: aliases[row.lessonId]),
+    ];
+  }
+
+  final recent = aliased(storedRecent);
+  final legacy = aliased(storedLegacy);
   if (!alive) return const [];
-  final custom = await prefs.readCustomOrder(
+  final storedCustom = await prefs.readCustomOrder(
     exam.id,
     boundary: boundary,
     isCurrent: () => alive,
@@ -261,6 +275,10 @@ final bookmarkRowsProvider = FutureProvider<List<BookmarkRow>>((ref) async {
         if (byLessonId.containsKey(row.lessonId)) row.lessonId,
     ],
   );
+  final customAliases = await content.resolveLessonIds(storedCustom);
+  final custom = [
+    for (final id in storedCustom) customAliases[id] ?? id,
+  ];
   if (!alive) return const [];
   if (token == null && await prefs.readToken() != null) {
     throw const BookmarkActionExpired();

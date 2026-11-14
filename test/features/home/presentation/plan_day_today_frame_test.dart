@@ -90,7 +90,6 @@ void main() {
                       id: 'l1',
                       title: 'Cells',
                       subject: 'Science',
-                      minutes: 8,
                       read: false,
                     ),
                   ],

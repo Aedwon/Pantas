@@ -24,7 +24,6 @@ const _testMap = StudyMap(
             StudyLesson(
               id: 'l1',
               title: 'Basics',
-              estimatedMinutes: 5,
               isRead: false,
               isBookmarked: false,
             ),
@@ -37,7 +36,6 @@ const _testMap = StudyMap(
   ],
   readCount: 0,
   totalCount: 1,
-  minutesLeftToRead: 5,
 );
 
 void main() {

@@ -366,7 +366,8 @@ final planDayViewProvider =
     if (stored != null) {
       plan = stored.plan;
       final db = ref.read(appDatabaseProvider);
-      final reads = await db.select(db.lessonProgressLocal).get();
+      final reads =
+          await ref.read(lessonProgressRepositoryProvider).readTimes();
       final attempts = await db.select(db.attemptsLocal).get();
       final completed = <Attempt>[];
       for (final row in attempts) {
@@ -377,7 +378,7 @@ final planDayViewProvider =
         stored,
         completedPlanFacts(
           date,
-          {for (final r in reads) r.lessonId: r.readAt},
+          reads,
           completed,
         ),
       );
@@ -424,9 +425,9 @@ Future<List<HomeTodayLesson>> _planLessons(
         ),
     };
     if (!ref.read(studyUsesServerProvider)) {
-      final studentDb = ref.read(appDatabaseProvider);
-      final reads = await studentDb.select(studentDb.lessonProgressLocal).get();
-      readLessonIds.addAll(reads.map((r) => r.lessonId));
+      readLessonIds.addAll(
+        await ref.read(lessonProgressRepositoryProvider).readLessonIds(),
+      );
     }
     for (final id in plan.lessonIds) {
       final row = rows.where((l) => l.id == id).firstOrNull;
@@ -446,7 +447,8 @@ Future<List<HomeTodayLesson>> _planLessons(
           id: id,
           title: row.title,
           subject: names[row.topicId]!,
-          minutes: 0,
+          part: row.part,
+          partCount: row.partCount,
           read: read,
         ),
       );
@@ -546,7 +548,8 @@ PlanDayView retainOpenedPlanDay(PlanDayView opened, PlanDayView fresh) {
           id: l.id,
           title: l.title,
           subject: l.subject,
-          minutes: l.minutes,
+          part: l.part,
+          partCount: l.partCount,
           read: fresh.readLessonIds.contains(l.id),
           fraction: l.fraction,
           advanced: l.advanced,

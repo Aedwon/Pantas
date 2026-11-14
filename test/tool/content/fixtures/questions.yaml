@@ -1,0 +1,23 @@
+meta:
+  subject: math
+  topic: numbers
+  subtopic: addition
+  exams: [cse-pro]
+questions:
+  - id: q-one
+    stem: What is one plus one?
+    choices:
+      - text: Two
+        correct: true
+      - text: Three
+        rationale: You added too much.
+    explanation: One plus one is two.
+    approved: false # display
+  - id: q-two
+    stem: Another question
+    choices: [{text: Yes, correct: true}]
+    approved: true
+  - id: q-pending
+    figure: pending
+  - id: q-inactive
+    isActive: false

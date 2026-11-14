@@ -1,0 +1,150 @@
+[
+  {
+    "name": "own lesson",
+    "lessons": [
+      {
+        "id": "lesson-test-sub"
+      },
+      {
+        "id": "lesson-test-part"
+      }
+    ],
+    "question": {
+      "topic": "test",
+      "subtopic": "sub",
+      "lesson": "lesson-test-part"
+    },
+    "expectedLesson": "lesson-test-part"
+  },
+  {
+    "name": "derived lesson",
+    "lessons": [
+      {
+        "id": "lesson-test-sub"
+      }
+    ],
+    "question": {
+      "topic": "test",
+      "subtopic": "sub"
+    },
+    "expectedLesson": "lesson-test-sub"
+  },
+  {
+    "name": "retired chain of two",
+    "lessons": [
+      {
+        "id": "lesson-test-sub",
+        "status": "retired",
+        "replacedBy": [
+          "middle"
+        ]
+      },
+      {
+        "id": "middle",
+        "status": "retired",
+        "replacedBy": [
+          "lesson-test-part"
+        ]
+      },
+      {
+        "id": "lesson-test-part"
+      }
+    ],
+    "question": {
+      "topic": "test",
+      "subtopic": "sub"
+    },
+    "expectedLesson": "lesson-test-part"
+  },
+  {
+    "name": "cycle",
+    "lessons": [
+      {
+        "id": "lesson-test-sub",
+        "status": "retired",
+        "replacedBy": [
+          "middle"
+        ]
+      },
+      {
+        "id": "middle",
+        "status": "retired",
+        "replacedBy": [
+          "lesson-test-sub"
+        ]
+      }
+    ],
+    "question": {
+      "topic": "test",
+      "subtopic": "sub"
+    },
+    "error": "cycle"
+  },
+  {
+    "name": "unknown explicit lesson",
+    "lessons": [
+      {
+        "id": "lesson-test-sub"
+      }
+    ],
+    "question": {
+      "topic": "test",
+      "subtopic": "sub",
+      "lesson": "missing"
+    },
+    "error": "unknown lesson"
+  },
+  {
+    "name": "empty replacement",
+    "lessons": [
+      {
+        "id": "lesson-test-sub",
+        "status": "retired",
+        "replacedBy": []
+      }
+    ],
+    "question": {
+      "topic": "test",
+      "subtopic": "sub"
+    },
+    "error": "empty replacedBy"
+  },
+  {
+    "name": "unknown replacement",
+    "lessons": [
+      {
+        "id": "lesson-test-sub",
+        "status": "retired",
+        "replacedBy": [
+          "missing"
+        ]
+      }
+    ],
+    "question": {
+      "topic": "test",
+      "subtopic": "sub"
+    },
+    "error": "unknown lesson"
+  },
+  {
+    "name": "unknown secondary replacement",
+    "lessons": [
+      {
+        "id": "lesson-test-sub",
+        "status": "retired",
+        "replacedBy": [
+          "lesson-test-part",
+          "missing"
+        ]
+      },
+      {
+        "id": "lesson-test-part"
+      }
+    ],
+    "question": {
+      "topic": "test",
+      "subtopic": "sub"
+    },
+    "error": "unknown lesson"
+  }
+]

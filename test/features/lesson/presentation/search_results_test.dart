@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/features/lesson/application/lesson_search_providers.dart';
 import 'package:pantas/features/lesson/domain/models/lesson_search_hit.dart';
 import 'package:pantas/features/lesson/domain/use_cases/build_search_snippet.dart';
@@ -26,7 +27,6 @@ void main() {
             title:
                 title ?? (bodyHit ? 'Algebraic Expressions' : 'Venn diagrams'),
             topicName: 'Vocabulary',
-            estimatedMinutes: 5,
             titleMatch: bodyHit
                 ? null
                 : const SearchSnippet(
@@ -52,7 +52,6 @@ void main() {
         StudyLesson(
           id: 'recent_$i',
           title: 'Recent Lesson $i',
-          estimatedMinutes: 5,
           isRead: true,
           isBookmarked: false,
         ),
@@ -139,13 +138,13 @@ void main() {
     final title = find.byWidgetPredicate(
       (w) => w is RichText && w.text.toPlainText() == long,
     );
-    final time = find.text('5 min');
     expect(title, findsOneWidget);
-    // The title runs up to the time. It stays one line (board), so a title
+    expect(find.textContaining(' min'), findsNothing);
+    // The title runs up to the chevron. It stays one line (board), so a title
     // that does not fit ends in dots only once the row is full.
     expect(
-      tester.getRect(time).left - tester.getRect(title).right,
-      lessThan(24),
+      tester.getRect(find.byType(ListRow)).right - tester.getRect(title).right,
+      lessThan(48),
     );
     expect(tester.getRect(title).width, greaterThan(190));
   });

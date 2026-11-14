@@ -37,6 +37,7 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/domain/lesson_day_context.dart';
+import 'package:pantas/features/lesson/application/lesson_bite_label.dart';
 import 'package:pantas/features/lesson/application/lesson_search_providers.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
@@ -1418,9 +1419,14 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody>
                   title: widget.endingTarget is DayFinished
                       ? 'Finish today'
                       : widget.destinationTitle ?? reader.topicName,
-                  detail: next == null
+                  detailWidget: next == null
                       ? null
-                      : '${next.lesson.estimatedMinutes} min',
+                      : LessonBiteLabel(
+                          lessonId: next.lesson.id,
+                          part: next.lesson.part,
+                          partCount: next.lesson.partCount,
+                          style: context.webTokens.sub,
+                        ),
                   pull: pull,
                   onPressed: widget.onPull == null ? null : pull.commit,
                 ),
@@ -1479,6 +1485,17 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody>
                     ? const AlwaysStoppedAnimation(true)
                     : _isAtEnd,
                 nextTitle: widget.destinationTitle,
+                nextLabel: next == null
+                    ? null
+                    : LessonBiteLabel(
+                        lessonId: next.lesson.id,
+                        part: next.lesson.part,
+                        partCount: next.lesson.partCount,
+                        textAlign: TextAlign.center,
+                        style: context.type.footnote.copyWith(
+                          color: context.colors.secondaryLabel,
+                        ),
+                      ),
                 lessonId: reader.lesson.id,
                 contentKey: ending == null
                     ? reader.lesson.id
@@ -1642,9 +1659,11 @@ class _LessonContent extends StatelessWidget {
                   children: [
                     // The design's title block: the topic and the time in
                     // one line of 15 px, then the title at 30 px.
-                    Text(
-                      '${reader.topicName} · '
-                      '${reader.lesson.estimatedMinutes} min',
+                    LessonBiteLabel(
+                      lessonId: reader.lesson.id,
+                      part: reader.lesson.part,
+                      partCount: reader.lesson.partCount,
+                      prefix: reader.topicName,
                       style: context.type.subhead.copyWith(
                         color: context.colors.secondaryLabel,
                       ),

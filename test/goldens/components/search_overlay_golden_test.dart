@@ -7,6 +7,7 @@ import 'package:pantas/features/lesson/application/lesson_search_providers.dart'
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_lesson_search.dart';
+import 'package:pantas/features/quiz/application/quiz_starts.dart';
 
 import '../golden_harness.dart';
 
@@ -20,21 +21,18 @@ const _recent = [
   StudyLesson(
     id: 'l1',
     title: 'Adding fractions',
-    estimatedMinutes: 6,
     isRead: true,
     isBookmarked: false,
   ),
   StudyLesson(
     id: 'l2',
     title: 'Comparing halves and thirds',
-    estimatedMinutes: 4,
     isRead: false,
     isBookmarked: false,
   ),
   StudyLesson(
     id: 'l3',
     title: 'Ratios in recipes',
-    estimatedMinutes: 8,
     isRead: false,
     isBookmarked: false,
   ),
@@ -44,6 +42,10 @@ Widget _search({List<StudyLesson>? recent}) => ProviderScope(
       overrides: [
         studyMapProvider.overrideWith((ref) async => null),
         searchResultsProvider.overrideWith((ref) async => const []),
+        // Fixed quiz counts so the sheet shows each label.
+        lessonQuizCountProvider.overrideWith(
+          (ref, id) async => const {'l1': 5, 'l2': 3, 'l3': 4}[id] ?? 5,
+        ),
         recentlyOpenedLessonsProvider.overrideWith(
           (ref) => recent == null
               ? Completer<List<StudyLesson>>().future
@@ -69,7 +71,7 @@ void main() {
         'Row hover',
         (_) => _search(recent: _recent),
         action: GoldenAction.hover,
-        at: const Alignment(0, 0.22),
+        at: const Alignment(0, 0.28),
         window: _window,
       ),
       GoldenState('Loading', (_) => _search(), window: _window),

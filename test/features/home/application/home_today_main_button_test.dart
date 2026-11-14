@@ -150,7 +150,6 @@ void main() {
                         id: id,
                         title: 'Lesson $id',
                         subject: 'Topic',
-                        minutes: 8,
                         read: lessonsRead,
                         fraction: id == 'a' ? firstFraction : null,
                       ),

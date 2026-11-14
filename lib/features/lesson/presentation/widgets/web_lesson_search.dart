@@ -17,6 +17,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/lesson/application/lesson_bite_label.dart';
 import 'package:pantas/features/lesson/application/lesson_search_providers.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/models/lesson_search_hit.dart';
@@ -101,7 +102,8 @@ class _WebLessonSearchState extends ConsumerState<WebLessonSearch> {
                 lessonId: lesson.id,
                 title: lesson.title,
                 topicName: topics[lesson.id] ?? '',
-                estimatedMinutes: lesson.estimatedMinutes,
+                part: lesson.part,
+                partCount: lesson.partCount,
               ),
           ]
         : hits.valueOrNull ?? <LessonSearchHit>[];
@@ -357,6 +359,12 @@ class _WebLessonSearchState extends ConsumerState<WebLessonSearch> {
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
                                 ),
+                                LessonBiteLabel(
+                                  lessonId: results[i].lessonId,
+                                  part: results[i].part,
+                                  partCount: results[i].partCount,
+                                  style: _small(t),
+                                ),
                                 Text(
                                   results[i].topicName,
                                   style: _small(t),
@@ -373,15 +381,6 @@ class _WebLessonSearchState extends ConsumerState<WebLessonSearch> {
                                     overflow: TextOverflow.ellipsis,
                                   ),
                               ],
-                            ),
-                          ),
-                          const SizedBox(
-                            width: PantasSpace.s12,
-                          ),
-                          Text(
-                            '${results[i].estimatedMinutes} min',
-                            style: PantasType.webRowValue.copyWith(
-                              color: t.colors.textSecondary,
                             ),
                           ),
                           if (i == selected) ...[

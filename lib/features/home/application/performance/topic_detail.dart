@@ -85,11 +85,8 @@ final topicDetailProvider = FutureProvider.autoDispose
   );
   final lessonRows = groups[topicId]!;
   if (lessonRows.isEmpty) throw TopicNotFound(topicId);
-  final db = ref.watch(appDatabaseProvider);
-  final readRows = await (db.select(db.lessonProgressLocal)
-        ..where((p) => p.lessonId.isIn(lessonRows.map((l) => l.id))))
-      .get();
-  final read = {for (final r in readRows) r.lessonId};
+  final read =
+      await ref.watch(lessonProgressRepositoryProvider).readLessonIds();
   final planned = await ref.watch(todayLessonIdsProvider(examId).future);
   return TopicDetail(
     topicId: topicId,

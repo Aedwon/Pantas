@@ -18,6 +18,7 @@ import 'package:pantas/features/home/application/today_questions.dart';
 import 'package:pantas/features/home/domain/study_models.dart';
 import 'package:pantas/features/home/presentation/home_today_screen.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
+import 'package:pantas/features/roadmap/data/roadmap_day_repository.dart';
 import 'package:pantas/features/roadmap/domain/day_snapshot.dart';
 import 'package:pantas/features/roadmap/domain/roadmap.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
@@ -25,6 +26,7 @@ import 'package:pantas/features/settings/domain/user_settings.dart';
 
 import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
+import '../../../helpers/retired_lessons.dart';
 
 /// A launcher whose question preparation waits until the test lets it go.
 class _HeldLauncher extends TodayQuestionLauncher {
@@ -53,6 +55,8 @@ Future<_Fixture> _fixture(
   WidgetTester? tester, {
   Future<RoadmapToday>? roadmap,
   StreamController<StudyRoadmap>? planCopies,
+  List<String> plannedLessonIds = const ['a', 'b'],
+  Future<void> Function(ContentDatabase content)? prepareContent,
 }) async {
   final db = inMemoryDatabase();
   final content = inMemoryContentDatabase();
@@ -73,13 +77,14 @@ Future<_Fixture> _fixture(
       questionIds: [...reviews, ...news],
       questionLessonMap: {'n0': 'a', 'n1': 'b'},
     );
+    await prepareContent?.call(content);
     await db.into(db.accountPrefs).insert(
           AccountPrefsCompanion.insert(key: 'quiz_session_length', value: '5'),
         );
     await SyncActiveContextStore(db).clearStable();
     final plan = DayPlan(
       day: DateTime(2026, 10, 23),
-      lessonIds: const ['a', 'b'],
+      lessonIds: plannedLessonIds,
       reviewQuestionIds: reviews,
       newQuestionIds: news,
       isMockDay: false,
@@ -104,7 +109,7 @@ Future<_Fixture> _fixture(
   });
   Map<String, Object?> dayPlan() => {
         'day': '2026-10-23',
-        'lessonIds': ['a', 'b'],
+        'lessonIds': plannedLessonIds,
         'reviewQuestionIds': reviews,
         'newQuestionIds': news,
         'advancedIds': <String>[],
@@ -222,6 +227,61 @@ void main() {
       expect(work.newQuestions.map((q) => q.id), ['n0', 'n1']);
       expect(f.launcher.loads, 1);
     }
+  });
+
+  Future<void> storeToday(_Fixture f) async {
+    final db = f.container.read(appDatabaseProvider);
+    await RoadmapDayRepository(db).write('e', f.today.snapshot, DateTime.now());
+  }
+
+  test('a planned lesson missing from content is skipped and the day rebuilds',
+      timeout: const Timeout(Duration(seconds: 30)), () async {
+    final f = await _fixture(null, plannedLessonIds: const ['a', 'gone']);
+    await storeToday(f);
+    final guard = f.launcher.captureGuard('e', isAlive: () => true);
+
+    final data = await f.container
+        .read(homeTodayLoaderProvider)('e', guard)
+        .timeout(const Duration(seconds: 5));
+
+    expect(data.lessons.map((l) => l.id), ['a']);
+    final days = RoadmapDayRepository(f.container.read(appDatabaseProvider));
+    expect(await days.read('e', f.today.snapshot.day), isNull);
+    f.launcher.gate.complete();
+  });
+
+  test('a planned lesson that was split opens as its first part',
+      timeout: const Timeout(Duration(seconds: 30)), () async {
+    final f = await _fixture(
+      null,
+      plannedLessonIds: const ['a', 'old'],
+      prepareContent: (content) async {
+        await seedContentLesson(content, lessonId: 'old', topicId: 't');
+        await retireTestLesson(content, 'old', ['b', 'c']);
+      },
+    );
+    await storeToday(f);
+    final guard = f.launcher.captureGuard('e', isAlive: () => true);
+
+    final data = await f.container
+        .read(homeTodayLoaderProvider)('e', guard)
+        .timeout(const Duration(seconds: 5));
+
+    expect(data.lessons.map((l) => l.id), ['a', 'b']);
+    final days = RoadmapDayRepository(f.container.read(appDatabaseProvider));
+    expect(await days.read('e', f.today.snapshot.day), isNull);
+    f.launcher.gate.complete();
+  });
+
+  test('a plan whose lessons all exist is left stored',
+      timeout: const Timeout(Duration(seconds: 30)), () async {
+    final f = await _fixture(null);
+    await storeToday(f);
+    final guard = f.launcher.captureGuard('e', isAlive: () => true);
+    await f.container.read(homeTodayLoaderProvider)('e', guard);
+    final days = RoadmapDayRepository(f.container.read(appDatabaseProvider));
+    expect(await days.read('e', f.today.snapshot.day), isNotNull);
+    f.launcher.gate.complete();
   });
 
   test('an owner change during preparation still aborts it',

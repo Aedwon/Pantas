@@ -20,6 +20,12 @@ class ContentLessons extends Table {
   /// authored lessons carry one; the three without are unplaced and fall to 0,
   /// which is what the app's own schema does with them.
   IntColumn get ordering => integer().withDefault(const Constant(0))();
+  IntColumn get quizSize => integer().withDefault(const Constant(5))();
+  TextColumn get status => text().withDefault(const Constant('active'))();
+  TextColumn get replacedBy => text().nullable()();
+  IntColumn get part => integer().nullable()();
+  IntColumn get partCount => integer().nullable()();
+  TextColumn get keyPointsJson => text().nullable()();
   TextColumn get bodyJson => text()();
 
   @override

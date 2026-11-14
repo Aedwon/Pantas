@@ -13,6 +13,7 @@ import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 
 import '../../../helpers/in_memory_database.dart';
+import '../../../helpers/retired_lessons.dart';
 
 void main() {
   late AppDatabase db;
@@ -117,6 +118,17 @@ void main() {
       map.subjects.expand((s) => s.topics).map((t) => t.id),
       isNot(contains('unlisted')),
     );
+  });
+
+  test("a retired id opens its first part in that part's own place", () async {
+    await retireTestLesson(contentDb, 'l1', ['l2', 'l3']);
+
+    final context = await container.read(readerContextProvider('l1').future);
+
+    expect(context!.lesson.id, 'l2');
+    expect(context.positionInTopic, 1);
+    expect(context.lessonsInTopic, 2);
+    expect(context.next?.id, 'l3');
   });
 
   test('the last lesson in a topic has no next', () async {

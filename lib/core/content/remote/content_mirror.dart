@@ -221,7 +221,9 @@ class ContentMirror implements ContentFetchHook {
           .getSingleOrNull();
       if (row == null) return;
       final siblings = await (_db.select(_db.contentLessons)
-            ..where((l) => l.topicId.equals(row.topicId))
+            ..where(
+              (l) => l.topicId.equals(row.topicId) & l.status.equals('active'),
+            )
             ..orderBy([
               (l) => OrderingTerm.asc(l.ordering),
               (l) => OrderingTerm.asc(l.id),
@@ -321,6 +323,16 @@ class ContentMirror implements ContentFetchHook {
           summary: lesson.summary,
           estimatedMinutes: lesson.estimatedMinutes,
           ordering: Value(lesson.ordering),
+          status: Value(lesson.status),
+          replacedBy: Value(
+            lesson.replacedBy.isEmpty ? null : jsonEncode(lesson.replacedBy),
+          ),
+          quizSize: Value(lesson.quizSize),
+          part: Value(lesson.part),
+          partCount: Value(lesson.partCount),
+          keyPointsJson: Value(
+            lesson.keyPoints == null ? null : jsonEncode(lesson.keyPoints),
+          ),
           // Replaced when the body is fetched; an upsert here never touches it.
           bodyJson: '[]',
         ),
@@ -396,6 +408,12 @@ class ContentMirror implements ContentFetchHook {
               summary: excluded.summary,
               estimatedMinutes: excluded.estimatedMinutes,
               ordering: excluded.ordering,
+              status: excluded.status,
+              replacedBy: excluded.replacedBy,
+              quizSize: excluded.quizSize,
+              part: excluded.part,
+              partCount: excluded.partCount,
+              keyPointsJson: excluded.keyPointsJson,
             ),
           ),
         )

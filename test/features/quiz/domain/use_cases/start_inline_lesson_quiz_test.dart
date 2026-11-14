@@ -172,4 +172,39 @@ void main() {
       isTrue,
     );
   });
+
+  test('quiz size and key points come from the lesson', () async {
+    final db = inMemoryDatabase();
+    final contentDb = ContentDatabase(NativeDatabase.memory());
+    addTearDown(contentDb.close);
+    addTearDown(db.close);
+    await seedContentTopicWithQuestions(
+      contentDb,
+      examId: 'exam',
+      topicId: 'topic',
+      topicName: 'Topic',
+      questionIds: [for (var i = 0; i < 10; i++) 'q$i'],
+      lessonIds: const ['lesson'],
+      questionLessonMap: {for (var i = 0; i < 10; i++) 'q$i': 'lesson'},
+      questionKeyPointMap: {for (var i = 0; i < 10; i++) 'q$i': i < 5 ? 0 : 1},
+      lessonQuizSizes: const {'lesson': 4},
+      lessonKeyPoints: const {
+        'lesson': ['First point', 'Second point'],
+      },
+    );
+    for (var run = 0; run < 10; run++) {
+      final result = await StartInlineLessonQuiz(
+        content: ContentRepository(contentDb),
+        sessions: QuizSessionRepository(db),
+      )(
+        userId: 'user$run',
+        examId: 'exam',
+        lessonId: 'lesson',
+        now: DateTime.utc(2026, 10, 12),
+      );
+      final session = (result as StartInlineLessonQuizStarted).session;
+      expect(session.questions, hasLength(4));
+      expect(session.questions.map((q) => q.keyPoint).toSet(), {0, 1});
+    }
+  });
 }

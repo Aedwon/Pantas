@@ -51,6 +51,7 @@ void main() {
       router,
       overrides: [
         lessonQuizAvailableProvider.overrideWith((_, __) async => true),
+        lessonQuizCountProvider.overrideWith((_, __) async => 5),
       ],
     );
     await tester.pumpAndSettle();
@@ -112,7 +113,6 @@ void main() {
             subjects: [],
             readCount: 0,
             totalCount: 0,
-            minutesLeftToRead: 0,
           ),
         ),
       ],

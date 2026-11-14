@@ -53,6 +53,12 @@ class CatalogLesson {
     required this.estimatedMinutes,
     required this.ordering,
     required this.isActive,
+    this.status = 'active',
+    this.replacedBy = const [],
+    this.quizSize = 5,
+    this.part,
+    this.partCount,
+    this.keyPoints,
   });
 
   final String id;
@@ -63,6 +69,19 @@ class CatalogLesson {
   final int estimatedMinutes;
   final int ordering;
   final bool isActive;
+
+  /// `active` or `retired`. A retired lesson is served only through the
+  /// first id in [replacedBy], never listed.
+  final String status;
+  final List<String> replacedBy;
+
+  /// Questions the lesson's quiz shows. An unsplit lesson keeps 5.
+  final int quizSize;
+
+  /// 1-based position within a split, and how many parts the split has.
+  final int? part;
+  final int? partCount;
+  final List<String>? keyPoints;
 }
 
 /// A question without its text.
@@ -162,9 +181,27 @@ CatalogLesson _lesson(Map<String, Object?> doc) {
     subtopicId: optionalRefField(doc, doctype, 'subtopic'),
     title: stringField(doc, doctype, 'title'),
     summary: stringField(doc, doctype, 'summary'),
-    estimatedMinutes: intField(doc, doctype, 'estimatedMinutes'),
+    // Compatibility column only. No screen may show it; T10 removes every read.
+    estimatedMinutes: doc['estimatedMinutes'] == null
+        ? 0
+        : intField(doc, doctype, 'estimatedMinutes'),
     ordering: doc['ordering'] is int ? doc['ordering']! as int : 0,
     isActive: boolField(doc, doctype, 'isActive'),
+    status: doc['status'] == 'retired' ? 'retired' : 'active',
+    replacedBy: [
+      if (doc['replacedBy'] case final List<Object?> ids)
+        for (final id in ids)
+          if (id is String) id,
+    ],
+    quizSize: doc['quizSize'] is int ? doc['quizSize']! as int : 5,
+    part: doc['part'] is int ? doc['part']! as int : null,
+    partCount: doc['partCount'] is int ? doc['partCount']! as int : null,
+    keyPoints: doc['keyPoints'] is List
+        ? [
+            for (final point in doc['keyPoints']! as List<Object?>)
+              if (point is String) point,
+          ]
+        : null,
   );
 }
 

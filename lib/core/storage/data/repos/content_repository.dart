@@ -169,20 +169,23 @@ class ContentRepository {
   /// A listed lesson needs an active question tagged for the chosen exam.
   /// Custom tracks use the active question bank across exams.
   Future<Expression<bool>> _lessonEligibility(ExamId? examId) async {
-    if (examId == null) return const Constant(true);
-    final questions = _db.contentQuestions;
     final lessons = _db.contentLessons;
+    final active =
+        lessons.isActive.equals(true) & lessons.status.equals('active');
+    if (examId == null) return active;
+    final questions = _db.contentQuestions;
     final tagged = await _taggedForExam(questions, examId);
-    return existsQuery(
-      _db.selectOnly(questions)
-        ..addColumns([questions.id])
-        ..where(
-          questions.lessonId.equalsExp(lessons.id) &
-              questions.topicId.equalsExp(lessons.topicId) &
-              questions.isActive.equals(true) &
-              tagged,
-        ),
-    );
+    return active &
+        existsQuery(
+          _db.selectOnly(questions)
+            ..addColumns([questions.id])
+            ..where(
+              questions.lessonId.equalsExp(lessons.id) &
+                  questions.topicId.equalsExp(lessons.topicId) &
+                  questions.isActive.equals(true) &
+                  tagged,
+            ),
+        );
   }
 
   Future<List<QuestionSelectionRow>> selectionRowsByTopic(
@@ -250,6 +253,8 @@ class ContentRepository {
           lessons.title,
           lessons.ordering,
           lessons.estimatedMinutes,
+          lessons.part,
+          lessons.partCount,
         ])
         ..where(lessons.topicId.isIn(batch) & eligible)
         ..orderBy([
@@ -264,6 +269,8 @@ class ContentRepository {
           title: row.read(lessons.title)!,
           ordering: row.read(lessons.ordering)!,
           estimatedMinutes: row.read(lessons.estimatedMinutes)!,
+          part: row.read(lessons.part),
+          partCount: row.read(lessons.partCount),
         );
         grouped[metadata.topicId]?.add(metadata);
       }
@@ -566,6 +573,13 @@ class ContentRepository {
     LessonId id, {
     bool throwOnLoadFailure = false,
   }) async {
+    // A retired lesson opens as the lesson that replaced it. The catalog row
+    // already says so, so the retired text is never fetched.
+    final target = await _aliasTarget(id);
+    if (target == null) return null;
+    if (target != id) {
+      return lessonById(target, throwOnLoadFailure: throwOnLoadFailure);
+    }
     final hook = _fetchHook;
     if (hook != null && !await hook.ensureLesson(id)) {
       if (throwOnLoadFailure) {
@@ -579,7 +593,100 @@ class ContentRepository {
     final row = await (_db.select(_db.contentLessons)
           ..where((l) => l.id.equals(id)))
         .getSingleOrNull();
-    return row == null ? null : _hydrateLesson(row);
+    if (row == null) return null;
+    if (row.status == 'retired') {
+      // The fetched copy revealed a retired lesson the catalog did not know.
+      final next = await _aliasTarget(id);
+      return next == null || next == id
+          ? null
+          : lessonById(next, throwOnLoadFailure: throwOnLoadFailure);
+    }
+    return _hydrateLesson(row);
+  }
+
+  /// The active lesson that [id] stands for: [id] itself when it is active or
+  /// unknown, the first replacement (followed through chains) when it is
+  /// retired, null when a retired lesson replaces nothing or the chain loops.
+  Future<LessonId?> _aliasTarget(LessonId id) async {
+    final seen = <LessonId>{};
+    var current = id;
+    while (true) {
+      if (!seen.add(current)) return null;
+      final row = await (_db.select(_db.contentLessons)
+            ..where((l) => l.id.equals(current)))
+          .getSingleOrNull();
+      if (row == null || row.status != 'retired') return current;
+      final raw = row.replacedBy;
+      final list = raw == null ? const <Object?>[] : jsonDecode(raw) as List;
+      if (list.isEmpty) return null;
+      current = list.first as String;
+    }
+  }
+
+  /// For each id in [ids] that is a retired lesson with an active replacement,
+  /// the active lesson it resolves to. Active, unknown and unresolvable ids
+  /// are left out.
+  Future<Map<LessonId, LessonId>> resolveLessonIds(
+    Iterable<LessonId> ids,
+  ) async {
+    final resolved = <LessonId, LessonId>{};
+    for (final id in ids.toSet()) {
+      final target = await _aliasTarget(id);
+      if (target == null || target == id) continue;
+      final row = await (_db.select(_db.contentLessons)
+            ..where((l) => l.id.equals(target)))
+          .getSingleOrNull();
+      if (row != null && row.status == 'active' && row.isActive) {
+        resolved[id] = target;
+      }
+    }
+    return resolved;
+  }
+
+  /// Every retired lesson id with the ids that replaced it, for credit.
+  ///
+  /// Lists leave retired lessons out, so this is the one place the credit rule
+  /// learns of them. The web mirror fills the same table, so one query serves
+  /// both runtimes.
+  Future<Map<LessonId, List<LessonId>>> retiredReplacements() async {
+    final lessons = _db.contentLessons;
+    final rows = await (_db.selectOnly(lessons)
+          ..addColumns([lessons.id, lessons.replacedBy])
+          ..where(lessons.status.equals('retired')))
+        .map((r) => (r.read(lessons.id)!, r.read(lessons.replacedBy)))
+        .get();
+    return {
+      for (final (id, raw) in rows)
+        id: raw == null ? const [] : (jsonDecode(raw) as List).cast<String>(),
+    };
+  }
+
+  /// A short fingerprint of which lessons are active, empty while no lesson is
+  /// retired. A split or a rollback changes it, which rebuilds stored plan
+  /// days that name lessons by id. Content with no split is unchanged.
+  Future<String> lessonSetRevision() async {
+    final lessons = _db.contentLessons;
+    final rows = await (_db.selectOnly(lessons)
+          ..addColumns([lessons.id, lessons.status, lessons.replacedBy]))
+        .map(
+          (r) => (
+            r.read(lessons.id)!,
+            r.read(lessons.status)!,
+            r.read(lessons.replacedBy),
+          ),
+        )
+        .get();
+    if (!rows.any((r) => r.$2 == 'retired')) return '';
+    final lines = [
+      for (final (id, status, replacedBy) in rows)
+        status == 'retired' ? 'r:$id>${replacedBy ?? ''}' : 'a:$id',
+    ]..sort();
+    // FNV-1a, 32 bit: stable across platforms and needs no dependency.
+    var hash = 0x811c9dc5;
+    for (final unit in lines.join('\n').codeUnits) {
+      hash = ((hash ^ unit) * 0x01000193) & 0xFFFFFFFF;
+    }
+    return hash.toRadixString(16).padLeft(8, '0');
   }
 
   /// Narrows the corpus to rows whose title, summary or serialised body
@@ -597,6 +704,7 @@ class ContentRepository {
           ..where(
             (l) =>
                 l.topicId.isIn(topicIds) &
+                l.status.equals('active') &
                 (l.title.lower().like(needle) |
                     l.summary.lower().like(needle) |
                     l.bodyJson.lower().like(needle)),
@@ -656,6 +764,16 @@ class ContentRepository {
       bodyJson: List<Map<String, dynamic>>.from(
         jsonDecode(r.bodyJson) as List,
       ),
+      quizSize: r.quizSize,
+      status: r.status,
+      replacedBy: r.replacedBy == null
+          ? null
+          : (jsonDecode(r.replacedBy!) as List).cast<String>(),
+      part: r.part,
+      partCount: r.partCount,
+      keyPoints: r.keyPointsJson == null
+          ? null
+          : (jsonDecode(r.keyPointsJson!) as List).cast<String>(),
       estimatedMinutes: r.estimatedMinutes,
       ordering: r.ordering,
     );
@@ -722,6 +840,7 @@ class ContentRepository {
       explanation: _plainText(r.explanationJson),
       shortLabel: r.shortLabel,
       figureSpecJson: r.figureSpecJson,
+      keyPoint: r.keyPoint,
     );
   }
 

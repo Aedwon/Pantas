@@ -33,6 +33,10 @@ abstract class Question with _$Question {
     /// How to draw this question's diagram, as JSON. Null when it has none.
     /// The painter decodes it; nothing else has to understand it.
     String? figureSpecJson,
+
+    /// Index into the lesson's key points. Null when the lesson is not split
+    /// or the question is not yet tagged.
+    int? keyPoint,
   }) = _Question;
 
   factory Question.fromJson(Map<String, dynamic> json) =>
