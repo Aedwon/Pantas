@@ -45,6 +45,17 @@ class LessonRepo {
       title: row.title,
       summary: row.summary,
       bodyJson: (jsonDecode(row.bodyJson) as List).cast<Map<String, dynamic>>(),
+      quizSize: row.quizSize,
+      status: row.status,
+      replacedBy: row.replacedBy == null
+          ? null
+          : (jsonDecode(row.replacedBy!) as List).cast<String>(),
+      part: row.part,
+      partCount: row.partCount,
+      keyPoints: row.keyPointsJson == null
+          ? null
+          : (jsonDecode(row.keyPointsJson!) as List).cast<String>(),
+      ordering: row.ordering,
       estimatedMinutes: row.estimatedMinutes,
     );
   }

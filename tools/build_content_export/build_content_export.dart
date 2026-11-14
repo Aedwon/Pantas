@@ -330,6 +330,12 @@ void _export(List<String> arguments) {
       'estimatedMinutes': l['estimatedMinutes'],
       'ordering': l['ordering'] ?? 0,
       'body': l['bodyJson'],
+      'quizSize': 5,
+      'status': l['status'] ?? 'active',
+      if (l['replacedBy'] != null) 'replacedBy': l['replacedBy'],
+      if (l['part'] != null) 'part': l['part'],
+      if (l['partCount'] != null) 'partCount': l['partCount'],
+      if (l['keyPoints'] != null) 'keyPoints': l['keyPoints'],
     });
   }
 
@@ -370,6 +376,13 @@ void _export(List<String> arguments) {
   final mockBlueprints = buildMockBlueprints(root);
 
   if (exitCode != 0) return;
+  final resolver = _LessonResolver(lessons);
+  for (final question in questions) {
+    final ref = question['lesson'] as Map<String, Object?>?;
+    if (ref != null) {
+      question['lesson'] = {'_ref': resolver.resolve(ref['_ref']! as String)};
+    }
+  }
   final lessonLinks = buildLessonLinks(root, lessons);
   final gapTags = buildGapTags(
     root,
@@ -563,7 +576,12 @@ List<Map<String, Object?>> buildQuestions(
         'isActive': true,
         'topic': {'_ref': topicId},
         'subtopic': {'_ref': 'subtopic_$subtopicSlug'},
-        'lesson': {'_ref': 'lesson-$topicSlug-$subtopicSlug'},
+        'lesson': {
+          '_ref': question['lesson'] as String? ??
+              'lesson-$topicSlug-$subtopicSlug',
+        },
+        if (question['keyPoint'] != null)
+          'keyPoint': question['keyPoint'] as int,
         if (question['passage'] != null)
           'passage': {'_ref': question['passage']},
         if (question['shortLabel'] != null)
@@ -607,6 +625,7 @@ List<Map<String, Object?>> buildLessons(
   final lessons = <Map<String, Object?>>[];
 
   final nextOrdering = <String, int>{};
+  final explicitOrdering = <String, List<bool>>{};
 
   for (final file in _filesUnder('$root/content/lessons', '.md')) {
     final updatedAt = _getFileHashTimestamp(file);
@@ -631,6 +650,7 @@ List<Map<String, Object?>> buildLessons(
     final subtopicSlug =
         front['_id'].toString().replaceFirst('lesson-$topicSlug-', '');
 
+    (explicitOrdering[topicId] ??= []).add(front['ordering'] != null);
     final fallback = (nextOrdering[topicId] ?? 0) + 1;
     nextOrdering[topicId] = fallback;
 
@@ -647,12 +667,30 @@ List<Map<String, Object?>> buildLessons(
       'summary': front['summary'] as String,
       'estimatedMinutes': front['estimatedMinutes'] as int,
       'ordering': front['ordering'] as int? ?? fallback,
+      'quizSize': _quizSize(front, source.substring(match.end)),
+      'status': front['status'] as String? ?? 'active',
+      if (front['replacedBy'] != null)
+        'replacedBy': (front['replacedBy'] as YamlList).cast<String>().toList(),
+      if (front['part'] != null) 'part': front['part'] as int,
+      if (front['partCount'] != null) 'partCount': front['partCount'] as int,
+      if (front['keyPoints'] != null)
+        'keyPoints': (front['keyPoints'] as YamlList).cast<String>().toList(),
       'body': markdownToPortableText(
         source.substring(match.end),
         lesson: identity,
         assets: assetMap,
       ),
     });
+  }
+
+  for (final entry in explicitOrdering.entries) {
+    if (entry.value.any((value) => value) &&
+        entry.value.any((value) => !value)) {
+      throw FormatException(
+        'Topic ${entry.key}: every lesson must set ordering '
+        'when any lesson does',
+      );
+    }
   }
 
   // A figure folder with no lesson file (a renamed lesson, say) is never read
@@ -662,6 +700,71 @@ List<Map<String, Object?>> buildLessons(
       LessonIdentity.fromPath(file.path),
   ]);
   return lessons;
+}
+
+int _quizSize(YamlMap front, String body) {
+  final keys = front['keyPoints'] as YamlList?;
+  if (keys == null || keys.isEmpty) return 5;
+  var examples = 0;
+  // B3 allows example practice only in Mathematics and quantitative Science.
+  // This pilot has no quantitative Science topics, so only Mathematics applies.
+  if (front['subject'] == 'subject-mathematics') {
+    var inExamples = false;
+    for (final line in const LineSplitter().convert(body)) {
+      if (line.startsWith('## ')) inExamples = line.trim() == '## Examples';
+      if (inExamples && line.startsWith('### ')) examples++;
+    }
+  }
+  return (keys.length + examples.clamp(0, 2)).clamp(2, 6);
+}
+
+/// Validate every replacement edge, including alternatives after the first.
+/// Lookup follows only the first replacement, as required for retired aliases.
+class _LessonResolver {
+  _LessonResolver(List<Map<String, Object?>> lessons)
+      : byId = {
+          for (final lesson in lessons) lesson['_id']! as String: lesson,
+        } {
+    final visiting = <String>{};
+    final visited = <String>{};
+    void visit(String id) {
+      if (visiting.contains(id)) {
+        throw FormatException('replacedBy cycle at $id');
+      }
+      if (visited.contains(id)) return;
+      final row = byId[id];
+      if (row == null) {
+        throw FormatException('unknown lesson $id in replacedBy');
+      }
+      visiting.add(id);
+      final replacements =
+          (row['replacedBy'] as List?)?.cast<String>() ?? const <String>[];
+      if (row['status'] == 'retired' && replacements.isEmpty) {
+        throw FormatException('retired lesson $id has empty replacedBy');
+      }
+      for (final next in replacements) {
+        visit(next);
+      }
+      visiting.remove(id);
+      visited.add(id);
+    }
+
+    for (final id in byId.keys) {
+      visit(id);
+    }
+  }
+
+  final Map<String, Map<String, Object?>> byId;
+
+  String resolve(String id) {
+    var current = id;
+    while (true) {
+      final row = byId[current];
+      if (row == null) throw FormatException('unknown lesson $current');
+      if (row['status'] != 'retired') return current;
+      current = (row['replacedBy']! as List).first as String;
+    }
+  }
 }
 
 List<Map<String, Object?>> _textToPortableText(String text) {
@@ -768,12 +871,16 @@ List<Map<String, Object?>> buildLessonLinks(
 ) {
   final path = '$root/content/lesson-prerequisites.json';
   final rows = _roadmapInput(path, 'lessons');
-  final ids = lessons.map((lesson) => lesson['_id']).toSet();
+  final resolver = _LessonResolver(lessons);
+  final ids = resolver.byId.keys.toSet();
   final links = <Map<String, Object?>>[];
   final targets = <String, List<String>>{};
   for (final id in rows.keys.toList()..sort()) {
     if (!ids.contains(id)) {
       throw FormatException('$path: $id: unknown source lesson');
+    }
+    if (resolver.byId[id]!['status'] == 'retired') {
+      throw FormatException('$path: $id: retired lesson in prerequisite link');
     }
     final raw = rows[id];
     if (raw is! List<dynamic>) {
@@ -787,6 +894,11 @@ List<Map<String, Object?>> buildLessonLinks(
       final target = link['lesson'] as String;
       if (!ids.contains(target)) {
         throw FormatException('$path: $id -> $target: unknown target lesson');
+      }
+      if (resolver.byId[target]!['status'] == 'retired') {
+        throw FormatException(
+          '$path: $id -> $target: retired lesson in prerequisite link',
+        );
       }
       if (target == id) {
         throw FormatException('$path: $id: self link');
@@ -839,7 +951,8 @@ List<Map<String, Object?>> buildGapTags(
   final path = '$root/content/question-gap-tags.json';
   final rows = _roadmapInput(path, 'questions');
   final byId = {for (final question in questions) question['_id']: question};
-  final ids = lessons.map((lesson) => lesson['_id']).toSet();
+  final resolver = _LessonResolver(lessons);
+  final ids = resolver.byId.keys.toSet();
   final tags = <Map<String, Object?>>[];
   var skipped = 0;
   for (final id in rows.keys.toList()..sort()) {
@@ -873,9 +986,16 @@ List<Map<String, Object?>> buildGapTags(
       if (choice['isCorrect'] == true) {
         throw FormatException('$path: $id: tag on correct choice "$text"');
       }
-      final target = raw[text];
-      if (target is! String || !ids.contains(target)) {
-        throw FormatException('$path: $id: unknown lesson $target');
+      final authoredTarget = raw[text];
+      if (authoredTarget is! String || !ids.contains(authoredTarget)) {
+        throw FormatException('$path: $id: unknown lesson $authoredTarget');
+      }
+      final target = resolver.resolve(authoredTarget);
+      if (target != authoredTarget) {
+        stderr.writeln(
+          '$path: warning: $id: retired lesson $authoredTarget '
+          'resolves to $target',
+        );
       }
       final lesson = (question['lesson'] as Map<String, Object?>?)?['_ref'];
       if (!links.any(

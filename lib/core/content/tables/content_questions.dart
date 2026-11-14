@@ -14,6 +14,7 @@ class ContentQuestions extends Table {
   TextColumn get language => text()();
   TextColumn get stemJson => text()();
   TextColumn get explanationJson => text()();
+  IntColumn get keyPoint => integer().nullable()();
   IntColumn get version => integer()();
   TextColumn get lessonId =>
       text().nullable().references(ContentLessons, #id)();

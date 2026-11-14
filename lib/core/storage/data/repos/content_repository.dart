@@ -656,6 +656,16 @@ class ContentRepository {
       bodyJson: List<Map<String, dynamic>>.from(
         jsonDecode(r.bodyJson) as List,
       ),
+      quizSize: r.quizSize,
+      status: r.status,
+      replacedBy: r.replacedBy == null
+          ? null
+          : (jsonDecode(r.replacedBy!) as List).cast<String>(),
+      part: r.part,
+      partCount: r.partCount,
+      keyPoints: r.keyPointsJson == null
+          ? null
+          : (jsonDecode(r.keyPointsJson!) as List).cast<String>(),
       estimatedMinutes: r.estimatedMinutes,
       ordering: r.ordering,
     );

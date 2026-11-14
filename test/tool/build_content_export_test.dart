@@ -12,8 +12,88 @@ import 'package:yaml/yaml.dart';
 
 import '../../tool/content/ledger.dart';
 import '../../tool/content/question_hash.dart';
+import '../../tools/build_content_export/build_content_export.dart' as exporter;
 
 void main() {
+  group('bite-sized lesson metadata', () {
+    late Directory root;
+    setUp(() {
+      root = Directory.systemTemp.createTempSync('lesson-metadata');
+      Directory('${root.path}/content/lessons/s/test')
+          .createSync(recursive: true);
+      Directory('${root.path}/content/illustrations').createSync();
+      File('${root.path}/content/illustrations/assets.json')
+          .writeAsStringSync('{}');
+    });
+    tearDown(() => root.deleteSync(recursive: true));
+    void lesson(
+      String id, {
+      String front = '',
+      String body = '',
+      String subject = 'subject-mathematics',
+    }) {
+      File('${root.path}/content/lessons/s/test/$id.md').writeAsStringSync(
+        '---\n_id: lesson-test-$id\ntopic: topic-test\nsubject: $subject\n'
+        'title: Test\nsummary: Test\nestimatedMinutes: 1\n$front---\n$body',
+      );
+    }
+
+    List<Map<String, Object?>> build() =>
+        exporter.buildLessons({'test': 'topic_test'}, root.path);
+    for (final (name, keys, subject, expected) in [
+      ('unsplit', 0, 'subject-mathematics', 5),
+      ('floor', 1, 'subject-mathematics', 2),
+      ('math examples', 4, 'subject-mathematics', 6),
+      ('non-math examples', 3, 'subject-science', 3),
+      ('example cap', 1, 'subject-mathematics', 3),
+    ]) {
+      test('quizSize $name', () {
+        lesson(
+          'one',
+          front: keys == 0
+              ? ''
+              : 'keyPoints: '
+                  '${jsonEncode(List.generate(keys, (i) => 'Point $i'))}\n'
+                  'part: 1\npartCount: 2\n',
+          subject: subject,
+          body: name == 'floor'
+              ? ''
+              : '## Core Concept\n### Not an example\n'
+                  '## Examples\n### First\nOne.\n### Second\nTwo.\n'
+                  '${name == 'example cap' ? '### Third\nThree.\n' : ''}'
+                  '## Traps\n### Not an example\n',
+        );
+        final row = build().single;
+        expect(row['quizSize'], expected);
+        expect(row['status'], 'active');
+        if (keys > 0) {
+          expect(row['keyPoints'], hasLength(keys));
+          expect(row['part'], 1);
+          expect(row['partCount'], 2);
+        }
+      });
+    }
+    test('ordering must be all or none within a topic', () {
+      lesson('one', front: 'ordering: 2\n');
+      lesson('two');
+      expect(
+        build,
+        throwsA(
+          isA<FormatException>()
+              .having((e) => e.message, 'topic', contains('topic_test')),
+        ),
+      );
+    });
+    test('ordering preserves explicit values and fallback', () {
+      lesson('one');
+      lesson('two');
+      expect(build().map((l) => l['ordering']), [1, 2]);
+      lesson('one', front: 'ordering: 7\n');
+      lesson('two', front: 'ordering: 4\n');
+      expect(build().map((l) => l['ordering']), [7, 4]);
+    });
+  });
+
   test('export refuses unapproved questions before writing output', () async {
     final root = Directory.systemTemp.createTempSync('export_gate');
     addTearDown(() => root.deleteSync(recursive: true));

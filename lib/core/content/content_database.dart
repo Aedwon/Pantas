@@ -34,7 +34,7 @@ class ContentDatabase extends _$ContentDatabase {
   ContentDatabase(super.executor);
 
   @override
-  int get schemaVersion => 10;
+  int get schemaVersion => 11;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -92,6 +92,15 @@ class ContentDatabase extends _$ContentDatabase {
               contentMockBlueprints,
               contentMockBlueprints.unscoredItems,
             );
+          }
+          if (from < 11) {
+            await m.addColumn(contentLessons, contentLessons.quizSize);
+            await m.addColumn(contentLessons, contentLessons.status);
+            await m.addColumn(contentLessons, contentLessons.replacedBy);
+            await m.addColumn(contentLessons, contentLessons.part);
+            await m.addColumn(contentLessons, contentLessons.partCount);
+            await m.addColumn(contentLessons, contentLessons.keyPointsJson);
+            await m.addColumn(contentQuestions, contentQuestions.keyPoint);
           }
         },
       );

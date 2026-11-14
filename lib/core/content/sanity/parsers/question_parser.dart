@@ -44,6 +44,7 @@ ParsedQuestion parseQuestion(Map<String, Object?> doc) {
         doctype: doctype,
         field: 'explanation',
       ),
+      keyPoint: Value(doc['keyPoint'] as int?),
       version: intField(doc, doctype, 'version'),
       lessonId: Value(optionalRefField(doc, doctype, 'lesson')),
       passageId: Value(optionalRefField(doc, doctype, 'passage')),
