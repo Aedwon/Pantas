@@ -485,3 +485,228 @@ questions:
   explanation: |
     An ex post facto law applies a harmful criminal-law change backward. A bill of attainder punishes named or identifiable people without a court trial. Section 22 bans both.
   approved: false
+- id: q-philippine-constitution-bill-of-rights-0034
+  lesson: lesson-philippine-constitution-bill-of-rights-arrest-in-an-officers-presence
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    An officer personally witnesses an offense, immediately arrests the offender, and searches the offender for weapons. The offender challenges both acts solely because the officer had no warrants. Which assessment is most accurate?
+  choices:
+  - text: Both acts require warrants even when the officer personally witnesses the offense.
+    rationale: |
+      This overlooks the exception for an offense in the officer's presence. Check the ground for arrest before requiring a warrant.
+  - text: The arrest is allowed, but a search of the person always needs a separate warrant.
+    rationale: |
+      This misses the search allowed after a lawful arrest. Check whether the search concerns the arrested person and weapons or evidence.
+  - text: Both acts fall within recognized warrant exceptions on these facts.
+    correct: true
+  - text: The search is allowed only if it occurs before the officer makes a lawful arrest.
+    rationale: |
+      This reverses the sequence. The search exception follows a lawful arrest. Check which act legally supports the search.
+  explanation: |
+    Article III, Section 2 protects against unreasonable searches and seizures.
+    Rule 113, Section 5 allows arrest for an offense committed in the officer's presence.
+    Rule 126, Section 13 allows a search of the person for weapons or evidence after that lawful arrest.
+- id: q-philippine-constitution-bill-of-rights-0036
+  lesson: lesson-philippine-constitution-bill-of-rights-arrest-in-an-officers-presence
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    Following a lawful arrest for an offense committed in an officer's presence, the officer claims authority to search any place desired without a warrant. Which statement best identifies the limit of the exception taught in the lesson?
+  choices:
+  - text: It permits a search of the arrested person for weapons or evidence.
+    correct: true
+  - text: It permits a search of any place whenever the officer first makes a lawful arrest.
+    rationale: |
+      This turns a limited exception into unlimited power. Check that the stated search concerns the arrested person.
+  - text: It permits searches only if the arrested person first admits guilt to the officer.
+    rationale: |
+      This adds an admission requirement. The stated search rests on a lawful arrest. Check that basis instead.
+  - text: It permits no search of the arrested person without an additional search warrant.
+    rationale: |
+      This removes the exception entirely. Check the rule allowing a search of the person after a lawful arrest.
+  explanation: |
+    Article III, Section 2 protects against unreasonable searches and seizures.
+    Under Rule 126, Section 13, a lawful arrest supports a search of the person for weapons or evidence.
+    This is the limited search described in the lesson.
+- id: q-philippine-constitution-bill-of-rights-0037
+  lesson: lesson-philippine-constitution-bill-of-rights-hot-pursuit-arrests
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    An officer claims that acting immediately after a reported crime is enough for a hot-pursuit arrest, even without personal knowledge of facts linking the person arrested to the offense. Which requirement does this claim overlook?
+  choices:
+  - text: The officer must obtain a confession before making any hot-pursuit arrest.
+    rationale: |
+      This substitutes a confession for the required facts. Check personal knowledge supporting probable cause, not an admission of guilt.
+  - text: The officer must personally witness the entire offense before making the arrest.
+    rationale: |
+      This confuses hot pursuit with an offense in the officer's presence. Check facts personally known after the crime instead.
+  - text: The officer must wait until the offense is no longer recent before acting.
+    rationale: |
+      This reverses the immediacy requirement. Check that the offense has just occurred as well as the officer's personal knowledge.
+  - text: Probable cause must rest on personally known facts or circumstances.
+    correct: true
+  explanation: |
+    Article III, Section 2 protects against unreasonable seizures.
+    Rule 113, Section 5 requires probable cause based on the officer's personal knowledge of facts or circumstances for a hot-pursuit arrest.
+    The offense must also have just occurred. Prompt action alone meets only part of the rule.
+- id: q-philippine-constitution-bill-of-rights-0038
+  lesson: lesson-philippine-constitution-bill-of-rights-property-courts-and-investigation
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    An agency that hears evidence and decides disputes outside the court system allows a poor applicant to file a case. It then denies adequate legal assistance solely because the applicant cannot pay. Which assessment follows Article III?
+  choices:
+  - text: Permission to file does not settle the separate protection for legal help.
+    correct: true
+  - text: Permission to file satisfies the Constitution even if poverty is the sole reason for denying legal help.
+    rationale: |
+      This treats access and legal help as the same protection. Check both rights separately when filing is allowed.
+  - text: The agency is outside the courts, so poverty may always justify denying legal assistance there.
+    rationale: |
+      This overlooks quasi-judicial bodies. Check the agency's role in hearing facts and deciding disputes, not just its name.
+  - text: The applicant must first win the dispute before poverty can be considered in providing legal assistance.
+    rationale: |
+      This adds a winning requirement. Check the protection against denying adequate legal help because of poverty.
+  explanation: |
+    Article III, Section 11 protects access to courts and quasi-judicial bodies and adequate legal assistance despite poverty.
+    The agency performs a quasi-judicial role. Allowing filing does not by itself provide the protected legal help.
+- id: q-philippine-constitution-bill-of-rights-0039
+  lesson: lesson-philippine-constitution-bill-of-rights-bail-trial-and-testimony
+  keyPoint: 3
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A government office handling an administrative case claims that the constitutional right to speedy disposition applies only to criminal trials. Which response correctly states the coverage of that right?
+  choices:
+  - text: It covers administrative bodies too.
+    correct: true
+  - text: It covers only courts hearing criminal prosecutions.
+    rationale: |
+      This confuses speedy disposition with criminal-trial protections. Check the bodies named in Section 16.
+  - text: It covers only cases in which the person is detained.
+    rationale: |
+      This adds a detention requirement. Check the rule for all persons with cases before the covered bodies.
+  - text: It covers only a court's review after the office decides.
+    rationale: |
+      This postpones the protection until court review. Check that administrative bodies themselves are covered.
+  explanation: |
+    Article III, Section 16 protects speedy disposition before judicial, quasi-judicial, and administrative bodies.
+    It requires cases to move forward and be resolved without unreasonable delay. The office's administrative role is covered.
+- id: q-philippine-constitution-bill-of-rights-0040
+  lesson: lesson-philippine-constitution-bill-of-rights-bail-trial-and-testimony
+  keyPoint: 4
+  type: single_choice
+  difficulty: exam
+  stem: |
+    An official demands that a person give testimony admitting the person's own guilt. The official argues that the constitutional protection concerns temporary release from custody only. Which protection most directly answers the demand for testimony?
+  choices:
+  - text: The protection against excessive bail
+    rationale: |
+      This concerns security for release, not forced testimony. Check what the official demands the person say.
+  - text: The right to an impartial public trial
+    rationale: |
+      This concerns trial fairness and public access. Check the separate protection against being forced to speak against oneself.
+  - text: The protection against compelled self-incrimination
+    correct: true
+  - text: The right to obtain court orders for defense witnesses
+    rationale: |
+      This helps bring defense proof to court. Check the difference between obtaining evidence and forcing self-incriminating testimony.
+  explanation: |
+    Article III, Section 17 protects a person from being compelled to testify against oneself.
+    A forced statement admitting one's own guilt falls within that protection.
+- id: q-philippine-constitution-bill-of-rights-0041
+  lesson: lesson-philippine-constitution-bill-of-rights-detention-and-punishment
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A person who cannot pay a poll tax is threatened with imprisonment solely for nonpayment. The official argues that the constitutional protection applies only to private loans. Which statement is correct?
+  choices:
+  - text: Nonpayment of a poll tax is also protected against imprisonment.
+    correct: true
+  - text: The protection applies only if the unpaid obligation comes from a private loan.
+    rationale: |
+      This leaves out poll taxes. Check both reasons for imprisonment named in Section 20.
+  - text: Any unpaid tax permits imprisonment because the protection concerns debt alone.
+    rationale: |
+      This overlooks the express poll-tax protection. Check the kind of tax in the facts.
+  - text: Nonpayment of a poll tax automatically proves a separate crime involving money.
+    rationale: |
+      This treats nonpayment itself as proof of another crime. Check whether the facts identify any separate criminal act.
+  explanation: |
+    Article III, Section 20 bars imprisonment for debt or nonpayment of a poll tax.
+    The threatened imprisonment rests only on the unpaid poll tax, so this protection applies.
+- id: q-philippine-constitution-bill-of-rights-0042
+  lesson: lesson-philippine-constitution-bill-of-rights-detention-and-punishment
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    An official orders forced labor as punishment for a person who has been accused of a crime but has not been convicted. Which fact prevents reliance on the crime-punishment exception to the ban on involuntary servitude?
+  choices:
+  - text: Forced labor is described as punishment rather than voluntary work.
+    rationale: |
+      Punishment is the setting of the stated exception. Check whether its required conviction has occurred.
+  - text: The official has made an accusation but there is no due conviction.
+    correct: true
+  - text: The labor follows an accusation instead of the person's political beliefs.
+    rationale: |
+      This confuses the political-belief rule with the forced-work rule. Check the conviction requirement for the work exception.
+  - text: The exception can never apply even after a lawful criminal conviction.
+    rationale: |
+      This removes the stated exception. Check that Section 18 allows punishment after due conviction for a crime.
+  explanation: |
+    Article III, Section 18 permits involuntary servitude as punishment only after due conviction for a crime.
+    An accusation is not a conviction. The stated facts do not meet the exception.
+- id: q-philippine-constitution-bill-of-rights-0043
+  lesson: lesson-philippine-constitution-bill-of-rights-double-jeopardy
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A prosecutor relies on a filed complaint as proof that any later prosecution for the same offense would be barred. The accused was never arraigned and entered no plea. Which assessment correctly applies the general double-jeopardy rule?
+  choices:
+  - text: The complaint alone is insufficient.
+    correct: true
+  - text: Filing alone is equivalent to an acquittal.
+    rationale: |
+      This treats an accusation as a judgment of not guilty. Check how the case ended as well as how it began.
+  - text: A valid plea matters only after a conviction.
+    rationale: |
+      This puts the plea in the wrong place. Check arraignment and a valid plea among the earlier required steps.
+  - text: The rule requires a complaint but no further steps.
+    rationale: |
+      This drops the court, arraignment, plea, and protected-ending requirements. Check all the conditions, not just filing.
+  explanation: |
+    Article III, Section 21 protects against double jeopardy.
+    Under Rule 117, Section 7, the general rule requires a valid charge, a court with authority, a valid plea after arraignment, and a protected end to the case.
+    The facts lack arraignment and a plea.
+- id: q-philippine-constitution-bill-of-rights-0044
+  lesson: lesson-philippine-constitution-bill-of-rights-prohibited-laws
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A law names a group and directly imposes punishment without judicial trial for acts that were lawful when committed. Which assessment best applies the constitutional prohibitions?
+  choices:
+  - text: Both prohibitions apply.
+    correct: true
+  - text: Only the bill-of-attainder prohibition applies.
+    rationale: |
+      This catches punishment without trial but misses punishment for earlier lawful acts. Check whether the law also operates backward.
+  - text: Only the ex-post-facto prohibition applies.
+    rationale: |
+      This catches the backward penal change but misses direct punishment without trial. Check both features of the law.
+  - text: Neither prohibition applies to a named group.
+    rationale: |
+      Naming a group does not remove either protection. Check the lack of trial and the punishment for earlier lawful acts.
+  explanation: |
+    Article III, Section 22 bans ex post facto laws and bills of attainder.
+    Punishing an identified group without a court trial makes this a bill of attainder.
+    Punishing acts that were lawful when done also makes it an ex post facto law.

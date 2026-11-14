@@ -478,3 +478,117 @@ questions:
   explanation: |
     The law applies only to future conduct, so the facts show no harmful backward penal change. A court must decide guilt before punishment. Defining this general offense does not itself create a bill of attainder.
   approved: false
+- id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0016
+  lesson: lesson-philippine-constitution-bill-of-rights-political-beliefs-and-forced-service
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A person serving lawful punishment after due conviction is required to work. The person claims that the ban on involuntary servitude admits no exception. Which statement correctly applies the constitutional rule?
+  choices:
+  - text: Work as punishment after due conviction is a stated exception.
+    correct: true
+  - text: Any forced work is prohibited even when imposed as lawful punishment after conviction.
+    rationale: |
+      This leaves out the crime-punishment exception. Check whether due conviction came before the punishment.
+  - text: An accusation alone would have been enough to permit the same punishment.
+    rationale: |
+      This treats a charge as a conviction. Check that the person has been duly convicted, not merely accused.
+  - text: Only unpopular political beliefs can justify forced work as punishment.
+    rationale: |
+      This confuses the section's separate protections. Check the exception based on conviction for a crime, not political belief.
+  explanation: |
+    Article III, Section 18 allows involuntary servitude as punishment for a crime after due conviction.
+    The facts state both a due conviction and lawful punishment, so the stated exception applies.
+- id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0017
+  lesson: lesson-philippine-constitution-bill-of-rights-fines-and-prison-punishment
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    An official argues that the Constitution's conditional wording on the death penalty is enough for a court to impose it despite Republic Act No. 9346. Which statement correctly distinguishes the constitutional text from that Act?
+  choices:
+  - text: The Act prohibits imposing death.
+    correct: true
+  - text: The Constitution requires death for every heinous crime.
+    rationale: |
+      This turns conditional permission into a requirement. Check the constitutional wording separately from the Act's prohibition.
+  - text: The Act permits death whenever a judge finds compelling reasons.
+    rationale: |
+      This transfers constitutional wording into a judicial exception under the Act. Check Section 1's prohibition.
+  - text: The Constitution leaves courts free to disregard the Act's prohibition.
+    rationale: |
+      This treats constitutional wording as permission to ignore a law. Check what Republic Act No. 9346 actually allows courts to impose.
+  explanation: |
+    Article III, Section 19 contains conditional wording about Congress providing for the death penalty for compelling reasons involving heinous crimes.
+    Republic Act No. 9346, Section 1 prohibits imposing death. That statutory prohibition controls the question as stated.
+- id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0018
+  lesson: lesson-philippine-constitution-bill-of-rights-double-jeopardy-covered-offenses
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    In an offense for which both stages apply, one person begins acts directly aimed at the crime but is stopped before performing all the needed acts, without freely giving up. Another performs all those acts, but the intended result fails for a reason outside that person's will. Which stages are described, respectively?
+  choices:
+  - text: Attempted; frustrated
+    correct: true
+  - text: Frustrated and attempted
+    rationale: |
+      This reverses the stages. Check whether all needed acts were performed before the result failed.
+  - text: Attempted in both cases
+    rationale: |
+      This overlooks the completed acts in the second case. Check the acts performed, not only the missing result.
+  - text: Frustrated in both cases
+    rationale: |
+      This overlooks the unfinished acts in the first case. Check whether the person performed all the acts needed.
+  explanation: |
+    The first case is an attempt because the person was stopped before completing the needed acts.
+    The second is frustrated because all those acts were performed, but the result failed for an outside reason.
+    These meanings come from Revised Penal Code Article 6.
+    Article III, Section 21 protects against double jeopardy. Rule 117, Section 7 extends that protection to attempted and frustrated forms of the offense.
+- id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0019
+  lesson: lesson-philippine-constitution-bill-of-rights-rights-claims-evidence-and-effects
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A report alleges degrading punishment of a detainee. An investigator proposes treating the label "rights violation" as proof without checking records or witnesses. Which approach best follows a sound analysis of the claim?
+  choices:
+  - text: Accept the label as proof because it names a constitutional right.
+    rationale: |
+      This treats an accusation as established fact. Check available evidence before deciding whether the conduct fits a violation.
+  - text: Reject the report because detention removes protection from punishment.
+    rationale: |
+      This assumes detainees lose basic protections. Check Section 19 and the facts about the reported treatment.
+  - text: Check the evidence against the relevant right and its conditions.
+    correct: true
+  - text: Decide from the alleged harm alone without identifying who acted or what happened.
+    rationale: |
+      This skips the conduct and the responsible person. Check what happened, who acted, and how the facts fit the rule.
+  explanation: |
+    Article III, Section 19 protects against degrading punishment and addresses abusive treatment of detainees.
+    Records, witness accounts, and medical findings can help establish what happened.
+    Comparing that evidence with the protection is the needed next step in analyzing this claim.
+- id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0020
+  lesson: lesson-philippine-constitution-bill-of-rights-rights-claims-evidence-and-effects
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A worker is unlawfully detained solely for political beliefs. The record shows missed paid work and a family unable to meet daily expenses. It contains no medical findings. Which pair identifies a personal effect and a family effect supported by this record?
+  choices:
+  - text: Loss of liberty and difficulty meeting daily expenses
+    correct: true
+  - text: A proven physical injury and difficulty meeting daily expenses
+    rationale: |
+      This adds an injury that the record does not establish. Check each claimed effect against the stated facts.
+  - text: Loss of liberty and cancellation of all the family's debts
+    rationale: |
+      This invents debt cancellation. Check the actual family effect, missed earnings and difficulty paying daily expenses.
+  - text: A proven physical injury and cancellation of all the family's debts
+    rationale: |
+      Neither effect is established by the record. Check the detention and financial effects that the facts actually support.
+  explanation: |
+    Article III, Section 18 bars detention solely for political beliefs.
+    The stated detention takes away the worker's liberty.
+    The missed paid work also leaves the family unable to meet daily expenses. Both effects are supported by the record.
