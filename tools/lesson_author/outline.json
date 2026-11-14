@@ -873,6 +873,36 @@
               "sections": []
             },
             {
+              "title": "Finding the Main Point and Topic Sentence",
+              "slug": "main-point-and-topic-sentence",
+              "sections": []
+            },
+            {
+              "title": "Finding an Implied Main Idea",
+              "slug": "implied-main-point",
+              "sections": []
+            },
+            {
+              "title": "Checking the Scope of a Main Idea",
+              "slug": "main-idea-scope",
+              "sections": []
+            },
+            {
+              "title": "Finding the Main Idea Across Paragraphs",
+              "slug": "main-idea-across-paragraphs",
+              "sections": []
+            },
+            {
+              "title": "Paksa at Pangunahing Ideya",
+              "slug": "paksa-at-pangunahing-ideya",
+              "sections": []
+            },
+            {
+              "title": "Balangkas at Ugnayan ng mga Ideya",
+              "slug": "balangkas-at-ugnayan",
+              "sections": []
+            },
+            {
               "title": "Choosing an Appropriate Title",
               "slug": "choosing-a-title",
               "sections": []
@@ -903,8 +933,53 @@
               "sections": []
             },
             {
+              "title": "Drawing Inferences from Clues",
+              "slug": "connecting-clues",
+              "sections": []
+            },
+            {
+              "title": "Matching Conclusions to Evidence",
+              "slug": "evidence-and-claim-strength",
+              "sections": []
+            },
+            {
+              "title": "Finding Necessary Assumptions",
+              "slug": "necessary-assumptions",
+              "sections": []
+            },
+            {
+              "title": "Drawing Conclusions from Visual Data",
+              "slug": "visual-data-conclusions",
+              "sections": []
+            },
+            {
+              "title": "Pagbuo ng Hinuha mula sa mga Detalye",
+              "slug": "hinuha-mula-sa-detalye",
+              "sections": []
+            },
+            {
+              "title": "Paghatol Batay sa Ebidensya",
+              "slug": "paghatol-at-ebidensya",
+              "sections": []
+            },
+            {
               "title": "Distinguishing Fact from Opinion",
               "slug": "fact-vs-opinion",
+              "sections": []
+            },
+            {
+              "title": "Distinguishing Checkable Claims and Judgments",
+              "slug": "checkable-claims-and-judgments",
+              "sections": []
+            },
+            {
+              "title": "Separating Claim Type from Evidence",
+              "slug": "claim-type-and-evidence",
+              "sections": []
+            },
+            {
+              "title": "Distinguishing Projections and Forecasts",
+              "slug": "projections-and-forecasts",
               "sections": []
             },
             {

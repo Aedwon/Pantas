@@ -127,7 +127,7 @@
   "lesson-comprehension-skills-authors-main-purpose": [],
   "lesson-comprehension-skills-title-main-idea": [
    {
-    "lesson": "lesson-comprehension-skills-main-idea",
+    "lesson": "lesson-comprehension-skills-balangkas-at-ugnayan",
     "strength": "helpful",
     "reason": "Finding the central point and checking its scope makes title selection easier. This lesson also explains both steps."
    }
@@ -139,9 +139,6 @@
     "reason": "Practice recognizing word-level clues helps students combine clues across sentences. This lesson reteaches the needed clue types."
    }
   ],
-  "lesson-comprehension-skills-fact-vs-opinion": [],
-  "lesson-comprehension-skills-inferencing-and-conclusions": [],
-  "lesson-comprehension-skills-main-idea": [],
   "lesson-comprehension-skills-noting-specific-details": [],
   "lesson-comprehension-skills-sequencing-of-events": [],
   "lesson-earth-science-astronomy-weather-and-climate": [
@@ -228,7 +225,7 @@
   ],
   "lesson-language-application-paragraph-organization": [
    {
-    "lesson": "lesson-comprehension-skills-main-idea",
+    "lesson": "lesson-comprehension-skills-balangkas-at-ugnayan",
     "strength": "helpful",
     "reason": "Distinguishing a main point from supporting details helps organize general statements, examples, and outlines. The lesson explains these ideas sufficiently itself."
    },
@@ -304,7 +301,7 @@
     "reason": "Distinguishing the dominant purpose from individual statements makes mixed text types easier to classify. This lesson provides its own method."
    },
    {
-    "lesson": "lesson-comprehension-skills-fact-vs-opinion",
+    "lesson": "lesson-comprehension-skills-projections-and-forecasts",
     "strength": "helpful",
     "reason": "Separating checkable claims from judgments helps students distinguish reporting from argument. This lesson explains enough to classify its examples independently."
    }
@@ -323,7 +320,7 @@
     "reason": "The numerical examples require fraction simplification, fraction multiplication, and conversion to decimals. This lesson supplies formulas but does not teach those operations. Lead review: downgraded from required; the arithmetic is incidental to this lesson's teaching."
    },
    {
-    "lesson": "lesson-comprehension-skills-inferencing-and-conclusions",
+    "lesson": "lesson-comprehension-skills-paghatol-at-ebidensya",
     "strength": "helpful",
     "reason": "Matching conclusions to evidence helps students interpret cartoons without adding unsupported claims. Visual Media explains this principle itself."
    }
@@ -1565,6 +1562,93 @@
     "lesson": "lesson-comprehension-skills-title-scope",
     "strength": "required",
     "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-connecting-clues": [],
+  "lesson-comprehension-skills-evidence-and-claim-strength": [
+   {
+    "lesson": "lesson-comprehension-skills-connecting-clues",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-necessary-assumptions": [
+   {
+    "lesson": "lesson-comprehension-skills-evidence-and-claim-strength",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-visual-data-conclusions": [
+   {
+    "lesson": "lesson-comprehension-skills-necessary-assumptions",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-hinuha-mula-sa-detalye": [
+   {
+    "lesson": "lesson-comprehension-skills-visual-data-conclusions",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-paghatol-at-ebidensya": [
+   {
+    "lesson": "lesson-comprehension-skills-hinuha-mula-sa-detalye",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-main-point-and-topic-sentence": [],
+  "lesson-comprehension-skills-implied-main-point": [
+   {
+    "lesson": "lesson-comprehension-skills-main-point-and-topic-sentence",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-main-idea-scope": [
+   {
+    "lesson": "lesson-comprehension-skills-implied-main-point",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-main-idea-across-paragraphs": [
+   {
+    "lesson": "lesson-comprehension-skills-main-idea-scope",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-paksa-at-pangunahing-ideya": [
+   {
+    "lesson": "lesson-comprehension-skills-main-idea-across-paragraphs",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-balangkas-at-ugnayan": [
+   {
+    "lesson": "lesson-comprehension-skills-paksa-at-pangunahing-ideya",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-checkable-claims-and-judgments": [],
+  "lesson-comprehension-skills-claim-type-and-evidence": [
+   {
+    "lesson": "lesson-comprehension-skills-checkable-claims-and-judgments",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-projections-and-forecasts": [
+   {
+    "lesson": "lesson-comprehension-skills-claim-type-and-evidence",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
    }
   ]
  }

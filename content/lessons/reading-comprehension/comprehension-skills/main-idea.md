@@ -6,6 +6,14 @@ subject: "subject-reading-comprehension"
 topic: "topic-comprehension-skills"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-comprehension-skills-main-point-and-topic-sentence
+  - lesson-comprehension-skills-implied-main-point
+  - lesson-comprehension-skills-main-idea-scope
+  - lesson-comprehension-skills-main-idea-across-paragraphs
+  - lesson-comprehension-skills-paksa-at-pangunahing-ideya
+  - lesson-comprehension-skills-balangkas-at-ugnayan
 ---
 ## Core Concept
 
