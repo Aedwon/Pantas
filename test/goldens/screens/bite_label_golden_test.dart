@@ -10,6 +10,7 @@ import 'package:pantas/features/lesson/presentation/learn_tab_home.dart';
 import 'package:pantas/features/lesson/presentation/lesson_page.dart';
 import 'package:pantas/features/lesson/presentation/widgets/ending_content.dart';
 import 'package:pantas/features/lesson/presentation/widgets/search_results.dart';
+import 'package:pantas/features/lesson/presentation/widgets/study_topic_section.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_lesson_search.dart';
 
 import 'fixtures/bite_fixtures.dart';
@@ -55,7 +56,8 @@ void main() {
         final position =
             tester.state<ScrollableState>(scrollable.first).position;
         position.jumpTo(position.maxScrollExtent);
-        await settleFrames(tester, 8);
+        // Long enough for the bar title's scroll fade to finish.
+        await settleFrames(tester, 24);
       }
       return target;
     });
@@ -163,14 +165,15 @@ void main() {
             child: HomeTodayChecklist(
               web: width >= 1024,
               lessons: [
-                for (final l in biteLessons.skip(2).take(3))
+                for (final (i, l) in biteLessons.indexed.skip(1).take(4))
                   HomeTodayLesson(
                     id: l.id,
                     title: l.title,
                     subject: 'Philippine Constitution',
                     part: l.part,
                     partCount: biteParts,
-                    read: false,
+                    read: i == 1,
+                    fraction: i == 2 ? .4 : null,
                   ),
               ],
               reviewsDone: 0,
@@ -187,6 +190,42 @@ void main() {
               onStartNew: () {},
               onAdvance: () {},
               onMock: () {},
+            ),
+          ),
+        ),
+        overrides: biteCountOverrides(),
+        dark: dark,
+        router: true,
+      ),
+    );
+  }
+
+  for (final dark in [false, true]) {
+    final mode = dark ? 'dark' : 'light';
+    goldenScreen(
+      'bite_study_today_$mode',
+      (tester, width) => pumpScreen(
+        tester,
+        width,
+        scaffolded(
+          Padding(
+            padding: EdgeInsets.fromLTRB(width >= 1024 ? 280 : 16, 56, 16, 0),
+            child: Column(
+              children: [
+                for (final (i, l) in biteLessons.indexed.take(4))
+                  StudyLessonRow(
+                    lesson: StudyLesson(
+                      id: l.id,
+                      title: l.title,
+                      part: l.part,
+                      partCount: l.part == null ? null : biteParts,
+                      isRead: i == 1,
+                      isBookmarked: false,
+                    ),
+                    isToday: i == 2,
+                    onTap: () {},
+                  ),
+              ],
             ),
           ),
         ),

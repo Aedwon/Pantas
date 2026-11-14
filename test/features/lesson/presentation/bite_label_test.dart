@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/lesson_label.dart';
@@ -78,5 +80,31 @@ void main() {
       await pump(tester, part: 2, partCount: 9);
       expect(find.textContaining('min'), findsNothing);
     });
+  });
+
+  testWidgets('the header shows the part before the count arrives',
+      (tester) async {
+    final gate = Completer<int>();
+    await tester.pumpAppWithProviders(
+      const Scaffold(
+        body: LessonBiteLabel(
+          lessonId: 'l1',
+          part: 2,
+          partCount: 9,
+          prefix: 'Philippine Constitution',
+        ),
+      ),
+      overrides: [
+        lessonQuizCountProvider('l1').overrideWith((_) => gate.future),
+      ],
+    );
+    expect(find.text('Philippine Constitution · Part 2 of 9'), findsOneWidget);
+    gate.complete(3);
+    await tester.pump();
+    await tester.pump();
+    expect(
+      find.text('Philippine Constitution · Part 2 of 9 · 3 questions'),
+      findsOneWidget,
+    );
   });
 }

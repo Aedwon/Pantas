@@ -74,8 +74,11 @@ class LessonLabelLines extends StatelessWidget {
   Widget build(BuildContext context) {
     final base = style ?? lessonRowSubStyle(context);
     final count = questions;
+    // The part is known without the count; only "K questions" waits.
     final label = count == null
-        ? null
+        ? (part != null && partCount != null
+            ? 'Part $part of $partCount'
+            : null)
         : biteLabelText(part: part, partCount: partCount, questions: count);
     final String? line;
     if (prefix != null) {
