@@ -7,7 +7,7 @@
 //                                [--export FILE] [--out-dir DIR]
 // The catalog needs the exam, subject, topic and blueprint rows the bundled build produces. Pass
 // --export FILE (the output of tools/build_content_export) or the tool runs that build itself with `dart`.
-// The approval gate runs before document construction in every mode, including --dry-run,
+// The approval gate and lesson checks run before document construction in every mode, including --dry-run,
 // --live, --out-dir and emulator runs. --skip-invalid does not bypass it.
 // --out-dir DIR writes every document to files and touches no database.
 // Without FIRESTORE_EMULATOR_HOST the tool refuses to write unless --live is given.
@@ -58,6 +58,17 @@ if (gate.status !== 0) {
   if (gate.stderr) process.stderr.write(gate.stderr);
   if (gate.error) console.error(gate.error.message);
   console.error('Nothing written: the approval gate failed.');
+  process.exit(1);
+}
+
+const lessonChecks = spawnSync('dart', ['run', resolve(here, '../../tool/content/lesson_checks.dart'), '--root', root], {
+  cwd: resolve(here, '../..'), encoding: 'utf8',
+});
+if (lessonChecks.status !== 0) {
+  if (lessonChecks.stdout) process.stdout.write(lessonChecks.stdout);
+  if (lessonChecks.stderr) process.stderr.write(lessonChecks.stderr);
+  if (lessonChecks.error) console.error(lessonChecks.error.message);
+  console.error('Nothing written: the lesson checks failed.');
   process.exit(1);
 }
 

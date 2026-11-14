@@ -13,7 +13,7 @@ class ShippingQuestion {
   final YamlMap meta;
 }
 
-List<ShippingQuestion> shippingQuestions(String contentRoot) {
+List<ShippingQuestion> allQuestionsForApproval(String contentRoot) {
   final directory = Directory(p.join(contentRoot, 'questions'));
   if (!directory.existsSync()) {
     throw const FormatException('questions directory missing');
@@ -32,15 +32,6 @@ List<ShippingQuestion> shippingQuestions(String contentRoot) {
     final meta = doc['meta'] as YamlMap;
     for (final raw in doc['questions'] as YamlList) {
       final question = raw as YamlMap;
-      // Mirrors tools/build_content_export/build_content_export.dart:515-560:
-      // figure-pending questions do not ship. Also honor explicit inactivity.
-      final figure = question['figure'];
-      if (question['isActive'] == false ||
-          (figure != null &&
-              '$figure'.trim().isNotEmpty &&
-              question['figureSpec'] == null)) {
-        continue;
-      }
       final id = question['id'] as String;
       if (!ids.add(id)) throw FormatException('duplicate question id: $id');
       questions.add(
@@ -56,3 +47,14 @@ List<ShippingQuestion> shippingQuestions(String contentRoot) {
   }
   return questions;
 }
+
+/// Only the pool excludes inactive questions and pending figures.
+List<ShippingQuestion> shippingQuestions(String contentRoot) =>
+    allQuestionsForApproval(contentRoot).where((entry) {
+      final question = entry.question;
+      final figure = question['figure'];
+      return question['isActive'] != false &&
+          !(figure != null &&
+              '$figure'.trim().isNotEmpty &&
+              question['figureSpec'] == null);
+    }).toList();

@@ -8,8 +8,9 @@ import {test} from 'node:test';
 
 const uploader = fileURLToPath(new URL('./upload_content.mjs', import.meta.url));
 const repo = resolve(dirname(uploader), '../..');
+for (const extra of ['', '    isActive: false\n', '    figure: pending\n']) {
 for (const mode of ['dry-run', 'out-dir', 'skip-invalid', 'live', 'emulator']) {
-  test(`approval gate refuses an unapproved question in ${mode}`, () => {
+  test(`approval gate refuses an unapproved question in ${mode} ${extra.trim()}`, () => {
     const fixture = mkdtempSync(join(tmpdir(), 'upload-gate-'));
     try {
       const root = join(fixture, 'content');
@@ -22,7 +23,7 @@ for (const mode of ['dry-run', 'out-dir', 'skip-invalid', 'live', 'emulator']) {
   exams: [upcat]
 questions:
   - id: q-unapproved
-    stem: What is one plus one?
+${extra}    stem: What is one plus one?
     explanation: One plus one is two.
     choices:
       - text: Two
@@ -54,4 +55,6 @@ questions:
       assert.doesNotMatch(messages, /lessons:|question sets:/);
     } finally { rmSync(fixture, {recursive: true, force: true}); }
   });
+}
+
 }

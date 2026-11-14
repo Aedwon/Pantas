@@ -6,6 +6,7 @@ import 'package:pantas/core/content/domain/mock_blueprint.dart';
 import 'package:yaml/yaml.dart';
 
 import '../../tool/content/content_gate.dart';
+import '../../tool/content/lesson_checks.dart';
 import '../content/lesson_asset_map.dart';
 import '../content/markdown_portable_text.dart';
 
@@ -392,6 +393,15 @@ void _export(List<String> arguments) {
     pendingQuestionIds: pendingQuestionIds,
   );
 
+  final lessonFindings = runLessonChecks('$root/content');
+  if (lessonFindings.isNotEmpty) {
+    for (final finding in lessonFindings) {
+      stderr.writeln(finding);
+    }
+    exitCode = 1;
+    return;
+  }
+
   final seed = {
     'exam': examsOutput,
     'subject': subjects,
@@ -667,7 +677,7 @@ List<Map<String, Object?>> buildLessons(
       'summary': front['summary'] as String,
       'estimatedMinutes': front['estimatedMinutes'] as int,
       'ordering': front['ordering'] as int? ?? fallback,
-      'quizSize': _quizSize(front, source.substring(match.end)),
+      'quizSize': lessonQuizSize(front, source.substring(match.end)),
       'status': front['status'] as String? ?? 'active',
       if (front['replacedBy'] != null)
         'replacedBy': (front['replacedBy'] as YamlList).cast<String>().toList(),
@@ -702,7 +712,7 @@ List<Map<String, Object?>> buildLessons(
   return lessons;
 }
 
-int _quizSize(YamlMap front, String body) {
+int lessonQuizSize(YamlMap front, String body) {
   final keys = front['keyPoints'] as YamlList?;
   if (keys == null || keys.isEmpty) return 5;
   var examples = 0;

@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:yaml/yaml.dart';
 
 import '../../tool/content/question_hash.dart';
 
@@ -157,10 +158,10 @@ void main() {
             replacedBy == null ? '' : 'replacedBy: ${jsonEncode(replacedBy)}\n';
         File('${root.path}/content/lessons/s/$i.md').writeAsStringSync(
           '---\n_id: ${row['id']}\ntopic: topic-test\ntitle: Test\n'
-          'summary: Test\nestimatedMinutes: 1\n'
+          'summary: Test\nestimatedMinutes: 1\npart: 1\nkeyPoints: [Recall]\n'
           '${status == null ? '' : 'status: $status\n'}'
           '$replacementYaml'
-          '---\nBody.\n',
+          '---\n${List.filled(160, 'Body.').join(' ')}\n',
         );
       }
       final file = File('${root.path}/content/questions/one.yaml');
@@ -353,6 +354,17 @@ questions:
   - id: pending
     figure: waiting
 ''');
+    final doc = loadYaml(
+      File('${root.path}/content/questions/pending.yaml').readAsStringSync(),
+    ) as YamlMap;
+    write('content/question-ledger/approved.json', {
+      'pending': {
+        'hash': questionHash(
+          (doc['questions'] as YamlList).single as YamlMap,
+          doc['meta'] as YamlMap,
+        ),
+      },
+    });
     (tags['questions']! as Map<String, Object?>)['pending'] = {'No': 'b'};
     final result = await run();
     expect(result.exitCode, 0, reason: '${result.stderr}');

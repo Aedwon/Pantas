@@ -51,7 +51,7 @@ List<GateFinding> runContentGate(
           .whereType<File>()
           .where((file) => file.path.endsWith('.md'))) {
         final source = file.readAsStringSync();
-        final match = RegExp(r'\A---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)')
+        final match = RegExp(r'^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)')
             .firstMatch(source);
         if (match == null) continue;
         final frontmatter = loadYaml(match.group(1)!) as YamlMap;
@@ -61,7 +61,7 @@ List<GateFinding> runContentGate(
         }
       }
     }
-    for (final q in shippingQuestions(contentRoot)) {
+    for (final q in allQuestionsForApproval(contentRoot)) {
       final hash = questionHash(q.question, q.meta);
       if (approved[q.id]?['hash'] == hash) continue;
       String reason;

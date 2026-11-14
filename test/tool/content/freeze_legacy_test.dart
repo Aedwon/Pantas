@@ -7,8 +7,7 @@ import '../../../tool/content/ledger.dart';
 import 'fixtures/fixture.dart';
 
 void main() {
-  test('freeze includes every shipping question and refuses to overwrite',
-      () async {
+  test('freeze includes every question and refuses to overwrite', () async {
     final root = createContentFixture();
     addTearDown(() => root.deleteSync(recursive: true));
     final args = [
@@ -21,10 +20,10 @@ void main() {
     expect(result.exitCode, 0, reason: '${result.stderr}');
     final file = File('${root.path}/question-ledger/legacy.json');
     final entries = readLedger(file);
-    expect(entries.keys, ['q-one', 'q-two']);
+    expect(entries.keys, ['q-inactive', 'q-one', 'q-pending', 'q-two']);
     expect(entries['q-one']!['yamlApproved'], false);
     expect(entries['q-two']!['yamlApproved'], true);
-    expect(result.stdout, contains('total: 2, yamlApproved true: 1, false: 1'));
+    expect(result.stdout, contains('total: 4, yamlApproved true: 1, false: 3'));
     expect(
       (result.stdout as String).trim().split('\n').last,
       sha256.convert(file.readAsBytesSync()).toString(),

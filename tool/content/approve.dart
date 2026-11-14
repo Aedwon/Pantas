@@ -48,11 +48,11 @@ void main(List<String> args) {
     final approved = readLedger(file);
     final legacy =
         readLedger(File(p.join(root, 'question-ledger', 'legacy.json')));
-    final questions = {for (final q in shippingQuestions(root)) q.id: q};
+    final questions = {for (final q in allQuestionsForApproval(root)) q.id: q};
     for (final id in ids) {
       final q = questions[id];
       if (q == null) {
-        stderr.writeln('$id: not found among shipping questions');
+        stderr.writeln('$id: not found among questions');
         exitCode = 1;
         continue;
       }
@@ -74,8 +74,8 @@ void main(List<String> args) {
         continue;
       }
       // Reload after each edit: offsets of later questions in this file shift.
-      final current =
-          shippingQuestions(root).firstWhere((candidate) => candidate.id == id);
+      final current = allQuestionsForApproval(root)
+          .firstWhere((candidate) => candidate.id == id);
       _setApproved(current);
       approved[id] = {
         'hash': questionHash(q.question, q.meta),

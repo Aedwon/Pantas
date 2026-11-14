@@ -17,7 +17,7 @@ void main() {
     root = createContentFixture();
     legacy = File('${root.path}/question-ledger/legacy.json');
     writeLedger(legacy, {
-      for (final q in shippingQuestions(root.path))
+      for (final q in allQuestionsForApproval(root.path))
         q.id: {
           'hash': questionHash(q.question, q.meta),
           'lesson': questionLesson(q.question, q.meta),
@@ -36,6 +36,13 @@ void main() {
     expect(shippingQuestions(root.path).map((q) => q.id), ['q-one', 'q-two']);
     expect(gate(), isEmpty);
   });
+  for (final field in ['isActive: false', 'figure: pending']) {
+    test('gate checks unapproved $field questions', () {
+      legacy.deleteSync();
+      edit('    stem: What', '    $field\n    stem: What');
+      expect(gate().map((f) => f.id), contains('q-one'));
+    });
+  }
   test('new question is not approved even when YAML approved', () {
     legacy.deleteSync();
     expect(gate().map((f) => f.reason), everyElement('not approved'));
@@ -63,6 +70,7 @@ void main() {
     final lesson = File('${root.path}/lessons/math/numbers/part.md');
     lesson.parent.createSync(recursive: true);
     lesson.writeAsStringSync('---\ntitle: Part\npart: 1\n---\nText');
+    expect(gate(), isNotEmpty);
     expect(
       gate().map((f) => f.reason),
       everyElement('split subject on legacy status'),
