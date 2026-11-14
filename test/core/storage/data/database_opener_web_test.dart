@@ -5,6 +5,7 @@
 @TestOn('browser')
 library;
 
+import 'dart:js_interop';
 import 'dart:typed_data';
 
 import 'package:drift/drift.dart' show Variable, driftRuntimeOptions;
@@ -12,6 +13,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/database_opener_web.dart';
 import 'package:sqlite3/wasm.dart';
+
+@JS('pantasBuildBase')
+external set _buildBase(String? value);
 
 final _wasm = Uri.base.resolve('/web_assets/sqlite3.wasm');
 final _worker = Uri.base.resolve('/web_assets/drift_worker.js');
@@ -69,6 +73,23 @@ void main() {
   // Two connections in one page stand in for two tabs; drift warns about that.
   driftRuntimeOptions.dontWarnAboutMultipleDatabases = true;
   final stamp = DateTime.now().microsecondsSinceEpoch;
+
+  test('default worker and wasm URLs use the running build folder', () async {
+    _buildBase = '/web_assets/';
+    try {
+      final db = await openEncryptedDatabase(
+        databaseName: 'pantas-build-base-$stamp',
+      );
+      try {
+        await _put(db, 'build', 'versioned');
+        expect(await _get(db, 'build'), 'versioned');
+      } finally {
+        await db.close();
+      }
+    } finally {
+      _buildBase = null;
+    }
+  });
 
   test('data written before close is present after reopen', () async {
     final name = 'pantas-test-reopen-$stamp';

@@ -225,3 +225,77 @@ document per exam in `catalogs` (and parts), so keep `catalogs` to the exams tha
    string that continues at column 0) is rejected by the JavaScript YAML library the upload tool uses,
    though the Dart YAML library accepts it. The tool reports it and, with `--skip-invalid`, leaves that set
    out of the server content and the catalog until the file is fixed.
+
+## Versioned build packaging and retention
+
+Build a fresh output, then package it. Flutter 3.44.6 supports
+`entrypointBaseUrl`, `assetBase`, and `canvasKitBaseUrl` in
+`_flutter.loader.load({config: ...})`. The generated bootstrap supplies these
+three bases as `/b/<stamped-version>/`, `/b/<stamped-version>/`, and
+`/b/<stamped-version>/canvaskit/`. The database opener uses that same folder
+for Drift and SQLite. Navigation's base remains `/`.
+
+```sh
+flutter build web --release -t lib/main_staging.dart \
+  --dart-define=APP_CHECK_WEB_SITE_KEY=YOUR_SITE_KEY
+node tool/web/stamp_worker_version.mjs build/web
+# Preparation only: downloads static public files, never deploys.
+node tool/web/retain_builds.mjs https://YOUR_LIVE_HOST build/web
+```
+
+Use the host being replaced, not another environment. Always start from fresh
+Flutter output. Do not publish raw Flutter output or skip retention. The staging
+script runs both preparation commands before its existing deploy command.
+
+The stamp moves compiled code, all deferred parts, assets, renderer files,
+Flutter JS, database files and page helpers into `b/<version>/`. It writes
+`files.json` there, with each relative path and its SHA-256 hash. The root index
+pins its helper scripts and font URLs to this folder. A small root loader reads
+the index's pinned version and loads its versioned bootstrap. A fresh loader
+therefore remains compatible with a cached index. Root index, loader, version
+metadata, manifest, service worker, icons and social-preview image stay at root.
+The existing opaque Flutter-version plus content-hash identity is preserved.
+
+The retention tool reads live `version.json`, then downloads live current and
+its predecessor from their inventories. It checks every hash before adding
+those folders beside the new build. It removes older folder output and writes
+new current plus two predecessors to `retainedVersions` in metadata and worker.
+Preparation fails on missing inventories, invalid paths, missing files or hash
+mismatches. A failure must stop publication. Rebuild fresh before retrying a
+failed preparation. No live origin is contacted by the unit tests.
+
+**First rollout, legacy flat build:** live metadata without a folder retention
+list indicates flat layout, including flat builds with a stamped identity.
+The tool reads Flutter's published `flutter_service_worker.js` RESOURCES map,
+checks its MD5 hashes and copies old main, deferred parts, assets, renderer,
+database and helper files into their original root paths. It excludes the new
+root index, loader, metadata, manifest, worker and icons. It sets `legacyFlat`
+and stamps SHA-256 hashes of these copied files into the new worker. Before
+claiming pages, that worker caches the verified legacy files for offline old
+sessions. Flat requests use only this explicit inventory. No client identity
+or cache-count guessing occurs. If that published flat inventory is unavailable,
+preparation stops; it never invents a file list. On the next fresh folder build,
+the tool retains folder predecessors only, so flat paths and their special
+worker handling disappear. This is a one-deploy migration, not indefinite
+support for flat pages.
+
+The worker uses cache-first for exact `/b/<version>/*` URLs. It uses network-first
+with a three-second fallback for index/navigation, root loader and version
+metadata. An index becomes the offline fallback only after its pinned folder
+is fully cached and SHA-256 verified. Install rejects missing, private, no-store,
+HTML or mismatched build responses. A failed install retries fresh downloads.
+A deployment change during install preserves the last complete cached index.
+Activation immediately claims clients and removes folder caches outside the
+current plus two retained identities. Auth/reserved routes, external origins,
+credential/range requests and no-store requests bypass handling. Other root
+requests pass through, except the explicit first-rollout legacy inventory.
+
+`pantasUpdate.check()` reads `/version.json` with no-store, compares it with the
+running bootstrap's identity, and times out after four seconds so safe points
+can retry. Checks also run on visibility return and every five minutes. They
+never reload. Only the app safe-point coordinator calls `apply()`, which reloads
+without waiting for a worker or modifying storage. Detection and failed checks
+or apply calls do not consume a version's successful reload attempt.
+
+Tests: `node --test tool/web/*.test.mjs test/web/*.test.mjs`. Real two-deployment
+and Android Chrome/iPhone Safari storage-survival proof remain release checks.

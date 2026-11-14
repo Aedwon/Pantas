@@ -119,3 +119,13 @@ Estimate 25 minutes, measured ratio 0.73. Initial policy/source reading before
 06:30 was not measured. This is not a replacement for the full E-043 elapsed
 time or a claim that its integration/deployment scope is complete. Implemented,
 independently reviewed and locally tested; 207 tests passed. No push or deploy.
+
+Versioned web replacement, November 14: approved bounded 25-minute pass.
+Timer web-version-folders. Policy main 05d90fdc4fd7f42af35250a29737a2ad38e03fdd.
+
+Versioned web replacement measured pass, timer web-version-folders:
+Nov 14 07:01 to 07:22 UTC, wall and active 21 min 17 s, no paused time.
+Estimate 25 minutes, measured ratio 0.85. Final local recording/commit follows
+this timer stop. Implemented and independently reviewed; 91 Node and 30 focused
+Dart/browser tests passed. Final web build packaged 73 verified build files.
+No push, deployment or Firebase access. Real rollout/device proof remains.

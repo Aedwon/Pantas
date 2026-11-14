@@ -82,6 +82,22 @@ pass 15, retire or merge one first.
 Newest first. When this file passes about 120 lines, move the oldest closed entries to
 the current decision log.
 
+### Flat web update protocol could mix deployments (Nov 14)
+
+- His exact words: "Lead ruling (final): replace the web-layer approach with VERSIONED BUILD FOLDERS, and keep the app-side safe points."
+- Wrong: the reviewed client-version protocol could start old code under a new identity,
+  guess a legacy client's build, fetch new bytes for legacy misses, and consume an
+  update attempt while an installation was incomplete.
+- Why: tests modeled legacy pages with a protocol those shipped pages did not have,
+  assumed ready workers, and asserted permanent suppression after failed apply.
+- Fix: replace that protocol with immutable versioned paths and verified retained
+  hosting inventories. Existing CI runs the Node regressions in tool/web and
+  test/web. The new regression tests failed against the old implementation first
+  (10 of 11 web cases, all 3 retention cases); Dart retry failed first too. Additional
+  review regressions cover incomplete installs, wrong bytes, offline index identity,
+  legacy flat metadata, fonts, retry deadlines and stale output directories. No new
+  human workflow gate. Evidence: docs/superpowers/verification/2026-11-14-versioned-web-builds.md.
+
 ### Parallel Codex runs drained every account and lost an audit (Nov 11)
 
 - His words: "? terrible output from you. please log this in the process improvement log or some document that would prevent things like this from happening again in the future" (after the manager reported that its early Codex audit had stopped on the usage limit).

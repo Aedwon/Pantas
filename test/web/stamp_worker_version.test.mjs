@@ -27,7 +27,7 @@ test('the same build always gets the same version, and stamping twice is stable'
   const first = stamp(dir);
   assert.equal(stamp(dir), first);
   assert.equal(stamp(build('same code')), first);
-  assert.match(readFileSync(join(dir, 'flutter_bootstrap.js'), 'utf8'), new RegExp(`registerWorker\\("${first}"`));
+  assert.match(readFileSync(join(dir, 'b', first, 'flutter_bootstrap.js'), 'utf8'), new RegExp(`registerWorker\\("${first}"`));
 });
 
 test('a bootstrap without the version token is refused', () => {

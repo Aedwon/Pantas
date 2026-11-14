@@ -3210,3 +3210,31 @@ review's findings were fixed; final review has no remaining findings.
 Local implementation and review only. This does not complete E-043's deployment
 or real two-version update proof. Full evidence and changed-file list:
 `docs/superpowers/verification/2026-11-14-update-at-once-app.md`.
+
+### Nov 14, E-043 web-layer replacement authorization
+
+Aedwon's exact ruling: "Lead ruling (final): replace the web-layer approach with VERSIONED BUILD FOLDERS, and keep the app-side safe points."
+His bounded permissions: "Do not push, do not deploy, no Firebase. Commit with plain messages, NO Co-Authored-By or any AI trailer. Non-UI only."
+His time boundary: "about 25 minutes per pass; if it does not fit, finish a coherent part, commit it, and report what remains."
+
+The supplied read-only review found mixed startup identity, unidentified legacy
+clients, new bytes on legacy cache misses, and attempts consumed before reload.
+The old approach is superseded, not approved through these findings. The
+replacement plan is `docs/superpowers/plans/2026-11-14-versioned-web-builds.md`.
+It preserves durability and safe points. Versioned paths replace page messages;
+verified live inventories retain predecessors. Flat files remain for exactly one
+transition, including offline use. Offline index replacement waits for complete
+cached build bytes. The root loader follows the index's pinned version.
+
+Current task evidence and remaining integration proof:
+`docs/superpowers/verification/2026-11-14-versioned-web-builds.md`.
+
+E-043 local replacement completed in this bounded pass. Independent review
+passes. 91 Node tests and 30 focused Dart/browser tests pass; analysis, changed
+Dart format, design lint (631 baseline findings), layering and repository checks
+pass. Staging release artifact packages 73 hash-verified files under
+`b/1555920181-1c829df455ae/`. Timer: 21 min 17 s measured active/wall before final
+recording and local commit. No push, deployment, Firebase access or UI change.
+Live legacy-inventory recovery, real consecutive deployments/rollback/offline
+and Android Chrome/iPhone Safari storage survival remain release proof. This
+entry does not complete E-043's live rollout or authorize publication.

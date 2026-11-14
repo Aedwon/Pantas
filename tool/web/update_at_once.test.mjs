@@ -1,204 +1,169 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
-import {createHash, webcrypto} from 'node:crypto';
+import {webcrypto, createHash} from 'node:crypto';
 import {readFileSync} from 'node:fs';
-
-const swSource = readFileSync('web/pantas_sw.js', 'utf8');
-const pwaSource = readFileSync('web/pantas_pwa.js', 'utf8');
 const scope = 'https://app.example/';
-function worker(versions = ['old'], network = async () => { throw Error('offline'); }, source = swSource) {
-  const handlers = {};
-  const stores = new Map(['old', 'new', 'unused'].map(v => ['pantas-shell-' + v, new Map([[scope + 'main.dart.js', new Response(v)]]) ]));
-  let skips = 0;
-  const clients = versions.map((version, i) => ({id: String(i), postMessage(data, ports) { ports[0].postMessage({version}); }}));
-  class Channel { constructor() { this.port1 = {close() {}}; this.port2 = {postMessage: data => this.port1.onmessage?.({data}), close() {}}; } }
-  const caches = {
-    keys: async () => [...stores.keys()], delete: async n => stores.delete(n),
-    open: async n => { if (!stores.has(n)) stores.set(n, new Map()); const m = stores.get(n); return {
+const source = readFileSync('web/pantas_sw.js', 'utf8');
+function worker(network = async () => {throw Error('offline');}, {buildFiles = [], buildHashes = {}, legacyFiles = {}, timeout = 3000} = {}) {
+  const handlers = {}, stores = new Map();
+  const caches = {keys: async () => [...stores.keys()], delete: async n => stores.delete(n),
+    open: async n => {if (!stores.has(n)) stores.set(n, new Map()); const m = stores.get(n); return {
       match: async r => m.get(typeof r === 'string' ? r : r.url)?.clone(),
-      put: async (r, v) => m.set(typeof r === 'string' ? r : r.url, v),
-    }; },
-  };
-  const self = {location: new URL(scope + 'pantas_sw.js?v=new'), registration: {scope},
-    clients: {matchAll: async () => clients, get: async id => clients.find(c => c.id === id), claim: async () => {}},
-    skipWaiting: async () => { skips++; }, addEventListener: (n, f) => handlers[n] = f};
-  vm.runInNewContext(source, {self, caches, URL, Request, Response, crypto: webcrypto, MessageChannel: Channel, setTimeout, clearTimeout,
-    fetch: network});
-  async function dispatch(name, extra = {}) { const jobs = []; let answer; handlers[name]({...extra, waitUntil: p => jobs.push(p), respondWith: p => {answer = p;}}); const result = await answer; await Promise.all(jobs); return result; }
-  return {stores, dispatch, clients, registration: self.registration, skips: () => skips};
-}
-
-test('activation keeps a live build, then removes it after its client closes', async () => {
-  const w = worker(['old']);
-  await w.dispatch('activate');
-  assert.ok(w.stores.has('pantas-shell-old'));
-  assert.ok(!w.stores.has('pantas-shell-unused'));
-  w.clients.splice(0); await w.dispatch('activate');
-  assert.ok(!w.stores.has('pantas-shell-old'));
-});
-test('an old page gets its own cached script after takeover', async () => {
-  const w = worker(['old']);
-  const r = await w.dispatch('fetch', {clientId: '0', request: new Request(scope + 'main.dart.js')});
-  assert.equal(await r.text(), 'old');
-});
-test('unknown clients prevent deletion', async () => {
-  const w = worker([null]); await w.dispatch('activate');
-  assert.ok(w.stores.has('pantas-shell-old'));
-});
-test('only an explicit skipWaiting message activates a waiting worker', async () => {
-  const w = worker();
-  await w.dispatch('message', {data: {type: 'SKIP_WAITING'}});
-  assert.equal(w.skips(), 1);
-});
-
-function page({version = 'new', offline = false, supported = true} = {}) {
-  const events = {}, swEvents = {}, timers = [], calls = [];
-  let now = 0, reloads = 0;
-  const waiting = {scriptURL: scope + 'pantas_sw.js?v=new', postMessage: data => {
-    calls.push(data.type); sw.controller = waiting; swEvents.controllerchange?.();
+      put: async (r, v) => m.set(typeof r === 'string' ? r : r.url, v.clone()),
+    };}};
+  let skips = 0;
+  const self = {location: new URL(scope + 'pantas_sw.js'), registration: {scope},
+    clients: {claim: async () => {}, matchAll: async () => []}, skipWaiting: async () => skips++,
+    addEventListener: (n, f) => handlers[n] = f};
+  vm.runInNewContext(source.replace("const STAMPED_VERSION = '';", "const STAMPED_VERSION = 'new';")
+    .replace('const BUILD_FILES = [];', 'const BUILD_FILES = '+JSON.stringify(buildFiles)+';')
+    .replace('const LEGACY_FILES = {};', 'const LEGACY_FILES = '+JSON.stringify(legacyFiles)+';')
+    .replace('const BUILD_HASHES = {};', 'const BUILD_HASHES = '+JSON.stringify(buildHashes)+';')
+    .replace('const NETWORK_TIMEOUT_MS = 3000;', 'const NETWORK_TIMEOUT_MS = '+timeout+';')
+    .replace('const RETAINED_VERSIONS = [];', "const RETAINED_VERSIONS = ['new','old','older'];"),
+    {self, caches, URL, Request, Response, crypto:webcrypto, fetch: network, setTimeout, clearTimeout});
+  return {stores, caches, skips: () => skips, async dispatch(n, extra = {}, waitForJobs = true) {
+    let response; const jobs = []; handlers[n]?.({...extra, waitUntil: p => jobs.push(p), respondWith: p => response = p});
+    const result = await response; if(waitForJobs) await Promise.all(jobs); return result;
   }};
-  const registration = {active: null, waiting, update: async () => calls.push('update'), addEventListener() {}};
-  const sw = {controller: {scriptURL: scope + 'pantas_sw.js?v=old', postMessage() {}},
-    register: async script => { calls.push(script); return registration; },
-    addEventListener: (n, f) => swEvents[n] = f, removeEventListener() {}};
-  const document = {visibilityState: 'visible', addEventListener: (n, f) => events[n] = f};
-  const window = {document, addEventListener() {}, location: {reload: () => reloads++}, performance: {mark() {}}};
-  const context = {window, document, navigator: supported ? {serviceWorker: sw} : {}, URL, Promise, encodeURIComponent,
-    Date: {now: () => now}, setTimeout: (f, ms) => {timers.push({f, ms}); return timers.length;}, clearTimeout() {},
-    fetch: async (url, options) => {calls.push({url, options}); if (offline) throw Error('offline'); return {ok: true, json: async () => ({pantasBuildVersion: version})};}};
-  vm.runInNewContext(pwaSource, context);
-  return {window, calls, timers, events, document, swEvents, sw, waiting, setNow: v => now = v, reloads: () => reloads};
 }
-async function start(p) {
-  const job = p.window.pantasPwa.registerWorker('old');
-  await new Promise(resolve => setImmediate(resolve));
-  // Startup fallback timeout, if a mock worker never takes control.
-  p.timers.filter(t => t.ms === 4000).forEach(t => t.f());
-  await job;
-}
-test('check compares opaque build versions and caches unchanged results', async () => {
-  const p = page({version: 'old'}); await start(p);
-  assert.ok(p.window.pantasUpdate, 'update API exists');
-  assert.equal(p.window.pantasUpdate.currentVersion, 'old');
-  assert.equal((await p.window.pantasUpdate.check()).available, false);
-  const count = p.calls.length; await p.window.pantasUpdate.check(); assert.equal(p.calls.length, count);
-});
-test('check discovers another build without activating or reloading', async () => {
-  const p = page(); await start(p);
-  const result = await p.window.pantasUpdate.check();
-  assert.equal(result.available, true); assert.equal(result.version, 'new');
-  assert.ok(p.calls.includes('update')); assert.ok(!p.calls.includes('SKIP_WAITING'));
-  assert.equal(p.reloads(), 0);
-  const request = p.calls.find(c => c.url); assert.equal(request.options.cache, 'no-store');
-});
-test('offline and unsupported checks resolve without an update', async () => {
-  for (const options of [{offline: true}, {supported: false}]) {
-    const p = page(options); await start(p);
-    assert.equal((await p.window.pantasUpdate.check()).available, false);
-    assert.equal(p.reloads(), 0);
-  }
-});
-test('apply activates and reloads without deleting any storage', async () => {
-  const p = page(); await start(p); await p.window.pantasUpdate.check();
-  await p.window.pantasUpdate.apply();
-  assert.ok(p.calls.includes('SKIP_WAITING')); assert.equal(p.reloads(), 1);
-  // No storage APIs exist in this page: any attempted clearing would throw.
-});
-test('visible checks run after five minutes and on visibility return', async () => {
-  const p = page({version: 'old'}); await start(p); await p.window.pantasUpdate.check();
-  p.setNow(300001); p.document.visibilityState = 'visible';
-  await p.events.visibilitychange();
-  assert.equal(p.calls.filter(c => c.url).length, 2);
-  assert.ok(p.timers.some(t => t.ms === 300000));
-});
-
-test('installing the shell leaves the worker waiting', async () => {
-  const w = worker();
-  // Offline install fails, but must not request takeover even on failure.
-  await assert.rejects(w.dispatch('install'), /offline/);
-  assert.equal(w.skips(), 0);
-});
-test('the fresh version request bypasses shell caching', async () => {
-  const w = worker();
-  assert.equal(await w.dispatch('fetch', {clientId: '0', request: new Request(scope + 'version.json', {cache: 'no-store'})}), undefined);
-});
-
-test('opening a page can fetch bootstrap even with several retained builds', async () => {
-  const w = worker([null]);
-  w.stores.get('pantas-shell-new').set(scope + 'flutter_bootstrap.js', new Response('bootstrap-new'));
-  const response = await w.dispatch('fetch', {clientId: '0', request: new Request(scope + 'flutter_bootstrap.js')});
-  assert.equal(await response.text(), 'bootstrap-new');
-});
-
-test('a timed-out apply cannot reload when another tab activates later', async () => {
-  const p = page(); await start(p); await p.window.pantasUpdate.check();
-  const waiting = p.window.pantasUpdate;
-  const regCalls = p.calls;
-  p.swEvents.controllerchange = undefined;
-  p.waiting.postMessage = data => regCalls.push(data.type);
-  const apply = waiting.apply(); await new Promise(resolve => setImmediate(resolve));
-  const rejection = assert.rejects(apply, /timed out/);
-  p.timers.filter(t => t.ms === 15000).forEach(t => t.f());
-  await rejection;
-  p.sw.controller = p.waiting; p.swEvents.controllerchange?.();
-  assert.equal(p.reloads(), 0);
-});
-
-test('a successful installation does not activate itself', async () => {
-  const w = worker([], async () => {
-    const response = new Response('file');
-    Object.defineProperty(response, 'type', {value: 'basic'});
-    return response;
-  });
-  await w.dispatch('install');
-  assert.equal(w.skips(), 0);
-});
-test('a tagged database worker uses its page build for WASM', async () => {
-  const w = worker(['new']);
-  w.clients[0].url = scope + 'drift_worker.js?pantas_build=new';
-  w.clients[0].postMessage = () => {throw Error('Worker has no page handler');};
-  w.stores.get('pantas-shell-new').set(scope + 'sqlite3.wasm', new Response('new-wasm'));
-  const response = await w.dispatch('fetch', {clientId: '0', request: new Request(scope + 'sqlite3.wasm')});
-  assert.equal(await response.text(), 'new-wasm');
-});
-test('a retired cache miss never downloads a new file into the old cache', async () => {
-  let assetFetched = false;
-  const w = worker(['old'], async request => {
-    if (request.url.endsWith('version.json')) return new Response(JSON.stringify({pantasBuildVersion: 'new'}));
-    assetFetched = true; return new Response('new');
-  });
-  w.stores.get('pantas-shell-old').set(scope + 'version.json', new Response(JSON.stringify({pantasBuildVersion: 'old'})));
-  await assert.rejects(w.dispatch('fetch', {clientId: '0', request: new Request(scope + 'assets/missing.png')}), /Retired build/);
-  assert.equal(assetFetched, false);
-});
-
-test('cleanup retains a pending build even when its URL has an old version', async () => {
-  const w = worker(['old']);
-  w.registration.waiting = {scriptURL: scope + 'pantas_sw.js?v=old'};
+function basic(bytes, headers = {}, status = 200) {const r = new Response(bytes, {headers,status}); Object.defineProperty(r, 'type', {value:'basic'}); return r;}
+test('cleanup keeps current and last two regardless of open clients', async () => {
+  const w = worker(); for (const v of ['new','old','older','expired']) await w.caches.open('pantas-build-' + v);
   await w.dispatch('activate');
-  assert.ok(w.stores.has('pantas-shell-unused'));
+  assert.deepEqual([...w.stores.keys()].filter(n => n.startsWith('pantas-build-')).sort(), ['pantas-build-new','pantas-build-old','pantas-build-older']);
 });
-test('stamped install verifies all shell bytes and rejects a deploy changing mid-install', async () => {
-  const bytes = JSON.stringify({pantasBuildVersion: 'new'});
-  const hash = createHash('sha256').update(bytes).digest('hex');
-  const names = ['', 'flutter_bootstrap.js', 'pantas_history.js', 'pantas_pwa.js', 'pantas_welcome.js',
-    'pantas_splash.js', 'manifest.json', 'version.json', 'favicon.png', 'icons/Icon-192.png', 'icons/Icon-512.png',
-    'main.dart.js_1.part.js'];
-  const hashes = Object.fromEntries(names.map(n => [n || 'index.html', hash]));
-  const source = swSource.replace("const STAMPED_VERSION = '';", "const STAMPED_VERSION = 'new';")
-    .replace('const SHELL_FILES = [];', "const SHELL_FILES = ['main.dart.js_1.part.js'];")
-    .replace('const SHELL_HASHES = {};', `const SHELL_HASHES = ${JSON.stringify(hashes)};`);
-  for (const changed of [false, true]) {
-    const w = worker([], async request => {
-      const response = new Response(changed && request.url.endsWith('.part.js') ? 'other-build' : bytes);
-      Object.defineProperty(response, 'type', {value: 'basic'}); return response;
-    }, source);
-    if (changed) await assert.rejects(w.dispatch('install'), /Build file changed/);
-    else {
-      await w.dispatch('install');
-      assert.ok(w.stores.get('pantas-shell-new').has(scope + 'main.dart.js_1.part.js'));
-    }
-    assert.equal(w.skips(), 0);
+test('old cached deferred bytes never require page identity or a network round trip', async () => {
+  const w = worker(async () => {throw Error('must use cache');});
+  await (await w.caches.open('pantas-build-old')).put(scope+'b/old/x.part.js', basic('old'));
+  assert.equal(await (await w.dispatch('fetch', {request:new Request(scope+'b/old/x.part.js')})).text(), 'old');
+});
+test('old cache miss fetches exact retained path, never current deployment path', async () => {
+  const paths = []; const w = worker(async r => {paths.push(r.url); return basic(r.url.includes('/b/old/') ? 'old' : 'new');});
+  assert.equal(await (await w.dispatch('fetch', {request:new Request(scope+'b/old/x.part.js')})).text(), 'old');
+  assert.deepEqual(paths, [scope+'b/old/x.part.js']);
+});
+test('offline navigation and loader use cached root files', async () => {
+  const w = worker(); const cache = await w.caches.open('pantas-root');
+  await cache.put(scope+'index.html', basic('pinned old index', {'Content-Type':'text/html'}));
+  await cache.put(scope+'flutter_bootstrap.js', basic('loader'));
+  assert.equal(await (await w.dispatch('fetch', {request:new Request(scope+'index.html')})).text(), 'pinned old index');
+  assert.equal(await (await w.dispatch('fetch', {request:new Request(scope+'flutter_bootstrap.js')})).text(), 'loader');
+});
+test('other origins, flat files, auth, ranges and no-store requests bypass worker', async () => {
+  const w = worker();
+  for (const request of [new Request('https://other.example/b/new/a'), new Request(scope+'main.dart.js'),
+    new Request(scope+'b/new/a', {headers:{Authorization:'test'}}), new Request(scope+'b/new/a', {headers:{Range:'bytes=0-1'}}),
+    new Request(scope+'version.json', {cache:'no-store'})]) assert.equal(await w.dispatch('fetch', {request}), undefined);
+});
+test('HTML rewrites and no-store responses never populate immutable cache', async () => {
+  for (const headers of [{'Content-Type':'text/html'}, {'Cache-Control':'no-store'}]) {
+    const w = worker(async () => basic('wrong', headers));
+    await w.dispatch('fetch', {request:new Request(scope+'b/old/missing.js')});
+    assert.equal(w.stores.get('pantas-build-old')?.size ?? 0, 0);
   }
+});
+function page({offline = false} = {}) {
+  const calls = [], timers = [], events = {}; let reloads = 0;
+  const document = {visibilityState:'visible', addEventListener:(n,f) => events[n]=f};
+  const window = {document, addEventListener(){}, location:{reload:()=>reloads++}, performance:{mark(){}}};
+  vm.runInNewContext(readFileSync('web/pantas_pwa.js','utf8'), {window, document, navigator:{}, URL, Promise, AbortController,
+    setTimeout:(f,ms)=>{timers.push({f,ms});return timers.length;}, clearTimeout(){},
+    fetch:async (url,options)=>{calls.push({url,options}); if(offline) throw Error('offline'); return {ok:true,json:async()=>({pantasBuildVersion:'new'})};}});
+  return {window,calls,timers,events,reloads:()=>reloads};
+}
+test('check fetches no-store on each safe-point call without requiring service workers', async () => {
+  const p=page(); await p.window.pantasPwa.registerWorker('old');
+  for(let i=0;i<2;i++) {const s=await p.window.pantasUpdate.check();assert.equal(s.available,true);assert.equal(s.version,'new');}
+  assert.equal(p.calls.length,2); assert.equal(p.calls[0].options.cache,'no-store'); assert.equal(p.reloads(),0);
+});
+test('failed checks can retry; apply reloads immediately without installation', async () => {
+  const p=page({offline:true});await p.window.pantasPwa.registerWorker('old');
+  await assert.rejects(p.window.pantasUpdate.check(), /offline/);
+  await assert.rejects(p.window.pantasUpdate.check(), /offline/);
+  await p.window.pantasUpdate.apply(); assert.equal(p.reloads(),1); assert.equal(p.calls.length,2);
+});
+test('visibility and five-minute checks never reload', async () => {
+  const p=page();await p.window.pantasPwa.registerWorker('old');
+  await p.events.visibilitychange(); await p.timers.find(t=>t.ms===300000).f();
+  assert.equal(p.calls.length,2);assert.equal(p.reloads(),0);
+});
+test('Flutter bootstrap config pins all build URLs to its stamped version', async () => {
+  const text=readFileSync('web/flutter_bootstrap.js','utf8').replace('{{flutter_js}}','').replace('{{flutter_build_config}}','')
+    .replaceAll('{{flutter_service_worker_version}}','"current"');
+  let options;
+  vm.runInNewContext(text,{window:{pantasPwa:{registerWorker:async()=>{} }}, performance:{mark(){}}, _flutter:{loader:{load:o=>options=o}}});
+  await new Promise(r=>setImmediate(r));
+  assert.equal(options.config.entrypointBaseUrl,'/b/current/');assert.equal(options.config.assetBase,'/b/current/');
+  assert.equal(options.config.canvasKitBaseUrl,'/b/current/canvaskit/');
+});
+test('reserved auth and wrapped paths bypass navigation caching', async () => {
+  const w=worker();
+  for(const path of ['__/auth/handler','__/auth/iframe','wrapped/share']) {
+    const request=new Request(scope+path);Object.defineProperty(request,'mode',{value:'navigate'});
+    assert.equal(await w.dispatch('fetch',{request}),undefined);
+  }
+});
+const sha = bytes => createHash('sha256').update(bytes).digest('hex');
+test('install refuses missing, HTML, private, no-store and wrong build bytes', async () => {
+  for(const response of [new Response('missing',{status:404}), basic('html',{'Content-Type':'text/html'}),
+    basic('main',{'Cache-Control':'private'}),basic('main',{'Cache-Control':'no-store'}),basic('wrong')]) {
+    const w=worker(async r=>r.url.includes('/b/')?basic(await response.clone().text(),Object.fromEntries(response.headers),response.status):basic('<html data-pantas-build="new">',{'Content-Type':'text/html'}),
+      {buildFiles:['main.dart.js'],buildHashes:{'main.dart.js':sha('main')}});
+    await assert.rejects(w.dispatch('install'));assert.equal(w.skips(),0);
+  }
+});
+test('installation caches complete matching build before activating', async () => {
+  const w=worker(async r=>basic(r.url.includes('/b/')?'main':r.url.endsWith('index.html')?'<html data-pantas-build="new">':'root'),
+    {buildFiles:['main.dart.js'],buildHashes:{'main.dart.js':sha('main')}});
+  await w.dispatch('install');assert.equal(w.skips(),1);
+  assert.ok(w.stores.get('pantas-root').has(scope+'index.html'));
+});
+test('deployment changing during install cannot replace cached complete index', async () => {
+  const w=worker(async r=>basic(r.url.includes('/b/')?'main':r.url.endsWith('index.html')?'<html data-pantas-build="later">':'root'),
+    {buildFiles:['main.dart.js'],buildHashes:{'main.dart.js':sha('main')}});
+  const root=await w.caches.open('pantas-root');await root.put(scope+'index.html',basic('old complete index'));
+  await assert.rejects(w.dispatch('install'));assert.equal(w.skips(),0);
+  assert.equal(await w.stores.get('pantas-root').get(scope+'index.html').text(),'old complete index');
+});
+test('online index is served but offline fallback stays pinned to a complete cached build', async () => {
+  const w=worker(async()=>basic('<html data-pantas-build="later">',{'Content-Type':'text/html'}));
+  await (await w.caches.open('pantas-root')).put(scope+'index.html',basic('old complete index'));
+  assert.match(await (await w.dispatch('fetch',{request:new Request(scope+'index.html')})).text(),/later/);
+  assert.equal(await w.stores.get('pantas-root').get(scope+'index.html').text(),'old complete index');
+});
+test('a failed install with wrong successful bytes recovers on next install', async () => {
+  let wrong=true;
+  const w=worker(async r=>basic(r.url.includes('/b/')?(wrong?'wrong':'main'):r.url.endsWith('index.html')?'<html data-pantas-build="new">':'root'),
+    {buildFiles:['main.dart.js'],buildHashes:{'main.dart.js':sha('main')}});
+  await assert.rejects(w.dispatch('install'),/hash mismatch/);wrong=false;
+  await w.dispatch('install');assert.equal(w.skips(),1);
+});
+test('verified legacy flat files remain available offline after takeover',async()=>{
+ let offline=false;
+ const w=worker(async r=>{if(offline)throw Error('offline');return basic(r.url.endsWith('x.part.js')?'legacy':r.url.endsWith('index.html')?'<html data-pantas-build="new">':'root');},
+   {legacyFiles:{'main.dart.js_7.x.part.js':sha('legacy')}});
+ await w.dispatch('install');await w.dispatch('activate');offline=true;
+ assert.equal(await(await w.dispatch('fetch',{request:new Request(scope+'main.dart.js_7.x.part.js')})).text(),'legacy');
+});
+test('slow root network returns cached fallback after short timeout',async()=>{
+ let resolve;
+ const w=worker(()=>new Promise(r=>resolve=r),{timeout:5});
+ await(await w.caches.open('pantas-root')).put(scope+'flutter_bootstrap.js',basic('cached loader'));
+ const response=await w.dispatch('fetch',{request:new Request(scope+'flutter_bootstrap.js')},false);
+ assert.equal(await response.text(),'cached loader');resolve(basic('fresh loader'));
+});
+test('a slow version check times out, then next safe point can retry',async()=>{
+ const events={},timers=[];let hanging=true,calls=0;
+ const document={visibilityState:'visible',addEventListener:(n,f)=>events[n]=f};
+ const window={document,addEventListener(){},location:{reload(){}},performance:{mark(){}}};
+ vm.runInNewContext(readFileSync('web/pantas_pwa.js','utf8'),{window,document,navigator:{},AbortController,Promise,
+   setTimeout:(f,ms)=>{timers.push({f,ms});return timers.length;},clearTimeout(){},
+   fetch:async()=>{calls++;return hanging?new Promise(()=>{}):{ok:true,json:async()=>({pantasBuildVersion:'new'})};}});
+ await window.pantasPwa.registerWorker('old');
+ const pending=window.pantasUpdate.check();
+ assert.ok(timers.some(t=>t.ms===4000),'check must have a deadline');
+ const rejected=assert.rejects(pending,/timed out/);timers.find(t=>t.ms===4000).f();await rejected;
+ hanging=false;assert.equal((await window.pantasUpdate.check()).available,true);assert.equal(calls,2);
 });

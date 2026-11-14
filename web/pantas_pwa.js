@@ -9,7 +9,6 @@
   // takes over later does not change what kind of visit this was.
   var controllerAtLoad = null;
   var buildVersion = null;
-  var registrationPromise = null;
   try {
     if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
       controllerAtLoad = navigator.serviceWorker.controller.scriptURL;
@@ -56,205 +55,67 @@
     emit();
   });
 
-  // Registers pantas_sw.js for this build and resolves once that exact build
-  // controls the page, so no file is read through an older cache. Never
-  // rejects and never waits long: without a worker the app loads from the
-  // network as before.
+  // Folder URLs establish the build before any worker can take control.
   function registerWorker(version) {
     buildVersion = version;
     window.pantasUpdate.currentVersion = version;
     scheduleCheck();
-    return registerForBuild(version).then(function (result) {
+    if (!('serviceWorker' in navigator)) {
       mark('page.worker');
-      return result;
-    });
-  }
-
-  function registerForBuild(version) {
-    if (!('serviceWorker' in navigator)) return Promise.resolve(false);
-    var script = 'pantas_sw.js?v=' + encodeURIComponent(version);
-    var opening = true;
-    // First visit: no worker controls the page, so nothing stale can be
-    // served. Register in the background and start the app at once.
-    if (!navigator.serviceWorker.controller) {
-      registrationPromise = navigator.serviceWorker.register(script);
-      registrationPromise.catch(function () {});
       return Promise.resolve(false);
     }
-    var timeout = new Promise(function (resolve) {
-      setTimeout(function () {
-        resolve(false);
-      }, 4000);
-    });
-    registrationPromise = navigator.serviceWorker.register(script);
-    var ready = registrationPromise
-      .then(function (registration) {
-        return new Promise(function (resolve) {
-          function active() {
-            var worker = registration.active;
-            return workerVersion(worker) === version
-              ? worker
-              : null;
-          }
-          function check() {
-            if (active() && navigator.serviceWorker.controller) {
-              if (navigator.serviceWorker.controller.scriptURL === active().scriptURL) {
-                resolve(true);
-                return true;
-              }
-            }
-            return false;
-          }
-          if (check()) return;
-          // Page startup is a safe point. Only activate this page's build.
-          function activateAtOpen() {
-            var waiting = registration.waiting;
-            if (opening && workerVersion(waiting) === version) {
-              waiting.postMessage({ type: 'SKIP_WAITING' });
-            }
-          }
-          activateAtOpen();
-          navigator.serviceWorker.addEventListener('controllerchange', check);
-          var pending = registration.installing || registration.waiting;
-          if (pending) pending.addEventListener('statechange', function () { activateAtOpen(); check(); });
-          registration.addEventListener('updatefound', function () {
-            if (registration.installing) {
-              registration.installing.addEventListener('statechange', function () { activateAtOpen(); check(); });
-            }
-          });
-        });
-      })
-      .catch(function () {
-        return false;
-      });
-    return Promise.race([ready, timeout]).then(function (result) {
-      opening = false;
-      return result;
-    });
+    return navigator.serviceWorker.register('/pantas_sw.js?v=' + encodeURIComponent(version),
+      {updateViaCache: 'none'}).then(function () {
+        mark('page.worker'); return true;
+      }, function () { mark('page.worker'); return false; });
   }
 
-  var lastCheck = null;
-  var lastCheckedAt = -Infinity;
   var checking = null;
   var checkTimer = null;
-  var applying = null;
   var CHECK_INTERVAL = 5 * 60 * 1000;
-
-  function workerVersion(worker) {
-    return worker ? new URL(worker.scriptURL).searchParams.get('v') : null;
-  }
-
-  // Versions are opaque content identities, not increasing version numbers:
-  // a rollback is also a new build relative to the running page.
-  function checkUpdate(force) {
+  function checkUpdate() {
     if (checking) return checking;
-    if (!force && lastCheck && Date.now() - lastCheckedAt < CHECK_INTERVAL) {
-      return Promise.resolve(lastCheck);
-    }
     checking = (async function () {
-      if (!buildVersion || !('serviceWorker' in navigator)) {
-        return { available: false, version: buildVersion };
-      }
+      var controller = new AbortController();
+      var timer;
       try {
-        var response = await fetch('version.json', { cache: 'no-store' });
-        if (!response.ok) throw new Error('Version check failed');
-        var data = await response.json();
-        var version = data.pantasBuildVersion;
-        if (typeof version !== 'string' || !version) throw new Error('Missing build version');
-        if (version !== buildVersion) {
-          // Register the new URL, rather than update the old ?v= URL into the
-          // old build's cache. Install in the background and leave it waiting.
-          registrationPromise = navigator.serviceWorker.register(
-            'pantas_sw.js?v=' + encodeURIComponent(version), { updateViaCache: 'none' }
-          );
-          var registration = await registrationPromise;
-          await registration.update();
-        }
-        return { available: version !== buildVersion, version: version };
-      } catch (_) {
-        // Offline does not erase an update already discovered online.
-        return lastCheck || { available: false, version: buildVersion };
-      }
-    })().then(function (result) {
-      lastCheck = result;
-      lastCheckedAt = Date.now();
-      checking = null;
-      return result;
-    });
+        return await Promise.race([
+          (async function () {
+            var response = await fetch('/version.json', {cache: 'no-store', signal: controller.signal});
+            if (!response.ok) throw new Error('Version check failed');
+            var data = await response.json();
+            var version = data.pantasBuildVersion;
+            if (typeof version !== 'string' || !version) throw new Error('Missing build version');
+            return {available: version !== buildVersion, version: version};
+          })(),
+          new Promise(function (_, reject) {
+            timer = setTimeout(function () {
+              reject(new Error('Version check timed out'));
+              controller.abort();
+            }, 4000);
+          })
+        ]);
+      } finally { clearTimeout(timer); }
+    })().finally(function () { checking = null; });
     return checking;
   }
-
   function scheduleCheck() {
     if (!window.document || checkTimer !== null) return;
     checkTimer = setTimeout(function tick() {
       checkTimer = null;
-      if (document.visibilityState === 'visible') checkUpdate().catch(function () {});
+      var job = document.visibilityState === 'visible' ? checkUpdate().catch(function () {}) : Promise.resolve();
       scheduleCheck();
+      return job;
     }, CHECK_INTERVAL);
   }
-
-  // Only the app decides whether pending writes are flushed and a quiz or
-  // lesson is finished. Nothing here automatically activates or reloads.
   function applyUpdate() {
-    if (applying) return applying;
-    applying = (async function () {
-      var result = await checkUpdate();
-      if (!result.available) return false;
-      var registration = await registrationPromise;
-      if (!registration.waiting && workerVersion(registration.active) !== result.version) {
-        await new Promise(function (resolve, reject) {
-          var timer = setTimeout(function () { reject(new Error('Update not ready')); }, 15000);
-          function ready() {
-            if (registration.waiting || workerVersion(registration.active) === result.version) {
-              clearTimeout(timer); resolve();
-            }
-          }
-          function installing() {
-            if (registration.installing) registration.installing.addEventListener('statechange', ready);
-            ready();
-          }
-          registration.addEventListener('updatefound', installing);
-          installing();
-        });
-      }
-      if (workerVersion(navigator.serviceWorker.controller) === result.version) {
-        window.location.reload(); return true;
-      }
-      await new Promise(function (resolve, reject) {
-        var timer = setTimeout(function () {
-          reloading = true;
-          navigator.serviceWorker.removeEventListener('controllerchange', changed);
-          reject(new Error('Update activation timed out'));
-        }, 15000);
-        var reloading = false;
-        function changed() {
-          if (reloading || workerVersion(navigator.serviceWorker.controller) !== result.version) return;
-          reloading = true;
-          clearTimeout(timer);
-          navigator.serviceWorker.removeEventListener('controllerchange', changed);
-          window.location.reload(); resolve();
-        }
-        navigator.serviceWorker.addEventListener('controllerchange', changed);
-        var waiting = registration.waiting;
-        if (workerVersion(waiting) === result.version) waiting.postMessage({ type: 'SKIP_WAITING' });
-        changed();
-      });
-      return true;
-    })().finally(function () { applying = null; });
-    return applying;
+    window.location.reload();
+    return Promise.resolve(true);
   }
-
-  window.pantasUpdate = { currentVersion: null, check: checkUpdate, apply: applyUpdate };
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.addEventListener('message', function (event) {
-      if (event.data && event.data.type === 'PANTAS_VERSION' && event.ports && event.ports[0]) {
-        event.ports[0].postMessage({ version: buildVersion });
-      }
-    });
-  }
+  window.pantasUpdate = {currentVersion: null, check: checkUpdate, apply: applyUpdate};
   if (window.document) {
     document.addEventListener('visibilitychange', function () {
-      if (document.visibilityState === 'visible') return checkUpdate(true);
+      if (document.visibilityState === 'visible') return checkUpdate().catch(function () {});
     });
   }
 

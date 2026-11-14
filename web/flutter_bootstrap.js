@@ -1,17 +1,16 @@
 {{flutter_js}}
 {{flutter_build_config}}
 
-// Pantas registers its own worker (pantas_sw.js), so Flutter's is left out.
-// The version token below expands to a quoted string. The page waits for this build's worker to take control, then starts Flutter.
-(async function () {
-  var pwa = window.pantasPwa;
-  if (pwa && pwa.registerWorker) {
-    try {
-      await pwa.registerWorker({{flutter_service_worker_version}});
-    } catch (_) {}
-  }
-  try {
-    performance.mark('page.loader');
-  } catch (_) {}
-  _flutter.loader.load({});
+(function () {
+  var version = {{flutter_service_worker_version}};
+  var base = '/b/' + version + '/';
+  window.pantasBuildBase = base;
+  // No wait for registration: old workers cannot intercept these folder paths.
+  if (window.pantasPwa) window.pantasPwa.registerWorker(version);
+  try { performance.mark('page.loader'); } catch (_) {}
+  _flutter.loader.load({config: {
+    entrypointBaseUrl: base,
+    assetBase: base,
+    canvasKitBaseUrl: base + 'canvaskit/'
+  }});
 })();

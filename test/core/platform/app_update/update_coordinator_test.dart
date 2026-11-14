@@ -10,9 +10,13 @@ class FakeBridge implements UpdateBridge {
   int applies = 0;
   Future<void>? applyWait;
   Exception? failure;
+  Exception? checkFailure;
   @override
-  Future<UpdateStatus> check() async =>
-      UpdateStatus(available: available, version: version);
+  Future<UpdateStatus> check() async {
+    if (checkFailure != null) throw checkFailure!;
+    return UpdateStatus(available: available, version: version);
+  }
+
   @override
   Future<void> apply() async {
     applies++;
@@ -104,7 +108,7 @@ void main() {
     expect(bridge.applies, 2);
   });
 
-  test('failed apply reports once and carries on', () async {
+  test('failed apply does not consume the reload attempt', () async {
     final failures = <Object>[];
     bridge.failure = Exception('activation failed');
     coordinator = UpdateCoordinator(
@@ -114,8 +118,22 @@ void main() {
     )..routeChanged('/home');
     await coordinator.check();
     await coordinator.check();
+    expect(bridge.applies, 2);
+    expect(failures, hasLength(2));
+    bridge.failure = null;
+    await coordinator.check();
+    await coordinator.check();
+    expect(bridge.applies, 3);
+  });
+
+  test('failed check does not consume a detected version', () async {
+    coordinator.routeChanged('/home');
+    bridge.checkFailure = Exception('offline');
+    await coordinator.check();
+    expect(bridge.applies, 0);
+    bridge.checkFailure = null;
+    await coordinator.check();
     expect(bridge.applies, 1);
-    expect(failures, hasLength(1));
   });
 
   test('unsafe routes and overlays block apply', () async {

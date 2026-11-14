@@ -104,6 +104,6 @@ test('page.worker is marked when the worker step resolves, on every path', async
 
 test('a missing performance API never breaks the worker step', async () => {
   const { pwa, marks } = load({ controller: null, noPerformance: true });
-  assert.equal(await pwa.registerWorker('abc123'), false);
+  assert.equal(await pwa.registerWorker('abc123'), true);
   assert.deepEqual(marks, []);
 });

@@ -75,11 +75,11 @@ class UpdateCoordinator {
       final epoch = _epoch;
       await _waitForWrites();
       if (!_safe || _epoch != epoch) return;
-      // Reserve before calling JS, including failures and concurrent checks.
-      _attempted.add(version);
       _applying = true;
       try {
         await _bridge.apply();
+        // Failed checks or apply calls remain eligible at the next safe point.
+        _attempted.add(version);
       } finally {
         _applying = false;
       }
