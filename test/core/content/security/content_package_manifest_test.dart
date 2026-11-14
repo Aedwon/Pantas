@@ -26,8 +26,8 @@ void main() {
         '"sourceContentSha256":"$sourceDigest",'
         '"payloadSha256":"$payloadDigest",'
         '"contentSeedVersion":"0123456789abcdef",'
-        '"contentSchemaVersion":10,"readerSchemaMin":10,'
-        '"readerSchemaMax":10,'
+        '"contentSchemaVersion":11,"readerSchemaMin":11,'
+        '"readerSchemaMax":11,'
         '"cipherProfile":"pantas-sqlite3mc-content-v1",'
         '"bootstrapKeyId":"content-bootstrap-v1",'
         '"signingKeyId":"content-signing-v1"}\n',
@@ -89,8 +89,8 @@ void main() {
         {...valid, 'contentSchemaVersion': 9},
         {...valid, 'readerSchemaMin': 9},
         {...valid, 'readerSchemaMax': 9},
-        {...valid, 'contentSchemaVersion': 11},
-        {...valid, 'readerSchemaMin': 11},
+        {...valid, 'contentSchemaVersion': 12},
+        {...valid, 'readerSchemaMin': 12},
         {...valid, 'cipherProfile': 'other'},
         {...valid, 'bootstrapKeyId': ''},
         {...valid, 'signingKeyId': ''},

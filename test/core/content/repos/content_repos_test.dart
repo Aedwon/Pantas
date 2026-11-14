@@ -117,9 +117,10 @@ void main() {
       final metadata = await repo.lessonMetaByTopics(topics);
 
       expect(metadata.keys, topics);
+      // The inactive `lesson_retired` row is left out: lists show only active
+      // lessons (spec Part B; the catalog drops inactive lessons).
       expect(metadata['topic_vocab']!.map((lesson) => lesson.id), [
         'lesson_active',
-        'lesson_retired',
         'lesson_a',
         'lesson_b',
         'lesson_z',

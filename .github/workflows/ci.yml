@@ -165,6 +165,17 @@ jobs:
 
       - uses: ./.github/actions/setup-app
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: functions/package-lock.json
+
+      - name: Install the uploader's modules
+        # The lesson check tests run tools/upload_content, which loads yaml from functions/.
+        run: npm ci --no-audit --no-fund
+        working-directory: functions
+
       - name: Pick this shard's test entry points
         # Fails on an empty shard. Files are balanced on tool/ci/test_timings.json,
         # then bundled: a few generated entry files that run many test files,

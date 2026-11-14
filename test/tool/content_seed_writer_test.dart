@@ -74,11 +74,16 @@ void main() {
     final question =
         await db.customSelect('SELECT * FROM content_questions').getSingle();
     expect(question.data, containsPair('key_point', 2));
+    // A retired lesson resolves through replacedBy (spec Part B), and this
+    // fixture's replacement does not exist, so it resolves to nothing.
+    expect(await LessonRepo(db).findById(lesson['_id'] as String), isNull);
+    // Make it active to read the stored fields back through the model.
+    await db.customStatement("UPDATE content_lessons SET status = 'active'");
     final hydrated =
         (await LessonRepo(db).findById(lesson['_id'] as String))!.toJson();
+    expect(hydrated['status'], 'active');
     for (final key in [
       'quizSize',
-      'status',
       'replacedBy',
       'part',
       'partCount',

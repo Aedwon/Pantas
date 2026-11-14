@@ -27,12 +27,12 @@ void main() {
   }
 
   test(
-      'fresh schema 10 creates only the E05 indexes required by measured plans',
+      'fresh schema 11 creates only the E05 indexes required by measured plans',
       () async {
     final db = ContentDatabase(NativeDatabase.memory());
     addTearDown(db.close);
 
-    expect(db.schemaVersion, 10);
+    expect(db.schemaVersion, 11);
     expect(await indexes(db), containsAll(e05Indexes));
 
     expect(
@@ -72,13 +72,29 @@ void main() {
     await fixture.customStatement(
       'ALTER TABLE content_mock_blueprints DROP COLUMN unscored_items',
     );
+    // Schema 11 (bite-sized lessons) columns, so the upgrade adds them back.
+    for (final column in [
+      'quiz_size',
+      'status',
+      'replaced_by',
+      'part',
+      'part_count',
+      'key_points_json',
+    ]) {
+      await fixture.customStatement(
+        'ALTER TABLE content_lessons DROP COLUMN $column',
+      );
+    }
+    await fixture.customStatement(
+      'ALTER TABLE content_questions DROP COLUMN key_point',
+    );
     await fixture.customStatement('PRAGMA user_version = 8');
     await fixture.close();
 
     final upgraded = ContentDatabase(NativeDatabase(file));
     addTearDown(upgraded.close);
 
-    expect(upgraded.schemaVersion, 10);
+    expect(upgraded.schemaVersion, 11);
     expect(await indexes(upgraded), containsAll(e05Indexes));
     expect(
       await plan(

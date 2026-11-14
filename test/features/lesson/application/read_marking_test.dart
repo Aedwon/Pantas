@@ -33,6 +33,22 @@ void main() {
   setUp(() async {
     db = inMemoryDatabase();
     contentDb = openTestContentDatabase();
+    // Read state counts only lessons the corpus holds (spec Part B), so the
+    // lessons these tests read must exist.
+    for (final id in ['l1', 'l2']) {
+      await contentDb.into(contentDb.contentLessons).insert(
+            ContentLessonsCompanion.insert(
+              id: id,
+              schemaVersion: 1,
+              updatedAt: DateTime(2026, 8, 9),
+              topicId: 't1',
+              title: id,
+              summary: id,
+              estimatedMinutes: 3,
+              bodyJson: '[]',
+            ),
+          );
+    }
     container = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
