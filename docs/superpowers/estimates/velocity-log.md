@@ -80,6 +80,7 @@ Columns:
 | E-048 | Nov 14 | Security fixes step 2: read real reCAPTCHA and App Check peak use, set a reCAPTCHA assessment quota of about 300 a day per project (staging first), check the Functions spend cap Preview, lower maxInstances in code for the integrator | CI/infra | Security fixes and billing cap lead | Opus 5.5 lead | minimal | Security fixes lead | 30 min | 45 min | | | | | | | | |
 | E-049 | Nov 14 | Console hardening: disable the marketing Worker's database key, Firestore daily backups and delete protection, bucket public access prevention and an upload lifecycle rule, DMARC record; staging first where it exists, rollback for each | CI/infra | Security fixes and billing cap lead | Opus 5.5 lead | minimal | Security fixes lead | 30 min | 45 min | | | | | | | | |
 | E-050 | Nov 14 | Backend release R2 code: sign-in lockout fix (S-06) and mail caps (S-10), tests first, branch with passing CI and journeys handed to the integrator | feature build | Security fixes and billing cap lead (Codex builder) | GPT 6.1 Sol, Opus 5.5 lead | balanced | Security fixes lead | 1 h | 3 h | | | | | | | | |
+| E-051 | Nov 14 | Bite-sized lessons: implementation plan for balanced scope through the pilot, plus the label visual-companion mockup (Sonnet worker); nothing else built | docs/legal | Bite-sized lessons spec lead | Opus 5.5 lead, Sonnet 5.5 mockup worker, Haiku 5.5 readers | balanced | Bite-sized lessons spec lead | 1 h 30 min | 2 h 30 min (source reading for the plan, plan, plan self-review, mockup build and lead check) | | | | | | | | |
 
 Notes:
 

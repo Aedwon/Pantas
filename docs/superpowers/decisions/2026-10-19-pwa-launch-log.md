@@ -3244,3 +3244,12 @@ Aedwon is moving the operations manager role to a new thread (checklist in `docs
 - Also approved: console hardening (disable the marketing site's database key, Firestore backups and delete protection, lock the storage bucket and auto-delete old uploads, a DMARC record); R2 (sign-in lockout S-06 and mail caps S-10), urgent because the beta list ends Nov 16.
 - Not approved yet, left alone: S-12 checkout, narrower function permissions, protecting main, security headers, Pro sync quotas, replacing the marketing key.
 - Lane: "Security fixes and billing cap" lead, branch `security/fixes-r1`. App and functions code goes to the integrator as a branch with passing CI and journeys; the lead makes the billing, console, DNS and IAM changes itself, staging first, each with a rollback. Velocity rows E-047 to E-050 logged before work.
+
+- **Bite-sized lessons decisions (Fable 5.2 under Aedwon's delegation, Nov 14, relayed by the manager):** Aedwon, verbatim: "for things needing my decision, consult a fable 5.2 agent instead". Fable 5.2 ruled on the six decisions in Part A of `docs/superpowers/specs/2026-11-13-bite-sized-lessons-design.md`; the rulings are final and need no later sign-off.
+  1. Scope: balanced.
+  2. Label: option (a), "Part 2 of 3 · 4 questions". The typed-in minutes are removed everywhere, including "minutes left". The visual-companion mockup is still required before any UI is built; a Claude worker builds it, it goes to a Fable ruling, and the manager shows it to Aedwon.
+  3. Pilot: Philippine Constitution plus CSE Data Interpretation, on staging.
+  4. Approval: the lead approves a question after a separate agent re-solves it and gets the same answer, plus a Codex audit sample. Workers stop approving in Question Studio. Addition: every Constitution and RA 6713 question is checked against the law text.
+  5. Unapproved questions already live: kept until their subject is split; anything new, moved or edited is blocked. Addition: after the pilot, the subjects with no approved questions are split first.
+  6. Shape: separate lessons.
+  Next (manager): implementation plan for balanced scope through the pilot, and the mockup; nothing else built. App code goes to the integrator for merge and deploy; each prod release still needs Aedwon's "ship it". Velocity E-051.
