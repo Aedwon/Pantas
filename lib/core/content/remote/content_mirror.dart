@@ -8,6 +8,7 @@ import 'package:pantas/core/content/remote/content_catalog.dart';
 import 'package:pantas/core/content/remote/content_item.dart';
 import 'package:pantas/core/content/remote/content_service.dart';
 import 'package:pantas/core/content/remote/lesson_markdown.dart';
+import 'package:pantas/core/content/remote/question_set_mapper.dart';
 import 'package:pantas/core/content/repos/content_fetch_hook.dart';
 
 /// How long the first start waits for a catalog when none is cached.
@@ -38,6 +39,9 @@ class ContentMirror implements ContentFetchHook {
   final _lessonsInCatalog = <String>{};
   final _setOfQuestion = <String, String>{};
   final _setOfPassage = <String, String>{};
+
+  /// Retired lesson id to its first replacement, from the catalogs applied.
+  final _replacements = <String, String>{};
   final _passagesReady = <String>{};
   final _revalidated = <String>{};
   final _background = <Future<void>>{};
@@ -337,13 +341,20 @@ class ContentMirror implements ContentFetchHook {
           bodyJson: '[]',
         ),
     ];
+    for (final lesson in catalog.lessons) {
+      if (lesson.status == 'retired' && lesson.replacedBy.isNotEmpty) {
+        _replacements[lesson.id] = lesson.replacedBy.first;
+      }
+    }
     final questionRows = <ContentQuestionsCompanion>[];
     final examLinks = <ContentQuestionExamsCompanion>[];
     final writes = _CatalogWrites();
     for (final set in catalog.sets) {
       for (final question in set.questions) {
+        final lessonId = _questionLesson(question.lessonId ?? set.lessonId);
         final fields = '${set.topicId}|${set.subtopicId}|${set.language}|'
-            '${set.lessonId}|${question.passageId}|${question.hasFigure}';
+            '$lessonId|${question.keyPoint}|${question.passageId}|'
+            '${question.hasFigure}';
         final id = question.id;
         if (_catalogQuestions[id] != fields && writes.questions[id] != fields) {
           writes.questions[id] = fields;
@@ -361,7 +372,8 @@ class ContentMirror implements ContentFetchHook {
               stemJson: '[]',
               explanationJson: '[]',
               version: 1,
-              lessonId: Value(set.lessonId),
+              lessonId: Value(lessonId),
+              keyPoint: Value(question.keyPoint),
               passageId: Value(question.passageId),
               figureSpecJson: Value(question.hasFigure ? '{}' : null),
             ),
@@ -428,6 +440,7 @@ class ContentMirror implements ContentFetchHook {
               subtopicId: excluded.subtopicId,
               language: excluded.language,
               lessonId: excluded.lessonId,
+              keyPoint: excluded.keyPoint,
               passageId: excluded.passageId,
             ),
           ),
@@ -441,6 +454,17 @@ class ContentMirror implements ContentFetchHook {
     _lessonsInCatalog.addAll(catalog.lessons.map((l) => l.id));
     return writes;
   }
+
+  /// A catalog question's lesson with any retired lesson resolved to its
+  /// replacement; null when neither the question nor its set names one.
+  String? _questionLesson(String? id) => id == null
+      ? null
+      : resolveQuestionLesson(
+          lesson: id,
+          topicSlug: '',
+          subtopicSlug: '',
+          replacements: _replacements,
+        );
 
   Future<void> _applyLesson(String id, Map<String, Object?> data) async {
     final topic = '${data['topic']}'.replaceFirst('topic-', '');
@@ -513,7 +537,15 @@ class ContentMirror implements ContentFetchHook {
           stemJson: _portableText('${question['stem']}'.trim()),
           explanationJson: _portableText('${question['explanation']}'.trim()),
           version: 1,
-          lessonId: Value('lesson-$topicSlug-$subtopicSlug'),
+          lessonId: Value(
+            resolveQuestionLesson(
+              lesson: question['lesson'] as String?,
+              topicSlug: topicSlug,
+              subtopicSlug: subtopicSlug,
+              replacements: _replacements,
+            ),
+          ),
+          keyPoint: Value(questionKeyPoint(question)),
           passageId: Value(question['passage'] as String?),
           shortLabel: Value(question['shortLabel'] as String?),
           figureSpecJson: Value(spec == null ? null : jsonEncode(spec)),
@@ -571,6 +603,7 @@ class ContentMirror implements ContentFetchHook {
               explanationJson: excluded.explanationJson,
               version: excluded.version,
               lessonId: excluded.lessonId,
+              keyPoint: excluded.keyPoint,
               passageId: excluded.passageId,
               shortLabel: excluded.shortLabel,
               figureSpecJson: excluded.figureSpecJson,

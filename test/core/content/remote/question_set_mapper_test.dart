@@ -61,4 +61,37 @@ void main() {
     });
     expect(questions.single.figureSpecJson, '{"kind":"bar"}');
   });
+
+  test('a question maps to its own lesson and key point', () {
+    Map<String, Object?> q(String id, {String? lesson, int? keyPoint}) => {
+          'id': id,
+          'stem': 's',
+          'explanation': 'e',
+          'choices': [
+            {'text': 'a', 'correct': true},
+          ],
+          if (lesson != null) 'lesson': lesson,
+          if (keyPoint != null) 'keyPoint': keyPoint,
+        };
+    final questions = questionsFromSet(
+      {
+        ...data,
+        'questions': [
+          q('own', lesson: 'lesson-x-part-2', keyPoint: 2),
+          q('plain'),
+          q('retired', lesson: 'lesson-old'),
+        ],
+      },
+      replacements: {'lesson-old': 'lesson-new', 'lesson-new': 'lesson-final'},
+    );
+    final byId = {for (final x in questions) x.id: x};
+    expect(byId['own']!.lessonId, 'lesson-x-part-2');
+    expect(byId['own']!.keyPoint, 2);
+    expect(
+      byId['plain']!.lessonId,
+      'lesson-language-application-paragraph-organization',
+    );
+    expect(byId['plain']!.keyPoint, isNull);
+    expect(byId['retired']!.lessonId, 'lesson-final');
+  });
 }

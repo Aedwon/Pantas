@@ -6,10 +6,38 @@ import 'package:pantas/core/storage/domain/question.dart';
 
 String _underscore(String slug) => slug.replaceAll('-', '_');
 
+/// The lesson a served question belongs to: its own `lesson` (split content
+/// names the part), else the one derived from its set's topic and subtopic.
+/// A lesson that has been retired resolves through `replacedBy[0]`, the same
+/// rule as the exporter and the server. [replacements] maps each retired
+/// lesson id to its first replacement.
+String resolveQuestionLesson({
+  required String? lesson,
+  required String topicSlug,
+  required String subtopicSlug,
+  required Map<String, String> replacements,
+}) {
+  var id = lesson ?? 'lesson-$topicSlug-$subtopicSlug';
+  final seen = <String>{};
+  while (replacements.containsKey(id) && seen.add(id)) {
+    id = replacements[id]!;
+  }
+  return id;
+}
+
+/// The key point number a question tests, when the served question names one.
+int? questionKeyPoint(Map<String, Object?> question) {
+  final value = question['keyPoint'];
+  return value is num ? value.toInt() : null;
+}
+
 /// Maps a question set served by `getContent` to the app's [Question]s, with
 /// the same ids and ordering the bundled content builder produces. Questions
 /// whose figure is not drawn yet are skipped, as in the bundled content.
-List<Question> questionsFromSet(Map<String, Object?> data) {
+List<Question> questionsFromSet(
+  Map<String, Object?> data, {
+  Map<String, String> replacements = const {},
+}) {
   final meta = (data['meta']! as Map).cast<String, Object?>();
   final topicSlug = '${meta['topic']}';
   final subtopicSlug = '${meta['subtopic']}';
@@ -47,7 +75,13 @@ List<Question> questionsFromSet(Map<String, Object?> data) {
             ),
         ]),
         explanation: '${question['explanation']}'.trim(),
-        lessonId: 'lesson-$topicSlug-$subtopicSlug',
+        lessonId: resolveQuestionLesson(
+          lesson: question['lesson'] as String?,
+          topicSlug: topicSlug,
+          subtopicSlug: subtopicSlug,
+          replacements: replacements,
+        ),
+        keyPoint: questionKeyPoint(question),
         shortLabel: question['shortLabel'] as String?,
         figureSpecJson: spec == null ? null : jsonEncode(spec),
       ),
