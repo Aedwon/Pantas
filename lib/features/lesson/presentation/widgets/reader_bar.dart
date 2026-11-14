@@ -57,6 +57,10 @@ enum ReaderOrigin {
   }
 }
 
+/// The IconButton shape (`radius-md`): contents and bookmark wash and ring as
+/// rounded rectangles, never circles.
+final _controlRadius = BorderRadius.circular(PantasRadius.md);
+
 class ReaderBar extends StatelessWidget {
   const ReaderBar({
     required this.title,
@@ -149,9 +153,10 @@ class ReaderBar extends StatelessWidget {
                         value: dayLabel,
                         onTap: onContents,
                         child: ExcludeSemantics(
-                          child: GestureDetector(
+                          child: PantasTapArea(
                             onTap: onContents,
-                            behavior: HitTestBehavior.opaque,
+                            borderRadius: _controlRadius,
+                            washColor: context.colors.iconMuted,
                             child: dayLabel == null
                                 ? SizedBox.square(
                                     dimension: PantasSize.targetTouch,
@@ -202,10 +207,17 @@ class ReaderBar extends StatelessWidget {
                           child: SizedBox.square(
                             key: const ValueKey('reader-bookmark-control'),
                             dimension: PantasSize.targetTouch,
-                            child: _ReaderBookmarkControl(
-                              key: ValueKey(lessonId ?? title),
-                              isBookmarked: isBookmarked,
+                            child: PantasTapArea(
                               onTap: onBookmark,
+                              borderRadius: _controlRadius,
+                              washColor: isBookmarked
+                                  ? context.colors.accent
+                                  : context.colors.iconMuted,
+                              child: _ReaderBookmarkControl(
+                                key: ValueKey(lessonId ?? title),
+                                isBookmarked: isBookmarked,
+                                onTap: onBookmark,
+                              ),
                             ),
                           ),
                         ),
