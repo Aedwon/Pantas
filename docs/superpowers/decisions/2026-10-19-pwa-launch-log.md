@@ -3452,3 +3452,18 @@ Implemented and verified locally; no push, deploy or Firebase. Local saving only
 - Rollback: a checkout of fe0c2076b with functions built is kept ready. Not needed.
 - Velocity E-057 and E-058: see the rows (timer).
 
+
+### Nov 14, Fable 5.2 rulings on step 7 and step 5 (relayed by the manager; security fixes lead)
+
+Fable 5.2 ruled under Aedwon's standing delegation. The manager relayed both rulings.
+
+- **Ruling B: step 7 first, now, in two parts. A departure from Aedwon's stated order** (he approved 5, 6, then 7). Reason given: more than a week without a hard stop on prod risks about $63 an hour from a single attacker on Hosting; a false fire costs a 5 to 35 minute outage for a handful of testers.
+  1. Put the $15 budget cutoff on prod now, if month-to-date prod spend leaves clear room under $15. Confirm the lead can relink and recover prod without Aedwon. Write the prod steps into runbook section 13.
+  2. Start the prod usage alarms in notify-only mode, emailing Aedwon. Wire them to the cutoff after about a week of prod baselines, because untuned thresholds are the likely cause of a false fire. Log the date to wire them.
+- **Ruling A: step 5 approved with changes.** Aedwon's phone check does not block the switch.
+  1. Close a gap first: staging sign-in does not use the forwarding. If the sign-in setup allows it, run one headless staging sign-in on a build that signs in through staging.pantas.study.
+  2. Before the prod DNS switch, compare the three sign-in paths on the prod Worker's own address with Firebase's, including query strings and a POST.
+  3. Switch at a low-traffic hour, 2 to 5 am Manila. Repeat the checks, load the app shell headless, and watch sign-in errors for 30 minutes. On any mismatch, roll back without asking.
+  4. Gate the tiny Firebase page, not the switch: 48 clean hours plus one confirmed real Google sign-in on prod, from the logs. The manager asks Aedwon once for an optional phone check, with no deadline.
+  The prod Worker deploy and the DNS change belong to the security fixes lead. App and Hosting deploys go through the integrator.
+- The manager passes `web/security-billing-cutoff-r1` to the integrator to merge. Pace stays at one worker at a time, with long watches only.
