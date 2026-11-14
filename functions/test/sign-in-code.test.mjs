@@ -51,6 +51,9 @@ function fakeAuth(users = {}) {
       return users[uid];
     },
     createCustomToken: async uid => `token-for-${uid}`,
+    getUser: async uid => { if (!users[uid]) throw notFound(); return users[uid]; },
+    revokeRefreshTokens: async uid => { calls.push(['revoke', uid]); },
+    deleteUser: async uid => { calls.push(['deleteUser', uid]); if (!users[uid]) throw notFound(); delete users[uid]; },
   };
 }
 
@@ -68,9 +71,14 @@ function rig({users = {anon1: {uid: 'anon1'}}, mailer = sender(), send = {}, ver
   const clock = {now: () => t, advance: ms => { t += ms; }};
   const sendDeps = {db, auth, key: KEY, mailer, now: clock.now, random: () => 42, allow: async () => true,
     challengeId: () => String(++n).padStart(32, '0'), ...send};
-  const verifyDeps = {db, auth, key: KEY, now: clock.now, allow: async () => true, ...verify};
+  // Stands in for the full account deletion, which the emulator tests run for real.
+  const purge = async uid => { auth.calls.push(['purge', uid]); delete users[uid]; };
+  const verifyDeps = {db, auth, key: KEY, now: clock.now, allow: async () => true, purge, ...verify};
+  // Each call comes from its own address unless a test names one, so the per-address limit stays out of the way.
+  let caller = 0;
+  const fresh = () => ({ip: `10.${Math.floor(++caller / 250)}.${caller % 250}.1`});
   return {db, auth, mailer, clock, sendDeps, verifyDeps,
-    send: (email = EMAIL, overrides = {}) => sendSignInCode(req({email}, overrides), sendDeps),
+    send: (email = EMAIL, overrides = {}) => sendSignInCode(req({email}, {rawRequest: fresh(), ...overrides}), sendDeps),
     verify: (challengeId, code = CODE, overrides = {}) => checkSignInCode(req({challengeId, code}, overrides), verifyDeps)};
 }
 
@@ -308,20 +316,139 @@ test('an existing verified account is signed in as itself and not modified', asy
   assert.equal(r.auth.users.u9.email, EMAIL);
 });
 
-test('an existing unverified or disabled account is refused and left untouched', async () => {
+test('a disabled account, or an unverified one with another provider, is refused and left untouched', async () => {
   const messages = [];
-  for (const record of [{emailVerified: false, disabled: false, providerData: [{providerId: 'password'}]},
-    {emailVerified: true, disabled: true}, {emailVerified: false, disabled: true}]) {
+  for (const record of [
+    {emailVerified: false, disabled: false, providerData: [{providerId: 'google.com'}]},
+    {emailVerified: false, disabled: false, providerData: [{providerId: 'password'}, {providerId: 'google.com'}]},
+    {emailVerified: false, disabled: false, providerData: [{providerId: 'phone'}]},
+    {emailVerified: true, disabled: true},
+    {emailVerified: false, disabled: true, providerData: [{providerId: 'password'}]},
+    {emailVerified: false, disabled: true}]) {
     const r = rig({users: {u9: {uid: 'u9', email: EMAIL, ...record}}});
     const before = JSON.stringify(r.auth.users.u9);
     await r.send();
     const error = (await outcome(r.verify(ID1))).error;
-    assert.equal(error.code, 'permission-denied');
+    assert.equal(error.code, 'permission-denied', JSON.stringify(record));
     messages.push(error.message);
     assert.deepEqual(r.auth.calls, []);
     assert.equal(JSON.stringify(r.auth.users.u9), before);
   }
   assert.deepEqual(new Set(messages), new Set(["This account can't sign in. Write to support@pantas.study."]));
+});
+
+// ----------------------------------------------- S-06: a squatter is replaced
+
+const squatter = (providerData) => ({uid: 'sq1', email: EMAIL, emailVerified: false, disabled: false,
+  ...(providerData === undefined ? {} : {providerData})});
+
+for (const providers of [[{providerId: 'password'}], [], undefined]) {
+  test(`an unverified password-only account on the address is replaced once the code is right (${JSON.stringify(providers)})`, async () => {
+    const r = rig({users: {anon1: {uid: 'anon1'}, sq1: squatter(providers)}});
+    await r.send();
+    const result = await r.verify(ID1);
+    assert.match(result.token, /^token-for-new/);
+    assert.deepEqual(r.auth.calls.map(c => c[0]), ['revoke', 'purge', 'createUser']);
+    assert.deepEqual(r.auth.calls[0], ['revoke', 'sq1']);
+    assert.deepEqual(r.auth.calls[1], ['purge', 'sq1']);
+    assert.equal(r.auth.users.sq1, undefined);
+    const owner = Object.values(r.auth.users).find(u => u.email === EMAIL);
+    assert.equal(owner.emailVerified, true);
+    assert.equal(result.token, `token-for-${owner.uid}`);
+  });
+}
+
+test('the replacement runs the real account deletion path unless a test stands in for it', () => {
+  const source = readFileSync(new URL('../src/_squatter.ts', import.meta.url), 'utf8');
+  assert.match(source, /deleteUserData\(/);
+});
+
+test('a wrong code never replaces anything', async () => {
+  const r = rig({users: {anon1: {uid: 'anon1'}, sq1: squatter([{providerId: 'password'}])}});
+  await r.send();
+  await assert.rejects(() => r.verify(ID1, '999999'), {code: 'invalid-argument'});
+  assert.deepEqual(r.auth.calls, []);
+  assert.ok(r.auth.users.sq1);
+});
+
+test('a stand-in challenge never replaces anything, even with its own secret', async () => {
+  const r = rig({users: {anon1: {uid: 'anon1'}, sq1: squatter([{providerId: 'password'}])}, send: {openCap: 0, standInCode: () => 777}});
+  await r.send();
+  await assert.rejects(() => r.verify(ID1, '000777'), {code: 'invalid-argument'});
+  assert.deepEqual(r.auth.calls, []);
+});
+
+test('a verified account is never replaced', async () => {
+  const r = rig({users: {anon1: {uid: 'anon1'},
+    u9: {uid: 'u9', email: EMAIL, emailVerified: true, disabled: false, providerData: [{providerId: 'password'}]}}});
+  await r.send();
+  assert.deepEqual(await r.verify(ID1), {token: 'token-for-u9'});
+  assert.deepEqual(r.auth.calls, []);
+});
+
+test('another sign-in that replaces the squatter and makes the account first wins, and we sign in as it', async () => {
+  const r = rig({users: {anon1: {uid: 'anon1'}, sq1: squatter([{providerId: 'password'}])}});
+  await r.send();
+  r.verifyDeps.purge = async uid => {
+    // The other sign-in finishes the whole replacement while this one is deleting.
+    delete r.auth.users[uid];
+    r.auth.users.w1 = {uid: 'w1', email: EMAIL, emailVerified: true, disabled: false};
+  };
+  assert.deepEqual(await r.verify(ID1), {token: 'token-for-w1'});
+  assert.equal(Object.values(r.auth.users).filter(u => u.email === EMAIL).length, 1);
+});
+
+test('a delete that finds the squatter already deleted is not an error', async () => {
+  const r = rig({users: {anon1: {uid: 'anon1'}, sq1: squatter([{providerId: 'password'}])}});
+  await r.send();
+  r.verifyDeps.purge = async uid => {
+    delete r.auth.users[uid];
+    throw Object.assign(new Error('gone'), {code: 'auth/user-not-found'});
+  };
+  assert.match((await r.verify(ID1)).token, /^token-for-new/);
+});
+
+test('a squatter that is already gone when we delete it is not an error', async () => {
+  const r = rig({users: {anon1: {uid: 'anon1'}, sq1: squatter([{providerId: 'password'}])}});
+  await r.send();
+  const getUser = r.auth.getUser;
+  r.auth.getUser = async uid => {
+    if (uid === 'sq1') { delete r.auth.users.sq1; }
+    return getUser(uid);
+  };
+  const result = await r.verify(ID1);
+  assert.match(result.token, /^token-for-new/);
+});
+
+test('if the attacker registers the address again before the new account is made, it is replaced again', async () => {
+  const r = rig({users: {anon1: {uid: 'anon1'}, sq1: squatter([{providerId: 'password'}])}});
+  await r.send();
+  const create = r.auth.createUser;
+  let first = true;
+  r.auth.createUser = async props => {
+    if (first) { first = false; r.auth.users.sq2 = {...squatter([{providerId: 'password'}]), uid: 'sq2'}; }
+    return create(props);
+  };
+  const result = await r.verify(ID1);
+  assert.equal(r.auth.users.sq1, undefined);
+  assert.equal(r.auth.users.sq2, undefined);
+  const owner = Object.values(r.auth.users).find(u => u.email === EMAIL);
+  assert.equal(result.token, `token-for-${owner.uid}`);
+});
+
+test('an account that is replaced is logged once as a structured line with the uid and no address', async t => {
+  const lines = [];
+  for (const stream of [process.stdout, process.stderr]) {
+    t.mock.method(stream, 'write', chunk => { lines.push(String(chunk)); return true; });
+  }
+  const r = rig({users: {anon1: {uid: 'anon1'}, sq1: squatter([{providerId: 'password'}])}});
+  await r.send();
+  await r.verify(ID1);
+  const logged = lines.filter(line => line.includes('Replaced an unclaimed account'));
+  assert.equal(logged.length, 1);
+  const entry = JSON.parse(logged[0]);
+  assert.equal(entry.uid, 'sq1');
+  assert.ok(!logged[0].includes('example.com'));
 });
 
 test('a signed-in non-anonymous caller also gets a new account for a new email', async () => {
@@ -347,7 +474,7 @@ test('a lost race on creation signs in as the account that won, if it is verifie
   assert.deepEqual(await r.verify(ID1), {token: 'token-for-u7'});
 });
 
-test('a lost race on creation is refused if the winner is unverified', async () => {
+test('a lost race on creation is refused if the winner is unverified and linked to another provider', async () => {
   const r = rig();
   await r.send();
   const lookup = r.auth.getUserByEmail;
@@ -356,7 +483,7 @@ test('a lost race on creation is refused if the winner is unverified', async () 
     if (first) { first = false; throw Object.assign(new Error('nope'), {code: 'auth/user-not-found'}); }
     return lookup(email);
   };
-  r.auth.users.u7 = {uid: 'u7', email: EMAIL, emailVerified: false, disabled: false};
+  r.auth.users.u7 = {uid: 'u7', email: EMAIL, emailVerified: false, disabled: false, providerData: [{providerId: 'google.com'}]};
   await assert.rejects(() => r.verify(ID1), {code: 'permission-denied'});
 });
 
@@ -383,15 +510,49 @@ test('one IP gets 10 sends an hour whatever accounts it uses, and only a hash of
   await fromIp(r, '203.0.113.9', 'late@example.com');
 });
 
-test('only selected beta applicants use the reserved bucket', async () => {
-  const r = rig({users: {u9: {uid: 'u9', email: 'known@example.com'}}, send: {openCap: 2, reservedCap: 1}});
+test('selected beta applicants use the reserved bucket, and the rest use the open one', async () => {
+  const r = rig({users: {anon1: {uid: 'anon1'}}, send: {openCap: 2, reservedCap: 1}});
   r.db.rows.set('betaApplications/a', {email: 'beta@example.com', selected: true});
   r.db.rows.set('betaApplications/b', {email: 'waiting@example.com', selected: false});
-  for (const email of ['beta@example.com', 'known@example.com', 'waiting@example.com', 'stranger@example.com']) await r.send(email);
+  for (const email of ['beta@example.com', 'waiting@example.com', 'stranger@example.com', 'late@example.com']) await r.send(email);
   assert.equal(r.db.rows.get('signInLimits/global-reserved-1970-01-01').count, 1);
   assert.equal(r.db.rows.get('signInLimits/global-open-1970-01-01').count, 2);
-  assert.equal(r.mailer.sent.length, 3);
-  assert.deepEqual(r.mailer.sent.map(m => m.to), ['beta@example.com', 'known@example.com', 'waiting@example.com']);
+  assert.deepEqual(r.mailer.sent.map(m => m.to), ['beta@example.com', 'waiting@example.com', 'stranger@example.com']);
+});
+
+test('S-10 item 2: a verified, enabled account is in the reserved bucket, so a full open bucket does not block it', async () => {
+  const users = {anon1: {uid: 'anon1'},
+    back: {uid: 'back', email: 'back@example.com', emailVerified: true, disabled: false},
+    squat: {uid: 'squat', email: 'unverified@example.com', emailVerified: false, disabled: false},
+    off: {uid: 'off', email: 'off@example.com', emailVerified: true, disabled: true}};
+  const r = rig({users, send: {openCap: 1, reservedCap: 5, auth: undefined}});
+  r.sendDeps.auth = r.auth;
+  await r.send('stranger@example.com');
+  assert.equal(r.mailer.sent.length, 1);
+  const returning = await r.send('back@example.com');
+  assert.equal(r.mailer.sent.length, 2, 'the returning user still gets a code');
+  assert.equal(challenge(r, returning.challengeId).standIn, undefined);
+  assert.equal(r.db.rows.get('signInLimits/global-reserved-1970-01-01').count, 1);
+  // Unverified and disabled accounts stay in the open bucket, which is full.
+  for (const email of ['unverified@example.com', 'off@example.com']) {
+    const held = await r.send(email);
+    assert.equal(challenge(r, held.challengeId).standIn, true, email);
+  }
+  assert.equal(r.mailer.sent.length, 2);
+});
+
+test('S-10 item 2: the reply is the same whichever bucket was used, and a failed account lookup falls back to open', async () => {
+  const r = rig({users: {anon1: {uid: 'anon1'}, back: {uid: 'back', email: 'back@example.com', emailVerified: true, disabled: false}},
+    send: {openCap: 5, reservedCap: 5}});
+  r.sendDeps.auth = r.auth;
+  const known = await r.send('back@example.com');
+  const stranger = await r.send('stranger@example.com');
+  assert.deepEqual(Object.keys(known).sort(), Object.keys(stranger).sort());
+  assert.equal(known.resendAfterSeconds, stranger.resendAfterSeconds);
+  r.auth.getUserByEmail = async () => { throw new Error('auth down'); };
+  const after = await r.send('back2@example.com');
+  assert.deepEqual(Object.keys(after).sort(), Object.keys(stranger).sort());
+  assert.equal(r.db.rows.get('signInLimits/global-open-1970-01-01').count, 2);
 });
 
 test('a full bucket never blocks the other, and a held-back send looks exactly like a real one', async () => {
@@ -630,3 +791,135 @@ for (const marker of ['users/maria/server/guardianConsent', 'accountDeletions/ma
     assert.equal(minted, false);
   });
 }
+
+
+// ------------------------------------------- S-10 item 1: one address, no spoofing
+
+const via = (r, forwarded, ip, email, uid = 'anon1') => r.send(email,
+  {auth: caller('anonymous', uid), rawRequest: {ip, headers: forwarded === undefined ? {} : {'x-forwarded-for': forwarded}}});
+
+test('S-10 item 1: a spoofed X-Forwarded-For does not give a caller a fresh address', async () => {
+  const r = rig();
+  for (let i = 0; i < 10; i += 1) await via(r, `198.51.100.${i}, 203.0.113.9`, '10.0.0.1', `s${i}@example.com`, `anon${i}`);
+  await assert.rejects(() => via(r, '192.0.2.77, 203.0.113.9', '10.0.0.1', 'late@example.com', 'anon50'), {code: 'resource-exhausted'});
+  assert.equal(r.mailer.sent.length, 10);
+  // The same left side with a different right-most entry is another client.
+  await via(r, '198.51.100.0, 203.0.113.10', '10.0.0.1', 'other@example.com', 'anon51');
+});
+
+test('S-10 item 1: with no usable header the connection address counts', async () => {
+  const r = rig();
+  for (let i = 0; i < 10; i += 1) await via(r, 'not-an-address', '203.0.113.9', `d${i}@example.com`, `anon${i}`);
+  await assert.rejects(() => via(r, undefined, '203.0.113.9', 'late@example.com', 'anon50'), {code: 'resource-exhausted'});
+});
+
+test('S-10 item 1: a call with no address at all shares one unknown bucket instead of skipping the limit', async () => {
+  const r = rig();
+  for (let i = 0; i < 10; i += 1) await sendSignInCode(req({email: `n${i}@example.com`}, {auth: caller('anonymous', `anon${i}`)}), r.sendDeps);
+  await assert.rejects(() => sendSignInCode(req({email: 'late@example.com'}, {auth: caller('anonymous', 'anon50'), rawRequest: {}}), r.sendDeps),
+    {code: 'resource-exhausted'});
+  assert.ok(![...r.db.rows.keys()].some(path => path.includes('203.0.113.9')));
+});
+
+// ----------------------------------------- S-10 items 3 and 4: per-mailbox limits
+
+const MINUTE = 60_000;
+/** Sends until `count` real codes are mailed to one mailbox, spacing them so the hourly limit never applies. */
+async function mailTo(r, email, count, from = 0) {
+  for (let i = 0; i < count; i += 1) {
+    await r.send(email, {auth: caller('anonymous', `m${from + i}`)});
+    r.clock.advance(13 * MINUTE);
+  }
+}
+
+test('S-10 item 3: at most 10 codes per mailbox per Philippine day, then a stand-in with the same reply', async () => {
+  const r = rig();
+  await mailTo(r, EMAIL, 10);
+  assert.equal(r.mailer.sent.length, 10);
+  const held = await r.send(EMAIL, {auth: caller('anonymous', 'm99')});
+  assert.equal(r.mailer.sent.length, 10);
+  assert.equal(challenge(r, held.challengeId).standIn, true);
+  assert.deepEqual(Object.keys(held).sort(), ['challengeId', 'resendAfterSeconds']);
+  assert.equal(held.resendAfterSeconds, 60);
+  // An alias shares the mailbox and its limit; another mailbox is unaffected.
+  await r.send('m.aria@example.com', {auth: caller('anonymous', 'm98')});
+  assert.equal(r.mailer.sent.length, 11);
+  r.clock.advance(16 * 3_600_000);
+  await r.send(EMAIL, {auth: caller('anonymous', 'm97')});
+  assert.equal(r.mailer.sent.length, 12, 'the next Philippine day starts again');
+});
+
+/** Gives `n` challenges for one mailbox their five wrong tries. Returns how many reached the lock. */
+async function lockChallenges(r, n, email = EMAIL) {
+  for (let i = 0; i < n; i += 1) {
+    const who = caller('anonymous', `l${i}`);
+    const reply = await r.send(email, {auth: who});
+    for (let t = 0; t < 5; t += 1) await outcome(r.verify(reply.challengeId, '999999', {auth: who}));
+    r.clock.advance(2 * MINUTE);
+  }
+}
+
+test('S-10 item 4: three challenges that reach the too-many-tries state hold back further sends that day', async () => {
+  const r = rig();
+  await lockChallenges(r, 2);
+  const stillOpen = await r.send(EMAIL, {auth: caller('anonymous', 'p1')});
+  assert.equal(challenge(r, stillOpen.challengeId).standIn, undefined, 'two locks are not enough');
+  r.clock.advance(70 * MINUTE);
+  await lockChallenges(r, 1, EMAIL);
+  const sentBefore = r.mailer.sent.length;
+  const held = await r.send(EMAIL, {auth: caller('anonymous', 'p2')});
+  assert.equal(r.mailer.sent.length, sentBefore);
+  assert.equal(challenge(r, held.challengeId).standIn, true);
+  assert.deepEqual(Object.keys(held).sort(), ['challengeId', 'resendAfterSeconds']);
+  // Other mailboxes are unaffected, and the next Philippine day lifts the lock.
+  await r.send('other@example.com', {auth: caller('anonymous', 'p3')});
+  assert.equal(r.mailer.sent.length, sentBefore + 1);
+  r.clock.advance(16 * 3_600_000);
+  const next = await r.send(EMAIL, {auth: caller('anonymous', 'p4')});
+  assert.equal(challenge(r, next.challengeId).standIn, undefined);
+});
+
+test('S-10 item 4: wrong tries below the limit and repeated tries on one locked challenge count once', async () => {
+  const r = rig();
+  const who = caller('anonymous', 'l0');
+  const reply = await r.send(EMAIL, {auth: who});
+  for (let t = 0; t < 12; t += 1) await outcome(r.verify(reply.challengeId, '999999', {auth: who}));
+  r.clock.advance(2 * MINUTE);
+  await lockChallenges(r, 1);
+  const held = await r.send(EMAIL, {auth: caller('anonymous', 'q1')});
+  assert.equal(challenge(r, held.challengeId).standIn, undefined, 'one challenge locked twice over is still one');
+});
+
+// ----------------------------------------------- S-10 item 6: the full-bucket alert
+
+/** The ERROR lines the log would carry, parsed. */
+function errorLines(t) {
+  const lines = [];
+  for (const stream of [process.stdout, process.stderr]) {
+    t.mock.method(stream, 'write', chunk => { lines.push(String(chunk)); return true; });
+  }
+  return () => lines.flatMap(line => { try { return [JSON.parse(line)]; } catch { return []; } })
+    .filter(entry => entry.severity === 'ERROR');
+}
+
+test('S-10 item 6: each bucket logs exactly one ERROR line a day when it fills', async t => {
+  const read = errorLines(t);
+  const r = rig({send: {openCap: 2, reservedCap: 1}});
+  r.db.rows.set('betaApplications/a', {email: 'beta@example.com', selected: true});
+  for (const email of ['a@example.com', 'b@example.com', 'c@example.com', 'd@example.com', 'beta@example.com', 'beta@example.com']) await r.send(email);
+  const full = read().filter(entry => entry.event === 'mail_cap_full');
+  assert.deepEqual(full.map(entry => entry.message.split('\n')[0]).sort(), [
+    'Error: Mail cap full: sign-in open bucket, 1970-01-01.', 'Error: Mail cap full: sign-in reserved bucket, 1970-01-01.']);
+  // The next Philippine day logs again, once.
+  r.clock.advance(16 * 3_600_000);
+  for (const email of ['e@example.com', 'f@example.com', 'g@example.com']) await r.send(email, {auth: caller('anonymous', 'x1')});
+  assert.equal(read().filter(entry => entry.event === 'mail_cap_full' && entry.day === '1970-01-02' && entry.bucket === 'open').length, 1);
+});
+
+test('S-10 item 6: a cap of zero logs once on the first held-back send', async t => {
+  const read = errorLines(t);
+  const r = rig({send: {openCap: 0}});
+  await r.send('a@example.com');
+  await r.send('b@example.com');
+  assert.equal(read().filter(entry => entry.event === 'mail_cap_full').length, 1);
+});

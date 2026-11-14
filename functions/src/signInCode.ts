@@ -7,11 +7,13 @@ import {defineInt, defineSecret} from 'firebase-functions/params';
 import {HttpsError, type CallableRequest} from 'firebase-functions/v2/https';
 import {onAccountCall as onCall} from './_accountAccess.js';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
+import {clientBucket} from './_clientAddress.js';
 import {allowAtMost} from './_limits.js';
 import {canonicalEmail} from './_email.js';
 import {phDay} from './_phDate.js';
 import {guardianMailFrom, guardianMailKey} from './guardianConsent.js';
 import {mailerFor, type GuardianMailer, type GuardianMessage} from './guardianMail.js';
+import {isSquatter, replaceSquatter, type SquatterAuth} from './_squatter.js';
 import {timed} from './_timed.js';
 
 /**
@@ -40,6 +42,10 @@ export const SENDS_PER_CALLER_PER_HOUR = 10;
 export const MAX_WRONG_TRIES = 5;
 export const VERIFIES_PER_CALLER = 30;
 export const SENDS_PER_IP_PER_HOUR = 10;
+/** Most codes mailed to one mailbox per Philippine day, however many people ask for it. */
+export const SENDS_PER_MAILBOX_PER_DAY = 10;
+/** Challenges for one mailbox that may reach the too-many-tries state in a Philippine day before sends stop. */
+export const LOCKED_CHALLENGES_PER_MAILBOX_PER_DAY = 3;
 const HOUR_MS = 3_600_000;
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -103,7 +109,9 @@ export type RequestDeps = {
   /** A new random 128-bit challenge id as 32 hex characters. */
   challengeId?: () => string;
   allow?: (uid: string, bucket: string, max: number, windowMs: number) => Promise<boolean>;
-  /** Daily caps: the open bucket for everyone, the reserved one for selected beta applicants. */
+  /** Finds an existing account by address, so a returning user draws on the reserved bucket. */
+  auth?: Pick<Auth, 'getUserByEmail'>;
+  /** Daily caps: the open bucket for everyone, the reserved one for selected beta applicants and existing accounts. */
   openCap?: number;
   reservedCap?: number;
   alert?: (message: string) => void;
@@ -111,7 +119,9 @@ export type RequestDeps = {
   pad?: () => Promise<void>;
 };
 
-type Req = Pick<CallableRequest, 'auth' | 'app' | 'data'> & {rawRequest?: {ip?: string}};
+type Req = Pick<CallableRequest, 'auth' | 'app' | 'data'> & {
+  rawRequest?: {ip?: string; headers?: Record<string, string | string[] | undefined>};
+};
 
 function assertCaller(request: Req): string {
   if (!request.auth || (enforceAppCheck && !request.app)) {
@@ -122,11 +132,12 @@ function assertCaller(request: Req): string {
 }
 
 /**
- * One hour window per caller IP, kept as a keyed hash so the address itself is never stored.
- * Anonymous accounts are free to make, so the per-user limit alone cannot stop one machine.
+ * One hour window per client address bucket (see `clientBucket`), kept as a keyed hash so the address
+ * itself is never stored. Anonymous accounts are free to make, so the per-user limit alone cannot stop
+ * one machine.
  */
-async function allowIp(db: Firestore, key: string, ip: string, at: number): Promise<boolean> {
-  const ref = db.doc(`signInLimits/ip-${createHmac('sha256', key).update(`ip\0${ip}`).digest('hex')}`);
+async function allowIp(db: Firestore, key: string, bucket: string, at: number): Promise<boolean> {
+  const ref = db.doc(`signInLimits/ip-${createHmac('sha256', key).update(`ip\0${bucket}`).digest('hex')}`);
   return db.runTransaction(async transaction => {
     const snapshot = await transaction.get(ref);
     const startedAt = millis(snapshot.get('windowStartedAt'));
@@ -140,24 +151,38 @@ async function allowIp(db: Firestore, key: string, ip: string, at: number): Prom
 }
 
 /**
- * Only an address on a selected beta application draws on the reserved daily bucket. Callers never
- * see which bucket they used: the reply is the same for both.
+ * An address on a selected beta application, or one that already belongs to a verified, enabled
+ * account, draws on the reserved daily bucket. Strangers filling the open bucket then cannot block
+ * returning users. Both lookups always run, so the time taken does not show which one matched, and
+ * callers never see which bucket they used: the reply is the same for both.
  */
 async function reservedBucket(deps: RequestDeps, email: string): Promise<boolean> {
-  try {
+  const betaTester = async (): Promise<boolean> => {
     const applications = await deps.db.collection('betaApplications').where('email', '==', email).get();
     return applications.docs.some(application => application.get('selected') === true);
-  } catch (error) {
+  };
+  const returningUser = async (): Promise<boolean> => {
+    if (!deps.auth) return false;
+    try {
+      const user = await deps.auth.getUserByEmail(email);
+      return user.emailVerified === true && user.disabled !== true;
+    } catch (error) {
+      if ((error as {code?: string} | null)?.code === 'auth/user-not-found') return false;
+      throw error;
+    }
+  };
+  const [beta, returning] = await Promise.all([betaTester(), returningUser()].map(lookup => lookup.catch((error: unknown) => {
     logger.warn('Sign-in bucket lookup failed', {message: error instanceof Error ? error.message : 'unknown'});
     return false;
-  }
+  })));
+  return beta || returning;
 }
 
-type Suppressed = 'cooldown' | 'hourlyCap' | 'dailyCap';
+type Suppressed = 'cooldown' | 'hourlyCap' | 'dailyCap' | 'mailboxDailyCap' | 'mailboxLocked';
 type Slot =
   | {kind: 'cached'; seconds: number; challengeId: string}
   | {kind: 'suppressed'; reason: Suppressed; firstFull: boolean}
-  | {kind: 'stored'};
+  | {kind: 'stored'; becameFull: boolean};
 
 type Open = {id: string; exp: number};
 const openList = (value: unknown): Open[] => (Array.isArray(value) ? value : [])
@@ -180,8 +205,9 @@ export async function sendSignInCode(request: Req, deps: RequestDeps):
     throw new HttpsError('resource-exhausted', 'Too many codes requested. Try again later.');
   }
 
-  const ip = request.rawRequest?.ip;
-  if (ip && !await allowIp(deps.db, deps.key, ip, now())) {
+  // The caller can choose the left of X-Forwarded-For, so only its right-most entry counts. A call
+  // with no address falls into one shared bucket: a missing address never skips the limit.
+  if (!await allowIp(deps.db, deps.key, clientBucket(request), now())) {
     throw new HttpsError('resource-exhausted', 'Too many codes requested. Try again later.');
   }
 
@@ -197,14 +223,17 @@ export async function sendSignInCode(request: Req, deps: RequestDeps):
   const cacheRef = deps.db.doc(`signInRequests/${createHash('sha256').update(`${uid}:${emailKey}`).digest('hex')}`);
   const challengeRef = deps.db.doc(challengePath(challengeId));
   const at = now();
-  const dayRef = deps.db.doc(`signInLimits/global-${bucket}-${phDay(at)}`);
+  const day = phDay(at);
+  const dayRef = deps.db.doc(`signInLimits/global-${bucket}-${day}`);
+  // Counts for one mailbox over one Philippine day: codes mailed, and challenges that ran out of tries.
+  const mailboxDayRef = deps.db.doc(mailboxDayPath(emailKey, day));
 
   // Whatever the recipient's state, the caller sees a real-looking send. When delivery is held back
   // for a reason that depends on the recipient, a challenge with no code stands in for it, so the
   // reply cannot be used to learn who is signed up, selected, or recently emailed.
   const slot = await deps.db.runTransaction<Slot>(async transaction => {
-    const [cached, snapshot, day] = await Promise.all(
-      [transaction.get(cacheRef), transaction.get(limitRef), transaction.get(dayRef)]);
+    const [cached, snapshot, dayDoc, mailboxDay] = await Promise.all(
+      [transaction.get(cacheRef), transaction.get(limitRef), transaction.get(dayRef), transaction.get(mailboxDayRef)]);
     const askedAt = millis(cached.get('sentAt'));
     const askedId: unknown = cached.get('challengeId');
     if (askedAt > 0 && typeof askedId === 'string' && at - askedAt < RESEND_COOLDOWN_MS) {
@@ -226,13 +255,21 @@ export async function sendSignInCode(request: Req, deps: RequestDeps):
     const inWindow = windowStartedAt > 0 && at - windowStartedAt < HOUR_MS;
     const sendCount = inWindow ? Number(snapshot.get('sendCount') ?? 0) : 0;
     if (sendCount >= SENDS_PER_EMAIL_PER_HOUR) return decoy('hourlyCap');
-    const sentToday = Number(day.get('count') ?? 0);
+    // These two depend on the recipient too, so they look like every other held-back send.
+    if (Number(mailboxDay.get('locked') ?? 0) >= LOCKED_CHALLENGES_PER_MAILBOX_PER_DAY) return decoy('mailboxLocked');
+    if (Number(mailboxDay.get('sent') ?? 0) >= SENDS_PER_MAILBOX_PER_DAY) return decoy('mailboxDailyCap');
+    const sentToday = Number(dayDoc.get('count') ?? 0);
     if (!Number.isFinite(cap) || cap < 1 || sentToday + 1 > cap) {
-      const firstFull = day.get('fullLogged') !== true;
+      const firstFull = dayDoc.get('fullLogged') !== true;
       if (firstFull) transaction.set(dayRef, {fullLogged: true}, {merge: true});
       return decoy('dailyCap', firstFull);
     }
-    transaction.set(dayRef, {count: sentToday + 1, purgeAt: new Date(at + 3 * 24 * HOUR_MS)}, {merge: true});
+    // The send that reaches the cap is the moment the bucket becomes full, and the one that logs it.
+    const becameFull = sentToday + 1 >= cap && dayDoc.get('fullLogged') !== true;
+    transaction.set(dayRef, {count: sentToday + 1, purgeAt: new Date(at + 3 * 24 * HOUR_MS),
+      ...(becameFull ? {fullLogged: true} : {})}, {merge: true});
+    transaction.set(mailboxDayRef, {sent: Number(mailboxDay.get('sent') ?? 0) + 1,
+      purgeAt: new Date(at + 3 * 24 * HOUR_MS)}, {merge: true});
     const threshold = Math.ceil(cap * 0.8);
     if (sentToday < threshold && sentToday + 1 >= threshold) {
       (deps.alert ?? ((m: string) => console.error(m)))(
@@ -250,19 +287,18 @@ export async function sendSignInCode(request: Req, deps: RequestDeps):
       open: [...openList(snapshot.get('open')).filter(row => row.exp > at), {id: challengeId, exp: at + CODE_TTL_MS}],
       purgeAt: new Date(at + 2 * HOUR_MS),
     });
-    return {kind: 'stored'};
+    return {kind: 'stored', becameFull};
   });
 
   if (slot.kind === 'cached') return {challengeId: slot.challengeId, resendAfterSeconds: slot.seconds};
   if (slot.kind === 'suppressed') {
     // Logged without the address: the first eight characters of the mailbox key are enough to correlate.
     logger.warn('Sign-in code held back', {reason: slot.reason, bucket, emailKey: emailKey.slice(0, 8)});
-    if (slot.reason === 'dailyCap' && slot.firstFull) {
-      logger.error(`Sign-in emails: the ${bucket} bucket is full for the day.`, {bucket, cap});
-    }
+    if (slot.reason === 'dailyCap' && slot.firstFull) logFull(bucket, day, cap);
     await deps.pad?.();
     return {challengeId, resendAfterSeconds: RESEND_COOLDOWN_MS / 1000};
   }
+  if (slot.becameFull) logFull(bucket, day, cap);
 
   try {
     await deps.mailer.send(signInCodeMessage({to: email, code}));
@@ -273,6 +309,17 @@ export async function sendSignInCode(request: Req, deps: RequestDeps):
   }
   return {challengeId, resendAfterSeconds: RESEND_COOLDOWN_MS / 1000};
 }
+
+/**
+ * One ERROR line the first time a daily bucket is full, for a log-based alert. Match on the field
+ * `event="mail_cap_full"`, or on the text `Mail cap full: sign-in`. (The logger puts `Error: ` and a
+ * stack trace around an ERROR message, so match on a substring, not the start.)
+ */
+function logFull(bucket: 'open' | 'reserved', day: string, cap: number): void {
+  logger.error(`Mail cap full: sign-in ${bucket} bucket, ${day}.`, {event: 'mail_cap_full', bucket, day, cap});
+}
+
+const mailboxDayPath = (emailKey: string, day: string): string => `signInLimits/mailbox-${emailKey}-${day}`;
 
 /** Delete the challenge this call made. The send counters stay, but the cap place goes back. */
 async function dropChallenge(db: Firestore, limitRef: ReturnType<Firestore['doc']>,
@@ -292,10 +339,12 @@ async function dropChallenge(db: Firestore, limitRef: ReturnType<Firestore['doc'
 
 export type VerifyDeps = {
   db: Firestore;
-  auth: Pick<Auth, 'getUserByEmail' | 'createUser' | 'createCustomToken'>;
+  auth: Pick<Auth, 'getUserByEmail' | 'createUser' | 'createCustomToken'> & SquatterAuth;
   key: string;
   now?: () => number;
   allow?: (uid: string, bucket: string, max: number, windowMs: number) => Promise<boolean>;
+  /** Deletes a replaced squatter and its data. Defaults to the account deletion path; tests stand in for it. */
+  purge?: (uid: string) => Promise<void>;
 };
 
 type Outcome =
@@ -325,25 +374,32 @@ const CANNOT_SIGN_IN = "This account can't sign in. Write to support@pantas.stud
 
 /**
  * The uid to sign in as: the account that already has this address, or a new one. The caller's
- * own (anonymous) uid is never reused, so the client switches accounts. An existing account is
- * never modified: if it is disabled or its address is unverified, it is refused. An unverified
- * address may have been registered by someone else with a password, and the only ways to clear
- * that password would also remove the email.
+ * own (anonymous) uid is never reused, so the client switches accounts. The caller has just proved
+ * they own the address, so an unverified account that only holds a password is a squatter, made by
+ * someone who registered the address through Identity Toolkit. It is replaced (see `replaceSquatter`)
+ * and the address then gets a new verified account. Any other existing account is never modified:
+ * a verified one is signed in, and a disabled one, or an unverified one with another provider, is refused.
  */
-async function accountFor(email: string, auth: VerifyDeps['auth']): Promise<string> {
-  let user = await findUser(auth, email);
-  if (!user) {
+async function accountFor(email: string, deps: VerifyDeps): Promise<string> {
+  const {auth} = deps;
+  // Two sign-ins can race, and the squatter can register again between our delete and our create.
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    const user = await findUser(auth, email);
+    if (user) {
+      if (!isSquatter(user)) {
+        if (user.disabled || !user.emailVerified) throw new HttpsError('permission-denied', CANNOT_SIGN_IN);
+        return user.uid;
+      }
+      await replaceSquatter(deps.db, auth, user, deps.purge);
+    }
     try {
       return (await auth.createUser({email, emailVerified: true})).uid;
     } catch (error) {
-      // Another sign-in created it first.
+      // Another sign-in created it first, or the address was registered again. Look again.
       if (authCode(error) !== 'auth/email-already-exists') throw error;
-      user = await findUser(auth, email);
-      if (!user) throw error;
     }
   }
-  if (user.disabled || !user.emailVerified) throw new HttpsError('permission-denied', CANNOT_SIGN_IN);
-  return user.uid;
+  throw new HttpsError('permission-denied', CANNOT_SIGN_IN);
 }
 
 const expired = (): HttpsError =>
@@ -392,6 +448,12 @@ export async function checkSignInCode(request: Req, deps: VerifyDeps): Promise<{
       return {kind: 'ok', email};
     }
     const next = attempts + 1;
+    if (next === MAX_WRONG_TRIES) {
+      // This challenge has now run out of tries. Enough of them in one day hold back the mailbox.
+      const mailboxDayRef = deps.db.doc(mailboxDayPath(emailKey, phDay(now())));
+      const locked = Number((await transaction.get(mailboxDayRef)).get('locked') ?? 0);
+      transaction.set(mailboxDayRef, {locked: locked + 1, purgeAt: new Date(now() + 3 * 24 * HOUR_MS)}, {merge: true});
+    }
     transaction.set(ref, {attempts: next}, {merge: true});
     return {kind: 'wrong', triesLeft: MAX_WRONG_TRIES - next};
   });
@@ -405,7 +467,7 @@ export async function checkSignInCode(request: Req, deps: VerifyDeps): Promise<{
       {reason: 'wrong', triesLeft: outcome.triesLeft});
   }
 
-  const accountUid = await accountFor(outcome.email, deps.auth);
+  const accountUid = await accountFor(outcome.email, deps);
   await assertSignInTargetActive(deps.db, accountUid, uid);
   try {
     return {token: await deps.auth.createCustomToken(accountUid)};
@@ -428,7 +490,7 @@ export function key(): string {
 export const requestSignInCode = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck,
   consumeAppCheckToken: enforceAppCheck, secrets: [signInCodeKey, guardianMailKey]}, timed('requestSignInCode', request => {
   assertFreshAppCheck(request);
-  return sendSignInCode(request, {db: getFirestore(), key: key(),
+  return sendSignInCode(request, {db: getFirestore(), auth: getAuth(), key: key(),
     openCap: signInOpenCap.value(), reservedCap: signInReservedCap.value(),
     // A held-back send skips the mail provider; match its usual 250 to 700 ms.
     pad: () => new Promise(resolve => setTimeout(resolve, 250 + randomInt(0, 450))),

@@ -6,7 +6,9 @@ import {FieldPath, FieldValue, getFirestore, type DocumentReference, type Docume
 import {HttpsError, onCall, type CallableRequest} from 'firebase-functions/v2/https';
 import {onSchedule} from 'firebase-functions/v2/scheduler';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
+import {allowFromAddress, clientBucket, type AddressRequest} from './_clientAddress.js';
 import {allowAtMost} from './_limits.js';
+import {logger} from 'firebase-functions/logger';
 import {deleteUserData} from './deleteUserData.js';
 import {guardianMessage, mailerFor, type GuardianMailer} from './guardianMail.js';
 import {timed} from './_timed.js';
@@ -45,6 +47,13 @@ export const AGE_CHECK_NOTICE_VERSION = '2026-11-12';
 // Engineering limits, not figures shown to a student.
 export const SEND_LIMIT = {perStudent: 5, perStudentWindowMs: DAY_MS, gapMs: 30_000,
   perGuardianEmail: 3, perGuardianEmailWindowMs: DAY_MS} as const;
+/**
+ * Guardian emails one client address may cause in an hour, whatever accounts it uses. A family on one
+ * home connection sends one or two links per child, and each student is already held to 5 a day, so 5
+ * an hour is not reached by a household. It stops one machine from using up the day's mail by
+ * rotating free anonymous accounts. The address is the one `clientBucket` trusts.
+ */
+export const ADDRESS_LIMIT = {max: 5, windowMs: 3_600_000} as const;
 export const ANSWER_LIMIT = {max: 30, windowMs: 10 * 60_000} as const;
 
 export type ConsentStatus = 'pending' | 'confirmed' | 'declined' | 'withdrawn';
@@ -67,7 +76,7 @@ export type ConsentDeps = {
   allow?: (uid: string, key: string, max: number, windowMs: number) => Promise<boolean>;
 };
 
-type AppRequest = Pick<CallableRequest, 'auth' | 'app' | 'data'>;
+type AppRequest = Pick<CallableRequest, 'auth' | 'app' | 'data'> & AddressRequest;
 
 export const hashValue = (key: string, purpose: 'token' | 'email', value: string): string =>
   createHmac('sha256', key).update(`${purpose}\0${value}`).digest('hex');
@@ -161,6 +170,12 @@ export async function sendLink(request: AppRequest, deps: ConsentDeps): Promise<
   if (!await allow(uid, 'guardianSend', SEND_LIMIT.perStudent, SEND_LIMIT.perStudentWindowMs)) {
     throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
   }
+  // Children reach this step before they name an account, so the caller may be anonymous and free to
+  // replace. The client address (the one part of the request the caller cannot choose) is limited too.
+  if (!await allowFromAddress(deps.db, deps.key, 'guardianLimits/addr', clientBucket(request), now,
+    ADDRESS_LIMIT.max, ADDRESS_LIMIT.windowMs)) {
+    throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
+  }
   const emailHash = hashValue(deps.key, 'email', rawEmail);
   const token = (deps.token ?? newToken)();
   const tokenHash = hashValue(deps.key, 'token', token);
@@ -175,7 +190,7 @@ export async function sendLink(request: AppRequest, deps: ConsentDeps): Promise<
   const day = new Intl.DateTimeFormat('en-CA', {timeZone: 'Asia/Manila'}).format(now);
   const globalLimit = deps.db.doc(`guardianLimits/global-${day}`);
 
-  await deps.db.runTransaction(async (tx) => {
+  const dayFull = await deps.db.runTransaction(async (tx): Promise<'full' | 'full-already-logged' | 'became-full' | 'ok'> => {
     const [current, limit, global, openManage, deletion] = await Promise.all([tx.get(consent), tx.get(emailLimit), tx.get(globalLimit),
       tx.get(deps.db.collection('guardianTokens').where('uid', '==', uid).where('kind', '==', 'manage').where('state', '==', 'open')),
       tx.get(deps.db.doc(`accountDeletions/${uid}`))]);
@@ -208,8 +223,16 @@ export async function sendLink(request: AppRequest, deps: ConsentDeps): Promise<
     // address already on file, so throwaway accounts cannot lock them out.
     const resend = before?.emailHash === emailHash;
     const ceiling = resend ? cap : Math.floor(cap * 0.8);
-    if (sentToday + 1 > ceiling) throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
-    tx.set(globalLimit, {count: sentToday + 1, cleanupAt: now + DAY_MS + GUARDIAN_WINDOW_MS});
+    if (sentToday + 1 > ceiling) {
+      // The day is full for this send. The first refusal of the day is flagged here and logged once outside.
+      if (global.get('fullLogged') === true) return 'full-already-logged';
+      tx.set(globalLimit, {fullLogged: true}, {merge: true});
+      return 'full';
+    }
+    // The send that reaches the cap fills the day. It is logged once, like the first refusal.
+    const becameFull = sentToday + 1 >= cap && global.get('fullLogged') !== true;
+    tx.set(globalLimit, {count: sentToday + 1, cleanupAt: now + DAY_MS + GUARDIAN_WINDOW_MS,
+      ...(becameFull ? {fullLogged: true} : {})}, {merge: true});
     const threshold = Math.ceil(cap * 0.8);
     if (sentToday < threshold && sentToday + 1 >= threshold) {
       (deps.alert ?? ((m: string) => console.error(m)))(
@@ -228,7 +251,15 @@ export async function sendLink(request: AppRequest, deps: ConsentDeps): Promise<
       createdAt: before?.createdAt ?? now, sentAt: now, expiresAt,
       ...(noticeVersion === undefined ? {} : {ageCheckNoticeVersion: noticeVersion}),
     });
+    return becameFull ? 'became-full' : 'ok';
   });
+  if (dayFull === 'full' || dayFull === 'became-full') {
+    // For a log-based alert: match `event="mail_cap_full"`, or the text `Mail cap full: guardian`.
+    logger.error(`Mail cap full: guardian bucket, ${day}.`, {event: 'mail_cap_full', bucket: 'guardian', day, cap});
+  }
+  if (dayFull === 'full' || dayFull === 'full-already-logged') {
+    throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
+  }
 
   const origin = deps.linkOrigin.replace(/\/$/, '');
   const link = `${origin}/guardian?token=${token}`;
@@ -241,7 +272,7 @@ export async function sendLink(request: AppRequest, deps: ConsentDeps): Promise<
     // Give the place back so a failing mailer cannot use up the cap.
     await deps.db.runTransaction(async (tx) => {
       const count = ((await tx.get(globalLimit)).get('count') as number | undefined) ?? 0;
-      tx.set(globalLimit, {count: Math.max(0, count - 1)});
+      tx.set(globalLimit, {count: Math.max(0, count - 1)}, {merge: true});
     });
     throw new HttpsError('unavailable', 'The email could not be sent. Try again.');
   }
