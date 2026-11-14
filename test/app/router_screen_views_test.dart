@@ -87,6 +87,10 @@ void main() {
     await tester.pumpWidget(const SizedBox());
     await tester.pump(const Duration(seconds: 1));
     container.dispose();
+    // Closing the database lets drift's stream cleanup finish in real time.
+    // That cleanup then schedules a zero-length timer on the test clock, so
+    // pump after it, or the bundled CI run reports the timer as pending.
     await tester.runAsync(db.close);
+    await tester.pump(const Duration(seconds: 1));
   });
 }
