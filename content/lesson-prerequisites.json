@@ -60,27 +60,6 @@
     "reason": "The work example assumes common-denominator addition and division by a fraction without teaching those arithmetic rules."
    }
   ],
-  "lesson-arithmetic-number-sense-properties-of-real-numbers": [
-   {
-    "lesson": "lesson-arithmetic-number-sense-grouping-and-fraction-bars",
-    "strength": "helpful",
-    "reason": "Signed arithmetic practice makes combining coefficients and distributing negative factors easier. This lesson supplies the algebra rules."
-   }
-  ],
-  "lesson-arithmetic-number-sense-ratio-and-proportion": [
-   {
-    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
-    "strength": "helpful",
-    "reason": "Fraction fluency helps with ratio notation and fractional answers. This lesson teaches the proportion methods it uses."
-   }
-  ],
-  "lesson-arithmetic-number-sense-real-imaginary-numbers": [
-   {
-    "lesson": "lesson-arithmetic-number-sense-grouping-and-fraction-bars",
-    "strength": "helpful",
-    "reason": "Signed arithmetic makes complex-number multiplication easier. This lesson teaches distribution, collecting terms, and replacing i squared locally."
-   }
-  ],
   "lesson-biology-ecology": [
    {
     "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
@@ -1556,6 +1535,76 @@
     "lesson": "lesson-arithmetic-number-sense-commission-and-sales-tax",
     "strength": "required",
     "reason": "This part continues the preceding part of the split lesson."
+   }
+  ],
+  "lesson-arithmetic-number-sense-commutative-and-associative-properties": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-grouping-and-fraction-bars",
+    "strength": "helpful",
+    "reason": "Signed arithmetic practice makes combining coefficients and distributing negative factors easier. This lesson supplies the algebra rules."
+   }
+  ],
+  "lesson-arithmetic-number-sense-identities-and-like-terms": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-commutative-and-associative-properties",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-additive-and-multiplicative-inverses": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-identities-and-like-terms",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-distribution-and-common-factors": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-additive-and-multiplicative-inverses",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-direct-proportion-and-travel": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
+    "strength": "helpful",
+    "reason": "Fraction fluency helps with ratio notation and fractional answers. This lesson teaches the proportion methods it uses."
+   }
+  ],
+  "lesson-arithmetic-number-sense-inverse-proportion-and-remaining-work": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-direct-proportion-and-travel",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-partitive-proportion-and-differences": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-inverse-proportion-and-remaining-work",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-real-number-sets": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-grouping-and-fraction-bars",
+    "strength": "helpful",
+    "reason": "Signed arithmetic makes complex-number multiplication easier. This lesson teaches distribution, collecting terms, and replacing i squared locally."
+   }
+  ],
+  "lesson-arithmetic-number-sense-imaginary-unit-and-powers": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-real-number-sets",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-complex-products-and-quotients": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-imaginary-unit-and-powers",
+    "strength": "required",
+    "reason": "Read the previous part first."
    }
   ]
  }

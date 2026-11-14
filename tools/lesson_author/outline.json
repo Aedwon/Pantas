@@ -35,9 +35,61 @@
               "sections": []
             },
             {
+              "title": "Real Number Sets",
+              "slug": "real-number-sets",
+              "sections": []
+            },
+            {
+              "title": "Imaginary Unit and Powers",
+              "slug": "imaginary-unit-and-powers",
+              "sections": [
+                "Powers of $i$"
+              ]
+            },
+            {
+              "title": "Complex Products and Quotients",
+              "slug": "complex-products-and-quotients",
+              "sections": [
+                "Multiplying Complex Numbers",
+                "Conjugates and Division"
+              ]
+            },
+            {
               "title": "Properties of Real Numbers (Commutative, Associative, Distributive, Identity, Inverse)",
               "slug": "properties-of-real-numbers",
               "sections": []
+            },
+            {
+              "title": "Commutative and Associative Properties",
+              "slug": "commutative-and-associative-properties",
+              "sections": [
+                "Commutative Property",
+                "Associative Property"
+              ]
+            },
+            {
+              "title": "Identities and Like Terms",
+              "slug": "identities-and-like-terms",
+              "sections": [
+                "Identity Property",
+                "Like Terms"
+              ]
+            },
+            {
+              "title": "Additive and Multiplicative Inverses",
+              "slug": "additive-and-multiplicative-inverses",
+              "sections": [
+                "Inverse Property",
+                "Additive Inverses"
+              ]
+            },
+            {
+              "title": "Distribution and Common Factors",
+              "slug": "distribution-and-common-factors",
+              "sections": [
+                "Distributive Property",
+                "Reverse Distribution"
+              ]
             },
             {
               "title": "Prime Factorization, GCF, and LCM",
@@ -116,6 +168,29 @@
               "title": "Ratio and Proportion (Direct, Inverse, Partitive)",
               "slug": "ratio-and-proportion",
               "sections": []
+            },
+            {
+              "title": "Direct Proportion and Travel",
+              "slug": "direct-proportion-and-travel",
+              "sections": [
+                "Direct, Inverse, and Partitive Proportion",
+                "Equal Ratios and Cross-Multiplication",
+                "Distance, Rate, and Time"
+              ]
+            },
+            {
+              "title": "Inverse Proportion and Remaining Work",
+              "slug": "inverse-proportion-and-remaining-work",
+              "sections": [
+                "Inverse Proportion"
+              ]
+            },
+            {
+              "title": "Partitive Proportion and Differences",
+              "slug": "partitive-proportion-and-differences",
+              "sections": [
+                "Partitive Proportion"
+              ]
             },
             {
               "title": "Divisibility Rules",

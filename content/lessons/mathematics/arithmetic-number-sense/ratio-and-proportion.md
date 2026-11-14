@@ -6,6 +6,11 @@ subject: "subject-mathematics"
 topic: "topic-arithmetic-number-sense"
 estimatedMinutes: 12
 isActive: true
+status: retired
+replacedBy:
+  - lesson-arithmetic-number-sense-direct-proportion-and-travel
+  - lesson-arithmetic-number-sense-inverse-proportion-and-remaining-work
+  - lesson-arithmetic-number-sense-partitive-proportion-and-differences
 ---
 ## Core Concept
 

@@ -6,6 +6,11 @@ subject: "subject-mathematics"
 topic: "topic-arithmetic-number-sense"
 estimatedMinutes: 10
 isActive: true
+status: retired
+replacedBy:
+  - lesson-arithmetic-number-sense-real-number-sets
+  - lesson-arithmetic-number-sense-imaginary-unit-and-powers
+  - lesson-arithmetic-number-sense-complex-products-and-quotients
 ---
 ## Core Concept
 
