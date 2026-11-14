@@ -456,7 +456,7 @@ questions:
   type: single_choice
   difficulty: hard
   approved: false
-  stem: 'Which relative must be included in the family financial disclosures described in the lesson?
+  stem: 'Which child must be included in a public employee’s Statement of Assets, Liabilities, and Net Worth under RA 6713?
 
     '
   choices:
@@ -626,7 +626,7 @@ questions:
   type: single_choice
   difficulty: exam
   stem: |
-    A worker claims the honorary-service exemption from SALN filing solely because the government pays no salary. Which further fact is needed to establish honorary service under the lesson's rule?
+    A worker claims the honorary-service exemption from SALN filing solely because the government pays no salary. Which additional fact is required to qualify as honorary service under the implementing rules of RA 6713?
   choices:
   - text: "The work also earns no service credit."
     correct: true

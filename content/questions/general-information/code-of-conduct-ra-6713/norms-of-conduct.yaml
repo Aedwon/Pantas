@@ -514,7 +514,7 @@ questions:
 
     '
   choices:
-  - text: Officials must answer to the people for how they use public power and resources.
+  - text: Officials must answer to the people for public power and resources.
     correct: true
   - text: Officials may use public power without answering to the people.
     rationale: 'This rejects public accountability. Officials must answer to the people for how they use public power and resources.

@@ -223,7 +223,7 @@ questions:
     rationale: A private recipient does not remove the protection given to confidential work information.
   - text: The disclosure is prohibited only if the file was obtained outside work.
     rationale: The ban covers confidential information learned through official work. It does not require an outside source.
-  - text: The disclosure is prohibited because it gives an unfair private advantage.
+  - text: It is prohibited because it gives an unfair private advantage.
     correct: true
   explanation: |
     Protected work information must not be shared to give an unfair advantage.
@@ -260,7 +260,7 @@ questions:
     rationale: Missing papers may delay completion. They do not automatically excuse silence about the request.
   - text: Send only a receipt and leave the applicant to identify what is missing.
     rationale: A receipt alone does not state the action taken or identify the missing requirements.
-  - text: Explain the action taken, name the missing papers, give a reasonable submission period, and identify the worker in charge.
+  - text: State action taken, missing papers, reasonable filing period, and worker in charge.
     correct: true
   - text: Return the request without explanation because incomplete requests require no reply.
     rationale: Incomplete papers do not remove the duty to answer and explain what the applicant must provide.
@@ -300,7 +300,7 @@ questions:
     rationale: The duty to attend promptly exists before any complaint is filed.
   - text: Complete papers allow the employee to postpone service without a reason.
     rationale: Complete papers support prompt handling. They do not justify postponement.
-  - text: The employee must attend promptly because the stated deadline does not justify this delay.
+  - text: The employee must attend promptly; the written-reply deadline allows no delay.
     correct: true
   explanation: |
     Workers must promptly attend to people seeking service in person. A routine request that can be settled at once should not face an unjustified delay.
@@ -313,7 +313,7 @@ questions:
   stem: |
     No law or valid rule sets a completion deadline for a certain document. Employees disagree about how long processing should take. Under the implementing rules, what is the proper approach?
   choices:
-  - text: The agency head must set a reasonable period through rules that consider the work and relevant conditions.
+  - text: The agency head must set a reasonable period by rules considering the work and relevant conditions.
     correct: true
   - text: Each employee may select a deadline based only on personal workload.
     rationale: Workers do not have a free choice of deadline. The agency head must set rules when no deadline exists.
@@ -336,7 +336,7 @@ questions:
     rationale: Unfinished status alone does not make every record secret. A lawful disclosure restriction must apply.
   - text: The agency wants to avoid unfavorable public attention.
     rationale: Avoiding public attention is not a lawful reason to deny access.
-  - text: The implementing rules protect information that would expose a confidential source.
+  - text: The rules protect information that would expose a confidential source.
     correct: true
   - text: Public inspection is limited to employees of the investigating agency.
     rationale: Public access is not generally limited to agency employees. Specific lawful restrictions determine what may be withheld.
@@ -353,7 +353,7 @@ questions:
   choices:
   - text: The stake is allowed because it is held through another person.
     rationale: The ban covers indirect interests held through another person as well as direct interests.
-  - text: The stake is prohibited because the transaction requires approval from the employee's office.
+  - text: It is prohibited because the transaction needs approval from that office.
     correct: true
   - text: The stake is allowed unless the employee personally signs the approval.
     rationale: The rule concerns transactions requiring the office's approval. It is not limited to the employee who signs.
@@ -376,7 +376,7 @@ questions:
     rationale: The ban includes trustees and other listed roles. It is not limited to owners and managers.
   - text: The arrangement is allowed because supervision differs from licensing.
     rationale: The ban covers businesses regulated, supervised, or licensed by the office. Licensing is not the only basis.
-  - text: The arrangement is prohibited because trustee is a covered role and no law expressly permits it.
+  - text: The trustee role is prohibited unless expressly allowed by law.
     correct: true
   explanation: |
     The ban includes serving as a trustee for a business the office supervises. Express permission in law is needed for the exception. A supervisor's approval alone is not enough.
@@ -390,7 +390,7 @@ questions:
     A government professional has valid legal authority to serve private clients.
     A proposed engagement would tend to conflict with public duties, although no actual conflict has occurred yet. May the professional accept it on these facts?
   choices:
-  - text: No, because private work must neither conflict nor tend to conflict with public duties.
+  - text: No, private work must neither conflict nor tend to conflict with public duties.
     correct: true
   - text: Yes, because valid legal authority removes the separate conflict restriction.
     rationale: Authority to practice does not permit work that conflicts or tends to conflict with public duties.

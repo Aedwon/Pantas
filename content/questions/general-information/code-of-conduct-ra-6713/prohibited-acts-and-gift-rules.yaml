@@ -67,7 +67,7 @@ questions:
 
     '
   choices:
-  - text: An applicant for a private job in a firm with pending office business, with no required-referral exception
+  - text: A job applicant at a firm with pending office business, absent a required referral
     correct: true
   - text: A student for a merit scholarship without any promise of special treatment
     rationale: 'This treats any recommendation as prohibited. Official influence can create concerns. Check whether a job in a transacting private firm is involved.
@@ -89,7 +89,7 @@ questions:
   keyPoint: 1
   type: single_choice
   difficulty: hard
-  stem: 'When considering whether a gift is allowed under the lesson''s RA 6713 rules, which facts matter most?
+  stem: 'Under the implementing rules of RA 6713, which factors determine whether a gift is of nominal value?
 
     '
   choices:
@@ -386,7 +386,7 @@ questions:
   - text: The grant is excluded because only medical treatment is listed.
     rationale: |
       Medical treatment is one listed benefit. Scholarships and fellowship grants from foreign governments are also listed.
-  - text: The grant is a listed foreign-government benefit separate from courtesy souvenirs.
+  - text: Fellowships are listed foreign-government benefits, separate from souvenirs.
     correct: true
   - text: The grant is excluded because a fellowship must come from a private organization.
     rationale: |

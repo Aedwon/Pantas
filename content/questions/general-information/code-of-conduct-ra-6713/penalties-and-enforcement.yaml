@@ -275,7 +275,7 @@ questions:
 
     '
   choices:
-  - text: The applicable rules for the authority handling the case
+  - text: The handling authority’s rules
     correct: true
   - text: Private corporate arbitration codes
     rationale: 'This uses rules for private disputes. Employment disagreements can involve arbitration. Check whether the employee serves in government.
@@ -456,7 +456,7 @@ questions:
   type: single_choice
   difficulty: hard
   approved: false
-  stem: 'An office receives an untested complaint of an RA 6713 violation. Can that filing alone support dismissal under the lesson’s Section 11 rule?
+  stem: 'An office receives a complaint alleging a violation of RA 6713. Is filing the complaint alone sufficient to justify dismissal under Section 11?
 
     '
   choices:
@@ -626,7 +626,7 @@ questions:
   type: single_choice
   difficulty: exam
   stem: |
-    The CSC issues a disciplinary decision. After any required administrative review, the employee seeks court review of that CSC ruling. Which filing matches the route taught in the lesson?
+    The CSC issues a disciplinary decision. After any required administrative review, the employee seeks court review of that CSC ruling. Which filing is the proper remedy for judicial review?
   choices:
   - text: "A verified Rule 43 petition in the Court of Appeals."
     correct: true

@@ -77,7 +77,7 @@ questions:
         rationale: Demands for unofficial payments do not make officials more answerable for their actions.
       - text: Fairer access to government aid
         rationale: The case concerns a business investment, not the distribution of aid.
-      - text: Discouraged investment because corruption raises business costs
+      - text: Discouraged investment
         correct: true
       - text: Greater confidence in elections
         rationale: The case does not show increased trust in elections.
@@ -94,7 +94,7 @@ questions:
     choices:
       - text: Higher repair costs for public facilities
         rationale: Repair costs concern resources and are not described in this case.
-      - text: Weaker accountability because payers control public decisions
+      - text: Weaker accountability as payers control decisions
         correct: true
       - text: Greater equality in access to public services
         rationale: Ignoring residents who cannot pay makes access less equal.
@@ -153,7 +153,7 @@ questions:
         rationale: The provision names both bribery and graft and corruption as grounds.
       - text: Both are grounds, so every public employee must be removed through impeachment
         rationale: Impeachment applies only to specified high officials, not every public employee.
-      - text: Both bribery and graft and corruption are grounds for impeaching specified high officials
+      - text: Both are grounds for impeaching the high officials specified in that section
         correct: true
       - text: Graft becomes an impeachment ground only when an official also commits plunder
         rationale: Graft and corruption are named grounds without requiring a separate act of plunder.
@@ -171,7 +171,7 @@ questions:
     choices:
       - text: The officer receives a benefit that is not cash
         rationale: A noncash benefit can be a bribe, but its form alone does not establish bribery.
-      - text: The benefit is accepted in exchange for skipping an official duty
+      - text: The benefit rewards the officer for skipping an official duty
         correct: true
       - text: The supplier offers the benefit without telling other suppliers
         rationale: Secrecy alone is not the defining link between the benefit and the omitted duty.
@@ -195,7 +195,7 @@ questions:
         rationale: The officer has not disclosed valuable confidential information in the stated facts.
       - text: Section 3(g), a manifestly and grossly disadvantageous contract
         rationale: The case does not state that the purchase contract is greatly harmful to the government.
-      - text: Section 3(b), a benefit tied to a transaction requiring official intervention
+      - text: Section 3(b), benefits sought for official intervention
         correct: true
     explanation: |
       Section 3(b) covers requesting or receiving a benefit connected with a government transaction the officer must officially handle.
@@ -226,13 +226,13 @@ questions:
     type: vote-buying-recognition
     difficulty: medium
     stem: |
-      A campaign worker offers groceries to a voter on the condition that the voter support a named candidate. How should the offer be classified under Omnibus Election Code Section 261(a)?
+      During the election period, a campaign worker offers groceries to a voter on the condition that the voter support a named candidate. How should the offer be classified under Omnibus Election Code Section 261(a)?
     choices:
       - text: A lawful gift because the benefit is food rather than money
         rationale: Benefits intended to influence voting can involve goods, not just cash.
       - text: A lawful gift because no public employee receives it
         rationale: The vote-buying rule concerns benefits intended to influence voters, not only gifts to officials.
-      - text: Vote buying because a benefit is offered to influence voting
+      - text: Vote buying through benefits offered to influence votes
         correct: true
       - text: Red tape because the offer imposes a condition
         rationale: Red tape concerns ineffective government procedures, not benefits offered to influence votes.
@@ -249,7 +249,7 @@ questions:
     choices:
       - text: Let the fixer explain the fees to each applicant privately
         rationale: Relying on the fixer preserves the same lack of reliable public information.
-      - text: Post the official requirements, fees, and processing times where applicants can check them
+      - text: Post official requirements, fees, and processing times publicly
         correct: true
       - text: Keep the fees unpublished so staff can adjust them for each applicant
         rationale: Hidden fees make invented charges harder to detect.
@@ -264,7 +264,7 @@ questions:
     type: ra-3019-undue-injury-or-benefit
     difficulty: hard
     stem: |
-      A public officer deliberately favors a friend's company and gives it an unwarranted advantage in an official transaction. A colleague argues that Section 3(e) of RA 3019 cannot apply unless the government also proves a financial loss. Which response best follows the lesson?
+      A public officer deliberately favors a friend's company and gives it an unwarranted advantage in an official transaction. A colleague argues that Section 3(e) of RA 3019 cannot apply unless the government also proves a financial loss. Which response correctly applies Section 3(e)?
     choices:
       - text: The colleague is right because unwarranted private benefits are outside Section 3(e)
         rationale: Section 3(e) expressly covers giving unwarranted private benefits through the stated wrongful conduct.
@@ -272,7 +272,7 @@ questions:
         rationale: The lesson does not make personal receipt of money a requirement for this unwarranted-benefit case.
       - text: Section 3(e) applies to every mistake that benefits a private company
         rationale: An ordinary mistake alone does not establish manifest partiality, evident bad faith, or gross inexcusable negligence.
-      - text: Giving an unwarranted private benefit through manifest partiality is itself covered by Section 3(e)
+      - text: Section 3(e) covers unwarranted private benefits given through manifest partiality
         correct: true
     explanation: |
       Section 3(e) covers undue injury or unwarranted private benefits through the wrongful conduct it names. Clear favoritism can meet that condition. The unwarranted-benefit ground does not also require proof of public loss.
@@ -285,7 +285,7 @@ questions:
     stem: |
       An officer owns shares in a firm and intervenes in an official capacity in a government transaction involving that firm. Which fact most directly brings the situation within RA 3019, Section 3(h)?
     choices:
-      - text: The officer has a financial interest in a transaction the officer officially handles
+      - text: A financial interest in a transaction the officer officially handles
         correct: true
       - text: The officer must have disclosed confidential information to the firm
         rationale: Official intervention and share ownership do not establish an information leak, which is a different prohibited act.
@@ -321,11 +321,11 @@ questions:
     type: plunder-elements
     difficulty: hard
     stem: |
-      An inquiry finds that a public officer has wealth reaching the statutory plunder threshold. Which further finding is needed to support the lesson's description of plunder under RA 7080?
+      An inquiry finds that a public officer has wealth reaching the statutory plunder threshold. Which additional finding is required to establish plunder under RA 7080?
     choices:
       - text: The wealth came from lawful earnings accumulated during public service
         rationale: Lawfully earned wealth does not become ill-gotten merely because it reaches the threshold.
-      - text: The officer amassed ill-gotten wealth through a combination or series of the criminal acts covered by the law
+      - text: Ill-gotten wealth amassed through combined or serial acts covered by the law
         correct: true
       - text: The officer made an honest filing error with no showing of ill-gotten wealth
         rationale: An honest error does not establish the unlawful wealth or covered criminal acts needed for plunder.
@@ -348,7 +348,7 @@ questions:
         rationale: Insignificant value does not excuse a gift given in anticipation of a favor.
       - text: An unsolicited costly appliance from a supplier seeking official approval
         rationale: The appliance is not of insignificant value and is linked to a pending official transaction.
-      - text: An unsolicited token of insignificant value from a community member with no request or expectation of a favor
+      - text: An unsolicited, insignificant token with no favor sought or expected
         correct: true
     explanation: |
       The exclusion requires an unsolicited gift of insignificant value with no link to a favor. A small price alone is not enough. A requested gift or a gift meant to secure special treatment does not meet these conditions.
@@ -361,7 +361,7 @@ questions:
     stem: |
       Favoritism in a public project leaves eligible households without water service. Defective work uses up funds on repairs, and residents lose confidence that officials answer to them. A speaker says only the government treasury is harmed. Which assessment best fits these facts?
     choices:
-      - text: The claim is unsound because denied service is social harm, wasted repair funds are economic harm, and weakened accountability is political harm
+      - text: 'The claim is unsound: denied service is social harm, repair costs economic harm, and weakened accountability political harm'
         correct: true
       - text: The claim is sound because households and voters suffer no harm unless public money is stolen outright
         rationale: Denied services and weakened accountability can harm people even without proof that cash was stolen outright.
@@ -384,7 +384,7 @@ questions:
         rationale: Paying for avoidable repairs uses resources and leaves less for other planned work.
       - text: The repairs prove that the original payoff had no economic effect because government workers can correct the defects
         rationale: Correcting defects still uses public funds and does not erase the cost caused by overlooking poor work.
-      - text: Overlooked defects create repair costs, leaving less for other facilities and potentially reducing public trust in officials
+      - text: Overlooked defects divert funds to repairs and may reduce public trust
         correct: true
       - text: Only the official and contractor can be affected because other residents were not parties to the payoff
         rationale: Residents can lose public facilities and trust even though they did not take part in the corrupt agreement.
