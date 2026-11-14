@@ -1,6 +1,5 @@
 import {assertSignInTargetActive} from './_accountAccess.js';
 import {createHmac} from 'node:crypto';
-import {isIP} from 'node:net';
 import {getAuth, type Auth, type UserRecord} from 'firebase-admin/auth';
 import {getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {logger} from 'firebase-functions/logger';
@@ -9,7 +8,9 @@ import {HttpsError, type CallableRequest} from 'firebase-functions/v2/https';
 import {onAccountCall as onCall} from './_accountAccess.js';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import {allowAtMost} from './_limits.js';
+import {clientBucket} from './_clientAddress.js';
 import {phDay} from './_phDate.js';
+import {isSquatter, replaceSquatter, type SquatterAuth} from './_squatter.js';
 import {key as signInKey, signInCodeKey} from './signInCode.js';
 import {timed} from './_timed.js';
 
@@ -54,7 +55,7 @@ const NOT_VERIFIED = 'Google could not confirm this sign-in.';
 export type TokenInfoReply = {status: number; body: unknown};
 
 export type GoogleSignInDeps = {
-  auth: Pick<Auth, 'getUserByEmail' | 'getUserByProviderUid' | 'updateUser' | 'createCustomToken'>;
+  auth: Pick<Auth, 'getUserByEmail' | 'getUserByProviderUid' | 'updateUser' | 'createCustomToken'> & SquatterAuth;
   /** The expected `aud` of the Google ID token. */
   clientId: string;
   /** Asks Google about an ID token. Tests pass a stand-in so they never reach Google. */
@@ -63,6 +64,8 @@ export type GoogleSignInDeps = {
   db: Firestore;
   /** The secret that keys the IP hash, so the address itself is never stored. */
   key: string;
+  /** Deletes a replaced squatter and its data. Defaults to the account deletion path; tests stand in for it. */
+  purge?: (uid: string) => Promise<void>;
   /** The most outbound verifications per Philippine day. Defaults to `EXCHANGES_PER_DAY`. */
   dailyCap?: number;
   now?: () => number;
@@ -73,6 +76,8 @@ type Req = Pick<CallableRequest, 'auth' | 'app' | 'data'> & {
   rawRequest?: {ip?: string; headers?: Record<string, string | string[] | undefined>};
 };
 
+export {addressBucket, clientBucket} from './_clientAddress.js';
+
 function assertCaller(request: Req): string {
   if (!request.auth || (enforceAppCheck && !request.app)) {
     throw new HttpsError('unauthenticated', 'Authentication and App Check are required.');
@@ -82,50 +87,6 @@ function assertCaller(request: Req): string {
 }
 
 const millis = (value: unknown): number => (typeof value === 'number' ? value : 0);
-
-/**
- * The bucket one client address belongs to, or null when the text is not an address. IPv4 is kept
- * whole. IPv6 is cut to its /64 prefix, because one subscriber usually holds a whole /64 and could
- * otherwise rotate through billions of addresses. An IPv4-mapped IPv6 address is its IPv4 address.
- */
-export function addressBucket(raw: string): string | null {
-  const text = raw.trim().replace(/%.*$/, '').toLowerCase();
-  const family = isIP(text);
-  if (family === 4) return `v4:${text}`;
-  if (family !== 6) return null;
-  let rest = text;
-  const tail = /(\d+)\.(\d+)\.(\d+)\.(\d+)$/.exec(rest);
-  if (tail) {
-    const [a, b, c, d] = tail.slice(1).map(Number) as [number, number, number, number];
-    rest = `${rest.slice(0, tail.index)}${((a << 8) | b).toString(16)}:${((c << 8) | d).toString(16)}`;
-  }
-  const halves = rest.split('::');
-  const left = halves[0] ? halves[0].split(':') : [];
-  const right = halves[1] ? halves[1].split(':') : [];
-  const groups = halves.length === 2 ?
-    [...left, ...new Array<string>(8 - left.length - right.length).fill('0'), ...right] : left;
-  const words = groups.map(group => parseInt(group, 16));
-  if (words.length !== 8 || words.some(word => !Number.isInteger(word))) return null;
-  if (words.slice(0, 5).every(word => word === 0) && words[5] === 0xffff) {
-    return `v4:${words[6]! >> 8}.${words[6]! & 255}.${words[7]! >> 8}.${words[7]! & 255}`;
-  }
-  return `v6:${words.slice(0, 4).map(word => word.toString(16)).join(':')}`;
-}
-
-/**
- * The caller's address bucket. Google's front end appends the address it saw to `X-Forwarded-For`,
- * so the right-most entry is the only one the caller cannot choose; anything to its left is
- * client-supplied. With no usable header the connection address is used, and with neither the call
- * falls into one shared "unknown" bucket, so a missing address never skips the limit.
- */
-export function clientBucket(request: Req): string {
-  const header = request.rawRequest?.headers?.['x-forwarded-for'];
-  const entries = (Array.isArray(header) ? header.join(',') : header ?? '').split(',')
-    .map(entry => entry.trim()).filter(Boolean);
-  const forwarded = entries.length > 0 ? addressBucket(entries[entries.length - 1]!) : null;
-  const direct = request.rawRequest?.ip ? addressBucket(request.rawRequest.ip) : null;
-  return forwarded ?? direct ?? 'unknown';
-}
 
 /** One 10 minute window per caller address, stored under a keyed hash. Same shape as the email-code limit. */
 async function allowIp(db: Firestore, key: string, bucket: string, at: number): Promise<boolean> {
@@ -261,11 +222,18 @@ export async function checkGoogleSignIn(request: Req, deps: GoogleSignInDeps): P
   const {sub, email} = await verifiedIdentity(idToken, deps, at);
 
   // A new address never needs this path: Firebase signs it in directly.
-  const user = await userOrNull(() => deps.auth.getUserByEmail(email));
+  let user = await userOrNull(() => deps.auth.getUserByEmail(email));
+  // The caller has just proved they own the address, so an unverified password-only account on it is
+  // a squatter's. It is replaced, and the address is then new: the answer is the one for a new
+  // address, and the client's next Google sign-in goes to Firebase directly and makes the account.
+  if (user && isSquatter(user)) {
+    await replaceSquatter(deps.db, deps.auth, user, deps.purge);
+    user = null;
+  }
   if (!user) throw new HttpsError('permission-denied', NOT_VERIFIED);
   await assertSignInTargetActive(deps.db, user.uid, uid);
-  // An existing account is never modified beyond the Google link. A disabled account, or one whose
-  // address is unverified (someone else may have registered it with a password), is refused.
+  // An existing account is never modified beyond the Google link. A disabled account, or an
+  // unverified one that holds another provider as well as a password, is refused.
   if (user.disabled || !user.emailVerified) throw new HttpsError('permission-denied', CANNOT_SIGN_IN);
   if (text(user.email).trim().toLowerCase() !== email) throw new HttpsError('permission-denied', NOT_VERIFIED);
 

@@ -66,6 +66,9 @@ function fakeAuth(users = {maria: account()}) {
       return users[uid];
     },
     createCustomToken: async uid => `token-for-${uid}`,
+    getUser: async uid => { if (!users[uid]) throw notFound(); return users[uid]; },
+    revokeRefreshTokens: async uid => { calls.push(['revoke', uid]); },
+    deleteUser: async uid => { calls.push(['deleteUser', uid]); if (!users[uid]) throw notFound(); delete users[uid]; },
   };
 }
 
@@ -76,7 +79,10 @@ function rig({users, info = goodInfo(), status = 200, clientId = CLIENT, allow =
   const db = fakeDb();
   const fetched = [];
   const deps = {
-    auth, db, key: 'test-key', clientId, now: () => NOW, allow, ...extra,
+    auth, db, key: 'test-key', clientId, now: () => NOW, allow,
+    // Stands in for the full account deletion, which the emulator tests run for real.
+    purge: async uid => { auth.calls.push(['purge', uid]); delete auth.users[uid]; },
+    ...extra,
     fetchTokenInfo: async idToken => {
       fetched.push(idToken);
       return {status, body: info};
@@ -217,12 +223,59 @@ test('an address with no account is refused, so no account is made here', async 
   assert.deepEqual(r.auth.calls, []);
 });
 
-test('a disabled account and an account with an unverified address are refused untouched', async () => {
-  for (const changes of [{disabled: true}, {emailVerified: false}]) {
+test('a disabled account, or an unverified one with another provider, is refused untouched', async () => {
+  for (const changes of [{disabled: true}, {emailVerified: false, disabled: true},
+    {emailVerified: false, providerData: [{providerId: 'google.com', uid: 'other-sub'}]},
+    {emailVerified: false, providerData: [{providerId: 'password'}, {providerId: 'google.com', uid: SUB}]},
+    {emailVerified: false, providerData: [{providerId: 'phone'}]}]) {
     const r = rig({users: {maria: account(changes)}});
     await refused(r.run(), 'permission-denied');
-    assert.deepEqual(r.auth.calls, []);
+    assert.deepEqual(r.auth.calls, [], JSON.stringify(changes));
+    assert.ok(r.auth.users.maria);
   }
+});
+
+test('S-06: an unverified password-only account is replaced once Google proves the address, then the address is new', async () => {
+  for (const providerData of [[{providerId: 'password'}], [], undefined]) {
+    const squatter = account({emailVerified: false, providerData});
+    if (providerData === undefined) delete squatter.providerData;
+    const r = rig({users: {maria: squatter}});
+    // The answer is the one for a new address: Firebase signs a new address in directly on the next try.
+    await refused(r.run(), 'permission-denied');
+    assert.deepEqual(r.auth.calls, [['revoke', 'maria'], ['purge', 'maria']]);
+    assert.equal(r.auth.users.maria, undefined);
+    await assert.rejects(r.auth.getUserByEmail(EMAIL), {code: 'auth/user-not-found'});
+  }
+});
+
+test('S-06: a verified account is signed in as before and never replaced', async () => {
+  const r = rig();
+  assert.deepEqual(await r.run(), {token: 'token-for-maria'});
+  assert.ok(!r.auth.calls.some(call => call[0] === 'purge' || call[0] === 'revoke'));
+});
+
+test('S-06: a bad Google token never replaces anything', async () => {
+  const r = rig({users: {maria: account({emailVerified: false, providerData: [{providerId: 'password'}]})}, info: goodInfo({email_verified: 'false'})});
+  await refused(r.run(), 'permission-denied');
+  assert.deepEqual(r.auth.calls, []);
+  assert.ok(r.auth.users.maria);
+});
+
+test('S-06: a squatter already deleted by another sign-in is not an error', async () => {
+  const r = rig({users: {maria: account({emailVerified: false, providerData: [{providerId: 'password'}]})}});
+  const getUser = r.auth.getUser;
+  r.auth.getUser = async uid => { const user = await getUser(uid); delete r.auth.users[uid]; return user; };
+  r.deps.purge = async uid => { throw Object.assign(new Error('gone'), {code: 'auth/user-not-found'}); };
+  await refused(r.run(), 'permission-denied');
+});
+
+test('S-06: an account that stops being a squatter before it is deleted is left alone', async () => {
+  const r = rig({users: {maria: account({emailVerified: false, providerData: [{providerId: 'password'}]})}});
+  const getUser = r.auth.getUser;
+  r.auth.getUser = async uid => { r.auth.users[uid].providerData.push({providerId: 'google.com', uid: 'x'}); return getUser(uid); };
+  await refused(r.run(), 'permission-denied');
+  assert.ok(r.auth.users.maria);
+  assert.ok(!r.auth.calls.some(call => call[0] === 'purge'));
 });
 
 test('an account whose address differs after normalization is refused', async () => {
