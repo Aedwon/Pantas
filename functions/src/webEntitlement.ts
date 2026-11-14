@@ -7,6 +7,7 @@ import {HttpsError} from 'firebase-functions/v2/https';
 import {onAccountCall as onCall} from './_accountAccess.js';
 import {assertNamedUser} from './_audit.js';
 import {nativeCoverageRows, readEntitlementInputs} from './entitlementInputs.js';
+import {allowAtMost} from './_limits.js';
 import {timed} from './_timed.js';
 
 /** Owner-bound combined coverage. Never exposes RevenueCat facts or provider identifiers. */
@@ -22,11 +23,21 @@ export async function webEntitlement(auth: Parameters<typeof assertNamedUser>[0]
     }))};
   });
 }
+/**
+ * The app reads this on start, on a refresh and after a checkout, a few times an hour at most.
+ * 120 an hour is far above an honest heavy user and still stops a script from hammering the
+ * entitlement transaction.
+ */
+export const WEB_ENTITLEMENT_PER_HOUR = 120;
+
 export const getWebEntitlement = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck},
-  timed('getWebEntitlement', request => {
+  timed('getWebEntitlement', async request => {
     if (!request.auth) throw new HttpsError('unauthenticated', 'Authentication is required.');
     if (request.data?.uid !== request.auth.uid) {
       throw new HttpsError('permission-denied', 'The account changed. Try again.');
+    }
+    if (!await allowAtMost(request.auth.uid, 'getWebEntitlement', WEB_ENTITLEMENT_PER_HOUR, 3_600_000)) {
+      throw new HttpsError('resource-exhausted', 'Too many requests. Try again later.');
     }
     return webEntitlement(request.auth, getFirestore(), Date.now(), getAuth());
   }));

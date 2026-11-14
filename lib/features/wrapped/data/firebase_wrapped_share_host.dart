@@ -20,6 +20,27 @@ class FirebaseWrappedShareHost implements WrappedShareHost {
   static String storagePath(String uid, String shareId) =>
       'wrapped/$uid/$shareId.png';
 
+  /// How long a shared card stays up. The server rules accept at most 90 days
+  /// from their own clock, so this keeps a margin for a fast device clock.
+  static const shareLifetime = Duration(days: 89);
+
+  /// The `wrapped_shares/<shareId>` document. `expireAt` is the field the
+  /// Firestore TTL policy deletes by.
+  static Map<String, Object?> shareRecord({
+    required String uid,
+    required String shareId,
+    required String archetypeId,
+    required DateTime now,
+  }) =>
+      {
+        'ownerUid': uid,
+        'storagePath': storagePath(uid, shareId),
+        'archetypeId': archetypeId,
+        'createdAt': FieldValue.serverTimestamp(),
+        'revoked': false,
+        'expireAt': Timestamp.fromDate(now.add(shareLifetime)),
+      };
+
   @override
   Future<void> publish({
     required String uid,
@@ -32,13 +53,14 @@ class FirebaseWrappedShareHost implements WrappedShareHost {
           pngBytes,
           SettableMetadata(contentType: 'image/png'),
         );
-    await _firestore.collection('wrapped_shares').doc(shareId).set({
-      'ownerUid': uid,
-      'storagePath': path,
-      'archetypeId': archetypeId,
-      'createdAt': FieldValue.serverTimestamp(),
-      'revoked': false,
-    });
+    await _firestore.collection('wrapped_shares').doc(shareId).set(
+          shareRecord(
+            uid: uid,
+            shareId: shareId,
+            archetypeId: archetypeId,
+            now: DateTime.now(),
+          ),
+        );
   }
 
   @override

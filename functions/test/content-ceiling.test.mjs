@@ -95,3 +95,60 @@ test('DAILY_CONTENT_CEILING overrides the default; bad values are ignored', asyn
   assert.equal(configuredCeiling({DAILY_CONTENT_CEILING: 'abc'}), 200_000);
   assert.equal(configuredCeiling({DAILY_CONTENT_CEILING: '-5'}), 200_000);
 });
+
+// ------------------------------------------------------------------ separate pool for new accounts
+
+test('new and anonymous accounts get their own pool of 50,000 a day, and the env value overrides it', async () => {
+  const {DAILY_NEW_ACCOUNT_CEILING, configuredNewAccountCeiling} = await import('../lib/_contentCeiling.js');
+  assert.equal(DAILY_NEW_ACCOUNT_CEILING, 50_000);
+  assert.equal(configuredNewAccountCeiling({}), 50_000);
+  assert.equal(configuredNewAccountCeiling({DAILY_NEW_ACCOUNT_CONTENT_CEILING: '1000'}), 1000);
+  assert.equal(configuredNewAccountCeiling({DAILY_NEW_ACCOUNT_CONTENT_CEILING: 'x'}), 50_000);
+});
+
+test('a full new-account pool does not block the main pool, and the reverse', async () => {
+  const totals = {main: 0, new: 0};
+  const reads = [];
+  const store = {
+    read: async (day, pool = 'main') => { reads.push(pool); return totals[pool]; },
+    add: async (day, shard, amount, pool = 'main') => { totals[pool] += amount; },
+  };
+  const state = {now: T0};
+  const ceiling = createCeiling({store, now: () => state.now, random: () => 0.5, alert: () => {}, limit: 1000, newAccountLimit: 100});
+  totals.new = 100;
+  assert.equal(await ceiling.isOpen('new'), false);
+  assert.equal(await ceiling.isOpen('main'), true);
+  assert.equal(await ceiling.isOpen(), true, 'no pool means the main pool');
+  await ceiling.record(7, 'new');
+  assert.deepEqual(totals, {main: 0, new: 107}, 'a delivery is counted in its own pool only');
+  state.now += 31_000;
+  totals.main = 1000;
+  assert.equal(await ceiling.isOpen('main'), false);
+  assert.equal(await ceiling.isOpen('new'), false);
+  totals.new = 0;
+  state.now += 31_000;
+  assert.equal(await ceiling.isOpen('new'), true, 'a full main pool does not close the new-account pool');
+});
+
+test('each pool logs one ERROR line at 80% with its own stable text', async () => {
+  const {state, ceiling} = rig({limit: 1000, newAccountLimit: 100});
+  state.total = 801;
+  await ceiling.isOpen('main');
+  await ceiling.isOpen('main');
+  state.total = 81;
+  await ceiling.isOpen('new');
+  await ceiling.isOpen('new');
+  assert.deepEqual(state.alerts, [
+    'Daily content ceiling reached 80% (801 of 1000 ids delivered today).',
+    'Daily new-account content ceiling reached 80% (81 of 100 ids delivered today).',
+  ]);
+});
+
+test('the pool follows the caller: anonymous or under 24 hours old is new, an older named account is main', async () => {
+  const {contentPool} = await import('../lib/_contentCeiling.js');
+  const now = T0;
+  assert.equal(contentPool({anonymous: true, createdAt: now - 400 * DAY_MS, now}), 'new');
+  assert.equal(contentPool({anonymous: false, createdAt: now - 3_600_000, now}), 'new');
+  assert.equal(contentPool({anonymous: false, createdAt: now - DAY_MS - 1, now}), 'main');
+  assert.equal(contentPool({anonymous: false, createdAt: null, now}), 'new', 'an unknown age is treated as new');
+});

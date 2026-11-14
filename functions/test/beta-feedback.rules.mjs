@@ -58,3 +58,12 @@ test('image creates reject invalid path, MIME, oversize and missing ownership',a
   await assertFails(uploadBytes(ref(c.storage(),`betaFeedback/${uid}/${'C'.repeat(20)}/0`),new Uint8Array(10),{contentType:'image/png'}));
  }
 });
+test('anonymous owners still attach screenshots, but no create may carry custom metadata',async()=>{
+ const anon=env.authenticatedContext(uid,{firebase:{sign_in_provider:'anonymous'}}).storage();
+ const feedback=`betaFeedback/${uid}/${'D'.repeat(20)}`;
+ await assertSucceeds(uploadBytes(ref(anon,`${feedback}/0`),new Uint8Array(10),{contentType:'image/png'}));
+ await assertSucceeds(uploadBytes(ref(anon,`${feedback}/1`),new Uint8Array(10),{contentType:'image/png',customMetadata:{}}));
+ await assertFails(uploadBytes(ref(anon,`${feedback}/2`),new Uint8Array(10),{contentType:'image/png',customMetadata:{label:'x'}}));
+ const named=context().storage();
+ await assertFails(uploadBytes(ref(named,`${path}x/0`),new Uint8Array(10),{contentType:'image/png',customMetadata:{a:'b'}}));
+});

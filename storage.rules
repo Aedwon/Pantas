@@ -22,7 +22,11 @@ service firebase.storage {
           && feedbackId.matches('^[A-Za-z0-9]{20,32}$')
           && index.matches('^[012]$')
           && request.resource.size <= 5 * 1024 * 1024
-          && request.resource.contentType.matches('^image/(png|jpeg|webp)$');
+          && request.resource.contentType.matches('^image/(png|jpeg|webp)$')
+          // Anonymous owners may attach screenshots (the app lets a not-yet-signed-in
+          // user send feedback). Custom metadata is refused so no download token can
+          // be planted. No extra Firestore read: accountActive already uses both.
+          && (request.resource.metadata == null || request.resource.metadata.size() == 0);
       allow update, delete: if false;
     }
 
@@ -30,12 +34,14 @@ service firebase.storage {
       allow read, write: if false;
     }
 
-    // Wrapped card images. Any signed-in user (incl. anonymous) uploads their
-    // own; public reads are served through the renderWrappedPage function,
-    // never the bucket. App Check gates genuine app installs.
+    // Wrapped card images. Only a named (non-anonymous) owner uploads their own,
+    // with no custom metadata (no download tokens). Public reads are served through
+    // the renderWrappedPage function, never the bucket.
     match /wrapped/{uid}/{fileName} {
       allow read: if false;
       allow create, update: if isOwner(uid)
+          && request.auth.token.firebase.sign_in_provider != 'anonymous'
+          && (request.resource.metadata == null || request.resource.metadata.size() == 0)
           && fileName.matches('^[0-9a-f]{32}[.]png$')
           && request.resource.contentType == 'image/png'
           && request.resource.size > 0

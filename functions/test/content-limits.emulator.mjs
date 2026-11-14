@@ -138,3 +138,18 @@ test('over the ceiling a Free account is refused and a paid account is served up
   assert.equal(b.code, 'resource-exhausted', 'its own limit still binds');
   assert.deepEqual(b.details, {kind: 'content', scope: 'delivered'});
 });
+
+test('a full new-account pool refuses anonymous and new named accounts but still serves a named account older than a day', async () => {
+  const anon = 'lim-pool-anon', fresh = 'lim-pool-fresh', old = 'lim-pool-old';
+  for (const uid of [anon, fresh, old]) await reset(uid);
+  const asked = [], added = [];
+  const ceiling = {isOpen: async pool => { asked.push(pool); return pool !== 'new'; }, record: async (n, pool) => { added.push([n, pool]); }};
+  const named = uid => ({uid, token: {firebase: {sign_in_provider: 'google.com'}}});
+  const run = (auth, createdAt) => serveContent(auth, {kind: 'lessons', ids: ids.slice(0, 2), knownVersions: {}},
+    {db, now: () => NOW, ceiling, accountCreatedAt: async () => createdAt});
+  assert.equal((await fail(run(as(anon), NOW - 400 * 86_400_000))).details.scope, 'ceiling');
+  assert.equal((await fail(run(named(fresh), NOW - 3_600_000))).details.scope, 'ceiling');
+  assert.equal(okCount(await run(named(old), NOW - 3 * 86_400_000)), 2);
+  assert.deepEqual(asked, ['new', 'new', 'main']);
+  assert.deepEqual(added, [[2, 'main']], 'the delivery counts in the pool of the caller');
+});
