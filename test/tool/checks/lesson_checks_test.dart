@@ -310,10 +310,16 @@ questions:
       expect(runLessonPoolCheck(root.path), hasLength(2));
     });
   }
-  test('split subject names active unsplit lesson', () {
+  test('split topic names active unsplit lesson', () {
     File('${root.path}/lessons/general/topic/unsplit.md')
         .writeAsStringSync('---\n_id: unsplit\n---\nText');
     expect(runLessonSizeCheck(root.path).single.where, 'unsplit');
+  });
+  test('split topic leaves neighboring lessons unsplit', () {
+    final lesson = File('${root.path}/lessons/general/other/unsplit.md');
+    lesson.parent.createSync(recursive: true);
+    lesson.writeAsStringSync('---\n_id: unsplit\n---\nText');
+    expect(runLessonSizeCheck(root.path), isEmpty);
   });
   test('comments do not count as teaching words', () {
     part.writeAsStringSync('---\n_id: part\npart: 1\nkeyPoints: [One]\n---\n'

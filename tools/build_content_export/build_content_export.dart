@@ -660,7 +660,9 @@ List<Map<String, Object?>> buildLessons(
     final subtopicSlug =
         front['_id'].toString().replaceFirst('lesson-$topicSlug-', '');
 
-    (explicitOrdering[topicId] ??= []).add(front['ordering'] != null);
+    if (front['status'] != 'retired') {
+      (explicitOrdering[topicId] ??= []).add(front['ordering'] != null);
+    }
     final fallback = (nextOrdering[topicId] ?? 0) + 1;
     nextOrdering[topicId] = fallback;
 

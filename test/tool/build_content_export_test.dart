@@ -84,6 +84,24 @@ void main() {
         ),
       );
     });
+    test('retired lessons without ordering do not fail export', () {
+      lesson('one', front: 'ordering: 2\n');
+      lesson(
+        'original',
+        front: 'status: retired\nreplacedBy: [lesson-test-one]\n',
+      );
+      final rows = build();
+      expect(rows, hasLength(2));
+      expect(
+        rows.singleWhere((row) => row['status'] == 'active')['ordering'],
+        2,
+      );
+    });
+    test('retired ordering does not require active lesson ordering', () {
+      lesson('one');
+      lesson('original', front: 'status: retired\nordering: 2\n');
+      expect(build(), hasLength(2));
+    });
     test('ordering preserves explicit values and fallback', () {
       lesson('one');
       lesson('two');

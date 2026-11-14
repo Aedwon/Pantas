@@ -66,19 +66,31 @@ void main() {
     legacy.writeAsStringSync('${legacy.readAsStringSync()}\n');
     expect(gate().map((f) => f.reason), contains('legacy list changed'));
   });
-  test('split subject cannot ship by legacy; approved entry can', () {
+  test('split topic cannot ship by legacy; approved entry can', () {
     final lesson = File('${root.path}/lessons/math/numbers/part.md');
     lesson.parent.createSync(recursive: true);
     lesson.writeAsStringSync('---\ntitle: Part\npart: 1\n---\nText');
     expect(gate(), isNotEmpty);
     expect(
       gate().map((f) => f.reason),
-      everyElement('split subject on legacy status'),
+      everyElement('split topic on legacy status'),
     );
     writeLedger(
       File('${root.path}/question-ledger/approved.json'),
       readLedger(legacy),
     );
+    expect(gate(), isEmpty);
+  });
+  test('split topic leaves neighboring legacy questions eligible', () {
+    final lesson = File('${root.path}/lessons/math/other/part.md');
+    lesson.parent.createSync(recursive: true);
+    lesson.writeAsStringSync('---\ntitle: Part\npart: 1\n---\nText');
+    expect(gate(), isEmpty);
+  });
+  test('nested lesson does not mark its parent topic split', () {
+    final lesson = File('${root.path}/lessons/math/numbers/nested/part.md');
+    lesson.parent.createSync(recursive: true);
+    lesson.writeAsStringSync('---\ntitle: Part\npart: 1\n---\nText');
     expect(gate(), isEmpty);
   });
   test('CLI distinguishes usage errors and findings', () async {

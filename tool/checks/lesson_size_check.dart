@@ -8,9 +8,9 @@ import 'check.dart';
 
 /// Parsed lesson source shared by the three family checks.
 class CheckLesson {
-  CheckLesson(this.id, this.subject, this.front, this.body);
+  CheckLesson(this.id, this.topic, this.front, this.body);
   final String id;
-  final String subject;
+  final String? topic;
   final YamlMap front;
   final String body;
   bool get active => front['status'] != 'retired';
@@ -42,10 +42,11 @@ List<CheckLesson> readCheckLessons(String contentRoot) {
     final front = loadYaml(match.group(1)!) as YamlMap;
     final id = front['_id'] as String;
     if (!ids.add(id)) throw FormatException('duplicate lesson id: $id');
+    final path = p.split(p.relative(file.path, from: directory.path));
     lessons.add(
       CheckLesson(
         id,
-        p.split(p.relative(file.path, from: directory.path)).first,
+        path.length == 3 ? p.join(path[0], path[1]) : null,
         front,
         source.substring(match.end),
       ),
@@ -87,7 +88,7 @@ List<Violation> runLessonSizeCheck(String contentRoot) {
     final byId = {for (final lesson in lessons) lesson.id: lesson};
     final split = {
       for (final lesson in lessons)
-        if (lesson.part) lesson.subject,
+        if (lesson.part && lesson.topic != null) lesson.topic,
     };
     for (final lesson in lessons) {
       void report(String message) => found.add(Violation(lesson.id, message));
@@ -103,8 +104,8 @@ List<Violation> runLessonSizeCheck(String contentRoot) {
         continue;
       }
       if (!lesson.part) {
-        if (split.contains(lesson.subject)) {
-          report('active lesson in split subject needs part');
+        if (split.contains(lesson.topic)) {
+          report('active lesson in split topic needs part');
         }
         continue;
       }

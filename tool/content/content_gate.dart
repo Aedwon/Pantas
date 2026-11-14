@@ -43,21 +43,22 @@ List<GateFinding> runContentGate(
         )) {
       findings.add(const GateFinding('legacy.json', 'legacy list changed'));
     }
-    final splitSubjects = <String>{};
+    final splitTopics = <String>{};
     final lessons = Directory(p.join(contentRoot, 'lessons'));
     if (lessons.existsSync()) {
       for (final file in lessons
           .listSync(recursive: true)
           .whereType<File>()
           .where((file) => file.path.endsWith('.md'))) {
+        final path = p.split(p.relative(file.path, from: lessons.path));
+        if (path.length != 3) continue;
         final source = file.readAsStringSync();
         final match = RegExp(r'^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)')
             .firstMatch(source);
         if (match == null) continue;
         final frontmatter = loadYaml(match.group(1)!) as YamlMap;
         if (frontmatter.containsKey('part')) {
-          splitSubjects
-              .add(p.split(p.relative(file.path, from: lessons.path)).first);
+          splitTopics.add(p.join(path[0], path[1]));
         }
       }
     }
@@ -66,8 +67,14 @@ List<GateFinding> runContentGate(
       if (approved[q.id]?['hash'] == hash) continue;
       String reason;
       if (legacy[q.id]?['hash'] == hash) {
-        if (!splitSubjects.contains(q.subject)) continue;
-        reason = 'split subject on legacy status';
+        final path = p.split(
+          p.relative(q.file.path, from: p.join(contentRoot, 'questions')),
+        );
+        if (path.length < 3 ||
+            !splitTopics.contains(p.join(path[0], path[1]))) {
+          continue;
+        }
+        reason = 'split topic on legacy status';
       } else if (approved.containsKey(q.id)) {
         reason = 'edited after approval';
       } else if (legacy.containsKey(q.id)) {
