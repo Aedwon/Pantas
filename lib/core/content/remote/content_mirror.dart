@@ -327,6 +327,12 @@ class ContentMirror implements ContentFetchHook {
           replacedBy: Value(
             lesson.replacedBy.isEmpty ? null : jsonEncode(lesson.replacedBy),
           ),
+          quizSize: Value(lesson.quizSize),
+          part: Value(lesson.part),
+          partCount: Value(lesson.partCount),
+          keyPointsJson: Value(
+            lesson.keyPoints == null ? null : jsonEncode(lesson.keyPoints),
+          ),
           // Replaced when the body is fetched; an upsert here never touches it.
           bodyJson: '[]',
         ),
@@ -404,6 +410,10 @@ class ContentMirror implements ContentFetchHook {
               ordering: excluded.ordering,
               status: excluded.status,
               replacedBy: excluded.replacedBy,
+              quizSize: excluded.quizSize,
+              part: excluded.part,
+              partCount: excluded.partCount,
+              keyPointsJson: excluded.keyPointsJson,
             ),
           ),
         )

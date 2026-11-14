@@ -144,6 +144,40 @@ void main() {
     );
   });
 
+  test('a split part carries its quiz size, part numbers and key points', () {
+    final lessons = parseExamCatalog({
+      'id': 'exam_upcat',
+      'lessons': [
+        {
+          'id': 'lesson-biology-cells-2',
+          'topic': 'topic_upcat_biology',
+          'title': 'Cells 2',
+          'summary': 'More cells.',
+          'isActive': true,
+          'quizSize': 3,
+          'part': 2,
+          'partCount': 3,
+          'keyPoints': ['Membrane', 'Nucleus'],
+        },
+        {
+          'id': 'lesson-biology-genes',
+          'topic': 'topic_upcat_biology',
+          'title': 'Genes',
+          'summary': 'Heredity.',
+          'isActive': true,
+        },
+      ],
+    }).lessons;
+    expect(lessons[0].quizSize, 3);
+    expect(lessons[0].part, 2);
+    expect(lessons[0].partCount, 3);
+    expect(lessons[0].keyPoints, ['Membrane', 'Nucleus']);
+    expect(lessons[1].quizSize, 5, reason: 'an unsplit lesson keeps 5');
+    expect(lessons[1].part, isNull);
+    expect(lessons[1].partCount, isNull);
+    expect(lessons[1].keyPoints, isNull);
+  });
+
   test('accepts references in the object form the export uses', () {
     final catalog = parseExamCatalog({
       'id': 'exam_upcat',

@@ -14,20 +14,21 @@ export 'package:pantas/features/lesson/domain/models/study_map.dart';
 /// The exam's scoped tree decides which topics exist. CSE groups those topics
 /// into its exam parts. A topic in [lessonsByTopic] that the tree does not list
 /// contributes nothing to the figures.
+///
+/// [lessonsByTopic] never holds retired lessons. [retiredReplacements] is how
+/// the credit rule still sees them, so a read of a retired original reads
+/// every part.
 StudyMap buildStudyMap({
   required Exam exam,
   required Map<SubjectId, List<Topic>> topicsBySubject,
   required Map<TopicId, List<Lesson>> lessonsByTopic,
   required Set<LessonId> readLessonIds,
+  required Map<LessonId, List<LessonId>> retiredReplacements,
   required Set<LessonId> bookmarkedLessonIds,
   List<Subject>? subjects,
 }) {
   final credit = resolveLessonCredit<bool>(
-    retiredReplacements: {
-      for (final lessons in lessonsByTopic.values)
-        for (final lesson in lessons)
-          if (lesson.status == 'retired') lesson.id: lesson.replacedBy ?? [],
-    },
+    retiredReplacements: retiredReplacements,
     own: {for (final id in readLessonIds) id: true},
     compare: (a, b) => 0,
   );

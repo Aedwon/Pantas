@@ -107,6 +107,23 @@ void main() {
       expect(resolved, {'orig': 'p1'});
     });
 
+    test('the retired map holds every retired lesson and no active one',
+        () async {
+      final repo = ContentRepository(db);
+      expect(await repo.retiredReplacements(), isEmpty);
+      await retireTestLesson(db, 'orig', ['p1', 'p2']);
+      await retireTestLesson(db, 'mid', ['p1']);
+      expect(await repo.retiredReplacements(), {
+        'orig': ['p1', 'p2'],
+        'mid': ['p1'],
+      });
+      expect(
+        (await repo.lessonsByTopic('t1', examId: 'e1')).map((l) => l.id),
+        isNot(contains('orig')),
+        reason: 'lists still leave retired lessons out',
+      );
+    });
+
     test('the lesson-set revision is empty until a lesson is retired',
         () async {
       final repo = ContentRepository(db);

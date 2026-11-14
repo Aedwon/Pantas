@@ -639,6 +639,24 @@ class ContentRepository {
     return resolved;
   }
 
+  /// Every retired lesson id with the ids that replaced it, for credit.
+  ///
+  /// Lists leave retired lessons out, so this is the one place the credit rule
+  /// learns of them. The web mirror fills the same table, so one query serves
+  /// both runtimes.
+  Future<Map<LessonId, List<LessonId>>> retiredReplacements() async {
+    final lessons = _db.contentLessons;
+    final rows = await (_db.selectOnly(lessons)
+          ..addColumns([lessons.id, lessons.replacedBy])
+          ..where(lessons.status.equals('retired')))
+        .map((r) => (r.read(lessons.id)!, r.read(lessons.replacedBy)))
+        .get();
+    return {
+      for (final (id, raw) in rows)
+        id: raw == null ? const [] : (jsonDecode(raw) as List).cast<String>(),
+    };
+  }
+
   /// A short fingerprint of which lessons are active, empty while no lesson is
   /// retired. A split or a rollback changes it, which rebuilds stored plan
   /// days that name lessons by id. Content with no split is unchanged.

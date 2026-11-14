@@ -41,6 +41,7 @@ final studyMapProvider = FutureProvider<StudyMap?>((ref) async {
     lessonsByTopic: await content.lessonsByTopics(topicIds, examId: exam.id),
     readLessonIds:
         await ref.watch(lessonProgressRepositoryProvider).readLessonIds(),
+    retiredReplacements: await content.retiredReplacements(),
     bookmarkedLessonIds: {for (final id in marked) aliases[id] ?? id},
   );
 });

@@ -11,6 +11,7 @@ import 'package:pantas/core/content/remote/content_service.dart';
 import 'package:pantas/core/content/remote/question_set_mapper.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/repos/content_repository.dart';
+import 'package:pantas/core/storage/data/repos/lesson_progress_repository.dart';
 
 import '../../../helpers/in_memory_database.dart';
 
@@ -606,6 +607,109 @@ void main() {
     await mirror.ensureLesson('lesson-biology-genes');
     await mirror.idle;
     expect(remote.calls, isNot(contains('lessons:lesson-biology-cells')));
+  });
+
+  Map<String, Object?> examWithCellsSplit() => {
+        ..._exam,
+        'lessons': [
+          for (final lesson in _exam['lessons']! as List<Object?>)
+            if ((lesson! as Map)['id'] == 'lesson-biology-cells')
+              {
+                ...(lesson as Map<String, Object?>),
+                'status': 'retired',
+                'replacedBy': [
+                  'lesson-biology-cells-1',
+                  'lesson-biology-cells-2',
+                ],
+              }
+            else
+              lesson,
+          for (final part in [1, 2])
+            {
+              'id': 'lesson-biology-cells-$part',
+              'topic': 'topic_upcat_biology',
+              'title': 'Cells $part',
+              'summary': 'Part $part.',
+              'ordering': 2 + part,
+              'quizSize': part + 2,
+              'part': part,
+              'partCount': 2,
+              'keyPoints': ['Point $part'],
+            },
+        ],
+      };
+
+  test('a split part keeps its quiz size, part numbers and key points',
+      () async {
+    remote.docs['catalog/exam_upcat'] = examWithCellsSplit();
+    await mirror.start();
+    await mirror.idle;
+
+    final repo = ContentRepository(contentDb);
+    final listed = {
+      for (final l in await repo.lessonsByTopic('topic_upcat_biology')) l.id: l,
+    };
+    expect(listed.keys.toSet(), {
+      'lesson-biology-genes',
+      'lesson-biology-cells-1',
+      'lesson-biology-cells-2',
+    });
+    final second = listed['lesson-biology-cells-2']!;
+    expect(second.quizSize, 4);
+    expect(second.part, 2);
+    expect(second.partCount, 2);
+    expect(second.keyPoints, ['Point 2']);
+    expect(listed['lesson-biology-genes']!.quizSize, 5);
+    expect(listed['lesson-biology-genes']!.part, isNull);
+  });
+
+  test('a later lesson fetch does not erase the catalog quiz size', () async {
+    remote.docs['catalog/exam_upcat'] = examWithCellsSplit();
+    remote.docs['lessons/lesson-biology-cells-2'] = {
+      ..._lesson(),
+      'id': 'lesson-biology-cells-2',
+    };
+    await mirror.start();
+    await mirror.idle;
+    expect(await mirror.ensureLesson('lesson-biology-cells-2'), isTrue);
+
+    final lesson = (await ContentRepository(contentDb)
+        .lessonById('lesson-biology-cells-2'))!;
+    expect(lesson.quizSize, 4);
+    expect(lesson.part, 2);
+  });
+
+  test('the web mirror reports the retired map including the original',
+      () async {
+    remote.docs['catalog/exam_upcat'] = examWithCellsSplit();
+    await mirror.start();
+    await mirror.idle;
+
+    expect(await ContentRepository(contentDb).retiredReplacements(), {
+      'lesson-biology-cells': [
+        'lesson-biology-cells-1',
+        'lesson-biology-cells-2',
+      ],
+    });
+  });
+
+  test('on the web mirror a read of the retired original reads its parts',
+      () async {
+    remote.docs['catalog/exam_upcat'] = examWithCellsSplit();
+    await mirror.start();
+    await mirror.idle;
+    final progress = LessonProgressRepository(appDb, contentDb);
+    await progress.markRead('lesson-biology-cells');
+    expect(await progress.readLessonIds(), {
+      'lesson-biology-cells-1',
+      'lesson-biology-cells-2',
+    });
+    expect(await progress.readCountForTopic('topic_upcat_biology'), 2);
+
+    final direct = LessonProgressRepository(appDb, contentDb);
+    await appDb.delete(appDb.lessonProgressLocal).go();
+    await direct.markRead('lesson-biology-cells-1');
+    expect(await direct.readLessonIds(), {'lesson-biology-cells-1'});
   });
 
   test('unusable catalog documents are skipped, not fatal', () async {

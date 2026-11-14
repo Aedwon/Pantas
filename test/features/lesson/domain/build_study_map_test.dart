@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/lesson.dart';
 import 'package:pantas/core/storage/domain/subject.dart';
 import 'package:pantas/core/storage/domain/topic.dart';
@@ -50,31 +51,48 @@ void main() {
   StudyMap build({
     Set<String> read = const {},
     Set<String> bookmarked = const {},
+    Map<String, List<String>> retired = const {},
+    Map<TopicId, List<Lesson>>? lessons,
   }) =>
       buildStudyMap(
         exam: exam,
         topicsBySubject: topicsBySubject,
-        lessonsByTopic: lessonsByTopic,
+        lessonsByTopic: lessons ?? lessonsByTopic,
         readLessonIds: read,
         bookmarkedLessonIds: bookmarked,
+        retiredReplacements: retired,
       );
 
-  test('split credit counts active parts and never the retired original', () {
-    final map = buildStudyMap(
-      exam: exam,
-      topicsBySubject: topicsBySubject,
-      lessonsByTopic: {
-        't1': [
-          lesson('old').copyWith(status: 'retired', replacedBy: ['a', 'b']),
-          lesson('a'),
-          lesson('b'),
-        ],
+  test('every part of a retired original is read, which is not listed', () {
+    final map = build(
+      read: {'old'},
+      retired: {
+        'old': ['t1a', 't1b'],
       },
-      readLessonIds: {'old'},
-      bookmarkedLessonIds: {},
+      lessons: {
+        't1': [lesson('t1a'), lesson('t1b'), lesson('l2')],
+      },
     );
-    expect(map.totalCount, 2);
+    expect(map.totalCount, 3);
     expect(map.readCount, 2);
+    final rows = map.subjects.first.topics.first.lessons;
+    expect(rows.map((l) => l.id), ['t1a', 't1b', 'l2']);
+    expect(rows.map((l) => l.isRead), [true, true, false]);
+  });
+
+  test('a part read directly counts only itself', () {
+    final map = build(
+      read: {'t1a'},
+      retired: {
+        'old': ['t1a', 't1b'],
+      },
+      lessons: {
+        't1': [lesson('t1a'), lesson('t1b')],
+      },
+    );
+    expect(map.readCount, 1);
+    final rows = map.subjects.first.topics.first.lessons;
+    expect(rows.map((l) => l.isRead), [true, false]);
   });
 
   for (final (examId, lastPart, lastTopic) in [
@@ -121,6 +139,7 @@ void main() {
           for (final topic in topics.take(5))
             topic.id: [lesson('lesson_${topic.id}')],
         },
+        retiredReplacements: const {},
         readLessonIds: const {},
         bookmarkedLessonIds: const {},
       );
@@ -178,6 +197,7 @@ void main() {
       lessonsByTopic: {
         'data': [lesson('tables')],
       },
+      retiredReplacements: const {},
       readLessonIds: const {},
       bookmarkedLessonIds: const {},
     );
@@ -246,6 +266,7 @@ void main() {
         's2': const [],
       },
       lessonsByTopic: const {'t1': []},
+      retiredReplacements: const {},
       readLessonIds: const {},
       bookmarkedLessonIds: const {},
     );
@@ -288,6 +309,7 @@ void main() {
         ...lessonsByTopic,
         't9': [lesson('l9', minutes: 99)],
       },
+      retiredReplacements: const {},
       readLessonIds: const {},
       bookmarkedLessonIds: const {},
     );

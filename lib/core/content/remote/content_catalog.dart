@@ -55,6 +55,10 @@ class CatalogLesson {
     required this.isActive,
     this.status = 'active',
     this.replacedBy = const [],
+    this.quizSize = 5,
+    this.part,
+    this.partCount,
+    this.keyPoints,
   });
 
   final String id;
@@ -70,6 +74,14 @@ class CatalogLesson {
   /// first id in [replacedBy], never listed.
   final String status;
   final List<String> replacedBy;
+
+  /// Questions the lesson's quiz shows. An unsplit lesson keeps 5.
+  final int quizSize;
+
+  /// 1-based position within a split, and how many parts the split has.
+  final int? part;
+  final int? partCount;
+  final List<String>? keyPoints;
 }
 
 /// A question without its text.
@@ -181,6 +193,15 @@ CatalogLesson _lesson(Map<String, Object?> doc) {
         for (final id in ids)
           if (id is String) id,
     ],
+    quizSize: doc['quizSize'] is int ? doc['quizSize']! as int : 5,
+    part: doc['part'] is int ? doc['part']! as int : null,
+    partCount: doc['partCount'] is int ? doc['partCount']! as int : null,
+    keyPoints: doc['keyPoints'] is List
+        ? [
+            for (final point in doc['keyPoints']! as List<Object?>)
+              if (point is String) point,
+          ]
+        : null,
   );
 }
 
