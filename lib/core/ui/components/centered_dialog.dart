@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pantas/core/platform/app_update/update_overlay_registry.dart';
 import 'package:pantas/core/ui/components/button_pair.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_shadows.dart';
@@ -20,7 +21,7 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 /// sit at the right: the safe one first, the main one last. Phone: inset 24,
 /// padding 20 20 18, gap 8, title `phone-title-3`, and a pill pair 46 high,
 /// 10 apart, that stacks with the main action on top at large text.
-class CenteredDialog extends StatelessWidget {
+class CenteredDialog extends StatefulWidget {
   const CenteredDialog({
     required this.title,
     required this.message,
@@ -67,7 +68,9 @@ class CenteredDialog extends StatelessWidget {
   static const double _liftSpread = PantasSpace.s2;
 
   @override
-  Widget build(BuildContext context) {
+  State<CenteredDialog> createState() => _CenteredDialogState();
+
+  Widget _build(BuildContext context) {
     final colors = context.colors;
     final shortcuts = <ShortcutActivator, VoidCallback>{
       if (allowEscape)
@@ -279,3 +282,20 @@ Future<T?> showPantasDialog<T>({
       barrierColor: barrierColor,
       barrierDismissible: barrierDismissible,
     );
+
+class _CenteredDialogState extends State<CenteredDialog> {
+  @override
+  void initState() {
+    super.initState();
+    updateOverlayRegistry.setOpen(this, open: true);
+  }
+
+  @override
+  void dispose() {
+    updateOverlayRegistry.setOpen(this, open: false);
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => widget._build(context);
+}

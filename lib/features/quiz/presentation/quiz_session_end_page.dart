@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/app/update_coordinator_provider.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
@@ -82,6 +83,11 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
   @override
   void initState() {
     super.initState();
+    final updates = ref.read(updateCoordinatorProvider);
+    final quizRevision = updates.quizRevision;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted && updates.quizRevision == quizRevision) updates.quizEnded();
+    });
     _db = ref.read(appDatabaseProvider);
     _auth = ref.read(authStateProvider).unwrapPrevious().asData?.value;
     _uid = switch (_auth) {

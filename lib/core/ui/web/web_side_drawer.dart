@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pantas/core/platform/app_update/update_overlay_registry.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pantas_shadows.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
@@ -70,6 +71,7 @@ class _WebSideDrawerState extends State<WebSideDrawer>
   @override
   void initState() {
     super.initState();
+    updateOverlayRegistry.setOpen(this, open: widget.open);
     _motion = AnimationController(
       vsync: this,
       value: widget.open ? 1 : 0,
@@ -92,6 +94,7 @@ class _WebSideDrawerState extends State<WebSideDrawer>
 
   @override
   void dispose() {
+    updateOverlayRegistry.setOpen(this, open: false);
     _heading.dispose();
     _motion.dispose();
     super.dispose();
@@ -100,6 +103,7 @@ class _WebSideDrawerState extends State<WebSideDrawer>
   @override
   void didUpdateWidget(WebSideDrawer oldWidget) {
     super.didUpdateWidget(oldWidget);
+    updateOverlayRegistry.setOpen(this, open: widget.open);
     if (widget.open) _held = widget;
     if (widget.open == oldWidget.open) return;
     if (widget.restoreFocus) {

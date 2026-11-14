@@ -3262,3 +3262,208 @@ Aedwon is moving the operations manager role to a new thread (checklist in `docs
 - Instance caps (E-048): lowered in code to 3 per function, 10 for the two payment webhooks and 5 for account deletion (were 10, 30 and 20). Branch `web/security-caps-r1`, 585 unit tests pass; handed to the integrator for deploy. Staging uses the same caps; the audit's 2 for staging would need a per-project setting and staging has the spend cap.
 - Console hardening (E-049), staging first where it exists: Firestore delete protection on and a daily backup kept 7 days, on both projects; both storage buckets refuse public access and delete files under the Wrapped and feedback folders after 90 days (a throwaway account's upload and download still worked on each, then was deleted); the marketing Worker's database key is disabled (last used Nov 6, when intake closed); a DMARC record (`p=none`, reports to support) is published.
 - Rollback steps for every change are in the private folder. No user-facing change.
+
+- **Home lesson button says Start Lesson (Nov 14, ruled under Aedwon's delegation to a Fable 5.2 advisor):** Aedwon, relayed by the manager: "for things needing my decision, consult a fable 5.2 agent instead". Ruling, made under that delegation: when no lesson has started, Home's lesson button says "Start Lesson", matching the lesson sheet; "Resume Lesson" stays for a partly read lesson, on Home and on the sheet. This overrides the approved Home boards, which drew "Continue Lesson". Built on `web/start-lesson-label-r1` 0c1577327: one rule decides every Home lesson button (phone, wide, the Lessons panel, the lesson sheet), by the same partly-read test as before (progress above zero); the Lessons panel also stops saying "Continue Lesson" for a partly read lesson. The browser journey now waits for "Start Lesson" or "Resume Lesson". Tests first (21 failures on the old code); independent review: no findings.
+
+### Nov 14, backend release R2 (sign-in lockout S-06, mail caps S-10): code ready for the integrator (security fixes lead)
+
+- Built test-first by a Sonnet 5.5 worker; one change by the lead; branch `web/security-r2-signin-mail`. Not deployed.
+- S-06: after a caller proves an address (a correct email code, or a verified Google sign-in), an account on that address that is unverified, enabled and holds only a password is treated as someone else's pre-registration: its sessions are revoked, it goes through the normal account deletion, and the owner gets a new verified account and is signed in. Verified accounts, disabled accounts and accounts with any other sign-in method are never touched.
+- Lead change: the worker's Google path replaced the pre-registered account and then answered with a failure, so the owner had to tap Google twice (the brief asked for that; the brief was wrong). The server now makes the verified account, links Google and signs the owner in on the first try.
+- S-10: the per-address limit on code emails now uses the address the caller cannot choose; existing verified accounts draw on the reserved daily bucket, so strangers filling the open bucket do not block returning users; at most 10 codes per mailbox per Philippine day, and a mailbox is held back for the day after 3 codes run out of tries; guardian links are limited to 5 an hour per client address (children reach that step before naming an account, so it cannot require one); one ERROR log line when a daily mail bucket fills, for an alert. Cap values are unchanged.
+- Lead rulings (under the approved scope): (1) The per-mailbox limits let a stranger hold back one person's sign-in emails for a day (10 requests, or 3 codes guessed wrong). Accepted: the same targeted block already existed hour by hour under the old per-mailbox hourly limit, Google sign-in still works for that person, and the limits cap code guessing at 15 tries a day per mailbox. (2) An independent read-only Codex GPT 6.1 Sol High review found one must-fix: if the owner finishes Android email-link sign-in at the same moment as their proven web sign-in, the replaced account is still deleted. Accepted as a note: both sign-ins are the proven owner, the deleted account held only the pre-registrant's data, and the owner ends on a fresh verified account. No other defects found.
+- Open: whether Firebase's own Google popup merges a Gmail owner into a pre-registered account and whether the pre-registrant's session survives that is unverified (the audit's 15-minute staging test with two owner test addresses). Refusing password sign-ups (Identity Platform blocking function, or disabling the provider) would close it and is not in scope.
+
+### Nov 14, security fixes: the manager's answers after steps 1 and 2 (security fixes lead)
+
+- Step 3: the lead deploys the standalone cutoff function on staging itself (billing automation, not app code); dry run, real fire, relink, confirm staging works. Step 4 the same way, staging first.
+- Resend Pro: not bought, following the lead's recommendation; revisit only if real users hit the caps.
+- reCAPTCHA free-tier risk (up to $8 a month if both projects hit their caps daily and the free tier is per account): no action.
+- The R2 and caps branches go to the integrator, which deploys them staging then prod after its current update release.
+- Aedwon, verbatim, on pace: "don't do too many at once, mind my 5-hour limits". At most one worker at a time in this lane.
+- Aedwon set a goal covering the remaining steps through the $15 prod cutoff, so they need no further ask. The lead sends the manager a plan before step 5 (Cloudflare), because it changes how prod serves the app.
+
+- **Bite-sized lessons plan and board (lead, Nov 14):** plan `docs/superpowers/plans/2026-11-14-bite-sized-lessons-pilot.md` (balanced scope through the pilot, about 22 to 30 h wall, about 10 h lead). Label decision board in Claude Design: "Bite-sized Lesson Labels" https://claude.ai/artifact/Ub27VuHxHfeKrsRXgVfLuo (row layouts 1 to 3, ending options A and B), built from the Pantas Web and Pantas Redesign canvases; it waits for a Fable ruling. A first mockup from golden renders (`mockup/bite-sized-label`, not merged) broke written rule 3; the lead's brief caused it, and it was caught before anything was shown. Aedwon, relayed by the manager, verbatim: "don't do too many at once, mind my 5-hour limits". The lane is paused: no new workers until the manager resumes it. Velocity E-051: timer 30 min 32 s.
+
+### Nov 14, E-043 bounded app coordinator continuation
+
+Aedwon authorized the app-side build on `web/update-at-once-r1`: "Do not push,
+do not deploy, no Firebase" and "App-side logic only: no new screen, prompt,
+banner, wording or layout change". Implemented safe-point routing, reader ending,
+inline-modal guards, an awaited local database/outbox durability barrier, native
+no-op, once-per-version apply and `update.apply` telemetry. No visible presentation
+change. 205 focused VM tests and 2 browser tests passed, including 24 new tests;
+format, analysis, design lint, layering and repository checks passed. Independent
+review's findings were fixed; final review has no remaining findings.
+
+Local implementation and review only. This does not complete E-043's deployment
+or real two-version update proof. Full evidence and changed-file list:
+`docs/superpowers/verification/2026-11-14-update-at-once-app.md`.
+
+### Nov 14, E-043 web-layer replacement authorization
+
+Aedwon's exact ruling: "Lead ruling (final): replace the web-layer approach with VERSIONED BUILD FOLDERS, and keep the app-side safe points."
+His bounded permissions: "Do not push, do not deploy, no Firebase. Commit with plain messages, NO Co-Authored-By or any AI trailer. Non-UI only."
+His time boundary: "about 25 minutes per pass; if it does not fit, finish a coherent part, commit it, and report what remains."
+
+The supplied read-only review found mixed startup identity, unidentified legacy
+clients, new bytes on legacy cache misses, and attempts consumed before reload.
+The old approach is superseded, not approved through these findings. The
+replacement plan is `docs/superpowers/plans/2026-11-14-versioned-web-builds.md`.
+It preserves durability and safe points. Versioned paths replace page messages;
+verified live inventories retain predecessors. Flat files remain for exactly one
+transition, including offline use. Offline index replacement waits for complete
+cached build bytes. The root loader follows the index's pinned version.
+
+Current task evidence and remaining integration proof:
+`docs/superpowers/verification/2026-11-14-versioned-web-builds.md`.
+
+E-043 local replacement completed in this bounded pass. Independent review
+passes. 91 Node tests and 30 focused Dart/browser tests pass; analysis, changed
+Dart format, design lint (631 baseline findings), layering and repository checks
+pass. Staging release artifact packages 73 hash-verified files under
+`b/1555920181-1c829df455ae/`. Timer: 21 min 17 s measured active/wall before final
+recording and local commit. No push, deployment, Firebase access or UI change.
+Live legacy-inventory recovery, real consecutive deployments/rollback/offline
+and Android Chrome/iPhone Safari storage survival remain release proof. This
+entry does not complete E-043's live rollout or authorize publication.
+
+### Nov 14, E-043 final scale-back ruling
+
+Aedwon's exact assignment, superseding the versioned-build ruling above:
+
+> Bounded job, about 25 minutes. Worktree branch web/update-at-once-r1 (Pantas Flutter web PWA). Do not push, do not deploy, no Firebase. Commit with plain messages, NO Co-Authored-By or any AI trailer. Non-UI only.
+>
+> Lead ruling (final), after two read-only reviews (/private/tmp/claude-501/-Users-aedwon-Documents-Projects-Pantas-wt-design-system-4/33a4ae62-5c4c-4d3c-844a-35379c6da590/scratchpad/update-review-1.md and /private/tmp/claude-501/-Users-aedwon-Documents-Projects-Pantas-wt-design-system-4/33a4ae62-5c4c-4d3c-844a-35379c6da590/scratchpad/update-review-2.md) found that changing the service worker and the hosting layout cannot be rolled out safely over the worker already on phones: SCALE BACK.
+> 1. Restore the web layer to origin/main exactly: web/pantas_sw.js, web/index.html, web/flutter_bootstrap.js (or its template), firebase.json, firebase.staging.json, tool/web/stamp_worker_version.mjs, and remove tool/web/retain_builds.mjs and the /b/ folder build steps and their tests and CI wiring, so the service worker, the caching, the drift worker URL and the hosting layout are exactly what prod runs today. Keep docs/deploy-prod.md as on main.
+> 2. Keep the app-side coordinator from 46adf8a0f with 054357371's fix (an attempt is consumed only when the reload actually happens; failed or slow checks retry at the next safe point), and the write-durability wait and the safe points (Home first appearance, returns to Home, quiz and mock results, lesson end; never on quiz, mock, lesson, onboarding mid-entry, checkout, or with a dialog or sheet with input open).
+> 3. A minimal JS bridge in web/pantas_pwa.js only (add, do not restructure): window.pantasUpdate = {currentVersion, check(), apply()}. currentVersion = the build version this page started with (the stamped value the page already knows, e.g. from flutter_bootstrap.js or version.json loaded at start; find what main already stamps and reuse it). check() fetches version.json with cache: 'no-store' and compares; returns {available, version}; it also calls registration.update() so the existing worker fetches the new build in the background (the existing worker already handles its own install and takeover). apply() = location.reload(). Also check on visibility return and at most every 5 minutes while visible; never reload by itself. If version.json does not carry a comparable version on main today, make the existing stamping write it (smallest change to stamp_worker_version.mjs: add a field only) and say exactly what changed.
+> 4. The Dart bridge uses window.pantasUpdate if present and is a no-op otherwise (old pages and native).
+> Tests first: node tests for check() (available, not available, network failure) and apply(); Dart coordinator tests stay green (update them for the reload-only apply). Show the new node tests failing first.
+> Checks: node tests, dart format, flutter analyze lib test, the app_update tests, design lint, layering (one Flutter job at a time). Confirm with git diff origin/main -- web/pantas_sw.js firebase.json firebase.staging.json web/index.html that those are unchanged. Commit. Report: what the bridge does, the version source, test evidence, the files that differ from main.
+
+Result: restored the production worker, caching, flat layout, bootstrap, hosting,
+deployment guide, Drift worker URLs and original tests. Deleted folder packaging,
+retention and its CI/deploy wiring. Added only the update API to the main PWA
+helper. Existing registerWorker receives the stamped startup identity. Stamping
+adds pantasBuildVersion to existing version metadata; hashing excludes that own
+field and normalizes metadata serialization to keep repeated stamping stable.
+No file moves, worker edits or loader edits remain against main.
+
+The Dart bridge now calls synchronous reload, with absent-bridge/native no-op.
+The coordinator, guarded safe points and local-write durability barrier remain.
+Removed the duplicate 30-second Dart poll: JS detects on visible five-minute ticks
+and visibility return; the app checks/applies at its existing safe-point and
+lifecycle hooks. Background JS checks never call apply. Idle Home detection alone
+does not reload until an app safe-point/lifecycle check runs.
+
+Independent final review found no remaining must-fixes after restoring the main
+browser database tests, rather than deleting the whole file with the folder test.
+Verification and exact main diff inventory:
+`docs/superpowers/verification/2026-11-14-update-at-once-scale-back.md`.
+This is local implementation only. Real device/consecutive-deployment proof and
+publication remain outside this assignment. No push, deploy or Firebase access.
+
+### Nov 14, E-043 inline quiz completion correction
+
+Aedwon's exact bounded assignment:
+
+> Bounded job, about 15 minutes. Worktree branch web/update-at-once-r1 (Pantas Flutter web app). Do not push, do not deploy, no Firebase. Commit with plain messages, NO Co-Authored-By or any AI trailer. App-side logic only, no visible UI change.
+>
+> Bug found by a live staging proof: lib/core/platform/app_update/update_coordinator.dart treats the end of a quiz as safe only when the route matches ^/(quiz/(debrief|all)|mock/results)/[^/]+$. A "Quiz yourself" quiz started from a lesson runs on /quiz/inline/<id> and shows its results on the same route (QuizController state QuizComplete, lib/features/quiz/presentation/quiz_controller.dart), so the results screen never counted as a safe point and the app did not reload into the new build there.
+>
+> Fix: add a quizEnded() hook like lessonEnded(): set when any quiz session reaches its finished state (QuizComplete, or the equivalent end state of every quiz flow: inline, reviews, new questions, practice, the session debrief, mock results), cleared on the next route change or when a new session starts; include it in _safe; and run a check() right when it is set (the update may already be known from the visibility or timer check). Wire it where the quiz end state is reached (the controller or the page that shows results), not by route patterns. Keep every unsafe rule (an open quiz question is never safe).
+> Tests first (show them failing): an inline quiz reaching QuizComplete with an available update applies it; a quiz mid-question does not; starting a new session clears the flag; the existing coordinator tests stay green.
+> Checks: dart format, flutter analyze lib test, the app_update and quiz tests, design lint, layering (one Flutter job at a time). Commit. Report: where the hook is wired, test evidence, files changed.
+
+Root cause: the route-based tests covered separate result destinations, not the
+real inline controller's transition to results on its existing URL. The regression
+now drives startInline, answer and next through the real controller with a fake
+update bridge. It failed before implementation: expected one apply, actual zero.
+It also asserts no apply during a question or answer reveal and after restarting.
+Independent review added red proofs for duplicate completion while writes wait
+and delayed completion after navigation or session replacement.
+
+Implementation and current verification are recorded in
+`docs/superpowers/verification/2026-11-14-update-at-once-app.md`, quiz correction
+section. No UI, push, deploy or Firebase access is authorized by this follow-up.
+
+Quiz completion correction complete locally: QuizComplete and shared results
+lifecycle hooks now provide explicit safety and immediate checks. Navigation
+and new sessions invalidate completion, including delayed callbacks; repeated
+completion preserves pending durability waits. Independent review: no remaining
+findings. Final combined app-update, quiz and mock suites: 1,941 passed. Final
+37-test focused rerun passed after test formatting/comma corrections. Analysis,
+format, design lint (631 existing baseline findings), layering, nine repository
+checks and attribution check pass. Measured active: 15 min 43 s across two
+timers; details and exact file/source inventory are in the existing verification
+record. Local commit only. Live proof remains separate and was not rerun.
+
+
+### Nov 14, shard 7 bundled test isolation
+
+Aedwon authorized a bounded test-isolation correction on web/update-at-once-r1:
+
+> Tests and test isolation only, unless the leak is in production code (then fix it there, smallest change, no visible change).
+>
+> Do: generate shard 7's bundles locally (dart tool/ci/bundle_tests.dart --shard 7 --shards 8), run bundle 0 to reproduce, then bisect the bundle's members (build a smaller generated entry with the Pro test plus half the neighbors) to find the leaking file and the leaked state. Fix the leak at its source (reset it in that test's tearDown, or in production if a static escapes there). Only if the leak cannot be fixed cleanly, add the leaking file to tool/ci/bundle_excludes.txt with a precise reason. Show: the bundle failing locally before, passing after; the Pro test file passing alone.
+
+Choice: clear only the cached catalog asset in the originating price-tier
+test's teardown. Its cached real-zone Future blocked the later fake-async
+Pro loading state. No product change or exclusion. Original bundle reproduced
+399 pass/1 fail before and passed all 400 afterward; Pro alone passed 30;
+the two-file reproduction passed 32 after. Independent review: no findings.
+Detailed bisection, policy/source identity, checks and limitations are recorded
+in the bundled-isolation section of the existing update-at-once verification.
+Implemented and verified locally; no push, deploy or Firebase. Local saving only.
+
+### Nov 14, "updates take effect at once" shipped to prod (DS4 lead)
+
+- What shipped (web/update-at-once-r1, main fe0c2076b, prod web build 572354112-e3e62e5faa3e at 09:00 UTC; web only, the server and rules unchanged since 8f0799372): the app checks version.json for a new build when it becomes visible and every 5 minutes, and reloads into it only at a safe point (Home, any quiz or mock reaching its finished state, the end of a lesson), after local writes are durable; never mid-quiz, mid-lesson, during onboarding entry, checkout, or with an input dialog open. The service worker, caching and hosting layout are exactly as before.
+- The staging proof found a gap first: an inline "Quiz yourself" quiz shows its results on its own route, which the coordinator did not count as safe; fixed so any quiz reaching its finished state is a safe point. CI then exposed an older test-isolation leak (the price tier test left a cached catalog future that hung the Pro page test when bundled together); fixed in the test's teardown.
+- Staging proof on the fixed build (two deploys, a short-lived staging debug token, since deleted): build A 1265712796-86da7cc728bb with a quiz open mid-way; build C 1719118685-340a38afd501 deployed; check() reported it, the open quiz was not reloaded (30 s, same page, same version); on finishing the quiz the app reloaded into C at the results screen, with the session saved first (ingestSession 200), the past mistakes visible after, no errors.
+- Prod checks: app.pantas.study and pantas-prod.web.app serve 572354112-e3e62e5faa3e; version.json carries pantasBuildVersion; the served main.dart.js equals the build; pantas_pwa.js exposes pantasUpdate. Open apps on the previous build do not have the update check, so they switch on their next reload; from this build on, open apps follow new deploys at the next safe point.
+- Velocity E-043: see the row (timer).
+
+### Nov 14, security fixes steps 3 and 4: staging cutoff and usage alarms (security fixes lead)
+
+- Step 3 (E-055): a standalone `billing-cutoff` function on pantas-staging (code in `tool/billing-cutoff`, branch `web/security-billing-cutoff-r1`, 11 tests) listens on a Pub/Sub topic fed by staging's $5 budget. It removes billing when that budget's cost passes its amount, or when a `billing-cutoff: ...` usage alarm opens. A failed read of the billing state still cuts. It runs with its own service account (Project Billing Manager and Browser on staging only).
+- Proof: dry run at 08:50 UTC (an over-budget message logged "would disable billing"; a message from another budget was ignored). Real fire at 09:04:58: billing was removed 5 seconds later; relinked by hand at 09:05:16. Hosting, Auth, Firestore and Storage worked at once (an upload and token download passed). Cloud Run functions returned 503 "not available yet", flapping, for 34 minutes. Google documents up to 30 minutes after relinking. They all came back within 2 minutes of deleting staging's two spend-cap budgets, and stayed up after the caps were recreated, so the caps may have slowed recovery; this is not proven.
+- Coordination: the integrator's caps deploy to staging ran at 09:07 to 09:11, during the recovery; the lead asked it to hold staging and released it at 09:41. Lesson for prod: a cutoff means at least 30 minutes of function outage after relinking.
+- Step 4 (E-056): eight Cloud Monitoring alarms on staging, each sending to the cutoff topic and emailing Aedwon. Thresholds: Hosting over 5 GiB an hour or 20 GiB a day; Storage egress over 2 GiB an hour or 5 GiB a day; Firestore reads over 500,000 an hour or 2 million a day; writes over 100,000 an hour or 400,000 a day. Measured 30-day peaks (staging is the busier, from journeys): Hosting 179 MB an hour and 631 MB a day; Storage egress 2 MB an hour; Firestore reads 12,920 an hour and 60,117 a day; writes 1,310 an hour and 5,640 a day. So normal use is 30 to 1,000 times below each threshold. Under-threshold spend at the daily limits is about $5 a day across all four, which the $5 staging budget then catches.
+- Step 4 proof: two temporary alarms on any traffic reached the cutoff in dry run, Firestore in about 4 minutes and Hosting in about 6 (Hosting data arrives in batches). The alarm real fire was not run: the cut action is the one proven in step 3, and a second cut would take staging functions down for 30+ minutes while the integrator ships R2 before Nov 16. It can run at a quiet time.
+- Relink steps are in `docs/deploy-prod.md`, section 13. Rollbacks are in the private folder.
+
+### Nov 14, spend-cap ruling and the usage-alarm real fire (security fixes lead)
+
+- The manager's question: keep or remove the Preview $5 Cloud Run spend caps on prod, since the first staging cut seemed to show they block recovery after a relink.
+- Test (E-059), with the caps in place on staging: a temporary usage alarm on any Firestore reads opened at 09:54:30 UTC; the cutoff function removed billing at 09:54:32 (audit log: its own service account); the lead relinked at 09:54:43. All 64 staging functions answered again at about 09:59 and stayed up. A real budget message at 09:53 ("cost 0.11 within budget 5") was correctly ignored. This also completes step 4's real fire through an alarm.
+- Ruling (lead, on the evidence; no Fable consult needed): **keep the spend caps on prod and staging.** With the caps in place, recovery took 5 minutes. The first cut's 34 minutes is better explained by the functions deploy that ran 2 to 6 minutes after that relink, and by Google's documented window of up to 30 minutes. Removing the caps at 09:37 in the first test coincided with the end of that window. The caps stay because they bound Cloud Run spend, which no usage alarm watches.
+- Runbook (`docs/deploy-prod.md`, section 13): plan for up to about 35 minutes of function outage after a relink; deploy nothing until every function answers; removing and recreating the caps is a last resort after 40 minutes.
+
+### Nov 14, security caps and security group 2 (sign-in) shipped to prod (DS4 lead)
+
+- Authority: the manager relayed Aedwon's approval of security group 2 ("approved with a slight correction") and queued both branches after the update release. Pace, Aedwon: "don't do too many at once, mind my 5-hour limits".
+- What shipped: web/security-caps-r1 (main 3b69a17f5; instance limits default 3, webhooks 10, account deletion 5) and web/security-r2-signin-mail (main 15bd43ec4; squatter replacement after a proved address, client-address buckets, per-mailbox daily send and lockout caps, a "mail cap full" ERROR line, per-address guardian mail limit). Functions only, one prod deploy of all 63 functions, 09:47 to 09:49 UTC. Hosting and rules unchanged.
+- CI: main CI passed on both merges, including the functions emulator tests (squatter cases S-06 among them).
+- Staging proof, caps build and combined build, each 10 of 10 (a short-lived staging App Check debug token, deleted after each run): a function answers a signed-in caller and refuses one with no sign-in; a code request answers; a wrong code counts down 4 then 3; another caller cannot use the challenge; Google is an enabled provider with the staging domains authorized; the Google exchange refuses a bad token. Instance limits read back from Cloud Run: 60 at 3, account deletion at 5, two webhooks at 10.
+- Limit of the staging proof: staging's mail key is a placeholder, so Resend refuses it (401) and a correct code cannot be proved there. Follow-up: issue #74 (a real staging Resend key; cost and setup go to the manager). The billing-cutoff test overlapped the first staging deploy (6 of 63 functions failed, redeployed at 09:11).
+- Prod checks: preflight OK; no prod ERROR entries in the 2 h before; after the deploy, Cloud Run reads back the same limits and the sign-in callables answer 401 with no sign-in. A 30-minute log watch (09:47 to 10:20 UTC, counts only) saw no ERROR entries on any function, no failed code emails, and no real sign-in calls. Email-code sign-in on prod is therefore not yet proved by real use; the watch continues with the save and feedback watch.
+- Rollback: a checkout of fe0c2076b with functions built is kept ready. Not needed.
+- Velocity E-057 and E-058: see the rows (timer).
+
+
+### Nov 14, Fable 5.2 rulings on step 7 and step 5 (relayed by the manager; security fixes lead)
+
+Fable 5.2 ruled under Aedwon's standing delegation. The manager relayed both rulings.
+
+- **Ruling B: step 7 first, now, in two parts. A departure from Aedwon's stated order** (he approved 5, 6, then 7). Reason given: more than a week without a hard stop on prod risks about $63 an hour from a single attacker on Hosting; a false fire costs a 5 to 35 minute outage for a handful of testers.
+  1. Put the $15 budget cutoff on prod now, if month-to-date prod spend leaves clear room under $15. Confirm the lead can relink and recover prod without Aedwon. Write the prod steps into runbook section 13.
+  2. Start the prod usage alarms in notify-only mode, emailing Aedwon. Wire them to the cutoff after about a week of prod baselines, because untuned thresholds are the likely cause of a false fire. Log the date to wire them.
+- **Ruling A: step 5 approved with changes.** Aedwon's phone check does not block the switch.
+  1. Close a gap first: staging sign-in does not use the forwarding. If the sign-in setup allows it, run one headless staging sign-in on a build that signs in through staging.pantas.study.
+  2. Before the prod DNS switch, compare the three sign-in paths on the prod Worker's own address with Firebase's, including query strings and a POST.
+  3. Switch at a low-traffic hour, 2 to 5 am Manila. Repeat the checks, load the app shell headless, and watch sign-in errors for 30 minutes. On any mismatch, roll back without asking.
+  4. Gate the tiny Firebase page, not the switch: 48 clean hours plus one confirmed real Google sign-in on prod, from the logs. The manager asks Aedwon once for an optional phone check, with no deadline.
+  The prod Worker deploy and the DNS change belong to the security fixes lead. App and Hosting deploys go through the integrator.
+- The manager passes `web/security-billing-cutoff-r1` to the integrator to merge. Pace stays at one worker at a time, with long watches only.

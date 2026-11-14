@@ -1,6 +1,8 @@
 // ignore_for_file: directives_ordering
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
+import 'package:pantas/app/update_coordinator_provider.dart';
 import 'package:pantas/app/beta_gate.dart';
 import 'package:pantas/core/auth/beta_access.dart';
 import 'package:pantas/app/sign_in/email_sign_in_page.dart';
@@ -53,13 +55,15 @@ final routerProvider = Provider<GoRouter>((ref) {
   // Every page's address shows, so a reload stays on it. The address of a page
   // that needs in-memory arguments is handled by `startLocationFor`.
   GoRouter.optionURLReflectsImperativeAPIs = kIsWeb;
+  final updates = kIsWeb ? ref.read(updateCoordinatorProvider) : null;
+  NavigatorObserver observer() => UpdateOverlayObserver(updates!);
   final router = GoRouter(
     initialLocation: takeInitialRouterLocation(),
     refreshListenable: refreshListenable,
     // Every address is honored on the web, so one that matches no page
     // (a typo, a retired link) lands on Home, not go_router's error page.
     onException: (context, state, router) => router.go('/home'),
-    redirect: (context, state) {
+    redirect: guardUpdateActivation(updates, (context, state) {
       // The stop comes first: a build the server has retired must not
       // reach any route, including a deep link.
       final flags = ref.read(remoteFlagsProvider);
@@ -160,8 +164,12 @@ final routerProvider = Provider<GoRouter>((ref) {
       if (passed && !complete && !atOnboarding) return toOnboarding();
       if (passed && complete && atOnboarding) return '/home';
       return null;
-    },
-    routes: buildAppRoutes(ref),
+    }),
+    observers: [if (updates != null) observer()],
+    routes: buildAppRoutes(
+      ref,
+      updateObserver: updates == null ? null : observer,
+    ),
   );
   // Records each screen the student opens, through the consent gate. The
   // gate is read at each event, so a change of choice applies at once.
@@ -169,6 +177,9 @@ final routerProvider = Provider<GoRouter>((ref) {
     router,
     () => ref.read(telemetryProvider),
   );
+  if (updates != null) {
+    ref.onDispose(observeUpdateRoutes(router, updates));
+  }
   ref.onDispose(() {
     detachScreenViews();
     router.dispose();
@@ -180,6 +191,7 @@ List<RouteBase> buildAppRoutes(
   Ref ref, {
   bool includeDebugGallery = true,
   bool web = kIsWeb,
+  NavigatorObserver Function()? updateObserver,
 }) {
   final home = homeRoutes(ref);
   final study = studyRoutes(ref, web: web);
@@ -197,10 +209,22 @@ List<RouteBase> buildAppRoutes(
         // Plan, Day, Week, history, Performance, topic, Record and Tendencies
         // are Home pages on the phone boards: they keep the floating tab bar
         // with Home lit, and back returns within this branch.
-        StatefulShellBranch(routes: [homeRoot, ...homeSubpages]),
-        StatefulShellBranch(routes: [studyRoot]),
-        StatefulShellBranch(routes: [quizRoot]),
-        StatefulShellBranch(routes: [settingsRoot]),
+        StatefulShellBranch(
+          observers: [if (updateObserver != null) updateObserver()],
+          routes: [homeRoot, ...homeSubpages],
+        ),
+        StatefulShellBranch(
+          observers: [if (updateObserver != null) updateObserver()],
+          routes: [studyRoot],
+        ),
+        StatefulShellBranch(
+          observers: [if (updateObserver != null) updateObserver()],
+          routes: [quizRoot],
+        ),
+        StatefulShellBranch(
+          observers: [if (updateObserver != null) updateObserver()],
+          routes: [settingsRoot],
+        ),
       ],
     ),
     ...study.where((route) => route != studyRoot),
@@ -236,6 +260,7 @@ List<RouteBase> buildAppRoutes(
       .toList();
   return [
     ShellRoute(
+      observers: [if (updateObserver != null) updateObserver()],
       builder: (context, state, child) =>
           WebRouteShell(path: state.uri.path, child: child),
       routes: routes

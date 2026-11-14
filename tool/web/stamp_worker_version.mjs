@@ -6,7 +6,7 @@
 //
 // Usage: node tool/web/stamp_worker_version.mjs [build/web]
 import {createHash} from 'node:crypto';
-import {readdirSync, readFileSync, statSync, writeFileSync} from 'node:fs';
+import {existsSync, readdirSync, readFileSync, statSync, writeFileSync} from 'node:fs';
 import {join, relative} from 'node:path';
 
 const BOOTSTRAP = 'flutter_bootstrap.js';
@@ -23,7 +23,14 @@ export function buildHash(dir) {
   const hash = createHash('sha256');
   for (const name of files(dir)) {
     if (name === BOOTSTRAP) continue;
-    hash.update(name).update('\0').update(readFileSync(join(dir, name))).update('\0');
+    let bytes = readFileSync(join(dir, name));
+    // Ignore our own output so stamping twice preserves the build identity.
+    if (name === 'version.json') {
+      const metadata = JSON.parse(bytes.toString());
+      delete metadata.pantasBuildVersion;
+      bytes = JSON.stringify(metadata);
+    }
+    hash.update(name).update('\0').update(bytes).update('\0');
   }
   return hash.digest('hex').slice(0, 12);
 }
@@ -36,6 +43,12 @@ export function stamp(dir) {
   const base = match[1].split('-')[0];
   const version = `${base}-${buildHash(dir)}`;
   writeFileSync(path, source.replace(TOKEN, `registerWorker("${version}"`));
+  const metadataPath = join(dir, 'version.json');
+  if (existsSync(metadataPath)) {
+    const metadata = JSON.parse(readFileSync(metadataPath, 'utf8'));
+    metadata.pantasBuildVersion = version;
+    writeFileSync(metadataPath, JSON.stringify(metadata));
+  }
   return version;
 }
 

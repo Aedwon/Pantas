@@ -11,7 +11,8 @@ import {identityMarkers, identityMarkersForUser} from './webTrial.js';
 export const DELETION_RETRY_MS = 3_600_000;
 
 /** Why an account was deleted. Kept on the guardian evidence marker. */
-export type DeletionReason = 'user_request' | 'guardian_withdrawal' | 'inactive_24_months';
+/** `unclaimed_address` is an account someone registered with an address they do not own. */
+export type DeletionReason = 'user_request' | 'guardian_withdrawal' | 'inactive_24_months' | 'unclaimed_address';
 
 export type DeletionOptions = {
   /** The caller's own token, when the user asked. Server jobs omit it and the Auth record is read. */

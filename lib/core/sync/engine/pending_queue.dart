@@ -32,30 +32,31 @@ class PendingQueue {
     required String rowId,
     required PendingSyncOp op,
     required DateTime queuedAt,
-  }) async {
-    final existing = await (_db.select(_db.pendingSync)
-          ..where((row) => row.uid.equals(''))
-          ..where((row) => row.generationId.equals(''))
-          ..where((row) => row.tableType.equals(tableType))
-          ..where((row) => row.rowId.equals(rowId)))
-        .getSingleOrNull();
+  }) =>
+      _db.trackLocalWrite(() async {
+        final existing = await (_db.select(_db.pendingSync)
+              ..where((row) => row.uid.equals(''))
+              ..where((row) => row.generationId.equals(''))
+              ..where((row) => row.tableType.equals(tableType))
+              ..where((row) => row.rowId.equals(rowId)))
+            .getSingleOrNull();
 
-    if (existing == null) {
-      await _db.into(_db.pendingSync).insert(
-            PendingSyncCompanion.insert(
-              tableType: tableType,
-              rowId: rowId,
-              op: op.name,
-              queuedAt: queuedAt,
-            ),
-          );
-      return;
-    }
+        if (existing == null) {
+          await _db.into(_db.pendingSync).insert(
+                PendingSyncCompanion.insert(
+                  tableType: tableType,
+                  rowId: rowId,
+                  op: op.name,
+                  queuedAt: queuedAt,
+                ),
+              );
+          return;
+        }
 
-    await (_db.update(_db.pendingSync)
-          ..where((row) => row.id.equals(existing.id)))
-        .write(PendingSyncCompanion(op: Value(op.name)));
-  }
+        await (_db.update(_db.pendingSync)
+              ..where((row) => row.id.equals(existing.id)))
+            .write(PendingSyncCompanion(op: Value(op.name)));
+      });
 
   Future<PendingSyncRow> enqueueGenerationBound({
     required String uid,
@@ -67,60 +68,61 @@ class PendingQueue {
     required DateTime? baseUpdatedAt,
     required String mutationId,
     required DateTime queuedAt,
-  }) async {
-    _validateGenerationBoundInput(
-      uid: uid,
-      generationId: generationId,
-      baseState: baseState,
-      baseUpdatedAt: baseUpdatedAt,
-      mutationId: mutationId,
-    );
+  }) =>
+      _db.trackLocalWrite(() async {
+        _validateGenerationBoundInput(
+          uid: uid,
+          generationId: generationId,
+          baseState: baseState,
+          baseUpdatedAt: baseUpdatedAt,
+          mutationId: mutationId,
+        );
 
-    final existing = await findGenerationBound(
-      uid: uid,
-      generationId: generationId,
-      tableType: tableType,
-      rowId: rowId,
-    );
+        final existing = await findGenerationBound(
+          uid: uid,
+          generationId: generationId,
+          tableType: tableType,
+          rowId: rowId,
+        );
 
-    if (existing == null) {
-      await _db.into(_db.pendingSync).insert(
-            PendingSyncCompanion.insert(
-              uid: Value(uid),
-              generationId: Value(generationId),
-              tableType: tableType,
-              rowId: rowId,
-              op: op.name,
+        if (existing == null) {
+          await _db.into(_db.pendingSync).insert(
+                PendingSyncCompanion.insert(
+                  uid: Value(uid),
+                  generationId: Value(generationId),
+                  tableType: tableType,
+                  rowId: rowId,
+                  op: op.name,
+                  baseState: Value(baseState),
+                  baseUpdatedAt: Value(baseUpdatedAt),
+                  mutationId: Value(mutationId),
+                  queuedAt: queuedAt,
+                ),
+              );
+        } else {
+          await (_db.update(_db.pendingSync)
+                ..where((row) => row.id.equals(existing.id)))
+              .write(
+            PendingSyncCompanion(
+              op: Value(op.name),
               baseState: Value(baseState),
               baseUpdatedAt: Value(baseUpdatedAt),
               mutationId: Value(mutationId),
-              queuedAt: queuedAt,
+              revision: Value(existing.revision + 1),
+              attempts: const Value(0),
+              lastError: const Value(null),
+              lastAttemptAt: const Value(null),
             ),
           );
-    } else {
-      await (_db.update(_db.pendingSync)
-            ..where((row) => row.id.equals(existing.id)))
-          .write(
-        PendingSyncCompanion(
-          op: Value(op.name),
-          baseState: Value(baseState),
-          baseUpdatedAt: Value(baseUpdatedAt),
-          mutationId: Value(mutationId),
-          revision: Value(existing.revision + 1),
-          attempts: const Value(0),
-          lastError: const Value(null),
-          lastAttemptAt: const Value(null),
-        ),
-      );
-    }
+        }
 
-    return (await findGenerationBound(
-      uid: uid,
-      generationId: generationId,
-      tableType: tableType,
-      rowId: rowId,
-    ))!;
-  }
+        return (await findGenerationBound(
+          uid: uid,
+          generationId: generationId,
+          tableType: tableType,
+          rowId: rowId,
+        ))!;
+      });
 
   Future<List<PendingSyncRow>> drain({required int limit}) {
     return (_db.select(_db.pendingSync)

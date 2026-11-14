@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/app/update_coordinator_provider.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -69,6 +70,7 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
   @override
   void initState() {
     super.initState();
+    ref.read(updateCoordinatorProvider).quizStarted();
     WidgetsBinding.instance.addObserver(this);
     final guard = ref.read(mockLeaveGuardProvider)..running = _allowLeave;
     _guard = guard;

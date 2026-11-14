@@ -160,11 +160,31 @@ rest of the pool. Return `shown = min(size, pool)`; expose it for the UI.
 
 ### T10. UI, after the mockup ruling (Sonnet 5.5, 3 h)
 
-Blocked until the mockup (`docs/superpowers/mockups/bite-sized-lessons/`) has a Fable ruling relayed
-by the manager. Build 1:1 to the chosen presentation on every surface the mockup covers; remove
-`estimatedMinutes` reads and the "minutes left" sums per the ruled option; next-part action; quiz
-count. Update goldens. Review by a separate Claude worker comparing golden sheets with the mockup.
-Then remove `estimatedMinutes` from the export and the content files in the same release.
+Blocked until the Claude Design board "Bite-sized Lesson Labels"
+(https://claude.ai/artifact/Ub27VuHxHfeKrsRXgVfLuo) has a Fable ruling relayed by the manager. The
+board offers row layouts 1 to 3 (label as a second line; second line on phone and trailing on wide
+web; parts grouped under the original lesson) and ending options A ("6 lessons left") and B (no
+line). It was built from Pantas Web (W_Study, SD_Search, HM_LessonsPanel, RD_TopicShort,
+RD_Contents) and Pantas Redesign (ST_TopicOpen, RD_Contents, ST_Search, HE_ManyLessons, RD_End),
+with dark values from DK_Home, DK_Study and DK_Reader. Known departures to resolve in the ruling:
+web chevrons drawn on every row (approved: hover only); web contents dropdown, phone ending and the
+phone quiz screen not drawn (no approved artboard); the phone next-part action keeps the approved
+pull-up gesture; the 440-wide Home drawer and 520-wide ending list fall back to Option 1 under
+Option 2. Nobody has viewed the board yet. Build 1:1 to the chosen option on every surface the board covers; next-part action; quiz
+count. Review by a separate Claude worker comparing golden sheets with the board.
+
+Facts from the golden renders (`mockup/bite-sized-label` 7e0fa87fb, reference only, never merged):
+- Minutes are drawn at the surfaces in spec B1 plus `home_today_screen.dart:918` and `:928` and
+  `home_today_checklist.dart:340` and `:584`; `plan_provider.dart:549` passes the value on.
+- No screen draws a summed "minutes left" line today; `minutesLeftToRead` and the "about N minutes of
+  material" text exist only in code. Remove that code; there is no visual change.
+- There is no separate quiz intro. The "Quiz yourself, N questions" button in `reader_gap.dart` is
+  hard-coded to 5; it shows `shown` from T9.
+- A trailing label crowds phone rows (titles wrap and break mid-word); the board's layout options
+  exist for that reason.
+
+Then remove `estimatedMinutes` reads, the summed-minutes code, and the field from the export and the
+content files in the same release.
 
 ### T11. Policy text (lead, 15 min, docs-only on main)
 
@@ -271,3 +291,10 @@ collision lane has open changes on a file a task needs.
 ## Run log
 
 Append here as tasks finish: revision, command, result, and the frozen legacy hashes.
+
+- Nov 14: mockup. A golden-render prototype was built first (`mockup/bite-sized-label` 7e0fa87fb,
+  `+30: All tests passed!`), but written rule 3 in `docs/workflow/process-improvement.md` requires
+  decision boards in Claude Design. The lead's brief caused the miss and caught it before anything
+  was shown. The renders stay as a reference for current content only; the decision board is the
+  Claude Design artifact above.
+- Nov 14: paused after the board (Aedwon: "don't do too many at once, mind my 5-hour limits").

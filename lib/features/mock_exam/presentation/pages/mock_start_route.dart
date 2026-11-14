@@ -4,6 +4,7 @@ import 'dart:math' as math;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/app/update_coordinator_provider.dart';
 import 'package:pantas/core/content/domain/mock_blueprint.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
@@ -99,6 +100,7 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
   @override
   void initState() {
     super.initState();
+    ref.read(updateCoordinatorProvider).quizStarted();
     WidgetsBinding.instance.addObserver(this);
     WidgetsBinding.instance.addPostFrameCallback((_) => _load());
     unawaited(_loadPauseWarningSeen());

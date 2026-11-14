@@ -33,6 +33,9 @@ subagents. In the T3 sidebar, a worker shows as a child of its lead.
   and are logged as made under his delegation. Still his: "ship it" for each prod release not
   already approved, legal sign-off, billing changes, and anything that needs him physically
   (a phone test, a login).
+- Runs at most two Claude lanes at once, each with few workers, and pauses the rest (Aedwon, Nov 14:
+  "don't do too many at once, mind my 5-hour limits"). The integrator and the most urgent lane go
+  first; paused lanes commit their work in progress and wait to be resumed.
 
 **Leads**
 - Own their lane end to end: plan, brief workers, review every result, merge, log to main.
