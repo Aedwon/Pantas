@@ -344,6 +344,13 @@ jobs:
 
       - uses: ./.github/actions/setup-app
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Web shell tests
+        run: node --test test/web/*.test.mjs tool/web/*.test.mjs
+
       - name: Release web build
         run: flutter build web --release --no-web-resources-cdn -t lib/main_dev.dart
 
