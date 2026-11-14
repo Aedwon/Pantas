@@ -619,3 +619,19 @@ Approved by the lead with `tool/content/approve.dart`.
 | q-philippine-constitution-citizenship-and-suffrage-0018 | RA9225 §5(2) | [Source](https://lawphil.net/statutes/repacts/ra2003/ra_9225_2003.html) | “at the time of the filing of the certificate of candidacy” | SOURCE OK | Personal sworn renunciation required. |
 | q-philippine-constitution-citizenship-and-suffrage-0019 | RA8189 §§9–10 | [Source](https://lawphil.net/statutes/repacts/ra1996/ra_8189_1996.html) | “on the day of the election shall possess such qualifications” | SOURCE OK | Advance registration allowed. |
 | q-philippine-constitution-citizenship-and-suffrage-0021 | RA9139 §3(a–b); CA473 §2 | [RA9139](https://lawphil.net/statutes/repacts/ra2001/ra_9139_2001.html) [CA473](https://lawphil.net/statutes/comacts/ca_473_1939.html) | “eighteen (18) years of age” | SOURCE OK | 18 at filing; 21 at hearing. |
+
+## Audit and re-check (Nov 15)
+
+Independent audit (Codex GPT 6 Astra high, read-only): 58 sampled questions plus 88 flagged or fixed items, five splits and ten record rows; no must-fix findings; 13 should-fix items fixed by a separate writer job. The 12 edited questions were re-solved and law-checked by another checker: 12 of 12 agree, every rationale matches its choice. Rows for this topic:
+
+| q-philippine-constitution-accountability-and-impeachment-0018 | A | A | AGREE | Art. XI §2 excludes Court of Appeals justices from impeachment. | OK |
+| q-philippine-constitution-bill-of-rights-0013 | A | A | AGREE | Art. III §19(1) prohibits cruel, degrading, or inhuman punishment. | OK |
+| q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0005 | D | D | AGREE | [RA 9346 §3](https://lawphil.net/statutes/repacts/ra2006/ra_9346_2006.html) bars parole for this reduced sentence; §2 determines replacement penalties. | OK |
+| q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0013 | D | D | AGREE | Art. III §21; [Sanvicente](https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/1/51645), applying Rule 119 §23, treats this demurrer ruling as acquittal. | OK |
+| q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0001 | A | A | AGREE | Art. III §16 expressly includes administrative bodies deciding cases. | OK |
+| q-philippine-constitution-bill-of-rights-0018 | A | A | AGREE | Art. III §8 protects associations with purposes not contrary to law. | OK |
+| q-philippine-constitution-citizenship-and-suffrage-0017 | A | A | AGREE | Art. V §§1–2 prohibit literacy exclusion and preserve interim voting. | OK |
+| q-philippine-constitution-citizenship-and-suffrage-0018 | B | B | AGREE | [RA 9225 §5(2)](https://lawphil.net/statutes/repacts/ra2003/ra_9225_2003.html) requires personal sworn renunciation when filing candidacy. | OK |
+| q-philippine-constitution-the-civil-service-commission-0020 | A | A | AGREE | Art. IX-B §3 assigns personnel functions, not the claimed powers. | OK |
+| q-philippine-constitution-the-three-branches-and-their-powers-0009 | D | D | AGREE | Art. VII §16; VIII §§9, 11 establish confirmation, nomination, and tenure rules. | OK |
+| q-philippine-constitution-the-three-branches-and-their-powers-0020 | C | C | AGREE | Art. VI §§21, 24, 25(1) establish inquiry, origination, and budget limits. | OK |

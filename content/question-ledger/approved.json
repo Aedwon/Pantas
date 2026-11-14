@@ -68,7 +68,7 @@
   "q-data-interpretation-rates-ratios-and-percentages-in-context-0012": {
     "approvedAt": "2026-11-14",
     "evidence": "docs/content/verification/data-interpretation.md",
-    "hash": "5ff950b2d3a6028f5513fc44f730a422635c6161e49b09c1af6141f3387d194b",
+    "hash": "0b7a91787ec61de262800ce4af776769e9ba0d9bd924722451533e5c22bf9ad0",
     "lesson": "lesson-data-interpretation-percentages-and-ratios-of-groups"
   },
   "q-data-interpretation-rates-ratios-and-percentages-in-context-0013": {
@@ -416,7 +416,7 @@
   "q-philippine-constitution-accountability-and-impeachment-0018": {
     "approvedAt": "2026-11-14",
     "evidence": "docs/content/verification/philippine-constitution.md",
-    "hash": "cfe1eb3e56b625cde2f907db12c35c719a294f9b4f23fda752d9afe1f8bf0288",
+    "hash": "a7931943201475681df433b0f0757602081fd7a17dc2c99a1d609fc5813e9d94",
     "lesson": "lesson-philippine-constitution-public-trust-and-impeachable-officers"
   },
   "q-philippine-constitution-accountability-and-impeachment-0019": {
@@ -674,7 +674,7 @@
   "q-philippine-constitution-bill-of-rights-0013": {
     "approvedAt": "2026-11-14",
     "evidence": "docs/content/verification/philippine-constitution.md",
-    "hash": "012a5e6801da5cad510b98edbb032c6c88af5c19f245262e8ac20f497e903c1c",
+    "hash": "2fa579af16695eed0c5bdd53edf111eede8e372b04028a792e6c042c137f888f",
     "lesson": "lesson-philippine-constitution-bill-of-rights-fines-and-prison-punishment"
   },
   "q-philippine-constitution-bill-of-rights-0014": {
@@ -704,7 +704,7 @@
   "q-philippine-constitution-bill-of-rights-0018": {
     "approvedAt": "2026-11-14",
     "evidence": "docs/content/verification/philippine-constitution.md",
-    "hash": "43ae3308fffb3d1cf9712fd443bd208d24dda7bff1cc36096d8fde4066698282",
+    "hash": "817821ef45668142d292130283684ddec9e155fcc03bd068b82720e7b77dfa2a",
     "lesson": "lesson-philippine-constitution-bill-of-rights-information-and-association"
   },
   "q-philippine-constitution-bill-of-rights-0019": {
@@ -980,7 +980,7 @@
   "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0005": {
     "approvedAt": "2026-11-14",
     "evidence": "docs/content/verification/philippine-constitution.md",
-    "hash": "2aed9cf7ca5def984ddb99a0be24f557ad16f0daf2d282956b0a3d2edb9867fd",
+    "hash": "02a8f9a64f2aee29a7195b19813ca0d7ef4418d587e29861f0849f56b2ccae17",
     "lesson": "lesson-philippine-constitution-bill-of-rights-replacement-penalties-and-parole"
   },
   "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0006": {
@@ -1028,7 +1028,7 @@
   "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0013": {
     "approvedAt": "2026-11-14",
     "evidence": "docs/content/verification/philippine-constitution.md",
-    "hash": "19f9a673f40b2aad08ffdff1e27b7d876606678d2669c818b894cb7f2b01019b",
+    "hash": "9cdf603e68a53becba882d226c6d6a13dee392c502bb18dded2f18754dec926d",
     "lesson": "lesson-philippine-constitution-bill-of-rights-requested-dismissals-and-acquittals"
   },
   "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0014": {
@@ -1076,7 +1076,7 @@
   "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0001": {
     "approvedAt": "2026-11-14",
     "evidence": "docs/content/verification/philippine-constitution.md",
-    "hash": "3b480ad519cdc848d6583d7292ac34f227355def7290d62439c8dfec1c901f72",
+    "hash": "e1c331fea31249926f6c6ff961202636d3a8826128335daebfec96fca35f9beb",
     "lesson": "lesson-philippine-constitution-speedy-disposition-of-cases"
   },
   "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0002": {
@@ -1268,13 +1268,13 @@
   "q-philippine-constitution-citizenship-and-suffrage-0017": {
     "approvedAt": "2026-11-14",
     "evidence": "docs/content/verification/philippine-constitution.md",
-    "hash": "fd9c7cda62843e378c4f8d5310acebc410685cb46d99677c745de456a5096d0f",
+    "hash": "6fe8d9c4eb12269c4647c7bed3ae91c9c09d375a3973886ddccf7680a70dd263",
     "lesson": "lesson-philippine-constitution-ballot-protection-and-overseas-voting"
   },
   "q-philippine-constitution-citizenship-and-suffrage-0018": {
     "approvedAt": "2026-11-14",
     "evidence": "docs/content/verification/philippine-constitution.md",
-    "hash": "a2012e3142896228980fccb94ef295bbae52bf17ebef7d1b81518e5705e54c1c",
+    "hash": "51e6b33a1370c4c1f4c0d2bef6feb022bf0f5c0395f4cb65371cf7ddb13f35f3",
     "lesson": "lesson-philippine-constitution-keeping-and-regaining-citizenship"
   },
   "q-philippine-constitution-citizenship-and-suffrage-0019": {
@@ -1550,7 +1550,7 @@
   "q-philippine-constitution-the-civil-service-commission-0020": {
     "approvedAt": "2026-11-14",
     "evidence": "docs/content/verification/philippine-constitution.md",
-    "hash": "ff84c3347ec7a84c6ba8aa835f4b292806b6bf32fe7ce49844fe7d8e2d7ac2ed",
+    "hash": "0c1bd7f83c27df93c6fe5da6c637d5341195fc0a27409489ba46f0274b3c6365",
     "lesson": "lesson-philippine-constitution-csc-personnel-and-career-service"
   },
   "q-philippine-constitution-the-civil-service-commission-0021": {
@@ -1646,7 +1646,7 @@
   "q-philippine-constitution-the-three-branches-and-their-powers-0009": {
     "approvedAt": "2026-11-14",
     "evidence": "docs/content/verification/philippine-constitution.md",
-    "hash": "aa2bae86534774f15f49a2b2bb9dbe153335fb8899c951dbd69a53b3fd2cd631",
+    "hash": "ebdec7edf18ac3b91611b6e1a683b0c6e4db1d553bbb725555bccc40f44f681f",
     "lesson": "lesson-philippine-constitution-courts-and-judicial-review"
   },
   "q-philippine-constitution-the-three-branches-and-their-powers-0010": {
@@ -1712,7 +1712,7 @@
   "q-philippine-constitution-the-three-branches-and-their-powers-0020": {
     "approvedAt": "2026-11-14",
     "evidence": "docs/content/verification/philippine-constitution.md",
-    "hash": "c98034962d62a814fc8ea218b56b896238263cf001142a0393c79fd82092fbce",
+    "hash": "3a125f433bb10f6cc9b2808a7a3b846a687f967931abc6bd5ee87c7706907b5d",
     "lesson": "lesson-philippine-constitution-congress-bills-budget-and-inquiries"
   },
   "q-philippine-constitution-the-three-branches-and-their-powers-0021": {
