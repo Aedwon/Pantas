@@ -160,7 +160,7 @@ rest of the pool. Return `shown = min(size, pool)`; expose it for the UI.
 
 ### T10. UI, after the mockup ruling (Sonnet 5.5, 3 h)
 
-Blocked until the Claude Design board "Bite-sized Lesson Labels"
+Ruled Nov 14 (launch log, "Bite-sized label board ruling"): Option 1 everywhere, topic-end card untouched, chevrons untouched, undrawn surfaces get label changes only, pull-up kept. Build 1:1 to that ruling and the board's Option 1 frames. Board: "Bite-sized Lesson Labels"
 (https://claude.ai/artifact/Ub27VuHxHfeKrsRXgVfLuo) has a Fable ruling relayed by the manager. The
 board offers row layouts 1 to 3 (label as a second line; second line on phone and trailing on wide
 web; parts grouped under the original lesson) and ending options A ("6 lessons left") and B (no
