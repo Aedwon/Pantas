@@ -271,3 +271,10 @@ the current decision log.
   selections.
 - Why: no step compared wide web motion with the phone. Screens were judged still.
 - Fix: written rule 1. Whether motion is right is a judgment a check cannot make.
+
+### Nov 14, 2026: a headless browser asked Aedwon for his keychain
+
+- His exact words: not recorded (the manager relayed that a "Chromium Safe Storage" keychain prompt appeared at 3:56 PM Manila and he had to deal with it).
+- Wrong: the DS4 lead's staging update proof launched Chromium on the shared Mac without keychain flags, so macOS asked Aedwon to unlock the keychain.
+- Why: no rule covered browser launch flags on the Mac; scripts used Playwright's defaults.
+- Fix: every automated Chromium or Chrome launch passes `--use-mock-keychain` and `--password-store=basic` (journeys, staging proofs, captures, any headless browser). Added to the lead's scratch scripts and the worker's proof scripts.
