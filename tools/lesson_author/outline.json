@@ -15,6 +15,21 @@
               "sections": []
             },
             {
+              "title": "Operation Priority and Left to Right",
+              "slug": "operation-priority-and-left-to-right",
+              "sections": []
+            },
+            {
+              "title": "Signed Integers and Substitution",
+              "slug": "signed-integers-and-substitution",
+              "sections": []
+            },
+            {
+              "title": "Grouping and Fraction Bars",
+              "slug": "grouping-and-fraction-bars",
+              "sections": []
+            },
+            {
               "title": "Real and Imaginary Number Systems",
               "slug": "real-imaginary-numbers",
               "sections": []
@@ -35,6 +50,36 @@
               "sections": []
             },
             {
+              "title": "Decimal and Percent Conversions",
+              "slug": "decimal-and-percent-conversions",
+              "sections": []
+            },
+            {
+              "title": "Fractions and Mixed Forms",
+              "slug": "fractions-and-mixed-forms",
+              "sections": []
+            },
+            {
+              "title": "Adding and Multiplying Fractions",
+              "slug": "adding-and-multiplying-fractions",
+              "sections": []
+            },
+            {
+              "title": "Multiplying and Dividing Decimals",
+              "slug": "multiplying-and-dividing-decimals",
+              "sections": []
+            },
+            {
+              "title": "Percentage Base and Fraction Division",
+              "slug": "percentage-base-and-fraction-division",
+              "sections": []
+            },
+            {
+              "title": "Successive Percentages and Increases",
+              "slug": "successive-percentages-and-increases",
+              "sections": []
+            },
+            {
               "title": "Ratio and Proportion (Direct, Inverse, Partitive)",
               "slug": "ratio-and-proportion",
               "sections": []
@@ -47,6 +92,51 @@
             {
               "title": "Sequences and Series (Arithmetic, Geometric, Fibonacci, Harmonic)",
               "slug": "sequences-and-series",
+              "sections": []
+            },
+            {
+              "title": "Finding Number Patterns",
+              "slug": "finding-number-patterns",
+              "sections": []
+            },
+            {
+              "title": "Odd- and Even-Position Patterns",
+              "slug": "odd-and-even-position-patterns",
+              "sections": []
+            },
+            {
+              "title": "Arithmetic Sequence Terms",
+              "slug": "arithmetic-sequence-terms",
+              "sections": []
+            },
+            {
+              "title": "Arithmetic Series Sums",
+              "slug": "arithmetic-series-sums",
+              "sections": []
+            },
+            {
+              "title": "Geometric Sequence Terms",
+              "slug": "geometric-sequence-terms",
+              "sections": []
+            },
+            {
+              "title": "Finite Geometric Series",
+              "slug": "finite-geometric-series",
+              "sections": []
+            },
+            {
+              "title": "Infinite Geometric Series",
+              "slug": "infinite-geometric-series",
+              "sections": []
+            },
+            {
+              "title": "Harmonic Sequence Terms",
+              "slug": "harmonic-sequence-terms",
+              "sections": []
+            },
+            {
+              "title": "Fibonacci-Type Sequence Terms",
+              "slug": "fibonacci-type-sequence-terms",
               "sections": []
             },
             {

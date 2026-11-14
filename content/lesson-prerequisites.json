@@ -5,12 +5,12 @@
  "lessons": {
   "lesson-algebra-algebraic-expressions": [
    {
-    "lesson": "lesson-arithmetic-number-sense-order-of-operations",
+    "lesson": "lesson-arithmetic-number-sense-grouping-and-fraction-bars",
     "strength": "helpful",
     "reason": "Signed-number practice makes substitution easier. This lesson repeats the evaluation order and explains negative-base parentheses."
    },
    {
-    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
     "strength": "helpful",
     "reason": "Fraction arithmetic helps with the final symbolic example, which shows the needed denominator conversion locally."
    }
@@ -55,21 +55,19 @@
     "reason": "Equation-solving practice reduces the work after translation. This lesson shows the needed solving steps in its examples."
    },
    {
-    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
     "strength": "required",
     "reason": "The work example assumes common-denominator addition and division by a fraction without teaching those arithmetic rules."
    }
   ],
   "lesson-arithmetic-number-sense-business-math": [
    {
-    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
     "strength": "required",
     "reason": "Retained from the earlier audit. Business examples assume percentage-to-decimal conversion and decimal multiplication without teaching their methods."
    }
   ],
   "lesson-arithmetic-number-sense-divisibility-rules": [],
-  "lesson-arithmetic-number-sense-fractions-decimals-percentages": [],
-  "lesson-arithmetic-number-sense-order-of-operations": [],
   "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm": [
    {
     "lesson": "lesson-arithmetic-number-sense-divisibility-rules",
@@ -79,40 +77,28 @@
   ],
   "lesson-arithmetic-number-sense-properties-of-real-numbers": [
    {
-    "lesson": "lesson-arithmetic-number-sense-order-of-operations",
+    "lesson": "lesson-arithmetic-number-sense-grouping-and-fraction-bars",
     "strength": "helpful",
     "reason": "Signed arithmetic practice makes combining coefficients and distributing negative factors easier. This lesson supplies the algebra rules."
    }
   ],
   "lesson-arithmetic-number-sense-ratio-and-proportion": [
    {
-    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
     "strength": "helpful",
     "reason": "Fraction fluency helps with ratio notation and fractional answers. This lesson teaches the proportion methods it uses."
    }
   ],
   "lesson-arithmetic-number-sense-real-imaginary-numbers": [
    {
-    "lesson": "lesson-arithmetic-number-sense-order-of-operations",
+    "lesson": "lesson-arithmetic-number-sense-grouping-and-fraction-bars",
     "strength": "helpful",
     "reason": "Signed arithmetic makes complex-number multiplication easier. This lesson teaches distribution, collecting terms, and replacing i squared locally."
    }
   ],
-  "lesson-arithmetic-number-sense-sequences-and-series": [
-   {
-    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
-    "strength": "required",
-    "reason": "The infinite-series example assumes fraction subtraction and reciprocal division without explaining those rules."
-   },
-   {
-    "lesson": "lesson-arithmetic-number-sense-order-of-operations",
-    "strength": "helpful",
-    "reason": "Formula evaluation benefits from powers and signed-arithmetic practice. The earlier required exponent-laws link is unnecessary for the examples used."
-   }
-  ],
   "lesson-biology-ecology": [
    {
-    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
     "strength": "helpful",
     "reason": "Percentage multiplication helps with energy transfers. Ecology supplies the 0.10 multiplier and worked steps, so it stands alone."
    },
@@ -279,14 +265,14 @@
   "lesson-spatial-abstract-reasoning-paper-folding-and-cutting": [],
   "lesson-statistics-and-probability-basic-probability": [
    {
-    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
     "strength": "required",
     "reason": "Combined-event calculations require fraction multiplication, simplification, and subtraction. This lesson teaches probability rules but assumes those arithmetic methods."
    }
   ],
   "lesson-statistics-and-probability-data-analysis-graphs": [
    {
-    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
     "strength": "helpful",
     "reason": "Percentage conversion and fraction multiplication practice make pie-chart calculations easier. This lesson gives the share formulas and demonstrates their use."
    },
@@ -318,7 +304,7 @@
   ],
   "lesson-text-types-visual-media": [
    {
-    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
     "strength": "helpful",
     "reason": "The numerical examples require fraction simplification, fraction multiplication, and conversion to decimals. This lesson supplies formulas but does not teach those operations. Lead review: downgraded from required; the arithmetic is incidental to this lesson's teaching."
    },
@@ -393,7 +379,7 @@
   ],
   "lesson-data-interpretation-percentage-change": [
    {
-    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
     "strength": "helpful",
     "reason": "Conversion and percentage-base practice make the calculations easier. This lesson explains its comparison formulas and demonstrates conversion."
    }
@@ -492,7 +478,7 @@
   ],
   "lesson-philippine-constitution-amendment-or-revision": [
    {
-    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
     "strength": "helpful",
     "reason": "The worked examples assume fraction multiplication and percentage-to-decimal conversion. This lesson does not teach those operations. Lead review: downgraded from required; the arithmetic is incidental to this lesson's teaching."
    }
@@ -640,7 +626,7 @@
   ],
   "lesson-philippine-constitution-branches-and-checks": [
    {
-    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
     "strength": "helpful",
     "reason": "The voting-threshold examples assume students can multiply a whole number by a fraction. This lesson identifies the calculation but does not teach fraction arithmetic. Lead review: downgraded from required; the arithmetic is incidental to this lesson's teaching."
    },
@@ -1381,6 +1367,125 @@
   "lesson-environment-management-choosing-environmental-options": [
    {
     "lesson": "lesson-environment-management-protected-area-management",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-decimal-and-percent-conversions": [],
+  "lesson-arithmetic-number-sense-fractions-and-mixed-forms": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-decimal-and-percent-conversions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-adding-and-multiplying-fractions": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-fractions-and-mixed-forms",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-multiplying-and-dividing-decimals": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-adding-and-multiplying-fractions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-percentage-base-and-fraction-division": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-multiplying-and-dividing-decimals",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-successive-percentages-and-increases": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-percentage-base-and-fraction-division",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-finding-number-patterns": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
+    "strength": "required",
+    "reason": "The infinite-series example assumes fraction subtraction and reciprocal division without explaining those rules."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-grouping-and-fraction-bars",
+    "strength": "helpful",
+    "reason": "Formula evaluation benefits from powers and signed-arithmetic practice. The earlier required exponent-laws link is unnecessary for the examples used."
+   }
+  ],
+  "lesson-arithmetic-number-sense-odd-and-even-position-patterns": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-finding-number-patterns",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-arithmetic-sequence-terms": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-odd-and-even-position-patterns",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-arithmetic-series-sums": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-arithmetic-sequence-terms",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-geometric-sequence-terms": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-arithmetic-series-sums",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-finite-geometric-series": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-geometric-sequence-terms",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-infinite-geometric-series": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-finite-geometric-series",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-harmonic-sequence-terms": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-infinite-geometric-series",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-fibonacci-type-sequence-terms": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-harmonic-sequence-terms",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-operation-priority-and-left-to-right": [],
+  "lesson-arithmetic-number-sense-signed-integers-and-substitution": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-operation-priority-and-left-to-right",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-grouping-and-fraction-bars": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-signed-integers-and-substitution",
     "strength": "required",
     "reason": "Read the previous part first."
    }
