@@ -245,10 +245,11 @@ test('screens: every id of the closed set is accepted, anything else is refused'
   }
 });
 
-test('screens: at most 80 entries', () => {
+test('screens: at most 80 entries, each screen once', () => {
   const entry = (i) => ({s: SCREEN_IDS[i % SCREEN_IDS.length], first: false, last: false, n: 1});
-  accepts(withScreens(Array.from({length: 80}, (_, i) => entry(i))));
+  accepts(withScreens(SCREEN_IDS.map((_, i) => entry(i))));
   refuses(withScreens(Array.from({length: 81}, (_, i) => entry(i))));
+  refuses(withScreens([entry(0), entry(0)]));
   refuses(withScreens('home'));
   refuses(withScreens(null));
 });

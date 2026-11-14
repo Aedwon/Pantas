@@ -125,6 +125,7 @@ function validateScreens(value: unknown): ClientScreen[] {
     if (typeof item.last !== 'boolean') bad('screen last');
     return {s, first: item.first as boolean, last: item.last as boolean, n: integer(item.n, 'screen count', 1, MAX_COUNT)};
   });
+  if (new Set(screens.map(item => item.s)).size !== screens.length) bad('a screen appears twice');
   if (screens.filter(item => item.first).length > 1) bad('more than one first screen');
   if (screens.filter(item => item.last).length > 1) bad('more than one last screen');
   return screens;
