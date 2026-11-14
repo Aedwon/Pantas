@@ -101,9 +101,14 @@ export async function runOrphanAnonCleanup(deps: OrphanAnonDeps): Promise<{scann
   return { scanned, deleted, finished };
 }
 
+/** The task body, for the combined daily job and the manual runner. */
+export async function runCleanupOrphanAnons(): Promise<{scanned: number; deleted: number; finished: boolean}> {
+  return runOrphanAnonCleanup({ auth: getAuth(), db: getFirestore() });
+}
+
 export const cleanupOrphanAnons = onSchedule(
   { schedule: 'every day 03:00', timeZone: 'Asia/Singapore', region: 'asia-southeast1', timeoutSeconds: 540 },
   async () => {
-    await runOrphanAnonCleanup({ auth: getAuth(), db: getFirestore() });
+    await runCleanupOrphanAnons();
   },
 );

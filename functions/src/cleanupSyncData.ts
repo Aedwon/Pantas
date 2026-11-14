@@ -176,6 +176,14 @@ async function cleanupStaleGenerations(now: Date): Promise<void> {
   }
 }
 
+/** The task body, for the combined daily job and the manual runner. */
+export async function runCleanupSyncData(): Promise<void> {
+  const now = new Date();
+
+  await cleanupTombstones(now);
+  await cleanupStaleGenerations(now);
+}
+
 export const cleanupSyncData = onSchedule(
   {
     schedule: 'every day 04:00',
@@ -183,9 +191,6 @@ export const cleanupSyncData = onSchedule(
     region: 'asia-southeast1',
   },
   async () => {
-    const now = new Date();
-
-    await cleanupTombstones(now);
-    await cleanupStaleGenerations(now);
+    await runCleanupSyncData();
   },
 );

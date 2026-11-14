@@ -36,7 +36,12 @@ export async function warmCallables(
   if (failedTargets.length) logger.warn('keepCallablesWarm: preflights failed', { failedTargets });
 }
 
+/** The whole warm-up task, for the combined five-minute job and the manual runner. */
+export async function runKeepCallablesWarm(): Promise<void> {
+  await warmCallables(warmupEnabled.value(), process.env.GCLOUD_PROJECT);
+}
+
 export const keepCallablesWarm = onSchedule(
   { schedule: 'every 5 minutes', region: 'asia-southeast1' },
-  async () => warmCallables(warmupEnabled.value(), process.env.GCLOUD_PROJECT),
+  async () => runKeepCallablesWarm(),
 );

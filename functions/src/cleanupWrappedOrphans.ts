@@ -80,9 +80,14 @@ export async function runWrappedCleanup(deps: WrappedCleanupDeps): Promise<{scan
   return { scanned, deleted, finished };
 }
 
+/** The task body, for the combined daily job and the manual runner. */
+export async function runCleanupWrappedOrphans(): Promise<{scanned: number; deleted: number; finished: boolean}> {
+  return runWrappedCleanup({ db: getFirestore(), bucket: getStorage().bucket() });
+}
+
 export const cleanupWrappedOrphans = onSchedule(
   { schedule: 'every day 04:15', timeZone: 'Asia/Singapore', region: 'asia-southeast1', timeoutSeconds: 540 },
   async () => {
-    await runWrappedCleanup({ db: getFirestore(), bucket: getStorage().bucket() });
+    await runCleanupWrappedOrphans();
   },
 );

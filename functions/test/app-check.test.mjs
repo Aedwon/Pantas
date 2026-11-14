@@ -69,7 +69,7 @@ test('payment, trial, deletion, export and admin callables consume the token and
 });
 
 test('webhooks and public pages do not use App Check and keep their own checks', () => {
-  assert.deepEqual(httpFunctions.map((f) => f.name).sort(), ['paymongoWebhook', 'renderWrappedPage', 'revenuecatWebhook']);
+  assert.deepEqual(httpFunctions.map((f) => f.name).sort(), ['paymongoWebhook', 'renderWrappedPage', 'revenuecatWebhook', 'runScheduledTask']);
   for (const { name, options } of httpFunctions) {
     assert.doesNotMatch(options, /AppCheck/, `${name} is called by a third party or a browser page`);
   }
@@ -77,6 +77,9 @@ test('webhooks and public pages do not use App Check and keep their own checks',
   assert.match(paymongo, /signature/i);
   const revenuecat = sources.find(([f]) => f === 'revenuecatWebhook.ts')[1];
   assert.match(revenuecat, /authorization|signature|secret/i);
+  // The manual runner is private: only callers with the Cloud Run invoker role reach it.
+  const runner = sources.find(([f]) => f === 'scheduledJobs.ts')[1];
+  assert.match(runner, /runScheduledTask = onRequest\(\s*\{[^}]*invoker: 'private'/);
 });
 
 test('each callable rejects a request that carries no App Check token', async () => {

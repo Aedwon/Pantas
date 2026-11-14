@@ -342,10 +342,12 @@ export async function runDailyPass(deps: InactivityDeps): Promise<void> {
   }
 }
 
-export const purgeInactiveAccounts = onSchedule(
-  {schedule: 'every day 04:00', timeZone: 'Asia/Singapore', region: 'asia-southeast1', timeoutSeconds: 540,
-    secrets: [guardianMailKey, trialIdentityKey]},
-  async () => runDailyPass({
+/** The secrets this task reads. Any function that runs it must declare them. */
+export const purgeInactiveSecrets = [guardianMailKey, trialIdentityKey];
+
+/** The task body, for the combined daily job and the manual runner. Never run two at once: it sends warning emails. */
+export async function runPurgeInactiveAccounts(): Promise<void> {
+  await runDailyPass({
     db: getFirestore(),
     auth: getAuth(),
     // Built on first send, so a missing mail setting fails the warning and nothing else.
@@ -353,5 +355,11 @@ export const purgeInactiveAccounts = onSchedule(
       {apiKey: () => guardianMailKey.value(), from: () => guardianMailFrom.value()}).send(message)},
     linkOrigin: process.env.FUNCTIONS_EMULATOR === 'true'
       ? (process.env.GUARDIAN_LINK_ORIGIN || 'http://localhost:7357') : guardianLinkOrigin.value(),
-  }),
+  });
+}
+
+export const purgeInactiveAccounts = onSchedule(
+  {schedule: 'every day 04:00', timeZone: 'Asia/Singapore', region: 'asia-southeast1', timeoutSeconds: 540,
+    secrets: purgeInactiveSecrets},
+  async () => runPurgeInactiveAccounts(),
 );
