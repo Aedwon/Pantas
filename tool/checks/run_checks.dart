@@ -9,6 +9,7 @@ import 'dart:io';
 
 import 'bold_stem.dart';
 import 'check.dart';
+import 'content_approval_check.dart';
 import 'custom_subject_tiers.dart';
 import 'design_token_literals.dart';
 import 'legal_text_drafting.dart';
@@ -19,6 +20,7 @@ import 'shell_route_push.dart';
 import 'sync_mutations_typed_read.dart';
 
 const allChecks = <Check>[
+  ContentApprovalCheck(),
   ShellRoutePushCheck(),
   SyncMutationsTypedReadCheck(),
   MockBlueprintTopicsCheck(),
