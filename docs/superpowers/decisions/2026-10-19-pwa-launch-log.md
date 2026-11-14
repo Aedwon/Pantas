@@ -3572,3 +3572,12 @@ Fable 5.2 ruled under Aedwon's standing delegation:
 - **Alarm price risk:** the lead checks the Cloud Billing catalog for an alerting SKU monthly.
 - **BigQuery billing export:** optional; the manager mentions it to Aedwon.
 - Order: 1a and 1b as one branch, tests first, after tonight's Cloudflare cutover; handed to the integrator through the manager; one worker at a time.
+
+### Nov 14, phone reader bar keyboard and hover fix shipped to prod (DS4 lead)
+
+- Authority: the manager ("ship web/reader-bar-a11y"); design decision D196, recorded in the design system changelog (4.1.2) on main with this merge. It had to ship before the next prod release after the goldens lock.
+- What shipped: web/reader-bar-a11y (36b8ab1ad), main 87a26e182; main CI passed (goldens included). Web only.
+- Staging (build 572618547-7946e5c2601c on Firebase and the Worker; fresh account, short-lived debug token, since deleted): on the phone reader, three Tab presses put the focus ring on back ("Study"), then contents, then bookmark, in that order (screenshots).
+- Prod: no ERROR entries in the hour before. Build 2110505981-d5f09d54a080 deployed at 16:26 UTC on app.pantas.study and pantas-prod.web.app; main.dart.js and flutter_bootstrap.js byte-identical to the build; no ERROR entries after. Rollback version sites/pantas-prod/versions/98219b8b06bd8819 (not needed).
+- Velocity E-074: see the row (timer).
+
