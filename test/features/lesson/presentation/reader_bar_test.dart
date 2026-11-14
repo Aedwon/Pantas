@@ -3,12 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/contents_glyph.dart';
+import 'package:pantas/core/ui/components/pantas_tap_area.dart';
+import 'package:pantas/core/ui/motion/press_scale.dart';
 import 'package:pantas/core/ui/theme/theme_names.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_opacity.dart';
+import 'package:pantas/core/ui/web/web_keyboard_focus.dart';
 import 'package:pantas/features/home/domain/lesson_day_context.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_bar.dart';
 
+import '../../../helpers/hover_shape.dart';
 import '../../../helpers/pump_app.dart';
 
 void main() {
@@ -261,7 +265,9 @@ void main() {
     final gesture = tester.widget<GestureDetector>(
       find.descendant(
         of: find.byKey(const ValueKey('reader-bookmark-control')),
-        matching: find.byType(GestureDetector),
+        matching: find.byWidgetPredicate(
+          (w) => w is GestureDetector && w.onTapCancel != null,
+        ),
       ),
     );
     final cancel = gesture.onTapCancel!;
@@ -512,6 +518,181 @@ void main() {
 
     await tester.tap(find.byKey(const ValueKey('reader-bookmark-control')));
     expect(toggled, isTrue);
+  });
+
+  group('phone reader contents and bookmark are system controls', () {
+    final contents = find.byType(ContentsGlyph);
+    final bookmark = find.byKey(const ValueKey('reader-bookmark-control'));
+    Finder areaOf(Finder inner) => inner == bookmark
+        ? find.descendant(of: inner, matching: find.byType(PantasTapArea))
+        : find.ancestor(of: inner, matching: find.byType(PantasTapArea));
+
+    Future<void> tab(WidgetTester tester) async {
+      await tester.sendKeyEvent(LogicalKeyboardKey.tab);
+      await tester.pump();
+    }
+
+    bool focusIn(WidgetTester tester, Finder area) {
+      final focused = FocusManager.instance.primaryFocus?.context
+          ?.findAncestorWidgetOfExactType<PantasTapArea>();
+      return focused != null && area.evaluate().any((e) => e.widget == focused);
+    }
+
+    testWidgets('Tab reaches back, then contents, then bookmark',
+        (tester) async {
+      await pumpBar(tester);
+      await tab(tester);
+      expect(focusIn(tester, areaOf(find.text('Study'))), isTrue);
+      await tab(tester);
+      expect(focusIn(tester, areaOf(contents)), isTrue);
+      await tab(tester);
+      expect(focusIn(tester, areaOf(bookmark)), isTrue);
+    });
+
+    testWidgets('each shows the system focus ring when focused',
+        (tester) async {
+      resetWebKeyboardFocus();
+      await pumpBar(tester);
+      await tab(tester);
+      await tab(tester);
+      expect(find.byKey(const ValueKey('focus-ring')), findsOneWidget);
+      expect(
+        tester.getRect(find.byKey(const ValueKey('focus-ring'))).overlaps(
+              tester.getRect(contents),
+            ),
+        isTrue,
+      );
+      await tab(tester);
+      expect(find.byKey(const ValueKey('focus-ring')), findsOneWidget);
+      expect(
+        tester.getRect(find.byKey(const ValueKey('focus-ring'))).overlaps(
+              tester.getRect(bookmark),
+            ),
+        isTrue,
+      );
+    });
+
+    for (final key in [LogicalKeyboardKey.enter, LogicalKeyboardKey.space]) {
+      testWidgets('${key.debugName} activates contents and bookmark',
+          (tester) async {
+        var opened = 0;
+        var toggled = 0;
+        await pumpBar(
+          tester,
+          onContents: () => opened++,
+          onBookmark: () => toggled++,
+        );
+        await tab(tester);
+        await tab(tester);
+        await tester.sendKeyEvent(key);
+        await tester.pump();
+        expect([opened, toggled], [1, 0]);
+        await tab(tester);
+        await tester.sendKeyEvent(key);
+        await tester.pump();
+        expect([opened, toggled], [1, 1]);
+      });
+    }
+
+    testWidgets('hover washes contents and bookmark as a rounded rectangle',
+        (tester) async {
+      await pumpBar(tester);
+      final mouse = await tester.createGesture(kind: PointerDeviceKind.mouse);
+      addTearDown(mouse.removePointer);
+      await mouse.addPointer(location: Offset.zero);
+      for (final target in [contents, bookmark]) {
+        await mouse.moveTo(tester.getCenter(target));
+        await tester.pumpAndSettle();
+        expectRoundedWash(tester, areaOf(target));
+        final wash = tester.widget<DecoratedBox>(
+          find.descendant(
+            of: areaOf(target),
+            matching: find.byWidgetPredicate(
+              (w) =>
+                  w is DecoratedBox &&
+                  w.position == DecorationPosition.foreground,
+            ),
+          ),
+        );
+        // IconButton README: the wash is the icon's color at opacity-hover.
+        expect(
+          (wash.decoration as BoxDecoration).color,
+          PantasColors.light.iconMuted.withValues(
+            alpha: PantasOpacity.hover,
+          ),
+        );
+      }
+    });
+
+    testWidgets('a bookmarked lesson washes the bookmark in accent',
+        (tester) async {
+      await pumpBar(tester, isBookmarked: true);
+      final mouse = await tester.createGesture(kind: PointerDeviceKind.mouse);
+      addTearDown(mouse.removePointer);
+      await mouse.addPointer(location: Offset.zero);
+      await mouse.moveTo(tester.getCenter(bookmark));
+      await tester.pumpAndSettle();
+      final wash = tester.widget<DecoratedBox>(
+        find.descendant(
+          of: areaOf(bookmark),
+          matching: find.byWidgetPredicate(
+            (w) =>
+                w is DecoratedBox &&
+                w.position == DecorationPosition.foreground,
+          ),
+        ),
+      );
+      expect(
+        (wash.decoration as BoxDecoration).color,
+        PantasColors.light.accent.withValues(alpha: PantasOpacity.hover),
+      );
+    });
+
+    testWidgets('pressing scales each control', (tester) async {
+      await pumpBar(tester);
+      for (final target in [contents, bookmark]) {
+        final scale = find.descendant(
+          of: areaOf(target),
+          matching: find.byType(PressScale),
+        );
+        final down = await tester.startGesture(tester.getCenter(target));
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 200));
+        final shrunk = tester
+            .widget<Transform>(
+              find
+                  .descendant(of: scale, matching: find.byType(Transform))
+                  .first,
+            )
+            .transform
+            .storage[0];
+        expect(shrunk, lessThan(1));
+        await down.up();
+        await tester.pumpAndSettle();
+      }
+    });
+
+    testWidgets('the 44 hit area holds and a tap at its corner lands',
+        (tester) async {
+      var opened = 0;
+      var toggled = 0;
+      await pumpBar(
+        tester,
+        onContents: () => opened++,
+        onBookmark: () => toggled++,
+      );
+      for (final target in [contents, bookmark]) {
+        final box = tester.getRect(areaOf(target));
+        expect(box.width, greaterThanOrEqualTo(44));
+        expect(box.height, greaterThanOrEqualTo(44));
+      }
+      await tester
+          .tapAt(tester.getRect(areaOf(contents)).topLeft + const Offset(2, 2));
+      await tester.tapAt(
+        tester.getRect(areaOf(bookmark)).bottomRight - const Offset(2, 2),
+      );
+      expect([opened, toggled], [1, 1]);
+    });
   });
 
   testWidgets('the contents action is labeled and at least 44dp',

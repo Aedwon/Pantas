@@ -38,6 +38,9 @@ Deprecated names stay until the next major version, then go (one rule, used in `
 
 ## Changelog
 
+### 4.1.2 (Nov 14, 2026), patch
+- Fixed (D196): the phone ReaderTopBar README adds the bookmark button (an IconButton with its off and on looks) and the keyboard order "Tab: back, contents, bookmark". The app now gives contents and bookmark the IconButton hover, pressed and focus states. No token or class added or removed.
+
 ### 4.1.1 (Nov 10, 2026), patch
 - Fixed (D195): DataTable row headers in `tbody` took the column-heading style; the header style is now scoped to `thead th`. `validate.py` checks it. No token or class added or removed.
 

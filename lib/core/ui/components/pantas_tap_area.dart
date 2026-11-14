@@ -17,6 +17,7 @@ class PantasTapArea extends StatelessWidget {
     this.borderRadius = BorderRadius.zero,
     this.wash = true,
     this.focusRing = true,
+    this.washColor,
     super.key,
   });
 
@@ -32,12 +33,16 @@ class PantasTapArea extends StatelessWidget {
   /// False when a parent draws the ring (a row inside a clipped card).
   final bool focusRing;
 
+  /// The color the hover wash is made from, at `opacity-hover`. An icon
+  /// button washes in its icon's color (IconButton README); null uses
+  /// `text-primary`.
+  final Color? washColor;
+
   @override
   Widget build(BuildContext context) {
     final enabled = onTap != null;
-    final washColor = context.colors.textPrimary.withValues(
-      alpha: PantasOpacity.hover,
-    );
+    final washColor = (this.washColor ?? context.colors.textPrimary)
+        .withValues(alpha: PantasOpacity.hover);
     return MergeSemantics(
       child: Semantics(
         button: true,

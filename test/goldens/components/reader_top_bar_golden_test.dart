@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pantas/core/ui/components/contents_glyph.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_bar.dart';
 
 import '../golden_harness.dart';
@@ -9,11 +10,15 @@ import '../golden_harness.dart';
 /// leaves by 120 (ReaderTopBar README).
 const _titled = 90.0;
 
-Widget _bar(double offset, {ReaderOrigin origin = ReaderOrigin.study}) =>
+Widget _bar(
+  double offset, {
+  ReaderOrigin origin = ReaderOrigin.study,
+  bool bookmarked = false,
+}) =>
     ReaderBar(
       title: 'Adding fractions',
       origin: origin,
-      isBookmarked: false,
+      isBookmarked: bookmarked,
       onBookmark: () {},
       onContents: () {},
       scrollOffset: ValueNotifier<double>(offset),
@@ -64,6 +69,62 @@ void main() {
         'Focus',
         (_) => _routed(_bar(0)),
         action: GoldenAction.focus,
+        width: 390,
+      ),
+      GoldenState(
+        'Contents hover',
+        (_) => _routed(_bar(0)),
+        action: GoldenAction.hover,
+        target: () => find.byType(ContentsGlyph),
+        width: 390,
+      ),
+      GoldenState(
+        'Contents pressed',
+        (_) => _routed(_bar(0)),
+        action: GoldenAction.pressed,
+        target: () => find.byType(ContentsGlyph),
+        width: 390,
+      ),
+      GoldenState(
+        'Contents focus',
+        (_) => _routed(_bar(0)),
+        action: GoldenAction.focus,
+        tabs: 2,
+        width: 390,
+      ),
+      GoldenState(
+        'Bookmark hover',
+        (_) => _routed(_bar(0)),
+        action: GoldenAction.hover,
+        target: () => find.byKey(const ValueKey('reader-bookmark-control')),
+        width: 390,
+      ),
+      GoldenState(
+        'Bookmark pressed',
+        (_) => _routed(_bar(0)),
+        action: GoldenAction.pressed,
+        target: () => find.byKey(const ValueKey('reader-bookmark-control')),
+        width: 390,
+      ),
+      GoldenState(
+        'Bookmark focus',
+        (_) => _routed(_bar(0)),
+        action: GoldenAction.focus,
+        tabs: 3,
+        width: 390,
+      ),
+      GoldenState(
+        'Bookmarked hover',
+        (_) => _routed(_bar(0, bookmarked: true)),
+        action: GoldenAction.hover,
+        target: () => find.byKey(const ValueKey('reader-bookmark-control')),
+        width: 390,
+      ),
+      GoldenState(
+        'Bookmarked focus',
+        (_) => _routed(_bar(0, bookmarked: true)),
+        action: GoldenAction.focus,
+        tabs: 3,
         width: 390,
       ),
     ],
