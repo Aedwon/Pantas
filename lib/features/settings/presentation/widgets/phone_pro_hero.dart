@@ -1,5 +1,4 @@
 import 'package:pantas/core/ui/ds.dart';
-import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
@@ -22,9 +21,6 @@ class PhoneProHero extends StatelessWidget {
   static const double _padX = 22;
   // ds-board: ST_ProPMA phone hero padding 26 by 22 (Card README)
   static const double _padY = 26;
-
-  // ds-board: ST_ProPMA eyebrow mark, 20px
-  static const double _markSize = 20;
 
   // ds-board: `.card--hero` gradient at 160deg, as an alignment pair
   static const Alignment _from = Alignment(-0.342, -0.94);
@@ -50,17 +46,6 @@ class PhoneProHero extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            children: [
-              Icon(PantasIcons.proSettings, color: c.pro, size: _markSize),
-              const SizedBox(width: PantasSpace.s8),
-              Text(
-                'PANTAS PRO',
-                style: context.type.sectionHeader.copyWith(color: c.onHero),
-              ),
-            ],
-          ),
-          const SizedBox(height: PantasSpace.s12),
           Text(
             heading,
             style: context.type.pageTitle.copyWith(color: c.onHero),

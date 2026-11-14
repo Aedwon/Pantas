@@ -1098,6 +1098,10 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
           ),
           const SizedBox(height: PantasSpace.s24),
         ] else if (!upgrade) ...[
+          // The eyebrow stays on the page: small text on the hero's light
+          // top misses 4.5:1 (Card README: body text in the lower 60%).
+          Text('PANTAS PRO', style: context.type.sectionHeader),
+          const SizedBox(height: PantasSpace.s12),
           // The teal hero (phone, `.card--hero`, D126).
           PhoneProHero(
             heading: owned
