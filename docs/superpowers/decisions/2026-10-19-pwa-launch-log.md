@@ -3689,3 +3689,9 @@ Estimate vs actual. The manager gave no estimate at the start; the first one cam
 
 Process lessons (also for process-improvement.md): give an overall estimate when a goal is set; leads' in-session timers die with the session, so durable T3 reminders back every timed step (the 18:07 cutover slipped 30 minutes without one); deploys use the pinned CLI only (guard merged); check right after scheduled events rather than on a fixed long interval.
 - Prod watch 06:31 to 07:03 UTC: no ERROR entries on any function, no failed code emails, no real use in the window. Rollback not needed. Velocity E-078: see the row (timer).
+
+### Nov 15, beta extension to Nov 22 (prepared, not shipped)
+
+- Aedwon, verbatim (relayed by the manager): "hmm, i am thinking of extending the beta to Nov 22, but those who have already completed at least 5 days can take the exit survey and are already done". Manager: prepare it; do not deploy to prod until his "ship it".
+- Ruling (Fable 5.2 under Aedwon's delegation, final): (1) survey close moves to Nov 24, 00:00 PHT, and survey copy reads "from Nov 15 to 23"; (2) beta Pro extends to the end of Nov 22 (cutoff Nov 23, 00:00 PHT) with existing grants backfilled, shipping before the Nov 16 cutoff; (3) day-count copy drops "of the 7": guide "Finish your whole Today plan on any 5 days from Nov 9 to 22.", app "Count 5 days from Nov 9 to 22 and send the exit survey"; (4) send one short email as well, saying anyone with 5 days can send the survey now and be done.
+
