@@ -447,7 +447,7 @@ questions:
           This secures the replacement before it is fitted. Reconnecting power sounds like a repair milestone. Check: fit the replacement before the step referring to it.
     explanation: |
       Disconnect power, remove the old cover, fit the new cover, and then secure it and reconnect power. Each later step names something supplied by an earlier one.
-    approved: false
+    approved: true
   - id: "q-language-application-paragraph-organization-0017"
     lesson: lesson-language-application-pagkakasunod-at-sanhi
     keyPoint: 1
@@ -474,7 +474,7 @@ questions:
           This refers to an agreed request before the agreement is stated. Both sentences concern the meeting. Check: place the agreement before the request based on it.
     explanation: |
       The residents complain, the captain arranges a meeting, the attendees agree on a request, and the request is then sent. The backward references connect those stages.
-    approved: false
+    approved: true
   - id: "q-language-application-paragraph-organization-0018"
     lesson: lesson-language-application-cause-and-effect-order
     keyPoint: 1
@@ -501,7 +501,7 @@ questions:
           This supplies the earlier event before the sentence directing the reader back to it. The earlier loss explains the relief. Check: follow the narrative's explicit backward shift.
     explanation: |
       The result is Nena's relief. The next sentence directs the reader to the earlier morning, when she feared the envelope was lost. The guard's return of it explains her relief.
-    approved: false
+    approved: true
   - id: "q-language-application-paragraph-organization-0019"
     lesson: lesson-language-application-transition-links
     keyPoint: 1
@@ -528,7 +528,7 @@ questions:
           This opens with "That higher cost" before either option or its cost is introduced. The budget concern supports the decision. Check: introduce the options and compare their costs before referring to the higher cost.
     explanation: |
       The two shelters are introduced, then their costs are compared. The higher cost is linked to the budget, and that reason supports the final selection.
-    approved: false
+    approved: true
   - id: "q-language-application-paragraph-organization-0020"
     lesson: lesson-language-application-openings-and-reference-links
     keyPoint: 1
@@ -556,8 +556,9 @@ questions:
           This reports "This second trial" before another trial is introduced. The failed first test is already described. Check: introduce the switch revision and another trial before reporting its success.
     explanation: |
       The false alerts appear first and prompt a revised trial. The next sentence describes the revised switch response. That comparison supports the successful result and the final explanation.
-    approved: false
+    approved: true
   - id: q-language-application-paragraph-organization-0021
+    approved: true
     lesson: lesson-language-application-main-ideas-and-details
     keyPoint: 1
     type: sentence-ordering
@@ -581,6 +582,7 @@ questions:
     explanation: |
       The writer asks the office to retain telephone service. The details explain who needs that option and how it helps them.
   - id: q-language-application-paragraph-organization-0022
+    approved: true
     lesson: lesson-language-application-main-ideas-and-details
     keyPoint: 1
     type: sentence-ordering
@@ -604,6 +606,7 @@ questions:
     explanation: |
       The report names placing forms within reach as a change. This supports the main point that the waiting area is easier to use.
   - id: q-language-application-paragraph-organization-0023
+    approved: true
     lesson: lesson-language-application-details-and-supported-inferences
     keyPoint: 1
     type: sentence-ordering
@@ -627,6 +630,7 @@ questions:
     explanation: |
       The notice says staff will collect the box contents when the counter reopens on Tuesday. That includes requests left there on Monday.
   - id: q-language-application-paragraph-organization-0024
+    approved: true
     lesson: lesson-language-application-details-and-supported-inferences
     keyPoint: 2
     type: sentence-ordering
@@ -650,6 +654,7 @@ questions:
     explanation: |
       Comparing the reference number and checking the recipient name both concern delivery details. These actions support the inference that she checked those details before release.
   - id: q-language-application-paragraph-organization-0025
+    approved: true
     lesson: lesson-language-application-pagkakasunod-at-sanhi
     keyPoint: 2
     type: sentence-ordering
@@ -671,6 +676,7 @@ questions:
     explanation: |
       Hindi mabasa ng tagapagtala ang listahan. Ito ang dahilan ng paghingi ng bagong kopya. Ipinapakilala ng kaya ang naging bunga.
   - id: q-language-application-paragraph-organization-0026
+    approved: true
     lesson: lesson-language-application-paksa-at-balangkas
     keyPoint: 1
     type: sentence-ordering
@@ -692,6 +698,7 @@ questions:
     explanation: |
       Tungkol ang talata sa gabay na ibinibigay ng malinaw na karatula. Ang pagkuha ng form, pagpasa nito, at paghahanap ng pila ay mga detalyeng sumusuporta rito.
   - id: q-language-application-paragraph-organization-0027
+    approved: true
     lesson: lesson-language-application-paksa-at-balangkas
     keyPoint: 2
     type: sentence-ordering

@@ -363,7 +363,7 @@ questions:
           This transfers the pattern from expressions such as "responsible for". Preservation is a responsibility. Check: use the phrase governed by the actual adjective.
     explanation: |
       The usual phrase is "interested in" followed by the subject of interest. Here that subject is preserving oral histories.
-    approved: false
+    approved: true
   - id: "q-language-application-sentence-completion-0017"
     lesson: lesson-language-application-completion-natural-phrases
     keyPoint: 1
@@ -385,7 +385,7 @@ questions:
           This transfers a verb used with meetings and reviews. The committee has conducted a review. Check: match the verb to the noun in the blank's phrase.
     explanation: |
       The usual expression is "make a decision." "Must" is followed by the base form "make."
-    approved: false
+    approved: true
   - id: "q-language-application-sentence-completion-0018"
     lesson: lesson-language-application-completion-past-time
     keyPoint: 1
@@ -407,7 +407,7 @@ questions:
           This uses a to-plus-verb phrase as the main verb. It can name a goal in another sentence. Check: check the form needed after the subject.
     explanation: |
       "Last Tuesday" and "returned" place both actions in the past. "Found" supplies the matching completed past action.
-    approved: false
+    approved: true
   - id: "q-language-application-sentence-completion-0019"
     lesson: lesson-language-application-completion-meaning-clues
     keyPoint: 2
@@ -429,7 +429,7 @@ questions:
           This makes the crew too unconcerned to heed the threat. The directions are correctly described as clear. Check: connect the second blank to delaying for the storm.
     explanation: |
       "Clear" describes directions that can be followed. "Apprehensive" means worried about what may happen, which fits delaying because of the approaching storm.
-    approved: false
+    approved: true
   - id: "q-language-application-sentence-completion-0020"
     lesson: lesson-language-application-completion-meaning-clues
     keyPoint: 2
@@ -451,8 +451,9 @@ questions:
           This fits speed but makes the fix impossible to reverse. A formal word can sound suitable for a contract. Check: match the second blank to a temporary replaceable repair.
     explanation: |
       "Expeditious" means prompt and efficient, fitting repair within the agreed hour. "Provisional" means temporary, fitting a fix that needs replacement.
-    approved: false
+    approved: true
   - id: q-language-application-sentence-completion-0021
+    approved: true
     lesson: lesson-language-application-completion-word-forms
     keyPoint: 2
     type: fill-in-the-blank
@@ -474,6 +475,7 @@ questions:
     explanation: |
       Assistants is plural. Each morning describes a routine, so use the simple-present form sort.
   - id: q-language-application-sentence-completion-0022
+    approved: true
     lesson: lesson-language-application-completion-word-forms
     keyPoint: 3
     type: fill-in-the-blank
@@ -495,6 +497,7 @@ questions:
     explanation: |
       Want takes to plus the base verb: to learn. Enjoy takes an -ing form: organizing.
   - id: q-language-application-sentence-completion-0023
+    approved: true
     lesson: lesson-language-application-completion-articles-and-lists
     keyPoint: 1
     type: fill-in-the-blank
@@ -516,6 +519,7 @@ questions:
     explanation: |
       The package is the one already introduced, so use the. Unused begins with a vowel sound, so use an for the newly mentioned cabinet.
   - id: q-language-application-sentence-completion-0024
+    approved: true
     lesson: lesson-language-application-completion-articles-and-lists
     keyPoint: 3
     type: fill-in-the-blank
@@ -537,6 +541,7 @@ questions:
     explanation: |
       Reviewing and recording are -ing forms doing the same job. Notifying gives the third action the same form.
   - id: q-language-application-sentence-completion-0025
+    approved: true
     lesson: lesson-language-application-completion-natural-phrases
     keyPoint: 2
     type: fill-in-the-blank
@@ -558,6 +563,7 @@ questions:
     explanation: |
       Keep an eye on means watch or look after. It asks the coworker to watch the entrance during the delivery.
   - id: q-language-application-sentence-completion-0026
+    approved: true
     lesson: lesson-language-application-completion-past-time
     keyPoint: 1
     type: fill-in-the-blank
@@ -579,6 +585,7 @@ questions:
     explanation: |
       Was checking is past progressive. It shows that checking was still going on when the interruption happened.
   - id: q-language-application-sentence-completion-0027
+    approved: true
     lesson: lesson-language-application-pagkumpleto-ng-pangungusap
     keyPoint: 1
     type: fill-in-the-blank
@@ -600,6 +607,7 @@ questions:
     explanation: |
       Tapos na ang pagpapadala at nangyari ito kahapon. Ang ipinadala ang anyong nagpapakita ng naganap na kilos.
   - id: q-language-application-sentence-completion-0028
+    approved: true
     lesson: lesson-language-application-pagkumpleto-ng-pangungusap
     keyPoint: 2
     type: fill-in-the-blank
@@ -621,6 +629,7 @@ questions:
     explanation: |
       Ang ngunit ay nagpapakita ng pagsalungat. Nagpatuloy ang pulong kahit wala pa ang ulat na inaasahang magiging dahilan ng pagpapaliban.
   - id: q-language-application-sentence-completion-0029
+    approved: true
     lesson: lesson-language-application-pagkumpleto-ng-pangungusap
     keyPoint: 3
     type: fill-in-the-blank

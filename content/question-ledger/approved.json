@@ -845,6 +845,522 @@
     "hash": "c6ed6e412da338583bf0aebc42702f74ac7d5e5f373ed4c1c579699d6e1860ec",
     "lesson": "lesson-data-interpretation-chart-scales-and-differences"
   },
+  "q-language-application-error-identification-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "e7c8578fcdf25d52c31abde41e6913098eb8762796932f76b445994a477bf54f",
+    "lesson": "lesson-language-application-subject-and-verb-checks"
+  },
+  "q-language-application-error-identification-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "4f29815728afe88a203191442a9cba72716cc3737042a3564abe33db72bff1e2",
+    "lesson": "lesson-language-application-modifiers-and-matching-forms"
+  },
+  "q-language-application-error-identification-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "07ad21a254c9c548099fd647c1398c9faf483183f2533d99d5ac8bb9a94ea5da",
+    "lesson": "lesson-language-application-modifiers-and-matching-forms"
+  },
+  "q-language-application-error-identification-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "4c18e7cc0c5df8769269c52b05a7ccb8c3b59fe0b2b2a0552b76e170e2c5fa75",
+    "lesson": "lesson-language-application-modifiers-and-matching-forms"
+  },
+  "q-language-application-error-identification-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "54c2d0566c34c41fa95b8ad9ec4c0970f17d5f8b3dbd3eca91f065c915151acb",
+    "lesson": "lesson-language-application-modifiers-and-matching-forms"
+  },
+  "q-language-application-error-identification-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "c0ec15503386f2e95bd7497d8a515cc604ce23e72eec9d6bd6722d7ff2557f37",
+    "lesson": "lesson-language-application-pronoun-reference-checks"
+  },
+  "q-language-application-error-identification-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "86f673bc0e81a5900b0c85e51934a0855d240d68eb030b8a34a75189fc030d8a",
+    "lesson": "lesson-language-application-pronoun-reference-checks"
+  },
+  "q-language-application-error-identification-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "e9dd56cf27d1632a749bde64a1d452fcec80fa9c669b038c4b6388a8f37f781e",
+    "lesson": "lesson-language-application-past-time-checks"
+  },
+  "q-language-application-error-identification-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "feaa6e08c8daff55f1b5698ba8f3e5c330d36f8eb21eac4450b271331cf7372a",
+    "lesson": "lesson-language-application-clause-punctuation-checks"
+  },
+  "q-language-application-error-identification-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "c03c172901d6b6f4648385180ace900ffd733e9f278b0f9814d73eab95462b1e",
+    "lesson": "lesson-language-application-subject-and-verb-checks"
+  },
+  "q-language-application-error-identification-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "0614f4caedeab886a7eb39f7b0d319a0aedad6c033f3ee1d4f7163727ea7f064",
+    "lesson": "lesson-language-application-modifiers-and-matching-forms"
+  },
+  "q-language-application-error-identification-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "009876decf3ed5b4a9335edc398b3e858552b8aefe595565ba7c53aece540588",
+    "lesson": "lesson-language-application-modifiers-and-matching-forms"
+  },
+  "q-language-application-error-identification-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "7b81d250f95bb83cfcec8c8edcd24f09a3564885d4e6dd49ee6bae188848efd0",
+    "lesson": "lesson-language-application-pronoun-reference-checks"
+  },
+  "q-language-application-error-identification-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "e285e6aa27c0a36a3126acf363b031d77a683305af9c77f9c464d415b0caf9fe",
+    "lesson": "lesson-language-application-past-time-checks"
+  },
+  "q-language-application-error-identification-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "a16023d08f2fafb0b8a9af26536b74bb78c64fbe48ee9db795ffca1dbab2fabd",
+    "lesson": "lesson-language-application-pronoun-reference-checks"
+  },
+  "q-language-application-error-identification-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "9286ef05fc66be40900d1c1021ad816abe610c11b0f4011b90af881348aeafbd",
+    "lesson": "lesson-language-application-subject-and-verb-checks"
+  },
+  "q-language-application-error-identification-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "62ede6d9921ed23bce13a9781eb2a6480b719ef657416eda8db87273c589f18c",
+    "lesson": "lesson-language-application-modifiers-and-matching-forms"
+  },
+  "q-language-application-error-identification-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "c37c2a00945688b798f204889adf6c5de51b741877251af37c54f769622a927b",
+    "lesson": "lesson-language-application-modifiers-and-matching-forms"
+  },
+  "q-language-application-error-identification-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "ec8dd53eaa7dcff06bf4a6a53015c9eb5388f821e56f496e7ce18ba2d101d206",
+    "lesson": "lesson-language-application-past-time-checks"
+  },
+  "q-language-application-error-identification-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "4c7b0e05967f23014d05cd515fe86e3473a4ec19b3ca94e1b7aa372226f6fdeb",
+    "lesson": "lesson-language-application-clause-punctuation-checks"
+  },
+  "q-language-application-error-identification-0021": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "b957d70baf480bfed7c2801dd1571ea2aadae888bdd9084235c439b8626d026d",
+    "lesson": "lesson-language-application-modal-meaning-checks"
+  },
+  "q-language-application-error-identification-0022": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "c224b807f29bee0adf1ef7d6d88b04d43589d917d3a2624561257c73c1e95834",
+    "lesson": "lesson-language-application-modal-meaning-checks"
+  },
+  "q-language-application-error-identification-0023": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "815a3be5a0583b2e82ea1023cbf2bdd81360584203b81e942616b7aa04b026ac",
+    "lesson": "lesson-language-application-phrases-and-sentence-types"
+  },
+  "q-language-application-error-identification-0024": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "b9a39df74f1605ba149380035a683448023ad93d6301892937fdbaa32686d9ef",
+    "lesson": "lesson-language-application-phrases-and-sentence-types"
+  },
+  "q-language-application-error-identification-0025": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "fd0361ad2afb9295be9a71b353b8d6bba42eccc6298fd24f697e953d21906708",
+    "lesson": "lesson-language-application-kayarian-at-sugnay"
+  },
+  "q-language-application-error-identification-0026": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "51c649a7c161cf7eefb714f4d97acd79eb42a8f78a37d3749be5e095b965576a",
+    "lesson": "lesson-language-application-kayarian-at-sugnay"
+  },
+  "q-language-application-error-identification-0027": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "60ab3f92c1c3b7c1aa273e3d40e25737351dbf216f1ab5431a6ead3ab0725626",
+    "lesson": "lesson-language-application-wastong-gamit-at-panahon"
+  },
+  "q-language-application-error-identification-0028": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "1a615758f349c09e240f17b5a183e3b9d36109c0e3aa77b2494e31c9068c8d1e",
+    "lesson": "lesson-language-application-wastong-gamit-at-panahon"
+  },
+  "q-language-application-error-identification-0029": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "14db8c97cd6212dcc6304ebda0db4c020eae4562a91bd70e65506cbc0a996227",
+    "lesson": "lesson-language-application-word-meaning-checks"
+  },
+  "q-language-application-error-identification-0030": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "2ff370a58dd8663239588cfa797d6ffaa2a5105203158e6c67759922b1697d55",
+    "lesson": "lesson-language-application-word-meaning-checks"
+  },
+  "q-language-application-paragraph-organization-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "e41c788f9bd93ef57405a554e4bcd32452d92c8ca121b443594c1c3eaee5f8bd",
+    "lesson": "lesson-language-application-openings-and-reference-links"
+  },
+  "q-language-application-paragraph-organization-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "98243bf0d54aba87f564e20fa7830aee58d5c7cc6c73f1361858d3a713c102f4",
+    "lesson": "lesson-language-application-time-and-step-order"
+  },
+  "q-language-application-paragraph-organization-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "12a77a631f722d0b6b019ce5de4f6b59892ec8d5ba0c41e128dc993ceae4376f",
+    "lesson": "lesson-language-application-transition-links"
+  },
+  "q-language-application-paragraph-organization-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "661827dd03b446fc832439d623d42ccb44940e25275fe5dcb6e013a7fe08a814",
+    "lesson": "lesson-language-application-openings-and-reference-links"
+  },
+  "q-language-application-paragraph-organization-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "1608522d8f7419e8b35cada45991774fd20790da84d7fd65a9cb3ec5f81d41a5",
+    "lesson": "lesson-language-application-openings-and-reference-links"
+  },
+  "q-language-application-paragraph-organization-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "583c0be24f6a02afceabf2d73348807d5e7e81a830f14999850afb93e63c541f",
+    "lesson": "lesson-language-application-cause-and-effect-order"
+  },
+  "q-language-application-paragraph-organization-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "6209f7ee8e78d24d60d3090dd9454a414d82626457ac27f48de0def75546aadc",
+    "lesson": "lesson-language-application-transition-links"
+  },
+  "q-language-application-paragraph-organization-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "e3c94e7d36fc4a95dd0e5c40a74d295e8721c7425a98ef41bc9a357066e2937b",
+    "lesson": "lesson-language-application-time-and-step-order"
+  },
+  "q-language-application-paragraph-organization-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "682e5dc98d3246452d9fe58c677df31d9efa593e61af6b45c7f74ac387ee5d42",
+    "lesson": "lesson-language-application-time-and-step-order"
+  },
+  "q-language-application-paragraph-organization-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "711fc52d924777eba2fa6bf1796c99dd13deac68245670ec07aecefd2ffad60f",
+    "lesson": "lesson-language-application-openings-and-reference-links"
+  },
+  "q-language-application-paragraph-organization-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "74c169b76493dbbadec1c9be66e680cd1e41e7f3c984c77964a11e333c25672c",
+    "lesson": "lesson-language-application-cause-and-effect-order"
+  },
+  "q-language-application-paragraph-organization-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "ddc24e4b109b1fec49ead83cc9522b0625e5358cf78427c91efe5d1526f0051e",
+    "lesson": "lesson-language-application-openings-and-reference-links"
+  },
+  "q-language-application-paragraph-organization-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "7db37a2a146f6d8b42aac9b05dd611d3a9065b1b3eef602b0575decccc0953f2",
+    "lesson": "lesson-language-application-cause-and-effect-order"
+  },
+  "q-language-application-paragraph-organization-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "2dae58d5666d4a6b27fe525c714a8c8140ba19158aff2ccd56db6e8fede9088f",
+    "lesson": "lesson-language-application-time-and-step-order"
+  },
+  "q-language-application-paragraph-organization-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "80e076eae357b03ff4f7ebaf86e6415b949e6aad401d91986c635bd9e93cd451",
+    "lesson": "lesson-language-application-cause-and-effect-order"
+  },
+  "q-language-application-paragraph-organization-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "5d586f3ea578269b568492ea83a6dfec9d81ff4ab14ddcfcdcee6922b1d095be",
+    "lesson": "lesson-language-application-time-and-step-order"
+  },
+  "q-language-application-paragraph-organization-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "413fc4f9c30924204e356d2398cdcf57dd5b4d6c62c4d44e2cc8a4a204360aaa",
+    "lesson": "lesson-language-application-pagkakasunod-at-sanhi"
+  },
+  "q-language-application-paragraph-organization-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "cf6fba94b51d6c576565d990b255d776b692dc3b5f56149fac01205ba1dc7c88",
+    "lesson": "lesson-language-application-cause-and-effect-order"
+  },
+  "q-language-application-paragraph-organization-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "0dc9614461f2d512e3a01148919eef10b4c81a44f652e888cd2c405bd3292691",
+    "lesson": "lesson-language-application-transition-links"
+  },
+  "q-language-application-paragraph-organization-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "12546435da73a4617c44acb18a1247f8846e2b83450576e19f73c168cf5ce4a4",
+    "lesson": "lesson-language-application-openings-and-reference-links"
+  },
+  "q-language-application-paragraph-organization-0021": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "cfd69b074b9d754f2b6e91f8cbfc1c2ad84bd3e11dc29c71a1750c1fc57cd617",
+    "lesson": "lesson-language-application-main-ideas-and-details"
+  },
+  "q-language-application-paragraph-organization-0022": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "0ac18b75ca645bf0797b5fc3e3ea25c1d484d39f0d59bf9c5061e1ca18307fbc",
+    "lesson": "lesson-language-application-main-ideas-and-details"
+  },
+  "q-language-application-paragraph-organization-0023": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "f8446875811e9600f42257925b628c2ca171683e456cf0eaf60455f9d4d1f89c",
+    "lesson": "lesson-language-application-details-and-supported-inferences"
+  },
+  "q-language-application-paragraph-organization-0024": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "16f3b11deccd48c4b3525e304488726d4dcf5dfe6a9971daa58a90e93b0dfbec",
+    "lesson": "lesson-language-application-details-and-supported-inferences"
+  },
+  "q-language-application-paragraph-organization-0025": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "5a598a26c9ffe32cfbe03fe52126ad2f0b740a60aa38d3035fd0c1bbe0d61258",
+    "lesson": "lesson-language-application-pagkakasunod-at-sanhi"
+  },
+  "q-language-application-paragraph-organization-0026": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "970198d30b6ebbe860bcfb2a218a0ab48a66f50545646e5fb0a5dc37c5645751",
+    "lesson": "lesson-language-application-paksa-at-balangkas"
+  },
+  "q-language-application-paragraph-organization-0027": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "63bfbae6d6c140349b9af2000131d32a2df6357157d74a51c34a80082a7b7505",
+    "lesson": "lesson-language-application-paksa-at-balangkas"
+  },
+  "q-language-application-sentence-completion-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "0d9f46605adbc3f7decd184ce5ff329e7ab54f194a0c3d0fcb70212d13ea0018",
+    "lesson": "lesson-language-application-completion-meaning-clues"
+  },
+  "q-language-application-sentence-completion-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "5fc98977db5a9e53b11818b80996b5a2f9ae2148a4706a08d969e92cfd431a41",
+    "lesson": "lesson-language-application-completion-meaning-clues"
+  },
+  "q-language-application-sentence-completion-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "d6487495819e7c862c968c2780369f1efd93d26ddc701f754ac19ebae3f595f1",
+    "lesson": "lesson-language-application-completion-meaning-clues"
+  },
+  "q-language-application-sentence-completion-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "cdbf4c0546b57419af354e3339bb3536411d84f92015de90ce88652269092a67",
+    "lesson": "lesson-language-application-completion-meaning-clues"
+  },
+  "q-language-application-sentence-completion-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "49e0f2aa3a1c6c07ec3f927e76b3c9041b21b41dbf634f69811992d0f5bb78ff",
+    "lesson": "lesson-language-application-completion-meaning-clues"
+  },
+  "q-language-application-sentence-completion-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "dec8152a056193d32f1792ecb00ca8d9b3d052c264111d73e2192dd49f07400a",
+    "lesson": "lesson-language-application-completion-meaning-clues"
+  },
+  "q-language-application-sentence-completion-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "318ff69dfbe53b5f08e9e6129b6fd2f0ea071f9fbb9152bb4ad5328e828b79e2",
+    "lesson": "lesson-language-application-completion-meaning-clues"
+  },
+  "q-language-application-sentence-completion-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "802baab4d5d3ddde0ca0abb04adac94383abb72c5476fa0534cc72eb0c44c536",
+    "lesson": "lesson-language-application-completion-meaning-clues"
+  },
+  "q-language-application-sentence-completion-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "3bbeaaeeba5b1220335532ab042dece31971e7c052154db534c00cb27a67ec30",
+    "lesson": "lesson-language-application-completion-meaning-clues"
+  },
+  "q-language-application-sentence-completion-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "555cce6db9aa97ef9b5bc39f4401f3860df34f39128f5a7feda1ee71858a2ca8",
+    "lesson": "lesson-language-application-completion-word-forms"
+  },
+  "q-language-application-sentence-completion-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "1c4d5f65e10c117ff08187a53b64e7b1f1772477f66ff928347c1ae0604ce116",
+    "lesson": "lesson-language-application-completion-meaning-clues"
+  },
+  "q-language-application-sentence-completion-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "39030bd6ef9e7d3caa86080d83e553f919fc25ee8b900d7510264e66a21403ce",
+    "lesson": "lesson-language-application-completion-meaning-clues"
+  },
+  "q-language-application-sentence-completion-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "36f624f625df120748f3a0f5868809bf3eaa786f36824189a4cdea9962f1392d",
+    "lesson": "lesson-language-application-completion-meaning-clues"
+  },
+  "q-language-application-sentence-completion-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "ca68ab924dea6cc0c5881bf4d8745a92fb97ca6a965d69a5052bd8c015c8ec01",
+    "lesson": "lesson-language-application-completion-meaning-clues"
+  },
+  "q-language-application-sentence-completion-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "c280026261d658f0279a57c1e137650af1ee504c7a3e75bed37f3fe79db53495",
+    "lesson": "lesson-language-application-completion-meaning-clues"
+  },
+  "q-language-application-sentence-completion-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "cafeb56d58707321fdf5019a9efd1acecf19eaff58d9eff7c74430369d07758d",
+    "lesson": "lesson-language-application-completion-articles-and-lists"
+  },
+  "q-language-application-sentence-completion-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "dc63bdbfefa7d595f6672a473ad45a703fa99accaadc4e1dac2fbd5faf5c4edf",
+    "lesson": "lesson-language-application-completion-natural-phrases"
+  },
+  "q-language-application-sentence-completion-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "53b601e0cdf4a4fe38fc63fba5d94fd668adef7c931f19746f8710de46672232",
+    "lesson": "lesson-language-application-completion-past-time"
+  },
+  "q-language-application-sentence-completion-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "1777adebe49cb78b12226fd5338c629eedc2e02de14b61ed94260670b232815e",
+    "lesson": "lesson-language-application-completion-meaning-clues"
+  },
+  "q-language-application-sentence-completion-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "cc034ad7a2e4d01f15598b18cad83cd8f1c04c41ee78bf92319ea7a97ec2ad7f",
+    "lesson": "lesson-language-application-completion-meaning-clues"
+  },
+  "q-language-application-sentence-completion-0021": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "53df751d741b604d392aa20ce7323b8f0203193137a4ee398c2000c7cf348973",
+    "lesson": "lesson-language-application-completion-word-forms"
+  },
+  "q-language-application-sentence-completion-0022": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "5fe6529c957e1a02f4f0baa803d3df069835cdbf3a17ad4c3d9604f086d50646",
+    "lesson": "lesson-language-application-completion-word-forms"
+  },
+  "q-language-application-sentence-completion-0023": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "5e63cf3a49051b32476739c744416def339603c1d9b2fe85f87f46c10cb9f23a",
+    "lesson": "lesson-language-application-completion-articles-and-lists"
+  },
+  "q-language-application-sentence-completion-0024": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "85b605a770ce390a5d483b1f9810fc4d78953af17d1a78e8067656b9f96448b0",
+    "lesson": "lesson-language-application-completion-articles-and-lists"
+  },
+  "q-language-application-sentence-completion-0025": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "50899c985260aa9a661297d4cb439a9d325950f2bdf17f0bc0d338a8716b4bfe",
+    "lesson": "lesson-language-application-completion-natural-phrases"
+  },
+  "q-language-application-sentence-completion-0026": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "d9883819a902a431ff6e7ca83d3983480a8aa89bb546b4297ff4f5962afa20c0",
+    "lesson": "lesson-language-application-completion-past-time"
+  },
+  "q-language-application-sentence-completion-0027": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "2a50fbf4e1a54a8decaa562afbc5e4061d060642e0c0d09f18720aaa0067ea60",
+    "lesson": "lesson-language-application-pagkumpleto-ng-pangungusap"
+  },
+  "q-language-application-sentence-completion-0028": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "0d2890ef5480675b595cb3fda7df5cb3414fa72814ed94f18404c6a7b61b6850",
+    "lesson": "lesson-language-application-pagkumpleto-ng-pangungusap"
+  },
+  "q-language-application-sentence-completion-0029": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "039d3eca7330889a4e7897c3bcc7baa80eeba5b53a4f1d5e133e1f55674c2adb",
+    "lesson": "lesson-language-application-pagkumpleto-ng-pangungusap"
+  },
   "q-peace-and-human-rights-human-rights-fundamentals-0001": {
     "approvedAt": "2026-11-14",
     "evidence": "docs/content/verification/peace-and-human-rights.md",

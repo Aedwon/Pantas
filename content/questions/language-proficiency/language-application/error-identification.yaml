@@ -12,6 +12,7 @@ meta:
     - "cse-sub"
 questions:
   - id: "q-language-application-error-identification-0001"
+    approved: true
     lesson: lesson-language-application-subject-and-verb-checks
     keyPoint: 1
     type: "error-identification"
@@ -38,6 +39,7 @@ questions:
     explanation: |
       The head subject "Every one" is singular. The completed-action verb group should therefore be "has arrived."
   - id: "q-language-application-error-identification-0002"
+    approved: true
     lesson: lesson-language-application-modifiers-and-matching-forms
     keyPoint: 2
     type: "error-identification"
@@ -63,6 +65,7 @@ questions:
     explanation: |
       The requested actions are "submit," "update," and "review." Using three base verbs makes the list parallel.
   - id: "q-language-application-error-identification-0003"
+    approved: true
     lesson: lesson-language-application-modifiers-and-matching-forms
     keyPoint: 1
     type: "error-identification"
@@ -85,6 +88,7 @@ questions:
     explanation: |
       The delegates are the people walking through the facilities. Making them the main subject gives the opening action its intended actor.
   - id: "q-language-application-error-identification-0004"
+    approved: true
     lesson: lesson-language-application-modifiers-and-matching-forms
     keyPoint: 2
     type: "error-identification"
@@ -110,6 +114,7 @@ questions:
     explanation: |
       The upgraded panel's efficiency rating needs another rating as its comparison target. "Those of the older models" supplies the older models' efficiency ratings.
   - id: "q-language-application-error-identification-0005"
+    approved: true
     lesson: lesson-language-application-modifiers-and-matching-forms
     keyPoint: 3
     type: "error-identification"
@@ -135,6 +140,7 @@ questions:
     explanation: |
       "Affect" means influence. It states the intended change in the sensors' existing performance.
   - id: "q-language-application-error-identification-0006"
+    approved: true
     lesson: lesson-language-application-pronoun-reference-checks
     keyPoint: 1
     type: "error-identification"
@@ -161,6 +167,7 @@ questions:
     explanation: |
       The relative pronoun is the subject performing "had conducted." The subject form "who" fits that role.
   - id: "q-language-application-error-identification-0007"
+    approved: true
     lesson: lesson-language-application-pronoun-reference-checks
     keyPoint: 1
     type: "error-identification"
@@ -186,6 +193,7 @@ questions:
     explanation: |
       Both men are possible references for "he." Naming the supervisor or the manager would identify the intended person.
   - id: "q-language-application-error-identification-0008"
+    approved: true
     lesson: lesson-language-application-past-time-checks
     keyPoint: 1
     type: "error-identification"
@@ -211,6 +219,7 @@ questions:
     explanation: |
       The resolution was complete before the inspection finished. "Had already resolved" uses the requested past perfect to state that earlier completion.
   - id: "q-language-application-error-identification-0009"
+    approved: true
     lesson: lesson-language-application-clause-punctuation-checks
     keyPoint: 1
     type: "error-identification"
@@ -237,6 +246,7 @@ questions:
     explanation: |
       Both sides are complete independent clauses. A semicolon after "regions" joins them, and a comma follows the transition "however."
   - id: "q-language-application-error-identification-0010"
+    approved: true
     lesson: lesson-language-application-subject-and-verb-checks
     keyPoint: 1
     type: "error-identification"
@@ -263,6 +273,7 @@ questions:
     explanation: |
       The panel is one unit under the stated American-English reading. "Is presenting" and "its joint evaluation" consistently refer to that unit.
   - id: "q-language-application-error-identification-0011"
+    approved: true
     lesson: lesson-language-application-modifiers-and-matching-forms
     keyPoint: 1
     type: "error-identification"
@@ -289,6 +300,7 @@ questions:
     explanation: |
       Place "that had stopped working during the storm" directly after "generator." It then clearly describes the failed generator, followed by the phrase explaining the tool used.
   - id: "q-language-application-error-identification-0012"
+    approved: true
     lesson: lesson-language-application-modifiers-and-matching-forms
     keyPoint: 3
     type: "error-identification"
@@ -314,6 +326,7 @@ questions:
     explanation: |
       "Revert" already means return to a former state or practice. Deleting "back" keeps "must revert to their core operational principles."
   - id: "q-language-application-error-identification-0013"
+    approved: true
     lesson: lesson-language-application-pronoun-reference-checks
     keyPoint: 1
     type: "error-identification"
@@ -340,6 +353,7 @@ questions:
     explanation: |
       The pronoun is an object of "between." "Between you and me" uses the required object form.
   - id: "q-language-application-error-identification-0014"
+    approved: true
     lesson: lesson-language-application-past-time-checks
     keyPoint: 1
     type: "error-identification"
@@ -366,6 +380,7 @@ questions:
     explanation: |
       The past perfect uses "had" plus a past participle. Change "had review" to "had reviewed" to show that the review was complete before the error was caught.
   - id: "q-language-application-error-identification-0015"
+    approved: true
     lesson: lesson-language-application-pronoun-reference-checks
     keyPoint: 1
     type: "error-identification"
@@ -407,7 +422,7 @@ questions:
           This uses plural "have" with an amount of information. The plural note pages may suggest plural agreement. Check: separate the information from the pages containing it.
     explanation: |
       "Some" refers to an amount of information, a mass noun. Singular "is" agrees with that amount; "in these notes" only describes its location.
-    approved: false
+    approved: true
   - id: "q-language-application-error-identification-0017"
     lesson: lesson-language-application-modifiers-and-matching-forms
     keyPoint: 1
@@ -429,7 +444,7 @@ questions:
           This limits the timing of sending. "Only" is placed near Paolo. Check: check the whole phrase following the limiting word.
     explanation: |
       "To Paolo only" restricts who received the draft. It identifies Paolo as the sole recipient.
-    approved: false
+    approved: true
   - id: "q-language-application-error-identification-0018"
     lesson: lesson-language-application-modifiers-and-matching-forms
     keyPoint: 1
@@ -451,7 +466,7 @@ questions:
           This gives the inspecting action to the roof. The same actor and object remain in the sentence. Check: check who performs the opening action.
     explanation: |
       The engineer is the person inspecting the roof. As the main subject, the engineer gives the opening phrase a clear actor.
-    approved: false
+    approved: true
   - id: "q-language-application-error-identification-0019"
     lesson: lesson-language-application-past-time-checks
     keyPoint: 1
@@ -473,7 +488,7 @@ questions:
           This changes the event to future time. Check the past-time clue "yesterday".
     explanation: |
       "Yesterday" places the finished delivery in the past. "Were delivered" keeps that past time and agrees with the plural subject "documents".
-    approved: false
+    approved: true
   - id: "q-language-application-error-identification-0020"
     lesson: lesson-language-application-clause-punctuation-checks
     keyPoint: 1
@@ -495,8 +510,9 @@ questions:
           This separates the clauses with a period but leaves the next sentence with a lowercase first letter. Check the letter after the period.
     explanation: |
       "Mika was the cashier on duty" and "she counted the receipts" are independent clauses. A semicolon joins them without adding a cause or result.
-    approved: false
+    approved: true
   - id: q-language-application-error-identification-0021
+    approved: true
     lesson: lesson-language-application-modal-meaning-checks
     keyPoint: 1
     type: error-identification
@@ -518,6 +534,7 @@ questions:
     explanation: |
       Must states the requirement. Register is the base verb and follows must directly.
   - id: q-language-application-error-identification-0022
+    approved: true
     lesson: lesson-language-application-modal-meaning-checks
     keyPoint: 1
     type: error-identification
@@ -539,6 +556,7 @@ questions:
     explanation: |
       Might expresses possibility. The base form arrive follows it without to or an ending.
   - id: q-language-application-error-identification-0023
+    approved: true
     lesson: lesson-language-application-phrases-and-sentence-types
     keyPoint: 1
     type: error-identification
@@ -560,6 +578,7 @@ questions:
     explanation: |
       The guard accepted the envelope and the clerk recorded its arrival are independent clauses. Although the counter was closed is dependent. Together they form a compound-complex sentence.
   - id: q-language-application-error-identification-0024
+    approved: true
     lesson: lesson-language-application-phrases-and-sentence-types
     keyPoint: 1
     type: error-identification
@@ -581,6 +600,7 @@ questions:
     explanation: |
       The clerk is the subject and resigned is the verb. Because makes the thought depend on another clause that tells what happened as a result.
   - id: q-language-application-error-identification-0025
+    approved: true
     lesson: lesson-language-application-kayarian-at-sugnay
     keyPoint: 1
     type: error-identification
@@ -602,6 +622,7 @@ questions:
     explanation: |
       May paksa at panaguri ang nawawala ang susi. Dahil sa sapagkat, kailangan pa ng karugtong upang mabuo ang diwa.
   - id: q-language-application-error-identification-0026
+    approved: true
     lesson: lesson-language-application-kayarian-at-sugnay
     keyPoint: 2
     type: error-identification
@@ -623,6 +644,7 @@ questions:
     explanation: |
       Di-makapag-iisa ang habang hinihintay ni Rosa ang pirma. Makapag-iisa ang inayos ni Ben ang mga kalakip at inihanda ni Mila ang sobre. Langkapan ang may ganitong mga sugnay.
   - id: q-language-application-error-identification-0027
+    approved: true
     lesson: lesson-language-application-wastong-gamit-at-panahon
     keyPoint: 1
     type: error-identification
@@ -644,6 +666,7 @@ questions:
     explanation: |
       Ang marahil ay nagsasaad na maaaring mangyari ang paglilipat. Hindi nito sinasabing tiyak na ililipat ang pulong.
   - id: q-language-application-error-identification-0028
+    approved: true
     lesson: lesson-language-application-wastong-gamit-at-panahon
     keyPoint: 2
     type: error-identification
@@ -665,6 +688,7 @@ questions:
     explanation: |
       Naganap na kagabi ang pagbasa at ang karanasan ng tuwa. Natuwa ang anyong akma sa natapos na karanasan.
   - id: q-language-application-error-identification-0029
+    approved: true
     lesson: lesson-language-application-word-meaning-checks
     keyPoint: 1
     type: error-identification
@@ -686,6 +710,7 @@ questions:
     explanation: |
       Confusing means difficult to understand. It is opposite to clear in this sentence.
   - id: q-language-application-error-identification-0030
+    approved: true
     lesson: lesson-language-application-word-meaning-checks
     keyPoint: 2
     type: error-identification
