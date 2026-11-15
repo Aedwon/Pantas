@@ -15,9 +15,9 @@
     "reason": "Fraction arithmetic helps with the final symbolic example, which shows the needed denominator conversion locally."
    },
    {
-    "lesson": "lesson-arithmetic-number-sense-operation-priority-and-left-to-right",
+    "lesson": "lesson-arithmetic-number-sense-signed-integers-and-substitution",
     "strength": "helpful",
-    "reason": "Signed-number practice makes substitution easier. This lesson repeats the evaluation order and explains negative-base parentheses."
+    "reason": "Signed-number rules help students keep the correct signs when calculating with negative values."
    }
   ],
   "lesson-algebra-exponents-and-logarithms": [
@@ -36,9 +36,9 @@
   ],
   "lesson-algebra-polynomials": [
    {
-    "lesson": "lesson-arithmetic-number-sense-prime-factors-and-powers",
+    "lesson": "lesson-arithmetic-number-sense-greatest-common-factor",
     "strength": "helpful",
-    "reason": "Finding numerical common factors is easier with prior GCF practice. This lesson defines polynomial GCF and demonstrates extraction."
+    "reason": "Finding the greatest common factor helps students finish factoring completely."
    }
   ],
   "lesson-algebra-types-of-functions": [
@@ -153,6 +153,16 @@
     "lesson": "lesson-grammar-and-structure-phrases-and-understood-subjects",
     "strength": "helpful",
     "reason": "Wrong answers on this lesson's questions point here; it teaches the skill they need."
+   },
+   {
+    "lesson": "lesson-grammar-and-structure-finite-verbs-and-ing-groups",
+    "strength": "helpful",
+    "reason": "Finding the finite verb helps students tell an incomplete word group from a complete sentence."
+   },
+   {
+    "lesson": "lesson-grammar-and-structure-independent-and-dependent-clauses",
+    "strength": "helpful",
+    "reason": "Checking whether a clause can stand alone helps students identify complete statements."
    }
   ],
   "lesson-grammar-and-structure-complex-and-compound-complex-sentences": [
@@ -162,9 +172,9 @@
     "reason": "The previous part teaches the ideas used in this part."
    },
    {
-    "lesson": "lesson-grammar-and-structure-phrases-and-understood-subjects",
+    "lesson": "lesson-grammar-and-structure-independent-and-dependent-clauses",
     "strength": "helpful",
-    "reason": "Wrong answers on this lesson's questions point here; it teaches the skill they need."
+    "reason": "Checking whether a clause can stand alone helps students identify complete statements."
    }
   ],
   "lesson-grammar-and-structure-payak-at-tambalang-pangungusap": [
@@ -205,9 +215,9 @@
     "reason": "Percentage conversion and fraction multiplication practice make pie-chart calculations easier. This lesson gives the share formulas and demonstrates their use."
    },
    {
-    "lesson": "lesson-arithmetic-number-sense-decimal-and-percent-conversions",
+    "lesson": "lesson-arithmetic-number-sense-adding-and-multiplying-fractions",
     "strength": "helpful",
-    "reason": "Percentage conversion and fraction multiplication practice make pie-chart calculations easier. This lesson gives the share formulas and demonstrates their use."
+    "reason": "Multiplying a fraction by the whole helps students find the required share."
    }
   ],
   "lesson-statistics-and-probability-measures-of-central-tendency": [],
@@ -250,6 +260,11 @@
     "lesson": "lesson-comprehension-skills-connecting-clues",
     "strength": "helpful",
     "reason": "Matching conclusions to evidence helps students interpret cartoons without adding unsupported claims. Visual Media explains this principle itself."
+   },
+   {
+    "lesson": "lesson-comprehension-skills-evidence-and-claim-strength",
+    "strength": "helpful",
+    "reason": "Matching a claim to the evidence helps students reject unsupported promises and conclusions."
    }
   ],
   "lesson-vocabulary-definitions-examples-and-synonyms": [],
@@ -402,9 +417,9 @@
     "reason": "Read the previous part before this part."
    },
    {
-    "lesson": "lesson-arithmetic-number-sense-decimal-and-percent-conversions",
+    "lesson": "lesson-arithmetic-number-sense-percentage-base-and-fraction-division",
     "strength": "helpful",
-    "reason": "The signature-threshold examples use percentages of registered voters. This part names the calculation but does not teach percentage arithmetic. Lead review: helpful, not required; the arithmetic is incidental."
+    "reason": "Dividing the part by the base helps students tell a percentage from an amount."
    }
   ],
   "lesson-philippine-constitution-ratification-and-plebiscites": [
@@ -567,9 +582,9 @@
     "reason": "Continue from the preceding part of the original lesson."
    },
    {
-    "lesson": "lesson-arithmetic-number-sense-decimal-and-percent-conversions",
+    "lesson": "lesson-arithmetic-number-sense-adding-and-multiplying-fractions",
     "strength": "helpful",
-    "reason": "The vote-threshold examples multiply a membership by a fraction. This part names the calculation but does not teach fraction arithmetic. Lead review: helpful, not required; the arithmetic is incidental."
+    "reason": "Multiplying a fraction by the whole helps students find the required share."
    }
   ],
   "lesson-philippine-constitution-president-terms-and-appointments": [
@@ -1033,9 +1048,14 @@
     "reason": "Read the previous part before this part."
    },
    {
-    "lesson": "lesson-code-of-conduct-ra-6713-saln-assets-and-business-disclosures",
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-public-access-and-use",
     "strength": "helpful",
-    "reason": "Wrong answers on this lesson's questions point here; it teaches the skill they need."
+    "reason": "The limits on using filed statements help students identify the rule behind the penalty."
+   },
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-conflict-and-valid-divestment",
+    "strength": "helpful",
+    "reason": "Recognizing conflict and divestment duties helps students distinguish them from other rules."
    }
   ],
   "lesson-code-of-conduct-ra-6713-penalties-confidential-information-proof": [
@@ -1048,6 +1068,11 @@
     "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-interests-and-business-roles",
     "strength": "helpful",
     "reason": "Wrong answers on this lesson's questions point here; it teaches the skill they need."
+   },
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-information-and-benefits",
+    "strength": "helpful",
+    "reason": "Recognizing misuse of protected work information helps students identify the prohibited act."
    }
   ],
   "lesson-code-of-conduct-ra-6713-penalties-conspiracy-and-principals": [
@@ -1249,6 +1274,11 @@
     "lesson": "lesson-environment-management-source-segregation-and-waste-types",
     "strength": "helpful",
     "reason": "Wrong answers on this lesson's questions point here; it teaches the skill they need."
+   },
+   {
+    "lesson": "lesson-environment-management-reuse-and-recycling",
+    "strength": "helpful",
+    "reason": "Keeping useful materials separate helps students understand how sorting supports recovery."
    }
   ],
   "lesson-environment-management-climate-change-and-its-effects": [
@@ -1418,9 +1448,14 @@
     "reason": "Read the previous part before this part."
    },
    {
-    "lesson": "lesson-grammar-and-structure-phrases-and-understood-subjects",
+    "lesson": "lesson-grammar-and-structure-finite-verbs-and-ing-groups",
     "strength": "helpful",
-    "reason": "Wrong answers on this lesson's questions point here; it teaches the skill they need."
+    "reason": "Finding the finite verb helps students tell an incomplete word group from a complete sentence."
+   },
+   {
+    "lesson": "lesson-grammar-and-structure-independent-and-dependent-clauses",
+    "strength": "helpful",
+    "reason": "Checking whether a clause can stand alone helps students identify complete statements."
    }
   ],
   "lesson-grammar-and-structure-scope-of-small-modifiers": [
@@ -1451,9 +1486,14 @@
     "reason": "Read the previous part before this part."
    },
    {
-    "lesson": "lesson-grammar-and-structure-phrases-and-understood-subjects",
+    "lesson": "lesson-grammar-and-structure-independent-and-dependent-clauses",
     "strength": "helpful",
-    "reason": "Wrong answers on this lesson's questions point here; it teaches the skill they need."
+    "reason": "Checking whether a clause can stand alone helps students identify complete statements."
+   },
+   {
+    "lesson": "lesson-grammar-and-structure-finite-verbs-and-ing-groups",
+    "strength": "helpful",
+    "reason": "Finding the finite verb helps students tell an incomplete word group from a complete sentence."
    }
   ],
   "lesson-grammar-and-structure-apostrophes-for-ownership-and-contractions": [
@@ -1520,9 +1560,9 @@
     "reason": "Read the previous part before this part."
    },
    {
-    "lesson": "lesson-grammar-and-structure-phrases-and-understood-subjects",
+    "lesson": "lesson-grammar-and-structure-infinitive-phrases-and-nonfinite-clauses",
     "strength": "helpful",
-    "reason": "Wrong answers on this lesson's questions point here; it teaches the skill they need."
+    "reason": "Recognizing the base verb after to helps students check an infinitive group."
    }
   ],
   "lesson-grammar-and-structure-parallel-pairs-and-comparisons": [
@@ -1604,9 +1644,9 @@
     "reason": "Read the previous part first."
    },
    {
-    "lesson": "lesson-vocabulary-definitions-examples-and-synonyms",
+    "lesson": "lesson-vocabulary-word-partners-feeling-and-grammar",
     "strength": "helpful",
-    "reason": "Wrong answers on this lesson's questions point here; it teaches the skill they need."
+    "reason": "Checking nearby words helps students choose the meaning that fits the sentence."
    }
   ],
   "lesson-vocabulary-feeling-strength-and-formality": [
@@ -1776,9 +1816,9 @@
     "reason": "Finding the central point and checking its scope makes title selection easier. This lesson also explains both steps."
    },
    {
-    "lesson": "lesson-comprehension-skills-main-point-and-topic-sentence",
+    "lesson": "lesson-comprehension-skills-main-idea-scope",
     "strength": "helpful",
-    "reason": "Finding the central point and checking its scope makes title selection easier. This lesson also explains both steps."
+    "reason": "Checking the scope helps students choose a main point that covers more than one detail."
    }
   ],
   "lesson-comprehension-skills-definition-and-example-clues": [
@@ -1814,9 +1854,9 @@
     "reason": "Read the previous part before this part."
    },
    {
-    "lesson": "lesson-grammar-and-structure-present-habits-and-ongoing-actions",
+    "lesson": "lesson-grammar-and-structure-past-events-and-future-meaning",
     "strength": "helpful",
-    "reason": "Wrong answers on this lesson's questions point here; it teaches the skill they need."
+    "reason": "Using past forms for finished past events helps students keep the time clear."
    }
   ],
   "lesson-language-application-completion-articles-and-lists": [
@@ -2232,6 +2272,11 @@
     "lesson": "lesson-grammar-and-structure-simple-and-compound-sentences",
     "strength": "helpful",
     "reason": "Practice counting clauses supports the English and Filipino sentence-classification tasks. The lesson supplies its own sentence-type definitions."
+   },
+   {
+    "lesson": "lesson-grammar-and-structure-groups-and-indefinite-pronouns",
+    "strength": "helpful",
+    "reason": "Checking what a group noun or pronoun refers to helps students choose the matching verb."
    }
   ],
   "lesson-language-application-pronoun-reference-checks": [
@@ -2241,9 +2286,9 @@
     "reason": "Read the previous part before this part."
    },
    {
-    "lesson": "lesson-grammar-and-structure-finding-subjects-and-matching-verbs",
+    "lesson": "lesson-grammar-and-structure-groups-and-indefinite-pronouns",
     "strength": "helpful",
-    "reason": "Wrong answers on this lesson's questions point here; it teaches the skill they need."
+    "reason": "Checking what a group noun or pronoun refers to helps students choose the matching verb."
    }
   ],
   "lesson-language-application-modifiers-and-matching-forms": [
@@ -2584,9 +2629,9 @@
     "reason": "This part continues the preceding part of the split lesson."
    },
    {
-    "lesson": "lesson-arithmetic-number-sense-decimal-and-percent-conversions",
+    "lesson": "lesson-arithmetic-number-sense-percentage-base-and-fraction-division",
     "strength": "helpful",
-    "reason": "Wrong answers on this lesson's questions point here; it teaches the skill they need."
+    "reason": "Dividing the part by the base helps students tell a percentage from an amount."
    }
   ],
   "lesson-arithmetic-number-sense-commission-and-sales-tax": [
@@ -2610,9 +2655,9 @@
     "reason": "Signed arithmetic practice makes combining coefficients and distributing negative factors easier. This lesson supplies the algebra rules."
    },
    {
-    "lesson": "lesson-arithmetic-number-sense-operation-priority-and-left-to-right",
+    "lesson": "lesson-arithmetic-number-sense-signed-integers-and-substitution",
     "strength": "helpful",
-    "reason": "Signed arithmetic practice makes combining coefficients and distributing negative factors easier. This lesson supplies the algebra rules."
+    "reason": "Signed-number rules help students keep the correct signs when calculating with negative values."
    }
   ],
   "lesson-arithmetic-number-sense-identities-and-like-terms": [
@@ -2629,9 +2674,9 @@
     "reason": "Read the previous part first."
    },
    {
-    "lesson": "lesson-arithmetic-number-sense-operation-priority-and-left-to-right",
+    "lesson": "lesson-arithmetic-number-sense-signed-integers-and-substitution",
     "strength": "helpful",
-    "reason": "Wrong answers on this lesson's questions point here; it teaches the skill they need."
+    "reason": "Signed-number rules help students keep the correct signs when calculating with negative values."
    }
   ],
   "lesson-arithmetic-number-sense-distribution-and-common-factors": [
@@ -2641,9 +2686,9 @@
     "reason": "Read the previous part first."
    },
    {
-    "lesson": "lesson-arithmetic-number-sense-operation-priority-and-left-to-right",
+    "lesson": "lesson-arithmetic-number-sense-signed-integers-and-substitution",
     "strength": "helpful",
-    "reason": "Wrong answers on this lesson's questions point here; it teaches the skill they need."
+    "reason": "Signed-number rules help students keep the correct signs when calculating with negative values."
    }
   ],
   "lesson-arithmetic-number-sense-direct-proportion-and-travel": [
@@ -2653,9 +2698,9 @@
     "reason": "Fraction fluency helps with ratio notation and fractional answers. This lesson teaches the proportion methods it uses."
    },
    {
-    "lesson": "lesson-arithmetic-number-sense-decimal-and-percent-conversions",
+    "lesson": "lesson-arithmetic-number-sense-percentage-base-and-fraction-division",
     "strength": "helpful",
-    "reason": "Fraction fluency helps with ratio notation and fractional answers. This lesson teaches the proportion methods it uses."
+    "reason": "Dividing the part by the base helps students tell a percentage from an amount."
    }
   ],
   "lesson-arithmetic-number-sense-inverse-proportion-and-remaining-work": [
@@ -2686,9 +2731,9 @@
     "reason": "Read the previous part first."
    },
    {
-    "lesson": "lesson-arithmetic-number-sense-operation-priority-and-left-to-right",
+    "lesson": "lesson-arithmetic-number-sense-signed-integers-and-substitution",
     "strength": "helpful",
-    "reason": "Wrong answers on this lesson's questions point here; it teaches the skill they need."
+    "reason": "Signed-number rules help students keep the correct signs when calculating with negative values."
    }
   ],
   "lesson-arithmetic-number-sense-complex-products-and-quotients": [
@@ -2698,9 +2743,9 @@
     "reason": "Read the previous part first."
    },
    {
-    "lesson": "lesson-arithmetic-number-sense-operation-priority-and-left-to-right",
+    "lesson": "lesson-arithmetic-number-sense-signed-integers-and-substitution",
     "strength": "helpful",
-    "reason": "Wrong answers on this lesson's questions point here; it teaches the skill they need."
+    "reason": "Signed-number rules help students keep the correct signs when calculating with negative values."
    }
   ],
   "lesson-clerical-ability-personal-name-filing-units": [],
@@ -2783,6 +2828,11 @@
     "lesson": "lesson-logical-verbal-reasoning-deductive-group-arguments",
     "strength": "helpful",
     "reason": "Wrong answers on this lesson's questions point here; it teaches the skill they need."
+   },
+   {
+    "lesson": "lesson-logical-verbal-reasoning-invalid-conditional-forms",
+    "strength": "helpful",
+    "reason": "Checking a conditional in its stated direction helps students avoid reversed or unsupported conclusions."
    }
   ],
   "lesson-verbal-logic-none-and-may": [
@@ -2792,9 +2842,9 @@
     "reason": "Read the previous part first."
    },
    {
-    "lesson": "lesson-logical-verbal-reasoning-deductive-group-arguments",
+    "lesson": "lesson-logical-verbal-reasoning-invalid-conditional-forms",
     "strength": "helpful",
-    "reason": "Wrong answers on this lesson's questions point here; it teaches the skill they need."
+    "reason": "Checking a conditional in its stated direction helps students avoid reversed or unsupported conclusions."
    }
   ],
   "lesson-verbal-logic-best-supported-conclusions": [
@@ -2874,6 +2924,11 @@
     "lesson": "lesson-spatial-abstract-reasoning-figure-counts-and-fills",
     "strength": "helpful",
     "reason": "Tracking separate visual changes prepares students to combine row and column rules. Matrices teaches enough to stand alone."
+   },
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-figure-turns-and-positions",
+    "strength": "helpful",
+    "reason": "Tracking the direction and size of each turn helps students continue a visual pattern."
    }
   ],
   "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules": [
@@ -2886,6 +2941,16 @@
     "lesson": "lesson-spatial-abstract-reasoning-figure-counts-and-fills",
     "strength": "helpful",
     "reason": "Wrong answers on this lesson's questions point here; it teaches the skill they need."
+   },
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns",
+    "strength": "helpful",
+    "reason": "Checking each changing feature helps students continue size and count patterns."
+   },
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-figure-turns-and-positions",
+    "strength": "helpful",
+    "reason": "Tracking the direction and size of each turn helps students continue a visual pattern."
    }
   ],
   "lesson-spatial-abstract-reasoning-matrix-keeping-all-features": [

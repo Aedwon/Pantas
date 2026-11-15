@@ -4,16 +4,16 @@
  "rule": "A wrong choice is tagged with a prerequisite lesson only when its mistake is a gap in that lesson. Drafted by Codex GPT 6.1 Sol from content/lesson-prerequisites.json and the rationales.",
  "questions": {
   "q-algebra-algebraic-expressions-0003": {
-   "$14$": "lesson-arithmetic-number-sense-order-of-operations"
+   "$14$": "lesson-arithmetic-number-sense-grouping-and-fraction-bars"
   },
   "q-algebra-algebraic-expressions-0009": {
-   "$4$": "lesson-arithmetic-number-sense-order-of-operations"
+   "$4$": "lesson-arithmetic-number-sense-signed-integers-and-substitution"
   },
   "q-algebra-algebraic-expressions-0010": {
-   "$-1$": "lesson-arithmetic-number-sense-order-of-operations"
+   "$-1$": "lesson-arithmetic-number-sense-signed-integers-and-substitution"
   },
   "q-algebra-algebraic-expressions-0015": {
-   "$2$": "lesson-arithmetic-number-sense-order-of-operations"
+   "$2$": "lesson-arithmetic-number-sense-signed-integers-and-substitution"
   },
   "q-algebra-exponents-and-logarithms-0012": {
    "$x = -1$": "lesson-algebra-algebraic-expressions",
@@ -35,249 +35,249 @@
    "$(12,0)$": "lesson-algebra-algebraic-expressions"
   },
   "q-algebra-polynomials-0012": {
-   "$2x(2x+4)$": "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm"
+   "$2x(2x+4)$": "lesson-arithmetic-number-sense-greatest-common-factor"
   },
   "q-algebra-types-of-functions-0011": {
    "No horizontal asymptote": "lesson-algebra-polynomials"
   },
   "q-algebra-word-problems-0019": {
-   "$804$": "lesson-arithmetic-number-sense-fractions-decimals-percentages"
+   "$804$": "lesson-arithmetic-number-sense-decimal-and-percent-conversions"
   },
   "q-arithmetic-number-sense-business-math-0006": {
-   "$5\\%$": "lesson-arithmetic-number-sense-fractions-decimals-percentages"
+   "$5\\%$": "lesson-arithmetic-number-sense-percentage-base-and-fraction-division"
   },
   "q-arithmetic-number-sense-properties-of-real-numbers-0002": {
-   "$\\dfrac{7}{4}$": "lesson-arithmetic-number-sense-order-of-operations"
+   "$\\dfrac{7}{4}$": "lesson-arithmetic-number-sense-signed-integers-and-substitution"
   },
   "q-arithmetic-number-sense-properties-of-real-numbers-0004": {
-   "Subtraction is commutative because the numerical value remains 2.": "lesson-arithmetic-number-sense-order-of-operations"
+   "Subtraction is commutative because the numerical value remains 2.": "lesson-arithmetic-number-sense-signed-integers-and-substitution"
   },
   "q-arithmetic-number-sense-properties-of-real-numbers-0006": {
-   "$-2x - 10$": "lesson-arithmetic-number-sense-order-of-operations"
+   "$-2x - 10$": "lesson-arithmetic-number-sense-signed-integers-and-substitution"
   },
   "q-arithmetic-number-sense-properties-of-real-numbers-0007": {
-   "$-a - 12b$": "lesson-arithmetic-number-sense-order-of-operations",
-   "$-11a + 12b$": "lesson-arithmetic-number-sense-order-of-operations"
+   "$-a - 12b$": "lesson-arithmetic-number-sense-signed-integers-and-substitution",
+   "$-11a + 12b$": "lesson-arithmetic-number-sense-signed-integers-and-substitution"
   },
   "q-arithmetic-number-sense-properties-of-real-numbers-0011": {
-   "$-24x-2y$": "lesson-arithmetic-number-sense-order-of-operations",
-   "$-18y$": "lesson-arithmetic-number-sense-order-of-operations"
+   "$-24x-2y$": "lesson-arithmetic-number-sense-signed-integers-and-substitution",
+   "$-18y$": "lesson-arithmetic-number-sense-signed-integers-and-substitution"
   },
   "q-arithmetic-number-sense-properties-of-real-numbers-0015": {
-   "$-8x+2y$": "lesson-arithmetic-number-sense-order-of-operations"
+   "$-8x+2y$": "lesson-arithmetic-number-sense-signed-integers-and-substitution"
   },
   "q-arithmetic-number-sense-ratio-and-proportion-0010": {
-   "$120$ minutes": "lesson-arithmetic-number-sense-fractions-decimals-percentages"
+   "$120$ minutes": "lesson-arithmetic-number-sense-percentage-base-and-fraction-division"
   },
   "q-arithmetic-number-sense-real-imaginary-numbers-0004": {
-   "$7 + 7i$": "lesson-arithmetic-number-sense-order-of-operations"
+   "$7 + 7i$": "lesson-arithmetic-number-sense-signed-integers-and-substitution"
   },
   "q-arithmetic-number-sense-real-imaginary-numbers-0005": {
-   "$4 - i$": "lesson-arithmetic-number-sense-order-of-operations"
+   "$4 - i$": "lesson-arithmetic-number-sense-signed-integers-and-substitution"
   },
   "q-arithmetic-number-sense-real-imaginary-numbers-0008": {
-   "$22 + 7i$": "lesson-arithmetic-number-sense-order-of-operations"
+   "$22 + 7i$": "lesson-arithmetic-number-sense-signed-integers-and-substitution"
   },
   "q-code-of-conduct-ra-6713-penalties-and-enforcement-0012": {
-   "Section 1": "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules",
-   "Section 3": "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules",
-   "Section 12": "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules"
+   "Section 1": "lesson-code-of-conduct-ra-6713-prohibitions-interests-and-business-roles",
+   "Section 3": "lesson-code-of-conduct-ra-6713-prohibitions-information-and-benefits",
+   "Section 12": "lesson-code-of-conduct-ra-6713-prohibitions-interests-and-business-roles"
   },
   "q-code-of-conduct-ra-6713-penalties-and-enforcement-0013": {
-   "Section 2": "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment",
-   "Section 4": "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment",
-   "Section 10": "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment"
+   "Section 2": "lesson-code-of-conduct-ra-6713-saln-public-access-and-use",
+   "Section 4": "lesson-code-of-conduct-ra-6713-saln-public-access-and-use",
+   "Section 10": "lesson-code-of-conduct-ra-6713-saln-public-access-and-use"
   },
   "q-code-of-conduct-ra-6713-penalties-and-enforcement-0014": {
-   "Section 2": "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment",
-   "Section 5": "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment"
+   "Section 2": "lesson-code-of-conduct-ra-6713-conflict-and-valid-divestment",
+   "Section 5": "lesson-code-of-conduct-ra-6713-conflict-and-valid-divestment"
   },
   "q-comprehension-skills-choosing-a-title-0011": {
-   "Rules for Keeping Every Borrowed Book Undamaged": "lesson-comprehension-skills-main-idea"
+   "Rules for Keeping Every Borrowed Book Undamaged": "lesson-comprehension-skills-main-idea-scope"
   },
   "q-comprehension-skills-choosing-a-title-0014": {
-   "Protecting donated books from all signs of wear": "lesson-comprehension-skills-main-idea",
-   "Selecting the largest possible collection of books": "lesson-comprehension-skills-main-idea"
+   "Protecting donated books from all signs of wear": "lesson-comprehension-skills-main-idea-scope",
+   "Selecting the largest possible collection of books": "lesson-comprehension-skills-main-idea-scope"
   },
   "q-earth-science-astronomy-weather-and-climate-0013": {
    "Its particles have very low kinetic energy.": "lesson-physics-thermodynamics",
    "Gas temperature determines contact heating regardless of density.": "lesson-physics-thermodynamics"
   },
   "q-environment-management-environmental-problems-and-climate-change-0004": {
-   "Source segregation, because stored water is separated from waste": "lesson-environment-management-environmental-concepts"
+   "Source segregation, because stored water is separated from waste": "lesson-environment-management-source-segregation-and-waste-types"
   },
   "q-environment-management-environmental-problems-and-climate-change-0007": {
-   "Combining separated waste so every material follows the same disposal route": "lesson-environment-management-environmental-concepts",
-   "Replacing household sorting with a rule that all waste must arrive mixed": "lesson-environment-management-environmental-concepts"
+   "Combining separated waste so every material follows the same disposal route": "lesson-environment-management-reuse-and-recycling",
+   "Replacing household sorting with a rule that all waste must arrive mixed": "lesson-environment-management-source-segregation-and-waste-types"
   },
   "q-geometry-measurement-0007": {
    "$104\\pi\\text{ cm}^2$": "lesson-algebra-algebraic-expressions"
   },
   "q-grammar-and-structure-modifiers-0009": {
-   "While approaching the gate, the barking of a dog startled Liza.": "lesson-grammar-and-structure-phrases-and-clauses"
+   "While approaching the gate, the barking of a dog startled Liza.": "lesson-grammar-and-structure-finite-verbs-and-ing-groups"
   },
   "q-grammar-and-structure-modifiers-0012": {
-   "The opening phrase is a complete clause with its own stated subject.": "lesson-grammar-and-structure-phrases-and-clauses"
+   "The opening phrase is a complete clause with its own stated subject.": "lesson-grammar-and-structure-finite-verbs-and-ing-groups"
   },
   "q-grammar-and-structure-modifiers-0018": {
-   "Before the editors reached the deadline, more time became available for checks.": "lesson-grammar-and-structure-phrases-and-clauses"
+   "Before the editors reached the deadline, more time became available for checks.": "lesson-grammar-and-structure-independent-and-dependent-clauses"
   },
   "q-grammar-and-structure-parallelism-0003": {
-   "The manual explains how to installing, update, and repair the software.": "lesson-grammar-and-structure-phrases-and-clauses"
+   "The manual explains how to installing, update, and repair the software.": "lesson-grammar-and-structure-infinitive-phrases-and-nonfinite-clauses"
   },
   "q-grammar-and-structure-punctuation-and-capitalization-0003": {
-   "She loves reading; because she visits the library every weekend.": "lesson-grammar-and-structure-phrases-and-clauses",
-   "She loves; reading and visiting the library every weekend.": "lesson-grammar-and-structure-phrases-and-clauses"
+   "She loves reading; because she visits the library every weekend.": "lesson-grammar-and-structure-independent-and-dependent-clauses",
+   "She loves; reading and visiting the library every weekend.": "lesson-grammar-and-structure-finite-verbs-and-ing-groups"
   },
   "q-grammar-and-structure-punctuation-and-capitalization-0016": {
-   "The phrase after it contains too many words for a semicolon.": "lesson-grammar-and-structure-phrases-and-clauses"
+   "The phrase after it contains too many words for a semicolon.": "lesson-grammar-and-structure-finite-verbs-and-ing-groups"
   },
   "q-grammar-and-structure-sentence-structure-0001": {
-   "Compound": "lesson-grammar-and-structure-phrases-and-clauses",
-   "Complex": "lesson-grammar-and-structure-phrases-and-clauses",
-   "Compound-complex": "lesson-grammar-and-structure-phrases-and-clauses"
+   "Compound": "lesson-grammar-and-structure-phrases-and-understood-subjects",
+   "Complex": "lesson-grammar-and-structure-phrases-and-understood-subjects",
+   "Compound-complex": "lesson-grammar-and-structure-phrases-and-understood-subjects"
   },
   "q-grammar-and-structure-sentence-structure-0005": {
-   "Compound": "lesson-grammar-and-structure-phrases-and-clauses",
-   "Complex": "lesson-grammar-and-structure-phrases-and-clauses"
+   "Compound": "lesson-grammar-and-structure-finite-verbs-and-ing-groups",
+   "Complex": "lesson-grammar-and-structure-phrases-and-understood-subjects"
   },
   "q-grammar-and-structure-sentence-structure-0013": {
-   "The dog and cat played together in the yard.": "lesson-grammar-and-structure-phrases-and-clauses"
+   "The dog and cat played together in the yard.": "lesson-grammar-and-structure-independent-and-dependent-clauses"
   },
   "q-grammar-and-structure-sentence-structure-0018": {
-   "After rehearsal ended, the musicians left the hall.": "lesson-grammar-and-structure-phrases-and-clauses",
-   "After the musicians left, the caretaker closed the hall.": "lesson-grammar-and-structure-phrases-and-clauses"
+   "After rehearsal ended, the musicians left the hall.": "lesson-grammar-and-structure-independent-and-dependent-clauses",
+   "After the musicians left, the caretaker closed the hall.": "lesson-grammar-and-structure-independent-and-dependent-clauses"
   },
   "q-language-application-error-identification-0001": {
-   "Every one of the new laptops": "lesson-grammar-and-structure-subject-verb-agreement",
-   "No error": "lesson-grammar-and-structure-subject-verb-agreement"
+   "Every one of the new laptops": "lesson-grammar-and-structure-finding-subjects-and-matching-verbs",
+   "No error": "lesson-grammar-and-structure-finding-subjects-and-matching-verbs"
   },
   "q-language-application-error-identification-0010": {
-   "The research panel": "lesson-grammar-and-structure-subject-verb-agreement",
-   "is presenting": "lesson-grammar-and-structure-subject-verb-agreement"
+   "The research panel": "lesson-grammar-and-structure-groups-and-indefinite-pronouns",
+   "is presenting": "lesson-grammar-and-structure-groups-and-indefinite-pronouns"
   },
   "q-language-application-error-identification-0015": {
-   "Each applicant have submitted their form to the office.": "lesson-grammar-and-structure-subject-verb-agreement"
+   "Each applicant have submitted their form to the office.": "lesson-grammar-and-structure-groups-and-indefinite-pronouns"
   },
   "q-language-application-error-identification-0016": {
-   "Some of the information in these notes are confidential for legal reasons.": "lesson-grammar-and-structure-subject-verb-agreement",
-   "Some of the information in these notes were confidential at the time.": "lesson-grammar-and-structure-subject-verb-agreement",
-   "Some of the information in these notes have been confidential for months.": "lesson-grammar-and-structure-subject-verb-agreement"
+   "Some of the information in these notes are confidential for legal reasons.": "lesson-grammar-and-structure-groups-and-indefinite-pronouns",
+   "Some of the information in these notes were confidential at the time.": "lesson-grammar-and-structure-groups-and-indefinite-pronouns",
+   "Some of the information in these notes have been confidential for months.": "lesson-grammar-and-structure-groups-and-indefinite-pronouns"
   },
   "q-language-application-sentence-completion-0018": {
-   "finds": "lesson-grammar-and-structure-tenses-and-voice"
+   "finds": "lesson-grammar-and-structure-past-events-and-future-meaning"
   },
   "q-philippine-constitution-amending-and-revising-the-constitution-0012": {
-   "120": "lesson-arithmetic-number-sense-fractions-decimals-percentages"
+   "120": "lesson-arithmetic-number-sense-percentage-base-and-fraction-division"
   },
   "q-philippine-constitution-the-three-branches-and-their-powers-0018": {
-   "The override fails because the House needs at least 225 votes.": "lesson-arithmetic-number-sense-fractions-decimals-percentages"
+   "The override fails because the House needs at least 225 votes.": "lesson-arithmetic-number-sense-adding-and-multiplying-fractions"
   },
   "q-spatial-abstract-reasoning-figure-matrices-0002": {
-   "Circle with four dots": "lesson-spatial-abstract-reasoning-figure-series",
-   "Circle with three dots": "lesson-spatial-abstract-reasoning-figure-series"
+   "Circle with four dots": "lesson-spatial-abstract-reasoning-figure-counts-and-fills",
+   "Circle with three dots": "lesson-spatial-abstract-reasoning-figure-counts-and-fills"
   },
   "q-spatial-abstract-reasoning-figure-matrices-0003": {
-   "Medium square": "lesson-spatial-abstract-reasoning-figure-series"
+   "Medium square": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
   },
   "q-spatial-abstract-reasoning-figure-matrices-0008": {
-   "Large triangle with two dots": "lesson-spatial-abstract-reasoning-figure-series"
+   "Large triangle with two dots": "lesson-spatial-abstract-reasoning-figure-counts-and-fills"
   },
   "q-spatial-abstract-reasoning-figure-matrices-0011": {
-   "White star": "lesson-spatial-abstract-reasoning-figure-series"
+   "White star": "lesson-spatial-abstract-reasoning-figure-counts-and-fills"
   },
   "q-spatial-abstract-reasoning-figure-matrices-0012": {
-   "Arrow pointing up": "lesson-spatial-abstract-reasoning-figure-series",
-   "Arrow pointing left": "lesson-spatial-abstract-reasoning-figure-series",
-   "Arrow pointing right": "lesson-spatial-abstract-reasoning-figure-series"
+   "Arrow pointing up": "lesson-spatial-abstract-reasoning-figure-turns-and-positions",
+   "Arrow pointing left": "lesson-spatial-abstract-reasoning-figure-turns-and-positions",
+   "Arrow pointing right": "lesson-spatial-abstract-reasoning-figure-turns-and-positions"
   },
   "q-spatial-abstract-reasoning-figure-matrices-0013": {
-   "Pentagon with line pointing upper-right": "lesson-spatial-abstract-reasoning-figure-series"
+   "Pentagon with line pointing upper-right": "lesson-spatial-abstract-reasoning-figure-turns-and-positions"
   },
   "q-spatial-abstract-reasoning-figure-matrices-0017": {
-   "Large square": "lesson-spatial-abstract-reasoning-figure-series",
-   "Small square": "lesson-spatial-abstract-reasoning-figure-series"
+   "Large square": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns",
+   "Small square": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
   },
   "q-spatial-abstract-reasoning-figure-matrices-0018": {
-   "Line pointing down": "lesson-spatial-abstract-reasoning-figure-series",
-   "Line pointing lower-right": "lesson-spatial-abstract-reasoning-figure-series"
+   "Line pointing down": "lesson-spatial-abstract-reasoning-figure-turns-and-positions",
+   "Line pointing lower-right": "lesson-spatial-abstract-reasoning-figure-turns-and-positions"
   },
   "q-spatial-abstract-reasoning-figure-matrices-0019": {
-   "Square with dot at bottom-right": "lesson-spatial-abstract-reasoning-figure-series",
-   "Square with dot at bottom-left": "lesson-spatial-abstract-reasoning-figure-series"
+   "Square with dot at bottom-right": "lesson-spatial-abstract-reasoning-figure-turns-and-positions",
+   "Square with dot at bottom-left": "lesson-spatial-abstract-reasoning-figure-turns-and-positions"
   },
   "q-spatial-abstract-reasoning-figure-matrices-0020": {
-   "Large square; three dots; two edge lines": "lesson-spatial-abstract-reasoning-figure-series",
-   "Large square; two dots; one edge line": "lesson-spatial-abstract-reasoning-figure-series"
+   "Large square; three dots; two edge lines": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns",
+   "Large square; two dots; one edge line": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
   },
   "q-statistics-and-probability-data-analysis-graphs-0017": {
-   "P250": "lesson-arithmetic-number-sense-fractions-decimals-percentages"
+   "P250": "lesson-arithmetic-number-sense-adding-and-multiplying-fractions"
   },
   "q-text-types-visual-media-0015": {
-   "To predict that the shop will earn more in every following month.": "lesson-comprehension-skills-inferencing-and-conclusions"
+   "To predict that the shop will earn more in every following month.": "lesson-comprehension-skills-evidence-and-claim-strength"
   },
   "q-text-types-visual-media-0016": {
-   "The teacher removes every sheet before Gio asks his question.": "lesson-comprehension-skills-inferencing-and-conclusions",
-   "The students decide to create a separate board for all club notices.": "lesson-comprehension-skills-inferencing-and-conclusions"
+   "The teacher removes every sheet before Gio asks his question.": "lesson-comprehension-skills-connecting-clues",
+   "The students decide to create a separate board for all club notices.": "lesson-comprehension-skills-connecting-clues"
   },
   "q-text-types-visual-media-0018": {
-   "It guarantees that every student understands the poster's message.": "lesson-comprehension-skills-inferencing-and-conclusions"
+   "It guarantees that every student understands the poster's message.": "lesson-comprehension-skills-evidence-and-claim-strength"
   },
   "q-text-types-visual-media-0020": {
-   "It establishes that Mara secretly removed the timetable herself.": "lesson-comprehension-skills-inferencing-and-conclusions",
-   "It guarantees that Gio will never post another club notice.": "lesson-comprehension-skills-inferencing-and-conclusions"
+   "It establishes that Mara secretly removed the timetable herself.": "lesson-comprehension-skills-connecting-clues",
+   "It guarantees that Gio will never post another club notice.": "lesson-comprehension-skills-evidence-and-claim-strength"
   },
   "q-verbal-logic-assumptions-and-conclusions-0003": {
-   "Maria has already been appointed to civil service.": "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic"
+   "Maria has already been appointed to civil service.": "lesson-logical-verbal-reasoning-invalid-conditional-forms"
   },
   "q-verbal-logic-assumptions-and-conclusions-0004": {
-   "Heavy rain must have occurred during the assembly.": "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic"
+   "Heavy rain must have occurred during the assembly.": "lesson-logical-verbal-reasoning-invalid-conditional-forms"
   },
   "q-verbal-logic-assumptions-and-conclusions-0006": {
-   "Every registered vehicle is inside the compound.": "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic"
+   "Every registered vehicle is inside the compound.": "lesson-logical-verbal-reasoning-invalid-conditional-forms"
   },
   "q-verbal-logic-assumptions-and-conclusions-0007": {
-   "Elena definitely lacks a master's degree.": "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic",
-   "Every master's-degree holder is a supervisor.": "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic"
+   "Elena definitely lacks a master's degree.": "lesson-logical-verbal-reasoning-invalid-conditional-forms",
+   "Every master's-degree holder is a supervisor.": "lesson-logical-verbal-reasoning-invalid-conditional-forms"
   },
   "q-verbal-logic-assumptions-and-conclusions-0009": {
-   "No candidate scoring 79% passed.": "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic"
+   "No candidate scoring 79% passed.": "lesson-logical-verbal-reasoning-invalid-conditional-forms"
   },
   "q-verbal-logic-assumptions-and-conclusions-0013": {
-   "All auditors are inspectors.": "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic"
+   "All auditors are inspectors.": "lesson-logical-verbal-reasoning-deductive-group-arguments"
   },
   "q-vocabulary-confusing-words-0006": {
-   "Affective": "lesson-grammar-and-structure-parts-of-speech"
+   "Affective": "lesson-grammar-and-structure-english-word-jobs"
   },
   "q-vocabulary-spelling-rules-0010": {
-   "Mispell": "lesson-vocabulary-root-words-prefixes-suffixes"
+   "Mispell": "lesson-vocabulary-roots-bases-and-valid-splits"
   },
   "q-vocabulary-spelling-rules-0011": {
-   "Unecessary": "lesson-vocabulary-root-words-prefixes-suffixes"
+   "Unecessary": "lesson-vocabulary-roots-bases-and-valid-splits"
   },
   "q-vocabulary-synonyms-and-antonyms-0012": {
-   "To finish a task quickly": "lesson-vocabulary-context-clues",
-   "To hold firmly in place": "lesson-vocabulary-context-clues"
+   "To finish a task quickly": "lesson-vocabulary-word-partners-feeling-and-grammar",
+   "To hold firmly in place": "lesson-vocabulary-word-partners-feeling-and-grammar"
   },
   "rc-cs-ct-0005": {
-   "The exact height of every retaining wall": "lesson-comprehension-skills-main-idea",
-   "The complete list of jobs available in cities": "lesson-comprehension-skills-main-idea",
-   "The specifications of soil repair equipment": "lesson-comprehension-skills-main-idea"
+   "The exact height of every retaining wall": "lesson-comprehension-skills-main-idea-scope",
+   "The complete list of jobs available in cities": "lesson-comprehension-skills-main-idea-scope",
+   "The specifications of soil repair equipment": "lesson-comprehension-skills-main-idea-scope"
   },
   "rc-cs-ct-0009": {
-   "How Concrete Stores Heat Throughout the Day": "lesson-comprehension-skills-main-idea"
+   "How Concrete Stores Heat Throughout the Day": "lesson-comprehension-skills-main-point-and-topic-sentence"
   },
   "rc-tt-eea-0010": {
-   "Rice arrives through local ports.": "lesson-comprehension-skills-fact-vs-opinion",
-   "Smallholder farmers grow rice in Nueva Ecija.": "lesson-comprehension-skills-fact-vs-opinion",
-   "The editorial proposes a fifty percent fertilizer subsidy.": "lesson-comprehension-skills-fact-vs-opinion"
+   "Rice arrives through local ports.": "lesson-comprehension-skills-checkable-claims-and-judgments",
+   "Smallholder farmers grow rice in Nueva Ecija.": "lesson-comprehension-skills-checkable-claims-and-judgments",
+   "The editorial proposes a fifty percent fertilizer subsidy.": "lesson-comprehension-skills-checkable-claims-and-judgments"
   },
   "rc-tt-vm-0009": {
-   "Proof that commuters receive the driver's fuel income": "lesson-comprehension-skills-inferencing-and-conclusions",
-   "Guaranteed closure of every transport route in the city": "lesson-comprehension-skills-inferencing-and-conclusions"
+   "Proof that commuters receive the driver's fuel income": "lesson-comprehension-skills-connecting-clues",
+   "Guaranteed closure of every transport route in the city": "lesson-comprehension-skills-evidence-and-claim-strength"
   },
   "rc-tt-vm-0010": {
-   "It proves the cartoon supports every policy used by oil importers.": "lesson-comprehension-skills-inferencing-and-conclusions"
+   "It proves the cartoon supports every policy used by oil importers.": "lesson-comprehension-skills-evidence-and-claim-strength"
   }
  }
 }
