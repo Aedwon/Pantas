@@ -21,7 +21,7 @@ class BetaReward {
   /// Counted Philippine dates, `YYYY-MM-DD`.
   final List<String> days;
 
-  /// The seven beta dates, Nov 9 to 15, `YYYY-MM-DD`.
+  /// The fourteen beta dates, Nov 9 to 22, `YYYY-MM-DD`.
   final List<String> betaDays;
   final DateTime surveyOpensAt;
   final DateTime surveyClosesAt;

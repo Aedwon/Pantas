@@ -381,12 +381,12 @@ void main() {
       expect(api.days, isEmpty);
     });
 
-    test('only Nov 8 to Nov 16 report', () async {
+    test('only Nov 8 to Nov 23 report', () async {
       final cases = {
         DateTime(2026, 11, 7, 23, 59): false,
         DateTime(2026, 11, 8): true,
-        DateTime(2026, 11, 16, 23, 59): true,
-        DateTime(2026, 11, 17): false,
+        DateTime(2026, 11, 23, 23, 59): true,
+        DateTime(2026, 11, 24): false,
       };
       for (final entry in cases.entries) {
         api.days.clear();

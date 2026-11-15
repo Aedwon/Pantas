@@ -61,14 +61,14 @@ void main() {
         await tester.pumpAndSettle();
         expect(find.text('Turning On…'), findsNothing);
         expect(
-          find.text('Pro features are on for the beta, until Nov 16.'),
+          find.text('Pro features are on for the beta, until Nov 23.'),
           findsOneWidget,
         );
         updates.add(null);
         await tester.pumpAndSettle();
         expect(find.text('Beta: Pro Features'), findsNothing);
         expect(
-          find.text('Pro features are on for the beta, until Nov 16.'),
+          find.text('Pro features are on for the beta, until Nov 23.'),
           findsNothing,
         );
         expect(tester.takeException(), isNull);

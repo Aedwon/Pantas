@@ -17,9 +17,9 @@ import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 final betaDayReporterEnabledProvider = Provider<bool>((ref) => kIsWeb);
 
 /// Local dates on which a day is reported. The server decides the real
-/// Philippine date, so the window is a day wider on each side of Nov 9 to 15.
+/// Philippine date, so the window is a day wider on each side of Nov 9 to 22.
 bool _inReportWindow(DateTime now) =>
-    now.year == 2026 && now.month == 11 && now.day >= 8 && now.day <= 16;
+    now.year == 2026 && now.month == 11 && now.day >= 8 && now.day <= 23;
 
 String _dateKey(DateTime d) =>
     '${d.year}-${d.month.toString().padLeft(2, '0')}-'
