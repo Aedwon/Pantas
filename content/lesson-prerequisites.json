@@ -209,30 +209,6 @@
     "reason": "Subject and number identification makes choosing auxiliary forms easier. The lesson provides the basic agreement patterns needed for its examples."
    }
   ],
-  "lesson-language-application-error-identification": [
-   {
-    "lesson": "lesson-grammar-and-structure-subject-verb-agreement",
-    "strength": "helpful",
-    "reason": "Focused agreement practice makes the correction checks easier. The lesson restates agreement rules and explains each correction."
-   },
-   {
-    "lesson": "lesson-grammar-and-structure-sentence-structure",
-    "strength": "helpful",
-    "reason": "Practice counting clauses supports the English and Filipino sentence-classification tasks. The lesson supplies its own sentence-type definitions."
-   }
-  ],
-  "lesson-language-application-paragraph-organization": [
-   {
-    "lesson": "lesson-comprehension-skills-balangkas-at-ugnayan",
-    "strength": "helpful",
-    "reason": "Distinguishing a main point from supporting details helps organize general statements, examples, and outlines. The lesson explains these ideas sufficiently itself."
-   },
-   {
-    "lesson": "lesson-grammar-and-structure-pronoun-antecedent-agreement",
-    "strength": "helpful",
-    "reason": "Practice identifying pronoun references makes reference chains easier to follow. The lesson teaches how references guide ordering."
-   }
-  ],
   "lesson-language-application-sentence-completion": [
    {
     "lesson": "lesson-vocabulary-context-clues",
@@ -1691,6 +1667,142 @@
     "lesson": "lesson-comprehension-skills-skimming-and-meaning-matches",
     "strength": "required",
     "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-language-application-subject-and-verb-checks": [
+   {
+    "lesson": "lesson-grammar-and-structure-subject-verb-agreement",
+    "strength": "helpful",
+    "reason": "Focused agreement practice makes the correction checks easier. The lesson restates agreement rules and explains each correction."
+   },
+   {
+    "lesson": "lesson-grammar-and-structure-sentence-structure",
+    "strength": "helpful",
+    "reason": "Practice counting clauses supports the English and Filipino sentence-classification tasks. The lesson supplies its own sentence-type definitions."
+   }
+  ],
+  "lesson-language-application-pronoun-reference-checks": [
+   {
+    "lesson": "lesson-language-application-subject-and-verb-checks",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-modifiers-and-matching-forms": [
+   {
+    "lesson": "lesson-language-application-pronoun-reference-checks",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-past-time-checks": [
+   {
+    "lesson": "lesson-language-application-modifiers-and-matching-forms",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-modal-meaning-checks": [
+   {
+    "lesson": "lesson-language-application-past-time-checks",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-phrases-and-sentence-types": [
+   {
+    "lesson": "lesson-language-application-modal-meaning-checks",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-clause-punctuation-checks": [
+   {
+    "lesson": "lesson-language-application-phrases-and-sentence-types",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-word-meaning-checks": [
+   {
+    "lesson": "lesson-language-application-clause-punctuation-checks",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-wastong-gamit-at-panahon": [
+   {
+    "lesson": "lesson-language-application-word-meaning-checks",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-kayarian-at-sugnay": [
+   {
+    "lesson": "lesson-language-application-wastong-gamit-at-panahon",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-openings-and-reference-links": [
+   {
+    "lesson": "lesson-comprehension-skills-balangkas-at-ugnayan",
+    "strength": "helpful",
+    "reason": "Distinguishing a main point from supporting details helps organize general statements, examples, and outlines. The lesson explains these ideas sufficiently itself."
+   },
+   {
+    "lesson": "lesson-grammar-and-structure-pronoun-antecedent-agreement",
+    "strength": "helpful",
+    "reason": "Practice identifying pronoun references makes reference chains easier to follow. The lesson teaches how references guide ordering."
+   }
+  ],
+  "lesson-language-application-transition-links": [
+   {
+    "lesson": "lesson-language-application-openings-and-reference-links",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-time-and-step-order": [
+   {
+    "lesson": "lesson-language-application-transition-links",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-cause-and-effect-order": [
+   {
+    "lesson": "lesson-language-application-time-and-step-order",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-main-ideas-and-details": [
+   {
+    "lesson": "lesson-language-application-cause-and-effect-order",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-details-and-supported-inferences": [
+   {
+    "lesson": "lesson-language-application-main-ideas-and-details",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-pagkakasunod-at-sanhi": [
+   {
+    "lesson": "lesson-language-application-details-and-supported-inferences",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-paksa-at-balangkas": [
+   {
+    "lesson": "lesson-language-application-pagkakasunod-at-sanhi",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
    }
   ]
  }

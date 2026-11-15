@@ -814,6 +814,56 @@
               "sections": []
             },
             {
+              "title": "Subject and Verb Checks",
+              "slug": "subject-and-verb-checks",
+              "sections": []
+            },
+            {
+              "title": "Pronoun Reference Checks",
+              "slug": "pronoun-reference-checks",
+              "sections": []
+            },
+            {
+              "title": "Modifiers and Matching Forms",
+              "slug": "modifiers-and-matching-forms",
+              "sections": []
+            },
+            {
+              "title": "Past Time Checks",
+              "slug": "past-time-checks",
+              "sections": []
+            },
+            {
+              "title": "Modal Meaning Checks",
+              "slug": "modal-meaning-checks",
+              "sections": []
+            },
+            {
+              "title": "Phrases and Sentence Types",
+              "slug": "phrases-and-sentence-types",
+              "sections": []
+            },
+            {
+              "title": "Clause Punctuation Checks",
+              "slug": "clause-punctuation-checks",
+              "sections": []
+            },
+            {
+              "title": "Word Meaning Checks",
+              "slug": "word-meaning-checks",
+              "sections": []
+            },
+            {
+              "title": "Wastong Gamit at Panahon",
+              "slug": "wastong-gamit-at-panahon",
+              "sections": []
+            },
+            {
+              "title": "Kayarian at Sugnay",
+              "slug": "kayarian-at-sugnay",
+              "sections": []
+            },
+            {
               "title": "Sentence Completion / Fill-in-the-Blanks",
               "slug": "sentence-completion",
               "sections": []
@@ -821,6 +871,46 @@
             {
               "title": "Paragraph Organization (Logical Ordering of Sentences)",
               "slug": "paragraph-organization",
+              "sections": []
+            },
+            {
+              "title": "Openings and Reference Links",
+              "slug": "openings-and-reference-links",
+              "sections": []
+            },
+            {
+              "title": "Transition Links",
+              "slug": "transition-links",
+              "sections": []
+            },
+            {
+              "title": "Time and Step Order",
+              "slug": "time-and-step-order",
+              "sections": []
+            },
+            {
+              "title": "Cause and Effect Order",
+              "slug": "cause-and-effect-order",
+              "sections": []
+            },
+            {
+              "title": "Main Ideas and Details",
+              "slug": "main-ideas-and-details",
+              "sections": []
+            },
+            {
+              "title": "Details and Supported Inferences",
+              "slug": "details-and-supported-inferences",
+              "sections": []
+            },
+            {
+              "title": "Pagkakasunod at Sanhi",
+              "slug": "pagkakasunod-at-sanhi",
+              "sections": []
+            },
+            {
+              "title": "Paksa at Balangkas",
+              "slug": "paksa-at-balangkas",
               "sections": []
             }
           ]

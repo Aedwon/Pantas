@@ -6,6 +6,16 @@ subject: "subject-language-proficiency"
 topic: "topic-language-application"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-language-application-openings-and-reference-links
+  - lesson-language-application-transition-links
+  - lesson-language-application-time-and-step-order
+  - lesson-language-application-cause-and-effect-order
+  - lesson-language-application-main-ideas-and-details
+  - lesson-language-application-details-and-supported-inferences
+  - lesson-language-application-pagkakasunod-at-sanhi
+  - lesson-language-application-paksa-at-balangkas
 ---
 ## Core Concept
 

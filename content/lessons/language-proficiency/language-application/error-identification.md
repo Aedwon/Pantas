@@ -6,6 +6,18 @@ subject: "subject-language-proficiency"
 topic: "topic-language-application"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-language-application-subject-and-verb-checks
+  - lesson-language-application-pronoun-reference-checks
+  - lesson-language-application-modifiers-and-matching-forms
+  - lesson-language-application-past-time-checks
+  - lesson-language-application-modal-meaning-checks
+  - lesson-language-application-phrases-and-sentence-types
+  - lesson-language-application-clause-punctuation-checks
+  - lesson-language-application-word-meaning-checks
+  - lesson-language-application-wastong-gamit-at-panahon
+  - lesson-language-application-kayarian-at-sugnay
 ---
 ## Core Concept
 
