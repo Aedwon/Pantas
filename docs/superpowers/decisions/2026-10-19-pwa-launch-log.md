@@ -3852,3 +3852,13 @@ Fable 5.2 High ruled under Aedwon's standing delegation on `docs/superpowers/pla
 - Prod web 662720971-1b98262880a0 with SCREEN_COUNTS=true on Hosting at 17:06 UTC. The first Worker publish failed (wrangler could not reach Cloudflare's auth server to refresh its token); app.pantas.study kept serving the previous build until the retry at about 17:08 UTC succeeded. compare.mjs 92 of 92; the gate still holds. Rollback version sites/pantas-prod/versions/4085c6e3fc899071 (not needed).
 - Watch 17:05 to 17:39 UTC: no ERROR entries, no failed code emails; no client_telemetry reports arrived in the window (no tester activity), so counted reports on prod are not yet observed. Velocity E-097: see the row (timer).
 
+### Nov 15, scheduler steps 3 and 4: the nine legacy jobs removed (DS4 lead)
+
+- Pre-checks at 20:25 UTC: jobsDailyEarly 200 at 19:00 UTC and jobsDailyLate 200 at 20:00 UTC, with no warnings. jobsFrequent ran 287 times since 20:28 UTC Nov 14, all 200. There were 0 "Scheduled task failed" lines. Prod scheduler: 3 ENABLED, 9 PAUSED.
+- web/scheduler-legacy-off-r1 0e60f9a41 sets LEGACY_SCHEDULES=off in functions/.env.pantas-prod, and the prod gating test now expects the three combined jobs only. 13 of 13 tests pass locally, and CI and the journeys pass. Merged to main as 77a21fb89, and main CI passes.
+- Prod --force deploy from main, 20:39 to 20:45 UTC, with pinned CLI 15.32.1 (the guard passed): 9 legacy functions deleted, 59 updated, 0 errors. Cloud Scheduler on prod now has 3 jobs (jobsFrequent, jobsDailyEarly, jobsDailyLate), all ENABLED, in asia-southeast1 only. All 60 functions are ACTIVE.
+- Staging --force deploy from main (SCHEDULED_JOBS=off): 56 updated, 0 deleted. Staging has 0 scheduler jobs, and all 57 functions are ACTIVE.
+- Handed to the security lead: merge main into web/free-tier-check-r1 and report the green head SHA; the integrator merges it after reading CI by full SHA.
+- The Dec 1 date bomb reported in test/features/paywall/data/cancellation_reconciliation_test.dart is not one: a paid subscription's proIsActive does not read the clock (only beta passes do), and the test passes with its end set in the past (Nov 10). No change made.
+- Velocity E-076: see the row (timer).
+
