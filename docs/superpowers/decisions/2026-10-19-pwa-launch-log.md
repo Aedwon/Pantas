@@ -3835,3 +3835,8 @@ Fable 5.2 High ruled under Aedwon's standing delegation on `docs/superpowers/pla
 - DS4 completion lead's staging check before it: 2 plan reads and 2 token refreshes on a fresh device, where the count used to climb. The staging debug token was deleted after it.
 - Main 17e0c9181 (b2a5deb73 plus docs-only log commits; main's app code equalled prod before it). Prod build 2781985735-3942721ebdf9 from b2a5deb73 (CI and journeys green; no SCREEN_COUNTS) on Hosting at 16:04 UTC and the prod Worker at 16:05 UTC; compare.mjs 92 of 92; the gate still holds. Rollback version sites/pantas-prod/versions/86f2f2787d1ee392 (not needed). getRoadmap 200s in the hour before: 0 (no tester activity), so the watch counts calls after the deploy.
 
+### Nov 15, screen counts: approved, blocked on a merge conflict (DS4 lead)
+
+- Approval: Aedwon, verbatim (relayed by the manager), "yes on both" to (a) "did your personal note reach the minor tester's guardian too?" and (b) "screen counts are ready for prod. Want me to ship it?": his "ship it" for screen counts (web/usage-counts-r1; code under test 1ccb6fd25). The guardian email is waived for the beta (c6172dcf2 on main).
+- Blocked: merging main into web/usage-counts-r1 (e05d615de) conflicts with the Home beta notice shipped today (home_notices.dart 4 blocks, home_notice_strip.dart 1, home_notices_test.dart 1): both sides added a notice kind and a route field (route vs primaryRoute). Resolving needs the notice order when both apply, a UI call for the branch owner. Handed to the DS4 completion lead; the integrator's local merge was aborted and nothing was pushed to the branch.
+
