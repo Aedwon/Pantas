@@ -87,7 +87,28 @@ pass 15, retire or merge one first.
    bills, it is a defect to fix at once, not a cost to accept. His words (Nov 15): "that is absurd, i should never have been billed in the first place with just testing traffic and scheduled jobs. make this a strict standing rule. this should never happen again. the only thing that should bill us is due to users, and that's justifiable and by then we should be already able to cover the costs. i am disappointed." This rule retires when the free-tier
    check (see the entry below) covers every item.
 
+8. Emails to testers and users follow the shape of Aedwon's own Nov 15 rewrite. Subject:
+   a short plain label ("Pantas beta extension"), no claim. Body: a greeting, then two or
+   three short sentences in a plain, friendly "we" voice (contractions are fine): what
+   changed, what the reader must do, with their own number when we have it ("You still
+   need to complete 4 days by then"). One button. No bullet lists, no sign-off ("The
+   Pantas team"), no repeated facts, no extra links, no offer words ("reward", "free",
+   "1 year of Pro"), which also sent a version to Gmail Promotions. Dates in full with
+   the weekday: "November 22 (Sun)". Draft to this shape before the self-test (rule 6),
+   not after his complaint. His words (Nov 15): "but i think now it's too long. same
+   cuts, unnecessary info out", "i think this is too long. make it more concise, too many
+   words here.", "tsk terrible", then his own text, then "lgtm send them out please, and
+   note my preference on email wording/structure/tone/whatever". No check can judge tone
+   or length well enough; the self-test is where he sees it.
+
 ## Entries
+
+### Beta extension email drafts too long and too formal (Nov 15)
+
+- His words: "but i think now it's too long. same cuts, unnecessary info out", "i think this is too long. make it more concise, too many words here.", "\"The Pantas team\" is this in other emails we sent? if not, remove it", "tsk terrible", then he wrote the email himself.
+- Wrong: four drafts (an approved text in the newsletter template, a rephrase, a shorter one, a tightened one) each carried more than the reader needed: perk lists, Pro dates, links to the guide, a team sign-off no earlier email used, and instruction sentences of 20 words or more. The first also landed in Gmail Promotions.
+- Why it got through: drafts started from the facts to cover, not from what one tester must do next, and each round trimmed instead of rewriting.
+- Fix: written rule 8 (his rewrite is the model). The monitor's send script also refuses a recipient its wording does not cover (for example a tester who already has 5 days).
 
 ### Manager waited to be asked instead of acting in his interest (Nov 15)
 
