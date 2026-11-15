@@ -74,5 +74,5 @@ Full ids: `list_scheduled_tasks`. Prefix for the first six: `scheduled-task:comm
 
 - Native app release must rebuild the protected content package at schema 11.
 - CET: the CET-account proof must run before any CET exam opens; the CET rewrite's baseline is the split lessons.
-- CSE Algebra: Aedwon overrode the hold on Nov 15; Word Problems splits now (E-091). The 10 CET algebra lessons stay unsplit, but all 220 algebra questions are re-solved and approved, and the topic's lessons gain explicit `ordering`. The CET rewrite's baseline in Algebra is the split Word Problems parts and the re-approved questions.
+- CSE Algebra: Aedwon overrode the hold on Nov 15; all 11 algebra lessons split now (E-091; the lesson check requires every active lesson in a split topic to be a part), and all 220 algebra questions are re-solved and approved. The CET rewrite's baseline in Algebra is the parts and the re-approved questions.
 - Secret Manager versions: leave (Fable); revisit only if a real charge appears.
