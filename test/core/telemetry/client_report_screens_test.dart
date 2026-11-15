@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/telemetry/client_report.dart';
 import 'package:pantas/core/telemetry/perf_timeline.dart';
 import 'package:pantas/core/telemetry/screen_counts.dart';
+import 'package:pantas/core/telemetry/screen_ids.dart';
 
 class _Sender implements ClientReportSender {
   final sent = <Map<String, Object?>>[];
@@ -38,7 +39,7 @@ void main() {
   late List<PerfEntry> timings;
   final reporters = <ClientReporter>[];
 
-  ClientReporter make({required bool screenCounts}) {
+  ClientReporter make({required bool screenCounts, bool allowed = true}) {
     final reporter = ClientReporter(
       sender: sender,
       context: () => const ClientReportContext(
@@ -51,6 +52,7 @@ void main() {
       now: () => clock,
       timings: () => timings,
       screenCounts: screenCounts,
+      screenCountsAllowed: allowed,
     );
     reporters.add(reporter);
     return reporter;
@@ -73,8 +75,10 @@ void main() {
       (payload['screens']! as List).cast<Map<String, Object?>>();
 
   group('the flag', () {
-    test('is off in the code as shipped', () {
-      expect(screenCountsInClientReports, isFalse);
+    test('is off unless the build defines SCREEN_COUNTS=true', () {
+      const defined = bool.fromEnvironment('SCREEN_COUNTS');
+      expect(screenCountsInClientReports, defined);
+      if (!defined) expect(screenCountsInClientReports, isFalse);
     });
 
     test('off: no collection and no new key', () async {
@@ -418,6 +422,137 @@ void main() {
         ..pageHidden();
       await pumpEventQueue();
       expect(sender.sent, hasLength(1));
+    });
+  });
+
+  group('the notice gate', () {
+    test('closed by default: nothing is counted or sent', () async {
+      make(screenCounts: true, allowed: false)
+        ..recordScreen('home')
+        ..recordScreen('study')
+        ..pageHidden();
+      await pumpEventQueue();
+      expect(sender.sent, isEmpty);
+    });
+
+    test('closed: the report holds no screens key', () async {
+      timings = [const PerfEntry('boot.auth', 5)];
+      make(screenCounts: true, allowed: false)
+        ..recordScreen('home')
+        ..pageHidden();
+      await pumpEventQueue();
+      expect(sender.sent.single.containsKey('screens'), isFalse);
+    });
+
+    test('opening it counts later screens', () async {
+      make(screenCounts: true, allowed: false)
+        ..recordScreen('home')
+        ..screenCountsAllowed = true
+        ..recordScreen('study')
+        ..pageHidden();
+      await pumpEventQueue();
+      final counts = {
+        for (final e in screensOf(sender.sent.single)) e['s']: e['n'],
+      };
+      expect(counts, containsPair('study', 1));
+    });
+
+    test('opening it counts the screen already open, as the visit first',
+        () async {
+      make(screenCounts: true, allowed: false)
+        ..recordScreen('home')
+        ..screenCountsAllowed = true
+        ..pageHidden();
+      await pumpEventQueue();
+      final entry = screensOf(sender.sent.single).single;
+      expect(entry['s'], 'home');
+      expect(entry['n'], 1);
+      expect(entry['first'], isTrue);
+      expect(entry['last'], isTrue);
+    });
+
+    test('a screen that was not the visit first is not marked first', () async {
+      make(screenCounts: true, allowed: false)
+        ..recordScreen('home')
+        ..recordScreen('study')
+        ..screenCountsAllowed = true
+        ..pageHidden();
+      await pumpEventQueue();
+      final entry = screensOf(sender.sent.single).single;
+      expect(entry['s'], 'study');
+      expect(entry['first'], isFalse);
+    });
+
+    test('closing it drops pending counts and stops collection', () async {
+      timings = [const PerfEntry('boot.auth', 5)];
+      make(screenCounts: true)
+        ..recordScreen('home')
+        ..recordScreen('study')
+        ..screenCountsAllowed = false
+        ..recordScreen('lesson')
+        ..pageHidden();
+      await pumpEventQueue();
+      expect(sender.sent.single.containsKey('screens'), isFalse);
+    });
+
+    test('open but the speed switch off: nothing is counted', () async {
+      make(screenCounts: true, allowed: false)
+        ..enabled = false
+        ..recordScreen('home')
+        ..screenCountsAllowed = true
+        ..recordScreen('study')
+        ..pageHidden();
+      await pumpEventQueue();
+      expect(sender.sent, isEmpty);
+    });
+
+    test('the flag off keeps it closed whatever the gate says', () async {
+      timings = [const PerfEntry('boot.auth', 5)];
+      make(screenCounts: false)
+        ..recordScreen('home')
+        ..screenCountsAllowed = true
+        ..pageHidden();
+      await pumpEventQueue();
+      expect(sender.sent.single.containsKey('screens'), isFalse);
+    });
+  });
+
+  group('guardian and age check screens count as other', () {
+    for (final id in screenCountsOtherIds) {
+      test('$id is reported as other', () async {
+        make(screenCounts: true)
+          ..recordScreen(id)
+          ..pageHidden();
+        await pumpEventQueue();
+        final entry = screensOf(sender.sent.single).single;
+        expect(entry['s'], 'other');
+        expect(entry['n'], 1);
+      });
+    }
+
+    test('the set is exactly the guardian flow and the adult check', () {
+      expect(screenCountsOtherIds, {
+        'guardian',
+        'guardian_contact',
+        'guardian_manage',
+        'guardian_waiting',
+        'guardian_withdrawn',
+        'settings_adult_check',
+      });
+    });
+
+    test('an ordinary screen keeps its own name', () async {
+      make(screenCounts: true)
+        ..recordScreen('home')
+        ..pageHidden();
+      await pumpEventQueue();
+      expect(screensOf(sender.sent.single).single['s'], 'home');
+    });
+
+    test('step 1 mapping is untouched: the ids stay in the closed set', () {
+      for (final id in screenCountsOtherIds) {
+        expect(screenIdSet, contains(id));
+      }
     });
   });
 }

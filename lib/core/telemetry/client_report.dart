@@ -12,6 +12,7 @@ import 'package:pantas/core/telemetry/client_report_env_stub.dart'
     as env;
 import 'package:pantas/core/telemetry/perf_timeline.dart';
 import 'package:pantas/core/telemetry/screen_counts.dart';
+import 'package:pantas/core/telemetry/screen_ids.dart';
 
 /// Where a finished report goes. Tests replace it.
 // ignore: one_member_abstracts
@@ -182,8 +183,10 @@ class ClientReporter {
     DateTime Function()? now,
     List<PerfEntry> Function()? timings,
     bool screenCounts = screenCountsInClientReports,
+    bool screenCountsAllowed = false,
   })  : _sender = sender,
         _screenCountsOn = screenCounts,
+        _allowed = screenCountsAllowed,
         _context = context,
         _now = now ?? DateTime.now,
         _timings = timings ?? PerfTimeline.entries;
@@ -222,6 +225,7 @@ class ClientReporter {
   bool _inFlight = false;
   bool _failedOnce = false;
   bool _enabled = true;
+  bool _allowed;
 
   // Screen counts. Held only while the flag is on and the switch is on.
   final Map<String, int> _screenViews = {};
@@ -229,6 +233,8 @@ class ClientReporter {
   String? _firstScreen;
   bool _firstPending = false;
   bool _visitStarted = false;
+  String? _lastSeen;
+  bool _lastSeenStartedVisit = false;
   int _screenGeneration = 0;
 
   /// The student's "Send speed and error reports" choice. Off, nothing is
@@ -239,6 +245,28 @@ class ClientReporter {
     if (_enabled == value) return;
     _enabled = value;
     _dropQueue();
+  }
+
+  /// Whether the current learner saw the screen counts notice in an earlier
+  /// visit. Closed until the app says otherwise.
+  bool get screenCountsAllowed => _allowed;
+  set screenCountsAllowed(bool value) {
+    if (_allowed == value) return;
+    _allowed = value;
+    try {
+      if (!value) {
+        _dropScreens();
+      } else if (_screenCountsOn &&
+          _enabled &&
+          _lastSeen != null &&
+          _currentScreen == null) {
+        // The gate opened a moment after the first screen did, while the
+        // account was still being found. Count the screen the learner is on.
+        _count(_lastSeen!, startsVisit: _lastSeenStartedVisit);
+      }
+    } on Object {
+      // See addError.
+    }
   }
 
   void _dropQueue() {
@@ -269,21 +297,30 @@ class ClientReporter {
   void recordScreen(String screen) {
     try {
       if (!_screenCountsOn) return;
+      final name = screenCountId(screen);
       final startsVisit = !_visitStarted;
       _visitStarted = true;
-      if (!_enabled || screen == _currentScreen) return;
-      _currentScreen = screen;
-      if (!_screenViews.containsKey(screen) &&
-          _screenViews.length >= _maxScreenEntries) {
-        return;
+      if (name != _lastSeen) {
+        _lastSeen = name;
+        _lastSeenStartedVisit = startsVisit;
       }
-      _screenViews[screen] = (_screenViews[screen] ?? 0) + 1;
-      if (startsVisit) {
-        _firstScreen = screen;
-        _firstPending = true;
-      }
+      if (!_enabled || !_allowed || name == _currentScreen) return;
+      _count(name, startsVisit: startsVisit);
     } on Object {
       // See addError.
+    }
+  }
+
+  void _count(String name, {required bool startsVisit}) {
+    _currentScreen = name;
+    if (!_screenViews.containsKey(name) &&
+        _screenViews.length >= _maxScreenEntries) {
+      return;
+    }
+    _screenViews[name] = (_screenViews[name] ?? 0) + 1;
+    if (startsVisit) {
+      _firstScreen = name;
+      _firstPending = true;
     }
   }
 

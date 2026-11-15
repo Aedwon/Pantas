@@ -1,6 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
+import 'package:pantas/app/screen_counts_providers.dart';
 import 'package:pantas/core/platform/remote_flags_providers.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -12,7 +13,7 @@ import 'package:pantas/features/paywall/domain/trial_notice.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
 
-enum HomeNoticeKind { service, trial, welcome, noDate, monthOnly }
+enum HomeNoticeKind { service, screenCounts, trial, welcome, noDate, monthOnly }
 
 class HomeNotice {
   const HomeNotice({
@@ -22,6 +23,7 @@ class HomeNotice {
     this.detail,
     this.primaryLabel,
     this.secondaryLabel,
+    this.route,
   });
   final HomeNoticeKind kind;
   final String title;
@@ -29,7 +31,17 @@ class HomeNotice {
   final String? detail;
   final String? primaryLabel;
   final String? secondaryLabel;
+
+  /// Where the primary button goes, when it opens a page.
+  final String? route;
 }
+
+/// The approved words, `step2-launch-texts.md` section 1.
+const screenCountsNoticeTitle = 'Screen counts in speed reports';
+const screenCountsNoticeText =
+    'Our speed and error reports now also count how often you open each '
+    'screen, to see which screens are used. Screen counts have no account ID. '
+    'You can turn these reports off in Settings, then About.';
 
 String _trialTitle(int days) => days == 0
     ? 'Pro trial ends today'
@@ -95,6 +107,32 @@ final homeNoticeProvider = FutureProvider.autoDispose<HomeNotice?>((ref) async {
         dismissalToken: service,
       ),
     );
+  }
+  if (server &&
+      ref.watch(screenCountsFlagProvider) &&
+      settings.speedReportsEnabled) {
+    final accountId = await ref.watch(screenCountsAccountIdProvider.future);
+    final store = ref.read(screenCountsNoticeStoreProvider);
+    if (accountId != null && !await store.isDismissed(accountId)) {
+      final minor = await preferences.ageGroup() == 'minor';
+      candidates.add(
+        HomeNotice(
+          kind: HomeNoticeKind.screenCounts,
+          title: screenCountsNoticeTitle,
+          detail: screenCountsNoticeText,
+          // The account the notice is shown to. It is stored on this device
+          // only and never sent anywhere.
+          dismissalToken: accountId,
+          // Got It is the main button, on the right. Learn More is the
+          // secondary, on the left.
+          primaryLabel: 'Got It',
+          secondaryLabel: 'Learn More',
+          // The Teen Notice for an under-18 account. The legal pages have no
+          // section anchors, so both open at the top.
+          route: minor ? '/legal/teens' : '/legal/privacy',
+        ),
+      );
+    }
   }
   if (server) {
     final webTrial = webTrialHomeNotice(

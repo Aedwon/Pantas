@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/flavor.dart';
 import 'package:pantas/app/no_scroll_bars.dart';
 import 'package:pantas/app/router.dart';
+import 'package:pantas/app/screen_counts_providers.dart';
 import 'package:pantas/app/theme.dart';
 import 'package:pantas/app/web_address.dart';
 import 'package:pantas/core/error/app_error_recovery.dart';
@@ -44,7 +45,8 @@ class App extends ConsumerWidget {
     ref
       ..watch(guardianAccountLifecycleProvider)
       ..watch(studyDeliveryLifecycleProvider)
-      ..watch(betaDayReporterProvider);
+      ..watch(betaDayReporterProvider)
+      ..watch(screenCountsGateProvider);
     final router = ref.watch(routerProvider);
     final themeMode = ref.watch(themePreferenceProvider).maybeWhen(
           data: (preference) => preference.themeMode,
