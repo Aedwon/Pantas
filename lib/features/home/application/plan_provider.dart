@@ -22,6 +22,7 @@ import 'package:pantas/features/roadmap/domain/day_snapshot.dart';
 import 'package:pantas/features/roadmap/domain/roadmap.dart';
 import 'package:pantas/features/roadmap/domain/week_preview.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
+import 'package:pantas/features/settings/domain/user_settings.dart';
 
 class PlanView {
   const PlanView({
@@ -63,6 +64,11 @@ class PlanDayView {
   final Set<String> readLessonIds;
 }
 
+String? _examDateKey(UserSettings settings) {
+  final date = settings.examDate;
+  return date == null ? null : '${date.storageValue}:${date.precision.name}';
+}
+
 /// Each publication is bound to the original request, including hydration.
 final planViewProvider =
     FutureProvider.autoDispose.family<PlanView, int>((ref, limit) async {
@@ -78,7 +84,10 @@ final planViewProvider =
   final server = ref.watch(studyUsesServerProvider);
   final pro = ref.watch(currentStudyCoverageProvider);
   final now = localDay(ref.read(nowProvider)().toLocal());
-  final settings = await ref.watch(userSettingsProvider.future);
+  // Only the exam date shapes the plan. Any settings row rewrites the
+  // settings value, and a synced one must not rebuild the plan.
+  await ref.watch(userSettingsProvider.selectAsync(_examDateKey));
+  final settings = await ref.read(userSettingsProvider.future);
   final days = settings.examDate?.daysUntil(now);
   final subtitle = days != null && days >= 0
       ? '$days ${days == 1 ? 'day' : 'days'} until ${exam.shortName}'
@@ -102,9 +111,22 @@ final planViewProvider =
     if (pro && current.proCovered) {
       final reader =
           await ref.watch(studySnapshotReaderProvider(exam.id).future);
-      final raw =
-          await reader.request.read('getRoadmap', payload: {'historyLimit': 5});
-      final value = StudyRoadmap.decode(raw, examId: exam.id);
+      // The roadmap read above already carries the coming-up weeks and the
+      // first five history rows: the server's default `historyLimit` is the 5
+      // asked for here, so a second read returned the same payload. It is
+      // reused, and a second read is made only when the first has no paid
+      // part.
+      var value = current;
+      var first = <String, Object?>{
+        'proCovered': true,
+        'history': current.history,
+      };
+      if (current.comingUp == null || current.history == null) {
+        final raw = await reader.request
+            .read('getRoadmap', payload: {'historyLimit': 5});
+        value = StudyRoadmap.decode(raw, examId: exam.id);
+        first = raw;
+      }
       final upcoming = value.comingUp;
       if (upcoming != null) {
         examDay = _date(upcoming['examDay']);
@@ -122,7 +144,7 @@ final planViewProvider =
       final stored = await readPlanHistory(
         reader.request,
         wanted: limit,
-        first: raw,
+        first: first,
       );
       for (final row in studyRows(stored['changes'])) {
         final cause =

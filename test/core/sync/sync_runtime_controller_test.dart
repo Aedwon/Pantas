@@ -82,10 +82,10 @@ void main() {
     final token = (await h.activeContext.readSnapshot())!.token;
     h.engine.blockStops = true;
 
-    final update = h.runtime.update(
-      identity: const SyncIdentity(uid: 'user-1'),
-      entitlement: SyncEntitlement.pro,
-    );
+    final update = h.reload().update(
+          identity: const SyncIdentity(uid: 'user-1'),
+          entitlement: SyncEntitlement.pro,
+        );
     await h.engine.stopEntered.future;
     final suspended = (await h.activeContext.readSnapshot())!;
     expect(suspended.context, isNull);
@@ -146,13 +146,15 @@ void main() {
         meaningful: true,
       );
       await h.seedLocalLesson();
-      await h.runtime.update(
+      // A page reload: a new controller, so a start and not a repeat event.
+      final reloaded = h.reload();
+      await reloaded.update(
         identity: const SyncIdentity(uid: 'user-1'),
         entitlement: SyncEntitlement.pro,
       );
-      expect(h.runtime.status, isA<SyncReconciliationRequired>());
+      expect(reloaded.status, isA<SyncReconciliationRequired>());
 
-      await h.runtime.chooseReconciliation(choice);
+      await reloaded.chooseReconciliation(choice);
 
       expect((await h.activeContext.readSnapshot())!.token, isNot(token));
     });
@@ -1029,11 +1031,12 @@ void main() {
     expect(h.runtime.status, isA<Syncing>());
     await h.db.delete(h.db.pendingSync).go();
     await h.db.customStatement('delete from sync_local_mutations');
-    await h.runtime.update(
+    final reloaded = h.reload();
+    await reloaded.update(
       identity: const SyncIdentity(uid: 'user-1'),
       entitlement: SyncEntitlement.pro,
     );
-    final status = h.runtime.status;
+    final status = reloaded.status;
     expect(status, isA<SyncUpToDate>());
     expect((status as SyncUpToDate).lastSyncedAt, isNotNull);
   });
@@ -1161,13 +1164,171 @@ void main() {
       contains('Bad state: Backup stopped while starting: Bad state: claim'),
     );
   });
+
+  // Nov 15: on the web the sign-in stream is idTokenChanges(), so every token
+  // refresh is an auth event even for the same account. Each event restarted
+  // Sync, the restart forced a token refresh, and the refresh was the next
+  // event: about one restart every 1.2 s at 400 ms latency, 34 plan reads in
+  // 45 s. The fake gateway below does what Firebase does: a forced refresh
+  // emits one more event for the same account.
+  group('same-account token events', () {
+    const user = SyncIdentity(uid: 'user-1');
+
+    test('a token event from our own forced refresh does not restart Sync',
+        () async {
+      final gateway = _TokenEventClaimGateway();
+      final h = _Harness(claimGateway: gateway);
+      addTearDown(h.close);
+      gateway.onForcedRefresh = () => unawaited(
+            Future<void>.delayed(const Duration(milliseconds: 5)).then(
+              (_) => h.runtime.update(
+                identity: user,
+                entitlement: SyncEntitlement.pro,
+              ),
+            ),
+          );
+
+      await h.runtime.update(identity: user, entitlement: SyncEntitlement.pro);
+      await Future<void>.delayed(const Duration(milliseconds: 400));
+
+      expect(gateway.forcedCalls, lessThanOrEqualTo(1));
+      expect(h.coordinator.pushCalls, lessThanOrEqualTo(1));
+      expect(h.runtime.status, isNot(isA<SyncActivating>()));
+    });
+
+    test('a claim that arrives later activates on the next token event',
+        () async {
+      final gateway = _TokenEventClaimGateway(hasClaim: false);
+      final h = _Harness(claimGateway: gateway);
+      addTearDown(h.close);
+
+      await h.runtime.update(identity: user, entitlement: SyncEntitlement.pro);
+      expect(h.runtime.status, isA<SyncActivating>());
+      expect(h.coordinator.pushCalls, 0);
+
+      gateway.hasClaim = true;
+      await h.runtime.update(identity: user, entitlement: SyncEntitlement.pro);
+
+      expect(h.runtime.status, isNot(isA<SyncActivating>()));
+      expect(h.coordinator.pushCalls, 1);
+      expect(gateway.forcedCalls, 1);
+    });
+
+    test('a token event while the claim is still missing does not refresh',
+        () async {
+      final gateway = _TokenEventClaimGateway(hasClaim: false);
+      final h = _Harness(claimGateway: gateway);
+      addTearDown(h.close);
+
+      await h.runtime.update(identity: user, entitlement: SyncEntitlement.pro);
+      for (var i = 0; i < 3; i++) {
+        await h.runtime.update(
+          identity: user,
+          entitlement: SyncEntitlement.pro,
+        );
+      }
+
+      expect(gateway.forcedCalls, 1);
+      expect(h.runtime.status, isA<SyncActivating>());
+      expect(h.coordinator.pushCalls, 0);
+    });
+
+    test('another account still restarts Sync', () async {
+      final gateway = _TokenEventClaimGateway();
+      final h = _Harness(claimGateway: gateway);
+      addTearDown(h.close);
+
+      await h.runtime.update(identity: user, entitlement: SyncEntitlement.pro);
+      await h.runtime.update(
+        identity: const SyncIdentity(uid: 'user-2'),
+        entitlement: SyncEntitlement.pro,
+      );
+
+      expect(gateway.forcedCalls, 2);
+      expect(h.coordinator.operations, contains('push:user-2:null'));
+    });
+
+    test('an entitlement change still restarts Sync', () async {
+      final gateway = _TokenEventClaimGateway();
+      final h = _Harness(claimGateway: gateway);
+      addTearDown(h.close);
+
+      await h.runtime.update(identity: user, entitlement: SyncEntitlement.pro);
+      await h.runtime.update(identity: user, entitlement: SyncEntitlement.free);
+      expect(h.runtime.status, isA<SyncOff>());
+      await h.runtime.update(identity: user, entitlement: SyncEntitlement.pro);
+
+      expect(gateway.forcedCalls, 2);
+    });
+
+    test('Try Again after an error still restarts Sync', () async {
+      final gateway = _TokenEventClaimGateway(failFirst: true);
+      final h = _Harness(claimGateway: gateway);
+      addTearDown(h.close);
+
+      await h.runtime.update(identity: user, entitlement: SyncEntitlement.pro);
+      expect(h.runtime.status, isA<SyncError>());
+      await h.runtime.retry();
+
+      expect(gateway.forcedCalls, 2);
+      expect(h.runtime.status, isNot(isA<SyncError>()));
+    });
+
+    // A start that stopped on an error used to recover on the next token
+    // event. It still does, from the token already held.
+    test('a token event after a startup error starts again without a refresh',
+        () async {
+      final gateway = _TokenEventClaimGateway(failFirst: true);
+      final h = _Harness(claimGateway: gateway);
+      addTearDown(h.close);
+
+      await h.runtime.update(identity: user, entitlement: SyncEntitlement.pro);
+      expect(h.runtime.status, isA<SyncError>());
+      await h.runtime.update(identity: user, entitlement: SyncEntitlement.pro);
+
+      expect(gateway.forcedCalls, 1);
+      expect(gateway.currentCalls, 1);
+      expect(h.runtime.status, isNot(isA<SyncError>()));
+      expect(h.coordinator.pushCalls, 1);
+    });
+
+    test('an error that persists does not force a refresh on each event',
+        () async {
+      final gateway = _TokenEventClaimGateway(failAlways: true);
+      final h = _Harness(claimGateway: gateway);
+      addTearDown(h.close);
+      gateway.onForcedRefresh = () => unawaited(
+            Future<void>.delayed(const Duration(milliseconds: 5)).then(
+              (_) => h.runtime.update(
+                identity: user,
+                entitlement: SyncEntitlement.pro,
+              ),
+            ),
+          );
+
+      await h.runtime.update(identity: user, entitlement: SyncEntitlement.pro);
+      for (var i = 0; i < 3; i++) {
+        await h.runtime.update(
+          identity: user,
+          entitlement: SyncEntitlement.pro,
+        );
+      }
+      await Future<void>.delayed(const Duration(milliseconds: 100));
+
+      expect(gateway.forcedCalls, 1);
+      expect(h.runtime.status, isA<SyncError>());
+    });
+  });
 }
 
 class _FlakyClaimGateway implements SyncClaimGateway {
   int calls = 0;
 
   @override
-  Future<bool> refreshProClaim({required String uid}) async {
+  Future<bool> refreshProClaim({
+    required String uid,
+    bool force = true,
+  }) async {
     calls += 1;
     if (calls == 1) throw StateError('claim');
     return true;
@@ -1313,7 +1474,10 @@ class _CountingClaimGateway implements SyncClaimGateway {
   int calls = 0;
 
   @override
-  Future<bool> refreshProClaim({required String uid}) async {
+  Future<bool> refreshProClaim({
+    required String uid,
+    bool force = true,
+  }) async {
     calls += 1;
     return hasClaim;
   }
@@ -1327,7 +1491,10 @@ class _BlockingClaimGateway implements SyncClaimGateway {
   int maxConcurrent = 0;
 
   @override
-  Future<bool> refreshProClaim({required String uid}) async {
+  Future<bool> refreshProClaim({
+    required String uid,
+    bool force = true,
+  }) async {
     _calls += 1;
     _active += 1;
     if (_active > maxConcurrent) maxConcurrent = _active;
@@ -1505,4 +1672,41 @@ class _ReportSender implements ClientReportSender {
 
   @override
   Future<void> send(Map<String, Object?> payload) async => sent.add(payload);
+}
+
+/// Behaves as Firebase does: a forced refresh gives a new token and so one
+/// more sign-in event for the same account, which the test sends through
+/// [onForcedRefresh]. A refresh that is not forced reads the current token.
+class _TokenEventClaimGateway implements SyncClaimGateway {
+  _TokenEventClaimGateway({
+    this.hasClaim = true,
+    this.failFirst = false,
+    this.failAlways = false,
+  });
+
+  bool hasClaim;
+  final bool failFirst;
+  final bool failAlways;
+  int forcedCalls = 0;
+  int currentCalls = 0;
+  void Function()? onForcedRefresh;
+
+  @override
+  Future<bool> refreshProClaim({
+    required String uid,
+    bool force = true,
+  }) async {
+    if (!force) {
+      currentCalls += 1;
+      if (failAlways) throw StateError('claim');
+      return hasClaim;
+    }
+    forcedCalls += 1;
+    if (failAlways || (failFirst && forcedCalls == 1)) {
+      throw StateError('claim');
+    }
+    // Capped so a looping build ends the test instead of hanging it.
+    if (forcedCalls <= 30) onForcedRefresh?.call();
+    return hasClaim;
+  }
 }

@@ -255,7 +255,11 @@ class _AllowClaimGateway implements SyncClaimGateway {
   const _AllowClaimGateway();
 
   @override
-  Future<bool> refreshProClaim({required String uid}) async => true;
+  Future<bool> refreshProClaim({
+    required String uid,
+    bool force = true,
+  }) async =>
+      true;
 }
 
 class _ControlledFirestoreGateway extends FakeFirestoreGateway {
