@@ -51,6 +51,18 @@ const _gap = Duration(milliseconds: 150);
 const _readCap = 3;
 const _maxHold = Duration(milliseconds: 400);
 
+/// Fake time: the test clock moves only when a test waits, in 10 ms steps so
+/// timers and database streams run in order. Nothing waits in real time.
+late WidgetTester _tester;
+
+Future<void> wait(Duration total) async {
+  for (var left = total;
+      left > Duration.zero;
+      left -= const Duration(milliseconds: 10)) {
+    await _tester.pump(const Duration(milliseconds: 10));
+  }
+}
+
 void main() {
   Map<String, Object?> plan() => {
         'day': '2026-10-24',
@@ -135,7 +147,7 @@ void main() {
 
   Future<void> until(bool Function() done) async {
     for (var i = 0; i < 300 && !done(); i++) {
-      await Future<void>.delayed(const Duration(milliseconds: 10));
+      await wait(const Duration(milliseconds: 10));
     }
   }
 
@@ -204,8 +216,10 @@ void main() {
     }
   }
 
-  test('one first sync reads the plan at most three times, any batch count',
-      () async {
+  testWidgets(
+      'one first sync reads the plan at most three times, any batch count',
+      (tester) async {
+    _tester = tester;
     final t = await start();
     watchHome(t.container);
     await until(() => (t.calls['getRoadmap'] ?? 0) >= 1);
@@ -217,12 +231,12 @@ void main() {
     );
 
     for (var n = 1; n <= 8; n++) {
-      await Future<void>.delayed(_gap);
+      await wait(_gap);
       await pullBatch(t.db, n);
       await settingsRow(t.db, n);
     }
     t.status.add(const SyncUpToDate());
-    await Future<void>.delayed(_gap * 3);
+    await wait(_gap * 3);
 
     expect(
       t.calls['getRoadmap'],
@@ -236,28 +250,31 @@ void main() {
     );
   });
 
-  test('what another device wrote still shows once after the sync settles',
-      () async {
+  testWidgets(
+      'what another device wrote still shows once after the sync settles',
+      (tester) async {
+    _tester = tester;
     final t = await start();
     watchHome(t.container);
     await until(() => (t.calls['getRoadmap'] ?? 0) >= 1);
     await firstReads();
     final before = t.calls['getRoadmap']!;
     t.status.add(const Syncing());
-    await Future<void>.delayed(const Duration(milliseconds: 20));
+    await wait(const Duration(milliseconds: 20));
 
     for (var n = 1; n <= 4; n++) {
-      await Future<void>.delayed(_gap);
+      await wait(_gap);
       await pullBatch(t.db, n);
     }
     t.status.add(const SyncUpToDate());
-    await Future<void>.delayed(_gap * 3);
+    await wait(_gap * 3);
 
     expect(t.calls['getRoadmap'], before + 1, reason: '${t.calls}');
   });
 
-  test('a change from another device after the sync still shows, once',
-      () async {
+  testWidgets('a change from another device after the sync still shows, once',
+      (tester) async {
+    _tester = tester;
     final t = await start();
     watchHome(t.container);
     await until(() => (t.calls['getRoadmap'] ?? 0) >= 1);
@@ -265,22 +282,24 @@ void main() {
     final before = t.calls['getRoadmap']!;
 
     await pullBatch(t.db, 1);
-    await Future<void>.delayed(_gap * 3);
+    await wait(_gap * 3);
 
     expect(t.calls['getRoadmap'], before + 1, reason: '${t.calls}');
   });
 
-  test('a sync that never reports settled still refreshes the plan', () async {
+  testWidgets('a sync that never reports settled still refreshes the plan',
+      (tester) async {
+    _tester = tester;
     final t = await start();
     watchHome(t.container);
     await until(() => (t.calls['getRoadmap'] ?? 0) >= 1);
     await firstReads();
     final before = t.calls['getRoadmap']!;
     t.status.add(const Syncing());
-    await Future<void>.delayed(const Duration(milliseconds: 20));
+    await wait(const Duration(milliseconds: 20));
 
     await pullBatch(t.db, 1);
-    await Future<void>.delayed(_maxHold + _gap * 3);
+    await wait(_maxHold + _gap * 3);
 
     expect(t.calls['getRoadmap'], greaterThan(before), reason: '${t.calls}');
   });
@@ -288,7 +307,9 @@ void main() {
   // The sign-in token can expire while a tab sits idle. The first call comes
   // back "unauthenticated", the account layer renews the token and sends it
   // once more, and Home must still get its plan from that second call.
-  test('Home still loads its plan after an expired sign-in', () async {
+  testWidgets('Home still loads its plan after an expired sign-in',
+      (tester) async {
+    _tester = tester;
     var refused = 0;
     var renewed = 0;
     final access = AccountAccess(
@@ -317,12 +338,16 @@ void main() {
     expect(view.state, RoadmapState.planning);
     expect(t.container.read(serverStudyRoadmapProvider('e')).hasError, isFalse);
     expect(t.calls['getRoadmap'], 1, reason: '${t.calls}');
+    // Leave no timer behind for the test binding's end-of-test check.
+    t.container.dispose();
+    await wait(const Duration(milliseconds: 100));
   });
 
   // The lesson page bumps the roadmap revision when a lesson is marked read.
   // The plan, the record and Today refresh once for that, with no extra
   // Pro history read.
-  test('finishing a lesson refreshes the plan once', () async {
+  testWidgets('finishing a lesson refreshes the plan once', (tester) async {
+    _tester = tester;
     final t = await start();
     watchHome(t.container);
     await until(() => (t.calls['getRoadmap'] ?? 0) >= 1);
@@ -330,7 +355,7 @@ void main() {
     final before = Map<String, int>.of(t.calls);
 
     t.container.read(roadmapRevisionProvider.notifier).bump();
-    await Future<void>.delayed(_gap * 3);
+    await wait(_gap * 3);
 
     expect(t.calls['getRoadmap'], before['getRoadmap']! + 1);
     expect(t.calls['getStudyInsights'], before['getStudyInsights']! + 1);
@@ -342,5 +367,4 @@ void main() {
 }
 
 /// Lets the first reads finish before the sync starts.
-Future<void> firstReads() =>
-    Future<void>.delayed(const Duration(milliseconds: 150));
+Future<void> firstReads() => wait(const Duration(milliseconds: 150));
