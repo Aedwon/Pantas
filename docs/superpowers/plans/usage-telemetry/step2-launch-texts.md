@@ -40,28 +40,35 @@ dismisses it.
 Old: Helps us find slow screens and errors.
 New: Helps us fix slow screens and errors. Includes screen counts.
 
-## 3. Guardian email (one per under-18 account's guardian, before counting starts)
+## 3. Guardian email (revision 3, Nov 15: written rule 8, Aedwon's email shape)
+
+One email per under-18 account's guardian, before counting starts. Rewritten to written rule 8 (short plain subject,
+a greeting, two or three short sentences, one button, no bullets, no sign-off, no extra links, no repeated facts,
+dates with the weekday) while keeping every fact the Fable 5.2 sign-off requires: what is new, the default, the basis,
+retention, how to stop it or object, and both notices. Re-checked by Codex Sol High (`step2-email-codex-recheck.md`).
 
 - From: the existing guardian mail sender.
-- Subject: Pantas will add screen counts to app reports
+- Subject: Pantas speed reports
 - Body:
 
-  Hello,
+  Hi {guardian first name, or "there"},
 
-  You confirmed that {child first name, or "your child"} can use Pantas. We are writing to tell you about a change
-  to the app's speed and error reports.
+  From {start date, written like "November 22 (Sun)"}, Pantas speed and error reports will also count visits to
+  each screen, sent with {child first name}'s sign-in session. Reports are on by default and kept for 30 days, based
+  on our legitimate interest in fixing and improving Pantas. {child first name} can switch reports off in Settings,
+  or you can object at dpo@pantas.study, and our Teen Notice and Privacy Notice explain more.
 
-  Pantas already sends these short reports to help us fix slow screens and errors. Starting {date}, they will also
-  count how often each screen is opened in a visit, such as Home or Study, and which screen was first and last.
-  Screen counts have no account ID. We keep these reports for 30 days.
+  [Read the Teen Notice] (button, opens {teen notice link})
 
-  These reports are on by default. We use them because we need them to keep Pantas working and to improve it. To
-  stop them, your child can turn off "Speed and error reports" in the app under Settings, then About. You can also
-  email dpo@pantas.study to ask questions or to object, and we will help.
-
-  Read the updated Teen Notice at {teen notice link} and the Privacy Notice at {privacy notice link}.
-
-  The Pantas team
+Codex re-check (`step2-email-codex-recheck.md`): all six required facts present. Applied: finding 1 (the body now
+says the reports are sent with the child's sign-in session instead of only "no account ID", so nothing implies
+anonymity; shorter sentences). Lead rulings on the rest: finding 2, the button stays one button to the Teen Notice,
+the notice that applies to a 13 to 17 learner and their guardian; the Privacy Notice is public at
+app.pantas.study/legal/privacy and named in the text, and rule 8 allows no second link. Finding 3 is already met:
+every learner sees the in-app update before counting starts, once per learner per device. Finding 4 is already met:
+the legitimate interest assessment, including children's interests, is section 3 of `step2-legal-draft.md`, approved
+by Fable 5.2 under Aedwon's delegation.
 
 Self-test (written rule 6): the exact final email, personalized for one sample account, goes first to
-aerol.balayon@gmail.com only; real sends wait for his confirmation that he received and checked it.
+aerol.balayon@gmail.com only; real sends wait for his confirmation that he received and checked it. Nothing is sent
+from this lane.
