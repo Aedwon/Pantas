@@ -496,3 +496,213 @@ questions:
     explanation: |
       "Mika was the cashier on duty" and "she counted the receipts" are independent clauses. A semicolon joins them without adding a cause or result.
     approved: false
+  - id: q-language-application-error-identification-0021
+    lesson: lesson-language-application-modal-meaning-checks
+    keyPoint: 1
+    type: error-identification
+    difficulty: exam
+    stem: |
+      The sentence must express a requirement in a fictional office policy. Which completion has both the required meaning and the correct verb form? "Under this policy, staff ___ visitors at reception."
+    choices:
+      - text: "must register"
+        correct: true
+      - text: "might register"
+        rationale: |
+          This expresses possibility. The base verb fits, but the policy requires the action. Check the intended meaning of the modal.
+      - text: "must to register"
+        rationale: |
+          This adds to after must. That pattern may look like want to register. Use a base verb directly after must.
+      - text: "must registers"
+        rationale: |
+          This adds an ending after must. Staff performs the action, but the modal already controls the next form. Check for the base verb.
+    explanation: |
+      Must states the requirement. Register is the base verb and follows must directly.
+  - id: q-language-application-error-identification-0022
+    lesson: lesson-language-application-modal-meaning-checks
+    keyPoint: 1
+    type: error-identification
+    difficulty: exam
+    stem: |
+      Which revision expresses only a possibility and uses the correct verb form? "The delayed shipment ___ tomorrow."
+    choices:
+      - text: "might arrive"
+        correct: true
+      - text: "must arrive"
+        rationale: |
+          This states a requirement or a firm conclusion. A delayed shipment could have a deadline, but none is given here. Check the request for only a possibility.
+      - text: "might arriving"
+        rationale: |
+          This uses an -ing form directly after might. The action may still be pending, but the modal takes a base verb. Check the next word.
+      - text: "might to arrive"
+        rationale: |
+          This inserts to after might. It may resemble another verb pattern. Use the base verb directly after this modal.
+    explanation: |
+      Might expresses possibility. The base form arrive follows it without to or an ending.
+  - id: q-language-application-error-identification-0023
+    lesson: lesson-language-application-phrases-and-sentence-types
+    keyPoint: 1
+    type: error-identification
+    difficulty: exam
+    stem: |
+      Which description correctly counts the clauses? "Although the counter was closed, the guard accepted the envelope, and the clerk recorded its arrival."
+    choices:
+      - text: "Two independent and one dependent"
+        correct: true
+      - text: "One independent clause with no dependent clause"
+        rationale: |
+          This counts the whole sentence as one clause. It has linked actions, but each main action has its own subject. Count the complete clauses.
+      - text: "Two independent clauses with no dependent clause"
+        rationale: |
+          This overlooks the dependent although clause. Two main clauses are present. Check for a clause that cannot stand alone.
+      - text: "One independent clause with two dependent clauses"
+        rationale: |
+          This notices the although clause but misses a main clause. Both the guard accepted and the clerk recorded can stand alone. Count each one.
+    explanation: |
+      The guard accepted the envelope and the clerk recorded its arrival are independent clauses. Although the counter was closed is dependent. Together they form a compound-complex sentence.
+  - id: q-language-application-error-identification-0024
+    lesson: lesson-language-application-phrases-and-sentence-types
+    keyPoint: 1
+    type: error-identification
+    difficulty: exam
+    stem: |
+      Which word group is a dependent clause?
+    choices:
+      - text: "because the clerk resigned"
+        correct: true
+      - text: "after the lengthy staff meeting"
+        rationale: |
+          This is a phrase without its own subject and verb. After suggests a time link. Check whether a subject performs an action inside the group.
+      - text: "the clerk resigned yesterday"
+        rationale: |
+          This can stand alone as a complete thought. It has a subject and verb, but does not depend on another clause. Check whether the thought is complete.
+      - text: "during the annual staff review"
+        rationale: |
+          This is a phrase without a subject-and-verb pair. It gives a time setting. Look for both a subject and a verb.
+    explanation: |
+      The clerk is the subject and resigned is the verb. Because makes the thought depend on another clause that tells what happened as a result.
+  - id: q-language-application-error-identification-0025
+    lesson: lesson-language-application-kayarian-at-sugnay
+    keyPoint: 1
+    type: error-identification
+    difficulty: exam
+    stem: |
+      Alin ang sugnay na di-makapag-iisa?
+    choices:
+      - text: "sapagkat nawawala ang susi"
+        correct: true
+      - text: "sa loob ng bagong tanggapan"
+        rationale: |
+          Parirala ito na walang buong paksa at panaguri. May lugar na binabanggit, kaya maaaring magmukhang buo. Hanapin ang paksa at panaguri.
+      - text: "Nawawala ang susi ng kabinet."
+        rationale: |
+          Buong diwa ito at maaari itong mag-isa. May paksa at panaguri, ngunit hindi ito umaasa sa karugtong. Suriin kung kumpleto ang diwa.
+      - text: "bago ang mahabang pagpupulong"
+        rationale: |
+          Parirala ito na nagsasaad ng panahon. Maaaring magmukhang sugnay dahil sa bago. Hanapin ang sariling paksa at panaguri.
+    explanation: |
+      May paksa at panaguri ang nawawala ang susi. Dahil sa sapagkat, kailangan pa ng karugtong upang mabuo ang diwa.
+  - id: q-language-application-error-identification-0026
+    lesson: lesson-language-application-kayarian-at-sugnay
+    keyPoint: 2
+    type: error-identification
+    difficulty: exam
+    stem: |
+      Aling pagsusuri sa kayarian ang tama? "Habang hinihintay ni Rosa ang pirma, inayos ni Ben ang mga kalakip at inihanda ni Mila ang sobre."
+    choices:
+      - text: "Langkapan ang pangungusap."
+        correct: true
+      - text: "Payak dahil iisa lamang ang sugnay nito."
+        rationale: |
+          Hindi iisa ang sugnay na makapag-iisa. Maaaring isipin mong iisang gawain ang paghahanda. Bilangin ang mga sugnay, hindi ang paksa ng usapan.
+      - text: "Tambalan dahil walang sugnay na di-makapag-iisa."
+        rationale: |
+          May dalawang sugnay na makapag-iisa, ngunit may habang na sugnay rin. Suriin kung may di-makapag-iisa bago pumili.
+      - text: "Hugnayan dahil iisa ang sugnay na makapag-iisa."
+        rationale: |
+          May habang na sugnay, ngunit dalawa ang makapag-iisa. Maaaring mapansin mo lamang ang unang bahagi. Bilangin ang bawat buong diwa.
+    explanation: |
+      Di-makapag-iisa ang habang hinihintay ni Rosa ang pirma. Makapag-iisa ang inayos ni Ben ang mga kalakip at inihanda ni Mila ang sobre. Langkapan ang may ganitong mga sugnay.
+  - id: q-language-application-error-identification-0027
+    lesson: lesson-language-application-wastong-gamit-at-panahon
+    keyPoint: 1
+    type: error-identification
+    difficulty: exam
+    stem: |
+      Aling salita ang nagpapahayag ng posibilidad sa pangungusap? "Marahil ay ilipat dito ang pagpupulong bukas."
+    choices:
+      - text: "Marahil"
+        correct: true
+      - text: "dito"
+        rationale: |
+          Lugar ang ipinapakita nito. Maaaring hindi pa tiyak ang lugar sa isip mo, ngunit hindi iyon ang kahulugan ng salita. Hanapin ang salitang nagpapakita ng maaaring mangyari.
+      - text: "pagpupulong"
+        rationale: |
+          Pangalan ito ng gawain. Hindi pa nagaganap ang pulong, ngunit hindi ito salita ng posibilidad. Suriin ang gamit ng bawat salita.
+      - text: "bukas"
+        rationale: |
+          Panahon ang ipinapakita nito. Nasa hinaharap ang kilos, ngunit hindi lahat ng kilos sa hinaharap ay posibilidad lamang. Hanapin ang salitang nagpapakita ng pag-aalinlangan.
+    explanation: |
+      Ang marahil ay nagsasaad na maaaring mangyari ang paglilipat. Hindi nito sinasabing tiyak na ililipat ang pulong.
+  - id: q-language-application-error-identification-0028
+    lesson: lesson-language-application-wastong-gamit-at-panahon
+    keyPoint: 2
+    type: error-identification
+    difficulty: exam
+    stem: |
+      Piliin ang anyong akma sa panahong lumipas: "Kagabi ay ___ si Rosa nang mabasa niya ang liham ng pasasalamat."
+    choices:
+      - text: "natuwa"
+        correct: true
+      - text: "matutuwa"
+        rationale: |
+          Magaganap pa ang karanasan sa anyong ito. Akma ang damdamin, ngunit hindi ang panahon. Tingnan ang kagabi.
+      - text: "natutuwa pa bukas"
+        rationale: |
+          Pinaghahalo nito ang kasalukuyang anyo at bukas. Maaaring mapansin mo lamang ang salitang tuwa. Itugma ang buong parirala sa kagabi.
+      - text: "matutuwa pa lamang"
+        rationale: |
+          Hindi pa nagaganap ang tuwa sa pariralang ito. May liham na babasahin sa ibang sitwasyon, ngunit nabasa na ito rito. Sundan ang panahon sa pangungusap.
+    explanation: |
+      Naganap na kagabi ang pagbasa at ang karanasan ng tuwa. Natuwa ang anyong akma sa natapos na karanasan.
+  - id: q-language-application-error-identification-0029
+    lesson: lesson-language-application-word-meaning-checks
+    keyPoint: 1
+    type: error-identification
+    difficulty: exam
+    stem: |
+      Choose the word opposite in meaning to the word in bold: "The revised instructions were **clear**, leaving no doubt about the required documents."
+    choices:
+      - text: "confusing"
+        correct: true
+      - text: "understandable"
+        rationale: |
+          This gives a similar meaning. It fits instructions that leave no doubt. Check whether the question asks for a similar or opposite meaning.
+      - text: "straightforward"
+        rationale: |
+          This describes direct, easy-to-follow instructions. It may fit the sentence, but the question asks for the opposite. Check the direction of the comparison.
+      - text: "unambiguous"
+        rationale: |
+          This means not open to different readings. It repeats the idea of no doubt. Look for a word that reverses clear.
+    explanation: |
+      Confusing means difficult to understand. It is opposite to clear in this sentence.
+  - id: q-language-application-error-identification-0030
+    lesson: lesson-language-application-word-meaning-checks
+    keyPoint: 2
+    type: error-identification
+    difficulty: exam
+    stem: |
+      In "The supervisor was **unhelpful** when the visitors asked for directions," what do the word parts tell the reader?
+    choices:
+      - text: "Not willing to help"
+        correct: true
+      - text: "Full of helpful guidance"
+        rationale: |
+          This keeps the meaning of helpful but ignores un-. The ending -ful can suggest having a quality. Check the prefix too.
+      - text: "Having a helpful manner"
+        rationale: |
+          This reads helpful without its prefix. The base word gives the main idea. Check how un- changes that idea.
+      - text: "Able to give useful help"
+        rationale: |
+          This focuses on help and loses the negative prefix. Being able to help may fit another sentence. Read all the word parts together.
+    explanation: |
+      Help supplies the main idea. Helpful means giving help, and un- adds not. Unhelpful describes someone who does not provide help here.

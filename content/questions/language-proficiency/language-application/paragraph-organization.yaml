@@ -557,3 +557,158 @@ questions:
     explanation: |
       The false alerts appear first and prompt a revised trial. The next sentence describes the revised switch response. That comparison supports the successful result and the final explanation.
     approved: false
+  - id: q-language-application-paragraph-organization-0021
+    lesson: lesson-language-application-main-ideas-and-details
+    keyPoint: 1
+    type: sentence-ordering
+    difficulty: exam
+    stem: |
+      Read this fictional office memo: "The office should retain a telephone service. Some residents cannot use the online portal. Others need to ask questions before submitting a request. A telephone service would give these residents another way to get help."
+
+      Which statement best expresses the main idea?
+    choices:
+      - text: "Keep telephone help available."
+        correct: true
+      - text: "Replace all online services with telephone calls."
+        rationale: |
+          This turns an added option into a full replacement. The memo mentions problems with online access. Check what the writer actually asks to keep.
+      - text: "Residents should submit requests without asking questions."
+        rationale: |
+          This reverses a reason given for telephone help. The memo discusses questions before submission. Check how that detail supports the request.
+      - text: "Every resident prefers calling to using the portal."
+        rationale: |
+          This changes some residents into every resident. Some people need telephone help. Check the scope of the claim.
+    explanation: |
+      The writer asks the office to retain telephone service. The details explain who needs that option and how it helps them.
+  - id: q-language-application-paragraph-organization-0022
+    lesson: lesson-language-application-main-ideas-and-details
+    keyPoint: 1
+    type: sentence-ordering
+    difficulty: exam
+    stem: |
+      Read this fictional report: "The branch has made its waiting area easier to use. It cleared the path to the counter, placed forms within reach, and added seats near the entrance."
+
+      Which detail supports the report's main point?
+    choices:
+      - text: "Forms are now within reach."
+        correct: true
+      - text: "Every visitor now receives immediate service."
+        rationale: |
+          This adds a claim about speed. Easier access may sound like faster service. Check the specific changes named in the report.
+      - text: "The branch has ended all waiting at the counter."
+        rationale: |
+          This turns improved space into no waiting. Added seats may suggest a change in queues. Check whether the report says waiting ended.
+      - text: "The branch processes every request electronically."
+        rationale: |
+          This adds a change in how requests are processed. Forms are mentioned, but electronic processing is not. Return to the stated details.
+    explanation: |
+      The report names placing forms within reach as a change. This supports the main point that the waiting area is easier to use.
+  - id: q-language-application-paragraph-organization-0023
+    lesson: lesson-language-application-details-and-supported-inferences
+    keyPoint: 1
+    type: sentence-ordering
+    difficulty: exam
+    stem: |
+      Read this fictional notice: "The annex counter will be closed on Monday. Visitors may leave sealed requests in the lobby box. Staff will collect the contents when the counter reopens on Tuesday."
+
+      According to the notice, when will staff collect requests left in the box on Monday?
+    choices:
+      - text: "On Tuesday"
+        correct: true
+      - text: "Before the counter closes on Monday"
+        rationale: |
+          This moves collection before the closure. Monday is named in the notice. Check which day is linked to collection.
+      - text: "As soon as each visitor leaves the lobby"
+        rationale: |
+          This assumes immediate collection. The box allows submission while the counter is closed. Check the stated collection time.
+      - text: "Only after visitors return to the annex"
+        rationale: |
+          This adds a return visit. Visitors leave sealed requests, but the notice does not require them to return. Read the collection instruction.
+    explanation: |
+      The notice says staff will collect the box contents when the counter reopens on Tuesday. That includes requests left there on Monday.
+  - id: q-language-application-paragraph-organization-0024
+    lesson: lesson-language-application-details-and-supported-inferences
+    keyPoint: 2
+    type: sentence-ordering
+    difficulty: exam
+    stem: |
+      Read this fictional account: "Before releasing the envelope, the clerk compared its reference number with the entry in the dispatch log. She then checked the recipient's name against the address label and handed the envelope to the courier."
+
+      Which inference is best supported?
+    choices:
+      - text: "She checked the delivery details."
+        correct: true
+      - text: "She knew the courier had lost an earlier envelope."
+        rationale: |
+          This adds a lost envelope. Careful checking might follow a problem, but none is mentioned. Use only the clues in this account.
+      - text: "She expected the recipient to reject the envelope."
+        rationale: |
+          This adds an expected rejection. Checking a name may concern delivery, but no refusal is described. Look for direct support.
+      - text: "She found that the dispatch log contained an error."
+        rationale: |
+          This treats checking for errors as finding one. The log is compared with the envelope. Check whether any error is actually reported.
+    explanation: |
+      Comparing the reference number and checking the recipient name both concern delivery details. These actions support the inference that she checked those details before release.
+  - id: q-language-application-paragraph-organization-0025
+    lesson: lesson-language-application-pagkakasunod-at-sanhi
+    keyPoint: 2
+    type: sentence-ordering
+    difficulty: exam
+    stem: |
+      Basahin ang kathang-isip na ulat: "Hindi mabasa ng tagapagtala ang listahang nabasa sa ulan, kaya humingi siya ng bagong kopya." Ano ang sanhi ng paghingi niya ng bagong kopya?
+    choices:
+      - text: "Hindi mabasa ang listahan."
+        correct: true
+      - text: "Humingi siya ng bagong kopya ng listahan."
+        rationale: |
+          Ito ang bunga, hindi ang sanhi. Nasa pangungusap ang kilos, kaya maaaring mapili agad. Hanapin kung bakit niya ginawa ito.
+      - text: "Nais niyang dagdagan ang mga pangalan sa listahan."
+        rationale: |
+          Nagdagdag ito ng layuning wala sa ulat. Maaaring baguhin ang listahan sa ibang sitwasyon. Gamitin lamang ang nakasaad na dahilan.
+      - text: "Hindi niya gusto ang ayos ng bagong kopya."
+        rationale: |
+          Walang sinasabi tungkol sa ayos ng bagong kopya. Maaaring may ibang reklamo, ngunit hindi iyon nasa ulat. Balikan ang sanhi bago ang kaya.
+    explanation: |
+      Hindi mabasa ng tagapagtala ang listahan. Ito ang dahilan ng paghingi ng bagong kopya. Ipinapakilala ng kaya ang naging bunga.
+  - id: q-language-application-paragraph-organization-0026
+    lesson: lesson-language-application-paksa-at-balangkas
+    keyPoint: 1
+    type: sentence-ordering
+    difficulty: exam
+    stem: |
+      Basahin ang kathang-isip na talata: "Nakakatulong ang malinaw na karatula sa tanggapan. Ipinapakita nito kung saan kukuha ng form at saan ito ipapasa. Dahil dito, mas madaling mahanap ng bisita ang tamang pila." Ano ang pangunahing ideya?
+    choices:
+      - text: "Gabay sa bisita ang malinaw na karatula."
+        correct: true
+      - text: "Lahat ng bisita ay marunong nang magsagot ng form."
+        rationale: |
+          Tungkol sa lugar at pila ang talata, hindi sa kakayahang sumagot ng form. May form na binanggit, ngunit hindi iyon ang buong punto. Hanapin ang ideyang sakop ang mga detalye.
+      - text: "Karatula lamang ang kailangan sa bawat tanggapan."
+        rationale: |
+          Ginagawa nitong tanging kailangan ang karatula. Mahalaga ito sa talata, ngunit walang sinabing sapat na ito sa lahat. Iwasang magdagdag ng malawak na pahayag.
+      - text: "Hindi na kailangan ang mga kawani sa tamang pila."
+        rationale: |
+          Idinagdag nito ang pagkawala ng pangangailangan sa kawani. Gabay ang karatula, ngunit hindi nito pinapalitan ang lahat ng tulong. Gamitin lamang ang sinabi sa talata.
+    explanation: |
+      Tungkol ang talata sa gabay na ibinibigay ng malinaw na karatula. Ang pagkuha ng form, pagpasa nito, at paghahanap ng pila ay mga detalyeng sumusuporta rito.
+  - id: q-language-application-paragraph-organization-0027
+    lesson: lesson-language-application-paksa-at-balangkas
+    keyPoint: 2
+    type: sentence-ordering
+    difficulty: exam
+    stem: |
+      Basahin ang kathang-isip na talata: "May silbi sa mga kawani ang talaan ng kagamitan. Nakikita rito kung ano ang maaaring hiramin. Nakalista rin kung sino ang kasalukuyang may hawak ng bawat gamit." Aling balangkas ang tapat sa binasa?
+    choices:
+      - text: "Talaan: mahihiram at humiram."
+        correct: true
+      - text: "Silbi ng talaan: halaga ng gamit at gastos sa pagkukumpuni."
+        rationale: |
+          May kinalaman sa kagamitan ang gastos, ngunit wala ito sa talata. Maaaring karaniwang detalye ito sa ibang talaan. Piliin lamang ang detalyeng binanggit.
+      - text: "Silbi ng talaan: bagong kagamitan at balak na pagbili."
+        rationale: |
+          Maaaring may plano sa pagbili ang tanggapan, ngunit hindi ito nakasaad. Nakatuon sa kasalukuyang gamit ang talata. Ibalik ang balangkas sa binasa.
+      - text: "Silbi ng talaan: sirang kagamitan at petsa ng pagtatapon."
+        rationale: |
+          Maaaring itala ang sirang gamit sa ibang talaan, ngunit hindi iyon ang binasa. Huwag palitan ang tunay na detalye ng posibleng detalye. Balikan ang bawat pangungusap.
+    explanation: |
+      Ang pangunahing ideya ay ang silbi ng talaan. Ang mga detalye nito ay kung ano ang maaaring hiramin at kung sino ang may hawak ng gamit.

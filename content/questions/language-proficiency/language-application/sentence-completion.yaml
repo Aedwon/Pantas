@@ -452,3 +452,192 @@ questions:
     explanation: |
       "Expeditious" means prompt and efficient, fitting repair within the agreed hour. "Provisional" means temporary, fitting a fix that needs replacement.
     approved: false
+  - id: q-language-application-sentence-completion-0021
+    lesson: lesson-language-application-completion-word-forms
+    keyPoint: 2
+    type: fill-in-the-blank
+    difficulty: exam
+    stem: |
+      Choose the correct completion: "The records assistants ___ incoming requests before the office opens each morning."
+    choices:
+      - text: "sort"
+        correct: true
+      - text: "sorts"
+        rationale: |
+          This matches a singular subject. Assistants means more than one person. Check the subject before choosing the verb.
+      - text: "is sorting"
+        rationale: |
+          This uses singular is with plural assistants. The action fits the sentence, but the helper does not. Check who does the work.
+      - text: "sorting"
+        rationale: |
+          This leaves the sentence without a complete verb. Sorting names the action but needs a helper here. Check for a complete subject and verb.
+    explanation: |
+      Assistants is plural. Each morning describes a routine, so use the simple-present form sort.
+  - id: q-language-application-sentence-completion-0022
+    lesson: lesson-language-application-completion-word-forms
+    keyPoint: 3
+    type: fill-in-the-blank
+    difficulty: exam
+    stem: |
+      Choose the correct pair: "The trainees want ___ the filing system, and they enjoy ___ sample records."
+    choices:
+      - text: "to learn ... organizing"
+        correct: true
+      - text: "learning ... organizing"
+        rationale: |
+          This uses an -ing form after want. It may look right beside organizing. Check the pattern want to learn.
+      - text: "to learn ... to organize"
+        rationale: |
+          This uses to plus a verb after enjoy. Both actions are goals, but the verb patterns differ. Check enjoy organizing.
+      - text: "learn ... organize"
+        rationale: |
+          This uses bare verbs after both verbs. They name the right actions. Check the form each first verb requires.
+    explanation: |
+      Want takes to plus the base verb: to learn. Enjoy takes an -ing form: organizing.
+  - id: q-language-application-sentence-completion-0023
+    lesson: lesson-language-application-completion-articles-and-lists
+    keyPoint: 1
+    type: fill-in-the-blank
+    difficulty: exam
+    stem: |
+      Choose the correct pair: "A visitor left a sealed package at reception. Please place ___ package beside ___ unused cabinet."
+    choices:
+      - text: "the, an"
+        correct: true
+      - text: "a, an"
+        rationale: |
+          This treats the known package as a new one. A introduces a package earlier, but the second mention points to that package. Check what is already named.
+      - text: "the, a"
+        rationale: |
+          This chooses a by spelling instead of sound. Unused starts with a vowel sound. Say the word before choosing the article.
+      - text: "some, the"
+        rationale: |
+          This uses some with the singular countable noun package. It also treats the cabinet as already known. Check the noun form and what the context identifies.
+    explanation: |
+      The package is the one already introduced, so use the. Unused begins with a vowel sound, so use an for the newly mentioned cabinet.
+  - id: q-language-application-sentence-completion-0024
+    lesson: lesson-language-application-completion-articles-and-lists
+    keyPoint: 3
+    type: fill-in-the-blank
+    difficulty: exam
+    stem: |
+      Choose the completion that maintains parallel structure: "The assignment involves reviewing applications, recording decisions, and ___ applicants."
+    choices:
+      - text: "notifying"
+        correct: true
+      - text: "to notify"
+        rationale: |
+          This changes an -ing list to a to-plus-verb phrase. Both name an action. Compare the forms of all three list items.
+      - text: "notification of"
+        rationale: |
+          This changes an action list into a noun phrase. Notification names the same task. Check that all list items use matching forms.
+      - text: "notify"
+        rationale: |
+          This uses the base verb in an -ing list. It describes the right action. Compare it with reviewing and recording.
+    explanation: |
+      Reviewing and recording are -ing forms doing the same job. Notifying gives the third action the same form.
+  - id: q-language-application-sentence-completion-0025
+    lesson: lesson-language-application-completion-natural-phrases
+    keyPoint: 2
+    type: fill-in-the-blank
+    difficulty: exam
+    stem: |
+      Choose the expression that means to watch the entrance while a coworker is away: "While I deliver these files, please ___ the entrance."
+    choices:
+      - text: "keep an eye on"
+        correct: true
+      - text: "turn a blind eye to"
+        rationale: |
+          This means ignore something. It contains eye, which may seem to fit. Check the meaning of the whole expression.
+      - text: "close your eyes to"
+        rationale: |
+          This means ignore or refuse to notice something. The words involve looking. Check whether the expression asks someone to watch.
+      - text: "keep your eyes off"
+        rationale: |
+          This tells someone not to look. It uses familiar eye words. Read the whole expression before choosing.
+    explanation: |
+      Keep an eye on means watch or look after. It asks the coworker to watch the entrance during the delivery.
+  - id: q-language-application-sentence-completion-0026
+    lesson: lesson-language-application-completion-past-time
+    keyPoint: 1
+    type: fill-in-the-blank
+    difficulty: exam
+    stem: |
+      Choose the form showing an action still in progress: "When the supervisor interrupted her, the clerk ___ the entries and had reached only the middle of the list."
+    choices:
+      - text: "was checking"
+        correct: true
+      - text: "had checked"
+        rationale: |
+          This presents the check as completed before the interruption. A past event may suggest had. Check the clue that she was only halfway through.
+      - text: "will be checking"
+        rationale: |
+          This places the action in the future. The checking may take time, but interrupted places this event in the past. Check the timeline.
+      - text: "has checked"
+        rationale: |
+          This presents a completed action linked to the present. The sentence describes an interrupted past action. Check whether the work was finished.
+    explanation: |
+      Was checking is past progressive. It shows that checking was still going on when the interruption happened.
+  - id: q-language-application-sentence-completion-0027
+    lesson: lesson-language-application-pagkumpleto-ng-pangungusap
+    keyPoint: 1
+    type: fill-in-the-blank
+    difficulty: exam
+    stem: |
+      Piliin ang angkop na anyo: "Natapos na ang gawain. Kahapon ay ___ ni Mila ang lahat ng liham sa mga tatanggap."
+    choices:
+      - text: "ipinadala"
+        correct: true
+      - text: "ipapadala"
+        rationale: |
+          Hindi pa nagaganap ang kilos sa anyong ito. Maaaring mapansin mo ang pagpapadala ngunit malampasan ang panahon. Tingnan ang kahapon.
+      - text: "ipinapadala"
+        rationale: |
+          Nagaganap pa ang kilos sa anyong ito. Tungkol ito sa pagpapadala, ngunit tapos na ang gawain sa pangungusap. Tingnan kung natapos na ang kilos.
+      - text: "ipapadala pa lamang"
+        rationale: |
+          Sinasabi nitong hindi pa nagsisimula ang pagpapadala. Maaaring akma ang gawain ngunit hindi ang panahon. Basahin ang natapos na at kahapon.
+    explanation: |
+      Tapos na ang pagpapadala at nangyari ito kahapon. Ang ipinadala ang anyong nagpapakita ng naganap na kilos.
+  - id: q-language-application-sentence-completion-0028
+    lesson: lesson-language-application-pagkumpleto-ng-pangungusap
+    keyPoint: 2
+    type: fill-in-the-blank
+    difficulty: exam
+    stem: |
+      Piliin ang angkop na pang-ugnay: "Ipinagpatuloy ang pagpupulong ___ hindi pa dumarating ang hinihintay na ulat; taliwas ito sa inaasahang pagpapaliban."
+    choices:
+      - text: "ngunit"
+        correct: true
+      - text: "kaya"
+        rationale: |
+          Ipinapakita nito ang bunga. Maaaring magkaugnay ang mga pangyayari, ngunit pagsalungat ang hinihingi. Tingnan ang taliwas sa inaasahan.
+      - text: "dahil"
+        rationale: |
+          Ipinapakita nito ang dahilan. Maaaring may dahilan ang pagpapatuloy, ngunit ang diwa rito ay pagsalungat. Suriin ang ugnayan ng mga ideya.
+      - text: "sapagkat"
+        rationale: |
+          Ipinapakita nito ang sanhi. Hindi sanhi ng pagpapatuloy ang kawalan ng ulat ayon sa diwa rito. Tingnan ang salungat na resulta.
+    explanation: |
+      Ang ngunit ay nagpapakita ng pagsalungat. Nagpatuloy ang pulong kahit wala pa ang ulat na inaasahang magiging dahilan ng pagpapaliban.
+  - id: q-language-application-sentence-completion-0029
+    lesson: lesson-language-application-pagkumpleto-ng-pangungusap
+    keyPoint: 3
+    type: fill-in-the-blank
+    difficulty: exam
+    stem: |
+      Piliin ang pariralang likas at akma sa kahulugan: "Dahil sa ___, nabasa ang mga dokumentong naiwan sa labas."
+    choices:
+      - text: "matinding ulan"
+        correct: true
+      - text: "matinding tulong"
+        rationale: |
+          Likas ang matindi sa ilang gamit, ngunit hindi tulong ang nakababasa ng papel. Tingnan ang nangyari sa mga dokumento.
+      - text: "malaking pagkatuyo"
+        rationale: |
+          May kaugnayan ito sa tubig, ngunit ang pagkatuyo ay pagkawala ng basa. Suriin kung ang salita ay sanhi ng pagkabasa.
+      - text: "malaking katahimikan"
+        rationale: |
+          Maaaring tahimik sa labas, ngunit hindi nito ipinapaliwanag ang basang papel. Hanapin ang pariralang akma sa resulta.
+    explanation: |
+      Likas na magkasama ang matinding at ulan. Ang ulan ang nagpapaliwanag kung bakit nabasa ang mga dokumentong nasa labas.
