@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 7
 partCount: 9
-ordering: 11
+ordering: 19
 keyPoints:
   - "Use the zero of a linear divisor in synthetic division."
 ---

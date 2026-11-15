@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 1
 partCount: 9
-ordering: 5
+ordering: 13
 keyPoints:
   - "Recognize polynomials and find their degree."
 ---

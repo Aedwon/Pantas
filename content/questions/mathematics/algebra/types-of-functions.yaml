@@ -5,6 +5,8 @@ meta:
   exams: [upcat, acet, dlsucet, ustet, pupcet]
 questions:
   - id: q-algebra-types-of-functions-0001
+    lesson: lesson-algebra-linear-and-quadratic-functions
+    keyPoint: 1
     type: direct-computation
     difficulty: easy
     stem: |
@@ -25,6 +27,8 @@ questions:
       Put $4$ in place of $x$: $f(4)=3(4)-5$. Multiply first to get $12-5=7$.
 
   - id: q-algebra-types-of-functions-0002
+    lesson: lesson-algebra-exponential-growth-and-function-families
+    keyPoint: 1
     type: which-is-true
     difficulty: easy
     stem: |
@@ -45,6 +49,8 @@ questions:
       In $f(x)=4^x$, the base $4$ is fixed and the exponent $x$ varies. A fixed positive base other than $1$ raised to a variable exponent defines an exponential function.
 
   - id: q-algebra-types-of-functions-0003
+    lesson: lesson-algebra-linear-and-quadratic-functions
+    keyPoint: 2
     type: direct-computation
     difficulty: easy
     stem: |
@@ -65,6 +71,8 @@ questions:
       The square $(x-3)^2$ has its least value, $0$, when $x=3$. At that input, $f(3)=0+4=4$. Thus the vertex is $(3,4)$.
 
   - id: q-algebra-types-of-functions-0004
+    lesson: lesson-algebra-rational-domains-and-holes
+    keyPoint: 1
     type: which-is-true
     difficulty: easy
     stem: |
@@ -85,6 +93,8 @@ questions:
       The denominator cannot equal zero. Solve $x-5=0$ to get $x=5$. Every other real input is allowed, so the domain excludes only $5$.
 
   - id: q-algebra-types-of-functions-0005
+    lesson: lesson-algebra-logarithmic-and-piecewise-functions
+    keyPoint: 1
     type: direct-computation
     difficulty: easy
     stem: |
@@ -105,6 +115,8 @@ questions:
       A logarithm gives the exponent needed on its base. Since $3^3=27$, $\log_3 27=3$.
 
   - id: q-algebra-types-of-functions-0006
+    lesson: lesson-algebra-rational-vertical-and-horizontal-asymptotes
+    keyPoint: 1
     type: direct-computation
     difficulty: medium
     stem: |
@@ -125,6 +137,8 @@ questions:
       Set the denominator equal to zero: $2x-6=0$. Then $2x=6$, so $x=3$. The numerator there is $2(3)+1=7$, so no factor cancels and the vertical asymptote is $x=3$.
 
   - id: q-algebra-types-of-functions-0007
+    lesson: lesson-algebra-linear-and-quadratic-functions
+    keyPoint: 2
     type: direct-computation
     difficulty: medium
     stem: |
@@ -145,6 +159,8 @@ questions:
       Here $a=2$ and $b=-8$. The vertex formula gives $x=-\dfrac{b}{2a}=-\dfrac{-8}{2(2)}=2$.
 
   - id: q-algebra-types-of-functions-0008
+    lesson: lesson-algebra-logarithmic-and-piecewise-functions
+    keyPoint: 2
     type: direct-computation
     difficulty: medium
     stem: |
@@ -165,6 +181,8 @@ questions:
       The input $3$ meets the condition $x\ge3$. Use that whole rule: $f(3)=2(3)+5=11$.
 
   - id: q-algebra-types-of-functions-0009
+    lesson: lesson-algebra-exponential-growth-and-function-families
+    keyPoint: 1
     type: which-is-true
     difficulty: medium
     stem: |
@@ -185,6 +203,8 @@ questions:
       In $f(x)=5^x$, the exponent varies, so the function is exponential. In $g(x)=x^5$, the exponent is the fixed whole number $5$, so the function is polynomial.
 
   - id: q-algebra-types-of-functions-0010
+    lesson: lesson-algebra-absolute-value-transformations
+    keyPoint: 1
     type: direct-computation
     difficulty: medium
     stem: |
@@ -205,6 +225,8 @@ questions:
       The expression $|x-2|$ can take every value from $0$ upward. Its minimum $0$ occurs at $x=2$. Adding $3$ gives every output from $3$ upward, so the range is $y\ge3$.
 
   - id: q-algebra-types-of-functions-0011
+    lesson: lesson-algebra-rational-vertical-and-horizontal-asymptotes
+    keyPoint: 2
     type: direct-computation
     difficulty: hard
     stem: |
@@ -225,6 +247,8 @@ questions:
       Both polynomials have degree $2$. For equal degrees, divide the leading coefficients: $\dfrac{4}{2}=2$. The horizontal asymptote is $y=2$.
 
   - id: q-algebra-types-of-functions-0012
+    lesson: lesson-algebra-logarithmic-and-piecewise-functions
+    keyPoint: 1
     type: direct-computation
     difficulty: medium
     stem: |
@@ -245,6 +269,8 @@ questions:
       Write the equation in exponent form: $x+3=2^4=16$. Subtract $3$ from both sides to get $x=13$. Its logarithm argument is $16$, which is positive.
 
   - id: q-algebra-types-of-functions-0013
+    lesson: lesson-algebra-rational-domains-and-holes
+    keyPoint: 1
     type: which-is-true
     difficulty: hard
     stem: |
@@ -265,6 +291,8 @@ questions:
       The original denominator is zero at $x=3$, so that input is excluded. Factor the numerator: $x^2-9=(x-3)(x+3)$. For $x\ne3$, the quotient equals $x+3$. Its graph is this line with the point at $x=3$ missing, which is a removable discontinuity.
 
   - id: q-algebra-types-of-functions-0014
+    lesson: lesson-algebra-logarithmic-and-piecewise-functions
+    keyPoint: 1
     type: direct-computation
     difficulty: medium
     stem: |
@@ -285,6 +313,8 @@ questions:
       Subtract the outside $1$ from both sides: $2^x=32$. Since $32=2^5$, the required exponent is $x=5$.
 
   - id: q-algebra-types-of-functions-0015
+    lesson: lesson-algebra-linear-and-quadratic-functions
+    keyPoint: 1
     type: which-is-true
     difficulty: medium
     stem: |
@@ -305,6 +335,8 @@ questions:
       Both functions have the form $y=mx+b$ with fixed numbers $m$ and $b$. The first has $m=3$ and $b=-6$. The second has $m=-\dfrac{1}{3}$ and $b=4$. Both are linear functions with straight nonvertical graphs.
 
   - id: q-algebra-types-of-functions-0016
+    lesson: lesson-algebra-exponential-growth-and-function-families
+    keyPoint: 2
     type: which-is-true
     difficulty: easy
     stem: |
@@ -326,6 +358,8 @@ questions:
     approved: false
 
   - id: q-algebra-types-of-functions-0017
+    lesson: lesson-algebra-absolute-value-equations-and-graph-matching
+    keyPoint: 1
     type: error-spotting
     difficulty: medium
     stem: |
@@ -347,6 +381,8 @@ questions:
     approved: false
 
   - id: q-algebra-types-of-functions-0018
+    lesson: lesson-algebra-logarithmic-and-piecewise-functions
+    keyPoint: 1
     type: which-is-true
     difficulty: medium
     stem: |
@@ -368,6 +404,8 @@ questions:
     approved: false
 
   - id: q-algebra-types-of-functions-0019
+    lesson: lesson-algebra-logarithmic-and-piecewise-functions
+    keyPoint: 2
     type: word-problem
     difficulty: hard
     stem: |
@@ -389,6 +427,8 @@ questions:
     approved: false
 
   - id: q-algebra-types-of-functions-0020
+    lesson: lesson-algebra-rational-slant-asymptotes
+    keyPoint: 2
     type: which-is-true
     difficulty: exam
     stem: |

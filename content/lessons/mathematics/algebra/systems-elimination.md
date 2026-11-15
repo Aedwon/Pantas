@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 2
 partCount: 4
-ordering: 8.02
+ordering: 30
 keyPoints:
   - "Solve by adding or subtracting equations."
   - "Multiply equations before eliminating a variable."

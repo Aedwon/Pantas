@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 2
 partCount: 5
-ordering: 7
+ordering: 23
 keyPoints:
   - "Solve inequalities and reverse the sign when multiplying or dividing by a negative number."
   - "Show included and excluded endpoints on a number line."

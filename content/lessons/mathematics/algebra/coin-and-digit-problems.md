@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 6
 partCount: 6
-ordering: 17
+ordering: 49
 keyPoints:
   - "Use separate equations for coin count and value."
   - "Write a two-digit number as ten times its tens digit plus its units digit."

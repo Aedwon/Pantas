@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 1
 partCount: 4
-ordering: 8.01
+ordering: 29
 keyPoints:
   - "Solve a system by substitution."
   - "Write a system from two facts."

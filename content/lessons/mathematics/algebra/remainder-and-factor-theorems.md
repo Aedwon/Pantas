@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 8
 partCount: 9
-ordering: 12
+ordering: 20
 keyPoints:
   - "Evaluate the polynomial to find a remainder."
   - "Use a zero remainder to test a factor or find a coefficient."

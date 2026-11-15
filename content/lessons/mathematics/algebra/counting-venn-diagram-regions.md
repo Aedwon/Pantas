@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 2
 partCount: 2
-ordering: 1.02
+ordering: 2
 keyPoints:
   - "Count two-set unions, overlaps, and neither regions."
   - "Count three-set regions from the center outward."

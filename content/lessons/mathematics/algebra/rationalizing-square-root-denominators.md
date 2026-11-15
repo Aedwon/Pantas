@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 2
 partCount: 3
-ordering: 4.02
+ordering: 11
 keyPoints:
   - "Rationalize a single square-root denominator."
   - "Use conjugates to rationalize binomial denominators."

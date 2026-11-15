@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 7
 partCount: 8
-ordering: 10.07
+ordering: 42
 keyPoints:
   - "Distinguish exponential functions from polynomial powers."
   - "Use the base to identify growth or decay."

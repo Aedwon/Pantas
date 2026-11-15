@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 3
 partCount: 3
-ordering: 4.03
+ordering: 12
 keyPoints:
   - "Complete cube-root factors to rationalize a denominator."
   - "Find a stated real limit of a nested radical and check its sign."

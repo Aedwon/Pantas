@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 5
 partCount: 6
-ordering: 16
+ordering: 48
 keyPoints:
   - "Multiply concentration by total amount and balance the pure amounts."
 ---

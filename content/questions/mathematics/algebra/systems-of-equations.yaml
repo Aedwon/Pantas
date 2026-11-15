@@ -5,6 +5,8 @@ meta:
   exams: [upcat, acet, dlsucet, ustet, pupcet]
 questions:
   - id: q-algebra-systems-of-equations-0001
+    lesson: lesson-algebra-systems-substitution-and-word-problems
+    keyPoint: 1
     type: direct-computation
     difficulty: easy
     stem: |
@@ -25,6 +27,8 @@ questions:
       Replace $y$ with $x+1$: $x+(x+1)=7$. Subtract $1$ to get $2x=6$, so $x=3$. Then $y=3+1=4$. The solution is $(3,4)$.
 
   - id: q-algebra-systems-of-equations-0002
+    lesson: lesson-algebra-systems-elimination
+    keyPoint: 1
     type: direct-computation
     difficulty: medium
     stem: |
@@ -45,6 +49,8 @@ questions:
       Add the equations to get $6x=18$, so $x=3$. Put this into the first equation: $6+3y=12$. Subtract $6$ and divide by $3$ to get $y=2$. The solution is $(3,2)$.
 
   - id: q-algebra-systems-of-equations-0003
+    lesson: lesson-algebra-systems-elimination
+    keyPoint: 2
     type: direct-computation
     difficulty: hard
     stem: |
@@ -65,6 +71,8 @@ questions:
       Multiply the first equation by $5$ and the second by $2$: $15x+10y=80$ and $4x+10y=36$. Subtract to get $11x=44$, so $x=4$. Then $12+2y=16$, giving $y=2$. The solution is $(4,2)$.
 
   - id: q-algebra-systems-of-equations-0004
+    lesson: lesson-algebra-systems-substitution-and-word-problems
+    keyPoint: 2
     type: word-problem
     difficulty: medium
     stem: |
@@ -85,6 +93,8 @@ questions:
       Let $a$ be adult tickets and $c$ be child tickets. Then $a+c=50$ and $100a+60c=4200$. Replace $c$ with $50-a$: $100a+3000-60a=4200$. This gives $40a=1200$, so $a=30$.
 
   - id: q-algebra-systems-of-equations-0005
+    lesson: lesson-algebra-systems-graphs-and-solution-counts
+    keyPoint: 1
     type: which-is-true
     difficulty: medium
     stem: |
@@ -105,6 +115,8 @@ questions:
       Subtract the first equation from the second. The left side becomes $0$ and the right side becomes $4$, giving $0=4$. That cannot be true. The system has no solution.
 
   - id: q-algebra-systems-of-equations-0006
+    lesson: lesson-algebra-systems-graphs-and-solution-counts
+    keyPoint: 1
     type: which-is-true
     difficulty: medium
     stem: |
@@ -125,6 +137,8 @@ questions:
       Multiply $2x+y=5$ by $2$ to get $4x+2y=10$. Both equations describe the same line. Every point on that line solves both equations, so there are infinitely many solutions.
 
   - id: q-algebra-systems-of-equations-0007
+    lesson: lesson-algebra-systems-lines-and-parabolas
+    keyPoint: 1
     type: which-is-true
     difficulty: hard
     stem: |
@@ -145,6 +159,8 @@ questions:
       Set the expressions for $y$ equal: $x^2-4=3x-6$. This gives $x^2-3x+2=0$, or $(x-1)(x-2)=0$. The two roots are $1$ and $2$. Each gives one shared point, so there are $2$ solutions.
 
   - id: q-algebra-systems-of-equations-0008
+    lesson: lesson-algebra-systems-substitution-and-word-problems
+    keyPoint: 2
     type: word-problem
     difficulty: medium
     stem: |
@@ -165,6 +181,8 @@ questions:
       Let $a$ and $b$ be the masses of alloys A and B. Then $a+b=100$ and $0.2a+0.6b=40$. Put $b=100-a$ into the copper equation: $0.2a+60-0.6a=40$. This gives $-0.4a=-20$, so $a=50$ kg.
 
   - id: q-algebra-systems-of-equations-0009
+    lesson: lesson-algebra-systems-elimination
+    keyPoint: 2
     type: error-spotting
     difficulty: hard
     stem: |
@@ -190,6 +208,8 @@ questions:
       The minus sign before the second bracket applies to every term inside it. Thus $-(4x+10y)=-4x-10y$. The $y$ terms cancel, leaving $11x=44$.
 
   - id: q-algebra-systems-of-equations-0010
+    lesson: lesson-algebra-systems-substitution-and-word-problems
+    keyPoint: 1
     type: which-is-true
     difficulty: medium
     stem: |
@@ -210,6 +230,8 @@ questions:
       Substitution replaces $y$ with the entire expression $3x+1$. In the second equation, this gives $2x+5(3x+1)=14$. The brackets keep the whole expression multiplied by $5$.
 
   - id: q-algebra-systems-of-equations-0011
+    lesson: lesson-algebra-systems-substitution-and-word-problems
+    keyPoint: 2
     type: word-problem
     difficulty: medium
     stem: |
@@ -230,6 +252,8 @@ questions:
       Let $n$ be the notebook price and $p$ the pen price. The receipts give $3n+2p=140$ and $n+4p=80$. Multiply the second by $3$: $3n+12p=240$. Subtract the first to get $10p=100$, so $p=10$ pesos.
 
   - id: q-algebra-systems-of-equations-0012
+    lesson: lesson-algebra-systems-substitution-and-word-problems
+    keyPoint: 1
     type: direct-computation
     difficulty: medium
     stem: |
@@ -250,6 +274,8 @@ questions:
       Subtract the equations to get $x-y=0$, so $x=y$. Put $x=y$ into $2x+y=9$: $3y=9$. Divide by $3$ to get $y=3$.
 
   - id: q-algebra-systems-of-equations-0013
+    lesson: lesson-algebra-systems-elimination
+    keyPoint: 1
     type: direct-computation
     difficulty: medium
     stem: |
@@ -270,6 +296,8 @@ questions:
       Add the equations: $4x+4y=16$. Factor the left side as $4(x+y)$. Divide both sides by $4$ to get $x+y=4$.
 
   - id: q-algebra-systems-of-equations-0014
+    lesson: lesson-algebra-systems-substitution-and-word-problems
+    keyPoint: 1
     type: which-is-true
     difficulty: easy
     stem: |
@@ -290,6 +318,8 @@ questions:
       Put $x=3$ and $y=1$ into both equations. The first gives $2(3)+1=7$. The second gives $3-1=2$. Thus $(3,1)$ satisfies the whole system.
 
   - id: q-algebra-systems-of-equations-0015
+    lesson: lesson-algebra-systems-substitution-and-word-problems
+    keyPoint: 1
     type: direct-computation
     difficulty: medium
     stem: |
@@ -310,6 +340,8 @@ questions:
       Add the equations to get $4x=8$, so $x=2$. From $x-y=1$, find $y=1$. Therefore $xy=2(1)=2$.
 
   - id: q-algebra-systems-of-equations-0016
+    lesson: lesson-algebra-systems-substitution-and-word-problems
+    keyPoint: 1
     type: direct-computation
     difficulty: hard
     stem: |
@@ -330,6 +362,8 @@ questions:
       Replace $y$ in the second equation: $3x+2(2x-5)=4$. Expand to get $7x-10=4$, so $7x=14$ and $x=2$. Then $y=2(2)-5=-1$. Thus $x-y=2-(-1)=3$.
 
   - id: q-algebra-systems-of-equations-0017
+    lesson: lesson-algebra-systems-lines-and-parabolas
+    keyPoint: 1
     type: error-spotting
     difficulty: hard
     stem: |
@@ -350,6 +384,8 @@ questions:
       From $x^2=x$, move the right side to get $x^2-x=0$. Factor: $x(x-1)=0$. Thus $x=0$ or $x=1$. Dividing by $x$ loses the solution $x=0$.
 
   - id: q-algebra-systems-of-equations-0018
+    lesson: lesson-algebra-systems-substitution-and-word-problems
+    keyPoint: 2
     type: word-problem
     difficulty: hard
     stem: |
@@ -370,6 +406,8 @@ questions:
       The upstream speed is $80\div8=10$ km/h, so $v-c=10$. The downstream speed is $100\div5=20$ km/h, so $v+c=20$. Add the equations: $2v=30$. Thus $v=15$ km/h.
 
   - id: q-algebra-systems-of-equations-0019
+    lesson: lesson-algebra-systems-substitution-and-word-problems
+    keyPoint: 1
     type: error-spotting
     difficulty: easy
     stem: |
@@ -391,6 +429,8 @@ questions:
     approved: false
 
   - id: q-algebra-systems-of-equations-0020
+    lesson: lesson-algebra-systems-graphs-and-solution-counts
+    keyPoint: 1
     type: which-is-true
     difficulty: exam
     stem: |

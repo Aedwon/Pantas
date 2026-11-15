@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 5
 partCount: 8
-ordering: 10.05
+ordering: 40
 keyPoints:
   - "Solve absolute-value equations using both cases."
   - "Match an absolute-value graph to its formula."

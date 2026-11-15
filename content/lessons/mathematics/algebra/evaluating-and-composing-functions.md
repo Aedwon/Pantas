@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 2
 partCount: 3
-ordering: 902
+ordering: 34
 keyPoints:
   - "Evaluate a function at a given input."
   - "Compose functions in order and check the composition domain."

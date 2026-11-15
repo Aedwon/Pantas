@@ -5,6 +5,8 @@ meta:
   exams: [upcat, acet, dlsucet, ustet, pupcet, cse-pro, cse-sub]
 questions:
   - id: q-algebra-word-problems-0001
+    lesson: lesson-algebra-age-word-problems
+    keyPoint: 2
     type: word-problem
     difficulty: easy
     stem: |
@@ -25,6 +27,8 @@ questions:
       Let $m$ be Maya's age. Ben is $m+4$. Their sum gives $m+(m+4)=24$. Subtract $4$ to get $2m=20$, then divide by $2$. Maya is $10$ years old.
 
   - id: q-algebra-word-problems-0002
+    lesson: lesson-algebra-motion-meeting-and-separation
+    keyPoint: 1
     type: word-problem
     difficulty: easy
     stem: |
@@ -45,6 +49,8 @@ questions:
       Time equals distance divided by speed. Thus $t=\dfrac{45}{30}=1.5$ hours.
 
   - id: q-algebra-word-problems-0003
+    lesson: lesson-algebra-work-rate-problems
+    keyPoint: 1
     type: word-problem
     difficulty: easy
     stem: |
@@ -65,6 +71,8 @@ questions:
       The work rates are $\dfrac{1}{6}$ and $\dfrac{1}{3}$ wall per hour. Together they paint $\dfrac{1}{6}+\dfrac{2}{6}=\dfrac{1}{2}$ wall per hour. One wall takes $1\div\dfrac{1}{2}=2$ hours.
 
   - id: q-algebra-word-problems-0004
+    lesson: lesson-algebra-mixture-word-problems
+    keyPoint: 1
     type: word-problem
     difficulty: easy
     stem: |
@@ -85,6 +93,8 @@ questions:
       Ten percent is $0.10$. Multiply the solution volume by this fraction: $10(0.10)=1$ liter of sugar.
 
   - id: q-algebra-word-problems-0005
+    lesson: lesson-algebra-coin-and-digit-problems
+    keyPoint: 1
     type: word-problem
     difficulty: easy
     stem: |
@@ -105,6 +115,8 @@ questions:
       Let $y$ be the number of $5$-peso coins. There are $15-y$ one-peso coins. Their value gives $(15-y)+5y=47$. Combine terms: $15+4y=47$. Subtract $15$ and divide by $4$ to get $y=8$.
 
   - id: q-algebra-word-problems-0006
+    lesson: lesson-algebra-coin-and-digit-problems
+    keyPoint: 1
     type: error-spotting
     difficulty: easy
     stem: |
@@ -125,6 +137,8 @@ questions:
       Each $5$-peso coin contributes $5$ pesos, and each $10$-peso coin contributes $10$ pesos. Multiplying each count by its coin value gives the value equation $5f+10t=160$.
 
   - id: q-algebra-word-problems-0007
+    lesson: lesson-algebra-age-word-problems
+    keyPoint: 1
     type: word-problem
     difficulty: medium
     stem: |
@@ -145,6 +159,8 @@ questions:
       Let $a$ be Ana's age now. Her mother is $4a$. In six years, both ages increase by $6$, so $4a+6=3(a+6)$. Expand to get $4a+6=3a+18$. Subtract $3a$ and $6$ to get $a=12$.
 
   - id: q-algebra-word-problems-0008
+    lesson: lesson-algebra-motion-chase-problems
+    keyPoint: 1
     type: word-problem
     difficulty: medium
     stem: |
@@ -165,6 +181,8 @@ questions:
       The jeepney's head start is $40(1)=40$ km. The van closes the gap at $60-40=20$ km/h. Closing $40$ km takes $\dfrac{40}{20}=2$ hours after the van starts.
 
   - id: q-algebra-word-problems-0009
+    lesson: lesson-algebra-work-rate-problems
+    keyPoint: 1
     type: word-problem
     difficulty: medium
     stem: |
@@ -185,6 +203,8 @@ questions:
       Together they complete $\dfrac{1}{3}$ report per hour. Ana completes $\dfrac{1}{8}$ report per hour. Bea's rate is $\dfrac{1}{3}-\dfrac{1}{8}=\dfrac{5}{24}$. Her time is the reciprocal, $\dfrac{24}{5}=4.8$ hours.
 
   - id: q-algebra-word-problems-0010
+    lesson: lesson-algebra-mixture-word-problems
+    keyPoint: 1
     type: word-problem
     difficulty: medium
     stem: |
@@ -205,6 +225,8 @@ questions:
       Let $x$ be the liters of strong solution. The weak solution has volume $20-x$. The salt balance is $0.30x+0.10(20-x)=0.20(20)$. Expand and combine: $0.20x+2=4$. Subtract $2$ and divide by $0.20$ to get $x=10$ liters.
 
   - id: q-algebra-word-problems-0011
+    lesson: lesson-algebra-age-word-problems
+    keyPoint: 1
     type: word-problem
     difficulty: medium
     stem: |
@@ -225,6 +247,8 @@ questions:
       Let $c$ be Carlo's age now. His father is $56-c$. Four years ago their ages were $c-4$ and $52-c$. Thus $52-c=3(c-4)$. Expand to get $52-c=3c-12$. Add $c$ and $12$: $64=4c$. Hence $c=16$.
 
   - id: q-algebra-word-problems-0012
+    lesson: lesson-algebra-coin-and-digit-problems
+    keyPoint: 1
     type: word-problem
     difficulty: medium
     stem: |
@@ -245,6 +269,8 @@ questions:
       Let $t$ be the number of ten-peso coins. The five-peso coin count is $2t+8$. Their value gives $10t+5(2t+8)=280$. Expand: $20t+40=280$. Subtract $40$ and divide by $20$ to get $t=12$.
 
   - id: q-algebra-word-problems-0013
+    lesson: lesson-algebra-age-word-problems
+    keyPoint: 1
     type: word-problem
     difficulty: hard
     stem: |
@@ -265,6 +291,8 @@ questions:
       Let $m$ be Mark's age now and $s$ his father's. Five years ago, $s-5=5(m-5)$, so $s=5m-20$. In ten years, $s+10=2(m+10)$, so $s=2m+10$. Equate these: $5m-20=2m+10$. Thus $3m=30$ and $m=10$.
 
   - id: q-algebra-word-problems-0014
+    lesson: lesson-algebra-motion-meeting-and-separation
+    keyPoint: 2
     type: word-problem
     difficulty: hard
     stem: |
@@ -285,6 +313,8 @@ questions:
       The boats separate at $25+35=60$ km/h. Divide the required gap by this rate: $t=\dfrac{180}{60}=3$ hours.
 
   - id: q-algebra-word-problems-0015
+    lesson: lesson-algebra-work-rate-problems
+    keyPoint: 1
     type: word-problem
     difficulty: hard
     stem: |
@@ -305,6 +335,8 @@ questions:
       The fill rates are $\dfrac{1}{4}$ and $\dfrac{1}{12}$ tank per hour. Together they fill $\dfrac{3+1}{12}=\dfrac{1}{3}$ tank per hour. Filling one tank takes $1\div\dfrac{1}{3}=3$ hours.
 
   - id: q-algebra-word-problems-0016
+    lesson: lesson-algebra-mixture-word-problems
+    keyPoint: 1
     type: word-problem
     difficulty: hard
     stem: |
@@ -325,6 +357,8 @@ questions:
       The sugar volume stays $12(0.25)=3$ liters. For a $10\%$ solution, the total volume must satisfy $0.10V=3$. Thus $V=30$ liters. Subtract the original volume: $30-12=18$ liters of water.
 
   - id: q-algebra-word-problems-0017
+    lesson: lesson-algebra-motion-meeting-and-separation
+    keyPoint: 1
     type: word-problem
     difficulty: hard
     stem: |
@@ -345,6 +379,8 @@ questions:
       The uphill time is $\dfrac{12}{15}=0.8$ hours. The downhill time is $\dfrac{12}{30}=0.4$ hours. Total distance is $24$ km, and total time is $1.2$ hours. Use $d=rt$ for the same distance and total time: $r=\dfrac{24}{1.2}=20$ km/h.
 
   - id: q-algebra-word-problems-0018
+    lesson: lesson-algebra-coin-and-digit-problems
+    keyPoint: 1
     type: word-problem
     difficulty: hard
     stem: |
@@ -365,6 +401,8 @@ questions:
       Let $x$ be the count of each smaller coin. The twenty-peso coin count is $x-3$. The value equation is $5x+10x+20(x-3)=430$. Combine terms: $35x-60=430$. Thus $35x=490$ and $x=14$. The total count is $14+14+(14-3)=39$.
 
   - id: q-algebra-word-problems-0019
+    lesson: lesson-algebra-coin-and-digit-problems
+    keyPoint: 2
     type: word-problem
     difficulty: medium
     stem: |
@@ -386,6 +424,8 @@ questions:
     approved: false
 
   - id: q-algebra-word-problems-0020
+    lesson: lesson-algebra-mixture-word-problems
+    keyPoint: 1
     type: error-spotting
     difficulty: exam
     stem: |

@@ -5,6 +5,8 @@ meta:
   exams: [upcat, acet, dlsucet, ustet, pupcet]
 questions:
   - id: q-algebra-exponents-and-logarithms-0001
+    lesson: lesson-algebra-exponent-laws-and-zero-powers
+    keyPoint: 1
     type: direct-computation
     difficulty: easy
     stem: |
@@ -25,6 +27,8 @@ questions:
       Both powers have base $x$. Multiplying them joins three factors of $x$ with five more. There are $3+5=8$ factors, so the result is $x^8$.
 
   - id: q-algebra-exponents-and-logarithms-0002
+    lesson: lesson-algebra-exponent-laws-and-zero-powers
+    keyPoint: 1
     type: direct-computation
     difficulty: easy
     stem: |
@@ -45,6 +49,8 @@ questions:
       For nonzero $x$, dividing like bases subtracts their exponents. Here $7-3=4$, so the result is $x^4$.
 
   - id: q-algebra-exponents-and-logarithms-0003
+    lesson: lesson-algebra-exponent-laws-and-zero-powers
+    keyPoint: 1
     type: direct-computation
     difficulty: easy
     stem: |
@@ -65,6 +71,8 @@ questions:
       The outside square gives $x^3 \cdot x^3$. Add the exponents: $3+3=6$. Thus $(x^3)^2=x^6$.
 
   - id: q-algebra-exponents-and-logarithms-0004
+    lesson: lesson-algebra-fractional-powers-and-exponent-equations
+    keyPoint: 1
     type: direct-computation
     difficulty: medium
     stem: |
@@ -85,6 +93,8 @@ questions:
       The negative exponent gives $8^{-2/3}=\dfrac{1}{8^{2/3}}$. Take the cube root of $8$ to get $2$, then square it to get $4$. The value is $\dfrac{1}{4}$.
 
   - id: q-algebra-exponents-and-logarithms-0005
+    lesson: lesson-algebra-exponent-laws-and-zero-powers
+    keyPoint: 2
     type: direct-computation
     difficulty: medium
     stem: |
@@ -105,6 +115,8 @@ questions:
       A negative exponent means take the reciprocal. Since $2^3=8$, $2^{-3}=\dfrac{1}{2^3}=\dfrac{1}{8}$.
 
   - id: q-algebra-exponents-and-logarithms-0006
+    lesson: lesson-algebra-exponent-laws-and-zero-powers
+    keyPoint: 2
     type: which-is-true
     difficulty: medium
     stem: |
@@ -125,6 +137,8 @@ questions:
       Let $\log_2(8)=k$. This means $2^k=8$. Since $2^3=8$, the logarithm is $3$.
 
   - id: q-algebra-exponents-and-logarithms-0007
+    lesson: lesson-algebra-logarithm-meaning-and-equations
+    keyPoint: 1
     type: direct-computation
     difficulty: medium
     stem: |
@@ -145,6 +159,8 @@ questions:
       A logarithm gives the exponent needed on its base. Here $3^4=81$, so $\log_3(81)=4$.
 
   - id: q-algebra-exponents-and-logarithms-0008
+    lesson: lesson-algebra-exponent-laws-and-zero-powers
+    keyPoint: 1
     type: error-spotting
     difficulty: medium
     stem: |
@@ -165,6 +181,8 @@ questions:
       The powers have the same base and are multiplied. Add the exponents: $3+4=7$. The expression is $2^7$.
 
   - id: q-algebra-exponents-and-logarithms-0009
+    lesson: lesson-algebra-exponent-laws-and-zero-powers
+    keyPoint: 1
     type: error-spotting
     difficulty: medium
     stem: |
@@ -185,6 +203,8 @@ questions:
       The outside cube makes three copies of $2^2$. Their exponents add to $2+2+2=6$. Equivalently, multiply $2 	imes 3$ to get $(2^2)^3=2^6$.
 
   - id: q-algebra-exponents-and-logarithms-0010
+    lesson: lesson-algebra-exponent-laws-and-zero-powers
+    keyPoint: 1
     type: direct-computation
     difficulty: hard
     stem: |
@@ -205,6 +225,8 @@ questions:
       Combine like bases in the numerator to get $x^{3+4}y^{2-1}=x^7y$. Divide by $x^2y^3$ to get $x^{7-2}y^{1-3}=x^5y^{-2}$. Rewrite the negative power as $\dfrac{x^5}{y^2}$.
 
   - id: q-algebra-exponents-and-logarithms-0011
+    lesson: lesson-algebra-logarithm-product-quotient-and-power-laws
+    keyPoint: 1
     type: direct-computation
     difficulty: hard
     stem: |
@@ -225,6 +247,8 @@ questions:
       Use the power rule: $2\log(x)=\log(x^2)$. Then use the product rule: $\log(x^2)+\log(y)=\log(x^2y)$. The positive inputs make both rules valid.
 
   - id: q-algebra-exponents-and-logarithms-0012
+    lesson: lesson-algebra-fractional-powers-and-exponent-equations
+    keyPoint: 2
     type: direct-computation
     difficulty: hard
     stem: |
@@ -245,6 +269,8 @@ questions:
       Rewrite the bases as $4=2^2$ and $8=2^3$. The equation becomes $2^{4x-2}=2^{3x+3}$. Equate exponents: $4x-2=3x+3$. Subtract $3x$ and add $2$ to get $x=5$.
 
   - id: q-algebra-exponents-and-logarithms-0013
+    lesson: lesson-algebra-logarithm-product-quotient-and-power-laws
+    keyPoint: 2
     type: which-is-true
     difficulty: hard
     stem: |
@@ -265,6 +291,8 @@ questions:
       Factor $12$ as $2^2 	imes 3$. Thus $\log_{10}(12)=2\log_{10}(2)+\log_{10}(3)=2a+b$.
 
   - id: q-algebra-exponents-and-logarithms-0014
+    lesson: lesson-algebra-exponent-laws-and-zero-powers
+    keyPoint: 2
     type: error-spotting
     difficulty: medium
     stem: |
@@ -285,6 +313,8 @@ questions:
       A negative exponent gives a reciprocal. Since $3^2=9$, $3^{-2}=\dfrac{1}{3^2}=\dfrac{1}{9}$.
 
   - id: q-algebra-exponents-and-logarithms-0015
+    lesson: lesson-algebra-fractional-powers-and-exponent-equations
+    keyPoint: 1
     type: direct-computation
     difficulty: hard
     stem: |
@@ -305,6 +335,8 @@ questions:
       Take the fourth root first: $\sqrt[4]{16}=2$. Then apply the numerator power: $2^3=8$. Thus $16^{3/4}=8$.
 
   - id: q-algebra-exponents-and-logarithms-0016
+    lesson: lesson-algebra-logarithm-meaning-and-equations
+    keyPoint: 2
     type: which-is-true
     difficulty: easy
     stem: |
@@ -326,6 +358,8 @@ questions:
     approved: false
 
   - id: q-algebra-exponents-and-logarithms-0017
+    lesson: lesson-algebra-logarithm-product-quotient-and-power-laws
+    keyPoint: 1
     type: error-spotting
     difficulty: medium
     stem: |
@@ -347,6 +381,8 @@ questions:
     approved: false
 
   - id: q-algebra-exponents-and-logarithms-0018
+    lesson: lesson-algebra-exponent-laws-and-zero-powers
+    keyPoint: 1
     type: word-problem
     difficulty: hard
     stem: |
@@ -368,6 +404,8 @@ questions:
     approved: false
 
   - id: q-algebra-exponents-and-logarithms-0019
+    lesson: lesson-algebra-fractional-powers-and-exponent-equations
+    keyPoint: 1
     type: estimate-first
     difficulty: hard
     stem: |
@@ -389,6 +427,8 @@ questions:
     approved: false
 
   - id: q-algebra-exponents-and-logarithms-0020
+    lesson: lesson-algebra-logarithm-meaning-and-equations
+    keyPoint: 2
     type: direct-computation
     difficulty: exam
     stem: |

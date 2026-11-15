@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 3
 partCount: 6
-ordering: 14
+ordering: 46
 keyPoints:
   - "Subtract the slower speed from the faster speed in a same-direction chase."
 ---

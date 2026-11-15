@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 4
 partCount: 8
-ordering: 10.04
+ordering: 39
 keyPoints:
   - "Use polynomial division to find a slant asymptote."
   - "Explain when a graph may cross an asymptote."

@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 9
 partCount: 9
-ordering: 13
+ordering: 21
 keyPoints:
   - "Use each linear factor to form equations for unknown coefficients."
 ---

@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 6
 partCount: 8
-ordering: 10.06
+ordering: 41
 keyPoints:
   - "Find the vertex and range after shifts."
   - "Describe stretches, compressions, and reflections."

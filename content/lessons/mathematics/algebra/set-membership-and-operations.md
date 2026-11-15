@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 1
 partCount: 2
-ordering: 1.01
+ordering: 1
 keyPoints:
   - "Identify set elements and subsets."
   - "Find unions, intersections, and complements."

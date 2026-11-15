@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 2
 partCount: 6
-ordering: 13
+ordering: 45
 keyPoints:
   - "Use distance equals rate times time with matching units."
   - "Add speeds when objects move apart or toward each other."

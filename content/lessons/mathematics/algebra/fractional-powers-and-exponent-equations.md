@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 2
 partCount: 4
-ordering: 302
+ordering: 7
 keyPoints:
   - "Evaluate fractional powers as roots."
   - "Solve equations by comparing exponents with the same allowed base."

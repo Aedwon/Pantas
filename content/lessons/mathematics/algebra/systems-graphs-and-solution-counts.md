@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 3
 partCount: 4
-ordering: 8.03
+ordering: 31
 keyPoints:
   - "Tell whether two lines have one, no, or infinitely many solutions."
 ---

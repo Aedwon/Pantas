@@ -5,6 +5,8 @@ meta:
   exams: [upcat, acet, dlsucet, ustet, pupcet]
 questions:
   - id: q-algebra-algebraic-expressions-0001
+    lesson: lesson-algebra-translating-algebraic-phrases
+    keyPoint: 1
     type: direct-computation
     difficulty: easy
     stem: |
@@ -25,6 +27,8 @@ questions:
       "Three times" means three equal copies of $x$. Adding them gives $x + x + x = 3x$.
 
   - id: q-algebra-algebraic-expressions-0002
+    lesson: lesson-algebra-translating-algebraic-phrases
+    keyPoint: 2
     type: direct-computation
     difficulty: easy
     stem: |
@@ -45,6 +49,8 @@ questions:
       Start with the number $y$. Remove seven from it to get $y - 7$.
 
   - id: q-algebra-algebraic-expressions-0003
+    lesson: lesson-algebra-simplifying-and-evaluating-expressions
+    keyPoint: 2
     type: direct-computation
     difficulty: easy
     stem: |
@@ -65,6 +71,8 @@ questions:
       Replace $x$ with $4$: $2(4) + 3$. Multiply first to get $8 + 3$. The value is $11$.
 
   - id: q-algebra-algebraic-expressions-0004
+    lesson: lesson-algebra-translating-algebraic-phrases
+    keyPoint: 1
     type: direct-computation
     difficulty: easy
     stem: |
@@ -85,6 +93,8 @@ questions:
       The distance $d$ is split into four equal parts. Each part is $d \div 4 = \dfrac{d}{4}$.
 
   - id: q-algebra-algebraic-expressions-0005
+    lesson: lesson-algebra-simplifying-and-evaluating-expressions
+    keyPoint: 1
     type: direct-computation
     difficulty: medium
     stem: |
@@ -105,6 +115,8 @@ questions:
       Both terms have the same variable part, $a$. Add their coefficients: $3 + 2 = 5$. The result is $5a$.
 
   - id: q-algebra-algebraic-expressions-0006
+    lesson: lesson-algebra-simplifying-and-evaluating-expressions
+    keyPoint: 1
     type: direct-computation
     difficulty: medium
     stem: |
@@ -125,6 +137,8 @@ questions:
       Multiply both terms inside the parentheses by $2$. This gives $2x + 2(3) = 2x + 6$.
 
   - id: q-algebra-algebraic-expressions-0007
+    lesson: lesson-algebra-simplifying-and-evaluating-expressions
+    keyPoint: 1
     type: error-spotting
     difficulty: medium
     stem: |
@@ -150,6 +164,8 @@ questions:
       Step 1 should multiply both terms by $3$. The products are $3a$ and $6$, so the expression becomes $3a + 6$. Step 1 is the first incorrect step.
 
   - id: q-algebra-algebraic-expressions-0008
+    lesson: lesson-algebra-simplifying-and-evaluating-expressions
+    keyPoint: 2
     type: direct-computation
     difficulty: medium
     stem: |
@@ -170,6 +186,8 @@ questions:
       Replace $x$ with $3$. The square is $3^2 = 3 	imes 3 = 9$.
 
   - id: q-algebra-algebraic-expressions-0009
+    lesson: lesson-algebra-simplifying-and-evaluating-expressions
+    keyPoint: 2
     type: direct-computation
     difficulty: hard
     stem: |
@@ -190,6 +208,8 @@ questions:
       The square applies to $x$ alone. With $x = 2$, first find $2^2 = 4$. Then apply the outside minus sign to get $-4$.
 
   - id: q-algebra-algebraic-expressions-0010
+    lesson: lesson-algebra-simplifying-and-evaluating-expressions
+    keyPoint: 2
     type: word-problem
     difficulty: hard
     stem: |
@@ -210,6 +230,8 @@ questions:
       Put $-2$ into $x^2 + 3$: $(-2)^2 + 3$. The square is $(-2)(-2) = 4$. Add $3$ to get $7$.
 
   - id: q-algebra-algebraic-expressions-0011
+    lesson: lesson-algebra-simplifying-and-evaluating-expressions
+    keyPoint: 1
     type: direct-computation
     difficulty: hard
     stem: |
@@ -230,6 +252,8 @@ questions:
       Subtracting the group changes both signs: $5x - 2x + 3$. Combine the $x$ terms to get $3x + 3$.
 
   - id: q-algebra-algebraic-expressions-0012
+    lesson: lesson-algebra-simplifying-and-evaluating-expressions
+    keyPoint: 1
     type: error-spotting
     difficulty: hard
     stem: |
@@ -255,6 +279,8 @@ questions:
       Subtract each term in the group: $8 - (3 - x) = 8 - 3 + x$. This simplifies to $5 + x$. Step 1 is the first incorrect step.
 
   - id: q-algebra-algebraic-expressions-0013
+    lesson: lesson-algebra-translating-algebraic-phrases
+    keyPoint: 1
     type: direct-computation
     difficulty: medium
     stem: |
@@ -275,6 +301,8 @@ questions:
       $50\% = \dfrac{50}{100} = 0.5$. To find that share of $n$, multiply: $0.5 	imes n = 0.5n$.
 
   - id: q-algebra-algebraic-expressions-0014
+    lesson: lesson-algebra-simplifying-and-evaluating-expressions
+    keyPoint: 1
     type: direct-computation
     difficulty: hard
     stem: |
@@ -295,6 +323,8 @@ questions:
       Distribute $2$ to get $6x - 2 + 4x$. Add the matching variable terms: $6x + 4x = 10x$. The result is $10x - 2$.
 
   - id: q-algebra-algebraic-expressions-0015
+    lesson: lesson-algebra-simplifying-and-evaluating-expressions
+    keyPoint: 2
     type: direct-computation
     difficulty: hard
     stem: |
@@ -315,6 +345,8 @@ questions:
       Replace the letters: $2(3) + (-2)^2$. The first term is $6$ and the second is $4$. Add them to get $10$.
 
   - id: q-algebra-algebraic-expressions-0016
+    lesson: lesson-algebra-translating-algebraic-phrases
+    keyPoint: 1
     type: direct-computation
     difficulty: medium
     stem: |
@@ -335,6 +367,8 @@ questions:
       The product of $4$ and $x$ is $4x$. Adding $5$ after that gives $4x + 5$.
 
   - id: q-algebra-algebraic-expressions-0017
+    lesson: lesson-algebra-translating-algebraic-phrases
+    keyPoint: 2
     type: error-spotting
     difficulty: medium
     stem: |
@@ -360,6 +394,8 @@ questions:
       Twice $y$ is $2y$. To make it six less, subtract $6$ from that amount: $2y - 6$. The first incorrect step is Step 2.
 
   - id: q-algebra-algebraic-expressions-0018
+    lesson: lesson-algebra-simplifying-and-evaluating-expressions
+    keyPoint: 1
     type: direct-computation
     difficulty: medium
     stem: |
@@ -380,6 +416,8 @@ questions:
       Group like terms: $(3x - x) + (2y + 4y)$. Their coefficients give $(3 - 1)x + (2 + 4)y = 2x + 6y$.
 
   - id: q-algebra-algebraic-expressions-0019
+    lesson: lesson-algebra-translating-algebraic-phrases
+    keyPoint: 2
     type: which-is-true
     difficulty: easy
     stem: |
@@ -401,6 +439,8 @@ questions:
     approved: false
 
   - id: q-algebra-algebraic-expressions-0020
+    lesson: lesson-algebra-rates-and-consecutive-integers
+    keyPoint: 2
     type: word-problem
     difficulty: exam
     stem: |

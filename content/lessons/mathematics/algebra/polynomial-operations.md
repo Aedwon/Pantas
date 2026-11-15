@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 2
 partCount: 9
-ordering: 6
+ordering: 14
 keyPoints:
   - "Add and subtract like terms with their signs."
   - "Multiply every term by every term."

@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 8
 partCount: 8
-ordering: 10.08
+ordering: 43
 keyPoints:
   - "Evaluate logarithms and solve exponential or logarithmic equations."
   - "Choose the piecewise rule that includes the input."

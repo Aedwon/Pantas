@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 3
 partCount: 8
-ordering: 10.03
+ordering: 38
 keyPoints:
   - "Find vertical asymptotes after cancellation."
   - "Compare degrees to find horizontal asymptotes."
