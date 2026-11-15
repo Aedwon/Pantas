@@ -368,3 +368,11 @@ the current decision log.
 - Fix: a check. `functions/src/scheduleGate.ts` throws during discovery for pantas-prod or pantas-staging when the project's `.env` file is missing, naming the pinned CLI; tests in `functions/test/scheduled-gating.test.mjs` (failing first). Required step: functions deploys use `npx --prefix functions firebase deploy`.
 
 - Nov 15 (manager): when Aedwon sets a multi-item goal, give an overall estimate at once and log it in the velocity log before work starts (E-080 had none until he asked). Back every timed lead step (cutovers, watches, staged rollouts) with a durable T3 scheduled reminder, because in-session timers die with the session; the Nov 14 18:07 Cloudflare cutover slipped 30 minutes without one.
+
+### Nov 15, 2026: a merge went to main with red CI
+
+- Words: none; found by the DS4 lead.
+- Wrong: the deploy-guard branch was merged to main (88aee3378) while its CI had failed (a test pinned the old functions predeploy string).
+- Why: the merge step grepped the whole wait-loop output for "CI completed success", which matched a line from an earlier poll; a later wait loop also used a short SHA, which `gh run list --commit` does not match.
+- Fix: before any merge, read the CI conclusion directly with the full SHA (`gh run list --commit <full sha> --json name,conclusion -q '.[]|select(.name=="CI").conclusion'` must equal `success`). Main was fixed forward within 30 minutes (a01635b22, CI green); nothing was deployed from the red commit.
+
