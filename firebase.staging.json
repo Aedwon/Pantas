@@ -9,7 +9,10 @@
   "functions": {
     "source": "functions",
     "runtime": "nodejs22",
-    "predeploy": "npm --prefix functions run build"
+    "predeploy": [
+      "node tool/deploy/require_current_main.mjs",
+      "npm --prefix functions run build"
+    ]
   },
   "hosting": [
     {
