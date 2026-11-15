@@ -38,6 +38,9 @@ test('extend beta Pro: dry run writes nothing, live extends only active old-cuto
   assert.deepEqual(await extendBetaPro({...deps, live: true}), {users: 0, grants: 0, claimsFailed: 0});
   assert.equal((await entitlement(a).get()).get('version'), version);
 
-  // The claims-only rerun copies claims again for the extended user only.
-  assert.deepEqual(await recopyClaims({db, auth}), {users: 1, copied: 1, claimsFailed: 0});
+  // The claims-only rerun copies claims again for every user at the new cutoff. Other emulator
+  // test files can leave such users too, so check this user is covered and nothing failed.
+  const again = await recopyClaims({db, auth});
+  assert.ok(again.users >= 1); assert.equal(again.copied, again.users); assert.equal(again.claimsFailed, 0);
+  assert.equal(auth.current().proUntil, NEW_CUTOFF);
 });
