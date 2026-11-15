@@ -119,6 +119,17 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
     // activation is under way or waiting for the Pro claim. Back Up Now and
     // Try Again come in through retry(), which restarts on purpose.
     if (_isSameAccount(identity, entitlement)) {
+      // A start that stopped on an error (offline, say) used to recover on the
+      // next token event. It still does, but without forcing a refresh: a
+      // forced one would be the next event, and an error that persists would
+      // loop the same way.
+      if (!_activeSync && _status is SyncError) {
+        return _restart(
+          identity: identity,
+          entitlement: entitlement,
+          forceClaim: false,
+        );
+      }
       return _recheckClaimWithoutRefresh(identity);
     }
     return _restart(identity: identity, entitlement: entitlement);
@@ -160,6 +171,7 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
   Future<void> _restart({
     required SyncIdentity identity,
     required SyncEntitlement entitlement,
+    bool forceClaim = true,
   }) async {
     final token = ++_transitionToken;
     _identity = identity;
@@ -193,7 +205,11 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
     _emit(const SyncActivating());
     return _enqueue(() async {
       await _forgetOtherAccountsGeneration(identity);
-      await _activate(identity: identity, token: token);
+      await _activate(
+        identity: identity,
+        token: token,
+        forceClaim: forceClaim,
+      );
     });
   }
 
@@ -276,6 +292,7 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
   Future<void> _activate({
     required SyncIdentity identity,
     required int token,
+    bool forceClaim = true,
   }) async {
     await _engine.stop();
     _activeSync = false;
@@ -283,7 +300,10 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
 
     bool hasClaim;
     try {
-      hasClaim = await _claimGateway.refreshProClaim(uid: identity.uid);
+      hasClaim = await _claimGateway.refreshProClaim(
+        uid: identity.uid,
+        force: forceClaim,
+      );
     } on Object catch (error) {
       if (_isCurrent(token)) {
         _emit(SyncError(message: '$error'));

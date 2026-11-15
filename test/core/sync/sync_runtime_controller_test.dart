@@ -1273,6 +1273,51 @@ void main() {
       expect(gateway.forcedCalls, 2);
       expect(h.runtime.status, isNot(isA<SyncError>()));
     });
+
+    // A start that stopped on an error used to recover on the next token
+    // event. It still does, from the token already held.
+    test('a token event after a startup error starts again without a refresh',
+        () async {
+      final gateway = _TokenEventClaimGateway(failFirst: true);
+      final h = _Harness(claimGateway: gateway);
+      addTearDown(h.close);
+
+      await h.runtime.update(identity: user, entitlement: SyncEntitlement.pro);
+      expect(h.runtime.status, isA<SyncError>());
+      await h.runtime.update(identity: user, entitlement: SyncEntitlement.pro);
+
+      expect(gateway.forcedCalls, 1);
+      expect(gateway.currentCalls, 1);
+      expect(h.runtime.status, isNot(isA<SyncError>()));
+      expect(h.coordinator.pushCalls, 1);
+    });
+
+    test('an error that persists does not force a refresh on each event',
+        () async {
+      final gateway = _TokenEventClaimGateway(failAlways: true);
+      final h = _Harness(claimGateway: gateway);
+      addTearDown(h.close);
+      gateway.onForcedRefresh = () => unawaited(
+            Future<void>.delayed(const Duration(milliseconds: 5)).then(
+              (_) => h.runtime.update(
+                identity: user,
+                entitlement: SyncEntitlement.pro,
+              ),
+            ),
+          );
+
+      await h.runtime.update(identity: user, entitlement: SyncEntitlement.pro);
+      for (var i = 0; i < 3; i++) {
+        await h.runtime.update(
+          identity: user,
+          entitlement: SyncEntitlement.pro,
+        );
+      }
+      await Future<void>.delayed(const Duration(milliseconds: 100));
+
+      expect(gateway.forcedCalls, 1);
+      expect(h.runtime.status, isA<SyncError>());
+    });
   });
 }
 
@@ -1633,10 +1678,15 @@ class _ReportSender implements ClientReportSender {
 /// more sign-in event for the same account, which the test sends through
 /// [onForcedRefresh]. A refresh that is not forced reads the current token.
 class _TokenEventClaimGateway implements SyncClaimGateway {
-  _TokenEventClaimGateway({this.hasClaim = true, this.failFirst = false});
+  _TokenEventClaimGateway({
+    this.hasClaim = true,
+    this.failFirst = false,
+    this.failAlways = false,
+  });
 
   bool hasClaim;
   final bool failFirst;
+  final bool failAlways;
   int forcedCalls = 0;
   int currentCalls = 0;
   void Function()? onForcedRefresh;
@@ -1648,10 +1698,13 @@ class _TokenEventClaimGateway implements SyncClaimGateway {
   }) async {
     if (!force) {
       currentCalls += 1;
+      if (failAlways) throw StateError('claim');
       return hasClaim;
     }
     forcedCalls += 1;
-    if (failFirst && forcedCalls == 1) throw StateError('claim');
+    if (failAlways || (failFirst && forcedCalls == 1)) {
+      throw StateError('claim');
+    }
     // Capped so a looping build ends the test instead of hanging it.
     if (forcedCalls <= 30) onForcedRefresh?.call();
     return hasClaim;
