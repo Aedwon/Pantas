@@ -292,12 +292,12 @@ questions:
     rationale: 'This uses rules for private disputes. Employment disagreements can involve arbitration. Check whether the employee serves in government.
 
       '
-  - text: Municipal zoning board ordinances
-    rationale: 'This uses land-use rules for employee discipline. Both are government regulation. Check the subject of the proceeding.
+  - text: Criminal trial rules in every case
+    rationale: 'This treats administrative discipline as a criminal trial. Both require a fair chance to answer. Check which authority handles the case and which rules apply.
 
       '
-  - text: International trade commission laws
-    rationale: 'This uses trade rules for public-service discipline. An agency may handle commercial matters. Check who administers the ethics code.
+  - text: The complainant’s chosen procedure
+    rationale: 'This lets the complainant choose the process. Filing a complaint starts the review, but it does not set the rules. Check the rules of the authority handling the case.
 
       '
   explanation: 'Section 12 gives the Civil Service Commission primary responsibility for administering and enforcing RA 6713. The agency, CSC, or Ombudsman may investigate within its legal powers. The case must follow the applicable rules and give the worker a fair chance to answer.

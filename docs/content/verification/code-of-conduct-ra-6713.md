@@ -387,3 +387,23 @@ Approved by the lead with `tool/content/approve.dart`.
 | q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0005 | Fellowships separately allowed | Fellowships separately allowed | AGREE | [RA6713] §7(d)(ii) separately permits foreign-government fellowships. | None |
 | q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0018 | Unmarried sixteen-year-old at home | Unmarried sixteen-year-old at home | AGREE | [RA6713] §8(A) covers unmarried minors in the household. | None |
 | q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0025 | No service credit | No service credit | AGREE | [IRR] Rule VII §1 requires honorary service without credit or pay. | None |
+
+## Link references
+
+[A]: https://lawphil.net/statutes/repacts/ra2018/ra_11032_2018.html
+[B]: https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/1/65540
+[C]: https://lawphil.net/consti/cons1987.html
+[D]: https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/1/59627
+[E]: https://lawphil.net/statutes/bataspam/bp1985/bp_881_1985.html
+[F]: https://lawphil.net/judjuris/juri2011/feb2011/gr_174730_2011.html
+[G]: https://lawphil.net/statutes/repacts/ra1960/ra_3019_1960.html
+[I]: https://ncda.gov.ph/rules-implementing-the-code-of-conduct-and-ethical-standards-for-public-officials-and-employees-republic-act-no-6713/
+[J]: https://lawphil.net/courts/supreme/rc/rc_1-71_civil.html
+[L]: https://lawphil.net/statutes/repacts/ra1989/ra_6713_1989.html
+[N]: https://lawphil.net/judjuris/juri2016/apr2016/gr_191616_2016.html
+[O]: https://lawphil.net/statutes/repacts/ra1989/ra_6770_1989.html
+[P]: https://lawphil.net/statutes/repacts/ra1991/ra_7080_1991.html
+[R]: https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/28/20426
+[S]: https://www.csc.gov.ph/phocadownload/userupload/irmo/policy%20resolutions/2025/saln/SALN%20Guidelines.pdf
+[V]: https://lawphil.net/courts/rules/am_19-08-15-sc_2019.html
+[W]: https://www.worldbank.org/en/brief/2023/03/15/combating-corruption

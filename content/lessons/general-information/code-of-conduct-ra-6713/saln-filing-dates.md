@@ -19,7 +19,7 @@ keyPoints:
 
 File within $30$ days after assuming office. Annual filings are due on or before April $30$ every year after that. File again within $30$ days after leaving government service.
 
-For a period stated as days after an event, begin counting on the next day. Only the copying rule below says working days. Do not change every deadline into working days.
+For a period stated as days after an event, begin counting on the next day. Only the copying rule says working days. Another part of this lesson covers that rule. Do not change every deadline into working days.
 
 Covered filers must also give the Ombudsman authority to obtain government records of their finances. This authority is due within $30$ days after assumption of office. It allows access to records from agencies such as the Bureau of Internal Revenue.
 

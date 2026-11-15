@@ -419,7 +419,7 @@ questions:
     rationale: The restriction continues for one year after departure. Resignation does not end it immediately.
   - text: The restriction bars all professional work for any private client during that year.
     rationale: This limit concerns matters before the former office. It does not prohibit every professional engagement everywhere.
-  - text: The lawyer cannot practice on this matter before the former agency during that year.
+  - text: The lawyer cannot handle this matter before the former agency that year.
     correct: true
   - text: The restriction applies only to former workers who were dismissed.
     rationale: The post-employment limit is not confined to dismissal. Leaving through resignation does not avoid it.

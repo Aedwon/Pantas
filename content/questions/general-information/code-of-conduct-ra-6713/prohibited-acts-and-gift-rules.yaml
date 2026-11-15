@@ -457,7 +457,7 @@ questions:
   - text: Yes, because only transactions already pending must be checked.
     rationale: |
       This exception also checks regular and expected transactions. An application the donor expects to submit cannot be ignored.
-  - text: No, because the donor has an expected transaction with the agency.
+  - text: No, the donor expects an agency transaction.
     correct: true
   - text: Yes, because nominal value removes every condition about agency transactions.
     rationale: |

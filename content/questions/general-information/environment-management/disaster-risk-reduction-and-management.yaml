@@ -218,7 +218,6 @@ questions:
     correct: true
   explanation: |
     First aid during a disaster meets an urgent medical need. It is response.
-    Helping people restart work after the emergency is recovery.
   approved: true
 - id: q-environment-management-disaster-risk-reduction-and-management-0004
   lesson: lesson-environment-management-disaster-response-and-recovery

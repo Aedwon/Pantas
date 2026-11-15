@@ -16,7 +16,7 @@ questions:
     choices:
       - text: Any error made while carrying out a public duty
         rationale: An honest error alone does not prove misuse of office for private gain.
-      - text: Misuse of public office or public trust for private gain
+      - text: Misusing public office or trust for private gain
         correct: true
       - text: Any procedure that takes longer than an applicant expects
         rationale: A delay alone does not show private gain and may have a lawful cause.

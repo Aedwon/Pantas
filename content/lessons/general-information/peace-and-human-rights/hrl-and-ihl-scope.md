@@ -22,7 +22,7 @@ keyPoints:
 
 A government's duties may also reach people it controls outside its borders. The exact reach depends on the right and the facts. War does not turn off human rights.
 
-Some treaty duties allow temporary suspension during a grave emergency. Other duties cannot be suspended in this way. The ICCPR rules below explain this difference.
+Some treaty duties allow temporary suspension during a grave emergency. Other duties cannot be suspended in this way. Another part of this lesson explains this difference using the ICCPR rules.
 
 ### International Humanitarian Law
 

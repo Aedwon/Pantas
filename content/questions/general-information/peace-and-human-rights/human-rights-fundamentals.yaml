@@ -336,8 +336,8 @@ questions:
   choices:
   - text: They are sections within one article.
     correct: true
-  - text: They are twenty-two independent constitutions within the same national charter.
-    rationale: 'This treats internal divisions as separate founding documents. Each section contains a protection. Check the hierarchy of article and section.
+  - text: They are clauses within a single section of Article III.
+    rationale: 'This places all twenty-two divisions inside one section. A section can contain smaller clauses, but these numbered divisions are sections. Check the heading above each number.
 
       '
   - text: They are twenty-two constitutional commissions with separate institutional identities.
