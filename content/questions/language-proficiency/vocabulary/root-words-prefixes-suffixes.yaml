@@ -242,19 +242,19 @@ questions:
     stem: |
       Sa "kabataan," aling dalawang panlapi ang nasa unahan at hulihan ng salitang-ugat na "bata"?
     choices:
-      - text: "Ka- and -an"
+      - text: "Ka- at -an"
         correct: true
-      - text: "Pag- and -an"
+      - text: "Pag- at -an"
         rationale: |
-          This replaces the beginning ka- with a different familiar prefix. Both prefixes occur in Filipino words. Check the actual first letters before "bata."
-      - text: "Ka- and -in"
+          Napalitan mo ang ka- ng ibang pamilyar na unlapi. Parehong ginagamit sa Filipino ang ka- at pag-. Tingnan ang mga letrang nasa unahan ng "bata."
+      - text: "Ka- at -in"
         rationale: |
-          This replaces the final -an with another familiar affix. The endings can both occur in Filipino word formation. Check the letters after "bata."
-      - text: "Ma- and -an"
+          Napalitan mo ang -an ng ibang pamilyar na hulapi. Parehong ginagamit sa Filipino ang -an at -in. Tingnan ang mga letrang kasunod ng "bata."
+      - text: "Ma- at -an"
         rationale: |
-          This replaces ka- with ma-. Both are common initial forms. Check which one actually appears in the word.
+          Napalitan mo ang ka- ng ma-. Parehong karaniwang unlapi ang mga ito. Tingnan kung alin ang nasa salita.
     explanation: |
-      "Kabataan" is formed with ka- before "bata" and -an after it. Affixes on both sides make the school pattern "kabilaan."
+      Nabubuo ang "kabataan" sa pagdagdag ng ka- sa unahan at -an sa hulihan ng "bata." Kabilaan ang panlapi dahil nasa magkabilang panig ito ng salitang-ugat.
     approved: true
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0012
@@ -357,7 +357,7 @@ questions:
     stem: |
       Ang salitang-ugat ng "sumayaw" ay "sayaw," at ang salitang-ugat ng "umalis" ay "alis." Batay sa puwesto ng panlapi, bakit gitlapi ang "-um-" sa "sumayaw" ngunit unlapi ang "um-" sa "umalis"?
     choices:
-      - text: "Dahil nasa loob ng \"sayaw\" ang -um- sa \"sumayaw,\" at nasa unahan ng \"alis\" ang um- sa \"umalis\"."
+      - text: "Nasa loob ng ugat ang -um- sa sumayaw, at nasa unahan ang um- sa umalis."
         correct: true
       - text: "Dahil magkaibang salita ang mga ito at walang tuntunin sa posisyon ng panlapi."
         rationale: |
