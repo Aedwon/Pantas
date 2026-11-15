@@ -93,6 +93,11 @@ app name. **Do not create products from the old list.** Full setup, in order, is
   confirmation that he received and checked it, even if he said "send" earlier. Product
   mail such as sign-in codes and guardian requests is exempt. Rule 6 in
   `docs/workflow/process-improvement.md`.
+- **Email wording (Nov 15).** Tester and user emails are short and plain: a label
+  subject, two or three sentences on what changed and what the reader must do (with
+  their own number when known), one button, no lists, sign-off, extra links or offer
+  words. Model: the Nov 15 "Pantas beta extension" email. Rule 8 in
+  `docs/workflow/process-improvement.md`.
 - **No postal address.** There is no office, and a placeholder under a privacy
   policy is worse than none. The Play Console asks for an address when a
   developer account is verified. That is the console's, not the app's.
