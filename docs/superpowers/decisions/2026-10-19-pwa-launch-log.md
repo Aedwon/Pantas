@@ -3759,6 +3759,7 @@ Fable 5.2 High ruled under Aedwon's standing delegation on `docs/superpowers/pla
 - Waiting for approval (irreversible): destroy prod GUARDIAN_MAIL_API_KEY v1 and staging PAYMONGO_WEBHOOK_SECRET v1 (no serving revision uses v1; v2 served real calls: prod sign-in sends Nov 9, staging webhook 16 successes); delete staging's one Firestore backup after a restore drill from it.
 - Waiting for a release: the secrets merge into one JSON secret per project (ruling 1b); warm-up off after Nov 24 00:00 PHT with the frequent job moved to hourly; the tiny Firebase page on staging now and on prod per its gate (integrator).
 - Waiting for Aedwon (console): the standard and detailed billing exports into a dataset on pantas-prod (ruling 8).
+
 ## Beta extension email sent (beta monitor, Nov 15)
 
 - Aedwon, verbatim (relayed by the manager): "okay, please follow the email protocol and send it to me first". Owner self-tests (rule 6) of four versions; the first, in the results-email template with a perk list, landed in Gmail Promotions; a rephrase without offer words reached his inbox.
