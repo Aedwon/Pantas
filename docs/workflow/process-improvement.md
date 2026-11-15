@@ -335,3 +335,5 @@ the current decision log.
 - Wrong: a staging deploy used the global firebase-tools 15.26.0, which does not pass `functions/.env.<project>` to discovery, so the deploy planned functions the deployed code then did not export; every scheduled function failed its health check.
 - Why: deploy steps said `firebase deploy` without naming the CLI, and the repository's pinned version differs from the global one on this Mac.
 - Fix: a check. `functions/src/scheduleGate.ts` throws during discovery for pantas-prod or pantas-staging when the project's `.env` file is missing, naming the pinned CLI; tests in `functions/test/scheduled-gating.test.mjs` (failing first). Required step: functions deploys use `npx --prefix functions firebase deploy`.
+
+- Nov 15 (manager): when Aedwon sets a multi-item goal, give an overall estimate at once and log it in the velocity log before work starts (E-080 had none until he asked). Back every timed lead step (cutovers, watches, staged rollouts) with a durable T3 scheduled reminder, because in-session timers die with the session; the Nov 14 18:07 Cloudflare cutover slipped 30 minutes without one.
