@@ -5,6 +5,7 @@ meta:
   exams: [upcat, acet, dlsucet, ustet, pupcet]
 questions:
   - id: q-algebra-functions-and-relations-0001
+    approved: true
     lesson: lesson-algebra-functions-domain-and-range
     keyPoint: 1
     type: which-is-true
@@ -27,6 +28,7 @@ questions:
       The inputs are $1$, $2$, and $3$. Each has exactly one output. The output $4$ can be shared by two inputs, so this relation is a function.
 
   - id: q-algebra-functions-and-relations-0002
+    approved: true
     lesson: lesson-algebra-evaluating-and-composing-functions
     keyPoint: 1
     type: direct-computation
@@ -49,6 +51,7 @@ questions:
       Find both outputs: $f(x+2)=3(x+2)+2=3x+8$ and $f(x)=3x+2$. Their difference is $(3x+8)-(3x+2)=6$.
 
   - id: q-algebra-functions-and-relations-0003
+    approved: true
     lesson: lesson-algebra-evaluating-and-composing-functions
     keyPoint: 1
     type: direct-computation
@@ -71,6 +74,7 @@ questions:
       Substitute $-2$ with parentheses: $f(-2)=2(-2)^2-3(-2)+1$. The terms are $8$, $6$, and $1$. Add them to get $15$.
 
   - id: q-algebra-functions-and-relations-0004
+    approved: true
     lesson: lesson-algebra-functions-domain-and-range
     keyPoint: 2
     type: direct-computation
@@ -93,6 +97,7 @@ questions:
       The denominator must be nonzero. Solve $x-3=0$ to find the excluded input, $x=3$. That is the member to remove from the proposed domain.
 
   - id: q-algebra-functions-and-relations-0005
+    approved: true
     lesson: lesson-algebra-functions-domain-and-range
     keyPoint: 2
     type: direct-computation
@@ -115,6 +120,7 @@ questions:
       A real square root requires $x-2\ge0$. Add $2$ to both sides to get $x\ge2$. The endpoint is included because $\sqrt{0}=0$.
 
   - id: q-algebra-functions-and-relations-0006
+    approved: true
     lesson: lesson-algebra-inverse-functions-and-checks
     keyPoint: 1
     type: which-is-true
@@ -137,6 +143,7 @@ questions:
       The inverse reverses the input-output pairs of $f$. If $f(a)=b$, then $f^{-1}(b)=a$ on the inverse domain. It takes an output of $f$ back to its original input.
 
   - id: q-algebra-functions-and-relations-0007
+    approved: true
     lesson: lesson-algebra-evaluating-and-composing-functions
     keyPoint: 2
     type: direct-computation
@@ -159,6 +166,7 @@ questions:
       Apply $g$ first: $g(2)=2^2-3=1$. Feed that output into $f$: $f(1)=2(1)+1=3$.
 
   - id: q-algebra-functions-and-relations-0008
+    approved: true
     lesson: lesson-algebra-evaluating-and-composing-functions
     keyPoint: 2
     type: word-problem
@@ -181,6 +189,7 @@ questions:
       The first machine changes $2$ to $2+3=5$. The second squares that output and doubles it: $2(5^2)=2(25)=50$.
 
   - id: q-algebra-functions-and-relations-0009
+    approved: true
     lesson: lesson-algebra-inverse-functions-and-checks
     keyPoint: 1
     type: direct-computation
@@ -203,6 +212,7 @@ questions:
       Write $y=\dfrac{2x-3}{5}$ and exchange $x$ and $y$: $x=\dfrac{2y-3}{5}$. Multiply by $5$, then add $3$: $5x+3=2y$. Divide by $2$ to get $f^{-1}(x)=\dfrac{5x+3}{2}$.
 
   - id: q-algebra-functions-and-relations-0010
+    approved: true
     lesson: lesson-algebra-functions-domain-and-range
     keyPoint: 2
     type: error-spotting
@@ -225,6 +235,7 @@ questions:
       For a real input, $x^2\ge0$. Every nonnegative value $y$ is produced by $x=\sqrt{y}$. Thus the range is $[0,\infty)$, and the claim incorrectly includes negative outputs.
 
   - id: q-algebra-functions-and-relations-0011
+    approved: true
     lesson: lesson-algebra-functions-domain-and-range
     keyPoint: 1
     type: which-is-true
@@ -247,6 +258,7 @@ questions:
       The definition of a function requires exactly one output for each input in its domain. Two different outputs for the same input break that requirement.
 
   - id: q-algebra-functions-and-relations-0012
+    approved: true
     lesson: lesson-algebra-inverse-functions-and-checks
     keyPoint: 1
     type: direct-computation
@@ -269,6 +281,7 @@ questions:
       Find the input whose output is $7$. Solve $3x-2=7$. Add $2$ to get $3x=9$, then divide by $3$ to get $x=3$. Therefore $f^{-1}(7)=3$.
 
   - id: q-algebra-functions-and-relations-0013
+    approved: true
     lesson: lesson-algebra-functions-domain-and-range
     keyPoint: 2
     type: direct-computation
@@ -291,6 +304,7 @@ questions:
       The square root requires $x+1\ge0$, so $x\ge-1$. The denominator requires $x-2\ne0$, so $x\ne2$. Both conditions must hold.
 
   - id: q-algebra-functions-and-relations-0014
+    approved: true
     lesson: lesson-algebra-functions-domain-and-range
     keyPoint: 1
     type: which-is-true
@@ -313,6 +327,7 @@ questions:
       Input $3$ already has output $1$. Adding $(3,2)$ gives that same input a second, different output. The enlarged relation is not a function.
 
   - id: q-algebra-functions-and-relations-0015
+    approved: true
     lesson: lesson-algebra-evaluating-and-composing-functions
     keyPoint: 1
     type: direct-computation
@@ -355,7 +370,7 @@ questions:
           This includes the sum of the distinct outputs. Adding values can seem like a way to collect them. Check that a range is a set of produced values, not a total.
     explanation: |
       Read the second coordinates: $4$, $4$, and $9$. A set lists each value once. The range is $\{4,9\}$.
-    approved: false
+    approved: true
 
   - id: q-algebra-functions-and-relations-0017
     lesson: lesson-algebra-inverse-functions-and-checks
@@ -378,7 +393,7 @@ questions:
           This treats input sign as a test for invertibility. Restricting a domain can help some functions become one-to-one. Check uniqueness on the actual domain.
     explanation: |
       The inverse reverses each input-output pair. If each output comes from only one input, reversing the pairs still assigns exactly one value to each inverse input. That gives an inverse function.
-    approved: false
+    approved: true
 
   - id: q-algebra-functions-and-relations-0018
     lesson: lesson-algebra-evaluating-and-composing-functions
@@ -401,7 +416,7 @@ questions:
           This checks only the inner linear function. That function accepts every real number. Check whether its output is allowed in the outer function.
     explanation: |
       The composition is $\sqrt{x-4}$. Its radicand must satisfy $x-4\ge0$. Adding $4$ gives $x\ge4$.
-    approved: false
+    approved: true
 
   - id: q-algebra-functions-and-relations-0019
     lesson: lesson-algebra-inverse-functions-and-checks
@@ -424,7 +439,7 @@ questions:
           This demands equal ranges from inverse functions. Reversing a function exchanges its domain and range. Check the two compositions instead.
     explanation: |
       One matching pair does not establish an inverse on the whole domain. For instance, $f(2)=4$, but $g(4)=4$, so $g$ does not restore the input $2$. An inverse must undo the function for every allowed input.
-    approved: false
+    approved: true
 
   - id: q-algebra-functions-and-relations-0020
     lesson: lesson-algebra-evaluating-and-composing-functions
@@ -447,4 +462,4 @@ questions:
           This adds the fee without applying the discount. The last billing step is correctly represented. Check whether the discount has already been applied.
     explanation: |
       Apply the discount first to get $d(p)=0.8p$. Feed that discounted price into $c$, which adds $30$. The total is $c(d(p))=0.8p+30$.
-    approved: false
+    approved: true

@@ -5,6 +5,7 @@ meta:
   exams: [upcat, acet, dlsucet, ustet, pupcet]
 questions:
   - id: q-algebra-algebraic-expressions-0001
+    approved: true
     lesson: lesson-algebra-translating-algebraic-phrases
     keyPoint: 1
     type: direct-computation
@@ -27,6 +28,7 @@ questions:
       "Three times" means three equal copies of $x$. Adding them gives $x + x + x = 3x$.
 
   - id: q-algebra-algebraic-expressions-0002
+    approved: true
     lesson: lesson-algebra-translating-algebraic-phrases
     keyPoint: 2
     type: direct-computation
@@ -49,6 +51,7 @@ questions:
       Start with the number $y$. Remove seven from it to get $y - 7$.
 
   - id: q-algebra-algebraic-expressions-0003
+    approved: true
     lesson: lesson-algebra-simplifying-and-evaluating-expressions
     keyPoint: 2
     type: direct-computation
@@ -71,6 +74,7 @@ questions:
       Replace $x$ with $4$: $2(4) + 3$. Multiply first to get $8 + 3$. The value is $11$.
 
   - id: q-algebra-algebraic-expressions-0004
+    approved: true
     lesson: lesson-algebra-translating-algebraic-phrases
     keyPoint: 1
     type: direct-computation
@@ -93,6 +97,7 @@ questions:
       The distance $d$ is split into four equal parts. Each part is $d \div 4 = \dfrac{d}{4}$.
 
   - id: q-algebra-algebraic-expressions-0005
+    approved: true
     lesson: lesson-algebra-simplifying-and-evaluating-expressions
     keyPoint: 1
     type: direct-computation
@@ -115,6 +120,7 @@ questions:
       Both terms have the same variable part, $a$. Add their coefficients: $3 + 2 = 5$. The result is $5a$.
 
   - id: q-algebra-algebraic-expressions-0006
+    approved: true
     lesson: lesson-algebra-simplifying-and-evaluating-expressions
     keyPoint: 1
     type: direct-computation
@@ -137,6 +143,7 @@ questions:
       Multiply both terms inside the parentheses by $2$. This gives $2x + 2(3) = 2x + 6$.
 
   - id: q-algebra-algebraic-expressions-0007
+    approved: true
     lesson: lesson-algebra-simplifying-and-evaluating-expressions
     keyPoint: 1
     type: error-spotting
@@ -164,6 +171,7 @@ questions:
       Step 1 should multiply both terms by $3$. The products are $3a$ and $6$, so the expression becomes $3a + 6$. Step 1 is the first incorrect step.
 
   - id: q-algebra-algebraic-expressions-0008
+    approved: true
     lesson: lesson-algebra-simplifying-and-evaluating-expressions
     keyPoint: 2
     type: direct-computation
@@ -186,6 +194,7 @@ questions:
       Replace $x$ with $3$. The square is $3^2 = 3 	imes 3 = 9$.
 
   - id: q-algebra-algebraic-expressions-0009
+    approved: true
     lesson: lesson-algebra-simplifying-and-evaluating-expressions
     keyPoint: 2
     type: direct-computation
@@ -208,6 +217,7 @@ questions:
       The square applies to $x$ alone. With $x = 2$, first find $2^2 = 4$. Then apply the outside minus sign to get $-4$.
 
   - id: q-algebra-algebraic-expressions-0010
+    approved: true
     lesson: lesson-algebra-simplifying-and-evaluating-expressions
     keyPoint: 2
     type: word-problem
@@ -230,6 +240,7 @@ questions:
       Put $-2$ into $x^2 + 3$: $(-2)^2 + 3$. The square is $(-2)(-2) = 4$. Add $3$ to get $7$.
 
   - id: q-algebra-algebraic-expressions-0011
+    approved: true
     lesson: lesson-algebra-simplifying-and-evaluating-expressions
     keyPoint: 1
     type: direct-computation
@@ -252,6 +263,7 @@ questions:
       Subtracting the group changes both signs: $5x - 2x + 3$. Combine the $x$ terms to get $3x + 3$.
 
   - id: q-algebra-algebraic-expressions-0012
+    approved: true
     lesson: lesson-algebra-simplifying-and-evaluating-expressions
     keyPoint: 1
     type: error-spotting
@@ -279,6 +291,7 @@ questions:
       Subtract each term in the group: $8 - (3 - x) = 8 - 3 + x$. This simplifies to $5 + x$. Step 1 is the first incorrect step.
 
   - id: q-algebra-algebraic-expressions-0013
+    approved: true
     lesson: lesson-algebra-translating-algebraic-phrases
     keyPoint: 1
     type: direct-computation
@@ -301,6 +314,7 @@ questions:
       $50\% = \dfrac{50}{100} = 0.5$. To find that share of $n$, multiply: $0.5 	imes n = 0.5n$.
 
   - id: q-algebra-algebraic-expressions-0014
+    approved: true
     lesson: lesson-algebra-simplifying-and-evaluating-expressions
     keyPoint: 1
     type: direct-computation
@@ -323,6 +337,7 @@ questions:
       Distribute $2$ to get $6x - 2 + 4x$. Add the matching variable terms: $6x + 4x = 10x$. The result is $10x - 2$.
 
   - id: q-algebra-algebraic-expressions-0015
+    approved: true
     lesson: lesson-algebra-simplifying-and-evaluating-expressions
     keyPoint: 2
     type: direct-computation
@@ -345,6 +360,7 @@ questions:
       Replace the letters: $2(3) + (-2)^2$. The first term is $6$ and the second is $4$. Add them to get $10$.
 
   - id: q-algebra-algebraic-expressions-0016
+    approved: true
     lesson: lesson-algebra-translating-algebraic-phrases
     keyPoint: 1
     type: direct-computation
@@ -367,6 +383,7 @@ questions:
       The product of $4$ and $x$ is $4x$. Adding $5$ after that gives $4x + 5$.
 
   - id: q-algebra-algebraic-expressions-0017
+    approved: true
     lesson: lesson-algebra-translating-algebraic-phrases
     keyPoint: 2
     type: error-spotting
@@ -394,6 +411,7 @@ questions:
       Twice $y$ is $2y$. To make it six less, subtract $6$ from that amount: $2y - 6$. The first incorrect step is Step 2.
 
   - id: q-algebra-algebraic-expressions-0018
+    approved: true
     lesson: lesson-algebra-simplifying-and-evaluating-expressions
     keyPoint: 1
     type: direct-computation
@@ -436,7 +454,7 @@ questions:
           This changes an inequality into equality. The word "is" often appears in equations. Check the whole phrase "is less than."
     explanation: |
       The sentence compares $5$ with $x$. Since $5$ is the smaller quantity, write $5 < x$.
-    approved: false
+    approved: true
 
   - id: q-algebra-algebraic-expressions-0020
     lesson: lesson-algebra-rates-and-consecutive-integers
@@ -459,10 +477,11 @@ questions:
           This uses gaps of one between consecutive even integers. Consecutive integers normally differ by one. Check that even integers differ by two.
     explanation: |
       Let the smallest integer be $n$. The next two are $n+2$ and $n+4$. Their sum is $3n+6=S$. Subtract $6$ and divide by $3$ to get $n=\dfrac{S-6}{3}$.
-    approved: false
+    approved: true
 
 
   - id: q-algebra-algebraic-expressions-0021
+    approved: true
     lesson: lesson-algebra-rates-and-consecutive-integers
     keyPoint: 1
     type: word-problem
@@ -485,6 +504,7 @@ questions:
       The hourly rate is $\dfrac{p}{h}$. Multiply by the new time: $\dfrac{p}{h}(3h)=3p$ pages.
 
   - id: q-algebra-algebraic-expressions-0022
+    approved: true
     lesson: lesson-algebra-rates-and-consecutive-integers
     keyPoint: 1
     type: word-problem
@@ -507,6 +527,7 @@ questions:
       One hour has $60$ minutes, so $t$ minutes is $\dfrac{t}{60}$ hour. Divide output by hours: $n\div\dfrac{t}{60}=\dfrac{60n}{t}$ parts per hour.
 
   - id: q-algebra-algebraic-expressions-0023
+    approved: true
     lesson: lesson-algebra-rates-and-consecutive-integers
     keyPoint: 2
     type: word-problem

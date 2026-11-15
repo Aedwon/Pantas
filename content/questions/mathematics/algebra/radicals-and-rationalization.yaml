@@ -5,6 +5,7 @@ meta:
   exams: [upcat, acet, dlsucet, ustet, pupcet]
 questions:
   - id: q-algebra-radicals-and-rationalization-0001
+    approved: true
     lesson: lesson-algebra-simplifying-and-combining-radicals
     keyPoint: 1
     type: direct-computation
@@ -27,6 +28,7 @@ questions:
       Factor $72=36(2)$. Since $\sqrt{36}=6$, the simplified form is $6\sqrt{2}$.
 
   - id: q-algebra-radicals-and-rationalization-0002
+    approved: true
     lesson: lesson-algebra-simplifying-and-combining-radicals
     keyPoint: 1
     type: estimate-first
@@ -49,6 +51,7 @@ questions:
       The nearby squares are $7^2=49$ and $8^2=64$. Since $49<50<64$, taking square roots gives $7<\sqrt{50}<8$.
 
   - id: q-algebra-radicals-and-rationalization-0003
+    approved: true
     lesson: lesson-algebra-simplifying-and-combining-radicals
     keyPoint: 2
     type: direct-computation
@@ -71,6 +74,7 @@ questions:
       Simplify $\sqrt{20}=2\sqrt5$ and $\sqrt{45}=3\sqrt5$. Then $3(2\sqrt5)-3\sqrt5=(6-3)\sqrt5=3\sqrt5$.
 
   - id: q-algebra-radicals-and-rationalization-0004
+    approved: true
     lesson: lesson-algebra-simplifying-and-combining-radicals
     keyPoint: 2
     type: error-spotting
@@ -93,6 +97,7 @@ questions:
       Take each root first: $\sqrt9=3$ and $\sqrt{16}=4$. Add the resulting numbers to get $3+4=7$. Adding the radicands does not perform those steps.
 
   - id: q-algebra-radicals-and-rationalization-0005
+    approved: true
     lesson: lesson-algebra-rationalizing-square-root-denominators
     keyPoint: 1
     type: direct-computation
@@ -115,6 +120,7 @@ questions:
       Multiply top and bottom by $\sqrt5$: $\dfrac{5\sqrt5}{5}$. Cancel the factor five to get $\sqrt5$.
 
   - id: q-algebra-radicals-and-rationalization-0006
+    approved: true
     lesson: lesson-algebra-rationalizing-square-root-denominators
     keyPoint: 1
     type: which-is-true
@@ -137,6 +143,7 @@ questions:
       The denominator $\sqrt5$ is positive, so the fraction is defined. Multiply top and bottom by $\sqrt5$ to get $\dfrac{10\sqrt5}{5}=2\sqrt5$.
 
   - id: q-algebra-radicals-and-rationalization-0007
+    approved: true
     lesson: lesson-algebra-rationalizing-square-root-denominators
     keyPoint: 2
     type: direct-computation
@@ -159,6 +166,7 @@ questions:
       Multiply by the conjugate $\dfrac{3+\sqrt5}{3+\sqrt5}$. The denominator becomes $9-5=4$. Cancel four from $\dfrac{4(3+\sqrt5)}4$ to get $3+\sqrt5$.
 
   - id: q-algebra-radicals-and-rationalization-0008
+    approved: true
     lesson: lesson-algebra-simplifying-and-combining-radicals
     keyPoint: 1
     type: direct-computation
@@ -181,6 +189,7 @@ questions:
       Write the radicand as $36x^2y^4(2x)$. For real $x,y$ with $x\ge0$, the square roots of the square factors are $6$, $x$, and $y^2$. The result is $6xy^2\sqrt{2x}$.
 
   - id: q-algebra-radicals-and-rationalization-0009
+    approved: true
     lesson: lesson-algebra-simplifying-and-combining-radicals
     keyPoint: 1
     type: which-is-true
@@ -203,6 +212,7 @@ questions:
       The principal square root is the nonnegative value whose square is twenty-five. Since $5^2=25$, $\sqrt{25}=5$.
 
   - id: q-algebra-radicals-and-rationalization-0010
+    approved: true
     lesson: lesson-algebra-simplifying-and-combining-radicals
     keyPoint: 2
     type: direct-computation
@@ -225,6 +235,7 @@ questions:
       Simplify $\sqrt{18}=3\sqrt2$ and $\sqrt8=2\sqrt2$. Add their coefficients: $(3+2)\sqrt2=5\sqrt2$.
 
   - id: q-algebra-radicals-and-rationalization-0011
+    approved: true
     lesson: lesson-algebra-rationalizing-square-root-denominators
     keyPoint: 2
     type: direct-computation
@@ -247,6 +258,7 @@ questions:
       Use the difference of squares: $(\sqrt3)^2-2^2=3-4=-1$.
 
   - id: q-algebra-radicals-and-rationalization-0012
+    approved: true
     lesson: lesson-algebra-cube-root-denominators-and-nested-radicals
     keyPoint: 1
     type: error-spotting
@@ -269,6 +281,7 @@ questions:
       The written multiplication produces denominator $\sqrt[3]{x}\sqrt[3]{x}=\sqrt[3]{x^2}$. To obtain $x$ instead, multiply top and bottom by $\sqrt[3]{x^2}$. This gives $\dfrac{\sqrt[3]{x^2}}{x}$ for $x\ne0$.
 
   - id: q-algebra-radicals-and-rationalization-0013
+    approved: true
     lesson: lesson-algebra-simplifying-and-combining-radicals
     keyPoint: 2
     type: direct-computation
@@ -291,6 +304,7 @@ questions:
       Simplify $\sqrt{12}=2\sqrt3$ and $\sqrt{27}=3\sqrt3$. The expression becomes $4\sqrt3-3\sqrt3+\sqrt3=(4-3+1)\sqrt3=2\sqrt3$.
 
   - id: q-algebra-radicals-and-rationalization-0014
+    approved: true
     lesson: lesson-algebra-simplifying-and-combining-radicals
     keyPoint: 1
     type: which-is-true
@@ -313,6 +327,7 @@ questions:
       The principal square root is $\sqrt{100}=10$. The equation $t^2=100$ has both $t=10$ and $t=-10$ because both squares are one hundred.
 
   - id: q-algebra-radicals-and-rationalization-0015
+    approved: true
     lesson: lesson-algebra-rationalizing-square-root-denominators
     keyPoint: 1
     type: which-is-true
@@ -335,6 +350,7 @@ questions:
       Multiply top and bottom by $\sqrt{x}$. The denominator becomes $\sqrt{x}\sqrt{x}=x$. Since $x$ is a positive rational number, that denominator is rational and nonzero.
 
   - id: q-algebra-radicals-and-rationalization-0016
+    approved: true
     lesson: lesson-algebra-simplifying-and-combining-radicals
     keyPoint: 1
     type: direct-computation
@@ -357,6 +373,7 @@ questions:
       Write $\sqrt{200x^2}=\sqrt{100(2)x^2}$. For real $x$, $\sqrt{x^2}=|x|$. Therefore the expression is $10|x|\sqrt2$.
 
   - id: q-algebra-radicals-and-rationalization-0017
+    approved: true
     lesson: lesson-algebra-rationalizing-square-root-denominators
     keyPoint: 2
     type: error-spotting
@@ -379,6 +396,7 @@ questions:
       Expanding gives $x^2-x\sqrt y+x\sqrt y-y$. The middle terms cancel and the constant product is $-y$. The result is $x^2-y$.
 
   - id: q-algebra-radicals-and-rationalization-0018
+    approved: true
     lesson: lesson-algebra-rationalizing-square-root-denominators
     keyPoint: 2
     type: direct-computation
@@ -421,7 +439,7 @@ questions:
           This returns the radicand’s fixed term. Twenty appears at every level. Check the outer square root and the repeated tail.
     explanation: |
       The repeated tail has value $L$, so $L=\sqrt{20+L}$. Square both sides: $L^2-L-20=0$. Factor: $(L-5)(L+4)=0$. A principal square root is nonnegative, so $L=5$.
-    approved: false
+    approved: true
 
   - id: q-algebra-radicals-and-rationalization-0020
     lesson: lesson-algebra-cube-root-denominators-and-nested-radicals
@@ -444,4 +462,4 @@ questions:
           This applies the absolute-value rule for square roots to a cube root. Even roots do require a nonnegative value. Check that an odd root preserves the sign of its input.
     explanation: |
       Multiply top and bottom by $\sqrt[3]{2x^2}$. The denominator becomes $\sqrt[3]{8x^3}=2x$. The fraction is $\dfrac{2\sqrt[3]{2x^2}}{2x}$. Cancel two to obtain $\dfrac{\sqrt[3]{2x^2}}{x}$.
-    approved: false
+    approved: true

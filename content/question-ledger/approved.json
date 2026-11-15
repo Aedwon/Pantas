@@ -1,4 +1,1510 @@
 {
+  "q-algebra-algebraic-expressions-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "7ea3f616551f7b60e922e7f64243b12491a715857fbf66cc0878f043fc567fc7",
+    "lesson": "lesson-algebra-translating-algebraic-phrases"
+  },
+  "q-algebra-algebraic-expressions-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "1eb683a2109221482c8c56aeb7a52f9747a8bd8819cf53f6a8711f4f097b1c9d",
+    "lesson": "lesson-algebra-translating-algebraic-phrases"
+  },
+  "q-algebra-algebraic-expressions-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "280e1d2301faed292efbc3b85abd076331e567aaf9f2718a8bd3ea86280415fe",
+    "lesson": "lesson-algebra-simplifying-and-evaluating-expressions"
+  },
+  "q-algebra-algebraic-expressions-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "ae4ffe100590770af438d4338fe8558f27b18076fd8ffd00e2726bae37e83e9d",
+    "lesson": "lesson-algebra-translating-algebraic-phrases"
+  },
+  "q-algebra-algebraic-expressions-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "b00e49fcfe92da1a482cd7a057408ada192102e50d2bfcea67f107d28e97658d",
+    "lesson": "lesson-algebra-simplifying-and-evaluating-expressions"
+  },
+  "q-algebra-algebraic-expressions-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "87dc90cdef0b5b34fdee55b99843d5e28ec948c2c0dcda624035b869d1d05e0e",
+    "lesson": "lesson-algebra-simplifying-and-evaluating-expressions"
+  },
+  "q-algebra-algebraic-expressions-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "2c20f272d6f3fdc8a6c05c8dc895c5881fde9191b6837c1e64056cfad1bf1827",
+    "lesson": "lesson-algebra-simplifying-and-evaluating-expressions"
+  },
+  "q-algebra-algebraic-expressions-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "5a56dc6a1d7348d64a73352798799587953fb5368a8e1a6d0b46cf5318c236a3",
+    "lesson": "lesson-algebra-simplifying-and-evaluating-expressions"
+  },
+  "q-algebra-algebraic-expressions-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "39a3ef14f371742ee735b136937b7ccaeff66285b80d3b3e927a395337555c50",
+    "lesson": "lesson-algebra-simplifying-and-evaluating-expressions"
+  },
+  "q-algebra-algebraic-expressions-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "89797b0919142fac736a8f182d4104d9c18c0199207f73bcd5c4f1eca518b62b",
+    "lesson": "lesson-algebra-simplifying-and-evaluating-expressions"
+  },
+  "q-algebra-algebraic-expressions-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "c99961b2292a0dea81071144f6c110be90f8a1ebfae8016403fe6597313b3066",
+    "lesson": "lesson-algebra-simplifying-and-evaluating-expressions"
+  },
+  "q-algebra-algebraic-expressions-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "22b0926dea6e54fc05471489001eec17a582be792de7d8b52ddce96a0dc75cb8",
+    "lesson": "lesson-algebra-simplifying-and-evaluating-expressions"
+  },
+  "q-algebra-algebraic-expressions-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "e989070840015a9e8ad0405b3b37dfe80b96eebe5780afee871f5eb3a24f86fc",
+    "lesson": "lesson-algebra-translating-algebraic-phrases"
+  },
+  "q-algebra-algebraic-expressions-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "ff5f1d1d9dce8c150521bc61df04a43c8f139ef67c43ec2ad6ae07d488f895ec",
+    "lesson": "lesson-algebra-simplifying-and-evaluating-expressions"
+  },
+  "q-algebra-algebraic-expressions-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "d12a0f0f9bab912754a3c7478fd6435e8146b364408a8d42b2f04fd9a9e440c9",
+    "lesson": "lesson-algebra-simplifying-and-evaluating-expressions"
+  },
+  "q-algebra-algebraic-expressions-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "81e4d07acf337166faa6003432648f37ec4c1342b8555e13e04a3840d0591488",
+    "lesson": "lesson-algebra-translating-algebraic-phrases"
+  },
+  "q-algebra-algebraic-expressions-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "3d1c9a8d7ada7faf296e6770cdb01fe9217239beb531e87be484e92dada11580",
+    "lesson": "lesson-algebra-translating-algebraic-phrases"
+  },
+  "q-algebra-algebraic-expressions-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "941b789d12a5b0434384edccb800ce847d974d068ca6a409bef299d12aaf4dc8",
+    "lesson": "lesson-algebra-simplifying-and-evaluating-expressions"
+  },
+  "q-algebra-algebraic-expressions-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "9bbcc832251420f408487b64e63c749ec5544d309515f25999815d4bd7779fb2",
+    "lesson": "lesson-algebra-translating-algebraic-phrases"
+  },
+  "q-algebra-algebraic-expressions-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "e149a8dc557572bc21e3e06861677310ce7de5e7251cce95f14b833335243af6",
+    "lesson": "lesson-algebra-rates-and-consecutive-integers"
+  },
+  "q-algebra-algebraic-expressions-0021": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "9a388e3143f8a2e4c3250bf7004f0e6c80d294eedc6ec1f303d0d8bfc2a3aec7",
+    "lesson": "lesson-algebra-rates-and-consecutive-integers"
+  },
+  "q-algebra-algebraic-expressions-0022": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "dd839fa37e283c0d5969315cea4062f12e3895ba916da029b63da40293bca17f",
+    "lesson": "lesson-algebra-rates-and-consecutive-integers"
+  },
+  "q-algebra-algebraic-expressions-0023": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "7679b3c8acbf14846bb257ceda8ce69f2277693840f808766d94ef1889f416a2",
+    "lesson": "lesson-algebra-rates-and-consecutive-integers"
+  },
+  "q-algebra-exponents-and-logarithms-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "1c218d832d08ddf1c47b1692d2b8499399d2020de1f214ec762f04a3c1f6d9f3",
+    "lesson": "lesson-algebra-exponent-laws-and-zero-powers"
+  },
+  "q-algebra-exponents-and-logarithms-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "5d2a3eebab5dcf007a479a79a2c83333564af788dfcba3d8e22de06331475f63",
+    "lesson": "lesson-algebra-exponent-laws-and-zero-powers"
+  },
+  "q-algebra-exponents-and-logarithms-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "b1c74d10046d99b5482f297f9bd224df3db0303e4778b3eed999f800cc1138e7",
+    "lesson": "lesson-algebra-exponent-laws-and-zero-powers"
+  },
+  "q-algebra-exponents-and-logarithms-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "42d06b86298a5d18efbd482e6d0820b2142d787ac01a71ce865942577787947c",
+    "lesson": "lesson-algebra-fractional-powers-and-exponent-equations"
+  },
+  "q-algebra-exponents-and-logarithms-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "fb892458ed7b0e5add89d2862a66b86254cc908479ba0d543cd0cdb2cde96c39",
+    "lesson": "lesson-algebra-exponent-laws-and-zero-powers"
+  },
+  "q-algebra-exponents-and-logarithms-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "23cdadad16d2c7cda0dacbfed766373dc1fba93cb2786d871f956728ae908ec3",
+    "lesson": "lesson-algebra-exponent-laws-and-zero-powers"
+  },
+  "q-algebra-exponents-and-logarithms-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "2618ba9ba2c44b0b3f509aed260b8009661c252ffc712fcbfb97d19ce36bac47",
+    "lesson": "lesson-algebra-logarithm-meaning-and-equations"
+  },
+  "q-algebra-exponents-and-logarithms-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "3be1fd4d4734830d7dcd299459da0fabca672641701038d1f29097c64180268c",
+    "lesson": "lesson-algebra-exponent-laws-and-zero-powers"
+  },
+  "q-algebra-exponents-and-logarithms-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "90caacf6bc71dae12f6db71a880ffaf5ca9cc0e09045e1c1782f4a5ac5699726",
+    "lesson": "lesson-algebra-exponent-laws-and-zero-powers"
+  },
+  "q-algebra-exponents-and-logarithms-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "73beb949edb66b02c417becaa99cc334c835fb1d06cae0808bc3f320e76debcb",
+    "lesson": "lesson-algebra-exponent-laws-and-zero-powers"
+  },
+  "q-algebra-exponents-and-logarithms-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "3fe09fe150586312bbd2efdd4c7239878f590dabdff7e033dbe7057f2057789d",
+    "lesson": "lesson-algebra-logarithm-product-quotient-and-power-laws"
+  },
+  "q-algebra-exponents-and-logarithms-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "b2b4d713d6b9149252ad9338675a0a49681c89b3757b05ed51a4487292f67fa4",
+    "lesson": "lesson-algebra-fractional-powers-and-exponent-equations"
+  },
+  "q-algebra-exponents-and-logarithms-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "83a9250cf6a463a599c7bbadd1952d7eeeabdc2b082f84405a006d85b8f9f945",
+    "lesson": "lesson-algebra-logarithm-product-quotient-and-power-laws"
+  },
+  "q-algebra-exponents-and-logarithms-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "d84b017bba21cb5b806de5554b2b6ae26172fe4d4ab81067f5f49c57c69fbc7d",
+    "lesson": "lesson-algebra-exponent-laws-and-zero-powers"
+  },
+  "q-algebra-exponents-and-logarithms-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "281c8945156d24a396b59141c0b6d5deb927e00fd43d3c00412bbf57b135852b",
+    "lesson": "lesson-algebra-fractional-powers-and-exponent-equations"
+  },
+  "q-algebra-exponents-and-logarithms-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "811923a26bcc0d04b8779c78207e797dfd0805ca6f73a128b4a41c31eba63ed3",
+    "lesson": "lesson-algebra-logarithm-meaning-and-equations"
+  },
+  "q-algebra-exponents-and-logarithms-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "59152222fd5d82c9c4d35f8da385b7abc66a54fd0fd12e48a1f9f2c66af18d67",
+    "lesson": "lesson-algebra-logarithm-product-quotient-and-power-laws"
+  },
+  "q-algebra-exponents-and-logarithms-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "c70d4af0806a5da7d09f106c0bbb8dc44724a6f7f2b63f5349c1c4243fe5c0dc",
+    "lesson": "lesson-algebra-exponent-laws-and-zero-powers"
+  },
+  "q-algebra-exponents-and-logarithms-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "41323724f2e9864c5396925e55e882f03048f297e9c9f7687ee190c072bad78d",
+    "lesson": "lesson-algebra-fractional-powers-and-exponent-equations"
+  },
+  "q-algebra-exponents-and-logarithms-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "67c1dd3cea550f69cfb89e7060d246f8cc63576f59cf024630c40be7a6bd4c48",
+    "lesson": "lesson-algebra-logarithm-meaning-and-equations"
+  },
+  "q-algebra-exponents-and-logarithms-0021": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "2063f7ee361dbf0360cc6e5b84441510798624fec4d8204db53bfef6df7f6890",
+    "lesson": "lesson-algebra-logarithm-meaning-and-equations"
+  },
+  "q-algebra-exponents-and-logarithms-0022": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "ce3df0eac709926725bffc09602e6d6a885a795598bb457f7e4d321c8d3887a3",
+    "lesson": "lesson-algebra-logarithm-product-quotient-and-power-laws"
+  },
+  "q-algebra-functions-and-relations-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "013314fdb80137e864fffc7fb5af9f787e8babae98eb63e4299b039447946dd5",
+    "lesson": "lesson-algebra-functions-domain-and-range"
+  },
+  "q-algebra-functions-and-relations-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "dd42ed1495ea84bd93c42ac9abd3d43c4fd7d2c0804a7354334be4154a1bebc6",
+    "lesson": "lesson-algebra-evaluating-and-composing-functions"
+  },
+  "q-algebra-functions-and-relations-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "06fabbf26752faf84829043f89b3c799f7ae2059c2ba1952a7c0e7a5df2bbcf6",
+    "lesson": "lesson-algebra-evaluating-and-composing-functions"
+  },
+  "q-algebra-functions-and-relations-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "b4dfdf86c28aca45978c4f7e998ac3cb15682d6b739914859a461fd27d0f6f63",
+    "lesson": "lesson-algebra-functions-domain-and-range"
+  },
+  "q-algebra-functions-and-relations-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "6572db837dc0213c537b6f39345ea908ad93e0cd8ed77b28ab5a309693a61e87",
+    "lesson": "lesson-algebra-functions-domain-and-range"
+  },
+  "q-algebra-functions-and-relations-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "3abe61dd114141bdd8744e0ca7983522256d22244db973f20264488803d7a16e",
+    "lesson": "lesson-algebra-inverse-functions-and-checks"
+  },
+  "q-algebra-functions-and-relations-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "3a1d2bb20ef011dcde50511bad87b52865f052dc57574c2bae2e1b5e4503cbbd",
+    "lesson": "lesson-algebra-evaluating-and-composing-functions"
+  },
+  "q-algebra-functions-and-relations-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "54b41ca4616f859ec22a593ac89c4e9919ea20bde87976d0387d459867a54fb3",
+    "lesson": "lesson-algebra-evaluating-and-composing-functions"
+  },
+  "q-algebra-functions-and-relations-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "38d6dfd47aa441d2d305a00d14fda2d7efcf7a2a269a55454b0b96d76d9de607",
+    "lesson": "lesson-algebra-inverse-functions-and-checks"
+  },
+  "q-algebra-functions-and-relations-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "51da30c830bc4ff026251c8f7ccb4a9e8edf93eab74d13ad10d2433197f61840",
+    "lesson": "lesson-algebra-functions-domain-and-range"
+  },
+  "q-algebra-functions-and-relations-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "603cac58503013e8c1222f9c661f44678ccc071749773ac6a532efcd7c4734a8",
+    "lesson": "lesson-algebra-functions-domain-and-range"
+  },
+  "q-algebra-functions-and-relations-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "4a2feacb1cf777aeb263457043c1deea20c7b2bf5fedc50c29efee678aaf9e29",
+    "lesson": "lesson-algebra-inverse-functions-and-checks"
+  },
+  "q-algebra-functions-and-relations-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "c69fdf3ca5889a061c056dd13bbaefea1d269cb9ef16468d711e210cf0e777be",
+    "lesson": "lesson-algebra-functions-domain-and-range"
+  },
+  "q-algebra-functions-and-relations-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "9dc1d1f2d28d8747be12338792532f4689853c1433b37e777ee6095846e5a24b",
+    "lesson": "lesson-algebra-functions-domain-and-range"
+  },
+  "q-algebra-functions-and-relations-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "4dd48b45141c5a79bd496692fc8ab386b45bf4af3f627f42231aaac7ac1215af",
+    "lesson": "lesson-algebra-evaluating-and-composing-functions"
+  },
+  "q-algebra-functions-and-relations-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "4fc424945b91b89453b8403f62cb135d4adfd5cd1883da1ca9a3d17c2cc09407",
+    "lesson": "lesson-algebra-functions-domain-and-range"
+  },
+  "q-algebra-functions-and-relations-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "9de61797640022b8a099d93af6915fe69595c2005ac01e0db5430907e681f42a",
+    "lesson": "lesson-algebra-inverse-functions-and-checks"
+  },
+  "q-algebra-functions-and-relations-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "ffd1a98e5c00a38bfed06ad8961f246d5f8fbf7d5db50e968f4777284b43719a",
+    "lesson": "lesson-algebra-evaluating-and-composing-functions"
+  },
+  "q-algebra-functions-and-relations-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "7ef349cac0cfff4e5d4c8355e5577c4d1507112a306e22c6cf747e8d3059f673",
+    "lesson": "lesson-algebra-inverse-functions-and-checks"
+  },
+  "q-algebra-functions-and-relations-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "da3eaa5b7f41d5f75f7acf4933d9740f1687ae03399a53add0c566e93e69feae",
+    "lesson": "lesson-algebra-evaluating-and-composing-functions"
+  },
+  "q-algebra-linear-equations-inequalities-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "d1c233d64e6b17a22107f8b68aa2d5664746067065ef872e43b3e972616171d5",
+    "lesson": "lesson-algebra-solving-linear-equations"
+  },
+  "q-algebra-linear-equations-inequalities-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "cc6b30f34aaf34b9cb0400755115ca3e8b441319ca6d7953916f0e67fee3de22",
+    "lesson": "lesson-algebra-solving-linear-equations"
+  },
+  "q-algebra-linear-equations-inequalities-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "85a6e96acee2db0e3397381ae6b03eada80cbfb6060767d478cd3cfad5fa1f3a",
+    "lesson": "lesson-algebra-one-variable-inequalities"
+  },
+  "q-algebra-linear-equations-inequalities-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "b756d88abf3e210fec3ec6570d97f046aeb63d43cb7ee2b4cd8518925273ae62",
+    "lesson": "lesson-algebra-one-variable-inequalities"
+  },
+  "q-algebra-linear-equations-inequalities-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "e2aaa04f4236b7483b9eddede51273a9f27c59d27e117dcdcffedabccd252ff8",
+    "lesson": "lesson-algebra-solving-linear-equations"
+  },
+  "q-algebra-linear-equations-inequalities-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "93568c2c9e36174a1ae7afeff646aec6c0f3652c722c3e7efd0d0db170da5c0e",
+    "lesson": "lesson-algebra-one-variable-inequalities"
+  },
+  "q-algebra-linear-equations-inequalities-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "2a0ce1835a3900ae4cd1291f5baad42ef38c37c268ef8fb66af38da5872d2d0f",
+    "lesson": "lesson-algebra-line-slopes-and-intercepts"
+  },
+  "q-algebra-linear-equations-inequalities-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "f5b9a665458b4d56a59da49c1318109a6dc7ae8daf4ca57f33ce152e3864b9e0",
+    "lesson": "lesson-algebra-parallel-and-perpendicular-lines"
+  },
+  "q-algebra-linear-equations-inequalities-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "4e77af6debf551560dc462a94a71a9dbedf0f5cb1e8589af95cd8b7b9712d0de",
+    "lesson": "lesson-algebra-solving-linear-equations"
+  },
+  "q-algebra-linear-equations-inequalities-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "dec963de3edb77c3ee1eb21d09c1f3e8b7b975b77c538dc4baaceaa1df4952a1",
+    "lesson": "lesson-algebra-solving-linear-equations"
+  },
+  "q-algebra-linear-equations-inequalities-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "d45048d77d05a9193b21ff0cbf319ad79d289c74ac6e6096ebb648abd39804f0",
+    "lesson": "lesson-algebra-one-variable-inequalities"
+  },
+  "q-algebra-linear-equations-inequalities-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "a6dd28ad9acb27555fc5ec8c6179309c39692eb106b28ce9be49bb29ce9801ac",
+    "lesson": "lesson-algebra-line-slopes-and-intercepts"
+  },
+  "q-algebra-linear-equations-inequalities-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "b7892beb3eb7fd654cf5c0d677276fffe7f1a4e74efc36042e873690a254fd6e",
+    "lesson": "lesson-algebra-parallel-and-perpendicular-lines"
+  },
+  "q-algebra-linear-equations-inequalities-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "6577193cc8437bd074f1ba7d6c863a4bcefe6dd8d4b62c7f9447d9bcfdf8ae6d",
+    "lesson": "lesson-algebra-line-slopes-and-intercepts"
+  },
+  "q-algebra-linear-equations-inequalities-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "7fcc7fe882e5868cda85f82c94fce099b4c0d29615d64855200a14d12a3954ea",
+    "lesson": "lesson-algebra-line-slopes-and-intercepts"
+  },
+  "q-algebra-linear-equations-inequalities-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "7279c8c42ffb1510fb2bba2b29e9c00760c8e50c40b723d553ccacef5f3f40f6",
+    "lesson": "lesson-algebra-two-variable-inequalities"
+  },
+  "q-algebra-linear-equations-inequalities-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "1e9c8b88becbc8fe42181c9ea04532e8c76c48b1b4e7624c7ac92d720869ad76",
+    "lesson": "lesson-algebra-solving-linear-equations"
+  },
+  "q-algebra-linear-equations-inequalities-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "11fa80bdf81205b642d7cc99d1179449cce7f51031f49b0d591889ae39664b0e",
+    "lesson": "lesson-algebra-solving-linear-equations"
+  },
+  "q-algebra-linear-equations-inequalities-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "fe9576090bc651c5d2b401b302668bcecfcce5e4f39c7285579df452dece7e5c",
+    "lesson": "lesson-algebra-parallel-and-perpendicular-lines"
+  },
+  "q-algebra-linear-equations-inequalities-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "87125269ed4573a89189432ee790ef8db07b5e208f0b0c0c6bfa37e6703f44be",
+    "lesson": "lesson-algebra-two-variable-inequalities"
+  },
+  "q-algebra-linear-equations-inequalities-0021": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "e1b902fea716240b398f03621453752243d4d141f09d223c4e3c5a13ad71757b",
+    "lesson": "lesson-algebra-line-slopes-and-intercepts"
+  },
+  "q-algebra-linear-equations-inequalities-0022": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "9930e3382143505d6e70019fecd900cf83ccf65704e22e2628ffc477f3b6803d",
+    "lesson": "lesson-algebra-one-variable-inequalities"
+  },
+  "q-algebra-linear-equations-inequalities-0023": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "3b184d913b3a26ce05bee292aa3a90a8d4b0dae151d2f1be3a157916cd9e3477",
+    "lesson": "lesson-algebra-two-variable-inequalities"
+  },
+  "q-algebra-polynomials-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "d621125e96b353f997b5be488c6015ca2c4c062786ca68bb9545c2dd3beeca8b",
+    "lesson": "lesson-algebra-polynomial-operations"
+  },
+  "q-algebra-polynomials-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "85e8019209f5a7ad0a4d51cbafedab43630d1a09f94ee2b966da6e68a8d7fef3",
+    "lesson": "lesson-algebra-polynomial-operations"
+  },
+  "q-algebra-polynomials-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "3fc3456bac6a7a32e581fab7bd298675ddcc56ac216b77d3ebce8cc743b1ebc1",
+    "lesson": "lesson-algebra-polynomial-operations"
+  },
+  "q-algebra-polynomials-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "3c517928e88343a65302dae173b4e77897a5643ea177755938fc2563de7e00a2",
+    "lesson": "lesson-algebra-polynomial-operations"
+  },
+  "q-algebra-polynomials-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "0af6b49c3469d8076e3d8a3d2d17c587dffab720600049bc1622fdfa14b70a4c",
+    "lesson": "lesson-algebra-polynomial-special-products"
+  },
+  "q-algebra-polynomials-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "10f406944f7e0cc44806b9187f5e27356233db344c0d2d7368c5fd1a8c9ef26f",
+    "lesson": "lesson-algebra-polynomial-special-products"
+  },
+  "q-algebra-polynomials-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "200ed7ed8510228845104170e0bfc7c329c28bf7c203e437c6b6b6ea6f465561",
+    "lesson": "lesson-algebra-polynomial-special-products"
+  },
+  "q-algebra-polynomials-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "6b32a7f4d8b630223f14748e90e0dd31db3c44489f1f29bc2cdcd183a8e6248e",
+    "lesson": "lesson-algebra-factoring-quadratics"
+  },
+  "q-algebra-polynomials-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "5297b738097c855f8191054a936b12203407f025789a2d71a1281a52ab4fc373",
+    "lesson": "lesson-algebra-remainder-and-factor-theorems"
+  },
+  "q-algebra-polynomials-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "9c03e39cf0e17a552f2bdbaf1011d432eab73a7e28e13a535f2c23bae9ab9daf",
+    "lesson": "lesson-algebra-remainder-and-factor-theorems"
+  },
+  "q-algebra-polynomials-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "ad3045887519b3a702bde884689c1e77a8dff423fee0d206b6441143fd75cf5e",
+    "lesson": "lesson-algebra-polynomial-operations"
+  },
+  "q-algebra-polynomials-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "3cc80f8b96e7da6c1b1705f049124637bb60932a157330938ad6dab59199e4ea",
+    "lesson": "lesson-algebra-polynomial-special-products"
+  },
+  "q-algebra-polynomials-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "3d268c4bd690e5472484608c1e7400ddbbd65e583120e535b13492dc69311894",
+    "lesson": "lesson-algebra-polynomial-special-products"
+  },
+  "q-algebra-polynomials-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "3f8721fd6390b3b1bdbb8d5c26f8198250865a621b223f5ae7d4a381e4ccbfe6",
+    "lesson": "lesson-algebra-polynomial-terms-and-degree"
+  },
+  "q-algebra-polynomials-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "fa8a3984971d921385c8dc6ed56c34adb9b8a8267a465d6c8629b21dd15ddecd",
+    "lesson": "lesson-algebra-factoring-quadratics"
+  },
+  "q-algebra-polynomials-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "74111f7139f932a6259019d750a3f71b4b75c7ba5067ca557680a9b9a67507bc",
+    "lesson": "lesson-algebra-polynomial-synthetic-division"
+  },
+  "q-algebra-polynomials-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "376efca1de73ff514e41b7752334807bdede5b65e2c10c223bf50aacaa4f0a96",
+    "lesson": "lesson-algebra-polynomial-operations"
+  },
+  "q-algebra-polynomials-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "03b1d0424b1229cec55b3de82b4b18812f716dc999a6bacd420f43f08360f14f",
+    "lesson": "lesson-algebra-remainder-and-factor-theorems"
+  },
+  "q-algebra-polynomials-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "32c09e21d78f5738e903629288db84dfc3b2c66e82dbac3a154f51698307765f",
+    "lesson": "lesson-algebra-polynomial-synthetic-division"
+  },
+  "q-algebra-polynomials-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "79b92d9aad64c31203b2320b4d6ee2bbc04d2c41e081fcd13fd60868798a6ef7",
+    "lesson": "lesson-algebra-polynomial-multiple-factors"
+  },
+  "q-algebra-polynomials-0021": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "c079784a4c291cd6f7e54d1e4bf6ecfecf3bcdec1ea0233669985a6c0550f168",
+    "lesson": "lesson-algebra-factoring-cubes"
+  },
+  "q-algebra-polynomials-0022": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "4730dbb21df2e32f39d9cc63edac8c8f8f5de992f1bfbeb20e064d9a6bd095b8",
+    "lesson": "lesson-algebra-factoring-cubes"
+  },
+  "q-algebra-polynomials-0023": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "5ca29f63fea84087876b2f658e8480a1b10727aea8827d8a187bc65a8614cf3f",
+    "lesson": "lesson-algebra-factoring-cubes"
+  },
+  "q-algebra-polynomials-0024": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "b9379f586a4f42aceff7d9c14409609fe3f6fd4ad51185f3b0ef8e7d5a896060",
+    "lesson": "lesson-algebra-factoring-quadratics"
+  },
+  "q-algebra-polynomials-0025": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "77b2f55d32d86fbf91dbc9f0de8c00060d0a2811f56acc100d6183ac69c292b4",
+    "lesson": "lesson-algebra-factoring-quadratics"
+  },
+  "q-algebra-polynomials-0026": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "8e1783410fc3cee03eee1e6598651f70d83991c11327b02ca026c873c345a3fd",
+    "lesson": "lesson-algebra-polynomial-long-division"
+  },
+  "q-algebra-polynomials-0027": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "34b9321ecb10ea2d057e922557b0ca40998a1da7739e7918c702f4a3ddbd5aed",
+    "lesson": "lesson-algebra-polynomial-long-division"
+  },
+  "q-algebra-polynomials-0028": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "7522a74ef104405671fd3085a2fa6f857fc63d88e3e3c890c7972ac1b5a87f62",
+    "lesson": "lesson-algebra-polynomial-multiple-factors"
+  },
+  "q-algebra-polynomials-0029": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "6427d8ec61215f98428b22aed33c59093a4459a206f8547ecbe2ed4735767cf9",
+    "lesson": "lesson-algebra-polynomial-terms-and-degree"
+  },
+  "q-algebra-polynomials-0030": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "73ef306bf42a5f69d9d9aa7781b8f89c646753cb3f90dc0ce300ec6f47b98146",
+    "lesson": "lesson-algebra-remainder-and-factor-theorems"
+  },
+  "q-algebra-quadratic-equations-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "d0b55cb6232e23f699a30b9d468cdd738dad6ce707eaf2f792827ed14d725f36",
+    "lesson": "lesson-algebra-factoring-quadratic-equations"
+  },
+  "q-algebra-quadratic-equations-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "e1023d072cb0cb764c003d5a29a3784452a5ab9654a7813bad1afcb595d2ea96",
+    "lesson": "lesson-algebra-quadratic-methods-and-root-properties"
+  },
+  "q-algebra-quadratic-equations-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "00846d45936a5d74542cd64ad53acca4525d400f84ebfa748f48243080999a24",
+    "lesson": "lesson-algebra-factoring-quadratic-equations"
+  },
+  "q-algebra-quadratic-equations-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "ca04ee7b014e4e6f306f0cefc798aca5dea4140b5c4425e1ff8877d19ef9cc65",
+    "lesson": "lesson-algebra-factoring-quadratic-equations"
+  },
+  "q-algebra-quadratic-equations-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "0b13f83a07c85a71de71cbb5e49313c3705c2dbba1d09cf3c2f124902c0455df",
+    "lesson": "lesson-algebra-factoring-quadratic-equations"
+  },
+  "q-algebra-quadratic-equations-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "8791db30a507abdb43bdbb209ba673ca3e308e33212974ff116f8c03b39fe386",
+    "lesson": "lesson-algebra-factoring-quadratic-equations"
+  },
+  "q-algebra-quadratic-equations-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "de297290036fc50c6adf9441843f718e85a42c8174fb204e6b7d64cfe8f0c489",
+    "lesson": "lesson-algebra-quadratic-methods-and-root-properties"
+  },
+  "q-algebra-quadratic-equations-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "3c431d25c43b8870da4dd487af5432015af64d57e5c2f7bdee75e8f5d71d8191",
+    "lesson": "lesson-algebra-quadratic-methods-and-root-properties"
+  },
+  "q-algebra-quadratic-equations-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "816761e836752c1ad86f24e5314b5ffae55d24992e067c3e5a2cdc581000754f",
+    "lesson": "lesson-algebra-quadratic-methods-and-root-properties"
+  },
+  "q-algebra-quadratic-equations-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "40a87b7f6a9732da76b46a56ee25ef32eab995435eb8e69a30f8ef15d22996e1",
+    "lesson": "lesson-algebra-quadratic-methods-and-root-properties"
+  },
+  "q-algebra-quadratic-equations-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "782f720e8b358b50f5f325b7fe9b6a9ba273597da03e648c53adb7f12f25dafb",
+    "lesson": "lesson-algebra-factoring-quadratic-equations"
+  },
+  "q-algebra-quadratic-equations-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "c2128aa385dd8fd170c3abc960f45c45cd8a203c77cfdf3fc0aadb48a4abf145",
+    "lesson": "lesson-algebra-quadratic-methods-and-root-properties"
+  },
+  "q-algebra-quadratic-equations-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "cf70f6ff8a673426dab8edbe39cd294ad99daa02174ab432ed070b809b5b6654",
+    "lesson": "lesson-algebra-factoring-quadratic-equations"
+  },
+  "q-algebra-quadratic-equations-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "690be9b85d41452a1ff2f51d04368f4478cd963c33529aa614ffaf6c28e930e2",
+    "lesson": "lesson-algebra-quadratic-methods-and-root-properties"
+  },
+  "q-algebra-quadratic-equations-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "d086f38d5e61876f367f665137da43d01a8c756db01b9213b72a94e05153ba30",
+    "lesson": "lesson-algebra-quadratic-methods-and-root-properties"
+  },
+  "q-algebra-quadratic-equations-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "0782ccb0b3760cf75172310620679ca3c57d94e3ae7f28bba8e4d8b3679bd6dd",
+    "lesson": "lesson-algebra-quadratic-methods-and-root-properties"
+  },
+  "q-algebra-quadratic-equations-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "59a04f0eb99471633a5dc78debe9b543cfa945865e4ae931dfef86aa161d0faf",
+    "lesson": "lesson-algebra-factoring-quadratic-equations"
+  },
+  "q-algebra-quadratic-equations-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "ca9c1a8337ec5b79c4f1a9347619c1c0d96a6600453c2d9e512093d59ca956b1",
+    "lesson": "lesson-algebra-quadratic-methods-and-root-properties"
+  },
+  "q-algebra-quadratic-equations-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "89206e38a02050328cf8af8ac20ed841a74735684927a20999958f536d5b206e",
+    "lesson": "lesson-algebra-quadratic-methods-and-root-properties"
+  },
+  "q-algebra-quadratic-equations-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "39dcf34c4152be7c875b27379bd39968e938d2a4a84040269ae8f4f636f606d8",
+    "lesson": "lesson-algebra-quadratic-methods-and-root-properties"
+  },
+  "q-algebra-radicals-and-rationalization-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "6df5ea9f9d0495bb1138487a803427faffb36fa6a24852d55f74380ce56418fd",
+    "lesson": "lesson-algebra-simplifying-and-combining-radicals"
+  },
+  "q-algebra-radicals-and-rationalization-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "7411741fef186d8724c37cad32de6b7a7dfff07e395bc5602a5c853f14898c07",
+    "lesson": "lesson-algebra-simplifying-and-combining-radicals"
+  },
+  "q-algebra-radicals-and-rationalization-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "86d6e244aaf243161b2804e103b21c80c0f03946249d20b8da8cd67452c61f50",
+    "lesson": "lesson-algebra-simplifying-and-combining-radicals"
+  },
+  "q-algebra-radicals-and-rationalization-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "ad3b4158512f10da94b64f6fe6a6ada9b08f4304e12bf2573346e85093ddd2f2",
+    "lesson": "lesson-algebra-simplifying-and-combining-radicals"
+  },
+  "q-algebra-radicals-and-rationalization-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "6ff1e9624e745ac78e17b66d5ee5bc61cbfe17facfd18aee46ecb10f4d2ac3ff",
+    "lesson": "lesson-algebra-rationalizing-square-root-denominators"
+  },
+  "q-algebra-radicals-and-rationalization-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "c267c4994cce4b2d26062d42fd97acfc73ae7e35cc9b8af66c2e6145193001de",
+    "lesson": "lesson-algebra-rationalizing-square-root-denominators"
+  },
+  "q-algebra-radicals-and-rationalization-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "3862ab58ae7227b9742c48c6a07e7632760cd4e85d7ff7ea2c9aea2fc5f48fb7",
+    "lesson": "lesson-algebra-rationalizing-square-root-denominators"
+  },
+  "q-algebra-radicals-and-rationalization-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "97c60ddd4bbcfbdb0091aae6772ef6f9f524450c27d3b61c9801f4df55404311",
+    "lesson": "lesson-algebra-simplifying-and-combining-radicals"
+  },
+  "q-algebra-radicals-and-rationalization-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "070c2c5a5795580602c6220430782790bfad1bce7ac46d3e4b1a0047588ffc07",
+    "lesson": "lesson-algebra-simplifying-and-combining-radicals"
+  },
+  "q-algebra-radicals-and-rationalization-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "d6badbb3038a108d6c24bb7ffb3db00920abe20bc545969f70803dd7cfb42e28",
+    "lesson": "lesson-algebra-simplifying-and-combining-radicals"
+  },
+  "q-algebra-radicals-and-rationalization-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "3f9c0b20f510f723cf82e43dd97073dace7174614ac5f218bbde83cd0eadcf3a",
+    "lesson": "lesson-algebra-rationalizing-square-root-denominators"
+  },
+  "q-algebra-radicals-and-rationalization-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "6ac688ce46592ca01e43688a720ae7a04fd2466ae3daebf5a3ce4d52c323fd86",
+    "lesson": "lesson-algebra-cube-root-denominators-and-nested-radicals"
+  },
+  "q-algebra-radicals-and-rationalization-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "0f8da770e181a36c5a46ea81c63bfb9073c6e887a266356fec03f44db613fb0a",
+    "lesson": "lesson-algebra-simplifying-and-combining-radicals"
+  },
+  "q-algebra-radicals-and-rationalization-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "26813fb9dc0f894a035d9b71b69e4bd10456a56ba0f160367af3145ec2336b07",
+    "lesson": "lesson-algebra-simplifying-and-combining-radicals"
+  },
+  "q-algebra-radicals-and-rationalization-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "ce7c75eb054c363ab50e56afa4159d60dbf0a47f8df7a978c8c5d06757b00c16",
+    "lesson": "lesson-algebra-rationalizing-square-root-denominators"
+  },
+  "q-algebra-radicals-and-rationalization-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "9ccf73be6c56dea9daa9db24072c7844b4fc30161f755de6c6c521ac1a7cf200",
+    "lesson": "lesson-algebra-simplifying-and-combining-radicals"
+  },
+  "q-algebra-radicals-and-rationalization-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "82dfecbe431754d62d883d61a8378e76543a02b2633b24f33b5f2c7a3bf4514c",
+    "lesson": "lesson-algebra-rationalizing-square-root-denominators"
+  },
+  "q-algebra-radicals-and-rationalization-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "9e917bde8828dfd4604ec5eaf5c3a0e0f0f3cdad2740b54cec6239497ed0fbee",
+    "lesson": "lesson-algebra-rationalizing-square-root-denominators"
+  },
+  "q-algebra-radicals-and-rationalization-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "844b9b574ff5be9eaa897c36290fd522862303427503f97d36d5a92b98d98c3a",
+    "lesson": "lesson-algebra-cube-root-denominators-and-nested-radicals"
+  },
+  "q-algebra-radicals-and-rationalization-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "8654d5b17e48b80fe83408cac0f7df68617726d9dfb70f77d180832fb6f3dd7e",
+    "lesson": "lesson-algebra-cube-root-denominators-and-nested-radicals"
+  },
+  "q-algebra-sets-and-set-notation-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "ffd05c9c5e9a4a7c48c59550e0b838c484a18c058cadb94cb44b8e65fd7f09ec",
+    "lesson": "lesson-algebra-set-membership-and-operations"
+  },
+  "q-algebra-sets-and-set-notation-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "ed8fce07506f8296444e5e57ff2e3c2fcb09a14b08f05e69bf7fc94eec5277df",
+    "lesson": "lesson-algebra-set-membership-and-operations"
+  },
+  "q-algebra-sets-and-set-notation-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "35fa700aac493cfbace90c2267018b56687fdaaa4867df4efb99c974c9ba89b6",
+    "lesson": "lesson-algebra-set-membership-and-operations"
+  },
+  "q-algebra-sets-and-set-notation-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "31c24c52c7fba04042cabb879feba9df367c338c6a0052d30b96231a00895f11",
+    "lesson": "lesson-algebra-set-membership-and-operations"
+  },
+  "q-algebra-sets-and-set-notation-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "3b0adf31f9fd69fb7bf1b70fac3fd82953622c7bb99da3cc4a7f142fddf7691a",
+    "lesson": "lesson-algebra-set-membership-and-operations"
+  },
+  "q-algebra-sets-and-set-notation-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "aa021edcfd9860ae5dc44e39d78c006a6ea5c2215d287e8a8dc750fc4624849e",
+    "lesson": "lesson-algebra-counting-venn-diagram-regions"
+  },
+  "q-algebra-sets-and-set-notation-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "c1c803126d9b20ce62ead0238a2a122c27bd22c2d38f0f825a92702c635235dc",
+    "lesson": "lesson-algebra-counting-venn-diagram-regions"
+  },
+  "q-algebra-sets-and-set-notation-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "9d4949ca947d08044202c669f128eda2d06edae2a29836884b89d4e9eb26d6c5",
+    "lesson": "lesson-algebra-set-membership-and-operations"
+  },
+  "q-algebra-sets-and-set-notation-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "02d7cbc33cde6c0bdb37b1a69e566ea6c7c908dd45f37090904ae21c6f77c83e",
+    "lesson": "lesson-algebra-counting-venn-diagram-regions"
+  },
+  "q-algebra-sets-and-set-notation-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "cbb4046a8c4d6b9766cb6ef22f73c360240cb19385df3aa4d6525c89f2325226",
+    "lesson": "lesson-algebra-set-membership-and-operations"
+  },
+  "q-algebra-sets-and-set-notation-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "da0dbd01f8e1a5eadbce071df429ecbcacc1b69692282d81f246aa824b0aaea7",
+    "lesson": "lesson-algebra-counting-venn-diagram-regions"
+  },
+  "q-algebra-sets-and-set-notation-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "385cebce9401330ef5fd734801e930211db8b318ab6ebbf9f43f33b1280cdaf2",
+    "lesson": "lesson-algebra-set-membership-and-operations"
+  },
+  "q-algebra-sets-and-set-notation-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "4c602204cac50367d2a85e4379d458927123e5b3b5bc74f6474bcd157854807f",
+    "lesson": "lesson-algebra-set-membership-and-operations"
+  },
+  "q-algebra-sets-and-set-notation-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "55892d2a45db12b29d880f443c8137f3afe7751c2d94c0d8ebeac35de4b8caa4",
+    "lesson": "lesson-algebra-counting-venn-diagram-regions"
+  },
+  "q-algebra-sets-and-set-notation-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "19ba44cea411d4172185f00a33a7a3f948504ad23666d6ea8843d151cb239b8c",
+    "lesson": "lesson-algebra-set-membership-and-operations"
+  },
+  "q-algebra-sets-and-set-notation-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "fa0bfa7546aa773f75cd4c30e0c69cf7f8c066f4c0312ae13263b574f4c667b5",
+    "lesson": "lesson-algebra-counting-venn-diagram-regions"
+  },
+  "q-algebra-sets-and-set-notation-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "a07442a0cfa2a268cc0a5e2a5b73ce5799a7bbbe816a70fa83aa43003660dda0",
+    "lesson": "lesson-algebra-counting-venn-diagram-regions"
+  },
+  "q-algebra-sets-and-set-notation-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "a8e5364e885545dde5e48f11ae9da393497053317eba576e1ca075a8be182d75",
+    "lesson": "lesson-algebra-set-membership-and-operations"
+  },
+  "q-algebra-sets-and-set-notation-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "9fedafb0d99ec648c331a9369b7535df9b21e4ab29dcf5942f4c0f689836404a",
+    "lesson": "lesson-algebra-set-membership-and-operations"
+  },
+  "q-algebra-sets-and-set-notation-0021": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "e157d0d87940cbe95cfd1f03b64ca06e6935bbf627859397ab24887906cf5e79",
+    "lesson": "lesson-algebra-counting-venn-diagram-regions"
+  },
+  "q-algebra-systems-of-equations-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "f8552ac585f137a2fb4203cba4e92ab60827d3f49bdebadcbdea2eb26c23a628",
+    "lesson": "lesson-algebra-systems-substitution-and-word-problems"
+  },
+  "q-algebra-systems-of-equations-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "e668e9e489a2b06d190404cda5f3e80c9d9eb631852fded13a7790f68b3afb6e",
+    "lesson": "lesson-algebra-systems-elimination"
+  },
+  "q-algebra-systems-of-equations-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "0c28e921355ea9ffab94a575867396405a20e78d080a1dc0d56c7c336aa49788",
+    "lesson": "lesson-algebra-systems-elimination"
+  },
+  "q-algebra-systems-of-equations-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "fdfe5409644d65a0d8c79257e28723aa02c966a4ffedef0e732b6c4188cc8d3c",
+    "lesson": "lesson-algebra-systems-substitution-and-word-problems"
+  },
+  "q-algebra-systems-of-equations-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "d7d85a58375003e19d899bfb72ab2c9f582035cd67b435cc693be8f511a2a6c2",
+    "lesson": "lesson-algebra-systems-graphs-and-solution-counts"
+  },
+  "q-algebra-systems-of-equations-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "92186d384eee28f6622574420f03111261be07942bae2fa587e118d433f94538",
+    "lesson": "lesson-algebra-systems-graphs-and-solution-counts"
+  },
+  "q-algebra-systems-of-equations-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "a7394c4c867316b411ab2886382075679923f7d4dc3f9da7e3663c8c1921242a",
+    "lesson": "lesson-algebra-systems-lines-and-parabolas"
+  },
+  "q-algebra-systems-of-equations-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "28790a1d0d9e76c63673d63814965dc650f5d79e19eb213b614d0c1952c0612b",
+    "lesson": "lesson-algebra-systems-substitution-and-word-problems"
+  },
+  "q-algebra-systems-of-equations-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "8a92205e5f6bb0e4f306faae40a2fcf63305bdf6d1fdfdf628824916e1736d0a",
+    "lesson": "lesson-algebra-systems-elimination"
+  },
+  "q-algebra-systems-of-equations-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "e0253ef9a8cbf91b384d78f28fc2e8516e71024cef1e26e02b1a5e8e5c51d016",
+    "lesson": "lesson-algebra-systems-substitution-and-word-problems"
+  },
+  "q-algebra-systems-of-equations-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "7715a6855c960457ee288302dd646f796c9af639cf11b2afb727c21afcd037d0",
+    "lesson": "lesson-algebra-systems-substitution-and-word-problems"
+  },
+  "q-algebra-systems-of-equations-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "178f2b5f39447281943089cd7cacd7c0c48d04fc8645c2c1e714e5b27588f790",
+    "lesson": "lesson-algebra-systems-substitution-and-word-problems"
+  },
+  "q-algebra-systems-of-equations-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "d49c37b80eb8ab186c34409737827acd3b4157d5fd93e72b9fdf79d3596fe4e2",
+    "lesson": "lesson-algebra-systems-elimination"
+  },
+  "q-algebra-systems-of-equations-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "61aabb2fed72ff4667e1cce8956e0106bdf353d7922963a318724856c5350928",
+    "lesson": "lesson-algebra-systems-substitution-and-word-problems"
+  },
+  "q-algebra-systems-of-equations-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "08ffad1485e5eae32eaa57a5223a9cc387a90c299ec3fb99e1d4806972fb9c86",
+    "lesson": "lesson-algebra-systems-substitution-and-word-problems"
+  },
+  "q-algebra-systems-of-equations-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "1b3b72f02a9116a51ca47182c5c17d45f8d7b46816e7096fe6b8ee255bf03a68",
+    "lesson": "lesson-algebra-systems-substitution-and-word-problems"
+  },
+  "q-algebra-systems-of-equations-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "6e39ba11777557d32ca21a835097d5302d3e720f422819f1c7225ee7d5094880",
+    "lesson": "lesson-algebra-systems-lines-and-parabolas"
+  },
+  "q-algebra-systems-of-equations-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "040af8f5efbb4d2dfb423cd6f6d0bdcb7b4e3e6554ca13accdfffcaeda1c002a",
+    "lesson": "lesson-algebra-systems-substitution-and-word-problems"
+  },
+  "q-algebra-systems-of-equations-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "cfe648257d57635dceac791ce1339329a3fd37d220ea074f7c8748a61fbfb0c2",
+    "lesson": "lesson-algebra-systems-substitution-and-word-problems"
+  },
+  "q-algebra-systems-of-equations-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "eff1e98a00c70b9b84bc6c91ea91c37bf04b0bf1695ad95142e9947c22ad2b70",
+    "lesson": "lesson-algebra-systems-graphs-and-solution-counts"
+  },
+  "q-algebra-types-of-functions-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "0ed38998f7191f90fb6998388d7b7a18de1af47cf5f05445b68d5356e2e01470",
+    "lesson": "lesson-algebra-linear-and-quadratic-functions"
+  },
+  "q-algebra-types-of-functions-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "31452c66686a04b091b3222f089a49f2926ce9440d0a8439e644fffab2cba27a",
+    "lesson": "lesson-algebra-exponential-growth-and-function-families"
+  },
+  "q-algebra-types-of-functions-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "470ce9a757fee2bb7c06218820adee6f2bdf02295167f871b0cfdf2a2c5eeaae",
+    "lesson": "lesson-algebra-linear-and-quadratic-functions"
+  },
+  "q-algebra-types-of-functions-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "0dae844933f5cdb9156e56531239094655d9e597cf89a341e0f0a45fbb82bb9e",
+    "lesson": "lesson-algebra-rational-domains-and-holes"
+  },
+  "q-algebra-types-of-functions-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "ce3e6eb71d2d026441832528bddfb4a48a63ae192def506de1ce4fcf31a51b6b",
+    "lesson": "lesson-algebra-logarithmic-and-piecewise-functions"
+  },
+  "q-algebra-types-of-functions-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "a168a75a8132cb1c47849b59c7e82cd0d036492645e085959a3632e3c1eb63b4",
+    "lesson": "lesson-algebra-rational-vertical-and-horizontal-asymptotes"
+  },
+  "q-algebra-types-of-functions-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "5d4c59b82e0f76039d4fc88e1f702b2ac14f0a7ef7c2e8f482b8c420411ef903",
+    "lesson": "lesson-algebra-linear-and-quadratic-functions"
+  },
+  "q-algebra-types-of-functions-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "2951a2690be31152e8e3db955fc391900600e0dfca32baff7a7f2b016f117cbf",
+    "lesson": "lesson-algebra-logarithmic-and-piecewise-functions"
+  },
+  "q-algebra-types-of-functions-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "4de2778917cc8b83d495efbba38bc3067fff437109788803a98426d468eabf1d",
+    "lesson": "lesson-algebra-exponential-growth-and-function-families"
+  },
+  "q-algebra-types-of-functions-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "ce2e723d0722210b7ea54b9c6df703f93014af9b2cafe486a44e9dcdd85f5993",
+    "lesson": "lesson-algebra-absolute-value-transformations"
+  },
+  "q-algebra-types-of-functions-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "684e8edd3e81f3c5f500e24b1888534627a6287650136b6aa08f0d949c5895bf",
+    "lesson": "lesson-algebra-rational-vertical-and-horizontal-asymptotes"
+  },
+  "q-algebra-types-of-functions-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "00fbca062eade87f067f4c5a52bcc341c99a181c0a1658d604ccd19397c805d3",
+    "lesson": "lesson-algebra-logarithmic-and-piecewise-functions"
+  },
+  "q-algebra-types-of-functions-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "6b58513286698b58d386afc925d74fc251aa4339d0c8a63d82ec540317030e9a",
+    "lesson": "lesson-algebra-rational-domains-and-holes"
+  },
+  "q-algebra-types-of-functions-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "2f1f3dceb1601d72b4814477d1fe1ec92aaa113e535debbe1bb80e2e21fe3f08",
+    "lesson": "lesson-algebra-logarithmic-and-piecewise-functions"
+  },
+  "q-algebra-types-of-functions-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "b4736d4fea8b2293ac3554da035cc2ac6ae0e918c2b770836c70a1ca52e2d3c0",
+    "lesson": "lesson-algebra-linear-and-quadratic-functions"
+  },
+  "q-algebra-types-of-functions-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "0c15145083f7fad50ee703387eeb0e1f8e8a53bf7ed6b90dc01887fb41bce0b8",
+    "lesson": "lesson-algebra-exponential-growth-and-function-families"
+  },
+  "q-algebra-types-of-functions-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "84170349fc48b3dc3cb7e2683c1cd758f24296c1ec104eabe02991e8394face7",
+    "lesson": "lesson-algebra-absolute-value-equations-and-graph-matching"
+  },
+  "q-algebra-types-of-functions-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "8f3b9057ba3e5eb5956587593b2bc61dd3c82e8651dc87dccf10d0372f8ab8f1",
+    "lesson": "lesson-algebra-logarithmic-and-piecewise-functions"
+  },
+  "q-algebra-types-of-functions-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "b0591374e81057b695d161f41b2b415b10564f7d49c292a49e74330b7f4755f8",
+    "lesson": "lesson-algebra-logarithmic-and-piecewise-functions"
+  },
+  "q-algebra-types-of-functions-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "42086618174b3f422a1715e9836e935c0fa6bf0b3e49146c6ba76f99ac5c6235",
+    "lesson": "lesson-algebra-rational-slant-asymptotes"
+  },
+  "q-algebra-types-of-functions-0021": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "0bb69ff429e2fe93cb34c884bec74ccd645f8f2a87666e1115c30bb85c4c6378",
+    "lesson": "lesson-algebra-absolute-value-equations-and-graph-matching"
+  },
+  "q-algebra-types-of-functions-0022": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "5b8f6f3b43864f88382b7ee423bccbda534eb65c96c6a91547a850da339635c8",
+    "lesson": "lesson-algebra-absolute-value-equations-and-graph-matching"
+  },
+  "q-algebra-types-of-functions-0023": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "150ed4133e1df8938245a1169dfce0bfa7d2453b9dea1a58dc8209bcaaa40b0d",
+    "lesson": "lesson-algebra-absolute-value-equations-and-graph-matching"
+  },
+  "q-algebra-types-of-functions-0024": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "86c6390fead5fe065feb071c6b46d94b34708eea37619109337bbf2b0d2a1ddc",
+    "lesson": "lesson-algebra-absolute-value-transformations"
+  },
+  "q-algebra-types-of-functions-0025": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "c0459773ee01aadc2b6e418e3065640c6df6be1d4bca508e7d9810dab22b73be",
+    "lesson": "lesson-algebra-absolute-value-transformations"
+  },
+  "q-algebra-types-of-functions-0026": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "7e46d510a60646da3c64516881bd2cb6f945bdce8a9f28f0c41deb0331340a89",
+    "lesson": "lesson-algebra-absolute-value-transformations"
+  },
+  "q-algebra-types-of-functions-0027": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "115cc433c73a450f8e2e00e48b85157422a3ef7a7b6ed8b79a893aab5b85efdc",
+    "lesson": "lesson-algebra-exponential-growth-and-function-families"
+  },
+  "q-algebra-types-of-functions-0028": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "88222ef731da97bf4ad7f9e6d267f57cfa1129bc09e590374bbc88170a95f790",
+    "lesson": "lesson-algebra-rational-slant-asymptotes"
+  },
+  "q-algebra-types-of-functions-0029": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "679a2596628f9f4bfbc4633654268d4a011e010b785aa10ca6619644dc509735",
+    "lesson": "lesson-algebra-rational-slant-asymptotes"
+  },
+  "q-algebra-types-of-functions-0030": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "5776f4ceb7486ad1f2df25971d761f8a28ee4b18db01a1a9361c3fdf0b5270c2",
+    "lesson": "lesson-algebra-rational-vertical-and-horizontal-asymptotes"
+  },
+  "q-algebra-types-of-functions-0031": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "d7a34aac59efe174ab771b83902f566e24ccb5444e1c218761adc63dc8b85915",
+    "lesson": "lesson-algebra-rational-vertical-and-horizontal-asymptotes"
+  },
+  "q-algebra-word-problems-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "f1b1af682746647cd1afd4d94f6e53674521db134ff70391b3e3e0427641f55b",
+    "lesson": "lesson-algebra-age-word-problems"
+  },
+  "q-algebra-word-problems-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "79dca3752a9248f2aa880906d04d1203ab6f5b6af0466e680ff62a1c9cfe20eb",
+    "lesson": "lesson-algebra-motion-meeting-and-separation"
+  },
+  "q-algebra-word-problems-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "e180662adf89feb9369a0df3dbcec22e3b3488487ef5cab767e04824db9cfd9f",
+    "lesson": "lesson-algebra-work-rate-problems"
+  },
+  "q-algebra-word-problems-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "b924e3d9d490c3a785e5af82964dcbf842e6dbbbffcecb9aa2c22bdf0ba515eb",
+    "lesson": "lesson-algebra-mixture-word-problems"
+  },
+  "q-algebra-word-problems-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "6f5df60f6e25dacd6d8bb45ea4d9bac311fc90ba5de7be70299bbcc1e35ce9fe",
+    "lesson": "lesson-algebra-coin-and-digit-problems"
+  },
+  "q-algebra-word-problems-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "2a3c01df48222976fe965f3d314517ebf49f799f9e5dade893597163a436f31d",
+    "lesson": "lesson-algebra-coin-and-digit-problems"
+  },
+  "q-algebra-word-problems-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "eebfe7fdba33205ae483ddb7ba623da10dc8acd24ad8e913bb24fb3145170ec5",
+    "lesson": "lesson-algebra-age-word-problems"
+  },
+  "q-algebra-word-problems-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "37631d925a7e2a19469717e12291dec86df55cbd85f847c4c850026805dc3ff4",
+    "lesson": "lesson-algebra-motion-chase-problems"
+  },
+  "q-algebra-word-problems-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "9f4b8e511f7b4333d127d73aa110eece954790d19bbed00bf4967b9553980630",
+    "lesson": "lesson-algebra-work-rate-problems"
+  },
+  "q-algebra-word-problems-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "23843d18876b6fda91ac42d55d3a4ea11b096133eff1d0617dfa5b8488e7706d",
+    "lesson": "lesson-algebra-mixture-word-problems"
+  },
+  "q-algebra-word-problems-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "2621d32f7ba2a78bd1f85f48536dec9d56cb44e34990c76e3411b165e203daf8",
+    "lesson": "lesson-algebra-age-word-problems"
+  },
+  "q-algebra-word-problems-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "7514e9335f64c8b1aaee2baa9893c49734d9fc7798b27ba85df9f15a0897e734",
+    "lesson": "lesson-algebra-coin-and-digit-problems"
+  },
+  "q-algebra-word-problems-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "99921df8136783ee038d606e1439e8a375948d8e23589aa3c5138cc6813ee1c9",
+    "lesson": "lesson-algebra-age-word-problems"
+  },
+  "q-algebra-word-problems-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "15afde622bd5dd9b2e080cf8be904b15b9a501d1367ba7193a180073a2a0fff8",
+    "lesson": "lesson-algebra-motion-meeting-and-separation"
+  },
+  "q-algebra-word-problems-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "38de4d6385c0de35a049e05271ad6ca6451add41ba78107d9e351d7343de47e4",
+    "lesson": "lesson-algebra-work-rate-problems"
+  },
+  "q-algebra-word-problems-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "f479df38313dcabb435094223ed6edad81019801852112db36b21563112e311f",
+    "lesson": "lesson-algebra-mixture-word-problems"
+  },
+  "q-algebra-word-problems-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "7864ac87d7f254ef75181ac4ee161393515317319017c915b6ee1a76c489f14e",
+    "lesson": "lesson-algebra-motion-meeting-and-separation"
+  },
+  "q-algebra-word-problems-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "dd1e22d2d07f2c9541464fc37fd7337f0d1db847209a260f59170528c2eb911c",
+    "lesson": "lesson-algebra-coin-and-digit-problems"
+  },
+  "q-algebra-word-problems-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "6c6477f28e1c50af0045dcf91972661ddc1cf5fba4cb3639494a76180c3bea93",
+    "lesson": "lesson-algebra-coin-and-digit-problems"
+  },
+  "q-algebra-word-problems-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "6516dc1b77a2e311b07f6a7d363bde366f59ffa0206b40aebc1d9815ee041cc1",
+    "lesson": "lesson-algebra-mixture-word-problems"
+  },
+  "q-algebra-word-problems-0021": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "46dea139f73dbaa0045e440c11ba277e779197ab49ffe023e58c3fc02b9270fd",
+    "lesson": "lesson-algebra-motion-chase-problems"
+  },
+  "q-algebra-word-problems-0022": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/algebra.md",
+    "hash": "57ea867d64729be3398be15a7ede490f75539dd5654c1c074e3bf7cfd2391f25",
+    "lesson": "lesson-algebra-motion-meeting-and-separation"
+  },
   "q-arithmetic-number-sense-business-math-0001": {
     "approvedAt": "2026-11-14",
     "evidence": "docs/content/verification/arithmetic-number-sense.md",
