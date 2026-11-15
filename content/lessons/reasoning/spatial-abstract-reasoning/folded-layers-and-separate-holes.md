@@ -19,6 +19,8 @@ This does not always mean $2^n$ separate holes. Check whether the punch reaches 
 
 For a small interior punch through all $2^n$ layers, away from every fold, the open sheet has $2^n$ separate holes. This shortcut needs complete half-folds and separate copies. Cuts that touch folds can join instead.
 
+<!-- ILLUSTRATION: square folded left half onto right half, then bottom half onto top half; show an interior punch away from both folded edges and arrows opening the horizontal fold first, then the vertical fold, ending with four mirror-position holes -->
+
 ## Examples
 
 ### #1: Interior Hole Away from Two Fold Lines

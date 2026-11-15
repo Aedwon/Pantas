@@ -15,10 +15,6 @@ keyPoints:
 
 An uneven fold may leave some paper uncovered. A punch there cuts fewer layers than a punch in the overlap. Reflect cuts only where folded paper was actually cut.
 
-<!-- ILLUSTRATION: square folded left half onto right half, then bottom half onto top half; show an interior punch away from both folded edges and arrows opening the horizontal fold first, then the vertical fold, ending with four mirror-position holes -->
-
-The trap calls this Example $5$ from the original lesson; it is Example $1$ here.
-
 ## Examples
 
 ### #1: A Punch Through Only Some Layers

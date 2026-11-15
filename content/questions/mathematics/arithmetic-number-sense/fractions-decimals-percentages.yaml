@@ -310,7 +310,7 @@ questions:
     type: word-problem
     difficulty: exam
     stem: |
-      A retail store stocks 240 items. Week 1: 35% is sold. Week 2: $\dfrac{5}{8}$ of remaining is sold. What percentage of original inventory remains unsold?
+      A retail store stocks 320 items. Week 1: 35% is sold. Week 2: $\dfrac{5}{8}$ of remaining is sold. What percentage of original inventory remains unsold?
     choices:
       - text: '$24.375\%$'
         correct: true

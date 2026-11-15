@@ -229,7 +229,7 @@ questions:
           This divides cost by sellable stock without profit. That gives the break-even price. Check whether the target includes a gain.
       - text: '$\text{₱}120.00$'
         correct: true
-      - text: '$\text{₱}114.00$'
+      - text: '$\text{₱}118.00$'
         rationale: |
           This adds $20\%$ of the original ninety-peso unit cost to the hundred-peso break-even price. Both are meaningful costs in the problem. Check that the profit target is based on the total investment.
     explanation: |
