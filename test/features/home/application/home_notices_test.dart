@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/features/beta_feedback/application/beta_feedback_providers.dart';
 import 'package:pantas/features/home/application/home_notices.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/home/application/web_study_seam.dart';
@@ -33,9 +34,13 @@ void main() {
         studyUsesServerProvider.overrideWithValue(true),
         currentStudyCoverageProvider.overrideWithValue(false),
         webTrialEndsAtProvider.overrideWith((_) async => null),
+        betaRewardProvider.overrideWith((_) async => null),
       ],
     );
     addTearDown(scope.dispose);
+    // Home keeps this provider watched; hold it too, so it is not disposed
+    // while the beta status loads.
+    scope.listen(homeNoticeProvider, (_, __) {});
     final notice = await scope.read(homeNoticeProvider.future);
     expect(notice?.kind, isNot(HomeNoticeKind.welcome));
   });
