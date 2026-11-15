@@ -147,6 +147,10 @@ These are Aedwon's standing instructions. They apply until he changes them.
   (`tool/velocity/timer.py`). Actuals come only from the timer's output. Status reports carry a
   time estimate.
 - Check every lead's latest report each time Aedwon writes, and relay results when they land.
+- Only real users may cost money (Aedwon, Nov 15: "the only thing that should bill us is due to
+  users"). Testing, staging, scheduled jobs, secrets and every other fixed item stay inside the free
+  tiers, counted per billing account. Before relaying or approving any change that adds such an
+  item, ask the lead for its free-tier count. Written rule 7 in `process-improvement.md`.
 - Replies to Aedwon: under 150 words, plain words, decisions with costs and a recommendation, files
   as clickable links.
 

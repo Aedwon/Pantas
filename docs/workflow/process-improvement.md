@@ -77,7 +77,27 @@ pass 15, retire or merge one first.
    outside the repository. Each send script must refuse a real send without a recorded
    self-test of the same email version.
 
+7. Only real users may cost money. Testing, staging, CI, journeys, proofs, scheduled
+   jobs, secrets, stored images, backups, logs, alarms and every other fixed or
+   housekeeping item must stay inside Google's and Cloudflare's free tiers, counted per
+   billing account across pantas-prod and pantas-staging together. Before any change that
+   adds or keeps such an item (a scheduled job, a secret version, a minimum instance, a
+   backup, a new API or service, a test that hits a hosted project), the agent counts it
+   against the free tier and does not ship it if the account would go over. If it already
+   bills, it is a defect to fix at once, not a cost to accept. His words (Nov 15): "that is absurd, i should never have been billed in the first place with just testing traffic and scheduled jobs. make this a strict standing rule. this should never happen again. the only thing that should bill us is due to users, and that's justifiable and by then we should be already able to cover the costs. i am disappointed." This rule retires when the free-tier
+   check (see the entry below) covers every item.
+
 ## Entries
+
+### Billed for test traffic and scheduled jobs (Nov 15)
+
+- His words: "that is absurd, i should never have been billed in the first place with just testing traffic and scheduled jobs. make this a strict standing rule. this should never happen again. the only thing that should bill us is due to users, and that's justifiable and by then we should be already able to cover the costs. i am disappointed. as the operations manager please make sure these things don't happen again. then you also have the prerogative to consult fable, and do other necessary checks that would lead to this same situation"
+- Wrong: November to Nov 14 billed $0.22 after credits, none of it from users. Cloud Scheduler billed $0.16 (18 jobs across both projects against 3 free per billing account; paused jobs still count). Staging Hosting egress from journeys and proofs billed $0.04. About $0.02 was unattributed (App Engine $0.01 and $0.01 unknown).
+- Why it got through: each lane added scheduled jobs, secrets and staging traffic on its own and priced them as "a few cents a month". No step counted fixed items against the shared free tier, and the Nov 12 approval asked for "a few cents" instead of $0. The cost review ran only after the bill existed.
+- Fix:
+  1. Written rule 7 above, in force now.
+  2. Check (owner: the security fixes and billing cap lead): a free-tier check that fails when the non-user items on the billing account exceed the free tier. It counts scheduler jobs, active secret versions, minimum instances, stored images, Hosting storage and staging egress, backups, enabled paid APIs and alarm references. It runs in CI against the repository's deploy config, and monthly against the live projects. It must be shown failing on the Nov 14 state (18 jobs) first.
+  3. Required step: a full audit of every non-user cost source on both projects, with a Fable 5.2 ruling on each fix, before the check is called done.
 
 ### Inline quiz results missed the update safe point (Nov 14)
 
