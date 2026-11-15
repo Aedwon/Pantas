@@ -3658,3 +3658,34 @@ Fable 5.2 ruled under Aedwon's standing delegation, changing the Nov 21 plan:
 - Condition 2 waived (manager, Nov 15): "Condition 2 is moot: its purpose was to protect CET users, and no account can be on a CET exam ("Coming soon"), so the change reaches no CET user." **CET rewrite lane: the CET-exam account proof (credit carry-over, catalog refresh and the retired-id redirect on a CET account) must run before any CET exam opens.**
 - Prod (content only, manager: "yes, ship stream B to prod"): no ERROR entries in the hour before; rollback plan checked first (pilot root ff8b4f4cd re-applies to prod with 0 differences before the upload). Upload at 06:32 UTC: wrote 327 created, 134 updated, 302 unchanged, 62 pro documents changed; re-plan 0 differences. A 30-minute watch follows.
 
+### Nov 15, Aedwon's 20-item goal: completion report (operations manager)
+
+Goal set Nov 14 ~08:40 UTC (Aedwon: "finish all these"; "this goal is for you"). Status Nov 15 06:32 UTC: 18 of 20 done; 2 are date-gated with durable T3 reminders. Velocity row E-080.
+
+| # | Item | Done (UTC) | Evidence |
+|---|---|---|---|
+| 1 | Updates take effect at once on prod | Nov 14 09:00 | web build 572354112-e3e62e5faa3e; switch at safe points proven across two staging builds |
+| 2 | $20 combined budget, alert at $10 | Nov 14 08:10 | account-wide budget; old $5 per-project budgets replaced |
+| 3 | Cap the bot check and functions | Nov 14 08:16 | reCAPTCHA 300/day per project; $5 Cloud Run spend caps; maxInstances 3/10/5 on prod Nov 14 09:49 |
+| 4 | Staging billing cutoff, proven | Nov 14 09:05 and 09:54 | two real fires; recovery 34 min then 5 min; runbook section 13 |
+| 5 | Usage alarm that triggers the cutoff | Nov 14 ~10:00 | 8 alarms live on staging (proven real fire); prod alarms notify-only, wired Nov 21 |
+| 6 | App files on Cloudflare | Nov 14 18:40 | staging and prod via Worker; 92 paths match; tiny Firebase page after 48 h plus one real Google sign-in (reminder Nov 16 19:00) |
+| 7 | App Check, staging then prod | partly | staging Nov 14 (Storage, Firestore, Auth); prod Storage Nov 15 06:05; Auth Nov 16 06:10 and Firestore Nov 21 06:10 per Fable's staged ruling (reminders set) |
+| 8 | Upload and write limits (R1) | Nov 14 13:11 | build 2795918529-d876405d94f9; anonymous feedback screenshots proven on staging and prod |
+| 9 | Prod billing cutoff at $15 | Nov 14 ~12:23 | live; first budget figure $0.08, ignored correctly |
+| 10 | Sign-in lockout and email caps | Nov 14 09:49 | R2 on prod; emulator squatter tests |
+| 11 | Free console hardening | Nov 14 08:19 | backups, delete protection, storage lock and 90-day cleanup, marketing key disabled, DMARC report-only |
+| 12 | Bite-sized plan and label mockup | Nov 14 08:52 | plan on main; board ruled by Fable |
+| 13 | Bite-sized pilot | Nov 15 01:56 | 83 parts (Constitution, Data Interpretation); two staging-caught bugs fixed first |
+| 14 | Remaining CSE subjects | Nov 15 06:32 | 327 lessons created, 134 updated; CSE Algebra held for the CET rewrite (Fable) |
+| 15 | Home "Start Lesson" | Nov 14 12:07 | build 2743185012-b0dfa30465f2 |
+| 16 | Usage tracking step 1 | Nov 14 12:07 | opt-in screen views plus private report |
+| 17 | Usage tracking step 2 and notice draft | Nov 14 11:23 | web/usage-counts-r1 built, flag off; draft awaits Aedwon's legal sign-off |
+| 18 | Beta exit survey and reward | partly | survey open Nov 15 00:00 PHT, 0 responses so far; reward list after the window (reminder Nov 15 16:15; expected empty, best possible 2 of 5 days) |
+| 19 | Lock design reference images | Nov 14 14:45 | 113 goldens, drift fails CI; 4 defects and 1 a11y item fixed on prod |
+| 20 | SSOT daily update back on | Nov 14 ~08:45 | schedule re-enabled |
+
+Estimate vs actual. The manager gave no estimate at the start; the first one came Nov 14 ~13:20 UTC when Aedwon asked: everything except the CSE splits by ~Nov 23, the full goal by Nov 28. Actual: 18 items in 21 h 52 min, the CSE splits about 13 days early. Causes: velocity history already showed ratios of 0.25 to 0.4; Aedwon lifted pacing ("you can accelerate things"); up to 3 parallel Codex jobs; stream B ran alongside the pilot; one Codex weekly reset. App Check's prod dates are policy gates, not work, and did not move.
+
+Process lessons (also for process-improvement.md): give an overall estimate when a goal is set; leads' in-session timers die with the session, so durable T3 reminders back every timed step (the 18:07 cutover slipped 30 minutes without one); deploys use the pinned CLI only (guard merged); check right after scheduled events rather than on a fixed long interval.
+
