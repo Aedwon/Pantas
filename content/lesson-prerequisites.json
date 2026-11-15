@@ -278,7 +278,7 @@
   "lesson-logical-verbal-reasoning-truth-tables-propositional-logic": [],
   "lesson-logical-verbal-reasoning-word-analogies": [
    {
-    "lesson": "lesson-vocabulary-synonyms-and-antonyms",
+    "lesson": "lesson-vocabulary-kasingkahulugan-at-kasalungat",
     "strength": "helpful",
     "reason": "Recognizing close meanings, opposites, and differences in strength makes relationship matching easier. The lesson explains these relationships sufficiently itself."
    }
@@ -371,13 +371,6 @@
     "reason": "Understanding negation and compound statements makes the compound-assumption test easier. The lesson supplies its own negation rules."
    }
   ],
-  "lesson-vocabulary-confusing-words": [
-   {
-    "lesson": "lesson-grammar-and-structure-english-word-jobs",
-    "strength": "helpful",
-    "reason": "Recognizing word jobs helps distinguish affect/effect and sila/sina. The lesson defines the relevant jobs and usage rules itself."
-   }
-  ],
   "lesson-vocabulary-context-clues": [],
   "lesson-vocabulary-idioms-and-figures-of-speech": [
    {
@@ -391,20 +384,6 @@
     "lesson": "lesson-grammar-and-structure-english-word-jobs",
     "strength": "helpful",
     "reason": "Recognizing word jobs makes suffix-driven changes easier to understand. The lesson defines the word classes needed for its examples."
-   }
-  ],
-  "lesson-vocabulary-spelling-rules": [
-   {
-    "lesson": "lesson-vocabulary-root-words-prefixes-suffixes",
-    "strength": "helpful",
-    "reason": "Practice separating bases from suffixes makes spelling changes easier to track. The lesson defines both terms and teaches its spelling rules."
-   }
-  ],
-  "lesson-vocabulary-synonyms-and-antonyms": [
-   {
-    "lesson": "lesson-vocabulary-context-clues",
-    "strength": "helpful",
-    "reason": "Practice inferring meaning and checking replacement words makes contextual synonym selection easier. The lesson teaches its own context and nuance checks."
    }
   ],
   "lesson-data-interpretation-table-values-and-totals": [],
@@ -1667,6 +1646,118 @@
   "lesson-grammar-and-structure-editing-negative-concord": [
    {
     "lesson": "lesson-grammar-and-structure-keeping-needed-repetition",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-vocabulary-similar-and-opposite-meanings": [
+   {
+    "lesson": "lesson-vocabulary-context-clues",
+    "strength": "helpful",
+    "reason": "Practice inferring meaning and checking replacement words makes contextual synonym selection easier. The lesson teaches its own context and nuance checks."
+   }
+  ],
+  "lesson-vocabulary-opposites-with-levels-and-two-states": [
+   {
+    "lesson": "lesson-vocabulary-similar-and-opposite-meanings",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-vocabulary-opposite-roles": [
+   {
+    "lesson": "lesson-vocabulary-opposites-with-levels-and-two-states",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-vocabulary-meaning-and-grammar-in-context": [
+   {
+    "lesson": "lesson-vocabulary-opposite-roles",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-vocabulary-feeling-strength-and-formality": [
+   {
+    "lesson": "lesson-vocabulary-meaning-and-grammar-in-context",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-vocabulary-prefix-clues-in-context": [
+   {
+    "lesson": "lesson-vocabulary-feeling-strength-and-formality",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-vocabulary-kasingkahulugan-at-kasalungat": [
+   {
+    "lesson": "lesson-vocabulary-prefix-clues-in-context",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-vocabulary-letters-sounds-and-vowel-order": [
+   {
+    "lesson": "lesson-vocabulary-root-words-prefixes-suffixes",
+    "strength": "helpful",
+    "reason": "Practice separating bases from suffixes makes spelling changes easier to track. The lesson defines both terms and teaches its spelling rules."
+   }
+  ],
+  "lesson-vocabulary-silent-e-with-suffixes": [
+   {
+    "lesson": "lesson-vocabulary-letters-sounds-and-vowel-order",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-vocabulary-doubling-final-consonants": [
+   {
+    "lesson": "lesson-vocabulary-silent-e-with-suffixes",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-vocabulary-checking-longer-spellings": [
+   {
+    "lesson": "lesson-vocabulary-doubling-final-consonants",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-vocabulary-baybay-ng-hiram-na-salita": [
+   {
+    "lesson": "lesson-vocabulary-checking-longer-spellings",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-vocabulary-affect-and-effect": [
+   {
+    "lesson": "lesson-grammar-and-structure-english-word-jobs",
+    "strength": "helpful",
+    "reason": "Recognizing word jobs helps distinguish affect/effect and sila/sina. The lesson defines the relevant jobs and usage rules itself."
+   }
+  ],
+  "lesson-vocabulary-its-and-it-is-or-it-has": [
+   {
+    "lesson": "lesson-vocabulary-affect-and-effect",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-vocabulary-ng-at-nang": [
+   {
+    "lesson": "lesson-vocabulary-its-and-it-is-or-it-has",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-vocabulary-sila-at-sina": [
+   {
+    "lesson": "lesson-vocabulary-ng-at-nang",
     "strength": "required",
     "reason": "Read the previous part first."
    }

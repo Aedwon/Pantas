@@ -6,6 +6,15 @@ subject: "subject-language-proficiency"
 topic: "topic-vocabulary"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-vocabulary-similar-and-opposite-meanings
+  - lesson-vocabulary-opposites-with-levels-and-two-states
+  - lesson-vocabulary-opposite-roles
+  - lesson-vocabulary-meaning-and-grammar-in-context
+  - lesson-vocabulary-feeling-strength-and-formality
+  - lesson-vocabulary-prefix-clues-in-context
+  - lesson-vocabulary-kasingkahulugan-at-kasalungat
 ---
 ## Core Concept
 

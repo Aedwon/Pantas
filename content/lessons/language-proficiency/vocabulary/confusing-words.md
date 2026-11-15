@@ -6,6 +6,12 @@ subject: "subject-language-proficiency"
 topic: "topic-vocabulary"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-vocabulary-affect-and-effect
+  - lesson-vocabulary-its-and-it-is-or-it-has
+  - lesson-vocabulary-ng-at-nang
+  - lesson-vocabulary-sila-at-sina
 ---
 ## Core Concept
 
