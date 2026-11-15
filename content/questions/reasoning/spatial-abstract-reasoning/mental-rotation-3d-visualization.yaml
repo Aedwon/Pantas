@@ -9,6 +9,8 @@ meta:
     - "cse-pro"
 questions:
   - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0001"
+    lesson: lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets
+    keyPoint: 1
     type: "mental-rotation"
     difficulty: "easy"
     figure: "mental-rotation-3d-visualization-01"
@@ -46,6 +48,8 @@ questions:
       Hold C as the bottom. A, B, D, and E fold up as side faces. F folds over from E and closes the top.
     approved: true
   - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0002"
+    lesson: lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets
+    keyPoint: 2
     type: "mental-rotation"
     difficulty: "medium"
     figure: "mental-rotation-3d-visualization-02"
@@ -83,6 +87,8 @@ questions:
       Take B as the front face. E folds to the top and F folds to the back. In the row, C folds to the right and D also folds to the back. D and F overlap.
     approved: true
   - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0003"
+    lesson: lesson-spatial-abstract-reasoning-parallel-light-and-solid-shadows
+    keyPoint: 1
     type: "mental-rotation"
     difficulty: "medium"
     stem: |
@@ -103,6 +109,8 @@ questions:
       The rays travel along the cylinder's axis. Its circular top outlines the shadow on the horizontal screen.
     approved: true
   - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0004"
+    lesson: lesson-spatial-abstract-reasoning-parallel-light-and-solid-shadows
+    keyPoint: 1
     type: "mental-rotation"
     difficulty: "medium"
     stem: |
@@ -123,6 +131,8 @@ questions:
       Viewed along the horizontal rays, the cylinder has two straight sides and flat top and bottom edges. The shadow is a rectangle with the cylinder's height and diameter.
     approved: true
   - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0005"
+    lesson: lesson-spatial-abstract-reasoning-parallel-light-and-solid-shadows
+    keyPoint: 1
     type: "mental-rotation"
     difficulty: "medium"
     stem: |
@@ -143,6 +153,8 @@ questions:
       The rays follow the direction perpendicular to the top face. The top face has four equal sides and right angles, so its projection is a square.
     approved: true
   - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0006"
+    lesson: lesson-spatial-abstract-reasoning-parallel-light-and-solid-shadows
+    keyPoint: 1
     type: "mental-rotation"
     difficulty: "medium"
     stem: |
@@ -163,6 +175,8 @@ questions:
       Every view of a sphere along parallel rays has a circular outline. Turning the sphere keeps its radius and shape the same, so the outline stays circular.
     approved: true
   - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0007"
+    lesson: lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets
+    keyPoint: 2
     type: "mental-rotation"
     difficulty: "medium"
     figure: "mental-rotation-3d-visualization-07"
@@ -200,6 +214,8 @@ questions:
       Each fold turns the next face through $90^\circ$. A, B, C, and D wrap around four side directions. E then reaches A's direction and overlaps it.
     approved: true
   - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0008"
+    lesson: lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets
+    keyPoint: 1
     type: "mental-rotation"
     difficulty: "hard"
     figure: "mental-rotation-3d-visualization-08"
@@ -237,6 +253,8 @@ questions:
       A and B fold up from neighboring edges of C. Their free edges meet to form a cube edge.
     approved: true
   - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0009"
+    lesson: lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets
+    keyPoint: 2
     type: "mental-rotation"
     difficulty: "hard"
     figure: "mental-rotation-3d-visualization-09"
@@ -274,6 +292,8 @@ questions:
       A cube needs one square in each of six face directions. Following the folds tests whether every square reaches a different direction without conflict.
     approved: true
   - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0010"
+    lesson: lesson-spatial-abstract-reasoning-parallel-light-and-solid-shadows
+    keyPoint: 1
     type: "mental-rotation"
     difficulty: "hard"
     stem: |
@@ -294,6 +314,8 @@ questions:
       Trace the boundary of the whole cylinder along the rays. From the side, its height and diameter form a rectangular outline. That outline sets the shadow.
     approved: true
   - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0011"
+    lesson: lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets
+    keyPoint: 1
     type: "mental-rotation"
     difficulty: "medium"
     figure: "mental-rotation-3d-visualization-11"
@@ -331,6 +353,8 @@ questions:
       Hold C still and fold E into a side face. F folds over to the face opposite C. Opposite faces stay opposite when the cube turns, so with F at the bottom, C is at the top.
     approved: true
   - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0012"
+    lesson: lesson-spatial-abstract-reasoning-parallel-light-and-solid-shadows
+    keyPoint: 1
     type: "mental-rotation"
     difficulty: "medium"
     stem: |
@@ -351,6 +375,8 @@ questions:
       From above, the cone's circular base defines the outer outline. From the side, the outline runs from the base's ends to the tip and forms a triangle.
     approved: true
   - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0013"
+    lesson: lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets
+    keyPoint: 1
     type: "mental-rotation"
     difficulty: "hard"
     figure: "mental-rotation-3d-visualization-13"
@@ -388,6 +414,8 @@ questions:
       C is the center, and F folds over to face it. A and E rise from opposite edges of C, so they face each other. B and D rise from the other opposite edges and also face each other.
     approved: true
   - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0014"
+    lesson: lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets
+    keyPoint: 1
     type: "mental-rotation"
     difficulty: "exam"
     figure: "mental-rotation-3d-visualization-14"
@@ -425,6 +453,8 @@ questions:
       C becomes the bottom. D folds up at its right edge, and F folds across to the top. The cube's top view has four equal sides and right angles, so its shadow is a square.
     approved: true
   - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0015"
+    lesson: lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets
+    keyPoint: 1
     type: "mental-rotation"
     difficulty: "easy"
     figure: "mental-rotation-3d-visualization-15"
@@ -462,6 +492,8 @@ questions:
       A, B, C, and D wrap around the side of the cube. E closes one end and F closes the other. The two end faces are opposite.
     approved: false
   - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0016"
+    lesson: lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets
+    keyPoint: 2
     type: "mental-rotation"
     difficulty: "medium"
     figure: "mental-rotation-3d-visualization-16"
@@ -499,6 +531,8 @@ questions:
       A through D wrap around four side directions. E and F attach above the strip and both fold toward the same end of the cube. They overlap and leave the other end open.
     approved: false
   - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0017"
+    lesson: lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets
+    keyPoint: 1
     type: "mental-rotation"
     difficulty: "hard"
     figure: "mental-rotation-3d-visualization-17"
@@ -536,6 +570,8 @@ questions:
       Hold A as the top. B folds down from A. C turns from B to another side, and D folds from C to the bottom. D faces across the cube from A.
     approved: false
   - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0018"
+    lesson: lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets
+    keyPoint: 1
     type: "mental-rotation"
     difficulty: "hard"
     figure: "mental-rotation-3d-visualization-18"
@@ -573,6 +609,8 @@ questions:
       F is opposite C in this net. Turning the folded cube to place C at the front puts F at the back.
     approved: false
   - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0019"
+    lesson: lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets
+    keyPoint: 1
     type: "mental-rotation"
     difficulty: "exam"
     figure: "mental-rotation-3d-visualization-19"
@@ -610,6 +648,8 @@ questions:
       The row B, C, D, E forms four side faces. A and F close opposite ends. A can meet the neighboring side faces B and C at one corner.
     approved: false
   - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0020"
+    lesson: lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets
+    keyPoint: 1
     type: "mental-rotation"
     difficulty: "exam"
     figure: "mental-rotation-3d-visualization-20"

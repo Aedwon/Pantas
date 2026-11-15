@@ -7,7 +7,7 @@ topic: "topic-spatial-abstract-reasoning"
 isActive: true
 part: 1
 partCount: 4
-ordering: 4.2
+ordering: 11
 keyPoints:
   - "Unfold in reverse order and reflect cuts across each fold."
 ---

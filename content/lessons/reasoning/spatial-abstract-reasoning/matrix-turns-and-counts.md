@@ -7,7 +7,7 @@ topic: "topic-spatial-abstract-reasoning"
 isActive: true
 part: 1
 partCount: 4
-ordering: 1.2
+ordering: 7
 keyPoints:
   - "Track a whole figure and its details through a turn."
   - "Check dot counts across rows and down columns."

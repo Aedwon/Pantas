@@ -7,7 +7,7 @@ topic: "topic-logical-verbal-reasoning"
 isActive: true
 part: 2
 partCount: 3
-ordering: 402
+ordering: 12
 keyPoints:
   - "Identify the only false conditional case."
 ---

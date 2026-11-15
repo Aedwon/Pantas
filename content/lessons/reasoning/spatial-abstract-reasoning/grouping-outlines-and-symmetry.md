@@ -7,7 +7,7 @@ topic: "topic-spatial-abstract-reasoning"
 isActive: true
 part: 1
 partCount: 3
-ordering: 0.25
+ordering: 4
 keyPoints:
   - "Group figures by side count and straight or curved outlines."
   - "Check whether figures have matching halves."

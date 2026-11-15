@@ -7,7 +7,7 @@ topic: "topic-logical-verbal-reasoning"
 isActive: true
 part: 4
 partCount: 4
-ordering: 304
+ordering: 10
 keyPoints:
   - "Use alphabet positions and wraparound."
   - "Recognize word-group and spelling patterns."

@@ -7,7 +7,7 @@ topic: "topic-logical-verbal-reasoning"
 isActive: true
 part: 3
 partCount: 3
-ordering: 103
+ordering: 3
 keyPoints:
   - "Recognize affirming the consequent."
   - "Recognize denying the antecedent."

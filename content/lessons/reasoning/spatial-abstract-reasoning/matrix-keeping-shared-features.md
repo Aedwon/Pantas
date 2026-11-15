@@ -7,7 +7,7 @@ topic: "topic-spatial-abstract-reasoning"
 isActive: true
 part: 4
 partCount: 4
-ordering: 1.8
+ordering: 10
 keyPoints:
   - "Keep only features shared by both starting cells."
 ---

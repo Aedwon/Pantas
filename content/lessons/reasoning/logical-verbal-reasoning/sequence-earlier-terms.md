@@ -7,7 +7,7 @@ topic: "topic-logical-verbal-reasoning"
 isActive: true
 part: 3
 partCount: 4
-ordering: 303
+ordering: 9
 keyPoints:
   - "Build a term from earlier terms."
   - "Continue a Fibonacci addition pattern."

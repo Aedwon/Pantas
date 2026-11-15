@@ -7,7 +7,7 @@ topic: "topic-spatial-abstract-reasoning"
 isActive: true
 part: 3
 partCount: 3
-ordering: 3.75
+ordering: 17
 keyPoints:
   - "Find the outline projected along parallel light rays."
 ---

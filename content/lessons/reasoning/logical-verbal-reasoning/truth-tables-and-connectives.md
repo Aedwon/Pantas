@@ -7,7 +7,7 @@ topic: "topic-logical-verbal-reasoning"
 isActive: true
 part: 1
 partCount: 3
-ordering: 401
+ordering: 11
 keyPoints:
   - "List truth-table cases."
   - "Apply the and and inclusive or rules."

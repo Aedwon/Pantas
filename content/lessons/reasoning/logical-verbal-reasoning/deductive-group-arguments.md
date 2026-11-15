@@ -7,7 +7,7 @@ topic: "topic-logical-verbal-reasoning"
 isActive: true
 part: 1
 partCount: 3
-ordering: 101
+ordering: 1
 keyPoints:
   - "Test group conclusions with circles."
   - "Distinguish valid reasoning from sound reasoning."

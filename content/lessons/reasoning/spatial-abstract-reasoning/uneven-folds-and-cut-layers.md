@@ -7,7 +7,7 @@ topic: "topic-spatial-abstract-reasoning"
 isActive: true
 part: 4
 partCount: 4
-ordering: 4.8
+ordering: 14
 keyPoints:
   - "Count only the layers actually reached by a punch."
 ---

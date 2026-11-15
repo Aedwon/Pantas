@@ -7,7 +7,7 @@ topic: "topic-spatial-abstract-reasoning"
 isActive: true
 part: 2
 partCount: 4
-ordering: 4.4
+ordering: 12
 keyPoints:
   - "Recognize when cuts on folds join into one opening."
 ---

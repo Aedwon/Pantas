@@ -7,7 +7,7 @@ topic: "topic-spatial-abstract-reasoning"
 isActive: true
 part: 2
 partCount: 3
-ordering: 3.5
+ordering: 16
 keyPoints:
   - "Fold the full net to find opposite faces."
   - "Reject a net whose squares overlap on a cube face."

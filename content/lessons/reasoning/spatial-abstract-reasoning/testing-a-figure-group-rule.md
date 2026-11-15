@@ -7,7 +7,7 @@ topic: "topic-spatial-abstract-reasoning"
 isActive: true
 part: 3
 partCount: 3
-ordering: 0.75
+ordering: 6
 keyPoints:
   - "Test that a rule includes every figure except one."
 ---

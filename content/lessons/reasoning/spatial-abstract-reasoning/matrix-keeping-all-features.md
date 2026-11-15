@@ -7,7 +7,7 @@ topic: "topic-spatial-abstract-reasoning"
 isActive: true
 part: 3
 partCount: 4
-ordering: 1.6
+ordering: 9
 keyPoints:
   - "Combine all features from the starting cells."
 ---

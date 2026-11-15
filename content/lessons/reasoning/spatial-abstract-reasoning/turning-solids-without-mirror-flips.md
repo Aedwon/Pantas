@@ -7,7 +7,7 @@ topic: "topic-spatial-abstract-reasoning"
 isActive: true
 part: 1
 partCount: 3
-ordering: 3.25
+ordering: 15
 keyPoints:
   - "Track parts together while turning a solid."
   - "Use the order around a corner to detect a mirror flip."

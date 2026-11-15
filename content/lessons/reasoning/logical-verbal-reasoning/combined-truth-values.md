@@ -7,7 +7,7 @@ topic: "topic-logical-verbal-reasoning"
 isActive: true
 part: 3
 partCount: 3
-ordering: 403
+ordering: 13
 keyPoints:
   - "Evaluate grouped expressions from the inside out."
   - "Evaluate negation, including a whole grouped statement."

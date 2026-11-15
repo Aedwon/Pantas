@@ -7,7 +7,7 @@ topic: "topic-logical-verbal-reasoning"
 isActive: true
 part: 2
 partCount: 4
-ordering: 302
+ordering: 8
 keyPoints:
   - "Follow separate odd-position and even-position rules."
   - "Track a repeating cycle of operations."

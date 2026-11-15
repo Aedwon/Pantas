@@ -9,6 +9,8 @@ meta:
     - "cse-pro"
 questions:
   - id: "q-spatial-abstract-reasoning-figure-grouping-0001"
+    lesson: lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry
+    keyPoint: 1
     type: "odd-figure"
     difficulty: "easy"
     figure: "figure-grouping-01"
@@ -37,6 +39,8 @@ questions:
       The square, rectangle, and rhombus each have four sides. The triangle has three sides and breaks that shared count.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0002"
+    lesson: lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry
+    keyPoint: 2
     type: "odd-figure"
     difficulty: "easy"
     figure: "figure-grouping-02"
@@ -65,6 +69,8 @@ questions:
       The circle, square, and equilateral triangle each have an axis along which reflected halves match. The irregular blob has no such axis.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0003"
+    lesson: lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details
+    keyPoint: 1
     type: "odd-figure"
     difficulty: "medium"
     figure: "figure-grouping-03"
@@ -98,6 +104,8 @@ questions:
       The first three circles have lines passing through their centers. The rightmost has lines meeting below its center. It breaks the shared center-crossing rule.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0004"
+    lesson: lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details
+    keyPoint: 2
     type: "odd-figure"
     difficulty: "medium"
     figure: "figure-grouping-04"
@@ -132,6 +140,8 @@ questions:
       The square, triangle, circle, and pentagon each contain one dot. The hexagon contains two dots and breaks that shared count.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0005"
+    lesson: lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry
+    keyPoint: 1
     type: "odd-figure"
     difficulty: "medium"
     figure: "figure-grouping-05"
@@ -160,6 +170,8 @@ questions:
       The square, triangle, and rectangle have only straight boundary segments. The circle has a curved boundary.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0006"
+    lesson: lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry
+    keyPoint: 1
     type: "odd-figure"
     difficulty: "medium"
     figure: "figure-grouping-06"
@@ -188,6 +200,8 @@ questions:
       The first, second, and fourth figures are pentagons with five sides. The third is a hexagon with six sides.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0007"
+    lesson: lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry
+    keyPoint: 2
     type: "odd-figure"
     difficulty: "medium"
     figure: "figure-grouping-07"
@@ -221,6 +235,8 @@ questions:
       The first square has a radial line at 30 degrees, which is not one of the square's reflection axes. The other figures each preserve a vertical or diagonal axis through their marks. The first complete figure therefore lacks reflection symmetry.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0008"
+    lesson: lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry
+    keyPoint: 1
     type: "odd-figure"
     difficulty: "medium"
     figure: "figure-grouping-08"
@@ -249,6 +265,8 @@ questions:
       Rotation does not change side count. The first three outlines each have four sides. The rightmost triangle has three.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0009"
+    lesson: lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details
+    keyPoint: 2
     type: "odd-figure"
     difficulty: "medium"
     figure: "figure-grouping-09"
@@ -281,6 +299,8 @@ questions:
       The first three circles have two internal lines each. The rightmost has one. It breaks the common line-count rule.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0010"
+    lesson: lesson-spatial-abstract-reasoning-testing-a-figure-group-rule
+    keyPoint: 1
     type: "odd-figure"
     difficulty: "medium"
     figure: "figure-grouping-10"
@@ -309,6 +329,8 @@ questions:
       The first three figures are triangles. Each has three sides. That shared count separates them from the four-sided rhombus.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0011"
+    lesson: lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details
+    keyPoint: 2
     type: "odd-figure"
     difficulty: "medium"
     figure: "figure-grouping-11"
@@ -344,6 +366,8 @@ questions:
       The first four figures have black fill. The rightmost circle has white fill. It breaks the shared fill state.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0012"
+    lesson: lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details
+    keyPoint: 1
     type: "odd-figure"
     difficulty: "medium"
     figure: "figure-grouping-12"
@@ -376,6 +400,8 @@ questions:
       One, two, and three distinct lines through the center create two, four, and six regions. The uncut rightmost circle has one region. One is odd, so it breaks the even-region rule.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0013"
+    lesson: lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry
+    keyPoint: 1
     type: "odd-figure"
     difficulty: "medium"
     figure: "figure-grouping-13"
@@ -404,6 +430,8 @@ questions:
       The square, rectangle, and hexagon have four, four, and six sides. These are even counts. The pentagon has five sides, an odd count.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0014"
+    lesson: lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details
+    keyPoint: 2
     type: "odd-figure"
     difficulty: "medium"
     figure: "figure-grouping-14"
@@ -437,6 +465,8 @@ questions:
       The square, circle, and pentagon all have upward arrows. The triangle has a downward arrow. Its internal direction breaks the shared rule.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0015"
+    lesson: lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details
+    keyPoint: 2
     type: "odd-figure"
     difficulty: "easy"
     figure: "figure-grouping-15"
@@ -469,6 +499,8 @@ questions:
       The square, rectangle, and hexagon contain two, four, and two dots. Each count is even. The circle contains three dots, an odd count.
     approved: false
   - id: "q-spatial-abstract-reasoning-figure-grouping-0016"
+    lesson: lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details
+    keyPoint: 2
     type: "odd-figure"
     difficulty: "medium"
     figure: "figure-grouping-16"
@@ -502,6 +534,8 @@ questions:
       The first, second, and fourth rays point up, right, and down. Each direction is parallel to a side of its square. The third ray points diagonally and breaks that rule.
     approved: false
   - id: "q-spatial-abstract-reasoning-figure-grouping-0017"
+    lesson: lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry
+    keyPoint: 1
     type: "odd-figure"
     difficulty: "hard"
     figure: "figure-grouping-17"
@@ -530,6 +564,8 @@ questions:
       The other outlines are polygons made of straight segments. A hexagon also has only straight segments. Replacing the circle with a hexagon therefore makes the boundary rule hold for every outline.
     approved: false
   - id: "q-spatial-abstract-reasoning-figure-grouping-0018"
+    lesson: lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details
+    keyPoint: 2
     type: "odd-figure"
     difficulty: "hard"
     figure: "figure-grouping-18"
@@ -562,6 +598,8 @@ questions:
       The square, rectangle, and hexagon have four sides with two dots, four with two, and six with three. Each side count is twice the dot count. The triangle has three sides and two dots, so it breaks the relation.
     approved: false
   - id: "q-spatial-abstract-reasoning-figure-grouping-0019"
+    lesson: lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details
+    keyPoint: 2
     type: "odd-figure"
     difficulty: "exam"
     figure: "figure-grouping-19"
@@ -599,6 +637,8 @@ questions:
       The first, second, and fourth squares have matching dot and edge-line counts: one and one, two and two, three and three. The third has two dots and three edge lines. Its counts differ.
     approved: false
   - id: "q-spatial-abstract-reasoning-figure-grouping-0020"
+    lesson: lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details
+    keyPoint: 2
     type: "odd-figure"
     difficulty: "exam"
     figure: "figure-grouping-20"

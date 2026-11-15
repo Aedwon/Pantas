@@ -7,7 +7,7 @@ topic: "topic-logical-verbal-reasoning"
 isActive: true
 part: 1
 partCount: 3
-ordering: 201
+ordering: 4
 keyPoints:
   - "Match part-to-whole and category relationships."
   - "Match cause-or-product relationships."

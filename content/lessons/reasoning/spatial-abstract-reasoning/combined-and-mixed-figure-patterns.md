@@ -7,7 +7,7 @@ topic: "topic-spatial-abstract-reasoning"
 isActive: true
 part: 3
 partCount: 3
-ordering: 2.75
+ordering: 3
 keyPoints:
   - "Check every changing feature against the answer choices."
   - "Separate odd and even positions into their own patterns."

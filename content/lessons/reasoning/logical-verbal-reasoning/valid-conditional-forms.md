@@ -7,7 +7,7 @@ topic: "topic-logical-verbal-reasoning"
 isActive: true
 part: 2
 partCount: 3
-ordering: 102
+ordering: 2
 keyPoints:
   - "Use modus ponens and modus tollens."
   - "Follow a conditional chain."

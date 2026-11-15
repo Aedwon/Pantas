@@ -7,7 +7,7 @@ topic: "topic-spatial-abstract-reasoning"
 isActive: true
 part: 1
 partCount: 3
-ordering: 2.25
+ordering: 1
 keyPoints:
   - "Continue side and dot counts."
   - "Continue a repeating fill pattern."

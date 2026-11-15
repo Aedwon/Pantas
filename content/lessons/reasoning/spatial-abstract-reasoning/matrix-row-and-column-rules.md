@@ -7,7 +7,7 @@ topic: "topic-spatial-abstract-reasoning"
 isActive: true
 part: 2
 partCount: 4
-ordering: 1.4
+ordering: 8
 keyPoints:
   - "Use row and column rules together to find a missing figure."
 ---

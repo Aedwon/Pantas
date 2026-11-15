@@ -7,7 +7,7 @@ topic: "topic-spatial-abstract-reasoning"
 isActive: true
 part: 3
 partCount: 4
-ordering: 4.6
+ordering: 13
 keyPoints:
   - "Count separate holes only when the punch reaches all doubled layers."
 ---

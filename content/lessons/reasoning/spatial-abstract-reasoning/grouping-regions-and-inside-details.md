@@ -7,7 +7,7 @@ topic: "topic-spatial-abstract-reasoning"
 isActive: true
 part: 2
 partCount: 3
-ordering: 0.5
+ordering: 5
 keyPoints:
   - "Count enclosed regions from the actual line arrangement."
   - "Compare dots and other details inside the outlines."

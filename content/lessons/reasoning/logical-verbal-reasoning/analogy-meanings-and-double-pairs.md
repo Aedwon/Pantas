@@ -7,7 +7,7 @@ topic: "topic-logical-verbal-reasoning"
 isActive: true
 part: 3
 partCount: 3
-ordering: 203
+ordering: 6
 keyPoints:
   - "Match near-synonyms, opposites, and changes in degree."
   - "Check both relationships in a double analogy."

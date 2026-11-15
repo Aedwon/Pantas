@@ -7,7 +7,7 @@ topic: "topic-spatial-abstract-reasoning"
 isActive: true
 part: 2
 partCount: 3
-ordering: 2.5
+ordering: 2
 keyPoints:
   - "Track turn direction and compare the size of each turn."
   - "Track a moving detail through its positions."

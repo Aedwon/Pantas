@@ -7,7 +7,7 @@ topic: "topic-logical-verbal-reasoning"
 isActive: true
 part: 1
 partCount: 4
-ordering: 301
+ordering: 7
 keyPoints:
   - "Find a constant difference or ratio."
   - "Continue a pattern of changing differences."

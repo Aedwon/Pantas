@@ -7,7 +7,7 @@ topic: "topic-logical-verbal-reasoning"
 isActive: true
 part: 2
 partCount: 3
-ordering: 202
+ordering: 5
 keyPoints:
   - "Match functions and user-tool relationships."
   - "Match roles and work in the stated direction."

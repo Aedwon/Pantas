@@ -5,6 +5,8 @@ meta:
   exams: [ acet, ustet, dost-sei , cse-pro]
 questions:
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0001
+    lesson: lesson-logical-verbal-reasoning-deductive-group-arguments
+    keyPoint: 1
     type: syllogism
     difficulty: easy
     stem: |
@@ -27,6 +29,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0002
+    lesson: lesson-logical-verbal-reasoning-deductive-group-arguments
+    keyPoint: 1
     type: syllogism
     difficulty: easy
     stem: |
@@ -49,6 +53,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0003
+    lesson: lesson-logical-verbal-reasoning-invalid-conditional-forms
+    keyPoint: 1
     type: syllogism
     difficulty: medium
     stem: |
@@ -71,6 +77,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0004
+    lesson: lesson-logical-verbal-reasoning-invalid-conditional-forms
+    keyPoint: 2
     type: syllogism
     difficulty: medium
     stem: |
@@ -93,6 +101,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0005
+    lesson: lesson-logical-verbal-reasoning-valid-conditional-forms
+    keyPoint: 1
     type: syllogism
     difficulty: medium
     stem: |
@@ -114,6 +124,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0006
+    lesson: lesson-logical-verbal-reasoning-valid-conditional-forms
+    keyPoint: 1
     type: syllogism
     difficulty: medium
     stem: |
@@ -136,6 +148,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0007
+    lesson: lesson-logical-verbal-reasoning-deductive-group-arguments
+    keyPoint: 2
     type: syllogism
     difficulty: hard
     stem: |
@@ -158,6 +172,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0008
+    lesson: lesson-logical-verbal-reasoning-deductive-group-arguments
+    keyPoint: 2
     type: syllogism
     difficulty: hard
     stem: |
@@ -179,6 +195,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0009
+    lesson: lesson-logical-verbal-reasoning-invalid-conditional-forms
+    keyPoint: 1
     type: syllogism
     difficulty: hard
     stem: |
@@ -200,6 +218,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0010
+    lesson: lesson-logical-verbal-reasoning-deductive-group-arguments
+    keyPoint: 2
     type: syllogism
     difficulty: hard
     stem: |
@@ -221,6 +241,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0011
+    lesson: lesson-logical-verbal-reasoning-deductive-group-arguments
+    keyPoint: 1
     type: syllogism
     difficulty: medium
     stem: |
@@ -243,6 +265,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0012
+    lesson: lesson-logical-verbal-reasoning-valid-conditional-forms
+    keyPoint: 1
     type: syllogism
     difficulty: medium
     stem: |
@@ -264,6 +288,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0013
+    lesson: lesson-logical-verbal-reasoning-valid-conditional-forms
+    keyPoint: 1
     type: syllogism
     difficulty: medium
     stem: |
@@ -286,6 +312,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0014
+    lesson: lesson-logical-verbal-reasoning-deductive-group-arguments
+    keyPoint: 1
     type: syllogism
     difficulty: hard
     stem: |
@@ -307,6 +335,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0015
+    lesson: lesson-logical-verbal-reasoning-deductive-group-arguments
+    keyPoint: 1
     type: syllogism
     difficulty: hard
     stem: |
@@ -328,6 +358,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0016
+    lesson: lesson-logical-verbal-reasoning-deductive-group-arguments
+    keyPoint: 1
     type: syllogism
     difficulty: exam
     stem: |
@@ -349,6 +381,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0017
+    lesson: lesson-logical-verbal-reasoning-valid-conditional-forms
+    keyPoint: 2
     type: syllogism
     difficulty: hard
     stem: |
@@ -370,6 +404,8 @@ questions:
     approved: false
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0018
+    lesson: lesson-logical-verbal-reasoning-valid-conditional-forms
+    keyPoint: 3
     type: syllogism
     difficulty: hard
     stem: |
@@ -391,6 +427,8 @@ questions:
     approved: false
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0019
+    lesson: lesson-logical-verbal-reasoning-deductive-group-arguments
+    keyPoint: 1
     type: syllogism
     difficulty: exam
     stem: |
@@ -412,6 +450,8 @@ questions:
     approved: false
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0020
+    lesson: lesson-logical-verbal-reasoning-valid-conditional-forms
+    keyPoint: 2
     type: syllogism
     difficulty: exam
     stem: |

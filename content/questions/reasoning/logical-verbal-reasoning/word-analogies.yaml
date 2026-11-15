@@ -5,6 +5,8 @@ meta:
   exams: [ acet, ustet, dost-sei , cse-pro]
 questions:
   - id: q-logical-verbal-reasoning-word-analogies-0001
+    lesson: lesson-logical-verbal-reasoning-analogy-functions-users-and-work
+    keyPoint: 1
     type: analogy
     difficulty: easy
     stem: |
@@ -26,6 +28,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0002
+    lesson: lesson-logical-verbal-reasoning-analogy-functions-users-and-work
+    keyPoint: 2
     type: analogy
     difficulty: easy
     stem: |
@@ -47,6 +51,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0003
+    lesson: lesson-logical-verbal-reasoning-analogy-parts-types-and-products
+    keyPoint: 1
     type: analogy
     difficulty: medium
     stem: |
@@ -68,6 +74,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0004
+    lesson: lesson-logical-verbal-reasoning-analogy-parts-types-and-products
+    keyPoint: 1
     type: analogy
     difficulty: medium
     stem: |
@@ -89,6 +97,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0005
+    lesson: lesson-logical-verbal-reasoning-analogy-parts-types-and-products
+    keyPoint: 2
     type: analogy
     difficulty: medium
     stem: |
@@ -110,6 +120,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0006
+    lesson: lesson-logical-verbal-reasoning-analogy-meanings-and-double-pairs
+    keyPoint: 1
     type: analogy
     difficulty: medium
     stem: |
@@ -131,6 +143,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0007
+    lesson: lesson-logical-verbal-reasoning-analogy-meanings-and-double-pairs
+    keyPoint: 1
     type: analogy
     difficulty: medium
     stem: |
@@ -152,6 +166,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0008
+    lesson: lesson-logical-verbal-reasoning-analogy-meanings-and-double-pairs
+    keyPoint: 1
     type: analogy
     difficulty: medium
     stem: |
@@ -173,6 +189,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0009
+    lesson: lesson-logical-verbal-reasoning-analogy-functions-users-and-work
+    keyPoint: 1
     type: analogy
     difficulty: medium
     stem: |
@@ -194,6 +212,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0010
+    lesson: lesson-logical-verbal-reasoning-analogy-functions-users-and-work
+    keyPoint: 1
     type: analogy
     difficulty: hard
     stem: |
@@ -215,6 +235,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0011
+    lesson: lesson-logical-verbal-reasoning-analogy-functions-users-and-work
+    keyPoint: 1
     type: analogy
     difficulty: hard
     stem: |
@@ -236,6 +258,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0012
+    lesson: lesson-logical-verbal-reasoning-analogy-functions-users-and-work
+    keyPoint: 2
     type: analogy
     difficulty: hard
     stem: |
@@ -257,6 +281,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0013
+    lesson: lesson-logical-verbal-reasoning-analogy-parts-types-and-products
+    keyPoint: 1
     type: analogy
     difficulty: medium
     stem: |
@@ -278,6 +304,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0014
+    lesson: lesson-logical-verbal-reasoning-analogy-parts-types-and-products
+    keyPoint: 1
     type: analogy
     difficulty: medium
     stem: |
@@ -299,6 +327,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0015
+    lesson: lesson-logical-verbal-reasoning-analogy-meanings-and-double-pairs
+    keyPoint: 2
     type: analogy
     difficulty: hard
     stem: |
@@ -320,6 +350,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0016
+    lesson: lesson-logical-verbal-reasoning-analogy-meanings-and-double-pairs
+    keyPoint: 2
     type: analogy
     difficulty: exam
     stem: |
@@ -341,6 +373,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0017
+    lesson: lesson-logical-verbal-reasoning-analogy-meanings-and-double-pairs
+    keyPoint: 1
     type: analogy
     difficulty: easy
     stem: |
@@ -362,6 +396,8 @@ questions:
     approved: false
 
   - id: q-logical-verbal-reasoning-word-analogies-0018
+    lesson: lesson-logical-verbal-reasoning-analogy-parts-types-and-products
+    keyPoint: 2
     type: analogy
     difficulty: medium
     stem: |
@@ -383,6 +419,8 @@ questions:
     approved: false
 
   - id: q-logical-verbal-reasoning-word-analogies-0019
+    lesson: lesson-logical-verbal-reasoning-analogy-meanings-and-double-pairs
+    keyPoint: 2
     type: analogy
     difficulty: hard
     stem: |
@@ -404,6 +442,8 @@ questions:
     approved: false
 
   - id: q-logical-verbal-reasoning-word-analogies-0020
+    lesson: lesson-logical-verbal-reasoning-analogy-parts-types-and-products
+    keyPoint: 1
     type: analogy
     difficulty: exam
     stem: |
