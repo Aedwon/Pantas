@@ -77,7 +77,68 @@ pass 15, retire or merge one first.
    outside the repository. Each send script must refuse a real send without a recorded
    self-test of the same email version.
 
+7. Only real users may cost money. Testing, staging, CI, journeys, proofs, scheduled
+   jobs, secrets, stored images, backups, logs, alarms and every other fixed or
+   housekeeping item must stay inside Google's and Cloudflare's free tiers, counted per
+   billing account across pantas-prod and pantas-staging together. Before any change that
+   adds or keeps such an item (a scheduled job, a secret version, a minimum instance, a
+   backup, a new API or service, a test that hits a hosted project), the agent counts it
+   against the free tier and does not ship it if the account would go over. If it already
+   bills, it is a defect to fix at once, not a cost to accept. His words (Nov 15): "that is absurd, i should never have been billed in the first place with just testing traffic and scheduled jobs. make this a strict standing rule. this should never happen again. the only thing that should bill us is due to users, and that's justifiable and by then we should be already able to cover the costs. i am disappointed." This rule retires when the free-tier
+   check (see the entry below) covers every item.
+
+8. Emails to testers and users follow the shape of Aedwon's own Nov 15 rewrite. Subject:
+   a short plain label ("Pantas beta extension"), no claim. Body: a greeting, then two or
+   three short sentences in a plain, friendly "we" voice (contractions are fine): what
+   changed, what the reader must do, with their own number when we have it ("You still
+   need to complete 4 days by then"). One button. No bullet lists, no sign-off ("The
+   Pantas team"), no repeated facts, no extra links, no offer words ("reward", "free",
+   "1 year of Pro"), which also sent a version to Gmail Promotions. Dates in full with
+   the weekday: "November 22 (Sun)". Draft to this shape before the self-test (rule 6),
+   not after his complaint. His words (Nov 15): "but i think now it's too long. same
+   cuts, unnecessary info out", "i think this is too long. make it more concise, too many
+   words here.", "tsk terrible", then his own text, then "lgtm send them out please, and
+   note my preference on email wording/structure/tone/whatever". No check can judge tone
+   or length well enough; the self-test is where he sees it.
+
+9. Once the app is open to the public, every change to what Pantas collects about users,
+   why, how long it keeps it, or who receives it goes out by email to every affected user
+   before the change takes effect. For an under-18 user, the email goes to the guardian too.
+   The in-app notice is not a substitute. The email follows rules 6 and 8, and its legal
+   text follows rule 5. During the closed beta, Aedwon may tell testers himself instead.
+   He did this for screen counts on Nov 15. His words (Nov 15): "i already told the testers personally. you can skip this, but make it of record that changes to privacy should come with an email. this is industry practice correct? we'll do this strictly when the app has opened". No check can tell when a code change alters
+   collection. The lead building such a change flags it in its handoff, and the manager
+   holds the prod "ship it" until the email has gone.
+
 ## Entries
+
+### Beta extension email drafts too long and too formal (Nov 15)
+
+- His words: "but i think now it's too long. same cuts, unnecessary info out", "i think this is too long. make it more concise, too many words here.", "\"The Pantas team\" is this in other emails we sent? if not, remove it", "tsk terrible", then he wrote the email himself.
+- Wrong: four drafts (an approved text in the newsletter template, a rephrase, a shorter one, a tightened one) each carried more than the reader needed: perk lists, Pro dates, links to the guide, a team sign-off no earlier email used, and instruction sentences of 20 words or more. The first also landed in Gmail Promotions.
+- Why it got through: drafts started from the facts to cover, not from what one tester must do next, and each round trimmed instead of rewriting.
+- Fix: written rule 8 (his rewrite is the model). The monitor's send script also refuses a recipient its wording does not cover (for example a tester who already has 5 days).
+
+### Manager waited to be asked instead of acting in his interest (Nov 15)
+
+- His words: "do your job more proactively. it should be in my best interests always. that includes my interests for peak user experience decisions"
+- Wrong: the manager relayed and reported but did not go looking. Several problems sat open until Aedwon or a lead found them: fixed costs billing with no users, the beta gate's built-in end date (found by chance while preparing the extension), the exit survey reachable only from Settings (0 of 19 replies), medium tester-facing bugs in the beta digest with no fix in flight, and a tester email that landed in Promotions.
+- Why it got through: the manager's checklist covers what leads report, not what nobody has looked at. No step asked "what is costing him money, hurting users, or about to break on a date?"
+- Fix (a required step for the operations manager): at takeover, at each scheduled event, and at least daily while lanes run, sweep three things and start a fix for each finding without waiting to be asked (through a lead, with a Fable 5.2 ruling where a decision is needed; prod still needs his "ship it"):
+  1. Cost: anything billing without users (written rule 7).
+  2. Users: every open medium or higher item in the beta digest and tester feedback has an owner and a fix in flight. UX decisions aim at the best experience, following the approved boards and his rulings from use.
+  3. Dates: hardcoded dates, expiries, quotas and scheduled cutoffs in code, config and schedules within the next 14 days.
+  Tell him what was found and started, in one line each.
+
+### Billed for test traffic and scheduled jobs (Nov 15)
+
+- His words: "that is absurd, i should never have been billed in the first place with just testing traffic and scheduled jobs. make this a strict standing rule. this should never happen again. the only thing that should bill us is due to users, and that's justifiable and by then we should be already able to cover the costs. i am disappointed. as the operations manager please make sure these things don't happen again. then you also have the prerogative to consult fable, and do other necessary checks that would lead to this same situation"
+- Wrong: November to Nov 14 billed $0.22 after credits, none of it from users. Cloud Scheduler billed $0.16 (18 jobs across both projects against 3 free per billing account; paused jobs still count). Staging Hosting egress from journeys and proofs billed $0.04. About $0.02 was unattributed (App Engine $0.01 and $0.01 unknown).
+- Why it got through: each lane added scheduled jobs, secrets and staging traffic on its own and priced them as "a few cents a month". No step counted fixed items against the shared free tier, and the Nov 12 approval asked for "a few cents" instead of $0. The cost review ran only after the bill existed.
+- Fix:
+  1. Written rule 7 above, in force now.
+  2. Check (owner: the security fixes and billing cap lead): a free-tier check that fails when the non-user items on the billing account exceed the free tier. It counts scheduler jobs, active secret versions, minimum instances, stored images, Hosting storage and staging egress, backups, enabled paid APIs and alarm references. It runs in CI against the repository's deploy config, and monthly against the live projects. It must be shown failing on the Nov 14 state (18 jobs) first.
+  3. Required step: a full audit of every non-user cost source on both projects, with a Fable 5.2 ruling on each fix, before the check is called done.
 
 ### Inline quiz results missed the update safe point (Nov 14)
 
@@ -337,3 +398,11 @@ the current decision log.
 - Fix: a check. `functions/src/scheduleGate.ts` throws during discovery for pantas-prod or pantas-staging when the project's `.env` file is missing, naming the pinned CLI; tests in `functions/test/scheduled-gating.test.mjs` (failing first). Required step: functions deploys use `npx --prefix functions firebase deploy`.
 
 - Nov 15 (manager): when Aedwon sets a multi-item goal, give an overall estimate at once and log it in the velocity log before work starts (E-080 had none until he asked). Back every timed lead step (cutovers, watches, staged rollouts) with a durable T3 scheduled reminder, because in-session timers die with the session; the Nov 14 18:07 Cloudflare cutover slipped 30 minutes without one.
+
+### Nov 15, 2026: a merge went to main with red CI
+
+- Words: none; found by the DS4 lead.
+- Wrong: the deploy-guard branch was merged to main (88aee3378) while its CI had failed (a test pinned the old functions predeploy string).
+- Why: the merge step grepped the whole wait-loop output for "CI completed success", which matched a line from an earlier poll; a later wait loop also used a short SHA, which `gh run list --commit` does not match.
+- Fix: before any merge, read the CI conclusion directly with the full SHA (`gh run list --commit <full sha> --json name,conclusion -q '.[]|select(.name=="CI").conclusion'` must equal `success`). Main was fixed forward within 30 minutes (a01635b22, CI green); nothing was deployed from the red commit.
+

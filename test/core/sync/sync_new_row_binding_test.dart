@@ -113,7 +113,11 @@ class _Device {
 
 class _ClaimYes implements SyncClaimGateway {
   @override
-  Future<bool> refreshProClaim({required String uid}) async => true;
+  Future<bool> refreshProClaim({
+    required String uid,
+    bool force = true,
+  }) async =>
+      true;
 }
 
 class _NoCoordinator implements SyncCoordinator {

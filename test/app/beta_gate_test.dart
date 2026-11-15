@@ -14,7 +14,7 @@ import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 
 void main() {
-  test('gate requires web and the build flag until Manila midnight', () {
+  test('gate requires web and the build flag, with no end date', () {
     final before = DateTime.parse('2026-11-15T15:59:59Z');
     expect(
       betaGateIsActive(enabled: true, web: true, now: before),
@@ -28,14 +28,19 @@ void main() {
       betaGateIsActive(enabled: true, web: false, now: before),
       isFalse,
     );
-    expect(
-      betaGateIsActive(
-        enabled: true,
-        web: true,
-        now: DateTime.parse('2026-11-15T16:00:00Z'),
-      ),
-      isFalse,
-    );
+    // The gate stays on past the original beta end until it is turned off on
+    // purpose at public launch (Fable ruling, Nov 15).
+    for (final later in [
+      '2026-11-15T16:00:00Z',
+      '2026-11-23T00:00:00Z',
+      '2027-06-01T00:00:00Z',
+    ]) {
+      expect(
+        betaGateIsActive(enabled: true, web: true, now: DateTime.parse(later)),
+        isTrue,
+        reason: later,
+      );
+    }
   });
 
   final now = DateTime.utc(2026, 11, 8, 12);

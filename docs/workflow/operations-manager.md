@@ -147,6 +147,14 @@ These are Aedwon's standing instructions. They apply until he changes them.
   (`tool/velocity/timer.py`). Actuals come only from the timer's output. Status reports carry a
   time estimate.
 - Check every lead's latest report each time Aedwon writes, and relay results when they land.
+- Only real users may cost money (Aedwon, Nov 15: "the only thing that should bill us is due to
+  users"). Testing, staging, scheduled jobs, secrets and every other fixed item stay inside the free
+  tiers, counted per billing account. Before relaying or approving any change that adds such an
+  item, ask the lead for its free-tier count. Written rule 7 in `process-improvement.md`.
+- Act in his interest without being asked (Aedwon, Nov 15: "do your job more proactively. it should be
+  in my best interests always. that includes my interests for peak user experience decisions"). At
+  takeover, at each scheduled event, and at least daily while lanes run, sweep cost, users and dates,
+  and start a fix for every finding (the Nov 15 entry in `process-improvement.md` lists the sweep).
 - Replies to Aedwon: under 150 words, plain words, decisions with costs and a recommendation, files
   as clickable links.
 

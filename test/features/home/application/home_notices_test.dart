@@ -4,6 +4,7 @@ import 'package:pantas/app/screen_counts_providers.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/telemetry/screen_counts_notice.dart';
+import 'package:pantas/features/beta_feedback/application/beta_feedback_providers.dart';
 import 'package:pantas/features/home/application/home_notices.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/home/application/web_study_seam.dart';
@@ -35,16 +36,29 @@ void main() {
         studyUsesServerProvider.overrideWithValue(true),
         currentStudyCoverageProvider.overrideWithValue(false),
         webTrialEndsAtProvider.overrideWith((_) async => null),
+        betaRewardProvider.overrideWith((_) async => null),
       ],
     );
     addTearDown(scope.dispose);
+    // Home keeps this provider watched; hold it too, so it is not disposed
+    // while the beta status loads.
+    scope.listen(homeNoticeProvider, (_, __) {});
     final notice = await scope.read(homeNoticeProvider.future);
     expect(notice?.kind, isNot(HomeNoticeKind.welcome));
   });
 
   test(
-      'notice priority is service, screen counts, trial, welcome, no date, '
-      'month only', () {
+      'notice priority is service, screen counts, beta, trial, welcome, '
+      'no date, month only', () {
+    expect(HomeNoticeKind.values, [
+      HomeNoticeKind.service,
+      HomeNoticeKind.screenCounts,
+      HomeNoticeKind.beta,
+      HomeNoticeKind.trial,
+      HomeNoticeKind.welcome,
+      HomeNoticeKind.noDate,
+      HomeNoticeKind.monthOnly,
+    ]);
     final candidates = [
       for (final kind in HomeNoticeKind.values.reversed) notice(kind),
     ];
@@ -195,9 +209,13 @@ void main() {
           studyUsesServerProvider.overrideWithValue(web),
           currentStudyCoverageProvider.overrideWithValue(false),
           webTrialEndsAtProvider.overrideWith((_) async => null),
+          betaRewardProvider.overrideWith((_) async => null),
         ],
       );
       addTearDown(container.dispose);
+      // Home's notice waits on the beta reward too; a listener keeps the
+      // auto-dispose provider alive while it loads.
+      container.listen(homeNoticeProvider, (_, __) {});
       return container;
     }
 

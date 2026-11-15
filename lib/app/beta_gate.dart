@@ -13,14 +13,16 @@ import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 
-final betaGateCutoff = DateTime.utc(2026, 11, 15, 16);
-
+/// The gate has no end date. It stays on for web builds made with
+/// BETA_GATE=true until a build turns it off on purpose at public launch
+/// (Fable ruling under Aedwon's delegation, Nov 15, 2026). [now] is kept so
+/// callers and tests read the same at any time.
 bool betaGateIsActive({
   required bool enabled,
   required bool web,
   required DateTime now,
 }) =>
-    enabled && web && now.isBefore(betaGateCutoff);
+    enabled && web;
 
 final betaGateStatusProvider = Provider<AsyncValue<BetaAccess>>((ref) {
   if (!ref.watch(betaGateActiveProvider)) {
@@ -34,12 +36,7 @@ final betaGateStatusProvider = Provider<AsyncValue<BetaAccess>>((ref) {
 final betaGateActiveProvider = Provider<bool>((ref) {
   const enabled = bool.fromEnvironment('BETA_GATE');
   final now = DateTime.now();
-  final active = betaGateIsActive(enabled: enabled, web: kIsWeb, now: now);
-  if (active) {
-    final timer = Timer(betaGateCutoff.difference(now), ref.invalidateSelf);
-    ref.onDispose(timer.cancel);
-  }
-  return active;
+  return betaGateIsActive(enabled: enabled, web: kIsWeb, now: now);
 });
 
 /// Starts the beta check during startup, so its server call runs beside the

@@ -124,7 +124,7 @@ class BetaProNote extends ConsumerWidget {
         PantasSpace.s0,
       ),
       child: Text(
-        'Pro features are on for the beta, until Nov 16.',
+        'Pro features are on for the beta, until Nov 23.',
         style: PantasType.phoneFootnote
             .copyWith(color: context.colors.textSecondary),
       ),

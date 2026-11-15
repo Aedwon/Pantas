@@ -71,7 +71,7 @@ void main() {
     final proY = tester.getTopLeft(find.text('Pantas Pro')).dy;
     final noteY = tester
         .getTopLeft(
-          find.text('Pro features are on for the beta, until Nov 16.'),
+          find.text('Pro features are on for the beta, until Nov 23.'),
         )
         .dy;
     final accountY = tester.getTopLeft(find.text('Add your name')).dy;

@@ -155,6 +155,9 @@ class _HomeNoticeStripState extends ConsumerState<HomeNoticeStrip> {
       case HomeNoticeKind.screenCounts:
         // The main button is Got It.
         unawaited(_dismiss(notice));
+      case HomeNoticeKind.beta:
+        final route = notice.route;
+        if (route != null) widget.onRoute(route);
       case HomeNoticeKind.service:
         break;
     }
@@ -202,6 +205,8 @@ class _HomeNoticeStripState extends ConsumerState<HomeNoticeStrip> {
         title: notice.title,
         icon: switch (notice.kind) {
           HomeNoticeKind.trial => PantasIcons.timer,
+          HomeNoticeKind.beta =>
+            notice.proIcon ? PantasIcons.pro : PantasIcons.calendarBlank,
           HomeNoticeKind.welcome => PantasIcons.pro,
           HomeNoticeKind.service ||
           HomeNoticeKind.screenCounts =>
@@ -210,7 +215,7 @@ class _HomeNoticeStripState extends ConsumerState<HomeNoticeStrip> {
           HomeNoticeKind.monthOnly =>
             PantasIcons.addDate,
         },
-        iconColor: notice.kind == HomeNoticeKind.welcome
+        iconColor: notice.kind == HomeNoticeKind.welcome || notice.proIcon
             ? context.colors.accent
             : null,
         detail: notice.detail,
@@ -243,6 +248,8 @@ class _HomeNoticeStripState extends ConsumerState<HomeNoticeStrip> {
         expanded: expanded,
         icon: switch (notice.kind) {
           HomeNoticeKind.trial => PantasIcons.timer,
+          HomeNoticeKind.beta =>
+            notice.proIcon ? PantasIcons.pro : PantasIcons.calendarBlank,
           HomeNoticeKind.welcome => PantasIcons.pro,
           HomeNoticeKind.service ||
           HomeNoticeKind.screenCounts =>
@@ -251,7 +258,7 @@ class _HomeNoticeStripState extends ConsumerState<HomeNoticeStrip> {
           HomeNoticeKind.monthOnly =>
             PantasIcons.addDate,
         },
-        iconColor: notice.kind == HomeNoticeKind.welcome
+        iconColor: notice.kind == HomeNoticeKind.welcome || notice.proIcon
             ? context.colors.accent
             : null,
         onToggle: notice.detail == null

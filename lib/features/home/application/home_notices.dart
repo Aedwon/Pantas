@@ -6,6 +6,8 @@ import 'package:pantas/core/platform/remote_flags_providers.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
+import 'package:pantas/features/beta_feedback/application/beta_feedback_providers.dart';
+import 'package:pantas/features/beta_feedback/domain/beta_feedback_models.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/home/application/web_study_seam.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
@@ -13,7 +15,19 @@ import 'package:pantas/features/paywall/domain/trial_notice.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
 
-enum HomeNoticeKind { service, screenCounts, trial, welcome, noDate, monthOnly }
+/// In priority order: Home shows the first one that applies and is not
+/// dismissed. Screen counts comes before beta (DS4 lead, Nov 16): it is a
+/// one-time privacy notice, while the beta notice comes back each day, so it
+/// loses at most one day's showing.
+enum HomeNoticeKind {
+  service,
+  screenCounts,
+  beta,
+  trial,
+  welcome,
+  noDate,
+  monthOnly,
+}
 
 class HomeNotice {
   const HomeNotice({
@@ -24,6 +38,7 @@ class HomeNotice {
     this.primaryLabel,
     this.secondaryLabel,
     this.route,
+    this.proIcon = false,
   });
   final HomeNoticeKind kind;
   final String title;
@@ -32,8 +47,13 @@ class HomeNotice {
   final String? primaryLabel;
   final String? secondaryLabel;
 
-  /// Where the primary button goes, when it opens a page.
+  /// The page the notice's link opens, pushed outside the tab shell. The
+  /// beta notice's main button opens it; the screen counts notice's Learn
+  /// More (its secondary button) opens it.
   final String? route;
+
+  /// Draws the Pro mark in the accent color instead of the kind's own icon.
+  final bool proIcon;
 }
 
 /// The approved words, `step2-launch-texts.md` section 1.
@@ -69,6 +89,112 @@ HomeNotice? webTrialHomeNotice({
         DateTime(endsAt.year, endsAt.month, endsAt.day).toIso8601String(),
     primaryLabel: 'See Pro',
     secondaryLabel: 'Got It',
+  );
+}
+
+/// The survey page and the Feedback (Beta) page, where the reward is turned
+/// on.
+const betaNoticeSurveyRoute = '/settings/beta-feedback/survey';
+const betaNoticeFeedbackRoute = '/settings/beta-feedback';
+
+const _betaNeedSurvey = 'Send the exit survey by';
+
+/// The tester's Philippine wall clock, as a UTC `DateTime`.
+DateTime _manila(DateTime instant) =>
+    instant.toUtc().add(const Duration(hours: 8));
+
+String _manilaKey(DateTime manila) {
+  String two(int n) => n.toString().padLeft(2, '0');
+  return '${manila.year}-${two(manila.month)}-${two(manila.day)}';
+}
+
+String _monthDay(DateTime manila) =>
+    DateFormat('MMM d', 'en_US').format(manila);
+
+/// The Home notice for a beta tester, or null when there is nothing to say.
+///
+/// Every count and date is the server's: the counted days, the beta dates
+/// (the end is the last one) and when the survey closes (the last day to send
+/// it is the day before). Whether 5 days can still be reached is not in the
+/// reply, so it is the counted days plus the uncounted beta dates from today
+/// in Manila on. The token holds the state and the Manila day, so Later hides
+/// it until either changes. The earned notice has one token for good.
+HomeNotice? betaHomeNotice({
+  required BetaReward? reward,
+  required DateTime now,
+}) {
+  if (reward == null || reward.activated) return null;
+  final counted = reward.days.length;
+  if (reward.eligible && reward.surveySubmitted) {
+    return const HomeNotice(
+      kind: HomeNoticeKind.beta,
+      title: 'You earned 1 year of Pro',
+      detail: 'Thank you for testing Pantas. '
+          'Turn it on whenever you are ready.',
+      dismissalToken: 'earned',
+      primaryLabel: 'See Your Reward',
+      secondaryLabel: 'Later',
+      route: betaNoticeFeedbackRoute,
+      proIcon: true,
+    );
+  }
+  if (reward.betaDays.isEmpty) return null;
+  if (now.isBefore(reward.surveyOpensAt) ||
+      !now.isBefore(reward.surveyClosesAt)) {
+    return null;
+  }
+  final today = _manilaKey(_manila(now));
+  final lastBetaDay =
+      reward.betaDays.reduce((a, b) => a.compareTo(b) >= 0 ? a : b);
+  final ends = _monthDay(DateTime.parse('${lastBetaDay}T00:00:00Z'));
+  final by = _monthDay(
+    _manila(reward.surveyClosesAt.subtract(const Duration(milliseconds: 1))),
+  );
+  final left = reward.betaDays
+      .where((d) => d.compareTo(today) >= 0 && !reward.days.contains(d))
+      .length;
+  final reachable = counted >= 5 || counted + left >= 5;
+
+  final String key;
+  final String title;
+  final String detail;
+  final String primary;
+  final String route;
+  if (reward.surveySubmitted) {
+    if (counted >= 5 || !reachable) return null;
+    key = 'sent:$counted';
+    title = '$counted of 5 beta days. Ends $ends.';
+    detail = 'A day counts when you finish your whole Today plan. '
+        'Reach 5 by $ends to earn 1 year of Pro.';
+    primary = 'See Your Days';
+    route = betaNoticeFeedbackRoute;
+  } else {
+    primary = 'Take the Survey';
+    route = betaNoticeSurveyRoute;
+    if (counted >= 5) {
+      key = 'five';
+      title = '$_betaNeedSurvey $by';
+      detail = 'It has 7 short questions. Send it to earn 1 year of Pro.';
+    } else if (reachable) {
+      key = 'days:$counted';
+      title = '$counted of 5 beta days. Ends $ends.';
+      detail = 'A day counts when you finish your whole Today plan. '
+          'Reach 5 by $ends and send the exit survey to earn 1 year of Pro.';
+    } else {
+      key = 'last';
+      title = '$_betaNeedSurvey $by';
+      detail = 'It has 7 short questions. '
+          'Tell us what worked and what to fix.';
+    }
+  }
+  return HomeNotice(
+    kind: HomeNoticeKind.beta,
+    title: title,
+    detail: detail,
+    dismissalToken: '$key|$today',
+    primaryLabel: primary,
+    secondaryLabel: 'Later',
+    route: route,
   );
 }
 
@@ -134,6 +260,11 @@ final homeNoticeProvider = FutureProvider.autoDispose<HomeNotice?>((ref) async {
       );
     }
   }
+  final beta = betaHomeNotice(
+    reward: ref.watch(betaRewardProvider).valueOrNull,
+    now: ref.read(betaFeedbackClockProvider)(),
+  );
+  if (beta != null) candidates.add(beta);
   if (server) {
     final webTrial = webTrialHomeNotice(
       endsAt: await ref.watch(webTrialEndsAtProvider.future),

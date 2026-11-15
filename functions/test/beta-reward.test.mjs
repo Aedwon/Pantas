@@ -6,10 +6,10 @@ const reward = await import('../lib/betaReward.js').catch(e => {
 });
 test('Philippine beta, survey and deadline boundaries use exclusive midnight ends', () => {
   assert.equal(typeof reward.manilaDate, 'function');
-  for (let day = 9; day <= 16; day++) {
+  for (let day = 9; day <= 23; day++) {
     const at = Date.parse(`2026-11-${String(day).padStart(2, '0')}T00:00:00+08:00`);
     assert.equal(reward.manilaDate(at), `2026-11-${String(day).padStart(2, '0')}`);
-    assert.equal(reward.isBetaDay(at), day <= 15);
+    assert.equal(reward.isBetaDay(at), day <= 22);
     assert.equal(reward.isBetaDay(at - 1), day > 9);
   }
   for (const [at, open] of [
@@ -17,7 +17,12 @@ test('Philippine beta, survey and deadline boundaries use exclusive midnight end
     [reward.SURVEY_CLOSES_AT - 1, true], [reward.SURVEY_CLOSES_AT, false],
   ]) assert.equal(reward.isSurveyOpen(at), open);
   assert.equal(reward.ACTIVATION_DEADLINE, Date.parse('2028-01-01T00:00:00+08:00'));
-  assert.deepEqual(reward.BETA_DAYS, Array.from({length: 7}, (_, i) => `2026-11-${9+i < 10 ? '0' : ''}${9+i}`));
+  assert.deepEqual(reward.BETA_DAYS, Array.from({length: 14}, (_, i) => `2026-11-${9+i < 10 ? '0' : ''}${9+i}`));
+  assert.equal(reward.SURVEY_CLOSES_AT, Date.parse('2026-11-24T00:00:00+08:00'));
+  assert.equal(reward.isSurveyOpen(Date.parse('2026-11-23T23:59:59.999+08:00')), true);
+  assert.equal(reward.isSurveyOpen(Date.parse('2026-11-24T00:00:00+08:00')), false);
+  assert.equal(reward.isBetaDay(Date.parse('2026-11-22T23:59:59.999+08:00')), true);
+  assert.equal(reward.isBetaDay(Date.parse('2026-11-23T00:00:00+08:00')), false);
 });
 import {fixture, request, uid, feedbackId} from './_beta-helpers.mjs';
 const path = `betaFeedback/${uid}/${feedbackId}/0`;
@@ -82,7 +87,7 @@ test('day reporting counts each server Philippine date once and returns days out
   assert.equal(status.surveyClosesAt,reward.SURVEY_CLOSES_AT);
   assert.equal(status.activationDeadline,reward.ACTIVATION_DEADLINE);
   assert.equal(status.activatedAt,null); assert.equal(status.rewardStartsAt,null); assert.equal(status.rewardEndsAt,null);
-  for(const at of [Date.parse('2026-11-09T00:00:00+08:00')-1,Date.parse('2026-11-16T00:00:00+08:00')]) {
+  for(const at of [Date.parse('2026-11-09T00:00:00+08:00')-1,Date.parse('2026-11-23T00:00:00+08:00')]) {
     deps.now=()=>at; const result=await reward.recordDay(req,deps);
     assert.equal(result.recorded,false);assert.equal(result.reason,'outside');assert.equal(result.days.length,5);
   }

@@ -1,7 +1,7 @@
 /** All beta windows use Philippine dates (UTC+8, no daylight saving). */
-export const BETA_DAYS = Array.from({length: 7}, (_, i) => `2026-11-${String(9 + i).padStart(2, '0')}`);
+export const BETA_DAYS = Array.from({length: 14}, (_, i) => `2026-11-${String(9 + i).padStart(2, '0')}`);
 export const SURVEY_OPENS_AT = Date.parse('2026-11-15T00:00:00+08:00');
-export const SURVEY_CLOSES_AT = Date.parse('2026-11-23T00:00:00+08:00');
+export const SURVEY_CLOSES_AT = Date.parse('2026-11-24T00:00:00+08:00');
 export const ACTIVATION_DEADLINE = Date.parse('2028-01-01T00:00:00+08:00');
 export const manilaDate = (ms: number): string => new Date(ms + 8 * 60 * 60_000).toISOString().slice(0, 10);
 export const isBetaDay = (ms: number): boolean => BETA_DAYS.includes(manilaDate(ms));

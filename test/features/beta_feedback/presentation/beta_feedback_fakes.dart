@@ -107,11 +107,15 @@ class FakeBetaFeedbackApi implements BetaFeedbackApi {
   Completer<void>? surveyGate;
   Exception? surveyError;
   int activations = 0;
+
+  /// How many times the status was asked of the server.
+  int rewardReads = 0;
   Completer<BetaRewardActivation>? activateGate;
   Exception? activateError;
 
   @override
   Future<BetaReward> reward() async {
+    rewardReads++;
     final gate = rewardGate;
     if (gate != null) await gate.future;
     return rewardValue;
