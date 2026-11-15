@@ -13,7 +13,7 @@ import type {Grant} from './grants.js';
 import {selectedBetaApplication} from './betaAccess.js';
 import {timed} from './_timed.js';
 
-export const BETA_CUTOFF = Date.parse('2026-11-16T00:00:00+08:00');
+export const BETA_CUTOFF = Date.parse('2026-11-23T00:00:00+08:00');
 /** Missing or invalid server config disables beta; config can never extend the approved window. */
 export function betaProUntil(at: number): number | null {
   const configured = Date.parse(process.env.BETA_PRO_UNTIL ?? '');

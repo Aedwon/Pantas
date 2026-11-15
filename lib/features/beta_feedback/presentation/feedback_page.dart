@@ -56,7 +56,7 @@ class _FeedbackPageState extends ConsumerState<FeedbackPage> {
         children: [
           DaysCard(reward: data, now: now),
           const FbFootnote(
-            'Count 5 days from Nov 9 to 15 and send the exit survey to '
+            'Count 5 days from Nov 9 to 22 and send the exit survey to '
             'earn 1 year of Pro.',
           ),
         ],

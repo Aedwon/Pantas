@@ -5,7 +5,7 @@ import {getFirestore} from 'firebase-admin/firestore';
 import {changeBetaPro} from '../lib/betaPro.js';
 import {fakeAuth} from './_paymongo-helpers.mjs';
 assert.equal(process.env.GCLOUD_PROJECT,'demo-pantas-test');
-const db=getFirestore(), end=Date.parse('2026-11-16T00:00:00+08:00'), now=end-60000;
+const db=getFirestore(), end=Date.parse('2026-11-23T00:00:00+08:00'), now=end-60000;
 const caller=uid=>({uid,token:{email:'tester@example.com',email_verified:true,firebase:{sign_in_provider:'google.com'}}});
 const request=(uid,enabled=true,extra={})=>({auth:caller(uid),app:{appId:'test'},data:{enabled,examId:'exam_cse_pro',...extra}});
 const deps=()=>({db,auth:fakeAuth(),allow:async()=>true,now:()=>now,until:()=>end});

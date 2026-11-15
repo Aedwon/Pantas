@@ -4,7 +4,7 @@ import {coverageAt} from '../lib/revenuecatCoverage.js';
 import {claimsForRevenueCatAnswer} from '../lib/revenuecatPolicy.js';
 import {planGrant} from '../lib/paymongoGrants.js';
 import {webProduct} from '../lib/paymongoPolicy.js';
-const end = Date.parse('2026-11-16T00:00:00+08:00');
+const end = Date.parse('2026-11-23T00:00:00+08:00');
 const at = end - 1000;
 const beta = {source:'beta', product:'beta_pro', tier:'civilService', examId:'exam_cse_pro', startsAt:at, endsAt:end, active:true, state:'active'};
 const options = {appId:'',firebaseProjectId:'demo-pantas-test',sandboxTester:false,at,grants:[beta]};
@@ -35,7 +35,7 @@ test('beta server config defaults off, ends exactly, and cannot exceed the appro
   try {
     delete process.env.BETA_PRO_UNTIL; assert.equal(betaProUntil(at),null);
     process.env.BETA_PRO_UNTIL='invalid'; assert.equal(betaProUntil(at),null);
-    process.env.BETA_PRO_UNTIL='2026-11-16T00:00:00+08:00';
+    process.env.BETA_PRO_UNTIL='2026-11-23T00:00:00+08:00';
     assert.equal(betaProUntil(at),end); assert.equal(betaProUntil(end),null);
     process.env.BETA_PRO_UNTIL='2027-01-01T00:00:00+08:00'; assert.equal(betaProUntil(at),end);
   } finally { if(saved===undefined) delete process.env.BETA_PRO_UNTIL; else process.env.BETA_PRO_UNTIL=saved; }
