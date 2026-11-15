@@ -6,6 +6,12 @@ subject: "subject-language-proficiency"
 topic: "topic-vocabulary"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-vocabulary-idioms-and-literal-meanings
+  - lesson-vocabulary-comparisons-and-human-actions
+  - lesson-vocabulary-sound-and-opposing-words
+  - lesson-vocabulary-paghahambing-pagbibigay-katauhan-at-pagmamalabis
 ---
 ## Core Concept
 

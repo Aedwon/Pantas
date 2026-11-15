@@ -134,7 +134,7 @@
   ],
   "lesson-comprehension-skills-context-clues-in-passages": [
    {
-    "lesson": "lesson-vocabulary-context-clues",
+    "lesson": "lesson-vocabulary-word-partners-feeling-and-grammar",
     "strength": "helpful",
     "reason": "Practice recognizing word-level clues helps students combine clues across sentences. This lesson reteaches the needed clue types."
    }
@@ -263,7 +263,7 @@
   ],
   "lesson-language-application-sentence-completion": [
    {
-    "lesson": "lesson-vocabulary-context-clues",
+    "lesson": "lesson-vocabulary-word-partners-feeling-and-grammar",
     "strength": "helpful",
     "reason": "Practice combining contrast, cause, and surrounding details makes predicting missing meanings easier. The lesson explains its own meaning-clue method."
    },
@@ -342,7 +342,7 @@
   ],
   "lesson-text-types-poetry": [
    {
-    "lesson": "lesson-vocabulary-idioms-and-figures-of-speech",
+    "lesson": "lesson-vocabulary-paghahambing-pagbibigay-katauhan-at-pagmamalabis",
     "strength": "helpful",
     "reason": "Recognizing figurative comparisons and repeated sounds makes poetic interpretation easier. Poetry defines each device before applying it."
    }
@@ -371,15 +371,15 @@
     "reason": "Understanding negation and compound statements makes the compound-assumption test easier. The lesson supplies its own negation rules."
    }
   ],
-  "lesson-vocabulary-context-clues": [],
-  "lesson-vocabulary-idioms-and-figures-of-speech": [
+  "lesson-vocabulary-definitions-examples-and-synonyms": [],
+  "lesson-vocabulary-idioms-and-literal-meanings": [
    {
-    "lesson": "lesson-vocabulary-context-clues",
+    "lesson": "lesson-vocabulary-word-partners-feeling-and-grammar",
     "strength": "helpful",
     "reason": "Using surrounding events to infer meaning helps distinguish literal expressions from idioms. The lesson demonstrates that distinction independently."
    }
   ],
-  "lesson-vocabulary-root-words-prefixes-suffixes": [
+  "lesson-vocabulary-roots-bases-and-valid-splits": [
    {
     "lesson": "lesson-grammar-and-structure-english-word-jobs",
     "strength": "helpful",
@@ -1652,7 +1652,7 @@
   ],
   "lesson-vocabulary-similar-and-opposite-meanings": [
    {
-    "lesson": "lesson-vocabulary-context-clues",
+    "lesson": "lesson-vocabulary-word-partners-feeling-and-grammar",
     "strength": "helpful",
     "reason": "Practice inferring meaning and checking replacement words makes contextual synonym selection easier. The lesson teaches its own context and nuance checks."
    }
@@ -1701,7 +1701,7 @@
   ],
   "lesson-vocabulary-letters-sounds-and-vowel-order": [
    {
-    "lesson": "lesson-vocabulary-root-words-prefixes-suffixes",
+    "lesson": "lesson-vocabulary-panlaping-kabilaan-at-laguhan",
     "strength": "helpful",
     "reason": "Practice separating bases from suffixes makes spelling changes easier to track. The lesson defines both terms and teaches its spelling rules."
    }
@@ -1760,6 +1760,76 @@
     "lesson": "lesson-vocabulary-ng-at-nang",
     "strength": "required",
     "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-vocabulary-english-word-elements": [
+   {
+    "lesson": "lesson-vocabulary-roots-bases-and-valid-splits",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-vocabulary-suffixes-for-qualities-and-absence": [
+   {
+    "lesson": "lesson-vocabulary-english-word-elements",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-vocabulary-suffixes-and-word-jobs": [
+   {
+    "lesson": "lesson-vocabulary-suffixes-for-qualities-and-absence",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-vocabulary-ugat-unlapi-gitlapi-at-hulapi": [
+   {
+    "lesson": "lesson-vocabulary-suffixes-and-word-jobs",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-vocabulary-panlaping-kabilaan-at-laguhan": [
+   {
+    "lesson": "lesson-vocabulary-ugat-unlapi-gitlapi-at-hulapi",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-vocabulary-comparisons-and-human-actions": [
+   {
+    "lesson": "lesson-vocabulary-idioms-and-literal-meanings",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-vocabulary-sound-and-opposing-words": [
+   {
+    "lesson": "lesson-vocabulary-comparisons-and-human-actions",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-vocabulary-paghahambing-pagbibigay-katauhan-at-pagmamalabis": [
+   {
+    "lesson": "lesson-vocabulary-sound-and-opposing-words",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-vocabulary-contrast-and-inference-clues": [
+   {
+    "lesson": "lesson-vocabulary-definitions-examples-and-synonyms",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-vocabulary-word-partners-feeling-and-grammar": [
+   {
+    "lesson": "lesson-vocabulary-contrast-and-inference-clues",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
    }
   ]
  }

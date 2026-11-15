@@ -6,6 +6,14 @@ subject: "subject-language-proficiency"
 topic: "topic-vocabulary"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-vocabulary-roots-bases-and-valid-splits
+  - lesson-vocabulary-english-word-elements
+  - lesson-vocabulary-suffixes-for-qualities-and-absence
+  - lesson-vocabulary-suffixes-and-word-jobs
+  - lesson-vocabulary-ugat-unlapi-gitlapi-at-hulapi
+  - lesson-vocabulary-panlaping-kabilaan-at-laguhan
 ---
 ## Core Concept
 

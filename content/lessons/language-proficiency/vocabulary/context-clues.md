@@ -6,6 +6,11 @@ subject: "subject-language-proficiency"
 topic: "topic-vocabulary"
 estimatedMinutes: 12
 isActive: true
+status: retired
+replacedBy:
+  - lesson-vocabulary-definitions-examples-and-synonyms
+  - lesson-vocabulary-contrast-and-inference-clues
+  - lesson-vocabulary-word-partners-feeling-and-grammar
 ---
 ## Core Concept
 
