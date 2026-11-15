@@ -3767,3 +3767,10 @@ Fable 5.2 High ruled under Aedwon's standing delegation on `docs/superpowers/pla
 - Approval, verbatim: "lgtm send them out please, and note my preference on email wording/structure/tone/whatever".
 - Sent 18:25 PHT through Resend from noreply@pantas.study: 20 emails (19 selected testers and the minor's guardian; no owner-test docs), 0 failed. Counts only; recipients and ids stay in the private digest.
 - Preference recorded: written rule 8 in `docs/workflow/process-improvement.md` and a line in `docs/OPERATIONS.md`.
+
+### Nov 15, screen counts on staging for the 30-minute proof (DS4 lead)
+
+- Manager: staging deploy of web/usage-counts-r1 1ccb6fd25 (CI 43691575390 and journeys 43691575405 green), SCREEN_COUNTS=true on staging only; prod unchanged until Aedwon's "ship it"; Rule 7, free tier.
+- Deployed from a local merge of main into the branch (2f46818c1; not pushed to the lead's branch): reportClientTelemetry to pantas-staging (pinned CLI; the deploy guard refused once when main moved mid-deploy, then passed after a second merge); staging web 582568314-6f6b9b31dea1 with --dart-define=SCREEN_COUNTS=true on Firebase and the Worker (10:30 UTC). Handed to the DS4 completion lead for its 30-minute staging check.
+- Note: one functions unit test failed once and passed on rerun (697 of 697), the same intermittent failure seen earlier today; flagged to the lead.
+
