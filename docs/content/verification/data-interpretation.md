@@ -68,3 +68,9 @@ Approved by the lead with `tool/content/approve.dart`.
 | q-data-interpretation-tables-and-charts-0024 | 15,000 liters | 15,000 liters | AGREE | (50−35)×1000=15000 | TL |
 
 Totals: questions 52; agree 52; disagree 0; flagged 18. All 18 have tied-longest choices. One also lacks attendance data. No multiple defensible choices or unrealistic exam-English issues found.
+
+## Audit and re-check (Nov 15)
+
+Independent audit (Codex GPT 6 Astra high, read-only): 58 sampled questions plus 88 flagged or fixed items, five splits and ten record rows; no must-fix findings; 13 should-fix items fixed by a separate writer job. The 12 edited questions were re-solved and law-checked by another checker: 12 of 12 agree, every rationale matches its choice. Rows for this topic:
+
+| q-data-interpretation-rates-ratios-and-percentages-in-context-0012 | A, 33.33% | A | AGREE | 2000 ÷ (4000 + 2000) × 100 = 33.33%, rounded. | OK |

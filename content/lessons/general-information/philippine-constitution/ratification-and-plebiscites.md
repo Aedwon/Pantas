@@ -11,7 +11,7 @@ ordering: 55
 keyPoints:
   - "Require ratification by a majority of votes cast."
   - "Apply the plebiscite window and its correct starting event."
-  - "Locate the proposal, initiative, convention, and ratification rules in Article XVII."
+  - "Locate the ratification rules in Article XVII, Section 4."
 ---
 
 ## Core Concept

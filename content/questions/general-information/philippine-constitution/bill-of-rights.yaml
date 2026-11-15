@@ -7,6 +7,7 @@ meta:
   - cse-sub
 questions:
 - id: q-philippine-constitution-bill-of-rights-0001
+  approved: true
   lesson: lesson-philippine-constitution-bill-of-rights-due-process-and-equal-protection
   keyPoint: 1
   type: single_choice
@@ -33,6 +34,7 @@ questions:
 
     '
 - id: q-philippine-constitution-bill-of-rights-0002
+  approved: true
   lesson: lesson-philippine-constitution-bill-of-rights-due-process-and-equal-protection
   keyPoint: 2
   type: single_choice
@@ -59,6 +61,7 @@ questions:
 
     '
 - id: q-philippine-constitution-bill-of-rights-0003
+  approved: true
   lesson: lesson-philippine-constitution-bill-of-rights-expression-and-public-action
   keyPoint: 1
   type: single_choice
@@ -85,6 +88,7 @@ questions:
 
     '
 - id: q-philippine-constitution-bill-of-rights-0014
+  approved: true
   lesson: lesson-philippine-constitution-bill-of-rights-search-and-arrest-warrants
   keyPoint: 1
   type: single_choice
@@ -115,7 +119,7 @@ questions:
   keyPoint: 2
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: |
     Which association is protected under Article III, Section 8?
   choices:
@@ -129,8 +133,8 @@ questions:
     rationale: 'This narrows coverage to one sector. Government workers are included. Check the broader association protection.
 
       '
-  - text: Only an association whose members surrender every other constitutional liberty
-    rationale: 'This adds a rights-waiver condition. Groups may have membership rules. Check whether the lesson requires that surrender.
+  - text: Only an association formed to bargain over wages and working conditions
+    rationale: 'This limits association to labor bargaining. Unions are protected, but other lawful groups are too. Check the purpose without requiring a labor dispute.
 
       '
   explanation: 'Article III protects forming unions, associations, and societies for purposes not contrary to law.
@@ -159,7 +163,7 @@ questions:
       The residents are freely asking officials to act.
   explanation: |
     A petition asks the government to fix a wrong. Section 4 protects this request. It does not guarantee that officials will grant it.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-0020
   lesson: lesson-philippine-constitution-bill-of-rights-religion-abode-and-travel
   keyPoint: 1
@@ -183,7 +187,7 @@ questions:
       The voting condition does not concern a debt.
   explanation: |
     Voting is a political right. Section 5 forbids requiring a particular religion to exercise that right.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-0021
   lesson: lesson-philippine-constitution-bill-of-rights-property-courts-and-investigation
   keyPoint: 1
@@ -207,7 +211,7 @@ questions:
       Public use does not remove the duty to pay. It is part of the rule that requires just compensation.
   explanation: |
     Section 9 requires fair payment when private property is taken for public use. A public road does not excuse the government from paying.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-0022
   lesson: lesson-philippine-constitution-bill-of-rights-information-and-association
   keyPoint: 1
@@ -232,7 +236,7 @@ questions:
     correct: true
   explanation: |
     Section 7 covers government policy research data. Access can have legal limits. The office must have an applicable legal basis for its claim.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-0023
   lesson: lesson-philippine-constitution-bill-of-rights-due-process-and-equal-protection
   keyPoint: 3
@@ -255,7 +259,7 @@ questions:
   explanation: |
     Different treatment needs a valid reason tied to the law's purpose.
     Treating each group consistently does not make an unrelated grouping fair.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-0024
   lesson: lesson-philippine-constitution-bill-of-rights-consent-and-private-messages
   keyPoint: 2
@@ -278,7 +282,7 @@ questions:
       Evidence obtained through that violation is excluded.
   explanation: |
     Evidence obtained in violation of Section 2 or Section 3 is excluded for any purpose in any proceeding. Administrative cases are included.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-0025
   lesson: lesson-philippine-constitution-bill-of-rights-consent-and-private-messages
   keyPoint: 1
@@ -302,7 +306,7 @@ questions:
   explanation: |
     Consent must be clear, informed, specific, and free from pressure.
     Silence and submission to armed officers do not by themselves prove it.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-0026
   lesson: lesson-philippine-constitution-bill-of-rights-religion-abode-and-travel
   keyPoint: 2
@@ -324,7 +328,7 @@ questions:
     correct: true
   explanation: |
     Choosing where to live concerns liberty of abode. Section 6 requires a lawful court order within legal limits. Travel has a separate rule.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-0027
   lesson: lesson-philippine-constitution-bill-of-rights-search-and-arrest-warrants
   keyPoint: 1
@@ -346,7 +350,7 @@ questions:
       A judge may personally evaluate the prosecutor's report and supporting evidence. Written records are not barred.
   explanation: |
     For an arrest warrant, the judge may personally review sufficient records. The judge must make an independent decision. Personal questioning is not always required.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-0028
   lesson: lesson-philippine-constitution-bill-of-rights-hot-pursuit-arrests
   keyPoint: 1
@@ -369,7 +373,7 @@ questions:
       An unsolved offense does not remove the requirements of immediacy and personal knowledge for a hot-pursuit arrest.
   explanation: |
     Hot pursuit requires an offense that has just occurred. The officer must personally know facts supporting the arrest and act with the required immediacy. These facts meet neither requirement.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-0029
   lesson: lesson-philippine-constitution-bill-of-rights-property-courts-and-investigation
   keyPoint: 3
@@ -392,7 +396,7 @@ questions:
       It also does not supply counsel's required presence.
   explanation: |
     Section 12 requires a written waiver made in the presence of counsel. A signature alone is not enough. A person who cannot afford a lawyer must be provided one.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-0030
   lesson: lesson-philippine-constitution-bill-of-rights-bail-trial-and-testimony
   keyPoint: 1
@@ -415,7 +419,7 @@ questions:
     correct: true
   explanation: |
     Both conditions matter. The charge must carry reclusion perpetua, and the evidence of guilt must be strong. The charged penalty alone does not meet this exception.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-0031
   lesson: lesson-philippine-constitution-bill-of-rights-bail-trial-and-testimony
   keyPoint: 2
@@ -437,7 +441,7 @@ questions:
       Bail remains subject to its own constitutional rules. Suspension neither removes those rules nor guarantees release to everyone.
   explanation: |
     Rebellion and the stated public-safety need meet Section 15's conditions. Section 13 separately protects bail during suspension. Its own rules still determine whether bail is available.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-0032
   lesson: lesson-philippine-constitution-bill-of-rights-double-jeopardy
   keyPoint: 2
@@ -460,7 +464,7 @@ questions:
       A complaint alone is not enough. A valid charge, proper court, arraignment, valid plea, and protected end must be checked.
   explanation: |
     Section 21 covers the same act punished by a national law and an ordinance. Conviction or acquittal under either bars another prosecution under the other. The stated first case meets the required steps.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-0033
   lesson: lesson-philippine-constitution-bill-of-rights-prohibited-laws
   keyPoint: 1
@@ -483,8 +487,9 @@ questions:
       The second term fits. The first law changes punishment for past crimes. It does not concern contractual duties.
   explanation: |
     An ex post facto law applies a harmful criminal-law change backward. A bill of attainder punishes named or identifiable people without a court trial. Section 22 bans both.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-0034
+  approved: true
   lesson: lesson-philippine-constitution-bill-of-rights-arrest-in-an-officers-presence
   keyPoint: 1
   type: single_choice
@@ -508,6 +513,7 @@ questions:
     Rule 113, Section 5 allows arrest for an offense committed in the officer's presence.
     Rule 126, Section 13 allows a search of the person for weapons or evidence after that lawful arrest.
 - id: q-philippine-constitution-bill-of-rights-0036
+  approved: true
   lesson: lesson-philippine-constitution-bill-of-rights-arrest-in-an-officers-presence
   keyPoint: 1
   type: single_choice
@@ -531,6 +537,7 @@ questions:
     Under Rule 126, Section 13, a lawful arrest supports a search of the person for weapons or evidence.
     This is the limited search described in the lesson.
 - id: q-philippine-constitution-bill-of-rights-0037
+  approved: true
   lesson: lesson-philippine-constitution-bill-of-rights-hot-pursuit-arrests
   keyPoint: 1
   type: single_choice
@@ -554,6 +561,7 @@ questions:
     Rule 113, Section 5 requires probable cause based on the officer's personal knowledge of facts or circumstances for a hot-pursuit arrest.
     The offense must also have just occurred. Prompt action alone meets only part of the rule.
 - id: q-philippine-constitution-bill-of-rights-0038
+  approved: true
   lesson: lesson-philippine-constitution-bill-of-rights-property-courts-and-investigation
   keyPoint: 2
   type: single_choice
@@ -576,6 +584,7 @@ questions:
     Article III, Section 11 protects access to courts and quasi-judicial bodies and adequate legal assistance despite poverty.
     The agency performs a quasi-judicial role. Allowing filing does not by itself provide the protected legal help.
 - id: q-philippine-constitution-bill-of-rights-0039
+  approved: true
   lesson: lesson-philippine-constitution-bill-of-rights-bail-trial-and-testimony
   keyPoint: 3
   type: single_choice
@@ -598,6 +607,7 @@ questions:
     Article III, Section 16 protects speedy disposition before judicial, quasi-judicial, and administrative bodies.
     It requires cases to move forward and be resolved without unreasonable delay. The office's administrative role is covered.
 - id: q-philippine-constitution-bill-of-rights-0040
+  approved: true
   lesson: lesson-philippine-constitution-bill-of-rights-bail-trial-and-testimony
   keyPoint: 4
   type: single_choice
@@ -620,6 +630,7 @@ questions:
     Article III, Section 17 protects a person from being compelled to testify against oneself.
     A forced statement admitting one's own guilt falls within that protection.
 - id: q-philippine-constitution-bill-of-rights-0041
+  approved: true
   lesson: lesson-philippine-constitution-bill-of-rights-detention-and-punishment
   keyPoint: 1
   type: single_choice
@@ -642,6 +653,7 @@ questions:
     Article III, Section 20 bars imprisonment for debt or nonpayment of a poll tax.
     The threatened imprisonment rests only on the unpaid poll tax, so this protection applies.
 - id: q-philippine-constitution-bill-of-rights-0042
+  approved: true
   lesson: lesson-philippine-constitution-bill-of-rights-detention-and-punishment
   keyPoint: 1
   type: single_choice
@@ -664,6 +676,7 @@ questions:
     Article III, Section 18 permits involuntary servitude as punishment only after due conviction for a crime.
     An accusation is not a conviction. The stated facts do not meet the exception.
 - id: q-philippine-constitution-bill-of-rights-0043
+  approved: true
   lesson: lesson-philippine-constitution-bill-of-rights-double-jeopardy
   keyPoint: 1
   type: single_choice
@@ -687,6 +700,7 @@ questions:
     Under Rule 117, Section 7, the general rule requires a valid charge, a court with authority, a valid plea after arraignment, and a protected end to the case.
     The facts lack arraignment and a plea.
 - id: q-philippine-constitution-bill-of-rights-0044
+  approved: true
   lesson: lesson-philippine-constitution-bill-of-rights-prohibited-laws
   keyPoint: 1
   type: single_choice

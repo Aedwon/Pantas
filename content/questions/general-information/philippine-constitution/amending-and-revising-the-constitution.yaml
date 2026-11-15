@@ -28,7 +28,7 @@ questions:
           Both concern forming the same kind of proposing body.
     explanation: |
       The three routes are Congress, a constitutional convention, and people's initiative. Initiative can propose amendments only.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0002
     lesson: lesson-philippine-constitution-amendment-or-revision
     keyPoint: 1
@@ -50,7 +50,7 @@ questions:
         correct: true
     explanation: |
       An amendment changes specific provisions without changing a basic principle. A revision changes the basic structure or a large part.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0003
     lesson: lesson-philippine-constitution-amendment-or-revision
     keyPoint: 1
@@ -73,7 +73,7 @@ questions:
     explanation: |
       A revision changes the basic structure or a large part of the Constitution.
       Even a short proposal is a revision if it changes the plan of government.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0004
     lesson: lesson-philippine-constitution-congress-and-constitutional-conventions
     keyPoint: 2
@@ -97,7 +97,7 @@ questions:
     explanation: |
       Congress needs three-fourths of all its Members to propose a change.
       Two-thirds is the separate rule for calling a convention.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0005
     lesson: lesson-philippine-constitution-congress-and-constitutional-conventions
     keyPoint: 2
@@ -120,7 +120,7 @@ questions:
           This uses both the wrong share and the wrong membership base for calling a convention directly.
     explanation: |
       A direct call needs two-thirds of all Members. A majority of all Members can instead ask voters whether to call a convention.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0006
     lesson: lesson-philippine-constitution-congress-and-constitutional-conventions
     keyPoint: 2
@@ -143,7 +143,7 @@ questions:
     explanation: |
       More than half of all Members must support submitting the question.
       This asks voters whether to call a convention. It does not call one itself.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0007
     lesson: lesson-philippine-constitution-peoples-initiative
     keyPoint: 2
@@ -169,7 +169,7 @@ questions:
     explanation: |
       The nationwide minimum is twelve percent of all registered voters.
       Every district must also meet its own signature minimum.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0008
     lesson: lesson-philippine-constitution-peoples-initiative
     keyPoint: 2
@@ -192,7 +192,7 @@ questions:
           The national and district requirements both apply. Meeting one does not remove the other.
     explanation: |
       Each legislative district must supply signatures from at least three percent of its registered voters. The national total alone is not enough.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0009
     lesson: lesson-philippine-constitution-peoples-initiative
     keyPoint: 1
@@ -215,7 +215,7 @@ questions:
     explanation: |
       Congress and a convention may propose amendments or revisions.
       People's initiative may propose amendments only, regardless of signature totals.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0010
     lesson: lesson-philippine-constitution-ratification-and-plebiscites
     keyPoint: 1
@@ -240,7 +240,7 @@ questions:
     explanation: |
       Ratification is the people's approval through a plebiscite.
       A convention's approval is only the proposal step.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0011
     lesson: lesson-philippine-constitution-peoples-initiative
     keyPoint: 3
@@ -265,7 +265,7 @@ questions:
       Section 2 sets an initial five-year bar after ratification in 1987.
       After that, it allows this route no more than once every five years.
       These are time limits, not a ruling that the route is usable today.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0012
     lesson: lesson-philippine-constitution-peoples-initiative
     keyPoint: 2
@@ -289,7 +289,7 @@ questions:
           The petition needs three percent from the district, not a majority.
     explanation: |
       Three percent of 40,000 is 1,200. The twelve percent rule applies to the nationwide total, not to each district's minimum.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0013
     lesson: lesson-philippine-constitution-ratification-and-plebiscites
     keyPoint: 1
@@ -312,7 +312,7 @@ questions:
     explanation: |
       Half of 600 is 300. The smallest whole number above that is 301.
       Ratification uses votes cast on the proposal, not all registered voters.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0014
     lesson: lesson-philippine-constitution-ratification-and-plebiscites
     keyPoint: 2
@@ -335,7 +335,7 @@ questions:
     explanation: |
       The plebiscite cannot be earlier than sixty days after approval.
       It must also be no later than ninety days after approval.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0015
     lesson: lesson-philippine-constitution-ratification-and-plebiscites
     keyPoint: 2
@@ -359,7 +359,7 @@ questions:
     explanation: |
       The latest permitted day is ninety days after approval.
       The sixty-to-ninety-day period has both a start and an end.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0016
     lesson: lesson-philippine-constitution-ratification-and-plebiscites
     keyPoint: 2
@@ -383,7 +383,7 @@ questions:
           Congressional endorsement is not its starting event.
     explanation: |
       For initiative, count from COMELEC's certification that the petition is sufficient. Gathering signatures does not start the period.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0017
     lesson: lesson-philippine-constitution-congress-and-constitutional-conventions
     keyPoint: 2
@@ -406,7 +406,7 @@ questions:
     explanation: |
       Three-fourths of 240 is 180. Absent Members remain part of the base.
       Using only the 200 present would give the wrong minimum.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0018
     lesson: lesson-philippine-constitution-ratification-and-plebiscites
     keyPoint: 3
@@ -434,7 +434,7 @@ questions:
       Section 1 covers congressional and convention proposals.
       Section 2 covers initiative. Section 3 covers calling a convention.
       Section 4 covers ratification and plebiscite timing.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0019
     lesson: lesson-philippine-constitution-ratification-and-plebiscites
     keyPoint: 1
@@ -459,7 +459,7 @@ questions:
       An ordinary statute cannot complete a constitutional change.
       Article XVII requires a valid proposal route and voter ratification.
       Calling the change an amendment does not remove those steps.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0020
     lesson: lesson-philippine-constitution-ratification-and-plebiscites
     keyPoint: 1
@@ -481,4 +481,4 @@ questions:
           Forty days is too early. The plebiscite must be held sixty to ninety days after the convention approves the revision.
     explanation: |
       A convention may propose a revision. Seventy days is within the required period. A majority of votes cast supplies ratification. Both the proper proposal route and the people's approval are needed.
-    approved: false
+    approved: true
