@@ -20,16 +20,21 @@ esac
 
 packages="$(gcloud artifacts packages list --repository="$repo" --location="$location" --project="$project" --format='value(name)')"
 count=0
+failed=0
 while IFS= read -r package; do
   [ -n "$package" ] || continue
-  # `name` is the full resource path; the delete command takes the package id.
-  id="${package##*/}"
+  # gcloud lists short ids such as "<name>" and "<name>/cache"; strip only a full resource path's prefix,
+  # never the text before a later slash (a cache package's id contains one).
+  id="${package#projects/*/packages/}"
   if [ "$dry" = true ]; then
     echo "would delete $id"
-  else
-    gcloud artifacts packages delete "$id" --repository="$repo" --location="$location" --project="$project" --quiet
+  elif gcloud artifacts packages delete "$id" --repository="$repo" --location="$location" --project="$project" --quiet; then
     echo "deleted $id"
+  else
+    echo "FAILED to delete $id" >&2
+    failed=$((failed + 1))
   fi
   count=$((count + 1))
 done <<<"$packages"
-echo "$count package(s) in $project/$repo ($location)$([ "$dry" = true ] && echo ', dry run')"
+echo "$count package(s) in $project/$repo ($location)$([ "$dry" = true ] && echo ', dry run'), $failed failed"
+[ "$failed" -eq 0 ]
