@@ -5,6 +5,8 @@ meta:
   exams: [ acet, ustet, dost-sei , cse-pro]
 questions:
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0001
+    lesson: lesson-logical-verbal-reasoning-deductive-group-arguments
+    keyPoint: 1
     type: syllogism
     difficulty: easy
     stem: |
@@ -27,6 +29,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0002
+    lesson: lesson-logical-verbal-reasoning-deductive-group-arguments
+    keyPoint: 1
     type: syllogism
     difficulty: easy
     stem: |
@@ -49,6 +53,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0003
+    lesson: lesson-logical-verbal-reasoning-invalid-conditional-forms
+    keyPoint: 1
     type: syllogism
     difficulty: medium
     stem: |
@@ -71,6 +77,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0004
+    lesson: lesson-logical-verbal-reasoning-invalid-conditional-forms
+    keyPoint: 2
     type: syllogism
     difficulty: medium
     stem: |
@@ -93,6 +101,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0005
+    lesson: lesson-logical-verbal-reasoning-valid-conditional-forms
+    keyPoint: 1
     type: syllogism
     difficulty: medium
     stem: |
@@ -114,6 +124,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0006
+    lesson: lesson-logical-verbal-reasoning-valid-conditional-forms
+    keyPoint: 1
     type: syllogism
     difficulty: medium
     stem: |
@@ -136,6 +148,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0007
+    lesson: lesson-logical-verbal-reasoning-deductive-group-arguments
+    keyPoint: 2
     type: syllogism
     difficulty: hard
     stem: |
@@ -158,6 +172,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0008
+    lesson: lesson-logical-verbal-reasoning-deductive-group-arguments
+    keyPoint: 2
     type: syllogism
     difficulty: hard
     stem: |
@@ -179,6 +195,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0009
+    lesson: lesson-logical-verbal-reasoning-invalid-conditional-forms
+    keyPoint: 1
     type: syllogism
     difficulty: hard
     stem: |
@@ -200,6 +218,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0010
+    lesson: lesson-logical-verbal-reasoning-deductive-group-arguments
+    keyPoint: 2
     type: syllogism
     difficulty: hard
     stem: |
@@ -221,6 +241,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0011
+    lesson: lesson-logical-verbal-reasoning-deductive-group-arguments
+    keyPoint: 1
     type: syllogism
     difficulty: medium
     stem: |
@@ -243,6 +265,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0012
+    lesson: lesson-logical-verbal-reasoning-valid-conditional-forms
+    keyPoint: 1
     type: syllogism
     difficulty: medium
     stem: |
@@ -264,6 +288,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0013
+    lesson: lesson-logical-verbal-reasoning-valid-conditional-forms
+    keyPoint: 1
     type: syllogism
     difficulty: medium
     stem: |
@@ -286,6 +312,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0014
+    lesson: lesson-logical-verbal-reasoning-deductive-group-arguments
+    keyPoint: 1
     type: syllogism
     difficulty: hard
     stem: |
@@ -307,6 +335,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0015
+    lesson: lesson-logical-verbal-reasoning-deductive-group-arguments
+    keyPoint: 1
     type: syllogism
     difficulty: hard
     stem: |
@@ -328,6 +358,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0016
+    lesson: lesson-logical-verbal-reasoning-deductive-group-arguments
+    keyPoint: 1
     type: syllogism
     difficulty: exam
     stem: |
@@ -349,6 +381,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0017
+    lesson: lesson-logical-verbal-reasoning-valid-conditional-forms
+    keyPoint: 2
     type: syllogism
     difficulty: hard
     stem: |
@@ -367,9 +401,11 @@ questions:
           This denies the end of the linked chain. The three steps may seem separate. Check how the first guarantee connects to the second.
     explanation: |
       Scanning guarantees logging. Logging guarantees acknowledgment. Following those two links makes acknowledgment a guaranteed result of scanning.
-    approved: false
+    approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0018
+    lesson: lesson-logical-verbal-reasoning-valid-conditional-forms
+    keyPoint: 3
     type: syllogism
     difficulty: hard
     stem: |
@@ -388,9 +424,11 @@ questions:
           This adds a movement event to a location argument. A missing cabinet document may suggest it was moved. Check whether any premise states when or how it arrived.
     explanation: |
       The premises give two possible places and exclude the cabinet. The remaining stated place is the vault, so the original is there.
-    approved: false
+    approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0019
+    lesson: lesson-logical-verbal-reasoning-deductive-group-arguments
+    keyPoint: 1
     type: syllogism
     difficulty: exam
     stem: |
@@ -409,9 +447,11 @@ questions:
           This denies the overlap established by the approved subgroup. The category names differ. Check the reports that are both submitted and approved.
     explanation: |
       Every approved report is signed. Some submitted reports belong to the approved group. Those reports are signed, so at least some submitted reports are signed.
-    approved: false
+    approved: true
 
   - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0020
+    lesson: lesson-logical-verbal-reasoning-valid-conditional-forms
+    keyPoint: 2
     type: syllogism
     difficulty: exam
     stem: |
@@ -430,5 +470,5 @@ questions:
           This stops after using the second rule. Release is ruled out, so that can feel like the end of the deduction. Check whether the first rule allows a further negative conclusion.
     explanation: |
       Approval guarantees release, and release guarantees a registered copy. No registered copy means there was no release. Since approval would have required release, approval is also absent.
-    approved: false
+    approved: true
 

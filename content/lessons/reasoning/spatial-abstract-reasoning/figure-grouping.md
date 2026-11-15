@@ -6,6 +6,11 @@ subject: "subject-reasoning"
 topic: "topic-spatial-abstract-reasoning"
 estimatedMinutes: 12
 isActive: true
+status: retired
+replacedBy:
+  - lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry
+  - lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details
+  - lesson-spatial-abstract-reasoning-testing-a-figure-group-rule
 ---
 ## Core Concept
 

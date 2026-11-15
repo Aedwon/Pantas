@@ -13,6 +13,16 @@
     "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
     "strength": "helpful",
     "reason": "Fraction arithmetic helps with the final symbolic example, which shows the needed denominator conversion locally."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-grouping-and-fraction-bars",
+    "strength": "helpful",
+    "reason": "Signed-number practice makes substitution easier. This lesson repeats the evaluation order and explains negative-base parentheses."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
+    "strength": "helpful",
+    "reason": "Fraction arithmetic helps with the final symbolic example, which shows the needed denominator conversion locally."
    }
   ],
   "lesson-algebra-exponents-and-logarithms": [
@@ -32,6 +42,11 @@
   "lesson-algebra-polynomials": [
    {
     "lesson": "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm",
+    "strength": "helpful",
+    "reason": "Finding numerical common factors is easier with prior GCF practice. This lesson defines polynomial GCF and demonstrates extraction."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-prime-factors-and-powers",
     "strength": "helpful",
     "reason": "Finding numerical common factors is easier with prior GCF practice. This lesson defines polynomial GCF and demonstrates extraction."
    }
@@ -56,6 +71,11 @@
    },
    {
     "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "strength": "required",
+    "reason": "The work example assumes common-denominator addition and division by a fraction without teaching those arithmetic rules."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
     "strength": "required",
     "reason": "The work example assumes common-denominator addition and division by a fraction without teaching those arithmetic rules."
    }
@@ -120,6 +140,11 @@
     "lesson": "lesson-biology-cellular-metabolism",
     "strength": "helpful",
     "reason": "Understanding photosynthesis and respiration makes carbon cycling easier. Ecology explains their relevant roles itself."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
+    "strength": "helpful",
+    "reason": "Percentage multiplication helps with energy transfers. Ecology supplies the 0.10 multiplier and worked steps, so it stands alone."
    }
   ],
   "lesson-clerical-ability-alphabetic-filing-rules": [],
@@ -135,6 +160,11 @@
   "lesson-comprehension-skills-context-clues-in-passages": [
    {
     "lesson": "lesson-vocabulary-word-partners-feeling-and-grammar",
+    "strength": "helpful",
+    "reason": "Practice recognizing word-level clues helps students combine clues across sentences. This lesson reteaches the needed clue types."
+   },
+   {
+    "lesson": "lesson-vocabulary-context-clues",
     "strength": "helpful",
     "reason": "Practice recognizing word-level clues helps students combine clues across sentences. This lesson reteaches the needed clue types."
    }
@@ -247,6 +277,16 @@
     "lesson": "lesson-grammar-and-structure-simple-and-compound-sentences",
     "strength": "helpful",
     "reason": "Practice counting clauses supports the English and Filipino sentence-classification tasks. The lesson supplies its own sentence-type definitions."
+   },
+   {
+    "lesson": "lesson-grammar-and-structure-subject-verb-agreement",
+    "strength": "helpful",
+    "reason": "Focused agreement practice makes the correction checks easier. The lesson restates agreement rules and explains each correction."
+   },
+   {
+    "lesson": "lesson-grammar-and-structure-sentence-structure",
+    "strength": "helpful",
+    "reason": "Practice counting clauses supports the English and Filipino sentence-classification tasks. The lesson supplies its own sentence-type definitions."
    }
   ],
   "lesson-language-application-paragraph-organization": [
@@ -259,6 +299,11 @@
     "lesson": "lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they",
     "strength": "helpful",
     "reason": "Practice identifying pronoun references makes reference chains easier to follow. The lesson teaches how references guide ordering."
+   },
+   {
+    "lesson": "lesson-grammar-and-structure-pronoun-antecedent-agreement",
+    "strength": "helpful",
+    "reason": "Practice identifying pronoun references makes reference chains easier to follow. The lesson teaches how references guide ordering."
    }
   ],
   "lesson-language-application-sentence-completion": [
@@ -269,6 +314,16 @@
    },
    {
     "lesson": "lesson-grammar-and-structure-modals-requirements-and-possibility",
+    "strength": "helpful",
+    "reason": "Prior practice distinguishing finished actions from earlier completed actions eases tense selection. The lesson explains its tested verb patterns."
+   },
+   {
+    "lesson": "lesson-vocabulary-context-clues",
+    "strength": "helpful",
+    "reason": "Practice combining contrast, cause, and surrounding details makes predicting missing meanings easier. The lesson explains its own meaning-clue method."
+   },
+   {
+    "lesson": "lesson-grammar-and-structure-tenses-and-voice",
     "strength": "helpful",
     "reason": "Prior practice distinguishing finished actions from earlier completed actions eases tense selection. The lesson explains its tested verb patterns."
    }
@@ -318,6 +373,11 @@
     "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
     "strength": "required",
     "reason": "Combined-event calculations require fraction multiplication, simplification, and subtraction. This lesson teaches probability rules but assumes those arithmetic methods."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
+    "strength": "required",
+    "reason": "Combined-event calculations require fraction multiplication, simplification, and subtraction. This lesson teaches probability rules but assumes those arithmetic methods."
    }
   ],
   "lesson-statistics-and-probability-data-analysis-graphs": [
@@ -330,6 +390,11 @@
     "lesson": "lesson-data-interpretation-averages-and-pie-chart-shares",
     "strength": "helpful",
     "reason": "Basic scale-reading practice helps before comparing graph scales. This lesson repeats the needed reading rules and adds more demanding comparisons."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
+    "strength": "helpful",
+    "reason": "Percentage conversion and fraction multiplication practice make pie-chart calculations easier. This lesson gives the share formulas and demonstrates their use."
    }
   ],
   "lesson-statistics-and-probability-measures-of-central-tendency": [],
@@ -382,6 +447,11 @@
     "lesson": "lesson-comprehension-skills-paghatol-at-ebidensya",
     "strength": "helpful",
     "reason": "Matching conclusions to evidence helps students interpret cartoons without adding unsupported claims. Visual Media explains this principle itself."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
+    "strength": "helpful",
+    "reason": "The numerical examples require fraction simplification, fraction multiplication, and conversion to decimals. This lesson supplies formulas but does not teach those operations. Lead review: downgraded from required; the arithmetic is incidental to this lesson's teaching."
    }
   ],
   "lesson-verbal-logic-assumptions-and-conclusions": [
@@ -429,6 +499,11 @@
   "lesson-data-interpretation-percentage-change": [
    {
     "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "strength": "helpful",
+    "reason": "Conversion and percentage-base practice make the calculations easier. This lesson explains its comparison formulas and demonstrates conversion."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
     "strength": "helpful",
     "reason": "Conversion and percentage-base practice make the calculations easier. This lesson explains its comparison formulas and demonstrates conversion."
    }
@@ -528,6 +603,11 @@
   "lesson-philippine-constitution-amendment-or-revision": [
    {
     "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "strength": "helpful",
+    "reason": "The worked examples assume fraction multiplication and percentage-to-decimal conversion. This lesson does not teach those operations. Lead review: downgraded from required; the arithmetic is incidental to this lesson's teaching."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
     "strength": "helpful",
     "reason": "The worked examples assume fraction multiplication and percentage-to-decimal conversion. This lesson does not teach those operations. Lead review: downgraded from required; the arithmetic is incidental to this lesson's teaching."
    }
@@ -688,6 +768,11 @@
     "lesson": "lesson-philippine-constitution-ballot-protection-and-overseas-voting",
     "strength": "helpful",
     "reason": "Knowing the special election-of-citizenship rule clarifies natural-born qualifications across offices. This lesson defines natural-born status but refers elsewhere for that exception."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
+    "strength": "helpful",
+    "reason": "The voting-threshold examples assume students can multiply a whole number by a fraction. This lesson identifies the calculation but does not teach fraction arithmetic. Lead review: downgraded from required; the arithmetic is incidental to this lesson's teaching."
    }
   ],
   "lesson-philippine-constitution-congress-members-and-terms": [
@@ -2531,6 +2616,563 @@
     "lesson": "lesson-language-application-pagkakasunod-at-sanhi",
     "strength": "required",
     "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-logical-verbal-reasoning-sequence-letter-patterns": [
+   {
+    "lesson": "lesson-logical-verbal-reasoning-sequence-earlier-terms",
+    "strength": "required",
+    "reason": "This part continues the ideas in the previous part."
+   }
+  ],
+  "lesson-logical-verbal-reasoning-invalid-conditional-forms": [
+   {
+    "lesson": "lesson-logical-verbal-reasoning-valid-conditional-forms",
+    "strength": "required",
+    "reason": "This part continues the ideas in the previous part."
+   }
+  ],
+  "lesson-logical-verbal-reasoning-combined-truth-values": [
+   {
+    "lesson": "lesson-logical-verbal-reasoning-conditional-truth-values",
+    "strength": "required",
+    "reason": "This part continues the ideas in the previous part."
+   }
+  ],
+  "lesson-logical-verbal-reasoning-analogy-meanings-and-double-pairs": [
+   {
+    "lesson": "lesson-vocabulary-synonyms-and-antonyms",
+    "strength": "helpful",
+    "reason": "Recognizing close meanings, opposites, and differences in strength makes relationship matching easier. The lesson explains these relationships sufficiently itself."
+   },
+   {
+    "lesson": "lesson-logical-verbal-reasoning-analogy-functions-users-and-work",
+    "strength": "required",
+    "reason": "This part continues the ideas in the previous part."
+   }
+  ],
+  "lesson-arithmetic-number-sense-decimal-and-percent-conversions": [],
+  "lesson-arithmetic-number-sense-fractions-and-mixed-forms": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-decimal-and-percent-conversions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-adding-and-multiplying-fractions": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-fractions-and-mixed-forms",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-multiplying-and-dividing-decimals": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-adding-and-multiplying-fractions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-percentage-base-and-fraction-division": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-multiplying-and-dividing-decimals",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-successive-percentages-and-increases": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-percentage-base-and-fraction-division",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-finding-number-patterns": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
+    "strength": "required",
+    "reason": "The infinite-series example assumes fraction subtraction and reciprocal division without explaining those rules."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-grouping-and-fraction-bars",
+    "strength": "helpful",
+    "reason": "Formula evaluation benefits from powers and signed-arithmetic practice. The earlier required exponent-laws link is unnecessary for the examples used."
+   }
+  ],
+  "lesson-arithmetic-number-sense-odd-and-even-position-patterns": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-finding-number-patterns",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-arithmetic-sequence-terms": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-odd-and-even-position-patterns",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-arithmetic-series-sums": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-arithmetic-sequence-terms",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-geometric-sequence-terms": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-arithmetic-series-sums",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-finite-geometric-series": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-geometric-sequence-terms",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-infinite-geometric-series": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-finite-geometric-series",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-harmonic-sequence-terms": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-infinite-geometric-series",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-fibonacci-type-sequence-terms": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-harmonic-sequence-terms",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-operation-priority-and-left-to-right": [],
+  "lesson-arithmetic-number-sense-signed-integers-and-substitution": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-operation-priority-and-left-to-right",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-grouping-and-fraction-bars": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-signed-integers-and-substitution",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-same-remainder-numbers": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-last-digit-divisibility",
+    "strength": "helpful",
+    "reason": "Digit tests make finding prime divisors faster. Prime factorization still works through the repeated division taught here."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-least-common-multiple",
+    "strength": "required",
+    "reason": "This part continues the preceding part of the split lesson."
+   }
+  ],
+  "lesson-arithmetic-number-sense-prime-factors-and-powers": [],
+  "lesson-arithmetic-number-sense-greatest-common-factor": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-prime-factors-and-powers",
+    "strength": "required",
+    "reason": "This part continues the preceding part of the split lesson."
+   }
+  ],
+  "lesson-arithmetic-number-sense-least-common-multiple": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-greatest-common-factor",
+    "strength": "required",
+    "reason": "This part continues the preceding part of the split lesson."
+   }
+  ],
+  "lesson-arithmetic-number-sense-coprime-divisibility-tests": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-divisibility-by-seven-and-eleven",
+    "strength": "required",
+    "reason": "This part continues the preceding part of the split lesson."
+   }
+  ],
+  "lesson-arithmetic-number-sense-last-digit-divisibility": [],
+  "lesson-arithmetic-number-sense-digit-sums-and-six": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-last-digit-divisibility",
+    "strength": "required",
+    "reason": "This part continues the preceding part of the split lesson."
+   }
+  ],
+  "lesson-arithmetic-number-sense-divisibility-by-seven-and-eleven": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-digit-sums-and-six",
+    "strength": "required",
+    "reason": "This part continues the preceding part of the split lesson."
+   }
+  ],
+  "lesson-arithmetic-number-sense-compound-interest": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
+    "strength": "required",
+    "reason": "Retained from the earlier audit. Business examples assume percentage-to-decimal conversion and decimal multiplication without teaching their methods."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-simple-interest",
+    "strength": "required",
+    "reason": "This part continues the preceding part of the split lesson."
+   }
+  ],
+  "lesson-arithmetic-number-sense-discounted-prices": [],
+  "lesson-arithmetic-number-sense-markup-on-cost": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-discounted-prices",
+    "strength": "required",
+    "reason": "This part continues the preceding part of the split lesson."
+   }
+  ],
+  "lesson-arithmetic-number-sense-commission-and-sales-tax": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-markup-on-cost",
+    "strength": "required",
+    "reason": "This part continues the preceding part of the split lesson."
+   }
+  ],
+  "lesson-arithmetic-number-sense-simple-interest": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-commission-and-sales-tax",
+    "strength": "required",
+    "reason": "This part continues the preceding part of the split lesson."
+   }
+  ],
+  "lesson-arithmetic-number-sense-commutative-and-associative-properties": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-grouping-and-fraction-bars",
+    "strength": "helpful",
+    "reason": "Signed arithmetic practice makes combining coefficients and distributing negative factors easier. This lesson supplies the algebra rules."
+   }
+  ],
+  "lesson-arithmetic-number-sense-identities-and-like-terms": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-commutative-and-associative-properties",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-additive-and-multiplicative-inverses": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-identities-and-like-terms",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-distribution-and-common-factors": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-additive-and-multiplicative-inverses",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-direct-proportion-and-travel": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
+    "strength": "helpful",
+    "reason": "Fraction fluency helps with ratio notation and fractional answers. This lesson teaches the proportion methods it uses."
+   }
+  ],
+  "lesson-arithmetic-number-sense-inverse-proportion-and-remaining-work": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-direct-proportion-and-travel",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-partitive-proportion-and-differences": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-inverse-proportion-and-remaining-work",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-real-number-sets": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-grouping-and-fraction-bars",
+    "strength": "helpful",
+    "reason": "Signed arithmetic makes complex-number multiplication easier. This lesson teaches distribution, collecting terms, and replacing i squared locally."
+   }
+  ],
+  "lesson-arithmetic-number-sense-imaginary-unit-and-powers": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-real-number-sets",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-complex-products-and-quotients": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-imaginary-unit-and-powers",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-clerical-ability-personal-name-filing-units": [],
+  "lesson-clerical-ability-filing-patterns-and-surname-particles": [
+   {
+    "lesson": "lesson-clerical-ability-personal-name-filing-units",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-clerical-ability-suffixes-titles-and-filing-ties": [
+   {
+    "lesson": "lesson-clerical-ability-filing-patterns-and-surname-particles",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-clerical-ability-whole-number-and-decimal-filing": [],
+  "lesson-clerical-ability-oldest-and-newest-date-order": [
+   {
+    "lesson": "lesson-clerical-ability-whole-number-and-decimal-filing",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-clerical-ability-year-first-and-stated-date-formats": [
+   {
+    "lesson": "lesson-clerical-ability-oldest-and-newest-date-order",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-clerical-ability-integer-subcode-filing": [
+   {
+    "lesson": "lesson-clerical-ability-year-first-and-stated-date-formats",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-clerical-ability-character-string-filing": [
+   {
+    "lesson": "lesson-clerical-ability-integer-subcode-filing",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-clerical-ability-terminal-digit-filing-order": [
+   {
+    "lesson": "lesson-clerical-ability-character-string-filing",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-verbal-logic-needed-assumptions": [
+   {
+    "lesson": "lesson-logical-verbal-reasoning-deductive-group-arguments",
+    "strength": "helpful",
+    "reason": "Practice with forced conclusions makes group-based deductions easier. Assumptions and Conclusions explains the needed group meanings itself."
+   },
+   {
+    "lesson": "lesson-logical-verbal-reasoning-truth-tables-and-connectives",
+    "strength": "helpful",
+    "reason": "Understanding negation and compound statements makes the compound-assumption test easier. The lesson supplies its own negation rules."
+   }
+  ],
+  "lesson-verbal-logic-negating-assumptions": [
+   {
+    "lesson": "lesson-verbal-logic-needed-assumptions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-verbal-logic-must-be-true-conclusions": [
+   {
+    "lesson": "lesson-verbal-logic-compound-assumptions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-verbal-logic-none-and-may": [
+   {
+    "lesson": "lesson-verbal-logic-must-be-true-conclusions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-verbal-logic-best-supported-conclusions": [
+   {
+    "lesson": "lesson-verbal-logic-none-and-may",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-verbal-logic-unsupported-causes-and-motives": [
+   {
+    "lesson": "lesson-verbal-logic-best-supported-conclusions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-verbal-logic-recognizing-bias": [
+   {
+    "lesson": "lesson-verbal-logic-unsupported-causes-and-motives",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-verbal-logic-compound-assumptions": [
+   {
+    "lesson": "lesson-verbal-logic-negating-assumptions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-logical-verbal-reasoning-sequence-moves": [],
+  "lesson-logical-verbal-reasoning-sequence-positions-and-operations": [
+   {
+    "lesson": "lesson-logical-verbal-reasoning-sequence-moves",
+    "strength": "required",
+    "reason": "This part continues the ideas in the previous part."
+   }
+  ],
+  "lesson-logical-verbal-reasoning-sequence-earlier-terms": [
+   {
+    "lesson": "lesson-logical-verbal-reasoning-sequence-positions-and-operations",
+    "strength": "required",
+    "reason": "This part continues the ideas in the previous part."
+   }
+  ],
+  "lesson-logical-verbal-reasoning-deductive-group-arguments": [],
+  "lesson-logical-verbal-reasoning-valid-conditional-forms": [
+   {
+    "lesson": "lesson-logical-verbal-reasoning-deductive-group-arguments",
+    "strength": "required",
+    "reason": "This part continues the ideas in the previous part."
+   }
+  ],
+  "lesson-logical-verbal-reasoning-truth-tables-and-connectives": [],
+  "lesson-logical-verbal-reasoning-conditional-truth-values": [
+   {
+    "lesson": "lesson-logical-verbal-reasoning-truth-tables-and-connectives",
+    "strength": "required",
+    "reason": "This part continues the ideas in the previous part."
+   }
+  ],
+  "lesson-logical-verbal-reasoning-analogy-parts-types-and-products": [],
+  "lesson-logical-verbal-reasoning-analogy-functions-users-and-work": [
+   {
+    "lesson": "lesson-logical-verbal-reasoning-analogy-parts-types-and-products",
+    "strength": "required",
+    "reason": "This part continues the ideas in the previous part."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-matrix-turns-and-counts": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns",
+    "strength": "helpful",
+    "reason": "Tracking separate visual changes prepares students to combine row and column rules. Matrices teaches enough to stand alone."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-turns-and-counts",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-matrix-keeping-all-features": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-matrix-keeping-shared-features": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-keeping-all-features",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-unfolding-cuts-across-a-fold": [],
+  "lesson-spatial-abstract-reasoning-cuts-at-two-fold-lines": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-unfolding-cuts-across-a-fold",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-folded-layers-and-separate-holes": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-cuts-at-two-fold-lines",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-uneven-folds-and-cut-layers": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-folded-layers-and-separate-holes",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-figure-counts-and-fills": [
+   {
+    "lesson": "lesson-logical-verbal-reasoning-sequence-moves",
+    "strength": "helpful",
+    "reason": "Separating odd and even positions makes mixed figure patterns easier. Figure Series also explains this method itself."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-figure-turns-and-positions": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-figure-counts-and-fills",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-figure-turns-and-positions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry": [],
+  "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-testing-a-figure-group-rule": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-turning-solids-without-mirror-flips": [],
+  "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-turning-solids-without-mirror-flips",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-parallel-light-and-solid-shadows": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets",
+    "strength": "required",
+    "reason": "Read the previous part first."
    }
   ]
  }

@@ -6,6 +6,11 @@ subject: "subject-reasoning"
 topic: "topic-spatial-abstract-reasoning"
 estimatedMinutes: 12
 isActive: true
+status: retired
+replacedBy:
+  - lesson-spatial-abstract-reasoning-figure-counts-and-fills
+  - lesson-spatial-abstract-reasoning-figure-turns-and-positions
+  - lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns
 ---
 ## Core Concept
 

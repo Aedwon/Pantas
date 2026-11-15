@@ -6,6 +6,12 @@ subject: "subject-reasoning"
 topic: "topic-logical-verbal-reasoning"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-logical-verbal-reasoning-sequence-moves
+  - lesson-logical-verbal-reasoning-sequence-positions-and-operations
+  - lesson-logical-verbal-reasoning-sequence-earlier-terms
+  - lesson-logical-verbal-reasoning-sequence-letter-patterns
 ---
 
 ## Core Concept

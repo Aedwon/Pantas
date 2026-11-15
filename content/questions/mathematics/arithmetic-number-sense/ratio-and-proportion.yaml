@@ -5,6 +5,9 @@ meta:
   exams: [upcat, acet, dlsucet, ustet, pupcet, cse-pro, cse-sub]
 questions:
   - id: q-arithmetic-number-sense-ratio-and-proportion-0001
+    approved: true
+    lesson: lesson-arithmetic-number-sense-direct-proportion-and-travel
+    keyPoint: 1
     type: word-problem
     difficulty: easy
     stem: |
@@ -25,10 +28,13 @@ questions:
       The flour rate is $3\div12=\dfrac{1}{4}$ cup per pancake. For $20$ pancakes, multiply: $20\left(\dfrac{1}{4}\right)=5$ cups.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0002
+    approved: true
+    lesson: lesson-arithmetic-number-sense-direct-proportion-and-travel
+    keyPoint: 1
     type: word-problem
     difficulty: easy
     stem: |
-      Blue and yellow paint mix in ratio $3 : 2$. If using 12 liters of blue paint, how many liters of yellow paint?
+      Blue and yellow paint are mixed in a ratio of $3 : 2$. If 12 liters of blue paint are used, how many liters of yellow paint are needed?
     choices:
       - text: '$4.8$ liters'
         rationale: |
@@ -45,6 +51,9 @@ questions:
       Three blue parts equal $12$ liters, so each part is $12\div3=4$ liters. Yellow has two parts, giving $2(4)=8$ liters.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0003
+    approved: true
+    lesson: lesson-arithmetic-number-sense-direct-proportion-and-travel
+    keyPoint: 1
     type: word-problem
     difficulty: easy
     stem: |
@@ -65,10 +74,13 @@ questions:
       Each map centimeter represents $15$ km. Multiply the map distance by this rate: $4.5(15)=67.5$ km.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0004
+    approved: true
+    lesson: lesson-arithmetic-number-sense-partitive-proportion-and-differences
+    keyPoint: 1
     type: word-problem
     difficulty: easy
     stem: |
-      A jeepney has male to female passengers in ratio $4 : 5$. If 15 female passengers, what is total?
+      The ratio of male to female passengers in a jeepney is $4 : 5$. If there are 15 female passengers, how many passengers are there in all?
     choices:
       - text: '$12$ passengers'
         rationale: |
@@ -85,10 +97,13 @@ questions:
       Five female parts equal $15$ passengers, so one part is $3$ passengers. There are $4+5=9$ total parts. Thus the total is $9(3)=27$ passengers.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0005
+    approved: true
+    lesson: lesson-arithmetic-number-sense-partitive-proportion-and-differences
+    keyPoint: 1
     type: word-problem
     difficulty: medium
     stem: |
-      A recipe uses flour, sugar, butter in ratio $5 : 3 : 2$. With 450 g sugar, what is total mass?
+      A recipe uses flour, sugar, and butter in a ratio of $5 : 3 : 2$ by mass. If 450 g of sugar is used, what is the total mass of these ingredients?
     choices:
       - text: '$750$ grams'
         rationale: |
@@ -105,10 +120,13 @@ questions:
       The sugar has three parts totaling $450$ grams. One part is $450\div3=150$ grams. All ingredients have $5+3+2=10$ parts, totaling $10(150)=1500$ grams.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0006
+    approved: true
+    lesson: lesson-arithmetic-number-sense-partitive-proportion-and-differences
+    keyPoint: 1
     type: word-problem
     difficulty: medium
     stem: |
-      Fuel cost shared among 16 commuters by distance traveled. 10 travel 12 km each; 6 travel 20 km each. What fraction of cost for the 6 travelers?
+      The fuel cost for 16 commuters is shared in proportion to the distance each travels. Of these commuters, 10 travel 12 km each and 6 travel 20 km each. What fraction of the total cost should the 6 commuters pay?
     choices:
       - text: '$\dfrac{3}{8}$'
         rationale: |
@@ -125,10 +143,13 @@ questions:
       The first group travels $10(12)=120$ person-kilometers. The second travels $6(20)=120$ person-kilometers. The second group pays $\dfrac{120}{120+120}=\dfrac{1}{2}$ of the cost.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0007
+    approved: true
+    lesson: lesson-arithmetic-number-sense-direct-proportion-and-travel
+    keyPoint: 1
     type: word-problem
     difficulty: medium
     stem: |
-      On a map with scale $1\text{ cm} : 2\text{ km}$, a park measures $3\text{ cm} \times 4\text{ cm}$. What is actual area?
+      On a map with a scale of $1\text{ cm} : 2\text{ km}$, a rectangular park measures $3\text{ cm} \times 4\text{ cm}$. What is the actual area of the park?
     choices:
       - text: '$12$ sq km'
         rationale: |
@@ -145,10 +166,13 @@ questions:
       The map dimensions scale to $3(2)=6$ km and $4(2)=8$ km. Their product gives area $6(8)=48$ square kilometers.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0008
+    approved: true
+    lesson: lesson-arithmetic-number-sense-partitive-proportion-and-differences
+    keyPoint: 1
     type: word-problem
     difficulty: medium
     stem: |
-      A 30-liter mixture of red and white paint is in ratio $4 : 1$. How much white paint to add for ratio $2 : 1$?
+      A 30-liter mixture contains red and white paint in a ratio of $4 : 1$. How many liters of white paint must be added to make the ratio of red to white paint $2 : 1$?
     choices:
       - text: '$3$ liters'
         rationale: |
@@ -165,6 +189,9 @@ questions:
       The initial $30$ liters have five parts, so one part is $6$ liters. Red is $24$ liters and white is $6$ liters. To get red-to-white ratio $2:1$, white must be $24\div2=12$ liters. Add $12-6=6$ liters.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0009
+    approved: true
+    lesson: lesson-arithmetic-number-sense-direct-proportion-and-travel
+    keyPoint: 1
     type: word-problem
     difficulty: medium
     stem: |
@@ -185,6 +212,9 @@ questions:
       Divide the flour mass by milk volume: $\dfrac{600}{250}=\dfrac{12}{5}$ grams per milliliter.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0010
+    approved: true
+    lesson: lesson-arithmetic-number-sense-direct-proportion-and-travel
+    keyPoint: 2
     type: word-problem
     difficulty: hard
     stem: |
@@ -205,6 +235,9 @@ questions:
       The new speed is $40(0.75)=30$ km/h. Convert $45$ minutes to $0.75$ hours to match the speed units. For the same trip distance, speed times time stays constant. Thus $40(0.75)=30t$. Divide by $30$ to get $t=1$ hour, or $60$ minutes.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0011
+    approved: true
+    lesson: lesson-arithmetic-number-sense-partitive-proportion-and-differences
+    keyPoint: 1
     type: word-problem
     difficulty: hard
     stem: |
@@ -225,10 +258,13 @@ questions:
       Container A has $12\left(\dfrac{1}{4}\right)=3$ liters of blue and $9$ of yellow. Container B has $8\left(\dfrac{3}{4}\right)=6$ liters of blue and $2$ of yellow. The totals are $9$ blue and $11$ yellow, giving $9:11$.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0012
+    approved: true
+    lesson: lesson-arithmetic-number-sense-direct-proportion-and-travel
+    keyPoint: 2
     type: word-problem
     difficulty: hard
     stem: |
-      On a map with scale $1 : 250,000$, distance between terminals is $14.4\text{ cm}$. Jeepney travels at 45 km/h. How many minutes?
+      On a map with a scale of $1 : 250,000$, the distance between two terminals is $14.4\text{ cm}$. If a jeepney travels at 45 km/h, how many minutes will it take to travel between the terminals?
     choices:
       - text: '$32$ minutes'
         rationale: |
@@ -245,10 +281,13 @@ questions:
       The scale gives $14.4(250000)=3600000$ cm. Since $100000$ cm is $1$ km, the distance is $36$ km. Travel time is $36\div45=0.8$ hours. Multiply by $60$ to get $48$ minutes.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0013
+    approved: true
+    lesson: lesson-arithmetic-number-sense-direct-proportion-and-travel
+    keyPoint: 1
     type: word-problem
     difficulty: hard
     stem: |
-      Recipe for 15 servings needs 2.25 kg rice. Caterer prepares for 40 guests with 20% larger portions. How much rice?
+      A recipe for 15 servings requires 2.25 kg of rice. A caterer is preparing one serving for each of 40 guests, with portions 20% larger than the recipe specifies. How much rice is needed?
     choices:
       - text: '$4.8$ kg'
         rationale: |
@@ -265,6 +304,9 @@ questions:
       A standard serving needs $2.25\div15=0.15$ kg. Larger portions need $0.15(1.20)=0.18$ kg each. For $40$ guests, the total is $40(0.18)=7.2$ kg.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0014
+    approved: true
+    lesson: lesson-arithmetic-number-sense-partitive-proportion-and-differences
+    keyPoint: 2
     type: word-problem
     difficulty: exam
     stem: |
@@ -285,10 +327,13 @@ questions:
       Match the middle ratio parts: $a:b=15:20$ and $b:c=20:24$. Thus $a:b:c=15:20:24$. The difference between Carl and Alex is $24-15=9$ parts, worth $720$ pesos. One part is $720\div9=80$ pesos. The total is $(15+20+24)(80)=4720$ pesos.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0015
+    approved: true
+    lesson: lesson-arithmetic-number-sense-partitive-proportion-and-differences
+    keyPoint: 1
     type: word-problem
     difficulty: exam
     stem: |
-      A well-mixed 40-liter bucket has 70% yellow, 30% red paint. Remove 10 L mixture, replace with 10 L pure red. What is ratio yellow:red?
+      A bucket contains 40 liters of well-mixed paint that is 70% yellow and 30% red. If 10 L of the mixture is removed and replaced with 10 L of pure red paint, what is the resulting ratio of yellow to red paint?
     choices:
       - text: '$\dfrac{19}{21}$'
         rationale: |
@@ -305,6 +350,8 @@ questions:
       The bucket starts with $40(0.70)=28$ liters of yellow and $12$ of red. Removing one quarter of a well-mixed bucket leaves $21$ yellow and $9$ red. Adding $10$ liters of red gives $19$ red. The yellow-to-red ratio is $\dfrac{21}{19}$.
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0016
+    lesson: lesson-arithmetic-number-sense-direct-proportion-and-travel
+    keyPoint: 1
     type: which-is-true
     difficulty: easy
     stem: |
@@ -323,9 +370,11 @@ questions:
           This uses a fixed sum instead of a fixed ratio. The quantities change together in the equation. Check the direct-proportion definition.
     explanation: |
       In $y=3x$, the ratio $\dfrac{y}{x}$ stays equal to $3$. A constant ratio is the defining condition for direct proportion.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0017
+    lesson: lesson-arithmetic-number-sense-inverse-proportion-and-remaining-work
+    keyPoint: 1
     type: word-problem
     difficulty: medium
     stem: |
@@ -344,9 +393,11 @@ questions:
           This reports the total pump-hours as elapsed time. That total is needed first. Check that five pumps share the work.
     explanation: |
       The fixed job needs $6(10)=60$ pump-hours. With five pumps, the time is $60\div5=12$ hours.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0018
+    lesson: lesson-arithmetic-number-sense-inverse-proportion-and-remaining-work
+    keyPoint: 1
     type: error-spotting
     difficulty: hard
     stem: |
@@ -365,9 +416,11 @@ questions:
           This compares equal changes instead of products. The quantities change by the same magnitude. Check whether that alone keeps xy constant.
     explanation: |
       Inverse proportion requires the product xy to stay constant. The first product is $2(8)=16$, and the second is $4(6)=24$. The unequal products disprove the claim.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0019
+    lesson: lesson-arithmetic-number-sense-inverse-proportion-and-remaining-work
+    keyPoint: 2
     type: word-problem
     difficulty: hard
     stem: |
@@ -386,9 +439,11 @@ questions:
           This scales the ten remaining days by five eighths. That uses the workforce reduction directly. Check that fewer workers require more time.
     explanation: |
       The full job needs $8(15)=120$ worker-days. The first five days complete $8(5)=40$ worker-days. There are $80$ worker-days left and five workers remain. They need $80\div5=16$ more days.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0020
+    lesson: lesson-arithmetic-number-sense-partitive-proportion-and-differences
+    keyPoint: 2
     type: word-problem
     difficulty: exam
     stem: |
@@ -407,4 +462,27 @@ questions:
           This reports the shorter piece alone. That length is found from four parts. Check that both lengths belong in the total.
     explanation: |
       The difference is $7-4=3$ parts, so one part is $21\div3=7$ meters. The total has $4+7=11$ parts. Its length is $11(7)=77$ meters.
-    approved: false
+    approved: true
+
+  - id: q-arithmetic-number-sense-ratio-and-proportion-0021
+    approved: true
+    lesson: lesson-arithmetic-number-sense-inverse-proportion-and-remaining-work
+    keyPoint: 2
+    type: word-problem
+    difficulty: exam
+    stem: |
+      Twelve workers can complete a project in $18$ days. After all $12$ work for $6$ days, $4$ workers leave. If every worker has the same constant rate, how many more days will the remaining workers need?
+    choices:
+      - text: '$18$ days'
+        correct: true
+      - text: '$27$ days'
+        rationale: |
+          This gives the smaller group the entire project. Some work is already complete. Find the remaining worker-days first.
+      - text: '$12$ days'
+        rationale: |
+          This keeps the original remaining time. Fewer workers now share the work. Divide the remaining worker-days by the new group size.
+      - text: '$8$ days'
+        rationale: |
+          This makes time decrease with the worker count. For fixed remaining work, fewer workers need more time. Use a constant product.
+    explanation: |
+      Total work is $12(18)=216$ worker-days. Completed work is $12(6)=72$, leaving $216-72=144$ worker-days. There are $12-4=8$ workers left. They need $144\div8=18$ more days.

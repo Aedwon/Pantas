@@ -6,6 +6,17 @@ subject: "subject-mathematics"
 topic: "topic-arithmetic-number-sense"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-arithmetic-number-sense-finding-number-patterns
+  - lesson-arithmetic-number-sense-odd-and-even-position-patterns
+  - lesson-arithmetic-number-sense-arithmetic-sequence-terms
+  - lesson-arithmetic-number-sense-arithmetic-series-sums
+  - lesson-arithmetic-number-sense-geometric-sequence-terms
+  - lesson-arithmetic-number-sense-finite-geometric-series
+  - lesson-arithmetic-number-sense-infinite-geometric-series
+  - lesson-arithmetic-number-sense-harmonic-sequence-terms
+  - lesson-arithmetic-number-sense-fibonacci-type-sequence-terms
 ---
 ## Core Concept
 

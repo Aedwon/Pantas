@@ -5,6 +5,9 @@ meta:
   exams: [upcat, acet, dlsucet, ustet, pupcet, cse-pro, cse-sub]
 questions:
   - id: q-arithmetic-number-sense-business-math-0001
+    approved: true
+    lesson: lesson-arithmetic-number-sense-markup-on-cost
+    keyPoint: 1
     type: word-problem
     difficulty: easy
     stem: |
@@ -25,30 +28,37 @@ questions:
       The markup is $800(0.25)=200$ pesos. Add it to the cost: $800+200=1000$ pesos.
 
   - id: q-arithmetic-number-sense-business-math-0002
+    approved: true
+    lesson: lesson-arithmetic-number-sense-markup-on-cost
+    keyPoint: 2
     type: word-problem
-    difficulty: easy
+    difficulty: exam
     stem: |
-      A hypothetical jeepney fare is $\text{₱}13.00$ for the first 4 km and $\text{₱}1.80$ for each additional kilometer **or fraction thereof**. Mang Juan travels 11.5 km. How much is his fare?
+      A supplier charges Php $640$ for an item. A retailer adds $25\%$ of cost to set its listed price. The retailer also pays Php $45$ in selling expenses for that item. If it sells at the listed price, what is its profit after all stated costs?
     choices:
-      - text: '$\text{₱}26.50$'
-        rationale: |
-          This charges $7.5$ extra kilometers without rounding up. Charging exact distance seems fair. Check the stated rule for a partial kilometer.
-      - text: '$\text{₱}27.40$'
+      - text: 'Php $115$'
         correct: true
-      - text: '$\text{₱}33.70$'
+      - text: 'Php $160$'
         rationale: |
-          This computes $13+11.5(1.80)$, charging the whole distance without rounding. The trip length and rate are both given. Check which distance the base fare already covers.
-      - text: '$\text{₱}20.70$'
+          This reports the markup alone. It looks like the gain before other costs. Subtract the selling expenses too.
+      - text: 'Php $205$'
         rationale: |
-          This computes $11.5(1.80)$ and omits the base fare. Multiplying distance by a rate seems direct. Check that the price has both a base and an extra-distance part.
+          This adds the selling expenses to the markup. Expenses use up money. Check that they reduce profit.
+      - text: 'Php $800$'
+        rationale: |
+          This reports the listed price. That includes money used to buy the item. Subtract both stated costs.
     explanation: |
-      The extra distance is $11.5-4=7.5$ km. The rule charges any fraction as a whole kilometer, so charge for $8$ extra kilometers. The fare is $13+8(1.80)=27.40$ pesos.
+      The markup is $640(0.25)=160$ pesos. The listed price is $640+160=800$ pesos. Profit is $800-640-45=115$ pesos.
+
 
   - id: q-arithmetic-number-sense-business-math-0003
+    approved: true
+    lesson: lesson-arithmetic-number-sense-simple-interest
+    keyPoint: 1
     type: word-problem
     difficulty: easy
     stem: |
-      Mang Pedro borrowed $\text{₱}15,000$ at 8% simple annual interest. He repaid after 9 months. How much interest?
+      Mang Pedro borrowed $\text{₱}15,000$ at 8% simple annual interest and repaid the loan after 9 months. How much interest did he pay?
     choices:
       - text: '$\text{₱}900.00$'
         correct: true
@@ -65,10 +75,13 @@ questions:
       Convert $9$ months to $\dfrac{9}{12}=0.75$ year. Simple interest is $I=Prt=15000(0.08)(0.75)=900$ pesos.
 
   - id: q-arithmetic-number-sense-business-math-0004
+    approved: true
+    lesson: lesson-arithmetic-number-sense-discounted-prices
+    keyPoint: 1
     type: word-problem
     difficulty: easy
     stem: |
-      Wholesale offers 5% discount on purchases over $\text{₱}1,000$. Aling Rose buys stock tagged at $\text{₱}2,400$. How much after discount?
+      A wholesaler offers a 5% discount on purchases over $\text{₱}1,000$. Aling Rose buys stock with a total list price of $\text{₱}2,400$. How much must she pay after the discount?
     choices:
       - text: '$\text{₱}2,330.00$'
         rationale: |
@@ -85,10 +98,13 @@ questions:
       The purchase exceeds the threshold. Its discount is $2400(0.05)=120$ pesos. The price paid is $2400-120=2280$ pesos.
 
   - id: q-arithmetic-number-sense-business-math-0005
+    approved: true
+    lesson: lesson-arithmetic-number-sense-commission-and-sales-tax
+    keyPoint: 1
     type: word-problem
     difficulty: medium
     stem: |
-      Store assistant earns $\text{₱}400$/day basic + 4% commission on weekly net profit (revenue minus all costs). In 6-day week with $\text{₱}35,000$ revenue and $\text{₱}25,000$ in total costs, what are total earnings?
+      A store assistant earns a basic wage of $\text{₱}400$ per day plus a 4% commission on weekly net profit, defined as revenue minus all costs. In a 6-day week, the store has $\text{₱}35,000$ in revenue and $\text{₱}25,000$ in total costs. What are the assistant's total earnings for the week?
     choices:
       - text: '$\text{₱}3,800.00$'
         rationale: |
@@ -105,10 +121,13 @@ questions:
       The weekly basic wage is $6(400)=2400$ pesos. Net profit is $35000-25000=10000$ pesos. The commission is $10000(0.04)=400$ pesos. Total earnings are $2400+400=2800$ pesos.
 
   - id: q-arithmetic-number-sense-business-math-0006
+    approved: true
+    lesson: lesson-arithmetic-number-sense-markup-on-cost
+    keyPoint: 2
     type: word-problem
     difficulty: medium
     stem: |
-      Aling Toyang sells instant noodles for $\text{₱}25/pack$, cost $\text{₱}20/pack$. What percent of the selling price is the markup amount?
+      Aling Toyang sells instant noodles for $\text{₱}25$ per pack and pays $\text{₱}20$ per pack. What percent of the selling price is the markup amount?
     choices:
       - text: '$25\%$'
         rationale: |
@@ -125,6 +144,9 @@ questions:
       The markup per pack is $25-20=5$ pesos. Divide by the selling price: $\dfrac{5}{25}=0.20$. The markup amount is $20\%$ of the selling price.
 
   - id: q-arithmetic-number-sense-business-math-0007
+    approved: true
+    lesson: lesson-arithmetic-number-sense-discounted-prices
+    keyPoint: 1
     type: word-problem
     difficulty: medium
     stem: |
@@ -145,10 +167,13 @@ questions:
       The trip has $9-4=5$ extra kilometers. The regular fare is $13+5(1.75)=21.75$ pesos. A $20\%$ discount leaves $80\%$ to pay, so the price is $21.75(0.80)=17.40$ pesos.
 
   - id: q-arithmetic-number-sense-business-math-0008
+    approved: true
+    lesson: lesson-arithmetic-number-sense-simple-interest
+    keyPoint: 1
     type: word-problem
     difficulty: medium
     stem: |
-      Mang Ben borrowed $\text{₱}50,000$ at 6% simple annual interest for 15 months. Total repayment?
+      Mang Ben borrowed $\text{₱}50,000$ at 6% simple annual interest for 15 months. What is the total amount he must repay?
     choices:
       - text: '$\text{₱}53,750.00$'
         correct: true
@@ -165,10 +190,13 @@ questions:
       Convert $15$ months to $\dfrac{15}{12}=1.25$ years. The interest is $50000(0.06)(1.25)=3750$ pesos. Add the principal: $50000+3750=53750$ pesos.
 
   - id: q-arithmetic-number-sense-business-math-0009
+    approved: true
+    lesson: lesson-arithmetic-number-sense-discounted-prices
+    keyPoint: 2
     type: word-problem
     difficulty: medium
     stem: |
-      Sari-sari owner orders inventory ($\text{₱}5,000$ list price). Supplier offers successive 10% then 5% discounts. Net price?
+      A sari-sari store owner orders inventory with a list price of $\text{₱}5,000$. The supplier offers successive discounts of 10% and 5%. What is the net price?
     choices:
       - text: '$\text{₱}4,250.00$'
         rationale: |
@@ -185,6 +213,9 @@ questions:
       The first discount leaves $5000(0.90)=4500$ pesos. The second leaves $4500(0.95)=4275$ pesos.
 
   - id: q-arithmetic-number-sense-business-math-0010
+    approved: true
+    lesson: lesson-arithmetic-number-sense-markup-on-cost
+    keyPoint: 2
     type: word-problem
     difficulty: hard
     stem: |
@@ -205,10 +236,13 @@ questions:
       The investment is $30(90)=2700$ pesos. The target revenue is $2700(1.20)=3240$ pesos. There are $30-3=27$ sellable dozen. The required price is $\dfrac{3240}{27}=120$ pesos per dozen.
 
   - id: q-arithmetic-number-sense-business-math-0011
+    approved: true
+    lesson: lesson-arithmetic-number-sense-simple-interest
+    keyPoint: 1
     type: word-problem
     difficulty: hard
     stem: |
-      Aling Marites invested $\text{₱}20,000$ in a micro-finance fund. After 18 months, value is $\text{₱}23,600$. What annual simple interest rate?
+      Aling Marites invested $\text{₱}20,000$ in a microfinance fund. After 18 months, the investment is worth $\text{₱}23,600$. What annual simple interest rate did the investment earn?
     choices:
       - text: '$12\%$'
         correct: true
@@ -225,10 +259,13 @@ questions:
       The interest is $23600-20000=3600$ pesos. The time is $\dfrac{18}{12}=1.5$ years. From $I=Prt$, the annual rate is $r=\dfrac{3600}{20000(1.5)}=0.12=12\%$.
 
   - id: q-arithmetic-number-sense-business-math-0012
+    approved: true
+    lesson: lesson-arithmetic-number-sense-commission-and-sales-tax
+    keyPoint: 1
     type: word-problem
     difficulty: hard
     stem: |
-      Soft drink agent earns: 3% on first $\text{₱}50,000$, 5% on next $\text{₱}50,000$, 8% on sales above $\text{₱}100,000$. Total sales $\text{₱}140,000$. Commission?
+      A soft drink sales agent earns a commission of 3% on the first $\text{₱}50,000$ in sales, 5% on the next $\text{₱}50,000$, and 8% on sales above $\text{₱}100,000$. If total sales are $\text{₱}140,000$, how much commission does the agent earn?
     choices:
       - text: '$\text{₱}11,200.00$'
         rationale: |
@@ -245,10 +282,13 @@ questions:
       The first sales band earns $50000(0.03)=1500$ pesos. The next earns $50000(0.05)=2500$ pesos. The remaining $140000-100000=40000$ pesos earns $40000(0.08)=3200$ pesos. Add the amounts: $1500+2500+3200=7200$ pesos.
 
   - id: q-arithmetic-number-sense-business-math-0013
+    approved: true
+    lesson: lesson-arithmetic-number-sense-markup-on-cost
+    keyPoint: 2
     type: word-problem
     difficulty: hard
     stem: |
-      Aling Loring wants the markup amount to equal 20% of the selling price for canned goods costing $\text{₱}480$. What markup % on cost?
+      Aling Loring wants the markup amount on canned goods costing $\text{₱}480$ to equal 20% of the selling price. What markup percentage should she apply to the cost?
     choices:
       - text: '$20\%$'
         rationale: |
@@ -265,30 +305,37 @@ questions:
       A markup amount equal to $20\%$ of selling price leaves cost equal to $80\%$ of selling price. If the price is $S$, then $480=0.80S$, so $S=600$ pesos. The markup amount is $600-480=120$ pesos. The markup on cost is $\dfrac{120}{480}(100\%)=25\%$.
 
   - id: q-arithmetic-number-sense-business-math-0014
+    approved: true
+    lesson: lesson-arithmetic-number-sense-markup-on-cost
+    keyPoint: 2
     type: word-problem
     difficulty: exam
     stem: |
-      Mang Cardo's jeepney makes 8 round trips daily. Assume each **one-way leg** carries 15 paying passengers at $\text{₱}13$ each. Daily expenses are $\text{₱}800$ boundary plus $\text{₱}950$ fuel. What is the net daily cash income after these expenses?
+      A shop lists an item at Php $1,500$ after adding a markup of $25\%$ based on its cost. The item sells at that price with no other expenses. What percentage of the selling price is the markup?
     choices:
-      - text: '$\text{₱}1,370.00$'
+      - text: '$20\%$'
         correct: true
-      - text: '$-\text{₱}190.00$'
+      - text: '$25\%$'
         rationale: |
-          This counts eight one-way legs instead of sixteen. The stem states eight trips. Check that each round trip has two legs.
-      - text: '$\text{₱}2,320.00$'
+          This repeats the rate based on cost. The question changes the base to selling price. Divide the markup by that price.
+      - text: '$80\%$'
         rationale: |
-          This subtracts the boundary payment but omits fuel. The boundary is one stated expense. Check that every listed expense is deducted.
-      - text: '$\text{₱}3,120.00$'
+          This reports cost as a share of selling price. The markup is the amount added to cost. Use that difference as the numerator.
+      - text: '$125\%$'
         rationale: |
-          This reports fare revenue before expenses. That is the full cash collected. Check that net income removes costs.
+          This gives selling price as a percentage of cost. Both the numerator and base have changed. Check which amount is compared with selling price.
     explanation: |
-      Eight round trips have $8(2)=16$ one-way legs. There are $16(15)=240$ paid rides. Revenue is $240(13)=3120$ pesos. Expenses total $800+950=1750$ pesos. The net income is $3120-1750=1370$ pesos.
+      The listed price is $1.25$ times cost, so cost is $1500\div1.25=1200$ pesos. The markup is $1500-1200=300$ pesos. Its share of selling price is $300\div1500=0.20=20\%$.
+
 
   - id: q-arithmetic-number-sense-business-math-0015
+    approved: true
+    lesson: lesson-arithmetic-number-sense-simple-interest
+    keyPoint: 1
     type: word-problem
     difficulty: exam
     stem: |
-      Tatay Mario borrowed $\text{₱}40,000$ at 9% simple annual interest. After 8 months, he paid $\text{₱}15,000$ (interest paid first, remainder to principal). Remaining principal?
+      Tatay Mario borrowed $\text{₱}40,000$ at 9% simple annual interest. After 8 months, he paid $\text{₱}15,000$. The payment covered the interest first, and the remainder reduced the principal. How much principal remains?
     choices:
       - text: '$\text{₱}25,000.00$'
         rationale: |
@@ -305,6 +352,8 @@ questions:
       The interest for $8$ months is $40000(0.09)\left(\dfrac{8}{12}\right)=2400$ pesos. After paying interest, $15000-2400=12600$ pesos reduces the principal. The remaining principal is $40000-12600=27400$ pesos.
 
   - id: q-arithmetic-number-sense-business-math-0016
+    lesson: lesson-arithmetic-number-sense-compound-interest
+    keyPoint: 1
     type: direct-computation
     difficulty: easy
     stem: |
@@ -323,9 +372,11 @@ questions:
           This reports interest earned instead of the final balance. Subtracting principal gives a meaningful gain. Check whether principal belongs in the requested amount.
     explanation: |
       After one year, the balance is $1000(1.10)=1100$ pesos. The second year earns interest on this new balance: $1100(1.10)=1210$ pesos.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-business-math-0017
+    lesson: lesson-arithmetic-number-sense-discounted-prices
+    keyPoint: 1
     type: word-problem
     difficulty: medium
     stem: |
@@ -344,9 +395,11 @@ questions:
           This divides by the discount fraction rather than the remaining fraction. Both percentages belong to the sale. Check which fraction equals the amount paid.
     explanation: |
       A $20\%$ discount leaves $80\%$ of the original price. Let that price be $P$. Then $0.80P=480$, so $P=480\div0.80=600$ pesos.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-business-math-0018
+    lesson: lesson-arithmetic-number-sense-compound-interest
+    keyPoint: 1
     type: error-spotting
     difficulty: hard
     stem: |
@@ -365,9 +418,11 @@ questions:
           This uses the period rate without adding one. The rate itself is needed for the formula. Check that each period keeps the existing principal as well as its interest.
     explanation: |
       Quarterly compounding has four periods each year. The rate per quarter is $8\%\div4=2\%$. Each period multiplies the balance by $1+0.02=1.02$.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-business-math-0019
+    lesson: lesson-arithmetic-number-sense-discounted-prices
+    keyPoint: 2
     type: which-is-true
     difficulty: hard
     stem: |
@@ -386,9 +441,11 @@ questions:
           This reports the percentage paid as the percentage saved. The remaining price is a useful result. Check whether the question asks for the discount.
     explanation: |
       The first discount leaves $0.90$ of the price. The second leaves $0.80$ of that amount. The fraction paid is $0.90(0.80)=0.72$. The discount is $1-0.72=0.28$, or $28\%$.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-business-math-0020
+    lesson: lesson-arithmetic-number-sense-compound-interest
+    keyPoint: 2
     type: estimate-first
     difficulty: exam
     stem: |
@@ -407,4 +464,50 @@ questions:
           This uses simple-interest doubling time. That formula also depends on the rate. Check that the requested rule estimates compound growth.
     explanation: |
       The Rule of $72$ estimates doubling time by dividing $72$ by the annual percentage rate. Thus $72\div9=8$ years.
-    approved: false
+    approved: true
+
+  - id: q-arithmetic-number-sense-business-math-0021
+    approved: true
+    lesson: lesson-arithmetic-number-sense-commission-and-sales-tax
+    keyPoint: 2
+    type: word-problem
+    difficulty: exam
+    stem: |
+      An office purchases $8$ identical supplies at a taxable price of Php $375$ each. A hypothetical sales tax of $6\%$ is added to the full taxable amount. What is the total bill?
+    choices:
+      - text: 'Php $3,180$'
+        correct: true
+      - text: 'Php $3,000$'
+        rationale: |
+          This reports the taxable amount before tax. The tax is added to that amount. Include it in the bill.
+      - text: 'Php $3,022.50$'
+        rationale: |
+          This taxes just one supply. All eight are taxable. Find the full taxable amount first.
+      - text: 'Php $2,820$'
+        rationale: |
+          This subtracts the tax. A tax added to a price increases the bill. Check the direction of the change.
+    explanation: |
+      The taxable amount is $8(375)=3000$ pesos. Tax is $3000(0.06)=180$ pesos. The bill is $3000+180=3180$ pesos.
+
+  - id: q-arithmetic-number-sense-business-math-0022
+    approved: true
+    lesson: lesson-arithmetic-number-sense-commission-and-sales-tax
+    keyPoint: 2
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A quoted taxable price is Php $7,500$. A hypothetical sales tax of $4\%$ is added. The buyer pays with Php $8,000$. How much change is due?
+    choices:
+      - text: 'Php $200$'
+        correct: true
+      - text: 'Php $300$'
+        rationale: |
+          This reports the tax instead of the change. The tax is a needed step. Subtract the total bill from the payment.
+      - text: 'Php $500$'
+        rationale: |
+          This ignores the tax. It subtracts only the quoted price from payment. Include tax before finding change.
+      - text: 'Php $800$'
+        rationale: |
+          This subtracts the tax from the quoted price. The tax is added to the price. Check the full amount due.
+    explanation: |
+      Tax is $7500(0.04)=300$ pesos. The total bill is $7500+300=7800$ pesos. Change is $8000-7800=200$ pesos.

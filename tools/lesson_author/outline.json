@@ -15,9 +15,44 @@
               "sections": []
             },
             {
+              "title": "Operation Priority and Left to Right",
+              "slug": "operation-priority-and-left-to-right",
+              "sections": []
+            },
+            {
+              "title": "Signed Integers and Substitution",
+              "slug": "signed-integers-and-substitution",
+              "sections": []
+            },
+            {
+              "title": "Grouping and Fraction Bars",
+              "slug": "grouping-and-fraction-bars",
+              "sections": []
+            },
+            {
               "title": "Real and Imaginary Number Systems",
               "slug": "real-imaginary-numbers",
               "sections": []
+            },
+            {
+              "title": "Real Number Sets",
+              "slug": "real-number-sets",
+              "sections": []
+            },
+            {
+              "title": "Imaginary Unit and Powers",
+              "slug": "imaginary-unit-and-powers",
+              "sections": [
+                "Powers of $i$"
+              ]
+            },
+            {
+              "title": "Complex Products and Quotients",
+              "slug": "complex-products-and-quotients",
+              "sections": [
+                "Multiplying Complex Numbers",
+                "Conjugates and Division"
+              ]
             },
             {
               "title": "Properties of Real Numbers (Commutative, Associative, Distributive, Identity, Inverse)",
@@ -25,13 +60,108 @@
               "sections": []
             },
             {
+              "title": "Commutative and Associative Properties",
+              "slug": "commutative-and-associative-properties",
+              "sections": [
+                "Commutative Property",
+                "Associative Property"
+              ]
+            },
+            {
+              "title": "Identities and Like Terms",
+              "slug": "identities-and-like-terms",
+              "sections": [
+                "Identity Property",
+                "Like Terms"
+              ]
+            },
+            {
+              "title": "Additive and Multiplicative Inverses",
+              "slug": "additive-and-multiplicative-inverses",
+              "sections": [
+                "Inverse Property",
+                "Additive Inverses"
+              ]
+            },
+            {
+              "title": "Distribution and Common Factors",
+              "slug": "distribution-and-common-factors",
+              "sections": [
+                "Distributive Property",
+                "Reverse Distribution"
+              ]
+            },
+            {
               "title": "Prime Factorization, GCF, and LCM",
               "slug": "prime-factorization-gcf-lcm",
               "sections": []
             },
             {
+              "title": "Prime Factors and Powers",
+              "slug": "prime-factors-and-powers",
+              "sections": [
+                "Prime Powers"
+              ]
+            },
+            {
+              "title": "Greatest Common Factor",
+              "slug": "greatest-common-factor",
+              "sections": [
+                "GCF and LCM",
+                "Choosing the Method"
+              ]
+            },
+            {
+              "title": "Least Common Multiple",
+              "slug": "least-common-multiple",
+              "sections": [
+                "GCF and LCM",
+                "Choosing the Method",
+                "Compare Prime Powers",
+                "Use a Known GCF",
+                "List Small Multiples"
+              ]
+            },
+            {
+              "title": "Same-Remainder Numbers",
+              "slug": "same-remainder-numbers",
+              "sections": [
+                "Same-Remainder Problems"
+              ]
+            },
+            {
               "title": "Fractions, Decimals, and Percentages",
               "slug": "fractions-decimals-percentages",
+              "sections": []
+            },
+            {
+              "title": "Decimal and Percent Conversions",
+              "slug": "decimal-and-percent-conversions",
+              "sections": []
+            },
+            {
+              "title": "Fractions and Mixed Forms",
+              "slug": "fractions-and-mixed-forms",
+              "sections": []
+            },
+            {
+              "title": "Adding and Multiplying Fractions",
+              "slug": "adding-and-multiplying-fractions",
+              "sections": []
+            },
+            {
+              "title": "Multiplying and Dividing Decimals",
+              "slug": "multiplying-and-dividing-decimals",
+              "sections": []
+            },
+            {
+              "title": "Percentage Base and Fraction Division",
+              "slug": "percentage-base-and-fraction-division",
+              "sections": []
+            },
+            {
+              "title": "Successive Percentages and Increases",
+              "slug": "successive-percentages-and-increases",
               "sections": []
             },
             {
@@ -40,13 +170,114 @@
               "sections": []
             },
             {
+              "title": "Direct Proportion and Travel",
+              "slug": "direct-proportion-and-travel",
+              "sections": [
+                "Direct, Inverse, and Partitive Proportion",
+                "Equal Ratios and Cross-Multiplication",
+                "Distance, Rate, and Time"
+              ]
+            },
+            {
+              "title": "Inverse Proportion and Remaining Work",
+              "slug": "inverse-proportion-and-remaining-work",
+              "sections": [
+                "Inverse Proportion"
+              ]
+            },
+            {
+              "title": "Partitive Proportion and Differences",
+              "slug": "partitive-proportion-and-differences",
+              "sections": [
+                "Partitive Proportion"
+              ]
+            },
+            {
               "title": "Divisibility Rules",
               "slug": "divisibility-rules",
               "sections": []
             },
             {
+              "title": "Last-Digit Divisibility",
+              "slug": "last-digit-divisibility",
+              "sections": [
+                "Rules for $2$, $4$, and $8$",
+                "Rules for $5$ and $10$"
+              ]
+            },
+            {
+              "title": "Digit Sums and Six",
+              "slug": "digit-sums-and-six",
+              "sections": [
+                "Rules for $3$ and $9$",
+                "Rule for $6$",
+                "Cast Out Nines"
+              ]
+            },
+            {
+              "title": "Divisibility by Seven and Eleven",
+              "slug": "divisibility-by-seven-and-eleven",
+              "sections": [
+                "Rule for $7$",
+                "Rule for $11$"
+              ]
+            },
+            {
+              "title": "Coprime Divisibility Tests",
+              "slug": "coprime-divisibility-tests",
+              "sections": [
+                "Combining Coprime Factors",
+                "Coprime Split"
+              ]
+            },
+            {
               "title": "Sequences and Series (Arithmetic, Geometric, Fibonacci, Harmonic)",
               "slug": "sequences-and-series",
+              "sections": []
+            },
+            {
+              "title": "Finding Number Patterns",
+              "slug": "finding-number-patterns",
+              "sections": []
+            },
+            {
+              "title": "Odd- and Even-Position Patterns",
+              "slug": "odd-and-even-position-patterns",
+              "sections": []
+            },
+            {
+              "title": "Arithmetic Sequence Terms",
+              "slug": "arithmetic-sequence-terms",
+              "sections": []
+            },
+            {
+              "title": "Arithmetic Series Sums",
+              "slug": "arithmetic-series-sums",
+              "sections": []
+            },
+            {
+              "title": "Geometric Sequence Terms",
+              "slug": "geometric-sequence-terms",
+              "sections": []
+            },
+            {
+              "title": "Finite Geometric Series",
+              "slug": "finite-geometric-series",
+              "sections": []
+            },
+            {
+              "title": "Infinite Geometric Series",
+              "slug": "infinite-geometric-series",
+              "sections": []
+            },
+            {
+              "title": "Harmonic Sequence Terms",
+              "slug": "harmonic-sequence-terms",
+              "sections": []
+            },
+            {
+              "title": "Fibonacci-Type Sequence Terms",
+              "slug": "fibonacci-type-sequence-terms",
               "sections": []
             },
             {
@@ -55,6 +286,41 @@
               "sections": [
                 "Discounts and Markups",
                 "Simple and Compound Interest"
+              ]
+            },
+            {
+              "title": "Discounted Prices",
+              "slug": "discounted-prices",
+              "sections": [
+                "Discounts and Markups"
+              ]
+            },
+            {
+              "title": "Markup on Cost",
+              "slug": "markup-on-cost",
+              "sections": [
+                "Markups"
+              ]
+            },
+            {
+              "title": "Commission and Sales Tax",
+              "slug": "commission-and-sales-tax",
+              "sections": [
+                "Commission and Sales Tax"
+              ]
+            },
+            {
+              "title": "Simple Interest",
+              "slug": "simple-interest",
+              "sections": [
+                "Simple and Compound Interest"
+              ]
+            },
+            {
+              "title": "Compound Interest",
+              "slug": "compound-interest",
+              "sections": [
+                "Compound Interest"
               ]
             }
           ]
@@ -1651,8 +1917,38 @@
               "sections": []
             },
             {
+              "title": "Deductive Group Arguments",
+              "slug": "deductive-group-arguments",
+              "sections": []
+            },
+            {
+              "title": "Valid Conditional Forms",
+              "slug": "valid-conditional-forms",
+              "sections": []
+            },
+            {
+              "title": "Invalid Conditional Forms",
+              "slug": "invalid-conditional-forms",
+              "sections": []
+            },
+            {
               "title": "Word Analogies (Single and Double Analogies)",
               "slug": "word-analogies",
+              "sections": []
+            },
+            {
+              "title": "Parts, Types, and Products",
+              "slug": "analogy-parts-types-and-products",
+              "sections": []
+            },
+            {
+              "title": "Functions, Users, and Work",
+              "slug": "analogy-functions-users-and-work",
+              "sections": []
+            },
+            {
+              "title": "Meanings and Double Analogies",
+              "slug": "analogy-meanings-and-double-pairs",
               "sections": []
             },
             {
@@ -1661,8 +1957,43 @@
               "sections": []
             },
             {
+              "title": "Repeated and Changing Moves",
+              "slug": "sequence-moves",
+              "sections": []
+            },
+            {
+              "title": "Separate Positions and Alternating Operations",
+              "slug": "sequence-positions-and-operations",
+              "sections": []
+            },
+            {
+              "title": "Rules Using Earlier Terms",
+              "slug": "sequence-earlier-terms",
+              "sections": []
+            },
+            {
+              "title": "Letter Patterns",
+              "slug": "sequence-letter-patterns",
+              "sections": []
+            },
+            {
               "title": "Truth Tables and Propositional Logic",
               "slug": "truth-tables-propositional-logic",
+              "sections": []
+            },
+            {
+              "title": "Truth Tables, And, and Or",
+              "slug": "truth-tables-and-connectives",
+              "sections": []
+            },
+            {
+              "title": "Conditional Truth Values",
+              "slug": "conditional-truth-values",
+              "sections": []
+            },
+            {
+              "title": "Combined Truth Values",
+              "slug": "combined-truth-values",
               "sections": []
             }
           ]
@@ -1677,8 +2008,38 @@
               "sections": []
             },
             {
+              "title": "Figure Counts and Fills",
+              "slug": "figure-counts-and-fills",
+              "sections": []
+            },
+            {
+              "title": "Figure Turns and Positions",
+              "slug": "figure-turns-and-positions",
+              "sections": []
+            },
+            {
+              "title": "Combined and Mixed Figure Patterns",
+              "slug": "combined-and-mixed-figure-patterns",
+              "sections": []
+            },
+            {
               "title": "Figure Grouping (Identifying the Odd-One-Out)",
               "slug": "figure-grouping",
+              "sections": []
+            },
+            {
+              "title": "Grouping Outlines and Symmetry",
+              "slug": "grouping-outlines-and-symmetry",
+              "sections": []
+            },
+            {
+              "title": "Grouping Regions and Inside Details",
+              "slug": "grouping-regions-and-inside-details",
+              "sections": []
+            },
+            {
+              "title": "Testing a Figure Group Rule",
+              "slug": "testing-a-figure-group-rule",
               "sections": []
             },
             {
@@ -1687,14 +2048,73 @@
               "sections": []
             },
             {
+              "title": "Matrix Turns and Counts",
+              "slug": "matrix-turns-and-counts",
+              "sections": []
+            },
+            {
+              "title": "Matrix Row and Column Rules",
+              "slug": "matrix-row-and-column-rules",
+              "sections": []
+            },
+            {
+              "title": "Matrix Rules: Keeping All Features",
+              "slug": "matrix-keeping-all-features",
+              "sections": []
+            },
+            {
+              "title": "Matrix Rules: Keeping Shared Features",
+              "slug": "matrix-keeping-shared-features",
+              "sections": []
+            },
+            {
               "title": "Paper Folding and Cutting Rules",
               "slug": "paper-folding-and-cutting",
+              "sections": []
+            },
+            {
+              "title": "Unfolding Cuts Across a Fold",
+              "slug": "unfolding-cuts-across-a-fold",
+              "sections": []
+            },
+            {
+              "title": "Cuts at Two Fold Lines",
+              "slug": "cuts-at-two-fold-lines",
+              "sections": []
+            },
+            {
+              "title": "Folded Layers and Separate Holes",
+              "slug": "folded-layers-and-separate-holes",
+              "sections": []
+            },
+            {
+              "title": "Uneven Folds and Cut Layers",
+              "slug": "uneven-folds-and-cut-layers",
               "sections": []
             },
             {
               "title": "Mental Rotation and 3D Visualization (Unfolding Cubes, Shadow Casting)",
               "slug": "mental-rotation-3d-visualization",
               "sections": []
+            },
+            {
+              "title": "Turning Solids Without Mirror Flips",
+              "slug": "turning-solids-without-mirror-flips",
+              "sections": []
+            },
+            {
+              "title": "Folding and Checking Cube Nets",
+              "slug": "folding-and-checking-cube-nets",
+              "sections": [
+                "Cube Nets"
+              ]
+            },
+            {
+              "title": "Parallel Light and Solid Shadows",
+              "slug": "parallel-light-and-solid-shadows",
+              "sections": [
+                "Shadows and Projections"
+              ]
             }
           ]
         },
@@ -1732,12 +2152,99 @@
         {
           "name": "Clerical Ability",
           "slug": "clerical-ability",
-          "lessons": []
+          "lessons": [
+            {
+              "title": "Personal-Name Filing Units",
+              "slug": "personal-name-filing-units",
+              "sections": []
+            },
+            {
+              "title": "Filing Patterns and Surname Particles",
+              "slug": "filing-patterns-and-surname-particles",
+              "sections": []
+            },
+            {
+              "title": "Suffixes, Titles, and Filing Ties",
+              "slug": "suffixes-titles-and-filing-ties",
+              "sections": []
+            },
+            {
+              "title": "Whole-Number and Decimal Filing",
+              "slug": "whole-number-and-decimal-filing",
+              "sections": []
+            },
+            {
+              "title": "Oldest and Newest Date Order",
+              "slug": "oldest-and-newest-date-order",
+              "sections": []
+            },
+            {
+              "title": "Year-First and Stated Date Formats",
+              "slug": "year-first-and-stated-date-formats",
+              "sections": []
+            },
+            {
+              "title": "Integer Subcode Filing",
+              "slug": "integer-subcode-filing",
+              "sections": []
+            },
+            {
+              "title": "Character-String Filing",
+              "slug": "character-string-filing",
+              "sections": []
+            },
+            {
+              "title": "Terminal-Digit Filing Order",
+              "slug": "terminal-digit-filing-order",
+              "sections": []
+            }
+          ]
         },
         {
           "name": "Verbal Logic",
           "slug": "verbal-logic",
-          "lessons": []
+          "lessons": [
+            {
+              "title": "Needed Assumptions",
+              "slug": "needed-assumptions",
+              "sections": []
+            },
+            {
+              "title": "Negating Assumptions",
+              "slug": "negating-assumptions",
+              "sections": []
+            },
+            {
+              "title": "Compound Assumptions",
+              "slug": "compound-assumptions",
+              "sections": []
+            },
+            {
+              "title": "Must-Be-True Conclusions",
+              "slug": "must-be-true-conclusions",
+              "sections": []
+            },
+            {
+              "title": "None and May",
+              "slug": "none-and-may",
+              "sections": []
+            },
+            {
+              "title": "Best-Supported Conclusions",
+              "slug": "best-supported-conclusions",
+              "sections": []
+            },
+            {
+              "title": "Unsupported Causes and Motives",
+              "slug": "unsupported-causes-and-motives",
+              "sections": []
+            },
+            {
+              "title": "Recognizing Bias",
+              "slug": "recognizing-bias",
+              "sections": []
+            }
+          ]
         }
       ]
     },

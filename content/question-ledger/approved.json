@@ -1,4 +1,1528 @@
 {
+  "q-arithmetic-number-sense-business-math-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "9b86b194deb0b3f0d735f3392ef29e5db92d433a869409d51767ac6f1b6c82e6",
+    "lesson": "lesson-arithmetic-number-sense-markup-on-cost"
+  },
+  "q-arithmetic-number-sense-business-math-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "b3183a4b2836b7ae590979783d2bd6768f2300f2cd455e55cab7e891f77c1164",
+    "lesson": "lesson-arithmetic-number-sense-markup-on-cost"
+  },
+  "q-arithmetic-number-sense-business-math-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "476e23f1e66d6adefac723ec2783f327c49c976b4a1960250ec2856d6ca14232",
+    "lesson": "lesson-arithmetic-number-sense-simple-interest"
+  },
+  "q-arithmetic-number-sense-business-math-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "e90ad985e301b925e55057eab8893d47e77c07a15df55fe6f61db4f7c5fbc977",
+    "lesson": "lesson-arithmetic-number-sense-discounted-prices"
+  },
+  "q-arithmetic-number-sense-business-math-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "1e1278c36d7123b494f7b3208bfb56211cd9072b90022274fce6e4caed09ca84",
+    "lesson": "lesson-arithmetic-number-sense-commission-and-sales-tax"
+  },
+  "q-arithmetic-number-sense-business-math-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "45f9f3c7a708c31e2b06a5e581b0500729a617bebeb157d0a4fedf252f49fc51",
+    "lesson": "lesson-arithmetic-number-sense-markup-on-cost"
+  },
+  "q-arithmetic-number-sense-business-math-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "5e4567494f9ef145073bcd429f1cdf365d3a72b5b4aeaa597f7302ac681589a6",
+    "lesson": "lesson-arithmetic-number-sense-discounted-prices"
+  },
+  "q-arithmetic-number-sense-business-math-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "4fc739e950b1e23615a98675b2042bbddd4bd952ae8ec0c28a25a80fc1248017",
+    "lesson": "lesson-arithmetic-number-sense-simple-interest"
+  },
+  "q-arithmetic-number-sense-business-math-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "0bd90b59a99664e3d1f11a491021b55487ea323fcf64681b242f648da4b4b32c",
+    "lesson": "lesson-arithmetic-number-sense-discounted-prices"
+  },
+  "q-arithmetic-number-sense-business-math-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "7dca2e7e23f7f56ffac1abe4b63416ce6fd78fb319c88b87910178437ffbe0e5",
+    "lesson": "lesson-arithmetic-number-sense-markup-on-cost"
+  },
+  "q-arithmetic-number-sense-business-math-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "d86074e96991d8bc516298048b933d7ec35dc3f710521ca8435c45792a1605b9",
+    "lesson": "lesson-arithmetic-number-sense-simple-interest"
+  },
+  "q-arithmetic-number-sense-business-math-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "d496646cd4baa921437d309fe1f40ff9008683ac8aeb3cd4772005fa57cc1861",
+    "lesson": "lesson-arithmetic-number-sense-commission-and-sales-tax"
+  },
+  "q-arithmetic-number-sense-business-math-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "5b896eaca9567fe3242d23ba35001b4594e3da28989350d9f1fad1784225142b",
+    "lesson": "lesson-arithmetic-number-sense-markup-on-cost"
+  },
+  "q-arithmetic-number-sense-business-math-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "040c863609cd0f197e2e815ee3708965fc5575e153ca260ab60f1cbae5c50860",
+    "lesson": "lesson-arithmetic-number-sense-markup-on-cost"
+  },
+  "q-arithmetic-number-sense-business-math-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "c0db717ff452c470dfda3bd6052c4b72df3f80488fd00222b058d9318f1a0fcb",
+    "lesson": "lesson-arithmetic-number-sense-simple-interest"
+  },
+  "q-arithmetic-number-sense-business-math-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "023eaa98cacd9ef468213d56081ec7bf0f811ebd4f5bf3c1bc5bf7fb3f94237f",
+    "lesson": "lesson-arithmetic-number-sense-compound-interest"
+  },
+  "q-arithmetic-number-sense-business-math-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "e10dbaa209696dad3da8b35e2693afed76fd0f31e43e321fe1c3eb38c8a22224",
+    "lesson": "lesson-arithmetic-number-sense-discounted-prices"
+  },
+  "q-arithmetic-number-sense-business-math-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "8da73ba445588a4c96edb494809ed0993b7dbca95000fc9aac7878b99be9dcc4",
+    "lesson": "lesson-arithmetic-number-sense-compound-interest"
+  },
+  "q-arithmetic-number-sense-business-math-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "b1e384ca57c3d57cc156d6f388a90e5f3a399fa3b3df50f705ed30b8714a3a46",
+    "lesson": "lesson-arithmetic-number-sense-discounted-prices"
+  },
+  "q-arithmetic-number-sense-business-math-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "5e925089fde866c6dfb5e03ec49bd38f3923521c735be9949e5550fb370b9e23",
+    "lesson": "lesson-arithmetic-number-sense-compound-interest"
+  },
+  "q-arithmetic-number-sense-business-math-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "0f744eceff309cf715a706f95cf6e3868153753122fb044814bcd64413cbfdd9",
+    "lesson": "lesson-arithmetic-number-sense-commission-and-sales-tax"
+  },
+  "q-arithmetic-number-sense-business-math-0022": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "9a636c806a48485f64c211b01ead622da760cfe03eacd08f2984915a144937f0",
+    "lesson": "lesson-arithmetic-number-sense-commission-and-sales-tax"
+  },
+  "q-arithmetic-number-sense-divisibility-rules-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "e6d95c07b7a0d0f6cf3d4739e1df948bf251e2bc90e95f7365f928c808801047",
+    "lesson": "lesson-arithmetic-number-sense-divisibility-by-seven-and-eleven"
+  },
+  "q-arithmetic-number-sense-divisibility-rules-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "19332993414286ca803030cf2b6063e5d9cf217af8a189cf0308fd761b1e9db5",
+    "lesson": "lesson-arithmetic-number-sense-last-digit-divisibility"
+  },
+  "q-arithmetic-number-sense-divisibility-rules-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "d19471d2ab3ee50b136ccaf49f361b154b905998988d06c8614ad76af9470ab8",
+    "lesson": "lesson-arithmetic-number-sense-digit-sums-and-six"
+  },
+  "q-arithmetic-number-sense-divisibility-rules-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "39ca5c912cdc32c06f8285760c0d5da2ef600a78fbee18e5b0c6eb7cba203147",
+    "lesson": "lesson-arithmetic-number-sense-digit-sums-and-six"
+  },
+  "q-arithmetic-number-sense-divisibility-rules-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "122bceeedae23214a0825165e6f4cb59e57ad3069f53f1a19c7bb5c72a49301c",
+    "lesson": "lesson-arithmetic-number-sense-coprime-divisibility-tests"
+  },
+  "q-arithmetic-number-sense-divisibility-rules-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "45a484cb08eec6859510ce01235f250060b94cdc452ea7e2ec536e0226cf3a10",
+    "lesson": "lesson-arithmetic-number-sense-divisibility-by-seven-and-eleven"
+  },
+  "q-arithmetic-number-sense-divisibility-rules-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "79c4f53460a127e049a2032b5cfb2bb437dfe7333232a12d26b5effd95623048",
+    "lesson": "lesson-arithmetic-number-sense-last-digit-divisibility"
+  },
+  "q-arithmetic-number-sense-divisibility-rules-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "698adc9b7f631b5be3effebcdfebe41f036440a314f2859d65b4987e653c4c64",
+    "lesson": "lesson-arithmetic-number-sense-digit-sums-and-six"
+  },
+  "q-arithmetic-number-sense-divisibility-rules-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "23f000bd94f8e32f2ad6439ed2d3fd614a2a105576279a98d14fe24c3418620a",
+    "lesson": "lesson-arithmetic-number-sense-coprime-divisibility-tests"
+  },
+  "q-arithmetic-number-sense-divisibility-rules-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "3c7f0f4de1adf5952fc8d579e7403e09fb3a3e62885a1bd5ad59f058f5aaeb1f",
+    "lesson": "lesson-arithmetic-number-sense-coprime-divisibility-tests"
+  },
+  "q-arithmetic-number-sense-divisibility-rules-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "22aa1010c517cb2561d13124e7fdbe476eb28c55632826c4f06c60b72800e259",
+    "lesson": "lesson-arithmetic-number-sense-coprime-divisibility-tests"
+  },
+  "q-arithmetic-number-sense-divisibility-rules-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "829fb97a31e1ef09f5ee1835ebf6e02d8c65233ef7f56ec92eb3e86d87c12097",
+    "lesson": "lesson-arithmetic-number-sense-coprime-divisibility-tests"
+  },
+  "q-arithmetic-number-sense-divisibility-rules-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "341fd5a4b7cc0129728cffb2e550bd4d35461b150dcad1f77a2a474842e5215c",
+    "lesson": "lesson-arithmetic-number-sense-coprime-divisibility-tests"
+  },
+  "q-arithmetic-number-sense-divisibility-rules-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "7733b1e7eca1ea50a6da3c131de0010ae051a39f4d7c4c0bf2cf5722a352db1a",
+    "lesson": "lesson-arithmetic-number-sense-coprime-divisibility-tests"
+  },
+  "q-arithmetic-number-sense-divisibility-rules-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "4e27241e72f2f73180747933f94283d9a83a0cc73879474edbb49b1aa8194925",
+    "lesson": "lesson-arithmetic-number-sense-coprime-divisibility-tests"
+  },
+  "q-arithmetic-number-sense-divisibility-rules-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "163433287e2e24fc6b5ba527210feb7f0e268c2d35c66f38a24c7cce3833678c",
+    "lesson": "lesson-arithmetic-number-sense-divisibility-by-seven-and-eleven"
+  },
+  "q-arithmetic-number-sense-divisibility-rules-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "86570798bf9a890b7a170ddfad4ab32061400ab2e73904de89fa896807f4c421",
+    "lesson": "lesson-arithmetic-number-sense-divisibility-by-seven-and-eleven"
+  },
+  "q-arithmetic-number-sense-divisibility-rules-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "e27adcb728ed35fa5e3b3c287feb6ea749756fe09c8be6c38e33db8bf2b79a61",
+    "lesson": "lesson-arithmetic-number-sense-divisibility-by-seven-and-eleven"
+  },
+  "q-arithmetic-number-sense-divisibility-rules-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "235f0a0a31ea8ce99efdc2348b5864c1d0f68d774724fd3db66feab4feee78f4",
+    "lesson": "lesson-arithmetic-number-sense-coprime-divisibility-tests"
+  },
+  "q-arithmetic-number-sense-divisibility-rules-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "c72501bf5719c6ab9d55ce357190acdf1da599e8492e60c25ed64ccc10fccfc5",
+    "lesson": "lesson-arithmetic-number-sense-coprime-divisibility-tests"
+  },
+  "q-arithmetic-number-sense-divisibility-rules-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "ad4d1b4de5cc8ecb79b1c57aebaa615b584e11eb5041317ffc0bc195ed36b719",
+    "lesson": "lesson-arithmetic-number-sense-digit-sums-and-six"
+  },
+  "q-arithmetic-number-sense-divisibility-rules-0022": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "3d4033a3c7bd4c73f3ca6a88542704050cdfc246f1d9f19fe4f22bab623651f6",
+    "lesson": "lesson-arithmetic-number-sense-last-digit-divisibility"
+  },
+  "q-arithmetic-number-sense-divisibility-rules-0023": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "2a2c63dde421ea5106f375509ecbb860f9ce8cafd29eaeced7844f0a9f883f57",
+    "lesson": "lesson-arithmetic-number-sense-last-digit-divisibility"
+  },
+  "q-arithmetic-number-sense-fractions-decimals-percentages-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "fc48c6844d4c8151d8dfb3db9c2dbef25c44a5cfd8090be32c3ab98f4dd6c7a6",
+    "lesson": "lesson-arithmetic-number-sense-fractions-and-mixed-forms"
+  },
+  "q-arithmetic-number-sense-fractions-decimals-percentages-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "76691fa288aab616f187b4d5626a093b2daee9095a7dbff2598fa61757a3c709",
+    "lesson": "lesson-arithmetic-number-sense-adding-and-multiplying-fractions"
+  },
+  "q-arithmetic-number-sense-fractions-decimals-percentages-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "7a15120c4baf954bdda07e9784e3ab289bb8eaa76757ea5c768efc51cc36b7cd",
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases"
+  },
+  "q-arithmetic-number-sense-fractions-decimals-percentages-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "b8041c9f20e4e0d85d2bd9fce82fb3765d26e3d7c0bdd1317de2000a28807f38",
+    "lesson": "lesson-arithmetic-number-sense-adding-and-multiplying-fractions"
+  },
+  "q-arithmetic-number-sense-fractions-decimals-percentages-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "9c01160d66069dd760786a4e2b440df3f51d2b3971f0cbe20a06b7c0cb73988f",
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases"
+  },
+  "q-arithmetic-number-sense-fractions-decimals-percentages-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "13a0e43d9cfe30b3e0aff8ea1e4c0ae36b8d922bbe8ddd2f28574106d1056b18",
+    "lesson": "lesson-arithmetic-number-sense-multiplying-and-dividing-decimals"
+  },
+  "q-arithmetic-number-sense-fractions-decimals-percentages-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "d8d63aafb21a436b8f3e6d68ec52d3b632ea411190ac43eeab17a7bcae2cf559",
+    "lesson": "lesson-arithmetic-number-sense-percentage-base-and-fraction-division"
+  },
+  "q-arithmetic-number-sense-fractions-decimals-percentages-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "a7f223b410be85b859283f5bbb74b7965685ce81a164f2c739f327608319dec7",
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases"
+  },
+  "q-arithmetic-number-sense-fractions-decimals-percentages-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "4c732e7c2d7830cc839f4cce35b39a6fb7aa3efc42427b7ed58cdf2bccd9b96f",
+    "lesson": "lesson-arithmetic-number-sense-multiplying-and-dividing-decimals"
+  },
+  "q-arithmetic-number-sense-fractions-decimals-percentages-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "a35d9e47454c258c3046d40d106da17ab89d1736cd7215b62ef422a7943e8d00",
+    "lesson": "lesson-arithmetic-number-sense-percentage-base-and-fraction-division"
+  },
+  "q-arithmetic-number-sense-fractions-decimals-percentages-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "f9ee3806ec695684a1b747ab45e76a7e242af38e796ba32f23378367ba2fa5d7",
+    "lesson": "lesson-arithmetic-number-sense-adding-and-multiplying-fractions"
+  },
+  "q-arithmetic-number-sense-fractions-decimals-percentages-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "991b482d1e6d7035fe610399582348c0b76a6c7603a84f7755aa4b9a41541363",
+    "lesson": "lesson-arithmetic-number-sense-percentage-base-and-fraction-division"
+  },
+  "q-arithmetic-number-sense-fractions-decimals-percentages-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "6e10989b507ce42e0ac2667613a0b98c516cd368702afe27fd5c53b9b71974cd",
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases"
+  },
+  "q-arithmetic-number-sense-fractions-decimals-percentages-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "8d94903f3902623a13b0f4564f7676812d84b47f19b02d1acea3a12558090e42",
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases"
+  },
+  "q-arithmetic-number-sense-fractions-decimals-percentages-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "ef326400bee48f725e7ff06307afe9e551cb8f18854b056b5126a6027e7eb493",
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases"
+  },
+  "q-arithmetic-number-sense-fractions-decimals-percentages-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "27471d0dc89552b0f93dbc2972ea2500262593715296abbd36a389228867e166",
+    "lesson": "lesson-arithmetic-number-sense-decimal-and-percent-conversions"
+  },
+  "q-arithmetic-number-sense-fractions-decimals-percentages-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "085036ff932d68ede68e5018024b8f0d81845306edf54abf929e7bc585ad25c5",
+    "lesson": "lesson-arithmetic-number-sense-fractions-and-mixed-forms"
+  },
+  "q-arithmetic-number-sense-fractions-decimals-percentages-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "5490fe16e4b4a80f9dfb215048258982c0cfb47355d2741ba39fa0b794481a2b",
+    "lesson": "lesson-arithmetic-number-sense-decimal-and-percent-conversions"
+  },
+  "q-arithmetic-number-sense-fractions-decimals-percentages-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "9b15d5000cb5638822c759e0e1876728d19dda920c9de32539aa5a9ef560d128",
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases"
+  },
+  "q-arithmetic-number-sense-fractions-decimals-percentages-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "d470058ba565c1b682bd70d656f98b03ef0fd5e12adc3dc05b466216b1df7d51",
+    "lesson": "lesson-arithmetic-number-sense-percentage-base-and-fraction-division"
+  },
+  "q-arithmetic-number-sense-fractions-decimals-percentages-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "4915f3b979f1fcf4844268596a848be56e07213ee46464f43222a2faafec3161",
+    "lesson": "lesson-arithmetic-number-sense-adding-and-multiplying-fractions"
+  },
+  "q-arithmetic-number-sense-fractions-decimals-percentages-0022": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "7f88b8587906b727fc8dcc0fb3c6607f3396cb587f5a55d4e96fe29bced2304f",
+    "lesson": "lesson-arithmetic-number-sense-decimal-and-percent-conversions"
+  },
+  "q-arithmetic-number-sense-fractions-decimals-percentages-0023": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "aa27ffe6d412614641113f13dad5b92bc11a99caad7854f329f7fbf11a550958",
+    "lesson": "lesson-arithmetic-number-sense-decimal-and-percent-conversions"
+  },
+  "q-arithmetic-number-sense-fractions-decimals-percentages-0024": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "e25cf22f4e5732af30f25a12e18d1dd87b6d7cdbcfac615a5090a882cf013a39",
+    "lesson": "lesson-arithmetic-number-sense-fractions-and-mixed-forms"
+  },
+  "q-arithmetic-number-sense-fractions-decimals-percentages-0025": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "6ac8f5afe37dbd8734e88c7a25f45e38fbabf7eba50e6abc89592138b72137c0",
+    "lesson": "lesson-arithmetic-number-sense-fractions-and-mixed-forms"
+  },
+  "q-arithmetic-number-sense-fractions-decimals-percentages-0026": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "f8071509ffc5bc983fe1e9ed753107c4cb4a6ff33815e8c1efc1e07ead87c437",
+    "lesson": "lesson-arithmetic-number-sense-multiplying-and-dividing-decimals"
+  },
+  "q-arithmetic-number-sense-fractions-decimals-percentages-0027": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "6d4ce7222ac05310bdd088b3cdf810adde0bb2d3c92e1fe02ff8c0fc6b57fb3b",
+    "lesson": "lesson-arithmetic-number-sense-multiplying-and-dividing-decimals"
+  },
+  "q-arithmetic-number-sense-order-of-operations-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "a24e29b1e435d9aa00f5a97b1e9797f923397d0e373303cfdc3b094baff2c04c",
+    "lesson": "lesson-arithmetic-number-sense-operation-priority-and-left-to-right"
+  },
+  "q-arithmetic-number-sense-order-of-operations-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "8cc86c0e1b83b857fcffdd16852528ce237c37f4e8eee19534442b449e2fc65a",
+    "lesson": "lesson-arithmetic-number-sense-operation-priority-and-left-to-right"
+  },
+  "q-arithmetic-number-sense-order-of-operations-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "883c553d812cd73480f9764ad9eaf613859855a4219ae900a5afa71781e83cf4",
+    "lesson": "lesson-arithmetic-number-sense-signed-integers-and-substitution"
+  },
+  "q-arithmetic-number-sense-order-of-operations-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "fd76e38866f42939e67564f3264d463eb32ed97161959cdfe8df70b44f8c6272",
+    "lesson": "lesson-arithmetic-number-sense-grouping-and-fraction-bars"
+  },
+  "q-arithmetic-number-sense-order-of-operations-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "098edf76a66e601a80ef757982a91298c60361398b7167a8f535ca070d1152b4",
+    "lesson": "lesson-arithmetic-number-sense-operation-priority-and-left-to-right"
+  },
+  "q-arithmetic-number-sense-order-of-operations-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "e7147df8b6394fc01540d7e71945734f5c91a2eaadf550a527fc5edd6a6e2d4c",
+    "lesson": "lesson-arithmetic-number-sense-operation-priority-and-left-to-right"
+  },
+  "q-arithmetic-number-sense-order-of-operations-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "f85479bda4812b9d91a6434252e1f2f442d6b3c9ed738d57a4ed86df758f142a",
+    "lesson": "lesson-arithmetic-number-sense-operation-priority-and-left-to-right"
+  },
+  "q-arithmetic-number-sense-order-of-operations-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "fb98bec1997bd045bca452a7522ae2e9f602603e06dcece1bf0393f35864f2ec",
+    "lesson": "lesson-arithmetic-number-sense-signed-integers-and-substitution"
+  },
+  "q-arithmetic-number-sense-order-of-operations-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "98d562c1f55879e4b36aa678afa71eaf298f209100700ec16347e7b769206fe4",
+    "lesson": "lesson-arithmetic-number-sense-grouping-and-fraction-bars"
+  },
+  "q-arithmetic-number-sense-order-of-operations-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "29535f0180fbec71441eee9e3cb4d124af9c50d783aa9351d4449a60191e55ac",
+    "lesson": "lesson-arithmetic-number-sense-operation-priority-and-left-to-right"
+  },
+  "q-arithmetic-number-sense-order-of-operations-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "4c3e1da5991e23b715b2f253e3ca9b797573a2c2dd1616d8b9f79897bbb08c26",
+    "lesson": "lesson-arithmetic-number-sense-grouping-and-fraction-bars"
+  },
+  "q-arithmetic-number-sense-order-of-operations-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "347ea6eb28beb3278c0d276bdefa5d3d577c1a46d70d7b53fca8d3b68adc0a64",
+    "lesson": "lesson-arithmetic-number-sense-grouping-and-fraction-bars"
+  },
+  "q-arithmetic-number-sense-order-of-operations-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "42e03d62114360525d362b6c6425a61ed3b3f7d509cf3bcb87eba8a2d4b804bb",
+    "lesson": "lesson-arithmetic-number-sense-signed-integers-and-substitution"
+  },
+  "q-arithmetic-number-sense-order-of-operations-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "aef4c69448ef8a3c00c2e916c93c298cdb8aeeb7ad5fa77acce3fcc73fcd33fb",
+    "lesson": "lesson-arithmetic-number-sense-grouping-and-fraction-bars"
+  },
+  "q-arithmetic-number-sense-order-of-operations-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "40d8bd879237564599bc5010b799494a5e9fb88cf6c53f54a094a52a443e330e",
+    "lesson": "lesson-arithmetic-number-sense-grouping-and-fraction-bars"
+  },
+  "q-arithmetic-number-sense-order-of-operations-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "598be81572d4600891e4ed68464558d632bf88ee246163d0ebce4448429ee6ef",
+    "lesson": "lesson-arithmetic-number-sense-operation-priority-and-left-to-right"
+  },
+  "q-arithmetic-number-sense-order-of-operations-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "24915c93e618f580be03c96035e90bf54698df72a2456e242de341581feaa85e",
+    "lesson": "lesson-arithmetic-number-sense-grouping-and-fraction-bars"
+  },
+  "q-arithmetic-number-sense-order-of-operations-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "a54d7f9766b8ec6e695c467073b636ef9bea60bb998cd4ace2b51dc46ae46232",
+    "lesson": "lesson-arithmetic-number-sense-grouping-and-fraction-bars"
+  },
+  "q-arithmetic-number-sense-order-of-operations-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "69a85ec27f73c634be2defc1aff020f10108b0fe86757253823a3d24e2a7d2e7",
+    "lesson": "lesson-arithmetic-number-sense-operation-priority-and-left-to-right"
+  },
+  "q-arithmetic-number-sense-order-of-operations-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "df4d11c32f0928f1ba661895ecb21ebddc3225a571c93bb49dae641b8a6e74bb",
+    "lesson": "lesson-arithmetic-number-sense-grouping-and-fraction-bars"
+  },
+  "q-arithmetic-number-sense-order-of-operations-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "c4e94e539dfd626c82787a90081de8d1ce48e77a98734bdb5886a7ccbccbc823",
+    "lesson": "lesson-arithmetic-number-sense-signed-integers-and-substitution"
+  },
+  "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "86353ab01a973c18a4702589472181c64ed388487c16131749291a5d1997bb8c",
+    "lesson": "lesson-arithmetic-number-sense-prime-factors-and-powers"
+  },
+  "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "4434d3385b350bf0536e82484e1a7a53804196c7a13ef69a11087922151f1d7b",
+    "lesson": "lesson-arithmetic-number-sense-greatest-common-factor"
+  },
+  "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "b3b5bb7234723c06063cab8d9d0d98037531d3a50e2ccf969dd57261671403fa",
+    "lesson": "lesson-arithmetic-number-sense-least-common-multiple"
+  },
+  "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "75f517f935e61c5e783c6970b0b4b6222dd077a50ca513499cea0cb28ba54601",
+    "lesson": "lesson-arithmetic-number-sense-prime-factors-and-powers"
+  },
+  "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "a6127cd2a78a6a64a0f6d48056c6bfa345f35b721fad044531727973a6eaa2c4",
+    "lesson": "lesson-arithmetic-number-sense-greatest-common-factor"
+  },
+  "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "109fa9a50a374ad9af7fd3ce91e9057cf372a8349367af3c14836b25dd0f7df4",
+    "lesson": "lesson-arithmetic-number-sense-least-common-multiple"
+  },
+  "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "786bfda3e61dea0c11b190ca67e6aa903fbcf003a5a0ded2900a4c7f5917a8a5",
+    "lesson": "lesson-arithmetic-number-sense-greatest-common-factor"
+  },
+  "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "61221f3ab856d99a34849dfe86561f33fbc438bbac6aed07f6d8c2cf83f1d998",
+    "lesson": "lesson-arithmetic-number-sense-greatest-common-factor"
+  },
+  "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "06aea2546094d0ef4dbca674df070bf10500a7010b23588683ffcf31428776c9",
+    "lesson": "lesson-arithmetic-number-sense-least-common-multiple"
+  },
+  "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "cba38b5399ae35a1dd907afa7e06ee8b8a98baa723637c8c4c125ea67e26696f",
+    "lesson": "lesson-arithmetic-number-sense-least-common-multiple"
+  },
+  "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "771ad0deae3cf5162f212a1c73dd6e72d6d2803799cc05bafd5ab35b622811b4",
+    "lesson": "lesson-arithmetic-number-sense-greatest-common-factor"
+  },
+  "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "f0b94663fd962b514a08f0e4f16a42dfa6d4ae4d8cba849ba63d3d10b03a739a",
+    "lesson": "lesson-arithmetic-number-sense-least-common-multiple"
+  },
+  "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "7d57a1f2f63e628513990b9854915730f4d1575a20b14bd1d58a511e108c49ed",
+    "lesson": "lesson-arithmetic-number-sense-least-common-multiple"
+  },
+  "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "64cdf770bde4be8bd39dc151a7d4e97ca9e401114077dcf000bda39d9759eab0",
+    "lesson": "lesson-arithmetic-number-sense-greatest-common-factor"
+  },
+  "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "0ef01eefaf2b0d37353a864eeb7ff06242e7124375870ce54fc648068a161f44",
+    "lesson": "lesson-arithmetic-number-sense-least-common-multiple"
+  },
+  "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "3b15e81973db2531fca9f312b1638a27235cd2790874913c31dcbb3caf78a9fc",
+    "lesson": "lesson-arithmetic-number-sense-prime-factors-and-powers"
+  },
+  "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "0d7b3dd14228e0d69793b33578229f8d6a97526b177c5cda74fb55da9e5a643b",
+    "lesson": "lesson-arithmetic-number-sense-least-common-multiple"
+  },
+  "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "230b7be3d02fbc92441b59021bd8ba99f74e9c272a2af104d39dba8460788c2a",
+    "lesson": "lesson-arithmetic-number-sense-same-remainder-numbers"
+  },
+  "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "bf1e77be6a06393d4f8f735a4b497f1d071ab3fbf0c3be80dd48631c79b8c872",
+    "lesson": "lesson-arithmetic-number-sense-least-common-multiple"
+  },
+  "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "8729198a1411374008e2b0fffe9353a4388c1c731887a7cd367c90042439ed52",
+    "lesson": "lesson-arithmetic-number-sense-greatest-common-factor"
+  },
+  "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "030247369364d71f8fb229222b004300b92e2a4effe6dea418482d688ea7672a",
+    "lesson": "lesson-arithmetic-number-sense-same-remainder-numbers"
+  },
+  "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0022": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "4f42a305a7f577a667f1997e6146f64ed3904f943bd4dd044f5ab723c4855435",
+    "lesson": "lesson-arithmetic-number-sense-same-remainder-numbers"
+  },
+  "q-arithmetic-number-sense-properties-of-real-numbers-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "f5407ccb2fa3e419d4f71660b1cc6e3d1e853061b0fb59ffe1141680a74e6ccc",
+    "lesson": "lesson-arithmetic-number-sense-commutative-and-associative-properties"
+  },
+  "q-arithmetic-number-sense-properties-of-real-numbers-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "7eceeffadc7e927f9758a87eb0450cded077a72d6a95d2303ed42d45fd5f1075",
+    "lesson": "lesson-arithmetic-number-sense-additive-and-multiplicative-inverses"
+  },
+  "q-arithmetic-number-sense-properties-of-real-numbers-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "f123076a29e7bc366842cff49bb5207442d52599f86a4a4f65d68349a86bcc0a",
+    "lesson": "lesson-arithmetic-number-sense-distribution-and-common-factors"
+  },
+  "q-arithmetic-number-sense-properties-of-real-numbers-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "09ebc4c26535e7eb2310857bc7ad4660235258b299fbac09ecb3da8c3ae7f379",
+    "lesson": "lesson-arithmetic-number-sense-commutative-and-associative-properties"
+  },
+  "q-arithmetic-number-sense-properties-of-real-numbers-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "c3e703277b0f26c1ad2efeef8ff0b79e55ef56f787e38593ed541682b262de0a",
+    "lesson": "lesson-arithmetic-number-sense-commutative-and-associative-properties"
+  },
+  "q-arithmetic-number-sense-properties-of-real-numbers-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "c1cb28ed72a00669508c257a91fee3f342ca486516cab569914de851e502aca4",
+    "lesson": "lesson-arithmetic-number-sense-distribution-and-common-factors"
+  },
+  "q-arithmetic-number-sense-properties-of-real-numbers-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "1f988cb2be2c131ad398111e27debee6f6382c60e03cff8c66826c4c36315fbc",
+    "lesson": "lesson-arithmetic-number-sense-distribution-and-common-factors"
+  },
+  "q-arithmetic-number-sense-properties-of-real-numbers-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "cb9529ecce4da574af032bdcd7b2ae604043df4b9afb7ed4268c1551a706b51d",
+    "lesson": "lesson-arithmetic-number-sense-distribution-and-common-factors"
+  },
+  "q-arithmetic-number-sense-properties-of-real-numbers-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "adf7631adbcc9f478ca1aaf2f4797af081a4a93cffa95547bb4698bbe6cc36d4",
+    "lesson": "lesson-arithmetic-number-sense-additive-and-multiplicative-inverses"
+  },
+  "q-arithmetic-number-sense-properties-of-real-numbers-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "022175f9b46d4b9259309504417c73c59a0d935ab00f42f36225bc03cdc1b570",
+    "lesson": "lesson-arithmetic-number-sense-commutative-and-associative-properties"
+  },
+  "q-arithmetic-number-sense-properties-of-real-numbers-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "572e9096e7e4cec234465dc5d5745b0542953afa22b92eeec64606f812a64c3c",
+    "lesson": "lesson-arithmetic-number-sense-distribution-and-common-factors"
+  },
+  "q-arithmetic-number-sense-properties-of-real-numbers-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "6ef1c2c486a7007a1ab5b4bf111065d9ad859d69a642a8fc79fcbf00392e8d25",
+    "lesson": "lesson-arithmetic-number-sense-commutative-and-associative-properties"
+  },
+  "q-arithmetic-number-sense-properties-of-real-numbers-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "bc3e857a2c1b13a6a9019dd20615d59e0dcfae8265a78152c5ffbe2c8510181a",
+    "lesson": "lesson-arithmetic-number-sense-distribution-and-common-factors"
+  },
+  "q-arithmetic-number-sense-properties-of-real-numbers-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "3093a92459e7aa0a8ee85d2f3817bcc052143b235bc59e769db609c89963ea63",
+    "lesson": "lesson-arithmetic-number-sense-commutative-and-associative-properties"
+  },
+  "q-arithmetic-number-sense-properties-of-real-numbers-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "d198f579b63d343e7e422f2946ebe524a48ad6718cc4eb86e12c6ec8b478a997",
+    "lesson": "lesson-arithmetic-number-sense-distribution-and-common-factors"
+  },
+  "q-arithmetic-number-sense-properties-of-real-numbers-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "dbcbab75186cc17aaeb909589991a794bcc84ec36e6f2f63994f7528c612e94a",
+    "lesson": "lesson-arithmetic-number-sense-distribution-and-common-factors"
+  },
+  "q-arithmetic-number-sense-properties-of-real-numbers-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "0371314d58a0c12168b71db06533fc95be791b2c237b3dc9fd21e6ea55cda680",
+    "lesson": "lesson-arithmetic-number-sense-distribution-and-common-factors"
+  },
+  "q-arithmetic-number-sense-properties-of-real-numbers-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "4fa6db7929d6876601f37e9cf35fea736a639a084ba3b504eba5dcfe6e4e6552",
+    "lesson": "lesson-arithmetic-number-sense-commutative-and-associative-properties"
+  },
+  "q-arithmetic-number-sense-properties-of-real-numbers-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "cb452d80052044d62cb828cce778174f8b6e997248b3eb12c85da790857b11f9",
+    "lesson": "lesson-arithmetic-number-sense-additive-and-multiplicative-inverses"
+  },
+  "q-arithmetic-number-sense-properties-of-real-numbers-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "657559fc036318ce15e9c501f904beef5769082ac9c2432dbe695dd6f723141c",
+    "lesson": "lesson-arithmetic-number-sense-additive-and-multiplicative-inverses"
+  },
+  "q-arithmetic-number-sense-properties-of-real-numbers-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "3ce147fa75002342dba54b52d4bbaf226424e5678f72a6777364581b5bc9ae23",
+    "lesson": "lesson-arithmetic-number-sense-identities-and-like-terms"
+  },
+  "q-arithmetic-number-sense-properties-of-real-numbers-0022": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "ab3e7a490d8af1a3e137c0429789743bd8f79d9f07567ebdbcb758f4a7696775",
+    "lesson": "lesson-arithmetic-number-sense-identities-and-like-terms"
+  },
+  "q-arithmetic-number-sense-properties-of-real-numbers-0023": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "369537430496c9d52943a39348aa33c65af4a36cfe64405b8a692e64c528172b",
+    "lesson": "lesson-arithmetic-number-sense-identities-and-like-terms"
+  },
+  "q-arithmetic-number-sense-properties-of-real-numbers-0024": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "bb91626f2ed9d31deb6821949bc381242805cbd37d7bb4a0c1fcadb16e854b1e",
+    "lesson": "lesson-arithmetic-number-sense-identities-and-like-terms"
+  },
+  "q-arithmetic-number-sense-ratio-and-proportion-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "dbd4699ac3a87f563a4bf86d4abd77c78bff8a6dd695e1429908ab5b4ad200ec",
+    "lesson": "lesson-arithmetic-number-sense-direct-proportion-and-travel"
+  },
+  "q-arithmetic-number-sense-ratio-and-proportion-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "1ae7e05ce583d6c1d63c52f343f92fd9b6749537c671adb40a3cf9f5bb09f8c5",
+    "lesson": "lesson-arithmetic-number-sense-direct-proportion-and-travel"
+  },
+  "q-arithmetic-number-sense-ratio-and-proportion-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "a2b0b881a4f1cb057510123e268b5c8f617695f1e27c67fc4833ecffaa0cea54",
+    "lesson": "lesson-arithmetic-number-sense-direct-proportion-and-travel"
+  },
+  "q-arithmetic-number-sense-ratio-and-proportion-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "e79066f353e640a65a56744997107e406036ba2fc7f9fa8fc55218fe946ec063",
+    "lesson": "lesson-arithmetic-number-sense-partitive-proportion-and-differences"
+  },
+  "q-arithmetic-number-sense-ratio-and-proportion-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "9593527c8ac109c3647244e6d837691c5766ff259f54d81c96c98fb3f8cc2152",
+    "lesson": "lesson-arithmetic-number-sense-partitive-proportion-and-differences"
+  },
+  "q-arithmetic-number-sense-ratio-and-proportion-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "125163050604500cf79bee085a4a5d20b2c8730eb3bf07da00b4b9951e4192bd",
+    "lesson": "lesson-arithmetic-number-sense-partitive-proportion-and-differences"
+  },
+  "q-arithmetic-number-sense-ratio-and-proportion-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "1104eaec8a5f829ceeebe93705328270da30edca67c0561daedb7d25e32643fb",
+    "lesson": "lesson-arithmetic-number-sense-direct-proportion-and-travel"
+  },
+  "q-arithmetic-number-sense-ratio-and-proportion-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "8213fcd3d9aba99e394e3f9ebbc65364415e4f6e0a4ff99e6e2cb01d78a8aeb3",
+    "lesson": "lesson-arithmetic-number-sense-partitive-proportion-and-differences"
+  },
+  "q-arithmetic-number-sense-ratio-and-proportion-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "859389d40e5d9922328933a2f0d0676abbf613f35659becff11dbac0795a672c",
+    "lesson": "lesson-arithmetic-number-sense-direct-proportion-and-travel"
+  },
+  "q-arithmetic-number-sense-ratio-and-proportion-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "0479e59cddbab8bc02672a2d2f148165527115679a1901c8a0d6c37561847ae3",
+    "lesson": "lesson-arithmetic-number-sense-direct-proportion-and-travel"
+  },
+  "q-arithmetic-number-sense-ratio-and-proportion-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "c5b5c220f76bb9bb9cf467d2d9909d0cf23c3950f49b2f32395decd1a4c7715e",
+    "lesson": "lesson-arithmetic-number-sense-partitive-proportion-and-differences"
+  },
+  "q-arithmetic-number-sense-ratio-and-proportion-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "0b1f1247c4ee7c7e3dcececd6a08d5ef540071f96fc01f8d9df86562ed861971",
+    "lesson": "lesson-arithmetic-number-sense-direct-proportion-and-travel"
+  },
+  "q-arithmetic-number-sense-ratio-and-proportion-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "22ba25ca83f8f0ddeabebcbe2fcf4305beda24ce91a95c20480eda32b1a73b83",
+    "lesson": "lesson-arithmetic-number-sense-direct-proportion-and-travel"
+  },
+  "q-arithmetic-number-sense-ratio-and-proportion-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "35b32bc24e0501cc4924f1e8f35181400abc9b3a2f578756f89687f52adc17a8",
+    "lesson": "lesson-arithmetic-number-sense-partitive-proportion-and-differences"
+  },
+  "q-arithmetic-number-sense-ratio-and-proportion-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "5d152be33eb5ac0b4961902f85dfe2b5cfc8c02bfab55b014a2c4ac28bf98ac8",
+    "lesson": "lesson-arithmetic-number-sense-partitive-proportion-and-differences"
+  },
+  "q-arithmetic-number-sense-ratio-and-proportion-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "a7f41b06fbc252c7600136c0af98040b7f60a9b95b589f718756cc1d14ab5343",
+    "lesson": "lesson-arithmetic-number-sense-direct-proportion-and-travel"
+  },
+  "q-arithmetic-number-sense-ratio-and-proportion-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "ffdf99b61f2034be0c65dcd211b88137d8d0c8bfeba399c9f8c7828a4833eff1",
+    "lesson": "lesson-arithmetic-number-sense-inverse-proportion-and-remaining-work"
+  },
+  "q-arithmetic-number-sense-ratio-and-proportion-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "6e7ac0c0cdb554cdcc88160af6f3c91a7bc62c50dbc8691121a55fb02e210ede",
+    "lesson": "lesson-arithmetic-number-sense-inverse-proportion-and-remaining-work"
+  },
+  "q-arithmetic-number-sense-ratio-and-proportion-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "a1842c56c3a4e889abcbbff9d3010ea15e96e420df78a802e34861bc343353f9",
+    "lesson": "lesson-arithmetic-number-sense-inverse-proportion-and-remaining-work"
+  },
+  "q-arithmetic-number-sense-ratio-and-proportion-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "2c9ef86aed25df3411ea0c8a1aa7ef4c760d6a6c5e49544a10b8ae5d2eae921b",
+    "lesson": "lesson-arithmetic-number-sense-partitive-proportion-and-differences"
+  },
+  "q-arithmetic-number-sense-ratio-and-proportion-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "26ae2547eb3f47c94c6a9c2d464284a4344cbe0997c37265ec424e69bdc2830a",
+    "lesson": "lesson-arithmetic-number-sense-inverse-proportion-and-remaining-work"
+  },
+  "q-arithmetic-number-sense-real-imaginary-numbers-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "e8c5a95e8649c99ebec056408ffa7f5d061ec1889228ba8e13f6d47ce47fe944",
+    "lesson": "lesson-arithmetic-number-sense-real-number-sets"
+  },
+  "q-arithmetic-number-sense-real-imaginary-numbers-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "66b1d27abfcdbf52fa888d7c7296e448219caa921fdacbab2e760e22ca09e207",
+    "lesson": "lesson-arithmetic-number-sense-real-number-sets"
+  },
+  "q-arithmetic-number-sense-real-imaginary-numbers-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "eda5efadc4f1553cbc5bc82829ce8b6024b55361312abb7cea400bb6add20f07",
+    "lesson": "lesson-arithmetic-number-sense-imaginary-unit-and-powers"
+  },
+  "q-arithmetic-number-sense-real-imaginary-numbers-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "747b1a6c4ebab51280ebe9156bf4d02bf7faad3422acb3658a0a10f25ea84f58",
+    "lesson": "lesson-arithmetic-number-sense-imaginary-unit-and-powers"
+  },
+  "q-arithmetic-number-sense-real-imaginary-numbers-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "cddb5ca82aa54e34ac5e6f48fa9182caae4c8a84723e9d7c459325eab61e7d59",
+    "lesson": "lesson-arithmetic-number-sense-imaginary-unit-and-powers"
+  },
+  "q-arithmetic-number-sense-real-imaginary-numbers-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "409ab8bb092e38606e19531a61df09384fe44911a3c3d31e04cbafd19dab873f",
+    "lesson": "lesson-arithmetic-number-sense-imaginary-unit-and-powers"
+  },
+  "q-arithmetic-number-sense-real-imaginary-numbers-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "eb3b96646a1482184603aaafba710dd71269d75abb87314589c33edf82872299",
+    "lesson": "lesson-arithmetic-number-sense-imaginary-unit-and-powers"
+  },
+  "q-arithmetic-number-sense-real-imaginary-numbers-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "035ac70de6a52a41fb3ecbd84572762e627ebcba28a89e29c135125c5118ee7a",
+    "lesson": "lesson-arithmetic-number-sense-complex-products-and-quotients"
+  },
+  "q-arithmetic-number-sense-real-imaginary-numbers-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "b2c62097b222d73243cbbeaa30c3903e4cefdf7e29b3624ec0ef9138056f5346",
+    "lesson": "lesson-arithmetic-number-sense-complex-products-and-quotients"
+  },
+  "q-arithmetic-number-sense-real-imaginary-numbers-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "040c27958c442361bdc6fb37be559f36c8ef2c2d8e721a7adc29bbfaa74f61ec",
+    "lesson": "lesson-arithmetic-number-sense-imaginary-unit-and-powers"
+  },
+  "q-arithmetic-number-sense-real-imaginary-numbers-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "447330725c8344940bbd90ca8264e08d3eb20c2021f5be26eb013e1a8de57d43",
+    "lesson": "lesson-arithmetic-number-sense-complex-products-and-quotients"
+  },
+  "q-arithmetic-number-sense-real-imaginary-numbers-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "5f45cf3215d5d7d78495a9bc1e964f3c8b9168d07d50bcaf94c93590f45c801f",
+    "lesson": "lesson-arithmetic-number-sense-imaginary-unit-and-powers"
+  },
+  "q-arithmetic-number-sense-real-imaginary-numbers-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "dbccf52dca277d159d6b416d266de6a4e695eac90b652242538cc4e46ebedbbe",
+    "lesson": "lesson-arithmetic-number-sense-complex-products-and-quotients"
+  },
+  "q-arithmetic-number-sense-real-imaginary-numbers-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "be7622d45f4a493c0162dc4492e2b6dc31cb5a7aa52ebd831304dd9b4de1d3ce",
+    "lesson": "lesson-arithmetic-number-sense-imaginary-unit-and-powers"
+  },
+  "q-arithmetic-number-sense-real-imaginary-numbers-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "ff20489e729ec47dbaac0f792da668936c8fedc6dd272a87cff0190f9fa0212d",
+    "lesson": "lesson-arithmetic-number-sense-complex-products-and-quotients"
+  },
+  "q-arithmetic-number-sense-real-imaginary-numbers-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "0388eb80996ccb96aa673f04666960b12df2f3d3d9fcaf2e61f8276b5d0d7ed5",
+    "lesson": "lesson-arithmetic-number-sense-imaginary-unit-and-powers"
+  },
+  "q-arithmetic-number-sense-real-imaginary-numbers-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "20d5187acb42f9d2de097a62b6ba7ec5a6f27fd6b289a14a56275b702c3f3059",
+    "lesson": "lesson-arithmetic-number-sense-imaginary-unit-and-powers"
+  },
+  "q-arithmetic-number-sense-real-imaginary-numbers-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "91428220eab3971fd22a58e7bb3babe716fd8439e16babe2286f027adc0ac1f0",
+    "lesson": "lesson-arithmetic-number-sense-complex-products-and-quotients"
+  },
+  "q-arithmetic-number-sense-real-imaginary-numbers-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "1bd6966db0122e0a98b3ec32483771f4d5c3f8d4b14567eaccb8046742316ea6",
+    "lesson": "lesson-arithmetic-number-sense-complex-products-and-quotients"
+  },
+  "q-arithmetic-number-sense-real-imaginary-numbers-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "0bf495e13abb8bc17b2df2b8d36e966485b8e96cf088f288b73a00fe280642a0",
+    "lesson": "lesson-arithmetic-number-sense-real-number-sets"
+  },
+  "q-arithmetic-number-sense-sequences-and-series-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "22c45e57a843ed0132cbc897a195fccfc211e529eebfde808fe40deaea0062c3",
+    "lesson": "lesson-arithmetic-number-sense-arithmetic-sequence-terms"
+  },
+  "q-arithmetic-number-sense-sequences-and-series-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "9b21c2140b9d023a8b3ad278691f171270b2d094e30c4d9431129801f24c290a",
+    "lesson": "lesson-arithmetic-number-sense-geometric-sequence-terms"
+  },
+  "q-arithmetic-number-sense-sequences-and-series-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "0261377782e7bb446ecc8932635c1198eeaaa62bdff7d4869686417d0addd71c",
+    "lesson": "lesson-arithmetic-number-sense-arithmetic-series-sums"
+  },
+  "q-arithmetic-number-sense-sequences-and-series-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "7a398f61b99acef75a6b9a83d5ec0767aa42526d800cfabe9bc8328d3fa90cc5",
+    "lesson": "lesson-arithmetic-number-sense-geometric-sequence-terms"
+  },
+  "q-arithmetic-number-sense-sequences-and-series-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "2d9f583e63f0ff1b010e998695a455fc08ef058ccbea5b7ac8012323e4322c29",
+    "lesson": "lesson-arithmetic-number-sense-infinite-geometric-series"
+  },
+  "q-arithmetic-number-sense-sequences-and-series-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "f77caa602e906cfa962a99b7210d5d78889eb0e77a9fe5ede745b78b5ef3a026",
+    "lesson": "lesson-arithmetic-number-sense-arithmetic-sequence-terms"
+  },
+  "q-arithmetic-number-sense-sequences-and-series-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "b5fb5c8edc8a7c7e65b24b41e7492bd39b90e54dfd7b7a75a4d1524542e16305",
+    "lesson": "lesson-arithmetic-number-sense-infinite-geometric-series"
+  },
+  "q-arithmetic-number-sense-sequences-and-series-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "ea9653571d3a18cd118da06cd22b32b0c847c33eef96cca08aa7ff3a94cdfd22",
+    "lesson": "lesson-arithmetic-number-sense-finite-geometric-series"
+  },
+  "q-arithmetic-number-sense-sequences-and-series-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "cd9d74e405625479902b4b85f74165aba90e22a6dec70f6bda9763e25cfb198a",
+    "lesson": "lesson-arithmetic-number-sense-arithmetic-sequence-terms"
+  },
+  "q-arithmetic-number-sense-sequences-and-series-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "94b4fc9746d0acaf2d04bdf06f9de51baddaa40e232cd917c80d6f87169d62f5",
+    "lesson": "lesson-arithmetic-number-sense-arithmetic-series-sums"
+  },
+  "q-arithmetic-number-sense-sequences-and-series-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "b065f409a095b1b71e9782d98904c108539459df3aae5d5aab0fb1791b128691",
+    "lesson": "lesson-arithmetic-number-sense-geometric-sequence-terms"
+  },
+  "q-arithmetic-number-sense-sequences-and-series-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "a0678f86328307657d5d13e663852960811685947efba3d0934f5dffc5dbe156",
+    "lesson": "lesson-arithmetic-number-sense-arithmetic-series-sums"
+  },
+  "q-arithmetic-number-sense-sequences-and-series-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "61044d3486d3d453a2c1bf5e9b5c3704387921abc8ffadc4deeb6ed075d745cd",
+    "lesson": "lesson-arithmetic-number-sense-infinite-geometric-series"
+  },
+  "q-arithmetic-number-sense-sequences-and-series-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "2394a7e9b2d87bdff78b5d253f8bba3d3eda4da4e1375bce68c9ed1f4cdee65f",
+    "lesson": "lesson-arithmetic-number-sense-arithmetic-sequence-terms"
+  },
+  "q-arithmetic-number-sense-sequences-and-series-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "4324d1ebfc3b3704882fe0d12e3abaa6e7e5004b21c648f2525e6a2beb7d2936",
+    "lesson": "lesson-arithmetic-number-sense-arithmetic-series-sums"
+  },
+  "q-arithmetic-number-sense-sequences-and-series-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "6205f91e2a139930aee4487910c1314c50364a3bc0e409e277b11e74690abde2",
+    "lesson": "lesson-arithmetic-number-sense-harmonic-sequence-terms"
+  },
+  "q-arithmetic-number-sense-sequences-and-series-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "bba132c4282ba5918f361331b2a4ff35d94e57a9e677e95b9b4a78b4d8bf669c",
+    "lesson": "lesson-arithmetic-number-sense-harmonic-sequence-terms"
+  },
+  "q-arithmetic-number-sense-sequences-and-series-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "763143da6f57b5ba29fa1bf34fcbd031231206661c65756097e147d963c06e3e",
+    "lesson": "lesson-arithmetic-number-sense-fibonacci-type-sequence-terms"
+  },
+  "q-arithmetic-number-sense-sequences-and-series-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "2e3276f00ecdf375b15df2b104b867b72213c5ab1b6c843b8a59983781ecb1f0",
+    "lesson": "lesson-arithmetic-number-sense-arithmetic-series-sums"
+  },
+  "q-arithmetic-number-sense-sequences-and-series-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "ca66ba2b60e997bd50534f050aa75ec462fc0c61e5ac619dfca4f69db6de3bd6",
+    "lesson": "lesson-arithmetic-number-sense-infinite-geometric-series"
+  },
+  "q-arithmetic-number-sense-sequences-and-series-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "47fcbff0542b9e3e6c1b75aa0dae5c8628a7fddad98c5d28d9ad351177b337a8",
+    "lesson": "lesson-arithmetic-number-sense-arithmetic-sequence-terms"
+  },
+  "q-arithmetic-number-sense-sequences-and-series-0022": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "01d46918325490b41e5621e8a7cda04e58b8e68ef672eb956becf142d5fae434",
+    "lesson": "lesson-arithmetic-number-sense-fibonacci-type-sequence-terms"
+  },
+  "q-arithmetic-number-sense-sequences-and-series-0023": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "c5d5b5b05d741bac8232e31b755cf956e3e0573bdecc4ffe0900d581485f6b7a",
+    "lesson": "lesson-arithmetic-number-sense-finding-number-patterns"
+  },
+  "q-arithmetic-number-sense-sequences-and-series-0024": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "029f56adf9abf3699ae14dfd0a5274fcec9c6b2a57e7c80d0351de48cff86a6d",
+    "lesson": "lesson-arithmetic-number-sense-finding-number-patterns"
+  },
+  "q-arithmetic-number-sense-sequences-and-series-0025": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "f9016d507104ffd796d42261048278b53678d1701e88d7e5fd4309abb57dfd4b",
+    "lesson": "lesson-arithmetic-number-sense-finding-number-patterns"
+  },
+  "q-arithmetic-number-sense-sequences-and-series-0026": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "7fada57ecd1088c7f6cb1c9fb6446cda4a0786064d4c0b318677044cfd722911",
+    "lesson": "lesson-arithmetic-number-sense-finite-geometric-series"
+  },
+  "q-arithmetic-number-sense-sequences-and-series-0027": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "5dfcbc24e882d8f70d12db4c0178f56807d5858fc199f0dbd71aa5ee7e9b489d",
+    "lesson": "lesson-arithmetic-number-sense-finite-geometric-series"
+  },
+  "q-arithmetic-number-sense-sequences-and-series-0028": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "9e4b5bc75be2b45d0ad15c6fec049d2e9cd16bd577766fcd5f1916be6d3ff8c5",
+    "lesson": "lesson-arithmetic-number-sense-finite-geometric-series"
+  },
+  "q-arithmetic-number-sense-sequences-and-series-0029": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "e0b25cf56f4c0128d36478e8506bae587e48fd8ae3b4ecc41d9f6b01639e553a",
+    "lesson": "lesson-arithmetic-number-sense-odd-and-even-position-patterns"
+  },
+  "q-arithmetic-number-sense-sequences-and-series-0030": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/arithmetic-number-sense.md",
+    "hash": "27f244e4b9ce8c696ecc2b8f9c632c4c12c36196d1065f5f91856f571559927b",
+    "lesson": "lesson-arithmetic-number-sense-odd-and-even-position-patterns"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "aa9c8001898e0f10069708353da8216fd1e17f64b9882b15e5c08b60aaa34ba0",
+    "lesson": "lesson-clerical-ability-personal-name-filing-units"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "cc2a5d9a44f6cd56401346cbe02424480cf7cef5a5110f75d0e56be6944246c8",
+    "lesson": "lesson-clerical-ability-personal-name-filing-units"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "6bc117f42ce79bcabf249c47feeccd15293d14b2c726326ce8cb19e20d2ae5db",
+    "lesson": "lesson-clerical-ability-filing-patterns-and-surname-particles"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "ba013400defc3b79ede440fd3e9cc05855f2cbefeaa4f9a7726daa529a9dacdf",
+    "lesson": "lesson-clerical-ability-filing-patterns-and-surname-particles"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "a21233e4db6e1a92e1592cab779f6b786208dbcd2decc0a305c3b05180ee01e8",
+    "lesson": "lesson-clerical-ability-suffixes-titles-and-filing-ties"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "f88cf459d5d236f350bdf8f9f1e8c6c1f4e17244c1594924a71409cecef0c911",
+    "lesson": "lesson-clerical-ability-personal-name-filing-units"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "4463c086518a273690401af74be781131bc92be4b49ed5459315263f603b1352",
+    "lesson": "lesson-clerical-ability-suffixes-titles-and-filing-ties"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "56565e8393e4a641f11b32cc208869746eb69538c20fcb767d06f578aac5b194",
+    "lesson": "lesson-clerical-ability-filing-patterns-and-surname-particles"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "b587e80a1fb4afb576c511554f0fb0dffaee561d31fa5609715292cfffd85c25",
+    "lesson": "lesson-clerical-ability-filing-patterns-and-surname-particles"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "c47e256497d3a06494615fcca37dd2c4fab31e92da1ce856d903dbff5ba4d261",
+    "lesson": "lesson-clerical-ability-personal-name-filing-units"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "7c3afcf3c413127a1c8bab3fa94f6cbc9a12cf3a200c8a10389f2523df2f86bb",
+    "lesson": "lesson-clerical-ability-filing-patterns-and-surname-particles"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "8d5d69b55eb77ab033c77e1079ea3cfe7f540fed21620406545694b0fece227d",
+    "lesson": "lesson-clerical-ability-personal-name-filing-units"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "23bc9bf2c362412191862f7dcb7bfa3f511bf725c838bfc4212333011d938981",
+    "lesson": "lesson-clerical-ability-personal-name-filing-units"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "4e02379c9baf803db5795a6cf3eaae436758257c9cd318c5d64a2ef8b545ef18",
+    "lesson": "lesson-clerical-ability-personal-name-filing-units"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "2928e9810e498c4b85c58125920bb3abbca65fdccd64dd8e2c24726dbcacf176",
+    "lesson": "lesson-clerical-ability-suffixes-titles-and-filing-ties"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "db574482eb6ce9d7656e14278a2569a81636092f3909a081a5e35ea98e8e6cdd",
+    "lesson": "lesson-clerical-ability-filing-patterns-and-surname-particles"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "d240a15c318de796fa36553323f6e7f3f96f1b9358f05ff2811664b048ed094c",
+    "lesson": "lesson-clerical-ability-suffixes-titles-and-filing-ties"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "f1697cde2fe54cdeeb170ad2cf746ee00dbfd3cceedfbbed12b02e0b74b89515",
+    "lesson": "lesson-clerical-ability-suffixes-titles-and-filing-ties"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "2f07a2013f229646c8e8fae6500e9bcfebaa267989b65c79a76d4b9b9915ada4",
+    "lesson": "lesson-clerical-ability-filing-patterns-and-surname-particles"
+  },
+  "q-clerical-ability-alphabetic-filing-rules-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "2560413e0caa7ded0a2887c95e53c6708c85619cde8824fd93118fdccef6a93a",
+    "lesson": "lesson-clerical-ability-suffixes-titles-and-filing-ties"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "eb488842b1e45314c5b83420403028b08287453acd51098fd6847a61653877f7",
+    "lesson": "lesson-clerical-ability-whole-number-and-decimal-filing"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "f9d24caefb12680d16f527529a821216d20203955ef320c61829bd9ff7e8c7f9",
+    "lesson": "lesson-clerical-ability-oldest-and-newest-date-order"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "dcf0850ed66c2e4aa08d4f6a6d598bdeb6febb64618f6f70cf9e430096dff497",
+    "lesson": "lesson-clerical-ability-oldest-and-newest-date-order"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "14a772fb59b9752c5bc2d7bc838dc590f6b54d8517e425369d8dee3f268d8df3",
+    "lesson": "lesson-clerical-ability-whole-number-and-decimal-filing"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "6fec96635e4cb5ea95feb24252ee19d012a70743c3e49d8a55e35581768bfed4",
+    "lesson": "lesson-clerical-ability-integer-subcode-filing"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "9692a919b04cf38771fa7d738e06ac54f92956ca9161443998e5e91342e788d1",
+    "lesson": "lesson-clerical-ability-oldest-and-newest-date-order"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "efc90c8b14965135cb9a462a46e8263c987496397977a28e3fb1f3d37b4a1109",
+    "lesson": "lesson-clerical-ability-whole-number-and-decimal-filing"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "6a07f6435924fbcca1cf6fe0252edd091989632700612467aafb0a69f05a8a69",
+    "lesson": "lesson-clerical-ability-whole-number-and-decimal-filing"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "3c0038bea5e7674ce09be5079b201e308088eaaa724ff6bfb78b1ea728b5c5f3",
+    "lesson": "lesson-clerical-ability-terminal-digit-filing-order"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "6b67d9369b8364ba49e547b2ad04f944aa145d5953414fc0542e3b2c791be67e",
+    "lesson": "lesson-clerical-ability-oldest-and-newest-date-order"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "a427e4b4e3e9aca3db16bb29adf9737c11cd442c75aaf15db049b0ac3aacfe1f",
+    "lesson": "lesson-clerical-ability-integer-subcode-filing"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "a601767b989d5083a7338ae91f9d7f9f823f66ca8e31ed6e4df3b00f21130a4b",
+    "lesson": "lesson-clerical-ability-integer-subcode-filing"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "4cd22dcd9cb497e207ad86f65d34d3fbccac2cf731502961d6ebb659680f1e95",
+    "lesson": "lesson-clerical-ability-whole-number-and-decimal-filing"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "2d05bc65af40c0aff22cf7ad415564dbe0c182067a0c7e871eec60fd87533a46",
+    "lesson": "lesson-clerical-ability-whole-number-and-decimal-filing"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "2798db81bc335ca73f6f198c33db430e19bedacd5dad2448c7339a0abde674c5",
+    "lesson": "lesson-clerical-ability-whole-number-and-decimal-filing"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "e0be23d69cac38e5f19befaa34322f814544579f2fe7bf42fadfb5db479e406a",
+    "lesson": "lesson-clerical-ability-integer-subcode-filing"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "a124978d0fdde4170343ac71cf7f6e116e47fd7e9463e6ac771a2f740d4889b1",
+    "lesson": "lesson-clerical-ability-oldest-and-newest-date-order"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "db56cf3f141c6ad7321ebd96c38a3a8f3031936689cd3dcf09a1e3a56b74eee9",
+    "lesson": "lesson-clerical-ability-year-first-and-stated-date-formats"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "b178511309ae0cc768a76281d9222cc89163033be630481067f03a37d70b57d0",
+    "lesson": "lesson-clerical-ability-oldest-and-newest-date-order"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "c3d252da541b61247e044c52b1a7463248efe03088a633ee280a2f26257c526d",
+    "lesson": "lesson-clerical-ability-oldest-and-newest-date-order"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "2afa30666039310e4fd270e2313cb3c242cbe73663851cf08502a55b03a41022",
+    "lesson": "lesson-clerical-ability-character-string-filing"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0022": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "eb4d37030c905806c67920f86f83c4cc878f946ac5ffdd96390c68a18f0a0585",
+    "lesson": "lesson-clerical-ability-character-string-filing"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0023": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "5078f8a4957bd85ca0e4f68044f446371b4a468a35a94f58b3f8c4b376539bc8",
+    "lesson": "lesson-clerical-ability-terminal-digit-filing-order"
+  },
+  "q-clerical-ability-numeric-and-chronological-filing-0024": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "a1fd1c80dd77af7e8f50557864f817dc256055a9d0e669a0094ad47485ff0a74",
+    "lesson": "lesson-clerical-ability-year-first-and-stated-date-formats"
+  },
   "q-code-of-conduct-ra-6713-corruption-and-its-effects-0001": {
     "approvedAt": "2026-11-14",
     "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
@@ -4343,6 +5867,492 @@
     "hash": "039d3eca7330889a4e7897c3bcc7baa80eeba5b53a4f1d5e133e1f55674c2adb",
     "lesson": "lesson-language-application-pagkumpleto-ng-pangungusap"
   },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "bcd8df7adea59caf6181e1ce0b63d770ea6a74f05e0a4051c6168e293b47c5b0",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-moves"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "eb36240db9234d50730bfbee7ad7c373ddaf4a7aedf9d8b344649fd1d3d1f454",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-moves"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "138eb9dd96dd6be8800ebcb013d010b5ffcddac665c1a93c688a9a3d402eb19e",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-moves"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "4f450ea9280cc418d932746f9ed57a2a0e848a27dbbe8a7dab30d51989a30095",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-moves"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "9d32d526cecaa7a3232ab1e224eb4033c30085c39e64bb718d1a4af29f5cc584",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-moves"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "aba8ce1071fd05c3ac2d3f83690a04dc6dd8799bc1c5661a2e4894f1d4b53caf",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-moves"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "376fe1f7507633ced39d0a2999f576483e3633cc2502fe23be5faf409d71b2ee",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-positions-and-operations"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "ff779a43ae01e7232908c5ae800a070346a75567a8dba1ff8bfb1a229de4127f",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-earlier-terms"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "34f4fc6cdfb67aa92a472761d33c7cbed3bbdd1b34c7c79b9d5f080367fcde06",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-letter-patterns"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "ad91cec9e80c1024a5ad2f921eb65ab9ffc50e0cf7cf07e65710f83df5faa7f0",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-letter-patterns"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "acf83af4009d1ce02dc73260f8bc593738b8f9b8b07dc0a9a45cfef2a30db206",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-positions-and-operations"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "3b58a899965f4d3cc935f1dccacb3674f5a3048bee4a76fdf0f87bb2c36f479f",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-positions-and-operations"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "91cf99ceaad2759dea9e3eb1aa36957b880a75c01e8b06c8899723c62d38f1e3",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-letter-patterns"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "e803dff883cb30eb63a8b82862727dab14231240fa6800c3c4ba12e58a27b7d4",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-positions-and-operations"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "83f6be309a0915f92492d025faee6c63c9d3a4d226edccc9ddb2d4b9f34582e4",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-positions-and-operations"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "422bb27013070984c01fde6ee291c0ca35029195008107f6a4fcb64b6d99e374",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-letter-patterns"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "0b1e9d240251791b33d8d3fb814307c82c2dd98a0d2c0af2629947e0fe4bfc11",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-positions-and-operations"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "e160dfe50e2c0f1780688a270dcb617c169101298f0269ee2d8a4ec2eb7f4bcc",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-earlier-terms"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "259a9e98beae91c1ee3e4bfb67088fabeac50e6ebb83e57e37301a9d7b2bbb18",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-letter-patterns"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "b04bd79b9f3be0b97610668aedd8055a7d058db7019b6a0f0a04f215cb494f55",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-positions-and-operations"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "0466283a84fd94f68a82bce6acaa569f73345899c6c20120b8b79f54f4541da1",
+    "lesson": "lesson-logical-verbal-reasoning-deductive-group-arguments"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "7f76fdbee47e50e52e9b2f97df2fb9f015f4589cc84c79cc81247a693d48497a",
+    "lesson": "lesson-logical-verbal-reasoning-deductive-group-arguments"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "8fb2034a8da043b48d31b5304076b30facf930919e7b669b05cae1d2c4b13a0a",
+    "lesson": "lesson-logical-verbal-reasoning-invalid-conditional-forms"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "0b9f17073d325d013aa00efb125f49bec73cde4dca50a99be148e74ceebbd8f9",
+    "lesson": "lesson-logical-verbal-reasoning-invalid-conditional-forms"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "0a7b5363165bc0a571f524f5e6cdc268b6572adf35b41c40272139a468f769bd",
+    "lesson": "lesson-logical-verbal-reasoning-valid-conditional-forms"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "3f4a4dcf0547127ca3e49b827f32baa83bbc16d6bb5a8c290abc08fd5997b0f4",
+    "lesson": "lesson-logical-verbal-reasoning-valid-conditional-forms"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "3788181644f4b6e9d122b9529eea9e5505e0cb215c82a7a56be8bf1e1b8ef91b",
+    "lesson": "lesson-logical-verbal-reasoning-deductive-group-arguments"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "9f31032c1791fa77df03095ccc25d7e363bd26a564f63aab05176f98f4a73305",
+    "lesson": "lesson-logical-verbal-reasoning-deductive-group-arguments"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "b11399368f1e767f15ba92958c6be1ef42916161c85efcdcdd6f92dcd5fda547",
+    "lesson": "lesson-logical-verbal-reasoning-invalid-conditional-forms"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "5bd97133cdbcdc41d9e34adc89a262e9a81ae7feea91348be0e8347bad51c344",
+    "lesson": "lesson-logical-verbal-reasoning-deductive-group-arguments"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "87a959aafa04a1ed8d4a6db6b9dee2f130b6b74a02d8c604c16ca2f2b7f376e4",
+    "lesson": "lesson-logical-verbal-reasoning-deductive-group-arguments"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "a0da2911cb839017e2e474ab64362162a3452161dcee7711a36aee2fba1c8379",
+    "lesson": "lesson-logical-verbal-reasoning-valid-conditional-forms"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "7f92e2be6c390f9bd87deed9cc1ccc489f16e620405d75c5067290383413df4a",
+    "lesson": "lesson-logical-verbal-reasoning-valid-conditional-forms"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "1031394725d2e0beea58891f7737b7e4682baa13403ab0d1cb9f67a7b81b7a9c",
+    "lesson": "lesson-logical-verbal-reasoning-deductive-group-arguments"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "a2d49892ed4d08264d9afdf834482eb15e58f4e788f56dbcc8af21c0a30234ba",
+    "lesson": "lesson-logical-verbal-reasoning-deductive-group-arguments"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "651d79daa03c0aa5b995de0704ac5fb8b4fa003e8bd546207f69e0ca9775e62b",
+    "lesson": "lesson-logical-verbal-reasoning-deductive-group-arguments"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "fc75e577d90143a2c5ce94674554cdd19630a21d89f407e8ba2629a0d7694d59",
+    "lesson": "lesson-logical-verbal-reasoning-valid-conditional-forms"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "2fbbd85bac168581368e60532cb64bf34ae98abf5cac1fe701cb19cbbc345ede",
+    "lesson": "lesson-logical-verbal-reasoning-valid-conditional-forms"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "804fb070625a48ecae64aaaea12bdd09aa26ca8985e0a1b0c3176bea0ead57a2",
+    "lesson": "lesson-logical-verbal-reasoning-deductive-group-arguments"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "9a8d42ed1a8640736cfa783b4209f63de610b4dcd4e157fa8d78058d557522c7",
+    "lesson": "lesson-logical-verbal-reasoning-valid-conditional-forms"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "aa06c9674384124543d81437cf349c1e12e43237b86a293ebdb1cca25461cb4a",
+    "lesson": "lesson-logical-verbal-reasoning-truth-tables-and-connectives"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "6a567dfde25524b50476f6be1fb93e315a7ac28b6ab44c8110a52d5120584086",
+    "lesson": "lesson-logical-verbal-reasoning-truth-tables-and-connectives"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "dcb1628f99ed17f3f1687c15fe7ef83e1199f40ec3f3835bcfccec7d6136c69b",
+    "lesson": "lesson-logical-verbal-reasoning-combined-truth-values"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "a0527bce2ba841a46ef364fa8f07ffd4689407ef742d26c2c0646ca3e88d7987",
+    "lesson": "lesson-logical-verbal-reasoning-truth-tables-and-connectives"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "f60934e88528ad9a02a67ac10fd4e01814dce8b619463764ef1300a269060a26",
+    "lesson": "lesson-logical-verbal-reasoning-truth-tables-and-connectives"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "b0b5606c8e1a4a1b76944a8d2f9b85e3bfd778ce0d5e473e9f563d21fa3276e5",
+    "lesson": "lesson-logical-verbal-reasoning-conditional-truth-values"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "1b64e1d06106340bd83fae67f3431434ac060c2cb0783552a5b6f161df215a5b",
+    "lesson": "lesson-logical-verbal-reasoning-conditional-truth-values"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "0a099468dc7d1d01c57efc8579907b309a845eb4f72a3b54b643c3d73b314160",
+    "lesson": "lesson-logical-verbal-reasoning-combined-truth-values"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "5f6b4b2b9b11e0e07ed804943319e8c4e75894b46038861ded3671c0702610df",
+    "lesson": "lesson-logical-verbal-reasoning-combined-truth-values"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "a694b79778efd41a0621a5fa89280a416f629bbfb7d61086ee35b9d939489adf",
+    "lesson": "lesson-logical-verbal-reasoning-combined-truth-values"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "821c4a74142c69feddcd1564839878600913b3ce3b04a94497112914c16abf4c",
+    "lesson": "lesson-logical-verbal-reasoning-combined-truth-values"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "5f2514860762445acb5b4a63045a8a05e69eafdce2cf9ae13a69e86db6aa9538",
+    "lesson": "lesson-logical-verbal-reasoning-combined-truth-values"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "d20214f77f350d519a54f4880a4e6e584b3d7d9a5ca52f8d84fc72ac6698a980",
+    "lesson": "lesson-logical-verbal-reasoning-combined-truth-values"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "42fbf77578a6828e1c438e15fa3afaf460669209483b4f2e094a47ceda326cde",
+    "lesson": "lesson-logical-verbal-reasoning-truth-tables-and-connectives"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "51a2630a92c6dbdda8cfb46b9f2135f48d550594b49d103854bbf0cfc138053a",
+    "lesson": "lesson-logical-verbal-reasoning-conditional-truth-values"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "d11a5908702c24a45b5d23b66b02fc027a4c7b4f684f6731356f87a5e80282d1",
+    "lesson": "lesson-logical-verbal-reasoning-combined-truth-values"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "e78433fd3eff92a1ff1275a75dc531d7b9b2695d6e75dbf43e391a130737324d",
+    "lesson": "lesson-logical-verbal-reasoning-combined-truth-values"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "861bd84fc2b4c1d90423d5663dffc4fd25c3bbf38278e4369bda4c0662d422cf",
+    "lesson": "lesson-logical-verbal-reasoning-combined-truth-values"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "b255d40e2a98232cffa301cd7abecdb9a0da08a412576704f931edf1280a6f66",
+    "lesson": "lesson-logical-verbal-reasoning-combined-truth-values"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "0f34c3c22605cfdd64ef54b86be98af3ba09eac3970c730e9afe3393a293fdf5",
+    "lesson": "lesson-logical-verbal-reasoning-combined-truth-values"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0021": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "4dbcb9da6eb417d6663da69328bbd1046ae02ac6ea63a688c53517efe24583af",
+    "lesson": "lesson-logical-verbal-reasoning-truth-tables-and-connectives"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "b8f950935e5549efe3dcaa4248a488864efc8317a7c9753f3d1244fb5fe472c4",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-functions-users-and-work"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "9569009079beaae176b3e201986c1933d0c33bcec667013cf7f94da657e1d5f2",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-functions-users-and-work"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "9bba6bbc510fa06e44e0f8b29d9d37a8febe08f1bfaa7faf7d55ef83cf7f2621",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-parts-types-and-products"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "399dc86c7b9b39b610beef8314e10702e0953ad6ee510174ad07f724e3a07c70",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-parts-types-and-products"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "a5d267f7869ffae68b9b7b8f6f157bc4689729a1adec37b95ad22f4b064d486a",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-parts-types-and-products"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "bf6d79ef12fd172efe7a461ce8057a73fa2903753ca43f1042037a388e9c3e15",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-meanings-and-double-pairs"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "35e8e8092b303b2bcf21085915de5611d2c2fc777567b125fd641aa51496cf87",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-meanings-and-double-pairs"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "ab0f1a44476f9b58973205c4b44504d39d131e9daed532f8172743b3f51a1f35",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-meanings-and-double-pairs"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "902bf16558022da5f711cafe19c90745bae06f4686e3c0f17a0305875bbe89df",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-functions-users-and-work"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "2cf458d9cdcc2e0f36ddb394482d73d4845b209495533cbfc7066b6f19c83b10",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-functions-users-and-work"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "27e5bd44517f99954434a54597e784b300f6dd9e91ecf922fdfa98962989e0a6",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-functions-users-and-work"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "81303106e5730bc256bb2105cda86c325eecd4466e055b5ee11d0d04a582e553",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-functions-users-and-work"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "2e6a66a6cbcd36366d85246f294d22d404c1a1a294787f6e77dbb4d640a3d408",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-parts-types-and-products"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "8aad62de7b57ce725c8d94dd41469ae6f961f6a2f9d8d73ecd11f60ae909335f",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-parts-types-and-products"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "0bc66a987b31b2f01266e5f44e7c3616d644cb117f740ab3901f243563d2dfc5",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-meanings-and-double-pairs"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "5cbd89e8a80964fce0e40bb41a806491796cc1bc99b310a738db572307100c7e",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-meanings-and-double-pairs"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "afd206a685fe3a4f127e54c599746185ad8dba66f86d8cc168711fbacd45f840",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-meanings-and-double-pairs"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "ae54baf72b4808c519d153d9603d96fb6ea35cc321fbf262d3325bb97b0ee451",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-parts-types-and-products"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "4dd33feba26c3e3603516ac9e4622f3a64248a1bf3c18e1afa5d8557a59df62e",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-meanings-and-double-pairs"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "cc9ed5aa265140952bd57147de0ac253766c9353e0bb6af99e3d173821a15b3f",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-parts-types-and-products"
+  },
   "q-peace-and-human-rights-human-rights-fundamentals-0001": {
     "approvedAt": "2026-11-14",
     "evidence": "docs/content/verification/peace-and-human-rights.md",
@@ -6256,6 +8266,804 @@
     "evidence": "docs/content/verification/philippine-constitution.md",
     "hash": "3d7e17337ef66f6b36d357e9df1e99c6fc2ab8ed5ed5d0d65e47a639b3e6f857",
     "lesson": "lesson-philippine-constitution-president-terms-and-appointments"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "7ae7b9edea8626de9430013defc9ac879576ce3ab753c547719cedfd2f03e30e",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "b52a737412d642d67daef624645fe3274624d95f654e0b6a53b2e484d01cc2cf",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "842c05ddcef4a326c5a1c9e43b5923d2467ddb558156ba0361f0ec4d29cf2814",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "9fc0574896066d9ccf9b3532cfb5beed613e3f2cb28f6cd60f7cfc7ad50e4236",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "539607c674c196c85e43c6b5458cb81cd1a44b31eae40ab047b25237d6d43df1",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "22a62b3c06449cc977976b64745d663006cc20f140884bcac9e2336bd95b7a8e",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "a90f0b5b858a8b68c993ba8e5beced6b521376ae009e96fe6cda25a6acdfb33a",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "d65c6b7b5010fe94d651837428f4b4e486368a46668fb01a43d26d7502d0f8df",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "ece6f447ac7d848e53d6faae0c1589fd9e7fcae41131a687c7a50241ffb34d72",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "1fc21182fcd279cef03f110e4a8b07bab9770b664392bdd1e99169760c6b15f7",
+    "lesson": "lesson-spatial-abstract-reasoning-testing-a-figure-group-rule"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "9cbcf7847d6c56929f6bcc3b7f01f0bda83aaed68c83f9c1e5706530d59cf7e4",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "feb047502760b84fe0f68441fa3b5b99885c2b857f156bf8ec02b1fd780a8b8f",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "cc6a9f09c5622dcf6edaf0609c9d902be642427d9d1e778095516d614fe6e1ee",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "4796fe3654aea63d7f2fc743c2a44d00898bd81b9e7ddd080afd80c04f6f3160",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "ae23c8d49638356f4f708b7e080978ff71a25aa702d35b87ed0877dfb9ced07b",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "a3e74c5cb1990f19e2f08a2b142983b3c75d15d6adb0092403dab9596a40dba1",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "4afe265570ba2e54406eff58b96533d830e5de4edd3a23fa13cb3577b1cab53a",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "2257d471b2b73cd053b6213a8207d5e5200919c5744dabb15731851f842ad51f",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "7fda1890e73854fbfa02e3740ea1d59d7bfa6eed514c3392eda713f855c256aa",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "8fa400ba545f219e41271ca82a543d126c4c848bfc55dbd48d7cb762ad9a9b60",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0021": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "335f1f07ee488c106af95214d64e69478a8cf09c65937ebbb4ac318e2ff8de3c",
+    "lesson": "lesson-spatial-abstract-reasoning-testing-a-figure-group-rule"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "c707601bc0c9df3eab060def3a629711983e5162d53a9f3ae6708c6d7af3225a",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-turns-and-counts"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "2c2e407d11e1696e8b7a29f23d203fd413f0fbc01fdba64e716d34bc01cf29c4",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-turns-and-counts"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "5bc618191aba6a6a672ae4da605f5ba9bc04a132cf24cb43de6c55431645a0b7",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "4d26269e0b182d71bdfbc00ab3784cc29b4727ccea3c3c2e7dc148ef6e45acb5",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "d3bd612b13cc2391ed5d618c8273d7343192c08319d3d0e3c9942a0c0cc06d18",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-keeping-all-features"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "d16b2f9835cca9a3a6bce53797434ad4d23fcb4f91cd6dda9baff25ae47c8b29",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-keeping-all-features"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "685af8e5096b088857a890f6603525a8ea321a484d8ae13de4ab2bc38704b3b1",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-turns-and-counts"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "1488d6bdc016d1c0ca6765c208eaa7a89745ca7dd05e87af9e329aa4d8a1bcb2",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "3efceed857b6809651ea168b4be2b7c1d46f6e4c95838d8daf95a66607986c4d",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-keeping-shared-features"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "613af8e6792ca70460c2d5dae39694e649a17555e4eac25d6274e1983f15a8e1",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-turns-and-counts"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "b5cd7d4b88310071b58ab2bae9d17df3082193f8663157dd7893596fd662bc97",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "738508c2df7cd8e9a63feb96a62d49c1c68fd351bb2ee2caab3faecafc194397",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-turns-and-counts"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "5aa29fdee24be4809c5d8ac53fd324972d98f9ed6a722d997ad08f67ffc6b973",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "4f222298f89bee2a049798f2ceac437671a862f9f74600940a5b86c5ca318efc",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-keeping-all-features"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "09acdea9f58a9a8dfd0f27da58be7705ebc39897bb4440402604f1f15acc0b70",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "4f84feb5efdc199a169d95e41fceba5fa3f37582b67ef1d576e78c60c1dd9e10",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-keeping-all-features"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "a9061ed6eb6c9054c2b1de936ad2c7c4817c5820ca393f2254e48a52b7bfbb95",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "444c425676fa903dc777617deacfddc3bb8f78dcbe17bdd3b88a95b7a1f11b5f",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-turns-and-counts"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "40c984ac7dc6a9fec39dca9688ef8c93545e46fe5f5b5d0daae51eeeba0dd082",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "dd39ae8d96b932058a08adaaafbb99e1b07c50298a8300c1540a8e0b2bf43cbf",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0021": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "0e6f21b9ef941a031422c2e5a0fc051e686adcee696c67cb917c1bdf7d0d2aae",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-keeping-shared-features"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "ff00306bc99c39ceef6b92899b4abb8f1bede708f7f603a666a9cb79b2ed5fe2",
+    "lesson": "lesson-spatial-abstract-reasoning-figure-turns-and-positions"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "3986cbe5ec65961306c4a7b42d7119158a596381e43eafffcc53330f3510ff03",
+    "lesson": "lesson-spatial-abstract-reasoning-figure-counts-and-fills"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "d03af5d4870fb820fe5e602d1902555d363a4a4f5167bbc180256c8e2995540e",
+    "lesson": "lesson-spatial-abstract-reasoning-figure-counts-and-fills"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "28d9fd84066ad6ff8fe6308320ac85c569bbb5ba31a07fc16ef2909a7369af48",
+    "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "cd25a2d0393036b91ee36bd5373b5967c5c261cfb68c9669fc03e1ddaaa8c381",
+    "lesson": "lesson-spatial-abstract-reasoning-figure-turns-and-positions"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "4ad4072a30b8d2c616149982ceddbbb74f82ed4e6e4f374ccb20eebecae0b8ac",
+    "lesson": "lesson-spatial-abstract-reasoning-figure-turns-and-positions"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "06afa3fceb362fc66fe3da097db0371c24966536e169db9f804d3d50b9507ea0",
+    "lesson": "lesson-spatial-abstract-reasoning-figure-counts-and-fills"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "4009ed525612be6f1a19cc8e0c326a23453178caea171ba648da5182a6c6f340",
+    "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "c0cd8b785dbc57545c078455506fb77b1873c15694b27f68c6c3e1d8d3ab9a4d",
+    "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "38ebb25fd4278def21823ff7d16e3bc37430e66a5c027c18e6ce9e723b65901a",
+    "lesson": "lesson-spatial-abstract-reasoning-figure-turns-and-positions"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "961180151348f522f91b58f92039ae17bad0828f82e6370bc93e6ebe08adbce4",
+    "lesson": "lesson-spatial-abstract-reasoning-figure-counts-and-fills"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "c60b0d08674fa4f8dc232c39f6383e320be245fa7898153dd6149c3baf7a23c6",
+    "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "e844ecea393ea154d606e3df36a1bfd1a35189038e6d2c278c905a39e18ad45e",
+    "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "fd403cc4e25a375b2a1cdad3b2fdfcc92e926100328e6d7d4ddd3f4940e0a206",
+    "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "edc11ba9ccdf16f59da955d344a1d70ab2ee4ff8a182efade879c5a75d2a01c2",
+    "lesson": "lesson-spatial-abstract-reasoning-figure-counts-and-fills"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "c98e301fce8b89e8e11b465bb8ae0cc52a2b7abfc70916d3ad961d10b762e7a6",
+    "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "9b0f9d97b7d9d6ac2d7007c9354377d6da00cd505e762c0cd38cb1a54c76f702",
+    "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "8418119f1547b7f59f1bca820a45995997b2faf493f1734878c6a753a6f9ed19",
+    "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "e3ef74720427ad88b31ef7d3c2704686fdfba43d57cbe97dd354d2e9298f18ba",
+    "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "0a903a339fea6d2e160fb2792069398ef6d6b5c7865f6d157a34b77425ca43c3",
+    "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "c640f61e892d28b5c8cdeeb9fe9c79253fba9a5a41eb5bd9bc14292fcc0fd972",
+    "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "4f08417ba46ef7f8a9303a9edf733e7fa28eda136458af734b4f362d1c9d7f97",
+    "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "ef951e548a970c341f6ddf90d9264457c53fc147ff056597e71d6d17f9680615",
+    "lesson": "lesson-spatial-abstract-reasoning-parallel-light-and-solid-shadows"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "cb4bf6eb700a002862c8217674d62a80677ed2c6150c7e014fa1577fab97368b",
+    "lesson": "lesson-spatial-abstract-reasoning-parallel-light-and-solid-shadows"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "6ab988675b8108d5afc3c41093a919d5366cd072d2a589e3bcbad1151b9374b2",
+    "lesson": "lesson-spatial-abstract-reasoning-parallel-light-and-solid-shadows"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "4d1dac7732cd4b243f103984c8db120b341716b817acfcdb9c1d4dbf96c7c69e",
+    "lesson": "lesson-spatial-abstract-reasoning-parallel-light-and-solid-shadows"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "8b124f6061247fe08197070b95fdc85ffd55707771c476d61d78e9db04c56a07",
+    "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "c1a41d39aab76572d49b0185d534d724ac1320543489bf722c34ec752f677577",
+    "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "07e97a43cbfaed6c6e6df30caea79f9834dde2218367c506a6046460c00af7eb",
+    "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "91613ed9e438fcc1230d9488907625a45f0a29f6ddf3acb9c7fc242b6a5965b2",
+    "lesson": "lesson-spatial-abstract-reasoning-parallel-light-and-solid-shadows"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "fb4f1b4627198ae56f562ee8ade5ee6a94ffb58b6ad8896b00be1a2f307eeed9",
+    "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "fbaddc2c58ee92ac06af257303856fe5ff403eb2cd0e0c449fdb3aa6df199dc2",
+    "lesson": "lesson-spatial-abstract-reasoning-parallel-light-and-solid-shadows"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "3457886d9daa7dc86103ad422246f94fcfd7ac8091098fc78eaaf6d3637b2857",
+    "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "e313c1a8c21a9df5f70a9bf6f8f8c359a170bf01b9456545316a80ce00e9abdb",
+    "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "b912051604cd99fd28f8cc35cfba84fe51f8bcf208cdff9985a1e2ede579f955",
+    "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "1939eb3379a35c2466da0dda6190d9664e87ff23f86ed6ed278d1c4ff83da66a",
+    "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "2348c2733446c93f83e677a4fe7571b1c2319b827d41d89f5ff48f1207943107",
+    "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "165f6db43676e30146583b876b780965b41664f94fe24513ae5ecb7727af49d8",
+    "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "dd5160d8f295fd8d7fada2d84562b3f91b13e0469498c40565db465365396bdb",
+    "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "ddd7818e22b799232adf6d60da1d64bdc7475ec11bed84c40798ead71e7a7b67",
+    "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0021": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "442ac307f4733e55b6e6a6fbe682e727f1288f9d8a60fd08144ac91bf89a4125",
+    "lesson": "lesson-spatial-abstract-reasoning-turning-solids-without-mirror-flips"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0022": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "fc1a7dc71ab672cdeeb489c0d143d4e2cae3a0005eba857823a88cbe3d4caf0b",
+    "lesson": "lesson-spatial-abstract-reasoning-turning-solids-without-mirror-flips"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "5c54f5b7b651d20e7237e33d07341071f59ae0bafab22481f2fb65dd33558c3e",
+    "lesson": "lesson-spatial-abstract-reasoning-uneven-folds-and-cut-layers"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "efd376fe1693ef54dd8556e5697f0d7cf2518db31cc2abfea051f061f6952cf9",
+    "lesson": "lesson-spatial-abstract-reasoning-folded-layers-and-separate-holes"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "9c19b7f285a1082f354a8d2b5b819ae951d351f691f404cd56f864f091601ffe",
+    "lesson": "lesson-spatial-abstract-reasoning-folded-layers-and-separate-holes"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "4771e5673db30adb2da397df8b3e24bfd0608bf666fa49bc231084ce745aefbe",
+    "lesson": "lesson-spatial-abstract-reasoning-unfolding-cuts-across-a-fold"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "b4a7e76c3e6d7239f70d6423069c3acf307361b43f4ee597874a4cd3540acd26",
+    "lesson": "lesson-spatial-abstract-reasoning-unfolding-cuts-across-a-fold"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "48724c8956ba4da20dbe30b710fb1fe44d03eaba61a20aa6c83819b3f31dbd59",
+    "lesson": "lesson-spatial-abstract-reasoning-cuts-at-two-fold-lines"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "8905d03756c8522f11b8b3fd0ac3eaef71a52cbd8edab76d7324846778cb5fe6",
+    "lesson": "lesson-spatial-abstract-reasoning-folded-layers-and-separate-holes"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "548ef39358e0400378d6259f5570e56a3d14f983b7cf2a0478841bf281746bf0",
+    "lesson": "lesson-spatial-abstract-reasoning-cuts-at-two-fold-lines"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "8d38e8b2f25b6dba7506057fedaa6cdf28e356b3f77cf98469c69b7f1595f112",
+    "lesson": "lesson-spatial-abstract-reasoning-unfolding-cuts-across-a-fold"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "32a582315a8c329d076ee98813d28b7bb75b570f684ff6d7ed03d6207c7014a3",
+    "lesson": "lesson-spatial-abstract-reasoning-cuts-at-two-fold-lines"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "879cf76b96bdd4fda5fadb8bfca679a4ee2774fc44155f6bc3a87cef50291d11",
+    "lesson": "lesson-spatial-abstract-reasoning-unfolding-cuts-across-a-fold"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "a861cc83392f4e091683b73a1161f56e45d378cd5ceb034f513ec4c48e8e081b",
+    "lesson": "lesson-spatial-abstract-reasoning-cuts-at-two-fold-lines"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "97741935129ca2c0062411ceb73790d72503d7ec884173541f59acd468832e80",
+    "lesson": "lesson-spatial-abstract-reasoning-unfolding-cuts-across-a-fold"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "cb05c3dcb8ac3f0eee68df010b80274001b1d185cb7891555ae2079e1bc04069",
+    "lesson": "lesson-spatial-abstract-reasoning-unfolding-cuts-across-a-fold"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "7d19b7d2024dd5b5c8adb6fae2ab68869707d8ee61bd1a39914c5926d94d435b",
+    "lesson": "lesson-spatial-abstract-reasoning-folded-layers-and-separate-holes"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "ec9a1c5a0610fecc6b6397706ac7751ec116e976b716c30c6a2c60c8d2b54f02",
+    "lesson": "lesson-spatial-abstract-reasoning-unfolding-cuts-across-a-fold"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "13aee34ad4c19a2e474de00881ecda42b131dccbfaa06bd8b186a80423fc16ee",
+    "lesson": "lesson-spatial-abstract-reasoning-unfolding-cuts-across-a-fold"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "fa3df85d8fa17dc319f4e437bbcf16e8195067ff319d8a1e9eed9bd3bdf6db3c",
+    "lesson": "lesson-spatial-abstract-reasoning-cuts-at-two-fold-lines"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "ad8913acbe593d66c8f1466909f1ba9db34476f227fb6bdafa073737215f11a0",
+    "lesson": "lesson-spatial-abstract-reasoning-unfolding-cuts-across-a-fold"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "240b2a60733f7a41ac85545ad8d0b5b77889b89c566df76fab598eed40e1f7dc",
+    "lesson": "lesson-spatial-abstract-reasoning-unfolding-cuts-across-a-fold"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0021": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "532eb14864bf92e55c1e491cf2beed42647296d8f0636173344bd0e1fc8b6f20",
+    "lesson": "lesson-spatial-abstract-reasoning-uneven-folds-and-cut-layers"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "6cd9be3bd86190ac9192a40cab9e0f0d61c5db49b6eb54d8c4a98e3e72a971fd",
+    "lesson": "lesson-verbal-logic-must-be-true-conclusions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "7ab39a892836af4e69739defdb721b40aeb1f4c63c438cfcc47a3cb2b3d6ae0d",
+    "lesson": "lesson-verbal-logic-needed-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "368c58390123dd8d1f88a513aaedc744156313146ac124fbd29c169cf7c478be",
+    "lesson": "lesson-verbal-logic-must-be-true-conclusions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "061579bdde9d75b1caf8d587ab03e5eacd305adcf37d651dc542416facdfa9c5",
+    "lesson": "lesson-verbal-logic-must-be-true-conclusions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "f24a70d304ef2f9b8bb8717f599ce803c08fbbc30b30497136e043cb08a92f29",
+    "lesson": "lesson-verbal-logic-needed-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "749bab2b14f9dc0aa719179524db1b91fc1c3a5028d1dcd7da44f285e655d7c9",
+    "lesson": "lesson-verbal-logic-none-and-may"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "15f7792e38afd1e4e96a5120f0edd59f78a90819787969d8f3f402167b33ffb6",
+    "lesson": "lesson-verbal-logic-must-be-true-conclusions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "0ad3d5a0fcf250e6147f7aa72040b6d3657a33649541827ad13131205c85f6d7",
+    "lesson": "lesson-verbal-logic-needed-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "e35ab06ac4e524f6217a2f9a65404e83fb712a0edd895efbaa21471c65f6cc04",
+    "lesson": "lesson-verbal-logic-must-be-true-conclusions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "d5bd3f4218bfd1c5aae196d54cd1253938612a7880942d60836fb0c664e73af9",
+    "lesson": "lesson-verbal-logic-needed-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "e7de7f01d7b1b920c8c23747b5a89cba6f80139977fdbc0f9e7ea7dbe22314e8",
+    "lesson": "lesson-verbal-logic-must-be-true-conclusions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "bf4944da67c76109aa538b3e2e2761f3c4769458c5575aa87eb8949f528ccd89",
+    "lesson": "lesson-verbal-logic-needed-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "02d6217990e0b9432a553901f0a25a2d5a49eeb220738f913fed7cf2ee9eaf53",
+    "lesson": "lesson-verbal-logic-must-be-true-conclusions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "ff444e55cbc69de4d517d41bf73e6509e2f6af6d91b21c715812e2f76271b354",
+    "lesson": "lesson-verbal-logic-best-supported-conclusions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "6e6460ed0458157ceec2459532e31b5281ce39f36daeca8eb517a99923bd3c0b",
+    "lesson": "lesson-verbal-logic-needed-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "d5c382a22a9b75226b1e41ed024cfe383a93ba8631579a8824c3900285fe01e2",
+    "lesson": "lesson-verbal-logic-best-supported-conclusions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "8c731a4df544749a9f7829977cac89d0468ae7a83a85519feddb37cffa8c5da1",
+    "lesson": "lesson-verbal-logic-needed-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "ef3b3a2aaae30e0deeb896d640ec4871e7c5b76fa6f5b78241ca3e96cd599659",
+    "lesson": "lesson-verbal-logic-unsupported-causes-and-motives"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "4e611e9a1548fa4515a658ab4375e58b7735e2cb71c8a2fffaf4ae378b009b48",
+    "lesson": "lesson-verbal-logic-needed-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "03ab27cd5a0aaef6d622e7c8da3d385c8b438ca01d02a025f7bac12e24bdff37",
+    "lesson": "lesson-verbal-logic-needed-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "e3f7c60dcc1730f8526531027096f9183bbd7996a0d976085bb5daaf3bac5b17",
+    "lesson": "lesson-verbal-logic-negating-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0022": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "92f93b9a925bfac80939d94505fb3b4f9aaad6d2c82b41b87721ae8c70d4e41a",
+    "lesson": "lesson-verbal-logic-negating-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0023": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "54d4967aa1195147358e88fa97cf13294e006a6a5bb959958798646779a02267",
+    "lesson": "lesson-verbal-logic-compound-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0024": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "ea6a259703480c837d62a166cc29c9b1d4e6fa0860711f63b6075cfd4b3314f9",
+    "lesson": "lesson-verbal-logic-compound-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0025": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "17390e87adc4981e56a4e1a916ec5208cf5004ff35f662d9eba1ba9f7314229e",
+    "lesson": "lesson-verbal-logic-none-and-may"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0026": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "075f7c2944510e4b35e057dc9b5b29b3d5c5cbe6b98b87b89e7f9de971e7b1e7",
+    "lesson": "lesson-verbal-logic-recognizing-bias"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0027": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "e67416aecdce83c6f35025f4c6ea372926354f2bd065ca8f8a7ada4fae07a2e9",
+    "lesson": "lesson-verbal-logic-recognizing-bias"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0028": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/clerical-and-verbal-logic.md",
+    "hash": "462affa0ab4e1d11e641f0b7d8ee2dc477b6ba34efed1d801fbac113e7e4e23e",
+    "lesson": "lesson-verbal-logic-unsupported-causes-and-motives"
   },
   "q-vocabulary-confusing-words-0001": {
     "approvedAt": "2026-11-15",

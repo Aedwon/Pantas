@@ -6,6 +6,9 @@ meta:
     - cse-pro
 questions:
   - id: q-verbal-logic-assumptions-and-conclusions-0001
+    approved: true
+    lesson: lesson-verbal-logic-must-be-true-conclusions
+    keyPoint: 1
     type: single_choice
     difficulty: easy
     stem: |
@@ -26,6 +29,9 @@ questions:
       The promise applies if an employee completes the program. It can still hold when no one completes it. The promise alone does not prove that completion is achievable.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0002
+    approved: true
+    lesson: lesson-verbal-logic-needed-assumptions
+    keyPoint: 2
     type: single_choice
     difficulty: medium
     stem: |
@@ -46,6 +52,9 @@ questions:
       The argument depends on some car trips shifting to the expanded transit service. If the new routes could replace no such trips, its stated reason for easing congestion would fail.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0003
+    approved: true
+    lesson: lesson-verbal-logic-must-be-true-conclusions
+    keyPoint: 1
     type: single_choice
     difficulty: medium
     stem: |
@@ -66,6 +75,9 @@ questions:
       Passing the ethics exam is one of the stated requirements. Maria passed it. She has therefore met that particular requirement.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0004
+    approved: true
+    lesson: lesson-verbal-logic-must-be-true-conclusions
+    keyPoint: 1
     type: single_choice
     difficulty: easy
     stem: |
@@ -86,6 +98,9 @@ questions:
       Heavy rain would require an indoor assembly. The given indoor location does not identify its cause. Both rain and another reason remain possible under the premises.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0005
+    approved: true
+    lesson: lesson-verbal-logic-needed-assumptions
+    keyPoint: 2
     type: single_choice
     difficulty: hard
     stem: |
@@ -106,6 +121,9 @@ questions:
       The stated reason is lower processing costs. The company must expect the digital process to cost less overall. Otherwise this cost-saving reason would not support replacing paper invoices.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0006
+    approved: true
+    lesson: lesson-verbal-logic-none-and-may
+    keyPoint: 1
     type: single_choice
     difficulty: easy
     stem: |
@@ -126,6 +144,9 @@ questions:
       The rule excludes unregistered vehicles, and every vehicle inside complies with it. Vehicle A is inside, so it is registered.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0007
+    approved: true
+    lesson: lesson-verbal-logic-must-be-true-conclusions
+    keyPoint: 2
     type: single_choice
     difficulty: hard
     stem: |
@@ -147,6 +168,9 @@ questions:
       The rule requires a master's degree for supervisors. Elena is outside that group. It places no requirement on her degree status, so either status remains possible.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0008
+    approved: true
+    lesson: lesson-verbal-logic-needed-assumptions
+    keyPoint: 2
     type: single_choice
     difficulty: hard
     stem: |
@@ -167,6 +191,9 @@ questions:
       The conclusion gives the program at least some causal role. That reasoning requires the drop not to be fully explained by unrelated changes. Negating that assumption removes the stated basis for the causal claim.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0009
+    approved: true
+    lesson: lesson-verbal-logic-must-be-true-conclusions
+    keyPoint: 2
     type: single_choice
     difficulty: easy
     stem: |
@@ -188,6 +215,9 @@ questions:
       Juan's 85% is above 80%. The stated rule guarantees a pass for that group. Juan therefore passed.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0010
+    approved: true
+    lesson: lesson-verbal-logic-needed-assumptions
+    keyPoint: 2
     type: single_choice
     difficulty: medium
     stem: |
@@ -208,6 +238,9 @@ questions:
       The reason depends on online entries taking the place of some printed forms. If they replaced no paper forms, that substitution would not support reduced paper use.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0011
+    approved: true
+    lesson: lesson-verbal-logic-must-be-true-conclusions
+    keyPoint: 1
     type: single_choice
     difficulty: medium
     stem: |
@@ -228,6 +261,9 @@ questions:
       The agency requires a licensed engineer for an authorized approval. Mark's approval fully complied with that requirement. Mark is therefore a licensed engineer.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0012
+    approved: true
+    lesson: lesson-verbal-logic-needed-assumptions
+    keyPoint: 2
     type: single_choice
     difficulty: hard
     stem: |
@@ -248,6 +284,8 @@ questions:
       The school's stated reason is replacing electricity it would otherwise buy. It therefore needs at least some usable solar output to replace paid grid power. That link is necessary to this particular reason for lower bills.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0013
+    lesson: lesson-verbal-logic-must-be-true-conclusions
+    keyPoint: 2
     type: single_choice
     difficulty: easy
     stem: |
@@ -266,9 +304,11 @@ questions:
           This denies the overlap that the premise establishes. The role names differ. Check the statement that at least one person has both roles.
     explanation: |
       The statement says at least one person is both an inspector and an auditor. That same person shows that some auditors are inspectors.
-    approved: false
+    approved: true
 
   - id: q-verbal-logic-assumptions-and-conclusions-0014
+    lesson: lesson-verbal-logic-best-supported-conclusions
+    keyPoint: 1
     type: single_choice
     difficulty: medium
     stem: |
@@ -287,9 +327,11 @@ questions:
           This treats an added service as proof another service is unnecessary. Both concern scheduling. Check whether the evidence evaluates Saturday visitors.
     explanation: |
       The earlier arrivals after closing showed a schedule conflict. Those visitors can now use the library during the added hours. The evidence supports later hours meeting some visitors' needs.
-    approved: false
+    approved: true
 
   - id: q-verbal-logic-assumptions-and-conclusions-0015
+    lesson: lesson-verbal-logic-needed-assumptions
+    keyPoint: 2
     type: single_choice
     difficulty: medium
     stem: |
@@ -308,9 +350,11 @@ questions:
           This expands "many" errors into all errors. The cause is important in the report. Check whether the recommendation requires it to be the only cause.
     explanation: |
       The stated cause of many errors is unfamiliarity with current procedures. To address that cause, the course must cover the relevant procedures. If it did not, the stated reason for recommending it would fail.
-    approved: false
+    approved: true
 
   - id: q-verbal-logic-assumptions-and-conclusions-0016
+    lesson: lesson-verbal-logic-best-supported-conclusions
+    keyPoint: 1
     type: single_choice
     difficulty: hard
     stem: |
@@ -329,9 +373,11 @@ questions:
           This turns support into proof of success. Popular ideas can seem promising. Check whether the evidence measures opinion or future results.
     explanation: |
       The report records support among the volunteers who answered. That supports a conclusion about those respondents. It gives no result for the other employees.
-    approved: false
+    approved: true
 
   - id: q-verbal-logic-assumptions-and-conclusions-0017
+    lesson: lesson-verbal-logic-needed-assumptions
+    keyPoint: 2
     type: single_choice
     difficulty: hard
     stem: |
@@ -350,9 +396,11 @@ questions:
           This makes extra durability necessary for restoring light. Longer-lasting lamps would be helpful. Check whether the stated reason requires usable light or a longer lifespan.
     explanation: |
       The reason is restoring readable lighting. It requires the replacement lamps to give usable light. Negating that condition leaves the reading problem unsolved by this proposal.
-    approved: false
+    approved: true
 
   - id: q-verbal-logic-assumptions-and-conclusions-0018
+    lesson: lesson-verbal-logic-unsupported-causes-and-motives
+    keyPoint: 1
     type: single_choice
     difficulty: hard
     stem: |
@@ -371,9 +419,11 @@ questions:
           This turns shorter waits into zero waits. Quiet periods are the comparison group. Check whether the report says waits disappeared entirely.
     explanation: |
       The report observes longer waits during busier periods. It supports an association between busyness and wait length. That is the measured pattern described.
-    approved: false
+    approved: true
 
   - id: q-verbal-logic-assumptions-and-conclusions-0019
+    lesson: lesson-verbal-logic-needed-assumptions
+    keyPoint: 1
     type: single_choice
     difficulty: exam
     stem: |
@@ -392,9 +442,11 @@ questions:
           This adds a prediction not claimed in the argument. Unmet demand may suggest many Sunday visitors. Check the actual recommendation rather than a possible consequence.
     explanation: |
       The argument is trying to justify keeping Sunday hours. The worker schedules and full Saturday rooms serve as its reasons. The main conclusion is that the library should keep Sunday hours.
-    approved: false
+    approved: true
 
   - id: q-verbal-logic-assumptions-and-conclusions-0020
+    lesson: lesson-verbal-logic-needed-assumptions
+    keyPoint: 2
     type: single_choice
     difficulty: exam
     stem: |
@@ -413,5 +465,189 @@ questions:
           This expands a queue benefit to every stage of travel. A shorter station wait can improve a journey. Check the exact delay the proposal addresses.
     explanation: |
       The stated reason moves payment work out of the on-site queue. It requires advance payment to replace the on-site step. If the same payment step still had to be repeated on site, that reason would not support shorter queues.
-    approved: false
+    approved: true
 
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0021
+    approved: true
+    lesson: lesson-verbal-logic-negating-assumptions
+    keyPoint: 1
+    type: single_choice
+    difficulty: exam
+    stem: |
+      A proposal relies on the claim, "Some branch offices can verify applications without contacting headquarters." For a negation test, which statement makes that claim false?
+    choices:
+      - text: "No branch office can do so."
+        correct: true
+      - text: "Not all branch offices can do so."
+        rationale: |
+          This negates all instead of some. It still allows a branch to verify applications on its own. Check whether even one such branch remains possible.
+      - text: "All branch offices can do so."
+        rationale: |
+          This strengthens the original claim. If all can do so, at least one can. Check whether the choice makes the original false.
+      - text: "Some branch offices cannot do so."
+        rationale: |
+          This changes can to cannot for only some offices. Both statements could be true for different branches. Check whether any branch can still verify on its own.
+    explanation: |
+      Some means at least one. To make the claim false, there must be no branch office that can verify applications without contacting headquarters. The correct negation says that no branch office can do so.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0022
+    approved: true
+    lesson: lesson-verbal-logic-negating-assumptions
+    keyPoint: 1
+    type: single_choice
+    difficulty: exam
+    stem: |
+      An argument assumes, "No temporary employee has access to the archive." Which statement is the logical negation of this assumption?
+    choices:
+      - text: "At least one temporary employee has access."
+        correct: true
+      - text: "Every temporary employee has access to the archive."
+        rationale: |
+          This requires every employee in the group to have access. That would break the assumption, but it goes too far. One exception is enough.
+      - text: "Not every temporary employee has access to the archive."
+        rationale: |
+          This allows some employees to lack access. It can be true when none have access. Check whether the original assumption must become false.
+      - text: "No permanent employee has access to the archive."
+        rationale: |
+          This changes the group from temporary to permanent employees. The new statement may sound related to access. Keep the same group when negating.
+    explanation: |
+      No excludes every member of the named group. One temporary employee with access is enough to make the assumption false. Its negation is that at least one temporary employee has access.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0023
+    approved: true
+    lesson: lesson-verbal-logic-compound-assumptions
+    keyPoint: 1
+    type: single_choice
+    difficulty: exam
+    stem: |
+      A dispatch plan assumes, "The loading gate is open and the delivery vehicle is available." Which statement correctly negates the whole assumption? Here, "or" permits either condition or both.
+    choices:
+      - text: "The gate is closed or the vehicle is unavailable."
+        correct: true
+      - text: "The gate is closed and the vehicle is unavailable."
+        rationale: |
+          This requires both conditions to fail. That may look like reversing both parts. Check that one failed part already makes an and statement false.
+      - text: "The gate is open or the delivery vehicle is unavailable."
+        rationale: |
+          This leaves the first part unchanged. It could be true while both original conditions hold. Negation must make the whole original false.
+      - text: "The gate is closed and the delivery vehicle is available."
+        rationale: |
+          This describes just one way the assumption can fail. It misses failure of the vehicle alone. Allow either part to fail.
+    explanation: |
+      The assumption needs both an open gate and an available vehicle. It is false when the gate is closed, the vehicle is unavailable, or both. The correct statement includes all those cases.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0024
+    approved: true
+    lesson: lesson-verbal-logic-compound-assumptions
+    keyPoint: 1
+    type: single_choice
+    difficulty: exam
+    stem: |
+      A notice states, "The request was submitted online or delivered in person." The word "or" includes the possibility of both. Which statement is the exact negation?
+    choices:
+      - text: "It was neither submitted online nor delivered in person."
+        correct: true
+      - text: "It was not submitted online, but it was delivered in person."
+        rationale: |
+          This still satisfies the original statement through delivery in person. One failed option is not enough. Check whether the other option remains true.
+      - text: "It was submitted online, but it was not delivered in person."
+        rationale: |
+          This still satisfies the original statement through online submission. The word or needs only one true part. Check both parts before negating.
+      - text: "It was not submitted online, or it was not delivered in person."
+        rationale: |
+          This allows one original option to remain true. It negates an and statement. To make the stated or false, both options must fail.
+    explanation: |
+      The original is true if either method was used, including when both were used. It is false only if neither method was used. Both online submission and delivery in person must be false.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0025
+    approved: true
+    lesson: lesson-verbal-logic-none-and-may
+    keyPoint: 2
+    type: single_choice
+    difficulty: exam
+    stem: |
+      A memorandum states, "The interview may be postponed if the panel lacks a quorum." No further information is provided. Which interpretation is justified?
+    choices:
+      - text: "A lack of quorum allows possible postponement."
+        correct: true
+      - text: "A lack of quorum guarantees that the interview is postponed."
+        rationale: |
+          This turns may into a guarantee. The condition makes postponement possible. Check whether the memo says will or may.
+      - text: "A lack of quorum prevents the interview from being postponed."
+        rationale: |
+          This rules out the event that the memo allows. A condition can sound like a restriction. Check what event may happen under that condition.
+      - text: "A complete quorum guarantees the interview proceeds as scheduled."
+        rationale: |
+          This adds a promise about the opposite condition. The memo says what may happen without a quorum. Check whether it promises anything when a quorum is present.
+    explanation: |
+      May describes a possibility. If the panel lacks a quorum, postponement is possible. The memo does not make that outcome certain.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0026
+    approved: true
+    lesson: lesson-verbal-logic-recognizing-bias
+    keyPoint: 1
+    type: single_choice
+    difficulty: exam
+    stem: |
+      A commentary states, "Only lazy employees oppose the new attendance policy. Responsible workers naturally support it." It provides no evidence about the policy or the employees. Which feature most clearly indicates bias?
+    choices:
+      - text: "It labels opponents as lazy without evidence."
+        correct: true
+      - text: "It expresses a position on a workplace policy under discussion."
+        rationale: |
+          This treats having an opinion as proof of bias. Opinions can have fair support. Check the words used to describe people who disagree.
+      - text: "It discusses how employees respond to an attendance policy."
+        rationale: |
+          This treats the subject of the passage as proof of bias. Any side could discuss employee responses. Check whether the description is supported and fair.
+      - text: "It presents its view in a brief statement about the policy."
+        rationale: |
+          This treats short length as proof of bias. A brief passage can still be fair. Check the unfair blame rather than its length.
+    explanation: |
+      The commentary calls opponents lazy without giving evidence. It also praises supporters as responsible without support. Those labels favor one side by judging people in place of examining the policy.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0027
+    approved: true
+    lesson: lesson-verbal-logic-recognizing-bias
+    keyPoint: 1
+    type: single_choice
+    difficulty: exam
+    stem: |
+      A report says, "Our favored supplier is clearly the only sensible choice." It lists that supplier's timely deliveries but omits its documented delivery failures. It lists a rival's failures but omits the rival's timely deliveries. What most strongly shows bias?
+    choices:
+      - text: "It selects evidence to favor one supplier."
+        correct: true
+      - text: "It compares the delivery records of competing suppliers."
+        rationale: |
+          This treats comparison itself as unfair. Comparing records can support a fair choice. Check whether the same kinds of facts are shown for both suppliers.
+      - text: "It recommends a supplier instead of leaving the choice open."
+        rationale: |
+          This treats any recommendation as bias. A recommendation can follow balanced evidence. Check how the report chose which facts to include.
+      - text: "It discusses delivery performance instead of supplier prices."
+        rationale: |
+          This assumes every short report must cover every topic. Delivery performance can be a fair focus. Check whether evidence within that focus is presented fairly.
+    explanation: |
+      The report includes good results for the favored supplier and bad results for the rival. It leaves out the opposite results for each. This uneven choice of evidence supports one side unfairly.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0028
+    approved: true
+    lesson: lesson-verbal-logic-unsupported-causes-and-motives
+    keyPoint: 1
+    type: single_choice
+    difficulty: exam
+    stem: |
+      After reviewing a request for flexible hours, a supervisor approved it. The record contains neither the supervisor's explanation nor evidence about her reasons. Which conclusion is supported?
+    choices:
+      - text: "She approved the request after reviewing it."
+        correct: true
+      - text: "She approved it because she feared losing experienced staff."
+        rationale: |
+          This adds fear as a motive. Staff loss may sound like a possible concern. Check whether the record gives that reason.
+      - text: "She approved it because she wanted praise from her director."
+        rationale: |
+          This guesses a wish to impress someone. Approval could have many reasons. Check for evidence of the stated motive.
+      - text: "She approved it because reviewing the request forced agreement."
+        rationale: |
+          This turns the order of events into a cause. Reviewing came first. Check whether the record says it caused or required approval.
+    explanation: |
+      The record gives an action and its order: the supervisor reviewed the request, then approved it. That supports the stated sequence. No reason for the approval is recorded.

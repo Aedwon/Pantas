@@ -6,6 +6,12 @@ subject: "subject-mathematics"
 topic: "topic-arithmetic-number-sense"
 estimatedMinutes: 12
 isActive: true
+status: retired
+replacedBy:
+  - lesson-arithmetic-number-sense-last-digit-divisibility
+  - lesson-arithmetic-number-sense-digit-sums-and-six
+  - lesson-arithmetic-number-sense-divisibility-by-seven-and-eleven
+  - lesson-arithmetic-number-sense-coprime-divisibility-tests
 ---
 ## Core Concept
 

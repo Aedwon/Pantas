@@ -6,6 +6,12 @@ subject: "subject-mathematics"
 topic: "topic-arithmetic-number-sense"
 estimatedMinutes: 12
 isActive: true
+status: retired
+replacedBy:
+  - lesson-arithmetic-number-sense-prime-factors-and-powers
+  - lesson-arithmetic-number-sense-greatest-common-factor
+  - lesson-arithmetic-number-sense-least-common-multiple
+  - lesson-arithmetic-number-sense-same-remainder-numbers
 ---
 ## Core Concept
 
