@@ -6,6 +6,10 @@ subject: "subject-mathematics"
 topic: "topic-algebra"
 estimatedMinutes: 8
 isActive: true
+status: retired
+replacedBy:
+  - lesson-algebra-factoring-quadratic-equations
+  - lesson-algebra-quadratic-methods-and-root-properties
 ---
 ## Core Concept
 

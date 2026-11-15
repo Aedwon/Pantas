@@ -6,6 +6,12 @@ subject: "subject-mathematics"
 topic: "topic-algebra"
 estimatedMinutes: 12
 isActive: true
+status: retired
+replacedBy:
+  - lesson-algebra-systems-substitution-and-word-problems
+  - lesson-algebra-systems-elimination
+  - lesson-algebra-systems-graphs-and-solution-counts
+  - lesson-algebra-systems-lines-and-parabolas
 ---
 ## Core Concept
 

@@ -6,6 +6,11 @@ subject: "subject-mathematics"
 topic: "topic-algebra"
 estimatedMinutes: 13
 isActive: true
+status: retired
+replacedBy:
+  - lesson-algebra-functions-domain-and-range
+  - lesson-algebra-evaluating-and-composing-functions
+  - lesson-algebra-inverse-functions-and-checks
 ---
 ## Core Concept
 

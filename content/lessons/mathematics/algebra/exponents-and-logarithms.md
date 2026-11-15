@@ -6,6 +6,12 @@ subject: "subject-mathematics"
 topic: "topic-algebra"
 estimatedMinutes: 12
 isActive: true
+status: retired
+replacedBy:
+  - lesson-algebra-exponent-laws-and-zero-powers
+  - lesson-algebra-fractional-powers-and-exponent-equations
+  - lesson-algebra-logarithm-meaning-and-equations
+  - lesson-algebra-logarithm-product-quotient-and-power-laws
 ---
 ## Core Concept
 

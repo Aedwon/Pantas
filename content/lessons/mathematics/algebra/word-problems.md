@@ -6,6 +6,14 @@ subject: "subject-mathematics"
 topic: "topic-algebra"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-algebra-age-word-problems
+  - lesson-algebra-motion-meeting-and-separation
+  - lesson-algebra-motion-chase-problems
+  - lesson-algebra-work-rate-problems
+  - lesson-algebra-mixture-word-problems
+  - lesson-algebra-coin-and-digit-problems
 ---
 ## Core Concept
 

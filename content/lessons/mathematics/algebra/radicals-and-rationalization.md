@@ -6,6 +6,11 @@ subject: "subject-mathematics"
 topic: "topic-algebra"
 estimatedMinutes: 10
 isActive: true
+status: retired
+replacedBy:
+  - lesson-algebra-simplifying-and-combining-radicals
+  - lesson-algebra-rationalizing-square-root-denominators
+  - lesson-algebra-cube-root-denominators-and-nested-radicals
 ---
 ## Core Concept
 

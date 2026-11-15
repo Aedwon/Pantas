@@ -6,6 +6,16 @@ subject: "subject-mathematics"
 topic: "topic-algebra"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-algebra-linear-and-quadratic-functions
+  - lesson-algebra-rational-domains-and-holes
+  - lesson-algebra-rational-vertical-and-horizontal-asymptotes
+  - lesson-algebra-rational-slant-asymptotes
+  - lesson-algebra-absolute-value-equations-and-graph-matching
+  - lesson-algebra-absolute-value-transformations
+  - lesson-algebra-exponential-growth-and-function-families
+  - lesson-algebra-logarithmic-and-piecewise-functions
 ---
 ## Core Concept
 

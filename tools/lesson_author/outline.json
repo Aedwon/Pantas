@@ -334,9 +334,34 @@
               "slug": "sets-and-set-notation",
               "sections": []
             },
+          {
+            "title": "Set Membership and Operations",
+            "slug": "set-membership-and-operations",
+            "sections": []
+          },
+          {
+            "title": "Counting Venn Diagram Regions",
+            "slug": "counting-venn-diagram-regions",
+            "sections": []
+          },
             {
               "title": "Algebraic Expressions (Translation, Simplification, Evaluation)",
               "slug": "algebraic-expressions",
+              "sections": []
+            },
+            {
+              "title": "Translating Algebraic Phrases",
+              "slug": "translating-algebraic-phrases",
+              "sections": []
+            },
+            {
+              "title": "Rates and Consecutive Integers",
+              "slug": "rates-and-consecutive-integers",
+              "sections": []
+            },
+            {
+              "title": "Simplifying and Evaluating Expressions",
+              "slug": "simplifying-and-evaluating-expressions",
               "sections": []
             },
             {
@@ -345,10 +370,45 @@
               "sections": []
             },
             {
+              "title": "Exponent Laws and Zero Powers",
+              "slug": "exponent-laws-and-zero-powers",
+              "sections": []
+            },
+            {
+              "title": "Fractional Powers and Exponent Equations",
+              "slug": "fractional-powers-and-exponent-equations",
+              "sections": []
+            },
+            {
+              "title": "Logarithm Meaning and Equations",
+              "slug": "logarithm-meaning-and-equations",
+              "sections": []
+            },
+            {
+              "title": "Logarithm Product, Quotient, and Power Laws",
+              "slug": "logarithm-product-quotient-and-power-laws",
+              "sections": []
+            },
+            {
               "title": "Radicals and Rationalization",
               "slug": "radicals-and-rationalization",
               "sections": []
             },
+          {
+            "title": "Simplifying and Combining Radicals",
+            "slug": "simplifying-and-combining-radicals",
+            "sections": []
+          },
+          {
+            "title": "Rationalizing Square-Root Denominators",
+            "slug": "rationalizing-square-root-denominators",
+            "sections": []
+          },
+          {
+            "title": "Cube-Root Denominators and Nested Radicals",
+            "slug": "cube-root-denominators-and-nested-radicals",
+            "sections": []
+          },
             {
               "title": "Polynomials",
               "slug": "polynomials",
@@ -361,8 +421,78 @@
               ]
             },
             {
+              "title": "Polynomials (Terms and Degree)",
+              "slug": "polynomial-terms-and-degree",
+              "sections": []
+            },
+            {
+              "title": "Polynomials (Operations)",
+              "slug": "polynomial-operations",
+              "sections": []
+            },
+            {
+              "title": "Polynomials (Special Products)",
+              "slug": "polynomial-special-products",
+              "sections": []
+            },
+            {
+              "title": "Polynomials (Factoring Quadratics)",
+              "slug": "factoring-quadratics",
+              "sections": []
+            },
+            {
+              "title": "Polynomials (Factoring Cubes)",
+              "slug": "factoring-cubes",
+              "sections": []
+            },
+            {
+              "title": "Polynomials (Long Division)",
+              "slug": "polynomial-long-division",
+              "sections": []
+            },
+            {
+              "title": "Polynomials (Synthetic Division)",
+              "slug": "polynomial-synthetic-division",
+              "sections": []
+            },
+            {
+              "title": "Polynomials (Remainder and Factor Theorems)",
+              "slug": "remainder-and-factor-theorems",
+              "sections": []
+            },
+            {
+              "title": "Polynomials (Multiple Factors)",
+              "slug": "polynomial-multiple-factors",
+              "sections": []
+            },
+            {
               "title": "Linear Equations and Inequalities (Solving and Graphing)",
               "slug": "linear-equations-inequalities",
+              "sections": []
+            },
+            {
+              "title": "Linear Equations (Solving)",
+              "slug": "solving-linear-equations",
+              "sections": []
+            },
+            {
+              "title": "One-Variable Inequalities",
+              "slug": "one-variable-inequalities",
+              "sections": []
+            },
+            {
+              "title": "Lines (Slopes and Intercepts)",
+              "slug": "line-slopes-and-intercepts",
+              "sections": []
+            },
+            {
+              "title": "Lines (Parallel and Perpendicular)",
+              "slug": "parallel-and-perpendicular-lines",
+              "sections": []
+            },
+            {
+              "title": "Two-Variable Linear Inequalities",
+              "slug": "two-variable-inequalities",
               "sections": []
             },
             {
@@ -375,9 +505,44 @@
                 "Quadratic Formula and Discriminant"
               ]
             },
+          {
+            "title": "Factoring Quadratic Equations",
+            "slug": "factoring-quadratic-equations",
+            "sections": [
+              "Factoring"
+            ]
+          },
+          {
+            "title": "Quadratic Methods and Root Properties",
+            "slug": "quadratic-methods-and-root-properties",
+            "sections": [
+              "Completing the Square",
+              "Quadratic Formula and Discriminant"
+            ]
+          },
             {
               "title": "Systems of Linear and Non-Linear Equations (Substitution, Elimination, Graphing)",
               "slug": "systems-of-equations",
+              "sections": []
+            },
+            {
+              "title": "Systems (Substitution and Word Problems)",
+              "slug": "systems-substitution-and-word-problems",
+              "sections": []
+            },
+            {
+              "title": "Systems (Elimination)",
+              "slug": "systems-elimination",
+              "sections": []
+            },
+            {
+              "title": "Systems (Graphs and Solution Counts)",
+              "slug": "systems-graphs-and-solution-counts",
+              "sections": []
+            },
+            {
+              "title": "Systems (Lines and Parabolas)",
+              "slug": "systems-lines-and-parabolas",
               "sections": []
             },
             {
@@ -390,13 +555,98 @@
               ]
             },
             {
+              "title": "Functions, Domain, and Range",
+              "slug": "functions-domain-and-range",
+              "sections": []
+            },
+            {
+              "title": "Evaluating and Composing Functions",
+              "slug": "evaluating-and-composing-functions",
+              "sections": []
+            },
+            {
+              "title": "Inverse Functions and Checks",
+              "slug": "inverse-functions-and-checks",
+              "sections": []
+            },
+            {
               "title": "Types of Functions (Linear, Quadratic, Rational, Absolute Value, Exponential, Logarithmic, Piecewise)",
               "slug": "types-of-functions",
               "sections": []
             },
             {
+              "title": "Functions (Linear and Quadratic)",
+              "slug": "linear-and-quadratic-functions",
+              "sections": []
+            },
+            {
+              "title": "Rational Functions (Domains and Holes)",
+              "slug": "rational-domains-and-holes",
+              "sections": []
+            },
+            {
+              "title": "Rational Functions (Vertical and Horizontal Asymptotes)",
+              "slug": "rational-vertical-and-horizontal-asymptotes",
+              "sections": []
+            },
+            {
+              "title": "Rational Functions (Slant Asymptotes)",
+              "slug": "rational-slant-asymptotes",
+              "sections": []
+            },
+            {
+              "title": "Absolute Value (Equations and Graph Matching)",
+              "slug": "absolute-value-equations-and-graph-matching",
+              "sections": []
+            },
+            {
+              "title": "Absolute Value (Graph Transformations)",
+              "slug": "absolute-value-transformations",
+              "sections": []
+            },
+            {
+              "title": "Exponential Functions (Families, Growth, and Decay)",
+              "slug": "exponential-growth-and-function-families",
+              "sections": []
+            },
+            {
+              "title": "Functions (Logarithmic and Piecewise)",
+              "slug": "logarithmic-and-piecewise-functions",
+              "sections": []
+            },
+            {
               "title": "Word Problems (Age, Motion, Work, Mixture, Coin, and Digit Problems)",
               "slug": "word-problems",
+              "sections": []
+            },
+            {
+              "title": "Age Problems",
+              "slug": "age-word-problems",
+              "sections": []
+            },
+            {
+              "title": "Motion Problems (Meeting and Moving Apart)",
+              "slug": "motion-meeting-and-separation",
+              "sections": []
+            },
+            {
+              "title": "Motion Problems (Chase)",
+              "slug": "motion-chase-problems",
+              "sections": []
+            },
+            {
+              "title": "Work Problems",
+              "slug": "work-rate-problems",
+              "sections": []
+            },
+            {
+              "title": "Mixture Problems",
+              "slug": "mixture-word-problems",
+              "sections": []
+            },
+            {
+              "title": "Coin and Digit Problems",
+              "slug": "coin-and-digit-problems",
               "sections": []
             }
           ]

@@ -6,6 +6,17 @@ subject: "subject-mathematics"
 topic: "topic-algebra"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-algebra-polynomial-terms-and-degree
+  - lesson-algebra-polynomial-operations
+  - lesson-algebra-polynomial-special-products
+  - lesson-algebra-factoring-quadratics
+  - lesson-algebra-factoring-cubes
+  - lesson-algebra-polynomial-long-division
+  - lesson-algebra-polynomial-synthetic-division
+  - lesson-algebra-remainder-and-factor-theorems
+  - lesson-algebra-polynomial-multiple-factors
 ---
 ## Core Concept
 
