@@ -11,13 +11,33 @@ String _underscore(String slug) => slug.replaceAll('-', '_');
 /// A lesson that has been retired resolves through `replacedBy[0]`, the same
 /// rule as the exporter and the server. [replacements] maps each retired
 /// lesson id to its first replacement.
+///
+/// [knownLessons] is the set of lesson ids the client's catalog lists. A
+/// catalog cached before a split does not list the new parts. When the named
+/// lesson is not in a non-empty [knownLessons], the question counts under the
+/// lesson its file's topic and subtopic give (the old original), so a stale
+/// client still finds its questions. The catalog refresh later moves them to
+/// their parts.
 String resolveQuestionLesson({
   required String? lesson,
   required String topicSlug,
   required String subtopicSlug,
   required Map<String, String> replacements,
+  Set<String>? knownLessons,
 }) {
-  var id = lesson ?? 'lesson-$topicSlug-$subtopicSlug';
+  final derived = 'lesson-$topicSlug-$subtopicSlug';
+  var id = _followReplacements(lesson ?? derived, replacements);
+  if (lesson != null &&
+      knownLessons != null &&
+      knownLessons.isNotEmpty &&
+      !knownLessons.contains(id)) {
+    id = _followReplacements(derived, replacements);
+  }
+  return id;
+}
+
+String _followReplacements(String start, Map<String, String> replacements) {
+  var id = start;
   final seen = <String>{};
   while (replacements.containsKey(id) && seen.add(id)) {
     id = replacements[id]!;
@@ -37,6 +57,7 @@ int? questionKeyPoint(Map<String, Object?> question) {
 List<Question> questionsFromSet(
   Map<String, Object?> data, {
   Map<String, String> replacements = const {},
+  Set<String>? knownLessons,
 }) {
   final meta = (data['meta']! as Map).cast<String, Object?>();
   final topicSlug = '${meta['topic']}';
@@ -80,6 +101,7 @@ List<Question> questionsFromSet(
           topicSlug: topicSlug,
           subtopicSlug: subtopicSlug,
           replacements: replacements,
+          knownLessons: knownLessons,
         ),
         keyPoint: questionKeyPoint(question),
         shortLabel: question['shortLabel'] as String?,

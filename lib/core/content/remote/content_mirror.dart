@@ -14,6 +14,11 @@ import 'package:pantas/core/content/repos/content_fetch_hook.dart';
 /// How long the first start waits for a catalog when none is cached.
 const firstCatalogWait = Duration(seconds: 10);
 
+/// The least time between two content version checks after app open. Each
+/// check asks the server about every catalog document, and those asks count
+/// toward the daily request cap, so safe points do not repeat it sooner.
+const contentVersionCheckInterval = Duration(minutes: 30);
+
 /// Keeps an in-memory [ContentDatabase] in step with the server content, so
 /// every repository on web reads the tables it reads on native.
 ///
@@ -24,12 +29,18 @@ const firstCatalogWait = Duration(seconds: 10);
 /// refresh never erases fetched text, and a Free downgrade (which the service
 /// announces as a changed item) strips the Pro notes here as well.
 class ContentMirror implements ContentFetchHook {
-  ContentMirror({required ContentDatabase db, required ContentService service})
-      : _db = db,
-        _service = service;
+  ContentMirror({
+    required ContentDatabase db,
+    required ContentService service,
+    DateTime Function()? now,
+  })  : _db = db,
+        _service = service,
+        _now = now ?? DateTime.now;
 
   final ContentDatabase _db;
   final ContentService _service;
+  final DateTime Function() _now;
+  DateTime? _lastVersionCheck;
 
   /// `kind/id` to the version last applied, so an event for a copy already
   /// in memory costs nothing.
@@ -71,13 +82,54 @@ class ContentMirror implements ContentFetchHook {
       await _enqueue(item);
     }
     if (_applied.containsKey('catalog/$catalogIndexId')) {
-      _track(refreshCatalog());
+      // A catalog cached before an upload does not know the new lessons, and
+      // today's check record would skip it, so ask the server about it, at
+      // most once per interval across app opens.
+      _track(checkContentVersion());
       return;
     }
     // Nothing is cached: without a catalog no screen has content, so wait for
     // the first one, but not for long when the network is down.
     await refreshCatalog().timeout(firstCatalogWait, onTimeout: () {});
+    await _markVersionChecked();
   }
+
+  Future<void> _markVersionChecked() async {
+    _lastVersionCheck = _now();
+    await _service.markVersionChecked(_lastVersionCheck!);
+  }
+
+  /// Asks the server whether any catalog document has a newer version than
+  /// the one applied, whatever the day's check record says, and applies what
+  /// changed. True when a catalog document changed.
+  ///
+  /// Run at app open and at the update safe points. A check within
+  /// [contentVersionCheckInterval] of the last one, even from an earlier run
+  /// of the app, does nothing. A
+  /// server version that has not changed costs a request but no download and
+  /// no write.
+  Future<bool> checkContentVersion() async {
+    final last = _lastVersionCheck ?? await _service.lastVersionCheck();
+    if (last != null && _now().difference(last) < contentVersionCheckInterval) {
+      _lastVersionCheck = last;
+      return false;
+    }
+    await _markVersionChecked();
+    final before = _catalogSignature();
+    await refreshCatalog(force: true);
+    await _queue;
+    final changed = _catalogSignature() != before;
+    // A changed catalog may have moved lessons and questions, so the next
+    // use of each stored item asks the server again.
+    if (changed) _revalidated.clear();
+    return changed;
+  }
+
+  String _catalogSignature() => ([
+        for (final entry in _applied.entries)
+          if (entry.key.startsWith('catalog/')) '${entry.key}=${entry.value}',
+      ]..sort())
+          .join('|');
 
   int _order(ContentItem item) => switch (item.kind) {
         ContentKind.catalog => item.id == catalogIndexId ? 0 : 1,
@@ -543,6 +595,7 @@ class ContentMirror implements ContentFetchHook {
               topicSlug: topicSlug,
               subtopicSlug: subtopicSlug,
               replacements: _replacements,
+              knownLessons: _lessonsInCatalog,
             ),
           ),
           keyPoint: Value(questionKeyPoint(question)),

@@ -133,15 +133,22 @@ void main() {
     await contentDb.close();
   });
 
-  test('a second start the same day makes no catalog request', () async {
-    final first = ContentMirror(db: contentDb, service: newService());
+  test('an app open within 30 minutes of a check makes no request', () async {
+    var clock = DateTime.utc(2026, 11, 15, 8);
+    ContentMirror open() => ContentMirror(
+          db: contentDb,
+          service: newService(),
+          now: () => clock,
+        );
+    final first = open();
     await first.start();
     await first.idle;
     await first.dispose();
     expect(remote.calls, ['catalog:index', 'catalog:exam_upcat']);
 
     remote.calls.clear();
-    final second = ContentMirror(db: contentDb, service: newService());
+    clock = clock.add(const Duration(minutes: 29));
+    final second = open();
     await second.start();
     await second.idle;
     await second.dispose();
@@ -150,6 +157,29 @@ void main() {
       (await contentDb.select(contentDb.contentExams).get()).single.id,
       'exam_upcat',
     );
+  });
+
+  test('an app open after 30 minutes checks the catalog version only',
+      () async {
+    var clock = DateTime.utc(2026, 11, 15, 8);
+    ContentMirror open() => ContentMirror(
+          db: contentDb,
+          service: newService(),
+          now: () => clock,
+        );
+    final first = open();
+    await first.start();
+    await first.idle;
+    await first.dispose();
+
+    remote.calls.clear();
+    clock = clock.add(const Duration(minutes: 30));
+    final second = open();
+    await second.start();
+    await second.idle;
+    await second.dispose();
+    // Despite today's record, the server is asked; it answers unchanged.
+    expect(remote.calls, ['catalog:index', 'catalog:exam_upcat']);
   });
 
   test('the daily limit with nothing cached sets the flag and stores nothing',
