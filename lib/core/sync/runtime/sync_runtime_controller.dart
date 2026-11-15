@@ -93,6 +93,8 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
   _PendingReconciliation? _pendingReconciliation;
   int _transitionToken = 0;
   int _runtimeEventToken = 0;
+  // The transition whose activation finished with no Pro claim yet.
+  int? _awaitingClaimToken;
   bool _activeSync = false;
   Timer? _bootstrapRetry;
 
@@ -104,6 +106,58 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
   }
 
   Future<void> update({
+    required SyncIdentity identity,
+    required SyncEntitlement entitlement,
+  }) async {
+    // Nov 15: on the web the sign-in stream is idTokenChanges(), so every
+    // token refresh arrives here as an event for the same account. Starting
+    // again forced one more token refresh, which was the next event: a loop of
+    // about one restart every 1.2 s at 400 ms latency (34 plan reads in 45 s;
+    // 17 in 45 s on staging). The same account with the same entitlement
+    // changes nothing about Sync, so this is not a restart. The check sits
+    // here, not in the binding, because only the controller knows if an
+    // activation is under way or waiting for the Pro claim. Back Up Now and
+    // Try Again come in through retry(), which restarts on purpose.
+    if (_isSameAccount(identity, entitlement)) {
+      return _recheckClaimWithoutRefresh(identity);
+    }
+    return _restart(identity: identity, entitlement: entitlement);
+  }
+
+  bool _isSameAccount(SyncIdentity identity, SyncEntitlement entitlement) {
+    final current = _identity;
+    return current != null &&
+        current.uid == identity.uid &&
+        current.isAnonymous == identity.isAnonymous &&
+        _entitlement == entitlement;
+  }
+
+  /// A token event for the same account while Sync waits for the Pro claim:
+  /// the claim may have arrived (a purchase forces one token refresh). Read
+  /// it from the token already held, never force a refresh, so this cannot
+  /// loop. With no claim yet, Sync keeps waiting for the next event.
+  Future<void> _recheckClaimWithoutRefresh(SyncIdentity identity) {
+    final token = _transitionToken;
+    if (_awaitingClaimToken != token) return Future<void>.value();
+    return _enqueue(() async {
+      if (!_isCurrent(token) || _awaitingClaimToken != token) return;
+      bool hasClaim;
+      try {
+        hasClaim = await _claimGateway.refreshProClaim(
+          uid: identity.uid,
+          force: false,
+        );
+      } on Object {
+        return; // Still waiting. The next event checks again.
+      }
+      if (!_isCurrent(token) || !hasClaim) return;
+      _awaitingClaimToken = null;
+      _emit(const Syncing());
+      await _runB3(identity: identity, token: token);
+    });
+  }
+
+  Future<void> _restart({
     required SyncIdentity identity,
     required SyncEntitlement entitlement,
   }) async {
@@ -153,7 +207,7 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
         _status is SyncError &&
         identity != null &&
         entitlement != null) {
-      return update(identity: identity, entitlement: entitlement);
+      return _restart(identity: identity, entitlement: entitlement);
     }
     return _engine.forceFlush();
   }
@@ -244,6 +298,7 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
       hasFreshProClaim: hasClaim,
     );
     if (eligibility == SyncEligibility.activating) {
+      _awaitingClaimToken = token;
       _emit(const SyncActivating());
       return;
     }

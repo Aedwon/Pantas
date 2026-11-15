@@ -194,12 +194,20 @@ final studySnapshotReaderProvider = FutureProvider.autoDispose
   var alive = true;
   ref.onDispose(() => alive = false);
   await ref.watch(studyOwnerEpochProvider.future);
-  final auth = await ref.watch(authStateProvider.future);
-  final uid = switch (auth) {
-    SignedInAuthState(:final user) => user.uid,
-    AnonymousAuthState(:final uid) => uid,
-    _ => null,
-  };
+  // Watch the uid, not the whole auth state. Nov 15: on the web the auth
+  // stream is idTokenChanges(), so every token refresh is an event for the
+  // same account, and a plain watch rebuilt this reader each time. Home then
+  // read the plan again about every 1.2 s at 400 ms latency (34 reads in
+  // 45 s). A selector rebuilds only when the uid changes.
+  final uid = await ref.watch(
+    authStateProvider.selectAsync(
+      (auth) => switch (auth) {
+        SignedInAuthState(:final user) => user.uid,
+        AnonymousAuthState(:final uid) => uid,
+        _ => null,
+      },
+    ),
+  );
   if (uid == null) throw StateError('Study account unavailable');
   final focus = await ref.watch(activeExamFocusProvider.future);
   if (focus.exam?.id != examId) throw StateError('Study exam changed');

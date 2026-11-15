@@ -159,6 +159,7 @@ void main() {
         StreamController<SyncStatus> status,
       })> start({
     Future<Object?> Function(Future<Object?> Function() send)? around,
+    Stream<AuthState>? auth,
   }) async {
     final db = inMemoryDatabase();
     final content = inMemoryContentDatabase();
@@ -178,7 +179,7 @@ void main() {
         trackScopeProvider('e').overrideWith((_) async => {}),
         syncStatusProvider.overrideWith((_) => status.stream),
         authStateProvider.overrideWith(
-          (_) => Stream.value(const AuthState.anonymous(uid: 'u')),
+          (_) => auth ?? Stream.value(const AuthState.anonymous(uid: 'u')),
         ),
         activeExamFocusProvider.overrideWith(
           (_) async => ActiveExamFocus.selected(buildExam(id: 'e')),
@@ -285,6 +286,46 @@ void main() {
     await wait(_gap * 3);
 
     expect(t.calls['getRoadmap'], before + 1, reason: '${t.calls}');
+  });
+
+  // Nov 15: on the web the sign-in stream is idTokenChanges(), so every token
+  // refresh is an auth event for the same account. The reader rebuilt on each
+  // one and Home read the plan again about every 1.2 s at 400 ms latency.
+  testWidgets('a sign-in event for the same account reads nothing again',
+      (tester) async {
+    _tester = tester;
+    final auth = StreamController<AuthState>()
+      ..add(const AuthState.anonymous(uid: 'u'));
+    addTearDown(auth.close);
+    final t = await start(auth: auth.stream);
+    watchHome(t.container);
+    await until(() => (t.calls['getRoadmap'] ?? 0) >= 1);
+    await firstReads();
+    final before = Map<String, int>.of(t.calls);
+
+    for (var i = 0; i < 3; i++) {
+      auth.add(const AuthState.anonymous(uid: 'u'));
+      await wait(_gap);
+    }
+
+    expect(t.calls, before);
+  });
+
+  testWidgets('a different account reads the plan again', (tester) async {
+    _tester = tester;
+    final auth = StreamController<AuthState>()
+      ..add(const AuthState.anonymous(uid: 'u'));
+    addTearDown(auth.close);
+    final t = await start(auth: auth.stream);
+    watchHome(t.container);
+    await until(() => (t.calls['getRoadmap'] ?? 0) >= 1);
+    await firstReads();
+    final before = t.calls['getRoadmap']!;
+
+    auth.add(const AuthState.anonymous(uid: 'v'));
+    await wait(_gap * 3);
+
+    expect(t.calls['getRoadmap'], greaterThan(before), reason: '${t.calls}');
   });
 
   testWidgets('a sync that never reports settled still refreshes the plan',
