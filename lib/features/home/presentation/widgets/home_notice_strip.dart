@@ -141,6 +141,9 @@ class _HomeNoticeStripState extends ConsumerState<HomeNoticeStrip> {
         unawaited(_saveDay());
       case HomeNoticeKind.noDate:
         widget.onDate(notice.kind);
+      case HomeNoticeKind.beta:
+        final route = notice.primaryRoute;
+        if (route != null) widget.onRoute(route);
       case HomeNoticeKind.service:
         break;
     }
@@ -157,6 +160,8 @@ class _HomeNoticeStripState extends ConsumerState<HomeNoticeStrip> {
         title: notice.title,
         icon: switch (notice.kind) {
           HomeNoticeKind.trial => PantasIcons.timer,
+          HomeNoticeKind.beta =>
+            notice.proIcon ? PantasIcons.pro : PantasIcons.calendarBlank,
           HomeNoticeKind.welcome => PantasIcons.pro,
           HomeNoticeKind.service =>
             const IconData(0xe2ce, fontFamily: 'Phosphor'),
@@ -164,7 +169,7 @@ class _HomeNoticeStripState extends ConsumerState<HomeNoticeStrip> {
           HomeNoticeKind.monthOnly =>
             PantasIcons.addDate,
         },
-        iconColor: notice.kind == HomeNoticeKind.welcome
+        iconColor: notice.kind == HomeNoticeKind.welcome || notice.proIcon
             ? context.colors.accent
             : null,
         detail: notice.detail,
@@ -196,6 +201,8 @@ class _HomeNoticeStripState extends ConsumerState<HomeNoticeStrip> {
         expanded: _expanded,
         icon: switch (notice.kind) {
           HomeNoticeKind.trial => PantasIcons.timer,
+          HomeNoticeKind.beta =>
+            notice.proIcon ? PantasIcons.pro : PantasIcons.calendarBlank,
           HomeNoticeKind.welcome => PantasIcons.pro,
           HomeNoticeKind.service =>
             const IconData(0xe2ce, fontFamily: 'Phosphor'),
@@ -203,7 +210,7 @@ class _HomeNoticeStripState extends ConsumerState<HomeNoticeStrip> {
           HomeNoticeKind.monthOnly =>
             PantasIcons.addDate,
         },
-        iconColor: notice.kind == HomeNoticeKind.welcome
+        iconColor: notice.kind == HomeNoticeKind.welcome || notice.proIcon
             ? context.colors.accent
             : null,
         onToggle: notice.detail == null
