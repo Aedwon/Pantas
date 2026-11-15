@@ -356,23 +356,27 @@ Signs: the app stops working for everyone on that project; an alarm email from C
 `staging.pantas.study` (since 10:34 UTC) and `app.pantas.study` (since 18:40 UTC) are served by
 Cloudflare Workers (`pantas-app-staging`, `pantas-app`) from static assets, free and unlimited, instead
 of Firebase Hosting, which bills every byte (security audit S-01). Code and tools:
-`tool/cloudflare-app/` (branch `web/security-cloudflare-r1` until merged). Plan:
+`tool/cloudflare-app/`. Plan:
 `docs/superpowers/plans/security-audit/2026-11-14-cloudflare-static-files-plan.md`.
 
 - The Worker script runs only for `/__/*`, Firebase's sign-in pages and config, and forwards them to
   Firebase (prod: `pantas-prod.firebaseapp.com`; staging: `pantas-staging-app.web.app`). Everything else
   is a static file, with `index.html` for app routes. Headers match what Firebase sent (`headers.prod`,
   `headers.staging`).
-- **Every web deploy now has two parts.** Deploy to Firebase Hosting as before, then publish the same
-  files to the Worker:
-  1. `node tool/cloudflare-app/mirror.mjs <site> <project> <dir>` (prod: `pantas-prod pantas-prod`;
-     staging: `pantas-staging-app pantas-staging`), which copies the live Firebase release byte for byte;
-     or use the local `build/web` directly.
-  2. `tool/cloudflare-app/deploy.sh prod|staging <dir>` (wrangler login on Aedwon's Mac).
-  3. Wait a minute: right after a Worker deploy, some files can return 404 for under a minute while
+- **Every web deploy now has two parts, and the Worker part never downloads from Firebase.** Firebase
+  Hosting bills every byte it sends (rule 7; the Nov 14 mirror runs billed egress with no users). Deploy
+  to Firebase Hosting as before, then publish the same local build to the Worker:
+  1. `tool/cloudflare-app/deploy.sh prod|staging build/web` (wrangler login on Aedwon's Mac). It
+     publishes from the local build folder only, the same files the Firebase deploy uploaded.
+  2. Wait a minute: right after a Worker deploy, some files can return 404 for under a minute while
      Cloudflare's servers update. Then run
-     `node tool/cloudflare-app/compare.mjs <firebase site URL> https://<host> tool/cloudflare-app/dist <web api key>`
-     and require every path to match.
+     `node tool/cloudflare-app/compare.mjs https://<host> build/web <web api key>`
+     and require every path to match. It compares the Worker with the local build (status, type, body
+     hash, and the cache rules in `headers.prod` or `headers.staging`) and checks the sign-in paths
+     through the Worker. It fetches nothing from Firebase.
+  `mirror.mjs` (copy the live Firebase release) is for emergencies only, for example a lost local
+  build. It downloads about 50 MB from Firebase, which is billed. The free-tier check allows it as the
+  one named exception. Do not put it in a deploy.
   A Firebase-only deploy no longer reaches users.
 - **Rollback** (about a minute): detach the Worker's custom domain (Cloudflare Workers, the Worker,
   Settings, Domains; or the API), then add back the DNS-only CNAME `app.pantas.study` →
@@ -389,3 +393,26 @@ Use `npx --prefix functions firebase deploy --only functions --project <project>
 `firebase`. The global 15.26.0 on Aedwon's Mac reads the functions without `functions/.env.<project>`,
 so env-gated exports (staging's `SCHEDULED_JOBS=off`, `WRAPPED_PAGE_PUBLIC`) come out wrong. The code
 now stops such a deploy at discovery with an error naming the pinned CLI.
+
+### Staging: delete the images after every functions deploy (Nov 15, 2026)
+
+A functions deploy leaves container images in Artifact Registry (staging about 424 MiB; the free tier is
+0.5 GB for the whole billing account). Firebase's cleanup policy runs about once a day, so same-day
+deploys to both projects go over. As the last step of every staging functions deploy, run:
+
+`tool/deploy/staging_delete_images.sh` (add `--dry-run` to list first)
+
+It deletes every package in `pantas-staging`'s `gcf-artifacts` repository (asia-southeast1). The project
+is fixed in the script and it takes no project argument. Running services keep serving, and the next
+deploy builds fresh images. Prod keeps its images for one day (Fable 5.2 rule 7 ruling 4). Do not run it
+while a deploy is still in progress.
+
+### The free-tier check (rule 7)
+
+`node tool/checks/free_tier.mjs` runs in CI (functions job). It reads the deploy config of both projects
+and fails above 3 scheduled functions, any minimum instance, 6 secret versions (a dated waiver covers 16
+until Nov 24, 2026), warm-up outside prod or past Nov 24, 2026 00:00 Manila, or any tool that downloads
+app files from `*.web.app` or `*.firebaseapp.com`. Waivers are in `tool/checks/free_tier_waivers.json`
+and their ceiling cannot rise. `node tool/checks/free_tier_live.mjs` is read-only: run it by hand or on a
+schedule, weekly and after every deploy. It reads the live billing account (every project on it) and
+exits 1 when any item is over its free limit.
