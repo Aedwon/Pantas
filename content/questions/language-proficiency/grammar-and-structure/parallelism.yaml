@@ -19,7 +19,7 @@ questions:
     stem: |
       Identify and fix the parallelism error: "The coach told the team to run faster, jumping higher, and to try harder."
     choices:
-      - text: "Change \"jumping\" to \"to jump.\""
+      - text: "Use \"to jump\" for \"jumping\"."
         correct: true
       - text: "Change \"to run\" to \"running.\""
         rationale: |
@@ -195,7 +195,7 @@ questions:
     stem: |
       Identify the hidden parallelism error in this longer sentence: "The report covers the company's history, analyzing its financial growth, and its plans for the future."
     choices:
-      - text: "Change \"analyzing its financial growth\" to \"its financial growth.\""
+      - text: "Delete \"analyzing\"."
         correct: true
       - text: "Change \"its plans for the future\" to \"planning for the future.\""
         rationale: |

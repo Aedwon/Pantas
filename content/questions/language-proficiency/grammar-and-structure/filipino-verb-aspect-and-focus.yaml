@@ -228,7 +228,7 @@ questions:
       - text: "Layon, dahil ang lugaw ang niluto."
         rationale: |
           The porridge is cooked, but it is introduced by "ng." It is not the topic in this sentence.
-      - text: "Tagatanggap, dahil ang mga bata ang nakikinabang sa pagluluto."
+      - text: "Tagatanggap; nakinabang ang mga bata."
         correct: true
       - text: "Kagamitan, dahil ang mga bata ang ginamit sa pagluluto."
         rationale: |
@@ -255,7 +255,7 @@ questions:
       - text: "Ang lapis; ito ang sanhi ng damdamin."
         rationale: |
           The pencil is the topic, but it serves as a writing tool. No feeling caused by it is stated.
-      - text: "Ang lapis; ito ang kagamitang ginamit sa pagsulat."
+      - text: "Ang lapis; kagamitan sa pagsulat."
         correct: true
     explanation: |
       "Ang lapis" is the topic. Teresa uses the pencil to write.
@@ -363,7 +363,7 @@ questions:
       Sa "Pinagtaniman ng mga kawani ng gulay ang bakuran" at "Pinuntahan ng mga kawani ang bakuran," magkapareho ang paksa.
       Alin ang wastong pagkakaiba ng pokus?
     choices:
-      - text: "Ganapan ang una dahil doon nagtanim; direksiyon ang ikalawa dahil iyon ang pinuntahan."
+      - text: "Ganapan ang una; direksiyon ang ikalawa."
         correct: true
       - text: "Parehong ganapan dahil parehong lugar ang bakuran."
         rationale: |
@@ -441,7 +441,7 @@ questions:
       - text: "Kagamitan ang una dahil ginamit ang mga bisita; tagatanggap ang ikalawa dahil nakinabang ang lapis."
         rationale: |
           This reverses the roles. The visitors benefit from the cooking, while the pencil is used as a tool.
-      - text: "Tagatanggap ang una dahil nakinabang ang mga bisita; kagamitan ang ikalawa dahil ginamit ang lapis."
+      - text: "Tagatanggap ang una; kagamitan ang ikalawa."
         correct: true
     explanation: |
       The visitors are the topic of the first sentence and receive the benefit. The pencil is the topic of the second and serves as a tool. Mara does both actions, but she is not the topic of either sentence.
@@ -455,7 +455,7 @@ questions:
       "Naglilinis pa ng bulwagan sina Liza at Omar nang dumating ang pinuno kahapon." Sinabi ng isang kawani na perpektibo ang pandiwa dahil may "kahapon" at pokus sa ganapan dahil may "bulwagan."
       Aling pagsusuri ang tama?
     choices:
-      - text: "Imperpektibo at pokus sa tagaganap ang naglilinis."
+      - text: "Imperpektibo; pokus sa tagaganap."
         correct: true
       - text: "Perpektibo at pokus sa ganapan ang naglilinis."
         rationale: |

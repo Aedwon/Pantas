@@ -349,7 +349,7 @@ questions:
     stem: |
       The agency gave residents "advance warning several days before a road closure." For a shorter version, why can "advance" be removed?
     choices:
-      - text: "The phrase \"several days before a road closure\" already gives the early timing."
+      - text: "\"Several days before a road closure\" already states the timing."
         correct: true
       - text: "It must be deleted because every warning contains the same timing detail."
         rationale: |

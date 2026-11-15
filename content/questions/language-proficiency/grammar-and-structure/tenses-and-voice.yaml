@@ -438,7 +438,7 @@ questions:
       Read the exchange: "Could I use the meeting room?" "The reservation sheet is signed and the lights are on, so someone must be using it."
       What do "could" in the request and "must" in the reply express, respectively?
     choices:
-      - text: "A polite request for permission; a strong conclusion from evidence"
+      - text: "Polite permission request; strong conclusion from evidence"
         correct: true
       - text: "General ability in the past; a strong conclusion from evidence"
         rationale: |

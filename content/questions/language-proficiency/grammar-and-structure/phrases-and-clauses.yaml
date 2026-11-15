@@ -151,7 +151,7 @@ questions:
     stem: |
       In a formal task requiring a complete sentence, how is "running quickly through the park" classified?
     choices:
-      - text: "An incomplete group with a nonfinite verb"
+      - text: "A nonfinite verb group"
         correct: true
       - text: "Independent finite clause"
         rationale: |
@@ -195,7 +195,7 @@ questions:
     stem: |
       Is the comma placement correct in this sentence? "Because it was raining, we stayed inside."
     choices:
-      - text: "Yes: an introductory dependent clause is followed by a comma before the independent clause."
+      - text: "Yes: a comma follows the opening clause."
         correct: true
       - text: "No: commas are never used with dependent clauses."
         rationale: |
@@ -217,7 +217,7 @@ questions:
     stem: |
       Does this sentence need a comma before "because"? "We stayed inside because it was raining."
     choices:
-      - text: "No: when the independent clause comes first, no comma is typically needed before this essential reason clause."
+      - text: "No: the essential reason clause follows the main clause."
         correct: true
       - text: "Yes: a comma is always required regardless of clause order."
         rationale: |
@@ -239,7 +239,7 @@ questions:
     stem: |
       In "Close the door," what kind of group is the complete command?
     choices:
-      - text: "An independent clause with an understood subject"
+      - text: "Independent clause; implied subject"
         correct: true
       - text: "A noun phrase because it names an action"
         rationale: |
@@ -283,7 +283,7 @@ questions:
     stem: |
       A student writes "Because it was raining we stayed inside" without a comma. Is this correctly punctuated in standard formal writing?
     choices:
-      - text: "No: place a comma after the introductory dependent clause: \"Because it was raining, we stayed inside.\""
+      - text: "No: add a comma after \"raining\"."
         correct: true
       - text: "Yes: commas are never needed between dependent and independent clauses."
         rationale: |
