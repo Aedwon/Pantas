@@ -1,9 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
+import 'package:pantas/features/beta_feedback/application/beta_feedback_providers.dart';
 import 'package:pantas/features/beta_feedback/domain/beta_feedback_models.dart';
 import 'package:pantas/features/beta_feedback/presentation/exit_survey_page.dart';
 import 'package:pantas/features/beta_feedback/presentation/fb_kit.dart';
@@ -332,10 +334,17 @@ void main() {
       expect(a.improve, 'More Numerical Ability practice.');
       expect(a.other, 'Thanks');
 
+      // Home holds the status for the session; a sent survey must refresh it.
+      final session = ProviderScope.containerOf(
+        tester.element(find.byType(ExitSurveyPage)),
+      )..listen(betaRewardProvider, (_, __) {});
+      expect(api.rewardReads, 1);
       gate.complete();
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 100));
       expect(find.text('Survey sent'), findsOneWidget);
+      await session.read(betaRewardProvider.future);
+      expect(api.rewardReads, 2);
       await tester.pumpAndSettle();
       expect(
         find.text(
