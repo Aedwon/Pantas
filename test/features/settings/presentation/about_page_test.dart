@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/app/build_info.dart';
+import 'package:pantas/app/screen_counts_providers.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/telemetry/client_report.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
@@ -49,6 +50,32 @@ void main() {
     expect(find.text('Send feedback'), findsOneWidget);
   });
 
+  testWidgets('the speed and error row mentions counts only with the flag on',
+      (tester) async {
+    for (final flag in [true, false]) {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      await tester.pumpAppWithProviders(
+        const AboutPage(),
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          screenCountsFlagProvider.overrideWithValue(flag),
+        ],
+      );
+      await tester.pumpAndSettle();
+      expect(
+        find.text(
+          'Helps us fix slow screens and errors. Includes screen counts.',
+        ),
+        flag ? findsOneWidget : findsNothing,
+      );
+      expect(
+        find.text('Helps us find slow screens and errors.'),
+        flag ? findsNothing : findsOneWidget,
+      );
+    }
+  });
+
   testWidgets('analytics is a switch, off until the student says yes',
       (tester) async {
     await tester.pumpAppWithProviders(const AboutPage(), overrides: []);
@@ -80,7 +107,10 @@ void main() {
     addTearDown(reporter.dispose);
     await tester.pumpAppWithProviders(
       const AboutPage(),
-      overrides: [appDatabaseProvider.overrideWithValue(db)],
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        screenCountsFlagProvider.overrideWithValue(false),
+      ],
     );
     await tester.pumpAndSettle();
 

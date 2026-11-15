@@ -43,10 +43,10 @@ test('with no setting, three combined jobs and the nine legacy jobs are schedule
   assert.deepEqual(scheduled, [...NEW_JOBS, ...LEGACY].sort());
 });
 
-test('the prod env file schedules exactly the three combined jobs plus the nine legacy ones', () => {
+test('the prod env file schedules exactly the three combined jobs', () => {
   const {scheduled} = discover(parseEnvFile('.env.pantas-prod'));
-  assert.equal(scheduled.length, 12);
-  assert.deepEqual(scheduled, [...NEW_JOBS, ...LEGACY].sort());
+  assert.equal(scheduled.length, 3);
+  assert.deepEqual(scheduled, NEW_JOBS);
 });
 
 test('the staging env file schedules nothing, and the runner is still deployed', () => {

@@ -270,6 +270,7 @@ class HomeWebNotice extends StatelessWidget {
     this.editor,
     this.icon,
     this.iconColor,
+    this.mainOnRight = false,
     super.key,
   });
   final String title;
@@ -284,6 +285,10 @@ class HomeWebNotice extends StatelessWidget {
   final Widget? editor;
   final IconData? icon;
   final Color? iconColor;
+
+  /// The right button is the main one and the left a secondary, instead of
+  /// the quiet-then-secondary pair. Set by the one notice that asks for it.
+  final bool mainOnRight;
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
@@ -462,7 +467,9 @@ class HomeWebNotice extends StatelessWidget {
                         // Board `.btn3`: 16 px at the sides.
                         WebButton(
                           label: secondaryLabel!,
-                          variant: WebButtonVariant.tertiary,
+                          variant: mainOnRight
+                              ? WebButtonVariant.secondary
+                              : WebButtonVariant.tertiary,
                           sidePadding: 16,
                           onPressed: onSecondary,
                         ),
@@ -471,7 +478,9 @@ class HomeWebNotice extends StatelessWidget {
                         // Date" is 156 px wide (4N-3).
                         WebButton(
                           label: primaryLabel!,
-                          variant: WebButtonVariant.secondary,
+                          variant: mainOnRight
+                              ? WebButtonVariant.primary
+                              : WebButtonVariant.secondary,
                           sidePadding: 20,
                           onPressed: onPrimary,
                         ),

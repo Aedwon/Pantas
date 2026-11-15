@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/build_info.dart';
+import 'package:pantas/app/screen_counts_providers.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -27,6 +28,10 @@ import 'package:url_launcher/url_launcher.dart';
 const _helpImproveTitle = 'Help improve Pantas by sharing usage data';
 const _speedReportsTitle = 'Send speed and error reports';
 const _speedReportsSubtitle = 'Helps us find slow screens and errors.';
+// Only while the build counts screens: the app does not mention counts it
+// does not collect.
+const _speedReportsCountsSubtitle =
+    'Helps us fix slow screens and errors. Includes screen counts.';
 const _minorLockedCaption = 'Your parent or guardian can turn this on.';
 
 class AboutPage extends ConsumerWidget {
@@ -197,7 +202,9 @@ class AboutPage extends ConsumerWidget {
             ),
             SettingsRow(
               title: _speedReportsTitle,
-              subtitle: _speedReportsSubtitle,
+              subtitle: ref.watch(screenCountsFlagProvider)
+                  ? _speedReportsCountsSubtitle
+                  : _speedReportsSubtitle,
               variant: ListRowVariant.switchControl,
               selected: settings.speedReportsEnabled,
               divider: true,

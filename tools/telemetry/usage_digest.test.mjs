@@ -4,7 +4,8 @@ import { homedir, tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import test from 'node:test';
 import {
-  aggregate, assertOutsideRepo, buildFilter, digestFileName, privateDir, renderDigest,
+  aggregate, aggregateScreenCounts, assertOutsideRepo, buildFilter, buildScreenCountsFilter,
+  digestFileName, privateDir, renderDigest,
 } from './usage_digest.mjs';
 
 // Fake visits only. Nothing here is real tester data.
@@ -149,4 +150,88 @@ test('a symlink that points into the repository is refused', () => {
 
 test('the file name carries the date and no tester data', () => {
   assert.equal(digestFileName(new Date('2026-11-14T08:00:00Z')), 'usage-digest-2026-11-14.md');
+});
+
+// Screen counts from the speed and error reports (usage telemetry step 2). Fake data only.
+const report = (screens, extra = {}) => ({
+  timestamp: '2026-11-10T01:00:00Z',
+  jsonPayload: {
+    kind: 'client_telemetry', v: 1, build: 'b1', visit: 'return', browser: 'chrome', mobile: true,
+    viewport: 'phone', timings: [], errors: [], screens, ...extra,
+  },
+});
+const sc = (s, n, first = false, last = false) => ({ s, n, first, last });
+
+const REPORTS = [
+  report([sc('home', 2, true), sc('study', 1, false, true)]),
+  report([sc('home', 3), sc('lesson', 1, false, true)]),
+  report([sc('study', 4, true)]),
+  report(undefined),
+  { jsonPayload: { kind: 'client_telemetry', timings: [], errors: [] } },
+];
+
+test('screen counts: views per screen, and how often each is a first and a last screen', () => {
+  const out = aggregateScreenCounts(REPORTS);
+  assert.equal(out.reports, 3);
+  assert.equal(out.views, 11);
+  assert.equal(out.firsts, 2);
+  assert.equal(out.lasts, 2);
+  const rows = Object.fromEntries(out.rows.map((r) => [r.screen, r]));
+  assert.deepEqual(rows.home, { screen: 'home', views: 5, firsts: 1, lasts: 0 });
+  assert.deepEqual(rows.study, { screen: 'study', views: 5, firsts: 1, lasts: 1 });
+  assert.deepEqual(rows.lesson, { screen: 'lesson', views: 1, firsts: 0, lasts: 1 });
+  assert.deepEqual(out.rows.map((r) => r.screen), ['home', 'study', 'lesson']);
+});
+
+test('screen counts: other log kinds, usage visits and malformed entries are skipped', () => {
+  const out = aggregateScreenCounts([
+    VISITS[0],
+    report('x'),
+    report([null, 'home', { s: 3, n: 1 }, { s: 'home', n: 0 }, { s: 'home', n: 1.5 }, { s: 'home', n: 'a' }]),
+    { jsonPayload: { kind: 'other', screens: [sc('home', 1)] } },
+    null,
+    {},
+  ]);
+  assert.equal(out.reports, 0);
+  assert.equal(out.views, 0);
+  assert.deepEqual(out.rows, []);
+});
+
+test('screen counts: an empty input has no reports and no rows', () => {
+  const out = aggregateScreenCounts([]);
+  assert.deepEqual(out, { reports: 0, views: 0, firsts: 0, lasts: 0, rows: [] });
+});
+
+test('screen counts: the gcloud filter asks for speed and error reports that carry screens', () => {
+  const filter = buildScreenCountsFilter(7, new Date('2026-11-14T00:00:00Z'));
+  assert.match(filter, /jsonPayload\.kind="client_telemetry"/);
+  assert.match(filter, /jsonPayload\.screens:\*/);
+  assert.match(filter, /timestamp>="2026-11-07T00:00:00\.000Z"/);
+});
+
+test('the digest has no screen counts section when there are none', () => {
+  const text = renderDigest(aggregate(VISITS), { project: 'p', days: 7, generated: new Date('2026-11-14T00:00:00Z') });
+  assert.doesNotMatch(text, /Screen counts/);
+  const empty = renderDigest(aggregate([]), {
+    project: 'p', days: 7, generated: new Date('2026-11-14T00:00:00Z'), screenCounts: aggregateScreenCounts([]),
+  });
+  assert.doesNotMatch(empty, /Screen counts/);
+});
+
+test('the digest prints the screen counts section, with shares, and names no visit', () => {
+  const text = renderDigest(aggregate(VISITS), {
+    project: 'p', days: 7, generated: new Date('2026-11-14T00:00:00Z'), screenCounts: aggregateScreenCounts(REPORTS),
+  });
+  assert.match(text, /## Screen counts, everyone/);
+  assert.match(text, /\| home \| 5 \| 1 \| 50\.0% \| 0 \| 0\.0% \|/);
+  assert.match(text, /\| lesson \| 1 \| 0 \| 0\.0% \| 1 \| 50\.0% \|/);
+  assert.match(text, /3 reports, 11 screen views/);
+});
+
+test('the screen counts section shows even when there are no usage visits', () => {
+  const text = renderDigest(aggregate([]), {
+    project: 'p', days: 7, generated: new Date('2026-11-14T00:00:00Z'), screenCounts: aggregateScreenCounts(REPORTS),
+  });
+  assert.match(text, /No visits/);
+  assert.match(text, /## Screen counts, everyone/);
 });

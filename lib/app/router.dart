@@ -16,6 +16,7 @@ import 'package:pantas/app/build_info.dart';
 import 'package:pantas/app/start_location.dart';
 import 'package:pantas/app/router_refresh_listenable.dart';
 import 'package:pantas/core/platform/remote_flags_providers.dart';
+import 'package:pantas/core/telemetry/client_report.dart';
 import 'package:pantas/features/shell/presentation/update_required_page.dart';
 import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
@@ -176,6 +177,9 @@ final routerProvider = Provider<GoRouter>((ref) {
   final detachScreenViews = attachScreenViewTracker(
     router,
     () => ref.read(telemetryProvider),
+    // The screen counts in the speed and error report. The reporter ignores
+    // this while its flag is off or its switch is off.
+    onScreen: (screen) => ClientReporter.active?.recordScreen(screen),
   );
   if (updates != null) {
     ref.onDispose(observeUpdateRoutes(router, updates));

@@ -26,7 +26,12 @@ final betaFeedbackVisibleProvider = Provider<bool>(
   (ref) => ref.watch(betaAccessProvider).valueOrNull?.selected ?? false,
 );
 
-final betaRewardProvider = FutureProvider.autoDispose<BetaReward?>((ref) async {
+/// The tester's reward status, read once per session and shared by Home and
+/// Settings. It stays alive between screens and changes only for another
+/// account or when a counted day, a sent survey or a turned-on reward
+/// invalidates it.
+final betaRewardProvider = FutureProvider<BetaReward?>((ref) async {
+  ref.watch(currentUserProvider.select((user) => user.valueOrNull?.uid));
   if (!ref.watch(betaFeedbackVisibleProvider)) return null;
   return ref.watch(betaFeedbackApiProvider).reward();
 });

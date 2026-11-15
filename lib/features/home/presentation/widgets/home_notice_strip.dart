@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
+import 'package:pantas/app/screen_counts_providers.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
@@ -38,7 +39,10 @@ class HomeNoticeStrip extends ConsumerStatefulWidget {
 }
 
 class _HomeNoticeStripState extends ConsumerState<HomeNoticeStrip> {
-  bool _expanded = false;
+  // Null until the student opens or closes the detail. The screen counts
+  // notice starts open: its text is the whole message.
+  bool? _expanded;
+  String? _markedShownFor;
   DateTime? _pickedDay;
   bool _saving = false;
   bool _failed = false;
@@ -120,13 +124,20 @@ class _HomeNoticeStripState extends ConsumerState<HomeNoticeStrip> {
   }
 
   Future<void> _dismiss(HomeNotice notice) async {
-    await ref.read(appPreferencesRepositoryProvider).setDeviceValue(
-          'home_notice_dismissed_${notice.kind.name}',
-          notice.dismissalToken,
-        );
+    if (notice.kind == HomeNoticeKind.screenCounts) {
+      // Kept for this learner, so another learner on the device still sees it.
+      await ref
+          .read(screenCountsNoticeStoreProvider)
+          .markDismissed(notice.dismissalToken);
+    } else {
+      await ref.read(appPreferencesRepositoryProvider).setDeviceValue(
+            'home_notice_dismissed_${notice.kind.name}',
+            notice.dismissalToken,
+          );
+    }
     if (!mounted) return;
     ref.invalidate(homeNoticeProvider);
-    if (mounted) setState(() => _expanded = false);
+    if (mounted) setState(() => _expanded = null);
   }
 
   void _primary(HomeNotice notice) {
@@ -141,9 +152,44 @@ class _HomeNoticeStripState extends ConsumerState<HomeNoticeStrip> {
         unawaited(_saveDay());
       case HomeNoticeKind.noDate:
         widget.onDate(notice.kind);
+      case HomeNoticeKind.screenCounts:
+        // The main button is Got It.
+        unawaited(_dismiss(notice));
+      case HomeNoticeKind.beta:
+        final route = notice.route;
+        if (route != null) widget.onRoute(route);
       case HomeNoticeKind.service:
         break;
     }
+  }
+
+  void _secondary(HomeNotice notice) {
+    if (notice.kind == HomeNoticeKind.screenCounts) {
+      // Learn More opens the notice and keeps this one, so it can be read
+      // again.
+      final route = notice.route;
+      if (route != null) widget.onRoute(route);
+      return;
+    }
+    unawaited(_dismiss(notice));
+  }
+
+  /// Records that the screen counts notice is on screen for this learner.
+  /// Counting starts on their next visit.
+  void _recordShown(HomeNotice notice) {
+    if (notice.kind != HomeNoticeKind.screenCounts ||
+        _markedShownFor == notice.dismissalToken) {
+      return;
+    }
+    _markedShownFor = notice.dismissalToken;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      unawaited(
+        ref
+            .read(screenCountsNoticeStoreProvider)
+            .markShown(notice.dismissalToken),
+      );
+    });
   }
 
   @override
@@ -152,26 +198,31 @@ class _HomeNoticeStripState extends ConsumerState<HomeNoticeStrip> {
     if (notice == null) {
       return const SizedBox.shrink();
     }
+    _recordShown(notice);
+    final expanded = _expanded ?? notice.kind == HomeNoticeKind.screenCounts;
     if (context.wideWeb) {
       return HomeWebNotice(
         title: notice.title,
         icon: switch (notice.kind) {
           HomeNoticeKind.trial => PantasIcons.timer,
+          HomeNoticeKind.beta =>
+            notice.proIcon ? PantasIcons.pro : PantasIcons.calendarBlank,
           HomeNoticeKind.welcome => PantasIcons.pro,
-          HomeNoticeKind.service =>
+          HomeNoticeKind.service ||
+          HomeNoticeKind.screenCounts =>
             const IconData(0xe2ce, fontFamily: 'Phosphor'),
           HomeNoticeKind.noDate ||
           HomeNoticeKind.monthOnly =>
             PantasIcons.addDate,
         },
-        iconColor: notice.kind == HomeNoticeKind.welcome
+        iconColor: notice.kind == HomeNoticeKind.welcome || notice.proIcon
             ? context.colors.accent
             : null,
         detail: notice.detail,
-        expanded: _expanded,
+        expanded: expanded,
         onToggle: notice.detail == null
             ? null
-            : () => setState(() => _expanded = !_expanded),
+            : () => setState(() => _expanded = !expanded),
         onClose: () => unawaited(_dismiss(notice)),
         primaryLabel: notice.kind == HomeNoticeKind.monthOnly
             ? (_pickedDay == null ? 'Pick the Day' : 'Save')
@@ -185,7 +236,8 @@ class _HomeNoticeStripState extends ConsumerState<HomeNoticeStrip> {
                     : () => unawaited(_saveDay())
             : () => _primary(notice),
         secondaryLabel: notice.secondaryLabel,
-        onSecondary: () => unawaited(_dismiss(notice)),
+        onSecondary: () => _secondary(notice),
+        mainOnRight: notice.kind == HomeNoticeKind.screenCounts,
       );
     }
     return Padding(
@@ -193,22 +245,25 @@ class _HomeNoticeStripState extends ConsumerState<HomeNoticeStrip> {
       child: NoticeStrip(
         title: notice.title,
         detail: notice.detail,
-        expanded: _expanded,
+        expanded: expanded,
         icon: switch (notice.kind) {
           HomeNoticeKind.trial => PantasIcons.timer,
+          HomeNoticeKind.beta =>
+            notice.proIcon ? PantasIcons.pro : PantasIcons.calendarBlank,
           HomeNoticeKind.welcome => PantasIcons.pro,
-          HomeNoticeKind.service =>
+          HomeNoticeKind.service ||
+          HomeNoticeKind.screenCounts =>
             const IconData(0xe2ce, fontFamily: 'Phosphor'),
           HomeNoticeKind.noDate ||
           HomeNoticeKind.monthOnly =>
             PantasIcons.addDate,
         },
-        iconColor: notice.kind == HomeNoticeKind.welcome
+        iconColor: notice.kind == HomeNoticeKind.welcome || notice.proIcon
             ? context.colors.accent
             : null,
         onToggle: notice.detail == null
             ? null
-            : () => setState(() => _expanded = !_expanded),
+            : () => setState(() => _expanded = !expanded),
         onClose: () => unawaited(_dismiss(notice)),
         primaryLabel: notice.primaryLabel,
         editor: notice.kind == HomeNoticeKind.monthOnly ? _days(notice) : null,
@@ -217,7 +272,8 @@ class _HomeNoticeStripState extends ConsumerState<HomeNoticeStrip> {
             ? null
             : () => _primary(notice),
         secondaryLabel: notice.secondaryLabel,
-        onSecondary: () => unawaited(_dismiss(notice)),
+        onSecondary: () => _secondary(notice),
+        mainOnRight: notice.kind == HomeNoticeKind.screenCounts,
       ),
     );
   }

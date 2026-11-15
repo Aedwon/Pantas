@@ -28,7 +28,11 @@ void main() {
   });
   test('cached beta has no offline grace; ordinary passes keep their grace',
       () async {
-    final end = DateTime.parse('2026-11-16T00:00:00+08:00');
+    // Reading the cache drops beta passes that have ended by the real clock,
+    // so this end must stay in the future (it was a fixed Nov 16 date).
+    final end = DateTime.fromMillisecondsSinceEpoch(
+      DateTime.now().add(const Duration(days: 30)).millisecondsSinceEpoch,
+    );
     final held = entitlementFromGrants(
       [
         <String, dynamic>{

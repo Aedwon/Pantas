@@ -18,7 +18,7 @@ Cloudflare serving the app, $15 billing cutoff live, App Check enforced on prod 
 |---|---|---|
 | DS4 release candidate (integrator) | `mcp:launch:9f71e2d1c4512378a79c7379de33297f08c9261daf19e8b65e5a143b85dfde60` | Only lead that merges and deploys. Scheduler steps 3-4 due Nov 15 20:23 UTC (pinned firebase CLI only). |
 | Security fixes and billing cap | `mcp:launch:eb867491ee3c4972dc9408034a2e258e9f319178ec4a4c4dbd77617bc6ccd150` | Prod App Check staged: Storage done Nov 15 06:05; Auth Nov 16; Firestore Nov 21. Tiny Firebase page after 48 h + one real Google sign-in. Prod alarms wired to cutoff Nov 21. |
-| Bite-sized lessons (lead) | `mcp:launch:d8cb099cbf26808423b82a0c93177c0c119d5cc470f6304f15e8a421ea6c97fa` | Done; kept for follow-ups (CSE Algebra after the CET rewrite). |
+| Bite-sized lessons (lead) | `mcp:launch:d8cb099cbf26808423b82a0c93177c0c119d5cc470f6304f15e8a421ea6c97fa` | CSE Algebra split in progress (Aedwon's Nov 15 override, E-091). |
 | Beta monitor (read-only) | `mcp:launch:5571b8637093542272d0015969e732a142c5bd650e399531e5f1d6f1f1704cda` | 12-hourly passes; exit survey open until Nov 23 00:00 PHT. |
 | SSOT keeper | `mcp:launch:090551797b35853669c8ebd7de5efe6916d32449b94f9aee953dc8be9dddbe59` | Daily pass. |
 | Founder app spec, CET content finish | (Aedwon's lanes) | Untouched; don't drive without his word. |
@@ -74,5 +74,5 @@ Full ids: `list_scheduled_tasks`. Prefix for the first six: `scheduled-task:comm
 
 - Native app release must rebuild the protected content package at schema 11.
 - CET: the CET-account proof must run before any CET exam opens; the CET rewrite's baseline is the split lessons.
-- CSE Algebra (1 lesson + 10 CET lessons) splits after the CET rewrite lands.
+- CSE Algebra: Aedwon overrode the hold on Nov 15; all 11 algebra lessons split now (E-091; the lesson check requires every active lesson in a split topic to be a part), and all 220 algebra questions are re-solved and approved. The CET rewrite's baseline in Algebra is the parts and the re-approved questions.
 - Secret Manager versions: leave (Fable); revisit only if a real charge appears.

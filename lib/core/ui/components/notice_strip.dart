@@ -36,6 +36,7 @@ class NoticeStrip extends StatelessWidget {
     this.iconColor,
     this.tone = NoticeTone.info,
     this.editor,
+    this.mainOnRight = false,
     super.key,
   });
   final String title;
@@ -52,6 +53,11 @@ class NoticeStrip extends StatelessWidget {
   final Color? iconColor;
   final NoticeTone tone;
   final Widget? editor;
+
+  /// The right button is the main one and the left a secondary (design
+  /// system Notice: secondary then main). Off, the pair is quiet then
+  /// secondary, as the other Home notices have it.
+  final bool mainOnRight;
 
   /// The head is at least this high; the title wraps and grows it.
   static const double _headMin = PantasSpace.s44 + PantasSpace.s8;
@@ -203,12 +209,16 @@ class NoticeStrip extends StatelessWidget {
                         children: [
                           WebButton(
                             label: secondaryLabel!,
-                            variant: WebButtonVariant.tertiary,
+                            variant: mainOnRight
+                                ? WebButtonVariant.secondary
+                                : WebButtonVariant.tertiary,
                             onPressed: onSecondary,
                           ),
                           WebButton(
                             label: primaryLabel!,
-                            variant: WebButtonVariant.secondary,
+                            variant: mainOnRight
+                                ? WebButtonVariant.primary
+                                : WebButtonVariant.secondary,
                             onPressed: onPrimary,
                           ),
                         ],
@@ -218,14 +228,18 @@ class NoticeStrip extends StatelessWidget {
                         gap: PantasSpace.s8,
                         primary: PantasButton(
                           label: primaryLabel!,
-                          variant: PantasButtonVariant.secondary,
+                          variant: mainOnRight
+                              ? PantasButtonVariant.primary
+                              : PantasButtonVariant.secondary,
                           onPressed: onPrimary,
                           height: PantasSize.btn,
                           fontSize: PantasType.webLink.fontSize,
                         ),
                         secondary: PantasButton(
                           label: secondaryLabel!,
-                          variant: PantasButtonVariant.tertiary,
+                          variant: mainOnRight
+                              ? PantasButtonVariant.secondary
+                              : PantasButtonVariant.tertiary,
                           onPressed: onSecondary,
                           height: PantasSize.btn,
                           fontSize: PantasType.webLink.fontSize,

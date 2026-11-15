@@ -6,7 +6,10 @@ import 'package:pantas/core/platform/account_access.dart';
 
 // ignore: one_member_abstracts
 abstract interface class SyncClaimGateway {
-  Future<bool> refreshProClaim({required String uid});
+  /// Whether [uid] holds a live Pro claim. With [force] (the default) the
+  /// sign-in token is renewed first, and a renewed token is a new sign-in
+  /// event. Without it, the token already held is read and no event follows.
+  Future<bool> refreshProClaim({required String uid, bool force = true});
 }
 
 class FirebaseSyncClaimGateway implements SyncClaimGateway {
@@ -16,12 +19,15 @@ class FirebaseSyncClaimGateway implements SyncClaimGateway {
   final firebase.FirebaseAuth _auth;
 
   @override
-  Future<bool> refreshProClaim({required String uid}) async {
+  Future<bool> refreshProClaim({
+    required String uid,
+    bool force = true,
+  }) async {
     final user = _auth.currentUser;
     if (user == null || user.isAnonymous || user.uid != uid) {
       return false;
     }
-    final result = await user.getIdTokenResult(true);
+    final result = await user.getIdTokenResult(force);
     return hasLiveProClaim(result.claims ?? {});
   }
 }

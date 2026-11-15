@@ -3,6 +3,7 @@ import {HttpsError, type CallableRequest} from 'firebase-functions/v2/https';
 import {onAccountCall as onCall} from './_accountAccess.js';
 import {enforceAppCheck} from './_appCheck.js';
 import {RateLimiter} from './clientTelemetry.js';
+import {SCREEN_IDS} from './_screenIds.js';
 import {timed} from './_timed.js';
 
 /**
@@ -12,28 +13,10 @@ import {timed} from './_timed.js';
  * rebuilds the record from known fields only, and the log line never carries the caller's
  * identity, so a record cannot be tied to an account.
  *
- * `SCREEN_IDS` is the closed set of screen names. It must match `lib/core/telemetry/screen_ids.dart`
- * (a Flutter test compares the two).
+ * `SCREEN_IDS`, the closed set of screen names, lives in `_screenIds.ts` and is re-exported here.
  */
 
-export const SCREEN_IDS = [
-  'home', 'performance', 'performance_topic', 'plan', 'plan_day', 'plan_history', 'plan_week',
-  'record', 'tendencies', 'assessment', 'assessment_results', 'lesson',
-  'quiz', 'quiz_all', 'quiz_debrief', 'quiz_flagged', 'quiz_flagged_question', 'quiz_inline',
-  'quiz_practice', 'quiz_practice_run', 'quiz_quick', 'quiz_resume', 'quiz_retake', 'quiz_today',
-  'quiz_viewer', 'study', 'study_ending',
-  'mock_results', 'mock_review', 'mock_custom_setup', 'mock_resume', 'mock_setup',
-  'legal', 'pro',
-  'settings', 'settings_about', 'settings_accessibility', 'settings_account',
-  'settings_adult_check', 'settings_delete_account', 'settings_account_name', 'settings_appearance',
-  'settings_backup', 'settings_beta_feedback', 'settings_beta_feedback_sent',
-  'settings_beta_survey', 'settings_exam', 'settings_exam_change', 'settings_exam_custom_name',
-  'settings_exam_custom_subjects', 'settings_exam_included', 'settings_exam_transfer',
-  'settings_exam_upgrade', 'settings_practice',
-  'auth_email_link', 'beta', 'guardian', 'guardian_contact', 'guardian_manage',
-  'guardian_waiting', 'guardian_withdrawn', 'onboarding', 'onboarding_custom_name',
-  'onboarding_custom_subjects', 'update_required', 'wrapped', 'other',
-] as const;
+export {SCREEN_IDS};
 
 const BUILD = /^[A-Za-z0-9._-]{1,40}$/;
 const VISIT_ID = /^[0-9a-f]{16}$/;

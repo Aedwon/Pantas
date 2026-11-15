@@ -12,6 +12,8 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/sync/engine/pull_pipeline.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/core/sync/engine/sync_held_generation.dart';
+import 'package:pantas/core/sync/providers.dart';
+import 'package:pantas/core/sync/sync_status.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/home/data/study_api.dart';
 import 'package:pantas/features/home/data/study_observations.dart';
@@ -48,6 +50,19 @@ const studyEpochDebounce = Duration(milliseconds: 750);
 /// Injectable so tests settle in milliseconds.
 final studyEpochDebounceProvider =
     Provider<Duration>((ref) => studyEpochDebounce);
+
+/// How long a remote-row notice waits for a quiet moment while Sync is still
+/// pulling. A sync that never reports settled still refreshes Home once it
+/// has been quiet this long.
+const studyEpochMaxHold = Duration(seconds: 20);
+
+/// Injectable so tests settle in milliseconds.
+final studyEpochMaxHoldProvider =
+    Provider<Duration>((ref) => studyEpochMaxHold);
+
+/// True while Sync is activating or pulling, so rows keep arriving.
+bool _syncBusy(SyncStatus? status) =>
+    status is Syncing || status is SyncActivating;
 
 Future<String> _metaEnvelope(AppDatabase db, List<String> keys) async {
   final rows = await (db.select(db.syncMeta)
@@ -86,13 +101,21 @@ final studyOwnerEpochProvider = StreamProvider.autoDispose<int>((ref) async* {
 /// and so do the server roadmap and insights reads (not the reader).
 /// An owner change yields at once and replaces any pending remote revision.
 /// A remote change alone waits [studyEpochDebounceProvider] after the last
-/// notice, so a burst gives one revision.
+/// notice, so a burst gives one revision. While Sync is pulling, remote
+/// changes are held instead, and one revision follows when it settles (or
+/// after [studyEpochMaxHoldProvider] of quiet, if it never does). A first
+/// sync pulls batches further apart than the debounce, and each one used to
+/// re-read the plan (17 reads in 45 seconds on staging, Nov 15).
 final studyCoreEpochProvider = StreamProvider.autoDispose<int>((ref) {
   final db = ref.watch(appDatabaseProvider);
   final delay = ref.watch(studyEpochDebounceProvider);
+  final maxHold = ref.watch(studyEpochMaxHoldProvider);
   final out = StreamController<int>();
   Timer? pending;
+  // A remote change seen and not yet published.
+  var dirty = false;
   var closed = false;
+  var busy = _syncBusy(ref.read(syncStatusProvider).valueOrNull);
   StreamSubscription<void>? updates;
   ref.onDispose(() {
     closed = true;
@@ -101,8 +124,30 @@ final studyCoreEpochProvider = StreamProvider.autoDispose<int>((ref) {
     unawaited(out.close());
   });
 
+  var revision = 0;
+  void publish() {
+    pending?.cancel();
+    pending = null;
+    dirty = false;
+    if (!closed) out.add(++revision);
+  }
+
+  void schedule(Duration wait) {
+    pending?.cancel();
+    pending = Timer(wait, () {
+      pending = null;
+      if (dirty) publish();
+    });
+  }
+
+  ref.listen<AsyncValue<SyncStatus>>(syncStatusProvider, (_, next) {
+    final nowBusy = _syncBusy(next.valueOrNull);
+    final wasBusy = busy;
+    busy = nowBusy;
+    if (wasBusy && !nowBusy && dirty) schedule(delay);
+  });
+
   Future<void> start() async {
-    var revision = 0;
     var lastOwner = await _metaEnvelope(db, _studyOwnerKeys);
     var lastRemote = await _metaEnvelope(db, [PullPipeline.remoteChangeKey]);
     if (closed) return;
@@ -119,16 +164,14 @@ final studyCoreEpochProvider = StreamProvider.autoDispose<int>((ref) {
         if (owner != lastOwner) {
           lastOwner = owner;
           lastRemote = remote;
-          pending?.cancel();
-          pending = null;
-          out.add(++revision);
+          publish();
         } else if (remote != lastRemote) {
           lastRemote = remote;
-          pending?.cancel();
-          pending = Timer(delay, () {
-            pending = null;
-            if (!closed) out.add(++revision);
-          });
+          dirty = true;
+          // While Sync pulls, each notice only pushes the revision back, so
+          // one revision follows the settle. The long wait is the backstop
+          // for a sync that never reports settled.
+          schedule(busy ? maxHold : delay);
         }
       });
     });
@@ -151,12 +194,20 @@ final studySnapshotReaderProvider = FutureProvider.autoDispose
   var alive = true;
   ref.onDispose(() => alive = false);
   await ref.watch(studyOwnerEpochProvider.future);
-  final auth = await ref.watch(authStateProvider.future);
-  final uid = switch (auth) {
-    SignedInAuthState(:final user) => user.uid,
-    AnonymousAuthState(:final uid) => uid,
-    _ => null,
-  };
+  // Watch the uid, not the whole auth state. Nov 15: on the web the auth
+  // stream is idTokenChanges(), so every token refresh is an event for the
+  // same account, and a plain watch rebuilt this reader each time. Home then
+  // read the plan again about every 1.2 s at 400 ms latency (34 reads in
+  // 45 s). A selector rebuilds only when the uid changes.
+  final uid = await ref.watch(
+    authStateProvider.selectAsync(
+      (auth) => switch (auth) {
+        SignedInAuthState(:final user) => user.uid,
+        AnonymousAuthState(:final uid) => uid,
+        _ => null,
+      },
+    ),
+  );
   if (uid == null) throw StateError('Study account unavailable');
   final focus = await ref.watch(activeExamFocusProvider.future);
   if (focus.exam?.id != examId) throw StateError('Study exam changed');

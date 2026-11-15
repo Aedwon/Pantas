@@ -93,6 +93,11 @@ app name. **Do not create products from the old list.** Full setup, in order, is
   confirmation that he received and checked it, even if he said "send" earlier. Product
   mail such as sign-in codes and guardian requests is exempt. Rule 6 in
   `docs/workflow/process-improvement.md`.
+- **Email wording (Nov 15).** Tester and user emails are short and plain: a label
+  subject, two or three sentences on what changed and what the reader must do (with
+  their own number when known), one button, no lists, sign-off, extra links or offer
+  words. Model: the Nov 15 "Pantas beta extension" email. Rule 8 in
+  `docs/workflow/process-improvement.md`.
 - **No postal address.** There is no office, and a placeholder under a privacy
   policy is worse than none. The Play Console asks for an address when a
   developer account is verified. That is the console's, not the app's.
@@ -230,6 +235,7 @@ node tools/telemetry/usage_digest.mjs --days 14 --project pantas-prod
 
 - Needs the `gcloud` CLI signed in with permission to read logs on the project. Logs are kept 30 days, so `--days` is at most 30.
 - Reads the `usage_visit` log lines written by the `reportUsageVisit` callable. A line holds a random visit id, screen names and times. It holds no account id, no email and no free text.
+- If the speed and error reports carry screen counts (built behind a flag that is off until Aedwon signs off the notice), the digest adds a "Screen counts, everyone" section from `client_telemetry` lines that have `screens`. It is a separate group of people from the usage visits and is never merged with them.
 - Writes one Markdown file to `~/Library/Application Support/Pantas/usage-digests/`, or to the folder in `PANTAS_PRIVATE_DIR`. It refuses a folder inside the repository. It prints only the file path and the totals.
 - **Never copy a digest or any usage record into the repository.** Tester data stays out of it. Tests use fake visits only.
 - Needs the `reportUsageVisit` callable deployed. Until then, no records exist and the digest says so.

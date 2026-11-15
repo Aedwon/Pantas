@@ -125,3 +125,21 @@ String screenIdFor(String location) {
   }
   return best;
 }
+
+/// Screens that the screen counts report as `other`: the guardian flow and
+/// the age check. They are not named in the counts (usage telemetry step 2,
+/// `step2-launch-texts.md`). Step 1's opt-in usage visits keep the real
+/// names. The onboarding age step shares the `onboarding` address with the
+/// rest of onboarding, so it cannot be told apart here.
+const Set<String> screenCountsOtherIds = {
+  'guardian',
+  'guardian_contact',
+  'guardian_manage',
+  'guardian_waiting',
+  'guardian_withdrawn',
+  'settings_adult_check',
+};
+
+/// The name a screen goes under in the screen counts.
+String screenCountId(String screen) =>
+    screenCountsOtherIds.contains(screen) ? otherScreenId : screen;
