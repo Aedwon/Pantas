@@ -464,3 +464,25 @@ questions:
       "Visit" has stress on its first syllable, so its final t stays single in "visiting." "Begin" has stress on its last syllable, so its final n doubles in "beginning."
     approved: false
 
+
+  - id: q-vocabulary-spelling-rules-0021
+    lesson: lesson-vocabulary-letters-sounds-and-vowel-order
+    keyPoint: 1
+    type: spelling-error
+    difficulty: exam
+    stem: |
+      In **chief**, the letters **ie** represent a single vowel sound. Which statement correctly describes this feature?
+    choices:
+      - text: "Two letters can share one sound."
+        correct: true
+      - text: "Each letter must form a syllable."
+        rationale: |
+          This counts written letters as spoken beats. Check how many main vowel sounds you hear in chief.
+      - text: "Both letters are consonants here."
+        rationale: |
+          This mistakes a vowel pair for consonants. Check the main vowel letters and their sound in chief.
+      - text: "Each vowel needs separate stress."
+        rationale: |
+          This treats stress as a property of each letter. Stress belongs to a spoken syllable. Check the word aloud.
+    explanation: |
+      The vowel letters i and e together represent one vowel sound in chief. Letters and sounds do not always match one for one.

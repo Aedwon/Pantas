@@ -464,3 +464,201 @@ questions:
       Buying and selling describe the two sides of one exchange. In the same way, one person borrows what another person lends. "Lend" names the other side of borrowing.
     approved: false
 
+
+  - id: q-vocabulary-synonyms-and-antonyms-0021
+    lesson: lesson-vocabulary-feeling-strength-and-formality
+    keyPoint: 2
+    type: synonym
+    difficulty: exam
+    stem: |
+      The clerk was **annoyed** by a minor interruption but resumed work calmly. Which replacement for the word in bold preserves its intensity?
+    choices:
+      - text: "bothered"
+        correct: true
+      - text: "enraged"
+        rationale: |
+          This makes mild anger much stronger. The calm return to work may be missed. Check how strong the feeling is.
+      - text: "furious"
+        rationale: |
+          This also means very angry. A delay can cause anger, but check whether the sentence shows a strong outburst.
+      - text: "delighted"
+        rationale: |
+          This changes displeasure into pleasure. Returning calmly does not mean enjoying the interruption. Check the feeling first.
+    explanation: |
+      Annoyed means bothered or a little angry. Bothered keeps that mild strength and fits the calm return to work.
+
+  - id: q-vocabulary-synonyms-and-antonyms-0022
+    lesson: lesson-vocabulary-feeling-strength-and-formality
+    keyPoint: 3
+    type: synonym
+    difficulty: exam
+    stem: |
+      An office must replace the casual phrase in this public notice: "Processing will **kick off** after the briefing." Which replacement for the words in bold best suits the formal notice?
+    choices:
+      - text: "commence"
+        correct: true
+      - text: "get going"
+        rationale: |
+          This keeps a casual tone. It means begin, but check whether the wording suits an official notice.
+      - text: "fire up"
+        rationale: |
+          This uses another casual expression. A public notice needs formal wording for beginning the work.
+      - text: "kick things off"
+        rationale: |
+          This changes the wording but keeps the casual phrase. Check the setting as well as the meaning.
+    explanation: |
+      Commence means begin and is formal. "Processing will commence after the briefing" keeps the meaning and suits the notice.
+
+  - id: q-vocabulary-synonyms-and-antonyms-0023
+    lesson: lesson-vocabulary-meaning-and-grammar-in-context
+    keyPoint: 2
+    type: synonym
+    difficulty: exam
+    stem: |
+      Choose the replacement for the word in bold that preserves both meaning and grammar: "The panel must **decide** before releasing its report."
+    choices:
+      - text: "choose"
+        correct: true
+      - text: "decision"
+        rationale: |
+          This names the result of deciding. It shares a root with decide, but the sentence needs an action after must.
+      - text: "decisive"
+        rationale: |
+          This describes someone or something. The shared root can look right. Check that must is followed by a verb.
+      - text: "choice"
+        rationale: |
+          This names a choice instead of expressing the action. Check the job needed after must.
+    explanation: |
+      The sentence needs a verb after must. Choose names the action of making a choice, so it preserves the meaning of decide.
+
+  - id: q-vocabulary-synonyms-and-antonyms-0024
+    lesson: lesson-vocabulary-opposite-roles
+    keyPoint: 1
+    type: word-analogy
+    difficulty: exam
+    stem: |
+      The office bought a used printer from a supplier. Which statement describes the same transaction from the supplier's role?
+    choices:
+      - text: "The supplier sold the printer."
+        correct: true
+      - text: "The supplier bought the printer."
+        rationale: |
+          This gives the supplier the buyer's role. Both parties take part in the exchange. Check who received the printer.
+      - text: "The supplier lent the printer."
+        rationale: |
+          This changes a sale into a loan. Both can transfer an item, but check whether the office bought it.
+      - text: "The supplier returned the printer."
+        rationale: |
+          This changes a sale into a return. An item changes hands in both cases. Check the stated transaction.
+    explanation: |
+      Buying and selling describe opposite roles in the same exchange. The office bought the printer, so the supplier sold it.
+
+  - id: q-vocabulary-synonyms-and-antonyms-0025
+    lesson: lesson-vocabulary-opposites-with-levels-and-two-states
+    keyPoint: 1
+    type: antonym
+    difficulty: exam
+    stem: |
+      A service log permits only the labels "available" and "unavailable." A terminal is recorded as not available. Which label must it receive under this system?
+    choices:
+      - text: "unavailable"
+        correct: true
+      - text: "temporarily available"
+        rationale: |
+          This adds a time limit that the log does not offer. Check the labels the system permits.
+      - text: "partially available"
+        rationale: |
+          This invents a middle state. Some systems allow levels, but this log allows only the stated labels.
+      - text: "usually available"
+        rationale: |
+          This substitutes a usual condition for the recorded state. Check the current record and its allowed labels.
+    explanation: |
+      The log allows only available or unavailable. Ruling out available leaves unavailable.
+
+  - id: q-vocabulary-synonyms-and-antonyms-0026
+    lesson: lesson-vocabulary-opposites-with-levels-and-two-states
+    keyPoint: 1
+    type: antonym
+    difficulty: exam
+    stem: |
+      A reviewer says only, "The water is not hot." Which conclusion is justified by the meaning of this statement?
+    choices:
+      - text: "It may be warm."
+        correct: true
+      - text: "It must be cold."
+        rationale: |
+          This treats hot and cold as the only possible states. Check whether a middle level is possible.
+      - text: "It cannot be warm."
+        rationale: |
+          This rules out a middle level without evidence. Warm water can be not hot. Check the range of meanings.
+      - text: "It must be freezing."
+        rationale: |
+          This turns the denial of heat into extreme cold. Check whether the statement gives that level of detail.
+    explanation: |
+      Hot and cold have middle levels, including warm. The statement leaves warm as a possible condition.
+
+  - id: q-vocabulary-synonyms-and-antonyms-0027
+    lesson: lesson-vocabulary-prefix-clues-in-context
+    keyPoint: 1
+    type: synonym
+    difficulty: exam
+    stem: |
+      The selection was **unfair** because a favored applicant received extra help. Using the prefix and context, which phrase best gives the meaning of the word in bold?
+    choices:
+      - text: "not fair"
+        correct: true
+      - text: "not finished"
+        rationale: |
+          This applies a negative meaning to the wrong base. Extra help shows unequal treatment, not unfinished work. Check fair in context.
+      - text: "not clear"
+        rationale: |
+          This confuses unequal treatment with unclear instructions. Check what the extra help reveals about fairness.
+      - text: "not needed"
+        rationale: |
+          This confuses a biased process with an unnecessary one. Check the base fair and the favored applicant.
+    explanation: |
+      The prefix un- means not here. Fair is the base. Extra help for a favored applicant confirms the meaning not fair.
+
+  - id: q-vocabulary-synonyms-and-antonyms-0028
+    lesson: lesson-vocabulary-prefix-clues-in-context
+    keyPoint: 1
+    type: synonym
+    difficulty: exam
+    stem: |
+      A reader claims that **uncle** must mean "not cle" because **unfair** means "not fair." Which statement correctly evaluates this claim?
+    choices:
+      - text: "Uncle has no base cle."
+        correct: true
+      - text: "Every initial un means not."
+        rationale: |
+          This extends the prefix rule to every matching beginning. Unfair can be split meaningfully. Check whether the other word has a real base.
+      - text: "Matching letters prove a prefix."
+        rationale: |
+          This treats the look of the letters as proof. A familiar beginning can be part of a whole word. Check the base and meaning.
+      - text: "Context never matters for prefixes."
+        rationale: |
+          This ignores the check that makes a prefix clue useful. The clue must fit the whole word in its sentence.
+    explanation: |
+      Uncle cannot be explained as un- plus a base cle. A prefix clue works only when it is a real word part with a meaning that fits.
+
+  - id: q-vocabulary-synonyms-and-antonyms-0029
+    lesson: lesson-vocabulary-similar-and-opposite-meanings
+    keyPoint: 3
+    type: synonym
+    difficulty: exam
+    stem: |
+      An editor must replace the unnatural word pairing in "The road closed during **strong rain**." Which replacement for the words in bold uses the standard pairing without changing the intended weather condition?
+    choices:
+      - text: "heavy rain"
+        correct: true
+      - text: "powerful rain"
+        rationale: |
+          This treats a word with a similar idea of strength as freely interchangeable. Check which adjective commonly pairs with rain.
+      - text: "muscular rain"
+        rationale: |
+          This uses physical strength to describe rain. Check the established word pairing instead of the general idea of force.
+      - text: "strong rainfall"
+        rationale: |
+          This keeps strong while changing the noun. Check the natural pairing taught for rain.
+    explanation: |
+      Heavy rain is the common English word pairing for rain falling with great force or in a large amount. It fits the road closure.

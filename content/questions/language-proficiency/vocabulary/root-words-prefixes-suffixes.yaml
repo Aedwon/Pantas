@@ -464,3 +464,113 @@ questions:
       The base "sulat" remains whole, and -an is added at its end to form "sulatan." The added ending is a suffix.
     approved: false
 
+
+  - id: q-vocabulary-root-words-prefixes-suffixes-0021
+    lesson: lesson-vocabulary-roots-bases-and-valid-splits
+    keyPoint: 1
+    type: word-part-meaning
+    difficulty: exam
+    stem: |
+      In forming **helpfulness** by adding **-ness** to **helpful**, which form is the stem to which the final suffix is attached?
+    choices:
+      - text: "helpful"
+        correct: true
+      - text: "helpfulness"
+        rationale: |
+          This selects the finished word. It contains the suffix already. Check the form present before -ness was added.
+      - text: "-ness"
+        rationale: |
+          This selects the suffix itself. It changes the word, but it is added to the stem. Check what receives it.
+      - text: "-ful"
+        rationale: |
+          This selects an earlier suffix. It helps form helpful, but check the whole form that receives -ness.
+    explanation: |
+      A stem is the form to which the next affix is added. Helpful receives -ness to form helpfulness, so helpful is the stem at this step.
+
+  - id: q-vocabulary-root-words-prefixes-suffixes-0022
+    lesson: lesson-vocabulary-suffixes-and-word-jobs
+    keyPoint: 1
+    type: word-part-meaning
+    difficulty: exam
+    stem: |
+      In "The officer read the instructions **quietly** before speaking," what does the word in bold tell the reader?
+    choices:
+      - text: "How the officer read"
+        correct: true
+      - text: "Which officer was present"
+        rationale: |
+          This assigns the word to the person. The officer performs the action, but check what quietly describes.
+      - text: "What the instructions contained"
+        rationale: |
+          This treats the word as information inside the instructions. Check whether it describes their content or the reading.
+      - text: "When the officer arrived"
+        rationale: |
+          This confuses manner with time. The sentence has a time link, but check what quietly itself tells you.
+    explanation: |
+      Quietly tells how the officer read. The ending -ly forms an adverb here, and the word describes the action read.
+
+  - id: q-vocabulary-root-words-prefixes-suffixes-0023
+    lesson: lesson-vocabulary-suffixes-and-word-jobs
+    keyPoint: 2
+    type: word-part-meaning
+    difficulty: exam
+    stem: |
+      In "The applicant thanked the **friendly** receptionist," which classification of the word in bold is correct?
+    choices:
+      - text: "Adjective"
+        correct: true
+      - text: "Adverb of manner"
+        rationale: |
+          This relies only on the ending -ly. That ending often forms an adverb, but check that friendly describes the receptionist.
+      - text: "Noun naming an action"
+        rationale: |
+          This treats a quality as an action name. Check whether friendly names something or describes a person.
+      - text: "Verb expressing thanks"
+        rationale: |
+          This confuses the description with the act of thanking. Check which word expresses that action.
+    explanation: |
+      Friendly describes the receptionist. A word that describes a noun is an adjective, even when it ends in -ly.
+
+  - id: q-vocabulary-root-words-prefixes-suffixes-0024
+    lesson: lesson-vocabulary-suffixes-for-qualities-and-absence
+    keyPoint: 1
+    type: word-part-meaning
+    difficulty: exam
+    stem: |
+      The report contrasts a **helpful** assistant with a **careless** assistant. What meanings do the suffixes add to the words in bold, respectively?
+    choices:
+      - text: "having; lacking"
+        correct: true
+      - text: "without; full of"
+        rationale: |
+          This reverses the endings. Both describe qualities, but check which ending means without.
+      - text: "not; again"
+        rationale: |
+          This substitutes prefix meanings for suffix meanings. Check -ful and -less rather than the beginnings of the words.
+      - text: "before; after"
+        rationale: |
+          This treats the endings as time clues. Check whether the report describes time or personal qualities.
+    explanation: |
+      The suffix -ful means having or full of. The suffix -less means without. Helpful describes giving help, and careless describes not taking enough care.
+
+  - id: q-vocabulary-root-words-prefixes-suffixes-0025
+    lesson: lesson-vocabulary-suffixes-for-qualities-and-absence
+    keyPoint: 2
+    type: word-part-meaning
+    difficulty: exam
+    stem: |
+      In "The residents praised her **kindness** during the evacuation," what does the suffix in the word in bold do?
+    choices:
+      - text: "Names a quality"
+        correct: true
+      - text: "Describes a kind person"
+        rationale: |
+          This keeps the job of kind instead of the new job of kindness. Check what -ness adds to the base.
+      - text: "Tells how she acted"
+        rationale: |
+          This mistakes the noun for an adverb. Actions are involved, but check whether the word names the quality being praised.
+      - text: "Means being without care"
+        rationale: |
+          This confuses -ness with -less. The endings look similar. Check which one means without.
+    explanation: |
+      The suffix -ness forms a noun naming a state or quality. Kindness names the quality of being kind.

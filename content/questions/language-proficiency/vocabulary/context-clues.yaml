@@ -484,3 +484,25 @@ questions:
       The store changes how it sells goods and continues operating. "Resilience" is the ability to adapt and recover after a setback.
     approved: false
 
+
+  - id: q-vocabulary-context-clues-0021
+    lesson: lesson-vocabulary-word-partners-feeling-and-grammar
+    keyPoint: 2
+    type: word-in-context
+    difficulty: exam
+    stem: |
+      An official letter states, "Please **furnish** proof of residence so that we can complete the file." Which replacement for the word in bold preserves the meaning and grammar?
+    choices:
+      - text: "provide"
+        correct: true
+      - text: "decoration"
+        rationale: |
+          This uses the room-decorating sense and changes the word to a noun. Check what the office needs and the action after please.
+      - text: "withhold"
+        rationale: |
+          This reverses the requested action. Holding back proof would not let the office complete the file. Check the purpose given.
+      - text: "furniture"
+        rationale: |
+          This follows the familiar furniture meaning. Proof of residence is a document. Check the partner word and the verb needed.
+    explanation: |
+      Furnish means provide here. The office needs proof of residence to complete the file. Provide fits the formal request and keeps the verb form.
