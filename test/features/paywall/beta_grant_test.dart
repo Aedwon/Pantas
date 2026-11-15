@@ -28,7 +28,11 @@ void main() {
   });
   test('cached beta has no offline grace; ordinary passes keep their grace',
       () async {
-    final end = DateTime.parse('2026-11-16T00:00:00+08:00');
+    // Relative to now: the snapshot store reads the real clock, so a fixed
+    // end (it was midnight Nov 16 in Manila) failed once that time passed.
+    final end = DateTime.fromMillisecondsSinceEpoch(
+      DateTime.now().add(const Duration(days: 1)).millisecondsSinceEpoch,
+    );
     final held = entitlementFromGrants(
       [
         <String, dynamic>{
