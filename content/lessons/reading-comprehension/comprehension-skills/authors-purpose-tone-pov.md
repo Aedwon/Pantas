@@ -6,6 +6,15 @@ subject: "subject-reading-comprehension"
 topic: "topic-comprehension-skills"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-comprehension-skills-authors-main-purpose
+  - lesson-comprehension-skills-authors-tone
+  - lesson-comprehension-skills-first-and-second-person
+  - lesson-comprehension-skills-third-person-thoughts
+  - lesson-comprehension-skills-argument-viewpoint-and-bias
+  - lesson-comprehension-skills-paragraph-links-and-patterns
+  - lesson-comprehension-skills-sentence-cues-and-meaning
 ---
 ## Core Concept
 

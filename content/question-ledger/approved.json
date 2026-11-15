@@ -863,6 +863,540 @@
     "hash": "c0d5892921e691a886c8fc94c544831ad299fda427243ce61dd4d650b608584d",
     "lesson": "lesson-code-of-conduct-ra-6713-saln-review-and-written-opinions"
   },
+  "q-comprehension-skills-authors-purpose-tone-pov-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "63e5aea999bcdbf208bb102952e3bfc895ab1065925d8adeec742bfb2bcce5a6",
+    "lesson": "lesson-comprehension-skills-third-person-thoughts"
+  },
+  "q-comprehension-skills-authors-purpose-tone-pov-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "f106c26af7b98b04526fe88c974ded044d22b253abc23c2bae5f302f6b30048c",
+    "lesson": "lesson-comprehension-skills-authors-tone"
+  },
+  "q-comprehension-skills-authors-purpose-tone-pov-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "1b082f5d465d6f1847c80948c9ff12f6df1207e000d340f1fc137cabbbec7359",
+    "lesson": "lesson-comprehension-skills-third-person-thoughts"
+  },
+  "q-comprehension-skills-authors-purpose-tone-pov-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "348a678b1b7c8b36dfd51589aaff69db04c8a516adba1c06bc15dad6080fffb7",
+    "lesson": "lesson-comprehension-skills-authors-main-purpose"
+  },
+  "q-comprehension-skills-authors-purpose-tone-pov-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "dd77633432824ae76121908072bdbee897e07b56b4f9ad30c77cbe5401536358",
+    "lesson": "lesson-comprehension-skills-third-person-thoughts"
+  },
+  "q-comprehension-skills-authors-purpose-tone-pov-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "08b457f16fa7ea2c68dc1a62b31ba22c914cc6568793691a120282935250adc0",
+    "lesson": "lesson-comprehension-skills-paragraph-links-and-patterns"
+  },
+  "q-comprehension-skills-authors-purpose-tone-pov-0022": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "1c9a7567caf6af6bbd8edeb8a7224392a73b326c5dd6d3ef11d57f57024ba7a9",
+    "lesson": "lesson-comprehension-skills-sentence-cues-and-meaning"
+  },
+  "q-comprehension-skills-authors-purpose-tone-pov-0023": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "33e49be39237f21441e6a8c2aa2d98431edbe30814942cbed2a5ce85abb80577",
+    "lesson": "lesson-comprehension-skills-sentence-cues-and-meaning"
+  },
+  "q-comprehension-skills-choosing-a-title-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "defc72d48c5bb479fdd048a728a608968c35301dc5108acb5c09f3eb67ec17d1",
+    "lesson": "lesson-comprehension-skills-title-main-idea"
+  },
+  "q-comprehension-skills-choosing-a-title-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "82cb622135bf03cd01bd2d7529bf6873865dc1e49709c90e97dbd34bebcbe930",
+    "lesson": "lesson-comprehension-skills-title-main-idea"
+  },
+  "q-comprehension-skills-choosing-a-title-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "c7e63a8ff4366c7a3d4f169265df746877181f0c27819fb5f6acd13ba4c786a0",
+    "lesson": "lesson-comprehension-skills-title-scope"
+  },
+  "q-comprehension-skills-choosing-a-title-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "2bef0f9132b5f9adae1806d3cb3652eb9c1e798f942284bc6af00c071b5158cc",
+    "lesson": "lesson-comprehension-skills-title-main-idea"
+  },
+  "q-comprehension-skills-choosing-a-title-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "e248dffb020071a2db406b91a68a2b9ae2357ebeaaa5094681a071ce6d64929b",
+    "lesson": "lesson-comprehension-skills-title-scope"
+  },
+  "q-comprehension-skills-choosing-a-title-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "d52fb3ea41e71b9785ad99a3bd0c569a48051a2b7dff0a027fc9e7005d5c82d8",
+    "lesson": "lesson-comprehension-skills-title-authors-stance"
+  },
+  "q-comprehension-skills-choosing-a-title-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "9b398a82d67c9ecb52778d462b388d806d81bd3efa8cb1559dafb90ba6ecaadd",
+    "lesson": "lesson-comprehension-skills-title-authors-stance"
+  },
+  "q-comprehension-skills-choosing-a-title-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "1711b202755358b251a70fd922ef904b9db076afb247421795d4a44749c1823f",
+    "lesson": "lesson-comprehension-skills-title-authors-stance"
+  },
+  "q-comprehension-skills-choosing-a-title-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "dd4ec1b195b86e4ea5cc7d854f0d228048dc71733a9c2fe03da6bf90fec2197e",
+    "lesson": "lesson-comprehension-skills-title-authors-stance"
+  },
+  "q-comprehension-skills-choosing-a-title-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "22f7b0964c8ac8ac7a507f9d3053dfc5a1f40101ab2dbf7c9fbd36dc75431bbf",
+    "lesson": "lesson-comprehension-skills-title-authors-stance"
+  },
+  "q-comprehension-skills-context-clues-in-passages-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "737d5c9651fcb97b94fe2c12cbb3363db3610c1642045d05e65c609a2ed3582d",
+    "lesson": "lesson-comprehension-skills-definition-and-example-clues"
+  },
+  "q-comprehension-skills-context-clues-in-passages-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "1a65a6412066ef1bbe3469f9f1110b1acbd97c49b5cd693be4496030d934b3ee",
+    "lesson": "lesson-comprehension-skills-definition-and-example-clues"
+  },
+  "q-comprehension-skills-context-clues-in-passages-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "cfc496244e2c5b1c7198787879a16970da7d08f4adca82c5e7cac49d94657cec",
+    "lesson": "lesson-comprehension-skills-definition-and-example-clues"
+  },
+  "q-comprehension-skills-context-clues-in-passages-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "77c342a34fec63d57f9d88e9ef6e37fbc0fa3c04ee8641502dee35b91e51b080",
+    "lesson": "lesson-comprehension-skills-definition-and-example-clues"
+  },
+  "q-comprehension-skills-context-clues-in-passages-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "970aa467aeb292399d5ebfacd4756ded826cfbb4b290d609a2be2c786e134f65",
+    "lesson": "lesson-comprehension-skills-definition-and-example-clues"
+  },
+  "q-comprehension-skills-context-clues-in-passages-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "a52eb188078bd42ce05b04dc8c1eeacdc1a41e87600be5a65455f1bd85e620a3",
+    "lesson": "lesson-comprehension-skills-definition-and-example-clues"
+  },
+  "q-comprehension-skills-context-clues-in-passages-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "63b41adf966d0d1dfff88bf1feb607ed5dcaeb4f8c39d3ea30c58fb89159e128",
+    "lesson": "lesson-comprehension-skills-definition-and-example-clues"
+  },
+  "q-comprehension-skills-context-clues-in-passages-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "bd5f8820d77010be3e2146767bdd3800dafe3a4ecdd2742bf6ea857487847ab4",
+    "lesson": "lesson-comprehension-skills-definition-and-example-clues"
+  },
+  "q-comprehension-skills-context-clues-in-passages-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "f5a0fa04013d47c9d4f4a8811bf5d9aa8c15067a3722ed9d19fc64902702cd7f",
+    "lesson": "lesson-comprehension-skills-definition-and-example-clues"
+  },
+  "q-comprehension-skills-context-clues-in-passages-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "c5c5a3d0f6f91fb0be96f01db524b51939bb350b0b7b0eb1f2ad8d1f0a178b80",
+    "lesson": "lesson-comprehension-skills-definition-and-example-clues"
+  },
+  "q-comprehension-skills-context-clues-in-passages-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "fd51751342fcd76d3c605122ad599d1d1e31b92c0c0ddb41269d87a19d001b8f",
+    "lesson": "lesson-comprehension-skills-contrast-and-cause-clues"
+  },
+  "q-comprehension-skills-context-clues-in-passages-0022": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "786fcf7ff0e24fee4afba37a8a78c04354321de2f9162b7a6a1608cbb881e535",
+    "lesson": "lesson-comprehension-skills-word-parts-in-passages"
+  },
+  "q-comprehension-skills-context-clues-in-passages-0023": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "9b37357e3c5a1a568505da14cf8a136cde34c80c2494586571032fccc9d908ba",
+    "lesson": "lesson-comprehension-skills-word-parts-in-passages"
+  },
+  "q-comprehension-skills-context-clues-in-passages-0024": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "6ffcdde224da65006e72b0075a002891a2c3e4596bec4ab63609fec36f6f5f3f",
+    "lesson": "lesson-comprehension-skills-filipino-meaning-clues"
+  },
+  "q-comprehension-skills-context-clues-in-passages-0025": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "2987f99a9c8c73df0742e9d815e429750fa823663bb57d2b9b3c30ff25ed70f4",
+    "lesson": "lesson-comprehension-skills-filipino-meaning-clues"
+  },
+  "q-comprehension-skills-context-clues-in-passages-0026": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "c2e65c8e07f34683f28dff85d181a5218eb65872880d0a225a27b7d0bdfeb9b9",
+    "lesson": "lesson-comprehension-skills-filipino-possibility-and-time"
+  },
+  "q-comprehension-skills-context-clues-in-passages-0027": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "3f939510c42a81831ba2b0fa3a21ff5d761e6b3f3848ce8f49a97c91ef815715",
+    "lesson": "lesson-comprehension-skills-filipino-possibility-and-time"
+  },
+  "q-comprehension-skills-context-clues-in-passages-0028": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "6441ca9407de06dc89e42e1869a6461f8ad6620f5d969c82a208995fb0e07559",
+    "lesson": "lesson-comprehension-skills-filipino-pronouns-modifiers-spelling"
+  },
+  "q-comprehension-skills-context-clues-in-passages-0029": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "e84c6f6cef9b5b4ff663cd5803d269f189065c72834a32d46e2128a736bc03ce",
+    "lesson": "lesson-comprehension-skills-filipino-pronouns-modifiers-spelling"
+  },
+  "q-comprehension-skills-context-clues-in-passages-0030": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "7860225d71cce4fdb80bf043d51f335b3a3424a91932e457f36793f5523763ef",
+    "lesson": "lesson-comprehension-skills-filipino-sentence-types"
+  },
+  "q-comprehension-skills-context-clues-in-passages-0031": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "11587587365f4f4f99f5cbae04d3f1dcfa6eeaa58770a74787ef45cc416474c6",
+    "lesson": "lesson-comprehension-skills-filipino-sentence-types"
+  },
+  "q-comprehension-skills-fact-vs-opinion-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "18cf7e8105eeffe217aea19fbbe845533a7b5283bd3b6a4def20389ed504d430",
+    "lesson": "lesson-comprehension-skills-checkable-claims-and-judgments"
+  },
+  "q-comprehension-skills-fact-vs-opinion-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "9b7725bf454d480b5d1ad4fe9f63b92546ffa61fd982790d67bef802933e0602",
+    "lesson": "lesson-comprehension-skills-projections-and-forecasts"
+  },
+  "q-comprehension-skills-fact-vs-opinion-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "8822333e8b0a0689887284bc6a87fd63cb85ceec5f982b9c9994ec9ff8a3735a",
+    "lesson": "lesson-comprehension-skills-projections-and-forecasts"
+  },
+  "q-comprehension-skills-fact-vs-opinion-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "6420545a86691af9f15a9a6b1ab22ea8d6041eec2708a29940b6c4913b313248",
+    "lesson": "lesson-comprehension-skills-claim-type-and-evidence"
+  },
+  "q-comprehension-skills-fact-vs-opinion-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "3ffdfe8469053658004514c4b186bf39353b87ff1d433f2a24bc93d5421354c5",
+    "lesson": "lesson-comprehension-skills-projections-and-forecasts"
+  },
+  "q-comprehension-skills-fact-vs-opinion-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "ba8c6aaf461194e95357e50a1b7b83d84a1a07ef279093b78695b3b2d41b22f9",
+    "lesson": "lesson-comprehension-skills-claim-type-and-evidence"
+  },
+  "q-comprehension-skills-fact-vs-opinion-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "8a9278fa1612653300dc867d16a72f931d90822c8c3f726538992c9515be5f63",
+    "lesson": "lesson-comprehension-skills-claim-type-and-evidence"
+  },
+  "q-comprehension-skills-fact-vs-opinion-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "4c9d4f1c380732d64ad2922b5315935c1704b8f1b077e3144eedcc45991a05a1",
+    "lesson": "lesson-comprehension-skills-checkable-claims-and-judgments"
+  },
+  "q-comprehension-skills-fact-vs-opinion-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "476e604524b712cc585c0bfc432190ea98581ea0f738d37ea0aead01fee997e8",
+    "lesson": "lesson-comprehension-skills-checkable-claims-and-judgments"
+  },
+  "q-comprehension-skills-fact-vs-opinion-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "52c3be6a770b973cef6f513d83400c407194eae0c58263266f1f6265fb52e1ff",
+    "lesson": "lesson-comprehension-skills-claim-type-and-evidence"
+  },
+  "q-comprehension-skills-inferencing-and-conclusions-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "546e2c42d34b8c0a97114405b8a012ea1ec2f75c8a1a9154f0083669229bc767",
+    "lesson": "lesson-comprehension-skills-connecting-clues"
+  },
+  "q-comprehension-skills-inferencing-and-conclusions-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "0efb3d430b6b499cd51c9788792b1e730a2d6be41f37c151dfbb44c4a12df406",
+    "lesson": "lesson-comprehension-skills-evidence-and-claim-strength"
+  },
+  "q-comprehension-skills-inferencing-and-conclusions-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "1105a3ef1c2ab6d5dbef6b57bddded3a9a37e4a6ac66b60c6d9838b9f86fa74b",
+    "lesson": "lesson-comprehension-skills-connecting-clues"
+  },
+  "q-comprehension-skills-inferencing-and-conclusions-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "e05776e2f9f384ce920979d63141ccf40ce08a8aef35821d2eed79eba0ca804a",
+    "lesson": "lesson-comprehension-skills-connecting-clues"
+  },
+  "q-comprehension-skills-inferencing-and-conclusions-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "7fa559f7ce47b85b70f48e519b9abb70341c6565a6fcebf55d5a733b353829a1",
+    "lesson": "lesson-comprehension-skills-evidence-and-claim-strength"
+  },
+  "q-comprehension-skills-inferencing-and-conclusions-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "02ff404241987f6cd6a4be818cef6e09cc4a43648c423205c8236d100b7ccb4c",
+    "lesson": "lesson-comprehension-skills-necessary-assumptions"
+  },
+  "q-comprehension-skills-inferencing-and-conclusions-0022": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "3935f7fc79bc93b716d9928313101b3caa099868999fef5fec376c582556e6bc",
+    "lesson": "lesson-comprehension-skills-necessary-assumptions"
+  },
+  "q-comprehension-skills-inferencing-and-conclusions-0023": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "5ddb331269ab5ec00dc4fadae03c5db7a45495bc9d924107bd3dbfbe526804c9",
+    "lesson": "lesson-comprehension-skills-hinuha-mula-sa-detalye"
+  },
+  "q-comprehension-skills-inferencing-and-conclusions-0024": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "f3fb2294328ea0f9509f0da09a92b2292773ca07a57071f05aca33430cf46999",
+    "lesson": "lesson-comprehension-skills-hinuha-mula-sa-detalye"
+  },
+  "q-comprehension-skills-inferencing-and-conclusions-0025": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "017baae9b1f460124e06987811230774f9e5a60eb09b1b668ea3571b5e00b3cb",
+    "lesson": "lesson-comprehension-skills-paghatol-at-ebidensya"
+  },
+  "q-comprehension-skills-inferencing-and-conclusions-0026": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "6f673ce723207af8ba5090b23290f5a08675c4f8871e1fdec214a164b78ff2da",
+    "lesson": "lesson-comprehension-skills-paghatol-at-ebidensya"
+  },
+  "q-comprehension-skills-inferencing-and-conclusions-0027": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "2a929f28d608c382b6e089e8300866a954c09658f29df391350ec7feddb1fcfc",
+    "lesson": "lesson-comprehension-skills-visual-data-conclusions"
+  },
+  "q-comprehension-skills-inferencing-and-conclusions-0028": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "28557d321020b78867c007a254bc42ec4d20347af4f77c4dfdf3045e3b6bf6aa",
+    "lesson": "lesson-comprehension-skills-visual-data-conclusions"
+  },
+  "q-comprehension-skills-main-idea-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "08188311baf1376b3015434a6f3b6dbbd5dc84aad20251577addd9d69cd3b7df",
+    "lesson": "lesson-comprehension-skills-paksa-at-pangunahing-ideya"
+  },
+  "q-comprehension-skills-main-idea-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "2957244fa3d665582d805d30c222bc52a6e8b1ab15a8d2377b2634e60a464888",
+    "lesson": "lesson-comprehension-skills-paksa-at-pangunahing-ideya"
+  },
+  "q-comprehension-skills-main-idea-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "32a7a3bb1a83f8acf31f56770a400c7c715c5bfb25c3fbd64500ca1acb27a000",
+    "lesson": "lesson-comprehension-skills-main-point-and-topic-sentence"
+  },
+  "q-comprehension-skills-main-idea-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "28ff76d7d356470b7b85cd4147431732d0d15818e8cd73f57c55c522e1a988b1",
+    "lesson": "lesson-comprehension-skills-implied-main-point"
+  },
+  "q-comprehension-skills-main-idea-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "4b03279e886fa6ea062c82c1bd804159e1ac005007e48af409783250825be8a0",
+    "lesson": "lesson-comprehension-skills-main-idea-scope"
+  },
+  "q-comprehension-skills-main-idea-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "fb64e85cb00b225fe7b9b3717c5222074ecb5ea6692ca5870d81525e234c82d5",
+    "lesson": "lesson-comprehension-skills-balangkas-at-ugnayan"
+  },
+  "q-comprehension-skills-main-idea-0022": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "3d07ca2ca57c7a73c7501acc0af3642fc98ae776ff6f78e2d6d1066a4a8c272b",
+    "lesson": "lesson-comprehension-skills-balangkas-at-ugnayan"
+  },
+  "q-comprehension-skills-noting-specific-details-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "c1d3f2eb1a0a8392a562c4b13383089ec01accde1e4e6ca1a6ce2489a09f44b0",
+    "lesson": "lesson-comprehension-skills-old-and-current-details"
+  },
+  "q-comprehension-skills-noting-specific-details-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "adae259294b446f993a450379311ad8a023ecd383d99d95bc815df20d211fffe",
+    "lesson": "lesson-comprehension-skills-scanning-exact-details"
+  },
+  "q-comprehension-skills-noting-specific-details-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "1ef4b338bf73f0eb864abd399a34f4eb3e92746a2f6981c794ef75996056d51e",
+    "lesson": "lesson-comprehension-skills-scanning-exact-details"
+  },
+  "q-comprehension-skills-noting-specific-details-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "ed119bb7c7f857a448fad813e223b31fa1c56efd5388109f7a95cfa9ac76e4a3",
+    "lesson": "lesson-comprehension-skills-old-and-current-details"
+  },
+  "q-comprehension-skills-noting-specific-details-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "d6517019987226cb9c8a743b284fc53e8765dc1f064746f1c3a328d2be1fb81b",
+    "lesson": "lesson-comprehension-skills-scanning-exact-details"
+  },
+  "q-comprehension-skills-sequencing-of-events-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "381b48673d1e6adb52d002216cacf35ae78b04d601f633ab3d5216dad699d068",
+    "lesson": "lesson-comprehension-skills-event-time-words"
+  },
+  "q-comprehension-skills-sequencing-of-events-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "9de06668c4d3059b1bee43317a409aa3619cdcb2c4a82f1461f252c11e3eb4ce",
+    "lesson": "lesson-comprehension-skills-event-time-words"
+  },
+  "q-comprehension-skills-sequencing-of-events-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "9143e475eeb1e87c208d84d8fb6cd6d16ce6f35451cf14edde1f2b80f4777389",
+    "lesson": "lesson-comprehension-skills-event-time-words"
+  },
+  "q-comprehension-skills-sequencing-of-events-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "85277f45e9f6d4f7c6b74c5fe73e9dc269f2e231f0fac197b3d3e0381f950eed",
+    "lesson": "lesson-comprehension-skills-event-causes-and-overlap"
+  },
+  "q-comprehension-skills-sequencing-of-events-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "c1a7e19aee28d288aaa38d509d61c3f01be5745107820a3a987a5f6d45267d88",
+    "lesson": "lesson-comprehension-skills-event-time-words"
+  },
+  "q-comprehension-skills-sequencing-of-events-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "9b29bb31a1729106607324fc52b782ac0f26854d3e22cf212faa415e2af123a3",
+    "lesson": "lesson-comprehension-skills-event-time-words"
+  },
+  "q-comprehension-skills-sequencing-of-events-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "8284b1cef7cf200b263ef5f0e79dd77abe924e45c81191c1eb11a881d6b47c3e",
+    "lesson": "lesson-comprehension-skills-event-causes-and-overlap"
+  },
+  "q-comprehension-skills-sequencing-of-events-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "5ed9e0462c344791381a15390b9b5cb63b72a425e92aec39518c21e441b0697a",
+    "lesson": "lesson-comprehension-skills-event-time-words"
+  },
+  "q-comprehension-skills-sequencing-of-events-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "dc288d9123951a05c30d2b7f69f9e617c678705cd601c70444da1e0d92b9f191",
+    "lesson": "lesson-comprehension-skills-event-time-words"
+  },
+  "q-comprehension-skills-sequencing-of-events-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "a9b960d7f5c39ca30115312bddd12b693a73109d2a2f5aea3f397f293751c191",
+    "lesson": "lesson-comprehension-skills-event-verb-forms"
+  },
+  "q-comprehension-skills-sequencing-of-events-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "0a23057af6992f56fc358044190b56982e87470bf35a3fbd9f5297327b3a436d",
+    "lesson": "lesson-comprehension-skills-event-causes-and-overlap"
+  },
+  "q-comprehension-skills-sequencing-of-events-0022": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "639a9330cc96a48dfc8474ecc0b7d562dadaf2be1246f37e4a49b5d1e74b2fd2",
+    "lesson": "lesson-comprehension-skills-filipino-event-time"
+  },
+  "q-comprehension-skills-sequencing-of-events-0023": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "0995c5ec27a51b7d98fd2aa1c2ad7e2ff10a9f0d02188823eb1b0504b7ff8b0a",
+    "lesson": "lesson-comprehension-skills-filipino-event-time"
+  },
+  "q-comprehension-skills-sequencing-of-events-0024": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "bd24ad6cbbb7d87124d7fd3c793477f4333a40e2ba9a4f01b267250656afc3a6",
+    "lesson": "lesson-comprehension-skills-filipino-event-causes"
+  },
+  "q-comprehension-skills-sequencing-of-events-0025": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "c11ff1d32544928347990e8e81dff1aff7957dc827acaee9f6c3e05c466413e3",
+    "lesson": "lesson-comprehension-skills-filipino-event-causes"
+  },
   "q-data-interpretation-rates-ratios-and-percentages-in-context-0001": {
     "approvedAt": "2026-11-14",
     "evidence": "docs/content/verification/data-interpretation.md",
@@ -932,7 +1466,7 @@
   "q-data-interpretation-rates-ratios-and-percentages-in-context-0012": {
     "approvedAt": "2026-11-14",
     "evidence": "docs/content/verification/data-interpretation.md",
-    "hash": "0b7a91787ec61de262800ce4af776769e9ba0d9bd924722451533e5c22bf9ad0",
+    "hash": "5ff950b2d3a6028f5513fc44f730a422635c6161e49b09c1af6141f3387d194b",
     "lesson": "lesson-data-interpretation-percentages-and-ratios-of-groups"
   },
   "q-data-interpretation-rates-ratios-and-percentages-in-context-0013": {
@@ -3293,6 +3827,1002 @@
     "hash": "9a906ea1f7ca7b88267615a4c1a1ff818300595d24328aa505e9d8e7a27bbf0c",
     "lesson": "lesson-grammar-and-structure-present-perfect-links-to-now"
   },
+  "q-language-application-error-identification-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "e7c8578fcdf25d52c31abde41e6913098eb8762796932f76b445994a477bf54f",
+    "lesson": "lesson-language-application-subject-and-verb-checks"
+  },
+  "q-language-application-error-identification-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "4f29815728afe88a203191442a9cba72716cc3737042a3564abe33db72bff1e2",
+    "lesson": "lesson-language-application-modifiers-and-matching-forms"
+  },
+  "q-language-application-error-identification-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "07ad21a254c9c548099fd647c1398c9faf483183f2533d99d5ac8bb9a94ea5da",
+    "lesson": "lesson-language-application-modifiers-and-matching-forms"
+  },
+  "q-language-application-error-identification-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "4c18e7cc0c5df8769269c52b05a7ccb8c3b59fe0b2b2a0552b76e170e2c5fa75",
+    "lesson": "lesson-language-application-modifiers-and-matching-forms"
+  },
+  "q-language-application-error-identification-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "54c2d0566c34c41fa95b8ad9ec4c0970f17d5f8b3dbd3eca91f065c915151acb",
+    "lesson": "lesson-language-application-modifiers-and-matching-forms"
+  },
+  "q-language-application-error-identification-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "c0ec15503386f2e95bd7497d8a515cc604ce23e72eec9d6bd6722d7ff2557f37",
+    "lesson": "lesson-language-application-pronoun-reference-checks"
+  },
+  "q-language-application-error-identification-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "86f673bc0e81a5900b0c85e51934a0855d240d68eb030b8a34a75189fc030d8a",
+    "lesson": "lesson-language-application-pronoun-reference-checks"
+  },
+  "q-language-application-error-identification-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "e9dd56cf27d1632a749bde64a1d452fcec80fa9c669b038c4b6388a8f37f781e",
+    "lesson": "lesson-language-application-past-time-checks"
+  },
+  "q-language-application-error-identification-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "feaa6e08c8daff55f1b5698ba8f3e5c330d36f8eb21eac4450b271331cf7372a",
+    "lesson": "lesson-language-application-clause-punctuation-checks"
+  },
+  "q-language-application-error-identification-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "c03c172901d6b6f4648385180ace900ffd733e9f278b0f9814d73eab95462b1e",
+    "lesson": "lesson-language-application-subject-and-verb-checks"
+  },
+  "q-language-application-error-identification-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "0614f4caedeab886a7eb39f7b0d319a0aedad6c033f3ee1d4f7163727ea7f064",
+    "lesson": "lesson-language-application-modifiers-and-matching-forms"
+  },
+  "q-language-application-error-identification-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "009876decf3ed5b4a9335edc398b3e858552b8aefe595565ba7c53aece540588",
+    "lesson": "lesson-language-application-modifiers-and-matching-forms"
+  },
+  "q-language-application-error-identification-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "7b81d250f95bb83cfcec8c8edcd24f09a3564885d4e6dd49ee6bae188848efd0",
+    "lesson": "lesson-language-application-pronoun-reference-checks"
+  },
+  "q-language-application-error-identification-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "e285e6aa27c0a36a3126acf363b031d77a683305af9c77f9c464d415b0caf9fe",
+    "lesson": "lesson-language-application-past-time-checks"
+  },
+  "q-language-application-error-identification-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "a16023d08f2fafb0b8a9af26536b74bb78c64fbe48ee9db795ffca1dbab2fabd",
+    "lesson": "lesson-language-application-pronoun-reference-checks"
+  },
+  "q-language-application-error-identification-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "9286ef05fc66be40900d1c1021ad816abe610c11b0f4011b90af881348aeafbd",
+    "lesson": "lesson-language-application-subject-and-verb-checks"
+  },
+  "q-language-application-error-identification-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "62ede6d9921ed23bce13a9781eb2a6480b719ef657416eda8db87273c589f18c",
+    "lesson": "lesson-language-application-modifiers-and-matching-forms"
+  },
+  "q-language-application-error-identification-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "c37c2a00945688b798f204889adf6c5de51b741877251af37c54f769622a927b",
+    "lesson": "lesson-language-application-modifiers-and-matching-forms"
+  },
+  "q-language-application-error-identification-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "ec8dd53eaa7dcff06bf4a6a53015c9eb5388f821e56f496e7ce18ba2d101d206",
+    "lesson": "lesson-language-application-past-time-checks"
+  },
+  "q-language-application-error-identification-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "4c7b0e05967f23014d05cd515fe86e3473a4ec19b3ca94e1b7aa372226f6fdeb",
+    "lesson": "lesson-language-application-clause-punctuation-checks"
+  },
+  "q-language-application-error-identification-0021": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "b957d70baf480bfed7c2801dd1571ea2aadae888bdd9084235c439b8626d026d",
+    "lesson": "lesson-language-application-modal-meaning-checks"
+  },
+  "q-language-application-error-identification-0022": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "c224b807f29bee0adf1ef7d6d88b04d43589d917d3a2624561257c73c1e95834",
+    "lesson": "lesson-language-application-modal-meaning-checks"
+  },
+  "q-language-application-error-identification-0023": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "815a3be5a0583b2e82ea1023cbf2bdd81360584203b81e942616b7aa04b026ac",
+    "lesson": "lesson-language-application-phrases-and-sentence-types"
+  },
+  "q-language-application-error-identification-0024": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "b9a39df74f1605ba149380035a683448023ad93d6301892937fdbaa32686d9ef",
+    "lesson": "lesson-language-application-phrases-and-sentence-types"
+  },
+  "q-language-application-error-identification-0025": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "fd0361ad2afb9295be9a71b353b8d6bba42eccc6298fd24f697e953d21906708",
+    "lesson": "lesson-language-application-kayarian-at-sugnay"
+  },
+  "q-language-application-error-identification-0026": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "51c649a7c161cf7eefb714f4d97acd79eb42a8f78a37d3749be5e095b965576a",
+    "lesson": "lesson-language-application-kayarian-at-sugnay"
+  },
+  "q-language-application-error-identification-0027": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "60ab3f92c1c3b7c1aa273e3d40e25737351dbf216f1ab5431a6ead3ab0725626",
+    "lesson": "lesson-language-application-wastong-gamit-at-panahon"
+  },
+  "q-language-application-error-identification-0028": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "1a615758f349c09e240f17b5a183e3b9d36109c0e3aa77b2494e31c9068c8d1e",
+    "lesson": "lesson-language-application-wastong-gamit-at-panahon"
+  },
+  "q-language-application-error-identification-0029": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "14db8c97cd6212dcc6304ebda0db4c020eae4562a91bd70e65506cbc0a996227",
+    "lesson": "lesson-language-application-word-meaning-checks"
+  },
+  "q-language-application-error-identification-0030": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "2ff370a58dd8663239588cfa797d6ffaa2a5105203158e6c67759922b1697d55",
+    "lesson": "lesson-language-application-word-meaning-checks"
+  },
+  "q-language-application-paragraph-organization-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "e41c788f9bd93ef57405a554e4bcd32452d92c8ca121b443594c1c3eaee5f8bd",
+    "lesson": "lesson-language-application-openings-and-reference-links"
+  },
+  "q-language-application-paragraph-organization-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "98243bf0d54aba87f564e20fa7830aee58d5c7cc6c73f1361858d3a713c102f4",
+    "lesson": "lesson-language-application-time-and-step-order"
+  },
+  "q-language-application-paragraph-organization-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "12a77a631f722d0b6b019ce5de4f6b59892ec8d5ba0c41e128dc993ceae4376f",
+    "lesson": "lesson-language-application-transition-links"
+  },
+  "q-language-application-paragraph-organization-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "661827dd03b446fc832439d623d42ccb44940e25275fe5dcb6e013a7fe08a814",
+    "lesson": "lesson-language-application-openings-and-reference-links"
+  },
+  "q-language-application-paragraph-organization-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "1608522d8f7419e8b35cada45991774fd20790da84d7fd65a9cb3ec5f81d41a5",
+    "lesson": "lesson-language-application-openings-and-reference-links"
+  },
+  "q-language-application-paragraph-organization-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "583c0be24f6a02afceabf2d73348807d5e7e81a830f14999850afb93e63c541f",
+    "lesson": "lesson-language-application-cause-and-effect-order"
+  },
+  "q-language-application-paragraph-organization-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "6209f7ee8e78d24d60d3090dd9454a414d82626457ac27f48de0def75546aadc",
+    "lesson": "lesson-language-application-transition-links"
+  },
+  "q-language-application-paragraph-organization-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "e3c94e7d36fc4a95dd0e5c40a74d295e8721c7425a98ef41bc9a357066e2937b",
+    "lesson": "lesson-language-application-time-and-step-order"
+  },
+  "q-language-application-paragraph-organization-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "682e5dc98d3246452d9fe58c677df31d9efa593e61af6b45c7f74ac387ee5d42",
+    "lesson": "lesson-language-application-time-and-step-order"
+  },
+  "q-language-application-paragraph-organization-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "711fc52d924777eba2fa6bf1796c99dd13deac68245670ec07aecefd2ffad60f",
+    "lesson": "lesson-language-application-openings-and-reference-links"
+  },
+  "q-language-application-paragraph-organization-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "74c169b76493dbbadec1c9be66e680cd1e41e7f3c984c77964a11e333c25672c",
+    "lesson": "lesson-language-application-cause-and-effect-order"
+  },
+  "q-language-application-paragraph-organization-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "ddc24e4b109b1fec49ead83cc9522b0625e5358cf78427c91efe5d1526f0051e",
+    "lesson": "lesson-language-application-openings-and-reference-links"
+  },
+  "q-language-application-paragraph-organization-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "7db37a2a146f6d8b42aac9b05dd611d3a9065b1b3eef602b0575decccc0953f2",
+    "lesson": "lesson-language-application-cause-and-effect-order"
+  },
+  "q-language-application-paragraph-organization-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "2dae58d5666d4a6b27fe525c714a8c8140ba19158aff2ccd56db6e8fede9088f",
+    "lesson": "lesson-language-application-time-and-step-order"
+  },
+  "q-language-application-paragraph-organization-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "80e076eae357b03ff4f7ebaf86e6415b949e6aad401d91986c635bd9e93cd451",
+    "lesson": "lesson-language-application-cause-and-effect-order"
+  },
+  "q-language-application-paragraph-organization-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "5d586f3ea578269b568492ea83a6dfec9d81ff4ab14ddcfcdcee6922b1d095be",
+    "lesson": "lesson-language-application-time-and-step-order"
+  },
+  "q-language-application-paragraph-organization-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "413fc4f9c30924204e356d2398cdcf57dd5b4d6c62c4d44e2cc8a4a204360aaa",
+    "lesson": "lesson-language-application-pagkakasunod-at-sanhi"
+  },
+  "q-language-application-paragraph-organization-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "cf6fba94b51d6c576565d990b255d776b692dc3b5f56149fac01205ba1dc7c88",
+    "lesson": "lesson-language-application-cause-and-effect-order"
+  },
+  "q-language-application-paragraph-organization-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "0dc9614461f2d512e3a01148919eef10b4c81a44f652e888cd2c405bd3292691",
+    "lesson": "lesson-language-application-transition-links"
+  },
+  "q-language-application-paragraph-organization-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "12546435da73a4617c44acb18a1247f8846e2b83450576e19f73c168cf5ce4a4",
+    "lesson": "lesson-language-application-openings-and-reference-links"
+  },
+  "q-language-application-paragraph-organization-0021": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "cfd69b074b9d754f2b6e91f8cbfc1c2ad84bd3e11dc29c71a1750c1fc57cd617",
+    "lesson": "lesson-language-application-main-ideas-and-details"
+  },
+  "q-language-application-paragraph-organization-0022": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "0ac18b75ca645bf0797b5fc3e3ea25c1d484d39f0d59bf9c5061e1ca18307fbc",
+    "lesson": "lesson-language-application-main-ideas-and-details"
+  },
+  "q-language-application-paragraph-organization-0023": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "f8446875811e9600f42257925b628c2ca171683e456cf0eaf60455f9d4d1f89c",
+    "lesson": "lesson-language-application-details-and-supported-inferences"
+  },
+  "q-language-application-paragraph-organization-0024": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "16f3b11deccd48c4b3525e304488726d4dcf5dfe6a9971daa58a90e93b0dfbec",
+    "lesson": "lesson-language-application-details-and-supported-inferences"
+  },
+  "q-language-application-paragraph-organization-0025": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "5a598a26c9ffe32cfbe03fe52126ad2f0b740a60aa38d3035fd0c1bbe0d61258",
+    "lesson": "lesson-language-application-pagkakasunod-at-sanhi"
+  },
+  "q-language-application-paragraph-organization-0026": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "970198d30b6ebbe860bcfb2a218a0ab48a66f50545646e5fb0a5dc37c5645751",
+    "lesson": "lesson-language-application-paksa-at-balangkas"
+  },
+  "q-language-application-paragraph-organization-0027": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "63bfbae6d6c140349b9af2000131d32a2df6357157d74a51c34a80082a7b7505",
+    "lesson": "lesson-language-application-paksa-at-balangkas"
+  },
+  "q-language-application-sentence-completion-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "0d9f46605adbc3f7decd184ce5ff329e7ab54f194a0c3d0fcb70212d13ea0018",
+    "lesson": "lesson-language-application-completion-meaning-clues"
+  },
+  "q-language-application-sentence-completion-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "5fc98977db5a9e53b11818b80996b5a2f9ae2148a4706a08d969e92cfd431a41",
+    "lesson": "lesson-language-application-completion-meaning-clues"
+  },
+  "q-language-application-sentence-completion-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "d6487495819e7c862c968c2780369f1efd93d26ddc701f754ac19ebae3f595f1",
+    "lesson": "lesson-language-application-completion-meaning-clues"
+  },
+  "q-language-application-sentence-completion-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "cdbf4c0546b57419af354e3339bb3536411d84f92015de90ce88652269092a67",
+    "lesson": "lesson-language-application-completion-meaning-clues"
+  },
+  "q-language-application-sentence-completion-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "49e0f2aa3a1c6c07ec3f927e76b3c9041b21b41dbf634f69811992d0f5bb78ff",
+    "lesson": "lesson-language-application-completion-meaning-clues"
+  },
+  "q-language-application-sentence-completion-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "dec8152a056193d32f1792ecb00ca8d9b3d052c264111d73e2192dd49f07400a",
+    "lesson": "lesson-language-application-completion-meaning-clues"
+  },
+  "q-language-application-sentence-completion-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "318ff69dfbe53b5f08e9e6129b6fd2f0ea071f9fbb9152bb4ad5328e828b79e2",
+    "lesson": "lesson-language-application-completion-meaning-clues"
+  },
+  "q-language-application-sentence-completion-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "802baab4d5d3ddde0ca0abb04adac94383abb72c5476fa0534cc72eb0c44c536",
+    "lesson": "lesson-language-application-completion-meaning-clues"
+  },
+  "q-language-application-sentence-completion-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "3bbeaaeeba5b1220335532ab042dece31971e7c052154db534c00cb27a67ec30",
+    "lesson": "lesson-language-application-completion-meaning-clues"
+  },
+  "q-language-application-sentence-completion-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "555cce6db9aa97ef9b5bc39f4401f3860df34f39128f5a7feda1ee71858a2ca8",
+    "lesson": "lesson-language-application-completion-word-forms"
+  },
+  "q-language-application-sentence-completion-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "1c4d5f65e10c117ff08187a53b64e7b1f1772477f66ff928347c1ae0604ce116",
+    "lesson": "lesson-language-application-completion-meaning-clues"
+  },
+  "q-language-application-sentence-completion-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "39030bd6ef9e7d3caa86080d83e553f919fc25ee8b900d7510264e66a21403ce",
+    "lesson": "lesson-language-application-completion-meaning-clues"
+  },
+  "q-language-application-sentence-completion-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "36f624f625df120748f3a0f5868809bf3eaa786f36824189a4cdea9962f1392d",
+    "lesson": "lesson-language-application-completion-meaning-clues"
+  },
+  "q-language-application-sentence-completion-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "ca68ab924dea6cc0c5881bf4d8745a92fb97ca6a965d69a5052bd8c015c8ec01",
+    "lesson": "lesson-language-application-completion-meaning-clues"
+  },
+  "q-language-application-sentence-completion-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "c280026261d658f0279a57c1e137650af1ee504c7a3e75bed37f3fe79db53495",
+    "lesson": "lesson-language-application-completion-meaning-clues"
+  },
+  "q-language-application-sentence-completion-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "cafeb56d58707321fdf5019a9efd1acecf19eaff58d9eff7c74430369d07758d",
+    "lesson": "lesson-language-application-completion-articles-and-lists"
+  },
+  "q-language-application-sentence-completion-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "dc63bdbfefa7d595f6672a473ad45a703fa99accaadc4e1dac2fbd5faf5c4edf",
+    "lesson": "lesson-language-application-completion-natural-phrases"
+  },
+  "q-language-application-sentence-completion-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "53b601e0cdf4a4fe38fc63fba5d94fd668adef7c931f19746f8710de46672232",
+    "lesson": "lesson-language-application-completion-past-time"
+  },
+  "q-language-application-sentence-completion-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "1777adebe49cb78b12226fd5338c629eedc2e02de14b61ed94260670b232815e",
+    "lesson": "lesson-language-application-completion-meaning-clues"
+  },
+  "q-language-application-sentence-completion-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "cc034ad7a2e4d01f15598b18cad83cd8f1c04c41ee78bf92319ea7a97ec2ad7f",
+    "lesson": "lesson-language-application-completion-meaning-clues"
+  },
+  "q-language-application-sentence-completion-0021": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "53df751d741b604d392aa20ce7323b8f0203193137a4ee398c2000c7cf348973",
+    "lesson": "lesson-language-application-completion-word-forms"
+  },
+  "q-language-application-sentence-completion-0022": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "5fe6529c957e1a02f4f0baa803d3df069835cdbf3a17ad4c3d9604f086d50646",
+    "lesson": "lesson-language-application-completion-word-forms"
+  },
+  "q-language-application-sentence-completion-0023": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "5e63cf3a49051b32476739c744416def339603c1d9b2fe85f87f46c10cb9f23a",
+    "lesson": "lesson-language-application-completion-articles-and-lists"
+  },
+  "q-language-application-sentence-completion-0024": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "85b605a770ce390a5d483b1f9810fc4d78953af17d1a78e8067656b9f96448b0",
+    "lesson": "lesson-language-application-completion-articles-and-lists"
+  },
+  "q-language-application-sentence-completion-0025": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "50899c985260aa9a661297d4cb439a9d325950f2bdf17f0bc0d338a8716b4bfe",
+    "lesson": "lesson-language-application-completion-natural-phrases"
+  },
+  "q-language-application-sentence-completion-0026": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "d9883819a902a431ff6e7ca83d3983480a8aa89bb546b4297ff4f5962afa20c0",
+    "lesson": "lesson-language-application-completion-past-time"
+  },
+  "q-language-application-sentence-completion-0027": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "2a50fbf4e1a54a8decaa562afbc5e4061d060642e0c0d09f18720aaa0067ea60",
+    "lesson": "lesson-language-application-pagkumpleto-ng-pangungusap"
+  },
+  "q-language-application-sentence-completion-0028": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "0d2890ef5480675b595cb3fda7df5cb3414fa72814ed94f18404c6a7b61b6850",
+    "lesson": "lesson-language-application-pagkumpleto-ng-pangungusap"
+  },
+  "q-language-application-sentence-completion-0029": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/language-application.md",
+    "hash": "039d3eca7330889a4e7897c3bcc7baa80eeba5b53a4f1d5e133e1f55674c2adb",
+    "lesson": "lesson-language-application-pagkumpleto-ng-pangungusap"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "93a056d366b372098b4350440de5217c553ea072c387dd4191b7d002ca5f8b4c",
+    "lesson": "lesson-peace-and-human-rights-commission-on-human-rights"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "df71d3395e219c5df7da0f7745d49d6704593b4d429bab9d8b96da076be94b81",
+    "lesson": "lesson-peace-and-human-rights-commission-on-human-rights"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "94d6239696a81dbd9427f917c23ef1c6a5cbcc58e298d2339fdf3006d35a0b42",
+    "lesson": "lesson-peace-and-human-rights-bill-of-rights-fairness-and-freedoms"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "5dad37630dd86c9c50916f83fa91067e39b52b9a4e489b92f1451f263488ef5b",
+    "lesson": "lesson-peace-and-human-rights-universal-rights-and-history"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "bdf90b0236fe09bbc73b61c76f7e8d4a2d38bb46e6d686ec54b05489cd11936b",
+    "lesson": "lesson-peace-and-human-rights-universal-rights-and-history"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "c67c486bd70b641ddd5bc5df92ecb925c57739a31beb60fff6112bf14aaf80e9",
+    "lesson": "lesson-peace-and-human-rights-commission-on-human-rights"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "e47a19a0efb21a30e7a171e33a1a196b85c97e716b7c55328f43387bc3d38362",
+    "lesson": "lesson-peace-and-human-rights-universal-rights-and-history"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "e02b5d689947fb91caccca7cc022b1a2a897149fa0e237673a085d2d8d99629b",
+    "lesson": "lesson-peace-and-human-rights-universal-rights-and-history"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "abc0159ccbac9329fe219a24fe7c75170b85abb4d80c27f33caa9a32bb926600",
+    "lesson": "lesson-peace-and-human-rights-universal-rights-and-history"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "b4a4cdd3c139dab6411654ec045d9d2dd3624691f771d73c60fe64d4ea3929c0",
+    "lesson": "lesson-peace-and-human-rights-commission-on-human-rights"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "d94ada8fe50ad256bcb10235dcb7d78577d1437b51040a60930aed15ff54bd0f",
+    "lesson": "lesson-peace-and-human-rights-commission-on-human-rights"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "36d438dc75982a9f2dd94ce0c7444430dba5410356b81de3ee6237272229dc7d",
+    "lesson": "lesson-peace-and-human-rights-universal-rights-and-history"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "d384d200b264e85427e1c32ed28d230d7de9da5e8b7d45fc41a15c53d384d461",
+    "lesson": "lesson-peace-and-human-rights-bill-of-rights-fairness-and-freedoms"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "41f8f54800bcc3bc5ece23d6209b256023d5053cd4a60447807eba57f85fc4d4",
+    "lesson": "lesson-peace-and-human-rights-commission-on-human-rights"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "2b426d2544987b99bddea14568da569259727d957c6b142c66611e39d073959b",
+    "lesson": "lesson-peace-and-human-rights-universal-rights-and-history"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "99920d1c8562e11b7bc841063d8b0675b51d7acc378ce6a5aed929912f457156",
+    "lesson": "lesson-peace-and-human-rights-universal-rights-and-history"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "0dab29c1a509ca5a38393c19d9533939201a2f6652833525f50895c79b6096f7",
+    "lesson": "lesson-peace-and-human-rights-commission-on-human-rights"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "8af886c9ddb1d6f2be98eb9c12767acd4d738d6329dc8158efe260940a6585fc",
+    "lesson": "lesson-peace-and-human-rights-universal-rights-and-history"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "cd2309c5903d4c2bec35cf0501914caa5dc7c2c3144a4ff090c996df7e39015e",
+    "lesson": "lesson-peace-and-human-rights-bill-of-rights-fairness-and-freedoms"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "c9b3559efbe05bd45dd64a4f450541a62744de0c55fe6b27a42762dd13622dd2",
+    "lesson": "lesson-peace-and-human-rights-commission-on-human-rights"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "56e48eabd660474a8959adb074b6e54aa20b773480d6945ad0325bcbee8a1c53",
+    "lesson": "lesson-peace-and-human-rights-universal-rights-and-history"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0022": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "4867d7705e2df974bc34c4c62b8affc1959fbcf2767261731c35e78753df6367",
+    "lesson": "lesson-peace-and-human-rights-bill-of-rights-fairness-and-freedoms"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0023": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "816cf1136ea6c797628ed57901e2ca270a71176b6d9fa5c59686762dd1fcfbc2",
+    "lesson": "lesson-peace-and-human-rights-bill-of-rights-fairness-and-freedoms"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0024": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "223d28eb804f51a9eef4776a14e94f4ca048bfc47d0ff0a009b63488d88c29fd",
+    "lesson": "lesson-peace-and-human-rights-searches-and-private-messages"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0025": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "5bbf5dce663cffe389557eed7fc8534f9f9a77edf039848697180c1c9d615171",
+    "lesson": "lesson-peace-and-human-rights-searches-and-private-messages"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0026": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "be91f7c95f2ef1b7a8201583bb4113378829e6bdf51b56c0a81aa9883928b792",
+    "lesson": "lesson-peace-and-human-rights-home-travel-and-public-records"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0027": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "0a7f932c778180861c1e963f6ae9ad0867780ba70a7a720ffda067d6faf8f037",
+    "lesson": "lesson-peace-and-human-rights-home-travel-and-public-records"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0028": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "16ad783ecacb5955876cb6c4aae6abc792342c0071dac654b593d82cdedb3a77",
+    "lesson": "lesson-peace-and-human-rights-groups-property-and-contracts"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0029": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "fed47f6b15706140268b10ce787a4246972ebc50643059a691db6b4f7a66267e",
+    "lesson": "lesson-peace-and-human-rights-groups-property-and-contracts"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0030": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "403221a1230a4f979487404db567e48007a86c3ef0c73b46ce0e546ea5725d59",
+    "lesson": "lesson-peace-and-human-rights-custodial-investigation-and-bail"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0031": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "1a61f515a04e125596c546dd2123b773bdf1c6a81258eabf80503c1dac4899b9",
+    "lesson": "lesson-peace-and-human-rights-custodial-investigation-and-bail"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0032": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "8cd40c2ad688febbe3c9c1f4d8cd5e7f98223afad08f5032c9f35211460e1ab6",
+    "lesson": "lesson-peace-and-human-rights-criminal-trial-protections"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0033": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "5164118c47ea48e5f6e6e202a8f4dbd97ea0d58e575045724195c8b7c1b3947f",
+    "lesson": "lesson-peace-and-human-rights-criminal-trial-protections"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0034": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "602931ccf401336a650e5feb992e41de1fdace1617cbcd4022b24a52e33dd573",
+    "lesson": "lesson-peace-and-human-rights-detention-review-and-compelled-testimony"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0035": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "0e97ddef51e52f3f2184c347fa2f6956f18f7faa586cef1efce755690b501652",
+    "lesson": "lesson-peace-and-human-rights-detention-review-and-compelled-testimony"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0036": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "031b3a372354e55bf8ed781c97e46946db6a5d3237d99133ca178a8af88745e3",
+    "lesson": "lesson-peace-and-human-rights-detention-punishment-and-debt"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0037": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "a6a5cf796f825c26262f3691cdaa05432622bcc527d96abee1ccb1dc61b49621",
+    "lesson": "lesson-peace-and-human-rights-detention-punishment-and-debt"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0038": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "781c81b20f826f241fe1f5a08319d6fb7bedde6a9eddc3146b02e4f9da377e77",
+    "lesson": "lesson-peace-and-human-rights-detention-punishment-and-debt"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0039": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "909bf7b12f9cec22dd55d2b08df321267fbdc86b397eeed04d46f594e1d37ea0",
+    "lesson": "lesson-peace-and-human-rights-double-jeopardy-protections"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0040": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "ae400c904b3596d8f0e398ad126e379da4e29489bd53acaf69763e5b3788812c",
+    "lesson": "lesson-peace-and-human-rights-double-jeopardy-protections"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0041": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "ff4d3ae5bbb1739eb1fa8cb60819cb2f9f10c04583a44dcc9a54033817ece1ec",
+    "lesson": "lesson-peace-and-human-rights-rights-during-emergencies"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0042": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "647e6d8ef4f9e98031fdefe29ca2c7cb3016851fe4a1c3973addbaa8fe0a2d3a",
+    "lesson": "lesson-peace-and-human-rights-rights-during-emergencies"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0043": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "5cd1a5e04bbf946525ee4bfce6bd22f4f410668dfd0d779049efb2657064e7a2",
+    "lesson": "lesson-peace-and-human-rights-rights-during-emergencies"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0044": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "9bf195c27426c37cdf88f57cf6d0cdc81c130a320df700af0dea7565b862c026",
+    "lesson": "lesson-peace-and-human-rights-commission-on-human-rights"
+  },
+  "q-peace-and-human-rights-human-rights-fundamentals-0045": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "35d0e8cd19b6082bd217ffdeffff62b9cac260ec62d4f82313ea531f9e89ed92",
+    "lesson": "lesson-peace-and-human-rights-commission-on-human-rights"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "de71b46e589f81d940a6369a96febc0b96b22bf30517f735fef05b3834c5b171",
+    "lesson": "lesson-peace-and-human-rights-hrl-and-ihl-scope"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "dc16e88e861378d48a15924b784c7aa7617f848757892694dcb1c9fdf2180848",
+    "lesson": "lesson-peace-and-human-rights-hrl-and-ihl-scope"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "7ccf2c5d0a4440e56657f16aee9788047bfd4893ca239d31654b551354afdc32",
+    "lesson": "lesson-peace-and-human-rights-hrl-and-ihl-scope"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "c50fd6b0fab562c37e40bf7609a715669418b938ec218c379f93b5a4a9fb42d9",
+    "lesson": "lesson-peace-and-human-rights-hrl-and-ihl-scope"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "5c965c39b046761e33a5422c49b728692578695c608473b11548b063335dad5b",
+    "lesson": "lesson-peace-and-human-rights-hrl-and-ihl-scope"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "609c2df8bbd62e319ee56f1fc69b0956a6a08330ababf86f55605f7c3eec27a5",
+    "lesson": "lesson-peace-and-human-rights-hrl-and-ihl-scope"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "850ea2e8d972e40da35aac960e4592c70c09ac058d780b0ffb080e72375b6da2",
+    "lesson": "lesson-peace-and-human-rights-people-protected-from-attack"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "ef4b995cb91b60b1528b4f4a72bcb56264eed82129ba1d81eb873c9901e9285d",
+    "lesson": "lesson-peace-and-human-rights-iccpr-protected-rights"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "7fc96b29df37ab2905f45792e03f8975e6436686b1196109f3251f5a1c450bd0",
+    "lesson": "lesson-peace-and-human-rights-people-protected-from-attack"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "8d46004dd9ecce2839ce531530a09820656b17342e918f59811ccccb16f45778",
+    "lesson": "lesson-peace-and-human-rights-hrl-and-ihl-scope"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "aafd1c473b3c8ef88eef7f35fcf61e1604e5faa0fda74556fe56da5eb2b4b375",
+    "lesson": "lesson-peace-and-human-rights-ihl-preparation-and-peace"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "95de1c521d8beea3542a3d10479783d026387c29d458e7acd4c68809387a4b48",
+    "lesson": "lesson-peace-and-human-rights-hrl-and-ihl-scope"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "6326880b3599cdcc65b9690a9e4687056edb87fda5a1469b241156c536871e33",
+    "lesson": "lesson-peace-and-human-rights-hrl-and-ihl-together"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "dafd711a5225b5f74fbbbcb14cd94e67ae01472df07b19784728231739002417",
+    "lesson": "lesson-peace-and-human-rights-hrl-and-ihl-scope"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0016": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "9bd70df8e1087e24a72fb9cbd891065b6ac00108dd3dfea82baf72c847081f88",
+    "lesson": "lesson-peace-and-human-rights-iccpr-protected-rights"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0017": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "3150ed141f37869986d558c0a5e91f8a0e1c178b1cc2995adb4b2f64821e1871",
+    "lesson": "lesson-peace-and-human-rights-hrl-and-ihl-scope"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0018": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "853f35d71cffaf16a90d88f32b71fcbe77b3b6a092420ff6d5d3800f35a2ab97",
+    "lesson": "lesson-peace-and-human-rights-hrl-and-ihl-scope"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0019": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "d86138fa3d8d078bc8cd1a827e4dd878a07ad18d3dddddbcd31ebab5eb45723e",
+    "lesson": "lesson-peace-and-human-rights-armed-conflict-types"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0020": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "14dbde0b95ca00322de7af878f50111742019ed6a6cc3d88408d2b3eb2be82f9",
+    "lesson": "lesson-peace-and-human-rights-hrl-and-ihl-scope"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0021": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "38baa4e84a990c1ba81c50cd6dfd276597fe5e3f74ce44c204a7219ac1f1b9e6",
+    "lesson": "lesson-peace-and-human-rights-ihl-preparation-and-peace"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0022": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "0d0c9e57e92afd0a3c62b06245bc7b77d0fca4f149dec92483e6ef2871643935",
+    "lesson": "lesson-peace-and-human-rights-armed-conflict-types"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0023": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "0660c21f5eebf2b38254ccdd1c960e836b79d63bee407f33b39547bc71b1555d",
+    "lesson": "lesson-peace-and-human-rights-hrl-and-ihl-together"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0024": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "8f825a7b9423ca3e6db7d62cd8af84d24fe59efa734c1ee5355a3c4b9e626890",
+    "lesson": "lesson-peace-and-human-rights-iccpr-emergency-conditions"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0025": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "bc29c575ae730c2c68c68ba9830a2f8d3e0c77e92d54dfa3c6296c9f3646d483",
+    "lesson": "lesson-peace-and-human-rights-iccpr-emergency-conditions"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0026": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "07e13bab45a78c59287537a8984616fb1422e54516525097d84ff72f19475cf4",
+    "lesson": "lesson-peace-and-human-rights-iccpr-protected-rights"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0027": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "49adf039a2a93529d1c93f4e9a5e678f5c5d9c199cbb76d02026f2e5bebb398f",
+    "lesson": "lesson-peace-and-human-rights-people-protected-from-attack"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0028": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "7bd91f6f3ae38025c61355ac403b1b7e127ee968c64669f132353e16b233de95",
+    "lesson": "lesson-peace-and-human-rights-people-protected-from-attack"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0029": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "21891138dbbbdc36002c109ce4694ee9641c5cb665876a791265a103c64f7f4c",
+    "lesson": "lesson-peace-and-human-rights-weapons-limits"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0030": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "e193b931b6dccca3c0b1a089aed7c75921abdb109b63bfc0a85b3c50e726dcdf",
+    "lesson": "lesson-peace-and-human-rights-weapons-limits"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0031": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "d259d961869cd2dc48664c3d795960c5e920c8d33f0051d4b0133dcfaa3c3ffb",
+    "lesson": "lesson-peace-and-human-rights-weapons-limits"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0032": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "7198bf4cb1b0509d1a15f2655856fbea922682942fbb4436faf5cb3db21685ee",
+    "lesson": "lesson-peace-and-human-rights-military-targets"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0033": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "0080928b13147c3410c5fb4ac74a3903b2f1133d60339bb1579f32ec34b26d6c",
+    "lesson": "lesson-peace-and-human-rights-military-targets"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0034": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "f068defc52ea1fe792f0c8382e29b049ca3bf9554f9a3ff9a630e7ae20a87974",
+    "lesson": "lesson-peace-and-human-rights-attack-rules"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0035": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "83b2570f733f0434f296ff34d6be1d6d5541bb52f8bc5f74652100a4e8c9029b",
+    "lesson": "lesson-peace-and-human-rights-attack-rules"
+  },
+  "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0036": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/peace-and-human-rights.md",
+    "hash": "0ed3922d7e9357b10b939d98634f415e7769490ea18686b0351e67fce128c104",
+    "lesson": "lesson-peace-and-human-rights-ihl-preparation-and-peace"
+  },
   "q-philippine-constitution-accountability-and-impeachment-0001": {
     "approvedAt": "2026-11-14",
     "evidence": "docs/content/verification/philippine-constitution.md",
@@ -5542,5 +7072,605 @@
     "evidence": "docs/content/verification/vocabulary.md",
     "hash": "f51a0eaf038dc8facf954e37abd74100ef8cc901e52e6489914c938e98e72586",
     "lesson": "lesson-vocabulary-similar-and-opposite-meanings"
+  },
+  "rc-cs-ap-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "0b572dd6c9cf28cd95dbe787bb939cf0e5cfad221594d865d32beb34226301a7",
+    "lesson": "lesson-comprehension-skills-authors-main-purpose"
+  },
+  "rc-cs-ap-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "2db240ce89fd9b8760523d1cb64c535ef00591ff22e644b8567956ddcc6f6fa6",
+    "lesson": "lesson-comprehension-skills-authors-tone"
+  },
+  "rc-cs-ap-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "28460756c6c6d4842fe8f174b203f5803cbaf88a582367df11efada24ccfbedb",
+    "lesson": "lesson-comprehension-skills-first-and-second-person"
+  },
+  "rc-cs-ap-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "35a7a8bdb87a1385c77b042742c5395870901a4549a38f4df920915717ba3ae4",
+    "lesson": "lesson-comprehension-skills-argument-viewpoint-and-bias"
+  },
+  "rc-cs-ap-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "fec1fb51b43d35231d6ec46ccf9afcae148475020100cb879269f871cfa1925f",
+    "lesson": "lesson-comprehension-skills-authors-tone"
+  },
+  "rc-cs-ap-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "b9acec3324d7e3ceaff2fe843b5466d570a95d06765bfee3f09696b7632e6432",
+    "lesson": "lesson-comprehension-skills-first-and-second-person"
+  },
+  "rc-cs-ap-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "28471175813afba8a9e19cfdb43414b9a5ca39c1c415e7d3a960f4878dc49b2f",
+    "lesson": "lesson-comprehension-skills-authors-tone"
+  },
+  "rc-cs-ap-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "6989740c4882fee3f9234f6f95648769512dafc1b1dd5ff6cae820fd43c18513",
+    "lesson": "lesson-comprehension-skills-authors-main-purpose"
+  },
+  "rc-cs-ap-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "db87aed8226b60860227d9afc32496ac1de3569ccd49baebe4deb50e8e8c602b",
+    "lesson": "lesson-comprehension-skills-paragraph-links-and-patterns"
+  },
+  "rc-cs-ap-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "940578b1af7d0c656167c96c6e5027b9eb2611e0b950c304411e504698a4fc4c",
+    "lesson": "lesson-comprehension-skills-authors-tone"
+  },
+  "rc-cs-ap-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "c4543bb8f7a4670ce1b933d64b4ecd975af2dead12fcac836ce7ec8b63167d7b",
+    "lesson": "lesson-comprehension-skills-authors-main-purpose"
+  },
+  "rc-cs-ap-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "eb6425ff2420c7b890bb7d2ad2e4c32d978781d4d414b0fd628b015fdd89cc74",
+    "lesson": "lesson-comprehension-skills-authors-tone"
+  },
+  "rc-cs-ap-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "d77be4f12b27f8b04f41d79339ba0c310d89bc0af07b25d874a8c840c579b99d",
+    "lesson": "lesson-comprehension-skills-third-person-thoughts"
+  },
+  "rc-cs-ap-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "f2bde227f7a4c1ede05200275884551f32b8f92a16ca60c4a5c8ef73a8835941",
+    "lesson": "lesson-comprehension-skills-argument-viewpoint-and-bias"
+  },
+  "rc-cs-ap-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "03f8fa0607bdcf5c15b6d951ca5f8b8d702ede4ee6ef0d8e458b285d884da463",
+    "lesson": "lesson-comprehension-skills-authors-tone"
+  },
+  "rc-cs-cc-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "838cd9884d197470d313d1b666b976bcc8117f130959c89b42d4402f5a90c20f",
+    "lesson": "lesson-comprehension-skills-definition-and-example-clues"
+  },
+  "rc-cs-cc-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "eaab9377445f6264d7cf5687c3b9ee56f2ae77d0ff42c87651529cac2cbb8c9b",
+    "lesson": "lesson-comprehension-skills-definition-and-example-clues"
+  },
+  "rc-cs-cc-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "3aacce52a8ebeaca57dc7d7406559316e795384830ea0b1704a79463056b913b",
+    "lesson": "lesson-comprehension-skills-definition-and-example-clues"
+  },
+  "rc-cs-cc-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "b638b0230901ff59dcc99a534ed707fc7f01b8ce1105561dc26d2e5015167b5d",
+    "lesson": "lesson-comprehension-skills-contrast-and-cause-clues"
+  },
+  "rc-cs-cc-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "4f2bbbe5ea5722d4eb3867e62ff7acbfb9cb98a619c5435a02a5c4d98c7b051f",
+    "lesson": "lesson-comprehension-skills-definition-and-example-clues"
+  },
+  "rc-cs-cc-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "c32d9d60d2bb103ba360e6ca9473422d45189613fdd86371b31b6616df3bb249",
+    "lesson": "lesson-comprehension-skills-definition-and-example-clues"
+  },
+  "rc-cs-cc-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "0cfd99365c2e4050fbe9cc1955ce3fbfe94ccf6cedc37efbb7024a0e8c39a0af",
+    "lesson": "lesson-comprehension-skills-definition-and-example-clues"
+  },
+  "rc-cs-cc-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "46f4a42fb1fe93b7817bed6e9aa650ca06553a31801b392d13dbc7d29d0c6406",
+    "lesson": "lesson-comprehension-skills-definition-and-example-clues"
+  },
+  "rc-cs-cc-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "d7b4ac5504efdf5cc9c7d61e9cf7a980657b0ed072ed1f08e05df53d479b1869",
+    "lesson": "lesson-comprehension-skills-definition-and-example-clues"
+  },
+  "rc-cs-cc-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "a22c685fb9db742e4f484a9d80b56c11afa34dffff3adf937c3388b04e415ad6",
+    "lesson": "lesson-comprehension-skills-definition-and-example-clues"
+  },
+  "rc-cs-ct-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "210dc1b4a9a32cd64ecf9bb63987f9fceb6a4280ae6bbb197d3c37ec3db6ecf8",
+    "lesson": "lesson-comprehension-skills-title-scope"
+  },
+  "rc-cs-ct-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "802b7e4a3fe4c7a3a1b05f5c6286b8815c01b04758c69b2ae302865eca2b806a",
+    "lesson": "lesson-comprehension-skills-title-scope"
+  },
+  "rc-cs-ct-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "f988cc534a0b6c09ec233ba7fa7dce2a518513cc28c4b32054a5d91f6e754399",
+    "lesson": "lesson-comprehension-skills-title-scope"
+  },
+  "rc-cs-ct-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "d8c120ec287a7bd1c9b7ac5001293a1ee83d1cf692d0819dd3423d0c0141d679",
+    "lesson": "lesson-comprehension-skills-title-scope"
+  },
+  "rc-cs-ct-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "e5abd6d86d2ea029a435943ddb21514acd153e40b8b2f6fc40b506eaaaf78a65",
+    "lesson": "lesson-comprehension-skills-title-main-idea"
+  },
+  "rc-cs-ct-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "c49046d8846cf7ef36546a914a3632bdf1dd41d1bcf92acb4ac4d01c522a91d2",
+    "lesson": "lesson-comprehension-skills-title-scope"
+  },
+  "rc-cs-ct-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "82a7fd721d61046d5c35c45d3feed9887ff49a7f96c7a58f9acb266553dd63f8",
+    "lesson": "lesson-comprehension-skills-title-scope"
+  },
+  "rc-cs-ct-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "738dc9dcb08103e8e1781f8d4a65aece87c52d96a2bc2607d76d53acdf6f4d3e",
+    "lesson": "lesson-comprehension-skills-title-scope"
+  },
+  "rc-cs-ct-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "ff56f600551890ad743736f4357e7df8fd3b000eb5d667eed9c0dedb1fcc05ae",
+    "lesson": "lesson-comprehension-skills-title-authors-stance"
+  },
+  "rc-cs-ct-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "55362dabe49fbd469dc1abb62a81660378b708ed6585e26906b2761afc768ca6",
+    "lesson": "lesson-comprehension-skills-title-scope"
+  },
+  "rc-cs-fo-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "6fb71a985c0434befd2aa7976048916542270aa4c5d100dc71d6712235708c71",
+    "lesson": "lesson-comprehension-skills-checkable-claims-and-judgments"
+  },
+  "rc-cs-fo-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "9f52d3b8c9960a8f7511a4c371d8c7f1a01ea8d3f5e9e4dd3f7b189deb865f83",
+    "lesson": "lesson-comprehension-skills-checkable-claims-and-judgments"
+  },
+  "rc-cs-fo-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "300991b9a900db58ba888f329476464ed01c5d08c6364eea4daa3e24070e240d",
+    "lesson": "lesson-comprehension-skills-checkable-claims-and-judgments"
+  },
+  "rc-cs-fo-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "c9913899c1f9999da9f7e15bec880eeaf746dd02956d1aa419cf4797aacd48bc",
+    "lesson": "lesson-comprehension-skills-checkable-claims-and-judgments"
+  },
+  "rc-cs-fo-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "65d0fbdd189a0c34b72e56dcb9512826db7e259af7f67f4d8f6e4c5a6a4e81fc",
+    "lesson": "lesson-comprehension-skills-checkable-claims-and-judgments"
+  },
+  "rc-cs-fo-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "d60664ab30a61b8eeaa844698106689f4627c7fb60fab85d13d82b84ea6a5f73",
+    "lesson": "lesson-comprehension-skills-checkable-claims-and-judgments"
+  },
+  "rc-cs-fo-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "91c20004d80c0ef394a785e578e3172b6489554b7561ec9382a0180ee1082b58",
+    "lesson": "lesson-comprehension-skills-checkable-claims-and-judgments"
+  },
+  "rc-cs-fo-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "cdbb71f08124bd086280bfe530b0b7cce34e379b13bf2a6d400cc48ee3d6f472",
+    "lesson": "lesson-comprehension-skills-projections-and-forecasts"
+  },
+  "rc-cs-fo-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "f2a75a66e7a7d0a3926d5364cb1437baeed73223aa3b06ee7cbb64622b5d1991",
+    "lesson": "lesson-comprehension-skills-checkable-claims-and-judgments"
+  },
+  "rc-cs-fo-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "15a73dc98d6f61a0bc391219cc84c9a64831b4a741b74c1e2b45350e0aaeb2ab",
+    "lesson": "lesson-comprehension-skills-projections-and-forecasts"
+  },
+  "rc-cs-ic-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "40b93547a6fbdaa3c76e8f69c54a3bf22ec47a99558e5d27ff0f9d141de9c88c",
+    "lesson": "lesson-comprehension-skills-connecting-clues"
+  },
+  "rc-cs-ic-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "6ceff40c99b34dd96d2aefdd7eba5cd999a175e507683437b1134571add7446f",
+    "lesson": "lesson-comprehension-skills-connecting-clues"
+  },
+  "rc-cs-ic-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "5dcccd7de36cd2542ba140ce38c8106e925c3e78252576b08ffe5442e6eed81f",
+    "lesson": "lesson-comprehension-skills-connecting-clues"
+  },
+  "rc-cs-ic-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "3592fd5d64ceeb2864e76fe2f4a3176c5854f408bb2d0a74c22b3442868e4963",
+    "lesson": "lesson-comprehension-skills-connecting-clues"
+  },
+  "rc-cs-ic-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "f9924a2c024c64f2ecba0b8e4ee8c47b664407147926d91bc6dd8d2775b12616",
+    "lesson": "lesson-comprehension-skills-connecting-clues"
+  },
+  "rc-cs-ic-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "8a971b84a80582aedd4f8b579976c1cf8b8e76b47bc348e0378eefe88fae2794",
+    "lesson": "lesson-comprehension-skills-connecting-clues"
+  },
+  "rc-cs-ic-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "fa82bfd04a4a15412d61c1191e95a9865580f5979ee3d684e0692b9c8fc5aa53",
+    "lesson": "lesson-comprehension-skills-connecting-clues"
+  },
+  "rc-cs-ic-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "978d26462f443b399ea0ccc371bff426b3e99da866859f9871ef54764397b448",
+    "lesson": "lesson-comprehension-skills-connecting-clues"
+  },
+  "rc-cs-ic-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "151e264b676edf6efaef9aa8c52cbe243e7e419597fc5ee20cb03834b1e15635",
+    "lesson": "lesson-comprehension-skills-connecting-clues"
+  },
+  "rc-cs-ic-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "eee058e085e0a9fd53fa1225dd3b945c588e22be65ec0d8786bfc8604fa15f48",
+    "lesson": "lesson-comprehension-skills-connecting-clues"
+  },
+  "rc-cs-ic-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "f0a366321acbce6ce58683748addf03905c8aa0c3aa84e2426f10cd59cf6848b",
+    "lesson": "lesson-comprehension-skills-connecting-clues"
+  },
+  "rc-cs-ic-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "5562e27bf05a42293a3e02b1cda21b726aca7f9eacfb05af3b99549258c968f0",
+    "lesson": "lesson-comprehension-skills-connecting-clues"
+  },
+  "rc-cs-ic-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "90a990b080f5bb9b0afb86c13bbf004d17b7f255d922127c291ec107dbcb2551",
+    "lesson": "lesson-comprehension-skills-evidence-and-claim-strength"
+  },
+  "rc-cs-ic-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "d90f1e57f12e21e4b3ffd0af48f76b015d1d76dc4f48cd013cfd5f36d9438801",
+    "lesson": "lesson-comprehension-skills-connecting-clues"
+  },
+  "rc-cs-ic-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "e0d42edf0d567bed00fbe1711a976b1d9481c05cacf795c293bea4ee74e37046",
+    "lesson": "lesson-comprehension-skills-evidence-and-claim-strength"
+  },
+  "rc-cs-mi-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "51111afd375d2716126fa35872eccf4d81e00ee52e88ef98d493d9dd7d8c46b2",
+    "lesson": "lesson-comprehension-skills-main-idea-across-paragraphs"
+  },
+  "rc-cs-mi-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "569d0c282f2f8a85e2fd3bdb958624cdc9c00b96b936b41f9afb2399a36a2f12",
+    "lesson": "lesson-comprehension-skills-main-idea-scope"
+  },
+  "rc-cs-mi-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "fe82f4faff76fdcad5a9645ca0f6508e83b3a129eac0e5f975504394918817f1",
+    "lesson": "lesson-comprehension-skills-implied-main-point"
+  },
+  "rc-cs-mi-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "fb8e5036395824871dfc48b017e00c02d4f615f72c6a845afe02497589193c85",
+    "lesson": "lesson-comprehension-skills-implied-main-point"
+  },
+  "rc-cs-mi-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "cb04946ecc9d67a3514ec3e369de93b396988afbac7543400b63ac778ed5f0a2",
+    "lesson": "lesson-comprehension-skills-main-idea-across-paragraphs"
+  },
+  "rc-cs-mi-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "1fc8a73f0a0f2dc9fef5fc2d69cff9717ce30e5441f7125de04398f5a209b69d",
+    "lesson": "lesson-comprehension-skills-main-idea-across-paragraphs"
+  },
+  "rc-cs-mi-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "19b6a91f3e3ae70caaff5e00c4fb1fa90594d0590904374e5955e75c7d5d20e8",
+    "lesson": "lesson-comprehension-skills-main-point-and-topic-sentence"
+  },
+  "rc-cs-mi-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "33a913057ace0dc186b3b0d200d32c22bf5b2e4c08b0254c14ef28f2e7528485",
+    "lesson": "lesson-comprehension-skills-implied-main-point"
+  },
+  "rc-cs-mi-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "f13514239af8d4824a63605ecd140ce7adceb53b8a6915136e88650b124193ab",
+    "lesson": "lesson-comprehension-skills-implied-main-point"
+  },
+  "rc-cs-mi-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "4617e40af953a15c2575f1f56d54ed12c9eef93a8fcc556313ce9e2f802ec9f2",
+    "lesson": "lesson-comprehension-skills-main-point-and-topic-sentence"
+  },
+  "rc-cs-mi-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "0720e5c46028d54cfe954e499846e64bf97faeb8d03df1c988596195bd5d85f0",
+    "lesson": "lesson-comprehension-skills-main-idea-across-paragraphs"
+  },
+  "rc-cs-mi-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "4b6c00d810ac11fa3117f726a3897cd26eb08e3d8f1a8bc7263dd54e3eb6a886",
+    "lesson": "lesson-comprehension-skills-implied-main-point"
+  },
+  "rc-cs-mi-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "79c0f273ee489a19bb7f2c10b0188be2cfd6eb6ee2e8882844fc452af42fc328",
+    "lesson": "lesson-comprehension-skills-implied-main-point"
+  },
+  "rc-cs-mi-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "c8293c1c4ca4619d092b4b9755f2b293a1bb9a8c937858aed20883eb28e824ac",
+    "lesson": "lesson-comprehension-skills-main-idea-across-paragraphs"
+  },
+  "rc-cs-mi-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "5bb3bdf4a6d807fef47de1dbe5048daf8acac09db43d2bbda939151ffd1b8f0f",
+    "lesson": "lesson-comprehension-skills-main-idea-scope"
+  },
+  "rc-cs-nsd-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "b01196ff584388849a493966921581fde9a04e4cfa5cb77f2178f97cf8784f04",
+    "lesson": "lesson-comprehension-skills-scanning-exact-details"
+  },
+  "rc-cs-nsd-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "ee1f35bf12e16c42d2af52993852a8474263ce1fe3c8fffdb9357606f4269455",
+    "lesson": "lesson-comprehension-skills-old-and-current-details"
+  },
+  "rc-cs-nsd-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "7665651c5f7d5509dfd9d3be37ac3293a3119832e1300165a93c514b9a78fc23",
+    "lesson": "lesson-comprehension-skills-scanning-exact-details"
+  },
+  "rc-cs-nsd-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "30db7e122107e67a1f04a29cd88a235b219edbe5f945cfe38b9625d0b5ee554f",
+    "lesson": "lesson-comprehension-skills-scanning-exact-details"
+  },
+  "rc-cs-nsd-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "600a9ad246485420ade998e3d16f61d1e7a9f9966e5a8e710d0768806317cea4",
+    "lesson": "lesson-comprehension-skills-skimming-and-meaning-matches"
+  },
+  "rc-cs-nsd-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "1b574102f4b8866050cf2a7074e604be2c46c031d9e893d736e25498c45f508e",
+    "lesson": "lesson-comprehension-skills-skimming-and-meaning-matches"
+  },
+  "rc-cs-nsd-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "406e4892691cd8a88a7b6227854c947cd9b3fd124aed489214328548949072cc",
+    "lesson": "lesson-comprehension-skills-old-and-current-details"
+  },
+  "rc-cs-nsd-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "4a0c9ddea0ee496e5fdd84615ff4ee8be972cb09dbc0a229460dbc0e4c3c26d0",
+    "lesson": "lesson-comprehension-skills-scanning-exact-details"
+  },
+  "rc-cs-nsd-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "1255c7daceeb9c0dc02146a295d9597582c124df5db1bf5d5a11f43a386bc386",
+    "lesson": "lesson-comprehension-skills-old-and-current-details"
+  },
+  "rc-cs-nsd-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "b4157a866398daa230f740e0b7e1f8b196f39cb69e13e9a97f858b49574a3ecb",
+    "lesson": "lesson-comprehension-skills-scanning-exact-details"
+  },
+  "rc-cs-nsd-0011": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "71dd8b854c107ea038d93cbaf8af39d81f137fd7026350591d2a66eb57234829",
+    "lesson": "lesson-comprehension-skills-scanning-exact-details"
+  },
+  "rc-cs-nsd-0012": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "152a88b9fcca3424a69a26a69edc33c592cef584b86b32a1e49a8a5fa54c4c90",
+    "lesson": "lesson-comprehension-skills-skimming-and-meaning-matches"
+  },
+  "rc-cs-nsd-0013": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "2531563b12b6ac89da547f21a3630f180049448c7c18026eb1341afc6de50e26",
+    "lesson": "lesson-comprehension-skills-old-and-current-details"
+  },
+  "rc-cs-nsd-0014": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "4950c1bc77eea34fb06f183d3a84b9229e3029ffab11545bb7c090439857270e",
+    "lesson": "lesson-comprehension-skills-scanning-exact-details"
+  },
+  "rc-cs-nsd-0015": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "9585d5984b24cad31c6b3ac351f67ff6a73307d6a5895d546f0d81fadeb44fdb",
+    "lesson": "lesson-comprehension-skills-scanning-exact-details"
+  },
+  "rc-cs-se-0001": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "f52eb402758fd9456e5758a25dab963900ca5319a6ced12a982c4aa0456bd0e2",
+    "lesson": "lesson-comprehension-skills-event-verb-forms"
+  },
+  "rc-cs-se-0002": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "55692799a85fb0b9372a13abfc033ce3bbd673f1c0a7dcc329090e787365311a",
+    "lesson": "lesson-comprehension-skills-event-time-words"
+  },
+  "rc-cs-se-0003": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "9473176b69e3aa8ed7c0a6bb29e4c7e3aff2260b1c4f86aad327d5b39af60dd8",
+    "lesson": "lesson-comprehension-skills-event-time-words"
+  },
+  "rc-cs-se-0004": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "155c7d2dba9fe454ed54c7817afea6fc3e81d93c0f779969b559221dbb9421b7",
+    "lesson": "lesson-comprehension-skills-event-verb-forms"
+  },
+  "rc-cs-se-0005": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "b81956f1a762040810cb3993537bb10eb6e76b680031211a38750a88e917e224",
+    "lesson": "lesson-comprehension-skills-event-time-words"
+  },
+  "rc-cs-se-0006": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "3f5999bf46a4520ae6207ffe12946afe9c25f75acfcdd858b82ad547e06b2fd7",
+    "lesson": "lesson-comprehension-skills-event-time-words"
+  },
+  "rc-cs-se-0007": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "778ee6e1b128f216500893921edd329fad8337fa68494ca9ff97fa32aa92e31d",
+    "lesson": "lesson-comprehension-skills-event-time-words"
+  },
+  "rc-cs-se-0008": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "3aac92a9535c8a597ae1261ebfedd81f2bd4488a812b5b559e76a27e846cb594",
+    "lesson": "lesson-comprehension-skills-event-time-words"
+  },
+  "rc-cs-se-0009": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "130f7e092b1738366098a34b7c7a8d3902d99d4d3a2d6b635bca41a8177f4ffe",
+    "lesson": "lesson-comprehension-skills-event-time-words"
+  },
+  "rc-cs-se-0010": {
+    "approvedAt": "2026-11-14",
+    "evidence": "docs/content/verification/comprehension-skills.md",
+    "hash": "c8c850d4c048612debc140853cf38926983a8124557f1ae843fabf979d2edb63",
+    "lesson": "lesson-comprehension-skills-event-verb-forms"
   }
 }

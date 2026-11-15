@@ -6,6 +6,14 @@ subject: "subject-reading-comprehension"
 topic: "topic-comprehension-skills"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-comprehension-skills-connecting-clues
+  - lesson-comprehension-skills-evidence-and-claim-strength
+  - lesson-comprehension-skills-necessary-assumptions
+  - lesson-comprehension-skills-visual-data-conclusions
+  - lesson-comprehension-skills-hinuha-mula-sa-detalye
+  - lesson-comprehension-skills-paghatol-at-ebidensya
 ---
 ## Core Concept
 

@@ -7,6 +7,9 @@ meta:
   - cse-sub
 questions:
 - id: q-peace-and-human-rights-human-rights-fundamentals-0001
+  approved: true
+  lesson: lesson-peace-and-human-rights-commission-on-human-rights
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'Which constitutional article creates the Commission on Human Rights?
@@ -31,11 +34,13 @@ questions:
 
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0002
+  approved: true
+  lesson: lesson-peace-and-human-rights-commission-on-human-rights
+  keyPoint: 1
   type: single_choice
   difficulty: easy
-  stem: 'Which statement describes Article XIII in the lesson?
-
-    '
+  stem: |
+    Which statement correctly describes Article XIII of the 1987 Constitution?
   choices:
   - text: It creates the Commission on Human Rights.
     correct: true
@@ -55,6 +60,9 @@ questions:
 
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0003
+  approved: true
+  lesson: lesson-peace-and-human-rights-bill-of-rights-fairness-and-freedoms
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'Which article is the primary domestic constitutional guarantee of civil and political liberties?
@@ -79,6 +87,9 @@ questions:
 
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0004
+  approved: true
+  lesson: lesson-peace-and-human-rights-universal-rights-and-history
+  keyPoint: 2
   type: single_choice
   difficulty: medium
   stem: 'Who primarily bears obligations under international human rights law?
@@ -103,6 +114,9 @@ questions:
 
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0005
+  approved: true
+  lesson: lesson-peace-and-human-rights-universal-rights-and-history
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'What does inherent mean when describing human rights?
@@ -127,6 +141,9 @@ questions:
 
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0006
+  approved: true
+  lesson: lesson-peace-and-human-rights-commission-on-human-rights
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'Which constitutionally created institution is the independent national human rights body?
@@ -151,6 +168,9 @@ questions:
 
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0007
+  approved: true
+  lesson: lesson-peace-and-human-rights-universal-rights-and-history
+  keyPoint: 2
   type: single_choice
   difficulty: hard
   stem: 'When does international human rights law apply as a framework?
@@ -175,6 +195,9 @@ questions:
 
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0008
+  approved: true
+  lesson: lesson-peace-and-human-rights-universal-rights-and-history
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: 'A mayor says basic human rights exist only when renewed by the town each year. What is wrong with that claim?
@@ -199,12 +222,13 @@ questions:
 
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0009
+  lesson: lesson-peace-and-human-rights-universal-rights-and-history
+  keyPoint: 1
   type: single_choice
   difficulty: easy
-  approved: false
-  stem: 'Which statement follows from the lesson''s nondiscrimination principle?
-
-    '
+  approved: true
+  stem: |
+    Which statement reflects the principle of nondiscrimination in human rights?
   choices:
   - text: Human rights do not depend on language or national origin.
     correct: true
@@ -224,12 +248,13 @@ questions:
 
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0010
+  lesson: lesson-peace-and-human-rights-commission-on-human-rights
+  keyPoint: 1
   type: single_choice
   difficulty: easy
-  approved: false
-  stem: 'Which pair correctly matches the two domestic constitutional references in the lesson?
-
-    '
+  approved: true
+  stem: |
+    Which pair correctly matches the constitutional articles with their subjects?
   choices:
   - text: 'Article III: liberties; Article XIII: CHR'
     correct: true
@@ -249,12 +274,13 @@ questions:
 
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0011
+  lesson: lesson-peace-and-human-rights-commission-on-human-rights
+  keyPoint: 1
   type: single_choice
   difficulty: easy
-  approved: false
-  stem: 'In the lesson''s domestic framework, what kind of institution is the CHR?
-
-    '
+  approved: true
+  stem: |
+    Under the 1987 Constitution, what kind of institution is the CHR?
   choices:
   - text: An independent national institution
     correct: true
@@ -274,12 +300,13 @@ questions:
 
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0012
+  lesson: lesson-peace-and-human-rights-universal-rights-and-history
+  keyPoint: 2
   type: single_choice
   difficulty: medium
-  approved: false
-  stem: 'A rights claim concerns how an official government agency treats an individual. What makes it directly relevant to the lesson''s human-rights framework?
-
-    '
+  approved: true
+  stem: |
+    A rights claim concerns how a government agency treats an individual. Why does this fall within the scope of international human rights law?
   choices:
   - text: It concerns state treatment of a person.
     correct: true
@@ -299,12 +326,13 @@ questions:
 
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0013
+  lesson: lesson-peace-and-human-rights-bill-of-rights-fairness-and-freedoms
+  keyPoint: 1
   type: single_choice
   difficulty: medium
-  approved: false
-  stem: 'An editor calls the twenty-two divisions of Article III separate articles. What correction follows from the lesson?
-
-    '
+  approved: true
+  stem: |
+    An editor calls the twenty-two divisions of Article III separate articles. Which correction is accurate?
   choices:
   - text: They are sections within one article.
     correct: true
@@ -324,9 +352,11 @@ questions:
 
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0014
+  lesson: lesson-peace-and-human-rights-commission-on-human-rights
+  keyPoint: 1
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'Which feature separates a list of rights guarantees from the office established to promote their protection?
 
     '
@@ -349,12 +379,13 @@ questions:
 
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0015
+  lesson: lesson-peace-and-human-rights-universal-rights-and-history
+  keyPoint: 1
   type: single_choice
   difficulty: hard
-  approved: false
-  stem: 'The lesson says rights belong to everyone and lists race, sex, religion, language, nationality, and where someone lives. How should that list be read?
-
-    '
+  approved: true
+  stem: |
+    Human rights belong to everyone regardless of race, sex, religion, language, nationality, or place of residence. How should these listed grounds be understood?
   choices:
   - text: It gives examples, not an exclusive list.
     correct: true
@@ -374,12 +405,13 @@ questions:
 
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0016
+  lesson: lesson-peace-and-human-rights-universal-rights-and-history
+  keyPoint: 2
   type: single_choice
   difficulty: hard
-  approved: false
-  stem: 'What follows from the lesson''s statement that government human-rights duties continue in peace and during armed conflict?
-
-    '
+  approved: true
+  stem: |
+    What follows from the principle that government human-rights duties continue in peace and during armed conflict?
   choices:
   - text: The continuing application of the human-rights framework
     correct: true
@@ -399,12 +431,13 @@ questions:
 
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0017
+  lesson: lesson-peace-and-human-rights-commission-on-human-rights
+  keyPoint: 1
   type: single_choice
   difficulty: hard
-  approved: false
-  stem: 'A reviewer finds a reference to Article IX and assumes it creates CHR because CHR is called a commission. Which correction fits the lesson?
-
-    '
+  approved: true
+  stem: |
+    A reviewer assumes Article IX creates CHR because CHR is called a commission. Which statement corrects this reasoning?
   choices:
   - text: Institution names do not replace the specific constitutional source.
     correct: true
@@ -424,9 +457,11 @@ questions:
 
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0018
+  lesson: lesson-peace-and-human-rights-universal-rights-and-history
+  keyPoint: 1
   type: single_choice
   difficulty: exam
-  approved: false
+  approved: true
   stem: 'A report describes a state failing to respect a person''s human rights. Does that failure mean the person had no rights in the first place?
 
     '
@@ -449,12 +484,13 @@ questions:
 
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0019
+  lesson: lesson-peace-and-human-rights-bill-of-rights-fairness-and-freedoms
+  keyPoint: 1
   type: single_choice
   difficulty: exam
-  approved: false
-  stem: 'Which summary most accurately separates the two levels of protection taught in the lesson?
-
-    '
+  approved: true
+  stem: |
+    Which statement correctly distinguishes international human-rights obligations from domestic constitutional protections?
   choices:
   - text: International law binds states; the Constitution supplies domestic guarantees.
     correct: true
@@ -474,12 +510,13 @@ questions:
 
     '
 - id: q-peace-and-human-rights-human-rights-fundamentals-0020
+  lesson: lesson-peace-and-human-rights-commission-on-human-rights
+  keyPoint: 1
   type: single_choice
   difficulty: exam
-  approved: false
-  stem: 'Which conclusion is supported without adding a rule the lesson does not teach?
-
-    '
+  approved: true
+  stem: |
+    Which statement correctly describes the constitutional status of the CHR?
   choices:
   - text: CHR's independence and Article XIII basis are established.
     correct: true
@@ -498,3 +535,553 @@ questions:
   explanation: 'The lesson explicitly calls CHR independent and identifies Article XIII as its constitutional source. These facts are established without assuming additional powers.
 
     '
+- id: q-peace-and-human-rights-human-rights-fundamentals-0021
+  approved: true
+  lesson: lesson-peace-and-human-rights-universal-rights-and-history
+  keyPoint: 3
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A civic group argues that recognizing community duties permits a majority to deny basic rights to an unpopular minority. Which response best reflects the UDHR?
+  choices:
+  - text: "Community duties must respect equal human worth."
+    correct: true
+  - text: "Community duties allow the majority to decide whose rights exist."
+    rationale: |
+      This makes rights depend on popularity. Majority support may seem decisive. Check that rights belong to everyone.
+  - text: "Rights belong only to people who have fulfilled every community duty."
+    rationale: |
+      This treats rights as a reward. Duties matter, but they do not decide who has human worth. Check universality.
+  - text: "Individual rights remove all duties toward other community members."
+    rationale: |
+      This ignores community duties. Freedom may seem unlimited. Check that using a right must respect other people’s rights.
+  explanation: |
+    The UDHR recognizes equal human worth and duties to the community. A person or group cannot use rights to destroy the rights of others. Source: UDHR, Preamble and Articles 1, 29–30.
+- id: q-peace-and-human-rights-human-rights-fundamentals-0022
+  approved: true
+  lesson: lesson-peace-and-human-rights-bill-of-rights-fairness-and-freedoms
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    An agency cancels a resident’s property right without fair procedures. Which constitutional guarantee most directly addresses the procedural defect?
+  choices:
+  - text: "Due process"
+    correct: true
+  - text: "Equal protection against unjustified differences in treatment"
+    rationale: |
+      This confuses fair procedures with unequal treatment. Both appear in Section 1. Check whether the problem concerns the steps used.
+  - text: "Freedom of religion and freedom from religious tests"
+    rationale: |
+      This selects belief protections. Government conduct can affect many rights. Check the specific loss and lack of fair procedures.
+  - text: "Freedom of peaceful assembly and petition"
+    rationale: |
+      This selects public protest rights. A person may protest a decision. Check which right governs the decision’s fairness.
+  explanation: |
+    Due process requires fair procedures before government takes life, liberty, or property. The missing fair procedures involve this guarantee. Source: 1987 Constitution, Article III, Section 1.
+- id: q-peace-and-human-rights-human-rights-fundamentals-0023
+  approved: true
+  lesson: lesson-peace-and-human-rights-bill-of-rights-fairness-and-freedoms
+  keyPoint: 3
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A government office requires applicants to pass a religious test before exercising a political right. Which provision most directly prohibits this requirement?
+  choices:
+  - text: "Article III, Section 5"
+    correct: true
+  - text: "Article III, Section 4, on expression and peaceful assembly"
+    rationale: |
+      This confuses political expression with a religious test. Both involve public life. Check the rule that specifically bars religious tests.
+  - text: "Article III, Section 1, solely on fair legal procedures"
+    rationale: |
+      This focuses only on procedure. A fair procedure cannot fix a forbidden religious test. Check the rule about religion.
+  - text: "No provision, because political rights may depend on religion"
+    rationale: |
+      This treats religion as a valid test for political rights. Check Section 5’s express ban.
+  explanation: |
+    Section 5 bars religious tests for civil or political rights. The office’s requirement is such a test. Source: 1987 Constitution, Article III, Section 5.
+- id: q-peace-and-human-rights-human-rights-fundamentals-0024
+  approved: true
+  lesson: lesson-peace-and-human-rights-searches-and-private-messages
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A judge issues a search warrant based only on an officer’s conclusion. The judge never personally examines the complainant or witnesses under oath. The warrant specifies the place and items. Which assessment is correct?
+  choices:
+  - text: "The probable-cause process is defective."
+    correct: true
+  - text: "The specific descriptions cure the missing personal examination."
+    rationale: |
+      This checks only the descriptions. Those are required too. Check how the judge determined probable cause.
+  - text: "The officer’s conclusion replaces the judge’s personal finding."
+    rationale: |
+      This gives the officer the judge’s duty. An officer may supply facts. Check who must personally find probable cause.
+  - text: "Every warrantless search is lawful whenever a warrant is defective."
+    rationale: |
+      This assumes a defect creates an exception. Check for a recognized lawful exception separately.
+  explanation: |
+    The judge must personally determine probable cause after examination under oath or affirmation. Specific descriptions do not complete that missing step. Source: 1987 Constitution, Article III, Section 2.
+- id: q-peace-and-human-rights-human-rights-fundamentals-0025
+  approved: true
+  lesson: lesson-peace-and-human-rights-searches-and-private-messages
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    Officers obtain a private message in violation of Article III, Section 3. An agency proposes using it in an administrative proceeding because the proceeding is not criminal. Is that proposal valid?
+  choices:
+  - text: "No, the evidence is inadmissible."
+    correct: true
+  - text: "Yes, because exclusion applies only during a criminal trial."
+    rationale: |
+      This narrows the rule to criminal trials. Check that Section 3 covers any proceeding.
+  - text: "Yes, because an agency’s need for evidence removes the privacy violation."
+    rationale: |
+      This treats usefulness as permission. Useful evidence can still violate privacy. Check how it was obtained.
+  - text: "No, but only if the message also came from an unlawful home search."
+    rationale: |
+      This adds a second violation. Check that a violation of Section 3 alone triggers exclusion.
+  explanation: |
+    Evidence obtained in violation of Section 3 cannot be used for any purpose in any proceeding. That includes the proposed administrative use. Source: 1987 Constitution, Article III, Section 3(2).
+- id: q-peace-and-human-rights-human-rights-fundamentals-0026
+  approved: true
+  lesson: lesson-peace-and-human-rights-home-travel-and-public-records
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    An official restricts a citizen’s travel solely for the official’s convenience. No law authorizes the restriction. Which conclusion follows from Article III, Section 6?
+  choices:
+  - text: "The restriction lacks a required legal basis."
+    correct: true
+  - text: "The official’s convenience supplies the required public-health ground."
+    rationale: |
+      This treats convenience as public health. Check the actual reason and legal basis.
+  - text: "A travel restriction needs only an official’s claim of public safety."
+    rationale: |
+      This treats a stated reason as enough. Check that travel limits must also be provided by law.
+  - text: "Every travel restriction is forbidden even when authorized by law."
+    rationale: |
+      This treats travel as unlimited. Check the grounds for limits allowed by Section 6.
+  explanation: |
+    A travel limit must be provided by law and serve national security, public safety, or public health. The stated restriction has no legal basis. Source: 1987 Constitution, Article III, Section 6.
+- id: q-peace-and-human-rights-human-rights-fundamentals-0027
+  approved: true
+  lesson: lesson-peace-and-human-rights-home-travel-and-public-records
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A citizen seeks official records concerning a public decision. No lawful limit applies. The custodian refuses solely because disclosure would embarrass the office. Which response is correct?
+  choices:
+  - text: "The citizen’s access right applies."
+    correct: true
+  - text: "The office may withhold all records whenever disclosure draws criticism."
+    rationale: |
+      This makes embarrassment a legal limit. Check whether a limit set by law applies.
+  - text: "The citizen must also receive every private and confidential record."
+    rationale: |
+      This makes public access unlimited. Check that the right concerns public matters and has lawful limits.
+  - text: "The custodian may deny access because only travel is constitutionally protected."
+    rationale: |
+      This overlooks the separate information right. Check Section 7 as well as Section 6.
+  explanation: |
+    Citizens have access to official records on matters of public concern, subject to limits set by law. No such limit applies here. Source: 1987 Constitution, Article III, Section 7.
+- id: q-peace-and-human-rights-human-rights-fundamentals-0028
+  approved: true
+  lesson: lesson-peace-and-human-rights-groups-property-and-contracts
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A public office prohibits workers from forming an association even though its purposes are lawful. Which constitutional protection is directly involved?
+  choices:
+  - text: "The right of association"
+    correct: true
+  - text: "The right to compensation for property taken for public use"
+    rationale: |
+      This selects the property rule. Both limit government power. Check that the act concerns forming a group.
+  - text: "The protection against laws impairing contract obligations"
+    rationale: |
+      This selects contract duties. A workers’ group may discuss contracts. Check what the ban directly prevents.
+  - text: "The right to court access regardless of financial means"
+    rationale: |
+      This selects access to legal help. The workers might seek help later. Check the activity the office banned.
+  explanation: |
+    Section 8 protects forming unions, associations, or groups for lawful purposes. The stated association meets that condition. Source: 1987 Constitution, Article III, Section 8.
+- id: q-peace-and-human-rights-human-rights-fundamentals-0029
+  approved: true
+  lesson: lesson-peace-and-human-rights-groups-property-and-contracts
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A person is refused access to court solely because she is poor. Which constitutional rule directly addresses the refusal?
+  choices:
+  - text: "Poverty must not bar court access."
+    correct: true
+  - text: "A contract must exist before the right to court access can apply."
+    rationale: |
+      This imports a contract condition. Contracts have separate protection. Check Section 11’s rule on poverty.
+  - text: "Only a lawful association may seek court access for a poor person."
+    rationale: |
+      This adds group membership as a condition. Check that poverty must not block a person’s access.
+  - text: "Fair payment for property replaces the need to provide court access."
+    rationale: |
+      This confuses compensation with court access. Check which protection addresses poverty.
+  explanation: |
+    Poverty must not prevent access to courts or adequate legal assistance. The refusal is based solely on poverty. Source: 1987 Constitution, Article III, Section 11.
+- id: q-peace-and-human-rights-human-rights-fundamentals-0030
+  approved: true
+  lesson: lesson-peace-and-human-rights-custodial-investigation-and-bail
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    During custodial investigation, a suspect signs a written waiver of the rights to silence and counsel. No lawyer is present. Which assessment is correct?
+  choices:
+  - text: "The waiver lacks a required safeguard."
+    correct: true
+  - text: "The written signature alone completes every waiver requirement."
+    rationale: |
+      This checks writing but misses counsel. Check both requirements for giving up these rights.
+  - text: "The waiver becomes valid because the suspect cannot afford counsel."
+    rationale: |
+      This treats poverty as a reason to remove counsel. Check that a lawyer must be provided when needed.
+  - text: "The officer’s explanation of the rights replaces counsel during waiver."
+    rationale: |
+      This confuses explaining rights with a lawyer’s presence. Check what a valid waiver requires.
+  explanation: |
+    A waiver must be in writing and made in the presence of counsel. The suspect’s written signature meets only the first condition. Source: 1987 Constitution, Article III, Section 12(1).
+- id: q-peace-and-human-rights-human-rights-fundamentals-0031
+  approved: true
+  lesson: lesson-peace-and-human-rights-custodial-investigation-and-bail
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    Before conviction, an accused faces an offense punishable by reclusion perpetua, and the evidence of guilt is strong. How does the stated constitutional bail exception apply?
+  choices:
+  - text: "Both conditions for the exception are met."
+    correct: true
+  - text: "The penalty alone is sufficient even if evidence of guilt is weak."
+    rationale: |
+      This leaves out the evidence condition. Check both the penalty and the strength of the evidence.
+  - text: "Strong evidence alone makes the stated penalty irrelevant in every case."
+    rationale: |
+      This leaves out the penalty condition. Check both parts of the exception.
+  - text: "Bail must be granted because no exception can apply before conviction."
+    rationale: |
+      This treats bail before conviction as having no exception. Check Section 13’s stated exception.
+  explanation: |
+    The exception requires an offense punishable by reclusion perpetua and strong evidence of guilt. Both are stated in the facts. Source: 1987 Constitution, Article III, Section 13.
+- id: q-peace-and-human-rights-human-rights-fundamentals-0032
+  approved: true
+  lesson: lesson-peace-and-human-rights-criminal-trial-protections
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A court prevents the defense from presenting evidence and questioning prosecution witnesses. Which rights of the accused are directly affected?
+  choices:
+  - text: "Rights to present evidence and confront witnesses"
+    correct: true
+  - text: "Rights to silence only during police custodial questioning"
+    rationale: |
+      This shifts the setting to police questioning. Check the rights used during a criminal trial.
+  - text: "Rights concerning bail only before the trial begins"
+    rationale: |
+      This selects release conditions. Check the defense activities the court blocked.
+  - text: "Rights concerning travel only during a public emergency"
+    rationale: |
+      This selects movement limits. Check the trial protections in Section 14.
+  explanation: |
+    An accused person may present evidence and question witnesses. The court’s restrictions deny those trial protections. Source: 1987 Constitution, Article III, Section 14(2).
+- id: q-peace-and-human-rights-human-rights-fundamentals-0033
+  approved: true
+  lesson: lesson-peace-and-human-rights-criminal-trial-protections
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    An accused has been arraigned and properly notified of trial. He is absent without justification. Which conclusion follows from Article III, Section 14?
+  choices:
+  - text: "Trial may continue in his absence."
+    correct: true
+  - text: "Trial must stop whenever the accused chooses not to attend."
+    rationale: |
+      This gives absence an automatic stopping effect. Check arraignment, notice, and the reason for absence.
+  - text: "Absence alone proves guilt and removes the need for a trial."
+    rationale: |
+      This confuses permission to continue with proof of guilt. Check that trial must still decide the case.
+  - text: "Trial may continue only if proper notice was never given."
+    rationale: |
+      This reverses the notice condition. Check that due notice is required.
+  explanation: |
+    Trial may continue after arraignment when the accused has due notice and no valid reason for being absent. Those conditions are present. Source: 1987 Constitution, Article III, Section 14(2).
+- id: q-peace-and-human-rights-human-rights-fundamentals-0034
+  approved: true
+  lesson: lesson-peace-and-human-rights-detention-review-and-compelled-testimony
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    Rebellion exists, but suspension of the privilege of habeas corpus is not required by public safety. Is the existence of rebellion alone sufficient under Article III, Section 15?
+  choices:
+  - text: "No, public safety must also require suspension."
+    correct: true
+  - text: "Yes, rebellion removes the need for a public-safety requirement."
+    rationale: |
+      This treats one condition as sufficient. Check that public safety must also require suspension.
+  - text: "Yes, because suspension automatically removes the entire Bill of Rights."
+    rationale: |
+      This turns a limited suspension into loss of all rights. Check the scope of the privilege.
+  - text: "No, because habeas corpus concerns only the speed of ordinary cases."
+    rationale: |
+      This confuses detention review with speedy case handling. Check what habeas corpus reviews.
+  explanation: |
+    Suspension requires invasion or rebellion and a public-safety need for suspension. Rebellion alone does not meet both conditions. Source: 1987 Constitution, Article III, Section 15.
+- id: q-peace-and-human-rights-human-rights-fundamentals-0035
+  approved: true
+  lesson: lesson-peace-and-human-rights-detention-review-and-compelled-testimony
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A witness refuses a compelled answer because it could expose her to criminal punishment. Which constitutional protection most directly supports the refusal?
+  choices:
+  - text: "Protection against self-incrimination"
+    correct: true
+  - text: "A general right to refuse all questions on any subject"
+    rationale: |
+      This makes the protection too broad. Check whether the answer could expose the person to criminal punishment.
+  - text: "The right to speedy disposition of cases before deciding bodies"
+    rationale: |
+      This selects delay protection. Check that the issue is the forced answer, not slow case handling.
+  - text: "The privilege of habeas corpus for reviewing unlawful detention"
+    rationale: |
+      This selects detention review. Check whether the issue is detention or testimony against oneself.
+  explanation: |
+    A person cannot be forced to testify against herself. The proposed answer could expose the witness to criminal punishment. Source: 1987 Constitution, Article III, Section 17.
+- id: q-peace-and-human-rights-human-rights-fundamentals-0036
+  approved: true
+  lesson: lesson-peace-and-human-rights-detention-punishment-and-debt
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A detention officer argues that lawful imprisonment permits cruel and degrading treatment of prisoners. Which assessment is correct?
+  choices:
+  - text: "Prisoners remain protected from such treatment."
+    correct: true
+  - text: "A lawful conviction permits every punishment chosen by prison staff."
+    rationale: |
+      This treats conviction as unlimited permission. Check the separate ban on cruel punishment and abuse.
+  - text: "Only people awaiting trial are protected against degrading punishment."
+    rationale: |
+      This wrongly limits protection to those not convicted. Check that Section 19 also protects prisoners.
+  - text: "Political beliefs determine whether prisoners keep protection from abuse."
+    rationale: |
+      This makes protection depend on beliefs. Check the ban on cruel treatment itself.
+  explanation: |
+    Section 19 bars cruel, degrading, or inhuman punishment and protects prisoners from abusive treatment. Lawful detention does not remove these protections. Source: 1987 Constitution, Article III, Section 19.
+- id: q-peace-and-human-rights-human-rights-fundamentals-0037
+  approved: true
+  lesson: lesson-peace-and-human-rights-detention-punishment-and-debt
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A defendant convicted of a separately proved fraud claims that the constitutional ban on imprisonment for debt rules out punishment because money was involved. Which distinction is controlling?
+  choices:
+  - text: "A separate crime differs from unpaid debt."
+    correct: true
+  - text: "Any crime involving money becomes constitutionally protected debt."
+    rationale: |
+      This turns every money offense into debt. Check whether a separate crime was proved.
+  - text: "Inability to repay an ordinary loan always establishes criminal fraud."
+    rationale: |
+      This treats inability to pay as proof of a crime. Check whether fraud was separately proved.
+  - text: "Nonpayment of a poll tax removes protection against imprisonment for debt."
+    rationale: |
+      This reverses the poll-tax rule. Check that Section 20 covers debt and poll-tax nonpayment.
+  explanation: |
+    Section 20 bars imprisonment for debt. It does not excuse a separately proved crime involving money. The facts state a fraud conviction. Source: 1987 Constitution, Article III, Section 20.
+- id: q-peace-and-human-rights-human-rights-fundamentals-0038
+  approved: true
+  lesson: lesson-peace-and-human-rights-detention-punishment-and-debt
+  keyPoint: 3
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A legislature passes a law naming people and imposing punishment on them without a court trial. Which prohibited measure does this describe?
+  choices:
+  - text: "A bill of attainder"
+    correct: true
+  - text: "An ex post facto law solely because a legislature passed it"
+    rationale: |
+      This confuses two bans. Check whether the defect is backward criminal punishment or punishment without trial.
+  - text: "A lawful criminal conviction solely because a statute orders punishment"
+    rationale: |
+      This treats legislative punishment as a court judgment. Check whether a trial occurred.
+  - text: "A valid punishment whenever the named people are politically unpopular"
+    rationale: |
+      This treats popularity as permission to punish. Check the ban on legislative punishment without trial.
+  explanation: |
+    A bill of attainder imposes punishment through a law without a court trial. That is the measure described. Source: 1987 Constitution, Article III, Section 22.
+- id: q-peace-and-human-rights-human-rights-fundamentals-0039
+  approved: true
+  lesson: lesson-peace-and-human-rights-double-jeopardy-protections
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A valid charge was filed in a court with jurisdiction. After arraignment and a valid plea, the accused was validly acquitted. Prosecutors seek another trial for the same offense solely because they disagree with the acquittal. Which protection applies?
+  choices:
+  - text: "The bar against double jeopardy"
+    correct: true
+  - text: "No protection, because prosecutors disagree with the court’s conclusion"
+    rationale: |
+      This makes disagreement an exception. Check whether the first case ended in a valid acquittal.
+  - text: "Only protection from excessive bail before a conviction"
+    rationale: |
+      This selects release conditions. Check the rule governing a second prosecution.
+  - text: "No protection, because only a conviction can bar a second prosecution"
+    rationale: |
+      This excludes acquittals. Check both protected ways a case may end.
+  explanation: |
+    The valid charge, proper court, and valid plea placed the accused in jeopardy. A valid acquittal bars another prosecution for the same offense. Source: 1987 Constitution, Article III, Section 21; People v. Sandiganbayan, G.R. Nos. 232197–98, December 5, 2018.
+- id: q-peace-and-human-rights-human-rights-fundamentals-0040
+  approved: true
+  lesson: lesson-peace-and-human-rights-double-jeopardy-protections
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    After a valid plea in a court with jurisdiction, an accused requests dismissal because the prosecution’s completed evidence is insufficient. The court grants an acquittal on that ground. Does his request alone permit a new prosecution for the same offense?
+  choices:
+  - text: "No, this dismissal amounts to acquittal."
+    correct: true
+  - text: "Yes, every dismissal requested by the accused permits another prosecution."
+    rationale: |
+      This applies the general consent rule without its exception. Check whether the dismissal amounts to an acquittal.
+  - text: "Yes, insufficient evidence postpones the first trial instead of ending it."
+    rationale: |
+      This overlooks the court’s acquittal. Check how and why the case ended.
+  - text: "No, because every dismissal before any valid plea also bars prosecution."
+    rationale: |
+      This ignores when jeopardy begins. Check that the facts include a valid plea and an acquittal.
+  explanation: |
+    A dismissal that amounts to acquittal for insufficient evidence is an exception to the usual rule for dismissals requested by the accused. The acquittal bars another prosecution for that offense. Source: 1987 Constitution, Article III, Section 21; People v. Sandiganbayan, G.R. Nos. 232197–98, December 5, 2018.
+- id: q-peace-and-human-rights-human-rights-fundamentals-0041
+  approved: true
+  lesson: lesson-peace-and-human-rights-rights-during-emergencies
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A travel limit is allowed by law for public health and meets that law’s conditions. An official says this alone suspends the entire Bill of Rights. Which assessment is correct?
+  choices:
+  - text: "The travel limit does not suspend all rights."
+    correct: true
+  - text: "Every lawful travel limit automatically removes every other protection."
+    rationale: |
+      This turns one allowed limit into loss of all rights. Check the scope of the measure.
+  - text: "Public-health travel limits are always forbidden regardless of legal basis."
+    rationale: |
+      This ignores an allowed ground. Check the travel rule’s own conditions.
+  - text: "The travel limit alone proves that every ICCPR emergency condition is met."
+    rationale: |
+      This confuses an ordinary limit with emergency suspension. Check the emergency conditions separately.
+  explanation: |
+    An ordinary limit operates under a right’s own rules. A lawful public-health travel limit does not suspend the entire Bill of Rights. Source: 1987 Constitution, Article III, Section 6; ICCPR, Article 4.
+- id: q-peace-and-human-rights-human-rights-fundamentals-0042
+  approved: true
+  lesson: lesson-peace-and-human-rights-rights-during-emergencies
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    During an officially announced emergency threatening the life of the nation, a state suspends an ICCPR duty that permits derogation. It plans no international notice. Which action is required by Article 4?
+  choices:
+  - text: "Notify other treaty states through the UN Secretary-General."
+    correct: true
+  - text: "Notify only domestic offices and keep the affected treaty duties secret."
+    rationale: |
+      This replaces the treaty notice with an internal message. Check who must receive the notice and what it must identify.
+  - text: "Wait until the emergency ends before sending any notice to treaty states."
+    rationale: |
+      This postpones the first notice. Check the requirement to notify immediately and report the end later.
+  - text: "Treat the emergency announcement as a substitute for every treaty notice."
+    rationale: |
+      This confuses announcing the emergency with notifying other states. Check both duties separately.
+  explanation: |
+    The state must immediately notify other ICCPR states through the UN Secretary-General. It must identify the affected duties and reasons, then report when the suspension ends. Source: ICCPR, Article 4(3).
+- id: q-peace-and-human-rights-human-rights-fundamentals-0043
+  approved: true
+  lesson: lesson-peace-and-human-rights-rights-during-emergencies
+  keyPoint: 3
+  type: single_choice
+  difficulty: exam
+  stem: |
+    During a qualifying national emergency, officials propose temporarily setting aside the ICCPR ban on torture to obtain information. Which conclusion follows from the treaty?
+  choices:
+  - text: "The torture ban cannot be suspended."
+    correct: true
+  - text: "The ban may be suspended if the emergency is officially announced."
+    rationale: |
+      This treats an announcement as permission to suspend every protection. Check Article 4’s protected rights.
+  - text: "The ban may be suspended whenever officials expect useful information."
+    rationale: |
+      This treats expected usefulness as an exception. Check whether the torture ban permits emergency suspension.
+  - text: "The ban may be suspended if international notice is sent immediately."
+    rationale: |
+      This treats notice as permission. Check whether the affected right can be suspended at all.
+  explanation: |
+    Article 4 does not permit suspension of the protection against torture in Article 7. This remains true during a qualifying emergency. Source: ICCPR, Articles 4(2) and 7.
+- id: q-peace-and-human-rights-human-rights-fundamentals-0044
+  approved: true
+  lesson: lesson-peace-and-human-rights-commission-on-human-rights
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    After investigating a civil-rights complaint, the CHR finds that the matter may require criminal prosecution. Which action is consistent with its role?
+  choices:
+  - text: Refer the matter to the proper prosecuting office.
+    correct: true
+  - text: Impose a prison sentence based on its investigation alone.
+    rationale: |
+      This gives the CHR a court's power. Its findings may support further action. Check who decides criminal guilt.
+  - text: Treat its findings as a final criminal conviction of the respondent.
+    rationale: |
+      This turns an investigation into a judgment. Check the difference between CHR findings and a court decision.
+  - text: Refuse all protective help because only courts may assist victims.
+    rationale: |
+      This confuses sentencing with protection. Check the CHR's powers to protect rights and give legal aid.
+  explanation: |
+    The CHR may investigate and refer a matter needing prosecution to the Department of Justice or another proper office. Courts decide criminal guilt. Source: 1987 Constitution, Article XIII, Section 18; Presidential Human Rights Committee Secretariat, Human Rights: A Primer.
+- id: q-peace-and-human-rights-human-rights-fundamentals-0045
+  approved: true
+  lesson: lesson-peace-and-human-rights-commission-on-human-rights
+  keyPoint: 3
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A relative wants to report possible abuse in detention to the CHR. She has messages about the incident but does not know every detail. What is the most appropriate next step?
+  choices:
+  - text: Report known facts and preserve the messages.
+    correct: true
+  - text: Fill the gaps with likely details so the report appears complete.
+    rationale: |
+      This treats guesses as evidence. A full account may seem stronger. Check which facts are actually known.
+  - text: Wait until every possible record is collected before asking for help.
+    rationale: |
+      This makes complete evidence a condition for seeking help. Check that available facts can be reported now.
+  - text: Avoid reporting because only the detained person may complain to the CHR.
+    rationale: |
+      This limits complaints to victims. Check that a relative or another party may report a possible violation.
+  explanation: |
+    A relative may report known facts and available evidence, then ask CHR staff what else they need. Missing details must not be invented. The CHR may investigate a complaint by any party. Source: 1987 Constitution, Article XIII, Section 18(1); CHR reporting guidance in this lesson.

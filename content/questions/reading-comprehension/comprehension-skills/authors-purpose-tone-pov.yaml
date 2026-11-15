@@ -42,8 +42,19 @@ passages:
       Across the aisle, Ben placed his project on a table and smiled. Lina could not tell whether he was pleased with his work or simply relieved to have arrived on time. She looked down at the loose roof again. During the last practice, she had spoken too quickly and forgotten to explain the rainwater tank. Perhaps she could slow down today.
       
       When a judge approached, Lina pressed the roof into place once more. Then she set the model down and began with the tank. Her voice shook on the first sentence, but the judge leaned forward to inspect the pipe. Lina reached for her diagram. The roof could wait while she explained the idea she had worked so hard to build.
+  - id: "p-comprehension-skills-paragraph-links-and-patterns-gap"
+    title: "Paragraph Links And Patterns"
+    body: |
+      In this fictional office report, applicants repeatedly returned because the instructions omitted a required attachment. These repeat visits crowded the reception area. The office revised the instructions and placed a completed sample beside them. After the change, applicants could check their papers before joining the line.
+  - id: "p-comprehension-skills-sentence-cues-and-meaning-gap"
+    title: "Sentence Cues And Meaning"
+    body: |
+      In this fictional delivery report, a parcel was left at the reception desk. The receipt has not been signed. Leo said that the contents might be damaged, but he had not opened the parcel. The clerk must inspect the contents before accepting them. Only the outer wrapping has been checked.
 questions:
   - id: "rc-cs-ap-0001"
+    approved: true
+    lesson: lesson-comprehension-skills-authors-main-purpose
+    keyPoint: 1
     passage: "rc-cs-ap-p1"
     type: "authors-purpose-tone-pov"
     difficulty: "easy"
@@ -64,6 +75,9 @@ questions:
     explanation: |
       Most details criticize demolition and support protecting the houses. The call for leaders to act reinforces persuasion as the main purpose.
   - id: "rc-cs-ap-0002"
+    approved: true
+    lesson: lesson-comprehension-skills-authors-tone
+    keyPoint: 1
     passage: "rc-cs-ap-p1"
     type: "authors-purpose-tone-pov"
     difficulty: "medium"
@@ -84,6 +98,9 @@ questions:
     explanation: |
       Calling development "commercial greed" expresses disapproval. Saying leaders "must act immediately" adds urgency.
   - id: "rc-cs-ap-0003"
+    approved: true
+    lesson: lesson-comprehension-skills-first-and-second-person
+    keyPoint: 1
     passage: "rc-cs-ap-p1"
     type: "authors-purpose-tone-pov"
     difficulty: "medium"
@@ -104,6 +121,9 @@ questions:
     explanation: |
       The writer includes the speaker in "we" and "our." These words present the concern as shared by the community.
   - id: "rc-cs-ap-0004"
+    approved: true
+    lesson: lesson-comprehension-skills-argument-viewpoint-and-bias
+    keyPoint: 1
     passage: "rc-cs-ap-p1"
     type: "authors-purpose-tone-pov"
     difficulty: "hard"
@@ -124,6 +144,9 @@ questions:
     explanation: |
       The writer calls heritage the foundation of long-term tourism. Preservation is presented as supporting lasting economic benefits.
   - id: "rc-cs-ap-0005"
+    approved: true
+    lesson: lesson-comprehension-skills-authors-tone
+    keyPoint: 1
     passage: "rc-cs-ap-p1"
     type: "authors-purpose-tone-pov"
     difficulty: "hard"
@@ -144,6 +167,9 @@ questions:
     explanation: |
       "Authentic craftsmanship" praises the old buildings. "Sterile glass storefronts" makes the replacements sound lacking in life. The descriptions express the writer's values.
   - id: "rc-cs-ap-0006"
+    approved: true
+    lesson: lesson-comprehension-skills-first-and-second-person
+    keyPoint: 1
     passage: "rc-cs-ap-p2"
     type: "authors-purpose-tone-pov"
     difficulty: "easy"
@@ -164,6 +190,9 @@ questions:
     explanation: |
       The speaker takes part in the trip and says "I stood" and "my grandmother." The events are told through that participant's view.
   - id: "rc-cs-ap-0007"
+    approved: true
+    lesson: lesson-comprehension-skills-authors-tone
+    keyPoint: 1
     passage: "rc-cs-ap-p2"
     type: "authors-purpose-tone-pov"
     difficulty: "medium"
@@ -184,6 +213,9 @@ questions:
     explanation: |
       The narrator recalls childhood smells and notices time passing. These memories and reflections create a nostalgic, reflective tone.
   - id: "rc-cs-ap-0008"
+    approved: true
+    lesson: lesson-comprehension-skills-authors-main-purpose
+    keyPoint: 1
     passage: "rc-cs-ap-p2"
     type: "authors-purpose-tone-pov"
     difficulty: "medium"
@@ -204,6 +236,9 @@ questions:
     explanation: |
       The ending connects returning home with remembering an earlier sense of self. That reflection explains why the narrator shares the trip.
   - id: "rc-cs-ap-0009"
+    approved: true
+    lesson: lesson-comprehension-skills-paragraph-links-and-patterns
+    keyPoint: 1
     passage: "rc-cs-ap-p2"
     type: "authors-purpose-tone-pov"
     difficulty: "hard"
@@ -224,6 +259,9 @@ questions:
     explanation: |
       Meals alone and hurried routines show isolation in Manila. The grandmother's embrace and neighbors' greetings show a sense of belonging in Leyte.
   - id: "rc-cs-ap-0010"
+    approved: true
+    lesson: lesson-comprehension-skills-authors-tone
+    keyPoint: 1
     passage: "rc-cs-ap-p2"
     type: "authors-purpose-tone-pov"
     difficulty: "hard"
@@ -244,6 +282,9 @@ questions:
     explanation: |
       The changed hair makes the narrator notice the years spent away. It adds awareness of aging to the homecoming.
   - id: "rc-cs-ap-0011"
+    approved: true
+    lesson: lesson-comprehension-skills-authors-main-purpose
+    keyPoint: 1
     passage: "rc-cs-cs-p3"
     type: "authors-purpose-tone-pov"
     difficulty: "easy"
@@ -264,6 +305,9 @@ questions:
     explanation: |
       The passage explains bioluminescence and how the club gathers evidence. Its main purpose is to inform readers about the event and careful study.
   - id: "rc-cs-ap-0012"
+    approved: true
+    lesson: lesson-comprehension-skills-authors-tone
+    keyPoint: 1
     passage: "rc-cs-cs-p3"
     type: "authors-purpose-tone-pov"
     difficulty: "easy"
@@ -284,6 +328,9 @@ questions:
     explanation: |
       The writer explains the process and states the limits of the observations. That careful treatment creates a measured, informative tone.
   - id: "rc-cs-ap-0013"
+    approved: true
+    lesson: lesson-comprehension-skills-third-person-thoughts
+    keyPoint: 1
     passage: "rc-cs-cs-p3"
     type: "authors-purpose-tone-pov"
     difficulty: "medium"
@@ -304,6 +351,9 @@ questions:
     explanation: |
       The passage describes the students, teacher, and report from outside the group. It presents actions and findings in an impersonal reporting voice.
   - id: "rc-cs-ap-0014"
+    approved: true
+    lesson: lesson-comprehension-skills-argument-viewpoint-and-bias
+    keyPoint: 1
     passage: "rc-cs-cs-p3"
     type: "authors-purpose-tone-pov"
     difficulty: "medium"
@@ -324,6 +374,9 @@ questions:
     explanation: |
       The passage pairs the appeal of glowing water with limits on the evidence. This shows why the club recommends further study before tour plans.
   - id: "rc-cs-ap-0015"
+    approved: true
+    lesson: lesson-comprehension-skills-authors-tone
+    keyPoint: 1
     passage: "rc-cs-cs-p3"
     type: "authors-purpose-tone-pov"
     difficulty: "hard"
@@ -344,6 +397,8 @@ questions:
     explanation: |
       Bioluminescence names light made by living things. This term identifies the process the students study.
   - id: "q-comprehension-skills-authors-purpose-tone-pov-0016"
+    lesson: lesson-comprehension-skills-third-person-thoughts
+    keyPoint: 1
     passage: "p-comprehension-skills-authors-purpose-tone-pov-0004"
     type: "authors-purpose-tone-pov"
     difficulty: "easy"
@@ -363,8 +418,10 @@ questions:
           This overlooks the reported wishes. Visible actions fill much of the scene. Check the sentences revealing Lina's private worries.
     explanation: |
       The narrator calls Lina by name and reports her wishes and worries. Ben's thoughts remain unknown to her. Access is limited to Lina's mind.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-authors-purpose-tone-pov-0017"
+    lesson: lesson-comprehension-skills-authors-tone
+    keyPoint: 1
     passage: "p-comprehension-skills-authors-purpose-tone-pov-0004"
     type: "authors-purpose-tone-pov"
     difficulty: "medium"
@@ -384,8 +441,10 @@ questions:
           This treats descriptions of a model as technical reporting. A pipe and tank appear. Check the attention to Lina's feelings.
     explanation: |
       Lina's voice still shakes, but she begins explaining her design and reaches for her diagram. That mix of worry and progress gives a cautiously hopeful tone.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-authors-purpose-tone-pov-0018"
+    lesson: lesson-comprehension-skills-third-person-thoughts
+    keyPoint: 1
     passage: "p-comprehension-skills-authors-purpose-tone-pov-0004"
     type: "authors-purpose-tone-pov"
     difficulty: "hard"
@@ -405,8 +464,10 @@ questions:
           This turns Lina's uncertainty into hostile intent. She is nervous near Ben. Check for evidence that Ben wants to hurt her.
     explanation: |
       The narrator shares only what Lina can observe or think. Stating her uncertainty keeps Ben's private reasons outside the account.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-authors-purpose-tone-pov-0019"
+    lesson: lesson-comprehension-skills-authors-main-purpose
+    keyPoint: 1
     passage: "p-comprehension-skills-authors-purpose-tone-pov-0004"
     type: "authors-purpose-tone-pov"
     difficulty: "hard"
@@ -426,8 +487,10 @@ questions:
           This treats the presence of two projects as a cost comparison. Ben also brings a model. Check whether prices are given.
     explanation: |
       The scene follows Lina's worries and her decision to explain the design despite the loose roof. It portrays a personal challenge through a story.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-authors-purpose-tone-pov-0020"
+    lesson: lesson-comprehension-skills-third-person-thoughts
+    keyPoint: 1
     passage: "p-comprehension-skills-authors-purpose-tone-pov-0004"
     type: "authors-purpose-tone-pov"
     difficulty: "exam"
@@ -447,4 +510,73 @@ questions:
           This turns access to feelings into certainty about the outcome. Lina begins more steadily. Check whether a result is stated.
     explanation: |
       Lina's remembered practice and wishes show why the presentation worries her. Knowing those thoughts helps the reader understand her anxiety.
-    approved: false
+    approved: true
+  - id: "q-comprehension-skills-authors-purpose-tone-pov-0021"
+    approved: true
+    lesson: lesson-comprehension-skills-paragraph-links-and-patterns
+    keyPoint: 1
+    passage: "p-comprehension-skills-paragraph-links-and-patterns-gap"
+    type: "authors-purpose-tone-pov"
+    difficulty: "exam"
+    stem: |
+      What does "These repeat visits" refer to, and how is the passage principally organized?
+    choices:
+      - text: "Returns for a missing attachment; problem and solution."
+        correct: true
+      - text: "Visits to collect a completed sample; comparison of two services."
+        rationale: |
+          This links the phrase to a later action. The sample is nearby in the passage. Find what happened before the phrase, then identify the main problem and response.
+      - text: "Staff visits to the reception area; sequence of employee duties."
+        rationale: |
+          This replaces applicants with staff. Reception areas also have workers. Check who returned and why the instructions were changed.
+      - text: "Visits made after revision of the instructions; cause and effect."
+        rationale: |
+          This moves the repeat visits past the change. The passage does include causes. Check that the main movement is from a difficulty to its remedy.
+    explanation: |
+      The applicants returned because an attachment was missing. The passage presents that problem, then gives revised instructions and a sample as the response.
+  - id: "q-comprehension-skills-authors-purpose-tone-pov-0022"
+    approved: true
+    lesson: lesson-comprehension-skills-sentence-cues-and-meaning
+    keyPoint: 1
+    passage: "p-comprehension-skills-sentence-cues-and-meaning-gap"
+    type: "authors-purpose-tone-pov"
+    difficulty: "exam"
+    stem: |
+      Which conclusion about the contents is warranted by the report?
+    choices:
+      - text: "Damage remains uncertain."
+        correct: true
+      - text: "The unopened contents have already been proved damaged."
+        rationale: |
+          This turns might into proof. Damage to a parcel may seem likely. Check whether anyone has inspected the contents.
+      - text: "Leo inspected and accepted the contents before speaking."
+        rationale: |
+          This treats a reported concern as a completed inspection. Leo spoke about the contents. Check the statement that he had not opened the parcel.
+      - text: "The contents must be undamaged because they are still unopened."
+        rationale: |
+          This treats lack of inspection as proof of good condition. An unopened parcel may look safe. Check whether the contents themselves have been examined.
+    explanation: |
+      Leo reports possible damage without opening the parcel. Might marks uncertainty. Only the wrapping has been checked, so damage to the contents remains uncertain.
+  - id: "q-comprehension-skills-authors-purpose-tone-pov-0023"
+    approved: true
+    lesson: lesson-comprehension-skills-sentence-cues-and-meaning
+    keyPoint: 1
+    passage: "p-comprehension-skills-sentence-cues-and-meaning-gap"
+    type: "authors-purpose-tone-pov"
+    difficulty: "exam"
+    stem: |
+      Which statement correctly interprets "The clerk must inspect the contents before accepting them"?
+    choices:
+      - text: "Inspection is required before acceptance."
+        correct: true
+      - text: "The clerk has already inspected and accepted the contents."
+        rationale: |
+          This turns a duty into a finished action. Must tells what the clerk needs to do. Check for a separate statement that the work was done.
+      - text: "The clerk may accept the contents without any inspection."
+        rationale: |
+          This treats a requirement as optional. May and must give different limits. Read must together with before.
+      - text: "The clerk must accept the contents before checking them."
+        rationale: |
+          This reverses the required order. Both actions appear in the sentence. Check which action comes before the other.
+    explanation: |
+      Must states a requirement. Before places inspection ahead of acceptance. The sentence requires that order.

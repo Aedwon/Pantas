@@ -6,6 +6,11 @@ subject: "subject-reading-comprehension"
 topic: "topic-comprehension-skills"
 estimatedMinutes: 10
 isActive: true
+status: retired
+replacedBy:
+  - lesson-comprehension-skills-checkable-claims-and-judgments
+  - lesson-comprehension-skills-claim-type-and-evidence
+  - lesson-comprehension-skills-projections-and-forecasts
 ---
 ## Core Concept
 

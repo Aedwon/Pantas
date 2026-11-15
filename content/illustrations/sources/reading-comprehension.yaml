@@ -1,0 +1,8 @@
+version: 1
+assets:
+  - key: "reading-comprehension/comprehension-skills/main-idea-scope#1"
+    credit: "Pantas"
+  - key: "reading-comprehension/comprehension-skills/visual-data-conclusions#1"
+    credit: "Pantas"
+  - key: "reading-comprehension/comprehension-skills/visual-data-conclusions#2"
+    credit: "Pantas"

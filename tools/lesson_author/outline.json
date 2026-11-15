@@ -1219,13 +1219,133 @@
               "sections": []
             },
             {
+              "title": "Subject and Verb Checks",
+              "slug": "subject-and-verb-checks",
+              "sections": []
+            },
+            {
+              "title": "Pronoun Reference Checks",
+              "slug": "pronoun-reference-checks",
+              "sections": []
+            },
+            {
+              "title": "Modifiers and Matching Forms",
+              "slug": "modifiers-and-matching-forms",
+              "sections": []
+            },
+            {
+              "title": "Past Time Checks",
+              "slug": "past-time-checks",
+              "sections": []
+            },
+            {
+              "title": "Modal Meaning Checks",
+              "slug": "modal-meaning-checks",
+              "sections": []
+            },
+            {
+              "title": "Phrases and Sentence Types",
+              "slug": "phrases-and-sentence-types",
+              "sections": []
+            },
+            {
+              "title": "Clause Punctuation Checks",
+              "slug": "clause-punctuation-checks",
+              "sections": []
+            },
+            {
+              "title": "Word Meaning Checks",
+              "slug": "word-meaning-checks",
+              "sections": []
+            },
+            {
+              "title": "Wastong Gamit at Panahon",
+              "slug": "wastong-gamit-at-panahon",
+              "sections": []
+            },
+            {
+              "title": "Kayarian at Sugnay",
+              "slug": "kayarian-at-sugnay",
+              "sections": []
+            },
+            {
               "title": "Sentence Completion / Fill-in-the-Blanks",
               "slug": "sentence-completion",
               "sections": []
             },
             {
+              "title": "Meaning Clues for Blanks",
+              "slug": "completion-meaning-clues",
+              "sections": []
+            },
+            {
+              "title": "Word Forms for Blanks",
+              "slug": "completion-word-forms",
+              "sections": []
+            },
+            {
+              "title": "Past Time for Blanks",
+              "slug": "completion-past-time",
+              "sections": []
+            },
+            {
+              "title": "Articles, Prepositions, and Lists",
+              "slug": "completion-articles-and-lists",
+              "sections": []
+            },
+            {
+              "title": "Natural Word Combinations",
+              "slug": "completion-natural-phrases",
+              "sections": []
+            },
+            {
+              "title": "Pagkumpleto ng Pangungusap",
+              "slug": "pagkumpleto-ng-pangungusap",
+              "sections": []
+            },
+            {
               "title": "Paragraph Organization (Logical Ordering of Sentences)",
               "slug": "paragraph-organization",
+              "sections": []
+            },
+            {
+              "title": "Openings and Reference Links",
+              "slug": "openings-and-reference-links",
+              "sections": []
+            },
+            {
+              "title": "Transition Links",
+              "slug": "transition-links",
+              "sections": []
+            },
+            {
+              "title": "Time and Step Order",
+              "slug": "time-and-step-order",
+              "sections": []
+            },
+            {
+              "title": "Cause and Effect Order",
+              "slug": "cause-and-effect-order",
+              "sections": []
+            },
+            {
+              "title": "Main Ideas and Details",
+              "slug": "main-ideas-and-details",
+              "sections": []
+            },
+            {
+              "title": "Details and Supported Inferences",
+              "slug": "details-and-supported-inferences",
+              "sections": []
+            },
+            {
+              "title": "Pagkakasunod at Sanhi",
+              "slug": "pagkakasunod-at-sanhi",
+              "sections": []
+            },
+            {
+              "title": "Paksa at Balangkas",
+              "slug": "paksa-at-balangkas",
               "sections": []
             }
           ]
@@ -1278,8 +1398,53 @@
               "sections": []
             },
             {
+              "title": "Finding the Main Point and Topic Sentence",
+              "slug": "main-point-and-topic-sentence",
+              "sections": []
+            },
+            {
+              "title": "Finding an Implied Main Idea",
+              "slug": "implied-main-point",
+              "sections": []
+            },
+            {
+              "title": "Checking the Scope of a Main Idea",
+              "slug": "main-idea-scope",
+              "sections": []
+            },
+            {
+              "title": "Finding the Main Idea Across Paragraphs",
+              "slug": "main-idea-across-paragraphs",
+              "sections": []
+            },
+            {
+              "title": "Paksa at Pangunahing Ideya",
+              "slug": "paksa-at-pangunahing-ideya",
+              "sections": []
+            },
+            {
+              "title": "Balangkas at Ugnayan ng mga Ideya",
+              "slug": "balangkas-at-ugnayan",
+              "sections": []
+            },
+            {
               "title": "Choosing an Appropriate Title",
               "slug": "choosing-a-title",
+              "sections": []
+            },
+            {
+              "title": "Choosing a Title for the Main Idea",
+              "slug": "title-main-idea",
+              "sections": []
+            },
+            {
+              "title": "Checking a Title's Scope",
+              "slug": "title-scope",
+              "sections": []
+            },
+            {
+              "title": "Matching a Title to the Author's Stance",
+              "slug": "title-authors-stance",
               "sections": []
             },
             {
@@ -1288,8 +1453,53 @@
               "sections": []
             },
             {
+              "title": "Scanning for Exact Details",
+              "slug": "scanning-exact-details",
+              "sections": []
+            },
+            {
+              "title": "Skimming and Matching Meaning",
+              "slug": "skimming-and-meaning-matches",
+              "sections": []
+            },
+            {
+              "title": "Checking Old and Current Details",
+              "slug": "old-and-current-details",
+              "sections": []
+            },
+            {
               "title": "Inferencing and Drawing Conclusions",
               "slug": "inferencing-and-conclusions",
+              "sections": []
+            },
+            {
+              "title": "Drawing Inferences from Clues",
+              "slug": "connecting-clues",
+              "sections": []
+            },
+            {
+              "title": "Matching Conclusions to Evidence",
+              "slug": "evidence-and-claim-strength",
+              "sections": []
+            },
+            {
+              "title": "Finding Necessary Assumptions",
+              "slug": "necessary-assumptions",
+              "sections": []
+            },
+            {
+              "title": "Drawing Conclusions from Visual Data",
+              "slug": "visual-data-conclusions",
+              "sections": []
+            },
+            {
+              "title": "Pagbuo ng Hinuha mula sa mga Detalye",
+              "slug": "hinuha-mula-sa-detalye",
+              "sections": []
+            },
+            {
+              "title": "Paghatol Batay sa Ebidensya",
+              "slug": "paghatol-at-ebidensya",
               "sections": []
             },
             {
@@ -1298,8 +1508,58 @@
               "sections": []
             },
             {
+              "title": "Distinguishing Checkable Claims and Judgments",
+              "slug": "checkable-claims-and-judgments",
+              "sections": []
+            },
+            {
+              "title": "Separating Claim Type from Evidence",
+              "slug": "claim-type-and-evidence",
+              "sections": []
+            },
+            {
+              "title": "Distinguishing Projections and Forecasts",
+              "slug": "projections-and-forecasts",
+              "sections": []
+            },
+            {
               "title": "Identifying Author's Purpose, Tone, and Point of View",
               "slug": "authors-purpose-tone-pov",
+              "sections": []
+            },
+            {
+              "title": "Identifying Author's Purpose",
+              "slug": "authors-main-purpose",
+              "sections": []
+            },
+            {
+              "title": "Identifying Author's Tone",
+              "slug": "authors-tone",
+              "sections": []
+            },
+            {
+              "title": "Identifying First and Second Person",
+              "slug": "first-and-second-person",
+              "sections": []
+            },
+            {
+              "title": "Identifying Third-Person Point of View",
+              "slug": "third-person-thoughts",
+              "sections": []
+            },
+            {
+              "title": "Identifying Argument Viewpoint and Bias",
+              "slug": "argument-viewpoint-and-bias",
+              "sections": []
+            },
+            {
+              "title": "Identifying Paragraph Links and Patterns",
+              "slug": "paragraph-links-and-patterns",
+              "sections": []
+            },
+            {
+              "title": "Reading Sentence Cues for Meaning",
+              "slug": "sentence-cues-and-meaning",
               "sections": []
             },
             {
@@ -1308,8 +1568,68 @@
               "sections": []
             },
             {
+              "title": "Meaning through Definition and Example Clues",
+              "slug": "definition-and-example-clues",
+              "sections": []
+            },
+            {
+              "title": "Meaning through Contrast and Cause Clues",
+              "slug": "contrast-and-cause-clues",
+              "sections": []
+            },
+            {
+              "title": "Meaning through Word Parts",
+              "slug": "word-parts-in-passages",
+              "sections": []
+            },
+            {
+              "title": "Mga Pahiwatig ng Kahulugan sa Filipino",
+              "slug": "filipino-meaning-clues",
+              "sections": []
+            },
+            {
+              "title": "Posibilidad at Oras sa Talata",
+              "slug": "filipino-possibility-and-time",
+              "sections": []
+            },
+            {
+              "title": "Panghalip, Panuring, at Baybay sa Talata",
+              "slug": "filipino-pronouns-modifiers-spelling",
+              "sections": []
+            },
+            {
+              "title": "Uri ng Pangungusap sa Talata",
+              "slug": "filipino-sentence-types",
+              "sections": []
+            },
+            {
               "title": "Sequencing of Events",
               "slug": "sequencing-of-events",
+              "sections": []
+            },
+            {
+              "title": "Sequencing with Time Words",
+              "slug": "event-time-words",
+              "sections": []
+            },
+            {
+              "title": "Sequencing with Verb Forms",
+              "slug": "event-verb-forms",
+              "sections": []
+            },
+            {
+              "title": "Sequencing Causes and Overlapping Events",
+              "slug": "event-causes-and-overlap",
+              "sections": []
+            },
+            {
+              "title": "Pagkakasunod-sunod ayon sa Oras",
+              "slug": "filipino-event-time",
+              "sections": []
+            },
+            {
+              "title": "Pagkakasunod-sunod ng Sanhi at Bunga",
+              "slug": "filipino-event-causes",
               "sections": []
             }
           ]
@@ -2086,7 +2406,118 @@
         {
           "name": "Peace and Human Rights",
           "slug": "peace-and-human-rights",
-          "lessons": []
+          "lessons": [
+            {
+              "title": "Universal Rights and History",
+              "slug": "universal-rights-and-history",
+              "sections": []
+            },
+            {
+              "title": "Bill of Rights: Fairness and Freedoms",
+              "slug": "bill-of-rights-fairness-and-freedoms",
+              "sections": []
+            },
+            {
+              "title": "Searches and Private Messages",
+              "slug": "searches-and-private-messages",
+              "sections": []
+            },
+            {
+              "title": "Home, Travel, and Public Records",
+              "slug": "home-travel-and-public-records",
+              "sections": []
+            },
+            {
+              "title": "Groups, Property, and Contracts",
+              "slug": "groups-property-and-contracts",
+              "sections": []
+            },
+            {
+              "title": "Custodial Investigation and Bail",
+              "slug": "custodial-investigation-and-bail",
+              "sections": []
+            },
+            {
+              "title": "Criminal Trial Protections",
+              "slug": "criminal-trial-protections",
+              "sections": []
+            },
+            {
+              "title": "Detention Review and Compelled Testimony",
+              "slug": "detention-review-and-compelled-testimony",
+              "sections": []
+            },
+            {
+              "title": "Detention, Punishment, and Debt",
+              "slug": "detention-punishment-and-debt",
+              "sections": []
+            },
+            {
+              "title": "Double Jeopardy Protections",
+              "slug": "double-jeopardy-protections",
+              "sections": []
+            },
+            {
+              "title": "Rights During Emergencies",
+              "slug": "rights-during-emergencies",
+              "sections": []
+            },
+            {
+              "title": "Commission on Human Rights",
+              "slug": "commission-on-human-rights",
+              "sections": []
+            },
+            {
+              "title": "HRL and IHL: Scope",
+              "slug": "hrl-and-ihl-scope",
+              "sections": []
+            },
+            {
+              "title": "Types of Armed Conflict",
+              "slug": "armed-conflict-types",
+              "sections": []
+            },
+            {
+              "title": "How HRL and IHL Work Together",
+              "slug": "hrl-and-ihl-together",
+              "sections": []
+            },
+            {
+              "title": "ICCPR Emergency Conditions",
+              "slug": "iccpr-emergency-conditions",
+              "sections": []
+            },
+            {
+              "title": "ICCPR Rights That Cannot Be Suspended",
+              "slug": "iccpr-protected-rights",
+              "sections": []
+            },
+            {
+              "title": "People Protected from Attack",
+              "slug": "people-protected-from-attack",
+              "sections": []
+            },
+            {
+              "title": "Limits on Weapons",
+              "slug": "weapons-limits",
+              "sections": []
+            },
+            {
+              "title": "Distinction and Military Targets",
+              "slug": "military-targets",
+              "sections": []
+            },
+            {
+              "title": "Civilian Harm and Attack Precautions",
+              "slug": "attack-rules",
+              "sections": []
+            },
+            {
+              "title": "IHL Preparation and Peace",
+              "slug": "ihl-preparation-and-peace",
+              "sections": []
+            }
+          ]
         },
         {
           "name": "Environment Management",

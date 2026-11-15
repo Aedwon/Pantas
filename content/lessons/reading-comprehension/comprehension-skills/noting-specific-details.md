@@ -6,6 +6,11 @@ subject: "subject-reading-comprehension"
 topic: "topic-comprehension-skills"
 estimatedMinutes: 11
 isActive: true
+status: retired
+replacedBy:
+  - lesson-comprehension-skills-scanning-exact-details
+  - lesson-comprehension-skills-skimming-and-meaning-matches
+  - lesson-comprehension-skills-old-and-current-details
 ---
 ## Core Concept
 

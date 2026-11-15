@@ -6,6 +6,18 @@ subject: "subject-general-information"
 topic: "topic-peace-and-human-rights"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-peace-and-human-rights-hrl-and-ihl-scope
+  - lesson-peace-and-human-rights-armed-conflict-types
+  - lesson-peace-and-human-rights-hrl-and-ihl-together
+  - lesson-peace-and-human-rights-iccpr-emergency-conditions
+  - lesson-peace-and-human-rights-iccpr-protected-rights
+  - lesson-peace-and-human-rights-people-protected-from-attack
+  - lesson-peace-and-human-rights-weapons-limits
+  - lesson-peace-and-human-rights-military-targets
+  - lesson-peace-and-human-rights-attack-rules
+  - lesson-peace-and-human-rights-ihl-preparation-and-peace
 ---
 <!-- SOURCE AUDIT: RW-079; branch content/cse-rewrite-r1; assignment base c38ca13c; accessed 2026-10-26. Goal: distinguish HRL from IHL, classify basic conflict cases, and apply civilian, detainee, attack, and emergency protections. No prerequisite teaching assumed. Source references supplied in assignment; no new external verification performed. Scope, jurisdiction, concurrent application, battlefield right-to-life analysis: ICRC, What is the difference between IHL and human rights law?, https://www.icrc.org/en/document/what-difference-between-ihl-and-human-rights-law ; ICRC, Human rights law, https://www.icrc.org/en/law-and-policy/human-rights-law . Conflict classification: Geneva Conventions, common Articles 2-3, and ICRC Opinion Paper 2024, How is the term Armed Conflict defined in IHL?, https://www.icrc.org/sites/default/files/document_new/file_list/armed_conflict_defined_in_ihl.pdf . Emergency conditions and protected rights: ICCPR Articles 4, 6-8, 11, 15-16, 18, https://2covenants.ohchr.org/About-ICCPR.html . Protection, distinction, proportionality, and precautions: Additional Protocol I, Articles 35, 41, 48, 51-52, 57; ICRC Customary IHL Rules 1, 6-7, 11-21, 47, 70-71, 74, 87, 90, 100, 110. Poison gas: Geneva Protocol and ICRC, Weapons, https://www.icrc.org/en/document/weapons . Peacetime teaching and grave-breach legislation: Third Geneva Convention Articles 127, 129-130, treaty text in ICRC, The Geneva Conventions of 12 August 1949, https://www.icrc.org/sites/default/files/external/doc/en/assets/files/publications/icrc-002-0173.pdf ; Article 127 also reproduced in ICRC Handbook of the International Red Cross and Red Crescent Movement, https://www.icrc.org/sites/default/files/external/doc/en/assets/files/publications/icrc-002-0962.pdf . Article 127 expressly requires dissemination in peace and war, military instruction, and special instruction for authorities responsible for prisoners of war. Community negotiation steps are practical advice, not a claimed treaty procedure or specific CSC test format. All scenarios are hypothetical applications. -->
 ## Core Concept

@@ -281,6 +281,11 @@
     "lesson": "lesson-vocabulary-kasingkahulugan-at-kasalungat",
     "strength": "helpful",
     "reason": "Recognizing close meanings, opposites, and differences in strength makes relationship matching easier. The lesson explains these relationships sufficiently itself."
+   },
+   {
+    "lesson": "lesson-vocabulary-synonyms-and-antonyms",
+    "strength": "helpful",
+    "reason": "Recognizing close meanings, opposites, and differences in strength makes relationship matching easier. The lesson explains these relationships sufficiently itself."
    }
   ],
   "lesson-peace-and-human-rights-human-rights-fundamentals": [],
@@ -338,11 +343,26 @@
     "lesson": "lesson-comprehension-skills-fact-vs-opinion",
     "strength": "helpful",
     "reason": "Separating checkable claims from judgments helps students distinguish reporting from argument. This lesson explains enough to classify its examples independently."
+   },
+   {
+    "lesson": "lesson-comprehension-skills-sentence-cues-and-meaning",
+    "strength": "helpful",
+    "reason": "Distinguishing the dominant purpose from individual statements makes mixed text types easier to classify. This lesson provides its own method."
+   },
+   {
+    "lesson": "lesson-comprehension-skills-projections-and-forecasts",
+    "strength": "helpful",
+    "reason": "Separating checkable claims from judgments helps students distinguish reporting from argument. This lesson explains enough to classify its examples independently."
    }
   ],
   "lesson-text-types-poetry": [
    {
     "lesson": "lesson-vocabulary-paghahambing-pagbibigay-katauhan-at-pagmamalabis",
+    "strength": "helpful",
+    "reason": "Recognizing figurative comparisons and repeated sounds makes poetic interpretation easier. Poetry defines each device before applying it."
+   },
+   {
+    "lesson": "lesson-vocabulary-idioms-and-figures-of-speech",
     "strength": "helpful",
     "reason": "Recognizing figurative comparisons and repeated sounds makes poetic interpretation easier. Poetry defines each device before applying it."
    }
@@ -355,6 +375,11 @@
    },
    {
     "lesson": "lesson-comprehension-skills-inferencing-and-conclusions",
+    "strength": "helpful",
+    "reason": "Matching conclusions to evidence helps students interpret cartoons without adding unsupported claims. Visual Media explains this principle itself."
+   },
+   {
+    "lesson": "lesson-comprehension-skills-paghatol-at-ebidensya",
     "strength": "helpful",
     "reason": "Matching conclusions to evidence helps students interpret cartoons without adding unsupported claims. Visual Media explains this principle itself."
    }
@@ -1838,6 +1863,672 @@
   "lesson-vocabulary-word-partners-feeling-and-grammar": [
    {
     "lesson": "lesson-vocabulary-contrast-and-inference-clues",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-authors-main-purpose": [],
+  "lesson-comprehension-skills-title-main-idea": [
+   {
+    "lesson": "lesson-comprehension-skills-balangkas-at-ugnayan",
+    "strength": "helpful",
+    "reason": "Finding the central point and checking its scope makes title selection easier. This lesson also explains both steps."
+   }
+  ],
+  "lesson-comprehension-skills-definition-and-example-clues": [
+   {
+    "lesson": "lesson-vocabulary-context-clues",
+    "strength": "helpful",
+    "reason": "Practice recognizing word-level clues helps students combine clues across sentences. This lesson reteaches the needed clue types."
+   }
+  ],
+  "lesson-environment-management-environmental-problems-and-climate-change": [
+   {
+    "lesson": "lesson-environment-management-source-segregation-and-waste-types",
+    "strength": "helpful",
+    "reason": "Knowing how sorting supports material recovery makes evaluating the waste program easier. This lesson defines segregation and explains the collection problem."
+   }
+  ],
+  "lesson-environment-management-species-resources-and-environmental-decisions": [],
+  "lesson-grammar-and-structure-filipino-verb-aspect-and-focus": [],
+  "lesson-grammar-and-structure-modifiers": [
+   {
+    "lesson": "lesson-grammar-and-structure-phrases-and-clauses",
+    "strength": "helpful",
+    "reason": "Recognizing phrases and their understood doers makes dangling-modifier repairs easier. The lesson explains the repairs sufficiently to stand alone."
+   }
+  ],
+  "lesson-grammar-and-structure-parallelism": [
+   {
+    "lesson": "lesson-grammar-and-structure-phrases-and-clauses",
+    "strength": "helpful",
+    "reason": "Understanding infinitive and -ing groups makes comparisons between grammatical forms easier. The lesson supplies its own matching-form rules."
+   }
+  ],
+  "lesson-grammar-and-structure-parts-of-speech": [],
+  "lesson-grammar-and-structure-phrases-and-clauses": [],
+  "lesson-grammar-and-structure-pronoun-antecedent-agreement": [],
+  "lesson-grammar-and-structure-punctuation-and-capitalization": [
+   {
+    "lesson": "lesson-grammar-and-structure-phrases-and-clauses",
+    "strength": "helpful",
+    "reason": "Practice distinguishing independent and dependent clauses makes comma and semicolon choices easier. The lesson repeats the necessary definitions."
+   }
+  ],
+  "lesson-grammar-and-structure-redundancy-and-double-negatives": [],
+  "lesson-grammar-and-structure-sentence-structure": [
+   {
+    "lesson": "lesson-grammar-and-structure-phrases-and-clauses",
+    "strength": "helpful",
+    "reason": "Recognizing clause boundaries makes counting clauses and identifying sentence types easier. The lesson teaches the needed clause definitions itself."
+   }
+  ],
+  "lesson-grammar-and-structure-subject-verb-agreement": [
+   {
+    "lesson": "lesson-grammar-and-structure-filipino-verb-aspect-and-focus",
+    "strength": "helpful",
+    "reason": "Prior practice with Filipino aspect and focus eases the shift from English agreement rules. The lesson independently explains its Filipino rules."
+   }
+  ],
+  "lesson-grammar-and-structure-tenses-and-voice": [
+   {
+    "lesson": "lesson-grammar-and-structure-subject-verb-agreement",
+    "strength": "helpful",
+    "reason": "Subject and number identification makes choosing auxiliary forms easier. The lesson provides the basic agreement patterns needed for its examples."
+   }
+  ],
+  "lesson-language-application-completion-meaning-clues": [
+   {
+    "lesson": "lesson-vocabulary-context-clues",
+    "strength": "helpful",
+    "reason": "Practice combining contrast, cause, and surrounding details makes predicting missing meanings easier. The lesson explains its own meaning-clue method."
+   },
+   {
+    "lesson": "lesson-grammar-and-structure-tenses-and-voice",
+    "strength": "helpful",
+    "reason": "Prior practice distinguishing finished actions from earlier completed actions eases tense selection. The lesson explains its tested verb patterns."
+   }
+  ],
+  "lesson-language-application-completion-word-forms": [
+   {
+    "lesson": "lesson-language-application-completion-meaning-clues",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-completion-past-time": [
+   {
+    "lesson": "lesson-language-application-completion-word-forms",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-completion-articles-and-lists": [
+   {
+    "lesson": "lesson-language-application-completion-past-time",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-completion-natural-phrases": [
+   {
+    "lesson": "lesson-language-application-completion-articles-and-lists",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-pagkumpleto-ng-pangungusap": [
+   {
+    "lesson": "lesson-language-application-completion-natural-phrases",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-vocabulary-confusing-words": [
+   {
+    "lesson": "lesson-grammar-and-structure-parts-of-speech",
+    "strength": "helpful",
+    "reason": "Recognizing word jobs helps distinguish affect/effect and sila/sina. The lesson defines the relevant jobs and usage rules itself."
+   }
+  ],
+  "lesson-vocabulary-context-clues": [],
+  "lesson-vocabulary-idioms-and-figures-of-speech": [
+   {
+    "lesson": "lesson-vocabulary-context-clues",
+    "strength": "helpful",
+    "reason": "Using surrounding events to infer meaning helps distinguish literal expressions from idioms. The lesson demonstrates that distinction independently."
+   }
+  ],
+  "lesson-vocabulary-root-words-prefixes-suffixes": [
+   {
+    "lesson": "lesson-grammar-and-structure-parts-of-speech",
+    "strength": "helpful",
+    "reason": "Recognizing word jobs makes suffix-driven changes easier to understand. The lesson defines the word classes needed for its examples."
+   }
+  ],
+  "lesson-vocabulary-spelling-rules": [
+   {
+    "lesson": "lesson-vocabulary-root-words-prefixes-suffixes",
+    "strength": "helpful",
+    "reason": "Practice separating bases from suffixes makes spelling changes easier to track. The lesson defines both terms and teaches its spelling rules."
+   }
+  ],
+  "lesson-vocabulary-synonyms-and-antonyms": [
+   {
+    "lesson": "lesson-vocabulary-context-clues",
+    "strength": "helpful",
+    "reason": "Practice inferring meaning and checking replacement words makes contextual synonym selection easier. The lesson teaches its own context and nuance checks."
+   }
+  ],
+  "lesson-peace-and-human-rights-universal-rights-and-history": [],
+  "lesson-peace-and-human-rights-bill-of-rights-fairness-and-freedoms": [
+   {
+    "lesson": "lesson-peace-and-human-rights-universal-rights-and-history",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-peace-and-human-rights-searches-and-private-messages": [
+   {
+    "lesson": "lesson-peace-and-human-rights-bill-of-rights-fairness-and-freedoms",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-peace-and-human-rights-home-travel-and-public-records": [
+   {
+    "lesson": "lesson-peace-and-human-rights-searches-and-private-messages",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-peace-and-human-rights-groups-property-and-contracts": [
+   {
+    "lesson": "lesson-peace-and-human-rights-home-travel-and-public-records",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-peace-and-human-rights-custodial-investigation-and-bail": [
+   {
+    "lesson": "lesson-peace-and-human-rights-groups-property-and-contracts",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-peace-and-human-rights-criminal-trial-protections": [
+   {
+    "lesson": "lesson-peace-and-human-rights-custodial-investigation-and-bail",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-peace-and-human-rights-detention-review-and-compelled-testimony": [
+   {
+    "lesson": "lesson-peace-and-human-rights-criminal-trial-protections",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-peace-and-human-rights-detention-punishment-and-debt": [
+   {
+    "lesson": "lesson-peace-and-human-rights-detention-review-and-compelled-testimony",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-peace-and-human-rights-double-jeopardy-protections": [
+   {
+    "lesson": "lesson-peace-and-human-rights-detention-punishment-and-debt",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-peace-and-human-rights-rights-during-emergencies": [
+   {
+    "lesson": "lesson-peace-and-human-rights-double-jeopardy-protections",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-peace-and-human-rights-commission-on-human-rights": [
+   {
+    "lesson": "lesson-peace-and-human-rights-rights-during-emergencies",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-peace-and-human-rights-hrl-and-ihl-scope": [
+   {
+    "lesson": "lesson-peace-and-human-rights-commission-on-human-rights",
+    "strength": "helpful",
+    "reason": "Understanding continuing government duties and emergency limits makes the comparison with humanitarian law easier. This lesson explains those principles again."
+   }
+  ],
+  "lesson-peace-and-human-rights-armed-conflict-types": [
+   {
+    "lesson": "lesson-peace-and-human-rights-hrl-and-ihl-scope",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-peace-and-human-rights-hrl-and-ihl-together": [
+   {
+    "lesson": "lesson-peace-and-human-rights-armed-conflict-types",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-peace-and-human-rights-iccpr-emergency-conditions": [
+   {
+    "lesson": "lesson-peace-and-human-rights-hrl-and-ihl-together",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-peace-and-human-rights-iccpr-protected-rights": [
+   {
+    "lesson": "lesson-peace-and-human-rights-iccpr-emergency-conditions",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-peace-and-human-rights-people-protected-from-attack": [
+   {
+    "lesson": "lesson-peace-and-human-rights-iccpr-protected-rights",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-peace-and-human-rights-weapons-limits": [
+   {
+    "lesson": "lesson-peace-and-human-rights-people-protected-from-attack",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-peace-and-human-rights-military-targets": [
+   {
+    "lesson": "lesson-peace-and-human-rights-weapons-limits",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-peace-and-human-rights-attack-rules": [
+   {
+    "lesson": "lesson-peace-and-human-rights-military-targets",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-peace-and-human-rights-ihl-preparation-and-peace": [
+   {
+    "lesson": "lesson-peace-and-human-rights-attack-rules",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-authors-tone": [
+   {
+    "lesson": "lesson-comprehension-skills-authors-main-purpose",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-first-and-second-person": [
+   {
+    "lesson": "lesson-comprehension-skills-authors-tone",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-third-person-thoughts": [
+   {
+    "lesson": "lesson-comprehension-skills-first-and-second-person",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-argument-viewpoint-and-bias": [
+   {
+    "lesson": "lesson-comprehension-skills-third-person-thoughts",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-paragraph-links-and-patterns": [
+   {
+    "lesson": "lesson-comprehension-skills-argument-viewpoint-and-bias",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-sentence-cues-and-meaning": [
+   {
+    "lesson": "lesson-comprehension-skills-paragraph-links-and-patterns",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-contrast-and-cause-clues": [
+   {
+    "lesson": "lesson-comprehension-skills-definition-and-example-clues",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-word-parts-in-passages": [
+   {
+    "lesson": "lesson-comprehension-skills-contrast-and-cause-clues",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-filipino-meaning-clues": [
+   {
+    "lesson": "lesson-comprehension-skills-word-parts-in-passages",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-filipino-possibility-and-time": [
+   {
+    "lesson": "lesson-comprehension-skills-filipino-meaning-clues",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-filipino-pronouns-modifiers-spelling": [
+   {
+    "lesson": "lesson-comprehension-skills-filipino-possibility-and-time",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-filipino-sentence-types": [
+   {
+    "lesson": "lesson-comprehension-skills-filipino-pronouns-modifiers-spelling",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-title-scope": [
+   {
+    "lesson": "lesson-comprehension-skills-title-main-idea",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-title-authors-stance": [
+   {
+    "lesson": "lesson-comprehension-skills-title-scope",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-connecting-clues": [],
+  "lesson-comprehension-skills-evidence-and-claim-strength": [
+   {
+    "lesson": "lesson-comprehension-skills-connecting-clues",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-necessary-assumptions": [
+   {
+    "lesson": "lesson-comprehension-skills-evidence-and-claim-strength",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-visual-data-conclusions": [
+   {
+    "lesson": "lesson-comprehension-skills-necessary-assumptions",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-hinuha-mula-sa-detalye": [
+   {
+    "lesson": "lesson-comprehension-skills-visual-data-conclusions",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-paghatol-at-ebidensya": [
+   {
+    "lesson": "lesson-comprehension-skills-hinuha-mula-sa-detalye",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-main-point-and-topic-sentence": [],
+  "lesson-comprehension-skills-implied-main-point": [
+   {
+    "lesson": "lesson-comprehension-skills-main-point-and-topic-sentence",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-main-idea-scope": [
+   {
+    "lesson": "lesson-comprehension-skills-implied-main-point",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-main-idea-across-paragraphs": [
+   {
+    "lesson": "lesson-comprehension-skills-main-idea-scope",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-paksa-at-pangunahing-ideya": [
+   {
+    "lesson": "lesson-comprehension-skills-main-idea-across-paragraphs",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-balangkas-at-ugnayan": [
+   {
+    "lesson": "lesson-comprehension-skills-paksa-at-pangunahing-ideya",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-checkable-claims-and-judgments": [],
+  "lesson-comprehension-skills-claim-type-and-evidence": [
+   {
+    "lesson": "lesson-comprehension-skills-checkable-claims-and-judgments",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-projections-and-forecasts": [
+   {
+    "lesson": "lesson-comprehension-skills-claim-type-and-evidence",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-event-time-words": [],
+  "lesson-comprehension-skills-event-verb-forms": [
+   {
+    "lesson": "lesson-comprehension-skills-event-time-words",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-comprehension-skills-event-causes-and-overlap": [
+   {
+    "lesson": "lesson-comprehension-skills-event-verb-forms",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-comprehension-skills-filipino-event-time": [
+   {
+    "lesson": "lesson-comprehension-skills-event-causes-and-overlap",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-comprehension-skills-filipino-event-causes": [
+   {
+    "lesson": "lesson-comprehension-skills-filipino-event-time",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-comprehension-skills-scanning-exact-details": [],
+  "lesson-comprehension-skills-skimming-and-meaning-matches": [
+   {
+    "lesson": "lesson-comprehension-skills-scanning-exact-details",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-comprehension-skills-old-and-current-details": [
+   {
+    "lesson": "lesson-comprehension-skills-skimming-and-meaning-matches",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-language-application-subject-and-verb-checks": [
+   {
+    "lesson": "lesson-grammar-and-structure-subject-verb-agreement",
+    "strength": "helpful",
+    "reason": "Focused agreement practice makes the correction checks easier. The lesson restates agreement rules and explains each correction."
+   },
+   {
+    "lesson": "lesson-grammar-and-structure-sentence-structure",
+    "strength": "helpful",
+    "reason": "Practice counting clauses supports the English and Filipino sentence-classification tasks. The lesson supplies its own sentence-type definitions."
+   }
+  ],
+  "lesson-language-application-pronoun-reference-checks": [
+   {
+    "lesson": "lesson-language-application-subject-and-verb-checks",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-modifiers-and-matching-forms": [
+   {
+    "lesson": "lesson-language-application-pronoun-reference-checks",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-past-time-checks": [
+   {
+    "lesson": "lesson-language-application-modifiers-and-matching-forms",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-modal-meaning-checks": [
+   {
+    "lesson": "lesson-language-application-past-time-checks",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-phrases-and-sentence-types": [
+   {
+    "lesson": "lesson-language-application-modal-meaning-checks",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-clause-punctuation-checks": [
+   {
+    "lesson": "lesson-language-application-phrases-and-sentence-types",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-word-meaning-checks": [
+   {
+    "lesson": "lesson-language-application-clause-punctuation-checks",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-wastong-gamit-at-panahon": [
+   {
+    "lesson": "lesson-language-application-word-meaning-checks",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-kayarian-at-sugnay": [
+   {
+    "lesson": "lesson-language-application-wastong-gamit-at-panahon",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-openings-and-reference-links": [
+   {
+    "lesson": "lesson-comprehension-skills-balangkas-at-ugnayan",
+    "strength": "helpful",
+    "reason": "Distinguishing a main point from supporting details helps organize general statements, examples, and outlines. The lesson explains these ideas sufficiently itself."
+   },
+   {
+    "lesson": "lesson-grammar-and-structure-pronoun-antecedent-agreement",
+    "strength": "helpful",
+    "reason": "Practice identifying pronoun references makes reference chains easier to follow. The lesson teaches how references guide ordering."
+   }
+  ],
+  "lesson-language-application-transition-links": [
+   {
+    "lesson": "lesson-language-application-openings-and-reference-links",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-time-and-step-order": [
+   {
+    "lesson": "lesson-language-application-transition-links",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-cause-and-effect-order": [
+   {
+    "lesson": "lesson-language-application-time-and-step-order",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-main-ideas-and-details": [
+   {
+    "lesson": "lesson-language-application-cause-and-effect-order",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-details-and-supported-inferences": [
+   {
+    "lesson": "lesson-language-application-main-ideas-and-details",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-pagkakasunod-at-sanhi": [
+   {
+    "lesson": "lesson-language-application-details-and-supported-inferences",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-paksa-at-balangkas": [
+   {
+    "lesson": "lesson-language-application-pagkakasunod-at-sanhi",
     "strength": "required",
     "reason": "Read the previous part before this part."
    }

@@ -6,6 +6,11 @@ subject: "subject-reading-comprehension"
 topic: "topic-comprehension-skills"
 estimatedMinutes: 10
 isActive: true
+status: retired
+replacedBy:
+  - lesson-comprehension-skills-title-main-idea
+  - lesson-comprehension-skills-title-scope
+  - lesson-comprehension-skills-title-authors-stance
 ---
 ## Core Concept
 
