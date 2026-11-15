@@ -54,9 +54,9 @@
     "lesson": "lesson-arithmetic-number-sense-discounted-prices"
   },
   "q-arithmetic-number-sense-business-math-0010": {
-    "approvedAt": "2026-11-14",
-    "evidence": "docs/content/verification/arithmetic-number-sense.md",
-    "hash": "7dca2e7e23f7f56ffac1abe4b63416ce6fd78fb319c88b87910178437ffbe0e5",
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "16b0b11efe7d8a2f13194302ea17152b8d03c2c845eb84b5f2befb413124fb84",
     "lesson": "lesson-arithmetic-number-sense-markup-on-cost"
   },
   "q-arithmetic-number-sense-business-math-0011": {
@@ -348,9 +348,9 @@
     "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases"
   },
   "q-arithmetic-number-sense-fractions-decimals-percentages-0014": {
-    "approvedAt": "2026-11-14",
-    "evidence": "docs/content/verification/arithmetic-number-sense.md",
-    "hash": "8d94903f3902623a13b0f4564f7676812d84b47f19b02d1acea3a12558090e42",
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "b036f8f9773c55d77a7294cd3e02baed58307039a105f5df840c8e89645a0234",
     "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases"
   },
   "q-arithmetic-number-sense-fractions-decimals-percentages-0015": {
@@ -1524,9 +1524,9 @@
     "lesson": "lesson-clerical-ability-year-first-and-stated-date-formats"
   },
   "q-code-of-conduct-ra-6713-corruption-and-its-effects-0001": {
-    "approvedAt": "2026-11-14",
-    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
-    "hash": "22f4e38dfbc2815e3710f36e7abd098f2235f0f85d805e5119b5753133dadc88",
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "2d0e374dd0d378948ef5ec2a967dc24db1c13de23880f65f3cf63ca37b5c9cb7",
     "lesson": "lesson-code-of-conduct-ra-6713-corruption-public-trust-and-bribery"
   },
   "q-code-of-conduct-ra-6713-corruption-and-its-effects-0002": {
@@ -1830,9 +1830,9 @@
     "lesson": "lesson-code-of-conduct-ra-6713-duties-private-practice-and-referrals"
   },
   "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0029": {
-    "approvedAt": "2026-11-14",
-    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
-    "hash": "e9642712a0c71583410ec74c7061d5a2ef2a3e4f56ae0621254b16ae946dd1b0",
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "ec78fd99b9b37b1be7706921202c69a680ffbf863cd332b00dd58ffbd2feba59",
     "lesson": "lesson-code-of-conduct-ra-6713-duties-after-leaving-office"
   },
   "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0030": {
@@ -2046,9 +2046,9 @@
     "lesson": "lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal"
   },
   "q-code-of-conduct-ra-6713-penalties-and-enforcement-0011": {
-    "approvedAt": "2026-11-14",
-    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
-    "hash": "4963e22cc2031e817f640ddacd7e62f8a90c6e5a822b8a0ee2b1017d2f4835e8",
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "0530851d95dc305011eccd6a74ba14606cc145c37688279df996d5f08049da2a",
     "lesson": "lesson-code-of-conduct-ra-6713-penalties-notice-and-evidence"
   },
   "q-code-of-conduct-ra-6713-penalties-and-enforcement-0012": {
@@ -2184,9 +2184,9 @@
     "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-referrals-and-separation"
   },
   "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0008": {
-    "approvedAt": "2026-11-14",
-    "evidence": "docs/content/verification/code-of-conduct-ra-6713.md",
-    "hash": "ba0081d4e66da2966faddfd55d37908655475a3af76aeaf53beed078122af1df",
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "6472846234172c915e93d2a03f75091f0f4b7a92572987a0f28a3eee1c734153",
     "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-nominal-gifts-and-donations"
   },
   "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0009": {
@@ -3246,9 +3246,9 @@
     "lesson": "lesson-environment-management-disaster-risk-and-readiness"
   },
   "q-environment-management-disaster-risk-reduction-and-management-0003": {
-    "approvedAt": "2026-11-14",
-    "evidence": "docs/content/verification/environment-management.md",
-    "hash": "b4b2ee9d43a337cbbdcfadbd4bfb4320bc5e8ac9e632623e060411088a408a0b",
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "f72c4b48798b0752dd4a3cd180ddd040142689ad5e861f93ff1a2f410ee185ed",
     "lesson": "lesson-environment-management-disaster-response-and-recovery"
   },
   "q-environment-management-disaster-risk-reduction-and-management-0004": {
@@ -6426,9 +6426,9 @@
     "lesson": "lesson-peace-and-human-rights-universal-rights-and-history"
   },
   "q-peace-and-human-rights-human-rights-fundamentals-0013": {
-    "approvedAt": "2026-11-14",
-    "evidence": "docs/content/verification/peace-and-human-rights.md",
-    "hash": "d384d200b264e85427e1c32ed28d230d7de9da5e8b7d45fc41a15c53d384d461",
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "bb6233ab8264b607afebc7fdc43a215167746931a015d0dda5ad6e405b4536d1",
     "lesson": "lesson-peace-and-human-rights-bill-of-rights-fairness-and-freedoms"
   },
   "q-peace-and-human-rights-human-rights-fundamentals-0014": {
