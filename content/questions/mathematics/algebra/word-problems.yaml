@@ -445,3 +445,47 @@ questions:
     explanation: |
       The final mixture contains the original $8$ liters plus the added $x$ liters. Its total volume is $8+x$. Its pure substance amount is therefore $0.30(8+x)$, which must equal the amount entering the mixture.
     approved: false
+
+  - id: q-algebra-word-problems-0021
+    lesson: lesson-algebra-motion-chase-problems
+    keyPoint: 1
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A bus leaves a terminal at a constant $48$ km/h. A car leaves the same terminal $30$ minutes later and follows the bus along the same straight road at a constant $72$ km/h. How far from the terminal does the car catch the bus?
+    choices:
+      - text: '$72\text{ km}$'
+        correct: true
+      - text: '$24\text{ km}$'
+        rationale: |
+          This reports the starting gap. That gap is needed for the chase calculation. Find the distance the car travels while closing it.
+      - text: '$48\text{ km}$'
+        rationale: |
+          This uses the bus speed with only the chase time. The bus travels before the car leaves too. Include the head-start time when using the bus speed.
+      - text: '$108\text{ km}$'
+        rationale: |
+          This uses the full time since the bus left as the car travel time. Both vehicles reach the same place. Check that the car starts half an hour later.
+    explanation: |
+      The head start is $30/60=\dfrac{1}{2}$ hour, so the gap is $48(\dfrac{1}{2})=24$ km. The closing speed is $72-48=24$ km/h. The car catches the bus after $24/24=1$ hour of driving. Its distance from the terminal is $72(1)=72$ km.
+
+  - id: q-algebra-word-problems-0022
+    lesson: lesson-algebra-motion-meeting-and-separation
+    keyPoint: 2
+    type: word-problem
+    difficulty: exam
+    stem: |
+      Two cyclists start $42$ km apart and ride toward each other along a straight road. Their constant speeds are $18$ km/h and $24$ km/h. How far has the slower cyclist traveled when they meet?
+    choices:
+      - text: '$18\text{ km}$'
+        correct: true
+      - text: '$24\text{ km}$'
+        rationale: |
+          This reports the faster cyclist's distance. It is the other part of the starting gap. Check which cyclist the question names.
+      - text: '$21\text{ km}$'
+        rationale: |
+          This splits the gap equally. Equal travel times do not mean equal distances at different speeds. Use each cyclist's speed.
+      - text: '$42\text{ km}$'
+        rationale: |
+          This gives the whole starting gap to one cyclist. Both cyclists help close it. Multiply only the slower speed by the meeting time.
+    explanation: |
+      The gap closes at $18+24=42$ km/h. The meeting time is $42/42=1$ hour. The slower cyclist travels $18(1)=18$ km.

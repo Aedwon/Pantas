@@ -461,3 +461,69 @@ questions:
       Let the smallest integer be $n$. The next two are $n+2$ and $n+4$. Their sum is $3n+6=S$. Subtract $6$ and divide by $3$ to get $n=\dfrac{S-6}{3}$.
     approved: false
 
+
+  - id: q-algebra-algebraic-expressions-0021
+    lesson: lesson-algebra-rates-and-consecutive-integers
+    keyPoint: 1
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A printer produces $p$ pages in $h$ hours at a constant rate, where $h>0$. At the same rate, how many pages will it produce in $3h$ hours?
+    choices:
+      - text: '$3p$'
+        correct: true
+      - text: '$3ph$'
+        rationale: |
+          This multiplies pages by hours again. The extra time suggests another factor of $h$. Divide pages by hours before multiplying by the new time.
+      - text: '$\dfrac{p}{3}$'
+        rationale: |
+          This divides the output when the time triples. Division would fit a shorter time. Compare the new time with the original time.
+      - text: '$\dfrac{3p}{h}$'
+        rationale: |
+          This gives three times the hourly rate, not the output over $3h$ hours. Check that rate is multiplied by the full time.
+    explanation: |
+      The hourly rate is $\dfrac{p}{h}$. Multiply by the new time: $\dfrac{p}{h}(3h)=3p$ pages.
+
+  - id: q-algebra-algebraic-expressions-0022
+    lesson: lesson-algebra-rates-and-consecutive-integers
+    keyPoint: 1
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A machine completes $n$ parts in $t$ minutes at a steady rate, where $t>0$. Which expression gives its output in parts per hour?
+    choices:
+      - text: '$\dfrac{60n}{t}$'
+        correct: true
+      - text: '$\dfrac{n}{60t}$'
+        rationale: |
+          This divides by $60$ when changing a per-minute rate to a per-hour rate. A larger time unit can suggest division. Count how many minutes make one hour.
+      - text: '$\dfrac{60t}{n}$'
+        rationale: |
+          This reverses parts and time. Both quantities appear in a rate. Check that parts, not minutes, go on top.
+      - text: '$\dfrac{n}{t}$'
+        rationale: |
+          This keeps the rate in parts per minute. The quotient is a valid rate. Check the time unit the question asks for.
+    explanation: |
+      One hour has $60$ minutes, so $t$ minutes is $\dfrac{t}{60}$ hour. Divide output by hours: $n\div\dfrac{t}{60}=\dfrac{60n}{t}$ parts per hour.
+
+  - id: q-algebra-algebraic-expressions-0023
+    lesson: lesson-algebra-rates-and-consecutive-integers
+    keyPoint: 2
+    type: word-problem
+    difficulty: exam
+    stem: |
+      Four consecutive even integers have sum $S$. Which expression gives the second smallest integer?
+    choices:
+      - text: '$\dfrac{S-4}{4}$'
+        correct: true
+      - text: '$\dfrac{S-12}{4}$'
+        rationale: |
+          This gives the smallest integer. Solving for the first integer is a useful step. Add $2$ to reach the second smallest.
+      - text: '$\dfrac{S}{4}$'
+        rationale: |
+          This gives the average of the four integers. The average lies between the two middle integers. Check which integer is requested.
+      - text: '$\dfrac{S+4}{4}$'
+        rationale: |
+          This gives the third integer. It is one step above the requested integer. List the four integers in order before choosing.
+    explanation: |
+      Let the smallest integer be $x$. Then $x+(x+2)+(x+4)+(x+6)=S$, so $4x+12=S$. The second smallest is $x+2=\dfrac{S-12}{4}+2=\dfrac{S-4}{4}$.

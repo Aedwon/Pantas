@@ -448,3 +448,47 @@ questions:
     explanation: |
       Change the logarithm to exponential form: $\dfrac{x}{5}=10^2$. Calculate $10^2=100$. Multiply both sides by $5$ to get $x=500$. This is positive, so the logarithm is defined.
     approved: false
+
+  - id: q-algebra-exponents-and-logarithms-0021
+    lesson: lesson-algebra-logarithm-meaning-and-equations
+    keyPoint: 2
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      Solve $\log_3(2x-5)=2$ over the real numbers.
+    choices:
+      - text: '$7$'
+        correct: true
+      - text: '$2$'
+        rationale: |
+          This reports the exponent as the unknown. The right side is already a number. Rewrite the logarithm as a power equation before solving.
+      - text: '$\dfrac{11}{2}$'
+        rationale: |
+          This replaces $3^2$ with $3(2)$, giving $2x-5=6$. The base and exponent can look like factors. Check that $3^2=9$.
+      - text: '$\dfrac{9}{2}$'
+        rationale: |
+          This divides $9$ by $2$ without adding $5$ first. The coefficient of $x$ invites division. Keep the whole argument equal to $9$.
+    explanation: |
+      The argument must satisfy $2x-5>0$. Rewrite the equation as $2x-5=3^2=9$. Then $2x=14$, so $x=7$. Check: $2(7)-5=9>0$ and $\log_3(9)=2$.
+
+  - id: q-algebra-exponents-and-logarithms-0022
+    lesson: lesson-algebra-logarithm-product-quotient-and-power-laws
+    keyPoint: 2
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      If $a=\log_{10}(2)$ and $b=\log_{10}(3)$, express $\log_{10}\left(\dfrac{27}{4}\right)$ in terms of $a$ and $b$.
+    choices:
+      - text: '$3b-2a$'
+        correct: true
+      - text: '$3b+2a$'
+        rationale: |
+          This adds the logarithm of the denominator. Addition fits a product. Check that a quotient gives subtraction.
+      - text: '$\dfrac{3b}{2a}$'
+        rationale: |
+          This divides logarithms because the argument is a quotient. The fraction bar can suggest the same operation outside the logarithm. Use the quotient law.
+      - text: '$2b-3a$'
+        rationale: |
+          This swaps the exponents of $3$ and $2$. Both powers appear in the problem. Check that $27=3^3$ and $4=2^2$.
+    explanation: |
+      Write $27=3^3$ and $4=2^2$. The quotient and power laws give $\log_{10}(27/4)=\log_{10}(3^3)-\log_{10}(2^2)=3b-2a$.

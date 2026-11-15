@@ -456,3 +456,69 @@ questions:
     explanation: |
       The line through the intercepts is $2x+y=4$. A solid boundary includes equality. At the origin, $2(0)+0=0\le4$. Thus the included side is $2x+y\le4$.
     approved: false
+
+  - id: q-algebra-linear-equations-inequalities-0021
+    lesson: lesson-algebra-line-slopes-and-intercepts
+    keyPoint: 3
+    type: which-is-true
+    difficulty: exam
+    stem: |
+      Let $L$ pass through $(-3,2)$ and $(-3,8)$, and let $M$ pass through $(1,-4)$ and $(6,-4)$. What are the slopes of $L$ and $M$, respectively?
+    choices:
+      - text: 'Undefined; $0$'
+        correct: true
+      - text: '$0$; undefined'
+        rationale: |
+          This swaps vertical and horizontal slopes. Both lines have one unchanged coordinate. Check whether the denominator or numerator of the slope formula is zero.
+      - text: '$6$; $5$'
+        rationale: |
+          This reports the coordinate changes as slopes. Those changes are used in the slope formula. Divide the change in $y$ by the change in $x$.
+      - text: 'Undefined; undefined'
+        rationale: |
+          This treats any repeated coordinate as making slope undefined. Only repeated $x$ values give a zero denominator. Check the two coordinate changes separately.
+    explanation: |
+      For $L$, the change in $x$ is $-3-(-3)=0$, while the change in $y$ is $8-2=6$. Its slope is undefined. For $M$, the slope is $\dfrac{-4-(-4)}{6-1}=\dfrac{0}{5}=0$.
+
+  - id: q-algebra-linear-equations-inequalities-0022
+    lesson: lesson-algebra-one-variable-inequalities
+    keyPoint: 2
+    type: which-is-true
+    difficulty: exam
+    stem: |
+      Which number-line description represents the solution set of $7-2x\le15$?
+    choices:
+      - text: 'Closed $-4$, shade right.'
+        correct: true
+      - text: 'Open at $-4$, shaded right.'
+        rationale: |
+          This excludes the endpoint despite the equality sign. The shading direction is correct. Substitute the endpoint to check whether it belongs.
+      - text: 'Closed at $-4$, shaded left.'
+        rationale: |
+          This keeps the inequality direction when dividing by a negative number. The endpoint is correct. Reverse the sign when dividing by $-2$.
+      - text: 'Closed at $4$, shaded right.'
+        rationale: |
+          This loses the negative sign on the endpoint. Subtracting and dividing can hide that sign. Check the result of $8\div(-2)$.
+    explanation: |
+      Subtract $7$ to get $-2x\le8$. Divide by $-2$ and reverse the sign: $x\ge-4$. The endpoint is included, so use a closed circle at $-4$ and shade right.
+
+  - id: q-algebra-linear-equations-inequalities-0023
+    lesson: lesson-algebra-two-variable-inequalities
+    keyPoint: 2
+    type: which-is-true
+    difficulty: exam
+    stem: |
+      Which point belongs to the solution region of $3x-2y>6$?
+    choices:
+      - text: '$(2,-1)$'
+        correct: true
+      - text: '$(2,0)$'
+        rationale: |
+          This includes a boundary point. Substitution gives exactly $6$, which can seem close enough. A strict inequality excludes equality.
+      - text: '$(0,0)$'
+        rationale: |
+          This chooses the origin without checking it. The origin is a convenient test point. Substitute it before deciding which side is shaded.
+      - text: '$(-1,2)$'
+        rationale: |
+          This swaps the coordinates of $(2,-1)$. The same two numbers can look like the same point. Keep $x$ first and $y$ second, then substitute.
+    explanation: |
+      At $(2,-1)$, the left side is $3(2)-2(-1)=6+2=8$. Since $8>6$, this point lies in the solution region.

@@ -448,3 +448,245 @@ questions:
     explanation: |
       A horizontal asymptote describes the output as the input goes far in either direction. It does not require the graph to stay away from that line at every finite input. A graph may cross it.
     approved: false
+
+  - id: q-algebra-types-of-functions-0021
+    lesson: lesson-algebra-absolute-value-equations-and-graph-matching
+    keyPoint: 2
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      A V-shaped graph has vertex $(-1,4)$, opens downward, and passes through $(1,-2)$. Which function represents it?
+    choices:
+      - text: '$y=-3|x+1|+4$'
+        correct: true
+      - text: '$y=3|x+1|+4$'
+        rationale: |
+          This gives the correct vertex but opens upward. The coefficient size fits the given point distance. Check the sign needed for a downward V.
+      - text: '$y=-3|x-1|+4$'
+        rationale: |
+          This reverses the horizontal shift. A negative vertex input can suggest a minus sign inside. Set the inside expression equal to zero to check the vertex.
+      - text: '$y=-6|x+1|+4$'
+        rationale: |
+          This uses the whole vertical change as the coefficient. The output drops by $6$. Divide by the horizontal change of $2$ to find the coefficient size.
+    explanation: |
+      The vertex gives $y=a|x+1|+4$. Substitute $(1,-2)$: $-2=2a+4$, so $2a=-6$ and $a=-3$. Thus $y=-3|x+1|+4$.
+
+  - id: q-algebra-types-of-functions-0022
+    lesson: lesson-algebra-absolute-value-equations-and-graph-matching
+    keyPoint: 1
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      What is the sum of all real solutions of $|3x+2|=10$?
+    choices:
+      - text: '$-\dfrac{4}{3}$'
+        correct: true
+      - text: '$\dfrac{8}{3}$'
+        rationale: |
+          This solves only $3x+2=10$. That is one valid case. Also solve the case where the inside equals $-10$.
+      - text: '$-4$'
+        rationale: |
+          This solves only $3x+2=-10$. That is one valid case. Include the positive case before adding the solutions.
+      - text: '$-\dfrac{20}{3}$'
+        rationale: |
+          This changes the positive root to $-8/3$ before adding $-4$. The two cases can make both roots seem negative. Solve each case separately before adding.
+    explanation: |
+      The two cases are $3x+2=10$ and $3x+2=-10$. They give $x=\dfrac{8}{3}$ and $x=-4$. Their sum is $\dfrac{8}{3}-\dfrac{12}{3}=-\dfrac{4}{3}$.
+
+  - id: q-algebra-types-of-functions-0023
+    lesson: lesson-algebra-absolute-value-equations-and-graph-matching
+    keyPoint: 2
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      An upward-opening V has vertex $(3,-2)$ and passes through $(7,0)$. What is its $y$-intercept?
+    choices:
+      - text: '$-\dfrac{1}{2}$'
+        correct: true
+      - text: '$-\dfrac{7}{2}$'
+        rationale: |
+          This treats the distance $|0-3|$ as $-3$. Substituting $0$ does give a negative inside value. Take its absolute value before multiplying.
+      - text: '$\dfrac{1}{2}$'
+        rationale: |
+          This drops the negative sign after subtracting the vertical shift. The coefficient is positive. Calculate $3/2-2$ with a common denominator.
+      - text: '$4$'
+        rationale: |
+          This uses $2$ as the coefficient instead of $1/2$. The rise and run can be reversed. Divide the vertical change by the horizontal change.
+    explanation: |
+      Write $y=a|x-3|-2$. The point $(7,0)$ gives $0=4a-2$, so $a=\dfrac{1}{2}$. At $x=0$, $y=\dfrac{1}{2}|-3|-2=\dfrac{3}{2}-2=-\dfrac{1}{2}$.
+
+  - id: q-algebra-types-of-functions-0024
+    lesson: lesson-algebra-absolute-value-transformations
+    keyPoint: 2
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      Compared with $y=|x|$, what vertical changes produce $y=-\dfrac{1}{3}|x|$?
+    choices:
+      - text: 'Reflect and compress.'
+        correct: true
+      - text: 'Reflect and stretch.'
+        rationale: |
+          This reads a factor below $1$ as a stretch. The negative sign does cause a reflection. Check whether the output distances grow or shrink.
+      - text: 'Compress without reflection.'
+        rationale: |
+          This uses the factor size but ignores its sign. The magnitude does shrink the outputs. Check what the negative sign does to their direction.
+      - text: 'Stretch without reflection.'
+        rationale: |
+          This ignores the sign and reverses the effect of a factor below $1$. A fraction can be mistaken for its reciprocal. Apply the stated factor to an output to check.
+    explanation: |
+      The negative sign reflects the graph across the $x$-axis. The factor size is $\dfrac{1}{3}$, between $0$ and $1$, so each output distance from the vertex becomes one third as large. This is a vertical compression.
+
+  - id: q-algebra-types-of-functions-0025
+    lesson: lesson-algebra-absolute-value-transformations
+    keyPoint: 1
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      For $f(x)=-2|x+4|+7$, what is the maximum value of $f(x)$ over the real numbers?
+    choices:
+      - text: '$7$'
+        correct: true
+      - text: '$-4$'
+        rationale: |
+          This reports the vertex input. The shift inside the bars helps find that input. A maximum value is the output coordinate.
+      - text: '$-7$'
+        rationale: |
+          This reflects the vertical shift along with the V. The negative coefficient acts on the absolute-value term. Keep the added $7$ outside that reflection.
+      - text: '$\text{No maximum}$'
+        rationale: |
+          This treats the V as opening upward. Absolute-value graphs often open upward. Check the negative coefficient before deciding.
+    explanation: |
+      Since $|x+4|\ge0$, the term $-2|x+4|\le0$. Thus $f(x)\le7$. Equality holds at $x=-4$, where $f(-4)=-2(0)+7=7$. The maximum is $7$.
+
+  - id: q-algebra-types-of-functions-0026
+    lesson: lesson-algebra-absolute-value-transformations
+    keyPoint: 2
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      The graph of $y=|x|$ is stretched vertically by a factor of $3$, reflected across the $x$-axis, shifted left $2$ units, and then shifted up $5$ units. Which equation results?
+    choices:
+      - text: '$y=-3|x+2|+5$'
+        correct: true
+      - text: '$y=-3|x-2|+5$'
+        rationale: |
+          This shifts the graph right instead of left. The stated shift has size $2$. Set the inside equal to zero to check its direction.
+      - text: '$y=-3|x+2|-5$'
+        rationale: |
+          This shifts the graph down instead of up. The reflection may suggest another negative sign. Apply the upward shift after the reflection.
+      - text: '$y=-\dfrac{1}{3}|x+2|+5$'
+        rationale: |
+          This compresses the graph instead of stretching it. The reciprocal also uses the number $3$. A stretch by $3$ multiplies output distances by $3$.
+    explanation: |
+      The stretch and reflection change $|x|$ to $-3|x|$. Shifting left replaces $x$ with $x+2$. Shifting up adds $5$. The result is $y=-3|x+2|+5$.
+
+  - id: q-algebra-types-of-functions-0027
+    lesson: lesson-algebra-exponential-growth-and-function-families
+    keyPoint: 2
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      Let $f(x)=a^x$ for $a>0$ and $a\ne1$. If $f(2)=\dfrac{9}{16}$, which statement is correct?
+    choices:
+      - text: '$f$ shows decay.'
+        correct: true
+      - text: '$f$ shows growth.'
+        rationale: |
+          This assumes every positive base gives growth. The base is positive, but that alone is not enough. Compare the base with $1$.
+      - text: '$f$ is a quadratic polynomial.'
+        rationale: |
+          This treats the input $2$ as the fixed exponent of the whole function. Only this evaluation uses exponent $2$. The function still has a variable exponent.
+      - text: '$f$ is a constant function.'
+        rationale: |
+          This treats the given output as the value at every input. A single value does not define a constant function. Use the stated rule $a^x$.
+    explanation: |
+      The condition gives $a^2=\dfrac{9}{16}$. Since $a>0$, $a=\dfrac{3}{4}$. This base lies between $0$ and $1$, so the outputs decrease as $x$ increases. The function shows decay.
+
+  - id: q-algebra-types-of-functions-0028
+    lesson: lesson-algebra-rational-slant-asymptotes
+    keyPoint: 1
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      What is the slant asymptote of $f(x)=\dfrac{2x^2+3x+4}{x+1}$?
+    choices:
+      - text: '$y=2x+1$'
+        correct: true
+      - text: '$y=2x+3$'
+        rationale: |
+          This uses the visible numerator coefficients without completing division. The leading quotient term is correct. Subtract its full divisor product before finding the constant.
+      - text: '$y=2x-1$'
+        rationale: |
+          This changes the sign of the constant quotient term. The subtraction step can cause this sign error. Check that $3x-2x=x$.
+      - text: '$y=2$'
+        rationale: |
+          This uses the ratio of leading coefficients as a horizontal asymptote. That rule needs equal degrees. Here the numerator degree is one greater.
+    explanation: |
+      Subtract $2x(x+1)=2x^2+2x$ from the numerator to leave $x+4$. Subtract $x+1$ to leave $3$. Thus $f(x)=2x+1+\dfrac{3}{x+1}$. The fraction approaches $0$ far away, giving slant asymptote $y=2x+1$.
+
+  - id: q-algebra-types-of-functions-0029
+    lesson: lesson-algebra-rational-slant-asymptotes
+    keyPoint: 1
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      Which line is the slant asymptote of $g(x)=\dfrac{x^3+2x^2+1}{x^2+1}$?
+    choices:
+      - text: '$y=x+2$'
+        correct: true
+      - text: '$y=x+1$'
+        rationale: |
+          This copies the numerator constant into the quotient. The leading term is correct. Continue division to find the quotient constant.
+      - text: '$y=x-2$'
+        rationale: |
+          This reverses the sign of the quotient constant. Subtraction in division can suggest that sign. Divide the remaining $2x^2$ by $x^2$.
+      - text: '$y=1$'
+        rationale: |
+          This uses a ratio of leading coefficients as a horizontal asymptote. The coefficients are both $1$. Compare the degrees before applying that rule.
+    explanation: |
+      Subtract $x(x^2+1)=x^3+x$ to leave $2x^2-x+1$. Subtract $2(x^2+1)=2x^2+2$ to leave $-x-1$. Hence $g(x)=x+2+\dfrac{-x-1}{x^2+1}$. The fraction approaches $0$ far away, so the slant asymptote is $y=x+2$.
+
+  - id: q-algebra-types-of-functions-0030
+    lesson: lesson-algebra-rational-vertical-and-horizontal-asymptotes
+    keyPoint: 1
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      Which value of $x$ gives a vertical asymptote of $f(x)=\dfrac{x^2-9}{x^2-x-6}$?
+    choices:
+      - text: '$-2$'
+        correct: true
+      - text: '$3$'
+        rationale: |
+          This uses a denominator zero whose factor cancels completely. It remains an excluded input. Check which denominator factor remains after cancellation.
+      - text: '$-3$'
+        rationale: |
+          This uses a numerator zero. A zero in the numerator can look like a special graph point. Vertical asymptotes come from remaining denominator zeros.
+      - text: '$2$'
+        rationale: |
+          This reverses the sign of the zero of $x+2$. The factor contains a positive $2$. Set the factor equal to zero to solve.
+    explanation: |
+      Factor to get $f(x)=\dfrac{(x-3)(x+3)}{(x-3)(x+2)}$. Cancel $x-3$ while keeping $x\ne3,-2$. The remaining denominator $x+2$ is zero at $x=-2$, and the numerator there is $-2+3=1$. Thus the vertical asymptote is $x=-2$.
+
+  - id: q-algebra-types-of-functions-0031
+    lesson: lesson-algebra-rational-vertical-and-horizontal-asymptotes
+    keyPoint: 2
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      What is the horizontal asymptote of $h(x)=\dfrac{3x-1}{2x^2+5}$?
+    choices:
+      - text: '$y=0$'
+        correct: true
+      - text: '$y=\dfrac{3}{2}$'
+        rationale: |
+          This takes the ratio of leading coefficients despite unequal degrees. That rule applies to equal degrees. Compare the powers of $x$ first.
+      - text: '$y=-\dfrac{1}{5}$'
+        rationale: |
+          This takes the ratio of constant terms. That gives the output at $x=0$. A horizontal asymptote describes values far from zero.
+      - text: '$\text{None}$'
+        rationale: |
+          This assumes unequal degrees prevent a horizontal asymptote. They prevent using the equal-degree ratio rule. A lower numerator degree gives $y=0$.
+    explanation: |
+      The numerator has degree $1$, and the denominator has degree $2$. The numerator degree is lower. Equivalently, $h(x)=\dfrac{3/x-1/x^2}{2+5/x^2}$ for $x\ne0$. Far to the left or right, the numerator approaches $0$ and the denominator approaches $2$. The horizontal asymptote is $y=0$.
