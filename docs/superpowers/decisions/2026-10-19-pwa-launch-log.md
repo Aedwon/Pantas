@@ -3862,3 +3862,4 @@ Fable 5.2 High ruled under Aedwon's standing delegation on `docs/superpowers/pla
 - The Dec 1 date bomb reported in test/features/paywall/data/cancellation_reconciliation_test.dart is not one: a paid subscription's proIsActive does not read the clock (only beta passes do), and the test passes with its end set in the past (Nov 10). No change made.
 - Velocity E-076: see the row (timer).
 
+- Rule 7 follow-up (security fixes lead, Nov 16): after the integrator's scheduler steps 3 and 4 (prod 3 jobs, staging 0; every combined task ran cleanly), `web/free-tier-check-r1` merged with main 77a21fb is green at 7c20b2871 (CI including the free-tier check, and journeys), handed to the integrator to merge. Cloud Scheduler is now inside the 3 free jobs per billing account.
