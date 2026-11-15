@@ -7,7 +7,7 @@ topic: "topic-language-application"
 isActive: true
 part: 6
 partCount: 10
-ordering: 1.06
+ordering: 6
 keyPoints:
   - "Tell phrases and clauses apart and name sentence types."
 ---

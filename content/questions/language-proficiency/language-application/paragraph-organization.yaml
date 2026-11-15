@@ -12,6 +12,8 @@ meta:
     - "cse-sub"
 questions:
   - id: "q-language-application-paragraph-organization-0001"
+    lesson: lesson-language-application-openings-and-reference-links
+    keyPoint: 1
     type: "sentence-ordering"
     difficulty: "easy"
     stem: |
@@ -37,6 +39,8 @@ questions:
       Start with the budget problem. The officials audit it, the council acts on that audit, and expenses fall after installation.
     approved: true
   - id: "q-language-application-paragraph-organization-0002"
+    lesson: lesson-language-application-time-and-step-order
+    keyPoint: 1
     type: "sentence-ordering"
     difficulty: "easy"
     stem: |
@@ -62,6 +66,8 @@ questions:
       The words "First," "Next," "After cleaning," and "Finally" give the order: collect, clean, process, and ship.
     approved: true
   - id: "q-language-application-paragraph-organization-0003"
+    lesson: lesson-language-application-transition-links
+    keyPoint: 1
     type: "sentence-ordering"
     difficulty: "medium"
     stem: |
@@ -87,6 +93,8 @@ questions:
       The general technology topic comes first. The translation example follows, then its human-language limitation, then an agency's response to that limitation.
     approved: true
   - id: "q-language-application-paragraph-organization-0004"
+    lesson: lesson-language-application-openings-and-reference-links
+    keyPoint: 1
     type: "sentence-ordering"
     difficulty: "medium"
     stem: |
@@ -112,6 +120,8 @@ questions:
       The paragraph first states the engineering need, then introduces the composites. It follows with a fuel-saving benefit and an additional corrosion-resistance benefit.
     approved: true
   - id: "q-language-application-paragraph-organization-0005"
+    lesson: lesson-language-application-openings-and-reference-links
+    keyPoint: 1
     type: "sentence-ordering"
     difficulty: "hard"
     stem: |
@@ -138,6 +148,8 @@ questions:
       The association asks a question, distributes a survey, and receives replies. It builds a shelter in response, then explains the shelter's practical value.
     approved: true
   - id: "q-language-application-paragraph-organization-0006"
+    lesson: lesson-language-application-cause-and-effect-order
+    keyPoint: 1
     type: "sentence-ordering"
     difficulty: "hard"
     stem: |
@@ -164,6 +176,8 @@ questions:
       Additional heat is introduced before the ocean takes it up. Warming and expansion lead to sea-level rise, then flooding risk, then the planning response.
     approved: true
   - id: "q-language-application-paragraph-organization-0007"
+    lesson: lesson-language-application-transition-links
+    keyPoint: 1
     type: "sentence-ordering"
     difficulty: "exam"
     stem: |
@@ -189,6 +203,8 @@ questions:
       The old methods are introduced before the contrast with automation. The automated systems are then described before the resulting information-processing benefit.
     approved: true
   - id: "q-language-application-paragraph-organization-0008"
+    lesson: lesson-language-application-time-and-step-order
+    keyPoint: 1
     type: "sentence-ordering"
     difficulty: "exam"
     stem: |
@@ -215,6 +231,8 @@ questions:
       The initial assumption comes first. Later reports challenge it, explain their possible causes, and lead to reconsidered requirements. The final sentence explicitly follows those changed requirements.
     approved: true
   - id: "q-language-application-paragraph-organization-0009"
+    lesson: lesson-language-application-time-and-step-order
+    keyPoint: 1
     type: "sentence-ordering"
     difficulty: "medium"
     stem: |
@@ -240,6 +258,8 @@ questions:
       The author submits the manuscript, receives editorial suggestions, revises it, and eventually publishes the book.
     approved: true
   - id: "q-language-application-paragraph-organization-0010"
+    lesson: lesson-language-application-openings-and-reference-links
+    keyPoint: 1
     type: "sentence-ordering"
     difficulty: "easy"
     stem: |
@@ -265,6 +285,8 @@ questions:
       The challenges lead to a task force. Its report guides the executive's directive, and the identified principles then guide the firms' realignment.
     approved: true
   - id: "q-language-application-paragraph-organization-0011"
+    lesson: lesson-language-application-cause-and-effect-order
+    keyPoint: 1
     type: "sentence-ordering"
     difficulty: "medium"
     stem: |
@@ -290,6 +312,8 @@ questions:
       The batteries are introduced first. The damaging conditions lead to reactions and heat. The final sentence describes a design response to that risk.
     approved: true
   - id: "q-language-application-paragraph-organization-0012"
+    lesson: lesson-language-application-openings-and-reference-links
+    keyPoint: 1
     type: "sentence-ordering"
     difficulty: "medium"
     stem: |
@@ -315,6 +339,8 @@ questions:
       The scientists ask a question and begin a study to answer it. Its findings come next, followed by what the research shows about independent analysis.
     approved: true
   - id: "q-language-application-paragraph-organization-0013"
+    lesson: lesson-language-application-cause-and-effect-order
+    keyPoint: 1
     type: "sentence-ordering"
     difficulty: "hard"
     stem: |
@@ -341,6 +367,8 @@ questions:
       The paragraph introduces Earth's internal heat, explains its transfer, and identifies an accessible resource. It then describes electricity generation and its low-emission benefit.
     approved: true
   - id: "q-language-application-paragraph-organization-0014"
+    lesson: lesson-language-application-time-and-step-order
+    keyPoint: 1
     type: "sentence-ordering"
     difficulty: "easy"
     stem: |
@@ -366,6 +394,8 @@ questions:
       The factory site is introduced, then surveyed for contamination. Engineers address that contamination, and the redeveloped site eventually reopens.
     approved: true
   - id: "q-language-application-paragraph-organization-0015"
+    lesson: lesson-language-application-cause-and-effect-order
+    keyPoint: 1
     type: "sentence-ordering"
     difficulty: "exam"
     stem: |
@@ -392,6 +422,8 @@ questions:
       The bank's transition is introduced before "This transition." Its attacks come before "those attacks." The concerns lead to measures, which the final sentence refers to directly.
     approved: true
   - id: "q-language-application-paragraph-organization-0016"
+    lesson: lesson-language-application-time-and-step-order
+    keyPoint: 1
     type: "sentence-ordering"
     difficulty: "easy"
     stem: |
@@ -417,6 +449,8 @@ questions:
       Disconnect power, remove the old cover, fit the new cover, and then secure it and reconnect power. Each later step names something supplied by an earlier one.
     approved: false
   - id: "q-language-application-paragraph-organization-0017"
+    lesson: lesson-language-application-pagkakasunod-at-sanhi
+    keyPoint: 1
     type: "sentence-ordering"
     difficulty: "medium"
     stem: |
@@ -442,6 +476,8 @@ questions:
       The residents complain, the captain arranges a meeting, the attendees agree on a request, and the request is then sent. The backward references connect those stages.
     approved: false
   - id: "q-language-application-paragraph-organization-0018"
+    lesson: lesson-language-application-cause-and-effect-order
+    keyPoint: 1
     type: "sentence-ordering"
     difficulty: "hard"
     stem: |
@@ -467,6 +503,8 @@ questions:
       The result is Nena's relief. The next sentence directs the reader to the earlier morning, when she feared the envelope was lost. The guard's return of it explains her relief.
     approved: false
   - id: "q-language-application-paragraph-organization-0019"
+    lesson: lesson-language-application-transition-links
+    keyPoint: 1
     type: "sentence-ordering"
     difficulty: "hard"
     stem: |
@@ -492,6 +530,8 @@ questions:
       The two shelters are introduced, then their costs are compared. The higher cost is linked to the budget, and that reason supports the final selection.
     approved: false
   - id: "q-language-application-paragraph-organization-0020"
+    lesson: lesson-language-application-openings-and-reference-links
+    keyPoint: 1
     type: "sentence-ordering"
     difficulty: "exam"
     stem: |

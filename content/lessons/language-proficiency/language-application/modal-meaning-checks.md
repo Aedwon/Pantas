@@ -7,7 +7,7 @@ topic: "topic-language-application"
 isActive: true
 part: 5
 partCount: 10
-ordering: 1.05
+ordering: 5
 keyPoints:
   - "Use modals with the base verb and the intended meaning."
 ---

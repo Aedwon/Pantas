@@ -7,7 +7,7 @@ topic: "topic-language-application"
 isActive: true
 part: 2
 partCount: 8
-ordering: 3.02
+ordering: 18
 keyPoints:
   - "Read transitions as links between ideas."
 ---

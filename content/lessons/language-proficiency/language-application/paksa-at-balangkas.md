@@ -7,7 +7,7 @@ topic: "topic-language-application"
 isActive: true
 part: 8
 partCount: 8
-ordering: 3.08
+ordering: 24
 keyPoints:
   - "Tukuyin ang paksa at pangunahing ideya gamit ang salitang susi."
   - "Ipaliwanag ang ideya at gumawa ng balangkas mula sa binasa."

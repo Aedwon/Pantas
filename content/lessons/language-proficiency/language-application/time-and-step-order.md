@@ -7,7 +7,7 @@ topic: "topic-language-application"
 isActive: true
 part: 3
 partCount: 8
-ordering: 3.03
+ordering: 19
 keyPoints:
   - "Use time clues and required steps to order sentences."
 ---

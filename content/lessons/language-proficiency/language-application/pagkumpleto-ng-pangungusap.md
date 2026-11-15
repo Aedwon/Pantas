@@ -7,7 +7,7 @@ topic: "topic-language-application"
 isActive: true
 part: 6
 partCount: 6
-ordering: 2.06
+ordering: 16
 keyPoints:
   - "Piliin ang anyong akma sa panahon ng kilos."
   - "Piliin ang pang-ugnay na akma sa ugnayan ng ideya."

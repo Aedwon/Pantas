@@ -7,7 +7,7 @@ topic: "topic-language-application"
 isActive: true
 part: 7
 partCount: 10
-ordering: 1.07
+ordering: 7
 keyPoints:
   - "Join clauses with punctuation and words that fit the meaning."
 ---

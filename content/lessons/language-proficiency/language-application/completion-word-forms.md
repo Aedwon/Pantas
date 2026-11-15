@@ -7,7 +7,7 @@ topic: "topic-language-application"
 isActive: true
 part: 2
 partCount: 6
-ordering: 2.02
+ordering: 12
 keyPoints:
   - "Identify subjects, verbs, nouns, adjectives, and adverbs."
   - "Match the verb to its subject."

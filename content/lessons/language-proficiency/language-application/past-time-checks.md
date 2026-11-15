@@ -7,7 +7,7 @@ topic: "topic-language-application"
 isActive: true
 part: 4
 partCount: 10
-ordering: 1.04
+ordering: 4
 keyPoints:
   - "Choose verb forms that show when actions happen."
 ---

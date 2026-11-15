@@ -7,7 +7,7 @@ topic: "topic-language-application"
 isActive: true
 part: 7
 partCount: 8
-ordering: 3.07
+ordering: 23
 keyPoints:
   - "Sundan ang pagtukoy at pagkakasunod-sunod ng mga pangungusap."
   - "Kilalanin ang sanhi at bunga."

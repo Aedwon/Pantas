@@ -7,7 +7,7 @@ topic: "topic-language-application"
 isActive: true
 part: 1
 partCount: 6
-ordering: 2.01
+ordering: 11
 keyPoints:
   - "Use signal words and connected ideas to choose a meaning."
   - "Check every blank in a pair or group."

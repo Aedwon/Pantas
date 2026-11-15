@@ -7,7 +7,7 @@ topic: "topic-language-application"
 isActive: true
 part: 10
 partCount: 10
-ordering: 1.1
+ordering: 10
 keyPoints:
   - "Kilalanin ang sugnay na makapag-iisa at di-makapag-iisa."
   - "Kilalanin ang payak, tambalan, hugnayan, at langkapan."

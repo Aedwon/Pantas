@@ -7,7 +7,7 @@ topic: "topic-language-application"
 isActive: true
 part: 6
 partCount: 8
-ordering: 3.06
+ordering: 22
 keyPoints:
   - "Use stated details to answer a question."
   - "Use text clues to make a supported inference."

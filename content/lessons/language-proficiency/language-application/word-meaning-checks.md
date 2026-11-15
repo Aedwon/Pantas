@@ -7,7 +7,7 @@ topic: "topic-language-application"
 isActive: true
 part: 8
 partCount: 10
-ordering: 1.08
+ordering: 8
 keyPoints:
   - "Use context to check similar and opposite meanings."
   - "Use word parts and context to tell meanings apart."

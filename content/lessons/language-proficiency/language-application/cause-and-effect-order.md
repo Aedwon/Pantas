@@ -7,7 +7,7 @@ topic: "topic-language-application"
 isActive: true
 part: 4
 partCount: 8
-ordering: 3.04
+ordering: 20
 keyPoints:
   - "Follow clues that connect a cause and its effect in either order."
 ---

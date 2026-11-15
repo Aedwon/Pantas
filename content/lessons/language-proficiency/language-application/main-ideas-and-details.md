@@ -7,7 +7,7 @@ topic: "topic-language-application"
 isActive: true
 part: 5
 partCount: 8
-ordering: 3.05
+ordering: 21
 keyPoints:
   - "Find the main idea and its supporting details."
 ---

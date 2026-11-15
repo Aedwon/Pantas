@@ -7,7 +7,7 @@ topic: "topic-language-application"
 isActive: true
 part: 2
 partCount: 10
-ordering: 1.02
+ordering: 2
 keyPoints:
   - "Make pronoun references clear and use the right number."
 ---

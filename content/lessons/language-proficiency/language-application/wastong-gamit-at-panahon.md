@@ -7,7 +7,7 @@ topic: "topic-language-application"
 isActive: true
 part: 9
 partCount: 10
-ordering: 1.09
+ordering: 9
 keyPoints:
   - "Piliin ang salitang akma sa gamit at diwa."
   - "Itugma ang pandiwa sa kilos, pangyayari, karanasan, at panahon."

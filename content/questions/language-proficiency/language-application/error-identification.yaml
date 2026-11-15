@@ -12,6 +12,8 @@ meta:
     - "cse-sub"
 questions:
   - id: "q-language-application-error-identification-0001"
+    lesson: lesson-language-application-subject-and-verb-checks
+    keyPoint: 1
     type: "error-identification"
     difficulty: "easy"
     stem: |
@@ -36,6 +38,8 @@ questions:
     explanation: |
       The head subject "Every one" is singular. The completed-action verb group should therefore be "has arrived."
   - id: "q-language-application-error-identification-0002"
+    lesson: lesson-language-application-modifiers-and-matching-forms
+    keyPoint: 2
     type: "error-identification"
     difficulty: "easy"
     stem: |
@@ -59,6 +63,8 @@ questions:
     explanation: |
       The requested actions are "submit," "update," and "review." Using three base verbs makes the list parallel.
   - id: "q-language-application-error-identification-0003"
+    lesson: lesson-language-application-modifiers-and-matching-forms
+    keyPoint: 1
     type: "error-identification"
     difficulty: "medium"
     stem: |
@@ -79,6 +85,8 @@ questions:
     explanation: |
       The delegates are the people walking through the facilities. Making them the main subject gives the opening action its intended actor.
   - id: "q-language-application-error-identification-0004"
+    lesson: lesson-language-application-modifiers-and-matching-forms
+    keyPoint: 2
     type: "error-identification"
     difficulty: "medium"
     stem: |
@@ -102,6 +110,8 @@ questions:
     explanation: |
       The upgraded panel's efficiency rating needs another rating as its comparison target. "Those of the older models" supplies the older models' efficiency ratings.
   - id: "q-language-application-error-identification-0005"
+    lesson: lesson-language-application-modifiers-and-matching-forms
+    keyPoint: 3
     type: "error-identification"
     difficulty: "easy"
     stem: |
@@ -125,6 +135,8 @@ questions:
     explanation: |
       "Affect" means influence. It states the intended change in the sensors' existing performance.
   - id: "q-language-application-error-identification-0006"
+    lesson: lesson-language-application-pronoun-reference-checks
+    keyPoint: 1
     type: "error-identification"
     difficulty: "medium"
     stem: |
@@ -149,6 +161,8 @@ questions:
     explanation: |
       The relative pronoun is the subject performing "had conducted." The subject form "who" fits that role.
   - id: "q-language-application-error-identification-0007"
+    lesson: lesson-language-application-pronoun-reference-checks
+    keyPoint: 1
     type: "error-identification"
     difficulty: "hard"
     stem: |
@@ -172,6 +186,8 @@ questions:
     explanation: |
       Both men are possible references for "he." Naming the supervisor or the manager would identify the intended person.
   - id: "q-language-application-error-identification-0008"
+    lesson: lesson-language-application-past-time-checks
+    keyPoint: 1
     type: "error-identification"
     difficulty: "hard"
     stem: |
@@ -195,6 +211,8 @@ questions:
     explanation: |
       The resolution was complete before the inspection finished. "Had already resolved" uses the requested past perfect to state that earlier completion.
   - id: "q-language-application-error-identification-0009"
+    lesson: lesson-language-application-clause-punctuation-checks
+    keyPoint: 1
     type: "error-identification"
     difficulty: "medium"
     stem: |
@@ -219,6 +237,8 @@ questions:
     explanation: |
       Both sides are complete independent clauses. A semicolon after "regions" joins them, and a comma follows the transition "however."
   - id: "q-language-application-error-identification-0010"
+    lesson: lesson-language-application-subject-and-verb-checks
+    keyPoint: 1
     type: "error-identification"
     difficulty: "medium"
     stem: |
@@ -243,6 +263,8 @@ questions:
     explanation: |
       The panel is one unit under the stated American-English reading. "Is presenting" and "its joint evaluation" consistently refer to that unit.
   - id: "q-language-application-error-identification-0011"
+    lesson: lesson-language-application-modifiers-and-matching-forms
+    keyPoint: 1
     type: "error-identification"
     difficulty: "hard"
     stem: |
@@ -267,6 +289,8 @@ questions:
     explanation: |
       Place "that had stopped working during the storm" directly after "generator." It then clearly describes the failed generator, followed by the phrase explaining the tool used.
   - id: "q-language-application-error-identification-0012"
+    lesson: lesson-language-application-modifiers-and-matching-forms
+    keyPoint: 3
     type: "error-identification"
     difficulty: "medium"
     stem: |
@@ -290,6 +314,8 @@ questions:
     explanation: |
       "Revert" already means return to a former state or practice. Deleting "back" keeps "must revert to their core operational principles."
   - id: "q-language-application-error-identification-0013"
+    lesson: lesson-language-application-pronoun-reference-checks
+    keyPoint: 1
     type: "error-identification"
     difficulty: "easy"
     stem: |
@@ -314,6 +340,8 @@ questions:
     explanation: |
       The pronoun is an object of "between." "Between you and me" uses the required object form.
   - id: "q-language-application-error-identification-0014"
+    lesson: lesson-language-application-past-time-checks
+    keyPoint: 1
     type: "error-identification"
     difficulty: "medium"
     stem: |
@@ -338,6 +366,8 @@ questions:
     explanation: |
       The past perfect uses "had" plus a past participle. Change "had review" to "had reviewed" to show that the review was complete before the error was caught.
   - id: "q-language-application-error-identification-0015"
+    lesson: lesson-language-application-pronoun-reference-checks
+    keyPoint: 1
     type: "error-identification"
     difficulty: "medium"
     stem: |
@@ -357,6 +387,8 @@ questions:
     explanation: |
       "Each" takes singular "has." "Submitted" forms the completed-action verb group, and singular "their" gives a gender-neutral reference to each applicant.
   - id: "q-language-application-error-identification-0016"
+    lesson: lesson-language-application-subject-and-verb-checks
+    keyPoint: 1
     type: "error-identification"
     difficulty: "easy"
     stem: |
@@ -377,6 +409,8 @@ questions:
       "Some" refers to an amount of information, a mass noun. Singular "is" agrees with that amount; "in these notes" only describes its location.
     approved: false
   - id: "q-language-application-error-identification-0017"
+    lesson: lesson-language-application-modifiers-and-matching-forms
+    keyPoint: 1
     type: "error-identification"
     difficulty: "medium"
     stem: |
@@ -397,6 +431,8 @@ questions:
       "To Paolo only" restricts who received the draft. It identifies Paolo as the sole recipient.
     approved: false
   - id: "q-language-application-error-identification-0018"
+    lesson: lesson-language-application-modifiers-and-matching-forms
+    keyPoint: 1
     type: "error-identification"
     difficulty: "hard"
     stem: |
@@ -417,6 +453,8 @@ questions:
       The engineer is the person inspecting the roof. As the main subject, the engineer gives the opening phrase a clear actor.
     approved: false
   - id: "q-language-application-error-identification-0019"
+    lesson: lesson-language-application-past-time-checks
+    keyPoint: 1
     type: "error-identification"
     difficulty: "hard"
     stem: |
@@ -437,6 +475,8 @@ questions:
       "Yesterday" places the finished delivery in the past. "Were delivered" keeps that past time and agrees with the plural subject "documents".
     approved: false
   - id: "q-language-application-error-identification-0020"
+    lesson: lesson-language-application-clause-punctuation-checks
+    keyPoint: 1
     type: "error-identification"
     difficulty: "exam"
     stem: |

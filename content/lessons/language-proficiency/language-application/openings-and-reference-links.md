@@ -7,7 +7,7 @@ topic: "topic-language-application"
 isActive: true
 part: 1
 partCount: 8
-ordering: 3.01
+ordering: 17
 keyPoints:
   - "Find an opening and follow reference words."
 ---

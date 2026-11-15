@@ -7,7 +7,7 @@ topic: "topic-language-application"
 isActive: true
 part: 5
 partCount: 6
-ordering: 2.05
+ordering: 15
 keyPoints:
   - "Recognize common word combinations."
   - "Read an idiom as a whole expression."

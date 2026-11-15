@@ -12,6 +12,8 @@ meta:
     - "cse-sub"
 questions:
   - id: "q-language-application-sentence-completion-0001"
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 1
     type: "fill-in-the-blank"
     difficulty: "easy"
     stem: |
@@ -32,6 +34,8 @@ questions:
       "Resilient" means able to recover from difficulty. The team overcame the obstacles and still delivered on schedule, so that meaning fits.
     approved: true
   - id: "q-language-application-sentence-completion-0002"
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 1
     type: "fill-in-the-blank"
     difficulty: "easy"
     stem: |
@@ -52,6 +56,8 @@ questions:
       "Equivocal" means open to more than one interpretation. This uncertainty explains why the investigator waited for more results.
     approved: true
   - id: "q-language-application-sentence-completion-0003"
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 2
     type: "fill-in-the-blank"
     difficulty: "medium"
     stem: |
@@ -72,6 +78,8 @@ questions:
       Replacing the whole established structure is a radical change. Managers who explicitly oppose that change show resistance.
     approved: true
   - id: "q-language-application-sentence-completion-0004"
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 1
     type: "fill-in-the-blank"
     difficulty: "medium"
     stem: |
@@ -93,6 +101,8 @@ questions:
       "Disparate" means very different. A building ban and unrestricted construction are sharply different views, so the word fits their relationship.
     approved: true
   - id: "q-language-application-sentence-completion-0005"
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 1
     type: "fill-in-the-blank"
     difficulty: "easy"
     stem: |
@@ -113,6 +123,8 @@ questions:
       "Lucid" means clear and easy to understand. It matches an explanation that new employees could follow.
     approved: true
   - id: "q-language-application-sentence-completion-0006"
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 2
     type: "fill-in-the-blank"
     difficulty: "medium"
     stem: |
@@ -133,6 +145,8 @@ questions:
       "Coherent" means orderly and consistent. The report is far from that quality, and "contradictory" describes statements that conflict.
     approved: true
   - id: "q-language-application-sentence-completion-0007"
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 1
     type: "fill-in-the-blank"
     difficulty: "hard"
     stem: |
@@ -153,6 +167,8 @@ questions:
       "Depleted" means greatly reduced. A drought-reduced reservoir supports the need to ration the remaining water.
     approved: true
   - id: "q-language-application-sentence-completion-0008"
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 1
     type: "fill-in-the-blank"
     difficulty: "hard"
     stem: |
@@ -173,6 +189,8 @@ questions:
       "Detrimental" means harmful. It states the warned-of effect on long-term stability.
     approved: true
   - id: "q-language-application-sentence-completion-0009"
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 2
     type: "fill-in-the-blank"
     difficulty: "medium"
     stem: |
@@ -193,6 +211,8 @@ questions:
       "Boost" means increase, matching the output goal. "Reducing" means lowering, matching the expense goal. The pair also fits the shared sentence structure.
     approved: true
   - id: "q-language-application-sentence-completion-0010"
+    lesson: lesson-language-application-completion-word-forms
+    keyPoint: 1
     type: "fill-in-the-blank"
     difficulty: "medium"
     stem: |
@@ -213,6 +233,8 @@ questions:
       "Eloquently" is an adverb describing clear, effective speech. It fits how the engineer spoke with clarity and precision.
     approved: true
   - id: "q-language-application-sentence-completion-0011"
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 1
     type: "fill-in-the-blank"
     difficulty: "hard"
     stem: |
@@ -233,6 +255,8 @@ questions:
       "Implement" means put a plan or measure into effect. It fits carrying out the approved plan.
     approved: true
   - id: "q-language-application-sentence-completion-0012"
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 2
     type: "fill-in-the-blank"
     difficulty: "exam"
     stem: |
@@ -253,6 +277,8 @@ questions:
       "Comprehensive" means covering the whole needed range. "Rigorous" means strict and careful, matching how inspectors applied the rules.
     approved: true
   - id: "q-language-application-sentence-completion-0013"
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 1
     type: "fill-in-the-blank"
     difficulty: "easy"
     stem: |
@@ -273,6 +299,8 @@ questions:
       "Sluggish" means slow-moving. It matches the traffic described as crawling.
     approved: true
   - id: "q-language-application-sentence-completion-0014"
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 1
     type: "fill-in-the-blank"
     difficulty: "medium"
     stem: |
@@ -293,6 +321,8 @@ questions:
       "Flustered" means agitated or confused. The opening says the associate was far from that state, which matches being composed and articulate.
     approved: true
   - id: "q-language-application-sentence-completion-0015"
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 2
     type: "fill-in-the-blank"
     difficulty: "exam"
     stem: |
@@ -313,6 +343,8 @@ questions:
       "Inconclusive" means not settling the question. "Definitive" means settling it clearly and firmly. The preliminary records lacked an answer, and the final signed register supplied it.
     approved: true
   - id: "q-language-application-sentence-completion-0016"
+    lesson: lesson-language-application-completion-articles-and-lists
+    keyPoint: 2
     type: "fill-in-the-blank"
     difficulty: "easy"
     stem: |
@@ -333,6 +365,8 @@ questions:
       The usual phrase is "interested in" followed by the subject of interest. Here that subject is preserving oral histories.
     approved: false
   - id: "q-language-application-sentence-completion-0017"
+    lesson: lesson-language-application-completion-natural-phrases
+    keyPoint: 1
     type: "fill-in-the-blank"
     difficulty: "medium"
     stem: |
@@ -353,6 +387,8 @@ questions:
       The usual expression is "make a decision." "Must" is followed by the base form "make."
     approved: false
   - id: "q-language-application-sentence-completion-0018"
+    lesson: lesson-language-application-completion-past-time
+    keyPoint: 1
     type: "fill-in-the-blank"
     difficulty: "hard"
     stem: |
@@ -373,6 +409,8 @@ questions:
       "Last Tuesday" and "returned" place both actions in the past. "Found" supplies the matching completed past action.
     approved: false
   - id: "q-language-application-sentence-completion-0019"
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 2
     type: "fill-in-the-blank"
     difficulty: "hard"
     stem: |
@@ -393,6 +431,8 @@ questions:
       "Clear" describes directions that can be followed. "Apprehensive" means worried about what may happen, which fits delaying because of the approaching storm.
     approved: false
   - id: "q-language-application-sentence-completion-0020"
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 2
     type: "fill-in-the-blank"
     difficulty: "exam"
     stem: |

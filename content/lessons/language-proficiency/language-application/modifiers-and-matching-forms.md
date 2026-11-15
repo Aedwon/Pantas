@@ -7,7 +7,7 @@ topic: "topic-language-application"
 isActive: true
 part: 3
 partCount: 10
-ordering: 1.03
+ordering: 3
 keyPoints:
   - "Put modifiers near the words they describe."
   - "Use matching forms in lists and comparisons."

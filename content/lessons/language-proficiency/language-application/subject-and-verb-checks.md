@@ -7,7 +7,7 @@ topic: "topic-language-application"
 isActive: true
 part: 1
 partCount: 10
-ordering: 1.01
+ordering: 1
 keyPoints:
   - "Match the verb to its subject."
 ---
