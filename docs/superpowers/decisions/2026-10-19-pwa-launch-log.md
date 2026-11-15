@@ -3688,4 +3688,4 @@ Goal set Nov 14 ~08:40 UTC (Aedwon: "finish all these"; "this goal is for you").
 Estimate vs actual. The manager gave no estimate at the start; the first one came Nov 14 ~13:20 UTC when Aedwon asked: everything except the CSE splits by ~Nov 23, the full goal by Nov 28. Actual: 18 items in 21 h 52 min, the CSE splits about 13 days early. Causes: velocity history already showed ratios of 0.25 to 0.4; Aedwon lifted pacing ("you can accelerate things"); up to 3 parallel Codex jobs; stream B ran alongside the pilot; one Codex weekly reset. App Check's prod dates are policy gates, not work, and did not move.
 
 Process lessons (also for process-improvement.md): give an overall estimate when a goal is set; leads' in-session timers die with the session, so durable T3 reminders back every timed step (the 18:07 cutover slipped 30 minutes without one); deploys use the pinned CLI only (guard merged); check right after scheduled events rather than on a fixed long interval.
-
+- Prod watch 06:31 to 07:03 UTC: no ERROR entries on any function, no failed code emails, no real use in the window. Rollback not needed. Velocity E-078: see the row (timer).
