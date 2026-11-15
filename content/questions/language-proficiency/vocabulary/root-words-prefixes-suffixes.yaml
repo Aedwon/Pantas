@@ -62,15 +62,15 @@ questions:
         correct: true
       - text: "Pinag"
         rationale: |
-          This takes the beginning affix material as the base. It is a visible chunk at the start of the word. Check which part carries the main meaning.
+          Ginagawa nitong ugat ang panlapi sa unahan. Madaling makita ang bahaging ito. Hanapin ang bahaging may pangunahing kahulugan.
       - text: "Naghirap"
         rationale: |
-          This leaves added material on the base. "Naghirap" is a familiar related word. Check whether the answer still contains an affix.
+          May panlapi pa ang piniling ugat. Pamilyar na kaugnay na salita ang "naghirap." Tingnan kung may dagdag pa sa ugat.
       - text: "Hirapan"
         rationale: |
-          This leaves an ending on the base. It resembles the final part of the full word. Check whether the final -an is part of the root or an addition.
+          May hulapi pa ang piniling ugat. Kamukha ito ng huling bahagi ng salita. Suriin kung bahagi ng ugat o dagdag ang -an.
     explanation: |
-      The meaningful base is "hirap," which relates to difficulty or effort. The other parts of "pinaghirapan" are added around this base.
+      Ang ugat ay "hirap," na tumutukoy sa kahirapan o pagsisikap. Idinagdag sa ugat na ito ang ibang bahagi ng "pinaghirapan."
     approved: true
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0004
@@ -85,15 +85,15 @@ questions:
         correct: true
       - text: "Kabilaan"
         rationale: |
-          This counts only the material on the two sides of the base. The beginning and ending are easy to notice. Check whether an affix also appears inside "sikap."
+          Ang panlapi sa magkabilang dulo lamang ang binibilang nito. Madaling makita ang unahan at hulihan. Tingnan kung may panlapi rin sa loob ng "sikap."
       - text: "Unlapi"
         rationale: |
-          This counts only the beginning of the word. "Pinag-" is prominent at the start. Check for added material inside and after the base.
+          Unahan lamang ng salita ang binibilang nito. Madaling mapansin ang "pinag-." Hanapin din ang mga dagdag sa loob at hulihan ng ugat.
       - text: "Gitlapi"
         rationale: |
-          This counts only the inserted -um-. That infix is a familiar Filipino pattern. Check whether other affixes also occur.
+          Ang nakasingit na -um- lamang ang binibilang nito. Pamilyar ang gitlaping ito. Tingnan kung may iba pang panlapi.
     explanation: |
-      In the stated school analysis, "pinagsumikapan" has affix material before, inside, and after "sikap." A combination of prefix, infix, and suffix is called "laguhan."
+      Sa pagsusuring ibinigay sa tanong, may panlapi sa unahan, loob, at hulihan ng "sikap" sa "pinagsumikapan." Laguhan ang tawag sa pagsasama ng unlapi, gitlapi, at hulapi.
     approved: true
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0005
@@ -223,15 +223,15 @@ questions:
         correct: true
       - text: "Gin"
         rationale: |
-          This takes the first letters as a root. They form an easy chunk to see. Check whether that chunk carries the base meaning of the word.
+          Unang mga titik lamang ang ginagawang ugat nito. Madaling makita ang bahaging ito. Tingnan kung dala nito ang pangunahing kahulugan.
       - text: "Ginawa"
         rationale: |
-          This gives the whole affixed word as the root. It is already a meaningful word. Check whether any added material remains.
+          Buong salitang may panlapi ang ibinigay nito bilang ugat. May kahulugan na ang buong salita. Ngunit suriin kung may dagdag pa rito.
       - text: "Gawain"
         rationale: |
-          This chooses a related word that still has an ending. The shared "gawa" makes it look close. Check whether the answer is the smallest meaningful base.
+          Kaugnay na salita ang pinili nito, ngunit may hulapi pa. Magkapareho ang "gawa" kaya mukhang malapit. Hanapin ang pinakamaliit na bahaging may pangunahing kahulugan.
     explanation: |
-      "Ginawa" comes from "gawa." The infix -in- is inserted after the initial g, giving g + in + awa.
+      Mula sa "gawa" ang "ginawa." Isiningit ang -in- pagkatapos ng unang g: g + in + awa.
     approved: true
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0011
@@ -269,15 +269,15 @@ questions:
         correct: true
       - text: "Kasaganaan"
         rationale: |
-          This overlooks the ending -an. The beginning ka- is easy to notice. Check both ends of the base.
+          Hindi nito napapansin ang hulaping -an. Madaling makita ang ka- sa unahan. Suriin ang magkabilang dulo ng ugat.
       - text: "Ginawa"
         rationale: |
-          This treats an inserted affix as a beginning affix. The added letters occur near the front. Check whether the base's first consonant comes before them.
+          Itinuturing nitong unlapi ang nakasingit na panlapi. Malapit sa unahan ang dagdag na mga titik. Tingnan kung nauuna rito ang unang katinig ng ugat.
       - text: "Pinagsumikapan"
         rationale: |
-          This notices the prefix but ignores the other additions. The word begins with a clear added chunk. Check whether all its added material is at the start.
+          Napapansin nito ang unlapi ngunit hindi ang ibang dagdag. Malinaw ang dagdag sa unahan. Suriin kung nasa unahan lamang ang lahat ng panlapi.
     explanation: |
-      "Pag-ibig" has pag- before the base "ibig." That is a prefix, or "unlapi," in the stated school analysis.
+      Sa ibinigay na pagsusuring pampaaralan, nasa unahan ng ugat na "ibig" ang pag- sa "pag-ibig." Kaya unlapi ito.
     approved: true
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0013
@@ -292,15 +292,15 @@ questions:
         correct: true
       - text: "Kasaganaan"
         rationale: |
-          This treats additions around the base as one inside it. The full word contains several parts. Check where each affix sits relative to "sagana."
+          Itinuturing nitong nasa loob ng ugat ang mga dagdag sa paligid nito. Maraming bahagi ang buong salita. Tingnan ang puwesto ng bawat panlapi sa "sagana."
       - text: "Pag-ibig"
         rationale: |
-          This treats a prefix as an infix because it is joined to a base. Both are affixes. Check whether the addition comes before or inside "ibig."
+          Itinuturing nitong gitlapi ang unlapi dahil nakakabit ito sa ugat. Pareho silang panlapi. Tingnan kung nasa unahan o loob ng "ibig" ang dagdag.
       - text: "Pinagsumikapan"
         rationale: |
-          This overlooks additions outside the base. The -um- inside "sikap" is easy to recognize. Check whether the word has only that affix.
+          Hindi nito napapansin ang mga dagdag sa labas ng ugat. Madaling makita ang -um- sa loob ng "sikap." Suriin kung iyon lamang ang panlapi.
     explanation: |
-      The base "gawa" becomes "ginawa" by adding -in- after its first consonant. An affix inside the base is "gitlapi," or an infix.
+      Nagiging "ginawa" ang ugat na "gawa" kapag idinagdag ang -in- pagkatapos ng unang katinig. Gitlapi ang panlaping nasa loob ng ugat.
     approved: true
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0014
@@ -361,15 +361,15 @@ questions:
         correct: true
       - text: "Dahil magkaibang salita ang mga ito at walang tuntunin sa posisyon ng panlapi."
         rationale: |
-          This ignores the position used to name each affix. The roots look different. Check whether the affix is inside or before each root.
+          Hindi nito pinapansin ang puwesto na batayan ng pangalan ng panlapi. Magkaiba ang hitsura ng mga ugat. Suriin kung nasa loob o unahan ng bawat ugat ang panlapi.
       - text: "Dahil palaging unlapi ang um-."
         rationale: |
-          This treats every um- form as a prefix. The form stands at the start of "umalis." Check where it sits inside "sumayaw."
+          Itinuturing nitong unlapi ang lahat ng anyong um-. Nasa unahan ito sa "umalis." Tingnan kung saan ito nakapuwesto sa "sumayaw."
       - text: "Dahil palaging gitlapi ang -um-."
         rationale: |
-          This uses the same label for both positions. The affix is inside "sayaw" in "sumayaw." Check whether it is also inside "alis" in "umalis".
+          Iisang tawag ang ginagamit nito para sa dalawang puwesto. Nasa loob ng "sayaw" ang panlapi sa "sumayaw." Suriin kung nasa loob din ito ng "alis" sa "umalis."
     explanation: |
-      In "sumayaw," -um- is inside the root "sayaw," so it is a gitlapi. In "umalis," um- is before the root "alis," so it is an unlapi. The labels describe where the affix appears.
+      Sa "sumayaw," nasa loob ng ugat na "sayaw" ang -um-, kaya gitlapi ito. Sa "umalis," nasa unahan ng ugat na "alis" ang um-, kaya unlapi ito. Puwesto ng panlapi ang batayan ng mga tawag.
     approved: true
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0017
@@ -453,15 +453,15 @@ questions:
         correct: true
       - text: "-in-"
         rationale: |
-          This selects a familiar infix instead of the visible ending. -in- also occurs with "sulat" in other forms. Check which letters were added in this word.
+          Pamilyar na gitlapi ang pinili nito sa halip na hulapi. Ginagamit din ang -in- sa ibang anyo ng "sulat." Tingnan kung anong mga titik ang idinagdag dito.
       - text: "Sulat"
         rationale: |
-          This gives the base instead of the affix. The base carries the main meaning. Check which part was added to it.
+          Ugat ang ibinigay nito sa halip na panlapi. Dala ng ugat ang pangunahing kahulugan. Hanapin ang bahaging idinagdag dito.
       - text: "Su-"
         rationale: |
-          This takes the first syllable of the base as an affix. It is an easy chunk to see. Check whether the same letters already belong to "sulat."
+          Unang pantig ng ugat ang ginawang panlapi nito. Madaling makita ang bahaging ito. Suriin kung bahagi na ito ng "sulat."
     explanation: |
-      The base "sulat" remains whole, and -an is added at its end to form "sulatan." The added ending is a suffix.
+      Nananatiling buo ang ugat na "sulat." Idinaragdag ang -an sa hulihan upang mabuo ang "sulatan." Hulapi ang dagdag na ito.
     approved: true
 
 

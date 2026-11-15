@@ -265,15 +265,15 @@ questions:
         correct: true
       - text: "Pangngalan"
         rationale: |
-          This treats a quality as a person's name. "Matapang" refers to a quality the soldier has. Check: ask whether it names or describes "sundalo".
+          Itinuturing nitong pangalan ng tao ang isang katangian. Katangian ng sundalo ang "matapang." Tingnan kung pinapangalanan o inilalarawan nito ang sundalo.
       - text: "Pandiwa"
         rationale: |
-          This treats courage as an action word. Being brave often leads to action. Check: find the word that tells what the soldier did.
+          Itinuturing nitong kilos ang katapangan. Maaaring humantong sa pagkilos ang pagiging matapang. Hanapin ang salitang nagsasabi ng ginawa ng sundalo.
       - text: "Pang-abay"
         rationale: |
-          This treats a description of the soldier as a description of the defending. Courage can affect an action. Check: check whether the target is "sundalo" or the action.
+          Itinuturing nitong paglalarawan sa pagtatanggol ang paglalarawan sa sundalo. Maaaring makaapekto sa kilos ang tapang. Tingnan kung sundalo o kilos ang inilalarawan.
     explanation: |
-      Ang "matapang" ay naglalarawan sa pangngalang "sundalo," kaya ito ay pang-uri (adjective).
+      Inilalarawan ng "matapang" ang pangngalang "sundalo," kaya pang-uri ito.
     approved: true
   - id: "q-grammar-and-structure-parts-of-speech-0013"
     lesson: lesson-grammar-and-structure-pangalan-kilos-at-pandiwari
@@ -287,15 +287,15 @@ questions:
         correct: true
       - text: "Panghalip"
         rationale: |
-          This treats a person's name as a replacement word. "Bata" refers to the person being discussed. Check: ask whether it names a child or stands in for another name.
+          Itinuturing nitong panghalili sa pangalan ang tawag sa tao. Ang "bata" ang taong pinag-uusapan. Tingnan kung pinapangalanan nito ang bata o humahalili sa ibang pangalan.
       - text: "Pandiwa"
         rationale: |
-          This treats the actor as the action. The child performs the playing. Check: separate who acted from what happened.
+          Itinuturing nitong kilos ang gumagawa. Ang bata ang naglalaro. Ihiwalay ang gumawa sa pangyayari.
       - text: "Pang-uri"
         rationale: |
-          This classifies "bata" from its possible use describing someone as young. The word can have different jobs in other sentences. Check: identify its job after "Ang" here.
+          Ginagamit nito ang ibang gamit ng "bata" bilang paglalarawan sa murang edad. Maaaring magbago ang papel ng salita sa ibang pangungusap. Tingnan ang papel nito pagkatapos ng "Ang" dito.
     explanation: |
-      "Bata" names the child who played. It functions as a pangngalan, or noun.
+      Pinapangalanan ng "bata" ang batang naglaro. Pangngalan ang gamit nito.
     approved: true
   - id: "q-grammar-and-structure-parts-of-speech-0014"
     lesson: lesson-grammar-and-structure-pangalan-kilos-at-pandiwari
@@ -309,15 +309,15 @@ questions:
         correct: true
       - text: "Pangngalan"
         rationale: |
-          This treats a replacement word as a name. "Siya" refers to a person. Check: ask whether that person is named.
+          Itinuturing nitong pangalan ang salitang pamalit. Tumutukoy sa tao ang "siya." Tingnan kung pinangalanan ang taong iyon.
       - text: "Pang-uri"
         rationale: |
-          This treats a reference to a person as a quality. The word identifies who went. Check: ask whether it replaces a name or describes a noun.
+          Itinuturing nitong katangian ang pagtukoy sa tao. Sinasabi ng salita kung sino ang pumunta. Tingnan kung pamalit ito sa pangalan o paglalarawan sa pangngalan.
       - text: "Pandiwa"
         rationale: |
-          This treats the actor as the action. "Siya" is followed by a word telling what happened. Check: separate the subject from the action.
+          Itinuturing nitong kilos ang gumagawa. Kasunod ng "siya" ang salitang nagsasabi ng nangyari. Ihiwalay ang paksa sa kilos.
     explanation: |
-      Ang "Siya" ay humahalili sa isang pangngalan (pangalan ng tao) upang hindi ito ulit-ulitin, kaya ito ay panghalip (pronoun).
+      Humahalili ang "siya" sa pangalan ng tao upang hindi ito ulit-ulitin. Kaya panghalip ito.
     approved: true
   - id: "q-grammar-and-structure-parts-of-speech-0015"
     lesson: lesson-grammar-and-structure-pangalan-kilos-at-pandiwari
@@ -331,15 +331,15 @@ questions:
         correct: true
       - text: "Pangngalan"
         rationale: |
-          This treats the eating action as an activity name. Eating can be discussed as a thing. Check: check the word's role in this sentence.
+          Itinuturing nitong pangalan ng gawain ang kilos ng pagkain. Maaaring pag-usapan ang pagkain bilang isang bagay. Tingnan ang papel ng salita sa pangungusap na ito.
       - text: "Pang-uri"
         rationale: |
-          This treats what the children did as their quality. Eating describes their behavior. Check: identify the word stating the action.
+          Itinuturing nitong katangian ng mga bata ang kanilang ginawa. Inilalarawan ng pagkain ang kanilang ginagawa. Hanapin ang salitang nagsasaad ng kilos.
       - text: "Pang-abay"
         rationale: |
-          This treats an action word as a description of that action. The sentence gives information about a meal. Check: ask whether this word tells what happened or how it happened.
+          Itinuturing nitong paglalarawan sa kilos ang mismong kilos. May sinasabi ang pangungusap tungkol sa hapunan. Tingnan kung ang salita ay nagsasaad ng nangyari o ng paraan nito.
     explanation: |
-      Ang "Kumain" ay nagpapahiwatig ng kilos na ginawa ng mga bata, kaya ito ay pandiwa (verb).
+      Sinasabi ng "kumain" ang kilos na ginawa ng mga bata. Kaya pandiwa ito.
     approved: true
   - id: "q-grammar-and-structure-parts-of-speech-0016"
     lesson: lesson-grammar-and-structure-pang-uri-at-pang-abay
@@ -353,15 +353,15 @@ questions:
         correct: true
       - text: "Pang-uri"
         rationale: |
-          This classifies "mabilis" from its use describing a fast person. The athlete could be called fast. Check: check whether it describes "tumakbo" here.
+          Ginagamit nito ang papel ng "mabilis" sa paglalarawan ng tao. Maaaring tawaging mabilis ang atleta. Tingnan kung "tumakbo" ang inilalarawan dito.
       - text: "Pandiwa"
         rationale: |
-          This treats the way of running as the action itself. "Mabilis" is connected to an action. Check: find the word that states running.
+          Itinuturing nitong mismong kilos ang paraan ng pagtakbo. Kaugnay ng kilos ang "mabilis." Hanapin ang salitang nagsasaad ng pagtakbo.
       - text: "Pangngalan"
         rationale: |
-          This treats a description of speed as a thing's name. Speed can be named as a noun. Check: check whether this word describes the running here.
+          Itinuturing nitong pangalan ng bagay ang paglalarawan sa bilis. Maaaring pangalanan ang bilis. Tingnan kung inilalarawan ng salita ang pagtakbo rito.
     explanation: |
-      "Mabilis" tells how the athlete ran. It describes the action "tumakbo," so it functions as a pang-abay, or adverb.
+      Sinasabi ng "mabilis" kung paano tumakbo ang atleta. Inilalarawan nito ang kilos na "tumakbo," kaya pang-abay ito.
     approved: true
   - id: "q-grammar-and-structure-parts-of-speech-0017"
     lesson: lesson-grammar-and-structure-english-word-jobs

@@ -35,13 +35,13 @@ Which word analysis is valid?
 A) uncle = un- + cle  
 B) unhappy = un- + happy  
 C) benefit = be- + nefit  
-D) chronology = chrono- + log + y
+D) ready = re- + ady
 
 **Solution:**
 
 1. *Happy* is a meaningful base, and *un-* changes its meaning to "not happy."
 2. This split explains the whole word. In *uncle*, *cle* is not a base with a meaning that *un-* changes.
-3. The other splits also use letter groups that do not explain the words. The English word *log*, for example, does not explain *chronology*. Answer: **B**.
+3. The other splits also use letter groups that do not explain the words. For example, *ady* in *ready* is not a word part with a meaning, so *re-* cannot change it. Answer: **B**.
 
 ## Speed Tricks & Shortcuts
 

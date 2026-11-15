@@ -23,15 +23,15 @@ questions:
         correct: true
       - text: "Kumakain"
         rationale: |
-          This selects the ongoing aspect. It shares the root "kain". Check: check whether the form presents completed or ongoing eating.
+          Nagaganap ang kilos sa "kumakain." Pareho ang ugat na "kain." Tingnan kung tapos na o nagpapatuloy ang pagkain.
       - text: "Kakain"
         rationale: |
-          This selects the contemplated aspect. It still names an eating action. Check: match the requested completed aspect.
+          Magaganap pa ang kilos sa "kakain." Tungkol pa rin ito sa pagkain. Piliin ang anyong nagsasaad ng tapos nang kilos.
       - text: "Kainin"
         rationale: |
-          This selects a different directive form. It contains the familiar eating root. Check: use the lesson's completed example, with event context.
+          Ibang anyo ang "kainin," na maaaring gamitin sa pag-uutos. May ugat din itong "kain." Balikan ang halimbawa ng tapos nang kilos sa aralin.
     explanation: |
-      In the lesson's example pattern, "kumain" presents the eating as completed. It is the perpektibo form requested.
+      Sa halimbawang gamit ng aralin, tapos na ang pagkain sa "kumain." Ito ang hinihinging anyong perpektibo.
     approved: true
   - id: "q-grammar-and-structure-tenses-and-voice-0009"
     lesson: lesson-grammar-and-structure-kalagayan-ng-kilos
@@ -45,15 +45,15 @@ questions:
         correct: true
       - text: "Kumain"
         rationale: |
-          This selects the completed aspect. The same root names the eating action. Check: match the ongoing meaning requested.
+          Tapos na ang kilos sa "kumain." Pareho ang ugat na "kain." Ang hinihingi ay nagpapatuloy na kilos.
       - text: "Kakain"
         rationale: |
-          This selects a contemplated action. The action might happen after the present. Check: keep the requested in-progress meaning.
+          Magaganap pa ang kilos sa "kakain." Maaari itong mangyari pagkatapos ng kasalukuyan. Piliin ang anyong nagpapakita ng kilos na nagpapatuloy.
       - text: "Kainin"
         rationale: |
-          This selects a different directive form. It contains the familiar eating root. Check: identify the ongoing example in the lesson.
+          Ibang anyo ang "kainin," na maaaring gamitin sa pag-uutos. May ugat din itong "kain." Hanapin ang halimbawa ng nagaganap na kilos sa aralin.
     explanation: |
-      "Kumakain" presents eating as ongoing in the lesson's example pattern. It is the imperpektibo form.
+      Sa halimbawang gamit ng aralin, nagpapatuloy ang pagkain sa "kumakain." Ito ang anyong imperpektibo.
     approved: true
   - id: "q-grammar-and-structure-tenses-and-voice-0010"
     lesson: lesson-grammar-and-structure-kalagayan-ng-kilos
@@ -67,15 +67,15 @@ questions:
         correct: true
       - text: "Kumain"
         rationale: |
-          This selects the completed aspect. The form names the same action. Check: check whether the action is already done.
+          Tapos na ang kilos sa "kumain." Pareho ang kilos na tinutukoy. Tingnan kung nagawa na ang kilos.
       - text: "Kumakain"
         rationale: |
-          This selects the ongoing aspect. It refers to eating near the present. Check: choose the form for an action still contemplated.
+          Nagaganap ang kilos sa "kumakain." Maaaring iugnay ito sa kasalukuyan. Piliin ang anyo para sa kilos na magaganap pa.
       - text: "Kainin"
         rationale: |
-          This selects a different directive form. It concerns an action that someone may perform. Check: use the lesson's contemplated example.
+          Ibang anyo ang "kainin," na maaaring gamitin sa pag-uutos. Tungkol ito sa kilos na maaaring gawin. Balikan ang halimbawa ng kontemplatibo sa aralin.
     explanation: |
-      "Kakain" presents eating as still contemplated in the lesson's example pattern. It is the kontemplatibo form.
+      Sa halimbawang gamit ng aralin, magaganap pa ang pagkain sa "kakain." Ito ang anyong kontemplatibo.
     approved: true
   - id: "q-grammar-and-structure-tenses-and-voice-0011"
     lesson: lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa
@@ -89,15 +89,15 @@ questions:
         correct: true
       - text: "Pokus sa tagaganap (ang bata)"
         rationale: |
-          This treats the doer as the focus. The child performs the action, so that role can seem like the focus. Check which noun phrase starts with "ang."
+          Itinuturing nitong pokus ang gumagawa. Ang bata ang kumain, kaya maaaring mapili siya. Tingnan kung aling parirala ang nagsisimula sa "ang."
       - text: "Walang pokus"
         rationale: |
-          This overlooks the verb's focus pattern. The sentence names both a doer and an object, which may hide their different roles. Check the verb form together with the "ang" phrase.
+          Hindi nito napapansin ang pokus ng pandiwa. Parehong binanggit ang gumagawa at ang bagay na kinain. Suriin ang anyo ng pandiwa at ang pariralang may "ang."
       - text: "Pokus sa oras"
         rationale: |
-          This treats a completed action as a focus on time. The verb shows that eating happened, so time may seem relevant. Check whether an actual time phrase is marked as the focus.
+          Itinuturing nitong pokus sa oras ang tapos nang kilos. Naganap na ang pagkain, kaya maaaring mapansin ang oras. Tingnan kung may pariralang nagsasaad ng oras na siyang paksa.
     explanation: |
-      "Kinain" puts the object that was eaten in focus. "Ang mangga" names that object, so the verb has object focus.
+      Itinatampok ng "kinain" ang bagay na kinain. Ang "ang mangga" ang tumutukoy sa bagay na ito, kaya pokus sa bagay ang pandiwa.
     approved: true
   - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0001"
     lesson: lesson-grammar-and-structure-kalagayan-ng-kilos
@@ -109,18 +109,17 @@ questions:
     choices:
       - text: "Maglilinis"
         rationale: |
-          "Maglilinis" presents an action that has not started. The cleaning is already done.
+          Ang "maglilinis" ay para sa kilos na hindi pa nagsisimula. Tapos na ang paglilinis sa tanong.
       - text: "Naglinis"
         correct: true
       - text: "Naglilinis"
         rationale: |
-          "Naglilinis" presents ongoing or repeated cleaning. The stem says the work is finished.
+          Ang "naglilinis" ay nagpapakita ng nagpapatuloy o paulit-ulit na paglilinis. Tapos na ang gawain ayon sa tanong.
       - text: "Kalilinis lang"
         rationale: |
-          This means the cleaning has just ended. The stem describes yesterday's completed work, and this form also needs "ni Mila" instead of "si Mila."
+          Katatapos lamang ng kilos sa "kalilinis lang." Tapos na kahapon ang gawain sa tanong. Kailangan din ng anyong ito ang "ni Mila" sa halip na "si Mila."
     explanation: |
-      "Naglinis" shows that the cleaning is finished. It is perpektibo.
-      "Naglilinis" would show cleaning that continues or happens regularly.
+      Ipinapakita ng "naglinis" na tapos na ang paglilinis. Perpektibo ang aspektong ito.
     approved: true
   - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0002"
     lesson: lesson-grammar-and-structure-kalagayan-ng-kilos
@@ -133,18 +132,17 @@ questions:
     choices:
       - text: "Kontemplatibo"
         rationale: |
-          The documents have already arrived. Their arrival is not a future action.
+          Dumating na ang mga dokumento. Hindi sa hinaharap ang pagdating.
       - text: "Imperpektibo"
         rationale: |
-          The arrival has just ended. The sentence does not present it as still happening.
+          Katatapos lang ng pagdating. Hindi ito ipinapakitang nagpapatuloy pa.
       - text: "Perpektibong katatapos"
         correct: true
       - text: "Perpektibo na walang pahiwatig na katatapos lamang"
         rationale: |
-          "Kadarating lang" specifically says the arrival has just happened. This choice misses that detail.
+          Tiyak na katatapos lang ng pagdating ayon sa "kadarating lang." Hindi napapansin ng sagot ang detalyeng ito.
     explanation: |
-      "Kadarating lang" means the documents have just arrived.
-      The action is perpektibong katatapos, not still ongoing.
+      Ang "kadarating lang" ay nagsasabing kararating lamang ng mga dokumento. Perpektibong katatapos ang aspekto.
     approved: true
   - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0003"
     lesson: lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa
@@ -158,15 +156,15 @@ questions:
         correct: true
       - text: "Ang pagkain ang paksa; pokus sa layon."
         rationale: |
-          The food receives the action, but it is introduced by "ng." "Si Rosa" is the topic here.
+          Ang pagkain ang tumatanggap ng kilos, ngunit may panandang "ng" ito. "Si Rosa" ang paksa rito.
       - text: "Ang mga bisita ang paksa; pokus sa tagatanggap."
         rationale: |
-          The visitors benefit from the cooking, but "para sa mga bisita" is not the topic of this sentence.
+          Nakikinabang ang mga bisita sa pagluluto. Ngunit hindi paksa ng pangungusap ang "para sa mga bisita."
       - text: "Si Rosa ang paksa; pokus sa tagatanggap."
         rationale: |
-          Rosa does the cooking. The sentence does not present her as the person receiving its benefit.
+          Si Rosa ang nagluluto. Hindi siya ipinakikilala bilang tumatanggap ng pakinabang.
     explanation: |
-      "Si Rosa" is the topic. Rosa does the cooking, so the focus is tagaganap. The visitors benefit, but they are not the topic.
+      "Si Rosa" ang paksa. Siya ang nagluluto, kaya pokus sa tagaganap ang pandiwa.
     approved: true
   - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0004"
     lesson: lesson-grammar-and-structure-mga-pahiwatig-ng-oras
@@ -179,17 +177,17 @@ questions:
     choices:
       - text: "Sapagkat natapos na ang lahat ng paglilinis."
         rationale: |
-          This treats a repeated routine as a single finished action. "Tuwing Sabado" shows repetition.
+          Itinuturing nitong iisang tapos na kilos ang paulit-ulit na gawain. May pag-uulit ayon sa "tuwing Sabado."
       - text: "Sapagkat hindi pa nila nasisimulan ang gawain kahit minsan."
         rationale: |
-          A regular routine is not an action that has never started. That meaning would call for kontemplatibo.
+          Ang regular na gawain ay hindi kilos na hindi pa nasisimulan. Kontemplatibo ang para sa hindi pa nasisimulang kilos.
       - text: "Sapagkat katatapos lamang nilang maglinis."
         rationale: |
-          The sentence gives a weekly routine. It does not use a recently completed form such as "kalilinis lang."
+          Lingguhang gawain ang sinasabi. Walang anyong katatapos lamang gaya ng "kalilinis lang."
       - text: "Sapagkat nagpapahayag ito ng paulit-ulit na gawain."
         correct: true
     explanation: |
-      Imperpektibo can show a repeated action. "Tuwing Sabado" gives the schedule. It does not mean they must be cleaning as we speak.
+      Maaaring magpakita ng paulit-ulit na kilos ang imperpektibo. Iskedyul ang ibinibigay ng "tuwing Sabado." Hindi kailangang naglilinis sila sa mismong oras ng pagsasalita.
     approved: true
   - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0005"
     lesson: lesson-grammar-and-structure-mga-pahiwatig-ng-oras
@@ -201,18 +199,17 @@ questions:
     choices:
       - text: "Nagsumite si Elena ng ulat kahapon."
         rationale: |
-          This changes the planned submission into a completed action yesterday.
+          Ginagawa nitong tapos nang kilos kahapon ang nakaplanong pagsusumite.
       - text: "Magsusumite si Elena ng ulat bukas."
         correct: true
       - text: "Nagsusumite si Elena ng ulat ngayon."
         rationale: |
-          This changes the action to ongoing submission now. Both the time clue and the verb form change.
+          Ginagawa nitong kasalukuyang kilos ang pagsusumite. Parehong nagbago ang pahiwatig ng oras at anyo ng pandiwa.
       - text: "Magsusumite si Elena ng ulat kahapon."
         rationale: |
-          "Kahapon" changes tomorrow to yesterday. It does not preserve the original time clue.
+          Pinalitan ng "kahapon" ang "bukas." Hindi nito pinananatili ang orihinal na oras.
     explanation: |
-      "Bukas" can come at the end. Keeping "magsusumite" and "bukas"
-      keeps the planned action and its time the same.
+      Maaaring ilagay ang "bukas" sa hulihan. Nananatili ang nakaplanong kilos at oras kapag ginamit pa rin ang "magsusumite" at "bukas."
     approved: true
   - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0006"
     lesson: lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa
@@ -224,18 +221,17 @@ questions:
     choices:
       - text: "Tagaganap, dahil ang kusinero ang nagluto."
         rationale: |
-          The cook does the action, but "ng kusinero" is not the topic. The topic is "ang mga bata."
+          Ang kusinero ang gumagawa, ngunit hindi paksa ang "ng kusinero." Ang paksa ay "ang mga bata."
       - text: "Layon, dahil ang lugaw ang niluto."
         rationale: |
-          The porridge is cooked, but it is introduced by "ng." It is not the topic in this sentence.
+          Ang lugaw ang niluto, ngunit may panandang "ng" ito. Hindi ito ang paksa.
       - text: "Tagatanggap; nakinabang ang mga bata."
         correct: true
       - text: "Kagamitan, dahil ang mga bata ang ginamit sa pagluluto."
         rationale: |
-          The children receive the benefit. They are not tools used to cook.
+          Ang mga bata ang tumatanggap ng pakinabang. Hindi sila kagamitan sa pagluluto.
     explanation: |
-      "Ang mga bata" is the topic. The cook makes food for them.
-      This is focus on tagatanggap. The cook is the doer, but not the topic.
+      "Ang mga bata" ang paksa. Ipinagluluto sila ng kusinero. Pokus sa tagatanggap ito.
     approved: true
   - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0007"
     lesson: lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa
@@ -248,18 +244,17 @@ questions:
     choices:
       - text: "Ni Teresa; siya ang tagaganap."
         rationale: |
-          Teresa does the writing, but "ni Teresa" is not the topic. Look for the phrase introduced by "ang."
+          Si Teresa ang sumusulat, ngunit hindi paksa ang "ni Teresa." Hanapin ang pariralang may "ang."
       - text: "Ng pangalan; ito ang layon."
         rationale: |
-          The name is written, but "ng pangalan" is not the topic of this sentence.
+          Ang pangalan ang isinulat, ngunit hindi paksa ang "ng pangalan."
       - text: "Ang lapis; ito ang sanhi ng damdamin."
         rationale: |
-          The pencil is the topic, but it serves as a writing tool. No feeling caused by it is stated.
+          Ang lapis ang paksa, ngunit gamit ito sa pagsulat. Walang binanggit na damdaming dulot nito.
       - text: "Ang lapis; kagamitan sa pagsulat."
         correct: true
     explanation: |
-      "Ang lapis" is the topic. Teresa uses the pencil to write.
-      The focus is kagamitan because the topic is the tool.
+      "Ang lapis" ang paksa. Ginagamit ito ni Teresa sa pagsulat. Pokus sa kagamitan ito dahil ang paksa ang gamit sa kilos.
     approved: true
   - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0008"
     lesson: lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa
@@ -274,16 +269,15 @@ questions:
         correct: true
       - text: "Pokus sa tagaganap, dahil ang mga kawani ang natuwa."
         rationale: |
-          This chooses the people who feel happy as the topic. The topic is "ang balita," not "ng mga kawani."
+          Pinipili nito ang mga taong natuwa bilang paksa. "Ang balita" ang paksa, hindi "ng mga kawani."
       - text: "Pokus sa layon, dahil ang balita ang bagay na ginawa ng mga kawani."
         rationale: |
-          The sentence does not say the workers made the news. The news causes their happiness.
+          Hindi sinasabi na ginawa ng mga kawani ang balita. Ang balita ang sanhi ng kanilang tuwa.
       - text: "Pokus sa ganapan, dahil binanggit ang tanggapan."
         rationale: |
-          The office is only mentioned in the description of the news. It is not the topic or a stated place of action.
+          Binanggit lamang ang tanggapan sa paglalarawan ng balita. Hindi ito ang paksa o ang sinabing lugar ng kilos.
     explanation: |
-      "Ang balita" is the topic. The news causes the workers' joy.
-      This is focus on sanhi. Mentioning an office does not make it ganapan.
+      "Ang balita" ang paksa. Ito ang dahilan ng tuwa ng mga kawani. Kaya pokus sa sanhi ang pandiwa.
     approved: true
   - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0009"
     lesson: lesson-grammar-and-structure-pagbuo-ng-anyo-ng-pandiwa
@@ -296,17 +290,17 @@ questions:
     choices:
       - text: "Palitan ang magkakain ng kumakain."
         rationale: |
-          "Kumakain" shows eating that is ongoing or repeated. It does not give the requested contemplated form.
+          Nagpapatuloy o nauulit ang pagkain sa "kumakain." Hindi ito ang hinihinging anyong kontemplatibo.
       - text: "Palitan ang magkakain ng kumain."
         rationale: |
-          In the lesson's aspect pattern, "kumain" presents completed eating. The stem asks for an action not yet started.
+          Sa halimbawang gamit ng aralin, tapos na ang pagkain sa "kumain." Kilos na hindi pa nagsisimula ang hinihingi.
       - text: "Palitan ang magkakain ng kakain."
         correct: true
       - text: "Panatilihin ang magkakain dahil lahat ng kontemplatibo ay may mag-."
         rationale: |
-          This applies the "maglinis" pattern to "kumain." The lesson says different verb groups do not all use "mag-."
+          Ginagamit nito ang paraan ng pagbuo ng "maglinis" para sa "kumain." Ayon sa aralin, hindi lahat ng pangkat ng pandiwa ay gumagamit ng "mag-."
     explanation: |
-      In the "kumain" group, repeat "ka" and leave out "-um-" to get "kakain." The "maglinis" group uses a different pattern.
+      Sa pangkat ng "kumain," inuulit ang "ka" at inaalis ang "-um-" upang mabuo ang "kakain." Iba ang paraan sa pangkat ng "maglinis."
     approved: true
   - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0010"
     lesson: lesson-grammar-and-structure-mga-pahiwatig-ng-oras
@@ -319,17 +313,17 @@ questions:
     choices:
       - text: "Perpektibo, dahil kahapon naganap ang pangyayari."
         rationale: |
-          "Kahapon" locates the event in the past. It does not make writing finished at the moment the head arrived.
+          Inilalagay ng "kahapon" ang pangyayari sa nakaraan. Hindi nito sinasabing tapos na ang pagsulat nang dumating ang pinuno.
       - text: "Imperpektibo, dahil nagpapatuloy ang pagsulat nang dumating ang pinuno."
         correct: true
       - text: "Kontemplatibo, dahil hindi pa tapos ang ulat."
         rationale: |
-          Not finished does not mean not started. Luis was already writing when the head arrived.
+          Ang hindi pa tapos ay hindi nangangahulugang hindi pa nagsisimula. Nagsusulat na si Luis nang dumating ang pinuno.
       - text: "Perpektibong katatapos, dahil magkasunod na binanggit ang pagsulat at pagdating."
         rationale: |
-          Mentioning another event does not show that writing has just ended. "Nagsusulat pa" shows it was continuing.
+          Ang pagbanggit ng isa pang pangyayari ay hindi patunay na katatapos lang ng pagsulat. Nagpapatuloy pa ito ayon sa "nagsusulat pa."
     explanation: |
-      Luis was still writing when the head arrived. "Nagsusulat" is imperpektibo. An action can be ongoing at a moment in the past.
+      Nagsusulat pa si Luis nang dumating ang pinuno. Imperpektibo ang "nagsusulat." Maaaring nagpapatuloy ang kilos sa isang sandali sa nakaraan.
     approved: true
   - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0011"
     lesson: lesson-grammar-and-structure-kalagayan-ng-kilos
@@ -342,17 +336,17 @@ questions:
     choices:
       - text: "Parehong perpektibong katatapos dahil parehong natapos ang kilos."
         rationale: |
-          A finished action is not always a just-finished action. The first sentence places the work last week.
+          Hindi lahat ng tapos na kilos ay katatapos lamang. Noong nakaraang linggo ang gawain sa una.
       - text: "Imperpektibo ang una dahil may pahiwatig ng oras."
         rationale: |
-          Having a time clue does not make an action ongoing. "Naglinis" presents completed cleaning.
+          Hindi nagiging nagpapatuloy ang kilos dahil lang may pahiwatig ng oras. Tapos na ang paglilinis sa "naglinis."
       - text: "Kontemplatibo ang ikalawa dahil may salitang lang."
         rationale: |
-          "Kalilinis lang" says the work has just ended. It does not describe a future plan.
+          Katatapos lang ng gawain ayon sa "kalilinis lang." Hindi ito plano sa hinaharap.
       - text: "Perpektibo ang una; perpektibong katatapos ang ikalawa."
         correct: true
     explanation: |
-      "Naglinis" presents finished work. "Kalilinis lang" adds that the work has just ended. Completion alone does not mean recent completion.
+      Tapos na ang gawain sa "naglinis." Idinadagdag ng "kalilinis lang" na katatapos lang nito. Hindi sapat na tapos na ang kilos upang sabihing katatapos lang.
     approved: true
   - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0012"
     lesson: lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa
@@ -367,15 +361,15 @@ questions:
         correct: true
       - text: "Parehong ganapan dahil parehong lugar ang bakuran."
         rationale: |
-          A place can be a destination. In the second sentence, the yard is the place approached, not a stated site of planting.
+          Maaaring maging patutunguhan ang isang lugar. Sa ikalawang pangungusap, pinuntahan ang bakuran. Hindi sinabing doon nagtanim.
       - text: "Direksiyon ang una; ganapan ang ikalawa."
         rationale: |
-          This reverses the roles. The first yard is the planting site, and the second yard is the destination.
+          Baligtad ang mga papel dito. Lugar ng pagtatanim ang bakuran sa una. Patutunguhan naman ito sa ikalawa.
       - text: "Parehong tagaganap dahil ang mga kawani ang gumawa."
         rationale: |
-          The workers do the actions, but "ang bakuran" is the topic in both sentences.
+          Ang mga kawani ang gumagawa. Ngunit "ang bakuran" ang paksa sa parehong pangungusap.
     explanation: |
-      In the first sentence, the yard is where planting takes place. In the second, the yard is the destination. A place name alone cannot tell us which focus applies.
+      Sa una, sa bakuran naganap ang pagtatanim. Sa ikalawa, bakuran ang pinuntahan. Hindi sapat ang pangalan ng lugar upang malaman ang pokus.
     approved: true
   - id: "q-grammar-and-structure-filipino-verb-aspect-and-focus-0013"
     lesson: lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa
@@ -387,17 +381,17 @@ questions:
     choices:
       - text: "Nagluto si Dina ng sopas."
         rationale: |
-          Moving the phrases does not make the soup the topic. "Si Dina" remains the topic.
+          Hindi nagiging paksa ang sopas sa paglipat lang ng mga parirala. "Si Dina" pa rin ang paksa.
       - text: "Niluto ng sopas si Dina."
         rationale: |
-          This reverses the roles. It makes Dina the topic being cooked and the soup the doer.
+          Baligtad ang mga papel dito. Si Dina ang nagiging paksa na niluto. Ang sopas naman ang nagiging gumagawa.
       - text: "Niluto ni Dina ang sopas."
         correct: true
       - text: "Ipinagluto ni Dina ng sopas ang bata."
         rationale: |
-          This makes the child the topic and beneficiary. The soup is still introduced by "ng."
+          Ang bata ang nagiging paksa at tumatanggap ng pakinabang. May panandang "ng" pa rin ang sopas.
     explanation: |
-      "Niluto ni Dina ang sopas" makes the soup the topic and the thing cooked. The cooking is still completed. This is focus on layon.
+      Sa "Niluto ni Dina ang sopas," ang sopas ang paksa at ang bagay na niluto. Tapos na rin ang pagluluto. Pokus sa layon ito.
     approved: true
   - id: "q-grammar-and-structure-tenses-and-voice-0025"
     lesson: lesson-grammar-and-structure-pagbuo-ng-anyo-ng-pandiwa
@@ -410,18 +404,17 @@ questions:
     choices:
       - text: "Perpektibo lamang ang una dahil may kahapon; imperpektibo ang ikalawa dahil inuulit ang li."
         rationale: |
-          This ignores the recent completion in "kakakain lang." Repeating "li" with "mag-" forms contemplated "maglilinis," not ongoing "naglilinis."
+          Hindi nito pinapansin ang katatapos na kilos sa "kakakain lang." Ang pag-uulit ng "li" kasama ng "mag-" ay bumubuo ng kontemplatibong "maglilinis." Iba ito sa nagpapatuloy na "naglilinis."
       - text: "Perpektibong katatapos ang una; kontemplatibo ang ikalawa."
         correct: true
       - text: "Imperpektibo ang una; kontemplatibo ang ikalawa."
         rationale: |
-          Repetition alone does not show an ongoing action. "Kakakain lang" says eating had just ended.
+          Hindi sapat ang pag-uulit upang sabihing nagpapatuloy ang kilos. Katatapos lang ng pagkain ayon sa "kakakain lang."
       - text: "Kontemplatibo ang una; perpektibong katatapos ang ikalawa."
         rationale: |
-          This reverses the meanings. Eating had just ended, while cleaning was still planned for the next day.
+          Baligtad ang mga kahulugan. Katatapos lang ng pagkain. Nakaplano pa lamang sa susunod na araw ang paglilinis.
     explanation: |
-      "Kakakain lang" shows eating that had just ended when the call came. "Maglilinis" shows cleaning that has not started.
-      Read each full form instead of using repetition alone.
+      Katatapos lang ng pagkain nang dumating ang tawag, ayon sa "kakakain lang." Hindi pa nagsisimula ang paglilinis sa "maglilinis." Basahin ang buong anyo ng pandiwa.
     approved: true
   - id: "q-grammar-and-structure-tenses-and-voice-0026"
     lesson: lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa
@@ -434,17 +427,17 @@ questions:
     choices:
       - text: "Parehong tagaganap dahil si Mara ang gumagawa ng mga kilos."
         rationale: |
-          Mara does both actions, but "ni Mara" is not the topic in either sentence. The topics are the visitors and the pencil.
+          Si Mara ang gumagawa sa dalawa, ngunit hindi paksa ang "ni Mara." Ang mga paksa ay ang mga bisita at ang lapis.
       - text: "Layon ang una dahil lugaw ang niluto; layon ang ikalawa dahil pangalan ang isinulat."
         rationale: |
-          This chooses things introduced by "ng" as the topics. The phrases with "ang" name the actual topics.
+          Pinipili nito bilang paksa ang mga bagay na may "ng." Ang mga pariralang may "ang" ang tunay na paksa.
       - text: "Kagamitan ang una dahil ginamit ang mga bisita; tagatanggap ang ikalawa dahil nakinabang ang lapis."
         rationale: |
-          This reverses the roles. The visitors benefit from the cooking, while the pencil is used as a tool.
+          Baligtad ang mga papel dito. Nakikinabang sa pagluluto ang mga bisita. Kagamitan naman ang lapis.
       - text: "Tagatanggap ang una; kagamitan ang ikalawa."
         correct: true
     explanation: |
-      The visitors are the topic of the first sentence and receive the benefit. The pencil is the topic of the second and serves as a tool. Mara does both actions, but she is not the topic of either sentence.
+      Ang mga bisita ang paksa sa una at tumatanggap ng pakinabang. Ang lapis ang paksa sa ikalawa at ginagamit sa kilos. Si Mara ang gumagawa sa dalawa, ngunit hindi siya ang paksa.
     approved: true
   - id: "q-grammar-and-structure-tenses-and-voice-0027"
     lesson: lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa
@@ -459,13 +452,13 @@ questions:
         correct: true
       - text: "Perpektibo at pokus sa ganapan ang naglilinis."
         rationale: |
-          This uses the past time clue and the place alone. Cleaning was still ongoing, and Liza and Omar are the topic.
+          Oras sa nakaraan at lugar lang ang batayan nito. Nagpapatuloy pa ang paglilinis. Sina Liza at Omar ang paksa.
       - text: "Imperpektibo at pokus sa ganapan ang naglilinis."
         rationale: |
-          The aspect is right, but the focus is wrong. "Ng bulwagan" is not the topic; "sina Liza at Omar" is.
+          Tama ang aspekto, ngunit mali ang pokus. Hindi paksa ang "ng bulwagan." "Sina Liza at Omar" ang paksa.
       - text: "Perpektibo at pokus sa tagaganap ang naglilinis."
         rationale: |
-          The focus is right, but the aspect is wrong. "Naglilinis pa" shows cleaning that continued when the head arrived.
+          Tama ang pokus, ngunit mali ang aspekto. Nagpapatuloy pa ang paglilinis nang dumating ang pinuno, ayon sa "naglilinis pa."
     explanation: |
-      Cleaning was still ongoing at that past moment, so the aspect is imperpektibo. "Sina Liza at Omar" is the topic. They do the cleaning, so the focus is tagaganap.
+      Nagpapatuloy pa ang paglilinis sa sandaling iyon sa nakaraan, kaya imperpektibo ang aspekto. "Sina Liza at Omar" ang paksa. Sila ang naglilinis, kaya pokus sa tagaganap ito.
     approved: true

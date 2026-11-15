@@ -223,15 +223,15 @@ questions:
         correct: true
       - text: "Nagpahinga muna"
         rationale: |
-          This treats surrender as a temporary break. Someone may rest after several failures. Check whether the wording says the person will continue.
+          Itinuturing nitong pansamantalang pahinga ang pagsuko. Maaaring magpahinga matapos mabigo. Tingnan kung sinasabing magpapatuloy pa ang tao.
       - text: "Nagsimula ulit"
         rationale: |
-          This treats failure as a restart. Failed attempts can lead to trying again. Check the statement "sumuko na siya."
+          Itinuturing nitong pagsisimulang muli ang pagkabigo. Maaaring humantong sa muling pagsubok ang pagkabigo. Balikan ang "sumuko na siya."
       - text: "Nagpalit ng paraan"
         rationale: |
-          This treats giving up as changing a method. A new method can follow failure. Check whether the person keeps trying or stops.
+          Itinuturing nitong pagbabago ng paraan ang pagsuko. Maaaring magbago ng paraan matapos mabigo. Tingnan kung nagpapatuloy o humihinto ang tao.
     explanation: |
-      "Itinapon ang tuwalya" means gave up. The repeated failed attempts ended with the person stopping the effort.
+      Ang "itinapon ang tuwalya" ay nangangahulugang sumuko. Matapos ang paulit-ulit na pagkabigo, huminto na siya sa pagsubok.
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0011
@@ -246,15 +246,15 @@ questions:
         correct: true
       - text: "Pagtutulad"
         rationale: |
-          This focuses on a comparison while missing the stated target of extreme weight. Mountain-sized weight can look like a comparison. Check which effect the question asks about.
+          Paghahambing ang pinapansin nito. Ngunit sadyang labis na bigat ang hinihingi ng tanong. Maaaring mapansin ang paghahambing sa bundok. Balikan kung anong epekto ang tinatanong.
       - text: "Pagwawangis"
         rationale: |
-          This treats the phrase as identifying the bag with a mountain. Both can be heavy. Check whether the bag is called a mountain or its weight is overstated.
+          Itinuturing nitong mismong bundok ang bag. Pareho silang maaaring mabigat. Tingnan kung tinatawag na bundok ang bag o pinalalabis ang bigat nito.
       - text: "Pagbibigay-katauhan"
         rationale: |
-          This treats a nonhuman object in a vivid sentence as having human traits. The bag is being described strongly. Check whether it speaks, thinks, or acts like a person.
+          Itinuturing nitong may katangian ng tao ang bagay sa makulay na pangungusap. Matindi ang paglalarawan sa bag. Tingnan kung nagsasalita, nag-iisip, o kumikilos itong parang tao.
     explanation: |
-      Saying the bag weighs as much as a mountain greatly overstates its weight. That deliberate overstatement is "pagmamalabis," or hyperbole.
+      Labis na pinalalaki ang bigat ng bag sa pagsasabing kasimbigat ito ng bundok. Pagmamalabis ang sadyang labis na pahayag na ito.
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0012
@@ -269,15 +269,15 @@ questions:
         correct: true
       - text: "Pagwawangis"
         rationale: |
-          This treats an explicit comparison as a direct identification. Both connect eyes and stars. Check the comparison marker "kasing-."
+          Itinuturing nitong direktang pagpapantay ang tahasang paghahambing. Parehong iniuugnay ang mata at bituin. Tingnan ang panandang "kasing-."
       - text: "Pagmamalabis"
         rationale: |
-          This focuses on praise as if praise were always exaggeration. The description is strong. Check whether the question targets an inflated amount or a comparison.
+          Nakatuon ito sa papuri na para bang lahat ng papuri ay labis. Matindi ang paglalarawan. Tingnan kung labis na sukat o paghahambing ang tinatanong.
       - text: "Pagbibigay-katauhan"
         rationale: |
-          This treats the mention of eyes as human traits given to stars. Eyes belong to a person. Check whether the stars are acting like people or serving as a comparison.
+          Itinuturing nitong katangian ng tao na ibinigay sa bituin ang pagbanggit sa mata. Bahagi ng tao ang mata. Tingnan kung kumikilos na parang tao ang bituin o ginagamit lamang sa paghahambing.
     explanation: |
-      The wording "kasing-ganda" explicitly compares the eyes with stars. That explicit comparison is "pagtutulad," or simile.
+      Tahasang inihahambing ng "kasing-ganda" ang mga mata sa mga bituin. Pagtutulad ang ganitong paghahambing.
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0013
@@ -292,15 +292,15 @@ questions:
         correct: true
       - text: "Pagtutulad"
         rationale: |
-          This treats direct identification as an explicit comparison. Both compare unlike things. Check whether a word such as "parang" introduces the comparison.
+          Itinuturing nitong tahasang paghahambing ang direktang pagpapantay. Parehong naghahambing ng magkaibang bagay ang mga ito. Hanapin kung may panandang gaya ng "parang."
       - text: "Pagmamalabis"
         rationale: |
-          This focuses on praise instead of the way two things are linked. Calling a teacher a light can sound like strong praise. Check whether the stem targets an inflated quantity or direct identification.
+          Papuri ang pinapansin nito sa halip na paraan ng pag-uugnay. Maaaring matinding papuri ang pagtawag na ilaw sa guro. Tingnan kung labis na dami o direktang pagpapantay ang tinatanong.
       - text: "Pagbibigay-katauhan"
         rationale: |
-          This treats a human compared with light as light given human actions. Both involve something human and something nonhuman. Check which one is being described.
+          Itinuturing nitong ilaw na may kilos ng tao ang taong inihahambing sa ilaw. Parehong may tao at hindi tao rito. Tingnan kung alin ang inilalarawan.
     explanation: |
-      The teacher is presented as a light that guides the classroom. This direct figurative comparison is "pagwawangis," or metaphor.
+      Direktang ipinapantay ang guro sa ilaw na gumagabay sa silid-aralan. Pagwawangis ang matalinghagang paghahambing na ito.
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0014
@@ -315,15 +315,15 @@ questions:
         correct: true
       - text: "Tahasan na paghahambing"
         rationale: |
-          This treats human actions as an explicit comparison. The image makes unlike things seem similar. Check whether the words compare them with a stated marker.
+          Itinuturing nitong tahasang paghahambing ang pagbibigay ng kilos ng tao. Maaaring magmukhang magkatulad ang magkaibang bagay sa larawan. Hanapin kung may salitang naghahambing sa kanila.
       - text: "Tuwirang paghahambing"
         rationale: |
-          This treats actions given to objects as identifying them with another object. Both are figurative. Check whether the sentence says one thing is another or makes it act like a person.
+          Itinuturing nitong pagsasabing ang isang bagay ay ibang bagay ang pagbibigay ng kilos ng tao. Pareho silang matalinghaga. Tingnan kung pinapantay ang mga bagay o pinakikilos na parang tao.
       - text: "Sadyang pagmamalabis"
         rationale: |
-          This treats impossible human actions as only an extreme overstatement. The scene cannot happen literally. Check which human behaviors are assigned to nonhuman things.
+          Itinuturing nitong matinding pagmamalabis lamang ang mga kilos na imposible para sa mga bagay. Hindi literal ang tagpo. Hanapin kung anong kilos ng tao ang ibinigay sa hindi tao.
     explanation: |
-      The sun smiles and the leaves dance. These human actions are given to nonhuman things, creating personification.
+      Ngumingiti ang araw at sumasayaw ang mga dahon. Kilos ng tao ang ibinigay sa mga bagay na hindi tao. Pagbibigay-katauhan ito.
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0015
@@ -430,15 +430,15 @@ questions:
         correct: true
       - text: "Naghanda sa paglalakbay"
         rationale: |
-          This reads the belt image as travel preparation. Tightening clothing may seem useful before a journey. Check the financial problem in the sentence.
+          Itinuturing nitong paghahanda sa paglalakbay ang larawan ng sinturon. Maaaring ayusin ang damit bago bumiyahe. Tingnan ang problema sa pera sa pangungusap.
       - text: "Naghiganti sa may utang"
         rationale: |
-          This treats a financial difficulty as a conflict requiring revenge. Money problems may involve debts. Check whether the family reduces spending or attacks someone.
+          Itinuturing nitong alitang nangangailangan ng paghihiganti ang problema sa pera. Maaaring may utang sa ganitong problema. Tingnan kung nagbawas ng gastos o may inaway ang pamilya.
       - text: "Nagpautang ng salapi"
         rationale: |
-          This treats reducing expenses as giving money to others. Both concern household money. Check the effect of the lower income on the family's spending.
+          Itinuturing nitong pagbibigay ng pera sa iba ang pagbabawas ng gastos. Pareho silang tungkol sa pera ng pamilya. Tingnan ang epekto ng mababang kita sa paggastos.
     explanation: |
-      "Naghigpit ng sinturon" means cut spending. The family reduces expenses because its income has fallen.
+      Ang "naghigpit ng sinturon" ay nangangahulugang nagtipid. Binabawasan ng pamilya ang gastos dahil bumaba ang kita.
     approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0020

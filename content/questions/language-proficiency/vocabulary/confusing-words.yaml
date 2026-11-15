@@ -85,15 +85,15 @@ questions:
         correct: true
       - text: "Sila"
         rationale: |
-          This puts a plural pronoun directly before the names. Both forms refer to several people, so they can seem alike. Check whether the sentence names the people or replaces their names.
+          Inilalagay nito ang pangmaramihang panghalip bago mismo ang mga pangalan. Parehong para sa maraming tao ang mga anyo. Tingnan kung pinapangalanan ang mga tao o pinapalitan ang kanilang pangalan.
       - text: "Kina"
         rationale: |
-          This uses a destination or recipient marker for the topic. "Kina" can also appear before several names. Check the role of those people in the sentence.
+          Pananda ng patutunguhan o tagatanggap ang ginamit nito para sa paksa. Maaari ring mauna ang "kina" sa maraming pangalan. Suriin ang papel ng mga tao sa pangungusap.
       - text: "Ang"
         rationale: |
-          This uses a general noun marker before a group of personal names. "Ang" also marks topics, so it may seem suitable. Check whether the words are personal names.
+          Pangkalahatang pananda ng pangngalan ang ginamit nito bago ang mga pangalan ng tao. Pananda rin ng paksa ang "ang." Tingnan kung personal na pangalan ang kasunod.
     explanation: |
-      The sentence directly names several people as its topic. Standard Filipino uses "sina" before that group of personal names.
+      Tuwirang pinapangalanan ng pangungusap ang maraming tao bilang paksa. Ginagamit ang "sina" bago ang ganitong pangkat ng mga pangalan sa pamantayang Filipino.
     approved: true
 
   - id: q-vocabulary-confusing-words-0005
@@ -200,15 +200,15 @@ questions:
         correct: true
       - text: "Sina"
         rationale: |
-          This uses a personal-name marker without names after it. Both words refer to several people, so the form may seem right. Check whether names follow the gap.
+          Pananda ng pangalan ang ginamit nito kahit walang kasunod na pangalan. Parehong para sa maraming tao ang dalawang salita. Tingnan kung may pangalan pagkatapos ng patlang.
       - text: "Kina"
         rationale: |
-          This uses a recipient or destination marker as the subject pronoun. It is familiar before groups of names. Check whether the gap stands alone for the people.
+          Pananda ng tagatanggap o patutunguhan ang ginamit nito bilang panghalip na paksa. Pamilyar ito bago ang mga pangalan. Tingnan kung pumapalit nang mag-isa sa mga tao ang patlang.
       - text: "Nina"
         rationale: |
-          This uses a marker for a relationship or nonfocus role as the subject pronoun. It also refers to several named people. Check the role of the gap in the new sentence.
+          Pananda ng pag-aari o papel na hindi paksa ang ginamit nito bilang panghalip na paksa. Para rin ito sa maraming pinangalanang tao. Tingnan ang papel ng patlang sa bagong pangungusap.
     explanation: |
-      The second sentence refers back to Elena and Ricardo without repeating their names. "Sila" is the plural pronoun that does this.
+      Tinutukoy ng ikalawang pangungusap sina Elena at Ricardo nang hindi inuulit ang kanilang pangalan. "Sila" ang pangmaramihang panghalip na gumagawa nito.
     approved: true
 
   - id: q-vocabulary-confusing-words-0010
@@ -246,15 +246,15 @@ questions:
         correct: true
       - text: "Dumating sila Liza at Ben. Sina ang mga tagapagsalita."
         rationale: |
-          This swaps the name marker and the pronoun. Both refer to the same people, so they may seem interchangeable. Check whether personal names follow each form.
+          Napagpalit nito ang pananda ng pangalan at panghalip. Parehong tao ang tinutukoy nila. Tingnan kung may personal na pangalan pagkatapos ng bawat anyo.
       - text: "Dumating kina Liza at Ben. Sila ang mga tagapagsalita."
         rationale: |
-          This makes the named people a destination instead of the ones arriving. "Kina" is a familiar marker before names. Check whether the named people perform the action.
+          Ginagawa nitong patutunguhan ang mga tao sa halip na sila ang dumating. Pamilyar ang "kina" bago ang pangalan. Tingnan kung ang mga taong pinangalanan ang gumawa.
       - text: "Dumating sina Liza at Ben. Kina ang mga tagapagsalita."
         rationale: |
-          This uses a destination marker where a pronoun must stand alone. "Kina" refers to several people when names follow it. Check whether the second sentence supplies those names.
+          Pananda ng patutunguhan ang ginamit nito kung saan kailangan ng panghalip na mag-isa. Tumutukoy sa maraming tao ang "kina" kapag may kasunod na pangalan. Tingnan kung may ganitong pangalan sa ikalawang pangungusap.
     explanation: |
-      "Sina" marks the names Liza and Ben. "Sila" replaces those names in the next sentence. Each form fits its own role.
+      Pananda ng mga pangalang Liza at Ben ang "sina." Pinapalitan ng "sila" ang mga pangalan sa kasunod na pangungusap. Angkop ang bawat anyo sa papel nito.
     approved: true
 
   - id: q-vocabulary-confusing-words-0012
@@ -315,15 +315,15 @@ questions:
         correct: true
       - text: "Nang"
         rationale: |
-          This uses an action-description connector to show ownership. It sounds like "ng," so the spelling can seem interchangeable. Check whether the phrase names an owner.
+          Pananda ng paglalarawan sa kilos ang ginamit nito para sa pag-aari. Katunog ito ng "ng," kaya maaaring mapagpalit ang baybay. Tingnan kung may pinapangalanang may-ari ang parirala.
       - text: "Na"
         rationale: |
-          This uses a word linker for an ownership relationship. A noun is followed by more words, so linking may seem needed. Check whether the next phrase describes the house or names its owner.
+          Pang-ugnay ang ginamit nito para sa pag-aari. May kasunod na mga salita ang pangngalan, kaya maaaring isipin na kailangan ng pang-ugnay. Tingnan kung paglalarawan o may-ari ng bahay ang kasunod.
       - text: "May"
         rationale: |
-          This turns ownership into having someone. "May" expresses having, so it can sound related to possession. Check which noun belongs to which person.
+          Ginagawa nitong pagkakaroon ng isang tao ang pag-aari. Nagsasaad ng pagkakaroon ang "may." Tingnan kung anong bagay ang pag-aari at kung sino ang may-ari.
     explanation: |
-      The house belongs to the grandmother. "Ng" marks that relationship in "bahay ng aking lola."
+      Pag-aari ng lola ang bahay. Minamarkahan ng "ng" ang ugnayang ito sa "bahay ng aking lola."
     approved: true
 
   - id: q-vocabulary-confusing-words-0015
@@ -361,15 +361,15 @@ questions:
         correct: true
       - text: "Nang"
         rationale: |
-          This treats the quantity as a manner description. Buying is an action, so an action connector may seem likely. Check whether the next words name the objects bought.
+          Itinuturing nitong paglalarawan sa paraan ang dami. Kilos ang pagbili, kaya maaaring mapili ang pananda ng paraan. Tingnan kung ang kasunod ang mga bagay na binili.
       - text: "Na"
         rationale: |
-          This uses a linker where the object needs a marker. The next phrase contains a number and noun, which may look like linked words. Check the role of the whole phrase after the verb.
+          Pang-ugnay ang ginamit nito kung saan kailangan ng pananda ng layon. May bilang at pangngalan ang kasunod na parirala. Tingnan ang papel ng buong parirala pagkatapos ng pandiwa.
       - text: "Ang"
         rationale: |
-          This marks the fruit as the focus of an actor-focus verb. The fruit is central to the purchase, so it may seem to deserve that marker. Check the verb form and the role of the noun phrase.
+          Minamarkahan nitong paksa ang prutas sa pandiwang pokus sa tagaganap. Mahalaga ang prutas sa pagbili, kaya maaaring mapili ang panandang ito. Suriin ang anyo ng pandiwa at papel ng parirala.
     explanation: |
-      "Ng" marks the noun phrase "tatlong mangga," the quantity of fruit bought.
+      Minamarkahan ng "ng" ang pariralang "tatlong mangga." Ito ang dami ng prutas na binili.
     approved: true
 
   - id: q-vocabulary-confusing-words-0017
@@ -407,15 +407,15 @@ questions:
         correct: true
       - text: "Sumulat ng maingat ng liham ang bata."
         rationale: |
-          This uses a noun marker before the manner description. The two markers sound alike, so one spelling may seem enough. Check what "maingat" describes.
+          Pananda ng pangngalan ang ginamit nito bago ang paglalarawan ng paraan. Magkatunog ang mga pananda, kaya maaaring isipin na iisa ang baybay. Tingnan kung ano ang inilalarawan ng "maingat."
       - text: "Sumulat nang maingat nang liham ang bata."
         rationale: |
-          This uses a manner connector before the letter. Writing is an action, which may suggest using "nang" throughout. Check whether "liham" names an object or a way of acting.
+          Ginagamit nito ang pananda ng paraan bago ang liham. Kilos ang pagsulat, kaya maaaring mapili ang "nang" sa lahat. Tingnan kung bagay o paraan ng pagkilos ang "liham."
       - text: "Sumulat ng maingat nang liham ang bata."
         rationale: |
-          This reverses the markers for manner and object. Both appear beside words linked to writing, so they may seem interchangeable. Check the role of each following word.
+          Baligtad ang mga pananda para sa paraan at bagay. Pareho silang katabi ng salitang kaugnay ng pagsulat. Suriin ang papel ng salitang kasunod ng bawat pananda.
     explanation: |
-      "Maingat" describes how the child wrote, so it follows "nang." "Liham" names what was written, so it follows "ng."
+      Inilalarawan ng "maingat" kung paano sumulat ang bata, kaya "nang" ang nauuna rito. Ang "liham" ang bagay na isinulat, kaya "ng" ang nauuna rito.
     approved: true
 
   - id: q-vocabulary-confusing-words-0019

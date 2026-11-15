@@ -64,7 +64,7 @@ questions:
           This chooses one group's supporting argument as the whole point. Safe recreation motivates the petition. Check the resolution that serves both groups.
       - text: "Food prices explained why families might value a garden."
         rationale: |
-          This turns the garden's motive into forced farming. Food prices explain one proposal. Check whether the passage says families were forced.
+          This focuses on one supporting detail. Food prices help explain the garden proposal, so the choice is relevant. Check whether it covers the dispute and the shared solution.
       - text: "A full basketball court replaced the entire garden proposal."
         rationale: |
           This turns a compromise into a full court. The youth originally asks for basketball space. Check the actual shared design.
@@ -405,15 +405,15 @@ questions:
         correct: true
       - text: "Kailangang masipag ang isang lider upang siya lamang ang gumawa ng lahat."
         rationale: |
-          This treats reliance on one leader as the solution. The leader initially works hard. Check the problem when that person is absent.
+          Itinuturing nitong solusyon ang pag-asa sa iisang lider. Masipag ang lider sa simula. Tingnan ang problema kapag wala siya.
       - text: "Ang pinakamahalagang layunin ng hardin ay ang pagdami ng talaan."
         rationale: |
-          This mistakes a tool for the purpose. A task list helps organize work. Check what improves because of the list.
+          Ginagawa nitong layunin ang isang kasangkapan. Nakatutulong ang talaan sa pag-aayos ng gawain. Tingnan kung ano ang bumuti dahil dito.
       - text: "Nagiging maayos ang bawat halaman kapag walang kasaping lumiliban."
         rationale: |
-          This turns continued care into a guarantee of perfect plants. Participation improves. Check the sentence saying some plants still fail.
+          Ginagawa nitong garantiya ng maayos na halaman ang tuloy-tuloy na pag-aalaga. Mas marami nang nakikilahok. Balikan ang bahaging nagsasabing may mga halamang hindi tumubo nang maayos.
     explanation: |
-      The passage shows that shared duties and skills keep the garden work going. The final sentence brings that main point together.
+      Ipinapakita ng talata na nagpapatuloy ang pag-aalaga sa gulayan kapag naibabahagi ang tungkulin at kaalaman. Binubuo ng huling pangungusap ang pangunahing ideyang ito.
     approved: true
   - id: "q-comprehension-skills-main-idea-0017"
     lesson: lesson-comprehension-skills-paksa-at-pangunahing-ideya
@@ -428,15 +428,15 @@ questions:
         correct: true
       - text: "Tumutulong ang malinaw na tungkulin sa pagpapatuloy ng gawain."
         rationale: |
-          This selects a claim about the topic. Clear roles support continuing work. Check whether it only names the subject or says something about it.
+          Pahayag na ito tungkol sa paksa. Nakatutulong ang malinaw na tungkulin sa pagpapatuloy ng gawain. Tingnan kung pangalan lamang ito ng paksa o may sinasabi na tungkol dito.
       - text: "Naibabahagi ang kaalaman kapag nagpapalitan ng tungkulin."
         rationale: |
-          This selects a relationship developed in the passage. Role changes help share knowledge. Check whether the phrase is a subject or a complete point.
+          Ugnayang ipinaliwanag sa talata ang pinili nito. Nakatutulong ang pagpapalitan ng tungkulin sa pagbabahagi ng kaalaman. Suriin kung paksa lamang o buong diwa ang mga salita.
       - text: "Hindi dapat umasa ang grupo sa iisang kasapi lamang."
         rationale: |
-          This selects a lesson from the opening problem. Dependence on one person is challenged. Check whether the words only name the topic.
+          Aral mula sa unang problema ang pinili nito. Ipinapakitang may problema sa pag-asa sa isang tao. Suriin kung pinapangalanan lamang ng mga salita ang paksa.
     explanation: |
-      Sharing garden work names the subject. It does not yet state the central claim about how shared responsibility keeps the work going.
+      Pinapangalanan lamang ng "paghahati ng gawain sa gulayan" ang paksa. Hindi pa nito sinasabi kung paano napapanatili ng sama-samang pananagutan ang gawain.
     approved: true
   - id: "q-comprehension-skills-main-idea-0018"
     lesson: lesson-comprehension-skills-main-point-and-topic-sentence
@@ -497,15 +497,15 @@ questions:
         correct: true
       - text: "Ang malinaw na tungkulin ay nakatutulong sa pagpapatuloy ng gulayan."
         rationale: |
-          This treats a supported principle as an overgeneralization. It concerns the same garden work. Check whether it extends to every school problem.
+          Itinuturing nitong labis na paglalahat ang ideyang suportado ng talata. Tungkol pa rin ito sa parehong gulayan. Tingnan kung saklaw nito ang lahat ng suliranin sa paaralan.
       - text: "Ang pagpapalitan ng gawain ay nakatutulong sa pagbabahagi ng kaalaman."
         rationale: |
-          This treats a stated learning relationship as too broad. Members exchange roles. Check the limited scope of the claim.
+          Itinuturing nitong masyadong malawak ang ugnayang nakasaad sa talata. Nagpapalitan ng tungkulin ang mga kasapi. Tingnan ang limitadong saklaw ng pahayag.
       - text: "Mas matatag ang gawaing hindi umaasa sa isang tao lamang."
         rationale: |
-          This treats a lesson from the initial absence as universal certainty. The wording compares shared work with dependence on one person. Check whether it promises to solve everything.
+          Itinuturing nitong tiyak na pangako para sa lahat ang aral mula sa pagkawala ng isang kasapi. Paghahambing lamang ito sa pag-asa sa iisang tao. Tingnan kung ipinapangako nitong malulutas ang lahat.
     explanation: |
-      The passage describes one garden project. Claiming that cooperation solves every school problem reaches beyond that evidence.
+      Isang proyekto sa gulayan ang inilalarawan ng talata. Lampas sa ebidensya ang sabihing malulutas ng pagtutulungan ang lahat ng suliranin sa paaralan.
     approved: true
   - id: "q-comprehension-skills-main-idea-0021"
     approved: true

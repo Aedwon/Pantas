@@ -465,15 +465,15 @@ questions:
         correct: true
       - text: "1, 2, 4, 3"
         rationale: |
-          This refers to "reklamong ito" before the complaint is introduced. The captain's response seems like a main event. Check: introduce the residents' complaint first.
+          Nauna ang "reklamong ito" bago ipakilala ang reklamo. Maaaring mukhang pangunahing pangyayari ang tugon ng kapitan. Hanapin muna ang reklamo ng mga residente.
       - text: "2, 3, 1, 4"
         rationale: |
-          This sends the agreed request before the meeting is arranged. The request sounds like a direct response to the complaint. Check: follow "pulong na iyon" to the meeting.
+          Naipadala ang kahilingan bago itakda ang pulong. Mukha itong tuwirang tugon sa reklamo. Tiyaking nauna ang pulong na tinutukoy ng "pulong na iyon."
       - text: "2, 1, 3, 4"
         rationale: |
-          This refers to an agreed request before the agreement is stated. Both sentences concern the meeting. Check: place the agreement before the request based on it.
+          Nauna ang napagkasunduang kahilingan bago sabihin ang kasunduan. Parehong tungkol sa pulong ang mga pangungusap. Unahin ang kasunduan bago ang kahilingang bunga nito.
     explanation: |
-      The residents complain, the captain arranges a meeting, the attendees agree on a request, and the request is then sent. The backward references connect those stages.
+      Nagreklamo ang mga residente, nagtakda ng pulong ang kapitan, nagkasundo ang mga dumalo, at ipinadala ang kahilingan. Ang mga salitang tumutukoy sa naunang pangyayari ang nag-uugnay sa mga hakbang na ito.
     approved: true
   - id: "q-language-application-paragraph-organization-0018"
     lesson: lesson-language-application-cause-and-effect-order
@@ -535,7 +535,7 @@ questions:
     type: "sentence-ordering"
     difficulty: "exam"
     stem: |
-      Which order makes every backward reference clear in this self-contained account?
+      Which order presents the events chronologically, introducing the switch revision before describing its response, and makes every backward reference clear?
 
       1. This second trial succeeded where the first had failed.
       2. A student tested a door alarm, but its bell sounded whenever the door moved in the wind.

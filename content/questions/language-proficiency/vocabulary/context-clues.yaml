@@ -137,15 +137,15 @@ questions:
         correct: true
       - text: "Pag-iwas"
         rationale: |
-          This treats enduring trouble as avoiding it. Both can be reactions to a problem. Check the direct restatement after "o."
+          Itinuturing nitong pag-iwas ang pagharap sa hirap. Pareho silang maaaring tugon sa problema. Tingnan ang tuwirang paliwanag pagkatapos ng "o."
       - text: "Pagyayabang"
         rationale: |
-          This treats strength of spirit as showing off. The phrase about inner strength may draw attention. Check the words used to explain "pagtitiis."
+          Itinuturing nitong pagyayabang ang lakas ng loob. Maaaring mapansin ang bahaging tungkol sa lakas ng loob. Tingnan ang mga salitang nagpapaliwanag sa "pagtitiis."
       - text: "Pagtulong"
         rationale: |
-          This confuses enduring a problem with helping someone else. Both may be praised as good actions. Check the specific meaning supplied in the sentence.
+          Napagpapalit nito ang pagharap sa hirap at pagtulong sa iba. Pareho silang maaaring mabuting kilos. Tingnan ang tiyak na kahulugan sa pangungusap.
     explanation: |
-      The phrase "o pagpapasensya" restates "pagtitiis." In this sentence it means patience through difficulty.
+      Muling ipinapaliwanag ng "o pagpapasensya" ang "pagtitiis." Pasensya sa harap ng hirap ang ibig sabihin nito rito.
     approved: true
 
   - id: q-vocabulary-context-clues-0007
@@ -161,15 +161,15 @@ questions:
         correct: true
       - text: "Mapagbigay"
         rationale: |
-          This assigns Rosa's trait to her brother. Her generous actions are easy to notice. Check the contrast phrase "taliwas sa."
+          Ibinibigay nito sa kapatid ang katangian ni Rosa. Madaling mapansin ang pagiging mapagbigay niya. Tingnan ang pagsalungat na "taliwas sa."
       - text: "Mayaman"
         rationale: |
-          This treats keeping possessions as proof of wealth. Refusing to share may suggest having plenty to keep. Check whether the clue describes how much he owns or how he shares.
+          Itinuturing nitong patunay ng yaman ang pag-iingat ng pag-aari. Maaaring isipin na marami siyang itinatago dahil ayaw niyang magbahagi. Tingnan kung dami ng pag-aari o paraan ng pagbabahagi ang inilalarawan.
       - text: "Matipid"
         rationale: |
-          This confuses refusing to share with careful spending. Both can involve keeping things. Check whether the text describes saving money or withholding from others.
+          Napagpapalit nito ang pagtangging magbahagi at maingat na paggastos. Parehong maaaring may pag-iingat ng bagay. Tingnan kung pag-iipon o pagkakait sa iba ang inilalarawan.
     explanation: |
-      The brother refuses to share anything. That behavior shows that "maramot" means "madamot," or unwilling to share.
+      Ayaw magbahagi ng anuman ang kapatid. Ipinapakita nitong "madamot" ang kahulugan ng "maramot."
     approved: true
 
   - id: q-vocabulary-context-clues-0008
@@ -401,15 +401,15 @@ questions:
         correct: true
       - text: "Natuwa"
         rationale: |
-          This treats a strong reaction as joy. Shaking can happen with excitement. Check the dark setting and the sudden cry.
+          Itinuturing nitong tuwa ang matinding reaksiyon. Maaari ring manginig sa pananabik. Tingnan ang madilim na lugar at biglang sigaw.
       - text: "Nainip"
         rationale: |
-          This treats the reaction as impatience. Waiting in a dark place may be tiresome. Check the shaking and cold sweat.
+          Itinuturing nitong pagkainip ang reaksiyon. Maaaring nakakainip ang paghihintay sa madilim na lugar. Tingnan ang panginginig at malamig na pawis.
       - text: "Nanghinayang"
         rationale: |
-          This treats the reaction as regret over a loss. All are unpleasant feelings. Check whether the sentence describes danger or something lost.
+          Itinuturing nitong panghihinayang sa pagkawala ang reaksiyon. Pareho silang hindi magandang damdamin. Tingnan kung panganib o pagkawala ang inilalarawan.
     explanation: |
-      A loud cry, shaking, and cold sweat show fear. "Nangilabot" describes that fearful reaction.
+      Ang malakas na sigaw, panginginig, at malamig na pawis ay palatandaan ng takot. Inilalarawan ng "nangilabot" ang reaksiyong ito.
     approved: true
 
   - id: q-vocabulary-context-clues-0018
