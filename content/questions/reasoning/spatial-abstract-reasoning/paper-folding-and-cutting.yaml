@@ -488,7 +488,7 @@ questions:
           This doubles three times instead of once. The original packet has four layers. Count visible positions after only the requested opening step.
     explanation: |
       Opening the last fold reflects the punched location across its horizontal crease. That creates two positions in the still folded right half. The earlier vertical fold remains unopened.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-paper-folding-and-cutting-0016"
     lesson: lesson-spatial-abstract-reasoning-unfolding-cuts-across-a-fold
     keyPoint: 1
@@ -520,7 +520,7 @@ questions:
           This fully unfolds and sends inset punches to boundary corners. The paper remains vertically folded. Reflect only the shown interior location across the last crease.
     explanation: |
       Reflection across a horizontal crease keeps the sideways coordinate and reverses the vertical offset. Both copies stay in the vertically folded half, one above and one below that crease.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-paper-folding-and-cutting-0017"
     lesson: lesson-spatial-abstract-reasoning-unfolding-cuts-across-a-fold
     keyPoint: 1
@@ -551,7 +551,7 @@ questions:
           This rotates the triangle in the other quarter-turn direction. A sideways point is a possible orientation. Reflect vertical direction rather than rotating it.
     explanation: |
       A horizontal reflection reverses up and down. The upward-pointing triangle in the lower half therefore has a downward-pointing reflected partner in the upper half.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-paper-folding-and-cutting-0018"
     lesson: lesson-spatial-abstract-reasoning-cuts-at-two-fold-lines
     keyPoint: 1
@@ -583,7 +583,7 @@ questions:
           This changes distance while reflecting. The two positions are on different halves. Preserve perpendicular distance from the first crease.
     explanation: |
       The latest crease is halfway across the already folded right half. Opening that crease joins the cut there. Opening the first fold then makes its mirror on the left side, equally far from the original middle crease.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-paper-folding-and-cutting-0019"
     lesson: lesson-spatial-abstract-reasoning-unfolding-cuts-across-a-fold
     keyPoint: 1
@@ -616,7 +616,7 @@ questions:
           This treats every fold as horizontal. The holes do multiply. Check the two vertical folds that produce sideways copies.
     explanation: |
       The horizontal fold gives two reflected vertical positions. The two vertical folds give four reflected sideways positions. Together those independent positions make two rows and four columns.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-paper-folding-and-cutting-0020"
     lesson: lesson-spatial-abstract-reasoning-unfolding-cuts-across-a-fold
     keyPoint: 1
@@ -648,8 +648,9 @@ questions:
           This treats reflected offsets as cancellation of hole positions. Their offsets have opposite signs. Check that the punch never touched a crease.
     explanation: |
       The creases meet at the original center. Reflecting across each crease reverses the horizontal and vertical offsets while preserving their sizes. A diagonally opposite hole therefore has the same distance from the center.
-    approved: false
+    approved: true
   - id: q-spatial-abstract-reasoning-paper-folding-and-cutting-0021
+    approved: true
     lesson: lesson-spatial-abstract-reasoning-uneven-folds-and-cut-layers
     keyPoint: 1
     type: paper-folding

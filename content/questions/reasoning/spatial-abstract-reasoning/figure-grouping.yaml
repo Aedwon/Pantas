@@ -497,7 +497,7 @@ questions:
           This groups by sides instead of dot parity. The outline has six sides. Count its two internal dots.
     explanation: |
       The square, rectangle, and hexagon contain two, four, and two dots. Each count is even. The circle contains three dots, an odd count.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0016"
     lesson: lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details
     keyPoint: 2
@@ -532,7 +532,7 @@ questions:
           This confuses a downward ray with a diagonal ray. It appears below the center. Compare its direction with the square's vertical sides.
     explanation: |
       The first, second, and fourth rays point up, right, and down. Each direction is parallel to a side of its square. The third ray points diagonally and breaks that rule.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0017"
     lesson: lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry
     keyPoint: 1
@@ -562,7 +562,7 @@ questions:
           This changes internal marks instead of the outline. Dots add a visible difference. Check the feature that defines the group.
     explanation: |
       The other outlines are polygons made of straight segments. A hexagon also has only straight segments. Replacing the circle with a hexagon therefore makes the boundary rule hold for every outline.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0018"
     lesson: lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details
     keyPoint: 2
@@ -596,7 +596,7 @@ questions:
           This picks the largest dot count. Three differs from the two-dot figures. Check that six sides is still twice three dots.
     explanation: |
       The square, rectangle, and hexagon have four sides with two dots, four with two, and six with three. Each side count is twice the dot count. The triangle has three sides and two dots, so it breaks the relation.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0019"
     lesson: lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details
     keyPoint: 2
@@ -635,7 +635,7 @@ questions:
           This selects the most dots. It has three of each. Compare the two counts within it.
     explanation: |
       The first, second, and fourth squares have matching dot and edge-line counts: one and one, two and two, three and three. The third has two dots and three edge lines. Its counts differ.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0020"
     lesson: lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details
     keyPoint: 2
@@ -670,8 +670,9 @@ questions:
           This assumes only even-sided shapes have reflection symmetry. The triangle has three sides. Check its three vertex-to-opposite-side reflection axes.
     explanation: |
       Each regular triangle has three reflection axes, and each square has four. The first three figures have three, four, and three dots, matching their outlines' reflection axes. The fourth figure is a square with two dots but four reflection axes. It breaks the relation.
-    approved: false
+    approved: true
   - id: q-spatial-abstract-reasoning-figure-grouping-0021
+    approved: true
     lesson: lesson-spatial-abstract-reasoning-testing-a-figure-group-rule
     keyPoint: 1
     type: odd-figure

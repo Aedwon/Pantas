@@ -393,7 +393,7 @@ questions:
           This negates an AND table instead of an OR table. The final NOT is applied, but to the wrong inner rule. Check the connective inside the group.
     explanation: |
       OR is true in the first three rows and false in the last row. NOT reverses those values. The resulting column is F, F, F, T.
-    approved: false
+    approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0018
     lesson: lesson-logical-verbal-reasoning-combined-truth-values
@@ -416,7 +416,7 @@ questions:
           This assumes forward and reverse conditionals always share a value. They contain the same letters. Check the two rows with different input values.
     explanation: |
       With two true inputs, both conditional directions are true. With two false inputs, both have false if-parts and are true. Each mixed-input row makes one direction false. Exactly two rows make the full AND true.
-    approved: false
+    approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0019
     lesson: lesson-logical-verbal-reasoning-combined-truth-values
@@ -439,7 +439,7 @@ questions:
           This treats a conditional like a negated AND. That would be false for two true inputs. Check the conditional's specific false case.
     explanation: |
       A false conditional forces P true and Q false. NOT Q is therefore true, so P AND NOT Q is true. Negating that group gives false. The requested values are T, F, F.
-    approved: false
+    approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0020
     lesson: lesson-logical-verbal-reasoning-combined-truth-values
@@ -462,9 +462,10 @@ questions:
           This overlooks Q while requiring the negated OR to be true. P and R are both false, which may look promising. Check both inputs of the inner OR.
     explanation: |
       For the outer conditional to be false, its if-part must be true and R false. NOT of P OR Q is true only when P and Q are both false. Thus the required row is (F,F,F).
-    approved: false
+    approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0021
+    approved: true
     lesson: lesson-logical-verbal-reasoning-truth-tables-and-connectives
     keyPoint: 1
     type: truth-table-evaluation

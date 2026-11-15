@@ -1835,6 +1835,1122 @@
     "hash": "c6ed6e412da338583bf0aebc42702f74ac7d5e5f373ed4c1c579699d6e1860ec",
     "lesson": "lesson-data-interpretation-chart-scales-and-differences"
   },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "bcd8df7adea59caf6181e1ce0b63d770ea6a74f05e0a4051c6168e293b47c5b0",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-moves"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "eb36240db9234d50730bfbee7ad7c373ddaf4a7aedf9d8b344649fd1d3d1f454",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-moves"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "138eb9dd96dd6be8800ebcb013d010b5ffcddac665c1a93c688a9a3d402eb19e",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-moves"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "4f450ea9280cc418d932746f9ed57a2a0e848a27dbbe8a7dab30d51989a30095",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-moves"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "9d32d526cecaa7a3232ab1e224eb4033c30085c39e64bb718d1a4af29f5cc584",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-moves"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "aba8ce1071fd05c3ac2d3f83690a04dc6dd8799bc1c5661a2e4894f1d4b53caf",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-moves"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "376fe1f7507633ced39d0a2999f576483e3633cc2502fe23be5faf409d71b2ee",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-positions-and-operations"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "ff779a43ae01e7232908c5ae800a070346a75567a8dba1ff8bfb1a229de4127f",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-earlier-terms"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "34f4fc6cdfb67aa92a472761d33c7cbed3bbdd1b34c7c79b9d5f080367fcde06",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-letter-patterns"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "ad91cec9e80c1024a5ad2f921eb65ab9ffc50e0cf7cf07e65710f83df5faa7f0",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-letter-patterns"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "acf83af4009d1ce02dc73260f8bc593738b8f9b8b07dc0a9a45cfef2a30db206",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-positions-and-operations"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "3b58a899965f4d3cc935f1dccacb3674f5a3048bee4a76fdf0f87bb2c36f479f",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-positions-and-operations"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "91cf99ceaad2759dea9e3eb1aa36957b880a75c01e8b06c8899723c62d38f1e3",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-letter-patterns"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "e803dff883cb30eb63a8b82862727dab14231240fa6800c3c4ba12e58a27b7d4",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-positions-and-operations"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "83f6be309a0915f92492d025faee6c63c9d3a4d226edccc9ddb2d4b9f34582e4",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-positions-and-operations"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "422bb27013070984c01fde6ee291c0ca35029195008107f6a4fcb64b6d99e374",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-letter-patterns"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "0b1e9d240251791b33d8d3fb814307c82c2dd98a0d2c0af2629947e0fe4bfc11",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-positions-and-operations"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "e160dfe50e2c0f1780688a270dcb617c169101298f0269ee2d8a4ec2eb7f4bcc",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-earlier-terms"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "259a9e98beae91c1ee3e4bfb67088fabeac50e6ebb83e57e37301a9d7b2bbb18",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-letter-patterns"
+  },
+  "q-logical-verbal-reasoning-number-and-letter-sequences-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "b04bd79b9f3be0b97610668aedd8055a7d058db7019b6a0f0a04f215cb494f55",
+    "lesson": "lesson-logical-verbal-reasoning-sequence-positions-and-operations"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "0466283a84fd94f68a82bce6acaa569f73345899c6c20120b8b79f54f4541da1",
+    "lesson": "lesson-logical-verbal-reasoning-deductive-group-arguments"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "7f76fdbee47e50e52e9b2f97df2fb9f015f4589cc84c79cc81247a693d48497a",
+    "lesson": "lesson-logical-verbal-reasoning-deductive-group-arguments"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "8fb2034a8da043b48d31b5304076b30facf930919e7b669b05cae1d2c4b13a0a",
+    "lesson": "lesson-logical-verbal-reasoning-invalid-conditional-forms"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "0b9f17073d325d013aa00efb125f49bec73cde4dca50a99be148e74ceebbd8f9",
+    "lesson": "lesson-logical-verbal-reasoning-invalid-conditional-forms"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "0a7b5363165bc0a571f524f5e6cdc268b6572adf35b41c40272139a468f769bd",
+    "lesson": "lesson-logical-verbal-reasoning-valid-conditional-forms"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "3f4a4dcf0547127ca3e49b827f32baa83bbc16d6bb5a8c290abc08fd5997b0f4",
+    "lesson": "lesson-logical-verbal-reasoning-valid-conditional-forms"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "3788181644f4b6e9d122b9529eea9e5505e0cb215c82a7a56be8bf1e1b8ef91b",
+    "lesson": "lesson-logical-verbal-reasoning-deductive-group-arguments"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "9f31032c1791fa77df03095ccc25d7e363bd26a564f63aab05176f98f4a73305",
+    "lesson": "lesson-logical-verbal-reasoning-deductive-group-arguments"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "b11399368f1e767f15ba92958c6be1ef42916161c85efcdcdd6f92dcd5fda547",
+    "lesson": "lesson-logical-verbal-reasoning-invalid-conditional-forms"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "5bd97133cdbcdc41d9e34adc89a262e9a81ae7feea91348be0e8347bad51c344",
+    "lesson": "lesson-logical-verbal-reasoning-deductive-group-arguments"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "87a959aafa04a1ed8d4a6db6b9dee2f130b6b74a02d8c604c16ca2f2b7f376e4",
+    "lesson": "lesson-logical-verbal-reasoning-deductive-group-arguments"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "a0da2911cb839017e2e474ab64362162a3452161dcee7711a36aee2fba1c8379",
+    "lesson": "lesson-logical-verbal-reasoning-valid-conditional-forms"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "7f92e2be6c390f9bd87deed9cc1ccc489f16e620405d75c5067290383413df4a",
+    "lesson": "lesson-logical-verbal-reasoning-valid-conditional-forms"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "1031394725d2e0beea58891f7737b7e4682baa13403ab0d1cb9f67a7b81b7a9c",
+    "lesson": "lesson-logical-verbal-reasoning-deductive-group-arguments"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "a2d49892ed4d08264d9afdf834482eb15e58f4e788f56dbcc8af21c0a30234ba",
+    "lesson": "lesson-logical-verbal-reasoning-deductive-group-arguments"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "651d79daa03c0aa5b995de0704ac5fb8b4fa003e8bd546207f69e0ca9775e62b",
+    "lesson": "lesson-logical-verbal-reasoning-deductive-group-arguments"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "fc75e577d90143a2c5ce94674554cdd19630a21d89f407e8ba2629a0d7694d59",
+    "lesson": "lesson-logical-verbal-reasoning-valid-conditional-forms"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "2fbbd85bac168581368e60532cb64bf34ae98abf5cac1fe701cb19cbbc345ede",
+    "lesson": "lesson-logical-verbal-reasoning-valid-conditional-forms"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "804fb070625a48ecae64aaaea12bdd09aa26ca8985e0a1b0c3176bea0ead57a2",
+    "lesson": "lesson-logical-verbal-reasoning-deductive-group-arguments"
+  },
+  "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "9a8d42ed1a8640736cfa783b4209f63de610b4dcd4e157fa8d78058d557522c7",
+    "lesson": "lesson-logical-verbal-reasoning-valid-conditional-forms"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "aa06c9674384124543d81437cf349c1e12e43237b86a293ebdb1cca25461cb4a",
+    "lesson": "lesson-logical-verbal-reasoning-truth-tables-and-connectives"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "6a567dfde25524b50476f6be1fb93e315a7ac28b6ab44c8110a52d5120584086",
+    "lesson": "lesson-logical-verbal-reasoning-truth-tables-and-connectives"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "dcb1628f99ed17f3f1687c15fe7ef83e1199f40ec3f3835bcfccec7d6136c69b",
+    "lesson": "lesson-logical-verbal-reasoning-combined-truth-values"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "a0527bce2ba841a46ef364fa8f07ffd4689407ef742d26c2c0646ca3e88d7987",
+    "lesson": "lesson-logical-verbal-reasoning-truth-tables-and-connectives"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "f60934e88528ad9a02a67ac10fd4e01814dce8b619463764ef1300a269060a26",
+    "lesson": "lesson-logical-verbal-reasoning-truth-tables-and-connectives"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "b0b5606c8e1a4a1b76944a8d2f9b85e3bfd778ce0d5e473e9f563d21fa3276e5",
+    "lesson": "lesson-logical-verbal-reasoning-conditional-truth-values"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "1b64e1d06106340bd83fae67f3431434ac060c2cb0783552a5b6f161df215a5b",
+    "lesson": "lesson-logical-verbal-reasoning-conditional-truth-values"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "0a099468dc7d1d01c57efc8579907b309a845eb4f72a3b54b643c3d73b314160",
+    "lesson": "lesson-logical-verbal-reasoning-combined-truth-values"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "5f6b4b2b9b11e0e07ed804943319e8c4e75894b46038861ded3671c0702610df",
+    "lesson": "lesson-logical-verbal-reasoning-combined-truth-values"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "a694b79778efd41a0621a5fa89280a416f629bbfb7d61086ee35b9d939489adf",
+    "lesson": "lesson-logical-verbal-reasoning-combined-truth-values"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "821c4a74142c69feddcd1564839878600913b3ce3b04a94497112914c16abf4c",
+    "lesson": "lesson-logical-verbal-reasoning-combined-truth-values"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "5f2514860762445acb5b4a63045a8a05e69eafdce2cf9ae13a69e86db6aa9538",
+    "lesson": "lesson-logical-verbal-reasoning-combined-truth-values"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "d20214f77f350d519a54f4880a4e6e584b3d7d9a5ca52f8d84fc72ac6698a980",
+    "lesson": "lesson-logical-verbal-reasoning-combined-truth-values"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "42fbf77578a6828e1c438e15fa3afaf460669209483b4f2e094a47ceda326cde",
+    "lesson": "lesson-logical-verbal-reasoning-truth-tables-and-connectives"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "51a2630a92c6dbdda8cfb46b9f2135f48d550594b49d103854bbf0cfc138053a",
+    "lesson": "lesson-logical-verbal-reasoning-conditional-truth-values"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "d11a5908702c24a45b5d23b66b02fc027a4c7b4f684f6731356f87a5e80282d1",
+    "lesson": "lesson-logical-verbal-reasoning-combined-truth-values"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "e78433fd3eff92a1ff1275a75dc531d7b9b2695d6e75dbf43e391a130737324d",
+    "lesson": "lesson-logical-verbal-reasoning-combined-truth-values"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "861bd84fc2b4c1d90423d5663dffc4fd25c3bbf38278e4369bda4c0662d422cf",
+    "lesson": "lesson-logical-verbal-reasoning-combined-truth-values"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "b255d40e2a98232cffa301cd7abecdb9a0da08a412576704f931edf1280a6f66",
+    "lesson": "lesson-logical-verbal-reasoning-combined-truth-values"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "0f34c3c22605cfdd64ef54b86be98af3ba09eac3970c730e9afe3393a293fdf5",
+    "lesson": "lesson-logical-verbal-reasoning-combined-truth-values"
+  },
+  "q-logical-verbal-reasoning-truth-tables-propositional-logic-0021": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "4dbcb9da6eb417d6663da69328bbd1046ae02ac6ea63a688c53517efe24583af",
+    "lesson": "lesson-logical-verbal-reasoning-truth-tables-and-connectives"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "b8f950935e5549efe3dcaa4248a488864efc8317a7c9753f3d1244fb5fe472c4",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-functions-users-and-work"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "9569009079beaae176b3e201986c1933d0c33bcec667013cf7f94da657e1d5f2",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-functions-users-and-work"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "9bba6bbc510fa06e44e0f8b29d9d37a8febe08f1bfaa7faf7d55ef83cf7f2621",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-parts-types-and-products"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "399dc86c7b9b39b610beef8314e10702e0953ad6ee510174ad07f724e3a07c70",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-parts-types-and-products"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "a5d267f7869ffae68b9b7b8f6f157bc4689729a1adec37b95ad22f4b064d486a",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-parts-types-and-products"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "bf6d79ef12fd172efe7a461ce8057a73fa2903753ca43f1042037a388e9c3e15",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-meanings-and-double-pairs"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "35e8e8092b303b2bcf21085915de5611d2c2fc777567b125fd641aa51496cf87",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-meanings-and-double-pairs"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "ab0f1a44476f9b58973205c4b44504d39d131e9daed532f8172743b3f51a1f35",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-meanings-and-double-pairs"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "902bf16558022da5f711cafe19c90745bae06f4686e3c0f17a0305875bbe89df",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-functions-users-and-work"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "2cf458d9cdcc2e0f36ddb394482d73d4845b209495533cbfc7066b6f19c83b10",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-functions-users-and-work"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "27e5bd44517f99954434a54597e784b300f6dd9e91ecf922fdfa98962989e0a6",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-functions-users-and-work"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "81303106e5730bc256bb2105cda86c325eecd4466e055b5ee11d0d04a582e553",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-functions-users-and-work"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "2e6a66a6cbcd36366d85246f294d22d404c1a1a294787f6e77dbb4d640a3d408",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-parts-types-and-products"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "8aad62de7b57ce725c8d94dd41469ae6f961f6a2f9d8d73ecd11f60ae909335f",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-parts-types-and-products"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "0bc66a987b31b2f01266e5f44e7c3616d644cb117f740ab3901f243563d2dfc5",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-meanings-and-double-pairs"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "5cbd89e8a80964fce0e40bb41a806491796cc1bc99b310a738db572307100c7e",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-meanings-and-double-pairs"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "afd206a685fe3a4f127e54c599746185ad8dba66f86d8cc168711fbacd45f840",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-meanings-and-double-pairs"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "ae54baf72b4808c519d153d9603d96fb6ea35cc321fbf262d3325bb97b0ee451",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-parts-types-and-products"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "4dd33feba26c3e3603516ac9e4622f3a64248a1bf3c18e1afa5d8557a59df62e",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-meanings-and-double-pairs"
+  },
+  "q-logical-verbal-reasoning-word-analogies-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "cc9ed5aa265140952bd57147de0ac253766c9353e0bb6af99e3d173821a15b3f",
+    "lesson": "lesson-logical-verbal-reasoning-analogy-parts-types-and-products"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "7ae7b9edea8626de9430013defc9ac879576ce3ab753c547719cedfd2f03e30e",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "b52a737412d642d67daef624645fe3274624d95f654e0b6a53b2e484d01cc2cf",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "842c05ddcef4a326c5a1c9e43b5923d2467ddb558156ba0361f0ec4d29cf2814",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "9fc0574896066d9ccf9b3532cfb5beed613e3f2cb28f6cd60f7cfc7ad50e4236",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "539607c674c196c85e43c6b5458cb81cd1a44b31eae40ab047b25237d6d43df1",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "22a62b3c06449cc977976b64745d663006cc20f140884bcac9e2336bd95b7a8e",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "a90f0b5b858a8b68c993ba8e5beced6b521376ae009e96fe6cda25a6acdfb33a",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "d65c6b7b5010fe94d651837428f4b4e486368a46668fb01a43d26d7502d0f8df",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "ece6f447ac7d848e53d6faae0c1589fd9e7fcae41131a687c7a50241ffb34d72",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "1fc21182fcd279cef03f110e4a8b07bab9770b664392bdd1e99169760c6b15f7",
+    "lesson": "lesson-spatial-abstract-reasoning-testing-a-figure-group-rule"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "9cbcf7847d6c56929f6bcc3b7f01f0bda83aaed68c83f9c1e5706530d59cf7e4",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "feb047502760b84fe0f68441fa3b5b99885c2b857f156bf8ec02b1fd780a8b8f",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "cc6a9f09c5622dcf6edaf0609c9d902be642427d9d1e778095516d614fe6e1ee",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "4796fe3654aea63d7f2fc743c2a44d00898bd81b9e7ddd080afd80c04f6f3160",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "ae23c8d49638356f4f708b7e080978ff71a25aa702d35b87ed0877dfb9ced07b",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "a3e74c5cb1990f19e2f08a2b142983b3c75d15d6adb0092403dab9596a40dba1",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "4afe265570ba2e54406eff58b96533d830e5de4edd3a23fa13cb3577b1cab53a",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "2257d471b2b73cd053b6213a8207d5e5200919c5744dabb15731851f842ad51f",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "7fda1890e73854fbfa02e3740ea1d59d7bfa6eed514c3392eda713f855c256aa",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "8fa400ba545f219e41271ca82a543d126c4c848bfc55dbd48d7cb762ad9a9b60",
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details"
+  },
+  "q-spatial-abstract-reasoning-figure-grouping-0021": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "335f1f07ee488c106af95214d64e69478a8cf09c65937ebbb4ac318e2ff8de3c",
+    "lesson": "lesson-spatial-abstract-reasoning-testing-a-figure-group-rule"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "c707601bc0c9df3eab060def3a629711983e5162d53a9f3ae6708c6d7af3225a",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-turns-and-counts"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "2c2e407d11e1696e8b7a29f23d203fd413f0fbc01fdba64e716d34bc01cf29c4",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-turns-and-counts"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "5bc618191aba6a6a672ae4da605f5ba9bc04a132cf24cb43de6c55431645a0b7",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "4d26269e0b182d71bdfbc00ab3784cc29b4727ccea3c3c2e7dc148ef6e45acb5",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "d3bd612b13cc2391ed5d618c8273d7343192c08319d3d0e3c9942a0c0cc06d18",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-keeping-all-features"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "d16b2f9835cca9a3a6bce53797434ad4d23fcb4f91cd6dda9baff25ae47c8b29",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-keeping-all-features"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "685af8e5096b088857a890f6603525a8ea321a484d8ae13de4ab2bc38704b3b1",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-turns-and-counts"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "1488d6bdc016d1c0ca6765c208eaa7a89745ca7dd05e87af9e329aa4d8a1bcb2",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "3efceed857b6809651ea168b4be2b7c1d46f6e4c95838d8daf95a66607986c4d",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-keeping-shared-features"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "613af8e6792ca70460c2d5dae39694e649a17555e4eac25d6274e1983f15a8e1",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-turns-and-counts"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "b5cd7d4b88310071b58ab2bae9d17df3082193f8663157dd7893596fd662bc97",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "738508c2df7cd8e9a63feb96a62d49c1c68fd351bb2ee2caab3faecafc194397",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-turns-and-counts"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "5aa29fdee24be4809c5d8ac53fd324972d98f9ed6a722d997ad08f67ffc6b973",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "4f222298f89bee2a049798f2ceac437671a862f9f74600940a5b86c5ca318efc",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-keeping-all-features"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "09acdea9f58a9a8dfd0f27da58be7705ebc39897bb4440402604f1f15acc0b70",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "4f84feb5efdc199a169d95e41fceba5fa3f37582b67ef1d576e78c60c1dd9e10",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-keeping-all-features"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "a9061ed6eb6c9054c2b1de936ad2c7c4817c5820ca393f2254e48a52b7bfbb95",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "444c425676fa903dc777617deacfddc3bb8f78dcbe17bdd3b88a95b7a1f11b5f",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-turns-and-counts"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "40c984ac7dc6a9fec39dca9688ef8c93545e46fe5f5b5d0daae51eeeba0dd082",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "dd39ae8d96b932058a08adaaafbb99e1b07c50298a8300c1540a8e0b2bf43cbf",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules"
+  },
+  "q-spatial-abstract-reasoning-figure-matrices-0021": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "0e6f21b9ef941a031422c2e5a0fc051e686adcee696c67cb917c1bdf7d0d2aae",
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-keeping-shared-features"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "ff00306bc99c39ceef6b92899b4abb8f1bede708f7f603a666a9cb79b2ed5fe2",
+    "lesson": "lesson-spatial-abstract-reasoning-figure-turns-and-positions"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "3986cbe5ec65961306c4a7b42d7119158a596381e43eafffcc53330f3510ff03",
+    "lesson": "lesson-spatial-abstract-reasoning-figure-counts-and-fills"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "d03af5d4870fb820fe5e602d1902555d363a4a4f5167bbc180256c8e2995540e",
+    "lesson": "lesson-spatial-abstract-reasoning-figure-counts-and-fills"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "28d9fd84066ad6ff8fe6308320ac85c569bbb5ba31a07fc16ef2909a7369af48",
+    "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "cd25a2d0393036b91ee36bd5373b5967c5c261cfb68c9669fc03e1ddaaa8c381",
+    "lesson": "lesson-spatial-abstract-reasoning-figure-turns-and-positions"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "4ad4072a30b8d2c616149982ceddbbb74f82ed4e6e4f374ccb20eebecae0b8ac",
+    "lesson": "lesson-spatial-abstract-reasoning-figure-turns-and-positions"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "06afa3fceb362fc66fe3da097db0371c24966536e169db9f804d3d50b9507ea0",
+    "lesson": "lesson-spatial-abstract-reasoning-figure-counts-and-fills"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "4009ed525612be6f1a19cc8e0c326a23453178caea171ba648da5182a6c6f340",
+    "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "c0cd8b785dbc57545c078455506fb77b1873c15694b27f68c6c3e1d8d3ab9a4d",
+    "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "38ebb25fd4278def21823ff7d16e3bc37430e66a5c027c18e6ce9e723b65901a",
+    "lesson": "lesson-spatial-abstract-reasoning-figure-turns-and-positions"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "961180151348f522f91b58f92039ae17bad0828f82e6370bc93e6ebe08adbce4",
+    "lesson": "lesson-spatial-abstract-reasoning-figure-counts-and-fills"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "c60b0d08674fa4f8dc232c39f6383e320be245fa7898153dd6149c3baf7a23c6",
+    "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "e844ecea393ea154d606e3df36a1bfd1a35189038e6d2c278c905a39e18ad45e",
+    "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "fd403cc4e25a375b2a1cdad3b2fdfcc92e926100328e6d7d4ddd3f4940e0a206",
+    "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "edc11ba9ccdf16f59da955d344a1d70ab2ee4ff8a182efade879c5a75d2a01c2",
+    "lesson": "lesson-spatial-abstract-reasoning-figure-counts-and-fills"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "c98e301fce8b89e8e11b465bb8ae0cc52a2b7abfc70916d3ad961d10b762e7a6",
+    "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "9b0f9d97b7d9d6ac2d7007c9354377d6da00cd505e762c0cd38cb1a54c76f702",
+    "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "8418119f1547b7f59f1bca820a45995997b2faf493f1734878c6a753a6f9ed19",
+    "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "e3ef74720427ad88b31ef7d3c2704686fdfba43d57cbe97dd354d2e9298f18ba",
+    "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
+  },
+  "q-spatial-abstract-reasoning-figure-series-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "0a903a339fea6d2e160fb2792069398ef6d6b5c7865f6d157a34b77425ca43c3",
+    "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "c640f61e892d28b5c8cdeeb9fe9c79253fba9a5a41eb5bd9bc14292fcc0fd972",
+    "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "4f08417ba46ef7f8a9303a9edf733e7fa28eda136458af734b4f362d1c9d7f97",
+    "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "ef951e548a970c341f6ddf90d9264457c53fc147ff056597e71d6d17f9680615",
+    "lesson": "lesson-spatial-abstract-reasoning-parallel-light-and-solid-shadows"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "cb4bf6eb700a002862c8217674d62a80677ed2c6150c7e014fa1577fab97368b",
+    "lesson": "lesson-spatial-abstract-reasoning-parallel-light-and-solid-shadows"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "6ab988675b8108d5afc3c41093a919d5366cd072d2a589e3bcbad1151b9374b2",
+    "lesson": "lesson-spatial-abstract-reasoning-parallel-light-and-solid-shadows"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "4d1dac7732cd4b243f103984c8db120b341716b817acfcdb9c1d4dbf96c7c69e",
+    "lesson": "lesson-spatial-abstract-reasoning-parallel-light-and-solid-shadows"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "8b124f6061247fe08197070b95fdc85ffd55707771c476d61d78e9db04c56a07",
+    "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "c1a41d39aab76572d49b0185d534d724ac1320543489bf722c34ec752f677577",
+    "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "07e97a43cbfaed6c6e6df30caea79f9834dde2218367c506a6046460c00af7eb",
+    "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "91613ed9e438fcc1230d9488907625a45f0a29f6ddf3acb9c7fc242b6a5965b2",
+    "lesson": "lesson-spatial-abstract-reasoning-parallel-light-and-solid-shadows"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "fb4f1b4627198ae56f562ee8ade5ee6a94ffb58b6ad8896b00be1a2f307eeed9",
+    "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "fbaddc2c58ee92ac06af257303856fe5ff403eb2cd0e0c449fdb3aa6df199dc2",
+    "lesson": "lesson-spatial-abstract-reasoning-parallel-light-and-solid-shadows"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "3457886d9daa7dc86103ad422246f94fcfd7ac8091098fc78eaaf6d3637b2857",
+    "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "e313c1a8c21a9df5f70a9bf6f8f8c359a170bf01b9456545316a80ce00e9abdb",
+    "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "b912051604cd99fd28f8cc35cfba84fe51f8bcf208cdff9985a1e2ede579f955",
+    "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "1939eb3379a35c2466da0dda6190d9664e87ff23f86ed6ed278d1c4ff83da66a",
+    "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "2348c2733446c93f83e677a4fe7571b1c2319b827d41d89f5ff48f1207943107",
+    "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "165f6db43676e30146583b876b780965b41664f94fe24513ae5ecb7727af49d8",
+    "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "dd5160d8f295fd8d7fada2d84562b3f91b13e0469498c40565db465365396bdb",
+    "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "ddd7818e22b799232adf6d60da1d64bdc7475ec11bed84c40798ead71e7a7b67",
+    "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0021": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "442ac307f4733e55b6e6a6fbe682e727f1288f9d8a60fd08144ac91bf89a4125",
+    "lesson": "lesson-spatial-abstract-reasoning-turning-solids-without-mirror-flips"
+  },
+  "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0022": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "fc1a7dc71ab672cdeeb489c0d143d4e2cae3a0005eba857823a88cbe3d4caf0b",
+    "lesson": "lesson-spatial-abstract-reasoning-turning-solids-without-mirror-flips"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "5c54f5b7b651d20e7237e33d07341071f59ae0bafab22481f2fb65dd33558c3e",
+    "lesson": "lesson-spatial-abstract-reasoning-uneven-folds-and-cut-layers"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "efd376fe1693ef54dd8556e5697f0d7cf2518db31cc2abfea051f061f6952cf9",
+    "lesson": "lesson-spatial-abstract-reasoning-folded-layers-and-separate-holes"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "9c19b7f285a1082f354a8d2b5b819ae951d351f691f404cd56f864f091601ffe",
+    "lesson": "lesson-spatial-abstract-reasoning-folded-layers-and-separate-holes"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "4771e5673db30adb2da397df8b3e24bfd0608bf666fa49bc231084ce745aefbe",
+    "lesson": "lesson-spatial-abstract-reasoning-unfolding-cuts-across-a-fold"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "b4a7e76c3e6d7239f70d6423069c3acf307361b43f4ee597874a4cd3540acd26",
+    "lesson": "lesson-spatial-abstract-reasoning-unfolding-cuts-across-a-fold"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "48724c8956ba4da20dbe30b710fb1fe44d03eaba61a20aa6c83819b3f31dbd59",
+    "lesson": "lesson-spatial-abstract-reasoning-cuts-at-two-fold-lines"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "8905d03756c8522f11b8b3fd0ac3eaef71a52cbd8edab76d7324846778cb5fe6",
+    "lesson": "lesson-spatial-abstract-reasoning-folded-layers-and-separate-holes"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "548ef39358e0400378d6259f5570e56a3d14f983b7cf2a0478841bf281746bf0",
+    "lesson": "lesson-spatial-abstract-reasoning-cuts-at-two-fold-lines"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "8d38e8b2f25b6dba7506057fedaa6cdf28e356b3f77cf98469c69b7f1595f112",
+    "lesson": "lesson-spatial-abstract-reasoning-unfolding-cuts-across-a-fold"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "32a582315a8c329d076ee98813d28b7bb75b570f684ff6d7ed03d6207c7014a3",
+    "lesson": "lesson-spatial-abstract-reasoning-cuts-at-two-fold-lines"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "879cf76b96bdd4fda5fadb8bfca679a4ee2774fc44155f6bc3a87cef50291d11",
+    "lesson": "lesson-spatial-abstract-reasoning-unfolding-cuts-across-a-fold"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "a861cc83392f4e091683b73a1161f56e45d378cd5ceb034f513ec4c48e8e081b",
+    "lesson": "lesson-spatial-abstract-reasoning-cuts-at-two-fold-lines"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "97741935129ca2c0062411ceb73790d72503d7ec884173541f59acd468832e80",
+    "lesson": "lesson-spatial-abstract-reasoning-unfolding-cuts-across-a-fold"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "cb05c3dcb8ac3f0eee68df010b80274001b1d185cb7891555ae2079e1bc04069",
+    "lesson": "lesson-spatial-abstract-reasoning-unfolding-cuts-across-a-fold"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "7d19b7d2024dd5b5c8adb6fae2ab68869707d8ee61bd1a39914c5926d94d435b",
+    "lesson": "lesson-spatial-abstract-reasoning-folded-layers-and-separate-holes"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "ec9a1c5a0610fecc6b6397706ac7751ec116e976b716c30c6a2c60c8d2b54f02",
+    "lesson": "lesson-spatial-abstract-reasoning-unfolding-cuts-across-a-fold"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "13aee34ad4c19a2e474de00881ecda42b131dccbfaa06bd8b186a80423fc16ee",
+    "lesson": "lesson-spatial-abstract-reasoning-unfolding-cuts-across-a-fold"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "fa3df85d8fa17dc319f4e437bbcf16e8195067ff319d8a1e9eed9bd3bdf6db3c",
+    "lesson": "lesson-spatial-abstract-reasoning-cuts-at-two-fold-lines"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "ad8913acbe593d66c8f1466909f1ba9db34476f227fb6bdafa073737215f11a0",
+    "lesson": "lesson-spatial-abstract-reasoning-unfolding-cuts-across-a-fold"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "240b2a60733f7a41ac85545ad8d0b5b77889b89c566df76fab598eed40e1f7dc",
+    "lesson": "lesson-spatial-abstract-reasoning-unfolding-cuts-across-a-fold"
+  },
+  "q-spatial-abstract-reasoning-paper-folding-and-cutting-0021": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
+    "hash": "532eb14864bf92e55c1e491cf2beed42647296d8f0636173344bd0e1fc8b6f20",
+    "lesson": "lesson-spatial-abstract-reasoning-uneven-folds-and-cut-layers"
+  },
   "q-verbal-logic-assumptions-and-conclusions-0001": {
     "approvedAt": "2026-11-14",
     "evidence": "docs/content/verification/clerical-and-verbal-logic.md",

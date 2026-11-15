@@ -536,7 +536,7 @@ questions:
           This follows fill but changes the constant outline. White occurs in the cycle. Check which feature never changes.
     explanation: |
       The fill repeats two black figures followed by one white figure. The next completes the second group as white. The outline stays a pentagon.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-figure-series-0016"
     lesson: lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns
     keyPoint: 1
@@ -572,7 +572,7 @@ questions:
           This restarts the edge count while continuing dots. Three appeared at the start. Check the constant total of the two counts.
     explanation: |
       At each step one edge line is removed and one dot added. The shown counts are zero and three, then one and two, then two and one. The next state has three dots and no edge lines.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-figure-series-0017"
     lesson: lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns
     keyPoint: 2
@@ -607,7 +607,7 @@ questions:
           This copies the square's dot count into the circle track. Four appears on both squares. Check the circle-only sequence.
     explanation: |
       The outlines alternate circle and square. Within circle positions, dots increase from one to two, so the next circle has three. Square positions keep four dots.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-figure-series-0018"
     lesson: lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns
     keyPoint: 1
@@ -650,7 +650,7 @@ questions:
           This assumes cumulative fill growth. Partial fill states occur. Compare the repeated fill levels rather than adding them.
     explanation: |
       The squares have a constant half fill and then a three-quarter fill in alternating positions. Their lines switch between up and right, while dot count increases. The next state has three-quarter fill, an up line, and five dots.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-figure-series-0019"
     lesson: lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns
     keyPoint: 1
@@ -692,7 +692,7 @@ questions:
           This gets size but freezes line. Down is the latest direction. Apply the next 45-degree turn.
     explanation: |
       Triangle size repeats small, medium, large, small, medium, so the next size is large. The line turns 45 degrees clockwise each time, reaching down in the fifth figure. Its next direction is lower-left.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-figure-series-0020"
     lesson: lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns
     keyPoint: 1
@@ -735,4 +735,4 @@ questions:
           This follows size and dot but freezes line direction. Up is the last direction. Check the right-up alternation.
     explanation: |
       Size alternates medium and large, so the next is medium. The dot moves clockwise through corners and returns to top-left. The line alternates right and up, so the next line points right. These tracks combine in one medium square.
-    approved: false
+    approved: true

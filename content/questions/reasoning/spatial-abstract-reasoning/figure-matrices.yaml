@@ -653,7 +653,7 @@ questions:
           This invents a new outline to avoid repetition. The blank needs an absent member. Choose from the three-outline set used in every completed row.
     explanation: |
       Each row and each column contains one circle, one triangle, and one square. The bottom row already has square and circle. Triangle completes both that row and the last column.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-figure-matrices-0016"
     lesson: lesson-spatial-abstract-reasoning-matrix-keeping-all-features
     keyPoint: 1
@@ -698,7 +698,7 @@ questions:
           This uses the difference $3-1$ instead of the sum. Both numbers occur in the last row. Check the completed-row operation.
     explanation: |
       The last dot count in each row equals the first two counts added together. The completed rows show $1+2=3$ and $2+2=4$. The final row therefore gives $1+3=4$ dots.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-figure-matrices-0017"
     lesson: lesson-spatial-abstract-reasoning-matrix-row-and-column-rules
     keyPoint: 1
@@ -743,7 +743,7 @@ questions:
           This follows size but changes the constant outline. Medium is the missing size. Keep the square form.
     explanation: |
       Sizes cycle small, medium, large across the first row. Each following row starts one place later in that same cycle. The final row is large, small, medium, so medium fills the blank.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-figure-matrices-0018"
     lesson: lesson-spatial-abstract-reasoning-matrix-turns-and-counts
     keyPoint: 1
@@ -788,7 +788,7 @@ questions:
           This copies the first row's middle diagonal instead of completing the bottom row. Upper-right appears in the grid. Use the bottom row's own 135-degree step.
     explanation: |
       Within a row, the line turns clockwise by a constant step. Those steps increase down the rows: 45 degrees, 90 degrees, then 135 degrees. In the final row, a second 135-degree turn from lower-right points left.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-figure-matrices-0019"
     lesson: lesson-spatial-abstract-reasoning-matrix-row-and-column-rules
     keyPoint: 1
@@ -833,7 +833,7 @@ questions:
           This uses the wrong column direction. Top-right appears earlier in the grid. Check the counter-clockwise change down columns.
     explanation: |
       Dots move one corner clockwise across every row. Moving down a column uses the reverse corner order. The bottom row starts bottom-right, bottom-left, so its last dot is top-left.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-figure-matrices-0020"
     lesson: lesson-spatial-abstract-reasoning-matrix-row-and-column-rules
     keyPoint: 1
@@ -894,8 +894,9 @@ questions:
           This follows size and edge count but freezes dots. Two dots are adjacent. Continue the increasing dot track.
     explanation: |
       Size grows small, medium, large down rows. Dots increase one, two, three across each row, while edge lines decrease three, two, one. The blank combines the final state of all three tracks: large, three dots, one edge line.
-    approved: false
+    approved: true
   - id: q-spatial-abstract-reasoning-figure-matrices-0021
+    approved: true
     lesson: lesson-spatial-abstract-reasoning-matrix-keeping-shared-features
     keyPoint: 1
     type: figure-matrix

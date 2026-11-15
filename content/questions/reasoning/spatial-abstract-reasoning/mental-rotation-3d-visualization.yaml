@@ -490,7 +490,7 @@ questions:
           This uses the branch below C as a reason to pick C. C supports F during folding. Check the face at the end of that branch.
     explanation: |
       A, B, C, and D wrap around the side of the cube. E closes one end and F closes the other. The two end faces are opposite.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0016"
     lesson: lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets
     keyPoint: 2
@@ -529,7 +529,7 @@ questions:
           This treats the strip itself as invalid. Four faces in a row can wrap around a cube. Check the end squares for the actual conflict.
     explanation: |
       A through D wrap around four side directions. E and F attach above the strip and both fold toward the same end of the cube. They overlap and leave the other end open.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0017"
     lesson: lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets
     keyPoint: 1
@@ -568,7 +568,7 @@ questions:
           This pairs the first and last squares. The ends of a path can seem opposite. Check folded directions rather than path length.
     explanation: |
       Hold A as the top. B folds down from A. C turns from B to another side, and D folds from C to the bottom. D faces across the cube from A.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0018"
     lesson: lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets
     keyPoint: 1
@@ -607,7 +607,7 @@ questions:
           This uses the right arm as the back. D moves out of the flat plane during folding. Check whether D still shares an edge with C.
     explanation: |
       F is opposite C in this net. Turning the folded cube to place C at the front puts F at the back.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0019"
     lesson: lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets
     keyPoint: 1
@@ -646,7 +646,7 @@ questions:
           This brings opposite side faces together. C and E wrap to opposite sides. Check all three pairs before selecting a corner.
     explanation: |
       The row B, C, D, E forms four side faces. A and F close opposite ends. A can meet the neighboring side faces B and C at one corner.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0020"
     lesson: lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets
     keyPoint: 1
@@ -685,8 +685,9 @@ questions:
           This chooses the lower neighbor. E moves below B in the flat drawing. Check that they still share the fold edge.
     explanation: |
       A and E fold from opposite edges of B as side faces. D turns from E to another side. F folds from D to the face across from B. Opposite faces have no shared edge.
-    approved: false
+    approved: true
   - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0021
+    approved: true
     lesson: lesson-spatial-abstract-reasoning-turning-solids-without-mirror-flips
     keyPoint: 1
     type: mental-rotation
@@ -710,6 +711,7 @@ questions:
     explanation: |
       The top star stays on top. The right square moves to the front. In the same quarter-turn, the front triangle moves to the left. The order is star, square, triangle.
   - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0022
+    approved: true
     lesson: lesson-spatial-abstract-reasoning-turning-solids-without-mirror-flips
     keyPoint: 2
     type: mental-rotation

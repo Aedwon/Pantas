@@ -393,7 +393,7 @@ questions:
           This changes noisiness rather than greatly increasing pace. Tiptoeing can seem related to whispering because both are quiet. Check the relationship from the first action to the second.
     explanation: |
       Whispering has low voice intensity and shouting high voice intensity. A stroll has a slow pace and a sprint a very fast pace. Sprint gives the matching large increase in action intensity.
-    approved: false
+    approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0018
     lesson: lesson-logical-verbal-reasoning-analogy-parts-types-and-products
@@ -416,7 +416,7 @@ questions:
           This gives a different process instead of the resulting form. Condensation also involves a change in water's state. Check the role of vapor in the first pair.
     explanation: |
       For water, evaporation produces vapor. Freezing produces ice. The relation is process to its resulting form.
-    approved: false
+    approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0019
     lesson: lesson-logical-verbal-reasoning-analogy-meanings-and-double-pairs
@@ -439,7 +439,7 @@ questions:
           This gives equipment instead of the potter's finished work. Some quartz is used as a gemstone, so the second part may look related. Check both relations independently.
     explanation: |
       A baker produces a loaf, and a potter produces a vase. An orchid is a type of flower, and quartz is a type of mineral. Vase, mineral fits both ordered relations.
-    approved: false
+    approved: true
 
   - id: q-logical-verbal-reasoning-word-analogies-0020
     lesson: lesson-logical-verbal-reasoning-analogy-parts-types-and-products
@@ -462,5 +462,5 @@ questions:
           This chooses a resource-to-user relation. A librarian uses a catalog. Check whether the second item is the first item's contents.
     explanation: |
       A library contains books. An archive contains records. Both pairs go from a collection or place to its contents.
-    approved: false
+    approved: true
 
