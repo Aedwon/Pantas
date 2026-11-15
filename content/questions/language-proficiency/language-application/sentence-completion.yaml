@@ -174,7 +174,7 @@ questions:
     stem: |
       While the keynote speaker praised the overall expansion plan, she nevertheless cautioned that rapid growth without adequate funding would prove ________ to long-term stability.
     choices:
-      - text: "detrimental"
+      - text: "harmful"
         correct: true
       - text: "beneficial"
         rationale: |
@@ -186,7 +186,7 @@ questions:
         rationale: |
           This describes importance rather than harm. Funding is important to expansion. Check: choose a word that states the effect on stability.
     explanation: |
-      "Detrimental" means harmful. It states the warned-of effect on long-term stability.
+      "Harmful" states the warned-of effect on long-term stability.
     approved: true
   - id: "q-language-application-sentence-completion-0009"
     lesson: lesson-language-application-completion-meaning-clues
@@ -262,7 +262,7 @@ questions:
     stem: |
       The new regulations covered every major operational area, and inspectors applied them strictly and consistently across all regional branches. The regulations were therefore ________ in scope and ________ in enforcement.
     choices:
-      - text: "comprehensive ... rigorous"
+      - text: "complete ... rigorous"
         correct: true
       - text: "lenient ... strict"
         rationale: |
@@ -274,7 +274,7 @@ questions:
         rationale: |
           This limits the scope despite the stated broad coverage. The second word fits strict enforcement. Check: check both blanks rather than one.
     explanation: |
-      "Comprehensive" means covering the whole needed range. "Rigorous" means strict and careful, matching how inspectors applied the rules.
+      "Complete" means covering the whole needed range. "Rigorous" means strict and careful, matching how inspectors applied the rules.
     approved: true
   - id: "q-language-application-sentence-completion-0013"
     lesson: lesson-language-application-completion-meaning-clues
@@ -284,7 +284,7 @@ questions:
     stem: |
       Heavy snowfall during the peak morning rush hour caused traffic on the main highway to crawl at a ________ pace.
     choices:
-      - text: "sluggish"
+      - text: "slow"
         correct: true
       - text: "rapid"
         rationale: |
@@ -296,7 +296,7 @@ questions:
         rationale: |
           This confuses being in a hurry with moving slowly. Drivers during rush hour may feel rushed. Check: describe the actual traffic movement.
     explanation: |
-      "Sluggish" means slow-moving. It matches the traffic described as crawling.
+      "Slow" matches the traffic described as crawling.
     approved: true
   - id: "q-language-application-sentence-completion-0014"
     lesson: lesson-language-application-completion-meaning-clues
@@ -328,7 +328,7 @@ questions:
     stem: |
       In a fictional review, the preliminary records did not establish who received the parcel, but the signed final register settled the disputed delivery beyond doubt. The first records were ___, whereas the final record was ___.
     choices:
-      - text: "inconclusive ... definitive"
+      - text: "uncertain ... decisive"
         correct: true
       - text: "promising ... ambiguous"
         rationale: |
@@ -340,7 +340,7 @@ questions:
         rationale: |
           This makes the final record unstable. The preliminary records may contain consistent details. Check: use the final register's settled result.
     explanation: |
-      "Inconclusive" means not settling the question. "Definitive" means settling it clearly and firmly. The preliminary records lacked an answer, and the final signed register supplied it.
+      "Uncertain" means not known for sure. "Decisive" means settling the question clearly. The preliminary records lacked an answer, and the final signed register supplied it.
     approved: true
   - id: "q-language-application-sentence-completion-0016"
     lesson: lesson-language-application-completion-articles-and-lists

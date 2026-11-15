@@ -523,9 +523,9 @@ questions:
       - text: "2, 1, 3, 4"
         rationale: |
           This refers to "That higher cost" before the cost comparison. The budget concern is relevant. Check: introduce the higher cost before its consequence.
-      - text: "2, 3, 4, 1"
+      - text: "1, 3, 2, 4"
         rationale: |
-          This states the therefore-conclusion before the budget reason that supports it. The cost comparison already favors the first option. Check: complete the stated budget explanation before the conclusion.
+          This opens with "That higher cost" before either option or its cost is introduced. The budget concern supports the decision. Check: introduce the options and compare their costs before referring to the higher cost.
     explanation: |
       The two shelters are introduced, then their costs are compared. The higher cost is linked to the budget, and that reason supports the final selection.
     approved: false
@@ -551,9 +551,9 @@ questions:
       - text: "4, 2, 3, 1, 5"
         rationale: |
           This addresses "those false alerts" before the failed trial. The adjustment seems like the central action. Check: identify the false alerts that prompted it.
-      - text: "2, 4, 1, 5, 3"
+      - text: "2, 1, 4, 3, 5"
         rationale: |
-          This concludes before the full comparison of switch responses is supplied. The successful trial sounds like a final result. Check: place the contrasting responses before their conclusion.
+          This reports "This second trial" before another trial is introduced. The failed first test is already described. Check: introduce the switch revision and another trial before reporting its success.
     explanation: |
       The false alerts appear first and prompt a revised trial. The next sentence describes the revised switch response. That comparison supports the successful result and the final explanation.
     approved: false
