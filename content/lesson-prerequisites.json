@@ -67,9 +67,9 @@
   ],
   "lesson-algebra-solving-linear-equations": [
    {
-    "lesson": "lesson-algebra-translating-algebraic-phrases",
+    "lesson": "lesson-algebra-simplifying-and-evaluating-expressions",
     "strength": "helpful",
-    "reason": "Distribution and like-term practice help with solving. The earlier required coordinate-geometry link is rejected because this lesson teaches its graphing ideas."
+    "reason": "Distribute to every term and substitute values before combining like terms."
    }
   ],
   "lesson-algebra-polynomial-terms-and-degree": [
@@ -101,9 +101,9 @@
   "lesson-geometry-logic-and-reasoning": [],
   "lesson-geometry-measurement": [
    {
-    "lesson": "lesson-algebra-translating-algebraic-phrases",
+    "lesson": "lesson-algebra-simplifying-and-evaluating-expressions",
     "strength": "helpful",
-    "reason": "Substitution and simple equation practice make measurement formulas easier. The examples show their required calculations step by step."
+    "reason": "Distribute to every term and substitute values before combining like terms."
    }
   ],
   "lesson-grammar-and-structure-english-word-jobs": [],
@@ -3114,6 +3114,11 @@
     "lesson": "lesson-algebra-exponent-laws-and-zero-powers",
     "strength": "required",
     "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-algebra-simplifying-and-evaluating-expressions",
+    "strength": "helpful",
+    "reason": "Distribute to every term and substitute values before combining like terms."
    }
   ],
   "lesson-algebra-logarithm-meaning-and-equations": [
@@ -3121,6 +3126,11 @@
     "lesson": "lesson-algebra-fractional-powers-and-exponent-equations",
     "strength": "required",
     "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-algebra-rates-and-consecutive-integers",
+    "strength": "helpful",
+    "reason": "Use the same operation on both sides to find an unknown."
    }
   ],
   "lesson-algebra-functions-domain-and-range": [],
@@ -3143,6 +3153,11 @@
     "lesson": "lesson-algebra-solving-linear-equations",
     "strength": "required",
     "reason": "Continue from the preceding part of this lesson."
+   },
+   {
+    "lesson": "lesson-algebra-simplifying-and-evaluating-expressions",
+    "strength": "helpful",
+    "reason": "Distribute to every term and substitute values before combining like terms."
    }
   ],
   "lesson-algebra-line-slopes-and-intercepts": [
@@ -3150,6 +3165,11 @@
     "lesson": "lesson-algebra-one-variable-inequalities",
     "strength": "required",
     "reason": "Continue from the preceding part of this lesson."
+   },
+   {
+    "lesson": "lesson-algebra-simplifying-and-evaluating-expressions",
+    "strength": "helpful",
+    "reason": "Distribute to every term and substitute values before combining like terms."
    }
   ],
   "lesson-algebra-parallel-and-perpendicular-lines": [
@@ -3178,6 +3198,11 @@
     "lesson": "lesson-algebra-polynomial-operations",
     "strength": "required",
     "reason": "Continue from the preceding part of this lesson."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-greatest-common-factor",
+    "strength": "helpful",
+    "reason": "Factoring out the greatest common factor uses the GCF skill."
    }
   ],
   "lesson-algebra-factoring-quadratics": [
@@ -3268,6 +3293,11 @@
     "lesson": "lesson-algebra-rational-domains-and-holes",
     "strength": "required",
     "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-algebra-polynomial-terms-and-degree",
+    "strength": "helpful",
+    "reason": "Compare the highest exponents to find polynomial degrees."
    }
   ],
   "lesson-algebra-rational-slant-asymptotes": [

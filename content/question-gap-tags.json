@@ -16,29 +16,29 @@
    "$2$": "lesson-arithmetic-number-sense-signed-integers-and-substitution"
   },
   "q-algebra-exponents-and-logarithms-0012": {
-   "$x = -1$": "lesson-algebra-algebraic-expressions",
-   "$x = 3$": "lesson-algebra-algebraic-expressions"
+   "$x = -1$": "lesson-algebra-simplifying-and-evaluating-expressions",
+   "$x = 3$": "lesson-algebra-simplifying-and-evaluating-expressions"
   },
   "q-algebra-exponents-and-logarithms-0020": {
-   "$x=20$": "lesson-algebra-algebraic-expressions"
+   "$x=20$": "lesson-algebra-rates-and-consecutive-integers"
   },
   "q-algebra-linear-equations-inequalities-0005": {
-   "$\\dfrac{5}{7}$": "lesson-algebra-algebraic-expressions"
+   "$\\dfrac{5}{7}$": "lesson-algebra-simplifying-and-evaluating-expressions"
   },
   "q-algebra-linear-equations-inequalities-0006": {
-   "$x<-\\dfrac{21}{5}$": "lesson-algebra-algebraic-expressions"
+   "$x<-\\dfrac{21}{5}$": "lesson-algebra-simplifying-and-evaluating-expressions"
   },
   "q-algebra-linear-equations-inequalities-0010": {
-   "$\\dfrac{7}{2}$": "lesson-algebra-algebraic-expressions"
+   "$\\dfrac{7}{2}$": "lesson-algebra-simplifying-and-evaluating-expressions"
   },
   "q-algebra-linear-equations-inequalities-0015": {
-   "$(12,0)$": "lesson-algebra-algebraic-expressions"
+   "$(12,0)$": "lesson-algebra-simplifying-and-evaluating-expressions"
   },
   "q-algebra-polynomials-0012": {
    "$2x(2x+4)$": "lesson-arithmetic-number-sense-greatest-common-factor"
   },
   "q-algebra-types-of-functions-0011": {
-   "No horizontal asymptote": "lesson-algebra-polynomials"
+   "No horizontal asymptote": "lesson-algebra-polynomial-terms-and-degree"
   },
   "q-algebra-word-problems-0019": {
    "$804$": "lesson-arithmetic-number-sense-decimal-and-percent-conversions"
@@ -111,7 +111,7 @@
    "Replacing household sorting with a rule that all waste must arrive mixed": "lesson-environment-management-source-segregation-and-waste-types"
   },
   "q-geometry-measurement-0007": {
-   "$104\\pi\\text{ cm}^2$": "lesson-algebra-algebraic-expressions"
+   "$104\\pi\\text{ cm}^2$": "lesson-algebra-simplifying-and-evaluating-expressions"
   },
   "q-grammar-and-structure-modifiers-0009": {
    "While approaching the gate, the barking of a dog startled Liza.": "lesson-grammar-and-structure-finite-verbs-and-ing-groups"
