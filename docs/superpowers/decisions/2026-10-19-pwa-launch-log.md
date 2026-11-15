@@ -3818,3 +3818,9 @@ Fable 5.2 High ruled under Aedwon's standing delegation on `docs/superpowers/pla
 - Result, same local repro, full fix: 2 plan reads and 2 insight reads in 45 s after the reload (34 before), 2 token refreshes (about 35 before). Expired sign-in and finished lesson: covered by unit tests (renewal then 1 read; a lesson adds 1 roadmap and 1 insights read). CI and all five browser journeys pass on 4eca70322; the earlier CI failure on a1b621de6 was the content-approval tool test flaking ("File not formatted as yaml") and passed on rerun.
 - Left for the manager: other providers still watch the whole sign-in state (Home's plan in three places, the Home boundary, study delivery). They no longer cause network reads in the repro but re-run local work on each token refresh. Separate earlier side finding: a first sync makes one recordLessonRead call per previously read lesson.
 - Staging confirmation not yet run: it needs this branch on a staging build and a new staging debug token. Prod needs Aedwon's "ship it".
+
+### Nov 15, sync loop fix on staging (DS4 lead)
+
+- Manager: put web/roadmap-reads-r1 4eca70322 (E-092, the getRoadmap re-read loop) on staging for the DS4 completion lead's check; prod waits for Aedwon's "ship it".
+- Main merged into the branch (b2a5deb73, pushed; it brought main's code, so CI and journeys started on the push and both passed). Staging web 2495465643-c78c6945e94f on Firebase and the Worker. A temporary debug token for the lead (mode 600 file, never in chat) is deleted when the lead reports done, or automatically at 18:37 UTC.
+
