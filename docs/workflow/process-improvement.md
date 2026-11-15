@@ -101,6 +101,15 @@ pass 15, retire or merge one first.
    note my preference on email wording/structure/tone/whatever". No check can judge tone
    or length well enough; the self-test is where he sees it.
 
+9. Once the app is open to the public, every change to what Pantas collects about users,
+   why, how long it keeps it, or who receives it goes out by email to every affected user
+   before the change takes effect. For an under-18 user, the email goes to the guardian too.
+   The in-app notice is not a substitute. The email follows rules 6 and 8, and its legal
+   text follows rule 5. During the closed beta, Aedwon may tell testers himself instead.
+   He did this for screen counts on Nov 15. His words (Nov 15): "i already told the testers personally. you can skip this, but make it of record that changes to privacy should come with an email. this is industry practice correct? we'll do this strictly when the app has opened". No check can tell when a code change alters
+   collection. The lead building such a change flags it in its handoff, and the manager
+   holds the prod "ship it" until the email has gone.
+
 ## Entries
 
 ### Beta extension email drafts too long and too formal (Nov 15)
