@@ -427,7 +427,7 @@ questions:
         rationale: |
           Pang-ugnay ang ginamit nito para sa kumakain. Karaniwan ang "na," kaya maaaring mukhang angkop. Tingnan kung pananda ng papel o pang-ugnay sa paglalarawan ang kailangan.
     explanation: |
-      "Ang tinapay" ang paksa. Ito ang bagay na kinain, kaya pokus sa layon ang "kinain." Tinutukoy ng "ng bata" ang gumawa ng pagkain.
+      "Ang tinapay" ang paksa. Ito ang bagay na kinain, kaya pokus sa layon ang "kinain." Tinutukoy ng "ng bata" kung sino ang kumain.
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0020"
     lesson: lesson-grammar-and-structure-agreement-with-joined-subjects

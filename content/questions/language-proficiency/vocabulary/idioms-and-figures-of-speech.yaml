@@ -313,7 +313,7 @@ questions:
     choices:
       - text: "Kilos ng tao"
         correct: true
-      - text: "Tahasan na paghahambing"
+      - text: "Tahasang paghahambing"
         rationale: |
           Itinuturing nitong tahasang paghahambing ang pagbibigay ng kilos ng tao. Maaaring magmukhang magkatulad ang magkaibang bagay sa larawan. Hanapin kung may salitang naghahambing sa kanila.
       - text: "Tuwirang paghahambing"

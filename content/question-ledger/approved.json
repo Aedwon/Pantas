@@ -2760,15 +2760,15 @@
     "lesson": "lesson-comprehension-skills-visual-data-conclusions"
   },
   "q-comprehension-skills-main-idea-0016": {
-    "approvedAt": "2026-11-14",
-    "evidence": "docs/content/verification/comprehension-skills.md",
-    "hash": "08188311baf1376b3015434a6f3b6dbbd5dc84aad20251577addd9d69cd3b7df",
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "5a141a39e1284232e47dba104f1b26aae628256503bc7468e56cfbc95f07e264",
     "lesson": "lesson-comprehension-skills-paksa-at-pangunahing-ideya"
   },
   "q-comprehension-skills-main-idea-0017": {
-    "approvedAt": "2026-11-14",
-    "evidence": "docs/content/verification/comprehension-skills.md",
-    "hash": "2957244fa3d665582d805d30c222bc52a6e8b1ab15a8d2377b2634e60a464888",
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "26ce5dfbf6d25c5066bf0d7a0291621bf894e304aadb7a6e4f02398928237ed2",
     "lesson": "lesson-comprehension-skills-paksa-at-pangunahing-ideya"
   },
   "q-comprehension-skills-main-idea-0018": {
@@ -2784,9 +2784,9 @@
     "lesson": "lesson-comprehension-skills-implied-main-point"
   },
   "q-comprehension-skills-main-idea-0020": {
-    "approvedAt": "2026-11-14",
-    "evidence": "docs/content/verification/comprehension-skills.md",
-    "hash": "4b03279e886fa6ea062c82c1bd804159e1ac005007e48af409783250825be8a0",
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "e21d6c2261d90bf56665da9e038e3196d8a160e2491c2b5a04b4b6cea6f27eb6",
     "lesson": "lesson-comprehension-skills-main-idea-scope"
   },
   "q-comprehension-skills-main-idea-0021": {
@@ -3877,80 +3877,80 @@
   },
   "q-grammar-and-structure-filipino-verb-aspect-and-focus-0001": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "c78f6b3e5611e03e04065516b11b71b7aedd96b86f101f8829f08fd41c101295",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "09a23a2c5f5c14ecc04507ea56e4295718b71fafb44ca4218ff396e3e1c4b66d",
     "lesson": "lesson-grammar-and-structure-kalagayan-ng-kilos"
   },
   "q-grammar-and-structure-filipino-verb-aspect-and-focus-0002": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "7948d22ebc2c7f5a0a6d573f4b099801e12ca35895a30adb020cc8f9e96321e2",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "f3553b94e0abb7b3a48df0b17c76f3d549ff252785bc018698bb6fa53bdb3749",
     "lesson": "lesson-grammar-and-structure-kalagayan-ng-kilos"
   },
   "q-grammar-and-structure-filipino-verb-aspect-and-focus-0003": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "6f593fda46cee010e2255f01ed947b1bd21c8f0b26e44d8f9f8481cb0cb31223",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "c5ebc879e2beed9526ad6d7a3c68d63427a2094ff17d86cb98bc5a6a03159d0d",
     "lesson": "lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa"
   },
   "q-grammar-and-structure-filipino-verb-aspect-and-focus-0004": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "a16260679ef98d4edaa64152ae3105b3c1ab660d96897f6532608d8b327a3b91",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "d43de6d7eaccdc05d28696c9c7e4fafc9b4822b617d290cd840a2d3c6bbc6a93",
     "lesson": "lesson-grammar-and-structure-mga-pahiwatig-ng-oras"
   },
   "q-grammar-and-structure-filipino-verb-aspect-and-focus-0005": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "42c61e813206b3adb90a4dcd406483ca11ae961e7b053204d6d16f8ab8abac01",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "c48b044ae84476558877ffa21c06054787966f580935428b375698527946a608",
     "lesson": "lesson-grammar-and-structure-mga-pahiwatig-ng-oras"
   },
   "q-grammar-and-structure-filipino-verb-aspect-and-focus-0006": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "1d6b2f0fb6a8a33fe55638be8df1f36e6f53be86837776267b1d77c5c4ed2114",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "955d6a16e2d2d3248546f5d5718298d043b01d412e70d98ca8930f840f04fb6e",
     "lesson": "lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa"
   },
   "q-grammar-and-structure-filipino-verb-aspect-and-focus-0007": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "1753a3c959763617350988a835cb3325c80f22654d99aeda1071df08c4e8ae04",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "2e50cadde13cf1ad0d7ff3d4955dd618443cd03a86c5df04b9503fca74c43937",
     "lesson": "lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa"
   },
   "q-grammar-and-structure-filipino-verb-aspect-and-focus-0008": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "506e9520926f8ec49537aa41c1333e012b7fec5b0ace7b076904db185efcaac6",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "67832dc47632035b7084adcfa2944da44815410ce7cbe3216c1b9d3af95192da",
     "lesson": "lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa"
   },
   "q-grammar-and-structure-filipino-verb-aspect-and-focus-0009": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "2835548fb20a3e4dfe8b0bb052203ea61f17c694561dfa05ba61115e2a573dda",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "7806c57f06d565f6474e16b644351e5d04eafe774f4bdb1d043b073b5b58ea04",
     "lesson": "lesson-grammar-and-structure-pagbuo-ng-anyo-ng-pandiwa"
   },
   "q-grammar-and-structure-filipino-verb-aspect-and-focus-0010": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "00346cbbddf003c3e5d39b80082c15b166fdca19e1dc8196fcbaae91fc7bf433",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "d3eb00f4ea2a44583df47abfa65e21dc27da071a4850638b82af36160f19f83a",
     "lesson": "lesson-grammar-and-structure-mga-pahiwatig-ng-oras"
   },
   "q-grammar-and-structure-filipino-verb-aspect-and-focus-0011": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "d0a76557a7ef3ebecb8b8b29081b705e5d11f8de8b29ef430875865b7219ef92",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "0d7e8981b2d9ac21cfc55b0caa681c3bcfcde6916e307bead09001559d03ce25",
     "lesson": "lesson-grammar-and-structure-kalagayan-ng-kilos"
   },
   "q-grammar-and-structure-filipino-verb-aspect-and-focus-0012": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "593e42b8bcc3f40ed57bcbb4acad7b1526cfa3b7e49bd6997306f9e5b1a964fc",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "29af1d67af14acd125ad628eb5c078ffa40011c3e4bcd7b9b82997693db0cfa7",
     "lesson": "lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa"
   },
   "q-grammar-and-structure-filipino-verb-aspect-and-focus-0013": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "e87e671486f5831e1278cab06cbdd80e61829a23bf4de9a6a4f91adeab7e77c8",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "bf83bcab63b0f37606ed642e00ae5da458297bbdee9e2d6d9f505eb4e8d39650",
     "lesson": "lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa"
   },
   "q-grammar-and-structure-modifiers-0001": {
@@ -4261,32 +4261,32 @@
   },
   "q-grammar-and-structure-parts-of-speech-0012": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "109b43e5efa0b70a79f954432df60b992b3667a0e5e35c06a64bb34aeaf728bb",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "4c8aba526158f3d839bfe341affd835d00417512f76ba669fea5c8d4f0faa132",
     "lesson": "lesson-grammar-and-structure-pang-uri-at-pang-abay"
   },
   "q-grammar-and-structure-parts-of-speech-0013": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "10caf53ef20b46773fc40f0bed3e22316f067d3729f20ee8ab80c33a2196e2b1",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "6f8522927253e0970be4a4af2f64c3ba5c470737e1f17257e49d76c99154685f",
     "lesson": "lesson-grammar-and-structure-pangalan-kilos-at-pandiwari"
   },
   "q-grammar-and-structure-parts-of-speech-0014": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "117834322c039d5fb7d6bfa71aa1fff2d540c12b9114cb9035ba79c477782aa2",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "d19714595d8d10706ee616111a5daa0510dfe6a1fc209125a65cd5c9a585c95b",
     "lesson": "lesson-grammar-and-structure-pangalan-kilos-at-pandiwari"
   },
   "q-grammar-and-structure-parts-of-speech-0015": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "5460dfea708ea5b07c3e829bebb14401667e369a67675f1e8237a34820befd58",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "f42882d6fd72727181418307aa0a628da44ad9bc42bb216b24b49c8078b64c7b",
     "lesson": "lesson-grammar-and-structure-pangalan-kilos-at-pandiwari"
   },
   "q-grammar-and-structure-parts-of-speech-0016": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "e6e491bdca282319f2fa2f3cc30ef2d0d1181a4823802562a287498c7e7e0be6",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "3521b3c7b3b6c20128d9de689024554da6c1f134aa702222e5c2b4f739a465c2",
     "lesson": "lesson-grammar-and-structure-pang-uri-at-pang-abay"
   },
   "q-grammar-and-structure-parts-of-speech-0017": {
@@ -4543,14 +4543,14 @@
   },
   "q-grammar-and-structure-pronoun-antecedent-agreement-0012": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "d6cbbaabe0bf87d913dc48452e6e1a30d6c0d5126da3f46164a31a40dac8f0b4",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "62791dfaf9e3889291030dbe6959ef9ed189ec569bb1d68681de63ca63778eec",
     "lesson": "lesson-grammar-and-structure-mga-anyo-ng-panghalip-panao"
   },
   "q-grammar-and-structure-pronoun-antecedent-agreement-0013": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "177d454ef163fe7cffdfd2bd46165dcf1dd7219af8efd677ffd655eb28eb088d",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "af748a01770bd21690fee4961f244bf20f8e9586faa6a875260c64a1a28af566",
     "lesson": "lesson-grammar-and-structure-mga-anyo-ng-panghalip-panao"
   },
   "q-grammar-and-structure-pronoun-antecedent-agreement-0014": {
@@ -4915,26 +4915,26 @@
   },
   "q-grammar-and-structure-sentence-structure-0009": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "3ba57e5e1674d6f41a9faa3c210ec5a914794ad6bf17c19f4c31411c03feaa0d",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "7ecbeb19719c90868d7b6eaf5b7220621b81c7847d0e329d80dbf71e922eba6c",
     "lesson": "lesson-grammar-and-structure-payak-at-tambalang-pangungusap"
   },
   "q-grammar-and-structure-sentence-structure-0010": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "75c2d325e3e2cf49fdc20b17d11b6c5f07c928b03403a41167a5ad15e5caff7f",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "a3453548384204d37b83cdaa6d856ec8c94c99a857cc93d7153daaafbc2d2765",
     "lesson": "lesson-grammar-and-structure-payak-at-tambalang-pangungusap"
   },
   "q-grammar-and-structure-sentence-structure-0011": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "37385dbf099b33ef6a5fc2c447ab3df71a73e9de2c75656dde9ea7dbf16e3979",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "a5a820bdca42b4620cbe3a6c5a6ffd040a74dd279517e302327d946a06e726b3",
     "lesson": "lesson-grammar-and-structure-hugnayan-langkapan-at-ayos-ng-salaysay"
   },
   "q-grammar-and-structure-sentence-structure-0012": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "c1616443c80b7500c5bd924dbd6c3cc736292ae8a43827cab05b36d379933ff5",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "01f8f5e70b51c066bba7262d225d23a63f9b681c42b0211d1a94527971ab447c",
     "lesson": "lesson-grammar-and-structure-hugnayan-langkapan-at-ayos-ng-salaysay"
   },
   "q-grammar-and-structure-sentence-structure-0013": {
@@ -5113,14 +5113,14 @@
   },
   "q-grammar-and-structure-subject-verb-agreement-0018": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "5295f56bf242a04538331514fef5603ff2b92f0dd8ea0a98fb9b0e2f09a19fa2",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "ae503ea59d1b59bf62df7d86e3688ca40a1bf6e405baaf607044d67c1e7ca2eb",
     "lesson": "lesson-grammar-and-structure-pokus-at-papel-ng-paksa"
   },
   "q-grammar-and-structure-subject-verb-agreement-0019": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "f3fa31932a433e01931e8afd45ce536d9c489a7f71b95ce02caa4913c5f0e160",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "ca9f896def4dfabc380c3c2c245d92794acac5526b0f4734afe1349fa0a1170b",
     "lesson": "lesson-grammar-and-structure-mga-gamit-ng-pananda"
   },
   "q-grammar-and-structure-subject-verb-agreement-0020": {
@@ -5197,26 +5197,26 @@
   },
   "q-grammar-and-structure-tenses-and-voice-0008": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "6910a1396f8ed75b2ad1588143e602789afe0947582f74cbe480419f69af9d71",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "15d6dc0d0a6ded1497618e7cbd7a5b9b2937b952a03f966f87fda58546d1fb8a",
     "lesson": "lesson-grammar-and-structure-kalagayan-ng-kilos"
   },
   "q-grammar-and-structure-tenses-and-voice-0009": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "cafb1604fe3e3184e0faffe76f1e83316ede4d33ca7e3b6e7c6332440ee6aad2",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "ab07435f570cf8ae2d1bb35e366b74dfa952b4a4438d04c55a893d53523b2822",
     "lesson": "lesson-grammar-and-structure-kalagayan-ng-kilos"
   },
   "q-grammar-and-structure-tenses-and-voice-0010": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "fb3e2e3b2ae7db24f06524097e41fe4115cae825d2a979071067a96390b61ee6",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "8528bae6b2287903198ccc7ddcbcfa34acc1e01bd3212ac28566bad88245e5ea",
     "lesson": "lesson-grammar-and-structure-kalagayan-ng-kilos"
   },
   "q-grammar-and-structure-tenses-and-voice-0011": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "a7eb2b0c136294474c9e01ffccc622e958afba6e8067055a245965408e8f12e5",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "9a3a7ecd16971b0d602a0aa9ffc86cab3ff0a2594510fdfa5dc5689b70cd9792",
     "lesson": "lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa"
   },
   "q-grammar-and-structure-tenses-and-voice-0012": {
@@ -5299,20 +5299,20 @@
   },
   "q-grammar-and-structure-tenses-and-voice-0025": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "40f813e692deaaaea2d4c5b4dbafb1d2700c8614d3717163b36a1c2c23409b05",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "546a66ebfaacf5e1420708fa99648fa749bca8d821cc445ff94d841a3664ef1b",
     "lesson": "lesson-grammar-and-structure-pagbuo-ng-anyo-ng-pandiwa"
   },
   "q-grammar-and-structure-tenses-and-voice-0026": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "d14e4f6f10dfa23b61c36ef17b8c58e4f17ca05a1f6b0c9c0ad37bfdcd28bd18",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "541997fb9b7d0494d83152a44f6993daa2136deec01d61cd75293249ef26648b",
     "lesson": "lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa"
   },
   "q-grammar-and-structure-tenses-and-voice-0027": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "ebeb1eeeb56caa6088aed168fff18de8f3a003e58046bdb1caed55bbb8529716",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "11ee34efeb16717863c74d8787254cbaa086ea0c5e37d443ff7878a5c647ab1a",
     "lesson": "lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa"
   },
   "q-grammar-and-structure-tenses-and-voice-0028": {
@@ -5629,8 +5629,8 @@
   },
   "q-language-application-paragraph-organization-0017": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/language-application.md",
-    "hash": "413fc4f9c30924204e356d2398cdcf57dd5b4d6c62c4d44e2cc8a4a204360aaa",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "d0718654c731ea3ce5611159f2f2f5e35510bc93868180ef4b9ab4ce5a51fca3",
     "lesson": "lesson-language-application-pagkakasunod-at-sanhi"
   },
   "q-language-application-paragraph-organization-0018": {
@@ -5647,8 +5647,8 @@
   },
   "q-language-application-paragraph-organization-0020": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/language-application.md",
-    "hash": "12546435da73a4617c44acb18a1247f8846e2b83450576e19f73c168cf5ce4a4",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "2d324a19a02476008b45b0e5b77c6a42544f203303d4b5be8274b057b25d82e6",
     "lesson": "lesson-language-application-openings-and-reference-links"
   },
   "q-language-application-paragraph-organization-0021": {
@@ -9085,8 +9085,8 @@
   },
   "q-vocabulary-confusing-words-0004": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/vocabulary.md",
-    "hash": "cfc864e21eca17de8a98d6ed52adf4f4377874d21f5e67cb3c3d4938bf828885",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "818f00f292be58fde4ff8185ac0cf44ef2d3ae722985b65e245506ef72e20859",
     "lesson": "lesson-vocabulary-sila-at-sina"
   },
   "q-vocabulary-confusing-words-0005": {
@@ -9115,8 +9115,8 @@
   },
   "q-vocabulary-confusing-words-0009": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/vocabulary.md",
-    "hash": "382dbdb3abc957710ec1d06417c865952ad80cc5cbeaeea8b17314d4af6df11b",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "9d6fe67f2adb91489e3c3ec2d944fd7b5eb6fc158feab5fef81eb68fff6bb0e2",
     "lesson": "lesson-vocabulary-sila-at-sina"
   },
   "q-vocabulary-confusing-words-0010": {
@@ -9127,8 +9127,8 @@
   },
   "q-vocabulary-confusing-words-0011": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/vocabulary.md",
-    "hash": "004ea3c44974c3586ec4e9c833585e068df0e5a4956a1e3b02feaca8a0c2ae68",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "9e41ebac9cef3b38edd2944d5676ef9bd5b6917a8b76033c3b78e4ccc73e135c",
     "lesson": "lesson-vocabulary-sila-at-sina"
   },
   "q-vocabulary-confusing-words-0012": {
@@ -9145,8 +9145,8 @@
   },
   "q-vocabulary-confusing-words-0014": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/vocabulary.md",
-    "hash": "d53d7f4b0ba92dff40ee68c83be9bbecc1a0118d743b632e753ba1ab5b6bf2d6",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "0c555b2d3f763a7a39a889b1952d97d323bd41abfff4c64043751931b08971e5",
     "lesson": "lesson-vocabulary-ng-at-nang"
   },
   "q-vocabulary-confusing-words-0015": {
@@ -9157,8 +9157,8 @@
   },
   "q-vocabulary-confusing-words-0016": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/vocabulary.md",
-    "hash": "16a158bd405b3d8220134f7806a209425780bb2cce130f9022928fef8124a725",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "94f8ab750f8c3f2fff57a4900f1b9ed0e2a20a48a0316087565cdae9c111367b",
     "lesson": "lesson-vocabulary-ng-at-nang"
   },
   "q-vocabulary-confusing-words-0017": {
@@ -9169,8 +9169,8 @@
   },
   "q-vocabulary-confusing-words-0018": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/vocabulary.md",
-    "hash": "9e47f22b486a611cdd54077b9c50b7877923724d9a6bfb96674020f611d7d025",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "dbf267e4012edc6a3a4535ecb5fc1dc7ebcfc4b79838cd6c0b1a64d1b547e349",
     "lesson": "lesson-vocabulary-ng-at-nang"
   },
   "q-vocabulary-confusing-words-0019": {
@@ -9217,14 +9217,14 @@
   },
   "q-vocabulary-context-clues-0006": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/vocabulary.md",
-    "hash": "a763ced5a225381fbcac2ad62cafbc42eb4d1c2fb11d92af013d9c88acd5a0db",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "7126d4db759b725b837561c87129b35a0a61de2b80364991fc2ab7cf051e0add",
     "lesson": "lesson-vocabulary-definitions-examples-and-synonyms"
   },
   "q-vocabulary-context-clues-0007": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/vocabulary.md",
-    "hash": "478f722670c3cd9505aa08d99d0481ac4b8d6dda939985a7e8c3e78b98c718eb",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "fbfc220d2f414152681d154c2338b59d7a6c77517b71c5a83ade08fee5c8dde5",
     "lesson": "lesson-vocabulary-contrast-and-inference-clues"
   },
   "q-vocabulary-context-clues-0008": {
@@ -9283,8 +9283,8 @@
   },
   "q-vocabulary-context-clues-0017": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/vocabulary.md",
-    "hash": "47375c03f85efc4afd43a205d17a9451686db2be24063d56340b50b46cd1d37f",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "4f2fc06db5e324527b1cf7047d073b32c0d97482e2ec08b9a029354a3c0614bf",
     "lesson": "lesson-vocabulary-contrast-and-inference-clues"
   },
   "q-vocabulary-context-clues-0018": {
@@ -9367,32 +9367,32 @@
   },
   "q-vocabulary-idioms-and-figures-of-speech-0010": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/vocabulary.md",
-    "hash": "e087c7cd4fad74eba6efe5357eca7826da2952b501b3d0dea5abe2b92c1dab6d",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "726e122e4e07f9d56fbf1183139ef9da52d6b652c729067a25b03859f0f036f8",
     "lesson": "lesson-vocabulary-idioms-and-literal-meanings"
   },
   "q-vocabulary-idioms-and-figures-of-speech-0011": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/vocabulary.md",
-    "hash": "59a2c3466451a6921bd62c4d7573a3003a345268efff261ca4e81d0e331de6f7",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "2bc431fbe911888c7a2aa7e4000ba5f6c00189de0f9fb48fc2d34f29f33b6edc",
     "lesson": "lesson-vocabulary-paghahambing-pagbibigay-katauhan-at-pagmamalabis"
   },
   "q-vocabulary-idioms-and-figures-of-speech-0012": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/vocabulary.md",
-    "hash": "3a647c7d4b7f6c635c0b1dc0ccdd147da66238674c660073c479b7865f5d2b25",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "172751d0c30119f54bcf803a0c496aae3fb51f29c8fdaf7f78fb441e9889eb4d",
     "lesson": "lesson-vocabulary-paghahambing-pagbibigay-katauhan-at-pagmamalabis"
   },
   "q-vocabulary-idioms-and-figures-of-speech-0013": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/vocabulary.md",
-    "hash": "1a212505969cdc7a2131d40e16bd1ca04c4f1f5fa775b1354c160bc3ed76f9d2",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "4cd6937226eb06ead762a5de5b6c3454fc652c1a8e1f7bdaf8fd57e6fd4fba7d",
     "lesson": "lesson-vocabulary-paghahambing-pagbibigay-katauhan-at-pagmamalabis"
   },
   "q-vocabulary-idioms-and-figures-of-speech-0014": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/vocabulary.md",
-    "hash": "4e99030f7013c9ce585fca0e4f2971c871888d754494720d113704ff1599b5d0",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "dde1446bf300e24b378fd2281c2f28c563e7ac59a7e5c5f198d6ffd7ee908935",
     "lesson": "lesson-vocabulary-paghahambing-pagbibigay-katauhan-at-pagmamalabis"
   },
   "q-vocabulary-idioms-and-figures-of-speech-0015": {
@@ -9421,8 +9421,8 @@
   },
   "q-vocabulary-idioms-and-figures-of-speech-0019": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/vocabulary.md",
-    "hash": "72ee75aa1fdae1037b05b51ce84aabae01ab37c89c7de58e47096be3817b7a4e",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "d9fd3b8294674a0dbbf41ae649bbb55fd712d1bb5a540bb31ceaac8100b29ea3",
     "lesson": "lesson-vocabulary-idioms-and-literal-meanings"
   },
   "q-vocabulary-idioms-and-figures-of-speech-0020": {
@@ -9445,14 +9445,14 @@
   },
   "q-vocabulary-root-words-prefixes-suffixes-0003": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/vocabulary.md",
-    "hash": "561da73b4125399724af071059552acca44ed15b2326ed4919774d0fbabb9419",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "ff476556f42a4527ab0785a66ba2d9d282a78a3c78d904ee9ce0187de182809d",
     "lesson": "lesson-vocabulary-ugat-unlapi-gitlapi-at-hulapi"
   },
   "q-vocabulary-root-words-prefixes-suffixes-0004": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/vocabulary.md",
-    "hash": "a0542e9c7dc4d4ae5fc4c6c558df0f1b8a43710c5504b1c14731adbf357f3723",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "5c30b2ca01ef907735ad9945caeb042879085fb17a02bccf5f9b1bdae8816e26",
     "lesson": "lesson-vocabulary-panlaping-kabilaan-at-laguhan"
   },
   "q-vocabulary-root-words-prefixes-suffixes-0005": {
@@ -9487,8 +9487,8 @@
   },
   "q-vocabulary-root-words-prefixes-suffixes-0010": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/vocabulary.md",
-    "hash": "042400ac072df81b1b32f6777deafc190af71f3fb05e7754905edf2e2eb98036",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "53a13d6fa78ca21374c6c19dc6816765b986f7f097ec2439c6b8f5d07716e771",
     "lesson": "lesson-vocabulary-ugat-unlapi-gitlapi-at-hulapi"
   },
   "q-vocabulary-root-words-prefixes-suffixes-0011": {
@@ -9499,14 +9499,14 @@
   },
   "q-vocabulary-root-words-prefixes-suffixes-0012": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/vocabulary.md",
-    "hash": "4d7f853a685655bb31426c98667dbfcd0e0cbec8ee2df074f2992a2d029f0d2c",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "5972d0c7fa1e35869316db4b0b883e4b5e9b2c8ecde2428cee699007399fb64d",
     "lesson": "lesson-vocabulary-ugat-unlapi-gitlapi-at-hulapi"
   },
   "q-vocabulary-root-words-prefixes-suffixes-0013": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/vocabulary.md",
-    "hash": "39923a0b800b5c708f14334721e5800571633dbda8312a5d461289e46edc493d",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "8d98c3729e18f20cc2debdf3c380cfec165149aa8243a11e7cc53cfcfab0cec0",
     "lesson": "lesson-vocabulary-ugat-unlapi-gitlapi-at-hulapi"
   },
   "q-vocabulary-root-words-prefixes-suffixes-0014": {
@@ -9523,8 +9523,8 @@
   },
   "q-vocabulary-root-words-prefixes-suffixes-0016": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/vocabulary.md",
-    "hash": "9732f9885fb4791d602f17ee6826b399790d789e703b15618a57f1f982befe4e",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "f8917ac79bc1974bb9a144077ea7ee984521f5edf43b113b099fb35aa19c0db3",
     "lesson": "lesson-vocabulary-ugat-unlapi-gitlapi-at-hulapi"
   },
   "q-vocabulary-root-words-prefixes-suffixes-0017": {
@@ -9547,8 +9547,8 @@
   },
   "q-vocabulary-root-words-prefixes-suffixes-0020": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/vocabulary.md",
-    "hash": "8b73bcaffd4afb74d35deebb4773a87191bc1db22c237236a983acab712bb68b",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "45792e0c55af7f989e05cb3ccc463a339652b9c3cac7e1d0cbb11bf5a8bec4f6",
     "lesson": "lesson-vocabulary-ugat-unlapi-gitlapi-at-hulapi"
   },
   "q-vocabulary-root-words-prefixes-suffixes-0021": {
@@ -9601,8 +9601,8 @@
   },
   "q-vocabulary-spelling-rules-0004": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/vocabulary.md",
-    "hash": "d53239773ad608d4827b200b735590a750c93ae457ae9bc98a2c5c00107fea23",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "a5fc967debfb34eef8103e61302baf1ada9cb37cabd308c4a0de24513d1d51ea",
     "lesson": "lesson-vocabulary-baybay-ng-hiram-na-salita"
   },
   "q-vocabulary-spelling-rules-0005": {
@@ -9649,8 +9649,8 @@
   },
   "q-vocabulary-spelling-rules-0012": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/vocabulary.md",
-    "hash": "7a34e9e050c9483f309ca34757c287a29d3b3421fbb14a6f6971da562ba199d4",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "1ac00457f577a6f375e54267c6bde4d0b327f8c784f519c6de2b7d8c1d8db09c",
     "lesson": "lesson-vocabulary-baybay-ng-hiram-na-salita"
   },
   "q-vocabulary-spelling-rules-0013": {
@@ -9673,8 +9673,8 @@
   },
   "q-vocabulary-spelling-rules-0016": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/vocabulary.md",
-    "hash": "3821baa85fff76af702760edf713368c7ddd108289153856a5f5a37e7a7e22b4",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "0ade2a0f76a18c488dede864580069fb20850d26f85e0bae784390287b6d6e7a",
     "lesson": "lesson-vocabulary-baybay-ng-hiram-na-salita"
   },
   "q-vocabulary-spelling-rules-0017": {
@@ -9721,14 +9721,14 @@
   },
   "q-vocabulary-synonyms-and-antonyms-0003": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/vocabulary.md",
-    "hash": "540dd75617948b3c46697c5e19bf6d0a56483d436dd02ed681df47df58543416",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "4bf93b491c20954f6a91a427152348b2af533aecc5633da1b92c95ee8fca7827",
     "lesson": "lesson-vocabulary-kasingkahulugan-at-kasalungat"
   },
   "q-vocabulary-synonyms-and-antonyms-0004": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/vocabulary.md",
-    "hash": "497929512b21022c9ddcb3dbbe5ffff28745e9206ea11fa90c98354236c53575",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "37c158a2392294fb08f81528811e4861b4d6678ae4554564f2fa745a7095de41",
     "lesson": "lesson-vocabulary-kasingkahulugan-at-kasalungat"
   },
   "q-vocabulary-synonyms-and-antonyms-0005": {
@@ -9751,14 +9751,14 @@
   },
   "q-vocabulary-synonyms-and-antonyms-0008": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/vocabulary.md",
-    "hash": "0be6e8297d15399854ceaab2295b876b47c8f497dfdb6b139a068b98d87eaa0f",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "e07a263ba8db6808f2b597b150eb7716ec82e59636c2aac2c9ce8d1a3e39b4bc",
     "lesson": "lesson-vocabulary-kasingkahulugan-at-kasalungat"
   },
   "q-vocabulary-synonyms-and-antonyms-0009": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/vocabulary.md",
-    "hash": "23c583a9525ebc04caad3ee16b715dc12faa565bb7052847e3a5e96d165846a1",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "0f0b24d370dd97bc7f0d482c51bc5be15118cb391d09e409b261adfa82f58f0e",
     "lesson": "lesson-vocabulary-kasingkahulugan-at-kasalungat"
   },
   "q-vocabulary-synonyms-and-antonyms-0010": {
@@ -9769,8 +9769,8 @@
   },
   "q-vocabulary-synonyms-and-antonyms-0011": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/vocabulary.md",
-    "hash": "82e91e8fa2f23fd2f585a6b8ee12e8b1b15489a9637b5cde4fa988af22f41a0c",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "773655989f1aace628aa36b441ae91a4b764dd0c7ee59c2f5f27042ee7525028",
     "lesson": "lesson-vocabulary-kasingkahulugan-at-kasalungat"
   },
   "q-vocabulary-synonyms-and-antonyms-0012": {
@@ -9793,14 +9793,14 @@
   },
   "q-vocabulary-synonyms-and-antonyms-0015": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/vocabulary.md",
-    "hash": "eb56450188b196db79d52706093b3623f476831bf31a02250f1a142d51a3171f",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "a8bc71fa530f80f6f5601f73d37665d118d8cf92d35ee11e1d73d1ec9e8af21e",
     "lesson": "lesson-vocabulary-kasingkahulugan-at-kasalungat"
   },
   "q-vocabulary-synonyms-and-antonyms-0016": {
     "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/vocabulary.md",
-    "hash": "391a1fd8d96a4fafae9e8747d29d3af9aaee22cf524a9346a4c85ef0bb8bca9f",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "767f71b33515a7f319e19611b8197462ad22031258ff522f155da384938f25c5",
     "lesson": "lesson-vocabulary-kasingkahulugan-at-kasalungat"
   },
   "q-vocabulary-synonyms-and-antonyms-0017": {
@@ -10242,9 +10242,9 @@
     "lesson": "lesson-comprehension-skills-evidence-and-claim-strength"
   },
   "rc-cs-mi-0001": {
-    "approvedAt": "2026-11-14",
-    "evidence": "docs/content/verification/comprehension-skills.md",
-    "hash": "51111afd375d2716126fa35872eccf4d81e00ee52e88ef98d493d9dd7d8c46b2",
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/stream-b-audits.md",
+    "hash": "fc12d4d76b294e64f5c355036937311ff6ce8fc36e7633df9b345a1bce9e641f",
     "lesson": "lesson-comprehension-skills-main-idea-across-paragraphs"
   },
   "rc-cs-mi-0002": {
