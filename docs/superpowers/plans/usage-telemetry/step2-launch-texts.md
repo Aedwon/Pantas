@@ -32,8 +32,8 @@ dismisses it.
 - Title: Screen counts in speed reports
 - Text: Our speed and error reports now also count how often you open each screen, to see which screens are used.
   Screen counts have no account ID. You can turn these reports off in Settings, then About.
-- Buttons: "Learn More" (secondary; opens the Privacy Notice, or the Teen Notice for an under-18 account, at
-  "Speed and error reports") and "Got It" (main).
+- Buttons: "Learn More" (secondary; opens the Privacy Notice, or the Teen Notice for an under-18 account, at the
+  top: the legal pages have no section links, so it cannot open at "Speed and error reports") and "Got It" (main).
 
 ## 2. Settings switch subtitle (Settings > About, the speed and error reports switch)
 

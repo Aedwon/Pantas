@@ -176,22 +176,37 @@ void main() {
     expect(await store.isDismissed('learner-a'), isTrue);
   });
 
+  // 390, 320 and 1440 wide, light and dark, text at 1.0 and 2.0.
   final cells = <DsCell>[
-    ...dsCells,
-    const DsCell(320, 1, dark: false),
-    const DsCell(320, 2, dark: false),
-    const DsCell(320, 2, dark: true),
+    for (final width in [390.0, 320.0, 1440.0])
+      for (final dark in [false, true])
+        for (final scale in [1.0, 2.0]) DsCell(width, scale, dark: dark),
   ];
 
   dsMatrix(
-    'screen counts notice fits',
+    'screen counts notice fits, both buttons visible and tappable',
     (_) => strip(),
     cells: cells,
     check: (tester, cell) async {
       await tester.pumpAndSettle();
       expect(tester.takeException(), isNull);
-      expect(find.text('Learn More'), findsOneWidget);
-      expect(find.text('Got It'), findsOneWidget);
+      for (final label in ['Learn More', 'Got It']) {
+        final button = find.widgetWithText(
+          cell.width >= 1024 ? WebButton : PantasButton,
+          label,
+        );
+        expect(button, findsOneWidget, reason: label);
+        // The page scrolls, so a button below the fold is reached by scrolling.
+        await tester.ensureVisible(button);
+        await tester.pumpAndSettle();
+        expect(button.hitTestable(), findsOneWidget, reason: label);
+        final rect = tester.getRect(button);
+        expect(rect.left, greaterThanOrEqualTo(0), reason: label);
+        expect(rect.right, lessThanOrEqualTo(cell.width), reason: label);
+      }
+      await tester.tap(find.text('Learn More'));
+      await tester.pumpAndSettle();
+      expect(routes, ['/legal/privacy']);
     },
   );
 }
