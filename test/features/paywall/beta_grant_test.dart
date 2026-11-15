@@ -28,10 +28,10 @@ void main() {
   });
   test('cached beta has no offline grace; ordinary passes keep their grace',
       () async {
-    // Relative to now: the snapshot store reads the real clock, so a fixed
-    // end (it was midnight Nov 16 in Manila) failed once that time passed.
+    // Reading the cache drops beta passes that have ended by the real clock,
+    // so this end must stay in the future (it was a fixed Nov 16 date).
     final end = DateTime.fromMillisecondsSinceEpoch(
-      DateTime.now().add(const Duration(days: 1)).millisecondsSinceEpoch,
+      DateTime.now().add(const Duration(days: 30)).millisecondsSinceEpoch,
     );
     final held = entitlementFromGrants(
       [
