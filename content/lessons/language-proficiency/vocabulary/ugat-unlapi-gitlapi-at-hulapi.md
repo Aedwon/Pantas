@@ -7,7 +7,7 @@ topic: "topic-vocabulary"
 isActive: true
 part: 5
 partCount: 6
-ordering: 3.05
+ordering: 19
 keyPoints:
   - "Tukuyin ang salitang-ugat."
   - "Tukuyin ang unlapi, gitlapi, at hulapi."

@@ -7,7 +7,7 @@ topic: "topic-vocabulary"
 isActive: true
 part: 4
 partCount: 6
-ordering: 3.04
+ordering: 18
 keyPoints:
   - "Tell how -ly is used in a sentence."
   - "Check the word job instead of relying on its ending."

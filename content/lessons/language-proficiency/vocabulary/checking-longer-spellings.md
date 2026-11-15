@@ -7,7 +7,7 @@ topic: "topic-vocabulary"
 isActive: true
 part: 4
 partCount: 5
-ordering: 4.04
+ordering: 28
 keyPoints:
   - "Check spoken syllables, the known base, and the ending."
 ---

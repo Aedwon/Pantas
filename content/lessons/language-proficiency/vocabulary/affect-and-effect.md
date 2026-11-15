@@ -7,7 +7,7 @@ topic: "topic-vocabulary"
 isActive: true
 part: 1
 partCount: 4
-ordering: 0.01
+ordering: 21
 keyPoints:
   - "Choose affect for influence and effect for a result."
   - "Recognize effect as bring about and affect as a noun in psychology."

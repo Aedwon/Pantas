@@ -7,7 +7,7 @@ topic: "topic-vocabulary"
 isActive: true
 part: 5
 partCount: 7
-ordering: 5.05
+ordering: 8
 keyPoints:
   - "Match the feeling a word carries."
   - "Match the strength of a meaning."

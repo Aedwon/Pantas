@@ -7,7 +7,7 @@ topic: "topic-vocabulary"
 isActive: true
 part: 4
 partCount: 7
-ordering: 5.04
+ordering: 7
 keyPoints:
   - "Use the sentence to find the meaning in use."
   - "Keep the same grammar when replacing a word."

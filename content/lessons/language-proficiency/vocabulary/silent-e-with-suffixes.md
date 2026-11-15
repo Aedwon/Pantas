@@ -7,7 +7,7 @@ topic: "topic-vocabulary"
 isActive: true
 part: 2
 partCount: 5
-ordering: 4.02
+ordering: 26
 keyPoints:
   - "Drop or keep silent e when adding a suffix."
   - "Recall truly and argument as exceptions."

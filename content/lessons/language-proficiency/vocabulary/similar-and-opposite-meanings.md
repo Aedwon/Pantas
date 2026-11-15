@@ -7,7 +7,7 @@ topic: "topic-vocabulary"
 isActive: true
 part: 1
 partCount: 7
-ordering: 5.01
+ordering: 4
 keyPoints:
   - "Choose a word with a similar meaning."
   - "Choose a word with an opposite meaning."

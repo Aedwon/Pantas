@@ -7,7 +7,7 @@ topic: "topic-vocabulary"
 isActive: true
 part: 6
 partCount: 7
-ordering: 5.06
+ordering: 9
 keyPoints:
   - "Check a prefix clue against the whole word and sentence."
 ---

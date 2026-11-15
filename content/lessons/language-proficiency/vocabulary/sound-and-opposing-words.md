@@ -7,7 +7,7 @@ topic: "topic-vocabulary"
 isActive: true
 part: 3
 partCount: 4
-ordering: 2.03
+ordering: 13
 keyPoints:
   - "Recognize alliteration and onomatopoeia."
   - "Recognize an oxymoron."

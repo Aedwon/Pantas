@@ -7,7 +7,7 @@ topic: "topic-vocabulary"
 isActive: true
 part: 2
 partCount: 4
-ordering: 2.02
+ordering: 12
 keyPoints:
   - "Tell a simile from a metaphor or a literal statement."
   - "Recognize personification and exaggeration."

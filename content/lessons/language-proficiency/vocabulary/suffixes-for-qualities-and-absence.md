@@ -7,7 +7,7 @@ topic: "topic-vocabulary"
 isActive: true
 part: 3
 partCount: 6
-ordering: 3.03
+ordering: 17
 keyPoints:
   - "Use -ful and -less to describe a noun."
   - "Use -ness to name a state or quality."

@@ -7,7 +7,7 @@ topic: "topic-vocabulary"
 isActive: true
 part: 3
 partCount: 7
-ordering: 5.03
+ordering: 6
 keyPoints:
   - "Keep the same exchange when changing between opposite roles."
 ---

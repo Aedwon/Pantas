@@ -7,7 +7,7 @@ topic: "topic-vocabulary"
 isActive: true
 part: 6
 partCount: 6
-ordering: 3.06
+ordering: 20
 keyPoints:
   - "Tukuyin ang panlaping kabilaan."
   - "Tukuyin ang panlaping laguhan."

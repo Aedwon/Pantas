@@ -7,7 +7,7 @@ topic: "topic-vocabulary"
 isActive: true
 part: 1
 partCount: 4
-ordering: 2.01
+ordering: 11
 keyPoints:
   - "Use context to tell an idiom from a literal meaning."
   - "Unawain ang sawikain sa pangungusap."

@@ -7,7 +7,7 @@ topic: "topic-vocabulary"
 isActive: true
 part: 2
 partCount: 6
-ordering: 3.02
+ordering: 16
 keyPoints:
   - "Use English word elements to infer meaning."
   - "Check the whole meaning in context."

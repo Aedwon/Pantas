@@ -7,7 +7,7 @@ topic: "topic-vocabulary"
 isActive: true
 part: 1
 partCount: 3
-ordering: 1.01
+ordering: 1
 keyPoints:
   - "Use definitions and restatements to find meaning."
   - "Use examples and nearby synonyms to find meaning."

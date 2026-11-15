@@ -7,7 +7,7 @@ topic: "topic-vocabulary"
 isActive: true
 part: 3
 partCount: 4
-ordering: 0.03
+ordering: 23
 keyPoints:
   - "Gamitin ang ng sa bagay, ugnayan, dami, at bahagi ng araw."
   - "Gamitin ang nang sa paraan, noong, at kilos na inuulit."

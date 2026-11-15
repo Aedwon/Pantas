@@ -7,7 +7,7 @@ topic: "topic-vocabulary"
 isActive: true
 part: 4
 partCount: 4
-ordering: 0.04
+ordering: 24
 keyPoints:
   - "Gamitin ang sina bago ang mga pangalan at sila bilang pamalit."
 ---

@@ -7,7 +7,7 @@ topic: "topic-vocabulary"
 isActive: true
 part: 3
 partCount: 5
-ordering: 4.03
+ordering: 27
 keyPoints:
   - "Check the final letters and stress before doubling a consonant."
 ---

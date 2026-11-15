@@ -7,7 +7,7 @@ topic: "topic-vocabulary"
 isActive: true
 part: 5
 partCount: 5
-ordering: 4.05
+ordering: 29
 keyPoints:
   - "Panatilihin ang u at isingit ang w sa kuwento ayon sa tuntuning itinuro."
 ---

@@ -7,7 +7,7 @@ topic: "topic-vocabulary"
 isActive: true
 part: 7
 partCount: 7
-ordering: 5.07
+ordering: 10
 keyPoints:
   - "Piliin ang kasingkahulugan sa pangungusap."
   - "Piliin ang kasalungat ng salita."

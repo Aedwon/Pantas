@@ -7,7 +7,7 @@ topic: "topic-vocabulary"
 isActive: true
 part: 1
 partCount: 6
-ordering: 3.01
+ordering: 15
 keyPoints:
   - "Identify roots, bases, affixes, and stems."
   - "Check whether word parts explain the whole word."

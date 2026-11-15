@@ -7,7 +7,7 @@ topic: "topic-vocabulary"
 isActive: true
 part: 2
 partCount: 7
-ordering: 5.02
+ordering: 5
 keyPoints:
   - "Tell opposites with middle levels from a system with only two states."
 ---

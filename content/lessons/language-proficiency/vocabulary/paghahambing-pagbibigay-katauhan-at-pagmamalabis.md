@@ -7,7 +7,7 @@ topic: "topic-vocabulary"
 isActive: true
 part: 4
 partCount: 4
-ordering: 2.04
+ordering: 14
 keyPoints:
   - "Tukuyin ang pagtutulad at pagwawangis."
   - "Tukuyin ang pagbibigay-katauhan at pagmamalabis."

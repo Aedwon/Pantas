@@ -7,7 +7,7 @@ topic: "topic-vocabulary"
 isActive: true
 part: 2
 partCount: 4
-ordering: 0.02
+ordering: 22
 keyPoints:
   - "Use its for ownership or a connection."
   - "Expand it's to it is or it has."

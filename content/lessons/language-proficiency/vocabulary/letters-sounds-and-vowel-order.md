@@ -7,7 +7,7 @@ topic: "topic-vocabulary"
 isActive: true
 part: 1
 partCount: 5
-ordering: 4.01
+ordering: 25
 keyPoints:
   - "Recognize vowels, consonants, syllables, and stress."
   - "Check vowel order and exceptions to the spelling rhyme."

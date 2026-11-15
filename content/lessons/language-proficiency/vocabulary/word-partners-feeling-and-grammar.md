@@ -7,7 +7,7 @@ topic: "topic-vocabulary"
 isActive: true
 part: 3
 partCount: 3
-ordering: 1.03
+ordering: 3
 keyPoints:
   - "Check word partners and the meaning used in context."
   - "Check feeling, formality, and grammar when choosing a meaning."

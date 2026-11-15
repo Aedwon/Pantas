@@ -7,7 +7,7 @@ topic: "topic-vocabulary"
 isActive: true
 part: 2
 partCount: 3
-ordering: 1.02
+ordering: 2
 keyPoints:
   - "Use contrasts to find meaning."
   - "Infer meaning from actions, details, and results."
