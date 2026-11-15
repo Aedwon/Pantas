@@ -89,6 +89,17 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Manager waited to be asked instead of acting in his interest (Nov 15)
+
+- His words: "do your job more proactively. it should be in my best interests always. that includes my interests for peak user experience decisions"
+- Wrong: the manager relayed and reported but did not go looking. Several problems sat open until Aedwon or a lead found them: fixed costs billing with no users, the beta gate's built-in end date (found by chance while preparing the extension), the exit survey reachable only from Settings (0 of 19 replies), medium tester-facing bugs in the beta digest with no fix in flight, and a tester email that landed in Promotions.
+- Why it got through: the manager's checklist covers what leads report, not what nobody has looked at. No step asked "what is costing him money, hurting users, or about to break on a date?"
+- Fix (a required step for the operations manager): at takeover, at each scheduled event, and at least daily while lanes run, sweep three things and start a fix for each finding without waiting to be asked (through a lead, with a Fable 5.2 ruling where a decision is needed; prod still needs his "ship it"):
+  1. Cost: anything billing without users (written rule 7).
+  2. Users: every open medium or higher item in the beta digest and tester feedback has an owner and a fix in flight. UX decisions aim at the best experience, following the approved boards and his rulings from use.
+  3. Dates: hardcoded dates, expiries, quotas and scheduled cutoffs in code, config and schedules within the next 14 days.
+  Tell him what was found and started, in one line each.
+
 ### Billed for test traffic and scheduled jobs (Nov 15)
 
 - His words: "that is absurd, i should never have been billed in the first place with just testing traffic and scheduled jobs. make this a strict standing rule. this should never happen again. the only thing that should bill us is due to users, and that's justifiable and by then we should be already able to cover the costs. i am disappointed. as the operations manager please make sure these things don't happen again. then you also have the prerogative to consult fable, and do other necessary checks that would lead to this same situation"
