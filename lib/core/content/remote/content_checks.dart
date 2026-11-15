@@ -29,6 +29,7 @@ class ContentChecks {
   String _day = '';
   String? _uid;
   String? _access;
+  DateTime? _versionCheck;
   final _ids = <String>{};
 
   String get _today {
@@ -48,6 +49,8 @@ class ContentChecks {
         _day = json['day'] as String? ?? '';
         _uid = json['uid'] as String?;
         _access = json['access'] as String?;
+        _versionCheck =
+            DateTime.tryParse(json['versionCheck'] as String? ?? '');
         _ids.addAll((json['ids'] as List? ?? const []).cast<String>());
       } on Object catch (error) {
         // An unreadable record only means more checks, never a wrong skip.
@@ -70,6 +73,7 @@ class ContentChecks {
       'day': _day,
       'uid': _uid,
       'access': _access,
+      'versionCheck': _versionCheck?.toIso8601String(),
       'ids': _ids.toList(),
     });
     return _writing = _writing.then((_) async {
@@ -79,6 +83,19 @@ class ContentChecks {
         debugPrint('Content checks not saved: $error');
       }
     });
+  }
+
+  /// When the catalog version was last checked on this device, kept across
+  /// runs so an app reopened often does not ask each time.
+  Future<DateTime?> lastVersionCheck() async {
+    await _ready();
+    return _versionCheck;
+  }
+
+  Future<void> markVersionChecked(DateTime at) async {
+    await _ready();
+    _versionCheck = at;
+    await _save();
   }
 
   Future<bool> isFresh(ContentKind kind, String id) async {

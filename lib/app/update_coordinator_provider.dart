@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/content/remote/content_service_providers.dart';
 import 'package:pantas/core/platform/app_update/update_bridge.dart';
 import 'package:pantas/core/platform/app_update/update_coordinator.dart';
 import 'package:pantas/core/platform/app_update/update_overlay_registry.dart';
@@ -21,6 +22,11 @@ final updateCoordinatorProvider = Provider<UpdateCoordinator>((ref) {
       error,
       stack,
     ),
+    // The web content mirror compares the server's content version here, at
+    // the same safe points the build update uses.
+    onSafePoint: kIsWeb
+        ? () => ref.read(contentMirrorProvider).checkContentVersion()
+        : null,
   );
   if (kIsWeb) {
     void overlaysChanged() {
