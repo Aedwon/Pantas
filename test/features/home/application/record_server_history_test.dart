@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/home/application/record_provider.dart';
@@ -19,6 +20,8 @@ void main() {
       'without local mock authority', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
+    final contentDb = openTestContentDatabase();
+    addTearDown(contentDb.close);
     final start = DateTime(2026, 10, 24);
     await db.into(db.mockAttempts).insert(
           MockAttemptsCompanion.insert(
@@ -46,6 +49,7 @@ void main() {
     final scope = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
         mockUsesServerProvider.overrideWithValue(true),
         mockHistoryProvider.overrideWith(
           (_) => Stream.value([
@@ -95,6 +99,7 @@ void main() {
     );
     scope.updateOverrides([
       appDatabaseProvider.overrideWithValue(db),
+      contentDatabaseProvider.overrideWithValue(contentDb),
       mockUsesServerProvider.overrideWithValue(true),
       mockHistoryProvider.overrideWith(
         (_) => Stream.value([
@@ -139,10 +144,13 @@ void main() {
     // account, and that used to become "Could not load your progress.".
     final db = inMemoryDatabase();
     addTearDown(db.close);
+    final contentDb = openTestContentDatabase();
+    addTearDown(contentDb.close);
     var asked = false;
     final scope = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
         mockUsesServerProvider.overrideWithValue(true),
         authStateProvider.overrideWith(
           (_) => Stream.value(const AuthState.anonymous(uid: 'guest')),

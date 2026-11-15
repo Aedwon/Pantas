@@ -313,3 +313,27 @@ the current decision log.
   index, bootstrap, deployment guide and Drift opener against origin/main; require
   an empty diff. Retain Node regressions for no-store detection, worker update,
   failed/slow retry and reload-only apply. No new worker or hosting migration ships.
+
+### Nov 14, 2026: a tool cache file was pushed to a public branch
+
+- Words: not Aedwon's; the manager's instruction: "leave the history alone; no force push", then "check `git status` for tool cache files before pushing".
+- Wrong: the security fixes lead committed `tool/cloudflare-app/.wrangler/cache/wrangler-account.json` (the Cloudflare account name, which contains Aedwon's Gmail address, and the account id) and pushed it to `web/security-cloudflare-r1`. Removed in the next commit; the history stays, by the manager's ruling (the address already appears as the author email on public commits).
+- Why: `git add <folder>` staged a cache that wrangler writes next to its config, and nothing ignored it.
+- Fix: `.wrangler/` is in the root `.gitignore` (any depth). Required step before every push: read `git status` and the staged file list, and unstage any tool cache or local state file (`.wrangler/`, `.firebase/`, `node_modules/`, build output).
+
+### Nov 14, 2026: a failed staging build was deployed to staging
+
+- Words: none; found by the DS4 lead.
+- Wrong: the goldens-lock staging deploy ran in a fresh worktree without generated code, so `flutter build web` failed, but the same shell line went on to deploy the partial `build/web` (23 files, no `version.json`) to Firebase Hosting and the Cloudflare Worker. staging.pantas.study was broken from 15:07 to 15:09 UTC, until the lead re-released the previous Hosting version and mirrored it to the Worker.
+- Why: the deploy steps were joined with `;`, not stopped on failure, and a fresh worktree needs `dart run build_runner build --delete-conflicting-outputs` before any Flutter build.
+- Fix: every build-and-deploy line uses `set -e` or `&&`, and checks that `build/web/version.json` and `build/web/main.dart.js` exist before any `firebase deploy` or Worker upload. A fresh worktree runs codegen first.
+
+
+### Nov 14, 2026: a functions deploy ran with the wrong firebase-tools
+
+- Words: not Aedwon's; found by the integrator on a staging deploy and diagnosed by the security fixes lead.
+- Wrong: a staging deploy used the global firebase-tools 15.26.0, which does not pass `functions/.env.<project>` to discovery, so the deploy planned functions the deployed code then did not export; every scheduled function failed its health check.
+- Why: deploy steps said `firebase deploy` without naming the CLI, and the repository's pinned version differs from the global one on this Mac.
+- Fix: a check. `functions/src/scheduleGate.ts` throws during discovery for pantas-prod or pantas-staging when the project's `.env` file is missing, naming the pinned CLI; tests in `functions/test/scheduled-gating.test.mjs` (failing first). Required step: functions deploys use `npx --prefix functions firebase deploy`.
+
+- Nov 15 (manager): when Aedwon sets a multi-item goal, give an overall estimate at once and log it in the velocity log before work starts (E-080 had none until he asked). Back every timed lead step (cutovers, watches, staged rollouts) with a durable T3 scheduled reminder, because in-session timers die with the session; the Nov 14 18:07 Cloudflare cutover slipped 30 minutes without one.

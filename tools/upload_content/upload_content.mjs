@@ -7,6 +7,8 @@
 //                                [--export FILE] [--out-dir DIR]
 // The catalog needs the exam, subject, topic and blueprint rows the bundled build produces. Pass
 // --export FILE (the output of tools/build_content_export) or the tool runs that build itself with `dart`.
+// The approval gate and lesson checks run before document construction in every mode, including --dry-run,
+// --live, --out-dir and emulator runs. --skip-invalid does not bypass it.
 // --out-dir DIR writes every document to files and touches no database.
 // Without FIRESTORE_EMULATOR_HOST the tool refuses to write unless --live is given.
 // Build the functions first (npm --prefix functions run build): this reads functions/lib.
@@ -48,7 +50,29 @@ if (!process.env.FIRESTORE_EMULATOR_HOST && !live && !dryRun && !outDir) {
   process.exit(2);
 }
 
-const {blueprintItem, catalogItems, gapItem, lessonItem, questionSetItems, writeContent} = await import(pathToFileURL(join(functionsDir, 'lib/contentUpload.js')));
+const gate = spawnSync('dart', ['run', resolve(here, '../../tool/content/content_gate.dart'), '--root', root], {
+  cwd: resolve(here, '../..'), encoding: 'utf8',
+});
+if (gate.status !== 0) {
+  if (gate.stdout) process.stdout.write(gate.stdout);
+  if (gate.stderr) process.stderr.write(gate.stderr);
+  if (gate.error) console.error(gate.error.message);
+  console.error('Nothing written: the approval gate failed.');
+  process.exit(1);
+}
+
+const lessonChecks = spawnSync('dart', ['run', resolve(here, '../../tool/content/lesson_checks.dart'), '--root', root], {
+  cwd: resolve(here, '../..'), encoding: 'utf8',
+});
+if (lessonChecks.status !== 0) {
+  if (lessonChecks.stdout) process.stdout.write(lessonChecks.stdout);
+  if (lessonChecks.stderr) process.stderr.write(lessonChecks.stderr);
+  if (lessonChecks.error) console.error(lessonChecks.error.message);
+  console.error('Nothing written: the lesson checks failed.');
+  process.exit(1);
+}
+
+const {blueprintItem, catalogItems, gapItem, lessonItem, lessonQuizSize, questionSetItems, writeContent} = await import(pathToFileURL(join(functionsDir, 'lib/contentUpload.js')));
 const items = [];
 const pros = [];
 const invalid = [];
@@ -63,6 +87,9 @@ for (const file of existsSync(sourcesRoot) ? walk(sourcesRoot, '.yaml') : []) {
   }
 }
 
+const suppliedExport = option('--export', undefined);
+const exportedLessons = new Map((suppliedExport
+  ? JSON.parse(readFileSync(suppliedExport, 'utf8')).lesson ?? [] : []).map(l => [l._id, l]));
 const lessonKeys = new Set();
 for (const file of walk(join(root, 'lessons'), '.md')) {
   lessonKeys.add(relative(join(root, 'lessons'), file).split('\\').join('/').replace(/\.md$/, ''));
@@ -71,6 +98,9 @@ for (const file of walk(join(root, 'lessons'), '.md')) {
     const match = /^---\n([\s\S]*?)\n---\n?([\s\S]*)$/.exec(text);
     if (!match) throw new Error('no frontmatter');
     const front = parse(match[1]);
+    const exported = exportedLessons.get(front._id);
+    front.quizSize = exported?.quizSize ?? lessonQuizSize(front, match[2]);
+    if (exported?.ordering != null) front.ordering = exported.ordering;
     const body = resolveLessonIllustrations(match[2], relative(join(root, 'lessons'), file).split('\\').join('/'), illustrationRoot, credits);
     assertResolvedLessonSize(body);
     items.push(lessonItem(front, body));

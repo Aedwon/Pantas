@@ -1,3 +1,4 @@
+import {lessonCredit} from './_lessonCredit.js';
 import {enforceAppCheck} from './_appCheck.js';
 import {createHash} from 'node:crypto';
 import {FieldPath, getFirestore, type Firestore} from 'firebase-admin/firestore';
@@ -103,14 +104,17 @@ export async function build(db: Firestore, uid: string, settings: ExamSettings, 
   const scope = needsAuthoredLinks ? await loadStudyContentLinks(db, settings.examId) : null;
   const links = new Map(scope?.questions.map(q => [q.id, q]) ?? []);
   const lessonLinks = new Map(scope?.lessons.map(l => [l.id, l]) ?? []);
+  const excludedIds = new Set(lessonCredit(legacy.retiredReplacements??{},new Map((settings.excludedLessonIds??[]).map(id=>[id,true])),()=>0).keys());
+  const readDocs = await db.collection(`users/${uid}/server/lessonReads/items`).get();
+  const readTimes = lessonCredit(legacy.retiredReplacements??{},new Map(readDocs.docs.map(d=>[String(d.get('lessonId')),Number(d.get('readAt'))])),(a,b)=>a-b);
   const lessons = legacy.lessons.filter(l =>
     !settings.excludedTopicIds?.includes(l.topicId) &&
     !settings.excludedTopicIds?.includes(lessonLinks.get(l.id)?.topicId ?? l.topicId) &&
-    !settings.excludedLessonIds?.includes(l.id));
+    !excludedIds.has(l.id));
   const questions = legacy.questions.filter(q =>
     !settings.excludedTopicIds?.includes(q.topicId) &&
     !settings.excludedTopicIds?.includes(links.get(q.id)?.topicId ?? q.topicId) &&
-    !settings.excludedLessonIds?.includes(links.get(q.id)?.lessonId ?? ''))
+    !excludedIds.has(links.get(q.id)?.lessonId ?? q.lessonId ?? ''))
     .map(q => ({...q, lessonId: links.get(q.id)?.lessonId ?? null}));
   const content = {topics: legacy.topics.filter(t =>
     !settings.excludedTopicIds?.includes(t.id) &&
@@ -134,7 +138,7 @@ export async function build(db: Firestore, uid: string, settings: ExamSettings, 
     examDate: settings.examDate,
     topics: content.topics.filter(t => !settings.excludedTopicIds?.includes(t.id)).map((topic, authoredIndex) => ({id: topic.id, authoredIndex, name: topic.name})),
     lessonLinks: {}, history: [], recall: {}, gapTags: {},
-    lessons: content.lessons.filter(l => !settings.excludedTopicIds?.includes(l.topicId) && !settings.excludedLessonIds?.includes(l.id)).map(lesson => ({id: lesson.id, topicId: lesson.topicId, ordering: lesson.ordering, readAt: null})),
+    lessons: content.lessons.filter(l => !settings.excludedTopicIds?.includes(l.topicId) && !excludedIds.has(l.id)).map(lesson => ({id: lesson.id, topicId: lesson.topicId, ordering: lesson.ordering, readAt: readTimes.has(lesson.id)?phStamp(readTimes.get(lesson.id)!):null})),
     questions: content.questions.filter(q => !settings.excludedTopicIds?.includes(q.topicId)).map(q => ({id: q.id, topicId: q.topicId, lessonId: 'lessonId' in q ? q.lessonId : null, passageId: q.passageId})),
     seenQuestionIds: answers.seenQuestionIds,
     dueReviews: await dueReviewInputs(db, uid, now, new Set(content.questions.map(q => q.id))),
@@ -207,7 +211,7 @@ export async function saveExamSettings(auth: Auth, data: unknown, deps: RoadmapD
       }
       const content = await loadStudyContent(deps.db, settings.examId, tx);
       // A phone's local topic list may hold ids the catalog does not, so unknown ids are dropped, not refused.
-      const known = new Set(content.topics.map(t => t.id)), knownLessons = new Set(content.lessons.map(l => l.id));
+      const known = new Set(content.topics.map(t => t.id)), knownLessons = new Set([...content.lessons.map(l => l.id),...Object.keys(content.retiredReplacements??{})]);
       // A device that sends no list keeps the track's scope, so it can never widen a narrowed track.
       const topics = (settings.excludedTopicIds ?? (track.get('excludedTopicIds') as string[] | undefined) ?? []).filter(id => known.has(id));
       const lessons = (settings.excludedLessonIds ?? (track.get('excludedLessonIds') as string[] | undefined) ?? []).filter(id => knownLessons.has(id));
@@ -227,9 +231,10 @@ export async function saveExamSettings(auth: Auth, data: unknown, deps: RoadmapD
       const content = await loadStudyContent(deps.db, settings.examId,tx);
       if (settings.excludedTopicIds?.some(id => !content.topics.some(t => t.id === id)) ||
           content.topics.every(t => (settings.excludedTopicIds ?? []).includes(t.id))) throw bad('Choose at least one known topic.');
-      if (settings.excludedLessonIds?.some(id => !content.lessons.some(l => l.id === id)) ||
+      const excludedIds = new Set(lessonCredit(content.retiredReplacements??{},new Map((settings.excludedLessonIds??[]).map(id=>[id,true])),()=>0).keys());
+      if (settings.excludedLessonIds?.some(id => !content.lessons.some(l => l.id === id) && !(id in (content.retiredReplacements??{}))) ||
           (settings.excludedLessonIds?.length && content.lessons.every(l =>
-            settings.excludedTopicIds?.includes(l.topicId) || settings.excludedLessonIds!.includes(l.id)) &&
+            settings.excludedTopicIds?.includes(l.topicId) || excludedIds.has(l.id)) &&
             !content.topics.some(t => !settings.excludedTopicIds?.includes(t.id) &&
               !content.lessons.some(l => l.topicId === t.id)))) {
         throw bad('Choose at least one known lesson.');
@@ -303,7 +308,7 @@ function historicalView(context: Awaited<ReturnType<typeof studyContext>>, store
   const snapshot = JSON.parse(String(stored.get('snapshotJson')));
   const end = dayStart(day) + DAY_MS;
   return runCoreState({operation:'snapshotView',snapshot,completion:{
-    readLessonIds:context.reads.docs.filter(d=>Number(d.get('readAt'))<end).map(d=>String(d.get('lessonId'))),
+    readLessonIds:[...context.creditedReads].filter(([,at])=>at<end).map(([id])=>id),
     seenQuestionIds:[...firstCompletedBefore(context.totals, end)],reviewedTodayIds:[...reviewedToday]}});
 }
 function revisionOf(settings: StudyBody, contentRevision: string, totals: Totals, readRows: FirebaseFirestore.QuerySnapshot) {
@@ -332,7 +337,8 @@ async function studyContext(tx: FirebaseFirestore.Transaction, db: Firestore, ui
     track ?? tx.get(db.doc('content/mocks/items/' + examId)),
     tx.get(studyHistory(db, uid).where('examId', '==', examId).where('occurredAt', '>=', dayStart(phDay(now))).where('occurredAt', '<', dayStart(phDay(now)) + DAY_MS)),
   ]);
-  const excludedLessons = new Set(config.excludedLessonIds ?? []);
+  const excludedLessons = new Set(lessonCredit(allContent.retiredReplacements??{},new Map((config.excludedLessonIds??[]).map(id=>[id,true])),()=>0).keys());
+  const creditedReads = lessonCredit(allContent.retiredReplacements??{},new Map(reads.docs.map(d=>[String(d.get('lessonId')),Number(d.get('readAt'))])),(a,b)=>a-b);
   const content = scopeLessonContent(allContent, config.excludedTopicIds, config.excludedLessonIds);
   const customBlueprint = track ? storedBlueprint(track) : undefined;
   const totals = await totalsIn(tx, db, uid, totalDoc), topicOf = new Map(content.questions.map(q => [q.id, q.topicId]));
@@ -357,8 +363,7 @@ async function studyContext(tx: FirebaseFirestore.Transaction, db: Firestore, ui
     today, examId, examDate: config.examDate, studyDays: config.studyDays, treatTodayAsStudyDay: false,
     topics: content.topics.map((t, i) => ({id: t.id, name: t.name, authoredIndex: i})),
     lessonLinks, history: answerView.history, recall: Object.fromEntries(recallRows.map(r => [r.id, r.retrievability])), gapTags,
-    lessons: content.lessons.map(l => ({...l, readAt: reads.docs.find(d => d.get('lessonId') === l.id)?.get('readAt') == null
-      ? null : phStamp(Number(reads.docs.find(d => d.get('lessonId') === l.id)!.get('readAt')))})),
+    lessons: content.lessons.map(l => ({...l, readAt: creditedReads.has(l.id)?phStamp(creditedReads.get(l.id)!):null})),
     questions: content.questions, seenQuestionIds: answerView.seenQuestionIds,
     dueReviews: due.map(r => ({...r, due: phStamp(r.due)})),
     scores: answerView.scores, answeredPerActiveDay: answerView.answeredPerActiveDay,
@@ -370,14 +375,14 @@ async function studyContext(tx: FirebaseFirestore.Transaction, db: Firestore, ui
   const digest = JSON.stringify({examId, examDate: examDateKey(config), scope: content.topics.map(t => t.id).sort(), excludedLessons: [...excludedLessons].sort(),
     content: customBlueprint ? content.revision + '|customBlueprint:' + customBlueprint.updatedAt : content.revision,
     assessed: inputs.assessmentCompleted, mocks: relevantMocks.length, studyDays: config.studyDays.join(',')});
-  const readIds = reads.docs.map(d => String(d.get('lessonId')));
+  const readIds = content.lessons.filter(l=>creditedReads.has(l.id)).map(l=>l.id);
   const completion = {readLessonIds: readIds, seenQuestionIds: answerView.seenQuestionIds, reviewedTodayIds: [...completedOn(totals, today).ids]};
   const priorDay: string = priorRow?.get('day') ?? today;
   const priorCompletion = {...completion, reviewedTodayIds: priorDay === today ? completion.reviewedTodayIds
     : [...await completedOnDay(tx, db, uid, totals, priorDay)]};
   const input = {inputs, completion, priorCompletion, snapshot: prior, digest, now: phStamp(now), operation: 'read'};
   const state = runCoreState(input);
-  return {config, content, totals, reads, reviews, mocks, access, pro, today, inputs, input, state,
+  return {config, content, totals, reads, creditedReads, reviews, mocks, access, pro, today, inputs, input, state,
     revision: revisionOf(settings.data()!, content.revision, totals, reads), previousDays, blueprint, customBlueprint, todayChanges};
 }
 /** The setup stored on a custom track, or null when the student has not saved one. */

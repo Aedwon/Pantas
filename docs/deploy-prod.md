@@ -283,6 +283,12 @@ What is in place:
   - a usage alarm named `billing-cutoff: ...` opens (Hosting bytes, Storage egress, Firestore reads,
     Firestore writes, each per hour and per day). Alarms react within minutes; budget data lags hours.
   - `DRY_RUN=true` on the function means log only. Anything else but exactly `false` is also a dry run.
+- **Prod alarms are notify-only until Nov 21, 2026.** On prod the eight alarms are named `usage-watch: ...`
+  and only email Aedwon, so untuned thresholds cannot cut prod while baselines are collected (Fable 5.2
+  ruling, Nov 14). On Nov 21, compare them with a week of prod peaks, then wire each one: rename it to
+  `billing-cutoff: ...` and add a Pub/Sub notification channel for the `billing-cutoff` topic (first
+  grant the project's Monitoring notification agent `roles/pubsub.publisher` on the topic; the agent
+  exists once a Pub/Sub channel is created). Prod's budget cutoff ($15) is live now.
 - **Spend caps:** each project pauses Cloud Run and Cloud Run functions at $5 a month (Google's spend
   cap feature). New function requests pause until the next month or a lift.
 - **Bot-check cap:** reCAPTCHA assessments are limited to 300 a day per project (resets at Pacific midnight).
@@ -327,3 +333,59 @@ Signs: the app stops working for everyone on that project; an alarm email from C
 6. If a spend cap paused functions, lift it: edit the budget and choose "Lift spend cap" (console), or
    PATCH the budget's `spendCap.inputState` to `AWAITING_NEXT_PERIOD`. It can take up to an hour.
 7. Record what happened in the launch log.
+
+### Prod: who relinks, and in what order
+
+- Any agent session on Aedwon's Mac can relink: the owner login there has Billing Account Administrator
+  on the billing account and Owner on pantas-prod (checked Nov 14 with `testIamPermissions`). If no agent
+  is running, the 100% budget email or the alarm email reaches Aedwon; he can relink from the console.
+- Prod order, fastest safe recovery:
+  1. If it was the budget (the email says the $15 budget was passed, or the cutoff log says `cost ... over
+     budget 15`): set `DRY_RUN=true` on prod's `billing-cutoff` first, or every budget message will cut
+     again; then decide with Aedwon whether to raise the $15 amount before turning it back to `false`.
+  2. If it was an alarm: find the cause in the incident. If an attack is still running, relinking
+     restarts the bill.
+  3. Relink: `gcloud billing projects link pantas-prod --billing-account <billing account id>`.
+  4. Tell the integrator and the manager: no deploys until every function answers. Expect up to about 35
+     minutes (staging: 34 and 5 minutes). The app pages, sign-in, the database and uploads work at once.
+  5. Check all functions (list and POST, above). Then post the outage window in the launch log.
+
+
+## 14. Cloudflare serves the web app (since Nov 14, 2026)
+
+`staging.pantas.study` (since 10:34 UTC) and `app.pantas.study` (since 18:40 UTC) are served by
+Cloudflare Workers (`pantas-app-staging`, `pantas-app`) from static assets, free and unlimited, instead
+of Firebase Hosting, which bills every byte (security audit S-01). Code and tools:
+`tool/cloudflare-app/` (branch `web/security-cloudflare-r1` until merged). Plan:
+`docs/superpowers/plans/security-audit/2026-11-14-cloudflare-static-files-plan.md`.
+
+- The Worker script runs only for `/__/*`, Firebase's sign-in pages and config, and forwards them to
+  Firebase (prod: `pantas-prod.firebaseapp.com`; staging: `pantas-staging-app.web.app`). Everything else
+  is a static file, with `index.html` for app routes. Headers match what Firebase sent (`headers.prod`,
+  `headers.staging`).
+- **Every web deploy now has two parts.** Deploy to Firebase Hosting as before, then publish the same
+  files to the Worker:
+  1. `node tool/cloudflare-app/mirror.mjs <site> <project> <dir>` (prod: `pantas-prod pantas-prod`;
+     staging: `pantas-staging-app pantas-staging`), which copies the live Firebase release byte for byte;
+     or use the local `build/web` directly.
+  2. `tool/cloudflare-app/deploy.sh prod|staging <dir>` (wrangler login on Aedwon's Mac).
+  3. Wait a minute: right after a Worker deploy, some files can return 404 for under a minute while
+     Cloudflare's servers update. Then run
+     `node tool/cloudflare-app/compare.mjs <firebase site URL> https://<host> tool/cloudflare-app/dist <web api key>`
+     and require every path to match.
+  A Firebase-only deploy no longer reaches users.
+- **Rollback** (about a minute): detach the Worker's custom domain (Cloudflare Workers, the Worker,
+  Settings, Domains; or the API), then add back the DNS-only CNAME `app.pantas.study` →
+  `pantas-prod.web.app` (staging: `staging.pantas.study` → `pantas-staging-app.web.app`), TTL auto.
+  Firebase still holds the full build until the tiny page below.
+- **The tiny Firebase page** (closes S-01 on `pantas-prod.web.app`): only after 48 clean hours and one
+  confirmed real Google sign-in on prod from the logs (Fable 5.2 ruling A). The integrator deploys it.
+- **Free-plan limit:** requests that run the Worker script (`/__/*` only) count against 100,000 a day;
+  above that, new sign-ins fail with 429 until midnight UTC. Static files are unaffected.
+
+## 15. Always deploy functions with the pinned firebase-tools (Nov 14, 2026)
+
+Use `npx --prefix functions firebase deploy --only functions --project <project>`, never the global
+`firebase`. The global 15.26.0 on Aedwon's Mac reads the functions without `functions/.env.<project>`,
+so env-gated exports (staging's `SCHEDULED_JOBS=off`, `WRAPPED_PAGE_PUBLIC`) come out wrong. The code
+now stops such a deploy at discovery with an error naming the pinned CLI.

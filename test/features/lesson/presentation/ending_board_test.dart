@@ -26,14 +26,12 @@ void main() {
           const StudyLesson(
             id: 'l1',
             title: 'Circles',
-            estimatedMinutes: 10,
             isRead: true,
             isBookmarked: false,
           ),
           StudyLesson(
             id: 'l2',
             title: 'Congruence',
-            estimatedMinutes: 8,
             isRead: complete,
             isBookmarked: false,
           ),
@@ -93,7 +91,7 @@ void main() {
             expect(find.text('STILL UNREAD'), findsOneWidget);
             expect(find.byType(GroupedSection), findsOneWidget);
             expect(find.byType(ListRow), findsOneWidget);
-            expect(find.text('8 min'), findsOneWidget);
+            expect(find.textContaining(' min'), findsNothing);
           }
           expect(tester.takeException(), isNull);
         });
@@ -116,7 +114,6 @@ void main() {
           StudyLesson(
             id: 'long',
             title: title,
-            estimatedMinutes: 8,
             isRead: false,
             isBookmarked: false,
           ),

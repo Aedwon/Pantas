@@ -263,6 +263,36 @@ void main() {
     expect(bridge.applies, 1);
   });
 
+  test('a safe point runs the content check; an unsafe one does not', () async {
+    var checks = 0;
+    coordinator = UpdateCoordinator(
+      bridge: bridge,
+      waitForWrites: () async {},
+      onFailure: (_, __) {},
+      onSafePoint: () async => checks++,
+    )..routeChanged('/quiz/quick/exam');
+    await coordinator.check();
+    expect(checks, 0);
+    coordinator.routeChanged('/home');
+    await coordinator.check();
+    expect(checks, 1);
+  });
+
+  test('a failing content check is reported and does not stop the update',
+      () async {
+    final failures = <Object>[];
+    coordinator = UpdateCoordinator(
+      bridge: bridge,
+      waitForWrites: () async {},
+      onFailure: (error, _) => failures.add(error),
+      onSafePoint: () async => throw StateError('offline'),
+    )..routeChanged('/home');
+    await coordinator.check();
+    await Future<void>.delayed(Duration.zero);
+    expect(bridge.applies, 1);
+    expect(failures, hasLength(1));
+  });
+
   test('native bridge is a no-op', () async {
     final native = createUpdateBridge();
     expect((await native.check()).available, isFalse);

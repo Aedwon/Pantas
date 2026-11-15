@@ -8,22 +8,33 @@
 import 'dart:io';
 
 import 'bold_stem.dart';
+
 import 'check.dart';
+import 'content_approval_check.dart';
 import 'custom_subject_tiers.dart';
 import 'design_token_literals.dart';
 import 'legal_text_drafting.dart';
 import 'lesson_list_exam_scope.dart';
+import 'lesson_minutes_on_screen.dart';
+import 'lesson_pool_check.dart';
+import 'lesson_size_check.dart';
+import 'lesson_split_coverage_check.dart';
 import 'letter_shortcut_gate.dart';
 import 'mock_blueprint_topics.dart';
 import 'shell_route_push.dart';
 import 'sync_mutations_typed_read.dart';
 
 const allChecks = <Check>[
+  ContentApprovalCheck(),
+  LessonSizeCheck(),
+  LessonSplitCoverageCheck(),
+  LessonPoolCheck(),
   ShellRoutePushCheck(),
   SyncMutationsTypedReadCheck(),
   MockBlueprintTopicsCheck(),
   BoldStemCheck(),
   LessonListExamScopeCheck(),
+  LessonMinutesOnScreenCheck(),
   DesignTokenLiteralsCheck(),
   CustomSubjectTiersCheck(),
   LetterShortcutGateCheck(),

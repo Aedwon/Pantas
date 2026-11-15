@@ -49,14 +49,12 @@ final _cells = <DsCell>[
 const _lessonOne = StudyLesson(
   id: 'l1',
   title: 'Adding Fractions with Unlike Denominators',
-  estimatedMinutes: 9,
   isRead: true,
   isBookmarked: true,
 );
 const _lessonTwo = StudyLesson(
   id: 'l2',
   title: 'Subtracting Fractions',
-  estimatedMinutes: 7,
   isRead: false,
   isBookmarked: false,
 );
@@ -80,7 +78,6 @@ const _map = StudyMap(
   ],
   readCount: 1,
   totalCount: 2,
-  minutesLeftToRead: 7,
 );
 
 Map<String, Object?> _text(String text, {String style = 'normal'}) => {
@@ -329,7 +326,6 @@ void main() {
             lessonId: 'l1',
             title: 'Adding Fractions',
             topicName: 'Fractions',
-            estimatedMinutes: 9,
             titleMatch: SearchSnippet(
               text: 'Adding Fractions',
               matchStart: 7,
@@ -340,7 +336,6 @@ void main() {
             lessonId: 'l2',
             title: 'Subtracting',
             topicName: 'Fractions',
-            estimatedMinutes: 7,
             bodySnippet: SearchSnippet(
               text: '...a fraction names a part of a whole...',
               matchStart: 5,
@@ -379,7 +374,6 @@ void main() {
             lessonId: 'l1',
             title: 'Adding Fractions with Unlike Denominators',
             topicName: 'Fractions',
-            estimatedMinutes: 9,
             subjectName: 'Mathematics',
           ),
         ],

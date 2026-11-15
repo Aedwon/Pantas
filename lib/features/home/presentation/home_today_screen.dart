@@ -43,6 +43,7 @@ import 'package:pantas/features/home/presentation/widgets/home_skeletons.dart';
 import 'package:pantas/features/home/presentation/widgets/home_state_card.dart';
 import 'package:pantas/features/home/presentation/widgets/home_today_checklist.dart';
 import 'package:pantas/features/home/presentation/widgets/home_web_layout.dart';
+import 'package:pantas/features/lesson/application/lesson_bite_label.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/quiz/domain/paused_quiz_conflict.dart';
@@ -915,7 +916,11 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
               ),
               boardMetrics: true,
               divider: !last,
-              value: lesson.read ? null : '${lesson.minutes} min',
+              footer: LessonBiteLabel(
+                lessonId: lesson.id,
+                part: lesson.part,
+                partCount: lesson.partCount,
+              ),
               leading: HomeDrawerRing(
                 lesson.read ? 1 : lesson.fraction ?? 0,
                 done: lesson.read,
@@ -925,10 +930,12 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
             )
           : ListRow(
               title: lesson.title,
-              value: lesson.read ? null : '${lesson.minutes} min',
+              footer: LessonBiteLabel(
+                lessonId: lesson.id,
+                part: lesson.part,
+                partCount: lesson.partCount,
+              ),
               variant: ListRowVariant.value,
-              // The time keeps its own width and the title takes the rest
-              // of the row (3K-4, as 2G-21 did for search rows).
               naturalValue: true,
               // A long title is read in full, not cut with dots (Nov 3 rule).
               wrapTitle: true,
@@ -1016,11 +1023,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
                     _lessonRow(data, lesson, last: lesson == shown.last),
                 ],
               ],
-        startLabel: _sheet == 'lesson'
-            ? (next?.fraction ?? 0) > 0
-                ? 'Resume Lesson'
-                : 'Start Lesson'
-            : 'Continue Lesson',
+        startLabel: homeLessonButtonLabel(next),
         onStart: next == null ? null : () => unawaited(_openLesson(data, next)),
         busy: _busy,
         failure: _failed

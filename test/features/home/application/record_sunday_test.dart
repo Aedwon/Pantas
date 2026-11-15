@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:drift/drift.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/home/application/record_provider.dart';
@@ -11,6 +12,8 @@ void main() {
   test('weekly record groups Sunday and following Monday together', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
+    final contentDb = openTestContentDatabase();
+    addTearDown(contentDb.close);
     final dates = [
       DateTime(2026, 9, 27, 12),
       DateTime(2026, 10, 4, 12),
@@ -38,6 +41,7 @@ void main() {
     final container = ProviderContainer(
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
         recordNowProvider.overrideWithValue(DateTime(2026, 10, 6)),
       ],
     );

@@ -63,9 +63,11 @@ Future<void> writeContentSeed({
       });
       await _insertMaybeList(json['question'], (doc) async {
         final parsed = parseQuestion(doc);
-        await db
-            .into(db.contentQuestions)
-            .insertOnConflictUpdate(parsed.question);
+        await db.into(db.contentQuestions).insertOnConflictUpdate(
+              legacySchema8Fixture
+                  ? parsed.question.copyWith(keyPoint: const Value.absent())
+                  : parsed.question,
+            );
         await db.batch(
           (batch) => batch
             ..insertAllOnConflictUpdate(db.contentChoices, parsed.choices)
@@ -76,9 +78,18 @@ Future<void> writeContentSeed({
         );
       });
       await _insertMaybeList(json['lesson'], (doc) {
-        return db
-            .into(db.contentLessons)
-            .insertOnConflictUpdate(parseLesson(doc));
+        return db.into(db.contentLessons).insertOnConflictUpdate(
+              legacySchema8Fixture
+                  ? parseLesson(doc).copyWith(
+                      quizSize: const Value.absent(),
+                      status: const Value.absent(),
+                      replacedBy: const Value.absent(),
+                      part: const Value.absent(),
+                      partCount: const Value.absent(),
+                      keyPointsJson: const Value.absent(),
+                    )
+                  : parseLesson(doc),
+            );
       });
       await _insertMaybeList(json['mockBlueprint'], (doc) {
         final row = parseMockBlueprint(doc);
@@ -137,12 +148,37 @@ class _Schema8ContentSeedDatabase extends ContentDatabase {
       '"score_bands_json" TEXT NULL, "total_published_items" INTEGER NULL, '
       '"source" TEXT NULL, "source_note" TEXT NULL, PRIMARY KEY ("id"))';
 
+  static const _schema8Lessons =
+      'CREATE TABLE "content_lessons" ("id" TEXT NOT NULL, "schema_version" '
+      'INTEGER NOT NULL, "is_active" INTEGER NOT NULL DEFAULT 1 CHECK '
+      '("is_active" IN (0, 1)), "updated_at" TEXT NOT NULL, "topic_id" TEXT '
+      'NOT NULL REFERENCES content_topics (id), "subtopic_id" TEXT NULL, '
+      '"title" TEXT NOT NULL, "summary" TEXT NOT NULL, "estimated_minutes" '
+      'INTEGER NOT NULL, "ordering" INTEGER NOT NULL DEFAULT 0, "body_json" '
+      'TEXT NOT NULL, PRIMARY KEY ("id"))';
+
+  static const _schema8Questions =
+      'CREATE TABLE "content_questions" ("id" TEXT NOT NULL, '
+      '"schema_version" INTEGER NOT NULL, "is_active" INTEGER NOT NULL '
+      'DEFAULT 1 CHECK ("is_active" IN (0, 1)), "updated_at" TEXT NOT NULL, '
+      '"topic_id" TEXT NOT NULL REFERENCES content_topics (id), '
+      '"subtopic_id" TEXT NULL, "language" TEXT NOT NULL, "stem_json" TEXT '
+      'NOT NULL, "explanation_json" TEXT NOT NULL, "version" INTEGER NOT '
+      'NULL, "lesson_id" TEXT NULL REFERENCES content_lessons (id), '
+      '"passage_id" TEXT NULL REFERENCES content_passages (id), '
+      '"short_label" TEXT NULL, "figure_spec_json" TEXT NULL, PRIMARY KEY '
+      '("id"))';
+
   @override
   MigrationStrategy get migration => MigrationStrategy(
         onCreate: (m) async {
           for (final entity in allSchemaEntities) {
             if (entity == contentMockBlueprints) {
               await customStatement(_schema8MockBlueprints);
+            } else if (entity == contentLessons) {
+              await customStatement(_schema8Lessons);
+            } else if (entity == contentQuestions) {
+              await customStatement(_schema8Questions);
             } else {
               await m.create(entity);
             }

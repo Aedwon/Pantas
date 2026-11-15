@@ -179,14 +179,12 @@ void main() {
                       id: 'l1',
                       title: 'Ratios',
                       subject: 'Mathematics',
-                      minutes: 8,
                       read: false,
                     ),
                     HomeTodayLesson(
                       id: 'l2',
                       title: 'Fractions',
                       subject: 'Mathematics',
-                      minutes: 9,
                       read: false,
                     ),
                   ],
@@ -225,28 +223,24 @@ void main() {
             id: 'l1',
             title: 'Ratios',
             subject: 'Mathematics',
-            minutes: 8,
             read: true,
           ),
           HomeTodayLesson(
             id: 'l2',
             title: 'Cells',
             subject: 'Science',
-            minutes: 9,
             read: false,
           ),
           HomeTodayLesson(
             id: 'l3',
             title: 'Fractions',
             subject: 'Mathematics',
-            minutes: 7,
             read: false,
           ),
           HomeTodayLesson(
             id: 'l4',
             title: 'Atoms',
             subject: 'Science',
-            minutes: 6,
             read: false,
           ),
         ],
@@ -300,28 +294,24 @@ void main() {
             id: 'l1',
             title: title,
             subject: 'Mathematics',
-            minutes: 10,
             read: false,
           ),
           HomeTodayLesson(
             id: 'l2',
             title: 'Cells',
             subject: 'Science',
-            minutes: 9,
             read: false,
           ),
           HomeTodayLesson(
             id: 'l3',
             title: 'Fractions',
             subject: 'Mathematics',
-            minutes: 7,
             read: false,
           ),
           HomeTodayLesson(
             id: 'l4',
             title: 'Atoms',
             subject: 'Science',
-            minutes: 6,
             read: false,
           ),
         ],
@@ -333,12 +323,10 @@ void main() {
     await tester.pumpAndSettle();
     final sheet = find.byType(TodayQuestionsSheet);
     final row = find.descendant(of: sheet, matching: find.text(title));
-    final time = find.descendant(of: sheet, matching: find.text('10 min'));
-    // The time keeps its own width, so the title runs to 10 px before it
-    // instead of stopping at half of the row.
+    // The typed-in minutes are gone from the drawer rows.
     expect(
-      tester.getTopLeft(time).dx - tester.getTopRight(row).dx,
-      lessThan(16),
+      find.descendant(of: sheet, matching: find.text('10 min')),
+      findsNothing,
     );
     // A title too long for the line is read in full, not cut with dots (the
     // Nov 3 rule, 3K-4 again).
@@ -367,7 +355,6 @@ void main() {
             id: 'l1',
             title: title,
             subject: 'Constitution',
-            minutes: 10,
             read: false,
           ),
           for (var i = 2; i <= 5; i++)
@@ -375,7 +362,6 @@ void main() {
               id: 'l$i',
               title: 'Lesson $i',
               subject: 'Science',
-              minutes: 9,
               read: false,
             ),
         ],
@@ -432,7 +418,6 @@ void main() {
                     id: 'l1',
                     title: 'Ratios',
                     subject: 'Mathematics',
-                    minutes: 8,
                     read: false,
                   ),
                 ],
@@ -988,7 +973,6 @@ void settlingTests() {
             id: 'l1',
             title: 'Ratios',
             subject: 'Mathematics',
-            minutes: 8,
             read: false,
           ),
         ],

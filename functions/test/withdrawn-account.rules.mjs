@@ -71,7 +71,9 @@ for (const state of Object.keys(fixtures)) {
     for (const anonymous of [false, true]) {
       const db = context(state, anonymous).firestore(), uid = uidFor(state);
       const shareId = `${anonymous ? 'c' : 'd'}${Object.keys(fixtures).indexOf(state)}`.padEnd(32, 'e');
-      await check(setDoc(doc(db, `wrapped_shares/${shareId}`), {ownerUid: uid, storagePath: `wrapped/${uid}/${shareId}.png`, revoked: false}));
+      // Anonymous accounts can no longer publish a card, whatever their consent state.
+      await (anonymous ? assertFails : check)(setDoc(doc(db, `wrapped_shares/${shareId}`), {ownerUid: uid, storagePath: `wrapped/${uid}/${shareId}.png`, revoked: false,
+        purgeAt: new Date(Date.now() + 80 * 86_400_000)}));
       await check(updateDoc(doc(db, `wrapped_shares/${state.padEnd(32, 'b').slice(0, 32)}`), {revoked: true}));
     }
   });
@@ -83,8 +85,9 @@ for (const state of Object.keys(fixtures)) {
   test(`${state}: Storage ${label} wrapped create, update and delete for named and anonymous callers`, async () => {
     for (const anonymous of [false, true]) {
       const s = context(state, anonymous).storage(), path = `wrapped/${uidFor(state)}`;
-      await check(uploadBytes(ref(s, `${path}/${'f'.repeat(32)}.png`), bytes, png));
-      await check(uploadBytes(ref(s, `${path}/${id}.png`), bytes, png));
+      const expected = anonymous ? assertFails : check;
+      await expected(uploadBytes(ref(s, `${path}/${'f'.repeat(32)}.png`), bytes, png));
+      await expected(uploadBytes(ref(s, `${path}/${id}.png`), bytes, png));
     }
     await check(deleteObject(ref(context(state).storage(), `wrapped/${uidFor(state)}/${id}.png`)));
   });

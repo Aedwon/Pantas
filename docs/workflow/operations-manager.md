@@ -36,6 +36,8 @@ subagents. In the T3 sidebar, a worker shows as a child of its lead.
 - Runs at most two Claude lanes at once, each with few workers, and pauses the rest (Aedwon, Nov 14:
   "don't do too many at once, mind my 5-hour limits"). The integrator and the most urgent lane go
   first; paused lanes commit their work in progress and wait to be resumed.
+  Relaxed Nov 15 (Aedwon: "you can accelerate things, still have plenty of usage left"): run lanes and
+  parallel Codex jobs as needed while he has usage; return to the cap if he asks.
 
 **Leads**
 - Own their lane end to end: plan, brief workers, review every result, merge, log to main.

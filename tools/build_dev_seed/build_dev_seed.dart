@@ -389,7 +389,7 @@ List<Map<String, Object?>> buildLessons(
       'topicId': topicId,
       'title': front['title'] as String,
       'summary': front['summary'] as String,
-      'estimatedMinutes': front['estimatedMinutes'] as int,
+      'estimatedMinutes': front['estimatedMinutes'] as int?,
       'ordering': front['ordering'] as int? ?? fallback,
       'bodyJson': bodyJson,
     });

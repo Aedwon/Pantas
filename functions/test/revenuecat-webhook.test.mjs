@@ -11,5 +11,5 @@ test('AC-3 unsigned and altered requests are refused before any backend side eff
 test('the HTTP and hourly repair functions remain exported', () => {
   const index = readFileSync(new URL('../src/index.ts',import.meta.url),'utf8');
   assert.match(index,/export \{ revenuecatWebhook \}/);
-  assert.match(index,/export \{ repairEntitlementClaims \}/);
+  assert.match(index,/export const repairEntitlementClaims = .*legacy_repairEntitlementClaims/);
 });

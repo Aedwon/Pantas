@@ -601,9 +601,14 @@ export async function purgeGuardianRecords(db: Firestore, now: number): Promise<
   });
 }
 
+/** The task body, for the combined hourly run and the manual runner. */
+export async function runPurgeOldGuardianRecords(): Promise<void> {
+  await purgeGuardianRecords(getFirestore(), Date.now());
+}
+
 export const purgeOldGuardianRecords = onSchedule(
   {schedule: 'every 60 minutes', timeZone: 'Asia/Manila', region: 'asia-southeast1'},
-  async () => purgeGuardianRecords(getFirestore(), Date.now()),
+  async () => runPurgeOldGuardianRecords(),
 );
 
 function runtimeDeps(): ConsentDeps {

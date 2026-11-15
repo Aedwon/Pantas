@@ -1,3 +1,4 @@
+import 'package:drift/drift.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
@@ -40,6 +41,23 @@ void main() {
   tearDown(() async {
     await db.close();
     await contentDb.close();
+  });
+
+  test('split reads count only active parts without writing derived rows',
+      () async {
+    await seedContentLesson(contentDb, lessonId: 'old', topicId: 't1');
+    await (contentDb.update(contentDb.contentLessons)
+          ..where((l) => l.id.equals('old')))
+        .write(
+      const ContentLessonsCompanion(
+        status: Value('retired'),
+        replacedBy: Value('["l1","l2"]'),
+      ),
+    );
+    await repo.markRead('old');
+    expect(await repo.isRead('l1'), isTrue);
+    expect(await repo.readCountForTopic('t1'), 2);
+    expect(await db.select(db.lessonProgressLocal).get(), hasLength(1));
   });
 
   test('isRead returns false before markRead', () async {

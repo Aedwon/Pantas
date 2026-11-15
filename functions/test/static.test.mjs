@@ -10,7 +10,7 @@ test('index exports privacy and audit callables', () => {
   const obsoleteResetName = ['reset', 'CloudUserData'].join('');
   assert.doesNotMatch(source, new RegExp(obsoleteResetName));
   assert.match(source, /export \{ activateSyncGeneration \}/);
-  assert.match(source, /export \{ cleanupSyncData \}/);
+  assert.match(source, /export const cleanupSyncData = .*legacy_cleanupSyncData/);
   assert.match(source, /export \{ revenuecatWebhook \}/);
   assert.match(source, /export \{ recordSignInEvent \}/);
   assert.match(source, /export \{ onUserCreated \}/);
@@ -201,7 +201,7 @@ test('cleanupSyncData applies retention with a fresh active-pointer recheck', ()
   assert.ok(freshGenerationIndex < eligibilityIndex);
   assert.ok(eligibilityIndex < recursiveDeleteIndex);
 
-  assert.match(indexSource, /export \{ cleanupSyncData \}/);
+  assert.match(indexSource, /export const cleanupSyncData = .*legacy_cleanupSyncData/);
 });
 
 test('deleteAccount uses asia-southeast1 app check replay protection', () => {

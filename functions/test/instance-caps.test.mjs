@@ -4,7 +4,10 @@ import * as functions from '../lib/index.js';
 
 // The default every function gets, and the explicit limits that must not share it.
 const DEFAULT_CAP = 3;
-const EXPLICIT = {paymongoWebhook: 10, revenuecatWebhook: 10, deleteAccount: 5};
+// The combined scheduled jobs and the manual runner run one at a time: the daily jobs send email and
+// delete data, so a second instance must never start beside a running one.
+const EXPLICIT = {paymongoWebhook: 10, revenuecatWebhook: 10, deleteAccount: 5,
+  jobsFrequent: 1, jobsDailyEarly: 1, jobsDailyLate: 1, runScheduledTask: 1};
 
 const endpoints = Object.entries(functions).filter(([, fn]) => typeof fn === 'function').map(([name, fn]) => [name, fn.__endpoint]);
 

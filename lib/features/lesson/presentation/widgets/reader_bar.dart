@@ -1,11 +1,15 @@
 import 'package:flutter/foundation.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/ui/components/contents_glyph.dart';
+import 'package:pantas/core/ui/components/pantas_tap_area.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_opacity.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/web/web_hover.dart';
 import 'package:pantas/features/home/domain/lesson_day_context.dart';
 
 enum ReaderOrigin {
@@ -52,6 +56,10 @@ enum ReaderOrigin {
     }
   }
 }
+
+/// The IconButton shape (`radius-md`): contents and bookmark wash and ring as
+/// rounded rectangles, never circles.
+final _controlRadius = BorderRadius.circular(PantasRadius.md);
 
 class ReaderBar extends StatelessWidget {
   const ReaderBar({
@@ -128,36 +136,11 @@ class ReaderBar extends StatelessWidget {
                         label: 'Back to $originWord',
                         onTap: onBack ?? () => origin.leave(context),
                         child: ExcludeSemantics(
-                          child: GestureDetector(
-                            onTap: onBack ?? () => origin.leave(context),
-                            behavior: HitTestBehavior.opaque,
-                            child: ConstrainedBox(
-                              constraints: const BoxConstraints(
-                                minWidth: PantasSize.targetTouch,
-                                minHeight: PantasSize.targetTouch,
-                              ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  CustomPaint(
-                                    size: const Size(24, 24),
-                                    painter: _BackChevronPainter(
-                                      color: colors.accent,
-                                    ),
-                                  ),
-                                  const SizedBox(width: PantasSpace.s2),
-                                  Flexible(
-                                    child: Text(
-                                      originWord,
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: context.type.body.copyWith(
-                                        color: colors.accent,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: _PhoneBackLink(
+                              label: originWord,
+                              onTap: onBack ?? () => origin.leave(context),
                             ),
                           ),
                         ),
@@ -170,9 +153,10 @@ class ReaderBar extends StatelessWidget {
                         value: dayLabel,
                         onTap: onContents,
                         child: ExcludeSemantics(
-                          child: GestureDetector(
+                          child: PantasTapArea(
                             onTap: onContents,
-                            behavior: HitTestBehavior.opaque,
+                            borderRadius: _controlRadius,
+                            washColor: context.colors.iconMuted,
                             child: dayLabel == null
                                 ? SizedBox.square(
                                     dimension: PantasSize.targetTouch,
@@ -223,10 +207,17 @@ class ReaderBar extends StatelessWidget {
                           child: SizedBox.square(
                             key: const ValueKey('reader-bookmark-control'),
                             dimension: PantasSize.targetTouch,
-                            child: _ReaderBookmarkControl(
-                              key: ValueKey(lessonId ?? title),
-                              isBookmarked: isBookmarked,
+                            child: PantasTapArea(
                               onTap: onBookmark,
+                              borderRadius: _controlRadius,
+                              washColor: isBookmarked
+                                  ? context.colors.accent
+                                  : context.colors.iconMuted,
+                              child: _ReaderBookmarkControl(
+                                key: ValueKey(lessonId ?? title),
+                                isBookmarked: isBookmarked,
+                                onTap: onBookmark,
+                              ),
                             ),
                           ),
                         ),
@@ -279,6 +270,68 @@ class ReaderBar extends StatelessWidget {
               },
             ),
         ],
+      ),
+    );
+  }
+}
+
+/// The system BackLink on a phone (`back--phone`, D192): 44 high, teal
+/// chevron and label. Hover washes it in `accent` at `opacity-hover` and turns
+/// the label `accent-hover`; a press scales it; keyboard focus rings it, and
+/// Tab reaches it.
+class _PhoneBackLink extends StatelessWidget {
+  const _PhoneBackLink({required this.label, required this.onTap});
+
+  final String label;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.colors;
+    final radius = BorderRadius.circular(PantasRadius.back);
+    return PantasTapArea(
+      onTap: onTap,
+      borderRadius: radius,
+      wash: false,
+      child: WebHover(
+        builder: (context, hovered) {
+          final tone = hovered ? colors.accentHover : colors.accent;
+          return DecoratedBox(
+            decoration: BoxDecoration(
+              color: hovered
+                  ? colors.accent.withValues(alpha: PantasOpacity.hover)
+                  : Colors.transparent,
+              borderRadius: radius,
+            ),
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(
+                minWidth: PantasSize.targetTouch,
+                minHeight: PantasSize.targetTouch,
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(right: PantasSpace.s8),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    CustomPaint(
+                      size: const Size(24, 24),
+                      painter: _BackChevronPainter(color: tone),
+                    ),
+                    const SizedBox(width: PantasSpace.s2),
+                    Flexible(
+                      child: Text(
+                        label,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: context.type.body.copyWith(color: tone),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
       ),
     );
   }

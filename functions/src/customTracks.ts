@@ -1,3 +1,5 @@
+import {lessonCredit} from './_lessonCredit.js';
+import {loadCorpusCached} from './_examContent.js';
 import {enforceAppCheck} from './_appCheck.js';
 import {getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {HttpsError} from 'firebase-functions/v2/https';
@@ -30,12 +32,14 @@ export async function readCustomTracks(auth: Auth, data: unknown, deps: Deps) {
     deps.db.collection(`users/${uid}/server/customTracks/items`).orderBy('createdAt', 'desc').limit(MAX_CUSTOM_TRACKS).get(),
   ]);
   const active = settings.get('examId');
+  const needsFamily = rows.docs.some(row => ((row.id===active?settings.get('excludedLessonIds'):row.get('excludedLessonIds'))??[]).length>0);
+  const corpus = needsFamily ? await loadCorpusCached(deps.db,(deps.now??Date.now)()) : null;
   return {activeExamId: typeof active === 'string' ? active : null, tracks: rows.docs.map(row => ({
     examId: row.id, name: row.get('name') ?? null, excludedTopicIds: row.get('excludedTopicIds') ?? [],
     // Table alone: this read loads no corpus, so a topic the table does not know cannot be seen here.
     // Computed here from the server's own exclusions (settings while active, else the track), never stored or read from a request.
     priceTier: tierDisplayName(customTier((row.id === active ? settings.get('excludedTopicIds') : row.get('excludedTopicIds')) ?? [])),
-    excludedLessonIds: row.get('excludedLessonIds') ?? [], blueprint: row.get('blueprint') ?? null,
+    excludedLessonIds: [...lessonCredit(corpus?.retiredReplacements??{},new Map(((row.id===active?settings.get('excludedLessonIds'):row.get('excludedLessonIds'))??[]).map((id:string)=>[id,true])),()=>0).keys()], blueprint: row.get('blueprint') ?? null,
     createdAt: row.get('createdAt'), updatedAt: row.get('updatedAt')}))};
 }
 

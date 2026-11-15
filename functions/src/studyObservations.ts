@@ -32,6 +32,7 @@ export async function writeLessonRead(auth: Auth, data: unknown, deps: Deps): Pr
       tx.get(deps.db.doc('content/lessons/items/' + lessonId)),
       tx.get(deps.db.doc('users/' + auth.uid + '/server/lessonReads/items/' + encodeURIComponent(lessonId))),
     ]);
+    // Retired documents remain valid observations under their original id.
     if (!lesson.exists) throw new HttpsError('invalid-argument', 'Unknown lesson.');
     if (previous.exists && Number(previous.get('readAt')) <= readAt) return false;
     tx.set(previous.ref, {lessonId, readAt, receivedAt: now});

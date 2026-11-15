@@ -1,11 +1,19 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
+import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/lesson.dart';
 import 'package:pantas/core/storage/domain/subject.dart';
 import 'package:pantas/core/storage/domain/topic.dart';
 import 'package:pantas/features/lesson/domain/use_cases/build_study_map.dart';
 
-Lesson lesson(String id, {int minutes = 10, int ordering = 0}) => Lesson(
+Lesson lesson(
+  String id, {
+  int minutes = 10,
+  int ordering = 0,
+  int? part,
+  int? partCount,
+}) =>
+    Lesson(
       id: id,
       topicId: 't1',
       title: 'Lesson $id',
@@ -13,6 +21,8 @@ Lesson lesson(String id, {int minutes = 10, int ordering = 0}) => Lesson(
       bodyJson: const [],
       estimatedMinutes: minutes,
       ordering: ordering,
+      part: part,
+      partCount: partCount,
     );
 
 void main() {
@@ -50,14 +60,49 @@ void main() {
   StudyMap build({
     Set<String> read = const {},
     Set<String> bookmarked = const {},
+    Map<String, List<String>> retired = const {},
+    Map<TopicId, List<Lesson>>? lessons,
   }) =>
       buildStudyMap(
         exam: exam,
         topicsBySubject: topicsBySubject,
-        lessonsByTopic: lessonsByTopic,
+        lessonsByTopic: lessons ?? lessonsByTopic,
         readLessonIds: read,
         bookmarkedLessonIds: bookmarked,
+        retiredReplacements: retired,
       );
+
+  test('every part of a retired original is read, which is not listed', () {
+    final map = build(
+      read: {'old'},
+      retired: {
+        'old': ['t1a', 't1b'],
+      },
+      lessons: {
+        't1': [lesson('t1a'), lesson('t1b'), lesson('l2')],
+      },
+    );
+    expect(map.totalCount, 3);
+    expect(map.readCount, 2);
+    final rows = map.subjects.first.topics.first.lessons;
+    expect(rows.map((l) => l.id), ['t1a', 't1b', 'l2']);
+    expect(rows.map((l) => l.isRead), [true, true, false]);
+  });
+
+  test('a part read directly counts only itself', () {
+    final map = build(
+      read: {'t1a'},
+      retired: {
+        'old': ['t1a', 't1b'],
+      },
+      lessons: {
+        't1': [lesson('t1a'), lesson('t1b')],
+      },
+    );
+    expect(map.readCount, 1);
+    final rows = map.subjects.first.topics.first.lessons;
+    expect(rows.map((l) => l.isRead), [true, false]);
+  });
 
   for (final (examId, lastPart, lastTopic) in [
     ('exam_cse_pro', 'Analytical Ability', 'Data Interpretation'),
@@ -103,6 +148,7 @@ void main() {
           for (final topic in topics.take(5))
             topic.id: [lesson('lesson_${topic.id}')],
         },
+        retiredReplacements: const {},
         readLessonIds: const {},
         bookmarkedLessonIds: const {},
       );
@@ -160,6 +206,7 @@ void main() {
       lessonsByTopic: {
         'data': [lesson('tables')],
       },
+      retiredReplacements: const {},
       readLessonIds: const {},
       bookmarkedLessonIds: const {},
     );
@@ -183,18 +230,10 @@ void main() {
     expect(map.coveredPercent, 25);
   });
 
-  test('minutes left counts only what is unread', () {
-    final map = build(read: {'l1', 'l4'});
-
-    // 20 + 30 remain of 75.
-    expect(map.minutesLeftToRead, 50);
-  });
-
   test('a finished exam has nothing left to read', () {
     final map = build(read: {'l1', 'l2', 'l3', 'l4'});
 
     expect(map.coveredPercent, 100);
-    expect(map.minutesLeftToRead, 0);
   });
 
   test('subjects and topics keep their authored order', () {
@@ -228,6 +267,7 @@ void main() {
         's2': const [],
       },
       lessonsByTopic: const {'t1': []},
+      retiredReplacements: const {},
       readLessonIds: const {},
       bookmarkedLessonIds: const {},
     );
@@ -257,7 +297,8 @@ void main() {
 
     expect(lessons.first.title, 'Lesson l1');
     expect(lessons.first.isRead, isTrue);
-    expect(lessons.first.estimatedMinutes, 10);
+    expect(lessons.first.part, isNull);
+    expect(lessons.first.partCount, isNull);
     expect(lessons.last.isRead, isFalse);
     expect(lessons.last.isBookmarked, isTrue);
   });
@@ -270,11 +311,35 @@ void main() {
         ...lessonsByTopic,
         't9': [lesson('l9', minutes: 99)],
       },
+      retiredReplacements: const {},
       readLessonIds: const {},
       bookmarkedLessonIds: const {},
     );
 
     expect(map.totalCount, 4);
-    expect(map.minutesLeftToRead, 75);
+  });
+
+  test('a split lesson carries its part and part count to the row', () {
+    final map = buildStudyMap(
+      exam: exam,
+      retiredReplacements: const {},
+      topicsBySubject: {
+        's1': [algebra],
+      },
+      lessonsByTopic: {
+        't1': [
+          lesson('a', part: 2, partCount: 9),
+          lesson('b'),
+        ],
+      },
+      readLessonIds: const {},
+      bookmarkedLessonIds: const {},
+    );
+    final rows = map.subjects.single.topics.single.lessons;
+
+    expect(rows.first.part, 2);
+    expect(rows.first.partCount, 9);
+    expect(rows.last.part, isNull);
+    expect(rows.last.partCount, isNull);
   });
 }

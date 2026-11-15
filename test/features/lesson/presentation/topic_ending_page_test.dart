@@ -21,7 +21,6 @@ void main() {
     return StudyLesson(
       id: id,
       title: title,
-      estimatedMinutes: estimatedMinutes,
       isRead: isRead,
       isBookmarked: false,
     );

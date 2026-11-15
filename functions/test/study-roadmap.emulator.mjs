@@ -528,3 +528,28 @@ test('a listed exam reads its mock blueprint from content/mocks and never touche
   assert.equal((await db.collection('users/'+uid+'/server/customTracks/items').get()).size,0,'no write for a listed exam');
  }finally{await db.doc('content/mocks/items/'+EXAM).delete();}
 });
+
+test('retired original reads credit active parts in insights and roadmap without derived writes',async()=>{
+ const uid='family-credit-split';const {lessons}=await seed(uid);
+ await db.doc('users/'+uid+'/grants/trial').set({source:'trial',product:'web_trial',tier:'civilService',startsAt:NOW-DAY,endsAt:NOW+DAY,state:'active',createdAt:NOW-DAY});
+ const ref=db.doc('content/catalog/items/'+EXAM), stored=await ref.get(), catalog=JSON.parse(stored.get('payload'));
+ const original='lesson-credit-original';
+ catalog.lessons.push({id:original,title:'Original',topic:catalog.topics[0]._id,status:'retired',replacedBy:[lessons[0].id,lessons[1].id]});
+ catalog.sets[0].questions[1].lesson=lessons[1].id;
+ await ref.set({version:'credit-split',payload:JSON.stringify(catalog)});
+ await db.doc('content/lessons/items/'+original).set({status:'retired',replacedBy:[lessons[0].id,lessons[1].id]});
+ clearExamContentCache();
+ const {writeLessonRead}=await import('../lib/studyObservations.js');
+ assert.equal((await writeLessonRead(auth(uid),{expectedUid:uid,lessonId:original,readAt:NOW-1000},deps())).stored,true);
+ const insight=await readStudyInsights(auth(uid),body(uid),deps());
+ const parts=insight.performance.topicDetails.flatMap(t=>t.lessons).filter(l=>[lessons[0].id,lessons[1].id].includes(l.id));
+ assert.equal(parts.length,2);assert.ok(parts.every(l=>l.read));
+ assert.ok(!insight.performance.topicDetails.flatMap(t=>t.lessons).some(l=>l.id===original));
+ const roadmap=await readStudyRoadmap(auth(uid),body(uid),deps());
+ assert.ok(!roadmap.remaining.lessonIds.some(id=>[lessons[0].id,lessons[1].id,original].includes(id)));
+ const reads=await db.collection('users/'+uid+'/server/lessonReads/items').get();
+ assert.equal(reads.size,1);assert.equal(reads.docs[0].get('lessonId'),original);
+ await db.doc('users/'+uid+'/server/settings').update({excludedLessonIds:[original]});
+ const excluded=await readStudyRoadmap(auth(uid),body(uid),deps());
+ assert.ok(!excluded.today.lessonIds.some(id=>[lessons[0].id,lessons[1].id].includes(id)));
+});

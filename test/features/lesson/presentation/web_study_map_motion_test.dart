@@ -27,7 +27,6 @@ StudyLesson _lesson(String id, {bool read = false, bool bookmarked = false}) =>
     StudyLesson(
       id: id,
       title: 'Lesson $id',
-      estimatedMinutes: 10,
       isRead: read,
       isBookmarked: bookmarked,
     );
@@ -61,7 +60,6 @@ StudyMap _map({
     ],
     readCount: 1,
     totalCount: 3,
-    minutesLeftToRead: 20,
   );
 }
 
@@ -438,7 +436,6 @@ void main() {
         ],
         readCount: 0,
         totalCount: 56,
-        minutesLeftToRead: 560,
       );
       await pumpApp(tester, study(map: long));
       await tester.pumpAndSettle();

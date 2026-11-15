@@ -8,6 +8,7 @@ import 'package:pantas/features/lesson/application/lesson_search_providers.dart'
 import 'package:pantas/features/lesson/domain/models/lesson_search_hit.dart';
 import 'package:pantas/features/lesson/domain/use_cases/build_search_snippet.dart';
 import 'package:pantas/features/lesson/presentation/widgets/search_results.dart';
+import 'package:pantas/features/quiz/application/quiz_starts.dart';
 
 void main() {
   for (final dark in [false, true]) {
@@ -23,13 +24,15 @@ void main() {
           ProviderScope(
             overrides: [
               searchQueryProvider.overrideWith((_) => 'stoich'),
+              lessonQuizCountProvider.overrideWith((_, __) async => 4),
               searchResultsProvider.overrideWith(
                 (_) async => const [
                   LessonSearchHit(
                     lessonId: 'l1',
                     title: 'Stoichiometry',
                     topicName: 'Chemistry',
-                    estimatedMinutes: 13,
+                    part: 2,
+                    partCount: 9,
                     titleMatch: SearchSnippet(
                       text: 'Stoichiometry',
                       matchStart: 0,
@@ -65,8 +68,10 @@ void main() {
         expect(label.style!.fontWeight, FontWeight.w600);
         expect(label.style!.height, 1.35);
         expect(label.style!.letterSpacing, .26);
-        final minutes = tester.widget<Text>(find.text('13 min'));
-        expect(minutes.style!.fontSize, 15);
+        expect(find.textContaining(' min'), findsNothing);
+        final minutes =
+            tester.widget<Text>(find.text('Part 2 of 9 · 4 questions'));
+        expect(minutes.style!.fontSize, 13);
         expect(minutes.style!.height, 1.35);
         final row = tester.widget<ListRow>(find.byType(ListRow));
         expect(row.verticalPadding, 12);

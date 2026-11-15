@@ -191,10 +191,10 @@ const journeys = {
   // Nov 5: lessons with no questions for the exam gave "Could not load your quiz".
   async 'Home to lesson to Quiz yourself draws a question'(page) {
     await openStudent(page, 'pro2');
-    // Home draws from the plan first and adds Continue Lesson when today's
+    // Home draws from the plan first and adds the lesson button when today's
     // lesson is ready. A fixed 3.5 s wait pressed Enter before it existed on
     // slow runs (Nov 9: 6 of 8 runs failed this way while the app worked).
-    await seeLabel(page, /^Continue Lesson/, 90, 'Continue Lesson on Home');
+    await seeLabel(page, /^(Start|Resume) Lesson/, 90, 'the lesson button on Home');
     await page.waitForTimeout(500);
     await page.keyboard.press('Enter');
     await until('a lesson opened from Home', () => /\/lesson\//.test(page.url()), 20, page);

@@ -9,6 +9,29 @@ import {phDay} from './_phDate.js';
 export const DAILY_DELIVERED_CEILING = 200_000;
 
 /**
+ * A second, separate daily pool for anonymous accounts and accounts made in the last 24 hours.
+ * Throwaway accounts are free to make, so bulk copying uses them. They draw only on this pool,
+ * and named accounts older than a day draw only on the main pool above, so a full new-account
+ * pool cannot block them. The two add up to at most 250,000 ids a day.
+ */
+export const DAILY_NEW_ACCOUNT_CEILING = 50_000;
+/** An account younger than this draws on the new-account pool. */
+export const NEW_ACCOUNT_AGE_MS = 86_400_000;
+export type CeilingPool = 'main' | 'new';
+
+/** The pool a caller draws on. An unknown account age counts as new, the stricter choice. */
+export function contentPool(caller: {anonymous: boolean; createdAt: number | null; now: number}): CeilingPool {
+  if (caller.anonymous || caller.createdAt === null) return 'new';
+  return caller.now - caller.createdAt < NEW_ACCOUNT_AGE_MS ? 'new' : 'main';
+}
+
+/** `DAILY_NEW_ACCOUNT_CONTENT_CEILING` in `functions/.env` overrides the new-account pool. */
+export function configuredNewAccountCeiling(env: NodeJS.ProcessEnv = process.env): number {
+  const value = Number.parseInt(env.DAILY_NEW_ACCOUNT_CONTENT_CEILING ?? '', 10);
+  return Number.isFinite(value) && value > 0 ? value : DAILY_NEW_ACCOUNT_CEILING;
+}
+
+/**
  * The value in force. `DAILY_CONTENT_CEILING` in `functions/.env` overrides it at the next
  * deploy, for a manual raise or lowering without a code change. Read when an instance starts.
  */
@@ -32,33 +55,35 @@ const NEAR_FRACTION = 0.9;
 const WARN_FRACTION = 0.8;
 
 export type CeilingStore = {
-  /** The sum of all counters for the Philippine day `day`. */
-  read: (day: string) => Promise<number>;
-  add: (day: string, shard: number, amount: number) => Promise<void>;
+  /** The sum of all counters of `pool` for the Philippine day `day`. */
+  read: (day: string, pool?: CeilingPool) => Promise<number>;
+  add: (day: string, shard: number, amount: number, pool?: CeilingPool) => Promise<void>;
 };
 
 export type Ceiling = {
-  /** False once today's delivered total has reached the ceiling. */
-  isOpen: () => Promise<boolean>;
-  /** Adds what one call delivered. One write. Never throws. */
-  record: (delivered: number) => Promise<void>;
+  /** False once today's delivered total of `pool` (default the main pool) has reached its ceiling. */
+  isOpen: (pool?: CeilingPool) => Promise<boolean>;
+  /** Adds what one call delivered to `pool`. One write. Never throws. */
+  record: (delivered: number, pool?: CeilingPool) => Promise<void>;
 };
 
 export function firestoreCeilingStore(db: Firestore): CeilingStore {
-  const shardRef = (day: string, shard: number) =>
-    db.collection('contentCeiling').doc(day).collection('shards').doc(String(shard));
+  // The main pool keeps its original documents. The new-account pool has its own day document.
+  const shardRef = (day: string, shard: number, pool: CeilingPool) =>
+    db.collection('contentCeiling').doc(pool === 'new' ? `${day}-new` : day).collection('shards').doc(String(shard));
   return {
-    read: async (day) => {
-      const refs = Array.from({length: CEILING_SHARDS}, (_, shard) => shardRef(day, shard));
+    read: async (day, pool = 'main') => {
+      const refs = Array.from({length: CEILING_SHARDS}, (_, shard) => shardRef(day, shard, pool));
       const snapshots = await db.getAll(...refs);
       return snapshots.reduce((sum, snapshot) => {
         const value: unknown = snapshot.get('count');
         return sum + (typeof value === 'number' ? value : 0);
       }, 0);
     },
-    add: async (day, shard, amount) => {
-      // A blind increment: no read, no transaction. `purgeAfter` lets a TTL policy remove old days.
-      await shardRef(day, shard).set({
+    add: async (day, shard, amount, pool = 'main') => {
+      // A blind increment: no read, no transaction. `purgeAfter` is the field for the TTL policy
+      // on the `shards` collection group, which covers both pools.
+      await shardRef(day, shard, pool).set({
         count: FieldValue.increment(amount),
         purgeAfter: Timestamp.fromMillis(Date.now() + 3 * 86_400_000),
       }, {merge: true});
@@ -69,6 +94,8 @@ export function firestoreCeilingStore(db: Firestore): CeilingStore {
 export type CeilingOptions = {
   store: CeilingStore;
   limit?: number;
+  /** The new-account pool's ceiling. */
+  newAccountLimit?: number;
   now?: () => number;
   random?: () => number;
   /** Logs an alertable line. Defaults to `console.error`, as the guardian email cap does. */
@@ -83,66 +110,68 @@ export type CeilingOptions = {
  * ids, roughly 2,500 ids (about 1.3%).
  */
 export function createCeiling(options: CeilingOptions): Ceiling {
-  const limit = options.limit ?? configuredCeiling();
+  const limits: Record<CeilingPool, number> = {
+    main: options.limit ?? configuredCeiling(),
+    new: options.newAccountLimit ?? configuredNewAccountCeiling(),
+  };
+  const labels: Record<CeilingPool, string> = {main: 'Daily content ceiling', new: 'Daily new-account content ceiling'};
   const clock = options.now ?? Date.now;
   const random = options.random ?? Math.random;
   const alert = options.alert ?? ((message: string) => console.error(message));
-  let day = '';
-  let total = 0;
-  let readAt = 0;
-  let sinceRead = 0;
-  let warned = false;
-  let reported = false;
+  const pools: Record<CeilingPool, PoolState> = {main: freshPool(), new: freshPool()};
 
-  const refresh = async (): Promise<void> => {
+  const refresh = async (pool: CeilingPool): Promise<void> => {
+    const state = pools[pool];
+    const limit = limits[pool];
     const now = clock();
     const today = phDay(now);
-    if (today !== day) {
+    if (today !== state.day) {
       // A first call may follow `record` calls made before any read; they still belong to today.
-      if (day !== '') sinceRead = 0;
-      day = today;
-      total = 0;
-      readAt = 0;
-      warned = false;
-      reported = false;
+      const carried = state.day === '' ? state.sinceRead : 0;
+      Object.assign(state, freshPool(), {day: today, sinceRead: carried});
     }
-    const age = now - readAt;
-    const fresh = total + sinceRead >= limit * NEAR_FRACTION ? NEAR_FRESH_MS : FRESH_MS;
-    if (readAt !== 0 && age < fresh) return;
-    total = await options.store.read(day);
-    readAt = now;
-    sinceRead = 0;
+    const age = now - state.readAt;
+    const fresh = state.total + state.sinceRead >= limit * NEAR_FRACTION ? NEAR_FRESH_MS : FRESH_MS;
+    if (state.readAt !== 0 && age < fresh) return;
+    state.total = await options.store.read(state.day, pool);
+    state.readAt = now;
+    state.sinceRead = 0;
   };
 
   return {
-    isOpen: async () => {
-      await refresh();
-      const used = total + sinceRead;
-      if (!warned && used >= limit * WARN_FRACTION) {
-        warned = true;
-        alert(`Daily content ceiling reached 80% (${used} of ${limit} ids delivered today).`);
+    isOpen: async (pool = 'main') => {
+      await refresh(pool);
+      const state = pools[pool];
+      const limit = limits[pool];
+      const used = state.total + state.sinceRead;
+      if (!state.warned && used >= limit * WARN_FRACTION) {
+        state.warned = true;
+        alert(`${labels[pool]} reached 80% (${used} of ${limit} ids delivered today).`);
       }
       if (used >= limit) {
-        if (!reported) {
-          reported = true;
-          alert(`Daily content ceiling reached. ${used} of ${limit} ids delivered today; lessons and questions are refused until tomorrow.`);
+        if (!state.reported) {
+          state.reported = true;
+          alert(`${labels[pool]} reached. ${used} of ${limit} ids delivered today; lessons and questions are refused until tomorrow.`);
         }
         return false;
       }
       return true;
     },
-    record: async (delivered) => {
+    record: async (delivered, pool = 'main') => {
       if (delivered <= 0) return;
-      sinceRead += delivered;
+      pools[pool].sinceRead += delivered;
       try {
         const shard = Math.min(CEILING_SHARDS - 1, Math.floor(random() * CEILING_SHARDS));
-        await options.store.add(phDay(clock()), shard, delivered);
+        await options.store.add(phDay(clock()), shard, delivered, pool);
       } catch (error) {
         console.error('Daily content ceiling counter could not be written.', error);
       }
     },
   };
 }
+
+type PoolState = {day: string; total: number; readAt: number; sinceRead: number; warned: boolean; reported: boolean};
+const freshPool = (): PoolState => ({day: '', total: 0, readAt: 0, sinceRead: 0, warned: false, reported: false});
 
 const shared = new WeakMap<Firestore, Ceiling>();
 

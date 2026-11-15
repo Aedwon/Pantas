@@ -1,6 +1,7 @@
 import 'package:drift/drift.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/data/repos/lesson_progress_repository.dart';
 import 'package:pantas/features/metrics/domain/metric_signal.dart';
 import 'package:pantas/features/metrics/domain/metrics_window.dart';
 import 'package:pantas/features/metrics/domain/signal_outputs.dart';
@@ -57,10 +58,11 @@ class ReadThenQuizSignal implements Signal<WorkflowRatio> {
     }
 
     final reads = <({String topicId, DateTime readAt, bool inExam})>[];
-    final progress = await _db.select(_db.lessonProgressLocal).get();
-    for (final row in progress) {
+    final progress =
+        await LessonProgressRepository(_db, _contentDb).readTimes();
+    for (final row in progress.entries) {
       final lesson = await (_contentDb.select(_contentDb.contentLessons)
-            ..where((lesson) => lesson.id.equals(row.lessonId)))
+            ..where((lesson) => lesson.id.equals(row.key)))
           .getSingleOrNull();
       if (lesson == null) continue;
       final topic = await _content.topic(lesson.topicId);
@@ -69,7 +71,7 @@ class ReadThenQuizSignal implements Signal<WorkflowRatio> {
       reads.add(
         (
           topicId: lesson.topicId,
-          readAt: row.readAt,
+          readAt: row.value,
           inExam: subject?.examId == examId
         ),
       );

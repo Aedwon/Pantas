@@ -28,6 +28,27 @@ pilot's prod release. The other subjects get their own plan after the pilot.
 - No figure is invented. The UI shows only real part numbers and real question counts.
 - The repository is public: no tester data in any file.
 
+## Agent assignments (Nov 14 revision, supersedes the models named in T13 to T18 and in spec B8 rows 2 to 8)
+
+Aedwon, Nov 14: "majority of the CSE subjects split should be done by codex. claude should only be the
+orchestrator making sure things are getting done and getting checked properly by its codex agents".
+
+| Work | Who | Model |
+|---|---|---|
+| Split plans, lesson splitting, rewriting the joins (T13, T14) | Codex writer job | GPT 6.1 Sol, lowest effort |
+| Re-tagging questions, quiz sizing data, outline rows, prerequisite links (T15, parts of T14) | Codex bulk job | GPT 6 Luna |
+| New and moved questions for pool gaps (T16) | Codex writer job | GPT 6.1 Sol, lowest effort |
+| Answer re-solve of every question (T17) | Separate Codex job, never the writer's run | GPT 6.1 Sol |
+| Constitution and RA 6713 items against the law text (T17) | Separate Codex job | GPT 6.1 Sol |
+| Subject audit sample (T18) | Separate Codex job, read-only | GPT 6.1 Sol High or GPT 6 Astra high |
+| Non-UI code (T1 to T9) | Codex build, review and fix jobs | GPT 6.1 Sol, low |
+| UI: the label, the rows, anything visible (T10) | Claude worker, reviewed by a separate Claude worker | Sonnet 5.5 |
+| Orchestration: briefs, diff and summary review, build gates, spot checks, approval after an agreeing independent re-solve, commits, handoff | Lead | Opus 5.5 |
+
+Rules: codex-pick only, one job at a time; each job sized to about 25 minutes of high-effort work (one
+subject or a few lessons). If codex-pick exits 75, the lead reports the reset time to the manager and
+pauses content work; no switch to Claude. The lead writes no content except small review fixes.
+
 ## Branches
 
 | Branch | From | Holds |
@@ -160,7 +181,7 @@ rest of the pool. Return `shown = min(size, pool)`; expose it for the UI.
 
 ### T10. UI, after the mockup ruling (Sonnet 5.5, 3 h)
 
-Blocked until the Claude Design board "Bite-sized Lesson Labels"
+Ruled Nov 14 (launch log, "Bite-sized label board ruling"): Option 1 everywhere, topic-end card untouched, chevrons untouched, undrawn surfaces get label changes only, pull-up kept. Build 1:1 to that ruling and the board's Option 1 frames. Board: "Bite-sized Lesson Labels"
 (https://claude.ai/artifact/Ub27VuHxHfeKrsRXgVfLuo) has a Fable ruling relayed by the manager. The
 board offers row layouts 1 to 3 (label as a second line; second line on phone and trailing on wide
 web; parts grouped under the original lesson) and ending options A ("6 lessons left") and B (no
@@ -298,3 +319,61 @@ Append here as tasks finish: revision, command, result, and the frozen legacy ha
   was shown. The renders stay as a reference for current content only; the decision board is the
   Claude Design artifact above.
 - Nov 14: paused after the board (Aedwon: "don't do too many at once, mind my 5-hour limits").
+- Nov 14: T0 done (Codex GPT 6.1 Sol, read-only, policy 2bfd34cb4). Findings:
+  1. Stored roadmap days rebuild only when their digest changes; the digest hashes the seed version,
+     topic scope, exclusions, settings, assessment and mock count, not lesson ids
+     (`roadmap_providers.dart:365`, `roadmap_inputs_reader.dart:33`, `:269`). T8 adds the active lesson
+     set to the digest.
+  2. A missing lesson id shows "Lesson not found." on native and web (`lesson_page.dart:461`, `:590`).
+  3. Quiz notes live in `attempts_local.itemsJson`, keyed by attempt and question id; mock notes by
+     question id. No lesson-keyed notes.
+  4. All six CET exams are enabled in `content/exams/catalog.json`; the content branch has no
+     `content/exams`. Live prod selection was not queried.
+  5. On the content branch, `lesson-prerequisites.json` maps lesson id to prerequisite lesson ids;
+     `question-gap-tags.json` maps question id and wrong-choice text to a lesson id. T5 resolves both.
+  6. Exporter tests: `test/tool/build_content_export_test.dart`,
+     `test/tools/build_content_export_links_test.dart`; uploader contract test
+     `test/core/content/remote/server_catalog_contract_test.dart` (skipped without compiled
+     Functions). No workflow runs the uploader's node tests; T4 adds the gate test to CI.
+  7. The content branch's tools differ from main's and it has no uploader; uploads use main's tools
+     against the content root, as planned.
+  8. The web content mirror never evicts a ready lesson (`content_mirror.dart:157`, `:423`); T8 makes it
+     honor `status`.
+- Lead ruling (gate, within B6): the legacy freeze records every question shipping at freeze time,
+  including those marked `approved: true` in YAML (flagged `yamlApproved`), because no YAML approval
+  was tied to a verified solve. Real approval records come only from `approve.dart` after an
+  independent solve, and the split-subject rule forces them before any subject is split.
+- Nov 14, code on `web/bite-sized-r1` (Codex Sol build, review and fix; lead verified each):
+  T1 to T3 410d13795 (gate, ledger, approve and freeze; legacy lists frozen: main `content/` 3,163
+  questions, sha256 d2b4b39a...; `content/cse-rewrite-r1` 1ca8dfd 3,406 questions, sha256 b28eb7bc...,
+  committed on `content/bite-sized-pilot` d67389bd5); T4 8e7b07d54 (export and upload run the gate);
+  T5a 3d84193f6 (export, seed, content DB 10 to 11); T5b 5d9f61ef5 (server docs, catalog, exam content);
+  T6 be79387bc (size, nothing-dropped and pool checks, also run by export and upload); topic unit
+  630f8270c.
+- Lead rulings, Nov 14 (within spec B3 and B6):
+  1. The approval gate checks every question in a file, not only shipping ones, because the uploader
+     publishes the whole file (a security review finding on 8e7b07d54).
+  2. The split unit is the topic (`content/lessons/<subject>/<topic>/`), not the subject: the pilot
+     splits one topic of Mathematics, and subject-wide rules failed every other Math lesson and legacy
+     question. Retired lessons need no `ordering`.
+  3. Parts renumber examples and traps from #1; the coverage check ignores the leading number.
+  4. Figures: a part gets its own illustration folder with copies of its figures, renumbered, with
+     matching credit entries; the retired original keeps its folder.
+  5. A worker's process-improvement entry that quoted its brief as Aedwon's words was reverted; that
+     file records Aedwon's own words only.
+- Nov 15, pilot ready for staging (lead):
+  - Code: `web/bite-sized-r1` 133028a99, hosted CI green (run 43642620418); journeys passed on
+    86a05d535 and were running on 133028a99 at handoff. Includes T1 to T10, the web-path fix
+    (study-map credit and catalog part fields), the CI fix (content schema 11 in the package
+    manifest, native installer and release runner), main merged, and goldens rendered on CI and
+    reviewed by the lead. UI built to the ruled board; an independent Claude review found no must-fix.
+  - Content: `content/bite-sized-pilot` ff8b4f4cd (from `content/cse-rewrite-r1` 1ca8dfd). Data
+    Interpretation 2 lessons to 7 parts (52 questions); Philippine Constitution 10 lessons to 76 parts
+    (239 questions). Every question independently re-solved; Constitution keys checked against the
+    1987 Constitution and, for 51, the Rules of Court, RA 9346 and Supreme Court decisions; Astra audit
+    with no must-fix; approval gate, size, nothing-dropped and pool checks and the export pass; upload
+    dry run: 253 lessons.
+  - Deploy order for the integrator: functions first (they read the new fields), then the content
+    upload from the pilot root with this branch's uploader and exporter, then hosting.
+  - Native note: the protected content package is now schema 11; a native release needs a new
+    package built at 11. Web is unaffected.

@@ -18,26 +18,22 @@ const _hits = [
     lessonId: 'l2',
     title: 'Plate Tectonics',
     topicName: 'Earth Science',
-    estimatedMinutes: 12,
   ),
   LessonSearchHit(
     lessonId: 'l3',
     title: 'Core',
     topicName: 'Earth Science',
-    estimatedMinutes: 10,
   ),
   LessonSearchHit(
     lessonId: 'l4',
     title: 'Mantle',
     topicName: 'Earth Science',
-    estimatedMinutes: 8,
   ),
 ];
 
 const _recent = StudyLesson(
   id: 'l1',
   title: 'Minerals',
-  estimatedMinutes: 6,
   isRead: false,
   isBookmarked: false,
 );

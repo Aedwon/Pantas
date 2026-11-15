@@ -128,8 +128,17 @@ export const revenuecatWebhook = onRequest({region:'asia-southeast1', maxInstanc
   res.status(status).send(status === 200 ? 'ok' : 'reconciliation failed');
 });
 
+/** Task bodies, for the combined jobs and the manual runner. */
+export async function runRepairEntitlementClaims(): Promise<void> {
+  await repairClaims(getFirestore(), getAuth());
+}
+
+export async function runCheckRecentEntitlementClaims(): Promise<void> {
+  await checkRecentClaims(getFirestore(), getAuth());
+}
+
 export const repairEntitlementClaims = onSchedule({schedule:'every 60 minutes',region:'asia-southeast1'},
-  () => repairClaims(getFirestore(), getAuth()));
+  () => runRepairEntitlementClaims());
 
 export const checkRecentEntitlementClaims = onSchedule({schedule:'every 24 hours',region:'asia-southeast1'},
-  () => checkRecentClaims(getFirestore(), getAuth()));
+  () => runCheckRecentEntitlementClaims());

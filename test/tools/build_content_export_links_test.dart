@@ -2,6 +2,9 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:yaml/yaml.dart';
+
+import '../../tool/content/question_hash.dart';
 
 void main() {
   late Directory root;
@@ -115,6 +118,18 @@ void main() {
         ],
       });
     }
+    final source = jsonDecode(
+      File('${root.path}/content/questions/one.yaml').readAsStringSync(),
+    ) as Map<String, dynamic>;
+    write('content/question-ledger/approved.json', {
+      for (final question
+          in (source['questions'] as List).cast<Map<String, dynamic>>())
+        question['id'] as String: {
+          'hash':
+              questionHash(question, source['meta'] as Map<String, dynamic>),
+          'evidence': 'test fixture',
+        },
+    });
     for (final file in ['one', if (duplicateLessons) 'two']) {
       final lesson = File('${root.path}/content/lessons/s/$file.md');
       lesson.parent.createSync(recursive: true);
@@ -123,6 +138,112 @@ void main() {
           'summary: Test\nestimatedMinutes: 1\n---\nBody.\n');
     }
   }
+
+  final resolutionCases = jsonDecode(
+    File('test/fixtures/content/lesson_resolution_cases.json')
+        .readAsStringSync(),
+  ) as List<dynamic>;
+  for (final raw in resolutionCases) {
+    final scenario = raw as Map<String, dynamic>;
+    test('lesson resolution: ${scenario['name']}', () async {
+      sourceFixtures();
+      File('${root.path}/content/lessons/s/one.md').deleteSync();
+      final lessonRows =
+          (scenario['lessons'] as List).cast<Map<String, dynamic>>();
+      for (var i = 0; i < lessonRows.length; i++) {
+        final row = lessonRows[i];
+        final status = row['status'];
+        final replacedBy = row['replacedBy'];
+        final replacementYaml =
+            replacedBy == null ? '' : 'replacedBy: ${jsonEncode(replacedBy)}\n';
+        File('${root.path}/content/lessons/s/$i.md').writeAsStringSync(
+          '---\n_id: ${row['id']}\ntopic: topic-test\ntitle: Test\n'
+          'summary: Test\nestimatedMinutes: 1\npart: 1\nkeyPoints: [Recall]\n'
+          '${status == null ? '' : 'status: $status\n'}'
+          '$replacementYaml'
+          '---\n${List.filled(160, 'Body.').join(' ')}\n',
+        );
+      }
+      final file = File('${root.path}/content/questions/one.yaml');
+      final doc = jsonDecode(file.readAsStringSync()) as Map<String, dynamic>;
+      final questionInput = scenario['question'] as Map<String, dynamic>;
+      for (final row
+          in (doc['questions'] as List).cast<Map<String, dynamic>>()) {
+        if (questionInput.containsKey('lesson')) {
+          row['lesson'] = questionInput['lesson'];
+        }
+        row['keyPoint'] = 1;
+      }
+      file.writeAsStringSync(jsonEncode(doc));
+      write('content/question-ledger/approved.json', {
+        for (final q in (doc['questions'] as List).cast<Map<String, dynamic>>())
+          q['id'] as String: {
+            'hash': questionHash(q, doc['meta'] as Map<String, dynamic>),
+            'evidence': 'test fixture',
+          },
+      });
+      final result = await run(inputs: false);
+      if (scenario.containsKey('error')) {
+        expect(result.exitCode, 65, reason: '${result.stderr}');
+        expect(result.stderr, contains(scenario['error']));
+        expect(File('${root.path}/export.json').existsSync(), isFalse);
+      } else {
+        expect(result.exitCode, 0, reason: '${result.stderr}');
+        final output =
+            jsonDecode(File('${root.path}/export.json').readAsStringSync())
+                as Map<String, dynamic>;
+        final question =
+            (output['question'] as List).first as Map<String, dynamic>;
+        expect(question['lesson'], {'_ref': scenario['expectedLesson']});
+        expect(question['keyPoint'], 1);
+        final exported =
+            (output['lesson'] as List).cast<Map<String, dynamic>>();
+        for (final row in lessonRows) {
+          final stored = exported.singleWhere((l) => l['_id'] == row['id']);
+          expect(stored['status'], row['status'] ?? 'active');
+          if (row.containsKey('replacedBy')) {
+            expect(stored['replacedBy'], row['replacedBy']);
+          }
+        }
+      }
+    });
+  }
+
+  void retireHistorical(String id, String replacement) {
+    const path = 'tools/build_content_export/historical_v1.json';
+    final doc = jsonDecode(File('${root.path}/$path').readAsStringSync())
+        as Map<String, dynamic>;
+    final row = (doc['lessons'] as List)
+        .cast<Map<String, dynamic>>()
+        .singleWhere((l) => l['id'] == id);
+    row['status'] = 'retired';
+    row['replacedBy'] = [replacement];
+    write(path, doc);
+  }
+
+  for (final id in ['a', 'b']) {
+    test('prerequisite rejects retired $id', () async {
+      retireHistorical(id, 'c');
+      final result = await run();
+      expect(result.exitCode, 65);
+      expect(result.stderr, contains('retired lesson'));
+    });
+  }
+  test('gap tag resolves retired target and warns', () async {
+    retireHistorical('c', 'b');
+    tags['questions'] = {
+      'q': {' No ': 'c'},
+    };
+    final result = await run();
+    expect(result.exitCode, 0, reason: '${result.stderr}');
+    expect('${result.stderr}', contains('warning'));
+    final output =
+        jsonDecode(File('${root.path}/export.json').readAsStringSync())
+            as Map<String, dynamic>;
+    expect(output['gapTag'], [
+      {'question': 'q', 'choice': 'q_b', 'prerequisite': 'b'},
+    ]);
+  });
 
   for (final kind in ['question', 'lesson', 'both']) {
     test('duplicate $kind IDs exit 65 and list every source', () async {
@@ -233,6 +354,17 @@ questions:
   - id: pending
     figure: waiting
 ''');
+    final doc = loadYaml(
+      File('${root.path}/content/questions/pending.yaml').readAsStringSync(),
+    ) as YamlMap;
+    write('content/question-ledger/approved.json', {
+      'pending': {
+        'hash': questionHash(
+          (doc['questions'] as YamlList).single as YamlMap,
+          doc['meta'] as YamlMap,
+        ),
+      },
+    });
     (tags['questions']! as Map<String, Object?>)['pending'] = {'No': 'b'};
     final result = await run();
     expect(result.exitCode, 0, reason: '${result.stderr}');

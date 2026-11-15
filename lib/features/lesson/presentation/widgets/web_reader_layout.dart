@@ -24,6 +24,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/letter_shortcuts.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/lesson/application/lesson_bite_label.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_bar.dart';
@@ -613,23 +614,35 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                 ),
                 const SizedBox(width: PantasSpace.s12),
                 Expanded(
-                  child: Text(
-                    lesson.title,
-                    style: PantasType.webSub.copyWith(
-                      fontWeight: current ? FontWeight.w600 : FontWeight.w400,
-                      color: t.colors.textPrimary,
-                    ),
-                  ),
-                ),
-                const SizedBox(width: PantasSpace.s12),
-                Text(
-                  current ? 'Reading' : '${lesson.estimatedMinutes} min',
-                  style: current
-                      ? PantasType.webTag.copyWith(color: t.tintText)
-                      : PantasType.webSmall.copyWith(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        lesson.title,
+                        style: PantasType.webSub.copyWith(
+                          fontWeight:
+                              current ? FontWeight.w600 : FontWeight.w400,
+                          color: t.colors.textPrimary,
+                        ),
+                      ),
+                      LessonBiteLabel(
+                        lessonId: lesson.id,
+                        part: lesson.part,
+                        partCount: lesson.partCount,
+                        style: PantasType.webSmall.copyWith(
                           color: t.colors.textSecondary,
                         ),
+                      ),
+                    ],
+                  ),
                 ),
+                if (current) ...[
+                  const SizedBox(width: PantasSpace.s12),
+                  Text(
+                    'Reading',
+                    style: PantasType.webTag.copyWith(color: t.tintText),
+                  ),
+                ],
               ],
             ),
           ),
@@ -811,8 +824,6 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
     final t = context.webTokens;
     final fullWidth = ref.watch(readerFullWidthProvider);
     final reader = widget.reader;
-    final meta = '${reader.topicName} · '
-        '${reader.lesson.estimatedMinutes} min';
     final groups = <List<Map<String, dynamic>>>[];
     final headings = <String?>[];
     for (final block in reader.lesson.bodyJson) {
@@ -852,7 +863,13 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(meta, style: t.sub),
+              LessonBiteLabel(
+                lessonId: reader.lesson.id,
+                part: reader.lesson.part,
+                partCount: reader.lesson.partCount,
+                prefix: reader.topicName,
+                style: t.sub,
+              ),
               const SizedBox(height: PantasSpace.s8),
               Text(
                 reader.lesson.title,
@@ -1294,6 +1311,7 @@ class WebReaderNext extends StatelessWidget {
     required this.label,
     required this.title,
     this.detail,
+    this.detailWidget,
     this.onPressed,
     this.topGap = PantasSpace.s18,
     this.pull,
@@ -1307,6 +1325,9 @@ class WebReaderNext extends StatelessWidget {
   final String label;
   final String title;
   final String? detail;
+
+  /// A line under the title that builds itself (the next lesson's label).
+  final Widget? detailWidget;
   final VoidCallback? onPressed;
   @override
   Widget build(BuildContext context) {
@@ -1366,6 +1387,10 @@ class WebReaderNext extends StatelessWidget {
                         if (detail != null) ...[
                           const SizedBox(height: PantasSpace.s2),
                           Text(detail!, style: t.sub),
+                        ],
+                        if (detailWidget != null) ...[
+                          const SizedBox(height: PantasSpace.s2),
+                          detailWidget!,
                         ],
                       ],
                     ),

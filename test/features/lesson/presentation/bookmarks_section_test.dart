@@ -40,7 +40,6 @@ void main() {
                   lessonId: 'l1',
                   title: title,
                   topicName: 'Topic',
-                  estimatedMinutes: 5,
                 ),
               ],
             ),
@@ -84,7 +83,6 @@ void main() {
               lessonId: 'l1',
               title: 'Lesson',
               topicName: 'Topic',
-              estimatedMinutes: 5,
             ),
           ],
         ),
@@ -107,7 +105,6 @@ void main() {
         lessonId: 'l${i + 1}',
         title: 'Lesson ${i + 1}',
         topicName: 'Chemistry',
-        estimatedMinutes: 13,
       ),
     );
 

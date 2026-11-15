@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/remote/content_catalog.dart';
 import 'package:pantas/core/content/sanity/parser_exceptions.dart';
@@ -89,6 +91,8 @@ void main() {
     expect(lesson.topicId, 'topic_upcat_biology');
     expect(lesson.ordering, 3);
     expect(lesson.isActive, isTrue);
+    expect(lesson.status, 'active');
+    expect(lesson.replacedBy, isEmpty);
     final set = catalog.sets.single;
     expect(set.id, 'qs-science__biology__cells');
     expect(set.language, 'en');
@@ -97,6 +101,81 @@ void main() {
     expect(set.questions.last.hasFigure, isTrue);
     expect(set.questions.first.hasFigure, isFalse);
     expect(catalog.parts, ['exam_upcat.math']);
+  });
+
+  test('catalog JSON round-trip accepts a lesson without minutes', () {
+    final wire = jsonDecode(
+      jsonEncode({
+        'id': 'exam_upcat',
+        'lessons': [
+          {
+            'id': 'lesson-biology-cells',
+            'topic': 'topic_upcat_biology',
+            'title': 'Cells',
+            'summary': 'Parts of a cell.',
+          },
+        ],
+      }),
+    ) as Map<String, Object?>;
+    final lesson = parseExamCatalog(wire).lessons.single;
+    expect(lesson.id, 'lesson-biology-cells');
+    expect(lesson.estimatedMinutes, 0);
+  });
+
+  test('a retired lesson carries its status and replacements', () {
+    final lesson = parseExamCatalog({
+      'id': 'exam_upcat',
+      'lessons': [
+        {
+          'id': 'lesson-biology-cells',
+          'topic': 'topic_upcat_biology',
+          'title': 'Cells',
+          'summary': 'Parts of a cell.',
+          'isActive': true,
+          'status': 'retired',
+          'replacedBy': ['lesson-biology-cells-1', 'lesson-biology-cells-2'],
+        },
+      ],
+    }).lessons.single;
+    expect(lesson.status, 'retired');
+    expect(
+      lesson.replacedBy,
+      ['lesson-biology-cells-1', 'lesson-biology-cells-2'],
+    );
+  });
+
+  test('a split part carries its quiz size, part numbers and key points', () {
+    final lessons = parseExamCatalog({
+      'id': 'exam_upcat',
+      'lessons': [
+        {
+          'id': 'lesson-biology-cells-2',
+          'topic': 'topic_upcat_biology',
+          'title': 'Cells 2',
+          'summary': 'More cells.',
+          'isActive': true,
+          'quizSize': 3,
+          'part': 2,
+          'partCount': 3,
+          'keyPoints': ['Membrane', 'Nucleus'],
+        },
+        {
+          'id': 'lesson-biology-genes',
+          'topic': 'topic_upcat_biology',
+          'title': 'Genes',
+          'summary': 'Heredity.',
+          'isActive': true,
+        },
+      ],
+    }).lessons;
+    expect(lessons[0].quizSize, 3);
+    expect(lessons[0].part, 2);
+    expect(lessons[0].partCount, 3);
+    expect(lessons[0].keyPoints, ['Membrane', 'Nucleus']);
+    expect(lessons[1].quizSize, 5, reason: 'an unsplit lesson keeps 5');
+    expect(lessons[1].part, isNull);
+    expect(lessons[1].partCount, isNull);
+    expect(lessons[1].keyPoints, isNull);
   });
 
   test('accepts references in the object form the export uses', () {

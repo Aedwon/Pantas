@@ -97,6 +97,13 @@ class ContentService {
   Future<void> forgetCheck(ContentKind kind, String id) async =>
       _checks?.forget(kind, id);
 
+  /// When the catalog version was last checked; null when never or when the
+  /// service keeps no record.
+  Future<DateTime?> lastVersionCheck() async => _checks?.lastVersionCheck();
+
+  Future<void> markVersionChecked(DateTime at) async =>
+      _checks?.markVersionChecked(at);
+
   /// Tells the service which account is signed in. True when a different
   /// account dropped the day's checks.
   Future<bool> useAccount(String? uid) async =>

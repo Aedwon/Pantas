@@ -3,6 +3,7 @@
 import 'dart:convert';
 
 import 'package:flutter/widgets.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
@@ -90,6 +91,8 @@ Future<Finder> pumpStudyScreen(
   double width,
   Widget page, {
   bool shell = false,
+  int shellTab = 1,
+  List<Override> overrides = const [],
 }) async {
   final db = inMemoryDatabase();
   final contentDb = openTestContentDatabase();
@@ -108,7 +111,7 @@ Future<Finder> pumpStudyScreen(
     scaffolded(
       shell && width >= 1024
           ? WebShellFrame(
-              activeIndex: 1,
+              activeIndex: shellTab,
               person: 'Student',
               exam: 'CSE',
               plan: 'Free',
@@ -122,6 +125,7 @@ Future<Finder> pumpStudyScreen(
     overrides: [
       appDatabaseProvider.overrideWithValue(db),
       contentDatabaseProvider.overrideWithValue(contentDb),
+      ...overrides,
     ],
     router: true,
     appTextScale: true,

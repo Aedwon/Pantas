@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -30,22 +31,24 @@ void main() {
     addTearDown(tester.view.resetDevicePixelRatio);
     var open = false;
     await tester.pumpWidget(
-      MaterialApp(
-        theme: buildLightTheme(web: true),
-        home: Scaffold(
-          body: Padding(
-            padding: const EdgeInsets.all(44),
-            child: StatefulBuilder(
-              builder: (context, update) => HomeWebOverlay(
-                page: TextButton(
-                  onPressed: () => update(() => open = true),
-                  child: const Text('Open drawer'),
+      ProviderScope(
+        child: MaterialApp(
+          theme: buildLightTheme(web: true),
+          home: Scaffold(
+            body: Padding(
+              padding: const EdgeInsets.all(44),
+              child: StatefulBuilder(
+                builder: (context, update) => HomeWebOverlay(
+                  page: TextButton(
+                    onPressed: () => update(() => open = true),
+                    child: const Text('Open drawer'),
+                  ),
+                  open: open,
+                  label: 'Reviews',
+                  drawer: true,
+                  onDismiss: () => update(() => open = false),
+                  child: const Text('Drawer body'),
                 ),
-                open: open,
-                label: 'Reviews',
-                drawer: true,
-                onDismiss: () => update(() => open = false),
-                child: const Text('Drawer body'),
               ),
             ),
           ),
@@ -74,37 +77,39 @@ void main() {
       addTearDown(tester.view.resetDevicePixelRatio);
       var opened = 0;
       await tester.pumpWidget(
-        MaterialApp(
-          theme: dark ? buildDarkTheme(web: true) : buildLightTheme(web: true),
-          home: Scaffold(
-            body: SizedBox(
-              width: 620,
-              child: HomeTodayChecklist(
-                web: true,
-                lessons: const [
-                  HomeTodayLesson(
-                    id: 'one',
-                    title: 'Ratios',
-                    subject: 'Mathematics',
-                    minutes: 8,
-                    read: false,
-                  ),
-                ],
-                reviewsDone: 0,
-                reviewsTotal: 18,
-                newDone: 0,
-                newTotal: 7,
-                canAdvance: false,
-                isMockDay: false,
-                onLesson: (_) => opened++,
-                onLessons: () {},
-                onReviews: () {},
-                onNew: () {},
-                onStartReviews: () {},
-                onStartNew: () {},
-                onAdvance: () {},
-                onMock: () {},
-                onPlan: () {},
+        ProviderScope(
+          child: MaterialApp(
+            theme:
+                dark ? buildDarkTheme(web: true) : buildLightTheme(web: true),
+            home: Scaffold(
+              body: SizedBox(
+                width: 620,
+                child: HomeTodayChecklist(
+                  web: true,
+                  lessons: const [
+                    HomeTodayLesson(
+                      id: 'one',
+                      title: 'Ratios',
+                      subject: 'Mathematics',
+                      read: false,
+                    ),
+                  ],
+                  reviewsDone: 0,
+                  reviewsTotal: 18,
+                  newDone: 0,
+                  newTotal: 7,
+                  canAdvance: false,
+                  isMockDay: false,
+                  onLesson: (_) => opened++,
+                  onLessons: () {},
+                  onReviews: () {},
+                  onNew: () {},
+                  onStartReviews: () {},
+                  onStartNew: () {},
+                  onAdvance: () {},
+                  onMock: () {},
+                  onPlan: () {},
+                ),
               ),
             ),
           ),
@@ -156,29 +161,32 @@ void main() {
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
       await tester.pumpWidget(
-        MaterialApp(
-          theme: dark ? buildDarkTheme(web: true) : buildLightTheme(web: true),
-          home: Scaffold(
-            body: SizedBox(
-              width: 620,
-              child: HomeTodayChecklist(
-                web: true,
-                lessons: const [],
-                reviewsDone: 20,
-                reviewsTotal: 20,
-                newDone: 0,
-                newTotal: 0,
-                canAdvance: false,
-                isMockDay: false,
-                doneNote: HomeDoneNote.reviewWeek,
-                onLesson: (_) {},
-                onLessons: () {},
-                onReviews: () {},
-                onNew: () {},
-                onStartReviews: () {},
-                onStartNew: () {},
-                onAdvance: () {},
-                onMock: () {},
+        ProviderScope(
+          child: MaterialApp(
+            theme:
+                dark ? buildDarkTheme(web: true) : buildLightTheme(web: true),
+            home: Scaffold(
+              body: SizedBox(
+                width: 620,
+                child: HomeTodayChecklist(
+                  web: true,
+                  lessons: const [],
+                  reviewsDone: 20,
+                  reviewsTotal: 20,
+                  newDone: 0,
+                  newTotal: 0,
+                  canAdvance: false,
+                  isMockDay: false,
+                  doneNote: HomeDoneNote.reviewWeek,
+                  onLesson: (_) {},
+                  onLessons: () {},
+                  onReviews: () {},
+                  onNew: () {},
+                  onStartReviews: () {},
+                  onStartNew: () {},
+                  onAdvance: () {},
+                  onMock: () {},
+                ),
               ),
             ),
           ),
@@ -203,9 +211,12 @@ Future<void> mountWide(
   addTearDown(tester.view.resetPhysicalSize);
   addTearDown(tester.view.resetDevicePixelRatio);
   await tester.pumpWidget(
-    MaterialApp(
-      theme: dark ? buildDarkTheme(web: true) : buildLightTheme(web: true),
-      home: Scaffold(body: Center(child: SizedBox(width: 1080, child: child))),
+    ProviderScope(
+      child: MaterialApp(
+        theme: dark ? buildDarkTheme(web: true) : buildLightTheme(web: true),
+        home:
+            Scaffold(body: Center(child: SizedBox(width: 1080, child: child))),
+      ),
     ),
   );
   await tester.pumpAndSettle();
@@ -303,7 +314,6 @@ void additionalTests() {
                         id: '$i',
                         title: i == 0 ? title : 'Lesson $i',
                         subject: 'Mathematics',
-                        minutes: 8,
                         read: complete,
                         fraction: variant == 'HM_Resume' ? .5 : null,
                         advanced: advanced,
@@ -357,6 +367,11 @@ void additionalTests() {
         }
         if (variant == 'HM_Resume') {
           expect(find.text('Resume Lesson'), findsOneWidget);
+          expect(find.text('Start Lesson'), findsNothing);
+        }
+        expect(find.text('Continue Lesson'), findsNothing);
+        if (variant == 'HM_DayStart' || variant == 'HM_LongTitle') {
+          expect(find.text('Start Lesson'), findsOneWidget);
         }
         if (complete) {
           if (!reviewOnly) {
@@ -394,8 +409,7 @@ void additionalTests() {
               done: 0,
               total: 18,
               rows: const [WebRow(title: 'Session 1', value: '10')],
-              startLabel:
-                  title == 'Lessons' ? 'Continue Lesson' : 'Start $title',
+              startLabel: title == 'Lessons' ? 'Start Lesson' : 'Start $title',
               onStart: () => starts++,
             ),
           ),
@@ -724,9 +738,12 @@ void additionalTests() {
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
       await tester.pumpWidget(
-        MaterialApp(
-          theme: dark ? buildDarkTheme(web: true) : buildLightTheme(web: true),
-          home: const Scaffold(body: HomeWebLoading()),
+        ProviderScope(
+          child: MaterialApp(
+            theme:
+                dark ? buildDarkTheme(web: true) : buildLightTheme(web: true),
+            home: const Scaffold(body: HomeWebLoading()),
+          ),
         ),
       );
       expect(find.byType(Container), findsNothing);

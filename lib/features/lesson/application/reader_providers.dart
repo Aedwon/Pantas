@@ -256,7 +256,7 @@ final readerContextProvider =
 
   for (final subject in map.subjects) {
     for (final topic in subject.topics) {
-      final index = topic.lessons.indexWhere((l) => l.id == lessonId);
+      final index = topic.lessons.indexWhere((l) => l.id == lesson.id);
       if (index != -1) {
         topicId = topic.id;
         topicName = topic.name;
@@ -283,8 +283,8 @@ final readerContextProvider =
     final progress = ref.watch(lessonProgressRepositoryProvider);
     final bookmarks = ref.watch(lessonBookmarksRepositoryProvider);
     final topic = await content.topicById(lesson.topicId);
-    final read = await progress.isRead(lessonId);
-    final bookmarked = await bookmarks.isMarked(lessonId);
+    final read = await progress.isRead(lesson.id);
+    final bookmarked = await bookmarks.isMarked(lesson.id);
     if (!current || topic == null) return null;
     final valid = await positions.isBoundaryCurrent(
       boundary,

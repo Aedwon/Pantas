@@ -112,26 +112,44 @@ Future<HomeTodayData> _assemble(
   };
   final positions = ref.read(readerPositionRepositoryProvider);
   final lessons = <HomeTodayLesson>[];
-  for (final id in today.snapshot.plan.lessonIds) {
+  final shown = <String>{};
+  var stale = false;
+  final planned = today.snapshot.plan.lessonIds;
+  // A stored day can name a lesson that a split retired or a rollback removed.
+  final aliases = await ref
+      .read(contentRepositoryProvider)
+      .resolveLessonIds(planned.where((id) => !byId.containsKey(id)));
+  for (final plannedId in planned) {
+    final id = aliases[plannedId] ?? plannedId;
     final lesson = byId[id];
     if (lesson == null) {
-      throw StateError('Planned lesson content unavailable');
+      // The day is rebuilt on the next read instead of failing Home.
+      stale = true;
+      continue;
     }
+    if (id != plannedId) stale = true;
     if (names[lesson.topicId] == null) {
       if (csePartsForExam(examId).isNotEmpty) continue;
       throw StateError('Planned lesson content unavailable');
     }
+    if (!shown.add(id)) continue;
     lessons.add(
       HomeTodayLesson(
         id: id,
         title: lesson.title,
         subject: names[lesson.topicId]!,
-        minutes: lesson.estimatedMinutes,
-        read: !today.remaining.lessonIds.contains(id),
+        part: lesson.part,
+        partCount: lesson.partCount,
+        read: !today.remaining.lessonIds.contains(plannedId),
         fraction: await positions.readFraction(examId, id),
-        advanced: today.snapshot.plan.advancedIds.contains(id),
+        advanced: today.snapshot.plan.advancedIds.contains(plannedId),
       ),
     );
+  }
+  if (stale) {
+    await ref
+        .read(roadmapDayRepositoryProvider)
+        .delete(examId, today.snapshot.day);
   }
   final canAdvance = server
       ? (await ref.read(serverStudyRoadmapProvider(examId).future)).canAdvance

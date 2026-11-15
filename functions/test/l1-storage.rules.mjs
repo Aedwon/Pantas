@@ -27,9 +27,19 @@ before(async () => {
 });
 after(async () => env.cleanup());
 
-test('wrapped: owner, named or anonymous, uploads a PNG card', async () => {
+test('wrapped: a named owner uploads a PNG card; an anonymous owner cannot', async () => {
   await assertSucceeds(uploadBytes(ref(named(OWNER), `wrapped/${OWNER}/${ID}.png`), bytes(1000), png));
-  await assertSucceeds(uploadBytes(ref(anon(OWNER), `wrapped/${OWNER}/${'1'.repeat(32)}.png`), bytes(1000), png));
+  await assertFails(uploadBytes(ref(anon(OWNER), `wrapped/${OWNER}/${'1'.repeat(32)}.png`), bytes(1000), png));
+  await assertFails(uploadBytes(ref(anon(OWNER), `wrapped/${OWNER}/${ID}.png`), bytes(1000), png));
+});
+
+// The Storage emulator removes `firebaseStorageDownloadTokens` before it evaluates rules, so a token
+// cannot be shown refused here (see wrapped-download-token.probe.mjs). Any custom metadata is refused.
+test('wrapped: a card with custom metadata is refused', async () => {
+  await assertFails(uploadBytes(ref(named(OWNER), `wrapped/${OWNER}/${'3'.repeat(32)}.png`), bytes(1000),
+    {...png, customMetadata: {label: 'tok'}}));
+  await assertFails(uploadBytes(ref(named(OWNER), `wrapped/${OWNER}/${ID}.png`), bytes(1000),
+    {...png, customMetadata: {a: 'b'}}));
 });
 
 test('wrapped: other account and signed-out client cannot upload, replace or delete', async () => {

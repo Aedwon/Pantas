@@ -30,6 +30,10 @@ final studyMapProvider = FutureProvider<StudyMap?>((ref) async {
       for (final topic in topics) topic.id,
   ];
 
+  final marked = await ref.watch(lessonBookmarksRepositoryProvider).markedIds();
+  // A bookmark of a retired lesson shows on the lesson that replaced it.
+  final aliases = await content.resolveLessonIds(marked);
+
   return buildStudyMap(
     exam: exam,
     subjects: scopedSubjects,
@@ -37,8 +41,8 @@ final studyMapProvider = FutureProvider<StudyMap?>((ref) async {
     lessonsByTopic: await content.lessonsByTopics(topicIds, examId: exam.id),
     readLessonIds:
         await ref.watch(lessonProgressRepositoryProvider).readLessonIds(),
-    bookmarkedLessonIds:
-        await ref.watch(lessonBookmarksRepositoryProvider).markedIds(),
+    retiredReplacements: await content.retiredReplacements(),
+    bookmarkedLessonIds: {for (final id in marked) aliases[id] ?? id},
   );
 });
 

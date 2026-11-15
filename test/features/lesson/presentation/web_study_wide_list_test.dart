@@ -29,7 +29,6 @@ StudyTopic _topic(String id, String name, {bool bookmarked = false}) =>
         StudyLesson(
           id: '$id-l1',
           title: 'Lesson of $name',
-          estimatedMinutes: 10,
           isRead: false,
           isBookmarked: bookmarked,
         ),
@@ -101,7 +100,6 @@ StudyMap _previewMap({
       ],
       readCount: 0,
       totalCount: 16,
-      minutesLeftToRead: 160,
     );
 
 void main() {
@@ -135,24 +133,26 @@ void main() {
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
     await tester.pumpWidget(
-      MaterialApp(
-        theme: brightness == Brightness.dark
-            ? buildDarkTheme(web: true)
-            : buildLightTheme(web: true),
-        home: Scaffold(
-          body: Align(
-            alignment: Alignment.topLeft,
-            child: SizedBox(
-              width: content,
-              height: 900,
-              child: WebStudyMap(
-                map: map,
-                openTopicId: openTopicId,
-                lastLessonId: lastLessonId,
-                lastTitle: lastTitle,
-                onTopic: (_) {},
-                onLesson: (_, {required resume}) {},
-                onBookmarks: () {},
+      ProviderScope(
+        child: MaterialApp(
+          theme: brightness == Brightness.dark
+              ? buildDarkTheme(web: true)
+              : buildLightTheme(web: true),
+          home: Scaffold(
+            body: Align(
+              alignment: Alignment.topLeft,
+              child: SizedBox(
+                width: content,
+                height: 900,
+                child: WebStudyMap(
+                  map: map,
+                  openTopicId: openTopicId,
+                  lastLessonId: lastLessonId,
+                  lastTitle: lastTitle,
+                  onTopic: (_) {},
+                  onLesson: (_, {required resume}) {},
+                  onBookmarks: () {},
+                ),
               ),
             ),
           ),
@@ -501,19 +501,21 @@ void main() {
       Brightness brightness = Brightness.light,
     }) async {
       await tester.pumpWidget(
-        MaterialApp(
-          theme: brightness == Brightness.dark
-              ? buildDarkTheme(web: true)
-              : buildLightTheme(web: true),
-          home: Scaffold(
-            body: Align(
-              alignment: Alignment.topLeft,
-              child: SizedBox(
-                width: column,
-                child: WebLastOpenedCard(
-                  title: title,
-                  topic: topic,
-                  onResume: () {},
+        ProviderScope(
+          child: MaterialApp(
+            theme: brightness == Brightness.dark
+                ? buildDarkTheme(web: true)
+                : buildLightTheme(web: true),
+            home: Scaffold(
+              body: Align(
+                alignment: Alignment.topLeft,
+                child: SizedBox(
+                  width: column,
+                  child: WebLastOpenedCard(
+                    title: title,
+                    topic: topic,
+                    onResume: () {},
+                  ),
                 ),
               ),
             ),
@@ -598,13 +600,15 @@ void main() {
     testWidgets('Resume still resumes', (tester) async {
       var resumed = 0;
       await tester.pumpWidget(
-        MaterialApp(
-          theme: buildLightTheme(web: true),
-          home: Scaffold(
-            body: WebLastOpenedCard(
-              title: 'Circles',
-              topic: 'Geometry',
-              onResume: () => resumed++,
+        ProviderScope(
+          child: MaterialApp(
+            theme: buildLightTheme(web: true),
+            home: Scaffold(
+              body: WebLastOpenedCard(
+                title: 'Circles',
+                topic: 'Geometry',
+                onResume: () => resumed++,
+              ),
             ),
           ),
         ),

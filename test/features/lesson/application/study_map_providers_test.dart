@@ -10,6 +10,7 @@ import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 
 import '../../../helpers/in_memory_database.dart';
+import '../../../helpers/retired_lessons.dart';
 
 void main() {
   late AppDatabase db;
@@ -118,7 +119,6 @@ void main() {
     expect(map!.totalCount, 2);
     expect(map.readCount, 1);
     expect(map.coveredPercent, 50);
-    expect(map.minutesLeftToRead, 10);
   });
 
   test('the map is null when no exam is chosen', () async {
@@ -156,6 +156,34 @@ void main() {
       await container.read(appPreferencesRepositoryProvider).openTopicId('e1'),
       isNull,
     );
+  });
+
+  test('a read of a retired original reads all its parts in the map', () async {
+    for (final id in ['p1', 'p2']) {
+      await seedContentLesson(
+        contentDb,
+        lessonId: id,
+        topicId: 't1',
+        bodyJson: jsonEncode(<Map<String, Object?>>[]),
+      );
+      await seedContentQuestion(
+        contentDb,
+        questionId: 'question_$id',
+        topicId: 't1',
+        examId: 'e1',
+        lessonId: id,
+      );
+    }
+    await retireTestLesson(contentDb, 'l1', ['p1', 'p2']);
+    await container.read(lessonProgressRepositoryProvider).markRead('l1');
+
+    final map = (await container.read(studyMapProvider.future))!;
+    final rows = {
+      for (final l in map.subjects.first.topics.first.lessons) l.id: l.isRead,
+    };
+    expect(rows, {'l2': false, 'p1': true, 'p2': true});
+    expect(map.totalCount, 3);
+    expect(map.readCount, 2);
   });
 
   test('the open topic survives a fresh container', () async {

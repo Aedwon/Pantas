@@ -70,7 +70,6 @@ HomeTodayData built(StudyRoadmap from) => HomeTodayData(
             id: id,
             title: 'Lesson $id (${from.revision})',
             subject: 'Mathematics',
-            minutes: 8,
             read: false,
           ),
       ],

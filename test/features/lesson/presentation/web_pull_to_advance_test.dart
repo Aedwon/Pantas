@@ -576,14 +576,12 @@ void main() {
     const first = StudyLesson(
       id: 'l1',
       title: 'Layers',
-      estimatedMinutes: 11,
       isRead: true,
       isBookmarked: true,
     );
     const second = StudyLesson(
       id: 'l2',
       title: 'Plate Tectonics',
-      estimatedMinutes: 12,
       isRead: false,
       isBookmarked: false,
     );
@@ -638,7 +636,6 @@ void main() {
               ],
               readCount: 1,
               totalCount: 2,
-              minutesLeftToRead: 12,
             ),
           ),
         ],

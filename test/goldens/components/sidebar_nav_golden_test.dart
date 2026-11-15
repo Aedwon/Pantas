@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/features/shell/presentation/web_shell.dart';
 
 import '../golden_harness.dart';
@@ -25,25 +26,33 @@ void main() {
           (_) => _sidebar(i),
           width: 260,
         ),
-      // The second item (Study) sits near the top of the list.
+      // The pointer lands on the Study item, not between rows.
       GoldenState(
         'Item hover',
         (_) => _sidebar(0),
         action: GoldenAction.hover,
-        at: const Alignment(-0.2, -0.55),
+        target: () => find.text('Study'),
         width: 260,
       ),
       GoldenState(
         'Item pressed',
         (_) => _sidebar(0),
         action: GoldenAction.pressed,
-        at: const Alignment(-0.2, -0.55),
+        target: () => find.text('Study'),
         width: 260,
       ),
       GoldenState(
-        'Focus',
+        'Search focus',
         (_) => _sidebar(0),
         action: GoldenAction.focus,
+        width: 260,
+      ),
+      // Tab moves from the search field to the first item.
+      GoldenState(
+        'Item focus',
+        (_) => _sidebar(1),
+        action: GoldenAction.focus,
+        tabs: 2,
         width: 260,
       ),
     ],

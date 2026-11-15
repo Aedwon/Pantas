@@ -73,6 +73,7 @@ void main() {
     bool isRead = false,
     ExamId? examId = 'e1',
     LessonId lessonId = 'l1',
+    int count = 5,
   }) async {
     await tester.pumpAppWithProviders(
       Scaffold(
@@ -84,6 +85,7 @@ void main() {
       ),
       overrides: [
         lessonQuizAvailableProvider.overrideWith((_, __) async => true),
+        lessonQuizCountProvider.overrideWith((_, __) async => count),
       ],
     );
     await tester.pumpAndSettle();
@@ -125,6 +127,19 @@ void main() {
     final style = tester.widget<TextButton>(button).style!;
     expect(style.backgroundColor!.resolve({}), PantasColors.light.fill);
     expect(style.foregroundColor!.resolve({}), PantasColors.light.label);
+  });
+
+  testWidgets('the coda shows the count the quiz will serve', (tester) async {
+    await pumpGap(tester, count: 3);
+
+    expect(find.text('Quiz yourself, 3 questions'), findsOneWidget);
+    expect(find.text('Quiz yourself, 5 questions'), findsNothing);
+  });
+
+  testWidgets('one question reads as one question', (tester) async {
+    await pumpGap(tester, count: 1);
+
+    expect(find.text('Quiz yourself, 1 question'), findsOneWidget);
   });
 
   testWidgets('no exam means no coda rather than a broken route',

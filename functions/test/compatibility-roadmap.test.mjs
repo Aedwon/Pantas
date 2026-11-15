@@ -24,6 +24,7 @@ function legacyDb(catalog, lessons = []) {
         'content/questions/items': questionDocs,
         'content/lessons/items': lessons.map(id => snapshot(id, {topic: 'topic-alpha'})),
         'users/compat/server/mocks/items': [],
+        'users/compat/server/lessonReads/items': [],
         'users/compat/server/reviews/items': [],
       };
       assert.ok(path in rows, path);

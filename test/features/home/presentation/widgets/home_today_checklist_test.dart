@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/features/home/domain/home_today_view.dart';
 import 'package:pantas/features/home/presentation/widgets/home_today_checklist.dart';
+import 'package:pantas/features/quiz/application/quiz_starts.dart';
 
 HomeTodayLesson lesson(
   int n, {
@@ -19,7 +21,6 @@ HomeTodayLesson lesson(
           ? 'Solving word problems with ratios and proportions'
           : 'Lesson $n',
       subject: 'Mathematics',
-      minutes: 8,
       read: read,
       fraction: fraction,
       advanced: advanced,
@@ -35,38 +36,43 @@ Widget harness(
   HomeDoneNote? note,
   bool web = false,
 }) =>
-    MaterialApp(
-      theme: dark ? buildDarkTheme(web: web) : buildLightTheme(web: web),
-      home: MediaQuery(
-        data: MediaQueryData(
-          size: web ? const Size(1440, 900) : Size.zero,
-          textScaler: TextScaler.linear(large ? 2 : 1),
-          disableAnimations: true,
-        ),
-        child: Scaffold(
-          body: SingleChildScrollView(
-            child: HomeTodayChecklist(
-              lessons: lessons,
-              reviewsDone: 2,
-              reviewsTotal: 7,
-              newDone: 0,
-              newTotal: 4,
-              canAdvance: advance,
-              isMockDay: mock,
-              web: web,
-              onLesson: (_) {},
-              onLessons: () {},
-              onReviews: () {},
-              onNew: () {},
-              onStartReviews: () {},
-              onStartNew: () {},
-              onPlan: plan ? () {} : null,
-              doneNote: note,
-              examShortName: 'UPCAT',
-              mockSubtitle: 'UPCAT simulation',
-              mockDuration: '2 hr 45 min',
-              onAdvance: () {},
-              onMock: () {},
+    ProviderScope(
+      overrides: [
+        lessonQuizCountProvider.overrideWith((_, __) async => 3),
+      ],
+      child: MaterialApp(
+        theme: dark ? buildDarkTheme(web: web) : buildLightTheme(web: web),
+        home: MediaQuery(
+          data: MediaQueryData(
+            size: web ? const Size(1440, 900) : Size.zero,
+            textScaler: TextScaler.linear(large ? 2 : 1),
+            disableAnimations: true,
+          ),
+          child: Scaffold(
+            body: SingleChildScrollView(
+              child: HomeTodayChecklist(
+                lessons: lessons,
+                reviewsDone: 2,
+                reviewsTotal: 7,
+                newDone: 0,
+                newTotal: 4,
+                canAdvance: advance,
+                isMockDay: mock,
+                web: web,
+                onLesson: (_) {},
+                onLessons: () {},
+                onReviews: () {},
+                onNew: () {},
+                onStartReviews: () {},
+                onStartNew: () {},
+                onPlan: plan ? () {} : null,
+                doneNote: note,
+                examShortName: 'UPCAT',
+                mockSubtitle: 'UPCAT simulation',
+                mockDuration: '2 hr 45 min',
+                onAdvance: () {},
+                onMock: () {},
+              ),
             ),
           ),
         ),
@@ -74,6 +80,30 @@ Widget harness(
     );
 
 void main() {
+  testWidgets('a lesson row shows its label and never minutes', (tester) async {
+    await tester.pumpWidget(
+      harness([
+        const HomeTodayLesson(
+          id: 'l1',
+          title: 'Bill of Rights: searches',
+          subject: 'Philippine Constitution',
+          part: 2,
+          partCount: 9,
+          read: false,
+        ),
+        const HomeTodayLesson(
+          id: 'l2',
+          title: 'The 1987 Constitution',
+          subject: 'Philippine Constitution',
+          read: false,
+        ),
+      ]),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Part 2 of 9 · 3 questions'), findsOneWidget);
+    expect(find.text('3 questions'), findsOneWidget);
+    expect(find.textContaining(' min'), findsNothing);
+  });
   testWidgets('shows actual lesson progress and question counts',
       (tester) async {
     await tester
@@ -220,34 +250,36 @@ void main() {
         List<HomeTodayLesson>? lessons,
       }) {
         reviewRows = newRows = startReviews = startNew = 0;
-        return MaterialApp(
-          theme: wide ? buildLightTheme(web: true) : buildLightTheme(),
-          home: MediaQuery(
-            data: const MediaQueryData(
-              size: Size(1440, 900),
-              disableAnimations: true,
-            ),
-            child: Scaffold(
-              body: SingleChildScrollView(
-                child: HomeTodayChecklist(
-                  web: wide,
-                  lessons: lessons ?? [lesson(1, read: true)],
-                  reviewsDone: reviewsDone,
-                  reviewsTotal: reviewsTotal,
-                  newDone: newDone,
-                  newTotal: newTotal,
-                  reviewsStarted: reviewsStarted,
-                  canAdvance: advance,
-                  isMockDay: false,
-                  advancing: busy,
-                  onLesson: (_) {},
-                  onLessons: () {},
-                  onReviews: () => reviewRows++,
-                  onNew: () => newRows++,
-                  onStartReviews: () => startReviews++,
-                  onStartNew: () => startNew++,
-                  onAdvance: () {},
-                  onMock: () {},
+        return ProviderScope(
+          child: MaterialApp(
+            theme: wide ? buildLightTheme(web: true) : buildLightTheme(),
+            home: MediaQuery(
+              data: const MediaQueryData(
+                size: Size(1440, 900),
+                disableAnimations: true,
+              ),
+              child: Scaffold(
+                body: SingleChildScrollView(
+                  child: HomeTodayChecklist(
+                    web: wide,
+                    lessons: lessons ?? [lesson(1, read: true)],
+                    reviewsDone: reviewsDone,
+                    reviewsTotal: reviewsTotal,
+                    newDone: newDone,
+                    newTotal: newTotal,
+                    reviewsStarted: reviewsStarted,
+                    canAdvance: advance,
+                    isMockDay: false,
+                    advancing: busy,
+                    onLesson: (_) {},
+                    onLessons: () {},
+                    onReviews: () => reviewRows++,
+                    onNew: () => newRows++,
+                    onStartReviews: () => startReviews++,
+                    onStartNew: () => startNew++,
+                    onAdvance: () {},
+                    onMock: () {},
+                  ),
                 ),
               ),
             ),
@@ -297,7 +329,8 @@ void main() {
         await setUpView(tester);
         await tester.pumpWidget(mount(lessons: [lesson(1)]));
         await tester.pumpAndSettle();
-        expect(find.text('Continue Lesson'), findsOneWidget);
+        expect(find.text('Start Lesson'), findsOneWidget);
+        expect(find.text('Continue Lesson'), findsNothing);
         expect(find.text('Start Reviews'), findsNothing);
       });
       testWidgets('$layout: the rows still open the panel', (tester) async {
@@ -344,26 +377,28 @@ void main() {
       var startReviews = 0;
       var rows = 0;
       await tester.pumpWidget(
-        MaterialApp(
-          theme: buildLightTheme(web: true),
-          home: Scaffold(
-            body: HomeTodayChecklist(
-              web: true,
-              lessons: [lesson(1, read: true)],
-              reviewsDone: 0,
-              reviewsTotal: 5,
-              newDone: 0,
-              newTotal: 0,
-              canAdvance: false,
-              isMockDay: false,
-              onLesson: (_) {},
-              onLessons: () {},
-              onReviews: () => rows++,
-              onNew: () => rows++,
-              onStartReviews: () => startReviews++,
-              onStartNew: () => rows++,
-              onAdvance: () {},
-              onMock: () {},
+        ProviderScope(
+          child: MaterialApp(
+            theme: buildLightTheme(web: true),
+            home: Scaffold(
+              body: HomeTodayChecklist(
+                web: true,
+                lessons: [lesson(1, read: true)],
+                reviewsDone: 0,
+                reviewsTotal: 5,
+                newDone: 0,
+                newTotal: 0,
+                canAdvance: false,
+                isMockDay: false,
+                onLesson: (_) {},
+                onLessons: () {},
+                onReviews: () => rows++,
+                onNew: () => rows++,
+                onStartReviews: () => startReviews++,
+                onStartNew: () => rows++,
+                onAdvance: () {},
+                onMock: () {},
+              ),
             ),
           ),
         ),

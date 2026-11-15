@@ -9,13 +9,19 @@ class UpdateCoordinator {
     required UpdateBridge bridge,
     required Future<void> Function() waitForWrites,
     required void Function(Object, StackTrace) onFailure,
+    Future<void> Function()? onSafePoint,
   })  : _bridge = bridge,
         _waitForWrites = waitForWrites,
-        _onFailure = onFailure;
+        _onFailure = onFailure,
+        _onSafePoint = onSafePoint;
 
   final UpdateBridge _bridge;
   final Future<void> Function() _waitForWrites;
   final void Function(Object, StackTrace) _onFailure;
+
+  /// Runs, without being waited for, each time a check finds a safe point.
+  /// Its own failures are reported and never stop the update.
+  final Future<void> Function()? _onSafePoint;
   final Set<String> _attempted = {};
   final Set<Object> _overlays = {};
   String _path = '';
@@ -91,6 +97,10 @@ class UpdateCoordinator {
 
   Future<void> _check() async {
     try {
+      final onSafePoint = _onSafePoint;
+      if (onSafePoint != null && _safe) {
+        unawaited(onSafePoint().catchError(_onFailure));
+      }
       final status = await _bridge.check();
       final version = status.version;
       if (!status.available || version == null || !_safe) return;

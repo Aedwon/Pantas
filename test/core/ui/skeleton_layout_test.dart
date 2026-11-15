@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
@@ -41,16 +42,18 @@ void main() {
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
     await tester.pumpWidget(
-      MaterialApp(
-        theme: dark ? buildDarkTheme(web: wide) : buildLightTheme(web: wide),
-        home: MediaQuery(
-          data: MediaQueryData(size: Size(width, 2600)),
-          child: Scaffold(
-            body: Padding(
-              padding: wide
-                  ? const EdgeInsets.fromLTRB(288, 28, 44, 44)
-                  : const EdgeInsets.all(16),
-              child: Align(alignment: Alignment.topCenter, child: child),
+      ProviderScope(
+        child: MaterialApp(
+          theme: dark ? buildDarkTheme(web: wide) : buildLightTheme(web: wide),
+          home: MediaQuery(
+            data: MediaQueryData(size: Size(width, 2600)),
+            child: Scaffold(
+              body: Padding(
+                padding: wide
+                    ? const EdgeInsets.fromLTRB(288, 28, 44, 44)
+                    : const EdgeInsets.all(16),
+                child: Align(alignment: Alignment.topCenter, child: child),
+              ),
             ),
           ),
         ),
@@ -131,14 +134,12 @@ void main() {
                     id: 'a',
                     title: 'Lesson a',
                     subject: 'Math',
-                    minutes: 10,
                     read: false,
                   ),
                   HomeTodayLesson(
                     id: 'b',
                     title: 'Lesson b',
                     subject: 'Math',
-                    minutes: 10,
                     read: false,
                   ),
                 ],

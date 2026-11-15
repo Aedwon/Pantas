@@ -9,12 +9,55 @@ import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/components/week_strip.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/presentation/home_providers.dart';
 import 'package:pantas/features/home/presentation/widgets/home_masthead.dart';
 import 'package:pantas/features/home/presentation/widgets/home_state_card.dart';
 
 void main() {
   final now = DateTime(2026, 10, 14, 20);
+  testWidgets('the masthead reads the platform when web is not given',
+      (tester) async {
+    tester.view.physicalSize = const Size(1440, 900);
+    tester.view.devicePixelRatio = 1;
+    debugWebPlatformOverride = true;
+    addTearDown(() {
+      debugWebPlatformOverride = null;
+      tester.view.reset();
+    });
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          homeMastheadProvider.overrideWith(
+            (ref) async => const HomeMastheadData(
+              name: 'Aedwon',
+              examShortName: 'CSE',
+              examDate: null,
+            ),
+          ),
+          weekStripProvider('cse').overrideWith(
+            (ref) async => HomeWeekStripData(
+              states: List.filled(7, WeekDayState.plain),
+              todayFraction: 0,
+            ),
+          ),
+        ],
+        child: MaterialApp(
+          theme: buildLightTheme(web: true),
+          home: Scaffold(
+            body: SizedBox(
+              width: 1080,
+              child: HomeMasthead(examId: 'cse', now: now),
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Wednesday, October 14'), findsOneWidget);
+    expect(find.byType(WeekStrip), findsNothing);
+  });
+
   for (final dark in [false, true]) {
     for (final date in <ExamDate?>[
       null,

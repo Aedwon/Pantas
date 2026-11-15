@@ -2,6 +2,7 @@ import 'package:pantas/core/content/exam_subject_groups.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/lesson.dart';
+import 'package:pantas/core/storage/domain/lesson_credit.dart';
 import 'package:pantas/core/storage/domain/subject.dart';
 import 'package:pantas/core/storage/domain/topic.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
@@ -13,14 +14,24 @@ export 'package:pantas/features/lesson/domain/models/study_map.dart';
 /// The exam's scoped tree decides which topics exist. CSE groups those topics
 /// into its exam parts. A topic in [lessonsByTopic] that the tree does not list
 /// contributes nothing to the figures.
+///
+/// [lessonsByTopic] never holds retired lessons. [retiredReplacements] is how
+/// the credit rule still sees them, so a read of a retired original reads
+/// every part.
 StudyMap buildStudyMap({
   required Exam exam,
   required Map<SubjectId, List<Topic>> topicsBySubject,
   required Map<TopicId, List<Lesson>> lessonsByTopic,
   required Set<LessonId> readLessonIds,
+  required Map<LessonId, List<LessonId>> retiredReplacements,
   required Set<LessonId> bookmarkedLessonIds,
   List<Subject>? subjects,
 }) {
+  final credit = resolveLessonCredit<bool>(
+    retiredReplacements: retiredReplacements,
+    own: {for (final id in readLessonIds) id: true},
+    compare: (a, b) => 0,
+  );
   final subjectList = examSubjectGroups(
     examId: exam.id,
     subjects: subjects ?? exam.subjects,
@@ -32,7 +43,6 @@ StudyMap buildStudyMap({
   final studySubjects = <StudySubject>[];
   var readCount = 0;
   var totalCount = 0;
-  var minutesLeft = 0;
 
   for (final subject in subjectList) {
     final topics = <StudyTopic>[];
@@ -44,21 +54,18 @@ StudyMap buildStudyMap({
       var hasBookmark = false;
       final rows = <StudyLesson>[];
 
-      for (final lesson in lessons) {
-        final isRead = readLessonIds.contains(lesson.id);
+      for (final lesson in lessons.where((l) => l.status != 'retired')) {
+        final isRead = credit.containsKey(lesson.id);
         final isBookmarked = bookmarkedLessonIds.contains(lesson.id);
-        if (isRead) {
-          topicRead++;
-        } else {
-          minutesLeft += lesson.estimatedMinutes;
-        }
+        if (isRead) topicRead++;
         hasBookmark = hasBookmark || isBookmarked;
 
         rows.add(
           StudyLesson(
             id: lesson.id,
             title: lesson.title,
-            estimatedMinutes: lesson.estimatedMinutes,
+            part: lesson.part,
+            partCount: lesson.partCount,
             isRead: isRead,
             isBookmarked: isBookmarked,
           ),
@@ -90,6 +97,5 @@ StudyMap buildStudyMap({
     subjects: studySubjects,
     readCount: readCount,
     totalCount: totalCount,
-    minutesLeftToRead: minutesLeft,
   );
 }
