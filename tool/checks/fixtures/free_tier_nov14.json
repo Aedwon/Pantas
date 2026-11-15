@@ -1,0 +1,140 @@
+{
+  "_about": "The Nov 14, 2026 state that billed $0.22 with no users (rule 7 audit): 9 scheduled functions on each project (18 in total, 3 are free per billing account) and 8 secrets on each. The free-tier check must fail on this file.",
+  "now": "2026-11-14T12:00:00+08:00",
+  "projects": {
+    "pantas-prod": {
+      "env": {
+        "WARMUP_ENABLED": "true"
+      },
+      "secrets": [
+        "GUARDIAN_HMAC_KEY",
+        "GUARDIAN_MAIL_API_KEY",
+        "PAYMONGO_SECRET_KEY",
+        "PAYMONGO_WEBHOOK_SECRET",
+        "REVENUECAT_SECRET_API_KEY",
+        "REVENUECAT_WEBHOOK_SECRET",
+        "SIGN_IN_CODE_KEY",
+        "TRIAL_IDENTITY_HMAC_KEY"
+      ],
+      "endpoints": [
+        {
+          "name": "checkRecentEntitlementClaims",
+          "schedule": "every 24 hours",
+          "minInstances": null
+        },
+        {
+          "name": "cleanupOrphanAnons",
+          "schedule": "every 24 hours",
+          "minInstances": null
+        },
+        {
+          "name": "cleanupSyncData",
+          "schedule": "every 24 hours",
+          "minInstances": null
+        },
+        {
+          "name": "cleanupWrappedOrphans",
+          "schedule": "every 24 hours",
+          "minInstances": null
+        },
+        {
+          "name": "keepCallablesWarm",
+          "schedule": "every 24 hours",
+          "minInstances": null
+        },
+        {
+          "name": "purgeInactiveAccounts",
+          "schedule": "every 24 hours",
+          "minInstances": null
+        },
+        {
+          "name": "purgeOldAuditLogs",
+          "schedule": "every 24 hours",
+          "minInstances": null
+        },
+        {
+          "name": "purgeOldGuardianRecords",
+          "schedule": "every 24 hours",
+          "minInstances": null
+        },
+        {
+          "name": "repairEntitlementClaims",
+          "schedule": "every 24 hours",
+          "minInstances": null
+        },
+        {
+          "name": "exportData",
+          "schedule": null,
+          "minInstances": null
+        }
+      ]
+    },
+    "pantas-staging": {
+      "env": {
+        "WARMUP_ENABLED": "false"
+      },
+      "secrets": [
+        "GUARDIAN_HMAC_KEY",
+        "GUARDIAN_MAIL_API_KEY",
+        "PAYMONGO_SECRET_KEY",
+        "PAYMONGO_WEBHOOK_SECRET",
+        "REVENUECAT_SECRET_API_KEY",
+        "REVENUECAT_WEBHOOK_SECRET",
+        "SIGN_IN_CODE_KEY",
+        "TRIAL_IDENTITY_HMAC_KEY"
+      ],
+      "endpoints": [
+        {
+          "name": "checkRecentEntitlementClaims",
+          "schedule": "every 24 hours",
+          "minInstances": null
+        },
+        {
+          "name": "cleanupOrphanAnons",
+          "schedule": "every 24 hours",
+          "minInstances": null
+        },
+        {
+          "name": "cleanupSyncData",
+          "schedule": "every 24 hours",
+          "minInstances": null
+        },
+        {
+          "name": "cleanupWrappedOrphans",
+          "schedule": "every 24 hours",
+          "minInstances": null
+        },
+        {
+          "name": "keepCallablesWarm",
+          "schedule": "every 24 hours",
+          "minInstances": null
+        },
+        {
+          "name": "purgeInactiveAccounts",
+          "schedule": "every 24 hours",
+          "minInstances": null
+        },
+        {
+          "name": "purgeOldAuditLogs",
+          "schedule": "every 24 hours",
+          "minInstances": null
+        },
+        {
+          "name": "purgeOldGuardianRecords",
+          "schedule": "every 24 hours",
+          "minInstances": null
+        },
+        {
+          "name": "repairEntitlementClaims",
+          "schedule": "every 24 hours",
+          "minInstances": null
+        },
+        {
+          "name": "exportData",
+          "schedule": null,
+          "minInstances": null
+        }
+      ]
+    }
+  }
+}

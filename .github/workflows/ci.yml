@@ -341,6 +341,16 @@ jobs:
           npm test
         working-directory: functions
 
+      - name: Free-tier check (written rule 7)
+        # Fails when the deploy config would put a non-user cost over the free tier: scheduled
+        # functions, minimum instances, secret versions, warm-up, downloads from Firebase Hosting.
+        # Needs the build above (discovery loads functions/lib). The live account is checked by
+        # tool/checks/free_tier_live.mjs, by hand: CI has no cloud login. Never make this non-blocking.
+        run: |
+          git fetch --no-tags --depth=1 origin +refs/heads/main:refs/remotes/origin/main
+          node --test tool/checks/*.test.mjs tool/cloudflare-app/*.test.mjs tool/deploy/*.test.mjs
+          node tool/checks/free_tier.mjs
+
       - name: Save the emulator jars
         # The one job that saves this cache. The journeys workflow only restores it.
         if: steps.emulators.outputs.cache-hit != 'true'
