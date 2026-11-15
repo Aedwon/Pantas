@@ -54,7 +54,7 @@ questions:
     stem: |
       Group the figures by whether their outlines have a reflection axis. Which lacks one?
     choices:
-      - text: "Irregular blob"
+      - text: "Blob"
         correct: true
       - text: "Circle"
         rationale: |
@@ -359,7 +359,7 @@ questions:
       - text: "The middle square"
         rationale: |
           This uses square shape as the distinguishing feature. It has four sides. Check the fill feature named in the stem.
-      - text: "Second circle from the left"
+      - text: "The first circle from the left"
         rationale: |
           This selects a circle even though its fill matches the group. The circle has a curved boundary. Compare black versus white fill.
     explanation: |
@@ -484,7 +484,7 @@ questions:
     stem: |
       Considering dot-count parity, which figure does not belong?
     choices:
-      - text: "The circle"
+      - text: "Circle"
         correct: true
       - text: "Square"
         rationale: |

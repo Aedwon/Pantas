@@ -56,7 +56,7 @@ questions:
     type: analogy
     difficulty: medium
     stem: |
-      Hammer is to tool as oak is to ______.
+      Hammer is to tool as oak tree is to ______.
     choices:
       - text: "Tree"
         correct: true

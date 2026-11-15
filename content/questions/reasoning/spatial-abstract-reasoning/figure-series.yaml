@@ -165,7 +165,7 @@ questions:
     stem: |
       Which figure best continues the simplest consistent pattern shown?
     choices:
-      - text: "Dot at bottom-left"
+      - text: "Bottom-left dot"
         correct: true
       - text: "Dot at top-left"
         rationale: |
@@ -594,7 +594,7 @@ questions:
     stem: |
       Which figure best continues the simplest consistent pattern shown?
     choices:
-      - text: "Circle with three dots"
+      - text: "Circle with 3 dots"
         correct: true
       - text: "Square with four dots"
         rationale: |
