@@ -649,3 +649,26 @@ questions:
     explanation: |
       The creases meet at the original center. Reflecting across each crease reverses the horizontal and vertical offsets while preserving their sizes. A diagonally opposite hole therefore has the same distance from the center.
     approved: false
+  - id: q-spatial-abstract-reasoning-paper-folding-and-cutting-0021
+    lesson: lesson-spatial-abstract-reasoning-uneven-folds-and-cut-layers
+    keyPoint: 1
+    type: paper-folding
+    difficulty: exam
+    stem: |
+      A rectangular sheet is 16 centimeters wide and 8 centimeters tall. Its leftmost 6-centimeter strip is folded right along a vertical line 6 centimeters from the original left edge. A small circular punch passes through all paper at a point 10 centimeters from the original left edge and 3 centimeters from the bottom. It touches no fold or outside edge.
+
+      When the sheet is fully opened, where are the hole centers? Give each position as (distance from the original left edge, distance from the bottom), in centimeters.
+    choices:
+      - text: (2, 3) and (10, 3)
+        correct: true
+      - text: (10, 3) only, with no second hole
+        rationale: |
+          This treats the punch as outside the overlap. An uneven fold can leave single-layer areas, but this point is covered. Find where the folded strip lands before counting holes.
+      - text: (6, 3) and (10, 3)
+        rationale: |
+          This uses the distance from the right edge to place the copy. That distance looks useful but does not locate the fold. Reflect across the line 6 centimeters from the left edge.
+      - text: (2, 5) and (10, 3)
+        rationale: |
+          This flips the height as well as the horizontal position. A mirror copy changes only the direction across the fold. A vertical fold keeps the distance from the bottom unchanged.
+    explanation: |
+      The folded strip covers positions from 6 to $6+6=12$ centimeters from the original left edge. The punch at 10 centimeters cuts both layers. It is $10-6=4$ centimeters right of the fold. Its copy is 4 centimeters left of the fold, at $6-4=2$ centimeters. Both holes stay 3 centimeters from the bottom. Their centers are (2, 3) and (10, 3).

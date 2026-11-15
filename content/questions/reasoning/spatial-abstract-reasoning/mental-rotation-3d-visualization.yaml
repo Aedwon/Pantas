@@ -686,3 +686,56 @@ questions:
     explanation: |
       A and E fold from opposite edges of B as side faces. D turns from E to another side. F folds from D to the face across from B. Opposite faces have no shared edge.
     approved: false
+  - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0021
+    lesson: lesson-spatial-abstract-reasoning-turning-solids-without-mirror-flips
+    keyPoint: 1
+    type: mental-rotation
+    difficulty: exam
+    stem: |
+      A cube has a star on top, a circle on the bottom, a triangle on the front, a square on the right, a cross on the back, and a dot on the left. Each symbol is centered on its face.
+
+      The cube makes a quarter-turn about its vertical axis. The original right face moves to the front, and the top face remains on top. Which symbols are now on the top, front, and left, in that order?
+    choices:
+      - text: Star, square, triangle
+        correct: true
+      - text: Star, square, cross
+        rationale: |
+          This moves the right face forward but moves the back face left. Those moves require opposite turns. Track all faces through the same turn.
+      - text: Star, triangle, square
+        rationale: |
+          This leaves the front face in place while moving the right face left. That does not turn the whole cube together. Start with the stated right-to-front move.
+      - text: Circle, square, triangle
+        rationale: |
+          This swaps the top and bottom during a turn around the vertical axis. The side faces do move, but the top stays on top. Check which axis the cube turns around.
+    explanation: |
+      The top star stays on top. The right square moves to the front. In the same quarter-turn, the front triangle moves to the left. The order is star, square, triangle.
+  - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0022
+    lesson: lesson-spatial-abstract-reasoning-turning-solids-without-mirror-flips
+    keyPoint: 2
+    type: mental-rotation
+    difficulty: exam
+    stem: |
+      Three differently marked faces meet at a corner of a solid. Viewed from outside toward that corner, their clockwise order is circle, square, triangle. The solid is turned without reflection.
+
+      Two proposed views list the clockwise order at the same corner, again viewed from outside toward it. The starting face in each list may change.
+
+      | View | Clockwise order |
+      | --- | --- |
+      | I | Triangle, circle, square |
+      | II | Square, circle, triangle |
+
+      Which proposed view preserves the original order around the corner?
+    choices:
+      - text: I only
+        correct: true
+      - text: II only
+        rationale: |
+          This accepts the reversed order but rejects a change of starting face. From square, the next clockwise face must be triangle. Trace the full cycle from each proposed starting face.
+      - text: Both I and II
+        rationale: |
+          This checks that the same faces meet but ignores their order. Both lists contain the same labels. Check which face comes next clockwise after each label.
+      - text: Neither I nor II
+        rationale: |
+          This treats a different starting label as a different arrangement. A turn can change which label you list first. Trace view I back to circle before comparing it.
+    explanation: |
+      A turn keeps the order around the same corner. Starting the original clockwise cycle at triangle gives triangle, circle, square, as in view I. The next face after each label stays the same, so view I preserves the order.

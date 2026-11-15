@@ -895,3 +895,32 @@ questions:
     explanation: |
       Size grows small, medium, large down rows. Dots increase one, two, three across each row, while edge lines decrease three, two, one. The blank combines the final state of all three tracks: large, three dots, one edge line.
     approved: false
+  - id: q-spatial-abstract-reasoning-figure-matrices-0021
+    lesson: lesson-spatial-abstract-reasoning-matrix-keeping-shared-features
+    keyPoint: 1
+    type: figure-matrix
+    difficulty: exam
+    stem: |
+      Each cell in a matrix is a square with dots at the listed corner positions. In each completed row, the third cell keeps only dots found at the same positions in both starting cells.
+
+      | Row | First cell | Second cell | Third cell |
+      | --- | --- | --- | --- |
+      | I | Top-left, top-right | Top-right, bottom-left | Top-right |
+      | II | Bottom-left, bottom-right | Top-left, bottom-left | Bottom-left |
+      | III | Top-left, top-right, bottom-right | Top-left, bottom-left, bottom-right | Missing |
+
+      Which dot arrangement completes row III?
+    choices:
+      - text: Top-left, bottom-right
+        correct: true
+      - text: Top-right and bottom-left
+        rationale: |
+          This keeps the dots found in only one starting cell. Those positions differ between the cells. Keep a dot only if both cells have it at that position.
+      - text: All four corner positions
+        rationale: |
+          This combines all dots from either cell. That is a different combination rule. Check what the completed rows keep.
+      - text: Top-left corner only
+        rationale: |
+          This stops after finding one shared dot. Top-left does appear in both cells. Check bottom-right too before finishing.
+    explanation: |
+      Both starting cells in row III have dots at top-left and bottom-right. These are their shared positions. Keeping only those positions gives top-left and bottom-right dots.

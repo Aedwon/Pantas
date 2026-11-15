@@ -464,3 +464,33 @@ questions:
       For the outer conditional to be false, its if-part must be true and R false. NOT of P OR Q is true only when P and Q are both false. Thus the required row is (F,F,F).
     approved: false
 
+  - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0021
+    lesson: lesson-logical-verbal-reasoning-truth-tables-and-connectives
+    keyPoint: 1
+    type: truth-table-evaluation
+    difficulty: exam
+    stem: |
+      An analyst lists the following assignments for two propositions, P and Q, when preparing a complete truth table.
+
+      | Row | P | Q |
+      | --- | --- | --- |
+      | I | T | T |
+      | II | F | T |
+      | III | T | F |
+      | IV | F | T |
+
+      Which correction makes the list complete without adding a row?
+    choices:
+      - text: Replace row IV with F, F.
+        correct: true
+      - text: Replace row IV with T, F.
+        rationale: |
+          This replaces one repeated pair with another. Row III already has T, F. Check that each possible pair appears once.
+      - text: Replace row III with F, F.
+        rationale: |
+          This adds the missing pair but removes T, F. The repeated F, T pair remains. Replace a repeated row, not a unique row.
+      - text: Keep every row as written.
+        rationale: |
+          This checks only that the list has four rows. Two rows repeat F, T. Check the pairs themselves before calling the table complete.
+    explanation: |
+      The possible pairs are T, T; T, F; F, T; and F, F. Rows II and IV repeat F, T. Replacing row IV with F, F keeps each of the four possible pairs exactly once.

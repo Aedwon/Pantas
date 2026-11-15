@@ -671,3 +671,32 @@ questions:
     explanation: |
       Each regular triangle has three reflection axes, and each square has four. The first three figures have three, four, and three dots, matching their outlines' reflection axes. The fourth figure is a square with two dots but four reflection axes. It breaks the relation.
     approved: false
+  - id: q-spatial-abstract-reasoning-figure-grouping-0021
+    lesson: lesson-spatial-abstract-reasoning-testing-a-figure-group-rule
+    keyPoint: 1
+    type: odd-figure
+    difficulty: exam
+    stem: |
+      Five figures have the following features. A proposed rule must group exactly four figures and exclude exactly one. Which rule meets this requirement?
+
+      | Figure | Outline | Size | Internal dots |
+      | --- | --- | --- | --- |
+      | A | Triangle | Small | Two |
+      | B | Square | Large | Two |
+      | C | Pentagon | Small | Two |
+      | D | Hexagon | Large | Two |
+      | E | Rectangle | Small | Three |
+    choices:
+      - text: Contains two dots
+        correct: true
+      - text: Has a small outline
+        rationale: |
+          This groups the three small figures. The two large figures both fall outside it. Count how many figures the rule excludes.
+      - text: Has four straight sides
+        rationale: |
+          This groups the square and rectangle. Both have four sides, but three figures are left out. Test the rule on every outline.
+      - text: Uses only straight sides
+        rationale: |
+          This finds a feature shared by all five figures. It sounds like a common rule but excludes none. Check that exactly one figure must fail it.
+    explanation: |
+      A, B, C, and D each contain two dots. E contains three dots. The two-dot rule groups exactly four figures and excludes only E.
