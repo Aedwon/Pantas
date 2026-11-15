@@ -439,7 +439,7 @@ questions:
           This rearranges the suffix and keeps the e. The same nearby letters may look familiar. Check that the suffix is -ly and the base drops e.
     explanation: |
       "True" drops its e when -ly is added. The standard result is "truly," a learned exception to the usual keep-e pattern before consonant-starting suffixes.
-    approved: false
+    approved: true
 
   - id: q-vocabulary-spelling-rules-0020
     lesson: lesson-vocabulary-doubling-final-consonants
@@ -462,10 +462,11 @@ questions:
           This reverses the stress-based doubling pattern for both words. Their endings look similar. Check whether the final syllable is stressed before adding -ing.
     explanation: |
       "Visit" has stress on its first syllable, so its final t stays single in "visiting." "Begin" has stress on its last syllable, so its final n doubles in "beginning."
-    approved: false
+    approved: true
 
 
   - id: q-vocabulary-spelling-rules-0021
+    approved: true
     lesson: lesson-vocabulary-letters-sounds-and-vowel-order
     keyPoint: 1
     type: spelling-error

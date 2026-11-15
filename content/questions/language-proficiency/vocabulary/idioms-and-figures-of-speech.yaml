@@ -439,7 +439,7 @@ questions:
           This treats reducing expenses as giving money to others. Both concern household money. Check the effect of the lower income on the family's spending.
     explanation: |
       "Naghigpit ng sinturon" means cut spending. The family reduces expenses because its income has fallen.
-    approved: false
+    approved: true
 
   - id: q-vocabulary-idioms-and-figures-of-speech-0020
     lesson: lesson-vocabulary-comparisons-and-human-actions
@@ -462,5 +462,5 @@ questions:
           This treats a hopeful image as an inflated claim. A new chance can sound very promising. Check whether the sentence overstates an amount or compares unlike things.
     explanation: |
       "Like a door" compares the new chance with an opening that lets someone move forward. The comparison uses "like," so it is explicit.
-    approved: false
+    approved: true
 

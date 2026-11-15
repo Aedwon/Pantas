@@ -439,7 +439,7 @@ questions:
           This assigns a time meaning to the prefix. Mistimed operation can be a fault. Check whether the element specifically says early or only faulty.
     explanation: |
       "Mal-" can mean bad or faulty. In "malfunction," it points to operation that does not work properly.
-    approved: false
+    approved: true
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0020
     lesson: lesson-vocabulary-ugat-unlapi-gitlapi-at-hulapi
@@ -462,10 +462,11 @@ questions:
           This takes the first syllable of the base as an affix. It is an easy chunk to see. Check whether the same letters already belong to "sulat."
     explanation: |
       The base "sulat" remains whole, and -an is added at its end to form "sulatan." The added ending is a suffix.
-    approved: false
+    approved: true
 
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0021
+    approved: true
     lesson: lesson-vocabulary-roots-bases-and-valid-splits
     keyPoint: 1
     type: word-part-meaning
@@ -488,6 +489,7 @@ questions:
       A stem is the form to which the next affix is added. Helpful receives -ness to form helpfulness, so helpful is the stem at this step.
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0022
+    approved: true
     lesson: lesson-vocabulary-suffixes-and-word-jobs
     keyPoint: 1
     type: word-part-meaning
@@ -510,6 +512,7 @@ questions:
       Quietly tells how the officer read. The ending -ly forms an adverb here, and the word describes the action read.
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0023
+    approved: true
     lesson: lesson-vocabulary-suffixes-and-word-jobs
     keyPoint: 2
     type: word-part-meaning
@@ -532,6 +535,7 @@ questions:
       Friendly describes the receptionist. A word that describes a noun is an adjective, even when it ends in -ly.
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0024
+    approved: true
     lesson: lesson-vocabulary-suffixes-for-qualities-and-absence
     keyPoint: 1
     type: word-part-meaning
@@ -554,6 +558,7 @@ questions:
       The suffix -ful means having or full of. The suffix -less means without. Helpful describes giving help, and careless describes not taking enough care.
 
   - id: q-vocabulary-root-words-prefixes-suffixes-0025
+    approved: true
     lesson: lesson-vocabulary-suffixes-for-qualities-and-absence
     keyPoint: 2
     type: word-part-meaning

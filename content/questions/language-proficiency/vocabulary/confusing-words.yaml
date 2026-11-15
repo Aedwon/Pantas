@@ -370,7 +370,7 @@ questions:
           This marks the fruit as the focus of an actor-focus verb. The fruit is central to the purchase, so it may seem to deserve that marker. Check the verb form and the role of the noun phrase.
     explanation: |
       "Ng" marks the noun phrase "tatlong mangga," the quantity of fruit bought.
-    approved: false
+    approved: true
 
   - id: q-vocabulary-confusing-words-0017
     lesson: lesson-vocabulary-ng-at-nang
@@ -393,7 +393,7 @@ questions:
           Napagkamalan mong layunin ang ipinapakita ng pang-ugnay. Maaaring layunin ng guro na patahimikin ang klase. Tingnan kung layunin o oras ang sinasabi ng unang sugnay.
     explanation: |
       Sinasabi ng "nang" kung kailan tumahimik ang klase. Katumbas ito ng "noong" sa pangungusap.
-    approved: false
+    approved: true
 
   - id: q-vocabulary-confusing-words-0018
     lesson: lesson-vocabulary-ng-at-nang
@@ -416,7 +416,7 @@ questions:
           This reverses the markers for manner and object. Both appear beside words linked to writing, so they may seem interchangeable. Check the role of each following word.
     explanation: |
       "Maingat" describes how the child wrote, so it follows "nang." "Liham" names what was written, so it follows "ng."
-    approved: false
+    approved: true
 
   - id: q-vocabulary-confusing-words-0019
     lesson: lesson-vocabulary-affect-and-effect
@@ -439,7 +439,7 @@ questions:
           This says the reform influenced changes instead of creating them. The second verb correctly means influenced, which may encourage using it twice. Check the first action separately.
     explanation: |
       "Effected changes" means brought changes about. "Affected enrollment" means influenced enrollment. Each verb matches the requested meaning.
-    approved: false
+    approved: true
 
   - id: q-vocabulary-confusing-words-0020
     lesson: lesson-vocabulary-its-and-it-is-or-it-has
@@ -462,5 +462,5 @@ questions:
           This uses a possessive-looking form where a clause needs "it is." The final -s may seem to mark a shortened form. Expand the clause before choosing its spelling.
     explanation: |
       "Its rules" shows that the rules belong to the school. "It's now open" expands to "it is now open," so the second clause has a verb.
-    approved: false
+    approved: true
 

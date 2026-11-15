@@ -439,7 +439,7 @@ questions:
           This reverses careful spending into excessive spending. The person gives help to others, which may suggest spending freely. Check whether generosity removes the stated care with money.
     explanation: |
       "Frugal" describes sensible care with money. It keeps the approving tone of spending wisely while still meeting others' needs.
-    approved: false
+    approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0020
     lesson: lesson-vocabulary-opposite-roles
@@ -462,10 +462,11 @@ questions:
           This selects another way of receiving temporary use. Renting resembles borrowing. Check whether the second word names the other participant's role.
     explanation: |
       Buying and selling describe the two sides of one exchange. In the same way, one person borrows what another person lends. "Lend" names the other side of borrowing.
-    approved: false
+    approved: true
 
 
   - id: q-vocabulary-synonyms-and-antonyms-0021
+    approved: true
     lesson: lesson-vocabulary-feeling-strength-and-formality
     keyPoint: 2
     type: synonym
@@ -488,6 +489,7 @@ questions:
       Annoyed means bothered or a little angry. Bothered keeps that mild strength and fits the calm return to work.
 
   - id: q-vocabulary-synonyms-and-antonyms-0022
+    approved: true
     lesson: lesson-vocabulary-feeling-strength-and-formality
     keyPoint: 3
     type: synonym
@@ -510,6 +512,7 @@ questions:
       Commence means begin and is formal. "Processing will commence after the briefing" keeps the meaning and suits the notice.
 
   - id: q-vocabulary-synonyms-and-antonyms-0023
+    approved: true
     lesson: lesson-vocabulary-meaning-and-grammar-in-context
     keyPoint: 2
     type: synonym
@@ -532,6 +535,7 @@ questions:
       The sentence needs a verb after must. Choose names the action of making a choice, so it preserves the meaning of decide.
 
   - id: q-vocabulary-synonyms-and-antonyms-0024
+    approved: true
     lesson: lesson-vocabulary-opposite-roles
     keyPoint: 1
     type: word-analogy
@@ -554,6 +558,7 @@ questions:
       Buying and selling describe opposite roles in the same exchange. The office bought the printer, so the supplier sold it.
 
   - id: q-vocabulary-synonyms-and-antonyms-0025
+    approved: true
     lesson: lesson-vocabulary-opposites-with-levels-and-two-states
     keyPoint: 1
     type: antonym
@@ -576,6 +581,7 @@ questions:
       The log allows only available or unavailable. Ruling out available leaves unavailable.
 
   - id: q-vocabulary-synonyms-and-antonyms-0026
+    approved: true
     lesson: lesson-vocabulary-opposites-with-levels-and-two-states
     keyPoint: 1
     type: antonym
@@ -598,6 +604,7 @@ questions:
       Hot and cold have middle levels, including warm. The statement leaves warm as a possible condition.
 
   - id: q-vocabulary-synonyms-and-antonyms-0027
+    approved: true
     lesson: lesson-vocabulary-prefix-clues-in-context
     keyPoint: 1
     type: synonym
@@ -620,6 +627,7 @@ questions:
       The prefix un- means not here. Fair is the base. Extra help for a favored applicant confirms the meaning not fair.
 
   - id: q-vocabulary-synonyms-and-antonyms-0028
+    approved: true
     lesson: lesson-vocabulary-prefix-clues-in-context
     keyPoint: 1
     type: synonym
@@ -642,6 +650,7 @@ questions:
       Uncle cannot be explained as un- plus a base cle. A prefix clue works only when it is a real word part with a meaning that fits.
 
   - id: q-vocabulary-synonyms-and-antonyms-0029
+    approved: true
     lesson: lesson-vocabulary-similar-and-opposite-meanings
     keyPoint: 3
     type: synonym

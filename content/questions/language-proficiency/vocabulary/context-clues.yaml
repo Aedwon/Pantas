@@ -386,7 +386,7 @@ questions:
           This uses the meaning of assigning responsibility. Someone can be charged with a duty. Check whether the nearby words name a duty or a fee.
     explanation: |
       The amount appeared on an invoice for a room. "Charged" means billed in this setting.
-    approved: false
+    approved: true
 
   - id: q-vocabulary-context-clues-0017
     lesson: lesson-vocabulary-contrast-and-inference-clues
@@ -410,7 +410,7 @@ questions:
           This treats the reaction as regret over a loss. All are unpleasant feelings. Check whether the sentence describes danger or something lost.
     explanation: |
       A loud cry, shaking, and cold sweat show fear. "Nangilabot" describes that fearful reaction.
-    approved: false
+    approved: true
 
   - id: q-vocabulary-context-clues-0018
     lesson: lesson-vocabulary-contrast-and-inference-clues
@@ -434,7 +434,7 @@ questions:
           This treats delay as lack of interest. Someone who does not care might also postpone signing. Check whether Lina spends effort examining the offer.
     explanation: |
       Lina checks the offer carefully and delays signing. These actions show caution, which is the meaning of "wary."
-    approved: false
+    approved: true
 
   - id: q-vocabulary-context-clues-0019
     lesson: lesson-vocabulary-word-partners-feeling-and-grammar
@@ -458,7 +458,7 @@ questions:
           This treats support as unlimited enthusiasm. The residents do support the project in one case. Check the condition introduced by "only if."
     explanation: |
       The support depends on repairs being completed. "Qualified" means limited by a condition here.
-    approved: false
+    approved: true
 
   - id: q-vocabulary-context-clues-0020
     lesson: lesson-vocabulary-contrast-and-inference-clues
@@ -482,10 +482,11 @@ questions:
           This treats recovery as refusing to change. Continuing to sell may look like standing firm. Check whether the store kept its old method or adapted it.
     explanation: |
       The store changes how it sells goods and continues operating. "Resilience" is the ability to adapt and recover after a setback.
-    approved: false
+    approved: true
 
 
   - id: q-vocabulary-context-clues-0021
+    approved: true
     lesson: lesson-vocabulary-word-partners-feeling-and-grammar
     keyPoint: 2
     type: word-in-context

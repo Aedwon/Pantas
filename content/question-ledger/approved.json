@@ -3292,5 +3292,821 @@
     "evidence": "docs/content/verification/grammar-and-structure.md",
     "hash": "9a906ea1f7ca7b88267615a4c1a1ff818300595d24328aa505e9d8e7a27bbf0c",
     "lesson": "lesson-grammar-and-structure-present-perfect-links-to-now"
+  },
+  "q-vocabulary-confusing-words-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "d68d1699268d9544e0debc473dfc6af05933649ad1d89580fa632c6211c36628",
+    "lesson": "lesson-vocabulary-affect-and-effect"
+  },
+  "q-vocabulary-confusing-words-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "ca4be9407397bbcd7656ac6bbc45e635ef1915fa4f372635dbd2311fd0e3e1aa",
+    "lesson": "lesson-vocabulary-its-and-it-is-or-it-has"
+  },
+  "q-vocabulary-confusing-words-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "d6ac241cabb3ba4a45d0fdc78e0909849293b09d766224730e44f7f77d258005",
+    "lesson": "lesson-vocabulary-ng-at-nang"
+  },
+  "q-vocabulary-confusing-words-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "cfc864e21eca17de8a98d6ed52adf4f4377874d21f5e67cb3c3d4938bf828885",
+    "lesson": "lesson-vocabulary-sila-at-sina"
+  },
+  "q-vocabulary-confusing-words-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "1150599f10f8ea3f5d5c44719c534b6f704b2ab82ca9e2ed7a9a606b96ea9b29",
+    "lesson": "lesson-vocabulary-affect-and-effect"
+  },
+  "q-vocabulary-confusing-words-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "64cb4db8727c0a15c459570e1baedbd93e67b69fbc3cfe9f08e8c92f1045f558",
+    "lesson": "lesson-vocabulary-affect-and-effect"
+  },
+  "q-vocabulary-confusing-words-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "91778684f91c9b9006c147ee1682d9c50631715fed0db4fdb244867c8cc5f99f",
+    "lesson": "lesson-vocabulary-its-and-it-is-or-it-has"
+  },
+  "q-vocabulary-confusing-words-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "d586811ff698ed931bebc1671e7da0b295d16065e93d93015beae9bce7e0bfa9",
+    "lesson": "lesson-vocabulary-ng-at-nang"
+  },
+  "q-vocabulary-confusing-words-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "382dbdb3abc957710ec1d06417c865952ad80cc5cbeaeea8b17314d4af6df11b",
+    "lesson": "lesson-vocabulary-sila-at-sina"
+  },
+  "q-vocabulary-confusing-words-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "6bd2d4a600add79e82659ffaed7b563a74bc7ac6810f00390610156e569876b0",
+    "lesson": "lesson-vocabulary-its-and-it-is-or-it-has"
+  },
+  "q-vocabulary-confusing-words-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "004ea3c44974c3586ec4e9c833585e068df0e5a4956a1e3b02feaca8a0c2ae68",
+    "lesson": "lesson-vocabulary-sila-at-sina"
+  },
+  "q-vocabulary-confusing-words-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "9bed873abdb64de81284282a26900b5390f3a5c3fc307da35b419f6e4ce14cfd",
+    "lesson": "lesson-vocabulary-ng-at-nang"
+  },
+  "q-vocabulary-confusing-words-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "18183a7b13a68d861c40f28e09bfc1dc054d1312f906b0da08e113b29e7f8045",
+    "lesson": "lesson-vocabulary-affect-and-effect"
+  },
+  "q-vocabulary-confusing-words-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "d53d7f4b0ba92dff40ee68c83be9bbecc1a0118d743b632e753ba1ab5b6bf2d6",
+    "lesson": "lesson-vocabulary-ng-at-nang"
+  },
+  "q-vocabulary-confusing-words-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "e7c4b1251f8fe291a757aecfecef8ebfa957bae72dd27a09e96a56e07085b928",
+    "lesson": "lesson-vocabulary-its-and-it-is-or-it-has"
+  },
+  "q-vocabulary-confusing-words-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "16a158bd405b3d8220134f7806a209425780bb2cce130f9022928fef8124a725",
+    "lesson": "lesson-vocabulary-ng-at-nang"
+  },
+  "q-vocabulary-confusing-words-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "414d050c397e475c28b7fe7d9b79558d7cbe460d52102d19de912a1f989efda2",
+    "lesson": "lesson-vocabulary-ng-at-nang"
+  },
+  "q-vocabulary-confusing-words-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "9e47f22b486a611cdd54077b9c50b7877923724d9a6bfb96674020f611d7d025",
+    "lesson": "lesson-vocabulary-ng-at-nang"
+  },
+  "q-vocabulary-confusing-words-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "8e2b2be52e270dde4b0961976be15dd31e7bdaba9a77c881f02acde8d9d04c83",
+    "lesson": "lesson-vocabulary-affect-and-effect"
+  },
+  "q-vocabulary-confusing-words-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "6ffef4e27c2b27d493458f42bf79c065b7b7c4300e3baa497038ed96e925fa1a",
+    "lesson": "lesson-vocabulary-its-and-it-is-or-it-has"
+  },
+  "q-vocabulary-context-clues-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "886ae6013cdb9ee52a3f904ed5a84708ff187a8276549632b07a62a124760639",
+    "lesson": "lesson-vocabulary-definitions-examples-and-synonyms"
+  },
+  "q-vocabulary-context-clues-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "88ab24ac8bfe4b3b3a4cda632b9373c25fb5cc6f8b23ff54a13f5c028245c5c8",
+    "lesson": "lesson-vocabulary-definitions-examples-and-synonyms"
+  },
+  "q-vocabulary-context-clues-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "be35712ada985650f8dffe8550bb2169c3e253bc03f111c00024cbb8dee5d945",
+    "lesson": "lesson-vocabulary-definitions-examples-and-synonyms"
+  },
+  "q-vocabulary-context-clues-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "a4d34f1875d90e8e04dee5dbb1eb96bb3e385db91f56cee6c4cecf2c7f7261c4",
+    "lesson": "lesson-vocabulary-contrast-and-inference-clues"
+  },
+  "q-vocabulary-context-clues-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "9faf0578448f338673e40dade16e4f730e93b35d9a65b9ba6880c31a63ac5cff",
+    "lesson": "lesson-vocabulary-contrast-and-inference-clues"
+  },
+  "q-vocabulary-context-clues-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "a763ced5a225381fbcac2ad62cafbc42eb4d1c2fb11d92af013d9c88acd5a0db",
+    "lesson": "lesson-vocabulary-definitions-examples-and-synonyms"
+  },
+  "q-vocabulary-context-clues-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "478f722670c3cd9505aa08d99d0481ac4b8d6dda939985a7e8c3e78b98c718eb",
+    "lesson": "lesson-vocabulary-contrast-and-inference-clues"
+  },
+  "q-vocabulary-context-clues-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "47dba45679ca7d2ae7d9b77d156343e08a10f2f5c423cd586579f04fe0fa40d0",
+    "lesson": "lesson-vocabulary-definitions-examples-and-synonyms"
+  },
+  "q-vocabulary-context-clues-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "4d7a2ddc0d5506fc47b363c69d27fc1053e5a8ee8ba04e39c7aa1b8ec85f49c7",
+    "lesson": "lesson-vocabulary-contrast-and-inference-clues"
+  },
+  "q-vocabulary-context-clues-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "79b69f3309ea7b0bf84c9eab52d7a80760a30284a19f9cf74074f99ba6a29530",
+    "lesson": "lesson-vocabulary-contrast-and-inference-clues"
+  },
+  "q-vocabulary-context-clues-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "30471d9a72d913e3d51b8bf04fe236cc5560eefa0b514bd0de2da780fee48202",
+    "lesson": "lesson-vocabulary-definitions-examples-and-synonyms"
+  },
+  "q-vocabulary-context-clues-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "ff4026a8b2cd514ea452b196a60e9324b611f7dccc0d07566f967815409da936",
+    "lesson": "lesson-vocabulary-definitions-examples-and-synonyms"
+  },
+  "q-vocabulary-context-clues-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "5774c4de1016f29d144c9618ffffac3c6583854532d5dc016d06eebe5a751fb6",
+    "lesson": "lesson-vocabulary-definitions-examples-and-synonyms"
+  },
+  "q-vocabulary-context-clues-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "ceda2ef03713e6e295f824da78a0c9184e867e851d848b448e116ff9987129f6",
+    "lesson": "lesson-vocabulary-contrast-and-inference-clues"
+  },
+  "q-vocabulary-context-clues-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "9294793b93cfb091c36d1143496416c3e97c363ecd95c0e79f519a3847290826",
+    "lesson": "lesson-vocabulary-definitions-examples-and-synonyms"
+  },
+  "q-vocabulary-context-clues-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "fc2f876c0a23c5588c52fd4449718b11f5565c03da3863a6ae4c4fb686456a48",
+    "lesson": "lesson-vocabulary-word-partners-feeling-and-grammar"
+  },
+  "q-vocabulary-context-clues-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "47375c03f85efc4afd43a205d17a9451686db2be24063d56340b50b46cd1d37f",
+    "lesson": "lesson-vocabulary-contrast-and-inference-clues"
+  },
+  "q-vocabulary-context-clues-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "ba4c244fc693f95dcbc072d906ebbb7e61928daa53fa72bb75dc4dc36d6fb730",
+    "lesson": "lesson-vocabulary-contrast-and-inference-clues"
+  },
+  "q-vocabulary-context-clues-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "19fda01590aeae53760bcd84677b48f29fe9ae81a7c21fec9858fcb3202e12ac",
+    "lesson": "lesson-vocabulary-word-partners-feeling-and-grammar"
+  },
+  "q-vocabulary-context-clues-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "abbcfb1121a1f9b3881569b32bfc089434f1cf7cd10808cd3485d4444b8c07d8",
+    "lesson": "lesson-vocabulary-contrast-and-inference-clues"
+  },
+  "q-vocabulary-context-clues-0021": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "be21760f5a99781b9b48e3abdc6b624bb00910ba32c50a334ac1c90ef50a42c0",
+    "lesson": "lesson-vocabulary-word-partners-feeling-and-grammar"
+  },
+  "q-vocabulary-idioms-and-figures-of-speech-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "4700a9c927ab79b80dfd39ddc64f12de38e6bbd63e2be7c123251c10d0ab5b18",
+    "lesson": "lesson-vocabulary-idioms-and-literal-meanings"
+  },
+  "q-vocabulary-idioms-and-figures-of-speech-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "6914a13c95931335f5160685c9863870ee8a41342c4bee90cd62aee6a9a1a2d5",
+    "lesson": "lesson-vocabulary-idioms-and-literal-meanings"
+  },
+  "q-vocabulary-idioms-and-figures-of-speech-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "b8866e858df288ad324c21ebc190a1c7d8b144b18e788eec39348f5a403e6a6d",
+    "lesson": "lesson-vocabulary-comparisons-and-human-actions"
+  },
+  "q-vocabulary-idioms-and-figures-of-speech-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "9ead7678408bee5d1e1c813b4f1fdece9200628a4d5bdc36686e68801c052e97",
+    "lesson": "lesson-vocabulary-comparisons-and-human-actions"
+  },
+  "q-vocabulary-idioms-and-figures-of-speech-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "43c46c27403717774aa65f528ccbba31a87175ede5d4c2935e0fca60e760ece0",
+    "lesson": "lesson-vocabulary-comparisons-and-human-actions"
+  },
+  "q-vocabulary-idioms-and-figures-of-speech-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "fd84bda11d06fb8bca13c51742b8c2e7956f853ec42c81e8a82c4430c119c889",
+    "lesson": "lesson-vocabulary-comparisons-and-human-actions"
+  },
+  "q-vocabulary-idioms-and-figures-of-speech-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "e2c2d6250315155210d8af91d08dbad30ac71903c61aa843ef0a237fcedaa790",
+    "lesson": "lesson-vocabulary-sound-and-opposing-words"
+  },
+  "q-vocabulary-idioms-and-figures-of-speech-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "ff3c1602b874a2679d07fd8c8b02414eec301552693909dc4ca31bde0d8c130d",
+    "lesson": "lesson-vocabulary-sound-and-opposing-words"
+  },
+  "q-vocabulary-idioms-and-figures-of-speech-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "68fbce8caf54f40651f78e069177a1a02534dd7ad90b9c6afee5f139a9e3234e",
+    "lesson": "lesson-vocabulary-sound-and-opposing-words"
+  },
+  "q-vocabulary-idioms-and-figures-of-speech-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "e087c7cd4fad74eba6efe5357eca7826da2952b501b3d0dea5abe2b92c1dab6d",
+    "lesson": "lesson-vocabulary-idioms-and-literal-meanings"
+  },
+  "q-vocabulary-idioms-and-figures-of-speech-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "59a2c3466451a6921bd62c4d7573a3003a345268efff261ca4e81d0e331de6f7",
+    "lesson": "lesson-vocabulary-paghahambing-pagbibigay-katauhan-at-pagmamalabis"
+  },
+  "q-vocabulary-idioms-and-figures-of-speech-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "3a647c7d4b7f6c635c0b1dc0ccdd147da66238674c660073c479b7865f5d2b25",
+    "lesson": "lesson-vocabulary-paghahambing-pagbibigay-katauhan-at-pagmamalabis"
+  },
+  "q-vocabulary-idioms-and-figures-of-speech-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "1a212505969cdc7a2131d40e16bd1ca04c4f1f5fa775b1354c160bc3ed76f9d2",
+    "lesson": "lesson-vocabulary-paghahambing-pagbibigay-katauhan-at-pagmamalabis"
+  },
+  "q-vocabulary-idioms-and-figures-of-speech-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "4e99030f7013c9ce585fca0e4f2971c871888d754494720d113704ff1599b5d0",
+    "lesson": "lesson-vocabulary-paghahambing-pagbibigay-katauhan-at-pagmamalabis"
+  },
+  "q-vocabulary-idioms-and-figures-of-speech-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "f9a144934e08dc7c888f1d5b12c1017f7e58b595ff1db85838063f3f69c37d84",
+    "lesson": "lesson-vocabulary-idioms-and-literal-meanings"
+  },
+  "q-vocabulary-idioms-and-figures-of-speech-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "a1e92bbe1c9ca25e31126a5228cb1754e0e6b2f2a7fbaabf3063573767c6ebda",
+    "lesson": "lesson-vocabulary-comparisons-and-human-actions"
+  },
+  "q-vocabulary-idioms-and-figures-of-speech-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "db7cd283c84d8cf68e73d78ac25a5e5e7e3cba2567fd66afeb3121b8c8480f17",
+    "lesson": "lesson-vocabulary-comparisons-and-human-actions"
+  },
+  "q-vocabulary-idioms-and-figures-of-speech-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "f0572d8f1c73bb24899c28190ccd9ceefbebf9f14011c5513ebad35e02762863",
+    "lesson": "lesson-vocabulary-sound-and-opposing-words"
+  },
+  "q-vocabulary-idioms-and-figures-of-speech-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "72ee75aa1fdae1037b05b51ce84aabae01ab37c89c7de58e47096be3817b7a4e",
+    "lesson": "lesson-vocabulary-idioms-and-literal-meanings"
+  },
+  "q-vocabulary-idioms-and-figures-of-speech-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "5ba5bb56c762182a15ee082f3d4b485e8072486e764132e553aeea2d426c6ca7",
+    "lesson": "lesson-vocabulary-comparisons-and-human-actions"
+  },
+  "q-vocabulary-root-words-prefixes-suffixes-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "e0cabf5ff691638a125f4e5478453f9eff8c469c224031bf787e478464aa1bc3",
+    "lesson": "lesson-vocabulary-english-word-elements"
+  },
+  "q-vocabulary-root-words-prefixes-suffixes-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "f83a6c927c9e9fa1e7de6569acc9fd976fc0d8476290a591b01de4f2d6dc3b4d",
+    "lesson": "lesson-vocabulary-english-word-elements"
+  },
+  "q-vocabulary-root-words-prefixes-suffixes-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "561da73b4125399724af071059552acca44ed15b2326ed4919774d0fbabb9419",
+    "lesson": "lesson-vocabulary-ugat-unlapi-gitlapi-at-hulapi"
+  },
+  "q-vocabulary-root-words-prefixes-suffixes-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "a0542e9c7dc4d4ae5fc4c6c558df0f1b8a43710c5504b1c14731adbf357f3723",
+    "lesson": "lesson-vocabulary-panlaping-kabilaan-at-laguhan"
+  },
+  "q-vocabulary-root-words-prefixes-suffixes-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "70d6309b91dc5228f69221113c8edf51d093aa614da2c29e1dbb96ef0f7cce14",
+    "lesson": "lesson-vocabulary-english-word-elements"
+  },
+  "q-vocabulary-root-words-prefixes-suffixes-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "969e5917643e1234d6e606a0f378e084381bf68f8b4c97557a94d07a7f621f97",
+    "lesson": "lesson-vocabulary-english-word-elements"
+  },
+  "q-vocabulary-root-words-prefixes-suffixes-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "9bcaf8c2ec756c044d758067a45057efb7d75b850332678064383df9678aa4b2",
+    "lesson": "lesson-vocabulary-english-word-elements"
+  },
+  "q-vocabulary-root-words-prefixes-suffixes-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "d76f120a4207a35b1930c5d080d5c19250711272b0fa74483237c7bb4ad610e7",
+    "lesson": "lesson-vocabulary-english-word-elements"
+  },
+  "q-vocabulary-root-words-prefixes-suffixes-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "8276a02afab5f3cec383034135f37995f739572f13e6be6fcb12f1f0c1ae6889",
+    "lesson": "lesson-vocabulary-english-word-elements"
+  },
+  "q-vocabulary-root-words-prefixes-suffixes-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "042400ac072df81b1b32f6777deafc190af71f3fb05e7754905edf2e2eb98036",
+    "lesson": "lesson-vocabulary-ugat-unlapi-gitlapi-at-hulapi"
+  },
+  "q-vocabulary-root-words-prefixes-suffixes-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "9222be7394ce3732efae83a52a49339ca349a6d774fd21c0bbd84ad20de5bac1",
+    "lesson": "lesson-vocabulary-panlaping-kabilaan-at-laguhan"
+  },
+  "q-vocabulary-root-words-prefixes-suffixes-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "4d7f853a685655bb31426c98667dbfcd0e0cbec8ee2df074f2992a2d029f0d2c",
+    "lesson": "lesson-vocabulary-ugat-unlapi-gitlapi-at-hulapi"
+  },
+  "q-vocabulary-root-words-prefixes-suffixes-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "39923a0b800b5c708f14334721e5800571633dbda8312a5d461289e46edc493d",
+    "lesson": "lesson-vocabulary-ugat-unlapi-gitlapi-at-hulapi"
+  },
+  "q-vocabulary-root-words-prefixes-suffixes-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "a52429ec54dd7cde559f3d68241eed2519f40cf9fc8872906cb80f4d094c0057",
+    "lesson": "lesson-vocabulary-roots-bases-and-valid-splits"
+  },
+  "q-vocabulary-root-words-prefixes-suffixes-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "12c9f28abfa89562ca6b847edce33c6a262c0fe1a2314a339f098ea1adf0d8b0",
+    "lesson": "lesson-vocabulary-roots-bases-and-valid-splits"
+  },
+  "q-vocabulary-root-words-prefixes-suffixes-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "9732f9885fb4791d602f17ee6826b399790d789e703b15618a57f1f982befe4e",
+    "lesson": "lesson-vocabulary-ugat-unlapi-gitlapi-at-hulapi"
+  },
+  "q-vocabulary-root-words-prefixes-suffixes-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "d70b1ca948227aa6b9b2967868d88d01b81f87a8198cbce8cef9b4f6ca0e7742",
+    "lesson": "lesson-vocabulary-english-word-elements"
+  },
+  "q-vocabulary-root-words-prefixes-suffixes-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "2bc2ececfef55613e991fb86888202b9895881eb9b51583af60822aa89281a5f",
+    "lesson": "lesson-vocabulary-english-word-elements"
+  },
+  "q-vocabulary-root-words-prefixes-suffixes-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "c64c5e260a29ed996c21fe95954624c330f2807af9e726f6ed2fad051209241c",
+    "lesson": "lesson-vocabulary-english-word-elements"
+  },
+  "q-vocabulary-root-words-prefixes-suffixes-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "8b73bcaffd4afb74d35deebb4773a87191bc1db22c237236a983acab712bb68b",
+    "lesson": "lesson-vocabulary-ugat-unlapi-gitlapi-at-hulapi"
+  },
+  "q-vocabulary-root-words-prefixes-suffixes-0021": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "581fea67c5e6fff709d8ecafeb572fe6c5478008f8fd683943d3b543c5c4789d",
+    "lesson": "lesson-vocabulary-roots-bases-and-valid-splits"
+  },
+  "q-vocabulary-root-words-prefixes-suffixes-0022": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "bc431f5685f64901841f16b2604f410e19f6f04afed9dd1e2f469acaf5a784f6",
+    "lesson": "lesson-vocabulary-suffixes-and-word-jobs"
+  },
+  "q-vocabulary-root-words-prefixes-suffixes-0023": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "5501d06185471005e5278267b4b2165b7e533ce63398e54430af29de8b947399",
+    "lesson": "lesson-vocabulary-suffixes-and-word-jobs"
+  },
+  "q-vocabulary-root-words-prefixes-suffixes-0024": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "d3b2053fa185e807f92a69862eb8f447e17436cdeb239ff29be74567483b66a7",
+    "lesson": "lesson-vocabulary-suffixes-for-qualities-and-absence"
+  },
+  "q-vocabulary-root-words-prefixes-suffixes-0025": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "ae2d426ace5fad5385dbce4dfb2101eaaaed8f02ae2d1979b0a7c116dfc2f38b",
+    "lesson": "lesson-vocabulary-suffixes-for-qualities-and-absence"
+  },
+  "q-vocabulary-spelling-rules-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "0e2405a5ab453822d2d0255bcb35113929dea0d93002c62c695103594a2d32e2",
+    "lesson": "lesson-vocabulary-letters-sounds-and-vowel-order"
+  },
+  "q-vocabulary-spelling-rules-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "568f45a259579aa5e6607b68e8b9b877eda35f488fd58aedcf63377b211b346e",
+    "lesson": "lesson-vocabulary-silent-e-with-suffixes"
+  },
+  "q-vocabulary-spelling-rules-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "ff591b618a9387ef9406860494be87a235a5791635fc57431f139d11ebe3da02",
+    "lesson": "lesson-vocabulary-doubling-final-consonants"
+  },
+  "q-vocabulary-spelling-rules-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "d53239773ad608d4827b200b735590a750c93ae457ae9bc98a2c5c00107fea23",
+    "lesson": "lesson-vocabulary-baybay-ng-hiram-na-salita"
+  },
+  "q-vocabulary-spelling-rules-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "1021877f50100ab0b75ae74d2f126db225f28a8ca785aec74077547f0f272b5a",
+    "lesson": "lesson-vocabulary-checking-longer-spellings"
+  },
+  "q-vocabulary-spelling-rules-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "aaf43c46e3c11eb4c7ca501ecdbb3a197f87ac7e0444c369f08444d238701e0a",
+    "lesson": "lesson-vocabulary-checking-longer-spellings"
+  },
+  "q-vocabulary-spelling-rules-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "8f31133fc9250939cf07cd4c4ac489dab672cca2f2092668ed3749f5913d25a3",
+    "lesson": "lesson-vocabulary-checking-longer-spellings"
+  },
+  "q-vocabulary-spelling-rules-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "54a1ace24beade29551730c2b5201ae22f43142386d8aaec3dfe313439f84bd3",
+    "lesson": "lesson-vocabulary-checking-longer-spellings"
+  },
+  "q-vocabulary-spelling-rules-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "1b4d22b5cebe40c899f617cb4d74293f405ac3a0714fbd005dad1a07cdcfb4b0",
+    "lesson": "lesson-vocabulary-checking-longer-spellings"
+  },
+  "q-vocabulary-spelling-rules-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "b1564b722c751c50bf19937346113c911bfb03d960c7092c78f28548ea0ff6ab",
+    "lesson": "lesson-vocabulary-checking-longer-spellings"
+  },
+  "q-vocabulary-spelling-rules-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "6937aee50212a28d9909ad0bac4127809a89fee95b4562703200ca49222b4dea",
+    "lesson": "lesson-vocabulary-checking-longer-spellings"
+  },
+  "q-vocabulary-spelling-rules-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "7a34e9e050c9483f309ca34757c287a29d3b3421fbb14a6f6971da562ba199d4",
+    "lesson": "lesson-vocabulary-baybay-ng-hiram-na-salita"
+  },
+  "q-vocabulary-spelling-rules-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "9663da1366161d75212cdc0bf31c2ccc5743655d2f5b740882858310750169b4",
+    "lesson": "lesson-vocabulary-letters-sounds-and-vowel-order"
+  },
+  "q-vocabulary-spelling-rules-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "e94552138858b311f2c857b4a6ca6abe8b0a86805d231bb498de680e06743d87",
+    "lesson": "lesson-vocabulary-silent-e-with-suffixes"
+  },
+  "q-vocabulary-spelling-rules-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "21d124622330db94b669f747de535b45370092563c5ce71e13f95c424ad6ba20",
+    "lesson": "lesson-vocabulary-doubling-final-consonants"
+  },
+  "q-vocabulary-spelling-rules-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "3821baa85fff76af702760edf713368c7ddd108289153856a5f5a37e7a7e22b4",
+    "lesson": "lesson-vocabulary-baybay-ng-hiram-na-salita"
+  },
+  "q-vocabulary-spelling-rules-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "815c425601ffde42df4da3b9bc6f99158f7ab310a8a9acda38c1dcc7a4844f10",
+    "lesson": "lesson-vocabulary-letters-sounds-and-vowel-order"
+  },
+  "q-vocabulary-spelling-rules-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "d36c3474ff023aa7bec36e76e1575a336a99c6e9674a55cdae8350e7ab41f47c",
+    "lesson": "lesson-vocabulary-checking-longer-spellings"
+  },
+  "q-vocabulary-spelling-rules-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "ad4327d0a707f0f1a562090ff7965ecc05ac4f44d510a7189d16883fc79216a7",
+    "lesson": "lesson-vocabulary-silent-e-with-suffixes"
+  },
+  "q-vocabulary-spelling-rules-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "74bb6a4fc2a44a1b0d8a52d185708857d5cce646c0409d63e7d6b5c72102d0c0",
+    "lesson": "lesson-vocabulary-doubling-final-consonants"
+  },
+  "q-vocabulary-spelling-rules-0021": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "ef4e21a3c99b47acba0d446f535b3af70d7cf9584a6a7f87a307a600efc73925",
+    "lesson": "lesson-vocabulary-letters-sounds-and-vowel-order"
+  },
+  "q-vocabulary-synonyms-and-antonyms-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "a52d5d0535ca40c99340a7ac2a32f8c735860264befb48698add471543e5f0c2",
+    "lesson": "lesson-vocabulary-similar-and-opposite-meanings"
+  },
+  "q-vocabulary-synonyms-and-antonyms-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "fbe1360d44c941d2af9f61a4501acab64f8cf4ad305a8d7fffad95cc0f3256d0",
+    "lesson": "lesson-vocabulary-similar-and-opposite-meanings"
+  },
+  "q-vocabulary-synonyms-and-antonyms-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "540dd75617948b3c46697c5e19bf6d0a56483d436dd02ed681df47df58543416",
+    "lesson": "lesson-vocabulary-kasingkahulugan-at-kasalungat"
+  },
+  "q-vocabulary-synonyms-and-antonyms-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "497929512b21022c9ddcb3dbbe5ffff28745e9206ea11fa90c98354236c53575",
+    "lesson": "lesson-vocabulary-kasingkahulugan-at-kasalungat"
+  },
+  "q-vocabulary-synonyms-and-antonyms-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "51a960488683645f361d355b2e22320fafbb62bef5f54073cd0a1ac9a00f0ffd",
+    "lesson": "lesson-vocabulary-meaning-and-grammar-in-context"
+  },
+  "q-vocabulary-synonyms-and-antonyms-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "0c396653776e86f3c4c9bf10121aa25b4caf3804f9ec909b2f2fff56bb619677",
+    "lesson": "lesson-vocabulary-meaning-and-grammar-in-context"
+  },
+  "q-vocabulary-synonyms-and-antonyms-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "90292d6a65fa1328f87160e2be7f7d7398594d7b9d0fb8626525f989f4637955",
+    "lesson": "lesson-vocabulary-similar-and-opposite-meanings"
+  },
+  "q-vocabulary-synonyms-and-antonyms-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "0be6e8297d15399854ceaab2295b876b47c8f497dfdb6b139a068b98d87eaa0f",
+    "lesson": "lesson-vocabulary-kasingkahulugan-at-kasalungat"
+  },
+  "q-vocabulary-synonyms-and-antonyms-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "23c583a9525ebc04caad3ee16b715dc12faa565bb7052847e3a5e96d165846a1",
+    "lesson": "lesson-vocabulary-kasingkahulugan-at-kasalungat"
+  },
+  "q-vocabulary-synonyms-and-antonyms-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "e1ca1a9da3ca5f1d56ce0673d0a63f761a1de663c778ced89145d1a809275450",
+    "lesson": "lesson-vocabulary-similar-and-opposite-meanings"
+  },
+  "q-vocabulary-synonyms-and-antonyms-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "82e91e8fa2f23fd2f585a6b8ee12e8b1b15489a9637b5cde4fa988af22f41a0c",
+    "lesson": "lesson-vocabulary-kasingkahulugan-at-kasalungat"
+  },
+  "q-vocabulary-synonyms-and-antonyms-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "fff259533868409113752573187ac1aa6fd8138b3f4c23385108e1d701d3342c",
+    "lesson": "lesson-vocabulary-meaning-and-grammar-in-context"
+  },
+  "q-vocabulary-synonyms-and-antonyms-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "8fe7dd39fdd1e7b2db7df0f78e72edead849d0f33f3a2d8adc6e27d9f9e141c8",
+    "lesson": "lesson-vocabulary-similar-and-opposite-meanings"
+  },
+  "q-vocabulary-synonyms-and-antonyms-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "d1df722b2d3eca6f3a9ed9fb84c754ac58bd94b39978237c2e521983801f2066",
+    "lesson": "lesson-vocabulary-similar-and-opposite-meanings"
+  },
+  "q-vocabulary-synonyms-and-antonyms-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "eb56450188b196db79d52706093b3623f476831bf31a02250f1a142d51a3171f",
+    "lesson": "lesson-vocabulary-kasingkahulugan-at-kasalungat"
+  },
+  "q-vocabulary-synonyms-and-antonyms-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "391a1fd8d96a4fafae9e8747d29d3af9aaee22cf524a9346a4c85ef0bb8bca9f",
+    "lesson": "lesson-vocabulary-kasingkahulugan-at-kasalungat"
+  },
+  "q-vocabulary-synonyms-and-antonyms-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "17170e4ae9d5cbe2c1702859f43c757bc50c52b2318d027febad31dd8b2dd519",
+    "lesson": "lesson-vocabulary-similar-and-opposite-meanings"
+  },
+  "q-vocabulary-synonyms-and-antonyms-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "61af9e60790890a6c39b0442e37019d672e0299c79effaae117921375c0712f2",
+    "lesson": "lesson-vocabulary-similar-and-opposite-meanings"
+  },
+  "q-vocabulary-synonyms-and-antonyms-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "1b02cc4d071c453a99e3edd1141a42bf77ec20cdc36e857979104f5ee9c0c30c",
+    "lesson": "lesson-vocabulary-feeling-strength-and-formality"
+  },
+  "q-vocabulary-synonyms-and-antonyms-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "2c6ac0be5a5c61ed9fcf9c16a7e67262f13991e485f0b3604c82f6eb1d2d2695",
+    "lesson": "lesson-vocabulary-opposite-roles"
+  },
+  "q-vocabulary-synonyms-and-antonyms-0021": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "0beb2860d201642c8c56dbb3530e7a220986ae8c7cb8cb79d6ca1e8ba60615a9",
+    "lesson": "lesson-vocabulary-feeling-strength-and-formality"
+  },
+  "q-vocabulary-synonyms-and-antonyms-0022": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "6d6c3a29f54ab4651631982314089871e459f42defbe0bb4701038c22f19a805",
+    "lesson": "lesson-vocabulary-feeling-strength-and-formality"
+  },
+  "q-vocabulary-synonyms-and-antonyms-0023": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "b7fc77adf8f3f81d0ee14cd548b10fc629c08578c44a644aba6f4588211a05ca",
+    "lesson": "lesson-vocabulary-meaning-and-grammar-in-context"
+  },
+  "q-vocabulary-synonyms-and-antonyms-0024": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "d96792f3bb629fa161aefab4b902bc077607cf2cb379899d7444bf7147d00e02",
+    "lesson": "lesson-vocabulary-opposite-roles"
+  },
+  "q-vocabulary-synonyms-and-antonyms-0025": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "ea3e9d2185e39d01b65d5d94eb53441fbddf4a13961ccfae9e1ff9b72bd59f0c",
+    "lesson": "lesson-vocabulary-opposites-with-levels-and-two-states"
+  },
+  "q-vocabulary-synonyms-and-antonyms-0026": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "bfcea5cc1773eee3dab03ed16ceacc19ba53741195727145dcc97a857303fbc5",
+    "lesson": "lesson-vocabulary-opposites-with-levels-and-two-states"
+  },
+  "q-vocabulary-synonyms-and-antonyms-0027": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "a35582e868a82ff523daf6292b976c225dabeda6a0ef3624c319eab3401eb681",
+    "lesson": "lesson-vocabulary-prefix-clues-in-context"
+  },
+  "q-vocabulary-synonyms-and-antonyms-0028": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "995bd230a23d34f3407175e2721ad299b92278240b7484669ae950d6d3f75748",
+    "lesson": "lesson-vocabulary-prefix-clues-in-context"
+  },
+  "q-vocabulary-synonyms-and-antonyms-0029": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/vocabulary.md",
+    "hash": "f51a0eaf038dc8facf954e37abd74100ef8cc901e52e6489914c938e98e72586",
+    "lesson": "lesson-vocabulary-similar-and-opposite-meanings"
   }
 }
