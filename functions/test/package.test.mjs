@@ -14,7 +14,8 @@ test('package builds its deploy entry and runs every test stage on the demo emul
   assert.match(pkg.scripts.test, /--only auth,firestore,storage --project demo-pantas-test/);
   assert.match(pkg.scripts.test, /test\/\*\.rules\.mjs test\/\*\.emulator\.mjs/);
   assert.equal(config.functions.runtime, 'nodejs22');
-  assert.equal(config.functions.predeploy, 'npm --prefix functions run build');
+  // The deploy-source guard runs first, then the build (Nov 15, 2026).
+  assert.deepEqual(config.functions.predeploy, ['node tool/deploy/require_current_main.mjs', 'npm --prefix functions run build']);
 });
 
 test('build includes the complete W0 exam catalog', () => {
