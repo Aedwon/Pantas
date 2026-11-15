@@ -3844,3 +3844,11 @@ Fable 5.2 High ruled under Aedwon's standing delegation on `docs/superpowers/pla
 - Sync loop fix watch 16:04 to 16:37 UTC: no ERROR entries, no failed code emails, no getRoadmap calls in the window. Velocity E-096: see the row (timer).
 - Main CI went red at 16:07 UTC on 17e0c9181 (docs-only on top of the deployed b2a5deb73): a date bomb in test/features/paywall/beta_grant_test.dart (a fixed Nov 16 00:00 PHT beta end, read back through a cache that drops grants expired by the real clock). Test-only fix web/beta-grant-test-clock-r1 106e1e51f (CI green), merged to main as 98bb911e7.
 
+### Nov 15, screen counts shipped to prod (DS4 lead)
+
+- Approval: Aedwon, "yes on both" (quoted above), his "ship it" for screen counts; the guardian email waived for the beta (c6172dcf2).
+- The DS4 completion lead resolved the notice conflict (order: service, screen counts, beta, trial, welcome, no date, month only; one route field) and merged main with the beta grant test fix: head 337d65e9d, CI 43738183720 and journeys 43738183701 success. Main fast-forwarded to 337d65e9d.
+- reportClientTelemetry deployed to prod with the pinned CLI at about 17:04 UTC (the guard passed; revision 00010; rollback revision 00009). The screen ID list is unchanged (67), so reportUsageVisit was left as it was.
+- Prod web 662720971-1b98262880a0 with SCREEN_COUNTS=true on Hosting at 17:06 UTC. The first Worker publish failed (wrangler could not reach Cloudflare's auth server to refresh its token); app.pantas.study kept serving the previous build until the retry at about 17:08 UTC succeeded. compare.mjs 92 of 92; the gate still holds. Rollback version sites/pantas-prod/versions/4085c6e3fc899071 (not needed).
+- Watch 17:05 to 17:39 UTC: no ERROR entries, no failed code emails; no client_telemetry reports arrived in the window (no tester activity), so counted reports on prod are not yet observed. Velocity E-097: see the row (timer).
+
