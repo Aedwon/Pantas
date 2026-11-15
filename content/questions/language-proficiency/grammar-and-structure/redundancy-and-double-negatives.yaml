@@ -362,7 +362,7 @@ questions:
           This turns one needless repetition into a blanket rule. Repetition can add needed meaning in other contexts. Check: evaluate each phrase by the meaning it adds.
     explanation: |
       "Several days before a road closure" already tells when residents received the warning. "Advance" repeats that early timing, so it can be removed for a shorter version.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0017"
     lesson: lesson-grammar-and-structure-qualified-negatives-and-near-negatives
     keyPoint: 1
@@ -384,7 +384,7 @@ questions:
           This makes a qualified description absolute. An expected result may seem certain. Check: preserve the less absolute wording.
     explanation: |
       "Unexpected" means not expected. "Not unexpected" means the result was not a surprise. It may suggest the result was expected to some degree, but it does not say the result was fully expected.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0018"
     lesson: lesson-grammar-and-structure-qualified-negatives-and-near-negatives
     keyPoint: 2
@@ -406,7 +406,7 @@ questions:
           This changes almost none into none at all. Both describe a shortage. Check: preserve the distinction between very little and zero.
     explanation: |
       "Scarcely" means almost not. "Scarcely any" therefore says that almost no supplies remained.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0019"
     lesson: lesson-grammar-and-structure-removing-needless-repeated-meaning
     keyPoint: 2
@@ -428,7 +428,7 @@ questions:
           This mistakes a modifier's effect for number agreement. The adjective appears beside a location expression. Check: check meaning and emphasis rather than unrelated noun number.
     explanation: |
       "Close" may emphasize the degree of nearness. The editor should decide whether that extra meaning is needed in this context.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0020"
     lesson: lesson-grammar-and-structure-qualified-negatives-and-near-negatives
     keyPoint: 1
@@ -450,9 +450,10 @@ questions:
           This treats two negative elements as making meaning impossible. Some multiple-negative patterns require care. Check: check whether the words create a standard qualified positive.
     explanation: |
       "Not unreasonable" gives a qualified positive judgment. It calls the proposal fairly reasonable without the stronger claim that it is perfect.
-    approved: false
+    approved: true
 
   - id: q-grammar-and-structure-redundancy-and-double-negatives-0021
+    approved: true
     lesson: lesson-grammar-and-structure-keeping-needed-repetition
     keyPoint: 1
     type: redundancy-identification
@@ -475,6 +476,7 @@ questions:
       The officer has already repeated the instruction. Again points to one more repeat for the late arrival. It adds that further repetition to the request.
 
   - id: q-grammar-and-structure-redundancy-and-double-negatives-0022
+    approved: true
     lesson: lesson-grammar-and-structure-qualified-negatives-and-near-negatives
     keyPoint: 3
     type: redundancy-identification

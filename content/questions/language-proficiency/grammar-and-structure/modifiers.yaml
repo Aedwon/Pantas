@@ -362,7 +362,7 @@ questions:
           This says that she missed the train. The word "almost" can suggest a near event. Check: check which words "almost" actually limits.
     explanation: |
       "Almost missed" means the miss nearly happened. Mara therefore caught the train.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-modifiers-0017"
     lesson: lesson-grammar-and-structure-misplaced-modifiers-and-clear-meaning
     keyPoint: 2
@@ -384,7 +384,7 @@ questions:
           This gives the damage to the ladder. The relative clause removes some placement uncertainty. Check: check that the revision preserves the intended damage.
     explanation: |
       "Broken" directly describes "window." The ladder only tells where the worker stood.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-modifiers-0018"
     lesson: lesson-grammar-and-structure-dangling-modifiers-and-their-subjects
     keyPoint: 1
@@ -406,7 +406,7 @@ questions:
           This treats an opening action phrase as automatically faulty. The opening words come before the main subject. Check: match working to the editors.
     explanation: |
       "To reach the deadline" needs people who aim to finish on time. The main subject is "more time," so the sentence leaves those people unnamed.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-modifiers-0019"
     lesson: lesson-grammar-and-structure-scope-of-small-modifiers
     keyPoint: 2
@@ -428,7 +428,7 @@ questions:
           This limits the duration of the display. The phrase "almost" still suggests an exception. Check: keep the exception attached to the vases.
     explanation: |
       "Almost all the vases" limits the number of vases displayed. It means nearly all were displayed, without giving an exact number left out.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-modifiers-0020"
     lesson: lesson-grammar-and-structure-dangling-modifiers-and-their-subjects
     keyPoint: 2
@@ -450,4 +450,4 @@ questions:
           This makes dinner the understood arrival. The later mention of guests supplies an intended meaning. Check: look for a stated subject in the opening group.
     explanation: |
       "After the guests arrived" has its own subject, "the guests." The main clause may therefore use "dinner" as a different subject.
-    approved: false
+    approved: true

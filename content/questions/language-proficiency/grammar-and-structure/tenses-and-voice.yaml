@@ -340,7 +340,7 @@ questions:
           This reads a past form as a prediction. Storm damage can also be discussed as a risk. Check: check the actual form "got".
     explanation: |
       The window receives the breaking action. "Got" plus "broken" forms a get-passive in this sentence.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-tenses-and-voice-0020"
     lesson: lesson-grammar-and-structure-present-habits-and-ongoing-actions
     keyPoint: 2
@@ -362,7 +362,7 @@ questions:
           This turns current progress into an unbroken daily habit. A month-long project may involve repeated work. Check: do not add a schedule the sentence never states.
     explanation: |
       Present progressive can describe a project in progress around the present. "This month" sets that wider period, so the writer need not be writing at the exact moment of speaking.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-tenses-and-voice-0021"
     lesson: lesson-grammar-and-structure-modals-ability-and-permission
     keyPoint: 2
@@ -384,7 +384,7 @@ questions:
           The -ing form cannot directly follow "can." The modal needs the base form "prepare."
     explanation: |
       "Can" states present ability and takes the base form "prepare." Do not add -s, -ed, or -ing after this modal.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-tenses-and-voice-0022"
     lesson: lesson-grammar-and-structure-present-habits-and-ongoing-actions
     keyPoint: 3
@@ -406,7 +406,7 @@ questions:
         correct: true
     explanation: |
       "Know" describes a state, so the simple present is the usual choice. "Am knowing" does not fit this ordinary use.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-tenses-and-voice-0023"
     lesson: lesson-grammar-and-structure-recognizing-active-and-passive-voice
     keyPoint: 3
@@ -428,7 +428,7 @@ questions:
           This makes the access codes do the action to the administrator. The intended meaning is that the codes received the change.
     explanation: |
       "Have been changed" is present perfect passive. It connects the completed change to now. Passive voice lets the writer leave out the unknown doer.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-tenses-and-voice-0024"
     lesson: lesson-grammar-and-structure-modals-requirements-and-possibility
     keyPoint: 3
@@ -451,9 +451,10 @@ questions:
           The question asks permission rather than stating that an event is possible. In the reply, "must" expresses a conclusion, not advice.
     explanation: |
       "Could I" makes the permission request polite. The reply uses evidence to reach a strong conclusion. "Must" does not give an order here.
-    approved: false
+    approved: true
 
   - id: q-grammar-and-structure-tenses-and-voice-0028
+    approved: true
     lesson: lesson-grammar-and-structure-modals-ability-and-permission
     keyPoint: 1
     type: tense
@@ -476,6 +477,7 @@ questions:
       Can is a modal. A modal takes the base form of the next verb. Answer is the base form: "The new clerk can answer routine inquiries without assistance."
 
   - id: q-grammar-and-structure-tenses-and-voice-0029
+    approved: true
     lesson: lesson-grammar-and-structure-modals-ability-and-permission
     keyPoint: 3
     type: tense
@@ -498,6 +500,7 @@ questions:
       "Could I use this desk?" politely asks someone to allow the speaker to use the desk. Could expresses a request for permission here.
 
   - id: q-grammar-and-structure-tenses-and-voice-0030
+    approved: true
     lesson: lesson-grammar-and-structure-modals-requirements-and-possibility
     keyPoint: 1
     type: tense
@@ -520,6 +523,7 @@ questions:
       Do not have to means an action is not required. It leaves bringing a sheet optional, as the notice states.
 
   - id: q-grammar-and-structure-tenses-and-voice-0031
+    approved: true
     lesson: lesson-grammar-and-structure-modals-requirements-and-possibility
     keyPoint: 2
     type: tense
@@ -542,6 +546,7 @@ questions:
       Might presents the late arrival as possible. The speaker does not say that the delivery is certain to arrive after closing.
 
   - id: q-grammar-and-structure-tenses-and-voice-0032
+    approved: true
     lesson: lesson-grammar-and-structure-present-habits-and-ongoing-actions
     keyPoint: 1
     type: tense
@@ -564,6 +569,7 @@ questions:
       Every working day describes a habit. Simple present expresses that regular duty. The singular subject "the records officer" takes sorts.
 
   - id: q-grammar-and-structure-tenses-and-voice-0033
+    approved: true
     lesson: lesson-grammar-and-structure-present-perfect-links-to-now
     keyPoint: 3
     type: tense

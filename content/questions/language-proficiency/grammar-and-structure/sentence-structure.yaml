@@ -384,7 +384,7 @@ questions:
           This adds a dependent clause that is not present. Two clauses are already visible. Check: look for an actual subordinate clause.
     explanation: |
       Both "The clinic reopened" and "appointments resumed" are independent clauses. A semicolon joins them, so the sentence is compound.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-sentence-structure-0018"
     lesson: lesson-grammar-and-structure-complex-and-compound-complex-sentences
     keyPoint: 3
@@ -406,7 +406,7 @@ questions:
           This ignores the subject and verb in the opening clause. A time introduction can look like a phrase. Check: check whether the opening group has its own clause.
     explanation: |
       "After rehearsal" is a prepositional phrase giving time. "The musicians left" is the only clause, so the sentence is simple.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-sentence-structure-0019"
     lesson: lesson-grammar-and-structure-complex-and-compound-complex-sentences
     keyPoint: 1
@@ -428,7 +428,7 @@ questions:
           This counts the embedded clause as another main clause. The sentence contains two action words. Check: count independent clauses separately from dependent ones.
     explanation: |
       "While she checked the records" is a dependent clause giving time. The main clause is "The nurse called the patient." One of each makes the sentence complex.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-sentence-structure-0020"
     lesson: lesson-grammar-and-structure-simple-and-compound-sentences
     keyPoint: 3
@@ -450,9 +450,10 @@ questions:
           This retains the original classification after the dependent clause is removed. The two main statements are unchanged. Check: check whether any dependent clause survives.
     explanation: |
       The remaining clauses are "The truck arrived" and "the driver unloaded the supplies." Both are independent and joined by "and," so the remaining sentence is compound.
-    approved: false
+    approved: true
 
   - id: q-grammar-and-structure-sentence-structure-0021
+    approved: true
     lesson: lesson-grammar-and-structure-hugnayan-langkapan-at-ayos-ng-salaysay
     keyPoint: 3
     type: sentence-structure-classification
@@ -475,6 +476,7 @@ questions:
       Una ang paghahanda. Pagkatapos ang pagsusuri. Sa huli ang pagpasa. Tumutugma ang mga pananda sa simula, kasunod, at pangwakas.
 
   - id: q-grammar-and-structure-sentence-structure-0022
+    approved: true
     lesson: lesson-grammar-and-structure-payak-at-tambalang-pangungusap
     keyPoint: 1
     type: sentence-structure-classification
@@ -497,6 +499,7 @@ questions:
       Buo ang diwa ng "Inayos ng kawani ang pila." Ang pila ang simuno at sinasabi ng panaguri kung ano ang ginawa rito. Hindi nito kailangan ng ibang sugnay upang mabuo ang diwa.
 
   - id: q-grammar-and-structure-sentence-structure-0023
+    approved: true
     lesson: lesson-grammar-and-structure-payak-at-tambalang-pangungusap
     keyPoint: 3
     type: sentence-structure-classification
@@ -519,6 +522,7 @@ questions:
       Ang o ay ginagamit para sa pagpipilian. Pinag-uugnay nito ang dalawang buong diwa bilang mga paraang mapagpipilian sa pagpapasa.
 
   - id: q-grammar-and-structure-sentence-structure-0024
+    approved: true
     lesson: lesson-grammar-and-structure-simple-and-compound-sentences
     keyPoint: 1
     type: sentence-structure-classification

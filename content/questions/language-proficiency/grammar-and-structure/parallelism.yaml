@@ -363,7 +363,7 @@ questions:
           This inserts a full clause into the list. The clause expresses a related quality. Check: compare each item's grammatical form.
     explanation: |
       "Accuracy" and "fairness" are nouns naming qualities. "Transparency" is a matching noun.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-parallelism-0017"
     lesson: lesson-grammar-and-structure-parallel-pairs-and-comparisons
     keyPoint: 1
@@ -385,7 +385,7 @@ questions:
           This combines a noun phrase with a verb phrase. Both phrases identify application routes. Check: compare the two alternatives after "either" and "or".
     explanation: |
       The shared verb is "submit." "Either" and "or" then join two ways to submit: "online" and "by mail."
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-parallelism-0018"
     lesson: lesson-grammar-and-structure-parallel-pairs-and-comparisons
     keyPoint: 1
@@ -407,7 +407,7 @@ questions:
           This pairs an adjective with a to-plus-verb phrase. Saving money relates to affordability. Check: match both halves by grammatical form.
     explanation: |
       "Practical" and "affordable" are adjectives describing the policy. They form a matching pair after the two connectors.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-parallelism-0019"
     lesson: lesson-grammar-and-structure-matching-forms-in-lists
     keyPoint: 1
@@ -429,7 +429,7 @@ questions:
           This combines a complete clause with an -ing phrase. The first clause states a possible result. Check: keep both alternatives in matching forms.
     explanation: |
       "Between" introduces two possible actions. "Repairing the roof" and "installing a new roof" both use -ing phrases to name them.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-parallelism-0020"
     lesson: lesson-grammar-and-structure-matching-forms-in-lists
     keyPoint: 1
@@ -451,4 +451,4 @@ questions:
           This starts the list with a full clause. The later items share -ing endings. Check: check the opening item as well.
     explanation: |
       The grant funds three activities. "Training," "buying," and "improving" all name activities with matching -ing forms.
-    approved: false
+    approved: true

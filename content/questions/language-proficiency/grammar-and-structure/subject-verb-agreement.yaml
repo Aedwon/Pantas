@@ -453,6 +453,7 @@ questions:
     approved: true
 
   - id: q-grammar-and-structure-subject-verb-agreement-0021
+    approved: true
     lesson: lesson-grammar-and-structure-aspekto-at-paksa-sa-filipino
     keyPoint: 1
     type: subject-verb-agreement
@@ -475,6 +476,7 @@ questions:
       Nagaganap pa ang pagkain ni Nena. Kaya kumakain ang angkop na anyo: "Kumakain pa si Nena habang hinihintay ang kaniyang kasama."
 
   - id: q-grammar-and-structure-subject-verb-agreement-0022
+    approved: true
     lesson: lesson-grammar-and-structure-aspekto-at-paksa-sa-filipino
     keyPoint: 2
     type: subject-verb-agreement
@@ -497,6 +499,7 @@ questions:
       Ang mga kawani ang maramihang paksa. Nananatili ang kumakain dahil nagpapatuloy pa rin ang kilos. Hindi kailangang baguhin ang pandiwa dahil lamang dumami ang paksa.
 
   - id: q-grammar-and-structure-subject-verb-agreement-0023
+    approved: true
     lesson: lesson-grammar-and-structure-mga-gamit-ng-pananda
     keyPoint: 2
     type: subject-verb-agreement
@@ -519,6 +522,7 @@ questions:
       Sinasagot ng "sa aplikante" ang tanong na "Kanino inihatid ang katibayan?" Ang aplikante ang tagatanggap.
 
   - id: q-grammar-and-structure-subject-verb-agreement-0024
+    approved: true
     lesson: lesson-grammar-and-structure-pokus-at-papel-ng-paksa
     keyPoint: 2
     type: subject-verb-agreement

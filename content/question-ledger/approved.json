@@ -1816,5 +1816,1481 @@
     "evidence": "docs/content/verification/environment-management.md",
     "hash": "31fa1d5445523f2274b4c1cc260a770d387c9f083969f45897d0bf6f15c60fb6",
     "lesson": "lesson-environment-management-solid-waste-law"
+  },
+  "q-grammar-and-structure-filipino-verb-aspect-and-focus-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "c78f6b3e5611e03e04065516b11b71b7aedd96b86f101f8829f08fd41c101295",
+    "lesson": "lesson-grammar-and-structure-kalagayan-ng-kilos"
+  },
+  "q-grammar-and-structure-filipino-verb-aspect-and-focus-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "7948d22ebc2c7f5a0a6d573f4b099801e12ca35895a30adb020cc8f9e96321e2",
+    "lesson": "lesson-grammar-and-structure-kalagayan-ng-kilos"
+  },
+  "q-grammar-and-structure-filipino-verb-aspect-and-focus-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "6f593fda46cee010e2255f01ed947b1bd21c8f0b26e44d8f9f8481cb0cb31223",
+    "lesson": "lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa"
+  },
+  "q-grammar-and-structure-filipino-verb-aspect-and-focus-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "a16260679ef98d4edaa64152ae3105b3c1ab660d96897f6532608d8b327a3b91",
+    "lesson": "lesson-grammar-and-structure-mga-pahiwatig-ng-oras"
+  },
+  "q-grammar-and-structure-filipino-verb-aspect-and-focus-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "42c61e813206b3adb90a4dcd406483ca11ae961e7b053204d6d16f8ab8abac01",
+    "lesson": "lesson-grammar-and-structure-mga-pahiwatig-ng-oras"
+  },
+  "q-grammar-and-structure-filipino-verb-aspect-and-focus-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "1d6b2f0fb6a8a33fe55638be8df1f36e6f53be86837776267b1d77c5c4ed2114",
+    "lesson": "lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa"
+  },
+  "q-grammar-and-structure-filipino-verb-aspect-and-focus-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "1753a3c959763617350988a835cb3325c80f22654d99aeda1071df08c4e8ae04",
+    "lesson": "lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa"
+  },
+  "q-grammar-and-structure-filipino-verb-aspect-and-focus-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "506e9520926f8ec49537aa41c1333e012b7fec5b0ace7b076904db185efcaac6",
+    "lesson": "lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa"
+  },
+  "q-grammar-and-structure-filipino-verb-aspect-and-focus-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "2835548fb20a3e4dfe8b0bb052203ea61f17c694561dfa05ba61115e2a573dda",
+    "lesson": "lesson-grammar-and-structure-pagbuo-ng-anyo-ng-pandiwa"
+  },
+  "q-grammar-and-structure-filipino-verb-aspect-and-focus-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "00346cbbddf003c3e5d39b80082c15b166fdca19e1dc8196fcbaae91fc7bf433",
+    "lesson": "lesson-grammar-and-structure-mga-pahiwatig-ng-oras"
+  },
+  "q-grammar-and-structure-filipino-verb-aspect-and-focus-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "d0a76557a7ef3ebecb8b8b29081b705e5d11f8de8b29ef430875865b7219ef92",
+    "lesson": "lesson-grammar-and-structure-kalagayan-ng-kilos"
+  },
+  "q-grammar-and-structure-filipino-verb-aspect-and-focus-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "593e42b8bcc3f40ed57bcbb4acad7b1526cfa3b7e49bd6997306f9e5b1a964fc",
+    "lesson": "lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa"
+  },
+  "q-grammar-and-structure-filipino-verb-aspect-and-focus-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "e87e671486f5831e1278cab06cbdd80e61829a23bf4de9a6a4f91adeab7e77c8",
+    "lesson": "lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa"
+  },
+  "q-grammar-and-structure-modifiers-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "83f43e168b9b33fdcd70a39580df419812c58b78a939ddce94df7e98115d4557",
+    "lesson": "lesson-grammar-and-structure-misplaced-modifiers-and-clear-meaning"
+  },
+  "q-grammar-and-structure-modifiers-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "742c5f76ae8be4b7c58647de6879c32a4564e1fea4a7f1b02867a9e4a4c37f2a",
+    "lesson": "lesson-grammar-and-structure-dangling-modifiers-and-their-subjects"
+  },
+  "q-grammar-and-structure-modifiers-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "b3cc811e41416295a281add45dcb100be572def808015182f2ae0be22b7fc0b9",
+    "lesson": "lesson-grammar-and-structure-dangling-modifiers-and-their-subjects"
+  },
+  "q-grammar-and-structure-modifiers-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "75b4ff9817c231d28da5f47ce9e1e7ee8901e3b39c11cbf792351999944ccf86",
+    "lesson": "lesson-grammar-and-structure-scope-of-small-modifiers"
+  },
+  "q-grammar-and-structure-modifiers-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "d5ddda5abb750437136027f2aa64ed8e2bb90e0f0d55ebe3847890708f87af63",
+    "lesson": "lesson-grammar-and-structure-misplaced-modifiers-and-clear-meaning"
+  },
+  "q-grammar-and-structure-modifiers-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "e7dced52c603fcb3320b1b4c83f063fa35caf452ea3d1cabe29df6f82bc029a1",
+    "lesson": "lesson-grammar-and-structure-dangling-modifiers-and-their-subjects"
+  },
+  "q-grammar-and-structure-modifiers-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "9d037f4216b2808b8406b067ee8232ce6488132aeb5009b686f887b248e41840",
+    "lesson": "lesson-grammar-and-structure-dangling-modifiers-and-their-subjects"
+  },
+  "q-grammar-and-structure-modifiers-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "ca30af681ebd07ef201fe384e27e50fa5aa4dd42cbbc1133c31c44946d62bc5c",
+    "lesson": "lesson-grammar-and-structure-scope-of-small-modifiers"
+  },
+  "q-grammar-and-structure-modifiers-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "631ce0b735cba9e1c8914783f1166087ae557f5761c1bffd166b9235b4b0e9ae",
+    "lesson": "lesson-grammar-and-structure-dangling-modifiers-and-their-subjects"
+  },
+  "q-grammar-and-structure-modifiers-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "f40903033637e8ae39ca868b481e21a35a708f68f986afcee8f0756514880165",
+    "lesson": "lesson-grammar-and-structure-scope-of-small-modifiers"
+  },
+  "q-grammar-and-structure-modifiers-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "96811c4f66bade00bff0dd8c239fd5dc95b5350e81ebe0e7d783e8e8b07ed81a",
+    "lesson": "lesson-grammar-and-structure-scope-of-small-modifiers"
+  },
+  "q-grammar-and-structure-modifiers-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "7b9f76943cac8d2b60dfe847afdae42c54c590844a6cab09c3fb8f606e2f5aff",
+    "lesson": "lesson-grammar-and-structure-dangling-modifiers-and-their-subjects"
+  },
+  "q-grammar-and-structure-modifiers-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "cccc4a0b850e219796d9cd5c7d2a4be2114285aaedb194c02f22ee574e477f7a",
+    "lesson": "lesson-grammar-and-structure-misplaced-modifiers-and-clear-meaning"
+  },
+  "q-grammar-and-structure-modifiers-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "d9ee54378ddf51ad7eb5d0f17a7076a7b8121c5ba2d90f1ac41bedd10190f96f",
+    "lesson": "lesson-grammar-and-structure-dangling-modifiers-and-their-subjects"
+  },
+  "q-grammar-and-structure-modifiers-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "8e57e3c1f4b95271a6d98dc9f45665bed8409c285f80bb2a9cb2bd5ced65e81c",
+    "lesson": "lesson-grammar-and-structure-misplaced-modifiers-and-clear-meaning"
+  },
+  "q-grammar-and-structure-modifiers-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "fabbe44ba062afa8d294f55787f4199634e769fdbb4e5ddec0bc106d36639fcb",
+    "lesson": "lesson-grammar-and-structure-scope-of-small-modifiers"
+  },
+  "q-grammar-and-structure-modifiers-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "7f712be85e8c66f48765a7c5520316773a064484994a32c4d51d70998a8811b9",
+    "lesson": "lesson-grammar-and-structure-misplaced-modifiers-and-clear-meaning"
+  },
+  "q-grammar-and-structure-modifiers-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "a22cda5aac23fba3cd6f145dc0efe811aba6852c2658fc37a57c53135c1bddb0",
+    "lesson": "lesson-grammar-and-structure-dangling-modifiers-and-their-subjects"
+  },
+  "q-grammar-and-structure-modifiers-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "a4ba6be4d18a0598a481019091659757deeb5305891ed2976ce4990e2e1cfdd9",
+    "lesson": "lesson-grammar-and-structure-scope-of-small-modifiers"
+  },
+  "q-grammar-and-structure-modifiers-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "a9ab1790c87459ff3a1d3180320477abf03759e8a8b34ee37835f8f2d44175f4",
+    "lesson": "lesson-grammar-and-structure-dangling-modifiers-and-their-subjects"
+  },
+  "q-grammar-and-structure-parallelism-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "85ebd80376206e42329d6b94f9bcf30c95bc05cec0c88af1152c53c3ffce9e18",
+    "lesson": "lesson-grammar-and-structure-matching-forms-in-lists"
+  },
+  "q-grammar-and-structure-parallelism-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "1f44a14d63ff1b58066962030860a234958d7eee00955b74e2667f0fc843b04c",
+    "lesson": "lesson-grammar-and-structure-parallel-pairs-and-comparisons"
+  },
+  "q-grammar-and-structure-parallelism-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "743c3d547b0b2e4898e0be221a6ad56d2dfd1166fdf5ba2b47213e9e1846a4e6",
+    "lesson": "lesson-grammar-and-structure-shared-words-in-parallel-lists"
+  },
+  "q-grammar-and-structure-parallelism-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "e58d771066149e4dbfa8819a7a9318f183857ebaafa8847dca2c1f6cbc8d2bce",
+    "lesson": "lesson-grammar-and-structure-parallel-pairs-and-comparisons"
+  },
+  "q-grammar-and-structure-parallelism-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "8f55c236950cda082954f8d59bf95d2e97faa718f71edb1420c92e85bfbf7fbe",
+    "lesson": "lesson-grammar-and-structure-matching-forms-in-lists"
+  },
+  "q-grammar-and-structure-parallelism-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "49fee4b239df844eb5c01a2aca4f17ff8bee8ac56c6d13c8eb0efbca35db84dd",
+    "lesson": "lesson-grammar-and-structure-parallel-pairs-and-comparisons"
+  },
+  "q-grammar-and-structure-parallelism-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "8596b7df3d9e4ebcbb066373157a4a7e4b8c9add3fb0064054e6095b72dc4535",
+    "lesson": "lesson-grammar-and-structure-matching-forms-in-lists"
+  },
+  "q-grammar-and-structure-parallelism-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "3b10f1161bdd60fde7be06da8618ecf2f039c1f56f89bc1091511dc129259446",
+    "lesson": "lesson-grammar-and-structure-parallel-pairs-and-comparisons"
+  },
+  "q-grammar-and-structure-parallelism-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "7629f1baac6f8491888e1f5b3619595bce5c734517c434cedb929621a71f33a2",
+    "lesson": "lesson-grammar-and-structure-matching-forms-in-lists"
+  },
+  "q-grammar-and-structure-parallelism-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "a8749dde05609171eafb765490aac786ed8978cf4af8cefaa96ea72dd6141076",
+    "lesson": "lesson-grammar-and-structure-matching-forms-in-lists"
+  },
+  "q-grammar-and-structure-parallelism-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "4b798dc5205028cf088b4f2f821d17224740df5ae50ba30292e3f5331d327e40",
+    "lesson": "lesson-grammar-and-structure-parallel-pairs-and-comparisons"
+  },
+  "q-grammar-and-structure-parallelism-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "0daf7f9629572699416879dbc436190594f92d4b409021742d390e9315b30288",
+    "lesson": "lesson-grammar-and-structure-matching-forms-in-lists"
+  },
+  "q-grammar-and-structure-parallelism-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "20860f7cbdb67c758dbb63e0e000120816dcc85813b4cf68cf09ca1331652b4e",
+    "lesson": "lesson-grammar-and-structure-shared-words-in-parallel-lists"
+  },
+  "q-grammar-and-structure-parallelism-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "9c03da1127beda07b841089856d76fd493a9a9a937542ec1ce1b34a0000b20ab",
+    "lesson": "lesson-grammar-and-structure-parallel-pairs-and-comparisons"
+  },
+  "q-grammar-and-structure-parallelism-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "7539d9f461070f3410cc841d9ea5012dfa9f09dbdf3cc78941f2ff139ad34885",
+    "lesson": "lesson-grammar-and-structure-parallel-pairs-and-comparisons"
+  },
+  "q-grammar-and-structure-parallelism-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "05bb0fdbe8d4dc4b948de90271202f95a9ae937e9cff47a83392ab9448dfa100",
+    "lesson": "lesson-grammar-and-structure-matching-forms-in-lists"
+  },
+  "q-grammar-and-structure-parallelism-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "d21d116b8809d1db14cc63f0d755fe2a51513cb2814924d1771af25b90ff6c4c",
+    "lesson": "lesson-grammar-and-structure-parallel-pairs-and-comparisons"
+  },
+  "q-grammar-and-structure-parallelism-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "c845431b52f7d8b7cb35e9b9e3efdc8c28bc0917beeee65024bc84429a6a2465",
+    "lesson": "lesson-grammar-and-structure-parallel-pairs-and-comparisons"
+  },
+  "q-grammar-and-structure-parallelism-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "569a8e64e85251411e1b959f993ec4fcec85dbbc90f764374a22d1f867e1f3f0",
+    "lesson": "lesson-grammar-and-structure-matching-forms-in-lists"
+  },
+  "q-grammar-and-structure-parallelism-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "b1a2fa8fe512508b6b50d74f8e12c27eb54ce6e42a3d38f08807eed609351236",
+    "lesson": "lesson-grammar-and-structure-matching-forms-in-lists"
+  },
+  "q-grammar-and-structure-parts-of-speech-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "4ecf6f3e826498bf36aa28dad36055da3a8ecbea0738bfd592b9d339b2a975c2",
+    "lesson": "lesson-grammar-and-structure-english-word-jobs"
+  },
+  "q-grammar-and-structure-parts-of-speech-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "4f83c8965a2b515dc66fd4a7a041dd156fddaf42e41907fa2e71a5dccf31579c",
+    "lesson": "lesson-grammar-and-structure-english-word-jobs"
+  },
+  "q-grammar-and-structure-parts-of-speech-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "9f5ada8b21db098e290ac65b5bf36136af48cccd1ec3861471d4109561921c54",
+    "lesson": "lesson-grammar-and-structure-english-word-jobs"
+  },
+  "q-grammar-and-structure-parts-of-speech-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "56f747406b80d4d759589cc51812081f62648b8a49c0f6b8ca40d11d268a0dda",
+    "lesson": "lesson-grammar-and-structure-english-word-jobs"
+  },
+  "q-grammar-and-structure-parts-of-speech-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "ca8eac838c3e53e1a5dac63df0187a94a54191b2ff5a621b4a185677b4fe2c93",
+    "lesson": "lesson-grammar-and-structure-english-word-jobs"
+  },
+  "q-grammar-and-structure-parts-of-speech-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "64bcf695f4f5a0a1a5ba59dc8924fc386b4deca02296572be8e347ffd9408661",
+    "lesson": "lesson-grammar-and-structure-joining-words-phrases-and-clauses"
+  },
+  "q-grammar-and-structure-parts-of-speech-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "51bccabb3ec72b8fa08c9a9ab36ded9a17323efbd2d8cb70a16089d95ff14299",
+    "lesson": "lesson-grammar-and-structure-joining-words-phrases-and-clauses"
+  },
+  "q-grammar-and-structure-parts-of-speech-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "f77a41a35a59fe5d5aea546a94c646d144a596efe0e941654c2c732005c98650",
+    "lesson": "lesson-grammar-and-structure-joining-words-phrases-and-clauses"
+  },
+  "q-grammar-and-structure-parts-of-speech-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "fd9e0befc7ec064e172edf0775ae4e8d9509cc06193f2298f74bde972952fe68",
+    "lesson": "lesson-grammar-and-structure-english-word-jobs"
+  },
+  "q-grammar-and-structure-parts-of-speech-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "4f3c38be011faa1f9e337ef632a989586dc9cde63f127db0e89d70554a88573b",
+    "lesson": "lesson-grammar-and-structure-english-word-jobs"
+  },
+  "q-grammar-and-structure-parts-of-speech-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "ce5d787b20cc8ea5075523b7fe74bde535da9966ec582b2c812321cd3bd3a4d0",
+    "lesson": "lesson-grammar-and-structure-english-word-jobs"
+  },
+  "q-grammar-and-structure-parts-of-speech-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "109b43e5efa0b70a79f954432df60b992b3667a0e5e35c06a64bb34aeaf728bb",
+    "lesson": "lesson-grammar-and-structure-pang-uri-at-pang-abay"
+  },
+  "q-grammar-and-structure-parts-of-speech-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "10caf53ef20b46773fc40f0bed3e22316f067d3729f20ee8ab80c33a2196e2b1",
+    "lesson": "lesson-grammar-and-structure-pangalan-kilos-at-pandiwari"
+  },
+  "q-grammar-and-structure-parts-of-speech-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "117834322c039d5fb7d6bfa71aa1fff2d540c12b9114cb9035ba79c477782aa2",
+    "lesson": "lesson-grammar-and-structure-pangalan-kilos-at-pandiwari"
+  },
+  "q-grammar-and-structure-parts-of-speech-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "5460dfea708ea5b07c3e829bebb14401667e369a67675f1e8237a34820befd58",
+    "lesson": "lesson-grammar-and-structure-pangalan-kilos-at-pandiwari"
+  },
+  "q-grammar-and-structure-parts-of-speech-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "e6e491bdca282319f2fa2f3cc30ef2d0d1181a4823802562a287498c7e7e0be6",
+    "lesson": "lesson-grammar-and-structure-pang-uri-at-pang-abay"
+  },
+  "q-grammar-and-structure-parts-of-speech-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "9299b3c9d480b8aaa6b16abc86ff030a570f7cc00ad215d0a1305305f8b2b65b",
+    "lesson": "lesson-grammar-and-structure-english-word-jobs"
+  },
+  "q-grammar-and-structure-parts-of-speech-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "5aceb89c4aa4b0ea4ae74d2b0633dfe19871f1ff676fd65e32656a666e831e23",
+    "lesson": "lesson-grammar-and-structure-english-word-jobs"
+  },
+  "q-grammar-and-structure-parts-of-speech-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "4b299a254adb57fd8637d29a7d13c4cbe09b2249dbf815b1bee1152c538d0521",
+    "lesson": "lesson-grammar-and-structure-joining-words-phrases-and-clauses"
+  },
+  "q-grammar-and-structure-parts-of-speech-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "5c7852f9e75c89ed768cb6f0c08ce899fb5d0b5d816b2ee70c6ac62aef255054",
+    "lesson": "lesson-grammar-and-structure-joining-words-phrases-and-clauses"
+  },
+  "q-grammar-and-structure-parts-of-speech-0021": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "6a1ada5486ccb5641f431b174422b91517aef1bdef9416d9110a68ab9ffa69e8",
+    "lesson": "lesson-grammar-and-structure-pang-ukol-pangatnig-at-pandamdam"
+  },
+  "q-grammar-and-structure-parts-of-speech-0022": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "c4f7ca874e8db2e1b7a12eaef5e92e1613d700c9d0b0bc74d54514f04832031e",
+    "lesson": "lesson-grammar-and-structure-pang-ukol-pangatnig-at-pandamdam"
+  },
+  "q-grammar-and-structure-parts-of-speech-0023": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "3869c385312d3af73baf21714361d7c1b66d90369aaeb2b2d55fddb21842df1e",
+    "lesson": "lesson-grammar-and-structure-pang-uri-at-pang-abay"
+  },
+  "q-grammar-and-structure-parts-of-speech-0024": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "566b6fae948ea36c4f58dc6916b7760e480bd33b083854af48e17b9587ddb358",
+    "lesson": "lesson-grammar-and-structure-pangalan-kilos-at-pandiwari"
+  },
+  "q-grammar-and-structure-phrases-and-clauses-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "7a48ae18c7ed02e9417f9d5197aaea361daa1d51ec5e77173056f2c4beccd120",
+    "lesson": "lesson-grammar-and-structure-phrases-and-understood-subjects"
+  },
+  "q-grammar-and-structure-phrases-and-clauses-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "d4ffae2ca6e1d6c672fcf4c8522be73083215bf9694f7d7f18ea851b05ae6371",
+    "lesson": "lesson-grammar-and-structure-independent-and-dependent-clauses"
+  },
+  "q-grammar-and-structure-phrases-and-clauses-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "2edb1503984ca9a78c3d96fc28423fd8446310ea385037d139e6e4b03648692b",
+    "lesson": "lesson-grammar-and-structure-independent-and-dependent-clauses"
+  },
+  "q-grammar-and-structure-phrases-and-clauses-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "aba55515c783c365e9fc2944d29f83446675258ec7c8f97a8f5d5ca9d455f118",
+    "lesson": "lesson-grammar-and-structure-independent-and-dependent-clauses"
+  },
+  "q-grammar-and-structure-phrases-and-clauses-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "2e7b7dcbea3132ee35674c23652bcc000f6bdcae65e03a534705cf406e83aa48",
+    "lesson": "lesson-grammar-and-structure-connectors-for-reason-and-contrast"
+  },
+  "q-grammar-and-structure-phrases-and-clauses-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "2e4057c86dce949f452a5e5ea22a8d03e5d3293463d6227922f47c3180e125a3",
+    "lesson": "lesson-grammar-and-structure-connectors-for-reason-and-contrast"
+  },
+  "q-grammar-and-structure-phrases-and-clauses-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "5b4be629773a81350a6398980e5ce391429ce5e9a25b5ff169d7561dce22db3b",
+    "lesson": "lesson-grammar-and-structure-finite-verbs-and-ing-groups"
+  },
+  "q-grammar-and-structure-phrases-and-clauses-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "d8141ea28580cd3c2d1df1c119fb1500f3853f0a5ee431210a1c40519bdf7e18",
+    "lesson": "lesson-grammar-and-structure-independent-and-dependent-clauses"
+  },
+  "q-grammar-and-structure-phrases-and-clauses-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "74a306d34f5862477042028d0bd9d0e6c00abaeca79e785c13af2e5eb5d36531",
+    "lesson": "lesson-grammar-and-structure-connectors-for-reason-and-contrast"
+  },
+  "q-grammar-and-structure-phrases-and-clauses-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "0367935e998e1b7818226f933f00e30098e1591960b61e8806862b91e664fbf1",
+    "lesson": "lesson-grammar-and-structure-connectors-for-reason-and-contrast"
+  },
+  "q-grammar-and-structure-phrases-and-clauses-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "928e06de97244a8964350cf09459f96932c8214ec7b3da4c38e574830e3fbd39",
+    "lesson": "lesson-grammar-and-structure-phrases-and-understood-subjects"
+  },
+  "q-grammar-and-structure-phrases-and-clauses-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "e30cd00437e4a017c9e64e9555b7d6800d7d04199bb0e69c0e8607a12011bddd",
+    "lesson": "lesson-grammar-and-structure-connectors-for-reason-and-contrast"
+  },
+  "q-grammar-and-structure-phrases-and-clauses-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "e63d43c9a1966b8b3326364b3cb794329a456beb40ee9915b8093387f3952021",
+    "lesson": "lesson-grammar-and-structure-connectors-for-reason-and-contrast"
+  },
+  "q-grammar-and-structure-phrases-and-clauses-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "3bbb21eb0038cfb11b7cc8f9b0ba911ac772741134ba372d52f800e226057909",
+    "lesson": "lesson-grammar-and-structure-independent-and-dependent-clauses"
+  },
+  "q-grammar-and-structure-phrases-and-clauses-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "b4ede5aaf4c04b051f1fa69347b22eed3fe852c94b781cec169174ef75b498b8",
+    "lesson": "lesson-grammar-and-structure-connectors-for-reason-and-contrast"
+  },
+  "q-grammar-and-structure-phrases-and-clauses-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "fdce50fca61ad6fb8743d16264afe8037c4bffd30f2c4421dfd0299a325ad9ed",
+    "lesson": "lesson-grammar-and-structure-relative-clauses-and-main-thoughts"
+  },
+  "q-grammar-and-structure-phrases-and-clauses-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "ac0eccc1a68169e0d43aa5a3c5e5672384a0d22f35069d842d44a64dc3891e4b",
+    "lesson": "lesson-grammar-and-structure-independent-and-dependent-clauses"
+  },
+  "q-grammar-and-structure-phrases-and-clauses-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "586cc5681de686913aa9a69e06f776207c5a7f1222a8a35c507ea69ab939a855",
+    "lesson": "lesson-grammar-and-structure-connectors-for-reason-and-contrast"
+  },
+  "q-grammar-and-structure-phrases-and-clauses-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "e7d0593b900bcc434c580f4390b08f3d1e90dea845923f37a8ec3c78474afb65",
+    "lesson": "lesson-grammar-and-structure-relative-clauses-and-main-thoughts"
+  },
+  "q-grammar-and-structure-phrases-and-clauses-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "e44829f3cca8a6ad6de5e9b2ec7ab3935017e22b07f2861fd6c2708bd7bf80e5",
+    "lesson": "lesson-grammar-and-structure-connectors-for-reason-and-contrast"
+  },
+  "q-grammar-and-structure-phrases-and-clauses-0021": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "f079c78ac891c506fc3f320b7eb637e80f44f12bd4c5c5c6373e89895cbbe1ea",
+    "lesson": "lesson-grammar-and-structure-finite-verbs-and-ing-groups"
+  },
+  "q-grammar-and-structure-phrases-and-clauses-0022": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "1c326da6b242b25cff7d070588bafd4dd70d2c48de8e40b1637c4f7f6c290336",
+    "lesson": "lesson-grammar-and-structure-infinitive-phrases-and-nonfinite-clauses"
+  },
+  "q-grammar-and-structure-phrases-and-clauses-0023": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "c9cfffb1f7d30defbc71698e5d882d1f270d82519456c1bafcdd60009cf3d08b",
+    "lesson": "lesson-grammar-and-structure-infinitive-phrases-and-nonfinite-clauses"
+  },
+  "q-grammar-and-structure-pronoun-antecedent-agreement-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "a1be4fc1871cb710411ffef86e4971abd2ec2ecbaa7abcc912b0b70ee6875824",
+    "lesson": "lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they"
+  },
+  "q-grammar-and-structure-pronoun-antecedent-agreement-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "3738939f921f8e4f8c6e3c6d34eed2700bdbe8fdeebf539ad6b00d00b4244b42",
+    "lesson": "lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they"
+  },
+  "q-grammar-and-structure-pronoun-antecedent-agreement-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "e63f1e65868c8efc49aeaba457c434af83c8c806152665cafa9379dfa0fdb1ad",
+    "lesson": "lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they"
+  },
+  "q-grammar-and-structure-pronoun-antecedent-agreement-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "b7bc0b73b29a274f1d926ba7d282915d13992eaca51a54193244b6107bd234c2",
+    "lesson": "lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they"
+  },
+  "q-grammar-and-structure-pronoun-antecedent-agreement-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "5edc89e826cb01a685b8d91902c85ab6061f6d4d127c11800af8dad3808e8151",
+    "lesson": "lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents"
+  },
+  "q-grammar-and-structure-pronoun-antecedent-agreement-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "fd4bb60c458feb32e899036470ca7d577af311ddae7bead6169d1d603b984349",
+    "lesson": "lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents"
+  },
+  "q-grammar-and-structure-pronoun-antecedent-agreement-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "55ca24e12f3e2bbc6cef0f6191e40a5cf840be00b440fcfd805748f1eb46ac69",
+    "lesson": "lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents"
+  },
+  "q-grammar-and-structure-pronoun-antecedent-agreement-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "407ff654f0ab480b1bc125ee0d95dfde78cca2ba47a85549948c0524923f3e52",
+    "lesson": "lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents"
+  },
+  "q-grammar-and-structure-pronoun-antecedent-agreement-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "8f7520add113478af20be1193a5a313efad4e6efedf01bf63293f84658d76941",
+    "lesson": "lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they"
+  },
+  "q-grammar-and-structure-pronoun-antecedent-agreement-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "8e811e8e2b714b510ce86683d8c02b4a1340c865dc1afbb5433dc1fdbd0c91a0",
+    "lesson": "lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents"
+  },
+  "q-grammar-and-structure-pronoun-antecedent-agreement-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "f8f7e8e50f14191359635532129a8e6b24b94d44fa5c2a6f0c0ee260aa98c787",
+    "lesson": "lesson-grammar-and-structure-tinutukoy-at-pagmamay-ari-sa-panghalip"
+  },
+  "q-grammar-and-structure-pronoun-antecedent-agreement-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "d6cbbaabe0bf87d913dc48452e6e1a30d6c0d5126da3f46164a31a40dac8f0b4",
+    "lesson": "lesson-grammar-and-structure-mga-anyo-ng-panghalip-panao"
+  },
+  "q-grammar-and-structure-pronoun-antecedent-agreement-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "177d454ef163fe7cffdfd2bd46165dcf1dd7219af8efd677ffd655eb28eb088d",
+    "lesson": "lesson-grammar-and-structure-mga-anyo-ng-panghalip-panao"
+  },
+  "q-grammar-and-structure-pronoun-antecedent-agreement-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "fc16abdb69f630ed5e14edcd1096860dc9602c3cdae117bee9b5fa411b45fcdf",
+    "lesson": "lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they"
+  },
+  "q-grammar-and-structure-pronoun-antecedent-agreement-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "f37d3cd4b438c5ab03a0b553e7680d9ea0759b0276f91f3bbb4fd8e137fc15de",
+    "lesson": "lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents"
+  },
+  "q-grammar-and-structure-pronoun-antecedent-agreement-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "ed29682406833dd8f5a26e44f43366ff6c951e44f8ae06799443d50f9d32d1ff",
+    "lesson": "lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they"
+  },
+  "q-grammar-and-structure-pronoun-antecedent-agreement-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "966208510d44e4bbd9fc358fa4a6a19f130b5714700de18877e45e43d033a800",
+    "lesson": "lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they"
+  },
+  "q-grammar-and-structure-pronoun-antecedent-agreement-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "6708534ea05d0134e592d77ca4aafaec8d6d7a8896af259eb052e7484bebc012",
+    "lesson": "lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents"
+  },
+  "q-grammar-and-structure-pronoun-antecedent-agreement-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "f14c65c95c4178c5d30377a516f7223a72c3923f8d4aecfce5a652ad5e4c2f4e",
+    "lesson": "lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they"
+  },
+  "q-grammar-and-structure-pronoun-antecedent-agreement-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "dcaa82f383b80d8ee173a201d9fc2dd210b429be19ff879d30677f8a067c1a25",
+    "lesson": "lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents"
+  },
+  "q-grammar-and-structure-pronoun-antecedent-agreement-0021": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "05dbbb210844d417034a1bf2bfa5f81b09a908428a319df0eee4a4ace893852b",
+    "lesson": "lesson-grammar-and-structure-mga-anyo-ng-panghalip-panao"
+  },
+  "q-grammar-and-structure-pronoun-antecedent-agreement-0022": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "1abc5e78855eb44f51acfaf9e1016c26dc500c6b1dfacffffa37efe2d99c58dd",
+    "lesson": "lesson-grammar-and-structure-tinutukoy-at-pagmamay-ari-sa-panghalip"
+  },
+  "q-grammar-and-structure-pronoun-antecedent-agreement-0023": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "6a796d7e676a57b231b8e57ab5f1c7c72f6cd275e88b7aa8198b4c4e2467cbe4",
+    "lesson": "lesson-grammar-and-structure-tinutukoy-at-pagmamay-ari-sa-panghalip"
+  },
+  "q-grammar-and-structure-punctuation-and-capitalization-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "2d3304ea9dd91172972fb54b5a6c8b83f23504a68ba261fcc91e28ba10537cb8",
+    "lesson": "lesson-grammar-and-structure-semicolons-and-comma-splices"
+  },
+  "q-grammar-and-structure-punctuation-and-capitalization-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "5688f1fe4a8d01fb912716987a014ee61ba49fa6ad94c45a7cbf472eb239a756",
+    "lesson": "lesson-grammar-and-structure-apostrophes-for-ownership-and-contractions"
+  },
+  "q-grammar-and-structure-punctuation-and-capitalization-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "79addac5dd2b181745ebefe830b2bddad61f55126725997cbfe89837c99937ce",
+    "lesson": "lesson-grammar-and-structure-semicolons-and-comma-splices"
+  },
+  "q-grammar-and-structure-punctuation-and-capitalization-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "a787899516ecfc90846dcfc31a2d4cbefce85148e00f08b2f41e36252247f836",
+    "lesson": "lesson-grammar-and-structure-capital-letters-in-names-titles-and-quotes"
+  },
+  "q-grammar-and-structure-punctuation-and-capitalization-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "603e068f7b125e519013ac94f5d5b6e25b02690d325fef25ce62fcbcf7f83bbf",
+    "lesson": "lesson-grammar-and-structure-commas-in-lists-and-joined-clauses"
+  },
+  "q-grammar-and-structure-punctuation-and-capitalization-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "f173d3cc4f8c1b8b88266d5d4ac4f4658949209ea463f2cf6e01fb45de335b69",
+    "lesson": "lesson-grammar-and-structure-commas-in-lists-and-joined-clauses"
+  },
+  "q-grammar-and-structure-punctuation-and-capitalization-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "032f4ac1d7eb81a849f7e8c1d1af6bba8a387d537068ae7090b04bbc318db0ad",
+    "lesson": "lesson-grammar-and-structure-commas-with-openings-and-extra-information"
+  },
+  "q-grammar-and-structure-punctuation-and-capitalization-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "e059540afb0d90b646f5d5ab94342999b3cce6336ae0eb78dc245eb5fcd3e896",
+    "lesson": "lesson-grammar-and-structure-commas-with-openings-and-extra-information"
+  },
+  "q-grammar-and-structure-punctuation-and-capitalization-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "9547069c3e27333f14ce2009cccf58c1292cf0af7e9a116246fcfea64506c74e",
+    "lesson": "lesson-grammar-and-structure-semicolons-and-comma-splices"
+  },
+  "q-grammar-and-structure-punctuation-and-capitalization-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "64ee40adfbffa991eabb7a60d7e0b60ee738b7cf6f133399364f993388ba2a64",
+    "lesson": "lesson-grammar-and-structure-apostrophes-for-ownership-and-contractions"
+  },
+  "q-grammar-and-structure-punctuation-and-capitalization-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "44f09ac76a23a25e47a45520606af1868ad141d9a296fb5b8eb08b8114b8057c",
+    "lesson": "lesson-grammar-and-structure-apostrophes-for-ownership-and-contractions"
+  },
+  "q-grammar-and-structure-punctuation-and-capitalization-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "31cc3508d1e1e9c14976968121119b7cecd1a98f926a52d2012d2b7b16dd22dc",
+    "lesson": "lesson-grammar-and-structure-capital-letters-in-names-titles-and-quotes"
+  },
+  "q-grammar-and-structure-punctuation-and-capitalization-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "4cf1088efcc30d768878aaa5d2c2cd9a03459853f3848320ffa458026949d0f2",
+    "lesson": "lesson-grammar-and-structure-capital-letters-in-names-titles-and-quotes"
+  },
+  "q-grammar-and-structure-punctuation-and-capitalization-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "cd6172167592bfd59fc6e4d244909267532fbc2f62725d327d91e5303fc4b184",
+    "lesson": "lesson-grammar-and-structure-commas-with-openings-and-extra-information"
+  },
+  "q-grammar-and-structure-punctuation-and-capitalization-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "6e8059e47d09eadae681b4d1117401bdb8fc1e594660e4a1c07c7c911f3b104f",
+    "lesson": "lesson-grammar-and-structure-apostrophes-for-ownership-and-contractions"
+  },
+  "q-grammar-and-structure-punctuation-and-capitalization-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "c74d8ee0e080791df83358c968c75ed9ed260a232ecd07ff2d5067af013fa429",
+    "lesson": "lesson-grammar-and-structure-semicolons-and-comma-splices"
+  },
+  "q-grammar-and-structure-punctuation-and-capitalization-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "93dffb71dca125d44ffafc249ac13c3381614f284cc862b53d2f94b1da0be7a7",
+    "lesson": "lesson-grammar-and-structure-capital-letters-in-names-titles-and-quotes"
+  },
+  "q-grammar-and-structure-punctuation-and-capitalization-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "522e7a7645838b8f54ea1c4fdfc35896934780a995175eb60117f66204da4a17",
+    "lesson": "lesson-grammar-and-structure-capital-letters-in-names-titles-and-quotes"
+  },
+  "q-grammar-and-structure-punctuation-and-capitalization-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "8a90981ef2e3ec4f241c2b4b274eacf665bb10ed6d499062d8c371aefe965bf5",
+    "lesson": "lesson-grammar-and-structure-semicolons-and-comma-splices"
+  },
+  "q-grammar-and-structure-punctuation-and-capitalization-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "a36c9cda8f0ac6d68c3015a799d278fd3af3484ef798169af3a2e6d70f5ca765",
+    "lesson": "lesson-grammar-and-structure-capital-letters-in-names-titles-and-quotes"
+  },
+  "q-grammar-and-structure-redundancy-and-double-negatives-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "4e89276aff0a294989c31cb50bab723592aa57bf138eb27a170efc23754c6fbd",
+    "lesson": "lesson-grammar-and-structure-removing-needless-repeated-meaning"
+  },
+  "q-grammar-and-structure-redundancy-and-double-negatives-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "f23ebdbeb8f4fc4de936ad9b550b74ad8a5f62e85995147f9011d9a3a69031f8",
+    "lesson": "lesson-grammar-and-structure-editing-negative-concord"
+  },
+  "q-grammar-and-structure-redundancy-and-double-negatives-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "d44f35231147f4b0361084a8d98d3b617bf03ee038b245a048a27a9d23c3cecf",
+    "lesson": "lesson-grammar-and-structure-removing-needless-repeated-meaning"
+  },
+  "q-grammar-and-structure-redundancy-and-double-negatives-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "8d79e5836cc1280fa1874a24c8642652ddb6da04f31250d017a27b44b0ad21a5",
+    "lesson": "lesson-grammar-and-structure-qualified-negatives-and-near-negatives"
+  },
+  "q-grammar-and-structure-redundancy-and-double-negatives-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "c835802366f70883a44ef2e3641f3eb9d9ebe343f4fe90f3f5f5104a3245a087",
+    "lesson": "lesson-grammar-and-structure-removing-needless-repeated-meaning"
+  },
+  "q-grammar-and-structure-redundancy-and-double-negatives-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "2834d751779f349b7a5737aea3ffe8be466626d7d9ef28d99900aa2548aba069",
+    "lesson": "lesson-grammar-and-structure-editing-negative-concord"
+  },
+  "q-grammar-and-structure-redundancy-and-double-negatives-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "0422efa4fa74e3d4c7355de601d155635d693bda6f9d8ffa03cc2290c40f3c94",
+    "lesson": "lesson-grammar-and-structure-removing-needless-repeated-meaning"
+  },
+  "q-grammar-and-structure-redundancy-and-double-negatives-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "8334dcf86dc68b9457a4815e011723ec76d085fdd2800fc9fc58eace0de4d714",
+    "lesson": "lesson-grammar-and-structure-qualified-negatives-and-near-negatives"
+  },
+  "q-grammar-and-structure-redundancy-and-double-negatives-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "9263a82d0fa2bdb8c5cc6471c92eeca906feae498ec85fb2e1eb9df7b7f483d8",
+    "lesson": "lesson-grammar-and-structure-removing-needless-repeated-meaning"
+  },
+  "q-grammar-and-structure-redundancy-and-double-negatives-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "b208d9f5f5b856d487cf45be297f44a247c53b7ec0e53d603b4b839a375707e6",
+    "lesson": "lesson-grammar-and-structure-qualified-negatives-and-near-negatives"
+  },
+  "q-grammar-and-structure-redundancy-and-double-negatives-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "9aa2b01c0f837e34f3fc2f591560e75adb68c74442eabfdbb14d18f12ea92139",
+    "lesson": "lesson-grammar-and-structure-editing-negative-concord"
+  },
+  "q-grammar-and-structure-redundancy-and-double-negatives-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "aeabf79874b1d496339107b4b40bbfcf5e18fbf06de9662fdb53be0eca0b2b70",
+    "lesson": "lesson-grammar-and-structure-removing-needless-repeated-meaning"
+  },
+  "q-grammar-and-structure-redundancy-and-double-negatives-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "92bff817c697e10e34cdc33d8a393e2c868a50f2f23850e64e477d31bfa1149c",
+    "lesson": "lesson-grammar-and-structure-keeping-needed-repetition"
+  },
+  "q-grammar-and-structure-redundancy-and-double-negatives-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "433f6e741ab0c0afa84700d3f5ab4a7efa3207ebf87713069355694f628f9926",
+    "lesson": "lesson-grammar-and-structure-editing-negative-concord"
+  },
+  "q-grammar-and-structure-redundancy-and-double-negatives-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "298981321c73ad716a740ce3dbb3a3e730af41514323ec61b70061f2b71ab277",
+    "lesson": "lesson-grammar-and-structure-editing-negative-concord"
+  },
+  "q-grammar-and-structure-redundancy-and-double-negatives-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "550d25f61386093ea4e36f7dcc6b2fdaaf93f94e96b5a87717e91f7b5dae398e",
+    "lesson": "lesson-grammar-and-structure-removing-needless-repeated-meaning"
+  },
+  "q-grammar-and-structure-redundancy-and-double-negatives-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "b665c0c4139057f6ccdefd6e19e4609fb0856ce9fc2d01d9580a2575f1dd360d",
+    "lesson": "lesson-grammar-and-structure-qualified-negatives-and-near-negatives"
+  },
+  "q-grammar-and-structure-redundancy-and-double-negatives-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "9a7703739893431f29fc6cabaf388c6bd4a6d8154ffee9cb60411d92212865fc",
+    "lesson": "lesson-grammar-and-structure-qualified-negatives-and-near-negatives"
+  },
+  "q-grammar-and-structure-redundancy-and-double-negatives-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "4e074a7175247d115f99643571b4f45c8cf9c47621aaaad329a64204ac13aa1a",
+    "lesson": "lesson-grammar-and-structure-removing-needless-repeated-meaning"
+  },
+  "q-grammar-and-structure-redundancy-and-double-negatives-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "53e6b88a0551ab57bf496013e58b13691c605c65c5c303cdff142110c3a338ed",
+    "lesson": "lesson-grammar-and-structure-qualified-negatives-and-near-negatives"
+  },
+  "q-grammar-and-structure-redundancy-and-double-negatives-0021": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "1b0e2c2af30c2e5f814ab90ed254c4efbde0f48e11ae1743f3643824e3e0ea83",
+    "lesson": "lesson-grammar-and-structure-keeping-needed-repetition"
+  },
+  "q-grammar-and-structure-redundancy-and-double-negatives-0022": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "f35b35a081f6bf47cecfe8dadf7ce08abca3f2e1c26edda5af6826ccbfc25825",
+    "lesson": "lesson-grammar-and-structure-qualified-negatives-and-near-negatives"
+  },
+  "q-grammar-and-structure-sentence-structure-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "e1e12bf35b8f39dfb8aea8e183e23fd483a7202f56f8a9a3063d109a3873a90b",
+    "lesson": "lesson-grammar-and-structure-simple-and-compound-sentences"
+  },
+  "q-grammar-and-structure-sentence-structure-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "b19bc487be7b45792b0f1a75c6ad47a5f8a8e20b0c0d723fa2e964a65386f00d",
+    "lesson": "lesson-grammar-and-structure-simple-and-compound-sentences"
+  },
+  "q-grammar-and-structure-sentence-structure-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "7f800b6209e6265db7b4f42e95e277d15016bff511a397afd079478f9c56d120",
+    "lesson": "lesson-grammar-and-structure-complex-and-compound-complex-sentences"
+  },
+  "q-grammar-and-structure-sentence-structure-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "42972146f9e597f28bd2f6e043af6a269f3cd6732c21a1f1cb4351dfc2db6104",
+    "lesson": "lesson-grammar-and-structure-complex-and-compound-complex-sentences"
+  },
+  "q-grammar-and-structure-sentence-structure-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "660b321843ce21adba4a31f65807ec23e06b2b83f3a2aad9f077a8a44de9b17b",
+    "lesson": "lesson-grammar-and-structure-simple-and-compound-sentences"
+  },
+  "q-grammar-and-structure-sentence-structure-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "0c00caf8528eb20c8b1ea10a722702c6d87389358c6a626631e796f6779a200a",
+    "lesson": "lesson-grammar-and-structure-simple-and-compound-sentences"
+  },
+  "q-grammar-and-structure-sentence-structure-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "adb547fc97a7f28640a607f24b5292c2a2036169b96ecfc9ad331ae58b4fcbc4",
+    "lesson": "lesson-grammar-and-structure-complex-and-compound-complex-sentences"
+  },
+  "q-grammar-and-structure-sentence-structure-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "4ff37a78a32fa8025674d80c61959a9af9854bc0169fbeb135a96db9d15add46",
+    "lesson": "lesson-grammar-and-structure-complex-and-compound-complex-sentences"
+  },
+  "q-grammar-and-structure-sentence-structure-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "3ba57e5e1674d6f41a9faa3c210ec5a914794ad6bf17c19f4c31411c03feaa0d",
+    "lesson": "lesson-grammar-and-structure-payak-at-tambalang-pangungusap"
+  },
+  "q-grammar-and-structure-sentence-structure-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "75c2d325e3e2cf49fdc20b17d11b6c5f07c928b03403a41167a5ad15e5caff7f",
+    "lesson": "lesson-grammar-and-structure-payak-at-tambalang-pangungusap"
+  },
+  "q-grammar-and-structure-sentence-structure-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "37385dbf099b33ef6a5fc2c447ab3df71a73e9de2c75656dde9ea7dbf16e3979",
+    "lesson": "lesson-grammar-and-structure-hugnayan-langkapan-at-ayos-ng-salaysay"
+  },
+  "q-grammar-and-structure-sentence-structure-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "c1616443c80b7500c5bd924dbd6c3cc736292ae8a43827cab05b36d379933ff5",
+    "lesson": "lesson-grammar-and-structure-hugnayan-langkapan-at-ayos-ng-salaysay"
+  },
+  "q-grammar-and-structure-sentence-structure-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "56aa225b982f8feaffb1734f4490b14022277d36d39bae69b59cba2acdb2d973",
+    "lesson": "lesson-grammar-and-structure-simple-and-compound-sentences"
+  },
+  "q-grammar-and-structure-sentence-structure-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "e0459b42e295ed6e2074b9ba95bb711c91f7dadbcea3ef4125988519ec96a86b",
+    "lesson": "lesson-grammar-and-structure-complex-and-compound-complex-sentences"
+  },
+  "q-grammar-and-structure-sentence-structure-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "e9a348bd904d7a34c6bd34fd21644c6fc934b84ba40bfd44e2edb2c93d711951",
+    "lesson": "lesson-grammar-and-structure-complex-and-compound-complex-sentences"
+  },
+  "q-grammar-and-structure-sentence-structure-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "471349760dbdfc1a4ab0860fb9880d6b82f30983fef5d05de448f118d58f87e6",
+    "lesson": "lesson-grammar-and-structure-complex-and-compound-complex-sentences"
+  },
+  "q-grammar-and-structure-sentence-structure-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "5466600aa7ccf9cbd6c80de8591c0d9fe3ba985cddbbd7b10cb22450745f1a6e",
+    "lesson": "lesson-grammar-and-structure-simple-and-compound-sentences"
+  },
+  "q-grammar-and-structure-sentence-structure-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "7ac0a5da132153fb18f09046caa954749b7db789335ce8a440f957e03cbb0410",
+    "lesson": "lesson-grammar-and-structure-complex-and-compound-complex-sentences"
+  },
+  "q-grammar-and-structure-sentence-structure-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "eb9357db958dfd29bcdb98706db070e771d23ba16aa102c126389c49c79ea568",
+    "lesson": "lesson-grammar-and-structure-complex-and-compound-complex-sentences"
+  },
+  "q-grammar-and-structure-sentence-structure-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "3d7cde58ede9c1691437240a4b68ec6614c4303b92f6fe3970e4406859241223",
+    "lesson": "lesson-grammar-and-structure-simple-and-compound-sentences"
+  },
+  "q-grammar-and-structure-sentence-structure-0021": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "3a2abe455a8b23a35dd02efef206fa4bbd6f2d89db05f9af034912e469cdcbfb",
+    "lesson": "lesson-grammar-and-structure-hugnayan-langkapan-at-ayos-ng-salaysay"
+  },
+  "q-grammar-and-structure-sentence-structure-0022": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "3a8c8d916e9be058c01732e03083d27dea32e6585b79b75be9b4fa6ba99f329f",
+    "lesson": "lesson-grammar-and-structure-payak-at-tambalang-pangungusap"
+  },
+  "q-grammar-and-structure-sentence-structure-0023": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "2f1739dcddd22ba1a52b90cd3ffb0e331c92e024dd913e4e12cbce90904b183b",
+    "lesson": "lesson-grammar-and-structure-payak-at-tambalang-pangungusap"
+  },
+  "q-grammar-and-structure-sentence-structure-0024": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "6b1f710931cd61a9afb65e57d548eed2678691e1ee723da475ac66f3555dc9a0",
+    "lesson": "lesson-grammar-and-structure-simple-and-compound-sentences"
+  },
+  "q-grammar-and-structure-subject-verb-agreement-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "155473068b815760e0e4a9d5d730896fa1ec2844d1245a1b8d965b0d7cf1914e",
+    "lesson": "lesson-grammar-and-structure-finding-subjects-and-matching-verbs"
+  },
+  "q-grammar-and-structure-subject-verb-agreement-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "e22e71ee5e118d4a5762b70b828f32c5810857f33dd9949ba88f9f64daa61912",
+    "lesson": "lesson-grammar-and-structure-finding-subjects-and-matching-verbs"
+  },
+  "q-grammar-and-structure-subject-verb-agreement-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "1ad4a68c35fd4e83246d3b90cba66a62f3fec82cf754cedfd020460467fb1ef8",
+    "lesson": "lesson-grammar-and-structure-finding-subjects-and-matching-verbs"
+  },
+  "q-grammar-and-structure-subject-verb-agreement-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "c893002b5b31ce0472969b53ccb4817ba4ade4f77fcf0319b60a87a05195f909",
+    "lesson": "lesson-grammar-and-structure-finding-subjects-and-matching-verbs"
+  },
+  "q-grammar-and-structure-subject-verb-agreement-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "1c5e6712224a0b422ee6b46ff223dd7782d5e0812e52c7b4ebd764fae3984de2",
+    "lesson": "lesson-grammar-and-structure-groups-and-indefinite-pronouns"
+  },
+  "q-grammar-and-structure-subject-verb-agreement-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "e5ba4c0101cd33698f53abb3cb3e23aa04570bce004daa27a55b9c9440c71b30",
+    "lesson": "lesson-grammar-and-structure-groups-and-indefinite-pronouns"
+  },
+  "q-grammar-and-structure-subject-verb-agreement-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "555dcad5711c672b2c0b6ec1e500af59750304b45dac7220ee0873ae57224f41",
+    "lesson": "lesson-grammar-and-structure-groups-and-indefinite-pronouns"
+  },
+  "q-grammar-and-structure-subject-verb-agreement-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "71b067e28054f57a74fe919cadc87baf386a4c0f69897087160584ae2c9cefff",
+    "lesson": "lesson-grammar-and-structure-groups-and-indefinite-pronouns"
+  },
+  "q-grammar-and-structure-subject-verb-agreement-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "b0adbf26aab139a3981f7547ddb28e3f8c7f2a55e946e63448fdd03c082df71e",
+    "lesson": "lesson-grammar-and-structure-groups-and-indefinite-pronouns"
+  },
+  "q-grammar-and-structure-subject-verb-agreement-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "00e45a78539c2b945730a31ae0116fe86c8929b65491f334ce016d5286216acd",
+    "lesson": "lesson-grammar-and-structure-groups-and-indefinite-pronouns"
+  },
+  "q-grammar-and-structure-subject-verb-agreement-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "42962b20c1f1f95fc573da66cd2c91f7807e438dff1391b72a4ca89a1791118b",
+    "lesson": "lesson-grammar-and-structure-agreement-with-joined-subjects"
+  },
+  "q-grammar-and-structure-subject-verb-agreement-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "4c0016db2a5d6ab4fe62068444a7867b1482995d14125345f6505561a4b201ff",
+    "lesson": "lesson-grammar-and-structure-agreement-with-joined-subjects"
+  },
+  "q-grammar-and-structure-subject-verb-agreement-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "929a7e57a61f3fc13bf2b5b38d007823609a962f822864b52218090812b8c64a",
+    "lesson": "lesson-grammar-and-structure-agreement-with-joined-subjects"
+  },
+  "q-grammar-and-structure-subject-verb-agreement-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "82c8bd0f0d783aaca585c0c52118484982d8ce0515c47a7b5ebf38844ca3685a",
+    "lesson": "lesson-grammar-and-structure-finding-subjects-and-matching-verbs"
+  },
+  "q-grammar-and-structure-subject-verb-agreement-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "707cc9956a8b2cfbacecd69db85f8987cb51eb3a18474ab3e6379879a219ac56",
+    "lesson": "lesson-grammar-and-structure-groups-and-indefinite-pronouns"
+  },
+  "q-grammar-and-structure-subject-verb-agreement-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "03fdc2c62323e77d748c3ec91e9f721fa7675cfc35117f17ad1bb6ac4be32627",
+    "lesson": "lesson-grammar-and-structure-groups-and-indefinite-pronouns"
+  },
+  "q-grammar-and-structure-subject-verb-agreement-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "27b03304b895db85fe0fed4a459a8e69db8a10be4084e19eb1920804fbe047e2",
+    "lesson": "lesson-grammar-and-structure-agreement-with-joined-subjects"
+  },
+  "q-grammar-and-structure-subject-verb-agreement-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "5295f56bf242a04538331514fef5603ff2b92f0dd8ea0a98fb9b0e2f09a19fa2",
+    "lesson": "lesson-grammar-and-structure-pokus-at-papel-ng-paksa"
+  },
+  "q-grammar-and-structure-subject-verb-agreement-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "f3fa31932a433e01931e8afd45ce536d9c489a7f71b95ce02caa4913c5f0e160",
+    "lesson": "lesson-grammar-and-structure-mga-gamit-ng-pananda"
+  },
+  "q-grammar-and-structure-subject-verb-agreement-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "643ac502c771288091e65ead38ec410a1812e9581224d79a29ce740a338b0420",
+    "lesson": "lesson-grammar-and-structure-agreement-with-joined-subjects"
+  },
+  "q-grammar-and-structure-subject-verb-agreement-0021": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "5f04ed555f2dd2d6c2cefc82efbf775b5d0f0dd08ffb3c4cce2b6be235c86b52",
+    "lesson": "lesson-grammar-and-structure-aspekto-at-paksa-sa-filipino"
+  },
+  "q-grammar-and-structure-subject-verb-agreement-0022": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "3096492821800bf80ed078d0f2a04d73e606f43456fcb2838843205129cdc2c6",
+    "lesson": "lesson-grammar-and-structure-aspekto-at-paksa-sa-filipino"
+  },
+  "q-grammar-and-structure-subject-verb-agreement-0023": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "743556d4e3507ce4ef3f5efa6fdb81b165555d71a0f5463519d1c04b654777d0",
+    "lesson": "lesson-grammar-and-structure-mga-gamit-ng-pananda"
+  },
+  "q-grammar-and-structure-subject-verb-agreement-0024": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "8bce3a271a7396df552497f8646f616ede23657cf8875ea05a5bbdc7a3b8f513",
+    "lesson": "lesson-grammar-and-structure-pokus-at-papel-ng-paksa"
+  },
+  "q-grammar-and-structure-tenses-and-voice-0001": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "440309fa1fe31ff3284fa142f860fba96cfa8b7e9cce532953c90b268734dedd",
+    "lesson": "lesson-grammar-and-structure-past-events-and-future-meaning"
+  },
+  "q-grammar-and-structure-tenses-and-voice-0002": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "6b22dd56f87de17daf0bce2fa40b382c965d3b5577bd8aa4bb63f0da6fc11a26",
+    "lesson": "lesson-grammar-and-structure-recognizing-active-and-passive-voice"
+  },
+  "q-grammar-and-structure-tenses-and-voice-0003": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "9462af957e620977de161d441bf443879c0f1555089f0acf19245573278854ea",
+    "lesson": "lesson-grammar-and-structure-recognizing-active-and-passive-voice"
+  },
+  "q-grammar-and-structure-tenses-and-voice-0004": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "58f77875320f0bc0a5dc0197dfeb4cc862b212bf78a7136f80de9d856ae5db61",
+    "lesson": "lesson-grammar-and-structure-changing-voice-and-get-passives"
+  },
+  "q-grammar-and-structure-tenses-and-voice-0005": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "108e2c323be18fb97630c1f4290830c298534b23c0f1a3afceacb15eaec56ad7",
+    "lesson": "lesson-grammar-and-structure-past-perfect-earlier-completion"
+  },
+  "q-grammar-and-structure-tenses-and-voice-0006": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "b309fe376ac8673ff4e41c92040a772eeaf660f64343217e97f7695d9d43939e",
+    "lesson": "lesson-grammar-and-structure-past-events-and-future-meaning"
+  },
+  "q-grammar-and-structure-tenses-and-voice-0007": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "a06cf2268cc470f0dd709c9506c11d76ea8825095fb5d4690d13e5a8b3fc94ba",
+    "lesson": "lesson-grammar-and-structure-changing-voice-and-get-passives"
+  },
+  "q-grammar-and-structure-tenses-and-voice-0008": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "6910a1396f8ed75b2ad1588143e602789afe0947582f74cbe480419f69af9d71",
+    "lesson": "lesson-grammar-and-structure-kalagayan-ng-kilos"
+  },
+  "q-grammar-and-structure-tenses-and-voice-0009": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "cafb1604fe3e3184e0faffe76f1e83316ede4d33ca7e3b6e7c6332440ee6aad2",
+    "lesson": "lesson-grammar-and-structure-kalagayan-ng-kilos"
+  },
+  "q-grammar-and-structure-tenses-and-voice-0010": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "fb3e2e3b2ae7db24f06524097e41fe4115cae825d2a979071067a96390b61ee6",
+    "lesson": "lesson-grammar-and-structure-kalagayan-ng-kilos"
+  },
+  "q-grammar-and-structure-tenses-and-voice-0011": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "a7eb2b0c136294474c9e01ffccc622e958afba6e8067055a245965408e8f12e5",
+    "lesson": "lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa"
+  },
+  "q-grammar-and-structure-tenses-and-voice-0012": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "f05d80899243747344ae51158ce4f55be0559454ca5851be97257cb13671667e",
+    "lesson": "lesson-grammar-and-structure-present-perfect-links-to-now"
+  },
+  "q-grammar-and-structure-tenses-and-voice-0013": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "2f94e2912191c93bcbed2848b99e3ff00c7d625919c7b26894e8c6164cfece2a",
+    "lesson": "lesson-grammar-and-structure-recognizing-active-and-passive-voice"
+  },
+  "q-grammar-and-structure-tenses-and-voice-0014": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "8f46c8302c60438593a8d2ae75ddcfcccc1db0ca473b9fc607e02bab7798e285",
+    "lesson": "lesson-grammar-and-structure-past-perfect-earlier-completion"
+  },
+  "q-grammar-and-structure-tenses-and-voice-0015": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "29dc24dd15fccd3d49c0afc2675bbb7816ef98460642e6d5abf94a89184555c1",
+    "lesson": "lesson-grammar-and-structure-past-events-and-future-meaning"
+  },
+  "q-grammar-and-structure-tenses-and-voice-0016": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "1a5f880f596c5fea930537eca4f7e8bfa31259ecdd388597d19f25650670e30f",
+    "lesson": "lesson-grammar-and-structure-present-perfect-links-to-now"
+  },
+  "q-grammar-and-structure-tenses-and-voice-0017": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "c378c2694e8b13a4286dae1adee8de5d8a18de979dae61dab2e755da747be982",
+    "lesson": "lesson-grammar-and-structure-present-habits-and-ongoing-actions"
+  },
+  "q-grammar-and-structure-tenses-and-voice-0018": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "50d806970f810f981108ab9cd5bca279baaba12b8a5952d11e7a8be0e3c24f6b",
+    "lesson": "lesson-grammar-and-structure-recognizing-active-and-passive-voice"
+  },
+  "q-grammar-and-structure-tenses-and-voice-0019": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "4afee381e10bb3f37328f4d9b89fb559a91728d00ef44e2859fc31aedcf37d3c",
+    "lesson": "lesson-grammar-and-structure-changing-voice-and-get-passives"
+  },
+  "q-grammar-and-structure-tenses-and-voice-0020": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "e15f0a56c94f94d8381058b6894d0709bb07be5a5a8e17b4405a961c3af22d08",
+    "lesson": "lesson-grammar-and-structure-present-habits-and-ongoing-actions"
+  },
+  "q-grammar-and-structure-tenses-and-voice-0021": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "30098eff4fb726c17ed02ad4ea606acd8dc3435b13898481b38fddc42ffdf0e9",
+    "lesson": "lesson-grammar-and-structure-modals-ability-and-permission"
+  },
+  "q-grammar-and-structure-tenses-and-voice-0022": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "a7ab498004120a9eef920e28b657356b278c72ace38007cd7a4e82cee64040ae",
+    "lesson": "lesson-grammar-and-structure-present-habits-and-ongoing-actions"
+  },
+  "q-grammar-and-structure-tenses-and-voice-0023": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "3b987c1be024aa26f782d741e9feed09684e2913f76019bc3e97bd6b03463e91",
+    "lesson": "lesson-grammar-and-structure-recognizing-active-and-passive-voice"
+  },
+  "q-grammar-and-structure-tenses-and-voice-0024": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "f3f8d37ba474d7eb527a5c013e00369d8de2ebe268a2679697819bccd4bd94d4",
+    "lesson": "lesson-grammar-and-structure-modals-requirements-and-possibility"
+  },
+  "q-grammar-and-structure-tenses-and-voice-0025": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "40f813e692deaaaea2d4c5b4dbafb1d2700c8614d3717163b36a1c2c23409b05",
+    "lesson": "lesson-grammar-and-structure-pagbuo-ng-anyo-ng-pandiwa"
+  },
+  "q-grammar-and-structure-tenses-and-voice-0026": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "d14e4f6f10dfa23b61c36ef17b8c58e4f17ca05a1f6b0c9c0ad37bfdcd28bd18",
+    "lesson": "lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa"
+  },
+  "q-grammar-and-structure-tenses-and-voice-0027": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "ebeb1eeeb56caa6088aed168fff18de8f3a003e58046bdb1caed55bbb8529716",
+    "lesson": "lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa"
+  },
+  "q-grammar-and-structure-tenses-and-voice-0028": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "4caf1fd94d6d8d5d4b86ca92a3d1c5bbbad9f39d210a47a54476745d18babc5e",
+    "lesson": "lesson-grammar-and-structure-modals-ability-and-permission"
+  },
+  "q-grammar-and-structure-tenses-and-voice-0029": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "9ee6532eca4a65cf9f8b6c65c4883d4b2809598f429afbe10f0cb5305f8eb223",
+    "lesson": "lesson-grammar-and-structure-modals-ability-and-permission"
+  },
+  "q-grammar-and-structure-tenses-and-voice-0030": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "a2372f8ff4c81a56e362b9ed0351d1436cecc965e7931e5a0dd85b032bc489ab",
+    "lesson": "lesson-grammar-and-structure-modals-requirements-and-possibility"
+  },
+  "q-grammar-and-structure-tenses-and-voice-0031": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "e242f6a442ac921d9037260230a131668ae0c9c83b3adca424114a22fc585464",
+    "lesson": "lesson-grammar-and-structure-modals-requirements-and-possibility"
+  },
+  "q-grammar-and-structure-tenses-and-voice-0032": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "9576ecbda31449a8d5e37c6851c7ef1516e44781213a18cc363dd448b036d62b",
+    "lesson": "lesson-grammar-and-structure-present-habits-and-ongoing-actions"
+  },
+  "q-grammar-and-structure-tenses-and-voice-0033": {
+    "approvedAt": "2026-11-15",
+    "evidence": "docs/content/verification/grammar-and-structure.md",
+    "hash": "9a906ea1f7ca7b88267615a4c1a1ff818300595d24328aa505e9d8e7a27bbf0c",
+    "lesson": "lesson-grammar-and-structure-present-perfect-links-to-now"
   }
 }

@@ -453,6 +453,7 @@ questions:
     approved: true
 
   - id: q-grammar-and-structure-parts-of-speech-0021
+    approved: true
     lesson: lesson-grammar-and-structure-pang-ukol-pangatnig-at-pandamdam
     keyPoint: 1
     type: parts-of-speech-identification
@@ -475,6 +476,7 @@ questions:
       Ang para sa ay pang-ukol. Iniuugnay nito ang mga bisita sa mga upuan. Ipinapakita nitong para sa mga bisita ang mga upuan.
 
   - id: q-grammar-and-structure-parts-of-speech-0022
+    approved: true
     lesson: lesson-grammar-and-structure-pang-ukol-pangatnig-at-pandamdam
     keyPoint: 2
     type: parts-of-speech-identification
@@ -497,6 +499,7 @@ questions:
       Ang Naku ay maikling pahayag ng reaksiyon o damdamin. Kaya pandamdam ang gamit nito.
 
   - id: q-grammar-and-structure-parts-of-speech-0023
+    approved: true
     lesson: lesson-grammar-and-structure-pang-uri-at-pang-abay
     keyPoint: 2
     type: parts-of-speech-identification
@@ -519,6 +522,7 @@ questions:
       Ang sagot sa "Saan sinuri ang mga kahon?" ay sa bodega. Ang buong pangkat na ito ang gumaganap na pang-abay na panlunan.
 
   - id: q-grammar-and-structure-parts-of-speech-0024
+    approved: true
     lesson: lesson-grammar-and-structure-pangalan-kilos-at-pandiwari
     keyPoint: 3
     type: parts-of-speech-identification

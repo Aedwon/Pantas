@@ -428,7 +428,7 @@ questions:
           This changes one person's result into a result for both. The plural use of "they" may suggest a pair. Check: keep the stated single-person result.
     explanation: |
       Repeating "Sam" identifies the person who passed. The revision keeps the stated result and gives the pronoun's intended reference directly.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0020"
     lesson: lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents
     keyPoint: 1
@@ -450,9 +450,10 @@ questions:
           This reports a single group decision. Voting involves individual people. Check: ask whether the pronoun refers to the group unit or its separate members.
     explanation: |
       "Their homes" refers to separate homes belonging to the members. Under the stated variety of English, plural "their" emphasizes those people within the committee.
-    approved: false
+    approved: true
 
   - id: q-grammar-and-structure-pronoun-antecedent-agreement-0021
+    approved: true
     lesson: lesson-grammar-and-structure-mga-anyo-ng-panghalip-panao
     keyPoint: 3
     type: pronoun-reference
@@ -475,6 +476,7 @@ questions:
       Ang mga boluntaryo ang tumanggap. Kailangan ang anyong sa para sa maraming taong pinag-uusapan: sa kanila. "Ibinigay ng tagapangasiwa sa kanila ang mga kagamitan."
 
   - id: q-grammar-and-structure-pronoun-antecedent-agreement-0022
+    approved: true
     lesson: lesson-grammar-and-structure-tinutukoy-at-pagmamay-ari-sa-panghalip
     keyPoint: 1
     type: pronoun-reference
@@ -497,6 +499,7 @@ questions:
       Nauuna ang nagsasabi ng may-ari. Si Elena mismo ang nagsasalita, kaya akin ang gamitin: "Akin ang aklat na nasa mesa."
 
   - id: q-grammar-and-structure-pronoun-antecedent-agreement-0023
+    approved: true
     lesson: lesson-grammar-and-structure-tinutukoy-at-pagmamay-ari-sa-panghalip
     keyPoint: 2
     type: pronoun-reference

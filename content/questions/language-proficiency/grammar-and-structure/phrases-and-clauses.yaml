@@ -362,7 +362,7 @@ questions:
           This classifies the group from the person it refers to. The volunteer is a person. Check: distinguish the noun from the clause describing it.
     explanation: |
       "Who repaired the bench" describes "the volunteer." The relative word "who" links this dependent clause to that noun.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0017"
     lesson: lesson-grammar-and-structure-independent-and-dependent-clauses
     keyPoint: 2
@@ -384,7 +384,7 @@ questions:
           This mistakes the noun "journey" for a verb in context. Journey can be an action word elsewhere. Check: check its role after "the bus".
     explanation: |
       "The bus" is the subject, and "arrived" is the finite verb. "After" makes their clause dependent.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0018"
     lesson: lesson-grammar-and-structure-connectors-for-reason-and-contrast
     keyPoint: 3
@@ -406,7 +406,7 @@ questions:
           This adds a noun phrase. The phrase refers to the expected result. Check: look for a finite verb in the added group.
     explanation: |
       "The totals will match" is a main clause with a subject and a verb. It completes the condition introduced by "If."
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0019"
     lesson: lesson-grammar-and-structure-relative-clauses-and-main-thoughts
     keyPoint: 2
@@ -428,7 +428,7 @@ questions:
           This takes the main predicate without its subject. The action seems to express the main point. Check: include the subject of "delayed".
     explanation: |
       The full subject is "The driver who found the road closed." Its main verb is "delayed." The whole sentence is the independent clause. The relative clause "who found the road closed" describes "driver" and is dependent.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0020"
     lesson: lesson-grammar-and-structure-connectors-for-reason-and-contrast
     keyPoint: 1
@@ -450,9 +450,10 @@ questions:
           This adds a noun phrase rather than a main clause. The phrase names the contrasting result. Check: check whether a finite verb states that result.
     explanation: |
       "It lost" is an independent clause. It completes the sentence and supplies a result that contrasts with the weeks of practice.
-    approved: false
+    approved: true
 
   - id: q-grammar-and-structure-phrases-and-clauses-0021
+    approved: true
     lesson: lesson-grammar-and-structure-finite-verbs-and-ing-groups
     keyPoint: 1
     type: phrase-clause-identification
@@ -475,6 +476,7 @@ questions:
       The main verb group is "is preparing." Is supplies the present tense form. It is the finite verb.
 
   - id: q-grammar-and-structure-phrases-and-clauses-0022
+    approved: true
     lesson: lesson-grammar-and-structure-infinitive-phrases-and-nonfinite-clauses
     keyPoint: 1
     type: phrase-clause-identification
@@ -497,6 +499,7 @@ questions:
       In basic school grammar, an infinitive and the words that go with it form an infinitive phrase. The group begins with "to obtain" and tells what the applicant hopes to do.
 
   - id: q-grammar-and-structure-phrases-and-clauses-0023
+    approved: true
     lesson: lesson-grammar-and-structure-infinitive-phrases-and-nonfinite-clauses
     keyPoint: 2
     type: phrase-clause-identification
