@@ -6,6 +6,14 @@ subject: "subject-language-proficiency"
 topic: "topic-language-application"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-language-application-completion-meaning-clues
+  - lesson-language-application-completion-word-forms
+  - lesson-language-application-completion-past-time
+  - lesson-language-application-completion-articles-and-lists
+  - lesson-language-application-completion-natural-phrases
+  - lesson-language-application-pagkumpleto-ng-pangungusap
 ---
 ## Core Concept
 

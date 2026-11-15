@@ -209,7 +209,7 @@
     "reason": "Subject and number identification makes choosing auxiliary forms easier. The lesson provides the basic agreement patterns needed for its examples."
    }
   ],
-  "lesson-language-application-sentence-completion": [
+  "lesson-language-application-completion-meaning-clues": [
    {
     "lesson": "lesson-vocabulary-context-clues",
     "strength": "helpful",
@@ -219,6 +219,41 @@
     "lesson": "lesson-grammar-and-structure-tenses-and-voice",
     "strength": "helpful",
     "reason": "Prior practice distinguishing finished actions from earlier completed actions eases tense selection. The lesson explains its tested verb patterns."
+   }
+  ],
+  "lesson-language-application-completion-word-forms": [
+   {
+    "lesson": "lesson-language-application-completion-meaning-clues",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-completion-past-time": [
+   {
+    "lesson": "lesson-language-application-completion-word-forms",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-completion-articles-and-lists": [
+   {
+    "lesson": "lesson-language-application-completion-past-time",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-completion-natural-phrases": [
+   {
+    "lesson": "lesson-language-application-completion-articles-and-lists",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-pagkumpleto-ng-pangungusap": [
+   {
+    "lesson": "lesson-language-application-completion-natural-phrases",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
    }
   ],
   "lesson-logical-verbal-reasoning-number-and-letter-sequences": [],
