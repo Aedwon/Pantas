@@ -2,7 +2,7 @@ import '../lib/index.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {getFirestore} from 'firebase-admin/firestore';
-import {extendBetaPro, OLD_CUTOFF, NEW_CUTOFF} from '../scripts/extend_beta_pro.mjs';
+import {extendBetaPro, recopyClaims, OLD_CUTOFF, NEW_CUTOFF} from '../scripts/extend_beta_pro.mjs';
 import {fakeAuth} from './_paymongo-helpers.mjs';
 assert.equal(process.env.GCLOUD_PROJECT, 'demo-pantas-test');
 const db = getFirestore(), now = OLD_CUTOFF - 60_000;
@@ -24,7 +24,7 @@ test('extend beta Pro: dry run writes nothing, live extends only active old-cuto
   assert.equal(await endOf(a), OLD_CUTOFF);
   assert.equal((await entitlement(a).get()).get('version'), 1);
 
-  assert.deepEqual(await extendBetaPro({...deps, live: true}), {users: 1, grants: 1});
+  assert.deepEqual(await extendBetaPro({...deps, live: true}), {users: 1, grants: 1, claimsFailed: 0});
   assert.equal(await endOf(a), NEW_CUTOFF);
   assert.equal(await endOf(b), OLD_CUTOFF);
   assert.equal(await endOf(c), OLD_CUTOFF + 1);
@@ -35,6 +35,9 @@ test('extend beta Pro: dry run writes nothing, live extends only active old-cuto
   assert.equal((await db.doc(`users/${b}/server/entitlement`).get()).exists, false);
 
   const version = record.get('version');
-  assert.deepEqual(await extendBetaPro({...deps, live: true}), {users: 0, grants: 0});
+  assert.deepEqual(await extendBetaPro({...deps, live: true}), {users: 0, grants: 0, claimsFailed: 0});
   assert.equal((await entitlement(a).get()).get('version'), version);
+
+  // The claims-only rerun copies claims again for the extended user only.
+  assert.deepEqual(await recopyClaims({db, auth}), {users: 1, copied: 1, claimsFailed: 0});
 });
