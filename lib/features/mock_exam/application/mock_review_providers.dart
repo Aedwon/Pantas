@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/data/repos/content_repository.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
@@ -7,15 +10,19 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/review_list.dart';
 import 'package:pantas/features/metrics/signals/mock_payload_reader.dart';
 import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
+import 'package:pantas/features/mock_exam/domain/mock_results.dart';
 
 /// Every question in one finished mock attempt, in paper order.
 final mockReviewProvider =
     FutureProvider.family<List<ReviewEntry>, String>((ref, attemptId) async {
-  final attempt = await ref.watch(mockAttemptRepoProvider).findById(attemptId);
+  if (kIsWeb) throw UnsupportedError('Server mock review reader is pending');
+  final repo = ref.watch(mockAttemptRepoProvider);
+  final content = ref.watch(contentRepositoryProvider);
+  final flags = ref.watch(questionFlagsRepositoryProvider);
+  final attempt = await repo.findById(attemptId);
   if (attempt == null) return const [];
 
-  final content = ref.watch(contentRepositoryProvider);
-  final flagged = await ref.watch(questionFlagsRepositoryProvider).flaggedIds();
+  final flagged = await flags.flaggedIds();
 
   final payload = const MockPayloadReader().read(
     sampledQuestionsJson: attempt.sampledQuestionsJson,
@@ -37,9 +44,7 @@ final mockReviewProvider =
     final question = questions[qId];
     if (question == null) continue;
 
-    final topic = await lookup.topic(question.topicId);
-    final subject =
-        topic == null ? null : await lookup.subject(topic.subjectId);
+    final part = payload.sections.firstWhere((section) => section.questionIds.contains(qId));
     final passage = await lookup.passage(question.passageId);
 
     final mockAnswer = payload.answers[qId];
@@ -56,7 +61,7 @@ final mockReviewProvider =
         question: question,
         chosenChoiceId: chosenChoiceId,
         isFlagged: flagged.contains(question.id),
-        subjectName: subject?.name ?? topic?.name ?? '',
+        subjectName: part.name,
         label: question.shortLabel ?? question.stem,
         labelIsStem: question.shortLabel == null,
         passage: passage,
@@ -114,3 +119,24 @@ class _ContentLookup {
     return _passages[id] = await _content.passageById(id);
   }
 }
+
+
+/// Reason fields are independent of the metrics reader, which intentionally
+/// ignores them. They never replace submitted selections or scoring counts.
+final mockReviewReasonsProvider = FutureProvider.family<Map<String, MockAnswer>, String>((ref, id) async {
+  if (kIsWeb) throw UnsupportedError('Server mock review notes reader is pending');
+  final attempt = await ref.watch(mockAttemptRepoProvider).findById(id);
+  if (attempt == null) return const {};
+  final raw = jsonDecode(attempt.answersJson) as Map<String, dynamic>;
+  return Map.unmodifiable({for (final entry in raw.entries)
+    if (!entry.key.startsWith('_')) entry.key: _reviewAnswer(entry.value as Map<String, dynamic>),
+  });
+});
+
+MockAnswer _reviewAnswer(Map<String, dynamic> value) => MockAnswer(
+  selectedIndex: value['selectedIndex'] as int,
+  atSec: value['atSec'] as int,
+  missReason: MissReason.values.where((v) => v.name == value['missReason']).firstOrNull,
+  blankReason: BlankReason.values.where((v) => v.name == value['blankReason']).firstOrNull,
+  reasonNote: value['reasonNote'] as String?,
+);

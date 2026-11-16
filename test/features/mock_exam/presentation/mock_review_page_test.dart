@@ -6,7 +6,8 @@ import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/domain/subject.dart';
 import 'package:pantas/core/storage/domain/topic.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/review_list.dart';
+import 'package:pantas/core/ui/components/list_row.dart';
+import 'package:pantas/features/mock_exam/application/mock_results_providers.dart';
 import 'package:pantas/features/mock_exam/application/mock_availability_provider.dart';
 import 'package:pantas/features/mock_exam/data/mock_attempt_repo.dart';
 import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
@@ -133,6 +134,7 @@ void main() {
     await tester.pumpAppWithProviders(
       const MockReviewPage(attemptId: 'attempt_1', proIsActive: false),
       overrides: [
+        mockReviewAccessProvider.overrideWith((ref, id) async => const MockReviewAccess(canReview: true)),
         mockAttemptRepoProvider.overrideWithValue(attemptRepo),
         contentRepositoryProvider.overrideWithValue(contentRepo),
         questionFlagsRepositoryProvider.overrideWithValue(flagsRepo),
@@ -141,20 +143,24 @@ void main() {
     );
     await tester.pumpAndSettle();
 
+    expect(find.textContaining('while the clock was running'), findsNothing);
+    await tester.tap(find.text('Flagged 12'));
+    await tester.pumpAndSettle();
     expect(
       find.textContaining(
-        'You marked 12 to come back to while the clock was running.',
+        'You flagged 12 questions while the clock was running.',
       ),
       findsOneWidget,
     );
-    expect(find.text('Flag all 12'), findsOneWidget);
-    expect(find.text('No thanks'), findsOneWidget);
+    expect(find.text('Save All 12'), findsOneWidget);
+    expect(find.text('No Thanks'), findsOneWidget);
   });
 
   testWidgets('taking it flags them all and the offer goes', (tester) async {
     await tester.pumpAppWithProviders(
       const MockReviewPage(attemptId: 'attempt_1', proIsActive: false),
       overrides: [
+        mockReviewAccessProvider.overrideWith((ref, id) async => const MockReviewAccess(canReview: true)),
         mockAttemptRepoProvider.overrideWithValue(attemptRepo),
         contentRepositoryProvider.overrideWithValue(contentRepo),
         questionFlagsRepositoryProvider.overrideWithValue(flagsRepo),
@@ -163,10 +169,12 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text('Flag all 12'));
+    await tester.tap(find.text('Flagged 12'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Save All 12'));
     await tester.pumpAndSettle();
 
-    expect(find.text('Flag all 12'), findsNothing);
+    expect(find.text('Save All 12'), findsNothing);
     verify(() => flagsRepo.flag(any())).called(12);
   });
 
@@ -174,6 +182,7 @@ void main() {
     await tester.pumpAppWithProviders(
       const MockReviewPage(attemptId: 'attempt_1', proIsActive: false),
       overrides: [
+        mockReviewAccessProvider.overrideWith((ref, id) async => const MockReviewAccess(canReview: true)),
         mockAttemptRepoProvider.overrideWithValue(attemptRepo),
         contentRepositoryProvider.overrideWithValue(contentRepo),
         questionFlagsRepositoryProvider.overrideWithValue(flagsRepo),
@@ -182,7 +191,9 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text('No thanks'));
+    await tester.tap(find.text('Flagged 12'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('No Thanks'));
     await tester.pumpAndSettle();
 
     expect(find.textContaining('while the clock was running'), findsNothing);
@@ -194,6 +205,7 @@ void main() {
     await tester.pumpAppWithProviders(
       const MockReviewPage(attemptId: 'attempt_1', proIsActive: false),
       overrides: [
+        mockReviewAccessProvider.overrideWith((ref, id) async => const MockReviewAccess(canReview: true)),
         mockAttemptRepoProvider.overrideWithValue(attemptRepo),
         contentRepositoryProvider.overrideWithValue(contentRepo),
         questionFlagsRepositoryProvider.overrideWithValue(flagsRepo),
@@ -234,6 +246,7 @@ void main() {
     await tester.pumpAppWithProviders(
       const MockReviewPage(attemptId: 'attempt_no_marks', proIsActive: false),
       overrides: [
+        mockReviewAccessProvider.overrideWith((ref, id) async => const MockReviewAccess(canReview: true)),
         mockAttemptRepoProvider.overrideWithValue(attemptRepo),
         contentRepositoryProvider.overrideWithValue(contentRepo),
         questionFlagsRepositoryProvider.overrideWithValue(flagsRepo),
@@ -249,6 +262,7 @@ void main() {
     await tester.pumpAppWithProviders(
       const MockReviewPage(attemptId: 'attempt_1', proIsActive: false),
       overrides: [
+        mockReviewAccessProvider.overrideWith((ref, id) async => const MockReviewAccess(canReview: true)),
         mockAttemptRepoProvider.overrideWithValue(attemptRepo),
         contentRepositoryProvider.overrideWithValue(contentRepo),
         questionFlagsRepositoryProvider.overrideWithValue(flagsRepo),
@@ -260,10 +274,11 @@ void main() {
     expect(find.textContaining('Marked'), findsNothing);
   });
 
-  testWidgets('the mock review groups by subject', (tester) async {
+  testWidgets('the mock review groups by original paper part', (tester) async {
     await tester.pumpAppWithProviders(
       const MockReviewPage(attemptId: 'attempt_1', proIsActive: false),
       overrides: [
+        mockReviewAccessProvider.overrideWith((ref, id) async => const MockReviewAccess(canReview: true)),
         mockAttemptRepoProvider.overrideWithValue(attemptRepo),
         contentRepositoryProvider.overrideWithValue(contentRepo),
         questionFlagsRepositoryProvider.overrideWithValue(flagsRepo),
@@ -272,14 +287,15 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('Mathematics'), findsOneWidget);
-    expect(find.text('Science'), findsOneWidget);
+    expect(find.text('SECTION 1'), findsOneWidget);
+    expect(find.text('11'), findsOneWidget);
   });
 
   testWidgets('Free sees every question and the answer', (tester) async {
     await tester.pumpAppWithProviders(
       const MockReviewPage(attemptId: 'attempt_1', proIsActive: false),
       overrides: [
+        mockReviewAccessProvider.overrideWith((ref, id) async => const MockReviewAccess(canReview: true)),
         mockAttemptRepoProvider.overrideWithValue(attemptRepo),
         contentRepositoryProvider.overrideWithValue(contentRepo),
         questionFlagsRepositoryProvider.overrideWithValue(flagsRepo),
@@ -289,12 +305,22 @@ void main() {
     await tester.pumpAndSettle();
 
     // Default filter is Wrong (11 wrong out of 12 since only q_1 was correct).
-    expect(find.byType(ReviewRow), findsNWidgets(11));
+    expect(find.byType(ListRow), findsNWidgets(11));
 
     // Tap All filter to see all 12.
     await tester.tap(find.text('All 12'));
     await tester.pumpAndSettle();
 
-    expect(find.byType(ReviewRow), findsNWidgets(12));
+    expect(find.byType(ListRow), findsNWidgets(12));
+    await tester.tap(find.text('Stem for q_1'));
+    await tester.pumpAndSettle();
+    expect(find.text('Explanation q_1'), findsOneWidget);
+    expect(find.text('1 of 12'), findsOneWidget);
+    expect(find.byTooltip('Add Note'), findsNothing);
+    await tester.tap(find.byTooltip('Next'));
+    await tester.pumpAndSettle();
+    expect(find.text('Explanation q_2'), findsOneWidget);
+    expect(find.text('2 of 12'), findsOneWidget);
+
   });
 }
