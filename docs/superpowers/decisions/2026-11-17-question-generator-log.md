@@ -597,3 +597,11 @@ Handoff sent (November 17): the operations manager was asked to launch a generat
 build lead (plan, then build, within the approved spec) and a UI lead for the
 figure answer choices spec. Spec, log and both process-improvement entries are on
 main at 7e207aebd. Session estimate E-103 closed: 1 h 23 min wall.
+
+## November 17, 2026: build lead starts; wait for Codex resets
+
+Build lead (Opus 5.5) started the plan on `gen/question-generator-r1` (velocity row E-107).
+
+Rule from Aedwon for this lane, relayed verbatim by the operations manager: "wait for codex resets. this is true for lesson-generation related tasks and threads". All three Codex accounts filled their 5-hour windows at about 18:55 UTC Nov 16; the soonest reset is about 22:04 UTC.
+
+What changed: before every Codex run the lead checks `codex-pick --status` and starts nothing until an account shows 5-hour room. No Claude worker substitutes for Codex work in this lane. Plan writing continues, kept lean. One Sonnet reader (started before the rule arrived) re-verifies spec B1 for the plan; the math pilot lesson re-check waits for the first Codex window.
