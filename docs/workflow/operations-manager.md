@@ -112,7 +112,7 @@ When a manager thread gets too long, Aedwon opens a new thread in the Pantas T3 
    one-off tasks.
 3. **Read each lead's latest report** (its last few messages) and note what is running, done, or
    waiting.
-4. **Read what is open.** The "waiting on Aedwon" part of the Pantas Master SSOT
+4. **Read what is open.** Start with `docs/superpowers/backlog.md` (every open, parked and deferred item; keep it current). Then read The "waiting on Aedwon" part of the Pantas Master SSOT
    (https://docs.google.com/document/d/1LzdBQjPmRYXV1LSrLnK7F6_eadQi7cb1fj8mg7yuZg4/edit), the last
    25 entries of the launch log, and the newest rows of the velocity log.
 5. **Check the schedules.** List the project's scheduled tasks. Their prompts name the standing
