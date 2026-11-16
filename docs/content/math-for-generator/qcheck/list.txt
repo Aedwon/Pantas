@@ -1,0 +1,14 @@
+content/questions/mathematics/algebra/algebraic-expressions.yaml
+content/questions/mathematics/algebra/exponents-and-logarithms.yaml
+content/questions/mathematics/algebra/functions-and-relations.yaml
+content/questions/mathematics/algebra/linear-equations-inequalities.yaml
+content/questions/mathematics/algebra/polynomials.yaml
+content/questions/mathematics/algebra/quadratic-equations.yaml
+content/questions/mathematics/algebra/radicals-and-rationalization.yaml
+content/questions/mathematics/algebra/sets-and-set-notation.yaml
+content/questions/mathematics/algebra/systems-of-equations.yaml
+content/questions/mathematics/algebra/types-of-functions.yaml
+content/questions/mathematics/algebra/word-problems.yaml
+content/questions/mathematics/geometry/circles.yaml
+content/questions/mathematics/geometry/coordinate-geometry.yaml
+content/questions/mathematics/geometry/basic-geometric-concepts.yaml
