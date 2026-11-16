@@ -99,7 +99,7 @@ must rebind them (takeover step 5). Current set:
 | Task | When | Bound to manager | What it does |
 |---|---|---|---|
 | Manager heartbeat: check leads | every 55 min | yes | Codex weekly watch (alert Aedwon once per account at 90% weekly, so he resets it manually), then reads every lead, relays, nudges stalled leads, routes decisions to Fable. Every 55 min, not 60, so the manager's prompt cache never expires. |
-| Keep lead caches warm | every 55 min | yes | Sends "reply only: ok" to leads idle 45 min to 12 h, so their 1-hour prompt cache does not expire. Skips busy leads and leads idle over 12 h. |
+| Keep lead caches warm | every 55 min | yes | Sends "reply only: ok" to leads idle 45 min to 12 h, so their 1-hour prompt cache does not expire. Skips busy leads, leads idle over 12 h, and leads running their own keep-alive. Leads waiting on Aedwon may set their own (`orchestrator.md`, "Keeping your cache warm while you wait on Aedwon"); the manager may do the same for itself while it waits on him. |
 | Daily manager sweep: cost, users, dates | 01:00 Manila | yes | The proactive sweep plus `node tool/checks/free_tier_live.mjs` and the backlog (`docs/superpowers/backlog.md`). |
 | Daily housekeeping: threads and disk | 04:00 Manila | yes | Settles finished threads; when free disk is under 40 GB, a Sonnet task cleans safe items and saves old unsaved worktrees to their branches first. |
 | Beta monitor pass | every 12 h | no | Messages the beta monitor and posts a 3-line summary. |
