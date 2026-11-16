@@ -597,3 +597,8 @@ Handoff sent (November 17): the operations manager was asked to launch a generat
 build lead (plan, then build, within the approved spec) and a UI lead for the
 figure answer choices spec. Spec, log and both process-improvement entries are on
 main at 7e207aebd. Session estimate E-103 closed: 1 h 23 min wall.
+
+Lanes launched (reported by the operations manager, November 17): thread "Question
+generator build" for the plan and build, and thread "Figure answer choices (UI
+spec)" for the second spec. This session is now the adviser for rulings on the
+spec.
