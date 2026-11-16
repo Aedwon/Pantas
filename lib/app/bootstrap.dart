@@ -25,6 +25,7 @@ import 'package:pantas/core/content/security/content_package_verifier.dart';
 import 'package:pantas/core/content/security/content_signing_keys.dart';
 import 'package:pantas/core/dev/dev_demo_switch.dart';
 import 'package:pantas/core/dev/dev_pro_switch.dart';
+import 'package:pantas/core/dev/input_check.dart';
 import 'package:pantas/core/dev/local_panel_bridge.dart';
 import 'package:pantas/core/dev/local_student_startup.dart';
 import 'package:pantas/core/error/app_error_recovery.dart';
@@ -256,6 +257,9 @@ Future<void> _bootstrap(
   ContentDatabase? contentDatabase;
   ProviderContainer? ownedContainer;
   rememberStartLocation(Uri.base);
+  // Staging only, and only with ?perf=1 or ?resample=on. Reads the address
+  // before routing rewrites it.
+  startInputCheck(flavor);
   rememberLocalStudentUrl();
   rememberLocalAccount();
   try {

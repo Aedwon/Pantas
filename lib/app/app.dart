@@ -6,6 +6,7 @@ import 'package:pantas/app/router.dart';
 import 'package:pantas/app/screen_counts_providers.dart';
 import 'package:pantas/app/theme.dart';
 import 'package:pantas/app/web_address.dart';
+import 'package:pantas/core/dev/input_check_overlay.dart';
 import 'package:pantas/core/error/app_error_recovery.dart';
 import 'package:pantas/core/platform/welcome/welcome_handover_providers.dart';
 import 'package:pantas/core/storage/age_gate.dart';
@@ -74,17 +75,19 @@ class App extends ConsumerWidget {
       themeAnimationDuration: kIsWeb ? Duration.zero : kThemeAnimationDuration,
       scrollBehavior: const NoScrollBarsBehavior(),
       routerConfig: kIsWeb ? ref.watch(_webRouterConfigProvider) : router,
-      builder: (context, child) => LetterShortcutsScope(
-        enabled: letterShortcuts,
-        child: AppTextScale(
-          child: WebLayoutTheme(
-            child: AppErrorRecovery(
-              child: SyncReconciliationGate(
-                child: NotificationTapRouter(
-                  gateway: gateway,
-                  router: router,
-                  now: DateTime.now,
-                  child: child ?? const SizedBox.shrink(),
+      builder: (context, child) => withInputCheckOverlay(
+        LetterShortcutsScope(
+          enabled: letterShortcuts,
+          child: AppTextScale(
+            child: WebLayoutTheme(
+              child: AppErrorRecovery(
+                child: SyncReconciliationGate(
+                  child: NotificationTapRouter(
+                    gateway: gateway,
+                    router: router,
+                    now: DateTime.now,
+                    child: child ?? const SizedBox.shrink(),
+                  ),
                 ),
               ),
             ),
