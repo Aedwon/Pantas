@@ -1,3 +1,4 @@
+import 'package:pantas/core/dev/scroll_exp.dart';
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
@@ -56,13 +57,18 @@ class GroupedSection extends StatelessWidget {
                   : null,
               borderRadius: BorderRadius.circular(radius),
             ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(radius),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: children,
-              ),
-            ),
+            child: scrollExp.contains('noclip')
+                ? Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: children,
+                  )
+                : ClipRRect(
+                    borderRadius: BorderRadius.circular(radius),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: children,
+                    ),
+                  ),
           ),
           if (footer != null)
             Padding(

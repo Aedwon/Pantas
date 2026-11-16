@@ -1,3 +1,4 @@
+import 'package:pantas/core/dev/scroll_exp.dart';
 import 'dart:math' as math;
 
 import 'package:flutter/services.dart';
@@ -33,7 +34,7 @@ class AppShell extends ConsumerWidget {
         body: context.wideWeb
             ? navigationShell
             : FloatingTabBarScope(child: navigationShell),
-        bottomNavigationBar: context.wideWeb
+        bottomNavigationBar: context.wideWeb || scrollExp.contains('nobar')
             ? null
             : ValueListenableBuilder<bool>(
                 valueListenable: phoneTabBarHidden,

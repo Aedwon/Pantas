@@ -1,3 +1,4 @@
+import 'package:pantas/core/dev/scroll_exp.dart';
 import 'package:flutter/foundation.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/ui/components/contents_glyph.dart';
@@ -239,7 +240,7 @@ class ReaderBar extends StatelessWidget {
                       context.type.footnote.fontSize!,
                     ) *
                     context.type.footnote.height!;
-                final stripHeight = fraction *
+                final stripHeight = (scrollExp.contains('fixedheader') ? 1.0 : fraction) *
                     (lineHeight > 30 ? lineHeight : 30) *
                     (1 - motion);
                 return SizedBox(
