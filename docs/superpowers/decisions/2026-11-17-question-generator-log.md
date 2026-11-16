@@ -624,3 +624,9 @@ B1 corrections and lead rulings (Part B only; Part A unchanged):
 Math pilot candidates, checked live on prod content by the lead: discounted prices (5 questions), age word problems (4), finding number patterns (3). The math lessons branch lacks the Algebra parts, so the pilot reads prod content.
 
 Estimate: 13 to 17 days, top of the spec's 11 to 16, from the server alias and the compiled JS. Rows E-109 to E-112.
+
+## November 16, 2026 23:35 UTC: Codex sharing between lanes
+
+From 22:30 to 23:29 UTC the PSHS-NCE content lead's back-to-back runs kept codex-pick's one-run guard busy, and this lane's queued run never started. The operations manager ruled: both lanes may use `CODEX_PICK_PARALLEL=1` whenever `codex-pick --status` shows room for each run, capped at 3 runs at once across all lanes, as Aedwon allows. No turn order.
+
+Also answered for the PSHS-NCE lead: "dots inside overlapping shapes" (official reviewer IV-13 to IV-16) is not a generator figure kind. Spec B11 keeps new figure kinds out of scope, and a new kind needs a widget (UI). The lead was asked to log it as a backlog engineering item.
