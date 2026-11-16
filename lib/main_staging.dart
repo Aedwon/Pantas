@@ -8,6 +8,7 @@ import 'package:pantas/app/flavor.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   readScrollExp();
+  startScrollExp();
   if (kIsWeb) usePathUrlStrategy();
   bootstrap(Flavor.staging);
 }

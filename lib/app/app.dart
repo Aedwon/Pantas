@@ -1,3 +1,4 @@
+import 'package:pantas/core/dev/scroll_exp.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/flavor.dart';
@@ -74,17 +75,20 @@ class App extends ConsumerWidget {
       themeAnimationDuration: kIsWeb ? Duration.zero : kThemeAnimationDuration,
       scrollBehavior: const NoScrollBarsBehavior(),
       routerConfig: kIsWeb ? ref.watch(_webRouterConfigProvider) : router,
-      builder: (context, child) => LetterShortcutsScope(
-        enabled: letterShortcuts,
-        child: AppTextScale(
-          child: WebLayoutTheme(
-            child: AppErrorRecovery(
-              child: SyncReconciliationGate(
-                child: NotificationTapRouter(
-                  gateway: gateway,
-                  router: router,
-                  now: DateTime.now,
-                  child: child ?? const SizedBox.shrink(),
+      builder: (context, child) => NotificationListener<ScrollNotification>(
+        onNotification: onScrollExpNotification,
+        child: LetterShortcutsScope(
+          enabled: letterShortcuts,
+          child: AppTextScale(
+            child: WebLayoutTheme(
+              child: AppErrorRecovery(
+                child: SyncReconciliationGate(
+                  child: NotificationTapRouter(
+                    gateway: gateway,
+                    router: router,
+                    now: DateTime.now,
+                    child: child ?? const SizedBox.shrink(),
+                  ),
                 ),
               ),
             ),
