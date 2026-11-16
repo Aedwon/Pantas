@@ -1,0 +1,117 @@
+{
+ "lesson-algebra-algebraic-expressions": {
+  "parent": "content/lessons/mathematics/algebra/algebraic-expressions.md",
+  "parts": [
+   "lesson-algebra-translating-algebraic-phrases",
+   "lesson-algebra-rates-and-consecutive-integers",
+   "lesson-algebra-simplifying-and-evaluating-expressions"
+  ],
+  "cetRewrite": false
+ },
+ "lesson-algebra-exponents-and-logarithms": {
+  "parent": "content/lessons/mathematics/algebra/exponents-and-logarithms.md",
+  "parts": [
+   "lesson-algebra-exponent-laws-and-zero-powers",
+   "lesson-algebra-fractional-powers-and-exponent-equations",
+   "lesson-algebra-logarithm-meaning-and-equations",
+   "lesson-algebra-logarithm-product-quotient-and-power-laws"
+  ],
+  "cetRewrite": false
+ },
+ "lesson-algebra-functions-and-relations": {
+  "parent": "content/lessons/mathematics/algebra/functions-and-relations.md",
+  "parts": [
+   "lesson-algebra-functions-domain-and-range",
+   "lesson-algebra-evaluating-and-composing-functions",
+   "lesson-algebra-inverse-functions-and-checks"
+  ],
+  "cetRewrite": true
+ },
+ "lesson-algebra-linear-equations-inequalities": {
+  "parent": "content/lessons/mathematics/algebra/linear-equations-inequalities.md",
+  "parts": [
+   "lesson-algebra-solving-linear-equations",
+   "lesson-algebra-one-variable-inequalities",
+   "lesson-algebra-line-slopes-and-intercepts",
+   "lesson-algebra-parallel-and-perpendicular-lines",
+   "lesson-algebra-two-variable-inequalities"
+  ],
+  "cetRewrite": false
+ },
+ "lesson-algebra-polynomials": {
+  "parent": "content/lessons/mathematics/algebra/polynomials.md",
+  "parts": [
+   "lesson-algebra-polynomial-terms-and-degree",
+   "lesson-algebra-polynomial-operations",
+   "lesson-algebra-polynomial-special-products",
+   "lesson-algebra-factoring-quadratics",
+   "lesson-algebra-factoring-cubes",
+   "lesson-algebra-polynomial-long-division",
+   "lesson-algebra-polynomial-synthetic-division",
+   "lesson-algebra-remainder-and-factor-theorems",
+   "lesson-algebra-polynomial-multiple-factors"
+  ],
+  "cetRewrite": false
+ },
+ "lesson-algebra-quadratic-equations": {
+  "parent": "content/lessons/mathematics/algebra/quadratic-equations.md",
+  "parts": [
+   "lesson-algebra-factoring-quadratic-equations",
+   "lesson-algebra-quadratic-methods-and-root-properties"
+  ],
+  "cetRewrite": true
+ },
+ "lesson-algebra-radicals-and-rationalization": {
+  "parent": "content/lessons/mathematics/algebra/radicals-and-rationalization.md",
+  "parts": [
+   "lesson-algebra-simplifying-and-combining-radicals",
+   "lesson-algebra-rationalizing-square-root-denominators",
+   "lesson-algebra-cube-root-denominators-and-nested-radicals"
+  ],
+  "cetRewrite": true
+ },
+ "lesson-algebra-sets-and-set-notation": {
+  "parent": "content/lessons/mathematics/algebra/sets-and-set-notation.md",
+  "parts": [
+   "lesson-algebra-set-membership-and-operations",
+   "lesson-algebra-counting-venn-diagram-regions"
+  ],
+  "cetRewrite": true
+ },
+ "lesson-algebra-systems-of-equations": {
+  "parent": "content/lessons/mathematics/algebra/systems-of-equations.md",
+  "parts": [
+   "lesson-algebra-systems-substitution-and-word-problems",
+   "lesson-algebra-systems-elimination",
+   "lesson-algebra-systems-graphs-and-solution-counts",
+   "lesson-algebra-systems-lines-and-parabolas"
+  ],
+  "cetRewrite": true
+ },
+ "lesson-algebra-types-of-functions": {
+  "parent": "content/lessons/mathematics/algebra/types-of-functions.md",
+  "parts": [
+   "lesson-algebra-linear-and-quadratic-functions",
+   "lesson-algebra-rational-domains-and-holes",
+   "lesson-algebra-rational-vertical-and-horizontal-asymptotes",
+   "lesson-algebra-rational-slant-asymptotes",
+   "lesson-algebra-absolute-value-equations-and-graph-matching",
+   "lesson-algebra-absolute-value-transformations",
+   "lesson-algebra-exponential-growth-and-function-families",
+   "lesson-algebra-logarithmic-and-piecewise-functions"
+  ],
+  "cetRewrite": false
+ },
+ "lesson-algebra-word-problems": {
+  "parent": "content/lessons/mathematics/algebra/word-problems.md",
+  "parts": [
+   "lesson-algebra-age-word-problems",
+   "lesson-algebra-motion-meeting-and-separation",
+   "lesson-algebra-motion-chase-problems",
+   "lesson-algebra-work-rate-problems",
+   "lesson-algebra-mixture-word-problems",
+   "lesson-algebra-coin-and-digit-problems"
+  ],
+  "cetRewrite": false
+ }
+}

@@ -1,0 +1,5 @@
+lesson-algebra-functions-and-relations
+lesson-algebra-quadratic-equations
+lesson-algebra-radicals-and-rationalization
+lesson-algebra-sets-and-set-notation
+lesson-algebra-systems-of-equations
