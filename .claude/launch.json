@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "direct-load-local",
+      "runtimeExecutable": "nice",
+      "runtimeArgs": ["-n", "10", "python3", "/Users/aedwon/Documents/Projects/Pantas-wt-vc-fixes-r1/tools/local/run_web_local.py"],
+      "port": 7357
+    }
+  ]
+}
