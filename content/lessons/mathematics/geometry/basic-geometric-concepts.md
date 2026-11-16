@@ -67,7 +67,7 @@ Or remember the shapes:
 
 ## Examples
 
-Part 2, One-Variable Inequalities, shows how to work with inequality bounds and check which endpoints are included.
+Part 2, One-Variable Inequalities, shows how to solve one inequality and check which endpoints are included. When $x$ is between two numbers, do each step to all three parts. For example, if $30<x<60$, multiply each part by $3$ to get $90<3x<180$. Then subtract $10$ from each part to get $80<3x-10<170$.
 
 ### #1: Complementary Angles with Algebra
 

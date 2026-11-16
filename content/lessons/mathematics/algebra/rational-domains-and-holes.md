@@ -25,6 +25,8 @@ An **asymptote** is a line a graph gets closer to in a certain direction. First 
 
 $$a^2-b^2=(a-b)(a+b)$$
 
+Part 5, Polynomials (Factoring Cubes), shows how to factor a sum or difference of cubes, such as $x^3+64=(x+4)(x^2-4x+16)$.
+
 If a denominator factor cancels completely, its excluded input can leave a **removable discontinuity**, or hole. Use the simpler formula to find the missing point's height. That input stays outside the original domain.
 
 ## Examples
