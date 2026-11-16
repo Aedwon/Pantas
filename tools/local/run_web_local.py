@@ -128,8 +128,8 @@ def main():
         shutil.copy('functions/package.json', isolated)
         (isolated / 'node_modules').symlink_to(ROOT / 'functions/node_modules', target_is_directory=True)
         (isolated / '.secret.local').write_text(
-            "PANTAS_SECRETS='" + json.dumps({
-                'TRIAL_IDENTITY_HMAC_KEY': 'local-emulator-only-not-a-secret',
+            "PANTAS_APP_SECRETS='" + json.dumps({'TRIAL_IDENTITY_HMAC_KEY': 'local-emulator-only-not-a-secret'}) + "'\n"
+            "PANTAS_PAYMENT_SECRETS='" + json.dumps({
                 'PAYMONGO_SECRET_KEY': 'local-disabled', 'PAYMONGO_WEBHOOK_SECRET': 'local-disabled'}) + "'\n")
         shutil.copy('tools/local/offline_guard.cjs', isolated)
         (isolated / '.env.local').write_text(f'NODE_OPTIONS=--require={isolated}/offline_guard.cjs\nBETA_PRO_UNTIL={env.get("BETA_PRO_UNTIL", "")}\n'

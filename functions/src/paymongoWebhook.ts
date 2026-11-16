@@ -1,6 +1,6 @@
 import {FieldValue, Timestamp, getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {getAuth, type Auth} from 'firebase-admin/auth';
-import {pantasSecrets, secret} from './_secrets.js';
+import {paymentSecrets, secret} from './_secrets.js';
 import {onRequest} from 'firebase-functions/v2/https';
 import {copyEntitlementClaims} from './revenuecatClaims.js';
 import {isUnresolvedFirebaseIdentityError, requireExactRevenueCatRawBody} from './revenuecatPolicy.js';
@@ -229,7 +229,7 @@ async function copyIfPending(deps: PaymongoWebhookDeps, uid: string) {
   }
 }
 
-export const paymongoWebhook = onRequest({region: 'asia-southeast1', maxInstances: WEBHOOK_MAX_INSTANCES, secrets: [pantasSecrets]},
+export const paymongoWebhook = onRequest({region: 'asia-southeast1', maxInstances: WEBHOOK_MAX_INSTANCES, secrets: [paymentSecrets]},
   async (req, res) => {
     if (req.method !== 'POST') {res.status(405).json({ok: false}); return;}
     const key = secret('PAYMONGO_SECRET_KEY');

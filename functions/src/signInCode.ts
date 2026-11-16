@@ -4,7 +4,7 @@ import {getAuth, type Auth, type UserRecord} from 'firebase-admin/auth';
 import {getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {logger} from 'firebase-functions/logger';
 import {defineInt} from 'firebase-functions/params';
-import {pantasSecrets, secret} from './_secrets.js';
+import {appSecrets, secret} from './_secrets.js';
 import {HttpsError, type CallableRequest} from 'firebase-functions/v2/https';
 import {onAccountCall as onCall} from './_accountAccess.js';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
@@ -490,7 +490,7 @@ export function key(): string {
 }
 
 export const requestSignInCode = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck,
-  consumeAppCheckToken: enforceAppCheck, secrets: [pantasSecrets]}, timed('requestSignInCode', request => {
+  consumeAppCheckToken: enforceAppCheck, secrets: [appSecrets]}, timed('requestSignInCode', request => {
   assertFreshAppCheck(request);
   return sendSignInCode(request, {db: getFirestore(), auth: getAuth(), key: key(),
     openCap: signInOpenCap.value(), reservedCap: signInReservedCap.value(),
@@ -501,7 +501,7 @@ export const requestSignInCode = onCall({region: 'asia-southeast1', enforceAppCh
 }));
 
 export const verifySignInCode = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck,
-  consumeAppCheckToken: enforceAppCheck, secrets: [pantasSecrets]}, timed('verifySignInCode', request => {
+  consumeAppCheckToken: enforceAppCheck, secrets: [appSecrets]}, timed('verifySignInCode', request => {
   assertFreshAppCheck(request);
   return checkSignInCode(request, {db: getFirestore(), auth: getAuth(), key: key()});
 }));

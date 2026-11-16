@@ -4,7 +4,7 @@ import {HttpsError} from 'firebase-functions/v2/https';
 import {onAccountCall as onCall} from './_accountAccess.js';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import {assertNamedUser} from './_audit.js';
-import {pantasSecrets, secret} from './_secrets.js';
+import {paymentSecrets, secret} from './_secrets.js';
 import {GUARDIAN_DOCUMENT_VERSIONS} from './guardianConsent.js';
 import {allowAtMost} from './_limits.js';
 import type {Grant} from './grants.js';
@@ -121,7 +121,7 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
 }
 
 export const createPaymongoCheckout = onCall(
-  {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck, secrets: [pantasSecrets]},
+  {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck, secrets: [paymentSecrets]},
   timed('createPaymongoCheckout', request => {
     assertFreshAppCheck(request);
     return createCheckout(request.auth, request.data, {

@@ -11,7 +11,7 @@
 //   - scheduled functions exceed 3 (Cloud Scheduler: 3 free jobs per billing account, paused ones count);
 //   - any endpoint has minInstances above 0;
 //   - distinct secret names times the projects that deploy them exceed 6 (Secret Manager: 6 free
-//     versions), unless a valid waiver covers it (none now: the code reads one secret, PANTAS_SECRETS);
+//     versions), unless a valid waiver covers it (none now: two secrets per project, PANTAS_PAYMENT_SECRETS and PANTAS_APP_SECRETS, 4 in all);
 //   - WARMUP_ENABLED is true anywhere but prod, or on prod after the end date in the waiver file
 //     unless the warm-up code itself stops by a recorded end date (WARMUP_ENDS_AT in functions/src/keepWarm.ts)
 //     no later than that date;

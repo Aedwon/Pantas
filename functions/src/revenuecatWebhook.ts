@@ -1,6 +1,6 @@
 import { getFirestore, Timestamp, type Firestore } from 'firebase-admin/firestore';
 import { getAuth, type Auth } from 'firebase-admin/auth';
-import {pantasSecrets, secret} from './_secrets.js';
+import {paymentSecrets, secret} from './_secrets.js';
 import { onRequest } from 'firebase-functions/v2/https';
 import { onSchedule } from 'firebase-functions/v2/scheduler';
 import { commitRevenueCatAnswer, copyEntitlementClaims, repairClaims, checkRecentClaims } from './revenuecatClaims.js';
@@ -112,7 +112,7 @@ export async function reconcileWebhook(body: unknown, rawBody: unknown, signatur
   }
 }
 
-export const revenuecatWebhook = onRequest({region:'asia-southeast1', maxInstances: WEBHOOK_MAX_INSTANCES, secrets:[pantasSecrets]}, async (req,res) => {
+export const revenuecatWebhook = onRequest({region:'asia-southeast1', maxInstances: WEBHOOK_MAX_INSTANCES, secrets:[paymentSecrets]}, async (req,res) => {
   const projectId = process.env.REVENUECAT_PROJECT_ID;
   const appId = process.env.REVENUECAT_APP_ID;
   if (!projectId || !appId) {res.status(500).send('RevenueCat configuration required'); return;}

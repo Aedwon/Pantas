@@ -1,5 +1,5 @@
 import {createHmac} from 'node:crypto';
-import {pantasSecrets, secret} from './_secrets.js';
+import {appSecrets, secret} from './_secrets.js';
 import {FieldValue, getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {getAuth, type Auth, type UserRecord} from 'firebase-admin/auth';
 import {HttpsError} from 'firebase-functions/v2/https';
@@ -137,7 +137,7 @@ export async function startTrial(auth: Parameters<typeof assertNamedUser>[0], de
 }
 
 export const startWebTrial = onCall(
-  {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck, secrets: [pantasSecrets]},
+  {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck, secrets: [appSecrets]},
   timed('startWebTrial', request => {
     assertFreshAppCheck(request);
     return startTrial(request.auth, {db: getFirestore(), auth: getAuth()});

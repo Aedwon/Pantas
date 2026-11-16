@@ -99,7 +99,7 @@ test('combined jobs never overlap themselves and are exported with the agreed sc
   assert.equal(index.jobsDailyEarly.__endpoint.scheduleTrigger.timeZone, 'Asia/Singapore');
   assert.equal(index.jobsDailyLate.__endpoint.scheduleTrigger.timeZone, 'Asia/Singapore');
   // The late job sends inactivity emails and reads the trial identity key.
-  assert.deepEqual(index.jobsDailyLate.__endpoint.secretEnvironmentVariables.map(s => s.key), ['PANTAS_SECRETS']);
+  assert.deepEqual(index.jobsDailyLate.__endpoint.secretEnvironmentVariables.map(s => s.key), ['PANTAS_APP_SECRETS']);
 });
 
 test('one task throwing does not stop the others, logs one stable ERROR line, and the job resolves', async () => {

@@ -1,7 +1,7 @@
 import {accountClosed, accountHandler} from './_accountAccess.js';
 import {createHmac, randomBytes} from 'node:crypto';
 import {defineInt, defineString} from 'firebase-functions/params';
-import {pantasSecrets, secret} from './_secrets.js';
+import {appSecrets, secret} from './_secrets.js';
 import {getAuth, type Auth} from 'firebase-admin/auth';
 import {FieldPath, FieldValue, getFirestore, type DocumentReference, type DocumentSnapshot, type Firestore, type Query, type QueryDocumentSnapshot} from 'firebase-admin/firestore';
 import {HttpsError, onCall, type CallableRequest} from 'firebase-functions/v2/https';
@@ -626,16 +626,16 @@ function runtimeDeps(): ConsentDeps {
   };
 }
 
-const readOptions = {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, secrets: [pantasSecrets]};
+const readOptions = {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, secrets: [appSecrets]};
 
 export const sendGuardianLink = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck,
-  secrets: [pantasSecrets]}, timed('sendGuardianLink', accountHandler((request) => {
+  secrets: [appSecrets]}, timed('sendGuardianLink', accountHandler((request) => {
   assertFreshAppCheck(request);
   return sendLink(request, runtimeDeps());
 })));
 
 export const answerGuardianRequest = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck,
-  secrets: [pantasSecrets]}, timed('answerGuardianRequest', (request) => {
+  secrets: [appSecrets]}, timed('answerGuardianRequest', (request) => {
   assertFreshAppCheck(request);
   return answerRequest(request, runtimeDeps());
 }));
@@ -647,13 +647,13 @@ export const getGuardianRequest = onCall(readOptions, timed('getGuardianRequest'
 export const getGuardianManage = onCall(readOptions, timed('getGuardianManage', (request) => readManage(request, runtimeDeps())));
 
 export const setGuardianSharing = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck,
-  secrets: [pantasSecrets]}, timed('setGuardianSharing', (request) => {
+  secrets: [appSecrets]}, timed('setGuardianSharing', (request) => {
   assertFreshAppCheck(request);
   return setSharing(request, runtimeDeps());
 }));
 
 export const withdrawGuardianPermission = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck,
-  secrets: [pantasSecrets]}, timed('withdrawGuardianPermission', (request) => {
+  secrets: [appSecrets]}, timed('withdrawGuardianPermission', (request) => {
   assertFreshAppCheck(request);
   return withdraw(request, runtimeDeps());
 }));

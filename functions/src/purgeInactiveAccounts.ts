@@ -4,7 +4,7 @@ import {logger} from 'firebase-functions';
 import {onSchedule} from 'firebase-functions/v2/scheduler';
 import {DELETION_RETRY_MS, deleteUserData, type DeletionReason} from './deleteUserData.js';
 import {guardianLinkOrigin, guardianMailFrom} from './guardianConsent.js';
-import {pantasSecrets, secret} from './_secrets.js';
+import {appSecrets, secret} from './_secrets.js';
 import {inactivityWarningMessage, mailerFor, type GuardianMailer} from './guardianMail.js';
 import {hasLiveProClaim} from './_pro.js';
 
@@ -343,7 +343,7 @@ export async function runDailyPass(deps: InactivityDeps): Promise<void> {
 }
 
 /** The secrets this task reads. Any function that runs it must declare them. */
-export const purgeInactiveSecrets = [pantasSecrets];
+export const purgeInactiveSecrets = [appSecrets];
 
 /** The task body, for the combined daily job and the manual runner. Never run two at once: it sends warning emails. */
 export async function runPurgeInactiveAccounts(): Promise<void> {

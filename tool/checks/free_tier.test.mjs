@@ -31,12 +31,11 @@ test('the Nov 14 state (18 scheduled functions) fails the check', () => {
 // schedules the nine old jobs (12 in all), and this check correctly fails on them.
 const AFTER_STEP_4 = {'pantas-prod': {LEGACY_SCHEDULES: 'off'}};
 
-test("today's config with scheduler step 4 applied passes with no secrets waiver (2 secrets in all)", () => {
+test("today's config with scheduler step 4 applied passes with no secrets waiver (2 names times 2 projects = 4)", () => {
   const projects = discoverAll(root, AFTER_STEP_4);
   const result = evaluate({projects, waivers, now: NOW, files: listScannedFiles(root)});
   assert.deepEqual(result.errors, []);
-  assert.deepEqual(projects['pantas-prod'].secrets, ['PANTAS_SECRETS']);
-  assert.deepEqual(projects['pantas-staging'].secrets, ['PANTAS_SECRETS']);
+  for (const p of ['pantas-prod', 'pantas-staging']) assert.deepEqual(projects[p].secrets, ['PANTAS_APP_SECRETS', 'PANTAS_PAYMENT_SECRETS']);
   assert.equal(waivers.secrets, undefined, 'the secrets waiver is gone');
 });
 
