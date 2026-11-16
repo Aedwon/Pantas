@@ -189,4 +189,25 @@ in a row. Recommendation: yes. Note for the spec: the question style guide says
 variants must differ in more than swapped numbers; that rule was written for
 hand-written sets of 20 and needs a stated exception for generated pools.
 
-Aedwon's answer: pending.
+Aedwon's answer to question 4: pending. He gave an instruction first (next entry).
+
+## November 17, 2026: math lesson work goes to the operations manager
+
+Aedwon's exact words: "can you talk to the Operations Manager thread, have it complete the math things needed for this plan. codex accounts should be available right now, with 2 resets each account so it can exhaust the weekly quota without a problem"
+
+What the lead takes this to approve, and only this:
+
+- The operations manager routes and completes the math lesson work this plan
+  depends on: the CET math lessons (finish their audit and fixes on the paused CET
+  branch) and the PSHS-NCE math lessons (a source for coverage first, then the
+  lessons). CSE math lessons are already final.
+- This lifts his November 9 and 10 pause on CET content for the math lessons only.
+  Science, reading, reasoning and the figures stay paused.
+- Codex does the work through `codex-pick`. He says each account has 2 resets
+  available, so the weekly quota may be used up.
+
+Not approved by these words: any generator build, any template writing, any UI,
+any change to prices or to what goes on sale. The generator has no spec yet.
+
+Action: the lead sent this brief to the operations manager thread and cited this
+entry so the manager can confirm his words before acting.
