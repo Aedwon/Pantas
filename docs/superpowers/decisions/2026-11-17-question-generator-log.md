@@ -439,4 +439,36 @@ Question 7 asked (complexity level, required by `WORKFLOW.md` before a build):
   audit of every template. About 3 weeks or more. Not needed while lists outlast
   normal study.
 
-Aedwon's answer: pending. The build timing is still open after it.
+Aedwon's question first, exact words: "in hardened wdym by \"versions generated inside the app\""
+
+Lead's answer: it is the live generation of option B. In minimal and balanced, the
+versions are made and checked before release and the app reads a fixed list. In
+hardened, the app makes each version on the student's phone when needed: strict
+never-repeat and no refills, but nobody checks that exact question before the
+student sees it, and about a week more build.
+
+Aedwon's answer to question 7, exact words: "go with your reco"
+
+## November 17, 2026: balanced complexity chosen
+
+Decision: balanced. The engine, the checker, the type-and-version model in the app
+and on the server, abstract reasoning (5 lessons), a math pilot of 2 or 3 CSE
+lessons, a blind solve of a sample of versions per template by a different model,
+and a measured count of how far students are through each list. About 11 to 16
+days, rough until the spec. This chooses the level; it does not start the build.
+
+Question 8 asked (build timing):
+
+A. Start on November 23, after the beta ends (recommended). The build changes how
+   the app records answers and reviews, which should not change under testers.
+   Codex is busy with the math lessons this week, and lead review needs Claude
+   usage, which is tight this week. Cost of waiting: none for sales, since no
+   gated exam can sell before mid-2027.
+B. Start the parts that touch no app code as soon as the spec is approved (the
+   generator, the checker, abstract reasoning templates), and the app and server
+   parts after November 22. Gain: about a week earlier. Cost: it competes with the
+   math lesson job for Codex, and needs Claude usage this week for the plan and
+   reviews.
+C. Later, when the first gated exam is chosen.
+
+Aedwon's answer: pending.
