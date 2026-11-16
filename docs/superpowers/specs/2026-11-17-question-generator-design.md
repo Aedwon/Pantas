@@ -1,6 +1,8 @@
 # Question generator: problem types with checked versions
 
-Status: design spec, waiting for Aedwon's approval of Part A. Nothing is built.
+Status: Part A approved by Aedwon on November 17, 2026 ("Part A is approved. go with your reco
+for other items"). Decisions 2 and 3 under "Decisions for you" are settled as recommended.
+Nothing is built yet; the plan is next.
 Date: November 17, 2026. Lane: Question generator session (lead, Claude Fable 5.2).
 Policy read: `origin/main` 0edf1dcf6 (`AGENTS.md`, `WORKFLOW.md`,
 `docs/workflow/process-improvement.md`).
@@ -150,6 +152,9 @@ work, and this build is larger than most logged tasks.
 
 ### Decisions for you
 
+All three were settled on November 17: "Part A is approved. go with your reco for other
+items". They stand as recommended below.
+
 1. **Approve Part A.** This also sets the start: offline parts on approval, app and
    server parts from November 23.
 2. **The 20-question rule.** Your October 1 rule says each lesson has at least 20
@@ -213,6 +218,19 @@ branch, the plan corrects it and tells the lead; a change to Part A returns to A
   `lib/core/ui/figures/`. Choices are text.
 - Math today on main: 46 question files, 44 tagged for the college entrance tests, 12
   for CSE by the older tags. The live CSE set is larger after the bite-sized split.
+- Math lessons (reported by the math lessons lead on November 17, branch
+  `content/math-for-generator-r1` 4b5bd5086, lists in
+  `docs/content/math-for-generator/lesson-lists.md`; not re-checked by this lead):
+  CSE has 54 live math lessons (41 arithmetic, 7 data interpretation, 6 Algebra
+  word-problem parts), prod root `content/bite-sized-cse-algebra-r1` 88f38e698. CET
+  has 121 math lessons with the audit complete. PSHS-NCE has 3 new lessons (counting
+  and digit patterns, practical measurement, clock time) with 20 questions each and
+  5 choices per question; 12 existing lessons cover the rest of the official
+  sample's item kinds. PSHS-NCE has no exam entry in the content export yet.
+- PSHS-NCE math source: the official PSHS NCE reviewer for 2024 (Internet Archive
+  copy of the pshs.edu.ph file) and the 2015 official sample: 20 sample math items,
+  no topic list, item count or grade level. A type may claim only that the official
+  sample has items like it.
 - Not verified: the compiled engine the server runs (`scheduleReviews`,
   `sampleMock`), sync paging limits, whether the content gate runs in CI, Wrapped
   internals.
@@ -300,8 +318,9 @@ For every version of every type:
    rule that made it. Math: independent evaluation. Figures: a search over the rule
    library; the shown figures must fit the type's rule, and no wrong choice may
    complete any rule in the library that also fits the shown figures.
-2. Each wrong choice equals the value its named mistake produces. All four choices
-   differ.
+2. Each wrong choice equals the value its named mistake produces. All choices
+   differ. The number of choices is set per type: 4, or 5 where the lesson's
+   hand-written questions use 5 (the PSHS-NCE math lessons do).
 3. No two versions of one type share a figure signature or the same numbers. The
    signature treats rotated or mirrored copies of a whole question as the same.
 4. Values stay inside the type's ranges; text has no empty slot; markup parses.

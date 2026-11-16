@@ -560,3 +560,35 @@ The lead told the operations manager about the PSHS-NCE aim and listed the other
 sale items, none approved by his words.
 
 No build has started. No plan is written. Both wait for his approval.
+
+## November 17, 2026: Part A approved
+
+Aedwon's exact words (his own message in this thread, checked against the thread
+record; a report from the math lessons lead arrived just before it as a separate
+message): "Part A is approved. go with your reco for other items"
+
+Decisions:
+
+1. Part A of the spec is approved. Under its decision 1 this sets the start: the
+   plan, then the generator, the checker and the abstract reasoning types now; the
+   app and server parts from November 23; nothing on prod before the beta ends, and
+   prod waits for his "ship it".
+2. The 20-question rule counts versions. `docs/content/question-style-guide.md`
+   updated.
+3. A type is approved as a whole when its four checks pass (checker, blind solve of
+   5 versions by a different vendor, Codex GPT 6.1 Sol high audit, his figure
+   sheets for the first release). This replaces a separate re-solve of every
+   version, for generated types only.
+
+Math lessons report (from the math lessons lead, not re-checked by this lead):
+branch `content/math-for-generator-r1` 4b5bd5086, lists in
+`docs/content/math-for-generator/lesson-lists.md`. CSE 54 live math lessons; CET
+121 with the audit complete; PSHS-NCE 3 new lessons with 5 choices per question,
+sourced from the official 2024 reviewer and the 2015 sample, which give no topic
+list. The spec's B1 now carries these facts and B5 allows 5 choices per type. The
+whole job was reported done in under an hour, so the build plan re-checks the
+pilot lessons it uses before writing types against them.
+
+Handoff: the build goes to a build lead under the operations manager (spec B9).
+This session stays the adviser for rulings. The figure answer choices spec goes to
+a UI lead through the manager.

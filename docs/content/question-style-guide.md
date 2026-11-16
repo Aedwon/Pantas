@@ -249,5 +249,8 @@ nouns/numbers. **For launch, near-duplicates are allowed** when they are
 needed to reach the minimum; a question generator replaces them later
 (Aedwon, 25 October 2026). **At least 20 active questions per
 lesson** (Aedwon, 1 October 2026); figure-pending questions do not count
-toward the 20. Distractors must be plausible and mistake-based (mirror a real
+toward the 20. Each checked version of a generated problem type counts as one
+question (Aedwon, 17 November 2026; `docs/superpowers/specs/2026-11-17-question-generator-design.md`).
+Versions of one type differ in their values by design; the rule above on
+swapped numbers applies to hand-written questions. Distractors must be plausible and mistake-based (mirror a real
 misconception), never throwaway, and never a second defensible answer.
