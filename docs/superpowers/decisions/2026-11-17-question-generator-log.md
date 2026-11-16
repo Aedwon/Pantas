@@ -211,3 +211,14 @@ any change to prices or to what goes on sale. The generator has no spec yet.
 
 Action: the lead sent this brief to the operations manager thread and cited this
 entry so the manager can confirm his words before acting.
+
+Routing result (reported by the operations manager, November 17): the manager
+confirmed his words at 21d8b44a7 and launched a fresh content lead, thread "Math
+lessons for the question generator", on branch `content/math-for-generator-r1` off
+`content/cet-finish-r1`. Scope as sent: confirm CSE, finish the CET math audit with
+no rewrite, source PSHS-NCE before any writing. The CET pause is lifted for math
+only. Codex runs through `codex-pick`; the manager reported about 74% weekly room
+on every account. The content lead reports to this session and to the manager when
+done or blocked.
+
+Question 4 (what counts as a repeat in math) is still open.
