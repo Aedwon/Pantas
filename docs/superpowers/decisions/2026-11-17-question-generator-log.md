@@ -391,4 +391,20 @@ B. Sit next to them. No change to live questions. Cost: the same pattern appears
    as hand-written near-duplicates and as a type, the daily load grows, and the
    near-duplicates his October 25 words meant to replace remain.
 
-Aedwon's answer: pending. Question 5 (figure answer choices) is also still open.
+Aedwon's answer, exact words: "go with your reco"
+
+## November 17, 2026: generated types replace near-duplicates
+
+Decision (question 6): replace. In a lesson, the hand-written questions of one
+pattern become the first versions inside that problem type. Questions that cannot
+be templated stay single. His October 1 rule of at least 20 active questions per
+lesson counts versions. Existing answers on live CSE questions carry over to the
+type; the spec must say how.
+
+What his words cover: question 6 only. The model under it (one problem type is one
+question to the app, with a checked list of versions and one counter per student)
+was shown in the same reply and he raised no objection. It is not separately
+approved; his approval of the spec's plain-language section is the gate for it.
+
+Still open: question 5 (figure answer choices, split into a later screen spec),
+the build timing, and the complexity level.
