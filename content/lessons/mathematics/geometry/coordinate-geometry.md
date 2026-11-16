@@ -90,6 +90,10 @@ The Conic Sections lesson covers circles and other curves in more depth.
 
 ### #1: Distance Between Two Points
 
+Measurement shows how to find triangle area using a base and its perpendicular height.
+
+Measurement also shows how to find parallelogram area using a base and its perpendicular height.
+
 Find the distance between $(-3, 4)$ and $(5, -2)$.
 
 **Solution:**
@@ -135,6 +139,8 @@ $$\dfrac{-3 + 7}{2} = \dfrac{4}{2} = 2$$
 <!-- FIGURE: {"kind": "geometry-diagram", "type": "coordinate-geometry", "labels": ["(2, -3)", "(-4, 7)", "Midpoint (-1, 2)"], "semanticsLabel": "Coordinate plane showing segment connecting 2 comma negative 3 and negative 4 comma 7 with midpoint at negative 1 comma 2."} -->
 
 ### #3: Slope, Then the Equation
+
+Part 2, Systems (Elimination), shows how to solve two linear equations to find where their lines meet.
 
 Find the equation of the line through $(1, 2)$ and $(4, 11)$ in slope-intercept form.
 

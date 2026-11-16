@@ -400,7 +400,7 @@ questions:
         correct: true
       - text: 'Step 1'
         rationale: |
-          This treats "twice" as addition rather than multiplication. A number and a letter can make the operation easy to misread. Check that twice means two equal copies.
+          Step 1 correctly writes twice $y$ as $2y$. Choosing it blames a correct step. Check Step 2, where the subtraction is reversed.
       - text: 'Both steps'
         rationale: |
           This treats the whole translation as wrong because the final line fails. The first line still translates "twice" correctly. Check the two statements separately.

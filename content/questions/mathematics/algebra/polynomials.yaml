@@ -515,7 +515,7 @@ questions:
 
   - id: q-algebra-polynomials-0023
     approved: true
-    lesson: lesson-algebra-factoring-cubes
+    lesson: lesson-algebra-rational-domains-and-holes
     keyPoint: 1
     type: direct-computation
     difficulty: exam

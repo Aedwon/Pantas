@@ -53,6 +53,8 @@ The word "of" tells us to multiply:
 
 $$\dfrac{3}{5}n$$
 
+Decimal and Percent Conversions shows how to turn a percent into a decimal before multiplying.
+
 ## Speed Tricks & Shortcuts
 
 In a multiple-choice translation question, test a simple value in the words and in each choice. A different result rules out a choice.

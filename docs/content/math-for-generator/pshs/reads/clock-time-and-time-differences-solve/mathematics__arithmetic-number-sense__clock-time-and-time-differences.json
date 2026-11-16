@@ -1,0 +1,187 @@
+{
+  "file_id": "mathematics__arithmetic-number-sense__clock-time-and-time-differences",
+  "source": "content/questions/mathematics/arithmetic-number-sense/clock-time-and-time-differences.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-arithmetic-number-sense-clock-time-and-time-differences-0001",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "7:35 pm becomes 19:35 by adding 12 to the hour."
+    },
+    {
+      "n": 2,
+      "id": "q-arithmetic-number-sense-clock-time-and-time-differences-0002",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "00:40 is 40 minutes after midnight, or 12:40 am."
+    },
+    {
+      "n": 3,
+      "id": "q-arithmetic-number-sense-clock-time-and-time-differences-0003",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "12:15 pm is written as 12:15 in 24-hour time."
+    },
+    {
+      "n": 4,
+      "id": "q-arithmetic-number-sense-clock-time-and-time-differences-0004",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Subtracting 12 from 16 gives 4:08 pm."
+    },
+    {
+      "n": 5,
+      "id": "q-arithmetic-number-sense-clock-time-and-time-differences-0005",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "47 − 12 = 35 minutes."
+    },
+    {
+      "n": 6,
+      "id": "q-arithmetic-number-sense-clock-time-and-time-differences-0006",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "10:48 am to 12:16 pm is 1 hour 28 minutes."
+    },
+    {
+      "n": 7,
+      "id": "q-arithmetic-number-sense-clock-time-and-time-differences-0007",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "14:52 to 16:52 is 2 hours, then 17 minutes to 17:09."
+    },
+    {
+      "n": 8,
+      "id": "q-arithmetic-number-sense-clock-time-and-time-differences-0008",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "35 minutes to midnight plus 2 hours 10 minutes equals 2 hours 45 minutes."
+    },
+    {
+      "n": 9,
+      "id": "q-arithmetic-number-sense-clock-time-and-time-differences-0009",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "10:35 am plus 2 hours 45 minutes is 1:20 pm."
+    },
+    {
+      "n": 10,
+      "id": "q-arithmetic-number-sense-clock-time-and-time-differences-0010",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "22:50 Friday plus 3 hours 25 minutes is 02:15 Saturday."
+    },
+    {
+      "n": 11,
+      "id": "q-arithmetic-number-sense-clock-time-and-time-differences-0011",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "9:40 am plus 3 hours is 12:40 pm."
+    },
+    {
+      "n": 12,
+      "id": "q-arithmetic-number-sense-clock-time-and-time-differences-0012",
+      "key": "E",
+      "answer": "E",
+      "match": true,
+      "confidence": "high",
+      "note": "6:50 pm minus 4 hours 30 minutes is 2:20 pm."
+    },
+    {
+      "n": 13,
+      "id": "q-arithmetic-number-sense-clock-time-and-time-differences-0013",
+      "key": "E",
+      "answer": "E",
+      "match": true,
+      "confidence": "high",
+      "note": "Step 2 is first wrong: borrowing an hour gives 10 hours 78 minutes."
+    },
+    {
+      "n": 14,
+      "id": "q-arithmetic-number-sense-clock-time-and-time-differences-0014",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "The sessions and break total 3 hours 45 minutes, ending at 1:30 pm."
+    },
+    {
+      "n": 15,
+      "id": "q-arithmetic-number-sense-clock-time-and-time-differences-0015",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "21:35 Wednesday plus 5 hours 40 minutes is 03:15 Thursday."
+    },
+    {
+      "n": 16,
+      "id": "q-arithmetic-number-sense-clock-time-and-time-differences-0016",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "04:10 Monday minus 6 hours 35 minutes is 21:35 Sunday."
+    },
+    {
+      "n": 17,
+      "id": "q-arithmetic-number-sense-clock-time-and-time-differences-0017",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "15:21 minus 07:54 equals 7 hours 27 minutes."
+    },
+    {
+      "n": 18,
+      "id": "q-arithmetic-number-sense-clock-time-and-time-differences-0018",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "22:20 minus 8 hours 45 minutes is 13:35, or 1:35 pm."
+    },
+    {
+      "n": 19,
+      "id": "q-arithmetic-number-sense-clock-time-and-time-differences-0019",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "02:15 Saturday minus 7 hours 30 minutes is 18:45 Friday."
+    },
+    {
+      "n": 20,
+      "id": "q-arithmetic-number-sense-clock-time-and-time-differences-0020",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "23:48 Thursday plus 2 hours 37 minutes is 02:25 Friday."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

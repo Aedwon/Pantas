@@ -36,6 +36,8 @@ For square roots of products of nonnegative factors:
 
 ### #1: Simplifying Radicals
 
+To bound a square root, compare its radicand with nearby perfect squares. For an integer $n\ge0$, if $n^2<a<(n+1)^2$, then $n<\sqrt a<n+1$.
+
 Assume $x\ge0$ and $y\ge0$. Simplify $\sqrt{72x^3y^4}$.
 
 **Solution:**

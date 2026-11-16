@@ -1,0 +1,18 @@
+{
+  "lesson": "lesson-arithmetic-number-sense-clock-time-and-time-differences",
+  "round": 1,
+  "findings": [
+    {
+      "severity": "Blocker",
+      "quote": "You can also count forward. Count the minutes to the next exact hour. Then count whole hours. Finally, count the minutes from the last exact hour to the ending time. Add these durations.",
+      "problem": "This rule fails when the end comes before the next exact hour. From 8:10 am to 8:20 am, only 10 minutes pass. The first instruction counts 50 minutes to 9:00 am and overshoots the end.",
+      "fix": "State that counting must stop at the ending time. If both times fall within the same hour, subtract their minutes directly. Include a short worked example."
+    },
+    {
+      "severity": "Minor",
+      "quote": "Midnight is $12{:}00$ am. Noon is $12{:}00$ pm. The hour after $12{:}59$ am is $1{:}00$ am. The hour after $12{:}59$ pm is $1{:}00$ pm.",
+      "problem": "This paragraph has four sentences. The style guide limits paragraphs to one to three sentences. Several other Core Concept paragraphs also exceed that limit.",
+      "fix": "Split this paragraph after the noon definition. Split the other paragraphs that exceed three sentences."
+    }
+  ]
+}

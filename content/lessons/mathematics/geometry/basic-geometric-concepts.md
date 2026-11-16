@@ -67,6 +67,8 @@ Or remember the shapes:
 
 ## Examples
 
+Part 2, One-Variable Inequalities, shows how to work with inequality bounds and check which endpoints are included.
+
 ### #1: Complementary Angles with Algebra
 
 An angle measures $24^\circ$ more than its complement. Find the angle.

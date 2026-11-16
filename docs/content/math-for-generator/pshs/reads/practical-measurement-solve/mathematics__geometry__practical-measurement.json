@@ -1,0 +1,187 @@
+{
+  "file_id": "mathematics__geometry__practical-measurement",
+  "source": "content/questions/mathematics/geometry/practical-measurement.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-geometry-practical-measurement-0001",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The edge length is ∛125 = 5 cm."
+    },
+    {
+      "n": 2,
+      "id": "q-geometry-practical-measurement-0002",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "Area = 7 + 6 × ½ = 10 square units."
+    },
+    {
+      "n": 3,
+      "id": "q-geometry-practical-measurement-0003",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The floor fits (200 ÷ 50) × (100 ÷ 50) = 8 tiles."
+    },
+    {
+      "n": 4,
+      "id": "q-geometry-practical-measurement-0004",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Inside area = (14 − 2) × (10 − 2) = 96 cm²."
+    },
+    {
+      "n": 5,
+      "id": "q-geometry-practical-measurement-0005",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The correct edge length is ∛729 = 9 cm."
+    },
+    {
+      "n": 6,
+      "id": "q-geometry-practical-measurement-0006",
+      "key": "E",
+      "answer": "E",
+      "match": true,
+      "confidence": "high",
+      "note": "Area = 5 × 4 + ½ × 3 × 4 = 26 square units."
+    },
+    {
+      "n": 7,
+      "id": "q-geometry-practical-measurement-0007",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Four labels fit in a 10 × 6 rectangle; five exceed the sheet's area."
+    },
+    {
+      "n": 8,
+      "id": "q-geometry-practical-measurement-0008",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Three circumferences give 3 × 14π = 42π cm."
+    },
+    {
+      "n": 9,
+      "id": "q-geometry-practical-measurement-0009",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The floor fits (360 ÷ 40) × (240 ÷ 40) = 54 tiles."
+    },
+    {
+      "n": 10,
+      "id": "q-geometry-practical-measurement-0010",
+      "key": "E",
+      "answer": "E",
+      "match": true,
+      "confidence": "high",
+      "note": "Available area = (20 − 3) × (16 − 3) = 221 cm²."
+    },
+    {
+      "n": 11,
+      "id": "q-geometry-practical-measurement-0011",
+      "key": "E",
+      "answer": "E",
+      "match": true,
+      "confidence": "high",
+      "note": "The cube's volume is 27² = 729 cm³, so its edge is 9 cm."
+    },
+    {
+      "n": 12,
+      "id": "q-geometry-practical-measurement-0012",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Area = 6 × 5 − ½ × 2 × 3 = 27 square units."
+    },
+    {
+      "n": 13,
+      "id": "q-geometry-practical-measurement-0013",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Rotated tags fit three across and two down, achieving the area limit of six."
+    },
+    {
+      "n": 14,
+      "id": "q-geometry-practical-measurement-0014",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "In 2.5 hours the minute hand makes 2.5 turns, traveling 2.5 × 8π = 20π cm."
+    },
+    {
+      "n": 15,
+      "id": "q-geometry-practical-measurement-0015",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The hall fits (480 ÷ 40) × (350 ÷ 25) = 168 tiles."
+    },
+    {
+      "n": 16,
+      "id": "q-geometry-practical-measurement-0016",
+      "key": "E",
+      "answer": "E",
+      "match": true,
+      "confidence": "high",
+      "note": "P has area ½(6 + 4) × 4 = 20; Q has area ½(3 + 5) × 5 = 20."
+    },
+    {
+      "n": 17,
+      "id": "q-geometry-practical-measurement-0017",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Two 4 × 3 labels and one rotated 3 × 4 label fit; area limits the count to three."
+    },
+    {
+      "n": 18,
+      "id": "q-geometry-practical-measurement-0018",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The dot travels (90 ÷ 20) × 44 = 198 cm."
+    },
+    {
+      "n": 19,
+      "id": "q-geometry-practical-measurement-0019",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Inside area = (90 − 10) × (60 − 10) = 4000 cm²."
+    },
+    {
+      "n": 20,
+      "id": "q-geometry-practical-measurement-0020",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "Six hours is half a turn, giving ½ × 2π × 8 = 8π cm."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

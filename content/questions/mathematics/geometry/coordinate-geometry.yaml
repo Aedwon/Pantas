@@ -345,9 +345,9 @@ questions:
       - text: '$20$'
         correct: false
         rationale: |
-          This stops at the formula numerator. The numerator is correctly found. Check that the normal-length denominator is used.
+          This uses the line's constant as a distance. The constant helps place the line. Find where the perpendicular meets the line before measuring.
     explanation: |
-      The distance from $(x_0,y_0)$ to $Ax+By+C=0$ is $\dfrac{|Ax_0+By_0+C|}{\sqrt{A^2+B^2}}$. Here the line is $3x+4y-20=0$. At the origin this gives $\dfrac{20}{\sqrt{3^2+4^2}}=\dfrac{20}{5}=4$ units.
+      The shortest distance follows a perpendicular from the origin. Rewrite the line as $y=-\dfrac{3}{4}x+5$, so the perpendicular through the origin is $y=\dfrac{4}{3}x$. Substitute this into $3x+4y=20$: $3x+\dfrac{16}{3}x=20$, so $x=\dfrac{12}{5}$ and $y=\dfrac{16}{5}$. Use the distance formula from the origin to this point: $\sqrt{\left(\dfrac{12}{5}\right)^2+\left(\dfrac{16}{5}\right)^2}=\sqrt{16}=4$ units.
 
   - id: q-geometry-coordinate-geometry-0016
     type: which-is-true

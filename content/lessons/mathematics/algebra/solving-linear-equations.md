@@ -23,6 +23,8 @@ For equal fractions, multiplying both sides by the denominators clears the fract
 
 ## Examples
 
+Part 1, Translating Algebraic Phrases, and Part 1, Age Problems, show how to turn word statements into equations.
+
 ### #1: Equation with Fractions
 
 If $\dfrac{3x-1}{2}=\dfrac{x+4}{3}$, what is $x$?

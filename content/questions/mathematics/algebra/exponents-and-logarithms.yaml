@@ -121,8 +121,8 @@ questions:
 
   - id: q-algebra-exponents-and-logarithms-0006
     approved: true
-    lesson: lesson-algebra-exponent-laws-and-zero-powers
-    keyPoint: 2
+    lesson: lesson-algebra-logarithm-meaning-and-equations
+    keyPoint: 1
     type: which-is-true
     difficulty: medium
     stem: |

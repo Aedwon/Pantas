@@ -25,6 +25,8 @@ The **degree** of a nonzero polynomial is its highest exponent after like terms 
 
 ## Examples
 
+Part 2, Polynomials (Operations), shows how to subtract a polynomial and combine like terms before finding the degree.
+
 ### #1: Polynomial or Not
 
 Which expressions are polynomials in $x$: $4x^3-2x+7$, $\dfrac{5}{x}+1$, $x^{1/2}+2$, and $3$?

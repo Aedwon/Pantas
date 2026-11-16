@@ -1,0 +1,17 @@
+{
+  "file": "content/questions/mathematics/arithmetic-number-sense/counting-and-digit-patterns.yaml",
+  "findings": [
+    {
+      "questionId": "q-arithmetic-number-sense-counting-and-digit-patterns-0017",
+      "severity": "Major",
+      "problem": "The question requires finding a sum's units digit from the units digits of two powers. The lesson teaches units-digit cycles for individual powers but does not teach this addition rule.",
+      "fix": "Teach that adding the units digits and keeping the last digit gives the sum's units digit, including an example with a carry. Alternatively, ask about a single power."
+    },
+    {
+      "questionId": "q-arithmetic-number-sense-counting-and-digit-patterns-0020",
+      "severity": "Major",
+      "problem": "The rationale for $172$ says it comes from $185-49$, but that subtraction equals $136$. The stated mistake does not produce the choice.",
+      "fix": "Change the distractor from $172$ to $136$ so it matches the rationale."
+    }
+  ]
+}

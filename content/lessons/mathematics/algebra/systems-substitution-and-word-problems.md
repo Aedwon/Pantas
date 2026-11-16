@@ -55,6 +55,10 @@ $$y = 3 + 1 = 4$$
 
 ### #2: A System Hiding in a Word Problem
 
+Part 5, Mixture Problems, shows how to turn each percent into a decimal and multiply by the mixture amount to write a pure-amount equation.
+
+Part 2, Motion Problems (Meeting and Moving Apart), shows the distance, rate, and time rule, which gives speed as distance divided by time.
+
 A movie house sold $50$ tickets. Adult tickets cost $100$ pesos and child tickets cost $60$ pesos. The total sales were $4{,}200$ pesos. How many adult tickets were sold?
 
 **Solution:**

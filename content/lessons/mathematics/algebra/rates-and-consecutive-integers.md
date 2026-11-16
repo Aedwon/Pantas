@@ -34,6 +34,10 @@ Divide the number of parts by the number of hours:
 
 $$\dfrac{p}{h}$$
 
+Part 2, Motion Problems (Meeting and Moving Apart), shows how to multiply a steady rate by time to find an amount.
+
+Least Common Multiple shows how to convert minutes to hours: divide the minutes by $60$ before finding a per-hour rate.
+
 ### #2: Consecutive Even Integers
 
 The sum of three consecutive even integers is $S$. Express the largest integer in terms of $S$.

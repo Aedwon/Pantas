@@ -1,0 +1,29 @@
+{
+  "file": "content/questions/mathematics/geometry/practical-measurement.yaml",
+  "findings": [
+    {
+      "questionId": "q-geometry-practical-measurement-0001",
+      "severity": "Major",
+      "problem": "All 20 questions put the correct answer first. The style guide says choices display in file order. This creates a repeated answer-position clue.",
+      "fix": "Vary the correct answer's position across the file."
+    },
+    {
+      "questionId": "q-geometry-practical-measurement-0013",
+      "severity": "Major",
+      "problem": "The rationale for 8 says it rounds the first layout's row count up. That gives 2 × 3 = 6, not 8.",
+      "fix": "Replace 8 with 24 and explain that this divides the sheet area, 72, by the tag's 3 cm side instead of its area."
+    },
+    {
+      "questionId": "q-geometry-practical-measurement-0014",
+      "severity": "Major",
+      "problem": "The solution requires knowing that a minute hand completes one turn per hour. The lesson does not state this fact, and the stem does not provide it.",
+      "fix": "State in the stem that the minute hand turns steadily once every 60 minutes."
+    },
+    {
+      "questionId": "q-geometry-practical-measurement-0017",
+      "severity": "Major",
+      "problem": "The rationale for 6 says it uses the 3 cm side along both sheet dimensions. Keeping whole counts gives 2 × 2 = 4, not 6.",
+      "fix": "Rewrite the rationale for 6 to describe dividing the sheet area by the sum of the label dimensions: 42 ÷ (4 + 3) = 6. Explain that the divisor must be the label area."
+    }
+  ]
+}

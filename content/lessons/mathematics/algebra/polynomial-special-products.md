@@ -32,6 +32,8 @@ The first pattern is a difference of squares. The next two are perfect-square tr
 
 ### #1: Repeated Difference of Squares
 
+Measurement shows how to find the area of a square from its side length.
+
 Find $(x-3)(x+3)(x^2+9)$.
 
 **Solution:**

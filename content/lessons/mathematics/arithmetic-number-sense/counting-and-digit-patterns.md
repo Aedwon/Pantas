@@ -20,7 +20,7 @@ keyPoints:
 
 The **units digit** is the last digit of a whole number. A **power** means repeated multiplication: $7^3$ means $7\times7\times7$. The small raised number, called the **exponent**, tells how many copies to multiply.
 
-For a whole-number base and a positive whole-number exponent, you can find the units digit without finding the whole power. Multiply the current units digit by the base, then keep just the new units digit. Digits to its left do not change that result.
+The **base** is the number being repeatedly multiplied. In $7^3$, the base is $7$. For a whole-number base and a positive whole-number exponent, you can find the units digit without finding the whole power. Multiply the current units digit by the base, then keep just the new units digit. Digits to its left do not change that result.
 
 A **cycle** is a group that repeats in the same order. Start with the first power and keep going until its units digit returns. From that point, the same multiplication gives the same following digits.
 
@@ -202,7 +202,7 @@ Use the digits $1$, $3$, $6$, $7$, and $8$ exactly once to form a three-digit nu
 
 **Solution:**
 
-1. For the smallest difference, choose the smallest hundreds digit, $1$. Moving a larger digit into hundreds increases the result by more than moving it to any other place can offset.
+1. For the smallest difference, choose the smallest hundreds digit, $1$. Here a digit contributes $100$ times its value in hundreds, $10$ times its value in tens, and its value in units. Keeping $1$ in hundreds leaves the larger digits for places that add less or for the number being subtracted.
 
 2. Put the largest remaining digit, $8$, in the subtracted tens place. Put the next largest, $7$, in the subtracted units place. The number being subtracted is $87$.
 

@@ -1,0 +1,11 @@
+{
+  "file": "content/questions/mathematics/arithmetic-number-sense/clock-time-and-time-differences.yaml",
+  "findings": [
+    {
+      "questionId": "q-arithmetic-number-sense-clock-time-and-time-differences-0001",
+      "severity": "Major",
+      "problem": "Across the file, 19 of 20 questions put the correct answer first. Only question 0003 differs. The style guide says choices display in YAML order. This pattern lets students guess answers without doing the math.",
+      "fix": "Reorder choices across the file so correct answers occupy varied positions. Keep each rationale and correct flag attached to its choice."
+    }
+  ]
+}

@@ -55,6 +55,8 @@ $$\text{sector area}=\dfrac{\theta}{360}\cdot\pi r^2$$
 
 ### The Right Triangle Rule
 
+In an inscribed square, all four vertices lie on the circle and each diagonal is a diameter $d$. If its side is $s$, the right triangle formed by two sides gives $s^2+s^2=d^2$, so its area is $s^2=\dfrac{d^2}{2}$. For a diameter of $10$, the square area is $\dfrac{10^2}{2}=50$ square units.
+
 A right triangle has one $90^\circ$ angle. The **hypotenuse** $c$, across from it, is the longest side. The other two sides, the legs, are $a$ and $b$.
 
 The **Pythagorean theorem** says:
@@ -111,6 +113,8 @@ $$\dfrac{1}{6}\cdot\pi(6)^2=6\pi$$
 
 ### #3: Inscribed Angle
 
+When all four vertices of a quadrilateral lie on one circle, each pair of opposite angles adds to $180^\circ$. If one angle is $110^\circ$, its opposite angle is $180^\circ-110^\circ=70^\circ$.
+
 An inscribed angle intercepts an arc of $100^\circ$. Find the inscribed angle and the central angle that intercept it.
 
 **Solution:**
@@ -121,6 +125,8 @@ An inscribed angle intercepts an arc of $100^\circ$. Find the inscribed angle an
 <!-- FIGURE: {"kind": "geometry-diagram", "type": "circle-inscribed-central", "labels": ["Central: 100°", "Inscribed: 50°", "Arc = 100°"], "semanticsLabel": "Circle with central angle 100 degrees and inscribed angle 50 degrees intercepting the same 100 degree arc."} -->
 
 ### #4: Right Triangle in a Semicircle
+
+Triangles shows how to use the rule that the three interior angles add to $180^\circ$.
 
 Triangle $ABC$ is inscribed in a circle, and side $AB$ is a diameter of length $10$. If $AC = 6$, find $BC$.
 
@@ -138,6 +144,8 @@ $$BC^2=100-36=64 \quad\Rightarrow\quad BC=8$$
 <!-- FIGURE: {"kind": "geometry-diagram", "type": "circle-inscribed-triangle", "labels": ["A", "B", "C", "Diameter AB = 10", "AC = 6", "BC = ?", "90° at C"], "semanticsLabel": "Circle with inscribed right triangle ABC where diameter AB is 10, side AC is 6, and side BC is marked with a question mark."} -->
 
 ### #5: Tangent Length
+
+Triangles shows how to use the $30^\circ$-$60^\circ$-$90^\circ$ rule: the side opposite $30^\circ$ is half the hypotenuse.
 
 From a point $P$ outside a circle, the distance to the center is $13$ and the radius is $5$. Tangents from $P$ touch the circle at $T$ and $S$. Find $PT$ and $PS$.
 
@@ -177,6 +185,8 @@ $$h^2=169-144=25 \quad\Rightarrow\quad h=5$$
 
 ### #7: Two Chords Crossing
 
+When two chords cross inside a circle, an angle is half the sum of the arcs cut off by that angle and its vertical angle. If those arcs measure $80^\circ$ and $40^\circ$, the angle is $\dfrac{80+40}{2}=60^\circ$.
+
 Chords $AB$ and $CD$ cross at $P$ inside a circle. $AP = 4$, $PB = 9$, and $CP = 3$. Find $PD$.
 
 <!-- ILLUSTRATION: chords AB and CD cross at P; AP = 4, PB = 9, CP = 3 -->
@@ -190,6 +200,8 @@ $$AP\cdot PB=CP\cdot PD \quad\Rightarrow\quad 4\cdot 9=3\cdot PD$$
 2. Divide $36$ by $3$: $PD = 12$.
 
 ### #8: Two Secants
+
+When two secants meet outside a circle, their angle is half the difference between the far arc and the near arc. For secants through near points $A,C$ and far points $B,D$, use arcs $BD$ and $AC$: if they measure $120^\circ$ and $40^\circ$, the angle is $\dfrac{120-40}{2}=40^\circ$.
 
 Two secants from an outside point $P$ meet the circle at $A$, $B$ and at $C$, $D$ (nearer point first). $PA = 3$, $AB = 5$, and $PC = 4$. Find $CD$.
 

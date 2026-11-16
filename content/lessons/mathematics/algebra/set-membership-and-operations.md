@@ -18,13 +18,31 @@ A **set** is a collection of distinct objects called **elements**. Sets are comm
 
 $$A=\{1,2,3\}.$$
 
+The symbol $\in$ means "is an element of". The symbol $\notin$ means "is not an element of". For $A=\{1,2,3\}$, we write $2\in A$ and $5\notin A$.
+
+Set $B$ is a **subset** of set $A$ when every element of $B$ is also in $A$. We write $B\subseteq A$. If $B$ is a subset of $A$ but not equal to $A$, then $B$ is a **proper subset**, written $B\subset A$. Some books use $\subset$ for any subset, so check the book's meaning.
+
+Do not mix up $\in$ and $\subseteq$. The symbol $\in$ links an element to a set. The symbol $\subseteq$ links a set to a set. For $A=\{1,2,3\}$, $2\in A$ is true and $\{2\}\subseteq A$ is true. Writing $2\subseteq A$ is not correct.
+
+The **empty set** has no elements. It is written $\varnothing$ or $\{\ \}$. The set $\{0\}$ is not empty, because it has one element, the number $0$. The set $\{\varnothing\}$ is not empty either, because its one element is the empty set.
+
+Two facts follow from the meaning. Every set is a subset of itself. The empty set is a subset of every set, because it has no element that could fail to be in the other set.
+
+A set with $n$ elements has $2^n$ subsets. This count includes the empty set and the set itself. Each element is either in a subset or out of it, which gives $2$ choices per element.
+
 A **universal set** $U$ specifies the elements under consideration in a particular problem. If every element of $B$ is also an element of $A$, then $B$ is a subset of $A$.
 
 The **union** $A\cup B$ contains elements that are in $A$, in $B$, or in both. The **intersection** $A\cap B$ contains only elements common to both sets. The **complement** of $A$ depends on the stated universal set and contains elements of $U$ that are not in $A$.
 
 The prime mark means complement: $A'$ is the complement of $A$.
 
+De Morgan's laws say $(A\cup B)'=A'\cap B'$ and $(A\cap B)'=A'\cup B'$, with all complements taken in the same universal set. Being outside the union means being outside both sets. Being outside the intersection means being outside at least one set.
+
 Venn diagrams show these relationships visually.
+
+Set-builder notation lists a rule instead of every element: $\{x\in\mathbb Z\mid -2\le x\le3\}$ means all integers from $-2$ through $3$. The symbol $\mathbb Z$ means the integers, and the bar means "such that." For $a>0$, the condition $x^2<a^2$ means $-a<x<a$, so $x^2<9$ gives $-3<x<3$.
+
+The **difference** $A-B$ contains the elements that are in $A$ but not in $B$. Some books write it $A\setminus B$. It is not the same as $B-A$ in general. Also, $A-B$ is the same set as $A\cap B'$.
 
 ## Mnemonics & Memory Aids
 

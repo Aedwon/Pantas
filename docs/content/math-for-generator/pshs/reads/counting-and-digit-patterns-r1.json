@@ -1,0 +1,18 @@
+{
+  "lesson": "lesson-arithmetic-number-sense-counting-and-digit-patterns",
+  "round": 1,
+  "findings": [
+    {
+      "severity": "Major",
+      "quote": "For a whole-number base and a positive whole-number exponent, you can find the units digit without finding the whole power.",
+      "problem": "The term 'base' is never explained. Students need its meaning to follow the instruction to multiply the current units digit by the base.",
+      "fix": "Define the base as the number being repeatedly multiplied. Identify 7 as the base in the existing example."
+    },
+    {
+      "severity": "Minor",
+      "quote": "Moving a larger digit into hundreds increases the result by more than moving it to any other place can offset.",
+      "problem": "The long comparison and the word 'offset' make this explanation hard to follow at Grade 5 level.",
+      "fix": "Use short sentences and explain the comparison through the value of a digit in each place."
+    }
+  ]
+}
