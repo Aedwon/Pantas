@@ -10,9 +10,9 @@ Hard rules:
 - If the plan, spec and code disagree, or a product decision is needed, stop and write it in FINDINGS.md under "Needs the lead". Do not invent.
 
 Verification commands (run what your task touches, paste the summary lines in your final message):
-- dart test tool/generator
-- dart analyze tool/generator (or flutter analyze if the package is the root package)
-- dart format --output=none --set-exit-if-changed tool/generator
+- flutter test test/tool/generator
+- flutter analyze tool/generator test/tool/generator
+- dart format --output=none --set-exit-if-changed tool/generator test/tool/generator
 - dart run tool/checks/run_checks.dart
 - dart run tool/check_no_ai_attribution.dart
 

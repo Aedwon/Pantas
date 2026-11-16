@@ -5,3 +5,5 @@ Notes:
 - Write no real rules yet. For the tests, add one tiny test-only rule in tool/generator/test/ (for example a math rule "a + b") so generation, seeding, duplicate-signature retry and refill can be tested end to end.
 - The variant list YAML must round-trip: parse(write(list)) == list, and writing is deterministic (stable key order) so refills diff cleanly.
 - Exact rationals for math values: use BigInt-based fractions; check whether the repo already has a rational type before writing one.
+
+Lead ruling (Nov 16 22:20 UTC), on the package:test blocker: add no dependency. Tool code stays in tool/generator/ in the root package. Tests live in test/tool/generator/ and use flutter_test, the same as test/tool/content/ledger_test.dart; run them with `flutter test test/tool/generator`. Move the drafted tests and fixtures from tool/generator/test/ there (the test-only rule too). Continue from the drafts and FINDINGS.md already in the worktree; do not restart. Your interface note (Rule.generate gets the reserved index; the core checks the merged source id) is accepted.

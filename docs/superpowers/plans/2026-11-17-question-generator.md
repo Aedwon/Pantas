@@ -134,17 +134,17 @@ Each task is one Codex Sol run (low effort unless stated) through `codex-pick`, 
 
 #### Task 1.1: model, generator core and CLI (Codex, about 3 h)
 
-Files: create `tool/generator/pubspec.yaml` (or reuse the root package if `tool/` scripts already run from it; check `tool/content/` first and follow it), `tool/generator/lib/src/model.dart`, `tool/generator/lib/src/generate.dart`, `tool/generator/bin/generate.dart`, tests in `tool/generator/test/`.
+Files: create `tool/generator/pubspec.yaml` (or reuse the root package if `tool/` scripts already run from it; check `tool/content/` first and follow it), `tool/generator/lib/src/model.dart`, `tool/generator/lib/src/generate.dart`, `tool/generator/bin/generate.dart`, tests in `test/tool/generator/` (root package, `flutter_test`, the same as `test/tool/content/`).
 
 - [ ] Tests first: parse the example files in Part 3; generate with a fixed seed twice gives identical output; refill (`--count 120` on a list of 100) keeps indexes 0 to 99 byte-identical and appends 100 to 119; merged questions keep their fixed indexes; a rule that returns a duplicate signature is retried with the next random draw, and the run fails after 1,000 failed draws.
 - [ ] Implement. CLI: `dart run tool/generator/bin/generate.dart --type <path> --count 100`. Writes the variant list with seed and tool version.
-- [ ] Verify: `dart test tool/generator`, `dart analyze tool/generator`, `dart format --set-exit-if-changed tool/generator`.
+- [ ] Verify: `flutter test test/tool/generator`, `flutter analyze tool/generator test/tool/generator`, `dart format --output=none --set-exit-if-changed tool/generator test/tool/generator`.
 
 Produces: `ProblemType`, `Variant`, `Rule`, `ruleRegistry`, the variant list format.
 
 #### Task 1.2: checker (Codex, about 3 h)
 
-Files: `tool/generator/lib/src/check/` (`check.dart`, `math_solver.dart`, `figure_solvers/`), `tool/generator/bin/check.dart`, `tool/checks/generated_types_check.dart` wired into `tool/checks/run_checks.dart`, tests with planted bad lists in `tool/generator/test/fixtures/bad/`.
+Files: `tool/generator/lib/src/check/` (`check.dart`, `math_solver.dart`, `figure_solvers/`), `tool/generator/bin/check.dart`, `tool/checks/generated_types_check.dart` wired into `tool/checks/run_checks.dart`, tests with planted bad lists in `test/tool/generator/fixtures/bad/`.
 
 Checks, for every variant of every problem type (spec B5):
 
