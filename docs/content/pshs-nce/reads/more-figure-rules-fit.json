@@ -1,0 +1,35 @@
+{
+  "file": "content/questions/reasoning/spatial-abstract-reasoning/more-figure-rules.yaml",
+  "findings": [
+    {
+      "questionId": "q-spatial-abstract-reasoning-more-figure-rules-0001",
+      "severity": "Major",
+      "problem": "All 20 questions put the correct answer first. The style guide says choices display in file order. This creates a predictable answer-position clue.",
+      "fix": "Vary the correct answer's position across the file."
+    },
+    {
+      "questionId": "q-spatial-abstract-reasoning-more-figure-rules-0005",
+      "severity": "Major",
+      "problem": "The equal-count rationale describes four lower sides and a separate pointed top. A point-up pentagon has two sides meeting at its top vertex. This does not accurately explain the miscount.",
+      "fix": "Describe skipping one edge while tracing the pentagon, then tell the student to count all five edges."
+    },
+    {
+      "questionId": "q-spatial-abstract-reasoning-more-figure-rules-0009",
+      "severity": "Major",
+      "problem": "The stem explicitly supplies the square-to-cube relationship immediately before asking students to reverse it. This gives away Square.",
+      "fix": "Remove the sentence naming the relationships. Keep the analogy question."
+    },
+    {
+      "questionId": "q-spatial-abstract-reasoning-more-figure-rules-0010",
+      "severity": "Major",
+      "problem": "The Triangle with three dots rationale says it copies the dot count above the blank. The cell directly above contains a square with one dot.",
+      "fix": "Say the student copied the center triangle and its three dots."
+    },
+    {
+      "questionId": "q-spatial-abstract-reasoning-more-figure-rules-0016",
+      "severity": "Major",
+      "problem": "The Three dots rationale treats the square's target count as extra dots but does not account for the triangle's repair. Adding three to the square and one to the triangle gives four, not three.",
+      "fix": "Describe a mistake that totals three, such as adding two dots to make the first triangle's counts equal, then correctly adding one dot to the square."
+    }
+  ]
+}

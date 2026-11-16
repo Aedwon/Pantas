@@ -1,0 +1,11 @@
+{
+  "file": "content/questions/reasoning/spatial-abstract-reasoning/more-figure-rules.yaml",
+  "findings": [
+    {
+      "questionId": "q-spatial-abstract-reasoning-more-figure-rules-0006",
+      "severity": "Major",
+      "problem": "The correct choice, \"Figure 4\", is the only choice written with a numeral. Every distractor uses an ordinal word followed by \"figure\". This makes the answer stand out without solving the question.",
+      "fix": "Use the same format for all five choices, such as \"Figure 1\" through \"Figure 5\"."
+    }
+  ]
+}

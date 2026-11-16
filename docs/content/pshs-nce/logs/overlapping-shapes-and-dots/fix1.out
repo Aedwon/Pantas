@@ -1,0 +1,1 @@
+Major, radius: Fixed. Defined “radius” before its use in Example 2 and limited the spacing statement to this arrangement. Audit found only the expected illustration-inventory messages for this lesson.

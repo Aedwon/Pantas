@@ -1,0 +1,20 @@
+{
+ "overlapping-shapes-and-dots": {
+  "lesson": "content/lessons/reasoning/spatial-abstract-reasoning/overlapping-shapes-and-dots.md",
+  "id": "lesson-spatial-abstract-reasoning-overlapping-shapes-and-dots",
+  "title": "Overlapping Shapes and Dot Placement",
+  "frontmatter": "like content/lessons/reasoning/spatial-abstract-reasoning/figure-grouping.md",
+  "questions": "",
+  "items": ["IV-13", "IV-14", "IV-15", "IV-16"],
+  "methods": "label every region of two or three overlapping shapes by which shapes contain it; record each dot's membership set (inside or outside each shape); find the region with the same membership set after the shapes move or change; handle two dots separately and check that both fit; tell a point on a boundary from a point inside; check every choice, since a region may be absent in some choices"
+ },
+ "more-figure-rules": {
+  "lesson": "content/lessons/reasoning/spatial-abstract-reasoning/more-figure-rules.md",
+  "id": "lesson-spatial-abstract-reasoning-more-figure-rules",
+  "title": "More Figure Rules: Counts, Grids and Analogies",
+  "frontmatter": "like content/lessons/reasoning/spatial-abstract-reasoning/figure-grouping.md",
+  "questions": "content/questions/reasoning/spatial-abstract-reasoning/more-figure-rules.yaml",
+  "items": ["IV-5", "IV-6", "IV-8", "IV-10", "IV-11", "IV-12", "IV-17", "IV-18", "IV-19"],
+  "methods": "relate a count in a figure to another count (sides to dots, sides to repeated shapes, including a difference of one); tell closed solids from open surfaces; one-of-each rules in rows and columns of a grid, with several blanks and two independent features; fit a missing pattern piece, including a rotated one, by continuing lines across its edges; visual analogies that swap fills or turn stripes; flat shape to solid relationships (square to cube, circle to sphere) and tracking openings; triangular prism nets with three rectangles, two triangles and a marked face"
+ }
+}

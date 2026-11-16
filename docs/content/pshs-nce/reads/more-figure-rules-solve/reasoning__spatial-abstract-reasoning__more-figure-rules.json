@@ -1,0 +1,187 @@
+{
+  "file_id": "reasoning__spatial-abstract-reasoning__more-figure-rules",
+  "source": "content/questions/reasoning/spatial-abstract-reasoning/more-figure-rules.yaml",
+  "results": [
+    {
+      "n": 1,
+      "id": "q-spatial-abstract-reasoning-more-figure-rules-0001",
+      "key": "E",
+      "answer": "E",
+      "match": true,
+      "confidence": "high",
+      "note": "The fifth figure has three sides but only two dots."
+    },
+    {
+      "n": 2,
+      "id": "q-spatial-abstract-reasoning-more-figure-rules-0002",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Four triangles are one more than the three sides of one triangle."
+    },
+    {
+      "n": 3,
+      "id": "q-spatial-abstract-reasoning-more-figure-rules-0003",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "A circle corresponds to a sphere in the flat-shape-to-solid analogy."
+    },
+    {
+      "n": 4,
+      "id": "q-spatial-abstract-reasoning-more-figure-rules-0004",
+      "key": "E",
+      "answer": "E",
+      "match": true,
+      "confidence": "high",
+      "note": "Both the middle row and middle column lack a pentagon."
+    },
+    {
+      "n": 5,
+      "id": "q-spatial-abstract-reasoning-more-figure-rules-0005",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "Four pentagons are one fewer than the five sides of one pentagon."
+    },
+    {
+      "n": 6,
+      "id": "q-spatial-abstract-reasoning-more-figure-rules-0006",
+      "key": "E",
+      "answer": "E",
+      "match": true,
+      "confidence": "high",
+      "note": "The fourth figure, a hexagon, needs five dots but has four."
+    },
+    {
+      "n": 7,
+      "id": "q-spatial-abstract-reasoning-more-figure-rules-0007",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The hexagon needs two additional dots to match its six sides."
+    },
+    {
+      "n": 8,
+      "id": "q-spatial-abstract-reasoning-more-figure-rules-0008",
+      "key": "C",
+      "answer": "C",
+      "match": true,
+      "confidence": "high",
+      "note": "Seven hexagons are required, so add two to the existing five."
+    },
+    {
+      "n": 9,
+      "id": "q-spatial-abstract-reasoning-more-figure-rules-0009",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "A cube corresponds to a square as a sphere corresponds to a circle."
+    },
+    {
+      "n": 10,
+      "id": "q-spatial-abstract-reasoning-more-figure-rules-0010",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The final row and column both need a triangle with two dots."
+    },
+    {
+      "n": 11,
+      "id": "q-spatial-abstract-reasoning-more-figure-rules-0011",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The final row and middle column both need a small triangle."
+    },
+    {
+      "n": 12,
+      "id": "q-spatial-abstract-reasoning-more-figure-rules-0012",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The middle row and final column both need a large circle with two dots."
+    },
+    {
+      "n": 13,
+      "id": "q-spatial-abstract-reasoning-more-figure-rules-0013",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The middle row and column both lack a triangle and an all-black fill."
+    },
+    {
+      "n": 14,
+      "id": "q-spatial-abstract-reasoning-more-figure-rules-0014",
+      "key": "A",
+      "answer": "A",
+      "match": true,
+      "confidence": "high",
+      "note": "The top row and final column both need a triangle with its ray down."
+    },
+    {
+      "n": 15,
+      "id": "q-spatial-abstract-reasoning-more-figure-rules-0015",
+      "key": "E",
+      "answer": "E",
+      "match": true,
+      "confidence": "high",
+      "note": "The missing figure is a large triangle, so a small triangle has only the shape right."
+    },
+    {
+      "n": 16,
+      "id": "q-spatial-abstract-reasoning-more-figure-rules-0016",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The first and fourth figures each need one additional dot, totaling two."
+    },
+    {
+      "n": 17,
+      "id": "q-spatial-abstract-reasoning-more-figure-rules-0017",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The top row and middle column both need a triangle with one dot."
+    },
+    {
+      "n": 18,
+      "id": "q-spatial-abstract-reasoning-more-figure-rules-0018",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The blank is a large triangle; the middle row's medium shape is the pentagon."
+    },
+    {
+      "n": 19,
+      "id": "q-spatial-abstract-reasoning-more-figure-rules-0019",
+      "key": "B",
+      "answer": "B",
+      "match": true,
+      "confidence": "high",
+      "note": "The blank is a white square, which is also the bottom row's white shape."
+    },
+    {
+      "n": 20,
+      "id": "q-spatial-abstract-reasoning-more-figure-rules-0020",
+      "key": "D",
+      "answer": "D",
+      "match": true,
+      "confidence": "high",
+      "note": "The blank is a circle with a left arrow; the same column's right arrow is in the square."
+    }
+  ],
+  "unknown_answer_numbers": []
+}

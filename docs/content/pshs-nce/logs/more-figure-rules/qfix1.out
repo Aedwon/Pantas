@@ -1,0 +1,7 @@
+- 0001: Fixed. Correct answers appear four times in each position. Rationales stayed with their choices.
+- 0005: Fixed. Rationale describes skipping one edge.
+- 0009: Fixed. Removed the sentence giving away the answer.
+- 0010: Fixed. Rationale refers to the center triangle.
+- 0016: Fixed. Rationale explains a mistake totaling three dots.
+
+Validator exit code: 0, using the Dart executable directly.

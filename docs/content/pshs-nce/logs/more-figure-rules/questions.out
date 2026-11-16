@@ -1,0 +1,5 @@
+Created [more-figure-rules.yaml](/Users/aedwon/.t3/worktrees/Pantas/content-pshs-nce-r1-15add0003f0bf1f9/content/questions/reasoning/spatial-abstract-reasoning/more-figure-rules.yaml) with exactly 20 questions.
+
+Validator exit: **0**, using the installed Dart runtime. The Flutter launcher was blocked by cache permissions.
+
+Unsupported figures omitted: closed versus open surfaces, grids with several blanks or striped backgrounds, missing pattern pieces and their rotations, nested fill swaps and stripe turns, opening-to-tunnel tracking, and marked triangular prism nets.
