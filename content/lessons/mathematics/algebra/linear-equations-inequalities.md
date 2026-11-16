@@ -6,6 +6,13 @@ subject: "subject-mathematics"
 topic: "topic-algebra"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-algebra-solving-linear-equations
+  - lesson-algebra-one-variable-inequalities
+  - lesson-algebra-line-slopes-and-intercepts
+  - lesson-algebra-parallel-and-perpendicular-lines
+  - lesson-algebra-two-variable-inequalities
 ---
 ## Core Concept
 

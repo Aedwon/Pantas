@@ -6,6 +6,12 @@ subject: "subject-mathematics"
 topic: "topic-arithmetic-number-sense"
 estimatedMinutes: 12
 isActive: true
+status: retired
+replacedBy:
+  - lesson-arithmetic-number-sense-commutative-and-associative-properties
+  - lesson-arithmetic-number-sense-identities-and-like-terms
+  - lesson-arithmetic-number-sense-additive-and-multiplicative-inverses
+  - lesson-arithmetic-number-sense-distribution-and-common-factors
 ---
 ## Core Concept
 

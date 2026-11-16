@@ -6,6 +6,10 @@ subject: "subject-mathematics"
 topic: "topic-algebra"
 estimatedMinutes: 12
 isActive: true
+status: retired
+replacedBy:
+  - lesson-algebra-set-membership-and-operations
+  - lesson-algebra-counting-venn-diagram-regions
 ---
 ## Core Concept
 

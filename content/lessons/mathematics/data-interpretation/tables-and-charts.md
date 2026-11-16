@@ -6,6 +6,11 @@ subject: "subject-mathematics"
 topic: "topic-data-interpretation"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-data-interpretation-table-values-and-totals
+  - lesson-data-interpretation-chart-scales-and-differences
+  - lesson-data-interpretation-averages-and-pie-chart-shares
 ---
 
 ## Core Concept

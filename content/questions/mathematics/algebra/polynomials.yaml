@@ -5,6 +5,9 @@ meta:
   exams: [upcat, acet, dlsucet, ustet, pupcet]
 questions:
   - id: q-algebra-polynomials-0001
+    approved: true
+    lesson: lesson-algebra-polynomial-operations
+    keyPoint: 1
     type: direct-computation
     difficulty: easy
     stem: |
@@ -25,6 +28,9 @@ questions:
       Combine terms with the same powers: $(3+1)x^2+(-2+4)x+(1-3)$. The result is $4x^2+2x-2$.
 
   - id: q-algebra-polynomials-0002
+    approved: true
+    lesson: lesson-algebra-polynomial-operations
+    keyPoint: 1
     type: direct-computation
     difficulty: medium
     stem: |
@@ -45,6 +51,9 @@ questions:
       Distribute the subtraction: $5x^2+3x-2x^2-x-1$. Combine like terms to get $3x^2+2x-1$.
 
   - id: q-algebra-polynomials-0003
+    approved: true
+    lesson: lesson-algebra-polynomial-operations
+    keyPoint: 1
     type: error-spotting
     difficulty: medium
     stem: |
@@ -68,6 +77,9 @@ questions:
       The subtraction before the second polynomial also applies to its constant $+1$. That contribution is $-1$. The correct result is $3x^2+2x-1$.
 
   - id: q-algebra-polynomials-0004
+    approved: true
+    lesson: lesson-algebra-polynomial-operations
+    keyPoint: 2
     type: direct-computation
     difficulty: medium
     stem: |
@@ -88,6 +100,9 @@ questions:
       Distribute: $x^2+2x+3x+6$. Combine the middle terms, $2x+3x=5x$. The product is $x^2+5x+6$.
 
   - id: q-algebra-polynomials-0005
+    approved: true
+    lesson: lesson-algebra-polynomial-special-products
+    keyPoint: 1
     type: direct-computation
     difficulty: medium
     stem: |
@@ -108,6 +123,9 @@ questions:
       Write the square as $(x+3)(x+3)$. The products are $x^2$, $3x$, $3x$, and $9$. Add them to get $x^2+6x+9$.
 
   - id: q-algebra-polynomials-0006
+    approved: true
+    lesson: lesson-algebra-polynomial-special-products
+    keyPoint: 1
     type: error-spotting
     difficulty: medium
     stem: |
@@ -128,6 +146,9 @@ questions:
       The cross products in $(x+3)(x+3)$ are $3x$ and $3x$. Together they give $6x$, the missing middle term.
 
   - id: q-algebra-polynomials-0007
+    approved: true
+    lesson: lesson-algebra-polynomial-special-products
+    keyPoint: 1
     type: direct-computation
     difficulty: medium
     stem: |
@@ -148,6 +169,9 @@ questions:
       Expand to get $x^2+4x-4x-16$. The middle terms cancel. The result is $x^2-16$.
 
   - id: q-algebra-polynomials-0008
+    approved: true
+    lesson: lesson-algebra-factoring-quadratics
+    keyPoint: 1
     type: direct-computation
     difficulty: medium
     stem: |
@@ -168,6 +192,9 @@ questions:
       Find two numbers whose product is $6$ and whose sum is $-5$. They are $-2$ and $-3$. Thus $x^2-5x+6=(x-2)(x-3)$.
 
   - id: q-algebra-polynomials-0009
+    approved: true
+    lesson: lesson-algebra-remainder-and-factor-theorems
+    keyPoint: 1
     type: direct-computation
     difficulty: hard
     stem: |
@@ -188,6 +215,9 @@ questions:
       Division by $x-2$ gives remainder $P(2)$. Substitute: $P(2)=16-24+4-5=-9$.
 
   - id: q-algebra-polynomials-0010
+    approved: true
+    lesson: lesson-algebra-remainder-and-factor-theorems
+    keyPoint: 2
     type: direct-computation
     difficulty: hard
     stem: |
@@ -208,6 +238,9 @@ questions:
       If $x-3$ is a factor, then $P(3)=0$. This gives $27-9k+12-12=0$, so $27-9k=0$. Thus $9k=27$ and $k=3$.
 
   - id: q-algebra-polynomials-0011
+    approved: true
+    lesson: lesson-algebra-polynomial-operations
+    keyPoint: 1
     type: direct-computation
     difficulty: medium
     stem: |
@@ -228,6 +261,9 @@ questions:
       First find $2A=6x^2-4x+10$. Subtract $B$: $6x^2-4x+10+x^2-4x+1$. Combine like terms to get $7x^2-8x+11$.
 
   - id: q-algebra-polynomials-0012
+    approved: true
+    lesson: lesson-algebra-polynomial-special-products
+    keyPoint: 2
     type: direct-computation
     difficulty: medium
     stem: |
@@ -248,6 +284,9 @@ questions:
       The greatest common factor of $4x^2$ and $8x$ is $4x$. Dividing each term by $4x$ gives $x$ and $2$. The complete factorization is $4x(x+2)$.
 
   - id: q-algebra-polynomials-0013
+    approved: true
+    lesson: lesson-algebra-polynomial-special-products
+    keyPoint: 1
     type: word-problem
     difficulty: hard
     stem: |
@@ -268,6 +307,9 @@ questions:
       The square of side $x$ has area $x^2$. Removing $9$ gives $x^2-9$. Multiply by the stated factor: $(x^2-9)(x^2+9)=x^4-9^2=x^4-81$.
 
   - id: q-algebra-polynomials-0014
+    approved: true
+    lesson: lesson-algebra-polynomial-terms-and-degree
+    keyPoint: 1
     type: which-is-true
     difficulty: medium
     stem: |
@@ -288,6 +330,9 @@ questions:
       A polynomial uses nonnegative whole-number exponents on its variable. In $x^2+1$, the exponents are $2$ and $0$. Both meet that rule.
 
   - id: q-algebra-polynomials-0015
+    approved: true
+    lesson: lesson-algebra-factoring-quadratics
+    keyPoint: 2
     type: direct-computation
     difficulty: medium
     stem: |
@@ -308,6 +353,9 @@ questions:
       Multiply the leading and constant coefficients: $6(-3)=-18$. The numbers $-9$ and $2$ multiply to $-18$ and add to $-7$. Split and group: $6x^2-9x+2x-3=3x(2x-3)+(2x-3)=(3x+1)(2x-3)$.
 
   - id: q-algebra-polynomials-0016
+    approved: true
+    lesson: lesson-algebra-polynomial-synthetic-division
+    keyPoint: 1
     type: error-spotting
     difficulty: medium
     stem: |
@@ -328,6 +376,9 @@ questions:
       The synthetic number is $c$ in a divisor $x-c$. For $x-5$, solving $x-5=0$ gives $c=5$. The box therefore needs $5$.
 
   - id: q-algebra-polynomials-0017
+    approved: true
+    lesson: lesson-algebra-polynomial-operations
+    keyPoint: 2
     type: direct-computation
     difficulty: medium
     stem: |
@@ -348,6 +399,9 @@ questions:
       The terms containing $x$ are $2x(-2)=-4x$ and $1(3x)=3x$. They add to $-x$. Its coefficient is $-1$.
 
   - id: q-algebra-polynomials-0018
+    approved: true
+    lesson: lesson-algebra-remainder-and-factor-theorems
+    keyPoint: 2
     type: which-is-true
     difficulty: medium
     stem: |
@@ -368,6 +422,8 @@ questions:
       The Factor Theorem tests $x-2$ by evaluating at $2$. Here $P(2)=2^3-3(2^2)+2(2)=8-12+4=0$. Thus $x-2$ is a factor.
 
   - id: q-algebra-polynomials-0019
+    lesson: lesson-algebra-polynomial-synthetic-division
+    keyPoint: 1
     type: direct-computation
     difficulty: hard
     stem: |
@@ -386,9 +442,11 @@ questions:
           This lowers every power by one without carrying out the subtractions. Dividing by $x$ alone would allow that shortcut for some terms. Check the full divisor $x-1$.
     explanation: |
       Use $1$ for synthetic division with coefficients $1,-2,-5,6$. Bring down $1$, then form $-2+1=-1$, $-5-1=-6$, and $6-6=0$. The quotient coefficients are $1,-1,-6$, so the quotient is $x^2-x-6$.
-    approved: false
+    approved: true
 
   - id: q-algebra-polynomials-0020
+    lesson: lesson-algebra-polynomial-multiple-factors
+    keyPoint: 1
     type: direct-computation
     difficulty: exam
     stem: |
@@ -407,4 +465,234 @@ questions:
           This returns only $b$. The second coefficient is found near the end of the work. Check that the question asks for their sum.
     explanation: |
       Factor the divisor: $x^2-x-2=(x-2)(x+1)$. Thus $P(2)=0$ gives $16+4a+2b-6=0$, or $2a+b=-5$. Also $P(-1)=0$ gives $-2+a-b-6=0$, or $a-b=8$. Add the equations: $3a=3$, so $a=1$. Then $b=-7$. Their sum is $-6$.
-    approved: false
+    approved: true
+
+  - id: q-algebra-polynomials-0021
+    approved: true
+    lesson: lesson-algebra-factoring-cubes
+    keyPoint: 1
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      Which is the complete factorization of $27x^3+8$ over the integers?
+    choices:
+      - text: '$(3x+2)(9x^2-6x+4)$'
+        correct: true
+      - text: '$(3x+2)(9x^2+6x+4)$'
+        rationale: |
+          This keeps the plus sign in the middle term of the second factor. The original sum suggests plus signs throughout. Use the opposite sign for that middle term.
+      - text: '$(3x+2)(9x^2-12x+4)$'
+        rationale: |
+          This doubles the middle product in the cube formula. That happens in a square pattern. Check that the cube pattern uses $ab$, not $2ab$.
+      - text: '$(3x-2)(9x^2+6x+4)$'
+        rationale: |
+          This factors a difference of cubes. The factors look familiar. Check whether the original cubes are added or subtracted.
+    explanation: |
+      Write $27x^3=(3x)^3$ and $8=2^3$. Apply $a^3+b^3=(a+b)(a^2-ab+b^2)$ with $a=3x$ and $b=2$. The result is $(3x+2)(9x^2-6x+4)$.
+
+  - id: q-algebra-polynomials-0022
+    approved: true
+    lesson: lesson-algebra-factoring-cubes
+    keyPoint: 1
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      Factor $8x^3-125y^3$ completely over the integers.
+    choices:
+      - text: '$(2x-5y)(4x^2+10xy+25y^2)$'
+        correct: true
+      - text: '$(2x-5y)(4x^2-10xy+25y^2)$'
+        rationale: |
+          This uses a negative middle term in both factors. The original minus sign can suggest keeping it throughout. The second factor needs the opposite middle sign.
+      - text: '$(2x-5y)(4x^2+20xy+25y^2)$'
+        rationale: |
+          This uses $2ab$ as the middle term. That comes from squaring a binomial. The difference-of-cubes pattern uses $ab$.
+      - text: '$(2x+5y)(4x^2-10xy+25y^2)$'
+        rationale: |
+          This factors a sum of cubes. Both given terms are cubes. Check the sign between them before choosing the first factor.
+    explanation: |
+      The terms are $(2x)^3$ and $(5y)^3$. Use $a^3-b^3=(a-b)(a^2+ab+b^2)$. Since $(2x)(5y)=10xy$, the factorization is $(2x-5y)(4x^2+10xy+25y^2)$.
+
+  - id: q-algebra-polynomials-0023
+    approved: true
+    lesson: lesson-algebra-factoring-cubes
+    keyPoint: 1
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      For $x\ne-4$, simplify $\dfrac{x^3+64}{x+4}$.
+    choices:
+      - text: '$x^2-4x+16$'
+        correct: true
+      - text: '$x^2+4x+16$'
+        rationale: |
+          This uses the second factor for a difference of cubes. The squared terms are correct. Check the middle sign for a sum of cubes.
+      - text: '$x^2-8x+16$'
+        rationale: |
+          This uses the square of $x-4$ as the second factor. A familiar square pattern can look suitable. The cube formula uses $-4x$, not $-8x$.
+      - text: '$x^2-4x-16$'
+        rationale: |
+          This makes the last term negative. The middle sign change can suggest changing the last sign too. The last term in the cube pattern is positive.
+    explanation: |
+      Since $64=4^3$, factor $x^3+64=(x+4)(x^2-4x+16)$. The condition $x\ne-4$ allows cancellation of $x+4$. The result is $x^2-4x+16$.
+
+  - id: q-algebra-polynomials-0024
+    approved: true
+    lesson: lesson-algebra-factoring-quadratics
+    keyPoint: 1
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      A monic quadratic has constant term $-24$ and coefficient of $x$ equal to $-5$. Which product represents the quadratic?
+    choices:
+      - text: '$(x-8)(x+3)$'
+        correct: true
+      - text: '$(x+8)(x-3)$'
+        rationale: |
+          This gives the right constant but a positive middle coefficient. The factor sizes fit $24$. Check that their signed sum is $-5$.
+      - text: '$(x-6)(x+4)$'
+        rationale: |
+          This gives a product of $-24$ but a sum of $-2$. Matching the constant is only one check. Also add the two numbers.
+      - text: '$(x-12)(x+2)$'
+        rationale: |
+          This gives a product of $-24$ but a sum of $-10$. The constant term matches. Check the middle coefficient before choosing.
+    explanation: |
+      The quadratic is $x^2-5x-24$. The numbers $-8$ and $3$ have product $-24$ and sum $-5$. Thus $x^2-5x-24=(x-8)(x+3)$.
+
+  - id: q-algebra-polynomials-0025
+    approved: true
+    lesson: lesson-algebra-factoring-quadratics
+    keyPoint: 2
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      Factor $12x^2+x-6$ completely over the integers.
+    choices:
+      - text: '$(3x-2)(4x+3)$'
+        correct: true
+      - text: '$(3x+2)(4x-3)$'
+        rationale: |
+          This gives middle coefficient $-1$ instead of $1$. The leading and constant terms match. Add the two cross products to check the middle term.
+      - text: '$(6x-3)(2x+2)$'
+        rationale: |
+          This gives middle coefficient $6$ instead of $1$. Matching the first and last products can seem enough. Expand the cross products too.
+      - text: '$(3x-3)(4x+2)$'
+        rationale: |
+          This gives middle coefficient $-6$ instead of $1$. The outside terms match the leading and constant terms. Check the sum of the cross products.
+    explanation: |
+      The product $ac=12(-6)=-72$. The numbers $9$ and $-8$ have product $-72$ and sum $1$. Split and group: $12x^2+9x-8x-6=3x(4x+3)-2(4x+3)=(3x-2)(4x+3)$.
+
+  - id: q-algebra-polynomials-0026
+    approved: true
+    lesson: lesson-algebra-polynomial-long-division
+    keyPoint: 1
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      When $x^4+2x^2+3$ is divided by $x^2+1$, what are the quotient $Q(x)$ and remainder $R(x)$?
+    choices:
+      - text: '$Q=x^2+1,\ R=2$'
+        correct: true
+      - text: '$Q=x^2+1,\ R=4$'
+        rationale: |
+          This adds the last constant instead of subtracting it. The quotient has already been found correctly. Check the final subtraction $3-1$.
+      - text: '$Q=x^2+2,\ R=3$'
+        rationale: |
+          This divides matching visible terms without subtracting the full divisor product. The missing cubic term can hide the division steps. Multiply the proposed quotient by the divisor to check.
+      - text: '$Q=x^2-1,\ R=4$'
+        rationale: |
+          This changes the sign of the second quotient term. Subtraction in long division can suggest a negative term. Check that $x^2$ divided by $x^2$ is positive.
+    explanation: |
+      Include the missing powers: $x^4+0x^3+2x^2+0x+3$. Subtract $x^2(x^2+1)$ to leave $x^2+3$. Subtract $1(x^2+1)$ to leave $2$. Thus $Q=x^2+1$ and $R=2$. Check: $(x^2+1)(x^2+1)+2=x^4+2x^2+3$.
+
+  - id: q-algebra-polynomials-0027
+    approved: true
+    lesson: lesson-algebra-polynomial-long-division
+    keyPoint: 1
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      Divide $2x^3-x^2+5x+4$ by $2x-1$. Which quotient and remainder are correct?
+    choices:
+      - text: '$Q=x^2+\dfrac{5}{2},\ R=\dfrac{13}{2}$'
+        correct: true
+      - text: '$Q=x^2+\dfrac{5}{2},\ R=\dfrac{3}{2}$'
+        rationale: |
+          This subtracts $5/2$ from $4$ in the last step. The divisor has a negative constant. Check that subtracting $-5/2$ adds $5/2$.
+      - text: '$Q=2x^2+5,\ R=\dfrac{13}{2}$'
+        rationale: |
+          This fails to divide quotient coefficients by the leading coefficient $2$. A divisor beginning with $x$ would not need that division. Divide by the full leading term $2x$.
+      - text: '$Q=x^2-\dfrac{5}{2},\ R=-\dfrac{13}{2}$'
+        rationale: |
+          This changes the sign of the constant quotient term. A negative divisor constant can cause that confusion. Divide the remaining leading term $5x$ by $2x$ to check its sign.
+    explanation: |
+      The first quotient term is $2x^3\div2x=x^2$. Subtract $(2x-1)x^2$ to leave $5x+4$. The next quotient term is $5x\div2x=\dfrac{5}{2}$. Subtract $\dfrac{5}{2}(2x-1)=5x-\dfrac{5}{2}$. The remainder is $4+\dfrac{5}{2}=\dfrac{13}{2}$, so $Q=x^2+\dfrac{5}{2}$.
+
+  - id: q-algebra-polynomials-0028
+    approved: true
+    lesson: lesson-algebra-polynomial-multiple-factors
+    keyPoint: 1
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      If both $x-1$ and $x+2$ are factors of $P(x)=x^3+ax^2+bx+6$, what is $a-b$?
+    choices:
+      - text: '$3$'
+        correct: true
+      - text: '$-2$'
+        rationale: |
+          This reports $a$ alone. It is one of the unknowns found from the factors. Return to the requested difference after finding both values.
+      - text: '$-7$'
+        rationale: |
+          This adds $a$ and $b$. That sum comes from one factor condition. Check the sign in the requested expression.
+      - text: '$-3$'
+        rationale: |
+          This computes $b-a$. Reversing a subtraction changes its sign. Keep the requested order.
+    explanation: |
+      Use $P(1)=0$ to get $1+a+b+6=0$, so $a+b=-7$. Use $P(-2)=0$ to get $-8+4a-2b+6=0$, so $2a-b=1$. Adding gives $3a=-6$, so $a=-2$ and $b=-5$. Therefore $a-b=-2-(-5)=3$.
+
+  - id: q-algebra-polynomials-0029
+    approved: true
+    lesson: lesson-algebra-polynomial-terms-and-degree
+    keyPoint: 1
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      After like terms are combined, what is the degree of $(2x^4-3x^2+7)-(2x^4+x^3-5x^2)$?
+    choices:
+      - text: '$3$'
+        correct: true
+      - text: '$4$'
+        rationale: |
+          This uses the highest power before combining terms. Both groups contain fourth powers. Check whether those terms cancel.
+      - text: '$2$'
+        rationale: |
+          This overlooks the cubic term when combining the squares. The square terms do combine. Keep the unmatched $-x^3$ term too.
+      - text: '$7$'
+        rationale: |
+          This reports the constant term as the degree. It is a visible number in the result. Degree comes from the highest remaining exponent.
+    explanation: |
+      Distribute the minus sign: $2x^4-3x^2+7-2x^4-x^3+5x^2$. Combine like terms to get $-x^3+2x^2+7$. The highest remaining exponent is $3$, so the degree is $3$.
+
+  - id: q-algebra-polynomials-0030
+    approved: true
+    lesson: lesson-algebra-remainder-and-factor-theorems
+    keyPoint: 1
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      What is the remainder when $P(x)=2x^4-x^3+3x-7$ is divided by $x+2$?
+    choices:
+      - text: '$27$'
+        correct: true
+      - text: '$23$'
+        rationale: |
+          This substitutes $2$ for a divisor of $x+2$. That follows the visible constant sign. Set the divisor equal to zero to find the correct input.
+      - text: '$11$'
+        rationale: |
+          This treats $-(-2)^3$ as $-8$. The minus sign before the cube is easy to miss. Calculate the cube before applying the outside minus sign.
+      - text: '$-7$'
+        rationale: |
+          This reports the constant term. That is the remainder for division by $x$. Check the actual divisor before substituting.
+    explanation: |
+      The divisor $x+2=x-(-2)$ gives remainder $P(-2)$. Compute $P(-2)=2(16)-(-8)+3(-2)-7=32+8-6-7=27$.

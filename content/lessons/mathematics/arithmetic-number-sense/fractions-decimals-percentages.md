@@ -6,6 +6,14 @@ subject: "subject-mathematics"
 topic: "topic-arithmetic-number-sense"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-arithmetic-number-sense-decimal-and-percent-conversions
+  - lesson-arithmetic-number-sense-fractions-and-mixed-forms
+  - lesson-arithmetic-number-sense-adding-and-multiplying-fractions
+  - lesson-arithmetic-number-sense-multiplying-and-dividing-decimals
+  - lesson-arithmetic-number-sense-percentage-base-and-fraction-division
+  - lesson-arithmetic-number-sense-successive-percentages-and-increases
 ---
 ## Core Concept
 

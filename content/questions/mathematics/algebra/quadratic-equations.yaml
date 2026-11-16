@@ -5,6 +5,9 @@ meta:
   exams: [upcat, acet, dlsucet, ustet, pupcet]
 questions:
   - id: q-algebra-quadratic-equations-0001
+    approved: true
+    lesson: lesson-algebra-factoring-quadratic-equations
+    keyPoint: 1
     type: direct-computation
     difficulty: easy
     stem: |
@@ -25,6 +28,9 @@ questions:
       The equation factors as $(x-3)(x-5)=0$. A product is zero when at least one factor is zero. Thus $x=3$ or $x=5$.
 
   - id: q-algebra-quadratic-equations-0002
+    approved: true
+    lesson: lesson-algebra-quadratic-methods-and-root-properties
+    keyPoint: 3
     type: direct-computation
     difficulty: easy
     stem: |
@@ -45,6 +51,9 @@ questions:
       The roots have sum $-5$. If one is $-2$, the other is $-5-(-2)=-3$.
 
   - id: q-algebra-quadratic-equations-0003
+    approved: true
+    lesson: lesson-algebra-factoring-quadratic-equations
+    keyPoint: 1
     type: direct-computation
     difficulty: medium
     stem: |
@@ -65,6 +74,9 @@ questions:
       Split the middle term: $2x^2+6x+x+3=0$. Group to get $(2x+1)(x+3)=0$. Solving each factor gives $x=-\dfrac{1}{2}$ or $x=-3$.
 
   - id: q-algebra-quadratic-equations-0004
+    approved: true
+    lesson: lesson-algebra-factoring-quadratic-equations
+    keyPoint: 1
     type: direct-computation
     difficulty: medium
     stem: |
@@ -85,6 +97,9 @@ questions:
       The left side is a perfect square: $(x-5)^2=0$. Therefore $x-5=0$, giving the repeated root $x=5$.
 
   - id: q-algebra-quadratic-equations-0005
+    approved: true
+    lesson: lesson-algebra-factoring-quadratic-equations
+    keyPoint: 2
     type: direct-computation
     difficulty: medium
     stem: |
@@ -105,6 +120,9 @@ questions:
       Move all terms left: $x^2-4x=0$. Factor to get $x(x-4)=0$. Thus $x=0$ or $x=4$.
 
   - id: q-algebra-quadratic-equations-0006
+    approved: true
+    lesson: lesson-algebra-factoring-quadratic-equations
+    keyPoint: 2
     type: error-spotting
     difficulty: medium
     stem: |
@@ -125,6 +143,9 @@ questions:
       The value $x=0$ satisfies the original equation. Dividing by $x$ excludes that value. Keep both possibilities by factoring $x(x-4)=0$, which gives $x=0$ or $x=4$.
 
   - id: q-algebra-quadratic-equations-0007
+    approved: true
+    lesson: lesson-algebra-quadratic-methods-and-root-properties
+    keyPoint: 2
     type: direct-computation
     difficulty: medium
     stem: |
@@ -145,6 +166,9 @@ questions:
       Here $a=1$, $b=3$, and $c=1$. Calculate $D=b^2-4ac=3^2-4(1)(1)=9-4=5$.
 
   - id: q-algebra-quadratic-equations-0008
+    approved: true
+    lesson: lesson-algebra-quadratic-methods-and-root-properties
+    keyPoint: 2
     type: which-is-true
     difficulty: medium
     stem: |
@@ -165,6 +189,9 @@ questions:
       The discriminant is $6^2-4(1)(9)=0$, so there is a repeated real root. The factorization is $(x+3)^2=0$, giving $x=-3$.
 
   - id: q-algebra-quadratic-equations-0009
+    approved: true
+    lesson: lesson-algebra-quadratic-methods-and-root-properties
+    keyPoint: 3
     type: direct-computation
     difficulty: medium
     stem: |
@@ -185,6 +212,9 @@ questions:
       The sum of the roots is $-b/a$. Here $b=-12$ and $a=3$, so the sum is $-(-12)/3=4$.
 
   - id: q-algebra-quadratic-equations-0010
+    approved: true
+    lesson: lesson-algebra-quadratic-methods-and-root-properties
+    keyPoint: 3
     type: direct-computation
     difficulty: medium
     stem: |
@@ -205,6 +235,9 @@ questions:
       The product of the roots is $c/a$. With $c=7$ and $a=3$, the product is $\dfrac{7}{3}$.
 
   - id: q-algebra-quadratic-equations-0011
+    approved: true
+    lesson: lesson-algebra-factoring-quadratic-equations
+    keyPoint: 2
     type: error-spotting
     difficulty: medium
     stem: |
@@ -225,6 +258,9 @@ questions:
       Equality must be preserved on both sides. Subtract $6$ to get $x^2-5x-6=0$. Factor: $(x-6)(x+1)=0$. The roots are $6$ and $-1$.
 
   - id: q-algebra-quadratic-equations-0012
+    approved: true
+    lesson: lesson-algebra-quadratic-methods-and-root-properties
+    keyPoint: 2
     type: error-spotting
     difficulty: easy
     stem: |
@@ -245,6 +281,9 @@ questions:
       Both $5^2=25$ and $(-5)^2=25$. Therefore the equation has roots $5$ and $-5$. The missing root is $x=-5$.
 
   - id: q-algebra-quadratic-equations-0013
+    approved: true
+    lesson: lesson-algebra-factoring-quadratic-equations
+    keyPoint: 1
     type: which-is-true
     difficulty: easy
     stem: |
@@ -265,6 +304,9 @@ questions:
       The factors for roots $4$ and $-4$ are $x-4$ and $x+4$. Their product is $x^2-16$. Setting it to zero gives $x^2-16=0$.
 
   - id: q-algebra-quadratic-equations-0014
+    approved: true
+    lesson: lesson-algebra-quadratic-methods-and-root-properties
+    keyPoint: 2
     type: direct-computation
     difficulty: medium
     stem: |
@@ -285,6 +327,9 @@ questions:
       Here $a=1$, $b=2$, and $c=-8$. The discriminant is $2^2-4(1)(-8)=36$. The formula gives $x=\dfrac{-2\pm6}{2}$, so the roots are $2$ and $-4$.
 
   - id: q-algebra-quadratic-equations-0015
+    approved: true
+    lesson: lesson-algebra-quadratic-methods-and-root-properties
+    keyPoint: 2
     type: which-is-true
     difficulty: medium
     stem: |
@@ -305,6 +350,9 @@ questions:
       For $x^2+x+1=0$, the discriminant is $1^2-4(1)(1)=-3$. A negative discriminant gives no real roots.
 
   - id: q-algebra-quadratic-equations-0016
+    approved: true
+    lesson: lesson-algebra-quadratic-methods-and-root-properties
+    keyPoint: 3
     type: which-is-true
     difficulty: medium
     stem: |
@@ -325,6 +373,9 @@ questions:
       The roots are $-2$ and $-3$, from $(x+2)(x+3)=0$. Both are negative. Their sum is $-5$ and product is $6$.
 
   - id: q-algebra-quadratic-equations-0017
+    approved: true
+    lesson: lesson-algebra-factoring-quadratic-equations
+    keyPoint: 1
     type: word-problem
     difficulty: medium
     stem: |
@@ -345,6 +396,9 @@ questions:
       Let the width be $w$, so the length is $w+3$. Then $w(w+3)=10$, or $w^2+3w-10=0$. Factor: $(w+5)(w-2)=0$. The positive width is $2$ cm.
 
   - id: q-algebra-quadratic-equations-0018
+    approved: true
+    lesson: lesson-algebra-quadratic-methods-and-root-properties
+    keyPoint: 2
     type: direct-computation
     difficulty: hard
     stem: |
@@ -365,6 +419,8 @@ questions:
       Exactly one real root requires a zero discriminant. Here $D=k^2-4(1)(9)=k^2-36$. Set it to zero: $k^2=36$. Thus $k=6$ or $k=-6$.
 
   - id: q-algebra-quadratic-equations-0019
+    lesson: lesson-algebra-quadratic-methods-and-root-properties
+    keyPoint: 1
     type: direct-computation
     difficulty: hard
     stem: |
@@ -383,9 +439,11 @@ questions:
           This halves the original coefficient eight before normalizing the leading coefficient. That gives a familiar square pattern. Check that the coefficient of $x^2$ is one first.
     explanation: |
       Divide by $2$ to get $x^2+4x=5$. Half of $4$ is $2$, and its square is $4$. Add $4$ to both sides to get $(x+2)^2=9$.
-    approved: false
+    approved: true
 
   - id: q-algebra-quadratic-equations-0020
+    lesson: lesson-algebra-quadratic-methods-and-root-properties
+    keyPoint: 3
     type: direct-computation
     difficulty: exam
     stem: |
@@ -404,4 +462,4 @@ questions:
           This reverses the quotient of root sum and product. Both required quantities are used. Check the numerator in $\dfrac{r+s}{rs}$.
     explanation: |
       Vieta’s formulas give $r+s=3$ and $rs=\dfrac{1}{2}$. Since the product is nonzero, add the reciprocals as $\dfrac{r+s}{rs}$. This is $3\div\dfrac{1}{2}=6$.
-    approved: false
+    approved: true

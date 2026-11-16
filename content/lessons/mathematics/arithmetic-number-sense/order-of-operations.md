@@ -6,6 +6,11 @@ subject: "subject-mathematics"
 topic: "topic-arithmetic-number-sense"
 estimatedMinutes: 10
 isActive: true
+status: retired
+replacedBy:
+  - lesson-arithmetic-number-sense-operation-priority-and-left-to-right
+  - lesson-arithmetic-number-sense-signed-integers-and-substitution
+  - lesson-arithmetic-number-sense-grouping-and-fraction-bars
 ---
 ## Core Concept
 

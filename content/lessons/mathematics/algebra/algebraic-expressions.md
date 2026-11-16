@@ -6,6 +6,11 @@ subject: "subject-mathematics"
 topic: "topic-algebra"
 estimatedMinutes: 12
 isActive: true
+status: retired
+replacedBy:
+  - lesson-algebra-translating-algebraic-phrases
+  - lesson-algebra-rates-and-consecutive-integers
+  - lesson-algebra-simplifying-and-evaluating-expressions
 ---
 ## Core Concept
 

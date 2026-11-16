@@ -5,6 +5,9 @@ meta:
   exams: [upcat, acet, dlsucet, pupcet, cse-pro, cse-sub]
 questions:
   - id: q-arithmetic-number-sense-order-of-operations-0001
+    approved: true
+    lesson: lesson-arithmetic-number-sense-operation-priority-and-left-to-right
+    keyPoint: 1
     type: direct-computation
     difficulty: easy
     stem: |
@@ -25,6 +28,9 @@ questions:
       Multiplication and division have equal priority. Work from left to right: $18\div3=6$, then $6(2)=12$.
 
   - id: q-arithmetic-number-sense-order-of-operations-0002
+    approved: true
+    lesson: lesson-arithmetic-number-sense-operation-priority-and-left-to-right
+    keyPoint: 1
     type: direct-computation
     difficulty: easy
     stem: |
@@ -45,6 +51,9 @@ questions:
       Addition and subtraction have equal priority. Work from left to right: $15-5=10$, then $10+4=14$.
 
   - id: q-arithmetic-number-sense-order-of-operations-0003
+    approved: true
+    lesson: lesson-arithmetic-number-sense-signed-integers-and-substitution
+    keyPoint: 2
     type: direct-computation
     difficulty: easy
     stem: |
@@ -65,6 +74,9 @@ questions:
       The power in $-4^2$ applies to $4$ first, giving $-(16)=-16$. Parentheses make the base of $(-3)^2$ negative, so its value is $9$. Add: $-16+9=-7$.
 
   - id: q-arithmetic-number-sense-order-of-operations-0004
+    approved: true
+    lesson: lesson-arithmetic-number-sense-grouping-and-fraction-bars
+    keyPoint: 1
     type: direct-computation
     difficulty: easy
     stem: |
@@ -85,6 +97,9 @@ questions:
       Evaluate the parentheses: $8-3=5$. Square next: $5^2=25$. Multiply last: $4(25)=100$.
 
   - id: q-arithmetic-number-sense-order-of-operations-0005
+    approved: true
+    lesson: lesson-arithmetic-number-sense-operation-priority-and-left-to-right
+    keyPoint: 1
     type: direct-computation
     difficulty: medium
     stem: |
@@ -105,6 +120,9 @@ questions:
       Work from left to right. First $24\div6=4$, then $4(2)=8$, and finally $8\div4=2$.
 
   - id: q-arithmetic-number-sense-order-of-operations-0006
+    approved: true
+    lesson: lesson-arithmetic-number-sense-operation-priority-and-left-to-right
+    keyPoint: 1
     type: error-spotting
     difficulty: medium
     stem: |
@@ -131,6 +149,9 @@ questions:
       Step 1 changes $-8+5$ into $-13$. The signs require $-8+5=-3$. Addition and subtraction share priority, so starting with $20-8$ also gives a valid first step. The first error is Step 1.
 
   - id: q-arithmetic-number-sense-order-of-operations-0007
+    approved: true
+    lesson: lesson-arithmetic-number-sense-operation-priority-and-left-to-right
+    keyPoint: 1
     type: which-is-true
     difficulty: medium
     stem: |
@@ -151,6 +172,9 @@ questions:
       For addition and subtraction at the same priority, work from left to right. Subtract $12$ from $30$ to get $18$, subtract $6$ to get $12$, and add $9$ to get $21$.
 
   - id: q-arithmetic-number-sense-order-of-operations-0008
+    approved: true
+    lesson: lesson-arithmetic-number-sense-signed-integers-and-substitution
+    keyPoint: 2
     type: direct-computation
     difficulty: medium
     stem: |
@@ -171,6 +195,9 @@ questions:
       Substitute inside parentheses: $2(-2)^2-3(-2)(3)+3^2$. The three terms are $8$, $18$, and $9$. Their sum is $8+18+9=35$.
 
   - id: q-arithmetic-number-sense-order-of-operations-0009
+    approved: true
+    lesson: lesson-arithmetic-number-sense-grouping-and-fraction-bars
+    keyPoint: 2
     type: direct-computation
     difficulty: medium
     stem: |
@@ -191,6 +218,9 @@ questions:
       The fraction bar groups both parts. The numerator is $4^2+6(2)=16+12=28$. The denominator is $10-3(2)=10-6=4$. Divide: $\dfrac{28}{4}=7$.
 
   - id: q-arithmetic-number-sense-order-of-operations-0010
+    approved: true
+    lesson: lesson-arithmetic-number-sense-operation-priority-and-left-to-right
+    keyPoint: 1
     type: error-spotting
     difficulty: hard
     stem: |
@@ -218,6 +248,9 @@ questions:
       Multiplication and division share priority. The chain starts with $36\div4=9$, followed by $9(3)=27$. Step 1 groups the last multiplication ahead of that division and changes the value. It is the first error.
 
   - id: q-arithmetic-number-sense-order-of-operations-0011
+    approved: true
+    lesson: lesson-arithmetic-number-sense-grouping-and-fraction-bars
+    keyPoint: 1
     type: direct-computation
     difficulty: hard
     stem: |
@@ -238,6 +271,9 @@ questions:
       The inner parentheses give $4-7=-3$, whose square is $9$. The bracket is $3+2(9)=21$. Multiply to get $2(21)=42$. Subtract last: $50-42=8$.
 
   - id: q-arithmetic-number-sense-order-of-operations-0012
+    approved: true
+    lesson: lesson-arithmetic-number-sense-grouping-and-fraction-bars
+    keyPoint: 2
     type: direct-computation
     difficulty: hard
     stem: |
@@ -258,6 +294,9 @@ questions:
       The juice sales add $12(15)=180$ pesos. After the ice purchase, the cash is $500+180-80=600$ pesos. Marco and two siblings make three people. Each gets $600\div3=200$ pesos.
 
   - id: q-arithmetic-number-sense-order-of-operations-0013
+    approved: true
+    lesson: lesson-arithmetic-number-sense-signed-integers-and-substitution
+    keyPoint: 2
     type: direct-computation
     difficulty: hard
     stem: |
@@ -278,6 +317,9 @@ questions:
       The numerator is $-(-3)^2+2(-3)(2)=-9-12=-21$. The denominator is $(-3+2)^3=(-1)^3=-1$. Divide: $\dfrac{-21}{-1}=21$.
 
   - id: q-arithmetic-number-sense-order-of-operations-0014
+    approved: true
+    lesson: lesson-arithmetic-number-sense-grouping-and-fraction-bars
+    keyPoint: 2
     type: direct-computation
     difficulty: exam
     stem: |
@@ -298,6 +340,9 @@ questions:
       The numerator is $2^4-4(5-8)^2=16-4(9)=-20$. In the denominator, $18\div3\times2=6(2)=12$, and $2^3=8$. The denominator is $12-8=4$. The quotient is $\dfrac{-20}{4}=-5$.
 
   - id: q-arithmetic-number-sense-order-of-operations-0015
+    approved: true
+    lesson: lesson-arithmetic-number-sense-grouping-and-fraction-bars
+    keyPoint: 2
     type: word-problem
     difficulty: exam
     stem: |
@@ -318,6 +363,8 @@ questions:
       Add the starting cash and both fare totals, then subtract fuel: $350+24(13)+10(10)-400$. This whole balance is split into two equal parts, so divide the grouped balance by $2$.
 
   - id: q-arithmetic-number-sense-order-of-operations-0016
+    lesson: lesson-arithmetic-number-sense-operation-priority-and-left-to-right
+    keyPoint: 2
     type: direct-computation
     difficulty: easy
     stem: |
@@ -336,9 +383,11 @@ questions:
           This adds seven and two before cubing. Both terms are visible before the exponent. Check which base the exponent belongs to.
     explanation: |
       The square root is $7$, and the power is $8$. Add them: $7+8=15$.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-order-of-operations-0017
+    lesson: lesson-arithmetic-number-sense-grouping-and-fraction-bars
+    keyPoint: 1
     type: error-spotting
     difficulty: medium
     stem: |
@@ -357,9 +406,11 @@ questions:
           This treats the outside three as part of the squared base. The numbers are written next to each other. Check the scope of the exponent.
     explanation: |
       Step 2 multiplies $3$ by $6$ before squaring $6$. The exponent applies only to the parenthesized base. The square must be evaluated before multiplication by the outside $3$.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-order-of-operations-0018
+    lesson: lesson-arithmetic-number-sense-grouping-and-fraction-bars
+    keyPoint: 2
     type: which-is-true
     difficulty: medium
     stem: |
@@ -378,9 +429,11 @@ questions:
           This reports the value of $A$ as the sum of both values. Six is a correct intermediate result. Check that both values belong in the sum.
     explanation: |
       The fraction bar groups $6+2$ in $A$, so $A=48\div8=6$. In $B$, divide before adding: $B=8+2=10$. Therefore $A<B$.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-order-of-operations-0019
+    lesson: lesson-arithmetic-number-sense-operation-priority-and-left-to-right
+    keyPoint: 1
     type: which-is-true
     difficulty: hard
     stem: |
@@ -399,9 +452,11 @@ questions:
           This applies left-to-right evaluation across different priority levels. The rule does apply within a level. Check higher-priority operations first.
     explanation: |
       Multiplication and division share one priority level. Addition and subtraction share another. Within either level, work from left to right. This gives the stated rule.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-order-of-operations-0020
+    lesson: lesson-arithmetic-number-sense-grouping-and-fraction-bars
+    keyPoint: 2
     type: word-problem
     difficulty: exam
     stem: |
@@ -420,4 +475,27 @@ questions:
           This reports the combined discounted bill. That total is a correct intermediate result. Check that three students share it.
     explanation: |
       The notebooks cost $4(35)=140$ pesos, and the pens cost $2(20)=40$ pesos. The coupon leaves $140+40-30=150$ pesos. Each of three students pays $150\div3=50$ pesos.
-    approved: false
+    approved: true
+
+  - id: q-arithmetic-number-sense-order-of-operations-0021
+    approved: true
+    lesson: lesson-arithmetic-number-sense-signed-integers-and-substitution
+    keyPoint: 1
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      Evaluate $-28\div7-3(-5)+(-6)$.
+    choices:
+      - text: '$5$'
+        correct: true
+      - text: '$-25$'
+        rationale: |
+          This subtracts fifteen instead of subtracting negative fifteen. The product has one negative factor. Check its sign before subtracting.
+      - text: '$17$'
+        rationale: |
+          This changes the final negative six to positive six. Adding a negative means subtracting its magnitude. Keep the sign of the final term.
+      - text: '$13$'
+        rationale: |
+          This makes negative twenty-eight divided by seven positive. Different signs give a negative quotient. Check the first operation.
+    explanation: |
+      Divide and multiply first: $-28\div7=-4$ and $3(-5)=-15$. Then $-4-(-15)+(-6)=-4+15-6=5$.

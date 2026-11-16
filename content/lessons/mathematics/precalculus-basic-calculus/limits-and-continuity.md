@@ -17,7 +17,7 @@ A limit is determined by nearby values, so it can exist even when $f(a)$ is unde
 
 ### Direct substitution
 
-For functions known to be continuous at $a$—such as polynomials, and rational functions whose denominator is nonzero there—direct substitution gives the limit:
+For functions known to be continuous at $a$, such as polynomials, and rational functions whose denominator is nonzero there, direct substitution gives the limit:
 
 $$\lim_{x\to a}f(x)=f(a)$$
 
