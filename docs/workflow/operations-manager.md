@@ -43,6 +43,9 @@ subagents. In the T3 sidebar, a worker shows as a child of its lead.
 - Own their lane end to end: plan, brief workers, review every result, merge, log to main.
 - Follow WORKFLOW.md and `orchestrator.md` inside the lane.
 - Report to the manager, then end their turn and wait.
+- When another lead asks for something (a token, a deploy, a fix), send the answer to that lead's
+  thread with `t3_thread_send`. A reply left in your own thread wakes no one: on Nov 16 a lead sat
+  idle twice waiting for a staging token that was already ready.
 - Only one lead is the integrator. It alone merges into the release line and main.
 
 **Workers**
