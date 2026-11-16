@@ -151,6 +151,9 @@ These are Aedwon's standing instructions. They apply until he changes them.
   users"). Testing, staging, scheduled jobs, secrets and every other fixed item stay inside the free
   tiers, counted per billing account. Before relaying or approving any change that adds such an
   item, ask the lead for its free-tier count. Written rule 7 in `process-improvement.md`.
+- Route new problems to a fresh lead (Nov 16 entry in `process-improvement.md`). Before sending a new
+  task, check the target thread's item count. If the task is outside that lead's lane, or the thread
+  has more than 1,000 items, launch a fresh lead. Say the routing reason in one line to Aedwon.
 - Act in his interest without being asked (Aedwon, Nov 15: "do your job more proactively. it should be
   in my best interests always. that includes my interests for peak user experience decisions"). At
   takeover, at each scheduled event, and at least daily while lanes run, sweep cost, users and dates,

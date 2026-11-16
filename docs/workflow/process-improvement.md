@@ -112,6 +112,17 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### New problem routed to an overloaded lead thread (Nov 16)
+
+- His words: "question, you gave it to DS4 completion, a really long thread filled with other problems, why?", then "it has already sent its context and used up usage for it, so new thing would be a waste", then "?? that's it? no process improvement? can you not sense you've done wrong here"
+- Wrong: the manager sent the phone scroll-jank investigation to the DS4 completion lead. That thread already held about 1,800 items across unrelated work: components, screen counts and the sync loop. The manager picked it because it was idle and had touched web performance, not because it owned scroll performance or had room. A long thread gets compacted, so old detail drops and attention is split, and moving the task after it starts wastes the usage already spent. Then, when Aedwon questioned it, the manager answered without writing this entry, which this file requires in the same turn.
+- Why it got through: the routing step asked only "who is free and has touched this?" It never asked whether the problem was new, or whether the target thread was already long. The rule to write an entry when he sounds frustrated was not applied to questions about the manager's own choices.
+- Fix (a required step for the operations manager, before sending any new task to a lead):
+  1. Read the target thread's item count, which the thread list shows.
+  2. If the task is a new problem outside that lead's current lane, or the thread has more than 1,000 items, launch a fresh lead for it with a full brief. Use the existing lead only when it owns that exact code and is under the limit. Launching leads per lane is the manager's job (operations-manager.md); it does not wait for Aedwon.
+  3. State the routing reason in one line in the reply to Aedwon, so he can object before usage is spent.
+  4. When Aedwon questions a manager decision with a "why", treat it as a correction: write the entry here in the same turn, before answering.
+
 ### Beta extension email drafts too long and too formal (Nov 15)
 
 - His words: "but i think now it's too long. same cuts, unnecessary info out", "i think this is too long. make it more concise, too many words here.", "\"The Pantas team\" is this in other emails we sent? if not, remove it", "tsk terrible", then he wrote the email himself.
