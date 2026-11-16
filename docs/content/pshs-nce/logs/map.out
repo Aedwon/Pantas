@@ -1,0 +1,23 @@
+| Test | Covered | Partial | Missing |
+| --- | ---: | ---: | ---: |
+| II: Verbal | 21 | 9 | 0 |
+| III: Science | 17 | 3 | 0 |
+| IV: Abstract | 7 | 9 | 4 |
+| **Total** | **45** | **21** | **4** |
+
+Saved all 70 mappings in [map.jsonl](docs/content/pshs-nce/map.jsonl). The full findings are in [map-summary.md](docs/content/pshs-nce/map-summary.md).
+
+One new lesson would cover the missing method:
+
+- **Overlapping Shapes and Dot Placement:** preserve inside/outside relationships across rearranged diagrams, including multiple dots and boundaries. Items IV-13–IV-16.
+
+The partial methods fit additions to existing lessons:
+
+- **Vocabulary and spelling:** inoculate, subversive, and two idiom meanings. II-1, II-4, II-20, II-21.
+- **Grammar and punctuation:** interrupted dialogue, companionship, preposition combinations, and verbs after “did not.” II-10, II-13, II-14, II-16.
+- **Figure Grouping:** closed solids versus open surfaces and relationships between counts. IV-5, IV-6, IV-8.
+- **Figure Matrices:** rotated pattern pieces, one-of-each rules, and fill exchange. IV-10–IV-12, IV-18.
+- **Mental Rotation and Word Analogies:** flat-to-solid relationships and triangular-prism nets. II-8, IV-17, IV-19.
+- **Existing science topics:** phase-diagram boundaries in Matter, latitude comparisons in Weather and Climate, and mangrove protection of reefs in Ecology. III-10, III-12, III-15.
+
+Verified 70 unique items, valid lesson IDs, and all 25 gaps represented in the summary.
