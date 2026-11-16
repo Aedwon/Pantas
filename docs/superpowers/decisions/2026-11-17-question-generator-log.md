@@ -111,4 +111,38 @@ Recommendation: C.
 
 Question 2 asked: does "nearly never" meet the goal, or must it be strict?
 
+Aedwon's answer, exact words: "okay with your reco
+
+do you recommend being strict with never?"
+
+## November 17, 2026: option C chosen; strictness
+
+Decision: option C. Pre-made pools first; live generation in the app later with
+the same engine, only if real use shows students finish a pool. This is a design
+choice, not approval to build.
+
+His question: "do you recommend being strict with never?"
+
+Lead's answer: no, not at the start. Reasons given:
+
+- Strict needs live generation (option B), about twice the build, before any gated
+  exam can sell.
+- Pools can be refilled. The same engine can add another batch of new figures in a
+  content update, so a pool can stay ahead of the heaviest student without option B.
+- The app can measure how far each student is through each pool. That figure comes
+  from the student's own use, so it meets the rule against invented figures.
+
+Rule proposed in place of strict: inside a pool, no figure set returns while an
+unseen one remains. If a student finishes a pool, the oldest seen questions return
+first. The pool size per problem type is set in the spec. A refill, or option B, is
+triggered when real students approach the end of a pool; the spec sets the exact
+trigger.
+
+Question 3 asked (scope): abstract reasoning only first, or also number-based
+questions for CSE math in the same build. Recommendation: abstract reasoning only.
+It is the sale gate and matches his success test, which names figures. Number
+questions are a separate set of templates, and the beta has given no evidence yet
+that CSE students notice repeats. Cost of adding them now: about 3 to 5 more days
+and a second audit.
+
 Aedwon's answer: pending.
