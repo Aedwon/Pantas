@@ -258,4 +258,49 @@ UI. A second, small UI spec covers showing figure choices, after the beta, with
 boards. Pools made now work with both, so nothing is generated twice. Figure
 choices become part of the sale gate for PSHS-NCE and the academy exams.
 
-Aedwon's answer: pending.
+Aedwon's answer to question 5: pending. He went back to the repeat rule first (next entry).
+
+## November 17, 2026: every problem type first, then repeats
+
+Aedwon's exact words: "wait a sec, backtrack
+
+let me know what you think of this idea
+
+while it is allowed for a user to meet the same problem type again with new numbers, it would be ideal if all types of question be encountered first before encounters of the same prob with different figures, if that makes sense"
+
+This is a study-method question (practice order), so `WORKFLOW.md` has evidence
+decide it. The lead checked sources in this session.
+
+Evidence:
+
+- Rohrer, Dedrick and Stershic (2015), Journal of Educational Psychology 107,
+  900-908, doi 10.1037/edu0000001. 126 seventh graders, same problems, mixed order
+  against one type at a time. Mixed order scored higher on a test 1 day later
+  (d about 0.42) and 30 days later (d about 0.79).
+- Rohrer, Dedrick, Hartwig and Cheung (2020), Journal of Educational Psychology
+  112(1), 40-52, doi 10.1037/edu0000367. Randomized by class: 54 seventh-grade
+  classes, 787 students. On an unannounced test a month later, mixed practice
+  scored 61% against 38% (d = 0.83).
+- Strength: good for "mix problem types in math practice" (two classroom studies,
+  one randomized). Limits: one grade, one district, math only. Neither study
+  tested "every type once before any type twice" as such; that step is the lead's
+  inference. Figures read from search summaries of the papers, not the full texts.
+- Sources read: https://ies.ed.gov/use-work/awards/interleaved-mathematics-practice
+  and https://ies.ed.gov/ncee/wwc/Study/88770 and
+  https://zendy.io/pdf-viewer/10.1037/edu0000367
+
+Lead ruling (evidence agrees with his idea): adopt it, for math and for figures,
+with two additions.
+
+1. The rule, stated for any practice scope: among the lessons a session draws
+   from, the problem type the student has seen least comes first. So every type is
+   met once before any type is met twice, then twice before three times.
+2. A missed type does not wait. A new version of it (new numbers or new figures)
+   comes back through review on its normal schedule, even if other types are still
+   unseen. Reason: practice after an error should not be delayed behind unrelated
+   new material. Sources for this point are still to be confirmed before the spec.
+
+Costs stated: every question needs a problem type label. Generated questions get
+it from their template. The hand-written questions need one each, set when the
+templates for their lesson are written. The app's question picking order changes
+(no screen change): rough 1 to 2 days with tests, on top of the engine.
