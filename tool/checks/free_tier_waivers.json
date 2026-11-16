@@ -1,10 +1,5 @@
 {
-  "_about": "Dated exceptions for tool/checks/free_tier.mjs. Each one has an end date and a ceiling that cannot rise. Remove an entry when its fix lands.",
-  "secrets": {
-    "ceiling": 16,
-    "expires": "2026-11-24",
-    "reference": "Fable 5.2 rule 7 ruling 1"
-  },
+  "_about": "Dated exceptions for tool/checks/free_tier.mjs. Each one has an end date and a ceiling that cannot rise. Remove an entry when its fix lands. The secrets waiver (ceiling 16, Nov 24) is gone: the code reads one secret per project.",
   "warmup": {
     "endsAt": "2026-11-24T00:00:00+08:00",
     "reference": "Fable 5.2 rule 7 ruling 3"

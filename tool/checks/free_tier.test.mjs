@@ -4,7 +4,7 @@ import {execFileSync} from 'node:child_process';
 import {existsSync, readFileSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import test from 'node:test';
-import {checkCeilingNeverRises, discoverAll, evaluate, listScannedFiles, loadWaivers, parseEnv, scanFirebaseFetches} from './free_tier.mjs';
+import {checkCeilingNeverRises, discoverAll, evaluate, listScannedFiles, loadWaivers, parseEnv, readWarmupEndInCode, scanFirebaseFetches} from './free_tier.mjs';
 
 const root = fileURLToPath(new URL('../..', import.meta.url));
 const waivers = loadWaivers(root);
@@ -15,6 +15,7 @@ const jobs = (n) => Array.from({length: n}, (_, i) => endpoint(`job${i}`, 'every
 const secrets = (n) => Array.from({length: n}, (_, i) => `SECRET_${i}`);
 const project = (over = {}) => ({endpoints: [endpoint('callable')], secrets: [], env: {}, ...over});
 const run = (projects, over = {}) => evaluate({projects, waivers, now: NOW, files: [], ...over});
+const withSecretsWaiver = {...waivers, secrets: {ceiling: 16, expires: '2026-11-24', reference: 'test waiver'}};
 const clean = () => ({'pantas-prod': project(), 'pantas-staging': project()});
 
 test('the Nov 14 state (18 scheduled functions) fails the check', () => {
@@ -22,7 +23,7 @@ test('the Nov 14 state (18 scheduled functions) fails the check', () => {
   const result = evaluate({projects: fixture.projects, waivers, now: new Date(fixture.now), files: []});
   assert.equal(Object.values(fixture.projects).map((p) => p.endpoints.filter((e) => e.schedule).length).join(), '9,9');
   assert.ok(result.errors.some((e) => /scheduled functions: 18 .*limit 3/.test(e)), result.errors.join('\n'));
-  assert.ok(result.warnings.some((w) => /secrets: 16/.test(w)), 'the secrets waiver still applies');
+  assert.ok(result.errors.some((e) => /secrets: 16 .*limit 6/.test(e)), 'eight secrets on each project fail with no waiver');
 });
 
 // Scheduler step 4 (docs/superpowers/decisions/2026-10-19-pwa-launch-log.md, "Scheduler follow-up") sets
@@ -30,11 +31,13 @@ test('the Nov 14 state (18 scheduled functions) fails the check', () => {
 // schedules the nine old jobs (12 in all), and this check correctly fails on them.
 const AFTER_STEP_4 = {'pantas-prod': {LEGACY_SCHEDULES: 'off'}};
 
-test("today's config with scheduler step 4 applied passes, with the secrets waiver as a warning", () => {
+test("today's config with scheduler step 4 applied passes with no secrets waiver (2 secrets in all)", () => {
   const projects = discoverAll(root, AFTER_STEP_4);
   const result = evaluate({projects, waivers, now: NOW, files: listScannedFiles(root)});
   assert.deepEqual(result.errors, []);
-  assert.ok(result.warnings.some((w) => /secrets: 16 .*waived until 2026-11-24/.test(w)), result.warnings.join('\n'));
+  assert.deepEqual(projects['pantas-prod'].secrets, ['PANTAS_SECRETS']);
+  assert.deepEqual(projects['pantas-staging'].secrets, ['PANTAS_SECRETS']);
+  assert.equal(waivers.secrets, undefined, 'the secrets waiver is gone');
 });
 
 test('the committed config passes, or fails only on scheduled functions while prod still has LEGACY_SCHEDULES=on', () => {
@@ -61,7 +64,7 @@ test('secrets over 6 fail without a waiver, and pass with a warning inside one',
   const eight = {'pantas-prod': project({secrets: secrets(8)}), 'pantas-staging': project({secrets: secrets(8)})};
   const none = {...waivers, secrets: undefined};
   assert.match(run(eight, {waivers: none}).errors.join('\n'), /secrets: 16 .*limit 6/);
-  const ok = run(eight);
+  const ok = run(eight, {waivers: withSecretsWaiver});
   assert.deepEqual(ok.errors, []);
   assert.match(ok.warnings.join('\n'), /secrets: 16 .*waived until 2026-11-24/);
   const three = {'pantas-prod': project({secrets: secrets(3)}), 'pantas-staging': project({secrets: secrets(3)})};
@@ -70,10 +73,10 @@ test('secrets over 6 fail without a waiver, and pass with a warning inside one',
 
 test('a waiver fails when the count passes its ceiling or its date has passed', () => {
   const nine = {'pantas-prod': project({secrets: secrets(9)}), 'pantas-staging': project({secrets: secrets(8)})};
-  assert.match(run(nine).errors.join('\n'), /secrets: 17 .*ceiling 16/);
+  assert.match(run(nine, {waivers: withSecretsWaiver}).errors.join('\n'), /secrets: 17 .*ceiling 16/);
   const eight = {'pantas-prod': project({secrets: secrets(8)}), 'pantas-staging': project({secrets: secrets(8)})};
-  assert.match(run(eight, {now: new Date('2026-11-24T00:00:00+08:00')}).errors.join('\n'), /waiver expired/);
-  assert.deepEqual(run(eight, {now: new Date('2026-11-23T23:59:00+08:00')}).errors, []);
+  assert.match(run(eight, {waivers: withSecretsWaiver, now: new Date('2026-11-24T00:00:00+08:00')}).errors.join('\n'), /waiver expired/);
+  assert.deepEqual(run(eight, {waivers: withSecretsWaiver, now: new Date('2026-11-23T23:59:00+08:00')}).errors, []);
 });
 
 test('warm-up is allowed on prod only, and only before its recorded end date', () => {
@@ -84,6 +87,26 @@ test('warm-up is allowed on prod only, and only before its recorded end date', (
   assert.match(late.errors.join('\n'), /WARMUP_ENABLED.*pantas-prod.*2026-11-24/);
   const off = run({'pantas-prod': project({env: {WARMUP_ENABLED: 'false'}}), 'pantas-staging': project()}, {now: new Date('2026-12-01T00:00:00+08:00')});
   assert.deepEqual(off.errors, []);
+});
+
+test('a warm-up that stops by the recorded end date in code passes past the date; an env-only warm-up still fails', () => {
+  const on = {WARMUP_ENABLED: 'true'};
+  const prod = {'pantas-prod': project({env: on}), 'pantas-staging': project()};
+  const after = {now: new Date('2026-12-01T00:00:00+08:00')};
+  assert.deepEqual(run(prod, {...after, warmupEndsInCode: '2026-11-23T16:00:00Z'}).errors, []);
+  assert.deepEqual(run(prod, {...after, warmupEndsInCode: '2026-11-20T00:00:00Z'}).errors, []);
+  assert.match(run(prod, {...after, warmupEndsInCode: null}).errors.join('\n'), /WARMUP_ENABLED.*pantas-prod.*2026-11-24/);
+  assert.match(run(prod, {...after, warmupEndsInCode: '2026-12-31T00:00:00Z'}).errors.join('\n'), /WARMUP_ENABLED.*pantas-prod/);
+  assert.match(run(prod, {...after, warmupEndsInCode: 'not a date'}).errors.join('\n'), /WARMUP_ENABLED.*pantas-prod/);
+  // Staging stays refused whatever the code says.
+  assert.match(run({'pantas-prod': project(), 'pantas-staging': project({env: on})}, {warmupEndsInCode: '2026-11-23T16:00:00Z'}).errors.join('\n'), /WARMUP_ENABLED.*pantas-staging/);
+});
+
+test('the repository code records the warm-up end date, and it is no later than the waiver file', () => {
+  const end = readWarmupEndInCode(root);
+  assert.equal(end, '2026-11-23T16:00:00Z');
+  assert.ok(new Date(end) <= new Date(waivers.warmup.endsAt));
+  assert.equal(readWarmupEndInCode('/nonexistent'), null);
 });
 
 const file = (path, text) => ({path, text});
@@ -137,9 +160,8 @@ test('the committed waiver ceiling does not exceed the one on origin/main', (t) 
   assert.deepEqual(checkCeilingNeverRises(waivers, previous), []);
 });
 
-test('the waiver file records the secrets ceiling and the warm-up end date', () => {
-  assert.equal(waivers.secrets.ceiling, 16);
-  assert.equal(waivers.secrets.expires, '2026-11-24');
+test('the waiver file has no secrets waiver and records the warm-up end date', () => {
+  assert.equal(waivers.secrets, undefined);
   assert.equal(waivers.warmup.endsAt, '2026-11-24T00:00:00+08:00');
   assert.ok(existsSync(new URL('./fixtures/free_tier_nov14.json', import.meta.url)));
 });

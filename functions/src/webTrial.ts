@@ -1,5 +1,5 @@
 import {createHmac} from 'node:crypto';
-import {defineSecret} from 'firebase-functions/params';
+import {pantasSecrets, secret} from './_secrets.js';
 import {FieldValue, getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {getAuth, type Auth, type UserRecord} from 'firebase-admin/auth';
 import {HttpsError} from 'firebase-functions/v2/https';
@@ -13,12 +13,9 @@ import {DAY_MS, TRIAL_DAYS, TRIAL_PRODUCT, type Grant} from './grants.js';
 import {copyEntitlementClaims} from './revenuecatClaims.js';
 import {timed} from './_timed.js';
 
-export const trialIdentityKey = defineSecret('TRIAL_IDENTITY_HMAC_KEY');
-
 /** Only Firebase-verified token identities are used, never caller data. */
 export function identityMarkers(auth: Parameters<typeof assertNamedUser>[0], db: Firestore) {
-  const key = trialIdentityKey.value();
-  if (!key) throw new HttpsError('failed-precondition', 'Trial eligibility is unavailable.');
+  const key = secret('TRIAL_IDENTITY_HMAC_KEY');
   const provider = auth?.token.firebase?.sign_in_provider;
   const identities = auth?.token.firebase?.identities as Record<string, unknown> | undefined;
   // Both forms: the raw one keeps trials recorded before aliases were merged blocking, and the
@@ -61,8 +58,7 @@ const markerRefs = (db: Firestore, key: string, values: string[]) =>
  * nothing when the record holds no verified identity (the callable refuses that case instead).
  */
 export function identityMarkersForUser(user: Pick<UserRecord, 'email' | 'emailVerified' | 'providerData'>, db: Firestore) {
-  const key = trialIdentityKey.value();
-  if (!key) throw new HttpsError('failed-precondition', 'Trial eligibility is unavailable.');
+  const key = secret('TRIAL_IDENTITY_HMAC_KEY');
   const values: string[] = [];
   if (user.emailVerified && typeof user.email === 'string') {
     values.push(...[user.email.toLowerCase(), canonicalEmail(user.email)].map(email => JSON.stringify(['email', email])));
@@ -141,7 +137,7 @@ export async function startTrial(auth: Parameters<typeof assertNamedUser>[0], de
 }
 
 export const startWebTrial = onCall(
-  {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck, secrets: [trialIdentityKey]},
+  {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck, secrets: [pantasSecrets]},
   timed('startWebTrial', request => {
     assertFreshAppCheck(request);
     return startTrial(request.auth, {db: getFirestore(), auth: getAuth()});

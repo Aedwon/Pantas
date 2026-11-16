@@ -3,6 +3,11 @@ import { defineBoolean } from 'firebase-functions/params';
 import { onSchedule } from 'firebase-functions/v2/scheduler';
 
 const warmupEnabled = defineBoolean('WARMUP_ENABLED', { default: false });
+/**
+ * The warm-up stops here whatever WARMUP_ENABLED says (Fable 5.2 rule 7 ruling 3): Nov 24, 2026
+ * 00:00 in Manila. Past it, the 5-minute pings are a cost with no beta to serve.
+ */
+export const WARMUP_ENDS_AT = '2026-11-23T16:00:00Z';
 const targets = [
   'getBetaAccess', 'getRoadmap', 'setExamSettings', 'getWebEntitlement',
   'getMockAvailability', 'getStudyInsights', 'getContent',
@@ -37,8 +42,12 @@ export async function warmCallables(
 }
 
 /** The whole warm-up task, for the combined five-minute job and the manual runner. */
-export async function runKeepCallablesWarm(): Promise<void> {
-  await warmCallables(warmupEnabled.value(), process.env.GCLOUD_PROJECT);
+export async function runKeepCallablesWarm(options: {
+  enabled?: boolean; now?: number; project?: string | undefined; fetcher?: typeof fetch;
+} = {}): Promise<void> {
+  const now = options.now ?? Date.now();
+  if (now >= Date.parse(WARMUP_ENDS_AT)) return;
+  await warmCallables(options.enabled ?? warmupEnabled.value(), 'project' in options ? options.project : process.env.GCLOUD_PROJECT, options.fetcher);
 }
 
 export const keepCallablesWarm = onSchedule(

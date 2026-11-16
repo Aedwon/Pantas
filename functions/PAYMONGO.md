@@ -111,7 +111,7 @@ Refund resource: https://docs.paymongo.com/reference/refund-resource.md.
 
 ## Configuration
 
-Secrets: `PAYMONGO_SECRET_KEY`, `PAYMONGO_WEBHOOK_SECRET`. Test mode vs live mode is taken from the
+Secrets: the keys `PAYMONGO_SECRET_KEY` and `PAYMONGO_WEBHOOK_SECRET` inside the one `PANTAS_SECRETS` secret (`docs/secrets-merge.md`). Test mode vs live mode is taken from the
 secret key prefix (`sk_live_` means live). An event whose `livemode` differs from that mode is
 acknowledged and ignored. The webhook URL to register is the `paymongoWebhook` function
 (region asia-southeast1) with the event types `checkout_session.payment.paid`, `refund.succeeded`,

@@ -522,7 +522,7 @@ test('the callable is deployed with App Check, a used-once token and the timing 
   assert.match(source, /consumeAppCheckToken: enforceAppCheck/);
   assert.match(source, /timed\('exchangeGoogleSignIn'/);
   assert.match(source, /defineString\('GOOGLE_WEB_CLIENT_ID'/);
-  assert.match(source, /secrets: \[signInCodeKey\]/);
+  assert.match(source, /secrets: \[pantasSecrets\]/);
   const index = readFileSync(new URL('../src/index.ts', import.meta.url), 'utf8');
   assert.match(index, /exchangeGoogleSignIn[^;]*from '\.\/googleSignIn\.js'/);
 });

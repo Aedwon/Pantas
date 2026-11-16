@@ -5,7 +5,7 @@ import {onAccountCall as onCall} from './_accountAccess.js';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import { assertNamedUser } from './_audit.js';
 import { deleteUserData } from './deleteUserData.js';
-import { trialIdentityKey } from './webTrial.js';
+import {pantasSecrets} from './_secrets.js';
 import { ACCOUNT_DELETION_MAX_INSTANCES } from './_options.js';
 import {timed} from './_timed.js';
 
@@ -15,7 +15,7 @@ export const deleteAccount = onCall(
     maxInstances: ACCOUNT_DELETION_MAX_INSTANCES,
     enforceAppCheck: enforceAppCheck,
     consumeAppCheckToken: enforceAppCheck,
-    secrets: [trialIdentityKey],
+    secrets: [pantasSecrets],
   },
   timed('deleteAccount', async (request) => {
     assertFreshAppCheck(request);

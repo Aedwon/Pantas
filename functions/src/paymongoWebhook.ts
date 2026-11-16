@@ -1,6 +1,6 @@
 import {FieldValue, Timestamp, getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {getAuth, type Auth} from 'firebase-admin/auth';
-import {defineSecret} from 'firebase-functions/params';
+import {pantasSecrets, secret} from './_secrets.js';
 import {onRequest} from 'firebase-functions/v2/https';
 import {copyEntitlementClaims} from './revenuecatClaims.js';
 import {isUnresolvedFirebaseIdentityError, requireExactRevenueCatRawBody} from './revenuecatPolicy.js';
@@ -10,8 +10,6 @@ import {httpPaymongoClient, type PaymongoClient} from './paymongoClient.js';
 import {normalizePaymongoEvent, priceCentavos, verifyPaymongoSignature, webProduct} from './paymongoPolicy.js';
 import {WEBHOOK_MAX_INSTANCES} from './_options.js';
 
-const secretKey = defineSecret('PAYMONGO_SECRET_KEY');
-const webhookSecret = defineSecret('PAYMONGO_WEBHOOK_SECRET');
 const MAX_EVENTS_PER_MINUTE = 30;
 const PAID = 'checkout_session.payment.paid';
 // Refund names appear on two documentation pages: `refund.succeeded` (events page) and
@@ -231,13 +229,13 @@ async function copyIfPending(deps: PaymongoWebhookDeps, uid: string) {
   }
 }
 
-export const paymongoWebhook = onRequest({region: 'asia-southeast1', maxInstances: WEBHOOK_MAX_INSTANCES, secrets: [secretKey, webhookSecret]},
+export const paymongoWebhook = onRequest({region: 'asia-southeast1', maxInstances: WEBHOOK_MAX_INSTANCES, secrets: [pantasSecrets]},
   async (req, res) => {
     if (req.method !== 'POST') {res.status(405).json({ok: false}); return;}
-    const key = secretKey.value();
+    const key = secret('PAYMONGO_SECRET_KEY');
     const status = await handlePaymongoWebhook(req.rawBody, req.header('paymongo-signature') ?? '', {
       db: getFirestore(), auth: getAuth(), client: httpPaymongoClient(key),
-      signingSecret: webhookSecret.value(), livemode: key.startsWith('sk_live_'),
+      signingSecret: secret('PAYMONGO_WEBHOOK_SECRET'), livemode: key.startsWith('sk_live_'),
     });
     res.status(status).json({ok: status === 200});
   });

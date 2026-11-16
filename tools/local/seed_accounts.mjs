@@ -21,7 +21,7 @@ const password = 'Local-visual-check-123!';
 for (const name of ['free', 'pro', 'free2', 'pro2']) {
   await auth.createUser({uid: `local-${name}`, email: `${name}@pantas.local`, password, emailVerified: true});
 }
-process.env.TRIAL_IDENTITY_HMAC_KEY = 'local-emulator-only-not-a-secret';
+process.env.PANTAS_SECRETS = JSON.stringify({TRIAL_IDENTITY_HMAC_KEY: 'local-emulator-only-not-a-secret'});
 const {startTrial} = require(resolve('functions/lib/webTrial.js'));
 for (const name of ['pro', 'pro2']) {
   await startTrial({uid: `local-${name}`, token: {email: `${name}@pantas.local`, email_verified: true,

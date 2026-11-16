@@ -1,3 +1,4 @@
+import {setTestSecrets} from './_secrets-helper.mjs';
 import '../lib/index.js';
 import assert from 'node:assert/strict';
 import test from 'node:test';
@@ -10,7 +11,7 @@ import * as inactive from '../lib/purgeInactiveAccounts.js';
 import {identityMarkers} from '../lib/webTrial.js';
 
 // Local emulator fixture only. Production requires the provisioned Functions secret.
-process.env.TRIAL_IDENTITY_HMAC_KEY = 'manage-emulator-only-hmac-key';
+setTestSecrets({TRIAL_IDENTITY_HMAC_KEY: 'manage-emulator-only-hmac-key'});
 
 assert.equal(process.env.GCLOUD_PROJECT, 'demo-pantas-test');
 const db = getFirestore();

@@ -1,6 +1,6 @@
 import { getFirestore, Timestamp, type Firestore } from 'firebase-admin/firestore';
 import { getAuth, type Auth } from 'firebase-admin/auth';
-import { defineSecret } from 'firebase-functions/params';
+import {pantasSecrets, secret} from './_secrets.js';
 import { onRequest } from 'firebase-functions/v2/https';
 import { onSchedule } from 'firebase-functions/v2/scheduler';
 import { commitRevenueCatAnswer, copyEntitlementClaims, repairClaims, checkRecentClaims } from './revenuecatClaims.js';
@@ -14,8 +14,6 @@ import {preparePassReconciliation, examCatalog, type CatalogExam, type Pass} fro
 import {WEBHOOK_MAX_INSTANCES} from './_options.js';
 export { verifyRevenueCatSignature } from './revenuecatPolicy.js';
 
-const apiSecret = defineSecret('REVENUECAT_SECRET_API_KEY');
-const signingSecret = defineSecret('REVENUECAT_WEBHOOK_SECRET');
 const MAX_EVENTS_PER_MINUTE = 30;
 
 type Dependencies = {db: Firestore; auth: Pick<Auth,'getUser'|'setCustomUserClaims'>;
@@ -114,16 +112,16 @@ export async function reconcileWebhook(body: unknown, rawBody: unknown, signatur
   }
 }
 
-export const revenuecatWebhook = onRequest({region:'asia-southeast1', maxInstances: WEBHOOK_MAX_INSTANCES, secrets:[apiSecret, signingSecret]}, async (req,res) => {
+export const revenuecatWebhook = onRequest({region:'asia-southeast1', maxInstances: WEBHOOK_MAX_INSTANCES, secrets:[pantasSecrets]}, async (req,res) => {
   const projectId = process.env.REVENUECAT_PROJECT_ID;
   const appId = process.env.REVENUECAT_APP_ID;
   if (!projectId || !appId) {res.status(500).send('RevenueCat configuration required'); return;}
   const status = await reconcileWebhook(req.body, req.rawBody,
     req.header('x-revenuecat-webhook-signature') ?? '', {
       db:getFirestore(),auth:getAuth(),appId,
-      firebaseProjectId:process.env.GCLOUD_PROJECT ?? '', signingSecret:signingSecret.value(),
-      readCustomer:uid => readRevenueCatCustomer(projectId,uid,apiSecret.value()),
-      readPurchases:uid => readRevenueCatPurchases(projectId,uid,apiSecret.value()),
+      firebaseProjectId:process.env.GCLOUD_PROJECT ?? '', signingSecret:secret('REVENUECAT_WEBHOOK_SECRET'),
+      readCustomer:uid => readRevenueCatCustomer(projectId,uid,secret('REVENUECAT_SECRET_API_KEY')),
+      readPurchases:uid => readRevenueCatPurchases(projectId,uid,secret('REVENUECAT_SECRET_API_KEY')),
     });
   res.status(status).send(status === 200 ? 'ok' : 'reconciliation failed');
 });
