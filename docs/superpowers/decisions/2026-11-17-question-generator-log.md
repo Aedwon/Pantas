@@ -408,3 +408,35 @@ approved; his approval of the spec's plain-language section is the gate for it.
 
 Still open: question 5 (figure answer choices, split into a later screen spec),
 the build timing, and the complexity level.
+
+## November 17, 2026: figure answer choices, in a second spec
+
+Question 5, as asked again: should answer choices for figure questions be figures,
+like the real exams? A: keep text choices. B: figure choices, in two parts (this
+spec covers the engine and versions with no screen work; a second, small spec
+covers showing figure choices after the beta, with boards).
+
+Aedwon's answer, exact words: "go with your reco"
+
+Decision: B, in two parts. Each version stores every choice as figure data and as
+a text description. This spec has no screen change. A later screen spec shows
+figure choices, with boards in Claude Design and his visual approval. Figure
+choices are part of the sale gate for PSHS-NCE and the academy exams.
+
+Question 7 asked (complexity level, required by `WORKFLOW.md` before a build):
+
+- Minimal: the engine, the checker, the type-and-version model in the app and on
+  the server, and abstract reasoning only (5 lessons). Math templates wait for a
+  later batch. Check: a script proves every version has exactly one correct
+  answer; Codex audits each template once. About 8 to 12 days.
+- Balanced (recommended): minimal, plus a math pilot of 2 or 3 CSE lessons in the
+  same build, plus a blind solve of a sample of versions per template by a
+  different model, plus a measured count of how far students are through each
+  list. About 11 to 16 days. Reason: he widened the scope to math, so the build
+  should prove the engine on math before 300 to 450 templates are written, and
+  the pilot measures the cost per lesson.
+- Hardened: balanced, plus versions generated inside the app, plus a full Astra
+  audit of every template. About 3 weeks or more. Not needed while lists outlast
+  normal study.
+
+Aedwon's answer: pending. The build timing is still open after it.
