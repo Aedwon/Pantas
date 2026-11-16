@@ -1,10 +1,10 @@
 import {randomUUID, createHash} from 'node:crypto';
 import {getFirestore, type Firestore} from 'firebase-admin/firestore';
-import {defineSecret} from 'firebase-functions/params';
 import {HttpsError} from 'firebase-functions/v2/https';
 import {onAccountCall as onCall} from './_accountAccess.js';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import {assertNamedUser} from './_audit.js';
+import {paymentSecrets, secret} from './_secrets.js';
 import {GUARDIAN_DOCUMENT_VERSIONS} from './guardianConsent.js';
 import {allowAtMost} from './_limits.js';
 import type {Grant} from './grants.js';
@@ -13,7 +13,6 @@ import {priceCentavos, webProduct} from './paymongoPolicy.js';
 import {examCatalog, sittingFor, type CatalogExam, type Sitting} from './revenuecatPasses.js';
 import {timed} from './_timed.js';
 
-const secretKey = defineSecret('PAYMONGO_SECRET_KEY');
 const CHECKOUTS_PER_WINDOW = 10;
 const WINDOW_MS = 10 * 60_000;
 // Method values confirmed in PayMongo's docs. Add more (for example dob) through
@@ -122,11 +121,11 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
 }
 
 export const createPaymongoCheckout = onCall(
-  {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck, secrets: [secretKey]},
+  {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck, secrets: [paymentSecrets]},
   timed('createPaymongoCheckout', request => {
     assertFreshAppCheck(request);
     return createCheckout(request.auth, request.data, {
-      client: httpPaymongoClient(secretKey.value()), db: getFirestore(),
+      client: httpPaymongoClient(secret('PAYMONGO_SECRET_KEY')), db: getFirestore(),
       origin: process.env.PANTAS_APP_ORIGIN ?? 'https://app.pantas.study',
       methods: process.env.PAYMONGO_PAYMENT_METHODS?.split(',').map(m => m.trim()).filter(Boolean) ?? DEFAULT_METHODS,
     });

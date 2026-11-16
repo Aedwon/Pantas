@@ -1,8 +1,9 @@
+import {setTestSecrets} from './_secrets-helper.mjs';
 import {createHmac} from 'node:crypto';
 import {handlePaymongoWebhook} from '../lib/paymongoWebhook.js';
 
 // Local emulator fixture only. Production requires the provisioned Functions secret.
-process.env.TRIAL_IDENTITY_HMAC_KEY = 'payments-emulator-only-hmac-key';
+setTestSecrets({TRIAL_IDENTITY_HMAC_KEY: 'payments-emulator-only-hmac-key'});
 
 export const SECRET = 'whsec_test';
 export const ph = iso => Date.parse(iso);

@@ -3,7 +3,8 @@ import {createHash, createHmac, randomBytes, randomInt, timingSafeEqual} from 'n
 import {getAuth, type Auth, type UserRecord} from 'firebase-admin/auth';
 import {getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {logger} from 'firebase-functions/logger';
-import {defineInt, defineSecret} from 'firebase-functions/params';
+import {defineInt} from 'firebase-functions/params';
+import {appSecrets, secret} from './_secrets.js';
 import {HttpsError, type CallableRequest} from 'firebase-functions/v2/https';
 import {onAccountCall as onCall} from './_accountAccess.js';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
@@ -11,7 +12,7 @@ import {clientBucket} from './_clientAddress.js';
 import {allowAtMost} from './_limits.js';
 import {canonicalEmail} from './_email.js';
 import {phDay} from './_phDate.js';
-import {guardianMailFrom, guardianMailKey} from './guardianConsent.js';
+import {guardianMailFrom} from './guardianConsent.js';
 import {mailerFor, type GuardianMailer, type GuardianMessage} from './guardianMail.js';
 import {isSquatter, replaceSquatter, type SquatterAuth} from './_squatter.js';
 import {timed} from './_timed.js';
@@ -27,7 +28,6 @@ import {timed} from './_timed.js';
  * address}`) holds only the send limits and the list of open challenges.
  */
 
-export const signInCodeKey = defineSecret('SIGN_IN_CODE_KEY');
 /**
  * Most sign-in emails per Philippine day, in two buckets so strangers cannot use up the places that
  * selected beta testers and existing accounts need. Resend Free allows 100 a day across all mail.
@@ -486,25 +486,22 @@ export async function checkSignInCode(request: Req, deps: VerifyDeps): Promise<{
 // ------------------------------------------------------------- deployment
 
 export function key(): string {
-  const emulator = process.env.FUNCTIONS_EMULATOR === 'true';
-  const value = signInCodeKey.value() || (emulator ? 'sign-in-code-emulator-only-key' : '');
-  if (!value) throw new HttpsError('failed-precondition', 'Sign-in codes are not configured.');
-  return value;
+  return secret('SIGN_IN_CODE_KEY', {emulatorStandIn: 'sign-in-code-emulator-only-key'});
 }
 
 export const requestSignInCode = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck,
-  consumeAppCheckToken: enforceAppCheck, secrets: [signInCodeKey, guardianMailKey]}, timed('requestSignInCode', request => {
+  consumeAppCheckToken: enforceAppCheck, secrets: [appSecrets]}, timed('requestSignInCode', request => {
   assertFreshAppCheck(request);
   return sendSignInCode(request, {db: getFirestore(), auth: getAuth(), key: key(),
     openCap: signInOpenCap.value(), reservedCap: signInReservedCap.value(),
     // A held-back send skips the mail provider; match its usual 250 to 700 ms.
     pad: () => new Promise(resolve => setTimeout(resolve, 250 + randomInt(0, 450))),
     mailer: {send: message => mailerFor(process.env,
-      {apiKey: () => guardianMailKey.value(), from: () => guardianMailFrom.value()}).send(message)}});
+      {apiKey: () => secret('GUARDIAN_MAIL_API_KEY'), from: () => guardianMailFrom.value()}).send(message)}});
 }));
 
 export const verifySignInCode = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck,
-  consumeAppCheckToken: enforceAppCheck, secrets: [signInCodeKey]}, timed('verifySignInCode', request => {
+  consumeAppCheckToken: enforceAppCheck, secrets: [appSecrets]}, timed('verifySignInCode', request => {
   assertFreshAppCheck(request);
   return checkSignInCode(request, {db: getFirestore(), auth: getAuth(), key: key()});
 }));

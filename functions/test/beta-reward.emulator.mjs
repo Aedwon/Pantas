@@ -1,3 +1,4 @@
+import {setTestSecrets} from './_secrets-helper.mjs';
 import '../lib/index.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -25,6 +26,6 @@ test('queued reward claims refresh on discovery and reward grants never consume 
  assert.equal(claimAuth.current().pro,true);assert.equal(claimAuth.current().proUntil,first.endsAt);
  assert.equal((await webEntitlement(auth,db,end)).grants.filter(g=>g.source==='beta_reward').length,18);
  await db.doc(`users/${uid}/grants/paid`).delete();
- process.env.TRIAL_IDENTITY_HMAC_KEY='test-only-reward-secret';
+ setTestSecrets({TRIAL_IDENTITY_HMAC_KEY:'test-only-reward-secret'});
  assert.equal(await trialEligible(auth,db),true);
 });

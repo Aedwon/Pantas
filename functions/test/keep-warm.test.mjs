@@ -71,3 +71,22 @@ test('missing project logs once without making requests or throwing', async t =>
   assert.equal(warnings.length, 1);
   assert.equal(warnings[0].severity, 'WARNING');
 });
+
+test('warm-up stops by date in code: the end is Nov 24, 2026 00:00 in Manila', () => {
+  assert.equal(warm.WARMUP_ENDS_AT, '2026-11-23T16:00:00Z');
+  assert.equal(new Date(warm.WARMUP_ENDS_AT).toLocaleString('en-CA', {timeZone: 'Asia/Manila', hour12: false}), '2026-11-24, 00:00:00');
+});
+
+test('warm-up runs before the end date and only when enabled, and never at or after it', async () => {
+  const before = Date.parse('2026-11-23T15:59:59Z');
+  const at = Date.parse('2026-11-23T16:00:00Z');
+  const calls = [];
+  const fetcher = async url => { calls.push(url); return {ok: true, status: 204}; };
+  await warm.runKeepCallablesWarm({enabled: true, now: before, project: 'test-project', fetcher});
+  assert.equal(calls.length, names.length);
+  calls.length = 0;
+  await warm.runKeepCallablesWarm({enabled: true, now: at, project: 'test-project', fetcher});
+  await warm.runKeepCallablesWarm({enabled: true, now: Date.parse('2027-01-01T00:00:00Z'), project: 'test-project', fetcher});
+  await warm.runKeepCallablesWarm({enabled: false, now: before, project: 'test-project', fetcher});
+  assert.equal(calls.length, 0);
+});

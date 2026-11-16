@@ -24,8 +24,8 @@ test('callables enforce App Check; secrets come only from Functions secrets', ()
     assert.match(source(file), /consumeAppCheckToken: enforceAppCheck/);
     assert.match(source(file), /assertNamedUser\(auth\)/);
   }
-  assert.match(source('paymongoCheckout.ts'), /defineSecret\('PAYMONGO_SECRET_KEY'\)/);
-  assert.match(source('paymongoWebhook.ts'), /defineSecret\('PAYMONGO_WEBHOOK_SECRET'\)/);
+  assert.match(source('paymongoCheckout.ts'), /secret\('PAYMONGO_SECRET_KEY'\)/);
+  assert.match(source('paymongoWebhook.ts'), /secret\('PAYMONGO_WEBHOOK_SECRET'\)/);
   for (const file of ['paymongoCheckout.ts', 'paymongoWebhook.ts', 'paymongoClient.ts', 'paymongoPolicy.ts', 'webTrial.ts']) {
     assert.doesNotMatch(source(file), /sk_(test|live)_[A-Za-z0-9]{6,}/);
   }
