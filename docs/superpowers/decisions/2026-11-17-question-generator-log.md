@@ -64,4 +64,51 @@ no evidence on repeats yet.
 Question 1 asked: is the goal met when a student never sees a repeat in normal
 study (large pre-made pools), or must the app make each question new on the spot?
 
+Aedwon's answer, exact words: "it would be ideal if a student never re-encounters the same set of figures for a given problem type, if that makes sense. i think in some other brainstorming session about this i mentioned perhaps we need a sort of system that tags whether a question has already been seen by a user and the system must make sure that it does not serve that question again. this make sense so far?"
+
+## November 17, 2026: success test, first form
+
+Success test, in his words: "a student never re-encounters the same set of figures
+for a given problem type".
+
+What the lead took from it:
+
+- A repeat is judged by the figures, not by the question id. Two questions with the
+  same figures count as one. The generator must compare figure content and drop
+  duplicates.
+- He described this as "ideal", so whether the rule is strict or "nearly never" is
+  still open. Question 2 asks.
+
+Facts checked:
+
+- The earlier brainstorming session he mentions was not found on `origin/main` (a
+  search of `docs/` for seen-question wording). Its record is missing, so this entry
+  is the first record of the seen-question idea.
+- The app already records which questions each student has answered and serves
+  unseen questions first (adaptive roadmap engine plan, Task 6; practice picker
+  plan). Not re-read on the current code branch in this session; the spec must
+  confirm it there.
+- Today a seen question returns in review. Whether a figure question should return
+  as itself or as a new question of the same pattern is a study-method question.
+  `WORKFLOW.md` says evidence decides it, not preference. The lead will research it
+  before the spec and record the sources.
+
+Options put to him for where questions are made:
+
+A. Large pre-made pools (recommended first step). The generator runs before a
+   release, a script checks every question, and the app ships, for example, 1,000
+   per problem type. The existing seen record keeps repeats away. Cost: 4 to 6 days,
+   little app change. Limit: a student who finishes a whole pool sees old questions
+   again.
+B. Live generation in the app. Strictly never repeats. Cost: roughly 10 to 15 days,
+   because review, mistakes, progress, sync and the mock all look questions up in
+   the shipped content today and would need changes. Each question is only as
+   checked as its template.
+C. A now, B later with the same engine, only if real use shows students finish a
+   pool.
+
+Recommendation: C.
+
+Question 2 asked: does "nearly never" meet the goal, or must it be strict?
+
 Aedwon's answer: pending.
