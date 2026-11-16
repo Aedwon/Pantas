@@ -145,4 +145,48 @@ questions are a separate set of templates, and the beta has given no evidence ye
 that CSE students notice repeats. Cost of adding them now: about 3 to 5 more days
 and a second audit.
 
+Aedwon's answer, exact words: "let's expand to CSE math (honestly it won't just be CSE math, let's work towards CET and PSHS-NCE math as well). i will have a job start writing the math lessons for these exams"
+
+## November 17, 2026: scope widened to math
+
+Decision: the generator covers abstract reasoning and math. Math means CSE math
+first, working toward CET and PSHS-NCE math. He chose this against the lead's
+recommendation of abstract reasoning only. He will start a separate job to write
+the math lessons; that job is outside this session.
+
+Lead correction: the "3 to 5 more days" given with question 3 covered only the
+number engine and a first CSE batch. It does not cover the widened scope. Math
+needs one template for each question pattern in each lesson. `origin/main` holds
+46 math question sets (44 tagged for the college entrance tests, 12 for CSE, by
+the older tags; the live CSE split has more lessons). At about 7 to 10 patterns a
+lesson, that is roughly 300 to 450 templates. This is content-scale work, mostly
+Codex, and its cost per lesson is unknown until a pilot of 2 or 3 lessons measures
+it.
+
+Facts given to him about the lesson job:
+
+- CSE math lessons are final and live.
+- The CET math lessons are already rewritten on the paused CET branch
+  (`content/cet-finish-r1`; 18 mathematics lessons in the 69 rewritten). They wait
+  for the Astra audit, not for writing.
+- PSHS-NCE math is the only new writing. No official PSHS-NCE item list was found
+  (`next-exam-brief.md`: "Scientific, quantitative, abstract, verbal (2019 news,
+  secondary). Items not found"). The lesson guide forbids a claim about a specific
+  exam without a source, so that job needs a source first.
+
+Order recommended by the lead, because templates follow finished lessons:
+
+1. The engine and abstract reasoning (its lessons exist; it is the sale gate).
+2. CSE math (lessons final; the CSC sitting is March 14, 2027).
+3. CET math, after its audit.
+4. PSHS-NCE math, after its lessons exist.
+
+Question 4 asked (success test for math): for math, is a repeat "the same problem
+with the same numbers"? Under that test a student may meet the same problem type
+again with new numbers, as the figure test allows the same problem type with new
+figures. The app would space one pattern apart so a student does not get several
+in a row. Recommendation: yes. Note for the spec: the question style guide says
+variants must differ in more than swapped numbers; that rule was written for
+hand-written sets of 20 and needs a stated exception for generated pools.
+
 Aedwon's answer: pending.
