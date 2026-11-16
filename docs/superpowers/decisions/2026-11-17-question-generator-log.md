@@ -602,3 +602,60 @@ Lanes launched (reported by the operations manager, November 17): thread "Questi
 generator build" for the plan and build, and thread "Figure answer choices (UI
 spec)" for the second spec. This session is now the adviser for rulings on the
 spec.
+
+## Adviser rulings for the build lead: abstract reasoning capacity
+
+Asked by the question generator build lead (branch `gen/question-generator-r1`
+e7bbf7acc). Evidence: `docs/superpowers/verification/question-generator/ar-grouping.md`
+there, a read-only Codex analysis of all 105 abstract reasoning questions on prod
+content 88f38e698. The adviser read the figure contract, all five tables and the
+"Singles and merge disposition" and "Needs the lead" sections.
+
+Findings (the report's estimates, not enumerated counts):
+
+- The hand-written questions are not near-duplicates. Only 4 groups share an exact
+  pattern. Almost every question is its own pattern.
+- The five figure kinds the app draws allow few readable variations. By the
+  estimates: about 26 patterns can reach 100 versions (3 series, 8 matrices, 15
+  grouping); about 30 can reach 20 to 99; about 49 questions cannot become useful
+  types. Those are all 21 paper folding questions (2 to 8 distinct figure sets
+  each), 11 questions with no figure, and others that are too small or need a
+  figure the app cannot draw.
+- Several correct answers are not figures: a count, a condition, an unfolding order.
+- Series 0019 has a wrong first wrong-choice note (says 90 degrees; the choice is a
+  135-degree overshoot). The key is correct.
+
+Rulings:
+
+1. A one-question pattern becomes a type when the rule reproduces it exactly, with
+   that question at index 0. Build in descending capacity order.
+2. The list size is Part A's number ("Start size: 100 versions per type") and
+   touches his success test, so shipping smaller lists returns to Aedwon. Not
+   blocked meanwhile: the generator, the checker, and types that reach 100. Widening
+   with attributes the rule ignores is allowed when the attribute is constant inside
+   one version, when the serve order cycles through distinct rule-parameter sets
+   first, and when the capacity table reports both distinct rule-parameter sets and
+   total versions. Estimates must be replaced by enumerated counts. Paper folding
+   and no-figure questions stay singles; the fold painter is not touched.
+3. The cube-net signature ignores label permutations. Labels may be shuffled between
+   versions as a cosmetic.
+4. A choice whose answer is not a figure carries text only. Each type declares its
+   choice kind. This reads Part A decision 5 ("figure questions get figure answer
+   choices"); it is not a new decision for him.
+5. Series 0019's note goes to the content lane and is fixed in the source question
+   through the approval gate. The type is generated from the fixed source.
+
+Question 10 put to Aedwon (a specific revision of Part A):
+
+A. Each type ships at its true size, with a floor of 20 versions. About 55 of the
+   105 questions become types. The rest stay fixed questions and return in review
+   as they do today. No added cost or delay. (Recommended now.)
+B. A, and also extend what the app can draw (cut positions for paper folding, more
+   shapes and dot positions), so paper folding can be generated and more types
+   reach 100. Cost: drawing work by Claude workers, his visual check, and days not
+   yet estimated; it puts the December target at risk.
+C. Keep 100 as a hard minimum. Only about 26 types ship.
+
+Recommendation: A now, and have the UI lane scope B with a real estimate.
+
+Aedwon's answer: pending.
