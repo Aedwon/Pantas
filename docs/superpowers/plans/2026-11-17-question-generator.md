@@ -128,7 +128,7 @@ Each task is one Codex Sol run (low effort unless stated) through `codex-pick`, 
 
 - [x] Copy the reader's report to `docs/superpowers/verification/2026-11-17-question-generator-b1.md`.
 - [x] Add rows E-109 to E-112 to the velocity log.
-- [ ] Commit and push.
+- [x] Commit and push.
 
 ### Phase 1: generator, checker, abstract reasoning types (Nov 17 to Nov 22, no app code). Row E-109.
 
