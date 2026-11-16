@@ -1,0 +1,30 @@
+{
+  "file": "content/questions/mathematics/geometry/coordinate-geometry.yaml",
+  "questionsRead": 20,
+  "findings": [
+    {
+      "questionId": "q-geometry-coordinate-geometry-0008",
+      "severity": "Major",
+      "problem": "Finding the triangle's area requires the formula A = bh/2. The lesson does not teach this formula or name it as a prerequisite.",
+      "fix": "Teach triangle area and coordinate-based base and height measurements, or move the question to a lesson that covers them."
+    },
+    {
+      "questionId": "q-geometry-coordinate-geometry-0012",
+      "severity": "Major",
+      "problem": "Finding the parallelogram's area requires A = bh. The lesson does not teach this formula or name it as a prerequisite.",
+      "fix": "Teach parallelogram area and perpendicular height, or move the question to a lesson that covers them."
+    },
+    {
+      "questionId": "q-geometry-coordinate-geometry-0014",
+      "severity": "Major",
+      "problem": "Finding the intersection requires solving simultaneous linear equations. The lesson does not teach this skill or name it as a prerequisite. The explanation introduces elimination without lesson support.",
+      "fix": "Add a worked line-intersection example using elimination or substitution, or explicitly name the relevant systems-of-equations lesson as a prerequisite."
+    },
+    {
+      "questionId": "q-geometry-coordinate-geometry-0015",
+      "severity": "Major",
+      "problem": "The explanation uses the point-to-line distance formula, which the lesson does not teach or name as a prerequisite. It teaches only distance between two points.",
+      "fix": "Teach point-to-line distance with a worked example, or replace the question with a two-point distance question."
+    }
+  ]
+}

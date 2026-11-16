@@ -1,0 +1,42 @@
+{
+  "file": "content/questions/mathematics/geometry/circles.yaml",
+  "questionsRead": 20,
+  "findings": [
+    {
+      "questionId": "q-geometry-circles-0003",
+      "severity": "Major",
+      "problem": "The solution requires the triangle angle-sum rule. The lesson teaches the right angle opposite a diameter but does not teach the angle-sum rule or name it as a prerequisite.",
+      "fix": "Teach the triangle angle-sum rule or name the lesson that teaches it as a prerequisite."
+    },
+    {
+      "questionId": "q-geometry-circles-0008",
+      "severity": "Major",
+      "problem": "The question requires opposite angles of an inscribed quadrilateral to sum to 180 degrees. The lesson does not teach this rule or point to a prerequisite that does.",
+      "fix": "Add the cyclic-quadrilateral angle rule and a worked example to the lesson."
+    },
+    {
+      "questionId": "q-geometry-circles-0009",
+      "severity": "Major",
+      "problem": "The question requires the angle between intersecting chords to equal half the sum of the intercepted arcs. The lesson teaches intersecting-chord length products but does not teach this angle rule or name a prerequisite.",
+      "fix": "Teach the intersecting-chords angle rule with a worked example."
+    },
+    {
+      "questionId": "q-geometry-circles-0010",
+      "severity": "Major",
+      "problem": "The question requires the external-secant angle rule, half the difference of the intercepted arcs. The lesson teaches secant length products but does not teach this angle rule or name a prerequisite.",
+      "fix": "Teach the external-secant angle rule and identify the far and near arcs in an example."
+    },
+    {
+      "questionId": "q-geometry-circles-0013",
+      "severity": "Major",
+      "problem": "The solution requires the diagonal and area properties of an inscribed square. The lesson does not teach these properties or point to a prerequisite covering them.",
+      "fix": "Add an inscribed-square example that establishes the diagonal as the diameter and finds the square's area."
+    },
+    {
+      "questionId": "q-geometry-circles-0015",
+      "severity": "Major",
+      "problem": "The solution requires the 30-60-90 triangle rule that the side opposite 30 degrees is half the hypotenuse. The lesson does not teach this rule or name it as a prerequisite.",
+      "fix": "Teach the 30-60-90 side relationship or name the lesson that teaches it as a prerequisite."
+    }
+  ]
+}

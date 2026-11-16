@@ -1,0 +1,12 @@
+{
+  "file": "content/questions/mathematics/algebra/exponents-and-logarithms.yaml",
+  "questionsRead": 22,
+  "findings": [
+    {
+      "questionId": "q-algebra-exponents-and-logarithms-0006",
+      "severity": "Major",
+      "problem": "The question tests logarithm notation and meaning. Its assigned lesson, Exponent Laws and Zero Powers, does not teach logarithms or name them as a prerequisite.",
+      "fix": "Assign the question to lesson-algebra-logarithm-meaning-and-equations, keyPoint 1."
+    }
+  ]
+}

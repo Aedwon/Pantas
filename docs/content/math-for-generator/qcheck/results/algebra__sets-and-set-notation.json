@@ -1,0 +1,36 @@
+{
+  "file": "content/questions/mathematics/algebra/sets-and-set-notation.yaml",
+  "questionsRead": 20,
+  "findings": [
+    {
+      "questionId": "q-algebra-sets-and-set-notation-0002",
+      "severity": "Major",
+      "problem": "The lesson explains elements and subsets but never teaches the symbols $\\in$, $\\subset$, or $\\subseteq$. The question requires distinguishing these symbols.",
+      "fix": "Teach membership and subset notation in the assigned lesson before testing the distinction."
+    },
+    {
+      "questionId": "q-algebra-sets-and-set-notation-0004",
+      "severity": "Major",
+      "problem": "The lesson does not introduce the empty set or explain why it is a subset of every set. It names no prerequisite covering this.",
+      "fix": "Add the empty-set definition, notation, and subset rule to the lesson."
+    },
+    {
+      "questionId": "q-algebra-sets-and-set-notation-0008",
+      "severity": "Major",
+      "problem": "Counting subsets using $2^n$ is not taught in the lesson or named as a prerequisite.",
+      "fix": "Teach the include-or-exclude counting method and $2^n$ rule, or replace the question with a subset-identification question."
+    },
+    {
+      "questionId": "q-algebra-sets-and-set-notation-0013",
+      "severity": "Major",
+      "problem": "The question requires set-builder notation, integer-domain notation, solving a squared inequality, and relative-complement notation. The lesson does not teach these or name prerequisites covering them.",
+      "fix": "Use explicitly listed sets and ask for elements in A but not B, or assign the question after lessons covering the required notation and inequality."
+    },
+    {
+      "questionId": "q-algebra-sets-and-set-notation-0014",
+      "severity": "Major",
+      "problem": "The question asks students to recognize De Morgan's Laws, but the lesson does not introduce those laws or name a prerequisite covering them.",
+      "fix": "Teach De Morgan's Laws with an explanation before asking students to identify the identity."
+    }
+  ]
+}

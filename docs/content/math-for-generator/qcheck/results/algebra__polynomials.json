@@ -1,0 +1,24 @@
+{
+  "file": "content/questions/mathematics/algebra/polynomials.yaml",
+  "questionsRead": 30,
+  "findings": [
+    {
+      "questionId": "q-algebra-polynomials-0013",
+      "severity": "Major",
+      "problem": "The question requires the square-area formula to form x²−9. Its assigned lesson teaches special products but does not teach square area or name a geometry prerequisite.",
+      "fix": "State that the remaining area is x²−9, then ask students to multiply it by x²+9."
+    },
+    {
+      "questionId": "q-algebra-polynomials-0023",
+      "severity": "Major",
+      "problem": "The question requires canceling a common polynomial factor in a rational expression and applying a domain restriction. The factoring-cubes lesson does not teach these skills or name a prerequisite that does.",
+      "fix": "Ask students to factor x³+64, or teach factor cancellation and its restrictions before assigning this question."
+    },
+    {
+      "questionId": "q-algebra-polynomials-0029",
+      "severity": "Major",
+      "problem": "The question requires distributing subtraction through a polynomial and combining like terms. The terms-and-degree lesson mentions combined terms but does not teach these operations or name the operations lesson as a prerequisite.",
+      "fix": "Give the simplified polynomial −x³+2x²+7 and ask for its degree, or explicitly name polynomial operations as a prerequisite."
+    }
+  ]
+}

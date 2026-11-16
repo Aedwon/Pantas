@@ -1,0 +1,30 @@
+{
+  "file": "content/questions/mathematics/algebra/algebraic-expressions.yaml",
+  "questionsRead": 23,
+  "findings": [
+    {
+      "questionId": "q-algebra-algebraic-expressions-0013",
+      "severity": "Major",
+      "problem": "The question requires converting 50% to 0.5. Its lesson teaches translating fractional shares but does not teach percent conversion or name a prerequisite that does.",
+      "fix": "Teach percent conversion in the assigned lesson, name a prerequisite that teaches it, or replace 50% with a fraction."
+    },
+    {
+      "questionId": "q-algebra-algebraic-expressions-0017",
+      "severity": "Major",
+      "problem": "The rationale for choosing Step 1 says it treats twice as addition. Step 1 explicitly uses multiplication, 2y. The rationale does not explain why choosing Step 1 is wrong.",
+      "fix": "Explain that Step 1 correctly translates twice y as 2y, so the first error occurs later."
+    },
+    {
+      "questionId": "q-algebra-algebraic-expressions-0021",
+      "severity": "Major",
+      "problem": "The question requires finding output by multiplying a constant rate by elapsed time. Its lesson teaches calculating a rate as a quotient but does not teach this relationship or name a prerequisite that does.",
+      "fix": "Teach output = rate × time with an example, or ask for the hourly rate."
+    },
+    {
+      "questionId": "q-algebra-algebraic-expressions-0022",
+      "severity": "Major",
+      "problem": "The question requires converting a per-minute rate to a per-hour rate. Its lesson only demonstrates rates with time already given in hours. It does not teach unit conversion or name a prerequisite that does.",
+      "fix": "Add a worked example converting minutes to hours when calculating a rate, or give the elapsed time in hours."
+    }
+  ]
+}

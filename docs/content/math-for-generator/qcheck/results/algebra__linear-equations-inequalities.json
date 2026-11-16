@@ -1,0 +1,24 @@
+{
+  "file": "content/questions/mathematics/algebra/linear-equations-inequalities.yaml",
+  "questionsRead": 23,
+  "findings": [
+    {
+      "questionId": "q-algebra-linear-equations-inequalities-0002",
+      "severity": "Major",
+      "problem": "The question requires translating a verbal statement into 3x-5=10. The assigned lesson teaches solving equations already given. It does not teach this translation or name a prerequisite that does.",
+      "fix": "Teach verbal-to-equation translation in the lesson, or give the equation in the stem."
+    },
+    {
+      "questionId": "q-algebra-linear-equations-inequalities-0009",
+      "severity": "Major",
+      "problem": "The question requires forming 80n=800 from profit per shirt and total profit. The assigned lesson does not teach forming equations from word problems or point to a prerequisite that does.",
+      "fix": "Add a worked word-problem setup to the lesson, or provide 80n=800 in the stem."
+    },
+    {
+      "questionId": "q-algebra-linear-equations-inequalities-0017",
+      "severity": "Major",
+      "problem": "The question requires modeling a fixed fee plus an hourly charge as 300+150h=1200. The assigned lesson teaches solving equations but does not teach this model or name a prerequisite that does.",
+      "fix": "Teach fixed-fee-plus-rate equation setup in the lesson, or provide the equation in the stem."
+    }
+  ]
+}
