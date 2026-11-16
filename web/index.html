@@ -66,6 +66,12 @@
   <title>Pantas</title>
   <link rel="manifest" href="manifest.json">
 
+  <!--
+    Lowers the pixel ratio Flutter draws at on a touch phone to 2.5. It must run
+    before flutter_bootstrap.js, which starts the engine that reads the ratio.
+  -->
+  <script src="pantas_pixel_ratio.js"></script>
+
   <!-- Keeps the browser history across a reload (Flutter would collapse it). -->
   <script src="pantas_history.js"></script>
 

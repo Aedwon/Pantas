@@ -173,6 +173,24 @@ async function setControl(page, pattern, wanted) {
   throw new Error(`${pattern} did not turn ${wanted ? 'on' : 'off'}`);
 }
 
+// The Flutter canvas lives inside the glass pane's shadow root. Its backing
+// width over its CSS width is the pixel ratio the engine really draws at.
+async function canvasRatio(browser, options, what) {
+  const context = await browser.newContext({locale: 'en-PH', ...options});
+  const page = await context.newPage();
+  try {
+    await page.goto(BASE, {waitUntil: 'domcontentloaded'});
+    const size = await until(`the canvas of ${what}`, () => page.evaluate(() => {
+      const canvas = document.querySelector('flt-glass-pane')?.shadowRoot?.querySelector('canvas');
+      const css = canvas ? parseFloat(canvas.style.width) : 0;
+      return canvas && canvas.width && css ? {backing: canvas.width, css} : null;
+    }), 120, page);
+    return size;
+  } finally {
+    await context.close();
+  }
+}
+
 const journeys = {
   // Nov 5: a Pro student reloading on a lesson got "Could not load this lesson".
   async 'Pro reload on a lesson shows the lesson'(page) {
@@ -292,6 +310,25 @@ const journeys = {
     await seeLabel(student, /A parent or guardian needs to agree first/, 120,
       'the student asked for a guardian again');
     await refuse(student, /Waiting for your parent or guardian/);
+  },
+
+  // Phones draw at 2.5 times, not 3, so a frame has fewer pixels to fill
+  // (web/pantas_pixel_ratio.js). A desktop at 3 must stay at 3. This also fails
+  // if a Flutter upgrade stops reading window.devicePixelRatio.
+  async 'A 3x phone draws at 2.5 times and a desktop at 3'(page) {
+    const browser = page.context().browser();
+    const phone = await canvasRatio(browser, {
+      viewport: {width: 390, height: 844}, deviceScaleFactor: 3, hasTouch: true, isMobile: true,
+    }, 'a 3x phone');
+    const desktop = await canvasRatio(browser, {
+      viewport: {width: 1440, height: 900}, deviceScaleFactor: 3, hasTouch: false, isMobile: false,
+    }, 'a 3x desktop');
+    if (Math.abs(phone.backing - phone.css * 2.5) > 1) {
+      throw new Error(`The phone canvas is ${phone.backing} px for ${phone.css} CSS px, not 2.5 times`);
+    }
+    if (Math.abs(desktop.backing - desktop.css * 3) > 1) {
+      throw new Error(`The desktop canvas is ${desktop.backing} px for ${desktop.css} CSS px, not 3 times`);
+    }
   },
 
   // Every student starts here.

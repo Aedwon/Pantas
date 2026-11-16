@@ -30,6 +30,7 @@ const NETWORK_TIMEOUT_MS = 4000;
 const PRECACHE = [
   '',
   'flutter_bootstrap.js',
+  'pantas_pixel_ratio.js',
   'pantas_history.js',
   'pantas_pwa.js',
   'pantas_welcome.js',
@@ -47,6 +48,7 @@ const PRECACHE = [
 const NETWORK_FIRST = new Set([
   'flutter_bootstrap.js',
   'flutter.js',
+  'pantas_pixel_ratio.js',
   'pantas_history.js',
   'pantas_pwa.js',
   'pantas_welcome.js',
