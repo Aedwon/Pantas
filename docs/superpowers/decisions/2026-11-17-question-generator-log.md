@@ -222,3 +222,40 @@ on every account. The content lead reports to this session and to the manager wh
 done or blocked.
 
 Question 4 (what counts as a repeat in math) is still open.
+
+## November 17, 2026: success test for math
+
+Question 4, as asked: for math, is a repeat "the same problem with the same
+numbers"? A student could then meet the same problem type again with new numbers.
+Recommendation: yes.
+
+Aedwon's answer, exact words: "Q4 yes"
+
+Decision: for math, a repeat is the same problem with the same numbers. The same
+problem type with new numbers is allowed. The spec states the exception to the
+question style guide's rule on swapped numbers, for generated pools only.
+
+Success test, both parts:
+
+- Figures: "a student never re-encounters the same set of figures for a given
+  problem type" (his words).
+- Math: a student never meets the same problem with the same numbers (the lead's
+  wording, which he accepted with "Q4 yes").
+- Both hold while an unseen question remains in the pool (option C, not strict).
+
+Question 5 asked (answer choices for figure questions): figures, as on the real
+exams, or text descriptions, as today ("Line pointing lower-right"). Options:
+
+A. Text choices stay. No UI work. Cost: the task becomes reading, not seeing, which
+   is not how PSHS-NCE or the academies test it.
+B. Figure choices (recommended). The engine stores each choice as figure data and
+   also as a text description, which becomes the screen reader label. Showing figure
+   choices is a UI change: boards in Claude Design, his visual approval, a Claude
+   worker build. Rough cost: 2 to 3 days plus the board round.
+
+Recommendation: B, split in two. This spec covers the engine and the pools, with no
+UI. A second, small UI spec covers showing figure choices, after the beta, with
+boards. Pools made now work with both, so nothing is generated twice. Figure
+choices become part of the sale gate for PSHS-NCE and the academy exams.
+
+Aedwon's answer: pending.
