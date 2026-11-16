@@ -541,3 +541,22 @@ Effects on this build, for the spec:
 Lead's view given to him once: the generator can be ready in time. The risk to a
 sale this cycle is in the other items, mainly the account path for takers under 13
 and live payments.
+
+## November 17, 2026: spec written
+
+Spec: `docs/superpowers/specs/2026-11-17-question-generator-design.md`, waiting for
+his approval of Part A. It records the seven decisions above and asks three more:
+approve Part A (which sets the start: offline parts on approval, app and server
+parts from November 23); reword his October 1 rule so the 20 questions per lesson
+count versions; approve a type as a whole when its four checks pass, in place of a
+separate re-solve of every version.
+
+Evidence added while writing: Freund and Holling (2011) found no large difference
+in retest gains between identical and parallel figure matrix forms. So research
+does not decide whether review should show the same question or a new version; his
+goal decides it. The spec says so in Part A.
+
+The lead told the operations manager about the PSHS-NCE aim and listed the other
+sale items, none approved by his words.
+
+No build has started. No plan is written. Both wait for his approval.
