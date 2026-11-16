@@ -112,6 +112,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### His scrolling goal kept getting answered in parts (Nov 17)
+
+- His words: "even if you fix the dropped frames while my finger is down, when i let go, it's still not as smooth as it can be. oh come on, i'm getting sick of my intent not landing with you. consult a Fable 5.2 adviser!"
+- Wrong: his goal from the start was "scroll as smoothly as any other website on my 120 Hz iPhone". The manager answered it in pieces, each one framed as the fix: a pixel-density cap, then touch resampling, then dropped frames during drag, then a native app. None of them could meet his goal, and he had to say so each time.
+- Why it got through: the manager measured each proposal against the last measurement, not against his stated goal. On a hard call, it did not ask Fable for the whole picture until he demanded it.
+- Fix (a required step for the manager): when he reports a problem he can feel, write his goal in his words as the success test, for example "feels like any other website, drag and fling, on his iPhone". Open every proposal by saying whether it meets that test, and stop offering steps that can't. If the path to the goal is unclear after one round of measurement, ask a Fable 5.2 adviser for the full option set before replying to him.
+
 ### Native-app answer to a PWA problem (Nov 17)
 
 - His words: "yeah you say that but I'm not getting the 120 Hz on my 120Hz iPhone 17!!!!!" and then "I KNOW. the app will launch as a PWA."
