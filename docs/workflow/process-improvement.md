@@ -112,6 +112,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### A brief's judgment stated as fact: "no gated exam can sell before mid-2027" (Nov 17)
+
+- His words: "actually correction, PSHS-NCE can still sell"
+- Wrong: in the question generator session, the lead told him three times that no gated exam can sell before mid-2027, and used it as the reason that waiting to build costs nothing. The source was the next-exam brief's line on PSHS-NCE, "Not feasible for this cycle". That brief is a recommendation he never approved, and the PSHS-NCE test is January 30, 2027.
+- Why it got through: the lead did not separate his decisions from an agent's judgment in a brief, and repeated the judgment without its source or its blockers.
+- Fix (a required step for any lead): a claim that something cannot ship, sell or be done by a date is given to him only with its source named and its blockers listed, and it is labeled a judgment unless his own words decided it. Such a claim is not used as the cost argument for a recommendation until he has accepted it. Applied in this session: the blockers for PSHS-NCE this cycle were listed and he was asked which cycle he means.
+
 ### Picking rule proposed before reading how the app picks questions (Nov 17)
 
 - His words: "um i think you have to marry this idea with how the roadmap does things as well" and then "among other systems that exist in the app, there might be some contradictions/conflicts need resolving"

@@ -471,4 +471,42 @@ B. Start the parts that touch no app code as soon as the spec is approved (the
    reviews.
 C. Later, when the first gated exam is chosen.
 
+Aedwon's answer, exact words: "okay with A
+actually correction, PSHS-NCE can still sell"
+
+## November 17, 2026: timing A chosen; correction on PSHS-NCE
+
+Decision (question 8): A. The build starts on November 23, after the beta ends.
+This is the planned start, not a go for the build; the spec is not yet approved.
+
+Correction from him: "PSHS-NCE can still sell". The lead had said three times that
+no gated exam can sell before mid-2027 and used it as the cost argument for
+waiting. That came from the next-exam brief's judgment ("Not feasible for this
+cycle"), which he never approved. Process-improvement entry written the same turn.
+
+Facts on record for PSHS-NCE this cycle: the test is January 30, 2027 (PSHS,
+official); applications closed November 7, 2026. That is 74 days from today. What
+the repository says must exist before it goes on sale:
+
+- the generator, and now figure answer choices (`docs/pricing.md`; question 5);
+- PSHS-NCE content (math is being sourced now; scientific, verbal and abstract are
+  not started);
+- an account path for takers under 13 (most are 11 or 12; launch stays 13+ and the
+  parent and child consent work is an idea, backlog D7 and E5);
+- the 1,499 peso pass as a product, and live payments (backlog A7, A8);
+- the public launch itself (the beta gate is still on).
+
+The lead's reading of his words is not confirmed: he may mean this cycle, or sales
+in early 2027 for the next cycle. Question 9 asks.
+
+Question 9 asked: is the aim to sell PSHS-NCE for this cycle (test January 30,
+2027)?
+
+A. Yes, this cycle. Then timing A is too late: the generator's offline parts
+   should start as soon as the spec is approved (timing B), and the manager must
+   line up the other items above. Cost: Claude usage this week, Codex shared with
+   the math lesson job, and a selling window of a few weeks at best.
+B. No, the next cycle. Timing A stands. PSHS-NCE can go on sale whenever its
+   items are done in 2027; nothing in this build needs to move.
+
 Aedwon's answer: pending.
