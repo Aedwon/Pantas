@@ -204,3 +204,4 @@ q-spatial-abstract-reasoning-paper-folding-and-cutting-0021|(2, 3) and (10, 3)|(
 | q-spatial-abstract-reasoning-figure-series-0005 | Bottom-left dot | Bottom-left dot | AGREE | Clockwise corners: top-left, top-right, bottom-right, bottom-left. | None |
 | q-spatial-abstract-reasoning-figure-series-0017 | Circle with 3 dots | Circle with 3 dots | AGREE | Circles increase 1, 2, 3 dots; alternating squares keep 4. | None |
 | q-spatial-abstract-reasoning-paper-folding-and-cutting-0008 | Two openings | Two openings | AGREE | Vertical unfolding joins cut halves; horizontal unfolding makes two openings. | None |
+| q-spatial-abstract-reasoning-figure-series-0019 | Large triangle; line lower-left | Large triangle; line lower-left | AGREE | Lines 0 to 180 turn 45 clockwise; next is 225. Upper-left is 315, a 135-degree turn. Wrong-choice note corrected. | None |

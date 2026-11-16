@@ -683,7 +683,7 @@ questions:
         correct: true
       - text: "Large triangle; line upper-left"
         rationale: |
-          This turns 90 degrees instead of 45 from the last direction. Upper-left is a later diagonal on the route. Check the unchanged 45-degree step.
+          This turns 135 degrees instead of 45 from the last direction. Upper-left is three steps past down. Check the unchanged 45-degree step.
       - text: "Small triangle; line lower-left"
         rationale: |
           This gets rotation but resets size to small one step early. Small begins the size cycle. Check the medium size of the last figure.
