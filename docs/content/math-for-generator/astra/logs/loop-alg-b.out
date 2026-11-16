@@ -1,0 +1,13 @@
+run lesson-algebra-algebraic-expressions (room 220) 18:16
+exit 0 lesson-algebra-algebraic-expressions
+run lesson-algebra-exponents-and-logarithms (room 217) 18:17
+exit 0 lesson-algebra-exponents-and-logarithms
+run lesson-algebra-linear-equations-inequalities (room 209) 18:19
+exit 0 lesson-algebra-linear-equations-inequalities
+run lesson-algebra-polynomials (room 198) 18:21
+exit 0 lesson-algebra-polynomials
+run lesson-algebra-types-of-functions (room 175) 18:22
+exit 0 lesson-algebra-types-of-functions
+run lesson-algebra-word-problems (room 144) 18:24
+exit 0 lesson-algebra-word-problems
+list done

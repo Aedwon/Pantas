@@ -1,0 +1,221 @@
+# Math lessons per exam
+
+November 16, 2026 (UTC), branch `content/math-for-generator-r1`. Active lessons only; retired parents are left out. Exam tags come from each lesson's question file.
+
+## CSE: 54 lessons, live on prod
+
+Prod serves root `content/bite-sized-cse-algebra-r1` 88f38e698 (CSE Algebra shipped Nov 15; the rest from `content/bite-sized-cse-r2` aeccd8284). This branch carries the same CSE text; nothing CSE-tagged changed here.
+
+- algebra: 6
+- arithmetic-number-sense: 41
+- data-interpretation: 7
+
+  - lesson-algebra-age-word-problems
+  - lesson-algebra-coin-and-digit-problems
+  - lesson-algebra-mixture-word-problems
+  - lesson-algebra-motion-chase-problems
+  - lesson-algebra-motion-meeting-and-separation
+  - lesson-algebra-work-rate-problems
+  - lesson-arithmetic-number-sense-adding-and-multiplying-fractions
+  - lesson-arithmetic-number-sense-additive-and-multiplicative-inverses
+  - lesson-arithmetic-number-sense-arithmetic-sequence-terms
+  - lesson-arithmetic-number-sense-arithmetic-series-sums
+  - lesson-arithmetic-number-sense-commission-and-sales-tax
+  - lesson-arithmetic-number-sense-commutative-and-associative-properties
+  - lesson-arithmetic-number-sense-complex-products-and-quotients
+  - lesson-arithmetic-number-sense-compound-interest
+  - lesson-arithmetic-number-sense-coprime-divisibility-tests
+  - lesson-arithmetic-number-sense-decimal-and-percent-conversions
+  - lesson-arithmetic-number-sense-digit-sums-and-six
+  - lesson-arithmetic-number-sense-direct-proportion-and-travel
+  - lesson-arithmetic-number-sense-discounted-prices
+  - lesson-arithmetic-number-sense-distribution-and-common-factors
+  - lesson-arithmetic-number-sense-divisibility-by-seven-and-eleven
+  - lesson-arithmetic-number-sense-fibonacci-type-sequence-terms
+  - lesson-arithmetic-number-sense-finding-number-patterns
+  - lesson-arithmetic-number-sense-finite-geometric-series
+  - lesson-arithmetic-number-sense-fractions-and-mixed-forms
+  - lesson-arithmetic-number-sense-geometric-sequence-terms
+  - lesson-arithmetic-number-sense-greatest-common-factor
+  - lesson-arithmetic-number-sense-grouping-and-fraction-bars
+  - lesson-arithmetic-number-sense-harmonic-sequence-terms
+  - lesson-arithmetic-number-sense-identities-and-like-terms
+  - lesson-arithmetic-number-sense-imaginary-unit-and-powers
+  - lesson-arithmetic-number-sense-infinite-geometric-series
+  - lesson-arithmetic-number-sense-inverse-proportion-and-remaining-work
+  - lesson-arithmetic-number-sense-last-digit-divisibility
+  - lesson-arithmetic-number-sense-least-common-multiple
+  - lesson-arithmetic-number-sense-markup-on-cost
+  - lesson-arithmetic-number-sense-multiplying-and-dividing-decimals
+  - lesson-arithmetic-number-sense-odd-and-even-position-patterns
+  - lesson-arithmetic-number-sense-operation-priority-and-left-to-right
+  - lesson-arithmetic-number-sense-partitive-proportion-and-differences
+  - lesson-arithmetic-number-sense-percentage-base-and-fraction-division
+  - lesson-arithmetic-number-sense-prime-factors-and-powers
+  - lesson-arithmetic-number-sense-real-number-sets
+  - lesson-arithmetic-number-sense-same-remainder-numbers
+  - lesson-arithmetic-number-sense-signed-integers-and-substitution
+  - lesson-arithmetic-number-sense-simple-interest
+  - lesson-arithmetic-number-sense-successive-percentages-and-increases
+  - lesson-data-interpretation-averages-and-pie-chart-shares
+  - lesson-data-interpretation-chart-scales-and-differences
+  - lesson-data-interpretation-inverse-proportion-and-ratio-parts
+  - lesson-data-interpretation-percentage-change
+  - lesson-data-interpretation-percentages-and-ratios-of-groups
+  - lesson-data-interpretation-table-values-and-totals
+  - lesson-data-interpretation-unit-rates-and-direct-proportion
+
+## CET (UPCAT, ACET, DCAT, USTET, PUPCET): 121 lessons
+
+- algebra: 49
+- arithmetic-number-sense: 41
+- data-interpretation: 7
+- geometry: 8
+- precalculus-basic-calculus: 4
+- statistics-and-probability: 5
+- trigonometry: 7
+
+  - lesson-algebra-absolute-value-equations-and-graph-matching (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-algebra-absolute-value-transformations (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-algebra-age-word-problems (acet,dlsucet,pupcet,upcat)
+  - lesson-algebra-coin-and-digit-problems (acet,dlsucet,pupcet,upcat)
+  - lesson-algebra-counting-venn-diagram-regions (acet,pupcet,upcat,ustet)
+  - lesson-algebra-cube-root-denominators-and-nested-radicals (acet,pupcet,upcat,ustet)
+  - lesson-algebra-evaluating-and-composing-functions (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-algebra-exponent-laws-and-zero-powers (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-algebra-exponential-growth-and-function-families (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-algebra-factoring-cubes (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-algebra-factoring-quadratic-equations (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-algebra-factoring-quadratics (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-algebra-fractional-powers-and-exponent-equations (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-algebra-functions-domain-and-range (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-algebra-inverse-functions-and-checks (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-algebra-line-slopes-and-intercepts (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-algebra-linear-and-quadratic-functions (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-algebra-logarithm-meaning-and-equations (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-algebra-logarithm-product-quotient-and-power-laws (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-algebra-logarithmic-and-piecewise-functions (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-algebra-mixture-word-problems (acet,dlsucet,pupcet,upcat)
+  - lesson-algebra-motion-chase-problems (acet,dlsucet,pupcet,upcat)
+  - lesson-algebra-motion-meeting-and-separation (acet,dlsucet,pupcet,upcat)
+  - lesson-algebra-one-variable-inequalities (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-algebra-parallel-and-perpendicular-lines (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-algebra-polynomial-long-division (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-algebra-polynomial-multiple-factors (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-algebra-polynomial-operations (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-algebra-polynomial-special-products (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-algebra-polynomial-synthetic-division (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-algebra-polynomial-terms-and-degree (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-algebra-quadratic-methods-and-root-properties (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-algebra-rates-and-consecutive-integers (acet,pupcet,upcat,ustet)
+  - lesson-algebra-rational-domains-and-holes (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-algebra-rational-slant-asymptotes (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-algebra-rational-vertical-and-horizontal-asymptotes (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-algebra-rationalizing-square-root-denominators (acet,pupcet,upcat,ustet)
+  - lesson-algebra-remainder-and-factor-theorems (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-algebra-set-membership-and-operations (acet,pupcet,upcat,ustet)
+  - lesson-algebra-simplifying-and-combining-radicals (acet,pupcet,upcat,ustet)
+  - lesson-algebra-simplifying-and-evaluating-expressions (acet,pupcet,upcat,ustet)
+  - lesson-algebra-solving-linear-equations (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-algebra-systems-elimination (acet,pupcet,upcat,ustet)
+  - lesson-algebra-systems-graphs-and-solution-counts (acet,pupcet,upcat,ustet)
+  - lesson-algebra-systems-lines-and-parabolas (acet,pupcet,upcat,ustet)
+  - lesson-algebra-systems-substitution-and-word-problems (acet,pupcet,upcat,ustet)
+  - lesson-algebra-translating-algebraic-phrases (acet,pupcet,upcat,ustet)
+  - lesson-algebra-two-variable-inequalities (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-algebra-work-rate-problems (acet,dlsucet,pupcet,upcat)
+  - lesson-arithmetic-number-sense-adding-and-multiplying-fractions (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-arithmetic-number-sense-additive-and-multiplicative-inverses (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-arithmetic-number-sense-arithmetic-sequence-terms (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-arithmetic-number-sense-arithmetic-series-sums (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-arithmetic-number-sense-commission-and-sales-tax (acet,dlsucet,pupcet,ustet)
+  - lesson-arithmetic-number-sense-commutative-and-associative-properties (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-arithmetic-number-sense-complex-products-and-quotients (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-arithmetic-number-sense-compound-interest (acet,dlsucet,pupcet,ustet)
+  - lesson-arithmetic-number-sense-coprime-divisibility-tests (pupcet,upcat)
+  - lesson-arithmetic-number-sense-decimal-and-percent-conversions (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-arithmetic-number-sense-digit-sums-and-six (pupcet,upcat)
+  - lesson-arithmetic-number-sense-direct-proportion-and-travel (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-arithmetic-number-sense-discounted-prices (acet,dlsucet,pupcet,ustet)
+  - lesson-arithmetic-number-sense-distribution-and-common-factors (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-arithmetic-number-sense-divisibility-by-seven-and-eleven (pupcet,upcat)
+  - lesson-arithmetic-number-sense-fibonacci-type-sequence-terms (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-arithmetic-number-sense-finding-number-patterns (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-arithmetic-number-sense-finite-geometric-series (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-arithmetic-number-sense-fractions-and-mixed-forms (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-arithmetic-number-sense-geometric-sequence-terms (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-arithmetic-number-sense-greatest-common-factor (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-arithmetic-number-sense-grouping-and-fraction-bars (acet,dlsucet,pupcet,upcat)
+  - lesson-arithmetic-number-sense-harmonic-sequence-terms (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-arithmetic-number-sense-identities-and-like-terms (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-arithmetic-number-sense-imaginary-unit-and-powers (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-arithmetic-number-sense-infinite-geometric-series (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-arithmetic-number-sense-inverse-proportion-and-remaining-work (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-arithmetic-number-sense-last-digit-divisibility (pupcet,upcat)
+  - lesson-arithmetic-number-sense-least-common-multiple (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-arithmetic-number-sense-markup-on-cost (acet,dlsucet,pupcet,ustet)
+  - lesson-arithmetic-number-sense-multiplying-and-dividing-decimals (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-arithmetic-number-sense-odd-and-even-position-patterns (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-arithmetic-number-sense-operation-priority-and-left-to-right (acet,dlsucet,pupcet,upcat)
+  - lesson-arithmetic-number-sense-partitive-proportion-and-differences (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-arithmetic-number-sense-percentage-base-and-fraction-division (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-arithmetic-number-sense-prime-factors-and-powers (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-arithmetic-number-sense-real-number-sets (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-arithmetic-number-sense-same-remainder-numbers (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-arithmetic-number-sense-signed-integers-and-substitution (acet,dlsucet,pupcet,upcat)
+  - lesson-arithmetic-number-sense-simple-interest (acet,dlsucet,pupcet,ustet)
+  - lesson-arithmetic-number-sense-successive-percentages-and-increases (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-data-interpretation-averages-and-pie-chart-shares (acet,upcat,ustet)
+  - lesson-data-interpretation-chart-scales-and-differences (acet,upcat,ustet)
+  - lesson-data-interpretation-inverse-proportion-and-ratio-parts (acet,dlsucet,upcat,ustet)
+  - lesson-data-interpretation-percentage-change (acet,dlsucet,upcat,ustet)
+  - lesson-data-interpretation-percentages-and-ratios-of-groups (acet,dlsucet,upcat,ustet)
+  - lesson-data-interpretation-table-values-and-totals (acet,upcat,ustet)
+  - lesson-data-interpretation-unit-rates-and-direct-proportion (acet,dlsucet,upcat,ustet)
+  - lesson-geometry-basic-geometric-concepts (acet,pupcet)
+  - lesson-geometry-circles (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-geometry-coordinate-geometry (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-geometry-logic-and-reasoning (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-geometry-measurement (acet,pupcet,upcat,ustet)
+  - lesson-geometry-parallel-perpendicular-lines (pupcet,ustet)
+  - lesson-geometry-quadrilaterals-and-polygons (acet,pupcet,upcat,ustet)
+  - lesson-geometry-triangles (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-precalculus-basic-calculus-basic-derivatives (pupcet)
+  - lesson-precalculus-basic-calculus-basic-integrals (pupcet)
+  - lesson-precalculus-basic-calculus-conic-sections (pupcet)
+  - lesson-precalculus-basic-calculus-limits-and-continuity (pupcet)
+  - lesson-statistics-and-probability-basic-probability (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-statistics-and-probability-combinatorics (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-statistics-and-probability-data-analysis-graphs (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-statistics-and-probability-measures-of-central-tendency (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-statistics-and-probability-measures-of-variability (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-trigonometry-angles-and-radian-measure (pupcet,upcat)
+  - lesson-trigonometry-basic-trigonometric-ratios (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-trigonometry-inverse-trigonometric-functions (pupcet)
+  - lesson-trigonometry-laws-of-sines-and-cosines (acet,dlsucet,pupcet)
+  - lesson-trigonometry-solving-right-triangles (acet,dlsucet,pupcet,upcat,ustet)
+  - lesson-trigonometry-trigonometric-identities (acet,pupcet,upcat)
+  - lesson-trigonometry-unit-circle (pupcet,upcat)
+
+## PSHS-NCE
+
+New on this branch, tagged `pshs-nce` (20 questions each, 5 choices): 3.
+
+- lesson-arithmetic-number-sense-clock-time-and-time-differences
+- lesson-arithmetic-number-sense-counting-and-digit-patterns
+- lesson-geometry-practical-measurement
+
+Existing lessons that teach the official sample's other item types (map in `pshs-map.jsonl`; their question files are not tagged `pshs-nce`):
+
+- lesson-algebra-motion-chase-problems
+- lesson-algebra-motion-meeting-and-separation
+- lesson-arithmetic-number-sense-arithmetic-sequence-terms
+- lesson-arithmetic-number-sense-discounted-prices
+- lesson-arithmetic-number-sense-finding-number-patterns
+- lesson-arithmetic-number-sense-least-common-multiple
+- lesson-arithmetic-number-sense-partitive-proportion-and-differences
+- lesson-arithmetic-number-sense-percentage-base-and-fraction-division
+- lesson-arithmetic-number-sense-prime-factors-and-powers
+- lesson-arithmetic-number-sense-signed-integers-and-substitution
+- lesson-geometry-measurement
+- lesson-statistics-and-probability-combinatorics

@@ -1,0 +1,23 @@
+run lesson-geometry-circles (room 221) 18:16
+exit 0 lesson-geometry-circles
+run lesson-geometry-basic-geometric-concepts (room 219) 18:17
+exit 0 lesson-geometry-basic-geometric-concepts
+run lesson-geometry-coordinate-geometry (room 215) 18:18
+exit 0 lesson-geometry-coordinate-geometry
+run lesson-geometry-parallel-perpendicular-lines (room 209) 18:19
+exit 0 lesson-geometry-parallel-perpendicular-lines
+run lesson-statistics-and-probability-combinatorics (room 207) 18:19
+exit 0 lesson-statistics-and-probability-combinatorics
+run lesson-statistics-and-probability-measures-of-variability (room 203) 18:20
+exit 0 lesson-statistics-and-probability-measures-of-variability
+run lesson-trigonometry-basic-trigonometric-ratios (room 185) 18:21
+exit 0 lesson-trigonometry-basic-trigonometric-ratios
+run lesson-trigonometry-laws-of-sines-and-cosines (room 175) 18:22
+exit 0 lesson-trigonometry-laws-of-sines-and-cosines
+run lesson-trigonometry-solving-right-triangles (room 162) 18:23
+exit 0 lesson-trigonometry-solving-right-triangles
+run lesson-trigonometry-trigonometric-identities (room 142) 18:24
+exit 0 lesson-trigonometry-trigonometric-identities
+run lesson-trigonometry-unit-circle (room 127) 18:25
+exit 0 lesson-trigonometry-unit-circle
+list done

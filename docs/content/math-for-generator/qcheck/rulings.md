@@ -14,3 +14,7 @@ November 16, 2026 (UTC). Codex GPT 6.1 Sol (medium, read-only) read 14 files, 31
 6. No key changes. No question set inactive.
 
 Fix: Codex GPT 6.1 Sol, one job (`fix-brief.md`). Check: Astra, read-only.
+
+## Check result
+
+Codex filled all three 5-hour windows at 18:55 UTC before the Astra check finished, so the independent check went to a Sonnet 5.5 reader (a different vendor from the Sol fixer). It passed 30 of 32. It failed polynomials-0023 (moved to a part that does not teach cube factoring) and basic-geometric-concepts-0008 (the pointer named a part with no three-part inequality). The lead fixed both in 9655bcfd5: a pointer to Part 5, Polynomials (Factoring Cubes), and a worked three-part inequality step. No key changed. The same reader passed all 5 PSHS-NCE question fixes.

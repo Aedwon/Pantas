@@ -1,0 +1,3 @@
+Fixed all 32 findings across 20 lessons. None left unfixed. Recorded each fix in `docs/content/math-for-generator/astra/fixes.jsonl`.
+
+Ran the audit. It stopped on illustration-inventory errors. No other output lines named a changed file.

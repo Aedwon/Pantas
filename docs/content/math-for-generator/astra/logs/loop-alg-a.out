@@ -1,0 +1,11 @@
+run lesson-algebra-functions-and-relations (room 220) 18:16
+exit 0 lesson-algebra-functions-and-relations
+run lesson-algebra-quadratic-equations (room 213) 18:18
+exit 0 lesson-algebra-quadratic-equations
+run lesson-algebra-radicals-and-rationalization (room 200) 18:21
+exit 0 lesson-algebra-radicals-and-rationalization
+run lesson-algebra-sets-and-set-notation (room 156) 18:23
+exit 0 lesson-algebra-sets-and-set-notation
+run lesson-algebra-systems-of-equations (room 117) 18:25
+exit 0 lesson-algebra-systems-of-equations
+list done
