@@ -1,0 +1,566 @@
+lib/app/beta_gate.dart:158 ds_no_design_literal Hand-written size 400. Use PantasSpace or PantasSize.
+lib/app/beta_waiting_page.dart:182 ds_no_design_literal Hand-written size 420. Use PantasSpace or PantasSize.
+lib/app/beta_waiting_page.dart:285 ds_no_design_literal Hand-written size 300. Use PantasSpace or PantasSize.
+lib/app/beta_waiting_page.dart:341 ds_no_design_literal Hand-written size 44. Use PantasSpace or PantasSize.
+lib/app/beta_waiting_page.dart:408 ds_no_design_literal Hand-written duration 600. Use PantasDurations.
+lib/app/beta_waiting_page.dart:432 ds_no_design_literal Hand-written duration 400. Use PantasDurations.
+lib/app/beta_waiting_page.dart:432 ds_no_design_literal Hand-written duration 2200. Use PantasDurations.
+lib/app/beta_waiting_page.dart:501 ds_no_design_literal Hand-written duration 400. Use PantasDurations.
+lib/app/beta_waiting_page.dart:551 ds_board_value_reason _height is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/app/beta_waiting_page.dart:555 ds_no_design_literal Hand-written duration 360. Use PantasDurations.
+lib/app/routes/settings_routes_native.dart:297 ds_board_value_reason _examPickerWidth is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/app/routes/settings_routes_native.dart:298 ds_board_value_reason _examPickerMaxHeight is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/app/routes/settings_routes_native.dart:299 ds_board_value_reason _examPickerInset is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/app/routes/settings_routes_native.dart:419 ds_no_design_literal Hand-written size 820. Use PantasSpace or PantasSize.
+lib/app/routes/settings_routes_native.dart:422 ds_no_design_literal Hand-written size 760. Use PantasSpace or PantasSize.
+lib/app/sign_in/email_sign_in_page.dart:508 ds_no_design_literal Hand-written size 120.0 or 104.0. Use PantasSpace or PantasSize.
+lib/app/sign_in/email_sign_in_page.dart:510 ds_no_design_literal Hand-written duration 600. Use PantasDurations.
+lib/app/sign_in/email_sign_in_page.dart:535 ds_no_design_literal Hand-written duration 500. Use PantasDurations.
+lib/app/sign_in/email_sign_in_page.dart:543 ds_no_design_literal Hand-written duration 500. Use PantasDurations.
+lib/app/sign_in/email_sign_in_page.dart:587 ds_no_design_literal Hand-written size 420. Use PantasSpace or PantasSize.
+lib/app/sign_in/email_sign_in_page.dart:595 ds_no_design_literal Hand-written duration 500. Use PantasDurations.
+lib/app/sign_in/email_sign_in_page.dart:604 ds_no_design_literal Hand-written duration 500. Use PantasDurations.
+lib/app/sign_in/email_sign_in_page.dart:649 ds_no_design_literal Hand-written text size 13. Use a PantasType style.
+lib/app/sign_in/email_sign_in_page.dart:649 ds_no_design_literal Hand-written text size 11. Use a PantasType style.
+lib/app/sign_in/email_sign_in_page.dart:651 ds_no_design_literal Hand-written text size 1.04. Use a PantasType style.
+lib/app/sign_in/email_sign_in_page.dart:651 ds_no_design_literal Hand-written text size 0.88. Use a PantasType style.
+lib/app/sign_in/email_sign_in_page.dart:652 ds_no_design_literal Hand-written text size 1. Use a PantasType style.
+lib/app/sign_in/email_sign_in_page.dart:689 ds_no_design_literal Hand-written spacing 20.0 or 24.0. Use PantasSpace.
+lib/app/sign_in/email_sign_in_page.dart:839 ds_no_design_literal Hand-written duration 180. Use PantasDurations.
+lib/app/sign_in/email_sign_in_page.dart:839 ds_no_design_literal Hand-written duration 300. Use PantasDurations.
+lib/app/sign_in/email_sign_in_page.dart:925 ds_no_design_literal Hand-written duration 400. Use PantasDurations.
+lib/app/sign_in/email_sign_in_page.dart:947 ds_no_design_literal Hand-written duration 400. Use PantasDurations.
+lib/app/sign_in/email_sign_in_page.dart:979 ds_no_design_literal Hand-written size 420. Use PantasSpace or PantasSize.
+lib/app/sign_in/sign_in_parts.dart:275 ds_no_design_literal Hand-written duration 420. Use PantasDurations.
+lib/app/sign_in/sign_in_parts.dart:348 ds_no_design_literal Hand-written duration 120. Use PantasDurations.
+lib/app/sign_in/sign_in_parts.dart:472 ds_no_design_literal Hand-written duration 900. Use PantasDurations.
+lib/app/sign_in/sign_in_parts.dart:542 ds_no_design_literal Hand-written size 20. Use PantasSpace or PantasSize.
+lib/app/sign_in/sign_in_parts.dart:544 ds_no_design_literal Hand-written duration 350. Use PantasDurations.
+lib/app/sign_in/sign_in_parts.dart:632 ds_no_design_literal Hand-written duration 140. Use PantasDurations.
+lib/app/sign_in/sign_in_parts.dart:810 ds_no_design_literal Hand-written text size 1.5. Use a PantasType style.
+lib/app/sign_in/sign_in_parts.dart:1013 ds_no_design_literal Hand-written duration 300. Use PantasDurations.
+lib/app/sign_in/sign_in_parts.dart:1016 ds_no_design_literal Hand-written size 64.0 or 60.0. Use PantasSpace or PantasSize.
+lib/app/sign_in/sign_in_parts.dart:1080 ds_no_design_literal Hand-written text size 30.0 or 28.0. Use a PantasType style.
+lib/app/sign_in/sign_in_parts.dart:1158 ds_no_design_literal Hand-written duration 700. Use PantasDurations.
+lib/app/sign_in/sign_in_parts.dart:1184 ds_no_design_literal Hand-written duration 420. Use PantasDurations.
+lib/app/sign_in/sign_in_parts.dart:1184 ds_no_design_literal Hand-written duration 245. Use PantasDurations.
+lib/app/sign_in/sign_in_parts.dart:1218 ds_no_design_literal Hand-written duration 1. Use PantasDurations.
+lib/app/sign_in/sign_in_parts.dart:1244 ds_no_design_literal Hand-written size 2. Use PantasSpace or PantasSize.
+lib/app/sign_in/sign_in_parts.dart:1245 ds_no_design_literal Hand-written size 28. Use PantasSpace or PantasSize.
+lib/app/sign_in/sign_in_parts.dart:1245 ds_no_design_literal Hand-written size 26. Use PantasSpace or PantasSize.
+lib/features/beta_feedback/presentation/days_card.dart:321 ds_no_design_literal Hand-written size 40.0 or 36.0. Use PantasSpace or PantasSize.
+lib/features/beta_feedback/presentation/days_card.dart:322 ds_no_design_literal Hand-written size 40.0 or 36.0. Use PantasSpace or PantasSize.
+lib/features/beta_feedback/presentation/days_card.dart:337 ds_no_design_literal Hand-written size 40.0 or 36.0. Use PantasSpace or PantasSize.
+lib/features/beta_feedback/presentation/days_card.dart:338 ds_no_design_literal Hand-written size 40.0 or 36.0. Use PantasSpace or PantasSize.
+lib/features/beta_feedback/presentation/days_card.dart:354 ds_no_design_literal Hand-written size 40.0 or 36.0. Use PantasSpace or PantasSize.
+lib/features/beta_feedback/presentation/days_card.dart:355 ds_no_design_literal Hand-written size 40.0 or 36.0. Use PantasSpace or PantasSize.
+lib/features/beta_feedback/presentation/exit_survey_page.dart:19 ds_board_value_reason _q4Width is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/beta_feedback/presentation/exit_survey_page.dart:181 ds_no_design_literal Hand-written size 30. Use PantasSpace or PantasSize.
+lib/features/beta_feedback/presentation/exit_survey_page.dart:181 ds_no_design_literal Hand-written size 28. Use PantasSpace or PantasSize.
+lib/features/beta_feedback/presentation/exit_survey_page.dart:233 ds_no_design_literal Hand-written size 320.0. Use PantasSpace or PantasSize.
+lib/features/beta_feedback/presentation/reward_card.dart:38 ds_no_design_literal Hand-written duration 1900. Use PantasDurations.
+lib/features/beta_feedback/presentation/reward_card.dart:303 ds_no_design_literal Hand-written duration 400. Use PantasDurations.
+lib/features/beta_feedback/presentation/reward_card.dart:309 ds_no_design_literal Hand-written duration 400. Use PantasDurations.
+lib/features/beta_feedback/presentation/reward_card.dart:317 ds_no_design_literal Hand-written duration 400. Use PantasDurations.
+lib/features/beta_feedback/presentation/reward_card.dart:378 ds_no_design_literal Hand-written size 7. Use PantasSpace or PantasSize.
+lib/features/beta_feedback/presentation/reward_card.dart:378 ds_no_design_literal Hand-written size 6. Use PantasSpace or PantasSize.
+lib/features/beta_feedback/presentation/survey_sent.dart:86 ds_no_design_literal Hand-written size 76. Use PantasSpace or PantasSize.
+lib/features/beta_feedback/presentation/survey_sent.dart:96 ds_no_design_literal Hand-written duration 770. Use PantasDurations.
+lib/features/beta_feedback/presentation/survey_sent.dart:136 ds_no_design_literal Hand-written size 380. Use PantasSpace or PantasSize.
+lib/features/beta_feedback/presentation/survey_sent.dart:176 ds_no_design_literal Hand-written duration 700. Use PantasDurations.
+lib/features/guardian/presentation/guardian_screen.dart:12 ds_board_value_reason _bottomReserve is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/guardian/presentation/guardian_screen.dart:89 ds_no_design_literal Hand-written spacing 120. Use PantasSpace.
+lib/features/home/presentation/home_tab.dart:314 ds_no_design_literal Hand-written size 21. Use PantasSpace or PantasSize.
+lib/features/home/presentation/home_tab.dart:315 ds_no_design_literal Hand-written size 17. Use PantasSpace or PantasSize.
+lib/features/home/presentation/home_today_screen.dart:790 ds_no_design_literal Hand-written text size 1.4. Use a PantasType style.
+lib/features/home/presentation/home_today_screen.dart:994 ds_no_design_literal Hand-written text size .48. Use a PantasType style.
+lib/features/home/presentation/performance_page.dart:177 ds_no_design_literal Hand-written size 22. Use PantasSpace or PantasSize.
+lib/features/home/presentation/performance_page.dart:177 ds_no_design_literal Hand-written size 16. Use PantasSpace or PantasSize.
+lib/features/home/presentation/performance_page.dart:204 ds_no_design_literal Hand-written size 36. Use PantasSpace or PantasSize.
+lib/features/home/presentation/performance_page.dart:225 ds_no_design_literal Hand-written size 28. Use PantasSpace or PantasSize.
+lib/features/home/presentation/performance_page.dart:225 ds_no_design_literal Hand-written size 22. Use PantasSpace or PantasSize.
+lib/features/home/presentation/performance_page.dart:374 ds_no_design_literal Hand-written size 280. Use PantasSpace or PantasSize.
+lib/features/home/presentation/plan_day_page.dart:489 ds_no_design_literal Hand-written text size 14. Use a PantasType style.
+lib/features/home/presentation/plan_day_page.dart:495 ds_no_design_literal Hand-written text size 1.3. Use a PantasType style.
+lib/features/home/presentation/plan_page.dart:466 ds_no_design_literal Hand-written text size 1.35. Use a PantasType style.
+lib/features/home/presentation/plan_page.dart:516 ds_no_design_literal Hand-written size 30. Use PantasSpace or PantasSize.
+lib/features/home/presentation/plan_page.dart:517 ds_no_design_literal Hand-written size 30. Use PantasSpace or PantasSize.
+lib/features/home/presentation/plan_page.dart:582 ds_no_design_literal Hand-written size 12. Use PantasSpace or PantasSize.
+lib/features/home/presentation/plan_page.dart:583 ds_no_design_literal Hand-written size 12. Use PantasSpace or PantasSize.
+lib/features/home/presentation/plan_page.dart:593 ds_no_design_literal Hand-written size 30. Use PantasSpace or PantasSize.
+lib/features/home/presentation/plan_page.dart:594 ds_no_design_literal Hand-written size 30. Use PantasSpace or PantasSize.
+lib/features/home/presentation/plan_page.dart:601 ds_no_design_literal Hand-written size 28. Use PantasSpace or PantasSize.
+lib/features/home/presentation/plan_page.dart:602 ds_no_design_literal Hand-written size 28. Use PantasSpace or PantasSize.
+lib/features/home/presentation/plan_page.dart:692 ds_no_design_literal Hand-written size 3.0 or 2.0. Use PantasSpace or PantasSize.
+lib/features/home/presentation/plan_page.dart:1078 ds_no_design_literal Hand-written size 3. Use PantasSpace or PantasSize.
+lib/features/home/presentation/plan_page.dart:1078 ds_no_design_literal Hand-written size 2. Use PantasSpace or PantasSize.
+lib/features/home/presentation/plan_page.dart:1094 ds_no_design_literal Hand-written size 12. Use PantasSpace or PantasSize.
+lib/features/home/presentation/plan_page.dart:1095 ds_no_design_literal Hand-written size 12. Use PantasSpace or PantasSize.
+lib/features/home/presentation/plan_page.dart:1102 ds_no_design_literal Hand-written size 28. Use PantasSpace or PantasSize.
+lib/features/home/presentation/plan_page.dart:1103 ds_no_design_literal Hand-written size 28. Use PantasSpace or PantasSize.
+lib/features/home/presentation/plan_screen.dart:639 ds_no_design_literal Hand-written size 720. Use PantasSpace or PantasSize.
+lib/features/home/presentation/plan_screen.dart:683 ds_board_value_reason _popoverTop is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/home/presentation/plan_screen.dart:684 ds_board_value_reason _popoverRight is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/home/presentation/plan_screen.dart:697 ds_no_design_literal Hand-written spacing 128. Use PantasSpace.
+lib/features/home/presentation/plan_screen.dart:698 ds_no_design_literal Hand-written spacing 150. Use PantasSpace.
+lib/features/home/presentation/plan_web.dart:51 ds_no_design_literal Hand-written size 1080. Use PantasSpace or PantasSize.
+lib/features/home/presentation/plan_web.dart:118 ds_no_design_literal Hand-written size 28.0 or 460 or 380. Use PantasSpace or PantasSize.
+lib/features/home/presentation/plan_web.dart:119 ds_no_design_literal Hand-written size 28.0. Use PantasSpace or PantasSize.
+lib/features/home/presentation/plan_web.dart:153 ds_no_design_literal Hand-written size 26. Use PantasSpace or PantasSize.
+lib/features/home/presentation/plan_web.dart:154 ds_no_design_literal Hand-written size 28. Use PantasSpace or PantasSize.
+lib/features/home/presentation/plan_web.dart:167 ds_no_design_literal Hand-written text size 1. Use a PantasType style.
+lib/features/home/presentation/plan_web.dart:175 ds_no_design_literal Hand-written text size 1.2. Use a PantasType style.
+lib/features/home/presentation/plan_web.dart:281 ds_no_design_literal Hand-written text size 1.3. Use a PantasType style.
+lib/features/home/presentation/plan_web.dart:371 ds_no_design_literal Hand-written size 44. Use PantasSpace or PantasSize.
+lib/features/home/presentation/plan_web.dart:372 ds_no_design_literal Hand-written size 44. Use PantasSpace or PantasSize.
+lib/features/home/presentation/plan_web.dart:388 ds_no_design_literal Hand-written text size 1.45. Use a PantasType style.
+lib/features/home/presentation/plan_web.dart:486 ds_no_design_literal Hand-written text size 1.45. Use a PantasType style.
+lib/features/home/presentation/record_page.dart:258 ds_no_design_literal Hand-written size .5. Use PantasSpace or PantasSize.
+lib/features/home/presentation/record_page.dart:290 ds_no_design_literal Hand-written text size 1.2. Use a PantasType style.
+lib/features/home/presentation/record_page.dart:325 ds_no_design_literal Hand-written text size 32. Use a PantasType style.
+lib/features/home/presentation/record_page.dart:326 ds_no_design_literal Hand-written text size .48. Use a PantasType style.
+lib/features/home/presentation/tendencies_page.dart:209 ds_no_design_literal Hand-written size 130.0 or 40 or 14. Use PantasSpace or PantasSize.
+lib/features/home/presentation/tendencies_page.dart:228 ds_no_design_literal Hand-written text size 1. Use a PantasType style.
+lib/features/home/presentation/tendencies_page.dart:286 ds_no_design_literal Hand-written text size 20. Use a PantasType style.
+lib/features/home/presentation/tendencies_page.dart:292 ds_no_design_literal Hand-written size 270. Use PantasSpace or PantasSize.
+lib/features/home/presentation/tendencies_page.dart:296 ds_no_design_literal Hand-written text size .6. Use a PantasType style.
+lib/features/home/presentation/tendencies_page.dart:297 ds_no_design_literal Hand-written text size 1.14. Use a PantasType style.
+lib/features/home/presentation/tendencies_page.dart:333 ds_board_value_reason _findingRadius is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/home/presentation/tendencies_page.dart:403 ds_no_design_literal Hand-written text size 18. Use a PantasType style.
+lib/features/home/presentation/tendencies_page.dart:417 ds_no_design_literal Hand-written radius 18. Use PantasRadius.
+lib/features/home/presentation/tendencies_page.dart:421 ds_no_design_literal Hand-written spacing 1.0. Use PantasSpace.
+lib/features/home/presentation/tendencies_page.dart:422 ds_no_design_literal Hand-written spacing 1.0. Use PantasSpace.
+lib/features/home/presentation/tendencies_page.dart:423 ds_no_design_literal Hand-written spacing 1.0. Use PantasSpace.
+lib/features/home/presentation/tendencies_page.dart:424 ds_no_design_literal Hand-written spacing 1.0. Use PantasSpace.
+lib/features/home/presentation/tendencies_page.dart:448 ds_no_design_literal Hand-written radius 99. Use PantasRadius.
+lib/features/home/presentation/tendencies_page.dart:448 ds_no_design_literal Hand-written radius 4. Use PantasRadius.
+lib/features/home/presentation/tendencies_page.dart:462 ds_no_design_literal Hand-written text size 26. Use a PantasType style.
+lib/features/home/presentation/tendencies_page.dart:472 ds_no_design_literal Hand-written text size 20. Use a PantasType style.
+lib/features/home/presentation/tendencies_page.dart:507 ds_no_design_literal Hand-written text size 20. Use a PantasType style.
+lib/features/home/presentation/tendencies_page.dart:507 ds_no_design_literal Hand-written text size 17. Use a PantasType style.
+lib/features/home/presentation/tendencies_page.dart:820 ds_no_design_literal Hand-written text size 34. Use a PantasType style.
+lib/features/home/presentation/tendencies_page.dart:820 ds_no_design_literal Hand-written text size 24. Use a PantasType style.
+lib/features/home/presentation/topic_detail_page.dart:334 ds_no_design_literal Hand-written size 26. Use PantasSpace or PantasSize.
+lib/features/home/presentation/topic_detail_page.dart:334 ds_no_design_literal Hand-written size 24. Use PantasSpace or PantasSize.
+lib/features/home/presentation/topic_detail_page.dart:366 ds_no_design_literal Hand-written size 24. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/accuracy_line.dart:141 ds_no_design_literal Hand-written size 170. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/accuracy_line.dart:141 ds_no_design_literal Hand-written size 120. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/home_exam_date_sheet.dart:217 ds_board_value_reason _panelHeight is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/home/presentation/widgets/home_exam_date_sheet.dart:233 ds_no_design_literal Hand-written size 259.0. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/home_exam_date_sheet.dart:301 ds_no_design_literal Hand-written size 259.0. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/home_exam_date_sheet.dart:420 ds_no_design_literal Hand-written radius 99. Use PantasRadius.
+lib/features/home/presentation/widgets/home_exam_date_sheet.dart:420 ds_no_design_literal Hand-written radius 8. Use PantasRadius.
+lib/features/home/presentation/widgets/home_exam_date_sheet.dart:424 ds_no_design_literal Hand-written radius 99. Use PantasRadius.
+lib/features/home/presentation/widgets/home_exam_date_sheet.dart:424 ds_no_design_literal Hand-written radius 8. Use PantasRadius.
+lib/features/home/presentation/widgets/home_exam_day.dart:63 ds_no_design_literal Hand-written size 26. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/home_exam_day.dart:132 ds_no_design_literal Hand-written text size 1.4. Use a PantasType style.
+lib/features/home/presentation/widgets/home_exam_day.dart:207 ds_no_design_literal Hand-written text size 1.45. Use a PantasType style.
+lib/features/home/presentation/widgets/home_masthead.dart:135 ds_no_design_literal Hand-written text size 1.45. Use a PantasType style.
+lib/features/home/presentation/widgets/home_masthead.dart:492 ds_no_design_literal Hand-written size 2.0. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/home_masthead.dart:514 ds_no_design_literal Hand-written text size 1. Use a PantasType style.
+lib/features/home/presentation/widgets/home_performance_card.dart:245 ds_no_design_literal Hand-written text size .22. Use a PantasType style.
+lib/features/home/presentation/widgets/home_performance_card.dart:258 ds_no_design_literal Hand-written size 22. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/home_performance_card.dart:269 ds_no_design_literal Hand-written text size .24. Use a PantasType style.
+lib/features/home/presentation/widgets/home_performance_card.dart:270 ds_no_design_literal Hand-written text size 1.35. Use a PantasType style.
+lib/features/home/presentation/widgets/home_state_card.dart:122 ds_no_design_literal Hand-written text size 1.45. Use a PantasType style.
+lib/features/home/presentation/widgets/home_state_card.dart:127 ds_no_design_literal Hand-written size 20. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/home_state_card.dart:127 ds_no_design_literal Hand-written size 18. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/home_state_card.dart:193 ds_no_design_literal Hand-written size 40. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/home_state_card.dart:194 ds_no_design_literal Hand-written size 40. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/home_state_card.dart:221 ds_no_design_literal Hand-written text size 1.4. Use a PantasType style.
+lib/features/home/presentation/widgets/home_state_card.dart:247 ds_no_design_literal Hand-written text size 22. Use a PantasType style.
+lib/features/home/presentation/widgets/home_state_card.dart:247 ds_no_design_literal Hand-written text size 20. Use a PantasType style.
+lib/features/home/presentation/widgets/home_state_card.dart:251 ds_no_design_literal Hand-written size 8. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/home_state_card.dart:251 ds_no_design_literal Hand-written size 10. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/home_state_card.dart:256 ds_no_design_literal Hand-written size 16. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/home_state_card.dart:256 ds_no_design_literal Hand-written size 10. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/home_today_checklist.dart:244 ds_no_design_literal Hand-written text size 1.4. Use a PantasType style.
+lib/features/home/presentation/widgets/home_today_checklist.dart:274 ds_no_design_literal Hand-written text size 1.4. Use a PantasType style.
+lib/features/home/presentation/widgets/home_today_checklist.dart:299 ds_no_design_literal Hand-written size 26. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/home_today_checklist.dart:311 ds_no_design_literal Hand-written size 26. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/home_web_layout.dart:95 ds_no_design_literal Hand-written size 1080. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/home_web_layout.dart:203 ds_board_value_reason _noticeIconSize is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/home/presentation/widgets/home_web_layout.dart:206 ds_board_value_reason _noticeInnerRadius is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/home/presentation/widgets/home_web_layout.dart:317 ds_no_design_literal Hand-written size 52. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/home_web_layout.dart:342 ds_no_design_literal Hand-written size 50. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/plan_skeletons.dart:76 ds_no_design_literal Hand-written size 720. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/web_performance_layout.dart:28 ds_board_value_reason _switcherWidth is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/home/presentation/widgets/web_performance_layout.dart:125 ds_no_design_literal Hand-written size 1080. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/web_performance_layout.dart:311 ds_no_design_literal Hand-written size 44. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/web_performance_layout.dart:312 ds_no_design_literal Hand-written size 44. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/web_performance_layout.dart:551 ds_no_design_literal Hand-written size 160. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/web_performance_layout.dart:551 ds_no_design_literal Hand-written size 80. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/web_performance_layout.dart:653 ds_no_design_literal Hand-written size 38. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/web_performance_layout.dart:695 ds_board_value_reason rowHeight is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/home/presentation/widgets/web_performance_layout.dart:762 ds_no_design_literal Hand-written size 41. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/web_record_layout.dart:42 ds_no_design_literal Hand-written size 1080. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/web_record_layout.dart:97 ds_no_design_literal Hand-written text size 36. Use a PantasType style.
+lib/features/home/presentation/widgets/web_record_layout.dart:103 ds_no_design_literal Hand-written text size 1.2. Use a PantasType style.
+lib/features/home/presentation/widgets/web_record_layout.dart:103 ds_no_design_literal Hand-written text size .56. Use a PantasType style.
+lib/features/home/presentation/widgets/web_record_layout.dart:106 ds_no_design_literal Hand-written size 4. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/web_record_layout.dart:106 ds_no_design_literal Hand-written size 2. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/web_record_layout.dart:151 ds_no_design_literal Hand-written size .5. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/web_record_layout.dart:194 ds_no_design_literal Hand-written size 24. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/web_tendencies_layout.dart:86 ds_no_design_literal Hand-written size 44. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/web_tendencies_layout.dart:87 ds_no_design_literal Hand-written size 44. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/web_tendencies_layout.dart:167 ds_no_design_literal Hand-written size 64. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/web_tendencies_layout.dart:168 ds_no_design_literal Hand-written size 64. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/web_tendencies_layout.dart:221 ds_no_design_literal Hand-written size 148. Use PantasSpace or PantasSize.
+lib/features/home/presentation/widgets/web_tendencies_layout.dart:284 ds_no_design_literal Hand-written text size 1.1. Use a PantasType style.
+lib/features/home/presentation/widgets/web_tendencies_layout.dart:286 ds_no_design_literal Hand-written text size .6. Use a PantasType style.
+lib/features/home/presentation/widgets/web_tendencies_layout.dart:294 ds_no_design_literal Hand-written text size 1.4. Use a PantasType style.
+lib/features/home/presentation/widgets/web_tendencies_layout.dart:596 ds_no_design_literal Hand-written text size .26. Use a PantasType style.
+lib/features/home/presentation/widgets/web_tendencies_layout.dart:602 ds_no_design_literal Hand-written text size 1.45. Use a PantasType style.
+lib/features/legal/presentation/legal_document_page.dart:58 ds_no_design_literal Hand-written text size 1.2. Use a PantasType style.
+lib/features/lesson/presentation/learn_tab_home.dart:35 ds_board_value_reason _studyListFadeHeight is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/lesson/presentation/learn_tab_home.dart:326 ds_no_design_literal Hand-written duration 200. Use PantasDurations.
+lib/features/lesson/presentation/learn_tab_home.dart:350 ds_no_design_literal Hand-written spacing 18. Use PantasSpace.
+lib/features/lesson/presentation/learn_tab_home.dart:448 ds_no_design_literal Hand-written duration 200. Use PantasDurations.
+lib/features/lesson/presentation/learn_tab_home.dart:469 ds_no_design_literal Hand-written spacing 18. Use PantasSpace.
+lib/features/lesson/presentation/lesson_page.dart:1641 ds_no_design_literal Hand-written text size 1.08. Use a PantasType style.
+lib/features/lesson/presentation/lesson_page.dart:1642 ds_no_design_literal Hand-written text size .5. Use a PantasType style.
+lib/features/lesson/presentation/widgets/bookmarks_section.dart:101 ds_no_design_literal Hand-written size 24. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/bookmarks_sheet.dart:553 ds_no_design_literal Hand-written duration 250. Use PantasDurations.
+lib/features/lesson/presentation/widgets/bookmarks_sheet.dart:559 ds_no_design_literal Hand-written size 62. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/bookmarks_sheet.dart:592 ds_no_design_literal Hand-written size 44. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/bookmarks_sheet.dart:629 ds_no_design_literal Hand-written size 32. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/bookmarks_sheet.dart:632 ds_no_design_literal Hand-written size 16. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/bookmarks_sheet.dart:676 ds_no_design_literal Hand-written size 44. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/bookmarks_sheet.dart:762 ds_no_design_literal Hand-written size 16. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/bookmarks_sheet.dart:866 ds_no_design_literal Hand-written size 74. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/bookmarks_sheet.dart:988 ds_no_design_literal Hand-written size 36. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/bookmarks_sheet.dart:989 ds_no_design_literal Hand-written size 5. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/bookmarks_sheet.dart:1123 ds_no_design_literal Hand-written size 4. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/bookmarks_sheet.dart:1142 ds_no_design_literal Hand-written duration 200. Use PantasDurations.
+lib/features/lesson/presentation/widgets/bookmarks_sheet.dart:1246 ds_no_design_literal Hand-written duration 200. Use PantasDurations.
+lib/features/lesson/presentation/widgets/bookmarks_sheet.dart:1310 ds_no_design_literal Hand-written duration 250. Use PantasDurations.
+lib/features/lesson/presentation/widgets/bookmarks_sheet.dart:1352 ds_no_design_literal Hand-written duration 350. Use PantasDurations.
+lib/features/lesson/presentation/widgets/ending_content.dart:161 ds_no_design_literal Hand-written size .5. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/lesson_contents_sheet.dart:140 ds_no_design_literal Hand-written size 400. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/lesson_contents_sheet.dart:217 ds_no_design_literal Hand-written size 22. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/pinned_topic_bar.dart:24 ds_no_design_literal Hand-written size 47. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/pull_to_advance.dart:89 ds_no_design_literal Hand-written duration 260. Use PantasDurations.
+lib/features/lesson/presentation/widgets/pull_to_advance.dart:294 ds_no_design_literal Hand-written size 44. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/pull_to_advance.dart:339 ds_no_design_literal Hand-written duration 150. Use PantasDurations.
+lib/features/lesson/presentation/widgets/pull_to_advance.dart:347 ds_no_design_literal Hand-written duration 150. Use PantasDurations.
+lib/features/lesson/presentation/widgets/reader_bar.dart:114 ds_no_design_literal Hand-written size 50. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/reader_bar.dart:192 ds_no_design_literal Hand-written size 44.0. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/reader_bar.dart:256 ds_no_design_literal Hand-written size 30 or 1. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/reader_bar.dart:341 ds_no_design_literal Hand-written duration 520. Use PantasDurations.
+lib/features/lesson/presentation/widgets/reader_bar.dart:411 ds_no_design_literal Hand-written duration 520. Use PantasDurations.
+lib/features/lesson/presentation/widgets/reader_bar.dart:456 ds_no_design_literal Hand-written duration 100. Use PantasDurations.
+lib/features/lesson/presentation/widgets/reader_gap.dart:43 ds_no_design_literal Hand-written duration 350. Use PantasDurations.
+lib/features/lesson/presentation/widgets/reader_gap.dart:91 ds_no_design_literal Hand-written size 26. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/reader_gap.dart:92 ds_no_design_literal Hand-written size 26. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/search_results.dart:58 ds_no_design_literal Hand-written size 24. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/search_results.dart:199 ds_no_design_literal Hand-written duration 300. Use PantasDurations.
+lib/features/lesson/presentation/widgets/study_map_entry.dart:21 ds_no_design_literal Hand-written duration 450. Use PantasDurations.
+lib/features/lesson/presentation/widgets/study_topic_section.dart:68 ds_no_design_literal Hand-written duration 300. Use PantasDurations.
+lib/features/lesson/presentation/widgets/study_topic_section.dart:142 ds_no_design_literal Hand-written duration 700. Use PantasDurations.
+lib/features/lesson/presentation/widgets/study_topic_section.dart:201 ds_no_design_literal Hand-written size 24. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/study_topic_section.dart:226 ds_no_design_literal Hand-written size 22. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/web_ending_layout.dart:135 ds_no_design_literal Hand-written size 360. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/web_ending_layout.dart:136 ds_no_design_literal Hand-written size 450. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/web_ending_layout.dart:196 ds_no_design_literal Hand-written size 520. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/web_ending_layout.dart:204 ds_no_design_literal Hand-written text size 22. Use a PantasType style.
+lib/features/lesson/presentation/widgets/web_lesson_search.dart:295 ds_no_design_literal Hand-written size 480. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/web_pull_to_advance.dart:52 ds_board_value_reason webPullPop is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/lesson/presentation/widgets/web_pull_to_advance.dart:55 ds_board_value_reason webPullLabelFade is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/lesson/presentation/widgets/web_pull_to_advance.dart:73 ds_no_design_literal Hand-written duration 260. Use PantasDurations.
+lib/features/lesson/presentation/widgets/web_pull_to_advance.dart:500 ds_no_design_literal Hand-written duration 150. Use PantasDurations.
+lib/features/lesson/presentation/widgets/web_pull_to_advance.dart:554 ds_no_design_literal Hand-written size 44. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/web_reader_layout.dart:47 ds_board_value_reason gap is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/lesson/presentation/widgets/web_reader_layout.dart:91 ds_board_value_reason _barHeight is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/lesson/presentation/widgets/web_reader_layout.dart:102 ds_board_value_reason _columnTop is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/lesson/presentation/widgets/web_reader_layout.dart:105 ds_board_value_reason _menuWidth is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/lesson/presentation/widgets/web_reader_layout.dart:109 ds_board_value_reason _menuInset is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/lesson/presentation/widgets/web_reader_layout.dart:112 ds_board_value_reason _titleMaxWidth is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/lesson/presentation/widgets/web_reader_layout.dart:122 ds_board_value_reason _jumpDuration is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/lesson/presentation/widgets/web_reader_layout.dart:327 ds_no_design_literal Hand-written duration 500. Use PantasDurations.
+lib/features/lesson/presentation/widgets/web_reader_layout.dart:376 ds_no_design_literal Hand-written text size 1.45. Use a PantasType style.
+lib/features/lesson/presentation/widgets/web_reader_layout.dart:427 ds_no_design_literal Hand-written duration 250. Use PantasDurations.
+lib/features/lesson/presentation/widgets/web_reader_layout.dart:490 ds_no_design_literal Hand-written size 380. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/web_reader_layout.dart:527 ds_no_design_literal Hand-written text size 1.45. Use a PantasType style.
+lib/features/lesson/presentation/widgets/web_reader_layout.dart:533 ds_no_design_literal Hand-written text size 1.45. Use a PantasType style.
+lib/features/lesson/presentation/widgets/web_reader_layout.dart:685 ds_no_design_literal Hand-written size 400. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/web_reader_layout.dart:902 ds_no_design_literal Hand-written duration 420 or 700. Use PantasDurations.
+lib/features/lesson/presentation/widgets/web_reader_layout.dart:911 ds_no_design_literal Hand-written duration 420 or 700. Use PantasDurations.
+lib/features/lesson/presentation/widgets/web_reader_layout.dart:940 ds_no_design_literal Hand-written size 56. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/web_reader_layout.dart:961 ds_no_design_literal Hand-written size 56. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/web_reader_layout.dart:981 ds_no_design_literal Hand-written duration 420. Use PantasDurations.
+lib/features/lesson/presentation/widgets/web_reader_layout.dart:981 ds_no_design_literal Hand-written duration 700. Use PantasDurations.
+lib/features/lesson/presentation/widgets/web_reader_layout.dart:1059 ds_no_design_literal Hand-written duration 420. Use PantasDurations.
+lib/features/lesson/presentation/widgets/web_reader_layout.dart:1059 ds_no_design_literal Hand-written duration 700. Use PantasDurations.
+lib/features/lesson/presentation/widgets/web_reader_layout.dart:1212 ds_no_design_literal Hand-written duration 250. Use PantasDurations.
+lib/features/lesson/presentation/widgets/web_reader_layout.dart:1212 ds_no_design_literal Hand-written duration 300. Use PantasDurations.
+lib/features/lesson/presentation/widgets/web_reader_layout.dart:1352 ds_no_design_literal Hand-written text size 1.45. Use a PantasType style.
+lib/features/lesson/presentation/widgets/web_reader_layout.dart:1358 ds_no_design_literal Hand-written text size 1.45. Use a PantasType style.
+lib/features/lesson/presentation/widgets/web_study_layout.dart:40 ds_board_value_reason _skeletonWidth is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/lesson/presentation/widgets/web_study_layout.dart:278 ds_no_design_literal Hand-written duration 450. Use PantasDurations.
+lib/features/lesson/presentation/widgets/web_study_layout.dart:278 ds_no_design_literal Hand-written duration 400. Use PantasDurations.
+lib/features/lesson/presentation/widgets/web_study_layout.dart:553 ds_no_design_literal Hand-written size 300.0 or 340.0. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/web_study_layout.dart:558 ds_no_design_literal Hand-written size 18.0. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/web_study_layout.dart:558 ds_no_design_literal Hand-written size 18. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/web_study_layout.dart:595 ds_no_design_literal Hand-written text size 1.45. Use a PantasType style.
+lib/features/lesson/presentation/widgets/web_study_layout.dart:818 ds_no_design_literal Hand-written size 18. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/web_study_layout.dart:1157 ds_no_design_literal Hand-written size 50. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/web_study_layout.dart:1174 ds_no_design_literal Hand-written size 20. Use PantasSpace or PantasSize.
+lib/features/lesson/presentation/widgets/web_study_layout.dart:1368 ds_no_design_literal Hand-written size 340. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/pages/custom_mock_setup_page.dart:24 ds_board_value_reason _wheelWidth is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/mock_exam/presentation/pages/custom_mock_setup_page.dart:153 ds_no_design_literal Hand-written size 34. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/pages/custom_mock_setup_page.dart:182 ds_no_design_literal Hand-written size 120.0. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/pages/custom_mock_setup_page.dart:198 ds_no_design_literal Hand-written duration 300. Use PantasDurations.
+lib/features/mock_exam/presentation/pages/custom_mock_setup_page.dart:452 ds_no_design_literal Hand-written text size 1.4. Use a PantasType style.
+lib/features/mock_exam/presentation/pages/custom_mock_setup_page.dart:503 ds_no_design_literal Hand-written text size 1.45. Use a PantasType style.
+lib/features/mock_exam/presentation/pages/custom_mock_setup_page.dart:533 ds_no_design_literal Hand-written text size 1.4. Use a PantasType style.
+lib/features/mock_exam/presentation/pages/mock_results_page.dart:175 ds_no_design_literal Hand-written text size 1.35. Use a PantasType style.
+lib/features/mock_exam/presentation/pages/mock_results_page.dart:182 ds_no_design_literal Hand-written size 22. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/pages/mock_results_page.dart:182 ds_no_design_literal Hand-written size 10. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/pages/mock_results_page.dart:196 ds_no_design_literal Hand-written text size 1.5. Use a PantasType style.
+lib/features/mock_exam/presentation/pages/mock_results_page.dart:335 ds_no_design_literal Hand-written size 1040. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/pages/mock_results_page.dart:360 ds_no_design_literal Hand-written text size 1.15. Use a PantasType style.
+lib/features/mock_exam/presentation/pages/mock_results_page.dart:814 ds_no_design_literal Hand-written size 170. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/pages/mock_results_page.dart:814 ds_no_design_literal Hand-written size 132. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/pages/mock_review_page.dart:45 ds_board_value_reason _filterWidth is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/mock_exam/presentation/pages/mock_review_page.dart:484 ds_no_design_literal Hand-written size 760. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/pages/mock_review_page.dart:493 ds_no_design_literal Hand-written size 464.0. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/pages/mock_review_page.dart:622 ds_no_design_literal Hand-written size 34. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/pages/mock_review_page.dart:622 ds_no_design_literal Hand-written size 30. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/pages/mock_review_page.dart:623 ds_no_design_literal Hand-written size 30. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/pages/mock_review_page.dart:778 ds_no_design_literal Hand-written text size 22. Use a PantasType style.
+lib/features/mock_exam/presentation/pages/mock_review_page.dart:820 ds_no_design_literal Hand-written text size 22. Use a PantasType style.
+lib/features/mock_exam/presentation/pages/mock_review_page.dart:927 ds_no_design_literal Hand-written size 46. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/pages/mock_review_page.dart:1506 ds_no_design_literal Hand-written size 8. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/pages/mock_session_page.dart:69 ds_board_value_reason _panelBottomReserve is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/mock_exam/presentation/pages/mock_session_page.dart:72 ds_board_value_reason _gridMaxHeight is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/mock_exam/presentation/pages/mock_session_page.dart:665 ds_no_design_literal Hand-written spacing 120.0. Use PantasSpace.
+lib/features/mock_exam/presentation/pages/mock_session_page.dart:711 ds_no_design_literal Hand-written size 560.0. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/pages/mock_setup_page.dart:26 ds_board_value_reason _figureColumn is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/mock_exam/presentation/pages/mock_setup_page.dart:101 ds_no_design_literal Hand-written size 44. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/pages/mock_setup_page.dart:172 ds_no_design_literal Hand-written text size 1.4. Use a PantasType style.
+lib/features/mock_exam/presentation/pages/mock_setup_page.dart:190 ds_no_design_literal Hand-written text size 1.4. Use a PantasType style.
+lib/features/mock_exam/presentation/pages/mock_setup_page.dart:206 ds_no_design_literal Hand-written text size 1.4. Use a PantasType style.
+lib/features/mock_exam/presentation/pages/mock_setup_page.dart:240 ds_no_design_literal Hand-written text size 1.4. Use a PantasType style.
+lib/features/mock_exam/presentation/pages/mock_setup_page.dart:323 ds_no_design_literal Hand-written size 90.0. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/pages/mock_setup_page.dart:328 ds_no_design_literal Hand-written size 90.0. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/pages/mock_setup_page.dart:356 ds_no_design_literal Hand-written size 90.0. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/pages/mock_setup_page.dart:370 ds_no_design_literal Hand-written size 90.0. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/pages/mock_start_preparation_page.dart:60 ds_no_design_literal Hand-written size 56. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/pages/mock_start_preparation_page.dart:61 ds_no_design_literal Hand-written size 56. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/pages/mock_start_preparation_page.dart:169 ds_no_design_literal Hand-written size 24. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/pages/web_custom_mock_setup.dart:176 ds_no_design_literal Hand-written size 1080. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/pages/web_custom_mock_setup.dart:191 ds_no_design_literal Hand-written text size 1.45. Use a PantasType style.
+lib/features/mock_exam/presentation/pages/web_custom_mock_setup.dart:196 ds_no_design_literal Hand-written size 640. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/pages/web_custom_mock_setup.dart:407 ds_board_value_reason _fieldWidth is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/mock_exam/presentation/pages/web_custom_mock_setup.dart:434 ds_no_design_literal Hand-written size 64.0. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/pages/web_custom_mock_setup.dart:504 ds_no_design_literal Hand-written duration 300. Use PantasDurations.
+lib/features/mock_exam/presentation/pages/web_custom_mock_setup.dart:516 ds_no_design_literal Hand-written duration 300. Use PantasDurations.
+lib/features/mock_exam/presentation/part_transition_page.dart:47 ds_no_design_literal Hand-written duration 2050. Use PantasDurations.
+lib/features/mock_exam/presentation/part_transition_page.dart:153 ds_no_design_literal Hand-written size 12. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/part_transition_page.dart:153 ds_no_design_literal Hand-written size 7. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/part_transition_page.dart:240 ds_no_design_literal Hand-written size 2. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/part_transition_page.dart:245 ds_no_design_literal Hand-written size 24. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/part_transition_page.dart:246 ds_no_design_literal Hand-written size 24. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/part_transition_page.dart:274 ds_no_design_literal Hand-written size 24. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/part_transition_page.dart:275 ds_no_design_literal Hand-written size 24. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/part_transition_page.dart:534 ds_no_design_literal Hand-written size 18. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/part_transition_page.dart:590 ds_no_design_literal Hand-written size 18. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/part_transition_page.dart:616 ds_no_design_literal Hand-written size 10. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/part_transition_page.dart:617 ds_no_design_literal Hand-written size 10. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/pause_page.dart:76 ds_no_design_literal Hand-written duration 2900. Use PantasDurations.
+lib/features/mock_exam/presentation/pause_page.dart:80 ds_no_design_literal Hand-written duration 2600. Use PantasDurations.
+lib/features/mock_exam/presentation/pause_page.dart:84 ds_no_design_literal Hand-written duration 6000. Use PantasDurations.
+lib/features/mock_exam/presentation/pause_page.dart:88 ds_no_design_literal Hand-written duration 1800. Use PantasDurations.
+lib/features/mock_exam/presentation/pause_page.dart:356 ds_no_design_literal Hand-written size 1. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/pause_page.dart:393 ds_no_design_literal Hand-written size 420. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/pause_page.dart:774 ds_no_design_literal Hand-written size 2. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/pause_page.dart:781 ds_no_design_literal Hand-written size 24. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/pause_page.dart:782 ds_no_design_literal Hand-written size 24. Use PantasSpace or PantasSize.
+lib/features/mock_exam/presentation/widgets/cse_mock_finale.dart:39 ds_no_design_literal Hand-written duration 9650. Use PantasDurations.
+lib/features/mock_exam/presentation/widgets/cse_mock_finale.dart:130 ds_no_design_literal Hand-written text size 1.35. Use a PantasType style.
+lib/features/mock_exam/presentation/widgets/cse_mock_finale.dart:133 ds_no_design_literal Hand-written text size 1.35. Use a PantasType style.
+lib/features/mock_exam/presentation/widgets/mock_card.dart:182 ds_no_design_literal Hand-written text size 1. Use a PantasType style.
+lib/features/mock_exam/presentation/widgets/mock_card.dart:255 ds_no_design_literal Hand-written text size 1.45. Use a PantasType style.
+lib/features/mock_exam/presentation/widgets/mock_card.dart:292 ds_no_design_literal Hand-written text size 1.4. Use a PantasType style.
+lib/features/mock_exam/presentation/widgets/mock_card.dart:308 ds_no_design_literal Hand-written text size 1.4. Use a PantasType style.
+lib/features/mock_exam/presentation/widgets/mock_card.dart:351 ds_no_design_literal Hand-written duration 640. Use PantasDurations.
+lib/features/mock_exam/presentation/widgets/mock_card.dart:576 ds_no_design_literal Hand-written text size 1.2. Use a PantasType style.
+lib/features/mock_exam/presentation/widgets/mock_card.dart:584 ds_no_design_literal Hand-written text size 1.45. Use a PantasType style.
+lib/features/mock_exam/presentation/widgets/mock_card.dart:606 ds_no_design_literal Hand-written text size 1.3. Use a PantasType style.
+lib/features/mock_exam/presentation/widgets/mock_card.dart:611 ds_no_design_literal Hand-written text size 1.4. Use a PantasType style.
+lib/features/mock_exam/presentation/widgets/mock_card.dart:613 ds_no_design_literal Hand-written text size 1.4. Use a PantasType style.
+lib/features/mock_exam/presentation/widgets/score_headline.dart:64 ds_no_design_literal Hand-written duration 800. Use PantasDurations.
+lib/features/mock_exam/presentation/widgets/web_mock_finale.dart:32 ds_no_design_literal Hand-written duration 11350. Use PantasDurations.
+lib/features/notifications/presentation/permission_rationale_page.dart:46 ds_no_design_literal Hand-written size 420. Use PantasSpace or PantasSize.
+lib/features/onboarding/presentation/exam_picker_screen.dart:701 ds_no_design_literal Hand-written size 8. Use PantasSpace or PantasSize.
+lib/features/onboarding/presentation/exam_picker_screen.dart:767 ds_no_design_literal Hand-written size 380. Use PantasSpace or PantasSize.
+lib/features/onboarding/presentation/exam_picker_screen.dart:929 ds_board_value_reason _settingsNoteWidth is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/onboarding/presentation/onboarding_age_gate_step.dart:33 ds_board_value_reason _blockedBottom is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/onboarding/presentation/onboarding_age_gate_step.dart:36 ds_board_value_reason _yearFieldWidth is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/onboarding/presentation/onboarding_age_gate_step.dart:200 ds_no_design_literal Hand-written spacing 120. Use PantasSpace.
+lib/features/onboarding/presentation/onboarding_age_gate_step.dart:367 ds_no_design_literal Hand-written size 240. Use PantasSpace or PantasSize.
+lib/features/onboarding/presentation/onboarding_exam_date_step.dart:29 ds_board_value_reason _tileWide is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/onboarding/presentation/onboarding_exam_date_step.dart:31 ds_board_value_reason _tilePhoneHeight is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/onboarding/presentation/onboarding_exam_date_step.dart:221 ds_no_design_literal Hand-written size 84. Use PantasSpace or PantasSize.
+lib/features/onboarding/presentation/onboarding_exam_date_step.dart:221 ds_no_design_literal Hand-written size 68. Use PantasSpace or PantasSize.
+lib/features/onboarding/presentation/onboarding_study_days_step.dart:29 ds_board_value_reason _statusMinHeight is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/onboarding/presentation/onboarding_study_days_step.dart:235 ds_no_design_literal Hand-written size 96. Use PantasSpace or PantasSize.
+lib/features/onboarding/presentation/onboarding_web_calendar.dart:18 ds_board_value_reason _monthPanelWidth is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/onboarding/presentation/onboarding_web_calendar.dart:269 ds_no_design_literal Hand-written size 236. Use PantasSpace or PantasSize.
+lib/features/onboarding/presentation/onboarding_web_page.dart:14 ds_board_value_reason titleTopGap is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/onboarding/presentation/onboarding_welcome_step.dart:25 ds_board_value_reason _buttonWidth is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/onboarding/presentation/onboarding_welcome_step.dart:28 ds_board_value_reason _phoneLogoTop is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/onboarding/presentation/onboarding_welcome_step.dart:95 ds_no_design_literal Hand-written size 260. Use PantasSpace or PantasSize.
+lib/features/onboarding/presentation/onboarding_welcome_step.dart:128 ds_no_design_literal Hand-written spacing 180. Use PantasSpace.
+lib/features/onboarding/presentation/onboarding_welcome_step.dart:237 ds_no_design_literal Hand-written duration 750. Use PantasDurations.
+lib/features/onboarding/presentation/onboarding_welcome_step.dart:237 ds_no_design_literal Hand-written duration 250. Use PantasDurations.
+lib/features/onboarding/presentation/onboarding_welcome_step.dart:295 ds_no_design_literal Hand-written duration 750. Use PantasDurations.
+lib/features/quiz/presentation/pages/flagged_list_page.dart:192 ds_no_design_literal Hand-written size 30. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/pages/flagged_list_page.dart:193 ds_no_design_literal Hand-written size 30. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/practice_picker_screen.dart:343 ds_no_design_literal Hand-written text size 1.15. Use a PantasType style.
+lib/features/quiz/presentation/practice_picker_screen.dart:429 ds_no_design_literal Hand-written duration 600. Use PantasDurations.
+lib/features/quiz/presentation/practice_picker_screen.dart:508 ds_no_design_literal Hand-written duration 300. Use PantasDurations.
+lib/features/quiz/presentation/practice_picker_screen.dart:852 ds_no_design_literal Hand-written size 280. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/practice_picker_screen.dart:959 ds_no_design_literal Hand-written size 14. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/practice_picker_screen.dart:959 ds_no_design_literal Hand-written size 16. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/practice_picker_screen.dart:1040 ds_no_design_literal Hand-written duration 200. Use PantasDurations.
+lib/features/quiz/presentation/practice_picker_screen.dart:1060 ds_no_design_literal Hand-written duration 200. Use PantasDurations.
+lib/features/quiz/presentation/practice_picker_screen.dart:1063 ds_no_design_literal Hand-written duration 200. Use PantasDurations.
+lib/features/quiz/presentation/practice_picker_screen.dart:1100 ds_no_design_literal Hand-written duration 200. Use PantasDurations.
+lib/features/quiz/presentation/practice_picker_screen.dart:1131 ds_no_design_literal Hand-written size 44. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/practice_picker_screen.dart:1329 ds_no_design_literal Hand-written size 36. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/practice_picker_screen.dart:1330 ds_no_design_literal Hand-written size 5. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/practice_picker_screen.dart:1363 ds_no_design_literal Hand-written size 12. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/practice_picker_screen.dart:1363 ds_no_design_literal Hand-written size 6.5. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/practice_picker_screen.dart:1433 ds_no_design_literal Hand-written size .5. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/practice_picker_screen.dart:1634 ds_no_design_literal Hand-written size 30. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/practice_picker_screen.dart:1635 ds_no_design_literal Hand-written size 30. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/practice_picker_screen.dart:1669 ds_no_design_literal Hand-written size 28. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/practice_picker_screen.dart:1670 ds_no_design_literal Hand-written size 28. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/quiz_note_editor.dart:186 ds_no_design_literal Hand-written size 1. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/quiz_note_editor.dart:261 ds_no_design_literal Hand-written size 48. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/quiz_note_editor.dart:332 ds_no_design_literal Hand-written size 318. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/quiz_note_editor.dart:429 ds_no_design_literal Hand-written duration 300. Use PantasDurations.
+lib/features/quiz/presentation/quiz_note_editor.dart:502 ds_no_design_literal Hand-written size 80. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/quiz_note_editor.dart:502 ds_no_design_literal Hand-written size 100. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/quiz_page.dart:1284 ds_no_design_literal Hand-written size 360. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/quiz_page.dart:1390 ds_no_design_literal Hand-written size 44. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/quiz_page.dart:1689 ds_no_design_literal Hand-written duration 520. Use PantasDurations.
+lib/features/quiz/presentation/quiz_question_viewer.dart:498 ds_no_design_literal Hand-written duration 720. Use PantasDurations.
+lib/features/quiz/presentation/quiz_question_viewer.dart:629 ds_no_design_literal Hand-written duration 420. Use PantasDurations.
+lib/features/quiz/presentation/quiz_question_viewer.dart:641 ds_no_design_literal Hand-written duration 420. Use PantasDurations.
+lib/features/quiz/presentation/quiz_question_viewer.dart:643 ds_no_design_literal Hand-written duration 720. Use PantasDurations.
+lib/features/quiz/presentation/quiz_question_viewer.dart:694 ds_no_design_literal Hand-written duration 420. Use PantasDurations.
+lib/features/quiz/presentation/quiz_question_viewer.dart:695 ds_no_design_literal Hand-written duration 720. Use PantasDurations.
+lib/features/quiz/presentation/quiz_session_end_page.dart:319 ds_no_design_literal Hand-written size 30. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/quiz_session_end_page.dart:320 ds_no_design_literal Hand-written size 30. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/quiz_tab_screen.dart:451 ds_no_design_literal Hand-written size 420 or 28 or 800. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/quiz_tab_screen.dart:454 ds_no_design_literal Hand-written size 380 or 28 or 800. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/quiz_tab_screen.dart:554 ds_no_design_literal Hand-written size 26. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/quiz_tab_screen.dart:560 ds_no_design_literal Hand-written size 26. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/quiz_tab_screen.dart:566 ds_no_design_literal Hand-written duration 700. Use PantasDurations.
+lib/features/quiz/presentation/quiz_tab_screen.dart:573 ds_no_design_literal Hand-written duration 700. Use PantasDurations.
+lib/features/quiz/presentation/quiz_tab_screen.dart:975 ds_no_design_literal Hand-written duration 450. Use PantasDurations.
+lib/features/quiz/presentation/quiz_tab_screen.dart:1060 ds_no_design_literal Hand-written text size 1.4. Use a PantasType style.
+lib/features/quiz/presentation/session_debrief_cards.dart:117 ds_no_design_literal Hand-written size 32. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/session_debrief_cards.dart:117 ds_no_design_literal Hand-written size 22. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/session_debrief_cards.dart:213 ds_no_design_literal Hand-written text size 1.35. Use a PantasType style.
+lib/features/quiz/presentation/session_debrief_cards.dart:289 ds_no_design_literal Hand-written size 44. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/session_debrief_cards.dart:342 ds_no_design_literal Hand-written size 26. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/session_debrief_cards.dart:343 ds_no_design_literal Hand-written size 26. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/session_debrief_cards.dart:395 ds_no_design_literal Hand-written size 22. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/session_debrief_cards.dart:396 ds_no_design_literal Hand-written size 22. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/session_debrief_cards.dart:421 ds_no_design_literal Hand-written size 26. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/session_debrief_cards.dart:421 ds_no_design_literal Hand-written size 22. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/session_debrief_cards.dart:422 ds_no_design_literal Hand-written size 26. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/session_debrief_cards.dart:422 ds_no_design_literal Hand-written size 22. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/session_end_screen.dart:74 ds_no_design_literal Hand-written duration 2600. Use PantasDurations.
+lib/features/quiz/presentation/session_end_screen.dart:129 ds_no_design_literal Hand-written size 28. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/session_end_screen.dart:130 ds_no_design_literal Hand-written size 28. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/session_end_screen.dart:403 ds_no_design_literal Hand-written text size 1.45. Use a PantasType style.
+lib/features/quiz/presentation/web_session_results.dart:152 ds_no_design_literal Hand-written size 640. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/web_session_results.dart:421 ds_no_design_literal Hand-written size 26. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/web_session_results.dart:422 ds_no_design_literal Hand-written size 26. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/widgets/quiz_skeletons.dart:18 ds_no_design_literal Hand-written size 66. Use PantasSpace or PantasSize.
+lib/features/quiz/presentation/widgets/quiz_skeletons.dart:18 ds_no_design_literal Hand-written size 63.5. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/carry_over_prompt.dart:85 ds_board_value_reason _wideArtWidth is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/settings/presentation/carry_over_prompt.dart:86 ds_board_value_reason _wideCardHeight is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/settings/presentation/carry_over_prompt.dart:87 ds_board_value_reason _phoneLabelWidth is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/settings/presentation/carry_over_prompt.dart:88 ds_board_value_reason _phoneStreamWidth is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/settings/presentation/carry_over_prompt.dart:89 ds_board_value_reason _phoneStreamTop is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/settings/presentation/carry_over_prompt.dart:137 ds_no_design_literal Hand-written duration 5400. Use PantasDurations.
+lib/features/settings/presentation/carry_over_prompt.dart:215 ds_no_design_literal Hand-written size 104. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/carry_over_prompt.dart:216 ds_no_design_literal Hand-written size 168. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/carry_over_prompt.dart:311 ds_no_design_literal Hand-written size 476. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/carry_over_prompt.dart:311 ds_no_design_literal Hand-written size 3.0. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/carry_over_prompt.dart:324 ds_no_design_literal Hand-written size 278. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/carry_over_prompt.dart:325 ds_no_design_literal Hand-written size 202. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/carry_over_prompt.dart:464 ds_no_design_literal Hand-written size 46. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/carry_over_prompt.dart:465 ds_no_design_literal Hand-written size 46. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/carry_over_prompt.dart:555 ds_no_design_literal Hand-written size 104. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/carry_over_prompt.dart:556 ds_no_design_literal Hand-written size 168. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/carry_over_prompt.dart:608 ds_no_design_literal Hand-written size 130. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/carry_over_prompt.dart:646 ds_no_design_literal Hand-written size 760. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/carry_over_prompt.dart:670 ds_no_design_literal Hand-written spacing 82. Use PantasSpace.
+lib/features/settings/presentation/carry_over_prompt.dart:673 ds_no_design_literal Hand-written size 70. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/carry_over_prompt.dart:674 ds_no_design_literal Hand-written size 8. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/pages/about_page.dart:65 ds_no_design_literal Hand-written size 52. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/pages/about_page.dart:66 ds_no_design_literal Hand-written size 52. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/pages/about_page.dart:145 ds_no_design_literal Hand-written size 24. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/pages/about_page.dart:145 ds_no_design_literal Hand-written size 21. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/pages/appearance_page.dart:26 ds_board_value_reason _themeTileWidth is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/settings/presentation/pages/appearance_page.dart:233 ds_no_design_literal Hand-written size 140. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/pages/appearance_page.dart:242 ds_no_design_literal Hand-written size 128. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/pages/appearance_page.dart:243 ds_no_design_literal Hand-written size 84. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/pages/appearance_page.dart:283 ds_no_design_literal Hand-written size 20. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/pages/appearance_page.dart:284 ds_no_design_literal Hand-written size 20. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/pages/appearance_page.dart:369 ds_no_design_literal Hand-written size 74. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/pages/appearance_page.dart:370 ds_no_design_literal Hand-written size 140. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/pages/appearance_page.dart:412 ds_no_design_literal Hand-written size 22. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/pages/appearance_page.dart:413 ds_no_design_literal Hand-written size 22. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/pages/delete_account_page.dart:302 ds_no_design_literal Hand-written text size 1.2. Use a PantasType style.
+lib/features/settings/presentation/pages/delete_account_page.dart:322 ds_no_design_literal Hand-written size 22. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/pages/exam_page.dart:36 ds_board_value_reason _dateModesWidth is a design value kept outside the tokens. Add "// ds-board: <reason>" on its line or the line above, or move it onto the tokens.
+lib/features/settings/presentation/pages/exam_page.dart:55 ds_no_design_literal Hand-written duration 300. Use PantasDurations.
+lib/features/settings/presentation/pages/exam_page.dart:59 ds_no_design_literal Hand-written duration 700. Use PantasDurations.
+lib/features/settings/presentation/pages/exam_page.dart:183 ds_no_design_literal Hand-written size 64. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/pages/exam_page.dart:184 ds_no_design_literal Hand-written size 64. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/pages/exam_page.dart:540 ds_no_design_literal Hand-written size 34. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/pages/exam_page.dart:593 ds_no_design_literal Hand-written size 424. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/pages/exam_page.dart:689 ds_no_design_literal Hand-written text size 1.45. Use a PantasType style.
+lib/features/settings/presentation/pages/name_page.dart:275 ds_no_design_literal Hand-written text size 1.4. Use a PantasType style.
+lib/features/settings/presentation/pages/pro_page.dart:1167 ds_no_design_literal Hand-written text size 1.3. Use a PantasType style.
+lib/features/settings/presentation/pages/session_building_page.dart:56 ds_no_design_literal Hand-written size 420. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/settings_home_page.dart:55 ds_no_design_literal Hand-written text size 1. Use a PantasType style.
+lib/features/settings/presentation/settings_home_page.dart:189 ds_no_design_literal Hand-written size 30. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/settings_home_page.dart:228 ds_no_design_literal Hand-written size 30. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/settings_home_page.dart:233 ds_no_design_literal Hand-written size 30. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/widgets/beta_pro_row.dart:64 ds_no_design_literal Hand-written size 22. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/widgets/beta_pro_row.dart:64 ds_no_design_literal Hand-written size 30. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/widgets/settings_pane_page.dart:328 ds_no_design_literal Hand-written size 22. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/widgets/settings_pane_page.dart:468 ds_no_design_literal Hand-written size 44. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/widgets/settings_pane_page.dart:672 ds_no_design_literal Hand-written size 52. Use PantasSpace or PantasSize.
+lib/features/settings/presentation/widgets/web_pro_hero.dart:18 ds_no_design_literal Hand-written text size 1.3. Use a PantasType style.
+lib/features/settings/presentation/widgets/web_pro_hero.dart:127 ds_no_design_literal Hand-written size 2. Use PantasSpace or PantasSize.
+lib/features/shell/presentation/app_shell.dart:145 ds_no_design_literal Hand-written size 1. Use PantasSpace or PantasSize.
+lib/features/wrapped/rendering/wrapped_png_renderer.dart:170 ds_no_design_literal Hand-written text size 1.18. Use a PantasType style.
+
+# Counts per rule
+  498 ds_no_design_literal
+   48 ds_board_value_reason
+  546 total
+
+# Counts per folder
+  141 lib/features/home
+   94 lib/features/lesson
+   85 lib/features/mock_exam
+   68 lib/features/quiz
+   59 lib/features/settings
+   50 lib/app
+   23 lib/features/onboarding
+   20 lib/features/beta_feedback
+    2 lib/features/guardian
+    1 lib/features/legal
+    1 lib/features/notifications
+    1 lib/features/shell
+    1 lib/features/wrapped
