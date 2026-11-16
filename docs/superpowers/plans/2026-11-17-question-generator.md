@@ -79,6 +79,7 @@ format: figure-series          # the existing question `type`, copied to exporte
 rule: figureSeriesTurnStep     # class in tool/generator/rules/
 ruleVersion: 1
 choiceCount: 4
+choiceKind: figure             # figure (figure data plus text) or text (text only); same for every choice of the type
 enabled: true                  # false = rollback: type inactive, merged questions active
 params: { stepDegrees: [45, 90], length: [3, 4], forms: [square, circle] }
 stem: "Which figure best continues the simplest consistent pattern shown?"
@@ -103,6 +104,8 @@ variants:
     choices:                        # stored order is display order
       - { correct: true, text: "Line pointing lower-right", figure: {...} }
       - { mistake: double-turn, text: "Line pointing down", figure: {...}, slots: { wrongStep: 90 } }
+    ruleKey: <sha256 of the rule-parameter set only>             # cosmetic attributes excluded
+    cosmetics: { form: circle, fill: white }                     # attributes the rule ignores, constant across the whole version
     signature: <sha256 of the canonical figure or number set>
 ```
 
@@ -116,7 +119,19 @@ Dart interfaces (tool, Phase 1; reused by the app in Phase 2 where marked):
 - `abstract class Rule { String get name; int get version; Variant generate(ProblemType t, Random r, int index); }` and `ruleRegistry: Map<String, Rule>` in `tool/generator/lib/src/rules/`.
 - `abstract class FigureSolver { bool fits(FigureSpec shown, FigureSpec candidate); }` per rule, in `tool/generator/lib/src/check/solvers/`, sharing no code with `rules/` beyond the model.
 - `resolveVariant(Question typeRow, VariantDoc doc, int index) -> Question` (app, Phase 2): fills slots, returns an ordinary `Question` whose id is the type id.
-- `chooseVariant({required String uid, required String typeId, required int count, required Map<int, DateTime> served}) -> int` (app and server Dart, Phase 2): seeded permutation of `0..count-1` by `sha256(uid + typeId)`; first index not in `served`; if none, the index with the oldest served time.
+- `chooseVariant({required String uid, required String typeId, required int count, required Map<int, DateTime> served}) -> int` (app and server Dart, Phase 2): seeded permutation of `0..count-1` by `sha256(uid + typeId)`; first index not in `served` whose `ruleKey` is not yet served (Fable ruling 2b), then any unserved index; if none, the index with the oldest served time.
+
+## Part 3b: adviser rulings, Nov 16 (Fable 5.2; record on main in the decision log)
+
+These apply before the affected code changes.
+
+1. A one-question pattern becomes a problem type with that question at index 0 when the rule reproduces it exactly; otherwise it stays a single. Types are not limited to merge groups. Build types in descending capacity order.
+2. Lists under 100 go to Aedwon (Part A says "Start size: 100 versions per type"). Until he answers: build the generator, the checker and every type that enumerates to 100 or more; hold shipping any list under 100 and any under-20 cut-off. Widening with attributes the rule ignores is allowed only if (a) the attribute is constant across every figure in one version, shown figures and choices, and varies only between versions; (b) each variant records its rule-parameter set (`ruleKey`) apart from its cosmetics, and the serve order cycles through distinct `ruleKey`s before it reuses one; (c) each type reports two enumerated numbers, distinct rule-parameter sets and total versions (generate, then dedupe by signature), never estimates. All paper-fold candidates and the no-figure questions stay singles. The fold painter is not touched.
+3. The cube-net signature ignores label permutations. Labels may be shuffled between versions as a cosmetic; that adds no capacity.
+4. Each type declares `choiceKind`: `figure` (figure data plus text) or `text` (a count, a condition, an order or a relation). All choices in one question use the same kind. Singles with undrawable answer figures (series 0002, 0005, 0007, 0008; matrices 0002) keep text choices. The figure-choice UI lead is told.
+5. A type whose index 0 differs from its live source question does not ship. Series 0019's wrong-choice note (says 90 degrees; the choice is a 135-degree overshoot) is fixed in the source question through the content approval gate first; the type names the 135-degree mistake.
+
+The checker gains: `ruleKey` recomputed independently by the solver and compared; cosmetics constant across the version; `choiceKind: text` choices carry no figure; the capacity report (`bin/capacity.dart`: distinct `ruleKey`s and total signatures per type at a given ceiling).
 
 ## Part 4: tasks
 
