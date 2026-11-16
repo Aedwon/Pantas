@@ -128,8 +128,9 @@ def main():
         shutil.copy('functions/package.json', isolated)
         (isolated / 'node_modules').symlink_to(ROOT / 'functions/node_modules', target_is_directory=True)
         (isolated / '.secret.local').write_text(
-            'TRIAL_IDENTITY_HMAC_KEY=local-emulator-only-not-a-secret\n'
-            'PAYMONGO_SECRET_KEY=local-disabled\nPAYMONGO_WEBHOOK_SECRET=local-disabled\n')
+            "PANTAS_APP_SECRETS='" + json.dumps({'TRIAL_IDENTITY_HMAC_KEY': 'local-emulator-only-not-a-secret'}) + "'\n"
+            "PANTAS_PAYMENT_SECRETS='" + json.dumps({
+                'PAYMONGO_SECRET_KEY': 'local-disabled', 'PAYMONGO_WEBHOOK_SECRET': 'local-disabled'}) + "'\n")
         shutil.copy('tools/local/offline_guard.cjs', isolated)
         (isolated / '.env.local').write_text(f'NODE_OPTIONS=--require={isolated}/offline_guard.cjs\nBETA_PRO_UNTIL={env.get("BETA_PRO_UNTIL", "")}\n'
                                              'GUARDIAN_MAIL_FROM=local@pantas.local\nGUARDIAN_LINK_ORIGIN=http://127.0.0.1:7357\nGUARDIAN_DAILY_SEND_CAP=500\n')

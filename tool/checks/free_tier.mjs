@@ -11,8 +11,10 @@
 //   - scheduled functions exceed 3 (Cloud Scheduler: 3 free jobs per billing account, paused ones count);
 //   - any endpoint has minInstances above 0;
 //   - distinct secret names times the projects that deploy them exceed 6 (Secret Manager: 6 free
-//     versions), unless a valid waiver covers it;
-//   - WARMUP_ENABLED is true anywhere but prod, or on prod after the end date in the waiver file;
+//     versions), unless a valid waiver covers it (none now: two secrets per project, PANTAS_PAYMENT_SECRETS and PANTAS_APP_SECRETS, 4 in all);
+//   - WARMUP_ENABLED is true anywhere but prod, or on prod after the end date in the waiver file
+//     unless the warm-up code itself stops by a recorded end date (WARMUP_ENDS_AT in functions/src/keepWarm.ts)
+//     no later than that date;
 //   - a file under tool/, .github/ or functions/ fetches app files from *.web.app or *.firebaseapp.com
 //     (Firebase Hosting bills every byte of egress).
 // Waivers: tool/checks/free_tier_waivers.json. A waiver warns and passes until its date or ceiling is
@@ -109,6 +111,16 @@ export function scanFirebaseFetches(files, waivers) {
   return hits;
 }
 
+/** The warm-up end date the code stops at (WARMUP_ENDS_AT in functions/src/keepWarm.ts), or null. */
+export function readWarmupEndInCode(root = ROOT) {
+  try {
+    const text = readFileSync(join(root, 'functions/src/keepWarm.ts'), 'utf8');
+    return /export const WARMUP_ENDS_AT = '([^']+)';/.exec(text)?.[1] ?? null;
+  } catch {
+    return null;
+  }
+}
+
 const dayStart = (date) => new Date(`${date}T00:00:00${MANILA}`);
 
 /** The waiver's ceiling and date may only fall. `previous` is the waiver file on origin/main. */
@@ -124,11 +136,16 @@ export function checkCeilingNeverRises(current, previous) {
   return errors;
 }
 
+const stopsInCodeBy = (codeEnd, end) => {
+  const at = codeEnd ? new Date(codeEnd) : null;
+  return at !== null && !Number.isNaN(at.getTime()) && at <= end;
+};
+
 /**
  * projects: {name: {endpoints: [{name, schedule, minInstances}], secrets: [names], env: {}}}
  * Returns {errors, warnings}: one line each.
  */
-export function evaluate({projects, waivers, now, files}) {
+export function evaluate({projects, waivers, now, files, warmupEndsInCode = null}) {
   const errors = [];
   const warnings = [];
 
@@ -160,6 +177,7 @@ export function evaluate({projects, waivers, now, files}) {
     const end = waivers.warmup?.endsAt ? new Date(waivers.warmup.endsAt) : null;
     if (p !== PROD) errors.push(`WARMUP_ENABLED is true on ${p}: warm-up may run on prod only`);
     else if (!end) errors.push(`WARMUP_ENABLED is true on ${p} and the waiver file has no warm-up end date`);
+    else if (now >= end && stopsInCodeBy(warmupEndsInCode, end)) continue;
     else if (now >= end) errors.push(`WARMUP_ENABLED is still true on ${p} after its end date ${waivers.warmup.endsAt.slice(0, 10)} (${waivers.warmup.reference})`);
   }
 
@@ -173,15 +191,17 @@ function main(argv) {
   let projects;
   let now = new Date();
   let files = [];
+  let warmupEndsInCode = readWarmupEndInCode();
   if (snapshot >= 0) {
     const fixture = JSON.parse(readFileSync(argv[snapshot + 1], 'utf8'));
     projects = fixture.projects;
     if (fixture.now) now = new Date(fixture.now);
+    warmupEndsInCode = fixture.warmupEndsInCode ?? null;
   } else {
     projects = discoverAll();
     files = listScannedFiles();
   }
-  const {errors, warnings} = evaluate({projects, waivers, now, files});
+  const {errors, warnings} = evaluate({projects, waivers, now, files, warmupEndsInCode});
   for (const [p, v] of Object.entries(projects)) {
     console.log(`INFO  ${p}: ${v.endpoints.filter((e) => e.schedule).length} scheduled, ${v.secrets.length} secrets, WARMUP_ENABLED=${v.env?.WARMUP_ENABLED ?? 'unset'}`);
   }

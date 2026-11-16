@@ -175,7 +175,8 @@ later queued plans move earlier. Tested on staging, 9 November 2026.
    Prod in live mode:
 
    ```sh
-   export PAYMONGO_WEBHOOK_SECRET="$(gcloud secrets versions access latest --secret PAYMONGO_WEBHOOK_SECRET --project pantas-prod)"
+   export PAYMONGO_WEBHOOK_SECRET="$(gcloud secrets versions access latest --secret PANTAS_PAYMENT_SECRETS --project pantas-prod \
+     | node -e 'process.stdout.write(JSON.parse(require("fs").readFileSync(0, "utf8")).PAYMONGO_WEBHOOK_SECRET)')"
    export PAYMONGO_LIVEMODE=true   # false while the project runs a sk_test_ key
    node manual-refund.mjs pantas-prod pay_XXXX 49900 20261120_1
    unset PAYMONGO_WEBHOOK_SECRET

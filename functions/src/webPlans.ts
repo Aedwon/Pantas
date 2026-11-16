@@ -2,7 +2,8 @@ import {enforceAppCheck} from './_appCheck.js';
 import {getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {assertNamedUser} from './_audit.js';
 import type {RevenueCatAccessSource} from './revenuecatPolicy.js';
-import {trialEligible, trialIdentityKey} from './webTrial.js';
+import {appSecrets} from './_secrets.js';
+import {trialEligible} from './webTrial.js';
 import {HttpsError} from 'firebase-functions/v2/https';
 import {onAccountCall as onCall} from './_accountAccess.js';
 import {allowAtMost} from './_limits.js';
@@ -72,5 +73,5 @@ async function googlePlayRenews(db: Firestore, uid: string, at: number): Promise
     typeof source.productId === 'string');
 }
 
-export const listWebPlans = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, secrets: [trialIdentityKey]},
+export const listWebPlans = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, secrets: [appSecrets]},
   timed('listWebPlans', request => listPlans(request.auth)));

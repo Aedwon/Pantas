@@ -1,3 +1,4 @@
+import {setTestSecrets} from './_secrets-helper.mjs';
 import '../lib/index.js';
 import assert from 'node:assert/strict';
 import test from 'node:test';
@@ -7,7 +8,7 @@ import {checkGoogleSignIn} from '../lib/googleSignIn.js';
 import {checkSignInCode, sendSignInCode} from '../lib/signInCode.js';
 
 // Local emulator fixture only. Production requires the provisioned Functions secret.
-process.env.TRIAL_IDENTITY_HMAC_KEY = 'squatter-emulator-only-hmac-key';
+setTestSecrets({TRIAL_IDENTITY_HMAC_KEY: 'squatter-emulator-only-hmac-key'});
 
 assert.ok(process.env.FIREBASE_AUTH_EMULATOR_HOST);
 const auth = getAuth();

@@ -216,7 +216,7 @@ test('markers keep the raw email form as well, so trials recorded before aliases
   const dotted = {uid: 'old', token: {email: 'a.b+x@gmail.com', email_verified: true, firebase: {sign_in_provider: 'custom'}}};
   assert.equal(identityMarkers(dotted, db).length, 2);
   const {createHmac} = await import('node:crypto');
-  const raw = createHmac('sha256', process.env.TRIAL_IDENTITY_HMAC_KEY).update(JSON.stringify(['email', 'a.b+x@gmail.com'])).digest('hex');
+  const raw = createHmac('sha256', JSON.parse(process.env.PANTAS_APP_SECRETS).TRIAL_IDENTITY_HMAC_KEY).update(JSON.stringify(['email', 'a.b+x@gmail.com'])).digest('hex');
   db.rows.set(`trialUsedIdentities/${raw}`, {used: true});
   assert.equal(await trialEligible(dotted, db), false);
   await assert.rejects(startTrial(dotted, deps(db)), {code: 'failed-precondition'});

@@ -11,7 +11,8 @@ import {allowAtMost} from './_limits.js';
 import {clientBucket} from './_clientAddress.js';
 import {phDay} from './_phDate.js';
 import {isSquatter, replaceSquatter, type SquatterAuth} from './_squatter.js';
-import {key as signInKey, signInCodeKey} from './signInCode.js';
+import {appSecrets} from './_secrets.js';
+import {key as signInKey} from './signInCode.js';
 import {timed} from './_timed.js';
 
 /**
@@ -275,7 +276,7 @@ export async function checkGoogleSignIn(request: Req, deps: GoogleSignInDeps): P
 }
 
 export const exchangeGoogleSignIn = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck,
-  consumeAppCheckToken: enforceAppCheck, secrets: [signInCodeKey]}, timed('exchangeGoogleSignIn', request => {
+  consumeAppCheckToken: enforceAppCheck, secrets: [appSecrets]}, timed('exchangeGoogleSignIn', request => {
   assertFreshAppCheck(request);
   return checkGoogleSignIn(request, {auth: getAuth(), db: getFirestore(), key: signInKey(), clientId: googleWebClientId.value(),
     fetchTokenInfo: fetchGoogleTokenInfo});

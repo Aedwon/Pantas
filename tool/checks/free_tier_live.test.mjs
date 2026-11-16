@@ -5,7 +5,7 @@ import test from 'node:test';
 import {judge, formatRow} from './free_tier_live.mjs';
 import {loadWaivers} from './free_tier.mjs';
 
-const waivers = loadWaivers();
+const waivers = {...loadWaivers(), secrets: {ceiling: 16, expires: '2026-11-24', reference: 'test waiver'}};
 const NOW = new Date('2026-11-15T12:00:00+08:00');
 const MIB = 1024 * 1024;
 const days = (n, reads = 1000, writes = 100) => Array.from({length: n}, (_, i) => ({day: `2026-11-${String(9 + i).padStart(2, '0')}`, reads, writes, deletes: 0}));

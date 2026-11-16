@@ -33,6 +33,11 @@ to this site in step 9.
 
 ## 3. Prepare test-mode secrets (Aedwon-only)
 
+**Since Nov 17, 2026 the functions read two secrets, `PANTAS_PAYMENT_SECRETS` and `PANTAS_APP_SECRETS`, each a JSON object** (keys in
+`docs/secrets-merge.md`; steps in "The merged secret" at the end of this file). The per-key
+`firebase functions:secrets:set <KEY>` commands below and in step 11 are the old way: use them only
+to learn which value belongs to which key, and put the value into the JSON instead.
+
 The beta end time is not a secret: `functions/.env.pantas-prod` sets
 `BETA_PRO_UNTIL=2026-11-16T00:00:00+08:00` and deploys with the functions. Remove that line (or
 the file) after the beta to turn the switch off for good.
@@ -416,3 +421,36 @@ app files from `*.web.app` or `*.firebaseapp.com`. Waivers are in `tool/checks/f
 and their ceiling cannot rise. `node tool/checks/free_tier_live.mjs` is read-only: run it by hand or on a
 schedule, weekly and after every deploy. It reads the live billing account (every project on it) and
 exits 1 when any item is over its free limit.
+
+## 16. The two secrets: `PANTAS_PAYMENT_SECRETS` and `PANTAS_APP_SECRETS` (Aedwon-only)
+
+Why: Secret Manager bills $0.06 per active version a month after 6 free per billing account. Eight
+secrets in two projects were 16 versions; two secrets per project is 4 (Fable 5.2 rule 7 ruling 1,
+split on Nov 17). Keys, owners and staging notes: `docs/secrets-merge.md`. Only web checkout and
+the two webhooks bind the payment secret.
+
+Create (first time, per project). Build each JSON in your own terminal from the current values and
+never print it, paste it into chat or put it in an argument. Keep the existing values of
+`TRIAL_IDENTITY_HMAC_KEY` and `GUARDIAN_HMAC_KEY` exactly. Staging's payment secret holds test-mode keys only.
+
+```sh
+# payment.json and app.json are private files outside the repository, with the keys of each group.
+firebase functions:secrets:set PANTAS_PAYMENT_SECRETS --data-file=payment.json --project pantas-prod
+firebase functions:secrets:set PANTAS_APP_SECRETS --data-file=app.json --project pantas-prod
+shred -u payment.json app.json 2>/dev/null || rm -P payment.json app.json   # then delete the files
+```
+
+Rotate one secret at a time, and destroy the old version in the same session, so the active count
+never passes 5 (4 in steady state, plus at most one new version while you rotate).
+
+1. Add a version of one secret: `firebase functions:secrets:set <SECRET> --data-file=<file> --project <project>`.
+   Read the current JSON first with `gcloud secrets versions access latest --secret <SECRET> --project <project>` (do not print it; write it to a private file) and change only the key you rotate.
+2. Deploy functions with the pinned firebase-tools (step 15) so every function binds the new version.
+3. Verify the functions that read it (see `docs/secrets-merge.md`, Readers) and that the logs show no "Secret ... is not configured" errors.
+4. Destroy the old version in the same session: `gcloud secrets versions destroy <old version> --secret <SECRET> --project <project>`. A disabled version still bills.
+5. Check `gcloud secrets versions list <SECRET> --project <project>`: one ENABLED version, no DISABLED. Only then rotate the other secret.
+
+First move off the eight old secrets: create both new secrets (4 versions across the two projects
+after both projects have them; old ones are 16 until deleted, so delete them promptly), deploy,
+verify, then delete each old secret (`gcloud secrets delete <KEY> --project <project>`). Deploy before
+deleting: the previous release still reads them until the new one is live.
