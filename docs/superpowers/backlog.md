@@ -21,7 +21,7 @@ It is recorded in four places and in none of the lists a manager reads.
 1. Cloudflare token permission "Zone WAF: Edit" so the security lead can add the sign-in rate limit | waiting | `LL:3594`; `MH:70` | Nov 14 | Aedwon
 2. One real Google sign-in on his phone; unblocks retiring the old Firebase page (48 h clean from Nov 16 18:40 UTC plus one real sign-in) | waiting | `LL:3593`; `MH:70` | Nov 16 | Aedwon
 3. Phone check of the pixel-ratio cap before any prod ship; otherwise do not ship it. The scroll work itself was stopped by him | waiting, work stopped | `LL:3878`, `LL:3909` | Nov 16 | Aedwon
-4. Legal sign-off: usage-tracking step 2 notice wording and the under-18 guardian question (branch `web/usage-counts-r1`) | waiting | `MH:67`; `OPERATIONS.md:231-243` | Nov 15 | Aedwon
+4. ~~Legal sign-off: usage-tracking step 2~~ DONE: Fable 5.2 approved under his delegation (Nov 15); guardian email waived for the beta (Nov 16, rule 9); screen counts shipped to prod Nov 16 | done | `process-improvement.md` rule 9 | Nov 16 | -
 5. Founder app spec (branch `docs/founder-app-spec`, 20 boards) not approved; no build started. Open: Posts spec, Growth question list, source tracking scope | waiting | `docs/superpowers/decisions/2026-11-02-founder-app-log.md:429,454`; `plans/2026-11-10-manager-handoff.md:46-48` | Nov 10 | Aedwon and founder app lead
 6. Founder app owner inputs: business phone, website footer facts, BIR registration and invoicing, NPC registration, signed child privacy assessment, monitored dpo inbox | waiting | `LL:2756` | Nov 9 | Aedwon
 7. PayMongo live activation: BIR COR, DTI name, upgrade from Individual to Sole Proprietor, ask PayMongo support about QR Ph refunds | waiting | `LL:2841`, `LL:2839` | Nov 9 | Aedwon
