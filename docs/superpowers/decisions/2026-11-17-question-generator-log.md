@@ -509,4 +509,35 @@ A. Yes, this cycle. Then timing A is too late: the generator's offline parts
 B. No, the next cycle. Timing A stands. PSHS-NCE can go on sale whenever its
    items are done in 2027; nothing in this build needs to move.
 
-Aedwon's answer: pending.
+Aedwon's answer, exact words: "A"
+
+## November 17, 2026: PSHS-NCE is aimed at this cycle
+
+Decision (question 9): the aim is to sell PSHS-NCE for this cycle, test January 30,
+2027.
+
+What his "A" covers: the aim. Option A's text also said the generator's offline
+parts should start once he approves the spec, and that the manager must line up
+the other items. Those rode along in one option, so the lead does not treat them
+as separately approved:
+
+- The earlier start replaces timing A only when he approves the spec, whose
+  plain-language section states the start. Until then nothing is built.
+- The other items (PSHS-NCE content beyond math, the under-13 account path, the
+  pass product, live payments, the public launch) belong to the operations
+  manager. The lead told the manager his decision and that none of those items is
+  approved by these words; the manager brings him a plan with costs.
+
+Effects on this build, for the spec:
+
+- Abstract reasoning ships first, because it is the sale gate. The math pilot
+  follows it and does not block the gate.
+- The figure-choice screen spec is now on the path to the sale. It can no longer
+  wait for "after the beta" as a loose date; it starts as soon as this spec is
+  approved.
+- App and server changes are built on a branch and reach production only after
+  the beta ends on November 22.
+
+Lead's view given to him once: the generator can be ready in time. The risk to a
+sale this cycle is in the other items, mainly the account path for takers under 13
+and live payments.
