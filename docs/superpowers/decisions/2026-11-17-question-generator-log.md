@@ -605,3 +605,22 @@ Build lead (Opus 5.5) started the plan on `gen/question-generator-r1` (velocity 
 Rule from Aedwon for this lane, relayed verbatim by the operations manager: "wait for codex resets. this is true for lesson-generation related tasks and threads". All three Codex accounts filled their 5-hour windows at about 18:55 UTC Nov 16; the soonest reset is about 22:04 UTC.
 
 What changed: before every Codex run the lead checks `codex-pick --status` and starts nothing until an account shows 5-hour room. No Claude worker substitutes for Codex work in this lane. Plan writing continues, kept lean. One Sonnet reader (started before the rule arrived) re-verifies spec B1 for the plan; the math pilot lesson re-check waits for the first Codex window.
+
+## November 17, 2026: plan written; B1 re-verified
+
+Plan: `docs/superpowers/plans/2026-11-17-question-generator.md`. B1 evidence: `docs/superpowers/verification/2026-11-17-question-generator-b1.md` (Sonnet reader, file and line evidence; prod content 88f38e698, prod web and functions match main).
+
+B1 corrections and lead rulings (Part B only; Part A unchanged):
+
+1. Web "seen" comes from server answer totals, not review state. Ruling: the server aliases merged old ids to their type id when counting seen.
+2. Withdrawal by `isActive` cannot be authored in yaml today. Ruling: the exporter writes merged questions inactive while their type is enabled and active when it is disabled; `enabled: false` on the type is the rollback switch. Question yaml is not edited, so ledger hashes stay.
+3. `questionVersion` already exists as a content revision. Ruling: the new field is `variantIndex`.
+4. The 7-day rule is Practice only. Ruling: Drill gets never-met first and is otherwise unchanged.
+5. Abstract reasoning on prod content has 105 questions, 94 with figure data. Types are built from prod content; the 11 without figure data stay singles.
+6. The server runs app Dart compiled to JS. Ruling: any shared Dart change regenerates it and diffs a second build.
+7. Carry-over is an alias at read time, not a rewrite of stored history, so rollback restores the old ids untouched.
+8. A variant counts as served when its answer is submitted, not when shown.
+
+Math pilot candidates, checked live on prod content by the lead: discounted prices (5 questions), age word problems (4), finding number patterns (3). The math lessons branch lacks the Algebra parts, so the pilot reads prod content.
+
+Estimate: 13 to 17 days, top of the spec's 11 to 16, from the server alias and the compiled JS. Rows E-109 to E-112.
