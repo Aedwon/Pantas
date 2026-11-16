@@ -44,7 +44,7 @@ enum ExamPickerMode { onboarding, settings }
 /// Custom exams do not run on web yet, so the picker hides "My exam isn't
 /// listed" and "Set Up My Own Exam" there until they ship (Aedwon, Nov 4,
 /// for the beta). Set this to true and every one of those places returns.
-const kCustomExamsOnWeb = false;
+const kCustomExamsOnWeb = true;
 
 /// Whether the picker offers a student's own exam on this platform.
 const kCustomExamsOffered = !kIsWeb || kCustomExamsOnWeb;
