@@ -112,6 +112,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Native-app answer to a PWA problem (Nov 17)
+
+- His words: "yeah you say that but I'm not getting the 120 Hz on my 120Hz iPhone 17!!!!!" and then "I KNOW. the app will launch as a PWA."
+- Wrong: asked why scrolling in Pantas is not as smooth as other websites on his iPhone, the manager twice offered a native Flutter iPhone app as "the real fix". Pantas launches as a PWA. A native app does not solve the product he ships, and offering it read as a dodge.
+- Why it got through: the manager answered the technical question ("what gets 120 Hz?") instead of his question ("how does my PWA scroll like a website?"). Nothing tied answers to the launch target.
+- Fix (a required step for the manager): before proposing any fix to a user-facing problem, check it against the launch target in the launch log and specs. Today that is a PWA on Flutter web, for phones first. A fix outside that target may be mentioned only as background, never as the recommendation, unless Aedwon has changed the target.
+
 ### New problem routed to an overloaded lead thread (Nov 16)
 
 - His words: "question, you gave it to DS4 completion, a really long thread filled with other problems, why?", then "it has already sent its context and used up usage for it, so new thing would be a waste", then "?? that's it? no process improvement? can you not sense you've done wrong here"
