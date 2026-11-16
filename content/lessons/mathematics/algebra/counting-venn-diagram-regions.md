@@ -14,6 +14,8 @@ keyPoints:
 ---
 ## Core Concept
 
+The notation $|A|$ means the number of elements in set $A$.
+
 For two finite sets, inclusion-exclusion gives:
 
 $$|A\cup B|=|A|+|B|-|A\cap B|.$$
@@ -34,8 +36,6 @@ For three-set problems, start with the center, then pairwise-only overlaps, then
 
 In a class of $40$ students, $25$ are enrolled in Chemistry, $18$ in Physics, and $8$ in both. How many are enrolled in neither?
 
-<!-- FIGURE: {"kind": "concept-diagram", "type": "venn", "sets": ["Chemistry", "Physics"], "regions": {"left": "17", "overlap": "8", "right": "10", "outside": "5", "total": "40"}, "semanticsLabel": "A two-circle Venn diagram showing 17 in Chemistry only, 8 in both, 10 in Physics only, and 5 outside."} -->
-
 **Solution:**
 
 1. Chemistry only:
@@ -54,11 +54,11 @@ $$17+8+10=35$$
 
 $$40-35=5$$
 
+<!-- FIGURE: {"kind": "concept-diagram", "type": "venn", "sets": ["Chemistry", "Physics"], "regions": {"left": "17", "overlap": "8", "right": "10", "outside": "5", "total": "40"}, "semanticsLabel": "A two-circle Venn diagram showing 17 in Chemistry only, 8 in both, 10 in Physics only, and 5 outside."} -->
+
 ### #2: Three-Circle Venn Diagram Word Problem
 
 A survey of $100$ college applicants found that $45$ preferred Engineering, $40$ Business, and $35$ Computer Science. Also, $15$ preferred both Engineering and Business, $10$ both Business and Computer Science, $12$ both Engineering and Computer Science, and $5$ all three. Assume each stated pairwise count includes those who preferred all three. How many applicants preferred exactly one program?
-
-<!-- FIGURE: {"kind": "concept-diagram", "type": "venn", "sets": ["Engineering", "Business", "Computer Science"], "center": "5", "overlaps": {"ab": "10", "bc": "5", "ca": "7"}, "singleRegions": {"a": "23", "b": "20", "c": "18"}, "semanticsLabel": "A three-circle Venn diagram showing 5 in the center, pairwise-only overlaps 10, 5, and 7, and single-program regions 23, 20, and 18."} -->
 
 **Solution:**
 
@@ -85,6 +85,8 @@ $$35-7-5-5=18$$
 5. Exactly one program:
 
 $$23+20+18=61$$
+
+<!-- FIGURE: {"kind": "concept-diagram", "type": "venn", "sets": ["Engineering", "Business", "Computer Science"], "center": "5", "overlaps": {"ab": "10", "bc": "5", "ca": "7"}, "singleRegions": {"a": "23", "b": "20", "c": "18"}, "semanticsLabel": "A three-circle Venn diagram showing 5 in the center, pairwise-only overlaps 10, 5, and 7, and single-program regions 23, 20, and 18."} -->
 
 ## Traps to Watch For
 

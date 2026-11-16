@@ -20,6 +20,8 @@ Use a dashed boundary for $<$ or $>$ because its points are excluded. Use a soli
 
 Test a point that is not on the boundary. If it makes the inequality true, shade the side containing that point. Otherwise, shade the other side.
 
+Part 3, Lines (Slopes and Intercepts), shows how to find slope from two points and write a line in slope-intercept form.
+
 ## Examples
 
 ### #1: Identifying a Shaded Region

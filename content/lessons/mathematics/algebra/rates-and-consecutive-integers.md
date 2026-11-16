@@ -20,6 +20,8 @@ An **integer** is a number with no fractional part, such as $-2$, $0$, or $3$. C
 
 To find an unknown in an equation, keep the sides equal. Add or subtract the same amount on both sides, or divide both sides by the same nonzero number.
 
+Part 3, Simplifying and Evaluating Expressions, shows how to combine like terms.
+
 ## Examples
 
 ### #1: Translating "Per"

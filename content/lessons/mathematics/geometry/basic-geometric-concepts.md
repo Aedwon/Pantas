@@ -261,7 +261,7 @@ Swapping these is a common error. Before answering, ask yourself: corner or stra
 
 > At a crossing, opposite angles are equal and neighbors add to $180^\circ$.
 
-Set two expressions equal only when they label opposite (vertical) angles. Neighbors that share a side along a line add to $180^\circ$, so use a sum. If the two lines are perpendicular, all four angles are $90^\circ$. Check the positions in the figure before writing the equation.
+Set two expressions equal when they label opposite (vertical) angles. Neighbors that share a side along a line add to $180^\circ$, so use a sum. If the two lines are perpendicular, all four angles are $90^\circ$. Check the positions in the figure before writing the equation.
 
 ### #3: Giving Half When Asked for the Whole
 

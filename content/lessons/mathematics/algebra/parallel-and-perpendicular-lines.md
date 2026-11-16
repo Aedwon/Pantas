@@ -28,6 +28,8 @@ The **point-slope form** of a nonvertical line through $(x_1,y_1)$ with slope $m
 
 $$y-y_1=m(x-x_1)$$
 
+For a line in standard form $Ax+By=C$ with $B\ne0$, its slope is $m=-\dfrac{A}{B}$.
+
 ## Examples
 
 ### #1: Equation of a Perpendicular Line

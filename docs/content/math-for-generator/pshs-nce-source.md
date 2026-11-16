@@ -47,3 +47,7 @@ Transcribed by Codex GPT 6.1 Sol from the page images; the lead checked printed 
 The 2015 sample adds a smallest-difference digit item and a time-zone difference item.
 
 Full transcript: `pshs-nce-reviewer-transcript.md`.
+
+## Item 2024-11 key
+
+Not verified. Codex had no figure, and the lead looked at the page scan (image page 6): the dot grids are too faint at that resolution to count the areas with confidence. The item type (equal areas of polygons on a dot grid) is kept in the map. The key C is the official one and is not used anywhere as a fact.

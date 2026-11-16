@@ -24,6 +24,8 @@ $$\sqrt{x^2}=|x|,$$
 
 not automatically $x$. If a problem explicitly states that a variable is nonnegative, the absolute value may simplify further.
 
+After simplifying, radicals with the same index and radicand are **like radicals**. Add or subtract their coefficients, the numbers in front, and keep the radical unchanged.
+
 ## Mnemonics & Memory Aids
 
 For square roots of products of nonnegative factors:

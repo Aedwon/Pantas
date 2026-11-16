@@ -47,13 +47,13 @@ $$x=\dfrac{C}{A}$$
 
 A vertical line has undefined slope because its horizontal change is $0$. A horizontal line has slope $0$ because its vertical change is $0$.
 
+Perpendicular lines meet at a right angle, which measures $90^\circ$.
+
 ## Examples
 
 ### #1: Drawing a Line from Slope and Intercept
 
 Graph $y=2x-3$.
-
-<!-- ILLUSTRATION: coordinate grid with axes labeled x and y, a straight line y=2x-3 through labeled points (0,-3), (1,-1), and (2,1); show a rightward step of 1 and an upward step of 2 -->
 
 **Solution:**
 
@@ -63,6 +63,8 @@ $$m=2,\qquad b=-3$$
 
 2. Plot $(0,-3)$. For each step of $1$ to the right, move $2$ up to reach $(1,-1)$, then $(2,1)$.
 3. Draw a straight line through the points and extend it in both directions.
+
+<!-- ILLUSTRATION: coordinate grid with axes labeled x and y, a straight line y=2x-3 through labeled points (0,-3), (1,-1), and (2,1); show a rightward step of 1 and an upward step of 2 -->
 
 ### #2: Vertical and Horizontal Slopes
 

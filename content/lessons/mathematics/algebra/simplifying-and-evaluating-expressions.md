@@ -18,7 +18,7 @@ keyPoints:
 
 A **term** is a part of an expression separated by addition or subtraction. Keep its sign with it. In $3x-5$, the terms are $3x$ and $-5$.
 
-An **exponent** tells how many times a number or variable is used as a factor. For example, $x^2=x\times x$ and $x^3=x\times x\times x$.
+A positive whole-number **exponent** tells how many times a number or variable is used as a factor. For example, $x^2=x\times x$ and $x^3=x\times x\times x$.
 
 **Like terms** have the same variable part with the same exponents. For example, $3x$ and $-5x$ are like terms, but $3x$ and $3x^2$ are not.
 

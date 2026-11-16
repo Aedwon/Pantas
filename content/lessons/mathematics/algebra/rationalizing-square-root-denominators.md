@@ -20,7 +20,7 @@ Check the denominator before choosing a factor.
 
 ## Mnemonics & Memory Aids
 
-For a binomial denominator such as $a-\sqrt b$, use the conjugate $a+\sqrt b$ because the middle terms cancel when the two are multiplied.
+For a binomial denominator such as $a-\sqrt b$, use the conjugate $a+\sqrt b$ when it is not zero, because the middle terms cancel when the two are multiplied.
 
 ## Examples
 

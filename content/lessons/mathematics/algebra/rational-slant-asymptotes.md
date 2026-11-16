@@ -18,6 +18,8 @@ A **rational function** is one polynomial divided by another:
 
 $$f(x)=\dfrac{P(x)}{Q(x)},\qquad Q(x)\ne0$$
 
+The **degree** of a nonzero polynomial in $x$ is the highest exponent of $x$ with a nonzero coefficient.
+
 Compare degrees after cancellation to find what happens far to the left and right:
 
 - A lower numerator degree gives the horizontal asymptote $y=0$.

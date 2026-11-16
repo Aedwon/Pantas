@@ -22,6 +22,8 @@ A **universal set** $U$ specifies the elements under consideration in a particul
 
 The **union** $A\cup B$ contains elements that are in $A$, in $B$, or in both. The **intersection** $A\cap B$ contains only elements common to both sets. The **complement** of $A$ depends on the stated universal set and contains elements of $U$ that are not in $A$.
 
+The prime mark means complement: $A'$ is the complement of $A$.
+
 Venn diagrams show these relationships visually.
 
 ## Mnemonics & Memory Aids

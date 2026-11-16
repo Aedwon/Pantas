@@ -17,6 +17,8 @@ A **system of equations** is a group of two or more equations that share the sam
 
 A **non-linear system** has at least one equation that is not a straight line, like a parabola from $y = x^2 - 4$. A line can cross a parabola at two points, so these systems can have two solutions.
 
+Part 1, Factoring Quadratic Equations, in the Quadratic Equations lesson shows how to factor a quadratic and solve it by setting each factor equal to zero.
+
 ## Examples
 
 ### #1: A Line Meets a Parabola

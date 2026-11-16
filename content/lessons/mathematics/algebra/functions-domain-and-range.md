@@ -35,6 +35,8 @@ To find a real-valued domain, exclude inputs that make the expression undefined.
 
 Do not assume those are the only possible restrictions. The domain is determined by the full definition of the function.
 
+In interval notation, brackets include an endpoint and parentheses leave it out. The symbol $\cup$ joins intervals by including numbers in either one, and $\infty$ means the interval goes on without end and always takes a parenthesis.
+
 ## Examples
 
 ### #1: Spotting the Function

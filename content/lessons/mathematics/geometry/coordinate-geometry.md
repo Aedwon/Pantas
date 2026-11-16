@@ -92,8 +92,6 @@ The Conic Sections lesson covers circles and other curves in more depth.
 
 Find the distance between $(-3, 4)$ and $(5, -2)$.
 
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "coordinate-geometry", "labels": ["(-3, 4)", "(5, -2)", "run = 8", "rise = 6", "d = ?"], "semanticsLabel": "Coordinate plane with points at negative 3 comma 4 and 5 comma negative 2 forming a right triangle with legs 8 and 6."} -->
-
 **Solution:**
 Plug into the distance formula. Watch the signs.
 
@@ -115,11 +113,11 @@ $$d = \sqrt{100} = 10$$
 
 5. The distance is $10$ units. The squaring removes the sign of each change. Also, $6$-$8$-$10$ is double the $3$-$4$-$5$ right triangle.
 
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "coordinate-geometry", "labels": ["(-3, 4)", "(5, -2)", "run = 8", "rise = 6", "d = ?"], "semanticsLabel": "Coordinate plane with points at negative 3 comma 4 and 5 comma negative 2 forming a right triangle with legs 8 and 6."} -->
+
 ### #2: Midpoint
 
 Find the midpoint of the segment joining $(2, -3)$ and $(-4, 7)$.
-
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "coordinate-geometry", "labels": ["(2, -3)", "(-4, 7)", "Midpoint (-1, 2)"], "semanticsLabel": "Coordinate plane showing segment connecting 2 comma negative 3 and negative 4 comma 7 with midpoint at negative 1 comma 2."} -->
 
 **Solution:**
 Average the $x$ values, then average the $y$ values.
@@ -134,11 +132,11 @@ $$\dfrac{-3 + 7}{2} = \dfrac{4}{2} = 2$$
 
 3. The midpoint is $(-1, 2)$.
 
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "coordinate-geometry", "labels": ["(2, -3)", "(-4, 7)", "Midpoint (-1, 2)"], "semanticsLabel": "Coordinate plane showing segment connecting 2 comma negative 3 and negative 4 comma 7 with midpoint at negative 1 comma 2."} -->
+
 ### #3: Slope, Then the Equation
 
 Find the equation of the line through $(1, 2)$ and $(4, 11)$ in slope-intercept form.
-
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "coordinate-geometry", "labels": ["(1, 2)", "(4, 11)", "run = 3", "rise = 9", "slope m = 3"], "semanticsLabel": "Coordinate plane with points 1 comma 2 and 4 comma 11 showing rise of 9 and run of 3 along the line."} -->
 
 **Solution:**
 Slope first, then use one point to find $b$.
@@ -158,11 +156,11 @@ $$b = -1$$
 4. The equation is $y = 3x - 1$.
 5. Check with the other point: $3(4) - 1 = 11$. Correct.
 
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "coordinate-geometry", "labels": ["(1, 2)", "(4, 11)", "run = 3", "rise = 9", "slope m = 3"], "semanticsLabel": "Coordinate plane with points 1 comma 2 and 4 comma 11 showing rise of 9 and run of 3 along the line."} -->
+
 ### #4: A Perpendicular Line
 
 Find the equation of the line perpendicular to $y = 2x + 3$ that passes through $(4, 1)$.
-
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "coordinate-geometry", "labels": ["y = 2x + 3", "(4, 1)", "m1 = 2", "m2 = -1/2", "90°"], "semanticsLabel": "Coordinate plane with line y equals 2x plus 3 and perpendicular line through 4 comma 1 intersecting at a right angle."} -->
 
 **Solution:**
 The given line is neither vertical nor horizontal, so the perpendicular line has the negative reciprocal slope.
@@ -184,6 +182,8 @@ $$y - 1 = -\dfrac{1}{2}x + 2$$
 $$y = -\dfrac{1}{2}x + 3$$
 
 5. Quick check: both slopes are defined, and $2 \times \left(-\dfrac{1}{2}\right) = -1$, so the lines are perpendicular.
+
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "coordinate-geometry", "labels": ["y = 2x + 3", "(4, 1)", "m1 = 2", "m2 = -1/2", "90°"], "semanticsLabel": "Coordinate plane with line y equals 2x plus 3 and perpendicular line through 4 comma 1 intersecting at a right angle."} -->
 
 ### #5: A Parallel Line from Standard Form
 
@@ -218,8 +218,6 @@ $$y = -\dfrac{2}{3}x + 1$$
 
 $M(3, -1)$ is the midpoint of segment $AB$. If $A$ is $(7, 4)$, find the coordinates of $B$.
 
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "coordinate-geometry", "labels": ["A(7, 4)", "M(3, -1)", "B(-1, -6)"], "semanticsLabel": "Coordinate plane showing point A at 7 comma 4, midpoint M at 3 comma negative 1, and endpoint B at negative 1 comma negative 6."} -->
-
 **Solution:**
 This reverses the midpoint formula. The midpoint is the average, so work backwards.
 
@@ -244,6 +242,8 @@ $$4 + y = -2$$
 $$y = -6$$
 
 5. Point $B$ is $(-1, -6)$. Check: the averages of $7$ and $-1$, and of $4$ and $-6$, are $3$ and $-1$.
+
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "coordinate-geometry", "labels": ["A(7, 4)", "M(3, -1)", "B(-1, -6)"], "semanticsLabel": "Coordinate plane showing point A at 7 comma 4, midpoint M at 3 comma negative 1, and endpoint B at negative 1 comma negative 6."} -->
 
 ### #7: Writing a Circle Equation
 

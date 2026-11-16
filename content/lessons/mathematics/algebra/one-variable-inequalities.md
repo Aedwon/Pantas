@@ -30,8 +30,6 @@ If you multiply or divide both sides by a negative number, reverse the inequalit
 
 Solve $-2(x-4)>3x+13$, then describe its graph on a number line.
 
-<!-- ILLUSTRATION: number line with an open circle at -1 and shading to the left, labeled x<-1 -->
-
 **Solution:**
 
 1. Multiply through the parentheses.
@@ -48,11 +46,11 @@ $$x<-1$$
 
 4. Place an open circle at $-1$ because it is excluded. Shade left for smaller values.
 
+<!-- ILLUSTRATION: number line with an open circle at -1 and shading to the left, labeled x<-1 -->
+
 ### #2: A Closed Endpoint
 
 Solve $3x+2\ge8$, then describe its number-line graph.
-
-<!-- ILLUSTRATION: number line with a closed circle at 2 and shading to the right, labeled x>=2 -->
 
 **Solution:**
 
@@ -65,6 +63,8 @@ $$3x\ge6$$
 $$x\ge2$$
 
 3. Place a closed circle at $2$ because it is included. Shade right for larger values.
+
+<!-- ILLUSTRATION: number line with a closed circle at 2 and shading to the right, labeled x>=2 -->
 
 ## Traps to Watch For
 

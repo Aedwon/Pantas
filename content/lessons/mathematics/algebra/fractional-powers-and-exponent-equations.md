@@ -16,11 +16,15 @@ keyPoints:
 
 **Express** means write the answer in the form the question asks for. **Solve** means find all values that make an equation true.
 
+For $a>0$ and $r>0$, a negative exponent means take the reciprocal: $a^{-r}=\dfrac{1}{a^r}$.
+
 For integer $m$, positive whole-number $n$, and $a>0$, a fractional exponent means a root:
 
 $$a^{m/n}=\sqrt[n]{a^m}=(\sqrt[n]{a})^m$$
 
 The $n$th root of a positive number is the positive number whose $n$th power gives it. For example, $\sqrt[3]{8}=2$ because $2^3=8$.
+
+For $a>0$, multiply the exponents when raising a power to another power: $(a^u)^v=a^{uv}$.
 
 For $b>0$ and $b\ne1$, different exponents give different powers. Thus, if $b^u=b^v$, then $u=v$.
 

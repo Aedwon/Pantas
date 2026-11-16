@@ -113,18 +113,16 @@ $$\dfrac{1}{6}\cdot\pi(6)^2=6\pi$$
 
 An inscribed angle intercepts an arc of $100^\circ$. Find the inscribed angle and the central angle that intercept it.
 
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "circle-inscribed-central", "labels": ["Central: 100°", "Inscribed: 50°", "Arc = 100°"], "semanticsLabel": "Circle with central angle 100 degrees and inscribed angle 50 degrees intercepting the same 100 degree arc."} -->
-
 **Solution:**
 
 1. The inscribed angle is half its arc: $\dfrac{100}{2} = 50^\circ$.
 2. A central angle equals its arc, so it is $100^\circ$.
 
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "circle-inscribed-central", "labels": ["Central: 100°", "Inscribed: 50°", "Arc = 100°"], "semanticsLabel": "Circle with central angle 100 degrees and inscribed angle 50 degrees intercepting the same 100 degree arc."} -->
+
 ### #4: Right Triangle in a Semicircle
 
 Triangle $ABC$ is inscribed in a circle, and side $AB$ is a diameter of length $10$. If $AC = 6$, find $BC$.
-
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "circle-inscribed-triangle", "labels": ["A", "B", "C", "Diameter AB = 10", "AC = 6", "BC = ?", "90° at C"], "semanticsLabel": "Circle with inscribed right triangle ABC where diameter AB is 10, side AC is 6, and side BC is marked with a question mark."} -->
 
 **Solution:**
 
@@ -137,11 +135,11 @@ $$6^2+BC^2=10^2$$
 
 $$BC^2=100-36=64 \quad\Rightarrow\quad BC=8$$
 
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "circle-inscribed-triangle", "labels": ["A", "B", "C", "Diameter AB = 10", "AC = 6", "BC = ?", "90° at C"], "semanticsLabel": "Circle with inscribed right triangle ABC where diameter AB is 10, side AC is 6, and side BC is marked with a question mark."} -->
+
 ### #5: Tangent Length
 
 From a point $P$ outside a circle, the distance to the center is $13$ and the radius is $5$. Tangents from $P$ touch the circle at $T$ and $S$. Find $PT$ and $PS$.
-
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "circle-tangent", "labels": ["Center O", "Point P", "Point T", "OT = 5", "OP = 13", "PT = ?", "90° at T"], "semanticsLabel": "Circle with center O, external point P at distance 13, radius OT equal to 5, and tangent PT labeled with a question mark meeting radius at a right angle."} -->
 
 **Solution:**
 
@@ -155,6 +153,8 @@ $$5^2+t^2=13^2$$
 $$t^2=169-25=144 \quad\Rightarrow\quad t=12$$
 
 4. Two tangents from $P$ are equal, so $PS = 12$ too.
+
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "circle-tangent", "labels": ["Center O", "Point P", "Point T", "OT = 5", "OP = 13", "PT = ?", "90° at T"], "semanticsLabel": "Circle with center O, external point P at distance 13, radius OT equal to 5, and tangent PT labeled with a question mark meeting radius at a right angle."} -->
 
 ### #6: Chord Distance and Equal Chords
 
@@ -223,7 +223,7 @@ $$PT^2=PA\cdot PB=4\cdot 9=36$$
 
 For a central angle, simplify $\dfrac{\text{angle}}{360}$ first: $90^\circ$ is $\dfrac{1}{4}$, $60^\circ$ is $\dfrac{1}{6}$, $45^\circ$ is $\dfrac{1}{8}$, $120^\circ$ is $\dfrac{1}{3}$.
 
-If a diameter is a side of an inscribed triangle and you know one more side, use the Pythagorean theorem. A **triple** is three whole numbers that fit it, such as $3$, $4$, $5$ (or $6$, $8$, $10$) and $5$, $12$, $13$. A triple helps only when all three sides are whole numbers.
+If a diameter is a side of an inscribed triangle and you know one more side, use the Pythagorean theorem. A **triple** is three whole numbers that fit it, such as $3$, $4$, $5$ (or $6$, $8$, $10$) and $5$, $12$, $13$. A triple or any positive multiple of one can help.
 
 ## Traps to Watch For
 

@@ -22,6 +22,8 @@ where $a\ne0$. Its solutions are called roots or zeros of the corresponding quad
 
 
 
+The **zero-product property** says that a product equals $0$ only when at least one factor equals $0$. Set each factor equal to $0$ and solve each equation.
+
 ### Factoring
 
 Factoring is efficient when the quadratic has convenient factors. For a monic quadratic $x^2+bx+c$, look for two numbers whose product is $c$ and whose sum is $b$. For a quadratic with $a\ne1$, use a method appropriate to the leading coefficient, such as factoring by grouping after splitting the middle term.

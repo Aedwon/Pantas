@@ -90,4 +90,4 @@ $$a = 30$$
 
 > Find both variables, then re-read the question.
 
-Many students solve for $x$, see their $x$ value in the choices, and shade it. But the question may ask for $y$, or for $x + y$, or for the product $xy$. The test-makers always put the plain $x$ value in the choices as bait.
+Many students solve for $x$, see their $x$ value in the choices, and shade it. But the question may ask for $y$, or for $x + y$, or for the product $xy$. A choice may show the plain $x$ value.
