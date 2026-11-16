@@ -1,0 +1,52 @@
+{
+  "family": "lesson-algebra-functions-and-relations",
+  "auditor": "astra",
+  "findings": [
+    {
+      "file": "content/lessons/mathematics/algebra/functions-domain-and-range.md",
+      "severity": "Major",
+      "quote": "The domain is $[-1,2)\\cup(2,\\infty)$.",
+      "problem": "The worked domain answers require interval notation, but the part never explains brackets, parentheses, infinity, or the union symbol and names no prerequisite. Students cannot interpret which endpoints belong to the answer. The parent rewrite supplies these explanations.",
+      "source": "Content checklist L25; [OpenStax College Algebra 2e, Section 3.2: Domain and Range](https://openstax.org/books/college-algebra-2e/pages/3-2-domain-and-range), interval notation and unions."
+    }
+  ],
+  "gaps": [
+    {
+      "skill": "Find ranges of linear functions on restricted domains, including open endpoints, unbounded intervals, and constant functions.",
+      "rewriteQuote": "A line that is not horizontal never gives the same output twice. So if an end is left out, as in $2x+1$ on $1<x\\le4$, the output at that end is left out too, and the range is $(3,9]$.",
+      "nearestPart": "content/lessons/mathematics/algebra/functions-domain-and-range.md"
+    },
+    {
+      "skill": "Find quadratic ranges by checking the turning point and domain endpoints, including whether an excluded endpoint's output is attained elsewhere.",
+      "rewriteQuote": "For $y=a(x-h)^2+k$ it is at $x=h$, with output $k$. For $y=ax^2+bx+c$ it is at $x=-\\dfrac{b}{2a}$. Use it only if it lies inside the domain.",
+      "nearestPart": "content/lessons/mathematics/algebra/functions-domain-and-range.md"
+    },
+    {
+      "skill": "Add, subtract, multiply, and divide functions by operating on their outputs.",
+      "rewriteQuote": "Two functions can be added, subtracted, multiplied, or divided. Do it output by output:",
+      "nearestPart": "content/lessons/mathematics/algebra/evaluating-and-composing-functions.md"
+    },
+    {
+      "skill": "Find the shared domain of arithmetic combinations of functions and exclude zeros of the divisor for quotients.",
+      "rewriteQuote": "The new function needs both $f(x)$ and $g(x)$ to exist. So its domain is the inputs that are in the domain of $f$ and also in the domain of $g$. For division, also remove every $x$ where $g(x)=0$.",
+      "nearestPart": "content/lessons/mathematics/algebra/evaluating-and-composing-functions.md"
+    },
+    {
+      "skill": "Determine an inverse function's domain and range from the original function.",
+      "rewriteQuote": "The domain of $f^{-1}$ is the range of $f$, and the range of $f^{-1}$ is the domain of $f$.",
+      "nearestPart": "content/lessons/mathematics/algebra/inverse-functions-and-checks.md"
+    },
+    {
+      "skill": "Construct an inverse of a restricted quadratic and select the branch whose outputs satisfy the original domain restriction.",
+      "rewriteQuote": "Keep the branch whose outputs match the cut-down domain, because they are the inputs of $f$.",
+      "nearestPart": "content/lessons/mathematics/algebra/inverse-functions-and-checks.md"
+    },
+    {
+      "skill": "Preserve excluded inputs after canceling factors and account for the resulting missing outputs.",
+      "rewriteQuote": "Take $f(x)=\\dfrac{x^2-4}{x-2}$. After canceling, it looks like $x+2$, but $x=2$ is still not allowed in $f$. The domain is all real numbers except $2$, and the output $4$ is never produced.",
+      "nearestPart": "content/lessons/mathematics/algebra/functions-domain-and-range.md"
+    }
+  ],
+  "partsRead": 3,
+  "examplesSolved": 6
+}

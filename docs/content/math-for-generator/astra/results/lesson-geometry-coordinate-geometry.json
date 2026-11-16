@@ -1,0 +1,48 @@
+{
+  "lesson": "lesson-geometry-coordinate-geometry",
+  "auditor": "astra",
+  "findings": [
+    {
+      "file": "content/lessons/mathematics/geometry/coordinate-geometry.md",
+      "questionId": "",
+      "severity": "Major",
+      "quote": "\"run = 8\", \"rise = 6\"",
+      "problem": "Example 1's figure marker supplies the calculated horizontal and vertical lengths before the solution. This gives away the coordinate differences the student must calculate.",
+      "source": "docs/content/math-for-generator/astra/brief.md, item 3; content-checklist.md at origin/main, L05."
+    },
+    {
+      "file": "content/lessons/mathematics/geometry/coordinate-geometry.md",
+      "questionId": "",
+      "severity": "Major",
+      "quote": "Midpoint (-1, 2)",
+      "problem": "Example 2 asks for the midpoint. Its figure marker labels the midpoint with the complete answer before the solution.",
+      "source": "docs/content/math-for-generator/astra/brief.md, item 3; content-checklist.md at origin/main, L05."
+    },
+    {
+      "file": "content/lessons/mathematics/geometry/coordinate-geometry.md",
+      "questionId": "",
+      "severity": "Major",
+      "quote": "\"run = 3\", \"rise = 9\", \"slope m = 3\"",
+      "problem": "Example 3's figure marker gives the calculated rise, run, and slope before the solution. Finding the slope is a required part of finding the line's equation.",
+      "source": "docs/content/math-for-generator/astra/brief.md, item 3; content-checklist.md at origin/main, L05."
+    },
+    {
+      "file": "content/lessons/mathematics/geometry/coordinate-geometry.md",
+      "questionId": "",
+      "severity": "Major",
+      "quote": "m2 = -1/2",
+      "problem": "Example 4's figure marker supplies the perpendicular line's slope before the solution. This gives away the negative-reciprocal step the example requires.",
+      "source": "docs/content/math-for-generator/astra/brief.md, item 3; content-checklist.md at origin/main, L05."
+    },
+    {
+      "file": "content/lessons/mathematics/geometry/coordinate-geometry.md",
+      "questionId": "",
+      "severity": "Major",
+      "quote": "B(-1, -6)",
+      "problem": "Example 6 asks for endpoint B. Its figure marker labels B with the complete answer before the solution.",
+      "source": "docs/content/math-for-generator/astra/brief.md, item 3; content-checklist.md at origin/main, L05."
+    }
+  ],
+  "questionsChecked": 0,
+  "examplesSolved": 8
+}

@@ -1,0 +1,78 @@
+{
+  "family": "lesson-algebra-sets-and-set-notation",
+  "auditor": "astra",
+  "findings": [
+    {
+      "file": "content/lessons/mathematics/algebra/set-membership-and-operations.md",
+      "severity": "Major",
+      "quote": "Find $(A\\cup B)'$ relative to $U$.",
+      "problem": "Example 2 requires reading the prime mark as complement. The part explains complements but never defines this symbol or names a prerequisite that does. The parent rewrite explicitly defines A'.",
+      "source": "Content checklist L25; parent rewrite, 'Union, intersection, complement and difference'; [OpenStax, Contemporary Mathematics §1.4](https://openstax.org/books/contemporary-mathematics/pages/1-4-set-operations-with-two-sets)."
+    },
+    {
+      "file": "content/lessons/mathematics/algebra/counting-venn-diagram-regions.md",
+      "severity": "Major",
+      "quote": "$$|A\\cup B|=|A|+|B|-|A\\cap B|.$$",
+      "problem": "The counting formulas use vertical bars without explaining that they mean the number of elements in a set. Neither part defines this notation or points to a prerequisite. The parent rewrite supplies the missing definition under Cardinality.",
+      "source": "Content checklist L25; docs/content/rewrite/cet/briefs/lesson-algebra-sets-and-set-notation.md, 'Cardinality notation and counting sets'; parent rewrite, 'Cardinality'."
+    },
+    {
+      "file": "content/lessons/mathematics/algebra/counting-venn-diagram-regions.md",
+      "severity": "Major",
+      "quote": "\"regions\": {\"left\": \"17\", \"overlap\": \"8\", \"right\": \"10\", \"outside\": \"5\", \"total\": \"40\"}",
+      "problem": "The figure marker appears before the solution and supplies the requested neither count, 5. It also supplies the calculated single-subject counts, 17 and 10.",
+      "source": "docs/content/math-for-generator/astra/brief-algebra.md, instruction 3; content checklist L05."
+    },
+    {
+      "file": "content/lessons/mathematics/algebra/counting-venn-diagram-regions.md",
+      "severity": "Major",
+      "quote": "\"singleRegions\": {\"a\": \"23\", \"b\": \"20\", \"c\": \"18\"}",
+      "problem": "The figure marker before the solution supplies all three calculated single-program counts. Adding these gives the requested answer, 61, without doing the overlap calculations the example is meant to teach.",
+      "source": "docs/content/math-for-generator/astra/brief-algebra.md, instruction 3; content checklist L05."
+    }
+  ],
+  "gaps": [
+    {
+      "skill": "Read membership and nonmembership symbols and distinguish membership from the subset relationship.",
+      "rewriteQuote": "The symbol $\\in$ means \"is an element of\". The symbol $\\notin$ means \"is not an element of\".",
+      "nearestPart": "content/lessons/mathematics/algebra/set-membership-and-operations.md"
+    },
+    {
+      "skill": "Recognize the empty set and distinguish it from a set containing zero or the empty set.",
+      "rewriteQuote": "The **empty set** has no elements. It is written $\\varnothing$ or $\\{\\ \\}$. The set $\\{0\\}$ is not empty, because it has one element, the number $0$. The set $\\{\\varnothing\\}$ is not empty either, because its one element is the empty set.",
+      "nearestPart": "content/lessons/mathematics/algebra/set-membership-and-operations.md"
+    },
+    {
+      "skill": "Compare sets for equality and count distinct elements when a roster contains repetitions.",
+      "rewriteQuote": "The order of the elements does not matter. A repeated element counts once, so $\\{1,2,2,3\\}$ is the same set as $\\{1,2,3\\}$. Two sets are **equal** when they have exactly the same elements.",
+      "nearestPart": "content/lessons/mathematics/algebra/set-membership-and-operations.md"
+    },
+    {
+      "skill": "Use subset notation and distinguish proper subsets, including the self-subset and empty-set cases.",
+      "rewriteQuote": "Set $B$ is a **subset** of set $A$ when every element of $B$ is also in $A$. We write $B\\subseteq A$. If $B$ is a subset of $A$ but not equal to $A$, then $B$ is a **proper subset**, written $B\\subset A$. Some books use $\\subset$ for any subset, so check the book's meaning.",
+      "nearestPart": "content/lessons/mathematics/algebra/set-membership-and-operations.md"
+    },
+    {
+      "skill": "List subsets and count subsets and proper subsets.",
+      "rewriteQuote": "To count the subsets of a set with $n$ elements, use $2^n$. To count the proper subsets, use $2^n-1$.",
+      "nearestPart": "content/lessons/mathematics/algebra/set-membership-and-operations.md"
+    },
+    {
+      "skill": "Find set differences, distinguish their order, and express difference using intersection and complement.",
+      "rewriteQuote": "The **difference** $A-B$ contains the elements that are in $A$ but not in $B$. Some books write it $A\\setminus B$. It is not the same as $B-A$ in general. Also, $A-B$ is the same set as $A\\cap B'$.",
+      "nearestPart": "content/lessons/mathematics/algebra/set-membership-and-operations.md"
+    },
+    {
+      "skill": "Recognize disjoint sets through an empty intersection.",
+      "rewriteQuote": "If $A\\cap B=\\varnothing$, the sets are **disjoint**.",
+      "nearestPart": "content/lessons/mathematics/algebra/set-membership-and-operations.md"
+    },
+    {
+      "skill": "Use three-set inclusion-exclusion to calculate the union and check region totals.",
+      "rewriteQuote": "For three sets, add the three sets, subtract the three pair overlaps, and add back the triple overlap:",
+      "nearestPart": "content/lessons/mathematics/algebra/counting-venn-diagram-regions.md"
+    }
+  ],
+  "partsRead": 2,
+  "examplesSolved": 4
+}

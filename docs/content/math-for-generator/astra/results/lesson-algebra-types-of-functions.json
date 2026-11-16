@@ -1,0 +1,16 @@
+{
+  "family": "lesson-algebra-types-of-functions",
+  "auditor": "astra",
+  "findings": [
+    {
+      "file": "content/lessons/mathematics/algebra/rational-slant-asymptotes.md",
+      "severity": "Major",
+      "quote": "The numerator degree is exactly $1$ greater.",
+      "problem": "Example 1 requires comparing polynomial degrees, but this part never explains what degree means or identifies a prerequisite that teaches it. Students need that meaning to determine when the slant-asymptote rule applies.",
+      "source": "Content checklist L25 and lesson-style-guide.md, Teaching completeness: necessary terms require an explanation or an identified prerequisite. [OpenStax Precalculus 2e, Section 3.3](https://openstax.org/books/precalculus-2e/pages/3-3-power-functions-and-polynomial-functions) defines polynomial degree using the highest power with a nonzero coefficient."
+    }
+  ],
+  "gaps": [],
+  "partsRead": 8,
+  "examplesSolved": 13
+}

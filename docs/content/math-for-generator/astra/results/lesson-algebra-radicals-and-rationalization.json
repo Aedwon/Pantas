@@ -1,0 +1,56 @@
+{
+  "family": "lesson-algebra-radicals-and-rationalization",
+  "auditor": "astra",
+  "findings": [
+    {
+      "file": "content/lessons/mathematics/algebra/rationalizing-square-root-denominators.md",
+      "severity": "Blocker",
+      "quote": "For a binomial denominator such as $a-\\sqrt b$, use the conjugate $a+\\sqrt b$ because the middle terms cancel when the two are multiplied.",
+      "problem": "The conjugate must be nonzero. For a=-2 and b=4, the original denominator is -4, but its conjugate is 0. Following this instruction produces division by zero. The parent rewrite explicitly requires multiplying by the same nonzero number.",
+      "source": "B01; parent rewrite, Rationalizing a Denominator; [OpenStax Intermediate Algebra 2e, 8.5](https://openstax.org/books/intermediate-algebra-2e/pages/8-5-divide-radical-expressions). Direct substitution confirms the counterexample."
+    },
+    {
+      "file": "content/lessons/mathematics/algebra/simplifying-and-combining-radicals.md",
+      "severity": "Major",
+      "quote": "$$3(2\\sqrt5)-3\\sqrt5+2\\sqrt5=5\\sqrt5$$",
+      "problem": "The example combines radicals without explaining that their indices and radicands must match, or that their coefficients are then combined. The part neither teaches this rule nor identifies a prerequisite. The parent rewrite defines like radicals and explains the coefficient operation.",
+      "source": "L26; [OpenStax Intermediate Algebra 2e, 8.4, Add and Subtract Radical Expressions](https://openstax.org/books/intermediate-algebra-2e/pages/8-4-add-subtract-and-multiply-radical-expressions); parent rewrite, Simplifying and Combining."
+    },
+    {
+      "file": "content/lessons/mathematics/algebra/cube-root-denominators-and-nested-radicals.md",
+      "severity": "Major",
+      "quote": "which gives $L=5$ or $L=-4$. Since the principal square root is nonnegative, $L=5$.",
+      "problem": "The nested-radical calculation jumps from the quadratic equation to its two candidates. It never teaches how to obtain them or points to a prerequisite. The missing method is factoring into (L-5)(L+4)=0 and setting each factor equal to zero. The parent rewrite teaches the zero-product rule, identifies the Quadratic Equations lesson, and shows this factorization.",
+      "source": "L26; parent rewrite, Radical Equations and Example #12; [OpenStax Intermediate Algebra 2e, 8.6](https://openstax.org/books/intermediate-algebra-2e/pages/8-6-solve-radical-equations), which identifies quadratic solving as prerequisite knowledge."
+    }
+  ],
+  "gaps": [
+    {
+      "skill": "Convert between radicals and rational exponents, and evaluate fractional powers.",
+      "rewriteQuote": "$$\\sqrt[n]{x}=x^{1/n}, \\qquad \\sqrt[n]{x^m}=x^{m/n}=\\left(\\sqrt[n]{x}\\right)^m$$",
+      "nearestPart": "content/lessons/mathematics/algebra/simplifying-and-combining-radicals.md"
+    },
+    {
+      "skill": "Use the quotient rule for radicals with its real-domain and nonzero-denominator conditions.",
+      "rewriteQuote": "$$\\sqrt[n]{ab}=\\sqrt[n]{a}\\cdot\\sqrt[n]{b}, \\qquad \\sqrt[n]{\\dfrac ab}=\\dfrac{\\sqrt[n]{a}}{\\sqrt[n]{b}}\\ (b\\ne0)$$",
+      "nearestPart": "content/lessons/mathematics/algebra/simplifying-and-combining-radicals.md"
+    },
+    {
+      "skill": "Solve a finite square-root equation by isolating the radical, squaring, and substituting candidates into the original equation to reject extraneous roots.",
+      "rewriteQuote": "Solve $\\sqrt{x+4}+2=x$.",
+      "nearestPart": "content/lessons/mathematics/algebra/cube-root-denominators-and-nested-radicals.md"
+    },
+    {
+      "skill": "Solve an equation with two square roots by isolating and squaring twice, then checking the candidates.",
+      "rewriteQuote": "Solve $\\sqrt{3m+4}-\\sqrt{m+2}=2$.",
+      "nearestPart": "content/lessons/mathematics/algebra/cube-root-denominators-and-nested-radicals.md"
+    },
+    {
+      "skill": "Solve a cube-root equation by cubing both sides.",
+      "rewriteQuote": "Solve $\\sqrt[3]{2x-1}=3$.",
+      "nearestPart": "content/lessons/mathematics/algebra/cube-root-denominators-and-nested-radicals.md"
+    }
+  ],
+  "partsRead": 3,
+  "examplesSolved": 7
+}

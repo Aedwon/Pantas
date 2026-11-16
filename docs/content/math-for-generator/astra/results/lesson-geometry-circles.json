@@ -1,0 +1,40 @@
+{
+  "lesson": "lesson-geometry-circles",
+  "auditor": "astra",
+  "findings": [
+    {
+      "file": "content/lessons/mathematics/geometry/circles.md",
+      "questionId": "",
+      "severity": "Blocker",
+      "quote": "A triple helps only when all three sides are whole numbers.",
+      "problem": "A known Pythagorean triple also helps with noninteger sides through scaling. For example, halving 3, 4, 5 gives a right triangle with sides 1.5, 2, 2.5. Recognizing the triple gives the missing side even though the lengths are not all whole numbers.",
+      "source": "[OpenStax Prealgebra, Section 9.3: Pythagorean theorem and similar triangles](https://openstax.org/books/prealgebra/pages/9-3-use-properties-of-angles-triangles-and-the-pythagorean-theorem). Counterexample verified directly: 1.5² + 2² = 2.5²."
+    },
+    {
+      "file": "content/lessons/mathematics/geometry/circles.md",
+      "questionId": "",
+      "severity": "Major",
+      "quote": "\"Central: 100°\", \"Inscribed: 50°\", \"Arc = 100°\"",
+      "problem": "Example 3 asks for the inscribed and central angles. The figure marker before the solution supplies both answers, 50° and 100°.",
+      "source": "docs/content/math-for-generator/astra/brief.md, step 3; origin/main:docs/content/content-checklist.md, L05."
+    },
+    {
+      "file": "content/lessons/mathematics/geometry/circles.md",
+      "questionId": "",
+      "severity": "Major",
+      "quote": "\"BC = ?\", \"90° at C\"",
+      "problem": "Example 4 supplies the right angle in its figure marker before the solution. Deducing that angle C is 90° from the diameter is the first worked step and establishes why the Pythagorean theorem applies.",
+      "source": "docs/content/math-for-generator/astra/brief.md, step 3; origin/main:docs/content/content-checklist.md, L05."
+    },
+    {
+      "file": "content/lessons/mathematics/geometry/circles.md",
+      "questionId": "",
+      "severity": "Major",
+      "quote": "\"PT = ?\", \"90° at T\"",
+      "problem": "Example 5 supplies the right angle in its figure marker before the solution. Recognizing that the tangent is perpendicular to the radius is the first worked step needed to calculate the tangent length.",
+      "source": "docs/content/math-for-generator/astra/brief.md, step 3; origin/main:docs/content/content-checklist.md, L05."
+    }
+  ],
+  "questionsChecked": 0,
+  "examplesSolved": 9
+}

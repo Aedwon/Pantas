@@ -1,0 +1,23 @@
+{
+  "family": "lesson-algebra-algebraic-expressions",
+  "auditor": "astra",
+  "findings": [
+    {
+      "file": "content/lessons/mathematics/algebra/rates-and-consecutive-integers.md",
+      "severity": "Major",
+      "quote": "3. Combine like terms.",
+      "problem": "The solution requires combining like terms to turn x+(x+2)+(x+4) into 3x+6. This part never explains like terms or how to combine them. Part 3 teaches the method, but this part gives no reference to it.",
+      "source": "Content checklist L25–L26; [OpenStax Prealgebra 2e, §2.2: Simplify Expressions by Combining Like Terms](https://openstax.org/books/prealgebra-2e/pages/2-2-evaluate-simplify-and-translate-expressions)."
+    },
+    {
+      "file": "content/lessons/mathematics/algebra/simplifying-and-evaluating-expressions.md",
+      "severity": "Blocker",
+      "quote": "An **exponent** tells how many times a number or variable is used as a factor.",
+      "problem": "This definition requires a positive integer exponent, but the lesson states no restriction. Negative exponents do not count repeated factors. For example, 2^(-1)=1/2, which cannot mean using 2 as a factor negative one times.",
+      "source": "Content checklist B01; [OpenStax Elementary Algebra 2e, §6.7: Use the Definition of a Negative Exponent](https://openstax.org/books/elementary-algebra-2e/pages/6-7-integer-exponents-and-scientific-notation)."
+    }
+  ],
+  "gaps": [],
+  "partsRead": 3,
+  "examplesSolved": 6
+}

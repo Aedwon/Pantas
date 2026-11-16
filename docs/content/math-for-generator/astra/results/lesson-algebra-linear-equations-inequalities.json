@@ -1,0 +1,51 @@
+{
+  "family": "lesson-algebra-linear-equations-inequalities",
+  "auditor": "astra",
+  "findings": [
+    {
+      "file": "content/lessons/mathematics/algebra/one-variable-inequalities.md",
+      "severity": "Major",
+      "quote": "<!-- ILLUSTRATION: number line with an open circle at -1 and shading to the left, labeled x<-1 -->",
+      "problem": "The figure marker appears before the solution and supplies both the answer x<-1 and the requested graph.",
+      "source": "docs/content/math-for-generator/astra/brief-algebra.md, rule 3; content-checklist.md, L05."
+    },
+    {
+      "file": "content/lessons/mathematics/algebra/one-variable-inequalities.md",
+      "severity": "Major",
+      "quote": "<!-- ILLUSTRATION: number line with a closed circle at 2 and shading to the right, labeled x>=2 -->",
+      "problem": "The figure marker appears before the solution and supplies both the answer x>=2 and the requested graph.",
+      "source": "docs/content/math-for-generator/astra/brief-algebra.md, rule 3; content-checklist.md, L05."
+    },
+    {
+      "file": "content/lessons/mathematics/algebra/line-slopes-and-intercepts.md",
+      "severity": "Major",
+      "quote": "<!-- ILLUSTRATION: coordinate grid with axes labeled x and y, a straight line y=2x-3 through labeled points (0,-3), (1,-1), and (2,1); show a rightward step of 1 and an upward step of 2 -->",
+      "problem": "The question asks the student to graph the line. Before the solution, this marker supplies the completed graph, plotted points, and slope steps.",
+      "source": "docs/content/math-for-generator/astra/brief-algebra.md, rule 3; content-checklist.md, L05."
+    },
+    {
+      "file": "content/lessons/mathematics/algebra/line-slopes-and-intercepts.md",
+      "severity": "Major",
+      "quote": "Find the slope of $3x=12$ and the slope of $2y=6$. State whether the two lines are perpendicular.",
+      "problem": "The example requires the meaning of perpendicular, but this part never defines it as meeting at a right angle or points to a lesson that does. The solution states that vertical and horizontal lines are perpendicular without explaining the term.",
+      "source": "content-checklist.md, L25; lesson-style-guide.md, Teaching completeness; [OpenStax Elementary Algebra 2e, §4.5](https://openstax.org/books/elementary-algebra-2e/pages/4-5-use-the-slope-intercept-form-of-an-equation-of-a-line)."
+    },
+    {
+      "file": "content/lessons/mathematics/algebra/parallel-and-perpendicular-lines.md",
+      "severity": "Major",
+      "quote": "1. Read the given line's slope from standard form.",
+      "problem": "The solution obtains -2/5 from 2x+5y=10 without teaching the standard-form slope rule m=-A/B or showing how to isolate y. The rule is taught in line-slopes-and-intercepts.md, but this part provides no prerequisite reference.",
+      "source": "content-checklist.md, L17 and L26; lesson-style-guide.md, Teaching completeness; [OpenStax Elementary Algebra 2e, §4.5](https://openstax.org/books/elementary-algebra-2e/pages/4-5-use-the-slope-intercept-form-of-an-equation-of-a-line)."
+    },
+    {
+      "file": "content/lessons/mathematics/algebra/two-variable-inequalities.md",
+      "severity": "Major",
+      "quote": "1. Find the boundary's slope.",
+      "problem": "The solution needs the two-point slope formula and slope-intercept form to obtain the boundary equation. This part teaches neither method and does not point to line-slopes-and-intercepts.md, where they are taught.",
+      "source": "content-checklist.md, L17 and L26; lesson-style-guide.md, Teaching completeness; [OpenStax Elementary Algebra 2e, §4.4](https://openstax.org/books/elementary-algebra-2e/pages/4-4-understand-slope-of-a-line) and [§4.6](https://openstax.org/books/elementary-algebra-2e/pages/4-6-find-the-equation-of-a-line)."
+    }
+  ],
+  "gaps": [],
+  "partsRead": 5,
+  "examplesSolved": 7
+}

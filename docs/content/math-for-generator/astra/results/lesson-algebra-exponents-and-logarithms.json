@@ -1,0 +1,23 @@
+{
+  "family": "lesson-algebra-exponents-and-logarithms",
+  "auditor": "astra",
+  "findings": [
+    {
+      "file": "content/lessons/mathematics/algebra/fractional-powers-and-exponent-equations.md",
+      "severity": "Major",
+      "quote": "1. Use the negative exponent rule.",
+      "problem": "Example 1 requires the negative-exponent rule, but Core Concept never explains that a negative exponent means a reciprocal. The rule is taught in Exponent Laws and Zero Powers, but this part does not identify that prerequisite. The student first encounters the required rule inside the solution.",
+      "source": "Content checklist L17 and L25; lesson-style-guide.md, Teaching completeness. [OpenStax College Algebra 2e, §1.2, The Negative Rule of Exponents](https://openstax.org/books/college-algebra-2e/pages/1-2-exponents-and-scientific-notation)."
+    },
+    {
+      "file": "content/lessons/mathematics/algebra/fractional-powers-and-exponent-equations.md",
+      "severity": "Major",
+      "quote": "2. Multiply exponents. The base is positive, so this rule applies.",
+      "problem": "Example 2 requires the power-of-a-power rule to rewrite both sides with base 2. Core Concept teaches equal-base comparison but never teaches how to simplify a power raised to another power. This rule is taught in Exponent Laws and Zero Powers, but this part gives no prerequisite reference.",
+      "source": "Content checklist L17 and L25; lesson-style-guide.md, Teaching completeness. [OpenStax Precalculus 2e, §4.6, Using Like Bases to Solve Exponential Equations](https://openstax.org/books/precalculus-2e/pages/4-6-exponential-and-logarithmic-equations)."
+    }
+  ],
+  "gaps": [],
+  "partsRead": 4,
+  "examplesSolved": 8
+}

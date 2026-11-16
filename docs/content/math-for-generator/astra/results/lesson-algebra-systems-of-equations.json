@@ -1,0 +1,54 @@
+{
+  "family": "lesson-algebra-systems-of-equations",
+  "auditor": "astra",
+  "findings": [
+    {
+      "file": "content/lessons/mathematics/algebra/systems-substitution-and-word-problems.md",
+      "severity": "Blocker",
+      "quote": "The test-makers always put the plain $x$ value in the choices as bait.",
+      "problem": "This states an unsupported universal rule about exam choices. Students cannot assume that an answer choice equal to x is always present or is necessarily a distractor. The parent rewrite removed this guarantee.",
+      "source": "origin/main:docs/content/content-checklist.md, B01; origin/main:docs/content/lesson-style-guide.md, Voice, prohibits unsupported claims such as 'always among the choices'; parent rewrite, Traps #1."
+    },
+    {
+      "file": "content/lessons/mathematics/algebra/systems-lines-and-parabolas.md",
+      "severity": "Major",
+      "quote": "3. Factor the quadratic.\n\n$$(x - 1)(x - 2) = 0$$\n\n4. So $x = 1$ or $x = 2$. Find $y$ for each using $y = 3x - 6$.",
+      "problem": "The solution requires factoring a quadratic and applying the zero-product property. The part neither explains these methods nor points to a prerequisite. The parent explains how to choose the factors, why each factor can be set to zero, and names the Quadratic Equations lesson.",
+      "source": "origin/main:docs/content/content-checklist.md, L25–L26; [OpenStax, Factor Trinomials](https://openstax.org/books/intermediate-algebra-2e/pages/6-2-factor-trinomials); [OpenStax, Quadratic Equations](https://openstax.org/books/elementary-algebra-2e/pages/7-6-quadratic-equations)."
+    }
+  ],
+  "gaps": [
+    {
+      "skill": "Construct both line graphs using intercepts or slope, then read and check their intersection.",
+      "rewriteQuote": "To draw a line, you need two points. Two easy ones are the **intercepts**: the $x$-intercept is where the line crosses the $x$-axis ($y = 0$), and the $y$-intercept is where it crosses the $y$-axis ($x = 0$).",
+      "nearestPart": "content/lessons/mathematics/algebra/systems-graphs-and-solution-counts.md"
+    },
+    {
+      "skill": "Recognize an approximate graph reading and use algebra to obtain the exact solution.",
+      "rewriteQuote": "Reading a graph is exact only when the crossing sits clearly on grid lines. If the lines cross between grid lines, the reading is only an estimate, so use substitution or elimination to get the exact answer.",
+      "nearestPart": "content/lessons/mathematics/algebra/systems-graphs-and-solution-counts.md"
+    },
+    {
+      "skill": "Classify linear systems by slopes and intercepts, including parallel vertical lines.",
+      "rewriteQuote": "- **One solution**: the lines cross at exactly one point. If neither line is vertical, their slopes are different.\n- **No solution**: the lines are parallel, so they never touch. Two parallel lines that are not vertical have the same slope but different $y$-intercepts. Two vertical lines, like $x = 1$ and $x = 2$, are also parallel.",
+      "nearestPart": "content/lessons/mathematics/algebra/systems-graphs-and-solution-counts.md"
+    },
+    {
+      "skill": "Solve line–parabola systems with one intersection or no real intersection.",
+      "rewriteQuote": "A curve can meet a line in more places than another line can. A line can cross a parabola at two points, touch it at one point, or miss it. So a non-linear system can have no solution, one, two, or more.",
+      "nearestPart": "content/lessons/mathematics/algebra/systems-lines-and-parabolas.md"
+    },
+    {
+      "skill": "Recognize that nonlinear systems involving other curves can have more than two solutions.",
+      "rewriteQuote": "A curve can meet a line in even more places. The curve $y = x^3$ and the line $y = x$ meet at three points: $(-1, -1)$, $(0, 0)$ and $(1, 1)$.",
+      "nearestPart": "content/lessons/mathematics/algebra/systems-lines-and-parabolas.md"
+    },
+    {
+      "skill": "Find a requested difference directly by subtraction and recognize when simply adding the equations does not isolate the requested sum.",
+      "rewriteQuote": "Subtracting gives $2x - 2y = 4$, so $x - y = 2$. The solution is $(3, 1)$, and indeed $3 + 1 = 4$ and $3 - 1 = 2$. If the sum does not give equal coefficients, as in $2x + y$ and $x + 3y$, solve the system in the usual way.",
+      "nearestPart": "content/lessons/mathematics/algebra/systems-elimination.md"
+    }
+  ],
+  "partsRead": 4,
+  "examplesSolved": 7
+}

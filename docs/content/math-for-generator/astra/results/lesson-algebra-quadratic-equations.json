@@ -1,0 +1,62 @@
+{
+  "family": "lesson-algebra-quadratic-equations",
+  "auditor": "astra",
+  "findings": [
+    {
+      "file": "content/lessons/mathematics/algebra/factoring-quadratic-equations.md",
+      "severity": "Major",
+      "quote": "3. Apply the zero-product property.",
+      "problem": "L25/L26: Both examples need the zero-product property, but the part never explains that a product equals zero only when at least one factor equals zero. It also names no prerequisite that teaches this. The parent rewrite supplies this explanation.",
+      "source": "Content checklist L25/L26; [OpenStax Intermediate Algebra 2e, Section 6.5, Zero Product Property](https://openstax.org/books/intermediate-algebra-2e/pages/6-5-polynomial-equations)."
+    }
+  ],
+  "gaps": [
+    {
+      "skill": "Factor a difference of squares.",
+      "rewriteQuote": "Also watch for a difference of squares: $x^2-9=(x-3)(x+3)$.",
+      "nearestPart": "content/lessons/mathematics/algebra/factoring-quadratic-equations.md"
+    },
+    {
+      "skill": "Finish completing the square by rewriting the trinomial as a squared binomial and taking square roots. The part stops after adding the half-coefficient squared.",
+      "rewriteQuote": "4. Write the left side as $\\left(x+\\dfrac{p}{2}\\right)^2$ and use square roots.",
+      "nearestPart": "content/lessons/mathematics/algebra/quadratic-methods-and-root-properties.md"
+    },
+    {
+      "skill": "Apply the quadratic formula and simplify irrational roots. The part displays the formula but gives no worked application or radical simplification.",
+      "rewriteQuote": "4. Simplify the radical: $\\sqrt{40}=2\\sqrt{10}$. Then divide the top and bottom by $2$.",
+      "nearestPart": "content/lessons/mathematics/algebra/quadratic-methods-and-root-properties.md"
+    },
+    {
+      "skill": "Build a quadratic equation from its roots.",
+      "rewriteQuote": "To build an equation from its roots, use $x^2-(r_1+r_2)x+r_1r_2=0$.",
+      "nearestPart": "content/lessons/mathematics/algebra/quadratic-methods-and-root-properties.md"
+    },
+    {
+      "skill": "Model an area word problem with a quadratic equation and reject roots that violate the physical constraints.",
+      "rewriteQuote": "3. The roots are $w=-8$ and $w=5$. A width cannot be negative, so reject $-8$.",
+      "nearestPart": "content/lessons/mathematics/algebra/factoring-quadratic-equations.md"
+    },
+    {
+      "skill": "Solve quadratic inequalities using sign intervals, endpoint inclusion, and the cases of a negative leading coefficient, no real roots, or a repeated root.",
+      "rewriteQuote": "If $a<0$, the parabola opens down. It is above zero between the roots and below zero outside them. If $D<0$, the parabola never touches the $x$-axis, so use the sign of $a$ (see Example #11). If $D=0$, it touches the axis at the one root and stays on one side, so the root itself needs care (see Example #13).",
+      "nearestPart": "content/lessons/mathematics/algebra/quadratic-methods-and-root-properties.md"
+    },
+    {
+      "skill": "Use a perfect-square discriminant to decide whether an integer-coefficient quadratic factors over the integers.",
+      "rewriteQuote": "With integers $a$, $b$ and $c$, check whether $D$ is a perfect square. A perfect square means the quadratic factors over the integers. Otherwise go straight to the formula.",
+      "nearestPart": "content/lessons/mathematics/algebra/quadratic-methods-and-root-properties.md"
+    },
+    {
+      "skill": "Recognize a root of 1 when the coefficients sum to zero and recover the other root from their product.",
+      "rewriteQuote": "When $a+b+c=0$, $x=1$ is a root. The product of the roots is $\\dfrac{c}{a}$, so the other root is $\\dfrac{c}{a}$.",
+      "nearestPart": "content/lessons/mathematics/algebra/quadratic-methods-and-root-properties.md"
+    },
+    {
+      "skill": "Apply the square-root method with explicit positive, zero, and negative right-side cases.",
+      "rewriteQuote": "If $x^2=k$ and $k>0$, then $x=\\pm\\sqrt{k}$. The sign $\\pm$ means \"plus or minus\", so there are two answers. If $k=0$, the only answer is $x=0$. If $k<0$, there is no real answer.",
+      "nearestPart": "content/lessons/mathematics/algebra/quadratic-methods-and-root-properties.md"
+    }
+  ],
+  "partsRead": 2,
+  "examplesSolved": 6
+}
