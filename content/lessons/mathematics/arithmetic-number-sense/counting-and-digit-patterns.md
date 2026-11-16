@@ -28,6 +28,10 @@ Divide the exponent by the cycle length. The **remainder** is what is left after
 
 This method starts at exponent $1$. For a nonzero base raised to exponent $0$, the value is $1$ instead.
 
+The units digit of a sum depends only on the units digits of the numbers added.
+
+For example, $27+38=65$: add $7+8=15$ and keep the last digit, $5$.
+
 ### Counting Squares by Size
 
 A grid is a figure made from rows and columns of small squares. A square can cover several of those small squares. Count each possible size separately.

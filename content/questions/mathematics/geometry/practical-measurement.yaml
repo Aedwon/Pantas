@@ -311,7 +311,7 @@ questions:
           This counts rows only in the turned layout. Two rows fit across the eight-centimeter side. Check that each row contains three tags.
       - text: '$8$'
         rationale: |
-          This rounds the row count up in the first layout. A partial row seems to offer more space. Check that every tag needs its full width.
+          This divides the sheet area by its length: $72\div9=8$. Dividing area by length finds the sheet's width. Check that counting tags needs division by each tag's area, $4\times3=12$.
       - text: '$18$'
         rationale: |
           This divides the sheet area by the tag length only. Division is needed to count pieces. Check that the divisor is the tag area, four times three.
@@ -323,7 +323,7 @@ questions:
     type: word-problem
     difficulty: hard
     stem: |
-      A clock's minute hand is $4$ cm long. How far does its tip travel from $2{:}00$ to $4{:}30$ the same afternoon? Give the distance in centimeters, in terms of $\pi$.
+      A clock's minute hand is $4$ cm long. It turns steadily once every $60$ minutes. How far does its tip travel from $2{:}00$ to $4{:}30$ the same afternoon? Give the distance in centimeters, in terms of $\pi$.
     choices:
       - text: '$20\pi$'
         correct: true
@@ -411,7 +411,7 @@ questions:
           This reports the area quotient. It gives a useful upper limit. Check that half a label cannot count as a whole label.
       - text: '$6$'
         rationale: |
-          This multiplies counts using the three-centimeter side along both sheet dimensions. Each label has one three-centimeter side. Check that its other side is four centimeters.
+          This uses $42\div(4+3)=6$. It divides the sheet area by the sum of the label's side lengths. Check that each label covers $4\times3=12$ square centimeters.
     explanation: |
       The area limit is $(7\times6)\div(4\times3)=3.5$, so at most $3$ whole labels fit. In a $4$ cm by $6$ cm strip, stack two $4$ cm by $3$ cm labels. The remaining $3$ cm by $6$ cm strip holds one turned $3$ cm by $4$ cm label. This fits $3$ labels.
 

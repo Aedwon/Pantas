@@ -498,7 +498,7 @@ questions:
           This uses $145-89$. It makes the first number as small as possible. Check whether the second number can be larger.
       - text: '$172$'
         rationale: |
-          This uses $185-49$. It puts a small digit in the subtracted tens place. Check whether a larger number being subtracted would reduce the difference.
+          This uses $185-(4+9)=172$. It subtracts both digits of $49$, but leaves out their place values. Check that $4$ in the tens place means $40$.
       - text: '$243$'
         rationale: |
           This adds $145+98$. These are useful digit arrangements for the minimum difference. Check the operation requested.

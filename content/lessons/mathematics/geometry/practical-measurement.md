@@ -211,7 +211,7 @@ The floor needs $300$ tiles. No tiles need cutting for these dimensions.
 
 ### #5: A Turning Hand and a Wheel
 
-A display has a hand $6$ cm long. It turns steadily about one fixed end, making one full turn in $60$ minutes. How far does its tip travel in $75$ minutes? Give the answer in terms of $\pi$.
+A clock's minute hand is $6$ cm long. It turns steadily about one fixed end, making one full turn each hour, or every $60$ minutes. How far does its tip travel in $75$ minutes? Give the answer in terms of $\pi$.
 
 **Solution:**
 
