@@ -112,6 +112,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Picking rule proposed before reading how the app picks questions (Nov 17)
+
+- His words: "um i think you have to marry this idea with how the roadmap does things as well" and then "among other systems that exist in the app, there might be some contradictions/conflicts need resolving"
+- Wrong: in the question generator session, the lead adopted a serving rule (least-seen problem type first, a missed type returns as a new version) and gave it a cost of 1 to 2 days. It had not read the roadmap, the review scheduler, the practice picker, the mock sampler or the other systems that already decide which question a student gets. The log entry itself said the app's behavior was "not re-read on the current code branch".
+- Why it got through: the lead treated the rule as a study-method ruling and checked only the research evidence. Nothing made it check a serving rule against the systems that serve questions before stating it and pricing it.
+- Fix (a required step for any lead in a design session): before proposing or pricing a rule about what the app serves, in what order, or what it counts, read the current code and specs of every system that serves or tracks questions (roadmap, review scheduler, practice and in-lesson quiz, mock, assessment, progress figures, sync). State in the same reply how the rule fits each one and where it conflicts. A rule whose fit has not been read is offered as an idea with no cost figure. Applied in this session: the systems were mapped before the design continued.
+
 ### His scrolling goal kept getting answered in parts (Nov 17)
 
 - His words: "even if you fix the dropped frames while my finger is down, when i let go, it's still not as smooth as it can be. oh come on, i'm getting sick of my intent not landing with you. consult a Fable 5.2 adviser!"

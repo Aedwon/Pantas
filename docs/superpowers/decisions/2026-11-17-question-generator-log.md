@@ -304,3 +304,91 @@ Costs stated: every question needs a problem type label. Generated questions get
 it from their template. The hand-written questions need one each, set when the
 templates for their lesson are written. The app's question picking order changes
 (no screen change): rough 1 to 2 days with tests, on top of the engine.
+
+## November 17, 2026: the serving rules checked against the app's systems
+
+Aedwon's exact words: "um i think you have to marry this idea with how the roadmap does things as well" and then "among other systems that exist in the app, there might be some contradictions/conflicts need resolving"
+
+Mistake: the lead had adopted and priced a serving rule without reading how the app
+picks questions. Process-improvement entry written the same turn
+(`docs/workflow/process-improvement.md`, "Picking rule proposed before reading how
+the app picks questions").
+
+Method: one Sonnet reader mapped every system that serves or tracks questions on
+`origin/main` (0edf1dcf6 source). The lead spot-checked the roadmap count, the
+review table key and the server cap in the source. Not verified by the reader: the
+compiled engine the server runs, sync paging limits, whether the content gate runs
+in CI, Wrapped internals.
+
+How the app works today (facts):
+
+- Everything is keyed on one question id: review state (one row per question),
+  mastery, follow-ups, "why you miss", sync (one document per question), server
+  answer totals.
+- Roadmap: "seen" means the question has review state. The daily new-question load
+  is unseen questions divided by working days left
+  (`lib/features/roadmap/domain/build_roadmap.dart:70`). "All covered" needs zero
+  unseen questions (`:123`). New questions come in lesson order, then id.
+- Review re-serves the same question id.
+- Practice and drill push questions answered in the last 7 days to the back. The
+  in-lesson quiz does not avoid seen questions. The mock avoids only the last 2
+  mocks. Mock and assessment answers count as seen.
+- Sized for about 3,200 questions: server answer totals stop at 6,000 questions per
+  student (`functions/src/_answerTotals.ts:36`); web delivery allows 300 documents
+  per account per day; topic screens load every question in a topic.
+- The content gate needs a ledger hash for every shipped question.
+
+Conflicts with the session's choices so far:
+
+1. Pools of about 1,000 questions per problem type, shipped as ordinary questions
+   (option A as the lead described it), would push the daily load into the
+   hundreds, make "all covered" unreachable, and pass the server, delivery and sync
+   limits. The lead's claim "little app change" for option A was wrong.
+2. Review brings back the same question. That breaks "never the same figures" and
+   the rule that a missed type returns as a new version.
+3. If each version were its own question, mastery, follow-ups and "why you miss"
+   would see every version as brand new, with no history.
+4. No system orders by problem type; the label does not exist in the app.
+5. Practice, the in-lesson quiz and the mock each use a different repeat rule.
+
+Resolution proposed by the lead (not yet accepted by him):
+
+- The app treats one problem type as one question. It keeps one id, one review
+  state, one history. Each time the app serves it, it shows the next version from
+  a checked list made before release. One counter per student per type says which
+  version is next, so no version returns until the list ends.
+- Effects: the roadmap counts types, so the daily load stays sane and "all
+  covered" stays reachable. Its unseen-first rule already gives "every type before
+  any repeat". After the first meeting, the review schedule decides when a type
+  returns, always with a new version. History per type measures the skill, not
+  memory of one question. Server, sync and delivery limits hold, because ids grow
+  little.
+- A student meets a type only as often as review, practice and mocks serve it, so a
+  list of about 100 versions per type should outlast normal study, not 1,000. A
+  version is stored as its numbers or figure data; the type holds the shared
+  wording. The exact size is set in the spec.
+- App changes still needed: fill a type's wording with a version's values; record
+  which version each answer used; practice and the in-lesson quiz prefer types not
+  yet met; the same on the server side for web. No screen change.
+- The lead's earlier claim that live generation would need changes to review,
+  mistakes, progress and sync (10 to 15 days) was also wrong under this model.
+  Option C's later step becomes cheap: generate versions in the app instead of
+  reading a list.
+
+Cost corrected: about 8 to 12 days for abstract reasoning end to end (engine,
+templates, checks, the app and server changes above, tests), against the 4 to 6
+first given. Rough until the spec.
+
+Question 6 asked: in a lesson, do generated types replace the hand-written
+near-duplicate questions, or sit next to them? Options:
+
+A. Replace (recommended). The hand-written questions of one pattern become the
+   first versions inside that type; nothing is thrown away. Questions that cannot
+   be templated stay single. Cost: a lesson may hold fewer than 20 ids, so his
+   October 1 rule ("at least 20 active questions per lesson") must count versions;
+   existing answers on live CSE questions must be carried to the type.
+B. Sit next to them. No change to live questions. Cost: the same pattern appears
+   as hand-written near-duplicates and as a type, the daily load grows, and the
+   near-duplicates his October 25 words meant to replace remain.
+
+Aedwon's answer: pending. Question 5 (figure answer choices) is also still open.
