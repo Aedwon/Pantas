@@ -1,0 +1,1 @@
+Solve every multiple-choice question in the file packet.md in this folder. Work each one out yourself. For each, give the letter, your confidence (high, medium or low) and a one-line note. Output only a JSON array as your final message: [{"n": 1, "answer": "C", "confidence": "high", "note": "..."}]

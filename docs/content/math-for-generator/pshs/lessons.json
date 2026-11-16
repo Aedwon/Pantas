@@ -1,0 +1,29 @@
+{
+ "counting-and-digit-patterns": {
+  "lesson": "content/lessons/mathematics/arithmetic-number-sense/counting-and-digit-patterns.md",
+  "id": "lesson-arithmetic-number-sense-counting-and-digit-patterns",
+  "title": "Counting and Digit Patterns",
+  "frontmatter": "part-style, like content/lessons/mathematics/arithmetic-number-sense/least-common-multiple.md: part: 1, partCount: 1, ordering: 42, keyPoints (3 to 4)",
+  "questions": "content/questions/mathematics/arithmetic-number-sense/counting-and-digit-patterns.yaml",
+  "items": ["2024-5", "2024-7", "2024-20", "2015-4"],
+  "methods": "units-digit cycles of powers (find the cycle, use the remainder); counting all squares of every size in an n by n grid (sum of squares) and in a figure; growing patterns, such as the border tiles of a growing square (find the rule, then the nth figure); smallest or largest difference or sum of numbers formed from given digits"
+ },
+ "practical-measurement": {
+  "lesson": "content/lessons/mathematics/geometry/practical-measurement.md",
+  "id": "lesson-geometry-practical-measurement",
+  "title": "Practical Measurement",
+  "frontmatter": "like content/lessons/mathematics/geometry/measurement.md (no part fields; estimatedMinutes)",
+  "questions": "content/questions/mathematics/geometry/practical-measurement.yaml",
+  "items": ["2024-8", "2024-11", "2024-13", "2024-14", "2024-16", "2024-18"],
+  "methods": "edge of a cube from its volume (cube roots of perfect cubes); area of a polygon on a dot or square grid by counting, splitting and the surrounding-rectangle method; how many whole rectangles can be cut from a sheet (try both orientations, whole numbers only); tiles to cover a floor with unit conversion (convert first); distance traveled by the tip of a turning hand or the edge of a wheel (circumference times turns); area inside margins (subtract twice the margin from each side)"
+ },
+ "clock-time-and-time-differences": {
+  "lesson": "content/lessons/mathematics/arithmetic-number-sense/clock-time-and-time-differences.md",
+  "id": "lesson-arithmetic-number-sense-clock-time-and-time-differences",
+  "title": "Clock Time and Time Differences",
+  "frontmatter": "part-style, like content/lessons/mathematics/arithmetic-number-sense/least-common-multiple.md: part: 1, partCount: 1, ordering: 43, keyPoints (3 to 4)",
+  "questions": "content/questions/mathematics/arithmetic-number-sense/clock-time-and-time-differences.yaml",
+  "items": ["2024-17", "2015-5"],
+  "methods": "12-hour and 24-hour time; elapsed time, including across noon and midnight (count to the next hour, then whole hours, then minutes; borrowing 60 minutes); adding a duration to a start time; time-zone differences given as an offset (earlier or later, crossing midnight)"
+ }
+}
