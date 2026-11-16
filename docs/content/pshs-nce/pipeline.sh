@@ -5,7 +5,8 @@ R0=${0:A:h:h:h:h}; cd $R0
 D=docs/content/pshs-nce; n=$1; M=$R0/$D/logs/$n; mkdir -p $M
 S=${QC_SCRATCH:?set QC_SCRATCH}/qc-$n
 get() { python3 -I -c 'import json,sys;v=json.load(open(sys.argv[1]))[sys.argv[2]][sys.argv[3]];print(", ".join(v) if isinstance(v,list) else v)' $D/lessons.json $n $1; }
-guard() { git diff --quiet HEAD -- tools || { echo "tools/ changed; stopping $n"; exit 3; }; }
+# Stop before running repo tools if a Codex write step changed anything outside lessons, questions and this lane's folder.
+guard() { local bad; bad=$(git status --porcelain --untracked-files=all | awk '{print $NF}' | grep -vE '^(content/lessons/|content/questions/|docs/content/pshs-nce/)'); [[ -z $bad ]] || { echo "unexpected changes; stopping $n:"; echo "$bad"; exit 3; }; }
 L=$(get lesson); ID=$(get id); Q=$(get questions)
 TASK="Lesson id: $ID. Lesson path: $L. Title: $(get title). Front matter: $(get frontmatter). Official items: $(get items). Methods to teach: $(get methods)."
 cx() { CODEX_PICK_PARALLEL=1 codex-pick exec --skip-git-repo-check "$@" < /dev/null; }
