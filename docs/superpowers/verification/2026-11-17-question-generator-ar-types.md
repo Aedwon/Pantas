@@ -27,8 +27,26 @@ Blind solve total: 30 types, 150 variants, 150 match.
 
 ## Codex GPT 6.1 Sol high audit
 
-Pending (Codex windows).
+Audits: audit-a.md and audit-b.md (first pass, 30 types), reaudit-a.md (12 types after fixes), reaudit-b.md (5 types not reached in the first pass), reaudit-c.md (ray-turn and dot-sum, both then held). Fix records: fix-a-findings.md, fix-b-findings.md, fix-c-findings.md. Lead rulings: plans/2026-11-17-question-generator-briefs/fix-rulings.md.
 
-## Ledger approval
+## Final state and approval (Nov 17, 09:20 UTC)
 
-Pending (Task 1.4 ledger extension).
+Blind solves 1 to 3 ran on lists that the audit fixes later regenerated. Blind solve 4 (blind-solve-4/) ran on the final lists: 75 of 75 match across the 15 types active then. Two of those 15 were held afterward.
+
+| Type (qt-spatial-abstract-reasoning-) | Checker | Blind solve 4 | Audit verdict (file) |
+|---|---|---|---|
+| series-fill-ray-dots | pass | 5 of 5 | PASS (reaudit-a) |
+| series-four-tracks | pass | 5 of 5 | PASS (reaudit-a) |
+| series-ray-step | pass | 5 of 5 | PASS (reaudit-a) |
+| group-dot-count | pass | 5 of 5 | PASS (reaudit-a) |
+| group-dot-parity | pass | 5 of 5 | PASS (reaudit-a) |
+| group-polygon-replacement | pass | 5 of 5 | PASS, Minor accepted (reaudit-a) |
+| matrix-form-ray | pass | 5 of 5 | PASS (reaudit-a) |
+| matrix-outline-latin | pass | 5 of 5 | PASS (reaudit-a) |
+| matrix-size-dots | pass | 5 of 5 | PASS (reaudit-a) |
+| matrix-size-transfer | pass | 5 of 5 | PASS (reaudit-a) |
+| matrix-ray-union | pass | 5 of 5 | PASS (reaudit-b) |
+| matrix-sized-ray-union | pass | 5 of 5 | PASS (reaudit-b) |
+| matrix-corner-reflection | pass | 5 of 5 | PASS, Minor accepted (reaudit-b) |
+
+The lead approves these 13 types in the ledger with this file as evidence. The fourth check, Aedwon's figure sheets, gates the first prod release only (spec B6).
