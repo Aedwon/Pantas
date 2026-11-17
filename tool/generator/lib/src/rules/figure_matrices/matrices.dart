@@ -176,6 +176,40 @@ class MatrixRule implements Rule {
               inputs.take(2).any((p) => p[0] + p[1] == 2 * p[1] - p[0]))) {
         continue;
       }
+      if (!fixed && pattern == 'dot-sum') {
+        final grid = [
+          for (final p in inputs) [p[0], p[1], p[0] + p[1]],
+        ];
+        final target = inputs[2];
+        final wrong = {
+          2 * target[1] - target[0],
+          target[1],
+          (target[1] - target[0]).abs(),
+        };
+        num? combine(int a, int b, int op) => switch (op) {
+              0 => a * b,
+              1 => (a - b).abs(),
+              2 => max(a, b),
+              3 => min(a, b),
+              _ => b == 0 ? null : a / b,
+            };
+        var ambiguous = false;
+        for (var op = 0; op < 5; op++) {
+          if ([0, 1].every(
+                (y) => combine(grid[y][0], grid[y][1], op) == grid[y][2],
+              ) &&
+              wrong.contains(combine(target[0], target[1], op))) {
+            ambiguous = true;
+          }
+          if ([0, 1].every(
+                (x) => combine(grid[0][x], grid[1][x], op) == grid[2][x],
+              ) &&
+              wrong.contains(combine(grid[0][2], grid[1][2], op))) {
+            ambiguous = true;
+          }
+        }
+        if (ambiguous) continue;
+      }
       final fillSizes =
           pattern == 'fill-union' ? ([..._sizes]..shuffle(r)) : sizes;
       Map<String, Object?> cell(int y, int x) {
@@ -498,7 +532,7 @@ class MatrixRule implements Rule {
       if (!fixed && pattern == 'ray-turn') {
         final from = at(0, 0)['line']! as int;
         final to = at(0, 1)['line'];
-        if ([180, 360].any((axis) => (axis - from) % 360 == to)) {
+        if ([90, 180, 270, 360].any((axis) => (axis - from) % 360 == to)) {
           continue;
         }
       }

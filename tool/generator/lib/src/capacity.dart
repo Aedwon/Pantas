@@ -39,8 +39,9 @@ CapacityReport measureCapacity(
   final keys = <String>{};
   for (var draw = 0; draw < ceiling; draw++) {
     final result = rule.generate(type, random, draw);
-    signatures.add(canonicalSignature(result.variant));
-    keys.add(taskRuleKey(type.rule, result.ruleParams));
+    if (signatures.add(canonicalSignature(result.variant))) {
+      keys.add(taskRuleKey(type.rule, result.ruleParams));
+    }
   }
   return CapacityReport(keys.length, signatures.length, ceiling);
 }

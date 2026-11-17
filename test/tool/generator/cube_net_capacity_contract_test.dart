@@ -10,7 +10,7 @@ import 'cube_net_signature_test.dart' show netVariant;
 import 'support.dart' show mathTypeData;
 
 void main() {
-  test('capacity reports rule-parameter sets independently of signatures', () {
+  test('capacity counts rule-parameter sets only for kept signatures', () {
     final type = parseProblemType({
       ...mathTypeData(),
       'rule': 'capacity-contract-probe',
@@ -23,9 +23,9 @@ void main() {
     expect(report.signatures, 1);
     expect(
       report.ruleKeys,
-      2,
-      reason: 'Part 3b requires two independently enumerated counts. '
-          'Distinct parameter sets can have the same spatial signature.',
+      1,
+      reason: 'Nov 17 ruling 5 counts only the first kept signature. '
+          'A discarded duplicate contributes no rule-parameter set.',
     );
   });
 }

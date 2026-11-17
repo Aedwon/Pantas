@@ -109,7 +109,7 @@ class EquivalentFigureRule implements Rule {
     choices[1]['figure'] = point(2);
     return RuleResult(
       variant: asVariant(data),
-      ruleParams: {},
+      ruleParams: {'draw': index},
       cosmetics: {},
     );
   }

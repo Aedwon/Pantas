@@ -1,6 +1,7 @@
 import '../../model.dart';
 import '../math_solver.dart';
 import 'figure_grouping/grouping_solver.dart';
+import 'figure_matrices/library_solver.dart';
 import 'figure_matrices/matrix_solver.dart';
 import 'figure_series/series_solver.dart';
 import 'mental_rotation/net_solver.dart';
@@ -35,6 +36,13 @@ typedef MistakeSolver = Object Function(ProblemType type, Variant variant);
 
 final mathSolvers = <String, MathSolver>{};
 final figureSolvers = <String, FigureSolver>{
+  for (final axis in [90, 270])
+    'matrix-ray-diagonal-$axis':
+        MatrixLibrarySolver('reflection', diagonal: axis),
+  for (final op in ['product', 'difference', 'maximum', 'minimum', 'quotient'])
+    for (final columns in [false, true])
+      'matrix-dot-$op-${columns ? 'column' : 'row'}':
+          MatrixLibrarySolver(op, columns: columns),
   'matrix-ray-reflection-up-down':
       MatrixSolver('ray-turn', reflectRaysUpDown: true),
   'matrix-dot-counting-sequence': MatrixSolver('dot-sum', continueCounts: true),
