@@ -60,3 +60,18 @@ Items Fable said Aedwon must decide (put to him in the spec approval section wit
 5. Siblings need a second email this cycle (recommend accept).
 
 Lead mistake recorded: the lead proposed a PSHS-NCE minimum age of 10 without a source. Fable rejected it.
+
+## Decision 3: Codex GPT 6.1 Sol High critique of the legal draft (Nov 17)
+
+Ran through `codex-pick` once accounts had 5-hour room (a: 32% room). Fourteen findings. Lead rulings:
+
+- Adopted: 2 (guardian answers for own breach, no "child's breach"), 3 (no change-of-mind refund,
+  statutory rights kept), 4 (CPIA is required before child accounts open, not a sales choice), 5
+  (separate child-facing layers and a just-in-time notice), 6 (breach notice to NPC, guardian and
+  child), 7 (sign-in data reaches the server before setup), 8 (retention wording, no Art. 1144
+  justification), 9 (withdraw control), 10 (study guidance explained), 11 (bundled-consent claim
+  softened, two ticks kept), 12 (receipt or invoice, phone number from Aedwon), 13 (one-account
+  clause, sync every declaration), 14 (child wording).
+- Not adopted as a flow change: 1 (the age check relies on the child's consent). Aedwon kept the
+  current age-step flow on Nov 11 after the lawful-basis research. The draft states the same basis as
+  the live teen notice, not consent, and the risk is listed in the spec and the assessment.

@@ -8,8 +8,7 @@ Decision log, with his exact words and the Fable rulings: `docs/superpowers/deci
 Legal draft: `docs/legal/drafts/2026-11-17-under-13-legal-draft.md`. Privacy impact
 assessment: `docs/legal/drafts/2026-11-17-child-privacy-impact-assessment.md`.
 Velocity row: E-108 (this spec). The build gets its own row.
-Boards: to be built in Claude Design from the approved screens (rule 3) after Part A is approved;
-listed in A6.
+Boards: https://claude.ai/artifact/PqxcZvKQheCogaXH6LidPM (Claude Design, for your pick; listed in A6).
 
 ---
 
@@ -44,7 +43,8 @@ takers are 11 or 12, and Pantas is 13+ today. Target: on sale by mid-December.
    analytics, speed and error reports, share cards, and push notifications.
 7. The parent buys the ₱1,499 pass. Every PSHS-NCE purchase, from any account, shows the box "I
    am the parent or guardian ... and I accept the Terms."
-8. Settings has a "For parents" entry with the Child Notice, a copy of the data, and delete.
+8. Settings has a "For parents" entry with the Child Notice, a copy of the data, and "Withdraw
+   permission and close account".
 
 If a parent sets up an adult account and picks PSHS-NCE, the app asks "Is this for a child under
 13?" A yes goes to the parent setup.
@@ -105,16 +105,19 @@ These are judgments with sources, not your decisions. Each one blocks the sale o
 
 Each comes with a recommendation. If you approve Part A without comment, the recommendations hold.
 
-1. NPC registration and a signed privacy impact assessment before the sale. Recommend: file before
-   the pass goes on sale. Children's data raises the exposure. The assessment is drafted for your
-   signature.
+1. Not a choice, an action for you: the law requires the child privacy impact assessment to be
+   complete before child accounts open, free or paid (NPC Advisory 2024-03, per the Codex critique).
+   It is drafted for your signature. NPC registration depends on legal criteria, not preference; the
+   plan checks them and tells you whether to file.
 2. Free use for child accounts. Recommend: keep free use, as for everyone else. Paid-only would make
    payment a second adult check on every child account, but it cuts sign-ups.
-3. Refund when a guardian deletes a paid account. Recommend: no refund beyond the standard policy,
-   stated at checkout.
+3. Refund when a guardian deletes a paid account. Recommend: no change-of-mind refund, stated at
+   checkout. Refunds the law requires stay available; the Terms cannot remove them.
 4. PSHS-NCE marketing speaks to parents, not children. Recommend: yes. The website copy stays yours.
 5. A second child needs a second email this cycle. Recommend: accept this.
-6. Legal sign-off on the final text, after the Codex critique. You check the result; you do not
+6. A business phone number. E-commerce law (RA 11967) asks sellers to publish one with their
+   address and email. Recommend: give one, or confirm one already published.
+7. Legal sign-off on the final text, after the Codex critique. You check the result; you do not
    write it (rule 5).
 
 ### A10. Risks
@@ -122,6 +125,9 @@ Each comes with a recommendation. If you approve Part A without comment, the rec
 - No lawyer reviews this text. You accepted this risk on Nov 9 (rule 5). Under-13s raise the stakes.
 - A guardian's claim is self-declared. Payment, the receipt email and the low-risk data set are the
   safeguards. The NPC does not forbid self-declaration but says it may be weak for risky processing.
+- The age question runs before any guardian is involved. The basis is the one you kept on Nov 11
+  (current flow, option A). Codex flags that a child cannot consent to it. The draft uses the same
+  basis as the teen notice, not consent; a regulator could still question it.
 - A parent can still enter their own age and let a child use an adult account. The PSHS-NCE question
   and the checkout box narrow this. They do not close it.
 
@@ -196,7 +202,10 @@ Each comes with a recommendation. If you approve Part A without comment, the rec
     products. Text from the legal draft, keeping "and I accept the Terms". Record text version and time
     as today.
 12. For parents entry. In Settings for child accounts: the Child Notice, the data copy (verify the
-    existing export works; if not, the entry shows the data protection officer contact), delete account.
+    existing export works; if not, the entry shows the data protection officer contact), "Withdraw
+    permission and close account" with its consequences text (free; processing stops; limited records
+    kept as the notice states). A short child notice is shown before processing (Advisory 2024-03
+    just-in-time layer). Each purchase issues an electronic receipt or invoice (verify PayMongo does).
 13. Android. Hide PSHS-NCE from the exam list and switching on Android builds this cycle.
 14. Legal texts. Add the Child Notice as a legal document with its own version stamp. Update Terms
     and Privacy text from the approved draft. Bump versions.
