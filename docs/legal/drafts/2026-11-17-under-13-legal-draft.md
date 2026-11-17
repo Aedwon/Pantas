@@ -28,7 +28,7 @@ Address: Poblacion, Norala, South Cotabato, Philippines.
 
 Questions about your child's data: dpo@pantas.study
 Help or payment problems: support@pantas.study
-Telephone: [BUSINESS PHONE: Aedwon to supply or confirm]
+Telephone: +63 968 854 2343
 
 **What we collect for a child account**
 

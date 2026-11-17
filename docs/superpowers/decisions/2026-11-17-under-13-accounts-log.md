@@ -129,3 +129,7 @@ Aedwon's plain summary of the legal changes since his "sure" (for his sign-off o
 3. A parent with no email access can write to the data protection officer.
 4. Closing the last child closes the parent sign-in but keeps limited records.
 5. A pass covers one child, and the price is his to decide.
+
+## Business phone (Nov 18)
+
+Relayed by the manager: Aedwon gave the business phone as +63 968 854 2343. It is in the legal draft's contact block and the impact assessment. The SSOT listed it as an owner input still owed. The lead's earlier search was right that it was not in the repo.

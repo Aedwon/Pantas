@@ -101,7 +101,7 @@ Overall: this assessment is not complete. Child accounts must not be enabled unt
 - Confirm the NPC texts cited (Circular 2023-04, Advisory 2024-03) at privacy.gov.ph.
 - Confirm whether speed and error reports are on by default for teens (existing notice says yes). If a teen's guardian has not agreed, consider turning them off.
 - Lawyer review.
-- Business phone number and electronic receipt or invoice for each purchase (e-commerce disclosure).
+- Electronic receipt or invoice for each purchase (e-commerce disclosure). Business phone supplied by Aedwon Nov 18: +63 968 854 2343.
 
 ## 8. Sign-off
 
