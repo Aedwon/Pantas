@@ -1,0 +1,10 @@
+qt-spatial-abstract-reasoning-series-interleaved-count#0 D
+qt-spatial-abstract-reasoning-series-interleaved-count#8 C
+qt-spatial-abstract-reasoning-series-interleaved-count#24 B
+qt-spatial-abstract-reasoning-series-interleaved-count#71 B
+qt-spatial-abstract-reasoning-series-interleaved-count#88 D
+qt-spatial-abstract-reasoning-matrix-ray-intersection#0 A
+qt-spatial-abstract-reasoning-matrix-ray-intersection#30 D
+qt-spatial-abstract-reasoning-matrix-ray-intersection#56 B
+qt-spatial-abstract-reasoning-matrix-ray-intersection#62 A
+qt-spatial-abstract-reasoning-matrix-ray-intersection#95 C

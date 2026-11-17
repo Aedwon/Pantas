@@ -1,0 +1,10 @@
+qt-spatial-abstract-reasoning-series-interleaved-count#0 D sure odd positions +1 (1,2,3); doubling gives circle 4, not offered
+qt-spatial-abstract-reasoning-series-interleaved-count#8 C sure odd positions +1 (0,1,2); doubling impossible from 0
+qt-spatial-abstract-reasoning-series-interleaved-count#24 B sure odd positions +1 (2,3,4)
+qt-spatial-abstract-reasoning-series-interleaved-count#71 B sure odd positions +1 (0,1,2)
+qt-spatial-abstract-reasoning-series-interleaved-count#88 D sure odd positions +1 (0,1,2)
+qt-spatial-abstract-reasoning-matrix-ray-intersection#0 A sure row 3rd cell = shared ray of first two (135)
+qt-spatial-abstract-reasoning-matrix-ray-intersection#30 D sure shared ray 180
+qt-spatial-abstract-reasoning-matrix-ray-intersection#56 B sure shared ray 135
+qt-spatial-abstract-reasoning-matrix-ray-intersection#62 A sure shared ray 180; highest-ray rule gives 225 in row 2 but fails row 1 consistency check
+qt-spatial-abstract-reasoning-matrix-ray-intersection#95 C sure shared ray 270
