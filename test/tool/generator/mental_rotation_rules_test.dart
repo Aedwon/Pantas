@@ -30,8 +30,11 @@ void main() {
   const hardPath = 'content/types/reasoning/spatial-abstract-reasoning/'
       'folding-and-checking-cube-nets/'
       'qt-spatial-abstract-reasoning-net-opposite-hard.yaml';
+  final hardFile = File(hardPath).existsSync()
+      ? File(hardPath)
+      : File(hardPath.replaceFirst('content/types/', 'content/types-held/'));
   final hardType =
-      parseProblemType(loadYaml(File(hardPath).readAsStringSync()) as Map);
+      parseProblemType(loadYaml(hardFile.readAsStringSync()) as Map);
   final hardSource = generateVariants(hardType, count: 2).variants[1];
   final hardSolver = figureSolvers['net-opposite-hard']!;
   final back = hardSource.choices.singleWhere((c) => c.correct).text;

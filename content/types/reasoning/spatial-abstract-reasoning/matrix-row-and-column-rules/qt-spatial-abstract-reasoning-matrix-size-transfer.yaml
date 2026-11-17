@@ -87,7 +87,7 @@
   "mistakes": [
     {
       "id": "freeze-edge-count",
-      "note": "This repeats the previous edge-line count. That count is beside the blank. Continue the one-line decrease across the row."
+      "note": "This repeats the adjacent edge-line count. That count is beside the blank. Continue the one-line decrease across the row."
     },
     {
       "id": "copy-middle-size",
@@ -95,7 +95,7 @@
     },
     {
       "id": "freeze-dots",
-      "note": "This repeats the previous dot count. That count is beside the blank. Continue the one-dot increase across the row."
+      "note": "This repeats the adjacent dot count. That count is beside the blank. Continue the one-dot increase across the row."
     }
   ],
   "mergedQuestions": [

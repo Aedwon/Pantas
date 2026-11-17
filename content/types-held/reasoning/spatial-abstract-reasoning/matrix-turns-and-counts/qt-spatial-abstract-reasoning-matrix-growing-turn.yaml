@@ -91,7 +91,7 @@
     },
     {
       "id": "freeze-ray",
-      "note": "This repeats the preceding line direction. That line is beside the blank. Continue the equal turn used across the row."
+      "note": "This repeats the adjacent line direction. That line is beside the blank. Continue the equal turn used across the row."
     },
     {
       "id": "copy-first-row-diagonal",

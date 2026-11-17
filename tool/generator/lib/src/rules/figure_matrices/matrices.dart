@@ -41,7 +41,7 @@
 /// repeat-neighbor copies adjacent form; repeat-row-start copies first;
 /// introduce-fourth-form selects a form absent from the grid.
 /// dot-sum: 3x3, first two counts 1..4, third their sum <=5.
-/// add-sequence-step adds two to second; copy-second repeats it;
+/// add-sequence-step continues the input difference; copy-second repeats it;
 /// subtract-inputs takes absolute difference, all answers 0..5.
 /// size-latin: 3x3, three-size cycle shifted one place either way per row.
 /// repeat-row-start/repeat-adjacent copy those sizes; change-form.
@@ -356,7 +356,7 @@ class MatrixRule implements Rule {
           var wrong = Map<String, Object?>.of(answer);
           switch (id) {
             case 'hold-ray' || 'freeze-ray':
-              wrong['line'] = at(y, x - 1)['line'];
+              wrong['line'] = at(y, x == 0 ? 1 : x - 1)['line'];
             case 'copy-first-row-ray':
               wrong['line'] = at(0, 1)['line'];
             case 'copy-first-row-form' ||
@@ -393,7 +393,7 @@ class MatrixRule implements Rule {
                           (id == 'double-step' ? 2 : 3)) %
                       4];
             case 'freeze-dots':
-              wrong['dots'] = at(y, x - 1)['dots'];
+              wrong['dots'] = at(y, x == 0 ? 1 : x - 1)['dots'];
             case 'union-not-intersection':
               wrong = setRays(wrong, [...rays(at(y, 0)), ...rays(at(y, 1))]);
             case 'first-exclusive':
@@ -435,7 +435,8 @@ class MatrixRule implements Rule {
                       : 'dot';
               wrong[key] = at(y, 0)[key];
             case 'add-sequence-step':
-              wrong['dots'] = (at(y, 1)['dots']! as int) + 2;
+              wrong['dots'] =
+                  2 * (at(y, 1)['dots']! as int) - (at(y, 0)['dots']! as int);
             case 'copy-second':
               wrong['dots'] = at(y, 1)['dots'];
             case 'subtract-inputs':
@@ -450,7 +451,7 @@ class MatrixRule implements Rule {
             case 'copy-first-row-diagonal':
               wrong['line'] = at(0, 1)['line'];
             case 'freeze-edge-count':
-              wrong['edgeLines'] = at(y, x - 1)['edgeLines'];
+              wrong['edgeLines'] = at(y, x == 0 ? 1 : x - 1)['edgeLines'];
             default:
               throw StateError(id);
           }
@@ -481,6 +482,12 @@ class MatrixRule implements Rule {
       if (!fixed &&
           pattern == 'corner-step' &&
           corners[0] % 2 != corners[1] % 2) {
+        continue;
+      }
+      if (!fixed &&
+          pattern == 'ray-turn' &&
+          (360 - (at(0, 0)['line']! as int)) % 360 == at(0, 1)['line'] &&
+          (360 - (at(1, 0)['line']! as int)) % 360 != answer['line']) {
         continue;
       }
       final slots = <String, Object?>{
@@ -557,7 +564,6 @@ class MatrixRule implements Rule {
         ruleParams: {
           'pattern': pattern,
           'shown': ruleShown,
-          if (slots['extraForm'] != null) 'extraForm': slots['extraForm'],
         },
         cosmetics: cosmetics,
       );

@@ -165,6 +165,14 @@ class NetSolver implements FigureSolver {
       return d != 0 ? d : spatial(a, b);
     }
 
+    if (pattern == 'opposite-hard' && q['profile'] == 0) {
+      if (distances.toSet().length != 6 || distances[n.opposite(target)] != 3) {
+        throw const FormatException('hard path requires six successive stops');
+      }
+      return [
+        for (final distance in [2, 4, 5]) distances.indexOf(distance),
+      ];
+    }
     final selected = <int>[];
     final profile = q['profile']! as int;
     final directions = switch (pattern) {
@@ -187,6 +195,11 @@ class NetSolver implements FigureSolver {
           n.cells[target].$2 + directions[k].$2
         );
         final i = n.cells.indexOf(p);
+        if (pattern == 'opposite-hard' && !remaining.contains(i)) {
+          throw const FormatException(
+            'hard directional mistake needs its neighbor',
+          );
+        }
         if (remaining.contains(i)) candidate = i;
       } else if (pattern == 'opposite-medium' && k < 2) {
         final eligible = remaining
@@ -276,6 +289,11 @@ class NetSolver implements FigureSolver {
           refs.any((i) => i < 0) ||
           refs.toSet().length != refs.length) {
         return false;
+      }
+      if (pattern == 'adjacent-relation') {
+        final a = n.cells[refs[0]];
+        final b = n.cells[refs[1]];
+        if ((a.$1 - b.$1).abs() != 1 || (a.$2 - b.$2).abs() != 1) return false;
       }
       return refs.map((i) => n.normal(i).abs()).toSet().length == refs.length;
     }

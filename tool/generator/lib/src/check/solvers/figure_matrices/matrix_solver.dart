@@ -78,7 +78,8 @@ bool _same(Map<String, Object?> a, Map<String, Object?> b) =>
 /// Reconstructs the missing cell from visible rows and columns, then checks
 /// every supplied cell. Candidate feature keys must match exactly.
 class MatrixSolver implements FigureSolver {
-  MatrixSolver(this.pattern);
+  MatrixSolver(this.pattern, {this.reflectRays = false});
+  final bool reflectRays;
   final String pattern;
   @override
   String get kind => 'figure-matrix';
@@ -105,10 +106,12 @@ class MatrixSolver implements FigureSolver {
     final a = Map<String, Object?>.of(row(y));
     switch (pattern) {
       case 'ray-turn':
-        a['line'] = ((at(1, 0)['line']! as num) +
-                (at(0, 1)['line']! as num) -
-                (at(0, 0)['line']! as num)) %
-            360;
+        a['line'] = reflectRays
+            ? (360 - (at(1, 0)['line']! as num)) % 360
+            : ((at(1, 0)['line']! as num) +
+                    (at(0, 1)['line']! as num) -
+                    (at(0, 0)['line']! as num)) %
+                360;
       case 'corner-step':
         a['dot'] =
             _corners[(_corners.indexOf(at(1, 0)['dot']! as String) + 1) % 4];
@@ -281,6 +284,14 @@ class MatrixSolver implements FigureSolver {
       }
       switch (pattern) {
         case 'ray-turn':
+          if (reflectRays) {
+            return feature(
+              'line',
+              (y, x) => x == 0
+                  ? at(y, 0)['line']
+                  : (360 - (at(y, 0)['line']! as num)) % 360,
+            );
+          }
           final step =
               ((at(0, 1)['line']! as num) - (at(0, 0)['line']! as num)) % 360;
           return [45, 90, 135].contains(step) &&
@@ -448,7 +459,7 @@ class MatrixSolver implements FigureSolver {
 
     switch (id) {
       case 'hold-ray' || 'freeze-ray':
-        copy('line', y, x - 1);
+        copy('line', y, x == 0 ? 1 : x - 1);
       case 'copy-first-row-ray':
         copy('line', 0, 1);
       case 'copy-first-row-form' || 'copy-example-form' || 'copy-top-form':
@@ -480,7 +491,7 @@ class MatrixSolver implements FigureSolver {
                 (id == 'double-step' ? 2 : 3)) %
             4];
       case 'freeze-dots':
-        copy('dots', y, x - 1);
+        copy('dots', y, x == 0 ? 1 : x - 1);
       case 'union-not-intersection':
         return _withRays(result, [..._rays(at(y, 0)), ..._rays(at(y, 1))]);
       case 'first-exclusive':
@@ -526,7 +537,8 @@ class MatrixSolver implements FigureSolver {
           0,
         );
       case 'add-sequence-step':
-        result['dots'] = (at(y, 1)['dots']! as int) + 2;
+        result['dots'] =
+            2 * (at(y, 1)['dots']! as int) - (at(y, 0)['dots']! as int);
       case 'copy-second':
         copy('dots', y, 1);
       case 'subtract-inputs':
@@ -540,7 +552,7 @@ class MatrixSolver implements FigureSolver {
       case 'copy-first-row-diagonal':
         copy('line', 0, 1);
       case 'freeze-edge-count':
-        copy('edgeLines', y, x - 1);
+        copy('edgeLines', y, x == 0 ? 1 : x - 1);
       default:
         throw FormatException('unknown mistake $id');
     }
@@ -564,7 +576,6 @@ class MatrixSolver implements FigureSolver {
                 cell,
           ],
         },
-        if (v.slots['extraForm'] != null) 'extraForm': v.slots['extraForm'],
       };
   bool get _cosmetic => [
         'size-fill',

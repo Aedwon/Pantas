@@ -87,7 +87,7 @@
   "mistakes": [
     {
       "id": "add-sequence-step",
-      "note": "This adds two to the second count. It treats the last input as a counting sequence. Check the addition relationship in the completed rows."
+      "note": "This repeats the difference between the two inputs. Two counts can look like the start of a counting sequence. Check the addition relationship in the completed rows."
     },
     {
       "id": "copy-second",

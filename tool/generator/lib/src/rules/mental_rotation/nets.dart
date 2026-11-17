@@ -17,16 +17,18 @@
 /// graph distance and row/column order. Profile 1: attached support, next strip
 /// side, other branch support, ordered by graph distance then row/column.
 /// medium: farthest same-column side, farthest remaining side, closest side.
-/// hard profile 0: skip the first fold, then ascending graph distance;
-/// profile 1 requires perpendicular front and up faces. Mistakes select
-/// lower, left, right neighbors, excluding upFace, then closest remaining side.
+/// hard profile 0: six-square path, front at an endpoint, opposite at distance
+/// 3. Mistakes stop at distances 2, 4, 5. Profile 1 requires perpendicular
+/// front and up faces, plus actual lower, left, right neighbors. These exclude
+/// upFace.
 /// top-and-shadow: right, upper, lower side neighbors (closest fallback), with
 /// square, unequal rectangle, unequal diamond respectively. nonadjacent:
 /// upper, right, lower side neighbors (closest fallback).
-/// A directional priority without that neighbor falls back to graph distance.
-/// Hard profile 0 excludes graph-distance-one faces when possible.
+/// Other directional priorities without that neighbor fall back to graph
+/// distance. Hard profiles reject draws without their named geometric traps.
 ///
-/// Adjacent-relation queries distinct orthogonal normals. Mistakes are
+/// Adjacent-relation queries orthogonal normals with corner-only flat contact.
+/// Mistakes are
 /// opposite, overlap, corner-only. Validity-test mistakes are count-only,
 /// connectedness-only, symmetry-only. overlap profile 0 mistakes are row-is-
 /// rigid, six-means-valid, branch-removes-sides; profile 1 mistakes are
@@ -318,7 +320,33 @@ class NetRule implements Rule {
             continue;
           }
         }
+        if (pattern == 'adjacent-relation') {
+          final a = cells[refs[0]];
+          final b = cells[refs[1]];
+          if ((a.$1 - b.$1).abs() != 1 || (a.$2 - b.$2).abs() != 1) continue;
+        }
         query['faces'] = refs.map((i) => labels[i]).toList();
+      }
+      if (pattern == 'opposite-hard') {
+        final d = geometry.distances(face);
+        if (profile == 0) {
+          if (d.toSet().length != 6 || d[geometry.opposite(face)] != 3) {
+            continue;
+          }
+        } else {
+          final up = labels.indexOf(query['upFace']! as String);
+          final p = cells[face];
+          final neighbors = [
+            (p.$1 + 1, p.$2),
+            (p.$1, p.$2 - 1),
+            (p.$1, p.$2 + 1),
+          ];
+          if (neighbors.any(
+            (p) => !cells.contains(p) || cells.indexOf(p) == up,
+          )) {
+            continue;
+          }
+        }
       }
       final answer = _answer(geometry, labels, query);
       final wrong = _wrong(geometry, labels, query);
@@ -372,7 +400,7 @@ class NetRule implements Rule {
               'slots': {
                 'noteText': fixed
                     ? sourceChoices[k + 1]['rationale']
-                    : _note(pattern, k, wrong[k]),
+                    : _note(pattern, k, wrong[k], profile: profile),
               },
             },
         ],
@@ -492,6 +520,11 @@ class NetRule implements Rule {
       for (var i = 0; i < 6; i++)
         if (i != target && i != opposite && l[i] != q['upFace']) i,
     ];
+    if (pattern == 'opposite-hard' && q['profile'] == 0) {
+      return [
+        for (final distance in [2, 4, 5]) l[d.indexOf(distance)],
+      ];
+    }
     final chosen = <int>[];
     int planar(int a, int b) => g.points[a].$1 != g.points[b].$1
         ? g.points[a].$1.compareTo(g.points[b].$1)
@@ -609,7 +642,28 @@ class NetRule implements Rule {
             'faces across the cube from ${q['face']}. Opposite faces '
             'do not share an edge.',
       };
-  String _note(String pattern, int k, String wrong) => switch (pattern) {
+  String _note(String pattern, int k, String wrong, {required int profile}) =>
+      switch (pattern) {
+        'opposite-hard' when profile == 0 => switch (k) {
+            0 => 'This stops at $wrong after two folds. Counting turns can '
+                'seem enough. Track the direction after the third fold.',
+            1 => 'This continues to $wrong after four folds. A farther square '
+                'can look opposite. Check the direction reached after three '
+                'folds.',
+            _ => 'This pairs the first square with the path endpoint $wrong. '
+                'The ends can seem opposite. Track folded directions instead '
+                'of path length.',
+          },
+        'opposite-hard' => switch (k) {
+            0 => 'This sends the lower neighbor $wrong to the back. It lies '
+                'below the front while flat. Check which face requires two '
+                'folds from the front.',
+            1 => 'This sends the left neighbor $wrong to the back. A side face '
+                'can look hidden. Check which face is opposite the front.',
+            _ => 'This sends the right neighbor $wrong to the back. It turns '
+                'out of the flat plane. Check whether it still shares an edge '
+                'with the front.',
+          },
         'validity-test' => switch (k) {
             0 => 'This checks only the number of faces. Six squares match '
                 'a cube. Check that every folded face reaches a '
