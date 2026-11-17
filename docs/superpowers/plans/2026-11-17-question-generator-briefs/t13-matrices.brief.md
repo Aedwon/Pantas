@@ -11,3 +11,7 @@ Per candidate pattern in your file's table that the report marks exact (Y) and t
 Final message: per type, id, source, distinct ruleKeys, distinct signatures, status (LIST 100 / HELD), checker result; then the verification lines.
 
 File: figure-matrices. Reuse the figure-series canonicalizer and solvers where the item contract is shared (merged on the lane branch); you own the figure-matrix canonicalizer; register rules under rules/figure_matrices/. Rulings 1 to 3 above apply (held types in content/types-held/, query in slots, drawn symmetry). Positional choices use choiceKind text with value = position.
+
+Lead rulings (Nov 17 03:50 UTC). Continue from FINDINGS.md; do not restart.
+1. Matrix 0019: name the mistake by what the source choice actually is. Top-right repeats the cell above the blank, so the mistake is `repeat-above`. Read the source choice's rationale: if it describes repeating the cell above, build the type with `repeat-above`. If it describes a different mistake (for example a reversed column direction), the source note is wrong: put the type in content/types-held/ with a line in FINDINGS.md quoting the note, and the lead routes the content fix.
+2. One blocked pattern never stops the file. Record it under "Needs the lead" and continue with every other pattern.

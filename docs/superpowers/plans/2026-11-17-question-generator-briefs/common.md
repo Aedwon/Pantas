@@ -17,3 +17,4 @@ Verification commands (run what your task touches, paste the summary lines in yo
 - dart run tool/check_no_ai_attribution.dart
 
 Final message: pass/fail per command, files touched, anything left undone. Under 300 words.
+- A blocker on one item (one pattern, one type, one question) never stops the rest of the task: record it under "Needs the lead" and continue with everything else. Stop the whole task only when the blocker affects all of it.
