@@ -654,3 +654,12 @@ The operations manager reports all five source issues fixed on `content/fix-figu
 Aedwon, relayed by the operations manager, verbatim: "have an opus agent + 6.1 Sol check this, not me". His sheet pass went to two independent reviewers (Claude Opus 5.5 subagent; Codex GPT 6.1 Sol high with the sheet images), each blind to the other. Results: sheet-review-opus.md and sheet-review-codex.md, 120 samples each. Both found every key the only defensible answer. Both found sheet-tool faults (dark-mode choice palette; duplicated shape-row choices), fixed in the tool. Opus alone found two real figure faults (a right ray lying along the dot row; crowded dots in small triangles), fixed in the generator by excluding those draws. Fixes regenerated 21 lists; all were re-checked (checker, R6, blind solves 7 and 8, re-audits audit-w1 and audit-w2) and 19 re-approved. Under his delegation this merged pass counts as his for the first prod release.
 
 Result: 28 active abstract reasoning types, all approved, content gate passing. Held after the final round: series-fill-ray-dots (note false for some variants) and matrix-ray-intersection (diagonal-extreme ray rule). Live-content items for the UI lane, not this build: shape-row figures show no position numbers although positional choices say "Figure 1" to "Figure 5"; the live source of series-fill-ray-dots (figure-series 0018) has a right ray along its dot row; the live source of matrix-size-dots (figure-matrices 0008) has crowded dots in a small triangle.
+
+## November 18, 2026: positional odd-one-out types and the figure-choice screen
+
+Rulings from the figure answer choices UI lead (their spec records them):
+1. group-dot-count keeps its question figure with position numbers under the shapes and text choices ("Figure 1" to "Figure 5"); no regeneration.
+2. group-boundary, group-dot-parity, group-side-double-dots keep text choices until the figure-choice screen ships, then convert to choiceKind figure (shapes[value-1] plus a shape description) in the same release as their live sources, which pass the content approval gate so index 0 still equals its source. This is a dependency of the screen release, scheduled in Phase 2 or later, not of the current ship.
+3. Until then the shape-row painter draws numbers 1 to N under the shapes (UI lane).
+4. Held group-line-count and group-center-cuts use the new form when they return.
+No change to the 28 approved types now.

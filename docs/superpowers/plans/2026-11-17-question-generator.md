@@ -270,6 +270,10 @@ Files: id alias in the content repository; `functions/src/_answers.ts`, `ingestS
 
 Phase 2 exit: full check set on hosted CI (analyze, format, layering, attribution, full test suite, web build, functions plain and emulator, `run_checks.dart`), lead review of the combined diff, handoff to the integrator for the main merge.
 
+#### Task 2.9: positional types to figure choices (with the figure-choice screen release)
+
+- [ ] When the figure answer choices screen is scheduled: convert group-boundary, group-dot-parity and group-side-double-dots to choiceKind figure (choice figure = shapes[value-1], text = a shape description; notes and explanations no longer say "Figure N"); checker rule that figure choices are visually distinct; regenerate, blind solve, wording re-audit, re-approve. Ships in the same release as the converted live sources (content approval gate). group-dot-count stays text with its question figure. Decision log, Nov 18.
+
 ### Phase 3: abstract reasoning release (about Dec 1 to Dec 11). Row E-111.
 
 #### Task 3.1: staging (integrator deploys, lead verifies)
