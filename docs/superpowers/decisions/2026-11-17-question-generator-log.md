@@ -644,3 +644,7 @@ Process: Codex GPT 6.1 Sol high audited all 30 listed types (audit-a.md, audit-b
 Result: 13 active types with lists of 100, all passing the checker, the final blind solve (blind-solve-4, 75 of 75 on the then-15 types) and the audits. 45 types held.
 
 Prod content issues routed to the content lane through the operations manager: figure-series 0019 (wrong note), figure-series 0017 (two defensible answers), figure-matrices 0019 (wrong note), figure-grouping 0006 (identical figures with position-only distractors, sent at the milestone), figure-matrices 0009 (ray-intersection source admits "keep the highest ray", sent at the milestone).
+
+## November 17, 2026: source fixes landed on a content branch
+
+The operations manager reports all five source issues fixed on `content/fix-figure-series-0019` at 6c1f9402e (next ship-it bundle): series 0017, series 0019, matrices 0019, grouping 0006, matrices 0009. Every type built on them is held (series-interleaved-count, matrix-corner-grid, group-side-count-medium, matrix-ray-intersection; series 0019 had no type), so no active type is affected. Re-sync: when a held type is revisited, its index 0 is rebuilt from 6c1f9402e or its successor, and the checker's merged-source check runs against that ref.
