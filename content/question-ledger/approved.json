@@ -37,49 +37,49 @@
   "qt-spatial-abstract-reasoning-matrix-arrow-column": {
     "approvedAt": "2026-11-17",
     "evidence": "docs/superpowers/verification/2026-11-17-question-generator-ar-types.md",
-    "hash": "ec620ce70818131d8e89a8d0568a84871bec68a5ba97aab63a1a6f4dd636e700",
+    "hash": "ec71e851059eae52cda7fac1d0b89640034258066fc3b40b45cff7c3a38e4659",
     "kind": "problemType",
     "lesson": "lesson-spatial-abstract-reasoning-matrix-turns-and-counts"
   },
   "qt-spatial-abstract-reasoning-matrix-binary-fill-row": {
     "approvedAt": "2026-11-17",
     "evidence": "docs/superpowers/verification/2026-11-17-question-generator-ar-types.md",
-    "hash": "32a9f43a7f2404cf2fae19aeeaa2c65fc7dfc52b7e171fe371d8d725a2ca1ad7",
+    "hash": "cabbe3ec926df39e5e2e06c6d81f9fa7ebbdfbce3416d1abb947cea8c2c757f4",
     "kind": "problemType",
     "lesson": "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules"
   },
   "qt-spatial-abstract-reasoning-matrix-corner-reflection": {
     "approvedAt": "2026-11-17",
     "evidence": "docs/superpowers/verification/2026-11-17-question-generator-ar-types.md",
-    "hash": "f66dad836a6bd45977f9b65789f15ee3e2cdef43ecddc8597b7e821308c7fac5",
+    "hash": "9711b0c41daef2fd78b371f32f4bf2326cce5e033f780c697da4a10a6c6364ea",
     "kind": "problemType",
     "lesson": "lesson-spatial-abstract-reasoning-matrix-turns-and-counts"
   },
   "qt-spatial-abstract-reasoning-matrix-dot-sum": {
     "approvedAt": "2026-11-17",
     "evidence": "docs/superpowers/verification/2026-11-17-question-generator-ar-types.md",
-    "hash": "f54652880527ff64934e4ce868fb9375369dc66cd88cca4d35e9dd4c6ca9f1fa",
+    "hash": "5c09dd7289174135c2005e18e223d589c9fac96a24399f5362d856024da452a6",
     "kind": "problemType",
     "lesson": "lesson-spatial-abstract-reasoning-matrix-keeping-all-features"
   },
   "qt-spatial-abstract-reasoning-matrix-fill-union": {
     "approvedAt": "2026-11-17",
     "evidence": "docs/superpowers/verification/2026-11-17-question-generator-ar-types.md",
-    "hash": "6c75c9730aeaee7b1516f77643d0f3bb9553efb40b6f40601d7e167cbcd6eab4",
+    "hash": "66c4e339bd612654b7372958fab205074cbfee25f1f565cb089188f5077848c5",
     "kind": "problemType",
     "lesson": "lesson-spatial-abstract-reasoning-matrix-keeping-all-features"
   },
   "qt-spatial-abstract-reasoning-matrix-form-ray": {
     "approvedAt": "2026-11-17",
     "evidence": "docs/superpowers/verification/2026-11-17-question-generator-ar-types.md",
-    "hash": "fb5fc188d90ab6414206df9c8f5535dbf4eaf1774fea476d85d5016747eae40a",
+    "hash": "b5b28555bac8677187f54e2b44b8ef36ecc786b58080a9966983dff5941c3164",
     "kind": "problemType",
     "lesson": "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules"
   },
   "qt-spatial-abstract-reasoning-matrix-growing-turn": {
     "approvedAt": "2026-11-17",
     "evidence": "docs/superpowers/verification/2026-11-17-question-generator-ar-types.md",
-    "hash": "b2f9cbd954867c8a7cd810c384fefbd736ff3c7294acb816789bda22b99d9015",
+    "hash": "45d197d674ac1b3c81d1846ec434f9c5bf217efb6c3eb030fbf2bf8d1707183e",
     "kind": "problemType",
     "lesson": "lesson-spatial-abstract-reasoning-matrix-turns-and-counts"
   },
@@ -93,21 +93,21 @@
   "qt-spatial-abstract-reasoning-matrix-ray-turn": {
     "approvedAt": "2026-11-17",
     "evidence": "docs/superpowers/verification/2026-11-17-question-generator-ar-types.md",
-    "hash": "fa032e583f3eeebca8e5ac2ec9f5993512e82089067218cd45813622c15c833e",
+    "hash": "a14ce85a04afea6d5d3007de71143499c299e800e2cbaa7c46de5a709c3dd392",
     "kind": "problemType",
     "lesson": "lesson-spatial-abstract-reasoning-matrix-turns-and-counts"
   },
   "qt-spatial-abstract-reasoning-matrix-ray-union": {
     "approvedAt": "2026-11-17",
     "evidence": "docs/superpowers/verification/2026-11-17-question-generator-ar-types.md",
-    "hash": "ba8c79ec11ebaed9c13e71ee78bf95e7bd45053b9e0b1acf650ec300d411f260",
+    "hash": "742418976e40ec558c380df4a3454859a3ad8da4f31300ecb373f5857bf7059c",
     "kind": "problemType",
     "lesson": "lesson-spatial-abstract-reasoning-matrix-keeping-all-features"
   },
   "qt-spatial-abstract-reasoning-matrix-size-dots": {
     "approvedAt": "2026-11-17",
     "evidence": "docs/superpowers/verification/2026-11-17-question-generator-ar-types.md",
-    "hash": "fde38b4ed88058f36c4b5644c21f7f1aded0f5482864d203bddbceb598513119",
+    "hash": "cbac5fb5f28e5566f54a343a2907603349b26bb092cca9a21b41768f5a8f874c",
     "kind": "problemType",
     "lesson": "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules"
   },
@@ -128,14 +128,14 @@
   "qt-spatial-abstract-reasoning-matrix-size-transfer": {
     "approvedAt": "2026-11-17",
     "evidence": "docs/superpowers/verification/2026-11-17-question-generator-ar-types.md",
-    "hash": "3607486a4989c361200ce0009bd2e9392d344eae65aa0d7a886b7e15d3109ff9",
+    "hash": "10ea1a04833fcfe132510f0ee93af45eae8cebcfea89c0290966934d5c8d663c",
     "kind": "problemType",
     "lesson": "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules"
   },
   "qt-spatial-abstract-reasoning-matrix-sized-ray-union": {
     "approvedAt": "2026-11-17",
     "evidence": "docs/superpowers/verification/2026-11-17-question-generator-ar-types.md",
-    "hash": "240e1b3e42253bc9017b3a8fb91a310e71bcdd706241ad0f400a10ecba7f132d",
+    "hash": "393fbd0fca4b292a25c8d2b14b3f3382d6d1fc0eb53cc2a8124c6a3a67269dfe",
     "kind": "problemType",
     "lesson": "lesson-spatial-abstract-reasoning-matrix-keeping-all-features"
   },
@@ -149,14 +149,14 @@
   "qt-spatial-abstract-reasoning-series-binary-fill": {
     "approvedAt": "2026-11-17",
     "evidence": "docs/superpowers/verification/2026-11-17-question-generator-ar-types.md",
-    "hash": "b89213811d610f020db6f9b2d316c6c3260196757e54b6561012c1366208d480",
+    "hash": "c09b9a8af11815b8579fa48378bb33c5d4a057c93c9a0619c065b6232a7bb1fa",
     "kind": "problemType",
     "lesson": "lesson-spatial-abstract-reasoning-figure-counts-and-fills"
   },
   "qt-spatial-abstract-reasoning-series-dots-size": {
     "approvedAt": "2026-11-17",
     "evidence": "docs/superpowers/verification/2026-11-17-question-generator-ar-types.md",
-    "hash": "bd4d72dd785a49b53e4dd41545bd269c311b631c6e5a2d956b9bbde698fdd052",
+    "hash": "57c0b9f1e82ec146afc802eef27cd91a3b1de91661f44cef178c8689dc7024db",
     "kind": "problemType",
     "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
   },
@@ -170,35 +170,35 @@
   "qt-spatial-abstract-reasoning-series-four-tracks": {
     "approvedAt": "2026-11-17",
     "evidence": "docs/superpowers/verification/2026-11-17-question-generator-ar-types.md",
-    "hash": "8a274e7ad882a009730890c0646c2dc4d4203bb0abad77a80ae56944a65c81ec",
+    "hash": "f1544a47f87de44db64d8136b8d84de72255eb5f44cca9ce58225111f8c01e3b",
     "kind": "problemType",
     "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
   },
   "qt-spatial-abstract-reasoning-series-interleaved-count": {
     "approvedAt": "2026-11-17",
     "evidence": "docs/superpowers/verification/2026-11-17-question-generator-ar-types.md",
-    "hash": "285915fadec58c9d79fd7b2e27eb2f48c33e42c8b42c26a107d83104bbe3400c",
+    "hash": "ad438bb48fa2dd3fcb5e6344e88e4905c7519f929d3f1b99661bf8130d9812c1",
     "kind": "problemType",
     "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
   },
   "qt-spatial-abstract-reasoning-series-ray-step": {
     "approvedAt": "2026-11-17",
     "evidence": "docs/superpowers/verification/2026-11-17-question-generator-ar-types.md",
-    "hash": "28c8483ab0dc265dd5d639a55826ae52b284ee8ba867944d57413cadbfec27f9",
+    "hash": "70609ad03dbabf12be4fc5f153875c325983353a5e91bad505a8c98b3086c617",
     "kind": "problemType",
     "lesson": "lesson-spatial-abstract-reasoning-figure-turns-and-positions"
   },
   "qt-spatial-abstract-reasoning-series-size-corner-ray": {
     "approvedAt": "2026-11-17",
     "evidence": "docs/superpowers/verification/2026-11-17-question-generator-ar-types.md",
-    "hash": "77f8eaa8b15546ffc1ea9ca8e51a68e13453b8d9dc4ed307eb731bcc2b5323b6",
+    "hash": "a9b2e2a89886046f0c2e98c95002a76e8f842d2db8adb5e64b6ed96da2ad62ca",
     "kind": "problemType",
     "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
   },
   "qt-spatial-abstract-reasoning-series-transfer-count": {
     "approvedAt": "2026-11-17",
     "evidence": "docs/superpowers/verification/2026-11-17-question-generator-ar-types.md",
-    "hash": "62ab027660b6601e7b5a9a1763cbc5fc24bf91f374396b176cf15def4a36cf6e",
+    "hash": "efcf9a2a2fbb46ce9f76979c379708cf300f033a865fd108e45e21c96a210b71",
     "kind": "problemType",
     "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
   }
