@@ -225,6 +225,27 @@ void main() {
     expect(authOperations, contains('firebaseSignOut'));
     expect(await prefs.hasPassedAgeGate(), isFalse);
   });
+  test('a link sent as another account cannot write its contact back',
+      () async {
+    final repo = container.read(appPreferencesRepositoryProvider);
+    await repo.setAgeGroup('minor');
+    final pending = Completer<GuardianStatus>();
+    gateway.nextSend = pending.future;
+    final sent = container.read(guardianControllerProvider).sendLink(
+          guardianName: 'Maria',
+          guardianEmail: 'maria@gmail.com',
+        );
+    await Future<void>.delayed(Duration.zero);
+    // The student signs out, or another account takes over, mid-request.
+    auth.currentSession = const AuthSession(uid: 'other-student');
+    pending.complete(
+      const GuardianStatus(status: GuardianConsentStatus.pending),
+    );
+    await expectLater(sent, throwsA(isA<GuardianGatewayException>()));
+    expect(await repo.guardianContact(), isNull);
+    expect(await repo.guardianStatusCache(), isNull);
+  });
+
   test('a late withdrawn refresh cannot close a different identity', () async {
     final pending = Completer<GuardianStatus>();
     gateway.nextStatus = pending.future;
@@ -265,7 +286,21 @@ void main() {
 
 class _DeferredGuardianGateway extends FakeGuardianGateway {
   Future<GuardianStatus>? nextStatus;
+  Future<GuardianStatus>? nextSend;
 
   @override
   Future<GuardianStatus> status() => nextStatus ?? super.status();
+
+  @override
+  Future<GuardianStatus> sendLink({
+    required String guardianName,
+    required String guardianEmail,
+    String? ageCheckNoticeVersion,
+  }) =>
+      nextSend ??
+      super.sendLink(
+        guardianName: guardianName,
+        guardianEmail: guardianEmail,
+        ageCheckNoticeVersion: ageCheckNoticeVersion,
+      );
 }
