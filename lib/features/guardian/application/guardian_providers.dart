@@ -158,6 +158,12 @@ final guardianGateProvider = FutureProvider<GuardianGate>((ref) async {
   if (ref.read(guardianAccountClosedProvider) != null) {
     return GuardianGate.withdrawn;
   }
+  if (status == GuardianConsentStatus.confirmed &&
+      ref.read(authRepositoryProvider).currentSession?.uid == uid) {
+    // The notice promises the device deletes the contact once a guardian
+    // confirms. Nothing needs it after that.
+    await prefs.clearGuardianContact();
+  }
   return switch (status) {
     GuardianConsentStatus.none => GuardianGate.needsContact,
     GuardianConsentStatus.confirmed => GuardianGate.cleared,
@@ -182,11 +188,18 @@ class GuardianController {
     final name = guardianName.trim();
     final email = guardianEmail.trim().toLowerCase();
     final prefs = _ref.read(appPreferencesRepositoryProvider);
+    final uid = _ref.read(authRepositoryProvider).currentSession?.uid;
     final status = await _ref.read(guardianGatewayProvider).sendLink(
           guardianName: name,
           guardianEmail: email,
           ageCheckNoticeVersion: await prefs.ageCheckNoticeVersion(),
         );
+    // A sign-out or account change during the request has already erased
+    // the device's contact. Writing it back would keep it for the next
+    // account.
+    if (_ref.read(authRepositoryProvider).currentSession?.uid != uid) {
+      throw const GuardianGatewayException('account-changed');
+    }
     await prefs.setGuardianContact(name: name, email: email);
     await prefs.setGuardianStatusCache(status.status.wire);
     _ref.invalidate(guardianGateProvider);
