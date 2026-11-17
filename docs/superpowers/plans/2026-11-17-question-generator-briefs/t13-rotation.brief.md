@@ -11,3 +11,8 @@ Per candidate pattern in your file's table that the report marks exact (Y) and t
 Final message: per type, id, source, distinct ruleKeys, distinct signatures, status (LIST 100 / HELD), checker result; then the verification lines.
 
 File: mental-rotation-3d-visualization. Build only its cube-net patterns, including the merge groups 0001/0015, 0002/0016 and 0017/0018 if exact. You own the cube-net canonicalizer, with labels ignored per ruling 3; register rules under rules/mental_rotation/.
+
+Lead rulings (Nov 17 00:35 UTC), on the three blockers the first runs found. Continue from FINDINGS.md in the worktree; do not restart.
+1. HELD types live in content/types-held/ with the same layout as content/types/. They carry no variant list. The checker parses them (schema and solver registration only) and never requires a list; the exporter will ignore them. A type moves to content/types/ only when it gets a list.
+2. Figure solvers now receive the variant slots: fits(shown, candidate, query), where query = variant.slots (commit on the lane branch, merged into your worktree). What the stem asks (queried face, operation, direction) goes in slots and the stem template, never in figure data, so merged questions keep their exact figure maps.
+3. Symmetry follows the figure as drawn, not the shape name. A form counts as reflection-symmetric only if the painter draws it with a reflection axis; the drawn parallelogram does not, so it is asymmetric, and so is blob. Ranges use only forms whose drawn symmetry the solver states in one table, and the rule doc comment lists the same table.
