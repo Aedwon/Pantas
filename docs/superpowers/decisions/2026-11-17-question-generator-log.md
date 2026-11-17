@@ -630,3 +630,17 @@ Estimate: 13 to 17 days, top of the spec's 11 to 16, from the server alias and t
 From 22:30 to 23:29 UTC the PSHS-NCE content lead's back-to-back runs kept codex-pick's one-run guard busy, and this lane's queued run never started. The operations manager ruled: both lanes may use `CODEX_PICK_PARALLEL=1` whenever `codex-pick --status` shows room for each run, capped at 3 runs at once across all lanes, as Aedwon allows. No turn order.
 
 Also answered for the PSHS-NCE lead: "dots inside overlapping shapes" (official reviewer IV-13 to IV-16) is not a generator figure kind. Spec B11 keeps new figure kinds out of scope, and a new kind needs a widget (UI). The lead was asked to log it as a backlog engineering item.
+
+## November 17, 2026 09:10 UTC: Phase 1 audit outcome; two matrix types held
+
+Process: Codex GPT 6.1 Sol high audited all 30 listed types (audit-a.md, audit-b.md), then re-audited after each fix round (reaudit-a.md, reaudit-b.md, reaudit-c.md). Lead rulings: `docs/superpowers/plans/2026-11-17-question-generator-briefs/fix-rulings.md` (R1 to R5).
+
+- R1 changed what counts as a new version: the shown figures, the stem slots and the correct answer; wrong choices no longer count, and grouping rows are order-free. This is stricter toward Aedwon's goal ("a student never re-encounters the same set of figures for a given problem type"). Under it, 30 listed types fell to 17.
+- Competing rules the audits found were added to the checker's rule library (doubling count tracks, left-right and up-down reflection, counting-sequence continuation, highest ray).
+- matrix-ray-turn and matrix-dot-sum: each re-audit found another equally simple rule (diagonal reflection; multiplication and column rules). Lead ruling: hold both rather than keep iterating inside Phase 1. Extending the library for them is later work. Spec B12 already names this risk: "The library must grow with each new rule, or the search proves less than it claims."
+- matrix-ray-intersection and series-interleaved-count are held because their hand-written sources admit a second rule; matrix-corner-step is held at 9 distinct tasks.
+- Accepted Minors (documented variety limits): group-polygon-replacement, matrix-corner-reflection, matrix-dot-sum (held anyway).
+
+Result: 13 active types with lists of 100, all passing the checker, the final blind solve (blind-solve-4, 75 of 75 on the then-15 types) and the audits. 45 types held.
+
+Prod content issues routed to the content lane through the operations manager: figure-series 0019 (wrong note), figure-series 0017 (two defensible answers), figure-matrices 0019 (wrong note), figure-grouping 0006 (identical figures with position-only distractors, sent at the milestone), figure-matrices 0009 (ray-intersection source admits "keep the highest ray", sent at the milestone).
