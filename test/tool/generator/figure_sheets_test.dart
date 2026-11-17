@@ -31,35 +31,45 @@ class _Sample {
 /// Every variant of every type directory, grouped by the stem figure kind.
 Map<String, Map<String, List<Map<String, Object?>>>> _load() {
   final out = <String, Map<String, List<Map<String, Object?>>>>{};
-  final files = Directory(_typesDir)
-      .listSync(recursive: true)
-      .whereType<File>()
-      .where((f) => f.path.endsWith('.variants.yaml'))
-      .toList()
-    ..sort((a, b) => a.path.compareTo(b.path));
+  final files =
+      Directory(_typesDir)
+          .listSync(recursive: true)
+          .whereType<File>()
+          .where((f) => f.path.endsWith('.variants.yaml'))
+          .toList()
+        ..sort((a, b) => a.path.compareTo(b.path));
   for (final file in files) {
     final id = file.uri.pathSegments.last.replaceAll('.variants.yaml', '');
     final variants = <Map<String, Object?>>[];
     for (final line in file.readAsLinesSync()) {
       if (!line.startsWith('  - ')) continue;
-      variants.add(
-        jsonDecode(line.substring(4))! as Map<String, Object?>,
-      );
+      variants.add(jsonDecode(line.substring(4))! as Map<String, Object?>);
     }
-    final kind = (variants.first['figureSpec']!
-        as Map<String, Object?>)['kind']! as String;
+    final kind =
+        (variants.first['figureSpec']! as Map<String, Object?>)['kind']!
+            as String;
     (out[kind] ??= {})[id] = variants;
   }
   return out;
 }
 
 /// Index 0 of each type, then seeded picks spread across the types.
-List<_Sample> _pick(Map<String, List<Map<String, Object?>>> types) {
-  final rng = Random(_seed);
-  final ids = types.keys.toList();
-  final picked = <_Sample>[
-    for (final id in ids) _Sample(id, types[id]!.first),
-  ];
+///
+/// With more types than samples, sheet [sheet] starts [sheet] * 12 types
+/// further along (wrapping), so every type shows on at least one sheet.
+List<_Sample> _pick(
+  Map<String, List<Map<String, Object?>>> types, {
+  int sheet = 0,
+}) {
+  final rng = Random(_seed + sheet);
+  final all = types.keys.toList();
+  final ids = all.length <= _samples
+      ? all
+      : [
+          for (var i = 0; i < _samples; i++)
+            all[(sheet * _samples + i) % all.length],
+        ];
+  final picked = <_Sample>[for (final id in ids) _Sample(id, types[id]!.first)];
   final used = {
     for (final id in ids) id: <int>{0},
   };
@@ -90,12 +100,12 @@ class _ItemPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) => FigureSeriesFigure.paintItem(
-        canvas,
-        item,
-        size.center(Offset.zero),
-        36,
-        palette,
-      );
+    canvas,
+    item,
+    size.center(Offset.zero),
+    36,
+    palette,
+  );
 
   @override
   bool shouldRepaint(_ItemPainter old) => true;
@@ -139,15 +149,14 @@ Widget _sample(BuildContext context, String kind, _Sample s) {
     double size, {
     FontWeight w = FontWeight.w400,
     double a = 1,
-  }) =>
-      TextStyle(
-        fontFamily: 'Geist',
-        fontSize: size,
-        fontWeight: w,
-        color: ink.withValues(alpha: a),
-      );
-  final choices =
-      (s.variant['choices']! as List<Object?>).cast<Map<String, Object?>>();
+  }) => TextStyle(
+    fontFamily: 'Geist',
+    fontSize: size,
+    fontWeight: w,
+    color: ink.withValues(alpha: a),
+  );
+  final choices = (s.variant['choices']! as List<Object?>)
+      .cast<Map<String, Object?>>();
   return SizedBox(
     width: 640,
     child: Column(
@@ -217,11 +226,13 @@ Widget _sample(BuildContext context, String kind, _Sample s) {
 void main() {
   final byKind = _load();
   for (final kind in _kinds) {
-    for (final dark in [false, true]) {
-      final name = '$kind-${dark ? 'dark' : 'light'}';
-      testWidgets(
-        '$name figure sheet',
-        (tester) async {
+    final sheets = (byKind[kind]!.length / _samples).ceil();
+    for (var sheet = 0; sheet < sheets; sheet++) {
+      for (final dark in [false, true]) {
+        final name =
+            '$kind-${dark ? 'dark' : 'light'}'
+            '${sheet == 0 ? '' : '-${sheet + 1}'}';
+        testWidgets('$name figure sheet', (tester) async {
           await loadGoldenFonts();
           goldenFileComparator = TolerantGoldenComparator(
             Uri.parse(
@@ -232,7 +243,7 @@ void main() {
             ..physicalSize = const Size(2000, 4000)
             ..devicePixelRatio = 1;
           addTearDown(tester.view.reset);
-          final samples = _pick(byKind[kind]!);
+          final samples = _pick(byKind[kind]!, sheet: sheet);
           final key = GlobalKey();
           await tester.pumpWidget(
             MaterialApp(
@@ -276,6 +287,7 @@ void main() {
         },
         tags: goldenTag,
       );
+      }
     }
   }
 }
