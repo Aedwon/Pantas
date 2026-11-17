@@ -108,3 +108,11 @@ Final under his delegation.
 - Conflicts found: orphan cleanup would delete free children; switching may upload the previous account's local data (to be re-verified, and possibly an existing defect for ordinary switching); emailless tokens break the beta gate and trial check; the nickname is not on the server today.
 - Effort: +4.25 to 4.5 days, for a total of 8 to 9.5.
 - Legal text changes materially in the Terms child section, the Child Notice, the receipt email and the impact assessment. The tick wording is unchanged.
+
+## Decision 6: Codex re-critique of the multi-child legal changes, and Fable's revised switching ruling (Nov 17)
+
+Codex GPT 6.1 Sol High, through `codex-pick`, critiqued only the multi-child diff. It made seven findings.
+- Items 1 and 2 (HIGH) challenged open sibling switching under Advisory 2024-03's highest-privacy default.
+- Fable revised ruling 3, final: switching is off by default, per child. While off, every switch into that child needs the emailed code, with no per-device memory. The guardian opt-in "Siblings can open this account without a code" is in For parents, behind the gate, after a sharing notice. It is recorded per child. Later children start off. Effort +0.5 day, for a total of 8.5 to 10.
+- Rejected: Fable's earlier open switching, superseded by the default above.
+- Adopted: 3 (codes bound to holder, child and action, expire, work once, limited attempts), 4 (preserve or isolate each child's pending records before clearing), 5 (narrower last-child deletion wording), 6 (DPO route when the email is unreachable), 7 (a pass activates only for the child chosen at checkout; checkout shows child, price and dates).

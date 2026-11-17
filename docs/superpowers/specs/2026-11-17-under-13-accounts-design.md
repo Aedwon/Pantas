@@ -49,9 +49,10 @@ takers are 11 or 12, and Pantas is 13+ today. Target: on sale by mid-December.
 8. Settings has a "For parents" entry with the Child Notice, a copy of the data, and "Withdraw
    permission and close account". These act on the current child only. A 6-digit code mailed to
    the parent guards adding a child, the data copy, withdraw and delete.
-9. "Switch Child" in Settings lists the children by nickname. Switching needs no code, so a sibling
-   can open a sibling's account. Fable accepted this: same parent, low-risk data, and a code on every
-   switch would push twins onto one shared account.
+9. "Switch Child" in Settings lists the children by nickname. By default, switching into a child's
+   account needs the parent's code. Per child, the parent can turn on "Siblings can open this account
+   without a code" after reading what that shares. Fable first ruled open switching, then changed it
+   after the Codex critique (the law's highest-privacy default).
 
 If a parent sets up an adult account and picks PSHS-NCE, the app asks "Is this for a child under
 13?" A yes goes to the parent setup.
@@ -88,13 +89,14 @@ text, so the lead settles that wording under rule 4.
 
 ### A7. Cost and dates
 
-- Build: about 8 to 9.5 working days, including tests and a staging check. It was 4 to 5 for one
+- Build: about 8.5 to 10 working days (the sibling switching setting adds half a day to the 8 to 9.5
+  below), including tests and a staging check. It was 4 to 5 for one
   child per email. Several children add about 4.5 days: the parent and child account link (1.5),
   the code gate (0.75), fixes to cleanup, mail, beta and trial checks (0.5), the picker and switching
   (1), and a two-child staging journey (0.75). The first 2 to 3 day figure came before Fable's gaps.
 - Boards: three more (picker, add a child, code gate), then your pick.
-- Path to mid-December: boards picked by about Nov 23, build Nov 24 to Dec 7, staging and your check
-  by Dec 9, prod after your "ship it" around Dec 10. That leaves about 3 working days of slack.
+- Path to mid-December: boards picked by about Nov 23, build Nov 24 to Dec 8, staging and your check
+  by Dec 10, prod after your "ship it" around Dec 11. That leaves about 2 working days of slack.
 - Running cost: none new. The receipt email uses the existing mail service.
 
 ### A8. What else the sale needs (not this lane)
@@ -140,7 +142,8 @@ sign-off, with the multi-child changes re-critiqued and shown to you). Item 8 is
 - The age question runs before any guardian is involved. The basis is the one you kept on Nov 11
   (current flow, option A). Codex flags that a child cannot consent to it. The draft uses the same
   basis as the teen notice, not consent; a regulator could still question it.
-- A sibling can open a sibling's account on a shared phone (accepted, A3 item 9).
+- If the parent turns on sibling switching, a sibling can see and change that child's records (shown
+  to the parent before it turns on).
 - Twins sharing one browser lose streaks, bookmarks and flags at each switch, because those stay on
   the phone today. Holding them on the server is a follow-up.
 - A parent can still enter their own age and let a child use an adult account. The PSHS-NCE question
@@ -206,12 +209,21 @@ sign-off, with the multi-child changes re-critiqued and shown to you). Item 8 is
    recorded per child with the holder ID and link. Do not prefill the nickname from the Google
    profile. The nickname is stored on the server per child for the picker.
 4a. Switching. The device stays signed in as the last child. "Switch Child" lists siblings by
-   nickname, no gate. Every child open or switch wipes local state first (Fable found the next
+   nickname. Switching into a child needs the code gate unless that child's opt-in "Siblings can open
+   this account without a code" is on (per child, off by default, set in For parents behind the gate,
+   shown with the sharing notice, recorded with time and notice version, off takes effect at once,
+   later children start off; the server checks the target child's setting before issuing a session).
+   Before clearing session data, preserve or isolate each child's pending and device-only records, and
+   verify one child's records never enter another's account (Codex re-critique item 4). Every child
+   open or switch wipes local state first (Fable found the next
    account can upload the previous one's local answers and settings; the plan re-verifies this in
    `lib/core/auth/auth_repository.dart` and `lib/core/sync/local_state_wiper.dart`, and checks
    whether it affects ordinary account switching today).
 4b. Guardian code gate. A 6-digit code mailed to the holder's email, entered inside the child's
-   session, guards Add a Child, the data copy, withdraw and delete. Withdraw and delete act on that
+   session, guards Add a Child, the data copy, withdraw, delete, the sibling opt-in, and switching into
+   a child whose opt-in is off. Codes are bound server-side to holder, child and action, expire, work
+   once and allow limited attempts; the screen and email name the action and nickname. If the guardian
+   cannot reach the email, the data protection officer verifies another way. Withdraw and delete act on that
    child only; closing the last child also deletes the holder and its email.
 4c. Server fixes for emailless children: exempt linked children from `cleanupOrphanAnons.ts`; make
    the beta gate (`betaAccess.ts`) and trial check (`webTrial.ts`) handle a child token with no
