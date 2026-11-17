@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:crypto/crypto.dart';
 
 import '../model.dart';
+import 'cube_net_signature.dart';
 import 'series_signature.dart';
 
 Object? _sorted(Object? value) {
@@ -22,6 +23,7 @@ typedef FigureCanonicalizer = Object Function(Variant variant);
 final figureCanonicalizers = <String, FigureCanonicalizer>{
   'generic-test': _generic,
   'figure-series': canonicalSeries,
+  'cube-net': canonicalCubeNet,
 };
 
 // Wording slots are not numbers. Normalize exact rational strings so 2/2

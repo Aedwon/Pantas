@@ -41,17 +41,16 @@ CapacityReport measureCapacity(
   final keys = <String>{};
   for (var draw = 0; draw < ceiling; draw++) {
     final result = rule.generate(type, random, draw);
-    if (signatures.add(canonicalSignature(result.variant))) {
-      keys.add(
-        sha256
-            .convert(
-              utf8.encode(
-                canonicalJson(result.ruleParams),
-              ),
-            )
-            .toString(),
-      );
-    }
+    signatures.add(canonicalSignature(result.variant));
+    keys.add(
+      sha256
+          .convert(
+            utf8.encode(
+              canonicalJson(result.ruleParams),
+            ),
+          )
+          .toString(),
+    );
   }
   return CapacityReport(keys.length, signatures.length, ceiling);
 }
