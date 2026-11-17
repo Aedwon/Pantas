@@ -11,21 +11,14 @@
 /// ruleParams are operation, cells, and queried cell coordinates (face/faces/
 /// upFace), plus profile. Cell order is preserved, labels are excluded.
 ///
-/// Opposite tasks compare folded normals. Each wrong face has an orthogonal
-/// normal. Named errors select distinct side faces, with geometric priorities:
-/// easy profile 0: upper neighbor, left neighbor, lower neighbor, then closest
-/// graph distance and row/column order. Profile 1: attached support, next strip
-/// side, other branch support, ordered by graph distance then row/column.
-/// medium: farthest same-column side, farthest remaining side, closest side.
-/// hard profile 0: six-square path, front at an endpoint, opposite at distance
-/// 3. Mistakes stop at distances 2, 4, 5. Profile 1 requires perpendicular
-/// front and up faces, plus actual lower, left, right neighbors. These exclude
-/// upFace.
-/// top-and-shadow: right, upper, lower side neighbors (closest fallback), with
-/// square, unequal rectangle, unequal diamond respectively. nonadjacent:
-/// upper, right, lower side neighbors (closest fallback).
-/// Other directional priorities without that neighbor fall back to graph
-/// distance. Hard profiles reject draws without their named geometric traps.
+/// Opposite tasks compare folded normals. Wrong faces have orthogonal normals.
+/// Easy profile 0, nonadjacent, and top-and-shadow require all three named
+/// directional neighbors. Easy profile 1 requires a consecutive four-square
+/// strip, a queried cap at a strip endpoint, and a distinct other-cap support.
+/// Medium requires opposite column endpoints, a later-fold side, and a directly
+/// attached side. Missing premises reject the draw, never select a fallback.
+/// Hard profile 0 uses distances 2, 4, 5 along a six-square path; profile 1
+/// requires lower, left, right neighbors, excluding upFace.
 ///
 /// Adjacent-relation queries orthogonal normals with corner-only flat contact.
 /// Mistakes are
@@ -350,7 +343,11 @@ class NetRule implements Rule {
       }
       final answer = _answer(geometry, labels, query);
       final wrong = _wrong(geometry, labels, query);
-      if (wrong.toSet().length != 3 || wrong.contains(answer)) continue;
+      if (wrong.length != 3 ||
+          wrong.toSet().length != 3 ||
+          wrong.contains(answer)) {
+        continue;
+      }
       final ids = _mistakes[group]
           .skip(_mistakes[group].length == 6 ? 3 * profile : 0)
           .take(3)
@@ -525,6 +522,36 @@ class NetRule implements Rule {
         for (final distance in [2, 4, 5]) l[d.indexOf(distance)],
       ];
     }
+    if (pattern == 'opposite-easy' && q['profile'] == 1) {
+      // A support is meaningful only for two caps closing a four-face strip.
+      final cap = g.points[target];
+      final back = g.points[opposite];
+      final strip = [for (final i in pool) g.points[i]];
+      final horizontal = strip.map((p) => p.$1).toSet().length == 1;
+      final vertical = strip.map((p) => p.$2).toSet().length == 1;
+      if (!horizontal && !vertical) return [];
+      final ordered = [...pool]..sort(
+          (a, b) => horizontal
+              ? g.points[a].$2.compareTo(g.points[b].$2)
+              : g.points[a].$1.compareTo(g.points[b].$1),
+        );
+      for (var j = 1; j < 4; j++) {
+        if (g.distances(ordered[j - 1])[ordered[j]] != 1) return [];
+      }
+      int touches(_Point a, _Point b) =>
+          (a.$1 - b.$1).abs() + (a.$2 - b.$2).abs();
+      final supports =
+          ordered.where((i) => touches(cap, g.points[i]) == 1).toList();
+      final others =
+          ordered.where((i) => touches(back, g.points[i]) == 1).toList();
+      if (supports.length != 1 || others.length != 1) return [];
+      final support = supports.single;
+      if (support != ordered.first && support != ordered.last) return [];
+      final next = support == ordered.first ? ordered[1] : ordered[2];
+      final picks = [support, next, others.single];
+      if (picks.toSet().length != 3) return [];
+      return picks.map((i) => l[i]).toList();
+    }
     final chosen = <int>[];
     int planar(int a, int b) => g.points[a].$1 != g.points[b].$1
         ? g.points[a].$1.compareTo(g.points[b].$1)
@@ -545,19 +572,34 @@ class NetRule implements Rule {
           g.points[target].$1 + directions[k].$1,
           g.points[target].$2 + directions[k].$2
         );
-        for (final i in options) {
-          if (g.points[i] == wanted) pick = i;
-        }
+        final matches = options.where((i) => g.points[i] == wanted).toList();
+        if (matches.isEmpty && pattern != 'opposite-hard') return [];
+        if (matches.isNotEmpty) pick = matches.single;
       } else if (pattern == 'opposite-medium' && k < 2) {
         final far = options
             .where((i) => k == 1 || g.points[i].$2 == g.points[target].$2)
             .toList()
           ..sort((a, b) => d[a] != d[b] ? d[b].compareTo(d[a]) : planar(a, b));
-        if (far.isNotEmpty) pick = far.first;
+        if (far.isEmpty) return [];
+        pick = far.first;
+        if (k == 0) {
+          final rows = g.points
+              .where((p) => p.$2 == g.points[target].$2)
+              .map((p) => p.$1)
+              .toList()
+            ..sort();
+          final ends = {rows.first, rows.last};
+          if (!ends.contains(g.points[target].$1) ||
+              !ends.contains(g.points[pick].$1)) {
+            return [];
+          }
+        }
+        if (d[pick] < 2) return [];
       } else if (pattern == 'opposite-hard') {
         final later = options.where((i) => d[i] > 1);
         if (later.isNotEmpty) pick = later.first;
       }
+      if (pattern == 'opposite-medium' && k == 2 && d[pick] != 1) return [];
       chosen.add(pick);
     }
     return [
@@ -706,10 +748,44 @@ class NetRule implements Rule {
           'This includes two opposite faces. The three labels look '
               'like a nearby group. Check every pair before selecting '
               'a corner.',
-        'top-and-shadow' =>
-          'This stops at a side face or uses a slanted outline. '
-              'The flat neighbor looks like a top face. Track the '
-              'opposite face and the vertical rays.',
+        'top-and-shadow' => switch (k) {
+            0 => 'This puts the right neighbor on top. It folds upward '
+                'from the bottom. Check which face is opposite the bottom.',
+            1 =>
+              'This puts the upper neighbor on top and stretches the shadow. '
+                  'A side view can look rectangular. Track the opposite face '
+                  'and keep the light rays vertical.',
+            _ => 'This puts the lower neighbor on top and slants the shadow. '
+                'A tilted view can look like a diamond. Check the opposite '
+                'face and project straight downward.',
+          },
+        'opposite-easy' when profile == 1 => switch (k) {
+            0 => 'This chooses the attached support $wrong. It touches the '
+                'end cap on paper. Check that attached faces stay adjacent.',
+            1 => 'This chooses the next strip side $wrong. One more fold can '
+                'seem enough. Track the end caps separately from the sides.',
+            _ => "This chooses the other end cap's support $wrong. It carries "
+                'the closing face. Check the face attached to that support.',
+          },
+        'opposite-medium' => switch (k) {
+            0 => 'This pairs the flat column ends at $wrong. The long column '
+                "looks like the cube's height. Check the folded directions.",
+            1 => 'This picks the distant side $wrong by its route across the '
+                'net. A long route can look opposite. Check each fold.',
+            _ => 'This stops at the attached face $wrong. Its fold can look '
+                'like a half turn. Check that shared edges stay shared.',
+          },
+        'opposite-easy' || 'nonadjacent' => switch (k) {
+            0 => 'This stops at the upper neighbor $wrong. It folds out of the '
+                'flat plane. Check whether it still shares an edge with the '
+                'named face.',
+            1 =>
+              'This sends the ${pattern == 'nonadjacent' ? 'right' : 'left'} '
+                  'neighbor $wrong across the cube. A sideways fold can look '
+                  'separate. Check the edge that joins the two faces.',
+            _ => 'This stops at the lower neighbor $wrong. It turns upward '
+                'during folding. Track directions to find the opposite face.',
+          },
         _ => 'This selects the side face $wrong. Its position in the '
             'flat net can look opposite. Track the folded direction '
             'and check whether it shares an edge with the named '
