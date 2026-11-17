@@ -79,3 +79,32 @@ Ran through `codex-pick` once accounts had 5-hour room (a: 32% room). Fourteen f
 ## Boards (Nov 17)
 
 Claude Design artifact https://claude.ai/artifact/PqxcZvKQheCogaXH6LidPM, label "Reviewer fixes: system parts, no nickname". Options 1A/1B (guardian screen), 2A/2B (parent setup, error, short child notice), 3A/3B (adult PSHS-NCE question), 4A/4B (For parents, withdraw and delete confirms), 5 (exam picker on a child account). Author recommends 1A, 2A, 3A, 4B. A fresh reviewer checked each against DS4 and patterns.md. All departures were fixed, and every board rendered headless. Lead ruling: the nickname moves off the setup page to the normal name step, after the short child notice. Awaiting Aedwon's pick.
+
+## Decision 4: Aedwon's A9 answers; Part A approved (Nov 17)
+
+Relayed by the manager, verbatim where quoted:
+
+1. Sign the impact assessment before child accounts open: "ok".
+2. Keep free use for child accounts: "ok keep".
+3. No change-of-mind refund, statutory refunds stay: "ok with reco".
+4. PSHS-NCE marketing addresses parents: "yes".
+5. Second child needs a second email: "no". His words: "'One email holds one child.' edge case: what about twins. we should allow multiple."
+6. Business phone: "this is already in the docs". The lead searched and did not find a phone number in: the Pantas repo on origin/main (docs, lib, functions, web; phone-number patterns and the words phone, telephone, contact number, landline, Viber), the live legal text, the Nov 5 teen notice draft (it has the operator name, the sole proprietorship name and the business address, Poblacion, Norala, South Cotabato, but no phone), the local pantas-web project (all pages; the only matches were SVG coordinates on the About page), Pantas-private, Pantas-handoffs, and Pantas/build. The Master SSOT Google Doc was not searched. The placeholder stays until he points to it.
+7. Legal sign-off: "sure". Given for the drafts as they stood. The multi-child changes get a Codex re-critique and a short diff summary for him before that part counts as signed.
+
+The manager stated: "Part A is approved with these answers."
+
+## Decision 5: Fable 5.2 ruling on several children per email (Nov 17)
+
+Final under his delegation.
+
+- Model (b): the guardian email is a holder Firebase user with no study data. Each child is a separate emailless Firebase user linked on the server. The child session comes from a custom token after holder sign-in. Rejected (a), several profiles in one user, because every per-uid system (progress, roadmap, scheduler, sync, entitlements, export, deletion) would need reworking.
+- Both ticks are given per child at each add. Evidence is recorded per child with the holder ID and link. One receipt goes out per child.
+- Switching is open between siblings with no gate. A 6-digit mailed code guards adding a child, the data copy, withdraw and delete.
+- Limit: 5 active children per email.
+- Each pass belongs to one child. The price for a second child is Aedwon's decision; Fable recommends full price.
+- "For parents" acts per child. Closing the last child deletes the holder.
+- Existing accounts: a holder adds a child; an account with progress is refused; an empty named account becomes the holder.
+- Conflicts found: orphan cleanup would delete free children; switching may upload the previous account's local data (to be re-verified, and possibly an existing defect for ordinary switching); emailless tokens break the beta gate and trial check; the nickname is not on the server today.
+- Effort: +4.25 to 4.5 days, for a total of 8 to 9.5.
+- Legal text changes materially in the Terms child section, the Child Notice, the receipt email and the impact assessment. The tick wording is unchanged.

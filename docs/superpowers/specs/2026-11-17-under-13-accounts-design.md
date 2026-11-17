@@ -1,6 +1,8 @@
 # Under-13 accounts: a parent or guardian holds the account
 
-Status: draft for Aedwon's approval of Part A. Nothing is built.
+Status: Part A approved by Aedwon on November 17, 2026, with his A9 answers (relayed by the
+manager; exact words in the decision log). Amended the same day for several children per guardian
+email (his answer to A9 item 5), ruled by Fable. Nothing is built; the plan is next.
 Date: November 17, 2026. Lane: under-13 lead (Opus 5.5), branch `spec/under-13-accounts`.
 Policy read: `origin/main` (`AGENTS.md`, `WORKFLOW.md`, `SUBAGENTS.md`,
 `docs/workflow/process-improvement.md`).
@@ -31,8 +33,9 @@ takers are 11 or 12, and Pantas is 13+ today. Target: on sale by mid-December.
 1. A child opens Pantas and enters an age under 13. The app says to ask a parent or guardian to
    set it up, with a button "I'm the parent or guardian". The phone stays on this screen, so
    typing a new age does not get around it.
-2. The parent taps the button and signs in with their own email or Google. One email holds one
-   child.
+2. The parent taps the button and signs in with their own email or Google. One email can hold up
+   to 5 children, such as twins or siblings. Each child gets their own account, with their own
+   progress and pass, and no email of its own.
 3. The parent ticks two boxes: first, that they are 18 or older, are the parent or guardian, and
    accept the Terms; second, that they consent to the child's data being used as the Child Notice
    says.
@@ -44,7 +47,11 @@ takers are 11 or 12, and Pantas is 13+ today. Target: on sale by mid-December.
 7. The parent buys the ₱1,499 pass. Every PSHS-NCE purchase, from any account, shows the box "I
    am the parent or guardian ... and I accept the Terms."
 8. Settings has a "For parents" entry with the Child Notice, a copy of the data, and "Withdraw
-   permission and close account".
+   permission and close account". These act on the current child only. A 6-digit code mailed to
+   the parent guards adding a child, the data copy, withdraw and delete.
+9. "Switch Child" in Settings lists the children by nickname. Switching needs no code, so a sibling
+   can open a sibling's account. Fable accepted this: same parent, low-risk data, and a code on every
+   switch would push twins onto one shared account.
 
 If a parent sets up an adult account and picks PSHS-NCE, the app asks "Is this for a child under
 13?" A yes goes to the parent setup.
@@ -81,13 +88,13 @@ text, so the lead settles that wording under rule 4.
 
 ### A7. Cost and dates
 
-- Build: about 4 to 5 working days, including tests and a staging check. The earlier figure of 2
-  to 3 days was before Fable added the gaps it found (the adult PSHS-NCE question, restoring the
-  label on a new phone, server checks for every "minor" test, and hiding PSHS-NCE on Android).
-- Boards: about half a day, then your pick.
-- Path to mid-December, if Part A is approved this week: boards by about Nov 24, build Nov 25 to
-  Dec 2, staging and your check by Dec 4, prod after your "ship it". That leaves about a week of
-  slack before mid-December.
+- Build: about 8 to 9.5 working days, including tests and a staging check. It was 4 to 5 for one
+  child per email. Several children add about 4.5 days: the parent and child account link (1.5),
+  the code gate (0.75), fixes to cleanup, mail, beta and trial checks (0.5), the picker and switching
+  (1), and a two-child staging journey (0.75). The first 2 to 3 day figure came before Fable's gaps.
+- Boards: three more (picker, add a child, code gate), then your pick.
+- Path to mid-December: boards picked by about Nov 23, build Nov 24 to Dec 7, staging and your check
+  by Dec 9, prod after your "ship it" around Dec 10. That leaves about 3 working days of slack.
 - Running cost: none new. The receipt email uses the existing mail service.
 
 ### A8. What else the sale needs (not this lane)
@@ -103,7 +110,9 @@ These are judgments with sources, not your decisions. Each one blocks the sale o
 
 ### A9. Decisions for you
 
-Each comes with a recommendation. If you approve Part A without comment, the recommendations hold.
+Answered Nov 17: 1 "ok", 2 "ok keep", 3 "ok with reco", 4 "yes", 5 "no" (allow several children;
+see A3), 6 "this is already in the docs" (not found yet; see the decision log), 7 "sure" (legal
+sign-off, with the multi-child changes re-critiqued and shown to you). Item 8 is new and open.
 
 1. Not a choice, an action for you: the law requires the child privacy impact assessment to be
    complete before child accounts open, free or paid (NPC Advisory 2024-03, per the Codex critique).
@@ -119,6 +128,9 @@ Each comes with a recommendation. If you approve Part A without comment, the rec
    address and email. Recommend: give one, or confirm one already published.
 7. Legal sign-off on the final text, after the Codex critique. You check the result; you do not
    write it (rule 5).
+8. Open: the price for a second child. Each pass belongs to one child's account. Recommend: full
+   price per child this cycle (₱1,499 each). A sibling price needs a new pricing entry and about one
+   more day of build.
 
 ### A10. Risks
 
@@ -128,6 +140,9 @@ Each comes with a recommendation. If you approve Part A without comment, the rec
 - The age question runs before any guardian is involved. The basis is the one you kept on Nov 11
   (current flow, option A). Codex flags that a child cannot consent to it. The draft uses the same
   basis as the teen notice, not consent; a regulator could still question it.
+- A sibling can open a sibling's account on a shared phone (accepted, A3 item 9).
+- Twins sharing one browser lose streaks, bookmarks and flags at each switch, because those stay on
+  the phone today. Holding them on the server is a follow-up.
 - A parent can still enter their own age and let a child use an adult account. The PSHS-NCE question
   and the checkout box narrow this. They do not close it.
 
@@ -180,9 +195,27 @@ Each comes with a recommendation. If you approve Part A without comment, the rec
    under-13; reinterpret an existing stored under-13 block as this state). The state persists; a new
    age entry does not clear it. Only completing guardian setup or "Start over" from support clears it.
    No server call happens before acceptance.
-4. Guardian setup. Requires a named sign-in (email code or Google). If the signed-in account already
-   has a profile or progress, refuse with "This email already has a Pantas account. Use another
-   email." Two separate ticks; both required. Do not prefill the nickname from the Google profile.
+4. Guardian setup (Fable multi-child ruling, Nov 17). Requires a named sign-in (email code or
+   Google). The guardian's sign-in is a holder account with no study data; the server refuses study
+   and checkout on it. Each child is a separate Firebase user with no email, linked to the holder on
+   the server; the server issues the child's session by custom token after the holder signs in. A
+   one-child family uses the same shape. Limit 5 active children per holder (more through support).
+   Existing accounts: a holder signs in and adds a child; an adult or teen account with a profile or
+   progress is refused with "This email already has a Pantas account. Use another email."; a named
+   account with nothing on it becomes the holder. Both ticks are given per child at each add, and
+   recorded per child with the holder ID and link. Do not prefill the nickname from the Google
+   profile. The nickname is stored on the server per child for the picker.
+4a. Switching. The device stays signed in as the last child. "Switch Child" lists siblings by
+   nickname, no gate. Every child open or switch wipes local state first (Fable found the next
+   account can upload the previous one's local answers and settings; the plan re-verifies this in
+   `lib/core/auth/auth_repository.dart` and `lib/core/sync/local_state_wiper.dart`, and checks
+   whether it affects ordinary account switching today).
+4b. Guardian code gate. A 6-digit code mailed to the holder's email, entered inside the child's
+   session, guards Add a Child, the data copy, withdraw and delete. Withdraw and delete act on that
+   child only; closing the last child also deletes the holder and its email.
+4c. Server fixes for emailless children: exempt linked children from `cleanupOrphanAnons.ts`; make
+   the beta gate (`betaAccess.ts`) and trial check (`webTrial.ts`) handle a child token with no
+   email; receipt and inactivity mail go to the holder's address.
 5. Consent evidence. Reuse the evidence collection with `ageGroup: child`, `method: guardian_held`,
    document versions (terms, privacy, child notice), tick text versions, and server time. Retention of
    evidence after deletion follows the legal draft's stated period.
@@ -214,8 +247,8 @@ Each comes with a recommendation. If you approve Part A without comment, the rec
 
 ### B3. Out of scope
 
-Linked parent and child accounts (QR), child-to-teen conversion at 13, more than one child per email,
-the PSHS-NCE product itself, live payment setup, the generator, PSHS-NCE content.
+QR pairing, child-to-teen conversion at 13, more than 5 children per email without support, a sibling
+price, server-held streaks, bookmarks and flags, the PSHS-NCE product itself, live payment setup, the generator, PSHS-NCE content.
 
 ### B4. Verification
 
