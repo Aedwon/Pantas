@@ -1,0 +1,60 @@
+{
+  "id": "qt-spatial-abstract-reasoning-group-center-cuts",
+  "lesson": "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details",
+  "keyPoint": 1,
+  "difficulty": "medium",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "odd-figure",
+  "rule": "group-center-cuts",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "text",
+  "enabled": true,
+  "params": {
+    "forms": [
+      "square",
+      "rectangle",
+      "rhombus",
+      "parallelogram",
+      "triangle",
+      "circle",
+      "pentagon",
+      "hexagon",
+      "blob"
+    ],
+    "counts": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "stem": "{stem}",
+  "explanation": "{explanation}",
+  "mistakes": [
+    {
+      "id": "fewest-lines",
+      "note": "This selects the fewest internal lines instead of testing the stated rule. A simpler line set stands out. Check where the lines meet instead."
+    },
+    {
+      "id": "even-line-count",
+      "note": "This selects an even line count instead of testing the stated rule. An even count looks like a useful group. Check where the lines meet instead."
+    },
+    {
+      "id": "most-regions",
+      "note": "This selects the most center lines instead of testing the stated rule. More lines make more regions. Check where the lines meet instead."
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-grouping-0003",
+      "index": 0
+    }
+  ]
+}

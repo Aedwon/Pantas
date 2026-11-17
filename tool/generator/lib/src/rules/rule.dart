@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import '../model.dart';
+import 'figure_grouping/grouping.dart';
 import 'figure_series/series.dart';
 
 abstract class Rule {
@@ -11,6 +12,8 @@ abstract class Rule {
 
 /// Real rules register here as their separately assigned tasks land.
 final ruleRegistry = <String, Rule>{
+  for (final pattern in groupingPatterns)
+    'group-$pattern': GroupingRule(pattern),
   for (final pattern in seriesPatterns) 'series-$pattern': SeriesRule(pattern),
 };
 
