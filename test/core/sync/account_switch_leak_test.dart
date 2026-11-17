@@ -133,6 +133,48 @@ void main() {
     expect(await h.localRowsOf(_aRowIds), isEmpty);
   });
 
+  test('Sign Out and an account switch erase the guardian contact', () async {
+    final h = await _Harness.open();
+    addTearDown(h.close);
+    final prefs = AppPreferencesRepository(h.db);
+    Future<void> enterContact() => prefs.setGuardianContact(
+          name: 'Maria',
+          email: 'maria@example.com',
+        );
+
+    h.auth.session = const AuthSession(uid: _accountA);
+    await _seedAnswers(h.db);
+    await h.syncCurrentSession(pro: true);
+    await enterContact();
+
+    await h.repository.signOut();
+    expect(await prefs.guardianContact(), isNull, reason: 'Sign Out');
+    await h.syncCurrentSession(pro: false);
+
+    // A signs in again and enters a contact, then B signs in on top.
+    await h.signInWithCode(_accountA);
+    await h.syncCurrentSession(pro: true);
+    await enterContact();
+    await h.signInWithCode(_accountB);
+    await h.syncCurrentSession(pro: true);
+    expect(await prefs.guardianContact(), isNull, reason: 'account switch');
+  });
+
+  test('a guest who signs in keeps the guardian contact for Resend', () async {
+    final h = await _Harness.open();
+    addTearDown(h.close);
+    final prefs = AppPreferencesRepository(h.db);
+
+    await h.repository.ensureAnonymous();
+    await h.syncCurrentSession(pro: false);
+    await prefs.setGuardianContact(name: 'Maria', email: 'maria@example.com');
+
+    await h.signInWithCode(_accountB);
+    await h.syncCurrentSession(pro: true);
+
+    expect((await prefs.guardianContact())?.email, 'maria@example.com');
+  });
+
   test('the wipe stops answers still arriving for A from being written',
       () async {
     final h = await _Harness.open();

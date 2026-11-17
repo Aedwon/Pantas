@@ -147,6 +147,41 @@ void main() {
     expect(await gate(), GuardianGate.cleared);
   });
 
+  test('app start learning of a confirmation erases the contact', () async {
+    final repo = container.read(appPreferencesRepositoryProvider);
+    await repo.setAgeGroup('minor');
+    await repo.setGuardianContact(name: 'Maria', email: 'maria@gmail.com');
+    gateway.current = const GuardianStatus(
+      status: GuardianConsentStatus.confirmed,
+    );
+    expect(await gate(), GuardianGate.cleared);
+    expect(await repo.guardianContact(), isNull);
+  });
+
+  test('a confirmed status cached offline also erases the contact', () async {
+    final repo = container.read(appPreferencesRepositoryProvider);
+    await repo.setAgeGroup('minor');
+    await repo.setGuardianContact(name: 'Maria', email: 'maria@gmail.com');
+    await repo.setGuardianStatusCache('confirmed');
+    gateway.failure = const GuardianGatewayException('unavailable');
+    expect(await gate(), GuardianGate.cleared);
+    expect(await repo.guardianContact(), isNull);
+  });
+
+  test('a pending status keeps the contact for Resend', () async {
+    final repo = container.read(appPreferencesRepositoryProvider);
+    await repo.setAgeGroup('minor');
+    await repo.setGuardianContact(name: 'Maria', email: 'maria@gmail.com');
+    gateway.current = const GuardianStatus(
+      status: GuardianConsentStatus.pending,
+    );
+    expect(await gate(), GuardianGate.waiting);
+    expect((await repo.guardianContact())?.email, 'maria@gmail.com');
+    final resent = await container.read(guardianControllerProvider).resend();
+    expect(resent, isNotNull);
+    expect(gateway.sent.last.email, 'maria@gmail.com');
+  });
+
   test('offline with nothing cached, a minor still needs to give a contact',
       () async {
     await container.read(appPreferencesRepositoryProvider).setAgeGroup('minor');

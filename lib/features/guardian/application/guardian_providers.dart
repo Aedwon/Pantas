@@ -158,6 +158,11 @@ final guardianGateProvider = FutureProvider<GuardianGate>((ref) async {
   if (ref.read(guardianAccountClosedProvider) != null) {
     return GuardianGate.withdrawn;
   }
+  if (status == GuardianConsentStatus.confirmed) {
+    // The notice promises the device deletes the contact once a guardian
+    // confirms. Nothing needs it after that.
+    await prefs.clearGuardianContact();
+  }
   return switch (status) {
     GuardianConsentStatus.none => GuardianGate.needsContact,
     GuardianConsentStatus.confirmed => GuardianGate.cleared,

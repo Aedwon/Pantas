@@ -48,6 +48,36 @@ void main() {
     );
   });
 
+  test(
+      'wipeAll erases the guardian contact and its cached state but keeps '
+      'the closed-account marker', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    for (final entry in {
+      'guardian_contact_name': 'Maria',
+      'guardian_contact_email': 'maria@example.com',
+      'guardian_status': 'pending',
+      'guardian_sharing_applied': 'true',
+      'guardian_closed_uid': 'closed-account',
+      'payment_trusted_clock_v1': 'test-record',
+    }.entries) {
+      await db.into(db.devicePrefs).insert(
+            DevicePrefsCompanion.insert(key: entry.key, value: entry.value),
+          );
+    }
+
+    await SyncLocalStateWiper(db).wipeAll();
+
+    expect(
+      (await db.select(db.devicePrefs).get()).map((row) => row.key).toSet(),
+      {'guardian_closed_uid', 'payment_trusted_clock_v1'},
+    );
+    final prefs = AppPreferencesRepository(db);
+    expect(await prefs.guardianContact(), isNull);
+    expect(await prefs.guardianStatusCache(), isNull);
+    expect(await prefs.guardianSharingApplied(), isFalse);
+  });
+
   test('wipeAll removes the study-days preference', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);

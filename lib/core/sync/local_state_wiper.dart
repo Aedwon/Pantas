@@ -13,6 +13,12 @@ class SyncLocalStateWiper implements LocalStateWiper {
         _clearCustomExams = clearCustomExams;
 
   static const _selectedExamKey = 'selected_exam_id';
+  static const _guardianKeys = [
+    'guardian_contact_name',
+    'guardian_contact_email',
+    'guardian_status',
+    'guardian_sharing_applied',
+  ];
 
   final AppDatabase _db;
   final NotificationService? _notifications;
@@ -70,6 +76,13 @@ class SyncLocalStateWiper implements LocalStateWiper {
             ..where(
               (row) => row.key.equals('payment_last_confirmed_entitlement_v1'),
             ))
+          .go();
+      // A guardian's name and email belong to a third party and sit here in
+      // plain text. The server keeps only a hash and a masked address, so
+      // nothing here is worth keeping for the next account. The closed-account
+      // marker stays: it belongs to the device.
+      await (_db.delete(_db.devicePrefs)
+            ..where((row) => row.key.isIn(_guardianKeys)))
           .go();
       await _db.delete(_db.attemptsLocal).go();
       await _db.delete(_db.assessmentResultsLocal).go();
