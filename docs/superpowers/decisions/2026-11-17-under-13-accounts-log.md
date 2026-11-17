@@ -116,3 +116,16 @@ Codex GPT 6.1 Sol High, through `codex-pick`, critiqued only the multi-child dif
 - Fable revised ruling 3, final: switching is off by default, per child. While off, every switch into that child needs the emailed code, with no per-device memory. The guardian opt-in "Siblings can open this account without a code" is in For parents, behind the gate, after a sharing notice. It is recorded per child. Later children start off. Effort +0.5 day, for a total of 8.5 to 10.
 - Rejected: Fable's earlier open switching, superseded by the default above.
 - Adopted: 3 (codes bound to holder, child and action, expire, work once, limited attempts), 4 (preserve or isolate each child's pending records before clearing), 5 (narrower last-child deletion wording), 6 (DPO route when the email is unreachable), 7 (a pass activates only for the child chosen at checkout; checkout shows child, price and dates).
+
+## Boards after the multi-child change (Nov 18)
+
+Same artifact, label "Final review fixes: 6A, 8, 9, notes". The new boards are 6 (Switch Child), 7 (Add a Child), 8 (code gate) and 9 (sibling access opt-in), each with A and B options. The author recommends 6B, 7A, 8A and 9A; the earlier picks were 1A, 2A, 3A and 4B. Two fresh reviews ran and every departure was fixed. All changed boards render headless.
+
+In-app copy the lead settled under rule 4, outside the legal text: "Needs a code", "Let siblings open this account?", "Sibling access", "Turn On", "You have 5 children", "Got It", "Pick a nickname", "This sets up your first child. You can add more children later in Settings.", "These actions apply to this child only.", and the delete confirm body (the standard consequence line plus the last-child line).
+
+Aedwon's plain summary of the legal changes since his "sure" (for his sign-off on the multi-child part):
+1. Each child's account is separate. Siblings cannot open it unless the parent turns that on.
+2. Codes are tied to one child and one action.
+3. A parent with no email access can write to the data protection officer.
+4. Closing the last child closes the parent sign-in but keeps limited records.
+5. A pass covers one child, and the price is his to decide.
