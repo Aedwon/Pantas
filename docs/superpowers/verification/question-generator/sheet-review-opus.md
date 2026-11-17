@@ -26,3 +26,39 @@ Each net was folded by computing opposite-face pairs from the drawn cells; three
 - cube-net-light.png, cube-net-dark.png | net-three-at-corner #35 and #48 | Minor | Same net drawn twice on one sheet; keys differ (A,B,C vs B,D,F). | cells [[0,0],[0,1],[1,1],[1,2],[2,1],[3,1]] in both.
 - cube-net-light.png | net-three-at-corner #11 | Minor | The five-row net is drawn at a smaller cell size than the others, so its labels are smaller; still readable. | Visual.
 - No issue found in figure data or keys: #0, #11, #60, #48, #17, #61, #22, #15, #35, #14, #28, #62. Dark sheet matches light.
+
+## figure-matrix (light and dark): 12 samples per sheet
+
+- figure-matrix-dark.png | matrix-fill-union #0, matrix-binary-fill-row #0, matrix-size-fill #0 | Blocker | Same dark-theme fault as series-binary-fill #0. The stem grid sits on a white card with literal black/white fills; the choices sit on the dark page with a different palette. Black and white choices (fill-union A and B; binary-fill-row A, B, D; size-fill A, B, C, D) are near-invisible dark shapes. Half fills invert: fill-union C "Bottom-half-filled" shows a white bottom, while the stem's bottom halves are black. In size-fill all four choices are almost invisible, so the item cannot be answered in dark mode. | Data: size-fill choices fill white/black/white/white; fill-union C fill 0.5. Visible on the dark sheet. Same likely cause (harness choice painter vs registry stem); app path unverified.
+- figure-matrix-light.png, figure-matrix-dark.png | matrix-size-dots #0 | Major | Dot count is the column rule, but in small and medium triangles the dots are tiny, crowded onto the base, and their radius changes from cell to cell (one dot is large, three dots are pin-pricks). Row 1 column 3 (small triangle, 3 dots) is hard to count at sheet scale; varying dot size also suggests a false size feature. | Data: row 1 dots 1/2/3 at size small. 2x crop of the stem shows dot radius roughly halves between the 1-dot and 3-dot cells.
+- figure-matrix-light.png | matrix-dot-sum #0 | Minor | Row 2 column 3 (4 dots in a small circle) puts the outer dots almost on the outline. Countable. | dots 4 in a matrix cell circle.
+- figure-matrix-light.png | matrix-ray-union #0, matrix-ray-intersection #0 | Minor | Choice text "both diagonal rays" and "all three diagonal rays" assume the student knows which diagonals; a square has four. Text is "the two/three shown" in effect; clearer would name directions. | Choice text fields.
+- figure-matrix-light.png | matrix-sized-ray-union #0, matrix-size-latin #0 | Minor | Stem size steps are small in absolute terms (about 22/30/36 px), and choice figures are drawn at a different scale from stem cells, so "Medium" vs "Large" relies on relative comparison within the choices. Key remains unique. | Visual measurement.
+- No issue found in figure data or keys: matrix-dot-sum, fill-union, ray-union, sized-ray-union, ray-intersection, binary-fill-row, form-ray, outline-latin, size-dots, size-fill, size-latin, size-transfer (all #0). Every key is the only defensible answer; size-transfer edge lines are not clipped.
+
+## figure-matrix-2 (light and dark): 12 samples per sheet
+
+Eight samples repeat figure-matrix sheet 1 exactly (dot-sum, fill-union, ray-union, sized-ray-union, ray-intersection, binary-fill-row, form-ray, outline-latin, all #0); findings above apply to them here too, including the dark-theme Blocker for fill-union #0 and binary-fill-row #0 on figure-matrix-dark-2.png. New samples: arrow-column #0, corner-reflection #0, growing-turn #0, ray-turn #0.
+
+- figure-matrix-dark-2.png | matrix-fill-union #0, matrix-binary-fill-row #0 | Blocker | Same as on figure-matrix-dark.png: black/white choices near-invisible and half fills inverted against the white-card stem. | Visible on the dark sheet.
+- figure-matrix-light-2.png | matrix-ray-turn #0, matrix-form-ray #0 | Minor | In a triangle, an up ray (line 0) runs from the centroid to the apex and reads as a line hanging down from the apex. A student could read the first cell as "down" and the turn as counterclockwise. Squares and pentagons do not have this problem. | ray-turn row 1 col 1 triangle line 0; 2.5x crop.
+- figure-matrix-light-2.png | matrix-corner-reflection #0 | Minor | The shown cells also fit a clockwise corner step (TL to TR, BR to BL), so two rules give the same key. Not a second answer, noted for the record. | cells TL, TR / BR, blank; key BL.
+- figure-matrix-light-2.png | sheet | Minor | Two thirds of this sheet duplicates sheet 1, so only 4 of 12 slots add coverage. | Sample captions.
+- No issue found in figure data or keys: arrow-column #0, corner-reflection #0, growing-turn #0 (row steps 45/90/135, answer 270), ray-turn #0.
+
+## Counts
+
+- figure-series-light: 12 checked, findings 3 (0 Blocker, 1 Major, 2 Minor)
+- figure-series-dark: 12 checked, findings 3 (1 Blocker, 1 Major, 1 Minor)
+- shape-row-light: 12 checked, findings 4 (0 Blocker, 1 Major, 3 Minor)
+- shape-row-dark: 12 checked, findings 1 (0 Blocker, 1 Major)
+- cube-net-light: 12 checked, findings 3 (all Minor)
+- cube-net-dark: 12 checked, findings 2 (all Minor)
+- figure-matrix-light: 12 checked, findings 4 (0 Blocker, 1 Major, 3 Minor)
+- figure-matrix-dark: 12 checked, findings 2 (1 Blocker covering 3 samples, 1 Major)
+- figure-matrix-light-2: 12 checked, findings 3 Minor (plus repeated sheet-1 findings for the 8 shared samples)
+- figure-matrix-dark-2: 12 checked, findings 1 Blocker covering 2 samples (plus repeated sheet-1 findings)
+
+Unique samples: 52 (matrix-2 repeats 8 from matrix sheet 1).
+
+SAMPLES CHECKED: 120
