@@ -594,7 +594,7 @@ questions:
     stem: |
       Which figure best continues the simplest consistent pattern shown?
     choices:
-      - text: "Circle with 3 dots"
+      - text: "Circle with three dots"
         correct: true
       - text: "Square with four dots"
         rationale: |
