@@ -393,9 +393,9 @@ questions:
       - text: "Square with all three diagonal rays"
         rationale: |
           This keeps all rays instead of only shared rays. All the rays occur in the inputs. Check that the completed output kept only the common ray.
-      - text: "Square with only the upper-right ray"
+      - text: "Square with the lower-right and lower-left rays"
         rationale: |
-          This chooses a ray present in only the first input. It is prominent there. Compare both inputs for a shared direction.
+          This copies the second input instead of keeping only the shared ray. Both rays are in the cell next to the blank, so it looks safe. Check that the third cell keeps only what the first two cells have in common.
       - text: "Square with only the lower-left ray"
         rationale: |
           This chooses a ray present in only the second input. It is most recent. Check which direction appears in both.
