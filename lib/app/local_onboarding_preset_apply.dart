@@ -150,6 +150,9 @@ Future<void> applyOnboardingPreset(
   container
     ..invalidate(onboardingProgressProvider)
     ..invalidate(activeExamFocusProvider);
+  // Open only on settled answers, so the first build is the right step.
+  await container.read(onboardingProgressProvider.future).timeout(wait);
+  await container.read(activeExamFocusProvider.future).timeout(wait);
   await _open(container, plan);
 }
 
@@ -229,6 +232,9 @@ Future<void> _open(ProviderContainer container, _Plan plan) async {
   localPresetSeed.value = plan.seed;
   router.go(plan.route);
   await _settle(router, plan.route);
+  // Long enough for a rebuild caused by the refreshed answers to read it too.
+  await Future<void>.delayed(const Duration(seconds: 2));
+  localPresetSeed.value = null;
 }
 
 /// Waits until the router shows [path], then a moment for the screen to build.

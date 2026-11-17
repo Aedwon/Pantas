@@ -38,6 +38,10 @@ const _groupOrder = <String>[
   'Other',
 ];
 
+/// Screens that crash without what the screen before them passes, so a card
+/// could never open them: mock start needs a blueprint chosen on Mock setup.
+const _leftOut = <String>{'/quiz/mock/start'};
+
 const _labelOverrides = <String, String>{
   '/quiz/today/:examId': "Today's quiz",
 };
@@ -67,6 +71,7 @@ List<PanelRoute> listRoutes(Directory appDir) {
   for (final file in files) {
     for (final path in routesIn(file.readAsStringSync())) {
       if (path.split('/').any((segment) => segment.startsWith('_'))) continue;
+      if (_leftOut.contains(path)) continue;
       if (!seen.add(path)) continue;
       routes.add(
         PanelRoute(path: path, label: labelFor(path), group: groupFor(path)),
