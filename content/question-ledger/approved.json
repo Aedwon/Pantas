@@ -174,6 +174,13 @@
     "kind": "problemType",
     "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
   },
+  "qt-spatial-abstract-reasoning-series-interleaved-count": {
+    "approvedAt": "2026-11-17",
+    "evidence": "docs/superpowers/verification/2026-11-17-question-generator-ar-types.md",
+    "hash": "285915fadec58c9d79fd7b2e27eb2f48c33e42c8b42c26a107d83104bbe3400c",
+    "kind": "problemType",
+    "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
+  },
   "qt-spatial-abstract-reasoning-series-ray-step": {
     "approvedAt": "2026-11-17",
     "evidence": "docs/superpowers/verification/2026-11-17-question-generator-ar-types.md",
