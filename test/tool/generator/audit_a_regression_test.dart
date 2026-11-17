@@ -12,7 +12,8 @@ import '../../../tool/generator/lib/src/rules/rule.dart';
 import 'task_signature_test.dart' show readType;
 
 void main() {
-  test('independent checker rejects source interleaved doubling ambiguity', () {
+  test('independent checker rejects original interleaved doubling ambiguity',
+      () {
     final t = readType('series-interleaved-count');
     final list = generateVariants(t, count: 1);
     final sources = readSourceQuestions(
@@ -21,8 +22,25 @@ void main() {
       t.mergedQuestions.map((m) => m.id).toSet(),
     );
     expect(
-      checkVariants(t, list.variants, questions: sources)
-          .where((f) => f.check == 'correctness'),
+      checkVariants(
+        t,
+        parseVariants({
+          'variants': [
+            {
+              ...list.variants.single.toMap(),
+              'choices': [
+                ...list.variants.single.choices.take(3).map((c) => c.toMap()),
+                {
+                  'text': 'Circle with four dots',
+                  'mistake': 'repeat-odd-count',
+                  'figure': {'form': 'circle', 'dots': 4},
+                },
+              ],
+            }
+          ],
+        }),
+        questions: sources,
+      ).where((f) => f.check == 'correctness'),
       isNotEmpty,
     );
   });

@@ -285,6 +285,8 @@ class SeriesSolver implements FigureSolver {
         return Map.of(last);
       case 'count-all-positions':
         result['dots'] = 5;
+      case 'repeat-odd-count':
+        result['dots'] = a[a.length - 2]['dots'];
       case 'copy-even-count':
         result['dots'] = a[1]['dots'];
       case 'freeze-ray':
@@ -425,7 +427,7 @@ const seriesMistakes = <String, List<String>>{
   'interleaved-count': [
     'continue-even-track',
     'count-all-positions',
-    'copy-even-count',
+    'repeat-odd-count',
   ],
   'fill-ray-dots': ['freeze-fill', 'freeze-ray', 'accumulate-fill'],
   'size-corner-ray': ['freeze-size', 'freeze-dot', 'freeze-ray'],

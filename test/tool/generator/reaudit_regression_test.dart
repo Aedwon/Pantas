@@ -50,7 +50,23 @@ void main() {
   }
   test('highest-ray competitor rejects ambiguous intersection source', () {
     final type = readType('matrix-ray-intersection');
-    final v = ruleRegistry[type.rule]!.generate(type, Random(0), 0).variant;
+    final base = ruleRegistry[type.rule]!.generate(type, Random(0), 0).variant;
+    final v = parseVariants({
+      'variants': [
+        {
+          ...base.toMap(),
+          'choices': [
+            ...base.choices.take(2).map((c) => c.toMap()),
+            {
+              'text': 'Square with only the upper-right ray',
+              'mistake': 'first-exclusive',
+              'figure': {'form': 'square', 'line': 45},
+            },
+            base.choices.last.toMap(),
+          ],
+        }
+      ],
+    }).single;
     expect(
       checkVariants(type, [v]).any(
         (f) =>

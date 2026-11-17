@@ -12,7 +12,7 @@ const matrixMistakes = <String, List<String>>{
   'size-dots': ['freeze-dots', 'copy-middle-size', 'copy-top-size'],
   'ray-intersection': [
     'union-not-intersection',
-    'first-exclusive',
+    'second-ray-only',
     'second-exclusive',
   ],
   'corner-reflection': [
