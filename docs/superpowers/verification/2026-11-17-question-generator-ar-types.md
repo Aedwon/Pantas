@@ -50,3 +50,27 @@ Blind solves 1 to 3 ran on lists that the audit fixes later regenerated. Blind s
 | matrix-corner-reflection | pass | 5 of 5 | PASS, Minor accepted (reaudit-b) |
 
 The lead approves these 13 types in the ledger with this file as evidence. The fourth check, Aedwon's figure sheets, gates the first prod release only (spec B6).
+
+## Revision 1 release, approval 2 (Nov 17, 11:10 UTC)
+
+Types released under Revision 1 (true size 20 to 100). Checks per type: checker pass on the grown library and the new prod root 646326517 (rel1-findings.md, lib1-findings.md); blind solve 5 (blind-solve-5/, 125 of 125 match across all 25 released types); audits audit-r1a.md, audit-r1b.md, audit-r1c.md; answer variety R6 (no key in more than half the list), checked by the lead with a script over every active list.
+
+| Type (qt-spatial-abstract-reasoning-) | List size | Audit verdict | R6 |
+|---|---|---|---|
+| series-dots-size | 90 | PASS (audit-r1a.md) | pass |
+| series-size-corner-ray | 48 | PASS (audit-r1a.md) | pass |
+| series-transfer-count | 45 | PASS (audit-r1a.md) | pass |
+| series-binary-fill | 24 | PASS (audit-r1a.md) | pass |
+| group-boundary | 42 | PASS (audit-r1a.md) | pass |
+| group-side-double-dots | 68 | PASS (audit-r1a.md) | pass |
+| matrix-dot-sum | 100 | PASS (audit-r1b.md) | pass |
+| matrix-fill-union | 24 | PASS (audit-r1b.md) | pass |
+| matrix-binary-fill-row | 32 | PASS (audit-r1b.md) | pass |
+| matrix-size-fill | 40 | PASS (audit-r1b.md) | pass |
+| matrix-size-latin | 72 | PASS (audit-r1b.md) | pass |
+| matrix-arrow-column | 30 | PASS (audit-r1b.md) | pass |
+| matrix-growing-turn | 80 | PASS (audit-r1b.md) | pass |
+| matrix-ray-turn | 100 | PASS (audit-r1b.md) | pass |
+| net-three-at-corner | 64 | PASS (audit-r1c.md) | pass |
+
+Not approved in this round: series-corner-edge-count, group-center-cuts, group-line-count, net-nonadjacent, net-opposite-easy, net-opposite-medium, net-top-and-shadow (audit Majors); group-specific-rule, net-adjacent-relation, net-validity-test (R6).
