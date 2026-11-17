@@ -74,3 +74,11 @@ Types released under Revision 1 (true size 20 to 100). Checks per type: checker 
 | net-three-at-corner | 64 | PASS (audit-r1c.md) | pass |
 
 Not approved in this round: series-corner-edge-count, group-center-cuts, group-line-count, net-nonadjacent, net-opposite-easy, net-opposite-medium, net-top-and-shadow (audit Majors); group-specific-rule, net-adjacent-relation, net-validity-test (R6).
+
+## Re-sync approval 3 (Nov 17, 11:45 UTC)
+
+| Type (qt-spatial-abstract-reasoning-) | List size | Checker | Blind solve 6 | Audit (audit-r2.md) | R6 |
+|---|---|---|---|---|---|
+| series-interleaved-count | 100 | pass, source on 646326517 | 5 of 5 | PASS, two Minors accepted (narrow numeric variety; source key one character longest) | pass (13/100) |
+
+Not approved: matrix-ray-intersection (audit-r2 Blocker: lowest, leftmost and rightmost ray rules select a wrong choice). Those rules join the library next.
