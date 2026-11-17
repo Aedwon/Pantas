@@ -312,7 +312,7 @@ In-app voice: short, friendly, plain.
 
 - Title: "Ask a parent or guardian to set up Pantas for you"
 - Body: "Pantas needs a parent or guardian to set up your account. They sign in with their own email. Then you can study with a nickname."
-- Primary button: "I'm the parent or guardian"
+- Primary button: "I'm the Parent or Guardian"
 - Link: "What a parent or guardian agrees to" (opens the Child Notice)
 
 No "go back" action on this screen. The device stays here (R1).
@@ -320,19 +320,22 @@ No "go back" action on this screen. The device stays here (R1).
 **Guardian setup, after sign-in**
 
 - Title: "Set up Pantas for your child"
+- Button: "Set Up Account" (off until both ticks are on)
+
+**Nickname step** (the normal onboarding name step, after setup and the short child notice; lead ruling Nov 17)
+
 - Field label: "Child's nickname"
 - Help under the field: "Not a real name. Pick a nickname your child will recognize."
-- Button: "Set up account" (off until both ticks are on)
 
 **Email already used** (R: setup refuses)
 
-- "This email already has a Pantas account. Use a different email for your child's account."
+- "This email already has a Pantas account. Use another email." (spec wording; "Set Up Account" stays off until the email changes)
 
 **Adult-account prompt** (when an adult account picks or switches to PSHS-NCE)
 
 - Title: "Is this for a child under 13?"
 - Body: "A parent or guardian sets up PSHS-NCE accounts for children under 13."
-- Buttons: "Yes, it's for a child under 13" and "No"
+- Buttons: "Yes" and "No" (dialog pair)
 
 **Settings entry**
 
