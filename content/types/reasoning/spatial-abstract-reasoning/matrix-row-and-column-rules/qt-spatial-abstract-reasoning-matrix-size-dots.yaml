@@ -1,0 +1,107 @@
+{
+  "id": "qt-spatial-abstract-reasoning-matrix-size-dots",
+  "lesson": "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules",
+  "keyPoint": 1,
+  "difficulty": "medium",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "figure-matrix",
+  "rule": "matrix-size-dots",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "figure",
+  "enabled": true,
+  "params": {
+    "forms": [
+      "square",
+      "circle",
+      "triangle",
+      "pentagon",
+      "star"
+    ],
+    "sizes": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "steps": [
+      45,
+      90,
+      135
+    ],
+    "rays": [
+      0,
+      45,
+      90,
+      135,
+      180,
+      225,
+      270,
+      315
+    ],
+    "dots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "edgeLines": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "initialDots": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "initialEdges": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "sumInputs": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "growingSteps": [
+      45,
+      90
+    ]
+  },
+  "stem": "Which figure completes the blank cell under the simplest consistent row and column rules?\n",
+  "explanation": "Size stays the same across each row. Dots increase by one across the row. Combine both tracks at the blank. The blank needs {answerText}.",
+  "mistakes": [
+    {
+      "id": "freeze-dots",
+      "note": "This repeats the previous dot count. That count is beside the blank. Continue the one-dot increase across the row."
+    },
+    {
+      "id": "copy-middle-size",
+      "note": "This copies the middle size. It is a visible row size. Check the size required at the blank."
+    },
+    {
+      "id": "copy-top-size",
+      "note": "This copies the top size. The first row gives a clear example. Check which row contains the blank."
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-matrices-0008",
+      "index": 0
+    }
+  ]
+}

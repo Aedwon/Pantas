@@ -1,0 +1,107 @@
+{
+  "id": "qt-spatial-abstract-reasoning-matrix-size-latin",
+  "lesson": "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules",
+  "keyPoint": 1,
+  "difficulty": "medium",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "figure-matrix",
+  "rule": "matrix-size-latin",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "figure",
+  "enabled": true,
+  "params": {
+    "forms": [
+      "square",
+      "circle",
+      "triangle",
+      "pentagon",
+      "star"
+    ],
+    "sizes": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "steps": [
+      45,
+      90,
+      135
+    ],
+    "rays": [
+      0,
+      45,
+      90,
+      135,
+      180,
+      225,
+      270,
+      315
+    ],
+    "dots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "edgeLines": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "initialDots": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "initialEdges": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "sumInputs": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "growingSteps": [
+      45,
+      90
+    ]
+  },
+  "stem": "Which figure completes the blank cell under the simplest consistent row and column rules?\n",
+  "explanation": "Sizes cycle through small, medium, and large. Each row shifts that cycle one place. The blank needs {answerText}.",
+  "mistakes": [
+    {
+      "id": "repeat-row-start",
+      "note": "This repeats the row's first feature. That feature sets the starting point. Continue through all three positions before choosing."
+    },
+    {
+      "id": "repeat-adjacent",
+      "note": "This repeats the size beside the blank. That size is the latest one shown. Continue the three-size cycle."
+    },
+    {
+      "id": "change-form",
+      "note": "This changes the outline. The other feature follows the pattern. Check the outline shown throughout."
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-matrices-0017",
+      "index": 0
+    }
+  ]
+}

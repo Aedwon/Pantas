@@ -1,0 +1,107 @@
+{
+  "id": "qt-spatial-abstract-reasoning-matrix-arrow-column",
+  "lesson": "lesson-spatial-abstract-reasoning-matrix-turns-and-counts",
+  "keyPoint": 1,
+  "difficulty": "medium",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "figure-matrix",
+  "rule": "matrix-arrow-column",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "figure",
+  "enabled": true,
+  "params": {
+    "forms": [
+      "square",
+      "circle",
+      "triangle",
+      "pentagon",
+      "star"
+    ],
+    "sizes": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "steps": [
+      45,
+      90,
+      135
+    ],
+    "rays": [
+      0,
+      45,
+      90,
+      135,
+      180,
+      225,
+      270,
+      315
+    ],
+    "dots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "edgeLines": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "initialDots": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "initialEdges": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "sumInputs": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "growingSteps": [
+      45,
+      90
+    ]
+  },
+  "stem": "Which figure completes the blank cell under the simplest consistent row and column rules?\n",
+  "explanation": "Both columns turn their arrows one quarter turn clockwise at each step down. The blank needs {answerText}.",
+  "mistakes": [
+    {
+      "id": "restart-cycle",
+      "note": "This restarts at the top arrow. That direction begins the column. Continue one more quarter turn from the middle arrow."
+    },
+    {
+      "id": "take-half-turn",
+      "note": "This turns the middle arrow halfway around. It points opposite that arrow. Match the quarter turn shown between the top two rows."
+    },
+    {
+      "id": "repeat-above",
+      "note": "This repeats the arrow above the blank. It is the last visible arrow in that column. Continue one more quarter turn."
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-matrices-0012",
+      "index": 0
+    }
+  ]
+}

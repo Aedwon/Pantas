@@ -1,0 +1,107 @@
+{
+  "id": "qt-spatial-abstract-reasoning-matrix-outline-latin",
+  "lesson": "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules",
+  "keyPoint": 1,
+  "difficulty": "easy",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "figure-matrix",
+  "rule": "matrix-outline-latin",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "figure",
+  "enabled": true,
+  "params": {
+    "forms": [
+      "square",
+      "circle",
+      "triangle",
+      "pentagon",
+      "star"
+    ],
+    "sizes": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "steps": [
+      45,
+      90,
+      135
+    ],
+    "rays": [
+      0,
+      45,
+      90,
+      135,
+      180,
+      225,
+      270,
+      315
+    ],
+    "dots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "edgeLines": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "initialDots": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "initialEdges": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "sumInputs": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "growingSteps": [
+      45,
+      90
+    ]
+  },
+  "stem": "Which figure completes the blank cell under the simplest consistent row and column rules?\n",
+  "explanation": "Each row and column contains each of the three outlines once. Use the outline missing from both. The blank needs {answerText}.",
+  "mistakes": [
+    {
+      "id": "repeat-neighbor",
+      "note": "This repeats the neighboring outline. That outline already belongs to the shown set. Check which member is still missing from the row and column."
+    },
+    {
+      "id": "repeat-row-start",
+      "note": "This repeats the row's first feature. That feature sets the starting point. Continue through all three positions before choosing."
+    },
+    {
+      "id": "introduce-fourth-form",
+      "note": "This adds a new outline. It avoids a repeat but is outside the shown set. Check which shown outline is missing."
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-matrices-0015",
+      "index": 0
+    }
+  ]
+}

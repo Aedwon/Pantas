@@ -4,6 +4,7 @@ import 'package:crypto/crypto.dart';
 
 import '../model.dart';
 import 'cube_net_signature.dart';
+import 'matrix_signature.dart';
 import 'series_signature.dart';
 import 'shape_row_signature.dart';
 
@@ -24,6 +25,7 @@ typedef FigureCanonicalizer = Object Function(Variant variant);
 final figureCanonicalizers = <String, FigureCanonicalizer>{
   'generic-test': _generic,
   'figure-series': canonicalSeries,
+  'figure-matrix': canonicalMatrix,
   'shape-row': canonicalShapeRow,
   'cube-net': canonicalCubeNet,
 };
