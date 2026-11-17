@@ -103,6 +103,7 @@ format: word-problem
 rule: testAdd
 ruleVersion: 1
 choiceCount: 4
+choiceKind: text
 enabled: true
 params: {max: 1000000}
 stem: What is {a} + {b}?

@@ -42,7 +42,13 @@ Object? _numbers(Object? value) {
   return null;
 }
 
-String canonicalSignature(Variant variant) {
+/// Per-kind fields excluded before whole-question canonicalization.
+final signatureIgnore = <String, List<String>>{};
+
+String canonicalSignature(
+  Variant variant, {
+  Map<String, List<String>>? ignore,
+}) {
   final figure = variant.figureSpec;
   Object? canonical;
   if (figure == null) {
@@ -53,7 +59,24 @@ String canonicalSignature(Variant variant) {
     if (canonicalizer == null) {
       throw FormatException('no canonicalizer for kind $kind');
     }
-    canonical = canonicalizer(variant);
+    final ignored = (ignore ?? signatureIgnore)[kind] ?? const <String>[];
+    Object? strip(Object? value) {
+      if (value is Map<String, Object?>) {
+        return <String, Object?>{
+          for (final entry in value.entries)
+            if (!ignored.contains(entry.key)) entry.key: strip(entry.value),
+        };
+      }
+      if (value is List) return value.map(strip).toList();
+      return value;
+    }
+
+    final filtered = parseVariants({
+      'variants': [
+        strip(variant.toMap()),
+      ],
+    }).single;
+    canonical = canonicalizer(filtered);
   }
   return sha256.convert(utf8.encode(dataKey(canonical))).toString();
 }

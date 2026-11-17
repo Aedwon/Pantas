@@ -1,4 +1,7 @@
+import 'dart:convert';
 import 'dart:math';
+
+import 'package:crypto/crypto.dart';
 
 import 'model.dart';
 import 'rules/rule.dart';
@@ -45,7 +48,18 @@ VariantList generateVariants(
   for (var index = 0; index < length; index++) {
     Variant? accepted;
     for (var failed = 0; failed < 1000; failed++) {
-      final candidate = rule.generate(type, random, index);
+      final result = rule.generate(type, random, index);
+      final candidate = parseVariants({
+        'variants': [
+          {
+            ...result.variant.toMap(),
+            'ruleKey': sha256
+                .convert(utf8.encode(canonicalJson(result.ruleParams)))
+                .toString(),
+            'cosmetics': result.cosmetics,
+          }
+        ],
+      }).single;
       if (candidate.index != index || candidate.source != reserved[index]) {
         throw StateError(
           '${type.id} index $index: wrong index or merged source',

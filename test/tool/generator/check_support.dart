@@ -1,9 +1,18 @@
 // ignore_for_file: avoid_relative_lib_imports
 import '../../../tool/generator/lib/src/check/math_solver.dart';
+import '../../../tool/generator/lib/src/check/signature.dart';
 import '../../../tool/generator/lib/src/check/solvers/solver.dart';
 import '../../../tool/generator/lib/src/model.dart';
 
 class TestMathSolver implements MathSolver {
+  @override
+  Map<String, Object?> ruleParams(ProblemType type, Variant variant) => {
+        'a': variant.slots['a'],
+        'b': variant.slots['b'],
+      };
+  @override
+  List<String> validateCosmetics(ProblemType type, Variant variant) =>
+      variant.cosmetics.isEmpty ? [] : ['math has no cosmetics'];
   @override
   Rational solve(ProblemType type, Variant variant) =>
       Rational.parse('${variant.slots['a']}') +
@@ -20,6 +29,34 @@ class TestMathSolver implements MathSolver {
 class TestFigureSolver implements FigureSolver {
   TestFigureSolver(this.answer);
   final int answer;
+  @override
+  Map<String, Object?> ruleParams(ProblemType type, Variant variant) => {};
+  @override
+  List<String> validateCosmetics(ProblemType type, Variant variant) {
+    final errors = <String>[];
+    void visit(Object? value) {
+      if (value is List) {
+        value.forEach(visit);
+      }
+      if (value is! Map) return;
+      if (value.containsKey('x') && value.containsKey('y')) {
+        for (final entry in variant.cosmetics.entries) {
+          if (!value.containsKey(entry.key) ||
+              dataKey(value[entry.key]) != dataKey(entry.value)) {
+            errors.add('inconsistent cosmetic ${entry.key}');
+          }
+        }
+      }
+      value.values.forEach(visit);
+    }
+
+    visit(variant.figureSpec);
+    for (final choice in variant.choices) {
+      visit(choice.figure);
+    }
+    return errors;
+  }
+
   @override
   String get kind => 'generic-test';
   @override

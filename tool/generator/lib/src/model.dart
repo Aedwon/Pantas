@@ -83,6 +83,7 @@ class ProblemType extends _DataValue {
   String get format => _string(_data, 'format');
   String get rule => _string(_data, 'rule');
   int get ruleVersion => _integer(_data, 'ruleVersion', minimum: 1);
+  String get choiceKind => _string(_data, 'choiceKind');
   int get choiceCount => _integer(_data, 'choiceCount', minimum: 1);
   bool get enabled => _data['enabled']! as bool;
   Map<String, Object?> get params => _data['params']! as Map<String, Object?>;
@@ -117,6 +118,9 @@ ProblemType parseProblemType(Map input) {
   }
   if (data['enabled'] is! bool) {
     throw const FormatException('Expected enabled bool');
+  }
+  if (!['figure', 'text'].contains(type.choiceKind)) {
+    throw const FormatException('Expected choiceKind figure or text');
   }
   _map(data['params']);
   if (_list(data, 'exams').any((v) => v is! String)) {
@@ -158,6 +162,9 @@ class Variant extends _DataValue {
   List<VariantChoice> get choices => List.unmodifiable(
         _list(_data, 'choices').map((v) => VariantChoice._(_map(v))),
       );
+  String get ruleKey => _string(_data, 'ruleKey');
+  Map<String, Object?> get cosmetics =>
+      _data['cosmetics']! as Map<String, Object?>;
   String get signature => _string(_data, 'signature');
 }
 
@@ -167,7 +174,9 @@ List<Variant> parseVariants(Map input) {
     _list(_map(input), 'variants').map((value) {
       final v = Variant._(_map(value))
         ..index
-        ..signature;
+        ..signature
+        ..ruleKey;
+      _map(v._data['cosmetics']);
       _map(v._data['slots']);
       if (v._data.containsKey('source')) _string(v._data, 'source');
       if (v._data.containsKey('figureSpec')) _map(v._data['figureSpec']);
@@ -279,3 +288,6 @@ class Rational {
   @override
   int get hashCode => Object.hash(numerator, denominator);
 }
+
+/// Sorted JSON keys at every depth, preserving list order.
+String canonicalJson(Object? value) => jsonEncode(_sorted(value));

@@ -26,6 +26,7 @@ void main() {
     expect(t.rule, 'figureSeriesTurnStep');
     expect(t.ruleVersion, 1);
     expect(t.choiceCount, 4);
+    expect(t.choiceKind, 'figure');
     expect(t.enabled, isTrue);
     expect(t.params['stepDegrees'], [45, 90]);
     expect(t.mistakes.single.id, 'double-turn');
@@ -43,6 +44,8 @@ void main() {
     expect(writeVariantList(parsed), text);
     expect(parsed.variants, parseVariants(input));
     expect(parsed.seed, 20261117);
+    expect(parsed.variants.single.ruleKey, 'example-rule-key');
+    expect(parsed.variants.single.cosmetics, {'fill': 'white'});
     expect(parsed.tool, 1);
     expect(parsed.variants.single.figureSpec!['kind'], 'figure-series');
     expect(parsed.variants.single.choices.last.slots['wrongStep'], 90);
@@ -66,6 +69,8 @@ void main() {
                 {'mistake': 'subtract', 'text': 'No', 'value': '-1/2'},
               ],
               'signature': 'test',
+              'ruleKey': 'test-rule',
+              'cosmetics': {'fill': 'white'},
             },
           ],
         };

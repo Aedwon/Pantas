@@ -7,6 +7,7 @@ format: figure-series
 rule: figureSeriesTurnStep
 ruleVersion: 1
 choiceCount: 4
+choiceKind: figure
 enabled: true
 params: { stepDegrees: [45, 90], length: [3, 4], forms: [square, circle] }
 stem: Which figure best continues the simplest consistent pattern shown?

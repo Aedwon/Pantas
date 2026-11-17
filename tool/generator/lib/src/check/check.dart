@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:crypto/crypto.dart';
 
 import '../model.dart';
 import 'markup.dart';
@@ -149,6 +150,50 @@ List<CheckFailure> checkVariants(
     final math = mathSolvers[type.rule];
     final figure = figureSolvers[type.rule];
     final solver = variant.figureSpec == null ? math : figure;
+    Map<String, Object?> candidate(VariantChoice choice) =>
+        type.choiceKind == 'figure'
+            ? choice.figure ?? <String, Object?>{}
+            : {
+                'text':
+                    fillSlots(choice.text, {...variant.slots, ...choice.slots}),
+                if (choice.value != null) 'value': choice.value,
+              };
+    run('ruleKey', () {
+      if (solver == null) {
+        fail('ruleKey', 'no independent solver');
+        return;
+      }
+      final expected = sha256
+          .convert(
+            utf8.encode(
+              dataKey(solver.ruleParams(type, variant)),
+            ),
+          )
+          .toString();
+      if (expected != variant.ruleKey) {
+        fail('ruleKey', 'independent parameters do not match ruleKey');
+      }
+    });
+    run('cosmetics', () {
+      if (solver == null) {
+        fail('cosmetics', 'no independent solver');
+        return;
+      }
+      for (final reason in solver.validateCosmetics(type, variant)) {
+        fail('cosmetics', reason);
+      }
+    });
+    run('choiceKind', () {
+      for (final choice in variant.choices) {
+        if (type.choiceKind == 'text' && choice.toMap().containsKey('figure')) {
+          fail('choiceKind', 'text choice carries figure');
+        }
+        if (type.choiceKind == 'figure' &&
+            (choice.figure == null || choice.text.trim().isEmpty)) {
+          fail('choiceKind', 'figure choice requires figure and nonempty text');
+        }
+      }
+    });
     run('correctness', () {
       if (solver == null) {
         fail('correctness', 'no solver for rule ${type.rule}');
@@ -175,9 +220,8 @@ List<CheckFailure> checkVariants(
           fail('correctness', 'solver figure kind does not match shown kind');
           return;
         }
-        final solved = choices
-            .where((c) => c.figure != null && figure.fits(shown, c.figure!))
-            .toList();
+        final solved =
+            choices.where((c) => figure.fits(shown, candidate(c))).toList();
         if (solved.length != 1 || !solved.single.correct) {
           fail(
             'correctness',
@@ -187,8 +231,7 @@ List<CheckFailure> checkVariants(
         for (final alternative
             in figureSolvers.values.where((s) => s.kind == figure.kind)) {
           for (final choice in choices.where((c) => !c.correct)) {
-            if (choice.figure != null &&
-                alternative.fits(shown, choice.figure!)) {
+            if (alternative.fits(shown, candidate(choice))) {
               fail('correctness', 'wrong choice completes a library rule');
             }
           }
@@ -208,6 +251,8 @@ List<CheckFailure> checkVariants(
         final Object value;
         if (variant.figureSpec == null) {
           value = Rational.parse(choice.value ?? '');
+        } else if (type.choiceKind == 'text') {
+          value = candidate(choice);
         } else {
           if (choice.figure == null) {
             fail('choices', 'missing choice figure');

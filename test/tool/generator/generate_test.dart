@@ -190,10 +190,10 @@ void main() {
 class CountingConstantRule extends AddRule {
   int draws = 0;
   @override
-  Variant generate(ProblemType t, Random r, int index) {
+  RuleResult generate(ProblemType t, Random r, int index) {
     draws++;
     r.nextInt(10);
-    return parseVariants({
+    final variant = parseVariants({
       'variants': [
         {
           'index': index,
@@ -202,8 +202,11 @@ class CountingConstantRule extends AddRule {
             {'correct': true, 'text': '2', 'value': '2'},
           ],
           'signature': 'constant',
+          'ruleKey': 'pending',
+          'cosmetics': <String, Object?>{},
         },
       ],
     }).single;
+    return RuleResult(variant: variant, ruleParams: {}, cosmetics: {});
   }
 }

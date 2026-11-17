@@ -19,6 +19,7 @@ Map<String, Object?> mathTypeData() => {
       'rule': 'testAdd',
       'ruleVersion': 1,
       'choiceCount': 4,
+      'choiceKind': 'text',
       'enabled': true,
       'params': {'max': 1000000},
       'stem': r'What is ${a} + {b}$?',
@@ -53,10 +54,10 @@ class AddRule implements Rule {
   int get version => 1;
 
   @override
-  Variant generate(ProblemType t, Random r, int index) {
+  RuleResult generate(ProblemType t, Random r, int index) {
     final a = r.nextInt(t.params['max']! as int) + 1;
     final b = r.nextInt(t.params['max']! as int) + 1;
-    return parseVariants({
+    final variant = parseVariants({
       'variants': [
         {
           'index': index,
@@ -77,9 +78,16 @@ class AddRule implements Rule {
               'value': '${a + b - 1}',
             },
           ],
+          'ruleKey': 'pending',
+          'cosmetics': <String, Object?>{},
           'signature': sha256.convert(utf8.encode('$a,$b')).toString(),
         },
       ],
     }).single;
+    return RuleResult(
+      variant: variant,
+      ruleParams: {'a': a, 'b': b},
+      cosmetics: {},
+    );
   }
 }

@@ -8,4 +8,6 @@ variants:
     choices:
       - { correct: true, text: Line pointing lower-right, figure: {shape: line, rotation: 135} }
       - { mistake: double-turn, text: Line pointing down, figure: {shape: line, rotation: 180}, slots: { wrongStep: 90 } }
+    ruleKey: example-rule-key
+    cosmetics: {fill: white}
     signature: 394a1d33b3ffec99c3b5e094e3c6ed9f20d1de4683e120d54b1193e5ad290b62
