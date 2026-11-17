@@ -3931,3 +3931,5 @@ Fable 5.2 High ruled under Aedwon's standing delegation on `docs/superpowers/pla
 - Velocity E-104: see the row (timer).
 
 - Prod App Check watch ended clean (security fixes lead, Nov 17 06:45 UTC): Storage (enforced Nov 15 06:05) and Auth (enforced Nov 16 06:11) stay enforced. Since Auth enforcement: 7 real sign-in requests, all valid; 4 refusals, all from the lead's and the integrator's own tests (1 tokenless check, 3 automated-browser attempts on Nov 16 18:25); 0 sign-in errors; 0 client failure reports; no real uploads in the Storage window. Firestore stays on Nov 21.
+
+- SSOT updated 17 November 2026, 16:45 PHT, sections touched: Home "Current status" (new 17 November status with the waiting-on-Aedwon list from the 17 November backlog rulings; 16 November status marked SUPERSEDED); Production Readiness Assessment (new top checkpoint, 16 November checkpoint renamed SUPERSEDED, 17 November catch-up at the end); Internal Beta Testing Program (17 November note). Counts only, no tester data. Velocity E-110.
