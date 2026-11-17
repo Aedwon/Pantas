@@ -720,3 +720,24 @@ Adviser rulings:
 4. The two flawed source questions are live content errors and go through the
    content lane's approval gate, like series 0019.
 5. Rule-parameter sets are counted after the signature dedupe.
+
+## Final Phase 1 counts (build lead, `gen/question-generator-r1` 72251e72d)
+
+- 28 types are active and approved: 19 hold 100 versions, 9 hold 24 to 90. So 28 of
+  the 105 abstract reasoning questions become types and 77 stay fixed.
+- 2 types are held until the Codex weekly reset on November 22: series-fill-ray-dots
+  (one wrong-choice note is false for 23 versions) and matrix-ray-intersection
+  (diagonal-extreme ray rules still select a wrong choice; they join the library
+  first).
+- The adviser's rulings were applied: the rule library grew with each audit finding
+  and every type was re-checked; the two held matrix types returned at 100 after
+  passing the larger library.
+- Figure sheets: the build branch's log records Aedwon, relayed by the operations
+  manager: "have an opus agent + 6.1 Sol check this, not me". An Opus subagent and
+  Codex GPT 6.1 Sol at high effort each reviewed 120 samples and found every key the
+  only defensible answer. The adviser checked that this record exists on the build
+  branch; the adviser did not hear those words directly.
+
+History of the count given to Aedwon: about 55 questions (estimate, with question
+10), at most 42 (first enumeration), 28 (after the stricter checks). Option A's rule
+is unchanged; fewer patterns passed it. The adviser told him the final number.
