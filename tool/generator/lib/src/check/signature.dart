@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:crypto/crypto.dart';
 
 import '../model.dart';
+import 'series_signature.dart';
 
 Object? _sorted(Object? value) {
   if (value is Map) {
@@ -20,6 +21,7 @@ typedef FigureCanonicalizer = Object Function(Variant variant);
 /// Task 1.3 registers each production kind here. Unknown kinds fail closed.
 final figureCanonicalizers = <String, FigureCanonicalizer>{
   'generic-test': _generic,
+  'figure-series': canonicalSeries,
 };
 
 // Wording slots are not numbers. Normalize exact rational strings so 2/2

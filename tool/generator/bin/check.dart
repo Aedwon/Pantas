@@ -7,6 +7,7 @@ import '../lib/src/check/files.dart';
 
 void main(List<String> args) {
   var types = 'content/types';
+  var heldTypes = 'content/types-held';
   var questionsRef = 'origin/content/bite-sized-cse-algebra-r1';
   try {
     for (var i = 0; i < args.length; i += 2) {
@@ -16,13 +17,15 @@ void main(List<String> args) {
       switch (args[i]) {
         case '--types':
           types = args[i + 1];
+        case '--held-types':
+          heldTypes = args[i + 1];
         case '--questions-ref':
           questionsRef = args[i + 1];
         default:
           throw FormatException('unknown option ${args[i]}');
       }
     }
-    if (!Directory(types).existsSync()) {
+    if (!Directory(types).existsSync() && !Directory(heldTypes).existsSync()) {
       stdout.writeln(
         'Generator checker: no content/types/ directory ($types); skipped.',
       );
@@ -32,7 +35,14 @@ void main(List<String> args) {
       root: Directory.current.path,
       typesPath: types,
       questionsRef: questionsRef,
-    );
+    )..addAll(
+        checkTypeFiles(
+          root: Directory.current.path,
+          typesPath: heldTypes,
+          held: true,
+          questionsRef: questionsRef,
+        ),
+      );
     for (final failure in failures) {
       stderr.writeln(failure);
     }

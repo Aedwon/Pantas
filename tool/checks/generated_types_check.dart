@@ -16,12 +16,15 @@ class GeneratedTypesCheck extends Check {
   @override
   List<Violation> run(String root) {
     final path = '$root/content/types';
-    if (!Directory(path).existsSync()) {
+    final heldPath = '$root/content/types-held';
+    if (!Directory(path).existsSync() && !Directory(heldPath).existsSync()) {
       stdout.writeln(
           '      no content/types/ directory; generated types skipped');
       return [];
     }
-    return checkTypeFiles(root: root, typesPath: path)
+    final failures = checkTypeFiles(root: root, typesPath: path)
+      ..addAll(checkTypeFiles(root: root, typesPath: heldPath, held: true));
+    return failures
         .map((failure) => Violation(
             '${failure.typeId} #${failure.index} ${failure.check}',
             failure.reason))

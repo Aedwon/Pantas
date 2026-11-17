@@ -1,0 +1,72 @@
+{
+  "id": "qt-spatial-abstract-reasoning-series-two-fill-steps",
+  "lesson": "lesson-spatial-abstract-reasoning-figure-counts-and-fills",
+  "keyPoint": 2,
+  "difficulty": "hard",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "figure-series",
+  "rule": "series-two-fill-steps",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "figure",
+  "enabled": true,
+  "params": {
+    "forms": [
+      "square",
+      "circle",
+      "triangle",
+      "pentagon",
+      "star"
+    ],
+    "sizes": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "lengths": [
+      5
+    ],
+    "steps": [
+      45,
+      90,
+      135
+    ],
+    "initialDots": [
+      0,
+      1,
+      2
+    ],
+    "initialEdges": [
+      0,
+      1,
+      2
+    ]
+  },
+  "stem": "Continue the shown fill cycle for two further figures. What fill appears in the second further figure?\n",
+  "explanation": "The fill repeats quarter, half, three-quarters. Count two more steps. The requested figure is: {answerText}.\n",
+  "mistakes": [
+    {
+      "id": "keep-increasing",
+      "note": "This fills the whole figure. The first fill levels rise. Check the restart already shown."
+    },
+    {
+      "id": "repeat-last",
+      "note": "This repeats the last figure. It is the most recent state. Check the full cycle before continuing."
+    },
+    {
+      "id": "one-step-only",
+      "note": "This takes only one more step. It gives the immediate next state. Count both steps requested by the stem."
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-series-0011",
+      "index": 0
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 import '../../model.dart';
 import '../math_solver.dart';
+import 'figure_series/series_solver.dart';
 
 /// Independent of generation. Read the rule's documented params contract.
 // Range validation is a per-rule contract shared by math and figure solvers.
@@ -30,5 +31,13 @@ abstract class FigureSolver implements Solver {
 typedef MistakeSolver = Object Function(ProblemType type, Variant variant);
 
 final mathSolvers = <String, MathSolver>{};
-final figureSolvers = <String, FigureSolver>{};
-final mistakeSolvers = <(String, String), MistakeSolver>{};
+final figureSolvers = <String, FigureSolver>{
+  for (final pattern in seriesMistakes.keys)
+    'series-$pattern': SeriesSolver(pattern),
+};
+final mistakeSolvers = <(String, String), MistakeSolver>{
+  for (final entry in seriesMistakes.entries)
+    for (final id in entry.value)
+      ('series-${entry.key}', id): (type, variant) =>
+          SeriesSolver(entry.key).mistake(variant, id),
+};

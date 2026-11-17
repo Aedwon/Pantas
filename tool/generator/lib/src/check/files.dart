@@ -5,6 +5,7 @@ import 'package:yaml/yaml.dart';
 
 import '../model.dart';
 import 'check.dart';
+import 'solvers/solver.dart';
 
 Object? _plain(Object? value) {
   if (value is Map) {
@@ -71,6 +72,7 @@ Map<String, Map<String, Object?>> readSourceQuestions(
 List<CheckFailure> checkTypeFiles({
   required String root,
   required String typesPath,
+  bool held = false,
   String questionsRef = 'origin/content/bite-sized-cse-algebra-r1',
 }) {
   final directory = Directory(typesPath);
@@ -91,6 +93,20 @@ List<CheckFailure> checkTypeFiles({
       final type = parseProblemType(_yaml(file.readAsStringSync()));
       id = type.id;
       if (!ids.add(id)) throw const FormatException('duplicate type id');
+      if (held) {
+        if (!figureSolvers.containsKey(type.rule) &&
+            !mathSolvers.containsKey(type.rule)) {
+          failures.add(
+            CheckFailure(
+              id,
+              0,
+              'correctness',
+              'no solver for rule ${type.rule}',
+            ),
+          );
+        }
+        continue;
+      }
       final path = file.path.replaceFirst(RegExp(r'\.yaml$'), '.variants.yaml');
       final doc = parseVariantList(_yaml(File(path).readAsStringSync()));
       if (doc.problemType != id || doc.ruleVersion != type.ruleVersion) {

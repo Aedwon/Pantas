@@ -1,0 +1,72 @@
+{
+  "id": "qt-spatial-abstract-reasoning-series-double-fill",
+  "lesson": "lesson-spatial-abstract-reasoning-figure-counts-and-fills",
+  "keyPoint": 2,
+  "difficulty": "easy",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "figure-series",
+  "rule": "series-double-fill",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "figure",
+  "enabled": true,
+  "params": {
+    "forms": [
+      "square",
+      "circle",
+      "triangle",
+      "pentagon",
+      "star"
+    ],
+    "sizes": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "lengths": [
+      5
+    ],
+    "steps": [
+      45,
+      90,
+      135
+    ],
+    "initialDots": [
+      0,
+      1,
+      2
+    ],
+    "initialEdges": [
+      0,
+      1,
+      2
+    ]
+  },
+  "stem": "Which figure best continues the simplest consistent pattern shown?\n",
+  "explanation": "The fill repeats black, black, white. The outline stays the same. The requested figure is: {answerText}.\n",
+  "mistakes": [
+    {
+      "id": "continue-majority-fill",
+      "note": "This keeps the fill black. Two black figures appear together. Check the full three-position group."
+    },
+    {
+      "id": "average-fill",
+      "note": "This averages the two fills. Both fills appear in the series. Check whether a half fill belongs to the cycle."
+    },
+    {
+      "id": "change-outline",
+      "note": "This changes the outline. The fill continues correctly. Check which feature stays the same."
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-series-0015",
+      "index": 0
+    }
+  ]
+}

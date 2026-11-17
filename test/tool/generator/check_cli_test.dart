@@ -9,6 +9,8 @@ void main() {
       'tool/generator/bin/check.dart',
       '--types',
       'missing-types-for-test',
+      '--held-types',
+      'missing-held-types-for-test',
     ]);
     expect(result.exitCode, 0);
     expect(result.stdout, contains('no content/types/'));

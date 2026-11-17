@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import '../model.dart';
+import 'figure_series/series.dart';
 
 abstract class Rule {
   String get name;
@@ -9,7 +10,9 @@ abstract class Rule {
 }
 
 /// Real rules register here as their separately assigned tasks land.
-final ruleRegistry = <String, Rule>{};
+final ruleRegistry = <String, Rule>{
+  for (final pattern in seriesPatterns) 'series-$pattern': SeriesRule(pattern),
+};
 
 /// Generation keeps rule parameters separate from cosmetic attributes.
 class RuleResult {

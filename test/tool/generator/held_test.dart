@@ -1,0 +1,64 @@
+// ignore_for_file: avoid_relative_lib_imports
+import 'dart:io';
+
+import 'package:flutter_test/flutter_test.dart';
+
+import '../../../tool/generator/lib/src/check/files.dart';
+import 'check_support.dart';
+
+void main() {
+  setUp(registerTestSolvers);
+  test('held type without a list passes schema and solver checks', () {
+    final dir = Directory.systemTemp.createTempSync('types-held-');
+    addTearDown(() => dir.deleteSync(recursive: true));
+    File('${dir.path}/type.yaml').writeAsStringSync(
+      File('test/tool/generator/fixtures/type.yaml')
+          .readAsStringSync()
+          .replaceFirst('rule: figureSeriesTurnStep', 'rule: testFigure'),
+    );
+    expect(checkTypeFiles(root: '.', typesPath: dir.path, held: true), isEmpty);
+  });
+  test('held type with an unknown solver fails without requiring a list', () {
+    final dir = Directory.systemTemp.createTempSync('types-held-');
+    addTearDown(() => dir.deleteSync(recursive: true));
+    File('${dir.path}/type.yaml').writeAsStringSync(
+      File('test/tool/generator/fixtures/type.yaml').readAsStringSync(),
+    );
+    final errors = checkTypeFiles(root: '.', typesPath: dir.path, held: true);
+    expect(errors.single.check, 'correctness');
+    expect(errors.single.reason, contains('no solver'));
+  });
+  test('CLI checks held types when the active directory is absent', () async {
+    final dir = Directory.systemTemp.createTempSync('held-cli-');
+    addTearDown(() => dir.deleteSync(recursive: true));
+    final type = File('${dir.path}/type.yaml');
+    final fixture =
+        File('test/tool/generator/fixtures/type.yaml').readAsStringSync();
+    type.writeAsStringSync(
+      fixture.replaceFirst(
+        'rule: figureSeriesTurnStep',
+        'rule: series-ray-step',
+      ),
+    );
+    final good = await Process.run('dart', [
+      'run',
+      'tool/generator/bin/check.dart',
+      '--types',
+      '${dir.path}/absent',
+      '--held-types',
+      dir.path,
+    ]);
+    expect(good.exitCode, 0, reason: '${good.stderr}');
+    type.writeAsStringSync(fixture);
+    final bad = await Process.run('dart', [
+      'run',
+      'tool/generator/bin/check.dart',
+      '--types',
+      '${dir.path}/absent',
+      '--held-types',
+      dir.path,
+    ]);
+    expect(bad.exitCode, 1);
+    expect(bad.stderr, contains('no solver'));
+  });
+}
