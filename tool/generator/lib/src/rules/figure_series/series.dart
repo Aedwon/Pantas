@@ -366,6 +366,12 @@ class SeriesRule implements Rule {
           )) {
         continue;
       }
+      // The dot row and fill edge are horizontal in the existing painter.
+      if (!fixed &&
+          pattern == 'fill-ray-dots' &&
+          [...items, ...figures].any((a) => [90, 270].contains(a['line']))) {
+        continue;
+      }
       if (figures.map(dataKey).toSet().length != figures.length) continue;
       final cosmetic = ![
         'outline-triple',
@@ -387,7 +393,7 @@ class SeriesRule implements Rule {
       final slots = <String, Object?>{
         'horizon': horizon,
         if (extraForm != null) 'extraForm': extraForm,
-        'answerText': _describe(answer),
+        'answerText': _describe(answer, pattern),
         if (pattern == 'ray-step')
           'restartAction': first['line'] == last['line']
               ? 'the last ray again'
@@ -410,11 +416,19 @@ class SeriesRule implements Rule {
                   as Map<String, dynamic>)['text']
               : pattern == 'outline-triple'
                   ? _outlineLabel(figures[i]['form']! as String)
-                  : _describe(figures[i]),
+                  : _describe(figures[i], pattern),
           'figure': figures[i],
           if (i == 0) 'correct': true else 'mistake': mistakes[i - 1],
         },
       );
+      if (!fixed &&
+          (choices.first['text']! as String).length >
+              choices
+                  .skip(1)
+                  .map((c) => (c['text']! as String).length)
+                  .reduce(max)) {
+        continue;
+      }
       final raw = <String, Object?>{
         'index': index,
         if (fixed) 'source': (source['id']! as String),
@@ -453,42 +467,54 @@ String _outlineLabel(String form) => switch (form) {
       'pentagon' => '5-sided polygon',
       _ => '${form[0].toUpperCase()}${form.substring(1)}',
     };
-String _arrowLabel(String direction) => switch (direction) {
-      'up' => 'N',
-      'right' => 'E',
-      'down' => 'S',
-      'left' => 'W',
-      _ => throw StateError(direction),
-    };
-
-String _describe(Map<String, Object?> item) {
-  final parts = <String>[
+String _describe(Map<String, Object?> item, String pattern) {
+  String cap(String s) => '${s[0].toUpperCase()}${s.substring(1)}';
+  const numbers = ['zero', 'one', 'two', 'three', 'four', 'five'];
+  String count(String key, String label) =>
+      '${numbers[item[key]! as int]} $label${item[key] == 1 ? '' : 's'}';
+  final outline = [
     if (item['size'] != null) '${item['size']}',
     if (item['fill'] != null)
       switch (item['fill']) {
         'black' => 'black',
         'white' => 'white',
-        .25 => '25%-filled',
-        .5 => '50%-filled',
-        .75 => '75%-filled',
-        _ => 'fully filled'
+        .25 => 'quarter-filled',
+        .5 => 'half-filled',
+        .75 => 'three-quarter-filled',
+        _ => 'fully filled',
       },
     '${item['form']}',
-  ];
-  final text = parts.join(' ');
-  final arrow = item['arrow'];
-  final arrowDirection = arrow == null ? '' : _arrowLabel(arrow as String);
-  final ray = item['line'];
-  final direction = ray == null ? '' : _directions[(ray as num) % 360 ~/ 45];
-  final dotLabel = item['dots'] == 1 ? 'dot' : 'dots';
-  final edgeLabel = item['edgeLines'] == 1 ? 'edge line' : 'edge lines';
-  return '${text[0].toUpperCase()}${text.substring(1)}'
-      '${item['dots'] != null ? '; ${item['dots']} $dotLabel' : ''}'
-      '${item['edgeLines'] != null ? '; ${item['edgeLines']} $edgeLabel' : ''}'
-      '${item['dot'] != null ? '; dot ${item['dot']}' : ''}'
-      '${ray != null ? '; line $direction' : ''}'
-      '${arrow != null ? '; arrow $arrowDirection' : ''}';
+  ].join(' ');
+  final ray = item['line'] == null
+      ? ''
+      : _directions[(item['line']! as num) % 360 ~/ 45];
+  return switch (pattern) {
+    'ray-step' => 'Line pointing $ray',
+    'two-arrow-turns' ||
+    'arrow-alternation' =>
+      'Arrow pointing ${item['arrow']}',
+    'dots-size' ||
+    'interleaved-count' =>
+      '${cap(outline)} with ${count('dots', 'dot')}',
+    'four-tracks' =>
+      '${cap(outline)}; line $ray; ${count('edgeLines', 'edge line')}',
+    'corner-edge-count' =>
+      '${cap(item['dot']! as String)} dot; ${count('edgeLines', 'edge line')}',
+    'transfer-count' =>
+      '${cap(count('dots', 'dot'))}; ${count('edgeLines', 'edge line')}',
+    'fill-ray-dots' => '${cap(outline)}; line $ray',
+    'size-corner-ray' => '${cap(outline)}; dot ${item['dot']}; line $ray',
+    _ => cap(outline),
+  };
 }
 
-// Standard compass abbreviations keep ray descriptions concise.
-const _directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
+const _directions = [
+  'up',
+  'upper-right',
+  'right',
+  'lower-right',
+  'down',
+  'lower-left',
+  'left',
+  'upper-left',
+];

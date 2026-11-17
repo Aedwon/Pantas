@@ -46,6 +46,9 @@ final figureSolvers = <String, FigureSolver>{
   'matrix-ray-reflection-up-down':
       MatrixSolver('ray-turn', reflectRaysUpDown: true),
   'matrix-dot-counting-sequence': MatrixSolver('dot-sum', continueCounts: true),
+  for (final direction in ['lowest', 'leftmost', 'rightmost'])
+    'matrix-$direction-ray':
+        MatrixSolver('ray-intersection', extremeRay: direction),
   'matrix-highest-ray': MatrixSolver('ray-intersection', highestRay: true),
   'matrix-ray-reflection': MatrixSolver('ray-turn', reflectRays: true),
   // Competing count rules remain in the library even when their source type

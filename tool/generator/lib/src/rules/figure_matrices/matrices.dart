@@ -536,35 +536,49 @@ class MatrixRule implements Rule {
           continue;
         }
       }
-      // Reject the audited highest-ray reading when it completes a wrong
-      // choice. Tied heights do not define that competing rule.
+      // Directional selection must not offer a competing answer. Integer
+      // compass projections preserve ties instead of breaking them arbitrarily.
       if (!fixed && pattern == 'ray-intersection') {
-        const heights = [2, 1, 0, -1, -2, -1, 0, 1];
-        num? highest(Iterable<num> values) {
-          final all = values.toSet();
-          final top = all
-              .where(
-                (v) => all.every(
-                  (other) => heights[v ~/ 45] >= heights[other ~/ 45],
-                ),
-              )
-              .toList();
-          return top.length == 1 ? top.single : null;
-        }
+        var ambiguous = false;
+        for (final projection in [
+          [2, 1, 0, -1, -2, -1, 0, 1],
+          [-2, -1, 0, 1, 2, 1, 0, -1],
+          [0, -1, -2, -1, 0, 1, 2, 1],
+          [0, 1, 2, 1, 0, -1, -2, -1],
+        ]) {
+          num? extreme(int row) {
+            final values = {...rays(at(row, 0)), ...rays(at(row, 1))};
+            final selected = values
+                .where(
+                  (v) => values.every(
+                    (other) => projection[v ~/ 45] >= projection[other ~/ 45],
+                  ),
+                )
+                .toList();
+            return selected.length == 1 ? selected.single : null;
+          }
 
-        if (highest([...rays(at(0, 0)), ...rays(at(0, 1))]) ==
-            at(0, 2)['line']) {
-          final target = highest([...rays(at(1, 0)), ...rays(at(1, 1))]);
-          if (target != null &&
-              figures.skip(1).any(
-                    (f) => rays(f).length == 1 && rays(f).single == target,
-                  )) {
-            continue;
+          if (extreme(0) == at(0, 2)['line']) {
+            final target = extreme(1);
+            if (target != null &&
+                figures.skip(1).any(
+                      (f) => rays(f).length == 1 && rays(f).single == target,
+                    )) {
+              ambiguous = true;
+            }
           }
         }
+        if (ambiguous) continue;
+      }
+      if (!fixed &&
+          pattern == 'size-dots' &&
+          [...rawCells.whereType<Map<String, Object?>>(), ...figures].any(
+            (a) => !_countableDots(a),
+          )) {
+        continue;
       }
       final slots = <String, Object?>{
-        'answerText': _describe(answer),
+        'answerText': _describe(answer, pattern),
         if (mistakes
             .any((m) => ['change-form', 'introduce-fourth-form'].contains(m)))
           'extraForm': extra,
@@ -574,7 +588,7 @@ class MatrixRule implements Rule {
         (i) => <String, Object?>{
           'text': fixed
               ? ((source['choices'] as List)[i] as Map)['text']
-              : _describe(figures[i]),
+              : _describe(figures[i], pattern),
           'figure': figures[i],
           if (i == 0) 'correct': true else 'mistake': mistakes[i - 1],
         },
@@ -646,37 +660,80 @@ class MatrixRule implements Rule {
   }
 }
 
-String _describe(Map<String, Object?> a) {
-  const compass = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
+String _describe(Map<String, Object?> a, String pattern) {
+  String cap(String s) => '${s[0].toUpperCase()}${s.substring(1)}';
+  const words = ['zero', 'one', 'two', 'three', 'four', 'five'];
+  const directions = [
+    'up',
+    'upper-right',
+    'right',
+    'lower-right',
+    'down',
+    'lower-left',
+    'left',
+    'upper-left',
+  ];
+  String count(String key, String label) =>
+      '${words[a[key]! as int]} $label${a[key] == 1 ? '' : 's'}';
+  final outline = [
+    if (a['size'] != null) '${a['size']}',
+    if (a['fill'] != null)
+      switch (a['fill']) {
+        .5 => 'half-filled',
+        _ => '${a['fill']}',
+      },
+    '${a['form']}',
+  ].join(' ');
   final rays = [
     if (a['line'] != null) a['line']! as num,
     if (a['lines'] != null) ...(a['lines']! as List).cast<num>(),
   ]..sort();
-  final parts = <String>[
-    if (a['size'] != null) '${a['size']}',
-    if (a['fill'] != null)
-      a['fill'] == .5
-          ? 'half-filled (${a['rotation'] ?? 0} degrees)'
-          : '${a['fill']}',
-    '${a['form']}',
-  ];
-  final text = parts.join(' ');
-  final rayText = rays.map((v) => compass[v ~/ 45]).join(', ');
-  final dotText = a['dots'] == null
-      ? ''
-      : '${a['dots']} ${a['dots'] == 1 ? 'dot' : 'dots'}';
-  final edgeText = a['edgeLines'] == null
-      ? ''
-      : '${a['edgeLines']} ${a['edgeLines'] == 1 ? 'edge line' : 'edge lines'}';
-  final rayLabel = rays.isEmpty
+  final rayWords = rays.map((r) => directions[r ~/ 45]).toList();
+  final rayText = rays.isEmpty
       ? ''
       : rays.length == 1
-          ? '; ray $rayText'
-          : '; ${rayText.replaceAll(', ', '+')}';
-  return '${text[0].toUpperCase()}${text.substring(1)}'
-      '$rayLabel'
-      '${a['dot'] == null ? '' : '; dot ${a['dot']}'}'
-      '${a['arrow'] == null ? '' : '; arrow ${a['arrow']}'}'
-      '${dotText.isEmpty ? '' : '; $dotText'}'
-      '${edgeText.isEmpty ? '' : '; $edgeText'}';
+          ? 'only the ${rayWords.single} ray'
+          : 'rays ${rayWords.take(rayWords.length - 1).join(', ')} '
+              'and ${rayWords.last}';
+  return switch (pattern) {
+    'ray-turn' ||
+    'form-ray' =>
+      '${cap(outline)} with line pointing ${rayWords.single}',
+    'ray-union' ||
+    'ray-intersection' ||
+    'sized-ray-union' =>
+      '${cap(outline)} with $rayText',
+    'corner-step' ||
+    'corner-reflection' ||
+    'corner-grid' =>
+      '${cap(outline)} with dot at ${a['dot']}',
+    'size-dots' || 'dot-sum' => '${cap(outline)} with ${count('dots', 'dot')}',
+    'size-transfer' => '${cap(outline)}; ${count('dots', 'dot')}; '
+        '${count('edgeLines', 'edge line')}',
+    'arrow-column' => 'Arrow pointing ${a['arrow']}',
+    'growing-turn' => 'Line pointing ${rayWords.single}',
+    'fill-union' => a['fill'] == .5
+        ? '${switch (a['rotation'] ?? 0) {
+            0 => 'Bottom',
+            90 => 'Left',
+            180 => 'Top',
+            _ => 'Right'
+          }}-half-filled ${a['form']}'
+        : 'Fully ${a['fill']} ${a['form']}',
+    _ => cap(outline),
+  };
+}
+
+// At the matrix painter's 18px base radius. Triangles and stars have narrow
+// interiors; cap counts before dots crowd each other or the outline.
+bool _countableDots(Map<String, Object?> a) {
+  final count = a['dots']! as int;
+  final small = a['size'] == 'small';
+  return count <=
+      switch (a['form']) {
+        'triangle' => small ? 2 : 3,
+        'star' => small ? 1 : 2,
+        'pentagon' => small ? 3 : 5,
+        _ => small ? 4 : 5,
+      };
 }

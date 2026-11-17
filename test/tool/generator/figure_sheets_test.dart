@@ -31,13 +31,12 @@ class _Sample {
 /// Every variant of every type directory, grouped by the stem figure kind.
 Map<String, Map<String, List<Map<String, Object?>>>> _load() {
   final out = <String, Map<String, List<Map<String, Object?>>>>{};
-  final files =
-      Directory(_typesDir)
-          .listSync(recursive: true)
-          .whereType<File>()
-          .where((f) => f.path.endsWith('.variants.yaml'))
-          .toList()
-        ..sort((a, b) => a.path.compareTo(b.path));
+  final files = Directory(_typesDir)
+      .listSync(recursive: true)
+      .whereType<File>()
+      .where((f) => f.path.endsWith('.variants.yaml'))
+      .toList()
+    ..sort((a, b) => a.path.compareTo(b.path));
   for (final file in files) {
     final id = file.uri.pathSegments.last.replaceAll('.variants.yaml', '');
     final variants = <Map<String, Object?>>[];
@@ -45,9 +44,8 @@ Map<String, Map<String, List<Map<String, Object?>>>> _load() {
       if (!line.startsWith('  - ')) continue;
       variants.add(jsonDecode(line.substring(4))! as Map<String, Object?>);
     }
-    final kind =
-        (variants.first['figureSpec']! as Map<String, Object?>)['kind']!
-            as String;
+    final kind = (variants.first['figureSpec']!
+        as Map<String, Object?>)['kind']! as String;
     (out[kind] ??= {})[id] = variants;
   }
   return out;
@@ -100,12 +98,12 @@ class _ItemPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) => FigureSeriesFigure.paintItem(
-    canvas,
-    item,
-    size.center(Offset.zero),
-    36,
-    palette,
-  );
+        canvas,
+        item,
+        size.center(Offset.zero),
+        36,
+        palette,
+      );
 
   @override
   bool shouldRepaint(_ItemPainter old) => true;
@@ -149,14 +147,15 @@ Widget _sample(BuildContext context, String kind, _Sample s) {
     double size, {
     FontWeight w = FontWeight.w400,
     double a = 1,
-  }) => TextStyle(
-    fontFamily: 'Geist',
-    fontSize: size,
-    fontWeight: w,
-    color: ink.withValues(alpha: a),
-  );
-  final choices = (s.variant['choices']! as List<Object?>)
-      .cast<Map<String, Object?>>();
+  }) =>
+      TextStyle(
+        fontFamily: 'Geist',
+        fontSize: size,
+        fontWeight: w,
+        color: ink.withValues(alpha: a),
+      );
+  final choices =
+      (s.variant['choices']! as List<Object?>).cast<Map<String, Object?>>();
   return SizedBox(
     width: 640,
     child: Column(
@@ -229,43 +228,45 @@ void main() {
     final sheets = (byKind[kind]!.length / _samples).ceil();
     for (var sheet = 0; sheet < sheets; sheet++) {
       for (final dark in [false, true]) {
-        final name =
-            '$kind-${dark ? 'dark' : 'light'}'
+        final name = '$kind-${dark ? 'dark' : 'light'}'
             '${sheet == 0 ? '' : '-${sheet + 1}'}';
-        testWidgets('$name figure sheet', (tester) async {
-          await loadGoldenFonts();
-          goldenFileComparator = TolerantGoldenComparator(
-            Uri.parse(
-              '${(goldenFileComparator as LocalFileComparator).basedir}x',
-            ),
-          );
-          tester.view
-            ..physicalSize = const Size(2000, 4000)
-            ..devicePixelRatio = 1;
-          addTearDown(tester.view.reset);
-          final samples = _pick(byKind[kind]!, sheet: sheet);
-          final key = GlobalKey();
-          await tester.pumpWidget(
-            MaterialApp(
-              debugShowCheckedModeBanner: false,
-              theme: dark ? buildDarkTheme() : buildLightTheme(),
-              home: Material(
-                child: Align(
-                  alignment: Alignment.topLeft,
-                  child: RepaintBoundary(
-                    key: key,
-                    child: Builder(
-                      builder: (context) => ColoredBox(
-                        color: Theme.of(context).scaffoldBackgroundColor,
-                        child: Padding(
-                          padding: const EdgeInsets.all(20),
-                          child: Wrap(
-                            spacing: 32,
-                            runSpacing: 24,
-                            children: [
-                              for (final s in samples)
-                                _sample(context, kind, s),
-                            ],
+        testWidgets(
+          '$name figure sheet',
+          (tester) async {
+            await loadGoldenFonts();
+            goldenFileComparator = TolerantGoldenComparator(
+              Uri.parse(
+                '${(goldenFileComparator as LocalFileComparator).basedir}x',
+              ),
+            );
+            tester.view
+              ..physicalSize = const Size(2000, 4000)
+              ..devicePixelRatio = 1;
+            addTearDown(tester.view.reset);
+            final samples = _pick(byKind[kind]!, sheet: sheet);
+            final key = GlobalKey();
+            await tester.pumpWidget(
+              MaterialApp(
+                debugShowCheckedModeBanner: false,
+                theme: dark ? buildDarkTheme() : buildLightTheme(),
+                home: Material(
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: RepaintBoundary(
+                      key: key,
+                      child: Builder(
+                        builder: (context) => ColoredBox(
+                          color: Theme.of(context).scaffoldBackgroundColor,
+                          child: Padding(
+                            padding: const EdgeInsets.all(20),
+                            child: Wrap(
+                              spacing: 32,
+                              runSpacing: 24,
+                              children: [
+                                for (final s in samples)
+                                  _sample(context, kind, s),
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -273,20 +274,19 @@ void main() {
                   ),
                 ),
               ),
-            ),
-          );
-          await tester.pump(const Duration(milliseconds: 600));
-          expect(tester.takeException(), isNull);
-          await expectLater(
-            find.byKey(key),
-            matchesGoldenFile(
-              '../../../docs/superpowers/verification/'
-              'question-generator-sheets/$name.png',
-            ),
-          );
-        },
-        tags: goldenTag,
-      );
+            );
+            await tester.pump(const Duration(milliseconds: 600));
+            expect(tester.takeException(), isNull);
+            await expectLater(
+              find.byKey(key),
+              matchesGoldenFile(
+                '../../../docs/superpowers/verification/'
+                'question-generator-sheets/$name.png',
+              ),
+            );
+          },
+          tags: goldenTag,
+        );
       }
     }
   }

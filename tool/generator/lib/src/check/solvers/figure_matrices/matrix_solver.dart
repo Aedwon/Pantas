@@ -84,15 +84,22 @@ class MatrixSolver implements FigureSolver {
     this.reflectRaysUpDown = false,
     this.continueCounts = false,
     this.highestRay = false,
+    this.extremeRay,
   });
   final bool reflectRays;
   final bool reflectRaysUpDown;
   final bool continueCounts;
   final bool highestRay;
+  final String? extremeRay;
 
   num _highestRay(Iterable<num> rays) {
     // Compass-grid heights, scaled without floating-point tie errors.
-    const heights = [2, 1, 0, -1, -2, -1, 0, 1];
+    final heights = switch (extremeRay) {
+      'lowest' => [-2, -1, 0, 1, 2, 1, 0, -1],
+      'leftmost' => [0, -1, -2, -1, 0, 1, 2, 1],
+      'rightmost' => [0, 1, 2, 1, 0, -1, -2, -1],
+      _ => [2, 1, 0, -1, -2, -1, 0, 1],
+    };
     final values = rays.toSet();
     int height(num ray) {
       if (ray < 0 || ray >= 360 || ray % 45 != 0) {
@@ -157,7 +164,7 @@ class MatrixSolver implements FigureSolver {
       case 'ray-intersection':
         return _withRays(
           a,
-          highestRay
+          highestRay || extremeRay != null
               ? [
                   _highestRay([..._rays(at(y, 0)), ..._rays(at(y, 1))]),
                 ]
@@ -434,7 +441,7 @@ class MatrixSolver implements FigureSolver {
               return false;
             }
             final rays = pattern == 'ray-intersection'
-                ? highestRay
+                ? highestRay || extremeRay != null
                     ? {
                         _highestRay([...left, ...right]),
                       }
