@@ -9804,9 +9804,9 @@
     "lesson": "lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry"
   },
   "q-spatial-abstract-reasoning-figure-grouping-0006": {
-    "approvedAt": "2026-11-15",
+    "approvedAt": "2026-11-17",
     "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
-    "hash": "22a62b3c06449cc977976b64745d663006cc20f140884bcac9e2336bd95b7a8e",
+    "hash": "3cbba57d6a4821c9375ec6ef0206025c1560953711ae23fb43857523827d2771",
     "lesson": "lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry"
   },
   "q-spatial-abstract-reasoning-figure-grouping-0007": {
@@ -9948,9 +9948,9 @@
     "lesson": "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules"
   },
   "q-spatial-abstract-reasoning-figure-matrices-0009": {
-    "approvedAt": "2026-11-15",
+    "approvedAt": "2026-11-17",
     "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
-    "hash": "3efceed857b6809651ea168b4be2b7c1d46f6e4c95838d8daf95a66607986c4d",
+    "hash": "a178c070d8749e4736741827a79b539859e24923339b26c98203a35e31f25a25",
     "lesson": "lesson-spatial-abstract-reasoning-matrix-keeping-shared-features"
   },
   "q-spatial-abstract-reasoning-figure-matrices-0010": {
@@ -10008,9 +10008,9 @@
     "lesson": "lesson-spatial-abstract-reasoning-matrix-turns-and-counts"
   },
   "q-spatial-abstract-reasoning-figure-matrices-0019": {
-    "approvedAt": "2026-11-15",
+    "approvedAt": "2026-11-17",
     "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
-    "hash": "40c984ac7dc6a9fec39dca9688ef8c93545e46fe5f5b5d0daae51eeeba0dd082",
+    "hash": "504bcd40735f981718262ca2ab98f82604ec20aa8f59a8279fb7c21cc3fdf54b",
     "lesson": "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules"
   },
   "q-spatial-abstract-reasoning-figure-matrices-0020": {
@@ -10122,9 +10122,9 @@
     "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
   },
   "q-spatial-abstract-reasoning-figure-series-0017": {
-    "approvedAt": "2026-11-15",
+    "approvedAt": "2026-11-17",
     "evidence": "docs/content/verification/logical-verbal-and-spatial-reasoning.md",
-    "hash": "9b0f9d97b7d9d6ac2d7007c9354377d6da00cd505e762c0cd38cb1a54c76f702",
+    "hash": "c0872173b8decca65c4c2cd56cdcb26b791408e3f6b47654f9d65f1632da3702",
     "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
   },
   "q-spatial-abstract-reasoning-figure-series-0018": {
