@@ -1,4 +1,5 @@
 // Literal production source figures and wording, revision 88f38e698.
+// Source 0009 re-synced to the fixed production root 646326517.
 const matrixSources = '''
 {
   "ray-turn": {
@@ -408,7 +409,7 @@ const matrixSources = '''
         "text": "Square with all three diagonal rays"
       },
       {
-        "text": "Square with only the upper-right ray"
+        "text": "Square with the lower-right and lower-left rays"
       },
       {
         "text": "Square with only the lower-left ray"

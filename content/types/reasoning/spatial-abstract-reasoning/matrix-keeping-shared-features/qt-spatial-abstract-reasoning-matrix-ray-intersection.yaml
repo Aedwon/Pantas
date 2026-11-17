@@ -90,8 +90,8 @@
       "note": "This keeps all input rays. Each ray appears in at least one input. Keep a ray only when both inputs contain it."
     },
     {
-      "id": "first-exclusive",
-      "note": "This keeps a ray found only in the first input. It stands out there. Check that the same ray is also in the second input."
+      "id": "second-ray-only",
+      "note": "This copies both rays from the second input. That cell is next to the blank. Keep only the ray shared by both inputs."
     },
     {
       "id": "second-exclusive",

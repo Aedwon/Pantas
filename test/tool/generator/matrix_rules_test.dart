@@ -190,13 +190,15 @@ void main() {
       }
       final sources = readSourceQuestions(
         '.',
-        'origin/content/bite-sized-cse-algebra-r1',
+        ['ray-intersection', 'corner-grid'].contains(pattern)
+            ? '646326517'
+            : 'origin/content/bite-sized-cse-algebra-r1',
         type.mergedQuestions.map((m) => m.id).toSet(),
       );
       final failures = checkVariants(type, list.variants, questions: sources);
       // Held sources remain exact, but cannot pass current correctness rules.
       expect(failures.where((f) => f.check == 'merged'), isEmpty);
-      if (['corner-step', 'ray-intersection'].contains(pattern)) {
+      if (pattern == 'corner-step') {
         expect(failures.where((f) => f.check == 'correctness'), isNotEmpty);
       } else {
         expect(failures, isEmpty);
@@ -218,11 +220,6 @@ void main() {
             dataKey(c.figure),
           );
           for (final entry in figureSolvers.entries) {
-            // Only the documented highest-ray ambiguity is accepted while held.
-            if (pattern == 'ray-intersection' &&
-                entry.key == 'matrix-highest-ray') {
-              continue;
-            }
             final other = entry.value;
             expect(
               other.fits(

@@ -1,5 +1,5 @@
 // Literal reserved source figures and wording from production content
-// 88f38e698.
+// 88f38e698. Source 0017 re-synced to fixed production root 646326517.
 const seriesSources = '''
 {
   "ray-step": {
@@ -504,7 +504,7 @@ const seriesSources = '''
     },
     "choices": [
       {
-        "text": "Circle with 3 dots"
+        "text": "Circle with three dots"
       },
       {
         "text": "Square with four dots"
@@ -513,7 +513,7 @@ const seriesSources = '''
         "text": "Circle with five dots"
       },
       {
-        "text": "Circle with four dots"
+        "text": "Circle with two dots"
       }
     ]
   },

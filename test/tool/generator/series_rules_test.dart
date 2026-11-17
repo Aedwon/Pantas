@@ -60,18 +60,13 @@ void main() {
 
       final sources = readSourceQuestions(
         '.',
-        'origin/content/bite-sized-cse-algebra-r1',
+        pattern == 'interleaved-count'
+            ? '646326517'
+            : 'origin/content/bite-sized-cse-algebra-r1',
         type.mergedQuestions.map((m) => m.id).toSet(),
       );
       final failures = checkVariants(type, list.variants, questions: sources);
-      if (pattern == 'interleaved-count') {
-        // The held source is reproduced exactly, but its wrong choice also
-        // completes the doubling rule. Source fidelity is not validity.
-        expect(failures.where((f) => f.check == 'correctness'), isNotEmpty);
-        expect(failures.where((f) => f.check != 'correctness'), isEmpty);
-      } else {
-        expect(failures, isEmpty);
-      }
+      expect(failures, isEmpty);
       for (var i = 1; i <= 20; i++) {
         final result = ruleRegistry[name]!.generate(type, Random(i), i);
         final solver = figureSolvers[name]!;

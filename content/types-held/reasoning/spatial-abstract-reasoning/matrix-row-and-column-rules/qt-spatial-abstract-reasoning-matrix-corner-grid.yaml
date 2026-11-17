@@ -17,11 +17,7 @@
   "enabled": true,
   "params": {
     "forms": [
-      "square",
-      "circle",
-      "triangle",
-      "pentagon",
-      "star"
+      "square"
     ],
     "sizes": [
       "small",
@@ -87,15 +83,15 @@
   "mistakes": [
     {
       "id": "copy-row-start",
-      "note": "This copies the bottom row's first corner. That corner begins the row. Continue its clockwise route."
+      "note": "This copies the row's first corner. That corner begins the row. Continue its clockwise route."
     },
     {
       "id": "repeat-neighbor",
-      "note": "This repeats the adjacent corner. Bottom-left is most recent. Move one further corner clockwise."
+      "note": "This repeats the adjacent corner. That dot is beside the blank. Move one further corner clockwise."
     },
     {
       "id": "repeat-above",
-      "note": "This uses the wrong column direction. Top-right appears earlier in the grid. Check the counter-clockwise change down columns."
+      "note": "This repeats the cell directly above the blank. Copying that dot looks like a column rule. Check that the dot changes down the column."
     }
   ],
   "mergedQuestions": [

@@ -60,8 +60,8 @@
       "note": "This uses five dots from the next position number. Five follows four in counting. Compare only the odd-position dot counts."
     },
     {
-      "id": "copy-even-count",
-      "note": "This copies the even-position dot count. It appears twice. Check the odd-position sequence separately."
+      "id": "repeat-odd-count",
+      "note": "This repeats the last odd-position dot count. The even-position count repeats, so repeating feels safe. Check the change between odd positions."
     }
   ],
   "mergedQuestions": [

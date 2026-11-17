@@ -536,6 +536,33 @@ class MatrixRule implements Rule {
           continue;
         }
       }
+      // Reject the audited highest-ray reading when it completes a wrong
+      // choice. Tied heights do not define that competing rule.
+      if (!fixed && pattern == 'ray-intersection') {
+        const heights = [2, 1, 0, -1, -2, -1, 0, 1];
+        num? highest(Iterable<num> values) {
+          final all = values.toSet();
+          final top = all
+              .where(
+                (v) => all.every(
+                  (other) => heights[v ~/ 45] >= heights[other ~/ 45],
+                ),
+              )
+              .toList();
+          return top.length == 1 ? top.single : null;
+        }
+
+        if (highest([...rays(at(0, 0)), ...rays(at(0, 1))]) ==
+            at(0, 2)['line']) {
+          final target = highest([...rays(at(1, 0)), ...rays(at(1, 1))]);
+          if (target != null &&
+              figures.skip(1).any(
+                    (f) => rays(f).length == 1 && rays(f).single == target,
+                  )) {
+            continue;
+          }
+        }
+      }
       final slots = <String, Object?>{
         'answerText': _describe(answer),
         if (mistakes

@@ -48,7 +48,7 @@
 /// 0017 interleaved-count: four shown, ordered distinct forms, first odd count
 /// 0..3 increases one per odd position; even count 0..5 constant.
 /// continue-even-track repeats last; count-all-positions uses five dots on odd
-/// form; copy-even-count uses even count on odd form. Reject collisions.
+/// form; repeat-odd-count repeats the last odd count. Reject collisions.
 /// 0018 fill-ray-dots: four shown; distinct fills from
 /// quarter/half/three-quarter
 /// alternate; rays alternate with 45/90/135 separation, start on 45 grid; dots
@@ -349,6 +349,8 @@ class SeriesRule implements Rule {
             wrong['edgeLines'] = first['edgeLines'];
           case 'count-all-positions':
             wrong['dots'] = 5;
+          case 'repeat-odd-count':
+            wrong['dots'] = items[items.length - 2]['dots'];
           case 'copy-even-count':
             wrong['dots'] = items[1]['dots'];
           case 'freeze-ray':
