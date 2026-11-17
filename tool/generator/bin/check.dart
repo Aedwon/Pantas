@@ -8,7 +8,7 @@ import '../lib/src/check/files.dart';
 void main(List<String> args) {
   var types = 'content/types';
   var heldTypes = 'content/types-held';
-  var questionsRef = 'origin/content/bite-sized-cse-algebra-r1';
+  var questionsRef = '646326517';
   try {
     for (var i = 0; i < args.length; i += 2) {
       if (i + 1 >= args.length) {

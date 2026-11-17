@@ -43,10 +43,11 @@ Map<String, Map<String, List<Map<String, Object?>>>> _load() {
     for (final line in file.readAsLinesSync()) {
       if (!line.startsWith('  - ')) continue;
       variants.add(
-        (jsonDecode(line.substring(4)) as Map).cast<String, Object?>(),
+        jsonDecode(line.substring(4))! as Map<String, Object?>,
       );
     }
-    final kind = (variants.first['figureSpec'] as Map)['kind'] as String;
+    final kind = (variants.first['figureSpec']!
+        as Map<String, Object?>)['kind']! as String;
     (out[kind] ??= {})[id] = variants;
   }
   return out;
@@ -60,7 +61,7 @@ List<_Sample> _pick(Map<String, List<Map<String, Object?>>> types) {
     for (final id in ids) _Sample(id, types[id]!.first),
   ];
   final used = {
-    for (final id in ids) id: <int>{0}
+    for (final id in ids) id: <int>{0},
   };
   var round = 0;
   while (picked.length < _samples) {
@@ -134,15 +135,19 @@ Widget _choice(BuildContext context, String kind, Map<String, Object?> item) {
 
 Widget _sample(BuildContext context, String kind, _Sample s) {
   final ink = Theme.of(context).colorScheme.onSurface;
-  TextStyle style(double size,
-          {FontWeight w = FontWeight.w400, double a = 1}) =>
+  TextStyle style(
+    double size, {
+    FontWeight w = FontWeight.w400,
+    double a = 1,
+  }) =>
       TextStyle(
         fontFamily: 'Geist',
         fontSize: size,
         fontWeight: w,
         color: ink.withValues(alpha: a),
       );
-  final choices = (s.variant['choices'] as List).cast<Map>();
+  final choices =
+      (s.variant['choices']! as List<Object?>).cast<Map<String, Object?>>();
   return SizedBox(
     width: 640,
     child: Column(
@@ -153,7 +158,7 @@ Widget _sample(BuildContext context, String kind, _Sample s) {
           style: style(12, w: FontWeight.w600, a: 0.7),
         ),
         const SizedBox(height: 4),
-        _stem((s.variant['figureSpec'] as Map).cast<String, Object?>()),
+        _stem(s.variant['figureSpec']! as Map<String, Object?>),
         const SizedBox(height: 8),
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -167,7 +172,8 @@ Widget _sample(BuildContext context, String kind, _Sample s) {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '${_letters[i]}${choices[i]['correct'] == true ? '  key' : ''}',
+                        '${_letters[i]}'
+                        '${choices[i]['correct'] == true ? '  key' : ''}',
                         style: style(12, w: FontWeight.w700),
                       ),
                       const SizedBox(height: 2),
@@ -182,8 +188,7 @@ Widget _sample(BuildContext context, String kind, _Sample s) {
                               child: _choice(
                                 context,
                                 kind,
-                                (choices[i]['figure'] as Map)
-                                    .cast<String, Object?>(),
+                                choices[i]['figure']! as Map<String, Object?>,
                               ),
                             ),
                           ),

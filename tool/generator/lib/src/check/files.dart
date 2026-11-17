@@ -73,7 +73,7 @@ List<CheckFailure> checkTypeFiles({
   required String root,
   required String typesPath,
   bool held = false,
-  String questionsRef = 'origin/content/bite-sized-cse-algebra-r1',
+  String questionsRef = '646326517',
 }) {
   final directory = Directory(typesPath);
   if (!directory.existsSync()) return [];
@@ -111,6 +111,16 @@ List<CheckFailure> checkTypeFiles({
       final doc = parseVariantList(_yaml(File(path).readAsStringSync()));
       if (doc.problemType != id || doc.ruleVersion != type.ruleVersion) {
         throw const FormatException('variant metadata does not match type');
+      }
+      if (type.enabled && doc.variants.length < 20) {
+        failures.add(
+          CheckFailure(
+            id,
+            0,
+            'list-floor',
+            'active list holds ${doc.variants.length} variants; minimum is 20',
+          ),
+        );
       }
       final sources = readSourceQuestions(
         root,
