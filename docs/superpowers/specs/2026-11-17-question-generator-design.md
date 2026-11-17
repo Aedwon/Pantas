@@ -17,6 +17,31 @@ are a second spec, with boards.
 
 ## Part A: for Aedwon
 
+### Revision 1, approved November 17 ("go with A")
+
+The build lead's analysis of all 105 abstract reasoning questions on prod changed
+two things Part A said. Estimates below are not final counts.
+
+- The questions are not near-duplicates. Almost every one is its own pattern.
+- The app draws a small set of figures, so most patterns cannot reach 100 versions.
+  About 26 can. About 30 can reach 20 to 99. About 49 questions cannot be
+  generated, including all 21 paper folding questions and 11 with no figure.
+
+What you approved: each type ships at its true size, up to 100, with a floor of 20
+versions. About 55 of the 105 questions become types. The rest stay fixed questions
+and return in review as they do today. No added cost or delay.
+
+Against your goal: this meets "never the same figures" for the types until a list
+ends, and shorter lists end sooner. It does not meet it for the fixed questions.
+Teaching the app to draw more, so paper folding can be generated, is an idea on
+record. It is not approved and has no estimate.
+
+Also settled by the adviser, no decision needed from you: a question whose answer is
+a count, a condition or an order keeps text choices.
+
+Where the text below says "100 versions" or "the 100 hand-written questions", this
+revision controls.
+
 ### Your goal, in your words
 
 - "a student never re-encounters the same set of figures for a given problem type"
@@ -83,7 +108,8 @@ working as they do today, and your "every type first" rule is the roadmap's exis
 ### What gets built (balanced)
 
 1. **The generator.** A tool that runs on our computers, not in the app. For each
-   problem type it makes a list of versions. Start size: 100 versions per type.
+   problem type it makes a list of versions. Size: up to 100 versions per type, and
+   at least 20 (Revision 1).
 2. **The checker.** A script that fails the build unless every version has exactly one
    correct answer, every wrong choice matches its named mistake, and no two versions
    of a type share the same figures or the same numbers.
@@ -140,7 +166,8 @@ work, and this build is larger than most logged tasks.
 
 ### Limits
 
-- A student who uses up a list of 100 sees its oldest versions again. The list-use
+- A student who uses up a list (20 to 100 versions, Revision 1) sees its oldest
+  versions again. The list-use
   count exists so we refill before that happens.
 - No official list of PSHS-NCE abstract item kinds was found. The types come from
   the five lessons we have.
@@ -253,6 +280,16 @@ branch, the plan corrects it and tells the lead; a change to Part A returns to A
 - Figures here come from search summaries and abstracts, not full texts.
 
 ### B3. Rules
+
+Revision 1 rules (adviser rulings of November 17, in the decision log): a
+one-question pattern becomes a type when its rule reproduces the question exactly;
+a type needs at least 20 enumerated versions, else its questions stay singles;
+attributes a rule ignores may vary between versions but stay constant inside one;
+each version records its rule-parameter set, and the serve order in rule 5 cycles
+through distinct rule-parameter sets before reusing one; the cube-net signature
+ignores label permutations; a choice whose answer is not a figure is text only and
+each type declares its choice kind; paper folding and no-figure questions stay
+singles and the fold painter is not changed.
 
 Terms: a **type** is one question to every system. A **version** is one concrete
 question made from a type. A **single** is an ordinary question that is not a type.

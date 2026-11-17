@@ -658,4 +658,22 @@ C. Keep 100 as a hard minimum. Only about 26 types ship.
 
 Recommendation: A now, and have the UI lane scope B with a real estimate.
 
-Aedwon's answer: pending.
+Aedwon's answer, exact words (his own message, checked against the thread record): "go with A"
+
+## November 17, 2026: Revision 1 of Part A approved
+
+Decision (question 10): A. Each type ships at its true size, up to 100, with a floor
+of 20 versions. About 55 of the 105 abstract reasoning questions become types (an
+estimate; the build lead enumerates real counts). The rest stay fixed questions and
+return in review as today. No added cost or delay.
+
+What his words cover: option A only. Option B (teach the app to draw more, so paper
+folding can be generated) is an idea on record, not approved, with no estimate. The
+lead's suggestion to have the UI lane estimate B was not part of option A, so no
+one was asked to do it.
+
+Changed: the spec carries "Revision 1" at the top of Part A and in B3. The build
+lead was sent his answer.
+
+Honest limit recorded for him: A meets "never the same figures" for the types until
+a list ends. It does not meet it for the fixed questions.
