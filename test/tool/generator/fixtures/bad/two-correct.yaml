@@ -1,0 +1,9 @@
+variants:
+  - index: 0
+    slots: {a: 5, b: 3, answer: 8}
+    signature: first
+    choices:
+      - {correct: true, text: '8', value: '8'}
+      - {correct: true, text: '2', value: '2'}
+      - {mistake: extra-one, text: '9', value: '9'}
+      - {mistake: missing-one, text: '7', value: '7'}

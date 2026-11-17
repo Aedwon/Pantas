@@ -1,0 +1,1 @@
+{"variants": [{"index": 0, "slots": {"a": 5, "b": 3, "answer": 8}, "signature": "first", "choices": [{"correct": true, "text": "$\\frac{8}{1}$", "value": "8"}, {"mistake": "subtract", "text": "2", "value": "2"}, {"mistake": "extra-one", "text": "9", "value": "9"}, {"mistake": "missing-one", "text": "7", "value": "7"}]}]}

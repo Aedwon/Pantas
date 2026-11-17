@@ -14,6 +14,7 @@ import 'content_approval_check.dart';
 import 'custom_subject_tiers.dart';
 import 'design_token_literals.dart';
 import 'legal_text_drafting.dart';
+import 'generated_types_check.dart';
 import 'lesson_list_exam_scope.dart';
 import 'lesson_minutes_on_screen.dart';
 import 'lesson_pool_check.dart';
@@ -25,6 +26,7 @@ import 'shell_route_push.dart';
 import 'sync_mutations_typed_read.dart';
 
 const allChecks = <Check>[
+  GeneratedTypesCheck(),
   ContentApprovalCheck(),
   LessonSizeCheck(),
   LessonSplitCoverageCheck(),
