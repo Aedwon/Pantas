@@ -178,26 +178,26 @@ questions:
     figureSpec:
       kind: "shape-row"
       shapes:
-        - form: "pentagon"
-        - form: "pentagon"
+        - form: "parallelogram"
+        - form: "rectangle"
         - form: "hexagon"
-        - form: "pentagon"
+        - form: "rhombus"
     stem: |
       Three outlines match in side count. Which outline breaks that count?
     choices:
-      - text: "Third figure from the left"
+      - text: "Hexagon"
         correct: true
-      - text: "First figure from the left"
+      - text: "Parallelogram"
         rationale: |
-          This chooses an endpoint in the row. The first position can look separated from the others. Count sides instead of row position.
-      - text: "Second figure from the left"
+          This picks the slanted outline because it looks unlike the others. Its slant makes it stand out. Count its sides: it has four, the same as two other figures.
+      - text: "Rectangle"
         rationale: |
-          This chooses a matching pentagon because it is near the center. Its placement stands out. Count its five sides.
-      - text: "Fourth figure from the left"
+          This groups by equal sides. The rectangle's sides are not all equal, so it looks different from the rhombus. Count the sides, not their lengths.
+      - text: "Rhombus"
         rationale: |
-          This chooses the last position as a pattern endpoint. The last figure is visually isolated at the edge. Compare its side count.
+          This picks the tilted outline because it stands on a point. Turning a shape does not change its side count. Count its four sides.
     explanation: |
-      The first, second, and fourth figures are pentagons with five sides. The third is a hexagon with six sides.
+      The parallelogram, rectangle, and rhombus each have four sides. The hexagon has six sides and breaks that shared count.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0007"
     lesson: lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry
