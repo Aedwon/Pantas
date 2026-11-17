@@ -36,7 +36,7 @@ const patterns = [
 ];
 void main() {
   test('constant matrix outline is recorded separately from ruleKey', () {
-    final file = Directory('content/types-held')
+    final file = Directory('content')
         .listSync(recursive: true)
         .whereType<File>()
         .firstWhere(
@@ -60,7 +60,7 @@ void main() {
     );
   });
   test('fill union uses every permitted pair of distinct sizes', () {
-    final file = Directory('content/types-held')
+    final file = Directory('content')
         .listSync(recursive: true)
         .whereType<File>()
         .firstWhere(

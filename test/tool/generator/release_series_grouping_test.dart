@@ -111,7 +111,7 @@ void main() {
       types.expand((t) => t.mergedQuestions.map((m) => m.id)).toSet(),
     );
     for (final t in types) {
-      final file = Directory('content/types-held')
+      final file = Directory('content')
           .listSync(recursive: true)
           .whereType<File>()
           .singleWhere((f) => f.path.endsWith('/${t.id}.variants.yaml'));
@@ -136,7 +136,7 @@ void main() {
                 f.path.endsWith('/qt-spatial-abstract-reasoning-$suffix.yaml'),
           );
       expect(active, isEmpty, reason: suffix);
-      final held = Directory('content/types-held')
+      final held = Directory('content')
           .listSync(recursive: true)
           .whereType<File>()
           .singleWhere(
