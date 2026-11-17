@@ -75,3 +75,7 @@ Ran through `codex-pick` once accounts had 5-hour room (a: 32% room). Fourteen f
 - Not adopted as a flow change: 1 (the age check relies on the child's consent). Aedwon kept the
   current age-step flow on Nov 11 after the lawful-basis research. The draft states the same basis as
   the live teen notice, not consent, and the risk is listed in the spec and the assessment.
+
+## Boards (Nov 17)
+
+Claude Design artifact https://claude.ai/artifact/PqxcZvKQheCogaXH6LidPM, label "Reviewer fixes: system parts, no nickname". Options 1A/1B (guardian screen), 2A/2B (parent setup, error, short child notice), 3A/3B (adult PSHS-NCE question), 4A/4B (For parents, withdraw and delete confirms), 5 (exam picker on a child account). Author recommends 1A, 2A, 3A, 4B. A fresh reviewer checked each against DS4 and patterns.md. All departures were fixed, and every board rendered headless. Lead ruling: the nickname moves off the setup page to the normal name step, after the short child notice. Awaiting Aedwon's pick.
