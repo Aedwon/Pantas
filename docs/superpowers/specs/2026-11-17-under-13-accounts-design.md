@@ -219,6 +219,13 @@ sign-off, with the multi-child changes re-critiqued and shown to you). Item 8 is
    account can upload the previous one's local answers and settings; the plan re-verifies this in
    `lib/core/auth/auth_repository.dart` and `lib/core/sync/local_state_wiper.dart`, and checks
    whether it affects ordinary account switching today).
+4d. Guardian and holder data on the device (Fable ruling, Nov 18). Sign Out, Delete Account, and
+   every child open or switch erase all holder data on the device: email, name, Google profile, and
+   codes. The device fetches the sibling list and masked holder email from the server each time and
+   never stores them. The device drops the holder session once the child session starts. Rule 4a's
+   "preserve or isolate" covers a child's study records only, never guardian or holder data. No form
+   prefills holder details from device storage. Prerequisite: the 13 to 17 fix that erases the
+   guardian's name and email on sign-out ships first (separate small fix).
 4b. Guardian code gate. A 6-digit code mailed to the holder's email, entered inside the child's
    session, guards Add a Child, the data copy, withdraw, delete, the sibling opt-in, and switching into
    a child whose opt-in is off. Codes are bound server-side to holder, child and action, expire, work

@@ -133,3 +133,26 @@ Aedwon's plain summary of the legal changes since his "sure" (for his sign-off o
 ## Business phone (Nov 18)
 
 Relayed by the manager: Aedwon gave the business phone as +63 968 854 2343. It is in the legal draft's contact block and the impact assessment. The SSOT listed it as an owner input still owed. The lead's earlier search was right that it was not in the repo.
+
+## Decision 7: guardian contact on the device at sign-out (Nov 18)
+
+This came from the Codex review of the account-switch leak fix (main 0e7502973), relayed by the manager. A guardian's name and email entered on the device survive Sign Out.
+
+Fable 5.2 ruled, and the ruling is final:
+- Erase. Sign Out, Delete Account and any account switch delete the guardian's name and email from the device. They are not kept per account.
+- Ship it as a small fix, about 2 hours, before the under-13 build.
+
+Fable's findings:
+- The device stores the guardian's name and email in plain text among device settings, and the wiper skips them.
+- The server keeps only a hash and a masked email.
+- Only Resend needs the local copy. Without it, Resend opens the contact form.
+- When app start learns of a confirmation, nothing deletes the local copy, although the notice says the device deletes it then.
+
+Files:
+- `lib/core/sync/local_state_wiper.dart`: wipe the contact, the cached guardian status and the sharing-applied flag. Keep the closed-account marker.
+- `lib/features/guardian/application/guardian_providers.dart`: delete the contact wherever the device learns of the confirmation.
+- Tests: `test/core/sync/local_state_wiper_test.dart` and `test/features/guardian/guardian_controller_test.dart`.
+
+Rejected: keeping the contact per account. It would leave a third party's details in plain text on a shared device indefinitely.
+
+The under-13 spec gains rule 4d.
