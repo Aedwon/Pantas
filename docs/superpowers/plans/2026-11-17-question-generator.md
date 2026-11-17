@@ -224,6 +224,7 @@ Files: `tools/build_content_export/build_content_export.dart`, `tools/upload_con
 Files: `lib/core/storage/domain/question.dart`, `lib/core/content/remote/question_set_mapper.dart`, `lib/core/content/repos/question_repo.dart`, `lib/core/storage/data/repos/content_repository.dart`, `lib/core/content/tables/content_questions.dart` (plus generated files).
 
 - [ ] The content layer stores the type row and its variant document; `resolveVariant` returns an ordinary `Question` with the type's id. Screens and schedulers never see a type row unresolved.
+- [ ] Choice order: `orderChoicesFor` (`lib/core/storage/domain/choice_order.dart`) seeds by question id, so every variant of a type would get the same shuffle and, since lists store the key first, the key would sit in one position for the whole type. Seed by `'$questionId#$variantIndex'` for type rows (singles unchanged, so their saved order stays). Test: across 100 variants of one type the key lands in every position.
 - [ ] A content load without the variant document (offline before first fetch) treats the type as unavailable and serves nothing for it, never a template with empty slots. Test it.
 
 #### Task 2.3: answers and review state (about 4 h)
