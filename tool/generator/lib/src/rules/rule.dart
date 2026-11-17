@@ -3,6 +3,7 @@ import 'dart:math';
 import '../model.dart';
 import 'figure_grouping/grouping.dart';
 import 'figure_series/series.dart';
+import 'mental_rotation/nets.dart';
 
 abstract class Rule {
   String get name;
@@ -12,6 +13,7 @@ abstract class Rule {
 
 /// Real rules register here as their separately assigned tasks land.
 final ruleRegistry = <String, Rule>{
+  for (final pattern in netPatterns) 'net-$pattern': NetRule(pattern),
   for (final pattern in groupingPatterns)
     'group-$pattern': GroupingRule(pattern),
   for (final pattern in seriesPatterns) 'series-$pattern': SeriesRule(pattern),

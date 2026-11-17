@@ -96,7 +96,12 @@ Object canonicalCubeNet(Variant variant) {
           'operation': variant.slots['operation'],
           for (final key in ['face', 'faces', 'upFace'])
             if (variant.slots.containsKey(key))
-              key: reference(variant.slots[key]),
+              key: key == 'faces'
+                  ? ((reference(variant.slots[key])! as List)
+                      .map(dataKey)
+                      .toList()
+                    ..sort())
+                  : reference(variant.slots[key]),
           'choices': choices,
         }),
       );

@@ -1,0 +1,66 @@
+{
+  "id": "qt-spatial-abstract-reasoning-net-overlap-medium",
+  "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets",
+  "keyPoint": 2,
+  "difficulty": "medium",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "mental-rotation",
+  "rule": "net-overlap-medium",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "text",
+  "enabled": true,
+  "params": {
+    "profiles": [
+      0,
+      1
+    ],
+    "coordinateMin": 0,
+    "coordinateMax": 5,
+    "cells": 6,
+    "validNets": 11
+  },
+  "stem": "{stemText}",
+  "explanation": "{explanationText}",
+  "mistakes": [
+    {
+      "id": "row-is-rigid",
+      "note": "{noteText}"
+    },
+    {
+      "id": "six-means-valid",
+      "note": "{noteText}"
+    },
+    {
+      "id": "branch-removes-sides",
+      "note": "{noteText}"
+    },
+    {
+      "id": "opposite-A-C-is-overlap",
+      "note": "{noteText}"
+    },
+    {
+      "id": "opposite-B-D-is-overlap",
+      "note": "{noteText}"
+    },
+    {
+      "id": "row-cannot-wrap",
+      "note": "{noteText}"
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0002",
+      "index": 0
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0016",
+      "index": 1
+    }
+  ]
+}

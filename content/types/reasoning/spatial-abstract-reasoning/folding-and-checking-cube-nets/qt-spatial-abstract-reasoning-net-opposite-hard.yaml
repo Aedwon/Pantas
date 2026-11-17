@@ -1,0 +1,66 @@
+{
+  "id": "qt-spatial-abstract-reasoning-net-opposite-hard",
+  "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets",
+  "keyPoint": 1,
+  "difficulty": "hard",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "mental-rotation",
+  "rule": "net-opposite-hard",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "text",
+  "enabled": true,
+  "params": {
+    "profiles": [
+      0,
+      1
+    ],
+    "coordinateMin": 0,
+    "coordinateMax": 5,
+    "cells": 6,
+    "validNets": 11
+  },
+  "stem": "{stemText}",
+  "explanation": "{explanationText}",
+  "mistakes": [
+    {
+      "id": "stop-early",
+      "note": "{noteText}"
+    },
+    {
+      "id": "flat-path-distance",
+      "note": "{noteText}"
+    },
+    {
+      "id": "pair-path-ends",
+      "note": "{noteText}"
+    },
+    {
+      "id": "lower-neighbor-is-back",
+      "note": "{noteText}"
+    },
+    {
+      "id": "hidden-left-is-back",
+      "note": "{noteText}"
+    },
+    {
+      "id": "right-arm-is-back",
+      "note": "{noteText}"
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0017",
+      "index": 0
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0018",
+      "index": 1
+    }
+  ]
+}

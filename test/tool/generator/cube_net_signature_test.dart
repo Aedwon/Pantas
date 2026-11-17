@@ -51,6 +51,20 @@ Variant relationVariant(String answer) {
 }
 
 void main() {
+  test('unordered query face pairs add no capacity', () {
+    Variant query(List<String> faces) => parseVariants({
+          'variants': [
+            {
+              ...relationVariant('They share an edge.').toMap(),
+              'slots': {'operation': 'net-adjacent-relation', 'faces': faces},
+            }
+          ],
+        }).single;
+    expect(
+      canonicalSignature(query(['A', 'B'])),
+      canonicalSignature(query(['B', 'A'])),
+    );
+  });
   test('overlap endpoint order adds no capacity', () {
     expect(
       canonicalSignature(relationVariant('A and E overlap.')),

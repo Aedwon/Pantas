@@ -1,0 +1,49 @@
+{
+  "id": "qt-spatial-abstract-reasoning-net-top-and-shadow",
+  "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets",
+  "keyPoint": 1,
+  "difficulty": "exam",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "mental-rotation",
+  "rule": "net-top-and-shadow",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "text",
+  "enabled": true,
+  "params": {
+    "profiles": [
+      0
+    ],
+    "coordinateMin": 0,
+    "coordinateMax": 5,
+    "cells": 6,
+    "validNets": 11
+  },
+  "stem": "{stemText}",
+  "explanation": "{explanationText}",
+  "mistakes": [
+    {
+      "id": "stop-at-side",
+      "note": "{noteText}"
+    },
+    {
+      "id": "neighbor-plus-unequal-box",
+      "note": "{noteText}"
+    },
+    {
+      "id": "neighbor-plus-slanted-view",
+      "note": "{noteText}"
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0014",
+      "index": 0
+    }
+  ]
+}
