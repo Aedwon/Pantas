@@ -51,39 +51,47 @@ Map<String, Map<String, List<Map<String, Object?>>>> _load() {
   return out;
 }
 
-/// Index 0 of each type, then seeded picks spread across the types.
+/// Every sheet of one kind, picked together so no sample shows twice.
 ///
-/// With more types than samples, sheet [sheet] starts [sheet] * 12 types
-/// further along (wrapping), so every type shows on at least one sheet.
-List<_Sample> _pick(
-  Map<String, List<Map<String, Object?>>> types, {
-  int sheet = 0,
-}) {
-  final rng = Random(_seed + sheet);
+/// Each type shows its index 0 first, then seeded picks. Sheet `n` starts
+/// `n * 12` types further along (wrapping), so every type appears and a
+/// type that returns on a later sheet shows an index not yet used.
+List<List<_Sample>> _pickSheets(
+  Map<String, List<Map<String, Object?>>> types,
+  int sheets,
+) {
+  final rng = Random(_seed);
   final all = types.keys.toList();
-  final ids = all.length <= _samples
-      ? all
-      : [
-          for (var i = 0; i < _samples; i++)
-            all[(sheet * _samples + i) % all.length],
-        ];
-  final picked = <_Sample>[for (final id in ids) _Sample(id, types[id]!.first)];
-  final used = {
-    for (final id in ids) id: <int>{0},
+  final order = {
+    for (final id in all)
+      id: [
+        0,
+        ...(List<int>.generate(types[id]!.length - 1, (i) => i + 1)
+          ..shuffle(rng)),
+      ],
   };
-  var round = 0;
-  while (picked.length < _samples) {
-    final id = ids[round % ids.length];
-    round++;
-    final list = types[id]!;
-    if (used[id]!.length >= list.length) continue;
-    int i;
-    do {
-      i = rng.nextInt(list.length);
-    } while (!used[id]!.add(i));
-    picked.add(_Sample(id, list[i]));
+  final next = {for (final id in all) id: 0};
+  final out = <List<_Sample>>[];
+  for (var sheet = 0; sheet < sheets; sheet++) {
+    final start = (sheet * _samples) % all.length;
+    final ids = [
+      for (var i = 0; i < all.length; i++) all[(start + i) % all.length],
+    ];
+    final picked = <_Sample>[];
+    var progress = true;
+    while (picked.length < _samples && progress) {
+      progress = false;
+      for (final id in ids) {
+        if (picked.length >= _samples) break;
+        if (next[id]! >= order[id]!.length) continue;
+        picked.add(_Sample(id, types[id]![order[id]![next[id]!]]));
+        next[id] = next[id]! + 1;
+        progress = true;
+      }
+    }
+    out.add(picked);
   }
-  return picked.take(_samples).toList();
+  return out;
 }
 
 String _shortId(String id) =>
@@ -97,13 +105,16 @@ class _ItemPainter extends CustomPainter {
   final SeriesPalette palette;
 
   @override
-  void paint(Canvas canvas, Size size) => FigureSeriesFigure.paintItem(
-        canvas,
-        item,
-        size.center(Offset.zero),
-        36,
-        palette,
-      );
+  void paint(Canvas canvas, Size size) {
+    palette.paintPanel(canvas, size);
+    FigureSeriesFigure.paintItem(
+      canvas,
+      item,
+      size.center(Offset.zero),
+      36,
+      palette,
+    );
+  }
 
   @override
   bool shouldRepaint(_ItemPainter old) => true;
@@ -113,31 +124,47 @@ class _ItemPainter extends CustomPainter {
 Widget _stem(Map<String, Object?> spec) =>
     FigureRegistry.build(spec) ?? const Text('NO FIGURE');
 
-/// A choice figure: a single item map.
-Widget _choice(BuildContext context, String kind, Map<String, Object?> item) {
+/// The items a spec names, for the palette decision.
+List<SeriesItem?> _items(Map<String, Object?> spec) {
+  final raw = spec['items'] ?? spec['cells'];
+  if (raw is! List) return const [];
+  return [for (final e in raw) FigureSeriesFigure.parseItem(e)];
+}
+
+/// A choice figure: a single item map, drawn on the stem's palette and panel.
+Widget _choice(
+  BuildContext context,
+  String kind,
+  Map<String, Object?> item,
+  Map<String, Object?> stem,
+) {
   if (kind == 'shape-row') {
-    // A shape row needs two shapes; draw two and show the first.
+    // A shape row needs two shapes; draw two and clip to the first slot.
     final row = FigureRegistry.build({
       'kind': 'shape-row',
       'shapes': <Object?>[item, item],
     });
     if (row == null) return const Text('NO FIGURE');
     return ClipRect(
-      child: Align(
-        alignment: Alignment.centerLeft,
-        widthFactor: 0.5,
-        child: SizedBox(width: 280, child: row),
+      child: SizedBox(
+        width: 140,
+        height: 110,
+        child: OverflowBox(
+          alignment: Alignment.centerLeft,
+          minWidth: 280,
+          maxWidth: 280,
+          child: SizedBox(width: 280, child: row),
+        ),
       ),
     );
   }
   final parsed = FigureSeriesFigure.parseItem(item);
   if (parsed == null) return const Text('NO FIGURE');
+  final palette = SeriesPalette.of(context, [..._items(stem), parsed]);
   return SizedBox(
     width: 92,
     height: 92,
-    child: CustomPaint(
-      painter: _ItemPainter(parsed, SeriesPalette.of(context, [parsed])),
-    ),
+    child: CustomPaint(painter: _ItemPainter(parsed, palette)),
   );
 }
 
@@ -197,6 +224,8 @@ Widget _sample(BuildContext context, String kind, _Sample s) {
                                 context,
                                 kind,
                                 choices[i]['figure']! as Map<String, Object?>,
+                                s.variant['figureSpec']!
+                                    as Map<String, Object?>,
                               ),
                             ),
                           ),
@@ -226,6 +255,7 @@ void main() {
   final byKind = _load();
   for (final kind in _kinds) {
     final sheets = (byKind[kind]!.length / _samples).ceil();
+    final picks = _pickSheets(byKind[kind]!, sheets);
     for (var sheet = 0; sheet < sheets; sheet++) {
       for (final dark in [false, true]) {
         final name = '$kind-${dark ? 'dark' : 'light'}'
@@ -243,7 +273,7 @@ void main() {
               ..physicalSize = const Size(2000, 4000)
               ..devicePixelRatio = 1;
             addTearDown(tester.view.reset);
-            final samples = _pick(byKind[kind]!, sheet: sheet);
+            final samples = picks[sheet];
             final key = GlobalKey();
             await tester.pumpWidget(
               MaterialApp(
