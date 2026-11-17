@@ -72,6 +72,10 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
   int _runToken = 0;
   bool _running = false;
 
+  /// sync_meta key naming the account and generation the engine last started
+  /// for on this device.
+  static const runKey = 'sync_engine_run';
+
   Stream<SyncRuntimeEvent> get events => _events.stream;
   bool get isRunning => _running;
   String? get activeUid => _uid;
@@ -95,6 +99,10 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
     _offlinePaths.clear();
     _uid = uid;
     _generationId = generationId;
+    final run = '$uid/$generationId';
+    await _db.into(_db.syncMeta).insertOnConflictUpdate(
+          SyncMetaCompanion.insert(key: runKey, value: run),
+        );
     final queue = PendingQueue(_db);
     final pull = PullPipeline(
       db: _db,
@@ -102,6 +110,15 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
       uid: uid,
       generationId: generationId,
       deviceId: _deviceId,
+      // The local wipe deletes this key, and a start elsewhere (another tab)
+      // replaces it. Either way, answers still arriving for this run are not
+      // written: they could put a previous account's rows back.
+      mayWrite: () async {
+        final row = await (_db.select(_db.syncMeta)
+              ..where((meta) => meta.key.equals(runKey)))
+            .getSingleOrNull();
+        return row?.value == run;
+      },
     );
     final loader = SyncLocalPayloadLoader(db: _db, deviceId: _deviceId);
     final push = PushPipeline(

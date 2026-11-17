@@ -16,14 +16,22 @@ class PullPipeline {
     required String uid,
     required String generationId,
     required String deviceId,
+    Future<bool> Function()? mayWrite,
   })  : _db = db,
         _queue = queue,
         _uid = uid,
         _generationId = generationId,
         _deviceId = deviceId,
+        _mayWrite = mayWrite,
         _rowMeta = SyncRowMetaRepository(db);
 
   final AppDatabase _db;
+
+  /// Asked, in the same transaction as the write, before a row from the cloud
+  /// is written locally. False once the local data was wiped for another
+  /// account (or another tab started Sync elsewhere): an answer that arrives
+  /// late must not put the old account's row back.
+  final Future<bool> Function()? _mayWrite;
   final PendingQueue _queue;
   final String _uid;
   final String _generationId;
@@ -31,6 +39,23 @@ class PullPipeline {
   final SyncRowMetaRepository _rowMeta;
 
   Future<PullApplyResult> applyDocument({
+    required String generationId,
+    required String collection,
+    required SyncDocument document,
+  }) {
+    final mayWrite = _mayWrite;
+    Future<PullApplyResult> apply() => _applyDocument(
+          generationId: generationId,
+          collection: collection,
+          document: document,
+        );
+    if (mayWrite == null) return apply();
+    return _db.transaction(
+      () async => await mayWrite() ? apply() : PullApplyResult.ignored,
+    );
+  }
+
+  Future<PullApplyResult> _applyDocument({
     required String generationId,
     required String collection,
     required SyncDocument document,
@@ -220,32 +245,39 @@ class PullPipeline {
         final rowId = row.read<String>('row_id');
         if (presentIds.contains(rowId)) continue;
 
-        final pending = await _queue.findGenerationBound(
-          uid: _uid,
-          generationId: _generationId,
-          tableType: collection,
-          rowId: rowId,
-        );
-        if (pending != null &&
-            pending.op == PendingSyncOp.upsert.name &&
-            pending.baseState == SyncCausalBaseState.knownAbsent.storageValue) {
-          continue;
-        }
-        // The same create, still in the journal before the outbox.
-        if (await _isJournaledCreate(collection, rowId)) continue;
+        // Guarded too: a late snapshot of an old account must not delete
+        // the rows of the account that replaced it.
+        await _guarded(() async {
+          final pending = await _queue.findGenerationBound(
+            uid: _uid,
+            generationId: _generationId,
+            tableType: collection,
+            rowId: rowId,
+          );
+          if (pending != null &&
+              pending.op == PendingSyncOp.upsert.name &&
+              pending.baseState ==
+                  SyncCausalBaseState.knownAbsent.storageValue) {
+            return;
+          }
+          // The same create, still in the journal before the outbox.
+          if (await _isJournaledCreate(collection, rowId)) return;
 
-        final before = await _rowMeta.readAcceptedBase(
-          collection: collection,
-          rowId: rowId,
-        );
-        await entry.adapter.applyKnownAbsent(db: _db, rowId: rowId);
-        if (before?.state != SyncCausalBaseState.knownAbsent) fromElsewhere++;
+          final before = await _rowMeta.readAcceptedBase(
+            collection: collection,
+            rowId: rowId,
+          );
+          await entry.adapter.applyKnownAbsent(db: _db, rowId: rowId);
+          if (before?.state != SyncCausalBaseState.knownAbsent) {
+            fromElsewhere++;
+          }
+        });
       }
     } finally {
       if (fromElsewhere > 0) await _noteRemoteChange();
     }
 
-    await _db.transaction(() async {
+    await _guarded(() async {
       for (final rowId in await _waitingRowIds(collection)) {
         if (!presentIds.contains(rowId)) {
           await _bindWaiting(
@@ -335,6 +367,22 @@ class PullPipeline {
   }
 
   Future<void> handlePushResult(
+    PendingSyncRow observed,
+    RowCommitResult result,
+  ) =>
+      _guarded(() => _handlePushResult(observed, result));
+
+  /// Runs [write] in one transaction with the [_mayWrite] check, and skips it
+  /// when the check says no.
+  Future<void> _guarded(Future<void> Function() write) {
+    final mayWrite = _mayWrite;
+    if (mayWrite == null) return _db.transaction(write);
+    return _db.transaction(() async {
+      if (await mayWrite()) await write();
+    });
+  }
+
+  Future<void> _handlePushResult(
     PendingSyncRow observed,
     RowCommitResult result,
   ) async {

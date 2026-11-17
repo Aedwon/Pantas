@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:pantas/app/update_coordinator_provider.dart';
 import 'package:pantas/app/beta_gate.dart';
 import 'package:pantas/core/auth/beta_access.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/app/sign_in/email_sign_in_page.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/app/web_route_shell.dart';
@@ -83,10 +84,15 @@ final routerProvider = Provider<GoRouter>((ref) {
       // legal pages they link to must open for them too. The manage link also
       // opens on a device held on Waiting, since a guardian may open it there.
       final path = state.matchedLocation;
+      if (path == '/auth/email-link') {
+        return emailSignInRedirect(
+          auth: ref.read(authStateProvider).valueOrNull,
+          holding: ref.read(signInHoldProvider),
+        );
+      }
       if (path == '/guardian' ||
           path == '/guardian/manage' ||
-          path.startsWith('/legal/') ||
-          path == '/auth/email-link') {
+          path.startsWith('/legal/')) {
         return null;
       }
       final guardianState = ref.read(guardianGateProvider);

@@ -23,6 +23,17 @@ final signInHoldProvider = StateProvider<bool>((ref) => false);
 /// How long the screen holds after the check mark has drawn.
 const signInHold = Duration(milliseconds: 1200);
 
+/// Where the sign-in screen's address sends someone, or null to open it.
+///
+/// A signed-in user goes Home: entering another address here would switch
+/// accounts without Sign Out. The screen stays while it plays its own
+/// signed-in beat ([holding]), and then leaves by itself.
+String? emailSignInRedirect({
+  required AuthState? auth,
+  required bool holding,
+}) =>
+    auth is SignedInAuthState && !holding ? '/home' : null;
+
 // The wrong-code board: red boxes hold, then fade, then the digits clear.
 const _wrongHold = Duration(milliseconds: 1440);
 const _wrongFade = Duration(milliseconds: 240);

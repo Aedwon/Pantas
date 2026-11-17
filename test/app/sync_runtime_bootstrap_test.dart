@@ -109,6 +109,55 @@ void main() {
     expect(container.read(syncEntitlementProvider), SyncEntitlement.pro);
   });
 
+  test(
+      'an account that comes and goes while Sync is busy is never handed to '
+      'Sync', () async {
+    final auth = StreamController<AuthState>();
+    final entitlement = StreamController<Entitlement>();
+    final release = Completer<void>();
+    final runtime = RecordingSurface(holdFirst: release);
+    final container = ProviderContainer(
+      overrides: [
+        authStateProvider.overrideWith((ref) => auth.stream),
+        entitlementProvider.overrideWith((ref) => entitlement.stream),
+      ],
+    );
+    addTearDown(container.dispose);
+    addTearDown(auth.close);
+    addTearDown(entitlement.close);
+    final binding = await bootstrapSyncRuntime(
+      container,
+      FirebaseBootstrapResult.configured,
+      recoverProjection: () async => true,
+      runtimeBuilder: () async => runtime,
+    );
+    addTearDown(binding.dispose);
+
+    AuthState signedIn(String uid) => AuthState.signedIn(
+          user: AuthUser(
+            uid: uid,
+            email: '$uid@example.test',
+            displayName: uid,
+          ),
+        );
+    auth.add(signedIn('user-a'));
+    entitlement.add(const Entitlement(plan: EntitlementPlan.monthly));
+    await pumpEventQueue();
+    // user-a's first update is still running (a long download, say).
+    auth.add(signedIn('user-b'));
+    await pumpEventQueue();
+    auth.add(signedIn('user-a'));
+    await pumpEventQueue();
+    release.complete();
+    await binding.settle();
+    await pumpEventQueue();
+
+    expect(
+      runtime.updates.map((update) => update.identity.uid),
+      ['user-a', 'user-a'],
+    );
+  });
+
   test('background lifecycle requests immediate best-effort flush', () async {
     final runtime = RecordingSurface(failFlush: true);
     final observer = SyncRuntimeLifecycleObserver(() => runtime);
@@ -145,10 +194,13 @@ class RuntimeUpdate {
 }
 
 class RecordingSurface implements SyncRuntimeSurface {
-  RecordingSurface({this.operations, this.failFlush = false});
+  RecordingSurface({this.operations, this.failFlush = false, this.holdFirst});
 
   final List<String>? operations;
   final bool failFlush;
+
+  /// When set, the first update does not finish until this completes.
+  final Completer<void>? holdFirst;
   final updates = <RuntimeUpdate>[];
   int forceFlushCalls = 0;
 
@@ -168,6 +220,7 @@ class RecordingSurface implements SyncRuntimeSurface {
   }) async {
     updates.add(RuntimeUpdate(identity, entitlement));
     operations?.add('update:${identity.uid}:${entitlement.name}');
+    if (updates.length == 1) await holdFirst?.future;
   }
 
   @override
