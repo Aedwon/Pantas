@@ -602,9 +602,9 @@ questions:
       - text: "Circle with five dots"
         rationale: |
           This counts all figures as one increasing sequence. Five is the next position number. Compare only the previous circles' dot counts.
-      - text: "Circle with four dots"
+      - text: "Circle with two dots"
         rationale: |
-          This copies the square's dot count into the circle track. Four appears on both squares. Check the circle-only sequence.
+          This repeats the last circle's dot count. The square track repeats its count, so repeating feels safe. Check whether the circle track changes by the same step each time.
     explanation: |
       The outlines alternate circle and square. Within circle positions, dots increase from one to two, so the next circle has three. Square positions keep four dots.
     approved: true
