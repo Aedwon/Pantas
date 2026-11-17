@@ -6,6 +6,7 @@ import 'package:pantas/app/firebase_bootstrap.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/repos/custom_track_repository.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -19,6 +20,7 @@ import 'package:pantas/core/sync/firestore/firebase_firestore_gateway.dart';
 import 'package:pantas/core/sync/firestore/firebase_sync_functions_gateway.dart';
 import 'package:pantas/core/sync/firestore/firestore_gateway.dart';
 import 'package:pantas/core/sync/firestore/functions_gateway.dart';
+import 'package:pantas/core/sync/local_state_wiper.dart';
 import 'package:pantas/core/sync/providers.dart';
 import 'package:pantas/core/sync/runtime/production_sync_runtime_engine.dart';
 import 'package:pantas/core/sync/runtime/sync_runtime_controller.dart';
@@ -210,6 +212,12 @@ Future<SyncRuntimeSurface> buildConfiguredSyncRuntime(
     ),
     coordinator: coordinator,
     engine: engine,
+    // The same wipe Sign Out runs, for a switch between two accounts.
+    localStateWiper: SyncLocalStateWiper(
+      db,
+      notifications: container.read(notificationServiceProvider),
+      clearCustomExams: () => deleteCustomContentExams(contentDb),
+    ),
     runtimeEvents: engine.events,
   );
   return ConfiguredSyncRuntimeSurface(controller: controller, engine: engine);

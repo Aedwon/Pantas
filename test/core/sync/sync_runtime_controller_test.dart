@@ -123,10 +123,15 @@ void main() {
         entitlement: SyncEntitlement.free,
       );
 
-      final cleared = (await h.activeContext.readSnapshot())!;
-      expect(cleared.token, isNot(token));
-      expect(cleared.context, isNull);
-      expect(cleared.rememberedContext, isNull);
+      final cleared = await h.activeContext.readSnapshot();
+      if (identity.isAnonymous) {
+        expect(cleared!.token, isNot(token));
+      } else {
+        // Another real account wipes the device, the record with it.
+        expect(cleared, isNull);
+      }
+      expect(cleared?.context, isNull);
+      expect(cleared?.rememberedContext, isNull);
     });
   }
 
@@ -769,12 +774,19 @@ void main() {
           identity: const SyncIdentity(uid: 'user-2'),
           entitlement: other,
         );
+        final before = h.coordinator.operations.length;
         await reloaded.update(
           identity: identity,
           entitlement: SyncEntitlement.pro,
         );
 
-        expect(reloaded.status, isA<SyncReconciliationRequired>());
+        // The switch to user-2 wiped user-1's copy, so there is nothing to
+        // resume or to choose: the account's copy comes back down.
+        expect(reloaded.status, isNot(isA<SyncReconciliationRequired>()));
+        expect(
+          h.coordinator.operations.skip(before),
+          [startsWith('pull:user-1:')],
+        );
       });
     }
 

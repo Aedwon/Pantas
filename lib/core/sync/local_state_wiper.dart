@@ -92,6 +92,9 @@ class SyncLocalStateWiper implements LocalStateWiper {
       await _db.delete(_db.customBlueprintsLocal).go();
       // The next account on a shared browser must not see this track's name.
       await _db.delete(_db.customTrackMetaLocal).go();
+      // Change records and accepted versions for the rows deleted above.
+      await _db.delete(_db.syncLocalMutations).go();
+      await _db.delete(_db.syncRowMeta).go();
 
       // A custom exam belongs to the account. A listed exam's selection is
       // device state and stays.

@@ -2,10 +2,9 @@
 // backup when two people use the same browser.
 //
 // The pieces are the real ones: the auth repository, the local database and
-// its sign-out wipe, and the Sync runtime (full upload included). Only the
-// cloud is faked. The account transition gateway is left as the no-op one,
-// because that is what the app wires today (auth bootstrap passes no
-// builder).
+// its sign-out wipe, the Sync runtime (full upload included) and the account
+// transition gateway, wired as auth bootstrap wires them. Only the cloud is
+// faked.
 import 'dart:convert';
 
 import 'package:drift/drift.dart' show Value;
@@ -18,16 +17,14 @@ import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/sync/eligibility/sync_claim_gateway.dart';
 import 'package:pantas/core/sync/eligibility/sync_entitlement.dart';
+import 'package:pantas/core/sync/engine/local_sync_mutation_recorder.dart';
 import 'package:pantas/core/sync/firestore/firestore_gateway.dart';
 import 'package:pantas/core/sync/firestore/functions_gateway.dart';
 import 'package:pantas/core/sync/local_state_wiper.dart';
 import 'package:pantas/core/sync/providers.dart';
+import 'package:pantas/core/sync/runtime/sync_account_transition_gateway.dart';
 
 import '../../helpers/in_memory_database.dart';
-
-/// Runs the known-gap test below instead of skipping it:
-/// `flutter test --dart-define=RUN_KNOWN_GAPS=true <this file>`.
-const _runKnownGaps = bool.fromEnvironment('RUN_KNOWN_GAPS');
 
 const _accountA = 'user-a';
 const _accountB = 'user-b';
@@ -85,14 +82,132 @@ void main() {
       await h.syncCurrentSession(pro: true);
 
       expect(h.leakedInto(_accountB), isEmpty);
+      expect(await h.localRowsOf(_aRowIds), isEmpty);
     },
-    skip: _runKnownGaps
-        ? false
-        : 'Known gap, documented not fixed: an account switch without Sign '
-            'Out keeps the old account local rows and the new account first '
-            'backup uploads them. Run with --dart-define=RUN_KNOWN_GAPS=true '
-            'to see it fail.',
   );
+
+  test(
+      'a switch from A to B that bypasses the app (another tab, say) '
+      'uploads nothing of A to B', () async {
+    final h = await _Harness.open();
+    addTearDown(h.close);
+
+    h.auth.session = const AuthSession(uid: _accountA);
+    await _seedAnswers(h.db);
+    await h.syncCurrentSession(pro: true);
+    expect(h.paths(_accountA), isNotEmpty);
+
+    // Firebase reports B with no call through the auth repository.
+    h.auth.session = null;
+    await h.syncCurrentSession(pro: true);
+    h.auth.session = const AuthSession(uid: _accountB);
+    await h.syncCurrentSession(pro: true);
+
+    expect(h.leakedInto(_accountB), isEmpty);
+    expect(await h.localRowsOf(_aRowIds), isEmpty);
+  });
+
+  test('a Free B never sees A progress after a switch', () async {
+    final h = await _Harness.open();
+    addTearDown(h.close);
+
+    h.auth.session = const AuthSession(uid: _accountA);
+    await _seedAnswers(h.db);
+    await h.syncCurrentSession(pro: false);
+
+    await h.signInWithCode(_accountB);
+    await h.syncCurrentSession(pro: false);
+
+    expect(await h.localRowsOf(_aRowIds), isEmpty);
+  });
+
+  test('a guest who signs in to an existing account keeps their progress',
+      () async {
+    final h = await _Harness.open();
+    addTearDown(h.close);
+
+    await h.repository.ensureAnonymous();
+    await h.syncCurrentSession(pro: false);
+    await _seedAnswers(h.db);
+
+    await h.signInWithCode(_accountB);
+    await h.syncCurrentSession(pro: true);
+
+    expect(await h.localRowsOf(_aRowIds), hasLength(_aRowIds.length));
+    expect(
+      h.paths(_accountB),
+      containsAll(_aRowIds.map((id) => contains('/$id'))),
+      reason: "the guest's progress is backed up to the account it joined",
+    );
+  });
+
+  test('a guest who upgrades keeps their progress', () async {
+    final h = await _Harness.open();
+    addTearDown(h.close);
+
+    await h.repository.ensureAnonymous();
+    final guest = h.auth.session!;
+    await h.syncCurrentSession(pro: false);
+    await _seedAnswers(h.db);
+
+    // Linking keeps the guest's uid and makes it a real account.
+    h.auth.session = AuthSession(uid: guest.uid);
+    await h.syncCurrentSession(pro: true);
+
+    expect(await h.localRowsOf(_aRowIds), hasLength(_aRowIds.length));
+  });
+
+  test('the same account signed in again keeps its own progress', () async {
+    final h = await _Harness.open();
+    addTearDown(h.close);
+
+    h.auth.session = const AuthSession(uid: _accountA);
+    await _seedAnswers(h.db);
+    await h.syncCurrentSession(pro: false);
+
+    // Firebase drops the session (it expired, say), a guest session starts,
+    // and A signs in again.
+    h.auth.session = null;
+    await h.syncCurrentSession(pro: false);
+    await h.repository.ensureAnonymous();
+    await h.syncCurrentSession(pro: false);
+    await h.signInWithCode(_accountA);
+    await h.syncCurrentSession(pro: false);
+
+    expect(await h.localRowsOf(_aRowIds), hasLength(_aRowIds.length));
+  });
+
+  test('Sign Out backs up a change A made seconds before', () async {
+    final h = await _Harness.open();
+    addTearDown(h.close);
+
+    h.auth.session = const AuthSession(uid: _accountA);
+    await _seedAnswers(h.db);
+    await h.syncCurrentSession(pro: true);
+    expect(h.paths(_accountA), isNotEmpty);
+
+    // A finishes one more quiz. The engine waits a few seconds before it
+    // uploads a change, and A signs out inside that wait.
+    final stamp = DateTime.utc(2026, 11, 18, 1);
+    await LocalSyncMutationRecorder.forDatabase(h.db).runRecorded<void>(
+      collection: 'quiz_attempts',
+      rowId: 'a-attempt-2',
+      op: SyncLocalMutationOp.upsert,
+      mutate: () => h.db.into(h.db.attemptsLocal).insert(
+            AttemptsLocalCompanion.insert(
+              id: 'a-attempt-2',
+              examId: 'cse',
+              startedAt: stamp,
+              completedAt: Value(stamp),
+              itemsJson: '[]',
+            ),
+          ),
+    );
+    await h.repository.signOut();
+
+    expect(h.paths(_accountA), contains(endsWith('/a-attempt-2')));
+    expect(await h.localRowsOf(['a-attempt-2']), isEmpty);
+  });
 }
 
 class _Harness {
@@ -129,7 +244,8 @@ class _Harness {
       functionsGateway: const _Functions(),
       emailCodeGateway: const _Codes(),
       customTokenGateway: auth,
-      // As auth bootstrap builds it in the app.
+      // As auth bootstrap builds them in the app.
+      accountTransitionGateway: SyncAccountTransitionGateway(() => runtime),
       localStateWiper: SyncLocalStateWiper(db),
     );
     return _Harness._(
