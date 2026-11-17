@@ -16,7 +16,7 @@ void main(List<String> args) {
     final arg = args[i];
     if (arg == '--moved' && !moved) {
       moved = true;
-    } else if (['--root', '--ids', '--evidence'].contains(arg) &&
+    } else if (['--root', '--ids', '--types', '--evidence'].contains(arg) &&
         !options.containsKey(arg) &&
         i + 1 < args.length &&
         !args[i + 1].startsWith('--')) {
@@ -28,7 +28,9 @@ void main(List<String> args) {
   }
   if (options.length != 3 ||
       !Directory(options['--root']!).existsSync() ||
-      !File(options['--ids']!).existsSync() ||
+      (options.containsKey('--ids') == options.containsKey('--types')) ||
+      (options.containsKey('--types') && moved) ||
+      (options.containsKey('--ids') && !File(options['--ids']!).existsSync()) ||
       !File(options['--evidence']!).existsSync()) {
     _usage();
     return;
@@ -36,6 +38,10 @@ void main(List<String> args) {
   try {
     final root = options['--root']!;
     final evidence = _relativeEvidence(root, options['--evidence']!);
+    if (options.containsKey('--types')) {
+      _approveTypes(root, options['--types']!, evidence);
+      return;
+    }
     final ids = File(options['--ids']!)
         .readAsLinesSync()
         .map((id) => id.trim())
@@ -96,7 +102,9 @@ void main(List<String> args) {
 void _usage() {
   stderr.writeln(
     'Usage: dart run tool/content/approve.dart --root <content dir> '
-    '--ids <file> --evidence <existing file> [--moved]',
+    '--ids <file> --evidence <existing file> [--moved]\n'
+    'Or: dart run tool/content/approve.dart --root <repo> '
+    '--types <qt-id,...> --evidence <existing file>',
   );
   exitCode = 2;
 }
@@ -160,4 +168,40 @@ String _relativeEvidence(String contentRoot, String evidencePath) {
     throw StateError('Evidence must be inside the content repository.');
   }
   return p.relative(evidence, from: root).split(p.separator).join('/');
+}
+
+// Lead-only, after checker, blind solve and audit evidence have been reviewed.
+// Type source bytes are never changed by approval.
+void _approveTypes(String repository, String rawIds, String evidence) {
+  final ids = rawIds.split(',').map((id) => id.trim()).toSet();
+  if (ids.any((id) => !id.startsWith('qt-'))) {
+    _usage();
+    return;
+  }
+  final content = p.join(repository, 'content');
+  final types = {for (final type in activeProblemTypes(content)) type.id: type};
+  final file = File(p.join(content, 'question-ledger', 'approved.json'));
+  final approved = readLedger(file);
+  for (final id in ids) {
+    final type = types[id];
+    if (type == null) {
+      stderr.writeln('$id: not found among active problem types');
+      exitCode = 1;
+      continue;
+    }
+    approved[id] = {
+      'kind': 'problemType',
+      'hash': problemTypeHash(
+        typeBytes: type.file.readAsBytesSync(),
+        rule: type.data['rule'] as String,
+        ruleVersion: type.data['ruleVersion'] as int,
+        variantBytes: type.variants.readAsBytesSync(),
+      ),
+      'lesson': type.data['lesson'] as String,
+      'evidence': evidence,
+      'approvedAt': DateTime.now().toUtc().toIso8601String().substring(0, 10),
+    };
+    writeLedger(file, approved);
+    stdout.writeln('$id: approved');
+  }
 }
