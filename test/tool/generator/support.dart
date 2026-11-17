@@ -44,6 +44,7 @@ Map<String, Object?> mathTypeData() => {
       'mergedQuestions': <Object?>[],
     };
 
+/// Params: `max` bounds both generated positive slots `a` and `b`.
 /// Only test code registers this rule. No real question rule ships in Task 1.1.
 class AddRule implements Rule {
   @override
