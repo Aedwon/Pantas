@@ -65,7 +65,9 @@ void main() {
       }
     });
   }
-  for (final name in ['matrix-ray-intersection', 'series-interleaved-count']) {
+  // matrix-ray-intersection was held on Nov 17 (audit-w2 Blocker), so only
+  // the still-active re-synced type is checked as an active list here.
+  for (final name in ['series-interleaved-count']) {
     test('$name active list passes full checker and R6', () {
       final type = _type(name);
       final file = Directory('content/types')
