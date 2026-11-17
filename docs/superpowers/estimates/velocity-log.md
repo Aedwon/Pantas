@@ -237,3 +237,5 @@ Note (Nov 16 18:15 UTC, math for generator lead): the row first pushed as E-103 
 | E-110 | Nov 17 | SSOT pass covering Nov 16 08:47 to Nov 17 08:45 UTC (Home Current status, readiness checkpoint and catch-up, beta tab, launch log line) | docs/legal | SSOT keeper | Opus 5.5 | n/a | SSOT keeper | 3 min | 5 min | Nov 17 08:44 | Nov 17 08:47 | 2 min 34 s | 2 min 34 s | 0 | 0 | 0.51 | Under. |
 
 E-110 correction (Nov 17, SSOT keeper): the row was first pushed as E-108 (85a218519). E-108 and E-109 were already taken by running timers in another lane with no row yet, so the SSOT pass moved to E-110. The timer started about 2 minutes after the first estimate.
+
+E-110 miss cause (Nov 17, SSOT keeper): the row says only "Under." Ratio 0.51: the timer started after the ID collision was fixed, so that fix (about 2 minutes) is outside the measured time, and the SSOT edit script is reused from the previous pass.
