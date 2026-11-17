@@ -59,7 +59,9 @@ List<_Sample> _pick(Map<String, List<Map<String, Object?>>> types) {
   final picked = <_Sample>[
     for (final id in ids) _Sample(id, types[id]!.first),
   ];
-  final used = {for (final id in ids) id: <int>{0}};
+  final used = {
+    for (final id in ids) id: <int>{0}
+  };
   var round = 0;
   while (picked.length < _samples) {
     final id = ids[round % ids.length];
@@ -132,7 +134,8 @@ Widget _choice(BuildContext context, String kind, Map<String, Object?> item) {
 
 Widget _sample(BuildContext context, String kind, _Sample s) {
   final ink = Theme.of(context).colorScheme.onSurface;
-  TextStyle style(double size, {FontWeight w = FontWeight.w400, double a = 1}) =>
+  TextStyle style(double size,
+          {FontWeight w = FontWeight.w400, double a = 1}) =>
       TextStyle(
         fontFamily: 'Geist',
         fontSize: size,
@@ -244,7 +247,8 @@ void main() {
                             spacing: 32,
                             runSpacing: 24,
                             children: [
-                              for (final s in samples) _sample(context, kind, s),
+                              for (final s in samples)
+                                _sample(context, kind, s),
                             ],
                           ),
                         ),
