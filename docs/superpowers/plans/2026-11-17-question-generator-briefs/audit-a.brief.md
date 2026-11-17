@@ -1,0 +1,14 @@
+Task: plan Task 1.4 audit (spec B6), READ-ONLY. You audit; you never fix. Your only writable file is the findings file named at the end, appended the moment you find each issue.
+
+Scope: the active problem types under content/types/reasoning/spatial-abstract-reasoning/ in the folders named at the end. For each type read its type file, its variant list (sample at least index 0 and 10 other variants spread across the list), its rule in tool/generator/lib/src/rules/ and its solver in tool/generator/lib/src/check/solvers/. The source questions are on prod content: `git show origin/content/bite-sized-cse-algebra-r1:content/questions/reasoning/spatial-abstract-reasoning/<file>.yaml`.
+
+Judge each type on:
+1. The rule: does the stated pattern always have exactly one answer among the choices? Could a student defend another choice with a simpler or equally simple rule? Is it fair for the lesson and key point it claims?
+2. The wording: stem realistic for the target exam; explanation in plain English a Grade 5 student can read, saying only why the answer is correct; no em dashes; American spelling; text descriptions match the figure data. Rules: AGENTS.md (voice) and docs/content/question-style-guide.md.
+3. The named mistakes: each wrong choice must be a real, plausible error a student makes. Each note must state the mistake, why it looks right, and one check, and must be true for every variant (watch for fixed numbers or shapes in a note that changes per variant). A distractor that can never be correct for any reason a student would hold is filler and is a Major finding. Known lead: in net-adjacent-relation, the choice "They meet only at one corner" can never be correct for two faces of a cube; rule on whether it names a real mistake.
+4. Variety: do the 100 variants look meaningfully different to a student, or do many feel identical?
+
+Write each finding as: `<type id> | Blocker|Major|Minor | <what> | <evidence: file and variant index>`. End with a one-line verdict per type: PASS (no open Blocker or Major) or FAIL.
+
+Folders: every lesson folder holding qt-spatial-abstract-reasoning-series-* and qt-spatial-abstract-reasoning-group-* types (figure series and figure grouping, 15 types). Findings file: docs/superpowers/verification/question-generator/audit-a.md
+End your final message with a line STAGE-DONE.
