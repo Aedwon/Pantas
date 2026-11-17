@@ -677,3 +677,46 @@ lead was sent his answer.
 
 Honest limit recorded for him: A meets "never the same figures" for the types until
 a list ends. It does not meet it for the fixed questions.
+
+## Real counts under Revision 1, and adviser rulings
+
+Reported by the build lead (branch `gen/question-generator-r1` b11acba5d).
+Enumerated, not estimated: up to 10,000 draws per type, seed 20261117, deduplicated
+by a signature of the shown figures, the stem values and the correct answer.
+
+Of 58 candidate types:
+
+- 17 can reach 100 versions (17 source questions). 13 are approved. 2 wait for
+  fixed source questions (matrix-ray-intersection, series-interleaved-count). 2 are
+  held because a re-audit found another equally simple rule (matrix-ray-turn,
+  matrix-dot-sum).
+- 24 reach 20 to 99 versions (25 source questions).
+- 17 are under 20 (20 source questions) and stay fixed questions.
+
+Of the 105 questions: at most 42 become types if all 41 eligible types pass; at
+least 63 stay fixed. Approved today: 13 types.
+
+Against the estimates Aedwon was given with question 10 (about 26 at 100, about 30
+at 20 to 99, about 49 fixed; about 55 questions becoming types): fewer types reach
+100, and more questions stay fixed. The lead told him so, as promised.
+
+Lead concern: several types in 20 to 99 have few rule-parameter sets (matrix-arrow-
+column 6, series-binary-fill 6, series-corner-edge-count 8), so most of their
+versions differ only in cosmetics, and the same reasoning returns after 6 to 8
+versions with a different outline.
+
+Adviser rulings:
+
+1. Ship as option A says. The floor of 20 applies to total versions. A stricter
+   floor on rule-parameter sets would turn 9 types back into fixed questions, which
+   serves his goal worse. He is told that some types repeat their reasoning after 6
+   to 8 versions.
+2. Every rule an audit finds goes into the checker's rule library with a test, and
+   the checker is re-run on every type, including the 13 approved. A type that then
+   fails loses its approval.
+3. The two held types stay held. A version is acceptable only when every library
+   rule that fits the shown figures selects the same choice. Under 20 such
+   versions, the questions stay singles.
+4. The two flawed source questions are live content errors and go through the
+   content lane's approval gate, like series 0019.
+5. Rule-parameter sets are counted after the signature dedupe.
