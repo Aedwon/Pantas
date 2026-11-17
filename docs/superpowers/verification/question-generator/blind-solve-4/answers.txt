@@ -1,0 +1,75 @@
+qt-spatial-abstract-reasoning-series-fill-ray-dots#0 B sure alternating fill/line period 2
+qt-spatial-abstract-reasoning-series-fill-ray-dots#9 B sure alternating fill/line period 2
+qt-spatial-abstract-reasoning-series-fill-ray-dots#46 C sure alternating fill/line period 2
+qt-spatial-abstract-reasoning-series-fill-ray-dots#51 A sure alternating fill/line period 2
+qt-spatial-abstract-reasoning-series-fill-ray-dots#79 B sure alternating fill/line period 2
+qt-spatial-abstract-reasoning-series-four-tracks#0 B sure form/size alternate, edge+1, line+90
+qt-spatial-abstract-reasoning-series-four-tracks#14 A sure form/size alternate, edge+1, line+90
+qt-spatial-abstract-reasoning-series-four-tracks#28 D sure form/size alternate, edge+1, line+90
+qt-spatial-abstract-reasoning-series-four-tracks#41 D sure form/size alternate, edge+1, line+90
+qt-spatial-abstract-reasoning-series-four-tracks#87 D sure form/size alternate, edge+1, line+90
+qt-spatial-abstract-reasoning-series-ray-step#0 C sure +45
+qt-spatial-abstract-reasoning-series-ray-step#50 A sure +135
+qt-spatial-abstract-reasoning-series-ray-step#61 D sure +45
+qt-spatial-abstract-reasoning-series-ray-step#87 A sure +135
+qt-spatial-abstract-reasoning-series-ray-step#94 D sure +45
+qt-spatial-abstract-reasoning-group-polygon-replacement#0 A sure only straight-sided option
+qt-spatial-abstract-reasoning-group-polygon-replacement#8 B sure only straight-sided option
+qt-spatial-abstract-reasoning-group-polygon-replacement#24 B sure only straight-sided option
+qt-spatial-abstract-reasoning-group-polygon-replacement#71 A sure only straight-sided option
+qt-spatial-abstract-reasoning-group-polygon-replacement#88 D sure only straight-sided option
+qt-spatial-abstract-reasoning-group-dot-count#0 C sure hexagon has 2 dots
+qt-spatial-abstract-reasoning-group-dot-count#6 D sure figure 3 has 2 dots
+qt-spatial-abstract-reasoning-group-dot-count#57 C sure figure 2 has 0 dots
+qt-spatial-abstract-reasoning-group-dot-count#63 C sure figure 5 has 1 dot
+qt-spatial-abstract-reasoning-group-dot-count#70 B sure figure 4 has 2 dots
+qt-spatial-abstract-reasoning-group-dot-parity#0 D sure circle has 3 dots
+qt-spatial-abstract-reasoning-group-dot-parity#16 A sure figure 4 has 3 dots
+qt-spatial-abstract-reasoning-group-dot-parity#25 C sure figure 1 has 1 dot
+qt-spatial-abstract-reasoning-group-dot-parity#43 B sure figure 2 has 3 dots
+qt-spatial-abstract-reasoning-group-dot-parity#93 C sure figure 1 has 1 dot
+qt-spatial-abstract-reasoning-matrix-dot-sum#0 B sure row: first+second=third, 1+3=4
+qt-spatial-abstract-reasoning-matrix-dot-sum#28 D sure row sum, 2+3=5
+qt-spatial-abstract-reasoning-matrix-dot-sum#45 D sure row sum, 1+3=4
+qt-spatial-abstract-reasoning-matrix-dot-sum#51 A sure row sum, 1+3=4
+qt-spatial-abstract-reasoning-matrix-dot-sum#65 B sure row sum, 1+3=4
+qt-spatial-abstract-reasoning-matrix-ray-union#0 C sure third = union of first two rays
+qt-spatial-abstract-reasoning-matrix-ray-union#32 D sure union
+qt-spatial-abstract-reasoning-matrix-ray-union#50 A sure union
+qt-spatial-abstract-reasoning-matrix-ray-union#52 C sure union
+qt-spatial-abstract-reasoning-matrix-ray-union#96 D sure union
+qt-spatial-abstract-reasoning-matrix-sized-ray-union#0 D sure row union, row 3 large
+qt-spatial-abstract-reasoning-matrix-sized-ray-union#3 C sure row union, row 3 small
+qt-spatial-abstract-reasoning-matrix-sized-ray-union#11 B sure row union, row 3 large
+qt-spatial-abstract-reasoning-matrix-sized-ray-union#14 C sure row union, row 3 small
+qt-spatial-abstract-reasoning-matrix-sized-ray-union#25 C sure row union, row 3 small
+qt-spatial-abstract-reasoning-matrix-form-ray#0 D sure row form, column line step
+qt-spatial-abstract-reasoning-matrix-form-ray#5 B sure column line, row form
+qt-spatial-abstract-reasoning-matrix-form-ray#21 B sure blank is square, line 0
+qt-spatial-abstract-reasoning-matrix-form-ray#53 A sure blank is square, line 45
+qt-spatial-abstract-reasoning-matrix-form-ray#68 C sure blank is circle, line 225
+qt-spatial-abstract-reasoning-matrix-outline-latin#0 C sure Latin square
+qt-spatial-abstract-reasoning-matrix-outline-latin#15 A sure Latin square
+qt-spatial-abstract-reasoning-matrix-outline-latin#41 A sure Latin square
+qt-spatial-abstract-reasoning-matrix-outline-latin#53 C sure Latin square
+qt-spatial-abstract-reasoning-matrix-outline-latin#65 D sure Latin square
+qt-spatial-abstract-reasoning-matrix-size-dots#0 C sure large, 3 dots
+qt-spatial-abstract-reasoning-matrix-size-dots#3 C sure small, 0 dots
+qt-spatial-abstract-reasoning-matrix-size-dots#49 B sure large, 2 dots
+qt-spatial-abstract-reasoning-matrix-size-dots#85 D sure large, 0 dots
+qt-spatial-abstract-reasoning-matrix-size-dots#87 D sure small, 2 dots
+qt-spatial-abstract-reasoning-matrix-size-transfer#0 D sure large, 3 dots, 1 edge
+qt-spatial-abstract-reasoning-matrix-size-transfer#11 A sure small, 1 dot, 3 edge
+qt-spatial-abstract-reasoning-matrix-size-transfer#20 A sure large, 3 dots, 1 edge
+qt-spatial-abstract-reasoning-matrix-size-transfer#80 A sure small, 4 dots, 3 edge
+qt-spatial-abstract-reasoning-matrix-size-transfer#90 C sure large, 3 dots, 2 edge
+qt-spatial-abstract-reasoning-matrix-corner-reflection#0 A sure dot mirrored left-right
+qt-spatial-abstract-reasoning-matrix-corner-reflection#35 C sure dot mirrored left-right
+qt-spatial-abstract-reasoning-matrix-corner-reflection#45 D sure dot mirrored left-right
+qt-spatial-abstract-reasoning-matrix-corner-reflection#65 A sure dot mirrored left-right
+qt-spatial-abstract-reasoning-matrix-corner-reflection#79 A sure dot mirrored left-right
+qt-spatial-abstract-reasoning-matrix-ray-turn#0 D sure row +90, row 2 square
+qt-spatial-abstract-reasoning-matrix-ray-turn#18 C sure row +135, circle 225 -> 0
+qt-spatial-abstract-reasoning-matrix-ray-turn#37 C sure row +90, circle 45 -> 135
+qt-spatial-abstract-reasoning-matrix-ray-turn#47 D sure row +45, square 315 -> 0
+qt-spatial-abstract-reasoning-matrix-ray-turn#86 A sure row +45, triangle 270 -> 315
