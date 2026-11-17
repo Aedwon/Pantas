@@ -1,7 +1,7 @@
 import '../model.dart';
 import 'signature.dart';
 
-/// Canonicalize the whole ordered sequence and unordered choice set under D4.
+/// Canonicalize the whole ordered sequence and correct answer under D4.
 /// Components use their drawn orientation, including the bottom fill/edge marks
 /// and the off-center dot rows on triangles and stars. Words never add
 /// capacity.
@@ -10,13 +10,7 @@ Object canonicalSeries(Variant variant) {
   for (final mirror in [false, true]) {
     for (var turn = 0; turn < 4; turn++) {
       final shown = variant.figureSpec!;
-      final choices = variant.choices
-          .map(
-            (c) =>
-                dataKey(canonicalSeriesItem(c.figure!, turn, mirror: mirror)),
-          )
-          .toList()
-        ..sort();
+      final answer = variant.choices.singleWhere((c) => c.correct);
       keys.add(
         dataKey({
           'blank': shown['blank'] ?? true,
@@ -24,7 +18,7 @@ Object canonicalSeries(Variant variant) {
               .cast<Map<String, Object?>>()
               .map((raw) => canonicalSeriesItem(raw, turn, mirror: mirror))
               .toList(),
-          'choices': choices,
+          'answer': canonicalSeriesItem(answer.figure!, turn, mirror: mirror),
           // Different query horizons are different problems, not wording
           // cosmetics.
           'horizon': variant.slots['horizon'] ?? 1,

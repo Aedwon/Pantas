@@ -1,10 +1,8 @@
-import 'dart:convert';
 import 'dart:math';
-
-import 'package:crypto/crypto.dart';
 
 import 'check/signature.dart';
 import 'model.dart';
+import 'rule_key.dart';
 import 'rules/rule.dart';
 
 class CapacityReport {
@@ -42,15 +40,7 @@ CapacityReport measureCapacity(
   for (var draw = 0; draw < ceiling; draw++) {
     final result = rule.generate(type, random, draw);
     signatures.add(canonicalSignature(result.variant));
-    keys.add(
-      sha256
-          .convert(
-            utf8.encode(
-              canonicalJson(result.ruleParams),
-            ),
-          )
-          .toString(),
-    );
+    keys.add(taskRuleKey(type.rule, result.ruleParams));
   }
   return CapacityReport(keys.length, signatures.length, ceiling);
 }

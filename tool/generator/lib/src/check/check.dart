@@ -1,7 +1,7 @@
 import 'dart:convert';
-import 'package:crypto/crypto.dart';
 
 import '../model.dart';
+import '../rule_key.dart';
 import 'markup.dart';
 import 'signature.dart';
 import 'solvers/solver.dart';
@@ -163,13 +163,10 @@ List<CheckFailure> checkVariants(
         fail('ruleKey', 'no independent solver');
         return;
       }
-      final expected = sha256
-          .convert(
-            utf8.encode(
-              dataKey(solver.ruleParams(type, variant)),
-            ),
-          )
-          .toString();
+      final expected = taskRuleKey(
+        type.rule,
+        solver.ruleParams(type, variant),
+      );
       if (expected != variant.ruleKey) {
         fail('ruleKey', 'independent parameters do not match ruleKey');
       }

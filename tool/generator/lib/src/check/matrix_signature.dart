@@ -37,19 +37,13 @@ Object canonicalMatrix(Variant variant) {
                 mirror: mirror,
               );
       }
-      final choices = variant.choices
-          .map(
-            (c) =>
-                dataKey(canonicalSeriesItem(c.figure!, turns, mirror: mirror)),
-          )
-          .toList()
-        ..sort();
+      final answer = variant.choices.singleWhere((c) => c.correct);
       keys.add(
         dataKey({
           'rows': outRows,
           'cols': outCols,
           'cells': cells,
-          'choices': choices,
+          'answer': canonicalSeriesItem(answer.figure!, turns, mirror: mirror),
         }),
       );
     }

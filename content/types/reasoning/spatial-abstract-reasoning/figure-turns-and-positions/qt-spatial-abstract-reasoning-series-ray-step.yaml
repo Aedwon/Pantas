@@ -58,7 +58,7 @@
     },
     {
       "id": "early-restart",
-      "note": "This returns to the first ray too soon. The first ray is familiar. Check whether the full cycle has ended."
+      "note": "This selects {restartAction} instead of making the next equal turn. A familiar ray can look right. Check the turn from the last shown ray."
     },
     {
       "id": "reverse-turn",

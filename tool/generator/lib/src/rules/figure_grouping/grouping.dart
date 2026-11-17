@@ -109,9 +109,8 @@ class GroupingRule implements Rule {
     final operation =
         pattern.startsWith('side-count-') ? 'side-count' : pattern;
     for (var attempt = 0; attempt < 1000; attempt++) {
-      final profile = pattern == 'side-count-medium'
-          ? (fixed ? (index == 1 ? 1 : 0) : r.nextInt(2))
-          : 0;
+      final profile =
+          pattern == 'side-count-medium' ? (fixed && index == 0 ? 0 : 1) : 0;
       final common = r.nextInt(5);
       final other = pick([
         for (var i = 0; i <= 4; i++)
@@ -199,6 +198,16 @@ class GroupingRule implements Rule {
         }
           ..shuffle(r);
       }
+      if (!fixed &&
+          ['side-count-easy', 'boundary', 'side-count-medium']
+              .contains(pattern) &&
+          shapes.map(dataKey).toSet().length != shapes.length) {
+        continue;
+      }
+      if (pattern == 'dot-parity' &&
+          shapes.where((x) => x['form'] == 'hexagon').length != 1) {
+        continue;
+      }
       int count(Map<String, Object?> x, String k) => (x[k] as int?) ?? 0;
       Object? property(Map<String, Object?> x) => switch (operation) {
             'side-count' => _sides[x['form']],
@@ -285,6 +294,10 @@ class GroupingRule implements Rule {
           final all = [for (var i = 0; i < shapes.length; i++) value(i)];
           final target =
               id.startsWith('fewest') ? all.reduce(min) : all.reduce(max);
+          if (id == 'most-dots' && all.where((x) => x == target).length != 1) {
+            candidates = [];
+            break;
+          }
           candidates = candidates.where((i) => value(i) == target).toList()
             ..sort((a, b) {
               final d = value(a).compareTo(value(b));
@@ -380,7 +393,7 @@ class GroupingRule implements Rule {
       };
       final params = <String, Object?>{
         'operation': operation,
-        'shapes': shapes,
+        'shapes': (shapes.map(dataKey).toList()..sort()),
         if (pattern == 'polygon-replacement') 'replacement': replacement,
       };
       final variant = parseVariants({

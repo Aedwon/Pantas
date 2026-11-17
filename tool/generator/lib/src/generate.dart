@@ -1,9 +1,7 @@
-import 'dart:convert';
 import 'dart:math';
 
-import 'package:crypto/crypto.dart';
-
 import 'model.dart';
+import 'rule_key.dart';
 import 'rules/rule.dart';
 
 const toolVersion = 1;
@@ -53,9 +51,7 @@ VariantList generateVariants(
         'variants': [
           {
             ...result.variant.toMap(),
-            'ruleKey': sha256
-                .convert(utf8.encode(canonicalJson(result.ruleParams)))
-                .toString(),
+            'ruleKey': taskRuleKey(type.rule, result.ruleParams),
             'cosmetics': result.cosmetics,
           }
         ],

@@ -1,7 +1,7 @@
 import '../model.dart';
 import 'signature.dart';
 
-/// Canonicalize a labeled net, its query and its complete choice set under D4.
+/// Canonicalize a labeled net, its query and its correct answer under D4.
 /// Label spelling, cell order, planar translation and choice order add no
 /// capacity. References in slots and text choices follow their labeled cells.
 /// Query slots use `operation`, `face`, `faces` and optional `upFace`.
@@ -81,13 +81,7 @@ Object canonicalCubeNet(Variant variant) {
         );
       }
 
-      final choices = variant.choices.map((choice) {
-        if (choice.figure != null) {
-          throw const FormatException('cube-net rules require text relations');
-        }
-        return answer(choice.text);
-      }).toList()
-        ..sort();
+      final correct = variant.choices.singleWhere((choice) => choice.correct);
       final cells = positions.map(dataKey).toList()..sort();
       alternatives.add(
         dataKey({
@@ -102,7 +96,7 @@ Object canonicalCubeNet(Variant variant) {
                       .toList()
                     ..sort())
                   : reference(variant.slots[key]),
-          'choices': choices,
+          'answer': answer(correct.text),
         }),
       );
     }

@@ -63,7 +63,15 @@ void main() {
         'origin/content/bite-sized-cse-algebra-r1',
         type.mergedQuestions.map((m) => m.id).toSet(),
       );
-      expect(checkVariants(type, list.variants, questions: sources), isEmpty);
+      final failures = checkVariants(type, list.variants, questions: sources);
+      if (pattern == 'interleaved-count') {
+        // The held source is reproduced exactly, but its wrong choice also
+        // completes the doubling rule. Source fidelity is not validity.
+        expect(failures.where((f) => f.check == 'correctness'), isNotEmpty);
+        expect(failures.where((f) => f.check != 'correctness'), isEmpty);
+      } else {
+        expect(failures, isEmpty);
+      }
       for (var i = 1; i <= 20; i++) {
         final result = ruleRegistry[name]!.generate(type, Random(i), i);
         final solver = figureSolvers[name]!;

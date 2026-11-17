@@ -1,4 +1,5 @@
 import '../../../model.dart';
+import '../../signature.dart';
 import '../solver.dart';
 
 const groupingMistakes = <String, List<String>>{
@@ -200,6 +201,9 @@ class GroupingSolver implements FigureSolver {
             : count(a[i], id.contains('dots') ? 'dots' : 'lines');
         final all = [for (var i = 0; i < a.length; i++) metric(i)]..sort();
         final extreme = id.startsWith('fewest') ? all.first : all.last;
+        if (id == 'most-dots' && all.where((x) => x == extreme).length != 1) {
+          throw const FormatException('most-dots requires a unique maximum');
+        }
         pool = pool.where((i) => metric(i) == extreme).toList()
           ..sort((x, y) {
             final c = metric(x).compareTo(metric(y));
@@ -292,7 +296,7 @@ class GroupingSolver implements FigureSolver {
   @override
   Map<String, Object?> ruleParams(ProblemType t, Variant v) => {
         'operation': operation,
-        'shapes': row(v.figureSpec!),
+        'shapes': (row(v.figureSpec!).map(dataKey).toList()..sort()),
         if (pattern == 'polygon-replacement')
           'replacement': v.slots['replacement'],
       };

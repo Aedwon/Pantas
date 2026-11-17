@@ -60,7 +60,11 @@ String canonicalSignature(
   final figure = variant.figureSpec;
   Object? canonical;
   if (figure == null) {
-    canonical = _numbers(variant.slots);
+    final correct = variant.choices.singleWhere((c) => c.correct);
+    canonical = {
+      'numbers': _numbers(variant.slots),
+      'answer': _numbers(correct.value ?? correct.text),
+    };
   } else {
     final kind = figure['kind'];
     final canonicalizer = figureCanonicalizers[kind];
@@ -90,7 +94,7 @@ String canonicalSignature(
 }
 
 /// Generic test kind: nested Cartesian points. Transform the shown data and
-/// every candidate together; words and slot labels do not define a figure.
+/// the correct answer together; words and slot labels do not define a figure.
 Object _generic(Variant variant) {
   Object? transform(Object? data, int turns, {required bool mirror}) {
     if (data is List) {
@@ -119,14 +123,11 @@ Object _generic(Variant variant) {
   final keys = <String>[];
   for (final mirror in [false, true]) {
     for (var turns = 0; turns < 4; turns++) {
-      final choices = variant.choices
-          .map((c) => dataKey(transform(c.figure, turns, mirror: mirror)))
-          .toList()
-        ..sort();
+      final correct = variant.choices.singleWhere((c) => c.correct);
       keys.add(
         dataKey({
           'shown': transform(variant.figureSpec, turns, mirror: mirror),
-          'choices': choices,
+          'answer': transform(correct.figure, turns, mirror: mirror),
         }),
       );
     }

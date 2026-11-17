@@ -1,10 +1,8 @@
 import '../model.dart';
 import 'signature.dart';
 
-/// A row's reversal is the only additional ordering reachable by a whole-row
-/// rotation or reflection. Shape-row has no per-shape orientation field.
-/// Defaults are materialized, and position answers move with their figures.
-/// Text descriptions and choice ordering do not create capacity.
+/// Row order does not change a grouping task. Keep multiplicity and mark the
+/// keyed figure, rather than its position. Wrong choices add no capacity.
 Object canonicalShapeRow(Variant v) {
   final shapes =
       (v.figureSpec!['shapes']! as List).cast<Map<String, Object?>>();
@@ -14,26 +12,22 @@ Object canonicalShapeRow(Variant v) {
         'lines': x['lines'] ?? 0,
         'through': x['through'] ?? 'centre',
       };
-  final keys = <String>[];
-  for (final reverse in [false, true]) {
-    final choices = v.choices.map((c) {
-      if (c.figure != null) return dataKey(normal(c.figure!));
-      final position = int.tryParse(c.value ?? '');
-      final positional = v.slots['operation'] != 'specific-rule';
-      return dataKey(
-        positional && position != null
-            ? '${reverse ? shapes.length + 1 - position : position}'
-            : c.value,
-      );
-    }).toList()
-      ..sort();
-    keys.add(
+  final correct = v.choices.singleWhere((c) => c.correct);
+  final position = int.tryParse(correct.value ?? '');
+  final positional =
+      v.slots['operation'] != 'specific-rule' && position != null;
+  final row = [
+    for (var i = 0; i < shapes.length; i++)
       dataKey({
-        'shapes': (reverse ? shapes.reversed : shapes).map(normal).toList(),
-        'operation': v.slots['operation'],
-        'choices': choices,
+        'figure': normal(shapes[i]),
+        if (positional) 'key': i == position - 1,
       }),
-    );
-  }
-  return (keys..sort()).first;
+  ]..sort();
+  return {
+    'shapes': row,
+    'operation': v.slots['operation'],
+    if (!positional)
+      'answer':
+          correct.figure != null ? normal(correct.figure!) : correct.value,
+  };
 }

@@ -10,7 +10,8 @@ const _forms = ['square', 'circle', 'triangle', 'pentagon', 'star'];
 /// Independent implementation of the documented series contracts. No rule
 /// import.
 class SeriesSolver implements FigureSolver {
-  SeriesSolver(this.pattern);
+  SeriesSolver(this.pattern, {this.doubleCounts = false});
+  final bool doubleCounts;
   final String pattern;
   @override
   String get kind => 'figure-series';
@@ -26,6 +27,9 @@ class SeriesSolver implements FigureSolver {
     final result = Map<String, Object?>.of(a.first);
     final first = a.first;
     final second = a[1];
+    int growingCount(String key, int step) => doubleCounts
+        ? _count(first, key) * (1 << step)
+        : _count(first, key) + step;
     switch (pattern) {
       case 'ray-step':
         result['line'] =
@@ -41,7 +45,7 @@ class SeriesSolver implements FigureSolver {
         result['arrow'] =
             _arrows[(_arrows.indexOf(first['arrow']! as String) + i) % 4];
       case 'dots-size':
-        result['dots'] = _count(first, 'dots') + i;
+        result['dots'] = growingCount('dots', i);
         result['size'] = i.isEven ? _size(first) : _size(second);
       case 'arrow-alternation':
         result['arrow'] = a[i % 2]['arrow'];
@@ -54,25 +58,25 @@ class SeriesSolver implements FigureSolver {
         result['form'] = a[i % 2]['form'];
         result['size'] = _size(a[i % 2]);
         result['line'] = (_angle(first) + 90 * i) % 360;
-        result['edgeLines'] = _count(first, 'edgeLines') + i;
+        result['edgeLines'] = growingCount('edgeLines', i);
       case 'corner-edge-count':
         result['dot'] =
             _corners[(_corners.indexOf(first['dot']! as String) + i) % 4];
-        result['edgeLines'] = _count(first, 'edgeLines') + i;
+        result['edgeLines'] = growingCount('edgeLines', i);
       case 'double-fill':
         final phase = a.take(3).map((x) => x['fill']).toList().indexOf('white');
         result['fill'] = i % 3 == phase ? 'white' : 'black';
       case 'transfer-count':
-        result['dots'] = _count(first, 'dots') + i;
+        result['dots'] = growingCount('dots', i);
         result['edgeLines'] = _count(first, 'edgeLines') - i;
       case 'interleaved-count':
         result['form'] = a[i % 2]['form'];
         result['dots'] =
-            i.isEven ? _count(first, 'dots') + i ~/ 2 : _count(second, 'dots');
+            i.isEven ? growingCount('dots', i ~/ 2) : _count(second, 'dots');
       case 'fill-ray-dots':
         result['fill'] = _fill(a[i % 2]);
         result['line'] = _angle(a[i % 2]);
-        result['dots'] = _count(first, 'dots') + i;
+        result['dots'] = growingCount('dots', i);
       case 'size-corner-ray':
         result['size'] = _size(a[i % 2]);
         result['line'] = _angle(a[i % 2]);
@@ -201,7 +205,8 @@ class SeriesSolver implements FigureSolver {
           [.25, .5, .75].contains(_fill(second)) &&
           _fill(first) != _fill(second) &&
           [45, 90, 135].contains((_angle(second) - _angle(first)) % 360),
-      'size-corner-ray' => _size(first) != _size(second) &&
+      'size-corner-ray' => first['form'] == 'square' &&
+          _size(first) != _size(second) &&
           (_angle(first) - _angle(second)) % 360 == 90,
       _ => true,
     };
@@ -308,8 +313,6 @@ class SeriesSolver implements FigureSolver {
             },
           )
           .toList(),
-      if (variant.slots['extraForm'] != null)
-        'extraForm': variant.slots['extraForm'],
     };
   }
 

@@ -29,7 +29,7 @@ const groupingPatterns = [
 void main() {
   test('generated grouping notes avoid source-only shape and position claims',
       () {
-    const root = 'content/types/reasoning/spatial-abstract-reasoning/'
+    const root = 'content/types-held/reasoning/spatial-abstract-reasoning/'
         'grouping-outlines-and-symmetry';
     final medium = parseProblemType(
       loadYaml(

@@ -131,7 +131,7 @@ void main() {
       isNot(canonicalSignature(netVariant())),
     );
   });
-  test('changed answer face set remains part of the whole question', () {
+  test('changed distractor face set adds no task capacity', () {
     final original = netVariant();
     final changed = original.toMap();
     final choices = original.choices.map((c) => c.toMap()).toList();
@@ -143,7 +143,7 @@ void main() {
           'variants': [changed],
         }).single,
       ),
-      isNot(canonicalSignature(original)),
+      canonicalSignature(original),
     );
   });
   test('cell order is not spatial capacity when labels follow their cells', () {

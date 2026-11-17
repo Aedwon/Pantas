@@ -115,7 +115,11 @@ class SeriesRule implements Rule {
         ..shuffle(r);
       final form = forms[0];
       final secondForm = forms[1];
+      if (!fixed && pattern == 'size-corner-ray' && form != 'square') continue;
       final initialDots = pick((t.params['initialDots']! as List).cast<int>());
+      if (!fixed && pattern == 'interleaved-count' && initialDots == 1) {
+        continue;
+      }
       final evenDots = r.nextInt(6);
       final edges = pick((t.params['initialEdges']! as List).cast<int>());
       final start = r.nextInt(8) * 45;
@@ -373,12 +377,15 @@ class SeriesRule implements Rule {
               },
             )
             .toList(),
-        if (extraForm != null) 'extraForm': extraForm,
       };
       final slots = <String, Object?>{
         'horizon': horizon,
         if (extraForm != null) 'extraForm': extraForm,
         'answerText': _describe(answer),
+        if (pattern == 'ray-step')
+          'restartAction': first['line'] == last['line']
+              ? 'the last ray again'
+              : 'the first ray',
         if (answer['dots'] != null)
           'answerDotCount': [
             'zero',

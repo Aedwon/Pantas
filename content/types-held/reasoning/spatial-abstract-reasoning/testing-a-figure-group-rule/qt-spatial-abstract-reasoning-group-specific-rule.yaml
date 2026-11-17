@@ -44,7 +44,7 @@
     },
     {
       "id": "common-symmetry",
-      "note": "This uses a feature shared by all these regular outlines. Symmetry is visible. Check whether it excludes any figure.\n"
+      "note": "This uses a feature shared by all these symmetric outlines. Their reflected halves match. Check whether the rule excludes any figure."
     },
     {
       "id": "common-closure",

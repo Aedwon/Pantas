@@ -35,6 +35,17 @@ typedef MistakeSolver = Object Function(ProblemType type, Variant variant);
 
 final mathSolvers = <String, MathSolver>{};
 final figureSolvers = <String, FigureSolver>{
+  // Competing count rules remain in the library even when their source type
+  // is held. Two shown count values can fit both addition and doubling.
+  for (final pattern in [
+    'dots-size',
+    'four-tracks',
+    'corner-edge-count',
+    'transfer-count',
+    'interleaved-count',
+    'fill-ray-dots',
+  ])
+    'series-$pattern-doubling': SeriesSolver(pattern, doubleCounts: true),
   for (final pattern in matrixMistakes.keys)
     'matrix-$pattern': MatrixSolver(pattern),
   for (final pattern in netMistakes.keys) 'net-$pattern': NetSolver(pattern),

@@ -49,10 +49,9 @@ library;
 import 'dart:convert';
 import 'dart:math';
 
-import 'package:crypto/crypto.dart';
-
 import '../../check/signature.dart';
 import '../../model.dart';
+import '../../rule_key.dart';
 import '../rule.dart';
 import 'sources.dart';
 
@@ -377,8 +376,7 @@ class NetRule implements Rule {
               },
             },
         ],
-        'ruleKey':
-            sha256.convert(utf8.encode(canonicalJson(parameters))).toString(),
+        'ruleKey': taskRuleKey(name, parameters),
         'cosmetics': cosmetics,
         'signature': 'pending',
       };
