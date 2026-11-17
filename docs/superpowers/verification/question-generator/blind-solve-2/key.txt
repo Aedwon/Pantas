@@ -1,0 +1,10 @@
+qt-spatial-abstract-reasoning-net-adjacent-relation#0 A
+qt-spatial-abstract-reasoning-net-adjacent-relation#16 B
+qt-spatial-abstract-reasoning-net-adjacent-relation#25 C
+qt-spatial-abstract-reasoning-net-adjacent-relation#43 A
+qt-spatial-abstract-reasoning-net-adjacent-relation#93 A
+qt-spatial-abstract-reasoning-net-opposite-hard#0 A
+qt-spatial-abstract-reasoning-net-opposite-hard#28 B
+qt-spatial-abstract-reasoning-net-opposite-hard#45 B
+qt-spatial-abstract-reasoning-net-opposite-hard#51 C
+qt-spatial-abstract-reasoning-net-opposite-hard#65 A
