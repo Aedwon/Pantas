@@ -4,6 +4,7 @@ import 'package:crypto/crypto.dart';
 
 import '../model.dart';
 import 'series_signature.dart';
+import 'shape_row_signature.dart';
 
 Object? _sorted(Object? value) {
   if (value is Map) {
@@ -22,6 +23,7 @@ typedef FigureCanonicalizer = Object Function(Variant variant);
 final figureCanonicalizers = <String, FigureCanonicalizer>{
   'generic-test': _generic,
   'figure-series': canonicalSeries,
+  'shape-row': canonicalShapeRow,
 };
 
 // Wording slots are not numbers. Normalize exact rational strings so 2/2

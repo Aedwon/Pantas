@@ -1,0 +1,60 @@
+{
+  "id": "qt-spatial-abstract-reasoning-group-boundary",
+  "lesson": "lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry",
+  "keyPoint": 1,
+  "difficulty": "medium",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "odd-figure",
+  "rule": "group-boundary",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "text",
+  "enabled": true,
+  "params": {
+    "forms": [
+      "square",
+      "rectangle",
+      "rhombus",
+      "parallelogram",
+      "triangle",
+      "circle",
+      "pentagon",
+      "hexagon",
+      "blob"
+    ],
+    "counts": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "stem": "{stem}",
+  "explanation": "{explanation}",
+  "mistakes": [
+    {
+      "id": "equal-sides",
+      "note": "This selects equal side lengths instead of testing the stated rule. Equal lengths stand out. Test the property named in the question."
+    },
+    {
+      "id": "different-side-count",
+      "note": "This selects a different side count instead of testing the stated rule. A different count stands out. Check straight versus curved boundaries instead."
+    },
+    {
+      "id": "elongated-form",
+      "note": "This selects outline proportions instead of testing the stated rule. A stretched shape looks different. Check straight versus curved boundaries instead."
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-grouping-0005",
+      "index": 0
+    }
+  ]
+}

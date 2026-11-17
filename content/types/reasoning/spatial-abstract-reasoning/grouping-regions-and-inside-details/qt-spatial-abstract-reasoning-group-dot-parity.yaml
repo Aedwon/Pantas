@@ -1,0 +1,60 @@
+{
+  "id": "qt-spatial-abstract-reasoning-group-dot-parity",
+  "lesson": "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details",
+  "keyPoint": 2,
+  "difficulty": "easy",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "odd-figure",
+  "rule": "group-dot-parity",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "text",
+  "enabled": true,
+  "params": {
+    "forms": [
+      "square",
+      "rectangle",
+      "rhombus",
+      "parallelogram",
+      "triangle",
+      "circle",
+      "pentagon",
+      "hexagon",
+      "blob"
+    ],
+    "counts": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "stem": "{stem}",
+  "explanation": "{explanation}",
+  "mistakes": [
+    {
+      "id": "fewest-dots",
+      "note": "This selects the fewest dots instead of testing the stated rule. A small count stands out. Check whether each count is even instead."
+    },
+    {
+      "id": "most-dots",
+      "note": "This selects the most dots instead of testing the stated rule. A large count stands out. Test the stated dot-count relation instead."
+    },
+    {
+      "id": "outline-side-count",
+      "note": "This selects outline side count instead of testing the stated rule. A six-sided outline stands out. Check dot-count parity instead."
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-grouping-0015",
+      "index": 0
+    }
+  ]
+}

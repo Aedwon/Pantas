@@ -1,0 +1,60 @@
+{
+  "id": "qt-spatial-abstract-reasoning-group-side-count-easy",
+  "lesson": "lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry",
+  "keyPoint": 1,
+  "difficulty": "easy",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "odd-figure",
+  "rule": "group-side-count-easy",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "text",
+  "enabled": true,
+  "params": {
+    "forms": [
+      "square",
+      "rectangle",
+      "rhombus",
+      "parallelogram",
+      "triangle",
+      "circle",
+      "pentagon",
+      "hexagon",
+      "blob"
+    ],
+    "counts": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "stem": "{stem}",
+  "explanation": "{explanation}",
+  "mistakes": [
+    {
+      "id": "equal-length-instead-of-count",
+      "note": "This selects equal side lengths instead of testing the stated rule. Equal lengths stand out. Count the sides instead."
+    },
+    {
+      "id": "proportion-instead-of-count",
+      "note": "This selects outline proportions instead of testing the stated rule. A stretched shape looks different. Count the sides instead."
+    },
+    {
+      "id": "orientation-instead-of-count",
+      "note": "This selects outline direction instead of testing the stated rule. A slanted outline looks different. Count the sides instead."
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-grouping-0001",
+      "index": 0
+    }
+  ]
+}

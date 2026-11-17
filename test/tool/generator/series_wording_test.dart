@@ -18,6 +18,7 @@ void main() {
           continue;
         }
         final type = parseProblemType(loadYaml(file.readAsStringSync()) as Map);
+        if (!type.rule.startsWith('series-')) continue;
         for (var seed = 1; seed <= 100; seed++) {
           final variant = ruleRegistry[type.rule]!
               .generate(type, Random(seed), seed)
@@ -48,6 +49,7 @@ void main() {
           continue;
         }
         final type = parseProblemType(loadYaml(file.readAsStringSync()) as Map);
+        if (!type.rule.startsWith('series-')) continue;
         for (var seed = 1; seed <= 100; seed++) {
           final variant = ruleRegistry[type.rule]!
               .generate(type, Random(seed), seed)
