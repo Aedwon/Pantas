@@ -1,0 +1,6 @@
+Task: release the problem types that reach 20 to 99 task signatures, under Revision 1 of Part A (spec; each type ships at its enumerated size up to 100, floor 20). The grown rule library from the previous run is merged.
+
+1. For each type in content/types-held/ whose capacity (ceiling 10000) is 20 or more, EXCEPT matrix-ray-turn, matrix-dot-sum, matrix-ray-intersection, series-interleaved-count and matrix-corner-grid (held for other reasons): move its type file to the same path under content/types/ and generate a list of min(100, capacity) variants with tool/generator/bin/generate.dart. Use plain `git mv` (no -q). Skip variant files when globbing.
+2. Add a checker rule with a planted test: an active list holds at least 20 variants (Revision 1 floor).
+3. Run the full checker. A type that fails: fix its rule, wording or solver only where the fix is local and the R1 to R5 rulings in docs/superpowers/plans/2026-11-17-question-generator-briefs/fix-rulings.md cover it; otherwise move it back to content/types-held/ with a FINDINGS line. Earlier audit findings on these types (audit-a.md, audit-b.md, fix-a/fix-b findings) must stay closed; re-check them.
+4. Report per type: id, list size, rule-parameter sets after dedupe, checker result, status. Do not approve anything in the ledger.
