@@ -16,7 +16,7 @@ Three parts, published together as one document titled "Child Notice": (a) the f
 
 **Who this is for**
 
-This notice is for the parent or guardian who sets up a Pantas account for a child under 13. We call that person the guardian. The account belongs to the guardian. The child uses it with a nickname.
+This notice is for the parent or guardian who sets up a Pantas account for a child under 13. We call that person the guardian. Your email address is a holder sign-in that holds no study data. Each child has a separate account with no email of its own, linked to your sign-in on our servers. One guardian email may hold up to 5 active children, for example twins or siblings. Support can raise the limit. The child uses the account with a nickname.
 
 If the child is 13 to 17, read the Notice for teens. If you are 18 or older and the account is for you, read the Privacy Policy.
 
@@ -33,11 +33,12 @@ Telephone: [BUSINESS PHONE: Aedwon to supply or confirm]
 **What we collect for a child account**
 
 - Your sign-in details. If you sign in with an email code, we receive your email address. If you sign in with Google, we also receive your name and profile photo. We use your email address to send you the receipt and notices about this account. We do not copy your name or photo into the child's profile.
-- An account ID, which Pantas creates.
-- The child's nickname. You choose it. We do not ask for the child's real name, school, photo, birth date or exact age.
+- An account ID for each child account, which Pantas creates.
+- The child's nickname. You choose it. We store it on our servers so we can list brothers and sisters on your sign-in. We do not ask for the child's real name, school, photo, birth date or exact age.
+- The link between your sign-in and each child account, and a holder ID. Each child account has no email of its own.
 - A label that the account is a child account. This label is information about age.
 - Study records: the exam (PSHS-NCE), study settings, answers, results, study times, bookmarked lessons and flagged questions.
-- Your consent record: your two confirmations at setup, the date and time, the version of the Terms and of this notice, and the account ID.
+- Your consent record, for each child: your two confirmations when you add that child, the date and time, the version of the Terms and of this notice, and the account ID.
 - Payments: if you buy PSHS-NCE access, we keep payment references, amounts, payment status, refunds and access dates. Card and wallet details are entered on PayMongo's checkout page. We also record the checkout declaration you tick, with the date, time and Terms version.
 - Rate-limit records: counts of requests from a sign-in session or network address, so we can stop abuse and overload. [CONFIRM RETENTION AGAINST THE BUILD BEFORE PUBLISHING. If the build cannot state a period, publish "kept for as short a time as the build allows, no longer than 30 days" only after Aedwon confirms it is true.]
 - Messages: emails you send to support@pantas.study or dpo@pantas.study.
@@ -70,7 +71,7 @@ Pantas uses answers and study timing to select review dates and suggested practi
 
 **How long we keep data**
 
-- Child account and study records: until you delete the account. We also delete a child account that has had no sign-in or study activity for 12 months. We normally email you a warning about 30 days before. An account with active paid access does not count as inactive.
+- Each child account and its study records: until you delete that child's account. We also delete a child account that has had no sign-in or study activity for 12 months. Each child account is counted on its own. If you close the last child account, we also delete your holder sign-in and your email address, except as the consent-evidence item below says. We normally email you a warning about 30 days before. An account with active paid access does not count as inactive.
 - Consent evidence: after the account is deleted, we keep a minimal consent record only while it is necessary to defend a documented claim, and ordinarily no longer than ten years after the account closes. It holds the account ID, a protected code made from your email address, the dates and times, the versions of the documents shown, and the checkout declaration with its payment reference. A protected code can still be linked back to you, so we treat it as personal data. The record holds no nickname and no study records. We review whether we still need it, and keep a specific record longer only for a documented legal hold. [The ten-year ceiling is a Pantas judgment of claim-defense need under the data minimization and retention rules (Data Privacy Act Section 11(e); IRR Section 19, not re-read). It is not a period any statute sets.]
 - Payment and accounting records: five years, counted as tax law requires. They may stay longer while a tax matter is unresolved.
 - Security records in our database: 730 days after the event.
@@ -101,10 +102,11 @@ You can use your child's privacy rights for the child. You can be informed, get 
 
 How to use them:
 
-- Open "For parents" in the account settings. There you can read this notice, get a copy of your child's data, delete the account, or withdraw permission and close the account.
+- Open "For parents" in the account settings. It works for one child at a time. For that child, you can read this notice, get a copy of the data, delete the account, or withdraw permission and close the account. These actions affect that child only.
+- For a data copy, a withdrawal, a deletion, or adding a child, we first email a 6-digit code to your email address. You enter it in the child's session.
 - If the copy does not work, or you want something else, email dpo@pantas.study. We reply within 15 calendar days. We may ask for information we reasonably need to check who you are.
 
-Withdrawing permission and closing the account is free. Study processing stops and the account closes. Limited records remain for the purposes and periods in this notice. Earlier lawful processing stays lawful.
+Withdrawing permission and closing a child's account is free. Study processing stops and the account closes. Limited records remain for the purposes and periods in this notice. Earlier lawful processing stays lawful.
 
 Deleting the account deletes the child's study records from our servers. It keeps only the records the retention section lists. Copies on other devices stay until cleared. Voluntary deletion or withdrawal alone is not a change-of-mind refund. Refunds follow the Terms, and your rights under the law stay.
 
@@ -165,7 +167,7 @@ Any app that keeps information can have problems, like someone getting it by mis
 
 **Who can see it**
 
-Your parent or guardian can ask for a copy of your information. They can also close your account. A few companies help us store your information, such as Google. We use safeguards, but problems can happen.
+Your parent or guardian can ask for a copy of your information. They can also close your account. If you have a brother or sister on the same parent account, they can open your account, and you can open theirs. A few companies help us store your information, such as Google. We use safeguards, but problems can happen.
 
 **Your rights**
 
@@ -199,7 +201,7 @@ The bullet list that follows stays, with these changes. Replace its first two bu
 
 > • give true information when you set up an account, including your true age or, for a child, the child's true status as under 13;
 > • keep your sign-in details private and tell us promptly about suspected misuse. You are responsible for activity you authorize, including a child's use of an account you hold;
-> • use one account for yourself, or hold one account for one child under these Terms, and not share access outside that arrangement;
+> • use one account for yourself, or, as a parent or guardian, hold one account for each child under these Terms, and not share access outside that arrangement;
 
 ### 2.2 "Students under 18" (inside "Subscriptions"): replace the whole paragraph
 
@@ -228,15 +230,19 @@ Place it after "Subscriptions". Heading and body:
 >
 > If a statement is false, we may close the account, as stated below.
 >
-> Supervision and responsibility. The adult accepting these Terms contracts personally and agrees to supervise the child's authorized use. They are responsible for losses legally attributable to their own breach or false statements. This does not transfer Pantas's legal duties or waive the child's rights. The guardian keeps the sign-in details private and does not give them to others.
+> Supervision and responsibility. The adult accepting these Terms contracts personally and agrees to supervise each child's authorized use, including use by brothers and sisters on the same sign-in. They are responsible for losses legally attributable to their own breach or false statements. This does not transfer Pantas's legal duties or waive the child's rights. The guardian keeps the sign-in details private and does not give them to others.
 >
-> One child for each account. One account is for one child. A guardian who wants an account for a second child uses a different email address for that account.
+> One child for each account. Each child account is for one child. A guardian may hold up to 5 active child accounts under one email address. Support may allow more. Each child needs a separate account and a separate acceptance of these Terms and the Child Notice. A guardian cannot use one child account for several children. An email address that already holds an adult or teen account with progress cannot also hold child accounts. A guardian who studies for their own exam needs a second email address.
 >
 > PSHS-NCE only. For this exam cycle, accounts for children under 13 are for PSHS-NCE only. A child account cannot buy or use other exams. We may refuse any other purchase on a child account.
 >
 > Accounts made without a guardian. If we learn that a person under 13 holds an account that no guardian set up, we may delete it and its data. We may suspend access while we check the guardian's authority, and close an account we find unauthorized. These steps are subject to the rights in the next paragraphs.
 >
-> Withdrawing and deleting. The guardian may withdraw permission and close the account, or delete it, at any time. They use "For parents" in the account settings, the link in the receipt email, or an email to dpo@pantas.study. Withdrawing is free. We may close an account that has had no activity for 12 months, as the Child Notice explains.
+> Withdrawing and deleting. The guardian may withdraw permission and close a child's account, or delete it, at any time. They use "For parents" in the account settings, the link in the receipt email, or an email to dpo@pantas.study. These actions affect one child's account only. We ask for a code sent to the guardian's email first. Withdrawing is free. When the last child account closes, we also delete the guardian's holder sign-in and email address, except for the consent evidence the Child Notice describes. We may close a child account that has had no activity for 12 months, as the Child Notice explains.
+>
+> Passes. Each PSHS-NCE pass belongs to one child's account. [PENDING AEDWON: price per child]
+>
+> Siblings. Children on the same guardian's sign-in can open each other's accounts on a shared device. The guardian accepts this and supervises it.
 >
 > Refunds. Refunds for a child account follow the standard refund policy in "Subscriptions". [PENDING AEDWON DECISION 3] Voluntary deletion or withdrawal alone does not create a change-of-mind refund. Statutory refunds, restitution and compensation remain available. We state this at checkout. We issue an electronic receipt or invoice for each purchase.
 >
@@ -278,7 +284,7 @@ Two separate ticks. Neither is pre-ticked. The setup button stays off until both
 **Tick 2** (30 words):
 > I consent to Pantas using my child's data as the [Child Notice] describes. I understand I can withdraw this consent at any time in "For parents."
 
-Records kept at acceptance (server only, R7): both ticks, the exact text version of each, the date and time, the Terms version, the Child Notice version, and the account ID. Separate acceptance and consent improve clarity. The required consent covers only necessary child-account processing. Unrelated optional purposes need separate choices. Two ticks are good practice, not a formula the Circular requires (Circular 2023-04 Sections 7(C) and 8, as Codex read them; not re-read here).
+Both ticks are given for each child, every time a child is added. Wording is unchanged. Records kept at acceptance (server only, R7), per child: the holder ID, the guardian-to-child link, both ticks, the exact text version of each, the date and time, the Terms version, the Child Notice version, and the account ID. Separate acceptance and consent improve clarity. The required consent covers only necessary child-account processing. Unrelated optional purposes need separate choices. Two ticks are good practice, not a formula the Circular requires (Circular 2023-04 Sections 7(C) and 8, as Codex read them; not re-read here).
 
 ---
 
@@ -292,11 +298,11 @@ Keeps the required phrase "and I accept the Terms". Replaces "I am the parent or
 
 ## 6. Guardian receipt email (sent by the product)
 
-Subject: `Pantas account for your child`
+Subject: `Pantas account for {nickname}`
 
 > Hi,
 >
-> You set up a Pantas account for your child on {date}. You accepted the Terms and agreed to the Child Notice (version {notice_version}). If you want to delete the account and your child's data, use the button below. You can also do this in the app under "For parents."
+> You set up a Pantas account for {nickname} on {date}. You accepted the Terms and agreed to the Child Notice (version {notice_version}). If you want to delete {nickname}'s account and data, use the button below. You can also do this in the app under "For parents." We send one email for each child.
 >
 > [Delete account]({delete_link})
 
@@ -327,9 +333,39 @@ No "go back" action on this screen. The device stays here (R1).
 - Field label: "Child's nickname"
 - Help under the field: "Not a real name. Pick a nickname your child will recognize."
 
-**Email already used** (R: setup refuses)
+**Email already used** (setup refuses an email that holds an adult or teen account with progress)
 
 - "This email already has a Pantas account. Use another email." (spec wording; "Set Up Account" stays off until the email changes)
+
+**Switch child** (Settings; lists children on this guardian's sign-in by nickname, no code needed)
+
+- Row: "Switch Child"
+- Title: "Who is studying?"
+- Each row: the nickname
+- Last row: "Add a Child"
+- Help: "Brothers and sisters on this account can open each other's accounts."
+
+**Add a child**
+
+- Title: "Add a child"
+- Body: "You can have up to 5 children on this email. Each child gets their own account and their own two confirmations."
+- Button: "Continue" (asks for the code, then the setup screen)
+- If the limit is reached: "You have reached 5 children on this email. Email support@pantas.study if you need more."
+
+**Guardian code gate** (adding a child, data copy, withdraw, delete)
+
+- Title: "Enter your code"
+- Body: "We sent a 6-digit code to {masked_email}. Enter it to continue."
+- Field label: "6-digit code"
+- Button: "Confirm"
+- Wrong code: "That code is not right. Check it and try again."
+- Resend: "Send a New Code"
+- Resend confirmation: "We sent a new code."
+
+**Last child closed** (shown before the final withdraw or delete)
+
+- "This is your last child on this email. We will also delete your sign-in and email address from Pantas."
+
 
 **Adult-account prompt** (when an adult account picks or switches to PSHS-NCE)
 
@@ -339,7 +375,7 @@ No "go back" action on this screen. The device stays here (R1).
 
 **Settings entry**
 
-- "For parents" with rows "Read the Child Notice", "Get a copy of your child's data", "Withdraw permission and close account", "Delete this account".
+- "For parents" (for the child now open; "Switch Child" changes which child) with rows "Read the Child Notice", "Get a copy of your child's data", "Withdraw permission and close account", "Delete this account".
 - Text under "Withdraw permission and close account": "This is free. Study processing stops and the account closes. Limited records remain for the purposes and periods in the Child Notice. Earlier lawful processing remains lawful."
 - Spec note: the For parents entry gains this withdraw control.
 - One line in settings: "This account is managed by a parent or guardian."
@@ -357,6 +393,7 @@ No "go back" action on this screen. The device stays here (R1).
 - **Consent evidence period.** A regulator could call a ten-year ceiling too long for a record about a child. It is a necessity judgment, not a statutory period, and the protected code of the guardian email may still count as personal data.
 - **12-month inactivity deletion is not built yet.** The notice promises it. It must exist before November 2027.
 - **Official NPC texts could not be fetched by me.** The NPC site blocked automated reads. Codex reports reading them; section numbers here come from Codex, earlier research and summaries. Recheck before publishing.
+- **Sibling access and shared devices.** A sibling can open a sibling's account with no gate. Accepted for low-risk data under one guardian. A guardian could object if a child sees a sibling's results.
 - **Guardian cannot cure impersonation.** A child posing as a guardian creates no adult party. The Terms limit the guardian's liability to their own breach and false statements.
 - **E-commerce disclosures.** RA 11967 Section 23 (as Codex cites it; not read) asks direct sellers for business contact details and sales receipts or invoices. The telephone number is a placeholder, and the receipt or invoice must exist in the build.
 - **NPC registration and the signed impact assessment** are Aedwon's decision 1. Without them, selling carries extra risk.
@@ -374,6 +411,9 @@ Every place below must carry the new text or version, and the old accepted texts
 - The "updated" date on the Terms, Privacy Policy and Notice for teens.
 - The setup tick text versions and the Child Notice version stored in the consent record.
 - The receipt email's notice version field.
+- Setup screens, the per-child receipt email template and the code-gate email are new text. Keep each version with the consent record.
+- The consent record now carries the holder ID and the guardian-to-child link: update the stored field list and the retention text together.
+- The per-child price: [PENDING AEDWON: price per child]. Publish no figure until he decides.
 - The business phone number, in every place the live texts list contact details.
 
 ---
