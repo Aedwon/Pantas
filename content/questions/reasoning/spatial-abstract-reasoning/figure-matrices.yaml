@@ -830,7 +830,7 @@ questions:
           This repeats the adjacent corner. Bottom-left is most recent. Move one further corner clockwise.
       - text: "Square with dot at top-right"
         rationale: |
-          This uses the wrong column direction. Top-right appears earlier in the grid. Check the counter-clockwise change down columns.
+          This repeats the cell directly above the blank. Top-right is the dot in that cell, so a copy looks like a column rule. Check that the dot changes in every row and every column.
     explanation: |
       Dots move one corner clockwise across every row. Moving down a column uses the reverse corner order. The bottom row starts bottom-right, bottom-left, so its last dot is top-left.
     approved: true
