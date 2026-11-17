@@ -1,0 +1,5 @@
+qt-spatial-abstract-reasoning-matrix-ray-union#11 D sure row 2 union of 270 and 180 = [270,180]
+qt-spatial-abstract-reasoning-matrix-ray-union#16 D sure row 2 union of 135 and 270 = [135,270]
+qt-spatial-abstract-reasoning-matrix-ray-union#53 B sure row 2 union of 180 and 225 = [180,225]
+qt-spatial-abstract-reasoning-matrix-ray-union#64 A sure row 2 union of 270 and 90 = [270,90]
+qt-spatial-abstract-reasoning-matrix-ray-union#75 D sure row 2 union of 225 and 90 = [225,90]
