@@ -1,0 +1,434 @@
+{
+  "variants": [
+    {
+      "choices": [
+        {
+          "correct": true,
+          "text": "D"
+        },
+        {
+          "mistake": "flat-top-neighbor",
+          "slots": {
+            "noteText": "This selects the side face C. Its position in the flat net can look opposite. Track the folded direction and check whether it shares an edge with the named face."
+          },
+          "text": "C"
+        },
+        {
+          "mistake": "sideways-fold-separates",
+          "slots": {
+            "noteText": "This selects the side face B. Its position in the flat net can look opposite. Track the folded direction and check whether it shares an edge with the named face."
+          },
+          "text": "B"
+        },
+        {
+          "mistake": "lower-neighbor",
+          "slots": {
+            "noteText": "This selects the side face E. Its position in the flat net can look opposite. Track the folded direction and check whether it shares an edge with the named face."
+          },
+          "text": "E"
+        }
+      ],
+      "cosmetics": {
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ]
+      },
+      "figureSpec": {
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "kind": "cube-net",
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ]
+      },
+      "index": 5,
+      "ruleKey": "1234c1cd9574b1b927e7b97703dfe11b7bd83fe18344eb99290098cb06d643ee",
+      "signature": "4a9e1111c917dd5128cb33e78c4c5de1a3def03c27776bedc4a983970badfb49",
+      "slots": {
+        "explanationText": "Track the face directions through each fold. D faces across the cube from A. Opposite faces do not share an edge.",
+        "face": "A",
+        "operation": "net-nonadjacent",
+        "profile": 0,
+        "stemText": "After this net folds into a cube, face A is painted red. Which unpainted face does not share an edge with A?"
+      }
+    },
+    {
+      "choices": [
+        {
+          "correct": true,
+          "text": "A"
+        },
+        {
+          "mistake": "stop-at-first-fold",
+          "slots": {
+            "noteText": "This selects the side face D. Its position in the flat net can look opposite. Track the folded direction and check whether it shares an edge with the named face."
+          },
+          "text": "D"
+        },
+        {
+          "mistake": "left-arm-is-top",
+          "slots": {
+            "noteText": "This selects the side face C. Its position in the flat net can look opposite. Track the folded direction and check whether it shares an edge with the named face."
+          },
+          "text": "C"
+        },
+        {
+          "mistake": "stop-at-lower-neighbor",
+          "slots": {
+            "noteText": "This selects the side face F. Its position in the flat net can look opposite. Track the folded direction and check whether it shares an edge with the named face."
+          },
+          "text": "F"
+        }
+      ],
+      "cosmetics": {
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ]
+      },
+      "figureSpec": {
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "kind": "cube-net",
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ]
+      },
+      "index": 20,
+      "ruleKey": "c2e9802a055c18957873f34adf5a6ceda78cd6fc0b18b8fd4712141a237fa541",
+      "signature": "7a3a0fc9e78448ed759437eeae1ef6f1b5580c4f97740b55c120833d211ab538",
+      "slots": {
+        "explanationText": "Track the face directions through each fold. A faces across the cube from E. Opposite faces do not share an edge.",
+        "face": "E",
+        "operation": "net-opposite-easy",
+        "profile": 0,
+        "stemText": "Fold the labeled net into a cube. Which face is opposite E?"
+      }
+    },
+    {
+      "choices": [
+        {
+          "correct": true,
+          "text": "E"
+        },
+        {
+          "mistake": "attached-face-is-opposite",
+          "slots": {
+            "noteText": "This selects the side face B. Its position in the flat net can look opposite. Track the folded direction and check whether it shares an edge with the named face."
+          },
+          "text": "B"
+        },
+        {
+          "mistake": "pick-next-strip-side",
+          "slots": {
+            "noteText": "This selects the side face D. Its position in the flat net can look opposite. Track the folded direction and check whether it shares an edge with the named face."
+          },
+          "text": "D"
+        },
+        {
+          "mistake": "pick-branch-support",
+          "slots": {
+            "noteText": "This selects the side face A. Its position in the flat net can look opposite. Track the folded direction and check whether it shares an edge with the named face."
+          },
+          "text": "A"
+        }
+      ],
+      "cosmetics": {
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ]
+      },
+      "figureSpec": {
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ]
+        ],
+        "kind": "cube-net",
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ]
+      },
+      "index": 5,
+      "ruleKey": "2cdc2f838f5d8b0bc5c04c5a00b72825ca0e8c918d3f4ad53dff434155bddbf6",
+      "signature": "18404eb77ae781b7e53fdd630b2d9a9e316efa0238df1f556c64a7b56c82f6f6",
+      "slots": {
+        "explanationText": "Track the face directions through each fold. E faces across the cube from C. Opposite faces do not share an edge.",
+        "face": "C",
+        "operation": "net-opposite-easy",
+        "profile": 1,
+        "stemText": "Fold the labeled net into a cube. Which face is opposite C?"
+      }
+    },
+    {
+      "choices": [
+        {
+          "correct": true,
+          "text": "A"
+        },
+        {
+          "mistake": "flat-column-ends-opposite",
+          "slots": {
+            "noteText": "This selects the side face D. Its position in the flat net can look opposite. Track the folded direction and check whether it shares an edge with the named face."
+          },
+          "text": "D"
+        },
+        {
+          "mistake": "flat-distance",
+          "slots": {
+            "noteText": "This selects the side face B. Its position in the flat net can look opposite. Track the folded direction and check whether it shares an edge with the named face."
+          },
+          "text": "B"
+        },
+        {
+          "mistake": "adjacent-is-opposite",
+          "slots": {
+            "noteText": "This selects the side face C. Its position in the flat net can look opposite. Track the folded direction and check whether it shares an edge with the named face."
+          },
+          "text": "C"
+        }
+      ],
+      "cosmetics": {
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ]
+      },
+      "figureSpec": {
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "kind": "cube-net",
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ]
+      },
+      "index": 15,
+      "ruleKey": "c5428bc501952cb9e805907a2a33205027d1875320c0b09cba122c59f233401c",
+      "signature": "05daaf6d990b412738a4ba736f8128fd08496246df3e418440eb661e46a68328",
+      "slots": {
+        "explanationText": "Track the face directions through each fold. A faces across the cube from E. Opposite faces do not share an edge.",
+        "face": "E",
+        "operation": "net-opposite-medium",
+        "profile": 0,
+        "stemText": "Fold the labeled net into a cube. Which face is opposite E?"
+      }
+    },
+    {
+      "choices": [
+        {
+          "correct": true,
+          "text": "C; a square"
+        },
+        {
+          "mistake": "stop-at-side",
+          "slots": {
+            "noteText": "This stops at a side face or uses a slanted outline. The flat neighbor looks like a top face. Track the opposite face and the vertical rays."
+          },
+          "text": "D; a square"
+        },
+        {
+          "mistake": "neighbor-plus-unequal-box",
+          "slots": {
+            "noteText": "This stops at a side face or uses a slanted outline. The flat neighbor looks like a top face. Track the opposite face and the vertical rays."
+          },
+          "text": "E; a rectangle with unequal sides"
+        },
+        {
+          "mistake": "neighbor-plus-slanted-view",
+          "slots": {
+            "noteText": "This stops at a side face or uses a slanted outline. The flat neighbor looks like a top face. Track the opposite face and the vertical rays."
+          },
+          "text": "B; a diamond with unequal diagonals"
+        }
+      ],
+      "cosmetics": {
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ]
+      },
+      "figureSpec": {
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "kind": "cube-net",
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ]
+      },
+      "index": 41,
+      "ruleKey": "88dcdeacbdfa7eb32e25c742b861d9247ced842d48c47f232c8669aeb54258b1",
+      "signature": "8572868e92f1c3bdefa0abe2b9975ca02c51ffe723267c79c3c4f12dd53a0df9",
+      "slots": {
+        "explanationText": "The face across from F becomes the top. Parallel vertical rays project the cube as a square. The answer is C; a square.",
+        "face": "F",
+        "operation": "net-top-and-shadow",
+        "profile": 0,
+        "stemText": "The labeled net folds into a cube. With F resting flat on the table, parallel light shines vertically downward. Which face is at the top, and what is the shadow outline?"
+      }
+    }
+  ]
+}

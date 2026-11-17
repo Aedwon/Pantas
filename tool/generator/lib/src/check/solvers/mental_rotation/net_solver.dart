@@ -173,6 +173,36 @@ class NetSolver implements FigureSolver {
         for (final distance in [2, 4, 5]) distances.indexOf(distance),
       ];
     }
+    if (pattern == 'opposite-easy' && q['profile'] == 1) {
+      final strip = [...pool]..sort(spatial);
+      final rows = strip.map((i) => n.cells[i].$1).toSet();
+      final cols = strip.map((i) => n.cells[i].$2).toSet();
+      if (rows.length != 1 && cols.length != 1) {
+        throw const FormatException('missing four-square straight strip');
+      }
+      bool neighbors(int a, int b) =>
+          (n.cells[a].$1 - n.cells[b].$1).abs() +
+              (n.cells[a].$2 - n.cells[b].$2).abs() ==
+          1;
+      if (!List.generate(3, (i) => neighbors(strip[i], strip[i + 1]))
+          .every((b) => b)) {
+        throw const FormatException('strip is not consecutive');
+      }
+      final attached = strip.where((i) => neighbors(target, i)).toList();
+      final closing =
+          strip.where((i) => neighbors(n.opposite(target), i)).toList();
+      if (attached.length != 1 ||
+          closing.length != 1 ||
+          (attached.single != strip.first && attached.single != strip.last)) {
+        throw const FormatException('missing end-cap supports');
+      }
+      final next = attached.single == strip.first ? strip[1] : strip[2];
+      final result = [attached.single, next, closing.single];
+      if (result.toSet().length != 3) {
+        throw const FormatException('support mistakes coincide');
+      }
+      return result;
+    }
     final selected = <int>[];
     final profile = q['profile']! as int;
     final directions = switch (pattern) {
@@ -195,9 +225,9 @@ class NetSolver implements FigureSolver {
           n.cells[target].$2 + directions[k].$2
         );
         final i = n.cells.indexOf(p);
-        if (pattern == 'opposite-hard' && !remaining.contains(i)) {
+        if (!remaining.contains(i)) {
           throw const FormatException(
-            'hard directional mistake needs its neighbor',
+            'directional mistake needs its neighbor',
           );
         }
         if (remaining.contains(i)) candidate = i;
@@ -205,16 +235,37 @@ class NetSolver implements FigureSolver {
         final eligible = remaining
             .where((i) => k == 1 || n.cells[i].$2 == n.cells[target].$2)
             .toList();
+        if (eligible.isEmpty) {
+          throw const FormatException('missing column-end mistake');
+        }
         if (eligible.isNotEmpty) {
           eligible.sort((a, b) {
             final d = distances[b].compareTo(distances[a]);
             return d != 0 ? d : spatial(a, b);
           });
           candidate = eligible.first;
+          if (k == 0) {
+            final rows = n.cells
+                .where((p) => p.$2 == n.cells[target].$2)
+                .map((p) => p.$1)
+                .toList()
+              ..sort();
+            final ends = {rows.first, rows.last};
+            if (!ends.contains(n.cells[target].$1) ||
+                !ends.contains(n.cells[candidate].$1)) {
+              throw const FormatException('queried faces must be column ends');
+            }
+          }
+          if (distances[candidate] < 2) {
+            throw const FormatException('distance mistake needs a later fold');
+          }
         }
       } else if (pattern == 'opposite-hard') {
         final beyond = remaining.where((i) => distances[i] > 1).toList();
         if (beyond.isNotEmpty) candidate = beyond.first;
+      }
+      if (pattern == 'opposite-medium' && k == 2 && distances[candidate] != 1) {
+        throw const FormatException('adjacent mistake needs shared flat edge');
       }
       selected.add(candidate);
     }
