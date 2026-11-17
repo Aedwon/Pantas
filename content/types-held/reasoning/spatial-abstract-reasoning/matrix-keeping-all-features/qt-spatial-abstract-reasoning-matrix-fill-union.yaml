@@ -1,0 +1,104 @@
+{
+  "id": "qt-spatial-abstract-reasoning-matrix-fill-union",
+  "lesson": "lesson-spatial-abstract-reasoning-matrix-keeping-all-features",
+  "keyPoint": 1,
+  "difficulty": "medium",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "figure-matrix",
+  "rule": "matrix-fill-union",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "figure",
+  "enabled": true,
+  "params": {
+    "forms": [
+      "square",
+      "circle"
+    ],
+    "sizes": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "steps": [
+      45,
+      90,
+      135
+    ],
+    "rays": [
+      0,
+      45,
+      90,
+      135,
+      180,
+      225,
+      270,
+      315
+    ],
+    "dots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "edgeLines": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "initialDots": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "initialEdges": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "sumInputs": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "growingSteps": [
+      45,
+      90
+    ]
+  },
+  "stem": "Which figure completes the blank cell under the simplest consistent row and column rules?\n",
+  "explanation": "The last cell combines the two shaded halves in its row. Together they fill the whole shape. The blank needs {answerText}.",
+  "mistakes": [
+    {
+      "id": "erase-fill",
+      "note": "This erases the fill instead of combining it. The inputs cover different areas. Check how much area both shaded halves cover together."
+    },
+    {
+      "id": "first-half-only",
+      "note": "This keeps only the first shaded half. That area appears in the first input. Include the second shaded area too."
+    },
+    {
+      "id": "second-half-only",
+      "note": "This keeps only the second shaded half. That area is the latest input. Include the first shaded area too."
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-matrices-0006",
+      "index": 0
+    }
+  ]
+}

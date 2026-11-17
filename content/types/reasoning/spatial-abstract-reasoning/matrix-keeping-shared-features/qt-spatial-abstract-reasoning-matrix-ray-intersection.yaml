@@ -1,0 +1,107 @@
+{
+  "id": "qt-spatial-abstract-reasoning-matrix-ray-intersection",
+  "lesson": "lesson-spatial-abstract-reasoning-matrix-keeping-shared-features",
+  "keyPoint": 1,
+  "difficulty": "medium",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "figure-matrix",
+  "rule": "matrix-ray-intersection",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "figure",
+  "enabled": true,
+  "params": {
+    "forms": [
+      "square",
+      "circle",
+      "triangle",
+      "pentagon",
+      "star"
+    ],
+    "sizes": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "steps": [
+      45,
+      90,
+      135
+    ],
+    "rays": [
+      0,
+      45,
+      90,
+      135,
+      180,
+      225,
+      270,
+      315
+    ],
+    "dots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "edgeLines": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "initialDots": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "initialEdges": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "sumInputs": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "growingSteps": [
+      45,
+      90
+    ]
+  },
+  "stem": "Which figure completes the blank cell under the simplest consistent row and column rules?\n",
+  "explanation": "The last cell keeps only the ray found in both starting cells in its row. The blank needs {answerText}.",
+  "mistakes": [
+    {
+      "id": "union-not-intersection",
+      "note": "This keeps all input rays. Each ray appears in at least one input. Keep a ray only when both inputs contain it."
+    },
+    {
+      "id": "first-exclusive",
+      "note": "This keeps a ray found only in the first input. It stands out there. Check that the same ray is also in the second input."
+    },
+    {
+      "id": "second-exclusive",
+      "note": "This keeps a ray found only in the second input. It is part of the latest input. Check that the first input has that ray too."
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-matrices-0009",
+      "index": 0
+    }
+  ]
+}

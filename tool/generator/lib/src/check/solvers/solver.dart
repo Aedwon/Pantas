@@ -1,6 +1,7 @@
 import '../../model.dart';
 import '../math_solver.dart';
 import 'figure_grouping/grouping_solver.dart';
+import 'figure_matrices/matrix_solver.dart';
 import 'figure_series/series_solver.dart';
 import 'mental_rotation/net_solver.dart';
 
@@ -34,6 +35,8 @@ typedef MistakeSolver = Object Function(ProblemType type, Variant variant);
 
 final mathSolvers = <String, MathSolver>{};
 final figureSolvers = <String, FigureSolver>{
+  for (final pattern in matrixMistakes.keys)
+    'matrix-$pattern': MatrixSolver(pattern),
   for (final pattern in netMistakes.keys) 'net-$pattern': NetSolver(pattern),
   for (final pattern in groupingMistakes.keys)
     'group-$pattern': GroupingSolver(pattern),
@@ -41,6 +44,10 @@ final figureSolvers = <String, FigureSolver>{
     'series-$pattern': SeriesSolver(pattern),
 };
 final mistakeSolvers = <(String, String), MistakeSolver>{
+  for (final entry in matrixMistakes.entries)
+    for (final id in entry.value)
+      ('matrix-${entry.key}', id): (type, variant) =>
+          MatrixSolver(entry.key).mistake(variant, id),
   for (final entry in netMistakes.entries)
     for (final id in entry.value)
       ('net-${entry.key}', id): (type, variant) =>
