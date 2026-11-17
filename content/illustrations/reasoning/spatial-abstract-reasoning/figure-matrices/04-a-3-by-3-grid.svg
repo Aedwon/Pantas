@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 352" width="360" height="352">
+<title>Three by three grid of squares in three sizes, black then white then black; the bottom-right cell is empty</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2747"/><stop offset="1" stop-color="#143B63"/></linearGradient>
+</defs>
+<rect width="360" height="352" rx="14" fill="url(#bg)"/>
+<rect x="26" y="22" width="100" height="100" rx="8" fill="#F2F7FB"/>
+<rect x="130" y="22" width="100" height="100" rx="8" fill="#F2F7FB"/>
+<rect x="234" y="22" width="100" height="100" rx="8" fill="#F2F7FB"/>
+<rect x="26" y="126" width="100" height="100" rx="8" fill="#F2F7FB"/>
+<rect x="130" y="126" width="100" height="100" rx="8" fill="#F2F7FB"/>
+<rect x="234" y="126" width="100" height="100" rx="8" fill="#F2F7FB"/>
+<rect x="26" y="230" width="100" height="100" rx="8" fill="#F2F7FB"/>
+<rect x="130" y="230" width="100" height="100" rx="8" fill="#F2F7FB"/>
+<rect x="234" y="230" width="100" height="100" rx="8" fill="#F2F7FB" stroke="#FF7A45" stroke-width="4"/>
+<rect x="62" y="58" width="28" height="28" rx="0" fill="#0A1B33" stroke="#0A1B33" stroke-width="2.5"/>
+<rect x="166" y="58" width="28" height="28" rx="0" fill="#FFFFFF" stroke="#0A1B33" stroke-width="2.5"/>
+<rect x="270" y="58" width="28" height="28" rx="0" fill="#0A1B33" stroke="#0A1B33" stroke-width="2.5"/>
+<rect x="53" y="153" width="46" height="46" rx="0" fill="#0A1B33" stroke="#0A1B33" stroke-width="2.5"/>
+<rect x="157" y="153" width="46" height="46" rx="0" fill="#FFFFFF" stroke="#0A1B33" stroke-width="2.5"/>
+<rect x="261" y="153" width="46" height="46" rx="0" fill="#0A1B33" stroke="#0A1B33" stroke-width="2.5"/>
+<rect x="44" y="248" width="64" height="64" rx="0" fill="#0A1B33" stroke="#0A1B33" stroke-width="2.5"/>
+<rect x="148" y="248" width="64" height="64" rx="0" fill="#FFFFFF" stroke="#0A1B33" stroke-width="2.5"/>
+</svg>
