@@ -3933,3 +3933,11 @@ Fable 5.2 High ruled under Aedwon's standing delegation on `docs/superpowers/pla
 - Prod App Check watch ended clean (security fixes lead, Nov 17 06:45 UTC): Storage (enforced Nov 15 06:05) and Auth (enforced Nov 16 06:11) stay enforced. Since Auth enforcement: 7 real sign-in requests, all valid; 4 refusals, all from the lead's and the integrator's own tests (1 tokenless check, 3 automated-browser attempts on Nov 16 18:25); 0 sign-in errors; 0 client failure reports; no real uploads in the Storage window. Firestore stays on Nov 21.
 
 - SSOT updated 17 November 2026, 16:45 PHT, sections touched: Home "Current status" (new 17 November status with the waiting-on-Aedwon list from the 17 November backlog rulings; 16 November status marked SUPERSEDED); Production Readiness Assessment (new top checkpoint, 16 November checkpoint renamed SUPERSEDED, 17 November catch-up at the end); Internal Beta Testing Program (17 November note). Counts only, no tester data. Velocity E-110.
+
+### Nov 17, figure-fix content bundle stopped at the checks (DS4 lead, integrator)
+
+- Aedwon's "ship it" (relayed by the manager) covers content/fix-figure-series-0019 at 6c1f9402e (series 0017 and 0019, matrices 0009 and 0019, grouping 0006), built on the prod root 88f38e698. Checks ran with main's tools (7da59dda4) on a main checkout with the content folder swapped in.
+- Export: FAILS on 6c1f9402e with "edited after approval" for figure-series-0017, figure-matrices-0019, figure-grouping-0006 and figure-matrices-0009 (the ledger was re-approved only for series-0019, Nov 16). The export of the prod root passes. Nothing uploaded to staging or prod. A content worker is re-approving the four through the gate; the integrator ships the new head once the export passes, under the same "ship it".
+- Audit sweep: run_all.py stops with 182 identical "unexpected illustration marker" errors on the prod root and on the fix head, and crashes with IndexError on main's own content. The manager ruled this not a blocker for the bundle (identical before and after; prod already has those lessons); backlog C9 and C10.
+- The question validator passes (0) on every question folder. Velocity E-111 is paused until the new head arrives.
+
