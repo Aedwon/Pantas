@@ -22,7 +22,9 @@ import 'package:pantas/core/sync/firestore/firestore_gateway.dart';
 import 'package:pantas/core/sync/firestore/functions_gateway.dart';
 import 'package:pantas/core/sync/local_state_wiper.dart';
 import 'package:pantas/core/sync/providers.dart';
+import 'package:pantas/core/sync/runtime/production_sync_runtime_engine.dart';
 import 'package:pantas/core/sync/runtime/sync_account_transition_gateway.dart';
+import 'package:pantas/core/sync/runtime/sync_runtime_controller.dart';
 
 import '../../helpers/in_memory_database.dart';
 
@@ -105,6 +107,51 @@ void main() {
 
     expect(h.leakedInto(_accountB), isEmpty);
     expect(await h.localRowsOf(_aRowIds), isEmpty);
+  });
+
+  test(
+      'on a device older than the owner record, a switch from A to B '
+      'uploads nothing of A to B', () async {
+    final h = await _Harness.open();
+    addTearDown(h.close);
+
+    h.auth.session = const AuthSession(uid: _accountA);
+    await _seedAnswers(h.db);
+    await h.syncCurrentSession(pro: true);
+    expect(h.paths(_accountA), isNotEmpty);
+    // The app that synced A predates the record.
+    await (h.db.delete(h.db.syncMeta)
+          ..where(
+            (row) => row.key.equals(SyncRuntimeController.localDataOwnerKey),
+          ))
+        .go();
+
+    await h.signInWithCode(_accountB);
+    await h.syncCurrentSession(pro: true);
+
+    expect(h.leakedInto(_accountB), isEmpty);
+    expect(await h.localRowsOf(_aRowIds), isEmpty);
+  });
+
+  test('the wipe stops answers still arriving for A from being written',
+      () async {
+    final h = await _Harness.open();
+    addTearDown(h.close);
+
+    h.auth.session = const AuthSession(uid: _accountA);
+    await h.syncCurrentSession(pro: true);
+    Future<String?> run() async => (await (h.db.select(h.db.syncMeta)
+              ..where(
+                (row) => row.key.equals(ProductionSyncRuntimeEngine.runKey),
+              ))
+            .getSingleOrNull())
+        ?.value;
+    expect(await run(), startsWith('$_accountA/'));
+
+    await SyncLocalStateWiper(h.db).wipeAll();
+
+    // The download and upload paths check this key before each write.
+    expect(await run(), isNull);
   });
 
   test('a Free B never sees A progress after a switch', () async {

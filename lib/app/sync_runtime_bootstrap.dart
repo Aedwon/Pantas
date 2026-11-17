@@ -78,14 +78,32 @@ class SyncRuntimeBinding {
   Future<void> _updateTail = Future<void>.value();
   bool _disposed = false;
 
+  // The newest state not yet handed to Sync.
+  ({SyncIdentity identity, SyncEntitlement entitlement})? _waiting;
+
   void _scheduleUpdate() {
     if (_disposed || _auth == null || _entitlement == null) return;
-    final identity = _toSyncIdentity(_auth!);
-    final entitlement = _toSyncEntitlement(_entitlement!);
+    _waiting = (
+      identity: _toSyncIdentity(_auth!),
+      entitlement: _toSyncEntitlement(_entitlement!),
+    );
     _updateTail = _updateTail.then(
-      (_) => _runtime.update(identity: identity, entitlement: entitlement),
-      onError: (Object _, StackTrace __) =>
-          _runtime.update(identity: identity, entitlement: entitlement),
+      (_) => _sendWaiting(),
+      onError: (Object _, StackTrace __) => _sendWaiting(),
+    );
+  }
+
+  /// Hands Sync only the newest state. An update waits for the one before to
+  /// finish, which can take a while (a first download). An account that came
+  /// and went in that time is skipped: handled late, it would claim, or wipe,
+  /// the device's data for an account no longer signed in.
+  Future<void> _sendWaiting() {
+    final waiting = _waiting;
+    if (waiting == null) return Future<void>.value();
+    _waiting = null;
+    return _runtime.update(
+      identity: waiting.identity,
+      entitlement: waiting.entitlement,
     );
   }
 

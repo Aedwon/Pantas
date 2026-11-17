@@ -187,6 +187,9 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
     _entitlement = entitlement;
     _cancelBootstrapRetry();
     _pendingReconciliation = null;
+    // Before the hold below is forgotten: it may be the only sign of who owns
+    // data written before the owner record existed.
+    await _adoptLegacyOwner();
     // At once, so the new account's first changes are not tied to the old one.
     // Again in the queue, after a push or pull already running has finished.
     await _forgetOtherAccountsGeneration(identity);
@@ -491,9 +494,9 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
   /// account can write after the wipe. Check, wipe and claim are one
   /// transaction, so a second caller sees the new owner.
   ///
-  /// Limit: a device whose data predates this record has no owner, and its
-  /// first real account claims it as is. Data from a switch made before the
-  /// record existed cannot be told apart.
+  /// Limit: a device whose data predates this record, and holds no backup
+  /// copy to name its account ([_adoptLegacyOwner]), has no owner, and its
+  /// first real account claims it as is.
   Future<void> _claimLocalData(SyncIdentity identity) async {
     if (identity.isAnonymous || identity.uid == SyncIdentity.signedOutUid) {
       return;
@@ -512,6 +515,19 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
           );
     });
   }
+
+  /// On a device with study data but no owner record (it predates the record),
+  /// the account whose backup copy the device holds owns the data.
+  Future<void> _adoptLegacyOwner() => _db.customStatement(
+        'insert into sync_meta (key,value) select ?, value from sync_meta '
+        'where key = ? and not exists '
+        '(select 1 from sync_meta where key = ?)',
+        <Object?>[
+          localDataOwnerKey,
+          SyncHeldGeneration.uidKey,
+          localDataOwnerKey,
+        ],
+      );
 
   /// Any real account other than the one holding a generation ends that hold,
   /// so coming back to the first account never resumes.
