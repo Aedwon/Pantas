@@ -180,6 +180,10 @@ class TextFigureSolver extends TestFigureSolver {
   final String text;
 
   @override
-  bool fits(Map<String, Object?> shown, Map<String, Object?> candidate) =>
+  bool fits(
+    Map<String, Object?> shown,
+    Map<String, Object?> candidate,
+    Map<String, Object?> query,
+  ) =>
       candidate['text'] == text;
 }

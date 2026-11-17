@@ -220,8 +220,9 @@ List<CheckFailure> checkVariants(
           fail('correctness', 'solver figure kind does not match shown kind');
           return;
         }
-        final solved =
-            choices.where((c) => figure.fits(shown, candidate(c))).toList();
+        final solved = choices
+            .where((c) => figure.fits(shown, candidate(c), variant.slots))
+            .toList();
         if (solved.length != 1 || !solved.single.correct) {
           fail(
             'correctness',
@@ -231,7 +232,7 @@ List<CheckFailure> checkVariants(
         for (final alternative
             in figureSolvers.values.where((s) => s.kind == figure.kind)) {
           for (final choice in choices.where((c) => !c.correct)) {
-            if (alternative.fits(shown, candidate(choice))) {
+            if (alternative.fits(shown, candidate(choice), variant.slots)) {
               fail('correctness', 'wrong choice completes a library rule');
             }
           }

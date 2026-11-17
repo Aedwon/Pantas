@@ -17,7 +17,14 @@ abstract class FigureSolver implements Solver {
   /// and candidate completes it. Figure choices pass their figure map.
   /// Text choices pass rendered `text` and optional `value`, without key or
   /// mistake metadata. Mistake solvers return the same candidate shape.
-  bool fits(Map<String, Object?> shown, Map<String, Object?> candidate);
+  /// [query] is the variant's slots: what the stem asks (for example the
+  /// queried face or operation) lives there, never in the figure data, so
+  /// merged questions keep their exact figure maps.
+  bool fits(
+    Map<String, Object?> shown,
+    Map<String, Object?> candidate,
+    Map<String, Object?> query,
+  );
 }
 
 typedef MistakeSolver = Object Function(ProblemType type, Variant variant);

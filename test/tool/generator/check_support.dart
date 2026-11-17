@@ -60,7 +60,11 @@ class TestFigureSolver implements FigureSolver {
   @override
   String get kind => 'generic-test';
   @override
-  bool fits(Map<String, Object?> shown, Map<String, Object?> candidate) =>
+  bool fits(
+    Map<String, Object?> shown,
+    Map<String, Object?> candidate,
+    Map<String, Object?> query,
+  ) =>
       candidate['x'] == answer && candidate['y'] == 0;
   @override
   List<String> validateRanges(ProblemType type, Variant variant) => [];
