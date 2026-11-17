@@ -62,6 +62,7 @@ Math pilot lessons re-checked on prod content (88f38e698) by the lead: the three
 - `gen/question-generator-app-r1`, cut from `origin/main` on Nov 23 after merging this branch: app and server changes.
 - Release content root for Phase 3: a branch cut from main after Phase 2 merges, with `content/` taken from the then-current prod content root (88f38e698 or its successor) plus `content/types/`. The lead confirms with the integrator that this matches how content roots are built before cutting it; if it does not, the lead stops and rules.
 - Ledger merge: this branch created `content/question-ledger/approved.json` with the 13 type approvals; prod content also has an `approved.json` for its questions. The release root takes the union of both files' entries; the content gate run on the release root proves it.
+- Prod content root changed on Nov 17 10:04 UTC to 646326517 (content/fix-figure-series-0019, with the five source fixes). Type sources and the checker's merged-source check use it from then on.
 - Inputs: type authors read the hand-written questions from prod content with `git show origin/content/bite-sized-cse-algebra-r1:<path>`.
 
 ## Part 3: formats (interfaces every task shares)
