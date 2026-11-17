@@ -30,3 +30,29 @@ Aedwon's answer, relayed by the operations manager, exact words: "go with reco"
 
 Decision: A. A figure choice shows the figure and its letter only. The text description
 is the screen reader label and is never shown.
+
+## November 17, 2026: boards built and reviewed
+
+Canvas: "Figure Answer Choices", https://claude.ai/artifact/1ceeLDYSix7tSyP6fUSFv2 (version 3).
+Built by a Claude worker (Sonnet 5.5) from DS4 (Pantas design system) and the approved
+boards QV_Figure, QV_Answer, W_Question, W_QRight, W_QMiss. Three options: 1 figure in the
+answer row, 2 two-by-two tiles, 3 answer strip. Phone and wide web light, one dark phone, and
+a states board each (rest, selected, focus, right, wrong, review, five choices).
+
+An independent reviewer (Claude, did not draw the boards) found 10 departures: copy not from
+approved boards, header names, unequal chrome and frame sizes between options, an unsourced
+"like the printed exam" claim, the wrong-pick badge losing its letter, dimming that cannot
+show on a figure, focus claimed on phone, and incomplete accessibility notes. All fixed in
+version 3. Every board rendered headlessly; the browser was closed.
+
+Lead rulings made in the fix (under D191 delegation, not asked of Aedwon):
+
+- Figures are never dimmed. Dimming lowers figure contrast, and the figure must stay
+  readable in review. Other choices keep the rest look; only the badge ring changes. Right
+  and wrong are shown by ring, tint and icon.
+- Every choice keeps its letter in every state. Right and wrong marks sit at the cell's
+  top-right corner (options 2 and 3). Option 1 on the phone keeps DS4's check inside the
+  badge for the right answer.
+- Keyboard focus is drawn on wide only.
+- The sample question is a figure-series item drawn as board scaffolding, the same in all
+  three options. The approved boards' stem and gear figure cannot carry figure choices.
