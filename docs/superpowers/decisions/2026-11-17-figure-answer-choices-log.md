@@ -56,3 +56,36 @@ Lead rulings made in the fix (under D191 delegation, not asked of Aedwon):
 - Keyboard focus is drawn on wide only.
 - The sample question is a figure-series item drawn as board scaffolding, the same in all
   three options. The approved boards' stem and gear figure cannot carry figure choices.
+
+## November 18, 2026: layout pick
+
+Question 2: which layout for figure answer choices? Option 1 figure in the answer row (least
+new design, small figures, scroll to compare); Option 2 two-by-two tiles (recommended: largest
+figures on a phone, all four visible; one new tile design); Option 3 answer strip (most
+compact, about 80px figures on a phone).
+
+Aedwon's answer, relayed by the operations manager, exact words: "i pick option 2 2x2 tiles"
+
+Decision: Option 2.
+
+## November 18, 2026: live figure issues routed to this lane
+
+The operations manager routed three issues from the generator's sheet review: shape rows
+show no position numbers though choices read "Figure 1" to "Figure 5"; series 0018's
+right-pointing ray lies along the dot row; matrices 0008's dots crowd in the small triangle.
+
+Lead rulings (under D191 delegation):
+
+- Series 0018 and matrices 0008: painter fixes only, no content edits, so the generator's
+  version 0 sync holds (it compares data, not pixels; generator lead confirmed).
+- Shape rows: the painter draws position numbers under shapes now. At the screen release,
+  group-boundary, group-dot-parity and group-side-double-dots become figure choices with the
+  shapes as the tiles and no question figure; their live sources convert in the same release
+  through the content approval gate. group-dot-count keeps the numbered row and text choices
+  (5 shapes, 4 choices, 30 of 100 rows repeat a shape; generator lead's measurement at
+  72251e72d). Held group-line-count and group-center-cuts use the new form on return.
+  Generator lead's cost: one Codex run plus re-approval of the three lists, Phase 2 window.
+- The no-figure odd-one-out layout is not on the picked boards, so it was drawn
+  (O2_OddOneOut_Phone and _Wide, canvas version 6) for Aedwon's check at spec approval.
+
+Spec written: `docs/superpowers/specs/2026-11-18-figure-answer-choices-design.md`.
