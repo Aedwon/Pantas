@@ -17,7 +17,7 @@ import '../../goldens/golden_harness.dart';
 ///   flutter test --tags golden --run-skipped --update-goldens \
 ///     test/tool/generator/figure_sheets_test.dart
 const _typesDir = 'content/types/reasoning/spatial-abstract-reasoning';
-const _kinds = ['figure-series', 'shape-row', 'figure-matrix'];
+const _kinds = ['figure-series', 'shape-row', 'figure-matrix', 'cube-net'];
 const _seed = 20261117;
 const _samples = 12;
 const _letters = ['A', 'B', 'C', 'D', 'E', 'F'];
