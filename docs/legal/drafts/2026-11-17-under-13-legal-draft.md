@@ -71,7 +71,7 @@ Pantas uses answers and study timing to select review dates and suggested practi
 
 **How long we keep data**
 
-- Each child account and its study records: until you delete that child's account. We also delete a child account that has had no sign-in or study activity for 12 months. Each child account is counted on its own. If you close the last child account, we also delete your holder sign-in and your email address, except as the consent-evidence item below says. We normally email you a warning about 30 days before. An account with active paid access does not count as inactive.
+- Each child account and its study records: until you delete that child's account. We also delete a child account that has had no sign-in or study activity for 12 months. Each child account is counted on its own. Closing the last child account also closes your holder sign-in and removes its active sign-in details. Limited consent, payment, security, support and backup records remain only as this notice explains. We normally email you a warning about 30 days before. An account with active paid access does not count as inactive.
 - Consent evidence: after the account is deleted, we keep a minimal consent record only while it is necessary to defend a documented claim, and ordinarily no longer than ten years after the account closes. It holds the account ID, a protected code made from your email address, the dates and times, the versions of the documents shown, and the checkout declaration with its payment reference. A protected code can still be linked back to you, so we treat it as personal data. The record holds no nickname and no study records. We review whether we still need it, and keep a specific record longer only for a documented legal hold. [The ten-year ceiling is a Pantas judgment of claim-defense need under the data minimization and retention rules (Data Privacy Act Section 11(e); IRR Section 19, not re-read). It is not a period any statute sets.]
 - Payment and accounting records: five years, counted as tax law requires. They may stay longer while a tax matter is unresolved.
 - Security records in our database: 730 days after the event.
@@ -90,6 +90,8 @@ Our servers run in Google's Singapore region. We use these providers, who act fo
 - Resend: your sign-in codes and the emails we send you.
 - PayMongo: web payments.
 
+**Brothers and sisters.** Sibling switching is off by default for each child. While it is off, switching into a child's account needs your emailed code. In "For parents", after a code check, you can turn on "Siblings can open this account without a code" for one child. If you do, anyone using a sibling's session can open this child's account, see this child's answers, results and activity, and study in this child's name. That changes this child's records. Your supervision does not replace Pantas's legal duties. We record your choice for that child with the time and the notice version. You can turn it off at any time, and it takes effect at once. Children you add later start with it off.
+
 These providers may process data outside the Philippines. We stay responsible for the data we give them. We may also share data when the law requires it, or to deal with fraud or a legal claim. Pantas does not offer PSHS-NCE on Android this cycle, so app-store providers do not receive child account data.
 
 **If there is a data breach**
@@ -103,7 +105,7 @@ You can use your child's privacy rights for the child. You can be informed, get 
 How to use them:
 
 - Open "For parents" in the account settings. It works for one child at a time. For that child, you can read this notice, get a copy of the data, delete the account, or withdraw permission and close the account. These actions affect that child only.
-- For a data copy, a withdrawal, a deletion, or adding a child, we first email a 6-digit code to your email address. You enter it in the child's session.
+- We normally verify these requests with an emailed 6-digit code: adding a child, a data copy, a withdrawal, a deletion, and switching into a child's account while sibling switching is off. The screen and the email say "Confirm {action} for {nickname}." A code is tied to you, one child and one action. It expires, works once and allows only a few tries. If you cannot reach that email, contact dpo@pantas.study for another reasonable verification method. Withdrawal is free.
 - If the copy does not work, or you want something else, email dpo@pantas.study. We reply within 15 calendar days. We may ask for information we reasonably need to check who you are.
 
 Withdrawing permission and closing a child's account is free. Study processing stops and the account closes. Limited records remain for the purposes and periods in this notice. Earlier lawful processing stays lawful.
@@ -167,7 +169,7 @@ Any app that keeps information can have problems, like someone getting it by mis
 
 **Who can see it**
 
-Your parent or guardian can ask for a copy of your information. They can also close your account. If you have a brother or sister on the same parent account, they can open your account, and you can open theirs. A few companies help us store your information, such as Google. We use safeguards, but problems can happen.
+Your parent or guardian can ask for a copy of your information. They can also close your account. [Show only if your parent turned on sibling switching for you:] If you have a brother or sister on the same parent account, they can open your account without a code. They can see your answers and scores. They can study as you. That can change your records. Your parent can turn this off at any time. A few companies help us store your information, such as Google. We use safeguards, but problems can happen.
 
 **Your rights**
 
@@ -230,7 +232,7 @@ Place it after "Subscriptions". Heading and body:
 >
 > If a statement is false, we may close the account, as stated below.
 >
-> Supervision and responsibility. The adult accepting these Terms contracts personally and agrees to supervise each child's authorized use, including use by brothers and sisters on the same sign-in. They are responsible for losses legally attributable to their own breach or false statements. This does not transfer Pantas's legal duties or waive the child's rights. The guardian keeps the sign-in details private and does not give them to others.
+> Supervision and responsibility. The adult accepting these Terms contracts personally and agrees to supervise each child's authorized use, and, if the guardian turns on sibling switching for a child, use of that child's account by brothers and sisters. They are responsible for losses legally attributable to their own breach or false statements. This does not transfer Pantas's legal duties or waive the child's rights. The guardian keeps the sign-in details private and does not give them to others.
 >
 > One child for each account. Each child account is for one child. A guardian may hold up to 5 active child accounts under one email address. Support may allow more. Each child needs a separate account and a separate acceptance of these Terms and the Child Notice. A guardian cannot use one child account for several children. An email address that already holds an adult or teen account with progress cannot also hold child accounts. A guardian who studies for their own exam needs a second email address.
 >
@@ -238,11 +240,11 @@ Place it after "Subscriptions". Heading and body:
 >
 > Accounts made without a guardian. If we learn that a person under 13 holds an account that no guardian set up, we may delete it and its data. We may suspend access while we check the guardian's authority, and close an account we find unauthorized. These steps are subject to the rights in the next paragraphs.
 >
-> Withdrawing and deleting. The guardian may withdraw permission and close a child's account, or delete it, at any time. They use "For parents" in the account settings, the link in the receipt email, or an email to dpo@pantas.study. These actions affect one child's account only. We ask for a code sent to the guardian's email first. Withdrawing is free. When the last child account closes, we also delete the guardian's holder sign-in and email address, except for the consent evidence the Child Notice describes. We may close a child account that has had no activity for 12 months, as the Child Notice explains.
+> Withdrawing and deleting. The guardian may withdraw permission and close a child's account, or delete it, at any time. They use "For parents" in the account settings, the link in the receipt email, or an email to dpo@pantas.study. These actions affect one child's account only. We normally verify these requests with an emailed code. If the guardian cannot access that email, they contact dpo@pantas.study for another reasonable verification method. Withdrawing is free. Closing the last child account also closes the holder sign-in and removes its active sign-in details. Limited consent, payment, security, support and backup records remain only as the Child Notice explains. We may close a child account that has had no activity for 12 months, as the Child Notice explains.
 >
-> Passes. Each PSHS-NCE pass belongs to one child's account. [PENDING AEDWON: price per child]
+> Passes. A pass activates paid access only for the child identified at checkout. Other linked children need their own passes. Before payment, we show the selected child, the total price and the access dates. The purchase receipt identifies that child. [PENDING AEDWON: price per child]
 >
-> Siblings. Children on the same guardian's sign-in can open each other's accounts on a shared device. The guardian accepts this and supervises it.
+> Siblings. Sibling switching is off by default for each child. While it is off, every switch into that child's account needs the guardian's emailed code. The guardian may turn it on for one child under "For parents" after a code check and after reading the sharing notice. The sharing notice says that, when it is on, anyone using a sibling's session can open that child's account, see its answers, results and activity, and study in that child's name, which changes that child's records. The guardian may turn it off at any time, and it takes effect at once. A child added later starts with it off. The guardian's supervision does not replace Pantas's legal duties or waive the child's rights.
 >
 > Refunds. Refunds for a child account follow the standard refund policy in "Subscriptions". [PENDING AEDWON DECISION 3] Voluntary deletion or withdrawal alone does not create a change-of-mind refund. Statutory refunds, restitution and compensation remain available. We state this at checkout. We issue an electronic receipt or invoice for each purchase.
 >
@@ -284,7 +286,7 @@ Two separate ticks. Neither is pre-ticked. The setup button stays off until both
 **Tick 2** (30 words):
 > I consent to Pantas using my child's data as the [Child Notice] describes. I understand I can withdraw this consent at any time in "For parents."
 
-Both ticks are given for each child, every time a child is added. Wording is unchanged. Records kept at acceptance (server only, R7), per child: the holder ID, the guardian-to-child link, both ticks, the exact text version of each, the date and time, the Terms version, the Child Notice version, and the account ID. Separate acceptance and consent improve clarity. The required consent covers only necessary child-account processing. Unrelated optional purposes need separate choices. Two ticks are good practice, not a formula the Circular requires (Circular 2023-04 Sections 7(C) and 8, as Codex read them; not re-read here).
+Before the ticks, the setup screen links the sibling sharing notice and says that switching starts off. Both ticks are given for each child, every time a child is added. Wording is unchanged. Records kept at acceptance (server only, R7), per child: the holder ID, the guardian-to-child link, both ticks, the exact text version of each, the date and time, the Terms version, the Child Notice version, and the account ID. Separate acceptance and consent improve clarity. The required consent covers only necessary child-account processing. Unrelated optional purposes need separate choices. Two ticks are good practice, not a formula the Circular requires (Circular 2023-04 Sections 7(C) and 8, as Codex read them; not re-read here).
 
 ---
 
@@ -337,13 +339,14 @@ No "go back" action on this screen. The device stays here (R1).
 
 - "This email already has a Pantas account. Use another email." (spec wording; "Set Up Account" stays off until the email changes)
 
-**Switch child** (Settings; lists children on this guardian's sign-in by nickname, no code needed)
+**Switch child** (Settings; lists children on this guardian's sign-in by nickname. A code is needed unless that child has sibling switching turned on)
 
 - Row: "Switch Child"
 - Title: "Who is studying?"
 - Each row: the nickname
 - Last row: "Add a Child"
-- Help: "Brothers and sisters on this account can open each other's accounts."
+- Help, when the child you pick needs a code: "Confirm Switch for {nickname}." then the code gate below.
+- Before switching: preserve or safely isolate each child's pending and device-only records. If any loss cannot be avoided, say so before switching: "Some unsent answers on this device may be lost if you switch now." [BUILD: use only if unavoidable]
 
 **Add a child**
 
@@ -352,19 +355,36 @@ No "go back" action on this screen. The device stays here (R1).
 - Button: "Continue" (asks for the code, then the setup screen)
 - If the limit is reached: "You have reached 5 children on this email. Email support@pantas.study if you need more."
 
-**Guardian code gate** (adding a child, data copy, withdraw, delete)
+**Sibling switching toggle** (For parents, per child, behind the code gate; off by default)
 
-- Title: "Enter your code"
-- Body: "We sent a 6-digit code to {masked_email}. Enter it to continue."
+- Toggle label: "Siblings can open this account without a code"
+- Sharing notice shown before it turns on: "If you turn this on, anyone using a sibling's session can open {nickname}'s account. They can see {nickname}'s answers, results and activity. They can study in {nickname}'s name, and that changes {nickname}'s records. Your supervision does not replace Pantas's duties to protect this data. You can turn this off at any time. It stops at once. Children you add later start with it off."
+- Buttons: "Turn On" and "Cancel"
+- Pantas records your choice for {nickname}, with the time and the notice version.
+
+**Guardian code gate** (adding a child, data copy, withdraw, delete, and switching into a child with the toggle off)
+
+- Title: "Confirm {action} for {nickname}"
+- Body: "We sent a 6-digit code to {masked_email}. Enter it to confirm {action} for {nickname}."
+- Email text: "Use this code to confirm {action} for {nickname}: {code}. It works once and expires soon. If you did not ask for it, ignore this email."
+- No access to that email: "Can't reach that email? Write to dpo@pantas.study for another way to verify."
+- Rule (not shown): a code is bound on the server to the holder, the child and the action. It expires, works once and allows a few tries. Switching children cancels a pending code.
 - Field label: "6-digit code"
 - Button: "Confirm"
 - Wrong code: "That code is not right. Check it and try again."
 - Resend: "Send a New Code"
 - Resend confirmation: "We sent a new code."
 
-**Last child closed** (shown before the final withdraw or delete)
+**Withdraw confirm** (For parents, after the code)
 
-- "This is your last child on this email. We will also delete your sign-in and email address from Pantas."
+- Title: "Withdraw Permission for {nickname}?"
+- Body: "{nickname} is signed out. Their account and study records are deleted. This cannot be undone. It does not cancel an app store subscription. Withdrawing is free. Limited records stay as the Child Notice explains."
+- If it is the last child, add: "This is your last child on this email. Closing it also closes your sign-in and removes its active sign-in details. Limited consent, payment, security, support and backup records remain as the Child Notice explains."
+- Buttons: "Withdraw" and "Cancel"
+
+**Last child closed** (shown before the final withdraw or delete; same wording as above)
+
+- "This is your last child on this email. Closing it also closes your sign-in and removes its active sign-in details. Limited consent, payment, security, support and backup records remain as the Child Notice explains."
 
 
 **Adult-account prompt** (when an adult account picks or switches to PSHS-NCE)
@@ -393,7 +413,7 @@ No "go back" action on this screen. The device stays here (R1).
 - **Consent evidence period.** A regulator could call a ten-year ceiling too long for a record about a child. It is a necessity judgment, not a statutory period, and the protected code of the guardian email may still count as personal data.
 - **12-month inactivity deletion is not built yet.** The notice promises it. It must exist before November 2027.
 - **Official NPC texts could not be fetched by me.** The NPC site blocked automated reads. Codex reports reading them; section numbers here come from Codex, earlier research and summaries. Recheck before publishing.
-- **Sibling access and shared devices.** A sibling can open a sibling's account with no gate. Accepted for low-risk data under one guardian. A guardian could object if a child sees a sibling's results.
+- **Sibling switching.** It is off by default per child and needs a guardian opt-in after a sharing notice. When on, a sibling can see answers and results and change records. Answers can relate to education. Guardian acceptance cannot waive privacy rights, so the notice and the per-child record matter. Codex held that a code on every switch is not categorically required, but the highest-privacy default is.
 - **Guardian cannot cure impersonation.** A child posing as a guardian creates no adult party. The Terms limit the guardian's liability to their own breach and false statements.
 - **E-commerce disclosures.** RA 11967 Section 23 (as Codex cites it; not read) asks direct sellers for business contact details and sales receipts or invoices. The telephone number is a placeholder, and the receipt or invoice must exist in the build.
 - **NPC registration and the signed impact assessment** are Aedwon's decision 1. Without them, selling carries extra risk.
@@ -411,7 +431,7 @@ Every place below must carry the new text or version, and the old accepted texts
 - The "updated" date on the Terms, Privacy Policy and Notice for teens.
 - The setup tick text versions and the Child Notice version stored in the consent record.
 - The receipt email's notice version field.
-- Setup screens, the per-child receipt email template and the code-gate email are new text. Keep each version with the consent record.
+- Setup screens, the per-child receipt email template, the code-gate email, the sharing notice and the withdraw confirm are new text. Store the per-child opt-in record with its notice version. Keep each version with the consent record.
 - The consent record now carries the holder ID and the guardian-to-child link: update the stored field list and the retention text together.
 - The per-child price: [PENDING AEDWON: price per child]. Publish no figure until he decides.
 - The business phone number, in every place the live texts list contact details.

@@ -6,7 +6,7 @@ Controller: Aerol Dwayne Daños Balayon, trading as Pantas Online Tutorial Servi
 
 ## 1. Processing description
 
-**Child accounts (under 13).** A parent or guardian signs in with their own email, a holder sign-in with no study data. For each child they declare they are 18 or older and the child's parent or guardian, accept the Terms, and separately consent. Each child is a separate account with no email, linked to the holder on our servers. Up to 5 active children per email. The device stays signed in as the last child. "Switch Child" lists siblings by nickname with no gate. A mailed 6-digit code gates adding a child, data copy, withdraw and delete. Closing the last child deletes the holder sign-in. Web only. PSHS-NCE only, one pass per child.
+**Child accounts (under 13).** A parent or guardian signs in with their own email, a holder sign-in with no study data. For each child they declare they are 18 or older and the child's parent or guardian, accept the Terms, and separately consent. Each child is a separate account with no email, linked to the holder on our servers. Up to 5 active children per email. The device stays signed in as the last child. "Switch Child" lists siblings by nickname. Sibling switching is off by default per child: every switch into that child needs a mailed code until the guardian opts that child in. A mailed 6-digit code also gates adding a child, data copy, withdraw and delete. Closing the last child closes the holder sign-in and removes its active sign-in details. Web only. PSHS-NCE only, one pass per child.
 
 **Teen flow (13 to 17).** The teen enters an age on the device. The server records an under-18 group when the teen sends a guardian request. The guardian confirms by email. A guardian page lets them allow optional usage sharing or withdraw.
 
@@ -55,7 +55,7 @@ Controller: Aerol Dwayne Daños Balayon, trading as Pantas Online Tutorial Servi
 | R11 | Child notice not understood by the child | Medium | Low |
 | R12 | Missing NPC registration or a successful complaint | Low | High |
 | R13 | The age step relies on a child's own permission, which the NPC says a minor cannot give (Advisory Opinion 2017-049) | Medium | High |
-| R15 | A sibling opens another child's account on a shared device | High | Low |
+| R15 | A sibling opens another child's account (viewing answers and results, studying in the child's name, changing records) | Medium | Medium |
 | R16 | One guardian email is misused (several families, over the limit) | Medium | Medium |
 | R17 | Cleanup deletes a child account that should stay, or leaves the holder email behind | Medium | High |
 | R18 | On switch, one child's local answers upload into another child's account | Medium | High |
@@ -75,10 +75,11 @@ Controller: Aerol Dwayne Daños Balayon, trading as Pantas Online Tutorial Servi
 - R11: short child notice and a fuller child-friendly page at Grade 6 reading level, tested with 9 to 12 year olds.
 - R12: before enabling child accounts, complete the CPIA, verify the controls, record residual risks and owners, and meet the NPC registration requirements that apply under the legal criteria (such as risky processing and profiling). Registration is not optional because of sale status.
 - R13: not fixed. Aedwon kept the current age-step flow on Nov 11 (option A). The live texts rely on the user's permission and on Section 13(f) for the age-group record. Codex advised asking the guardian before the age step. See residual risk.
-- R15: accepted. Same guardian, low-risk data, stated in the Terms and child notice.
+- R15: sibling access is off by default per child. The guardian may enable open switching for specified child accounts after receiving the sharing notice, which states what a sibling can see and change. Each opt-in is recorded with the time and notice version. Turning it off is immediate. Later children start off. Before rating residual risk, assess exposure, misuse and record changes.
+- Codes: expire, work once, have limited attempts, and are bound server-side to the holder, selected child and requested action. Switching children cancels the pending confirmation. The screen and email say "Confirm {action} for {nickname}." A guardian without email access contacts dpo@pantas.study for another reasonable verification method.
 - R16: limit of 5, support review above it, code gate on adding, email refused if it holds an adult or teen account with progress.
 - R17: clean up per child account. Test that the holder email goes only with the last child and paid accounts are never treated as inactive.
-- R18: clear local study data on switch. Test that uploads carry only the signed-in child's ID.
+- R18: preserve or safely isolate each child's pending and device-only records before clearing session data. Verify that one child's records never enter another's account. Disclose any unavoidable loss before switching.
 - R14: the Child Notice commits to notify the NPC, the guardian and the child within the legal deadline, in plain words for the child.
 - Collection changes: email the guardian first once the app is public.
 
@@ -87,7 +88,7 @@ Controller: Aerol Dwayne Daños Balayon, trading as Pantas Online Tutorial Servi
 - R1 stays **medium**. A child can still impersonate a guardian. This cannot be removed without identity checks that would collect more data. We accept it with the safeguards above.
 - R2 stays **medium**. Accepted in R11 of the decision log.
 - R4 and R9 drop to **low** only after the tests pass.
-- R18 stays **medium** until the switch test passes. R17 drops to **low** after its test.
+- R15 is **low to medium** with the default off, and rises to **medium** for a child whose guardian opts in. The opt-in is informed and reversible, but a sibling can still change records. R18 stays **medium** until the switch test passes. R17 drops to **low** after its test.
 - R6 stays **low to medium** until a lawyer reviews the period.
 - R13 stays **medium to high**. It is the largest open risk. The flow was deliberately kept, so it needs Aedwon's continued acceptance, ideally after lawyer review.
 - All other risks are **low** with controls working.
