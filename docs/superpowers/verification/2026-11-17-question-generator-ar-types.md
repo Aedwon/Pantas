@@ -82,3 +82,29 @@ Not approved in this round: series-corner-edge-count, group-center-cuts, group-l
 | series-interleaved-count | 100 | pass, source on 646326517 | 5 of 5 | PASS, two Minors accepted (narrow numeric variety; source key one character longest) | pass (13/100) |
 
 Not approved: matrix-ray-intersection (audit-r2 Blocker: lowest, leftmost and rightmost ray rules select a wrong choice). Those rules join the library next.
+
+## Re-approval after the sheet-review fix round (Nov 17, 13:30 UTC)
+
+The sheet-review fixes (fix-sheet-findings.md) regenerated 21 lists, which voided their approvals. Checks on the new lists: checker and R6 pass; blind solve 7 (104 of 105; the one miss, matrix-ray-union #75, was a solver slip, see blind-solve-7/NOTE.md) and blind solve 8 (matrix-ray-union re-test, 5 of 5); Sol high re-audits audit-w1.md and audit-w2.md. Re-approved (19):
+
+- matrix-arrow-column
+- matrix-binary-fill-row
+- matrix-corner-reflection
+- matrix-dot-sum
+- matrix-fill-union
+- matrix-form-ray
+- matrix-growing-turn
+- matrix-ray-turn
+- matrix-ray-union
+- matrix-size-dots
+- matrix-size-transfer
+- matrix-sized-ray-union
+- series-binary-fill
+- series-dots-size
+- series-four-tracks
+- series-interleaved-count
+- series-ray-step
+- series-size-corner-ray
+- series-transfer-count
+
+Held after this round: series-fill-ray-dots (audit-w1 Major: the accumulate-fill note is false for quarter and half alternations) and matrix-ray-intersection (audit-w2 Blocker: diagonal-extreme ray selection picks an offered wrong choice; the library must gain those rules before it returns).
