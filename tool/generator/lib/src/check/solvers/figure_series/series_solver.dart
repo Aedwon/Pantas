@@ -205,6 +205,7 @@ class SeriesSolver implements FigureSolver {
           [.25, .5, .75].contains(_fill(second)) &&
           _fill(first) != _fill(second) &&
           [45, 90, 135].contains((_angle(second) - _angle(first)) % 360),
+      'corner-edge-count' => a.every((x) => x['form'] == 'square'),
       'size-corner-ray' => first['form'] == 'square' &&
           _size(first) != _size(second) &&
           (_angle(first) - _angle(second)) % 360 == 90,

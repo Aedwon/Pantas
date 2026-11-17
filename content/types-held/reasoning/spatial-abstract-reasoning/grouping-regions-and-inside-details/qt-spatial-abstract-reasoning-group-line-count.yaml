@@ -14,7 +14,7 @@
   "ruleVersion": 1,
   "choiceCount": 4,
   "choiceKind": "text",
-  "enabled": true,
+  "enabled": false,
   "params": {
     "forms": [
       "square",
@@ -44,11 +44,11 @@
     },
     {
       "id": "choose-central",
-      "note": "This selects a matching figure because it is central. The two cuts intersect visibly. Count lines rather than regions.\n"
+      "note": "This selects a matching figure because it is central. Its {lineCount} internal lines can look like a different pattern. Count full lines rather than regions."
     },
     {
       "id": "miscount-repeated-cuts",
-      "note": "This mistakes the same pattern for a new count. It repeats the two-line figure. Trace both full cuts.\n"
+      "note": "This mistakes a repeated pattern for a new count. It has the same {lineCount} internal lines as the other matching figures. Trace each full line once."
     }
   ],
   "mergedQuestions": [

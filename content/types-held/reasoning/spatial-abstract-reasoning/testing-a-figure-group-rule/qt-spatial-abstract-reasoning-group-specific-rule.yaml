@@ -14,7 +14,7 @@
   "ruleVersion": 1,
   "choiceCount": 4,
   "choiceKind": "text",
-  "enabled": true,
+  "enabled": false,
   "params": {
     "forms": [
       "square",

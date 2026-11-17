@@ -34,8 +34,9 @@
 /// lines; most-regions selects maximum lines; region mistakes select 1,2,3
 /// center lines respectively. Positional mistakes choose remaining positions
 /// 1/2/4 for the medium source profile and 1/2/remaining for line count.
-/// All extrema are computed over the full shown row; ties use remaining
-/// positions in row order (maximum ties in reverse row order).
+/// All extrema are computed over the full shown row. Center-cuts requires
+/// unique minima and maxima; other ties use remaining positions in row order
+/// (maximum ties in reverse row order).
 /// Region-parity needs line counts 1,2,3 to retain all three source mistakes.
 library;
 
@@ -294,7 +295,10 @@ class GroupingRule implements Rule {
           final all = [for (var i = 0; i < shapes.length; i++) value(i)];
           final target =
               id.startsWith('fewest') ? all.reduce(min) : all.reduce(max);
-          if (id == 'most-dots' && all.where((x) => x == target).length != 1) {
+          if ((id == 'most-dots' ||
+                  (pattern == 'center-cuts' &&
+                      ['fewest-lines', 'most-regions'].contains(id))) &&
+              all.where((x) => x == target).length != 1) {
             candidates = [];
             break;
           }
@@ -353,6 +357,8 @@ class GroupingRule implements Rule {
           if (c == 0) 'correct': true,
           if (c > 0) 'mistake': active[c - 1],
           'text': text,
+          if (pattern == 'line-count' && c > 0)
+            'slots': {'lineCount': count(shapes[positions[c]], 'lines')},
           if (pattern == 'polygon-replacement')
             'figure': {'form': form, if (c == 3) 'dots': 2},
           if (pattern != 'polygon-replacement')

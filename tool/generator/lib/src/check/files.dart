@@ -122,6 +122,7 @@ List<CheckFailure> checkTypeFiles({
           ),
         );
       }
+      failures.addAll(checkAnswerVariety(type, doc.variants));
       final sources = readSourceQuestions(
         root,
         questionsRef,

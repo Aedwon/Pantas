@@ -115,7 +115,11 @@ class SeriesRule implements Rule {
         ..shuffle(r);
       final form = forms[0];
       final secondForm = forms[1];
-      if (!fixed && pattern == 'size-corner-ray' && form != 'square') continue;
+      if (!fixed &&
+          ['size-corner-ray', 'corner-edge-count'].contains(pattern) &&
+          form != 'square') {
+        continue;
+      }
       final initialDots = pick((t.params['initialDots']! as List).cast<int>());
       if (!fixed && pattern == 'interleaved-count' && initialDots == 1) {
         continue;

@@ -201,8 +201,11 @@ class GroupingSolver implements FigureSolver {
             : count(a[i], id.contains('dots') ? 'dots' : 'lines');
         final all = [for (var i = 0; i < a.length; i++) metric(i)]..sort();
         final extreme = id.startsWith('fewest') ? all.first : all.last;
-        if (id == 'most-dots' && all.where((x) => x == extreme).length != 1) {
-          throw const FormatException('most-dots requires a unique maximum');
+        if ((id == 'most-dots' ||
+                (pattern == 'center-cuts' &&
+                    ['fewest-lines', 'most-regions'].contains(id))) &&
+            all.where((x) => x == extreme).length != 1) {
+          throw FormatException('$id requires a unique full-row extremum');
         }
         pool = pool.where((i) => metric(i) == extreme).toList()
           ..sort((x, y) {

@@ -388,3 +388,75 @@ List<CheckFailure> checkVariants(
   }
   return failures;
 }
+
+/// R6 is a full active-list check. Partial draws used to test solvers do not
+/// establish answer distribution; the file checker calls this on stored lists.
+List<CheckFailure> checkAnswerVariety(
+  ProblemType type,
+  List<Variant> variants,
+) {
+  if (!type.enabled || variants.isEmpty) return [];
+  final occurrences = <String, List<int>>{};
+  final failures = <CheckFailure>[];
+  for (final variant in variants) {
+    try {
+      final key = variant.choices.singleWhere((c) => c.correct);
+      final String answer;
+      if (variant.figureSpec == null) {
+        answer = Rational.parse(key.value ?? '').toString();
+      } else if (type.choiceKind == 'text') {
+        answer = fillSlots(key.text, {...variant.slots, ...key.slots});
+      } else {
+        // Remove the shown task before canonicalizing, so different prompts
+        // cannot disguise the same answer figure. Reuse each kind's D4 rules.
+        final kind = variant.figureSpec!['kind'];
+        final shown = switch (kind) {
+          'figure-series' => <String, Object?>{
+              'kind': kind,
+              'items': <Object?>[],
+            },
+          'figure-matrix' => <String, Object?>{
+              'kind': kind,
+              'rows': 1,
+              'cols': 1,
+              'cells': ['blank'],
+            },
+          'shape-row' => <String, Object?>{'kind': kind, 'shapes': <Object?>[]},
+          'generic-test' => <String, Object?>{'kind': kind},
+          _ => throw FormatException('no answer canonicalizer for $kind'),
+        };
+        answer = canonicalSignature(
+          parseVariants({
+            'variants': [
+              {
+                ...variant.toMap(),
+                'figureSpec': shown,
+                'slots': <String, Object?>{},
+                'choices': [key.toMap()],
+              }
+            ],
+          }).single,
+        );
+      }
+      (occurrences[answer] ??= []).add(variant.index);
+    } on Object catch (error) {
+      failures.add(
+        CheckFailure(type.id, variant.index, 'answer-variety', '$error'),
+      );
+    }
+  }
+  for (final indexes in occurrences.values) {
+    if (indexes.length * 2 > variants.length) {
+      failures.add(
+        CheckFailure(
+          type.id,
+          indexes.first,
+          'answer-variety',
+          'one correct answer appears in ${indexes.length} of '
+              '${variants.length} versions; maximum is half',
+        ),
+      );
+    }
+  }
+  return failures;
+}
