@@ -18,7 +18,8 @@
 /// Complementary half fills, split
 /// horizontal or vertical. erase-fill outputs white; first-half-only and
 /// second-half-only keep only the respective input fill.
-/// corner-step: 2x2, distinct row forms, clockwise corner move.
+/// corner-step: 2x2, square rows only, clockwise corner move.
+/// The historical circle source is preserved only for held-source review.
 /// hold-dot stays; double-step moves twice; reverse-step moves backward.
 /// size-dots: 3x3, size by row, dots increase across, start 0..3.
 /// freeze-dots repeats preceding count; copy-middle-size/copy-top-size keep dots.
@@ -170,11 +171,21 @@ class MatrixRule implements Rule {
         3,
         (_) => [pick<int>('sumInputs'), pick<int>('sumInputs')],
       );
-      if (pattern == 'dot-sum' && inputs.any((p) => p[0] + p[1] > 5)) continue;
+      if (pattern == 'dot-sum' &&
+          (inputs.any((p) => p[0] + p[1] > 5) ||
+              inputs.take(2).any((p) => p[0] + p[1] == 2 * p[1] - p[0]))) {
+        continue;
+      }
       final fillSizes =
           pattern == 'fill-union' ? ([..._sizes]..shuffle(r)) : sizes;
       Map<String, Object?> cell(int y, int x) {
-        final a = <String, Object?>{'form': rowForms ? forms[y] : forms[0]};
+        final a = <String, Object?>{
+          'form': pattern == 'corner-step'
+              ? 'square'
+              : rowForms
+                  ? forms[y]
+                  : forms[0],
+        };
         switch (pattern) {
           case 'ray-turn':
             a['line'] = (starts[y] + x * step) % 360;
@@ -327,7 +338,7 @@ class MatrixRule implements Rule {
               (f) => !rawCells
                   .whereType<Map<String, Object?>>()
                   .any((a) => a['form'] == f),
-              orElse: () => forms[1],
+              orElse: () => forms.last,
             );
       List<num> rays(Map<String, Object?> a) => [
             if (a['line'] != null) a['line']! as num,
@@ -484,11 +495,12 @@ class MatrixRule implements Rule {
           corners[0] % 2 != corners[1] % 2) {
         continue;
       }
-      if (!fixed &&
-          pattern == 'ray-turn' &&
-          (360 - (at(0, 0)['line']! as int)) % 360 == at(0, 1)['line'] &&
-          (360 - (at(1, 0)['line']! as int)) % 360 != answer['line']) {
-        continue;
+      if (!fixed && pattern == 'ray-turn') {
+        final from = at(0, 0)['line']! as int;
+        final to = at(0, 1)['line'];
+        if ([180, 360].any((axis) => (axis - from) % 360 == to)) {
+          continue;
+        }
       }
       final slots = <String, Object?>{
         'answerText': _describe(answer),
@@ -534,6 +546,7 @@ class MatrixRule implements Rule {
         ],
       };
       if (!fixed &&
+          pattern != 'corner-step' &&
           (choices.first['text']! as String).length >
               choices
                   .skip(1)

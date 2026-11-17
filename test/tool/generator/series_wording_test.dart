@@ -72,7 +72,7 @@ void main() {
     }
   });
 
-  test('generated figure descriptions never make the key uniquely longest', () {
+  test('generated descriptions avoid longest keys except corner positions', () {
     for (final path in ['content/types', 'content/types-held']) {
       for (final file
           in Directory(path).listSync(recursive: true).whereType<File>()) {
@@ -80,6 +80,8 @@ void main() {
           continue;
         }
         final type = parseProblemType(loadYaml(file.readAsStringSync()) as Map);
+        // Re-audit ruling allows all four corner labels.
+        if (type.rule == 'matrix-corner-step') continue;
         for (var seed = 1; seed <= 100; seed++) {
           final v = ruleRegistry[type.rule]!
               .generate(type, Random(seed), seed)

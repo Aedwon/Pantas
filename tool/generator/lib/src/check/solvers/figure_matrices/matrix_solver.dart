@@ -78,8 +78,38 @@ bool _same(Map<String, Object?> a, Map<String, Object?> b) =>
 /// Reconstructs the missing cell from visible rows and columns, then checks
 /// every supplied cell. Candidate feature keys must match exactly.
 class MatrixSolver implements FigureSolver {
-  MatrixSolver(this.pattern, {this.reflectRays = false});
+  MatrixSolver(
+    this.pattern, {
+    this.reflectRays = false,
+    this.reflectRaysUpDown = false,
+    this.continueCounts = false,
+    this.highestRay = false,
+  });
   final bool reflectRays;
+  final bool reflectRaysUpDown;
+  final bool continueCounts;
+  final bool highestRay;
+
+  num _highestRay(Iterable<num> rays) {
+    // Compass-grid heights, scaled without floating-point tie errors.
+    const heights = [2, 1, 0, -1, -2, -1, 0, 1];
+    final values = rays.toSet();
+    int height(num ray) {
+      if (ray < 0 || ray >= 360 || ray % 45 != 0) {
+        throw const FormatException('unsupported ray');
+      }
+      return heights[ray ~/ 45];
+    }
+
+    final highest = values.where(
+      (ray) => values.every((other) => height(ray) >= height(other)),
+    );
+    if (highest.length != 1) {
+      throw const FormatException('highest ray is not unique');
+    }
+    return highest.single;
+  }
+
   final String pattern;
   @override
   String get kind => 'figure-matrix';
@@ -106,8 +136,9 @@ class MatrixSolver implements FigureSolver {
     final a = Map<String, Object?>.of(row(y));
     switch (pattern) {
       case 'ray-turn':
-        a['line'] = reflectRays
-            ? (360 - (at(1, 0)['line']! as num)) % 360
+        a['line'] = reflectRays || reflectRaysUpDown
+            ? ((reflectRaysUpDown ? 180 : 360) - (at(1, 0)['line']! as num)) %
+                360
             : ((at(1, 0)['line']! as num) +
                     (at(0, 1)['line']! as num) -
                     (at(0, 0)['line']! as num)) %
@@ -124,7 +155,14 @@ class MatrixSolver implements FigureSolver {
           sort: false,
         );
       case 'ray-intersection':
-        return _withRays(a, _rays(at(y, 0)).where(_rays(at(y, 1)).contains));
+        return _withRays(
+          a,
+          highestRay
+              ? [
+                  _highestRay([..._rays(at(y, 0)), ..._rays(at(y, 1))]),
+                ]
+              : _rays(at(y, 0)).where(_rays(at(y, 1)).contains),
+        );
       case 'fill-union':
         a['fill'] = 'black';
         a.remove('rotation');
@@ -153,7 +191,9 @@ class MatrixSolver implements FigureSolver {
             .toSet();
         a[key] = values.difference(present).single;
       case 'dot-sum':
-        a['dots'] = (at(y, 0)['dots']! as int) + (at(y, 1)['dots']! as int);
+        a['dots'] = continueCounts
+            ? 2 * (at(y, 1)['dots']! as int) - (at(y, 0)['dots']! as int)
+            : (at(y, 0)['dots']! as int) + (at(y, 1)['dots']! as int);
       case 'growing-turn':
         a['line'] = ((at(y, 0)['line']! as num) +
                 2 * ((at(y, 1)['line']! as num) - (at(y, 0)['line']! as num))) %
@@ -258,7 +298,6 @@ class MatrixSolver implements FigureSolver {
       }
       if ([
             'ray-turn',
-            'corner-step',
             'corner-reflection',
             'ray-union',
             'ray-intersection',
@@ -284,12 +323,14 @@ class MatrixSolver implements FigureSolver {
       }
       switch (pattern) {
         case 'ray-turn':
-          if (reflectRays) {
+          if (reflectRays || reflectRaysUpDown) {
             return feature(
               'line',
               (y, x) => x == 0
                   ? at(y, 0)['line']
-                  : (360 - (at(y, 0)['line']! as num)) % 360,
+                  : ((reflectRaysUpDown ? 180 : 360) -
+                          (at(y, 0)['line']! as num)) %
+                      360,
             );
           }
           final step =
@@ -300,6 +341,7 @@ class MatrixSolver implements FigureSolver {
                 (y, x) => ((at(y, 0)['line']! as num) + x * step) % 360,
               );
         case 'corner-step':
+          if (a.any((cell) => cell['form'] != 'square')) return false;
           return feature(
             'dot',
             (y, x) => _corners[
@@ -368,7 +410,10 @@ class MatrixSolver implements FigureSolver {
           return List.generate(rows, (y) => y).every(
             (y) =>
                 at(y, 2)['dots'] ==
-                (at(y, 0)['dots']! as int) + (at(y, 1)['dots']! as int),
+                (continueCounts
+                    ? 2 * (at(y, 1)['dots']! as int) -
+                        (at(y, 0)['dots']! as int)
+                    : (at(y, 0)['dots']! as int) + (at(y, 1)['dots']! as int)),
           );
         case 'ray-union' || 'ray-intersection' || 'sized-ray-union':
           for (var y = 0; y < rows; y++) {
@@ -389,7 +434,11 @@ class MatrixSolver implements FigureSolver {
               return false;
             }
             final rays = pattern == 'ray-intersection'
-                ? left.intersection(right)
+                ? highestRay
+                    ? {
+                        _highestRay([...left, ...right]),
+                      }
+                    : left.intersection(right)
                 : left.union(right);
             if (dataKey(_rays(at(y, 2))) != dataKey(rays.toList()..sort())) {
               return false;

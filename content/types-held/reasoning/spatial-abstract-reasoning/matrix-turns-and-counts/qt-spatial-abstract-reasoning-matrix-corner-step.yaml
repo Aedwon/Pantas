@@ -17,11 +17,7 @@
   "enabled": true,
   "params": {
     "forms": [
-      "square",
-      "circle",
-      "triangle",
-      "pentagon",
-      "star"
+      "square"
     ],
     "sizes": [
       "small",
