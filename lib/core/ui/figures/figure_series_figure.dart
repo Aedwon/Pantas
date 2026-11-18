@@ -387,42 +387,239 @@ abstract final class SeriesGeometry {
     return math.min(left, right);
   }
 
-  /// Where a row of dots sits: through the middle, but lower in a triangle
-  /// and higher in a star, which are wider there.
+  /// Where a row of dots sits when nothing else is drawn: through the
+  /// middle, but lower in a triangle and higher in a star, which are wider
+  /// there.
   static double dotRowOffset(String form, double r) => switch (form) {
         'triangle' => r * 0.2,
         'star' => -r * 0.1,
         _ => 0,
       };
 
-  /// The centres of [count] dots in a row, spread no wider than the outline
-  /// allows, and the radius to draw them at. Dots shrink only when the
-  /// outline is too narrow for full-size ones.
+  /// How far [point] is inside the outline of [form] from its edge, or a
+  /// negative number when it is outside.
+  static double clearance(String form, Offset centre, double r, Offset point) {
+    final points = corners(form, centre, r);
+    if (points == null) return r - (point - centre).distance;
+    var best = double.infinity;
+    for (var i = 0; i < points.length; i++) {
+      final a = points[i];
+      final edge = points[(i + 1) % points.length] - a;
+      final t = (((point - a).dx * edge.dx + (point - a).dy * edge.dy) /
+              (edge.dx * edge.dx + edge.dy * edge.dy))
+          .clamp(0.0, 1.0);
+      best = math.min(best, (point - (a + edge * t)).distance);
+    }
+    return formPath(form, centre, r).contains(point) ? best : -best;
+  }
+
+  /// The dot sizes tried, largest first. A dot is never smaller than 1px.
+  static const _dotRadii = [2.5, 2.1, 1.8, 1.5, 1.3, 1.1, 1.0];
+
+  /// The centres of [count] dots and the radius to draw them at.
+  ///
+  /// Every dot keeps a gap of one dot diameter from its neighbors and one
+  /// dot radius from the outline. Dots shrink, then wrap into two rows, when
+  /// the form is too small for them.
   static ({List<Offset> centres, double radius}) dotRow(
     String form,
     Offset centre,
     double r,
     int count,
   ) {
-    if (count == 0) return (centres: const [], radius: 2.5);
-    final dy = dotRowOffset(form, r);
-    final half = halfWidthAt(form, r, dy);
-    var radius = 2.5;
-    var spread = 0.0;
-    for (final (candidate, margin) in [(2.5, 4.0), (1.9, 3.5), (1.4, 2.5)]) {
-      radius = candidate;
-      final room = math.max(half - radius - margin, 0);
-      spread = count == 1 ? 0.0 : math.min(r * 0.5, 2 * room / (count - 1));
-      if (count == 1 || spread >= radius * 2 + 1.2) break;
+    final layout = dotLayout(form, centre, r, count, const []);
+    return (centres: layout.centres, radius: layout.radius);
+  }
+
+  /// Like [dotRow], and also how long each of [rays] may be drawn. The row
+  /// is moved off the lines drawn from the centre, and a ray that would still
+  /// touch a dot is cut short, so no dot is within a dot radius and a pixel
+  /// of any line.
+  static ({List<Offset> centres, double radius, List<double> lengths})
+      dotLayout(
+    String form,
+    Offset centre,
+    double r,
+    int count,
+    List<({double angle, double length})> rays,
+  ) {
+    final full = [for (final ray in rays) ray.length];
+    if (count == 0) return (centres: const [], radius: 2.5, lengths: full);
+
+    final home = dotRowOffset(form, r);
+    ({List<Offset> centres, double radius, List<double> lengths})? best;
+    var bestCost = double.infinity;
+    for (final radius in _dotRadii) {
+      for (final rows in count == 1 ? const [1] : const [1, 2]) {
+        for (final dy in _rowHeights(home, r)) {
+          final centres = _place(form, centre, r, count, rows, radius, dy);
+          if (centres == null) continue;
+          final lengths = _clipRays(centre, centres, radius, rays);
+          final lost = [
+            for (var i = 0; i < rays.length; i++) full[i] - lengths[i],
+          ].fold<double>(0, (a, b) => a + b);
+          // A line that would vanish is worse than any other loss.
+          final vanished = lengths.any((l) => l < 0.5) ? 1000 : 0;
+          final cost = lost + vanished + (dy - home).abs() * 0.5;
+          if (cost < bestCost - 1e-9) {
+            bestCost = cost;
+            best = (centres: centres, radius: radius, lengths: lengths);
+          }
+        }
+      }
+      // The largest dots that fit win, rows before scattering.
+      if (best == null) {
+        final scattered = _scatter(form, centre, r, count, radius, home);
+        if (scattered != null) {
+          best = (
+            centres: scattered,
+            radius: radius,
+            lengths: _clipRays(centre, scattered, radius, rays),
+          );
+        }
+      }
+      if (best != null) return best;
     }
+    // Nothing fits at 1px: draw one row at the usual height, as small as
+    // the dots go.
+    const radius = 1.0;
+    final spread = math.min(r * 0.5, 4 * radius);
     final first = centre.dx - spread * (count - 1) / 2;
+    final centres = [
+      for (var i = 0; i < count; i++)
+        Offset(first + spread * i, centre.dy + home),
+    ];
     return (
-      centres: [
-        for (var i = 0; i < count; i++)
-          Offset(first + spread * i, centre.dy + dy),
-      ],
+      centres: centres,
       radius: radius,
+      lengths: _clipRays(centre, centres, radius, rays),
     );
+  }
+
+  /// Heights to try for a row, its usual height first.
+  static List<double> _rowHeights(double home, double r) => [
+        home,
+        for (var step = 1; step <= 14; step++) ...[
+          home + step * r * 0.05,
+          home - step * r * 0.05,
+        ],
+      ];
+
+  /// Dot centres for [count] dots in [rows] rows around height [dy], or
+  /// null when they do not fit at [radius].
+  static List<Offset>? _place(
+    String form,
+    Offset centre,
+    double r,
+    int count,
+    int rows,
+    double radius,
+    double dy,
+  ) {
+    final perRow = rows == 1
+        ? [count]
+        // The upper row takes fewer: forms are narrower at the top.
+        : [count ~/ 2, count - count ~/ 2];
+    final centres = <Offset>[];
+    for (var row = 0; row < rows; row++) {
+      final n = perRow[row];
+      final y = rows == 1 ? dy : dy + (row == 0 ? -2 * radius : 2 * radius);
+      // Widest spread the outline allows at this height.
+      final wanted = math.max(r * 0.5, 4 * radius);
+      final spread = math.min(wanted, _spreadAt(form, r, y, n, radius));
+      if (n > 1 && spread < 4 * radius - 1e-6) return null;
+      final first = centre.dx - spread * (n - 1) / 2;
+      for (var i = 0; i < n; i++) {
+        centres.add(Offset(first + spread * i, centre.dy + y));
+      }
+    }
+    // Gap of one radius from the outline, measured from the dot's edge.
+    for (final c in centres) {
+      if (clearance(form, centre, r, c) < 2 * radius - 1e-6) return null;
+    }
+    return centres;
+  }
+
+  /// Dot centres spread over the form when no row or pair of rows fits, as in
+  /// a small star: each new dot goes where it is farthest from the others,
+  /// one radius clear of the outline and one diameter from its neighbors.
+  static List<Offset>? _scatter(
+    String form,
+    Offset centre,
+    double r,
+    int count,
+    double radius,
+    double home,
+  ) {
+    const step = 0.5;
+    final candidates = <Offset>[];
+    for (var x = -r; x <= r; x += step) {
+      for (var y = -r; y <= r; y += step) {
+        final p = centre + Offset(x, y);
+        if (clearance(form, centre, r, p) >= 2 * radius - 1e-6) {
+          candidates.add(p);
+        }
+      }
+    }
+    if (candidates.length < count) return null;
+    final anchor = centre + Offset(0, home);
+    final chosen = <Offset>[
+      candidates.reduce(
+        (a, b) => (a - anchor).distance <= (b - anchor).distance ? a : b,
+      ),
+    ];
+    while (chosen.length < count) {
+      Offset? far;
+      var farDistance = 0.0;
+      for (final p in candidates) {
+        final d = chosen.map((c) => (c - p).distance).reduce(math.min);
+        if (d > farDistance + 1e-9) {
+          farDistance = d;
+          far = p;
+        }
+      }
+      if (far == null || farDistance < 4 * radius - 1e-6) return null;
+      chosen.add(far);
+    }
+    return chosen;
+  }
+
+  /// The largest spacing for [n] dots in a row at height [y] that keeps the
+  /// outer dots one radius from the outline.
+  static double _spreadAt(String form, double r, double y, int n, double dot) {
+    if (n == 1) return 0;
+    final half = halfWidthAt(form, r, y) - 2 * dot;
+    return half <= 0 ? 0 : 2 * half / (n - 1);
+  }
+
+  /// How far each ray may run before it comes within a dot radius and a
+  /// pixel of a dot.
+  static List<double> _clipRays(
+    Offset centre,
+    List<Offset> dots,
+    double radius,
+    List<({double angle, double length})> rays,
+  ) {
+    const gap = 1.5;
+    final reach = radius + gap;
+    return [
+      for (final ray in rays)
+        () {
+          final direction = Offset(math.cos(ray.angle), math.sin(ray.angle));
+          var length = ray.length;
+          for (final dot in dots) {
+            final p = dot - centre;
+            final along = p.dx * direction.dx + p.dy * direction.dy;
+            final across = (p.dx * direction.dy - p.dy * direction.dx).abs();
+            if (across >= reach) continue;
+            final half = math.sqrt(reach * reach - across * across);
+            final entry = along - half;
+            if (along + half < 0 || entry > length) continue;
+            length = math.min(length, math.max(entry, 0));
+          }
+          return length;
+        }(),
+    ];
   }
 
   /// The centre of a corner dot, a fixed share of the way to the outline.
@@ -584,9 +781,38 @@ class _SeriesPainter extends CustomPainter {
       ..style = PaintingStyle.fill
       ..color = color;
 
-    for (final line in item.allLineDegrees) {
-      final angle = (line - 90) * math.pi / 180;
-      final length = SeriesGeometry.reach(item.form, r, angle, 0.8);
+    // Lines and an arrow run from the centre. The dot row steps aside from
+    // them and cuts short any that would still touch a dot.
+    final lines = [
+      for (final line in item.allLineDegrees)
+        () {
+          final angle = (line - 90) * math.pi / 180;
+          return (
+            angle: angle,
+            length: SeriesGeometry.reach(item.form, r, angle, 0.8),
+          );
+        }(),
+    ];
+    final arrow = item.arrowDegrees;
+    final arrowAngle = arrow == null ? 0.0 : (arrow - 90) * math.pi / 180;
+    final arrowReach = arrow == null
+        ? 0.0
+        : SeriesGeometry.reach(item.form, r, arrowAngle, 0.7);
+    final layout = SeriesGeometry.dotLayout(
+      item.form,
+      centre,
+      r,
+      item.dots,
+      [
+        ...lines,
+        if (arrow != null) (angle: arrowAngle, length: arrowReach),
+      ],
+    );
+
+    for (var i = 0; i < lines.length; i++) {
+      final length = layout.lengths[i];
+      if (length < 0.5) continue;
+      final angle = lines[i].angle;
       canvas.drawLine(
         centre,
         centre + Offset(math.cos(angle) * length, math.sin(angle) * length),
@@ -594,10 +820,9 @@ class _SeriesPainter extends CustomPainter {
       );
     }
 
-    final arrow = item.arrowDegrees;
     if (arrow != null) {
-      final angle = (arrow - 90) * math.pi / 180;
-      final length = SeriesGeometry.reach(item.form, r, angle, 0.7);
+      final angle = arrowAngle;
+      final length = layout.lengths.last;
       final tip =
           centre + Offset(math.cos(angle) * length, math.sin(angle) * length);
       canvas.drawLine(centre, tip, stroke);
@@ -625,9 +850,8 @@ class _SeriesPainter extends CustomPainter {
       );
     }
 
-    final row = SeriesGeometry.dotRow(item.form, centre, r, item.dots);
-    for (final dot in row.centres) {
-      canvas.drawCircle(dot, row.radius, solid);
+    for (final dot in layout.centres) {
+      canvas.drawCircle(dot, layout.radius, solid);
     }
   }
 
