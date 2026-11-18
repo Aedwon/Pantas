@@ -92,6 +92,7 @@ void main() {
     const centre = Offset(100, 100);
     // The base radius a series draws at on a phone, and a large one.
     const radii = [20.0, 39.6];
+    var shortest = 1.0;
 
     void expectClear(
       List<double> degrees,
@@ -108,13 +109,22 @@ void main() {
       });
       final r = base * scale;
       final canvas = _paint(item, centre, r);
-      // A line of under half a pixel is not drawn at all.
-      final drawn = [
-        for (final (a, b) in canvas.lines)
-          if ((b - a).distance >= 0.5) (a, b),
-      ];
+      final drawn = canvas.lines;
       final reason = '$form dots=$dots lines=$degrees r=$r';
       expect(canvas.circles.length, dots, reason: reason);
+      // A line is never removed and never cut below 75% of its length.
+      expect(drawn.length, degrees.length, reason: '$reason: a line vanished');
+      for (var i = 0; i < degrees.length; i++) {
+        final angle = (degrees[i] - 90) * math.pi / 180;
+        final normal = SeriesGeometry.reach(form, r, angle, 0.8);
+        final (a, b) = drawn[i];
+        expect(
+          (b - a).distance,
+          greaterThanOrEqualTo(normal * 0.75 - 1e-6),
+          reason: '$reason: line ${degrees[i]} is too short',
+        );
+        shortest = math.min(shortest, (b - a).distance / normal);
+      }
       for (final (dot, radius) in canvas.circles) {
         for (final (a, b) in drawn) {
           expect(
@@ -174,6 +184,30 @@ void main() {
             final item = _item({'form': form, 'dots': dots, 'arrow': arrow});
             final canvas = _paint(item, centre, 39.6);
             final shaft = canvas.lines.first;
+            final angle = ((const {
+                      'up': 0.0,
+                      'right': 90.0,
+                      'down': 180.0,
+                      'left': 270.0,
+                    })[arrow]! -
+                    90) *
+                math.pi /
+                180;
+            final reach = SeriesGeometry.reach(form, 39.6, angle, 0.7);
+            expect(canvas.lines.length, 3, reason: '$form $arrow $dots');
+            expect(
+              (shaft.$2 - shaft.$1).distance,
+              greaterThanOrEqualTo(reach * 0.75 - 1e-6),
+              reason: '$form $arrow $dots: arrow too short',
+            );
+            // The head stays whole.
+            for (final head in canvas.lines.skip(1)) {
+              expect(
+                (head.$2 - head.$1).distance,
+                closeTo(39.6 * 0.3 * math.min(1, reach / (39.6 * 0.7)), 1e-6),
+                reason: '$form $arrow $dots: head cut',
+              );
+            }
             for (final (dot, radius) in canvas.circles) {
               expect(
                 _toSegment(dot, shaft.$1, shaft.$2),

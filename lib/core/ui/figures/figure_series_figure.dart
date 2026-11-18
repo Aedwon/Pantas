@@ -414,7 +414,7 @@ abstract final class SeriesGeometry {
   }
 
   /// The dot sizes tried, largest first. A dot is never smaller than 1px.
-  static const _dotRadii = [2.5, 2.1, 1.8, 1.5, 1.3, 1.1, 1.0];
+  static const _dotRadii = [2.5, 2.1, 1.8, 1.5, 1.3, 1.1, 1.0, 0.9, 0.8];
 
   /// The centres of [count] dots and the radius to draw them at.
   ///
@@ -449,18 +449,26 @@ abstract final class SeriesGeometry {
     final home = dotRowOffset(form, r);
     ({List<Offset> centres, double radius, List<double> lengths})? best;
     var bestCost = double.infinity;
+    // A line or arrow is never removed and never cut below this share of its
+    // length: the dots give way instead.
+    bool keepsRays(List<double> lengths) {
+      for (var i = 0; i < rays.length; i++) {
+        if (lengths[i] < full[i] * _minRayShare - 1e-6) return false;
+      }
+      return true;
+    }
+
     for (final radius in _dotRadii) {
       for (final rows in count == 1 ? const [1] : const [1, 2]) {
         for (final dy in _rowHeights(home, r)) {
           final centres = _place(form, centre, r, count, rows, radius, dy);
           if (centres == null) continue;
           final lengths = _clipRays(centre, centres, radius, rays);
+          if (!keepsRays(lengths)) continue;
           final lost = [
             for (var i = 0; i < rays.length; i++) full[i] - lengths[i],
           ].fold<double>(0, (a, b) => a + b);
-          // A line that would vanish is worse than any other loss.
-          final vanished = lengths.any((l) => l < 0.5) ? 1000 : 0;
-          final cost = lost + vanished + (dy - home).abs() * 0.5;
+          final cost = lost + (dy - home).abs() * 0.5;
           if (cost < bestCost - 1e-9) {
             bestCost = cost;
             best = (centres: centres, radius: radius, lengths: lengths);
@@ -469,7 +477,8 @@ abstract final class SeriesGeometry {
       }
       // The largest dots that fit win, rows before scattering.
       if (best == null) {
-        final scattered = _scatter(form, centre, r, count, radius, home);
+        final scattered =
+            _scatter(form, centre, r, count, radius, home, centre, rays);
         if (scattered != null) {
           best = (
             centres: scattered,
@@ -480,9 +489,9 @@ abstract final class SeriesGeometry {
       }
       if (best != null) return best;
     }
-    // Nothing fits at 1px: draw one row at the usual height, as small as
-    // the dots go.
-    const radius = 1.0;
+    // Nothing fits: draw one row of the smallest dots at the usual height
+    // and cut the rays only as much as it takes.
+    const radius = 0.8;
     final spread = math.min(r * 0.5, 4 * radius);
     final first = centre.dx - spread * (count - 1) / 2;
     final centres = [
@@ -495,6 +504,13 @@ abstract final class SeriesGeometry {
       lengths: _clipRays(centre, centres, radius, rays),
     );
   }
+
+  /// How far a dot's centre keeps from the outline: a radius of gap, and at
+  /// least a pixel for the smallest dots.
+  static double _edgeGap(double radius) => math.max(2 * radius, radius + 1);
+
+  /// The share of its normal length a line or arrow always keeps.
+  static const _minRayShare = 0.75;
 
   /// Heights to try for a row, its usual height first.
   static List<double> _rowHeights(double home, double r) => [
@@ -535,7 +551,7 @@ abstract final class SeriesGeometry {
     }
     // Gap of one radius from the outline, measured from the dot's edge.
     for (final c in centres) {
-      if (clearance(form, centre, r, c) < 2 * radius - 1e-6) return null;
+      if (clearance(form, centre, r, c) < _edgeGap(radius) - 1e-6) return null;
     }
     return centres;
   }
@@ -550,45 +566,71 @@ abstract final class SeriesGeometry {
     int count,
     double radius,
     double home,
+    Offset origin,
+    List<({double angle, double length})> rays,
   ) {
     const step = 0.5;
     final candidates = <Offset>[];
     for (var x = -r; x <= r; x += step) {
       for (var y = -r; y <= r; y += step) {
         final p = centre + Offset(x, y);
-        if (clearance(form, centre, r, p) >= 2 * radius - 1e-6) {
-          candidates.add(p);
-        }
+        if (clearance(form, centre, r, p) < _edgeGap(radius) - 1e-6) continue;
+        // Clear of the part of every ray that must be drawn.
+        final clear = rays.every((ray) {
+          final tip = origin +
+              Offset(math.cos(ray.angle), math.sin(ray.angle)) *
+                  (ray.length * _minRayShare);
+          return _distanceToSegment(p, origin, tip) >= radius + 1.6;
+        });
+        if (clear) candidates.add(p);
       }
     }
     if (candidates.length < count) return null;
     final anchor = centre + Offset(0, home);
-    final chosen = <Offset>[
-      candidates.reduce(
-        (a, b) => (a - anchor).distance <= (b - anchor).distance ? a : b,
-      ),
+    final nearest = candidates.reduce(
+      (a, b) => (a - anchor).distance <= (b - anchor).distance ? a : b,
+    );
+    // Try the dot nearest the usual row first, then other starting dots:
+    // greedy spreading can fail from one start and work from another.
+    final stride = math.max(1, candidates.length ~/ 24);
+    final seeds = [
+      nearest,
+      for (var i = 0; i < candidates.length; i += stride) candidates[i],
     ];
-    while (chosen.length < count) {
-      Offset? far;
-      var farDistance = 0.0;
-      for (final p in candidates) {
-        final d = chosen.map((c) => (c - p).distance).reduce(math.min);
-        if (d > farDistance + 1e-9) {
-          farDistance = d;
-          far = p;
+    for (final seed in seeds) {
+      final chosen = <Offset>[seed];
+      while (chosen.length < count) {
+        Offset? far;
+        var farDistance = 0.0;
+        for (final p in candidates) {
+          final d = chosen.map((c) => (c - p).distance).reduce(math.min);
+          if (d > farDistance + 1e-9) {
+            farDistance = d;
+            far = p;
+          }
         }
+        if (far == null || farDistance < 4 * radius - 1e-6) break;
+        chosen.add(far);
       }
-      if (far == null || farDistance < 4 * radius - 1e-6) return null;
-      chosen.add(far);
+      if (chosen.length == count) return chosen;
     }
-    return chosen;
+    return null;
+  }
+
+  static double _distanceToSegment(Offset p, Offset a, Offset b) {
+    final edge = b - a;
+    final length2 = edge.dx * edge.dx + edge.dy * edge.dy;
+    if (length2 == 0) return (p - a).distance;
+    final t = (((p - a).dx * edge.dx + (p - a).dy * edge.dy) / length2)
+        .clamp(0.0, 1.0);
+    return (p - (a + edge * t)).distance;
   }
 
   /// The largest spacing for [n] dots in a row at height [y] that keeps the
   /// outer dots one radius from the outline.
   static double _spreadAt(String form, double r, double y, int n, double dot) {
     if (n == 1) return 0;
-    final half = halfWidthAt(form, r, y) - 2 * dot;
+    final half = halfWidthAt(form, r, y) - _edgeGap(dot);
     return half <= 0 ? 0 : 2 * half / (n - 1);
   }
 
@@ -611,7 +653,9 @@ abstract final class SeriesGeometry {
             final p = dot - centre;
             final along = p.dx * direction.dx + p.dy * direction.dy;
             final across = (p.dx * direction.dy - p.dy * direction.dx).abs();
-            if (across >= reach) continue;
+            if (across >= reach - 1e-6) continue;
+            // Behind the start of the ray and clear of it.
+            if (along <= 0 && p.distance >= reach - 1e-6) continue;
             final half = math.sqrt(reach * reach - across * across);
             final entry = along - half;
             if (along + half < 0 || entry > length) continue;
@@ -811,7 +855,6 @@ class _SeriesPainter extends CustomPainter {
 
     for (var i = 0; i < lines.length; i++) {
       final length = layout.lengths[i];
-      if (length < 0.5) continue;
       final angle = lines[i].angle;
       canvas.drawLine(
         centre,
@@ -827,7 +870,7 @@ class _SeriesPainter extends CustomPainter {
           centre + Offset(math.cos(angle) * length, math.sin(angle) * length);
       canvas.drawLine(centre, tip, stroke);
       // The head keeps its size unless the arrow had to be shortened.
-      final head = r * 0.3 * math.min(1, length / (r * 0.7));
+      final head = r * 0.3 * math.min(1, arrowReach / (r * 0.7));
       for (final spread in [2.5, -2.5]) {
         canvas.drawLine(
           tip,
