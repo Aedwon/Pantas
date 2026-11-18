@@ -123,3 +123,61 @@ test('a failed replacement of an expired open checkout resets and a retry succee
   const out = await createCheckout(caller(uid), {product}, setup());
   assert.match(out.checkoutUrl, /^https:/);
 });
+
+const paidRemote = id => ({id, status: 'active', metadata: {}, payments: [{id: 'pay_unconfirmed', amount: 14900, currency: 'PHP', status: 'paid'}]});
+
+test('a previous session already paid but not yet granted never leads to a second session', async () => {
+  const uid = 'lease-paid';
+  const first = await createCheckout(caller(uid), {product}, setup());
+  const retry = setup();
+  retry.client.getCheckoutSession = async id => paidRemote(id);
+  await assert.rejects(createCheckout(caller(uid), {product}, retry), error => {
+    assert.equal(error.code, 'failed-precondition');
+    assert.equal(error.message, 'Your payment is being confirmed. Pro will appear shortly.');
+    return true;
+  });
+  assert.equal(retry.created.length, 0);
+  const rows = await pendingDocs(uid);
+  assert.equal(rows.length, 1);
+  assert.equal(rows[0].get('state'), 'open');
+  assert.equal(rows[0].get('reference'), first.reference);
+});
+
+test('once the webhook has granted, a new purchase works as before', async () => {
+  const uid = 'lease-granted';
+  await createCheckout(caller(uid), {product}, setup());
+  await db.doc('paymongoPayments/pay_unconfirmed').set({uid, processed: true});
+  const next = setup();
+  next.client.getCheckoutSession = async id => paidRemote(id);
+  const out = await createCheckout(caller(uid), {product}, next);
+  assert.equal(next.created.length, 1);
+  assert.equal(out.reference, next.created[0].referenceNumber);
+});
+
+test('a final write that commits but loses its acknowledgment leaves the reservation open and a retry returns the same link', async () => {
+  const uid = 'lease-ack';
+  const lossy = new Proxy(db, {get(target, key) {
+    if (key !== 'runTransaction') { const v = target[key]; return typeof v === 'function' ? v.bind(target) : v; }
+    return async fn => {
+      let final = false;
+      const result = await target.runTransaction(t => fn(new Proxy(t, {get(tt, k) {
+        const v = tt[k];
+        if (k === 'set') return (ref, ...rest) => { if (ref.path.startsWith('paymongoCheckouts/')) final = true; return tt.set(ref, ...rest); };
+        return typeof v === 'function' ? v.bind(tt) : v;
+      }})));
+      if (final) throw new Error('acknowledgment lost');
+      return result;
+    };
+  }});
+  const first = setup({database: lossy});
+  await assert.rejects(createCheckout(caller(uid), {product}, first), /acknowledgment lost/);
+  const rows = await pendingDocs(uid);
+  assert.equal(rows.length, 1);
+  assert.equal(rows[0].get('state'), 'open');
+  const retry = setup();
+  retry.client.getCheckoutSession = async id => ({id, status: 'active', metadata: {}, payments: []});
+  const out = await createCheckout(caller(uid), {product}, retry);
+  assert.equal(retry.created.length, 0);
+  assert.equal(out.reference, rows[0].get('reference'));
+  assert.equal(out.checkoutUrl, rows[0].get('checkoutUrl'));
+});

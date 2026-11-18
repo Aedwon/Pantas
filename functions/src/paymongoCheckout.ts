@@ -1,5 +1,6 @@
 import {randomUUID, createHash} from 'node:crypto';
 import {getFirestore, type DocumentReference, type Firestore} from 'firebase-admin/firestore';
+import {logger} from 'firebase-functions';
 import {HttpsError} from 'firebase-functions/v2/https';
 import {onAccountCall as onCall} from './_accountAccess.js';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
@@ -8,6 +9,7 @@ import {paymentSecrets, secret} from './_secrets.js';
 import {GUARDIAN_DOCUMENT_VERSIONS} from './guardianConsent.js';
 import {allowAtMost} from './_limits.js';
 import type {Grant} from './grants.js';
+import {grantDocId} from './paymongoGrants.js';
 import {httpPaymongoClient, type PaymongoClient} from './paymongoClient.js';
 import {priceCentavos, webProduct} from './paymongoPolicy.js';
 import {examCatalog, sittingFor, type CatalogExam, type Sitting} from './revenuecatPasses.js';
@@ -108,6 +110,14 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
     if (remote.status !== 'expired' && !remote.payments.some(p => p.status === 'paid')) {
       throw new HttpsError('unavailable', 'Checkout status is unavailable. Try again later.');
     }
+    // A paid session whose webhook has not granted yet must never lead to a second session: the
+    // customer could pay twice. Keep the reservation so the webhook completes the grant.
+    for (const payment of remote.payments.filter(p => p.status === 'paid')) {
+      if (!(await deps.db.doc(`paymongoPayments/${grantDocId(payment.id)}`).get()).exists) {
+        logger.warn('Checkout replacement refused: previous session is paid and its grant is not processed yet');
+        throw new HttpsError('failed-precondition', 'Your payment is being confirmed. Pro will appear shortly.');
+      }
+    }
     // Compare-and-swap: only one request can replace a completed/expired checkout.
     await deps.db.runTransaction(async transaction => {
       const current = await transaction.get(pending);
@@ -120,8 +130,10 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
   // releases it at once, only if it is still ours. A lapsed lease covers a crash before the reset.
   // Sessions are never reconciled with PayMongo by reference: the customer receives the link only
   // after the final write succeeds, so a session this attempt loses (lost response, failed write,
-  // superseded attempt) was never shown to anyone, can never be paid, and expires on its own.
-  // A new session under a new reference is therefore always safe.
+  // superseded attempt) was never shown to anyone. PayMongo sessions do not expire on their own,
+  // but if one were somehow paid, its order is kept and the webhook still grants Pro to the bound
+  // account, so the customer is not charged without Pro. A new session under a new reference is
+  // therefore safe.
   try {
     const session = await deps.client.createCheckoutSession({uid, product: product.id,
       name: NAMES[product.id] ?? product.id, amountCentavos: priceCentavos(product),
