@@ -663,3 +663,7 @@ Rulings from the figure answer choices UI lead (their spec records them):
 3. Until then the shape-row painter draws numbers 1 to N under the shapes (UI lane).
 4. Held group-line-count and group-center-cuts use the new form when they return.
 No change to the 28 approved types now.
+
+## November 18, 2026: app fields for figure choices
+
+Figure answer choices spec approved by Aedwon (Minimal), on spec/figure-answer-choices. Agreed interface with its UI lead: Choice.figureJson (String?, one item map, null = text choice), Question.choiceKind (text | figure, default text), Question.showQuestionFigure (bool, default true). Parent figure kind comes from the question figureSpec.kind. The UI lead adds the fields with defaults, codegen and JSON mapping (their build ships first) and sends the commit; Phase 2 Task 2.2 fills them from the variant documents and adds no competing fields. Type files gain a question-figure flag (false only for converted positional types, Task 2.9).
