@@ -2,9 +2,14 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 
-/// Height of the drawing. The design system sets no height for diagrams.
+/// Height of the shapes. The design system sets no height for diagrams.
 const double _figureHeight = 110;
+
+/// Room under the shapes for the position numbers: one line of 15px text
+/// with a few pixels above and below.
+const double _labelBand = 28;
 
 /// A row of shapes, for the odd-one-out questions.
 ///
@@ -26,6 +31,9 @@ const double _figureHeight = 110;
 ///           lines: 2
 ///           through: centre    # centre | off
 /// ```
+///
+/// Every shape has its position, 1 to N from the left, written under it, so
+/// a choice can say "shape 3". The numbers are the same for all shapes.
 ///
 /// **The odd one out is never marked.** Finding it is the question, and a
 /// drawing that gives it away makes the question worthless.
@@ -87,9 +95,10 @@ class ShapeRowFigure extends StatelessWidget {
     final colors = context.colors;
     return Semantics(
       label: 'A row of ${shapes.length} shapes: '
-          '${shapes.map((s) => s.form).join(', ')}.',
+          '${shapes.map((s) => s.form).join(', ')}. '
+          'Numbered 1 to ${shapes.length} from the left.',
       child: SizedBox(
-        height: _figureHeight,
+        height: _figureHeight + _labelBand,
         child: CustomPaint(
           painter: _ShapeRowPainter(shapes: shapes, ink: colors.label),
           size: Size.infinite,
@@ -117,6 +126,13 @@ class RowShape {
 /// Corners of the shapes in a row, shared by the painter and its tests.
 @visibleForTesting
 abstract final class ShapeRowGeometry {
+  /// The position numbers: the figure font, 15px like the other figure
+  /// labels, in the same ink as the shapes.
+  static final labelStyle = PantasType.mathDisplay.copyWith(
+    fontSize: PantasType.phoneExplanation.fontSize,
+    height: 1.2,
+  );
+
   /// Top, right, bottom, left: four equal sides that are not a square, so a
   /// rhombus is not mistaken for the square beside it.
   static List<Offset> rhombus(Offset centre, double r) => [
@@ -143,9 +159,12 @@ class _ShapeRowPainter extends CustomPainter {
       ..style = PaintingStyle.fill
       ..color = ink;
 
+    // The shapes keep the area they always had. The numbers sit in the band
+    // under it.
+    final shapeHeight = size.height - _labelBand;
     final slot = size.width / shapes.length;
-    final radius = math.min(slot * 0.32, size.height * 0.34);
-    final cy = size.height / 2;
+    final radius = math.min(slot * 0.32, shapeHeight * 0.34);
+    final cy = shapeHeight / 2;
 
     for (var i = 0; i < shapes.length; i++) {
       final shape = shapes[i];
@@ -153,6 +172,21 @@ class _ShapeRowPainter extends CustomPainter {
       _drawForm(canvas, shape, centre, radius, stroke);
       _drawDots(canvas, shape, centre, radius, filled);
       _drawLines(canvas, shape, centre, radius, stroke);
+
+      final number = TextPainter(
+        text: TextSpan(
+          text: '${i + 1}',
+          style: ShapeRowGeometry.labelStyle.copyWith(color: ink),
+        ),
+        textDirection: TextDirection.ltr,
+      )..layout();
+      number.paint(
+        canvas,
+        Offset(
+          centre.dx - number.width / 2,
+          shapeHeight + (_labelBand - number.height) / 2,
+        ),
+      );
     }
   }
 
