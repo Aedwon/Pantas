@@ -117,3 +117,14 @@ deploys staging.
   "figure"; Question.choiceKind from "choiceKind"; Question.showQuestionFigure from
   "showQuestionFigure" (default true). Domain only, no schema change; the generator's resolve
   step sets them. Until generator Phase 2 data exists, no live question renders tiles.
+
+## November 18, 2026: on staging
+
+- Painters: main cbee44e9a, staging 2323199733-46e568287d1c.
+- Tiles: main 150afa3ce (branch head d15631a9b), staging web 2226885836-7abd7148d600. Functions
+  JS (pantas_core.js) waits for the next normal functions deploy.
+- Review rulings during the build: revealed tiles are read-only to assistive tech; the
+  text-primary focus outline is only on checked tiles. Known gap, not fixed: letter keys act
+  page-wide on the quiz pages (existing behavior shared with text rows).
+- Tiles render on no live question until the question generator's Phase 2 data (Nov 23 on).
+- Prod waits for Aedwon's "ship it".
