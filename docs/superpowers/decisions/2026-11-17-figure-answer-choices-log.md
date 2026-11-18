@@ -89,3 +89,16 @@ Lead rulings (under D191 delegation):
   (O2_OddOneOut_Phone and _Wide, canvas version 6) for Aedwon's check at spec approval.
 
 Spec written: `docs/superpowers/specs/2026-11-18-figure-answer-choices-design.md`.
+
+## November 18, 2026: spec approved, scope Minimal
+
+Relayed by the operations manager: "Part A is approved, including the new item 8 on
+decisions. The odd-one-out boards are approved as part of his Option 2 (2-by-2) pick; don't
+ask him about them again. Build scope: Minimal. Start the build now with Claude workers only
+(UI, never Codex), drawing fixes and the numbered row first so they can ship on their own."
+(Manager's paraphrase; his exact words were not relayed.)
+
+Open point: the spec's Part A has no "item 8 on decisions". Asked the manager what it refers
+to; the build proceeds on Part A as written.
+
+Build rows: E-117 (drawing fixes and numbered row), E-118 (tiles).

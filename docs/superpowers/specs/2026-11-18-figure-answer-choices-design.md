@@ -1,6 +1,8 @@
 # Figure answer choices
 
-Status: written for Aedwon's approval. Nothing is built. Build is not approved.
+Status: Part A approved by Aedwon on November 18, 2026, with scope Minimal (relayed by the
+operations manager). The odd-one-out boards are approved as part of his Option 2 pick.
+Build started: drawing fixes and the numbered row first, then the tiles.
 Date: November 18, 2026. Lane: figure answer choices UI lead (Opus 5.5). Velocity row E-106.
 Policy read: `origin/main` 7da59dda4 (`AGENTS.md`, `WORKFLOW.md`, `SUBAGENTS.md`,
 `docs/workflow/process-improvement.md`).
