@@ -19,7 +19,7 @@ Update this table as replies arrive. Dates are Manila time.
 | 4 | Enable Subscriptions (Maya and cards) | To send | | Message below |
 | 5 | Confirm whether GCash can be used for Subscriptions | To send | | PayMongo's docs disagree |
 | 6 | QR Ph refunds through PayMongo (dashboard or API) | To send | | Until confirmed, refund QR Ph by bank transfer per `docs/OPERATIONS.md` |
-| 7 | Security and billing lead: confirm how web checkout bills plans (PayMongo Subscriptions or one-time charge per period) | Open | | Needed before live payments |
+| 7 | Security and billing lead: confirm how web checkout bills plans (PayMongo Subscriptions or one-time charge per period) | Answered Nov 18 | Security fixes lead | One-time charge per period; nothing renews today. See "Item 7 answer" below |
 
 Statuses: To send, Sent, Waiting on PayMongo, Answered, Done, Declined.
 
@@ -56,3 +56,26 @@ Fill in the two bracketed fields before sending.
   `docs/OPERATIONS.md` from the manual bank-transfer process to PayMongo's refund.
 - If GCash cannot recur, plans that renew are offered on Maya and cards only; GCash and
   QR Ph stay available for season passes.
+
+
+## Item 7 answer (security fixes and billing cap lead, Nov 18, 2026, read-only)
+
+**How web checkout bills today: a one-time charge per period. Nothing renews.**
+
+- The server creates a PayMongo **Checkout Session** (`POST /v2/checkout_sessions`, `functions/src/paymongoClient.ts`) with one line item at the plan's web price. It does not use PayMongo's Subscriptions, Plans or Customers APIs, and no payment method is saved.
+- Payment methods: `card` and `qrph` by default (`functions/src/paymongoCheckout.ts`), overridable with `PAYMONGO_PAYMENT_METHODS` once the account has more enabled.
+- When the paid webhook arrives, the server grants a **prepaid period** from `functions/src/products.json`: weekly = 7 days, monthly = 1 calendar month, yearly = 1 calendar year (Philippine time, `functions/src/paymongoPolicy.ts`). Buying the same tier again stacks behind the current end (`functions/src/paymongoGrants.ts`); exam passes end at their sitting and never stack.
+- So on the web, "weekly", "monthly" and "yearly" are prepaid lengths the student buys again by hand. Access ends at the period's end unless they buy again. No reminder or auto-charge exists.
+- Prod still uses PayMongo test keys.
+
+**What would have to change if renewals must use PayMongo Subscriptions on Maya and cards only:**
+
+1. **A second billing path in the functions:** a PayMongo plan per renewing product, a PayMongo customer per Pantas account, a subscription per purchase (first payment authorized on Maya or card), and webhook handling for each renewal (paid, failed, past due, cancelled). Each successful renewal extends the grant; a failure or cancellation lets it end at the period's end. Same signature checks, mode checks and duplicate-event protection as today's webhook.
+2. **Methods split by product:** renewing plans offer only Maya and card. GCash and QR Ph stay available as one-time prepaid periods and for exam passes, which do not renew.
+3. **Grants:** a renewing grant follows the subscription's period (with a short grace on a failed charge), alongside today's prepaid stacking; a student must not hold both a renewing web plan and a Google Play subscription for the same tier without a warning (the plan list already warns for Play).
+4. **App screens (a Claude worker, visual companion first):** renewal wording at checkout, a "manage or cancel" place, and what happens on a failed charge.
+5. **Legal text:** auto-renewal and cancellation terms in the purchase terms (drafted by an agent and critiqued by Codex GPT 6.1 Sol High, rule 5; Aedwon only checks).
+6. **Before live keys either way:** the S-12 fix (a failed checkout creation can block that product for the account), not yet approved; a Codex audit of the money path.
+7. **Unchanged:** secrets (PayMongo keys stay in `PANTAS_PAYMENT_SECRETS`, no new versions), so rule 7 is unaffected.
+
+Rough size: about 3 to 5 days of backend work plus the screens and the legal text; balanced complexity; Aedwon's choice whether renewals are needed for launch or prepaid periods stay.
