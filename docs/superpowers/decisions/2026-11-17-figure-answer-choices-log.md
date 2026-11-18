@@ -1,6 +1,6 @@
 # Figure answer choices: decision log
 
-Lane: figure answer choices UI lead (Opus 5.5). Velocity row E-106.
+Lane: figure answer choices UI lead (Opus 5.5). Velocity row E-120 (timer E-106).
 Context: `2026-11-17-question-generator-log.md`, question 5 (figure choices, in a second
 spec with boards). Part of the PSHS-NCE sale gate.
 

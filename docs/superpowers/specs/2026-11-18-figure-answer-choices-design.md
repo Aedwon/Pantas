@@ -3,7 +3,7 @@
 Status: Part A approved by Aedwon on November 18, 2026, with scope Minimal (relayed by the
 operations manager). The odd-one-out boards are approved as part of his Option 2 pick.
 Build started: drawing fixes and the numbered row first, then the tiles.
-Date: November 18, 2026. Lane: figure answer choices UI lead (Opus 5.5). Velocity row E-106.
+Date: November 18, 2026. Lane: figure answer choices UI lead (Opus 5.5). Velocity row E-120 (timer E-106).
 Policy read: `origin/main` 7da59dda4 (`AGENTS.md`, `WORKFLOW.md`, `SUBAGENTS.md`,
 `docs/workflow/process-improvement.md`).
 Decision log, with his exact words: `docs/superpowers/decisions/2026-11-17-figure-answer-choices-log.md`.
