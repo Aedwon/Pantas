@@ -23,6 +23,12 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 // ds-board: O2 boards, `.opt__mark` is 22 by 22 on a tile
 const double _markSize = 22;
 
+/// Tile columns: two on a phone; on wide web four, or five for five choices.
+// ds-board: O2_States, phone 2 columns, wide 4 (5 for five choices)
+const int _phoneColumns = 2;
+const int _wideMinColumns = 4;
+const int _wideMaxColumns = 5;
+
 /// The share of the figure card's width the figure takes (`.fc-back svg`).
 // ds-board: O2 boards, the figure is 60% of the card's width
 const double _figureShare = 0.6;
@@ -111,7 +117,9 @@ class FigureChoiceGroup extends StatelessWidget {
     if (tabStop < 0) tabStop = 0;
     // Four across in the 720 column, five across for five choices (O2_States).
     // A phone always has two columns.
-    final columns = wide ? math.min(5, math.max(4, items.length)) : 2;
+    final columns = wide
+        ? math.min(_wideMaxColumns, math.max(_wideMinColumns, items.length))
+        : _phoneColumns;
     final gap = wide ? PantasSpace.s12 : PantasSpace.s10;
     return Semantics(
       role: SemanticsRole.radioGroup,
@@ -132,8 +140,9 @@ class FigureChoiceGroup extends StatelessWidget {
               runSpacing: gap,
               children: [
                 for (var i = 0; i < items.length; i++)
-                  SizedBox.square(
-                    dimension: side,
+                  ConstrainedBox(
+                    // A tile is a square, as wide as its column is.
+                    constraints: BoxConstraints.tight(Size.square(side)),
                     child: FigureChoiceTile(
                       key: ValueKey('figure-choice-${items[i].letter}'),
                       letter: items[i].letter,
