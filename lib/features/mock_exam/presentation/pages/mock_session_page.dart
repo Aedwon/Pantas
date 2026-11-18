@@ -15,13 +15,13 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pantas_timer.dart';
+import 'package:pantas/core/ui/components/question_choices.dart';
 import 'package:pantas/core/ui/components/question_count.dart';
 import 'package:pantas/core/ui/components/question_navigator_grid.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/toast.dart';
 import 'package:pantas/core/ui/ds.dart';
-import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/icons/own/mock_panel_glyph.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -1424,20 +1424,16 @@ class _QuestionBody extends ConsumerWidget {
                       ? null
                       : hydrated.passage!.title,
                 ),
-          figure: hydrated.question.figureSpecJson == null
-              ? null
-              : QuestionFigure(specJson: hydrated.question.figureSpecJson),
-          choices: [
-            for (var i = 0; i < hydrated.question.choices.length; i++)
-              ChoiceRow(
-                letter: hydrated.question.choices[i].label,
-                text: hydrated.question.choices[i].text,
-                state: selectedIndex == i
+          figure: QuestionChoices.figure(hydrated.question),
+          choices: QuestionChoices.build(
+            hydrated.question,
+            stateOf: (choice) =>
+                hydrated.question.choices.indexOf(choice) == selectedIndex
                     ? ChoiceRowState.picked
                     : ChoiceRowState.plain,
-                onTap: () => onAnswer(i),
-              ),
-          ],
+            onPick: (choice) =>
+                onAnswer(hydrated.question.choices.indexOf(choice)),
+          ),
         );
       },
       loading: () => const SkeletonQuestionPage(),

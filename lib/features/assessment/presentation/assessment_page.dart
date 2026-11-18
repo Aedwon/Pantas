@@ -23,11 +23,11 @@ import 'package:pantas/core/ui/components/new_design/passage_card.dart'
 import 'package:pantas/core/ui/components/new_design/question_card.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
+import 'package:pantas/core/ui/components/question_choices.dart';
 import 'package:pantas/core/ui/components/report_form.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/ds.dart';
-import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
@@ -392,26 +392,20 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
             QuestionCard(
               subject: header ?? '',
               stem: question!.stem,
-              figure: question.figureSpecJson == null
-                  ? null
-                  : QuestionFigure(specJson: question.figureSpecJson),
+              figure: QuestionChoices.figure(question),
               passage: passage == null
                   ? null
                   : passage_ui.PassageCard(
                       title: passage.title,
                       text: passage.body,
                     ),
-              choices: [
-                for (final choice in question.choices)
-                  ChoiceRow(
-                    letter: choice.label,
-                    text: choice.text,
-                    state: _picked == choice.id
-                        ? ChoiceRowState.picked
-                        : ChoiceRowState.plain,
-                    onTap: () => setState(() => _picked = choice.id),
-                  ),
-              ],
+              choices: QuestionChoices.build(
+                question,
+                stateOf: (choice) => _picked == choice.id
+                    ? ChoiceRowState.picked
+                    : ChoiceRowState.plain,
+                onPick: (choice) => setState(() => _picked = choice.id),
+              ),
             ),
           ],
         ),

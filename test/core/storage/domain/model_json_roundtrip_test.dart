@@ -21,6 +21,8 @@ void main() {
       'text': 'Option A',
       'isCorrect': true,
       'rationale': 'Because.',
+      // A text choice has no figure.
+      'figureJson': null,
     });
     expect(Choice.fromJson(choiceJson), choice);
 
