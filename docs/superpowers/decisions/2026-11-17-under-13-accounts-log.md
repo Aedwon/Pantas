@@ -156,3 +156,7 @@ Files:
 Rejected: keeping the contact per account. It would leave a third party's details in plain text on a shared device indefinitely.
 
 The under-13 spec gains rule 4d.
+
+## Decision 8: price for a second child (Nov 18)
+
+Relayed by the manager: A9 item 8 decided, full price for a second child, ₱1,499 per child. No sibling price this cycle. The legal draft's price marker is resolved to this.

@@ -114,7 +114,7 @@ These are judgments with sources, not your decisions. Each one blocks the sale o
 
 Answered Nov 17: 1 "ok", 2 "ok keep", 3 "ok with reco", 4 "yes", 5 "no" (allow several children;
 see A3), 6 "this is already in the docs" (supplied Nov 18: +63 968 854 2343), 7 "sure" (legal
-sign-off, with the multi-child changes re-critiqued and shown to you). Item 8 is new and open.
+sign-off, with the multi-child changes re-critiqued and shown to you). Item 8 decided Nov 18 (full price per child).
 
 1. Not a choice, an action for you: the law requires the child privacy impact assessment to be
    complete before child accounts open, free or paid (NPC Advisory 2024-03, per the Codex critique).
@@ -130,9 +130,8 @@ sign-off, with the multi-child changes re-critiqued and shown to you). Item 8 is
    address and email. Recommend: give one, or confirm one already published.
 7. Legal sign-off on the final text, after the Codex critique. You check the result; you do not
    write it (rule 5).
-8. Open: the price for a second child. Each pass belongs to one child's account. Recommend: full
-   price per child this cycle (₱1,499 each). A sibling price needs a new pricing entry and about one
-   more day of build.
+8. Decided Nov 18: full price for a second child, ₱1,499 per child. Each pass belongs to one child's
+   account. No sibling price this cycle.
 
 ### A10. Risks
 

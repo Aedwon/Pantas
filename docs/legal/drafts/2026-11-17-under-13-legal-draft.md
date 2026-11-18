@@ -242,7 +242,7 @@ Place it after "Subscriptions". Heading and body:
 >
 > Withdrawing and deleting. The guardian may withdraw permission and close a child's account, or delete it, at any time. They use "For parents" in the account settings, the link in the receipt email, or an email to dpo@pantas.study. These actions affect one child's account only. We normally verify these requests with an emailed code. If the guardian cannot access that email, they contact dpo@pantas.study for another reasonable verification method. Withdrawing is free. Closing the last child account also closes the holder sign-in and removes its active sign-in details. Limited consent, payment, security, support and backup records remain only as the Child Notice explains. We may close a child account that has had no activity for 12 months, as the Child Notice explains.
 >
-> Passes. A pass activates paid access only for the child identified at checkout. Other linked children need their own passes. Before payment, we show the selected child, the total price and the access dates. The purchase receipt identifies that child. [PENDING AEDWON: price per child]
+> Passes. A pass activates paid access only for the child identified at checkout. Other linked children need their own passes. Before payment, we show the selected child, the total price and the access dates. The purchase receipt identifies that child. Each child's pass is charged at the full price shown at checkout. There is no sibling discount.
 >
 > Siblings. Sibling switching is off by default for each child. While it is off, every switch into that child's account needs the guardian's emailed code. The guardian may turn it on for one child under "For parents" after a code check and after reading the sharing notice. The sharing notice says that, when it is on, anyone using a sibling's session can open that child's account, see its answers, results and activity, and study in that child's name, which changes that child's records. The guardian may turn it off at any time, and it takes effect at once. A child added later starts with it off. The guardian's supervision does not replace Pantas's legal duties or waive the child's rights.
 >
@@ -433,7 +433,7 @@ Every place below must carry the new text or version, and the old accepted texts
 - The receipt email's notice version field.
 - Setup screens, the per-child receipt email template, the code-gate email, the sharing notice and the withdraw confirm are new text. Store the per-child opt-in record with its notice version. Keep each version with the consent record.
 - The consent record now carries the holder ID and the guardian-to-child link: update the stored field list and the retention text together.
-- The per-child price: [PENDING AEDWON: price per child]. Publish no figure until he decides.
+- The per-child price: decided Nov 18, full price per child (₱1,499 each, per `docs/pricing.md`). The Terms state no figure; checkout shows it.
 - The business phone number, in every place the live texts list contact details.
 
 ---
