@@ -3960,3 +3960,9 @@ Fable 5.2 High ruled under Aedwon's standing delegation on `docs/superpowers/pla
 - Rollback (not needed): Hosting version d6de9e971373ec5c (662720971-1b98262880a0) plus the prod Worker version 5296932e.
 - Velocity E-116: see the row (timer).
 
+### Nov 18, figure answer choices on staging (integrator)
+
+- fix/figure-painters-r1 ebdd26080 (series dots clear of lines, matrix dots fit small shapes, shape-row positions; painters only): no CI had run on the head, so dispatched by hand: CI 44254765750 and journeys 44254772082 success. Merged to main as cbee44e9a; main CI success. Staging web 2323199733-46e568287d1c (Firebase 189bdb3bce7a95d6), compare.mjs 92 of 92.
+- feat/figure-choice-tiles-r1 d15631a9b (contains the painters; figure answer tiles; domain-only fields; regenerated functions/src/generated/pantas_core.js): CI 44256231433 success by full SHA; journeys dispatched by hand, 44257044860 success. Merged to main as 150afa3ce; main CI success. Staging web 2226885836-7abd7148d600 (Firebase 853def3860380e41, Worker e8037286) at 07:30 UTC, compare.mjs 92 of 92. Web only, per the lead: no function reads the new fields until the question generator's Phase 2 (Nov 23 onward); pantas_core.js goes out with the next normal functions deploy. Prod untouched; it needs Aedwon's "ship it".
+- Velocity E-119: see the row (timer).
+
