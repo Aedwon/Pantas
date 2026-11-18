@@ -14,12 +14,12 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_field.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pantas_tooltip.dart';
+import 'package:pantas/core/ui/components/question_choices.dart';
 import 'package:pantas/core/ui/components/review_list.dart';
 import 'package:pantas/core/ui/components/segmented_switch.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/ds.dart';
-import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -1131,21 +1131,16 @@ class _QuestionViewer extends StatelessWidget {
                         title: entry.passage!.title,
                         text: entry.passage!.body,
                       ),
-                figure: entry.question.figureSpecJson == null
-                    ? null
-                    : QuestionFigure(specJson: entry.question.figureSpecJson),
-                choices: [
-                  for (final choice in entry.question.choices)
-                    ChoiceRow(
-                      letter: choice.label,
-                      text: choice.text,
-                      state: choice.isCorrect
-                          ? ChoiceRowState.right
-                          : choice.id == entry.chosenChoiceId
-                              ? ChoiceRowState.wrong
-                              : ChoiceRowState.dimmed,
-                    ),
-                ],
+                figure: QuestionChoices.figure(entry.question),
+                choices: QuestionChoices.build(
+                  entry.question,
+                  chosenId: entry.chosenChoiceId,
+                  stateOf: (choice) => choice.isCorrect
+                      ? ChoiceRowState.right
+                      : choice.id == entry.chosenChoiceId
+                          ? ChoiceRowState.wrong
+                          : ChoiceRowState.dimmed,
+                ),
               ),
               const SizedBox(height: PantasSpace.s20),
               AnswerReveal(

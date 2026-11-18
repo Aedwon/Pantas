@@ -93,6 +93,9 @@ List<Question> questionsFromSet(
               rationale: (choices[i] as Map)['rationale'] == null
                   ? null
                   : '${(choices[i] as Map)['rationale']}'.trim(),
+              figureJson: (choices[i] as Map)['figure'] == null
+                  ? null
+                  : jsonEncode((choices[i] as Map)['figure']),
             ),
         ]),
         explanation: '${question['explanation']}'.trim(),
@@ -106,6 +109,10 @@ List<Question> questionsFromSet(
         keyPoint: questionKeyPoint(question),
         shortLabel: question['shortLabel'] as String?,
         figureSpecJson: spec == null ? null : jsonEncode(spec),
+        choiceKind: question['choiceKind'] == 'figure'
+            ? ChoiceKind.figure
+            : ChoiceKind.text,
+        showQuestionFigure: question['showQuestionFigure'] != false,
       ),
     );
   }

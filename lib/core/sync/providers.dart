@@ -7,7 +7,7 @@ import 'package:pantas/core/sync/sync_status.dart';
 
 enum SyncRuntimeKind { disabled, configured }
 
-abstract interface class SyncRuntimeSurface {
+abstract interface class SyncRuntimeSurface implements SyncRuntimeLifecycle {
   SyncRuntimeKind get runtimeKind;
 
   SyncStatus get currentStatus;
@@ -27,6 +27,7 @@ abstract interface class SyncRuntimeSurface {
   /// stopped on an error while starting.
   Future<void> retry();
 
+  @override
   Future<void> quiesce({required bool flush});
 }
 

@@ -52,15 +52,29 @@ subagents. In the T3 sidebar, a worker shows as a child of its lead.
 - Get a written brief, do one job, return a short summary (pass or fail, errors, files touched).
 - Never talk to Aedwon, never merge, and never start work outside their brief.
 
-## Lanes as of November 11
+## Lanes (current as of November 17)
 
-| Lane | Role |
-|---|---|
-| DS4 release candidate | The integrator. Release line, main, staging and prod deploys after "ship it". |
-| DS4 completion | Built the unbuilt components, the exam date picker and the age step. Idle. |
-| Founder app spec | The founder app. Aedwon talks to it directly. |
-| Beta monitor | Read-only. Reads tester feedback and app health, writes a digest. |
-| SSOT keeper | Keeps the Pantas Master SSOT Google Doc current. |
+Keep this table current whenever a lane opens, closes or changes. Thread ids are T3 thread ids.
+
+| Lane | Thread id | Role and state |
+|---|---|---|
+| DS4 release candidate (integrator) | `mcp:launch:9f71e2d1c4512378a79c7379de33297f08c9261daf19e8b65e5a143b85dfde60` | The only lane that merges to main and deploys. Staging freely; prod only on Aedwon's "ship it". |
+| Security fixes and billing cap | `mcp:launch:eb867491ee3c4972dc9408034a2e258e9f319178ec4a4c4dbd77617bc6ccd150` | App Check, rule 7 (free tier), billing cutoff, secrets. Firestore App Check due Nov 21; old secrets destroyed 48 h after a confirmed prod code send. |
+| Question generator build | `mcp:launch:af7e73ba9411e708b8c336dc794f0cae7a3d0a8374e7e5fba14fd9111320088b` | Builds the approved spec (`docs/superpowers/specs/2026-11-17-question-generator-design.md`), plan `docs/superpowers/plans/2026-11-17-question-generator.md`. Abstract reasoning to prod Dec 1-11 after "ship it"; CSE math pilot after. |
+| Question generator session (Fable 5.2) | `mcp:launch:0fbd2a136ca2e8ccecc7c286aff78d673e5e32e4c73ba48080fd305e680e0eae` | Aedwon talks to it directly. Adviser for the generator spec; changes to its Part A go back to him. |
+| Figure answer choices (UI spec) | `mcp:launch:0f388dabf7a353ba69433a5eaed986fcf99a2e35683955c368e80d78171b4d2a` | Aedwon talks to it directly. Boards in Claude Design, then a spec for his approval. No build approved. |
+| Under-13 accounts (PSHS-NCE) | `mcp:launch:91b30719a20cb73f9ebf37b8edcabf74b7fa8fb140fa5abe658fb7bfe75eb66c` | Guardian-first path design and legal draft for the PSHS-NCE sale. No build approved. |
+| PSHS-NCE content (science, verbal, abstract) | `mcp:launch:5b6fe057d2e406756b89f759d735e67b301810318c95cec496fc1cc21cf4e297` | Starts after a Codex reset (scheduled step). Plan to the manager before writing. |
+| Beta monitor (read-only) | `mcp:launch:5571b8637093542272d0015969e732a142c5bd650e399531e5f1d6f1f1704cda` | Tester digest (private folder), beta reward list after Nov 22, beta tester emails (rules 6 and 8). |
+| SSOT keeper | `mcp:launch:090551797b35853669c8ebd7de5efe6916d32449b94f9aee953dc8be9dddbe59` | Keeps the Pantas Master SSOT Google Doc current; daily pass. |
+| DS4 completion | `mcp:launch:1647b183afbfa41c3ed5676bf9d80a45f780215756013b62140d226a2e0c6916` | Idle. Over 1,000 items: give new problems to a fresh lead. Scroll work (E-098) stopped by Aedwon Nov 17. |
+| Bite-sized lessons | `mcp:launch:d8cb099cbf26808423b82a0c93177c0c119d5cc470f6304f15e8a421ea6c97fa` | Done (all CSE split and live). Idle; over 1,000 items. |
+| Founder app spec | `mcp:launch:3a7f2d1e62b24832519fa120f842abe843251d25f80df06799e9705650edf783` | Waits on Aedwon (decisions, owner inputs, boards). |
+| CET content finish | `mcp:launch:b86918350961e84c2aa61b2138d60ec8b2aa1fa6dbf736c8956f1086c4b70067` | Parked by Aedwon (math only lifted, done on `content/math-for-generator-r1`). |
+
+Finished lane, kept for reference: Math lessons for the question generator
+(`mcp:launch:94b8054b859e76ebacc916c56bc2e502fda612e30c58783ba999e3ba4433977e`), result on branch
+`content/math-for-generator-r1` 4b5bd5086.
 
 ## How a request travels
 
@@ -78,15 +92,22 @@ expecting.
 
 ## Scheduled work
 
-The T3 scheduler opens a fresh thread on a timer. That thread messages a standing lead, waits for
-its answer, and posts a short summary.
+T3 scheduled tasks either post into the manager thread (bound) or open a fresh thread per run.
+List them with `list_scheduled_tasks`. Bound tasks follow the manager thread, so a new manager
+must rebind them (takeover step 5). Current set:
 
-- Beta monitor pass: every 6 hours.
-- SSOT update: daily.
-- Security and cost-abuse audit: once, Saturday November 14, 2:00 PM Manila.
+| Task | When | Bound to manager | What it does |
+|---|---|---|---|
+| Manager heartbeat: check leads | every 55 min | yes | Codex weekly watch (alert Aedwon once per account at 90% weekly, so he resets it manually), then reads every lead, relays, nudges stalled leads, routes decisions to Fable. Every 55 min, not 60, so the manager's prompt cache never expires. |
+| Keep lead caches warm | every 55 min | yes | Sends "reply only: ok" to leads idle 45 min to 12 h, so their 1-hour prompt cache does not expire. Skips busy leads, leads idle over 12 h, and leads running their own keep-alive. Leads waiting on Aedwon may set their own (`orchestrator.md`, "Keeping your cache warm while you wait on Aedwon"); the manager may do the same for itself while it waits on him. |
+| Daily manager sweep: cost, users, dates | 01:00 Manila | yes | The proactive sweep plus `node tool/checks/free_tier_live.mjs` and the backlog (`docs/superpowers/backlog.md`). |
+| Daily housekeeping: threads and disk | 04:00 Manila | yes | Settles finished threads; when free disk is under 40 GB, a Sonnet task cleans safe items and saves old unsaved worktrees to their branches first. |
+| Beta monitor pass | every 12 h | no | Messages the beta monitor and posts a 3-line summary. |
+| SSOT daily update | daily | no | Messages the SSOT keeper. |
+| One-shot reminders | various | yes | Back every timed lead step (lead session timers die on restart). Examples: Firestore App Check Nov 21, the free-tier CI gate check Nov 22, the beta reward list Nov 23, the Dec 1 cost check, the App Check watch prompts. |
 
-Schedules run only while the laptop is awake and online. On November 11 both failed while Aedwon
-was out with the laptop, because they could not reach GitHub; the manager reran them on his return.
+Schedules run only while the laptop is awake and online. After the laptop wakes, several missed
+runs can fire at once; handle them as one.
 
 ## Shared memory
 
@@ -116,7 +137,10 @@ When a manager thread gets too long, Aedwon opens a new thread in the Pantas T3 
    (https://docs.google.com/document/d/1LzdBQjPmRYXV1LSrLnK7F6_eadQi7cb1fj8mg7yuZg4/edit), the last
    25 entries of the launch log, and the newest rows of the velocity log.
 5. **Check the schedules.** List the project's scheduled tasks. Their prompts name the standing
-   threads they message. Rerun any that failed.
+   threads they message. Rerun any that failed. Rebind every task bound to the old manager thread
+   to the new one: `schedule_task` with its `scheduledTaskId` and `bindToCurrentThread: true`,
+   leaving schedule and prompt unchanged. Then update the heartbeat and cache-warming prompts if the
+   lanes table changed.
 6. **Announce the handover to each active lead:** "Manager: a new manager thread has taken over.
    Report to it from now on." Leads take messages from whichever thread Aedwon names as manager.
 7. **Tell Aedwon in under 150 words:** what is running, what waits on him (with a recommendation
@@ -161,6 +185,26 @@ These are Aedwon's standing instructions. They apply until he changes them.
   in my best interests always. that includes my interests for peak user experience decisions"). At
   takeover, at each scheduled event, and at least daily while lanes run, sweep cost, users and dates,
   and start a fix for every finding (the Nov 15 entry in `process-improvement.md` lists the sweep).
+- Before any fix to a problem he can feel, write his goal in his words as the success test, and
+  open every proposal with whether it meets it. Check fixes against the launch target: a PWA on
+  Flutter web, phones first (Nov 17 entries). Before a multi-round investigation, give the expected
+  usage cost and a stop point.
+- When he asks "why" about a manager decision, treat it as a correction: write the
+  process-improvement entry in the same turn.
+- Decisions that do not need him go to a Claude Fable 5.2 agent, whose ruling is final (Aedwon,
+  Nov 17: "for things not needing me have another Fable 5.2 agent decide on my behalf"). Still his:
+  "ship it", legal sign-off, money, physical steps, his taste choices, and how agents work with him.
+  The rulings and what stays his are in `docs/superpowers/decisions/2026-11-17-fable-backlog-rulings.md`.
+- Codex for lesson and question generation waits for resets: run nothing until `codex-pick --status`
+  shows 5-hour room (Aedwon, Nov 17: "wait for codex resets. this is true for lesson-generation
+  related tasks and threads"). Alert him when an account's weekly use reaches 90%; he resets it.
+- Emails to testers and users follow written rule 8 (his style) and rule 6 (a test copy to him
+  first). After public launch, privacy changes are emailed before they take effect (rule 9).
+- Leads answer each other in the asker's thread (`t3_thread_send`), not their own.
+- Keep `docs/superpowers/backlog.md` current; the daily sweep surfaces anything due.
+- Current goal: sell PSHS-NCE this cycle (test Jan 30, 2027; his answer "A" on Nov 17). Path and
+  blockers: generator, figure answer choices, PSHS-NCE content, under-13 accounts, live payments
+  (his BIR/DTI/PayMongo steps), the pass product and public launch. Go/no-go check proposed for Dec 8.
 - Replies to Aedwon: under 150 words, plain words, decisions with costs and a recommendation, files
   as clickable links.
 

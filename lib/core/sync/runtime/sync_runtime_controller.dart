@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:drift/drift.dart' show Variable;
+import 'package:pantas/core/auth/auth_repository.dart' show LocalStateWiper;
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/sync/bootstrap/full_pull.dart';
 import 'package:pantas/core/sync/bootstrap/full_push.dart';
@@ -10,6 +11,7 @@ import 'package:pantas/core/sync/engine/generation_repository.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/core/sync/engine/sync_held_generation.dart';
 import 'package:pantas/core/sync/engine/sync_meaningful_progress.dart';
+import 'package:pantas/core/sync/local_state_wiper.dart';
 import 'package:pantas/core/sync/sync_coordinator.dart';
 import 'package:pantas/core/sync/sync_status.dart';
 import 'package:pantas/core/telemetry/client_report.dart';
@@ -61,9 +63,11 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
     required GenerationRepositoryFactory generationRepositoryForUid,
     required SyncCoordinator coordinator,
     required SyncRuntimeEngine engine,
+    LocalStateWiper? localStateWiper,
     Stream<SyncRuntimeEvent>? runtimeEvents,
     DateTime Function()? now,
   })  : _db = db,
+        _localStateWiper = localStateWiper ?? SyncLocalStateWiper(db),
         _now = now ?? DateTime.now,
         _claimGateway = claimGateway,
         _activeContextStore = activeContextStore,
@@ -76,7 +80,12 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
   /// Prefix of the sync_meta key that holds an account's last backup time.
   static const lastBackupKeyPrefix = 'last_backup_at:';
 
+  /// sync_meta key naming the real account whose study data this device
+  /// holds. The local wipe clears it with the rest of sync_meta.
+  static const localDataOwnerKey = 'local_data_owner_uid';
+
   final AppDatabase _db;
+  final LocalStateWiper _localStateWiper;
   final DateTime Function() _now;
   final SyncClaimGateway _claimGateway;
   final SyncActiveContextStore _activeContextStore;
@@ -178,6 +187,9 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
     _entitlement = entitlement;
     _cancelBootstrapRetry();
     _pendingReconciliation = null;
+    // Before the hold below is forgotten: it may be the only sign of who owns
+    // data written before the owner record existed.
+    await _adoptLegacyOwner();
     // At once, so the new account's first changes are not tied to the old one.
     // Again in the queue, after a push or pull already running has finished.
     await _forgetOtherAccountsGeneration(identity);
@@ -198,6 +210,7 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
         await _forgetOtherAccountsGeneration(identity);
         if (_isCurrent(token)) {
           _activeSync = false;
+          await _claimLocalData(identity);
         }
       });
     }
@@ -205,6 +218,10 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
     _emit(const SyncActivating());
     return _enqueue(() async {
       await _forgetOtherAccountsGeneration(identity);
+      await _engine.stop();
+      _activeSync = false;
+      if (!_isCurrent(token)) return;
+      await _claimLocalData(identity);
       await _activate(
         identity: identity,
         token: token,
@@ -466,6 +483,51 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
     }
     return true;
   }
+
+  /// Gives this device's study data to [identity], a real account, before
+  /// anything of Sync runs for it. Data another real account left here is
+  /// wiped first, however the switch happened: an email code entered while
+  /// signed in, another tab, or a session Firebase replaced. A guest holds no
+  /// claim, so a guest's progress stays with the account the guest joins.
+  ///
+  /// Runs in the serial queue with the engine stopped, so no pull for the old
+  /// account can write after the wipe. Check, wipe and claim are one
+  /// transaction, so a second caller sees the new owner.
+  ///
+  /// Limit: a device whose data predates this record, and holds no backup
+  /// copy to name its account ([_adoptLegacyOwner]), has no owner, and its
+  /// first real account claims it as is.
+  Future<void> _claimLocalData(SyncIdentity identity) async {
+    if (identity.isAnonymous || identity.uid == SyncIdentity.signedOutUid) {
+      return;
+    }
+    await _db.transaction(() async {
+      final owner = await (_db.select(_db.syncMeta)
+            ..where((row) => row.key.equals(localDataOwnerKey)))
+          .getSingleOrNull();
+      if (owner?.value == identity.uid) return;
+      if (owner != null) await _localStateWiper.wipeAll();
+      await _db.into(_db.syncMeta).insertOnConflictUpdate(
+            SyncMetaCompanion.insert(
+              key: localDataOwnerKey,
+              value: identity.uid,
+            ),
+          );
+    });
+  }
+
+  /// On a device with study data but no owner record (it predates the record),
+  /// the account whose backup copy the device holds owns the data.
+  Future<void> _adoptLegacyOwner() => _db.customStatement(
+        'insert into sync_meta (key,value) select ?, value from sync_meta '
+        'where key = ? and not exists '
+        '(select 1 from sync_meta where key = ?)',
+        <Object?>[
+          localDataOwnerKey,
+          SyncHeldGeneration.uidKey,
+          localDataOwnerKey,
+        ],
+      );
 
   /// Any real account other than the one holding a generation ends that hold,
   /// so coming back to the first account never resumes.

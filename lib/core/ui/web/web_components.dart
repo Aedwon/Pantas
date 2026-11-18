@@ -5,6 +5,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
+import 'package:pantas/core/ui/components/figure_choice_tiles.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/components/offset_focus_ring.dart';
 import 'package:pantas/core/ui/components/pantas_button_parts.dart';
@@ -1255,8 +1256,10 @@ void releaseChoiceFocus(State state) {
   WidgetsBinding.instance.addPostFrameCallback((_) {
     if (!state.mounted) return;
     final focused = FocusManager.instance.primaryFocus;
-    final onChoice =
-        focused?.context?.findAncestorWidgetOfExactType<WebAnswerOption>() !=
+    final onChoice = focused?.context
+                ?.findAncestorWidgetOfExactType<WebAnswerOption>() !=
+            null ||
+        focused?.context?.findAncestorWidgetOfExactType<FigureChoiceTile>() !=
             null;
     if (onChoice) focused!.unfocus();
   });

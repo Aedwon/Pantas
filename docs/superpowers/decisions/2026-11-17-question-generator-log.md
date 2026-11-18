@@ -602,3 +602,142 @@ Lanes launched (reported by the operations manager, November 17): thread "Questi
 generator build" for the plan and build, and thread "Figure answer choices (UI
 spec)" for the second spec. This session is now the adviser for rulings on the
 spec.
+
+## Adviser rulings for the build lead: abstract reasoning capacity
+
+Asked by the question generator build lead (branch `gen/question-generator-r1`
+e7bbf7acc). Evidence: `docs/superpowers/verification/question-generator/ar-grouping.md`
+there, a read-only Codex analysis of all 105 abstract reasoning questions on prod
+content 88f38e698. The adviser read the figure contract, all five tables and the
+"Singles and merge disposition" and "Needs the lead" sections.
+
+Findings (the report's estimates, not enumerated counts):
+
+- The hand-written questions are not near-duplicates. Only 4 groups share an exact
+  pattern. Almost every question is its own pattern.
+- The five figure kinds the app draws allow few readable variations. By the
+  estimates: about 26 patterns can reach 100 versions (3 series, 8 matrices, 15
+  grouping); about 30 can reach 20 to 99; about 49 questions cannot become useful
+  types. Those are all 21 paper folding questions (2 to 8 distinct figure sets
+  each), 11 questions with no figure, and others that are too small or need a
+  figure the app cannot draw.
+- Several correct answers are not figures: a count, a condition, an unfolding order.
+- Series 0019 has a wrong first wrong-choice note (says 90 degrees; the choice is a
+  135-degree overshoot). The key is correct.
+
+Rulings:
+
+1. A one-question pattern becomes a type when the rule reproduces it exactly, with
+   that question at index 0. Build in descending capacity order.
+2. The list size is Part A's number ("Start size: 100 versions per type") and
+   touches his success test, so shipping smaller lists returns to Aedwon. Not
+   blocked meanwhile: the generator, the checker, and types that reach 100. Widening
+   with attributes the rule ignores is allowed when the attribute is constant inside
+   one version, when the serve order cycles through distinct rule-parameter sets
+   first, and when the capacity table reports both distinct rule-parameter sets and
+   total versions. Estimates must be replaced by enumerated counts. Paper folding
+   and no-figure questions stay singles; the fold painter is not touched.
+3. The cube-net signature ignores label permutations. Labels may be shuffled between
+   versions as a cosmetic.
+4. A choice whose answer is not a figure carries text only. Each type declares its
+   choice kind. This reads Part A decision 5 ("figure questions get figure answer
+   choices"); it is not a new decision for him.
+5. Series 0019's note goes to the content lane and is fixed in the source question
+   through the approval gate. The type is generated from the fixed source.
+
+Question 10 put to Aedwon (a specific revision of Part A):
+
+A. Each type ships at its true size, with a floor of 20 versions. About 55 of the
+   105 questions become types. The rest stay fixed questions and return in review
+   as they do today. No added cost or delay. (Recommended now.)
+B. A, and also extend what the app can draw (cut positions for paper folding, more
+   shapes and dot positions), so paper folding can be generated and more types
+   reach 100. Cost: drawing work by Claude workers, his visual check, and days not
+   yet estimated; it puts the December target at risk.
+C. Keep 100 as a hard minimum. Only about 26 types ship.
+
+Recommendation: A now, and have the UI lane scope B with a real estimate.
+
+Aedwon's answer, exact words (his own message, checked against the thread record): "go with A"
+
+## November 17, 2026: Revision 1 of Part A approved
+
+Decision (question 10): A. Each type ships at its true size, up to 100, with a floor
+of 20 versions. About 55 of the 105 abstract reasoning questions become types (an
+estimate; the build lead enumerates real counts). The rest stay fixed questions and
+return in review as today. No added cost or delay.
+
+What his words cover: option A only. Option B (teach the app to draw more, so paper
+folding can be generated) is an idea on record, not approved, with no estimate. The
+lead's suggestion to have the UI lane estimate B was not part of option A, so no
+one was asked to do it.
+
+Changed: the spec carries "Revision 1" at the top of Part A and in B3. The build
+lead was sent his answer.
+
+Honest limit recorded for him: A meets "never the same figures" for the types until
+a list ends. It does not meet it for the fixed questions.
+
+## Real counts under Revision 1, and adviser rulings
+
+Reported by the build lead (branch `gen/question-generator-r1` b11acba5d).
+Enumerated, not estimated: up to 10,000 draws per type, seed 20261117, deduplicated
+by a signature of the shown figures, the stem values and the correct answer.
+
+Of 58 candidate types:
+
+- 17 can reach 100 versions (17 source questions). 13 are approved. 2 wait for
+  fixed source questions (matrix-ray-intersection, series-interleaved-count). 2 are
+  held because a re-audit found another equally simple rule (matrix-ray-turn,
+  matrix-dot-sum).
+- 24 reach 20 to 99 versions (25 source questions).
+- 17 are under 20 (20 source questions) and stay fixed questions.
+
+Of the 105 questions: at most 42 become types if all 41 eligible types pass; at
+least 63 stay fixed. Approved today: 13 types.
+
+Against the estimates Aedwon was given with question 10 (about 26 at 100, about 30
+at 20 to 99, about 49 fixed; about 55 questions becoming types): fewer types reach
+100, and more questions stay fixed. The lead told him so, as promised.
+
+Lead concern: several types in 20 to 99 have few rule-parameter sets (matrix-arrow-
+column 6, series-binary-fill 6, series-corner-edge-count 8), so most of their
+versions differ only in cosmetics, and the same reasoning returns after 6 to 8
+versions with a different outline.
+
+Adviser rulings:
+
+1. Ship as option A says. The floor of 20 applies to total versions. A stricter
+   floor on rule-parameter sets would turn 9 types back into fixed questions, which
+   serves his goal worse. He is told that some types repeat their reasoning after 6
+   to 8 versions.
+2. Every rule an audit finds goes into the checker's rule library with a test, and
+   the checker is re-run on every type, including the 13 approved. A type that then
+   fails loses its approval.
+3. The two held types stay held. A version is acceptable only when every library
+   rule that fits the shown figures selects the same choice. Under 20 such
+   versions, the questions stay singles.
+4. The two flawed source questions are live content errors and go through the
+   content lane's approval gate, like series 0019.
+5. Rule-parameter sets are counted after the signature dedupe.
+
+## Final Phase 1 counts (build lead, `gen/question-generator-r1` 72251e72d)
+
+- 28 types are active and approved: 19 hold 100 versions, 9 hold 24 to 90. So 28 of
+  the 105 abstract reasoning questions become types and 77 stay fixed.
+- 2 types are held until the Codex weekly reset on November 22: series-fill-ray-dots
+  (one wrong-choice note is false for 23 versions) and matrix-ray-intersection
+  (diagonal-extreme ray rules still select a wrong choice; they join the library
+  first).
+- The adviser's rulings were applied: the rule library grew with each audit finding
+  and every type was re-checked; the two held matrix types returned at 100 after
+  passing the larger library.
+- Figure sheets: the build branch's log records Aedwon, relayed by the operations
+  manager: "have an opus agent + 6.1 Sol check this, not me". An Opus subagent and
+  Codex GPT 6.1 Sol at high effort each reviewed 120 samples and found every key the
+  only defensible answer. The adviser checked that this record exists on the build
+  branch; the adviser did not hear those words directly.
+
+History of the count given to Aedwon: about 55 questions (estimate, with question
+10), at most 42 (first enumeration), 28 (after the stricter checks). Option A's rule
+is unchanged; fewer patterns passed it. The adviser told him the final number.

@@ -14,6 +14,8 @@ import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/storage/data/repos/custom_track_repository.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/sync/local_state_wiper.dart';
+import 'package:pantas/core/sync/providers.dart';
+import 'package:pantas/core/sync/runtime/sync_account_transition_gateway.dart';
 
 typedef AuthGatewayBuilder = AuthGateway Function();
 typedef GoogleGatewayBuilder = GoogleSignInGateway Function();
@@ -56,7 +58,7 @@ List<Override> authRepositoryOverrides(
         functionsGateway:
             (functionsGatewayBuilder ?? FirebaseAuthFunctionsGateway.new)(),
         accountTransitionGateway: accountTransitionGatewayBuilder?.call(ref) ??
-            const NoopAccountTransitionGateway(),
+            SyncAccountTransitionGateway(() => ref.read(syncRuntimeProvider)),
         localStateWiper: localStateWiperBuilder?.call(ref) ??
             SyncLocalStateWiper(
               ref.watch(appDatabaseProvider),

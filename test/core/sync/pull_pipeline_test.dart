@@ -524,6 +524,131 @@ void main() {
     );
     expect(await _remoteMarker(db), '1');
   });
+
+  group('after the local wipe closes the run', () {
+    // The engine's check says no once the wipe deletes its run key, or
+    // another tab starts Sync for another account.
+    PullPipeline closed(AppDatabase db, PendingQueue queue) => PullPipeline(
+          db: db,
+          queue: queue,
+          uid: uid,
+          generationId: generationId,
+          deviceId: deviceId,
+          mayWrite: () async => false,
+        );
+
+    test('a late snapshot of the old account writes and deletes nothing',
+        () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final queue = PendingQueue(db);
+      // A row of the account now signed in, unknown to the old snapshot.
+      await _putLesson(db, 'lesson-new-owner', DateTime.utc(2026, 11, 18));
+      await SyncRowMetaRepository(db).acceptKnownVersion(
+        collection: 'lesson_progress',
+        rowId: 'lesson-new-owner',
+        updatedAt: DateTime.utc(2026, 11, 18),
+      );
+
+      await closed(db, queue).applyCompleteSnapshot(
+        generationId: generationId,
+        collection: 'lesson_progress',
+        documents: [
+          _document(
+            'lesson-old-owner',
+            readAt: DateTime.utc(2026, 11, 17),
+            updatedAt: DateTime.utc(2026, 11, 17),
+            mutationId: 'old-1',
+            originDeviceId: 'device-2',
+          ),
+        ],
+      );
+
+      expect(await _lesson(db, 'lesson-old-owner'), isNull);
+      expect(await _lesson(db, 'lesson-new-owner'), isNotNull);
+    });
+
+    test('a late upload answer does not put the old row back', () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final queue = PendingQueue(db);
+      await queue.enqueueGenerationBound(
+        uid: uid,
+        generationId: generationId,
+        tableType: 'lesson_progress',
+        rowId: 'lesson-1',
+        op: PendingSyncOp.upsert,
+        baseState: 'knownAbsent',
+        baseUpdatedAt: null,
+        mutationId: 'mine-1',
+        queuedAt: DateTime.utc(2026, 11, 18),
+      );
+      final observed = (await queue.findGenerationBound(
+        uid: uid,
+        generationId: generationId,
+        tableType: 'lesson_progress',
+        rowId: 'lesson-1',
+      ))!;
+      // The wipe ran while the upload was out.
+      await db.delete(db.pendingSync).go();
+
+      await closed(db, queue).handlePushResult(
+        observed,
+        RowCommitted(
+          _document(
+            'lesson-1',
+            readAt: DateTime.utc(2026, 11, 18),
+            updatedAt: DateTime.utc(2026, 11, 18, 0, 1),
+            mutationId: 'mine-1',
+            originDeviceId: deviceId,
+          ),
+        ),
+      );
+
+      expect(await _lesson(db, 'lesson-1'), isNull);
+    });
+
+    test('an open run still applies the same answer', () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final queue = PendingQueue(db);
+      final observed = PendingSyncRow(
+        id: 1,
+        tableType: 'lesson_progress',
+        rowId: 'lesson-1',
+        op: PendingSyncOp.upsert.name,
+        queuedAt: DateTime.utc(2026, 11, 18),
+        attempts: 0,
+        uid: uid,
+        generationId: generationId,
+        mutationId: 'mine-1',
+        revision: 1,
+        baseState: 'knownAbsent',
+      );
+
+      await PullPipeline(
+        db: db,
+        queue: queue,
+        uid: uid,
+        generationId: generationId,
+        deviceId: deviceId,
+        mayWrite: () async => true,
+      ).handlePushResult(
+        observed,
+        RowCommitted(
+          _document(
+            'lesson-1',
+            readAt: DateTime.utc(2026, 11, 18),
+            updatedAt: DateTime.utc(2026, 11, 18, 0, 1),
+            mutationId: 'mine-1',
+            originDeviceId: deviceId,
+          ),
+        ),
+      );
+
+      expect(await _lesson(db, 'lesson-1'), isNotNull);
+    });
+  });
 }
 
 Future<String?> _remoteMarker(AppDatabase db) async =>
