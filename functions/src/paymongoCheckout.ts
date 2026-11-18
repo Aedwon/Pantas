@@ -1,5 +1,5 @@
 import {randomUUID, createHash} from 'node:crypto';
-import {getFirestore, type Firestore} from 'firebase-admin/firestore';
+import {getFirestore, type DocumentReference, type Firestore} from 'firebase-admin/firestore';
 import {HttpsError} from 'firebase-functions/v2/https';
 import {onAccountCall as onCall} from './_accountAccess.js';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
@@ -15,6 +15,9 @@ import {timed} from './_timed.js';
 
 const CHECKOUTS_PER_WINDOW = 10;
 const WINDOW_MS = 10 * 60_000;
+// A `creating` reservation younger than this belongs to a live attempt. Once it lapses the
+// next attempt takes it over, so a crash that skips the reset cannot strand the account.
+const CREATING_LEASE_MS = 2 * 60_000;
 // Method values confirmed in PayMongo's docs. Add more (for example dob) through
 // PAYMONGO_PAYMENT_METHODS once the merchant account has them enabled.
 const DEFAULT_METHODS = ['card', 'qrph'];
@@ -77,7 +80,14 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
     ...(sitting ? {examId: product.examId, sitting} : {})};
   const reserved = await deps.db.runTransaction(async transaction => {
     const previous = await transaction.get(pending);
-    if (previous.exists) return previous.data()!;
+    if (previous.exists) {
+      const data = previous.data()!;
+      const lapsed = data.state === 'creating' && !(now - Number(data.createdAt) < CREATING_LEASE_MS);
+      if (!lapsed) return data;
+      transaction.set(pending, {state: 'creating', reference: referenceNumber, product: product.id, createdAt: now});
+      transaction.create(order, binding);
+      return null;
+    }
     transaction.create(pending, {state: 'creating', reference: referenceNumber, product: product.id, createdAt: now});
     transaction.create(order, binding);
     return null;
@@ -106,18 +116,47 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
       transaction.create(order, binding);
     });
   }
-  const session = await deps.client.createCheckoutSession({uid, product: product.id,
-    name: NAMES[product.id] ?? product.id, amountCentavos: priceCentavos(product),
-    successUrl: `${deps.origin}/pro?checkout=success&ref=${referenceNumber}`, cancelUrl: `${deps.origin}/pro?checkout=cancelled&ref=${referenceNumber}`,
-    paymentMethodTypes: deps.methods, referenceNumber});
-  const result = {checkoutUrl: session.checkoutUrl, sessionId: session.id, reference: referenceNumber};
-  const batch = deps.db.batch();
-  batch.set(deps.db.doc(`paymongoCheckouts/${session.id}`), {uid, product: product.id, createdAt: now,
-    reference: referenceNumber, ...attestation, ...(sitting ? {examId: product.examId, sitting} : {})});
-  batch.update(order, {sessionId: session.id});
-  batch.set(pending, {...result, state: 'open', product: product.id, createdAt: now});
-  await batch.commit();
-  return result;
+  // From here this attempt owns the `creating` reservation under `referenceNumber`. Any failure
+  // releases it at once, only if it is still ours. A lapsed lease covers a crash before the reset.
+  // Sessions are never reconciled with PayMongo by reference: the customer receives the link only
+  // after the final write succeeds, so a session this attempt loses (lost response, failed write,
+  // superseded attempt) was never shown to anyone, can never be paid, and expires on its own.
+  // A new session under a new reference is therefore always safe.
+  try {
+    const session = await deps.client.createCheckoutSession({uid, product: product.id,
+      name: NAMES[product.id] ?? product.id, amountCentavos: priceCentavos(product),
+      successUrl: `${deps.origin}/pro?checkout=success&ref=${referenceNumber}`, cancelUrl: `${deps.origin}/pro?checkout=cancelled&ref=${referenceNumber}`,
+      paymentMethodTypes: deps.methods, referenceNumber});
+    const result = {checkoutUrl: session.checkoutUrl, sessionId: session.id, reference: referenceNumber};
+    // Guarded final write: a slow attempt must not overwrite a newer one. If the reservation is no
+    // longer ours, this session is discarded and no link is returned.
+    await deps.db.runTransaction(async transaction => {
+      const current = await transaction.get(pending);
+      if (current.get('state') !== 'creating' || current.get('reference') !== referenceNumber) {
+        throw new HttpsError('aborted', 'Checkout creation was superseded. Try again.');
+      }
+      transaction.set(deps.db.doc(`paymongoCheckouts/${session.id}`), {uid, product: product.id, createdAt: now,
+        reference: referenceNumber, ...attestation, ...(sitting ? {examId: product.examId, sitting} : {})});
+      transaction.update(order, {sessionId: session.id});
+      transaction.set(pending, {...result, state: 'open', product: product.id, createdAt: now});
+    });
+    return result;
+  } catch (error) {
+    await releaseReservation(deps.db, pending, referenceNumber);
+    throw error;
+  }
+}
+
+/** Deletes the reservation only while it is still `creating` under this attempt's reference. */
+async function releaseReservation(db: Firestore, pending: DocumentReference, reference: string): Promise<void> {
+  try {
+    await db.runTransaction(async transaction => {
+      const current = await transaction.get(pending);
+      if (current.get('state') === 'creating' && current.get('reference') === reference) transaction.delete(pending);
+    });
+  } catch {
+    // The lease lapses on its own; the original failure is the one to report.
+  }
 }
 
 export const createPaymongoCheckout = onCall(
