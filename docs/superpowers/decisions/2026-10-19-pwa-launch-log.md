@@ -4003,3 +4003,4 @@ Fable 5.2 High ruled under Aedwon's standing delegation on `docs/superpowers/pla
 - No checkout session was created on prod. Secret Manager untouched.
 - Watch 17:27 to 17:45 UTC (more than 10 minutes after the web release): no prod ERROR entries other than the deploy's own quota retry above; no createPaymongoCheckout requests. None in the hour before.
 - Velocity E-123: see the row (timer).
+- Old secrets destroyed (security fixes lead, Nov 18 18:35 UTC, ruling A9): no service on either project referenced the 8 old secrets; every remaining version of them was destroyed on pantas-staging and pantas-prod (8 each). Active versions: 4 (prod 2, staging 2), inside the 6 free. Prod sign-in still answers normally. Live free-tier check: 9 OK, 3 WARN (prod backups as ruled; deploy buckets outside free regions, accepted; paid-on-use APIs that cannot be disabled without force), 1 OVER: staging reads on Nov 15, which ages out of the 7-day window on Nov 22.
