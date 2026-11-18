@@ -20,6 +20,7 @@ Update this table as replies arrive. Dates are Manila time.
 | 5 | Confirm whether GCash can be used for Subscriptions | To send | | PayMongo's docs disagree |
 | 6 | QR Ph refunds through PayMongo (dashboard or API) | To send | | Until confirmed, refund QR Ph by bank transfer per `docs/OPERATIONS.md` |
 | 7 | Security and billing lead: confirm how web checkout bills plans (PayMongo Subscriptions or one-time charge per period) | Answered Nov 18 | Security fixes lead | One-time charge per period; nothing renews today. See "Item 7 answer" below |
+| 8 | Aedwon: renewals for launch? | Decided | 19 Nov | Prepaid periods for launch ("ok"). Items 4 and 5 are for after launch, not a launch blocker |
 
 Statuses: To send, Sent, Waiting on PayMongo, Answered, Done, Declined.
 

@@ -3984,3 +3984,11 @@ Fable 5.2 High ruled under Aedwon's standing delegation on `docs/superpowers/pla
 - Prod waits for Aedwon's "ship it" through the manager. Velocity E-122: see the row (timer).
 
 - S-12 proven on staging (integrator, logged 50a496585): a stale reservation refused at 10 s and taken over at 3 min; a test-mode weekly checkout paid and granted Pro; the paid-but-unconfirmed case is covered by the emulator test only. Prod waits for Aedwon's "ship it". Correction (security fixes lead): Firestore's free quota resets at midnight Pacific time, so the staging read budget (40,000 reads, 16,000 writes) is per Pacific day, not per Manila day as written on Nov 16. By Pacific day, staging read 45,524 (Nov 14), 56,748 (Nov 15, the one overage: pilot and proof traffic), 1,896 (Nov 16), 3,304 (Nov 17). The live check's day boundaries move to Pacific time in its next change.
+
+### Nov 19 (Manila), Aedwon's answers to the new manager (operations manager, Claude Code desktop app)
+
+- Ship approval, verbatim: "ship it". Covers the S-12 checkout fix (main cd959981a, staging proof above; functions deploy, with pantas_core.js from 150afa3ce) and figure answer choices Minimal (painters cbee44e9a, tiles 150afa3ce; staging web 2226885836-7abd7148d600). The integrator ships both to prod with rollback ready.
+- Web plan renewals, verbatim: "ok" to the recommendation. Launch keeps prepaid periods (a one-time charge per period, nothing renews). Renewals through PayMongo Subscriptions are deferred until after launch. Any web copy that says a plan renews must say it is a prepaid period instead.
+- Disk floor, verbatim: "lower the floor to 15 GB until asking me again". Housekeeping cleans only when free disk is under 15 GB. Free disk was 21 GB on Nov 18 17:07 UTC.
+- Under-13 board picks: "still checking".
+
