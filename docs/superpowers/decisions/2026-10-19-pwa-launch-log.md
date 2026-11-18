@@ -3952,3 +3952,11 @@ Fable 5.2 High ruled under Aedwon's standing delegation on `docs/superpowers/pla
 - Nov 18 (Manila), both privacy fixes on staging (integrator, on the manager's request): the guardian-contact erase fix merged as c6df2f70e (on top of 0e7502973); staging rebuilt from main 5e57e3a45 (docs only after c6df2f70e). CI on c6df2f70e success (full SHA); journeys dispatched by hand on fix/guardian-contact-erase 6984c2577: 44145135594 success. Staging web 3908963680-fcc20208b5a2 (staging key, SCREEN_COUNTS=true) on Firebase (sites/pantas-staging-app/versions/c4ff69173b832939) and the staging Worker (fa450ec2) at 18:18 UTC; compare.mjs 92 of 92; both hosts serve it; staging boots. Prod waits for Aedwon's "ship it", relayed by the manager; prod still serves 662720971-1b98262880a0.
 
 - Prod sign-in email proven (security fixes lead, Nov 18): Aedwon requested a code for support@pantas.study on app.pantas.study; requestSignInCode 200 at 05:55:56 UTC with no "held back" or "email failed" line, and verifySignInCode 200 at 05:56:21 (the code arrived and was used). No secret errors on prod since the release. Prod's 8 old secrets are destroyed at the end of the 48 clean hours (after Nov 18 18:22 UTC), with staging's at 18:23.
+
+### Nov 18, both privacy fixes shipped to prod (integrator)
+
+- Approval: Aedwon, "ship it" (relayed by the manager, Nov 18), for the account-switch leak fix and the guardian-contact erase fix on staging (main 5e57e3a45, staging web 3908963680-fcc20208b5a2).
+- Prod web 1533709692-7d81e80cdc55 from main 5e57e3a45 (lib/main_prod.dart, the prod site key, BETA_GATE=true, SCREEN_COUNTS=true): Firebase Hosting sites/pantas-prod/versions/4ba439d648bf800b and the prod Worker (version 67a72790) at 05:59 UTC, from the local build. compare.mjs: 92 of 92 match; app.pantas.study and pantas-prod.web.app both serve the new build. The gate holds (the beta sign-in shows; the first load after the release took longer than 8 s). No prod ERROR entries from 05:59 to 06:05 UTC, none in the hour before.
+- Rollback (not needed): Hosting version d6de9e971373ec5c (662720971-1b98262880a0) plus the prod Worker version 5296932e.
+- Velocity E-116: see the row (timer).
+
