@@ -102,3 +102,18 @@ Open point: the spec's Part A has no "item 8 on decisions". Asked the manager wh
 to; the build proceeds on Part A as written.
 
 Build rows: E-117 (drawing fixes and numbered row), E-118 (tiles).
+
+Resolved (manager, Nov 18): "item 8 on decisions" belongs to the under-13 spec (its A9 item
+8). This spec's Part A is approved as written. Base origin/main; the integrator merges and
+deploys staging.
+
+## November 18, 2026: build rulings
+
+- Painters: a line or arrow is never removed and never shortened below 75% of its normal
+  length; dots yield (independent review found rays could vanish in untested layouts; no live
+  item was affected).
+- Shape-row semantics label appends "Numbered 1 to N from the left." Accepted.
+- Choice data fields (agreed with the generator lead): Choice.figureJson from choice
+  "figure"; Question.choiceKind from "choiceKind"; Question.showQuestionFigure from
+  "showQuestionFigure" (default true). Domain only, no schema change; the generator's resolve
+  step sets them. Until generator Phase 2 data exists, no live question renders tiles.
