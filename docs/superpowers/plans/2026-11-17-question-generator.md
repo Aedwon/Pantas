@@ -227,6 +227,7 @@ Files: `lib/core/storage/domain/question.dart`, `lib/core/content/remote/questio
 
 - [ ] The content layer stores the type row and its variant document; `resolveVariant` returns an ordinary `Question` with the type's id. Screens and schedulers never see a type row unresolved.
 - [ ] Choice order: `orderChoicesFor` (`lib/core/storage/domain/choice_order.dart`) seeds by question id, so every variant of a type would get the same shuffle and, since lists store the key first, the key would sit in one position for the whole type. Seed by `'$questionId#$variantIndex'` for type rows (singles unchanged, so their saved order stays). Test: across 100 variants of one type the key lands in every position.
+- [ ] Figure-choice fields (owned by the figure choices UI lead, branch feat/figure-choice-tiles-r1 8380b2495, domain only): `Choice.figureJson` (String?, from choice["figure"]), `Question.choiceKind` (`ChoiceKind.text|figure`, from "choiceKind"), `Question.showQuestionFigure` (from "showQuestionFigure", default true). `resolveVariant` sets all three on the Question it builds; type files carry `showQuestionFigure` (default true). Build on their merge commit. A content-table column for them is a content-database schema change; agree the version with that lead first.
 - [ ] A content load without the variant document (offline before first fetch) treats the type as unavailable and serves nothing for it, never a template with empty slots. Test it.
 
 #### Task 2.3: answers and review state (about 4 h)
