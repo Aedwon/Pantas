@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:pantas/core/storage/domain/passage.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
+import 'package:pantas/core/ui/components/figure_choice_tiles.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
@@ -68,9 +69,7 @@ class WebAssessmentLayout extends StatelessWidget {
           () {
             if (chosenId != null) onNext();
           },
-          keepsEnter: (focused) =>
-              focused.findAncestorWidgetOfExactType<WebAnswerOption>()?.state ==
-              WebOptionState.selected,
+          keepsEnter: focusedAnswerIsPicked,
         ),
         child: Stack(
           children: [

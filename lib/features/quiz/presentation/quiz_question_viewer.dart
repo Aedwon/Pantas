@@ -14,8 +14,8 @@ import 'package:pantas/core/ui/components/new_design/question_card.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pantas_shadows.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
+import 'package:pantas/core/ui/components/question_choices.dart';
 import 'package:pantas/core/ui/ds.dart';
-import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
@@ -419,29 +419,22 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                               QuestionCard(
                                 subject: _eyebrow(question),
                                 stem: question.stem,
-                                figure: question.figureSpecJson == null
-                                    ? null
-                                    : QuestionFigure(
-                                        specJson: question.figureSpecJson,
-                                      ),
+                                figure: QuestionChoices.figure(question),
                                 passage: passage == null
                                     ? null
                                     : passage_ui.PassageCard(
                                         title: passage.title,
                                         text: passage.body,
                                       ),
-                                choices: [
-                                  for (final choice in question.choices)
-                                    ChoiceRow(
-                                      letter: choice.label,
-                                      text: choice.text,
-                                      state: choice.id == correctId
-                                          ? ChoiceRowState.right
-                                          : choice.id == item?.chosenChoiceId
-                                              ? ChoiceRowState.wrong
-                                              : ChoiceRowState.dimmed,
-                                    ),
-                                ],
+                                choices: QuestionChoices.build(
+                                  question,
+                                  chosenId: item?.chosenChoiceId,
+                                  stateOf: (choice) => choice.id == correctId
+                                      ? ChoiceRowState.right
+                                      : choice.id == item?.chosenChoiceId
+                                          ? ChoiceRowState.wrong
+                                          : ChoiceRowState.dimmed,
+                                ),
                               ),
                               const SizedBox(height: PantasSpace.s20),
                               AnswerReveal(

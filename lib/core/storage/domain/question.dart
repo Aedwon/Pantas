@@ -6,6 +6,9 @@ import 'package:pantas/core/storage/domain/ids.dart';
 part 'question.freezed.dart';
 part 'question.g.dart';
 
+/// How a question's choices are shown: as text rows, or as figure tiles.
+enum ChoiceKind { text, figure }
+
 @freezed
 abstract class Question with _$Question {
   const Question._();
@@ -37,6 +40,16 @@ abstract class Question with _$Question {
     /// Index into the lesson's key points. Null when the lesson is not split
     /// or the question is not yet tagged.
     int? keyPoint,
+
+    /// `figure` asks for figure tiles. The screen draws them only when every
+    /// choice has a figure it can draw; otherwise it shows the text rows.
+    @JsonKey(unknownEnumValue: ChoiceKind.text)
+    @Default(ChoiceKind.text)
+    ChoiceKind choiceKind,
+
+    /// False hides the question figure when the choices are drawn as tiles,
+    /// for odd-one-out questions whose shapes are the choices.
+    @Default(true) bool showQuestionFigure,
   }) = _Question;
 
   factory Question.fromJson(Map<String, dynamic> json) =>

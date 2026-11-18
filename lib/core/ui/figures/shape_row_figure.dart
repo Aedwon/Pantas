@@ -63,31 +63,59 @@ class ShapeRowFigure extends StatelessWidget {
 
     final shapes = <RowShape>[];
     for (final entry in raw) {
-      if (entry is! Map) return null;
-      final form = entry['form'];
-      if (form is! String || !forms.contains(form)) return null;
-
-      final dots = entry['dots'] ?? 0;
-      if (dots is! int || dots < 0 || dots > 4) return null;
-
-      final lines = entry['lines'] ?? 0;
-      if (lines is! int || lines < 0 || lines > 4) return null;
-
-      final through = entry['through'] ?? 'centre';
-      if (through is! String || (through != 'centre' && through != 'off')) {
-        return null;
-      }
-
-      shapes.add(
-        RowShape(
-          form: form,
-          dots: dots,
-          lines: lines,
-          throughCentre: through == 'centre',
-        ),
-      );
+      final shape = parseShape(entry);
+      if (shape == null) return null;
+      shapes.add(shape);
     }
     return ShapeRowFigure(shapes: shapes);
+  }
+
+  /// One shape of a row, shared with the figure choices so a choice and its
+  /// source shape read the same. Null when it cannot be read.
+  static RowShape? parseShape(Object? entry) {
+    if (entry is! Map) return null;
+    final form = entry['form'];
+    if (form is! String || !forms.contains(form)) return null;
+
+    final dots = entry['dots'] ?? 0;
+    if (dots is! int || dots < 0 || dots > 4) return null;
+
+    final lines = entry['lines'] ?? 0;
+    if (lines is! int || lines < 0 || lines > 4) return null;
+
+    final through = entry['through'] ?? 'centre';
+    if (through is! String || (through != 'centre' && through != 'off')) {
+      return null;
+    }
+
+    return RowShape(
+      form: form,
+      dots: dots,
+      lines: lines,
+      throughCentre: through == 'centre',
+    );
+  }
+
+  /// Draws one shape, with its dots and lines and no position number, in the
+  /// same stroke the row uses. A figure choice draws its shape this way.
+  static void paintShape(
+    Canvas canvas,
+    RowShape shape,
+    Offset centre,
+    double radius,
+    Color ink,
+  ) {
+    final stroke = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1
+      ..color = ink;
+    final filled = Paint()
+      ..style = PaintingStyle.fill
+      ..color = ink;
+    _ShapeRowPainter(shapes: const [], ink: ink)
+      .._drawForm(canvas, shape, centre, radius, stroke)
+      .._drawDots(canvas, shape, centre, radius, filled)
+      .._drawLines(canvas, shape, centre, radius, stroke);
   }
 
   @override

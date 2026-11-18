@@ -16,6 +16,7 @@ import 'package:pantas/core/telemetry/perf_timeline.dart';
 import 'package:pantas/core/telemetry/report_failure.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/core/ui/components/choice_row.dart';
+import 'package:pantas/core/ui/components/figure_choice_tiles.dart';
 import 'package:pantas/core/ui/components/floating_bar.dart';
 import 'package:pantas/core/ui/components/new_design/answer_reveal.dart';
 import 'package:pantas/core/ui/components/new_design/passage_card.dart'
@@ -27,6 +28,7 @@ import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/pantas_tap_area.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
+import 'package:pantas/core/ui/components/question_choices.dart';
 import 'package:pantas/core/ui/components/question_count.dart';
 import 'package:pantas/core/ui/components/question_navigator_grid.dart';
 import 'package:pantas/core/ui/components/report_form.dart';
@@ -34,7 +36,6 @@ import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/toast.dart';
 import 'package:pantas/core/ui/ds.dart';
-import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -593,32 +594,26 @@ class _QuestionContent extends ConsumerWidget {
                 '',
             stem: question.stem,
             passage: passage == null ? null : _PhonePassage(passage: passage!),
-            figure: question.figureSpecJson == null
-                ? null
-                : QuestionFigure(specJson: question.figureSpecJson),
-            choices: [
-              for (final choice in question.choices)
-                ChoiceRow(
-                  letter: choice.label,
-                  text: choice.text,
-                  state: outcome == null
-                      ? choice.id == chosen
-                          ? ChoiceRowState.picked
-                          : ChoiceRowState.plain
-                      : choice.id == correct.id
-                          ? ChoiceRowState.right
-                          : choice.id == chosen
-                              ? ChoiceRowState.wrong
-                              : ChoiceRowState.dimmed,
-                  onTap: outcome != null ||
-                          running is! QuizRunning ||
-                          running.checking
+            figure: QuestionChoices.figure(question),
+            choices: QuestionChoices.build(
+              question,
+              chosenId: chosen,
+              stateOf: (choice) => outcome == null
+                  ? choice.id == chosen
+                      ? ChoiceRowState.picked
+                      : ChoiceRowState.plain
+                  : choice.id == correct.id
+                      ? ChoiceRowState.right
+                      : choice.id == chosen
+                          ? ChoiceRowState.wrong
+                          : ChoiceRowState.dimmed,
+              onPick:
+                  outcome != null || running is! QuizRunning || running.checking
                       ? null
-                      : () => ref
+                      : (choice) => ref
                           .read(quizControllerProvider.notifier)
                           .pick(chosenChoiceId: choice.id),
-                ),
-            ],
+            ),
           ),
           if (outcome != null) ...[
             const SizedBox(height: PantasSpace.s20),
@@ -1235,9 +1230,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
           () {
             if (!_leaveOpen) action();
           },
-          keepsEnter: (focused) =>
-              focused.findAncestorWidgetOfExactType<WebAnswerOption>()?.state ==
-              WebOptionState.selected,
+          keepsEnter: focusedAnswerIsPicked,
         ),
         child: PopScope(
           canPop: _allowPop,
