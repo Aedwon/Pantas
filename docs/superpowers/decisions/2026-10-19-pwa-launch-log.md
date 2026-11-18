@@ -3992,3 +3992,14 @@ Fable 5.2 High ruled under Aedwon's standing delegation on `docs/superpowers/pla
 - Disk floor, verbatim: "lower the floor to 15 GB until asking me again". Housekeeping cleans only when free disk is under 15 GB. Free disk was 21 GB on Nov 18 17:07 UTC.
 - Under-13 board picks: "still checking".
 
+
+### Nov 19 (Manila), S-12 and figure answer choices shipped to prod (integrator)
+
+- Approval: Aedwon, "ship it" (24fe20aff, "Nov 19 (Manila), Aedwon's answers"), for the S-12 checkout fix and figure answer choices Minimal.
+- Scope check: main 6ac1a3ea4 is docs only after cd959981a (CI 44272151593 success by full SHA). Functions against the last prod functions deploy (3b370554a, Nov 16 18:22 UTC, the newest prod revision): only functions/src/paymongoCheckout.ts (S-12) and functions/src/generated/pantas_core.js (150afa3ce); no env, rules, index or config change. App against the last prod web (5e57e3a45): only the figure painters and tiles (lib/, painters cbee44e9a, tiles 150afa3ce). Nothing else shipped.
+- Functions from main 6ac1a3ea4 with pinned CLI 15.32.1 and the guard, 17:27:28 to 17:30:20 UTC Nov 18: 59 updated, 0 errors, 60 ACTIVE, scheduler 3 ENABLED. createPaymongoCheckout now createpaymongocheckout-00016-mon (was 00015-mid). Bindings: only PANTAS_PAYMENT_SECRETS (checkout) and PANTAS_APP_SECRETS (checked on two services); no old secret name. One audit ERROR at 17:29:38 was the deploy's own Cloud Run write-quota hit on the runscheduledtask invoker policy; the CLI retried it at 17:30:19 with the same policy as Nov 16.
+- Prod web 166853056-ca9fc113d66f from main 6ac1a3ea4 (lib/main_prod.dart, the prod site key, BETA_GATE=true, SCREEN_COUNTS=true): Firebase Hosting sites/pantas-prod/versions/6f90dad0745de33e at 17:33:37 UTC and the prod Worker (version 519c8998) at 17:34 UTC, from the local build. compare.mjs: 92 of 92 match; app.pantas.study and pantas-prod.web.app both serve the new build. The gate holds: a fresh headless browser on /onboarding lands on /beta (beta sign-in).
+- Rollback (not needed): Hosting version 4ba439d648bf800b (1533709692-7d81e80cdc55) plus the prod Worker version 67a72790; functions: each service's previous revision is recorded (for example createpaymongocheckout-00015-mid); durable rollback is a revert on main.
+- No checkout session was created on prod. Secret Manager untouched.
+- Watch 17:27 to 17:45 UTC (more than 10 minutes after the web release): no prod ERROR entries other than the deploy's own quota retry above; no createPaymongoCheckout requests. None in the hour before.
+- Velocity E-123: see the row (timer).
