@@ -125,6 +125,10 @@ The manager also keeps private notes on Aedwon's preferences in Claude Code memo
 When a manager thread gets too long, Aedwon opens a new thread in the Pantas T3 project and says
 "you take over as the operations manager". The new thread does this before anything else:
 
+0. **Read the newest handoff first.** Open the most recent `docs/superpowers/plans/*-manager-handoff.md`
+   on main; it holds the current state. If this session has no T3 tools (for example the Claude Code
+   desktop app), the T3 leads and scheduled tasks are out of reach: skip steps 2, 3, 5 and 6, work
+   from the handoff and the repo, and recreate any reminders with this app's own scheduling.
 1. **Read the rules.** AGENTS.md, WORKFLOW.md and this file, from main. Read the private Claude
    Code memory notes on Aedwon's preferences if this is a Claude thread.
 2. **Find the leads.** List the project's threads. A lead is a top-level thread (no parent) that
