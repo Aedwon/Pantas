@@ -127,6 +127,8 @@ class _ShapeChoiceFigure extends ChoiceFigure {
         shape,
         centre,
         radius,
+        // The figure card is white in both themes (figure-bg), so the ink
+        // is fixed. No figure-ink token exists.
         PantasColors.light.textPrimary,
       );
 }

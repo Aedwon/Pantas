@@ -806,6 +806,43 @@ void main() {
       expect(find.byType(FigureChoiceTile), findsNWidgets(4));
     });
 
+    testWidgets('before the reveal a tile is not read only', (tester) async {
+      final handle = tester.ensureSemantics();
+      await pumpHost(tester, arrowQuestion());
+      expect(
+        tester.getSemantics(tile('A')).flagsCollection.isReadOnly,
+        isFalse,
+      );
+      handle.dispose();
+    });
+
+    testWidgets('the focus outline is text-primary only on a checked tile',
+        (tester) async {
+      Color outline() {
+        final box = tester.widget<DecoratedBox>(
+          find.byKey(const ValueKey('figure-choice-focus')),
+        );
+        return ((box.decoration as BoxDecoration).border! as Border).top.color;
+      }
+
+      const c = PantasColors.light;
+      // Picked tile: text-primary.
+      page.value = const _Page(chosen: 'choice-2');
+      await pumpHost(tester, arrowQuestion(), wide: true, width: 720);
+      await tester.sendKeyEvent(LogicalKeyboardKey.tab);
+      await tester.pump();
+      expect(outline(), c.textPrimary);
+      // Unpicked right tile after a wrong pick: accent.
+      resetWebKeyboardFocus();
+      page.value = const _Page(chosen: 'choice-0', checked: true);
+      await pumpHost(tester, arrowQuestion(), wide: true, width: 720);
+      await tester.sendKeyEvent(LogicalKeyboardKey.tab);
+      await tester.sendKeyEvent(LogicalKeyboardKey.arrowRight);
+      await tester.pump();
+      expect(_focusedLetter(tester), 'B');
+      expect(outline(), c.accent);
+    });
+
     testWidgets('keyboard focus draws an outline on wide only', (tester) async {
       await pumpHost(tester, arrowQuestion(), wide: true, width: 720);
       await tester.sendKeyEvent(LogicalKeyboardKey.tab);

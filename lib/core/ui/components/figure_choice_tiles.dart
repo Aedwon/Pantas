@@ -327,17 +327,19 @@ class _FigureChoiceTileState extends State<FigureChoiceTile>
             ? c.onAccent
             : c.textSecondary;
 
+    final chosen = widget.chosen ??
+        (widget.state == ChoiceRowState.picked ||
+            widget.state == ChoiceRowState.wrong);
+
     const outset = PantasBorder.focus + PantasSpace.s2;
     final focusRing = wide
         ? webFocusRing(
             {if (_focused) WidgetState.focused},
-            filled ? c.textPrimary : c.accent,
+            // text-primary only on a checked tile, so focus never looks like
+            // selection; an unpicked right tile keeps the accent outline.
+            chosen ? c.textPrimary : c.accent,
           )
         : null;
-
-    final chosen = widget.chosen ??
-        (widget.state == ChoiceRowState.picked ||
-            widget.state == ChoiceRowState.wrong);
 
     final markVisible = right || wrong;
     final markColor = right ? c.accentTintText : c.dangerText;
@@ -349,6 +351,7 @@ class _FigureChoiceTileState extends State<FigureChoiceTile>
       inMutuallyExclusiveGroup: true,
       // Read only after the reveal, never disabled: it stays focusable.
       enabled: true,
+      readOnly: readOnly,
       focusable: true,
       focused: _focused,
       onTap: widget.onTap,
@@ -373,6 +376,8 @@ class _FigureChoiceTileState extends State<FigureChoiceTile>
               child: Material(
                 type: MaterialType.transparency,
                 borderRadius: radius,
+                // ds-raw: core/ui component; raw_controls.dart is for screens
+                // and does not apply here. The tile is its own tap target.
                 child: InkWell(
                   focusNode: widget.focusNode,
                   // A read-only tile stays focusable, so the tap does nothing
