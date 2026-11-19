@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 11
 partCount: 11
-ordering: 0
+ordering: 72
 keyPoints:
   - "Use changes in oxidation number to identify oxidation and reduction."
 ---

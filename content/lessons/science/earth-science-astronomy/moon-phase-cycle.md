@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 1
 partCount: 6
-ordering: 0
+ordering: 26
 keyPoints:
   - "Explain how the Moon’s orbit changes how much of its sunlit half we see."
   - "Recall the phase order and the length of the cycle."

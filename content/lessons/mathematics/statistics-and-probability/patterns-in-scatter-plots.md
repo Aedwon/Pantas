@@ -7,7 +7,7 @@ topic: "topic-statistics-and-probability"
 isActive: true
 part: 4
 partCount: 4
-ordering: 0
+ordering: 14
 keyPoints:
   - "Recognize linear and curved patterns."
   - "Distinguish correlation from causation."

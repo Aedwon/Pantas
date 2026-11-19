@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 1
 partCount: 6
-ordering: 0
+ordering: 1
 keyPoints:
   - "Identify cells as the basic unit of life."
   - "Recognize metabolism, homeostasis, and growth."

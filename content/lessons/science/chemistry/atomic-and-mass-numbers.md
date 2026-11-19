@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 2
 partCount: 7
-ordering: 0
+ordering: 28
 keyPoints:
   - "Find proton and neutron counts from atomic and mass numbers."
 ---

@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 1
 partCount: 7
-ordering: 0
+ordering: 48
 keyPoints:
   - "Trace a reflex from stimulus to muscle response."
   - "Distinguish sensory and motor neurons."

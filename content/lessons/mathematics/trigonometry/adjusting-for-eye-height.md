@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 5
 partCount: 6
-ordering: 0
+ordering: 29
 keyPoints:
   - "Add or subtract the vertical distance from eye level."
 ---

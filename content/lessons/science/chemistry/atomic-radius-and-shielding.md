@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 4
 partCount: 6
-ordering: 0
+ordering: 40
 keyPoints:
   - "Use nuclear pull and shielding to explain general trends in atomic radius."
 ---

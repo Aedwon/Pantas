@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 9
 partCount: 9
-ordering: 0
+ordering: 41
 keyPoints:
   - "Use the inheritance of X chromosomes to test a pedigree pattern."
 ---

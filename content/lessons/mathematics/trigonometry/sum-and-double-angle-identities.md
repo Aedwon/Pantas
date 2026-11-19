@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 6
 partCount: 6
-ordering: 0
+ordering: 24
 keyPoints:
   - "Find values for sums and differences of angles."
   - "Choose and apply a double-angle formula."

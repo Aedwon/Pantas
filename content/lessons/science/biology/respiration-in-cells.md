@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 3
 partCount: 6
-ordering: 0
+ordering: 29
 keyPoints:
   - "Locate glycolysis and the later stages in eukaryotic cells."
   - "Identify where ATP synthase makes most of the ATP."

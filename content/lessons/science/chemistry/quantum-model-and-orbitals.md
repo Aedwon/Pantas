@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 8
 partCount: 8
-ordering: 0
+ordering: 26
 keyPoints:
   - "Explain what an orbital or electron cloud represents."
   - "Recognize the contributions of several researchers to the quantum model."

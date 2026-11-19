@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 2
 partCount: 6
-ordering: 0
+ordering: 35
 keyPoints:
   - "Use the force balance to find tension in two connected blocks."
 ---

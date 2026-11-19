@@ -7,7 +7,7 @@ topic: "topic-spatial-abstract-reasoning"
 isActive: true
 part: 3
 partCount: 6
-ordering: 0
+ordering: 26
 keyPoints:
   - "Match the position and direction of lines on all edges."
   - "Check the edge matches after a turn."

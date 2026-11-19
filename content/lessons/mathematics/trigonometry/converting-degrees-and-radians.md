@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 1
 partCount: 3
-ordering: 0
+ordering: 1
 keyPoints:
   - "Explain what one radian measures."
   - "Convert degrees to radians."

@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 4
 partCount: 8
-ordering: 0
+ordering: 92
 keyPoints:
   - "Use the mass of the whole solution to calculate percent by mass."
 ---

@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 2
 partCount: 9
-ordering: 0
+ordering: 34
 keyPoints:
   - "Use segregation and a Punnett square to predict inheritance."
 ---

@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 4
 partCount: 9
-ordering: 0
+ordering: 72
 keyPoints:
   - "Apply energy conservation and the signs of heat and work."
 ---

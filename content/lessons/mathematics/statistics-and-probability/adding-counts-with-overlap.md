@@ -7,7 +7,7 @@ topic: "topic-statistics-and-probability"
 isActive: true
 part: 5
 partCount: 5
-ordering: 0
+ordering: 19
 keyPoints:
   - "Add separate groups of outcomes."
   - "Subtract outcomes counted in both groups."

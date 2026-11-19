@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 5
 partCount: 10
-ordering: 0
+ordering: 13
 keyPoints:
   - "Choose evaporation or crystallization based on what you need to recover."
 ---

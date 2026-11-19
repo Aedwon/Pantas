@@ -7,7 +7,7 @@ topic: "topic-precalculus-basic-calculus"
 isActive: true
 part: 1
 partCount: 3
-ordering: 0
+ordering: 1
 keyPoints:
   - "Classify an axis-aligned conic by its squared terms."
   - "Check for degenerate cases and limits of the shortcut."

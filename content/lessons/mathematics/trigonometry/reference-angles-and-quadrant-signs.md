@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 3
 partCount: 9
-ordering: 0
+ordering: 12
 keyPoints:
   - "Find a reference angle."
   - "Use the quadrant to choose the sign of each value."

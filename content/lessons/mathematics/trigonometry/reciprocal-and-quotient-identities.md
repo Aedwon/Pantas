@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 1
 partCount: 6
-ordering: 0
+ordering: 19
 keyPoints:
   - "Recognize reciprocal and quotient identities."
   - "Keep the original domain when canceling factors."

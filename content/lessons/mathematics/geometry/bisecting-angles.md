@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 5
 partCount: 5
-ordering: 0
+ordering: 5
 keyPoints:
   - "Find the whole angle or either half when a ray bisects it."
 ---

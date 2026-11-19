@@ -7,7 +7,7 @@ topic: "topic-statistics-and-probability"
 isActive: true
 part: 5
 partCount: 6
-ordering: 0
+ordering: 9
 keyPoints:
   - "Find the effect of a shift or scale on spread."
   - "Find the effect on the mean."

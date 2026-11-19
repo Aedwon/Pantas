@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 2
 partCount: 3
-ordering: 0
+ordering: 55
 keyPoints:
   - "Describe an elliptical orbit and the position of the Sun."
   - "Use equal swept areas to compare orbital speeds."

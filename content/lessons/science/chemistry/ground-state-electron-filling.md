@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 2
 partCount: 3
-ordering: 0
+ordering: 35
 keyPoints:
   - "Fill ground-state orbitals using the Aufbau, Hund, and Pauli rules."
   - "Use observed configurations and check which electrons leave first in a transition-metal ion."

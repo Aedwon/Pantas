@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 4
 partCount: 4
-ordering: 0
+ordering: 14
 keyPoints:
   - "Count chromosomes and chromatids before and after sister chromatids separate."
 ---

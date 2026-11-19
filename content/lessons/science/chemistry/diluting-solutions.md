@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 7
 partCount: 8
-ordering: 0
+ordering: 95
 keyPoints:
   - "Calculate dilution using the initial and final volumes and molarities."
   - "Recognize when the dilution equation applies."

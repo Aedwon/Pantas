@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 6
 partCount: 7
-ordering: 0
+ordering: 6
 keyPoints:
   - "Count significant figures and round a result for the operation used."
 ---

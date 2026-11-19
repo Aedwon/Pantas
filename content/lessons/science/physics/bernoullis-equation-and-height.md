@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 2
 partCount: 3
-ordering: 0
+ordering: 67
 keyPoints:
   - "Identify the conditions for Bernoulli’s equation."
   - "Identify fluid energy terms and use the equation when height changes."

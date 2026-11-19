@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 4
 partCount: 7
-ordering: 0
+ordering: 39
 keyPoints:
   - "Find the surface area or volume of a rectangular prism."
 ---

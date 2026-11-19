@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 2
 partCount: 7
-ordering: 0
+ordering: 48
 keyPoints:
   - "Find impulse as the change in signed momentum."
   - "Relate average force and contact time to impulse."

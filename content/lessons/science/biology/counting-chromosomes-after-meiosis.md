@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 3
 partCount: 7
-ordering: 0
+ordering: 17
 keyPoints:
   - "Count chromosomes and chromatids after each meiotic division."
 ---

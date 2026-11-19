@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 8
 partCount: 10
-ordering: 0
+ordering: 119
 keyPoints:
   - "Choose the parent chain of a branched alkane."
   - "Number the parent chain and name its branches."

@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 4
 partCount: 6
-ordering: 0
+ordering: 11
 keyPoints:
   - "Find the resultant of perpendicular vectors."
   - "Find the resultant of two vectors at any angle."

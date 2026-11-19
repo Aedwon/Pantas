@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 3
 partCount: 10
-ordering: 0
+ordering: 104
 keyPoints:
   - "Read activation energy and enthalpy change from an energy profile."
   - "Explain how collisions, temperature, and the energy barrier affect reaction rate."

@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 6
 partCount: 11
-ordering: 0
+ordering: 67
 keyPoints:
   - "Use the activity series to predict single displacement."
 ---

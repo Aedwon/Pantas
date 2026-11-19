@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 1
 partCount: 9
-ordering: 0
+ordering: 33
 keyPoints:
   - "Distinguish genotype from phenotype."
   - "Explain how genes and environment shape traits."

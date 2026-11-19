@@ -7,7 +7,7 @@ topic: "topic-precalculus-basic-calculus"
 isActive: true
 part: 3
 partCount: 4
-ordering: 0
+ordering: 6
 keyPoints:
   - "Use the degrees and leading terms to find a rational limit at infinity."
 ---

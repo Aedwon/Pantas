@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 6
 partCount: 7
-ordering: 0
+ordering: 41
 keyPoints:
   - "Find the volume of a cone or pyramid."
   - "Use the radius and height to find a cone's slant height."

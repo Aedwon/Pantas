@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 8
 partCount: 8
-ordering: 0
+ordering: 78
 keyPoints:
   - "Explain how losing a species affects its community."
   - "Match conservation actions to the causes of ecosystem damage."

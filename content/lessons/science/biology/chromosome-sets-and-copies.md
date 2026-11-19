@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 1
 partCount: 4
-ordering: 0
+ordering: 11
 keyPoints:
   - "Recognize homologous pairs and haploid or diploid chromosome sets."
   - "Describe sister chromatids after DNA replication."

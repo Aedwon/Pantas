@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 3
 partCount: 8
-ordering: 0
+ordering: 70
 keyPoints:
   - "Predict whether water will infiltrate or run off."
   - "Trace water through the cycle without assuming a fixed start."

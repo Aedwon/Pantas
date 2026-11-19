@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 7
 partCount: 8
-ordering: 0
+ordering: 77
 keyPoints:
   - "Classify symbiosis by the effect on each partner."
 ---

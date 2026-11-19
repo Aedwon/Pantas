@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 5
 partCount: 5
-ordering: 0
+ordering: 93
 keyPoints:
   - "Order electromagnetic waves and locate visible light in the spectrum."
   - "Use the speed of light to relate frequency and wavelength in vacuum."

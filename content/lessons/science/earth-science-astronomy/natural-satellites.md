@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 3
 partCount: 6
-ordering: 0
+ordering: 10
 keyPoints:
   - "Identify natural satellites and compare their size, shape, and makeup."
 ---

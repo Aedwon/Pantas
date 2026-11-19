@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 3
 partCount: 3
-ordering: 0
+ordering: 56
 keyPoints:
   - "Use period squared and semimajor axis cubed to compare orbits."
   - "Account for central mass when comparing orbits."

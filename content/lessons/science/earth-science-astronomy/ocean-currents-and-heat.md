@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 6
 partCount: 8
-ordering: 0
+ordering: 73
 keyPoints:
   - "Explain what drives surface and deep currents."
   - "Describe how currents move heat between regions."

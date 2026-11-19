@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 11
 partCount: 11
-ordering: 0
+ordering: 67
 keyPoints:
   - "Distinguish actions that cut warming from actions that reduce harm."
   - "Choose a response that fits the local problem."

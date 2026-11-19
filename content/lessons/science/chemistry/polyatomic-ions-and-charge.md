@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 7
 partCount: 7
-ordering: 0
+ordering: 33
 keyPoints:
   - "Recognize a bonded group with net charge as a polyatomic ion."
 ---

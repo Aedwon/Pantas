@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 1
 partCount: 5
-ordering: 0
+ordering: 47
 keyPoints:
   - "Find the cycle of units digits, then use the exponent's remainder."
 ---

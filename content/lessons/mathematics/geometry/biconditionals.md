@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 4
 partCount: 5
-ordering: 0
+ordering: 9
 keyPoints:
   - "Check both directions of an if-and-only-if statement."
 ---

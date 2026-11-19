@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 3
 partCount: 6
-ordering: 0
+ordering: 58
 keyPoints:
   - "Distinguish mass number, relative atomic mass, and molar mass."
 ---

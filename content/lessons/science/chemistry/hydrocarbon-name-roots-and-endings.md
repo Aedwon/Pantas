@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 7
 partCount: 10
-ordering: 0
+ordering: 118
 keyPoints:
   - "Use carbon counts and bond types to name straight-chain hydrocarbons."
 ---

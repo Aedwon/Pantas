@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 6
 partCount: 6
-ordering: 0
+ordering: 30
 keyPoints:
   - "Use two sight lines to relate heights and distances."
 ---

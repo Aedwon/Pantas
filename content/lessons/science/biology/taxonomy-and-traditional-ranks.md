@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 1
 partCount: 7
-ordering: 0
+ordering: 55
 keyPoints:
   - "Order the traditional ranks and explain how they nest."
   - "Distinguish taxonomy from systematics."

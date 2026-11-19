@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 1
 partCount: 9
-ordering: 0
+ordering: 43
 keyPoints:
   - "Distinguish minerals from rocks, including rocks made of glass."
 ---

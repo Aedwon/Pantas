@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 5
 partCount: 6
-ordering: 0
+ordering: 12
 keyPoints:
   - "Explain why a comet grows a coma and tails near the Sun."
   - "Compare the dust tail and ion tail and explain their direction."

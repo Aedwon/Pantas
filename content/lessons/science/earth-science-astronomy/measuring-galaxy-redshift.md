@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 2
 partCount: 7
-ordering: 0
+ordering: 2
 keyPoints:
   - "Distinguish redshift from blueshift."
   - "Calculate redshift from wavelengths."

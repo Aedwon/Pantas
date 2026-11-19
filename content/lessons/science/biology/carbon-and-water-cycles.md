@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 4
 partCount: 8
-ordering: 0
+ordering: 74
 keyPoints:
   - "Track carbon through photosynthesis, respiration, decay, and burning."
   - "Track water through changes of state and movement."

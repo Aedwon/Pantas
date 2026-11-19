@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 4
 partCount: 9
-ordering: 0
+ordering: 46
 keyPoints:
   - "Distinguish weathering, erosion, and deposition."
 ---

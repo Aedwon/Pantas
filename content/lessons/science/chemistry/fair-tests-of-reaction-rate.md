@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 8
 partCount: 10
-ordering: 0
+ordering: 109
 keyPoints:
   - "Identify what to change, measure, and hold constant in a rate experiment."
 ---

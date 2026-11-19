@@ -7,7 +7,7 @@ topic: "topic-precalculus-basic-calculus"
 isActive: true
 part: 3
 partCount: 3
-ordering: 0
+ordering: 10
 keyPoints:
   - "Apply the chain rule to a composition."
   - "Use the derivative to find a tangent slope or instantaneous rate."

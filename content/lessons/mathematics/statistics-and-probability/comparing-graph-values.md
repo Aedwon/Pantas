@@ -7,7 +7,7 @@ topic: "topic-statistics-and-probability"
 isActive: true
 part: 3
 partCount: 4
-ordering: 0
+ordering: 13
 keyPoints:
   - "Compare values from tables or graphs by finding totals, differences, ratios, or means."
   - "Find percent change from the starting value."

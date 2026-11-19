@@ -7,7 +7,7 @@ topic: "topic-statistics-and-probability"
 isActive: true
 part: 3
 partCount: 4
-ordering: 0
+ordering: 22
 keyPoints:
   - "Find a conditional chance and use it in a product."
   - "Decide which counts change when drawing with or without replacement."

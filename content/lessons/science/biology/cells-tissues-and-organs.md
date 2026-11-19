@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 1
 partCount: 6
-ordering: 0
+ordering: 42
 keyPoints:
   - "Distinguish cells, tissues, organs, and organ systems."
   - "Name the four basic types of tissue."

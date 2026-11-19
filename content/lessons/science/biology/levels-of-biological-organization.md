@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 6
 partCount: 6
-ordering: 0
+ordering: 6
 keyPoints:
   - "Order the levels from cell to organism."
   - "Distinguish a population, a community, and an ecosystem."

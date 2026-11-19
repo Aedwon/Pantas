@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 3
 partCount: 3
-ordering: 0
+ordering: 36
 keyPoints:
   - "Read electron counts from configuration superscripts."
   - "Use charge and electron count to relate an ion to its neutral atom."

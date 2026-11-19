@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 3
 partCount: 5
-ordering: 0
+ordering: 8
 keyPoints:
   - "Disprove a conditional with a true hypothesis and a false conclusion."
 ---

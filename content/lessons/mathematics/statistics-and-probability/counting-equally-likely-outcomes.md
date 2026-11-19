@@ -7,7 +7,7 @@ topic: "topic-statistics-and-probability"
 isActive: true
 part: 1
 partCount: 4
-ordering: 0
+ordering: 20
 keyPoints:
   - "Find a probability by counting equally likely outcomes."
   - "Count ordered outcomes for two dice."

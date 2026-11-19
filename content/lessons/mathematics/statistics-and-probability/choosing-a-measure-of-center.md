@@ -7,7 +7,7 @@ topic: "topic-statistics-and-probability"
 isActive: true
 part: 3
 partCount: 4
-ordering: 0
+ordering: 3
 keyPoints:
   - "Compare mean and median when there is an outlier."
   - "Use mode for categories."

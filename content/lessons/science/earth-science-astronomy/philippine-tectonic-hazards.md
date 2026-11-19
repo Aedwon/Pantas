@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 5
 partCount: 5
-ordering: 0
+ordering: 56
 keyPoints:
   - "Recognize tectonic hazards and choose a safe response."
 ---

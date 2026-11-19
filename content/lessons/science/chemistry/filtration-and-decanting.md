@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 3
 partCount: 10
-ordering: 0
+ordering: 11
 keyPoints:
   - "Choose filtration or decanting based on particle size and settling."
   - "Explain why dissolved particles pass through ordinary filter paper."

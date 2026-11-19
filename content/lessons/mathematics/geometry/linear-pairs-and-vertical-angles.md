@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 4
 partCount: 5
-ordering: 0
+ordering: 4
 keyPoints:
   - "Use equal vertical angles and supplementary linear pairs."
   - "Add adjacent angles to find a whole angle."

@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 6
 partCount: 7
-ordering: 0
+ordering: 20
 keyPoints:
   - "Distinguish homozygous from heterozygous genotypes."
   - "Track alleles on different chromosome pairs into gametes."

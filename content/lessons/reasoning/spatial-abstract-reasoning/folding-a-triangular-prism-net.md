@@ -7,7 +7,7 @@ topic: "topic-spatial-abstract-reasoning"
 isActive: true
 part: 6
 partCount: 6
-ordering: 0
+ordering: 29
 keyPoints:
   - "Check that the faces fold to close a triangular prism."
   - "Track a marking to the correct face."

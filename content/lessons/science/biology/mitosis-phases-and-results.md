@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 3
 partCount: 4
-ordering: 0
+ordering: 13
 keyPoints:
   - "Recognize each phase of mitosis and the role of the spindle."
   - "Predict the chromosome sets and genetic similarity of daughter cells."

@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 3
 partCount: 3
-ordering: 0
+ordering: 68
 keyPoints:
   - "Compare pressure and speed at equal heights under the stated conditions."
   - "Explain what the pressure difference does around a wing."

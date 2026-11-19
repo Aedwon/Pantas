@@ -7,7 +7,7 @@ topic: "topic-spatial-abstract-reasoning"
 isActive: true
 part: 1
 partCount: 6
-ordering: 0
+ordering: 18
 keyPoints:
   - "Name regions by checking which of two shapes contain them."
 ---

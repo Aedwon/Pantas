@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 1
 partCount: 5
-ordering: 0
+ordering: 52
 keyPoints:
   - "Identify tectonic plates and the layers they move over."
   - "Explain the evidence and limits of continental drift."

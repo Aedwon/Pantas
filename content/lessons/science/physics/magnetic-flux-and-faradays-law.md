@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 9
 partCount: 11
-ordering: 0
+ordering: 107
 keyPoints:
   - "Find the flux through a loop."
   - "Find the voltage induced when flux changes."

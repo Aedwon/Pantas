@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 2
 partCount: 10
-ordering: 0
+ordering: 10
 keyPoints:
   - "Use settling and light scattering to identify suspensions and colloids."
 ---

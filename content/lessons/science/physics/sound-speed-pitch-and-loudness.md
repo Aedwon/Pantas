@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 7
 partCount: 7
-ordering: 0
+ordering: 84
 keyPoints:
   - "Describe how the medium and temperature affect sound speed."
   - "Distinguish the effects of frequency and amplitude."

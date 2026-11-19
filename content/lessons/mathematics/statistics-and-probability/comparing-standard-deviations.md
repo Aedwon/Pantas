@@ -7,7 +7,7 @@ topic: "topic-statistics-and-probability"
 isActive: true
 part: 4
 partCount: 6
-ordering: 0
+ordering: 8
 keyPoints:
   - "Compare spread using standard deviation in the same units."
   - "Identify what the mean and standard deviation leave unknown."

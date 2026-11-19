@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 7
 partCount: 7
-ordering: 0
+ordering: 20
 keyPoints:
   - "Choose the correct sign for gravity and identify velocity at release or at the top."
   - "Calculate velocity or displacement in ideal free fall."

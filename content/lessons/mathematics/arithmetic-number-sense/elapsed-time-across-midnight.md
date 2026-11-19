@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 3
 partCount: 5
-ordering: 0
+ordering: 44
 keyPoints:
   - "Add 24 hours to the next-day clock hour before subtracting."
 ---

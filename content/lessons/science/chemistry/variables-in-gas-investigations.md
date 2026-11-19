@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 3
 partCount: 11
-ordering: 0
+ordering: 80
 keyPoints:
   - "Identify independent, dependent, and controlled variables in a gas investigation."
 ---

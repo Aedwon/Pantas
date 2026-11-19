@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 1
 partCount: 5
-ordering: 0
+ordering: 49
 keyPoints:
   - "Find a cube's edge from its volume."
 ---

@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 4
 partCount: 4
-ordering: 0
+ordering: 10
 keyPoints:
   - "Predict water movement in hypotonic, isotonic, and hypertonic solutions."
   - "Compare how plant and animal cells respond to water movement."

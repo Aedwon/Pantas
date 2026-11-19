@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 4
 partCount: 7
-ordering: 0
+ordering: 4
 keyPoints:
   - "Explain when the cosmic microwave background formed and what it shows."
 ---

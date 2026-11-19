@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 3
 partCount: 10
-ordering: 0
+ordering: 45
 keyPoints:
   - "Explain the octet rule and recognize exceptions such as hydrogen."
 ---

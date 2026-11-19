@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 3
 partCount: 5
-ordering: 0
+ordering: 3
 keyPoints:
   - "Use the sum of complementary or supplementary angles to find a missing measure."
 ---

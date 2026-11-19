@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 2
 partCount: 6
-ordering: 0
+ordering: 38
 keyPoints:
   - "Find the number of valence electrons from a main-group element’s group number."
 ---

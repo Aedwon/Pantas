@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 2
 partCount: 9
-ordering: 0
+ordering: 11
 keyPoints:
   - "Find exact values at special angles."
   - "Compare sine and cosine values from 0 to 90 degrees."

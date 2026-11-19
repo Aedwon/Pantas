@@ -7,7 +7,7 @@ topic: "topic-spatial-abstract-reasoning"
 isActive: true
 part: 4
 partCount: 6
-ordering: 0
+ordering: 27
 keyPoints:
   - "Transfer a change in shape, fill, or stripe direction."
   - "Apply a flat-to-solid rule and track any openings."

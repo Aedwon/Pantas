@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 7
 partCount: 9
-ordering: 0
+ordering: 39
 keyPoints:
   - "Distinguish substitutions, insertions, and deletions."
   - "Explain how a mutation can change the protein made."

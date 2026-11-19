@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 1
 partCount: 3
-ordering: 0
+ordering: 54
 keyPoints:
   - "Identify the masses and center-to-center distance in Newton’s law."
   - "Use the inverse-square law to compare forces."

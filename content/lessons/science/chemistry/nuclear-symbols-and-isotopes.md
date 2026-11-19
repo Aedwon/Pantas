@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 1
 partCount: 7
-ordering: 0
+ordering: 122
 keyPoints:
   - "Use atomic and mass numbers to identify a nucleus."
 ---

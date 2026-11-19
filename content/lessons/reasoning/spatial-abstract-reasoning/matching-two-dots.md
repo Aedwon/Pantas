@@ -7,7 +7,7 @@ topic: "topic-spatial-abstract-reasoning"
 isActive: true
 part: 5
 partCount: 6
-ordering: 0
+ordering: 22
 keyPoints:
   - "Check both dot records in the same drawing, including the frame when it counts."
 ---

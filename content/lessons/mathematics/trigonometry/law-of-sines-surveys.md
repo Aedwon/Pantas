@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 3
 partCount: 7
-ordering: 0
+ordering: 33
 keyPoints:
   - "Find missing sides from two measured angles."
 ---

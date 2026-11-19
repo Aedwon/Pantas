@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 1
 partCount: 6
-ordering: 0
+ordering: 4
 keyPoints:
   - "Label the opposite leg, adjacent leg, and hypotenuse."
   - "Read sine, cosine, and tangent from the side lengths."

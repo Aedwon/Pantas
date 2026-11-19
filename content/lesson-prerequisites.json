@@ -79,33 +79,6 @@
     "reason": "Finding the greatest common factor helps students finish factoring completely."
    }
   ],
-  "lesson-biology-ecology": [
-   {
-    "lesson": "lesson-biology-cellular-metabolism",
-    "strength": "helpful",
-    "reason": "Understanding photosynthesis and respiration makes carbon cycling easier. Ecology explains their relevant roles itself."
-   },
-   {
-    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
-    "strength": "helpful",
-    "reason": "Percentage multiplication helps with energy transfers. Ecology supplies the 0.10 multiplier and worked steps, so it stands alone."
-   }
-  ],
-  "lesson-earth-science-astronomy-weather-and-climate": [
-   {
-    "lesson": "lesson-physics-thermodynamics",
-    "strength": "helpful",
-    "reason": "Heat-transfer knowledge helps explain winds and warming. Weather and Climate defines the needed processes itself."
-   }
-  ],
-  "lesson-geometry-logic-and-reasoning": [],
-  "lesson-geometry-measurement": [
-   {
-    "lesson": "lesson-algebra-simplifying-and-evaluating-expressions",
-    "strength": "helpful",
-    "reason": "Distribute to every term and substitute values before combining like terms."
-   }
-  ],
   "lesson-grammar-and-structure-english-word-jobs": [],
   "lesson-grammar-and-structure-joining-words-phrases-and-clauses": [
    {
@@ -205,31 +178,6 @@
     "reason": "Recognizing clause boundaries makes counting clauses and identifying sentence types easier. The lesson teaches the needed clause definitions itself."
    }
   ],
-  "lesson-statistics-and-probability-basic-probability": [
-   {
-    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
-    "strength": "required",
-    "reason": "Combined-event calculations require fraction multiplication, simplification, and subtraction. This lesson teaches probability rules but assumes those arithmetic methods."
-   }
-  ],
-  "lesson-statistics-and-probability-data-analysis-graphs": [
-   {
-    "lesson": "lesson-data-interpretation-averages-and-pie-chart-shares",
-    "strength": "helpful",
-    "reason": "Basic scale-reading practice helps before comparing graph scales. This lesson repeats the needed reading rules and adds more demanding comparisons."
-   },
-   {
-    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
-    "strength": "helpful",
-    "reason": "Percentage conversion and fraction multiplication practice make pie-chart calculations easier. This lesson gives the share formulas and demonstrates their use."
-   },
-   {
-    "lesson": "lesson-arithmetic-number-sense-adding-and-multiplying-fractions",
-    "strength": "helpful",
-    "reason": "Multiplying a fraction by the whole helps students find the required share."
-   }
-  ],
-  "lesson-statistics-and-probability-measures-of-central-tendency": [],
   "lesson-text-types-essays-editorials-articles": [
    {
     "lesson": "lesson-comprehension-skills-sentence-cues-and-meaning",
@@ -3335,447 +3283,18 @@
     "reason": "Read the previous part first."
    }
   ],
-  "lesson-biology-botany": [
-   {
-    "lesson": "lesson-biology-cellular-metabolism",
-    "strength": "helpful",
-    "reason": "Phloem moves the sugar that photosynthesis makes, and the metabolism lesson explains photosynthesis in full."
-   }
-  ],
-  "lesson-biology-cell-biology": [],
-  "lesson-biology-cellular-metabolism": [
-   {
-    "lesson": "lesson-biology-cell-biology",
-    "strength": "helpful",
-    "reason": "Photosynthesis happens in chloroplasts and membranes, and the cell biology lesson describes these organelles and what they do."
-   }
-  ],
-  "lesson-biology-cellular-reproduction": [],
-  "lesson-biology-cellular-respiration-and-fermentation": [
-   {
-    "lesson": "lesson-biology-cellular-metabolism",
-    "strength": "helpful",
-    "reason": "This lesson defines ATP, glucose and enzymes itself, but the metabolism lesson gives the photosynthesis side of the comparison and more on enzymes."
-   },
-   {
-    "lesson": "lesson-biology-cell-biology",
-    "strength": "helpful",
-    "reason": "The location of each stage depends on the mitochondrion and cytosol, which the cell biology lesson describes."
-   }
-  ],
-  "lesson-biology-characteristics-of-life": [
-   {
-    "lesson": "lesson-biology-cell-biology",
-    "strength": "helpful",
-    "reason": "The first property says all life is made of cells, and the cell biology lesson shows what a cell contains and how it works."
-   }
-  ],
-  "lesson-biology-evolution": [
-   {
-    "lesson": "lesson-biology-genetics-and-heredity",
-    "strength": "helpful",
-    "reason": "This lesson defines genes, alleles and gametes itself and only points to the genetics lesson for how inheritance works in full."
-   }
-  ],
-  "lesson-biology-genetics-and-heredity": [
-   {
-    "lesson": "lesson-biology-meiosis-and-genetic-variation",
-    "strength": "helpful",
-    "reason": "The Law of Segregation describes how alleles separate into gametes, and the meiosis lesson shows the chromosome movements that cause it."
-   }
-  ],
-  "lesson-biology-human-anatomy-physiology": [
-   {
-    "lesson": "lesson-biology-cell-biology",
-    "strength": "helpful",
-    "reason": "Gas exchange and reabsorption in the kidney depend on diffusion and membranes, which the cell biology lesson explains."
-   }
-  ],
-  "lesson-biology-human-body-control-movement-and-defense": [
-   {
-    "lesson": "lesson-biology-human-anatomy-physiology",
-    "strength": "required",
-    "reason": "The systems-working-together section and example use the digestive, respiratory, circulatory and urinary systems and blood transport, and this lesson does not teach them."
-   },
-   {
-    "lesson": "lesson-biology-cellular-reproduction",
-    "strength": "helpful",
-    "reason": "The reproductive section uses chromosome numbers, but it also explains that gametes have half the chromosomes, so the lesson is only a help."
-   }
-  ],
-  "lesson-biology-meiosis-and-genetic-variation": [
-   {
-    "lesson": "lesson-biology-cellular-reproduction",
-    "strength": "required",
-    "reason": "Meiosis uses homologs, sister chromatids, centromeres, haploid and diploid, and mitosis for comparison, and only the cellular reproduction lesson teaches them."
-   }
-  ],
-  "lesson-biology-taxonomy-and-classification": [
-   {
-    "lesson": "lesson-biology-cell-biology",
-    "strength": "helpful",
-    "reason": "Classifying by nucleus and cell wall is easier after the cell biology lesson shows what these parts are."
-   }
-  ],
-  "lesson-chemistry-acids-bases-ph": [
-   {
-    "lesson": "lesson-algebra-logarithm-meaning-and-equations",
-    "strength": "helpful",
-    "reason": "The pH formula uses a base-10 logarithm. This lesson explains it as the power of 10 and only needs whole-number powers."
-   },
-   {
-    "lesson": "lesson-chemistry-solutions",
-    "strength": "helpful",
-    "reason": "Molarity, in moles per liter, is taught there in full. This lesson states what the unit M means before using it."
-   }
-  ],
-  "lesson-chemistry-atomic-structure": [],
-  "lesson-chemistry-basic-organic-chemistry": [
-   {
-    "lesson": "lesson-chemistry-chemical-bonding",
-    "strength": "helpful",
-    "reason": "Covalent bonds, polar bonds and hydrogen bonds are taught there in full. This lesson defines each one briefly before using it."
-   }
-  ],
-  "lesson-chemistry-chemical-bonding": [
-   {
-    "lesson": "lesson-chemistry-atomic-structure",
-    "strength": "helpful",
-    "reason": "Valence electrons, cations and anions are taught there in full. This lesson restates each one where it uses it."
-   },
-   {
-    "lesson": "lesson-chemistry-periodic-table",
-    "strength": "helpful",
-    "reason": "Electronegativity and its trend across the table are taught there with the reasons. This lesson defines electronegativity and gives the values it needs."
-   }
-  ],
-  "lesson-chemistry-chemical-reactions": [
-   {
-    "lesson": "lesson-chemistry-acids-bases-ph",
-    "strength": "helpful",
-    "reason": "The lesson points to acids and bases for neutralization. It names water formation as a driving force without needing the pH ideas."
-   }
-  ],
-  "lesson-chemistry-gas-laws": [
-   {
-    "lesson": "lesson-chemistry-mole-concept",
-    "strength": "helpful",
-    "reason": "The mole and molar mass are taught there in full. This lesson defines the mole briefly and gives each molar mass it needs."
-   }
-  ],
-  "lesson-chemistry-history-of-the-atom": [
-   {
-    "lesson": "lesson-chemistry-atomic-structure",
-    "strength": "helpful",
-    "reason": "Protons, neutrons, isotopes and average atomic mass are taught there in full. This lesson explains each one briefly for the history."
-   }
-  ],
-  "lesson-chemistry-matter": [],
-  "lesson-chemistry-mixtures-and-separation": [
-   {
-    "lesson": "lesson-chemistry-matter",
-    "strength": "helpful",
-    "reason": "Pure substances, compounds, mixtures and physical separation are introduced there. This lesson defines each one again before it uses it."
-   }
-  ],
-  "lesson-chemistry-mole-concept": [],
-  "lesson-chemistry-nuclear-chemistry": [
-   {
-    "lesson": "lesson-chemistry-atomic-structure",
-    "strength": "helpful",
-    "reason": "The lesson tells the student to review protons and neutrons there. It restates atomic number, mass number and isotopes before using them."
-   }
-  ],
-  "lesson-chemistry-periodic-table": [
-   {
-    "lesson": "lesson-chemistry-atomic-structure",
-    "strength": "helpful",
-    "reason": "Atomic number, protons and ions are taught there in full. This lesson defines atomic number and cations and anions itself."
-   },
-   {
-    "lesson": "lesson-chemistry-quantum-numbers-electron-configuration",
-    "strength": "helpful",
-    "reason": "Shells, subshells and orbitals are taught there in full. This lesson gives a short definition of each and points to that lesson."
-   }
-  ],
-  "lesson-chemistry-solutions": [
-   {
-    "lesson": "lesson-chemistry-mole-concept",
-    "strength": "helpful",
-    "reason": "The mole and molar mass are taught there in full. This lesson has a short section that defines both and shows grams to moles."
-   }
-  ],
-  "lesson-chemistry-stoichiometry": [
-   {
-    "lesson": "lesson-chemistry-mole-concept",
-    "strength": "required",
-    "reason": "This lesson uses moles, molar mass and the mass-to-moles step in every example, and only the mole concept lesson teaches what a mole is and how to find molar mass."
-   },
-   {
-    "lesson": "lesson-chemistry-chemical-reactions",
-    "strength": "helpful",
-    "reason": "Mole ratios come from a balanced equation, and that lesson teaches how to balance one. This lesson gives each balanced equation it uses."
-   }
-  ],
-  "lesson-chemistry-thermodynamics-and-kinetics": [
-   {
-    "lesson": "lesson-chemistry-chemical-reactions",
-    "strength": "helpful",
-    "reason": "Reversible equations and coefficients, which set the exponents in K, are easier after balancing. This lesson does not teach balancing."
-   },
-   {
-    "lesson": "lesson-chemistry-solutions",
-    "strength": "helpful",
-    "reason": "Concentration in moles per liter drives the rate law and K. This lesson states that M means mol/L and does not teach molarity."
-   }
-  ],
-  "lesson-earth-science-astronomy-earths-motions": [],
-  "lesson-earth-science-astronomy-earths-subsystems": [],
-  "lesson-earth-science-astronomy-eclipses-and-moon-phases": [],
-  "lesson-earth-science-astronomy-fossils-and-geologic-time": [
-   {
-    "lesson": "lesson-chemistry-nuclear-chemistry",
-    "strength": "helpful",
-    "reason": "Isotopes and radioactive decay sit under radiometric dating. This lesson defines isotope, parent, daughter, and half-life itself, so the link only adds depth."
-   }
-  ],
-  "lesson-earth-science-astronomy-heavenly-bodies": [],
-  "lesson-earth-science-astronomy-layers-of-the-earth": [
-   {
-    "lesson": "lesson-physics-waves-and-sound",
-    "strength": "helpful",
-    "reason": "P and S waves are longitudinal and transverse waves. This lesson explains how each behaves, and the waves lesson gives the general ideas."
-   }
-  ],
-  "lesson-earth-science-astronomy-minerals-and-rocks": [],
-  "lesson-earth-science-astronomy-origin-of-the-universe": [],
-  "lesson-earth-science-astronomy-plate-tectonics": [
-   {
-    "lesson": "lesson-earth-science-astronomy-layers-of-the-earth",
-    "strength": "helpful",
-    "reason": "Knowing the crust, mantle, lithosphere, and asthenosphere makes plate movement easier to follow. This lesson recaps the layers it uses, so the link is not required."
-   }
-  ],
-  "lesson-earth-science-astronomy-stars-and-galaxies": [
-   {
-    "lesson": "lesson-chemistry-nuclear-chemistry",
-    "strength": "helpful",
-    "reason": "Nuclear fusion powers every star. This lesson defines fusion briefly, and the nuclear chemistry lesson shows how nuclei join and release energy."
-   }
-  ],
-  "lesson-earth-science-astronomy-water-cycle-oceanography": [
-   {
-    "lesson": "lesson-earth-science-astronomy-eclipses-and-moon-phases",
-    "strength": "helpful",
-    "reason": "Spring and neap tides depend on the Moon phases and the Sun, Earth, and Moon line-up. This lesson describes the line-up, and the phases lesson explains the phases themselves."
-   }
-  ],
-  "lesson-geometry-basic-geometric-concepts": [],
-  "lesson-geometry-circles": [
-   {
-    "lesson": "lesson-geometry-triangles",
-    "strength": "helpful",
-    "reason": "The tangent, chord and semicircle examples use the Pythagorean theorem and the 30-60-90 triangle, and this lesson restates the theorem but not the special triangle."
-   }
-  ],
-  "lesson-geometry-coordinate-geometry": [
-   {
-    "lesson": "lesson-geometry-triangles",
-    "strength": "helpful",
-    "reason": "The distance formula comes from the Pythagorean theorem. This lesson restates the theorem and shows the right triangle."
-   },
-   {
-    "lesson": "lesson-algebra-line-slopes-and-intercepts",
-    "strength": "helpful",
-    "reason": "Slope, line forms and perpendicular slopes are also taught in the Line Slopes and Intercepts lesson. This lesson teaches them again from the start."
-   }
-  ],
-  "lesson-geometry-parallel-perpendicular-lines": [
-   {
-    "lesson": "lesson-geometry-basic-geometric-concepts",
-    "strength": "helpful",
-    "reason": "Angle types, complementary and supplementary sums, and bisectors are used in the examples. This lesson defines linear pairs and vertical angles itself."
-   }
-  ],
-  "lesson-geometry-quadrilaterals-and-polygons": [
-   {
-    "lesson": "lesson-geometry-parallel-perpendicular-lines",
-    "strength": "helpful",
-    "reason": "The supplementary angles in a parallelogram or trapezoid come from parallel lines cut by a transversal. This lesson states those facts as properties."
-   },
-   {
-    "lesson": "lesson-geometry-triangles",
-    "strength": "helpful",
-    "reason": "The angle sum formula splits a polygon into triangles, and rhombus and square examples use the Pythagorean theorem. This lesson states both facts."
-   }
-  ],
-  "lesson-geometry-triangles": [
-   {
-    "lesson": "lesson-geometry-basic-geometric-concepts",
-    "strength": "helpful",
-    "reason": "Angle names, linear pairs, midpoints and the supplementary and complementary sums make the angle examples easier. This lesson restates vertical angles and the 180-degree triangle sum."
-   }
-  ],
-  "lesson-mechanical-technical-reasoning-fluid-pressure": [],
   "lesson-mechanical-technical-reasoning-pulleys-and-levers": [
    {
-    "lesson": "lesson-trigonometry-basic-trigonometric-ratios",
+    "lesson": "lesson-trigonometry-reading-right-triangle-ratios",
     "strength": "helpful",
     "reason": "The angled-force section uses sine. This lesson gives the sine definition and the two values it needs."
    }
   ],
   "lesson-mechanical-technical-reasoning-structural-stability": [
    {
-    "lesson": "lesson-trigonometry-basic-trigonometric-ratios",
+    "lesson": "lesson-trigonometry-reading-right-triangle-ratios",
     "strength": "helpful",
     "reason": "The tipping angle uses the tangent. This lesson defines the tangent and the inverse tangent key."
-   }
-  ],
-  "lesson-physics-dynamics": [
-   {
-    "lesson": "lesson-physics-scalars-and-vectors",
-    "strength": "helpful",
-    "reason": "Splitting a force into parts along each axis is taught there in full. This lesson gives the cosine and sine rule it needs."
-   },
-   {
-    "lesson": "lesson-physics-kinematics",
-    "strength": "helpful",
-    "reason": "Acceleration as the rate of change of velocity comes from kinematics. This lesson restates it where the second law needs it."
-   }
-  ],
-  "lesson-physics-electricity-and-magnetism": [],
-  "lesson-physics-fluid-flow-continuity-and-bernoulli": [
-   {
-    "lesson": "lesson-physics-fluid-mechanics",
-    "strength": "helpful",
-    "reason": "Density, pressure and pressure at depth are taught there. This lesson defines each one briefly before using it."
-   },
-   {
-    "lesson": "lesson-physics-work-energy-power",
-    "strength": "helpful",
-    "reason": "Bernoulli's equation is an energy balance with kinetic and potential energy for each unit of volume. This lesson names both terms but does not derive them."
-   }
-  ],
-  "lesson-physics-fluid-mechanics": [],
-  "lesson-physics-friction-tension-and-inclines": [
-   {
-    "lesson": "lesson-physics-dynamics",
-    "strength": "required",
-    "reason": "This lesson uses Newton's second law, weight, the normal force and free-body diagrams in every example, and only the dynamics lesson teaches them."
-   }
-  ],
-  "lesson-physics-interference-diffraction-and-doppler": [
-   {
-    "lesson": "lesson-physics-waves-and-sound",
-    "strength": "required",
-    "reason": "The lesson uses wavelength, frequency, wave speed and v = f times wavelength without defining them, and the waves lesson teaches them. It tells the student to read that lesson first."
-   }
-  ],
-  "lesson-physics-kinematics": [
-   {
-    "lesson": "lesson-algebra-line-slopes-and-intercepts",
-    "strength": "helpful",
-    "reason": "Slope as rise over run makes the motion graphs easier to read. This lesson explains slope in the graph section, so the link is optional."
-   }
-  ],
-  "lesson-physics-light-and-optics": [
-   {
-    "lesson": "lesson-physics-waves-and-sound",
-    "strength": "helpful",
-    "reason": "The relation v = f times wavelength comes from the waves lesson. This lesson defines frequency and wavelength before using it."
-   },
-   {
-    "lesson": "lesson-trigonometry-basic-trigonometric-ratios",
-    "strength": "helpful",
-    "reason": "Snell's law uses the sine of an angle and its inverse. This lesson explains both for the angles it needs."
-   }
-  ],
-  "lesson-physics-mirrors-and-lenses": [
-   {
-    "lesson": "lesson-physics-light-and-optics",
-    "strength": "required",
-    "reason": "The lesson uses the law of reflection for mirrors and the index of refraction and bending at a boundary for lenses, and it does not teach them. It tells the student to read the light lesson first."
-   }
-  ],
-  "lesson-physics-momentum-and-impulse": [
-   {
-    "lesson": "lesson-physics-dynamics",
-    "strength": "helpful",
-    "reason": "Force, net force and Newton's third law explain why internal forces cancel. This lesson restates each idea where it uses it."
-   },
-   {
-    "lesson": "lesson-physics-work-energy-power",
-    "strength": "helpful",
-    "reason": "Kinetic energy is needed to classify collisions. This lesson gives the formula and uses it in its own examples."
-   }
-  ],
-  "lesson-physics-scalars-and-vectors": [
-   {
-    "lesson": "lesson-trigonometry-basic-trigonometric-ratios",
-    "strength": "helpful",
-    "reason": "Resolving a vector uses sine, cosine and tangent. This lesson defines all three and gives SOH-CAH-TOA."
-   },
-   {
-    "lesson": "lesson-trigonometry-unit-circle",
-    "strength": "helpful",
-    "reason": "The unit circle explains the signs of sine and cosine beyond 90 degrees. This lesson works the quadrant signs out itself."
-   }
-  ],
-  "lesson-physics-thermodynamics": [
-   {
-    "lesson": "lesson-physics-work-energy-power",
-    "strength": "helpful",
-    "reason": "The first law treats heat and work as energy transfers, which is easier after energy and work are taught. This lesson defines work for a gas and the sign rule."
-   }
-  ],
-  "lesson-physics-two-dimensional-motion": [
-   {
-    "lesson": "lesson-physics-kinematics",
-    "strength": "helpful",
-    "reason": "Free fall and constant acceleration come from kinematics. This lesson writes the position and velocity equations it uses."
-   },
-   {
-    "lesson": "lesson-physics-scalars-and-vectors",
-    "strength": "helpful",
-    "reason": "Launch components come from resolving a vector. This lesson gives the cosine and sine rule it needs."
-   },
-   {
-    "lesson": "lesson-physics-dynamics",
-    "strength": "helpful",
-    "reason": "The inward net force in circular motion applies Newton's second law. This lesson restates the law where it uses it."
-   }
-  ],
-  "lesson-physics-units-and-measurements": [],
-  "lesson-physics-waves-and-sound": [],
-  "lesson-physics-work-energy-power": [
-   {
-    "lesson": "lesson-physics-kinematics",
-    "strength": "helpful",
-    "reason": "Acceleration and the falling speed of 9.8 m/s each second are easier with kinematics. This lesson explains both briefly where it uses them."
-   },
-   {
-    "lesson": "lesson-physics-dynamics",
-    "strength": "helpful",
-    "reason": "Net force and constant velocity are easier with Newton's laws. This lesson restates that zero net force means no change in velocity."
-   },
-   {
-    "lesson": "lesson-mechanical-technical-reasoning-pulleys-and-levers",
-    "strength": "helpful",
-    "reason": "The efficiency section names effort, load and the ideal case, which that lesson explains in full. This lesson defines the efficiency formula itself."
-   }
-  ],
-  "lesson-statistics-and-probability-combinatorics": [
-   {
-    "lesson": "lesson-algebra-counting-venn-diagram-regions",
-    "strength": "helpful",
-    "reason": "Counting groups that overlap is the same idea as counting a union with a Venn diagram. This lesson explains the subtraction of the overlap."
-   }
-  ],
-  "lesson-statistics-and-probability-measures-of-variability": [
-   {
-    "lesson": "lesson-statistics-and-probability-measures-of-central-tendency",
-    "strength": "helpful",
-    "reason": "Every spread measure here starts from the mean. This lesson defines the mean in its first paragraph."
    }
   ],
   "lesson-text-types-short-stories-and-novels": [
@@ -3802,11 +3321,3685 @@
     "reason": "Judging evidence draws on telling facts, opinions, and forecasts apart. This lesson sets out its own checks for evidence."
    }
   ],
-  "lesson-trigonometry-basic-trigonometric-ratios": [
+  "lesson-algebra-set-elements-and-subsets": [
    {
-    "lesson": "lesson-geometry-triangles",
+    "lesson": "lesson-algebra-set-membership-and-operations",
+    "strength": "required",
+    "reason": "Use the set notation and universal set introduced in the previous lesson."
+   }
+  ],
+  "lesson-algebra-counting-elements-and-subsets": [
+   {
+    "lesson": "lesson-algebra-set-elements-and-subsets",
+    "strength": "required",
+    "reason": "Use membership, subsets, and proper subsets to count sets."
+   }
+  ],
+  "lesson-algebra-three-set-inclusion-exclusion": [
+   {
+    "lesson": "lesson-algebra-counting-venn-diagram-regions",
+    "strength": "required",
+    "reason": "Use the three-set regions to check the union total."
+   }
+  ],
+  "lesson-algebra-ranges-on-restricted-domains": [
+   {
+    "lesson": "lesson-algebra-functions-domain-and-range",
+    "strength": "required",
+    "reason": "Use domain, range, and interval notation."
+   }
+  ],
+  "lesson-algebra-arithmetic-with-functions": [
+   {
+    "lesson": "lesson-algebra-evaluating-and-composing-functions",
+    "strength": "required",
+    "reason": "Use function notation and evaluate each function at the given input."
+   }
+  ],
+  "lesson-algebra-inverting-restricted-quadratics": [
+   {
+    "lesson": "lesson-algebra-inverse-functions-and-checks",
+    "strength": "required",
+    "reason": "Use the inverse and one-to-one tests before selecting a branch."
+   }
+  ],
+  "lesson-algebra-quadratic-rectangle-area": [
+   {
+    "lesson": "lesson-algebra-factoring-quadratic-equations",
+    "strength": "required",
+    "reason": "Factor the equation to find the possible widths."
+   }
+  ],
+  "lesson-algebra-finishing-completing-the-square": [
+   {
+    "lesson": "lesson-algebra-quadratic-methods-and-root-properties",
+    "strength": "required",
+    "reason": "Use the first steps of completing the square."
+   }
+  ],
+  "lesson-algebra-quadratic-formula-and-irrational-roots": [
+   {
+    "lesson": "lesson-algebra-quadratic-methods-and-root-properties",
+    "strength": "required",
+    "reason": "Use the quadratic formula and discriminant."
+   }
+  ],
+  "lesson-algebra-quadratic-equations-from-roots": [
+   {
+    "lesson": "lesson-algebra-quadratic-methods-and-root-properties",
+    "strength": "required",
+    "reason": "Use the sum and product of the roots."
+   }
+  ],
+  "lesson-algebra-quadratic-inequalities-with-two-roots": [
+   {
+    "lesson": "lesson-algebra-quadratic-methods-and-root-properties",
+    "strength": "required",
+    "reason": "Use roots and the discriminant to find where the quadratic changes sign."
+   }
+  ],
+  "lesson-algebra-quadratic-inequalities-with-fewer-roots": [
+   {
+    "lesson": "lesson-algebra-quadratic-inequalities-with-two-roots",
+    "strength": "required",
+    "reason": "Use the sign intervals from the previous lesson."
+   }
+  ],
+  "lesson-algebra-rational-exponents-and-root-quotients": [
+   {
+    "lesson": "lesson-algebra-simplifying-and-combining-radicals",
+    "strength": "required",
+    "reason": "Use real root notation and the rules for simplifying radicals."
+   }
+  ],
+  "lesson-algebra-solving-square-root-equations": [
+   {
+    "lesson": "lesson-algebra-cube-root-denominators-and-nested-radicals",
+    "strength": "required",
+    "reason": "Use the nested radical example as background for solving radical equations."
+   }
+  ],
+  "lesson-algebra-solving-cube-root-equations": [
+   {
+    "lesson": "lesson-algebra-cube-root-denominators-and-nested-radicals",
+    "strength": "required",
+    "reason": "Use cube roots and their real values."
+   }
+  ],
+  "lesson-algebra-graphing-linear-systems": [
+   {
+    "lesson": "lesson-algebra-systems-graphs-and-solution-counts",
+    "strength": "required",
+    "reason": "Use the intersection to identify a system solution."
+   }
+  ],
+  "lesson-algebra-classifying-linear-systems-by-slope": [
+   {
+    "lesson": "lesson-algebra-systems-graphs-and-solution-counts",
+    "strength": "required",
+    "reason": "Use the three possible solution counts for two lines."
+   }
+  ],
+  "lesson-algebra-tangent-and-missing-intersections": [
+   {
+    "lesson": "lesson-algebra-systems-lines-and-parabolas",
+    "strength": "required",
+    "reason": "Use substitution for a line and a parabola."
+   }
+  ],
+  "lesson-algebra-eliminating-for-a-sum-or-difference": [
+   {
+    "lesson": "lesson-algebra-systems-elimination",
+    "strength": "required",
+    "reason": "Use addition and subtraction on whole equations."
+   }
+  ],
+  "lesson-algebra-set-differences-and-disjoint-sets": [
+   {
+    "lesson": "lesson-algebra-set-membership-and-operations",
+    "strength": "required",
+    "reason": "Use intersection and complement to describe differences."
+   }
+  ],
+  "lesson-algebra-quadratic-inequalities-outside-the-roots": [
+   {
+    "lesson": "lesson-algebra-quadratic-inequalities-with-two-roots",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-phloem-sources-and-sinks": [
+   {
+    "lesson": "lesson-biology-plant-tissue-systems",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-biology-atp-and-cell-metabolism",
+    "strength": "helpful",
+    "reason": "Phloem moves the sugar that photosynthesis makes, and the metabolism lesson explains photosynthesis in full."
+   }
+  ],
+  "lesson-biology-plant-tropisms": [
+   {
+    "lesson": "lesson-biology-phloem-sources-and-sinks",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-flower-parts": [
+   {
+    "lesson": "lesson-biology-plant-tropisms",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-pollination-and-pollen-tube-growth": [
+   {
+    "lesson": "lesson-biology-flower-parts",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-double-fertilization-and-seed-formation": [
+   {
+    "lesson": "lesson-biology-pollination-and-pollen-tube-growth",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-plant-and-animal-cell-structures": [
+   {
+    "lesson": "lesson-biology-organelles-and-protein-secretion",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-passive-and-active-cell-transport": [
+   {
+    "lesson": "lesson-biology-plant-and-animal-cell-structures",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-osmosis-and-tonicity": [
+   {
+    "lesson": "lesson-biology-passive-and-active-cell-transport",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-enzyme-action": [
+   {
+    "lesson": "lesson-biology-atp-and-cell-metabolism",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-biomolecule-groups": [
+   {
+    "lesson": "lesson-biology-enzyme-action",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-photosynthesis-inputs-and-products": [
+   {
+    "lesson": "lesson-biology-biomolecule-groups",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-light-reactions-and-calvin-cycle": [
+   {
+    "lesson": "lesson-biology-photosynthesis-inputs-and-products",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-biology-organelles-and-protein-secretion",
+    "strength": "helpful",
+    "reason": "Photosynthesis happens in chloroplasts and membranes, and the cell biology lesson describes these organelles and what they do."
+   }
+  ],
+  "lesson-biology-cell-cycle-and-cytokinesis": [
+   {
+    "lesson": "lesson-biology-chromosome-sets-and-copies",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-mitosis-phases-and-results": [
+   {
+    "lesson": "lesson-biology-cell-cycle-and-cytokinesis",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-counting-chromosomes-through-mitosis": [
+   {
+    "lesson": "lesson-biology-mitosis-phases-and-results",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-aerobic-respiration-stages": [
+   {
+    "lesson": "lesson-biology-aerobic-respiration-inputs-and-products",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-respiration-in-cells": [
+   {
+    "lesson": "lesson-biology-aerobic-respiration-stages",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-biology-organelles-and-protein-secretion",
+    "strength": "helpful",
+    "reason": "The location of each stage depends on the mitochondrion and cytosol, which the cell biology lesson describes."
+   }
+  ],
+  "lesson-biology-fermentation-and-anaerobic-respiration": [
+   {
+    "lesson": "lesson-biology-respiration-in-cells",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-photosynthesis-and-respiration-together": [
+   {
+    "lesson": "lesson-biology-fermentation-and-anaerobic-respiration",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-biology-atp-and-cell-metabolism",
+    "strength": "helpful",
+    "reason": "This lesson defines ATP, glucose and enzymes itself, but the metabolism lesson gives the photosynthesis side of the comparison and more on enzymes."
+   }
+  ],
+  "lesson-biology-plant-respiration-in-light-and-dark": [
+   {
+    "lesson": "lesson-biology-photosynthesis-and-respiration-together",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-evidence-for-life-processes": [
+   {
+    "lesson": "lesson-biology-organelles-and-protein-secretion",
+    "strength": "helpful",
+    "reason": "The first property says all life is made of cells, and the cell biology lesson shows what a cell contains and how it works."
+   }
+  ],
+  "lesson-biology-reproduction-and-population-adaptation": [
+   {
+    "lesson": "lesson-biology-evidence-for-life-processes",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-living-and-nonliving-things": [
+   {
+    "lesson": "lesson-biology-reproduction-and-population-adaptation",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-dormant-seeds": [
+   {
+    "lesson": "lesson-biology-living-and-nonliving-things",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-viruses-and-the-definition-of-life": [
+   {
+    "lesson": "lesson-biology-dormant-seeds",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-levels-of-biological-organization": [
+   {
+    "lesson": "lesson-biology-viruses-and-the-definition-of-life",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-food-chains-and-food-webs": [
+   {
+    "lesson": "lesson-biology-ecosystems-and-population-change",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-energy-transfer-between-trophic-levels": [
+   {
+    "lesson": "lesson-biology-food-chains-and-food-webs",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
+    "strength": "helpful",
+    "reason": "Percentage multiplication helps with energy transfers. Ecology supplies the 0.10 multiplier and worked steps, so it stands alone."
+   }
+  ],
+  "lesson-biology-carbon-and-water-cycles": [
+   {
+    "lesson": "lesson-biology-energy-transfer-between-trophic-levels",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-biology-atp-and-cell-metabolism",
+    "strength": "helpful",
+    "reason": "Understanding photosynthesis and respiration makes carbon cycling easier. Ecology explains their relevant roles itself."
+   }
+  ],
+  "lesson-biology-nitrogen-cycling": [
+   {
+    "lesson": "lesson-biology-carbon-and-water-cycles",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-phosphorus-cycling": [
+   {
+    "lesson": "lesson-biology-nitrogen-cycling",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-symbiosis-and-its-effects": [
+   {
+    "lesson": "lesson-biology-phosphorus-cycling",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-biodiversity-and-conservation": [
+   {
+    "lesson": "lesson-biology-symbiosis-and-its-effects",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-genes-and-inherited-variation": [
+   {
+    "lesson": "lesson-biology-genes-alleles-and-phenotypes",
+    "strength": "helpful",
+    "reason": "This lesson defines genes, alleles and gametes itself and only points to the genetics lesson for how inheritance works in full."
+   }
+  ],
+  "lesson-biology-allele-frequency-across-generations": [
+   {
+    "lesson": "lesson-biology-genes-and-inherited-variation",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-how-mutations-add-alleles": [
+   {
+    "lesson": "lesson-biology-allele-frequency-across-generations",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-chance-and-genetic-drift": [
+   {
+    "lesson": "lesson-biology-how-mutations-add-alleles",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-gene-flow-between-populations": [
+   {
+    "lesson": "lesson-biology-chance-and-genetic-drift",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-how-natural-selection-works": [
+   {
+    "lesson": "lesson-biology-gene-flow-between-populations",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-fitness-and-heritable-traits": [
+   {
+    "lesson": "lesson-biology-how-natural-selection-works",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-species-and-reproductive-isolation": [
+   {
+    "lesson": "lesson-biology-fitness-and-heritable-traits",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-speciation-and-adaptive-radiation": [
+   {
+    "lesson": "lesson-biology-species-and-reproductive-isolation",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-segregation-and-punnett-squares": [
+   {
+    "lesson": "lesson-biology-genes-alleles-and-phenotypes",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-biology-chromosome-sets-in-mitosis-and-meiosis",
+    "strength": "helpful",
+    "reason": "The Law of Segregation describes how alleles separate into gametes, and the meiosis lesson shows the chromosome movements that cause it."
+   }
+  ],
+  "lesson-biology-independent-assortment-and-linked-genes": [
+   {
+    "lesson": "lesson-biology-segregation-and-punnett-squares",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-incomplete-dominance-and-codominance": [
+   {
+    "lesson": "lesson-biology-independent-assortment-and-linked-genes",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-x-linked-traits": [
+   {
+    "lesson": "lesson-biology-incomplete-dominance-and-codominance",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-from-dna-to-protein": [
+   {
+    "lesson": "lesson-biology-x-linked-traits",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-dna-mutations-and-their-effects": [
+   {
+    "lesson": "lesson-biology-from-dna-to-protein",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-reading-autosomal-pedigrees": [
+   {
+    "lesson": "lesson-biology-dna-mutations-and-their-effects",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-identifying-x-linked-pedigrees": [
+   {
+    "lesson": "lesson-biology-reading-autosomal-pedigrees",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-digestion-and-nutrient-absorption": [
+   {
+    "lesson": "lesson-biology-cells-tissues-and-organs",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-breathing-and-gas-exchange": [
+   {
+    "lesson": "lesson-biology-digestion-and-nutrient-absorption",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-biology-organelles-and-protein-secretion",
+    "strength": "helpful",
+    "reason": "Gas exchange and reabsorption in the kidney depend on diffusion and membranes, which the cell biology lesson explains."
+   }
+  ],
+  "lesson-biology-blood-flow-through-the-heart": [
+   {
+    "lesson": "lesson-biology-breathing-and-gas-exchange",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-arteries-veins-and-capillaries": [
+   {
+    "lesson": "lesson-biology-blood-flow-through-the-heart",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-kidneys-and-waste-removal": [
+   {
+    "lesson": "lesson-biology-arteries-veins-and-capillaries",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-biology-organelles-and-protein-secretion",
+    "strength": "helpful",
+    "reason": "Gas exchange and reabsorption in the kidney depend on diffusion and membranes, which the cell biology lesson explains."
+   }
+  ],
+  "lesson-biology-hormones-and-blood-glucose-feedback": [
+   {
+    "lesson": "lesson-biology-nerves-reflexes-and-brain-control",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-the-pituitary-and-its-hormones": [
+   {
+    "lesson": "lesson-biology-hormones-and-blood-glucose-feedback",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-bones-joints-and-muscles": [
+   {
+    "lesson": "lesson-biology-the-pituitary-and-its-hormones",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-human-reproduction-and-fertilization": [
+   {
+    "lesson": "lesson-biology-bones-joints-and-muscles",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-biology-chromosome-sets-and-copies",
+    "strength": "helpful",
+    "reason": "The reproductive section uses chromosome numbers, but it also explains that gametes have half the chromosomes, so the lesson is only a help."
+   }
+  ],
+  "lesson-biology-innate-and-adaptive-defenses": [
+   {
+    "lesson": "lesson-biology-human-reproduction-and-fertilization",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-how-body-systems-work-together": [
+   {
+    "lesson": "lesson-biology-innate-and-adaptive-defenses",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-biology-cells-tissues-and-organs",
+    "strength": "required",
+    "reason": "The systems-working-together section and example use the digestive, respiratory, circulatory and urinary systems and blood transport, and this lesson does not teach them."
+   }
+  ],
+  "lesson-biology-chromosome-sets-in-mitosis-and-meiosis": [
+   {
+    "lesson": "lesson-biology-chromosome-sets-and-copies",
+    "strength": "required",
+    "reason": "Meiosis uses homologs, sister chromatids, centromeres, haploid and diploid, and mitosis for comparison, and only the cellular reproduction lesson teaches them."
+   }
+  ],
+  "lesson-biology-meiosis-i-and-meiosis-ii": [
+   {
+    "lesson": "lesson-biology-chromosome-sets-in-mitosis-and-meiosis",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-counting-chromosomes-after-meiosis": [
+   {
+    "lesson": "lesson-biology-meiosis-i-and-meiosis-ii",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-spores-eggs-and-sperm": [
+   {
+    "lesson": "lesson-biology-counting-chromosomes-after-meiosis",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-independent-assortment-of-chromosomes": [
+   {
+    "lesson": "lesson-biology-spores-eggs-and-sperm",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-allele-combinations-in-gametes": [
+   {
+    "lesson": "lesson-biology-independent-assortment-of-chromosomes",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-crossing-over-and-fertilization": [
+   {
+    "lesson": "lesson-biology-allele-combinations-in-gametes",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-domains-and-kingdom-schemes": [
+   {
+    "lesson": "lesson-biology-taxonomy-and-traditional-ranks",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-biology-organelles-and-protein-secretion",
+    "strength": "helpful",
+    "reason": "Classifying by nucleus and cell wall is easier after the cell biology lesson shows what these parts are."
+   }
+  ],
+  "lesson-biology-classifying-organisms-by-their-traits": [
+   {
+    "lesson": "lesson-biology-domains-and-kingdom-schemes",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-using-a-dichotomous-key": [
+   {
+    "lesson": "lesson-biology-classifying-organisms-by-their-traits",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-common-ancestry-on-branching-trees": [
+   {
+    "lesson": "lesson-biology-using-a-dichotomous-key",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-why-classifications-change": [
+   {
+    "lesson": "lesson-biology-common-ancestry-on-branching-trees",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-biology-two-part-scientific-names": [
+   {
+    "lesson": "lesson-biology-why-classifications-change",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-ph-and-hydronium": [
+   {
+    "lesson": "lesson-chemistry-acid-and-base-models",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-algebra-logarithm-meaning-and-equations",
+    "strength": "helpful",
+    "reason": "The pH formula uses a base-10 logarithm. This lesson explains it as the power of 10 and only needs whole-number powers."
+   },
+   {
+    "lesson": "lesson-chemistry-solutions-and-saturation",
+    "strength": "helpful",
+    "reason": "Molarity, in moles per liter, is taught there in full. This lesson states what the unit M means before using it."
+   }
+  ],
+  "lesson-chemistry-acid-and-base-strength": [
+   {
+    "lesson": "lesson-chemistry-ph-and-hydronium",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-ph-from-hydroxide": [
+   {
+    "lesson": "lesson-chemistry-acid-and-base-strength",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-acid-base-neutralization": [
+   {
+    "lesson": "lesson-chemistry-ph-from-hydroxide",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-atomic-and-mass-numbers": [
+   {
+    "lesson": "lesson-chemistry-particles-in-an-atom",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-isotopes-and-neutrons": [
+   {
+    "lesson": "lesson-chemistry-atomic-and-mass-numbers",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-isotope-weighted-average-mass": [
+   {
+    "lesson": "lesson-chemistry-isotopes-and-neutrons",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-monatomic-ion-charge": [
+   {
+    "lesson": "lesson-chemistry-isotope-weighted-average-mass",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-ions-and-isotope-notation": [
+   {
+    "lesson": "lesson-chemistry-monatomic-ion-charge",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-polyatomic-ions-and-charge": [
+   {
+    "lesson": "lesson-chemistry-ions-and-isotope-notation",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-hydrocarbon-families-by-bond": [
+   {
+    "lesson": "lesson-chemistry-carbon-compounds-and-frameworks",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-hydrocarbon-formulas-and-rings": [
+   {
+    "lesson": "lesson-chemistry-hydrocarbon-families-by-bond",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-recognizing-organic-functional-groups": [
+   {
+    "lesson": "lesson-chemistry-hydrocarbon-formulas-and-rings",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-aldehydes-and-ketones": [
+   {
+    "lesson": "lesson-chemistry-recognizing-organic-functional-groups",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-functional-groups-and-properties": [
+   {
+    "lesson": "lesson-chemistry-aldehydes-and-ketones",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-chemistry-ionic-covalent-and-metallic-bonds",
+    "strength": "helpful",
+    "reason": "Covalent bonds, polar bonds and hydrogen bonds are taught there in full. This lesson defines each one briefly before using it."
+   }
+  ],
+  "lesson-chemistry-hydrocarbon-name-roots-and-endings": [
+   {
+    "lesson": "lesson-chemistry-functional-groups-and-properties",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-naming-branched-alkanes": [
+   {
+    "lesson": "lesson-chemistry-hydrocarbon-name-roots-and-endings",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-parent-chains-and-locants": [
+   {
+    "lesson": "lesson-chemistry-naming-branched-alkanes",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-functional-groups-in-biomolecules": [
+   {
+    "lesson": "lesson-chemistry-parent-chains-and-locants",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-ionic-covalent-and-metallic-bonds": [
+   {
+    "lesson": "lesson-chemistry-particles-in-an-atom",
+    "strength": "helpful",
+    "reason": "Valence electrons, cations and anions are taught there in full. This lesson restates each one where it uses it."
+   }
+  ],
+  "lesson-chemistry-electronegativity-and-bond-polarity": [
+   {
+    "lesson": "lesson-chemistry-ionic-covalent-and-metallic-bonds",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-chemistry-periodic-groups-periods-and-valence",
+    "strength": "helpful",
+    "reason": "Electronegativity and its trend across the table are taught there with the reasons. This lesson defines electronegativity and gives the values it needs."
+   }
+  ],
+  "lesson-chemistry-octet-rule-and-exceptions": [
+   {
+    "lesson": "lesson-chemistry-electronegativity-and-bond-polarity",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-drawing-lewis-structures": [
+   {
+    "lesson": "lesson-chemistry-octet-rule-and-exceptions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-formal-charge-and-resonance": [
+   {
+    "lesson": "lesson-chemistry-drawing-lewis-structures",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-vsepr-two-and-three-groups": [
+   {
+    "lesson": "lesson-chemistry-formal-charge-and-resonance",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-vsepr-four-groups": [
+   {
+    "lesson": "lesson-chemistry-vsepr-two-and-three-groups",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-polar-and-nonpolar-molecules": [
+   {
+    "lesson": "lesson-chemistry-vsepr-four-groups",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-forces-between-molecules": [
+   {
+    "lesson": "lesson-chemistry-polar-and-nonpolar-molecules",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-bonding-and-material-properties": [
+   {
+    "lesson": "lesson-chemistry-forces-between-molecules",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-naming-binary-molecules": [
+   {
+    "lesson": "lesson-chemistry-naming-ionic-compounds",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-writing-charge-balanced-formulas": [
+   {
+    "lesson": "lesson-chemistry-naming-binary-molecules",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-ion-charges-and-reaction-formulas": [
+   {
+    "lesson": "lesson-chemistry-conserving-atoms-in-reactions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-balancing-with-coefficients": [
+   {
+    "lesson": "lesson-chemistry-ion-charges-and-reaction-formulas",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-polyatomic-groups-and-coefficient-ratios": [
+   {
+    "lesson": "lesson-chemistry-balancing-with-coefficients",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-recognizing-reaction-patterns": [
+   {
+    "lesson": "lesson-chemistry-polyatomic-groups-and-coefficient-ratios",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-single-displacement-and-reactivity": [
+   {
+    "lesson": "lesson-chemistry-recognizing-reaction-patterns",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-double-displacement-driving-forces": [
+   {
+    "lesson": "lesson-chemistry-single-displacement-and-reactivity",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-chemistry-acid-and-base-models",
+    "strength": "helpful",
+    "reason": "The lesson points to acids and bases for neutralization. It names water formation as a driving force without needing the pH ideas."
+   }
+  ],
+  "lesson-chemistry-precipitates-and-net-ionic-equations": [
+   {
+    "lesson": "lesson-chemistry-double-displacement-driving-forces",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-balancing-complete-combustion": [
+   {
+    "lesson": "lesson-chemistry-precipitates-and-net-ionic-equations",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-incomplete-combustion-products": [
+   {
+    "lesson": "lesson-chemistry-balancing-complete-combustion",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-oxidation-and-reduction-in-reactions": [
+   {
+    "lesson": "lesson-chemistry-incomplete-combustion-products",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-celsius-and-kelvin-for-gases": [
+   {
+    "lesson": "lesson-chemistry-gas-particles-and-measurements",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-variables-in-gas-investigations": [
+   {
+    "lesson": "lesson-chemistry-celsius-and-kelvin-for-gases",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-boyles-pressure-volume-law": [
+   {
+    "lesson": "lesson-chemistry-variables-in-gas-investigations",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-charless-volume-temperature-law": [
+   {
+    "lesson": "lesson-chemistry-boyles-pressure-volume-law",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-gay-lussacs-pressure-temperature-law": [
+   {
+    "lesson": "lesson-chemistry-charless-volume-temperature-law",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-avogadros-volume-mole-law": [
+   {
+    "lesson": "lesson-chemistry-gay-lussacs-pressure-temperature-law",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-combined-gas-law-calculations": [
+   {
+    "lesson": "lesson-chemistry-avogadros-volume-mole-law",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-ideal-gas-law-calculations": [
+   {
+    "lesson": "lesson-chemistry-combined-gas-law-calculations",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-chemistry-mole-and-avogadro-constant",
+    "strength": "helpful",
+    "reason": "The mole and molar mass are taught there in full. This lesson defines the mole briefly and gives each molar mass it needs."
+   }
+  ],
+  "lesson-chemistry-gas-molar-volume-and-stp": [
+   {
+    "lesson": "lesson-chemistry-ideal-gas-law-calculations",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-when-real-gases-deviate": [
+   {
+    "lesson": "lesson-chemistry-gas-molar-volume-and-stp",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-daltons-atomic-model": [
+   {
+    "lesson": "lesson-chemistry-evidence-and-atomic-models",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-daltons-laws-of-mass": [
+   {
+    "lesson": "lesson-chemistry-daltons-atomic-model",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-isotopes-and-daltons-claim": [
+   {
+    "lesson": "lesson-chemistry-daltons-laws-of-mass",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-chemistry-particles-in-an-atom",
+    "strength": "helpful",
+    "reason": "Protons, neutrons, isotopes and average atomic mass are taught there in full. This lesson explains each one briefly for the history."
+   }
+  ],
+  "lesson-chemistry-thomson-and-cathode-rays": [
+   {
+    "lesson": "lesson-chemistry-isotopes-and-daltons-claim",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-gold-foil-and-the-nucleus": [
+   {
+    "lesson": "lesson-chemistry-thomson-and-cathode-rays",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-bohr-and-hydrogen-line-spectra": [
+   {
+    "lesson": "lesson-chemistry-gold-foil-and-the-nucleus",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-quantum-model-and-orbitals": [
+   {
+    "lesson": "lesson-chemistry-bohr-and-hydrogen-line-spectra",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-physical-separation-of-matter": [
+   {
+    "lesson": "lesson-chemistry-classifying-matter-and-mixtures",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-particle-model-of-matter": [
+   {
+    "lesson": "lesson-chemistry-physical-separation-of-matter",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-crystalline-solids-and-plasma": [
+   {
+    "lesson": "lesson-chemistry-particle-model-of-matter",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-phase-change-directions": [
+   {
+    "lesson": "lesson-chemistry-crystalline-solids-and-plasma",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-temperature-during-phase-changes": [
+   {
+    "lesson": "lesson-chemistry-phase-change-directions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-physical-and-chemical-properties": [
+   {
+    "lesson": "lesson-chemistry-temperature-during-phase-changes",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-physical-and-chemical-changes": [
+   {
+    "lesson": "lesson-chemistry-physical-and-chemical-properties",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-classifying-mixture-types": [
+   {
+    "lesson": "lesson-chemistry-classifying-matter-and-mixtures",
+    "strength": "helpful",
+    "reason": "Pure substances, compounds, mixtures and physical separation are introduced there. This lesson defines each one again before it uses it."
+   }
+  ],
+  "lesson-chemistry-colloids-and-suspensions": [
+   {
+    "lesson": "lesson-chemistry-classifying-mixture-types",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-filtration-and-decanting": [
+   {
+    "lesson": "lesson-chemistry-colloids-and-suspensions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-separating-immiscible-liquids": [
+   {
+    "lesson": "lesson-chemistry-filtration-and-decanting",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-recovering-dissolved-solids": [
+   {
+    "lesson": "lesson-chemistry-separating-immiscible-liquids",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-simple-distillation-and-collection": [
+   {
+    "lesson": "lesson-chemistry-recovering-dissolved-solids",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-fractional-distillation-and-azeotropes": [
+   {
+    "lesson": "lesson-chemistry-simple-distillation-and-collection",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-paper-chromatography-setup": [
+   {
+    "lesson": "lesson-chemistry-fractional-distillation-and-azeotropes",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-reading-paper-chromatograms": [
+   {
+    "lesson": "lesson-chemistry-paper-chromatography-setup",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-choosing-mixture-separation-methods": [
+   {
+    "lesson": "lesson-chemistry-reading-paper-chromatograms",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-entities-and-particle-counts": [
+   {
+    "lesson": "lesson-chemistry-mole-and-avogadro-constant",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-atomic-mass-and-molar-mass": [
+   {
+    "lesson": "lesson-chemistry-entities-and-particle-counts",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-molar-mass-from-formulas": [
+   {
+    "lesson": "lesson-chemistry-atomic-mass-and-molar-mass",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-converting-mass-and-moles": [
+   {
+    "lesson": "lesson-chemistry-molar-mass-from-formulas",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-converting-mass-and-entities": [
+   {
+    "lesson": "lesson-chemistry-converting-mass-and-moles",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-nuclear-symbols-and-isotopes": [
+   {
+    "lesson": "lesson-chemistry-particles-in-an-atom",
+    "strength": "helpful",
+    "reason": "The lesson tells the student to review protons and neutrons there. It restates atomic number, mass number and isotopes before using them."
+   }
+  ],
+  "lesson-chemistry-alpha-and-beta-minus-decay": [
+   {
+    "lesson": "lesson-chemistry-nuclear-symbols-and-isotopes",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-positron-emission-and-electron-capture": [
+   {
+    "lesson": "lesson-chemistry-alpha-and-beta-minus-decay",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-gamma-emission-and-radiation-penetration": [
+   {
+    "lesson": "lesson-chemistry-positron-emission-and-electron-capture",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-balancing-nuclear-equations": [
+   {
+    "lesson": "lesson-chemistry-gamma-emission-and-radiation-penetration",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-nuclear-fission-and-fusion": [
+   {
+    "lesson": "lesson-chemistry-balancing-nuclear-equations",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-comparing-nuclear-energy": [
+   {
+    "lesson": "lesson-chemistry-nuclear-fission-and-fusion",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-periodic-groups-periods-and-valence": [
+   {
+    "lesson": "lesson-chemistry-particles-in-an-atom",
+    "strength": "helpful",
+    "reason": "Atomic number, protons and ions are taught there in full. This lesson defines atomic number and cations and anions itself."
+   },
+   {
+    "lesson": "lesson-chemistry-quantum-number-ranges-and-orbitals",
+    "strength": "helpful",
+    "reason": "Shells, subshells and orbitals are taught there in full. This lesson gives a short definition of each and points to that lesson."
+   }
+  ],
+  "lesson-chemistry-valence-electrons-by-group": [
+   {
+    "lesson": "lesson-chemistry-periodic-groups-periods-and-valence",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-periodic-element-families": [
+   {
+    "lesson": "lesson-chemistry-valence-electrons-by-group",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-atomic-radius-and-shielding": [
+   {
+    "lesson": "lesson-chemistry-periodic-element-families",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-first-ionization-energy-trends": [
+   {
+    "lesson": "lesson-chemistry-atomic-radius-and-shielding",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-electronegativity-and-electron-affinity": [
+   {
+    "lesson": "lesson-chemistry-first-ionization-energy-trends",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-ground-state-electron-filling": [
+   {
+    "lesson": "lesson-chemistry-quantum-number-ranges-and-orbitals",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-reading-electron-configurations": [
+   {
+    "lesson": "lesson-chemistry-ground-state-electron-filling",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-solubility-temperature-and-pressure": [
+   {
+    "lesson": "lesson-chemistry-solutions-and-saturation",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-molarity-and-molality": [
+   {
+    "lesson": "lesson-chemistry-solubility-temperature-and-pressure",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-chemistry-mole-and-avogadro-constant",
+    "strength": "helpful",
+    "reason": "The mole and molar mass are taught there in full. This lesson has a short section that defines both and shows grams to moles."
+   }
+  ],
+  "lesson-chemistry-solution-percent-by-mass": [
+   {
+    "lesson": "lesson-chemistry-molarity-and-molality",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-solution-percent-by-volume": [
+   {
+    "lesson": "lesson-chemistry-solution-percent-by-mass",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-temperature-and-solution-concentration": [
+   {
+    "lesson": "lesson-chemistry-solution-percent-by-volume",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-diluting-solutions": [
+   {
+    "lesson": "lesson-chemistry-temperature-and-solution-concentration",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-solution-labels-and-safe-handling": [
+   {
+    "lesson": "lesson-chemistry-diluting-solutions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-mole-ratios-and-reaction-masses": [
+   {
+    "lesson": "lesson-chemistry-mole-and-avogadro-constant",
+    "strength": "required",
+    "reason": "This lesson uses moles, molar mass and the mass-to-moles step in every example, and only the mole concept lesson teaches what a mole is and how to find molar mass."
+   },
+   {
+    "lesson": "lesson-chemistry-conserving-atoms-in-reactions",
+    "strength": "helpful",
+    "reason": "Mole ratios come from a balanced equation, and that lesson teaches how to balance one. This lesson gives each balanced equation it uses."
+   }
+  ],
+  "lesson-chemistry-limiting-and-excess-reactant-amounts": [
+   {
+    "lesson": "lesson-chemistry-mole-ratios-and-reaction-masses",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-theoretical-and-percent-yield": [
+   {
+    "lesson": "lesson-chemistry-limiting-and-excess-reactant-amounts",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-empirical-formulas-from-composition": [
+   {
+    "lesson": "lesson-chemistry-theoretical-and-percent-yield",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-molecular-formulas-from-molar-mass": [
+   {
+    "lesson": "lesson-chemistry-empirical-formulas-from-composition",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-reaction-spontaneity-and-speed": [
+   {
+    "lesson": "lesson-chemistry-reaction-heat-and-spontaneity",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-activation-energy-and-collisions": [
+   {
+    "lesson": "lesson-chemistry-reaction-spontaneity-and-speed",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-catalysts-and-reaction-pathways": [
+   {
+    "lesson": "lesson-chemistry-activation-energy-and-collisions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-factors-that-change-reaction-rate": [
+   {
+    "lesson": "lesson-chemistry-catalysts-and-reaction-pathways",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-rate-laws-and-reaction-orders": [
+   {
+    "lesson": "lesson-chemistry-factors-that-change-reaction-rate",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-chemistry-solutions-and-saturation",
+    "strength": "helpful",
+    "reason": "Concentration in moles per liter drives the rate law and K. This lesson states that M means mol/L and does not teach molarity."
+   }
+  ],
+  "lesson-chemistry-reaction-orders-from-initial-rates": [
+   {
+    "lesson": "lesson-chemistry-rate-laws-and-reaction-orders",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-fair-tests-of-reaction-rate": [
+   {
+    "lesson": "lesson-chemistry-reaction-orders-from-initial-rates",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-chemistry-dynamic-equilibrium-and-k": [
+   {
+    "lesson": "lesson-chemistry-fair-tests-of-reaction-rate",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-chemistry-conserving-atoms-in-reactions",
+    "strength": "helpful",
+    "reason": "Reversible equations and coefficients, which set the exponents in K, are easier after balancing. This lesson does not teach balancing."
+   }
+  ],
+  "lesson-chemistry-shifts-in-chemical-equilibrium": [
+   {
+    "lesson": "lesson-chemistry-dynamic-equilibrium-and-k",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-earths-orbit-and-leap-years": [
+   {
+    "lesson": "lesson-earth-science-astronomy-earths-rotation-and-day-length",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-axial-tilt-and-seasons": [
+   {
+    "lesson": "lesson-earth-science-astronomy-earths-orbit-and-leap-years",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-solstices-and-equinoxes": [
+   {
+    "lesson": "lesson-earth-science-astronomy-axial-tilt-and-seasons",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-latitude-and-daylight": [
+   {
+    "lesson": "lesson-earth-science-astronomy-solstices-and-equinoxes",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-seasonal-constellations": [
+   {
+    "lesson": "lesson-earth-science-astronomy-latitude-and-daylight",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-earths-axial-precession": [
+   {
+    "lesson": "lesson-earth-science-astronomy-seasonal-constellations",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-earths-water-sphere": [
+   {
+    "lesson": "lesson-earth-science-astronomy-earths-solid-sphere",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-earths-air-sphere": [
+   {
+    "lesson": "lesson-earth-science-astronomy-earths-water-sphere",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-earths-living-sphere": [
+   {
+    "lesson": "lesson-earth-science-astronomy-earths-air-sphere",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-earth-sphere-interactions": [
+   {
+    "lesson": "lesson-earth-science-astronomy-earths-living-sphere",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-identifying-moon-phases": [
+   {
+    "lesson": "lesson-earth-science-astronomy-moon-phase-cycle",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-eclipse-alignments": [
+   {
+    "lesson": "lesson-earth-science-astronomy-identifying-moon-phases",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-orbital-tilt-and-eclipses": [
+   {
+    "lesson": "lesson-earth-science-astronomy-eclipse-alignments",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-solar-eclipse-types": [
+   {
+    "lesson": "lesson-earth-science-astronomy-orbital-tilt-and-eclipses",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-lunar-eclipse-types": [
+   {
+    "lesson": "lesson-earth-science-astronomy-solar-eclipse-types",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-relative-dating-of-rock-layers": [
+   {
+    "lesson": "lesson-earth-science-astronomy-fossils-and-preservation",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-dating-faults-and-intrusions": [
+   {
+    "lesson": "lesson-earth-science-astronomy-relative-dating-of-rock-layers",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-index-fossils-and-rock-correlation": [
+   {
+    "lesson": "lesson-earth-science-astronomy-dating-faults-and-intrusions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-radiometric-dating-and-half-life": [
+   {
+    "lesson": "lesson-earth-science-astronomy-index-fossils-and-rock-correlation",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-parent-and-daughter-isotopes": [
+   {
+    "lesson": "lesson-earth-science-astronomy-radiometric-dating-and-half-life",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-chemistry-nuclear-symbols-and-isotopes",
+    "strength": "helpful",
+    "reason": "Isotopes and radioactive decay sit under radiometric dating. This lesson defines isotope, parent, daughter, and half-life itself, so the link only adds depth."
+   }
+  ],
+  "lesson-earth-science-astronomy-choosing-radiometric-dating-methods": [
+   {
+    "lesson": "lesson-earth-science-astronomy-parent-and-daughter-isotopes",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-geologic-time-scale": [
+   {
+    "lesson": "lesson-earth-science-astronomy-choosing-radiometric-dating-methods",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-life-through-geologic-time": [
+   {
+    "lesson": "lesson-earth-science-astronomy-geologic-time-scale",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-planet-families": [
+   {
+    "lesson": "lesson-earth-science-astronomy-planets-and-dwarf-planets",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-natural-satellites": [
+   {
+    "lesson": "lesson-earth-science-astronomy-planet-families",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-asteroids-and-the-main-belt": [
+   {
+    "lesson": "lesson-earth-science-astronomy-natural-satellites",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-comet-activity-and-tails": [
+   {
+    "lesson": "lesson-earth-science-astronomy-asteroids-and-the-main-belt",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-meteoroids-meteors-and-meteorites": [
+   {
+    "lesson": "lesson-earth-science-astronomy-comet-activity-and-tails",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-earths-solid-mantle": [
+   {
+    "lesson": "lesson-earth-science-astronomy-earths-layers-and-crust",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-earths-inner-and-outer-core": [
+   {
+    "lesson": "lesson-earth-science-astronomy-earths-solid-mantle",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-lithosphere-and-asthenosphere": [
+   {
+    "lesson": "lesson-earth-science-astronomy-earths-inner-and-outer-core",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-evidence-from-seismic-waves": [
+   {
+    "lesson": "lesson-earth-science-astronomy-lithosphere-and-asthenosphere",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-physics-wave-period-wavelength-and-amplitude",
+    "strength": "helpful",
+    "reason": "P and S waves are longitudinal and transverse waves. This lesson explains how each behaves, and the waves lesson gives the general ideas."
+   }
+  ],
+  "lesson-earth-science-astronomy-seismic-shadow-zones": [
+   {
+    "lesson": "lesson-earth-science-astronomy-evidence-from-seismic-waves",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-mineral-hardness-and-streak": [
+   {
+    "lesson": "lesson-earth-science-astronomy-minerals-versus-rocks",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-mineral-luster-and-breakage": [
+   {
+    "lesson": "lesson-earth-science-astronomy-mineral-hardness-and-streak",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-weathering-erosion-and-deposition": [
+   {
+    "lesson": "lesson-earth-science-astronomy-mineral-luster-and-breakage",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-sedimentary-rock-formation": [
+   {
+    "lesson": "lesson-earth-science-astronomy-weathering-erosion-and-deposition",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-igneous-rock-texture": [
+   {
+    "lesson": "lesson-earth-science-astronomy-sedimentary-rock-formation",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-variables-in-a-cooling-test": [
+   {
+    "lesson": "lesson-earth-science-astronomy-igneous-rock-texture",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-metamorphic-rock-formation": [
+   {
+    "lesson": "lesson-earth-science-astronomy-variables-in-a-cooling-test",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-rock-cycle-pathways": [
+   {
+    "lesson": "lesson-earth-science-astronomy-metamorphic-rock-formation",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-measuring-galaxy-redshift": [
+   {
+    "lesson": "lesson-earth-science-astronomy-big-bang-model",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-redshift-and-cosmic-expansion": [
+   {
+    "lesson": "lesson-earth-science-astronomy-measuring-galaxy-redshift",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-cosmic-microwave-background": [
+   {
+    "lesson": "lesson-earth-science-astronomy-redshift-and-cosmic-expansion",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-light-elements-and-the-big-bang": [
+   {
+    "lesson": "lesson-earth-science-astronomy-cosmic-microwave-background",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-solar-system-nebular-model": [
+   {
+    "lesson": "lesson-earth-science-astronomy-light-elements-and-the-big-bang",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-evidence-for-a-solar-disk": [
+   {
+    "lesson": "lesson-earth-science-astronomy-solar-system-nebular-model",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-plate-motion-and-seafloor-spreading": [
+   {
+    "lesson": "lesson-earth-science-astronomy-earths-layers-and-crust",
+    "strength": "helpful",
+    "reason": "Knowing the crust, mantle, lithosphere, and asthenosphere makes plate movement easier to follow. This lesson recaps the layers it uses, so the link is not required."
+   }
+  ],
+  "lesson-earth-science-astronomy-plate-boundary-motion": [
+   {
+    "lesson": "lesson-earth-science-astronomy-plate-motion-and-seafloor-spreading",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-subduction-and-volcanoes": [
+   {
+    "lesson": "lesson-earth-science-astronomy-plate-boundary-motion",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-faults-and-seismic-waves": [
+   {
+    "lesson": "lesson-earth-science-astronomy-subduction-and-volcanoes",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-philippine-tectonic-hazards": [
+   {
+    "lesson": "lesson-earth-science-astronomy-faults-and-seismic-waves",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-star-fusion-and-balance": [
+   {
+    "lesson": "lesson-chemistry-nuclear-symbols-and-isotopes",
+    "strength": "helpful",
+    "reason": "Nuclear fusion powers every star. This lesson defines fusion briefly, and the nuclear chemistry lesson shows how nuclei join and release energy."
+   }
+  ],
+  "lesson-earth-science-astronomy-star-color-and-temperature": [
+   {
+    "lesson": "lesson-earth-science-astronomy-star-fusion-and-balance",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-star-luminosity-and-brightness": [
+   {
+    "lesson": "lesson-earth-science-astronomy-star-color-and-temperature",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-stellar-life-cycles": [
+   {
+    "lesson": "lesson-earth-science-astronomy-star-luminosity-and-brightness",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-galaxies-and-light-years": [
+   {
+    "lesson": "lesson-earth-science-astronomy-stellar-life-cycles",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-clouds-and-precipitation": [
+   {
+    "lesson": "lesson-earth-science-astronomy-evaporation-and-transpiration",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-infiltration-and-runoff": [
+   {
+    "lesson": "lesson-earth-science-astronomy-clouds-and-precipitation",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-earths-water-reservoirs": [
+   {
+    "lesson": "lesson-earth-science-astronomy-infiltration-and-runoff",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-seawater-density-and-layers": [
+   {
+    "lesson": "lesson-earth-science-astronomy-earths-water-reservoirs",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-ocean-currents-and-heat": [
+   {
+    "lesson": "lesson-earth-science-astronomy-seawater-density-and-layers",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-daily-tide-timing": [
+   {
+    "lesson": "lesson-earth-science-astronomy-ocean-currents-and-heat",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-spring-and-neap-tides": [
+   {
+    "lesson": "lesson-earth-science-astronomy-daily-tide-timing",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-earth-science-astronomy-moon-phase-cycle",
+    "strength": "helpful",
+    "reason": "Spring and neap tides depend on the Moon phases and the Sun, Earth, and Moon line-up. This lesson describes the line-up, and the phases lesson explains the phases themselves."
+   }
+  ],
+  "lesson-earth-science-astronomy-earths-atmospheric-layers": [
+   {
+    "lesson": "lesson-earth-science-astronomy-weather-versus-climate",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-coastal-breezes-and-rising-air": [
+   {
+    "lesson": "lesson-earth-science-astronomy-earths-atmospheric-layers",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-physics-heat-temperature-and-internal-energy",
+    "strength": "helpful",
+    "reason": "Heat-transfer knowledge helps explain winds and warming. Weather and Climate defines the needed processes itself."
+   }
+  ],
+  "lesson-earth-science-astronomy-seasonal-monsoon-winds": [
+   {
+    "lesson": "lesson-earth-science-astronomy-coastal-breezes-and-rising-air",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-amihan-and-habagat": [
+   {
+    "lesson": "lesson-earth-science-astronomy-seasonal-monsoon-winds",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-tropical-cyclone-formation": [
+   {
+    "lesson": "lesson-earth-science-astronomy-amihan-and-habagat",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-tropical-cyclone-categories": [
+   {
+    "lesson": "lesson-earth-science-astronomy-tropical-cyclone-formation",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-weather-hazards-and-safety": [
+   {
+    "lesson": "lesson-earth-science-astronomy-tropical-cyclone-categories",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-greenhouse-effect-and-warming": [
+   {
+    "lesson": "lesson-earth-science-astronomy-weather-hazards-and-safety",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-effects-of-climate-change": [
+   {
+    "lesson": "lesson-earth-science-astronomy-greenhouse-effect-and-warming",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-earth-science-astronomy-climate-mitigation-and-adaptation": [
+   {
+    "lesson": "lesson-earth-science-astronomy-effects-of-climate-change",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-angle-names-and-measures": [
+   {
+    "lesson": "lesson-geometry-points-lines-and-midpoints",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-complementary-and-supplementary-angles": [
+   {
+    "lesson": "lesson-geometry-angle-names-and-measures",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-linear-pairs-and-vertical-angles": [
+   {
+    "lesson": "lesson-geometry-complementary-and-supplementary-angles",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-bisecting-angles": [
+   {
+    "lesson": "lesson-geometry-linear-pairs-and-vertical-angles",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-central-and-inscribed-angles": [
+   {
+    "lesson": "lesson-geometry-circle-parts-and-measures",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-chord-lengths-and-segments": [
+   {
+    "lesson": "lesson-geometry-central-and-inscribed-angles",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-circle-tangent-lengths": [
+   {
+    "lesson": "lesson-geometry-chord-lengths-and-segments",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-geometry-triangle-angle-sums-and-types",
+    "strength": "helpful",
+    "reason": "The tangent, chord and semicircle examples use the Pythagorean theorem and the 30-60-90 triangle, and this lesson restates the theorem but not the special triangle."
+   }
+  ],
+  "lesson-geometry-outside-secants-and-tangents": [
+   {
+    "lesson": "lesson-geometry-circle-tangent-lengths",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-distance-on-the-coordinate-plane": [
+   {
+    "lesson": "lesson-geometry-triangle-angle-sums-and-types",
+    "strength": "helpful",
+    "reason": "The distance formula comes from the Pythagorean theorem. This lesson restates the theorem and shows the right triangle."
+   }
+  ],
+  "lesson-geometry-coordinate-midpoints-and-endpoints": [
+   {
+    "lesson": "lesson-geometry-distance-on-the-coordinate-plane",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-coordinate-slope-and-line-forms": [
+   {
+    "lesson": "lesson-geometry-coordinate-midpoints-and-endpoints",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-algebra-line-slopes-and-intercepts",
+    "strength": "helpful",
+    "reason": "Slope, line forms and perpendicular slopes are also taught in the Line Slopes and Intercepts lesson. This lesson teaches them again from the start."
+   }
+  ],
+  "lesson-geometry-slopes-of-parallel-and-perpendicular-lines": [
+   {
+    "lesson": "lesson-geometry-coordinate-slope-and-line-forms",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-standard-circle-equations": [
+   {
+    "lesson": "lesson-geometry-slopes-of-parallel-and-perpendicular-lines",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-expanded-circle-equations": [
+   {
+    "lesson": "lesson-geometry-standard-circle-equations",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-converse-inverse-and-contrapositive": [
+   {
+    "lesson": "lesson-geometry-reading-if-then-statements",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-counterexamples-to-conditional-statements": [
+   {
+    "lesson": "lesson-geometry-converse-inverse-and-contrapositive",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-biconditionals": [
+   {
+    "lesson": "lesson-geometry-counterexamples-to-conditional-statements",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-deduction-and-conditional-chains": [
+   {
+    "lesson": "lesson-geometry-biconditionals",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-perimeter-and-area-formulas": [
+   {
+    "lesson": "lesson-algebra-simplifying-and-evaluating-expressions",
+    "strength": "helpful",
+    "reason": "Distribute to every term and substitute values before combining like terms."
+   }
+  ],
+  "lesson-geometry-perpendicular-height-in-area-formulas": [
+   {
+    "lesson": "lesson-geometry-perimeter-and-area-formulas",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-combined-areas-and-units": [
+   {
+    "lesson": "lesson-geometry-perpendicular-height-in-area-formulas",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-rectangular-prism-measurements": [
+   {
+    "lesson": "lesson-geometry-combined-areas-and-units",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-cylinder-and-sphere-measurements": [
+   {
+    "lesson": "lesson-geometry-rectangular-prism-measurements",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-cone-and-pyramid-measurements": [
+   {
+    "lesson": "lesson-geometry-cylinder-and-sphere-measurements",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-scaling-length-area-and-volume": [
+   {
+    "lesson": "lesson-geometry-cone-and-pyramid-measurements",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-transversals-and-angle-positions": [
+   {
+    "lesson": "lesson-geometry-points-lines-and-midpoints",
+    "strength": "helpful",
+    "reason": "Angle types, complementary and supplementary sums, and bisectors are used in the examples. This lesson defines linear pairs and vertical angles itself."
+   }
+  ],
+  "lesson-geometry-same-side-angles-and-supplements": [
+   {
+    "lesson": "lesson-geometry-transversals-and-angle-positions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-perpendicular-transversals": [
+   {
+    "lesson": "lesson-geometry-same-side-angles-and-supplements",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-proving-lines-are-parallel": [
+   {
+    "lesson": "lesson-geometry-perpendicular-transversals",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-zigzag-angles-between-parallels": [
+   {
+    "lesson": "lesson-geometry-proving-lines-are-parallel",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-areas-on-a-grid": [
+   {
+    "lesson": "lesson-geometry-cube-edges-from-volume",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-whole-pieces-and-floor-tiles": [
+   {
+    "lesson": "lesson-geometry-areas-on-a-grid",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-distance-traveled-around-a-circle": [
+   {
+    "lesson": "lesson-geometry-whole-pieces-and-floor-tiles",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-area-inside-margins": [
+   {
+    "lesson": "lesson-geometry-distance-traveled-around-a-circle",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-regular-polygon-angles-and-side-counts": [
+   {
+    "lesson": "lesson-geometry-simple-polygons-and-interior-angle-sums",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-quadrilateral-angle-sums": [
+   {
+    "lesson": "lesson-geometry-regular-polygon-angles-and-side-counts",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-angles-in-parallelograms-and-trapezoids": [
+   {
+    "lesson": "lesson-geometry-quadrilateral-angle-sums",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-geometry-transversals-and-angle-positions",
+    "strength": "helpful",
+    "reason": "The supplementary angles in a parallelogram or trapezoid come from parallel lines cut by a transversal. This lesson states those facts as properties."
+   }
+  ],
+  "lesson-geometry-rectangle-rhombus-and-square-diagonals": [
+   {
+    "lesson": "lesson-geometry-angles-in-parallelograms-and-trapezoids",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-geometry-triangle-angle-sums-and-types",
+    "strength": "helpful",
+    "reason": "The angle sum formula splits a polygon into triangles, and rhombus and square examples use the Pythagorean theorem. This lesson states both facts."
+   }
+  ],
+  "lesson-geometry-classifying-quadrilaterals-by-diagonals": [
+   {
+    "lesson": "lesson-geometry-rectangle-rhombus-and-square-diagonals",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-triangle-angle-sums-and-types": [
+   {
+    "lesson": "lesson-geometry-points-lines-and-midpoints",
+    "strength": "helpful",
+    "reason": "Angle names, linear pairs, midpoints and the supplementary and complementary sums make the angle examples easier. This lesson restates vertical angles and the 180-degree triangle sum."
+   }
+  ],
+  "lesson-geometry-triangle-side-limits": [
+   {
+    "lesson": "lesson-geometry-triangle-angle-sums-and-types",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-triangle-exterior-angles": [
+   {
+    "lesson": "lesson-geometry-triangle-side-limits",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-triangle-congruence-tests": [
+   {
+    "lesson": "lesson-geometry-triangle-exterior-angles",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-proving-triangle-congruence-from-a-figure": [
+   {
+    "lesson": "lesson-geometry-triangle-congruence-tests",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-similar-triangles-and-scale-factors": [
+   {
+    "lesson": "lesson-geometry-proving-triangle-congruence-from-a-figure",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-pythagorean-theorem-and-triples": [
+   {
+    "lesson": "lesson-geometry-similar-triangles-and-scale-factors",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-proof-of-the-pythagorean-theorem": [
+   {
+    "lesson": "lesson-geometry-pythagorean-theorem-and-triples",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-geometry-special-right-triangle-ratios": [
+   {
+    "lesson": "lesson-geometry-proof-of-the-pythagorean-theorem",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-net-force-and-acceleration": [
+   {
+    "lesson": "lesson-physics-inertia-and-balanced-forces",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-physics-position-displacement-and-velocity",
+    "strength": "helpful",
+    "reason": "Acceleration as the rate of change of velocity comes from kinematics. This lesson restates it where the second law needs it."
+   }
+  ],
+  "lesson-physics-newtons-third-law-pairs": [
+   {
+    "lesson": "lesson-physics-net-force-and-acceleration",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-mass-and-weight": [
+   {
+    "lesson": "lesson-physics-newtons-third-law-pairs",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-normal-force-and-contact": [
+   {
+    "lesson": "lesson-physics-mass-and-weight",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-drawing-free-body-diagrams": [
+   {
+    "lesson": "lesson-physics-normal-force-and-contact",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-physics-identifying-scalars-and-vectors",
+    "strength": "helpful",
+    "reason": "Splitting a force into parts along each axis is taught there in full. This lesson gives the cosine and sine rule it needs."
+   }
+  ],
+  "lesson-physics-electric-induction-and-polarization": [
+   {
+    "lesson": "lesson-physics-electric-charge-and-charging",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-coulombs-law-and-electric-fields": [
+   {
+    "lesson": "lesson-physics-electric-induction-and-polarization",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-current-voltage-and-ohms-law": [
+   {
+    "lesson": "lesson-physics-coulombs-law-and-electric-fields",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-series-circuit-current-and-voltage": [
+   {
+    "lesson": "lesson-physics-current-voltage-and-ohms-law",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-parallel-circuit-resistance": [
+   {
+    "lesson": "lesson-physics-series-circuit-current-and-voltage",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-electrical-power-and-overload": [
+   {
+    "lesson": "lesson-physics-parallel-circuit-resistance",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-magnetic-poles-and-current": [
+   {
+    "lesson": "lesson-physics-electrical-power-and-overload",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-magnetic-flux-and-faradays-law": [
+   {
+    "lesson": "lesson-physics-magnetic-poles-and-current",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-lenzs-law-and-induced-current": [
+   {
+    "lesson": "lesson-physics-magnetic-flux-and-faradays-law",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-electric-motors-and-generators": [
+   {
+    "lesson": "lesson-physics-lenzs-law-and-induced-current",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-continuity-and-flow-speed": [
+   {
+    "lesson": "lesson-physics-fluid-density-and-pressure",
+    "strength": "helpful",
+    "reason": "Density, pressure and pressure at depth are taught there. This lesson defines each one briefly before using it."
+   }
+  ],
+  "lesson-physics-bernoullis-equation-and-height": [
+   {
+    "lesson": "lesson-physics-continuity-and-flow-speed",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-physics-work-by-a-constant-force",
+    "strength": "helpful",
+    "reason": "Bernoulli's equation is an energy balance with kinetic and potential energy for each unit of volume. This lesson names both terms but does not derive them."
+   }
+  ],
+  "lesson-physics-bernoulli-pressure-and-speed": [
+   {
+    "lesson": "lesson-physics-bernoullis-equation-and-height",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-gauge-and-absolute-pressure": [
+   {
+    "lesson": "lesson-physics-fluid-density-and-pressure",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-comparing-pressure-at-depth": [
+   {
+    "lesson": "lesson-physics-gauge-and-absolute-pressure",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-pascal-principle-and-hydraulic-force": [
+   {
+    "lesson": "lesson-physics-comparing-pressure-at-depth",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-hydraulic-piston-distance-and-work": [
+   {
+    "lesson": "lesson-physics-pascal-principle-and-hydraulic-force",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-archimedes-principle-and-buoyant-force": [
+   {
+    "lesson": "lesson-physics-hydraulic-piston-distance-and-work",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-apparent-weight-in-a-fluid": [
+   {
+    "lesson": "lesson-physics-archimedes-principle-and-buoyant-force",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-floating-and-sinking": [
+   {
+    "lesson": "lesson-physics-apparent-weight-in-a-fluid",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-floating-fraction-and-displaced-volume": [
+   {
+    "lesson": "lesson-physics-floating-and-sinking",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-rope-tension-in-hanging-loads": [
+   {
+    "lesson": "lesson-physics-inertia-and-balanced-forces",
+    "strength": "required",
+    "reason": "This lesson uses Newton's second law, weight, the normal force and free-body diagrams in every example, and only the dynamics lesson teaches them."
+   }
+  ],
+  "lesson-physics-tension-between-connected-blocks": [
+   {
+    "lesson": "lesson-physics-rope-tension-in-hanging-loads",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-tension-over-pulleys": [
+   {
+    "lesson": "lesson-physics-tension-between-connected-blocks",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-static-friction-and-its-limit": [
+   {
+    "lesson": "lesson-physics-tension-over-pulleys",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-kinetic-friction-and-angled-pulls": [
+   {
+    "lesson": "lesson-physics-static-friction-and-its-limit",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-weight-components-on-an-incline": [
+   {
+    "lesson": "lesson-physics-kinetic-friction-and-angled-pulls",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-orbital-shape-and-speed": [
+   {
+    "lesson": "lesson-physics-universal-gravitation-and-distance",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-orbital-period-and-semimajor-axis": [
+   {
+    "lesson": "lesson-physics-orbital-shape-and-speed",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-wave-interference-and-path-difference": [
+   {
+    "lesson": "lesson-physics-wave-period-wavelength-and-amplitude",
+    "strength": "required",
+    "reason": "The lesson uses wavelength, frequency, wave speed and v = f times wavelength without defining them, and the waves lesson teaches them. It tells the student to read that lesson first."
+   }
+  ],
+  "lesson-physics-diffraction-at-edges-and-openings": [
+   {
+    "lesson": "lesson-physics-wave-interference-and-path-difference",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-doppler-effect-and-heard-pitch": [
+   {
+    "lesson": "lesson-physics-diffraction-at-edges-and-openings",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-doppler-frequency-from-a-moving-source": [
+   {
+    "lesson": "lesson-physics-doppler-effect-and-heard-pitch",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-acceleration-and-direction": [
+   {
+    "lesson": "lesson-physics-position-displacement-and-velocity",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-position-time-graph-slope": [
+   {
+    "lesson": "lesson-physics-acceleration-and-direction",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-algebra-line-slopes-and-intercepts",
+    "strength": "helpful",
+    "reason": "Slope as rise over run makes the motion graphs easier to read. This lesson explains slope in the graph section, so the link is optional."
+   }
+  ],
+  "lesson-physics-velocity-time-graph-slope-and-area": [
+   {
+    "lesson": "lesson-physics-position-time-graph-slope",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-motion-with-constant-acceleration": [
+   {
+    "lesson": "lesson-physics-velocity-time-graph-slope-and-area",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-choosing-a-constant-acceleration-equation": [
+   {
+    "lesson": "lesson-physics-motion-with-constant-acceleration",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-free-fall-up-and-down": [
+   {
+    "lesson": "lesson-physics-choosing-a-constant-acceleration-equation",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-refraction-and-snells-law": [
+   {
+    "lesson": "lesson-physics-light-reflection",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-trigonometry-reading-right-triangle-ratios",
+    "strength": "helpful",
+    "reason": "Snell's law uses the sine of an angle and its inverse. This lesson explains both for the angles it needs."
+   }
+  ],
+  "lesson-physics-light-speed-and-wavelength-in-materials": [
+   {
+    "lesson": "lesson-physics-refraction-and-snells-law",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-physics-wave-period-wavelength-and-amplitude",
+    "strength": "helpful",
+    "reason": "The relation v = f times wavelength comes from the waves lesson. This lesson defines frequency and wavelength before using it."
+   }
+  ],
+  "lesson-physics-critical-angle-and-total-internal-reflection": [
+   {
+    "lesson": "lesson-physics-light-speed-and-wavelength-in-materials",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-light-and-the-electromagnetic-spectrum": [
+   {
+    "lesson": "lesson-physics-critical-angle-and-total-internal-reflection",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-curved-mirrors-and-image-types": [
+   {
+    "lesson": "lesson-physics-light-reflection",
+    "strength": "required",
+    "reason": "The lesson uses the law of reflection for mirrors and the index of refraction and bending at a boundary for lenses, and it does not teach them. It tells the student to read the light lesson first."
+   }
+  ],
+  "lesson-physics-converging-and-diverging-lenses": [
+   {
+    "lesson": "lesson-physics-curved-mirrors-and-image-types",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-mirror-and-lens-image-equations": [
+   {
+    "lesson": "lesson-physics-converging-and-diverging-lenses",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-ray-diagrams-and-object-position": [
+   {
+    "lesson": "lesson-physics-mirror-and-lens-image-equations",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-optical-instruments-and-vision": [
+   {
+    "lesson": "lesson-physics-ray-diagrams-and-object-position",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-impulse-and-average-force": [
+   {
+    "lesson": "lesson-physics-signed-momentum",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-force-time-graphs-and-impulse": [
+   {
+    "lesson": "lesson-physics-impulse-and-average-force",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-system-momentum-conservation": [
+   {
+    "lesson": "lesson-physics-force-time-graphs-and-impulse",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-physics-inertia-and-balanced-forces",
+    "strength": "helpful",
+    "reason": "Force, net force and Newton's third law explain why internal forces cancel. This lesson restates each idea where it uses it."
+   }
+  ],
+  "lesson-physics-momentum-when-objects-stick": [
+   {
+    "lesson": "lesson-physics-system-momentum-conservation",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-collision-types-and-kinetic-energy": [
+   {
+    "lesson": "lesson-physics-momentum-when-objects-stick",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-physics-work-by-a-constant-force",
+    "strength": "helpful",
+    "reason": "Kinetic energy is needed to classify collisions. This lesson gives the formula and uses it in its own examples."
+   }
+  ],
+  "lesson-physics-kinetic-energy-in-elastic-collisions-and-push-aparts": [
+   {
+    "lesson": "lesson-physics-collision-types-and-kinetic-energy",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-distance-displacement-speed-and-velocity": [
+   {
+    "lesson": "lesson-physics-identifying-scalars-and-vectors",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-adding-collinear-vectors": [
+   {
+    "lesson": "lesson-physics-distance-displacement-speed-and-velocity",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-resultants-of-two-vectors": [
+   {
+    "lesson": "lesson-physics-adding-collinear-vectors",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-resolving-vector-components": [
+   {
+    "lesson": "lesson-physics-resultants-of-two-vectors",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-trigonometry-reading-right-triangle-ratios",
+    "strength": "helpful",
+    "reason": "Resolving a vector uses sine, cosine and tangent. This lesson defines all three and gives SOH-CAH-TOA."
+   },
+   {
+    "lesson": "lesson-trigonometry-unit-circle-coordinates-and-axes",
+    "strength": "helpful",
+    "reason": "The unit circle explains the signs of sine and cosine beyond 90 degrees. This lesson works the quadrant signs out itself."
+   }
+  ],
+  "lesson-physics-adding-and-rebuilding-vectors-from-components": [
+   {
+    "lesson": "lesson-physics-resolving-vector-components",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-conduction-convection-and-radiation": [
+   {
+    "lesson": "lesson-physics-heat-temperature-and-internal-energy",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-thermal-equilibrium-and-the-zeroth-law": [
+   {
+    "lesson": "lesson-physics-conduction-convection-and-radiation",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-internal-energy-and-the-first-law": [
+   {
+    "lesson": "lesson-physics-thermal-equilibrium-and-the-zeroth-law",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-physics-work-by-a-constant-force",
+    "strength": "helpful",
+    "reason": "The first law treats heat and work as energy transfers, which is easier after energy and work are taught. This lesson defines work for a gas and the sign rule."
+   }
+  ],
+  "lesson-physics-entropy-and-the-second-law": [
+   {
+    "lesson": "lesson-physics-internal-energy-and-the-first-law",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-absolute-zero-and-the-third-law": [
+   {
+    "lesson": "lesson-physics-entropy-and-the-second-law",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-specific-heat-and-temperature-change": [
+   {
+    "lesson": "lesson-physics-absolute-zero-and-the-third-law",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-latent-heat-and-phase-changes": [
+   {
+    "lesson": "lesson-physics-specific-heat-and-temperature-change",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-heat-exchange-between-objects": [
+   {
+    "lesson": "lesson-physics-latent-heat-and-phase-changes",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-launch-components-and-the-ideal-projectile-model": [
+   {
+    "lesson": "lesson-physics-identifying-scalars-and-vectors",
+    "strength": "helpful",
+    "reason": "Launch components come from resolving a vector. This lesson gives the cosine and sine rule it needs."
+   }
+  ],
+  "lesson-physics-projectile-motion-at-different-heights": [
+   {
+    "lesson": "lesson-physics-launch-components-and-the-ideal-projectile-model",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-physics-position-displacement-and-velocity",
+    "strength": "helpful",
+    "reason": "Free fall and constant acceleration come from kinematics. This lesson writes the position and velocity equations it uses."
+   }
+  ],
+  "lesson-physics-projectile-peaks-and-level-ground-range": [
+   {
+    "lesson": "lesson-physics-projectile-motion-at-different-heights",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-circular-motion-and-inward-acceleration": [
+   {
+    "lesson": "lesson-physics-projectile-peaks-and-level-ground-range",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-forces-in-circular-motion": [
+   {
+    "lesson": "lesson-physics-circular-motion-and-inward-acceleration",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-physics-inertia-and-balanced-forces",
+    "strength": "helpful",
+    "reason": "The inward net force in circular motion applies Newton's second law. This lesson restates the law where it uses it."
+   }
+  ],
+  "lesson-physics-static-friction-in-circular-motion": [
+   {
+    "lesson": "lesson-physics-forces-in-circular-motion",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-angular-speed-and-rotation": [
+   {
+    "lesson": "lesson-physics-static-friction-in-circular-motion",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-si-prefixes-and-scientific-notation": [
+   {
+    "lesson": "lesson-physics-si-base-and-derived-units",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-converting-units-with-cancellation": [
+   {
+    "lesson": "lesson-physics-si-prefixes-and-scientific-notation",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-converting-squared-and-cubed-units": [
+   {
+    "lesson": "lesson-physics-converting-units-with-cancellation",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-checking-equations-by-dimensions": [
+   {
+    "lesson": "lesson-physics-converting-squared-and-cubed-units",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-significant-figures-and-rounding": [
+   {
+    "lesson": "lesson-physics-checking-equations-by-dimensions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-uncertainty-accuracy-and-precision": [
+   {
+    "lesson": "lesson-physics-significant-figures-and-rounding",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-wave-speed-frequency-and-wavelength": [
+   {
+    "lesson": "lesson-physics-wave-period-wavelength-and-amplitude",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-waves-crossing-between-media": [
+   {
+    "lesson": "lesson-physics-wave-speed-frequency-and-wavelength",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-mechanical-and-electromagnetic-waves": [
+   {
+    "lesson": "lesson-physics-waves-crossing-between-media",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-ordering-the-electromagnetic-spectrum": [
+   {
+    "lesson": "lesson-physics-mechanical-and-electromagnetic-waves",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-transverse-and-longitudinal-waves": [
+   {
+    "lesson": "lesson-physics-ordering-the-electromagnetic-spectrum",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-sound-speed-pitch-and-loudness": [
+   {
+    "lesson": "lesson-physics-transverse-and-longitudinal-waves",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-kinetic-and-gravitational-potential-energy": [
+   {
+    "lesson": "lesson-physics-work-by-a-constant-force",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-physics-position-displacement-and-velocity",
+    "strength": "helpful",
+    "reason": "Acceleration and the falling speed of 9.8 m/s each second are easier with kinematics. This lesson explains both briefly where it uses them."
+   }
+  ],
+  "lesson-physics-net-work-and-kinetic-energy": [
+   {
+    "lesson": "lesson-physics-kinetic-and-gravitational-potential-energy",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-physics-inertia-and-balanced-forces",
+    "strength": "helpful",
+    "reason": "Net force and constant velocity are easier with Newton's laws. This lesson restates that zero net force means no change in velocity."
+   }
+  ],
+  "lesson-physics-mechanical-energy-conservation": [
+   {
+    "lesson": "lesson-physics-net-work-and-kinetic-energy",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-mechanical-energy-with-friction": [
+   {
+    "lesson": "lesson-physics-mechanical-energy-conservation",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-average-power-and-work": [
+   {
+    "lesson": "lesson-physics-mechanical-energy-with-friction",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-physics-machine-efficiency": [
+   {
+    "lesson": "lesson-physics-average-power-and-work",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-mechanical-technical-reasoning-pulleys-and-levers",
+    "strength": "helpful",
+    "reason": "The efficiency section names effort, load and the ideal case, which that lesson explains in full. This lesson defines the efficiency formula itself."
+   }
+  ],
+  "lesson-arithmetic-number-sense-finding-elapsed-time": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-reading-clock-time",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-elapsed-time-across-midnight": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-finding-elapsed-time",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-adding-a-duration": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-elapsed-time-across-midnight",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-using-time-zone-offsets": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-adding-a-duration",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-counting-squares-by-size": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-repeating-units-digits",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-growing-square-borders": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-counting-squares-by-size",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-making-sums-with-given-digits": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-growing-square-borders",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-making-differences-with-given-digits": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-making-sums-with-given-digits",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-labeling-three-shape-regions": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-labeling-overlap-regions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-matching-dot-placement": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-labeling-three-shape-regions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-matching-dots-outside-a-shape": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-matching-dot-placement",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-matching-two-dots": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-matching-dots-outside-a-shape",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-dots-on-shape-boundaries": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-matching-two-dots",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-statistics-and-probability-independent-events-and-complements": [
+   {
+    "lesson": "lesson-statistics-and-probability-counting-equally-likely-outcomes",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-statistics-and-probability-conditional-probability-and-replacement": [
+   {
+    "lesson": "lesson-statistics-and-probability-independent-events-and-complements",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
+    "strength": "required",
+    "reason": "Combined-event calculations require fraction multiplication, simplification, and subtraction. This lesson teaches probability rules but assumes those arithmetic methods."
+   }
+  ],
+  "lesson-statistics-and-probability-probability-of-either-event": [
+   {
+    "lesson": "lesson-statistics-and-probability-conditional-probability-and-replacement",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-statistics-and-probability-factorials-and-permutations": [
+   {
+    "lesson": "lesson-statistics-and-probability-counting-choices-in-stages",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-statistics-and-probability-combinations-and-complementary-choices": [
+   {
+    "lesson": "lesson-statistics-and-probability-factorials-and-permutations",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-statistics-and-probability-counting-teams-and-ordered-roles": [
+   {
+    "lesson": "lesson-statistics-and-probability-combinations-and-complementary-choices",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-statistics-and-probability-adding-counts-with-overlap": [
+   {
+    "lesson": "lesson-statistics-and-probability-counting-teams-and-ordered-roles",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-algebra-counting-venn-diagram-regions",
+    "strength": "helpful",
+    "reason": "Counting groups that overlap is the same idea as counting a union with a Venn diagram. This lesson explains the subtraction of the overlap."
+   }
+  ],
+  "lesson-statistics-and-probability-pie-chart-shares-and-angles": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
+    "strength": "helpful",
+    "reason": "Percentage conversion and fraction multiplication practice make pie-chart calculations easier. This lesson gives the share formulas and demonstrates their use."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-adding-and-multiplying-fractions",
+    "strength": "helpful",
+    "reason": "Multiplying a fraction by the whole helps students find the required share."
+   }
+  ],
+  "lesson-statistics-and-probability-reading-bar-graph-scales": [
+   {
+    "lesson": "lesson-statistics-and-probability-pie-chart-shares-and-angles",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-data-interpretation-averages-and-pie-chart-shares",
+    "strength": "helpful",
+    "reason": "Basic scale-reading practice helps before comparing graph scales. This lesson repeats the needed reading rules and adds more demanding comparisons."
+   }
+  ],
+  "lesson-statistics-and-probability-comparing-graph-values": [
+   {
+    "lesson": "lesson-statistics-and-probability-reading-bar-graph-scales",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-statistics-and-probability-patterns-in-scatter-plots": [
+   {
+    "lesson": "lesson-statistics-and-probability-comparing-graph-values",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-statistics-and-probability-median-and-mode": [
+   {
+    "lesson": "lesson-statistics-and-probability-arithmetic-mean-and-missing-values",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-statistics-and-probability-choosing-a-measure-of-center": [
+   {
+    "lesson": "lesson-statistics-and-probability-median-and-mode",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-statistics-and-probability-weighted-means": [
+   {
+    "lesson": "lesson-statistics-and-probability-choosing-a-measure-of-center",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-statistics-and-probability-population-variance-and-standard-deviation": [
+   {
+    "lesson": "lesson-statistics-and-probability-range-and-spread",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-statistics-and-probability-arithmetic-mean-and-missing-values",
+    "strength": "helpful",
+    "reason": "Every spread measure here starts from the mean. This lesson defines the mean in its first paragraph."
+   }
+  ],
+  "lesson-statistics-and-probability-sample-variance-and-standard-deviation": [
+   {
+    "lesson": "lesson-statistics-and-probability-population-variance-and-standard-deviation",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-statistics-and-probability-comparing-standard-deviations": [
+   {
+    "lesson": "lesson-statistics-and-probability-sample-variance-and-standard-deviation",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-statistics-and-probability-effects-of-shifting-and-scaling-data": [
+   {
+    "lesson": "lesson-statistics-and-probability-comparing-standard-deviations",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-statistics-and-probability-expected-value-and-variance": [
+   {
+    "lesson": "lesson-statistics-and-probability-effects-of-shifting-and-scaling-data",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-precalculus-basic-calculus-derivatives-of-products-and-quotients": [
+   {
+    "lesson": "lesson-precalculus-basic-calculus-power-sum-and-constant-derivative-rules",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-precalculus-basic-calculus-chain-rule-and-tangent-slopes": [
+   {
+    "lesson": "lesson-precalculus-basic-calculus-derivatives-of-products-and-quotients",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-precalculus-basic-calculus-integrating-roots-and-reciprocals": [
+   {
+    "lesson": "lesson-precalculus-basic-calculus-antiderivatives-of-polynomials",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-precalculus-basic-calculus-definite-integrals-and-signed-area": [
+   {
+    "lesson": "lesson-precalculus-basic-calculus-integrating-roots-and-reciprocals",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-precalculus-basic-calculus-circle-and-parabola-standard-forms": [
+   {
+    "lesson": "lesson-precalculus-basic-calculus-identifying-axis-aligned-conics",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-precalculus-basic-calculus-ellipse-and-hyperbola-features": [
+   {
+    "lesson": "lesson-precalculus-basic-calculus-circle-and-parabola-standard-forms",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-precalculus-basic-calculus-factoring-to-evaluate-limits": [
+   {
+    "lesson": "lesson-precalculus-basic-calculus-direct-substitution-for-limits",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-precalculus-basic-calculus-rational-limits-at-infinity": [
+   {
+    "lesson": "lesson-precalculus-basic-calculus-factoring-to-evaluate-limits",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-precalculus-basic-calculus-one-sided-limits-and-continuity": [
+   {
+    "lesson": "lesson-precalculus-basic-calculus-rational-limits-at-infinity",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-mechanical-technical-reasoning-liquid-levels-in-connected-vessels": [
+   {
+    "lesson": "lesson-mechanical-technical-reasoning-pressure-in-a-resting-liquid",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-mechanical-technical-reasoning-pressure-and-force-in-hydraulics": [
+   {
+    "lesson": "lesson-mechanical-technical-reasoning-liquid-levels-in-connected-vessels",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-mechanical-technical-reasoning-flow-rate-in-straight-and-branching-pipes": [
+   {
+    "lesson": "lesson-mechanical-technical-reasoning-pressure-and-force-in-hydraulics",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-mechanical-technical-reasoning-flow-speed-height-and-pressure": [
+   {
+    "lesson": "lesson-mechanical-technical-reasoning-flow-rate-in-straight-and-branching-pipes",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-mechanical-technical-reasoning-gear-speeds-and-tooth-counts": [
+   {
+    "lesson": "lesson-mechanical-technical-reasoning-rotation-directions-in-gear-systems",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-one-of-each-rules-in-figure-grids": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-comparing-counts-in-figures",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-matching-edges-of-pattern-pieces": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-one-of-each-rules-in-figure-grids",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-transferring-rules-in-visual-analogies": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-matching-edges-of-pattern-pieces",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-closed-surfaces-in-solids": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-transferring-rules-in-visual-analogies",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-folding-a-triangular-prism-net": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-closed-surfaces-in-solids",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-trigonometry-finding-coterminal-angles": [
+   {
+    "lesson": "lesson-trigonometry-converting-degrees-and-radians",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-trigonometry-arc-length-with-radians": [
+   {
+    "lesson": "lesson-trigonometry-finding-coterminal-angles",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-trigonometry-reading-right-triangle-ratios": [
+   {
+    "lesson": "lesson-geometry-triangle-angle-sums-and-types",
     "strength": "helpful",
     "reason": "The ratios rest on right triangles, the Pythagorean theorem, similar triangles and the 45-45-90 and 30-60-90 shapes. This lesson restates each one."
+   }
+  ],
+  "lesson-trigonometry-finding-ratios-from-a-known-ratio": [
+   {
+    "lesson": "lesson-trigonometry-reading-right-triangle-ratios",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-trigonometry-flipping-trigonometric-ratios": [
+   {
+    "lesson": "lesson-trigonometry-finding-ratios-from-a-known-ratio",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-trigonometry-complementary-angle-ratios": [
+   {
+    "lesson": "lesson-trigonometry-flipping-trigonometric-ratios",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-trigonometry-special-angle-side-lengths": [
+   {
+    "lesson": "lesson-trigonometry-complementary-angle-ratios",
+    "strength": "required",
+    "reason": "Read the previous part first."
    },
    {
     "lesson": "lesson-algebra-rationalizing-square-root-denominators",
@@ -3814,57 +7007,246 @@
     "reason": "The special-angle values use square roots and removing a root from a denominator. This lesson shows the one multiplication it needs."
    }
   ],
-  "lesson-trigonometry-laws-of-sines-and-cosines": [
+  "lesson-trigonometry-scaling-right-triangle-sides": [
    {
-    "lesson": "lesson-trigonometry-basic-trigonometric-ratios",
+    "lesson": "lesson-trigonometry-special-angle-side-lengths",
     "strength": "required",
-    "reason": "Both laws use sine and cosine as ratios of sides and the exact values at 30, 45 and 60 degrees, and this lesson only starts from them. The Basic Trigonometric Ratios lesson defines them."
-   },
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-trigonometry-inverse-cosine-and-input-limits": [
    {
-    "lesson": "lesson-geometry-triangles",
+    "lesson": "lesson-trigonometry-inverse-sine-and-arctangent",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-trigonometry-composing-trigonometric-functions": [
+   {
+    "lesson": "lesson-trigonometry-inverse-cosine-and-input-limits",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-trigonometry-choosing-a-triangle-law": [
+   {
+    "lesson": "lesson-geometry-triangle-angle-sums-and-types",
     "strength": "helpful",
     "reason": "The triangle angle sum, the larger-angle-faces-longer-side fact and the triangle inequality are used throughout. This lesson restates each of them."
+   }
+  ],
+  "lesson-trigonometry-law-of-sines-with-two-angles": [
+   {
+    "lesson": "lesson-trigonometry-choosing-a-triangle-law",
+    "strength": "required",
+    "reason": "Read the previous part first."
    },
    {
-    "lesson": "lesson-trigonometry-unit-circle",
+    "lesson": "lesson-trigonometry-reading-right-triangle-ratios",
+    "strength": "required",
+    "reason": "Both laws use sine and cosine as ratios of sides and the exact values at 30, 45 and 60 degrees, and this lesson only starts from them. The Basic Trigonometric Ratios lesson defines them."
+   }
+  ],
+  "lesson-trigonometry-law-of-sines-surveys": [
+   {
+    "lesson": "lesson-trigonometry-law-of-sines-with-two-angles",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-trigonometry-law-of-cosines-for-sides": [
+   {
+    "lesson": "lesson-trigonometry-law-of-sines-surveys",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-trigonometry-law-of-cosines-for-angles": [
+   {
+    "lesson": "lesson-trigonometry-law-of-cosines-for-sides",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-trigonometry-unit-circle-coordinates-and-axes",
     "strength": "helpful",
     "reason": "The sign of the cosine of an obtuse angle follows from the unit circle. This lesson states the 180-degree formulas without the picture."
    }
   ],
-  "lesson-trigonometry-solving-right-triangles": [
+  "lesson-trigonometry-ambiguous-triangles-from-sine": [
    {
-    "lesson": "lesson-trigonometry-basic-trigonometric-ratios",
+    "lesson": "lesson-trigonometry-law-of-cosines-for-angles",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-trigonometry-counting-ssa-triangles": [
+   {
+    "lesson": "lesson-trigonometry-ambiguous-triangles-from-sine",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-trigonometry-finding-sides-in-right-triangles": [
+   {
+    "lesson": "lesson-trigonometry-reading-right-triangle-ratios",
     "strength": "helpful",
     "reason": "SOH-CAH-TOA and the special-angle values are used from the start. This lesson restates the three ratios and lists the exact values."
    }
   ],
-  "lesson-trigonometry-trigonometric-identities": [
+  "lesson-trigonometry-finding-acute-angles": [
    {
-    "lesson": "lesson-trigonometry-basic-trigonometric-ratios",
+    "lesson": "lesson-trigonometry-finding-sides-in-right-triangles",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-trigonometry-solving-a-whole-right-triangle": [
+   {
+    "lesson": "lesson-trigonometry-finding-acute-angles",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-trigonometry-elevation-and-depression": [
+   {
+    "lesson": "lesson-trigonometry-solving-a-whole-right-triangle",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-trigonometry-adjusting-for-eye-height": [
+   {
+    "lesson": "lesson-trigonometry-elevation-and-depression",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-trigonometry-comparing-two-observations": [
+   {
+    "lesson": "lesson-trigonometry-adjusting-for-eye-height",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-trigonometry-reciprocal-and-quotient-identities": [
+   {
+    "lesson": "lesson-trigonometry-reading-right-triangle-ratios",
     "strength": "required",
     "reason": "The lesson uses sine, cosine and tangent and the exact values at 30 and 45 degrees (Example 9) without defining them. The Basic Trigonometric Ratios lesson teaches both."
+   }
+  ],
+  "lesson-trigonometry-pythagorean-identity-and-signs": [
+   {
+    "lesson": "lesson-trigonometry-reciprocal-and-quotient-identities",
+    "strength": "required",
+    "reason": "Read the previous part first."
    },
    {
-    "lesson": "lesson-trigonometry-unit-circle",
+    "lesson": "lesson-trigonometry-unit-circle-coordinates-and-axes",
     "strength": "helpful",
     "reason": "Quadrant signs and the point (cos, sin) on the unit circle explain the identities. This lesson summarizes the quadrant signs and names the Unit Circle lesson for the full picture."
    }
   ],
-  "lesson-trigonometry-unit-circle": [
+  "lesson-trigonometry-tangent-and-cotangent-identities": [
    {
-    "lesson": "lesson-trigonometry-basic-trigonometric-ratios",
+    "lesson": "lesson-trigonometry-pythagorean-identity-and-signs",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-trigonometry-simplifying-trigonometric-expressions": [
+   {
+    "lesson": "lesson-trigonometry-tangent-and-cotangent-identities",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-trigonometry-proving-trigonometric-identities": [
+   {
+    "lesson": "lesson-trigonometry-simplifying-trigonometric-expressions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-trigonometry-sum-and-double-angle-identities": [
+   {
+    "lesson": "lesson-trigonometry-proving-trigonometric-identities",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-trigonometry-unit-circle-coordinates-and-axes": [
+   {
+    "lesson": "lesson-trigonometry-reading-right-triangle-ratios",
     "strength": "helpful",
     "reason": "The unit circle extends right-triangle sine and cosine to all angles. This lesson derives the special values itself."
+   }
+  ],
+  "lesson-trigonometry-exact-values-in-the-first-quadrant": [
+   {
+    "lesson": "lesson-trigonometry-unit-circle-coordinates-and-axes",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-trigonometry-reference-angles-and-quadrant-signs": [
+   {
+    "lesson": "lesson-trigonometry-exact-values-in-the-first-quadrant",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-trigonometry-evaluating-signed-trigonometric-values": [
+   {
+    "lesson": "lesson-trigonometry-reference-angles-and-quadrant-signs",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-trigonometry-terminal-sides-and-coterminal-values": [
+   {
+    "lesson": "lesson-trigonometry-evaluating-signed-trigonometric-values",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-trigonometry-unit-circle-values-in-radians": [
+   {
+    "lesson": "lesson-trigonometry-terminal-sides-and-coterminal-values",
+    "strength": "required",
+    "reason": "Read the previous part first."
    },
    {
-    "lesson": "lesson-geometry-coordinate-geometry",
-    "strength": "helpful",
-    "reason": "Polar-to-rectangular conversion uses coordinates and the distance formula. This lesson names the distance formula without deriving it."
-   },
-   {
-    "lesson": "lesson-trigonometry-angles-and-radian-measure",
+    "lesson": "lesson-trigonometry-converting-degrees-and-radians",
     "strength": "helpful",
     "reason": "Radians and degree conversion get a full treatment in the Angles and Radian Measure lesson. This lesson teaches the radian shortcut it needs."
+   }
+  ],
+  "lesson-trigonometry-finding-unit-circle-values-from-one-coordinate": [
+   {
+    "lesson": "lesson-trigonometry-unit-circle-values-in-radians",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-trigonometry-polar-and-rectangular-coordinates": [
+   {
+    "lesson": "lesson-trigonometry-finding-unit-circle-values-from-one-coordinate",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-geometry-distance-on-the-coordinate-plane",
+    "strength": "helpful",
+    "reason": "Polar-to-rectangular conversion uses coordinates and the distance formula. This lesson names the distance formula without deriving it."
+   }
+  ],
+  "lesson-trigonometry-reading-trigonometric-graphs": [
+   {
+    "lesson": "lesson-trigonometry-polar-and-rectangular-coordinates",
+    "strength": "required",
+    "reason": "Read the previous part first."
    }
   ]
  }

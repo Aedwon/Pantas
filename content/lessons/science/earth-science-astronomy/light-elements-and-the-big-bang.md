@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 5
 partCount: 7
-ordering: 0
+ordering: 5
 keyPoints:
   - "Use light-element abundances as evidence for the early universe."
 ---

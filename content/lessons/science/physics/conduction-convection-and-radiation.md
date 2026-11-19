@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 2
 partCount: 9
-ordering: 0
+ordering: 70
 keyPoints:
   - "Identify conduction, convection, and radiation."
 ---

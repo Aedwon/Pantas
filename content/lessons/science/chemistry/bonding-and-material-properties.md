@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 10
 partCount: 10
-ordering: 0
+ordering: 52
 keyPoints:
   - "Use bonding and structure to explain conductivity and solubility."
 ---

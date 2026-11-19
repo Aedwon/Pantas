@@ -7,7 +7,7 @@ topic: "topic-statistics-and-probability"
 isActive: true
 part: 4
 partCount: 4
-ordering: 0
+ordering: 4
 keyPoints:
   - "Compute a weighted mean from values and weights."
 ---

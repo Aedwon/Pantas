@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 7
 partCount: 9
-ordering: 0
+ordering: 68
 keyPoints:
   - "Explain how fitness depends on the environment."
   - "Distinguish inherited variation from changes gained during life."

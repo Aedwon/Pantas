@@ -5,6 +5,7 @@ summary: "Learn ideal pulley mechanical advantage from supporting rope segments 
 subject: "subject-reasoning"
 topic: "topic-mechanical-technical-reasoning"
 estimatedMinutes: 14
+ordering: 3
 isActive: true
 ---
 ## Core Concept

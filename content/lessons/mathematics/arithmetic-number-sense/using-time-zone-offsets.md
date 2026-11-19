@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 5
 partCount: 5
-ordering: 0
+ordering: 46
 keyPoints:
   - "Use the given time-zone offset and check the day."
 ---

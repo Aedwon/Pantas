@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 2
 partCount: 3
-ordering: 0
+ordering: 2
 keyPoints:
   - "Convert signed angles between degrees and radians."
   - "Use full turns to find the terminal side or quadrant."

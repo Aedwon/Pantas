@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 3
 partCount: 8
-ordering: 0
+ordering: 3
 keyPoints:
   - "Use particle motion and spacing to explain solids, liquids, and gases."
 ---

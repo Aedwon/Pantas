@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 4
 partCount: 5
-ordering: 0
+ordering: 25
 keyPoints:
   - "Read the inputs and products in the photosynthesis equation."
 ---

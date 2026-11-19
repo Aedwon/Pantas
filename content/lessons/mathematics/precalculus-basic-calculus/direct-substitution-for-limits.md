@@ -7,7 +7,7 @@ topic: "topic-precalculus-basic-calculus"
 isActive: true
 part: 1
 partCount: 4
-ordering: 0
+ordering: 4
 keyPoints:
   - "Interpret a limit from nearby values."
   - "Evaluate a limit by direct substitution."

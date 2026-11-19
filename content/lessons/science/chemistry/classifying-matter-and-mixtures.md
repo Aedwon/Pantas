@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 1
 partCount: 8
-ordering: 0
+ordering: 1
 keyPoints:
   - "Distinguish elements, compounds, and mixtures."
   - "Describe atoms, molecules, and ions."

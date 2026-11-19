@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 2
 partCount: 7
-ordering: 0
+ordering: 22
 keyPoints:
   - "Use vertical motion to find the time to land."
   - "Use horizontal motion to find the landing distance."

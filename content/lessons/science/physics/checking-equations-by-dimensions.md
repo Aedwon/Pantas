@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 5
 partCount: 7
-ordering: 0
+ordering: 5
 keyPoints:
   - "Check that the dimensions in an equation agree."
 ---

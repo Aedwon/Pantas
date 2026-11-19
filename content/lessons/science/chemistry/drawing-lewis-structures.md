@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 4
 partCount: 10
-ordering: 0
+ordering: 46
 keyPoints:
   - "Draw a Lewis structure using valence electrons, bonds, and lone pairs."
 ---

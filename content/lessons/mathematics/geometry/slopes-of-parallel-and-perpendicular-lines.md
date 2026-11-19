@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 4
 partCount: 6
-ordering: 0
+ordering: 46
 keyPoints:
   - "Use equal slopes for parallel lines."
   - "Find a perpendicular slope or recognize a horizontal and vertical pair."

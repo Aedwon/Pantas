@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 5
 partCount: 5
-ordering: 0
+ordering: 18
 keyPoints:
   - "Identify galaxies and distinguish them from stars and constellations."
   - "Use light-years to describe distance and light travel time."

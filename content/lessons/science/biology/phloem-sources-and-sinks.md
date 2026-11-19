@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 2
 partCount: 6
-ordering: 0
+ordering: 80
 keyPoints:
   - "Follow sugar from a source to a sink in either direction."
 ---

@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 1
 partCount: 7
-ordering: 0
+ordering: 1
 keyPoints:
   - "Identify SI base units."
   - "Express derived units in SI base units."

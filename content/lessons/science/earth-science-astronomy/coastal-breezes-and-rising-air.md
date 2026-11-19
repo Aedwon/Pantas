@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 3
 partCount: 11
-ordering: 0
+ordering: 59
 keyPoints:
   - "Explain why sea and land breezes reverse."
   - "Explain how rising air in the ITCZ can bring rain."

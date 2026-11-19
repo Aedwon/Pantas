@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 5
 partCount: 8
-ordering: 0
+ordering: 23
 keyPoints:
   - "Explain how cathode rays provided evidence for electrons."
   - "Describe Thomson’s plum pudding model."

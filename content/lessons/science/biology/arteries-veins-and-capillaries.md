@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 5
 partCount: 6
-ordering: 0
+ordering: 46
 keyPoints:
   - "Distinguish arteries and veins by the direction of blood flow."
   - "Explain the role of capillaries."

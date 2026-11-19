@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 4
 partCount: 7
-ordering: 0
+ordering: 4
 keyPoints:
   - "Convert area or volume by raising the length factor to the right power."
   - "Convert a quantity with cubed units in the denominator."

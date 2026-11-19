@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 9
 partCount: 10
-ordering: 0
+ordering: 17
 keyPoints:
   - "Interpret the number and positions of spots on a chromatogram."
   - "Find a spot’s retention factor from distances measured from the baseline."

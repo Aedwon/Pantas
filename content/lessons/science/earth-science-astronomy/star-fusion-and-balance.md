@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 1
 partCount: 5
-ordering: 0
+ordering: 14
 keyPoints:
   - "Identify stars and explain how fusion powers them."
   - "Explain how gravity and gas pressure balance in a star."

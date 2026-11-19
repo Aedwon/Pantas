@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 3
 partCount: 6
-ordering: 0
+ordering: 45
 keyPoints:
   - "Find slope from two points."
   - "Read or write equations of lines in different forms."

@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 1
 partCount: 9
-ordering: 0
+ordering: 16
 keyPoints:
   - "Use the interior angle sum to find missing angles."
   - "Use equal sides and equal angles to classify triangles."

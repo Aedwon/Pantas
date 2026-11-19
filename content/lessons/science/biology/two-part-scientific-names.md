@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 7
 partCount: 7
-ordering: 0
+ordering: 61
 keyPoints:
   - "Use the genus and specific epithet to write a species name."
   - "Explain why scientists use binomial names and who standardized the system."

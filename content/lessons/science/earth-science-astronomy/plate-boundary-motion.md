@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 2
 partCount: 5
-ordering: 0
+ordering: 53
 keyPoints:
   - "Identify boundaries by plate motion."
   - "Predict the usual outcome of converging plates."

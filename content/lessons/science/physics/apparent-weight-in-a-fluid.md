@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 7
 partCount: 9
-ordering: 0
+ordering: 63
 keyPoints:
   - "Find apparent weight using the buoyant force."
 ---

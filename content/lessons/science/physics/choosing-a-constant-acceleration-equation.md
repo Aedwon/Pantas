@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 6
 partCount: 7
-ordering: 0
+ordering: 19
 keyPoints:
   - "Choose a constant-acceleration equation for the known quantities."
   - "Recognize when changing acceleration rules out the equations."

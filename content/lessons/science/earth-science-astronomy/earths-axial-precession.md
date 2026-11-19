@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 7
 partCount: 7
-ordering: 0
+ordering: 25
 keyPoints:
   - "Describe the cause and timescale of Earth’s precession."
   - "Explain how precession changes which star is closest to the pole."

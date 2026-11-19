@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 2
 partCount: 6
-ordering: 0
+ordering: 29
 keyPoints:
   - "Find net force from the forces on an object."
   - "Use mass and net force to find acceleration."

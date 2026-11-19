@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 4
 partCount: 8
-ordering: 0
+ordering: 71
 keyPoints:
   - "Describe where most water and fresh water are stored."
   - "Explain why the ocean supplies most water vapor."

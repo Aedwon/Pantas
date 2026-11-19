@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 7
 partCount: 10
-ordering: 0
+ordering: 49
 keyPoints:
   - "Predict molecular shape and bond angles with four electron groups."
 ---

@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 1
 partCount: 4
-ordering: 0
+ordering: 7
 keyPoints:
   - "Identify organelles by their jobs."
   - "Trace a protein from synthesis to release."

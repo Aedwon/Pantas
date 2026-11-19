@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 4
 partCount: 8
-ordering: 0
+ordering: 4
 keyPoints:
   - "Distinguish crystalline and amorphous solids."
   - "Identify plasma from its charged particles."

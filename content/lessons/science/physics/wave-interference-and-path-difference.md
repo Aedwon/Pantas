@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 1
 partCount: 4
-ordering: 0
+ordering: 85
 keyPoints:
   - "Predict the result when crests and troughs overlap."
   - "Use path difference to predict constructive or destructive interference."

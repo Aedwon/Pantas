@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 8
 partCount: 9
-ordering: 0
+ordering: 40
 keyPoints:
   - "Read pedigree symbols and generations."
   - "Use family patterns to distinguish dominant and recessive traits."

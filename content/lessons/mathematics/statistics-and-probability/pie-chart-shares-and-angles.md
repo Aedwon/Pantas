@@ -7,7 +7,7 @@ topic: "topic-statistics-and-probability"
 isActive: true
 part: 1
 partCount: 4
-ordering: 0
+ordering: 11
 keyPoints:
   - "Convert between a sector angle and its share."
   - "Relate a category’s amount to its share of the whole."

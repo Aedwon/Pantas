@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 1
 partCount: 6
-ordering: 0
+ordering: 79
 keyPoints:
   - "Identify dermal, vascular, and ground tissue by their jobs."
   - "Explain how xylem carries water and minerals."

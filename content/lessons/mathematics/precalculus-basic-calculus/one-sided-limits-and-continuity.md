@@ -7,7 +7,7 @@ topic: "topic-precalculus-basic-calculus"
 isActive: true
 part: 4
 partCount: 4
-ordering: 0
+ordering: 7
 keyPoints:
   - "Compare the left and right limits at a point."
   - "Check the conditions for continuity."

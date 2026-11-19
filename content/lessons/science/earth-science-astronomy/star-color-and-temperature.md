@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 2
 partCount: 5
-ordering: 0
+ordering: 15
 keyPoints:
   - "Use color and spectral class to compare surface temperatures."
 ---

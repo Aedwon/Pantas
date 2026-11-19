@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 2
 partCount: 7
-ordering: 0
+ordering: 32
 keyPoints:
   - "Use matched pairs in AAS and ASA problems."
   - "Find the missing angle from the angle sum."

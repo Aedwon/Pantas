@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 5
 partCount: 10
-ordering: 0
+ordering: 47
 keyPoints:
   - "Use formal charge and resonance to represent electron placement."
 ---

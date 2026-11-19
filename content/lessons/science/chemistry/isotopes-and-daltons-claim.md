@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 4
 partCount: 8
-ordering: 0
+ordering: 22
 keyPoints:
   - "Explain which of Dalton’s claims isotopes contradict."
 ---

@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 2
 partCount: 6
-ordering: 0
+ordering: 9
 keyPoints:
   - "Compare rocky planets, gas giants, and ice giants."
   - "Recall what makes individual planets distinct."

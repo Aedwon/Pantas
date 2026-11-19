@@ -7,7 +7,7 @@ topic: "topic-precalculus-basic-calculus"
 isActive: true
 part: 2
 partCount: 4
-ordering: 0
+ordering: 5
 keyPoints:
   - "Recognize the zero-over-zero form."
   - "Factor and cancel to evaluate a limit."

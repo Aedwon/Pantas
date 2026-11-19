@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 1
 partCount: 5
-ordering: 0
+ordering: 11
 keyPoints:
   - "Identify angle pairs formed by a transversal."
   - "Use corresponding or alternate angles to solve for a missing measure."

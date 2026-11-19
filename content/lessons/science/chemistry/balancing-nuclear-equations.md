@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 5
 partCount: 7
-ordering: 0
+ordering: 126
 keyPoints:
   - "Balance atomic and mass numbers in a nuclear equation or decay series."
 ---

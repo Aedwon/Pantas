@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 4
 partCount: 7
-ordering: 0
+ordering: 30
 keyPoints:
   - "Distinguish average atomic mass from mass number and compute a weighted average."
 ---

@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 2
 partCount: 6
-ordering: 0
+ordering: 26
 keyPoints:
   - "Find interior and exterior angles in a regular polygon."
   - "Find the number of sides from a given angle."

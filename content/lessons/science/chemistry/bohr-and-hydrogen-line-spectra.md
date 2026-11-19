@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 7
 partCount: 8
-ordering: 0
+ordering: 25
 keyPoints:
   - "Explain how allowed energy levels account for hydrogen’s line spectrum."
   - "Identify where Bohr’s model works well and where it falls short."

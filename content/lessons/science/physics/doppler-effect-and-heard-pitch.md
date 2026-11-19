@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 3
 partCount: 4
-ordering: 0
+ordering: 87
 keyPoints:
   - "Predict heard pitch from the motion of the source or listener."
   - "Identify what happens to wavelength, sound speed, and emitted frequency."

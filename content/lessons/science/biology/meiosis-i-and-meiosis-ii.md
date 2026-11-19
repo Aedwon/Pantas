@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 2
 partCount: 7
-ordering: 0
+ordering: 16
 keyPoints:
   - "Distinguish the lining up and separation of chromosomes in the two meiotic divisions."
   - "Identify when crossing over occurs."

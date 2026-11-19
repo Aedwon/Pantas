@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 7
 partCount: 7
-ordering: 0
+ordering: 37
 keyPoints:
   - "Compare the given side with the height to count possible triangles."
 ---

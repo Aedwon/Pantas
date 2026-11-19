@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 10
 partCount: 10
-ordering: 0
+ordering: 121
 keyPoints:
   - "Recognize the groups and building blocks in major classes of biomolecules."
 ---

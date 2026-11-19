@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 4
 partCount: 6
-ordering: 0
+ordering: 59
 keyPoints:
   - "Add atomic molar masses using the counts in a chemical formula."
   - "Count atoms in parentheses and water in hydrates."

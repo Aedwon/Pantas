@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 1
 partCount: 5
-ordering: 0
+ordering: 32
 keyPoints:
   - "Tell the whole solid Earth apart from the rigid outer shell."
   - "Trace what moves from the solid Earth during an eruption."

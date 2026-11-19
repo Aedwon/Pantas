@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 6
 partCount: 7
-ordering: 0
+ordering: 36
 keyPoints:
   - "Use the sine of the missing angle to test possible triangles."
 ---

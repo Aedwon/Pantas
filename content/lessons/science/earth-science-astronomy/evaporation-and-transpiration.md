@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 1
 partCount: 8
-ordering: 0
+ordering: 68
 keyPoints:
   - "Identify evaporation, transpiration, and their combined effect."
 ---

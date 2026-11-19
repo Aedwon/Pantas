@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 3
 partCount: 7
-ordering: 0
+ordering: 16
 keyPoints:
   - "Use slope to find velocity and identify when the object is at rest."
 ---

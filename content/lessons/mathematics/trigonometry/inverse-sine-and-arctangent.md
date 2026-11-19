@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 1
 partCount: 3
-ordering: 0
+ordering: 38
 keyPoints:
   - "Read inverse-function notation."
   - "Find principal values of arcsine and arctangent."

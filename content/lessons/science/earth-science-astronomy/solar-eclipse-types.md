@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 5
 partCount: 6
-ordering: 0
+ordering: 30
 keyPoints:
   - "Use the Moon’s shadow and apparent size to identify solar eclipse types."
 ---

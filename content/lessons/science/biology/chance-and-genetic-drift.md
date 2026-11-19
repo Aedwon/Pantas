@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 4
 partCount: 9
-ordering: 0
+ordering: 65
 keyPoints:
   - "Distinguish genetic drift from natural selection."
 ---

@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 1
 partCount: 10
-ordering: 0
+ordering: 43
 keyPoints:
   - "Explain why atoms bond."
   - "Distinguish ionic, covalent, and metallic bonding."

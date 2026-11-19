@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 5
 partCount: 7
-ordering: 0
+ordering: 35
 keyPoints:
   - "Use the three sides to find or classify an angle."
   - "Find sine and cosine for an obtuse angle."

@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 6
 partCount: 6
-ordering: 0
+ordering: 39
 keyPoints:
   - "Resolve weight into its two components and find the normal force."
   - "Use the force balance along the slope to find friction or acceleration."

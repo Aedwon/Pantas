@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 2
 partCount: 6
-ordering: 0
+ordering: 20
 keyPoints:
   - "Use the same angle in both terms of the Pythagorean identity."
   - "Find a ratio and pick its sign from the quadrant."

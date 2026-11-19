@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 1
 partCount: 6
-ordering: 0
+ordering: 37
 keyPoints:
   - "Name Earth’s layers from the crust to the center."
   - "Compare the thickness, density, and makeup of oceanic and continental crust."

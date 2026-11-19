@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 3
 partCount: 7
-ordering: 0
+ordering: 23
 keyPoints:
   - "Describe velocity and acceleration at the peak."
   - "Use the level-ground formulas for time, height, and range."

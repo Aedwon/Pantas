@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 6
 partCount: 9
-ordering: 0
+ordering: 62
 keyPoints:
   - "Use displaced fluid to find the buoyant force."
 ---

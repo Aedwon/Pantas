@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 4
 partCount: 5
-ordering: 0
+ordering: 45
 keyPoints:
   - "Add a duration to find the ending time."
 ---

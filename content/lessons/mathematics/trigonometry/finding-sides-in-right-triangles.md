@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 1
 partCount: 6
-ordering: 0
+ordering: 25
 keyPoints:
   - "Choose a ratio from the sides and the angle."
   - "Use the ratio to solve for an unknown side."

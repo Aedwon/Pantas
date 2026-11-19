@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 6
 partCount: 7
-ordering: 0
+ordering: 26
 keyPoints:
   - "Explain how static friction provides the inward force in a turn."
 ---

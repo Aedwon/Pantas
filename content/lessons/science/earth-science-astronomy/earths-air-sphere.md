@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 3
 partCount: 5
-ordering: 0
+ordering: 34
 keyPoints:
   - "Identify the atmosphere and explain what it does."
   - "Compare the layers of the atmosphere."

@@ -7,7 +7,7 @@ topic: "topic-precalculus-basic-calculus"
 isActive: true
 part: 3
 partCount: 3
-ordering: 0
+ordering: 3
 keyPoints:
   - "Find the axes and foci of an ellipse."
   - "Find the direction, foci, and asymptotes of a hyperbola."

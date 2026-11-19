@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 2
 partCount: 6
-ordering: 0
+ordering: 27
 keyPoints:
   - "Identify crescent, quarter, and gibbous phases."
   - "Tell whether a Moon phase is waxing or waning."

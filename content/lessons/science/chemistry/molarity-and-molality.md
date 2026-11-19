@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 3
 partCount: 8
-ordering: 0
+ordering: 91
 keyPoints:
   - "Calculate molarity using liters of solution."
   - "Calculate molality using kilograms of solvent."

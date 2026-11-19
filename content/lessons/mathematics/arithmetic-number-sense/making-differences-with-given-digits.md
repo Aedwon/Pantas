@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 5
 partCount: 5
-ordering: 0
+ordering: 51
 keyPoints:
   - "Use place value to make the smallest or largest difference."
 ---

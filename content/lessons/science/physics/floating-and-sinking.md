@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 8
 partCount: 9
-ordering: 0
+ordering: 64
 keyPoints:
   - "Compare forces or densities to predict floating, rising, or sinking."
 ---

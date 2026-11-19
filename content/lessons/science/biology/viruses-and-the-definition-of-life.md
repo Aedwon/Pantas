@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 5
 partCount: 6
-ordering: 0
+ordering: 5
 keyPoints:
   - "Explain which properties viruses share with living things and which they lack."
 ---

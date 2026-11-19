@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 3
 partCount: 9
-ordering: 0
+ordering: 71
 keyPoints:
   - "Apply the zeroth law of thermodynamics."
 ---

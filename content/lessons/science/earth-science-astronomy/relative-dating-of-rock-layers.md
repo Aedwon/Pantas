@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 2
 partCount: 9
-ordering: 0
+ordering: 77
 keyPoints:
   - "Order rock layers using superposition and check for disturbance."
 ---

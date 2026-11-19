@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 2
 partCount: 6
-ordering: 0
+ordering: 26
 keyPoints:
   - "Use an exact ratio to find an acute angle."
   - "Use an inverse function in degree mode."

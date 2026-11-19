@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 6
 partCount: 6
-ordering: 0
+ordering: 61
 keyPoints:
   - "Convert between mass and number of entities through moles."
 ---

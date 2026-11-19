@@ -7,7 +7,7 @@ topic: "topic-mechanical-technical-reasoning"
 isActive: true
 part: 2
 partCount: 5
-ordering: 0
+ordering: 6
 keyPoints:
   - "Explain when connected vessels have equal levels."
   - "Compare liquid columns with different densities."

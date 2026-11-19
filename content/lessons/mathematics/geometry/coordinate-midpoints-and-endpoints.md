@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 2
 partCount: 6
-ordering: 0
+ordering: 44
 keyPoints:
   - "Average coordinates to find a midpoint."
   - "Use a midpoint and one endpoint to find the other endpoint."

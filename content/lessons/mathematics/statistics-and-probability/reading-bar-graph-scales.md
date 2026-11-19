@@ -7,7 +7,7 @@ topic: "topic-statistics-and-probability"
 isActive: true
 part: 2
 partCount: 4
-ordering: 0
+ordering: 12
 keyPoints:
   - "Read graph values using axis steps."
   - "Compare values on truncated or different scales."

@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 4
 partCount: 6
-ordering: 0
+ordering: 45
 keyPoints:
   - "Trace blood through the heart and the two circulation loops."
 ---

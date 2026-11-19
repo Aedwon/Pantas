@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 7
 partCount: 8
-ordering: 0
+ordering: 74
 keyPoints:
   - "Explain what causes high and low tides."
   - "Use the lunar day to explain tide timing."

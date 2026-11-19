@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 3
 partCount: 6
-ordering: 0
+ordering: 21
 keyPoints:
   - "Use the tangent-secant and cotangent-cosecant identities."
 ---

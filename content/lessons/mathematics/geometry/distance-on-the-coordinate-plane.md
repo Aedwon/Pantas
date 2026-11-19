@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 1
 partCount: 6
-ordering: 0
+ordering: 43
 keyPoints:
   - "Use coordinate differences to find the distance between two points."
 ---

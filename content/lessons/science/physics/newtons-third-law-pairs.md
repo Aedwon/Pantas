@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 3
 partCount: 6
-ordering: 0
+ordering: 30
 keyPoints:
   - "Identify an equal and opposite pair acting on different objects."
 ---

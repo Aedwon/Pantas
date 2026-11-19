@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 1
 partCount: 6
-ordering: 0
+ordering: 28
 keyPoints:
   - "Recognize inertia and zero net force at constant velocity."
 ---

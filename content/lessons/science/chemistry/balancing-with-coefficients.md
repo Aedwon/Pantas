@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 3
 partCount: 11
-ordering: 0
+ordering: 64
 keyPoints:
   - "Balance every element by changing coefficients."
 ---

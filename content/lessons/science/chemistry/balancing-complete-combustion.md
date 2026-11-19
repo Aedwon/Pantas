@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 9
 partCount: 11
-ordering: 0
+ordering: 70
 keyPoints:
   - "Identify complete combustion."
   - "Balance a complete combustion equation."

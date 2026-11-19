@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 3
 partCount: 5
-ordering: 0
+ordering: 24
 keyPoints:
   - "Identify organic molecules and the four groups of biomolecules."
   - "Compare the roles of lipids and carbohydrates."

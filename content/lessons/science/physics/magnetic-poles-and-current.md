@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 8
 partCount: 11
-ordering: 0
+ordering: 106
 keyPoints:
   - "Describe the poles of a magnet."
   - "Use the right-hand rule to find a current’s magnetic field."

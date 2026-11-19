@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 1
 partCount: 9
-ordering: 0
+ordering: 69
 keyPoints:
   - "Distinguish heat, temperature, and internal energy."
   - "Predict the direction of heat flow."

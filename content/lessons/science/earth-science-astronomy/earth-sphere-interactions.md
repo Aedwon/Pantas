@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 5
 partCount: 5
-ordering: 0
+ordering: 36
 keyPoints:
   - "Identify the spheres involved in an event."
   - "Trace matter or energy as it moves between spheres."

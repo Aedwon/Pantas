@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 4
 partCount: 7
-ordering: 0
+ordering: 125
 keyPoints:
   - "Explain what changes in gamma emission."
   - "Compare penetration, shielding, and hazards for alpha, beta, and gamma radiation."

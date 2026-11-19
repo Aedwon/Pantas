@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 6
 partCount: 10
-ordering: 0
+ordering: 117
 keyPoints:
   - "Explain how functional groups affect boiling point, solubility, and other behavior."
   - "Explain why carbon chain length also affects solubility."

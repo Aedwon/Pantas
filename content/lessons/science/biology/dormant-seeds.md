@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 4
 partCount: 6
-ordering: 0
+ordering: 4
 keyPoints:
   - "Explain why a dormant seed can still be alive."
 ---

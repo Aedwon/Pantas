@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 4
 partCount: 5
-ordering: 0
+ordering: 100
 keyPoints:
   - "Use hydroxide concentration to calculate pOH and pH."
   - "Explain how neutral pH depends on temperature."

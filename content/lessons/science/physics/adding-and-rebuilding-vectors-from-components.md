@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 6
 partCount: 6
-ordering: 0
+ordering: 13
 keyPoints:
   - "Add the separate horizontal and vertical components."
   - "Find magnitude and direction from the resultant components."

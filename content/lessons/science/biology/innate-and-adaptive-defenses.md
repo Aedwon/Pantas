@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 6
 partCount: 7
-ordering: 0
+ordering: 53
 keyPoints:
   - "Distinguish innate defenses from adaptive immunity."
   - "Explain how plasma cells, memory cells, and vaccines help protect the body."

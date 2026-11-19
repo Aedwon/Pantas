@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 9
 partCount: 9
-ordering: 0
+ordering: 18
 keyPoints:
   - "Read the period and amplitude of sine and cosine."
   - "Locate zeros and undefined values on the tangent graph."

@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 5
 partCount: 6
-ordering: 0
+ordering: 12
 keyPoints:
   - "Find signed components from the magnitude and angle."
   - "Choose the right ratio for an angle measured from either axis."

@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 1
 partCount: 5
-ordering: 0
+ordering: 73
 keyPoints:
   - "Use a balanced equation’s coefficients to convert between amounts in moles."
   - "Convert between the masses of reacting substances through moles."

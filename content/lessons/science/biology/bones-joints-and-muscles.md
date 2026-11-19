@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 4
 partCount: 7
-ordering: 0
+ordering: 51
 keyPoints:
   - "Distinguish axial and appendicular bones."
   - "Explain how tendons and paired muscles move bones."

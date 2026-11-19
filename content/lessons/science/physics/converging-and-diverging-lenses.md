@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 2
 partCount: 5
-ordering: 0
+ordering: 95
 keyPoints:
   - "Identify converging and diverging lenses by shape and surroundings."
   - "Describe the images made by a magnifying glass and a concave lens."

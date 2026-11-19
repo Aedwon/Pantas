@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 8
 partCount: 11
-ordering: 0
+ordering: 69
 keyPoints:
   - "Predict a precipitate from solubility rules."
   - "Recognize spectator ions and write a net ionic equation."

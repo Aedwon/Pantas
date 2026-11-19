@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 3
 partCount: 7
-ordering: 0
+ordering: 49
 keyPoints:
   - "Find impulse from signed area under a force-time graph."
 ---

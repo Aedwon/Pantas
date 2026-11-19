@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 1
 partCount: 5
-ordering: 0
+ordering: 22
 keyPoints:
   - "Describe how ATP supplies energy and is rebuilt from ADP."
   - "Describe what an electron carrier does."

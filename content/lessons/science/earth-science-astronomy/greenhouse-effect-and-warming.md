@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 9
 partCount: 11
-ordering: 0
+ordering: 65
 keyPoints:
   - "Explain how greenhouse gases warm Earth."
   - "Describe what climate change includes."

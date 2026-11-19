@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 5
 partCount: 6
-ordering: 0
+ordering: 32
 keyPoints:
   - "Find the normal force from the perpendicular force balance."
 ---

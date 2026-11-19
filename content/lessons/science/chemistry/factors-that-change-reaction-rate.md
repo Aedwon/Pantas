@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 5
 partCount: 10
-ordering: 0
+ordering: 106
 keyPoints:
   - "Explain how temperature, concentration, and surface area affect reaction rates."
 ---

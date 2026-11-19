@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 4
 partCount: 6
-ordering: 0
+ordering: 22
 keyPoints:
   - "Use factoring and the Pythagorean identity to simplify."
 ---

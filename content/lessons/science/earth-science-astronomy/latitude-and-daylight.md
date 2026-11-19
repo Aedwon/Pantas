@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 5
 partCount: 7
-ordering: 0
+ordering: 23
 keyPoints:
   - "Explain how latitude changes day length and the height of the Sun."
 ---

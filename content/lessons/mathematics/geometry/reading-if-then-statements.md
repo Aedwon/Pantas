@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 1
 partCount: 5
-ordering: 0
+ordering: 6
 keyPoints:
   - "Identify the hypothesis and conclusion in if-then and only-if statements."
   - "Tell when a conditional is false."

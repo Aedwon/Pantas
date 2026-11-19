@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 6
 partCount: 9
-ordering: 0
+ordering: 67
 keyPoints:
   - "Identify Darwin and Wallace’s role in the study of natural selection."
   - "Explain how inherited variation and reproductive success drive selection."

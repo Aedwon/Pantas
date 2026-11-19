@@ -7,7 +7,7 @@ topic: "topic-statistics-and-probability"
 isActive: true
 part: 2
 partCount: 5
-ordering: 0
+ordering: 16
 keyPoints:
   - "Use factorials to count arrangements of all objects."
   - "Count ordered selections of some objects."

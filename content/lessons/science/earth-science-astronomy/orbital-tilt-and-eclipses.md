@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 4
 partCount: 6
-ordering: 0
+ordering: 29
 keyPoints:
   - "Explain why orbital tilt keeps eclipses from happening every month."
 ---

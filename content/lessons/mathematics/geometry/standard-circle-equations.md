@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 5
 partCount: 6
-ordering: 0
+ordering: 47
 keyPoints:
   - "Write or read a circle equation in standard form."
 ---

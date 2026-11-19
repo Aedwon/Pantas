@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 4
 partCount: 5
-ordering: 0
+ordering: 97
 keyPoints:
   - "Trace principal rays to locate an image."
   - "Predict image properties from object position and focal length."

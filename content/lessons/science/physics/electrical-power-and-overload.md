@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 7
 partCount: 11
-ordering: 0
+ordering: 105
 keyPoints:
   - "Find electrical power, energy use, or efficiency."
   - "Use total current to tell when a fuse opens."

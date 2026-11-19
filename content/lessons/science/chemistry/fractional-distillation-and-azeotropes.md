@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 7
 partCount: 10
-ordering: 0
+ordering: 15
 keyPoints:
   - "Explain how fractional distillation enriches the more volatile liquid."
   - "Identify what limits distillation at an azeotrope."

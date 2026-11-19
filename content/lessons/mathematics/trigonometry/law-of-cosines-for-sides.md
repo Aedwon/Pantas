@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 4
 partCount: 7
-ordering: 0
+ordering: 34
 keyPoints:
   - "Find the missing side from two sides and the angle between them."
   - "Use the cosine correction for acute, right, and obtuse angles."

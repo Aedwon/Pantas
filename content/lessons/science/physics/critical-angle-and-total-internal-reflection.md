@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 4
 partCount: 5
-ordering: 0
+ordering: 92
 keyPoints:
   - "Find the critical angle and identify when total internal reflection occurs."
 ---

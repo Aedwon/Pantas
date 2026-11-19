@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 2
 partCount: 4
-ordering: 0
+ordering: 12
 keyPoints:
   - "Put the stages of the cell cycle in order and identify what happens in interphase."
   - "Distinguish cytokinesis from division of the nucleus."

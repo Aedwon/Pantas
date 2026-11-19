@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 7
 partCount: 11
-ordering: 0
+ordering: 63
 keyPoints:
   - "Identify cyclone categories from maximum sustained wind."
   - "Describe when cyclones can occur and how they differ from monsoons."

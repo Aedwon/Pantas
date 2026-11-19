@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 2
 partCount: 5
-ordering: 0
+ordering: 43
 keyPoints:
   - "Count forward or borrow 60 minutes to find elapsed time."
 ---

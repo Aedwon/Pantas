@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 3
 partCount: 6
-ordering: 0
+ordering: 28
 keyPoints:
   - "Identify the alignment for a solar or lunar eclipse."
 ---

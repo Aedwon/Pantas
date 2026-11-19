@@ -7,7 +7,7 @@ topic: "topic-statistics-and-probability"
 isActive: true
 part: 4
 partCount: 4
-ordering: 0
+ordering: 23
 keyPoints:
   - "Subtract overlap when counting either event."
   - "Recognize mutually exclusive events."

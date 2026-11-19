@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 7
 partCount: 7
-ordering: 0
+ordering: 53
 keyPoints:
   - "Compare momentum and kinetic energy in an elastic collision or a push-apart."
 ---

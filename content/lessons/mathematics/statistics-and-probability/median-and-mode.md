@@ -7,7 +7,7 @@ topic: "topic-statistics-and-probability"
 isActive: true
 part: 2
 partCount: 4
-ordering: 0
+ordering: 2
 keyPoints:
   - "Sort values and find the median."
   - "Identify one mode, tied modes, or no mode."

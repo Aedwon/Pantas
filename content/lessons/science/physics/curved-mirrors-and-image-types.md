@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 1
 partCount: 5
-ordering: 0
+ordering: 94
 keyPoints:
   - "Describe ray behavior and focal length for spherical mirrors."
   - "Distinguish real and virtual images."

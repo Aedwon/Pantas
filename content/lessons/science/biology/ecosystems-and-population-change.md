@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 1
 partCount: 8
-ordering: 0
+ordering: 71
 keyPoints:
   - "Distinguish populations, communities, ecosystems, and biomes."
   - "Explain how resources affect population size and carrying capacity."

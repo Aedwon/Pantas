@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 6
 partCount: 6
-ordering: 0
+ordering: 13
 keyPoints:
   - "Name the object in space, the streak in the air, and any material that reaches the ground."
   - "Explain what causes a meteor shower."

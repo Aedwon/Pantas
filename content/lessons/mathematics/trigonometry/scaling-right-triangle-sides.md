@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 6
 partCount: 6
-ordering: 0
+ordering: 9
 keyPoints:
   - "Solve for a missing side using a trigonometric ratio."
   - "Scale the triangle sides using a given ratio and length."

@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 3
 partCount: 6
-ordering: 0
+ordering: 3
 keyPoints:
   - "Use several properties together to decide whether something is alive."
 ---

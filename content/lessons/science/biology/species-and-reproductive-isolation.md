@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 8
 partCount: 9
-ordering: 0
+ordering: 69
 keyPoints:
   - "Explain why a physical barrier alone does not create two species."
   - "Identify reproductive isolation and explain how it relates to speciation."

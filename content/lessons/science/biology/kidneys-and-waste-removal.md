@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 6
 partCount: 6
-ordering: 0
+ordering: 47
 keyPoints:
   - "Explain what nephrons do and which wastes the kidneys remove."
   - "Trace urine from the kidneys out of the body."

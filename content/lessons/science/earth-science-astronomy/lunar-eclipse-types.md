@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 6
 partCount: 6
-ordering: 0
+ordering: 31
 keyPoints:
   - "Use Earth’s shadow to identify lunar eclipse types."
 ---

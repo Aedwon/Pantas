@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 5
 partCount: 9
-ordering: 0
+ordering: 73
 keyPoints:
   - "Predict spontaneous heat flow and explain refrigeration."
   - "Describe how total entropy changes in an isolated system."

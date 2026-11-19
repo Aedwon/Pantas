@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 7
 partCount: 7
-ordering: 0
+ordering: 21
 keyPoints:
   - "Explain how crossing over changes allele combinations."
   - "Explain how fertilization adds variation."

@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 1
 partCount: 7
-ordering: 0
+ordering: 1
 keyPoints:
   - "Describe the hot, dense early universe and its expansion."
   - "Distinguish what the Big Bang model explains from questions it leaves open."

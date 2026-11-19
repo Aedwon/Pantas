@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 4
 partCount: 7
-ordering: 0
+ordering: 50
 keyPoints:
   - "Identify external impulse and decide whether momentum is conserved."
 ---

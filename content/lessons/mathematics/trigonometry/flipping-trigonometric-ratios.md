@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 3
 partCount: 6
-ordering: 0
+ordering: 6
 keyPoints:
   - "Find cosecant, secant, and cotangent by taking reciprocals."
   - "Check the range of acute-angle ratios."

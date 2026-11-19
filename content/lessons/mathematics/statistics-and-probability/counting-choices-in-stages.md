@@ -7,7 +7,7 @@ topic: "topic-statistics-and-probability"
 isActive: true
 part: 1
 partCount: 5
-ordering: 0
+ordering: 15
 keyPoints:
   - "Multiply the counts for successive choices."
   - "Allow or forbid reuse as the problem states."

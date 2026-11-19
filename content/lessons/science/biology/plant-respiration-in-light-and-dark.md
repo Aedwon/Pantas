@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 6
 partCount: 6
-ordering: 0
+ordering: 32
 keyPoints:
   - "Explain how light affects photosynthesis and respiration in plants."
 ---

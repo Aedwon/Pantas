@@ -7,7 +7,7 @@ topic: "topic-statistics-and-probability"
 isActive: true
 part: 3
 partCount: 6
-ordering: 0
+ordering: 7
 keyPoints:
   - "Distinguish samples from populations."
   - "Compute sample variance and standard deviation."

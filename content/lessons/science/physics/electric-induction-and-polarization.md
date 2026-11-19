@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 2
 partCount: 11
-ordering: 0
+ordering: 100
 keyPoints:
   - "Trace how electrons move during charging by induction."
   - "Explain how polarization can attract a neutral object."

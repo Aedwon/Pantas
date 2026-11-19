@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 3
 partCount: 9
-ordering: 0
+ordering: 45
 keyPoints:
   - "Recognize luster."
   - "Distinguish cleavage from fracture."

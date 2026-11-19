@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 6
 partCount: 8
-ordering: 0
+ordering: 6
 keyPoints:
   - "Explain why a pure substance stays at the same temperature while it melts or boils."
 ---

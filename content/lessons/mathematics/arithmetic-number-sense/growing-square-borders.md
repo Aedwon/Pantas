@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 3
 partCount: 5
-ordering: 0
+ordering: 49
 keyPoints:
   - "Connect a figure's number to its side length and border count."
 ---

@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 5
 partCount: 5
-ordering: 0
+ordering: 53
 keyPoints:
   - "Subtract margins from both dimensions to find the remaining area."
 ---

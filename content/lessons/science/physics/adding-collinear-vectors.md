@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 3
 partCount: 6
-ordering: 0
+ordering: 10
 keyPoints:
   - "Add and subtract vectors along the same line."
 ---

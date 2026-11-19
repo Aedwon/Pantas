@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 1
 partCount: 6
-ordering: 0
+ordering: 25
 keyPoints:
   - "Recognize simple, convex, and concave polygons."
   - "Use the interior angle sum to find a total or a side count."

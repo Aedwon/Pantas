@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 2
 partCount: 3
-ordering: 0
+ordering: 54
 keyPoints:
   - "Use Greek prefixes and -ide to name binary molecular compounds and read their formulas."
 ---

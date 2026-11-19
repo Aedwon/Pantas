@@ -7,7 +7,7 @@ topic: "topic-statistics-and-probability"
 isActive: true
 part: 2
 partCount: 4
-ordering: 0
+ordering: 21
 keyPoints:
   - "Multiply probabilities of independent events."
   - "Use the complement to find a probability."

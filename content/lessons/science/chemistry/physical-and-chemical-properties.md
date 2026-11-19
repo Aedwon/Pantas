@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 7
 partCount: 8
-ordering: 0
+ordering: 7
 keyPoints:
   - "Distinguish physical and chemical properties."
 ---

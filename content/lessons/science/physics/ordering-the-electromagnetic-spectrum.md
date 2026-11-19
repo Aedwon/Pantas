@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 5
 partCount: 7
-ordering: 0
+ordering: 82
 keyPoints:
   - "Order the electromagnetic spectrum and identify where visible light fits."
   - "Relate wavelength and frequency in a vacuum."

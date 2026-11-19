@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 3
 partCount: 6
-ordering: 0
+ordering: 81
 keyPoints:
   - "Identify phototropism and tell positive from negative growth."
   - "Predict how roots and shoots respond to gravity."

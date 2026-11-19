@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 6
 partCount: 7
-ordering: 0
+ordering: 6
 keyPoints:
   - "Order the stages of Solar System formation, including accretion."
   - "Explain why a collapsing cloud spins faster and forms a disk."

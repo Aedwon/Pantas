@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 3
 partCount: 10
-ordering: 0
+ordering: 114
 keyPoints:
   - "Use hydrogen counts and bond types to distinguish acyclic hydrocarbons and cycloalkanes."
 ---

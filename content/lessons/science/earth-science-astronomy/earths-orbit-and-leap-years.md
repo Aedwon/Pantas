@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 2
 partCount: 7
-ordering: 0
+ordering: 20
 keyPoints:
   - "Describe Earth’s revolution and the seasonal year."
   - "Use the Gregorian calendar’s leap-year rule."

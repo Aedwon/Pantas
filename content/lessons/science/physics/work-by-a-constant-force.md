@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 1
 partCount: 7
-ordering: 0
+ordering: 40
 keyPoints:
   - "Use force, displacement, and the angle to find work."
 ---

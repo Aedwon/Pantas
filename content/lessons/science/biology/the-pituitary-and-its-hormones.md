@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 3
 partCount: 7
-ordering: 0
+ordering: 50
 keyPoints:
   - "Explain how the hypothalamus and target glands regulate the pituitary."
   - "Identify where ADH is made, where it is released, and what it does."

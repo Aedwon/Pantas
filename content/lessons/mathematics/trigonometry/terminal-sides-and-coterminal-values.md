@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 5
 partCount: 9
-ordering: 0
+ordering: 14
 keyPoints:
   - "Reduce an angle by full turns to find its value."
   - "Find all angles in one turn that give a stated trigonometric value."

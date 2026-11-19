@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 3
 partCount: 3
-ordering: 0
+ordering: 40
 keyPoints:
   - "Evaluate a composition by finding the sides of a reference triangle."
   - "Use the domain and principal range to decide when inverse functions cancel."

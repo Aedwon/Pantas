@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 7
 partCount: 11
-ordering: 0
+ordering: 84
 keyPoints:
   - "Use Avogadro’s law to relate volume and amount at fixed pressure and temperature."
 ---

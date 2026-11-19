@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 1
 partCount: 9
-ordering: 0
+ordering: 76
 keyPoints:
   - "Identify fossils and explain how they are preserved."
 ---

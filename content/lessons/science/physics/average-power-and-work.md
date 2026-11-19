@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 6
 partCount: 7
-ordering: 0
+ordering: 45
 keyPoints:
   - "Calculate power, work, or time when the other two are known."
 ---

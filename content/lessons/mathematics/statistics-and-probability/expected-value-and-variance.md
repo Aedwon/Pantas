@@ -7,7 +7,7 @@ topic: "topic-statistics-and-probability"
 isActive: true
 part: 6
 partCount: 6
-ordering: 0
+ordering: 10
 keyPoints:
   - "Compute expected value from a probability table."
   - "Compute variance for a discrete random variable."

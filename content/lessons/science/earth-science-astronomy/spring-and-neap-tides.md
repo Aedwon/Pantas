@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 8
 partCount: 8
-ordering: 0
+ordering: 75
 keyPoints:
   - "Use Moon phases to tell spring tides from neap tides."
   - "Compare the tidal ranges of spring and neap tides."

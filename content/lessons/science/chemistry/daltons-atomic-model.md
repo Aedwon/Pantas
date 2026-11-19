@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 2
 partCount: 8
-ordering: 0
+ordering: 20
 keyPoints:
   - "Recall Dalton’s main claims about atoms and distinguish a model drawing from direct observation."
 ---

@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 1
 partCount: 5
-ordering: 0
+ordering: 31
 keyPoints:
   - "Identify the parts of a circle."
   - "Use the radius to find circumference and area."

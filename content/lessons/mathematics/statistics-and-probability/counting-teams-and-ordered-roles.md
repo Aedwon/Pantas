@@ -7,7 +7,7 @@ topic: "topic-statistics-and-probability"
 isActive: true
 part: 4
 partCount: 5
-ordering: 0
+ordering: 18
 keyPoints:
   - "Distinguish ordered roles from unordered teams."
   - "Multiply counts across selection stages."

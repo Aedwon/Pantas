@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 1
 partCount: 7
-ordering: 0
+ordering: 36
 keyPoints:
   - "Find perimeter and area of flat figures."
   - "Use the radius to find the area of a circle."

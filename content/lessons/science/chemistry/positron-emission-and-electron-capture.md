@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 3
 partCount: 7
-ordering: 0
+ordering: 124
 keyPoints:
   - "Distinguish positron emission from electron capture and identify the daughter."
 ---

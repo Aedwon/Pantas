@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 1
 partCount: 7
-ordering: 0
+ordering: 47
 keyPoints:
   - "Find momentum from mass and signed velocity."
 ---

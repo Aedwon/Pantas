@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 3
 partCount: 3
-ordering: 0
+ordering: 55
 keyPoints:
   - "Balance ion charges in the simplest whole-number ratio."
   - "Use parentheses when a formula has more than one copy of a polyatomic ion."

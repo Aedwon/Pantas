@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 1
 partCount: 11
-ordering: 0
+ordering: 78
 keyPoints:
   - "Identify pressure, volume, temperature, and amount of gas."
   - "Use the particle model to explain gas behavior."

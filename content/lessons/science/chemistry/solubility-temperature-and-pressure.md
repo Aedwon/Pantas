@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 2
 partCount: 8
-ordering: 0
+ordering: 90
 keyPoints:
   - "Explain how temperature affects the solubility of solids."
   - "Predict how temperature and gas pressure affect gas solubility."

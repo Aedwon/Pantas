@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 3
 partCount: 9
-ordering: 0
+ordering: 64
 keyPoints:
   - "Explain how mutation creates new alleles and how they can be inherited."
 ---

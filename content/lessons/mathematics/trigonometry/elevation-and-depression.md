@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 4
 partCount: 6
-ordering: 0
+ordering: 28
 keyPoints:
   - "Measure elevation and depression from the horizontal at the observer."
   - "Use elevation or depression to find height or horizontal distance."

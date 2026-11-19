@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 5
 partCount: 9
-ordering: 0
+ordering: 20
 keyPoints:
   - "Use shared sides, midpoints, and vertical angles to prove triangles congruent."
 ---

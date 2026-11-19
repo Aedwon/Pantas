@@ -7,7 +7,7 @@ topic: "topic-statistics-and-probability"
 isActive: true
 part: 2
 partCount: 6
-ordering: 0
+ordering: 6
 keyPoints:
   - "Use squared deviations to find population variance."
   - "Convert between variance and standard deviation."

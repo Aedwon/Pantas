@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 5
 partCount: 7
-ordering: 0
+ordering: 31
 keyPoints:
   - "Find the charge or electron count of a monatomic ion."
   - "Identify what changes when an atom gains or loses electrons."

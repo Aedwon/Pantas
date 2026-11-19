@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 5
 partCount: 8
-ordering: 0
+ordering: 5
 keyPoints:
   - "Name a phase change from its starting and ending states."
   - "Tell whether a phase change takes in or gives out energy."

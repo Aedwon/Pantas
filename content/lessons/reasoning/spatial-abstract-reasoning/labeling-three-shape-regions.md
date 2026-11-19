@@ -7,7 +7,7 @@ topic: "topic-spatial-abstract-reasoning"
 isActive: true
 part: 2
 partCount: 6
-ordering: 0
+ordering: 19
 keyPoints:
   - "Name each region by checking all three shapes."
 ---

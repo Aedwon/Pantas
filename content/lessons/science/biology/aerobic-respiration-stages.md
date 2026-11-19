@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 2
 partCount: 6
-ordering: 0
+ordering: 28
 keyPoints:
   - "Follow glucose through the stages and identify where carbon dioxide and ATP are made."
   - "Explain the role of oxygen in the electron transport chain."

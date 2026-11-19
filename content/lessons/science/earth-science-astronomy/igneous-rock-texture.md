@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 6
 partCount: 9
-ordering: 0
+ordering: 48
 keyPoints:
   - "Recognize rocks that formed from cooled melt."
   - "Use cooling rate to predict crystal size and texture."

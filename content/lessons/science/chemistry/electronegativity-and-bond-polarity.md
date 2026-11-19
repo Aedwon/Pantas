@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 2
 partCount: 10
-ordering: 0
+ordering: 44
 keyPoints:
   - "Use electronegativity to explain unequal sharing and estimate bond polarity."
 ---

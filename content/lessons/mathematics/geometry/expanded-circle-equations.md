@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 6
 partCount: 6
-ordering: 0
+ordering: 48
 keyPoints:
   - "Complete the square to find the center and radius."
 ---

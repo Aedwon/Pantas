@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 2
 partCount: 11
-ordering: 0
+ordering: 63
 keyPoints:
   - "Write an ionic formula from ion charges."
 ---

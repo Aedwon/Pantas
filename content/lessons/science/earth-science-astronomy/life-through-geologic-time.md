@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 9
 partCount: 9
-ordering: 0
+ordering: 84
 keyPoints:
   - "Match major events in the history of life to their eras."
 ---

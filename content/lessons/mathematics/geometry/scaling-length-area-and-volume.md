@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 7
 partCount: 7
-ordering: 0
+ordering: 42
 keyPoints:
   - "Scale lengths, areas, and volumes."
   - "Work backward from an area or volume ratio."

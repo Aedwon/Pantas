@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 6
 partCount: 9
-ordering: 0
+ordering: 21
 keyPoints:
   - "Use the scale factor between similar triangles to find a missing measurement."
 ---

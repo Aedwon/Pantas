@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 2
 partCount: 9
-ordering: 0
+ordering: 44
 keyPoints:
   - "Rank mineral hardness with scratch tests."
   - "Identify streak and use it with other clues."

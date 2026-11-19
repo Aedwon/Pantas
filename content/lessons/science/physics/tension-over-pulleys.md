@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 3
 partCount: 6
-ordering: 0
+ordering: 36
 keyPoints:
   - "Relate accelerations with fixed and movable pulleys."
   - "Find acceleration and tension in a two-block pulley system."

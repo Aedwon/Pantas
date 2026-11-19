@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 1
 partCount: 9
-ordering: 0
+ordering: 10
 keyPoints:
   - "Read sine and cosine from the terminal point."
   - "Find tangent on the axes or from the terminal point."

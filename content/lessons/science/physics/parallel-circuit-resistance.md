@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 6
 partCount: 11
-ordering: 0
+ordering: 104
 keyPoints:
   - "Identify what stays equal and what adds across parallel branches."
   - "Combine resistors in parallel."

@@ -7,7 +7,7 @@ topic: "topic-precalculus-basic-calculus"
 isActive: true
 part: 2
 partCount: 3
-ordering: 0
+ordering: 2
 keyPoints:
   - "Find a circle\u2019s center and radius."
   - "Find a parabola\u2019s vertex and opening direction."

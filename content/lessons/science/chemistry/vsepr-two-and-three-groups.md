@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 6
 partCount: 10
-ordering: 0
+ordering: 48
 keyPoints:
   - "Count bonds and lone pairs as electron groups."
   - "Predict geometry with two or three electron groups."

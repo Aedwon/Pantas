@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 2
 partCount: 7
-ordering: 0
+ordering: 49
 keyPoints:
   - "Explain how hormones signal to target cells."
   - "Distinguish negative and positive feedback."

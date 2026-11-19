@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 7
 partCount: 9
-ordering: 0
+ordering: 49
 keyPoints:
   - "Identify the changed variable, the measured variable, and controls in a cooling test."
 ---

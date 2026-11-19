@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 6
 partCount: 7
-ordering: 0
+ordering: 52
 keyPoints:
   - "Distinguish elastic, inelastic and perfectly inelastic collisions."
   - "Compare total kinetic energy before and after a collision."

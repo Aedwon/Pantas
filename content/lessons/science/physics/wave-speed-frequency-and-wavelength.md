@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 2
 partCount: 7
-ordering: 0
+ordering: 79
 keyPoints:
   - "Relate speed, frequency, and wavelength in one medium."
 ---

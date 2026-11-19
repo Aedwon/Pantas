@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 2
 partCount: 7
-ordering: 0
+ordering: 123
 keyPoints:
   - "Use the changes in atomic and mass numbers to find an alpha-decay daughter."
   - "Use the changes in atomic and mass numbers to find a beta-minus daughter."

@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 2
 partCount: 6
-ordering: 0
+ordering: 9
 keyPoints:
   - "Distinguish distance from displacement and speed from velocity."
 ---

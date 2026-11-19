@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 5
 partCount: 5
-ordering: 0
+ordering: 35
 keyPoints:
   - "Use the outside part and whole length of a secant in a length equation."
   - "Relate a tangent length to the product for a secant."

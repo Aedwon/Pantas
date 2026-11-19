@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 2
 partCount: 9
-ordering: 0
+ordering: 17
 keyPoints:
   - "Use the triangle inequality to find possible side lengths."
   - "Compare side lengths with opposite angles."

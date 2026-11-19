@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 2
 partCount: 5
-ordering: 0
+ordering: 32
 keyPoints:
   - "Relate a central or inscribed angle to its arc."
   - "Recognize the right angle opposite a diameter."

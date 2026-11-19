@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 2
 partCount: 8
-ordering: 0
+ordering: 2
 keyPoints:
   - "Choose a physical method that separates the parts of a mixture."
 ---

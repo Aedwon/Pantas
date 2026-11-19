@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 6
 partCount: 10
-ordering: 0
+ordering: 107
 keyPoints:
   - "Use a rate law to predict how concentration changes the rate."
 ---

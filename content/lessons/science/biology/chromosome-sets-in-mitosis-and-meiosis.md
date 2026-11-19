@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 1
 partCount: 7
-ordering: 0
+ordering: 15
 keyPoints:
   - "Compare the outcomes of mitosis and meiosis."
   - "Explain how meiosis and fertilization maintain chromosome-set number."

@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 4
 partCount: 6
-ordering: 0
+ordering: 40
 keyPoints:
   - "Tell the crust, lithosphere, and asthenosphere apart."
 ---

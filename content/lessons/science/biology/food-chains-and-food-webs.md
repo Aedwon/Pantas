@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 2
 partCount: 8
-ordering: 0
+ordering: 72
 keyPoints:
   - "Trace energy through feeding chains and food webs."
   - "Identify producers, consumers, and decomposers."

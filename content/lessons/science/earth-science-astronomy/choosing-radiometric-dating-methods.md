@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 7
 partCount: 9
-ordering: 0
+ordering: 82
 keyPoints:
   - "Choose a dating method that fits the sample and its age."
 ---

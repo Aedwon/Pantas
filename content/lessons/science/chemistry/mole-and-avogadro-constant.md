@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 1
 partCount: 6
-ordering: 0
+ordering: 56
 keyPoints:
   - "Use the Avogadro constant to convert between moles and entities."
   - "Explain how significant figures apply when the constant is exact."

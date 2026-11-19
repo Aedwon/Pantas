@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 5
 partCount: 6
-ordering: 0
+ordering: 29
 keyPoints:
   - "Identify the properties of rectangles, rhombuses, and squares."
   - "Use their diagonals to find missing angles or lengths."

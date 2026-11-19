@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 2
 partCount: 5
-ordering: 0
+ordering: 23
 keyPoints:
   - "Describe how an enzyme speeds up a reaction."
   - "Explain how heat can change an enzyme’s shape."

@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 6
 partCount: 6
-ordering: 0
+ordering: 33
 keyPoints:
   - "Draw only the forces acting on the chosen object."
   - "Resolve an angled force along the chosen axes."

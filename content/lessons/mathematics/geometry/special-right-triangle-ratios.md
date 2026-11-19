@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 9
 partCount: 9
-ordering: 0
+ordering: 24
 keyPoints:
   - "Use the side ratios of the two special right triangles."
 ---

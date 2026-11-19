@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 4
 partCount: 5
-ordering: 0
+ordering: 14
 keyPoints:
   - "Use the reverse angle rules to prove lines parallel."
 ---

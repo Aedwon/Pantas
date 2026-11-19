@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 8
 partCount: 10
-ordering: 0
+ordering: 16
 keyPoints:
   - "Identify the moving and stationary phases and explain why spots travel different distances."
   - "Set up the paper so the sample separates."

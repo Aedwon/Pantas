@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 1
 partCount: 5
-ordering: 0
+ordering: 42
 keyPoints:
   - "Use am and pm or 24-hour time to name a time of day."
 ---

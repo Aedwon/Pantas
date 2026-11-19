@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 4
 partCount: 6
-ordering: 0
+ordering: 82
 keyPoints:
   - "Match the anther and stigma to their jobs in pollen transfer."
   - "Identify where the egg cell is held and how sperm reach it."

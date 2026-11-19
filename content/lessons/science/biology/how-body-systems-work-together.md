@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 7
 partCount: 7
-ordering: 0
+ordering: 54
 keyPoints:
   - "Explain how body systems work together to supply cells and remove waste."
 ---

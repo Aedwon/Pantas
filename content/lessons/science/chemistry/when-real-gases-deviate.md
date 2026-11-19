@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 11
 partCount: 11
-ordering: 0
+ordering: 88
 keyPoints:
   - "Identify conditions where real gases are close to or far from ideal behavior."
 ---

@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 6
 partCount: 9
-ordering: 0
+ordering: 74
 keyPoints:
   - "Describe the limit at absolute zero and the entropy of a pure, perfect crystal."
 ---

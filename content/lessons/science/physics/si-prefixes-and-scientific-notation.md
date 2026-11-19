@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 2
 partCount: 7
-ordering: 0
+ordering: 2
 keyPoints:
   - "Convert units using SI prefixes and powers of ten."
   - "Convert between Celsius and kelvin using an offset."

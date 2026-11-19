@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 4
 partCount: 6
-ordering: 0
+ordering: 31
 keyPoints:
   - "Find weight from mass and gravity."
 ---

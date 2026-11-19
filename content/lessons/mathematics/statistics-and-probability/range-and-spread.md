@@ -7,7 +7,7 @@ topic: "topic-statistics-and-probability"
 isActive: true
 part: 1
 partCount: 6
-ordering: 0
+ordering: 5
 keyPoints:
   - "Calculate the range."
   - "Explain why the range can miss differences in spread."

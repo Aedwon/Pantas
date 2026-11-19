@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 2
 partCount: 6
-ordering: 0
+ordering: 43
 keyPoints:
   - "Trace food through the digestive tract."
   - "Explain how bile and bicarbonate aid digestion."

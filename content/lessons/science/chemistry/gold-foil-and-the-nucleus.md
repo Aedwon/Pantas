@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 6
 partCount: 8
-ordering: 0
+ordering: 24
 keyPoints:
   - "Identify who performed and interpreted the alpha-scattering work."
   - "Explain how the scattering evidence supports a small, dense nucleus and mostly empty space."

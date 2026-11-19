@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 7
 partCount: 7
-ordering: 0
+ordering: 27
 keyPoints:
   - "Convert between period, rpm, and angular speed."
   - "Relate angular speed and radius to speed and centripetal acceleration."

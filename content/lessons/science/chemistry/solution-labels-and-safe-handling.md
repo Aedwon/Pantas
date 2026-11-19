@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 8
 partCount: 8
-ordering: 0
+ordering: 96
 keyPoints:
   - "Read the concentration and safety directions on a product label."
 ---

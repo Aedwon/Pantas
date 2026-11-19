@@ -7,7 +7,7 @@ topic: "topic-spatial-abstract-reasoning"
 isActive: true
 part: 3
 partCount: 6
-ordering: 0
+ordering: 20
 keyPoints:
   - "Find a spot with the same inside-and-outside record after the shapes move."
 ---

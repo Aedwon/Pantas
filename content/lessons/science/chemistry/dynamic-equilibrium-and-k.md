@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 9
 partCount: 10
-ordering: 0
+ordering: 110
 keyPoints:
   - "Explain what the forward and reverse reactions do at equilibrium."
   - "Write an equilibrium constant and interpret its value."

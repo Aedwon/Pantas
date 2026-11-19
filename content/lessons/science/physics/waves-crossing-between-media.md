@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 3
 partCount: 7
-ordering: 0
+ordering: 80
 keyPoints:
   - "Predict what changes when a wave enters another medium."
 ---

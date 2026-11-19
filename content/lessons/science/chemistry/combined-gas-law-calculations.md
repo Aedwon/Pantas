@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 8
 partCount: 11
-ordering: 0
+ordering: 85
 keyPoints:
   - "Use the combined gas law for a fixed gas sample that changes state."
 ---

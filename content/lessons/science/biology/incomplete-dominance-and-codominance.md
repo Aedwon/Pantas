@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 4
 partCount: 9
-ordering: 0
+ordering: 36
 keyPoints:
   - "Distinguish incomplete dominance from codominance."
   - "Use multiple alleles to explain ABO blood types."

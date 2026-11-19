@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 6
 partCount: 9
-ordering: 0
+ordering: 15
 keyPoints:
   - "Convert between radians and degrees."
   - "Find exact values for radian angles."

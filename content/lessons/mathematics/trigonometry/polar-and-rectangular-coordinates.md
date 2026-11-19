@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 8
 partCount: 9
-ordering: 0
+ordering: 17
 keyPoints:
   - "Convert polar coordinates to rectangular coordinates."
   - "Find the radius and angle from rectangular coordinates."

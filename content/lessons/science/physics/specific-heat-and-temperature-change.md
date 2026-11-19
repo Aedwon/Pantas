@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 7
 partCount: 9
-ordering: 0
+ordering: 75
 keyPoints:
   - "Calculate heat or temperature change using specific heat capacity."
   - "Compare specific heat in a fair test."

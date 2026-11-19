@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 11
 partCount: 11
-ordering: 0
+ordering: 109
 keyPoints:
   - "Explain how a motor uses a magnetic force to turn."
   - "Explain how a generator uses changing flux to produce voltage."

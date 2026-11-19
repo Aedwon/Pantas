@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 2
 partCount: 5
-ordering: 0
+ordering: 2
 keyPoints:
   - "Classify angles by their measures."
   - "Use a full turn to find missing angle measures."

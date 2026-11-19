@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 3
 partCount: 7
-ordering: 0
+ordering: 38
 keyPoints:
   - "Add areas of separate pieces or subtract an inside region."
   - "Match the units before calculating area."

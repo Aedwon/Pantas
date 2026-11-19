@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 1
 partCount: 5
-ordering: 0
+ordering: 97
 keyPoints:
   - "Identify Arrhenius acids and bases by the ions they produce."
   - "Identify proton donors and acceptors."

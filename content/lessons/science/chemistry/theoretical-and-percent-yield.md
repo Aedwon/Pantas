@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 3
 partCount: 5
-ordering: 0
+ordering: 75
 keyPoints:
   - "Identify theoretical yield and calculate it from a limiting reactant."
   - "Calculate or interpret percent yield from actual and theoretical yields."

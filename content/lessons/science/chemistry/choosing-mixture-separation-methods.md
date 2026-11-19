@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 10
 partCount: 10
-ordering: 0
+ordering: 18
 keyPoints:
   - "Choose a sequence of physical methods to recover parts of a mixture."
 ---

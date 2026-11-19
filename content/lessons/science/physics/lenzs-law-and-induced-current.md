@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 10
 partCount: 11
-ordering: 0
+ordering: 108
 keyPoints:
   - "Use Lenz’s law to find the direction of the induced field or current."
   - "Recognize when a changing flux causes voltage without current."

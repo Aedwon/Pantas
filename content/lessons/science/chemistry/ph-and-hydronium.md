@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 2
 partCount: 5
-ordering: 0
+ordering: 98
 keyPoints:
   - "Classify solutions by pH at 25 °C and recognize that pH can fall outside 0 to 14."
   - "Find or compare hydronium concentrations using pH."

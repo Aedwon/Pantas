@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 8
 partCount: 11
-ordering: 0
+ordering: 64
 keyPoints:
   - "Recognize weather hazards and choose action that matches the danger."
 ---

@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 3
 partCount: 9
-ordering: 0
+ordering: 18
 keyPoints:
   - "Find an exterior angle using the two remote interior angles."
 ---

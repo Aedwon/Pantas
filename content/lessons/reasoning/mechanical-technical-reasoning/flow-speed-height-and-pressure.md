@@ -7,7 +7,7 @@ topic: "topic-mechanical-technical-reasoning"
 isActive: true
 part: 5
 partCount: 5
-ordering: 0
+ordering: 9
 keyPoints:
   - "Compare pressure at two points on a streamline."
   - "Identify when the ideal flow model applies."

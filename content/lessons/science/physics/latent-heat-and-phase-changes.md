@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 8
 partCount: 9
-ordering: 0
+ordering: 76
 keyPoints:
   - "Use latent heat to calculate energy during a phase change."
   - "Choose the heat equation for each stage of a heating curve."

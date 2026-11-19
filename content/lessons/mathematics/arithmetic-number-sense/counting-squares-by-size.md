@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 2
 partCount: 5
-ordering: 0
+ordering: 48
 keyPoints:
   - "Count squares by size before adding them."
 ---

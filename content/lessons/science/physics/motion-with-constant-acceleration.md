@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 5
 partCount: 7
-ordering: 0
+ordering: 18
 keyPoints:
   - "Find final velocity and displacement from initial values and time."
 ---

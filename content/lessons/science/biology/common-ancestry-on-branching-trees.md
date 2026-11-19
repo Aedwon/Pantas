@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 5
 partCount: 7
-ordering: 0
+ordering: 59
 keyPoints:
   - "Read common ancestry on a branching tree."
   - "Explain why ranks are an imperfect guide to evolutionary distance."

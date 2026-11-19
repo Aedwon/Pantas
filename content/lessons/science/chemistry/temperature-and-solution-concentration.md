@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 6
 partCount: 8
-ordering: 0
+ordering: 94
 keyPoints:
   - "Tell which concentration measures can change when a sealed solution warms."
 ---

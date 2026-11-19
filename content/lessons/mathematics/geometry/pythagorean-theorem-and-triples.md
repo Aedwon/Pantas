@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 7
 partCount: 9
-ordering: 0
+ordering: 22
 keyPoints:
   - "Find a missing right-triangle side or test whether three sides make a right triangle."
 ---

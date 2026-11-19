@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 6
 partCount: 8
-ordering: 0
+ordering: 76
 keyPoints:
   - "Trace phosphorus through rocks, soil, water, and living things."
 ---

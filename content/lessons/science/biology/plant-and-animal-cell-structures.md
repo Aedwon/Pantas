@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 2
 partCount: 4
-ordering: 0
+ordering: 8
 keyPoints:
   - "Distinguish typical plant and animal cells by their structures."
 ---

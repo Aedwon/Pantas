@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 3
 partCount: 5
-ordering: 0
+ordering: 51
 keyPoints:
   - "Find how many whole pieces fit on a sheet."
   - "Count tiles after matching the units."

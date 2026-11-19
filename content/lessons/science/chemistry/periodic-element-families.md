@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 3
 partCount: 6
-ordering: 0
+ordering: 39
 keyPoints:
   - "Identify the main named families and their properties."
   - "Distinguish metals, nonmetals, and metalloids."

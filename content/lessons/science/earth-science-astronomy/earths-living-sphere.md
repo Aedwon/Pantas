@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 4
 partCount: 5
-ordering: 0
+ordering: 35
 keyPoints:
   - "Identify living things as part of the biosphere."
   - "Trace carbon as it moves between the biosphere and other spheres."

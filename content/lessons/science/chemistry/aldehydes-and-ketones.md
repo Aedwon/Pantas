@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 5
 partCount: 10
-ordering: 0
+ordering: 116
 keyPoints:
   - "Distinguish aldehydes and ketones by the groups attached to the carbonyl carbon."
 ---

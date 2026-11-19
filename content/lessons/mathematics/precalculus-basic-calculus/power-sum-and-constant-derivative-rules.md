@@ -7,7 +7,7 @@ topic: "topic-precalculus-basic-calculus"
 isActive: true
 part: 1
 partCount: 3
-ordering: 0
+ordering: 8
 keyPoints:
   - "Apply the power, sum, and constant rules."
   - "Rewrite roots and reciprocals as powers and check their domains."

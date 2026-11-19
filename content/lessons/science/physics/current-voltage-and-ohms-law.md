@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 4
 partCount: 11
-ordering: 0
+ordering: 102
 keyPoints:
   - "Use charge and time to find current and identify its direction."
   - "Relate voltage to the energy given to a charge."

@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 4
 partCount: 7
-ordering: 0
+ordering: 18
 keyPoints:
   - "Compare the products of meiosis across organisms and in egg and sperm formation."
 ---

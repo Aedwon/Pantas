@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 7
 partCount: 11
-ordering: 0
+ordering: 68
 keyPoints:
   - "Identify precipitation, water formation, and gas formation as driving forces."
   - "Explain why a partner swap can produce no net reaction."

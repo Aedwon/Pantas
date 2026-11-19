@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 4
 partCount: 5
-ordering: 0
+ordering: 52
 keyPoints:
   - "Use circumference and the number of turns to find distance traveled."
 ---

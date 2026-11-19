@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 7
 partCount: 7
-ordering: 0
+ordering: 7
 keyPoints:
   - "Use observations to explain why the nebular model fits the Solar System."
   - "Distinguish Solar System formation from cosmic expansion."

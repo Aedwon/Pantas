@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 3
 partCount: 7
-ordering: 0
+ordering: 42
 keyPoints:
   - "Relate the sign and size of net work to the change in kinetic energy."
 ---

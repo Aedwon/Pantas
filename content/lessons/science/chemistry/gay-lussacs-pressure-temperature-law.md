@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 6
 partCount: 11
-ordering: 0
+ordering: 83
 keyPoints:
   - "Use Gay-Lussac’s law to relate pressure and kelvin temperature at fixed volume and amount."
 ---

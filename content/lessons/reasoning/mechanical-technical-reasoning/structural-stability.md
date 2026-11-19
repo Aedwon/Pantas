@@ -5,6 +5,7 @@ summary: "Learn to find the center of gravity and base of support, test when an 
 subject: "subject-reasoning"
 topic: "topic-mechanical-technical-reasoning"
 estimatedMinutes: 14
+ordering: 10
 isActive: true
 ---
 ## Core Concept

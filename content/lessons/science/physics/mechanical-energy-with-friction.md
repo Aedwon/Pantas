@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 5
 partCount: 7
-ordering: 0
+ordering: 44
 keyPoints:
   - "Relate nonconservative work to the change in mechanical energy."
 ---

@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 3
 partCount: 5
-ordering: 0
+ordering: 54
 keyPoints:
   - "Identify plate boundaries from earthquake and volcano maps."
   - "Explain where volcanoes form, including at hot spots."

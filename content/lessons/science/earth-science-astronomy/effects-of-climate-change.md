@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 10
 partCount: 11
-ordering: 0
+ordering: 66
 keyPoints:
   - "Explain how warming changes sea level, rainfall, and heat."
   - "Connect physical changes to effects on people and public decisions."

@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 4
 partCount: 6
-ordering: 0
+ordering: 7
 keyPoints:
   - "Swap sine and cosine or tangent and cotangent for complementary angles."
 ---

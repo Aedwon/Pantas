@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 5
 partCount: 6
-ordering: 0
+ordering: 23
 keyPoints:
   - "Use algebra to prove an identity and a counterexample to disprove one."
 ---

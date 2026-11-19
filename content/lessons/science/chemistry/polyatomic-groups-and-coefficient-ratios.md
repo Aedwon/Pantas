@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 4
 partCount: 11
-ordering: 0
+ordering: 65
 keyPoints:
   - "Balance an equation by counting intact polyatomic groups."
   - "Reduce coefficients to the smallest whole-number ratio."

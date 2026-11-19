@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 6
 partCount: 9
-ordering: 0
+ordering: 38
 keyPoints:
   - "Identify base pairs in DNA and RNA."
   - "Trace how transcription and translation produce a protein."

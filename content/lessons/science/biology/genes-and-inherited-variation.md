@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 1
 partCount: 9
-ordering: 0
+ordering: 62
 keyPoints:
   - "Describe how alleles pass to offspring."
 ---

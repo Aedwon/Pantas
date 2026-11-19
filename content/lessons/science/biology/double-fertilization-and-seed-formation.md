@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 6
 partCount: 6
-ordering: 0
+ordering: 84
 keyPoints:
   - "Explain the steps from pollination to double fertilization."
   - "Identify what double fertilization makes and what becomes a seed or fruit."

@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 3
 partCount: 5
-ordering: 0
+ordering: 16
 keyPoints:
   - "Use size and temperature to compare luminosity."
   - "Explain how distance affects apparent brightness."

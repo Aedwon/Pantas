@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 5
 partCount: 6
-ordering: 0
+ordering: 41
 keyPoints:
   - "Explain why scientists use indirect evidence to study Earth’s deep layers."
   - "Compare how P and S waves travel through Earth."

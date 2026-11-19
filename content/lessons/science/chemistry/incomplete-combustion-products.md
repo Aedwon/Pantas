@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 10
 partCount: 11
-ordering: 0
+ordering: 71
 keyPoints:
   - "Predict products when a fuel burns with insufficient oxygen or contains other elements."
 ---

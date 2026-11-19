@@ -7,7 +7,7 @@ topic: "topic-mechanical-technical-reasoning"
 isActive: true
 part: 2
 partCount: 2
-ordering: 0
+ordering: 2
 keyPoints:
   - "Calculate the speed or turns of a gear from tooth counts."
   - "Distinguish speed from direction and identify matching speeds at the contact point."

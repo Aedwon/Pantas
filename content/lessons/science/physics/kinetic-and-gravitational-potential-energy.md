@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 2
 partCount: 7
-ordering: 0
+ordering: 41
 keyPoints:
   - "Find kinetic energy from mass and speed."
   - "Find gravitational potential energy relative to a chosen height."

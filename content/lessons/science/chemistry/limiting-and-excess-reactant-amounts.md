@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 2
 partCount: 5
-ordering: 0
+ordering: 74
 keyPoints:
   - "Find the limiting reactant using starting amounts and the balanced equation."
   - "Calculate how much product forms or excess reactant remains."

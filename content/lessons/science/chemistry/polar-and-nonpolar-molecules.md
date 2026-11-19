@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 8
 partCount: 10
-ordering: 0
+ordering: 50
 keyPoints:
   - "Use shape and bond dipoles to decide whether a molecule is polar."
 ---

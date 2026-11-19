@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 3
 partCount: 5
-ordering: 0
+ordering: 13
 keyPoints:
   - "Find right angles when a transversal is perpendicular to parallel lines."
 ---

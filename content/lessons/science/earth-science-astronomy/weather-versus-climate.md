@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 1
 partCount: 11
-ordering: 0
+ordering: 57
 keyPoints:
   - "Distinguish short-term weather from long-term climate."
   - "Use long-term evidence to judge claims about climate change."

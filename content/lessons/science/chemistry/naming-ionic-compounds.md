@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 1
 partCount: 3
-ordering: 0
+ordering: 53
 keyPoints:
   - "Name ionic compounds from their cations and anions."
   - "Use Roman numerals to show variable metal charges."

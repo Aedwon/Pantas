@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 5
 partCount: 9
-ordering: 0
+ordering: 47
 keyPoints:
   - "Explain how sediment and dissolved minerals form sedimentary rocks."
 ---

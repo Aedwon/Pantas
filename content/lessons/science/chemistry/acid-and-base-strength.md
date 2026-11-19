@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 3
 partCount: 5
-ordering: 0
+ordering: 99
 keyPoints:
   - "Distinguish strength from concentration."
   - "Find pH from the concentration of a strong acid with one hydrogen."

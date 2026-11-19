@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 3
 partCount: 5
-ordering: 0
+ordering: 91
 keyPoints:
   - "Find light speed from the index of refraction."
   - "Relate the changes in speed and wavelength to constant frequency."

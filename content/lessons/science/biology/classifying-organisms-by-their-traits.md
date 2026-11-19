@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 3
 partCount: 7
-ordering: 0
+ordering: 57
 keyPoints:
   - "Use cell structures and other traits to classify an organism."
 ---

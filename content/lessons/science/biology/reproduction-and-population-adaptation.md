@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 2
 partCount: 6
-ordering: 0
+ordering: 2
 keyPoints:
   - "Distinguish types of reproduction and explain why sterile individuals can be alive."
   - "Identify inherited change across generations."

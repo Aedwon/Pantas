@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 1
 partCount: 6
-ordering: 0
+ordering: 27
 keyPoints:
   - "Identify the inputs and products of aerobic respiration."
 ---

@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 1
 partCount: 10
-ordering: 0
+ordering: 112
 keyPoints:
   - "Distinguish common organic and inorganic carbon compounds."
   - "Explain how carbon bonds form chains, branches, and rings."

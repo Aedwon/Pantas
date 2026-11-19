@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 1
 partCount: 6
-ordering: 0
+ordering: 8
 keyPoints:
   - "Identify scalars and vectors."
 ---

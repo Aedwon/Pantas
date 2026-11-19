@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 4
 partCount: 7
-ordering: 0
+ordering: 22
 keyPoints:
   - "Describe how the hemispheres compare at the solstices and equinoxes."
 ---

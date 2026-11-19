@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 2
 partCount: 11
-ordering: 0
+ordering: 58
 keyPoints:
   - "Order the five atmospheric layers."
   - "Identify the layers associated with weather and ozone."

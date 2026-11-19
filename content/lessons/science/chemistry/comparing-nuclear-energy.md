@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 7
 partCount: 7
-ordering: 0
+ordering: 128
 keyPoints:
   - "Explain why splitting heavy nuclei and joining light nuclei release energy."
   - "Compare energy released per reaction and per unit mass."

@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 5
 partCount: 11
-ordering: 0
+ordering: 103
 keyPoints:
   - "Find resistance, current, and voltage in series."
   - "Predict what happens when a series path or parallel branch opens."

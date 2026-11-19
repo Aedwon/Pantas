@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 9
 partCount: 9
-ordering: 0
+ordering: 51
 keyPoints:
   - "Trace possible paths through the rock cycle."
   - "Use formation processes to classify rocks in a pathway."

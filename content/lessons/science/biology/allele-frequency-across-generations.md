@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 2
 partCount: 9
-ordering: 0
+ordering: 63
 keyPoints:
   - "Explain evolution as a change in allele frequency."
   - "Calculate the frequency of an allele."

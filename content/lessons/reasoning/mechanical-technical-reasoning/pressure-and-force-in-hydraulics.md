@@ -7,7 +7,7 @@ topic: "topic-mechanical-technical-reasoning"
 isActive: true
 part: 3
 partCount: 5
-ordering: 0
+ordering: 7
 keyPoints:
   - "Calculate pressure from force and area."
   - "Relate piston forces and distances in a hydraulic lift."

@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 2
 partCount: 7
-ordering: 0
+ordering: 37
 keyPoints:
   - "Use the perpendicular height to find the area of a triangle, parallelogram, or trapezoid."
 ---

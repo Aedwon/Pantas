@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 3
 partCount: 8
-ordering: 0
+ordering: 73
 keyPoints:
   - "Calculate energy transfers using the rate given in the question."
 ---

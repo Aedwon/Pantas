@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 5
 partCount: 6
-ordering: 0
+ordering: 38
 keyPoints:
   - "Find the direction and size of kinetic friction."
   - "Find the effect of an angled pull on normal force, friction, and acceleration."

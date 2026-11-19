@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 6
 partCount: 7
-ordering: 0
+ordering: 127
 keyPoints:
   - "Distinguish fission and fusion by what happens to the nuclei."
   - "Explain how released neutrons can continue a fission chain reaction."

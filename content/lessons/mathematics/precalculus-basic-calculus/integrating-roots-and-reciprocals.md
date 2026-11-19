@@ -7,7 +7,7 @@ topic: "topic-precalculus-basic-calculus"
 isActive: true
 part: 2
 partCount: 3
-ordering: 0
+ordering: 12
 keyPoints:
   - "Use the power rule on rewritten roots and reciprocals."
   - "Use the logarithm rule for the reciprocal of x."

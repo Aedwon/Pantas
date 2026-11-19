@@ -5,6 +5,7 @@ summary: "Learn how an ideal spring's extension relates to applied force and how
 subject: "subject-reasoning"
 topic: "topic-mechanical-technical-reasoning"
 estimatedMinutes: 9
+ordering: 4
 isActive: true
 ---
 ## Core Concept

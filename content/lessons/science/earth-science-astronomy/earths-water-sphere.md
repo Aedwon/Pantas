@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 2
 partCount: 5
-ordering: 0
+ordering: 33
 keyPoints:
   - "Identify the forms of water in the hydrosphere."
   - "Explain why different models may classify water vapor differently."

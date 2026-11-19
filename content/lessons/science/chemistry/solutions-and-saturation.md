@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 1
 partCount: 8
-ordering: 0
+ordering: 89
 keyPoints:
   - "Identify the solvent and solutes in a solution."
   - "Distinguish unsaturated, saturated, and supersaturated solutions."

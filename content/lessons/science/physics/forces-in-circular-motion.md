@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 5
 partCount: 7
-ordering: 0
+ordering: 25
 keyPoints:
   - "Identify the real forces providing centripetal acceleration."
   - "Find the inward net force using mass, speed, and radius."

@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 1
 partCount: 7
-ordering: 0
+ordering: 27
 keyPoints:
   - "Identify the location, charge, and relative mass of subatomic particles."
   - "Describe an electron orbital."

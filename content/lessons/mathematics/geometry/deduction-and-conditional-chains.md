@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 5
 partCount: 5
-ordering: 0
+ordering: 10
 keyPoints:
   - "Use detachment or chain conditionals to draw a valid conclusion."
 ---

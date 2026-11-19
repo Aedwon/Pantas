@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 1
 partCount: 6
-ordering: 0
+ordering: 34
 keyPoints:
   - "Identify the direction and limits of rope tension."
   - "Use the force balance to find tension in a hanging load."

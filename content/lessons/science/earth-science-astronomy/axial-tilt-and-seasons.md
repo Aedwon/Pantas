@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 3
 partCount: 7
-ordering: 0
+ordering: 21
 keyPoints:
   - "Describe Earth’s tilt and the direction its axis points during its orbit."
   - "Explain how tilt changes sunlight and day length to make seasons."

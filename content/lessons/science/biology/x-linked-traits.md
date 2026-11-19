@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 5
 partCount: 9
-ordering: 0
+ordering: 37
 keyPoints:
   - "Trace how X-linked alleles pass from parents to offspring."
 ---

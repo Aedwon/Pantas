@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 1
 partCount: 10
-ordering: 0
+ordering: 9
 keyPoints:
   - "Distinguish homogeneous and heterogeneous mixtures."
 ---

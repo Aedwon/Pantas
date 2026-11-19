@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 3
 partCount: 4
-ordering: 0
+ordering: 9
 keyPoints:
   - "Explain how the membrane and concentration gradient affect passive transport."
   - "Tell active transport from diffusion and identify its energy source."

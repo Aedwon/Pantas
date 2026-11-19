@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 5
 partCount: 11
-ordering: 0
+ordering: 66
 keyPoints:
   - "Distinguish synthesis, decomposition, and replacement patterns."
   - "Recognize when one reaction fits multiple patterns."

@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 6
 partCount: 10
-ordering: 0
+ordering: 14
 keyPoints:
   - "Explain how distillation collects a solvent as liquid."
 ---

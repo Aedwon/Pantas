@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 6
 partCount: 9
-ordering: 0
+ordering: 81
 keyPoints:
   - "Explain how parent and daughter isotopes give an age in a closed system."
 ---

@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 9
 partCount: 10
-ordering: 0
+ordering: 120
 keyPoints:
   - "Choose and number the parent chain for an alcohol or an unsaturated hydrocarbon."
 ---

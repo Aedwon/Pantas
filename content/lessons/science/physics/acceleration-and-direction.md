@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 2
 partCount: 7
-ordering: 0
+ordering: 15
 keyPoints:
   - "Calculate acceleration from the change in velocity."
   - "Compare velocity and acceleration signs."

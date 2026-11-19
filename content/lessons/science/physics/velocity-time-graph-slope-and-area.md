@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 4
 partCount: 7
-ordering: 0
+ordering: 17
 keyPoints:
   - "Use slope to find acceleration."
   - "Use signed area for displacement and identify reversals."

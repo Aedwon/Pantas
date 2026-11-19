@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 4
 partCount: 9
-ordering: 0
+ordering: 19
 keyPoints:
   - "Match corresponding parts and choose a valid congruence test."
 ---

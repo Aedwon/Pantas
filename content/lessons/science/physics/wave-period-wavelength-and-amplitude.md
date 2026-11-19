@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 1
 partCount: 7
-ordering: 0
+ordering: 78
 keyPoints:
   - "Identify period, frequency, and wavelength."
   - "Relate amplitude to wave energy."

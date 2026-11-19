@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 5
 partCount: 11
-ordering: 0
+ordering: 82
 keyPoints:
   - "Use Charles’s law to relate volume and kelvin temperature at fixed pressure and amount."
 ---

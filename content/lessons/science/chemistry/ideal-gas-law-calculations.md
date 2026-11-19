@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 9
 partCount: 11
-ordering: 0
+ordering: 86
 keyPoints:
   - "Use the ideal gas law to solve for moles or mass."
   - "Choose pressure and volume units that match the gas constant."

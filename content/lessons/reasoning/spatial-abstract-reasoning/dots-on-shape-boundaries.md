@@ -7,7 +7,7 @@ topic: "topic-spatial-abstract-reasoning"
 isActive: true
 part: 6
 partCount: 6
-ordering: 0
+ordering: 23
 keyPoints:
   - "Tell whether the center of a dot is inside, outside, or on a shape."
 ---

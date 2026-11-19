@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 2
 partCount: 6
-ordering: 0
+ordering: 5
 keyPoints:
   - "Use similar triangles and the Pythagorean theorem to find ratios."
 ---

@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 1
 partCount: 6
-ordering: 0
+ordering: 37
 keyPoints:
   - "Identify how the periodic table orders elements."
   - "Identify groups and periods and relate them to occupied shells."

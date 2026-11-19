@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 3
 partCount: 9
-ordering: 0
+ordering: 35
 keyPoints:
   - "Identify when genes assort independently and predict their inheritance."
   - "Explain why linkage changes the expected ratios."

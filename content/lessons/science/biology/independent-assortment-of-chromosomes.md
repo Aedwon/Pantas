@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 5
 partCount: 7
-ordering: 0
+ordering: 19
 keyPoints:
   - "Explain how chromosome pairs orient independently."
   - "Count chromosome combinations across many meioses."

@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 2
 partCount: 5
-ordering: 0
+ordering: 90
 keyPoints:
   - "Predict the direction of a refracted ray."
   - "Find a refraction angle with Snell’s law."

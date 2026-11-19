@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 4
 partCount: 5
-ordering: 0
+ordering: 34
 keyPoints:
   - "Use a tangent and a radius to form a right triangle and find a missing length."
 ---

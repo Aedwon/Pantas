@@ -7,7 +7,7 @@ topic: "topic-spatial-abstract-reasoning"
 isActive: true
 part: 4
 partCount: 6
-ordering: 0
+ordering: 21
 keyPoints:
   - "Check that a matching spot stays outside every excluded shape."
 ---

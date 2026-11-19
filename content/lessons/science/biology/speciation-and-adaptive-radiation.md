@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 9
 partCount: 9
-ordering: 0
+ordering: 70
 keyPoints:
   - "Distinguish speciation with and without geographic separation."
   - "Recognize adaptive radiation."

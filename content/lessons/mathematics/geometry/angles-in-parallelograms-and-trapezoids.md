@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 4
 partCount: 6
-ordering: 0
+ordering: 28
 keyPoints:
   - "Use angle relationships in parallelograms."
   - "Use the properties of trapezoids with parallel bases."

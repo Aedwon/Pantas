@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 4
 partCount: 10
-ordering: 0
+ordering: 115
 keyPoints:
   - "Recognize alcohols and carboxylic acids by their functional groups."
   - "Recognize primary, secondary, and tertiary amines."

@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 5
 partCount: 5
-ordering: 0
+ordering: 77
 keyPoints:
   - "Use molar mass to find a molecular formula from an empirical formula."
   - "Distinguish empirical, molecular, and ionic formulas."

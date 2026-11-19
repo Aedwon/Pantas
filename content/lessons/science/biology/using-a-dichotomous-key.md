@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 4
 partCount: 7
-ordering: 0
+ordering: 58
 keyPoints:
   - "Follow two-choice steps to identify an organism."
 ---

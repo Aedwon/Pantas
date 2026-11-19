@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 3
 partCount: 6
-ordering: 0
+ordering: 39
 keyPoints:
   - "Describe the liquid outer core and how it produces Earth’s magnetic field."
   - "Explain how pressure keeps the hotter inner core solid."

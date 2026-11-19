@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 5
 partCount: 6
-ordering: 0
+ordering: 8
 keyPoints:
   - "Find exact ratios for 30, 45, and 60 degrees."
   - "Use exact ratios to find a missing leg."

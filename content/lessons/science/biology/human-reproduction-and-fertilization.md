@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 5
 partCount: 7
-ordering: 0
+ordering: 52
 keyPoints:
   - "Trace gamete formation, fertilization, and implantation."
   - "Explain how hormones help control the reproductive cycle."

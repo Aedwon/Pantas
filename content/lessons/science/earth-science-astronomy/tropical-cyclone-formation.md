@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 6
 partCount: 11
-ordering: 0
+ordering: 62
 keyPoints:
   - "Explain what helps a tropical cyclone form and stay strong."
   - "Explain why a cyclone may weaken over land."

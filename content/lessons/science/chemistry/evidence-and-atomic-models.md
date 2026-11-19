@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 1
 partCount: 8
-ordering: 0
+ordering: 19
 keyPoints:
   - "Distinguish observations from inferences and models."
   - "Use new evidence to test an atomic model."

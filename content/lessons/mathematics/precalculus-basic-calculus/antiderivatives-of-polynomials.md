@@ -7,7 +7,7 @@ topic: "topic-precalculus-basic-calculus"
 isActive: true
 part: 1
 partCount: 3
-ordering: 0
+ordering: 11
 keyPoints:
   - "Find the indefinite integral of a power or polynomial."
   - "Explain why an indefinite integral includes a constant."

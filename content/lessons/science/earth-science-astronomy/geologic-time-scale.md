@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 8
 partCount: 9
-ordering: 0
+ordering: 83
 keyPoints:
   - "Order the units of geologic time and identify the Precambrian."
 ---

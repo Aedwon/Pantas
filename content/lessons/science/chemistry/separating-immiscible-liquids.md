@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 4
 partCount: 10
-ordering: 0
+ordering: 12
 keyPoints:
   - "Use the order of liquid layers to separate immiscible liquids."
 ---

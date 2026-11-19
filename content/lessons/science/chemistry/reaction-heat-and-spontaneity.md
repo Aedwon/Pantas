@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 1
 partCount: 10
-ordering: 0
+ordering: 102
 keyPoints:
   - "Identify endothermic and exothermic reactions using the sign of enthalpy change."
 ---

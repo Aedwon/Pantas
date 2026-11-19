@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 5
 partCount: 11
-ordering: 0
+ordering: 61
 keyPoints:
   - "Identify Habagat and Amihan from wind direction and regional rain."
 ---

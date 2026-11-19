@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 4
 partCount: 10
-ordering: 0
+ordering: 105
 keyPoints:
   - "Explain how catalysts change reaction pathways and rates."
   - "Explain why catalysts do not change the position of equilibrium."

@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 5
 partCount: 5
-ordering: 0
+ordering: 98
 keyPoints:
   - "Describe how lenses form images in optical instruments."
   - "Identify lenses that correct myopia or hyperopia."

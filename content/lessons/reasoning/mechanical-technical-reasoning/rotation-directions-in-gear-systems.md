@@ -7,7 +7,7 @@ topic: "topic-mechanical-technical-reasoning"
 isActive: true
 part: 1
 partCount: 2
-ordering: 0
+ordering: 1
 keyPoints:
   - "Trace gear directions along a line or around a hub."
   - "Identify internal meshes and gears on the same shaft."

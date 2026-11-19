@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 3
 partCount: 5
-ordering: 0
+ordering: 96
 keyPoints:
   - "Find signed image distance with the mirror or lens equation."
   - "Use magnification to find image size and orientation."

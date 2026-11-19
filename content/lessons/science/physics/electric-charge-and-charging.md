@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 1
 partCount: 11
-ordering: 0
+ordering: 99
 keyPoints:
   - "Predict attraction or repulsion from the signs of charges."
   - "Track electrons when materials rub or touch."

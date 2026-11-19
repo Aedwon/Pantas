@@ -7,7 +7,7 @@ topic: "topic-precalculus-basic-calculus"
 isActive: true
 part: 3
 partCount: 3
-ordering: 0
+ordering: 13
 keyPoints:
   - "Evaluate a definite integral using its endpoint values."
   - "Distinguish signed area from total geometric area."

@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 4
 partCount: 6
-ordering: 0
+ordering: 11
 keyPoints:
   - "Identify asteroids and describe where they orbit."
   - "Use activity near the Sun to tell a comet from an asteroid."

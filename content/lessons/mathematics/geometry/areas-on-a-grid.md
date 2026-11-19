@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 2
 partCount: 5
-ordering: 0
+ordering: 50
 keyPoints:
   - "Find areas by counting grid squares, splitting the shape, or subtracting from a rectangle."
 ---

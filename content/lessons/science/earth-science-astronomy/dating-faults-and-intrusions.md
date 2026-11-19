@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 3
 partCount: 9
-ordering: 0
+ordering: 78
 keyPoints:
   - "Order faults and intrusions by what they cut."
 ---

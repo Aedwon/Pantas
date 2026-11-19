@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 5
 partCount: 9
-ordering: 0
+ordering: 80
 keyPoints:
   - "Use half-life to find how much parent isotope remains or how much time has passed."
 ---

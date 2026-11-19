@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 9
 partCount: 10
-ordering: 0
+ordering: 51
 keyPoints:
   - "Distinguish London dispersion, dipole-dipole forces, and hydrogen bonding."
 ---

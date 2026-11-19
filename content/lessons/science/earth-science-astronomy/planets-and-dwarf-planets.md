@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 1
 partCount: 6
-ordering: 0
+ordering: 8
 keyPoints:
   - "Use the orbit, shape, and orbit-clearing rules to identify a dwarf planet."
 ---

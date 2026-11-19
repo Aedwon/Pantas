@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 2
 partCount: 5
-ordering: 0
+ordering: 12
 keyPoints:
   - "Use supplementary angle pairs and find angles formed by a transversal."
 ---

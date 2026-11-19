@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 2
 partCount: 6
-ordering: 0
+ordering: 57
 keyPoints:
   - "Name the entity being counted."
   - "Use formula subscripts to count atoms or ions."

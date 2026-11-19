@@ -7,7 +7,7 @@ topic: "topic-statistics-and-probability"
 isActive: true
 part: 1
 partCount: 4
-ordering: 0
+ordering: 1
 keyPoints:
   - "Find the ordinary mean."
   - "Use the mean to find a missing value."

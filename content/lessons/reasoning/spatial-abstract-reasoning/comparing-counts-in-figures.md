@@ -7,7 +7,7 @@ topic: "topic-spatial-abstract-reasoning"
 isActive: true
 part: 1
 partCount: 6
-ordering: 0
+ordering: 24
 keyPoints:
   - "Check the relationship between side counts and dot counts."
   - "Compare the number of shapes with the sides of one shape."

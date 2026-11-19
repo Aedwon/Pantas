@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 1
 partCount: 5
-ordering: 0
+ordering: 1
 keyPoints:
   - "Identify points, lines, segments, rays, and planes."
   - "Find lengths using the midpoint of a segment."

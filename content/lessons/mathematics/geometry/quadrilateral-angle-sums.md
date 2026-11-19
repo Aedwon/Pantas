@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 3
 partCount: 6
-ordering: 0
+ordering: 27
 keyPoints:
   - "Use the angle sum to find missing angles in any simple quadrilateral."
 ---

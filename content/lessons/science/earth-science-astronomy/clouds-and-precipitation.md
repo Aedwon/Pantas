@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 2
 partCount: 8
-ordering: 0
+ordering: 69
 keyPoints:
   - "Distinguish condensation from evaporation."
   - "Explain how clouds produce precipitation."

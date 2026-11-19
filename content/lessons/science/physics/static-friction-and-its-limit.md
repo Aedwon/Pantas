@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 4
 partCount: 6
-ordering: 0
+ordering: 37
 keyPoints:
   - "Find actual and maximum static friction."
   - "Compare static and kinetic friction when motion starts."

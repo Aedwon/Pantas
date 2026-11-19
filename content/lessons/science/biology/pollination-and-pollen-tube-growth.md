@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 5
 partCount: 6
-ordering: 0
+ordering: 83
 keyPoints:
   - "Distinguish pollen transfer from gamete fusion."
 ---

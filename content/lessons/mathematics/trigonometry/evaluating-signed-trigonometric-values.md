@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 4
 partCount: 9
-ordering: 0
+ordering: 13
 keyPoints:
   - "Use the reference angle and quadrant sign to evaluate expressions."
 ---

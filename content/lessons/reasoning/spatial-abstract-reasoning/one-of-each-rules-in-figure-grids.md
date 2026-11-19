@@ -7,7 +7,7 @@ topic: "topic-spatial-abstract-reasoning"
 isActive: true
 part: 2
 partCount: 6
-ordering: 0
+ordering: 25
 keyPoints:
   - "Use the one-of-each rule for shapes."
   - "Check a separate rule for a second feature."

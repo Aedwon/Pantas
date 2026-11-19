@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 10
 partCount: 10
-ordering: 0
+ordering: 111
 keyPoints:
   - "Predict equilibrium shifts caused by changes in concentration, volume, or temperature."
 ---

@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 3
 partCount: 6
-ordering: 0
+ordering: 27
 keyPoints:
   - "Find both legs and the other angle from an acute angle and the hypotenuse."
   - "Find the hypotenuse and angles from the legs."

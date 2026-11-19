@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 6
 partCount: 7
-ordering: 0
+ordering: 83
 keyPoints:
   - "Distinguish transverse from longitudinal waves."
   - "Identify wave types in solids, fluids, and electromagnetic fields."

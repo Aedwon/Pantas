@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 1
 partCount: 11
-ordering: 0
+ordering: 62
 keyPoints:
   - "Explain why atom counts must agree on both sides of a chemical equation."
   - "Read atom counts from subscripts and coefficients."

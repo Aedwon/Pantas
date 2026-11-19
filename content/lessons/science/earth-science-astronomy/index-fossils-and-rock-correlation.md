@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 4
 partCount: 9
-ordering: 0
+ordering: 79
 keyPoints:
   - "Use index fossils to match layers and check whether the fossils were reworked."
 ---

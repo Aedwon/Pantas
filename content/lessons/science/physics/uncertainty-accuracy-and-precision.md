@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 7
 partCount: 7
-ordering: 0
+ordering: 7
 keyPoints:
   - "Find and interpret percent uncertainty."
   - "Distinguish accuracy from precision."

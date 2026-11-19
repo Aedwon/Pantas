@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 1
 partCount: 5
-ordering: 0
+ordering: 89
 keyPoints:
   - "Distinguish reflected and refracted rays and apply the law of reflection."
   - "Describe an image in a plane mirror."

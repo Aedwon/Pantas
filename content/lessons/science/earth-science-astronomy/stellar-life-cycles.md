@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 4
 partCount: 5
-ordering: 0
+ordering: 17
 keyPoints:
   - "Describe where stars start and when fusion begins."
   - "Use mass to compare stellar lifetimes and predict later stages."

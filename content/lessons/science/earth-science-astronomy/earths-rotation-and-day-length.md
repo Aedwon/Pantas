@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 1
 partCount: 7
-ordering: 0
+ordering: 19
 keyPoints:
   - "Explain how Earth’s spin causes day and night and makes the Sun appear to move."
   - "Compare a solar day with a sidereal day."

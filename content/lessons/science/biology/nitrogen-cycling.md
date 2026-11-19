@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 5
 partCount: 8
-ordering: 0
+ordering: 75
 keyPoints:
   - "Distinguish nitrogen fixation, nitrification, and denitrification."
   - "Explain why nitrogen fixation helps plants obtain nitrogen."

@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 1
 partCount: 7
-ordering: 0
+ordering: 31
 keyPoints:
   - "Match sides with their opposite angles."
   - "Use the angle sum and side lengths to check a triangle."

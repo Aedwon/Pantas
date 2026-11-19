@@ -7,7 +7,7 @@ topic: "topic-precalculus-basic-calculus"
 isActive: true
 part: 2
 partCount: 3
-ordering: 0
+ordering: 9
 keyPoints:
   - "Differentiate a product of functions."
   - "Differentiate a quotient of functions."

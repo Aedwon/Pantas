@@ -7,7 +7,7 @@ topic: "topic-statistics-and-probability"
 isActive: true
 part: 3
 partCount: 5
-ordering: 0
+ordering: 17
 keyPoints:
   - "Count unordered selections."
   - "Use the symmetry of choosing and leaving out."

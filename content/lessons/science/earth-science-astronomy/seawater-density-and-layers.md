@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 5
 partCount: 8
-ordering: 0
+ordering: 72
 keyPoints:
   - "Define salinity and explain what changes seawater density."
   - "Describe how temperature, light, and density vary by ocean layer."

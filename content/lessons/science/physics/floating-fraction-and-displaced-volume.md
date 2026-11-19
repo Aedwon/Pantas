@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 9
 partCount: 9
-ordering: 0
+ordering: 65
 keyPoints:
   - "Find the submerged fraction of an object floating freely."
 ---

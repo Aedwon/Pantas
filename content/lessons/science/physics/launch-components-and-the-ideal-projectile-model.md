@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 1
 partCount: 7
-ordering: 0
+ordering: 21
 keyPoints:
   - "Resolve the launch velocity into horizontal and vertical components."
   - "Identify the conditions and path of ideal projectile motion."

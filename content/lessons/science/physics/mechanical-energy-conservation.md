@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 4
 partCount: 7
-ordering: 0
+ordering: 43
 keyPoints:
   - "Apply conservation of mechanical energy when only gravity does work."
 ---

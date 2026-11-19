@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 4
 partCount: 5
-ordering: 0
+ordering: 55
 keyPoints:
   - "Identify faults and match them to the motion of rocks."
   - "Compare P waves and S waves."

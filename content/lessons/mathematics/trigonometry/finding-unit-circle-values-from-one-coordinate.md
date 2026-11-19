@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 7
 partCount: 9
-ordering: 0
+ordering: 16
 keyPoints:
   - "Use the unit-circle equation and quadrant to find a missing coordinate and tangent."
 ---

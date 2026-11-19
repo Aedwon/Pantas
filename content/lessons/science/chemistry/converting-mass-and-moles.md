@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 5
 partCount: 6
-ordering: 0
+ordering: 60
 keyPoints:
   - "Convert between mass and moles using molar mass."
   - "Choose the molar mass for a diatomic element."

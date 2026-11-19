@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 4
 partCount: 6
-ordering: 0
+ordering: 30
 keyPoints:
   - "Distinguish anaerobic respiration from fermentation."
   - "Explain how fermentation keeps glycolysis going and identify its products."

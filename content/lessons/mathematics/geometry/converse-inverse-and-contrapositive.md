@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 2
 partCount: 5
-ordering: 0
+ordering: 7
 keyPoints:
   - "Write the converse, inverse, and contrapositive of a conditional."
   - "Identify equivalent forms."

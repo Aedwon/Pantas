@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 4
 partCount: 11
-ordering: 0
+ordering: 60
 keyPoints:
   - "Explain the seasonal reversal of monsoon winds."
 ---

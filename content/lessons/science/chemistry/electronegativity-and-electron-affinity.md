@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 6
 partCount: 6
-ordering: 0
+ordering: 42
 keyPoints:
   - "Predict the pull on shared electrons using electronegativity."
   - "Interpret electron affinity values and their sign convention."

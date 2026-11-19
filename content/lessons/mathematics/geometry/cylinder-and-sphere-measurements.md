@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 5
 partCount: 7
-ordering: 0
+ordering: 40
 keyPoints:
   - "Find the surface area or volume of a cylinder or sphere."
 ---

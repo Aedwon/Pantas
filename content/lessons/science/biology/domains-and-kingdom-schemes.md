@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 2
 partCount: 7
-ordering: 0
+ordering: 56
 keyPoints:
   - "Distinguish the three domains by cell features."
   - "Compare kingdom schemes used in textbooks."

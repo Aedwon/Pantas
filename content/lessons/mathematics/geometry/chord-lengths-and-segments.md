@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 3
 partCount: 5
-ordering: 0
+ordering: 33
 keyPoints:
   - "Use perpendicular distances and right triangles to find chord lengths and lengths in inscribed squares."
   - "Use the products of segment lengths when two chords cross inside a circle."

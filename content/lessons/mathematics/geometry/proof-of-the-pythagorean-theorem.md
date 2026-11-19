@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 8
 partCount: 9
-ordering: 0
+ordering: 23
 keyPoints:
   - "Explain the Pythagorean theorem by comparing the areas in a square."
 ---

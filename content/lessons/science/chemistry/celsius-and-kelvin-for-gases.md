@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 2
 partCount: 11
-ordering: 0
+ordering: 79
 keyPoints:
   - "Convert Celsius to kelvin and compare changes on the two scales."
   - "Explain why gas-law ratios use kelvin."

@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 7
 partCount: 7
-ordering: 0
+ordering: 46
 keyPoints:
   - "Calculate the efficiency of a simple machine."
 ---

@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 5
 partCount: 6
-ordering: 0
+ordering: 41
 keyPoints:
   - "Predict first ionization energy trends across periods and down groups."
   - "Explain the dips at groups 13 and 16."

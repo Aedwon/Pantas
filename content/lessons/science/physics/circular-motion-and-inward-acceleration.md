@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 4
 partCount: 7
-ordering: 0
+ordering: 24
 keyPoints:
   - "Find centripetal acceleration and identify its direction."
 ---

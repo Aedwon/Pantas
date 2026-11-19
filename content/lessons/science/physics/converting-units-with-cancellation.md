@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 3
 partCount: 7
-ordering: 0
+ordering: 3
 keyPoints:
   - "Cancel units with conversion factors for simple or compound units."
 ---

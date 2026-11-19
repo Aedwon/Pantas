@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 2
 partCount: 10
-ordering: 0
+ordering: 113
 keyPoints:
   - "Identify hydrocarbons and classify them by their carbon-carbon bonds."
 ---

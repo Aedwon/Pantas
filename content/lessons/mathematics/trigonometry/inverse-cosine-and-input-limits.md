@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 2
 partCount: 3
-ordering: 0
+ordering: 39
 keyPoints:
   - "Find the principal arccosine angle."
   - "Check which inputs are allowed and which outputs lie on axes."

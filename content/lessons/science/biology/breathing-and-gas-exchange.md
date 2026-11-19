@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 3
 partCount: 6
-ordering: 0
+ordering: 44
 keyPoints:
   - "Explain how the diaphragm moves air into the lungs."
   - "Trace oxygen and carbon dioxide across an alveolus."

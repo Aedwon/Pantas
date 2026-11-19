@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 5
 partCount: 9
-ordering: 0
+ordering: 66
 keyPoints:
   - "Explain how movement and breeding change allele frequencies."
 ---

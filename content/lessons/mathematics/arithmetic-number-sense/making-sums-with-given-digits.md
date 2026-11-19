@@ -7,7 +7,7 @@ topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 4
 partCount: 5
-ordering: 0
+ordering: 50
 keyPoints:
   - "Use place value to make the smallest or largest sum."
 ---

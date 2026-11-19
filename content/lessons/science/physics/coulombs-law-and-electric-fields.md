@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 3
 partCount: 11
-ordering: 0
+ordering: 101
 keyPoints:
   - "Use Coulomb’s law to find how electric force changes."
   - "Define the electric field using a positive test charge."

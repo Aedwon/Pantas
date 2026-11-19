@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 3
 partCount: 7
-ordering: 0
+ordering: 3
 keyPoints:
   - "Use the distance and redshift pattern as evidence for expansion."
   - "Explain why nearby galaxies can be blueshifted."

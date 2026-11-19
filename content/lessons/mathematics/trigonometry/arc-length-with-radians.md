@@ -7,7 +7,7 @@ topic: "topic-trigonometry"
 isActive: true
 part: 3
 partCount: 3
-ordering: 0
+ordering: 3
 keyPoints:
   - "Use a radius and a radian angle to find arc length or work backward."
 ---

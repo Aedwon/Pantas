@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 6
 partCount: 7
-ordering: 0
+ordering: 24
 keyPoints:
   - "Explain why the stars we see at night change through the year."
   - "Explain why stars close to a celestial pole may stay above the horizon."

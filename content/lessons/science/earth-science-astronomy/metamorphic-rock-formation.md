@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 8
 partCount: 9
-ordering: 0
+ordering: 50
 keyPoints:
   - "Recognize solid rock changed by heat or pressure."
   - "Match metamorphic rocks to their parent rocks and textures."

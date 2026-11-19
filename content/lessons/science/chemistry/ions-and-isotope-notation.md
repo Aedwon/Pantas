@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 6
 partCount: 7
-ordering: 0
+ordering: 32
 keyPoints:
   - "Read particle counts from a charged nuclide symbol."
   - "Distinguish species by their particle counts."

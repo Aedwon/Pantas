@@ -7,7 +7,7 @@ topic: "topic-physics"
 isActive: true
 part: 9
 partCount: 9
-ordering: 0
+ordering: 77
 keyPoints:
   - "Use heat balance to find the final temperature."
 ---

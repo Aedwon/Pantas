@@ -7,7 +7,7 @@ topic: "topic-geometry"
 isActive: true
 part: 5
 partCount: 5
-ordering: 0
+ordering: 15
 keyPoints:
   - "Draw a helper line to find angles in a zigzag between parallel lines."
 ---

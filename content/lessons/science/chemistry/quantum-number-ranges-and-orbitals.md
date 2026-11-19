@@ -7,7 +7,7 @@ topic: "topic-chemistry"
 isActive: true
 part: 1
 partCount: 3
-ordering: 0
+ordering: 34
 keyPoints:
   - "Find allowed values for the four quantum numbers."
   - "Distinguish an orbital from a subshell and find its electron capacity."

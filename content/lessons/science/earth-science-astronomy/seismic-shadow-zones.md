@@ -7,7 +7,7 @@ topic: "topic-earth-science-astronomy"
 isActive: true
 part: 6
 partCount: 6
-ordering: 0
+ordering: 42
 keyPoints:
   - "Use P and S waves and their shadow zones to infer the state of the core."
 ---

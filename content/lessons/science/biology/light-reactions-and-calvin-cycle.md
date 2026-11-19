@@ -7,7 +7,7 @@ topic: "topic-biology"
 isActive: true
 part: 5
 partCount: 5
-ordering: 0
+ordering: 26
 keyPoints:
   - "Locate photosynthesis in eukaryotes and prokaryotes."
   - "Explain what the light reactions make and what the Calvin cycle uses."
