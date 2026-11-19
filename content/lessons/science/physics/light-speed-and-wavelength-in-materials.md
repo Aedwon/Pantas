@@ -18,7 +18,7 @@ Vacuum has $n=1$, and air is very close to $1$. A bigger $n$ means slower light.
 
 A wave has a **frequency** $f$, the number of wave crests that pass a point each second, measured in hertz (Hz). It also has a **wavelength** $\lambda$, the distance between two neighboring crests, measured in meters or nanometers (nm, where $1$ nm $=10^{-9}$ m). Wave speed, frequency and wavelength are linked by $v=f\lambda$, from the waves and sound lesson. In the Mirrors and Lenses lesson, $f$ also stands for focal length, so check which one is meant.
 
-When light crosses a boundary, its frequency stays the same. The speed changes, so the wavelength changes too. In a material, the wavelength is
+When light crosses a boundary, its frequency stays the same. If the refractive indices differ, the speed and wavelength both change. If the indices match, both stay the same. In a material, the wavelength is
 
 $$\lambda=\dfrac{\lambda_0}{n}$$
 
@@ -64,6 +64,6 @@ For a ray that passes through a boundary at a slant, compare $n_1$ and $n_2$. A 
 
 ### #1: Thinking the Frequency Changes in Refraction
 
-> Frequency stays the same across a boundary. Speed and wavelength change.
+> Frequency stays the same across a boundary. Speed and wavelength change only if the refractive indices differ.
 
 A student may say the color changes because the wavelength changes in glass. The frequency, which fixes the color, is unchanged.

@@ -42,7 +42,7 @@ A coil of $10$ turns has area $0.20\ \mathrm{m^2}$. A magnetic field of $0.50$ T
 
 **Solution:**
 
-1. A field perpendicular to the coil means $\theta=0^\circ$. Flux at first:
+1. Choose the normal that points in the same direction as the field. Then $\theta=0^\circ$. Flux at first:
 
 $$\Phi=BA\cos0^\circ=(0.50)(0.20)=0.10\ \mathrm{Wb}$$
 
