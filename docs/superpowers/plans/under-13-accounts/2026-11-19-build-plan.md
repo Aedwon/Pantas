@@ -142,7 +142,7 @@ Total: 10.25 days before Decision 9 additions. The spec estimate is 8.5 to 10.
 ## Reviews
 
 - Lead reviews every worker diff against the task's file list and this plan.
-- Codex GPT 6.1 Sol High (`codex-pick`) reviews T2 to T5 (server, tokens, code gate) once the weekly
+- Codex GPT 6.2 Sol High (`codex-pick`, Aedwon Nov 19) reviews T2 to T5 and the switching fix (T6) (server, tokens, code gate) once the weekly
   limits reset Nov 22. Review only; fixes go back to a Sonnet worker.
 - UI tasks: an independent Sonnet reviewer checks component use and compares the golden sheet with the board.
 
@@ -153,7 +153,7 @@ PSHS-NCE product and content, the catalog flip from `comingSoon`, live payment s
 
 ## Open items for Aedwon (through the manager)
 
-- Board artifact access: this session cannot open PqxcZvKQheCogaXH6LidPM. The UI tasks need the board
-  HTML or screenshots before Wave 3.
+- Board artifact: shared Nov 19; workers read the copy in the session notes folder `u13-boards/` (board
+  titles in `project/canvas.json`).
 - Signed child privacy impact assessment before prod opens child accounts.
 - Rule 9 email: no existing user's collection changes, so no notice email is needed (lead's reading).

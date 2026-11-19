@@ -216,3 +216,12 @@ Relayed by the manager. Aedwon, verbatim: "Accept all". The four items he answer
 3. Mail: no extra capacity is bought now. The lead reports if the daily code and receipt mails pass
    about 60.
 4. Web trial for children: one trial per parent email (Decision 9 item 2 as proposed).
+
+## Codex model and board access (Nov 19)
+
+- Relayed by the manager. Aedwon, verbatim: "use 6.2 Sol as the default everywhere". All Codex work in
+  this build, including the review after the Nov 22 reset, uses GPT 6.2 Sol (`gpt-6.2-sol`). This
+  replaces the 6.1 Sol note in Decision 10.
+- The board artifact is shared with the build session (read only; nothing is published to it). Its
+  board files (`project/*.dc.html`, `canvas.json` with the board titles, and the DS tokens and component
+  CSS) are copied for workers to the session notes folder, `u13-boards/`, outside the repository.
