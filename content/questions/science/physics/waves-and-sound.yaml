@@ -5,6 +5,8 @@ meta:
   exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-physics-waves-and-sound-0001
+    lesson: lesson-physics-wave-speed-frequency-and-wavelength
+    keyPoint: 1
     type: "simple-quantitative"
     difficulty: "easy"
     stem: |
@@ -26,6 +28,8 @@ questions:
     approved: true
 
   - id: q-physics-waves-and-sound-0002
+    lesson: lesson-physics-wave-speed-frequency-and-wavelength
+    keyPoint: 1
     type: "simple-quantitative"
     difficulty: "medium"
     stem: |
@@ -47,6 +51,8 @@ questions:
     approved: true
 
   - id: q-physics-waves-and-sound-0003
+    lesson: lesson-physics-wave-speed-frequency-and-wavelength
+    keyPoint: 1
     type: "simple-quantitative"
     difficulty: "medium"
     stem: |
@@ -68,6 +74,8 @@ questions:
     approved: true
 
   - id: q-physics-waves-and-sound-0004
+    lesson: lesson-physics-mechanical-and-electromagnetic-waves
+    keyPoint: 1
     type: "classify"
     difficulty: "easy"
     stem: |
@@ -89,6 +97,8 @@ questions:
     approved: true
 
   - id: q-physics-waves-and-sound-0005
+    lesson: lesson-physics-mechanical-and-electromagnetic-waves
+    keyPoint: 1
     type: "classify"
     difficulty: "easy"
     stem: |
@@ -110,6 +120,8 @@ questions:
     approved: true
 
   - id: q-physics-waves-and-sound-0006
+    lesson: lesson-physics-wave-period-wavelength-and-amplitude
+    keyPoint: 1
     type: "identify"
     difficulty: "medium"
     stem: |
@@ -131,6 +143,8 @@ questions:
     approved: true
 
   - id: q-physics-waves-and-sound-0007
+    lesson: lesson-physics-transverse-and-longitudinal-waves
+    keyPoint: 1
     type: "classify"
     difficulty: "medium"
     stem: |
@@ -152,6 +166,8 @@ questions:
     approved: true
 
   - id: q-physics-waves-and-sound-0008
+    lesson: lesson-physics-transverse-and-longitudinal-waves
+    keyPoint: 1
     type: "classify"
     difficulty: "medium"
     stem: |
@@ -173,6 +189,8 @@ questions:
     approved: true
 
   - id: q-physics-waves-and-sound-0011
+    lesson: lesson-physics-mechanical-and-electromagnetic-waves
+    keyPoint: 1
     type: "classify"
     difficulty: "hard"
     stem: |
@@ -194,6 +212,8 @@ questions:
     approved: true
 
   - id: q-physics-waves-and-sound-0012
+    lesson: lesson-physics-transverse-and-longitudinal-waves
+    keyPoint: 1
     type: "compare-contrast"
     difficulty: "hard"
     stem: |
@@ -215,6 +235,8 @@ questions:
     approved: true
 
   - id: q-physics-waves-and-sound-0016
+    lesson: lesson-physics-wave-period-wavelength-and-amplitude
+    keyPoint: 1
     approved: false
     type: "identify"
     difficulty: "easy"
@@ -236,6 +258,8 @@ questions:
       Hertz means cycles per second. Frequency counts those cycles.
 
   - id: q-physics-waves-and-sound-0017
+    lesson: lesson-physics-wave-period-wavelength-and-amplitude
+    keyPoint: 2
     approved: false
     type: "predict-outcome"
     difficulty: "medium"
@@ -257,6 +281,8 @@ questions:
       With $P\propto A^2$, changing amplitude to $2A$ makes power proportional to $4A^2$. It quadruples.
 
   - id: q-physics-waves-and-sound-0018
+    lesson: lesson-physics-sound-speed-pitch-and-loudness
+    keyPoint: 1
     approved: false
     type: "classify"
     difficulty: "hard"
@@ -278,6 +304,8 @@ questions:
       Sound speed depends on the medium and conditions such as temperature. Room-temperature air values are approximations for that situation.
 
   - id: q-physics-waves-and-sound-0019
+    lesson: lesson-physics-waves-crossing-between-media
+    keyPoint: 1
     approved: false
     type: "predict-outcome"
     difficulty: "hard"
@@ -299,6 +327,8 @@ questions:
       Wavelength is $\lambda=v/f$. At fixed frequency, halving speed halves wavelength.
 
   - id: q-physics-waves-and-sound-0020
+    lesson: lesson-physics-transverse-and-longitudinal-waves
+    keyPoint: 2
     approved: false
     type: "compare-contrast"
     difficulty: "exam"
@@ -320,6 +350,8 @@ questions:
       In light, electric and magnetic fields oscillate perpendicular to propagation. They do not need material particles. In a string wave, the material itself oscillates.
 
   - id: q-physics-waves-and-sound-0041
+    lesson: lesson-physics-wave-period-wavelength-and-amplitude
+    keyPoint: 1
     approved: false
     type: "simple-quantitative"
     difficulty: "easy"
@@ -341,6 +373,8 @@ questions:
       Frequency and period are linked by $f=\dfrac{1}{T}$. So $f=\dfrac{1}{0.25}=4$. The unit is hertz, so the frequency is $4\,\mathrm{Hz}$.
 
   - id: q-physics-waves-and-sound-0042
+    lesson: lesson-physics-sound-speed-pitch-and-loudness
+    keyPoint: 2
     approved: false
     type: "predict-outcome"
     difficulty: "medium"
@@ -362,6 +396,8 @@ questions:
       A bigger amplitude gives a larger intensity, so the sound is louder. The frequency did not change, so the pitch does not change. The speed in the same air also does not change, so the wavelength stays the same.
 
   - id: q-physics-waves-and-sound-0043
+    lesson: lesson-physics-waves-crossing-between-media
+    keyPoint: 1
     approved: false
     type: "simple-quantitative"
     difficulty: "medium"
@@ -383,6 +419,8 @@ questions:
       The frequency stays $500\,\mathrm{Hz}$ because the source has not changed. Then $\lambda=\dfrac{v}{f}=\dfrac{1480}{500}\approx2.96\,\mathrm m$. The wavelength is longer than in air because the speed is greater.
 
   - id: q-physics-waves-and-sound-0044
+    lesson: lesson-physics-ordering-the-electromagnetic-spectrum
+    keyPoint: 1
     approved: false
     type: "classify"
     difficulty: "hard"
@@ -404,6 +442,8 @@ questions:
       From longest wavelength to shortest, the order is radio, microwave, infrared, visible, ultraviolet, X-ray, gamma ray. Frequency runs the opposite way. So frequency rises from radio toward gamma rays.
 
   - id: q-physics-waves-and-sound-0045
+    lesson: lesson-physics-transverse-and-longitudinal-waves
+    keyPoint: 2
     approved: false
     type: "classify"
     difficulty: "hard"

@@ -5,6 +5,8 @@ meta:
   exams: ["upcat", "ustet", "dost-sei"]
 questions:
   - id: q-physics-momentum-and-impulse-0001
+    lesson: lesson-physics-signed-momentum
+    keyPoint: 1
     type: "simple-quantitative"
     difficulty: "easy"
     stem: |
@@ -26,6 +28,8 @@ questions:
     approved: true
 
   - id: q-physics-momentum-and-impulse-0002
+    lesson: lesson-physics-impulse-and-average-force
+    keyPoint: 2
     type: "simple-quantitative"
     difficulty: "medium"
     stem: |
@@ -47,6 +51,8 @@ questions:
     approved: true
 
   - id: q-physics-momentum-and-impulse-0003
+    lesson: lesson-physics-momentum-when-objects-stick
+    keyPoint: 1
     type: "simple-quantitative"
     difficulty: "medium"
     stem: |
@@ -69,6 +75,8 @@ questions:
     approved: true
 
   - id: q-physics-momentum-and-impulse-0004
+    lesson: lesson-physics-kinetic-energy-in-elastic-collisions-and-push-aparts
+    keyPoint: 1
     type: "classify"
     difficulty: "medium"
     stem: |
@@ -90,6 +98,8 @@ questions:
     approved: true
 
   - id: q-physics-momentum-and-impulse-0005
+    lesson: lesson-physics-collision-types-and-kinetic-energy
+    keyPoint: 1
     type: "classify"
     difficulty: "medium"
     stem: |
@@ -111,6 +121,8 @@ questions:
     approved: true
 
   - id: q-physics-momentum-and-impulse-0006
+    lesson: lesson-physics-collision-types-and-kinetic-energy
+    keyPoint: 1
     type: "classify"
     difficulty: "hard"
     stem: |
@@ -132,6 +144,8 @@ questions:
     approved: true
 
   - id: q-physics-momentum-and-impulse-0007
+    lesson: lesson-physics-momentum-when-objects-stick
+    keyPoint: 1
     type: "classify"
     difficulty: "hard"
     stem: |
@@ -153,6 +167,8 @@ questions:
     approved: true
 
   - id: q-physics-momentum-and-impulse-0008
+    lesson: lesson-physics-force-time-graphs-and-impulse
+    keyPoint: 1
     type: "classify"
     difficulty: "hard"
     stem: |
@@ -174,6 +190,8 @@ questions:
     approved: true
 
   - id: q-physics-momentum-and-impulse-0009
+    lesson: lesson-physics-momentum-when-objects-stick
+    keyPoint: 1
     type: "classify"
     difficulty: "hard"
     stem: |
@@ -195,6 +213,8 @@ questions:
     approved: true
 
   - id: q-physics-momentum-and-impulse-0010
+    lesson: lesson-physics-signed-momentum
+    keyPoint: 1
     type: "simple-quantitative"
     difficulty: "medium"
     stem: |
@@ -216,6 +236,8 @@ questions:
     approved: true
 
   - id: q-physics-momentum-and-impulse-0011
+    lesson: lesson-physics-impulse-and-average-force
+    keyPoint: 1
     type: "simple-quantitative"
     difficulty: "hard"
     stem: |
@@ -237,6 +259,8 @@ questions:
     approved: true
 
   - id: q-physics-momentum-and-impulse-0012
+    lesson: lesson-physics-impulse-and-average-force
+    keyPoint: 2
     type: "simple-quantitative"
     difficulty: "medium"
     stem: |
@@ -258,6 +282,8 @@ questions:
     approved: true
 
   - id: q-physics-momentum-and-impulse-0013
+    lesson: lesson-physics-momentum-when-objects-stick
+    keyPoint: 1
     type: "simple-quantitative"
     difficulty: "exam"
     stem: |
@@ -280,6 +306,8 @@ questions:
     approved: true
 
   - id: q-physics-momentum-and-impulse-0014
+    lesson: lesson-physics-impulse-and-average-force
+    keyPoint: 2
     type: "predict-outcome"
     difficulty: "exam"
     stem: |
@@ -301,6 +329,8 @@ questions:
     approved: true
 
   - id: q-physics-momentum-and-impulse-0015
+    lesson: lesson-physics-impulse-and-average-force
+    keyPoint: 1
     approved: false
     type: "identify"
     difficulty: "easy"
@@ -322,6 +352,8 @@ questions:
       The impulse-momentum theorem states that impulse equals change in momentum: $\vec J=\Delta\vec p$.
 
   - id: q-physics-momentum-and-impulse-0016
+    lesson: lesson-physics-force-time-graphs-and-impulse
+    keyPoint: 1
     approved: false
     type: "structure-function"
     difficulty: "medium"
@@ -343,6 +375,8 @@ questions:
       Each small force-time area adds a small impulse. The full signed area gives the total impulse and hence the momentum change.
 
   - id: q-physics-momentum-and-impulse-0017
+    lesson: lesson-physics-impulse-and-average-force
+    keyPoint: 2
     approved: false
     type: "predict-outcome"
     difficulty: "medium"
@@ -364,6 +398,8 @@ questions:
       Average force magnitude is $|\Delta p|/\Delta t$. With the same numerator and twice the duration, it is half as large.
 
   - id: q-physics-momentum-and-impulse-0018
+    lesson: lesson-physics-system-momentum-conservation
+    keyPoint: 1
     approved: false
     type: "classify"
     difficulty: "hard"
@@ -385,6 +421,8 @@ questions:
       The system contains only the ball. The wall lies outside that system and exerts an impulse on it. The ball’s momentum changes.
 
   - id: q-physics-momentum-and-impulse-0019
+    lesson: lesson-physics-collision-types-and-kinetic-energy
+    keyPoint: 1
     approved: false
     type: "compare-contrast"
     difficulty: "hard"
@@ -406,6 +444,8 @@ questions:
       In a perfectly inelastic collision, the bodies remain joined and move with one final velocity. Other inelastic collisions can leave them separated.
 
   - id: q-physics-momentum-and-impulse-0020
+    lesson: lesson-physics-force-time-graphs-and-impulse
+    keyPoint: 1
     approved: false
     type: "simple-quantitative"
     difficulty: "exam"

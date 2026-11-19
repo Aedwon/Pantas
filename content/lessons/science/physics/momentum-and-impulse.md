@@ -6,6 +6,15 @@ subject: "subject-science"
 topic: "topic-physics"
 estimatedMinutes: 14
 isActive: true
+status: retired
+replacedBy:
+  - lesson-physics-signed-momentum
+  - lesson-physics-impulse-and-average-force
+  - lesson-physics-force-time-graphs-and-impulse
+  - lesson-physics-system-momentum-conservation
+  - lesson-physics-momentum-when-objects-stick
+  - lesson-physics-collision-types-and-kinetic-energy
+  - lesson-physics-kinetic-energy-in-elastic-collisions-and-push-aparts
 ---
 ## Core Concept
 

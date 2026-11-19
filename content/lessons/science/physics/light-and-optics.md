@@ -6,6 +6,13 @@ subject: "subject-science"
 topic: "topic-physics"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-physics-light-reflection
+  - lesson-physics-refraction-and-snells-law
+  - lesson-physics-light-speed-and-wavelength-in-materials
+  - lesson-physics-critical-angle-and-total-internal-reflection
+  - lesson-physics-light-and-the-electromagnetic-spectrum
 ---
 ## Core Concept
 

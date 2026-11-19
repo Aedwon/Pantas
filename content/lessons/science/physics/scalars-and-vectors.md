@@ -6,6 +6,14 @@ subject: "subject-science"
 topic: "topic-physics"
 estimatedMinutes: 14
 isActive: true
+status: retired
+replacedBy:
+  - lesson-physics-identifying-scalars-and-vectors
+  - lesson-physics-distance-displacement-speed-and-velocity
+  - lesson-physics-adding-collinear-vectors
+  - lesson-physics-resultants-of-two-vectors
+  - lesson-physics-resolving-vector-components
+  - lesson-physics-adding-and-rebuilding-vectors-from-components
 ---
 ## Core Concept
 

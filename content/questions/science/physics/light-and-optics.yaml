@@ -5,6 +5,8 @@ meta:
   exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-physics-light-and-optics-0001
+    lesson: lesson-physics-light-reflection
+    keyPoint: 1
     type: "simple-quantitative"
     difficulty: "easy"
     stem: |
@@ -26,6 +28,8 @@ questions:
     approved: true
 
   - id: q-physics-light-and-optics-0002
+    lesson: lesson-physics-light-reflection
+    keyPoint: 1
     type: "simple-quantitative"
     difficulty: "medium"
     stem: |
@@ -47,6 +51,8 @@ questions:
     approved: true
 
   - id: q-physics-light-and-optics-0007
+    lesson: lesson-physics-light-reflection
+    keyPoint: 1
     type: "identify"
     difficulty: "medium"
     stem: |
@@ -68,6 +74,8 @@ questions:
     approved: true
 
   - id: q-physics-light-and-optics-0008
+    lesson: lesson-physics-refraction-and-snells-law
+    keyPoint: 1
     type: "identify"
     difficulty: "medium"
     stem: |
@@ -89,6 +97,8 @@ questions:
     approved: true
 
   - id: q-physics-light-and-optics-0009
+    lesson: lesson-physics-light-and-the-electromagnetic-spectrum
+    keyPoint: 1
     type: "process-ordering"
     difficulty: "medium"
     stem: |
@@ -110,6 +120,8 @@ questions:
     approved: true
 
   - id: q-physics-light-and-optics-0010
+    lesson: lesson-physics-light-and-the-electromagnetic-spectrum
+    keyPoint: 1
     type: "identify"
     difficulty: "medium"
     stem: |
@@ -131,6 +143,8 @@ questions:
     approved: true
 
   - id: q-physics-light-and-optics-0011
+    lesson: lesson-physics-light-and-the-electromagnetic-spectrum
+    keyPoint: 1
     type: "predict-outcome"
     difficulty: "medium"
     stem: |
@@ -152,6 +166,8 @@ questions:
     approved: true
 
   - id: q-physics-light-and-optics-0013
+    lesson: lesson-physics-light-reflection
+    keyPoint: 1
     type: "compare-contrast"
     difficulty: "hard"
     stem: |
@@ -173,6 +189,8 @@ questions:
     approved: true
 
   - id: q-physics-light-and-optics-0014
+    lesson: lesson-physics-light-and-the-electromagnetic-spectrum
+    keyPoint: 1
     type: "classify"
     difficulty: "hard"
     stem: |
@@ -194,6 +212,8 @@ questions:
     approved: true
 
   - id: q-physics-light-and-optics-0015
+    lesson: lesson-physics-light-and-the-electromagnetic-spectrum
+    keyPoint: 2
     type: "compare-contrast"
     difficulty: "hard"
     stem: |
@@ -215,6 +235,8 @@ questions:
     approved: true
 
   - id: q-physics-light-and-optics-0016
+    lesson: lesson-physics-refraction-and-snells-law
+    keyPoint: 1
     approved: false
     type: "predict-outcome"
     difficulty: "easy"
@@ -236,6 +258,8 @@ questions:
       At normal incidence, the incident angle is zero. Snell’s law then gives a zero transmitted angle. The ray slows in glass while continuing along the normal.
 
   - id: q-physics-light-and-optics-0017
+    lesson: lesson-physics-refraction-and-snells-law
+    keyPoint: 1
     approved: false
     type: "predict-outcome"
     difficulty: "medium"
@@ -257,6 +281,8 @@ questions:
       Water has the higher refractive index. Below the critical angle, transmitted light entering air speeds up and bends away from the normal.
 
   - id: q-physics-light-and-optics-0018
+    lesson: lesson-physics-light-speed-and-wavelength-in-materials
+    keyPoint: 2
     approved: false
     type: "compare-contrast"
     difficulty: "hard"
@@ -278,6 +304,8 @@ questions:
       The source sets the frequency, which stays the same across the boundary. The changed propagation speed changes wavelength.
 
   - id: q-physics-light-and-optics-0019
+    lesson: lesson-physics-critical-angle-and-total-internal-reflection
+    keyPoint: 1
     approved: false
     type: "classify"
     difficulty: "hard"
@@ -299,6 +327,8 @@ questions:
       Total internal reflection can occur when light travels from higher to lower refractive index. The incidence angle must exceed the critical angle.
 
   - id: q-physics-light-and-optics-0020
+    lesson: lesson-physics-light-and-the-electromagnetic-spectrum
+    keyPoint: 2
     approved: false
     type: "simple-quantitative"
     difficulty: "exam"
@@ -320,6 +350,8 @@ questions:
       From $c=f\lambda$, $\lambda=\dfrac cf$. Thus $\lambda=\dfrac{3.0\times10^8}{5.0\times10^{14}}=0.6\times10^{-6}=6.0\times10^{-7}\,\mathrm m$.
 
   - id: q-physics-light-and-optics-0041
+    lesson: lesson-physics-light-reflection
+    keyPoint: 2
     approved: false
     type: "simple-quantitative"
     difficulty: "easy"
@@ -341,6 +373,8 @@ questions:
       A plane mirror makes an image as far behind the mirror as the object is in front. The student is $2.0\,\mathrm m$ from the mirror, and the image is $2.0\,\mathrm m$ behind it. So the image is $2.0 + 2.0 = 4.0\,\mathrm m$ from her.
 
   - id: q-physics-light-and-optics-0042
+    lesson: lesson-physics-refraction-and-snells-law
+    keyPoint: 2
     approved: false
     type: "simple-quantitative"
     difficulty: "medium"
@@ -362,6 +396,8 @@ questions:
       Use Snell's law: $\sin\theta_2=\dfrac{n_1\sin\theta_1}{n_2}=\dfrac{1.00\times0.5}{1.33}\approx0.376$. Then $\theta_2=\sin^{-1}(0.376)\approx22^\circ$. The ray bends toward the normal because the water slows the light.
 
   - id: q-physics-light-and-optics-0043
+    lesson: lesson-physics-light-speed-and-wavelength-in-materials
+    keyPoint: 1
     approved: false
     type: "simple-quantitative"
     difficulty: "medium"
@@ -383,6 +419,8 @@ questions:
       The index of refraction is $n=\dfrac{c}{v}$. So $v=\dfrac{c}{n}=\dfrac{3.00\times10^{8}}{1.50}=2.00\times10^{8}\,\mathrm{m/s}$.
 
   - id: q-physics-light-and-optics-0044
+    lesson: lesson-physics-critical-angle-and-total-internal-reflection
+    keyPoint: 1
     approved: false
     type: "predict-outcome"
     difficulty: "hard"
@@ -404,6 +442,8 @@ questions:
       The critical angle satisfies $\sin\theta_c=\dfrac{1.00}{1.50}=0.667$, so $\theta_c\approx41.8^\circ$. The angle of incidence, $38^\circ$, is smaller. So the light leaves the glass and bends away from the normal, and a weak part also reflects.
 
   - id: q-physics-light-and-optics-0045
+    lesson: lesson-physics-light-and-the-electromagnetic-spectrum
+    keyPoint: 2
     approved: false
     type: "simple-quantitative"
     difficulty: "exam"

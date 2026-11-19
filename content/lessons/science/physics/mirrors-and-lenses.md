@@ -6,6 +6,13 @@ subject: "subject-science"
 topic: "topic-physics"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-physics-curved-mirrors-and-image-types
+  - lesson-physics-converging-and-diverging-lenses
+  - lesson-physics-mirror-and-lens-image-equations
+  - lesson-physics-ray-diagrams-and-object-position
+  - lesson-physics-optical-instruments-and-vision
 ---
 ## Core Concept
 
