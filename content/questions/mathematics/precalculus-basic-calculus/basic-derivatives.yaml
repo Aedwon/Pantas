@@ -430,3 +430,87 @@ questions:
   explanation: |
     Horizontal tangents satisfy $4x^3-4x=4x(x^2-1)=0$. The factor x gives $x=0$. Dividing by x without checking zero loses that solution.
   approved: false
+- id: 'q-precalculus-basic-calculus-basic-derivatives-0021'
+  lesson: lesson-precalculus-basic-calculus-derivatives-of-products-and-quotients
+  keyPoint: 1
+  type: 'direct-computation'
+  difficulty: 'hard'
+  stem: |
+    Let $f$ and $g$ be differentiable at $x=2$. If $f(2)=3$, $g(2)=-2$, $f'(2)=4$, and $g'(2)=5$, what is $(fg)'(2)$?
+  choices:
+  - text: '$7$'
+    correct: true
+  - text: '$20$'
+    rationale: |
+      This multiplies the two slopes. Each slope has to be paired with the value of the other function.
+  - text: '$15$'
+    rationale: |
+      This counts only $f(2)g'(2)$. The term with $f'(2)$ also has to be included.
+  - text: '$23$'
+    rationale: |
+      This uses $2$ in place of $-2$ for $g(2)$. Keep the minus sign to get $4(-2)=-8$.
+  explanation: |
+    Multiply each slope by the value of the other function. Add the two results. This gives $4(-2)+3(5)=-8+15=7$.
+- id: 'q-precalculus-basic-calculus-basic-derivatives-0022'
+  lesson: lesson-precalculus-basic-calculus-derivatives-of-products-and-quotients
+  keyPoint: 2
+  type: 'direct-computation'
+  difficulty: 'hard'
+  stem: |
+    If $f(x)=\dfrac{x^2+1}{x+2}$, what is $f'(1)$?
+  choices:
+  - text: '$\dfrac{4}{9}$'
+    correct: true
+  - text: '$-\dfrac{4}{9}$'
+    rationale: |
+      This switches the two terms on top. The term from the slope of $x^2+1$ comes first.
+  - text: '$\dfrac{4}{3}$'
+    rationale: |
+      This divides by $3$. The rule squares the bottom value, so divide by $9$.
+  - text: '$\dfrac{2}{3}$'
+    rationale: |
+      This changes only the top to its slope. The bottom changes with $x$ too, so use both slopes.
+  explanation: |
+    At $x=1$, the top is $2$ and its slope is $2$. The bottom is $3$ and its slope is $1$. The quotient rule gives $\dfrac{2(3)-2(1)}{3^2}=\dfrac{4}{9}$.
+- id: 'q-precalculus-basic-calculus-basic-derivatives-0023'
+  lesson: lesson-precalculus-basic-calculus-derivatives-of-products-and-quotients
+  keyPoint: 2
+  type: 'direct-computation'
+  difficulty: 'hard'
+  stem: |
+    For $x\ne2$, which expression equals the derivative of $f(x)=\dfrac{x^2-4}{x-2}$?
+  choices:
+  - text: '$1$'
+    correct: true
+  - text: '$-1$'
+    rationale: |
+      Reversing the two terms on top in the quotient rule gives this sign. Start with the slope of the top times the bottom.
+  - text: '$x+2$'
+    rationale: |
+      This is the value of the simplified function. One more step gives its slope.
+  - text: '$2x$'
+    rationale: |
+      This comes from dividing the two slopes. First simplify the original fraction, or use the full quotient rule.
+  explanation: |
+    The top factors as $(x-2)(x+2)$. Cancel $x-2$ where $x\ne2$. This leaves $x+2$, which has slope $1$.
+- id: 'q-precalculus-basic-calculus-basic-derivatives-0024'
+  lesson: lesson-precalculus-basic-calculus-chain-rule-and-tangent-slopes
+  keyPoint: 1
+  type: 'direct-computation'
+  difficulty: 'hard'
+  stem: |
+    Which expression is the derivative of $f(x)=(2x^2-3)^2$?
+  choices:
+  - text: '$8x(2x^2-3)$'
+    correct: true
+  - text: '$2(2x^2-3)$'
+    rationale: |
+      This uses the rule for the outer square. Multiply by the slope of the inside, $4x$, as well.
+  - text: '$4x(2x^2-3)^2$'
+    rationale: |
+      This uses the slope of the inside but leaves the outer square alone. The outer slope is $2(2x^2-3)$.
+  - text: '$8x(2x^2-3)^2$'
+    rationale: |
+      This uses both slope factors but keeps the outer exponent at $2$. The outer power drops to $1$.
+  explanation: |
+    The outer square gives $2(2x^2-3)$. The inside, $2x^2-3$, has slope $4x$. Multiply these to get $8x(2x^2-3)$.
