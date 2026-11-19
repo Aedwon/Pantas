@@ -34,7 +34,7 @@ $$\dfrac{x^m}{x^n}=x^{m-n}$$
 
 > FOIL: First, Outer, Inner, Last.
 
-FOIL names the four products when multiplying two binomials. For larger polynomials, multiply every term by every term using distribution.
+FOIL names the four products when multiplying two binomials, which are polynomials with two terms each. For larger polynomials, multiply every term by every term using distribution.
 
 ## Examples
 

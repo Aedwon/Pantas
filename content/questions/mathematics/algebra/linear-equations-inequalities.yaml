@@ -292,7 +292,7 @@ questions:
       The rise is $6-2=4$ and the run is $3-1=2$. Their ratio is $\dfrac{4}{2}=2$.
 
   - id: q-algebra-linear-equations-inequalities-0013
-    approved: true
+    approved: false
     lesson: lesson-algebra-parallel-and-perpendicular-lines
     keyPoint: 2
     type: direct-computation
@@ -312,7 +312,7 @@ questions:
         rationale: |
           This negates the point’s $y$-coordinate and uses it as the intercept. Point-slope form contains a subtraction of that coordinate. Check the complete rearrangement.
     explanation: |
-      Use $y=2x+b$. Substitute $(1,3)$: $3=2(1)+b$. Thus $b=1$, and the equation is $y=2x+1$.
+      Use point-slope form with slope $2$ and point $(1,3)$. This gives $y-3=2(x-1)$. Distribute to get $y-3=2x-2$. Add $3$ to both sides to get $y=2x+1$.
 
   - id: q-algebra-linear-equations-inequalities-0014
     approved: true
@@ -384,7 +384,7 @@ questions:
       A strict inequality does not include its boundary. The inequality $x<5$ uses the dashed vertical line $x=5$ and includes points to its left.
 
   - id: q-algebra-linear-equations-inequalities-0017
-    approved: true
+    approved: false
     lesson: lesson-algebra-solving-linear-equations
     keyPoint: 1
     type: word-problem
@@ -402,7 +402,7 @@ questions:
           This adds the booking fee before dividing by the hourly rate. Both charges appear in the work. Check that the fee is already included in the payment.
       - text: '$900$'
         rationale: |
-          This subtracts the booking fee but stops at the hourly earnings. That is a correct intermediate amount. Check that a time still needs to be found.
+          This subtracts the booking fee but stops at the rental charge after the booking fee is removed. That is a correct intermediate amount. Check that a time still needs to be found.
     explanation: |
       Let $h$ be the rental hours. The payment gives $300+150h=1200$. Subtract $300$ to get $150h=900$. Divide by $150$ to obtain $h=6$.
 

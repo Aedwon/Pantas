@@ -15,7 +15,7 @@ keyPoints:
 
 A **term** is a part of an expression separated by addition or subtraction. Keep its sign with it. In $4x^2-3x+7$, the terms are $4x^2$, $-3x$, and $7$.
 
-A **coefficient** is the number multiplying the variable part. An **exponent** tells how many times a base is used as a factor. For example, $x^3=x\times x\times x$.
+A **coefficient** is the number multiplying the variable part. A positive whole-number **exponent** tells how many times a base is used as a factor. For example, $x^3=x\times x\times x$.
 
 A **polynomial** in $x$ is an expression with a limited number of terms such as $4x^2$, $-3x$, and $7$. Each exponent of $x$ must be a whole number: $0$, $1$, $2$, and so on. Negative or fractional exponents of $x$ are not allowed.
 
@@ -25,7 +25,13 @@ The **degree** of a nonzero polynomial is its highest exponent after like terms 
 
 ## Examples
 
-Part 2, Polynomials (Operations), shows how to subtract a polynomial and combine like terms before finding the degree.
+When you subtract a polynomial, change the sign of every term in the second group. For example:
+
+$$(x^3+4x)-(x^3+x)$$
+
+$$=x^3+4x-x^3-x=3x$$
+
+The cubic terms cancel. The highest power left is $x^1$, so the degree is $1$.
 
 ### #1: Polynomial or Not
 

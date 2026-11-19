@@ -3048,7 +3048,13 @@
     "reason": "The work example assumes common-denominator addition and division by a fraction without teaching those arithmetic rules."
    }
   ],
-  "lesson-algebra-translating-algebraic-phrases": [],
+  "lesson-algebra-translating-algebraic-phrases": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-decimal-and-percent-conversions",
+    "strength": "required",
+    "reason": "Turn a percent into a decimal before multiplying."
+   }
+  ],
   "lesson-algebra-rates-and-consecutive-integers": [
    {
     "lesson": "lesson-algebra-translating-algebraic-phrases",
@@ -3087,6 +3093,11 @@
     "lesson": "lesson-algebra-functions-domain-and-range",
     "strength": "required",
     "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-algebra-simplifying-and-evaluating-expressions",
+    "strength": "required",
+    "reason": "Substitute an expression, distribute, and combine like terms."
    }
   ],
   "lesson-algebra-inverse-functions-and-checks": [
@@ -3215,6 +3226,11 @@
     "lesson": "lesson-algebra-systems-graphs-and-solution-counts",
     "strength": "required",
     "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-algebra-factoring-quadratic-equations",
+    "strength": "required",
+    "reason": "Factor the quadratic and keep every root, including zero when it is a root."
    }
   ],
   "lesson-algebra-linear-and-quadratic-functions": [
@@ -3246,6 +3262,11 @@
     "lesson": "lesson-algebra-polynomial-terms-and-degree",
     "strength": "helpful",
     "reason": "Compare the highest exponents to find polynomial degrees."
+   },
+   {
+    "lesson": "lesson-algebra-factoring-quadratics",
+    "strength": "required",
+    "reason": "Factor a quadratic denominator before checking which factors cancel."
    }
   ],
   "lesson-algebra-rational-slant-asymptotes": [
@@ -3281,6 +3302,11 @@
     "lesson": "lesson-algebra-exponential-growth-and-function-families",
     "strength": "required",
     "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-algebra-logarithm-meaning-and-equations",
+    "strength": "required",
+    "reason": "Use exponent form to solve a logarithm equation and check the argument."
    }
   ],
   "lesson-text-types-short-stories-and-novels": [

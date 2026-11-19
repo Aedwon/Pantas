@@ -284,7 +284,7 @@ questions:
       The greatest common factor of $4x^2$ and $8x$ is $4x$. Dividing each term by $4x$ gives $x$ and $2$. The complete factorization is $4x(x+2)$.
 
   - id: q-algebra-polynomials-0013
-    approved: true
+    approved: false
     lesson: lesson-algebra-polynomial-special-products
     keyPoint: 1
     type: word-problem
@@ -296,15 +296,15 @@ questions:
         correct: true
       - text: '$x^4+81$'
         rationale: |
-          This adds the squared terms when multiplying conjugates. Both $x^2$ and 9 are being squared. Check the sign of the constant product.
+          This adds the squared terms when multiplying conjugates. Both $x^2$ and $9$ are being squared. Check the sign of the constant product.
       - text: '$x^4-18x^2+81$'
         rationale: |
           This squares the remaining area instead of multiplying by the stated expression. Both expressions contain $x^2$ and $9$, so they can look alike. Check that the multiplier is $x^2+9$.
       - text: '$x^4-9$'
         rationale: |
-          This leaves nine unsquared in the second difference-of-squares step. The first difference of squares is correctly formed. Check both squares in the second step.
+          This uses the right pattern but leaves $9$ unsquared. The starting area already contains $9$, so it is easy to copy it as is. Check that the pattern squares both $x^2$ and $9$.
     explanation: |
-      The square of side $x$ has area $x^2$. Removing $9$ gives $x^2-9$. Multiply by the stated factor: $(x^2-9)(x^2+9)=x^4-9^2=x^4-81$.
+      To find the area of a square, multiply its side length by itself. The area is $x^2$. Removing $9$ gives $x^2-9$. Multiply to get $(x^2-9)(x^2+9)=x^4-9^2=x^4-81$.
 
   - id: q-algebra-polynomials-0014
     approved: true
@@ -698,7 +698,7 @@ questions:
       The divisor $x+2=x-(-2)$ gives remainder $P(-2)$. Compute $P(-2)=2(16)-(-8)+3(-2)-7=32+8-6-7=27$.
 
   - id: q-algebra-polynomials-0031
-    approved: true
+    approved: false
     lesson: lesson-algebra-factoring-cubes
     keyPoint: 1
     type: direct-computation
@@ -710,12 +710,12 @@ questions:
         correct: true
       - text: '$(3x-2)(9x^2+6x+4)$'
         rationale: |
-          This uses the pattern for a difference. Check the sign between the original cubes.
+          This uses the difference-of-cubes pattern. Both patterns use cube roots $3x$ and $2$. Check the plus sign between the original cubes.
       - text: '$(3x+2)(9x^2+6x+4)$'
         rationale: |
-          This carries the plus sign into the middle term. Check that the middle term has the opposite sign.
+          This adds the middle term in the second factor. The plus sign between the cubes can make that look right. For a sum of cubes, subtract the product of the cube roots in the second factor.
       - text: '$(3x+2)(9x^2-6x-4)$'
         rationale: |
-          This switches the last sign along with the middle one. The last term is $2^2$, which is positive.
+          This makes both the middle and last terms negative. The middle term really is negative. Check the last term on its own. It is the square $2^2=4$.
     explanation: |
-      The cubes are $(3x)^3$ and $2^3$. For a sum, add the roots in the first factor. In the second, use $9x^2-6x+4$.
+      The cubes are $(3x)^3$ and $2^3$. The first factor is their cube roots added, $3x+2$. For the second factor, square $3x$ to get $9x^2$, subtract the product $(3x)(2)=6x$, then add $2^2=4$. So the factors are $(3x+2)(9x^2-6x+4)$.

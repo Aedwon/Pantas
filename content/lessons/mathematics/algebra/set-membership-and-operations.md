@@ -1,7 +1,7 @@
 ---
 _id: "lesson-algebra-set-membership-and-operations"
 title: "Set Membership and Operations"
-summary: "Use subsets, unions, intersections, and complements to describe set membership."
+summary: "Find unions, intersections, and complements, and use De Morgan's laws."
 subject: "subject-mathematics"
 topic: "topic-algebra"
 isActive: true

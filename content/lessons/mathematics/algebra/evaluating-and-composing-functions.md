@@ -16,6 +16,8 @@ keyPoints:
 
 Evaluating $f(3)$ means using $3$ as the input and calculating the corresponding output.
 
+An input can also be an expression. If $f(x)=2x+3$, replace $x$ with the whole group $x+1$. This gives $f(x+1)=2(x+1)+3=2x+5$. To find $f(x+1)-f(x)$, subtract the whole output $(2x+3)$. The difference is $(2x+5)-(2x+3)=2$.
+
 Composition means feeding the output of one function into another. The notation $(f\circ g)(x)$ means $f(g(x))$, so $g$ is applied first. The input must also belong to the domain of the composition: it must be valid for $g$, and $g(x)$ must be valid for $f$.
 
 ## Examples

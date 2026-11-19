@@ -240,7 +240,7 @@ questions:
       Substitution replaces $y$ with the entire expression $3x+1$. In the second equation, this gives $2x+5(3x+1)=14$. The brackets keep the whole expression multiplied by $5$.
 
   - id: q-algebra-systems-of-equations-0011
-    approved: true
+    approved: false
     lesson: lesson-algebra-systems-substitution-and-word-problems
     keyPoint: 2
     type: word-problem
@@ -260,10 +260,10 @@ questions:
         rationale: |
           This stops at $10p=100$. The money difference is a real intermediate result. Check the coefficient before reporting the price of one pen.
     explanation: |
-      Let $n$ be the notebook price and $p$ the pen price. The receipts give $3n+2p=140$ and $n+4p=80$. Multiply the second by $3$: $3n+12p=240$. Subtract the first to get $10p=100$, so $p=10$ pesos.
+      Let $n$ be the notebook price and $p$ the pen price. The receipts give $3n+2p=140$ and $n+4p=80$. The second equation gives $n=80-4p$. Substitute to get $3(80-4p)+2p=140$. This gives $240-10p=140$, so $10p=100$ and $p=10$ pesos per pen.
 
   - id: q-algebra-systems-of-equations-0012
-    approved: true
+    approved: false
     lesson: lesson-algebra-systems-substitution-and-word-problems
     keyPoint: 1
     type: direct-computation
@@ -275,15 +275,15 @@ questions:
         correct: true
       - text: '$6$'
         rationale: |
-          This uses $y=9-x$ instead of $y=9-2x$. Subtracting a single $x$ seems familiar. Check the coefficient in the original equation.
+          After finding $x=3$, this subtracts $3$ from $9$ and gets $6$. It uses $x$ where the first equation has $2x$. Check the coefficient before putting in the value.
       - text: '$-3$'
         rationale: |
-          This uses $y=2x-9$ after moving the $2x$ term. The same numbers appear, so the sign slip can be missed. Check the answer in $2x+y=9$.
+          After finding $x=3$, this subtracts $9$ from $2(3)$ and gets $-3$. Both numbers belong in the subtraction. Check that $y=9-2x$ before putting in the value.
       - text: '$0$'
         rationale: |
-          This reads $x-y=0$ as saying each variable is zero. The zero remainder can suggest a zero answer. Check whether it instead means the variables are equal.
+          This gets $x-y=0$ by subtraction and assumes $y=0$. A difference of $0$ can look like a zero value. Check what the difference tells you. It only tells you that $x=y$.
     explanation: |
-      Subtract the equations to get $x-y=0$, so $x=y$. Put $x=y$ into $2x+y=9$: $3y=9$. Divide by $3$ to get $y=3$.
+      The first equation gives $y=9-2x$. Substitute into the second equation to get $x+2(9-2x)=9$. Expand to get $18-3x=9$, so $3x=9$ and $x=3$. Then $y=9-2(3)=3$.
 
   - id: q-algebra-systems-of-equations-0013
     approved: true
@@ -332,7 +332,7 @@ questions:
       Put $x=3$ and $y=1$ into both equations. The first gives $2(3)+1=7$. The second gives $3-1=2$. Thus $(3,1)$ satisfies the whole system.
 
   - id: q-algebra-systems-of-equations-0015
-    approved: true
+    approved: false
     lesson: lesson-algebra-systems-substitution-and-word-problems
     keyPoint: 1
     type: direct-computation
@@ -350,9 +350,9 @@ questions:
           This reports $y$ alone. It is a solved value from the system. Check that the requested value uses both variables.
       - text: '$8$'
         rationale: |
-          This stops at the right-side sum from elimination. The $8$ appears in a correct step. Check that the requested product has been calculated.
+          This stops at $4x=8$. The $8$ is part of a correct step. Solve for $x$ and $y$, then multiply them.
     explanation: |
-      Add the equations to get $4x=8$, so $x=2$. From $x-y=1$, find $y=1$. Therefore $xy=2(1)=2$.
+      From $x-y=1$, get $y=x-1$. Substitute into $3x+y=7$ to get $3x+(x-1)=7$. This gives $4x=8$, so $x=2$. Then $y=2-1=1$, so $xy=2(1)=2$.
 
   - id: q-algebra-systems-of-equations-0016
     approved: true
@@ -401,7 +401,7 @@ questions:
       From $x^2=x$, move the right side to get $x^2-x=0$. Factor: $x(x-1)=0$. Thus $x=0$ or $x=1$. Dividing by $x$ loses the solution $x=0$.
 
   - id: q-algebra-systems-of-equations-0018
-    approved: true
+    approved: false
     lesson: lesson-algebra-systems-substitution-and-word-problems
     keyPoint: 2
     type: word-problem
@@ -421,7 +421,7 @@ questions:
         rationale: |
           This reports the current speed from half the difference. That is another unknown found from the same system. Check which speed is requested.
     explanation: |
-      The upstream speed is $80\div8=10$ km/h, so $v-c=10$. The downstream speed is $100\div5=20$ km/h, so $v+c=20$. Add the equations: $2v=30$. Thus $v=15$ km/h.
+      The upstream speed is $80\div8=10$ km/h, so $v-c=10$. The downstream speed is $100\div5=20$ km/h, so $v+c=20$. The first equation gives $c=v-10$. Substitute into the second equation to get $v+(v-10)=20$. Thus $2v=30$ and $v=15$ km/h.
 
   - id: q-algebra-systems-of-equations-0019
     lesson: lesson-algebra-systems-substitution-and-word-problems

@@ -350,7 +350,7 @@ questions:
       For $x^2+x+1=0$, the discriminant is $1^2-4(1)(1)=-3$. A negative discriminant gives no real roots.
 
   - id: q-algebra-quadratic-equations-0016
-    approved: true
+    approved: false
     lesson: lesson-algebra-quadratic-methods-and-root-properties
     keyPoint: 3
     type: which-is-true
@@ -370,7 +370,7 @@ questions:
         rationale: |
           This treats a quadratic as having a double zero root. Zero is possible for some quadratics. Check that the constant term is nonzero.
     explanation: |
-      The roots are $-2$ and $-3$, from $(x+2)(x+3)=0$. Both are negative. Their sum is $-5$ and product is $6$.
+      The discriminant is $5^2-4(1)(6)=1$, so both roots are real. Their product is $\dfrac{6}{1}=6$. A positive product means both roots have the same sign. Their sum is $-\dfrac{5}{1}=-5$, so both roots are negative.
 
   - id: q-algebra-quadratic-equations-0017
     approved: true

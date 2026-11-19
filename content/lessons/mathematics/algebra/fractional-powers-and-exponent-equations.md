@@ -24,6 +24,8 @@ $$a^{m/n}=\sqrt[n]{a^m}=(\sqrt[n]{a})^m$$
 
 The $n$th root of a positive number is the positive number whose $n$th power gives it. For example, $\sqrt[3]{8}=2$ because $2^3=8$.
 
+To place a cube root between two whole numbers, find the cubes on either side. Since $2^3=8$ and $3^3=27$, the cube root of $20$ lies between $2$ and $3$.
+
 For $a>0$, multiply the exponents when raising a power to another power: $(a^u)^v=a^{uv}$.
 
 For $b>0$ and $b\ne1$, different exponents give different powers. Thus, if $b^u=b^v$, then $u=v$.

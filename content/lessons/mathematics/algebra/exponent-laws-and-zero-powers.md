@@ -16,6 +16,8 @@ keyPoints:
 
 For a positive whole-number exponent, $a^n$ means repeated multiplication of the base $a$. For example, $2^3=2\times2\times2=8$.
 
+If a batch starts with $5$ items and doubles each round, multiply by $2$ each time. After $3$ rounds there are $5(2^3)=40$ items.
+
 **Simplify** means rewrite an expression in a shorter equivalent form. **Evaluate** means find the final number answer.
 
 For positive bases and real exponents, multiply powers with the same base by adding exponents. Divide them by subtracting exponents:

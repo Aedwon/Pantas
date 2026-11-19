@@ -20,8 +20,6 @@ An **integer** is a number with no fractional part, such as $-2$, $0$, or $3$. C
 
 To find an unknown in an equation, keep the sides equal. Add or subtract the same amount on both sides, or divide both sides by the same nonzero number.
 
-Part 3, Simplifying and Evaluating Expressions, shows how to combine like terms.
-
 ## Examples
 
 ### #1: Translating "Per"
@@ -33,6 +31,8 @@ A machine makes $p$ parts in $h$ hours, where $h>0$. Express the average number 
 Divide the number of parts by the number of hours:
 
 $$\dfrac{p}{h}$$
+
+If the rate stays the same, multiply the rate by the time to find the total number of parts.
 
 Part 2, Motion Problems (Meeting and Moving Apart), shows how to multiply a steady rate by time to find an amount.
 
@@ -49,7 +49,7 @@ The sum of three consecutive even integers is $S$. Express the largest integer i
 
 $$x+(x+2)+(x+4)=S$$
 
-3. Combine like terms.
+3. Add the three copies of $x$ to get $3x$. Add $2+4$ to get $6$.
 
 $$3x+6=S$$
 

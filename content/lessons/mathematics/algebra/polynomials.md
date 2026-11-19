@@ -22,7 +22,7 @@ replacedBy:
 
 A **term** is a part of an expression separated by addition or subtraction. Keep its sign with it. In $4x^2-3x+7$, the terms are $4x^2$, $-3x$, and $7$.
 
-A **coefficient** is the number multiplying the variable part. An **exponent** tells how many times a base is used as a factor. For example, $x^3=x\times x\times x$.
+A **coefficient** is the number multiplying the variable part. A positive whole-number **exponent** tells how many times a base is used as a factor. For example, $x^3=x\times x\times x$.
 
 A **polynomial** in $x$ is an expression with a limited number of terms such as $4x^2$, $-3x$, and $7$. Each exponent of $x$ must be a whole number: $0$, $1$, $2$, and so on. Negative or fractional exponents of $x$ are not allowed.
 
@@ -118,13 +118,21 @@ The **Factor Theorem** says $x-c$ is a factor of $P(x)$ exactly when $P(c)=0$. A
 
 > FOIL: First, Outer, Inner, Last.
 
-FOIL names the four products when multiplying two binomials. For larger polynomials, multiply every term by every term using distribution.
+FOIL names the four products when multiplying two binomials, which are polynomials with two terms each. For larger polynomials, multiply every term by every term using distribution.
 
 > SOAP: Same, Opposite, Always Positive.
 
 For the cube identities, the binomial uses the same sign as the original expression. The middle term in the second factor uses the opposite sign. Its last term is positive.
 
 ## Examples
+
+When you subtract a polynomial, change the sign of every term in the second group. For example:
+
+$$(x^3+4x)-(x^3+x)$$
+
+$$=x^3+4x-x^3-x=3x$$
+
+The cubic terms cancel. The highest power left is $x^1$, so the degree is $1$.
 
 ### #1: Polynomial or Not
 
@@ -174,8 +182,6 @@ $$-3(x^2+x+4)=-3x^2-3x-12$$
 $$2x^3-x^2+5x-12$$
 
 ### #4: Repeated Difference of Squares
-
-Measurement shows how to find the area of a square from its side length.
 
 Find $(x-3)(x+3)(x^2+9)$.
 

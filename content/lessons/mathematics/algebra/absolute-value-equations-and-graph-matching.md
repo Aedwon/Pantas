@@ -68,11 +68,12 @@ A graph is a downward-opening V with vertex $(2,3)$ and passes through $(0,-1)$.
 
 1. The downward-opening V needs a negative factor. This removes $y=2|x-2|+3$.
 2. The vertex has input $2$, so the inside must be $x-2$. This leaves $y=-2|x-2|+3$.
-3. Check the given point.
+3. To find the factor without choices, start with $y=a|x-2|+3$. Put in the given point $(0,-1)$ to get $-1=2a+3$. Subtract $3$ and divide by $2$ to get $a=-2$.
+4. The $y$-intercept is where $x=0$. Here the given point already tells us the intercept. Using the formula gives the same value.
 
 $$-2|0-2|+3=-4+3=-1$$
 
-4. The matching formula is $y=-2|x-2|+3$.
+5. The matching formula is $y=-2|x-2|+3$.
 
 ## Speed Tricks & Shortcuts
 
