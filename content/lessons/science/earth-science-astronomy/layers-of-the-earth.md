@@ -80,7 +80,7 @@ Waves change speed and bend (this is called **refraction**) when the material ch
 
 When a large earthquake occurs, direct S waves do not appear at seismographs on the far side of Earth, beyond roughly $104^\circ$ from the earthquake. This is the **S-wave shadow zone**. A wave can still cross the liquid as a P wave and change back into an S wave on the far side. It shows that something liquid lies in the way.
 
-P waves pass through the outer core, but they slow down and bend sharply. This leaves a **P-wave shadow zone**, roughly between $104^\circ$ and $140^\circ$ from the earthquake. The shadow zone shows that the outer core has very different properties from the mantle.
+P waves pass through the outer core, but they slow down and bend sharply. This leaves a **P-wave shadow zone**, roughly between $104^\circ$ and $140^\circ$ from the earthquake. Direct P waves do not arrive in this zone, but other P waves can. The shadow zone shows that the outer core has very different properties from the mantle.
 
 The inner core was found in $1936$ by the Danish scientist Inge Lehmann. She noticed P waves that were reflected from a boundary deep inside the core. Later study of the waves showed that the inner core is solid.
 

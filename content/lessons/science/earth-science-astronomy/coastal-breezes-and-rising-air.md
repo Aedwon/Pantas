@@ -24,8 +24,6 @@ At night, land often cools faster than the sea. Air rises over the relatively wa
 
 Each breeze is named for where it comes from. These are local daily patterns. Stronger winds from a large weather system can hide or change them.
 
-<!-- ILLUSTRATION: Two coastal panels labeled Day and Night; Day shows warm rising air over land and a surface arrow from sea to land labeled Sea breeze; Night shows rising air over the warmer sea and a surface arrow from land to sea labeled Land breeze. -->
-
 ### ITCZ and Rainfall
 
 The **Intertropical Convergence Zone (ITCZ)** is a belt near the equator where winds from the northern and southern tropics meet. Convergence means coming together. The meeting air rises, helping form clouds and thunderstorms.
@@ -43,6 +41,8 @@ On a clear afternoon, a coastal town receives wind from the sea. After a calm, c
 **Solution:**
 1. Land warms faster during the day. Rising air over land draws in surface air from the sea, producing a sea breeze.
 2. Land cools faster at night. Air rises over the warmer sea, and a land breeze flows toward it.
+
+<!-- ILLUSTRATION: Two coastal panels labeled Day and Night; Day shows warm rising air over land and a surface arrow from sea to land labeled Sea breeze; Night shows rising air over the warmer sea and a surface arrow from land to sea labeled Land breeze. -->
 
 ### #2: Rain Without a Typhoon
 
