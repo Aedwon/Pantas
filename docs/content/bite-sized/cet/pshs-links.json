@@ -1,0 +1,176 @@
+{
+  "outline": [
+    {
+      "original": "lesson-arithmetic-number-sense-clock-time-and-time-differences",
+      "parts": [
+        {
+          "slug": "reading-clock-time",
+          "title": "Reading Clock Time"
+        },
+        {
+          "slug": "finding-elapsed-time",
+          "title": "Finding Elapsed Time"
+        },
+        {
+          "slug": "elapsed-time-across-midnight",
+          "title": "Elapsed Time Across Midnight"
+        },
+        {
+          "slug": "adding-a-duration",
+          "title": "Adding a Duration"
+        },
+        {
+          "slug": "using-time-zone-offsets",
+          "title": "Using Time-Zone Offsets"
+        }
+      ]
+    },
+    {
+      "original": "lesson-arithmetic-number-sense-counting-and-digit-patterns",
+      "parts": [
+        {
+          "slug": "repeating-units-digits",
+          "title": "Repeating Units Digits"
+        },
+        {
+          "slug": "counting-squares-by-size",
+          "title": "Counting Squares by Size"
+        },
+        {
+          "slug": "growing-square-borders",
+          "title": "Growing Square Borders"
+        },
+        {
+          "slug": "making-sums-with-given-digits",
+          "title": "Making Sums with Given Digits"
+        },
+        {
+          "slug": "making-differences-with-given-digits",
+          "title": "Making Differences with Given Digits"
+        }
+      ]
+    },
+    {
+      "original": "lesson-spatial-abstract-reasoning-overlapping-shapes-and-dots",
+      "parts": [
+        {
+          "slug": "labeling-overlap-regions",
+          "title": "Labeling Overlap Regions"
+        },
+        {
+          "slug": "labeling-three-shape-regions",
+          "title": "Labeling Three-Shape Regions"
+        },
+        {
+          "slug": "matching-dot-placement",
+          "title": "Matching Dot Placement"
+        },
+        {
+          "slug": "matching-dots-outside-a-shape",
+          "title": "Matching Dots Outside a Shape"
+        },
+        {
+          "slug": "matching-two-dots",
+          "title": "Matching Two Dots"
+        },
+        {
+          "slug": "dots-on-shape-boundaries",
+          "title": "Dots on Shape Boundaries"
+        }
+      ]
+    }
+  ],
+  "prerequisites": {
+    "lesson-arithmetic-number-sense-finding-elapsed-time": [
+      {
+        "lesson": "lesson-arithmetic-number-sense-reading-clock-time",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-arithmetic-number-sense-elapsed-time-across-midnight": [
+      {
+        "lesson": "lesson-arithmetic-number-sense-finding-elapsed-time",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-arithmetic-number-sense-adding-a-duration": [
+      {
+        "lesson": "lesson-arithmetic-number-sense-elapsed-time-across-midnight",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-arithmetic-number-sense-using-time-zone-offsets": [
+      {
+        "lesson": "lesson-arithmetic-number-sense-adding-a-duration",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-arithmetic-number-sense-counting-squares-by-size": [
+      {
+        "lesson": "lesson-arithmetic-number-sense-repeating-units-digits",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-arithmetic-number-sense-growing-square-borders": [
+      {
+        "lesson": "lesson-arithmetic-number-sense-counting-squares-by-size",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-arithmetic-number-sense-making-sums-with-given-digits": [
+      {
+        "lesson": "lesson-arithmetic-number-sense-growing-square-borders",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-arithmetic-number-sense-making-differences-with-given-digits": [
+      {
+        "lesson": "lesson-arithmetic-number-sense-making-sums-with-given-digits",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-spatial-abstract-reasoning-labeling-three-shape-regions": [
+      {
+        "lesson": "lesson-spatial-abstract-reasoning-labeling-overlap-regions",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-spatial-abstract-reasoning-matching-dot-placement": [
+      {
+        "lesson": "lesson-spatial-abstract-reasoning-labeling-three-shape-regions",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-spatial-abstract-reasoning-matching-dots-outside-a-shape": [
+      {
+        "lesson": "lesson-spatial-abstract-reasoning-matching-dot-placement",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-spatial-abstract-reasoning-matching-two-dots": [
+      {
+        "lesson": "lesson-spatial-abstract-reasoning-matching-dots-outside-a-shape",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-spatial-abstract-reasoning-dots-on-shape-boundaries": [
+      {
+        "lesson": "lesson-spatial-abstract-reasoning-matching-two-dots",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ]
+  }
+}
