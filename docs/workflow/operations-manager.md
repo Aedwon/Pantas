@@ -161,7 +161,7 @@ These are Aedwon's standing instructions. They apply until he changes them.
 - No prod deploy or ship without his explicit word ("ship it"). Staging deploys are allowed,
   except while he is checking something there.
 - Every email goes to Aedwon first, even when he asks for it to go elsewhere.
-- Never ask Aedwon to write legal text. An agent drafts it and Codex GPT 6.1 Sol High critiques
+- Never ask Aedwon to write legal text. An agent drafts it and Codex GPT 6.2 Sol High critiques
   it; Aedwon only approves the result.
 - Rulings made under his delegation are final. Do not queue them for his sign-off.
 - Visual decisions need a visual companion (board or preview). Build what he picked, 1:1.

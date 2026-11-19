@@ -62,7 +62,7 @@ pass 15, retire or merge one first.
    consent or refund wording). First search `docs/legal/`, `docs/legal-drafts/`, the app's
    legal documents on the integration branch and the pantas-web project; use what exists as
    the base. If text is missing, an agent drafts it to favor Pantas as far as Philippine law
-   allows, Codex GPT 6.1 Sol at high effort critiques it through `codex-pick`, and he only
+   allows, Codex GPT 6.2 Sol at high effort critiques it through `codex-pick`, and he only
    checks the result. His words (Nov 9): "how many times does this have to pop up. has this not been written already? in the pantas-web project? if not, i already told you, you should have an agent write it for me instead. for these texts, have a codex 6.1 Sol High critique it. the angle should be that it's leaning in favor of us, to the extend PH law allows. do not ask me any text of this kind again. i cannot afford a lawyer. i should only check what you drafted" No check can tell when a question to him
    asks for legal text.
 

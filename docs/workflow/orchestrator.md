@@ -9,7 +9,7 @@ WORKFLOW.md and SUBAGENTS.md still win where they differ.
 
 - **Lead (Claude, main thread):** owns scope, briefs, rulings, review, commits, merges and the
   decision log. Reads summaries, not logs. Never takes app screenshots.
-- **Builder:** Codex Sol (`gpt-6.1-sol`, low effort) through `codex-pick`, one family per run.
+- **Builder:** Codex Sol (`gpt-6.2-sol`, low effort) through `codex-pick`, one family per run.
 - **Reviewer and fixer:** two more Sol runs per family (below). They use Codex quota, not Claude.
 - **Bulk reading:** a Sonnet or Haiku subagent (board inventories, mapping a design to the code,
   building a preview page). It returns one report file and a one-paragraph summary.

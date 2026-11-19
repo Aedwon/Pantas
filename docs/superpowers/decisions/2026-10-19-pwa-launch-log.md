@@ -4024,3 +4024,7 @@ Fable 5.2 High ruled under Aedwon's standing delegation on `docs/superpowers/pla
 - No extra mail capacity is bought now. The lead reports if daily code and receipt mails pass about 60.
 - Children's web trial: one trial per parent email.
 - Plan: docs/superpowers/plans/under-13-accounts/2026-11-19-build-plan.md on the build branch. Estimate: velocity row E-124.
+
+### Nov 19, Codex default model is GPT 6.2 Sol (operations manager)
+
+- Aedwon verbatim: "use 6.2 Sol as the default everywhere". 6.2 Sol ran through `codex-pick` on Nov 19. Updated: `docs/workflow/orchestrator.md`, `docs/workflow/orchestrator/run_family.sh`, `docs/workflow/operations-manager.md`, written rule text in `process-improvement.md`, and the default model in each Codex account config. Astra stays GPT 6 Astra.
