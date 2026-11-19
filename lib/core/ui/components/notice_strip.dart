@@ -198,6 +198,28 @@ class NoticeStrip extends StatelessWidget {
                     const SizedBox(height: PantasSpace.s12),
                     editor!,
                   ],
+                  if (primaryLabel != null && secondaryLabel == null) ...[
+                    // One action: the phone stretches it across the notice
+                    // (design system Notice, `notice--phone`).
+                    const SizedBox(height: PantasSpace.s12),
+                    if (wide)
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: WebButton(
+                          label: primaryLabel!,
+                          variant: WebButtonVariant.secondary,
+                          onPressed: onPrimary,
+                        ),
+                      )
+                    else
+                      PantasButton(
+                        label: primaryLabel!,
+                        variant: PantasButtonVariant.secondary,
+                        onPressed: onPrimary,
+                        height: PantasSize.btn,
+                        fontSize: PantasType.webLink.fontSize,
+                      ),
+                  ],
                   if (primaryLabel != null && secondaryLabel != null) ...[
                     const SizedBox(height: PantasSpace.s12),
                     if (wide)
