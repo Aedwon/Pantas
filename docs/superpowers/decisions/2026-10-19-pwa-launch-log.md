@@ -4010,4 +4010,4 @@ Fable 5.2 High ruled under Aedwon's standing delegation on `docs/superpowers/pla
 - Under-13 boards (artifact PqxcZvKQheCogaXH6LidPM), Aedwon verbatim: "1A 2A 3A 4B 6B 7A (for 7A make the description more direct and concise) 8A (for 8A please use the same code interface for beta login)". Board 9 (sibling access opt-in) not picked yet: he asked what sibling access is for. Board 5 has one option. Changes to build: 7A description shorter and more direct; 8A code gate reuses the beta sign-in code entry, 1:1.
 - PayMongo support request: Aedwon, "sent" (Nov 19). Tracker items 4 to 6 now Sent.
 - Prepaid wording check (manager, read-only): web copy already matches prepaid periods. Web Terms say web purchases do not renew; the web buy button reads "Buy 1 Week/Month/Year for"; web trial text says "No payment needed." The "a month" and "Cancel any time" lines show only on Google Play builds. No change needed.
-
+- Board 9, Aedwon verbatim: "Keep 9A". All under-13 boards are now picked: 1A 2A 3A 4B 6B 7A 8A 9A, with the 7A and 8A notes above.
