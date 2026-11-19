@@ -5,6 +5,8 @@ meta:
   exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-physics-electricity-and-magnetism-0001
+    lesson: lesson-physics-coulombs-law-and-electric-fields
+    keyPoint: 1
     type: "simple-quantitative"
     difficulty: "medium"
     stem: |
@@ -26,6 +28,8 @@ questions:
     approved: true
 
   - id: q-physics-electricity-and-magnetism-0002
+    lesson: lesson-physics-coulombs-law-and-electric-fields
+    keyPoint: 1
     type: "simple-quantitative"
     difficulty: "hard"
     stem: |
@@ -47,6 +51,8 @@ questions:
     approved: true
 
   - id: q-physics-electricity-and-magnetism-0003
+    lesson: lesson-physics-current-voltage-and-ohms-law
+    keyPoint: 3
     type: "simple-quantitative"
     difficulty: "easy"
     stem: |
@@ -68,6 +74,8 @@ questions:
     approved: true
 
   - id: q-physics-electricity-and-magnetism-0004
+    lesson: lesson-physics-current-voltage-and-ohms-law
+    keyPoint: 3
     type: "simple-quantitative"
     difficulty: "medium"
     stem: |
@@ -89,6 +97,8 @@ questions:
     approved: true
 
   - id: q-physics-electricity-and-magnetism-0005
+    lesson: lesson-physics-current-voltage-and-ohms-law
+    keyPoint: 3
     type: "simple-quantitative"
     difficulty: "medium"
     stem: |
@@ -110,6 +120,8 @@ questions:
     approved: true
 
   - id: q-physics-electricity-and-magnetism-0006
+    lesson: lesson-physics-series-circuit-current-and-voltage
+    keyPoint: 2
     type: "predict-outcome"
     difficulty: "medium"
     stem: |
@@ -131,6 +143,8 @@ questions:
     approved: true
 
   - id: q-physics-electricity-and-magnetism-0007
+    lesson: lesson-physics-series-circuit-current-and-voltage
+    keyPoint: 2
     type: "predict-outcome"
     difficulty: "medium"
     stem: |
@@ -152,6 +166,8 @@ questions:
     approved: true
 
   - id: q-physics-electricity-and-magnetism-0008
+    lesson: lesson-physics-electric-charge-and-charging
+    keyPoint: 1
     type: "identify"
     difficulty: "easy"
     stem: |
@@ -173,6 +189,8 @@ questions:
     approved: true
 
   - id: q-physics-electricity-and-magnetism-0009
+    lesson: lesson-physics-electric-charge-and-charging
+    keyPoint: 1
     type: "identify"
     difficulty: "easy"
     stem: |
@@ -194,6 +212,8 @@ questions:
     approved: true
 
   - id: q-physics-electricity-and-magnetism-0010
+    lesson: lesson-physics-coulombs-law-and-electric-fields
+    keyPoint: 2
     type: "structure-function"
     difficulty: "hard"
     stem: |
@@ -215,6 +235,8 @@ questions:
     approved: true
 
   - id: q-physics-electricity-and-magnetism-0011
+    lesson: lesson-physics-parallel-circuit-resistance
+    keyPoint: 1
     type: "compare-contrast"
     difficulty: "hard"
     stem: |
@@ -236,6 +258,8 @@ questions:
     approved: true
 
   - id: q-physics-electricity-and-magnetism-0012
+    lesson: lesson-physics-lenzs-law-and-induced-current
+    keyPoint: 1
     type: "predict-outcome"
     difficulty: "hard"
     stem: |
@@ -257,6 +281,8 @@ questions:
     approved: true
 
   - id: q-physics-electricity-and-magnetism-0013
+    lesson: lesson-physics-magnetic-poles-and-current
+    keyPoint: 2
     type: "cause-effect"
     difficulty: "hard"
     stem: |
@@ -278,6 +304,8 @@ questions:
     approved: true
 
   - id: q-physics-electricity-and-magnetism-0014
+    lesson: lesson-physics-magnetic-poles-and-current
+    keyPoint: 2
     type: "predict-outcome"
     difficulty: "medium"
     stem: |
@@ -299,6 +327,8 @@ questions:
     approved: true
 
   - id: q-physics-electricity-and-magnetism-0015
+    lesson: lesson-physics-series-circuit-current-and-voltage
+    keyPoint: 1
     type: "simple-quantitative"
     difficulty: "exam"
     stem: |
@@ -320,6 +350,8 @@ questions:
     approved: true
 
   - id: q-physics-electricity-and-magnetism-0016
+    lesson: lesson-physics-parallel-circuit-resistance
+    keyPoint: 2
     approved: false
     type: "simple-quantitative"
     difficulty: "medium"
@@ -341,6 +373,8 @@ questions:
       For parallel resistors, $\dfrac1{R_{\mathrm{eq}}}=\dfrac16+\dfrac16=\dfrac13$. Taking the reciprocal gives $R_{\mathrm{eq}}=3\,\Omega$.
 
   - id: q-physics-electricity-and-magnetism-0017
+    lesson: lesson-physics-current-voltage-and-ohms-law
+    keyPoint: 3
     approved: false
     type: "classify"
     difficulty: "medium"
@@ -362,6 +396,8 @@ questions:
       An ohmic device has a straight-line voltage-current relation with constant resistance under the stated conditions. This device changes resistance over the range. It is non-ohmic there.
 
   - id: q-physics-electricity-and-magnetism-0018
+    lesson: lesson-physics-lenzs-law-and-induced-current
+    keyPoint: 2
     approved: false
     type: "cause-effect"
     difficulty: "hard"
@@ -383,6 +419,8 @@ questions:
       Changing magnetic flux induces an emf. An open path prevents a sustained conduction current around the loop. The emf can still be present.
 
   - id: q-physics-electricity-and-magnetism-0019
+    lesson: lesson-physics-magnetic-poles-and-current
+    keyPoint: 1
     approved: false
     type: "compare-contrast"
     difficulty: "hard"
@@ -404,6 +442,8 @@ questions:
       Ordinary magnets have north and south poles together. Cutting a magnet produces smaller magnets with paired poles. Isolated magnetic monopoles have not been observed.
 
   - id: q-physics-electricity-and-magnetism-0020
+    lesson: lesson-physics-magnetic-poles-and-current
+    keyPoint: 2
     approved: false
     type: "process-ordering"
     difficulty: "exam"

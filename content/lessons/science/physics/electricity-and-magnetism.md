@@ -6,6 +6,19 @@ subject: "subject-science"
 topic: "topic-physics"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-physics-electric-charge-and-charging
+  - lesson-physics-electric-induction-and-polarization
+  - lesson-physics-coulombs-law-and-electric-fields
+  - lesson-physics-current-voltage-and-ohms-law
+  - lesson-physics-series-circuit-current-and-voltage
+  - lesson-physics-parallel-circuit-resistance
+  - lesson-physics-electrical-power-and-overload
+  - lesson-physics-magnetic-poles-and-current
+  - lesson-physics-magnetic-flux-and-faradays-law
+  - lesson-physics-lenzs-law-and-induced-current
+  - lesson-physics-electric-motors-and-generators
 ---
 ## Core Concept
 

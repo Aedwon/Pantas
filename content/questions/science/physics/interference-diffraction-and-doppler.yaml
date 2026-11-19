@@ -5,6 +5,8 @@ meta:
   exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-physics-waves-and-sound-0009
+    lesson: lesson-physics-doppler-effect-and-heard-pitch
+    keyPoint: 1
     type: "cause-effect"
     difficulty: "medium"
     stem: |
@@ -26,6 +28,8 @@ questions:
     approved: true
 
   - id: q-physics-waves-and-sound-0010
+    lesson: lesson-physics-doppler-effect-and-heard-pitch
+    keyPoint: 1
     type: "cause-effect"
     difficulty: "medium"
     stem: |
@@ -47,6 +51,8 @@ questions:
     approved: true
 
   - id: q-physics-waves-and-sound-0013
+    lesson: lesson-physics-doppler-effect-and-heard-pitch
+    keyPoint: 2
     type: "classify"
     difficulty: "hard"
     stem: |
@@ -68,6 +74,8 @@ questions:
     approved: true
 
   - id: q-physics-waves-and-sound-0014
+    lesson: lesson-physics-doppler-effect-and-heard-pitch
+    keyPoint: 1
     type: "predict-outcome"
     difficulty: "hard"
     stem: |
@@ -89,6 +97,8 @@ questions:
     approved: true
 
   - id: q-physics-waves-and-sound-0015
+    lesson: lesson-physics-doppler-effect-and-heard-pitch
+    keyPoint: 1
     type: "process-ordering"
     difficulty: "exam"
     stem: |
@@ -110,6 +120,8 @@ questions:
     approved: true
 
   - id: q-physics-waves-and-sound-0021
+    lesson: lesson-physics-wave-interference-and-path-difference
+    keyPoint: 1
     type: "cause-effect"
     difficulty: "easy"
     stem: |
@@ -131,6 +143,8 @@ questions:
     approved: false
 
   - id: q-physics-waves-and-sound-0022
+    lesson: lesson-physics-wave-interference-and-path-difference
+    keyPoint: 2
     type: "cause-effect"
     difficulty: "easy"
     stem: |
@@ -152,6 +166,8 @@ questions:
     approved: false
 
   - id: q-physics-waves-and-sound-0023
+    lesson: lesson-physics-diffraction-at-edges-and-openings
+    keyPoint: 1
     type: "classify"
     difficulty: "easy"
     stem: |
@@ -173,6 +189,8 @@ questions:
     approved: false
 
   - id: q-physics-waves-and-sound-0024
+    lesson: lesson-physics-wave-interference-and-path-difference
+    keyPoint: 2
     type: "cause-effect"
     difficulty: "medium"
     stem: |
@@ -194,6 +212,8 @@ questions:
     approved: false
 
   - id: q-physics-waves-and-sound-0025
+    lesson: lesson-physics-diffraction-at-edges-and-openings
+    keyPoint: 1
     type: "cause-effect"
     difficulty: "medium"
     stem: |
@@ -215,6 +235,8 @@ questions:
     approved: false
 
   - id: q-physics-waves-and-sound-0026
+    lesson: lesson-physics-doppler-effect-and-heard-pitch
+    keyPoint: 1
     type: "cause-effect"
     difficulty: "medium"
     stem: |
@@ -236,6 +258,8 @@ questions:
     approved: false
 
   - id: q-physics-waves-and-sound-0027
+    lesson: lesson-physics-doppler-frequency-from-a-moving-source
+    keyPoint: 1
     type: "simple-quantitative"
     difficulty: "medium"
     stem: |
@@ -257,6 +281,8 @@ questions:
     approved: false
 
   - id: q-physics-waves-and-sound-0028
+    lesson: lesson-physics-doppler-frequency-from-a-moving-source
+    keyPoint: 1
     type: "simple-quantitative"
     difficulty: "medium"
     stem: |
@@ -278,6 +304,8 @@ questions:
     approved: false
 
   - id: q-physics-waves-and-sound-0029
+    lesson: lesson-physics-doppler-effect-and-heard-pitch
+    keyPoint: 1
     type: "classify"
     difficulty: "hard"
     stem: |
@@ -299,6 +327,8 @@ questions:
     approved: false
 
   - id: q-physics-waves-and-sound-0030
+    lesson: lesson-physics-doppler-frequency-from-a-moving-source
+    keyPoint: 1
     type: "classify"
     difficulty: "hard"
     stem: |
@@ -320,6 +350,8 @@ questions:
     approved: false
 
   - id: q-physics-waves-and-sound-0031
+    lesson: lesson-physics-doppler-frequency-from-a-moving-source
+    keyPoint: 1
     type: "simple-quantitative"
     difficulty: "hard"
     stem: |
@@ -341,6 +373,8 @@ questions:
     approved: false
 
   - id: q-physics-waves-and-sound-0032
+    lesson: lesson-physics-wave-interference-and-path-difference
+    keyPoint: 1
     type: "classify"
     difficulty: "hard"
     stem: |
@@ -362,6 +396,8 @@ questions:
     approved: false
 
   - id: q-physics-waves-and-sound-0033
+    lesson: lesson-physics-diffraction-at-edges-and-openings
+    keyPoint: 1
     type: "simple-quantitative"
     difficulty: "hard"
     stem: |
@@ -383,6 +419,8 @@ questions:
     approved: false
 
   - id: q-physics-waves-and-sound-0034
+    lesson: lesson-physics-wave-interference-and-path-difference
+    keyPoint: 2
     type: "simple-quantitative"
     difficulty: "exam"
     stem: |
@@ -404,6 +442,8 @@ questions:
     approved: false
 
   - id: q-physics-waves-and-sound-0035
+    lesson: lesson-physics-doppler-frequency-from-a-moving-source
+    keyPoint: 1
     type: "simple-quantitative"
     difficulty: "exam"
     stem: |

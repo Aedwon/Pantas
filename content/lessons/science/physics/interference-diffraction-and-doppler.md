@@ -6,6 +6,12 @@ subject: "subject-science"
 topic: "topic-physics"
 estimatedMinutes: 9
 isActive: true
+status: retired
+replacedBy:
+  - lesson-physics-wave-interference-and-path-difference
+  - lesson-physics-diffraction-at-edges-and-openings
+  - lesson-physics-doppler-effect-and-heard-pitch
+  - lesson-physics-doppler-frequency-from-a-moving-source
 ---
 ## Core Concept
 

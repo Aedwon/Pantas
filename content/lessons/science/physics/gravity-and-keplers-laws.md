@@ -6,6 +6,11 @@ subject: "subject-science"
 topic: "topic-physics"
 estimatedMinutes: 12
 isActive: true
+status: retired
+replacedBy:
+  - lesson-physics-universal-gravitation-and-distance
+  - lesson-physics-orbital-shape-and-speed
+  - lesson-physics-orbital-period-and-semimajor-axis
 ---
 ## Core Concept
 

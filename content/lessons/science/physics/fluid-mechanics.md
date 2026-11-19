@@ -6,6 +6,17 @@ subject: "subject-science"
 topic: "topic-physics"
 estimatedMinutes: 12
 isActive: true
+status: retired
+replacedBy:
+  - lesson-physics-fluid-density-and-pressure
+  - lesson-physics-gauge-and-absolute-pressure
+  - lesson-physics-comparing-pressure-at-depth
+  - lesson-physics-pascal-principle-and-hydraulic-force
+  - lesson-physics-hydraulic-piston-distance-and-work
+  - lesson-physics-archimedes-principle-and-buoyant-force
+  - lesson-physics-apparent-weight-in-a-fluid
+  - lesson-physics-floating-and-sinking
+  - lesson-physics-floating-fraction-and-displaced-volume
 ---
 ## Core Concept
 

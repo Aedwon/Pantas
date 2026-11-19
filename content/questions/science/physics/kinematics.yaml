@@ -5,6 +5,8 @@ meta:
   exams: ["upcat", "dlsucet", "ustet", "dost-sei", "acet"]
 questions:
   - id: q-physics-kinematics-0001
+    lesson: lesson-physics-acceleration-and-direction
+    keyPoint: 1
     type: "identify"
     difficulty: "easy"
     stem: |
@@ -26,6 +28,8 @@ questions:
     approved: true
 
   - id: q-physics-kinematics-0002
+    lesson: lesson-physics-position-displacement-and-velocity
+    keyPoint: 2
     type: "identify"
     difficulty: "easy"
     stem: |
@@ -47,6 +51,8 @@ questions:
     approved: true
 
   - id: q-physics-kinematics-0003
+    lesson: lesson-physics-motion-with-constant-acceleration
+    keyPoint: 1
     type: "simple-quantitative"
     difficulty: "easy"
     stem: |
@@ -68,6 +74,8 @@ questions:
     approved: true
 
   - id: q-physics-kinematics-0004
+    lesson: lesson-physics-motion-with-constant-acceleration
+    keyPoint: 1
     type: "simple-quantitative"
     difficulty: "medium"
     stem: |
@@ -89,6 +97,8 @@ questions:
     approved: true
 
   - id: q-physics-kinematics-0005
+    lesson: lesson-physics-free-fall-up-and-down
+    keyPoint: 2
     type: "simple-quantitative"
     difficulty: "hard"
     stem: |
@@ -110,6 +120,8 @@ questions:
     approved: true
 
   - id: q-physics-kinematics-0006
+    lesson: lesson-physics-free-fall-up-and-down
+    keyPoint: 1
     type: "predict-outcome"
     difficulty: "hard"
     stem: |
@@ -131,6 +143,8 @@ questions:
     approved: true
 
   - id: q-physics-kinematics-0007
+    lesson: lesson-physics-choosing-a-constant-acceleration-equation
+    keyPoint: 1
     type: "simple-quantitative"
     difficulty: "hard"
     stem: |
@@ -152,6 +166,8 @@ questions:
     approved: true
 
   - id: q-physics-kinematics-0008
+    lesson: lesson-physics-choosing-a-constant-acceleration-equation
+    keyPoint: 1
     type: "classify"
     difficulty: "hard"
     stem: |
@@ -173,6 +189,8 @@ questions:
     approved: true
 
   - id: q-physics-kinematics-0009
+    lesson: lesson-physics-free-fall-up-and-down
+    keyPoint: 1
     type: "classify"
     difficulty: "medium"
     stem: |
@@ -194,6 +212,8 @@ questions:
     approved: true
 
   - id: q-physics-kinematics-0010
+    lesson: lesson-physics-free-fall-up-and-down
+    keyPoint: 1
     type: "classify"
     difficulty: "hard"
     stem: |
@@ -215,6 +235,8 @@ questions:
     approved: true
 
   - id: q-physics-kinematics-0011
+    lesson: lesson-physics-free-fall-up-and-down
+    keyPoint: 3
     type: "classify"
     difficulty: "hard"
     stem: |
@@ -236,6 +258,8 @@ questions:
     approved: true
 
   - id: q-physics-kinematics-0012
+    lesson: lesson-physics-motion-with-constant-acceleration
+    keyPoint: 1
     type: "simple-quantitative"
     difficulty: "medium"
     stem: |
@@ -257,6 +281,8 @@ questions:
     approved: true
 
   - id: q-physics-kinematics-0013
+    lesson: lesson-physics-free-fall-up-and-down
+    keyPoint: 2
     type: "simple-quantitative"
     difficulty: "exam"
     stem: |
@@ -279,6 +305,8 @@ questions:
     approved: true
 
   - id: q-physics-kinematics-0014
+    lesson: lesson-physics-choosing-a-constant-acceleration-equation
+    keyPoint: 2
     type: "classify"
     difficulty: "exam"
     stem: |
@@ -300,6 +328,8 @@ questions:
     approved: true
 
   - id: q-physics-kinematics-0015
+    lesson: lesson-physics-position-displacement-and-velocity
+    keyPoint: 1
     approved: false
     type: "simple-quantitative"
     difficulty: "easy"
@@ -321,6 +351,8 @@ questions:
       Displacement is final position minus initial position: $\Delta x=-2-7=-9\,\mathrm m$.
 
   - id: q-physics-kinematics-0016
+    lesson: lesson-physics-position-displacement-and-velocity
+    keyPoint: 1
     approved: false
     type: "compare-contrast"
     difficulty: "medium"
@@ -342,6 +374,8 @@ questions:
       Distance adds both path lengths: $60+20=80\,\mathrm m$. Taking east positive, displacement is $60-20=40\,\mathrm m$ east.
 
   - id: q-physics-kinematics-0017
+    lesson: lesson-physics-position-displacement-and-velocity
+    keyPoint: 2
     approved: false
     type: "simple-quantitative"
     difficulty: "medium"
@@ -363,6 +397,8 @@ questions:
       Returning to the start gives $\Delta x=0$. Average velocity is $\Delta x/\Delta t=0/50=0\,\mathrm{m/s}$.
 
   - id: q-physics-kinematics-0018
+    lesson: lesson-physics-position-time-graph-slope
+    keyPoint: 1
     approved: false
     type: "structure-function"
     difficulty: "hard"
@@ -384,6 +420,8 @@ questions:
       The slope of a position-time graph is velocity. A negative slope means position decreases as time increases. Velocity is negative.
 
   - id: q-physics-kinematics-0019
+    lesson: lesson-physics-velocity-time-graph-slope-and-area
+    keyPoint: 2
     approved: false
     type: "simple-quantitative"
     difficulty: "hard"
@@ -405,6 +443,8 @@ questions:
       Each constant-velocity interval gives velocity times duration. The net displacement is $(4)(3)+(-2)(2)=12-4=+8\,\mathrm m$.
 
   - id: q-physics-kinematics-0020
+    lesson: lesson-physics-motion-with-constant-acceleration
+    keyPoint: 1
     approved: false
     type: "simple-quantitative"
     difficulty: "exam"

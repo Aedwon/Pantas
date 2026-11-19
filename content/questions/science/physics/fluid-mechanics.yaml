@@ -5,6 +5,8 @@ meta:
   exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-physics-fluid-mechanics-0001
+    lesson: lesson-physics-fluid-density-and-pressure
+    keyPoint: 1
     type: "simple-quantitative"
     difficulty: "easy"
     stem: |
@@ -26,6 +28,8 @@ questions:
     approved: true
 
   - id: q-physics-fluid-mechanics-0002
+    lesson: lesson-physics-floating-and-sinking
+    keyPoint: 1
     type: "classify"
     difficulty: "easy"
     stem: |
@@ -47,6 +51,8 @@ questions:
     approved: true
 
   - id: q-physics-fluid-mechanics-0003
+    lesson: lesson-physics-floating-and-sinking
+    keyPoint: 1
     type: "predict-outcome"
     difficulty: "medium"
     stem: |
@@ -68,6 +74,8 @@ questions:
     approved: true
 
   - id: q-physics-fluid-mechanics-0004
+    lesson: lesson-physics-archimedes-principle-and-buoyant-force
+    keyPoint: 1
     type: "simple-quantitative"
     difficulty: "medium"
     stem: |
@@ -89,6 +97,8 @@ questions:
     approved: true
 
   - id: q-physics-fluid-mechanics-0005
+    lesson: lesson-physics-fluid-density-and-pressure
+    keyPoint: 2
     type: "identify"
     difficulty: "medium"
     stem: |
@@ -110,6 +120,8 @@ questions:
     approved: true
 
   - id: q-physics-fluid-mechanics-0008
+    lesson: lesson-physics-archimedes-principle-and-buoyant-force
+    keyPoint: 1
     type: "classify"
     difficulty: "hard"
     stem: |
@@ -131,6 +143,8 @@ questions:
     approved: true
 
   - id: q-physics-fluid-mechanics-0009
+    lesson: lesson-physics-floating-and-sinking
+    keyPoint: 1
     type: "classify"
     difficulty: "hard"
     stem: |
@@ -152,6 +166,8 @@ questions:
     approved: true
 
   - id: q-physics-fluid-mechanics-0011
+    lesson: lesson-physics-comparing-pressure-at-depth
+    keyPoint: 1
     type: "classify"
     difficulty: "hard"
     stem: |
@@ -173,6 +189,8 @@ questions:
     approved: true
 
   - id: q-physics-fluid-mechanics-0012
+    lesson: lesson-physics-floating-and-sinking
+    keyPoint: 1
     type: "simple-quantitative"
     difficulty: "hard"
     stem: |
@@ -195,6 +213,8 @@ questions:
     approved: true
 
   - id: q-physics-fluid-mechanics-0013
+    lesson: lesson-physics-archimedes-principle-and-buoyant-force
+    keyPoint: 1
     type: "predict-outcome"
     difficulty: "exam"
     stem: |
@@ -216,6 +236,8 @@ questions:
     approved: true
 
   - id: q-physics-fluid-mechanics-0014
+    lesson: lesson-physics-floating-and-sinking
+    keyPoint: 1
     type: "predict-outcome"
     difficulty: "exam"
     stem: |
@@ -237,6 +259,8 @@ questions:
     approved: true
 
   - id: q-physics-fluid-mechanics-0015
+    lesson: lesson-physics-fluid-density-and-pressure
+    keyPoint: 1
     approved: false
     type: "identify"
     difficulty: "easy"
@@ -258,6 +282,8 @@ questions:
       Liquids and gases are fluids because they can flow. Water is a liquid and air is a gas.
 
   - id: q-physics-fluid-mechanics-0016
+    lesson: lesson-physics-fluid-density-and-pressure
+    keyPoint: 2
     approved: false
     type: "simple-quantitative"
     difficulty: "medium"
@@ -279,6 +305,8 @@ questions:
       Pressure is $P=\dfrac FA=\dfrac{600}{0.20}=3000\,\mathrm{N/m^2}=3000\,\mathrm{Pa}$.
 
   - id: q-physics-fluid-mechanics-0017
+    lesson: lesson-physics-comparing-pressure-at-depth
+    keyPoint: 1
     approved: false
     type: "simple-quantitative"
     difficulty: "hard"
@@ -300,6 +328,8 @@ questions:
       The depth difference is $5-2=3\,\mathrm m$. The pressure difference is $\rho g\Delta h=(1000)(10)(3)=30000\,\mathrm{Pa}$.
 
   - id: q-physics-fluid-mechanics-0018
+    lesson: lesson-physics-archimedes-principle-and-buoyant-force
+    keyPoint: 1
     approved: false
     type: "compare-contrast"
     difficulty: "hard"
@@ -321,6 +351,8 @@ questions:
       Equal fully submerged volumes displace equal volumes of the same liquid. The displaced fluid weights are equal. Their buoyant forces are equal.
 
   - id: q-physics-fluid-mechanics-0019
+    lesson: lesson-physics-archimedes-principle-and-buoyant-force
+    keyPoint: 1
     approved: false
     type: "structure-function"
     difficulty: "hard"
@@ -342,6 +374,8 @@ questions:
       Fluid pressure increases with depth. The lower surfaces receive greater pressure than higher surfaces. The resulting pressure forces combine into an upward buoyant force.
 
   - id: q-physics-fluid-mechanics-0021
+    lesson: lesson-physics-floating-fraction-and-displaced-volume
+    keyPoint: 1
     type: "predict-outcome"
     difficulty: "medium"
     stem: |
@@ -363,6 +397,8 @@ questions:
     approved: false
 
   - id: q-physics-fluid-mechanics-0022
+    lesson: lesson-physics-pascal-principle-and-hydraulic-force
+    keyPoint: 1
     type: "simple-quantitative"
     difficulty: "medium"
     stem: |
@@ -384,6 +420,8 @@ questions:
     approved: false
 
   - id: q-physics-fluid-mechanics-0023
+    lesson: lesson-physics-gauge-and-absolute-pressure
+    keyPoint: 1
     type: "simple-quantitative"
     difficulty: "hard"
     stem: |
@@ -405,6 +443,8 @@ questions:
     approved: false
 
   - id: q-physics-fluid-mechanics-0024
+    lesson: lesson-physics-apparent-weight-in-a-fluid
+    keyPoint: 1
     type: "simple-quantitative"
     difficulty: "hard"
     stem: |
