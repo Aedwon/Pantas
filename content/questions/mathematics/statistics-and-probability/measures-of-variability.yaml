@@ -433,3 +433,87 @@ questions:
   explanation: |
     The mean is $4$, so deviations are $-2,0,2$. Their squares are $4,0,4$, with a positive average. Squaring prevents sign cancellation and shows nonzero spread.
   approved: false
+- id: 'q-statistics-and-probability-measures-of-variability-0021'
+  lesson: lesson-statistics-and-probability-sample-variance-and-standard-deviation
+  keyPoint: 1
+  type: 'which-is-true'
+  difficulty: 'exam'
+  stem: |
+    A district wants to describe bus travel times for all its schools. An analyst records the travel time of every bus at one school and computes their mean. How should the recorded data and their mean be classified for the district study?
+  choices:
+  - text: 'Sample, statistic'
+    correct: true
+  - text: 'Sample, parameter'
+    rationale: |
+      The buses form a sample. A mean from that group is a statistic.
+  - text: 'Population, statistic'
+    rationale: |
+      The buses do not cover every school. The recorded buses are a sample for the district study.
+  - text: 'Population, parameter'
+    rationale: |
+      The analyst has the whole group at one school. The study asks about all schools in the district.
+  explanation: |
+    The district wants to learn about all its schools. The data cover buses from only one school, so they form a sample. The mean of a sample is a statistic.
+- id: 'q-statistics-and-probability-measures-of-variability-0022'
+  lesson: lesson-statistics-and-probability-expected-value-and-variance
+  keyPoint: 1
+  type: 'direct-computation'
+  difficulty: 'exam'
+  stem: |
+    A screening station records the number $X$ of items sent for a second inspection in a batch. The probability distribution is $P(X=0)=0.2$, $P(X=1)=0.6$, and $P(X=3)=0.2$. What is the expected number of items sent for a second inspection per batch?
+  choices:
+  - text: '$1.2$'
+    correct: true
+  - text: '$1.0$'
+    rationale: |
+      This picks the most likely count. The mean also uses the batches with zero or three items.
+  - text: '$0.6$'
+    rationale: |
+      This uses the chance of one item. The batches with three items also add to the mean.
+  - text: '$\dfrac43$'
+    rationale: |
+      This gives all three counts the same weight. A count of one is more likely than the other counts.
+  explanation: |
+    Multiply each count by its chance, then add. The expected count is $0(0.2)+1(0.6)+3(0.2)=1.2$.
+- id: 'q-statistics-and-probability-measures-of-variability-0023'
+  lesson: lesson-statistics-and-probability-expected-value-and-variance
+  keyPoint: 2
+  type: 'direct-computation'
+  difficulty: 'exam'
+  stem: |
+    A machine dispenses $X$ grams of a sample per cycle, with $P(X=0)=0.25$, $P(X=2)=0.50$, and $P(X=6)=0.25$. If $E(X)=2.5$ grams, what is the variance of $X$ in square grams?
+  choices:
+  - text: '$4.75$'
+    correct: true
+  - text: '$6.25$'
+    rationale: |
+      This squares the mean. The variance is the weighted mean of the squares minus that result.
+  - text: '$8.50$'
+    rationale: |
+      This subtracts the mean from 11. Subtract the square of the mean.
+  - text: '$11.00$'
+    rationale: |
+      This stops at the weighted mean of the squares. Subtract $2.5^2$ to get the variance.
+  explanation: |
+    Square each value and multiply it by its chance. Adding gives $0^2(0.25)+2^2(0.50)+6^2(0.25)=11$. Subtract $2.5^2=6.25$ to get $4.75$.
+- id: 'q-statistics-and-probability-measures-of-variability-0024'
+  lesson: lesson-statistics-and-probability-expected-value-and-variance
+  keyPoint: 1
+  type: 'word-problem'
+  difficulty: 'exam'
+  stem: |
+    In a competition, a contestant's score changes by $-1$, $2$, or $4$ points on each turn. The probabilities of these changes are $0.50$, $0.25$, and $0.25$, respectively. What is the expected change in the contestant's score per turn?
+  choices:
+  - text: '$1$ point'
+    correct: true
+  - text: '$1.5$ points'
+    rationale: |
+      This adds the gains only. Include the chance of losing one point.
+  - text: '$2$ points'
+    rationale: |
+      This treats the loss as a gain. The change of $-1$ must stay negative.
+  - text: '$\dfrac53$ points'
+    rationale: |
+      This gives the changes equal weight. A loss is twice as likely as either one of the gains.
+  explanation: |
+    Half the time the score drops by one point. The other two changes each happen a quarter of the time. The mean change is $(-1)(0.50)+2(0.25)+4(0.25)=1$ point.
