@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 424" width="360" height="424">
+<title>Top view of Earth orbiting the Sun in March, June, September and December: the night side faces the star background, so Orion is seen at night in December and lost in daylight in June</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="eg" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#010101" stop-opacity="0.04"/><stop offset="1" stop-color="#010101" stop-opacity="0.18"/></radialGradient>
+</defs>
+<rect width="360" height="424" rx="14" fill="url(#bg)"/>
+<circle cx="180" cy="240" r="100" fill="none" stroke="#020202" stroke-width="1.5"/>
+<circle cx="180" cy="240" r="28" fill="url(#eg)" stroke="#010101" stroke-width="1.8"/>
+<text x="180" y="245" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101">Sun</text>
+<circle cx="180" cy="140" r="14" fill="url(#eg)"/>
+<path d="M166 140 A14 14 0 0 1 194 140 Z" fill="#010101" fill-opacity="0.32"/>
+<circle cx="180" cy="140" r="14" fill="none" stroke="#010101" stroke-width="1.8"/>
+<line x1="180" y1="122" x2="180" y2="96.4" stroke="#050505" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="180,90 184.5,98 175.5,98" fill="#050505"/>
+<circle cx="180" cy="340" r="14" fill="url(#eg)"/>
+<path d="M166 340 A14 14 0 0 0 194 340 Z" fill="#010101" fill-opacity="0.32"/>
+<circle cx="180" cy="340" r="14" fill="none" stroke="#010101" stroke-width="1.8"/>
+<line x1="180" y1="358" x2="180" y2="383.6" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<polygon points="180,390 175.5,382 184.5,382" fill="#020202"/>
+<circle cx="172" cy="394" r="2.2" fill="#010101"/>
+<circle cx="187" cy="403" r="2.2" fill="#010101"/>
+<circle cx="180" cy="409" r="2.2" fill="#010101"/>
+<circle cx="80" cy="240" r="14" fill="url(#eg)"/>
+<path d="M80 226 A14 14 0 0 0 80 254 Z" fill="#010101" fill-opacity="0.32"/>
+<circle cx="80" cy="240" r="14" fill="none" stroke="#010101" stroke-width="1.8"/>
+<line x1="62" y1="240" x2="36.4" y2="240" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<polygon points="30,240 38,235.5 38,244.5" fill="#020202"/>
+<circle cx="16" cy="228" r="2.2" fill="#010101"/>
+<circle cx="26" cy="238" r="2.2" fill="#010101"/>
+<circle cx="18" cy="250" r="2.2" fill="#010101"/>
+<circle cx="280" cy="240" r="14" fill="url(#eg)"/>
+<path d="M280 226 A14 14 0 0 1 280 254 Z" fill="#010101" fill-opacity="0.32"/>
+<circle cx="280" cy="240" r="14" fill="none" stroke="#010101" stroke-width="1.8"/>
+<line x1="298" y1="240" x2="323.6" y2="240" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<polygon points="330,240 322,244.5 322,235.5" fill="#020202"/>
+<circle cx="336" cy="228" r="2.2" fill="#010101"/>
+<circle cx="346" cy="238" r="2.2" fill="#010101"/>
+<circle cx="338" cy="250" r="2.2" fill="#010101"/>
+<line x1="169" y1="48" x2="191" y2="48" stroke="#050505" stroke-width="1.2" stroke-linecap="round"/>
+<line x1="169" y1="48" x2="174" y2="62" stroke="#050505" stroke-width="1.2" stroke-linecap="round"/>
+<line x1="191" y1="48" x2="186" y2="64" stroke="#050505" stroke-width="1.2" stroke-linecap="round"/>
+<line x1="174" y1="62" x2="180" y2="63" stroke="#050505" stroke-width="1.2" stroke-linecap="round"/>
+<line x1="180" y1="63" x2="186" y2="64" stroke="#050505" stroke-width="1.2" stroke-linecap="round"/>
+<line x1="174" y1="62" x2="171" y2="78" stroke="#050505" stroke-width="1.2" stroke-linecap="round"/>
+<circle cx="169" cy="48" r="2.6" fill="#050505"/>
+<circle cx="191" cy="48" r="2.6" fill="#050505"/>
+<circle cx="174" cy="62" r="2.6" fill="#050505"/>
+<circle cx="180" cy="63" r="2.6" fill="#050505"/>
+<circle cx="186" cy="64" r="2.6" fill="#050505"/>
+<circle cx="171" cy="78" r="2.6" fill="#050505"/>
+<text x="150" y="66" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#050505">Orion</text>
+<text x="154" y="118" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">December</text>
+<text x="224" y="112" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505">night side:</text>
+<text x="224" y="128" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505">Orion seen</text>
+<text x="16" y="184" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">March</text>
+<text x="344" y="184" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">September</text>
+<text x="162" y="368" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">June</text>
+<line x1="192" y1="326" x2="211.5" y2="98.4" stroke="#020202" stroke-width="1.8" stroke-dasharray="5 4" stroke-linecap="round"/>
+<polygon points="212,92 215.8,100.4 206.8,99.6" fill="#020202"/>
+<text x="216" y="40" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">June: Orion on</text>
+<text x="216" y="56" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">the Sun side,</text>
+<text x="216" y="72" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">lost in daylight</text>
+</svg>

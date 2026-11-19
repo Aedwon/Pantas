@@ -6,6 +6,17 @@ subject: "subject-science"
 topic: "topic-earth-science-astronomy"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-earth-science-astronomy-fossils-and-preservation
+  - lesson-earth-science-astronomy-relative-dating-of-rock-layers
+  - lesson-earth-science-astronomy-dating-faults-and-intrusions
+  - lesson-earth-science-astronomy-index-fossils-and-rock-correlation
+  - lesson-earth-science-astronomy-radiometric-dating-and-half-life
+  - lesson-earth-science-astronomy-parent-and-daughter-isotopes
+  - lesson-earth-science-astronomy-choosing-radiometric-dating-methods
+  - lesson-earth-science-astronomy-geologic-time-scale
+  - lesson-earth-science-astronomy-life-through-geologic-time
 ---
 ## Core Concept
 

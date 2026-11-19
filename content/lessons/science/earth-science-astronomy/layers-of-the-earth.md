@@ -6,6 +6,14 @@ subject: "subject-science"
 topic: "topic-earth-science-astronomy"
 estimatedMinutes: 12
 isActive: true
+status: retired
+replacedBy:
+  - lesson-earth-science-astronomy-earths-layers-and-crust
+  - lesson-earth-science-astronomy-earths-solid-mantle
+  - lesson-earth-science-astronomy-earths-inner-and-outer-core
+  - lesson-earth-science-astronomy-lithosphere-and-asthenosphere
+  - lesson-earth-science-astronomy-evidence-from-seismic-waves
+  - lesson-earth-science-astronomy-seismic-shadow-zones
 ---
 ## Core Concept
 
