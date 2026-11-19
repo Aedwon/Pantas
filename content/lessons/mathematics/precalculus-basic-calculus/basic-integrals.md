@@ -6,6 +6,11 @@ subject: "subject-mathematics"
 topic: "topic-precalculus-basic-calculus"
 estimatedMinutes: 12
 isActive: true
+status: retired
+replacedBy:
+  - lesson-precalculus-basic-calculus-antiderivatives-of-polynomials
+  - lesson-precalculus-basic-calculus-integrating-roots-and-reciprocals
+  - lesson-precalculus-basic-calculus-definite-integrals-and-signed-area
 ---
 ## Core Concept
 

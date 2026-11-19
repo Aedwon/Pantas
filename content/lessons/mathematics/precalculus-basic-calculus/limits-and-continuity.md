@@ -6,6 +6,12 @@ subject: "subject-mathematics"
 topic: "topic-precalculus-basic-calculus"
 estimatedMinutes: 13
 isActive: true
+status: retired
+replacedBy:
+  - lesson-precalculus-basic-calculus-direct-substitution-for-limits
+  - lesson-precalculus-basic-calculus-factoring-to-evaluate-limits
+  - lesson-precalculus-basic-calculus-rational-limits-at-infinity
+  - lesson-precalculus-basic-calculus-one-sided-limits-and-continuity
 ---
 ## Core Concept
 

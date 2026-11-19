@@ -6,6 +6,10 @@ subject: "subject-reasoning"
 topic: "topic-mechanical-technical-reasoning"
 estimatedMinutes: 9
 isActive: true
+status: retired
+replacedBy:
+  - lesson-mechanical-technical-reasoning-rotation-directions-in-gear-systems
+  - lesson-mechanical-technical-reasoning-gear-speeds-and-tooth-counts
 ---
 ## Core Concept
 

@@ -5,6 +5,8 @@ meta:
   exams: [ dost-sei ]
 questions:
   - id: q-mechanical-technical-reasoning-gear-rotations-0001
+    lesson: lesson-mechanical-technical-reasoning-rotation-directions-in-gear-systems
+    keyPoint: 1
     type: gear-direction
     difficulty: easy
     figure: gear-rotations-01
@@ -31,6 +33,8 @@ questions:
     approved: true
 
   - id: q-mechanical-technical-reasoning-gear-rotations-0002
+    lesson: lesson-mechanical-technical-reasoning-rotation-directions-in-gear-systems
+    keyPoint: 1
     type: gear-direction
     difficulty: easy
     figure: gear-rotations-02
@@ -57,6 +61,8 @@ questions:
     approved: true
 
   - id: q-mechanical-technical-reasoning-gear-rotations-0003
+    lesson: lesson-mechanical-technical-reasoning-rotation-directions-in-gear-systems
+    keyPoint: 1
     type: gear-direction
     difficulty: medium
     figure: gear-rotations-03
@@ -83,6 +89,8 @@ questions:
     approved: true
 
   - id: q-mechanical-technical-reasoning-gear-rotations-0004
+    lesson: lesson-mechanical-technical-reasoning-rotation-directions-in-gear-systems
+    keyPoint: 1
     type: gear-direction
     difficulty: medium
     figure: gear-rotations-04
@@ -109,6 +117,8 @@ questions:
     approved: true
 
   - id: q-mechanical-technical-reasoning-gear-rotations-0005
+    lesson: lesson-mechanical-technical-reasoning-gear-speeds-and-tooth-counts
+    keyPoint: 1
     type: gear-direction
     difficulty: medium
     figure: gear-rotations-05
@@ -136,6 +146,8 @@ questions:
     approved: true
 
   - id: q-mechanical-technical-reasoning-gear-rotations-0006
+    lesson: lesson-mechanical-technical-reasoning-gear-speeds-and-tooth-counts
+    keyPoint: 1
     type: gear-direction
     difficulty: medium
     figure: gear-rotations-06
@@ -163,6 +175,8 @@ questions:
     approved: true
 
   - id: q-mechanical-technical-reasoning-gear-rotations-0007
+    lesson: lesson-mechanical-technical-reasoning-rotation-directions-in-gear-systems
+    keyPoint: 1
     type: gear-direction
     difficulty: medium
     figure: gear-rotations-07
@@ -190,6 +204,8 @@ questions:
     approved: true
 
   - id: q-mechanical-technical-reasoning-gear-rotations-0008
+    lesson: lesson-mechanical-technical-reasoning-rotation-directions-in-gear-systems
+    keyPoint: 1
     type: gear-direction
     difficulty: hard
     figure: gear-rotations-08
@@ -216,6 +232,8 @@ questions:
     approved: true
 
   - id: q-mechanical-technical-reasoning-gear-rotations-0009
+    lesson: lesson-mechanical-technical-reasoning-gear-speeds-and-tooth-counts
+    keyPoint: 1
     type: gear-direction
     difficulty: hard
     figure: gear-rotations-09
@@ -243,6 +261,8 @@ questions:
     approved: true
 
   - id: q-mechanical-technical-reasoning-gear-rotations-0010
+    lesson: lesson-mechanical-technical-reasoning-gear-speeds-and-tooth-counts
+    keyPoint: 1
     type: gear-direction
     difficulty: hard
     figure: gear-rotations-10
@@ -270,6 +290,8 @@ questions:
     approved: true
 
   - id: q-mechanical-technical-reasoning-gear-rotations-0011
+    lesson: lesson-mechanical-technical-reasoning-rotation-directions-in-gear-systems
+    keyPoint: 1
     type: gear-direction
     difficulty: hard
     figure: gear-rotations-11
@@ -297,6 +319,8 @@ questions:
     approved: true
 
   - id: q-mechanical-technical-reasoning-gear-rotations-0012
+    lesson: lesson-mechanical-technical-reasoning-gear-speeds-and-tooth-counts
+    keyPoint: 1
     type: gear-direction
     difficulty: medium
     figure: gear-rotations-12
@@ -324,6 +348,8 @@ questions:
     approved: true
 
   - id: q-mechanical-technical-reasoning-gear-rotations-0013
+    lesson: lesson-mechanical-technical-reasoning-rotation-directions-in-gear-systems
+    keyPoint: 1
     type: gear-direction
     difficulty: medium
     figure: gear-rotations-13
@@ -350,6 +376,8 @@ questions:
     approved: true
 
   - id: q-mechanical-technical-reasoning-gear-rotations-0014
+    lesson: lesson-mechanical-technical-reasoning-gear-speeds-and-tooth-counts
+    keyPoint: 1
     type: gear-direction
     difficulty: hard
     figure: gear-rotations-14
@@ -377,6 +405,8 @@ questions:
     approved: true
 
   - id: q-mechanical-technical-reasoning-gear-rotations-0015
+    lesson: lesson-mechanical-technical-reasoning-gear-speeds-and-tooth-counts
+    keyPoint: 1
     type: gear-direction
     difficulty: exam
     figure: gear-rotations-15
@@ -404,6 +434,8 @@ questions:
     approved: true
 
   - id: q-mechanical-technical-reasoning-gear-rotations-0016
+    lesson: lesson-mechanical-technical-reasoning-rotation-directions-in-gear-systems
+    keyPoint: 1
     type: gear-direction
     difficulty: easy
     figure: gear-rotations-16
@@ -431,6 +463,8 @@ questions:
     approved: false
 
   - id: q-mechanical-technical-reasoning-gear-rotations-0017
+    lesson: lesson-mechanical-technical-reasoning-gear-speeds-and-tooth-counts
+    keyPoint: 1
     type: gear-direction
     difficulty: medium
     figure: gear-rotations-17
@@ -458,6 +492,8 @@ questions:
     approved: false
 
   - id: q-mechanical-technical-reasoning-gear-rotations-0018
+    lesson: lesson-mechanical-technical-reasoning-gear-speeds-and-tooth-counts
+    keyPoint: 1
     type: gear-direction
     difficulty: hard
     figure: gear-rotations-18
@@ -485,6 +521,8 @@ questions:
     approved: false
 
   - id: q-mechanical-technical-reasoning-gear-rotations-0019
+    lesson: lesson-mechanical-technical-reasoning-gear-speeds-and-tooth-counts
+    keyPoint: 2
     type: gear-direction
     difficulty: hard
     figure: gear-rotations-19
@@ -512,6 +550,8 @@ questions:
     approved: false
 
   - id: q-mechanical-technical-reasoning-gear-rotations-0020
+    lesson: lesson-mechanical-technical-reasoning-gear-speeds-and-tooth-counts
+    keyPoint: 1
     type: gear-direction
     difficulty: exam
     figure: gear-rotations-20

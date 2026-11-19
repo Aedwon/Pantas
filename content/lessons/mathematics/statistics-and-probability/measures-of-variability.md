@@ -6,6 +6,14 @@ subject: "subject-mathematics"
 topic: "topic-statistics-and-probability"
 estimatedMinutes: 12
 isActive: true
+status: retired
+replacedBy:
+  - lesson-statistics-and-probability-range-and-spread
+  - lesson-statistics-and-probability-population-variance-and-standard-deviation
+  - lesson-statistics-and-probability-sample-variance-and-standard-deviation
+  - lesson-statistics-and-probability-comparing-standard-deviations
+  - lesson-statistics-and-probability-effects-of-shifting-and-scaling-data
+  - lesson-statistics-and-probability-expected-value-and-variance
 ---
 ## Core Concept
 

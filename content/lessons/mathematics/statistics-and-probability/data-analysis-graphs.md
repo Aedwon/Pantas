@@ -6,6 +6,12 @@ subject: "subject-mathematics"
 topic: "topic-statistics-and-probability"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-statistics-and-probability-pie-chart-shares-and-angles
+  - lesson-statistics-and-probability-reading-bar-graph-scales
+  - lesson-statistics-and-probability-comparing-graph-values
+  - lesson-statistics-and-probability-patterns-in-scatter-plots
 ---
 ## Core Concept
 

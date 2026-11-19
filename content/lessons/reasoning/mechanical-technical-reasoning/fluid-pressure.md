@@ -6,6 +6,13 @@ subject: "subject-reasoning"
 topic: "topic-mechanical-technical-reasoning"
 estimatedMinutes: 12
 isActive: true
+status: retired
+replacedBy:
+  - lesson-mechanical-technical-reasoning-pressure-in-a-resting-liquid
+  - lesson-mechanical-technical-reasoning-liquid-levels-in-connected-vessels
+  - lesson-mechanical-technical-reasoning-pressure-and-force-in-hydraulics
+  - lesson-mechanical-technical-reasoning-flow-rate-in-straight-and-branching-pipes
+  - lesson-mechanical-technical-reasoning-flow-speed-height-and-pressure
 ---
 ## Core Concept
 

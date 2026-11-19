@@ -5,6 +5,8 @@ meta:
   exams: [dost-sei, upcat, dlsucet, ustet]
 questions:
   - id: q-mechanical-technical-reasoning-fluid-pressure-0001
+    lesson: lesson-mechanical-technical-reasoning-pressure-in-a-resting-liquid
+    keyPoint: 1
     type: fluid-pressure
     difficulty: easy
     figure: fluid-pressure-01
@@ -32,6 +34,8 @@ questions:
     approved: true
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0002
+    lesson: lesson-mechanical-technical-reasoning-liquid-levels-in-connected-vessels
+    keyPoint: 1
     type: fluid-pressure
     difficulty: easy
     figure: fluid-pressure-02
@@ -58,6 +62,8 @@ questions:
     approved: true
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0003
+    lesson: lesson-mechanical-technical-reasoning-flow-rate-in-straight-and-branching-pipes
+    keyPoint: 1
     type: fluid-pressure
     difficulty: medium
     figure: fluid-pressure-03
@@ -84,6 +90,8 @@ questions:
     approved: true
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0004
+    lesson: lesson-mechanical-technical-reasoning-flow-speed-height-and-pressure
+    keyPoint: 1
     type: fluid-pressure
     difficulty: medium
     figure: fluid-pressure-04
@@ -110,6 +118,8 @@ questions:
     approved: true
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0005
+    lesson: lesson-mechanical-technical-reasoning-liquid-levels-in-connected-vessels
+    keyPoint: 1
     type: fluid-pressure
     difficulty: medium
     figure: fluid-pressure-05
@@ -136,6 +146,8 @@ questions:
     approved: true
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0006
+    lesson: lesson-mechanical-technical-reasoning-pressure-in-a-resting-liquid
+    keyPoint: 1
     type: fluid-pressure
     difficulty: medium
     figure: fluid-pressure-06
@@ -163,6 +175,8 @@ questions:
     approved: true
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0007
+    lesson: lesson-mechanical-technical-reasoning-flow-rate-in-straight-and-branching-pipes
+    keyPoint: 1
     type: fluid-pressure
     difficulty: medium
     figure: fluid-pressure-07
@@ -189,6 +203,8 @@ questions:
     approved: true
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0008
+    lesson: lesson-mechanical-technical-reasoning-flow-speed-height-and-pressure
+    keyPoint: 1
     type: fluid-pressure
     difficulty: medium
     figure: fluid-pressure-08
@@ -215,6 +231,8 @@ questions:
     approved: true
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0009
+    lesson: lesson-mechanical-technical-reasoning-liquid-levels-in-connected-vessels
+    keyPoint: 1
     type: fluid-pressure
     difficulty: hard
     figure: fluid-pressure-09
@@ -241,6 +259,8 @@ questions:
     approved: true
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0010
+    lesson: lesson-mechanical-technical-reasoning-flow-rate-in-straight-and-branching-pipes
+    keyPoint: 1
     type: fluid-pressure
     difficulty: hard
     figure: fluid-pressure-10
@@ -267,6 +287,8 @@ questions:
     approved: true
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0011
+    lesson: lesson-mechanical-technical-reasoning-flow-speed-height-and-pressure
+    keyPoint: 1
     type: fluid-pressure
     difficulty: hard
     figure: fluid-pressure-11
@@ -293,6 +315,8 @@ questions:
     approved: true
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0012
+    lesson: lesson-mechanical-technical-reasoning-liquid-levels-in-connected-vessels
+    keyPoint: 1
     type: fluid-pressure
     difficulty: medium
     figure: fluid-pressure-12
@@ -319,6 +343,8 @@ questions:
     approved: true
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0013
+    lesson: lesson-mechanical-technical-reasoning-flow-speed-height-and-pressure
+    keyPoint: 1
     type: fluid-pressure
     difficulty: hard
     figure: fluid-pressure-13
@@ -345,6 +371,8 @@ questions:
     approved: true
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0014
+    lesson: lesson-mechanical-technical-reasoning-flow-speed-height-and-pressure
+    keyPoint: 1
     type: fluid-pressure
     difficulty: exam
     figure: fluid-pressure-14
@@ -371,6 +399,8 @@ questions:
     approved: true
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0015
+    lesson: lesson-mechanical-technical-reasoning-pressure-in-a-resting-liquid
+    keyPoint: 1
     type: fluid-pressure
     difficulty: easy
     figure: fluid-pressure-15
@@ -397,6 +427,8 @@ questions:
     approved: false
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0016
+    lesson: lesson-mechanical-technical-reasoning-pressure-in-a-resting-liquid
+    keyPoint: 1
     type: fluid-pressure
     difficulty: medium
     figure: fluid-pressure-16
@@ -423,6 +455,8 @@ questions:
     approved: false
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0017
+    lesson: lesson-mechanical-technical-reasoning-pressure-in-a-resting-liquid
+    keyPoint: 2
     type: fluid-pressure
     difficulty: medium
     figure: fluid-pressure-17
@@ -449,6 +483,8 @@ questions:
     approved: false
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0018
+    lesson: lesson-mechanical-technical-reasoning-pressure-in-a-resting-liquid
+    keyPoint: 2
     type: fluid-pressure
     difficulty: hard
     figure: fluid-pressure-18
@@ -475,6 +511,8 @@ questions:
     approved: false
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0019
+    lesson: lesson-mechanical-technical-reasoning-flow-speed-height-and-pressure
+    keyPoint: 2
     type: fluid-pressure
     difficulty: hard
     figure: fluid-pressure-19
@@ -501,6 +539,8 @@ questions:
     approved: false
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0020
+    lesson: lesson-mechanical-technical-reasoning-pressure-in-a-resting-liquid
+    keyPoint: 2
     type: fluid-pressure
     difficulty: exam
     figure: fluid-pressure-20
