@@ -18,7 +18,7 @@ replacedBy:
 
 Combinatorics counts the possible outcomes of a situation without listing each one. An **outcome** is one complete result, such as one outfit or one team.
 
-The formulas below count objects that can be told apart from one another. We call such objects **distinct**. Counting objects that repeat, such as the letters of a word with two equal letters, needs other methods that this lesson does not cover.
+The formulas below count objects that can be told apart from one another. We call such objects **distinct**.
 
 ### Factorial
 
@@ -68,6 +68,12 @@ $$P(7,3)=7\times6\times5=210$$
 
 Two boundary cases check the formula. Arranging all $n$ objects gives $P(n,n)=\dfrac{n!}{0!}=n!$. Choosing none gives $P(n,0)=1$, one way to arrange nothing.
 
+To arrange all objects in a row when some are identical, start with $n!$. Divide by the factorial of each identical group's size because swapping identical objects leaves the row the same.
+
+If only rotations count as the same around a table, fix one person and arrange the remaining $n-1$ people in order around the table. This gives $(n-1)!$ for $n$ distinct people.
+
+To keep people together, count them as one unit. Arrange the units, then multiply by the number of orders inside the unit. If they must stay apart, subtract the count where they are together from the count of all arrangements.
+
 ### Combinations
 
 A **combination** is an unordered selection: the same objects in a different order are the same outcome. A permutation counts each group of $r$ objects once for every order it can be arranged in, and there are $r!$ such orders.
@@ -86,7 +92,7 @@ Ask one question: if the same selected objects appear in a different order, is t
 
 ### Repetition and Roles
 
-The formulas above never use the same object twice. If a problem allows reuse, go back to the counting principle. With $n$ choices at each of $r$ positions and reuse allowed, there are $n^r$ ordered outcomes.
+With $n$ choices at each of $r$ positions and reuse allowed, there are $n^r$ ordered outcomes.
 
 Some problems say whether one person may hold two roles. If the problem says nothing, read different roles as going to different people, so the second role has one fewer choice. If the problem allows one person to hold both, the second role keeps all $n$ choices.
 
@@ -244,7 +250,7 @@ Words such as "arrange" or "ranking" and named positions usually mean order matt
 
 > If swapping the selected objects creates no new outcome, an ordered count is too large.
 
-For a two-person committee with no roles, Ana-Ben and Ben-Ana are the same committee. The ordered count $90$ in Example #7 is twice the committee count $45$.
+For a two-person committee with no roles, Ana-Ben and Ben-Ana are the same committee. For $10$ people, the $90$ ways to fill two different roles are twice the $45$ ways to form a two-person committee.
 
 ### #2: Adding When You Should Multiply, or the Reverse
 
@@ -262,10 +268,10 @@ This keeps $C(n,n)=1$ and $P(n,n)=n!$ correct. If $0!$ were $0$, both formulas w
 
 > Check the problem for whether an object may be reused and whether one person may hold two roles.
 
-A code may allow repeated digits, and a selection problem may forbid repeats. In Example #7, if one person could hold both offices, the count would be $10\times10=100$ instead of $90$. If a problem about roles says nothing about repeats, use the default: different roles go to different people.
+A code may allow repeated digits, and a selection problem may forbid repeats. If one of $10$ people could hold both offices, the count would be $10\times10=100$ instead of $90$. If a problem about roles says nothing about repeats, use the default: different roles go to different people.
 
 ### #5: Adding Overlapping Groups Without Subtracting
 
 > If some outcomes belong to both groups, adding the two counts counts them twice.
 
-In Example #10, $12+9=21$ is too large, because $5$ students are in both groups. Subtract the overlap once to get $16$.
+For the two sports, $12+9=21$ is too large, because $5$ students are in both groups. Subtract the overlap once to get $16$.

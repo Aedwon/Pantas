@@ -32,7 +32,7 @@ The same rule extends to any number of stages: multiply the number of ways at ea
 
 ### Repetition and Roles
 
-The formulas above never use the same object twice. If a problem allows reuse, go back to the counting principle. With $n$ choices at each of $r$ positions and reuse allowed, there are $n^r$ ordered outcomes.
+With $n$ choices at each of $r$ positions and reuse allowed, there are $n^r$ ordered outcomes.
 
 ## Examples
 
@@ -68,4 +68,4 @@ $$10^4=10000$$
 
 > Check the problem for whether an object may be reused and whether one person may hold two roles.
 
-A code may allow repeated digits, and a selection problem may forbid repeats. In Example #7, if one person could hold both offices, the count would be $10\times10=100$ instead of $90$. If a problem about roles says nothing about repeats, use the default: different roles go to different people.
+A code may allow repeated digits, and a selection problem may forbid repeats. If one of $10$ people could hold both offices, the count would be $10\times10=100$ instead of $90$. If a problem about roles says nothing about repeats, use the default: different roles go to different people.

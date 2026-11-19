@@ -39,9 +39,6 @@ $$-45^\circ = -\dfrac{\pi}{4}$$
 
 Find the angle between $0^\circ$ and $360^\circ$ that is coterminal with $400^\circ$, and the one coterminal with $-120^\circ$.
 
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "coterminal-angles", "labels": ["400° = 360° + 40°", "-120° = 240°"], "semanticsLabel": "Two coordinate planes showing 400 degrees landing at 40 degrees and negative 120 degrees measured clockwise landing at 240 degrees."} -->
-
-
 **Solution:**
 Add or subtract full turns of $360^\circ$ until you land inside the range.
 
@@ -55,6 +52,8 @@ $$400 - 360 = 40$$
 $$-120 + 360 = 240$$
 
 4. So $-120^\circ$ is coterminal with $240^\circ$, which lies in Quadrant III.
+
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "coterminal-angles", "labels": ["400° = 360° + 40°", "-120° = 240°"], "semanticsLabel": "Two coordinate planes showing 400 degrees landing at 40 degrees and negative 120 degrees measured clockwise landing at 240 degrees."} -->
 
 ## Speed Tricks & Shortcuts
 

@@ -124,8 +124,6 @@ D) A figure has $4$ sides only if it is a square.
 
 An office follows this rule: "An applicant may enter the records room only if the applicant has a visitor pass." Rewrite the rule as an if-then statement. Does having a visitor pass alone prove that an applicant may enter?
 
-<!-- ILLUSTRATION: One-way arrow from applicant may enter the records room to applicant has a visitor pass; label the first statement hypothesis and the second conclusion. -->
-
 **Solution:**
 
 1. The part after "only if" is the conclusion: the applicant has a visitor pass.
@@ -133,11 +131,11 @@ An office follows this rule: "An applicant may enter the records room only if th
 3. Having a visitor pass does not prove that the applicant may enter. That would use the converse, which the rule does not establish.
 4. The rule does show that an applicant without a visitor pass may not enter. This is the contrapositive.
 
+<!-- ILLUSTRATION: One-way arrow from applicant may enter the records room to applicant has a visitor pass; label the first statement hypothesis and the second conclusion. -->
+
 ### #6: Chaining Statements and Using a Fact
 
 Assume these statements are true: "If an application is complete, then it is sent for review." "If an application is sent for review, then a tracking number is assigned." Rico's application is complete. What must follow?
-
-<!-- ILLUSTRATION: Statement chain with arrows from application complete to sent for review to tracking number assigned; show Rico's complete application at the start. -->
 
 **Solution:**
 
@@ -146,11 +144,11 @@ Assume these statements are true: "If an application is complete, then it is sen
 3. Rico's application is complete. Use the Law of Detachment with that fact and the new conditional.
 4. A tracking number is assigned to Rico's application.
 
+<!-- ILLUSTRATION: Statement chain with arrows from application complete to sent for review to tracking number assigned; show Rico's complete application at the start. -->
+
 ### #7: Proving Both Directions
 
 For an integer $n$, check this statement: "$n$ is even if and only if $n$ is divisible by $2$."
-
-<!-- ILLUSTRATION: Two statements, n is even and n is divisible by 2, connected by arrows in both directions to show the two claims of the biconditional. -->
 
 **Solution:**
 
@@ -158,6 +156,8 @@ For an integer $n$, check this statement: "$n$ is even if and only if $n$ is div
 2. Check the reverse direction. An integer divisible by $2$ with no remainder is a multiple of $2$. So it is even.
 3. Both directions are true. The biconditional is true.
 4. Join the two true directions: "If $n$ is even, then it is divisible by $2$" and "If $n$ is divisible by $2$, then it is even."
+
+<!-- ILLUSTRATION: Two statements, n is even and n is divisible by 2, connected by arrows in both directions to show the two claims of the biconditional. -->
 
 ## Speed Tricks & Shortcuts
 

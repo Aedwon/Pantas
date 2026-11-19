@@ -24,7 +24,7 @@ There is a catch. Infinitely many angles can have the same sine, cosine, or tang
 - $\arccos x$ returns angles from $0^\circ$ to $180^\circ$, inclusive: $[0^\circ,180^\circ]$.
 - $\arctan x$ returns angles strictly between $-90^\circ$ and $90^\circ$: $(-90^\circ,90^\circ)$.
 
-For nonzero inputs, the sign helps locate the principal angle. A positive input sends all three inverse functions to a positive acute angle. A negative input gives a negative principal value for arcsine and arctangent, while arccosine returns an obtuse angle in Quadrant II. Endpoint inputs such as $0$, $1$, and $-1$ can return angles on an axis instead of inside a quadrant.
+For $0<x<1$, all three inverse functions give an acute angle. For $-1<x<0$, arcsine and arctangent give negative angles, and arccosine gives an obtuse angle. Inputs of $0$, $1$, or $-1$ can give angles on an axis.
 
 Inputs are limited too: $\arcsin x$ and $\arccos x$ accept only $x \in [-1,1]$, because sine and cosine values stay in that interval. $\arctan x$ accepts every real number.
 
@@ -35,9 +35,6 @@ Useful problems in this topic include evaluating exact inverse values, respectin
 ### #1: Basic Evaluation
 
 Evaluate $\arcsin\left(\dfrac{1}{2}\right)$ and $\arctan(1)$.
-
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "unit-circle", "labels": ["30° (sin = 1/2)", "45° (tan = 1)", "Quadrant I"], "semanticsLabel": "Unit circle marking angles 30 degrees and 45 degrees in Quadrant I within arcsine and arctangent principal ranges."} -->
-
 
 **Solution:**
 Ask the reverse question for each.
@@ -52,12 +49,11 @@ $$\arctan(1) = 45^\circ$$
 
 3. Both inputs are positive and nonzero, so their principal angles are in Quadrant I.
 
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "unit-circle", "labels": ["30° (sin = 1/2)", "45° (tan = 1)", "Quadrant I"], "semanticsLabel": "Unit circle marking angles 30 degrees and 45 degrees in Quadrant I within arcsine and arctangent principal ranges."} -->
+
 ### #2: Negative Input to Arccosine
 
 Evaluate $\arccos\left(-\dfrac{1}{2}\right)$.
-
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "unit-circle", "labels": ["120° in Q II", "cos = -1/2", "arccos range [0°, 180°]"], "semanticsLabel": "Unit circle marking 120 degrees in Quadrant II where cosine equals negative 1 half within arccosine principal range."} -->
-
 
 **Solution:**
 Arccosine answers only between $0^\circ$ and $180^\circ$. For this non-endpoint negative cosine, the principal angle lies in Quadrant II.
@@ -73,12 +69,11 @@ $$\arccos\left(-\dfrac{1}{2}\right) = 120^\circ$$
 
 4. It is not $-60^\circ$, because that angle lies outside the principal range of arccosine.
 
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "unit-circle", "labels": ["120° in Q II", "cos = -1/2", "arccos range [0°, 180°]"], "semanticsLabel": "Unit circle marking 120 degrees in Quadrant II where cosine equals negative 1 half within arccosine principal range."} -->
+
 ### #3: Negative Input to Arctangent
 
 Evaluate $\arctan(-\sqrt{3})$.
-
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "unit-circle", "labels": ["-60° in Q IV", "tan = -√3", "arctan range (-90°, 90°)"], "semanticsLabel": "Unit circle marking negative 60 degrees in Quadrant IV where tangent equals negative square root of 3 within arctangent principal range."} -->
-
 
 **Solution:**
 Arctangent answers between $-90^\circ$ and $90^\circ$. A negative tangent has a negative principal angle.
@@ -90,12 +85,11 @@ $$\arctan(-\sqrt{3}) = -60^\circ$$
 
 3. Although $\tan 120^\circ$ is also $-\sqrt{3}$, $120^\circ$ lies outside arctangent's principal range.
 
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "unit-circle", "labels": ["-60° in Q IV", "tan = -√3", "arctan range (-90°, 90°)"], "semanticsLabel": "Unit circle marking negative 60 degrees in Quadrant IV where tangent equals negative square root of 3 within arctangent principal range."} -->
+
 ### #4: Composition with a Triangle
 
 Evaluate $\sin\left(\arccos \dfrac{3}{5}\right)$.
-
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "right-triangle-trig", "labels": ["θ = arccos(3/5)", "Adjacent = 3", "Hypotenuse = 5", "Opposite = 4", "sin θ = 4/5"], "semanticsLabel": "Right triangle for angle theta with adjacent side 3, hypotenuse 5, and opposite side 4 giving sine 4 fifths."} -->
-
 
 **Solution:**
 Let $\theta = \arccos \dfrac{3}{5}$. Since the input is positive, $\theta$ is an acute principal angle. Build a right triangle whose cosine is $3/5$.
@@ -115,12 +109,11 @@ $$\sin \theta = \dfrac{4}{5}$$
 
 $$\sin\left(\arccos \dfrac{3}{5}\right) = \dfrac{4}{5}$$
 
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "right-triangle-trig", "labels": ["θ = arccos(3/5)", "Adjacent = 3", "Hypotenuse = 5", "Opposite = 4", "sin θ = 4/5"], "semanticsLabel": "Right triangle for angle theta with adjacent side 3, hypotenuse 5, and opposite side 4 giving sine 4 fifths."} -->
+
 ### #5: Composition
 
 Evaluate $\tan\left(\arcsin \dfrac{5}{13}\right)$.
-
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "right-triangle-trig", "labels": ["θ = arcsin(5/13)", "Opposite = 5", "Hypotenuse = 13", "Adjacent = 12", "tan θ = 5/12"], "semanticsLabel": "Right triangle for angle theta with opposite side 5, hypotenuse 13, and adjacent side 12 giving tangent 5 twelfths."} -->
-
 
 **Solution:**
 Let $\theta = \arcsin \dfrac{5}{13}$. The positive input gives an acute principal angle.
@@ -138,13 +131,15 @@ $$\tan \theta = \dfrac{5}{12}$$
 
 $$\tan\left(\arcsin \dfrac{5}{13}\right) = \dfrac{5}{12}$$
 
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "right-triangle-trig", "labels": ["θ = arcsin(5/13)", "Opposite = 5", "Hypotenuse = 13", "Adjacent = 12", "tan θ = 5/12"], "semanticsLabel": "Right triangle for angle theta with opposite side 5, hypotenuse 13, and adjacent side 12 giving tangent 5 twelfths."} -->
+
 ## Speed Tricks & Shortcuts
 
 For compositions such as $\sin(\arccos x)$ or $\tan(\arcsin x)$, a right triangle can avoid computing the angle explicitly. Use the inside function to label two sides, find the third side with the Pythagorean theorem, and then read the outside ratio. Keep the principal range in mind when the input can make the angle non-acute.
 
 Same-function compositions cancel on the inverse function's input domain: $\sin(\arcsin x)=x$ for $x\in[-1,1]$. The reversed order needs more care: $\arcsin(\sin\theta)=\theta$ only when $\theta$ is already in arcsine's principal range.
 
-For nonzero inputs, a useful sign reminder is: arcsine negative, arctangent negative, arccosine obtuse. Check endpoint inputs separately because they may land on an axis.
+For $-1<x<0$, remember that arcsine and arctangent give negative angles, and arccosine gives an obtuse angle. Check $-1$, $0$, and $1$ separately.
 
 ## Traps to Watch For
 

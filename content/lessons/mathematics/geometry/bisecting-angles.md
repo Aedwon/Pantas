@@ -17,8 +17,6 @@ An **angle bisector** is a ray from the vertex that cuts an angle into two equal
 
 <!-- FIGURE: {"kind": "geometry-diagram", "type": "angle-bisector", "labels": ["A", "B", "C", "D", "Ray BD bisects angle ABC", "Angle ABD = Angle DBC"], "semanticsLabel": "Angle ABC with vertex B and a ray BD inside it. Ray BD splits the angle into two equal angles, angle ABD and angle DBC, each marked with the same arc."} -->
 
-The source notes call the midpoint problem in Points, Lines, and Midpoints Example 4 and the first example here Example 6.
-
 ## Examples
 
 ### #1: Angle Bisector
@@ -80,10 +78,10 @@ For a bisector, the whole angle is twice either half, and each half is the whole
 
 > A midpoint or bisector question may ask for the half or the whole. Read twice.
 
-In Example $4$, solving gives $x = 10$ and a half-length of $23$. The question asks for the whole segment, so the answer is $46$. In Example $6$, the answer is the whole angle, $50^\circ$, not $25^\circ$ and not $x$.
+In the midpoint example in Points, Lines, and Midpoints, solving gives $x = 10$ and a half-length of $23$. The question asks for the whole segment, so the answer is $46$. In the angle bisector example, the answer is the whole angle, $50^\circ$, not $25^\circ$ and not $x$.
 
 ### #2: Bisecting Does Not Mean Perpendicular
 
 > A bisector splits an angle into two equal parts. It does not have to make a right angle.
 
-Example $6$ splits a $50^\circ$ angle into two $25^\circ$ angles. Equal halves does not mean $90^\circ$ halves. The parts are $90^\circ$ each only when the whole angle is a straight angle, $180^\circ$.
+The angle bisector example splits a $50^\circ$ angle into two $25^\circ$ angles. Equal halves does not mean $90^\circ$ halves. The parts are $90^\circ$ each only when the whole angle is a straight angle, $180^\circ$.

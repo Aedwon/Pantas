@@ -29,16 +29,13 @@ opens vertically when $a\ne0$, while
 
 $$x=a(y-k)^2+h$$
 
-opens horizontally. A parabola has a vertex, not a center.
+opens horizontally. A parabola has a vertex, not a center. For a horizontal parabola of the form $y^2=4px$ with $p\ne0$, the focus is $(p,0)$. The number $p$ tells how far to move from the vertex $(0,0)$ along the $x$-axis, right if positive and left if negative.
 
 ## Examples
 
 ### #1: Circle by Completing the Square
 
 Find the center and radius of $x^2+y^2-6x+4y-12=0$.
-
-<!-- FIGURE: {"kind": "coordinate-graph", "type": "circle", "formula": "(x-3)^2 + (y+2)^2 = 25", "points": [[3, -2]], "radius": 5, "semanticsLabel": "A circle on a coordinate plane centered at (3, -2) with a radius of 5."} -->
-
 
 **Solution:**
 1. Group the variable terms and move the constant.
@@ -50,6 +47,8 @@ $$(x^2-6x)+(y^2+4y)=12$$
 $$(x-3)^2+(y+2)^2=25$$
 
 3. The center is $(3,-2)$ and the radius is $5$.
+
+<!-- FIGURE: {"kind": "coordinate-graph", "type": "circle", "formula": "(x-3)^2 + (y+2)^2 = 25", "points": [[3, -2]], "radius": 5, "semanticsLabel": "A circle on a coordinate plane centered at (3, -2) with a radius of 5."} -->
 
 ### #2: Vertex of a Parabola
 

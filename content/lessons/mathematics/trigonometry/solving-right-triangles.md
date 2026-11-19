@@ -60,11 +60,11 @@ Suppose the high observer and the low object are in the same vertical plane, and
 
 An observer's eyes are above the ground. The angle is measured from the eye, so the right triangle starts at eye level, not at the ground.
 
-For an angle of elevation, when you want the object's height, the ratio gives the height above eye level. Add the eye height to get the height above the ground. For a depression, the ratio gives the drop below eye level, so subtract it from the eye's height above the ground.
+If the ground under the observer and the object's base are at the same height, use these rules. For an angle of elevation, add the rise above eye level to the eye height. For an angle of depression, subtract the drop below eye level from the eye height.
 
 If you want a distance, do not add the eye height to it. Use the height above or below eye level in the ratio.
 
-If a problem says to assume the observer is at ground level, no adjustment is needed.
+If the observer's eyes are at the same level as the object's base, no eye height adjustment is needed.
 
 ### Choosing a ratio
 
@@ -270,7 +270,7 @@ Draw a quick triangle before choosing a ratio. Label the horizontal distance, ve
 
 When an angle of elevation is $45^\circ$, the height above eye level and the horizontal distance are equal, because $\tan45^\circ=1$. This holds when the height is opposite and the horizontal distance is adjacent.
 
-For the **specific geometry in Example #8**, two ground-level observation points on the same side of the object, separated by distance $D$, with elevation angles $30^\circ$ and $60^\circ$, the height simplifies to:
+For the **setup in Two Observation Points**, two ground-level observation points on the same side of the object, separated by distance $D$, with elevation angles $30^\circ$ and $60^\circ$, the height simplifies to:
 
 $$h=\dfrac{\sqrt3}{2}D$$
 
@@ -292,9 +292,9 @@ Putting the angle at the top of the object changes which side is opposite and wh
 
 ### #3: Forgetting the Observer's Height
 
-> If an eye height is given and the angle is an elevation, add the eye height to the result only when you want the object's height.
+> To find an object's height from an angle of elevation, add the eye height to the rise when both bases are at the same level.
 
-The ratio gives the height above eye level. Add the eye height to get the height above the ground. For a depression from a high eye, the ratio gives the drop from eye level, so subtract it from the eye's height above the ground to find the object's height.
+If the object's base is at a different level from the ground under you, use the height of your eyes measured from the level of that base. Add the rise above eye level or subtract the drop below eye level.
 
 ### #4: Choosing a Ratio from the Story Instead of the Triangle
 

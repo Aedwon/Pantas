@@ -22,9 +22,6 @@ Useful problems in this topic include evaluating exact inverse values, respectin
 
 Evaluate $\sin\left(\arccos \dfrac{3}{5}\right)$.
 
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "right-triangle-trig", "labels": ["θ = arccos(3/5)", "Adjacent = 3", "Hypotenuse = 5", "Opposite = 4", "sin θ = 4/5"], "semanticsLabel": "Right triangle for angle theta with adjacent side 3, hypotenuse 5, and opposite side 4 giving sine 4 fifths."} -->
-
-
 **Solution:**
 Let $\theta = \arccos \dfrac{3}{5}$. Since the input is positive, $\theta$ is an acute principal angle. Build a right triangle whose cosine is $3/5$.
 
@@ -43,12 +40,11 @@ $$\sin \theta = \dfrac{4}{5}$$
 
 $$\sin\left(\arccos \dfrac{3}{5}\right) = \dfrac{4}{5}$$
 
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "right-triangle-trig", "labels": ["θ = arccos(3/5)", "Adjacent = 3", "Hypotenuse = 5", "Opposite = 4", "sin θ = 4/5"], "semanticsLabel": "Right triangle for angle theta with adjacent side 3, hypotenuse 5, and opposite side 4 giving sine 4 fifths."} -->
+
 ### #2: Composition
 
 Evaluate $\tan\left(\arcsin \dfrac{5}{13}\right)$.
-
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "right-triangle-trig", "labels": ["θ = arcsin(5/13)", "Opposite = 5", "Hypotenuse = 13", "Adjacent = 12", "tan θ = 5/12"], "semanticsLabel": "Right triangle for angle theta with opposite side 5, hypotenuse 13, and adjacent side 12 giving tangent 5 twelfths."} -->
-
 
 **Solution:**
 Let $\theta = \arcsin \dfrac{5}{13}$. The positive input gives an acute principal angle.
@@ -65,6 +61,8 @@ $$\tan \theta = \dfrac{5}{12}$$
 4. Therefore:
 
 $$\tan\left(\arcsin \dfrac{5}{13}\right) = \dfrac{5}{12}$$
+
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "right-triangle-trig", "labels": ["θ = arcsin(5/13)", "Opposite = 5", "Hypotenuse = 13", "Adjacent = 12", "tan θ = 5/12"], "semanticsLabel": "Right triangle for angle theta with opposite side 5, hypotenuse 13, and adjacent side 12 giving tangent 5 twelfths."} -->
 
 ## Speed Tricks & Shortcuts
 

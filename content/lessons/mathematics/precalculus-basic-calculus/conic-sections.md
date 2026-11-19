@@ -32,7 +32,7 @@ opens vertically when $a\ne0$, while
 
 $$x=a(y-k)^2+h$$
 
-opens horizontally. A parabola has a vertex, not a center.
+opens horizontally. A parabola has a vertex, not a center. For a horizontal parabola of the form $y^2=4px$ with $p\ne0$, the focus is $(p,0)$. The number $p$ tells how far to move from the vertex $(0,0)$ along the $x$-axis, right if positive and left if negative.
 
 **Ellipse**, center $(h,k)$ and major/minor semi-axis lengths $a>b>0$:
 
@@ -81,9 +81,6 @@ A fully general quadratic may contain an $xy$ term, which can indicate a rotated
 
 Identify each conic: (a) $3x^2+3y^2=27$, (b) $y=2x^2-8x+1$, (c) $4x^2+9y^2=36$, (d) $x^2-y^2=16$.
 
-<!-- FIGURE: {"kind": "coordinate-graph", "type": "conic-gallery", "conics": ["circle", "parabola", "ellipse", "hyperbola"], "semanticsLabel": "A visual guide showing the four conic section curves: circle, parabola, ellipse, and hyperbola."} -->
-
-
 **Solution:**
 These equations have no $xy$ term and represent nondegenerate conics.
 
@@ -92,12 +89,11 @@ These equations have no $xy$ term and represent nondegenerate conics.
 3. (c) Divide by $36$: $\dfrac{x^2}{9}+\dfrac{y^2}{4}=1$, an ellipse.
 4. (d) Divide by $16$: $\dfrac{x^2}{16}-\dfrac{y^2}{16}=1$, a hyperbola.
 
+<!-- FIGURE: {"kind": "coordinate-graph", "type": "conic-gallery", "conics": ["circle", "parabola", "ellipse", "hyperbola"], "semanticsLabel": "A visual guide showing the four conic section curves: circle, parabola, ellipse, and hyperbola."} -->
+
 ### #2: Circle by Completing the Square
 
 Find the center and radius of $x^2+y^2-6x+4y-12=0$.
-
-<!-- FIGURE: {"kind": "coordinate-graph", "type": "circle", "formula": "(x-3)^2 + (y+2)^2 = 25", "points": [[3, -2]], "radius": 5, "semanticsLabel": "A circle on a coordinate plane centered at (3, -2) with a radius of 5."} -->
-
 
 **Solution:**
 1. Group the variable terms and move the constant.
@@ -109,6 +105,8 @@ $$(x^2-6x)+(y^2+4y)=12$$
 $$(x-3)^2+(y+2)^2=25$$
 
 3. The center is $(3,-2)$ and the radius is $5$.
+
+<!-- FIGURE: {"kind": "coordinate-graph", "type": "circle", "formula": "(x-3)^2 + (y+2)^2 = 25", "points": [[3, -2]], "radius": 5, "semanticsLabel": "A circle on a coordinate plane centered at (3, -2) with a radius of 5."} -->
 
 ### #3: Vertex of a Parabola
 

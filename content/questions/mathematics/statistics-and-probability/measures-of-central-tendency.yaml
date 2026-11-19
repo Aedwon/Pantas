@@ -307,7 +307,7 @@ questions:
     The total units are $15$, so the target weighted total is $15(1.75)=26.25$. Known courses contribute $3(2)+4(1.5)+3(2)=18$. Thus $5x=26.25-18=8.25$, giving $x=1.65$.
 - id: 'q-statistics-and-probability-measures-of-central-tendency-0014'
   approved: true
-  lesson: lesson-statistics-and-probability-arithmetic-mean-and-missing-values
+  lesson: lesson-statistics-and-probability-median-and-mode
   keyPoint: 2
   type: 'word-problem'
   difficulty: 'hard'
@@ -351,8 +351,8 @@ questions:
     The mean is $\dfrac{2+2+3+4+39}{5}=10$. The middle value is $3$, so the median is $3$. The value $2$ appears twice, more than any other value, so the mode is $2$.
 - id: 'q-statistics-and-probability-measures-of-central-tendency-0016'
   approved: true
-  lesson: lesson-statistics-and-probability-arithmetic-mean-and-missing-values
-  keyPoint: 1
+  lesson: lesson-statistics-and-probability-median-and-mode
+  keyPoint: 2
   type: 'which-is-true'
   difficulty: 'hard'
   stem: |

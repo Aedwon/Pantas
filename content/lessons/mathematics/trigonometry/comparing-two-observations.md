@@ -13,7 +13,7 @@ keyPoints:
 ---
 ## Core Concept
 
-Draw both right triangles and use one equation for each line of sight. In the shortcut below, Example 8 refers to Example 1 here.
+Draw both right triangles and use one equation for each line of sight.
 
 ## Examples
 
@@ -55,7 +55,7 @@ $$h=50\sqrt3\approx86.6\text{ m}$$
 
 ## Speed Tricks & Shortcuts
 
-For the **specific geometry in Example #8**, two ground-level observation points on the same side of the object, separated by distance $D$, with elevation angles $30^\circ$ and $60^\circ$, the height simplifies to:
+For the **setup in Two Observation Points**, two ground-level observation points on the same side of the object, separated by distance $D$, with elevation angles $30^\circ$ and $60^\circ$, the height simplifies to:
 
 $$h=\dfrac{\sqrt3}{2}D$$
 
