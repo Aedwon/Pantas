@@ -68,7 +68,9 @@ pipeline as the CSE subjects so the two corpora match.
   most common finding. This audits the text once, in its final form, instead of twice.
 - R4. Figures are drawn before the split, so each marker moves into its part with its SVG.
 - R5. Writers are Sonnet 5.5 (spec B8 step 3), so splitting can start before the Codex reset.
-  Re-solves and audits run on Codex after Nov 22 13:51 PHT, as the CSE subjects did.
+  Re-solves and audits run on Codex after Nov 22 13:51 PHT, as the CSE subjects did. Codex Sol
+  work in this lane uses GPT 6.2 Sol (`codex-pick exec -m gpt-6.2-sol`), Aedwon, Nov 19: "have it
+  use 6.2 Sol btw". This overrides the 6.1 Sol default for CET only.
 - R6. C7 (8 backslash display problems in `light-and-optics.yaml`) is fixed in the physics batch.
 
 ## Steps
@@ -93,7 +95,7 @@ account's 5-hour window, writing results as it goes):
 
 6. Re-tag questions to parts from the approved maps (script, Haiku). Write pool-gap questions
    (Sonnet; Math items by two separate authors).
-7. Independent re-solve of every question in the split topics (Codex Sol, about 7 jobs of 250).
+7. Independent re-solve of every question in the split topics (Codex GPT 6.2 Sol, about 7 jobs of 250).
    The lead rules on each disagreement and approves through `approve.dart`. Evidence in
    `docs/content/verification/<topic>.md`.
 8. Astra audit per subject (R3). Sonnet fixes, an independent check, the lead accepts.
