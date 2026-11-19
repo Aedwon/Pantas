@@ -90,7 +90,7 @@ export function inactivityWarningMessage(input: InactivityWarningInput): Guardia
   const label = 'Open Pantas';
   const footer = 'Questions? Reply to this email or write to support@pantas.study.';
   const text = (nickname === undefined ? [lead, action, `${label}: ${link}`, footer]
-    : ['Hi,', lead, action, `${label}: ${link}`]).join('\n\n');
+    : ['Hi,', lead, action, `${label}: ${link}`, footer]).join('\n\n');
   const p = (value: string): string =>
     `<p style="margin:0 0 16px;font-size:16px;line-height:1.6">${escapeHtml(value)}</p>`;
   const html = `<!doctype html><html lang="en"><head><meta charset="utf-8">` +
@@ -98,8 +98,7 @@ export function inactivityWarningMessage(input: InactivityWarningInput): Guardia
     `<body style="margin:0;padding:24px 16px;background:#FBF9F4;color:${ink};font-family:${font}">` +
     `<div style="max-width:560px;margin:0 auto">${nickname === undefined ? '' : p('Hi,')}${p(lead)}${p(action)}` +
     `<p style="margin:8px 0 24px"><a href="${escapeHtml(link)}" style="display:inline-block;padding:12px 24px;border-radius:12px;background:${accent};color:#FFFFFF;font-size:16px;font-weight:600;text-decoration:none">${label}</a></p>` +
-    (nickname === undefined
-      ? `<p style="margin:0;font-size:13px;line-height:1.6;color:${muted}">${escapeHtml(footer)}</p>` : '') +
+    `<p style="margin:0;font-size:13px;line-height:1.6;color:${muted}">${escapeHtml(footer)}</p>` +
     '</div></body></html>';
   return {to: input.email, subject, text, html};
 }
