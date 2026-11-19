@@ -5,6 +5,8 @@ meta:
   exams: ["upcat", "ustet", "dost-sei", "acet"]
 questions:
   - id: q-chemistry-matter-0001
+    lesson: lesson-chemistry-classifying-matter-and-mixtures
+    keyPoint: 1
     type: 'classify'
     difficulty: 'easy'
     stem: |
@@ -26,6 +28,8 @@ questions:
     approved: true
 
   - id: q-chemistry-matter-0002
+    lesson: lesson-chemistry-classifying-matter-and-mixtures
+    keyPoint: 1
     type: 'classify'
     difficulty: 'easy'
     stem: |
@@ -47,6 +51,8 @@ questions:
     approved: true
 
   - id: q-chemistry-matter-0003
+    lesson: lesson-chemistry-classifying-matter-and-mixtures
+    keyPoint: 1
     type: 'classify'
     difficulty: 'easy'
     stem: |
@@ -68,6 +74,8 @@ questions:
     approved: true
 
   - id: q-chemistry-matter-0004
+    lesson: lesson-chemistry-classifying-matter-and-mixtures
+    keyPoint: 1
     type: 'classify'
     difficulty: 'medium'
     stem: |
@@ -89,6 +97,8 @@ questions:
     approved: true
 
   - id: q-chemistry-matter-0005
+    lesson: lesson-chemistry-phase-change-directions
+    keyPoint: 1
     type: 'cause-effect'
     difficulty: 'easy'
     stem: |
@@ -110,6 +120,8 @@ questions:
     approved: true
 
   - id: q-chemistry-matter-0006
+    lesson: lesson-chemistry-phase-change-directions
+    keyPoint: 1
     type: 'cause-effect'
     difficulty: 'easy'
     stem: |
@@ -131,6 +143,8 @@ questions:
     approved: true
 
   - id: q-chemistry-matter-0007
+    lesson: lesson-chemistry-phase-change-directions
+    keyPoint: 1
     type: 'cause-effect'
     difficulty: 'medium'
     stem: |
@@ -152,6 +166,8 @@ questions:
     approved: true
 
   - id: q-chemistry-matter-0008
+    lesson: lesson-chemistry-phase-change-directions
+    keyPoint: 1
     type: 'cause-effect'
     difficulty: 'medium'
     stem: |
@@ -173,6 +189,8 @@ questions:
     approved: true
 
   - id: q-chemistry-matter-0009
+    lesson: lesson-chemistry-phase-change-directions
+    keyPoint: 2
     type: 'cause-effect'
     difficulty: 'medium'
     stem: |
@@ -194,6 +212,8 @@ questions:
     approved: true
 
   - id: q-chemistry-matter-0010
+    lesson: lesson-chemistry-phase-change-directions
+    keyPoint: 2
     type: 'cause-effect'
     difficulty: 'medium'
     stem: |
@@ -215,6 +235,8 @@ questions:
     approved: true
 
   - id: q-chemistry-matter-0011
+    lesson: lesson-chemistry-physical-and-chemical-properties
+    keyPoint: 1
     type: 'classify'
     difficulty: 'medium'
     stem: |
@@ -236,6 +258,8 @@ questions:
     approved: true
 
   - id: q-chemistry-matter-0012
+    lesson: lesson-chemistry-physical-and-chemical-properties
+    keyPoint: 1
     type: 'classify'
     difficulty: 'hard'
     stem: |
@@ -257,6 +281,8 @@ questions:
     approved: true
 
   - id: q-chemistry-matter-0013
+    lesson: lesson-chemistry-physical-and-chemical-changes
+    keyPoint: 1
     type: 'classify'
     difficulty: 'hard'
     stem: |
@@ -278,6 +304,8 @@ questions:
     approved: true
 
   - id: q-chemistry-matter-0014
+    lesson: lesson-chemistry-physical-and-chemical-changes
+    keyPoint: 1
     type: 'classify'
     difficulty: 'medium'
     stem: |
@@ -299,6 +327,8 @@ questions:
     approved: true
 
   - id: q-chemistry-matter-0015
+    lesson: lesson-chemistry-physical-and-chemical-changes
+    keyPoint: 1
     type: 'compare-contrast'
     difficulty: 'hard'
     stem: |
@@ -320,6 +350,8 @@ questions:
     approved: true
 
   - id: q-chemistry-matter-0016
+    lesson: lesson-chemistry-physical-and-chemical-changes
+    keyPoint: 1
     type: 'predict-outcome'
     difficulty: 'exam'
     stem: |
@@ -341,6 +373,8 @@ questions:
     approved: true
 
   - id: q-chemistry-matter-0017
+    lesson: lesson-chemistry-particle-model-of-matter
+    keyPoint: 1
     type: 'classify'
     difficulty: 'easy'
     stem: |
@@ -362,6 +396,8 @@ questions:
     approved: false
 
   - id: q-chemistry-matter-0018
+    lesson: lesson-chemistry-crystalline-solids-and-plasma
+    keyPoint: 1
     type: 'compare-contrast'
     difficulty: 'medium'
     stem: |
@@ -383,6 +419,8 @@ questions:
     approved: false
 
   - id: q-chemistry-matter-0019
+    lesson: lesson-chemistry-crystalline-solids-and-plasma
+    keyPoint: 2
     type: 'identify'
     difficulty: 'hard'
     stem: |
@@ -404,6 +442,8 @@ questions:
     approved: false
 
   - id: q-chemistry-matter-0020
+    lesson: lesson-chemistry-phase-change-directions
+    keyPoint: 1
     type: 'compare-contrast'
     difficulty: 'exam'
     stem: |

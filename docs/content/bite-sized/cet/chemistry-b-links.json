@@ -1,0 +1,784 @@
+{
+  "outline": [
+    {
+      "original": "lesson-chemistry-matter",
+      "parts": [
+        {
+          "slug": "classifying-matter-and-mixtures",
+          "title": "Classifying Matter and Mixtures"
+        },
+        {
+          "slug": "physical-separation-of-matter",
+          "title": "Physical Separation of Matter"
+        },
+        {
+          "slug": "particle-model-of-matter",
+          "title": "Particle Model of Matter"
+        },
+        {
+          "slug": "crystalline-solids-and-plasma",
+          "title": "Crystalline Solids and Plasma"
+        },
+        {
+          "slug": "phase-change-directions",
+          "title": "Phase Change Directions"
+        },
+        {
+          "slug": "temperature-during-phase-changes",
+          "title": "Temperature During Phase Changes"
+        },
+        {
+          "slug": "physical-and-chemical-properties",
+          "title": "Physical and Chemical Properties"
+        },
+        {
+          "slug": "physical-and-chemical-changes",
+          "title": "Physical and Chemical Changes"
+        }
+      ]
+    },
+    {
+      "original": "lesson-chemistry-mixtures-and-separation",
+      "parts": [
+        {
+          "slug": "classifying-mixture-types",
+          "title": "Classifying Mixture Types"
+        },
+        {
+          "slug": "colloids-and-suspensions",
+          "title": "Colloids and Suspensions"
+        },
+        {
+          "slug": "filtration-and-decanting",
+          "title": "Filtration and Decanting"
+        },
+        {
+          "slug": "separating-immiscible-liquids",
+          "title": "Separating Immiscible Liquids"
+        },
+        {
+          "slug": "recovering-dissolved-solids",
+          "title": "Recovering Dissolved Solids"
+        },
+        {
+          "slug": "simple-distillation-and-collection",
+          "title": "Simple Distillation and Collection"
+        },
+        {
+          "slug": "fractional-distillation-and-azeotropes",
+          "title": "Fractional Distillation and Azeotropes"
+        },
+        {
+          "slug": "paper-chromatography-setup",
+          "title": "Paper Chromatography Setup"
+        },
+        {
+          "slug": "reading-paper-chromatograms",
+          "title": "Reading Paper Chromatograms"
+        },
+        {
+          "slug": "choosing-mixture-separation-methods",
+          "title": "Choosing Mixture Separation Methods"
+        }
+      ]
+    },
+    {
+      "original": "lesson-chemistry-mole-concept",
+      "parts": [
+        {
+          "slug": "mole-and-avogadro-constant",
+          "title": "The Mole and Avogadro Constant"
+        },
+        {
+          "slug": "entities-and-particle-counts",
+          "title": "Entities and Particle Counts"
+        },
+        {
+          "slug": "atomic-mass-and-molar-mass",
+          "title": "Atomic Mass and Molar Mass"
+        },
+        {
+          "slug": "molar-mass-from-formulas",
+          "title": "Molar Mass from Formulas"
+        },
+        {
+          "slug": "converting-mass-and-moles",
+          "title": "Converting Mass and Moles"
+        },
+        {
+          "slug": "converting-mass-and-entities",
+          "title": "Converting Mass and Entities"
+        }
+      ]
+    },
+    {
+      "original": "lesson-chemistry-nuclear-chemistry",
+      "parts": [
+        {
+          "slug": "nuclear-symbols-and-isotopes",
+          "title": "Nuclear Symbols and Isotopes"
+        },
+        {
+          "slug": "alpha-and-beta-minus-decay",
+          "title": "Alpha and Beta-Minus Decay"
+        },
+        {
+          "slug": "positron-emission-and-electron-capture",
+          "title": "Positron Emission and Electron Capture"
+        },
+        {
+          "slug": "gamma-emission-and-radiation-penetration",
+          "title": "Gamma Emission and Radiation Penetration"
+        },
+        {
+          "slug": "balancing-nuclear-equations",
+          "title": "Balancing Nuclear Equations"
+        },
+        {
+          "slug": "nuclear-fission-and-fusion",
+          "title": "Nuclear Fission and Fusion"
+        },
+        {
+          "slug": "comparing-nuclear-energy",
+          "title": "Comparing Nuclear Energy"
+        }
+      ]
+    },
+    {
+      "original": "lesson-chemistry-periodic-table",
+      "parts": [
+        {
+          "slug": "periodic-groups-periods-and-valence",
+          "title": "Periodic Groups and Periods"
+        },
+        {
+          "slug": "valence-electrons-by-group",
+          "title": "Valence Electrons by Group"
+        },
+        {
+          "slug": "periodic-element-families",
+          "title": "Periodic Element Families"
+        },
+        {
+          "slug": "atomic-radius-and-shielding",
+          "title": "Atomic Radius and Shielding"
+        },
+        {
+          "slug": "first-ionization-energy-trends",
+          "title": "First Ionization Energy Trends"
+        },
+        {
+          "slug": "electronegativity-and-electron-affinity",
+          "title": "Electronegativity and Electron Affinity"
+        }
+      ]
+    },
+    {
+      "original": "lesson-chemistry-quantum-numbers-electron-configuration",
+      "parts": [
+        {
+          "slug": "quantum-number-ranges-and-orbitals",
+          "title": "Quantum Number Ranges and Orbitals"
+        },
+        {
+          "slug": "ground-state-electron-filling",
+          "title": "Ground-State Electron Filling"
+        },
+        {
+          "slug": "reading-electron-configurations",
+          "title": "Reading Electron Configurations"
+        }
+      ]
+    },
+    {
+      "original": "lesson-chemistry-solutions",
+      "parts": [
+        {
+          "slug": "solutions-and-saturation",
+          "title": "Solutions and Saturation"
+        },
+        {
+          "slug": "solubility-temperature-and-pressure",
+          "title": "Solubility, Temperature, and Pressure"
+        },
+        {
+          "slug": "molarity-and-molality",
+          "title": "Molarity and Molality"
+        },
+        {
+          "slug": "solution-percent-by-mass",
+          "title": "Solution Percent by Mass"
+        },
+        {
+          "slug": "solution-percent-by-volume",
+          "title": "Solution Percent by Volume"
+        },
+        {
+          "slug": "temperature-and-solution-concentration",
+          "title": "Temperature and Solution Concentration"
+        },
+        {
+          "slug": "diluting-solutions",
+          "title": "Diluting Solutions"
+        },
+        {
+          "slug": "solution-labels-and-safe-handling",
+          "title": "Solution Labels and Safe Handling"
+        }
+      ]
+    },
+    {
+      "original": "lesson-chemistry-stoichiometry",
+      "parts": [
+        {
+          "slug": "mole-ratios-and-reaction-masses",
+          "title": "Mole Ratios and Reaction Masses"
+        },
+        {
+          "slug": "limiting-and-excess-reactant-amounts",
+          "title": "Limiting and Excess Reactant Amounts"
+        },
+        {
+          "slug": "theoretical-and-percent-yield",
+          "title": "Theoretical and Percent Yield"
+        },
+        {
+          "slug": "empirical-formulas-from-composition",
+          "title": "Empirical Formulas from Composition"
+        },
+        {
+          "slug": "molecular-formulas-from-molar-mass",
+          "title": "Molecular Formulas from Molar Mass"
+        }
+      ]
+    },
+    {
+      "original": "lesson-chemistry-thermodynamics-and-kinetics",
+      "parts": [
+        {
+          "slug": "reaction-heat-and-spontaneity",
+          "title": "Endothermic and Exothermic Reactions"
+        },
+        {
+          "slug": "reaction-spontaneity-and-speed",
+          "title": "Reaction Spontaneity and Speed"
+        },
+        {
+          "slug": "activation-energy-and-collisions",
+          "title": "Activation Energy and Collisions"
+        },
+        {
+          "slug": "catalysts-and-reaction-pathways",
+          "title": "Catalysts and Reaction Pathways"
+        },
+        {
+          "slug": "factors-that-change-reaction-rate",
+          "title": "Factors That Change Reaction Rate"
+        },
+        {
+          "slug": "rate-laws-and-reaction-orders",
+          "title": "Rate Laws and Reaction Orders"
+        },
+        {
+          "slug": "reaction-orders-from-initial-rates",
+          "title": "Reaction Orders from Initial Rates"
+        },
+        {
+          "slug": "fair-tests-of-reaction-rate",
+          "title": "Fair Tests of Reaction Rate"
+        },
+        {
+          "slug": "dynamic-equilibrium-and-k",
+          "title": "Dynamic Equilibrium and K"
+        },
+        {
+          "slug": "shifts-in-chemical-equilibrium",
+          "title": "Shifts in Chemical Equilibrium"
+        }
+      ]
+    }
+  ],
+  "prerequisites": {
+    "lesson-chemistry-classifying-matter-and-mixtures": [],
+    "lesson-chemistry-physical-separation-of-matter": [
+      {
+        "lesson": "lesson-chemistry-classifying-matter-and-mixtures",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-particle-model-of-matter": [
+      {
+        "lesson": "lesson-chemistry-physical-separation-of-matter",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-crystalline-solids-and-plasma": [
+      {
+        "lesson": "lesson-chemistry-particle-model-of-matter",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-phase-change-directions": [
+      {
+        "lesson": "lesson-chemistry-crystalline-solids-and-plasma",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-temperature-during-phase-changes": [
+      {
+        "lesson": "lesson-chemistry-phase-change-directions",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-physical-and-chemical-properties": [
+      {
+        "lesson": "lesson-chemistry-temperature-during-phase-changes",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-physical-and-chemical-changes": [
+      {
+        "lesson": "lesson-chemistry-physical-and-chemical-properties",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-classifying-mixture-types": [
+      {
+        "lesson": "lesson-chemistry-classifying-matter-and-mixtures",
+        "strength": "helpful",
+        "reason": "Pure substances, compounds, mixtures and physical separation are introduced there. This lesson defines each one again before it uses it."
+      }
+    ],
+    "lesson-chemistry-colloids-and-suspensions": [
+      {
+        "lesson": "lesson-chemistry-classifying-mixture-types",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-filtration-and-decanting": [
+      {
+        "lesson": "lesson-chemistry-colloids-and-suspensions",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-separating-immiscible-liquids": [
+      {
+        "lesson": "lesson-chemistry-filtration-and-decanting",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-recovering-dissolved-solids": [
+      {
+        "lesson": "lesson-chemistry-separating-immiscible-liquids",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-simple-distillation-and-collection": [
+      {
+        "lesson": "lesson-chemistry-recovering-dissolved-solids",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-fractional-distillation-and-azeotropes": [
+      {
+        "lesson": "lesson-chemistry-simple-distillation-and-collection",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-paper-chromatography-setup": [
+      {
+        "lesson": "lesson-chemistry-fractional-distillation-and-azeotropes",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-reading-paper-chromatograms": [
+      {
+        "lesson": "lesson-chemistry-paper-chromatography-setup",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-choosing-mixture-separation-methods": [
+      {
+        "lesson": "lesson-chemistry-reading-paper-chromatograms",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-mole-and-avogadro-constant": [],
+    "lesson-chemistry-entities-and-particle-counts": [
+      {
+        "lesson": "lesson-chemistry-mole-and-avogadro-constant",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-atomic-mass-and-molar-mass": [
+      {
+        "lesson": "lesson-chemistry-entities-and-particle-counts",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-molar-mass-from-formulas": [
+      {
+        "lesson": "lesson-chemistry-atomic-mass-and-molar-mass",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-converting-mass-and-moles": [
+      {
+        "lesson": "lesson-chemistry-molar-mass-from-formulas",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-converting-mass-and-entities": [
+      {
+        "lesson": "lesson-chemistry-converting-mass-and-moles",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-nuclear-symbols-and-isotopes": [
+      {
+        "lesson": "lesson-chemistry-atomic-structure",
+        "strength": "helpful",
+        "reason": "The lesson tells the student to review protons and neutrons there. It restates atomic number, mass number and isotopes before using them."
+      }
+    ],
+    "lesson-chemistry-alpha-and-beta-minus-decay": [
+      {
+        "lesson": "lesson-chemistry-nuclear-symbols-and-isotopes",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-positron-emission-and-electron-capture": [
+      {
+        "lesson": "lesson-chemistry-alpha-and-beta-minus-decay",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-gamma-emission-and-radiation-penetration": [
+      {
+        "lesson": "lesson-chemistry-positron-emission-and-electron-capture",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-balancing-nuclear-equations": [
+      {
+        "lesson": "lesson-chemistry-gamma-emission-and-radiation-penetration",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-nuclear-fission-and-fusion": [
+      {
+        "lesson": "lesson-chemistry-balancing-nuclear-equations",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-comparing-nuclear-energy": [
+      {
+        "lesson": "lesson-chemistry-nuclear-fission-and-fusion",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-periodic-groups-periods-and-valence": [
+      {
+        "lesson": "lesson-chemistry-atomic-structure",
+        "strength": "helpful",
+        "reason": "Atomic number, protons and ions are taught there in full. This lesson defines atomic number and cations and anions itself."
+      },
+      {
+        "lesson": "lesson-chemistry-quantum-number-ranges-and-orbitals",
+        "strength": "helpful",
+        "reason": "Shells, subshells and orbitals are taught there in full. This lesson gives a short definition of each and points to that lesson."
+      }
+    ],
+    "lesson-chemistry-valence-electrons-by-group": [
+      {
+        "lesson": "lesson-chemistry-periodic-groups-periods-and-valence",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-periodic-element-families": [
+      {
+        "lesson": "lesson-chemistry-valence-electrons-by-group",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-atomic-radius-and-shielding": [
+      {
+        "lesson": "lesson-chemistry-periodic-element-families",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-first-ionization-energy-trends": [
+      {
+        "lesson": "lesson-chemistry-atomic-radius-and-shielding",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-electronegativity-and-electron-affinity": [
+      {
+        "lesson": "lesson-chemistry-first-ionization-energy-trends",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-quantum-number-ranges-and-orbitals": [],
+    "lesson-chemistry-ground-state-electron-filling": [
+      {
+        "lesson": "lesson-chemistry-quantum-number-ranges-and-orbitals",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-reading-electron-configurations": [
+      {
+        "lesson": "lesson-chemistry-ground-state-electron-filling",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-solutions-and-saturation": [],
+    "lesson-chemistry-solubility-temperature-and-pressure": [
+      {
+        "lesson": "lesson-chemistry-solutions-and-saturation",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-molarity-and-molality": [
+      {
+        "lesson": "lesson-chemistry-solubility-temperature-and-pressure",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-chemistry-mole-and-avogadro-constant",
+        "strength": "helpful",
+        "reason": "The mole and molar mass are taught there in full. This lesson has a short section that defines both and shows grams to moles."
+      }
+    ],
+    "lesson-chemistry-solution-percent-by-mass": [
+      {
+        "lesson": "lesson-chemistry-molarity-and-molality",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-solution-percent-by-volume": [
+      {
+        "lesson": "lesson-chemistry-solution-percent-by-mass",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-temperature-and-solution-concentration": [
+      {
+        "lesson": "lesson-chemistry-solution-percent-by-volume",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-diluting-solutions": [
+      {
+        "lesson": "lesson-chemistry-temperature-and-solution-concentration",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-solution-labels-and-safe-handling": [
+      {
+        "lesson": "lesson-chemistry-diluting-solutions",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-mole-ratios-and-reaction-masses": [
+      {
+        "lesson": "lesson-chemistry-mole-and-avogadro-constant",
+        "strength": "required",
+        "reason": "This lesson uses moles, molar mass and the mass-to-moles step in every example, and only the mole concept lesson teaches what a mole is and how to find molar mass."
+      },
+      {
+        "lesson": "lesson-chemistry-chemical-reactions",
+        "strength": "helpful",
+        "reason": "Mole ratios come from a balanced equation, and that lesson teaches how to balance one. This lesson gives each balanced equation it uses."
+      }
+    ],
+    "lesson-chemistry-limiting-and-excess-reactant-amounts": [
+      {
+        "lesson": "lesson-chemistry-mole-ratios-and-reaction-masses",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-theoretical-and-percent-yield": [
+      {
+        "lesson": "lesson-chemistry-limiting-and-excess-reactant-amounts",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-empirical-formulas-from-composition": [
+      {
+        "lesson": "lesson-chemistry-theoretical-and-percent-yield",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-molecular-formulas-from-molar-mass": [
+      {
+        "lesson": "lesson-chemistry-empirical-formulas-from-composition",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-reaction-heat-and-spontaneity": [],
+    "lesson-chemistry-reaction-spontaneity-and-speed": [
+      {
+        "lesson": "lesson-chemistry-reaction-heat-and-spontaneity",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-activation-energy-and-collisions": [
+      {
+        "lesson": "lesson-chemistry-reaction-spontaneity-and-speed",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-catalysts-and-reaction-pathways": [
+      {
+        "lesson": "lesson-chemistry-activation-energy-and-collisions",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-factors-that-change-reaction-rate": [
+      {
+        "lesson": "lesson-chemistry-catalysts-and-reaction-pathways",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-rate-laws-and-reaction-orders": [
+      {
+        "lesson": "lesson-chemistry-factors-that-change-reaction-rate",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-chemistry-solutions-and-saturation",
+        "strength": "helpful",
+        "reason": "Concentration in moles per liter drives the rate law and K. This lesson states that M means mol/L and does not teach molarity."
+      }
+    ],
+    "lesson-chemistry-reaction-orders-from-initial-rates": [
+      {
+        "lesson": "lesson-chemistry-rate-laws-and-reaction-orders",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-fair-tests-of-reaction-rate": [
+      {
+        "lesson": "lesson-chemistry-reaction-orders-from-initial-rates",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-dynamic-equilibrium-and-k": [
+      {
+        "lesson": "lesson-chemistry-fair-tests-of-reaction-rate",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-chemistry-chemical-reactions",
+        "strength": "helpful",
+        "reason": "Reversible equations and coefficients, which set the exponents in K, are easier after balancing. This lesson does not teach balancing."
+      }
+    ],
+    "lesson-chemistry-shifts-in-chemical-equilibrium": [
+      {
+        "lesson": "lesson-chemistry-dynamic-equilibrium-and-k",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-acids-bases-ph": [
+      {
+        "lesson": "lesson-algebra-logarithm-meaning-and-equations",
+        "strength": "helpful",
+        "reason": "The pH formula uses a base-10 logarithm. This lesson explains it as the power of 10 and only needs whole-number powers."
+      },
+      {
+        "lesson": "lesson-chemistry-solutions-and-saturation",
+        "strength": "helpful",
+        "reason": "Molarity, in moles per liter, is taught there in full. This lesson states what the unit M means before using it."
+      }
+    ],
+    "lesson-chemistry-chemical-bonding": [
+      {
+        "lesson": "lesson-chemistry-atomic-structure",
+        "strength": "helpful",
+        "reason": "Valence electrons, cations and anions are taught there in full. This lesson restates each one where it uses it."
+      },
+      {
+        "lesson": "lesson-chemistry-periodic-groups-periods-and-valence",
+        "strength": "helpful",
+        "reason": "Electronegativity and its trend across the table are taught there with the reasons. This lesson defines electronegativity and gives the values it needs."
+      }
+    ],
+    "lesson-chemistry-gas-laws": [
+      {
+        "lesson": "lesson-chemistry-mole-and-avogadro-constant",
+        "strength": "helpful",
+        "reason": "The mole and molar mass are taught there in full. This lesson defines the mole briefly and gives each molar mass it needs."
+      }
+    ],
+    "lesson-earth-science-astronomy-fossils-and-geologic-time": [
+      {
+        "lesson": "lesson-chemistry-nuclear-symbols-and-isotopes",
+        "strength": "helpful",
+        "reason": "Isotopes and radioactive decay sit under radiometric dating. This lesson defines isotope, parent, daughter, and half-life itself, so the link only adds depth."
+      }
+    ],
+    "lesson-earth-science-astronomy-stars-and-galaxies": [
+      {
+        "lesson": "lesson-chemistry-nuclear-symbols-and-isotopes",
+        "strength": "helpful",
+        "reason": "Nuclear fusion powers every star. This lesson defines fusion briefly, and the nuclear chemistry lesson shows how nuclei join and release energy."
+      }
+    ]
+  }
+}

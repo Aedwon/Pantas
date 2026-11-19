@@ -6,6 +6,11 @@ subject: "subject-science"
 topic: "topic-chemistry"
 estimatedMinutes: 14
 isActive: true
+status: retired
+replacedBy:
+  - lesson-chemistry-quantum-number-ranges-and-orbitals
+  - lesson-chemistry-ground-state-electron-filling
+  - lesson-chemistry-reading-electron-configurations
 ---
 ## Core Concept
 

@@ -6,6 +6,18 @@ subject: "subject-science"
 topic: "topic-chemistry"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-chemistry-reaction-heat-and-spontaneity
+  - lesson-chemistry-reaction-spontaneity-and-speed
+  - lesson-chemistry-activation-energy-and-collisions
+  - lesson-chemistry-catalysts-and-reaction-pathways
+  - lesson-chemistry-factors-that-change-reaction-rate
+  - lesson-chemistry-rate-laws-and-reaction-orders
+  - lesson-chemistry-reaction-orders-from-initial-rates
+  - lesson-chemistry-fair-tests-of-reaction-rate
+  - lesson-chemistry-dynamic-equilibrium-and-k
+  - lesson-chemistry-shifts-in-chemical-equilibrium
 ---
 ## Core Concept
 

@@ -6,6 +6,14 @@ subject: "subject-science"
 topic: "topic-chemistry"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-chemistry-periodic-groups-periods-and-valence
+  - lesson-chemistry-valence-electrons-by-group
+  - lesson-chemistry-periodic-element-families
+  - lesson-chemistry-atomic-radius-and-shielding
+  - lesson-chemistry-first-ionization-energy-trends
+  - lesson-chemistry-electronegativity-and-electron-affinity
 ---
 ## Core Concept
 

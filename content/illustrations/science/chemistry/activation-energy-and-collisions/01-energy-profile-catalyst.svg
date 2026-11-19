@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 340" width="360" height="340">
+<title>Energy profile of an exothermic reaction: reactants at 50 kJ climb to a transition state at 120 kJ (Ea = 70 kJ) and fall to products at 20 kJ (change in H = -30 kJ); a dashed catalyst path has a lower peak at 90 kJ</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+
+</defs>
+<rect width="360" height="340" rx="14" fill="url(#bg)"/>
+<line x1="64" y1="56" x2="64" y2="300" stroke="#020202" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="64" y1="300" x2="344" y2="300" stroke="#020202" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="60" y1="90" x2="64" y2="90" stroke="#020202" stroke-width="1.5" stroke-linecap="round"/>
+<text x="55" y="95" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">120</text>
+<line x1="60" y1="150" x2="64" y2="150" stroke="#020202" stroke-width="1.5" stroke-linecap="round"/>
+<text x="55" y="155" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">90</text>
+<line x1="60" y1="230" x2="64" y2="230" stroke="#020202" stroke-width="1.5" stroke-linecap="round"/>
+<text x="55" y="235" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">50</text>
+<line x1="60" y1="290" x2="64" y2="290" stroke="#020202" stroke-width="1.5" stroke-linecap="round"/>
+<text x="55" y="295" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">20</text>
+<text x="16" y="34" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Energy (kJ)</text>
+<text x="204" y="320" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#020202">reaction progress</text>
+<path d="M70 230 H110 C150 230 150 90 190 90 C220 90 220 290 250 290 H344" fill="none" stroke="#010101" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M110 230 C140 230 150 150 190 150 C215 150 220 290 250 290" fill="none" stroke="#020202" stroke-width="2.5" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="96" y1="90" x2="184" y2="90" stroke="#050505" stroke-width="1.5" stroke-dasharray="4 4" stroke-linecap="round"/>
+<line x1="96" y1="223.6" x2="96" y2="96.4" stroke="#050505" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="96,90 100.5,98 91.5,98" fill="#050505"/>
+<polygon points="96,230 91.5,222 100.5,222" fill="#050505"/>
+<circle cx="190" cy="90" r="5" fill="#050505"/>
+<text x="104" y="76" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505"><tspan font-family="KaTeX_Math, serif" font-weight="400">E</tspan><tspan font-family="KaTeX_Math, serif" font-weight="400" dy="3">a</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400" dy="-3"> = 70 kJ</tspan></text>
+<text x="204" y="76" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">transition state</text>
+<text x="74" y="256" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">reactants</text>
+<text x="290" y="278" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">products</text>
+<text x="185" y="238" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#020202">with</text>
+<text x="185" y="254" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#020202">catalyst</text>
+<line x1="262" y1="230" x2="340" y2="230" stroke="#020202" stroke-width="1.5" stroke-dasharray="4 4" stroke-linecap="round"/>
+<line x1="336" y1="230" x2="336" y2="283.6" stroke="#010101" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="336,290 331.5,282 340.5,282" fill="#010101"/>
+<text x="344" y="216" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">ΔH = −30 kJ</tspan></text>
+</svg>

@@ -6,6 +6,13 @@ subject: "subject-science"
 topic: "topic-chemistry"
 estimatedMinutes: 14
 isActive: true
+status: retired
+replacedBy:
+  - lesson-chemistry-mole-ratios-and-reaction-masses
+  - lesson-chemistry-limiting-and-excess-reactant-amounts
+  - lesson-chemistry-theoretical-and-percent-yield
+  - lesson-chemistry-empirical-formulas-from-composition
+  - lesson-chemistry-molecular-formulas-from-molar-mass
 ---
 ## Core Concept
 

@@ -6,6 +6,16 @@ subject: "subject-science"
 topic: "topic-chemistry"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-chemistry-solutions-and-saturation
+  - lesson-chemistry-solubility-temperature-and-pressure
+  - lesson-chemistry-molarity-and-molality
+  - lesson-chemistry-solution-percent-by-mass
+  - lesson-chemistry-solution-percent-by-volume
+  - lesson-chemistry-temperature-and-solution-concentration
+  - lesson-chemistry-diluting-solutions
+  - lesson-chemistry-solution-labels-and-safe-handling
 ---
 ## Core Concept
 

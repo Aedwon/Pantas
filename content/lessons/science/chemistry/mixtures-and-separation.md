@@ -6,6 +6,18 @@ subject: "subject-science"
 topic: "topic-chemistry"
 estimatedMinutes: 14
 isActive: true
+status: retired
+replacedBy:
+  - lesson-chemistry-classifying-mixture-types
+  - lesson-chemistry-colloids-and-suspensions
+  - lesson-chemistry-filtration-and-decanting
+  - lesson-chemistry-separating-immiscible-liquids
+  - lesson-chemistry-recovering-dissolved-solids
+  - lesson-chemistry-simple-distillation-and-collection
+  - lesson-chemistry-fractional-distillation-and-azeotropes
+  - lesson-chemistry-paper-chromatography-setup
+  - lesson-chemistry-reading-paper-chromatograms
+  - lesson-chemistry-choosing-mixture-separation-methods
 ---
 ## Core Concept
 
