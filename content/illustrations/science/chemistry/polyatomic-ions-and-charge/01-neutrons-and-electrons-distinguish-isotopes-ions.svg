@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 359" width="360" height="359">
+<title>Compare a change in neutron count with a change in electron count.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.7"><stop offset="0" stop-color="#050505" stop-opacity="0.45"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect width="360" height="359" rx="14" fill="url(#bg)"/>
+<rect x="17" y="17" width="326" height="166" rx="8" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="1.5"/>
+<text x="180" y="44" fill="#010101" text-anchor="middle" font-size="16" font-weight="600" font-family="Geist, sans-serif">isotopes of one element</text>
+<rect x="25" y="64" width="142" height="100" rx="8" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="1.5"/>
+<text x="96.0" y="101.0" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">17 protons</text>
+<text x="96.0" y="119.0" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">18 neutrons</text>
+<text x="96.0" y="137.0" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">17 electrons</text>
+<rect x="32" y="103" width="128" height="23" rx="8" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="193" y="64" width="142" height="100" rx="8" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="1.5"/>
+<text x="264.0" y="101.0" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">17 protons</text>
+<text x="264.0" y="119.0" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">20 neutrons</text>
+<text x="264.0" y="137.0" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">17 electrons</text>
+<rect x="200" y="103" width="128" height="23" rx="8" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="17" y="198" width="326" height="144" rx="8" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="1.5"/>
+<text x="180" y="226" fill="#010101" text-anchor="middle" font-size="16" font-weight="600" font-family="Geist, sans-serif">ion of one atom</text>
+<rect x="34" y="241" width="292" height="83" rx="8" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="1.5"/>
+<rect x="57" y="281" width="113" height="22" rx="8" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<text x="113" y="274" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">17 protons</text>
+<text x="246" y="274" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">18 neutrons</text>
+<text x="113" y="298" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">18 electrons</text>
+<text x="246" y="298" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">charge 1−</text>
+</svg>

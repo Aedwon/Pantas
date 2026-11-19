@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 185" width="360" height="185">
+<title>Compare a Bohr orbit with s and p orbitals.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.7"><stop offset="0" stop-color="#050505" stop-opacity="0.45"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect width="360" height="185" rx="14" fill="url(#bg)"/>
+<rect x="19" y="18" width="102" height="149" rx="8" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="1.5"/>
+<text x="70" y="147" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">Bohr orbit</text>
+<rect x="129" y="18" width="102" height="149" rx="8" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="1.5"/>
+<text x="180" y="147" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">s orbital</text>
+<rect x="239" y="18" width="102" height="149" rx="8" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="1.5"/>
+<text x="290" y="147" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">p orbital</text>
+<circle cx="70" cy="82" r="35" fill="none" fill-opacity="1" stroke="#020202" stroke-width="1.5"/>
+<circle cx="95" cy="57" r="5" fill="#010101" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<circle cx="70" cy="82" r="3" fill="#010101" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<circle cx="180" cy="82" r="36" fill="url(#depth)" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<circle cx="180" cy="82" r="3" fill="#010101" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<path d="M290 82 C277 74 267 63 254 68 C241 73 241 91 254 96 C267 101 277 90 290 82 C303 74 313 63 326 68 C339 73 339 91 326 96 C313 101 303 90 290 82 Z" fill="url(#depth)" fill-opacity="1" stroke="#050505" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="290" cy="82" r="3" fill="#010101" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+</svg>

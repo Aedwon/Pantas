@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 151" width="360" height="151">
+<title>Show both bonds and all lone pairs in carbon dioxide.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.7"><stop offset="0" stop-color="#050505" stop-opacity="0.45"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect width="360" height="151" rx="14" fill="url(#bg)"/>
+<text x="70" y="97" fill="#010101" text-anchor="middle" font-size="18" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">O</tspan></text>
+<circle cx="66.5" cy="67" r="2.1" fill="#050505" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<circle cx="73.5" cy="67" r="2.1" fill="#050505" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<circle cx="66.5" cy="117" r="2.1" fill="#050505" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<circle cx="73.5" cy="117" r="2.1" fill="#050505" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<text x="180" y="97" fill="#010101" text-anchor="middle" font-size="18" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">C</tspan></text>
+<text x="290" y="97" fill="#010101" text-anchor="middle" font-size="18" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">O</tspan></text>
+<circle cx="286.5" cy="67" r="2.1" fill="#050505" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<circle cx="293.5" cy="67" r="2.1" fill="#050505" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<circle cx="286.5" cy="117" r="2.1" fill="#050505" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<circle cx="293.5" cy="117" r="2.1" fill="#050505" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<line x1="85" y1="88" x2="165" y2="88" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="85" y1="96" x2="165" y2="96" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="195" y1="88" x2="275" y2="88" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="195" y1="96" x2="275" y2="96" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+</svg>

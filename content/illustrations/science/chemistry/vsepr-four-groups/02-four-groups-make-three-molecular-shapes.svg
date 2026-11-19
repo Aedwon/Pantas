@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 264" width="360" height="264">
+<title>Compare the shapes of CH₄, NH₃ and H₂O.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.7"><stop offset="0" stop-color="#050505" stop-opacity="0.45"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect width="360" height="264" rx="14" fill="url(#bg)"/>
+<rect x="18" y="18" width="102" height="179" rx="8" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="1.5"/>
+<rect x="129" y="18" width="102" height="179" rx="8" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="1.5"/>
+<rect x="240" y="18" width="102" height="179" rx="8" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="1.5"/>
+<line x1="69" y1="96" x2="69" y2="46" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<circle cx="69" cy="46" r="10" fill="#030303" fill-opacity="1" stroke="#020202" stroke-width="1.5"/>
+<text x="69" y="51" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">H</tspan></text>
+<line x1="69" y1="96" x2="36" y2="108" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="69" y1="96" x2="100" y2="112" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 4"/>
+<polygon points="69,96 65,133 73,133" fill="#020202"/>
+<circle cx="36" cy="108" r="10" fill="#030303" fill-opacity="1" stroke="#020202" stroke-width="1.5"/>
+<text x="36" y="113" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">H</tspan></text>
+<circle cx="100" cy="112" r="10" fill="#030303" fill-opacity="1" stroke="#020202" stroke-width="1.5"/>
+<text x="100" y="117" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">H</tspan></text>
+<circle cx="69" cy="136" r="10" fill="#030303" fill-opacity="1" stroke="#020202" stroke-width="1.5"/>
+<text x="69" y="141" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">H</tspan></text>
+<circle cx="69" cy="96" r="10" fill="#030303" fill-opacity="1" stroke="#020202" stroke-width="1.5"/>
+<text x="69" y="101" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">C</tspan></text>
+<text x="69" y="165" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">CH₄</tspan></text>
+<circle cx="176.5" cy="57" r="2.1" fill="#050505" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<circle cx="183.5" cy="57" r="2.1" fill="#050505" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<line x1="180" y1="96" x2="147" y2="108" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="180" y1="96" x2="211" y2="112" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 4"/>
+<polygon points="180,96 176,133 184,133" fill="#020202"/>
+<circle cx="147" cy="108" r="10" fill="#030303" fill-opacity="1" stroke="#020202" stroke-width="1.5"/>
+<text x="147" y="113" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">H</tspan></text>
+<circle cx="211" cy="112" r="10" fill="#030303" fill-opacity="1" stroke="#020202" stroke-width="1.5"/>
+<text x="211" y="117" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">H</tspan></text>
+<circle cx="180" cy="136" r="10" fill="#030303" fill-opacity="1" stroke="#020202" stroke-width="1.5"/>
+<text x="180" y="141" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">H</tspan></text>
+<circle cx="180" cy="96" r="10" fill="#030303" fill-opacity="1" stroke="#020202" stroke-width="1.5"/>
+<text x="180" y="101" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">N</tspan></text>
+<text x="180" y="165" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">NH₃</tspan></text>
+<circle cx="271.5" cy="57" r="2.1" fill="#050505" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<circle cx="278.5" cy="57" r="2.1" fill="#050505" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<circle cx="303.5" cy="57" r="2.1" fill="#050505" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<circle cx="310.5" cy="57" r="2.1" fill="#050505" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<line x1="291" y1="96" x2="261" y2="119" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="291" y1="96" x2="321" y2="119" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<circle cx="261" cy="119" r="10" fill="#030303" fill-opacity="1" stroke="#020202" stroke-width="1.5"/>
+<text x="261" y="124" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">H</tspan></text>
+<circle cx="321" cy="119" r="10" fill="#030303" fill-opacity="1" stroke="#020202" stroke-width="1.5"/>
+<text x="321" y="124" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">H</tspan></text>
+<circle cx="291" cy="96" r="10" fill="#030303" fill-opacity="1" stroke="#020202" stroke-width="1.5"/>
+<text x="291" y="101" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">O</tspan></text>
+<text x="291" y="165" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">H₂O</tspan></text>
+<text x="69" y="186" fill="#050505" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">109.5°</tspan></text>
+<text x="69" y="222" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">tetrahedral</text>
+<text x="180" y="222" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">trigonal</text>
+<text x="180" y="241" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">pyramidal</text>
+<text x="291" y="222" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">bent</text>
+</svg>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 412" width="360" height="412">
+<title>Show the hydrogen transitions that give the red and blue-green lines.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.7"><stop offset="0" stop-color="#050505" stop-opacity="0.45"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect width="360" height="412" rx="14" fill="url(#bg)"/>
+<line x1="83" y1="392.0" x2="338" y2="392.0" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<text x="47" y="397.0" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">n = 1</tspan></text>
+<line x1="83" y1="129.5" x2="338" y2="129.5" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<text x="47" y="134.5" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">n = 2</tspan></text>
+<line x1="83" y1="80.9" x2="338" y2="80.9" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<text x="47" y="85.9" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">n = 3</tspan></text>
+<line x1="83" y1="63.9" x2="338" y2="63.9" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<text x="47" y="68.9" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">n = 4</tspan></text>
+<line x1="143" y1="80.9" x2="143.0" y2="121.5" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+<polygon points="143,129.5 139.5,121.5 146.5,121.5" fill="#050505"/>
+<line x1="267" y1="63.9" x2="267.0" y2="121.5" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+<polygon points="267,129.5 263.5,121.5 270.5,121.5" fill="#050505"/>
+<text x="143" y="153" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">red line</text>
+<text x="267" y="153" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">blue-green line</text>
+</svg>

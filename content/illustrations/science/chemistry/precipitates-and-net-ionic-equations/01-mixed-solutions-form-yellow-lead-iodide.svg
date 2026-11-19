@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 326" width="360" height="326">
+<title>Show the solid and spectator ions after the solutions mix.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.7"><stop offset="0" stop-color="#050505" stop-opacity="0.45"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect width="360" height="326" rx="14" fill="url(#bg)"/>
+<text x="80" y="35" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">Pb(NO₃)₂(aq)</tspan></text>
+<path d="M46 50 V91 Q46 99 54 99 H106 Q114 99 114 91 V50" fill="none" fill-opacity="1" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="51" y="68" width="58" height="25" rx="3" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<text x="280" y="35" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">KI(aq)</tspan></text>
+<path d="M246 50 V91 Q246 99 254 99 H306 Q314 99 314 91 V50" fill="none" fill-opacity="1" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="251" y="68" width="58" height="25" rx="3" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<line x1="100" y1="111" x2="134.6" y2="148.1" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<polygon points="140,154 132.0,150.5 137.1,145.8" fill="#020202"/>
+<line x1="260" y1="111" x2="225.4" y2="148.1" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<polygon points="220,154 222.9,145.8 228.0,150.5" fill="#020202"/>
+<path d="M73 157 V258 Q73 270 85 270 H275 Q287 270 287 258 V157" fill="none" fill-opacity="1" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="79" y="172" width="202" height="91" rx="4" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="82" y="240" width="196" height="21" rx="4" fill="#E9CA44" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<text x="180" y="200" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">K⁺     NO₃⁻</tspan></text>
+<text x="180" y="224" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">spectator ions</text>
+<line x1="180" y1="252" x2="180" y2="282" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+<text x="180" y="304" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">PbI₂(s)</tspan></text>
+</svg>

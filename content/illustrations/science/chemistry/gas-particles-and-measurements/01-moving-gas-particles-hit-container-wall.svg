@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 243" width="360" height="243">
+<title>Show gas particles striking the right wall of a rigid container.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.7"><stop offset="0" stop-color="#050505" stop-opacity="0.45"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect width="360" height="243" rx="14" fill="url(#bg)"/>
+<rect x="35" y="21" width="290" height="147" rx="5" fill="#050505" fill-opacity="0.12" stroke="#020202" stroke-width="1.5"/>
+<circle cx="58" cy="55" r="3" fill="#010101" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<line x1="62.6" y1="53.1" x2="74.6" y2="48.1" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<polygon points="82,45 76.0,51.3 73.3,44.9" fill="#020202"/>
+<circle cx="99" cy="99" r="3" fill="#010101" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<line x1="95.9" y1="102.9" x2="84.0" y2="117.8" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<polygon points="79,124 81.3,115.6 86.7,119.9" fill="#020202"/>
+<circle cx="143" cy="58" r="3" fill="#010101" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<line x1="144.9" y1="62.6" x2="150.0" y2="75.6" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<polygon points="153,83 146.8,76.9 153.3,74.3" fill="#020202"/>
+<circle cx="174" cy="120" r="3" fill="#010101" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<line x1="171.1" y1="124.0" x2="162.7" y2="135.5" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<polygon points="158,142 159.9,133.5 165.5,137.6" fill="#020202"/>
+<circle cx="222" cy="51" r="3" fill="#010101" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<line x1="217.7" y1="48.4" x2="210.8" y2="44.2" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<polygon points="204,40 212.6,41.2 209.0,47.2" fill="#020202"/>
+<circle cx="234" cy="137" r="3" fill="#010101" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<line x1="237.6" y1="140.4" x2="244.2" y2="146.5" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<polygon points="250,152 241.8,149.1 246.5,144.0" fill="#020202"/>
+<circle cx="285" cy="66" r="3" fill="#010101" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<line x1="289.6" y1="64.0" x2="317.6" y2="52.1" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+<polygon points="325,49 319.0,55.3 316.3,48.9" fill="#050505"/>
+<circle cx="287" cy="110" r="3" fill="#010101" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<line x1="291.8" y1="111.4" x2="317.3" y2="118.8" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+<polygon points="325,121 316.3,122.1 318.3,115.4" fill="#050505"/>
+<circle cx="298" cy="145" r="3" fill="#010101" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<line x1="303.0" y1="144.8" x2="317.0" y2="144.3" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+<polygon points="325,144 317.1,147.8 316.9,140.8" fill="#050505"/>
+<text x="180" y="199" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">collisions with the wall</text>
+<text x="180" y="220" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">make pressure</text>
+</svg>

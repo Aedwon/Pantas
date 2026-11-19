@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 303" width="360" height="303">
+<title>Show the positions of groups, periods and named families in the periodic table.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.7"><stop offset="0" stop-color="#050505" stop-opacity="0.45"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect width="360" height="303" rx="14" fill="url(#bg)"/>
+<text x="35.8" y="24" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">1</tspan></text>
+<text x="53.2" y="41" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">2</tspan></text>
+<text x="70.8" y="24" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">3</tspan></text>
+<text x="88.2" y="41" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">4</tspan></text>
+<text x="105.8" y="24" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">5</tspan></text>
+<text x="123.2" y="41" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">6</tspan></text>
+<text x="140.8" y="24" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">7</tspan></text>
+<text x="158.2" y="41" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">8</tspan></text>
+<text x="175.8" y="24" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">9</tspan></text>
+<text x="193.2" y="41" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">10</tspan></text>
+<text x="210.8" y="24" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">11</tspan></text>
+<text x="228.2" y="41" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">12</tspan></text>
+<text x="245.8" y="24" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">13</tspan></text>
+<text x="263.2" y="41" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">14</tspan></text>
+<text x="280.8" y="24" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">15</tspan></text>
+<text x="298.2" y="41" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">16</tspan></text>
+<text x="315.8" y="24" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">17</tspan></text>
+<text x="333.2" y="41" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">18</tspan></text>
+<text x="19" y="74" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">1</tspan></text>
+<rect x="27.0" y="60" width="16.5" height="19" rx="2" fill="#010101" fill-opacity="0.12" stroke="none" stroke-width="1.5"/>
+<rect x="324.5" y="60" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<text x="19" y="95" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">2</tspan></text>
+<rect x="27.0" y="81" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="44.5" y="81" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="237.0" y="81" width="16.5" height="19" rx="2" fill="#010101" fill-opacity="0.12" stroke="none" stroke-width="1.5"/>
+<rect x="254.5" y="81" width="16.5" height="19" rx="2" fill="#010101" fill-opacity="0.12" stroke="none" stroke-width="1.5"/>
+<rect x="272.0" y="81" width="16.5" height="19" rx="2" fill="#010101" fill-opacity="0.12" stroke="none" stroke-width="1.5"/>
+<rect x="289.5" y="81" width="16.5" height="19" rx="2" fill="#010101" fill-opacity="0.12" stroke="none" stroke-width="1.5"/>
+<rect x="307.0" y="81" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="324.5" y="81" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<text x="19" y="116" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">3</tspan></text>
+<rect x="27.0" y="102" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="44.5" y="102" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="237.0" y="102" width="16.5" height="19" rx="2" fill="#010101" fill-opacity="0.12" stroke="none" stroke-width="1.5"/>
+<rect x="254.5" y="102" width="16.5" height="19" rx="2" fill="#010101" fill-opacity="0.12" stroke="none" stroke-width="1.5"/>
+<rect x="272.0" y="102" width="16.5" height="19" rx="2" fill="#010101" fill-opacity="0.12" stroke="none" stroke-width="1.5"/>
+<rect x="289.5" y="102" width="16.5" height="19" rx="2" fill="#010101" fill-opacity="0.12" stroke="none" stroke-width="1.5"/>
+<rect x="307.0" y="102" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="324.5" y="102" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<text x="19" y="137" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">4</tspan></text>
+<rect x="27.0" y="123" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="44.5" y="123" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="62.0" y="123" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="79.5" y="123" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="97.0" y="123" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="114.5" y="123" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="132.0" y="123" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="149.5" y="123" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="167.0" y="123" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="184.5" y="123" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="202.0" y="123" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="219.5" y="123" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="237.0" y="123" width="16.5" height="19" rx="2" fill="#010101" fill-opacity="0.12" stroke="none" stroke-width="1.5"/>
+<rect x="254.5" y="123" width="16.5" height="19" rx="2" fill="#010101" fill-opacity="0.12" stroke="none" stroke-width="1.5"/>
+<rect x="272.0" y="123" width="16.5" height="19" rx="2" fill="#010101" fill-opacity="0.12" stroke="none" stroke-width="1.5"/>
+<rect x="289.5" y="123" width="16.5" height="19" rx="2" fill="#010101" fill-opacity="0.12" stroke="none" stroke-width="1.5"/>
+<rect x="307.0" y="123" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="324.5" y="123" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<text x="19" y="158" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">5</tspan></text>
+<rect x="27.0" y="144" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="44.5" y="144" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="62.0" y="144" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="79.5" y="144" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="97.0" y="144" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="114.5" y="144" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="132.0" y="144" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="149.5" y="144" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="167.0" y="144" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="184.5" y="144" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="202.0" y="144" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="219.5" y="144" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="237.0" y="144" width="16.5" height="19" rx="2" fill="#010101" fill-opacity="0.12" stroke="none" stroke-width="1.5"/>
+<rect x="254.5" y="144" width="16.5" height="19" rx="2" fill="#010101" fill-opacity="0.12" stroke="none" stroke-width="1.5"/>
+<rect x="272.0" y="144" width="16.5" height="19" rx="2" fill="#010101" fill-opacity="0.12" stroke="none" stroke-width="1.5"/>
+<rect x="289.5" y="144" width="16.5" height="19" rx="2" fill="#010101" fill-opacity="0.12" stroke="none" stroke-width="1.5"/>
+<rect x="307.0" y="144" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="324.5" y="144" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<text x="19" y="179" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">6</tspan></text>
+<rect x="27.0" y="165" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="44.5" y="165" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="62.0" y="165" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="79.5" y="165" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="97.0" y="165" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="114.5" y="165" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="132.0" y="165" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="149.5" y="165" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="167.0" y="165" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="184.5" y="165" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="202.0" y="165" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="219.5" y="165" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="237.0" y="165" width="16.5" height="19" rx="2" fill="#010101" fill-opacity="0.12" stroke="none" stroke-width="1.5"/>
+<rect x="254.5" y="165" width="16.5" height="19" rx="2" fill="#010101" fill-opacity="0.12" stroke="none" stroke-width="1.5"/>
+<rect x="272.0" y="165" width="16.5" height="19" rx="2" fill="#010101" fill-opacity="0.12" stroke="none" stroke-width="1.5"/>
+<rect x="289.5" y="165" width="16.5" height="19" rx="2" fill="#010101" fill-opacity="0.12" stroke="none" stroke-width="1.5"/>
+<rect x="307.0" y="165" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="324.5" y="165" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<text x="19" y="200" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">7</tspan></text>
+<rect x="27.0" y="186" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="44.5" y="186" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="62.0" y="186" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="79.5" y="186" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="97.0" y="186" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="114.5" y="186" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="132.0" y="186" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="149.5" y="186" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="167.0" y="186" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="184.5" y="186" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="202.0" y="186" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="219.5" y="186" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="237.0" y="186" width="16.5" height="19" rx="2" fill="#010101" fill-opacity="0.12" stroke="none" stroke-width="1.5"/>
+<rect x="254.5" y="186" width="16.5" height="19" rx="2" fill="#010101" fill-opacity="0.12" stroke="none" stroke-width="1.5"/>
+<rect x="272.0" y="186" width="16.5" height="19" rx="2" fill="#010101" fill-opacity="0.12" stroke="none" stroke-width="1.5"/>
+<rect x="289.5" y="186" width="16.5" height="19" rx="2" fill="#010101" fill-opacity="0.12" stroke="none" stroke-width="1.5"/>
+<rect x="307.0" y="186" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<rect x="324.5" y="186" width="16.5" height="19" rx="2" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<text x="35.8" y="75" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">H</tspan></text>
+<text x="25" y="232" fill="#010101" text-anchor="start" font-size="14" font-weight="600" font-family="Geist, sans-serif">1  alkali metals</text>
+<text x="222" y="232" fill="#010101" text-anchor="start" font-size="14" font-weight="600" font-family="Geist, sans-serif">17  halogens</text>
+<text x="25" y="256" fill="#010101" text-anchor="start" font-size="14" font-weight="600" font-family="Geist, sans-serif">2  alkaline-earth metals</text>
+<text x="222" y="256" fill="#010101" text-anchor="start" font-size="14" font-weight="600" font-family="Geist, sans-serif">18  noble gases</text>
+<text x="25" y="280" fill="#010101" text-anchor="start" font-size="14" font-weight="600" font-family="Geist, sans-serif">3 to 12  transition metals</text>
+</svg>

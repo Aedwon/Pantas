@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 292" width="360" height="292">
+<title>Distinguish an alkane, alkene and alkyne by their carbon bonds.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.7"><stop offset="0" stop-color="#050505" stop-opacity="0.45"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect width="360" height="292" rx="14" fill="url(#bg)"/>
+<rect x="17" y="19" width="326" height="76" rx="8" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="1.5"/>
+<text x="107" y="53" fill="#010101" text-anchor="end" font-size="17" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">CH₃</tspan></text>
+<text x="153" y="53" fill="#010101" text-anchor="start" font-size="17" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">CH₃</tspan></text>
+<line x1="114" y1="48.0" x2="146" y2="48.0" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+<text x="263" y="45" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">ethane</text>
+<text x="263" y="66" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">alkane</text>
+<rect x="17" y="108" width="326" height="76" rx="8" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="1.5"/>
+<text x="107" y="142" fill="#010101" text-anchor="end" font-size="17" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">CH₂</tspan></text>
+<text x="153" y="142" fill="#010101" text-anchor="start" font-size="17" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">CH₂</tspan></text>
+<line x1="114" y1="134.5" x2="146" y2="134.5" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+<line x1="114" y1="139.5" x2="146" y2="139.5" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+<text x="263" y="134" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">ethene</text>
+<text x="263" y="155" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">alkene</text>
+<rect x="17" y="197" width="326" height="76" rx="8" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="1.5"/>
+<text x="107" y="231" fill="#010101" text-anchor="end" font-size="17" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">CH</tspan></text>
+<text x="153" y="231" fill="#010101" text-anchor="start" font-size="17" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">CH</tspan></text>
+<line x1="114" y1="221.0" x2="146" y2="221.0" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+<line x1="114" y1="226.0" x2="146" y2="226.0" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+<line x1="114" y1="231.0" x2="146" y2="231.0" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+<text x="263" y="223" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">ethyne</text>
+<text x="263" y="244" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">alkyne</text>
+</svg>
