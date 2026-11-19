@@ -463,3 +463,91 @@ questions:
     explanation: |
       The empirical ratio is $CH_2$. The molecule has four such units. Multiply $4\times14=56$ g/mol.
     approved: false
+
+  - id: q-chemistry-stoichiometry-0021
+    lesson: lesson-chemistry-mole-ratios-and-reaction-masses
+    keyPoint: 1
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      Given $N_2+3H_2\rightarrow2NH_3$, how many moles of $H_2$ are used to make $4.0$ mol of $NH_3$?
+    choices:
+      - text: '$6.0$ mol'
+        correct: true
+      - text: '$2.7$ mol'
+        rationale: |
+          This multiplies by $\dfrac{2}{3}$. Put the hydrogen coefficient on top to find hydrogen from ammonia.
+      - text: '$8.0$ mol'
+        rationale: |
+          This uses the ammonia coefficient as a multiplier. Use both coefficients to build the ratio.
+      - text: '$12.0$ mol'
+        rationale: |
+          This uses 3 mol of hydrogen for every 1 mol of ammonia. The equation pairs 3 mol with 2 mol of ammonia.
+    explanation: |
+      The equation uses 3 mol of hydrogen for every 2 mol of ammonia made. Making twice as much ammonia uses twice as much hydrogen, or $6.0$ mol.
+
+  - id: q-chemistry-stoichiometry-0022
+    lesson: lesson-chemistry-mole-ratios-and-reaction-masses
+    keyPoint: 1
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      In $2Mg+O_2\rightarrow2MgO$, how many moles of $O_2$ react when $0.60$ mol of Mg is completely consumed?
+    choices:
+      - text: '$0.30$ mol'
+        correct: true
+      - text: '$0.60$ mol'
+        rationale: |
+          The magnesium and magnesium oxide coefficients match. Use the oxygen coefficient when finding the oxygen amount.
+      - text: '$1.20$ mol'
+        rationale: |
+          This multiplies by 2. The equation uses half as much oxygen as magnesium in moles.
+      - text: '$2.00$ mol'
+        rationale: |
+          The number 2 in front of Mg is part of the ratio. Scale that ratio to the amount of Mg given.
+    explanation: |
+      Two moles of magnesium use one mole of oxygen. The oxygen amount is half the magnesium amount, so it is $0.30$ mol.
+
+  - id: q-chemistry-stoichiometry-0023
+    lesson: lesson-chemistry-mole-ratios-and-reaction-masses
+    keyPoint: 2
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      For $CaCO_3\rightarrow CaO+CO_2$, what mass of $CO_2$ forms when $50.0$ g of $CaCO_3$ decomposes completely? Use molar masses of $100.0$ and $44.0\ \mathrm{g/mol}$ for $CaCO_3$ and $CO_2$, respectively.
+    choices:
+      - text: '$22.0$ g'
+        correct: true
+      - text: '$44.0$ g'
+        rationale: |
+          That is the mass of one mole of product. First find the fraction of a mole of reactant in the sample.
+      - text: '$50.0$ g'
+        rationale: |
+          The mole ratio is one to one. The masses differ because one mole has a different mass for each substance.
+      - text: '$88.0$ g'
+        rationale: |
+          This uses two moles of product. Check the starting mole count by dividing grams by grams per mole.
+    explanation: |
+      The starting mass is $\dfrac{50.0}{100.0}=0.500$ mol. Each mole makes one mole of carbon dioxide. The product mass is $0.500(44.0)=22.0$ g.
+
+  - id: q-chemistry-stoichiometry-0024
+    lesson: lesson-chemistry-mole-ratios-and-reaction-masses
+    keyPoint: 2
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      Given $2H_2+O_2\rightarrow2H_2O$, what mass of $H_2$ is needed to consume $16.0$ g of $O_2$? Use molar masses of $2.00$ and $32.0\ \mathrm{g/mol}$ for $H_2$ and $O_2$, respectively.
+    choices:
+      - text: '$2.00$ g'
+        correct: true
+      - text: '$1.00$ g'
+        rationale: |
+          This uses half a mole of both gases. Use the equation's two-to-one mole ratio first.
+      - text: '$0.50$ g'
+        rationale: |
+          This halves the amount of oxygen again when finding hydrogen. Double the oxygen moles instead.
+      - text: '$32.0$ g'
+        rationale: |
+          This doubles the mass of oxygen directly. The equation's ratio applies to moles.
+    explanation: |
+      The oxygen mass is half a mole. The equation uses twice as many moles of hydrogen, so it needs one mole. That is $2.00$ g.

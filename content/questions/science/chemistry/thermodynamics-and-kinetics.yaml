@@ -463,3 +463,201 @@ questions:
     explanation: |
       A catalyst can accelerate competing pathways unequally. This can change which product forms more readily, called selectivity, in the reaction network.
     approved: false
+
+  - id: q-chemistry-thermodynamics-and-kinetics-0021
+    lesson: lesson-chemistry-reaction-orders-from-initial-rates
+    keyPoint: 1
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      In two trials at the same temperature, the concentration of B stays fixed. When the concentration of A triples, the initial rate increases by a factor of nine. What is the reaction order with respect to A?
+    choices:
+      - text: '2'
+        correct: true
+      - text: '0'
+        rationale: |
+          If the order were zero, changing A alone would leave the rate the same. Here it rises ninefold.
+      - text: '1'
+        rationale: |
+          First order would make the rate triple along with A. Check which power of 3 gives 9.
+      - text: '3'
+        rationale: |
+          A did triple, but that is the factor for the change in concentration. Cubing that factor would give 27.
+    explanation: |
+      With B fixed, only A changed. Nine is $3^2$, so the rate depends on the square of A's concentration.
+
+  - id: q-chemistry-thermodynamics-and-kinetics-0022
+    lesson: lesson-chemistry-reaction-orders-from-initial-rates
+    keyPoint: 1
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      In runs 1 and 2, [A] doubles while [B] stays fixed, and the initial rate stays the same. In runs 1 and 3, [B] doubles while [A] stays fixed, and the initial rate doubles. What are the orders in A and B, respectively?
+    choices:
+      - text: '0 and 1'
+        correct: true
+      - text: '1 and 0'
+        rationale: |
+          One order is zero and one is one. Match the unchanged rate to the run where A changes.
+      - text: '1 and 1'
+        rationale: |
+          B does affect the rate in direct proportion. Check whether the rate doubled when A doubled too.
+      - text: '0 and 2'
+        rationale: |
+          A is zero order. If B were second order, doubling B would make the rate four times as high.
+    explanation: |
+      Changing A alone leaves the rate the same, so its order is zero. With A fixed, doubling B doubles the rate. B is first order.
+
+  - id: q-chemistry-thermodynamics-and-kinetics-0023
+    lesson: lesson-chemistry-fair-tests-of-reaction-rate
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      A student varies the temperature of a reaction and records the time needed to collect a fixed volume of gas. Which is the dependent variable?
+    choices:
+      - text: 'The time to collect the gas'
+        correct: true
+      - text: 'The starting temperature of the reaction'
+        rationale: |
+          The student chooses a different temperature for each run. A value changed on purpose is independent.
+      - text: 'The volume of gas collected in each run'
+        rationale: |
+          The student sets the same volume as the stopping point. Check which reading is allowed to vary.
+      - text: 'The concentration held constant across runs'
+        rationale: |
+          The student keeps this value the same. A value held fixed is controlled.
+    explanation: |
+      The student changes the heat and then measures how long gas collection takes. The time is the result that can change in response.
+
+  - id: q-chemistry-thermodynamics-and-kinetics-0024
+    lesson: lesson-chemistry-fair-tests-of-reaction-rate
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      A student tests how particle size affects the reaction rate of a solid with a solution. Which pair of trials isolates the effect of particle size?
+    choices:
+      - text: 'Equal masses of powder and chips in identical solutions'
+        correct: true
+      - text: 'Equal masses of powder and chips at different temperatures'
+        rationale: |
+          The solid sizes are different as planned. Temperature also changes, so keep it equal.
+      - text: 'Different masses of powder and chips in identical solutions'
+        rationale: |
+          The solutions match. Use the same mass of solid so the two runs differ only in particle size.
+      - text: 'Equal masses of powder in solutions of different concentrations'
+        rationale: |
+          This keeps particle size fixed and changes the solution. Compare powder with chips in the same solution.
+    explanation: |
+      The masses and solutions match. The only planned change is the size of the solid pieces.
+
+  - id: q-chemistry-thermodynamics-and-kinetics-0025
+    lesson: lesson-chemistry-dynamic-equilibrium-and-k
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      Concentrations in a closed reversible reaction have become constant at dynamic equilibrium. What is true of the forward and reverse reactions?
+    choices:
+      - text: 'Both continue at equal rates.'
+        correct: true
+      - text: 'Both have stopped, leaving the concentrations fixed.'
+        rationale: |
+          The amounts do stay fixed. At dynamic equilibrium, both directions still run and balance each other.
+      - text: 'The forward rate is higher because product remains present.'
+        rationale: |
+          Product can be present even if neither direction is faster. Check whether the amounts are still changing.
+      - text: 'The reverse rate is higher because it has built up over time.'
+        rationale: |
+          The reverse rate can rise as product builds up. At equilibrium it has reached the forward rate.
+    explanation: |
+      Each direction changes substances into others. They do so at the same rate, so the amounts stay steady.
+
+  - id: q-chemistry-thermodynamics-and-kinetics-0026
+    lesson: lesson-chemistry-dynamic-equilibrium-and-k
+    keyPoint: 2
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      For the aqueous equilibrium $2A+B\rightleftharpoons C$, which expression gives $K$?
+    choices:
+      - text: '$\dfrac{[C]}{[A]^2[B]}$'
+        correct: true
+      - text: '$\dfrac{[A]^2[B]}{[C]}$'
+        rationale: |
+          The powers are right. Use products on top for the equation as written.
+      - text: '$\dfrac{[C]}{[A][B]^2}$'
+        rationale: |
+          The products and reactants are on the right sides of the fraction. Put the power of 2 on A to match its coefficient.
+      - text: '$\dfrac{[C]}{2[A][B]}$'
+        rationale: |
+          The 2 does belong with A. Use it as a power of the concentration.
+    explanation: |
+      Put product C on top and reactants A and B below. The coefficient of A is 2, so square its concentration.
+
+  - id: q-chemistry-thermodynamics-and-kinetics-0027
+    lesson: lesson-chemistry-dynamic-equilibrium-and-k
+    keyPoint: 2
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      A reversible reaction has a very small equilibrium constant at a given temperature. What does this indicate?
+    choices:
+      - text: 'Reactants are favored at equilibrium.'
+        correct: true
+      - text: 'Products are favored at equilibrium.'
+        rationale: |
+          This would fit a large $K$. Check which side is favored when the ratio is very small.
+      - text: 'The reaction takes a long time to reach equilibrium.'
+        rationale: |
+          A small number can seem like a slow rate. $K$ tells where the balance lies and gives no time.
+      - text: 'The reverse rate remains greater than the forward rate at equilibrium.'
+        rationale: |
+          A strong bias toward reactants can sound like a faster reverse reaction. At equilibrium the two rates are equal.
+    explanation: |
+      In the expression for $K$, the reactants go on the bottom. A very small value means the balance favors the reactants.
+
+  - id: q-chemistry-thermodynamics-and-kinetics-0028
+    lesson: lesson-chemistry-shifts-in-chemical-equilibrium
+    keyPoint: 1
+    type: 'predict-outcome'
+    difficulty: 'medium'
+    stem: |
+      A closed mixture at equilibrium follows $N_2(g)+3H_2(g)\rightleftharpoons2NH_3(g)$. At constant temperature the container volume is decreased. Which shift is expected?
+    choices:
+      - text: 'Toward $NH_3(g)$'
+        correct: true
+      - text: 'Toward $N_2(g)$ and $H_2(g)$'
+        rationale: |
+          Those gases fill the same container, but their side has more moles in the equation. Count both of their coefficients.
+      - text: 'No shift because every species is a gas'
+        rationale: |
+          All species are gases, so count all their coefficients. The sides have different gas totals.
+      - text: 'No shift because the temperature is constant'
+        rationale: |
+          The temperature keeps $K$ fixed. A change in volume can still move the balance toward the side with fewer moles.
+    explanation: |
+      A smaller volume favors the side with fewer moles of gas. The product side has two, while the reactant side has four.
+
+  - id: q-chemistry-thermodynamics-and-kinetics-0029
+    lesson: lesson-chemistry-shifts-in-chemical-equilibrium
+    keyPoint: 1
+    type: 'predict-outcome'
+    difficulty: 'medium'
+    stem: |
+      The forward direction of a reversible reaction is exothermic. An equilibrium mixture is heated at constant volume. In which direction does the equilibrium shift?
+    choices:
+      - text: 'Toward the reactants'
+        correct: true
+      - text: 'Toward the products because the forward reaction releases heat'
+        rationale: |
+          The forward reaction does release heat. Heating favors the direction that absorbs some of that added heat.
+      - text: 'No shift because the volume stays the same'
+        rationale: |
+          Volume is one way to cause a shift. Temperature can shift the balance by itself.
+      - text: 'No shift because heating only changes how fast both reactions run'
+        rationale: |
+          Heat can change rates. Check which direction absorbs heat to find how the balance shifts.
+    explanation: |
+      The forward reaction gives off heat. The reverse reaction takes heat in. Raising the temperature favors the direction that takes in heat.

@@ -463,3 +463,157 @@ questions:
     explanation: |
       Ten percent means 10 parts in 100 by mass. Multiply $200\times10/100=20$ g salt.
     approved: false
+
+  - id: q-chemistry-solutions-0021
+    lesson: lesson-chemistry-solubility-temperature-and-pressure
+    keyPoint: 3
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      The solubility curve for solid X reads $30$ g per $100$ g of water at $20\ ^\circ\mathrm C$ and $50$ g per $100$ g of water at $60\ ^\circ\mathrm C$. How much X can dissolve in $50$ g of water at $20\ ^\circ\mathrm C$ before the solution reaches saturation?
+    choices:
+      - text: '$15$ g'
+        correct: true
+      - text: '$25$ g'
+        rationale: |
+          This halves the amount at $60\ ^\circ\mathrm C$. Read the value at $20\ ^\circ\mathrm C$ first.
+      - text: '$30$ g'
+        rationale: |
+          This is the right point on the curve. The sample has half the water used for that reading.
+      - text: '$60$ g'
+        rationale: |
+          This doubles the curve value. Half as much water holds half as much X.
+    explanation: |
+      Read $30$ g of X at $20\ ^\circ\mathrm C$ for every $100$ g of water. There is half as much water here, so it can hold half as much X.
+
+  - id: q-chemistry-solutions-0022
+    lesson: lesson-chemistry-solution-percent-by-volume
+    keyPoint: 1
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      A student mixes $25.0$ mL of a liquid solute and $77.0$ mL of water. The measured final volume is $100.0$ mL. What is the solute concentration by volume?
+    choices:
+      - text: '$25.0\%$'
+        correct: true
+      - text: '$24.5\%$'
+        rationale: |
+          This divides by the sum of the starting volumes. Use the measured final volume.
+      - text: '$32.5\%$'
+        rationale: |
+          This divides by the water volume. Use the volume of the whole mix, including the solute.
+      - text: '$77.0\%$'
+        rationale: |
+          This uses the starting water volume on top. Put the solute volume on top.
+    explanation: |
+      Use the volume of the solute over the measured volume of the whole mix. The percent is $\dfrac{25.0}{100.0}\times100\%=25.0\%$.
+
+  - id: q-chemistry-solutions-0023
+    lesson: lesson-chemistry-diluting-solutions
+    keyPoint: 1
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      A $25.0$ mL sample of $0.80\ M$ solution is diluted with water to a final volume of $100.0$ mL. What is the final molarity?
+    choices:
+      - text: '$0.20\ M$'
+        correct: true
+      - text: '$0.27\ M$'
+        rationale: |
+          This uses the $75$ mL increase as the final volume. Use all $100$ mL of solution.
+      - text: '$0.80\ M$'
+        rationale: |
+          The amount of solute stays the same. Its concentration falls because the volume gets bigger.
+      - text: '$3.20\ M$'
+        rationale: |
+          This multiplies by the volume growth. Divide by that growth because the same solute is spread out more.
+    explanation: |
+      The volume grows by a factor of 4. The amount of solute stays the same, so the molarity falls to $\dfrac{0.80}{4}=0.20\ M$.
+
+  - id: q-chemistry-solutions-0024
+    lesson: lesson-chemistry-diluting-solutions
+    keyPoint: 1
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      What volume of a $1.20\ M$ stock solution is needed to prepare $150$ mL of $0.40\ M$ solution by dilution with water?
+    choices:
+      - text: '$50$ mL'
+        correct: true
+      - text: '$100$ mL'
+        rationale: |
+          This is the difference between the final volume and the stock volume. The question asks for stock.
+      - text: '$150$ mL'
+        rationale: |
+          That is the final volume after adding water. A smaller amount comes from the stock.
+      - text: '$450$ mL'
+        rationale: |
+          This multiplies by three. The stock is three times as strong, so divide the final volume by three.
+    explanation: |
+      The final solution is one third as concentrated as the stock. Use one third of the final volume as stock. That is $\dfrac{150}{3}=50$ mL.
+
+  - id: q-chemistry-solutions-0025
+    lesson: lesson-chemistry-diluting-solutions
+    keyPoint: 2
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      Which change can be modeled for the named solute by $M_1V_1=M_2V_2$ with $M_1$ and $V_1$ taken from a single starting sample?
+    choices:
+      - text: 'Adding pure water to a sodium chloride solution'
+        correct: true
+      - text: 'Combining sodium chloride solutions of different molarities'
+        rationale: |
+          The volume increases just as it does in dilution. The second sample also adds sodium chloride, so add solute amounts from both samples.
+      - text: 'Adding a solution that reacts with the named solute'
+        rationale: |
+          The volume may go up. Check whether the reaction uses up some of the solute before assuming its amount stays the same.
+      - text: 'Adding solid sodium chloride to a sodium chloride solution'
+        rationale: |
+          The liquid may still look the same. Dissolving more salt changes how much solute is in it.
+    explanation: |
+      Only water is added, so the amount of sodium chloride stays the same. The two products $MV$ both count that same amount.
+
+  - id: q-chemistry-solutions-0026
+    lesson: lesson-chemistry-solution-labels-and-safe-handling
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      A label reads “70% ethyl alcohol by volume.” What does the concentration on the label specify?
+    choices:
+      - text: '70 mL of ethanol per 100 mL of product'
+        correct: true
+      - text: '70 mL of ethanol per 100 mL of added water'
+        rationale: |
+          The ethanol amount is right. The 100 mL is the whole product, including the ethanol.
+      - text: '70 g of ethanol per 100 g of finished product'
+        rationale: |
+          The numbers match the label. Check the words “by volume” and use mL for both amounts.
+      - text: '70 mL of water per 100 mL of product'
+        rationale: |
+          The 70 describes the named ingredient. Here that ingredient is ethanol.
+    explanation: |
+      Percent by volume compares two volumes. The label means that every 100 mL of product contains 70 mL of ethanol.
+
+  - id: q-chemistry-solutions-0027
+    lesson: lesson-chemistry-solution-labels-and-safe-handling
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      A cleaner label directs users to keep the product in its original container. Which storage choice follows that instruction?
+    choices:
+      - text: 'Keep it in the manufacturer''s labeled bottle.'
+        correct: true
+      - text: 'Move it to a clean, unlabeled spray bottle.'
+        rationale: |
+          A clean bottle may be handy. Check that the original directions and warnings are still on the container you use.
+      - text: 'Move it to another cleaner''s labeled bottle.'
+        rationale: |
+          The new bottle has a label, but the label describes a different product. Keep the cleaner in its own bottle.
+      - text: 'Move it to a food container and write the name on the lid.'
+        rationale: |
+          Writing the name helps identify it. The label still calls for keeping the original container.
+    explanation: |
+      The original bottle keeps the product name and directions with the liquid. Use that bottle for storage.

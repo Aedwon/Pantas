@@ -463,3 +463,179 @@ questions:
     explanation: |
       The readings are 293.15 K and 303.15 K. Subtract: $303.15-293.15=10$ K. The conversion offset cancels.
     approved: false
+
+  - id: q-chemistry-gas-laws-0021
+    lesson: lesson-chemistry-gas-particles-and-measurements
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      A report lists $760\ \mathrm{mmHg}$, $500\ \mathrm{mL}$, $298\ \mathrm{K}$, and $0.02\ \mathrm{mol}$ for a gas sample. Which reading specifies the amount of gas?
+    choices:
+      - text: '$0.02\ \mathrm{mol}$'
+        correct: true
+      - text: '$760\ \mathrm{mmHg}$'
+        rationale: |
+          This reading describes the push on the walls. Look for the value in moles.
+      - text: '$500\ \mathrm{mL}$'
+        rationale: |
+          This tells how much space the gas fills. To find amount, look for the particle-counting unit.
+      - text: '$298\ \mathrm{K}$'
+        rationale: |
+          Kelvin tells how hot the gas is. Use the reading marked mol to find the amount.
+    explanation: |
+      Amount tells how many particles are present. Moles are the unit for amount.
+
+  - id: q-chemistry-gas-laws-0022
+    lesson: lesson-chemistry-gas-particles-and-measurements
+    keyPoint: 2
+    type: 'cause-effect'
+    difficulty: 'medium'
+    stem: |
+      Which microscopic event directly produces the pressure measured at the wall of a container of ideal gas?
+    choices:
+      - text: 'Gas particles collide with the wall.'
+        correct: true
+      - text: 'Gas particles attract one another across the container.'
+        rationale: |
+          Some real particles attract one another. Use the ideal gas model and look for what pushes on the wall.
+      - text: 'Gas particles lose energy in every collision.'
+        rationale: |
+          Collisions matter for pressure. In the ideal model they transfer energy without losing it.
+      - text: 'Gas particles swell until they press against the wall.'
+        rationale: |
+          A gas fills its container. Its particles spread out and hit the wall as they move.
+    explanation: |
+      Each particle gives the wall a small push when it hits. Many hits together make the pressure.
+
+  - id: q-chemistry-gas-laws-0023
+    lesson: lesson-chemistry-celsius-and-kelvin-for-gases
+    keyPoint: 2
+    type: 'cause-effect'
+    difficulty: 'medium'
+    stem: |
+      A student says heating a gas from $20\ ^\circ\mathrm C$ to $40\ ^\circ\mathrm C$ doubles its absolute temperature. Why is this claim incorrect?
+    choices:
+      - text: 'The Celsius scale has an offset from absolute zero.'
+        correct: true
+      - text: 'A kelvin is smaller than a Celsius degree.'
+        rationale: |
+          Both scales have steps of the same size. It is their zero points that differ.
+      - text: 'The Celsius temperature rises by only 20 percent.'
+        rationale: |
+          The rise is $20$ Celsius degrees. A percent change in absolute temperature must start with the kelvin values.
+      - text: 'Absolute temperature cannot change if the amount of gas stays fixed.'
+        rationale: |
+          Keeping the sample size fixed can help in a gas test. The temperature can still go up as the gas is heated.
+    explanation: |
+      The two temperatures are about $293$ K and $313$ K. The second is only a little higher. A ratio must use a scale that starts at absolute zero.
+
+  - id: q-chemistry-gas-laws-0024
+    lesson: lesson-chemistry-variables-in-gas-investigations
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      A researcher changes the volume of a sealed gas sample and measures its pressure while holding its temperature constant. Which variable is dependent?
+    choices:
+      - text: 'The gas pressure'
+        correct: true
+      - text: 'The gas volume'
+        rationale: |
+          The researcher changes the volume on purpose. That makes it the independent variable.
+      - text: 'The gas temperature'
+        rationale: |
+          The same temperature is used for each reading. This makes it a controlled variable.
+      - text: 'The amount of gas in the sample'
+        rationale: |
+          The sample is sealed so the amount stays fixed. Look for what the researcher measures after each change.
+    explanation: |
+      The researcher reads the pressure after changing the volume. The value measured in response is the dependent variable.
+
+  - id: q-chemistry-gas-laws-0025
+    lesson: lesson-chemistry-variables-in-gas-investigations
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      A gas experiment tests how temperature affects pressure in a sealed rigid container. Which pair of quantities is controlled?
+    choices:
+      - text: 'Gas amount and volume'
+        correct: true
+      - text: 'Gas pressure and volume'
+        rationale: |
+          The rigid walls hold volume steady. Pressure is the reading used to see the effect of heating.
+      - text: 'Gas temperature and volume'
+        rationale: |
+          Volume stays fixed. Temperature is the value the researcher changes.
+      - text: 'Gas amount and temperature'
+        rationale: |
+          The seal keeps the amount fixed. The test must change the temperature to find its effect.
+    explanation: |
+      The seal keeps the same amount inside. The rigid walls keep the same volume.
+
+  - id: q-chemistry-gas-laws-0026
+    lesson: lesson-chemistry-gas-molar-volume-and-stp
+    keyPoint: 1
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      What volume does $2.00$ mol of ideal gas occupy at $0\ ^\circ\mathrm C$ and $100$ kPa?
+    choices:
+      - text: 'About $45.4$ L'
+        correct: true
+      - text: 'About $44.8$ L'
+        rationale: |
+          This uses $22.4$ L per mole. That value is for $1$ atm. Check for the stated $100$ kPa.
+      - text: 'About $22.7$ L'
+        rationale: |
+          This is the volume for one mole. Multiply it by the number of moles.
+      - text: 'About $49.0$ L'
+        rationale: |
+          This uses the room-temperature molar volume. Check that the gas is at $0\ ^\circ\mathrm C$.
+    explanation: |
+      At these conditions one mole fills about $22.7$ L. Two moles fill $2(22.7)=45.4$ L.
+
+  - id: q-chemistry-gas-laws-0027
+    lesson: lesson-chemistry-gas-molar-volume-and-stp
+    keyPoint: 1
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      An ideal gas occupies $11.2$ L at $0\ ^\circ\mathrm C$ and $1$ atm. How much gas is present?
+    choices:
+      - text: '$0.50$ mol'
+        correct: true
+      - text: '$2.00$ mol'
+        rationale: |
+          This divides $22.4$ by $11.2$. Divide the sample volume by the volume for one mole.
+      - text: '$1.00$ mol'
+        rationale: |
+          These conditions give $22.4$ L for one mole. Check that the sample takes less space.
+      - text: '$0.46$ mol'
+        rationale: |
+          This result uses about $24.5$ L per mole. Check that the sample is at $0\ ^\circ\mathrm C$.
+    explanation: |
+      At these conditions each mole fills about $22.4$ L. The volume is half of that, so the amount is $0.50$ mol.
+
+  - id: q-chemistry-gas-laws-0028
+    lesson: lesson-chemistry-when-real-gases-deviate
+    keyPoint: 1
+    type: 'predict-outcome'
+    difficulty: 'medium'
+    stem: |
+      Which set of conditions usually makes a real gas behave most nearly like an ideal gas?
+    choices:
+      - text: 'High temperature and low pressure'
+        correct: true
+      - text: 'Low temperature and high pressure'
+        rationale: |
+          Cold, crowded particles interact more. Look for fast particles with plenty of room.
+      - text: 'High temperature and high pressure'
+        rationale: |
+          Heat makes particles move fast. High pressure still crowds them together.
+      - text: 'Low temperature and low pressure'
+        rationale: |
+          Low pressure spreads particles out. Low temperature slows them, giving attractions more effect.
+    explanation: |
+      At low pressure particles are far apart. At high temperature they move fast. Their size and attractions have less effect.

@@ -468,3 +468,113 @@ questions:
     explanation: |
       Models describe evidence and have limits. New reliable evidence can reveal those limits. Researchers then improve the description while accounting for established results.
     approved: false
+
+  - id: q-chemistry-history-of-the-atom-0021
+    lesson: lesson-chemistry-evidence-and-atomic-models
+    keyPoint: 1
+    type: 'classify'
+    difficulty: 'medium'
+    stem: |
+      In a foil experiment, most incoming particles pass through and a few turn sharply. Which statement is an inference from those observations?
+    choices:
+      - text: 'The atom contains a small dense center.'
+        correct: true
+      - text: 'Most incoming particles pass through the foil.'
+        rationale: |
+          That tells what the detector recorded. Look for a claim about the hidden structure that could explain those paths.
+      - text: 'A few incoming particles turn at large angles.'
+        rationale: |
+          This tells what happened in the test. An inference explains why the large turns happened.
+      - text: 'The detector shows more straight paths than sharply bent paths.'
+        rationale: |
+          This compares counts from the test. An inference goes from those counts to an idea about the atom.
+    explanation: |
+      The paths are what the detector shows. A small dense center is an idea that explains why a few paths change sharply.
+
+  - id: q-chemistry-history-of-the-atom-0022
+    lesson: lesson-chemistry-daltons-atomic-model
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      Which statement follows from Dalton's view of atoms in a chemical reaction?
+    choices:
+      - text: 'Existing atoms are rearranged.'
+        correct: true
+      - text: 'Some atoms split and their pieces join new atoms.'
+        rationale: |
+          New substances do form. Dalton explained that with the same atoms joining in new ways.
+      - text: 'The total number of atoms grows as a new substance forms.'
+        rationale: |
+          Making a product can sound like making more atoms. Dalton's model keeps the starting atoms and puts them in new groups.
+      - text: 'Atoms of one element become atoms of another element.'
+        rationale: |
+          A new compound can have very different traits. In Dalton's model the elements still keep their own atoms.
+    explanation: |
+      Dalton treated atoms as pieces that stay whole during a reaction. The pieces join in new ways to make the products.
+
+  - id: q-chemistry-history-of-the-atom-0023
+    lesson: lesson-chemistry-daltons-laws-of-mass
+    keyPoint: 1
+    type: 'classify'
+    difficulty: 'medium'
+    stem: |
+      Two pure samples of the same compound have different total masses but the same ratio of oxygen mass to carbon mass. Which law does this illustrate?
+    choices:
+      - text: 'The law of definite proportions'
+        correct: true
+      - text: 'The law of conservation of mass'
+        rationale: |
+          Both laws use mass. Conservation compares the total mass before and after a reaction.
+      - text: 'The law of multiple proportions'
+        rationale: |
+          This law uses mass ratios too. It compares two different compounds of the same elements.
+      - text: 'The law of conservation of mass and the law of multiple proportions'
+        rationale: |
+          The data compare the parts of one compound. Check whether the problem gives a reaction or a second compound.
+    explanation: |
+      Both samples contain the same compound. Its elements have a fixed mass ratio even when the samples are different sizes.
+
+  - id: q-chemistry-history-of-the-atom-0024
+    lesson: lesson-chemistry-daltons-laws-of-mass
+    keyPoint: 1
+    type: 'classify'
+    difficulty: 'medium'
+    stem: |
+      Two compounds contain carbon and oxygen. For the same mass of carbon, the second compound contains twice as much oxygen as the first. Which law is illustrated?
+    choices:
+      - text: 'The law of multiple proportions'
+        correct: true
+      - text: 'The law of definite proportions'
+        rationale: |
+          This also deals with ratios of elements. It applies to samples of one compound at a time.
+      - text: 'The law of conservation of mass'
+        rationale: |
+          The carbon mass is the same in both samples. This law compares total mass on both sides of one reaction.
+      - text: 'Both the law of definite proportions and the law of conservation of mass'
+        rationale: |
+          These laws both involve mass. Look for a small whole-number ratio across two different compounds.
+    explanation: |
+      The two elements make two different compounds. With the carbon mass fixed, the oxygen masses are in the whole-number ratio $2:1$.
+
+  - id: q-chemistry-history-of-the-atom-0025
+    lesson: lesson-chemistry-isotopes-and-daltons-claim
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      Two chlorine atoms have the same number of protons but different numbers of neutrons. Which of Dalton's claims does this evidence challenge?
+    choices:
+      - text: 'Atoms of a given element have the same mass.'
+        correct: true
+      - text: 'Compounds contain atoms in fixed whole-number ratios.'
+        rationale: |
+          Changing the neutron count changes the mass of an atom. Check whether it changes how many atoms make up a compound.
+      - text: 'Chemical reactions rearrange atoms into new combinations.'
+        rationale: |
+          Isotopes do differ inside the nucleus. The evidence compares two atoms and shows no chemical reaction.
+      - text: 'Atoms of different elements can combine to make compounds.'
+        rationale: |
+          Two unlike atoms may join to make a compound. These atoms are both chlorine, so the test is about one element's mass.
+    explanation: |
+      Both atoms are chlorine because their proton counts match. The one with more neutrons has more mass.

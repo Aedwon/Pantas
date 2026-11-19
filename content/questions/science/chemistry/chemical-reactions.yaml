@@ -463,3 +463,311 @@ questions:
     explanation: |
       Unchanged ions appear on both sides of the complete ionic equation. Canceling them leaves no net ionic change. These observations give no net ionic reaction.
     approved: false
+
+  - id: q-chemistry-chemical-reactions-0021
+    lesson: lesson-chemistry-conserving-atoms-in-reactions
+    keyPoint: 2
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      How many oxygen atoms are represented by $3Al_2(SO_4)_3$?
+    choices:
+      - text: '$36$'
+        correct: true
+      - text: '$12$'
+        rationale: |
+          This counts one formula unit. Multiply by the coefficient for all three.
+      - text: '$24$'
+        rationale: |
+          This counts two units, as if the subscript on Al were the coefficient. Use the 3 in front.
+      - text: '$9$'
+        rationale: |
+          There are nine sulfate groups in all. Each group contains four oxygen atoms.
+    explanation: |
+      Each sulfate group has 4 oxygen atoms. Each formula unit has 3 groups, so it has 12 oxygen atoms. Three units have $3(12)=36$.
+
+  - id: q-chemistry-chemical-reactions-0022
+    lesson: lesson-chemistry-ion-charges-and-reaction-formulas
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      Which formula represents the neutral compound formed by $Mg^{2+}$ and $NO_3^-$?
+    choices:
+      - text: '$Mg(NO_3)_2$'
+        correct: true
+      - text: '$MgNO_3$'
+        rationale: |
+          One of each would work if the charges had the same size. Here one nitrate leaves a charge of $+1$.
+      - text: '$Mg_2(NO_3)_1$'
+        rationale: |
+          These subscripts switch the two counts. Add the two positive charges and the one negative charge to check.
+      - text: '$MgNO_{32}$'
+        rationale: |
+          Two nitrate groups are needed. Put the 2 outside parentheses so it counts whole groups.
+    explanation: |
+      One magnesium ion has charge $+2$. Two nitrate ions give $-2$. The parentheses keep the whole nitrate group together.
+
+  - id: q-chemistry-chemical-reactions-0023
+    lesson: lesson-chemistry-ion-charges-and-reaction-formulas
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      Which formula gives the simplest neutral combination of $Ca^{2+}$ and $SO_4^{2-}$?
+    choices:
+      - text: '$CaSO_4$'
+        correct: true
+      - text: '$Ca(SO_4)_2$'
+        rationale: |
+          Two sulfates would be needed for a $+4$ ion. Check the calcium charge here.
+      - text: '$Ca_2SO_4$'
+        rationale: |
+          Two calcium ions would balance an ion of charge $-4$. Sulfate has charge $-2$.
+      - text: '$Ca_2(SO_4)_2$'
+        rationale: |
+          The charges do cancel. Divide both counts by 2 to get the simplest formula.
+    explanation: |
+      The charges have the same size and opposite signs. One calcium ion and one sulfate ion cancel.
+
+  - id: q-chemistry-chemical-reactions-0024
+    lesson: lesson-chemistry-polyatomic-groups-and-coefficient-ratios
+    keyPoint: 1
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      What coefficient belongs before $Na_2SO_4$ in $Al_2(SO_4)_3+NaOH\rightarrow Al(OH)_3+Na_2SO_4$, using the smallest whole numbers?
+    choices:
+      - text: '$3$'
+        correct: true
+      - text: '$1$'
+        rationale: |
+          There is one unit of aluminum sulfate. Look inside that unit for the three sulfate groups.
+      - text: '$2$'
+        rationale: |
+          There are two Al atoms. Count sulfate groups for this coefficient.
+      - text: '$6$'
+        rationale: |
+          Six Na atoms are needed. Two of them fit in each $Na_2SO_4$ unit.
+    explanation: |
+      The first formula has three sulfate groups. Each $Na_2SO_4$ has one. Put a 3 before $Na_2SO_4$ to keep all three groups.
+
+  - id: q-chemistry-chemical-reactions-0025
+    lesson: lesson-chemistry-polyatomic-groups-and-coefficient-ratios
+    keyPoint: 1
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      When $BaCl_2+Al_2(SO_4)_3\rightarrow BaSO_4+AlCl_3$ is balanced with the smallest whole numbers, what is the coefficient of $BaSO_4$?
+    choices:
+      - text: '$3$'
+        correct: true
+      - text: '$1$'
+        rationale: |
+          One unit of each salt may seem enough. Count the three sulfate groups in the aluminum salt.
+      - text: '$2$'
+        rationale: |
+          The aluminum salt has two Al atoms. Use the sulfate count for $BaSO_4$.
+      - text: '$6$'
+        rationale: |
+          Six chlorine atoms are needed. That count does not tell how many sulfate units form.
+    explanation: |
+      The aluminum salt has three sulfate groups. Each $BaSO_4$ holds one, so three units are needed.
+
+  - id: q-chemistry-chemical-reactions-0026
+    lesson: lesson-chemistry-single-displacement-and-reactivity
+    keyPoint: 1
+    type: 'predict-outcome'
+    difficulty: 'medium'
+    stem: |
+      The activity series places zinc above iron. Which observation is expected when zinc metal is placed in aqueous iron(II) sulfate?
+    choices:
+      - text: 'Iron metal forms.'
+        correct: true
+      - text: 'No displacement occurs.'
+        rationale: |
+          Some metals do stay unchanged in salt solutions. Check that zinc is above iron here.
+      - text: 'The dissolved iron displaces zinc from its solid.'
+        rationale: |
+          This swaps the roles of the metals. The free metal is zinc, and it is the more reactive one.
+      - text: 'Hydrogen forms as the displacement product.'
+        rationale: |
+          Metals can displace hydrogen from acids. Here the salt supplies iron ions to replace.
+    explanation: |
+      Zinc is higher in the series. It can take the place of iron in the salt, so iron metal is left.
+
+  - id: q-chemistry-chemical-reactions-0027
+    lesson: lesson-chemistry-single-displacement-and-reactivity
+    keyPoint: 1
+    type: 'predict-outcome'
+    difficulty: 'medium'
+    stem: |
+      Copper is below hydrogen and above silver in the activity series. Which single displacement is predicted for copper metal?
+    choices:
+      - text: 'Copper displaces silver ions from solution.'
+        correct: true
+      - text: 'Copper displaces hydrogen from dilute hydrochloric acid.'
+        rationale: |
+          Some metals make hydrogen with acid. Check whether copper is above hydrogen before predicting this.
+      - text: 'Copper displaces zinc ions if zinc is above hydrogen.'
+        rationale: |
+          Zinc above hydrogen puts it above copper too. The free metal must rank above the one it replaces.
+      - text: 'Copper displaces neither silver ions nor hydrogen.'
+        rationale: |
+          The acid case gives no displacement. Check copper's place against silver on its own.
+    explanation: |
+      Copper ranks above silver. The free copper can replace silver ions and leave silver metal.
+
+  - id: q-chemistry-chemical-reactions-0028
+    lesson: lesson-chemistry-precipitates-and-net-ionic-equations
+    keyPoint: 1
+    type: 'predict-outcome'
+    difficulty: 'medium'
+    stem: |
+      Which solid is expected when aqueous silver nitrate and sodium bromide are mixed?
+    choices:
+      - text: 'Silver bromide'
+        correct: true
+      - text: 'Sodium nitrate'
+        rationale: |
+          Swapping partners does give this pair. Sodium salts and nitrates stay dissolved.
+      - text: 'Sodium bromide'
+        rationale: |
+          Bromide is in the solid that forms. Use the silver exception to see which ion makes it insoluble.
+      - text: 'Silver nitrate'
+        rationale: |
+          Silver is in the solid that forms. Nitrates stay dissolved, so check which other ion can join silver.
+    explanation: |
+      Silver is an exception to the rule that bromides dissolve. Silver and bromide ions join to make a solid.
+
+  - id: q-chemistry-chemical-reactions-0029
+    lesson: lesson-chemistry-precipitates-and-net-ionic-equations
+    keyPoint: 2
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      Aqueous barium chloride and sodium sulfate form solid barium sulfate. Which ions are spectators?
+    choices:
+      - text: '$Na^+$ and $Cl^-$'
+        correct: true
+      - text: '$Ba^{2+}$ and $SO_4^{2-}$'
+        rationale: |
+          These are the two ions that meet. Check which pair enters the new solid.
+      - text: '$Ba^{2+}$ and $Cl^-$'
+        rationale: |
+          These ions start in the same solution. Barium leaves the water to join the solid.
+      - text: '$Na^+$ and $SO_4^{2-}$'
+        rationale: |
+          These ions start in the same solution. Keep only the ions that stay dissolved after mixing.
+    explanation: |
+      Barium and sulfate join to make the solid. Sodium and chloride stay as the same ions in water.
+
+  - id: q-chemistry-chemical-reactions-0030
+    lesson: lesson-chemistry-precipitates-and-net-ionic-equations
+    keyPoint: 2
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      Lead(II) nitrate reacts with potassium iodide to form solid lead(II) iodide. Which net ionic equation represents the precipitate formation?
+    choices:
+      - text: '$Pb^{2+}+2I^-\rightarrow PbI_2(s)$'
+        correct: true
+      - text: '$Pb^{2+}+I^-\rightarrow PbI(s)$'
+        rationale: |
+          Iodide has charge $-1$. Use two of them to balance the lead ion.
+      - text: '$Pb^{2+}+2NO_3^-\rightarrow Pb(NO_3)_2(s)$'
+        rationale: |
+          The nitrate ions start with lead. They stay dissolved. Find the ions that make the solid.
+      - text: '$K^++I^-\rightarrow KI(s)$'
+        rationale: |
+          These ions start in the same solution. Potassium stays dissolved while iodide joins lead.
+    explanation: |
+      Two iodide ions balance the charge of one lead ion. The solid forms from those ions. Potassium and nitrate stay dissolved.
+
+  - id: q-chemistry-chemical-reactions-0031
+    lesson: lesson-chemistry-balancing-complete-combustion
+    keyPoint: 2
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      When $C_2H_6+O_2\rightarrow CO_2+H_2O$ is balanced with the smallest whole-number coefficients, what coefficient goes before $O_2$?
+    choices:
+      - text: '$7$'
+        correct: true
+      - text: '$3$'
+        rationale: |
+          Three water molecules fit the hydrogen count for one fuel molecule. Count oxygen in both products.
+      - text: '$5$'
+        rationale: |
+          Adding two carbon dioxide and three water gives five molecules. Count oxygen atoms, since the two products hold different numbers of oxygen atoms.
+      - text: '$14$'
+        rationale: |
+          There are fourteen O atoms after doubling. Each oxygen molecule contains two O atoms.
+    explanation: |
+      Start with 2 carbon dioxide and 3 water for one fuel molecule. They have 7 O atoms in all, or $\dfrac{7}{2}$ oxygen molecules. Double all the counts to get 7 oxygen molecules.
+
+  - id: q-chemistry-chemical-reactions-0032
+    lesson: lesson-chemistry-incomplete-combustion-products
+    keyPoint: 1
+    type: 'predict-outcome'
+    difficulty: 'medium'
+    stem: |
+      A hydrocarbon burns with insufficient oxygen. The exhaust contains water vapor and leaves black soot. Which substance accounts for the soot?
+    choices:
+      - text: 'Solid carbon'
+        correct: true
+      - text: 'Carbon dioxide gas'
+        rationale: |
+          Carbon dioxide is made when carbon burns. Check which product can leave solid particles behind.
+      - text: 'Carbon monoxide gas'
+        rationale: |
+          This gas can form when oxygen is short. Check the physical state of the soot.
+      - text: 'Unreacted oxygen gas'
+        rationale: |
+          Oxygen takes part in burning. The fuel supplies the carbon that remains as soot.
+    explanation: |
+      With too little oxygen, some carbon in the fuel stays as solid particles. These particles form soot.
+
+  - id: q-chemistry-chemical-reactions-0033
+    lesson: lesson-chemistry-oxidation-and-reduction-in-reactions
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      In $2Mg+O_2\rightarrow2MgO$, which change is an oxidation?
+    choices:
+      - text: 'Mg changes from $0$ to $+2$.'
+        correct: true
+      - text: 'O changes from $0$ to $-2$.'
+        rationale: |
+          Oxygen does make this change. A drop in oxidation number is reduction.
+      - text: 'Mg changes from $+2$ to $0$.'
+        rationale: |
+          Those are the right numbers for Mg in reverse order. Start with the free element on the left.
+      - text: 'O changes from $-2$ to $0$.'
+        rationale: |
+          O has number $-2$ in the oxide. Start with $O_2$, where it is $0$.
+    explanation: |
+      Magnesium starts as an element, with number $0$. It ends at $+2$ in the oxide. A rise in oxidation number means oxidation.
+
+  - id: q-chemistry-chemical-reactions-0034
+    lesson: lesson-chemistry-oxidation-and-reduction-in-reactions
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      Iron metal reacts with copper(II) ions as shown by $Fe+Cu^{2+}\rightarrow Fe^{2+}+Cu$. Which species is reduced?
+    choices:
+      - text: '$Cu^{2+}$'
+        correct: true
+      - text: '$Fe$'
+        rationale: |
+          Iron changes too. Its number goes up, which means it loses electrons.
+      - text: '$Fe^{2+}$'
+        rationale: |
+          This ion is made in the reaction. Check the starting iron and the rise from $0$ to $+2$.
+      - text: '$Cu$'
+        rationale: |
+          Copper metal is the product. The question asks which starting species gained electrons.
+    explanation: |
+      Copper starts at $+2$ and ends at $0$. Its number falls because it gains electrons. That is reduction.
