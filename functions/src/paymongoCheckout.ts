@@ -57,6 +57,12 @@ async function guardianAttestation(db: Firestore, uid: string, data: unknown, no
 export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0], data: unknown,
   deps: CheckoutDeps): Promise<{checkoutUrl: string; sessionId: string; reference: string}> {
   const uid = assertNamedUser(auth);
+  // The parent or guardian's own sign-in holds no study data and buys nothing. A pass is bought inside the
+  // child's session, so it belongs to that child (under-13 build, spec B2 rule 4).
+  if ((await deps.db.doc(`users/${uid}/server/holder`).get()).exists) {
+    throw new HttpsError('permission-denied', 'This sign-in is for a parent or guardian. Open your child\'s account to buy.',
+      {reason: 'holder-cannot-buy'});
+  }
   const requested = (data as {product?: unknown} | null)?.product;
   const product = typeof requested === 'string' ? webProduct(requested) : undefined;
   if (!product) throw new HttpsError('invalid-argument', 'This product is not sold on the web.');
