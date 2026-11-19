@@ -436,3 +436,66 @@ questions:
   explanation: |
     Cosine is adjacent over hypotenuse, so $\dfrac9h=0.6$. Multiply by h and divide by 0.6: $h=9\div0.6=15$.
   approved: false
+- id: 'q-trigonometry-basic-trigonometric-ratios-0021'
+  lesson: lesson-trigonometry-complementary-angle-ratios
+  keyPoint: 1
+  type: 'direct-computation'
+  difficulty: 'exam'
+  stem: |
+    For an acute angle $\theta$, $\cot\theta=\dfrac{3}{4}$. What is the value of $\tan(90^\circ-\theta)$?
+  choices:
+  - text: '$\dfrac{3}{4}$'
+    correct: true
+  - text: '$\dfrac{4}{3}$'
+    rationale: |
+      This is the tangent of the original angle. Taking the complement swaps the two legs again.
+  - text: '$\dfrac{1}{4}$'
+    rationale: |
+      This comes from subtracting the ratio from $1$. Take the complement of the angle itself.
+  - text: '$-\dfrac{3}{4}$'
+    rationale: |
+      This gives a negative ratio. The complement of an acute angle is also acute, so its tangent is positive.
+  explanation: |
+    The two angles add to $90^\circ$. The leg next to one angle is across from the other. So the tangent of the complement equals $\cot\theta=\dfrac{3}{4}$.
+- id: 'q-trigonometry-basic-trigonometric-ratios-0022'
+  lesson: lesson-trigonometry-special-angle-side-lengths
+  keyPoint: 1
+  type: 'which-is-true'
+  difficulty: 'exam'
+  stem: |
+    Which equality holds for the indicated special angles?
+  choices:
+  - text: '$\sin 60^\circ=\cos 30^\circ$'
+    correct: true
+  - text: '$\sin 30^\circ=\sin 60^\circ$'
+    rationale: |
+      These sines use different legs of the same triangle. The leg across from $30^\circ$ is shorter.
+  - text: '$\tan 30^\circ=\tan 45^\circ$'
+    rationale: |
+      The legs are equal in the $45^\circ$ triangle. The leg across from $30^\circ$ is shorter than the other leg.
+  - text: '$\cos 45^\circ=\cos 60^\circ$'
+    rationale: |
+      The $60^\circ$ angle has cosine $\dfrac{1}{2}$. The $45^\circ$ angle has cosine $\dfrac{\sqrt{2}}{2}$.
+  explanation: |
+    In a $30$-$60$-$90$ triangle with hypotenuse $2$, the long leg is $\sqrt{3}$. It is across from $60^\circ$ and next to $30^\circ$. Both ratios are $\dfrac{\sqrt{3}}{2}$.
+- id: 'q-trigonometry-basic-trigonometric-ratios-0023'
+  lesson: lesson-trigonometry-special-angle-side-lengths
+  keyPoint: 2
+  type: 'word-problem'
+  difficulty: 'exam'
+  stem: |
+    A square panel has a diagonal of length $6\sqrt{2}$ cm. What is the length of a side of the panel?
+  choices:
+  - text: '$6$ cm'
+    correct: true
+  - text: '$12$ cm'
+    rationale: |
+      This multiplies the diagonal by $\sqrt{2}$. The side of the square is shorter than the diagonal.
+  - text: '$3\sqrt{2}$ cm'
+    rationale: |
+      This halves the diagonal. The factor $\dfrac{1}{2}$ is for the short leg of a $30$-$60$-$90$ triangle.
+  - text: '$6\sqrt{2}$ cm'
+    rationale: |
+      This copies the diagonal. The diagonal is the hypotenuse of the right triangle and is longer than either leg.
+  explanation: |
+    The diagonal cuts the square into two $45$-$45$-$90$ triangles. The side of the panel is a leg. Multiply the diagonal by $\sin 45^\circ$ to get $6\sqrt{2}\cdot\dfrac{\sqrt{2}}{2}=6$ cm.

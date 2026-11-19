@@ -474,3 +474,108 @@ questions:
   explanation: |
     The sums are $(8-2)180^\circ=1080^\circ$ and $(11-2)180^\circ=1620^\circ$. Their difference is $1620^\circ-1080^\circ=540^\circ$.
   approved: false
+- id: 'q-geometry-quadrilaterals-and-polygons-0021'
+  lesson: lesson-geometry-simple-polygons-and-interior-angle-sums
+  keyPoint: 1
+  type: 'which-is-true'
+  difficulty: 'exam'
+  stem: |
+    A closed path consists of five straight segments. Its sides meet only at consecutive vertices, and one interior angle is $210^\circ$. How should the figure be classified?
+  choices:
+  - text: 'Simple concave pentagon'
+    correct: true
+  - text: 'Simple convex pentagon'
+    rationale: |
+      A convex polygon has every interior angle below $180^\circ$. This path has a larger angle.
+  - text: 'Regular convex pentagon'
+    rationale: |
+      A regular pentagon has equal angles and is convex. An angle of $210^\circ$ rules out convexity.
+  - text: 'Self-intersecting pentagon'
+    rationale: |
+      A dent can make an interior angle greater than $180^\circ$. The sides still meet only at the vertices.
+  explanation: |
+    The five sides make a pentagon. The sides do not cross, so it is simple. The angle of $210^\circ$ is greater than $180^\circ$, so it is concave.
+- id: 'q-geometry-quadrilaterals-and-polygons-0022'
+  lesson: lesson-geometry-quadrilateral-angle-sums
+  keyPoint: 1
+  type: 'direct-computation'
+  difficulty: 'exam'
+  stem: |
+    Two interior angles of a simple quadrilateral measure $70^\circ$ and $110^\circ$. The larger of the two remaining angles is twice the smaller. What is the larger remaining angle?
+  choices:
+  - text: '$120^\circ$'
+    correct: true
+  - text: '$180^\circ$'
+    rationale: |
+      This is the sum of the two missing angles. The larger angle takes only two of the three equal shares.
+  - text: '$60^\circ$'
+    rationale: |
+      This is one share of the remaining sum. It gives the smaller missing angle.
+  - text: '$240^\circ$'
+    rationale: |
+      This gives two shares after splitting all $360^\circ$. First subtract the two given angles.
+  explanation: |
+    The two given angles add to $180^\circ$. The missing angles share the other $180^\circ$. One part plus two parts makes three parts, so the larger angle is $2(180^\circ\div3)=120^\circ$.
+- id: 'q-geometry-quadrilaterals-and-polygons-0023'
+  lesson: lesson-geometry-quadrilateral-angle-sums
+  keyPoint: 1
+  type: 'word-problem'
+  difficulty: 'exam'
+  stem: |
+    A quadrilateral frame has two equal interior angles. The other two interior angles measure $105^\circ$ and $125^\circ$. What is the measure of each equal angle?
+  choices:
+  - text: '$65^\circ$'
+    correct: true
+  - text: '$55^\circ$'
+    rationale: |
+      This would work if both known angles were $125^\circ$. Use each given measure once.
+  - text: '$115^\circ$'
+    rationale: |
+      This gives the average of the two known angles. Split the sum left for the two unknown angles.
+  - text: '$130^\circ$'
+    rationale: |
+      This gives the sum of the missing angles. Divide it equally between them.
+  explanation: |
+    All four angles add to $360^\circ$. The known angles add to $230^\circ$. The two equal angles split the remaining $130^\circ$, so each is $65^\circ$.
+- id: 'q-geometry-quadrilaterals-and-polygons-0024'
+  lesson: lesson-geometry-classifying-quadrilaterals-by-diagonals
+  keyPoint: 1
+  type: 'which-is-true'
+  difficulty: 'exam'
+  stem: |
+    The diagonals of a quadrilateral have equal length and cross at right angles. Each diagonal cuts the other into two equal segments. What is the most specific classification?
+  choices:
+  - text: 'Square'
+    correct: true
+  - text: 'Rhombus'
+    rationale: |
+      The right-angle crossing and the equal halves give a rhombus. The equal full lengths also make it a rectangle.
+  - text: 'Rectangle'
+    rationale: |
+      The equal lengths and the equal halves give a rectangle. The right-angle crossing also makes it a rhombus.
+  - text: 'Parallelogram'
+    rationale: |
+      The equal halves give a parallelogram. Use the right angle and the equal full lengths to name its more specific type.
+  explanation: |
+    The diagonals cut each other in half, so the shape is a parallelogram. Equal diagonals make it a rectangle. Diagonals that meet at right angles make it a rhombus too. A shape that is both is a square.
+- id: 'q-geometry-quadrilaterals-and-polygons-0025'
+  lesson: lesson-geometry-classifying-quadrilaterals-by-diagonals
+  keyPoint: 1
+  type: 'error-spotting'
+  difficulty: 'exam'
+  stem: |
+    The diagonals of quadrilateral $ABCD$ are equal in length. Diagonal $AC$ cuts $BD$ in half, but $BD$ does not cut $AC$ in half. A student concludes that $ABCD$ is a rectangle. Which statement evaluates the conclusion?
+  choices:
+  - text: 'It fails because the diagonals do not bisect each other.'
+    correct: true
+  - text: 'It holds because either diagonal can bisect the other in a rectangle.'
+    rationale: |
+      A rectangle needs both diagonals to cut each other in half. Here only one does.
+  - text: 'It holds because equal diagonals are enough to identify a rectangle.'
+    rationale: |
+      Equal diagonals can occur in other shapes. A rectangle also needs the equal halves on both diagonals.
+  - text: 'It fails because the diagonals of every rectangle meet at right angles.'
+    rationale: |
+      A square has diagonals that meet at right angles. Other rectangles need only equal diagonals that cut each other in half.
+  explanation: |
+    The diagonals of a rectangle both cut each other in half. Here $BD$ leaves two unequal pieces of $AC$. That rules out a rectangle.

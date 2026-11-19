@@ -474,3 +474,129 @@ questions:
   explanation: |
     The third side is $30-8-10=12$ cm. The two shorter sides total $8+10=18>12$. The side lengths therefore form a triangle.
   approved: false
+- id: 'q-geometry-triangles-0021'
+  lesson: lesson-geometry-triangle-angle-sums-and-types
+  keyPoint: 2
+  type: 'which-is-true'
+  difficulty: 'exam'
+  stem: |
+    In triangle $PQR$, $\angle P=\angle R=72^\circ$ and $\angle Q=36^\circ$. Which pair of sides has equal length?
+  choices:
+  - text: '$PQ$ and $QR$'
+    correct: true
+  - text: '$PQ$ and $PR$'
+    rationale: |
+      These sides lie across from $\angle R$ and $\angle Q$. Those angles have different measures.
+  - text: '$PR$ and $QR$'
+    rationale: |
+      These sides lie across from $\angle Q$ and $\angle P$. Those angles have different measures.
+  - text: 'All three sides'
+    rationale: |
+      All three sides would be equal if all three angles were equal. Here only two angles match.
+  explanation: |
+    Equal angles have equal sides across from them. Side $QR$ is across from $P$, and side $PQ$ is across from $R$. So $QR=PQ$.
+- id: 'q-geometry-triangles-0022'
+  lesson: lesson-geometry-triangle-angle-sums-and-types
+  keyPoint: 2
+  type: 'which-is-true'
+  difficulty: 'exam'
+  stem: |
+    Triangle $ABC$ has a right angle at $B$. Its sides $AB$ and $BC$ have equal length. Which statement must be true?
+  choices:
+  - text: 'The acute angles are equal.'
+    correct: true
+  - text: 'The acute angles are unequal.'
+    rationale: |
+      The two equal legs have equal angles across from them.
+  - text: 'All three sides have equal length.'
+    rationale: |
+      Three equal sides would make all three angles equal. Here one angle is $90^\circ$.
+  - text: 'One of the acute angles measures $60^\circ$.'
+    rationale: |
+      Two equal $60^\circ$ angles would leave only $60^\circ$ for angle $B$. Angle $B$ is a right angle.
+  explanation: |
+    Angles $A$ and $C$ are across from the two equal legs. So they have the same measure.
+- id: 'q-geometry-triangles-0023'
+  lesson: lesson-geometry-proving-triangle-congruence-from-a-figure
+  keyPoint: 1
+  type: 'which-is-true'
+  difficulty: 'exam'
+  stem: |
+    Segments $AD$ and $BC$ intersect at $M$, the midpoint of $AD$. If $BM=CM$, which fact completes an SAS proof that $\triangle AMB$ and $\triangle DMC$ are congruent?
+  choices:
+  - text: '$\angle AMB=\angle DMC$'
+    correct: true
+  - text: '$\angle AMC=\angle DMC$'
+    rationale: |
+      These angles share one ray and lie along a straight line. Use the opposite angles at the crossing.
+  - text: '$\angle ABM=\angle DCM$'
+    rationale: |
+      These angles would match after the triangles are proved congruent. The angle for SAS must lie between the two known sides.
+  - text: '$\angle BAM=\angle CDM$'
+    rationale: |
+      These angles are at the ends of $AD$. The two known sides in each triangle meet at $M$.
+  explanation: |
+    The midpoint gives $AM=DM$, and $BM=CM$ is given. The angles between those sides face each other at the crossing, so they are equal. This gives SAS.
+- id: 'q-geometry-triangles-0024'
+  lesson: lesson-geometry-proving-triangle-congruence-from-a-figure
+  keyPoint: 1
+  type: 'which-is-true'
+  difficulty: 'exam'
+  stem: |
+    Diagonal $AC$ divides quadrilateral $ABCD$ into two triangles. The lengths $AB$, $BC$, and $AC$ are all different. If $AB=CD$ and $BC=DA$, which congruence statement pairs all matching vertices in the correct order?
+  choices:
+  - text: '$\triangle ABC\cong\triangle CDA$'
+    correct: true
+  - text: '$\triangle ABC\cong\triangle ADC$'
+    rationale: |
+      This keeps the ends of the diagonal in the same order. Side $AB$ matches $CD$, so $A$ must match $C$ when $B$ matches $D$.
+  - text: '$\triangle ABC\cong\triangle DAC$'
+    rationale: |
+      This pairs $B$ with $A$. Vertex $B$ is where the two given sides meet in the first triangle. They meet at $D$ in the second.
+  - text: '$\triangle ABC\cong\triangle CAD$'
+    rationale: |
+      This pairs the shared side $AC$ with $CD$. Side $AC$ must match itself.
+  explanation: |
+    The triangles share $AC$. The three side pairs are $AB$ with $CD$, $BC$ with $DA$, and $AC$ with $CA$. So $A$, $B$, and $C$ match $C$, $D$, and $A$ in that order.
+- id: 'q-geometry-triangles-0025'
+  lesson: lesson-geometry-proof-of-the-pythagorean-theorem
+  keyPoint: 1
+  type: 'direct-computation'
+  difficulty: 'exam'
+  stem: |
+    Four congruent right triangles sit at the corners of a square of side $a+b$. Each triangle has legs $a$ and $b$ along the sides of the square, and their hypotenuses form the boundary of the central region. What is the area of that region in terms of $a$ and $b$?
+  choices:
+  - text: '$a^2+b^2$'
+    correct: true
+  - text: '$a^2+2ab+b^2$'
+    rationale: |
+      This is the area of the whole outer square. Remove the four corner triangles.
+  - text: '$a^2+ab+b^2$'
+    rationale: |
+      This removes the area of two corner triangles. There are four.
+  - text: '$a^2-2ab+b^2$'
+    rationale: |
+      This removes $4ab$, treating each triangle like a rectangle. Each triangle has only half that area.
+  explanation: |
+    The outer square has area $(a+b)^2=a^2+2ab+b^2$. The four triangles take up $4\cdot\dfrac{1}{2}ab=2ab$. The area left in the middle is $a^2+b^2$.
+- id: 'q-geometry-triangles-0026'
+  lesson: lesson-geometry-proof-of-the-pythagorean-theorem
+  keyPoint: 1
+  type: 'which-is-true'
+  difficulty: 'exam'
+  stem: |
+    Each side of a square is divided into lengths $a$ and $b$, in that order as one travels clockwise. Joining the four division points cuts off four congruent right triangles. What shows that each interior angle of the central quadrilateral is a right angle?
+  choices:
+  - text: 'The two adjacent acute angles sum to $90^\circ$.'
+    correct: true
+  - text: 'The two adjacent acute angles are always equal in measure.'
+    rationale: |
+      The two acute angles of a right triangle can differ. Their sum is what matters.
+  - text: 'The two adjacent acute angles sum to $180^\circ$.'
+    rationale: |
+      The straight angle includes the middle corner as well as both acute angles.
+  - text: 'The four hypotenuses are all equal in length to one another.'
+    rationale: |
+      This makes the central sides equal. Equal sides alone do not force right angles.
+  explanation: |
+    At each mark on the outer square, one angle of each size from the right triangle sits next to the middle corner. The two acute angles add to $90^\circ$. All three angles lie on a straight line. The middle corner takes the other $90^\circ$.
