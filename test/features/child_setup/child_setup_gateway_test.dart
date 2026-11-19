@@ -42,7 +42,7 @@ void main() {
     expect(data, {
       'tick1TextVersion': ChildSetupVersions.tick1,
       'tick2TextVersion': ChildSetupVersions.tick2,
-      'termsVersion': '2026-11-12',
+      'termsVersion': '2026-11-20',
       'childNoticeVersion': ChildSetupVersions.childNotice,
     });
   });

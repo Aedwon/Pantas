@@ -9,6 +9,7 @@ import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/platform/welcome/welcome_handover_providers.dart';
+import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
@@ -381,7 +382,17 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
           onBack: _back,
           onCompleted: () {
             if (_step == OnboardingStep.studyDays) {
-              _setStep(OnboardingStep.name);
+              final child =
+                  ref.read(ageGroupProvider).valueOrNull?.isChild ?? false;
+              final named = ref
+                      .read(onboardingProgressProvider)
+                      .valueOrNull
+                      ?.nameAnswered ??
+                  false;
+              final next = child && named
+                  ? OnboardingStep.reminders
+                  : OnboardingStep.name;
+              _setStep(next);
             }
           },
         );

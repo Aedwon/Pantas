@@ -121,7 +121,7 @@ test('a child cannot buy a non-PSHS product even with the guardian attestation',
 
 test('PSHS checkout requires the current declaration for every age group and binds the child uid', async () => {
   const product = 'pantas_pass_pshs_nce';
-  const checkoutBoxTextVersion = '2026-11-19';
+  const checkoutBoxTextVersion = '2026-11-20';
   const holder = 'gc-pshs-holder';
   for (const group of ['adult', 'minor', 'child', 'unknown']) {
     const uid = `gc-pshs-${group}`; await reset(uid); await consent(uid, group);

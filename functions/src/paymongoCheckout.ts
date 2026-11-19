@@ -17,7 +17,7 @@ import {priceCentavos, webProduct} from './paymongoPolicy.js';
 import {examCatalog, sittingFor, type CatalogExam, type Sitting} from './revenuecatPasses.js';
 import {timed} from './_timed.js';
 
-export const CHECKOUT_BOX_TEXT_VERSION = '2026-11-19'; // T11 synchronizes the published text.
+export const CHECKOUT_BOX_TEXT_VERSION = '2026-11-20';
 const PSHS_NCE_EXAM = 'exam_pshs_nce';
 
 const CHECKOUTS_PER_WINDOW = 10;

@@ -34,21 +34,18 @@ export const GUARDIAN_WINDOW_MS = 7 * 86_400_000;
 const DAY_MS = 86_400_000;
 
 // These identify the published documents and the confirmation page wording.
-// Placeholder date: set to the real publish date in the same release as the
-// new texts, and keep equal to guardianDocumentVersions in the app (spec choice 14).
 export const GUARDIAN_DOCUMENT_VERSIONS = {
-  privacy: '2026-11-12', terms: '2026-11-12', teens: '2026-11-12',
+  privacy: '2026-11-20', terms: '2026-11-20', teens: '2026-11-20',
 } as const;
-export const GUARDIAN_NOTICE_WORDING_VERSION = '2026-11-12';
+export const GUARDIAN_NOTICE_WORDING_VERSION = '2026-11-20';
 
 /**
  * Child account setup (under-13 build, spec B2 rules 4 and 5). The Child Notice has its own version and the
  * two setup ticks have one each. They are kept apart from GUARDIAN_DOCUMENT_VERSIONS on purpose: the teen
- * guardian page sends exactly that map and the server compares every key of it. Placeholder dates, like the
- * ones above: the legal sync (T11) sets one real publish date on every version together with the client twin.
+ * guardian page sends exactly that map and the server compares every key of it. Keep these versions in sync with the client.
  */
-export const CHILD_NOTICE_VERSION = '2026-11-19';
-export const GUARDIAN_TICK_TEXT_VERSIONS = {tick1: '2026-11-19', tick2: '2026-11-19'} as const;
+export const CHILD_NOTICE_VERSION = '2026-11-20';
+export const GUARDIAN_TICK_TEXT_VERSIONS = {tick1: '2026-11-20', tick2: '2026-11-20'} as const;
 /** The document versions recorded as evidence for a child account: the teen set plus the Child Notice. */
 export const CHILD_DOCUMENT_VERSIONS = {...GUARDIAN_DOCUMENT_VERSIONS, child: CHILD_NOTICE_VERSION} as const;
 /** The version of the line the age step shows above the age number. */

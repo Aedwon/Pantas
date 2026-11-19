@@ -162,12 +162,12 @@ final onboardingProgressProvider =
   final savedDays = await (db.select(db.accountPrefs)
         ..where((pref) => pref.key.equals(SettingsPrefKeys.studyDays)))
       .getSingleOrNull();
+  final ageGroup = await preferences.readAgeGroup();
   return OnboardingProgress(
     agePassed: await ref.watch(passedAgeGateProvider.future),
-    minorAwaitingGuardian:
-        (await preferences.readAgeGroup()).entersTeenGuardianFlow,
+    minorAwaitingGuardian: ageGroup.entersTeenGuardianFlow,
     needsGuardianSetup: await preferences.needsGuardianSetup(),
-    policyAccepted: settings.acceptedTermsAt != null,
+    policyAccepted: ageGroup.isChild || settings.acceptedTermsAt != null,
     examPicked: await preferences.selectedExamId() != null,
     dateAnswered: settings.examDate != null ||
         await preferences.deviceValue(onboardingDateAnsweredKey) == 'true',

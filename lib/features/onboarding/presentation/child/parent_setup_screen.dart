@@ -79,8 +79,8 @@ class _ParentSetupScreenState extends ConsumerState<ParentSetupScreen> {
             childUid: result.childUid,
             customToken: result.customToken,
           );
-      ref.read(pendingChildIdProvider.notifier).state = result.childUid;
       if (!mounted) return;
+      ref.read(pendingChildIdProvider.notifier).state = result.childUid;
       final custom = widget.onSetUp;
       if (custom != null) return custom();
       GoRouter.maybeOf(context)?.go(childNoticePath);
@@ -223,7 +223,6 @@ class _ParentSetupScreenState extends ConsumerState<ParentSetupScreen> {
           lead: ChildSetupCopy.tick2Lead,
           link: ChildSetupCopy.tick2Link,
           tail: ChildSetupCopy.tick2Tail,
-          // TODO(T11): the Child Notice document ships with the legal task.
           open: () => _open('/legal/child-notice', widget.onOpenChildNotice),
           onChanged: () => setState(() => _childData = !_childData),
         ),

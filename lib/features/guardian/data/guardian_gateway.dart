@@ -157,7 +157,7 @@ class CallableGuardianGateway implements GuardianGateway {
         'decision': confirm ? 'confirm' : 'decline',
         'agreed': agreed,
         'allowSharing': allowSharing,
-        'documentVersions': guardianDocumentVersions,
+        'documentVersions': teenGuardianDocumentVersions,
         'noticeWordingVersion': guardianNoticeWordingVersion,
       }),
     );

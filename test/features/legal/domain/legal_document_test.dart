@@ -6,7 +6,7 @@ void main() {
     final document = legalDocumentFallbacks['teens'];
     expect(document, isNotNull);
     expect(document!.title, 'Notice for teens');
-    expect(document.updatedAt, DateTime.utc(2026, 11, 11));
+    expect(document.updatedAt, DateTime.utc(2026, 11, 20));
     final text =
         document.sections.map((s) => '${s.heading}\n${s.body}').join('\n');
     expect(text, contains('This notice is for teens ages 13 to 17'));
@@ -96,7 +96,7 @@ void main() {
 
     expect(document, isNotNull);
     expect(document!.title, 'Terms of Service');
-    expect(document.updatedAt, DateTime.utc(2026, 11, 11));
+    expect(document.updatedAt, DateTime.utc(2026, 11, 20));
   });
 
   test('terms fallback includes intellectual property clause', () {

@@ -45,7 +45,6 @@ class UnderThirteenScreen extends ConsumerWidget {
           ChildStepButton(
             kind: ChildStepButtonKind.text,
             label: ChildSetupCopy.underThirteenNotice,
-            // TODO(T11): the Child Notice document ships with the legal task.
             onPressed: onNotice ??
                 () => GoRouter.maybeOf(context)
                     ?.push<void>('/legal/child-notice'),
