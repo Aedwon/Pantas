@@ -52,4 +52,4 @@ $$\dfrac{2\sqrt[3]{2x^2}}{2x}=\dfrac{\sqrt[3]{2x^2}}{x}$$
 
 ### #1: Cube-Root Rationalization
 
-To rationalize $\dfrac1{\sqrt[3]x}$ for nonzero rational $x$, multiply by $\sqrt[3]{x^2}$ so the denominator becomes $x$.
+To rationalize $\dfrac1{\sqrt[3]x}$ for nonzero rational $x$, multiply both the numerator and the denominator by $\sqrt[3]{x^2}$ so the denominator becomes $x$.

@@ -164,4 +164,4 @@ The symbol $\sqrt{25}$ means the principal square root, $5$. But solving $x^2=25
 
 ### #4: Cube-Root Rationalization
 
-To rationalize $\dfrac1{\sqrt[3]x}$ for nonzero rational $x$, multiply by $\sqrt[3]{x^2}$ so the denominator becomes $x$.
+To rationalize $\dfrac1{\sqrt[3]x}$ for nonzero rational $x$, multiply both the numerator and the denominator by $\sqrt[3]{x^2}$ so the denominator becomes $x$.

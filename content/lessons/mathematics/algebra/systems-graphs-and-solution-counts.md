@@ -27,7 +27,7 @@ A system of two lines can have three outcomes:
 
 ## Speed Tricks & Shortcuts
 
-Compare the equations. If multiplying both sides of one equation by the same nonzero number gives the other equation, there are infinitely many solutions. If the left sides match after multiplying but the right sides differ, the lines are parallel and there is no solution.
+Write both equations in $ax + by = c$ form. Then compare them. If multiplying both sides of one equation by the same nonzero number gives the other equation, there are infinitely many solutions. If the left sides match after multiplying but the right sides differ, the lines are parallel and there is no solution.
 
 ## Traps to Watch For
 
