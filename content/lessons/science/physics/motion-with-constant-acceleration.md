@@ -31,7 +31,7 @@ Here $v_0$ is the starting velocity and $v$ is the final velocity. When $a$ is c
 
 "Uniformly" means with constant acceleration.
 
-### #2: Starting from Rest
+### #1: Starting from Rest
 
 A car starts from rest and accelerates uniformly at $4\,\mathrm{m/s^2}$ for $5$ s. Find its final velocity and its displacement.
 
@@ -43,7 +43,7 @@ A car starts from rest and accelerates uniformly at $4\,\mathrm{m/s^2}$ for $5$ 
 
 $$\Delta x=0+\dfrac12(4)(5^2)=50\text{ m}$$
 
-### #3: Starting with a Velocity
+### #2: Starting with a Velocity
 
 A ball has $v_0=2\,\mathrm{m/s}$ and a constant $a=3\,\mathrm{m/s^2}$ for $4$ s. All the motion stays in the positive direction. Find the displacement.
 

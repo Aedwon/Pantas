@@ -14,9 +14,9 @@ keyPoints:
 ---
 ## Core Concept
 
-Each equation leaves out one quantity.
+Each formula in Motion with Constant Acceleration leaves out one quantity.
 
-The first has no $\Delta x$. The second has no $v$. The third has no $t$. The fourth has no $a$.
+Use the formula that leaves out the quantity you do not need. One leaves out $\Delta x$, one leaves out $v$, one leaves out $t$, and one leaves out $a$.
 
 They do not work if the acceleration changes during the motion.
 
@@ -28,7 +28,7 @@ A car moving in the positive direction has $v_0=10\,\mathrm{m/s}$ and $a=2\,\mat
 
 **Solution:**
 
-1. Time is not given, so use the third equation:
+1. Time is not given, so use the equation that leaves out $t$:
 
 $$v^2=10^2+2(2)(60)=340$$
 

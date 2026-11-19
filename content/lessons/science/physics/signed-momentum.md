@@ -19,7 +19,7 @@ keyPoints:
 
 $$\vec p=m\vec v$$
 
-Mass $m$ is in kilograms ($\mathrm{kg}$). Velocity $\vec v$ is in meters per second ($\mathrm{m/s}$). So momentum is in $\mathrm{kg\,m/s}$. The formula assumes the mass stays constant during the motion.
+Mass $m$ is in kilograms ($\mathrm{kg}$). Velocity $\vec v$ is in meters per second ($\mathrm{m/s}$). So momentum is in $\mathrm{kg\,m/s}$.
 
 Momentum is a **vector**. A vector has a size and a direction. Velocity is a vector too, so momentum points the same way as the velocity.
 
@@ -59,4 +59,4 @@ Pick a positive direction and write every velocity with its sign before you add.
 
 > Momentum and impulse are vectors, so signs matter. Kinetic energy is not.
 
-Objects moving in opposite directions can give a total momentum of $0$, as in example #1. For motion along a line, assign signs before adding momenta, as in example #6. Do not give kinetic energies signs, because $v^2$ is never negative.
+Objects moving in opposite directions can give a total momentum of $0$, as in example #1. For motion along a line, assign signs before adding momenta. Do not give kinetic energies signs, because $v^2$ is never negative.

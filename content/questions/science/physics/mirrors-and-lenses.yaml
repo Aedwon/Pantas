@@ -281,27 +281,26 @@ questions:
     approved: true
 
   - id: q-physics-light-and-optics-0028
-    lesson: lesson-physics-converging-and-diverging-lenses
+    lesson: lesson-physics-mirror-and-lens-image-equations
     keyPoint: 2
     type: "predict-outcome"
     difficulty: "medium"
     stem: |
-      A concave glass lens in air has a focal length of magnitude 20 cm. A real object is 20 cm from the lens. Which description fits the image?
+      A thin concave glass lens in air has a focal length of magnitude 20 cm. An object is 20 cm in front of the lens. Which description fits the image?
     choices:
       - text: "Virtual, upright, and half the size of the object"
         correct: true
       - text: "Real, inverted, and half the size of the object"
         rationale: |
-          This has the right size but the wrong type. A concave lens in air spreads light, so it cannot make a real image of a real object. Check that $d_i$ comes out negative.
+          The size is right, but this uses the signs of a real, upside-down image. Check whether $d_i$ is positive or negative.
       - text: "Virtual, upright, and twice the size of the object"
         rationale: |
-          This borrows the magnifying glass result. The type and direction are right. Check that a diverging lens makes a smaller image.
+          An upright virtual image can be larger with a magnifying glass. Check the value of $|m|$ for this diverging lens.
       - text: "Virtual, inverted, and half the size of the object"
         rationale: |
-          This mixes a virtual image with an inverted one. The smaller size is right. Check that a positive $m$ means upright.
+          A negative image distance means virtual. To decide whether the image is upside down, check the sign of $m$.
     explanation: |
-      A concave glass lens in air has $f=-20$ cm. Then $\dfrac{1}{d_i}=-\dfrac{1}{20}-\dfrac{1}{20}=-\dfrac{1}{10}$, so $d_i=-10$ cm. The magnification is $m=-\dfrac{-10}{20}=+0.5$. The image is virtual, upright and half the size.
-    approved: true
+      The focal length is $-20$ cm because the lens diverges. Then $\dfrac{1}{d_i}=-\dfrac{1}{20}-\dfrac{1}{20}=-\dfrac{1}{10}$, so $d_i=-10$ cm. The image is virtual. Its magnification is $m=-\dfrac{-10}{20}=+0.5$, so it is upright and half the size.
 
   - id: q-physics-light-and-optics-0029
     lesson: lesson-physics-optical-instruments-and-vision

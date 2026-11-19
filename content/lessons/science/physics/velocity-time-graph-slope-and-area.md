@@ -50,7 +50,7 @@ $$a=\dfrac{-6-6}{6}=-2\,\mathrm{m/s^2}$$
 4. Displacement: $+9+(-9)=0$ m. The object is back at its start.
 5. Distance: $9+9=18$ m.
 
-<!-- ILLUSTRATION: velocity-time graph, time axis 0 to 6 s, velocity axis -6 to +6 m/s; one straight line from (0, +6) down through (3, 0) to (6, -6); the triangle above the axis shaded +9 m and the triangle below shaded -9 m -->
+<!-- ILLUSTRATION: velocity-time graph with a straight line from 6 m/s at 0 s to -6 m/s at 6 s. Shade the area between the line and the time axis on each side of the crossing. -->
 
 ## Speed Tricks & Shortcuts
 

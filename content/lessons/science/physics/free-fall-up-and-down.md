@@ -21,7 +21,7 @@ keyPoints:
 
 This ignores air resistance. Then all objects fall with the same acceleration, whatever their mass.
 
-For vertical motion we write the position as $y$ and the displacement as $\Delta y$. The equations above work the same way with $y$ in place of $x$.
+For vertical motion we write the position as $y$ and the displacement as $\Delta y$. The formulas in Motion with Constant Acceleration work the same way with $y$ in place of $x$.
 
 If up is positive, $a=-g$. If down is positive, $a=+g$. The acceleration stays the same on the way up, at the top, and on the way down.
 

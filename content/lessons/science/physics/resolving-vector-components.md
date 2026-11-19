@@ -71,7 +71,7 @@ $$F_x=50\sin40^\circ\approx 32.1\,\mathrm N.$$
 
 $$F_y=50\cos40^\circ\approx 38.3\,\mathrm N.$$
 
-Here the formulas are swapped compared with Example #6, because the angle is measured from the vertical.
+Here the formulas are swapped compared with Example #1, because the angle is measured from the vertical.
 
 <!-- ILLUSTRATION: a 50 N arrow pointing up and to the right, a vertical dashed line from its tail with the 40 degree angle between the dashed line and the arrow labeled, and the horizontal component 50 sin 40 and vertical component 50 cos 40 marked -->
 
@@ -81,4 +81,4 @@ Here the formulas are swapped compared with Example #6, because the angle is mea
 
 > $V_x=V\cos\theta$ holds when $\theta$ is measured from the positive $x$-axis.
 
-If the angle is measured from the vertical, the sine and cosine swap, as in Example #7. Draw the triangle and name the opposite and adjacent sides.
+If the angle is measured from the vertical, the sine and cosine swap, as in Example #2. Draw the triangle and name the opposite and adjacent sides.

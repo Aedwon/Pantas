@@ -13,7 +13,6 @@ keyPoints:
 ---
 ## Core Concept
 
-<!-- ILLUSTRATION: force-time graph, time $t$ in s on the horizontal axis from $0$ to $5.0$, force $F$ in N on the vertical axis; the line rises straight from $0\,\mathrm N$ at $t=0$ to $10\,\mathrm N$ at $t=2.0\,\mathrm s$, then stays flat at $10\,\mathrm N$ until $t=5.0\,\mathrm s$; the triangle is shaded and labeled A1, the rectangle is shaded and labeled A2 -->
 ### System and Conservation of Momentum
 
 A **system** is the group of objects you choose to study. Everything else is outside it.
@@ -28,7 +27,7 @@ Here $\vec P_{\text{system}}$ is the vector sum of the momenta of all the object
 
 Internal forces come in pairs of equal size and opposite direction. This is Newton's third law. The two pushes cancel when you add up the system's momentum. So internal forces cannot change the total.
 
-Conservation does not hold when the net external impulse is large. A ball bouncing off a wall is an example. The ball's momentum changes because the wall pushes on it. See example #7.
+Conservation does not hold when the net external impulse is large. A ball bouncing off a wall is an example. The ball's momentum changes because the wall pushes on it. See Example #1.
 
 ## Examples
 
@@ -54,4 +53,4 @@ Choose the system first. Then check that the net external impulse on it is zero 
 
 > Total momentum is conserved only for a system whose net external impulse is zero or negligible.
 
-Two objects colliding on rough ground may lose momentum if friction has a large impulse over a long collision. A ball against a fixed wall is a one-object system with a large external impulse, as example #7 shows.
+Two objects colliding on rough ground may lose momentum if friction has a large impulse over a long collision. A ball against a fixed wall is a one-object system with a large external impulse, as Example #1 shows.

@@ -212,27 +212,26 @@ questions:
       Friction acts along the surface between two touching objects. Kinetic friction acts against the sliding. The box slides right, so the friction on it acts to the left.
 
   - id: q-physics-friction-tension-and-inclines-0004
-    approved: true
     lesson: lesson-physics-static-friction-and-its-limit
     keyPoint: 1
     type: "simple-quantitative"
     difficulty: "medium"
     stem: |
-      A $20\,\mathrm{kg}$ box rests on a level floor. The coefficient of static friction is $\mu_s=0.50$. Use $g=9.8\,\mathrm{m/s^2}$. What is the smallest horizontal push needed to start the box sliding?
+      A $20\,\mathrm{kg}$ box rests on a level floor. The coefficient of static friction is $\mu_s=0.50$. Use $g=9.8\,\mathrm{m/s^2}$. How large is the horizontal push when the box is just on the verge of sliding?
     choices:
       - text: "$98\\,\\mathrm{N}$"
         correct: true
       - text: "$196\\,\\mathrm{N}$"
         rationale: |
-          This uses the weight as the push and leaves out $\mu_s$. The weight is an easy number to find. Check that the push must match $\mu_sN$.
+          This is the weight, which gives the normal force here. Check whether the push must match the normal force or the largest static friction.
       - text: "$10\\,\\mathrm{N}$"
         rationale: |
-          This uses the mass, not the weight, in $\mu_sN$. The mass is given. Check that $N=mg$ on a level floor.
+          Multiplying the mass by $\mu_s$ uses the coefficient but leaves out $g$. Check that the friction formula uses normal force in newtons.
       - text: "$392\\,\\mathrm{N}$"
         rationale: |
-          This divides by $\mu_s$ instead of multiplying. Dividing by a number less than one makes it larger. Check that $f_{s,\max}=\mu_sN$.
+          Dividing by $\mu_s$ gives a larger force. Check whether $f_{s,\max}$ is $N$ divided by the coefficient or multiplied by it.
     explanation: |
-      The floor is level, so $N=mg=20\times9.8=196\,\mathrm{N}$. The largest static friction is $\mu_sN=0.50\times196=98\,\mathrm{N}$. A push above this starts the box sliding.
+      The normal force balances the weight, so $N=20\times9.8=196\,\mathrm{N}$. At the verge of sliding the push matches the largest static friction, $\mu_sN=0.50\times196=98\,\mathrm{N}$.
 
   - id: q-physics-friction-tension-and-inclines-0005
     approved: true
@@ -419,27 +418,26 @@ questions:
       One end of the rope is fixed, and the block hangs from a movable pulley. The block's acceleration is half the acceleration of the free end. So it is $\dfrac{3.0}{2}=1.5\,\mathrm{m/s^2}$.
 
   - id: q-physics-friction-tension-and-inclines-0013
-    approved: true
     lesson: lesson-physics-kinetic-friction-and-angled-pulls
     keyPoint: 1
     type: "predict-outcome"
     difficulty: "exam"
     stem: |
-      A crate slides at constant speed on a level floor when pulled by a horizontal force of $150\,\mathrm{N}$. The pull is then raised to $200\,\mathrm{N}$ on the same crate and floor. Which statement about the kinetic friction and the motion is correct?
+      A crate slides at constant speed on a level floor under a horizontal pull of $150\,\mathrm{N}$. The pull is raised to $200\,\mathrm{N}$ on the same crate and floor. Use the dry-friction model with a constant coefficient of kinetic friction. What happens to the kinetic friction and speed?
     choices:
-      - text: "It stays at $150\\,\\mathrm{N}$, so the crate speeds up."
+      - text: "Friction stays at $150\\,\\mathrm{N}$, and the crate speeds up."
         correct: true
-      - text: "It rises to $200\\,\\mathrm{N}$, so the crate keeps its speed."
+      - text: "Friction rises to $200\\,\\mathrm{N}$, and the crate keeps its speed."
         rationale: |
-          This lets kinetic friction grow to match the pull, as static friction can. Friction does adjust when the crate is at rest. Check that $f_k=\mu_kN$ does not depend on the pull.
-      - text: "It falls below $150\\,\\mathrm{N}$, so the crate speeds up."
+          Static friction can adjust to match a pull. The crate is already sliding, so check what sets kinetic friction.
+      - text: "Friction falls below $150\\,\\mathrm{N}$, and the crate speeds up."
         rationale: |
-          This lets friction drop as the crate moves faster. A faster crate seems to slide more easily. Check that the model has no speed term.
-      - text: "It rises above $200\\,\\mathrm{N}$, so the crate slows down."
+          A crate that goes faster might seem easier to slide. Check whether speed appears in $f_k=\mu_kN$.
+      - text: "Friction rises above $200\\,\\mathrm{N}$, and the crate slows down."
         rationale: |
-          This lets friction keep growing past the pull. A larger push seems to bring a larger resistance. Check that $\mu_k$ and $N$ have not changed.
+          A stronger pull may seem to cause more friction. Check whether the horizontal pull changes the normal force.
     explanation: |
-      Kinetic friction is $f_k=\mu_kN$. The surfaces and the normal force have not changed, so friction stays at $150\,\mathrm{N}$. The net force is $200-150=50\,\mathrm{N}$ forward, so the crate speeds up.
+      At constant speed the forces along the floor balance, so kinetic friction starts at $150\,\mathrm{N}$. The normal force and coefficient stay the same, so friction stays at $150\,\mathrm{N}$. The net force is now $200-150=50\,\mathrm{N}$ forward, so the crate speeds up.
 
   - id: q-physics-friction-tension-and-inclines-0014
     approved: true

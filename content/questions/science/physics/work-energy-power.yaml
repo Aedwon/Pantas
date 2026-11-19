@@ -421,25 +421,24 @@ questions:
   - id: q-physics-work-energy-power-0019
     lesson: lesson-physics-kinetic-and-gravitational-potential-energy
     keyPoint: 2
-    approved: true
     type: "compare-contrast"
     difficulty: "hard"
     stem: |
-      The zero reference for gravitational potential energy is shifted downward by a fixed distance. What happens to predictions of kinetic-energy changes for the same motion?
+      The zero height for gravitational potential energy is moved downward by a fixed distance. What happens to the difference in gravitational potential energy between two fixed positions of the same object?
     choices:
-      - text: "They stay the same because only differences in potential energy matter."
+      - text: "It stays the same because both values rise equally."
         correct: true
-      - text: "They increase because every potential-energy value increases."
+      - text: "It increases because both energy values increase."
         rationale: |
-          This confuses absolute reference values with differences. The listed potential energies do increase. Check final minus initial potential energy.
-      - text: "They decrease because the new zero is lower."
+          Both energy values increase. Check what happens when the same amount is added to both values before you subtract.
+      - text: "It decreases because the zero height is now lower."
         rationale: |
-          This assigns a physical effect to a bookkeeping choice. The reference moved downward. Check the unchanged gravitational force and motion.
-      - text: "They vanish because potential energy is arbitrary."
+          A lower zero changes the height of each position above that zero. Check whether the height difference between the positions changes.
+      - text: "It becomes zero because the reference height can be chosen freely."
         rationale: |
-          This treats an arbitrary zero as no meaningful energy change. The zero is chosen. Check that differences remain fixed.
+          One position can be chosen as the zero. Check whether that makes the other position have zero energy too.
     explanation: |
-      Changing the zero adds the same constant to all potential-energy values. The difference between two positions is unchanged. Predictions using that difference stay the same.
+      Moving the zero down adds the same amount to both energy values. That amount cancels when you subtract, so the difference stays the same.
 
   - id: q-physics-work-energy-power-0020
     lesson: lesson-physics-kinetic-and-gravitational-potential-energy

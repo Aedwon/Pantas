@@ -17,7 +17,7 @@ replacedBy:
 
 Waves can overlap, spread out, and change pitch when something moves. This lesson covers **interference**, **diffraction** and the **Doppler effect**.
 
-This lesson uses wavelength, frequency, wave speed and $v=f\lambda$. Read the Waves and Sound lesson first.
+This lesson uses wavelength, frequency, wave speed and $v=f\lambda$. Read Wave Speed, Frequency, and Wavelength first.
 
 ### Interference and Diffraction
 

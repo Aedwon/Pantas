@@ -27,9 +27,9 @@ Friction, tension and the slope of a surface each change the net force on an obj
 
 In problems, the rope is usually **ideal**: it has no mass and does not stretch. Any pulley is ideal too: it has no mass and no friction. For an ideal rope, the tension is the same all along it.
 
-Two objects tied to the ends of a tight rope have accelerations of the same size, if the rope passes only over fixed pulleys. Over a pulley the directions can differ: one object moves up while the other moves down, so give each its own sign.
+A tight rope that does not stretch keeps the same length. If the rope runs over fixed pulleys and each end moves along its section of rope, the ends travel equal distances. Their accelerations have the same size along those paths. The directions can differ. One block can go up while the other goes down.
 
-A movable pulley changes this. If one end of the rope is fixed and a block hangs from a movable pulley, that block's acceleration is half the acceleration of the free end. A heavy rope or a rough pulley also breaks these rules.
+With one end fixed and two vertical rope sections supporting a movable pulley, the free end travels twice as far as the pulley. The hanging block's acceleration is half as large as the free end's. A heavy rope or a rough pulley can change the tensions without changing these travel rules.
 
 ### Friction
 
@@ -164,7 +164,7 @@ The block accelerates down the slope at $3.2\,\mathrm{m/s^2}$. Here $N$ is $42.4
 
 ### #6: Pulling at an Angle
 
-A $10\,\mathrm{kg}$ box is on a level floor. A rope pulls it with $40\,\mathrm N$ at $30^\circ$ above the horizontal. The coefficient of kinetic friction is $0.20$. Use $g=9.8\,\mathrm{m/s^2}$, $\sin 30^\circ=0.50$, and $\cos 30^\circ=0.866$. Find the acceleration.
+A $10\,\mathrm{kg}$ box is on a level floor. A rope pulls it with $40\,\mathrm N$ at $30^\circ$ above the horizontal. The box is already sliding in the direction of the pull along the floor. The coefficient of kinetic friction is $0.20$. Use $g=9.8\,\mathrm{m/s^2}$, $\sin 30^\circ=0.50$, and $\cos 30^\circ=0.866$. Find the acceleration.
 
 **Solution:**
 
@@ -218,7 +218,7 @@ For static friction, find the friction needed to keep the object still. Then com
 
 When blocks joined by a tight, ideal rope move along one line in the same direction, find the acceleration of the whole group first. Only forces from outside the group count, because the rope forces inside cancel. Then find the tension by applying the second law to one block.
 
-Do not use this over a pulley, where one block moves up and the other moves down. Write the second law for each block, with its own sign for the direction it moves (see example #7).
+Do not use the same-direction shortcut for connected blocks over a pulley, where one block moves up and the other moves down. Write the second law for each block, with its own sign for the direction it moves (see Example #1).
 
 For a block on a slope with angle $\theta$, with no other force perpendicular to the slope, $N=mg\cos\theta$.
 
@@ -234,4 +234,4 @@ A crate at rest with a small push has a small friction force. Do not substitute 
 
 > $T=mg$ holds only when the hanging object has no vertical acceleration.
 
-If the object speeds up or slows down, the tension and the weight differ (see example #4). Write the second law first, then solve for $T$.
+If the object speeds up or slows down, the tension and the weight differ (see Example #1). Write the second law first, then solve for $T$.

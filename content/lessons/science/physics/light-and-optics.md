@@ -55,7 +55,7 @@ $$n_1\sin\theta_1=n_2\sin\theta_2$$
 Use Snell's law to find the direction:
 
 - If $n_2>n_1$, the light slows down and bends **toward the normal**.
-- If $n_2<n_1$, the light speeds up and bends **away from the normal**.
+- If $n_2<n_1$, a transmitted ray speeds up and bends **away from the normal**. Above the critical angle, all the light reflects.
 - If $n_2=n_1$, or the ray travels along the normal ($\theta_1=0$), the direction does not change. The speed still changes if $n_2\ne n_1$.
 
 A wave has a **frequency** $f$, the number of wave crests that pass a point each second, measured in hertz (Hz). It also has a **wavelength** $\lambda$, the distance between two neighboring crests, measured in meters or nanometers (nm, where $1$ nm $=10^{-9}$ m). Wave speed, frequency and wavelength are linked by $v=f\lambda$, from the waves and sound lesson. In the Mirrors and Lenses lesson, $f$ also stands for focal length, so check which one is meant.
@@ -106,7 +106,6 @@ Visible light covers roughly $400$ nm to $700$ nm. Red light has the longest wav
 
 A light ray hits a flat mirror at an angle of incidence of $40^\circ$. Find (a) the angle of reflection, (b) the angle between the incident ray and the mirror surface, and (c) the angle between the incident and reflected rays.
 
-<!-- FIGURE: {"kind": "concept-diagram", "type": "ray-reflection", "labels": ["Incident ray", "Normal line", "Reflected ray"], "angles": ["40°", "?"], "semanticsLabel": "A flat mirror with a normal line. The incident ray makes 40 degrees with the normal. The angle of the reflected ray is not given and is marked with a question mark."} -->
 
 **Solution:**
 
@@ -234,7 +233,7 @@ $$\lambda=\dfrac{c}{f}=\dfrac{3.00\times10^{8}}{1.00\times10^{8}}=3.00\text{ m}$
 
 For reflection, measure angles from the **normal**. If you are given the angle to the surface, subtract it from $90^\circ$.
 
-For refraction, compare $n_1$ and $n_2$. Entering a larger $n$ bends toward the normal. Entering a smaller $n$ bends away. This fails only when the ray travels along the normal or the two $n$ values are equal, because then there is no bend.
+For a ray that passes through a boundary at a slant, compare $n_1$ and $n_2$. A larger $n$ bends the ray toward the normal. A smaller $n$ bends it away. The ray does not bend if it travels along the normal or the two values of $n$ match. When light heads into a smaller $n$ above the critical angle, it reflects back instead of passing through.
 
 In Snell's law, the medium with the larger $n$ has the smaller angle (when the ray is slanted).
 
@@ -254,7 +253,7 @@ A ray $20^\circ$ above a flat mirror surface is $70^\circ$ from the normal. Its 
 
 > A ray changes direction only when it meets the boundary at a slant and the two $n$ values differ.
 
-A ray along the normal keeps its direction but still changes speed and wavelength. The toward-normal and away-from-normal rules also apply only when the ray is slanted.
+A ray along the normal keeps its direction but still changes speed and wavelength. The toward-normal and away-from-normal rules also apply only when the ray is slanted and passes through.
 
 ### #3: Using Total Internal Reflection From the Wrong Side
 

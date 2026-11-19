@@ -49,4 +49,4 @@ For a collision where the objects stick, use $m_1v_1+m_2v_2=(m_1+m_2)v_f$. This 
 
 > Perfectly inelastic means the objects stick together, not that they stop.
 
-The combined object still moves unless the total momentum before was zero. In example #5, the carts keep moving at $3\,\mathrm{m/s}$.
+The combined object still moves unless the total momentum before was zero. In Example #1, the carts keep moving east at $0.8\,\mathrm{m/s}$.

@@ -16,7 +16,7 @@ keyPoints:
 
 A useful special case is two points at the same height. The $\rho gh$ terms cancel. Then the point with the higher speed has the lower static pressure.
 
-This comparison holds only when the stated assumptions hold. Height changes, viscosity, pumps, turbulence, compressibility, and comparing different streamlines can all change the result.
+Use this comparison at equal heights along one streamline. The flow must be steady, keep the same density, and have no internal friction. No device can add or take out energy between the points.
 
 Bernoulli's equation helps explain the pressure around a wing. Do not explain lift by saying air must travel faster over the curved top because that path is longer. Air that splits at the front of the wing does not have to meet again at the back.
 

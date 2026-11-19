@@ -40,7 +40,6 @@ A flat (plane) mirror makes an image that is upright and the same size as the ob
 
 A light ray hits a flat mirror at an angle of incidence of $40^\circ$. Find (a) the angle of reflection, (b) the angle between the incident ray and the mirror surface, and (c) the angle between the incident and reflected rays.
 
-<!-- FIGURE: {"kind": "concept-diagram", "type": "ray-reflection", "labels": ["Incident ray", "Normal line", "Reflected ray"], "angles": ["40°", "?"], "semanticsLabel": "A flat mirror with a normal line. The incident ray makes 40 degrees with the normal. The angle of the reflected ray is not given and is marked with a question mark."} -->
 
 **Solution:**
 

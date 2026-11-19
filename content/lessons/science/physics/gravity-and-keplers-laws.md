@@ -16,7 +16,7 @@ replacedBy:
 
 ### Newton's Law of Universal Gravitation
 
-Every object with mass attracts every other object with mass. Newton's law of universal gravitation gives the magnitude of the force between two point masses (or spherically symmetric bodies treated from their centers):
+Every object with mass attracts every other object with mass. Newton's law of universal gravitation gives the magnitude of the force between two point masses (or nonoverlapping spherically symmetric bodies treated from their centers):
 
 $$F = G\dfrac{m_1 m_2}{r^2}$$
 
@@ -30,7 +30,7 @@ Using the careful observational data collected by Tycho Brahe, Johannes Kepler f
 
 **Kepler's First Law (Law of Ellipses)**: planets orbit the Sun in elliptical paths, with the Sun at one focus of the ellipse. A circle is the special case of an ellipse with zero eccentricity.
 
-**Kepler's Second Law (Law of Equal Areas)**: a line connecting a planet to the Sun sweeps out equal areas in equal time intervals. This means a planet moves faster near perihelion and slower near aphelion.
+**Kepler's Second Law (Law of Equal Areas)**: a line connecting a planet to the Sun sweeps out equal areas in equal time intervals. In a noncircular orbit, this means a planet moves faster near perihelion and slower near aphelion.
 
 **Kepler's Third Law (Harmonic Law)**: for objects orbiting the same dominant central mass, the square of the orbital period $T$ is proportional to the cube of the orbit's **semimajor axis** $a$:
 
@@ -44,7 +44,6 @@ $$T^2 = \dfrac{4\pi^2}{GM}a^3$$
 
 Newton later showed that Kepler's laws follow from gravitational dynamics under the appropriate two-body approximation: Kepler established the empirical orbital patterns, and Newton supplied a dynamical explanation.
 
-<!-- FIGURE: {"kind":"physics-mechanics-diagram","type":"kepler-equal-areas","illustrationKey":"science/physics/gravity-and-keplers-laws#2","orbit":"ellipse","sunPosition":"one focus","interval":"equal time","near":{"arc":"longer","speed":"faster"},"far":{"arc":"shorter","speed":"slower"},"areas":"equal"} -->
 ## Examples
 
 ### #1: Applying the Inverse-Square Law
@@ -62,7 +61,7 @@ $$3^2 = 9$$
 
 ### #2: Comparing Orbital Speed
 
-A planet's orbit is elliptical. At **perihelion** it is closest to the Sun; at **aphelion** it is farthest away. At which point does the planet move faster?
+A planet's orbit is a noncircular ellipse. At **perihelion** it is closest to the Sun; at **aphelion** it is farthest away. At which point does the planet move faster?
 
 
 **Solution:**
@@ -71,6 +70,8 @@ Apply Kepler's second law.
 1. Equal areas must be swept out in equal times.
 2. Near perihelion, the planet must move through a longer arc in the same interval than it does near aphelion.
 3. Therefore the planet moves faster at perihelion and slower at aphelion.
+
+<!-- FIGURE: {"kind":"physics-mechanics-diagram","type":"kepler-equal-areas","illustrationKey":"science/physics/gravity-and-keplers-laws#2","orbit":"ellipse","sunPosition":"one focus","interval":"equal time","near":{"arc":"longer","speed":"faster"},"far":{"arc":"shorter","speed":"slower"},"areas":"equal"} -->
 
 <!-- FIGURE: {"kind":"physics-mechanics-diagram","type":"orbital-speed","illustrationKey":"science/physics/gravity-and-keplers-laws#3","orbit":"ellipse","sunPosition":"one focus","perihelion":{"distance":"near","velocityArrow":"long","speed":"fast"},"aphelion":{"distance":"far","velocityArrow":"short","speed":"slow"}} -->
 ### #3: Applying Kepler's Third Law
@@ -110,7 +111,7 @@ Explain how Kepler's first law changed the older circular-orbit assumption.
 
 For inverse-square problems, multiply the distance by a factor $k$, then divide the force by $k^2$.
 
-For Kepler's second law, remember: closer to the Sun means faster orbital speed; farther means slower.
+In a noncircular orbit, closer to the Sun means faster orbital speed; farther means slower.
 
 For Kepler's third law, remember the exact pair of quantities: **period squared** and **semimajor axis cubed**. When comparing two objects orbiting the same central mass,
 
@@ -132,7 +133,7 @@ A nearly circular orbit can make the offset small, but the geometric statement i
 
 ### #3: Assuming Planets Move at Constant Speed
 
-> Kepler's second law requires varying speed around an elliptical orbit.
+> Kepler's second law requires varying speed around a noncircular elliptical orbit.
 
 The speed is greatest near perihelion and smallest near aphelion.
 

@@ -16,7 +16,7 @@ keyPoints:
 
 ### Newton's Law of Universal Gravitation
 
-Every object with mass attracts every other object with mass. Newton's law of universal gravitation gives the magnitude of the force between two point masses (or spherically symmetric bodies treated from their centers):
+Every object with mass attracts every other object with mass. Newton's law of universal gravitation gives the magnitude of the force between two point masses (or nonoverlapping spherically symmetric bodies treated from their centers):
 
 $$F = G\dfrac{m_1 m_2}{r^2}$$
 

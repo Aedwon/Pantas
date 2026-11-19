@@ -56,22 +56,21 @@ questions:
     type: "simple-quantitative"
     difficulty: "medium"
     stem: |
-      A projectile’s launch components are $12\,\mathrm{m/s}$ horizontally and $5\,\mathrm{m/s}$ upward. What is its initial speed?
+      A projectile has launch components of $12\,\mathrm{m/s}$ horizontally and $5\,\mathrm{m/s}$ upward. Use $v_0=\sqrt{v_{x0}^2+v_{y0}^2}$ to find its initial speed.
     choices:
       - text: "$13\\,\\mathrm{m/s}$"
         correct: true
       - text: "$17\\,\\mathrm{m/s}$"
         rationale: |
-          This adds perpendicular components directly. Both contribute to motion. Check the right-triangle magnitude.
+          Both components matter, but they are at right angles. Check whether the formula adds their sizes or their squares.
       - text: "$7\\,\\mathrm{m/s}$"
         rationale: |
-          This subtracts component magnitudes as though they opposed each other. The components are on different axes. Check their right angle.
+          Subtracting would work for two velocities pointing along the same line in opposite directions. Check the angle between these components.
       - text: "$169\\,\\mathrm{m/s}$"
         rationale: |
-          This reports the sum of component squares without a square root. That sum is an intermediate value. Check speed versus speed squared.
+          The sum of the squares is an intermediate result. Check the last step of the formula to get speed.
     explanation: |
-      Initial speed is the magnitude of the component vector. Thus $v_0=\sqrt{12^2+5^2}=\sqrt{169}=13\,\mathrm{m/s}$.
-    approved: true
+      The speed is the length of the launch velocity vector. Use the two components to get $v_0=\sqrt{12^2+5^2}=\sqrt{169}=13\,\mathrm{m/s}$.
 
   - id: q-physics-two-dimensional-motion-0004
     lesson: lesson-physics-projectile-peaks-and-level-ground-range

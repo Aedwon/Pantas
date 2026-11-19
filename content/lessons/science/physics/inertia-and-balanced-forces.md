@@ -30,4 +30,4 @@ Newton's laws work in an **inertial reference frame**, a viewpoint that is not s
 
 > In an inertial frame, constant velocity means the net force is zero, not that no force acts.
 
-A car at constant speed still has an engine force. That force is canceled by drag and friction. If the opposing forces were absent, no force would be needed.
+A car driving straight at constant speed still has an engine force. That force is canceled by drag and friction. If the opposing forces were absent, no force would be needed.

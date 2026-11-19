@@ -30,7 +30,7 @@ $$a_x=0,\qquad a_y=-g.$$
 
 The minus sign only means "downward", because upward is positive.
 
-Because of this, the horizontal and vertical motions can be solved separately. They are linked by one thing: the **same time** $t$ is used in both. The ball is at one place at one moment.
+In the ideal model, gravity changes only the vertical velocity. So the horizontal and vertical motions can be solved separately. They are linked by one thing: the **same time** $t$ is used in both. The ball is at one place at one moment.
 
 Let the launch point be $(x_0,y_0)$ and the launch velocity have components $v_{x0}$ and $v_{y0}$. A **component** is the part of a velocity along one axis. Then:
 
@@ -40,13 +40,17 @@ $$y=y_0+v_{y0}t-\dfrac12gt^2$$
 
 $$v_x=v_{x0},\qquad v_y=v_{y0}-gt.$$
 
+If the landing-time equation has the form $at^2+bt+c=0$ with $a\ne0$, use the quadratic formula:
+
+$$t=\dfrac{-b\pm\sqrt{b^2-4ac}}{2a}$$
+
 Suppose the launch speed is $v_0$ at angle $\theta$ above the horizontal. Then, from a right triangle:
 
 $$v_{x0}=v_0\cos\theta,\qquad v_{y0}=v_0\sin\theta.$$
 
 For a horizontal launch, $\theta=0^\circ$. So $v_{y0}=0$ and $v_{x0}=v_0$.
 
-<!-- FIGURE: {"kind": "concept-diagram", "type": "vector-components", "magnitude": 20, "angle": 30, "unit": "m/s", "components": {"horizontal": "20 cos 30°", "vertical": "20 sin 30°"}, "semanticsLabel": "A 20 m/s launch velocity vector at 30 degrees resolved into horizontal and vertical components as a right triangle."} -->
+<!-- FIGURE: {"kind": "concept-diagram", "type": "vector-components", "magnitude": 20, "angle": 30, "unit": "m/s", "components": {"horizontal": "v_x0", "vertical": "v_y0"}, "semanticsLabel": "A 20 m/s launch velocity vector at 30 degrees resolved into horizontal and vertical components as a right triangle."} -->
 
 In the ideal model, three things follow:
 
@@ -84,7 +88,7 @@ This acceleration points toward the center of the circle. It is called **centrip
 
 $$a_c=\dfrac{v^2}{r}.$$
 
-At the same radius, a bigger speed means a larger $a_c$. At the same speed, a smaller circle means a larger $a_c$. (At the same angular speed, a smaller circle means a smaller $a_c$. See $a_c=\omega^2r$ below.)
+At the same radius, a bigger speed means a larger $a_c$. At the same speed, a smaller circle means a larger $a_c$. (At the same angular speed, a smaller circle means a smaller $a_c$. See $a_c=\omega^2r$ in Angular Speed and Rotation.)
 
 By Newton's second law, a net force must cause this acceleration. The net force toward the center is
 
@@ -94,7 +98,7 @@ $$F_{\text{net, inward}}=ma_c=\dfrac{mv^2}{r}.$$
 
 Friction needs two terms. The **normal force** $N$ is the push of a surface on the object, at right angles to the surface.
 
-**Static friction** is the friction that stops two surfaces from sliding on each other. It has a largest value, $f_{s,\max}=\mu_sN$, where $\mu_s$ is the **coefficient of static friction**, a number set by the two surfaces. On a level road, $N=mg$.
+**Static friction** is the friction that stops two surfaces from sliding on each other. It has a largest value, $f_{s,\max}=\mu_sN$, where $\mu_s$ is the **coefficient of static friction**, a number set by the two surfaces. On a level road, if weight and the normal force are the only vertical forces, $N=mg$.
 
 When you solve, first find the center. Then take each real force along the line to the center. Count a part toward the center as plus and a part away from the center as minus.
 
@@ -174,11 +178,11 @@ $$\Delta y_{\text{down}}=\dfrac12gt^2=\dfrac12(9.8)(0.50)^2=1.225\,\mathrm m.$$
 
 ### #3: Time, Height, and Range on Level Ground
 
-The projectile from #1 ($20\,\mathrm{m/s}$ at $30^\circ$) lands at its launch height. Neglect air resistance. Find the time to the top, the total flight time, the greatest height, and the range.
+A projectile launched at $20\,\mathrm{m/s}$ and $30^\circ$ above horizontal lands at its launch height. Neglect air resistance. Find the time to the top, the total flight time, the greatest height, and the range.
 
 **Solution:**
 
-1. At the top, $v_y=0$. With $v_{y0}=10\,\mathrm{m/s}$:
+1. Find $v_{x0}=20\cos30^\circ\approx17.3\,\mathrm{m/s}$ and $v_{y0}=20\sin30^\circ=10\,\mathrm{m/s}$. Set $v_y=0$ at the top:
 
 $$0=10-9.8t_{\text{up}}\quad\Rightarrow\quad t_{\text{up}}\approx1.02\,\mathrm s.$$
 
@@ -282,11 +286,11 @@ A $1000$ kg car turns on a level circular road of radius $50$ m at a steady $15\
 
 **Solution:**
 
-1. On a level road, the only horizontal force on the car is static friction from the road, pointing toward the center. It is the net inward force:
+1. Ignore other forces along the road. The only horizontal force on the car is static friction from the road, pointing toward the center. It is the net inward force:
 
 $$f=\dfrac{mv^2}{r}=\dfrac{(1000)(15)^2}{50}=4500\,\mathrm N.$$
 
-2. The largest static friction is $f_{s,\max}=\mu_sN$. On a level road, $N=mg$. The needed friction must not be larger than this:
+2. The largest static friction is $f_{s,\max}=\mu_sN$. With only weight and the normal force acting vertically on this level road, $N=mg$. The needed friction must not be larger than this:
 
 $$\mu_s\ge\dfrac{f}{mg}=\dfrac{4500}{(1000)(9.8)}\approx0.46.$$
 
@@ -333,7 +337,7 @@ Gravity still gives $a_y=-g$. Also, the speed at the top is not zero unless the 
 
 > $R=\dfrac{v_0^2\sin2\theta}{g}$ and "$45^\circ$ gives the longest range" need equal launch and landing heights and no air resistance.
 
-If the ball lands lower, as in #4, use the basic equations. For a launch from a height onto lower ground, the angle for the longest range is less than $45^\circ$, and how much less depends on the height. For #4 it is about $27^\circ$. For landing higher than the launch, it is more than $45^\circ$.
+If the ball lands lower, use the basic equations. The best angle for range is less than $45^\circ$. It is about $27^\circ$ in the cliff example in Projectile Motion at Different Heights. For a higher landing point, it is more than $45^\circ$.
 
 ### #4: Treating Centripetal Force as a Separate Force
 

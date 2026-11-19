@@ -16,11 +16,11 @@ replacedBy:
 
 A **fluid** is a substance that can flow. Liquids and gases are both fluids. This lesson looks at fluids that are moving, mostly water in pipes.
 
-It uses density ($\rho$, mass in one unit of volume), pressure ($P$, force pushing straight into a surface divided by its area, measured in pascals, $\text{Pa}$), and the pressure of a fluid at depth. These are taught in Fluid Statics (Density, Pressure, Pascal's Principle, Buoyancy), so learn that lesson first. The symbol $g$ is the acceleration due to gravity, about $9.8 \text{ m/s}^2$ near Earth's surface.
+It uses density ($\rho$, mass in one unit of volume), pressure ($P$, force pushing straight into a surface divided by its area, measured in pascals, $\text{Pa}$), and the pressure of a fluid at depth. The symbol $g$ is the acceleration due to gravity, about $9.8 \text{ m/s}^2$ near Earth's surface.
 
 ### Continuity: Flow Speed in a Pipe
 
-The **volume flow rate** is the volume of fluid passing a point each second. For a steady flow of an incompressible fluid in a pipe with no leaks, the same volume per second passes each cross-section. The **continuity equation** says:
+The **volume flow rate** is the volume of fluid passing through a cross-section each second. This rate is $Av$. An incompressible fluid keeps the same density. For a steady flow of an incompressible fluid in a pipe with no leaks, the same volume per second passes each cross-section. The **continuity equation** says:
 
 $$A_1 v_1 = A_2 v_2$$
 
@@ -40,11 +40,11 @@ A flow is **nonviscous** when the fluid has no internal friction. **Viscosity** 
 
 A flow is called **ideal** when it is steady, incompressible and nonviscous. If a question says "ideal flow" or "ideal fluid", use continuity and Bernoulli's equation, and apply Bernoulli's equation along one streamline.
 
-For steady, incompressible, nonviscous flow along a streamline, **Bernoulli's equation** links pressure, speed, and height:
+**Bernoulli's equation** links pressure, speed, and height along one streamline in ideal flow. No device can add or take out energy between the points.
 
 $$P + \dfrac{1}{2}\rho v^2 + \rho gh = \text{constant}$$
 
-Here $h$ is the height of the point above any chosen reference level. The equation is an energy balance for the fluid.
+Here $h$ is the height of the point above any chosen reference level. A pump adds energy, so this balance does not apply across a pump.
 
 The term $\dfrac{1}{2}\rho v^2$ is the kinetic energy in each unit of volume. The term $\rho gh$ is the gravitational potential energy in each unit of volume.
 
@@ -54,7 +54,7 @@ $$P_1 + \dfrac{1}{2}\rho v_1^2 + \rho g h_1 = P_2 + \dfrac{1}{2}\rho v_2^2 + \rh
 
 A useful special case is two points at the same height. The $\rho gh$ terms cancel. Then the point with the higher speed has the lower static pressure.
 
-This comparison holds only when the stated assumptions hold. Height changes, viscosity, pumps, turbulence, compressibility, and comparing different streamlines can all change the result.
+Use this comparison at equal heights along one streamline. The flow must be steady, keep the same density, and have no internal friction. No device can add or take out energy between the points.
 
 Bernoulli's equation helps explain the pressure around a wing. Do not explain lift by saying air must travel faster over the curved top because that path is longer. Air that splits at the front of the wing does not have to meet again at the back.
 
@@ -94,7 +94,7 @@ $$P_2 = 1.70 \times 10^5 \text{ Pa}$$
 
 ### #2: Bernoulli When the Height Changes
 
-Water flows steadily through a pipe of constant width that rises $5.0 \text{ m}$ from point $1$ to point $2$. The pressure at point $1$ is $3.00 \times 10^5 \text{ Pa}$. Assume ideal flow (steady, incompressible and nonviscous). Find the pressure at point $2$.
+Water flows steadily through a pipe of constant width that rises $5.0 \text{ m}$ from point $1$ to point $2$. The pressure at point $1$ is $3.00 \times 10^5 \text{ Pa}$. Assume ideal flow on one streamline with no pump or turbine. Find the pressure at point $2$.
 
 **Solution:**
 
@@ -118,7 +118,7 @@ $$P_2 = 2.51 \times 10^5 \text{ Pa}$$
 
 ## Speed Tricks & Shortcuts
 
-For Bernoulli questions, do not rely on "faster means lower pressure" alone. First check that both points are on the same streamline in ideal flow (steady, incompressible, nonviscous). Then check the heights, and keep the $\rho gh$ term if they differ.
+Check for one streamline, ideal flow, and no pump or turbine. If the heights differ, keep the $\rho gh$ term.
 
 ## Traps to Watch For
 

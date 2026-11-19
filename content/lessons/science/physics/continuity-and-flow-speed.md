@@ -16,11 +16,11 @@ keyPoints:
 
 A **fluid** is a substance that can flow. Liquids and gases are both fluids. This lesson looks at fluids that are moving, mostly water in pipes.
 
-It uses density ($\rho$, mass in one unit of volume), pressure ($P$, force pushing straight into a surface divided by its area, measured in pascals, $\text{Pa}$), and the pressure of a fluid at depth. These are taught in Fluid Statics (Density, Pressure, Pascal's Principle, Buoyancy), so learn that lesson first. The symbol $g$ is the acceleration due to gravity, about $9.8 \text{ m/s}^2$ near Earth's surface.
+It uses density ($\rho$, mass in one unit of volume), pressure ($P$, force pushing straight into a surface divided by its area, measured in pascals, $\text{Pa}$), and the pressure of a fluid at depth. The symbol $g$ is the acceleration due to gravity, about $9.8 \text{ m/s}^2$ near Earth's surface.
 
 ### Continuity: Flow Speed in a Pipe
 
-The **volume flow rate** is the volume of fluid passing a point each second. For a steady flow of an incompressible fluid in a pipe with no leaks, the same volume per second passes each cross-section. The **continuity equation** says:
+The **volume flow rate** is the volume of fluid passing through a cross-section each second. This rate is $Av$. An incompressible fluid keeps the same density. For a steady flow of an incompressible fluid in a pipe with no leaks, the same volume per second passes each cross-section. The **continuity equation** says:
 
 $$A_1 v_1 = A_2 v_2$$
 

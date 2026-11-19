@@ -43,7 +43,7 @@ These numbers come from this crate and this floor. For other surface pairs, the 
 
 ### #2: Pulling at an Angle
 
-A $10\,\mathrm{kg}$ box is on a level floor. A rope pulls it with $40\,\mathrm N$ at $30^\circ$ above the horizontal. The coefficient of kinetic friction is $0.20$. Use $g=9.8\,\mathrm{m/s^2}$, $\sin 30^\circ=0.50$, and $\cos 30^\circ=0.866$. Find the acceleration.
+A $10\,\mathrm{kg}$ box is on a level floor. A rope pulls it with $40\,\mathrm N$ at $30^\circ$ above the horizontal. The box is already sliding in the direction of the pull along the floor. The coefficient of kinetic friction is $0.20$. Use $g=9.8\,\mathrm{m/s^2}$, $\sin 30^\circ=0.50$, and $\cos 30^\circ=0.866$. Find the acceleration.
 
 **Solution:**
 

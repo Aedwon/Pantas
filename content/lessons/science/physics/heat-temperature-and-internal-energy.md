@@ -24,19 +24,18 @@ Three ideas are easy to mix up. Keep them apart.
 
 **Heat** ($Q$) is energy that moves from one object to another because of a temperature difference. Heat is energy in transit, not something an object holds. Heat and energy are measured in joules ($\text{J}$).
 
-Heat flows from the higher temperature to the lower temperature. It does not depend on which object has more internal energy. A bathtub of warm water has far more internal energy than a hot cup of tea, yet heat flows from the tea to the bath water if they touch.
+Heat flows from the higher temperature to the lower temperature. The direction depends on temperature. It does not depend on how much internal energy each object has.
 
 ## Examples
 
 ### #1: Heat, Temperature and Internal Energy
 
-A cup holds $0.2\text{ kg}$ of tea at $90°C$. A bathtub holds $100\text{ kg}$ of water at $40°C$. Which has the higher temperature, which has more internal energy, and which way does heat flow if the tea is poured in?
+A cup holds $0.2\text{ kg}$ of tea at $90°C$. A bathtub holds $100\text{ kg}$ of water at $40°C$. Which has the higher temperature, and which way does heat flow if the tea is poured in?
 
 **Solution:**
 
 1. The tea has the higher temperature: $90°C>40°C$.
-2. The bath has far more water, so it has far more internal energy. Compare how much each differs from $0°C$ with $mc\Delta T$. Tea: $0.2\times4186\times90\approx 7.5\times10^{4}\text{ J}$. Bath: $100\times4186\times40\approx 1.7\times10^{7}\text{ J}$.
-3. Heat flows from the higher temperature to the lower temperature, so from the tea into the bath water. The bath's larger internal energy does not change this direction.
+2. Heat flows from the higher temperature to the lower temperature, so it flows from the tea into the bath water.
 
 ## Traps to Watch For
 
@@ -44,16 +43,16 @@ A cup holds $0.2\text{ kg}$ of tea at $90°C$. A bathtub holds $100\text{ kg}$ o
 
 > Heat is energy in transit between objects, not something an object stores.
 
-An object has internal energy and a temperature. After heat has flowed in, the object has more internal energy.
+An object has internal energy and a temperature. If heat flows into the object and no work is done, its internal energy increases.
 
 ### #2: Mixing Up Temperature and Heat
 
 > Heat flow follows the temperature difference, not the amount of internal energy.
 
-A large cool bath has more internal energy than a small hot cup. Heat still flows from the cup to the bath.
+Heat flows from a small hot cup to a large cool bath when the two touch.
 
 ### #3: Mixing Up Heat Flow Direction
 
-> Heat flows by itself from hot to cold. It can be moved from cold to hot only with outside work.
+> Heat flows by itself from hot to cold. Moving heat from cold to hot requires another change.
 
-A refrigerator moves heat out of its cold inside into the warmer kitchen, and it uses electrical work to do it.
+A refrigerator with a compressor uses electrical work to move heat from its cold inside to the warmer kitchen.

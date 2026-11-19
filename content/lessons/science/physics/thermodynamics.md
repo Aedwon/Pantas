@@ -30,7 +30,7 @@ Three ideas are easy to mix up. Keep them apart.
 
 **Heat** ($Q$) is energy that moves from one object to another because of a temperature difference. Heat is energy in transit, not something an object holds. Heat and energy are measured in joules ($\text{J}$).
 
-Heat flows from the higher temperature to the lower temperature. It does not depend on which object has more internal energy. A bathtub of warm water has far more internal energy than a hot cup of tea, yet heat flows from the tea to the bath water if they touch.
+Heat flows from the higher temperature to the lower temperature. The direction depends on temperature. It does not depend on how much internal energy each object has.
 
 Temperature differences are the same in degrees Celsius and in kelvin ($\text{K}$), because $T_K=T_C+273.15$. So $\Delta T$ may be used in either unit. The kelvin scale starts at **absolute zero**, the lowest possible temperature.
 
@@ -44,7 +44,6 @@ Heat can move in three main ways. Real situations often mix them.
 
 **Radiation**: energy travels as electromagnetic waves, so no matter is needed between the objects. Sunlight reaches Earth this way across empty space. Objects at ordinary temperatures also give off radiation, and hotter objects give off more.
 
-<!-- FIGURE: {"kind":"physics-energy-diagram","type":"heat-transfer-triptych","illustrationKey":"science/physics/thermodynamics#1","panels":[{"name":"conduction","scene":"heat through solid metal rod held over flame"},{"name":"convection","scene":"warm fluid rises and cool fluid sinks in heated water"},{"name":"radiation","scene":"wavy arrows from Sun through empty space to Earth"}]} -->
 
 ### Laws of Thermodynamics
 
@@ -62,7 +61,7 @@ where $\Delta U$ is the change in internal energy. If heat leaves the system, $Q
 
 <!-- ILLUSTRATION: gas in a cylinder with a movable piston, an arrow labeled "Q in" at the base and an arrow labeled "W out" at the piston, labeled "ΔU = Q − W" -->
 
-**Second Law**: natural processes have a preferred direction. Heat flows by itself from a hotter body to a colder one, never the other way. A refrigerator does move heat from cold to hot, but it needs outside work to do so.
+**Second Law**: natural processes have a preferred direction. Heat flows by itself from a hotter body to a colder one. To move heat from cold to hot, something else must change too. For example, an electric refrigerator uses work to run its compressor.
 
 **Entropy** is a measure of how many ways the particles of a system can be arranged and share energy. More spread-out energy and more possible arrangements mean higher entropy. The second law also says that the total entropy of an isolated system does not decrease. An **isolated system** exchanges no heat, work, or matter with its surroundings.
 
@@ -88,11 +87,11 @@ A **phase** is a state of matter: solid, liquid, or gas. During melting, freezin
 
 **Latent heat** ($L$) is the energy per kilogram needed to change phase. For mass $m$,
 
-$$Q = mL$$
+$$|Q| = mL$$
 
 Here $L_f$ is the latent heat of **fusion** (melting or freezing), and $L_v$ is the latent heat of **vaporization** (boiling or condensing). For water, $L_f\approx 3.34\times10^{5}\text{ J/kg}$ and $L_v\approx 2.26\times10^{6}\text{ J/kg}$.
 
-Melting and boiling take in energy, so $Q>0$. Freezing and condensing give out the same amount, so $Q<0$. Use $Q=mc\Delta T$ for the parts where the temperature changes, and $Q=mL$ for the part where the phase changes. The two are added.
+Melting and boiling take in energy, so $Q>0$. Freezing and condensing give out the same amount, so $Q<0$. Use $Q=mc\Delta T$ for the parts where the temperature changes, and $|Q|=mL$ for the part where the phase changes. Give each stage the right sign before adding.
 
 <!-- ILLUSTRATION: heating curve graph, temperature on the vertical axis from -10 °C to 20 °C, heat added on the horizontal axis; sloped segment from -10 °C to 0 °C labeled "ice warms", flat segment at 0 °C labeled "ice melts", sloped segment from 0 °C to 20 °C labeled "water warms" -->
 
@@ -110,15 +109,16 @@ Identify the main mechanism in each case: (a) the handle of a pan gets hot becau
 
 Cases (a) to (c) may involve other mechanisms too. Each answer names the main one described.
 
+<!-- FIGURE: {"kind":"physics-energy-diagram","type":"heat-transfer-triptych","illustrationKey":"science/physics/thermodynamics#1","panels":[{"name":"conduction","scene":"heat through solid metal rod held over flame"},{"name":"convection","scene":"warm fluid rises and cool fluid sinks in heated water"},{"name":"radiation","scene":"wavy arrows from Sun through empty space to Earth"}]} -->
+
 ### #2: Heat, Temperature and Internal Energy
 
-A cup holds $0.2\text{ kg}$ of tea at $90°C$. A bathtub holds $100\text{ kg}$ of water at $40°C$. Which has the higher temperature, which has more internal energy, and which way does heat flow if the tea is poured in?
+A cup holds $0.2\text{ kg}$ of tea at $90°C$. A bathtub holds $100\text{ kg}$ of water at $40°C$. Which has the higher temperature, and which way does heat flow if the tea is poured in?
 
 **Solution:**
 
 1. The tea has the higher temperature: $90°C>40°C$.
-2. The bath has far more water, so it has far more internal energy. Compare how much each differs from $0°C$ with $mc\Delta T$. Tea: $0.2\times4186\times90\approx 7.5\times10^{4}\text{ J}$. Bath: $100\times4186\times40\approx 1.7\times10^{7}\text{ J}$.
-3. Heat flows from the higher temperature to the lower temperature, so from the tea into the bath water. The bath's larger internal energy does not change this direction.
+2. Heat flows from the higher temperature to the lower temperature, so it flows from the tea into the bath water.
 
 ### #3: Applying the Zeroth Law
 
@@ -234,7 +234,7 @@ The melting step needs most of the energy, although the temperature does not cha
 
 ### #11: A Fair Test of Specific Heat
 
-A student heats $0.20\text{ kg}$ of water and $0.20\text{ kg}$ of cooking oil, both starting at $25°C$. Identical heaters run for the same time. The water ends at $32°C$ and the oil at $40°C$. Name the variable the student changes, the variable measured, and two variables kept the same. Which liquid has the larger specific heat?
+A student heats $0.20\text{ kg}$ of water and $0.20\text{ kg}$ of cooking oil, both starting at $25°C$. Identical heaters run for the same time, and each liquid takes in the same amount of heat. The water ends at $32°C$ and the oil at $40°C$. Name the variable the student changes, the variable measured, and two variables kept the same. Which liquid has the larger specific heat?
 
 **Solution:**
 
@@ -252,7 +252,7 @@ To name a mechanism, ask what carries the energy: touching particles (conduction
 
 Before a first-law problem, write the sign rule: $Q>0$ for heat in, $W>0$ for work done by the system, and $\Delta U=Q-W$. This works when the question uses that convention.
 
-For a temperature change in one phase, use $Q=mc\Delta T$. If the temperature stays constant during a phase change, use $Q=mL$. If both happen, split the problem into stages and add the heats.
+For a temperature change in one phase, use $Q=mc\Delta T$. If the temperature stays constant during a phase change, use $|Q|=mL$. If both happen, give each stage the right sign before adding.
 
 To compare materials, ask which variables are the same. If $Q$ and $m$ are equal, the smaller $c$ gives the larger $\Delta T$.
 
@@ -262,19 +262,19 @@ To compare materials, ask which variables are the same. If $Q$ and $m$ are equal
 
 > Heat is energy in transit between objects, not something an object stores.
 
-An object has internal energy and a temperature. After heat has flowed in, the object has more internal energy.
+An object has internal energy and a temperature. If heat flows into the object and no work is done, its internal energy increases.
 
 ### #2: Mixing Up Temperature and Heat
 
 > Heat flow follows the temperature difference, not the amount of internal energy.
 
-A large cool bath has more internal energy than a small hot cup. Heat still flows from the cup to the bath.
+Heat flows from a small hot cup to a large cool bath when the two touch.
 
 ### #3: Using $Q=mc\Delta T$ Across a Phase Change
 
 > During melting or boiling, energy goes in while the temperature stays constant.
 
-Use $Q=mL$ for that part. A problem that crosses a phase change needs both formulas.
+Use $|Q|=mL$ for that part. Give $Q$ the sign for heat entering or leaving. A problem that crosses a phase change needs both formulas.
 
 ### #4: Thinking Convection Is Only "Hot Rises"
 
@@ -284,9 +284,9 @@ Natural convection often shows warm fluid rising, but forced convection does not
 
 ### #5: Mixing Up Heat Flow Direction
 
-> Heat flows by itself from hot to cold. It can be moved from cold to hot only with outside work.
+> Heat flows by itself from hot to cold. Moving heat from cold to hot requires another change.
 
-A refrigerator moves heat out of its cold inside into the warmer kitchen, and it uses electrical work to do it.
+A refrigerator with a compressor uses electrical work to move heat from its cold inside to the warmer kitchen.
 
 ### #6: Reading the Sign of Work Wrongly
 
@@ -304,4 +304,4 @@ Some substances can keep a leftover entropy at very low temperature. Do not appl
 
 > Temperature change depends on $\dfrac{Q}{mc}$, not on $c$ alone.
 
-A smaller $c$ gives a larger $\Delta T$ only when the heat and the mass are the same.
+With the same absorbed heat and mass, you can compare by $c$ alone. The smaller $c$ gives the larger rise in temperature.

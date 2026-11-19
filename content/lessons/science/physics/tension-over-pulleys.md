@@ -14,9 +14,9 @@ keyPoints:
 ---
 ## Core Concept
 
-Two objects tied to the ends of a tight rope have accelerations of the same size, if the rope passes only over fixed pulleys. Over a pulley the directions can differ: one object moves up while the other moves down, so give each its own sign.
+A tight rope that does not stretch keeps the same length. If the rope runs over fixed pulleys and each end moves along its section of rope, the ends travel equal distances. Their accelerations have the same size along those paths. The directions can differ. One block can go up while the other goes down.
 
-A movable pulley changes this. If one end of the rope is fixed and a block hangs from a movable pulley, that block's acceleration is half the acceleration of the free end. A heavy rope or a rough pulley also breaks these rules.
+With one end fixed and two vertical rope sections supporting a movable pulley, the free end travels twice as far as the pulley. The hanging block's acceleration is half as large as the free end's. A heavy rope or a rough pulley can change the tensions without changing these travel rules.
 
 ## Examples
 
@@ -51,4 +51,4 @@ The tension is $23.52\,\mathrm N$, between the two weights. The acceleration is 
 
 ## Speed Tricks & Shortcuts
 
-Do not use this over a pulley, where one block moves up and the other moves down. Write the second law for each block, with its own sign for the direction it moves (see example #7).
+Do not use the same-direction shortcut for connected blocks over a pulley, where one block moves up and the other moves down. Write the second law for each block, with its own sign for the direction it moves (see Example #1).

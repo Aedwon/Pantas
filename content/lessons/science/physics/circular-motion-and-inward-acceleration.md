@@ -21,7 +21,7 @@ This acceleration points toward the center of the circle. It is called **centrip
 
 $$a_c=\dfrac{v^2}{r}.$$
 
-At the same radius, a bigger speed means a larger $a_c$. At the same speed, a smaller circle means a larger $a_c$. (At the same angular speed, a smaller circle means a smaller $a_c$. See $a_c=\omega^2r$ below.)
+At the same radius, a bigger speed means a larger $a_c$. At the same speed, a smaller circle means a larger $a_c$. (At the same angular speed, a smaller circle means a smaller $a_c$. See $a_c=\omega^2r$ in Angular Speed and Rotation.)
 
 Without an inward net force, the object would not turn. It would move in a straight line along the tangent, the line touching the circle where the object is.
 

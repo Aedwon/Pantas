@@ -49,4 +49,4 @@ The tension equals the weight only when the lamp is not accelerating up or down.
 
 > $T=mg$ holds only when the hanging object has no vertical acceleration.
 
-If the object speeds up or slows down, the tension and the weight differ (see example #4). Write the second law first, then solve for $T$.
+If the object speeds up or slows down, the tension and the weight differ (see Example #1). Write the second law first, then solve for $T$.

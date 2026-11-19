@@ -18,7 +18,7 @@ keyPoints:
 
 A **prefix** goes in front of a unit and multiplies it by a power of $10$. A **power of $10$** such as $10^3$ means $10 \times 10 \times 10 = 1000$. A negative power such as $10^{-2}$ means $\dfrac{1}{10^2} = 0.01$.
 
-**Scientific notation** writes a number as $a \times 10^n$, where $a$ is at least $1$ and less than $10$, and $n$ is an integer, such as $3$, $0$ or $-6$. For example, $4.5 \times 10^{-6}$ is in scientific notation, but $45 \times 10^{-7}$ is not, because $45$ is not less than $10$.
+**Scientific notation** writes a nonzero number as $a \times 10^n$, where $1\le |a|<10$, and $n$ is an integer, such as $3$, $0$ or $-6$. For example, $4.5 \times 10^{-6}$ is in scientific notation, but $45 \times 10^{-7}$ is not, because $45$ is not less than $10$.
 
 - giga ($\text{G}$): $10^9$
 - mega ($\text{M}$): $10^6$

@@ -20,11 +20,11 @@ A **phase** is a state of matter: solid, liquid, or gas. During melting, freezin
 
 **Latent heat** ($L$) is the energy per kilogram needed to change phase. For mass $m$,
 
-$$Q = mL$$
+$$|Q| = mL$$
 
 Here $L_f$ is the latent heat of **fusion** (melting or freezing), and $L_v$ is the latent heat of **vaporization** (boiling or condensing). For water, $L_f\approx 3.34\times10^{5}\text{ J/kg}$ and $L_v\approx 2.26\times10^{6}\text{ J/kg}$.
 
-Melting and boiling take in energy, so $Q>0$. Freezing and condensing give out the same amount, so $Q<0$. Use $Q=mc\Delta T$ for the parts where the temperature changes, and $Q=mL$ for the part where the phase changes. The two are added.
+Melting and boiling take in energy, so $Q>0$. Freezing and condensing give out the same amount, so $Q<0$. Use $Q=mc\Delta T$ for the parts where the temperature changes, and $|Q|=mL$ for the part where the phase changes. Give each stage the right sign before adding.
 
 <!-- ILLUSTRATION: heating curve graph, temperature on the vertical axis from -10 °C to 20 °C, heat added on the horizontal axis; sloped segment from -10 °C to 0 °C labeled "ice warms", flat segment at 0 °C labeled "ice melts", sloped segment from 0 °C to 20 °C labeled "water warms" -->
 
@@ -66,7 +66,7 @@ The melting step needs most of the energy, although the temperature does not cha
 
 ## Speed Tricks & Shortcuts
 
-For a temperature change in one phase, use $Q=mc\Delta T$. If the temperature stays constant during a phase change, use $Q=mL$. If both happen, split the problem into stages and add the heats.
+For a temperature change in one phase, use $Q=mc\Delta T$. If the temperature stays constant during a phase change, use $|Q|=mL$. If both happen, give each stage the right sign before adding.
 
 ## Traps to Watch For
 
@@ -74,4 +74,4 @@ For a temperature change in one phase, use $Q=mc\Delta T$. If the temperature st
 
 > During melting or boiling, energy goes in while the temperature stays constant.
 
-Use $Q=mL$ for that part. A problem that crosses a phase change needs both formulas.
+Use $|Q|=mL$ for that part. Give $Q$ the sign for heat entering or leaving. A problem that crosses a phase change needs both formulas.

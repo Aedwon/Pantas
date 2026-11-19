@@ -104,7 +104,7 @@ If one part of a series circuit fails open (breaks, leaving a gap), the only pat
 
 ### Electric Power, Energy, and Safety
 
-**Power** is energy used per second, in watts ($\mathrm{W}$):
+**Power** is energy used per second, in watts ($\mathrm{W}$). For steady direct current:
 
 $$P=IV$$
 
@@ -132,15 +132,15 @@ The field strength is $B$. Its unit is the tesla ($\mathrm{T}$). One tesla pushe
 
 $$\Phi=BA\cos\theta$$
 
-Here $A$ is the loop area. The angle $\theta$ is between the field and the line perpendicular (at a right angle) to the loop. The unit is the weber, and $1\ \mathrm{Wb}=1\ \mathrm{T\cdot m^2}$.
+Here $A$ is the loop area. Choose one direction perpendicular to the loop as its normal. The angle $\theta$ is measured from this normal to the field. The unit is the weber, and $1\ \mathrm{Wb}=1\ \mathrm{T\cdot m^2}$.
 
-This works for a flat loop in an even field. Flux is largest when the field is perpendicular to the loop ($\theta=0^\circ$). It is zero when the field runs along the loop ($\theta=90^\circ$).
+This works for a flat loop in an even field. The flux has its largest magnitude when the field is perpendicular to the loop ($\theta=0^\circ$ or $180^\circ$). It is zero when the field runs along the loop ($\theta=90^\circ$).
 
 The **cosine** ($\cos$) of an angle is a number that depends on the angle. From $0^\circ$ to $90^\circ$, it falls from $\cos0^\circ=1$ to $\cos90^\circ=0$. At $\theta=0^\circ$, then, $\Phi=BA$.
 
 An **emf** (electromotive force) is a voltage made by a source, in volts. A battery has an emf.
 
-Another way to make an emf is to change the flux through a loop. We say the emf is **induced**, which means it is made by the changing flux. This is not the charging by induction above.
+Another way to make an emf is to change the flux through a loop. We say the emf is **induced**, which means it is made by the changing flux. This is not the charging described in Electric Induction and Polarization.
 
 **Faraday's law** says a change in flux over time induces an emf in a loop of $N$ turns (the wire goes around $N$ times):
 
@@ -150,7 +150,7 @@ This gives the average emf over the time $\Delta t$. The flux can change if $B$,
 
 **Lenz's law** gives the sign. The induced current makes a magnetic field that opposes the change in flux.
 
-If the flux grows, the induced field points against the original field. If the flux shrinks, it points the same way.
+If the field stays perpendicular to the loop and keeps pointing the same way, look at the size of the flux. If it grows, the induced field points against the original field. If it shrinks, the induced field points the same way as the original field.
 
 An emf appears even in an open loop. Current flows only if the loop is a closed conductor.
 
@@ -285,7 +285,7 @@ Two bulbs are in series. In a separate circuit, two bulbs are in parallel. One b
 
 ### #10: Power, Energy, and Efficiency
 
-A heater is rated $1{,}100$ W on a $220$ V supply. Find its current and the energy it uses in $3$ hours. Another device takes in $500$ J and gives out $400$ J of useful energy. Find its efficiency.
+A heater is rated $1{,}100$ W on a $220$ V DC supply. Find its current and the energy it uses in $3$ hours. Another device takes in $500$ J and gives out $400$ J of useful energy. Find its efficiency.
 
 **Solution:**
 
@@ -335,7 +335,7 @@ The north pole of a bar magnet moves toward a closed loop. Which way does the in
 2. The loop opposes this by making a field through it that points back toward the magnet. So the near face acts as a north pole.
 3. Use the loop rule. Point your right thumb toward the magnet, which is toward you as you look at the loop. Your fingers curl counterclockwise.
 4. So the current is counterclockwise as seen from the magnet.
-5. If the magnet moves away, the flux shrinks, so the current reverses to clockwise.
+5. If the magnet moves away, the size of the flux shrinks, so the current reverses to clockwise.
 
 ### #14: Generator
 
@@ -367,7 +367,7 @@ $$\dfrac{28.8}{36}\times100\%=80\%$$
 
 ### #16: Fuse and Overload
 
-A $220$ V line has a $10$ A fuse. A heater of $1{,}100$ W and an iron of $1{,}000$ W run on it together. A kettle of $600$ W is then plugged in. What happens, and why?
+A $220$ V DC line has a $10$ A fuse. Assume the ideal fuse opens as soon as the current goes above $10$ A. A heater of $1{,}100$ W and an iron of $1{,}000$ W run on it together. A kettle of $600$ W is then plugged in. What happens, and why?
 
 **Solution:**
 
@@ -384,7 +384,7 @@ This is below $10$ A, so the fuse stays closed.
 
 $$I=\dfrac{2700}{220}\approx12.3\ \mathrm{A}$$
 
-4. This is more than $10$ A, so the fuse opens and stops the current. This keeps the wires from overheating.
+4. This is more than $10$ A, so the ideal fuse opens and stops the current. This keeps the wires from overheating.
 
 ## Speed Tricks & Shortcuts
 
@@ -418,7 +418,7 @@ Do not add the resistances. Check that the answer is smaller than the smallest b
 
 > The induced effect opposes the change in flux, not the flux itself.
 
-If the flux shrinks, the induced field points the same way as the original field. If the flux grows, it points the other way.
+If the original field stays perpendicular to the loop and keeps its direction, check the size of the flux. If it shrinks, the induced field points the same way as the original field. If it grows, the induced field points the other way.
 
 ### #5: Saying Any Changing Field Makes Current
 

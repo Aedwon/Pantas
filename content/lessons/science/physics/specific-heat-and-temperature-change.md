@@ -38,7 +38,7 @@ $$Q=(2)(4186)(10)=83{,}720\text{ J}$$
 
 ### #2: A Fair Test of Specific Heat
 
-A student heats $0.20\text{ kg}$ of water and $0.20\text{ kg}$ of cooking oil, both starting at $25°C$. Identical heaters run for the same time. The water ends at $32°C$ and the oil at $40°C$. Name the variable the student changes, the variable measured, and two variables kept the same. Which liquid has the larger specific heat?
+A student heats $0.20\text{ kg}$ of water and $0.20\text{ kg}$ of cooking oil, both starting at $25°C$. Identical heaters run for the same time, and each liquid takes in the same amount of heat. The water ends at $32°C$ and the oil at $40°C$. Name the variable the student changes, the variable measured, and two variables kept the same. Which liquid has the larger specific heat?
 
 **Solution:**
 
@@ -60,4 +60,4 @@ To compare materials, ask which variables are the same. If $Q$ and $m$ are equal
 
 > Temperature change depends on $\dfrac{Q}{mc}$, not on $c$ alone.
 
-A smaller $c$ gives a larger $\Delta T$ only when the heat and the mass are the same.
+With the same absorbed heat and mass, you can compare by $c$ alone. The smaller $c$ gives the larger rise in temperature.

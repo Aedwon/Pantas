@@ -21,7 +21,7 @@ Pressure is higher at the bottom of an object in a fluid than at the top. This d
 
 $$F_B = \rho_{fluid}\, g\, V_{displaced}$$
 
-Look at what this formula uses. It uses the density of the fluid, not the density of the object. The buoyant force equals the object's own weight when the object is at rest and only these two forces act on it, as when it floats freely. If a string, a scale, or a hand also pulls on the object, the two forces are not equal (see Example #7).
+Look at what this formula uses. It uses the density of the fluid, not the density of the object. The buoyant force equals the object's own weight when the object is at rest and only these two forces act on it, as when it floats freely. If the object is at rest and other forces add up to an upward or downward push or pull, the buoyant force and weight differ. See Apparent Weight in a Fluid.
 
 ## Examples
 

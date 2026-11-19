@@ -5997,9 +5997,9 @@
   ],
   "lesson-physics-rope-tension-in-hanging-loads": [
    {
-    "lesson": "lesson-physics-inertia-and-balanced-forces",
+    "lesson": "lesson-physics-drawing-free-body-diagrams",
     "strength": "required",
-    "reason": "This lesson uses Newton's second law, weight, the normal force and free-body diagrams in every example, and only the dynamics lesson teaches them."
+    "reason": "Use force diagrams and Newton's second law to solve for tension."
    }
   ],
   "lesson-physics-tension-between-connected-blocks": [
@@ -6053,9 +6053,9 @@
   ],
   "lesson-physics-wave-interference-and-path-difference": [
    {
-    "lesson": "lesson-physics-wave-period-wavelength-and-amplitude",
+    "lesson": "lesson-physics-wave-speed-frequency-and-wavelength",
     "strength": "required",
-    "reason": "The lesson uses wavelength, frequency, wave speed and v = f times wavelength without defining them, and the waves lesson teaches them. It tells the student to read that lesson first."
+    "reason": "Use wave speed and frequency to find wavelength."
    }
   ],
   "lesson-physics-diffraction-at-edges-and-openings": [
@@ -6176,6 +6176,11 @@
     "lesson": "lesson-physics-curved-mirrors-and-image-types",
     "strength": "required",
     "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-physics-refraction-and-snells-law",
+    "strength": "required",
+    "reason": "Use the index of refraction to explain how a lens bends light."
    }
   ],
   "lesson-physics-mirror-and-lens-image-equations": [

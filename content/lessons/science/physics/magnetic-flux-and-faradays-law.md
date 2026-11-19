@@ -18,15 +18,15 @@ keyPoints:
 
 $$\Phi=BA\cos\theta$$
 
-Here $A$ is the loop area. The angle $\theta$ is between the field and the line perpendicular (at a right angle) to the loop. The unit is the weber, and $1\ \mathrm{Wb}=1\ \mathrm{T\cdot m^2}$.
+Here $A$ is the loop area. Choose one direction perpendicular to the loop as its normal. The angle $\theta$ is measured from this normal to the field. The unit is the weber, and $1\ \mathrm{Wb}=1\ \mathrm{T\cdot m^2}$.
 
-This works for a flat loop in an even field. Flux is largest when the field is perpendicular to the loop ($\theta=0^\circ$). It is zero when the field runs along the loop ($\theta=90^\circ$).
+This works for a flat loop in an even field. The flux has its largest magnitude when the field is perpendicular to the loop ($\theta=0^\circ$ or $180^\circ$). It is zero when the field runs along the loop ($\theta=90^\circ$).
 
 The **cosine** ($\cos$) of an angle is a number that depends on the angle. From $0^\circ$ to $90^\circ$, it falls from $\cos0^\circ=1$ to $\cos90^\circ=0$. At $\theta=0^\circ$, then, $\Phi=BA$.
 
 An **emf** (electromotive force) is a voltage made by a source, in volts. A battery has an emf.
 
-Another way to make an emf is to change the flux through a loop. We say the emf is **induced**, which means it is made by the changing flux. This is not the charging by induction above.
+Another way to make an emf is to change the flux through a loop. We say the emf is **induced**, which means it is made by the changing flux. This is not the charging described in Electric Induction and Polarization.
 
 **Faraday's law** says a change in flux over time induces an emf in a loop of $N$ turns (the wire goes around $N$ times):
 

@@ -194,22 +194,21 @@ questions:
     type: "cause-effect"
     difficulty: "medium"
     stem: |
-      Two speakers in phase play a 686 Hz tone in air where sound travels at 343 m/s. A listener is 4.00 m from speaker A and 4.25 m from speaker B in open space. What does the listener hear?
+      Two speakers in phase play a 686 Hz tone in air where sound travels at 343 m/s. A listener in open space is 4.00 m from speaker A and 4.25 m from speaker B. How do the sound waves combine at the listener?
     choices:
-      - text: "A quiet sound, because the path difference is half a wavelength"
+      - text: "They weaken each other because the path difference is half a wavelength."
         correct: true
-      - text: "A loud sound, because the path difference is half a wavelength"
+      - text: "They strengthen each other because the path difference is half a wavelength."
         rationale: |
-          This has the correct path difference but the wrong result. A half wavelength puts a crest against a trough. Check what happens when they meet.
-      - text: "A quiet sound, because the path difference is one wavelength"
+          Half a wavelength is the right path difference. Check whether it lines up two crests or a crest and a trough.
+      - text: "They weaken each other because the path difference is one wavelength."
         rationale: |
-          This has the correct result but the wrong reason. The wavelength is $\dfrac{343}{686}=0.50$ m, so $0.25$ m is not one wavelength. Check the wavelength first.
-      - text: "A loud sound, because the path difference is one wavelength"
+          The waves do weaken each other. Check the wavelength with $\lambda=\dfrac{343}{686}$ before naming the path difference.
+      - text: "They strengthen each other because the path difference is one wavelength."
         rationale: |
-          A path difference of one full wavelength really does give a loud sound, so the rule looks right. But the path difference here is $0.25$ m and the wavelength is $0.50$ m, so it is not a full wavelength. Check the ratio of the two.
+          A full wavelength would line up the crests and make the sound stronger. Check whether 0.25 m is a full wavelength.
     explanation: |
-      First find the wavelength. $\lambda=\dfrac{v}{f}=\dfrac{343}{686}=0.50$ m. The path difference is $4.25-4.00=0.25$ m, which is $\dfrac{\lambda}{2}$. Crest meets trough, so the waves cancel and the sound is quiet.
-    approved: true
+      The wavelength is $\dfrac{343}{686}=0.50$ m. The path difference is $4.25-4.00=0.25$ m, or half a wavelength. A crest meets a trough, so the waves weaken each other.
 
   - id: q-physics-waves-and-sound-0025
     lesson: lesson-physics-diffraction-at-edges-and-openings
@@ -378,22 +377,21 @@ questions:
     type: "classify"
     difficulty: "hard"
     stem: |
-      Which observation about light is evidence that light behaves as a wave?
+      Two light waves are polarized in the same direction and have equal amplitudes at a point. At one instant, a crest of one wave meets a trough of the other. What is the net electric field at that point?
     choices:
-      - text: "Light shows interference and diffraction"
+      - text: "It is zero."
         correct: true
-      - text: "Light travels in straight lines in air"
+      - text: "It is twice the peak field of either wave."
         rationale: |
-          This is easy to see in daily life. Straight-line travel is also how rays are drawn. Check whether the observation needs waves to explain it.
-      - text: "Light reflects from a smooth surface"
+          Two waves can give twice the amplitude when their crests meet. Check whether both waves are at a crest here.
+      - text: "It equals the peak field of either wave."
         rationale: |
-          Reflection happens to waves, so it seems to count. Many other things reflect, such as a ball. Check whether the observation is special to waves.
-      - text: "Light moves faster than sound in air"
+          Keeping one amplitude may seem right if the waves pass through each other. Check the sum of their effects at that point.
+      - text: "It is half the peak field of either wave."
         rationale: |
-          This compares two speeds. Light is being compared with sound, a known wave, so it can seem to show wave behavior. But a fast speed is not specific to waves. Check whether the observation shows adding or spreading.
+          Dividing by two might seem natural when two waves overlap. Check whether the two wave values should be averaged or added.
     explanation: |
-      Interference and diffraction are wave behaviors. Light shows both, so these observations are evidence that it behaves as a wave.
-    approved: true
+      The crest and trough are equal in size and have opposite signs. The two electric fields add to zero at that point.
 
   - id: q-physics-waves-and-sound-0033
     lesson: lesson-physics-diffraction-at-edges-and-openings
@@ -424,22 +422,21 @@ questions:
     type: "simple-quantitative"
     difficulty: "exam"
     stem: |
-      Two speakers in phase play a 170 Hz tone in open air where sound travels at 340 m/s. A listener is 10.0 m from speaker A. At which distance from speaker B does the listener hear a quiet sound?
+      Two speakers in phase play a 170 Hz tone in open air where sound travels at 340 m/s. A listener is 10.0 m from speaker A. At which distance from speaker B do the waves interfere destructively?
     choices:
       - text: "11.0 m"
         correct: true
       - text: "12.0 m"
         rationale: |
-          Unequal distances make canceling seem likely, so any path difference seems to work. The path difference is $2.0$ m, which is one wavelength. A whole wavelength gives a loud sound. Check the wavelength, $\lambda=2.0$ m, first.
+          A 2.0 m path difference is one wavelength, which puts crests together. Check for an odd number of half wavelengths.
       - text: "10.5 m"
         rationale: |
-          The path difference is $0.5$ m, which is a quarter of a wavelength. A small difference seems enough to cancel. Check that canceling needs an odd multiple of half a wavelength, and $0.5$ m is only a quarter wavelength here.
+          A 0.5 m path difference puts the waves partly out of step. Check whether it puts a crest exactly against a trough.
       - text: "14.0 m"
         rationale: |
-          The path difference is $4.0$ m, which is two wavelengths. A larger difference seems to give a bigger effect. Check that whole wavelengths give a loud sound.
+          The 4.0 m path difference is large, but it is two full wavelengths. Check whether the crests line up again.
     explanation: |
-      First find the wavelength. $\lambda=\dfrac{340}{170}=2.0$ m. Half a wavelength is $\dfrac{\lambda}{2}=1.0$ m. At $10.0+1.0=11.0$ m from B, the path difference is $1.0$ m, so the waves cancel and the sound is quiet.
-    approved: true
+      The wavelength is $\dfrac{340}{170}=2.0$ m. At $11.0$ m from B, the path difference is $11.0-10.0=1.0$ m. That is half a wavelength, so crest meets trough and the waves weaken each other.
 
   - id: q-physics-waves-and-sound-0035
     lesson: lesson-physics-doppler-frequency-from-a-moving-source

@@ -32,4 +32,4 @@ $$f=\dfrac{R}{2}$$
 
 A **concave mirror** curves inward like the inside of a bowl. It is converging: parallel rays meet at $F$. A **convex mirror** curves outward. It is diverging: parallel rays spread out as if they came from a point $F$ behind the mirror.
 
-A **real image** is made where light rays really meet. It can be shown on a screen. A **virtual image** is made where rays only seem to come from. No light is there, so a screen cannot show it.
+A **real image** is made where light rays really meet. It can be shown on a screen. A **virtual image** is made where rays only seem to come from. The rays that form the image do not meet there, so a screen cannot show it.

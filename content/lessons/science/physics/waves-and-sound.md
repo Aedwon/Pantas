@@ -160,7 +160,7 @@ A speaker plays a note of $440\text{ Hz}$ in air at $20^\circ\text{C}$, where so
 
 $$\lambda=\dfrac{v}{f}=\dfrac{343}{440}\approx0.78\text{ m}$$
 
-2. At $880\text{ Hz}$ in the same air, the speed is unchanged, so the wavelength is halved, to about $0.39\text{ m}$. The pitch is higher. The intensity was kept the same, so only the pitch changes.
+2. At $880\text{ Hz}$ in the same air, the speed is unchanged, so the wavelength is halved, to about $0.39\text{ m}$. The pitch is higher.
 
 3. At twice the amplitude and the same frequency, the pitch and wavelength stay the same. The intensity is about $4$ times larger, so the sound is louder.
 

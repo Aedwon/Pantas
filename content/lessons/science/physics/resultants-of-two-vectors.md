@@ -22,7 +22,7 @@ Two vectors are **perpendicular** when they meet at a right angle. If their magn
 
 $$R=\sqrt{A^2+B^2}.$$
 
-This Pythagorean shortcut works only when the two vectors are perpendicular. For other angles, use components (below) or the law of cosines.
+This Pythagorean shortcut works only when the two vectors are perpendicular. For other angles, use components (see Resolving Vector Components) or the law of cosines.
 
 ### Vectors at Any Angle
 
@@ -92,4 +92,4 @@ If the resultant's components are a multiple of $3$ and $4$, or of $5$ and $12$,
 
 > $R=\sqrt{A^2+B^2}$ needs perpendicular vectors.
 
-Two forces at $60^\circ$ do not combine by this rule. Use components or the law of cosines, as in Example #5.
+Two forces at $60^\circ$ do not combine by this rule. Use components or the law of cosines, as in Example #2.

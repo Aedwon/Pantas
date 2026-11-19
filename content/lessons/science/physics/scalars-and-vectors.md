@@ -23,7 +23,7 @@ The **magnitude** of a quantity is its size, such as $5$ or $20$. The **unit** s
 
 A **scalar** is fully described by a magnitude and a unit. Examples are mass, temperature, time, speed, energy, and distance (the length of the path traveled).
 
-A **vector** needs a magnitude, a unit, and a direction. Examples are displacement, velocity, acceleration, force, and momentum. A vector also follows the vector-addition rules below.
+A **vector** needs a magnitude, a unit, and a direction. Examples are displacement, velocity, acceleration, force, and momentum. A vector also follows the rules in Adding Collinear Vectors.
 
 Whether a quantity is a vector depends on the quantity itself. It does not depend on whether a sentence happens to use a direction word. A problem may ask only for the magnitude of a vector, and that magnitude is then a scalar.
 
@@ -38,7 +38,7 @@ We draw a vector as an arrow. The arrow points in the vector's direction. Its le
 
 **Speed** is how fast something moves. **Velocity** is speed together with direction. At any instant, the speed is the magnitude of the velocity.
 
-**Average speed** is the total distance divided by the time. **Average velocity** is the displacement divided by the time. These two can differ, as Example #3 shows.
+**Average speed** is the total distance divided by the time. **Average velocity** is the displacement divided by the time. These two can differ, as Example #1 shows.
 
 ### Adding Vectors
 
@@ -60,7 +60,7 @@ Two vectors are **perpendicular** when they meet at a right angle. If their magn
 
 $$R=\sqrt{A^2+B^2}.$$
 
-This Pythagorean shortcut works only when the two vectors are perpendicular. For other angles, use components (below) or the law of cosines.
+This Pythagorean shortcut works only when the two vectors are perpendicular. For other angles, use components (see Resolving Vector Components) or the law of cosines.
 
 ### Vectors at Any Angle
 
@@ -108,7 +108,7 @@ The components are perpendicular, so
 
 $$R=\sqrt{R_x^2+R_y^2}.$$
 
-To find the direction, first find the acute angle $\alpha$ between the resultant and the $x$-axis:
+If both components are nonzero, first find the acute angle $\alpha$ between the resultant and the $x$-axis:
 
 $$\alpha=\tan^{-1}\!\left(\dfrac{|R_y|}{|R_x|}\right).$$
 
@@ -121,7 +121,7 @@ Then use the signs of $R_x$ and $R_y$ to find the **quadrant**. The quadrants ar
 
 A calculator's $\tan^{-1}$ of the ratio $\dfrac{R_y}{R_x}$ gives an angle only between $-90^\circ$ and $90^\circ$. It cannot tell which quadrant the vector is in. That is why the signs must be checked.
 
-If $R_x=0$, the ratio cannot be computed. The resultant points straight up (if $R_y>0$) or straight down (if $R_y<0$). If both components are $0$, the resultant is the zero vector and has no direction.
+If $R_x=0$, the ratio cannot be computed. The resultant points straight up (if $R_y>0$) or straight down (if $R_y<0$). If both components are $0$, the resultant is the zero vector and has no direction. If $R_y=0$, positive $R_x$ means right ($0^\circ$) and negative $R_x$ means left ($180^\circ$).
 
 ## Mnemonics & Memory Aids
 
@@ -251,7 +251,7 @@ $$F_x=50\sin40^\circ\approx 32.1\,\mathrm N.$$
 
 $$F_y=50\cos40^\circ\approx 38.3\,\mathrm N.$$
 
-Here the formulas are swapped compared with Example #6, because the angle is measured from the vertical.
+Here the formulas are swapped compared with Example #1, because the angle is measured from the vertical.
 
 <!-- ILLUSTRATION: a 50 N arrow pointing up and to the right, a vertical dashed line from its tail with the 40 degree angle between the dashed line and the arrow labeled, and the horizontal component 50 sin 40 and vertical component 50 cos 40 marked -->
 ### #8: Several Vectors and the Quadrant
@@ -320,16 +320,16 @@ Adding magnitudes gives the right resultant only when the vectors point the same
 
 > $R=\sqrt{A^2+B^2}$ needs perpendicular vectors.
 
-Two forces at $60^\circ$ do not combine by this rule. Use components or the law of cosines, as in Example #5.
+Two forces at $60^\circ$ do not combine by this rule. Use components or the law of cosines, as in Example #2.
 
 ### #5: Using Cosine for the Horizontal Component Every Time
 
 > $V_x=V\cos\theta$ holds when $\theta$ is measured from the positive $x$-axis.
 
-If the angle is measured from the vertical, the sine and cosine swap, as in Example #7. Draw the triangle and name the opposite and adjacent sides.
+If the angle is measured from the vertical, the sine and cosine swap, as in Example #2. Draw the triangle and name the opposite and adjacent sides.
 
 ### #6: Trusting the Calculator Angle
 
 > $\tan^{-1}$ returns an angle between $-90^\circ$ and $90^\circ$.
 
-A vector in quadrant II or III needs a correction, as in Example #8. Check the signs of the components first, and then pick the quadrant.
+A vector in quadrant II or III needs a correction, as in Example #1. Check the signs of the components first, and then pick the quadrant.

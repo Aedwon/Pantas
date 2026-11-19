@@ -23,7 +23,6 @@ Heat can move in three main ways. Real situations often mix them.
 
 **Radiation**: energy travels as electromagnetic waves, so no matter is needed between the objects. Sunlight reaches Earth this way across empty space. Objects at ordinary temperatures also give off radiation, and hotter objects give off more.
 
-<!-- FIGURE: {"kind":"physics-energy-diagram","type":"heat-transfer-triptych","illustrationKey":"science/physics/thermodynamics#1","panels":[{"name":"conduction","scene":"heat through solid metal rod held over flame"},{"name":"convection","scene":"warm fluid rises and cool fluid sinks in heated water"},{"name":"radiation","scene":"wavy arrows from Sun through empty space to Earth"}]} -->
 
 ## Examples
 
@@ -38,6 +37,8 @@ Identify the main mechanism in each case: (a) the handle of a pan gets hot becau
 3. (c) A fan carries the warm air along: **forced convection**.
 
 Cases (a) to (c) may involve other mechanisms too. Each answer names the main one described.
+
+<!-- FIGURE: {"kind":"physics-energy-diagram","type":"heat-transfer-triptych","illustrationKey":"science/physics/thermodynamics#1","panels":[{"name":"conduction","scene":"heat through solid metal rod held over flame"},{"name":"convection","scene":"warm fluid rises and cool fluid sinks in heated water"},{"name":"radiation","scene":"wavy arrows from Sun through empty space to Earth"}]} -->
 
 ## Speed Tricks & Shortcuts
 

@@ -31,7 +31,7 @@ $$n_1\sin\theta_1=n_2\sin\theta_2$$
 Use Snell's law to find the direction:
 
 - If $n_2>n_1$, the light slows down and bends **toward the normal**.
-- If $n_2<n_1$, the light speeds up and bends **away from the normal**.
+- If $n_2<n_1$, a transmitted ray speeds up and bends **away from the normal**. Above the critical angle, all the light reflects.
 - If $n_2=n_1$, or the ray travels along the normal ($\theta_1=0$), the direction does not change. The speed still changes if $n_2\ne n_1$.
 
 ## Examples
@@ -86,4 +86,4 @@ The ray bends away from the normal, as expected for entering a smaller $n$.
 
 > A ray changes direction only when it meets the boundary at a slant and the two $n$ values differ.
 
-A ray along the normal keeps its direction but still changes speed and wavelength. The toward-normal and away-from-normal rules also apply only when the ray is slanted.
+A ray along the normal keeps its direction but still changes speed and wavelength. The toward-normal and away-from-normal rules also apply only when the ray is slanted and passes through.

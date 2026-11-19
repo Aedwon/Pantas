@@ -30,7 +30,7 @@ A dimension check can show that an equation is wrong. It cannot prove an equatio
 
 ### #1: Checking Equations by Dimensions
 
-A student writes two equations for the distance $s$ covered with starting speed $u$, constant acceleration $a$, and time $t$:
+A student writes two equations for the displacement $s$ with initial velocity $u$, constant acceleration $a$, and time $t$:
 
 $$s = ut + \dfrac{1}{2}at^2 \qquad \text{and} \qquad s = ut + at$$
 
@@ -51,4 +51,4 @@ The test also would pass $s = ut + at^2$ with the $\dfrac{1}{2}$ left out. Dimen
 
 > A passed dimension check shows the units are consistent, not that the equation is right.
 
-An equation can have matching dimensions and still be wrong by a pure-number factor such as $\dfrac{1}{2}$, or use the wrong quantity. A failed check does show a mistake, as in the second equation of example $7$.
+An equation can have matching dimensions and still be wrong by a pure-number factor such as $\dfrac{1}{2}$, or use the wrong quantity. A failed check does show a mistake, as in the second equation of Example #1.

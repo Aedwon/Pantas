@@ -13,7 +13,7 @@ keyPoints:
 ---
 ## Core Concept
 
-Some events go the other way. When two skaters push apart, or when something explodes, stored energy changes into kinetic energy. The total kinetic energy goes up, and momentum is still conserved. See example #8.
+Some events go the other way. When two skaters push apart, or when something explodes, stored energy changes into kinetic energy. The total kinetic energy goes up, and momentum is still conserved. See Example #1.
 
 ## Examples
 
@@ -50,4 +50,4 @@ Momentum is conserved and kinetic energy increases. The extra energy comes from 
 
 ## Speed Tricks & Shortcuts
 
-When two objects of equal mass collide head-on and elastically, and one is at rest before, they exchange velocities. This works only for a straight-line, head-on, elastic collision. Example #8 Part A is this case.
+When two objects of equal mass collide head-on and elastically, and one is at rest before, they exchange velocities. This works only for a straight-line, head-on, elastic collision. Example #1 Part A is this case.

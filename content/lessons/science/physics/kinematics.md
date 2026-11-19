@@ -48,11 +48,11 @@ Velocity has a sign, so it shows direction. Speed has no sign. The units are met
 
 ### Acceleration
 
-**Acceleration** is how fast velocity changes. Its unit is $\mathrm{m/s^2}$:
+**Acceleration** is how fast velocity changes. Its unit is $\mathrm{m/s^2}$. The formula gives the average acceleration over a time interval:
 
-$$a=\dfrac{\Delta v}{\Delta t}$$
+$$a_{\text{avg}}=\dfrac{\Delta v}{\Delta t}$$
 
-If $a$ and $v$ have the same sign, the object speeds up. If they have opposite signs, it slows down. A negative $a$ does not always mean slowing down.
+Compare $a$ and $v$ at the same moment. If they have the same sign, the object speeds up. If they have opposite signs, it slows down. A negative $a$ does not always mean slowing down.
 
 <!-- FIGURE: {"kind":"physics-mechanics-diagram","type":"accelerated-motion","illustrationKey":"science/physics/kinematics#1","path":"straight road","moments":3,"velocityTrend":"increasing","acceleration":"constant"} -->
 
@@ -82,9 +82,9 @@ $$\Delta x=\dfrac{v_0+v}{2}\,t$$
 
 Here $v_0$ is the starting velocity and $v$ is the final velocity. When $a$ is constant, the velocity changes steadily. So the average velocity is the middle value of $v_0$ and $v$, and that is why the last equation works.
 
-Each equation leaves out one quantity.
+Each formula in Motion with Constant Acceleration leaves out one quantity.
 
-The first has no $\Delta x$. The second has no $v$. The third has no $t$. The fourth has no $a$.
+Use the formula that leaves out the quantity you do not need. One leaves out $\Delta x$, one leaves out $v$, one leaves out $t$, and one leaves out $a$.
 
 They do not work if the acceleration changes during the motion.
 
@@ -94,7 +94,7 @@ They do not work if the acceleration changes during the motion.
 
 This ignores air resistance. Then all objects fall with the same acceleration, whatever their mass.
 
-For vertical motion we write the position as $y$ and the displacement as $\Delta y$. The equations above work the same way with $y$ in place of $x$.
+For vertical motion we write the position as $y$ and the displacement as $\Delta y$. The formulas in Motion with Constant Acceleration work the same way with $y$ in place of $x$.
 
 If up is positive, $a=-g$. If down is positive, $a=+g$. The acceleration stays the same on the way up, at the top, and on the way down.
 
@@ -131,11 +131,9 @@ A car moves east at $20\,\mathrm{m/s}$. It brakes uniformly to rest in $4$ s. Fi
 $$a=\dfrac{0-20}{4}=-5\,\mathrm{m/s^2}$$
 
 2. The sign is negative because the car slows while moving in the positive direction.
-3. Distance, using the average velocity:
+3. The velocity changes by the same amount each second, so its average is halfway between the start and end values. Multiply that average by the time to find the stopping distance.
 
 $$\Delta x=\dfrac{20+0}{2}(4)=40\text{ m}$$
-
-4. Check with $v^2=v_0^2+2a\Delta x$: $0=400+2(-5)\Delta x$, so $\Delta x=40$ m.
 
 ### #3: Starting from Rest
 
@@ -165,7 +163,7 @@ A car moving in the positive direction has $v_0=10\,\mathrm{m/s}$ and $a=2\,\mat
 
 **Solution:**
 
-1. Time is not given, so use the third equation:
+1. Time is not given, so use the equation that leaves out $t$:
 
 $$v^2=10^2+2(2)(60)=340$$
 
@@ -225,7 +223,7 @@ $$\dfrac12(4)(8)+(6)(8)+\dfrac12(2)(8)=16+48+8=72\text{ m}$$
 
 A velocity-time graph is one straight line from $+6\,\mathrm{m/s}$ at $0$ s to $-6\,\mathrm{m/s}$ at $6$ s. Find the acceleration, the time of the turnaround, the displacement, and the distance.
 
-<!-- ILLUSTRATION: velocity-time graph, time axis 0 to 6 s, velocity axis -6 to +6 m/s; one straight line from (0, +6) down through (3, 0) to (6, -6); the triangle above the axis shaded +9 m and the triangle below shaded -9 m -->
+<!-- ILLUSTRATION: velocity-time graph with a straight line from 6 m/s at 0 s to -6 m/s at 6 s. Shade the area between the line and the time axis on each side of the crossing. -->
 
 **Solution:**
 

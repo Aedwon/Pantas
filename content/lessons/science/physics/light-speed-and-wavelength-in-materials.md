@@ -58,7 +58,7 @@ A straw partly in water looks bent where it meets the surface when seen from the
 
 ## Speed Tricks & Shortcuts
 
-For refraction, compare $n_1$ and $n_2$. Entering a larger $n$ bends toward the normal. Entering a smaller $n$ bends away. This fails only when the ray travels along the normal or the two $n$ values are equal, because then there is no bend.
+For a ray that passes through a boundary at a slant, compare $n_1$ and $n_2$. A larger $n$ bends the ray toward the normal. A smaller $n$ bends it away. The ray does not bend if it travels along the normal or the two values of $n$ match. When light heads into a smaller $n$ above the critical angle, it reflects back instead of passing through.
 
 ## Traps to Watch For
 

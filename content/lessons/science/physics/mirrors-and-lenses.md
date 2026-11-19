@@ -34,7 +34,7 @@ $$f=\dfrac{R}{2}$$
 
 A **concave mirror** curves inward like the inside of a bowl. It is converging: parallel rays meet at $F$. A **convex mirror** curves outward. It is diverging: parallel rays spread out as if they came from a point $F$ behind the mirror.
 
-A **real image** is made where light rays really meet. It can be shown on a screen. A **virtual image** is made where rays only seem to come from. No light is there, so a screen cannot show it.
+A **real image** is made where light rays really meet. It can be shown on a screen. A **virtual image** is made where rays only seem to come from. The rays that form the image do not meet there, so a screen cannot show it.
 
 ### Lenses
 
@@ -64,6 +64,12 @@ The **magnification** $m$ tells the size and direction of the image. If $m$ is n
 
 If $m$ is positive, it is **upright**. If $|m|>1$, the image is bigger than the object.
 
+Use the same steps for the thin lenses in Converging and Diverging Lenses. Distances here are in centimeters.
+
+- Slide projector. $\dfrac{1}{d_i}=\dfrac{1}{15}-\dfrac{1}{20}=\dfrac{1}{60}$, so $d_i=60$ and $m=-\dfrac{60}{20}=-3$.
+- Magnifying glass. $\dfrac{1}{d_i}=\dfrac{1}{5}-\dfrac{1}{4}=-\dfrac{1}{20}$, so $d_i=-20$ and $m=-\dfrac{-20}{4}=+5$.
+- Concave lens. $\dfrac{1}{d_i}=-\dfrac{1}{10}-\dfrac{1}{30}=-\dfrac{4}{30}$, so $d_i=-7.5$ and $m=-\dfrac{-7.5}{30}=+0.25$.
+
 You can also find an image by drawing two or three rays from the top of the object. For a converging device in air, these three rays work:
 
 - A ray parallel to the axis goes through $F$ after reflecting. After a lens, it goes through the focal point on the far side.
@@ -79,7 +85,7 @@ For a converging **concave mirror** or a **convex lens** in air (so $f>0$), the 
 - Beyond $2f$ ($d_o>2f$): real, inverted, smaller. The image is between $f$ and $2f$.
 - At $2f$ ($d_o=2f$): real, inverted, same size, at $2f$.
 - Between $f$ and $2f$: real, inverted, larger. The image is beyond $2f$.
-- At $f$ ($d_o=f$): no image forms. The reflected or refracted rays are parallel.
+- At $f$ ($d_o=f$): no image forms at a finite distance. The reflected or refracted rays are parallel.
 - Inside $f$ ($d_o<f$): virtual, upright, larger.
 
 For a diverging **convex mirror** or a **concave lens** in air ($f<0$) with a real object, the image is always virtual, upright and smaller. This is true at every object distance.
@@ -93,7 +99,7 @@ Simple instruments use the same image rules.
 - A **magnifying glass** is a convex lens with the object placed inside $f$. It makes a virtual, upright, larger image.
 - A **camera** uses a convex lens to put a real, inverted, smaller image of a faraway scene on a sensor or film.
 - A **projector** is the case where the slide is between $f$ and $2f$. It puts a real, inverted, larger image on a screen.
-- The **human eye** has a lens that puts a real, inverted image on the retina, the light-sensitive layer at the back. The brain turns it right way up.
+- The **human eye** has a lens that puts a real, inverted image on the retina, the light-sensitive layer at the back. The brain makes sense of signals from the retina.
 - A **compound microscope** has two convex lenses. The first (the objective) makes an enlarged real image of a tiny object. The second (the eyepiece) works as a magnifying glass on that image. A simple microscope is just one convex lens, like a magnifying glass.
 - A simple **refracting telescope** of the common (Keplerian) kind also has two convex lenses. The objective makes a real image of a faraway object. The eyepiece magnifies that image. Galileo's telescope used a concave eyepiece instead.
 
@@ -152,48 +158,22 @@ $$\dfrac{1}{d_i}=-\dfrac{1}{12}-\dfrac{1}{24}=-\dfrac{3}{24}$$
 $$m=-\dfrac{-8}{24}=+\dfrac{1}{3}$$
 
 The image is virtual, upright and one third the size.
-
 ### #4: Convex Lens Making a Real Image
 
-A convex lens in air has $f=15$ cm. A slide is $20$ cm from the lens. Find the image distance and magnification, and describe the image.
+A convex lens in air has a focal length of $15$ cm. A slide is $20$ cm from the lens. Describe the image.
 
 **Solution:**
 
-1. Use the lens equation:
-
-$$\dfrac{1}{d_i}=\dfrac{1}{15}-\dfrac{1}{20}=\dfrac{1}{60}$$
-
-2. So $d_i=60$ cm. Find the magnification:
-
-$$m=-\dfrac{60}{20}=-3$$
-
-The object is between $f$ and $2f$. The image is real, inverted and three times larger, as a projector does.
+The slide is between $f$ and $2f$. The lens brings the rays together on the far side. It makes a real, inverted image that is larger than the slide.
 
 ### #5: A Magnifying Glass and a Concave Lens
 
-(a) A magnifying glass is a convex lens with $f=5$ cm. A small insect is $4$ cm from it. Find $m$ and describe the image. (b) A concave lens has $f=-10$ cm. An object is $30$ cm from it. Find $d_i$ and $m$.
+(a) A magnifying glass in air has a focal length of $5$ cm. An insect is $4$ cm from it. (b) A concave glass lens in air has a focal length of magnitude $10$ cm. An object is $30$ cm from it. Describe both images.
 
 **Solution:**
 
-1. For part (a), find the image distance:
-
-$$\dfrac{1}{d_i}=\dfrac{1}{5}-\dfrac{1}{4}=-\dfrac{1}{20}$$
-
-2. So $d_i=-20$ cm. Find the magnification:
-
-$$m=-\dfrac{-20}{4}=+5$$
-
-The image is virtual, upright and five times larger, because the object is inside $f$.
-
-3. For part (b), use the lens equation:
-
-$$\dfrac{1}{d_i}=-\dfrac{1}{10}-\dfrac{1}{30}=-\dfrac{4}{30}$$
-
-4. So $d_i=-7.5$ cm. Find the magnification:
-
-$$m=-\dfrac{-7.5}{30}=+0.25$$
-
-The image is virtual, upright and one quarter the size.
+1. The insect is inside the focal length. The rays leave the magnifying glass spreading apart. They appear to come from a larger, upright insect, so the image is virtual.
+2. The concave lens spreads the rays. They appear to come from a smaller, upright object on the same side as the real object. This image is virtual too.
 
 ## Speed Tricks & Shortcuts
 
@@ -209,7 +189,7 @@ Read the signs of your answers. A negative $d_i$ means virtual. A negative $m$ m
 
 Beyond $f$, the image is real and inverted.
 
-Inside $f$, it is virtual, upright and larger. At $f$, no image forms. A convex mirror with a real object never makes a real or inverted image.
+Inside $f$, it is virtual, upright and larger. At $f$, no image forms at a finite distance. A convex mirror with a real object never makes a real or inverted image.
 
 ### #2: Dropping the Signs
 

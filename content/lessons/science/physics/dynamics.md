@@ -54,7 +54,7 @@ where $g\approx 9.8\,\mathrm{m/s^2}$ is the acceleration of a falling object nea
 
 **Normal force** $N$ is the push of a surface on an object that touches it. "Normal" means perpendicular: the force points straight away from the surface. A surface can push but cannot pull, so $N$ is never negative.
 
-If the force balance gives $N=0$, the object just touches the surface and is about to leave it. If the balance would need a negative $N$, the surface cannot supply it, so the object lifts off.
+If the force balance gives $N=0$, contact can be lost. The object can still touch the surface at that moment. If the balance would need a negative $N$, the surface cannot supply it, so the object lifts off.
 
 The size of $N$ is not fixed by the weight. It adjusts so the object does not sink into the surface. You find it from the force balance, using the second law along the line perpendicular to the surface.
 
@@ -215,7 +215,7 @@ The normal force and the weight on a resting book are equal and opposite, but th
 
 > In an inertial frame, constant velocity means the net force is zero, not that no force acts.
 
-A car at constant speed still has an engine force. That force is canceled by drag and friction. If the opposing forces were absent, no force would be needed.
+A car driving straight at constant speed still has an engine force. That force is canceled by drag and friction. If the opposing forces were absent, no force would be needed.
 
 ### #3: Assuming the Normal Force Equals the Weight
 

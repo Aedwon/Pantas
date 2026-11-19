@@ -38,11 +38,11 @@ On level ground in the ideal model, $\sin2\theta$ is largest at $\theta=45^\circ
 
 ### #1: Time, Height, and Range on Level Ground
 
-The projectile from #1 ($20\,\mathrm{m/s}$ at $30^\circ$) lands at its launch height. Neglect air resistance. Find the time to the top, the total flight time, the greatest height, and the range.
+A projectile launched at $20\,\mathrm{m/s}$ and $30^\circ$ above horizontal lands at its launch height. Neglect air resistance. Find the time to the top, the total flight time, the greatest height, and the range.
 
 **Solution:**
 
-1. At the top, $v_y=0$. With $v_{y0}=10\,\mathrm{m/s}$:
+1. Find $v_{x0}=20\cos30^\circ\approx17.3\,\mathrm{m/s}$ and $v_{y0}=20\sin30^\circ=10\,\mathrm{m/s}$. Set $v_y=0$ at the top:
 
 $$0=10-9.8t_{\text{up}}\quad\Rightarrow\quad t_{\text{up}}\approx1.02\,\mathrm s.$$
 
@@ -78,4 +78,4 @@ Gravity still gives $a_y=-g$. Also, the speed at the top is not zero unless the 
 
 > $R=\dfrac{v_0^2\sin2\theta}{g}$ and "$45^\circ$ gives the longest range" need equal launch and landing heights and no air resistance.
 
-If the ball lands lower, as in #4, use the basic equations. For a launch from a height onto lower ground, the angle for the longest range is less than $45^\circ$, and how much less depends on the height. For #4 it is about $27^\circ$. For landing higher than the launch, it is more than $45^\circ$.
+If the ball lands lower, use the basic equations. The best angle for range is less than $45^\circ$. It is about $27^\circ$ in the cliff example in Projectile Motion at Different Heights. For a higher landing point, it is more than $45^\circ$.

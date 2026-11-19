@@ -22,11 +22,11 @@ A flow is **nonviscous** when the fluid has no internal friction. **Viscosity** 
 
 A flow is called **ideal** when it is steady, incompressible and nonviscous. If a question says "ideal flow" or "ideal fluid", use continuity and Bernoulli's equation, and apply Bernoulli's equation along one streamline.
 
-For steady, incompressible, nonviscous flow along a streamline, **Bernoulli's equation** links pressure, speed, and height:
+**Bernoulli's equation** links pressure, speed, and height along one streamline in ideal flow. No device can add or take out energy between the points.
 
 $$P + \dfrac{1}{2}\rho v^2 + \rho gh = \text{constant}$$
 
-Here $h$ is the height of the point above any chosen reference level. The equation is an energy balance for the fluid.
+Here $h$ is the height of the point above any chosen reference level. A pump adds energy, so this balance does not apply across a pump.
 
 The term $\dfrac{1}{2}\rho v^2$ is the kinetic energy in each unit of volume. The term $\rho gh$ is the gravitational potential energy in each unit of volume.
 
@@ -40,7 +40,7 @@ In exam questions, "neglect" or "ignore" means leave that effect out of your cal
 
 ### #2: Bernoulli When the Height Changes
 
-Water flows steadily through a pipe of constant width that rises $5.0 \text{ m}$ from point $1$ to point $2$. The pressure at point $1$ is $3.00 \times 10^5 \text{ Pa}$. Assume ideal flow (steady, incompressible and nonviscous). Find the pressure at point $2$.
+Water flows steadily through a pipe of constant width that rises $5.0 \text{ m}$ from point $1$ to point $2$. The pressure at point $1$ is $3.00 \times 10^5 \text{ Pa}$. Assume ideal flow on one streamline with no pump or turbine. Find the pressure at point $2$.
 
 **Solution:**
 
@@ -64,4 +64,4 @@ $$P_2 = 2.51 \times 10^5 \text{ Pa}$$
 
 ## Speed Tricks & Shortcuts
 
-For Bernoulli questions, do not rely on "faster means lower pressure" alone. First check that both points are on the same streamline in ideal flow (steady, incompressible, nonviscous). Then check the heights, and keep the $\rho gh$ term if they differ.
+Check for one streamline, ideal flow, and no pump or turbine. If the heights differ, keep the $\rho gh$ term.

@@ -29,7 +29,7 @@ For a converging **concave mirror** or a **convex lens** in air (so $f>0$), the 
 - Beyond $2f$ ($d_o>2f$): real, inverted, smaller. The image is between $f$ and $2f$.
 - At $2f$ ($d_o=2f$): real, inverted, same size, at $2f$.
 - Between $f$ and $2f$: real, inverted, larger. The image is beyond $2f$.
-- At $f$ ($d_o=f$): no image forms. The reflected or refracted rays are parallel.
+- At $f$ ($d_o=f$): no image forms at a finite distance. The reflected or refracted rays are parallel.
 - Inside $f$ ($d_o<f$): virtual, upright, larger.
 
 For a diverging **convex mirror** or a **concave lens** in air ($f<0$) with a real object, the image is always virtual, upright and smaller. This is true at every object distance.
@@ -66,4 +66,4 @@ For a converging mirror or lens, an object beyond $f$ gives a real, inverted ima
 
 Beyond $f$, the image is real and inverted.
 
-Inside $f$, it is virtual, upright and larger. At $f$, no image forms. A convex mirror with a real object never makes a real or inverted image.
+Inside $f$, it is virtual, upright and larger. At $f$, no image forms at a finite distance. A convex mirror with a real object never makes a real or inverted image.

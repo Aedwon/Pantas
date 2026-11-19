@@ -28,7 +28,7 @@ Scientists worldwide use the **International System of Units (SI)**. It is built
 - **Electric current**: ampere ($\text{A}$)
 - **Temperature**: kelvin ($\text{K}$)
 - **Amount of substance**: mole ($\text{mol}$)
-- **Luminous intensity** (how bright a light source looks): candela ($\text{cd}$)
+- **Luminous intensity** (how much visible light a source gives off in a given direction): candela ($\text{cd}$)
 
 Every other SI unit is a **derived unit**: a combination of base units. Speed is length per time, so its unit is $\text{m/s}$.
 
@@ -38,7 +38,7 @@ Two terms are needed before we build more units.
 
 **Velocity** is how fast something moves, with a direction. **Acceleration** is how fast velocity changes, so it is a change in velocity per unit time.
 
-**Force** is a push or pull. Newton's second law says force equals mass times acceleration:
+**Force** is a push or pull. Newton's second law says net force equals mass times acceleration:
 
 $$F = ma$$
 

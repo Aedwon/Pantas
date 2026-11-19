@@ -20,7 +20,9 @@ A **force** is a push or a pull, measured in newtons ($\mathrm N$). The **net fo
 
 **Impulse** measures how much a net force changes momentum over a time. It equals the change in momentum:
 
-$$\vec J=\Delta\vec p=m\vec v_f-m\vec v_i$$
+For an object with constant mass, this becomes:
+
+$$\vec J=\Delta\vec p=m\vec v_f-m\vec v_i=m(\vec v_f-\vec v_i)$$
 
 Here $\Delta$ means "final minus initial", $\vec v_i$ is the initial velocity, and $\vec v_f$ is the final velocity. Impulse is also a vector. Its unit is $\mathrm{N\,s}$, which equals $\mathrm{kg\,m/s}$.
 

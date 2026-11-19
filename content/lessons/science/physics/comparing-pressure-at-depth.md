@@ -21,14 +21,14 @@ Two points at the same depth in the same connected liquid at rest have the same 
 
 ## Speed Tricks & Shortcuts
 
-For a liquid at rest, pressure at depth depends on the depth, the liquid's density, and $g$. Ignore container width and shape.
+For a liquid at rest, the rise in pressure from the surface depends on the depth, the liquid's density, and $g$. Ignore container width and shape.
 
 ## Traps to Watch For
 
 ### #1: Thinking Container Shape Changes Liquid Pressure
 
-> For a liquid at rest, pressure depends on depth, density, and $g$, not on the container's shape or the amount of liquid.
+> For a liquid at rest, depth, density, and $g$ set how much the pressure rises from the surface. Container shape and the amount of liquid do not matter.
 
-A narrow tube and a wide tank filled to the same height give the same pressure at the bottom. Pressure times bottom area is the force on the bottom, and this force can differ from the liquid's weight.
+Fill a narrow tube and a wide tank with the same liquid to the same depth. If the surface pressures match, so do the bottom pressures. Pressure times bottom area is the force on the bottom, and this force can differ from the liquid's weight.
 
-In a container that is wider at the top, the sloping walls push up on the liquid and hold part of its weight. In a container that is narrower at the top, the sloping walls push down on the liquid, so the bottom force is more than its weight. The pressure at the bottom is still set by depth alone.
+In a container that is wider at the top, the sloping walls push up on the liquid and hold part of its weight. In a container that is narrower at the top, the sloping walls push down on the liquid, so the bottom force is more than its weight. For the same liquid and surface pressure, the pressure at the bottom still depends only on depth.

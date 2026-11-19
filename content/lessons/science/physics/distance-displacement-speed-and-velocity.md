@@ -20,7 +20,7 @@ keyPoints:
 
 **Speed** is how fast something moves. **Velocity** is speed together with direction. At any instant, the speed is the magnitude of the velocity.
 
-**Average speed** is the total distance divided by the time. **Average velocity** is the displacement divided by the time. These two can differ, as Example #3 shows.
+**Average speed** is the total distance divided by the time. **Average velocity** is the displacement divided by the time. These two can differ, as Example #1 shows.
 
 ## Examples
 

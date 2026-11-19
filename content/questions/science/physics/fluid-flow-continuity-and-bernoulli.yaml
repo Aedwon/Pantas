@@ -235,27 +235,26 @@ questions:
       A wide section has a larger area, so by continuity the water slows down. At the same height, slower flow has higher static pressure. So the speed decreases and the pressure increases.
 
   - id: q-physics-fluid-flow-continuity-and-bernoulli-0007
-    approved: true
     lesson: lesson-physics-bernoulli-pressure-and-speed
     keyPoint: 1
     type: "classify"
     difficulty: "medium"
     stem: |
-      Water flows steadily through a horizontal pipe. Gauges at points $1$ and $2$ read $1.4\times10^5\,\mathrm{Pa}$ and $1.2\times10^5\,\mathrm{Pa}$. Assume ideal flow. At which point is the water moving faster?
+      Water flows steadily through a horizontal pipe. Points $1$ and $2$ are on the same streamline. Their pressures are $1.4\times10^5\,\mathrm{Pa}$ and $1.2\times10^5\,\mathrm{Pa}$. Assume ideal flow with no pump or turbine between the points. Where does the water move faster?
     choices:
-      - text: "Point $2$, because its pressure is lower"
+      - text: "At point $2$, where the pressure is lower"
         correct: true
-      - text: "Point $1$, because its pressure is higher"
+      - text: "At point $1$, where the pressure is higher"
         rationale: |
-          This takes higher pressure to mean faster flow. A high pressure seems to push water harder. Check that, at equal height, the faster flow has the lower pressure.
-      - text: "Neither, because the pipe is horizontal"
+          Higher pressure may sound like a stronger push. Check which point needs a larger speed term when the height terms are equal.
+      - text: "At neither point, because the speeds are equal"
         rationale: |
-          This treats equal height as equal speed. Equal height only removes the height term. Check that the pressures still differ.
-      - text: "It cannot be told from the pressures alone"
+          A horizontal pipe puts the points at the same height. Check whether that also makes their pressures equal.
+      - text: "The speeds cannot be compared without the pipe areas"
         rationale: |
-          This thinks the areas are needed. Continuity does use areas. Check that Bernoulli's equation already links pressure and speed.
+          Pipe areas are needed if you use continuity to compare speeds. Check whether Bernoulli’s equation already links the pressures and speeds.
     explanation: |
-      The pipe is horizontal, so the height terms are equal. In ideal flow, the point with the lower static pressure has the higher speed. Point $2$ has the lower pressure, so the water moves faster there.
+      The height terms are equal. Along this streamline, the pressure plus the speed term stays the same. Point $2$ has lower pressure, so it must have a larger speed term and a higher speed.
 
   - id: q-physics-fluid-flow-continuity-and-bernoulli-0008
     approved: true
@@ -419,27 +418,26 @@ questions:
       The area ratio is $\left(\dfrac{6.0}{3.0}\right)^2=4$, so $v_2=4.0\,\mathrm{m/s}$. At equal height, $P_2=P_1+\dfrac{1}{2}\rho(v_1^2-v_2^2)=1.50\times10^5+500(1-16)=1.50\times10^5-7500=1.425\times10^5\,\mathrm{Pa}$.
 
   - id: q-physics-fluid-flow-continuity-and-bernoulli-0015
-    approved: true
     lesson: lesson-physics-bernoulli-pressure-and-speed
     keyPoint: 1
     type: "simple-quantitative"
     difficulty: "exam"
     stem: |
-      Water ($\rho=1000\,\mathrm{kg/m^3}$) flows steadily through a horizontal pipe. The speed at point $1$ is $2.0\,\mathrm{m/s}$, and the pressure at point $2$ is $6000\,\mathrm{Pa}$ lower than at point $1$. Assume ideal flow. What is the speed at point $2$?
+      Water of density $1000\,\mathrm{kg/m^3}$ flows through a horizontal pipe. Points $1$ and $2$ lie on one streamline. At point $1$ the speed is $2.0\,\mathrm{m/s}$. At point $2$ the pressure is $6000\,\mathrm{Pa}$ lower. Assume ideal flow with no pump or turbine between the points. What is the speed at point $2$?
     choices:
       - text: "$4.0\\,\\mathrm{m/s}$"
         correct: true
       - text: "$3.5\\,\\mathrm{m/s}$"
         rationale: |
-          This leaves out the starting speed, so only $v_2^2$ is solved. The pressure drop seems to give the whole kinetic term. Check that the drop equals the difference of both kinetic terms.
+          This uses the pressure drop to find the whole speed term at point $2$. Check that the drop gives the change in $v^2$, then include the starting value.
       - text: "$6.0\\,\\mathrm{m/s}$"
         rationale: |
-          This divides the pressure drop by the density and stops there. The numbers cancel neatly. Check that the speed is squared and a factor of $\dfrac{1}{2}$ is used.
+          Dividing by the density uses the two given values. Check the units. Pressure divided by density has units of speed squared.
       - text: "$3.2\\,\\mathrm{m/s}$"
         rationale: |
-          This leaves out the factor $\dfrac{1}{2}$. The squares are used correctly. Check the coefficient of $\rho v^2$.
+          This uses the difference of the squared speeds but leaves out the factor $\dfrac{1}{2}$. Check the coefficient of $\rho v^2$.
     explanation: |
-      At equal height, $P_1-P_2=\dfrac{1}{2}\rho(v_2^2-v_1^2)$. So $6000=500(v_2^2-4.0)$. This gives $v_2^2=16$, so $v_2=4.0\,\mathrm{m/s}$.
+      The heights match, so $6000=\dfrac{1}{2}(1000)(v_2^2-2.0^2)$. Then $v_2^2=4+12=16$, so $v_2=4.0\,\mathrm{m/s}$.
 
   - id: q-physics-fluid-flow-continuity-and-bernoulli-0016
     approved: true

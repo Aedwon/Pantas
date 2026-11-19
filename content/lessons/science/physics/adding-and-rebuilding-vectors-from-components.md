@@ -28,7 +28,7 @@ The components are perpendicular, so
 
 $$R=\sqrt{R_x^2+R_y^2}.$$
 
-To find the direction, first find the acute angle $\alpha$ between the resultant and the $x$-axis:
+If both components are nonzero, first find the acute angle $\alpha$ between the resultant and the $x$-axis:
 
 $$\alpha=\tan^{-1}\!\left(\dfrac{|R_y|}{|R_x|}\right).$$
 
@@ -41,7 +41,7 @@ Then use the signs of $R_x$ and $R_y$ to find the **quadrant**. The quadrants ar
 
 A calculator's $\tan^{-1}$ of the ratio $\dfrac{R_y}{R_x}$ gives an angle only between $-90^\circ$ and $90^\circ$. It cannot tell which quadrant the vector is in. That is why the signs must be checked.
 
-If $R_x=0$, the ratio cannot be computed. The resultant points straight up (if $R_y>0$) or straight down (if $R_y<0$). If both components are $0$, the resultant is the zero vector and has no direction.
+If $R_x=0$, the ratio cannot be computed. The resultant points straight up (if $R_y>0$) or straight down (if $R_y<0$). If both components are $0$, the resultant is the zero vector and has no direction. If $R_y=0$, positive $R_x$ means right ($0^\circ$) and negative $R_x$ means left ($180^\circ$).
 
 ## Examples
 
@@ -88,4 +88,4 @@ Before you trust an angle from $\tan^{-1}$, sketch the signs of $R_x$ and $R_y$.
 
 > $\tan^{-1}$ returns an angle between $-90^\circ$ and $90^\circ$.
 
-A vector in quadrant II or III needs a correction, as in Example #8. Check the signs of the components first, and then pick the quadrant.
+A vector in quadrant II or III needs a correction, as in Example #1. Check the signs of the components first, and then pick the quadrant.

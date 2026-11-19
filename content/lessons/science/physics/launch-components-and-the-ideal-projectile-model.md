@@ -32,7 +32,7 @@ $$v_{x0}=v_0\cos\theta,\qquad v_{y0}=v_0\sin\theta.$$
 
 For a horizontal launch, $\theta=0^\circ$. So $v_{y0}=0$ and $v_{x0}=v_0$.
 
-<!-- FIGURE: {"kind": "concept-diagram", "type": "vector-components", "magnitude": 20, "angle": 30, "unit": "m/s", "components": {"horizontal": "20 cos 30°", "vertical": "20 sin 30°"}, "semanticsLabel": "A 20 m/s launch velocity vector at 30 degrees resolved into horizontal and vertical components as a right triangle."} -->
+<!-- FIGURE: {"kind": "concept-diagram", "type": "vector-components", "magnitude": 20, "angle": 30, "unit": "m/s", "components": {"horizontal": "v_x0", "vertical": "v_y0"}, "semanticsLabel": "A 20 m/s launch velocity vector at 30 degrees resolved into horizontal and vertical components as a right triangle."} -->
 
 In the ideal model, three things follow:
 

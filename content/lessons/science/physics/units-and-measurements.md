@@ -32,7 +32,7 @@ Scientists worldwide use the **International System of Units (SI)**. It is built
 - **Electric current**: ampere ($\text{A}$)
 - **Temperature**: kelvin ($\text{K}$)
 - **Amount of substance**: mole ($\text{mol}$)
-- **Luminous intensity** (how bright a light source looks): candela ($\text{cd}$)
+- **Luminous intensity** (how much visible light a source gives off in a given direction): candela ($\text{cd}$)
 
 Every other SI unit is a **derived unit**: a combination of base units. Speed is length per time, so its unit is $\text{m/s}$.
 
@@ -42,7 +42,7 @@ Two terms are needed before we build more units.
 
 **Velocity** is how fast something moves, with a direction. **Acceleration** is how fast velocity changes, so it is a change in velocity per unit time.
 
-**Force** is a push or pull. Newton's second law says force equals mass times acceleration:
+**Force** is a push or pull. Newton's second law says net force equals mass times acceleration:
 
 $$F = ma$$
 
@@ -52,7 +52,7 @@ The unit of force is the **newton** ($\text{N}$), defined as $1\ \text{N} = 1\ \
 
 A **prefix** goes in front of a unit and multiplies it by a power of $10$. A **power of $10$** such as $10^3$ means $10 \times 10 \times 10 = 1000$. A negative power such as $10^{-2}$ means $\dfrac{1}{10^2} = 0.01$.
 
-**Scientific notation** writes a number as $a \times 10^n$, where $a$ is at least $1$ and less than $10$, and $n$ is an integer, such as $3$, $0$ or $-6$. For example, $4.5 \times 10^{-6}$ is in scientific notation, but $45 \times 10^{-7}$ is not, because $45$ is not less than $10$.
+**Scientific notation** writes a nonzero number as $a \times 10^n$, where $1\le |a|<10$, and $n$ is an integer, such as $3$, $0$ or $-6$. For example, $4.5 \times 10^{-6}$ is in scientific notation, but $45 \times 10^{-7}$ is not, because $45$ is not less than $10$.
 
 - giga ($\text{G}$): $10^9$
 - mega ($\text{M}$): $10^6$
@@ -235,7 +235,7 @@ $$\text{kg} \times \dfrac{\text{m}}{\text{s}^2} = \text{kg} \cdot \text{m/s}^2$$
 
 ### #7: Checking Equations by Dimensions
 
-A student writes two equations for the distance $s$ covered with starting speed $u$, constant acceleration $a$, and time $t$:
+A student writes two equations for the displacement $s$ with initial velocity $u$, constant acceleration $a$, and time $t$:
 
 $$s = ut + \dfrac{1}{2}at^2 \qquad \text{and} \qquad s = ut + at$$
 
@@ -347,4 +347,4 @@ Tight readings can all be wrong by the same amount, such as from a scale that is
 
 > A passed dimension check shows the units are consistent, not that the equation is right.
 
-An equation can have matching dimensions and still be wrong by a pure-number factor such as $\dfrac{1}{2}$, or use the wrong quantity. A failed check does show a mistake, as in the second equation of example $7$.
+An equation can have matching dimensions and still be wrong by a pure-number factor such as $\dfrac{1}{2}$, or use the wrong quantity. A failed check does show a mistake, as in the second equation of Example #1.

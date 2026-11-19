@@ -86,12 +86,12 @@ Pressure is higher at the bottom of an object in a fluid than at the top. This d
 
 $$F_B = \rho_{fluid}\, g\, V_{displaced}$$
 
-Look at what this formula uses. It uses the density of the fluid, not the density of the object. The buoyant force equals the object's own weight when the object is at rest and only these two forces act on it, as when it floats freely. If a string, a scale, or a hand also pulls on the object, the two forces are not equal (see Example #7).
+Look at what this formula uses. It uses the density of the fluid, not the density of the object. The buoyant force equals the object's own weight when the object is at rest and only these two forces act on it, as when it floats freely. If the object is at rest and other forces add up to an upward or downward push or pull, the buoyant force and weight differ. See Apparent Weight in a Fluid.
 
-Now think about the forces on an object. Weight pulls down and the buoyant force pushes up.
+Consider an object released from rest with only two forces acting at that moment. Weight pulls down and the buoyant force pushes up.
 
-- If $F_B < W$, the net force is downward and the object sinks.
-- If $F_B = W$, the forces balance and the object floats or stays suspended.
+- If $F_B < W$, the net force is downward and the object starts to sink.
+- If $F_B = W$, the forces balance and the object stays at rest, floating or suspended.
 - If an object is held under the surface and $F_B > W$, it rises when released until it floats.
 
 A scale holding an object under water shows a smaller reading than in air. This reading is the **apparent weight**:
@@ -104,7 +104,6 @@ A floating object also has a simple rule. The fraction of its volume below the s
 
 The density rule works for an object that is free to move and surrounded by fluid. It does not predict what happens if the object is tied down, pushed by another force, or sealed against the container floor with no fluid under it. For those cases, draw the forces and work out the displaced volume.
 
-<!-- FIGURE: {"kind":"physics-mechanics-diagram","type":"buoyancy-comparison","illustrationKey":"science/physics/fluid-mechanics#1","cases":[{"state":"floating","density":"less dense than water","buoyantForce":"equal to weight"},{"state":"sinking","density":"denser than water","buoyantForce":"smaller than weight"}]} -->
 
 ## Examples
 
@@ -195,6 +194,8 @@ A solid object is placed freely in water of density $1.0 \text{ g/cm}^3$. Neglec
 1. In (a), the average density is lower than the water's density. The object displaces a volume of water whose weight equals its own weight before it is fully under. It floats, partly submerged, with $\dfrac{0.8}{1.0} = 80\%$ of its volume below the surface.
 2. In (b), the average density is higher than the water's density. Even fully submerged, the buoyant force is less than the weight. The object sinks.
 
+<!-- FIGURE: {"kind":"physics-mechanics-diagram","type":"buoyancy-comparison","illustrationKey":"science/physics/fluid-mechanics#1","cases":[{"state":"floating","density":"less dense than water","buoyantForce":"equal to weight"},{"state":"sinking","density":"denser than water","buoyantForce":"smaller than weight"}]} -->
+
 ### #7: Apparent Weight Under Water
 
 A solid object has a mass of $2.7 \text{ kg}$ and a volume of $1.0 \times 10^{-3} \text{ m}^3$. It hangs from a spring scale and is fully submerged in water. What does the scale read in newtons?
@@ -227,7 +228,7 @@ For a float or sink question about a free object, compare its average density wi
 
 For a hydraulic lift, in the ideal case the force ratio equals the area ratio: $\dfrac{F_2}{F_1} = \dfrac{A_2}{A_1}$. Use the same area unit for both pistons. The distance ratio is the inverse of the area ratio, and the work stays equal in the ideal case.
 
-For a liquid at rest, pressure at depth depends on the depth, the liquid's density, and $g$. Ignore container width and shape.
+For a liquid at rest, the rise in pressure from the surface depends on the depth, the liquid's density, and $g$. Ignore container width and shape.
 
 ## Traps to Watch For
 
@@ -251,11 +252,11 @@ A large hollow ship floats because its average density, with all the air inside,
 
 ### #4: Thinking Container Shape Changes Liquid Pressure
 
-> For a liquid at rest, pressure depends on depth, density, and $g$, not on the container's shape or the amount of liquid.
+> For a liquid at rest, depth, density, and $g$ set how much the pressure rises from the surface. Container shape and the amount of liquid do not matter.
 
-A narrow tube and a wide tank filled to the same height give the same pressure at the bottom. Pressure times bottom area is the force on the bottom, and this force can differ from the liquid's weight.
+Fill a narrow tube and a wide tank with the same liquid to the same depth. If the surface pressures match, so do the bottom pressures. Pressure times bottom area is the force on the bottom, and this force can differ from the liquid's weight.
 
-In a container that is wider at the top, the sloping walls push up on the liquid and hold part of its weight. In a container that is narrower at the top, the sloping walls push down on the liquid, so the bottom force is more than its weight. The pressure at the bottom is still set by depth alone.
+In a container that is wider at the top, the sloping walls push up on the liquid and hold part of its weight. In a container that is narrower at the top, the sloping walls push down on the liquid, so the bottom force is more than its weight. For the same liquid and surface pressure, the pressure at the bottom still depends only on depth.
 
 ### #5: Expecting Free Work from a Hydraulic Lift
 

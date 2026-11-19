@@ -14,7 +14,7 @@ keyPoints:
 ---
 ## Core Concept
 
-**Second Law**: natural processes have a preferred direction. Heat flows by itself from a hotter body to a colder one, never the other way. A refrigerator does move heat from cold to hot, but it needs outside work to do so.
+**Second Law**: natural processes have a preferred direction. Heat flows by itself from a hotter body to a colder one. To move heat from cold to hot, something else must change too. For example, an electric refrigerator uses work to run its compressor.
 
 **Entropy** is a measure of how many ways the particles of a system can be arranged and share energy. More spread-out energy and more possible arrangements mean higher entropy. The second law also says that the total entropy of an isolated system does not decrease. An **isolated system** exchanges no heat, work, or matter with its surroundings.
 

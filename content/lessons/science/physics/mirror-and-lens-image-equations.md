@@ -32,6 +32,12 @@ The **magnification** $m$ tells the size and direction of the image. If $m$ is n
 
 If $m$ is positive, it is **upright**. If $|m|>1$, the image is bigger than the object.
 
+Use the same steps for the thin lenses in Converging and Diverging Lenses. Distances here are in centimeters.
+
+- Slide projector. $\dfrac{1}{d_i}=\dfrac{1}{15}-\dfrac{1}{20}=\dfrac{1}{60}$, so $d_i=60$ and $m=-\dfrac{60}{20}=-3$.
+- Magnifying glass. $\dfrac{1}{d_i}=\dfrac{1}{5}-\dfrac{1}{4}=-\dfrac{1}{20}$, so $d_i=-20$ and $m=-\dfrac{-20}{4}=+5$.
+- Concave lens. $\dfrac{1}{d_i}=-\dfrac{1}{10}-\dfrac{1}{30}=-\dfrac{4}{30}$, so $d_i=-7.5$ and $m=-\dfrac{-7.5}{30}=+0.25$.
+
 ## Examples
 
 ### #1: Concave Mirror, Object Beyond $2f$
@@ -69,7 +75,6 @@ $$\dfrac{1}{d_i}=-\dfrac{1}{12}-\dfrac{1}{24}=-\dfrac{3}{24}$$
 $$m=-\dfrac{-8}{24}=+\dfrac{1}{3}$$
 
 The image is virtual, upright and one third the size.
-
 ## Speed Tricks & Shortcuts
 
 Read the signs of your answers. A negative $d_i$ means virtual. A negative $m$ means inverted.

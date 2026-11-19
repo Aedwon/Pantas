@@ -14,7 +14,7 @@ keyPoints:
 ---
 ## Core Concept
 
-Because of this, the horizontal and vertical motions can be solved separately. They are linked by one thing: the **same time** $t$ is used in both. The ball is at one place at one moment.
+In the ideal model, gravity changes only the vertical velocity. So the horizontal and vertical motions can be solved separately. They are linked by one thing: the **same time** $t$ is used in both. The ball is at one place at one moment.
 
 Let the launch point be $(x_0,y_0)$ and the launch velocity have components $v_{x0}$ and $v_{y0}$. A **component** is the part of a velocity along one axis. Then:
 
@@ -23,6 +23,10 @@ $$x=x_0+v_{x0}t$$
 $$y=y_0+v_{y0}t-\dfrac12gt^2$$
 
 $$v_x=v_{x0},\qquad v_y=v_{y0}-gt.$$
+
+If the landing-time equation has the form $at^2+bt+c=0$ with $a\ne0$, use the quadratic formula:
+
+$$t=\dfrac{-b\pm\sqrt{b^2-4ac}}{2a}$$
 
 ## Examples
 

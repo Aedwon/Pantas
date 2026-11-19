@@ -16,11 +16,11 @@ keyPoints:
 
 ### Acceleration
 
-**Acceleration** is how fast velocity changes. Its unit is $\mathrm{m/s^2}$:
+**Acceleration** is how fast velocity changes. Its unit is $\mathrm{m/s^2}$. The formula gives the average acceleration over a time interval:
 
-$$a=\dfrac{\Delta v}{\Delta t}$$
+$$a_{\text{avg}}=\dfrac{\Delta v}{\Delta t}$$
 
-If $a$ and $v$ have the same sign, the object speeds up. If they have opposite signs, it slows down. A negative $a$ does not always mean slowing down.
+Compare $a$ and $v$ at the same moment. If they have the same sign, the object speeds up. If they have opposite signs, it slows down. A negative $a$ does not always mean slowing down.
 
 <!-- FIGURE: {"kind":"physics-mechanics-diagram","type":"accelerated-motion","illustrationKey":"science/physics/kinematics#1","path":"straight road","moments":3,"velocityTrend":"increasing","acceleration":"constant"} -->
 
@@ -37,11 +37,9 @@ A car moves east at $20\,\mathrm{m/s}$. It brakes uniformly to rest in $4$ s. Fi
 $$a=\dfrac{0-20}{4}=-5\,\mathrm{m/s^2}$$
 
 2. The sign is negative because the car slows while moving in the positive direction.
-3. Distance, using the average velocity:
+3. The velocity changes by the same amount each second, so its average is halfway between the start and end values. Multiply that average by the time to find the stopping distance.
 
 $$\Delta x=\dfrac{20+0}{2}(4)=40\text{ m}$$
-
-4. Check with $v^2=v_0^2+2a\Delta x$: $0=400+2(-5)\Delta x$, so $\Delta x=40$ m.
 
 ## Speed Tricks & Shortcuts
 

@@ -19,7 +19,7 @@ The **magnitude** of a quantity is its size, such as $5$ or $20$. The **unit** s
 
 A **scalar** is fully described by a magnitude and a unit. Examples are mass, temperature, time, speed, energy, and distance (the length of the path traveled).
 
-A **vector** needs a magnitude, a unit, and a direction. Examples are displacement, velocity, acceleration, force, and momentum. A vector also follows the vector-addition rules below.
+A **vector** needs a magnitude, a unit, and a direction. Examples are displacement, velocity, acceleration, force, and momentum. A vector also follows the rules in Adding Collinear Vectors.
 
 Whether a quantity is a vector depends on the quantity itself. It does not depend on whether a sentence happens to use a direction word. A problem may ask only for the magnitude of a vector, and that magnitude is then a scalar.
 

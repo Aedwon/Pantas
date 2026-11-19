@@ -24,7 +24,7 @@ replacedBy:
 
 $$\vec p=m\vec v$$
 
-Mass $m$ is in kilograms ($\mathrm{kg}$). Velocity $\vec v$ is in meters per second ($\mathrm{m/s}$). So momentum is in $\mathrm{kg\,m/s}$. The formula assumes the mass stays constant during the motion.
+Mass $m$ is in kilograms ($\mathrm{kg}$). Velocity $\vec v$ is in meters per second ($\mathrm{m/s}$). So momentum is in $\mathrm{kg\,m/s}$.
 
 Momentum is a **vector**. A vector has a size and a direction. Velocity is a vector too, so momentum points the same way as the velocity.
 
@@ -38,7 +38,9 @@ A **force** is a push or a pull, measured in newtons ($\mathrm N$). The **net fo
 
 **Impulse** measures how much a net force changes momentum over a time. It equals the change in momentum:
 
-$$\vec J=\Delta\vec p=m\vec v_f-m\vec v_i$$
+For an object with constant mass, this becomes:
+
+$$\vec J=\Delta\vec p=m\vec v_f-m\vec v_i=m(\vec v_f-\vec v_i)$$
 
 Here $\Delta$ means "final minus initial", $\vec v_i$ is the initial velocity, and $\vec v_f$ is the final velocity. Impulse is also a vector. Its unit is $\mathrm{N\,s}$, which equals $\mathrm{kg\,m/s}$.
 
@@ -69,7 +71,6 @@ $$\vec J=\int_{t_i}^{t_f}\vec F(t)\,dt$$
 
 You do not need calculus to find an area from a straight-sided graph.
 
-<!-- ILLUSTRATION: force-time graph, time $t$ in s on the horizontal axis from $0$ to $5.0$, force $F$ in N on the vertical axis; the line rises straight from $0\,\mathrm N$ at $t=0$ to $10\,\mathrm N$ at $t=2.0\,\mathrm s$, then stays flat at $10\,\mathrm N$ until $t=5.0\,\mathrm s$; the triangle is shaded and labeled A1, the rectangle is shaded and labeled A2 -->
 ### System and Conservation of Momentum
 
 A **system** is the group of objects you choose to study. Everything else is outside it.
@@ -88,7 +89,7 @@ This gives the **law of conservation of momentum**. The total momentum of a syst
 
 Momentum is a vector, so the rule applies to each direction separately. If the net external force is zero along one direction only, the momentum along that direction is conserved.
 
-Conservation does not hold when the net external impulse is large. A ball bouncing off a wall is an example. The ball's momentum changes because the wall pushes on it. See example #7.
+Conservation does not hold when the net external impulse is large. A ball bouncing off a wall is an example. The ball's momentum changes because the wall pushes on it. See Example #1.
 
 ### Kinetic Energy and Collisions
 
@@ -108,7 +109,7 @@ Total energy is still conserved in an inelastic collision. Some kinetic energy t
 
 Collisions of everyday objects are rarely perfectly elastic. Hard balls, such as billiard balls, come close. Collisions between gas molecules can be elastic.
 
-Some events go the other way. When two skaters push apart, or when something explodes, stored energy changes into kinetic energy. The total kinetic energy goes up, and momentum is still conserved. See example #8.
+Some events go the other way. When two skaters push apart, or when something explodes, stored energy changes into kinetic energy. The total kinetic energy goes up, and momentum is still conserved. See Example #1.
 
 ## Examples
 
@@ -173,7 +174,6 @@ The impulse is $3.2\,\mathrm{N\,s}$ away from the wall. The average force is $16
 
 A force along a straight line acts on an $8.0\,\mathrm{kg}$ cart that starts at rest on a level track with negligible friction. The force rises steadily from $0$ to $10\,\mathrm N$ in the first $2.0\,\mathrm s$. Then it stays at $10\,\mathrm N$ for the next $3.0\,\mathrm s$. Find the final speed of the cart at $5.0\,\mathrm s$.
 
-<!-- ILLUSTRATION: force-time graph for the cart, time in s from $0$ to $5.0$, force in N from $0$ to $10$; a straight line from $(0,0)$ to $(2.0,10)$, then a flat line at $10\,\mathrm N$ to $t=5.0\,\mathrm s$; the triangle is labeled $J_1=10\,\mathrm{N\,s}$ and the rectangle is labeled $J_2=30\,\mathrm{N\,s}$ -->
 
 **Solution:**
 
@@ -296,7 +296,7 @@ A quick check for any collision: compute total kinetic energy before and after. 
 
 For impulse from a graph, find the area. Rectangle: base times height. Triangle: $\dfrac{1}{2}$ times base times height. Count area under the axis as negative.
 
-When two objects of equal mass collide head-on and elastically, and one is at rest before, they exchange velocities. This works only for a straight-line, head-on, elastic collision. Example #8 Part A is this case.
+When two objects of equal mass collide head-on and elastically, and one is at rest before, they exchange velocities. This works only for a straight-line, head-on, elastic collision. Example #1 Part A is this case.
 
 ## Traps to Watch For
 
@@ -310,7 +310,7 @@ If the force changes, a peak value times the time gives the wrong impulse. Use t
 
 > Total momentum is conserved only for a system whose net external impulse is zero or negligible.
 
-Two objects colliding on rough ground may lose momentum if friction has a large impulse over a long collision. A ball against a fixed wall is a one-object system with a large external impulse, as example #7 shows.
+Two objects colliding on rough ground may lose momentum if friction has a large impulse over a long collision. A ball against a fixed wall is a one-object system with a large external impulse, as Example #1 shows.
 
 ### #3: Saying Energy Is Lost in an Inelastic Collision
 
@@ -322,10 +322,10 @@ The "missing" kinetic energy turns into heat, sound, and deformation. Do not cla
 
 > Momentum and impulse are vectors, so signs matter. Kinetic energy is not.
 
-Objects moving in opposite directions can give a total momentum of $0$, as in example #1. For motion along a line, assign signs before adding momenta, as in example #6. Do not give kinetic energies signs, because $v^2$ is never negative.
+Objects moving in opposite directions can give a total momentum of $0$, as in example #1. For motion along a line, assign signs before adding momenta. Do not give kinetic energies signs, because $v^2$ is never negative.
 
 ### #5: Thinking Perfectly Inelastic Means All Motion Stops
 
 > Perfectly inelastic means the objects stick together, not that they stop.
 
-The combined object still moves unless the total momentum before was zero. In example #5, the carts keep moving at $3\,\mathrm{m/s}$.
+The combined object still moves unless the total momentum before was zero. In Example #1, the carts keep moving east at $0.8\,\mathrm{m/s}$.

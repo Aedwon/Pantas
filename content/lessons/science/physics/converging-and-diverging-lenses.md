@@ -28,45 +28,20 @@ This rule depends on the lens having a larger $n$ than its surroundings. A conve
 
 ### #1: Convex Lens Making a Real Image
 
-A convex lens in air has $f=15$ cm. A slide is $20$ cm from the lens. Find the image distance and magnification, and describe the image.
+A convex lens in air has a focal length of $15$ cm. A slide is $20$ cm from the lens. Describe the image.
 
 **Solution:**
 
-1. Use the lens equation:
-
-$$\dfrac{1}{d_i}=\dfrac{1}{15}-\dfrac{1}{20}=\dfrac{1}{60}$$
-
-2. So $d_i=60$ cm. Find the magnification:
-
-$$m=-\dfrac{60}{20}=-3$$
-
-The object is between $f$ and $2f$. The image is real, inverted and three times larger, as a projector does.
+The slide is between $f$ and $2f$. The lens brings the rays together on the far side. It makes a real, inverted image that is larger than the slide.
 
 ### #2: A Magnifying Glass and a Concave Lens
 
-(a) A magnifying glass is a convex lens with $f=5$ cm. A small insect is $4$ cm from it. Find $m$ and describe the image. (b) A concave lens has $f=-10$ cm. An object is $30$ cm from it. Find $d_i$ and $m$.
+(a) A magnifying glass in air has a focal length of $5$ cm. An insect is $4$ cm from it. (b) A concave glass lens in air has a focal length of magnitude $10$ cm. An object is $30$ cm from it. Describe both images.
 
 **Solution:**
 
-1. For part (a), find the image distance:
-
-$$\dfrac{1}{d_i}=\dfrac{1}{5}-\dfrac{1}{4}=-\dfrac{1}{20}$$
-
-2. So $d_i=-20$ cm. Find the magnification:
-
-$$m=-\dfrac{-20}{4}=+5$$
-
-The image is virtual, upright and five times larger, because the object is inside $f$.
-
-3. For part (b), use the lens equation:
-
-$$\dfrac{1}{d_i}=-\dfrac{1}{10}-\dfrac{1}{30}=-\dfrac{4}{30}$$
-
-4. So $d_i=-7.5$ cm. Find the magnification:
-
-$$m=-\dfrac{-7.5}{30}=+0.25$$
-
-The image is virtual, upright and one quarter the size.
+1. The insect is inside the focal length. The rays leave the magnifying glass spreading apart. They appear to come from a larger, upright insect, so the image is virtual.
+2. The concave lens spreads the rays. They appear to come from a smaller, upright object on the same side as the real object. This image is virtual too.
 
 ## Traps to Watch For
 

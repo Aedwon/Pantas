@@ -16,7 +16,7 @@ keyPoints:
 
 ### Electric Power, Energy, and Safety
 
-**Power** is energy used per second, in watts ($\mathrm{W}$):
+**Power** is energy used per second, in watts ($\mathrm{W}$). For steady direct current:
 
 $$P=IV$$
 
@@ -32,7 +32,7 @@ A **short circuit** is a path with very low resistance, so the current is very l
 
 ### #1: Power, Energy, and Efficiency
 
-A heater is rated $1{,}100$ W on a $220$ V supply. Find its current and the energy it uses in $3$ hours. Another device takes in $500$ J and gives out $400$ J of useful energy. Find its efficiency.
+A heater is rated $1{,}100$ W on a $220$ V DC supply. Find its current and the energy it uses in $3$ hours. Another device takes in $500$ J and gives out $400$ J of useful energy. Find its efficiency.
 
 **Solution:**
 
@@ -50,7 +50,7 @@ $$\dfrac{400}{500}\times100\%=80\%$$
 
 ### #2: Fuse and Overload
 
-A $220$ V line has a $10$ A fuse. A heater of $1{,}100$ W and an iron of $1{,}000$ W run on it together. A kettle of $600$ W is then plugged in. What happens, and why?
+A $220$ V DC line has a $10$ A fuse. Assume the ideal fuse opens as soon as the current goes above $10$ A. A heater of $1{,}100$ W and an iron of $1{,}000$ W run on it together. A kettle of $600$ W is then plugged in. What happens, and why?
 
 **Solution:**
 
@@ -67,4 +67,4 @@ This is below $10$ A, so the fuse stays closed.
 
 $$I=\dfrac{2700}{220}\approx12.3\ \mathrm{A}$$
 
-4. This is more than $10$ A, so the fuse opens and stops the current. This keeps the wires from overheating.
+4. This is more than $10$ A, so the ideal fuse opens and stops the current. This keeps the wires from overheating.

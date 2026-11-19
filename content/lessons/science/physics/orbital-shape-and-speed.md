@@ -20,15 +20,14 @@ Using the careful observational data collected by Tycho Brahe, Johannes Kepler f
 
 **Kepler's First Law (Law of Ellipses)**: planets orbit the Sun in elliptical paths, with the Sun at one focus of the ellipse. A circle is the special case of an ellipse with zero eccentricity.
 
-**Kepler's Second Law (Law of Equal Areas)**: a line connecting a planet to the Sun sweeps out equal areas in equal time intervals. This means a planet moves faster near perihelion and slower near aphelion.
+**Kepler's Second Law (Law of Equal Areas)**: a line connecting a planet to the Sun sweeps out equal areas in equal time intervals. In a noncircular orbit, this means a planet moves faster near perihelion and slower near aphelion.
 
-<!-- FIGURE: {"kind":"physics-mechanics-diagram","type":"kepler-equal-areas","illustrationKey":"science/physics/gravity-and-keplers-laws#2","orbit":"ellipse","sunPosition":"one focus","interval":"equal time","near":{"arc":"longer","speed":"faster"},"far":{"arc":"shorter","speed":"slower"},"areas":"equal"} -->
 
 ## Examples
 
 ### #1: Comparing Orbital Speed
 
-A planet's orbit is elliptical. At **perihelion** it is closest to the Sun; at **aphelion** it is farthest away. At which point does the planet move faster?
+A planet's orbit is a noncircular ellipse. At **perihelion** it is closest to the Sun; at **aphelion** it is farthest away. At which point does the planet move faster?
 
 
 **Solution:**
@@ -37,6 +36,8 @@ Apply Kepler's second law.
 1. Equal areas must be swept out in equal times.
 2. Near perihelion, the planet must move through a longer arc in the same interval than it does near aphelion.
 3. Therefore the planet moves faster at perihelion and slower at aphelion.
+
+<!-- FIGURE: {"kind":"physics-mechanics-diagram","type":"kepler-equal-areas","illustrationKey":"science/physics/gravity-and-keplers-laws#2","orbit":"ellipse","sunPosition":"one focus","interval":"equal time","near":{"arc":"longer","speed":"faster"},"far":{"arc":"shorter","speed":"slower"},"areas":"equal"} -->
 
 <!-- FIGURE: {"kind":"physics-mechanics-diagram","type":"orbital-speed","illustrationKey":"science/physics/gravity-and-keplers-laws#3","orbit":"ellipse","sunPosition":"one focus","perihelion":{"distance":"near","velocityArrow":"long","speed":"fast"},"aphelion":{"distance":"far","velocityArrow":"short","speed":"slow"}} -->
 
@@ -52,7 +53,7 @@ Explain how Kepler's first law changed the older circular-orbit assumption.
 
 ## Speed Tricks & Shortcuts
 
-For Kepler's second law, remember: closer to the Sun means faster orbital speed; farther means slower.
+In a noncircular orbit, closer to the Sun means faster orbital speed; farther means slower.
 
 ## Traps to Watch For
 
@@ -64,6 +65,6 @@ A nearly circular orbit can make the offset small, but the geometric statement i
 
 ### #2: Assuming Planets Move at Constant Speed
 
-> Kepler's second law requires varying speed around an elliptical orbit.
+> Kepler's second law requires varying speed around a noncircular elliptical orbit.
 
 The speed is greatest near perihelion and smallest near aphelion.
