@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 252" width="360" height="252">
+<title>Pedigree with two parents and two children</title>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient><radialGradient id="tile" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#010101" stop-opacity="0.035"/><stop offset="1" stop-color="#010101" stop-opacity="0.07"/></radialGradient><radialGradient id="soft" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#010101" stop-opacity="0.08"/><stop offset="1" stop-color="#010101" stop-opacity="0.16"/></radialGradient><radialGradient id="structure" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.13"/><stop offset="1" stop-color="#050505" stop-opacity="0.26"/></radialGradient><radialGradient id="focus" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.45"/></radialGradient></defs>
+<rect width="360" height="252" rx="14" fill="url(#bg)"/>
+<rect x="106" y="28" width="148" height="82" rx="8" fill="url(#tile)" stroke="none" stroke-width="1.5"/>
+<rect x="106" y="146" width="219" height="86" rx="8" fill="url(#tile)" stroke="none" stroke-width="1.5"/>
+<path d="M149 68 H211 M180 68 V134 M151 134 H260 M151 134 V158 M260 134 V158" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="123" y="55" width="26" height="26" rx="0" fill="#030303" stroke="#020202" stroke-width="1.5"/>
+<ellipse cx="224" cy="68" rx="13" ry="13" fill="#030303" stroke="#020202" stroke-width="1.5"/>
+<ellipse cx="151" cy="171" rx="13" ry="13" fill="url(#focus)" stroke="#050505" stroke-width="1.5"/>
+<circle cx="151" cy="171" r="11" fill="#050505"/>
+<rect x="247" y="158" width="26" height="26" rx="0" fill="#030303" stroke="#020202" stroke-width="1.5"/>
+<text x="16" y="72" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Generation I</text>
+<text x="16" y="176" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Generation II</text>
+<text x="151" y="210" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505"><tspan x="122" dy="0">affected</tspan><tspan x="122" dy="1.2em">daughter</tspan></text>
+<text x="260" y="210" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">unaffected son</text>
+</svg>

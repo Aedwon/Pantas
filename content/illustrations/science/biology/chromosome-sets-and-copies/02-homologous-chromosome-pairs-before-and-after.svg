@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 292" width="360" height="292">
+<title>Homologous pairs before and after chromosome copying</title>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient><radialGradient id="tile" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#010101" stop-opacity="0.035"/><stop offset="1" stop-color="#010101" stop-opacity="0.07"/></radialGradient><radialGradient id="soft" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#010101" stop-opacity="0.08"/><stop offset="1" stop-color="#010101" stop-opacity="0.16"/></radialGradient><radialGradient id="structure" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.13"/><stop offset="1" stop-color="#050505" stop-opacity="0.26"/></radialGradient><radialGradient id="focus" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.45"/></radialGradient></defs>
+<rect width="360" height="292" rx="14" fill="url(#bg)"/>
+<text x="97" y="34" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">before copying</text>
+<text x="263" y="34" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">after copying</text>
+<ellipse cx="96" cy="144" rx="75" ry="96" fill="url(#tile)" stroke="#020202" stroke-width="1.5"/>
+<ellipse cx="264" cy="144" rx="75" ry="96" fill="url(#tile)" stroke="#020202" stroke-width="1.5"/>
+<path d="M175 144 L177.0 144.0" fill="none" stroke="#020202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="185,144 177.0,148.0 177.0,140.0" fill="#020202"/>
+<path d="M60 72 H113 M60 72 V78 M113 72 V78" fill="none" stroke="#050505" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M87 72 V61 L151 61" fill="none" stroke="#050505" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="155" y="65" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505">homologous pair</text>
+<path d="M61 91.0 V147.0" fill="none" stroke="#B94545" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M112 91.0 V147.0" fill="none" stroke="#3C73BE" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M72 173.0 V205.0" fill="none" stroke="#B94545" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M122 173.0 V205.0" fill="none" stroke="#3C73BE" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M219 91.0 Q221 112 227 119 Q221 126 219 147.0 M235 91.0 Q233 112 227 119 Q233 126 235 147.0" fill="none" stroke="#B94545" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="227" cy="119" r="2.5" fill="#020202"/>
+<path d="M270 91.0 Q272 112 278 119 Q272 126 270 147.0 M286 91.0 Q284 112 278 119 Q284 126 286 147.0" fill="none" stroke="#3C73BE" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="278" cy="119" r="2.5" fill="#020202"/>
+<path d="M231 173.0 Q233 182 239 189 Q233 196 231 205.0 M247 173.0 Q245 182 239 189 Q245 196 247 205.0" fill="none" stroke="#B94545" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="239" cy="189" r="2.5" fill="#020202"/>
+<path d="M283 173.0 Q285 182 291 189 Q285 196 283 205.0 M299 173.0 Q297 182 291 189 Q297 196 299 205.0" fill="none" stroke="#3C73BE" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="291" cy="189" r="2.5" fill="#020202"/>
+<path d="M284 210 V218 H299 V210 M292 218 V244 L279 252" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="248" y="272" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">sister chromatids</text>
+<text x="96" y="272" text-anchor="middle" font-size="15" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">2</tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">n</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> = 4</tspan></text>
+</svg>

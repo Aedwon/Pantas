@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 306" width="360" height="306">
+<title>Materials exchanged between photosynthesis stages</title>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient><radialGradient id="tile" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#010101" stop-opacity="0.035"/><stop offset="1" stop-color="#010101" stop-opacity="0.07"/></radialGradient><radialGradient id="soft" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#010101" stop-opacity="0.08"/><stop offset="1" stop-color="#010101" stop-opacity="0.16"/></radialGradient><radialGradient id="structure" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.13"/><stop offset="1" stop-color="#050505" stop-opacity="0.26"/></radialGradient><radialGradient id="focus" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.45"/></radialGradient></defs>
+<rect width="360" height="306" rx="14" fill="url(#bg)"/>
+<rect x="17" y="108" width="138" height="90" rx="8" fill="url(#focus)" stroke="#050505" stroke-width="1.5"/>
+<rect x="213" y="108" width="130" height="90" rx="8" fill="url(#structure)" stroke="#020202" stroke-width="1.5"/>
+<text x="86" y="133" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="86" dy="0">Light reactions</tspan><tspan x="86" dy="1.2em">(thylakoid</tspan><tspan x="86" dy="1.2em">membranes)</tspan></text>
+<text x="278" y="146" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="278" dy="0">Calvin cycle</tspan><tspan x="278" dy="1.2em">(stroma)</tspan></text>
+<text x="41" y="51" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">light</text>
+<path d="M41 62 L41.0 92.0" fill="none" stroke="#020202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="41,100 37.0,92.0 45.0,92.0" fill="#020202"/>
+<text x="115" y="51" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">water</text>
+<path d="M115 62 L115.0 92.0" fill="none" stroke="#020202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="115,100 111.0,92.0 119.0,92.0" fill="#020202"/>
+<text x="279" y="51" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">carbon dioxide</text>
+<path d="M279 62 L279.0 92.0" fill="none" stroke="#020202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="279,100 275.0,92.0 283.0,92.0" fill="#020202"/>
+<path d="M44 206 L44.0 255.0" fill="none" stroke="#020202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="44,263 40.0,255.0 48.0,255.0" fill="#020202"/>
+<text x="44" y="286" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">oxygen</text>
+<path d="M318 206 L318.0 255.0" fill="none" stroke="#020202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="318,263 314.0,255.0 322.0,255.0" fill="#020202"/>
+<text x="318" y="286" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">sugar</text>
+<path d="M155 125 H172 V94 H196 V125 H203" fill="none" stroke="#050505" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M199 125 L205.0 125.0" fill="none" stroke="#050505" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="213,125 205.0,129.0 205.0,121.0" fill="#050505"/>
+<text x="182" y="80" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505">ATP and NADPH</text>
+<path d="M213 174 H181 V230 H83 V214" fill="none" stroke="#020202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M83 219 L83.0 206.0" fill="none" stroke="#020202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="83,198 87.0,206.0 79.0,206.0" fill="#020202"/>
+<text x="179" y="252" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">ADP and NADP+</text>
+</svg>

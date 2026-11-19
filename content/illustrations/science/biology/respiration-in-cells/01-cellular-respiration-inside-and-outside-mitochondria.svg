@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 468" width="360" height="468">
+<title>Cellular respiration in and around a mitochondrion</title>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient><radialGradient id="tile" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#010101" stop-opacity="0.035"/><stop offset="1" stop-color="#010101" stop-opacity="0.07"/></radialGradient><radialGradient id="soft" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#010101" stop-opacity="0.08"/><stop offset="1" stop-color="#010101" stop-opacity="0.16"/></radialGradient><radialGradient id="structure" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.13"/><stop offset="1" stop-color="#050505" stop-opacity="0.26"/></radialGradient><radialGradient id="focus" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.45"/></radialGradient></defs>
+<rect width="360" height="468" rx="14" fill="url(#bg)"/>
+<text x="180" y="33" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="600" fill="#010101">cytosol</text>
+<text x="180" y="59" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">glycolysis</text>
+<text x="118" y="85" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">glucose</text>
+<path d="M150 80 L183.0 80.0" fill="none" stroke="#020202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="191,80 183.0,84.0 183.0,76.0" fill="#020202"/>
+<text x="228" y="85" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">pyruvate</text>
+<path d="M228 96 L228.0 166.0" fill="none" stroke="#020202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="228,174 224.0,166.0 232.0,166.0" fill="#020202"/>
+<path d="M228 112 C296 112 331 173 329 258 C327 337 283 389 179 389 C78 389 33 346 32 262 C31 168 91 112 228 112 Z" fill="url(#soft)" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M226 129 C283 129 313 185 311 254 C310 323 269 373 180 373 C94 373 50 333 50 262 C50 239 55 225 65 220 C77 214 108 222 108 208 C108 193 71 203 73 188 C76 176 113 153 119 159 C130 167 106 185 123 190 C140 195 134 160 151 146 C166 134 198 130 226 129 Z" fill="url(#structure)" stroke="#050505" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M228 95 L228.0 166.0" fill="none" stroke="#020202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="228,174 224.0,166.0 232.0,166.0" fill="#020202"/>
+<text x="213" y="201" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">matrix</text>
+<text x="213" y="227" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">pyruvate oxidation</text>
+<text x="213" y="250" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">citric acid cycle</text>
+<path d="M65 313 H124 L140 320 M292 329 L268 316 H221" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="146" y="292" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="146" dy="0">electron</tspan><tspan x="146" dy="1.2em">transport chain</tspan></text>
+<text x="221" y="310" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">ATP synthase</text>
+<circle cx="65" cy="313" r="4" fill="#050505"/>
+<circle cx="292" cy="329" r="4" fill="#050505"/>
+<path d="M36 377 L53.2 345.0" fill="none" stroke="#020202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="57,338 56.7,346.9 49.7,343.1" fill="#020202"/>
+<text x="50" y="400" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">oxygen</text>
+<path d="M295 350 L318.3 381.6" fill="none" stroke="#020202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="323,388 315.0,383.9 321.5,379.2" fill="#020202"/>
+<text x="316" y="410" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">water</text>
+<path d="M145 409 L167 389 M208 432 L199 373" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="143" y="426" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">outer membrane</text>
+<text x="196" y="449" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">inner membrane with cristae</text>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 226" width="360" height="226">
+<title>A branching tree with four tips</title>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient><radialGradient id="tile" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#010101" stop-opacity="0.035"/><stop offset="1" stop-color="#010101" stop-opacity="0.07"/></radialGradient><radialGradient id="soft" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#010101" stop-opacity="0.08"/><stop offset="1" stop-color="#010101" stop-opacity="0.16"/></radialGradient><radialGradient id="structure" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.13"/><stop offset="1" stop-color="#050505" stop-opacity="0.26"/></radialGradient><radialGradient id="focus" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.45"/></radialGradient></defs>
+<rect width="360" height="226" rx="14" fill="url(#bg)"/>
+<path d="M53 58 V95 H131 V58 M92 95 V139 H218 V58 M155 139 V184 H304 V58 M229 184 V204" fill="none" stroke="#020202" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="92" cy="95" r="4" fill="#050505"/>
+<circle cx="155" cy="139" r="4" fill="#050505"/>
+<circle cx="229" cy="184" r="4" fill="#050505"/>
+<text x="53" y="42" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="600" fill="#010101">A</text>
+<text x="131" y="42" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="600" fill="#010101">B</text>
+<text x="218" y="42" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="600" fill="#010101">C</text>
+<text x="304" y="42" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="600" fill="#010101">D</text>
+<text x="79" y="117" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505">X</text>
+<text x="142" y="161" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505">Y</text>
+<text x="216" y="206" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505">Z</text>
+</svg>

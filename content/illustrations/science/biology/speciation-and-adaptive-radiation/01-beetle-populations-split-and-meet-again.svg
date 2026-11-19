@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 308" width="360" height="308">
+<title>A river splits a beetle population</title>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient><radialGradient id="tile" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#010101" stop-opacity="0.035"/><stop offset="1" stop-color="#010101" stop-opacity="0.07"/></radialGradient><radialGradient id="soft" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#010101" stop-opacity="0.08"/><stop offset="1" stop-color="#010101" stop-opacity="0.16"/></radialGradient><radialGradient id="structure" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.13"/><stop offset="1" stop-color="#050505" stop-opacity="0.26"/></radialGradient><radialGradient id="focus" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.45"/></radialGradient></defs>
+<rect width="360" height="308" rx="14" fill="url(#bg)"/>
+<rect x="16" y="18" width="328" height="147" rx="8" fill="url(#tile)" stroke="none" stroke-width="1.5"/>
+<rect x="16" y="179" width="328" height="112" rx="8" fill="url(#tile)" stroke="none" stroke-width="1.5"/>
+<path d="M209 19 C185 46 222 66 203 94 S212 137 200 164 L227 164 C240 137 216 115 231 94 S218 46 240 19 Z" fill="url(#focus)" stroke="#050505" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<g transform="translate(47 62)">
+<path d="M-8 -5 L8 5 M-8 5 L8 -5 M-8 0 H8" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="0" cy="1" rx="5" ry="7" fill="url(#soft)" stroke="#020202" stroke-width="1.5"/>
+<circle cx="0" cy="-6" r="2" fill="#010101"/>
+<path d="M0 -2 V5" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g transform="translate(73 62)">
+<path d="M-8 -5 L8 5 M-8 5 L8 -5 M-8 0 H8" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="0" cy="1" rx="5" ry="7" fill="url(#soft)" stroke="#020202" stroke-width="1.5"/>
+<circle cx="0" cy="-6" r="2" fill="#010101"/>
+<path d="M0 -2 V5" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g transform="translate(47 86)">
+<path d="M-8 -5 L8 5 M-8 5 L8 -5 M-8 0 H8" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="0" cy="1" rx="5" ry="7" fill="url(#soft)" stroke="#020202" stroke-width="1.5"/>
+<circle cx="0" cy="-6" r="2" fill="#010101"/>
+<path d="M0 -2 V5" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g transform="translate(73 86)">
+<path d="M-8 -5 L8 5 M-8 5 L8 -5 M-8 0 H8" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="0" cy="1" rx="5" ry="7" fill="url(#soft)" stroke="#020202" stroke-width="1.5"/>
+<circle cx="0" cy="-6" r="2" fill="#010101"/>
+<path d="M0 -2 V5" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g transform="translate(147 56)">
+<path d="M-8 -5 L8 5 M-8 5 L8 -5 M-8 0 H8" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="0" cy="1" rx="5" ry="7" fill="url(#soft)" stroke="#020202" stroke-width="1.5"/>
+<circle cx="0" cy="-6" r="2" fill="#010101"/>
+<path d="M0 -2 V5" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g transform="translate(169 62)">
+<path d="M-8 -5 L8 5 M-8 5 L8 -5 M-8 0 H8" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="0" cy="1" rx="5" ry="7" fill="url(#soft)" stroke="#020202" stroke-width="1.5"/>
+<circle cx="0" cy="-6" r="2" fill="#010101"/>
+<path d="M0 -2 V5" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g transform="translate(260 56)">
+<path d="M-8 -5 L8 5 M-8 5 L8 -5 M-8 0 H8" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="0" cy="1" rx="5" ry="7" fill="url(#soft)" stroke="#020202" stroke-width="1.5"/>
+<circle cx="0" cy="-6" r="2" fill="#010101"/>
+<path d="M0 -2 V5" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g transform="translate(282 62)">
+<path d="M-8 -5 L8 5 M-8 5 L8 -5 M-8 0 H8" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="0" cy="1" rx="5" ry="7" fill="url(#soft)" stroke="#020202" stroke-width="1.5"/>
+<circle cx="0" cy="-6" r="2" fill="#010101"/>
+<path d="M0 -2 V5" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g transform="translate(139 211)">
+<path d="M-8 -5 L8 5 M-8 5 L8 -5 M-8 0 H8" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="0" cy="1" rx="5" ry="7" fill="url(#soft)" stroke="#020202" stroke-width="1.5"/>
+<circle cx="0" cy="-6" r="2" fill="#010101"/>
+<path d="M0 -2 V5" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g transform="translate(160 216)">
+<path d="M-8 -5 L8 5 M-8 5 L8 -5 M-8 0 H8" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="0" cy="1" rx="5" ry="7" fill="url(#soft)" stroke="#020202" stroke-width="1.5"/>
+<circle cx="0" cy="-6" r="2" fill="#010101"/>
+<path d="M0 -2 V5" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g transform="translate(200 216)">
+<path d="M-8 -5 L8 5 M-8 5 L8 -5 M-8 0 H8" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="0" cy="1" rx="5" ry="7" fill="url(#soft)" stroke="#020202" stroke-width="1.5"/>
+<circle cx="0" cy="-6" r="2" fill="#010101"/>
+<circle cx="0" cy="2" r="1.7" fill="#010101"/>
+</g>
+<g transform="translate(221 211)">
+<path d="M-8 -5 L8 5 M-8 5 L8 -5 M-8 0 H8" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="0" cy="1" rx="5" ry="7" fill="url(#soft)" stroke="#020202" stroke-width="1.5"/>
+<circle cx="0" cy="-6" r="2" fill="#010101"/>
+<circle cx="0" cy="2" r="1.7" fill="#010101"/>
+</g>
+<path d="M86 74 L116.0 74.0" fill="none" stroke="#020202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="124,74 116.0,78.0 116.0,70.0" fill="#020202"/>
+<text x="142" y="100" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Population A</text>
+<text x="284" y="100" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Population B</text>
+<path d="M160 113 L190.0 113.0" fill="none" stroke="#050505" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="198,113 190.0,117.0 190.0,109.0" fill="#050505"/>
+<text x="205" y="145" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505">gene flow stops</text>
+<text x="180" y="266" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">reproductive isolation: two species</text>
+</svg>

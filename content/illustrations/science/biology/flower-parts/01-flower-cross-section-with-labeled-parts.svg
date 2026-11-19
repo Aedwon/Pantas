@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 300" width="360" height="300">
+<title>Parts of a flower in cross-section</title>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient><radialGradient id="tile" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#010101" stop-opacity="0.035"/><stop offset="1" stop-color="#010101" stop-opacity="0.07"/></radialGradient><radialGradient id="soft" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#010101" stop-opacity="0.08"/><stop offset="1" stop-color="#010101" stop-opacity="0.16"/></radialGradient><radialGradient id="structure" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.13"/><stop offset="1" stop-color="#050505" stop-opacity="0.26"/></radialGradient><radialGradient id="focus" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.45"/></radialGradient></defs>
+<rect width="360" height="300" rx="14" fill="url(#bg)"/>
+<path d="M177 255 C113 249 91 204 102 139 C108 104 131 93 123 137 C122 178 141 224 177 240 M183 255 C247 249 269 204 258 139 C252 104 229 93 237 137 C238 178 219 224 183 240" fill="url(#soft)" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M178 263 C139 264 108 251 91 228 C116 229 138 246 171 250 M182 263 C221 264 252 251 269 228 C244 229 222 246 189 250" fill="url(#structure)" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M160 243 C142 225 141 194 142 158 M200 243 C218 225 219 194 218 158" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="141" cy="147" rx="9" ry="13" fill="url(#soft)" stroke="#020202" stroke-width="1.5"/>
+<ellipse cx="219" cy="147" rx="9" ry="13" fill="url(#soft)" stroke="#020202" stroke-width="1.5"/>
+<path d="M174 131 V195 C174 206 159 211 159 231 C159 246 168 257 180 257 C192 257 201 246 201 231 C201 211 186 206 186 195 V131 Z" fill="url(#focus)" stroke="#050505" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="180" cy="123" rx="15" ry="8" fill="url(#focus)" stroke="#050505" stroke-width="1.5"/>
+<ellipse cx="180" cy="232" rx="6" ry="8" fill="#030303" stroke="#050505" stroke-width="1.5"/>
+<path d="M180 263 V280" fill="none" stroke="#020202" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M73 126 H109 M72 242 H100 M122 156 L132 148 M99 200 H145 M199 123 H264 M187 177 H264 M201 219 H264 M186 233 L242 248 H264" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M71 145 H65 V207 H71 M326 113 H332 V258 H326" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="24" y="131" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">petal</text>
+<text x="24" y="246" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">sepal</text>
+<text x="77" y="161" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">anther</text>
+<text x="74" y="191" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">filament</text>
+<text x="24" y="224" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">stamen</text>
+<text x="268" y="127" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">stigma</text>
+<text x="268" y="181" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">style</text>
+<text x="268" y="223" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">ovary</text>
+<text x="268" y="254" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">ovule</text>
+<text x="309" y="98" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505">pistil</text>
+</svg>
