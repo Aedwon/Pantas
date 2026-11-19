@@ -72,12 +72,12 @@ abstract final class ChildSetupCopy {
 
 /// The text versions the server checks at setup. Keep in step with
 /// `GUARDIAN_TICK_TEXT_VERSIONS` and `CHILD_NOTICE_VERSION` in
-/// `functions/src/guardianConsent.ts`. The legal task (T11) moves them with the
-/// published texts.
+/// `functions/src/guardianConsent.ts`.
 abstract final class ChildSetupVersions {
-  static const tick1 = '2026-11-19';
-  static const tick2 = '2026-11-19';
-  static const childNotice = '2026-11-19';
+  static const tick1 = '2026-11-20';
+  static const tick2 = '2026-11-20';
+  static const childNotice = '2026-11-20';
+  static const siblingNotice = '2026-11-20';
 }
 
 /// Why the server refused setup, read from the callable's `reason`.

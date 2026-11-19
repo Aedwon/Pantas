@@ -1,4 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/auth/auth_repository.dart';
+import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/auth/sign_in_result.dart';
 import 'package:pantas/features/child_setup/data/child_setup_gateway.dart';
 
 final childSetupGatewayProvider = Provider<ChildSetupGateway>(
@@ -14,22 +17,33 @@ abstract interface class ChildSessionStarter {
   Future<void> start({required String childUid, required String customToken});
 }
 
-/// Does nothing yet.
-// TODO(T6): the device-state task replaces this with the real session switch
-// (sign in with the custom token, drop the parent session, wipe local state,
-// isolate the child's records).
-class PendingChildSessionStarter implements ChildSessionStarter {
-  const PendingChildSessionStarter();
+class _AuthChildSessionStarter implements ChildSessionStarter {
+  const _AuthChildSessionStarter(this._auth);
+
+  final AuthRepository _auth;
 
   @override
   Future<void> start({
     required String childUid,
     required String customToken,
-  }) async {}
+  }) async {
+    final result = await _auth.startChildSession(customToken);
+    switch (result) {
+      case SwitchedToExistingSignInResult():
+        if (_auth.currentSession?.uid != childUid) {
+          throw const AuthGatewayException('unexpected-child-session');
+        }
+        return;
+      case FailedSignInResult(:final reason):
+        throw AuthGatewayException(reason);
+      case CancelledSignInResult() || LinkedExistingSignInResult():
+        throw const AuthGatewayException('child-session-not-started');
+    }
+  }
 }
 
 final childSessionStarterProvider = Provider<ChildSessionStarter>(
-  (ref) => const PendingChildSessionStarter(),
+  (ref) => _AuthChildSessionStarter(ref.watch(authRepositoryProvider)),
 );
 
 /// Set when the server reports child setup closed. The under-13 screen then

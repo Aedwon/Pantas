@@ -30,7 +30,6 @@ class ChildNoticeScreen extends StatelessWidget {
             ChildStepButton(
               label: ChildSetupCopy.readMore,
               onPressed: onReadMore ??
-                  // TODO(T11): the kids page ships with the Child Notice.
                   () => GoRouter.maybeOf(context)
                       ?.push<void>('/legal/child-notice-kids'),
             ),

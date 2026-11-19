@@ -11,7 +11,7 @@ import {consumeGuardianProof} from './guardianCodeGate.js';
 import {ACCOUNT_DELETION_MAX_INSTANCES} from './_options.js';
 import {timed} from './_timed.js';
 
-export const SIBLING_NOTICE_VERSION = '2026-11-19'; // T11 synchronizes the published text.
+export const SIBLING_NOTICE_VERSION = '2026-11-20';
 
 const notLinked = () => new HttpsError('permission-denied', 'This account is not linked to that child.',
   {reason: 'not-linked'});

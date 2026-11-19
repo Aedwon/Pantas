@@ -194,7 +194,7 @@ test('without a nickname the child is listed with an empty one and no receipt go
   assert.equal(mail.to, EMAIL);
   assert.equal(mail.subject, 'Pantas account for Ana');
   assert.ok(mail.text.startsWith('Hi,\n\nYou set up a Pantas account for Ana on Nov 19, 2026. You accepted the Terms and agreed to ' +
-    'the Child Notice (version 2026-11-19). If you want to delete Ana\'s account and data, use the button below. ' +
+    'the Child Notice (version 2026-11-20). If you want to delete Ana\'s account and data, use the button below. ' +
     'You can also do this in the app under "For parents." We send one email for each child.'), mail.text);
   assert.ok(mail.text.includes(`https://app.example.test/parents/delete?child=${childUid}`));
   assert.ok(!/token/i.test(mail.text));

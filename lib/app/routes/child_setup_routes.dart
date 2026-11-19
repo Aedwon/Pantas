@@ -3,12 +3,14 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/sign_in/email_sign_in_page.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/features/child_setup/application/child_setup_providers.dart';
 import 'package:pantas/features/onboarding/presentation/child/child_nickname_screen.dart';
 import 'package:pantas/features/onboarding/presentation/child/child_notice_screen.dart';
 import 'package:pantas/features/onboarding/presentation/child/parent_setup_screen.dart';
 import 'package:pantas/features/onboarding/presentation/child/parent_sign_in_screen.dart';
 import 'package:pantas/features/onboarding/presentation/child/under_thirteen_screen.dart';
+import 'package:pantas/features/settings/application/settings_providers.dart';
 
 /// The parent-held child setup screens (under-13 boards 2, 2A, N2C, S7N).
 /// They sit under `/onboarding/` so the router keeps a device that has not
@@ -40,15 +42,24 @@ List<RouteBase> childSetupRoutes(Ref ref) => [
         builder: (context, __) => ChildNicknameScreen(
           onSubmit: (nickname) async {
             final childId = ref.read(pendingChildIdProvider);
-            if (childId == null) throw StateError('No child to name.');
+            final auth = ref.read(authRepositoryProvider);
+            if (childId == null || auth.currentSession?.uid != childId) {
+              throw StateError('No active child to name.');
+            }
+            final settings = ref.read(settingsRepositoryProvider);
             await ref.read(childSetupGatewayProvider).setChildNickname(
                   childId: childId,
                   nickname: nickname,
                 );
+            if (auth.currentSession?.uid != childId) {
+              throw StateError('The child session changed.');
+            }
+            await settings.updateName(nickname);
           },
-          // TODO(T6): the device-state task continues onboarding (exam, date,
-          // study days) as the child. Until then this returns to onboarding.
-          onDone: () => context.go('/onboarding'),
+          onDone: () {
+            ref.read(pendingChildIdProvider.notifier).state = null;
+            context.go('/onboarding');
+          },
         ),
       ),
     ];

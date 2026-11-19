@@ -1,13 +1,21 @@
 /// Published versions shown by the guardian confirmation page.
 ///
-/// Placeholder date. Set all three to the real publish date in the same
-/// release as the new texts, and change the matching map in
-/// `functions/src/guardianConsent.ts` to the same value (spec choice 14).
-const guardianDocumentVersions = <String, String>{
-  'privacy': '2026-11-12',
-  'terms': '2026-11-12',
-  'teens': '2026-11-12',
+/// Keep in sync with the published versions in
+/// `functions/src/guardianConsent.ts`.
+const teenGuardianDocumentVersions = <String, String>{
+  'privacy': '2026-11-20',
+  'terms': '2026-11-20',
+  'teens': '2026-11-20',
 };
+
+const guardianDocumentVersions = <String, String>{
+  ...teenGuardianDocumentVersions,
+  'child': '2026-11-20',
+};
+
+const checkoutBoxTextVersion = '2026-11-20';
+const checkoutBoxText = "I am 18 or older, I am this student's parent or "
+    'guardian, and I accept the Terms.';
 
 class LegalDocument {
   const LegalDocument({
@@ -37,12 +45,14 @@ final legalDocumentFallbacks = <String, LegalDocument>{
   'privacy': LegalDocument(
     id: 'privacy',
     title: 'Privacy Policy',
-    updatedAt: DateTime.utc(2026, 11, 11),
+    updatedAt: DateTime.utc(2026, 11, 20),
     sections: const [
       LegalSection(
         heading: 'Who this is for',
-        body: 'This policy is for people aged 18 and older. If you are under '
-            '18, read the Notice for teens instead.',
+        body:
+            'This policy is for people aged 18 and older. If you are 13 to 17, '
+            'read the Notice for teens instead. If a parent or guardian holds '
+            'an account for a child under 13, read the Child Notice.',
       ),
       LegalSection(
         heading: 'Who runs Pantas',
@@ -51,7 +61,8 @@ final legalDocumentFallbacks = <String, LegalDocument>{
             'the Data Protection Officer.\n\n'
             'Address: Poblacion, Norala, South Cotabato, Philippines.\n\n'
             'Questions about your data: dpo@pantas.study\n'
-            'Help or payment problems: support@pantas.study',
+            'Help or payment problems: support@pantas.study\n'
+            'Telephone: +63 968 854 2343',
       ),
       LegalSection(
         heading: 'Why we ask your age',
@@ -59,13 +70,22 @@ final legalDocumentFallbacks = <String, LegalDocument>{
             'with it. When you set up Pantas, we ask you to enter your '
             'correct current age in full years. We use it once, on your '
             'device, to decide whether you can use Pantas and whether a '
-            'parent or guardian must consent. Based on the age you enter, '
-            'Pantas blocks use if you are under 13 and requires your parent '
-            "or guardian's consent if you are 13 to 17. We do not save the "
-            'age you enter. Our servers never receive it. Your device '
-            'keeps your age group and the version of the age check '
-            'notice. If you are under 13, it keeps only a block, so Pantas '
-            'stays closed to you until support clears it.\n\n'
+            'parent or guardian must consent. '
+            'Based on the age you enter, Pantas asks for your parent or '
+            "guardian's consent if you are 13 to 17. If you are under 13, "
+            'Pantas opens a screen that asks a parent or guardian to set up '
+            'the '
+            'account, as the Child Notice explains. Before child setup, we '
+            "process the adult's sign-in information and necessary connection "
+            "and security data. We do not upload the child's age, nickname or "
+            'study records before guardian consent. We do not save the age you '
+            'enter. Your device keeps your age group and the version of the '
+            'age '
+            'check notice. If you are under 13, it keeps only that the '
+            'guardian '
+            'screen applies, so Pantas stays on that screen on this device '
+            'until a guardian sets up the account.\n'
+            '\n'
             'Choosing Continue means you give your specific permission for '
             'this age check. You may go back instead. Pantas requires this '
             'check before you can use it.',
@@ -226,10 +246,15 @@ final legalDocumentFallbacks = <String, LegalDocument>{
       LegalSection(
         heading: 'Why we may use your data',
         body: '• Age check: your specific permission, given at the age step '
-            '(Data Privacy Act, Section 13(a)). We use your age only on '
-            'your device without saving it. The device keeps only your age '
-            'group and the version of the age check notice, or a block if '
-            'you are under 13.\n'
+            '(Data '
+            'Privacy Act, Section 13(a)). We use your age only on your device '
+            'without saving it. The device keeps only your age group and the '
+            'version of the age check notice, or, if you are under 13, a '
+            'marker '
+            'that sends the device to the guardian screen. For a child '
+            'account, '
+            "the guardian's consent covers the child-account label our servers "
+            'keep.\n'
             '• Account and payment records: we need them to provide the '
             'service you asked for (Section 12(b)).\n'
             '• Study records: your specific permission (Section 13(a)), '
@@ -260,20 +285,33 @@ final legalDocumentFallbacks = <String, LegalDocument>{
   'terms': LegalDocument(
     id: 'terms',
     title: 'Terms of Service',
-    updatedAt: DateTime.utc(2026, 11, 11),
+    updatedAt: DateTime.utc(2026, 11, 20),
     sections: const [
       LegalSection(
         heading: 'Use of the app',
-        body: 'Pantas is a study tool for exam practice. You may use it for '
-            'your own study. You must be 13 or older. If you are under 18, '
-            'a parent or guardian must agree before you continue, as the '
-            'Notice for teens explains.\n\n'
-            'When you use Pantas, you agree to:\n\n'
-            '• give true information when you set up your account;\n'
+        body:
+            'Pantas is a study tool for exam practice. You may use it for your '
+            'own study. You must be 13 or older to hold an account yourself. '
+            'If '
+            'you are 13 to 17, a parent or guardian must agree before you '
+            'continue, as the Notice for teens explains. A child under 13 may '
+            'use Pantas only on an account that a parent or guardian holds and '
+            'sets up for the child, as the section "Accounts held for a child '
+            'under 13" explains. If we learn that a person under 13 has an '
+            'account that no guardian set up, we may delete it.\n'
+            '\n'
+            'When you use Pantas, you agree to:\n'
+            '\n'
+            '• give true information when you set up an account, including '
+            'your '
+            "true age or, for a child, the child's true status as under 13;\n"
             '• keep your sign-in details private and tell us promptly about '
-            'suspected misuse. You are responsible for activity you '
-            'authorize;\n'
-            '• use one account for yourself and not share your sign-in;\n'
+            'suspected misuse. You are responsible for activity you authorize, '
+            "including a child's use of an account you hold;\n"
+            '• use one account for yourself, or, as a parent or guardian, hold '
+            'one account for each child under these Terms, and not share '
+            'access '
+            'outside that arrangement;\n'
             '• not copy, scrape, resell or reverse-engineer the app or its '
             'content;\n'
             '• not attack, overload or try to break into the app or any '
@@ -366,26 +404,146 @@ final legalDocumentFallbacks = <String, LegalDocument>{
             'notices.\n\n'
             'Deleting your account. If you delete your account, your access '
             'ends, including any time left on a plan. Deleting your account '
-            'is not a refund request. The same applies if a parent or '
-            'guardian withdraws permission for an under-18 account, or if '
-            'we delete an account that has been inactive for 24 months. '
+            'is not a refund request. '
+            'The same applies if a parent or guardian withdraws permission for '
+            'an under-18 account, if a guardian deletes an account held for a '
+            'child under 13, if we delete a child account that has been '
+            'inactive for 12 months, or if we delete any other account that '
+            'has '
+            'been inactive for 24 months. '
             'An account with active paid access is not treated as inactive.\n\n'
-            'Students under 18. If you are under 18, your parent or '
-            'guardian must make the purchase. At checkout, the buyer must '
-            'tick "I am the parent or guardian and accept the Terms." '
-            'Checkout does not work without it. On the web, we record the tick '
-            'with the date, time and Terms version when checkout starts. '
-            'By ticking, the buyer '
-            'confirms they are the parent or guardian, that they accept '
-            'these Terms as the buyer, and that they are allowed to use '
-            'the payment method chosen. We rely on that confirmation. If '
-            'we learn that someone who is not a parent or guardian ticked '
-            'the box, we may cancel the purchase, refund it and end the '
-            'access.\n\n'
+            'Students under 18 and PSHS-NCE purchases. If the student is under '
+            '18, a parent or guardian must make the purchase. Every PSHS-NCE '
+            'purchase, whatever the age of the account holder, needs the buyer '
+            'to tick this box at checkout: "$checkoutBoxText" Checkout '
+            'does not work without it. On the web, we record the tick with the '
+            'date, time and Terms version when checkout starts. By ticking, '
+            'the '
+            'buyer confirms those statements, that they accept these Terms as '
+            'the buyer, and that they are allowed to use the payment method '
+            'chosen. We rely on that confirmation. If we learn that the box '
+            'was '
+            "ticked by someone who is not the student's parent or guardian, or "
+            'who is under 18, we may cancel the purchase, refund it and end '
+            'the '
+            'access.\n'
+            '\n'
             'Complaints. Send purchase complaints to support@pantas.study '
             'with the transaction reference and a description of the '
             'problem. If it is unresolved after seven calendar days, our '
             'internal complaint process is deemed exhausted.',
+      ),
+      LegalSection(
+        heading: 'Accounts held for a child under 13',
+        body:
+            'Who the contract is with. An account for a child under 13 is held '
+            'by a parent or guardian. The guardian, not the child, is the '
+            'party '
+            'to these Terms. The child uses the account only with the '
+            "guardian's permission and under the guardian's supervision.\n"
+            '\n'
+            'What the guardian confirms. By setting up the account, the '
+            'guardian confirms and promises that:\n'
+            '\n'
+            '• they are 18 or older;\n'
+            "• they are the child's parent or legal guardian, or otherwise "
+            'have '
+            'legal authority over the child to agree to these Terms and to '
+            "consent to the processing of the child's data;\n"
+            '• they have read the Terms and the Child Notice; and\n'
+            '• the information they give is true.\n'
+            '\n'
+            'If a statement is false, we may close the account, as stated '
+            'below.\n'
+            '\n'
+            'Supervision and responsibility. The adult accepting these Terms '
+            "contracts personally and agrees to supervise each child's "
+            'authorized use, and, if the guardian turns on sibling switching '
+            "for a child, use of that child's account by brothers and sisters. "
+            'They are responsible for losses legally attributable to their own '
+            "breach or false statements. This does not transfer Pantas's legal "
+            "duties or waive the child's rights. The guardian keeps the "
+            'sign-in '
+            'details private and does not give them to others.\n'
+            '\n'
+            'One child for each account. Each child account is for one child. '
+            'A '
+            'guardian may hold up to 5 active child accounts under one email '
+            'address. Support may allow more. Each child needs a separate '
+            'account and a separate acceptance of these Terms and the Child '
+            'Notice. A guardian cannot use one child account for several '
+            'children. An email address that already holds an adult or teen '
+            'account with progress cannot also hold child accounts. A guardian '
+            'who studies for their own exam needs a second email address.\n'
+            '\n'
+            'PSHS-NCE only. For this exam cycle, accounts for children under '
+            '13 '
+            'are for PSHS-NCE only. A child account cannot buy or use other '
+            'exams. We may refuse any other purchase on a child account.\n'
+            '\n'
+            'Accounts made without a guardian. If we learn that a person under '
+            '13 holds an account that no guardian set up, we may delete it and '
+            "its data. We may suspend access while we check the guardian's "
+            'authority, and close an account we find unauthorized. These steps '
+            'are subject to the rights in the next paragraphs.\n'
+            '\n'
+            'Withdrawing and deleting. The guardian may withdraw permission '
+            'and '
+            "close a child's account, or delete it, at any time. They use "
+            '"For '
+            'parents" in the account settings, the link in the receipt email, '
+            "or an email to dpo@pantas.study. These actions affect one child's "
+            'account only. We normally verify these requests with an emailed '
+            'code. If the guardian cannot access that email, they contact '
+            'dpo@pantas.study for another reasonable verification method. '
+            'Withdrawing is free. Closing the last child account also closes '
+            'the holder sign-in and removes its active sign-in details. '
+            'Limited '
+            'consent, payment, security, support and backup records remain '
+            'only '
+            'as the Child Notice explains. We may close a child account that '
+            'has had no activity for 12 months, as the Child Notice explains.\n'
+            '\n'
+            'Passes. A pass activates paid access only for the child '
+            'identified '
+            'at checkout. Other linked children need their own passes. Before '
+            'payment, we show the selected child, the total price and the '
+            'access dates. The purchase receipt identifies that child. Each '
+            "child's pass is charged at the full price shown at checkout. "
+            'There '
+            'is no sibling discount.\n'
+            '\n'
+            'Siblings. Sibling switching is off by default for each child. '
+            "While it is off, every switch into that child's account needs the "
+            "guardian's emailed code. The guardian may turn it on for one "
+            'child '
+            'under "For parents" after a code check and after reading the '
+            'sharing notice. The sharing notice says that, when it is on, '
+            "anyone using a sibling's session can open that child's account, "
+            "see its answers, results and activity, and study in that child's "
+            "name, which changes that child's records. The guardian may turn "
+            'it '
+            'off at any time, and it takes effect at once. A child added later '
+            "starts with it off. The guardian's supervision does not replace "
+            "Pantas's legal duties or waive the child's rights.\n"
+            '\n'
+            'Refunds. Refunds for a child account follow the standard refund '
+            'policy in "Subscriptions". Voluntary deletion or withdrawal alone '
+            'does not create a change-of-mind refund. Statutory refunds, '
+            'restitution and compensation remain available. We state this at '
+            'checkout. We issue an electronic receipt or invoice for each '
+            'purchase.\n'
+            '\n'
+            'Limits of responsibility. The section "Limits of responsibility" '
+            'applies to the guardian and to the child account, as far as '
+            'Philippine law allows. It does not limit rights the law gives the '
+            'guardian or the child, including data privacy rights, and it does '
+            'not limit liability for fraud, bad faith, willful misconduct or '
+            'gross negligence.\n'
+            '\n'
+            'The child is not a party. Nothing in these Terms makes the child '
+            'a '
+            'contracting party.',
       ),
       LegalSection(
         heading: 'Study content and results',
@@ -465,7 +623,8 @@ final legalDocumentFallbacks = <String, LegalDocument>{
         heading: 'Governing law and disputes',
         body: 'Philippine law governs these Terms and your use of Pantas.\n\n'
             'If you have a problem, please email support@pantas.study '
-            'first. We want to fix it.\n\n'
+            'first. We want to fix it.\n'
+            'Telephone: +63 968 854 2343\n\n'
             'Consumer proceedings may be brought in any place that '
             'applicable law and court rules allow. For other civil '
             'disputes, the parties agree to bring them only in the proper '
@@ -491,13 +650,14 @@ final legalDocumentFallbacks = <String, LegalDocument>{
   'teens': LegalDocument(
     id: 'teens',
     title: 'Notice for teens',
-    updatedAt: DateTime.utc(2026, 11, 11),
+    updatedAt: DateTime.utc(2026, 11, 20),
     sections: const [
       LegalSection(
         heading: 'Who this is for',
         body: 'This notice is for teens ages 13 to 17 and for their parents '
-            'or guardians. Pantas is for people aged 13 and older.\n\n'
-            'If you are 18 or older, read the Privacy Policy instead.',
+            'or guardians.\n\n'
+            'If you are 18 or older, read the Privacy Policy instead. '
+            'If the account is for a child under 13, read the Child Notice.',
       ),
       LegalSection(
         heading: 'Who runs Pantas',
@@ -506,7 +666,8 @@ final legalDocumentFallbacks = <String, LegalDocument>{
             'the Data Protection Officer.\n\n'
             'Address: Poblacion, Norala, South Cotabato, Philippines.\n\n'
             'Questions about your data: dpo@pantas.study\n'
-            'Help or payment problems: support@pantas.study',
+            'Help or payment problems: support@pantas.study\n'
+            'Telephone: +63 968 854 2343',
       ),
       LegalSection(
         heading: 'Why we ask your age',
@@ -514,13 +675,22 @@ final legalDocumentFallbacks = <String, LegalDocument>{
             'with it. When you set up Pantas, we ask you to enter your '
             'correct current age in full years. We use it once, on your '
             'device, to decide whether you can use Pantas and whether a '
-            'parent or guardian must consent. Based on the age you enter, '
-            'Pantas blocks use if you are under 13 and requires your parent '
-            "or guardian's consent if you are 13 to 17. We do not save the "
-            'age you enter. Our servers never receive it. Your device '
-            'keeps your age group and the version of the age check '
-            'notice. If you are under 13, it keeps only a block, so Pantas '
-            'stays closed to you until support clears it.\n\n'
+            'parent or guardian must consent. '
+            'Based on the age you enter, Pantas asks for your parent or '
+            "guardian's consent if you are 13 to 17. If you are under 13, "
+            'Pantas opens a screen that asks a parent or guardian to set up '
+            'the '
+            'account, as the Child Notice explains. Before child setup, we '
+            "process the adult's sign-in information and necessary connection "
+            "and security data. We do not upload the child's age, nickname or "
+            'study records before guardian consent. We do not save the age you '
+            'enter. Your device keeps your age group and the version of the '
+            'age '
+            'check notice. If you are under 13, it keeps only that the '
+            'guardian '
+            'screen applies, so Pantas stays on that screen on this device '
+            'until a guardian sets up the account.\n'
+            '\n'
             'Choosing Continue means you give your specific permission for '
             'this age check. You may go back instead. Pantas requires this '
             'check before you can use it.\n\n'
@@ -631,7 +801,7 @@ final legalDocumentFallbacks = <String, LegalDocument>{
         body: 'If you are in the under-18 group, Pantas asks a parent or '
             'guardian to read the terms and confirm before you continue.\n\n'
             'Opening the email link confirms nothing. The adult must tick '
-            'the agreement box and choose Confirm. They can choose "I Don\'t '
+            "the agreement box and choose Confirm. They can choose \"I Don't "
             'Agree" instead.\n\n'
             'The first link works once and expires after seven days. A new '
             'link replaces the old one. The first email also holds a link '
@@ -785,10 +955,15 @@ final legalDocumentFallbacks = <String, LegalDocument>{
       LegalSection(
         heading: 'Why we may use your data',
         body: '• Age check: your specific permission, given at the age step '
-            '(Data Privacy Act, Section 13(a)). We use your age only on '
-            'your device without saving it. The device keeps only your age '
-            'group and the version of the age check notice, or a block if '
-            'you are under 13.\n'
+            '(Data '
+            'Privacy Act, Section 13(a)). We use your age only on your device '
+            'without saving it. The device keeps only your age group and the '
+            'version of the age check notice, or, if you are under 13, a '
+            'marker '
+            'that sends the device to the guardian screen. For a child '
+            'account, '
+            "the guardian's consent covers the child-account label our servers "
+            'keep.\n'
             '• Age-group record and guardian evidence: we rely on '
             'Section 13(f) for processing necessary to establish, '
             'exercise or defend legal claims. These include claims about '
@@ -821,13 +996,369 @@ final legalDocumentFallbacks = <String, LegalDocument>{
       LegalSection(
         heading: 'Payments for minors',
         body: 'If you are under 18, your parent or guardian must make the '
-            'purchase. At checkout, they must tick the box "I am the parent '
-            'or guardian and accept the Terms." Checkout does not work '
-            'without it. On the web, we record the tick with the date, time '
-            'and Terms version when checkout starts.\n\n'
+            'purchase. At checkout, they must tick the box "$checkoutBoxText" '
+            'Checkout does not work without it. On the web, we record the tick '
+            'with the date, time and Terms version when checkout starts.\n'
+            '\n'
             'Confirming your account is not a purchase. The buyer must be '
             'allowed to use the payment method.',
       ),
     ],
   ),
+  'child-notice': LegalDocument(
+    id: 'child-notice',
+    title: 'Child Notice',
+    updatedAt: DateTime.utc(2026, 11, 20),
+    sections: const [
+      LegalSection(
+        heading: 'Who this is for',
+        body: 'This notice is for the parent or guardian who sets up a Pantas '
+            'account for a child under 13. We call that person the guardian. '
+            'Your email address is a holder sign-in that holds no study data. '
+            'Each child has a separate account with no email of its own, '
+            'linked '
+            'to your sign-in on our servers. One guardian email may hold up to '
+            '5 active children, for example twins or siblings. Support can '
+            'raise the limit. The child uses the account with a nickname.\n'
+            '\n'
+            'If the child is 13 to 17, read the Notice for teens. If you are '
+            '18 '
+            'or older and the account is for you, read the Privacy Policy.',
+      ),
+      LegalSection(
+        heading: 'Who runs Pantas',
+        body: 'Pantas is run by Aerol Dwayne Daños Balayon, trading as Pantas '
+            'Online Tutorial Services, a sole proprietorship. He is the '
+            'personal information controller and also the Data Protection '
+            'Officer.\n'
+            '\n'
+            'Address: Poblacion, Norala, South Cotabato, Philippines.\n'
+            '\n'
+            "Questions about your child's data: dpo@pantas.study\n"
+            'Help or payment problems: support@pantas.study\n'
+            'Telephone: +63 968 854 2343',
+      ),
+      LegalSection(
+        heading: 'What we collect for a child account',
+        body: '• Your sign-in details. If you sign in with an email code, we '
+            'receive your email address. If you sign in with Google, we also '
+            'receive your name and profile photo. We use your email address to '
+            'send you the receipt and notices about this account. We do not '
+            "copy your name or photo into the child's profile.\n"
+            '• An account ID for each child account, which Pantas creates.\n'
+            "• The child's nickname. You choose it. We store it on our servers "
+            'so we can list brothers and sisters on your sign-in. We do not '
+            'ask '
+            "for the child's real name, school, photo, birth date or exact "
+            'age.\n'
+            '• The link between your sign-in and each child account, and a '
+            'holder ID. Each child account has no email of its own.\n'
+            '• A label that the account is a child account. This label is '
+            'information about age.\n'
+            '• Study records: the exam (PSHS-NCE), study settings, answers, '
+            'results, study times, bookmarked lessons and flagged questions.\n'
+            '• Your consent record, for each child: your two confirmations '
+            'when '
+            'you add that child, the date and time, the version of the Terms '
+            'and of this notice, the account ID, the holder ID and the '
+            'guardian-to-child link.\n'
+            '• Payments: if you buy PSHS-NCE access, we keep payment '
+            'references, amounts, payment status, refunds and access dates. '
+            "Card and wallet details are entered on PayMongo's checkout page. "
+            'We also record the checkout declaration you tick, with the date, '
+            'time and Terms version.\n'
+            '• Rate-limit records: counts of requests from a sign-in session '
+            'or '
+            'network address, so we can stop abuse and overload.\n'
+            '• Messages: emails you send to support@pantas.study or '
+            'dpo@pantas.study.\n'
+            '• Technical and security records: sign-ins, payment checks and '
+            "account deletions. Google's servers also process connection "
+            'details, such as an IP address, to deliver requests.',
+      ),
+      LegalSection(
+        heading: 'What is off for a child account',
+        body: '• Optional usage sharing (usage analytics). It stays off. The '
+            'child cannot turn it on.\n'
+            '• Speed and error reports from the web app. They stay off.\n'
+            '• Share cards and hosted Wrapped pages. A child account cannot '
+            'make a public page.\n'
+            '• Push notifications.\n'
+            '• Study-style labels on share cards.\n'
+            '\n'
+            "We do not sell data. We do not show ads. We do not use a child's "
+            'data for marketing.',
+      ),
+      LegalSection(
+        heading: 'Why we use the data, and our legal basis',
+        body: '• Running the child account and choosing study guidance: your '
+            'specific consent as guardian, given at setup (Data Privacy Act, '
+            'Section 12(a); Section 13(a) for the child-account label and for '
+            'answers and results, which can relate to education and age). '
+            'Under '
+            'Philippine privacy guidance a child cannot give this consent, so '
+            'you give it.\n'
+            '• Your sign-in details, the account and payment records: we need '
+            'them to provide the service you asked for and to carry out our '
+            'contract with you (Section 12(b)).\n'
+            '• Your consent record: your consent and our need to show it later '
+            'if a claim or complaint arises (Sections 12(a), 12(f) and '
+            '13(f)).\n'
+            '• Rate-limit, security and trial records: our legitimate interest '
+            'in keeping Pantas working, safe and fair (Section 12(f)). We keep '
+            'each to what we need.\n'
+            '• Accounting records: the law requires them (Section 12(c)).\n'
+            '• Messages to us: we need them to answer you.\n'
+            '\n'
+            'Your consent is separate from your acceptance of the Terms. You '
+            'give each by its own tick. The required consent covers only what '
+            'a '
+            'child account needs to work. Optional extras, if we ever offer '
+            'them for children, will need a separate choice. If you withdraw '
+            'your consent, we cannot run the account, so we close it.',
+      ),
+      LegalSection(
+        heading: 'How Pantas uses answers to guide study',
+        body: 'Pantas uses answers and study timing to select review dates and '
+            'suggested practice. These suggestions affect practice inside '
+            'Pantas. They do not decide official eligibility or exam results. '
+            'To question how they are used, contact our Data Protection '
+            'Officer '
+            'at dpo@pantas.study.',
+      ),
+      LegalSection(
+        // The rate-limit retention wording still needs owner approval.
+        heading: 'How long we keep data',
+        body:
+            '• Each child account and its study records: until you delete that '
+            "child's account. We also delete a child account that has had no "
+            'sign-in or study activity for 12 months. Each child account is '
+            'counted on its own. Closing the last child account also closes '
+            'your holder sign-in and removes its active sign-in details. '
+            'Limited consent, payment, security, support and backup records '
+            'remain only as this notice explains. We normally email you a '
+            'warning about 30 days before. An account with active paid access '
+            'does not count as inactive.\n'
+            '• Consent evidence: after the account is deleted, we keep a '
+            'minimal consent record only while it is necessary to defend a '
+            'documented claim, and ordinarily no longer than ten years after '
+            'the account closes. It holds the account ID, the holder ID and '
+            'the '
+            'guardian-to-child link, a protected code made from your email '
+            'address, the dates and times, the versions of the documents '
+            'shown, '
+            'and the checkout declaration with its payment reference. A '
+            'protected code can still be linked back to you, so we treat it as '
+            'personal data. The record holds no nickname and no study records. '
+            'We review whether we still need it, and keep a specific record '
+            'longer only for a documented legal hold.\n'
+            '• Payment and accounting records: five years, counted as tax law '
+            'requires. They may stay longer while a tax matter is unresolved.\n'
+            '• Security records in our database: 730 days after the event.\n'
+            '• Messages to us: up to two years after the matter closes.\n'
+            "• Copies in our providers' backups: removed within 180 days of "
+            'deletion.\n'
+            '• Payment records and consent evidence stay longer than the study '
+            'account, as stated above.\n'
+            '\n'
+            'If the law requires it, we may keep records longer.',
+      ),
+      LegalSection(
+        heading: 'Who receives data, and transfers abroad',
+        body: "Our servers run in Google's Singapore region. We use these "
+            'providers, who act for us under their own terms:\n'
+            '\n'
+            '• Google (Firebase and Google Cloud): sign-in, our servers and '
+            'logs.\n'
+            '• Resend: your sign-in codes and the emails we send you.\n'
+            '• PayMongo: web payments.\n'
+            '\n'
+            'Brothers and sisters. Sibling switching is off by default for '
+            'each '
+            "child. While it is off, switching into a child's account needs "
+            'your emailed code. In "For parents", after a code check, you can '
+            'turn on "Siblings can open this account without a code" for one '
+            "child. If you do, anyone using a sibling's session can open this "
+            "child's account, see this child's answers, results and activity, "
+            "and study in this child's name. That changes this child's "
+            'records. '
+            "Your supervision does not replace Pantas's legal duties. We "
+            'record '
+            'your choice for that child with the time and the notice version. '
+            'You can turn it off at any time, and it takes effect at once. '
+            'Children you add later start with it off.\n'
+            '\n'
+            'These providers may process data outside the Philippines. We stay '
+            'responsible for the data we give them. We may also share data '
+            'when '
+            'the law requires it, or to deal with fraud or a legal claim. '
+            'Pantas does not offer PSHS-NCE on Android this cycle, so '
+            'app-store '
+            'providers do not receive child account data.',
+      ),
+      LegalSection(
+        heading: 'If there is a data breach',
+        body: 'When a breach requires notification, we notify the National '
+            'Privacy Commission, you and your child within the legal deadline. '
+            'We explain it to your child in language they understand.',
+      ),
+      LegalSection(
+        heading: 'Your rights as guardian',
+        body:
+            "You can use your child's privacy rights for the child. You can be "
+            'informed, get a copy of the data, object, ask us to fix wrong '
+            'details, and ask us to stop using, block or delete the data. You '
+            'can ask for compensation where the law provides it. You can '
+            'complain to the National Privacy Commission (privacy.gov.ph).\n'
+            '\n'
+            'How to use them:\n'
+            '\n'
+            '• Open "For parents" in the account settings. It works for one '
+            'child at a time. For that child, you can read this notice, get a '
+            'copy of the data, delete the account, or withdraw permission and '
+            'close the account. These actions affect that child only.\n'
+            '• We normally verify these requests with an emailed 6-digit code: '
+            'adding a child, a data copy, a withdrawal, a deletion, and '
+            "switching into a child's account while sibling switching is off. "
+            'The screen and the email say "Confirm {action} for {nickname}." A '
+            'code is tied to you, one child and one action. It expires, works '
+            'once and allows only a few tries. If you cannot reach that email, '
+            'contact dpo@pantas.study for another reasonable verification '
+            'method. Withdrawal is free.\n'
+            '• If the copy does not work, or you want something else, email '
+            'dpo@pantas.study. We reply within 15 calendar days. We may ask '
+            'for '
+            'information we reasonably need to check who you are.\n'
+            '\n'
+            "Withdrawing permission and closing a child's account is free. "
+            'Study processing stops and the account closes. Limited records '
+            'remain for the purposes and periods in this notice. Earlier '
+            'lawful '
+            'processing stays lawful.\n'
+            '\n'
+            "Deleting the account deletes the child's study records from our "
+            'servers. It keeps only the records the retention section lists. '
+            'Copies on other devices stay until cleared. Voluntary deletion or '
+            'withdrawal alone is not a change-of-mind refund. Refunds follow '
+            'the Terms, and your rights under the law stay.\n'
+            '\n'
+            'We issue an electronic receipt or invoice for each purchase.',
+      ),
+      LegalSection(
+        heading: 'If we find a child account without guardian setup',
+        body:
+            'Pantas is for people 13 and older, and for under-13 children only '
+            "through a guardian's setup. If we learn that a person under 13 "
+            'has '
+            'an account that no guardian set up, we delete it. Deleting it '
+            'does '
+            'not need notice, and it gives no refund beyond the Terms.',
+      ),
+      LegalSection(
+        heading: 'Changes to this notice',
+        body: 'We email you, the guardian, before we change the processing '
+            'described here. If a change needs new consent, we ask before '
+            'starting it. We also show the change in the app, and we explain '
+            'it '
+            'to your child in plain words.',
+      ),
+    ],
+  ),
+  'child-notice-kids': LegalDocument(
+    id: 'child-notice-kids',
+    title: 'Child Notice for kids',
+    updatedAt: DateTime.utc(2026, 11, 20),
+    sections: const [
+      LegalSection(
+        heading: 'Read more for kids',
+        body:
+            'Your parent or guardian set up your Pantas account. Here is what '
+            'that means.',
+      ),
+      LegalSection(
+        heading: 'What Pantas keeps about you',
+        body: '• The nickname your parent or guardian picked.\n'
+            '• The questions you answer and your scores.\n'
+            '• Which lessons you saved.\n'
+            '• The days and times you study.',
+      ),
+      LegalSection(
+        heading: 'What Pantas does not keep',
+        body: '• Your real name.\n'
+            '• Your school.\n'
+            '• Your photo.\n'
+            '• Your birthday.',
+      ),
+      LegalSection(
+        heading: 'Why your parent or guardian says yes',
+        body:
+            'You are too young to say yes to this by yourself. So your parent '
+            'or guardian says yes for you. They can change their mind at any '
+            'time.',
+      ),
+      LegalSection(
+        heading: 'What Pantas does with it',
+        body: 'We use your answers and the times you study to pick what you '
+            'should practice next. This only helps your practice in Pantas. It '
+            'does not decide if you pass the real exam. We do not sell your '
+            'information. We do not show ads.',
+      ),
+      LegalSection(
+        heading: 'Possible risks',
+        body: 'Any app that keeps information can have problems, like someone '
+            'getting it by mistake. We use safeguards to protect your '
+            'information. But problems can still happen. If one does, we tell '
+            'your parent or guardian and we tell you in simple words.',
+      ),
+      LegalSection(
+        heading: 'What is turned off for you',
+        body: '• We do not collect extra reports about how you use the app.\n'
+            '• You cannot post your results on a public page.\n'
+            '• Pantas does not send you push messages.',
+      ),
+      LegalSection(
+        heading: 'Who can see it',
+        body: 'Your parent or guardian can ask for a copy of your information. '
+            'They can also close your account. A few companies help us store '
+            'your information, such as Google. We use safeguards, but problems '
+            'can happen.',
+      ),
+      LegalSection(
+        heading: 'Your rights',
+        body:
+            'You and your parent or guardian can ask what we keep. You can ask '
+            'us to fix it or delete it. You can tell us if something feels '
+            'wrong. Your parent or guardian can also tell a government office '
+            'called the National Privacy Commission.',
+      ),
+      LegalSection(
+        heading: 'How long we keep it',
+        body:
+            'After 12 months without use, we delete your study account, unless '
+            'your family has paid access that is still running. We keep a few '
+            'payment and permission records longer.',
+      ),
+      LegalSection(
+        heading: 'If Pantas changes',
+        body: 'If we change what we do with your information, we tell your '
+            'parent '
+            'or guardian first. We also tell you in simple words.',
+      ),
+      LegalSection(
+        heading: 'If you have a question',
+        body:
+            'Ask your parent or guardian. They can write to dpo@pantas.study.',
+      ),
+    ],
+  ),
 };
+
+const childNoticeKidsSiblingCopy =
+    'If you have a brother or sister on the same parent account, they '
+    'can open your account without a code. They can see your answers '
+    'and scores. They can study as you. That can change your records. '
+    'Your parent can turn this off at any time.';
+
+const childNoticeKidsProviderCopy =
+    'A few companies help us store your information, such as Google. We '
+    'use safeguards, but problems can happen.';

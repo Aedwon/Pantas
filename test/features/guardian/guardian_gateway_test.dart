@@ -113,11 +113,11 @@ void main() {
       'agreed': true,
       'allowSharing': true,
       'documentVersions': {
-        'privacy': '2026-11-12',
-        'terms': '2026-11-12',
-        'teens': '2026-11-12',
+        'privacy': '2026-11-20',
+        'terms': '2026-11-20',
+        'teens': '2026-11-20',
       },
-      'noticeWordingVersion': '2026-11-12',
+      'noticeWordingVersion': '2026-11-20',
     });
     client.reply = (_, __) => {'state': 'declined'};
     final declined = await gateway.answer(

@@ -44,7 +44,7 @@ test('sibling access requires the matching proof to turn on and turns off withou
   await call('setSiblingOpen', holder, {childId: first, open: true, guardianProofId});
   const entry = db.doc(`users/${holder}/server/children/items/${first}`);
   assert.equal((await entry.get()).get('siblingOpenWithoutCode'), true);
-  assert.equal((await entry.get()).get('siblingNoticeVersion'), '2026-11-19');
+  assert.equal((await entry.get()).get('siblingNoticeVersion'), '2026-11-20');
   assert.equal(typeof (await entry.get()).get('siblingAccessChangedAt'), 'number');
   await call('setSiblingOpen', holder, {childId: first, open: false});
   assert.equal((await entry.get()).get('siblingOpenWithoutCode'), false);
