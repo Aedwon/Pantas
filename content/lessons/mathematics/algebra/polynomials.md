@@ -175,6 +175,8 @@ $$2x^3-x^2+5x-12$$
 
 ### #4: Repeated Difference of Squares
 
+Measurement shows how to find the area of a square from its side length.
+
 Find $(x-3)(x+3)(x^2+9)$.
 
 **Solution:**

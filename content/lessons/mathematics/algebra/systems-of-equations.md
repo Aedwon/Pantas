@@ -136,6 +136,10 @@ $$y = 2$$
 
 ### #4: A System Hiding in a Word Problem
 
+Part 5, Mixture Problems, shows how to turn each percent into a decimal and multiply by the mixture amount to write a pure-amount equation.
+
+Part 2, Motion Problems (Meeting and Moving Apart), shows the distance, rate, and time rule, which gives speed as distance divided by time.
+
 A movie house sold $50$ tickets. Adult tickets cost $100$ pesos and child tickets cost $60$ pesos. The total sales were $4{,}200$ pesos. How many adult tickets were sold?
 
 **Solution:**
@@ -216,7 +220,7 @@ Another quick check: to know how many solutions a linear system has, compare the
 
 > Find both variables, then re-read the question.
 
-Many students solve for $x$, see their $x$ value in the choices, and shade it. But the question may ask for $y$, or for $x + y$, or for the product $xy$. The test-makers always put the plain $x$ value in the choices as bait.
+Many students solve for $x$, see their $x$ value in the choices, and shade it. But the question may ask for $y$, or for $x + y$, or for the product $xy$. A choice may show the plain $x$ value.
 
 ### #2: Sign Mistakes When Subtracting Equations
 

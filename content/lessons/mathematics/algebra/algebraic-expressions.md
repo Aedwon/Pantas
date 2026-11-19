@@ -85,6 +85,8 @@ The word "of" tells us to multiply:
 
 $$\dfrac{3}{5}n$$
 
+Decimal and Percent Conversions shows how to turn a percent into a decimal before multiplying.
+
 ### #3: Translating "Per"
 
 A machine makes $p$ parts in $h$ hours, where $h>0$. Express the average number of parts made per hour.
@@ -94,6 +96,10 @@ A machine makes $p$ parts in $h$ hours, where $h>0$. Express the average number 
 Divide the number of parts by the number of hours:
 
 $$\dfrac{p}{h}$$
+
+Part 2, Motion Problems (Meeting and Moving Apart), shows how to multiply a steady rate by time to find an amount.
+
+Least Common Multiple shows how to convert minutes to hours: divide the minutes by $60$ before finding a per-hour rate.
 
 ### #4: Simplifying Expressions
 
