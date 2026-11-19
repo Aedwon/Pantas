@@ -5,7 +5,7 @@ import {writeAuditLog, type assertNamedUser} from './_audit.js';
 import {deleteGuardianRecords} from './guardianConsent.js';
 import {retirePublicId} from './publicId.js';
 import {clearPassOwnership} from './revenuecatPasses.js';
-import {identityMarkers, identityMarkersForUser} from './webTrial.js';
+import {childTrialMarkers, identityMarkers, identityMarkersForUser, isEmaillessCustom} from './webTrial.js';
 
 /** A pending deletion is retried by the daily run once this long has passed since its last attempt. */
 export const DELETION_RETRY_MS = 3_600_000;
@@ -58,9 +58,12 @@ export async function deleteUserData(
   // Older trials have only an account-local record. Preserve eligibility before
   // deleting that record, including when an earlier deletion attempt is retried.
   if ((await userRef.collection('server').doc('trial').get()).exists) {
-    const markers = options.requestAuth
-      ? identityMarkers(options.requestAuth, db)
-      : identityMarkersForUser(await auth.getUser(uid), db);
+    // A linked child has no email of its own: its trial markers are its holder's, written when the
+    // trial started and written again here. An unlinked child has no markers and must not throw.
+    const markers = await childTrialMarkers(db, auth, uid)
+      ?? (options.requestAuth && !isEmaillessCustom(options.requestAuth)
+        ? identityMarkers(options.requestAuth, db)
+        : identityMarkersForUser(await auth.getUser(uid), db));
     const batch = db.batch();
     for (const marker of markers) batch.set(marker, {used: true});
     await batch.commit();
