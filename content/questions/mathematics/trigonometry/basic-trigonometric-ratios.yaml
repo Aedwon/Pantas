@@ -5,6 +5,8 @@ meta:
   exams: ['upcat', 'acet', 'dlsucet', 'ustet', 'pupcet']
 questions:
 - id: 'q-trigonometry-basic-trigonometric-ratios-0001'
+  lesson: lesson-trigonometry-reading-right-triangle-ratios
+  keyPoint: 2
   type: 'direct-computation'
   difficulty: 'easy'
   stem: |
@@ -25,6 +27,8 @@ questions:
   explanation: |
     Sine is opposite over hypotenuse. The opposite side is $3$ and hypotenuse is $5$, so $\sin\theta=\dfrac35$.
 - id: 'q-trigonometry-basic-trigonometric-ratios-0002'
+  lesson: lesson-trigonometry-special-angle-side-lengths
+  keyPoint: 2
   type: 'direct-computation'
   difficulty: 'easy'
   stem: |
@@ -44,6 +48,8 @@ questions:
   explanation: |
     Use $\sin30^\circ=\dfrac12$. The opposite length is $10\sin30^\circ=10(\dfrac12)=5$.
 - id: 'q-trigonometry-basic-trigonometric-ratios-0003'
+  lesson: lesson-trigonometry-flipping-trigonometric-ratios
+  keyPoint: 1
   type: 'direct-computation'
   difficulty: 'easy'
   stem: |
@@ -64,6 +70,8 @@ questions:
   explanation: |
     Cosecant is the reciprocal of sine. Flip $\dfrac35$ to get $\csc\theta=\dfrac53$.
 - id: 'q-trigonometry-basic-trigonometric-ratios-0004'
+  lesson: lesson-trigonometry-finding-ratios-from-a-known-ratio
+  keyPoint: 1
   type: 'direct-computation'
   difficulty: 'easy'
   stem: |
@@ -84,6 +92,8 @@ questions:
   explanation: |
     Let the missing leg be a. The right-triangle rule gives $a^2=13^2-5^2=169-25=144$. The positive root is $a=12$.
 - id: 'q-trigonometry-basic-trigonometric-ratios-0005'
+  lesson: lesson-trigonometry-scaling-right-triangle-sides
+  keyPoint: 2
   type: 'direct-computation'
   difficulty: 'medium'
   stem: |
@@ -103,6 +113,8 @@ questions:
   explanation: |
     Tangent gives opposite-to-adjacent ratio $3:4$. This is a $3:4:5$ triangle. The hypotenuse $20$ makes the scale factor $20\div5=4$. The opposite leg is $3(4)=12$.
 - id: 'q-trigonometry-basic-trigonometric-ratios-0006'
+  lesson: lesson-trigonometry-flipping-trigonometric-ratios
+  keyPoint: 1
   type: 'direct-computation'
   difficulty: 'medium'
   stem: |
@@ -122,6 +134,8 @@ questions:
   explanation: |
     Secant is the reciprocal of cosine. Flipping $\dfrac5{13}$ gives $\sec\theta=\dfrac{13}{5}$.
 - id: 'q-trigonometry-basic-trigonometric-ratios-0007'
+  lesson: lesson-trigonometry-complementary-angle-ratios
+  keyPoint: 1
   type: 'which-is-true'
   difficulty: 'medium'
   stem: |
@@ -142,6 +156,8 @@ questions:
   explanation: |
     The two angles total $90^\circ$. Complementary angles swap sine and cosine. Thus $\sin30^\circ=\cos60^\circ=\dfrac12$.
 - id: 'q-trigonometry-basic-trigonometric-ratios-0008'
+  lesson: lesson-trigonometry-flipping-trigonometric-ratios
+  keyPoint: 1
   type: 'direct-computation'
   difficulty: 'medium'
   stem: |
@@ -161,6 +177,8 @@ questions:
   explanation: |
     Sine of $60^\circ$ is $\dfrac{\sqrt3}{2}$. Cosecant is its reciprocal: $\dfrac2{\sqrt3}=\dfrac{2\sqrt3}{3}$.
 - id: 'q-trigonometry-basic-trigonometric-ratios-0009'
+  lesson: lesson-trigonometry-finding-ratios-from-a-known-ratio
+  keyPoint: 1
   type: 'direct-computation'
   difficulty: 'hard'
   stem: |
@@ -181,6 +199,8 @@ questions:
   explanation: |
     Use opposite $5$ and hypotenuse $13$ as a representative triangle. The adjacent leg is $\sqrt{13^2-5^2}=12$. Cosine is adjacent over hypotenuse, or $\dfrac{12}{13}$.
 - id: 'q-trigonometry-basic-trigonometric-ratios-0010'
+  lesson: lesson-trigonometry-special-angle-side-lengths
+  keyPoint: 1
   type: 'direct-computation'
   difficulty: 'hard'
   stem: |
@@ -200,6 +220,8 @@ questions:
   explanation: |
     In a $30^\circ$-$60^\circ$-$90^\circ$ triangle, the short leg is half the hypotenuse. It is adjacent to $60^\circ$. Therefore $\cos60^\circ=\dfrac12$.
 - id: 'q-trigonometry-basic-trigonometric-ratios-0011'
+  lesson: lesson-trigonometry-scaling-right-triangle-sides
+  keyPoint: 1
   type: 'direct-computation'
   difficulty: 'hard'
   stem: |
@@ -219,6 +241,8 @@ questions:
   explanation: |
     The two acute angles are $45^\circ$, so both legs are seven units. The hypotenuse is $\sqrt{7^2+7^2}=7\sqrt2$.
 - id: 'q-trigonometry-basic-trigonometric-ratios-0012'
+  lesson: lesson-trigonometry-flipping-trigonometric-ratios
+  keyPoint: 1
   type: 'direct-computation'
   difficulty: 'hard'
   stem: |
@@ -238,6 +262,8 @@ questions:
   explanation: |
     Tangent and cotangent are reciprocals. Flipping $\dfrac43$ gives $\tan\theta=\dfrac34$.
 - id: 'q-trigonometry-basic-trigonometric-ratios-0013'
+  lesson: lesson-trigonometry-finding-ratios-from-a-known-ratio
+  keyPoint: 1
   type: 'direct-computation'
   difficulty: 'hard'
   stem: |
@@ -258,6 +284,8 @@ questions:
   explanation: |
     The missing leg is $\sqrt{26^2-10^2}=\sqrt{576}=24$. For the angle opposite ten, sine is $\dfrac{10}{26}=\dfrac5{13}$.
 - id: 'q-trigonometry-basic-trigonometric-ratios-0014'
+  lesson: lesson-trigonometry-reading-right-triangle-ratios
+  keyPoint: 2
   type: 'which-is-true'
   difficulty: 'hard'
   stem: |
@@ -278,6 +306,8 @@ questions:
   explanation: |
     Choosing the acute angle opposite three gives sine $\dfrac35$. Choosing the other acute angle gives sine $\dfrac45$. The reference angle therefore matters.
 - id: 'q-trigonometry-basic-trigonometric-ratios-0015'
+  lesson: lesson-trigonometry-scaling-right-triangle-sides
+  keyPoint: 1
   type: 'direct-computation'
   difficulty: 'hard'
   stem: |
@@ -297,6 +327,8 @@ questions:
   explanation: |
     Secant is hypotenuse over adjacent. Thus $\dfrac{20}{a}=\dfrac53$. Cross multiply to get $5a=60$, so $a=12$.
 - id: 'q-trigonometry-basic-trigonometric-ratios-0016'
+  lesson: lesson-trigonometry-reading-right-triangle-ratios
+  keyPoint: 2
   type: 'direct-computation'
   difficulty: 'hard'
   stem: |
@@ -317,6 +349,8 @@ questions:
   explanation: |
     The side opposite the chosen angle is $5$, and the adjacent leg is $12$. Tangent is their ratio, $\dfrac5{12}$.
 - id: 'q-trigonometry-basic-trigonometric-ratios-0017'
+  lesson: lesson-trigonometry-finding-ratios-from-a-known-ratio
+  keyPoint: 1
   type: 'which-is-true'
   difficulty: 'easy'
   stem: |
@@ -337,6 +371,8 @@ questions:
     Similar triangles have equal corresponding acute angles. Scaling both sides in opposite over hypotenuse by the same factor leaves the ratio unchanged.
   approved: false
 - id: 'q-trigonometry-basic-trigonometric-ratios-0018'
+  lesson: lesson-trigonometry-flipping-trigonometric-ratios
+  keyPoint: 2
   type: 'which-is-true'
   difficulty: 'medium'
   stem: |
@@ -357,6 +393,8 @@ questions:
     For an acute angle, the opposite leg is shorter than the hypotenuse. Cosecant is hypotenuse over opposite, so it must exceed one. It cannot be 0.8.
   approved: false
 - id: 'q-trigonometry-basic-trigonometric-ratios-0019'
+  lesson: lesson-trigonometry-reading-right-triangle-ratios
+  keyPoint: 1
   type: 'error-spotting'
   difficulty: 'hard'
   stem: |
@@ -377,6 +415,8 @@ questions:
     The hypotenuse is always across from the right angle. For an acute angle, the adjacent leg is the other side meeting that angle.
   approved: false
 - id: 'q-trigonometry-basic-trigonometric-ratios-0020'
+  lesson: lesson-trigonometry-scaling-right-triangle-sides
+  keyPoint: 1
   type: 'word-problem'
   difficulty: 'exam'
   stem: |

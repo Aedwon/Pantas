@@ -6,6 +6,14 @@ subject: "subject-mathematics"
 topic: "topic-trigonometry"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-trigonometry-finding-sides-in-right-triangles
+  - lesson-trigonometry-finding-acute-angles
+  - lesson-trigonometry-solving-a-whole-right-triangle
+  - lesson-trigonometry-elevation-and-depression
+  - lesson-trigonometry-adjusting-for-eye-height
+  - lesson-trigonometry-comparing-two-observations
 ---
 ## Core Concept
 

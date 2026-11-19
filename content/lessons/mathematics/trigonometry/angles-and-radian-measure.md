@@ -6,6 +6,11 @@ subject: "subject-mathematics"
 topic: "topic-trigonometry"
 estimatedMinutes: 10
 isActive: true
+status: retired
+replacedBy:
+  - lesson-trigonometry-converting-degrees-and-radians
+  - lesson-trigonometry-finding-coterminal-angles
+  - lesson-trigonometry-arc-length-with-radians
 ---
 ## Core Concept
 

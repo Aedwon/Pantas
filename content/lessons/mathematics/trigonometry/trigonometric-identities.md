@@ -6,6 +6,14 @@ subject: "subject-mathematics"
 topic: "topic-trigonometry"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-trigonometry-reciprocal-and-quotient-identities
+  - lesson-trigonometry-pythagorean-identity-and-signs
+  - lesson-trigonometry-tangent-and-cotangent-identities
+  - lesson-trigonometry-simplifying-trigonometric-expressions
+  - lesson-trigonometry-proving-trigonometric-identities
+  - lesson-trigonometry-sum-and-double-angle-identities
 ---
 ## Core Concept
 
