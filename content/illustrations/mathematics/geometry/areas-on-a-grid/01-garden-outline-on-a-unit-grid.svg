@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 218" width="360" height="218">
+  <defs>
+    <linearGradient id="bg"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+    <radialGradient id="wash" cx="0.4" cy="0.3"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.06"/></radialGradient>
+  </defs>
+  <rect width="360" height="218" rx="14" fill="url(#bg)"/>
+  <line x1="76" y1="64" x2="76" y2="142" stroke="#020202" stroke-width="1" stroke-opacity="0.33"/>
+  <line x1="115" y1="64" x2="115" y2="142" stroke="#020202" stroke-width="1" stroke-opacity="0.33"/>
+  <line x1="154" y1="64" x2="154" y2="142" stroke="#020202" stroke-width="1" stroke-opacity="0.33"/>
+  <line x1="193" y1="64" x2="193" y2="142" stroke="#020202" stroke-width="1" stroke-opacity="0.33"/>
+  <line x1="232" y1="64" x2="232" y2="142" stroke="#020202" stroke-width="1" stroke-opacity="0.33"/>
+  <line x1="271" y1="64" x2="271" y2="142" stroke="#020202" stroke-width="1" stroke-opacity="0.33"/>
+  <line x1="310" y1="64" x2="310" y2="142" stroke="#020202" stroke-width="1" stroke-opacity="0.33"/>
+  <line x1="76" y1="64" x2="310" y2="64" stroke="#020202" stroke-width="1" stroke-opacity="0.33"/>
+  <line x1="76" y1="103" x2="310" y2="103" stroke="#020202" stroke-width="1" stroke-opacity="0.33"/>
+  <line x1="76" y1="142" x2="310" y2="142" stroke="#020202" stroke-width="1" stroke-opacity="0.33"/>
+  <polygon points="76,142 310,142 232,64 76,64" fill="none" fill-opacity="1" stroke="#050505" stroke-width="1.8" stroke-linejoin="round"/>
+  <text x="193" y="173" fill="#010101" font-family="Geist, sans-serif" font-size="14" font-weight="600" text-anchor="middle">6 units</text>
+  <text x="154" y="49" fill="#010101" font-family="Geist, sans-serif" font-size="14" font-weight="600" text-anchor="middle">4 units</text>
+  <text x="45" y="107" fill="#010101" font-family="Geist, sans-serif" font-size="14" font-weight="600" text-anchor="middle">2 units</text>
+</svg>

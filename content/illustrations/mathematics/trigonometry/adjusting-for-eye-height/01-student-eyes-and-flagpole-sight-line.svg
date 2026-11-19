@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 267" width="360" height="267">
+  <defs>
+    <linearGradient id="bg"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+    <radialGradient id="wash" cx="0.4" cy="0.3"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.06"/></radialGradient>
+  </defs>
+  <rect width="360" height="267" rx="14" fill="url(#bg)"/>
+  <line x1="27" y1="210" x2="330" y2="210" stroke="#020202" stroke-width="1.6"/>
+  <line x1="273" y1="210" x2="273" y2="47.15434" stroke="#010101" stroke-width="2.4"/>
+  <circle cx="47" cy="196.2" r="7" fill="url(#wash)" stroke="#020202" stroke-width="1.4"/>
+  <line x1="47" y1="203.2" x2="47" y2="210" stroke="#010101" stroke-width="2"/>
+  <circle cx="53" cy="201.2" r="2.8" fill="#050505"/>
+  <line x1="53" y1="201.2" x2="273" y2="201.2" stroke="#020202" stroke-width="1" stroke-dasharray="5 4"/>
+  <line x1="53" y1="201.2" x2="273" y2="47.15434" stroke="#050505" stroke-width="2"/>
+  <path d="M 111,201.2 A 58 58 0 0 0 100.51082,167.93257" fill="none" stroke="#050505" stroke-width="2" stroke-linejoin="round"/>
+  <text x="123" y="184" fill="#010101" font-family="Geist, sans-serif" font-size="14" font-weight="400" text-anchor="middle"><tspan font-family="KaTeX_Main, serif" font-weight="400">35°</tspan></text>
+  <line x1="34" y1="201.2" x2="34" y2="210" stroke="#020202" stroke-width="1.6"/>
+  <line x1="30" y1="201.2" x2="37" y2="201.2" stroke="#020202" stroke-width="1.6"/>
+  <line x1="30" y1="210" x2="37" y2="210" stroke="#020202" stroke-width="1.6"/>
+  <text x="34" y="184" fill="#010101" font-family="Geist, sans-serif" font-size="14" font-weight="400" text-anchor="middle"><tspan font-family="KaTeX_Main, serif" font-weight="400">1.6 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">m</tspan></text>
+  <line x1="53" y1="226" x2="273" y2="226" stroke="#020202" stroke-width="1.6"/>
+  <line x1="53" y1="221" x2="53" y2="232" stroke="#020202" stroke-width="1.6"/>
+  <line x1="273" y1="221" x2="273" y2="232" stroke="#020202" stroke-width="1.6"/>
+  <text x="163" y="249" fill="#010101" font-family="Geist, sans-serif" font-size="14" font-weight="400" text-anchor="middle"><tspan font-family="KaTeX_Main, serif" font-weight="400">40 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">m</tspan></text>
+  <text x="268" y="37" fill="#010101" font-family="Geist, sans-serif" font-size="14" font-weight="600" text-anchor="middle">Pole height = ?</text>
+</svg>
