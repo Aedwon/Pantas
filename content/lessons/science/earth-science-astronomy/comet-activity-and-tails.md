@@ -38,7 +38,7 @@ A comet is moving directly away from the Sun after passing close to it. Where do
 
 The tails are not a wake trailing behind the comet like the wake of a boat.
 
-<!-- FIGURE: {"kind":"earth-science-diagram","type":"comet-tail","illustrationKey":"science/earth-science-astronomy/heavenly-bodies#1","orbitShape":"oval","cometPositions":2,"tailDirection":"ion tail roughly away from Sun; dust tail curves"} -->
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"comet-tail","illustrationKey":"science/earth-science-astronomy/heavenly-bodies#1","orbitShape":"oval","cometPositions":2,"tailDirection":"away from Sun"} -->
 
 ## Speed Tricks & Shortcuts
 

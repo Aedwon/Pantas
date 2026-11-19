@@ -79,7 +79,7 @@ For each item, name the sphere it is mainly part of: (a) a granite outcrop, (b) 
 
 The label shows the main feature of the item. It does not say that the item has no links to other spheres.
 
-<!-- FIGURE: {"kind":"earth-science-diagram","type":"earth-subsystems","illustrationKey":"science/earth-science-astronomy/earths-subsystems#1","features":[{"label":"geosphere","feature":"rocky ground"},{"label":"hydrosphere","feature":"ocean water"},{"label":"atmosphere","feature":"surrounding air"},{"label":"biosphere","feature":"plants/animals living across all three"}]} -->
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"earth-subsystems","illustrationKey":"science/earth-science-astronomy/earths-subsystems#1","features":[{"label":"lithosphere","feature":"rocky ground"},{"label":"hydrosphere","feature":"ocean water"},{"label":"atmosphere","feature":"surrounding air"},{"label":"biosphere","feature":"plants/animals living across all three"}]} -->
 
 ### #2: Sphere of Origin of Groundwater
 
