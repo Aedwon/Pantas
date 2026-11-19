@@ -463,3 +463,138 @@ questions:
     explanation: |
       The Big Bang model describes the early universe's evolution. By itself, it does not establish an ultimate cause or what preceded the earliest times that current physics can describe.
     approved: false
+
+  - id: q-earth-science-astronomy-origin-of-the-universe-0021
+    lesson: lesson-earth-science-astronomy-measuring-galaxy-redshift
+    keyPoint: 1
+    type: 'classify'
+    difficulty: 'medium'
+    stem: |
+      A spectral line in a galaxy's light appears at a shorter wavelength than the same line
+      measured in a laboratory. How should the shift be classified?
+    choices:
+      - text: 'Blueshift'
+        correct: true
+      - text: 'Redshift'
+        rationale: |
+          Both names describe a change in wavelength. Check which name goes with shorter
+          wavelengths.
+      - text: 'No shift because the lines come from the same element'
+        rationale: |
+          Using the same element lets you compare the lines. Check whether the measured
+          wavelengths themselves match.
+      - text: 'The shift cannot be named unless the line is normally blue.'
+        rationale: |
+          The name can sound like it refers to the line's color. Check which way the
+          wavelength moved from its laboratory value.
+    explanation: |
+      The galaxy's line is at a shorter wavelength than the lab line. A shift to a shorter
+      wavelength is called a blueshift.
+
+  - id: q-earth-science-astronomy-origin-of-the-universe-0022
+    lesson: lesson-earth-science-astronomy-measuring-galaxy-redshift
+    keyPoint: 2
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      A spectral line has a laboratory wavelength of 600 nm and is observed at 720 nm in a
+      galaxy. What is its redshift, $z$?
+    choices:
+      - text: '$0.20$'
+        correct: true
+      - text: '$0.17$'
+        rationale: |
+          Dividing the change by the observed wavelength gives a number close to this. Use
+          the lab wavelength as the starting value.
+      - text: '$1.20$'
+        rationale: |
+          This gives the observed wavelength as a share of the lab wavelength. Subtract the
+          lab wavelength before you divide.
+      - text: '$-0.20$'
+        rationale: |
+          The size of the change matches, but the sign is reversed. Subtract the lab value
+          from the observed value.
+    explanation: |
+      The wavelength grew by 120 nm. Divide that change by the lab wavelength. The redshift
+      is $\dfrac{120}{600}=0.20$.
+
+  - id: q-earth-science-astronomy-origin-of-the-universe-0023
+    lesson: lesson-earth-science-astronomy-measuring-galaxy-redshift
+    keyPoint: 2
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      A galaxy's spectral line is observed at 540 nm. The same line has a laboratory
+      wavelength of 600 nm. What is the value of $z$?
+    choices:
+      - text: '$-0.10$'
+        correct: true
+      - text: '$+0.10$'
+        rationale: |
+          The wavelengths differ by 60 nm. Keep the sign by subtracting the lab value from
+          the observed value.
+      - text: '$-0.11$'
+        rationale: |
+          Dividing by 540 nm gives a value near this. Check which wavelength the line had in
+          the lab and divide by that one.
+      - text: '$+0.90$'
+        rationale: |
+          This is the observed wavelength divided by the lab wavelength. Find the change
+          first, then divide.
+    explanation: |
+      The wavelength change is $540-600=-60$ nm. Divide by the lab wavelength to get
+      $z=\dfrac{-60}{600}=-0.10$.
+
+  - id: q-earth-science-astronomy-origin-of-the-universe-0024
+    lesson: lesson-earth-science-astronomy-redshift-and-cosmic-expansion
+    keyPoint: 2
+    type: 'cause-effect'
+    difficulty: 'medium'
+    stem: |
+      Most distant galaxies are redshifted, but a nearby galaxy is blueshifted. What can
+      explain the nearby galaxy's blueshift?
+    choices:
+      - text: 'Local gravity draws it toward us.'
+        correct: true
+      - text: 'Cosmic expansion makes every nearby galaxy approach us.'
+        rationale: |
+          Nearby galaxies can show less redshift from expansion. Check what can pull a
+          particular galaxy toward us.
+      - text: 'The entire universe is contracting because one galaxy approaches us.'
+        rationale: |
+          An approaching galaxy can suggest that distances shrink. Check the pattern across
+          many distant galaxies before judging the whole universe.
+      - text: 'Its light stretches as the galaxy approaches us.'
+        rationale: |
+          Motion can change a wavelength. Check whether approaching motion stretches the
+          light or shifts it to shorter wavelengths.
+    explanation: |
+      Gravity can pull nearby galaxies toward one another. When a nearby galaxy moves toward
+      us fast enough, its light shifts to shorter wavelengths.
+
+  - id: q-earth-science-astronomy-origin-of-the-universe-0025
+    lesson: lesson-earth-science-astronomy-light-elements-and-the-big-bang
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      Which finding in very old gas clouds would support the predicted element abundances
+      from the first few minutes of the universe?
+    choices:
+      - text: 'Mostly hydrogen, about one quarter helium by mass'
+        correct: true
+      - text: 'Mostly helium, about one quarter hydrogen by mass'
+        rationale: |
+          Hydrogen and helium both formed early. Check which one makes up the larger share.
+      - text: 'Mostly hydrogen, about one quarter iron by mass'
+        rationale: |
+          Hydrogen fits the prediction. Check whether the early universe stayed hot long
+          enough to make much iron.
+      - text: 'Mostly carbon and oxygen, with only traces of hydrogen and helium'
+        rationale: |
+          Stars can make carbon and oxygen. Check which elements could form before the early
+          universe cooled.
+    explanation: |
+      The early universe made mostly hydrogen and some helium before it cooled. The helium
+      prediction is about a quarter by mass, which agrees with what scientists find in very
+      old gas clouds.

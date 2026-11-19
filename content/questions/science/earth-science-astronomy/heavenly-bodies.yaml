@@ -459,3 +459,82 @@ questions:
           This uses a small-core clue to pick a small body. A dwarf planet is small and round. Check that the description is of a giant planet with rings.
     explanation: |
       A planet with no solid surface that is mostly water, ammonia, and methane around a small core is an ice giant. Uranus and Neptune are ice giants. Rings do not decide the family, because all four giant planets have rings.
+
+  - id: q-earth-science-astronomy-heavenly-bodies-0025
+    lesson: lesson-earth-science-astronomy-planets-and-dwarf-planets
+    keyPoint: 1
+    type: 'classify'
+    difficulty: 'medium'
+    stem: |
+      An object orbits the Sun and is nearly round. It shares its orbital neighborhood with
+      many other objects and does not dominate it. How should it be classified?
+    choices:
+      - text: 'Dwarf planet'
+        correct: true
+      - text: 'Major planet'
+        rationale: |
+          Both kinds of planet are round and orbit the Sun. Check whether the object
+          dominates its orbital neighborhood.
+      - text: 'Natural satellite'
+        rationale: |
+          A round object can be a moon. Check whether it orbits a planet or the Sun itself.
+      - text: 'An irregular asteroid'
+        rationale: |
+          Many small objects share their orbital neighborhoods. Check whether this object is
+          large enough for its own gravity to make it round.
+    explanation: |
+      A dwarf planet orbits the Sun and is nearly round. This object also meets the last
+      condition because it has not cleared its orbital neighborhood.
+
+  - id: q-earth-science-astronomy-heavenly-bodies-0026
+    lesson: lesson-earth-science-astronomy-natural-satellites
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      A survey detects an irregular rocky object that formed naturally and orbits a planet.
+      Which feature identifies it as a natural satellite?
+    choices:
+      - text: 'Its orbit around the planet'
+        correct: true
+      - text: 'Its irregular shape alone'
+        rationale: |
+          Some moons have uneven shapes. Check what the object circles before you name it.
+      - text: 'Its rocky composition alone'
+        rationale: |
+          Many moons contain rock. Check whether rock by itself tells you what the object
+          goes around.
+      - text: 'Its motion around the Sun with the planet'
+        rationale: |
+          A moon travels around the Sun with its planet. Check what body the object circles
+          as it makes that trip.
+    explanation: |
+      A natural satellite is a natural object that goes around another body such as a
+      planet. Its path around the planet makes it a moon.
+
+  - id: q-earth-science-astronomy-heavenly-bodies-0027
+    lesson: lesson-earth-science-astronomy-asteroids-and-the-main-belt
+    keyPoint: 2
+    type: 'classify'
+    difficulty: 'medium'
+    stem: |
+      An object develops a cloud of gas and dust and a tail as it approaches the Sun. Which
+      interpretation best fits that activity?
+    choices:
+      - text: 'It is behaving like a comet.'
+        correct: true
+      - text: 'It is behaving like a typical rocky asteroid.'
+        rationale: |
+          Both kinds of object travel around the Sun. Check which kind commonly gives off
+          gas and dust as it warms.
+      - text: 'It is a meteor because the tail comes from travel through Earth''s atmosphere.'
+        rationale: |
+          Both can look like they have a tail. Check where the object is when the tail
+          forms.
+      - text: 'It is a comet only if its orbit also stays in the main asteroid belt.'
+        rationale: |
+          Both kinds of object can be found in the Solar System. Check whether the cloud and
+          tail depend on staying in the belt.
+    explanation: |
+      As a comet nears the Sun, its ice warms and gives off gas. The gas carries dust away,
+      making a cloud and a tail.

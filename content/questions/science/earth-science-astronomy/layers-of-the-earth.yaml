@@ -463,3 +463,57 @@ questions:
     explanation: |
       Seismic waves pass through deep Earth and respond to the material there. Their paths and transmission reveal layer properties. This provides evidence about the outer core's physical state.
     approved: false
+
+  - id: q-earth-science-astronomy-layers-of-the-earth-0021
+    lesson: lesson-earth-science-astronomy-lithosphere-and-asthenosphere
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      A model groups the crust and the rigid uppermost mantle into a single moving plate.
+      What is the name of that rigid layer?
+    choices:
+      - text: 'Lithosphere'
+        correct: true
+      - text: 'Asthenosphere'
+        rationale: |
+          This layer is also near the top of the mantle. Check whether it is the rigid plate
+          or the softer layer below.
+      - text: 'Continental crust'
+        rationale: |
+          Crust is part of the plate. Check whether the plate also includes rigid mantle
+          rock.
+      - text: 'Entire upper mantle'
+        rationale: |
+          Upper mantle rock makes up part of the plate. Check whether the described layer
+          also contains crust.
+    explanation: |
+      The lithosphere includes the crust and the rigid rock just below it. Those two parts
+      move together as a plate.
+
+  - id: q-earth-science-astronomy-layers-of-the-earth-0022
+    lesson: lesson-earth-science-astronomy-evidence-from-seismic-waves
+    keyPoint: 1
+    type: 'cause-effect'
+    difficulty: 'medium'
+    stem: |
+      Why do scientists rely mainly on earthquake records to study the core rather than on
+      material brought up by drilling?
+    choices:
+      - text: 'Even the deepest boreholes stay in the crust.'
+        correct: true
+      - text: 'Drill cores reach the core, but the samples cannot be kept at high pressure.'
+        rationale: |
+          Pressure is much higher deep inside Earth. First check whether a drill has ever
+          reached the core at all.
+      - text: 'Earthquake records contain rock samples carried to the surface by seismic waves.'
+        rationale: |
+          Seismic waves come from inside Earth. Check whether instruments record shaking or
+          collect rock.
+      - text: 'Drilling reaches both core layers but cannot tell where one layer ends and the next begins.'
+        rationale: |
+          Drilling can show what lies below the surface. Check how far it has actually gone
+          compared with the depth of the core.
+    explanation: |
+      Drills have reached only a small part of Earth's crust. Waves can travel much deeper,
+      so their paths and arrival times give clues about the core.

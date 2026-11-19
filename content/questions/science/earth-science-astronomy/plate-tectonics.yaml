@@ -463,3 +463,84 @@ questions:
     explanation: |
       Continental collision can thicken crust and build mountains. A larger P-S arrival gap can indicate a greater distance to the earthquake source. Intraplate volcanic chains such as Hawaii can form above a hotspot as a plate moves over a magma source.
     approved: true
+
+  - id: q-earth-science-astronomy-plate-tectonics-0021
+    lesson: lesson-earth-science-astronomy-subduction-and-volcanoes
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      A map shows a deep ocean trench, a nearby volcanic arc, and earthquake depths that
+      increase from the trench toward the arc. What kind of boundary best fits the map?
+    choices:
+      - text: 'A convergent boundary with subduction'
+        correct: true
+      - text: 'A divergent boundary at a spreading ridge'
+        rationale: |
+          Ridges can have earthquakes and volcanoes too. Check whether the map shows a
+          trench and deeper quakes inland.
+      - text: 'A transform boundary with plates sliding past each other'
+        rationale: |
+          Sliding plates can produce a line of earthquakes. Check whether it explains the
+          deepening quakes and the volcanic arc together.
+      - text: 'An intraplate hot spot that has built a chain of volcanoes'
+        rationale: |
+          A hot spot can build a volcanic chain. Check whether the map also shows a trench
+          and quakes getting deeper away from it.
+    explanation: |
+      At a subduction zone, one plate sinks beneath another. The sinking plate marks a path
+      of deeper quakes away from the trench. Volcanoes form above it.
+
+  - id: q-earth-science-astronomy-plate-tectonics-0022
+    lesson: lesson-earth-science-astronomy-philippine-tectonic-hazards
+    keyPoint: 1
+    type: 'predict-outcome'
+    difficulty: 'medium'
+    stem: |
+      After strong shaking in a coastal town, the sea suddenly withdraws. Which response
+      matches the immediate hazard?
+    choices:
+      - text: 'Move at once to higher ground.'
+        correct: true
+      - text: 'Go to the beach to check for an incoming wave.'
+        rationale: |
+          A sudden drop in sea level draws attention. Treat it as a tsunami warning and
+          check where the shore evacuation route leads.
+      - text: 'Wait at the shore until an official alert is issued.'
+        rationale: |
+          An alert can give useful details. Strong shaking and a sudden retreat of the sea
+          already signal danger, so check which action gets you away quickly.
+      - text: 'Shelter inside a building at beach level until shaking stops.'
+        rationale: |
+          Shelter can help during shaking. Once the sea pulls back, check whether the
+          building is still in the path of the waves.
+    explanation: |
+      Strong shaking and a sudden retreat of the sea can warn of a tsunami. Moving to higher
+      ground quickly takes people away from the shore and out of the water's path.
+
+  - id: q-earth-science-astronomy-plate-tectonics-0023
+    lesson: lesson-earth-science-astronomy-philippine-tectonic-hazards
+    keyPoint: 1
+    type: 'predict-outcome'
+    difficulty: 'medium'
+    stem: |
+      A hazard map places a village within a lahar zone along a river below a volcano. Heavy
+      rain starts on slopes covered in loose ash. Where should residents move?
+    choices:
+      - text: 'To higher ground away from the river'
+        correct: true
+      - text: 'To a low area closer to the river for a shorter route'
+        rationale: |
+          The river may seem like an easy route to follow. Check where rain and loose ash
+          will flow together.
+      - text: 'To another low spot farther down the same channel'
+        rationale: |
+          Moving away from the volcano may seem safer. Check whether the new spot is still
+          in the mudflow's path.
+      - text: 'To the riverbank to watch for a mudflow before leaving'
+        rationale: |
+          Seeing the flow would confirm the danger. Check the hazard map for places outside
+          the channel before the mud arrives.
+    explanation: |
+      Rain can mix with loose ash to make a lahar. The mud rushes down the river channel, so
+      moving higher and away from the river puts people outside its path.

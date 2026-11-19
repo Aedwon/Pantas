@@ -463,3 +463,164 @@ questions:
     explanation: |
       The hemisphere tilted toward the Sun receives longer daylight and more direct sunlight. Both increase solar energy received and support summer conditions.
     approved: false
+
+  - id: q-earth-science-astronomy-earths-motions-0021
+    lesson: lesson-earth-science-astronomy-solstices-and-equinoxes
+    keyPoint: 1
+    type: 'predict-outcome'
+    difficulty: 'medium'
+    stem: |
+      On the December solstice, which pattern is expected at locations the same distance
+      north and south of the equator?
+    choices:
+      - text: 'The southern location has more daylight.'
+        correct: true
+      - text: 'The northern location has more daylight.'
+        rationale: |
+          You may be thinking of June, when the north leans toward the Sun. Check which
+          hemisphere leans toward it in December.
+      - text: 'Both locations have equal daylight because they share the same absolute latitude.'
+        rationale: |
+          Equal distance from the equator can suggest equal day length. Check whether the
+          two places lean the same way.
+      - text: 'Both locations have nearly equal day and night because the Sun is over the equator.'
+        rationale: |
+          That pattern fits an equinox. Check where the Sun is overhead on the December
+          solstice.
+    explanation: |
+      In December the southern half of Earth leans toward the Sun. It spends more of each
+      turn in sunlight at that latitude.
+
+  - id: q-earth-science-astronomy-earths-motions-0022
+    lesson: lesson-earth-science-astronomy-solstices-and-equinoxes
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      At noon, the Sun is directly overhead at the equator. Day and night are nearly equal
+      at most locations. Which event do these observations identify?
+    choices:
+      - text: 'An equinox'
+        correct: true
+      - text: 'The June solstice'
+        rationale: |
+          Both events mark seasons. Check whether the north is tilted most toward the Sun or
+          whether the Sun is overhead at the equator.
+      - text: 'The December solstice'
+        rationale: |
+          December marks a seasonal change too. Check whether the south is tilted most
+          toward the Sun.
+      - text: 'Either solstice'
+        rationale: |
+          Both solstices involve Earth's tilt. Check whether either hemisphere is leaning
+          most toward the Sun.
+    explanation: |
+      At an equinox, neither half of Earth leans toward the Sun. The Sun is overhead at the
+      equator at noon, and day and night are nearly equal.
+
+  - id: q-earth-science-astronomy-earths-motions-0023
+    lesson: lesson-earth-science-astronomy-latitude-and-daylight
+    keyPoint: 1
+    type: 'compare-contrast'
+    difficulty: 'medium'
+    stem: |
+      Over a year, how does the change in daylight duration near the equator compare with
+      the change at a much higher latitude?
+    choices:
+      - text: 'It is smaller near the equator.'
+        correct: true
+      - text: 'It is larger near the equator.'
+        rationale: |
+          You may link stronger sunlight with a bigger change in day length. Check how close
+          equatorial days stay to the same length.
+      - text: 'It is equal because both locations rotate with Earth.'
+        rationale: |
+          Both places turn with Earth. Check how tilt changes how much of each turn each
+          place spends in sunlight.
+      - text: 'It is equal because both locations complete the same orbit.'
+        rationale: |
+          Both places go around the Sun together. Compare how far each place is from the
+          equator.
+    explanation: |
+      Near the equator, day length stays close to 12 hours. Farther from the equator, summer
+      days gain more daylight and winter days lose more.
+
+  - id: q-earth-science-astronomy-earths-motions-0024
+    lesson: lesson-earth-science-astronomy-latitude-and-daylight
+    keyPoint: 1
+    type: 'predict-outcome'
+    difficulty: 'medium'
+    stem: |
+      Two stations are at $23.4^\circ$ N and $40^\circ$ N. At which station can the Sun be
+      directly overhead at noon on at least one day of the year?
+    choices:
+      - text: 'Only the station at $23.4^\circ$ N'
+        correct: true
+      - text: 'Only the station at $40^\circ$ N'
+        rationale: |
+          Summer days can be long at the northern station. Check whether a long day puts the
+          Sun directly overhead.
+      - text: 'Both stations, because each gets summer sunlight'
+        rationale: |
+          Both have summer days. Check whether both are within the latitude limits for an
+          overhead Sun.
+      - text: 'Neither station, because overhead sunlight is limited to the equator'
+        rationale: |
+          The Sun can be overhead at the equator. Check how far north the tropics reach.
+    explanation: |
+      The Sun can be directly overhead in the tropics. The northern edge at $23.4^\circ$ N
+      is included. The station farther north lies outside that belt.
+
+  - id: q-earth-science-astronomy-earths-motions-0025
+    lesson: lesson-earth-science-astronomy-seasonal-constellations
+    keyPoint: 1
+    type: 'cause-effect'
+    difficulty: 'medium'
+    stem: |
+      A constellation is on the midnight side of Earth in one season and near the Sun's
+      direction six months later. What accounts for the change?
+    choices:
+      - text: 'Earth changes position in its orbit.'
+        correct: true
+      - text: 'Earth completes a rotation each day.'
+        rationale: |
+          Daily spin brings stars across the sky. For a change over months at the same clock
+          time, check Earth's position around the Sun.
+      - text: 'The constellation moves around Earth once a year.'
+        rationale: |
+          Stars seem to shift from one season to another. Check which body actually changes
+          its place in this model.
+      - text: 'Earth''s axis switches its direction in space every six months.'
+        rationale: |
+          Both the axis and the orbit matter for seasons. Check whether Earth needs to
+          reverse its axis for the night side to face a new direction.
+    explanation: |
+      Earth's night side faces away from the Sun. From a new place in Earth's orbit, that
+      side faces a different set of stars.
+
+  - id: q-earth-science-astronomy-earths-motions-0026
+    lesson: lesson-earth-science-astronomy-seasonal-constellations
+    keyPoint: 2
+    type: 'predict-outcome'
+    difficulty: 'medium'
+    stem: |
+      A star traces a small circle around the north celestial pole. For an observer well
+      north of the equator, what can happen if the whole circle lies above the horizon?
+    choices:
+      - text: 'The star stays above the horizon.'
+        correct: true
+      - text: 'The star rises and sets on every rotation.'
+        rationale: |
+          Most stars rise and set. Check whether this star's circle ever crosses the
+          horizon.
+      - text: 'The star remains fixed at one point all night.'
+        rationale: |
+          Its circle may be small enough to look like little movement. Check whether the
+          star is at the pole or circles around it.
+      - text: 'The star stays below the horizon for half the year.'
+        rationale: |
+          Some stars are hard to see in certain seasons. Check whether the daily path ever
+          takes this star below the horizon.
+    explanation: |
+      The star appears to move around the pole as Earth turns. Every part of its path is
+      above the horizon, so it never sets for that observer.

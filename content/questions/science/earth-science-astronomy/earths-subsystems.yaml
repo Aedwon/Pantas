@@ -463,3 +463,58 @@ questions:
     explanation: |
       Soil combines solid materials, water, air, and living organisms. It is a place where geosphere, hydrosphere, atmosphere, and biosphere interact.
     approved: false
+
+  - id: q-earth-science-astronomy-earths-subsystems-0021
+    lesson: lesson-earth-science-astronomy-earths-air-sphere
+    keyPoint: 2
+    type: 'compare-contrast'
+    difficulty: 'medium'
+    stem: |
+      A weather balloon first records falling air temperature with height, then records
+      rising temperature as it enters the next layer. Which layer has the rise in
+      temperature?
+    choices:
+      - text: 'Stratosphere'
+        correct: true
+      - text: 'Mesosphere'
+        rationale: |
+          The mesosphere is higher up too. Check whether its temperature rises or falls with
+          height.
+      - text: 'Thermosphere'
+        rationale: |
+          The thermosphere warms with height too. Check whether it is the layer right above
+          the lowest one.
+      - text: 'Troposphere'
+        rationale: |
+          The balloon starts in the troposphere. Check whether its readings rise before or
+          after it leaves that layer.
+    explanation: |
+      Air usually cools with height in the troposphere. In the stratosphere above it, ozone
+      takes in ultraviolet light and the air gets warmer with height.
+
+  - id: q-earth-science-astronomy-earths-subsystems-0022
+    lesson: lesson-earth-science-astronomy-earths-living-sphere
+    keyPoint: 2
+    type: 'process-ordering'
+    difficulty: 'medium'
+    stem: |
+      A tree takes in carbon dioxide. After the tree dies, some of its carbon returns to the
+      air as the wood rots. Which sequence describes this carbon transfer?
+    choices:
+      - text: 'Atmosphere, biosphere, atmosphere'
+        correct: true
+      - text: 'Biosphere, atmosphere, biosphere'
+        rationale: |
+          Trees exchange gases with the air, so the order can be easy to reverse. Start with
+          where the carbon dioxide is before the tree takes it in.
+      - text: 'Atmosphere, geosphere, atmosphere'
+        rationale: |
+          The tree grows in soil, but the carbon enters living wood. Check what holds the
+          carbon before the tree dies.
+      - text: 'Atmosphere, biosphere, hydrosphere'
+        rationale: |
+          Carbon can end up in water. Check where the carbon goes in the last step of this
+          case.
+    explanation: |
+      Carbon starts in the air. The tree uses it to build living wood. When that wood rots,
+      some carbon goes back to the air.

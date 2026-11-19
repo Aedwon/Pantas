@@ -463,3 +463,113 @@ questions:
     explanation: |
       Complete melting produces molten rock. When that material cools and solidifies, it forms igneous rock. Classification follows the process that formed the new rock.
     approved: false
+
+  - id: q-earth-science-astronomy-minerals-and-rocks-0021
+    lesson: lesson-earth-science-astronomy-weathering-erosion-and-deposition
+    keyPoint: 1
+    type: 'classify'
+    difficulty: 'medium'
+    stem: |
+      Water freezes in cracks and breaks a rock into pieces. The pieces remain beside the
+      original rock. Which process has occurred?
+    choices:
+      - text: 'Mechanical weathering'
+        correct: true
+      - text: 'Erosion by flowing water'
+        rationale: |
+          Water can carry rock away. Check whether it moved the pieces away from where they
+          formed.
+      - text: 'Deposition of transported sediment'
+        rationale: |
+          Loose pieces can look like deposited sediment. Check whether they were carried to
+          the spot before settling.
+      - text: 'Chemical weathering'
+        rationale: |
+          Water can change what some rocks are made of. Check whether freezing only broke
+          the rock apart here.
+    explanation: |
+      Water expands when it freezes in a crack. The rock breaks into smaller pieces where it
+      stands. That breakage is mechanical weathering.
+
+  - id: q-earth-science-astronomy-minerals-and-rocks-0022
+    lesson: lesson-earth-science-astronomy-weathering-erosion-and-deposition
+    keyPoint: 1
+    type: 'classify'
+    difficulty: 'medium'
+    stem: |
+      A river carries loose sand until it slows near its mouth. The sand then settles on the
+      riverbed. Which process is occurring as the sand settles?
+    choices:
+      - text: 'Deposition'
+        correct: true
+      - text: 'Erosion by river flow'
+        rationale: |
+          The river moved the sand earlier. Check whether the grains are moving or coming to
+          rest in the step asked about.
+      - text: 'Mechanical weathering of sand'
+        rationale: |
+          Flowing water can help break rock into grains. Check whether the grains are
+          breaking up as they settle.
+      - text: 'Chemical weathering of sand'
+        rationale: |
+          Water can change some minerals. Check whether the grains changed or simply stopped
+          moving.
+    explanation: |
+      The slowing water drops the sand it carried. When transported material settles and
+      builds up, that is deposition.
+
+  - id: q-earth-science-astronomy-minerals-and-rocks-0023
+    lesson: lesson-earth-science-astronomy-variables-in-a-cooling-test
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      A student cools equal amounts of the same hot salt solution in identical dishes. One
+      dish is placed in an ice bath and the other is left at room temperature. The student
+      later compares crystal sizes. What is the dependent variable?
+    choices:
+      - text: 'Crystal size'
+        correct: true
+      - text: 'Cooling condition'
+        rationale: |
+          The cooling condition can affect the crystals. Check whether the student sets it
+          or measures it as a result.
+      - text: 'Initial amount of solution'
+        rationale: |
+          The student chooses how much solution to pour. Check whether the amount changes
+          between dishes or stays the same.
+      - text: 'Type of dish used'
+        rationale: |
+          The dishes can affect cooling. Check whether the student uses different dishes or
+          keeps them alike.
+    explanation: |
+      The dependent variable is the result the student measures. Here, the result is the
+      size of the crystals.
+
+  - id: q-earth-science-astronomy-minerals-and-rocks-0024
+    lesson: lesson-earth-science-astronomy-variables-in-a-cooling-test
+    keyPoint: 1
+    type: 'predict-outcome'
+    difficulty: 'medium'
+    stem: |
+      A student uses an ice bath for one salt solution and room air for another. The cooled
+      samples produce different crystal sizes. Which design would best test whether the
+      cooling condition explains the difference?
+    choices:
+      - text: 'Use equal amounts of the same solution in identical dishes.'
+        correct: true
+      - text: 'Use different amounts of solution to make the crystals easier to compare.'
+        rationale: |
+          Changing the amount may make crystals easier to see. Check whether it also adds
+          another reason for a difference.
+      - text: 'Use different salts but keep the amount and dishes the same.'
+        rationale: |
+          Equal amounts and dishes help. Check whether using a different salt could change
+          the crystal size too.
+      - text: 'Use different dishes but repeat the test with the same solution.'
+        rationale: |
+          Repeats can help confirm a result. Check whether a different dish still gives
+          another reason for the difference.
+    explanation: |
+      Using the same solution, amount, and dish in both setups keeps those conditions fixed.
+      The cooling condition is then the one thing the student changes.
