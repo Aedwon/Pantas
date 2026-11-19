@@ -154,3 +154,4 @@ to 24; Phase C about 2 h plus the integrator. Waits for Aedwon excluded. Uncerta
   re-check the fixed Blockers with a separate Sol run, write the review package, hand the root to the
   integrator for the C5 proof. Codex jobs: GPT 6.2 Sol via `codex-pick`; briefs and runners are in the
   shared notes folder `cet-codex/`.
+- Nov 20: DONE on `content/cet-bite-r1` c1c8c14ae. Resumed after the 5-hour reset. 77 audit-fixed questions re-approved; two independent Sol re-check rounds and a fix round merged; gate and lesson checks clean. Review package: `docs/content/cet-review-package.md` on the branch. Open: 2 figures need a renderer change, then integrator export, staging upload and C5 proof.
