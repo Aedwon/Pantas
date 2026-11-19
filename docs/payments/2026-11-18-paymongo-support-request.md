@@ -16,9 +16,9 @@ Update this table as replies arrive. Dates are Manila time.
 | 1 | Account upgraded from Individual to Sole Proprietor | Done | 18 Nov | Aedwon |
 | 2 | Enable GCash and Maya (one-time payments) | Requested | 18 Nov | Aedwon started the request |
 | 3 | Enable Visa and Mastercard | Requested | 18 Nov | Aedwon started the request |
-| 4 | Enable Subscriptions (Maya and cards) | To send | | Message below |
-| 5 | Confirm whether GCash can be used for Subscriptions | To send | | PayMongo's docs disagree |
-| 6 | QR Ph refunds through PayMongo (dashboard or API) | To send | | Until confirmed, refund QR Ph by bank transfer per `docs/OPERATIONS.md` |
+| 4 | Enable Subscriptions (Maya and cards) | Sent | 19 Nov | Message below |
+| 5 | Confirm whether GCash can be used for Subscriptions | Sent | 19 Nov | PayMongo's docs disagree |
+| 6 | QR Ph refunds through PayMongo (dashboard or API) | Sent | 19 Nov | Until confirmed, refund QR Ph by bank transfer per `docs/OPERATIONS.md` |
 | 7 | Security and billing lead: confirm how web checkout bills plans (PayMongo Subscriptions or one-time charge per period) | Answered Nov 18 | Security fixes lead | One-time charge per period; nothing renews today. See "Item 7 answer" below |
 | 8 | Aedwon: renewals for launch? | Decided | 19 Nov | Prepaid periods for launch ("ok"). Items 4 and 5 are for after launch, not a launch blocker |
 

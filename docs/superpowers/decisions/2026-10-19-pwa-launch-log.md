@@ -4004,3 +4004,10 @@ Fable 5.2 High ruled under Aedwon's standing delegation on `docs/superpowers/pla
 - Watch 17:27 to 17:45 UTC (more than 10 minutes after the web release): no prod ERROR entries other than the deploy's own quota retry above; no createPaymongoCheckout requests. None in the hour before.
 - Velocity E-123: see the row (timer).
 - Old secrets destroyed (security fixes lead, Nov 18 18:35 UTC, ruling A9): no service on either project referenced the 8 old secrets; every remaining version of them was destroyed on pantas-staging and pantas-prod (8 each). Active versions: 4 (prod 2, staging 2), inside the 6 free. Prod sign-in still answers normally. Live free-tier check: 9 OK, 3 WARN (prod backups as ruled; deploy buckets outside free regions, accepted; paid-on-use APIs that cannot be disabled without force), 1 OVER: staging reads on Nov 15, which ages out of the 7-day window on Nov 22.
+
+### Nov 19, under-13 board picks, PayMongo request sent, renewal copy check (operations manager)
+
+- Under-13 boards (artifact PqxcZvKQheCogaXH6LidPM), Aedwon verbatim: "1A 2A 3A 4B 6B 7A (for 7A make the description more direct and concise) 8A (for 8A please use the same code interface for beta login)". Board 9 (sibling access opt-in) not picked yet: he asked what sibling access is for. Board 5 has one option. Changes to build: 7A description shorter and more direct; 8A code gate reuses the beta sign-in code entry, 1:1.
+- PayMongo support request: Aedwon, "sent" (Nov 19). Tracker items 4 to 6 now Sent.
+- Prepaid wording check (manager, read-only): web copy already matches prepaid periods. Web Terms say web purchases do not renew; the web buy button reads "Buy 1 Week/Month/Year for"; web trial text says "No payment needed." The "a month" and "Cancel any time" lines show only on Google Play builds. No change needed.
+
