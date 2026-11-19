@@ -463,3 +463,91 @@ questions:
     explanation: |
       The brain stem has the centers that control breathing and blood pressure. It works automatically. During exercise it can raise the breathing rate and the heart rate.
     approved: false
+
+  - id: q-biology-human-body-control-movement-and-defense-0011
+    lesson: lesson-biology-hormones-and-blood-glucose-feedback
+    keyPoint: 1
+    type: "cause-effect"
+    difficulty: "medium"
+    stem: |
+      A hormone reaches two cell types in the blood supply. One cell type responds and the other does not. Which difference best accounts for the response?
+    choices:
+      - text: "Only the responding cells have matching receptors."
+        correct: true
+      - text: "Only the responding cells are close to the gland."
+        rationale: |
+          Nearby cells may seem more likely to get a signal first. The blood carries the hormone to both types, so look for what lets a cell detect it.
+      - text: "Only the responding cells release the same hormone."
+        rationale: |
+          A gland releases a hormone, so it may seem like a cell has to make the hormone to sense it. Check for a receptor that fits the hormone.
+      - text: "Only the responding cells also get a nerve signal."
+        rationale: |
+          Nerves also send messages, so it may seem that cells need both signals. Check what a cell needs to detect this hormone.
+    explanation: |
+      A matching receptor lets a cell receive the hormone's message. Only the cells with that receptor respond.
+
+  - id: q-biology-human-body-control-movement-and-defense-0012
+    lesson: lesson-biology-human-reproduction-and-fertilization
+    keyPoint: 2
+    type: "structure-function"
+    difficulty: "medium"
+    stem: |
+      Which hormones from the ovary help prepare the uterine lining for implantation?
+    choices:
+      - text: "Estrogen and progesterone"
+        correct: true
+      - text: "Follicle-stimulating hormone and luteinizing hormone"
+        rationale: |
+          These hormones act on the ovary, so they are part of the same cycle. Check which gland releases them and which hormones act on the lining.
+      - text: "Estrogen and luteinizing hormone"
+        rationale: |
+          Estrogen does come from the ovary. Check whether the ovary or the pituitary makes the other hormone.
+      - text: "Progesterone and follicle-stimulating hormone"
+        rationale: |
+          Progesterone helps prepare the lining. Check whether follicle-stimulating hormone acts on the lining or signals the ovary.
+    explanation: |
+      The ovaries release estrogen and progesterone. These hormones help prepare the lining where implantation can happen.
+
+  - id: q-biology-human-body-control-movement-and-defense-0013
+    lesson: lesson-biology-how-body-systems-work-together
+    keyPoint: 1
+    type: "process-ordering"
+    difficulty: "medium"
+    stem: |
+      A muscle releases carbon dioxide into nearby blood. Which route allows this waste to leave the body?
+    choices:
+      - text: "Blood carries it to the lungs, and it is breathed out."
+        correct: true
+      - text: "Blood carries it to the kidneys, and all of it leaves in urine."
+        rationale: |
+          Kidneys remove wastes from blood, so they can seem like the route for any waste. Check which organ lets this waste gas pass out with air.
+      - text: "Blood carries it to the small intestine, where it leaves with undigested food."
+        rationale: |
+          Digestion leaves waste behind, so the intestine may seem like the right exit. Trace the gas from the muscle to the organ that exchanges gases.
+      - text: "The muscle sends it through nerves to the lungs, and it is breathed out."
+        rationale: |
+          Nerves help control breathing, so they may seem to help carry the gas. Check what fluid moves waste between organs.
+    explanation: |
+      Blood carries carbon dioxide from the muscle to the lungs. It leaves the body when the person breathes out.
+
+  - id: q-biology-human-body-control-movement-and-defense-0014
+    lesson: lesson-biology-how-body-systems-work-together
+    keyPoint: 1
+    type: "structure-function"
+    difficulty: "medium"
+    stem: |
+      After starch is digested, which pair of systems moves the resulting glucose from the small intestine to working muscles?
+    choices:
+      - text: "Digestive and circulatory"
+        correct: true
+      - text: "Digestive and respiratory systems"
+        rationale: |
+          The lungs supply something muscles need, just as the intestine does. Check whether the lungs supply glucose or oxygen.
+      - text: "Circulatory and urinary systems"
+        rationale: |
+          The kidneys handle materials in the blood, and blood carries glucose. Check where glucose from food first enters the blood.
+      - text: "Muscular and nervous systems"
+        rationale: |
+          Nerves can tell muscles to work, which raises their need for glucose. Trace how glucose itself gets to them.
+    explanation: |
+      The digestive system moves glucose from the small intestine into the blood. The circulatory system carries it to the muscles.

@@ -471,3 +471,201 @@ questions:
     explanation: |
       The nuclear gene is transcribed to RNA in the nucleus. Processed mRNA leaves the nucleus. A ribosome then translates it into an amino-acid chain.
     approved: false
+
+  - id: q-biology-genetics-and-heredity-0021
+    lesson: lesson-biology-independent-assortment-and-linked-genes
+    keyPoint: 1
+    type: "simple-quantitative"
+    difficulty: "exam"
+    stem: |
+      Two plants are each $TtRr$. The height and seed-shape genes lie on different chromosomes. Plants with $T$ are tall, and $rr$ offspring have wrinkled seeds. What fraction of their offspring is expected to be tall with wrinkled seeds?
+    choices:
+      - text: '$\dfrac{3}{16}$'
+        correct: true
+      - text: '$\dfrac{9}{16}$'
+        rationale: |
+          This is the share with both dominant traits. Use the chance of two recessive alleles for seed shape.
+      - text: '$\dfrac{1}{16}$'
+        rationale: |
+          This counts only offspring with both recessive traits. Include all genotypes that have a tall allele.
+      - text: '$\dfrac{3}{4}$'
+        rationale: |
+          This counts tall offspring with any seed shape. Multiply by the chance of getting wrinkled seeds too.
+    explanation: |
+      The chance of tall is $\dfrac{3}{4}$. The chance of wrinkled is $\dfrac{1}{4}$. The genes sort on different chromosomes, so multiply the chances to get $\dfrac{3}{16}$.
+
+  - id: q-biology-genetics-and-heredity-0022
+    lesson: lesson-biology-incomplete-dominance-and-codominance
+    keyPoint: 2
+    type: "simple-quantitative"
+    difficulty: "exam"
+    stem: |
+      One parent has type AB blood. The other has type O blood. What fraction of their children is expected to have type B blood?
+    choices:
+      - text: '$\dfrac{1}{2}$'
+        correct: true
+      - text: '$\dfrac{1}{4}$'
+        rationale: |
+          A cross between two parents who each carry two different alleles can give four outcomes. List the alleles the type O parent can actually pass on.
+      - text: "$0$"
+        rationale: |
+          The type O parent cannot give an $I^B$ allele. Check whether a child needs one copy of $I^B$ or two to show type B.
+      - text: "$1$"
+        rationale: |
+          The type AB parent can pass on $I^B$, so all the children may seem able to get it. Check what happens when that parent passes on $I^A$.
+    explanation: |
+      The type O parent always passes on $i$. The type AB parent passes on $I^B$ half the time. A child with $I^Bi$ has type B.
+
+  - id: q-biology-genetics-and-heredity-0023
+    lesson: lesson-biology-x-linked-traits
+    keyPoint: 1
+    type: "predict-outcome"
+    difficulty: "exam"
+    stem: |
+      A father has an X-linked recessive trait. The mother has two copies of the dominant allele. Which group of their children will carry the recessive allele?
+    choices:
+      - text: "All daughters"
+        correct: true
+      - text: "All of their sons"
+        rationale: |
+          Sons share the father's sex, so they may seem most likely to get his trait. Check whether each son gets the father's X or Y.
+      - text: "Only half of their daughters"
+        rationale: |
+          A parent often passes one of two alleles with equal chances. Check how many X chromosomes the father has to give to a daughter.
+      - text: "None of their children"
+        rationale: |
+          The dominant allele hides the trait, so the recessive allele may seem absent. Check which children still get the father's X.
+    explanation: |
+      All daughters get their father's X with the recessive allele. They also get a dominant allele from their mother, so they carry the trait without showing it.
+
+  - id: q-biology-genetics-and-heredity-0024
+    lesson: lesson-biology-x-linked-traits
+    keyPoint: 1
+    type: "predict-outcome"
+    difficulty: "exam"
+    stem: |
+      A woman carries one allele for an X-linked recessive trait, and her partner does not show the trait. Which child can show the trait?
+    choices:
+      - text: "A son who inherits her recessive allele"
+        correct: true
+      - text: "A daughter who inherits her recessive allele"
+        rationale: |
+          The daughter can get the recessive allele from her mother. Check which allele she also gets from her unaffected father.
+      - text: "A son who inherits her dominant allele"
+        rationale: |
+          A son shows the one allele he gets on his X. Check whether that allele causes the trait.
+      - text: "A daughter who inherits her dominant allele"
+        rationale: |
+          The mother is a carrier, so any daughter might seem at risk. Check what happens when both parents pass on the dominant allele.
+    explanation: |
+      A son gets his only X from his mother. If it carries the recessive allele, he shows the trait.
+
+  - id: q-biology-genetics-and-heredity-0025
+    lesson: lesson-biology-dna-mutations-and-their-effects
+    keyPoint: 1
+    type: "classify"
+    difficulty: "exam"
+    stem: |
+      A DNA sequence changes from $GACT$ to $GAT$. Which event accounts for the shorter sequence?
+    choices:
+      - text: "Deletion"
+        correct: true
+      - text: "Substitution of a base"
+        rationale: |
+          The third position now looks different. Line up the unchanged bases and check whether the whole sequence got shorter.
+      - text: "Insertion of a base"
+        rationale: |
+          The final $T$ seems to move into a new place. Count the bases to see whether one was added or removed.
+      - text: "Substitution of two bases"
+        rationale: |
+          More than one position can look different when sequences shift. Match the unchanged ends first and look for a missing base.
+    explanation: |
+      The base $C$ is gone. Losing a base is a deletion.
+
+  - id: q-biology-genetics-and-heredity-0026
+    lesson: lesson-biology-dna-mutations-and-their-effects
+    keyPoint: 2
+    type: "cause-effect"
+    difficulty: "exam"
+    stem: |
+      One base is deleted near the beginning of a gene's coding sequence. Translation has already started before the deletion site. Which effect on the resulting protein is most likely?
+    choices:
+      - text: "The amino acid sequence can change from that point on."
+        correct: true
+      - text: "Only one amino acid is lost, and all the later amino acids stay the same."
+        rationale: |
+          It can seem like losing one base removes one amino acid. Count how many bases make up the code for one amino acid.
+      - text: "Only the amino acid before the deletion can change, and the rest stay the same."
+        rationale: |
+          The missing base is near amino acids that were added first. Follow the reading groups from the start to see where they change.
+      - text: "The sequence stays the same because no base was replaced with a different one."
+        rationale: |
+          A swap can change what one group of bases means. Check what happens to later groups when one base is missing.
+    explanation: |
+      The cell reads the code in groups of three bases. Losing one base shifts those groups from that point on. This can change which amino acids the cell adds next.
+
+  - id: q-biology-genetics-and-heredity-0027
+    lesson: lesson-biology-reading-autosomal-pedigrees
+    keyPoint: 1
+    type: "identify"
+    difficulty: "exam"
+    stem: |
+      A pedigree shows a shaded circle in row III, joined by a downward line to a couple in row II. What does the shaded circle represent?
+    choices:
+      - text: "An affected female in generation III"
+        correct: true
+      - text: "An unaffected female in generation III"
+        rationale: |
+          A circle does show a female. Check what the shading tells you about the trait.
+      - text: "An affected male in generation III"
+        rationale: |
+          The shading does show the trait. Check which shape stands for a male.
+      - text: "An affected female in generation II"
+        rationale: |
+          The line joins the child to parents in row II. Read the row where the child's own symbol sits.
+    explanation: |
+      A circle stands for a female. Shading shows that she has the trait, and row III puts her in generation III.
+
+  - id: q-biology-genetics-and-heredity-0028
+    lesson: lesson-biology-identifying-x-linked-pedigrees
+    keyPoint: 1
+    type: "classify"
+    difficulty: "exam"
+    stem: |
+      A father shows a rare X-linked recessive trait. The mother has two copies of the dominant allele. Their daughter later has a son who shows the trait. Which route can explain the grandson's allele?
+    choices:
+      - text: "The grandfather passed it through his daughter."
+        correct: true
+      - text: "The grandfather passed it straight to his daughter's son."
+        rationale: |
+          Both males show the same trait, so a direct link may seem likely. Trace the grandson's X through his own parents.
+      - text: "The grandfather passed it to the daughter's partner."
+        rationale: |
+          A son's father gives him a sex chromosome. Check whether the chromosome he gives his son is X or Y.
+      - text: "The grandfather passed it through the daughter's mother."
+        rationale: |
+          The daughter receives an X from her mother, so that route may seem possible. Check which grandparent has the recessive allele.
+    explanation: |
+      The daughter gets her father's X with the allele. She can pass that X to her son, who shows the trait.
+
+  - id: q-biology-genetics-and-heredity-0029
+    lesson: lesson-biology-identifying-x-linked-pedigrees
+    keyPoint: 1
+    type: "classify"
+    difficulty: "exam"
+    stem: |
+      A girl shows a recessive trait. Her biological father is unaffected. Assume one gene, no new mutations, and that every person with the genotype for the trait shows it. What does this pedigree tell you about an X-linked recessive explanation?
+    choices:
+      - text: "It is ruled out by the father's phenotype."
+        correct: true
+      - text: "It is supported because a daughter gets both X chromosomes from her mother."
+        rationale: |
+          A mother can pass a recessive allele to a child. Count how many X chromosomes the daughter gets from each parent.
+      - text: "It remains possible because the father gave his daughter a Y chromosome."
+        rationale: |
+          A father passes a Y to a son, so the same route may seem possible here. Check what a daughter gets from her father.
+      - text: "It remains possible because a father can carry a hidden recessive allele on his only X."
+        rationale: |
+          Carriers can look unaffected when they have two X chromosomes. Check whether the father has a second X with a dominant allele.
+    explanation: |
+      The girl would need the recessive allele on both X chromosomes. Her father would need to give her one. He has only one X, so he would show the trait if he had the allele.

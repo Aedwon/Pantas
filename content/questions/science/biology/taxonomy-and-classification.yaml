@@ -463,3 +463,141 @@ questions:
     explanation: |
       The familiar eight ranks are a useful classroom list. Real classifications may include intermediate ranks and unranked groups. Adding one does not make the shorter list exhaustive.
     approved: false
+
+  - id: q-biology-taxonomy-and-classification-0021
+    lesson: lesson-biology-domains-and-kingdom-schemes
+    keyPoint: 2
+    type: "compare-contrast"
+    difficulty: "exam"
+    stem: |
+      A textbook places all prokaryotes in Monera. How does a six-kingdom textbook usually classify those same organisms?
+    choices:
+      - text: "It splits them into two kingdoms."
+        correct: true
+      - text: "It keeps them together and splits the fungi into two kingdoms."
+        rationale: |
+          Adding a kingdom can mean splitting a group. Check which group the six-kingdom scheme splits.
+      - text: "It places them all in Protista because many are single-celled."
+        rationale: |
+          Many protists have one cell, as many prokaryotes do. Check whether their cells have a nucleus.
+      - text: "It places each prokaryote in both of two kingdoms at once."
+        rationale: |
+          The scheme uses two kingdoms for prokaryotes, so both names may seem to apply to each one. Check whether the scheme splits the group into separate parts.
+    explanation: |
+      The five-kingdom scheme puts all prokaryotes in Monera. The six-kingdom scheme divides them into two kingdoms.
+
+  - id: q-biology-taxonomy-and-classification-0022
+    lesson: lesson-biology-classifying-organisms-by-their-traits
+    keyPoint: 1
+    type: "classify"
+    difficulty: "exam"
+    stem: |
+      A forest specimen has roots and leaves. Its cells have nuclei and cellulose walls. It uses chlorophyll to make its own food. Which traditional kingdom best fits this combination of traits?
+    choices:
+      - text: "Plantae"
+        correct: true
+      - text: "Animalia"
+        rationale: |
+          Animals have many cells, so cell count may point to Animalia. Check whether animals have cell walls or make their food from light.
+      - text: "Fungi"
+        rationale: |
+          Fungi have cell walls too. Check what their walls are made of and how they get food.
+      - text: "Protista"
+        rationale: |
+          Some protists use light to make food. Check the full set of traits, including the roots, leaves, and cellulose walls.
+    explanation: |
+      Plants usually have many cells with cellulose walls. They use chlorophyll to make food from light. This organism fits that set of traits.
+
+  - id: q-biology-taxonomy-and-classification-0023
+    lesson: lesson-biology-classifying-organisms-by-their-traits
+    keyPoint: 1
+    type: "classify"
+    difficulty: "exam"
+    stem: |
+      A specimen has many cells with nuclei and no cell walls. It obtains food by eating other organisms. Which group best fits these observations?
+    choices:
+      - text: "Animals"
+        correct: true
+      - text: "Fungi"
+        rationale: |
+          Fungi get food from other living things too. Check for chitin walls and whether the specimen eats or absorbs food.
+      - text: "Plants"
+        rationale: |
+          Plants also have many cells with nuclei. Check for cellulose walls and the way the specimen gets its food.
+      - text: "Protists"
+        rationale: |
+          Some protists eat food too. Check the full set of traits, including many cells without walls.
+    explanation: |
+      Animals have many cells with no cell walls. They obtain food by eating, which fits the specimen.
+
+  - id: q-biology-taxonomy-and-classification-0024
+    lesson: lesson-biology-using-a-dichotomous-key
+    keyPoint: 1
+    type: "classify"
+    difficulty: "exam"
+    stem: |
+      Use this key for four specimens.
+
+      1. No nucleus, specimen W. Nucleus present, go to step 2.
+      2. Cell walls present, go to step 3. No cell walls, specimen X.
+      3. Chitin walls, specimen Y. Cellulose walls, specimen Z.
+
+      A specimen has cells with nuclei and chitin walls. Which specimen is it?
+    choices:
+      - text: "Specimen Y"
+        correct: true
+      - text: "Specimen W"
+        rationale: |
+          The key starts by checking the nucleus, so it is easy to stop at the first name. Check whether the specimen's cells have a nucleus.
+      - text: "Specimen X"
+        rationale: |
+          The specimen reaches step 2 because it has a nucleus. Check whether the branch to X requires a wall or no wall.
+      - text: "Specimen Z"
+        rationale: |
+          Both samples at step 3 have walls. Check what kind of wall the specimen has.
+    explanation: |
+      The nucleus sends you to step 2. The wall sends you to step 3, where chitin points to specimen Y.
+
+  - id: q-biology-taxonomy-and-classification-0025
+    lesson: lesson-biology-using-a-dichotomous-key
+    keyPoint: 1
+    type: "predict-outcome"
+    difficulty: "exam"
+    stem: |
+      A key has two steps. Step 1 sends specimens with a cell wall to step 2 and identifies specimens without a wall as R. Step 2 identifies specimens with chitin walls as S and specimens with cellulose walls as T. What can the key tell you about a specimen whose walls contain neither material?
+    choices:
+      - text: "It gives no identification."
+        correct: true
+      - text: "It identifies the specimen as R because the wall has no chitin."
+        rationale: |
+          A wall without chitin is easy to mix up with no wall. Check what step 1 says about any specimen with a wall.
+      - text: "It identifies the specimen as T because the wall has no chitin."
+        rationale: |
+          The two wall choices may look like opposites. Check whether T requires cellulose or just the absence of chitin.
+      - text: "It identifies the specimen as S because a wall is present."
+        rationale: |
+          A wall sends the specimen to step 2. Check the kind of wall that leads to S.
+    explanation: |
+      The specimen has a wall, so the key sends it to step 2. Neither wall choice fits, so the key gives no name.
+
+  - id: q-biology-taxonomy-and-classification-0026
+    lesson: lesson-biology-common-ancestry-on-branching-trees
+    keyPoint: 1
+    type: "compare-contrast"
+    difficulty: "exam"
+    stem: |
+      On a branching tree, a recent node joins P and Q. An older node joins their branch to a branch containing R and S. Which statement about P's relationships follows from these nodes?
+    choices:
+      - text: "P is equally related to R and S."
+        correct: true
+      - text: "P is closer to R because R is on the branch opposite P and Q."
+        rationale: |
+          A neighboring branch may look like the closest match. Check which other organisms also connect to P at that node.
+      - text: "P is closer to S if S is drawn nearer to P on the page."
+        rationale: |
+          Nearby labels can look like nearby relatives. Check where the branches actually meet.
+      - text: "P is equally related to Q and R because both share an ancestor with P."
+        rationale: |
+          Both pairs do share an ancestor. Compare how recently each pair's branches meet.
+    explanation: |
+      The branches from P to R and from P to S meet at the same older node. P shares the same common ancestor with each of them.
